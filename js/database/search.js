@@ -44,8 +44,8 @@ AJAX.registerOnload('database/search.js', function () {
     /**
      * Prepare a div containing a link for toggle the search results
      */
-    $('#togglesearchresultsdiv')
-    /** don't show it until we have results on-screen */
+    $('#togglesearchOptionsdiv')
+        /** don't show it until we have results on-screen */
         .hide();
 
     /**
@@ -70,9 +70,6 @@ AJAX.registerOnload('database/search.js', function () {
      * Prepare a div containing a link for toggle the search form,
      * otherwise it's incorrectly displayed after a couple of clicks
      */
-    $('#togglesearchformdiv')
-        .hide(); // don't show it until we have results on-screen
-
     /**
      * Changing the displayed text according to
      * the hide/show criteria in search form
@@ -218,14 +215,9 @@ AJAX.registerOnload('database/search.js', function () {
                 $('#searchresults').html(data.message);
 
                 $('#togglesearchresultlink')
-                // always start with the Show message
+                    // always start with the Show message
                     .text(Messages.strHideSearchResults);
-                $('#togglesearchresultsdiv')
-                // now it's time to show the div containing the link
-                    .show();
                 $('#searchresults').show();
-
-
                 $('#db_search_form')
                     // workaround for Chrome problem (bug #3168569)
                     .slideToggle()
@@ -233,7 +225,7 @@ AJAX.registerOnload('database/search.js', function () {
                 $('#togglesearchformlink')
                     // always start with the Show message
                     .text(Messages.strShowSearchCriteria);
-                $('#togglesearchformdiv')
+                $('#togglesearchOptionsdiv')
                     // now it's time to show the div containing the link
                     .show();
             } else {

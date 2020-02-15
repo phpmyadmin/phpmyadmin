@@ -1,4 +1,10 @@
 <a id="db_search"></a>
+
+<div id="togglesearchOptionsdiv">
+    <br>
+    <button class="btn btn-primary" id="togglesearchformlink"></a>
+    <button class="btn btn-primary" id="togglesearchresultlink"></a>
+</div>
 <form id="db_search_form" method="post" action="{{ url('/database/search') }}" name="db_search" class="ajax lock-page">
     {{ get_hidden_inputs(db) }}
     <fieldset>
@@ -63,11 +69,7 @@
         <input id="buttonGo" class="btn btn-primary" type="submit" name="submit_search" value="{% trans 'Go' %}">
     </fieldset>
 </form>
-<div id="togglesearchformdiv">
-    <a id="togglesearchformlink"></a>
-</div>
 <div id="searchresults"></div>
-<div id="togglesearchresultsdiv"><a id="togglesearchresultlink"></a></div>
 <br class="clearfloat">
 {# These two table-image and table-link elements display the table name in browse search results #}
 <div id="table-info">
