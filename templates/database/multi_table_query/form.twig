@@ -1,17 +1,16 @@
-<ul id="topmenu2">
-  <li class="active">
-    <a href="{{ url('/database/multi-table-query', {'db': db}) }}" class="tabactive">
+<ul class="nav nav-pills m-2">
+  <li class="nav-item">
+    <a class="nav-link active" href="{{ url('/database/multi-table-query', {'db': db}) }}">
       {% trans 'Multi-table query' %}
     </a>
   </li>
 
-  <li>
-    <a href="{{ url('/database/qbe', {'db': db}) }}" class="tab">
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url('/database/qbe', {'db': db}) }}">
       {% trans 'Query by example' %}
     </a>
   </li>
 </ul>
-<div class="clearfloat"></div>
 
 {% include 'div_for_slider_effect.twig' with {
     'id': 'query_div',

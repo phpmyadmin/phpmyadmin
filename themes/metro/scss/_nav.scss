@@ -1,0 +1,28 @@
+.nav-pills {
+  .nav-link {
+    margin: 0;
+    padding: 5px 15px;
+    font-weight: normal;
+    background-color: #f6f6f6;
+    color: $navi-pointer-color;
+    text-transform: uppercase;
+    font-family: $font-family-extra-bold;
+    border-radius: 0;
+
+    &:hover {
+      background-color: $bg-one;
+      text-decoration: underline;
+    }
+
+    img {
+      margin-#{$right}: 0.5em;
+      vertical-align: -3px;
+    }
+  }
+
+  .nav-link.active,
+  .show > .nav-link {
+    background: #ccc;
+    color: $navi-pointer-color;
+  }
+}

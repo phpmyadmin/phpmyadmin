@@ -897,53 +897,9 @@ td.disabled {
 
 /* specific elements */
 
-ul {
-  &#topmenu2 {
-    list-style-type: none;
-    margin: 0;
-    height: 48px;
-  }
-
-  &.tabs {
-    list-style-type: none;
-    margin: 0;
-  }
-
-  &#topmenu2 {
-    margin: -20px -10px 20px;
-    padding: 10px;
-    clear: both;
-  }
-
-  &#topmenu2 li {
-    float: $left;
-    margin: 0;
-    vertical-align: middle;
-    padding-top: 10px;
-    height: 38px;
-  }
-}
-
-#topmenu2 img {
-  margin-#{$right}: 0.5em;
-  vertical-align: -3px;
-}
-
-#topmenu2 .tabactive {
-  background: #ccc;
-}
-
-ul#topmenu2 a {
-  display: block;
-  margin: 7px 0;
-  margin-#{$left}: 0;
-  padding: 5px 15px;
-  white-space: nowrap;
-  font-family: $font-family-extra-bold;
-  font-weight: normal;
-  color: $navi-pointer-color;
-  text-transform: uppercase;
-  background-color: #f6f6f6;
+ul.tabs {
+  list-style-type: none;
+  margin: 0;
 }
 
 span {
@@ -1011,17 +967,6 @@ fieldset.caution li {
     font-family: "IcoMoon";
     content: "%";
     margin-#{$right}: 10px;
-  }
-}
-
-/* default tab styles */
-ul {
-  &#topmenu2 a {
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: none;
-    }
   }
 }
 

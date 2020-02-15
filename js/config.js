@@ -44,9 +44,9 @@ AJAX.registerTeardown('config.js', function () {
 });
 
 AJAX.registerOnload('config.js', function () {
-    var $topmenuUpt = $('#topmenu2.user_prefs_tabs');
-    $topmenuUpt.find('li.active a').attr('rel', 'samepage');
-    $topmenuUpt.find('li:not(.active) a').attr('rel', 'newpage');
+    var $topmenuUpt = $('#user_prefs_tabs');
+    $topmenuUpt.find('a.active').attr('rel', 'samepage');
+    $topmenuUpt.find('a:not(.active)').attr('rel', 'newpage');
 });
 
 // default values for fields

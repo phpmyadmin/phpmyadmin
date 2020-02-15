@@ -1,17 +1,16 @@
-<ul id="topmenu2">
-  <li>
-    <a href="{{ url('/database/multi-table-query', url_params) }}" class="tab">
+<ul class="nav nav-pills m-2">
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url('/database/multi-table-query', url_params) }}">
       {% trans 'Multi-table query' %}
     </a>
   </li>
 
-  <li class="active">
-    <a href="{{ url('/database/qbe', url_params) }}" class="tabactive">
+  <li class="nav-item">
+    <a class="nav-link active" href="{{ url('/database/qbe', url_params) }}">
       {% trans 'Query by example' %}
     </a>
   </li>
 </ul>
-<div class="clearfloat"></div>
 
 {% apply format('<a href="' ~ url('/database/designer', url_params|merge({query: true})) ~ '">', '</a>')|notice %}
   {% trans 'Switch to %svisual builder%s' %}

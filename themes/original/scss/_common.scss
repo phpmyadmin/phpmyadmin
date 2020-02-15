@@ -696,43 +696,11 @@ li.last.database {
 
 /* specific elements */
 
-ul {
-  &#topmenu2,
-  &.tabs {
-    font-weight: bold;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  &#topmenu2 {
-    margin: 0.25em 0.5em 0;
-    overflow: auto;
-    clear: both;
-  }
-
-  &#topmenu2 li {
-    float: $left;
-    margin: 0;
-    padding: 0;
-    vertical-align: middle;
-  }
-}
-
-#topmenu2 img {
-  vertical-align: middle;
-  margin-#{$right}: 0.1em;
-}
-
-/* default tab styles */
-
-ul {
-  &#topmenu2 a {
-    display: block;
-    margin: 0.1em;
-    padding: 0.2em;
-    white-space: nowrap;
-  }
+ul.tabs {
+  font-weight: bold;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 span {
@@ -751,18 +719,6 @@ fieldset.caution a {
   &:hover {
     color: #fff;
     background-color: #f00;
-  }
-}
-
-ul {
-  &#topmenu2 a {
-    &.tab:hover,
-    &.tabactive {
-      background-color: $bg-one;
-      -moz-border-radius: 0.3em;
-      border-radius: 0.3em;
-      text-decoration: none;
-    }
   }
 }
 

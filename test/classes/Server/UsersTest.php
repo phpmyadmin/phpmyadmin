@@ -29,15 +29,13 @@ class UsersTest extends TestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $html = Users::getHtmlForSubMenusOnUsersPage(Url::getFromRoute('/server/privileges'));
 
-        //validate 1: topmenu2
         $this->assertStringContainsString(
-            '<ul id="topmenu2">',
+            '<ul class="nav nav-pills m-2">',
             $html
         );
 
-        //validate 2: tabactive for /server/privileges
         $this->assertStringContainsString(
-            '<a class="tabactive" href="' . Url::getFromRoute('/server/privileges'),
+            '<a class="nav-link active" href="' . Url::getFromRoute('/server/privileges'),
             $html
         );
         $this->assertStringContainsString(
@@ -45,9 +43,8 @@ class UsersTest extends TestCase
             $html
         );
 
-        //validate 3: not-active for /server/user-groups
         $this->assertStringContainsString(
-            '<a href="index.php?route=/server/user-groups',
+            '<a class="nav-link" href="index.php?route=/server/user-groups',
             $html
         );
         $this->assertStringContainsString(

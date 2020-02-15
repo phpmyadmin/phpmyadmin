@@ -38,21 +38,20 @@ class Users
             ];
         }
 
-        $retval  = '<div class="row"><ul id="topmenu2">';
+        $retval = '<div class="row"><ul class="nav nav-pills m-2">';
         foreach ($items as $item) {
             $class = '';
             if ($item['url'] === $selfUrl) {
-                $class = ' class="tabactive"';
+                $class = ' active';
             }
-            $retval .= '<li>';
-            $retval .= '<a' . $class;
-            $retval .= ' href="' . $item['url'] . $item['params'] . '">';
+            $retval .= '<li class="nav-item">';
+            $retval .= '<a class="nav-link' . $class;
+            $retval .= '" href="' . $item['url'] . $item['params'] . '">';
             $retval .= $item['name'];
             $retval .= '</a>';
             $retval .= '</li>';
         }
         $retval .= '</ul></div>';
-        $retval .= '<div class="clearfloat"></div>';
 
         return $retval;
     }

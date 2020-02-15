@@ -1,23 +1,22 @@
-<ul id="topmenu2">
-  <li>
-    <a href="{{ url('/table/search', {'db': db, 'table': table, 'pos': 0}) }}" id="tbl_search_id" class="tab">
+<ul class="nav nav-pills m-2">
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url('/table/search', {'db': db, 'table': table, 'pos': 0}) }}">
       {{ get_icon('b_search', 'Table search'|trans) }}
     </a>
   </li>
 
-  <li>
-    <a href="{{ url('/table/zoom-search', {'db': db, 'table': table}) }}" id="zoom_search_id" class="tab">
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url('/table/zoom-search', {'db': db, 'table': table}) }}">
       {{ get_icon('b_select', 'Zoom search'|trans) }}
     </a>
   </li>
 
-  <li class="active">
-    <a href="{{ url('/table/find-replace', {'db': db, 'table': table}) }}" id="find_replace_id" class="tabactive">
+  <li class="nav-item">
+    <a class="nav-link active" href="{{ url('/table/find-replace', {'db': db, 'table': table}) }}">
       {{ get_icon('b_find_replace', 'Find and replace'|trans) }}
     </a>
   </li>
 </ul>
-<div class="clearfloat"></div>
 
 <form method="post" action="{{ url('/table/find-replace') }}" name="insertForm" id="find_replace_form" class="ajax lock-page">
   {{ get_hidden_inputs(db, table) }}

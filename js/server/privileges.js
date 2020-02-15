@@ -398,52 +398,54 @@ AJAX.registerOnload('server/privileges.js', function () {
      * Create submenu for simpler interface
      */
     var addOrUpdateSubmenu = function () {
-        var $topmenu2 = $('#topmenu2');
+        var $subNav = $('.nav-pills');
         var $editUserDialog = $('#edit_user_dialog');
         var submenuLabel;
         var submenuLink;
         var linkNumber;
 
         // if submenu exists yet, remove it first
-        if ($topmenu2.length > 0) {
-            $topmenu2.remove();
+        if ($subNav.length > 0) {
+            $subNav.remove();
         }
 
         // construct a submenu from the existing fieldsets
-        $topmenu2 = $('<ul></ul>').prop('id', 'topmenu2');
+        $subNav = $('<ul></ul>').prop('class', 'nav nav-pills m-2');
 
         $('#edit_user_dialog .submenu-item').each(function () {
             submenuLabel = $(this).find('legend[data-submenu-label]').data('submenu-label');
 
             submenuLink = $('<a></a>')
+                .prop('class', 'nav-link')
                 .prop('href', '#')
                 .html(submenuLabel);
 
             $('<li></li>')
+                .prop('class', 'nav-item')
                 .append(submenuLink)
-                .appendTo($topmenu2);
+                .appendTo($subNav);
         });
 
         // click handlers for submenu
-        $topmenu2.find('a').on('click', function (e) {
+        $subNav.find('a').on('click', function (e) {
             e.preventDefault();
             // if already active, ignore click
-            if ($(this).hasClass('tabactive')) {
+            if ($(this).hasClass('active')) {
                 return;
             }
-            $topmenu2.find('a').removeClass('tabactive');
-            $(this).addClass('tabactive');
+            $subNav.find('a').removeClass('active');
+            $(this).addClass('active');
 
             // which section to show now?
-            linkNumber = $topmenu2.find('a').index($(this));
+            linkNumber = $subNav.find('a').index($(this));
             // hide all sections but the one to show
             $('#edit_user_dialog .submenu-item').hide().eq(linkNumber).show();
         });
 
         // make first menu item active
         // TODO: support URL hash history
-        $topmenu2.find('> :first-child a').addClass('tabactive');
-        $editUserDialog.prepend($topmenu2);
+        $subNav.find('> :first-child a').addClass('active');
+        $editUserDialog.prepend($subNav);
 
         // hide all sections but the first
         $('#edit_user_dialog .submenu-item').hide().eq(0).show();

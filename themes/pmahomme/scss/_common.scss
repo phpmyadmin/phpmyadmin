@@ -950,49 +950,16 @@ li.last.database {
 
 /* specific elements */
 
-ul {
-  &#topmenu2,
-  &.tabs {
-    font-weight: bold;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  &#topmenu2 {
-    margin: 0.25em 0.5em 0;
-    overflow: auto;
-    clear: both;
-  }
-
-  &#topmenu2 li {
-    float: left;
-    margin: 0;
-    vertical-align: middle;
-  }
-}
-
-#topmenu2 img {
-  margin-#{$right}: 0.5em;
-  vertical-align: -3px;
+ul.tabs {
+  font-weight: bold;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 // default tab styles
 .tabactive {
   background: #fff !important;
-}
-
-ul#topmenu2 a {
-  display: block;
-  margin: 7px 6px 7px;
-  margin-#{$left}: 0;
-  padding: 4px 10px;
-  white-space: nowrap;
-  border: 1px solid #ddd;
-  border-radius: 20px;
-  -moz-border-radius: 20px;
-  -webkit-border-radius: 20px;
-  background: #f2f2f2;
 }
 
 span {
@@ -1011,19 +978,6 @@ fieldset.caution a {
   &:hover {
     color: #fff;
     background-color: #f00;
-  }
-}
-
-ul {
-  &#topmenu2 a {
-    &.tab:hover,
-    &.tabactive {
-      background-color: $bg-one;
-      border-radius: 0.3em;
-      -moz-border-radius: 0.3em;
-      -webkit-border-radius: 0.3em;
-      text-decoration: none;
-    }
   }
 }
 
