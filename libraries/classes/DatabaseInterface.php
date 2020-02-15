@@ -794,7 +794,7 @@ class DatabaseInterface
                     $each_tables[$table_name]['TABLE_COMMENT']
                         =& $each_tables[$table_name]['Comment'];
 
-                    if (strtoupper($each_tables[$table_name]['Comment']) === 'VIEW'
+                    if (strtoupper($each_tables[$table_name]['Comment'] ?? '') === 'VIEW'
                         && $each_tables[$table_name]['Engine'] == null
                     ) {
                         $each_tables[$table_name]['TABLE_TYPE'] = 'VIEW';
@@ -957,7 +957,7 @@ class DatabaseInterface
             $databases = $this->fetchResult($sql, 'SCHEMA_NAME', null, $link);
 
             $mysql_error = $this->getError($link);
-            if (! count($databases) && $GLOBALS['errno']) {
+            if (! count($databases) && isset($GLOBALS['errno'])) {
                 Util::mysqlDie($mysql_error, $sql);
             }
 

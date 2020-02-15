@@ -2090,6 +2090,7 @@ class UtilTest extends PmaTestCase
      */
     public function providerLocalisedDate()
     {
+        $hasJaTranslations = file_exists(LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo');
         return [
             [
                 1227455558,
@@ -2136,21 +2137,21 @@ class UtilTest extends PmaTestCase
             [
                 1227455558,
                 '%Y-%m-%d %H:%M:%S %a',
-                '2008-11-24 00:52:38 月',
+                $hasJaTranslations ? '2008-11-24 00:52:38 月' : '2008-11-24 00:52:38 Mon',
                 'Asia/Tokyo',
                 'ja',
             ],
             [
                 1227455558,
                 '%a %A %b %B',
-                '月 月 11 月 11 月',
+                $hasJaTranslations ? '月 月 11 月 11 月' : 'Mon Mon Nov Nov',
                 'Asia/Tokyo',
                 'ja',
             ],
             [
                 1227455558,
                 '%a %A %b %B %P',
-                '月 月 11 月 11 月 午前',
+                $hasJaTranslations ? '月 月 11 月 11 月 午前' : 'Mon Mon Nov Nov AM',
                 'Asia/Tokyo',
                 'ja',
             ],
