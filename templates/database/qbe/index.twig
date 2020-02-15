@@ -1,0 +1,24 @@
+<ul id="topmenu2">
+  <li>
+    <a href="{{ url('/database/multi-table-query', url_params) }}" class="tab">
+      {% trans 'Multi-table query' %}
+    </a>
+  </li>
+
+  <li class="active">
+    <a href="{{ url('/database/qbe', url_params) }}" class="tabactive">
+      {% trans 'Query by example' %}
+    </a>
+  </li>
+</ul>
+<div class="clearfloat"></div>
+
+{% apply format('<a href="' ~ url('/database/designer', url_params|merge({query: true})) ~ '">', '</a>')|notice %}
+  {% trans 'Switch to %svisual builder%s' %}
+{% endapply %}
+
+{% if has_message_to_display %}
+  {{ 'You have to choose at least one column to display!'|trans|error }}
+{% endif %}
+
+{{ selection_form_html|raw }}

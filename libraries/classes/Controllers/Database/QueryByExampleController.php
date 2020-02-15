@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
@@ -6,7 +7,6 @@ namespace PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\Common;
 use PhpMyAdmin\Database\Qbe;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SavedSearches;
@@ -14,13 +14,8 @@ use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-use function array_merge;
-use function sprintf;
 use function stripos;
 
-/**
- * Query by Example controller
- */
 class QueryByExampleController extends AbstractController
 {
     /** @var Relation */
@@ -42,7 +37,7 @@ class QueryByExampleController extends AbstractController
     public function index(): void
     {
         global $db, $pmaThemeImage, $url_query, $savedSearchList, $savedSearch, $currentSearchId;
-        global $message_to_display, $sql_query, $goto, $sub_part, $tables, $num_tables, $total_num_tables, $route;
+        global $sql_query, $goto, $sub_part, $tables, $num_tables, $total_num_tables;
         global $is_show_stats, $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos, $url_params;
 
         // Gets the relation settings
@@ -103,10 +98,10 @@ class QueryByExampleController extends AbstractController
         /**
          * A query has been submitted -> (maybe) execute it
          */
-        $message_to_display = false;
+        $hasMessageToDisplay = false;
         if (isset($_POST['submit_sql']) && ! empty($sql_query)) {
             if (stripos($sql_query, 'SELECT') !== 0) {
-                $message_to_display = true;
+                $hasMessageToDisplay = true;
             } else {
                 $goto = Url::getFromRoute('/database/sql');
                 $sql = new Sql();
@@ -151,53 +146,12 @@ class QueryByExampleController extends AbstractController
             $pos
         ) = Util::getDbInfo($db, $sub_part ?? '');
 
-        if ($message_to_display) {
-            Message::error(
-                __('You have to choose at least one column to display!')
-            )
-                ->display();
-        }
-        unset($message_to_display);
+        $databaseQbe = new Qbe($this->relation, $this->template, $this->dbi, $db, $savedSearchList, $savedSearch);
 
-        // create new qbe search instance
-        $db_qbe = new Qbe($this->relation, $this->template, $this->dbi, $db, $savedSearchList, $savedSearch);
-
-        $secondaryTabs = [
-            'multi' => [
-                'link' => Url::getFromRoute('/database/multi-table-query'),
-                'text' => __('Multi-table query'),
-                'active' => $route === '/database/multi-table-query',
-            ],
-            'qbe' => [
-                'link' => Url::getFromRoute('/database/qbe'),
-                'text' => __('Query by example'),
-                'active' => $route === '/database/qbe',
-            ],
-        ];
-        $this->response->addHTML(
-            $this->template->render('secondary_tabs', [
-                'url_params' => $url_params,
-                'sub_tabs' => $secondaryTabs,
-            ])
-        );
-
-        $url = Url::getFromRoute(
-            '/database/designer',
-            array_merge($url_params, ['query' => 1])
-        );
-        $this->response->addHTML(
-            Message::notice(
-                sprintf(
-                    __('Switch to %svisual builder%s'),
-                    '<a href="' . $url . '">',
-                    '</a>'
-                )
-            )
-        );
-
-        /**
-         * Displays the Query by example form
-         */
-        $this->response->addHTML($db_qbe->getSelectionForm());
+        $this->response->addHTML($this->template->render('database/qbe/index', [
+            'url_params' => $url_params,
+            'has_message_to_display' => $hasMessageToDisplay,
+            'selection_form_html' => $databaseQbe->getSelectionForm(),
+        ]));
     }
 }
