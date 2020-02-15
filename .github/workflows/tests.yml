@@ -1,0 +1,30 @@
+name: Run tests
+
+on: [push]
+
+jobs:
+    test-php:
+        name: Test on php ${{ matrix.php-version }} and ${{ matrix.os }}
+        runs-on: ${{ matrix.os }}
+        strategy:
+            matrix:
+                php-version: ["7.3"]
+                os: [ubuntu-latest, macOS-latest, windows-latest]
+        steps:
+            - uses: actions/checkout@v2
+            - name: Use php ${{ matrix.php-version }}
+              uses: shivammathur/setup-php@v1
+              with:
+                  php-version: ${{ matrix.php-version }}
+                  ini-values: memory_limit=4G
+                  extension-csv: mysqli, mbstring, gd, recode, bz2
+                  pecl: true
+            - name: Cache module
+              uses: actions/cache@v1.0.3
+              with:
+                  path: ~/.composer/cache/
+                  key: composer-cache
+            - name: Install dependencies
+              run: composer install --no-interaction --prefer-dist --no-progress --no-suggest
+            - name: Run phpunit tests
+              run: composer run phpunit -- --no-coverage --exclude=selenium,extension-iconv
