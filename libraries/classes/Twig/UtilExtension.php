@@ -85,11 +85,6 @@ class UtilExtension extends AbstractExtension
                 'PhpMyAdmin\Util::getGISFunctions'
             ),
             new TwigFunction(
-                'get_html_tab',
-                '\PhpMyAdmin\Html\Generator::getHtmlTab',
-                ['is_safe' => ['html']]
-            ),
-            new TwigFunction(
                 'get_icon',
                 '\PhpMyAdmin\Html\Generator::getIcon',
                 ['is_safe' => ['html']]
