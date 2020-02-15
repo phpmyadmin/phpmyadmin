@@ -82,8 +82,6 @@ class MultiTableQuery
      */
     public function getFormHtml()
     {
-        global $route;
-
         $tables = [];
         foreach ($this->tables as $table) {
             $tables[$table]['hash'] = md5($table);
@@ -95,7 +93,6 @@ class MultiTableQuery
             'db' => $this->db,
             'tables' => $tables,
             'default_no_of_columns' => $this->defaultNoOfColumns,
-            'route' => $route,
         ]);
     }
 

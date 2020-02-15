@@ -1,20 +1,18 @@
-{% include 'secondary_tabs.twig' with {
-    'url_params': {
-        'db': db
-    },
-    'sub_tabs': [
-        {
-            'link': url('/database/multi-table-query'),
-            'text': 'Multi-table query'|trans,
-            'active': route == '/database/multi-table-query'
-        },
-        {
-            'link': url('/database/qbe'),
-            'text': 'Query by example'|trans,
-            'active': route == '/database/qbe'
-        }
-    ]
-} only %}
+<ul id="topmenu2">
+  <li class="active">
+    <a href="{{ url('/database/multi-table-query', {'db': db}) }}" class="tabactive">
+      {% trans 'Multi-table query' %}
+    </a>
+  </li>
+
+  <li>
+    <a href="{{ url('/database/qbe', {'db': db}) }}" class="tab">
+      {% trans 'Query by example' %}
+    </a>
+  </li>
+</ul>
+<div class="clearfloat"></div>
+
 {% include 'div_for_slider_effect.twig' with {
     'id': 'query_div',
     'message': 'Query window'|trans,
