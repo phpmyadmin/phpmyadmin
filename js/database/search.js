@@ -23,7 +23,6 @@ AJAX.registerTeardown('database/search.js', function () {
     $('a.browse_results').off('click');
     $('a.delete_results').off('click');
     $('#buttonGo').off('click');
-    $('#togglesearchresultlink').off('click');
     $('#togglequerybox').off('click');
     $('#togglesearchformlink').off('click');
     $(document).off('submit', '#db_search_form.ajax');
@@ -47,24 +46,6 @@ AJAX.registerOnload('database/search.js', function () {
     $('#togglesearchOptionsdiv')
         /** don't show it until we have results on-screen */
         .hide();
-
-    /**
-     * Changing the displayed text according to
-     * the hide/show criteria in search result forms
-     */
-    $('#togglesearchresultlink')
-        .html(Messages.strHideSearchResults)
-        .on('click', function () {
-            var $link = $(this);
-            $('#searchresults').slideToggle();
-            if ($link.text() === Messages.strHideSearchResults) {
-                $link.text(Messages.strShowSearchResults);
-            } else {
-                $link.text(Messages.strHideSearchResults);
-            }
-            /** avoid default click action */
-            return false;
-        });
 
     /**
      * Prepare a div containing a link for toggle the search form,
@@ -213,10 +194,6 @@ AJAX.registerOnload('database/search.js', function () {
             if (typeof data !== 'undefined' && data.success === true) {
                 // found results
                 $('#searchresults').html(data.message);
-
-                $('#togglesearchresultlink')
-                    // always start with the Show message
-                    .text(Messages.strHideSearchResults);
                 $('#searchresults').show();
                 $('#db_search_form')
                     // workaround for Chrome problem (bug #3168569)
