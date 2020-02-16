@@ -209,7 +209,7 @@ class InnodbTest extends PmaTestCase
         '            <td class="value">0' . "\n" .
         '</td>' . "\n" .
         '        </tr>    </tbody>' . "\n" .
-        '</table>' . "\n" . "\n" .
+        '</table>' . "\n\n" .
         '<table class="data" id="table_innodb_bufferpool_activity">' . "\n" .
         '    <caption class="tblHeaders">' . "\n" .
         '        Buffer Pool Activity' . "\n" .
