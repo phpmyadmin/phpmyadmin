@@ -1,10 +1,8 @@
 <?php
-/**
- * Hold PhpMyAdmin\SysInfoLinux class
- */
+
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Server\SysInfo;
 
 use function array_combine;
 use function array_merge;
@@ -19,7 +17,7 @@ use function preg_split;
 /**
  * Linux based SysInfo class
  */
-class SysInfoLinux extends SysInfoBase
+class Linux extends Base
 {
     public $os = 'Linux';
 
@@ -70,13 +68,21 @@ class SysInfoLinux extends SysInfoBase
      */
     public function memory()
     {
+        $content = @file_get_contents('/proc/meminfo');
+        if ($content === false) {
+            return [];
+        }
+
         preg_match_all(
             SysInfo::MEMORY_REGEXP,
-            file_get_contents('/proc/meminfo'),
+            $content,
             $matches
         );
 
         $mem = array_combine($matches[1], $matches[2]);
+        if ($mem === false) {
+            return [];
+        }
 
         $defaults = [
             'MemTotal'   => 0,

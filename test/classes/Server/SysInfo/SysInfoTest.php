@@ -4,9 +4,10 @@
  */
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests;
+namespace PhpMyAdmin\Tests\Server\SysInfo;
 
-use PhpMyAdmin\SysInfo;
+use PhpMyAdmin\Server\SysInfo\SysInfo;
+use PhpMyAdmin\Server\SysInfo\Base;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -64,7 +65,7 @@ class SysInfoTest extends TestCase
      */
     public function testGetSysInfo()
     {
-        $this->assertInstanceOf('PhpMyAdmin\SysInfoBase', SysInfo::get());
+        $this->assertInstanceOf(Base::class, SysInfo::get());
     }
 
     /**

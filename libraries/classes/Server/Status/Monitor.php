@@ -7,7 +7,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Server\Status;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\SysInfo;
+use PhpMyAdmin\Server\SysInfo\SysInfo;
 use PhpMyAdmin\Util;
 use function array_sum;
 use function count;

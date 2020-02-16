@@ -11,7 +11,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
-use PhpMyAdmin\SysInfo;
+use PhpMyAdmin\Server\SysInfo\SysInfo;
 use PhpMyAdmin\Template;
 use function is_numeric;
 use function microtime;

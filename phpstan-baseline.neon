@@ -2578,6 +2578,16 @@ parameters:
 			path: libraries/classes/Server/Status/Monitor.php
 
 		-
+			message: "#^Instantiated class COM not found\\.$#"
+			count: 1
+			path: libraries/classes/Server/SysInfo/WindowsNt.php
+
+		-
+			message: "#^Call to method ConnectServer\\(\\) on an unknown class COM\\.$#"
+			count: 1
+			path: libraries/classes/Server/SysInfo/WindowsNt.php
+
+		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, int\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Server/UserGroups.php
@@ -2761,26 +2771,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\StorageEngine\\:\\:resolveTypeSize\\(\\) should return array but returns array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/StorageEngine.php
-
-		-
-			message: "#^Parameter \\#2 \\$subject of function preg_match_all expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/SysInfoLinux.php
-
-		-
-			message: "#^Parameter \\#2 \\.\\.\\.\\$args of function array_merge expects array, array\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/SysInfoLinux.php
-
-		-
-			message: "#^Instantiated class COM not found\\.$#"
-			count: 1
-			path: libraries/classes/SysInfoWINNT.php
-
-		-
-			message: "#^Call to method ConnectServer\\(\\) on an unknown class COM\\.$#"
-			count: 1
-			path: libraries/classes/SysInfoWINNT.php
 
 		-
 			message: "#^Parameter \\#1 \\$collation of static method PhpMyAdmin\\\\Util\\:\\:getCharsetQueryPart\\(\\) expects string, string\\|null given\\.$#"

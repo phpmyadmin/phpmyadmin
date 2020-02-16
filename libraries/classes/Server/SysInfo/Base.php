@@ -1,17 +1,15 @@
 <?php
-/**
- * Hold PhpMyAdmin\SysInfoBase class
- */
+
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Server\SysInfo;
 
 use const PHP_OS;
 
 /**
- * Basic sysinfo class not providing any real data.
+ * Basic SysInfo class not providing any real data.
  */
-class SysInfoBase
+class Base
 {
     public $os = PHP_OS;
 

@@ -1,10 +1,8 @@
 <?php
-/**
- * Hold PhpMyAdmin\SysInfoWINNT class
- */
+
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Server\SysInfo;
 
 use COM;
 use function class_exists;
@@ -16,7 +14,7 @@ use function trim;
 /**
  * Windows NT based SysInfo class
  */
-class SysInfoWINNT extends SysInfoBase
+class WindowsNt extends Base
 {
     private $_wmi;
     public $os = 'WINNT';

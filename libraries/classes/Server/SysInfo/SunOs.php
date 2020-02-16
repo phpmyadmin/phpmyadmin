@@ -1,10 +1,8 @@
 <?php
-/**
- * Hold PhpMyAdmin\SysInfoSunOS class
- */
+
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Server\SysInfo;
 
 use function explode;
 use function is_readable;
@@ -14,7 +12,7 @@ use function trim;
 /**
  * SunOS based SysInfo class
  */
-class SysInfoSunOS extends SysInfoBase
+class SunOs extends Base
 {
     public $os = 'SunOS';
 
