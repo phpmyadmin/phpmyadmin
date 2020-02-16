@@ -7,10 +7,12 @@
     background: #f2f2f2;
     color: #235a81;
     border: 1px solid #ddd;
+
     @include border-radius(20px);
 
     &:hover {
       background-color: $bg-one;
+
       @include border-radius(0.3em);
     }
 
@@ -24,6 +26,7 @@
   .show > .nav-link {
     background-color: #fff;
     color: #235a81;
+
     @include border-radius(0.3em);
   }
 }
