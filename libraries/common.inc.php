@@ -97,8 +97,8 @@ require_once AUTOLOAD_FILE;
 
 $containerBuilder = new ContainerBuilder();
 $loader = new YamlFileLoader($containerBuilder, new FileLocator(__DIR__));
-$loader->load('../services.yml');
-$loader->load('../services_controllers.yml');
+$loader->load('services.yml');
+$loader->load('services_controllers.yml');
 /** @var Migration $diMigration */
 $diMigration = $containerBuilder->get('di_migration');
 
