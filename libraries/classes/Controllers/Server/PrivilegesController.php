@@ -103,7 +103,10 @@ class PrivilegesController extends AbstractController
             && $GLOBALS['cfgRelation']['menuswork']
         ) {
             $this->response->addHTML('<div class="container-fluid">');
-            $this->response->addHTML(Users::getHtmlForSubMenusOnUsersPage(Url::getFromRoute('/server/privileges')));
+            $this->response->addHTML($this->template->render('server/privileges/subnav', [
+                'active' => 'privileges',
+                'is_super_user' => $this->dbi->isSuperuser(),
+            ]));
         }
 
         /**
