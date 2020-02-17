@@ -3118,16 +3118,6 @@ parameters:
 			path: libraries/mult_submits.inc.php
 
 		-
-			message: "#^Result of && is always false\\.$#"
-			count: 2
-			path: libraries/tbl_columns_definition_form.inc.php
-
-		-
-			message: "#^Else branch is unreachable because ternary operator condition is always true\\.$#"
-			count: 1
-			path: libraries/tbl_columns_definition_form.inc.php
-
-		-
 			message: "#^Parameter \\#3 \\$subject of function preg_replace expects array\\|string, string\\|null given\\.$#"
 			count: 1
 			path: setup/index.php

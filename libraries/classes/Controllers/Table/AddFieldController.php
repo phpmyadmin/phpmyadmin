@@ -9,7 +9,9 @@ use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
@@ -30,6 +32,9 @@ class AddFieldController extends AbstractController
     /** @var Config */
     private $config;
 
+    /** @var Relation */
+    private $relation;
+
     /**
      * @param Response          $response        A Response instance.
      * @param DatabaseInterface $dbi             A DatabaseInterface instance.
@@ -38,6 +43,7 @@ class AddFieldController extends AbstractController
      * @param string            $table           Table name.
      * @param Transformations   $transformations A Transformations instance.
      * @param Config            $config          A Config instance.
+     * @param Relation          $relation        A Relation instance.
      */
     public function __construct(
         $response,
@@ -46,11 +52,13 @@ class AddFieldController extends AbstractController
         $db,
         $table,
         Transformations $transformations,
-        Config $config
+        Config $config,
+        Relation $relation
     ) {
         parent::__construct($response, $dbi, $template, $db, $table);
         $this->transformations = $transformations;
         $this->config = $config;
+        $this->relation = $relation;
     }
 
     public function index(): void
@@ -170,7 +178,17 @@ class AddFieldController extends AbstractController
              * Display the form
              */
             $action = Url::getFromRoute('/table/add-field');
-            include_once ROOT_PATH . 'libraries/tbl_columns_definition_form.inc.php';
+
+            ColumnsDefinition::displayForm(
+                $this->response,
+                $this->template,
+                $this->transformations,
+                $this->relation,
+                $this->dbi,
+                $action,
+                $num_fields,
+                $regenerate
+            );
         }
     }
 }

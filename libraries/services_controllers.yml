@@ -518,6 +518,7 @@ services:
       table: '%table%'
       transformations: '@transformations'
       config: '@config'
+      relation: '@relation'
 
   PhpMyAdmin\Controllers\Table\ChangeController:
     class: 'PhpMyAdmin\Controllers\Table\ChangeController'
@@ -549,6 +550,7 @@ services:
       table: '%table%'
       transformations: '@transformations'
       config: '@config'
+      relation: '@relation'
 
   PhpMyAdmin\Controllers\Table\ExportController:
     class: 'PhpMyAdmin\Controllers\Table\ExportController'

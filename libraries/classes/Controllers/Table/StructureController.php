@@ -26,6 +26,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Table;
+use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\TablePartitionDefinition;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracker;
@@ -523,10 +524,7 @@ class StructureController extends AbstractController
             }
         }
         $num_fields = count($fields_meta);
-        // set these globals because tbl_columns_definition_form.inc.php
-        // verifies them
-        // @todo: refactor tbl_columns_definition_form.inc.php so that it uses
-        // protected function params
+
         $GLOBALS['action'] = $action;
         $GLOBALS['num_fields'] = $num_fields;
 
@@ -536,7 +534,18 @@ class StructureController extends AbstractController
         $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
         $checkUserPrivileges->getPrivileges();
 
-        include ROOT_PATH . 'libraries/tbl_columns_definition_form.inc.php';
+        ColumnsDefinition::displayForm(
+            $this->response,
+            $this->template,
+            $this->transformations,
+            $this->relation,
+            $this->dbi,
+            $action,
+            $num_fields,
+            null,
+            $selected,
+            $fields_meta
+        );
     }
 
     /**
