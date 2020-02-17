@@ -1514,9 +1514,9 @@ class Sql
                 }
             }
 
-            if ($analyzed_sql_results['join']
-                || $analyzed_sql_results['is_subquery']
-                || count($analyzed_sql_results['select_tables']) !== 1
+            if (($analyzed_sql_results['join']
+                || $analyzed_sql_results['is_subquery'])
+                && count($analyzed_sql_results['select_tables']) !== 1
             ) {
                 $just_one_table = false;
             }
