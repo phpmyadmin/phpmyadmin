@@ -5,8 +5,7 @@
   top: 0;
   #{$left}: 0;
   height: 100vh;
-  background: url('../img/left_nav_bg.png') repeat-y right 0 $navi-background;
-  color: $navi-color;
+  background-color: rgba($black, 0.03);
   z-index: 800;
 
   ul {
@@ -45,6 +44,21 @@
     text-align: center;
     padding: 5px 10px 0;
     border: 0;
+  }
+
+  #pmalogo {
+    background-color: $gray-200;
+    padding: 6px 10px;
+  }
+
+  #navipanellinks {
+    padding: 8px 10px;
+    background-color: rgba($black, 0.03);
+
+    a {
+      display: inline-block;
+      padding: 8px;
+    }
   }
 
   #navipanellinks .icon {
@@ -384,9 +398,9 @@ html.ie {
 
 // Resize handler
 #pma_navigation_resizer {
-  width: 3px;
+  width: 1px !important;
   height: 100%;
-  background-color: #aaa;
+  background-color: rgba($black, 0.125);
   cursor: col-resize;
   position: fixed;
   top: 0;
@@ -409,7 +423,7 @@ html.ie {
   z-index: 800;
   text-shadow: 0 1px 0 #fff;
   filter: dropshadow(color = #fff, offx = 0, offy = 1);
-  border: 1px solid #888;
+  border: 1px solid rgba($black, 0.125);
 }
 
 // Quick warp links
