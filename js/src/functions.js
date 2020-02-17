@@ -429,10 +429,12 @@ Functions.sprintf = function () {
  * Ticks the NULL checkbox if NULL is chosen as default value.
  */
 Functions.hideShowDefaultValue = function ($defaultType) {
-    if ($defaultType.val() === 'USER_DEFINED') {
+    if ($defaultType.val() === 'USER_DEFINED_VALUE') {
         $defaultType.siblings('.default_value').show().trigger('focus');
+    } else if ($defaultType.val() === 'USER_DEFINED_FUNCTION') {
+        $defaultType.siblings('.default_function').show().trigger('focus');
     } else {
-        $defaultType.siblings('.default_value').hide();
+        $defaultType.siblings('.default_value, .default_function').hide();
         if ($defaultType.val() === 'NULL') {
             var $nullCheckbox = $defaultType.closest('tr').find('.allow_null');
             $nullCheckbox.prop('checked', true);

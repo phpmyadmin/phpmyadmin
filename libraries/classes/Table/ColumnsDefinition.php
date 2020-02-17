@@ -471,12 +471,15 @@ final class ColumnsDefinition
             } elseif ($type_upper === 'BINARY' || $type_upper === 'VARBINARY') {
                 $default_value = bin2hex($columnMeta['DefaultValue']);
             }
+            $default_function = $GLOBALS['dbi']->types->getAllFunctions();
+
 
             $content_cells[$columnNumber] = [
                 'column_number' => $columnNumber,
                 'column_meta' => $columnMeta,
                 'type_upper' => $type_upper,
                 'default_value' => $default_value,
+                'default_function' => $default_function,
                 'length_values_input_size' => $length_values_input_size,
                 'length' => $length,
                 'extracted_columnspec' => $extracted_columnspec,
