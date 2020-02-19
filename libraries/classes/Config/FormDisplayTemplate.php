@@ -180,7 +180,7 @@ class FormDisplayTemplate
         $opts = null
     ): string {
         static $icons;    // An array of IMG tags used further below in the function
-
+        $pathSpecialChars = htmlspecialchars($path);
         if (defined('TESTSUITE')) {
             $icons = null;
         }
@@ -222,7 +222,7 @@ class FormDisplayTemplate
                     $icons[$k] = sprintf(
                         '<img alt="%s" src="%s"%s>',
                         $v[1],
-                        "../themes/pmahomme/img/{$v[0]}.png",
+                        '../themes/pmahomme/img/' . $v[0] . '.png',
                         $title
                     );
                 }
@@ -239,8 +239,8 @@ class FormDisplayTemplate
         $hasErrors = isset($opts['errors']) && ! empty($opts['errors']);
         $optionIsDisabled = ! $isSetupScript && isset($opts['userprefs_allow'])
             && ! $opts['userprefs_allow'];
-        $nameId = 'name="' . htmlspecialchars($path) . '" id="'
-            . htmlspecialchars($path) . '"';
+        $nameId = 'name="' . $pathSpecialChars . '" id="'
+            . $pathSpecialChars . '"';
         $fieldClass = $type == 'checkbox' ? 'checkbox' : '';
         if (! $valueIsDefault) {
             $fieldClass .= ($fieldClass == '' ? '' : ' ')
@@ -260,66 +260,39 @@ class FormDisplayTemplate
         }
         $trClass = $trClass ? ' class="' . $trClass . '"' : '';
 
-        $htmlOutput = '<tr' . $trClass . '>';
-        $htmlOutput .= '<th>';
-        $htmlOutput .= '<label for="' . htmlspecialchars($path) . '">' . htmlspecialchars_decode($name)
-            . '</label>';
-
-        if (! empty($opts['doc'])) {
-            $htmlOutput .= '<span class="doc">';
-            $htmlOutput .= '<a href="' . $opts['doc']
-                . '" target="documentation">' . $icons['help'] . '</a>';
-            $htmlOutput .= "\n";
-            $htmlOutput .= '</span>';
-        }
-
-        if ($optionIsDisabled) {
-            $htmlOutput .= '<span class="disabled-notice" title="';
-            $htmlOutput .= __(
-                'This setting is disabled, it will not be applied to your configuration.'
-            );
-            $htmlOutput .= '">' . __('Disabled') . "</span>";
-        }
-
-        if (! empty($description)) {
-            $htmlOutput .= '<small>' . $description . '</small>';
-        }
-
-        $htmlOutput .= '</th>';
-        $htmlOutput .= '<td>';
-
+        $inputType = '';
         switch ($type) {
             case 'text':
-                $htmlOutput .= '<input type="text" class="all85" ' . $nameId . $fieldClass
-                . ' value="' . htmlspecialchars($value) . '">';
+                $inputType .= '<input type="text" class="w-75" ' . $nameId . $fieldClass
+                    . ' value="' . htmlspecialchars($value) . '">';
                 break;
             case 'password':
-                $htmlOutput .= '<input type="password" class="all85" ' . $nameId . $fieldClass
-                . ' value="' . htmlspecialchars($value) . '">';
+                $inputType .= '<input type="password" class="w-75" ' . $nameId . $fieldClass
+                    . ' value="' . htmlspecialchars($value) . '">';
                 break;
             case 'short_text':
                 // As seen in the reporting server (#15042) we sometimes receive
                 // an array here. No clue about its origin nor content, so let's avoid
                 // a notice on htmlspecialchars().
                 if (! is_array($value)) {
-                    $htmlOutput .= '<input type="text" size="25" ' . $nameId
-                    . $fieldClass . ' value="' . htmlspecialchars($value)
-                    . '">';
+                    $inputType .= '<input type="text" size="25" ' . $nameId
+                        . $fieldClass . ' value="' . htmlspecialchars($value)
+                        . '">';
                 }
                 break;
             case 'number_text':
-                $htmlOutput .= '<input type="number" ' . $nameId . $fieldClass
-                . ' value="' . htmlspecialchars((string) $value) . '">';
+                $inputType .= '<input type="number" ' . $nameId . $fieldClass
+                    . ' value="' . htmlspecialchars((string) $value) . '">';
                 break;
             case 'checkbox':
-                $htmlOutput .= '<span' . $fieldClass . '><input type="checkbox" ' . $nameId
-                  . ($value ? ' checked="checked"' : '') . '></span>';
+                $inputType .= '<span' . $fieldClass . '><input type="checkbox" ' . $nameId
+                    . ($value ? ' checked="checked"' : '') . '></span>';
                 break;
             case 'select':
-                $htmlOutput .= '<select class="all85" ' . $nameId . $fieldClass . '>';
+                $inputType .= '<select class="w-75" ' . $nameId . $fieldClass . '>';
                 $escape = ! (isset($opts['values_escaped']) && $opts['values_escaped']);
                 $valuesDisabled = isset($opts['values_disabled'])
-                ? array_flip($opts['values_disabled']) : [];
+                    ? array_flip($opts['values_disabled']) : [];
                 foreach ($opts['values'] as $optValueKey => $optValue) {
                     // set names for boolean values
                     if (is_bool($optValue)) {
@@ -338,66 +311,40 @@ class FormDisplayTemplate
                     // compare with selected value
                     // boolean values are cast to integers when used as array keys
                     $selected = is_bool($value)
-                    ? (int) $value === $optValueKey
-                    : $optValueKey === $value;
-                    $htmlOutput .= '<option value="' . $displayValue . '"';
+                        ? (int) $value === $optValueKey
+                        : $optValueKey === $value;
+                    $inputType .= '<option value="' . $displayValue . '"';
                     if ($selected) {
-                        $htmlOutput .= ' selected="selected"';
+                        $inputType .= ' selected="selected"';
                     }
                     if (isset($valuesDisabled[$optValueKey])) {
-                        $htmlOutput .= ' disabled="disabled"';
+                        $inputType .= ' disabled="disabled"';
                     }
-                    $htmlOutput .= '>' . $display . '</option>';
+                    $inputType .= '>' . $display . '</option>';
                 }
-                $htmlOutput .= '</select>';
+                $inputType .= '</select>';
                 break;
             case 'list':
-                $htmlOutput .= '<textarea cols="35" rows="5" ' . $nameId . $fieldClass
-                . '>' . htmlspecialchars(implode("\n", $value)) . '</textarea>';
+                $val = $value;
+                if (isset($val['wrapper_params'])) {
+                    unset($val['wrapper_params']);
+                }
+                $inputType .= '<textarea cols="35" rows="5" ' . $nameId . $fieldClass
+                    . '>' . htmlspecialchars(implode("\n", $val)) . '</textarea>';
                 break;
         }
-        if ($isSetupScript
-            && isset($opts['userprefs_comment'])
-            && $opts['userprefs_comment']
-        ) {
-            $htmlOutput .= '<a class="userprefs-comment" title="'
-                . htmlspecialchars($opts['userprefs_comment']) . '">'
-                . $icons['tblops'] . '</a>';
-        }
-        if (isset($opts['setvalue']) && $opts['setvalue']) {
-            $htmlOutput .= '<a class="set-value hide" href="#'
-                . htmlspecialchars("$path={$opts['setvalue']}") . '" title="'
-                . sprintf(__('Set value: %s'), htmlspecialchars($opts['setvalue']))
-                . '">' . $icons['edit'] . '</a>';
-        }
-        if (isset($opts['show_restore_default']) && $opts['show_restore_default']) {
-            $htmlOutput .= '<a class="restore-default hide" href="#' . $path . '" title="'
-                . __('Restore default value') . '">' . $icons['reload'] . '</a>';
-        }
-        // this must match with displayErrors() in scripts/config.js
-        if ($hasErrors) {
-            $htmlOutput .= "\n        <dl class=\"inline_errors\">";
-            foreach ($opts['errors'] as $error) {
-                $htmlOutput .= '<dd>' . htmlspecialchars($error) . '</dd>';
-            }
-            $htmlOutput .= '</dl>';
-        }
-        $htmlOutput .= '</td>';
-        if ($isSetupScript && isset($opts['userprefs_allow'])) {
-            $htmlOutput .= '<td class="userprefs-allow" title="' .
-                __('Allow users to customize this value') . '">';
-            $htmlOutput .= '<input type="checkbox" name="' . $path
-                . '-userprefs-allow" ';
-            if ($opts['userprefs_allow']) {
-                $htmlOutput .= 'checked="checked"';
-            }
-            $htmlOutput .= '>';
-            $htmlOutput .= '</td>';
-        } elseif ($isSetupScript) {
-            $htmlOutput .= '<td>&nbsp;</td>';
-        }
-        $htmlOutput .= '</tr>';
-        return $htmlOutput;
+        return $this->template->render('config/form_display/inputs', [
+            'tr_class' => $trClass,
+            'path' => $path,
+            'name' => $name,
+            'opts' => $opts,
+            'icons' => $icons,
+            'option_is_disabled' => $optionIsDisabled,
+            'description' => $description,
+            'input_type' => $inputType,
+            'is_setup_script' => $isSetupScript,
+            'has_errors' => $hasErrors,
+        ]);
     }
 
     /**

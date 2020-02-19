@@ -1,0 +1,42 @@
+<tr{{ tr_class|raw }}>
+  <th>
+    <label for="{{ path }}">{{ name }}</label>
+    {% if opts.doc is not empty %}
+    <span class="doc">
+      <a href="{{ opts.doc|raw }}" target="documentation">{{ icons.help|raw }}</a>
+    </span>
+    {% endif %}
+    {% if option_is_disabled %}
+      <span class="disabled-notice" title="{{ 'This setting is disabled, it will not be applied to your configuration.'|trans }}">{{ 'Disabled'|trans }}</span>
+    {% endif %}
+    {% if description %}
+      <small>{{ description|raw }}</small>
+    {% endif %}
+  </th>
+  <td>
+    {{ input_type|raw }}
+    {% if is_setup_script and opts.userprefs_comment %}
+      <a class="userprefs-comment" title="{{ opts.userprefs_comment }}">{{ icons.tblops|raw }}</a>
+    {% endif %}
+    {% if opts.setvalue %}
+      <a class="set-value hide" href="#{{ path ~ '={' ~ opts.setvalue ~ '}' }}" title="{{ 'Set value: %s'|trans|format(opts.setvalue) }}">{{ icons.edit|raw }}</a>
+    {% endif %}
+    {% if opts.show_restore_default %}
+      <a class="restore-default hide" href="#{{ path }}" title="{{ 'Restore default value'|trans }}">{{ icons.reload|raw }}</a>
+    {% endif %}
+    {% if has_errors %}
+      <dl class="inline_errors">
+        {% for error in opts.errors %}
+          <dd>{{ error }}</dd>
+        {% endfor %}
+      </dl>
+    {% endif %}
+  </td>
+  {% if is_setup_script and opts.userprefs_allow %}
+    <td class="userprefs-allow" title="{{ 'Allow users to customize this value'|trans }}">
+      <input type="checkbox" name="{{ path }}-userprefs-allow" {{ opts.userprefs_allow ? ' checked="checked"' }}>
+    </td>
+  {% elseif is_setup_script %}
+    <td>&nbsp;</td>
+  {% endif %}
+</tr>
