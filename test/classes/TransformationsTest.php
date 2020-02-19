@@ -1,34 +1,24 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for transformation wrappers
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\Theme;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\TestCase;
 
 /**
  * tests for transformation wrappers
- *
- * @package PhpMyAdmin-test
  */
 class TransformationsTest extends TestCase
 {
-    /**
-     * @var Transformations
-     */
+    /** @var Transformations */
     private $transformations;
 
     /**
      * Set up global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -59,8 +49,6 @@ class TransformationsTest extends TestCase
      * @param string $input    String to parse
      * @param array  $expected Expected result
      *
-     * @return void
-     *
      * @dataProvider getOptionsData
      */
     public function testGetOptions($input, $expected): void
@@ -80,7 +68,7 @@ class TransformationsTest extends TestCase
     {
         return [
             [
-                "option1 , option2 ",
+                'option1 , option2 ',
                 [
                     'option1 ',
                     ' option2 ',
@@ -177,6 +165,7 @@ class TransformationsTest extends TestCase
                     'Image/JPEG: Upload',
                     'Text/Plain: FileUpload',
                     'Text/Plain: Iptobinary',
+                    'Text/Plain: Iptolong',
                     'Text/Plain: JsonEditor',
                     'Text/Plain: RegexValidation',
                     'Text/Plain: SqlEditor',
@@ -190,6 +179,7 @@ class TransformationsTest extends TestCase
                     'Input/Image_JPEG_Upload.php',
                     'Input/Text_Plain_FileUpload.php',
                     'Input/Text_Plain_Iptobinary.php',
+                    'Input/Text_Plain_Iptolong.php',
                     'Input/Text_Plain_JsonEditor.php',
                     'Input/Text_Plain_RegexValidation.php',
                     'Input/Text_Plain_SqlEditor.php',
@@ -213,8 +203,8 @@ class TransformationsTest extends TestCase
     {
         $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] = PMA_VERSION;
         $_SESSION['relation'][$GLOBALS['server']]['mimework'] = true;
-        $_SESSION['relation'][$GLOBALS['server']]['db'] = "pmadb";
-        $_SESSION['relation'][$GLOBALS['server']]['column_info'] = "column_info";
+        $_SESSION['relation'][$GLOBALS['server']]['db'] = 'pmadb';
+        $_SESSION['relation'][$GLOBALS['server']]['column_info'] = 'column_info';
         $_SESSION['relation'][$GLOBALS['server']]['trackingwork'] = false;
         $this->assertEquals(
             [
@@ -263,8 +253,8 @@ class TransformationsTest extends TestCase
         );
 
         $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] = PMA_VERSION;
-        $_SESSION['relation'][$GLOBALS['server']]['column_info'] = "column_info";
-        $_SESSION['relation'][$GLOBALS['server']]['db'] = "pmadb";
+        $_SESSION['relation'][$GLOBALS['server']]['column_info'] = 'column_info';
+        $_SESSION['relation'][$GLOBALS['server']]['db'] = 'pmadb';
 
         // Case 2 : database delete
         $actual = $this->transformations->clear('db');
@@ -291,8 +281,6 @@ class TransformationsTest extends TestCase
     /**
      * @param string $value    value
      * @param string $expected expected result
-     *
-     * @return void
      *
      * @dataProvider fixupData
      */
@@ -339,8 +327,6 @@ class TransformationsTest extends TestCase
      * @param string $file                transformation file
      * @param string $expectedDescription expected description
      *
-     * @return void
-     *
      * @dataProvider providerGetDescription
      */
     public function testGetDescription($file, $expectedDescription): void
@@ -377,8 +363,6 @@ class TransformationsTest extends TestCase
      *
      * @param string $file         transformation file
      * @param string $expectedName expected name
-     *
-     * @return void
      *
      * @dataProvider providerGetName
      */

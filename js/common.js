@@ -1,4 +1,3 @@
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 
 $(function () {
     Functions.checkNumberOfFields();
@@ -79,19 +78,21 @@ var CommonParams = (function () {
         /**
          * Returns the url query string using the saved parameters
          *
+         * @param {string} separator New separator
+         *
          * @return string
          */
-        getUrlQuery: function () {
+        getUrlQuery: function (separator) {
+            var sep = (typeof separator !== 'undefined') ? separator : '?';
             var common = this.get('common_query');
-            var separator = '?';
             var argsep = CommonParams.get('arg_separator');
             if (common.length > 0) {
-                separator = argsep;
+                sep = argsep;
             }
             return Functions.sprintf(
                 '%s%sserver=%s' + argsep + 'db=%s' + argsep + 'table=%s',
                 this.get('common_query'),
-                separator,
+                sep,
                 encodeURIComponent(this.get('server')),
                 encodeURIComponent(this.get('db')),
                 encodeURIComponent(this.get('table'))
@@ -150,7 +151,11 @@ var CommonActions = {
             newUrl = $('#selflink').find('a').attr('href') || window.location.pathname;
             newUrl = newUrl.substring(0, newUrl.indexOf('?'));
         }
-        newUrl += CommonParams.getUrlQuery();
+        if (newUrl.indexOf('?') !== -1) {
+            newUrl += CommonParams.getUrlQuery('&');
+        } else {
+            newUrl += CommonParams.getUrlQuery();
+        }
         $('<a></a>', { href: newUrl })
             .appendTo('body')
             .trigger('click')

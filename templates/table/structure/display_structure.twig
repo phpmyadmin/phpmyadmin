@@ -1,6 +1,6 @@
 {% extends 'table/page_with_secondary_tabs.twig' %}
 {% block content %}
-<form method="post" action="tbl_structure.php" name="fieldsForm" id="fieldsForm"
+<form method="post" action="{{ url('/table/structure') }}" name="fieldsForm" id="fieldsForm"
     class="ajax{{ hide_structure_actions ? ' HideStructureActions' }}">
     {{ get_hidden_inputs(db, table) }}
     <input type="hidden" name="table_type" value=
@@ -48,7 +48,7 @@
             {# Underline commented fields and display a hover-title (CSS only) #}
 
         <tr>
-            <td class="center print_ignore">
+            <td class="text-center print_ignore">
                 <input type="checkbox" class="checkall" name="selected_fld[]" value="{{ row['Field'] }}" id="checkbox_row_{{ rownum }}">
             </td>
             <td class="right">{{ rownum }}</td>
@@ -67,7 +67,7 @@
                     {{ extracted_columnspec['displayed_type']|raw }}
                     {% if relation_commwork and relation_mimework and browse_mime
                         and mime_map[row['Field']]['mimetype'] is defined %}
-                        <br>{% trans 'Media (MIME) type:' %} {{ mime_map[row['Field']]['mimetype']|replace({'_': '/'})|lower }}
+                        <br>{% trans 'Media type:' %} {{ mime_map[row['Field']]['mimetype']|replace({'_': '/'})|lower }}
                     {% endif %}
                 </bdo>
             </td>
@@ -98,14 +98,18 @@
             {% endif %}
             <td class="nowrap">{{ row['Extra']|upper }}</td>
             {% if not tbl_is_view and not db_is_system_schema %}
-                <td class="edit center print_ignore">
-                    <a class="change_column_anchor ajax" href="tbl_structure.php
-                        {{- url_query }}&amp;field={{ row['Field']|url_encode }}&amp;change_column=1">
+                <td class="edit text-center print_ignore">
+                    <a class="change_column_anchor ajax" href="{{ url('/table/structure', url_params|merge({
+                      'db': db,
+                      'table': table,
+                      'field': row['Field'],
+                      'change_column': 1
+                    })) }}">
                         {{ titles['Change']|raw }}
                     </a>
                 </td>
-                <td class="drop center print_ignore">
-                    <a class="drop_column_anchor ajax" href="sql.php" data-post="{{ url_query }}&amp;sql_query=
+                <td class="drop text-center print_ignore">
+                    <a class="drop_column_anchor ajax" href="{{ url('/sql') }}" data-post="{{ url_query }}&amp;sql_query=
                         {{- ('ALTER TABLE ' ~ backquote(table)
                             ~ ' DROP ' ~ backquote(row['Field']) ~ ';')|url_encode -}}
                         &amp;dropped_column={{ row['Field']|url_encode }}&amp;purge=1&amp;message_to_show=
@@ -215,7 +219,7 @@
                                 or tbl_storage_engine == 'MARIA'
                                 or (tbl_storage_engine == 'INNODB' and mysql_int_version >= 50604)
                             ) and ('text' in type or 'char' in type) %}
-                            <a rel="samepage" class="ajax add_key add_fulltext_anchor" href="tbl_structure.php"
+                            <a rel="samepage" class="ajax add_key add_fulltext_anchor" href="{{ url('/table/structure') }}"
                                 data-post="{{- url_query|raw }}&amp;add_key=1&amp;sql_query=
                                 {{- ('ALTER TABLE ' ~ backquote(table)
                                     ~ ' ADD FULLTEXT(' ~ backquote(row['Field'])
@@ -230,7 +234,7 @@
 
                         {# Distinct value action #}
                         <li class="browse nowrap">
-                            <a href="sql.php" data-post="{{ url_query|raw }}&amp;sql_query=
+                            <a href="{{ url('/sql') }}" data-post="{{ url_query|raw }}&amp;sql_query=
                                 {{- ('SELECT COUNT(*) AS ' ~ backquote('Rows'|trans)
                                     ~ ', ' ~ backquote(row['Field'])
                                     ~ ' FROM ' ~ backquote(table)
@@ -362,7 +366,7 @@
 <hr class="print_ignore">
 <div id="move_columns_dialog" class="hide" title="{% trans 'Move columns' %}">
     <p>{% trans 'Move the columns by dragging them up and down.' %}</p>
-    <form action="tbl_structure.php" name="move_column_form" id="move_column_form">
+    <form action="{{ url('/table/structure') }}" name="move_column_form" id="move_column_form">
         <div>
             {{ get_hidden_inputs(db, table) }}
             <ul></ul>
@@ -372,9 +376,8 @@
 {# Work on the table #}
 <div id="structure-action-links">
     {% if tbl_is_view and not db_is_system_schema %}
-        {% set edit_view_url = 'view_create.php' ~ edit_view_url %}
         {{ link_or_button(
-            edit_view_url,
+            url('/view/create', {'db': db, 'table': table}),
             get_icon('b_edit', 'Edit view'|trans, true)
         ) }}
     {% endif %}
@@ -382,7 +385,7 @@
     {% if not tbl_is_view and not db_is_system_schema %}
         {# Only display propose table structure for MySQL < 8.0 #}
         {% if mysql_int_version < 80000 or is_mariadb %}
-          <a href="sql.php" data-post="{{ url_query|raw }}&amp;session_max_rows=all&amp;sql_query=
+          <a href="{{ url('/sql') }}" data-post="{{ url_query|raw }}&amp;session_max_rows=all&amp;sql_query=
               {{- ('SELECT * FROM ' ~ backquote(table) ~ ' PROCEDURE ANALYSE()')|url_encode -}}
               " style="margin-right: 0;">
               {{ get_icon(
@@ -394,27 +397,27 @@
           {{ show_mysql_docu('procedure_analyse') }}
         {% endif %}
         {% if is_active %}
-            <a href="tbl_tracking.php{{ url_query|raw }}">
+            <a href="{{ url('/table/tracking', url_params) }}">
                 {{ get_icon('eye', 'Track table'|trans, true) }}
             </a>
         {% endif %}
         <a href="#" id="move_columns_anchor">
             {{ get_icon('b_move', 'Move columns'|trans, true) }}
         </a>
-        <a href="normalization.php{{ url_query|raw }}">
+        <a href="{{ url('/normalization', url_params) }}">
             {{ get_icon('normalize', 'Normalize'|trans, true) }}
         </a>
     {% endif %}
     {% if tbl_is_view and not db_is_system_schema %}
         {% if is_active %}
-            <a href="tbl_tracking.php{{ url_query|raw }}">
+            <a href="{{ url('/table/tracking', url_params) }}">
                 {{ get_icon('eye', 'Track view'|trans, true) }}
             </a>
         {% endif %}
     {% endif %}
 </div>
 {% if not tbl_is_view and not db_is_system_schema %}
-    <form method="post" action="tbl_addfield.php" id="addColumns" name="addColumns">
+    <form method="post" action="{{ url('/table/add-field') }}" id="addColumns" name="addColumns">
         {{ get_hidden_inputs(db, table) }}
         {% if show_icons('ActionLinksMode') %}
             {{ get_image('b_insrow', 'Add column'|trans) }}&nbsp;
@@ -481,7 +484,7 @@
         } only %}
 
         {% set remove_sql = 'ALTER TABLE ' ~ backquote(table) ~ ' REMOVE PARTITIONING' %}
-        {% set remove_url = 'sql.php' ~ url_query ~ '&sql_query=' ~ remove_sql|url_encode %}
+        {% set remove_url = url('/sql') ~ url_query ~ '&sql_query=' ~ remove_sql|url_encode %}
 
         {% include 'table/structure/display_partitions.twig' with {
             'db': db,

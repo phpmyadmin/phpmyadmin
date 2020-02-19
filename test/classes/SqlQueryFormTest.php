@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for PhpMyAdmin\SqlQueryForm
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -11,53 +8,46 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Encoding;
+use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\SqlQueryForm;
-use PhpMyAdmin\Theme;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
-
-//the following definition should be used globally
-$GLOBALS['server'] = 0;
+use function htmlspecialchars;
 
 /**
  * PhpMyAdmin\Tests\SqlQueryFormTest class
  *
  * this class is for testing PhpMyAdmin\SqlQueryForm methods
- *
- * @package PhpMyAdmin-test
  */
 class SqlQueryFormTest extends TestCase
 {
-    /**
-     * @var SqlQueryForm
-     */
+    /** @var SqlQueryForm */
     private $sqlQueryForm;
 
     /**
      * Test for setUp
-     *
-     * @return void
      */
     protected function setUp(): void
     {
-        $this->sqlQueryForm = new SqlQueryForm();
+        $this->sqlQueryForm = new SqlQueryForm(new Template());
 
         //$GLOBALS
         $GLOBALS['max_upload_size'] = 100;
         $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
-        $GLOBALS['db'] = "PMA_db";
-        $GLOBALS['table'] = "PMA_table";
-        $GLOBALS['text_dir'] = "text_dir";
+        $GLOBALS['db'] = 'PMA_db';
+        $GLOBALS['table'] = 'PMA_table';
+        $GLOBALS['text_dir'] = 'text_dir';
+        $GLOBALS['server'] = 0;
 
         $GLOBALS['cfg']['GZipDump'] = false;
         $GLOBALS['cfg']['BZipDump'] = false;
         $GLOBALS['cfg']['ZipDump'] = false;
-        $GLOBALS['cfg']['ServerDefault'] = "default";
+        $GLOBALS['cfg']['ServerDefault'] = 'default';
         $GLOBALS['cfg']['TextareaAutoSelect'] = true;
         $GLOBALS['cfg']['TextareaRows'] = 100;
         $GLOBALS['cfg']['TextareaCols'] = 11;
-        $GLOBALS['cfg']['DefaultTabDatabase'] = "structure";
+        $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
         $GLOBALS['cfg']['RetainQueryBox'] = true;
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
         $GLOBALS['cfg']['DefaultTabTable'] = 'browse';
@@ -67,18 +57,18 @@ class SqlQueryFormTest extends TestCase
         //_SESSION
         $_SESSION['relation'][0] = [
             'PMA_VERSION' => PMA_VERSION,
-            'table_coords' => "table_name",
+            'table_coords' => 'table_name',
             'displaywork' => 'displaywork',
-            'db' => "information_schema",
+            'db' => 'information_schema',
             'table_info' => 'table_info',
             'relwork' => 'relwork',
             'relation' => 'relation',
             'bookmarkwork' => false,
         ];
         //$GLOBALS
-        $GLOBALS['cfg']['Server']['user'] = "user";
-        $GLOBALS['cfg']['Server']['pmadb'] = "pmadb";
-        $GLOBALS['cfg']['Server']['bookmarktable'] = "bookmarktable";
+        $GLOBALS['cfg']['Server']['user'] = 'user';
+        $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';
+        $GLOBALS['cfg']['Server']['bookmarktable'] = 'bookmarktable';
 
         //$_SESSION
 
@@ -88,8 +78,8 @@ class SqlQueryFormTest extends TestCase
             ->getMock();
 
         $fetchResult = [
-            "index1" => "table1",
-            "index2" => "table2",
+            'index1' => 'table1',
+            'index2' => 'table2',
         ];
         $dbi->expects($this->any())
             ->method('fetchResult')
@@ -97,8 +87,8 @@ class SqlQueryFormTest extends TestCase
 
         $getColumns = [
             [
-                "Field" => "field1",
-                "Comment" => "Comment1",
+                'Field' => 'field1',
+                'Comment' => 'Comment1',
             ],
         ];
         $dbi->expects($this->any())
@@ -116,8 +106,8 @@ class SqlQueryFormTest extends TestCase
     public function testPMAGetHtmlForSqlQueryFormInsert()
     {
         //Call the test function
-        $query = "select * from PMA";
-        $html = $this->sqlQueryForm->getHtmlForInsert($query);
+        $query = 'select * from PMA';
+        $html = $this->sqlQueryForm->getHtml($query);
 
         //validate 1: query
         $this->assertStringContainsString(
@@ -132,9 +122,9 @@ class SqlQueryFormTest extends TestCase
             $html
         );
 
-        //validate 3: showMySQLDocu
+        //validate 3: MySQLDocumentation::show
         $this->assertStringContainsString(
-            Util::showMySQLDocu('SELECT'),
+            MySQLDocumentation::show('SELECT'),
             $html
         );
 
@@ -181,7 +171,7 @@ class SqlQueryFormTest extends TestCase
         //Call the test function
         $GLOBALS['is_upload'] = true;
         $GLOBALS['lang'] = 'ja';
-        $query = "select * from PMA";
+        $query = 'select * from PMA';
         $html = $this->sqlQueryForm->getHtml($query);
 
         //validate 1: query
@@ -191,7 +181,7 @@ class SqlQueryFormTest extends TestCase
         );
 
         //validate 2: $enctype
-        $enctype = ' enctype="multipart/form-data"';
+        $enctype = ' enctype="multipart/form-data">';
         $this->assertStringContainsString(
             $enctype,
             $html
@@ -199,7 +189,7 @@ class SqlQueryFormTest extends TestCase
 
         //validate 3: sqlqueryform
         $this->assertStringContainsString(
-            'id="sqlqueryform" name="sqlform">',
+            'id="sqlqueryform" name="sqlform"',
             $html
         );
 
@@ -212,7 +202,7 @@ class SqlQueryFormTest extends TestCase
         );
 
         //validate 5: $goto
-        $goto = empty($GLOBALS['goto']) ? 'tbl_sql.php' : $GLOBALS['goto'];
+        $goto = empty($GLOBALS['goto']) ? Url::getFromRoute('/table/sql') : $GLOBALS['goto'];
         $this->assertStringContainsString(
             htmlspecialchars($goto),
             $html

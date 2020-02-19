@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for PhpMyAdmin\Navigation\Nodes\NodeEventContainer class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -11,19 +8,15 @@ namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Tests\PmaTestCase;
-use PhpMyAdmin\Theme;
+use PhpMyAdmin\Url;
 
 /**
  * Tests for PhpMyAdmin\Navigation\Nodes\NodeEventContainer class
- *
- * @package PhpMyAdmin-test
  */
 class NodeEventContainerTest extends PmaTestCase
 {
     /**
      * SetUp for test cases
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -43,7 +36,7 @@ class NodeEventContainerTest extends PmaTestCase
             $parent->links
         );
         $this->assertStringContainsString(
-            'db_events.php',
+            Url::getFromRoute('/database/events'),
             $parent->links['text']
         );
         $this->assertEquals('events', $parent->realName);

@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Properties class for the schema export plug-in
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -11,8 +8,6 @@ namespace PhpMyAdmin\Properties\Plugins;
 
 /**
  * Defines possible options and getters and setters for them.
- *
- * @package PhpMyAdmin
  */
 class SchemaPluginProperties extends PluginPropertyItem
 {
@@ -31,7 +26,7 @@ class SchemaPluginProperties extends PluginPropertyItem
      */
     public function getItemType()
     {
-        return "schema";
+        return 'schema';
     }
 
     /**

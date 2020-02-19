@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * hold PhpMyAdmin\Twig\RelationExtension class
- *
- * @package PhpMyAdmin\Twig
  */
 declare(strict_types=1);
 
@@ -13,11 +10,6 @@ use PhpMyAdmin\Relation;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
-/**
- * Class RelationExtension
- *
- * @package PhpMyAdmin\Twig
- */
 class RelationExtension extends AbstractExtension
 {
     /**

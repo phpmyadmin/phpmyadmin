@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Holds StatusControllerTest
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,20 +11,13 @@ use PhpMyAdmin\Controllers\Server\Status\StatusController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Replication;
 use PhpMyAdmin\ReplicationGui;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\Stubs\Response;
 use PHPUnit\Framework\TestCase;
 
-/**
- * Class StatusControllerTest
- * @package PhpMyAdmin\Tests\Controllers\Server\Status
- */
 class StatusControllerTest extends TestCase
 {
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
@@ -80,7 +70,7 @@ class StatusControllerTest extends TestCase
             ],
             [
                 "SELECT concat('Com_', variable_name), variable_value "
-                . "FROM data_dictionary.GLOBAL_STATEMENTS",
+                . 'FROM data_dictionary.GLOBAL_STATEMENTS',
                 0,
                 1,
                 DatabaseInterface::CONNECT_USER,
@@ -125,9 +115,6 @@ class StatusControllerTest extends TestCase
         $GLOBALS['dbi'] = $dbi;
     }
 
-    /**
-     * @return void
-     */
     public function testIndex(): void
     {
         $data = new Data();
@@ -144,14 +131,19 @@ class StatusControllerTest extends TestCase
         $data->status['Aborted_connects'] = $abortedConnections;
         $data->status['Connections'] = $connections;
 
+        $response = new Response();
+        $template = new Template();
+
         $controller = new StatusController(
-            Response::getInstance(),
+            $response,
             $GLOBALS['dbi'],
-            new Template(),
-            $data
+            $template,
+            $data,
+            new ReplicationGui(new Replication(), $template)
         );
 
-        $html = $controller->index(new ReplicationGui(new Replication(), new Template()));
+        $controller->index();
+        $html = $response->getHTMLResult();
 
         $traffic = $bytesReceived + $bytesSent;
         $trafficHtml = 'Network traffic since startup: ' . $traffic . ' B';
@@ -174,7 +166,7 @@ class StatusControllerTest extends TestCase
         );
 
         //validate 2: Status::getHtmlForServerStateTraffic
-        $trafficHtml = '<table id="serverstatustraffic" class="width100 data noclick">';
+        $trafficHtml = '<table id="serverstatustraffic" class="w-100 data noclick col-12 col-md-5">';
         $this->assertStringContainsString(
             $trafficHtml,
             $html
@@ -206,7 +198,7 @@ class StatusControllerTest extends TestCase
             $html
         );
         $this->assertStringContainsString(
-            '<table id="serverstatusconnections" class="width100 data noclick">',
+            '<table id="serverstatusconnections" class="w-100 data noclick col-12 col-md-6">',
             $html
         );
         $this->assertStringContainsString(

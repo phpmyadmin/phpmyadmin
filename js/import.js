@@ -1,4 +1,3 @@
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Functions used in the import tab
  *
@@ -59,9 +58,9 @@ AJAX.registerOnload('import.js', function () {
     $(document).on('submit', '#import_file_form', function () {
         var radioLocalImport = $('#radio_local_import_file');
         var radioImport = $('#radio_import_file');
-        var fileMsg = '<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> ' + Messages.strImportDialogMessage + '</div>';
-        var wrongTblNameMsg = '<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error">' + Messages.strTableNameDialogMessage + '</div>';
-        var wrongDBNameMsg = '<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error">' + Messages.strDBNameDialogMessage + '</div>';
+        var fileMsg = '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> ' + Messages.strImportDialogMessage + '</div>';
+        var wrongTblNameMsg = '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error">' + Messages.strTableNameDialogMessage + '</div>';
+        var wrongDBNameMsg = '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error">' + Messages.strDBNameDialogMessage + '</div>';
 
         if (radioLocalImport.length !== 0) {
             // remote upload.
@@ -74,7 +73,7 @@ AJAX.registerOnload('import.js', function () {
 
             if (radioLocalImport.is(':checked')) {
                 if ($('#select_local_import_file').length === 0) {
-                    Functions.ajaxShowMessage('<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> ' + Messages.strNoImportFile + ' </div>', false);
+                    Functions.ajaxShowMessage('<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> ' + Messages.strNoImportFile + ' </div>', false);
                     return false;
                 }
 

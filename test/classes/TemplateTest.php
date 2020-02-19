@@ -1,34 +1,24 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Test for PhpMyAdmin\Template class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Tests\PmaTestCase;
 use Twig\Error\LoaderError;
 
 /**
  * Test for PhpMyAdmin\Template class
- *
- * @package PhpMyAdmin-test
  */
 class TemplateTest extends PmaTestCase
 {
-    /**
-     * @var Template
-     */
+    /** @var Template */
     protected $template;
 
     /**
      * Sets up the fixture.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -39,8 +29,6 @@ class TemplateTest extends PmaTestCase
      * Test for set function
      *
      * @param string $data Template name
-     *
-     * @return void
      *
      * @dataProvider providerTestSet
      */
@@ -72,8 +60,6 @@ class TemplateTest extends PmaTestCase
      * @param string $templateFile Template name
      * @param string $key          Template variable array key
      * @param string $value        Template variable array value
-     *
-     * @return void
      *
      * @dataProvider providerTestDynamicRender
      */
@@ -118,8 +104,6 @@ class TemplateTest extends PmaTestCase
      * @param string $templateFile   Template name
      * @param string $expectedResult Expected result
      *
-     * @return void
-     *
      * @dataProvider providerTestRender
      */
     public function testRender($templateFile, $expectedResult): void
@@ -151,8 +135,6 @@ class TemplateTest extends PmaTestCase
      * @param string $templateFile   Template name
      * @param array  $renderParams   Render params
      * @param string $expectedResult Expected result
-     *
-     * @return void
      *
      * @dataProvider providerTestRenderGettext
      */

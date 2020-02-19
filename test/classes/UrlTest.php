@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for methods in URL class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -11,11 +8,10 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
+use function htmlentities;
 
 /**
  * Tests for methods in URL class
- *
- * @package PhpMyAdmin-test
  */
 class UrlTest extends TestCase
 {
@@ -24,7 +20,6 @@ class UrlTest extends TestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
@@ -42,7 +37,7 @@ class UrlTest extends TestCase
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
         $separator = Url::getArgSeparator();
-        $expected = 'server=x' . htmlentities($separator) . 'lang=en' ;
+        $expected = 'server=x' . htmlentities($separator) . 'lang=en';
 
         $expected = '?db=db'
             . htmlentities($separator) . $expected;
@@ -61,7 +56,7 @@ class UrlTest extends TestCase
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
         $separator = Url::getArgSeparator();
-        $expected = 'server=x' . htmlentities($separator) . 'lang=en' ;
+        $expected = 'server=x' . htmlentities($separator) . 'lang=en';
 
         $expected = '?db=db'
             . htmlentities($separator) . 'table=table'
@@ -84,7 +79,7 @@ class UrlTest extends TestCase
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
         $separator = Url::getArgSeparator();
-        $expected = 'server=x' . $separator . 'lang=en' ;
+        $expected = 'server=x' . $separator . 'lang=en';
 
         $expected = '#ABC#db=db' . $separator . 'table=table' . $separator
             . $expected;
@@ -111,7 +106,7 @@ class UrlTest extends TestCase
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
         $separator = Url::getArgSeparator();
-        $expected = '?server=x' . htmlentities($separator) . 'lang=en' ;
+        $expected = '?server=x' . htmlentities($separator) . 'lang=en';
         $this->assertEquals($expected, Url::getCommon());
     }
 }

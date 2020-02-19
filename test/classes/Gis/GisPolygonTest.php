@@ -1,22 +1,19 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Test for PhpMyAdmin\Gis\GisPolygon
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisPolygon;
-use PhpMyAdmin\Tests\Gis\GisGeomTestCase;
 use TCPDF;
+use function function_exists;
+use function imagecreatetruecolor;
+use function preg_match;
 
 /**
  * Tests for PhpMyAdmin\Gis\GisPolygon class
- *
- * @package PhpMyAdmin-test
  */
 class GisPolygonTest extends GisGeomTestCase
 {
@@ -31,7 +28,6 @@ class GisPolygonTest extends GisGeomTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
@@ -43,7 +39,6 @@ class GisPolygonTest extends GisGeomTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -210,7 +205,6 @@ class GisPolygonTest extends GisGeomTestCase
      * @param float $area area of the ring
      *
      * @dataProvider providerForTestArea
-     * @return void
      */
     public function testArea($ring, $area): void
     {
@@ -293,7 +287,6 @@ class GisPolygonTest extends GisGeomTestCase
      * @param bool  $isInside output
      *
      * @dataProvider providerForTestIsPointInsidePolygon
-     * @return void
      */
     public function testIsPointInsidePolygon($point, $polygon, $isInside): void
     {
@@ -375,7 +368,6 @@ class GisPolygonTest extends GisGeomTestCase
      * @param array $ring array of points forming the ring
      *
      * @dataProvider providerForTestGetPointOnSurface
-     * @return void
      */
     public function testGetPointOnSurface($ring): void
     {
@@ -449,6 +441,7 @@ class GisPolygonTest extends GisGeomTestCase
      * @param resource $image      image object
      *
      * @return void
+     *
      * @dataProvider providerForPrepareRowAsPng
      */
     public function testPrepareRowAsPng(
@@ -504,6 +497,7 @@ class GisPolygonTest extends GisGeomTestCase
      * @param TCPDF  $pdf        TCPDF instance
      *
      * @return void
+     *
      * @dataProvider providerForPrepareRowAsPdf
      */
     public function testPrepareRowAsPdf(
@@ -556,6 +550,7 @@ class GisPolygonTest extends GisGeomTestCase
      * @param string $output     expected output
      *
      * @return void
+     *
      * @dataProvider providerForPrepareRowAsSvg
      */
     public function testPrepareRowAsSvg(
@@ -611,6 +606,7 @@ class GisPolygonTest extends GisGeomTestCase
      * @param string $output     expected output
      *
      * @return void
+     *
      * @dataProvider providerForPrepareRowAsOl
      */
     public function testPrepareRowAsOl(
@@ -678,7 +674,6 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @param array $ring coordinates of the points in a ring
      *
-     * @return void
      * @dataProvider providerForIsOuterRing
      */
     public function testIsOuterRing($ring): void

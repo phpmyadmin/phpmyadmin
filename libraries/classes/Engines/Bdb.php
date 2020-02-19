@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * The BDB storage engine
- *
- * @package PhpMyAdmin-Engines
  */
 declare(strict_types=1);
 
@@ -13,8 +10,6 @@ use PhpMyAdmin\StorageEngine;
 
 /**
  * The BDB storage engine
- *
- * @package PhpMyAdmin-Engines
  */
 class Bdb extends StorageEngine
 {

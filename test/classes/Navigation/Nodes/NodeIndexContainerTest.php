@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for PhpMyAdmin\Navigation\Nodes\NodeIndexContainer class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -11,19 +8,14 @@ namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Tests\PmaTestCase;
-use PhpMyAdmin\Theme;
 
 /**
  * Tests for PhpMyAdmin\Navigation\Nodes\NodeIndexContainer class
- *
- * @package PhpMyAdmin-test
  */
 class NodeIndexContainerTest extends PmaTestCase
 {
     /**
      * SetUp for test cases
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -43,7 +35,7 @@ class NodeIndexContainerTest extends PmaTestCase
             $parent->links
         );
         $this->assertStringContainsString(
-            'tbl_structure.php',
+            'index.php?route=/table/structure',
             $parent->links['text']
         );
         $this->assertEquals('indexes', $parent->realName);

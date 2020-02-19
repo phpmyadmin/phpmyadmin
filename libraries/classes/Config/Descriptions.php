@@ -1,21 +1,19 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Verbose descriptions for settings.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Config;
 
 use PhpMyAdmin\Sanitize;
+use function htmlspecialchars;
+use function sprintf;
+use function str_replace;
 
 /**
  * Base class for forms, loads default configuration options, checks allowed
  * values etc.
- *
- * @package PhpMyAdmin
  */
 class Descriptions
 {
@@ -214,7 +212,7 @@ class Descriptions
             'Export_latex_data_caption_name' => __('Table caption'),
             'Export_latex_data_continued_caption_name' => __('Continued table caption'),
             'Export_latex_data_label_name' => __('Label key'),
-            'Export_latex_mime_name' => __('Media (MIME) type'),
+            'Export_latex_mime_name' => __('Media type'),
             'Export_latex_null_name' => __('Replace NULL with'),
             'Export_latex_relation_name' => __('Relationships'),
             'Export_latex_structure_caption_name' => __('Table caption'),
@@ -226,7 +224,7 @@ class Descriptions
             'Export_ods_null_name' => __('Replace NULL with'),
             'Export_odt_columns_name' => __('Put columns names in the first row'),
             'Export_odt_comments_name' => __('Comments'),
-            'Export_odt_mime_name' => __('Media (MIME) type'),
+            'Export_odt_mime_name' => __('Media type'),
             'Export_odt_null_name' => __('Replace NULL with'),
             'Export_odt_relation_name' => __('Relationships'),
             'Export_odt_structure_or_data_name' => __('Dump table'),
@@ -264,7 +262,7 @@ class Descriptions
             'Export_sql_include_comments_name' => __('Comments'),
             'Export_sql_insert_syntax_name' => __('Syntax to use when inserting data'),
             'Export_sql_max_query_size_name' => __('Maximal length of created query'),
-            'Export_sql_mime_name' => __('Media (MIME) type'),
+            'Export_sql_mime_name' => __('Media type'),
             'Export_sql_procedure_function_name' => sprintf(__('Add %s'), 'CREATE PROCEDURE / FUNCTION / EVENT'),
             'Export_sql_relation_name' => __('Relationships'),
             'Export_sql_structure_or_data_name' => __('Dump table'),
@@ -283,6 +281,7 @@ class Descriptions
             'ForeignKeyMaxLimit_name' => __('Foreign key limit'),
             'DefaultForeignKeyChecks_desc' => __('Default value for foreign key checks checkbox for some queries.'),
             'DefaultForeignKeyChecks_name' => __('Foreign key checks'),
+            'FirstDayOfCalendar_name' => __('First day of calendar'),
             'Form_Browse_name' => __('Browse mode'),
             'Form_Browse_desc' => __('Customize browse mode.'),
             'Form_CodeGen_name' => 'CodeGen',
@@ -489,8 +488,8 @@ class Descriptions
             'NavigationLogoLink_desc' => __('URL where logo in the navigation panel will point to.'),
             'NavigationLogoLink_name' => __('Logo link URL'),
             'NavigationLogoLinkWindow_desc' => __(
-                'Open the linked page in the main window ([kbd]main[/kbd]) or in a new one '
-                . '([kbd]new[/kbd]).'
+                'Open the linked page in the main window ([code]main[/code]) or in a new one '
+                . '([code]new[/code]).'
             ),
             'NavigationLogoLinkWindow_name' => __('Logo link target'),
             'NavigationDisplayServers_desc' => __('Display server choice at the top of the navigation panel.'),
@@ -613,7 +612,7 @@ class Descriptions
             ),
             'Servers_bookmarktable_name' => __('Bookmark table'),
             'Servers_column_info_desc' => __(
-                'Leave blank for no column comments/media (MIME) types, suggested: '
+                'Leave blank for no column comments/media types, suggested: '
                 . '[kbd]pma__column_info[/kbd].'
             ),
             'Servers_column_info_name' => __('Column information table'),

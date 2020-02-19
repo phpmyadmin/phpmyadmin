@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Plugins\Import\ImportOds class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,14 +12,10 @@ use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PhpMyAdmin\Plugins\Import\ImportOds class
- *
- * @package PhpMyAdmin-test
  */
 class ImportOdsTest extends PmaTestCase
 {
-    /**
-     * @access protected
-     */
+    /** @access protected */
     protected $object;
 
     /**
@@ -29,12 +23,11 @@ class ImportOdsTest extends PmaTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
-        $GLOBALS['plugin_param'] = "csv";
+        $GLOBALS['plugin_param'] = 'csv';
         $this->object = new ImportOds();
 
         //setting
@@ -65,7 +58,6 @@ class ImportOdsTest extends PmaTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -131,7 +123,7 @@ class ImportOdsTest extends PmaTestCase
             $sql_query
         );
         $this->assertStringContainsString(
-            "INSERT INTO `ODS_DB`.`pma_bookmark` (`A`, `B`, `C`, `D`) VALUES "
+            'INSERT INTO `ODS_DB`.`pma_bookmark` (`A`, `B`, `C`, `D`) VALUES '
             . "(1, 'dbbase', NULL, 'ddd');",
             $sql_query
         );

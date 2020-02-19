@@ -1,20 +1,22 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Hold the PhpMyAdmin\Language class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\LanguageManager;
+use function addcslashes;
+use function function_exists;
+use function in_array;
+use function preg_match;
+use function setlocale;
+use function str_replace;
+use function strcmp;
+use function strpos;
 
 /**
  * Language object
- *
- * @package PhpMyAdmin
  */
 class Language
 {
@@ -32,7 +34,6 @@ class Language
      * @param string $native Native name
      * @param string $regex  Match regullar expression
      * @param string $mysql  MySQL locale code
-     *
      */
     public function __construct($code, $name, $native, $regex, $mysql)
     {

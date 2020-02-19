@@ -1,7 +1,3 @@
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-
-/* global GotoWhitelist */ // js/whitelist.php
-
 /**
  * An implementation of a client-side page cache.
  * This object also uses the cache to provide a simple microhistory,
@@ -95,7 +91,7 @@ var MicroHistory = {
             ! MicroHistory.menus.get(this.pages[localIndex].menu)
         ) {
             Functions.ajaxShowMessage(
-                '<div class="error">' + Messages.strInvalidPage + '</div>',
+                '<div class="alert alert-danger" role="alert">' + Messages.strInvalidPage + '</div>',
                 false
             );
         } else {
@@ -295,7 +291,7 @@ MicroHistory.setUrlHash = (function (jQuery, window) {
         var questionMarkPosition = urlHash.indexOf('?');
         if (colonPosition !== -1 && questionMarkPosition !== -1 && colonPosition < questionMarkPosition) {
             var hashUrl = urlHash.substring(colonPosition + 1, questionMarkPosition);
-            if (GotoWhitelist.indexOf(hashUrl) !== -1) {
+            if (hashUrl === 'index.php') {
                 window.location = urlHash.substring(
                     colonPosition + 1
                 );

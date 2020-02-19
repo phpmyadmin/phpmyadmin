@@ -4,15 +4,19 @@
     name="phpMyAdmin"
     xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd"
 >
-    <rule ref="vendor/phpmyadmin/coding-standard/PhpMyAdmin/ruleset.xml"/>
+    <rule ref="vendor/phpmyadmin/coding-standard/PhpMyAdmin/ruleset.xml">
+        <exclude name="PEAR.Commenting.ClassComment.Missing"/>
+        <exclude name="PEAR.Commenting.ClassComment.MissingPackageTag"/>
+        <exclude name="PEAR.Commenting.FileComment.Missing"/>
+        <exclude name="PEAR.Commenting.FileComment.MissingPackageTag"/>
+        <exclude name="PEAR.Commenting.FunctionComment.Missing"/>
+        <exclude name="PEAR.Commenting.FunctionComment.MissingReturn"/>
+    </rule>
 
     <rule ref="Generic.Files.LineLength.TooLong">
         <severity>4</severity>
     </rule>
     <rule ref="Generic.Metrics.NestingLevel.TooHigh">
-        <severity>4</severity>
-    </rule>
-    <rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
         <severity>4</severity>
     </rule>
     <rule ref="PSR2.Classes.PropertyDeclaration.Underscore">
@@ -26,6 +30,43 @@
     </rule>
     <rule ref="PSR2.Methods.FunctionCallSignature.Indent">
         <severity>0</severity>
+    </rule>
+
+    <rule ref="Generic.CodeAnalysis.UselessOverridingMethod"/>
+
+    <rule ref="Generic.Strings.UnnecessaryStringConcat">
+        <properties>
+            <property name="allowMultiline" value="true"/>
+        </properties>
+    </rule>
+
+    <rule ref="Squiz.Arrays.ArrayDeclaration">
+        <exclude name="Squiz.Arrays.ArrayDeclaration.DoubleArrowNotAligned"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.KeyNotAligned"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.CloseBraceNotAligned"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.ValueNotAligned"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.SingleLineNotAllowed"/>
+    </rule>
+
+    <rule ref="Squiz.Classes.SelfMemberReference"/>
+
+    <rule ref="Squiz.Strings.DoubleQuoteUsage"/>
+
+    <rule ref="Squiz.WhiteSpace.FunctionOpeningBraceSpace"/>
+    <rule ref="Squiz.WhiteSpace.FunctionSpacing">
+        <properties>
+            <property name="spacing" value="1" />
+            <property name="spacingBeforeFirst" value="0"/>
+            <property name="spacingAfterLast" value="0"/>
+        </properties>
+    </rule>
+    <rule ref="Squiz.WhiteSpace.LogicalOperatorSpacing"/>
+    <rule ref="Squiz.WhiteSpace.SemicolonSpacing"/>
+    <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace">
+        <properties>
+            <property name="ignoreBlankLines" value="false"/>
+        </properties>
     </rule>
 
     <arg value="sp"/>

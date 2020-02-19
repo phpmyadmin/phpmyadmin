@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportCodegen class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,24 +11,21 @@ use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionProperty;
+use function ob_get_clean;
+use function ob_start;
 
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportCodegen class
  *
- * @package PhpMyAdmin-test
  * @group medium
  */
 class ExportCodegenTest extends PmaTestCase
 {
-    /**
-     * @var ExportCodegen
-     */
+    /** @var ExportCodegen */
     protected $object;
 
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -41,8 +35,6 @@ class ExportCodegenTest extends PmaTestCase
 
     /**
      * tearDown for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -56,7 +48,6 @@ class ExportCodegenTest extends PmaTestCase
      */
     public function testInitSpecificVariables()
     {
-
         $method = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportCodegen', 'initSpecificVariables');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
@@ -69,16 +60,16 @@ class ExportCodegenTest extends PmaTestCase
 
         $this->assertEquals(
             [
-                "NHibernate C# DO",
-                "NHibernate XML",
+                'NHibernate C# DO',
+                'NHibernate XML',
             ],
             $attrCgFormats->getValue($this->object)
         );
 
         $this->assertEquals(
             [
-                "_handleNHibernateCSBody",
-                "_handleNHibernateXMLBody",
+                '_handleNHibernateCSBody',
+                '_handleNHibernateXMLBody',
             ],
             $attrCgHandlers->getValue($this->object)
         );
@@ -182,8 +173,8 @@ class ExportCodegenTest extends PmaTestCase
 
         $this->assertEquals(
             [
-                "NHibernate C# DO",
-                "NHibernate XML",
+                'NHibernate C# DO',
+                'NHibernate XML',
             ],
             $select->getValues()
         );
@@ -384,7 +375,7 @@ class ExportCodegenTest extends PmaTestCase
             "        #endregion\n" .
             "    }\n" .
             "    #endregion\n" .
-            "}",
+            '}',
             $result
         );
     }

@@ -1,4 +1,3 @@
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 
 /* global TraceKit */ // js/vendor/tracekit.js
 
@@ -25,7 +24,7 @@ var ErrorReport = {
             exception.name = ErrorReport.extractExceptionName(exception);
         }
         ErrorReport.lastException = exception;
-        $.post('error_report.php', {
+        $.post('index.php?route=/error-report', {
             'ajax_request': true,
             'server': CommonParams.get('server'),
             'get_settings': true,
@@ -43,7 +42,7 @@ var ErrorReport = {
                     'send_error_report': true,
                     'automatic': true
                 });
-                $.post('error_report.php', postData, function (data) {
+                $.post('index.php?route=/error-report', postData, function (data) {
                     if (data.success === false) {
                         // in the case of an error, show the error message returned.
                         Functions.ajaxShowMessage(data.error, false);
@@ -80,7 +79,7 @@ var ErrorReport = {
                 'description': $('#report_description').val(),
                 'always_send': $('#always_send_checkbox')[0].checked
             });
-            $.post('error_report.php', postData, function (data) {
+            $.post('index.php?route=/error-report', postData, function (data) {
                 $dialog.dialog('close');
                 if (data.success === false) {
                     // in the case of an error, show the error message returned.
@@ -95,7 +94,7 @@ var ErrorReport = {
             $(this).dialog('close');
         };
 
-        $.post('error_report.php', reportData, function (data) {
+        $.post('index.php?route=/error-report', reportData, function (data) {
             if (data.success === false) {
                 // in the case of an error, show the error message returned.
                 Functions.ajaxShowMessage(data.error, false);
@@ -124,8 +123,7 @@ var ErrorReport = {
         ErrorReport.removeErrorNotification();
 
         var $div = $(
-            '<div style="position:fixed;bottom:0;left:0;right:0;margin:0;' +
-            'z-index:1000" class="error" id="error_notification"></div>'
+            '<div class="alert alert-danger userPermissionModal" role="alert" id="error_notification"></div>'
         ).append(
             Functions.getImage('s_error') + Messages.strErrorOccurred
         );
@@ -200,7 +198,7 @@ var ErrorReport = {
      * @return void
      */
     redirectToSettings: function () {
-        window.location.href = 'prefs_forms.php';
+        window.location.href = 'index.php?route=/preferences/features';
     },
     /**
      * Returns the report data to send to the server

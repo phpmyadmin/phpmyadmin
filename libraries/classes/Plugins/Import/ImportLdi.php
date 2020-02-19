@@ -1,40 +1,34 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * CSV import plugin for phpMyAdmin using LOAD DATA
- *
- * @package    PhpMyAdmin-Import
- * @subpackage LDI
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
 
-use PhpMyAdmin\Import;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Plugins\Import\AbstractImportCsv;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Util;
+use function count;
+use function preg_split;
+use function strlen;
+use function trim;
+use const PHP_EOL;
 
+// phpcs:disable PSR1.Files.SideEffects
 // We need relations enabled and we work only on database
 if (! isset($GLOBALS['plugin_param']) || $GLOBALS['plugin_param'] !== 'table') {
     $GLOBALS['skip_import'] = true;
-
     return;
 }
+// phpcs:enable
 
 /**
  * Handles the import for the CSV format using load data
- *
- * @package    PhpMyAdmin-Import
- * @subpackage LDI
  */
 class ImportLdi extends AbstractImportCsv
 {
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();
@@ -70,19 +64,19 @@ class ImportLdi extends AbstractImportCsv
         $this->properties->setExtension('ldi');
 
         $leaf = new TextPropertyItem(
-            "columns",
+            'columns',
             __('Column names: ')
         );
         $generalOptions->addProperty($leaf);
 
         $leaf = new BoolPropertyItem(
-            "ignore",
+            'ignore',
             __('Do not abort on INSERT error')
         );
         $generalOptions->addProperty($leaf);
 
         $leaf = new BoolPropertyItem(
-            "local_option",
+            'local_option',
             __('Use LOCAL keyword')
         );
         $generalOptions->addProperty($leaf);
@@ -143,7 +137,7 @@ class ImportLdi extends AbstractImportCsv
         if (strlen((string) $ldi_new_line) > 0) {
             if ($ldi_new_line == 'auto') {
                 $ldi_new_line
-                    = (PHP_EOL == "\n")
+                    = PHP_EOL == "\n"
                     ? '\n'
                     : '\r\n';
             }

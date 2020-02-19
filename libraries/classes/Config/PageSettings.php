@@ -1,16 +1,11 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Page-related settings
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Config;
 
-use PhpMyAdmin\Config\ConfigFile;
-use PhpMyAdmin\Config\FormDisplay;
 use PhpMyAdmin\Config\Forms\Page\PageFormList;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
@@ -19,44 +14,41 @@ use PhpMyAdmin\UserPreferences;
 
 /**
  * Page-related settings
- *
- * @package PhpMyAdmin
  */
 class PageSettings
 {
-
     /**
      * Contains id of the form element
+     *
      * @var string
      */
     private $_elemId = 'page_settings_modal';
 
     /**
      * Name of the group to show
+     *
      * @var string
      */
     private $_groupName = '';
 
     /**
      * Contains HTML of errors
+     *
      * @var string
      */
     private $_errorHTML = '';
 
     /**
      * Contains HTML of settings
+     *
      * @var string
      */
     private $_HTML = '';
 
-    /**
-     * @var UserPreferences
-     */
+    /** @var UserPreferences */
     private $userPreferences;
 
     /**
-     * Constructor
-     *
      * @param string $formGroupName The name of config form group to display
      * @param string $elemId        Id of the div containing settings
      */
@@ -138,7 +130,7 @@ class PageSettings
         }
         if ($formDisplay->hasErrors()) {
             // form has errors
-            $retval .= '<div class="error config-form">'
+            $retval .= '<div class="alert alert-danger config-form" role="alert">'
                 . '<b>' . __(
                     'Cannot save settings, submitted configuration form contains '
                     . 'errors!'
@@ -204,7 +196,9 @@ class PageSettings
 
     /**
      * Group to show for Page-related settings
+     *
      * @param string $formGroupName The name of config form group to display
+     *
      * @return PageSettings
      */
     public static function showGroup($formGroupName)
@@ -220,6 +214,7 @@ class PageSettings
 
     /**
      * Get HTML for navigation settings
+     *
      * @return string
      */
     public static function getNaviSettings()

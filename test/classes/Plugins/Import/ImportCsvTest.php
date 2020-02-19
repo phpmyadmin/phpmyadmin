@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Plugins\Import\ImportCsv class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -11,12 +9,10 @@ namespace PhpMyAdmin\Tests\Plugins\Import;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportCsv;
 use PhpMyAdmin\Tests\PmaTestCase;
-use PhpMyAdmin\Theme;
+use function basename;
 
 /**
  * Tests for PhpMyAdmin\Plugins\Import\ImportCsv class
- *
- * @package PhpMyAdmin-test
  */
 class ImportCsvTest extends PmaTestCase
 {
@@ -31,12 +27,11 @@ class ImportCsvTest extends PmaTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
-        $GLOBALS['plugin_param'] = "csv";
+        $GLOBALS['plugin_param'] = 'csv';
         $this->object = new ImportCsv();
 
         unset($GLOBALS['db']);
@@ -60,7 +55,7 @@ class ImportCsvTest extends PmaTestCase
         $GLOBALS['csv_enclosed'] = '"';
         $GLOBALS['csv_escaped'] = '"';
         $GLOBALS['csv_new_line'] = 'auto';
-        $GLOBALS['import_file_name'] = basename($GLOBALS['import_file'], ".csv");
+        $GLOBALS['import_file_name'] = basename($GLOBALS['import_file'], '.csv');
 
         //$_SESSION
 
@@ -76,7 +71,6 @@ class ImportCsvTest extends PmaTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {

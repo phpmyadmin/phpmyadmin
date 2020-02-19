@@ -1,11 +1,6 @@
 // configures general layout for detailed layout configuration please refer to the css files
 
 $navi-width: 250px;
-$font-family: "Open Sans", "Segoe UI", sans-serif;
-$font-family-light: "Open Sans Light", "Segoe UI Light", "Segoe UI", sans-serif;
-$font-family-bold: "Open Sans Bold", sans-serif;
-$font-family-extra-bold: "Open Sans Extrabold", "Segoe Black", sans-serif;
-$font-family-fixed: Consolas, "Lucida Grande", monospace;
 
 // Theme color scheme
 // Values: "teal", "redmond", "blueeyes", "mono", "win"
@@ -21,7 +16,7 @@ $navi-pointer-background: #377796;
 $navi-database-name-color: #333;
 $navi-hover-background: #428eb4;
 $main-color: #444;
-$main-background: #fff;
+$body-bg: #fff;
 $browse-pointer-color: #377796;
 $browse-marker-color: #000;
 $browse-warning-color: #d44a26;
@@ -49,7 +44,7 @@ $blue-header: #3a7ead;
   $navi-database-name-color: #fff;
   $navi-hover-background: #216475;
   $main-color: #444;
-  $main-background: #fff;
+  $body-bg: #fff;
   $browse-pointer-color: #004d60;
   $browse-marker-color: #000;
   $browse-warning-color: #d44a26;
@@ -76,7 +71,7 @@ $blue-header: #3a7ead;
   $navi-database-name-color: #fff;
   $navi-hover-background: #a10707;
   $main-color: #444;
-  $main-background: #fff;
+  $body-bg: #fff;
   $browse-pointer-color: #780505;
   $browse-marker-color: #000;
   $browse-warning-color: #d44a26;
@@ -103,7 +98,7 @@ $blue-header: #3a7ead;
   $navi-database-name-color: #fff;
   $navi-hover-background: #428eb4;
   $main-color: #444;
-  $main-background: #fff;
+  $body-bg: #fff;
   $browse-pointer-color: #377796;
   $browse-marker-color: #000;
   $browse-warning-color: #d44a26;
@@ -130,7 +125,7 @@ $blue-header: #3a7ead;
   $navi-database-name-color: #fff;
   $navi-hover-background: #999;
   $main-color: #444;
-  $main-background: #fff;
+  $body-bg: #fff;
   $browse-pointer-color: #666;
   $browse-marker-color: #000;
   $browse-warning-color: #666;
@@ -151,14 +146,74 @@ $blue-header: #3a7ead;
 }
 
 // Bootstrap
+// ---------
+
+// Body
+
+$body-color: $main-color;
+
+// Typography
+
+$font-family-base: "Open Sans", "Segoe UI", sans-serif;
+$font-family-monospace: Consolas, "Lucida Grande", monospace;
+
+$font-family-light: "Open Sans Light", "Segoe UI Light", "Segoe UI", sans-serif;
+$font-family-bold: "Open Sans Bold", sans-serif;
+$font-family-extra-bold: "Open Sans Extrabold", "Segoe Black", sans-serif;
+
+$font-size-base: 0.6875rem; // 11px
+$line-height-base: 1;
+
+// Buttons
 
 $enable-transitions: false;
 
 $primary: $browse-pointer-color;
 $secondary: $browse-gray-color;
 
-$font-size-base: 0.8rem;
-
 $btn-border-radius: 0;
 $btn-line-height: 1;
 $btn-padding-x: 0.5rem;
+
+// Dropdowns
+
+$dropdown-border-radius: 0;
+
+// Navbar
+
+$enable-caret: false;
+$navbar-padding-y: 0;
+$navbar-padding-x: 0;
+$navbar-nav-link-padding-x: 0;
+$navbar-nav-link-padding-y: 0;
+$navbar-light-color: #666;
+$navbar-light-hover-color: #333;
+$navbar-light-active-color: #666;
+$navbar-light-disabled-color: #666;
+
+// Card
+
+$card-border-width: 0;
+$card-cap-color: $navi-background;
+$card-cap-bg: $body-bg;
+
+// Breadcrumbs
+
+$breadcrumb-padding-y: 0.89rem;
+$breadcrumb-margin-bottom: 0;
+$breadcrumb-bg: $navi-background;
+$breadcrumb-divider-color: $button-color;
+$breadcrumb-divider: none;
+$breadcrumb-border-radius: 0;
+
+// Alert
+
+$alert-margin-bottom: 1em;
+$alert-border-radius: 0;
+$alert-border-width: 0;
+
+// List group
+
+$list-group-bg: inherit;
+$list-group-item-padding-x: 0;
+$list-group-item-padding-y: 0;

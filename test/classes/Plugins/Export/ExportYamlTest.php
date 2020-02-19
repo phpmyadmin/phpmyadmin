@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportYaml class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,11 +11,13 @@ use PhpMyAdmin\Plugins\Export\ExportYaml;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
+use function array_shift;
+use function ob_get_clean;
+use function ob_start;
 
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportYaml class
  *
- * @package PhpMyAdmin-test
  * @group medium
  */
 class ExportYamlTest extends PmaTestCase
@@ -27,8 +26,6 @@ class ExportYamlTest extends PmaTestCase
 
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -44,8 +41,6 @@ class ExportYamlTest extends PmaTestCase
 
     /**
      * tearDown for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -260,8 +255,8 @@ class ExportYamlTest extends PmaTestCase
                 'db',
                 'ta<ble',
                 "\n",
-                "example.com",
-                "SELECT"
+                'example.com',
+                'SELECT'
             )
         );
         $result = ob_get_clean();

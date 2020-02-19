@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Test for PhpMyAdmin\Header class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -12,22 +9,19 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Header;
-use PhpMyAdmin\Tests\PmaTestCase;
-use ReflectionMethod;
 use ReflectionProperty;
+use function define;
+use function defined;
 
 /**
  * Test for PhpMyAdmin\Header class
  *
- * @package PhpMyAdmin-test
  * @group medium
  */
 class HeaderTest extends PmaTestCase
 {
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -154,6 +148,7 @@ class HeaderTest extends PmaTestCase
      * Test for Disable Warnings
      *
      * @return void
+     *
      * @test
      */
     public function testDisableWarnings()

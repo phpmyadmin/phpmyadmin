@@ -1,21 +1,16 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for Linter.php.
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Linter;
-use PhpMyAdmin\Tests\PmaTestCase;
+use function str_repeat;
 
 /**
  * Tests for PhpMyAdmin\Linter
- *
- * @package PhpMyAdmin-test
  */
 class LinterTest extends PmaTestCase
 {
@@ -82,12 +77,10 @@ class LinterTest extends PmaTestCase
     /**
      * Test for Linter::lint
      *
-     * @dataProvider lintProvider
-     *
      * @param array  $expected The expected result.
      * @param string $query    The query to be analyzed.
      *
-     * @return void
+     * @dataProvider lintProvider
      */
     public function testLint($expected, $query): void
     {
@@ -145,7 +138,7 @@ class LinterTest extends PmaTestCase
                         'severity' => 'warning',
                     ],
                 ],
-                str_repeat(";", 10001),
+                str_repeat(';', 10001),
             ],
         ];
     }

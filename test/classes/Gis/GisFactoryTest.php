@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Test for PhpMyAdmin\Gis\GisFactory
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,12 +11,9 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Test class for PhpMyAdmin\Gis\GisFactory
- *
- * @package PhpMyAdmin-test
  */
 class GisFactoryTest extends TestCase
 {
-
     /**
      * Test factory method
      *
@@ -27,7 +21,6 @@ class GisFactoryTest extends TestCase
      * @param string $geom geometry object
      *
      * @dataProvider providerForTestFactory
-     * @return void
      */
     public function testFactory(string $type, string $geom): void
     {

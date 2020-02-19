@@ -22,9 +22,6 @@ $navi-pointer-background: #ddd;
 // foreground (text) color for the main frame
 $main-color: #444;
 
-// background for the main frame
-$main-background: #fff;
-
 // foreground (text) color of the pointer in browse mode
 $browse-pointer-color: #000;
 
@@ -37,14 +34,6 @@ $browse-marker-color: #000;
 
 // background of the marker (visually marks row by clicking on it) in browse mode
 $browse-marker-background: #fc9;
-
-// fonts
-
-// the font family as a valid css font family value, if not set the browser default will be
-// used (depending on browser, DTD and system settings)
-$font-family: sans-serif;
-// fixed width font family, used in textarea
-$font-family-fixed: monospace;
 
 // tables
 
@@ -60,6 +49,20 @@ $bg-one: #e5e5e5;
 $bg-two: #d5d5d5;
 
 // Bootstrap
+// ---------
+
+// Body
+
+$body-color: $main-color;
+
+// Typography
+
+$font-family-base: sans-serif;
+$font-family-monospace: monospace;
+
+$font-size-base: 0.82rem;
+
+// Buttons
 
 $enable-gradients: true;
 $enable-shadows: true;
@@ -70,3 +73,46 @@ $secondary: #ddd;
 
 $btn-border-radius: 0.85rem;
 $btn-line-height: 1.15;
+
+// Dropdowns
+
+$dropdown-padding-y: 0;
+$dropdown-item-padding-y: 0;
+$dropdown-item-padding-x: 0;
+
+// Navbar
+
+$enable-caret: false;
+$navbar-padding-y: 0;
+$navbar-padding-x: 0;
+$navbar-light-color: #235a81;
+$navbar-light-hover-color: #235a81;
+$navbar-light-active-color: #235a81;
+$navbar-light-disabled-color: #235a81;
+
+// Card
+
+$card-border-color: #999;
+$card-bg: #f3f3f3;
+$card-cap-bg: #bbb;
+$card-cap-color: #fff;
+
+// Breadcrumbs
+
+$breadcrumb-padding-y: 0.1rem;
+$breadcrumb-margin-bottom: 0;
+$breadcrumb-bg: #888;
+$breadcrumb-divider-color: #fff;
+$breadcrumb-divider: quote("»");
+$breadcrumb-border-radius: 0;
+
+// Alert
+
+$alert-margin-bottom: 0.5em;
+$alert-border-radius: 5px;
+
+// List group
+
+$list-group-bg: inherit;
+$list-group-item-padding-x: 0;
+$list-group-item-padding-y: 0;

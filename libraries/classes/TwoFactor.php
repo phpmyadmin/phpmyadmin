@@ -1,58 +1,43 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Two authentication factor handling
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\TwoFactor\Application;
 use PhpMyAdmin\Plugins\TwoFactor\Invalid;
 use PhpMyAdmin\Plugins\TwoFactor\Key;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
-use PhpMyAdmin\UserPreferences;
 use PragmaRX\Google2FAQRCode\Google2FA;
 use Samyoul\U2F\U2FServer\U2FServer;
+use function array_merge;
+use function class_exists;
+use function in_array;
+use function ucfirst;
 
 /**
  * Two factor authentication wrapper class
- *
- * @package PhpMyAdmin
  */
 class TwoFactor
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     public $user;
 
-    /**
-     * @var array
-     */
+    /** @var array */
     public $config;
 
-    /**
-     * @var boolean
-     */
+    /** @var bool */
     protected $_writable;
 
-    /**
-     * @var TwoFactorPlugin
-     */
+    /** @var TwoFactorPlugin */
     protected $_backend;
 
-    /**
-     * @var array
-     */
+    /** @var array */
     protected $_available;
 
-    /**
-     * @var UserPreferences
-     */
+    /** @var UserPreferences */
     private $userPreferences;
 
     /**
@@ -62,16 +47,16 @@ class TwoFactor
      */
     public function __construct($user)
     {
-        /** @var DatabaseInterface $dbi */
         global $dbi;
+
         $dbi->initRelationParamsCache();
 
         $this->userPreferences = new UserPreferences();
         $this->user = $user;
-        $this->_available = $this->getAvailable();
+        $this->_available = $this->getAvailableBackends();
         $this->config = $this->readConfig();
         $this->_writable = ($this->config['type'] == 'db');
-        $this->_backend = $this->getBackend();
+        $this->_backend = $this->getBackendForCurrentUser();
     }
 
     /**
@@ -96,26 +81,28 @@ class TwoFactor
         return $result;
     }
 
-    /**
-     * Get any property of this class
-     *
-     * @param string $property name of the property
-     *
-     * @return mixed|void if property exist, value of the relevant property
-     */
-    public function __get($property)
+    public function isWritable(): bool
     {
-        switch ($property) {
-            case 'backend':
-                return $this->_backend;
-            case 'available':
-                return $this->_available;
-            case 'writable':
-                return $this->_writable;
-            case 'showSubmit':
-                $backend = $this->_backend;
-                return $backend::$showSubmit;
-        }
+        return $this->_writable;
+    }
+
+    public function getBackend(): TwoFactorPlugin
+    {
+        return $this->_backend;
+    }
+
+    /**
+     * @return array
+     */
+    public function getAvailable(): array
+    {
+        return $this->_available;
+    }
+
+    public function showSubmit(): bool
+    {
+        $backend = $this->_backend;
+        return $backend::$showSubmit;
     }
 
     /**
@@ -123,7 +110,7 @@ class TwoFactor
      *
      * @return array
      */
-    public function getAvailable()
+    public function getAvailableBackends()
     {
         $result = [];
         if ($GLOBALS['cfg']['DBG']['simple2fa']) {
@@ -190,7 +177,7 @@ class TwoFactor
      *
      * @return TwoFactorPlugin
      */
-    public function getBackend()
+    public function getBackendForCurrentUser()
     {
         $name = $this->getBackendClass($this->config['backend']);
         return new $name($this);
@@ -199,9 +186,9 @@ class TwoFactor
     /**
      * Checks authentication, returns true on success
      *
-     * @param boolean $skip_session Skip session cache
+     * @param bool $skip_session Skip session cache
      *
-     * @return boolean
+     * @return bool
      */
     public function check($skip_session = false)
     {
@@ -252,7 +239,7 @@ class TwoFactor
      *
      * @param string $name Backend name
      *
-     * @return boolean
+     * @return bool
      */
     public function configure($name)
     {
@@ -288,7 +275,7 @@ class TwoFactor
      */
     public function getAllBackends()
     {
-        $all = array_merge([''], $this->available);
+        $all = array_merge([''], $this->_available);
         $backends = [];
         foreach ($all as $name) {
             $cls = $this->getBackendClass($name);

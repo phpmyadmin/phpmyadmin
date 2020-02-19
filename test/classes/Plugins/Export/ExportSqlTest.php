@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportSql class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -17,11 +14,13 @@ use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
 use stdClass;
+use function array_shift;
+use function ob_get_clean;
+use function ob_start;
 
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportSql class
  *
- * @package PhpMyAdmin-test
  * @group medium
  */
 class ExportSqlTest extends PmaTestCase
@@ -30,8 +29,6 @@ class ExportSqlTest extends PmaTestCase
 
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -50,8 +47,6 @@ class ExportSqlTest extends PmaTestCase
 
     /**
      * tearDown for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -62,6 +57,7 @@ class ExportSqlTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::setProperties
      *
      * @return void
+     *
      * @group medium
      */
     public function testSetProperties()
@@ -552,7 +548,7 @@ class ExportSqlTest extends PmaTestCase
         );
 
         $this->assertStringContainsString(
-            "40101 SET",
+            '40101 SET',
             $result
         );
 
@@ -674,7 +670,7 @@ class ExportSqlTest extends PmaTestCase
         $result = ob_get_clean();
 
         $this->assertStringContainsString(
-            "&quot;testDB&quot;",
+            '&quot;testDB&quot;',
             $result
         );
 
@@ -689,7 +685,7 @@ class ExportSqlTest extends PmaTestCase
         $result = ob_get_clean();
 
         $this->assertStringContainsString(
-            "testDB",
+            'testDB',
             $result
         );
     }
@@ -701,7 +697,6 @@ class ExportSqlTest extends PmaTestCase
      */
     public function testExportEvents()
     {
-
         $GLOBALS['crlf'] = "\n";
         $GLOBALS['sql_structure_or_data'] = 'structure';
         $GLOBALS['sql_procedure_function'] = true;
@@ -780,7 +775,7 @@ class ExportSqlTest extends PmaTestCase
     public function testExportDBFooter()
     {
         $GLOBALS['crlf'] = "\n";
-        $GLOBALS['sql_constraints'] = "SqlConstraints";
+        $GLOBALS['sql_constraints'] = 'SqlConstraints';
         $GLOBALS['sql_structure_or_data'] = 'structure';
         $GLOBALS['sql_procedure_function'] = true;
 
@@ -831,15 +826,15 @@ class ExportSqlTest extends PmaTestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $result = $this->object->getTableDefStandIn('db', 'view', "");
+        $result = $this->object->getTableDefStandIn('db', 'view', '');
 
         $this->assertStringContainsString(
-            "DROP VIEW IF EXISTS `view`;",
+            'DROP VIEW IF EXISTS `view`;',
             $result
         );
 
         $this->assertStringContainsString(
-            "CREATE TABLE IF NOT EXISTS `view` (`cname` int);",
+            'CREATE TABLE IF NOT EXISTS `view` (`cname` int);',
             $result
         );
     }
@@ -940,11 +935,11 @@ class ExportSqlTest extends PmaTestCase
         );
     }
 
-
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::getTableDef
      *
      * @return void
+     *
      * @group medium
      */
     public function testGetTableDef()
@@ -1054,7 +1049,7 @@ class ExportSqlTest extends PmaTestCase
             'db',
             'table',
             "\n",
-            "example.com/err",
+            'example.com/err',
             true,
             true,
             false
@@ -1081,7 +1076,7 @@ class ExportSqlTest extends PmaTestCase
         );
 
         $this->assertStringContainsString(
-            "CREATE TABLE `table`",
+            'CREATE TABLE `table`',
             $result
         );
 
@@ -1212,7 +1207,7 @@ class ExportSqlTest extends PmaTestCase
             'db',
             'table',
             "\n",
-            "example.com/err",
+            'example.com/err',
             true,
             true,
             false
@@ -1283,16 +1278,16 @@ class ExportSqlTest extends PmaTestCase
         );
 
         $this->assertStringContainsString(
-            "-- MEDIA (MIME) TYPES FOR TABLE :\n" .
+            "-- MEDIA TYPES FOR TABLE :\n" .
             "--   fieldname\n" .
-            "--       Test<",
+            '--       Test<',
             $result
         );
 
         $this->assertStringContainsString(
             "-- RELATIONSHIPS FOR TABLE :\n" .
             "--   foo\n" .
-            "--       ftable -> ffield",
+            '--       ftable -> ffield',
             $result
         );
     }
@@ -1301,11 +1296,11 @@ class ExportSqlTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportStructure
      *
      * @return void
+     *
      * @group medium
      */
     public function testExportStructure()
     {
-
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
@@ -1332,7 +1327,7 @@ class ExportSqlTest extends PmaTestCase
 
         $this->object->expects($this->at(0))
             ->method('getTableDef')
-            ->with('db', 't&bl', "\n", "example.com", false)
+            ->with('db', 't&bl', "\n", 'example.com', false)
             ->will($this->returnValue('dumpText1'));
 
         $this->object->expects($this->at(1))
@@ -1341,7 +1336,7 @@ class ExportSqlTest extends PmaTestCase
                 'db',
                 't&bl',
                 "\n",
-                "example.com",
+                'example.com',
                 false
             )
             ->will($this->returnValue('dumpText3'));
@@ -1364,9 +1359,9 @@ class ExportSqlTest extends PmaTestCase
                 'db',
                 't&bl',
                 "\n",
-                "example.com",
-                "create_table",
-                "test"
+                'example.com',
+                'create_table',
+                'test'
             )
         );
         $result = ob_get_clean();
@@ -1394,9 +1389,9 @@ class ExportSqlTest extends PmaTestCase
                 'db',
                 't&bl',
                 "\n",
-                "example.com",
-                "triggers",
-                "test"
+                'example.com',
+                'triggers',
+                'test'
             )
         );
         $result = ob_get_clean();
@@ -1423,9 +1418,9 @@ class ExportSqlTest extends PmaTestCase
                 'db',
                 't&bl',
                 "\n",
-                "example.com",
-                "create_view",
-                "test"
+                'example.com',
+                'create_view',
+                'test'
             )
         );
         $result = ob_get_clean();
@@ -1437,7 +1432,7 @@ class ExportSqlTest extends PmaTestCase
 
         $this->assertStringContainsString(
             "DROP TABLE IF EXISTS `t&amp;bl`;\n" .
-            "dumpText3",
+            'dumpText3',
             $result
         );
 
@@ -1464,9 +1459,9 @@ class ExportSqlTest extends PmaTestCase
                 'db',
                 't&bl',
                 "\n",
-                "example.com",
-                "create_view",
-                "test"
+                'example.com',
+                'create_view',
+                'test'
             )
         );
         $result = ob_get_clean();
@@ -1489,15 +1484,15 @@ class ExportSqlTest extends PmaTestCase
                 'db',
                 't&bl',
                 "\n",
-                "example.com",
-                "stand_in",
-                "test"
+                'example.com',
+                'stand_in',
+                'test'
             )
         );
         $result = ob_get_clean();
 
         $this->assertStringContainsString(
-            "dumpText4",
+            'dumpText4',
             $result
         );
     }
@@ -1506,6 +1501,7 @@ class ExportSqlTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportData
      *
      * @return void
+     *
      * @group medium
      */
     public function testExportData()
@@ -1540,7 +1536,7 @@ class ExportSqlTest extends PmaTestCase
         $flags[] = $a;
 
         $a = new stdClass();
-        $a->type = "bit";
+        $a->type = 'bit';
         $a->blob = false;
         $a->numeric = false;
         $a->name = 'name';
@@ -1567,7 +1563,7 @@ class ExportSqlTest extends PmaTestCase
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with(
-                "SELECT a FROM b WHERE 1",
+                'SELECT a FROM b WHERE 1',
                 DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_UNBUFFERED
             )
@@ -1625,8 +1621,8 @@ class ExportSqlTest extends PmaTestCase
             'db',
             'table',
             "\n",
-            "example.com/err",
-            "SELECT a FROM b WHERE 1"
+            'example.com/err',
+            'SELECT a FROM b WHERE 1'
         );
         $result = ob_get_clean();
 
@@ -1653,7 +1649,7 @@ class ExportSqlTest extends PmaTestCase
         );
 
         $this->assertStringContainsString(
-            "SET IDENTITY_INSERT &quot;table&quot; OFF;",
+            'SET IDENTITY_INSERT &quot;table&quot; OFF;',
             $result
         );
     }
@@ -1662,6 +1658,7 @@ class ExportSqlTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportData
      *
      * @return void
+     *
      * @group medium
      */
     public function testExportDataWithUpdate()
@@ -1706,7 +1703,7 @@ class ExportSqlTest extends PmaTestCase
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with(
-                "SELECT a FROM b WHERE 1",
+                'SELECT a FROM b WHERE 1',
                 DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_UNBUFFERED
             )
@@ -1760,8 +1757,8 @@ class ExportSqlTest extends PmaTestCase
             'db',
             'table',
             "\n",
-            "example.com/err",
-            "SELECT a FROM b WHERE 1"
+            'example.com/err',
+            'SELECT a FROM b WHERE 1'
         );
         $result = ob_get_clean();
 
@@ -1810,7 +1807,7 @@ class ExportSqlTest extends PmaTestCase
 
         ob_start();
         $this->assertTrue(
-            $this->object->exportData('db', 'tbl', "\n", "err.com", "SELECT")
+            $this->object->exportData('db', 'tbl', "\n", 'err.com', 'SELECT')
         );
         $result = ob_get_clean();
 
@@ -1867,7 +1864,7 @@ class ExportSqlTest extends PmaTestCase
 
         ob_start();
         $this->assertTrue(
-            $this->object->exportData('db', 'table', "\n", "err.com", "SELECT")
+            $this->object->exportData('db', 'table', "\n", 'err.com', 'SELECT')
         );
         $result = ob_get_clean();
 
@@ -1884,7 +1881,6 @@ class ExportSqlTest extends PmaTestCase
      */
     public function testMakeCreateTableMSSQLCompatible()
     {
-
         $query = "CREATE TABLE IF NOT EXISTS (\" date DEFAULT NULL,\n" .
             "\" date DEFAULT NULL\n\" date NOT NULL,\n\" date NOT NULL\n," .
             " \" date NOT NULL DEFAULT 'asd'," .
@@ -2059,13 +2055,13 @@ class ExportSqlTest extends PmaTestCase
         $table = 'foo';
         $sql_query = "CREATE TABLE IF NOT EXISTS foo (\n"
             . "baz tinyint(3) unsigned NOT NULL COMMENT 'Primary Key',\n"
-            . "xyz varchar(255) COLLATE latin1_general_ci NOT NULL "
+            . 'xyz varchar(255) COLLATE latin1_general_ci NOT NULL '
             . "COMMENT 'xyz',\n"
-            . "pqr varchar(10) COLLATE latin1_general_ci NOT NULL "
+            . 'pqr varchar(10) COLLATE latin1_general_ci NOT NULL '
             . "COMMENT 'pqr',\n"
-            . "CONSTRAINT fk_om_dept FOREIGN KEY (baz) "
+            . 'CONSTRAINT fk_om_dept FOREIGN KEY (baz) '
             . "REFERENCES dept_master (baz)\n"
-            . ") ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE="
+            . ') ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE='
             . "latin1_general_ci COMMENT='List' AUTO_INCREMENT=5";
         $result = $this->object->replaceWithAliases(
             $sql_query,
@@ -2097,15 +2093,15 @@ class ExportSqlTest extends PmaTestCase
         );
 
         $table = 'bar';
-        $sql_query = "CREATE TRIGGER `BEFORE_bar_INSERT` "
-            . "BEFORE INSERT ON `bar` "
-            . "FOR EACH ROW BEGIN "
-            . "SET @cnt=(SELECT count(*) FROM bar WHERE "
-            . "xy=NEW.xy AND id=NEW.id AND "
-            . "abc=NEW.xy LIMIT 1); "
-            . "IF @cnt<>0 THEN "
-            . "SET NEW.xy=1; "
-            . "END IF; END";
+        $sql_query = 'CREATE TRIGGER `BEFORE_bar_INSERT` '
+            . 'BEFORE INSERT ON `bar` '
+            . 'FOR EACH ROW BEGIN '
+            . 'SET @cnt=(SELECT count(*) FROM bar WHERE '
+            . 'xy=NEW.xy AND id=NEW.id AND '
+            . 'abc=NEW.xy LIMIT 1); '
+            . 'IF @cnt<>0 THEN '
+            . 'SET NEW.xy=1; '
+            . 'END IF; END';
         $result = $this->object->replaceWithAliases(
             $sql_query,
             $aliases,
@@ -2114,12 +2110,12 @@ class ExportSqlTest extends PmaTestCase
         );
 
         $this->assertEquals(
-            "CREATE TRIGGER `BEFORE_bar_INSERT` BEFORE INSERT ON `f` FOR EACH ROW BEGIN " .
-            "SET @cnt=(SELECT count(*) FROM `f` WHERE `n`=NEW.`n` AND id=NEW.id AND abc=NEW.`n` LIMIT 1); " .
-            "IF @cnt<>0 THEN " .
-            "SET NEW.`n`=1; " .
-            "END IF; " .
-            "END",
+            'CREATE TRIGGER `BEFORE_bar_INSERT` BEFORE INSERT ON `f` FOR EACH ROW BEGIN ' .
+            'SET @cnt=(SELECT count(*) FROM `f` WHERE `n`=NEW.`n` AND id=NEW.id AND abc=NEW.`n` LIMIT 1); ' .
+            'IF @cnt<>0 THEN ' .
+            'SET NEW.`n`=1; ' .
+            'END IF; ' .
+            'END',
             $result
         );
     }

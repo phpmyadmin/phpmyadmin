@@ -10,7 +10,7 @@
         <a id="showusage"></a>
 
         {% if not tbl_is_view and not db_is_system_schema %}
-            <table id="tablespaceusage" class="width100 data">
+            <table id="tablespaceusage" class="data">
                 <caption class="tblHeaders">{% trans 'Space usage' %}</caption>
                 <tbody>
                     <tr>
@@ -57,7 +57,7 @@
                     or (tbl_storage_engine == 'INNODB' and innodb_file_per_table == true) %}
                     <tr class="tblFooters print_ignore">
                         <td colspan="3" class="center">
-                            <a href="sql.php" data-post="{{ url_query }}&amp;pos=0&amp;sql_query=
+                            <a href="{{ url('/sql') }}" data-post="{{ url_query }}&amp;pos=0&amp;sql_query=
                                 {{- ('OPTIMIZE TABLE ' ~ backquote(table))|url_encode }}">
                                 {{ get_icon('b_tbloptimize', 'Optimize table'|trans) }}
                             </a>
@@ -70,7 +70,7 @@
 
         {% set avg_size = avg_size is defined ? avg_size : null %}
         {% set avg_unit = avg_unit is defined ? avg_unit : null %}
-        <table id="tablerowstats" class="width100 data">
+        <table id="tablerowstats" class="data">
             <caption class="tblHeaders">{% trans 'Row statistics' %}</caption>
             <tbody>
                 {% if showtable['Row_format'] is defined %}

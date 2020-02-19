@@ -1,23 +1,21 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Handles the IPv4/IPv6 to binary transformation for text plain
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage IPToBinary
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Input;
 
+use PhpMyAdmin\Utils\FormatConverter;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use stdClass;
+use function htmlspecialchars;
+use function inet_ntop;
+use function pack;
+use function strlen;
 
 /**
  * Handles the IPv4/IPv6 to binary transformation for text plain
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage IPToBinary
  */
 // @codingStandardsIgnoreLine
 class Text_Plain_Iptobinary extends IOTransformationsPlugin
@@ -47,12 +45,7 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
      */
     public function applyTransformation($buffer, array $options = [], ?stdClass $meta = null)
     {
-        $val = @inet_pton($buffer);
-        if ($val !== false) {
-            return '0x' . bin2hex($val);
-        }
-
-        return $buffer;
+        return FormatConverter::ipToBinary($buffer);
     }
 
     /**
@@ -116,7 +109,7 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
      */
     public static function getName()
     {
-        return "IPv4/IPv6 To Binary";
+        return 'IPv4/IPv6 To Binary';
     }
 
     /**
@@ -126,7 +119,7 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
      */
     public static function getMIMEType()
     {
-        return "Text";
+        return 'Text';
     }
 
     /**
@@ -136,6 +129,6 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
      */
     public static function getMIMESubtype()
     {
-        return "Plain";
+        return 'Plain';
     }
 }

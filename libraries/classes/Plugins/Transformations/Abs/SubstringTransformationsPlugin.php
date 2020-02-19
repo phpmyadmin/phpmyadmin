@@ -1,10 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Abstract class for the substring transformations plugins
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage Substring
  */
 declare(strict_types=1);
 
@@ -12,11 +8,12 @@ namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use stdClass;
+use function htmlspecialchars;
+use function mb_strlen;
+use function mb_substr;
 
 /**
  * Provides common methods for all of the substring transformations plugins.
- *
- * @package PhpMyAdmin
  */
 abstract class SubstringTransformationsPlugin extends TransformationsPlugin
 {
@@ -70,14 +67,13 @@ abstract class SubstringTransformationsPlugin extends TransformationsPlugin
                 $newtext = $options[2] . $newtext;
             }
 
-            if (($length + (int) $options[0]) != $baselength) {
+            if ($length + (int) $options[0] != $baselength) {
                 $newtext .= $options[2];
             }
         }
 
         return htmlspecialchars($newtext);
     }
-
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
@@ -88,6 +84,6 @@ abstract class SubstringTransformationsPlugin extends TransformationsPlugin
      */
     public static function getName()
     {
-        return "Substring";
+        return 'Substring';
     }
 }

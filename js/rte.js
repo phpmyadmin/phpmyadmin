@@ -1,4 +1,3 @@
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * JavaScript functionality for Routines, Triggers and Events.
  *
@@ -170,7 +169,7 @@ RTE.COMMON = {
                 /**
                  * Display the dialog to the user
                  */
-                data.message = '<textarea cols="40" rows="15" class="all100">' + data.message + '</textarea>';
+                data.message = '<textarea cols="40" rows="15" class="w-100">' + data.message + '</textarea>';
                 var $ajaxDialog = $('<div>' + data.message + '</div>').dialog({
                     width: 500,
                     buttons: buttonOptions,
@@ -802,15 +801,15 @@ RTE.ROUTINE = {
         case 'MEDIUMTEXT':
         case 'LONGBLOB':
         case 'LONGTEXT':
-            $text.closest('tr').find('a:first').hide();
+            $text.closest('tr').find('a').first().hide();
             $len.parent().hide();
             $noLen.show();
             break;
         default:
             if ($type.val() === 'ENUM' || $type.val() === 'SET') {
-                $text.closest('tr').find('a:first').show();
+                $text.closest('tr').find('a').first().show();
             } else {
-                $text.closest('tr').find('a:first').hide();
+                $text.closest('tr').find('a').first().hide();
             }
             $len.parent().show();
             $noLen.hide();
@@ -842,7 +841,7 @@ RTE.ROUTINE = {
                         $msg = Functions.ajaxShowMessage(
                             Messages.strProcessingRequest
                         );
-                        $.post('db_routines.php', data, function (data) {
+                        $.post('index.php?route=/database/routines', data, function (data) {
                             if (data.success === true) {
                                 // Routine executed successfully
                                 Functions.ajaxRemoveMessage($msg);
@@ -922,7 +921,7 @@ $(function () {
      */
     $(document).on('click', 'a.ajax.add_anchor, a.ajax.edit_anchor', function (event) {
         event.preventDefault();
-        var type = $(this).attr('href').substr(0, $(this).attr('href').indexOf('?'));
+        var type = $(this).attr('href').substr(0, $(this).attr('href').indexOf('&'));
         if (type.indexOf('routine') !== -1) {
             type = 'routine';
         } else if (type.indexOf('trigger') !== -1) {

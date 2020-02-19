@@ -27,7 +27,7 @@ AJAX.registerOnload('table/find_replace.js', function () {
             return false;
         });
 
-    $('#find_replace_form').submit(function (e) {
+    $('#find_replace_form').on('submit', function (e) {
         e.preventDefault();
         var findReplaceForm = $('#find_replace_form');
         Functions.prepareForAjaxRequest(findReplaceForm);

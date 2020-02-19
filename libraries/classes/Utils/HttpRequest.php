@@ -1,18 +1,44 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Hold the PhpMyAdmin\Utils\HttpRequest class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Utils;
 
+use function base64_encode;
+use function curl_exec;
+use function curl_getinfo;
+use function curl_init;
+use function curl_setopt;
+use function file_get_contents;
+use function function_exists;
+use function ini_get;
+use function intval;
+use function preg_match;
+use function stream_context_create;
+use function strlen;
+use const CURL_IPRESOLVE_V4;
+use const CURLINFO_HTTP_CODE;
+use const CURLINFO_SSL_VERIFYRESULT;
+use const CURLOPT_CAINFO;
+use const CURLOPT_CAPATH;
+use const CURLOPT_CONNECTTIMEOUT;
+use const CURLOPT_CUSTOMREQUEST;
+use const CURLOPT_FOLLOWLOCATION;
+use const CURLOPT_HTTPHEADER;
+use const CURLOPT_IPRESOLVE;
+use const CURLOPT_POSTFIELDS;
+use const CURLOPT_PROXY;
+use const CURLOPT_PROXYUSERPWD;
+use const CURLOPT_RETURNTRANSFER;
+use const CURLOPT_SSL_VERIFYHOST;
+use const CURLOPT_SSL_VERIFYPEER;
+use const CURLOPT_TIMEOUT;
+use const CURLOPT_USERAGENT;
+
 /**
  * Handles HTTP requests
- *
- * @package PhpMyAdmin
  */
 class HttpRequest
 {
@@ -20,9 +46,6 @@ class HttpRequest
     private $proxyUser;
     private $proxyPass;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         global $cfg;
@@ -121,14 +144,14 @@ class HttpRequest
         }
         $curlStatus &= curl_setopt($curlHandle, CURLOPT_USERAGENT, 'phpMyAdmin');
 
-        if ($method != "GET") {
+        if ($method != 'GET') {
             $curlStatus &= curl_setopt($curlHandle, CURLOPT_CUSTOMREQUEST, $method);
         }
         if ($header) {
             $curlStatus &= curl_setopt($curlHandle, CURLOPT_HTTPHEADER, [$header]);
         }
 
-        if ($method == "POST") {
+        if ($method == 'POST') {
             $curlStatus &= curl_setopt($curlHandle, CURLOPT_POSTFIELDS, $content);
         }
 
@@ -209,13 +232,13 @@ class HttpRequest
                 'request_fulluri' => true,
                 'timeout' => 10,
                 'user_agent' => 'phpMyAdmin',
-                'header' => "Accept: */*",
+                'header' => 'Accept: */*',
             ],
         ];
         if ($header) {
             $context['http']['header'] .= "\n" . $header;
         }
-        if ($method == "POST") {
+        if ($method == 'POST') {
             $context['http']['content'] = $content;
         }
         $context = $this->handleContext($context);
@@ -225,7 +248,7 @@ class HttpRequest
             stream_context_create($context)
         );
         if (isset($http_response_header)) {
-            preg_match("#HTTP/[0-9\.]+\s+([0-9]+)#", $http_response_header[0], $out);
+            preg_match('#HTTP/[0-9\.]+\s+([0-9]+)#', $http_response_header[0], $out);
             $httpStatus = intval($out[1]);
             return $this->response($response, $httpStatus, $returnOnlyStatus);
         }

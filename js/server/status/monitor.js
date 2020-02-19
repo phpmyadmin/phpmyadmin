@@ -1,4 +1,3 @@
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * @fileoverview    Javascript functions used in server status monitor page
  * @name            Server Status Monitor
@@ -10,7 +9,7 @@
 
 /* global isStorageSupported */ // js/config.js
 /* global codeMirrorEditor:writable */ // js/functions.js
-/* global pmaThemeImage */ // js/messages.php
+/* global firstDayOfCalendar, pmaThemeImage */ // templates/javascript/variables.twig
 /* global variableNames */ // templates/server/status/monitor/index.twig
 
 var runtime = {};
@@ -20,6 +19,49 @@ var isSuperUser;
 var serverDbIsLocal;
 var chartSize;
 var monitorSettings;
+
+function serverResponseError () {
+    var btns = {};
+    btns[Messages.strReloadPage] = function () {
+        window.location.reload();
+    };
+    $('#emptyDialog').dialog({ title: Messages.strRefreshFailed });
+    $('#emptyDialog').html(
+        Functions.getImage('s_attention') +
+        Messages.strInvalidResponseExplanation
+    );
+    $('#emptyDialog').dialog({ buttons: btns });
+}
+
+/**
+ * Destroys all monitor related resources
+ */
+function destroyGrid () {
+    if (runtime.charts) {
+        $.each(runtime.charts, function (key, value) {
+            try {
+                value.chart.destroy();
+            } catch (err) {
+                // continue regardless of error
+            }
+        });
+    }
+
+    try {
+        runtime.refreshRequest.abort();
+    } catch (err) {
+        // continue regardless of error
+    }
+    try {
+        clearTimeout(runtime.refreshTimeout);
+    } catch (err) {
+        // continue regardless of error
+    }
+    $('#chartGrid').html('');
+    runtime.charts = null;
+    runtime.chartAI = 0;
+    monitorSettings = null;
+}
 
 AJAX.registerOnload('server/status/monitor.js', function () {
     var $jsDataForm = $('#js_data');
@@ -133,7 +175,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
     // Whenever the monitor object (runtime.charts) or the settings object
     // (monitorSettings) changes in a way incompatible to the previous version,
     // increase this number. It will reset the users monitor and settings object
-    // in his localStorage to the default configuration
+    // in their localStorage to the default configuration
     var monitorProtocolVersion = '1.0';
 
     // Runtime parameter of the monitor, is being fully set in initGrid()
@@ -424,7 +466,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
         /* Reorder all charts that it fills all column cells */
         var numColumns;
-        var $tr = $('#chartGrid').find('tr:first');
+        var $tr = $('#chartGrid').find('tr').first();
 
         var tempManageCols = function () {
             if (numColumns > monitorSettings.columns) {
@@ -438,7 +480,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
         var tempAddCol = function () {
             if ($(this).next().length !== 0) {
-                $(this).append($(this).next().find('td:first'));
+                $(this).append($(this).next().find('td').first());
             }
         };
 
@@ -452,7 +494,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             if ($tr.next().length > 0) {
                 var cnt = monitorSettings.columns - $tr.find('td').length;
                 for (var i = 0; i < cnt; i++) {
-                    $tr.append($tr.next().find('td:first'));
+                    $tr.append($tr.next().find('td').first());
                     $tr.nextAll().each(tempAddCol);
                 }
             }
@@ -501,9 +543,9 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             if (type === 'preset') {
                 newChart = presetCharts[$('#addChartDialog').find('select[name="presetCharts"]').prop('value')];
             } else {
-                // If user builds his own chart, it's being set/updated
-                // each time he adds a series
-                // So here we only warn if he didn't add a series yet
+                // If user builds their own chart, it's being set/updated
+                // each time they add a series
+                // So here we only warn if they didn't add a series yet
                 if (! newChart || ! newChart.nodes || newChart.nodes.length === 0) {
                     alert(Messages.strAddOneSeriesWarning);
                     return;
@@ -712,13 +754,13 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         var loadLogVars = function (getvars) {
             var vars = {
                 'ajax_request': true,
-                'logging_vars': true
+                'server': CommonParams.get('server')
             };
             if (getvars) {
                 $.extend(vars, getvars);
             }
 
-            $.post('server_status_monitor.php' + CommonParams.get('common_query'), vars,
+            $.post('index.php?route=/server/status/monitor/log-vars', vars,
                 function (data) {
                     var logVars;
                     if (typeof data !== 'undefined' && data.success === true) {
@@ -1009,10 +1051,10 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         /* Calculate how much spacing there is between each chart */
         $('#chartGrid').html('<tr><td></td><td></td></tr><tr><td></td><td></td></tr>');
         chartSpacing = {
-            width: $('#chartGrid').find('td:nth-child(2)').offset().left -
-                $('#chartGrid').find('td:nth-child(1)').offset().left,
-            height: $('#chartGrid').find('tr:nth-child(2) td:nth-child(2)').offset().top -
-                $('#chartGrid').find('tr:nth-child(1) td:nth-child(1)').offset().top
+            width: $('#chartGrid').find(document.querySelectorAll('td:nth-child(2)')).offset().left -
+                $('#chartGrid').find(document.querySelectorAll('td:nth-child(1)')).offset().left,
+            height: $('#chartGrid').find(document.querySelectorAll('td:nth-child(2) td:nth-child(2)')).offset().top -
+                $('#chartGrid').find(document.querySelectorAll('td:nth-child(1) td:nth-child(1)')).offset().top
         };
         $('#chartGrid').html('');
 
@@ -1030,7 +1072,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         var numCharts = $('#chartGrid').find('.monitorChart').length;
         var numMissingCells = (monitorSettings.columns - numCharts % monitorSettings.columns) % monitorSettings.columns;
         for (i = 0; i < numMissingCells; i++) {
-            $('#chartGrid').find('tr:last').append('<td></td>');
+            $('#chartGrid').find('tr').last().append('<td></td>');
         }
 
         // Empty cells should keep their size so you can drop onto them
@@ -1169,7 +1211,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             if (!chartSize) {
                 calculateChartSize();
             }
-            $('#chartGrid').find('tr:last').append(
+            $('#chartGrid').find('tr').last().append(
                 '<td><div id="gridChartContainer' + runtime.chartAI + '" class="">' +
                 '<div class="ui-state-default monitorChart"' +
                 ' id="gridchart' + runtime.chartAI + '"' +
@@ -1358,12 +1400,14 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         Functions.addDatepicker($dateStart, 'datetime', {
             showMillisec: false,
             showMicrosec: false,
-            timeFormat: 'HH:mm:ss'
+            timeFormat: 'HH:mm:ss',
+            firstDay: firstDayOfCalendar
         });
         Functions.addDatepicker($dateEnd, 'datetime', {
             showMillisec: false,
             showMicrosec: false,
-            timeFormat: 'HH:mm:ss'
+            timeFormat: 'HH:mm:ss',
+            firstDay: firstDayOfCalendar
         });
         $dateStart.datepicker('setDate', min);
         $dateEnd.datepicker('setDate', max);
@@ -1385,10 +1429,8 @@ AJAX.registerOnload('server/status/monitor.js', function () {
     /* Called in regular intervals, this function updates the values of each chart in the grid */
     function refreshChartGrid () {
         /* Send to server */
-        runtime.refreshRequest = $.post('server_status_monitor.php' + CommonParams.get('common_query'), {
+        runtime.refreshRequest = $.post('index.php?route=/server/status/monitor/chart', {
             'ajax_request': true,
-            'chart_data': 1,
-            'type': 'chartgrid',
             'requiredData': JSON.stringify(runtime.dataList),
             'server': CommonParams.get('server')
         }, function (data) {
@@ -1623,16 +1665,19 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             buttons: dlgBtns
         });
 
+        var url = 'index.php?route=/server/status/monitor/slow-log';
+        if (opts.src === 'general') {
+            url = 'index.php?route=/server/status/monitor/general-log';
+        }
         logRequest = $.post(
-            'server_status_monitor.php' + CommonParams.get('common_query'),
+            url,
             {
                 'ajax_request': true,
-                'log_data': 1,
-                'type': opts.src,
                 'time_start': Math.round(opts.start / 1000),
                 'time_end': Math.round(opts.end / 1000),
                 'removeVariables': opts.removeVariables,
-                'limitTypes': opts.limitTypes
+                'limitTypes': opts.limitTypes,
+                'server': CommonParams.get('server')
             },
             function (data) {
                 var logData;
@@ -1762,7 +1807,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             };
 
             // We just assume the sql text is always in the second last column, and that the total count is right of it
-            $('#logTable').find('table tbody tr td:nth-child(' + (runtime.logDataCols.length - 1) + ')').each(function () {
+            $('#logTable').find(document.querySelectorAll('table tbody tr td:nth-child(' + (runtime.logDataCols.length - 1) + ')')).each(function () {
                 var $t = $(this);
                 // If query is a SELECT and user enabled or disabled to group
                 // queries ignoring data in where statements, we
@@ -1798,10 +1843,10 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                         $t.next().text(rowData[sumColumnName]);
                         // Restore slow log columns
                         if (isSlowLog) {
-                            $t.parent().children('td:nth-child(3)').text(rowData.query_time);
-                            $t.parent().children('td:nth-child(4)').text(rowData.lock_time);
-                            $t.parent().children('td:nth-child(5)').text(rowData.rows_sent);
-                            $t.parent().children('td:nth-child(6)').text(rowData.rows_examined);
+                            $t.parent().children(document.querySelectorAll('td:nth-child(3)')).text(rowData.query_time);
+                            $t.parent().children(document.querySelectorAll('td:nth-child(4)')).text(rowData.lock_time);
+                            $t.parent().children(document.querySelectorAll('td:nth-child(5)')).text(rowData.rows_sent);
+                            $t.parent().children(document.querySelectorAll('td:nth-child(6)')).text(rowData.rows_examined);
                         }
                     }
                 }
@@ -1836,15 +1881,15 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                             return;
                         }
 
-                        row =  $table.children('tr:nth-child(' + (value + 1) + ')');
+                        row =  $table.children(document.querySelectorAll('td:nth-child(' + (value + 1) + ')'));
                         numCol = row.children(':nth-child(' + (runtime.logDataCols.length) + ')');
                         numCol.text(filteredQueries[key]);
 
                         if (isSlowLog) {
-                            row.children('td:nth-child(3)').text(secToTime(columnSums[key][0]));
-                            row.children('td:nth-child(4)').text(secToTime(columnSums[key][1]));
-                            row.children('td:nth-child(5)').text(columnSums[key][2]);
-                            row.children('td:nth-child(6)').text(columnSums[key][3]);
+                            row.children(document.querySelectorAll('td:nth-child(3)')).text(secToTime(columnSums[key][0]));
+                            row.children(document.querySelectorAll('td:nth-child(4)')).text(secToTime(columnSums[key][1]));
+                            row.children(document.querySelectorAll('td:nth-child(5)')).text(columnSums[key][2]);
+                            row.children(document.querySelectorAll('td:nth-child(6)')).text(columnSums[key][3]);
                         }
                     });
                 }
@@ -1943,8 +1988,8 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                     '</span></th><th class="right">' + data.sum.TOTAL + '</th></tr></tfoot>');
 
         // Append a tooltip to the count column, if there exist one
-        if ($('#logTable').find('tr:first th:last').text().indexOf('#') > -1) {
-            $('#logTable').find('tr:first th:last').append('&nbsp;' + Functions.getImage('b_help', '', { 'class': 'qroupedQueryInfoIcon' }));
+        if ($('#logTable').find('tr').first().find('th').last().text().indexOf('#') > -1) {
+            $('#logTable').find('tr').first().find('th').last().append('&nbsp;' + Functions.getImage('b_help', '', { 'class': 'qroupedQueryInfoIcon' }));
 
             var tooltipContent = Messages.strCountColumnExplanation;
             if (groupInserts) {
@@ -2025,9 +2070,8 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             Messages.strAnalyzing + ' <img class="ajaxIcon" src="' +
             pmaThemeImage + 'ajax_clock_small.gif" alt="">');
 
-        $.post('server_status_monitor.php' + CommonParams.get('common_query'), {
+        $.post('index.php?route=/server/status/monitor/query', {
             'ajax_request': true,
-            'query_analyzer': true,
             'query': codeMirrorEditor ? codeMirrorEditor.getValue() : $('#sqlquery').val(),
             'database': db,
             'server': CommonParams.get('server')
@@ -2042,7 +2086,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 if (data.error.indexOf('1146') !== -1 || data.error.indexOf('1046') !== -1) {
                     data.error = Messages.strServerLogError;
                 }
-                $('#queryAnalyzerDialog').find('div.placeHolder').html('<div class="error">' + data.error + '</div>');
+                $('#queryAnalyzerDialog').find('div.placeHolder').html('<div class="alert alert-danger" role="alert">' + data.error + '</div>');
                 return;
             }
             var totalTime = 0;
@@ -2176,44 +2220,3 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 AJAX.registerOnload('server/status/monitor.js', function () {
     $('a[href="#pauseCharts"]').trigger('click');
 });
-
-function serverResponseError () {
-    var btns = {};
-    btns[Messages.strReloadPage] = function () {
-        window.location.reload();
-    };
-    $('#emptyDialog').dialog({ title: Messages.strRefreshFailed });
-    $('#emptyDialog').html(
-        Functions.getImage('s_attention') +
-        Messages.strInvalidResponseExplanation
-    );
-    $('#emptyDialog').dialog({ buttons: btns });
-}
-
-/* Destroys all monitor related resources */
-function destroyGrid () {
-    if (runtime.charts) {
-        $.each(runtime.charts, function (key, value) {
-            try {
-                value.chart.destroy();
-            } catch (err) {
-                // continue regardless of error
-            }
-        });
-    }
-
-    try {
-        runtime.refreshRequest.abort();
-    } catch (err) {
-        // continue regardless of error
-    }
-    try {
-        clearTimeout(runtime.refreshTimeout);
-    } catch (err) {
-        // continue regardless of error
-    }
-    $('#chartGrid').html('');
-    runtime.charts = null;
-    runtime.chartAI = 0;
-    monitorSettings = null;
-}

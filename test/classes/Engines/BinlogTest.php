@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PMA_StorageEngine_binlog
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,14 +11,10 @@ use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PhpMyAdmin\Engines\Binlog
- *
- * @package PhpMyAdmin-test
  */
 class BinlogTest extends PmaTestCase
 {
-    /**
-     * @access protected
-     */
+    /** @access protected */
     protected $object;
 
     /**
@@ -28,7 +22,6 @@ class BinlogTest extends PmaTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
@@ -41,13 +34,11 @@ class BinlogTest extends PmaTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {
         unset($this->object);
     }
-
 
     /**
      * Test for getMysqlHelpPage

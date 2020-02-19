@@ -4,7 +4,7 @@
         <span>{{ (total_rows > 0) ? '+' : '-' }}</span>{% trans 'Add new column' %}
     </a>
     <form id="add_new" class="new_central_col{{ (total_rows != 0) ? ' hide' : ''}}"
-        method="post" action="db_central_columns.php">
+        method="post" action="{{ url('/database/central-columns') }}">
         {{ get_hidden_inputs(db) }}
         <input type="hidden" name="add_new_column" value="add_new_column">
         <div class="responsivetable">
@@ -150,7 +150,7 @@
             <td class="navigation_separator"></td>
             {% if pos - max_rows >= 0 %}
                 <td>
-                    <form action="db_central_columns.php" method="post">
+                    <form action="{{ url('/database/central-columns') }}" method="post">
                         {{ get_hidden_inputs(db) }}
                         <input type="hidden" name="pos" value="{{ pos - max_rows }}">
                         <input type="hidden" name="total_rows" value="{{ total_rows }}">
@@ -160,7 +160,7 @@
             {% endif %}
             {% if tn_nbTotalPage > 1 %}
                 <td>
-                    <form action="db_central_columns.php" method="post">
+                    <form action="{{ url('/database/central-columns') }}" method="post">
                         {{ get_hidden_inputs(db) }}
                         <input type="hidden" name="total_rows" value="{{ total_rows }}">
                         {{ tn_page_selector | raw }}
@@ -169,7 +169,7 @@
             {% endif %}
             {% if pos + max_rows < total_rows %}
                 <td>
-                    <form action="db_central_columns.php" method="post">
+                    <form action="{{ url('/database/central-columns') }}" method="post">
                         {{ get_hidden_inputs(db) }}
                         <input type="hidden" name="pos" value="{{ pos + max_rows }}">
                         <input type="hidden" name="total_rows" value="{{ total_rows }}">
@@ -192,7 +192,7 @@
         <td class="navigation_separator largescreenonly"></td>
         <td class="central_columns_navigation">
             {{ get_icon('centralColumns_add', 'Add column' | trans)|raw }}
-            <form id="add_column" action="db_central_columns.php" method="post">
+            <form id="add_column" action="{{ url('/database/central-columns') }}" method="post">
                 {{ get_hidden_inputs(db) | raw }}
                 <input type="hidden" name="add_column" value="add">
                 <input type="hidden" name="pos" value="{{ pos }}">
@@ -216,7 +216,7 @@
     </tr>
 </table>
 {% if total_rows > 0 %}
-    <form method="post" id="del_form" action="db_central_columns.php">
+    <form method="post" id="del_form" action="{{ url('/database/central-columns') }}">
         {{ get_hidden_inputs(db) }}
         <input id="del_col_name" type="hidden" name="col_name" value="">
         <input type="hidden" name="pos" value="{{ pos }}">
@@ -277,7 +277,7 @@
                                 <input type="checkbox" class="checkall" name="selected_fld[]"
                                 value="{{ row['col_name'] }}" id="{{ 'checkbox_row_' ~ row_num }}">
                             </td>
-                            <td id="{{ 'edit_' ~ row_num }}" class="edit center">
+                            <td id="{{ 'edit_' ~ row_num }}" class="edit text-center">
                                 <a href="#"> {{ get_icon('b_edit', 'Edit' | trans) | raw }}</a>
                             </td>
                             <td class="del_row" data-rownum = "{{ row_num }}">

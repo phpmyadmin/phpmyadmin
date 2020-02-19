@@ -4,7 +4,7 @@
   {{ list_navigator|raw }}
 
   <div id="pma_navigation_db_select">
-    <form action="index.php">
+    <form action="{{ url('/') }}">
       {{ get_hidden_fields({'server': server}) }}
 
       <select name="db" class="hide" id="navi_db_select">

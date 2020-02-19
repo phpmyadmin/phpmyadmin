@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,8 +11,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * tests for PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup class
- *
- * @package PhpMyAdmin-test
  */
 class OptionsPropertySubgroupTest extends TestCase
 {
@@ -23,8 +18,6 @@ class OptionsPropertySubgroupTest extends TestCase
 
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -33,8 +26,6 @@ class OptionsPropertySubgroupTest extends TestCase
 
     /**
      * tearDown for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {

@@ -1,10 +1,7 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * The top-level class of the "Plugin" subtree of the object-oriented
  * properties system (the other subtree is "Options").
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -18,8 +15,6 @@ use PhpMyAdmin\Properties\PropertyItem;
  *  - PhpMyAdmin\Properties\Plugins\ExportPluginProperties,
  *  - PhpMyAdmin\Properties\Plugins\ImportPluginProperties and
  *  - TransformationsPluginProperties
- *
- * @package PhpMyAdmin
  */
 abstract class PluginPropertyItem extends PropertyItem
 {
@@ -172,6 +167,6 @@ abstract class PluginPropertyItem extends PropertyItem
      */
     public function getPropertyType()
     {
-        return "plugin";
+        return 'plugin';
     }
 }

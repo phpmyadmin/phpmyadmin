@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for PhpMyAdmin\Properties\Plugins\PluginPropertyItem class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,8 +10,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for PhpMyAdmin\Properties\Plugins\PluginPropertyItem class
- *
- * @package PhpMyAdmin-test
  */
 class PluginPropertyItemTest extends TestCase
 {
@@ -22,8 +17,6 @@ class PluginPropertyItemTest extends TestCase
 
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -32,8 +25,6 @@ class PluginPropertyItemTest extends TestCase
 
     /**
      * tearDown for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -48,7 +39,7 @@ class PluginPropertyItemTest extends TestCase
     public function testGetPropertyType()
     {
         $this->assertEquals(
-            "plugin",
+            'plugin',
             $this->stub->getPropertyType()
         );
     }

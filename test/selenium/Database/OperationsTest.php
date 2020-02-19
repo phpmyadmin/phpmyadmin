@@ -1,10 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Selenium TestCase for table related tests
- *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  */
 declare(strict_types=1);
 
@@ -15,16 +11,12 @@ use PhpMyAdmin\Tests\Selenium\TestBase;
 /**
  * OperationsTest class
  *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  * @group      selenium
  */
 class OperationsTest extends TestBase
 {
     /**
      * setUp function
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -41,7 +33,6 @@ class OperationsTest extends TestBase
 
         $this->navigateDatabase($this->database_name);
         $this->expandMore();
-        $this->maximize();
         $this->waitForElement('partialLinkText', 'Operations')->click();
         $this->waitForElement(
             'xpath',
@@ -61,7 +52,7 @@ class OperationsTest extends TestBase
         $this->skipIfNotPMADB();
 
         $this->_getToDBOperations();
-        $this->byName("comment")->sendKeys("comment_foobar");
+        $this->byName('comment')->sendKeys('comment_foobar');
         $this->byCssSelector(
             "form#formDatabaseComment input[type='submit']"
         )->click();
@@ -69,7 +60,7 @@ class OperationsTest extends TestBase
         $this->assertNotNull(
             $this->waitForElement(
                 'xpath',
-                "//span[@id='span_table_comment' and contains(., 'comment_foobar')]"
+                "//span[@class='breadcrumb-comment' and contains(., 'comment_foobar')]"
             )
         );
     }
@@ -88,23 +79,23 @@ class OperationsTest extends TestBase
         $new_db_name = $this->database_name . 'rename';
 
         $this->scrollIntoView('create_table_form_minimal');
-        $this->byCssSelector("form#rename_db_form input[name=newname]")
+        $this->byCssSelector('form#rename_db_form input[name=newname]')
             ->sendKeys($new_db_name);
 
         $this->byCssSelector("form#rename_db_form input[type='submit']")->click();
 
         $this->waitForElement(
             'cssSelector',
-            "button.submitOK"
+            'button.submitOK'
         )->click();
 
         $this->waitForElement(
             'xpath',
-            "//a[@class='item' and contains(., 'Database: $new_db_name')]"
+            "//a[contains(text(),'Database: ') and contains(text(),'" . $new_db_name . "')]"
         );
 
         $result = $this->dbQuery(
-            "SHOW DATABASES LIKE '$new_db_name';"
+            "SHOW DATABASES LIKE '" . $new_db_name . "';"
         );
         $this->assertEquals(1, $result->num_rows);
 
@@ -128,7 +119,7 @@ class OperationsTest extends TestBase
         $this->_getToDBOperations();
 
         $new_db_name = $this->database_name . 'copy';
-        $this->byCssSelector("form#copy_db_form input[name=newname]")
+        $this->byCssSelector('form#copy_db_form input[name=newname]')
             ->sendKeys($new_db_name);
 
         $this->scrollIntoView('copy_db_form', -150);
@@ -136,16 +127,16 @@ class OperationsTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            "//div[@class='success' and contains(., 'Database "
+            "//div[@class='alert alert-success' and contains(., 'Database "
             . $this->database_name
-            . " has been copied to $new_db_name')]"
+            . ' has been copied to ' . $new_db_name . "')]"
         );
 
         $result = $this->dbQuery(
-            "SHOW DATABASES LIKE '$new_db_name';"
+            "SHOW DATABASES LIKE '" . $new_db_name . "';"
         );
         $this->assertEquals(1, $result->num_rows);
 
-        $this->dbQuery("DROP DATABASE $new_db_name");
+        $this->dbQuery('DROP DATABASE ' . $new_db_name);
     }
 }

@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for FormDisplay class in config folder
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -12,18 +9,15 @@ namespace PhpMyAdmin\Tests\Config;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Descriptions;
 use PhpMyAdmin\Tests\PmaTestCase;
+use function in_array;
 
 /**
  * Tests for PMA_FormDisplay class
- *
- * @package PhpMyAdmin-test
  */
 class DescriptionTest extends PmaTestCase
 {
     /**
      * Setup tests
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -34,8 +28,6 @@ class DescriptionTest extends PmaTestCase
      * @param string $item     item
      * @param string $type     type
      * @param string $expected expected result
-     *
-     * @return void
      *
      * @dataProvider getValues
      */

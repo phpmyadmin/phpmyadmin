@@ -1,22 +1,29 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Responsible for retrieving version information and notifiying about latest version
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Utils\HttpRequest;
-use \stdClass;
+use stdClass;
+use function count;
+use function explode;
+use function intval;
+use function is_numeric;
+use function is_object;
+use function json_decode;
+use function preg_match;
+use function strlen;
+use function strpos;
+use function substr;
+use function time;
+use function version_compare;
+use const PHP_VERSION;
 
 /**
  * Responsible for retrieving version information and notifiying about latest version
- *
- * @package PhpMyAdmin
- *
  */
 class VersionInformation
 {
@@ -145,7 +152,7 @@ class VersionInformation
         $latestRelease = null;
         foreach ($releases as $release) {
             $phpVersions = $release->php_versions;
-            $phpConditions = explode(",", $phpVersions);
+            $phpConditions = explode(',', $phpVersions);
             foreach ($phpConditions as $phpCondition) {
                 if (! $this->evaluateVersionCondition('PHP', $phpCondition)) {
                     continue 2;
@@ -156,7 +163,7 @@ class VersionInformation
             // one server configured.
             if (count($GLOBALS['cfg']['Servers']) === 1) {
                 $mysqlVersions = $release->mysql_versions;
-                $mysqlConditions = explode(",", $mysqlVersions);
+                $mysqlConditions = explode(',', $mysqlVersions);
                 foreach ($mysqlConditions as $mysqlCondition) {
                     if (! $this->evaluateVersionCondition('MySQL', $mysqlCondition)) {
                         continue 2;
@@ -182,20 +189,20 @@ class VersionInformation
      * @param string $type      PHP or MySQL
      * @param string $condition version condition
      *
-     * @return boolean whether the condition is met
+     * @return bool whether the condition is met
      */
     public function evaluateVersionCondition(string $type, string $condition)
     {
         $operator = null;
         $version = null;
         $operators = [
-            "<=",
-            ">=",
-            "!=",
-            "<>",
-            "<",
-            ">",
-            "=",
+            '<=',
+            '>=',
+            '!=',
+            '<>',
+            '<',
+            '>',
+            '=',
         ]; // preserve order
         foreach ($operators as $oneOperator) {
             if (strpos($condition, $oneOperator) === 0) {

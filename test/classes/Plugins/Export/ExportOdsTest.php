@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportOds class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -15,11 +12,11 @@ use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
 use stdClass;
+use function array_shift;
 
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportOds class
  *
- * @package PhpMyAdmin-test
  * @group medium
  */
 class ExportOdsTest extends PmaTestCase
@@ -28,8 +25,6 @@ class ExportOdsTest extends PmaTestCase
 
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -44,8 +39,6 @@ class ExportOdsTest extends PmaTestCase
 
     /**
      * tearDown for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -309,7 +302,7 @@ class ExportOdsTest extends PmaTestCase
         $flags[] = $a;
 
         $a = new stdClass();
-        $a->type = "dummy";
+        $a->type = 'dummy';
         $a->blob = false;
         $a->numeric = false;
         $flags[] = $a;
@@ -352,10 +345,10 @@ class ExportOdsTest extends PmaTestCase
                         '01-01-2000',
                         '01-01-2000',
                         '01-01-2000 10:00:00',
-                        "01-01-2014 10:02:00",
-                        "t>s",
-                        "a&b",
-                        "<",
+                        '01-01-2014 10:02:00',
+                        't>s',
+                        'a&b',
+                        '<',
                     ]
                 )
             );
@@ -364,15 +357,15 @@ class ExportOdsTest extends PmaTestCase
         $GLOBALS['mediawiki_caption'] = true;
         $GLOBALS['mediawiki_headers'] = true;
         $GLOBALS['what'] = 'foo';
-        $GLOBALS['foo_null'] = "&";
+        $GLOBALS['foo_null'] = '&';
 
         $this->assertTrue(
             $this->object->exportData(
                 'db',
                 'table',
                 "\n",
-                "example.com",
-                "SELECT"
+                'example.com',
+                'SELECT'
             )
         );
 
@@ -464,7 +457,7 @@ class ExportOdsTest extends PmaTestCase
         $GLOBALS['mediawiki_caption'] = true;
         $GLOBALS['mediawiki_headers'] = true;
         $GLOBALS['what'] = 'foo';
-        $GLOBALS['foo_null'] = "&";
+        $GLOBALS['foo_null'] = '&';
         $GLOBALS['foo_columns'] = true;
 
         $this->assertTrue(
@@ -472,8 +465,8 @@ class ExportOdsTest extends PmaTestCase
                 'db',
                 'table',
                 "\n",
-                "example.com",
-                "SELECT"
+                'example.com',
+                'SELECT'
             )
         );
 
@@ -521,7 +514,7 @@ class ExportOdsTest extends PmaTestCase
         $GLOBALS['mediawiki_caption'] = true;
         $GLOBALS['mediawiki_headers'] = true;
         $GLOBALS['what'] = 'foo';
-        $GLOBALS['foo_null'] = "&";
+        $GLOBALS['foo_null'] = '&';
         $GLOBALS['ods_buffer'] = '';
 
         $this->assertTrue(
@@ -529,8 +522,8 @@ class ExportOdsTest extends PmaTestCase
                 'db',
                 'table',
                 "\n",
-                "example.com",
-                "SELECT"
+                'example.com',
+                'SELECT'
             )
         );
 

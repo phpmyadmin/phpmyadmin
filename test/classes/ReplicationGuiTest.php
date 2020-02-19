@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for PhpMyAdmin\ReplicationGui
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -12,22 +9,14 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Replication;
 use PhpMyAdmin\ReplicationGui;
-use PhpMyAdmin\SqlParser\Statements\ReplaceStatement;
+use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Theme;
 use PHPUnit\Framework\TestCase;
-
-/*
-* Include to test.
-*/
-require_once ROOT_PATH . 'libraries/replication.inc.php';
 
 /**
  * PhpMyAdmin\Tests\ReplicationGuiTest class
  *
  * this class is for testing PhpMyAdmin\ReplicationGui methods
- *
- * @package PhpMyAdmin-test
  */
 class ReplicationGuiTest extends TestCase
 {
@@ -40,17 +29,15 @@ class ReplicationGuiTest extends TestCase
 
     /**
      * Prepares environment for the test.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
         //$_POST
-        $_POST['mr_adduser'] = "mr_adduser";
+        $_POST['mr_adduser'] = 'mr_adduser';
 
         //$GLOBALS
         $GLOBALS['cfg']['MaxRows'] = 10;
-        $GLOBALS['cfg']['ServerDefault'] = "server";
+        $GLOBALS['cfg']['ServerDefault'] = 'server';
         $GLOBALS['cfg']['RememberSorting'] = true;
         $GLOBALS['cfg']['SQP'] = [];
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
@@ -60,8 +47,10 @@ class ReplicationGuiTest extends TestCase
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['ShowHint'] = true;
 
-        $GLOBALS['table'] = "table";
+        $GLOBALS['table'] = 'table';
         $GLOBALS['url_params'] = [];
+
+        ReplicationInfo::load();
 
         $this->replicationGui = new ReplicationGui(new Replication(), new Template());
 
@@ -82,7 +71,7 @@ class ReplicationGuiTest extends TestCase
 
         $fetchResult = [
             [
-                "SHOW SLAVE HOSTS",
+                'SHOW SLAVE HOSTS',
                 null,
                 null,
                 DatabaseInterface::CONNECT_USER,
@@ -99,10 +88,10 @@ class ReplicationGuiTest extends TestCase
             ->will($this->returnValueMap($fetchResult));
 
         $fields_info = [
-            "Host" => [
-                "Field" => "host",
-                "Type" => "char(60)",
-                "Null" => "NO",
+            'Host' => [
+                'Field' => 'host',
+                'Type' => 'char(60)',
+                'Null' => 'NO',
             ],
         ];
         $dbi->expects($this->any())->method('getColumns')
@@ -115,6 +104,7 @@ class ReplicationGuiTest extends TestCase
      * Test for getHtmlForMasterReplication
      *
      * @return void
+     *
      * @group medium
      */
     public function testGetHtmlForMasterReplication()
@@ -147,16 +137,16 @@ class ReplicationGuiTest extends TestCase
         );
         //$master_variables
         $this->assertStringContainsString(
-            "Binlog_Do_DB",
+            'Binlog_Do_DB',
             $html
         );
         $this->assertStringContainsString(
-            "Binlog_Ignore_DB",
+            'Binlog_Ignore_DB',
             $html
         );
         //$server_master_replication
         $this->assertStringContainsString(
-            "master-bin.000030",
+            'master-bin.000030',
             $html
         );
 
@@ -198,7 +188,7 @@ class ReplicationGuiTest extends TestCase
 
         //validate 4: navigation URL
         $this->assertStringContainsString(
-            '<a href="server_replication.php',
+            '<a href="index.php?route=/server/replication',
             $html
         );
         $this->assertStringContainsString(
@@ -279,7 +269,7 @@ class ReplicationGuiTest extends TestCase
         );
 
         $this->assertStringContainsString(
-            '<form method="post" action="server_replication.php">',
+            '<form method="post" action="index.php?route=/server/replication',
             $html
         );
         $this->assertStringContainsString(

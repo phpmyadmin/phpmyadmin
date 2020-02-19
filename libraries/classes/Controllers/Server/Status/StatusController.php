@@ -1,39 +1,46 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Holds the PhpMyAdmin\Controllers\Server\Status\StatusController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;
 
+use PhpMyAdmin\Common;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ReplicationGui;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Server\Status\Data;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
-use Throwable;
-use Twig_Error_Loader;
-use Twig_Error_Runtime;
-use Twig_Error_Syntax;
+use function implode;
 
 /**
- * Class StatusController
- * @package PhpMyAdmin\Controllers\Server\Status
+ * Object the server status page: processes, connections and traffic.
  */
 class StatusController extends AbstractController
 {
+    /** @var ReplicationGui */
+    private $replicationGui;
+
     /**
-     * @param ReplicationGui $replicationGui ReplicationGui instance
-     *
-     * @return string
-     * @throws Throwable
-     * @throws Twig_Error_Loader
-     * @throws Twig_Error_Runtime
-     * @throws Twig_Error_Syntax
+     * @param Response          $response       Response object
+     * @param DatabaseInterface $dbi            DatabaseInterface object
+     * @param Template          $template       Template object
+     * @param Data              $data           Data object
+     * @param ReplicationGui    $replicationGui ReplicationGui instance
      */
-    public function index(ReplicationGui $replicationGui): string
+    public function __construct($response, $dbi, Template $template, $data, ReplicationGui $replicationGui)
+    {
+        parent::__construct($response, $dbi, $template, $data);
+        $this->replicationGui = $replicationGui;
+    }
+
+    public function index(): void
     {
         global $replication_info;
+
+        Common::server();
 
         $traffic = [];
         $connections = [];
@@ -58,11 +65,11 @@ class StatusController extends AbstractController
             if ($replication_info['master']['status']
                 || $replication_info['slave']['status']
             ) {
-                $replication = $this->getReplicationInfo($replicationGui);
+                $replication = $this->getReplicationInfo();
             }
         }
 
-        return $this->template->render('server/status/status/index', [
+        $this->response->addHTML($this->template->render('server/status/status/index', [
             'is_data_loaded' => $this->data->dataLoaded,
             'network_traffic' => $networkTraffic ?? null,
             'uptime' => $uptime ?? null,
@@ -72,12 +79,9 @@ class StatusController extends AbstractController
             'is_master' => $replication_info['master']['status'],
             'is_slave' => $replication_info['slave']['status'],
             'replication' => $replication,
-        ]);
+        ]));
     }
 
-    /**
-     * @return int
-     */
     private function getStartTime(): int
     {
         return (int) $this->dbi->fetchValue(
@@ -237,12 +241,7 @@ class StatusController extends AbstractController
         ];
     }
 
-    /**
-     * @param ReplicationGui $replicationGui ReplicationGui instance
-     *
-     * @return string
-     */
-    private function getReplicationInfo(ReplicationGui $replicationGui): string
+    private function getReplicationInfo(): string
     {
         global $replication_info, $replication_types;
 
@@ -251,7 +250,7 @@ class StatusController extends AbstractController
             if (isset($replication_info[$type]['status'])
                 && $replication_info[$type]['status']
             ) {
-                $output .= $replicationGui->getHtmlForReplicationStatusTable($type);
+                $output .= $this->replicationGui->getHtmlForReplicationStatusTable($type);
             }
         }
 

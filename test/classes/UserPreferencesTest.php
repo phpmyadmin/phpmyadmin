@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for methods under PhpMyAdmin\UserPreferences class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -11,25 +8,22 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
+use function json_encode;
+use function time;
 
 /**
  * tests for methods under PhpMyAdmin\UserPreferences class
- *
- * @package PhpMyAdmin-test
  */
 class UserPreferencesTest extends PmaTestCase
 {
-    /**
-     * @var UserPreferences
-     */
+    /** @var UserPreferences */
     private $userPreferences;
 
     /**
      * Setup various pre conditions
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -37,6 +31,7 @@ class UserPreferencesTest extends PmaTestCase
         include ROOT_PATH . 'libraries/config.default.php';
         $GLOBALS['server'] = 0;
         $GLOBALS['PMA_PHP_SELF'] = '/phpmyadmin/';
+        $cfg['Server']['DisableIS'] = false;
 
         $this->userPreferences = new UserPreferences();
     }
@@ -108,8 +103,8 @@ class UserPreferencesTest extends PmaTestCase
         // case 2
         $_SESSION['relation'][$GLOBALS['server']]['userconfigwork'] = 1;
         $_SESSION['relation'][$GLOBALS['server']]['db'] = "pma'db";
-        $_SESSION['relation'][$GLOBALS['server']]['userconfig'] = "testconf";
-        $_SESSION['relation'][$GLOBALS['server']]['user'] = "user";
+        $_SESSION['relation'][$GLOBALS['server']]['userconfig'] = 'testconf';
+        $_SESSION['relation'][$GLOBALS['server']]['user'] = 'user';
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -198,9 +193,9 @@ class UserPreferencesTest extends PmaTestCase
 
         // case 2
         $_SESSION['relation'][$GLOBALS['server']]['userconfigwork'] = 1;
-        $_SESSION['relation'][$GLOBALS['server']]['db'] = "pmadb";
-        $_SESSION['relation'][$GLOBALS['server']]['userconfig'] = "testconf";
-        $_SESSION['relation'][$GLOBALS['server']]['user'] = "user";
+        $_SESSION['relation'][$GLOBALS['server']]['db'] = 'pmadb';
+        $_SESSION['relation'][$GLOBALS['server']]['userconfig'] = 'testconf';
+        $_SESSION['relation'][$GLOBALS['server']]['user'] = 'user';
 
         $query1 = 'SELECT `username` FROM `pmadb`.`testconf` '
             . 'WHERE `username` = \'user\'';
@@ -256,7 +251,7 @@ class UserPreferencesTest extends PmaTestCase
         $dbi->expects($this->once())
             ->method('getError')
             ->with(DatabaseInterface::CONNECT_CONTROL)
-            ->will($this->returnValue("err1"));
+            ->will($this->returnValue('err1'));
         $dbi->expects($this->any())
             ->method('escapeString')
             ->will($this->returnArgument(0));
@@ -265,7 +260,7 @@ class UserPreferencesTest extends PmaTestCase
 
         $result = $this->userPreferences->save([1]);
 
-        $this->assertIsObject($result);
+        $this->assertInstanceOf(Message::class, $result);
         $this->assertEquals(
             'Could not save configuration<br><br>err1',
             $result->getMessage()
@@ -336,7 +331,7 @@ class UserPreferencesTest extends PmaTestCase
         $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] = PMA_VERSION;
         $_SESSION['relation'][$GLOBALS['server']]['userconfigwork'] = null;
         $_SESSION['userconfig'] = [];
-        $_SESSION['userconfig']['ts'] = "123";
+        $_SESSION['userconfig']['ts'] = '123';
         $_SESSION['userconfig']['db'] = [
             'Server/hide_db' => true,
             'Server/only_db' => true,
@@ -406,7 +401,7 @@ class UserPreferencesTest extends PmaTestCase
         $result = $this->userPreferences->autoloadGetHeader();
 
         $this->assertStringContainsString(
-            '<form action="prefs_manage.php" method="post" class="disableAjax">',
+            '<form action="' . Url::getFromRoute('/preferences/manage') . '" method="post" class="disableAjax">',
             $result
         );
 

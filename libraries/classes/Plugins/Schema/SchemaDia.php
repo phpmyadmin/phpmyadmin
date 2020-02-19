@@ -1,10 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Dia schema export code
- *
- * @package    PhpMyAdmin-Schema
- * @subpackage Dia
  */
 declare(strict_types=1);
 
@@ -19,15 +15,9 @@ use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
 
 /**
  * Handles the schema export for the Dia format
- *
- * @package    PhpMyAdmin-Schema
- * @subpackage Dia
  */
 class SchemaDia extends SchemaPlugin
 {
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         $this->setProperties();
@@ -49,16 +39,16 @@ class SchemaDia extends SchemaPlugin
         // $schemaPluginProperties
         // this will be shown as "Format specific options"
         $exportSpecificOptions = new OptionsPropertyRootGroup(
-            "Format Specific Options"
+            'Format Specific Options'
         );
 
         // specific options main group
-        $specificOptions = new OptionsPropertyMainGroup("general_opts");
+        $specificOptions = new OptionsPropertyMainGroup('general_opts');
         // add options common to all plugins
         $this->addCommonOptions($specificOptions);
 
         $leaf = new SelectPropertyItem(
-            "orientation",
+            'orientation',
             __('Orientation')
         );
         $leaf->setValues(
@@ -70,7 +60,7 @@ class SchemaDia extends SchemaPlugin
         $specificOptions->addProperty($leaf);
 
         $leaf = new SelectPropertyItem(
-            "paper",
+            'paper',
             __('Paper size')
         );
         $leaf->setValues($this->getPaperSizeArray());

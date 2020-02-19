@@ -1,10 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * SignOn Authentication plugin for phpMyAdmin
- *
- * @package    PhpMyAdmin-Authentication
- * @subpackage SignOn
  */
 declare(strict_types=1);
 
@@ -13,18 +9,28 @@ namespace PhpMyAdmin\Plugins\Auth;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Util;
+use function array_merge;
+use function defined;
+use function file_exists;
+use function in_array;
+use function session_get_cookie_params;
+use function session_id;
+use function session_name;
+use function session_set_cookie_params;
+use function session_start;
+use function session_write_close;
+use function version_compare;
+use const PHP_VERSION;
 
 /**
  * Handles the SignOn authentication method
- *
- * @package PhpMyAdmin-Authentication
  */
 class AuthenticationSignon extends AuthenticationPlugin
 {
     /**
      * Displays authentication form
      *
-     * @return boolean   always true (no return indeed)
+     * @return bool always true (no return indeed)
      */
     public function showLoginForm()
     {
@@ -46,7 +52,6 @@ class AuthenticationSignon extends AuthenticationPlugin
      * Set cookie params
      *
      * @param array $sessionCookieParams The cookie params
-     * @return void
      */
     public function setCookieParams(array $sessionCookieParams = null): void
     {
@@ -84,7 +89,7 @@ class AuthenticationSignon extends AuthenticationPlugin
                 unset($sessionCookieParams['samesite']);
         }
 
-        if (version_compare(phpversion(), '7.3.0', '>=')) {
+        if (version_compare(PHP_VERSION, '7.3.0', '>=')) {
             session_set_cookie_params($sessionCookieParams);
         }
 
@@ -100,7 +105,7 @@ class AuthenticationSignon extends AuthenticationPlugin
     /**
      * Gets authentication credentials
      *
-     * @return boolean   whether we get authentication settings or not
+     * @return bool whether we get authentication settings or not
      */
     public function readCredentials()
     {

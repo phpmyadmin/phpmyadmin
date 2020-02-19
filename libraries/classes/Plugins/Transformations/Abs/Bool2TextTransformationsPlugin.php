@@ -1,10 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Abstract class for the Bool2Text transformations plugins
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage Bool2Text
  */
 declare(strict_types=1);
 
@@ -15,9 +11,6 @@ use stdClass;
 
 /**
  * Provides common methods for all of the Bool2Text transformations plugins.
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage Bool2Text
  */
 abstract class Bool2TextTransformationsPlugin extends TransformationsPlugin
 {
@@ -64,6 +57,6 @@ abstract class Bool2TextTransformationsPlugin extends TransformationsPlugin
      */
     public static function getName()
     {
-        return "Bool2Text";
+        return 'Bool2Text';
     }
 }

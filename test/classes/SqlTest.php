@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for PhpMyAdmin\Sql
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -16,20 +13,14 @@ use stdClass;
 
 /**
  * Tests for PhpMyAdmin\Sql
- *
- * @package PhpMyAdmin-test
  */
 class SqlTest extends TestCase
 {
-    /**
-     * @var Sql
-     */
+    /** @var Sql */
     private $sql;
 
     /**
      * Setup for test cases
-     *
-     * @return void
      */
     protected function setUp(): void
     {

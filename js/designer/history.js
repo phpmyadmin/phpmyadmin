@@ -1,4 +1,3 @@
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * @fileoverview    function used in this file builds history tab and generates query.
   *
@@ -9,7 +8,7 @@
 
 /* global contr */ // js/designer/init.js
 /* global fromArray:writable */ // js/designer/move.js
-/* global pmaThemeImage */ // js/messages.php
+/* global pmaThemeImage */ // templates/javascript/variables.twig
 
 var DesignerHistory = {};
 
@@ -89,7 +88,8 @@ DesignerHistory.display = function (init, finit) {
     }
     // this part generates HTML code for history tab.adds delete,edit,and/or and detail features with objects.
     str = ''; // string to store Html code for history tab
-    for (i = 0; i < historyArray.length; i++) {
+    var historyArrayLength = historyArray.length;
+    for (i = 0; i < historyArrayLength; i++) {
         temp = historyArray[i].getTab(); // + '.' + historyArray[i].getObjNo(); for Self JOIN
         str += '<h3 class="tiger"><a href="#">' + temp + '</a></h3>';
         str += '<div class="toggle_container">\n';
@@ -105,19 +105,19 @@ DesignerHistory.display = function (init, finit) {
                 '<td width="175" style="padding-left: 5px">' + $('<div/>').text(historyArray[i].getColumnName()).html() + '<td>';
             if (historyArray[i].getType() === 'GroupBy' || historyArray[i].getType() === 'OrderBy') {
                 var detailDescGroupBy = $('<div/>').text(DesignerHistory.detail(i)).html();
-                str += '<td class="center">' + Functions.getImage('s_info', DesignerHistory.detail(i)) + '</td>' +
+                str += '<td class="text-center">' + Functions.getImage('s_info', DesignerHistory.detail(i)) + '</td>' +
                     '<td title="' + detailDescGroupBy + '">' + historyArray[i].getType() + '</td>' +
                     '<td onclick=DesignerHistory.historyDelete(' + i + ')>' + Functions.getImage('b_drop', Messages.strDelete) + '</td>';
             } else {
                 var detailDesc = $('<div/>').text(DesignerHistory.detail(i)).html();
-                str += '<td class="center">' + Functions.getImage('s_info', DesignerHistory.detail(i)) + '</td>' +
+                str += '<td class="text-center">' + Functions.getImage('s_info', DesignerHistory.detail(i)) + '</td>' +
                     '<td title="' + detailDesc + '">' + historyArray[i].getType() + '</td>' +
                     '<td onclick=DesignerHistory.historyEdit(' + i + ')>' + Functions.getImage('b_edit', Messages.strEdit) + '</td>' +
                     '<td onclick=DesignerHistory.historyDelete(' + i + ')>' + Functions.getImage('b_drop', Messages.strDelete) + '</td>';
             }
             str += '</tr></thead>';
             i++;
-            if (i >= historyArray.length) {
+            if (i >= historyArrayLength) {
                 break;
             }
             str += '</table></div>';
@@ -155,7 +155,8 @@ DesignerHistory.andOr = function (index) {
 **/
 
 DesignerHistory.historyDelete = function (index) {
-    for (var k = 0; k < fromArray.length; k++) {
+    var fromArrayLength = fromArray.length;
+    for (var k = 0; k < fromArrayLength; k++) {
         if (fromArray[k] === historyArray[index].getTab()) {
             fromArray.splice(k, 1);
             break;
@@ -451,12 +452,13 @@ DesignerHistory.unique = function (arrayName) {
     var newArray = [];
     uniquetop:
     for (var i = 0; i < arrayName.length; i++) {
-        for (var j = 0; j < newArray.length; j++) {
+        var newArrayLength = newArray.length;
+        for (var j = 0; j < newArrayLength; j++) {
             if (newArray[j] === arrayName[i]) {
                 continue uniquetop;
             }
         }
-        newArray[newArray.length] = arrayName[i];
+        newArray[newArrayLength] = arrayName[i];
     }
     return newArray;
 };
@@ -470,7 +472,8 @@ DesignerHistory.unique = function (arrayName) {
  */
 
 DesignerHistory.found = function (arrayName, value) {
-    for (var i = 0; i < arrayName.length; i++) {
+    var arrayNameLength = arrayName.length;
+    for (var i = 0; i < arrayNameLength; i++) {
         if (arrayName[i] === value) {
             return 1;
         }
@@ -485,7 +488,8 @@ DesignerHistory.found = function (arrayName, value) {
  * @params arr array in which elements are added
  */
 DesignerHistory.addArray = function (add, arr) {
-    for (var i = 0; i < add.length; i++) {
+    var addLength = add.length;
+    for (var i = 0; i < addLength; i++) {
         arr.push(add[i]);
     }
     return arr;
@@ -499,8 +503,10 @@ DesignerHistory.addArray = function (add, arr) {
  *
  */
 DesignerHistory.removeArray = function (rem, arr) {
-    for (var i = 0; i < rem.length; i++) {
-        for (var j = 0; j < arr.length; j++) {
+    var remLength = rem.length;
+    for (var i = 0; i < remLength; i++) {
+        var arrLength = arr.length;
+        for (var j = 0; j < arrLength; j++) {
             if (rem[i] === arr[j]) {
                 arr.splice(j, 1);
             }
@@ -517,7 +523,8 @@ DesignerHistory.removeArray = function (rem, arr) {
 DesignerHistory.queryGroupBy = function () {
     var i;
     var str = '';
-    for (i = 0; i < historyArray.length; i++) {
+    var historyArrayLength = historyArray.length;
+    for (i = 0; i < historyArrayLength; i++) {
         if (historyArray[i].getType() === 'GroupBy') {
             str += '`' + historyArray[i].getColumnName() + '`, ';
         }
@@ -534,7 +541,8 @@ DesignerHistory.queryGroupBy = function () {
 DesignerHistory.queryHaving = function () {
     var i;
     var and = '(';
-    for (i = 0; i < historyArray.length; i++) {
+    var historyArrayLength = historyArray.length;
+    for (i = 0; i < historyArrayLength; i++) {
         if (historyArray[i].getType() === 'Having') {
             if (historyArray[i].getObj().getOperator() !== 'None') {
                 and += historyArray[i].getObj().getOperator() + '(`' + historyArray[i].getColumnName() + '`) ' + historyArray[i].getObj().getRelationOperator();
@@ -561,7 +569,8 @@ DesignerHistory.queryHaving = function () {
 DesignerHistory.queryOrderBy = function () {
     var i;
     var str = '';
-    for (i = 0; i < historyArray.length; i++) {
+    var historyArrayLength = historyArray.length;
+    for (i = 0; i < historyArrayLength; i++) {
         if (historyArray[i].getType() === 'OrderBy') {
             str += '`' + historyArray[i].getColumnName() + '` ' +
                 historyArray[i].getObj().getOrder() + ', ';
@@ -581,7 +590,8 @@ DesignerHistory.queryWhere = function () {
     var i;
     var and = '(';
     var or = '(';
-    for (i = 0; i < historyArray.length; i++) {
+    var historyArrayLength = historyArray.length;
+    for (i = 0; i < historyArrayLength; i++) {
         if (historyArray[i].getType() === 'Where') {
             if (historyArray[i].getAndOr() === 0) {
                 and += '( `' + historyArray[i].getColumnName() + '` ' + historyArray[i].getObj().getRelationOperator() + ' ' + historyArray[i].getObj().getQuery() + ')';
@@ -610,7 +620,8 @@ DesignerHistory.queryWhere = function () {
 
 DesignerHistory.checkAggregate = function (idThis) {
     var i;
-    for (i = 0; i < historyArray.length; i++) {
+    var historyArrayLength = historyArray.length;
+    for (i = 0; i < historyArrayLength; i++) {
         var temp = '`' + historyArray[i].getTab() + '`.`' + historyArray[i].getColumnName() + '`';
         if (temp === idThis && historyArray[i].getType() === 'Aggregate') {
             return historyArray[i].getObj().getOperator() + '(' + idThis + ')';
@@ -621,7 +632,8 @@ DesignerHistory.checkAggregate = function (idThis) {
 
 DesignerHistory.checkRename = function (idThis) {
     var i;
-    for (i = 0; i < historyArray.length; i++) {
+    var historyArrayLength = historyArray.length;
+    for (i = 0; i < historyArrayLength; i++) {
         var temp = '`' + historyArray[i].getTab() + '`.`' + historyArray[i].getColumnName() + '`';
         if (temp === idThis && historyArray[i].getType() === 'Rename') {
             return ' AS `' + historyArray[i].getObj().getRenameTo() + '`';
@@ -657,7 +669,8 @@ DesignerHistory.queryFrom = function () {
     // the constraints that have been used in the LEFT JOIN
     var constraintsAdded = [];
 
-    for (i = 0; i < historyArray.length; i++) {
+    var historyArrayLength = historyArray.length;
+    for (i = 0; i < historyArrayLength; i++) {
         fromArray.push(historyArray[i].getTab());
     }
     fromArray = DesignerHistory.unique(fromArray);
@@ -751,8 +764,9 @@ DesignerHistory.queryFrom = function () {
 DesignerHistory.buildQuery = function () {
     var qSelect = 'SELECT ';
     var temp;
-    if (selectField.length > 0) {
-        for (var i = 0; i < selectField.length; i++) {
+    var selectFieldLength = selectField.length;
+    if (selectFieldLength > 0) {
+        for (var i = 0; i < selectFieldLength; i++) {
             temp = DesignerHistory.checkAggregate(selectField[i]);
             if (temp !== '') {
                 qSelect += temp;

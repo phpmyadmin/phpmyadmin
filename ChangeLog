@@ -1,6 +1,26 @@
 phpMyAdmin - ChangeLog
 ======================
 
+5.1.0 (not yet released)
+- issue #15350 Change Media (MIME) type references to Media type
+- issue #15377 Add a request router
+- issue        Automatically focus input in the two-factor authentication window
+- issue #15509 Replace gender-specific pronouns with gender-neutral pronouns
+- issue #15491 Improve complexity of generated passwords
+- issue #14909 Add a configuration option to define the 1st day of week
+- issue #12726 Made user names clickable in user accounts overview
+- issue #15729 Improve virtuality dropdown for MariaDB > 10.1
+- issue #15312 Added an option to perform ALTER ONLINE (ALGORITHM=INPLACE) when editing a table structure
+- issue        Added missing 'IF EXISTS' to 'DROP EVENT' when exporting databases
+- issue #15232 Improve the padding in query result tool links
+- issue #15064 Support exporting raw SQL queries
+- issue #15555 Added ip2long transformation
+- issue #15194 Fixed horizontal scroll on structure edit page
+- issue #14820 Move table hide buttons in navigation to avoid hiding a table by mistake
+- issue #14947 Use correct MySQL version if the version is 8.0 or above for documentation links
+- issue #15790 Use "MariaDB Documentation" instead of "MySQL Documentation" on a MariaDB server
+- issue #15880 Change "Show Query" link to a button
+
 5.0.2 (not yet released)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page
 - issue #15767 Fixed can not copy user account since 5.0 - "error #1133"

@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Holds the PhpMyAdmin\Properties\Options\Items\MessageOnlyPropertyItem class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -13,8 +10,6 @@ use PhpMyAdmin\Properties\Options\OptionsPropertyOneItem;
 
 /**
  * Single property item class of type messageOnly
- *
- * @package PhpMyAdmin
  */
 class MessageOnlyPropertyItem extends OptionsPropertyOneItem
 {
@@ -30,6 +25,6 @@ class MessageOnlyPropertyItem extends OptionsPropertyOneItem
      */
     public function getItemType()
     {
-        return "messageOnly";
+        return 'messageOnly';
     }
 }

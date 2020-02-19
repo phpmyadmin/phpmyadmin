@@ -1,46 +1,41 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Selenium TestCase for table related tests
- *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium\Database;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
+use function date;
+use function sleep;
+use function strtotime;
 
 /**
  * EventsTest class
  *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  * @group      selenium
  */
 class EventsTest extends TestBase
 {
     /**
      * Setup the browser environment to run the selenium test case
-     *
-     * @return void
      */
     protected function setUp(): void
     {
         parent::setUp();
         $this->dbQuery(
-            "CREATE TABLE `test_table` ("
-            . " `id` int(11) NOT NULL AUTO_INCREMENT,"
-            . " `val` int(11) NOT NULL,"
-            . " PRIMARY KEY (`id`)"
-            . ")"
+            'CREATE TABLE `test_table` ('
+            . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
+            . ' `val` int(11) NOT NULL,'
+            . ' PRIMARY KEY (`id`)'
+            . ')'
         );
         $this->dbQuery(
-            "INSERT INTO `test_table` (val) VALUES (2);"
+            'INSERT INTO `test_table` (val) VALUES (2);'
         );
         $this->dbQuery(
-            "SET GLOBAL event_scheduler=\"ON\""
+            'SET GLOBAL event_scheduler="ON"'
         );
         $this->login();
         $this->navigateDatabase($this->database_name);
@@ -48,18 +43,15 @@ class EventsTest extends TestBase
         // Let the Database page load
         $this->waitAjax();
         $this->expandMore();
-        $this->maximize();
     }
 
     /**
      * Tear Down function for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
         if (isset($this->_mysqli)) {
-            $this->dbQuery("SET GLOBAL event_scheduler=\"OFF\"");
+            $this->dbQuery('SET GLOBAL event_scheduler="OFF"');
         }
         parent::tearDown();
     }
@@ -75,10 +67,10 @@ class EventsTest extends TestBase
         $end = date('Y-m-d H:i:s', strtotime('+1 day'));
 
         $this->dbQuery(
-            "CREATE EVENT `test_event` ON SCHEDULE EVERY 1 MINUTE_SECOND STARTS "
-            . "'$start' ENDS '$end' ON COMPLETION NOT PRESERVE ENABLE "
-            . "DO UPDATE `" . $this->database_name
-            . "`.`test_table` SET val = val + 1"
+            'CREATE EVENT `test_event` ON SCHEDULE EVERY 1 MINUTE_SECOND STARTS '
+            . "'" . $start . "' ENDS '" . $end . "' ON COMPLETION NOT PRESERVE ENABLE "
+            . 'DO UPDATE `' . $this->database_name
+            . '`.`test_table` SET val = val + 1'
         );
     }
 
@@ -91,36 +83,36 @@ class EventsTest extends TestBase
      */
     public function testAddEvent()
     {
-        $this->waitForElement('partialLinkText', "Events")->click();
+        $this->waitForElement('partialLinkText', 'Events')->click();
         $this->waitAjax();
 
-        $this->waitForElement('partialLinkText', "Add event")->click();
+        $this->waitForElement('partialLinkText', 'Add event')->click();
         $this->waitAjax();
 
-        $this->waitForElement('className', "rte_form");
+        $this->waitForElement('className', 'rte_form');
 
-        $this->selectByLabel($this->byName("item_type"), 'RECURRING');
+        $this->selectByLabel($this->byName('item_type'), 'RECURRING');
 
-        $this->byName("item_name")->sendKeys("test_event");
+        $this->byName('item_name')->sendKeys('test_event');
         $this->selectByLabel(
-            $this->byName("item_interval_field"),
+            $this->byName('item_interval_field'),
             'MINUTE_SECOND'
         );
 
-        $this->byName("item_starts")->click()->clear()->sendKeys(date('Y-m-d', strtotime('-1 day')) . ' 00:00:00');
+        $this->byName('item_starts')->click()->clear()->sendKeys(date('Y-m-d', strtotime('-1 day')) . ' 00:00:00');
 
-        $this->byName("item_ends")->click()->clear()->sendKeys(date('Y-m-d', strtotime('+1 day')) . ' 00:00:00');
+        $this->byName('item_ends')->click()->clear()->sendKeys(date('Y-m-d', strtotime('+1 day')) . ' 00:00:00');
 
-        $this->waitForElement('name', "item_interval_value")->click()->clear()->sendKeys('1');
+        $this->waitForElement('name', 'item_interval_value')->click()->clear()->sendKeys('1');
 
-        $proc = "UPDATE " . $this->database_name . ".`test_table` SET val=val+1";
+        $proc = 'UPDATE ' . $this->database_name . '.`test_table` SET val=val+1';
         $this->typeInTextArea($proc);
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
         $this->waitForElement(
             'xpath',
-            "//div[@class='success' and contains(., "
+            "//div[@class='alert alert-success' and contains(., "
             . "'Event `test_event` has been created')]"
         );
         $this->waitForElementNotPresent(
@@ -146,7 +138,7 @@ class EventsTest extends TestBase
 
         sleep(2);
         $result = $this->dbQuery(
-            "SELECT val FROM `" . $this->database_name . "`.`test_table`"
+            'SELECT val FROM `' . $this->database_name . '`.`test_table`'
         );
         $row = $result->fetch_assoc();
         $this->assertGreaterThan(2, $row['val']);
@@ -162,7 +154,7 @@ class EventsTest extends TestBase
     public function testEditEvents()
     {
         $this->_eventSQL();
-        $this->waitForElement('partialLinkText', "Events")->click();
+        $this->waitForElement('partialLinkText', 'Events')->click();
         $this->waitAjax();
 
         $this->waitForElement(
@@ -170,23 +162,23 @@ class EventsTest extends TestBase
             "//legend[contains(., 'Events')]"
         );
 
-        $this->byPartialLinkText("Edit")->click();
+        $this->byPartialLinkText('Edit')->click();
 
-        $this->waitForElement('className', "rte_form");
-        $this->byName("item_interval_value")->clear();
-        $this->byName("item_interval_value")->sendKeys("2");
+        $this->waitForElement('className', 'rte_form');
+        $this->byName('item_interval_value')->clear();
+        $this->byName('item_interval_value')->sendKeys('2');
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
         $this->waitForElement(
             'xpath',
-            "//div[@class='success' and contains(., "
+            "//div[@class='alert alert-success' and contains(., "
             . "'Event `test_event` has been modified')]"
         );
 
         sleep(2);
         $result = $this->dbQuery(
-            "SELECT val FROM `" . $this->database_name . "`.`test_table`"
+            'SELECT val FROM `' . $this->database_name . '`.`test_table`'
         );
         $row = $result->fetch_assoc();
         $this->assertGreaterThan(2, $row['val']);
@@ -202,7 +194,7 @@ class EventsTest extends TestBase
     public function testDropEvent()
     {
         $this->_eventSQL();
-        $this->waitForElement('partialLinkText', "Events")->click();
+        $this->waitForElement('partialLinkText', 'Events')->click();
         $this->waitAjax();
 
         $this->waitForElement(
@@ -210,10 +202,10 @@ class EventsTest extends TestBase
             "//legend[contains(., 'Events')]"
         );
 
-        $this->byPartialLinkText("Drop")->click();
+        $this->byPartialLinkText('Drop')->click();
         $this->waitForElement(
             'className',
-            "submitOK"
+            'submitOK'
         )->click();
 
         $this->waitAjaxMessage();

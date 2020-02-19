@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Holds QueriesControllerTest
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -12,26 +9,19 @@ namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\QueriesController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
+use function array_sum;
+use function htmlspecialchars;
 
-/**
- * Class QueriesControllerTest
- * @package PhpMyAdmin\Tests\Controllers\Server\Status
- */
 class QueriesControllerTest extends TestCase
 {
-    /**
-     * @var Data
-     */
+    /** @var Data */
     private $data;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
@@ -82,7 +72,7 @@ class QueriesControllerTest extends TestCase
             ],
             [
                 "SELECT concat('Com_', variable_name), variable_value "
-                . "FROM data_dictionary.GLOBAL_STATEMENTS",
+                . 'FROM data_dictionary.GLOBAL_STATEMENTS',
                 0,
                 1,
                 DatabaseInterface::CONNECT_USER,
@@ -112,19 +102,19 @@ class QueriesControllerTest extends TestCase
         ];
     }
 
-    /**
-     * @return void
-     */
     public function testIndex(): void
     {
+        $response = new Response();
+
         $controller = new QueriesController(
-            Response::getInstance(),
+            $response,
             $GLOBALS['dbi'],
             new Template(),
             $this->data
         );
 
-        $html = $controller->index();
+        $controller->index();
+        $html = $response->getHTMLResult();
 
         $hourFactor = 3600 / $this->data->status['Uptime'];
         $usedQueries = $this->data->used_queries;
@@ -199,7 +189,7 @@ class QueriesControllerTest extends TestCase
         );
 
         $this->assertStringContainsString(
-            '<div id="serverstatusquerieschart" class="width100" data-chart="',
+            '<div id="serverstatusquerieschart" class="w-100 col-12 col-md-6" data-chart="',
             $html
         );
     }

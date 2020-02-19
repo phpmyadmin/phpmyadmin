@@ -1,4 +1,4 @@
 <span class="curr_value">{{ current_value }}</span>
-<a href="browse_foreigners.php" data-post="{{ get_common(params, '') }}" class="ajax browse_foreign">
+<a href="{{ url('/browse-foreigners') }}" data-post="{{ get_common(params, '') }}" class="ajax browse_foreign">
   {% trans 'Browse foreign values' %}
 </a>

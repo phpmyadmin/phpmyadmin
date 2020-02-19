@@ -1,4 +1,3 @@
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Initialises the data required to run Designer, then fires it up.
  */
@@ -54,15 +53,15 @@ AJAX.registerOnload('designer/init.js', function () {
     }
 
     $('#query_Aggregate_Button').on('click', function () {
-        document.getElementById('query_Aggregate').style.display = 'none';
+        $('#query_Aggregate').style.display = 'none';
     });
 
     $('#query_having_button').on('click', function () {
-        document.getElementById('query_having').style.display = 'none';
+        $('#query_having').style.display = 'none';
     });
 
     $('#query_rename_to_button').on('click', function () {
-        document.getElementById('query_rename_to').style.display = 'none';
+        $('#query_rename_to').style.display = 'none';
     });
 
     $('#build_query_button').on('click', function () {
@@ -70,6 +69,6 @@ AJAX.registerOnload('designer/init.js', function () {
     });
 
     $('#query_where_button').on('click', function () {
-        document.getElementById('query_where').style.display = 'none';
+        $('#query_where').style.display = 'none';
     });
 });

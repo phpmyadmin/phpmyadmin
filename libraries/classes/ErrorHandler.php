@@ -1,22 +1,37 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Holds class PhpMyAdmin\ErrorHandler
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Error;
-use PhpMyAdmin\Response;
-use PhpMyAdmin\Url;
+use function array_splice;
+use function count;
+use function defined;
+use function error_reporting;
+use function function_exists;
+use function headers_sent;
+use function htmlspecialchars;
+use function set_error_handler;
+use function trigger_error;
+use const E_COMPILE_ERROR;
+use const E_COMPILE_WARNING;
+use const E_CORE_ERROR;
+use const E_CORE_WARNING;
+use const E_DEPRECATED;
+use const E_ERROR;
+use const E_NOTICE;
+use const E_PARSE;
+use const E_RECOVERABLE_ERROR;
+use const E_STRICT;
+use const E_USER_ERROR;
+use const E_USER_NOTICE;
+use const E_USER_WARNING;
+use const E_WARNING;
 
 /**
  * handling errors
- *
- * @package PhpMyAdmin
  */
 class ErrorHandler
 {
@@ -37,10 +52,6 @@ class ErrorHandler
      */
     protected $error_reporting = 0;
 
-    /**
-     * Constructor - set PHP error handler
-     *
-     */
     public function __construct()
     {
         /**
@@ -61,35 +72,32 @@ class ErrorHandler
      * Destructor
      *
      * stores errors in session
-     *
      */
     public function __destruct()
     {
-        if (isset($_SESSION)) {
-            if (! isset($_SESSION['errors'])) {
-                $_SESSION['errors'] = [];
-            }
+        if (! isset($_SESSION['errors'])) {
+            $_SESSION['errors'] = [];
+        }
 
-            // remember only not displayed errors
-            foreach ($this->errors as $key => $error) {
-                /**
-                 * We don't want to store all errors here as it would
-                 * explode user session.
-                 */
-                if (count($_SESSION['errors']) >= 10) {
-                    $error = new Error(
-                        0,
-                        __('Too many error messages, some are not displayed.'),
-                        __FILE__,
-                        __LINE__
-                    );
-                    $_SESSION['errors'][$error->getHash()] = $error;
-                    break;
-                } elseif (($error instanceof Error)
-                    && ! $error->isDisplayed()
-                ) {
-                    $_SESSION['errors'][$key] = $error;
-                }
+        // remember only not displayed errors
+        foreach ($this->errors as $key => $error) {
+            /**
+             * We don't want to store all errors here as it would
+             * explode user session.
+             */
+            if (count($_SESSION['errors']) >= 10) {
+                $error = new Error(
+                    0,
+                    __('Too many error messages, some are not displayed.'),
+                    __FILE__,
+                    __LINE__
+                );
+                $_SESSION['errors'][$error->getHash()] = $error;
+                break;
+            } elseif (($error instanceof Error)
+                && ! $error->isDisplayed()
+            ) {
+                $_SESSION['errors'][$key] = $error;
             }
         }
     }
@@ -97,9 +105,7 @@ class ErrorHandler
     /**
      * Toggles location hiding
      *
-     * @param boolean $hide Whether to hide
-     *
-     * @return void
+     * @param bool $hide Whether to hide
      */
     public function setHideLocation(bool $hide): void
     {
@@ -152,12 +158,10 @@ class ErrorHandler
      * This calls the addError() function, escaping the error string
      * Ignores the errors wherever Error Control Operator (@) is used.
      *
-     * @param integer $errno   error number
-     * @param string  $errstr  error string
-     * @param string  $errfile error file
-     * @param integer $errline error line
-     *
-     * @return void
+     * @param int    $errno   error number
+     * @param string $errstr  error string
+     * @param string $errfile error file
+     * @param int    $errline error line
      */
     public function handleError(
         int $errno,
@@ -196,13 +200,11 @@ class ErrorHandler
      * Do not use the context parameter as we want to avoid storing the
      * complete $GLOBALS inside $_SESSION['errors']
      *
-     * @param string  $errstr  error string
-     * @param integer $errno   error number
-     * @param string  $errfile error file
-     * @param integer $errline error line
-     * @param boolean $escape  whether to escape the error string
-     *
-     * @return void
+     * @param string $errstr  error string
+     * @param int    $errno   error number
+     * @param string $errfile error file
+     * @param int    $errline error line
+     * @param bool   $escape  whether to escape the error string
      */
     public function addError(
         string $errstr,
@@ -257,10 +259,8 @@ class ErrorHandler
     /**
      * trigger a custom error
      *
-     * @param string  $errorInfo   error message
-     * @param integer $errorNumber error number
-     *
-     * @return void
+     * @param string $errorInfo   error message
+     * @param int    $errorNumber error number
      */
     public function triggerError(string $errorInfo, ?int $errorNumber = null): void
     {
@@ -273,8 +273,6 @@ class ErrorHandler
      * display fatal error and exit
      *
      * @param Error $error the error
-     *
-     * @return void
      */
     protected function dispFatalError(Error $error): void
     {
@@ -288,8 +286,6 @@ class ErrorHandler
 
     /**
      * Displays user errors not displayed
-     *
-     * @return void
      */
     public function dispUserErrors(): void
     {
@@ -298,8 +294,6 @@ class ErrorHandler
 
     /**
      * Renders user errors not displayed
-     *
-     * @return string
      */
     public function getDispUserErrors(): string
     {
@@ -316,8 +310,6 @@ class ErrorHandler
      * display HTML header
      *
      * @param Error $error the error
-     *
-     * @return void
      */
     protected function dispPageStart(?Error $error = null): void
     {
@@ -333,8 +325,6 @@ class ErrorHandler
 
     /**
      * display HTML footer
-     *
-     * @return void
      */
     protected function dispPageEnd(): void
     {
@@ -343,8 +333,6 @@ class ErrorHandler
 
     /**
      * renders errors not displayed
-     *
-     * @return string
      */
     public function getDispErrors(): string
     {
@@ -362,11 +350,11 @@ class ErrorHandler
         // if preference is not 'never' and
         // there are 'actual' errors to be reported
         if ($GLOBALS['cfg']['SendErrorReports'] != 'never'
-            &&  $this->countErrors() !=  $this->countUserErrors()
+            && $this->countErrors() !=  $this->countUserErrors()
         ) {
             // add report button.
-            $retval .= '<form method="post" action="error_report.php"'
-                    . ' id="pma_report_errors_form"';
+            $retval .= '<form method="post" action="' . Url::getFromRoute('/error-report')
+                    . '" id="pma_report_errors_form"';
             if ($GLOBALS['cfg']['SendErrorReports'] == 'always') {
                 // in case of 'always', generate 'invisible' form.
                 $retval .= ' class="hide"';
@@ -401,19 +389,7 @@ class ErrorHandler
     }
 
     /**
-     * displays errors not displayed
-     *
-     * @return void
-     */
-    public function dispErrors(): void
-    {
-        echo $this->getDispErrors();
-    }
-
-    /**
      * look in session for saved errors
-     *
-     * @return void
      */
     protected function checkSavedErrors(): void
     {
@@ -436,7 +412,7 @@ class ErrorHandler
      *
      * @param bool $check Whether to check for session errors
      *
-     * @return integer number of errors occurred
+     * @return int number of errors occurred
      */
     public function countErrors(bool $check = true): int
     {
@@ -446,7 +422,7 @@ class ErrorHandler
     /**
      * return count of user errors
      *
-     * @return integer number of user errors occurred
+     * @return int number of user errors occurred
      */
     public function countUserErrors(): int
     {
@@ -464,8 +440,6 @@ class ErrorHandler
 
     /**
      * whether use errors occurred or not
-     *
-     * @return boolean
      */
     public function hasUserErrors(): bool
     {
@@ -474,8 +448,6 @@ class ErrorHandler
 
     /**
      * whether errors occurred or not
-     *
-     * @return boolean
      */
     public function hasErrors(): bool
     {
@@ -485,7 +457,7 @@ class ErrorHandler
     /**
      * number of errors to be displayed
      *
-     * @return integer number of errors to be displayed
+     * @return int number of errors to be displayed
      */
     public function countDisplayErrors(): int
     {
@@ -498,8 +470,6 @@ class ErrorHandler
 
     /**
      * whether there are errors to display or not
-     *
-     * @return boolean
      */
     public function hasDisplayErrors(): bool
     {
@@ -510,8 +480,6 @@ class ErrorHandler
      * Deletes previously stored errors in SESSION.
      * Saves current errors in session as previous errors.
      * Required to save current errors in case  'ask'
-     *
-     * @return void
      */
     public function savePreviousErrors(): void
     {
@@ -526,22 +494,18 @@ class ErrorHandler
      * This distinguishes between the actual errors
      *      and user errors raised to warn user.
      *
-     * @return boolean true if there are errors to be "prompted", false otherwise
+     * @return bool true if there are errors to be "prompted", false otherwise
      */
     public function hasErrorsForPrompt(): bool
     {
-        return (
-            $GLOBALS['cfg']['SendErrorReports'] != 'never'
-            && $this->countErrors() !=  $this->countUserErrors()
-        );
+        return $GLOBALS['cfg']['SendErrorReports'] != 'never'
+            && $this->countErrors() !=  $this->countUserErrors();
     }
 
     /**
      * Function to report all the collected php errors.
      * Must be called at the end of each script
      *      by the $GLOBALS['error_handler'] only.
-     *
-     * @return void
      */
     public function reportErrors(): void
     {

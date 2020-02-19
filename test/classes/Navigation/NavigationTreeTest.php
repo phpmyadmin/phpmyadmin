@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Test for PhpMyAdmin\Navigation\NavigationTree class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -16,21 +13,16 @@ use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PhpMyAdmin\Navigation\NavigationTree class
- *
- * @package PhpMyAdmin-test
  */
 class NavigationTreeTest extends PmaTestCase
 {
-    /**
-     * @var NavigationTree
-     */
+    /** @var NavigationTree */
     protected $object;
 
     /**
      * Sets up the fixture.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
@@ -57,7 +49,6 @@ class NavigationTreeTest extends PmaTestCase
      * Tears down the fixture.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {

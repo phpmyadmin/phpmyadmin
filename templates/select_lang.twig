@@ -1,9 +1,9 @@
-    <form method="get" action="index.php" class="disableAjax">
+    <form method="get" action="{{ url('/') }}" class="disableAjax">
     {{ get_hidden_inputs(_form_params) }}
 
     {% if use_fieldset %}
         <fieldset>
-            <legend lang="en" dir="ltr">{{ language_title|raw }}</legend>
+            <legend class="col-form-label" lang="en" dir="ltr">{{ language_title|raw }}</legend>
     {% else %}
         <bdo lang="en" dir="ltr">
             <label for="sel-lang">{{ language_title|raw }}</label>

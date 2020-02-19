@@ -1,48 +1,37 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Holds the PhpMyAdmin\Controllers\Server\EnginesController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\StorageEngine;
 
 /**
  * Handles viewing storage engine details
- *
- * @package PhpMyAdmin\Controllers
  */
 class EnginesController extends AbstractController
 {
-    /**
-     * Index action
-     *
-     * @return string
-     */
-    public function index(): string
+    public function index(): void
     {
-        require ROOT_PATH . 'libraries/server_common.inc.php';
+        Common::server();
 
-        return $this->template->render('server/engines/index', [
+        $this->response->addHTML($this->template->render('server/engines/index', [
             'engines' => StorageEngine::getStorageEngines(),
-        ]);
+        ]));
     }
 
     /**
      * Displays details about a given Storage Engine
      *
      * @param array $params Request params
-     *
-     * @return string
      */
-    public function show(array $params): string
+    public function show(array $params): void
     {
-        require ROOT_PATH . 'libraries/server_common.inc.php';
+        Common::server();
 
         $page = $params['page'] ?? '';
 
@@ -61,9 +50,9 @@ class EnginesController extends AbstractController
             ];
         }
 
-        return $this->template->render('server/engines/show', [
+        $this->response->addHTML($this->template->render('server/engines/show', [
             'engine' => $engine,
             'page' => $page,
-        ]);
+        ]));
     }
 }

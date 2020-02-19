@@ -1,4 +1,3 @@
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * @fileoverview    function used in server privilege pages
  * @name            Database Operations
@@ -10,7 +9,7 @@
  */
 
 /**
- * Ajax event handlers here for db_operations.php
+ * Ajax event handlers here for /database/operations
  *
  * Actions Ajaxified here:
  * Rename Database
@@ -35,6 +34,11 @@ AJAX.registerOnload('database/operations.js', function () {
      */
     $(document).on('submit', '#rename_db_form.ajax', function (event) {
         event.preventDefault();
+
+        if (Functions.emptyCheckTheField(this, 'newname')) {
+            Functions.ajaxShowMessage(Messages.strFormEmpty, false, 'error');
+            return false;
+        }
 
         var oldDbName = CommonParams.get('db');
         var newDbName = $('#new_db_name').val();
@@ -81,12 +85,18 @@ AJAX.registerOnload('database/operations.js', function () {
      */
     $(document).on('submit', '#copy_db_form.ajax', function (event) {
         event.preventDefault();
+
+        if (Functions.emptyCheckTheField(this, 'newname')) {
+            Functions.ajaxShowMessage(Messages.strFormEmpty, false, 'error');
+            return false;
+        }
+
         Functions.ajaxShowMessage(Messages.strCopyingDatabase, false);
         var $form = $(this);
         Functions.prepareForAjaxRequest($form);
         $.post($form.attr('action'), $form.serialize(), function (data) {
             // use messages that stay on screen
-            $('div.success, div.error').fadeOut();
+            $('.alert-success, .alert-danger').fadeOut();
             if (typeof data !== 'undefined' && data.success === true) {
                 if ($('#checkbox_switch').is(':checked')) {
                     CommonParams.set('db', data.newname);
@@ -153,7 +163,7 @@ AJAX.registerOnload('database/operations.js', function () {
                     Navigation.reload();
                     CommonParams.set('db', '');
                     CommonActions.refreshMain(
-                        'server_databases.php',
+                        'index.php?route=/server/databases',
                         function () {
                             Functions.ajaxShowMessage(data.message);
                         }

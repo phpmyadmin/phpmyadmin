@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for PhpMyAdmin\Rte\Triggers
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -16,20 +13,14 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * This class is for testing PhpMyAdmin\Rte\Triggers methods
- *
- * @package PhpMyAdmin-test
  */
 class TriggersTest extends TestCase
 {
-    /**
-     * @var Triggers
-     */
+    /** @var Triggers */
     private $triggers;
 
     /**
      * Set up
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -48,8 +39,6 @@ class TriggersTest extends TestCase
      *
      * @param array $in  Input
      * @param array $out Expected output
-     *
-     * @return void
      *
      * @dataProvider providerGetDataFromRequestEmpty
      */
@@ -120,8 +109,6 @@ class TriggersTest extends TestCase
      *
      * @param array $data    Data for trigger
      * @param array $matcher Matcher
-     *
-     * @return void
      *
      * @dataProvider providerGetEditorFormAdd
      * @group medium
@@ -195,8 +182,6 @@ class TriggersTest extends TestCase
      * @param array $data    Data for trigger
      * @param array $matcher Matcher
      *
-     * @return void
-     *
      * @dataProvider providerGetEditorFormEdit
      * @group medium
      */
@@ -268,8 +253,6 @@ class TriggersTest extends TestCase
      *
      * @param array $data    Data for trigger
      * @param array $matcher Matcher
-     *
-     * @return void
      *
      * @dataProvider providerGetEditorFormAjax
      */

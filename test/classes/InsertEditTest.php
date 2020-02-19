@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for PhpMyAdmin\InsertEdit
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,15 +11,17 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
+use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 use ReflectionProperty;
 use stdClass;
+use function md5;
+use function sprintf;
 
 /**
  * Tests for PhpMyAdmin\InsertEdit
  *
- * @package PhpMyAdmin-test
  * @group medium
  */
 class InsertEditTest extends TestCase
@@ -31,8 +30,6 @@ class InsertEditTest extends TestCase
 
     /**
      * Setup for test cases
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -360,40 +357,64 @@ class InsertEditTest extends TestCase
 
         $result = $this->insertEdit->showTypeOrFunction('function', $url_params, false);
 
-        $this->assertEquals(
-            ' : <a href="tbl_change.php" data-post="ShowFunctionFields=1&amp;ShowFieldTypesIn'
-            . 'DataEditView=1&amp;goto=sql.php&amp;lang=en">'
-            . 'Function</a>',
+        $this->assertStringContainsString(
+            'index.php?route=/table/change',
+            $result
+        );
+        $this->assertStringContainsString(
+            'ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=1&amp;goto=index.php%3Froute%3D%2Fsql',
+            $result
+        );
+        $this->assertStringContainsString(
+            'Function',
             $result
         );
 
         // case 2
         $result = $this->insertEdit->showTypeOrFunction('function', $url_params, true);
 
-        $this->assertEquals(
-            '<th><a href="tbl_change.php" data-post="ShowFunctionFields=0&amp;ShowFieldTypesIn'
-            . 'DataEditView=1&amp;goto=sql.php&amp;lang=en" title='
-            . '"Hide">Function</a></th>',
+        $this->assertStringContainsString(
+            'index.php?route=/table/change',
+            $result
+        );
+        $this->assertStringContainsString(
+            'ShowFunctionFields=0&amp;ShowFieldTypesInDataEditView=1&amp;goto=index.php%3Froute%3D%2Fsql',
+            $result
+        );
+        $this->assertStringContainsString(
+            'Function',
             $result
         );
 
         // case 3
         $result = $this->insertEdit->showTypeOrFunction('type', $url_params, false);
 
-        $this->assertEquals(
-            ' : <a href="tbl_change.php" data-post="ShowFunctionFields=1&amp;ShowFieldTypesIn'
-            . 'DataEditView=1&amp;goto=sql.php&amp;lang=en">'
-            . 'Type</a>',
+        $this->assertStringContainsString(
+            'index.php?route=/table/change',
+            $result
+        );
+        $this->assertStringContainsString(
+            'ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=1&amp;goto=index.php%3Froute%3D%2Fsql',
+            $result
+        );
+        $this->assertStringContainsString(
+            'Type',
             $result
         );
 
         // case 4
         $result = $this->insertEdit->showTypeOrFunction('type', $url_params, true);
 
-        $this->assertEquals(
-            '<th><a href="tbl_change.php" data-post="ShowFunctionFields=1&amp;ShowFieldTypesIn'
-            . 'DataEditView=0&amp;goto=sql.php&amp;lang=en" title='
-            . '"Hide">Type</a></th>',
+        $this->assertStringContainsString(
+            'index.php?route=/table/change',
+            $result
+        );
+        $this->assertStringContainsString(
+            'ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=0&amp;goto=index.php%3Froute%3D%2Fsql',
+            $result
+        );
+        $this->assertStringContainsString(
+            'Type',
             $result
         );
     }
@@ -678,7 +699,7 @@ class InsertEditTest extends TestCase
         $column = [];
         $column['is_blob'] = true;
         $this->assertStringContainsString(
-            '<td class="center">Binary</td>',
+            '<td class="text-center">Binary</td>',
             $this->callProtectedMethod('getFunctionColumn', [
                 $column,
                 false,
@@ -697,7 +718,7 @@ class InsertEditTest extends TestCase
         $GLOBALS['cfg']['ProtectBinary'] = 'all';
         $column['is_binary'] = true;
         $this->assertStringContainsString(
-            '<td class="center">Binary</td>',
+            '<td class="text-center">Binary</td>',
             $this->callProtectedMethod('getFunctionColumn', [
                 $column,
                 true,
@@ -716,7 +737,7 @@ class InsertEditTest extends TestCase
         $GLOBALS['cfg']['ProtectBinary'] = 'noblob';
         $column['is_blob'] = false;
         $this->assertStringContainsString(
-            '<td class="center">Binary</td>',
+            '<td class="text-center">Binary</td>',
             $this->callProtectedMethod('getFunctionColumn', [
                 $column,
                 true,
@@ -735,7 +756,7 @@ class InsertEditTest extends TestCase
         $GLOBALS['cfg']['ProtectBinary'] = false;
         $column['True_Type'] = 'enum';
         $this->assertStringContainsString(
-            '<td class="center">--</td>',
+            '<td class="text-center">--</td>',
             $this->callProtectedMethod('getFunctionColumn', [
                 $column,
                 true,
@@ -753,7 +774,7 @@ class InsertEditTest extends TestCase
 
         $column['True_Type'] = 'set';
         $this->assertStringContainsString(
-            '<td class="center">--</td>',
+            '<td class="text-center">--</td>',
             $this->callProtectedMethod('getFunctionColumn', [
                 $column,
                 true,
@@ -772,7 +793,7 @@ class InsertEditTest extends TestCase
         $column['True_Type'] = '';
         $column['pma_type'] = 'int';
         $this->assertStringContainsString(
-            '<td class="center">--</td>',
+            '<td class="text-center">--</td>',
             $this->callProtectedMethod('getFunctionColumn', [
                 $column,
                 true,
@@ -831,7 +852,7 @@ class InsertEditTest extends TestCase
             2,
             0,
             1,
-            "<script>",
+            '<script>',
             $foreigners,
             [],
             false,
@@ -875,7 +896,7 @@ class InsertEditTest extends TestCase
             2,
             0,
             1,
-            "<script>",
+            '<script>',
             [],
             [],
             false,
@@ -895,7 +916,7 @@ class InsertEditTest extends TestCase
             2,
             0,
             1,
-            "<script>",
+            '<script>',
             [],
             [],
             true,
@@ -983,7 +1004,7 @@ class InsertEditTest extends TestCase
             2,
             0,
             1,
-            "abc",
+            'abc',
             [
                 'tbl',
                 'db',
@@ -999,9 +1020,12 @@ class InsertEditTest extends TestCase
         );
 
         $this->assertStringContainsString(
-            '<a class="ajax browse_foreign" href="browse_'
-            . 'foreigners.php" data-post="db=db&amp;table=tbl&amp;field=f&amp;rownumber=8'
+            '" data-post="db=db&amp;table=tbl&amp;field=f&amp;rownumber=8'
             . '&amp;data=abc&amp;server=1&amp;lang=en">',
+            $result
+        );
+        $this->assertStringContainsString(
+            '<a class="ajax browse_foreign" href="index.php?route=/browse-foreigners',
             $result
         );
 
@@ -1035,7 +1059,7 @@ class InsertEditTest extends TestCase
             2,
             0,
             1,
-            "<s>",
+            '<s>',
             $foreignData,
             false,
         ]);
@@ -1080,7 +1104,7 @@ class InsertEditTest extends TestCase
             2,
             0,
             1,
-            "<s>",
+            '<s>',
             $foreignData,
             false,
         ]);
@@ -1127,7 +1151,7 @@ class InsertEditTest extends TestCase
             2,
             0,
             1,
-            "abc/",
+            'abc/',
             'foobar',
             'CHAR',
             false,
@@ -1546,7 +1570,7 @@ class InsertEditTest extends TestCase
         );
 
         // case 2
-        $GLOBALS['cfg']['ProtectBinary'] = "all";
+        $GLOBALS['cfg']['ProtectBinary'] = 'all';
         $column['is_binary'] = true;
 
         $result = $this->callProtectedMethod('getBinaryAndBlobColumn', [
@@ -1575,7 +1599,7 @@ class InsertEditTest extends TestCase
         );
 
         // case 3
-        $GLOBALS['cfg']['ProtectBinary'] = "noblob";
+        $GLOBALS['cfg']['ProtectBinary'] = 'noblob';
         $column['is_blob'] = false;
 
         $result = $this->callProtectedMethod('getBinaryAndBlobColumn', [
@@ -1688,7 +1712,6 @@ class InsertEditTest extends TestCase
          * This condition should be tested, however, it gives an undefined function
          * PhpMyAdmin\FileListing::getFileSelectOptions error:
          * $GLOBALS['cfg']['UploadDir'] = true;
-         *
          */
 
         $result = $this->callProtectedMethod('getBinaryAndBlobColumn', [
@@ -1865,8 +1888,8 @@ class InsertEditTest extends TestCase
             '&lt;',
             12,
             1,
-            "/",
-            "&lt;",
+            '/',
+            '&lt;',
             "foo\nbar",
             $extracted_columnspec,
             false,
@@ -1896,8 +1919,8 @@ class InsertEditTest extends TestCase
             '&lt;',
             12,
             1,
-            "/",
-            "&lt;",
+            '/',
+            '&lt;',
             "foo\nbar",
             $extracted_columnspec,
             false,
@@ -1924,8 +1947,8 @@ class InsertEditTest extends TestCase
             '&lt;',
             12,
             1,
-            "/",
-            "&lt;",
+            '/',
+            '&lt;',
             "foo\nbar",
             $extracted_columnspec,
             false,
@@ -1999,23 +2022,23 @@ class InsertEditTest extends TestCase
      */
     public function testGetContinueInsertionForm()
     {
-        $where_clause_array = ["a<b"];
+        $where_clause_array = ['a<b'];
         $GLOBALS['cfg']['InsertRows'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = 1;
-        $GLOBALS['goto'] = "index.php";
+        $GLOBALS['goto'] = 'index.php';
         $_POST['where_clause'] = true;
-        $_POST['sql_query'] = "SELECT 1";
+        $_POST['sql_query'] = 'SELECT 1';
 
         $result = $this->insertEdit->getContinueInsertionForm(
-            "tbl",
-            "db",
+            'tbl',
+            'db',
             $where_clause_array,
-            "localhost"
+            'localhost'
         );
 
         $this->assertStringContainsString(
-            '<form id="continueForm" method="post" action="tbl_replace.php" '
-            . 'name="continueForm">',
+            '<form id="continueForm" method="post" action="' . Url::getFromRoute('/table/replace')
+            . '" name="continueForm">',
             $result
         );
 
@@ -2109,7 +2132,7 @@ class InsertEditTest extends TestCase
     public function testGetAfterInsertDropDown()
     {
         $result = $this->callProtectedMethod('getAfterInsertDropDown', [
-            "`t`.`f` = 2",
+            '`t`.`f` = 2',
             'new_insert',
             true,
         ]);
@@ -2179,12 +2202,17 @@ class InsertEditTest extends TestCase
         ]);
 
         $this->assertStringContainsString(
-            'tbl_change.php" data-post="ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=0',
+            'index.php?route=/table/change',
             $result
         );
 
         $this->assertStringContainsString(
-            'tbl_change.php" data-post="ShowFunctionFields=0&amp;ShowFieldTypesInDataEditView=1',
+            'ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=0',
+            $result
+        );
+
+        $this->assertStringContainsString(
+            'ShowFunctionFields=0&amp;ShowFieldTypesInDataEditView=1',
             $result
         );
     }
@@ -2227,7 +2255,7 @@ class InsertEditTest extends TestCase
         // Case 2 (bit)
         unset($_POST['default_action']);
 
-        $current_row['f'] = "123";
+        $current_row['f'] = '123';
         $extracted_columnspec['spec_in_brackets'] = 20;
         $column['True_Type'] = 'bit';
 
@@ -2244,15 +2272,15 @@ class InsertEditTest extends TestCase
         $this->assertEquals(
             [
                 false,
-                "",
-                "00000000000001111011",
+                '',
+                '00000000000001111011',
                 null,
                 '<input type="hidden" name="fields_preva" value="123">',
             ],
             $result
         );
 
-        $current_row['f'] = "abcd";
+        $current_row['f'] = 'abcd';
         $result = $this->callProtectedMethod('getSpecialCharsAndBackupFieldForExistingRow', [
             $current_row,
             $column,
@@ -2266,8 +2294,8 @@ class InsertEditTest extends TestCase
         $this->assertEquals(
             [
                 false,
-                "",
-                "abcd",
+                '',
+                'abcd',
                 null,
                 '<input type="hidden" name="fields_preva" value="abcd">',
             ],
@@ -2282,7 +2310,7 @@ class InsertEditTest extends TestCase
         $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
 
-        $current_row['f'] = "123";
+        $current_row['f'] = '123';
         $extracted_columnspec['spec_in_brackets'] = 20;
         $column['True_Type'] = 'int';
 
@@ -2299,7 +2327,7 @@ class InsertEditTest extends TestCase
         $this->assertEquals(
             [
                 false,
-                "",
+                '',
                 "'',",
                 null,
                 '<input type="hidden" name="fields_preva" value="\'\',">',
@@ -2311,7 +2339,7 @@ class InsertEditTest extends TestCase
         $column['is_binary'] = false;
         $column['is_blob'] = true;
         $GLOBALS['cfg']['ProtectBinary'] = false;
-        $current_row['f'] = "11001";
+        $current_row['f'] = '11001';
         $extracted_columnspec['spec_in_brackets'] = 20;
         $column['True_Type'] = 'char';
         $GLOBALS['cfg']['ShowFunctionFields'] = true;
@@ -2329,9 +2357,9 @@ class InsertEditTest extends TestCase
         $this->assertEquals(
             [
                 false,
-                "3131303031",
-                "3131303031",
-                "3131303031",
+                '3131303031',
+                '3131303031',
+                '3131303031',
                 '<input type="hidden" name="fields_preva" value="3131303031">',
             ],
             $result
@@ -2353,9 +2381,9 @@ class InsertEditTest extends TestCase
         $this->assertEquals(
             [
                 false,
-                "313130303100",
-                "313130303100",
-                "313130303100",
+                '313130303100',
+                '313130303100',
+                '313130303100',
                 '<input type="hidden" name="fields_preva" value="313130303100">',
             ],
             $result
@@ -2564,20 +2592,20 @@ class InsertEditTest extends TestCase
         $GLOBALS['table'] = '';
 
         $this->assertEquals(
-            'db_sql.php',
+            '/database/sql',
             $this->insertEdit->getGotoInclude('index')
         );
 
         $GLOBALS['table'] = 'tbl';
         $this->assertEquals(
-            'tbl_sql.php',
+            '/table/sql',
             $this->insertEdit->getGotoInclude('index')
         );
 
-        $GLOBALS['goto'] = 'db_sql.php';
+        $GLOBALS['goto'] = 'index.php?route=/database/sql';
 
         $this->assertEquals(
-            'db_sql.php',
+            '/database/sql',
             $this->insertEdit->getGotoInclude('index')
         );
 
@@ -2588,7 +2616,7 @@ class InsertEditTest extends TestCase
 
         $_POST['after_insert'] = 'new_insert';
         $this->assertEquals(
-            'tbl_change.php',
+            '/table/change',
             $this->insertEdit->getGotoInclude('index')
         );
     }
@@ -2602,7 +2630,7 @@ class InsertEditTest extends TestCase
     {
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $this->assertEquals(
-            'tbl_change.php?lang=en',
+            'index.php?route=/table/change&amp;lang=en',
             $this->insertEdit->getErrorUrl([])
         );
 
@@ -2857,8 +2885,8 @@ class InsertEditTest extends TestCase
 
         $this->assertEquals(
             [
-                "1: #42 msg1",
-                "2: #43 msg2",
+                '1: #42 msg1',
+                '2: #43 msg2',
             ],
             $result
         );
@@ -2903,7 +2931,7 @@ class InsertEditTest extends TestCase
         $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
 
-        $result = $this->insertEdit->getDisplayValueForForeignTableColumn("=1", $map, 'f');
+        $result = $this->insertEdit->getDisplayValueForForeignTableColumn('=1', $map, 'f');
 
         $this->assertEquals(2, $result);
     }
@@ -2922,20 +2950,20 @@ class InsertEditTest extends TestCase
         $map['f']['foreign_table'] = 'TABLES';
         $map['f']['foreign_field'] = 'f';
 
-        $result = $this->insertEdit->getLinkForRelationalDisplayField($map, 'f', "=1", "a>", "b<");
+        $result = $this->insertEdit->getLinkForRelationalDisplayField($map, 'f', '=1', 'a>', 'b<');
 
         $this->assertEquals(
-            '<a href="sql.php?db=information_schema&amp;table=TABLES&amp;pos=0&amp;'
+            '<a href="index.php?route=/sql&amp;db=information_schema&amp;table=TABLES&amp;pos=0&amp;'
             . 'sql_query=SELECT+%2A+FROM+%60information_schema%60.%60TABLES%60+WHERE'
             . '+%60f%60%3D1&amp;lang=en" title="a&gt;">b&lt;</a>',
             $result
         );
 
         $_SESSION['tmpval']['relational_display'] = 'D';
-        $result = $this->insertEdit->getLinkForRelationalDisplayField($map, 'f', "=1", "a>", "b<");
+        $result = $this->insertEdit->getLinkForRelationalDisplayField($map, 'f', '=1', 'a>', 'b<');
 
         $this->assertEquals(
-            '<a href="sql.php?db=information_schema&amp;table=TABLES&amp;pos=0&amp;'
+            '<a href="index.php?route=/sql&amp;db=information_schema&amp;table=TABLES&amp;pos=0&amp;'
             . 'sql_query=SELECT+%2A+FROM+%60information_schema%60.%60TABLES%60+WHERE'
             . '+%60f%60%3D1&amp;lang=en" title="b&lt;">a&gt;</a>',
             $result
@@ -2975,7 +3003,7 @@ class InsertEditTest extends TestCase
         $this->assertEquals(
             [
                 'a' => 'b',
-                'transformations' => ["cnameoption ,, quoted"],
+                'transformations' => ['cnameoption ,, quoted'],
             ],
             $result
         );
@@ -3145,7 +3173,7 @@ class InsertEditTest extends TestCase
 
         // case 3
         $multi_edit_funcs = ['AES_ENCRYPT'];
-        $multi_edit_salt = [""];
+        $multi_edit_salt = [''];
         $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
             $multi_edit_funcs,
             $multi_edit_salt,
@@ -3184,7 +3212,7 @@ class InsertEditTest extends TestCase
             ['func'],
             '0'
         );
-        $this->assertEquals("func()", $result);
+        $this->assertEquals('func()', $result);
     }
 
     /**
@@ -3326,7 +3354,7 @@ class InsertEditTest extends TestCase
         );
 
         $this->assertEquals(
-            "0x313031",
+            '0x313031',
             $result
         );
 
@@ -3349,7 +3377,7 @@ class InsertEditTest extends TestCase
         );
 
         $this->assertEquals(
-            "",
+            '',
             $result
         );
 
@@ -3419,7 +3447,7 @@ class InsertEditTest extends TestCase
         );
 
         $this->assertEquals(
-            "NULL",
+            'NULL',
             $result
         );
 
@@ -3629,7 +3657,7 @@ class InsertEditTest extends TestCase
                 [null],
                 [null],
                 false,
-                "edit_next",
+                'edit_next',
             ],
             $result
         );
@@ -3655,7 +3683,7 @@ class InsertEditTest extends TestCase
                     false,
                 ],
                 false,
-                "edit_next",
+                'edit_next',
             ],
             $result
         );
@@ -3719,8 +3747,10 @@ class InsertEditTest extends TestCase
      */
     public function testGetUrlParameters()
     {
+        global $goto;
+
         $_POST['sql_query'] = 'SELECT';
-        $GLOBALS['goto'] = 'tbl_change.php';
+        $goto = 'tbl_sql.php';
 
         $this->assertEquals(
             [

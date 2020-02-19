@@ -1,25 +1,34 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Displays query statistics for the server
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;
 
-/**
- * Class QueriesController
- * @package PhpMyAdmin\Controllers\Server\Status
- */
+use PhpMyAdmin\Common;
+use function array_sum;
+use function arsort;
+use function count;
+use function str_replace;
+
 class QueriesController extends AbstractController
 {
-    /**
-     * @return string HTML
-     */
-    public function index(): string
+    public function index(): void
     {
+        Common::server();
+
+        $header = $this->response->getHeader();
+        $scripts = $header->getScripts();
+        $scripts->addFile('chart.js');
+        $scripts->addFile('vendor/jqplot/jquery.jqplot.js');
+        $scripts->addFile('vendor/jqplot/plugins/jqplot.pieRenderer.js');
+        $scripts->addFile('vendor/jqplot/plugins/jqplot.highlighter.js');
+        $scripts->addFile('vendor/jqplot/plugins/jqplot.enhancedPieLegendRenderer.js');
+        $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
+        $scripts->addFile('server/status/sorter.js');
+        $scripts->addFile('server/status/queries.js');
+
         if ($this->data->dataLoaded) {
             $hourFactor = 3600 / $this->data->status['Uptime'];
             $usedQueries = $this->data->used_queries;
@@ -65,11 +74,11 @@ class QueriesController extends AbstractController
             }
         }
 
-        return $this->template->render('server/status/queries/index', [
+        $this->response->addHTML($this->template->render('server/status/queries/index', [
             'is_data_loaded' => $this->data->dataLoaded,
             'stats' => $stats ?? null,
             'queries' => $queries ?? [],
             'chart' => $chart ?? [],
-        ]);
+        ]));
     }
 }

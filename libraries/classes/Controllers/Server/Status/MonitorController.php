@@ -1,35 +1,27 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Holds the PhpMyAdmin\Controllers\Server\Status\MonitorController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
-use PhpMyAdmin\SysInfo;
+use PhpMyAdmin\Server\SysInfo\SysInfo;
 use PhpMyAdmin\Template;
+use function is_numeric;
+use function microtime;
 
-/**
- * Class MonitorController
- * @package PhpMyAdmin\Controllers\Server\Status
- */
 class MonitorController extends AbstractController
 {
-    /**
-     * @var Monitor
-     */
+    /** @var Monitor */
     private $monitor;
 
     /**
-     * MonitorController constructor.
-     *
      * @param Response          $response Response object
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param Template          $template Template object
@@ -42,11 +34,26 @@ class MonitorController extends AbstractController
         $this->monitor = $monitor;
     }
 
-    /**
-     * @return string HTML
-     */
-    public function index(): string
+    public function index(): void
     {
+        Common::server();
+
+        $header = $this->response->getHeader();
+        $scripts = $header->getScripts();
+        $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
+        $scripts->addFile('vendor/jquery/jquery.sortableTable.js');
+        $scripts->addFile('vendor/jqplot/jquery.jqplot.js');
+        $scripts->addFile('vendor/jqplot/plugins/jqplot.pieRenderer.js');
+        $scripts->addFile('vendor/jqplot/plugins/jqplot.enhancedPieLegendRenderer.js');
+        $scripts->addFile('vendor/jqplot/plugins/jqplot.canvasTextRenderer.js');
+        $scripts->addFile('vendor/jqplot/plugins/jqplot.canvasAxisLabelRenderer.js');
+        $scripts->addFile('vendor/jqplot/plugins/jqplot.dateAxisRenderer.js');
+        $scripts->addFile('vendor/jqplot/plugins/jqplot.highlighter.js');
+        $scripts->addFile('vendor/jqplot/plugins/jqplot.cursor.js');
+        $scripts->addFile('jqplot/plugins/jqplot.byteFormatter.js');
+        $scripts->addFile('server/status/monitor.js');
+        $scripts->addFile('server/status/sorter.js');
+
         $form = [
             'server_time' => microtime(true) * 1000,
             'server_os' => SysInfo::getOs(),
@@ -61,86 +68,115 @@ class MonitorController extends AbstractController
             }
         }
 
-        return $this->template->render('server/status/monitor/index', [
+        $this->response->addHTML($this->template->render('server/status/monitor/index', [
             'image_path' => $GLOBALS['pmaThemeImage'],
             'javascript_variable_names' => $javascriptVariableNames,
             'form' => $form,
+        ]));
+    }
+
+    public function chartingData(): void
+    {
+        $params = ['requiredData' => $_POST['requiredData'] ?? null];
+
+        Common::server();
+
+        if (! $this->response->isAjax()) {
+            return;
+        }
+
+        $this->response->addJSON([
+            'message' => $this->monitor->getJsonForChartingData(
+                $params['requiredData'] ?? ''
+            ),
         ]);
     }
 
-    /**
-     * @param array $params Request parameters
-     * @return array JSON
-     */
-    public function chartingData(array $params): array
+    public function logDataTypeSlow(): void
     {
-        $json = [];
-        $json['message'] = $this->monitor->getJsonForChartingData(
-            $params['requiredData'] ?? ''
-        );
+        $params = [
+            'time_start' => $_POST['time_start'] ?? null,
+            'time_end' => $_POST['time_end'] ?? null,
+        ];
 
-        return $json;
+        Common::server();
+
+        if (! $this->response->isAjax()) {
+            return;
+        }
+
+        $this->response->addJSON([
+            'message' => $this->monitor->getJsonForLogDataTypeSlow(
+                (int) $params['time_start'],
+                (int) $params['time_end']
+            ),
+        ]);
     }
 
-    /**
-     * @param array $params Request parameters
-     * @return array JSON
-     */
-    public function logDataTypeSlow(array $params): array
+    public function logDataTypeGeneral(): void
     {
-        $json = [];
-        $json['message'] = $this->monitor->getJsonForLogDataTypeSlow(
-            (int) $params['time_start'],
-            (int) $params['time_end']
-        );
+        $params = [
+            'time_start' => $_POST['time_start'] ?? null,
+            'time_end' => $_POST['time_end'] ?? null,
+            'limitTypes' => $_POST['limitTypes'] ?? null,
+            'removeVariables' => $_POST['removeVariables'] ?? null,
+        ];
 
-        return $json;
+        Common::server();
+
+        if (! $this->response->isAjax()) {
+            return;
+        }
+
+        $this->response->addJSON([
+            'message' => $this->monitor->getJsonForLogDataTypeGeneral(
+                (int) $params['time_start'],
+                (int) $params['time_end'],
+                (bool) $params['limitTypes'],
+                (bool) $params['removeVariables']
+            ),
+        ]);
     }
 
-    /**
-     * @param array $params Request parameters
-     * @return array JSON
-     */
-    public function logDataTypeGeneral(array $params): array
+    public function loggingVars(): void
     {
-        $json = [];
-        $json['message'] = $this->monitor->getJsonForLogDataTypeGeneral(
-            (int) $params['time_start'],
-            (int) $params['time_end'],
-            (bool) $params['limitTypes'],
-            (bool) $params['removeVariables']
-        );
+        $params = [
+            'varName' => $_POST['varName'] ?? null,
+            'varValue' => $_POST['varValue'] ?? null,
+        ];
 
-        return $json;
+        Common::server();
+
+        if (! $this->response->isAjax()) {
+            return;
+        }
+
+        $this->response->addJSON([
+            'message' => $this->monitor->getJsonForLoggingVars(
+                $params['varName'],
+                $params['varValue']
+            ),
+        ]);
     }
 
-    /**
-     * @param array $params Request parameters
-     * @return array JSON
-     */
-    public function loggingVars(array $params): array
+    public function queryAnalyzer(): void
     {
-        $json = [];
-        $json['message'] = $this->monitor->getJsonForLoggingVars(
-            $params['varName'],
-            $params['varValue']
-        );
+        $params = [
+            'database' => $_POST['database'] ?? null,
+            'query' => $_POST['query'] ?? null,
+        ];
 
-        return $json;
-    }
+        Common::server();
 
-    /**
-     * @param array $params Request parameters
-     * @return array JSON
-     */
-    public function queryAnalyzer(array $params): array
-    {
-        $json = [];
-        $json['message'] = $this->monitor->getJsonForQueryAnalyzer(
-            $params['database'] ?? '',
-            $params['query'] ?? ''
-        );
+        if (! $this->response->isAjax()) {
+            return;
+        }
 
-        return $json;
+        $this->response->addJSON([
+            'message' => $this->monitor->getJsonForQueryAnalyzer(
+                $params['database'] ?? '',
+                $params['query'] ?? ''
+            ),
+        ]);
     }
 }

@@ -1,9 +1,11 @@
-<div class="group">
-  <h2>
-    {% trans "Two-factor authentication status" %}
-    {{ show_docu('two_factor') }}
-  </h2>
-  <div class="group-cnt">
+<div class="row">
+  <div class="col">
+    <div class="card mt-4">
+      <div class="card-header">
+        {% trans "Two-factor authentication status" %}
+        {{ show_docu('two_factor') }}
+      </div>
+      <div class="card-body">
     {% if enabled %}
       {% if num_backends == 0 %}
         <p>{% trans "Two-factor authentication is not available, please install optional dependencies to enable authentication backends." %}</p>
@@ -23,27 +25,39 @@
     {% else %}
       <p>{% trans "Two-factor authentication is not available, enable phpMyAdmin configuration storage to use it." %}</p>
     {% endif %}
+      </div>
+    </div>
   </div>
 </div>
 
 {% if backend_id %}
-  <div class="group">
-    <h2>{{ backend_name }}</h2>
-    <div class="group-cnt">
+<div class="row">
+  <div class="col">
+    <div class="card mt-4">
+      <div class="card-header">
+        {{ backend_name }}
+      </div>
+      <div class="card-body">
       <p>{% trans "You have enabled two factor authentication." %}</p>
       <p>{{ backend_description }}</p>
-      <form method="post" action="prefs_twofactor.php">
+      <form method="post" action="{{ url('/preferences/two-factor') }}">
         {{ get_hidden_inputs() }}
         <input class="btn btn-secondary" type="submit" name="2fa_remove" value="
           {%- trans "Disable two-factor authentication" %}">
       </form>
+      </div>
     </div>
   </div>
+</div>
 {% elseif num_backends > 0 %}
-  <div class="group">
-    <h2>{% trans "Configure two-factor authentication" %}</h2>
-    <div class="group-cnt">
-      <form method="post" action="prefs_twofactor.php">
+<div class="row">
+  <div class="col">
+    <div class="card mt-4">
+      <div class="card-header">
+        {% trans "Configure two-factor authentication" %}
+      </div>
+      <div class="card-body">
+      <form method="post" action="{{ url('/preferences/two-factor') }}">
         {{ get_hidden_inputs() }}
         {% for backend in backends %}
           <label class="displayblock">
@@ -55,6 +69,8 @@
         {% endfor %}
         <input class="btn btn-secondary" type="submit" value="{% trans "Configure two-factor authentication" %}">
       </form>
+      </div>
     </div>
   </div>
+</div>
 {% endif %}

@@ -1,17 +1,12 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * SQL import plugin for phpMyAdmin
- *
- * @package    PhpMyAdmin-Import
- * @subpackage SQL
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Import;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -19,18 +14,16 @@ use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\SqlParser\Utils\BufferedQuery;
+use function count;
+use function implode;
+use function mb_strlen;
+use function preg_replace;
 
 /**
  * Handles the import for the SQL format
- *
- * @package    PhpMyAdmin-Import
- * @subpackage SQL
  */
 class ImportSql extends ImportPlugin
 {
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();
@@ -61,14 +54,14 @@ class ImportSql extends ImportPlugin
             // $importPluginProperties
             // this will be shown as "Format specific options"
             $importSpecificOptions = new OptionsPropertyRootGroup(
-                "Format Specific Options"
+                'Format Specific Options'
             );
 
             // general options main group
-            $generalOptions = new OptionsPropertyMainGroup("general_opts");
+            $generalOptions = new OptionsPropertyMainGroup('general_opts');
             // create primary items and add them to the group
             $leaf = new SelectPropertyItem(
-                "compatibility",
+                'compatibility',
                 __('SQL compatibility mode:')
             );
             $leaf->setValues($values);
@@ -80,7 +73,7 @@ class ImportSql extends ImportPlugin
             );
             $generalOptions->addProperty($leaf);
             $leaf = new BoolPropertyItem(
-                "no_auto_value_on_zero",
+                'no_auto_value_on_zero',
                 __('Do not use <code>AUTO_INCREMENT</code> for zero values')
             );
             $leaf->setDoc(
@@ -127,7 +120,7 @@ class ImportSql extends ImportPlugin
          */
         $GLOBALS['finished'] = false;
 
-        while ((! $error) && (! $timeout_passed)) {
+        while (! $error && (! $timeout_passed)) {
             // Getting the first statement, the remaining data and the last
             // delimiter.
             $statement = $bq->extract();
@@ -184,7 +177,7 @@ class ImportSql extends ImportPlugin
     {
         $sql_modes = [];
         if (isset($request['sql_compatibility'])
-            && 'NONE' != $request['sql_compatibility']
+            && $request['sql_compatibility'] != 'NONE'
         ) {
             $sql_modes[] = $request['sql_compatibility'];
         }

@@ -1,40 +1,37 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Server config checks management
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Config;
 
-use PhpMyAdmin\Config\ConfigFile;
-use PhpMyAdmin\Config\Descriptions;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Setup\Index as SetupIndex;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function count;
+use function function_exists;
+use function htmlspecialchars;
+use function implode;
+use function ini_get;
+use function preg_match;
+use function sprintf;
+use function strlen;
 
 /**
  * Performs various compatibility, security and consistency checks on current config
  *
  * Outputs results to message list, must be called between SetupIndex::messagesBegin()
  * and SetupIndex::messagesEnd()
- *
- * @package PhpMyAdmin
  */
 class ServerConfigChecks
 {
-    /**
-     * @var ConfigFile configurations being checked
-     */
+    /** @var ConfigFile configurations being checked */
     protected $cfg;
 
     /**
-     * Constructor.
-     *
      * @param ConfigFile $cfg Configuration
      */
     public function __construct(ConfigFile $cfg)
@@ -66,10 +63,8 @@ class ServerConfigChecks
             $blowfishSecret
         );
 
-        //
         // $cfg['AllowArbitraryServer']
         // should be disabled
-        //
         if ($this->cfg->getValue('AllowArbitraryServer')) {
             $sAllowArbitraryServerWarn = sprintf(
                 __(
@@ -103,10 +98,8 @@ class ServerConfigChecks
             . 'your server.'
         );
 
-        //
         // $cfg['SaveDir']
         // should not be world-accessible
-        //
         if ($this->cfg->getValue('SaveDir') != '') {
             SetupIndex::messagesSet(
                 'notice',
@@ -116,10 +109,8 @@ class ServerConfigChecks
             );
         }
 
-        //
         // $cfg['TempDir']
         // should not be world-accessible
-        //
         if ($this->cfg->getValue('TempDir') != '') {
             SetupIndex::messagesSet(
                 'notice',
@@ -135,9 +126,9 @@ class ServerConfigChecks
     /**
      * Check config of servers
      *
-     * @param boolean $cookieAuthUsed    Cookie auth is used
-     * @param string  $blowfishSecret    Blowfish secret
-     * @param boolean $blowfishSecretSet Blowfish secret set
+     * @param bool   $cookieAuthUsed    Cookie auth is used
+     * @param string $blowfishSecret    Blowfish secret
+     * @param bool   $blowfishSecretSet Blowfish secret set
      *
      * @return array
      */
@@ -149,7 +140,7 @@ class ServerConfigChecks
         $serverCnt = $this->cfg->getServerCount();
         for ($i = 1; $i <= $serverCnt; $i++) {
             $cookieAuthServer
-                = ($this->cfg->getValue("Servers/$i/auth_type") == 'cookie');
+                = ($this->cfg->getValue('Servers/' . $i . '/auth_type') == 'cookie');
             $cookieAuthUsed |= $cookieAuthServer;
             $serverName = $this->performConfigChecksServersGetServerName(
                 $this->cfg->getServerName($i),
@@ -164,15 +155,13 @@ class ServerConfigChecks
                     $blowfishSecretSet
                 );
 
-            //
             // $cfg['Servers'][$i]['ssl']
             // should be enabled if possible
-            //
-            if (! $this->cfg->getValue("Servers/$i/ssl")) {
-                $title = Descriptions::get('Servers/1/ssl') . " ($serverName)";
+            if (! $this->cfg->getValue('Servers/' . $i . '/ssl')) {
+                $title = Descriptions::get('Servers/1/ssl') . ' (' . $serverName . ')';
                 SetupIndex::messagesSet(
                     'notice',
-                    "Servers/$i/ssl",
+                    'Servers/' . $i . '/ssl',
                     $title,
                     __(
                         'You should use SSL connections if your database server '
@@ -193,19 +182,17 @@ class ServerConfigChecks
                 '[/a]'
             ));
 
-            //
             // $cfg['Servers'][$i]['auth_type']
             // warn about full user credentials if 'auth_type' is 'config'
-            //
-            if ($this->cfg->getValue("Servers/$i/auth_type") == 'config'
-                && $this->cfg->getValue("Servers/$i/user") != ''
-                && $this->cfg->getValue("Servers/$i/password") != ''
+            if ($this->cfg->getValue('Servers/' . $i . '/auth_type') == 'config'
+                && $this->cfg->getValue('Servers/' . $i . '/user') != ''
+                && $this->cfg->getValue('Servers/' . $i . '/password') != ''
             ) {
                 $title = Descriptions::get('Servers/1/auth_type')
-                    . " ($serverName)";
+                    . ' (' . $serverName . ')';
                 SetupIndex::messagesSet(
                     'notice',
-                    "Servers/$i/auth_type",
+                    'Servers/' . $i . '/auth_type',
                     $title,
                     Sanitize::sanitizeMessage(sprintf(
                         __(
@@ -222,19 +209,17 @@ class ServerConfigChecks
                 );
             }
 
-            //
             // $cfg['Servers'][$i]['AllowRoot']
             // $cfg['Servers'][$i]['AllowNoPassword']
             // serious security flaw
-            //
-            if ($this->cfg->getValue("Servers/$i/AllowRoot")
-                && $this->cfg->getValue("Servers/$i/AllowNoPassword")
+            if ($this->cfg->getValue('Servers/' . $i . '/AllowRoot')
+                && $this->cfg->getValue('Servers/' . $i . '/AllowNoPassword')
             ) {
                 $title = Descriptions::get('Servers/1/AllowNoPassword')
-                    . " ($serverName)";
+                    . ' (' . $serverName . ')';
                 SetupIndex::messagesSet(
                     'notice',
-                    "Servers/$i/AllowNoPassword",
+                    'Servers/' . $i . '/AllowNoPassword',
                     $title,
                     __('You allow for connecting to the server without a password.')
                     . ' ' . $sSecurityInfoMsg
@@ -251,9 +236,9 @@ class ServerConfigChecks
     /**
      * Set blowfish secret
      *
-     * @param string  $blowfishSecret    Blowfish secret
-     * @param boolean $cookieAuthServer  Cookie auth is used
-     * @param boolean $blowfishSecretSet Blowfish secret set
+     * @param string $blowfishSecret    Blowfish secret
+     * @param bool   $cookieAuthServer  Cookie auth is used
+     * @param bool   $blowfishSecretSet Blowfish secret set
      *
      * @return array
      */
@@ -285,7 +270,7 @@ class ServerConfigChecks
         $serverId
     ) {
         if ($serverName == 'localhost') {
-            $serverName .= " [$serverId]";
+            $serverName .= ' [' . $serverId . ']';
             return $serverName;
         }
         return $serverName;
@@ -310,10 +295,8 @@ class ServerConfigChecks
      */
     protected function performConfigChecksServersZipdump()
     {
-        //
         // $cfg['ZipDump']
         // requires zip_open in import
-        //
         if ($this->cfg->getValue('ZipDump') && ! $this->functionExists('zip_open')) {
             SetupIndex::messagesSet(
                 'error',
@@ -331,10 +314,8 @@ class ServerConfigChecks
             );
         }
 
-        //
         // $cfg['ZipDump']
         // requires gzcompress in export
-        //
         if ($this->cfg->getValue('ZipDump') && ! $this->functionExists('gzcompress')) {
             SetupIndex::messagesSet(
                 'error',
@@ -356,9 +337,9 @@ class ServerConfigChecks
     /**
      * Check config of servers
      *
-     * @param boolean $cookieAuthUsed    Cookie auth is used
-     * @param boolean $blowfishSecretSet Blowfish secret set
-     * @param string  $blowfishSecret    Blowfish secret
+     * @param bool   $cookieAuthUsed    Cookie auth is used
+     * @param bool   $blowfishSecretSet Blowfish secret set
+     * @param string $blowfishSecret    Blowfish secret
      *
      * @return void
      */
@@ -367,10 +348,8 @@ class ServerConfigChecks
         $blowfishSecretSet,
         $blowfishSecret
     ) {
-        //
         // $cfg['blowfish_secret']
         // it's required for 'cookie' authentication
-        //
         if ($cookieAuthUsed) {
             if ($blowfishSecretSet) {
                 // 'cookie' auth used, blowfish_secret was generated
@@ -425,7 +404,6 @@ class ServerConfigChecks
      */
     protected function performConfigChecksLoginCookie()
     {
-        //
         // $cfg['LoginCookieValidity']
         // value greater than session.gc_maxlifetime will cause
         // random session invalidation after that time
@@ -451,10 +429,8 @@ class ServerConfigChecks
             );
         }
 
-        //
         // $cfg['LoginCookieValidity']
         // should be at most 1800 (30 min)
-        //
         if ($loginCookieValidity > 1800) {
             SetupIndex::messagesSet(
                 'notice',
@@ -472,11 +448,9 @@ class ServerConfigChecks
             );
         }
 
-        //
         // $cfg['LoginCookieValidity']
         // $cfg['LoginCookieStore']
         // LoginCookieValidity must be less or equal to LoginCookieStore
-        //
         if (($this->cfg->getValue('LoginCookieStore') != 0)
             && ($loginCookieValidity > $this->cfg->getValue('LoginCookieStore'))
         ) {
@@ -506,10 +480,8 @@ class ServerConfigChecks
      */
     protected function performConfigChecksServerBZipdump()
     {
-        //
         // $cfg['BZipDump']
         // requires bzip2 functions
-        //
         if ($this->cfg->getValue('BZipDump')
             && (! $this->functionExists('bzopen') || ! $this->functionExists('bzcompress'))
         ) {
@@ -545,10 +517,8 @@ class ServerConfigChecks
      */
     protected function performConfigChecksServerGZipdump()
     {
-        //
         // $cfg['GZipDump']
         // requires zlib functions
-        //
         if ($this->cfg->getValue('GZipDump')
             && (! $this->functionExists('gzopen') || ! $this->functionExists('gzencode'))
         ) {
@@ -574,7 +544,7 @@ class ServerConfigChecks
      *
      * @param string $name Function name
      *
-     * @return boolean
+     * @return bool
      */
     protected function functionExists($name)
     {

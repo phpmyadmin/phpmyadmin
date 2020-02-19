@@ -1,10 +1,12 @@
-<div class="exportoptions" id="header">
+<div class="exportoptions row" id="header">
     <h2>
         {{ get_image('b_export', 'Export'|trans) }}
         {% if export_type == 'server' %}
             {% trans 'Exporting databases from the current server' %}
         {% elseif export_type == 'database' %}
             {{ 'Exporting tables from "%s" database'|trans|format(db) }}
+        {% elseif export_type == 'raw' %}
+            {% trans 'Exporting raw query' %}
         {% else %}
             {{ 'Exporting rows from "%s" table'|trans|format(table) }}
         {% endif %}

@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Holds the PhpMyAdmin\Controllers\Database\DataDictionaryController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -16,26 +13,18 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
+use function count;
+use function str_replace;
 
-/**
- * Class DataDictionaryController
- * @package PhpMyAdmin\Controllers\Database
- */
 class DataDictionaryController extends AbstractController
 {
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var Transformations
-     */
+    /** @var Transformations */
     private $transformations;
 
     /**
-     * DataDictionaryController constructor.
-     *
      * @param Response          $response        Response instance
      * @param DatabaseInterface $dbi             DatabaseInterface instance
      * @param Template          $template        Template object
@@ -50,11 +39,13 @@ class DataDictionaryController extends AbstractController
         $this->transformations = $transformations;
     }
 
-    /**
-     * @return string HTML
-     */
-    public function index(): string
+    public function index(): void
     {
+        Util::checkParameters(['db'], true);
+
+        $header = $this->response->getHeader();
+        $header->enablePrintView();
+
         $cfgRelation = $this->relation->getRelationsParam();
 
         $comment = $this->relation->getDbComment($this->db);
@@ -147,10 +138,10 @@ class DataDictionaryController extends AbstractController
             ];
         }
 
-        return $this->template->render('database/data_dictionary/index', [
+        $this->response->addHTML($this->template->render('database/data_dictionary/index', [
             'database' => $this->db,
             'comment' => $comment,
             'tables' => $tables,
-        ]);
+        ]));
     }
 }

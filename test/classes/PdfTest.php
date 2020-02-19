@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for Pdf class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -11,19 +8,14 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Pdf;
-use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * tests for Pdf class
- *
- * @package PhpMyAdmin-test
  */
 class PdfTest extends PmaTestCase
 {
     /**
      * SetUp for test cases
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -34,8 +26,9 @@ class PdfTest extends PmaTestCase
     /**
      * Test for Pdf::getPDFData
      *
-     * @group large
      * @return void
+     *
+     * @group large
      */
     public function testBasic()
     {
@@ -46,8 +39,9 @@ class PdfTest extends PmaTestCase
     /**
      * Test for Pdf::getPDFData
      *
-     * @group large
      * @return void
+     *
+     * @group large
      */
     public function testAlias()
     {
@@ -59,8 +53,9 @@ class PdfTest extends PmaTestCase
     /**
      * Test for Pdf::getPDFData
      *
-     * @group large
      * @return void
+     *
+     * @group large
      */
     public function testDocument()
     {

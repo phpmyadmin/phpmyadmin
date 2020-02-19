@@ -1,33 +1,24 @@
 <?php
 /**
  * Tests for Types.php
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Types;
 
 /**
  * Testcase for MySQL types handling.
- *
- * @package PhpMyAdmin-test
  */
 class TypesTest extends PmaTestCase
 {
-    /**
-     * @var Types
-     */
+    /** @var Types */
     protected $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -153,11 +144,9 @@ class TypesTest extends PmaTestCase
     /**
      * Test for getting type operators
      *
-     * @param string  $type   Type of field
-     * @param boolean $null   Whether field can be NULL
-     * @param string  $output Expected output
-     *
-     * @return void
+     * @param string $type   Type of field
+     * @param bool   $null   Whether field can be NULL
+     * @param string $output Expected output
      *
      * @dataProvider providerForGetTypeOperators
      */
@@ -221,10 +210,10 @@ class TypesTest extends PmaTestCase
     /**
      * Test for getTypeOperatorsHtml
      *
-     * @param string  $type             Type of field
-     * @param boolean $null             Whether field can be NULL
-     * @param string  $selectedOperator Option to be selected
-     * @param string  $output           Expected output
+     * @param string $type             Type of field
+     * @param bool   $null             Whether field can be NULL
+     * @param string $selectedOperator Option to be selected
+     * @param string $output           Expected output
      *
      * @return void
      *
@@ -264,8 +253,6 @@ class TypesTest extends PmaTestCase
      * Test for getTypeDescription
      *
      * @param string $type The data type to get a description.
-     *
-     * @return void
      *
      * @dataProvider providerForTestGetTypeDescription
      */
@@ -345,8 +332,6 @@ class TypesTest extends PmaTestCase
      *
      * @param string $class  The class to get function list.
      * @param array  $output Expected function list
-     *
-     * @return void
      *
      * @dataProvider providerFortTestGetFunctionsClass
      */
@@ -773,8 +758,6 @@ class TypesTest extends PmaTestCase
      *
      * @param string $type   Type to check
      * @param string $output Expected result
-     *
-     * @return void
      *
      * @dataProvider providerFortTestGetTypeClass
      */

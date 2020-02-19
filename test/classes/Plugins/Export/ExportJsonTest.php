@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportJson class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,11 +11,11 @@ use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
 use stdClass;
+use function array_shift;
 
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportJson class
  *
- * @package PhpMyAdmin-test
  * @group medium
  */
 class ExportJsonTest extends PmaTestCase
@@ -27,8 +24,6 @@ class ExportJsonTest extends PmaTestCase
 
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -43,8 +38,6 @@ class ExportJsonTest extends PmaTestCase
 
     /**
      * tearDown for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -272,7 +265,7 @@ class ExportJsonTest extends PmaTestCase
         );
 
         $this->assertTrue(
-            $this->object->exportData('db', 'tbl', "\n", "example.com", "SELECT")
+            $this->object->exportData('db', 'tbl', "\n", 'example.com', 'SELECT')
         );
     }
 }

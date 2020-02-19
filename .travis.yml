@@ -49,6 +49,7 @@ jobs:
   allow_failures:
     - php: nightly
     - os: osx
+    - name: "PHPUnit tests in random order"
 
   include:
     - stage: "Lint and analyse code"
@@ -149,6 +150,14 @@ jobs:
         - php -m |grep -F 'dbase'
         - composer install --no-interaction
         - yarn install --non-interactive
+
+    - stage: "PHP Unit tests"
+      php: 7.4
+      name: "PHPUnit tests in random order"
+      env: CI_MODE=test
+      script:
+        - scripts/generate-mo --quiet
+        - vendor/bin/phpunit --configuration phpunit.xml.dist --exclude-group selenium --order-by=random --stop-on-failure
 
     - stage: "Documentation"
       name: "Build docs"

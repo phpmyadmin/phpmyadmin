@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PMA_StorageEngine_innodb
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,14 +11,10 @@ use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PhpMyAdmin\Engines\Innodb
- *
- * @package PhpMyAdmin-test
  */
 class InnodbTest extends PmaTestCase
 {
-    /**
-     * @access protected
-     */
+    /** @access protected */
     protected $object;
 
     /**
@@ -28,7 +22,6 @@ class InnodbTest extends PmaTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
@@ -41,7 +34,6 @@ class InnodbTest extends PmaTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -217,7 +209,7 @@ class InnodbTest extends PmaTestCase
         '            <td class="value">0' . "\n" .
         '</td>' . "\n" .
         '        </tr>    </tbody>' . "\n" .
-        '</table>' . "\n" . "\n" .
+        '</table>' . "\n\n" .
         '<table class="data" id="table_innodb_bufferpool_activity">' . "\n" .
         '    <caption class="tblHeaders">' . "\n" .
         '        Buffer Pool Activity' . "\n" .

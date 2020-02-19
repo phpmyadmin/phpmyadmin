@@ -13,7 +13,7 @@ AJAX.registerTeardown('table/operations.js', function () {
 });
 
 /**
- * jQuery coding for 'Table operations'.  Used on tbl_operations.php
+ * jQuery coding for 'Table operations'. Used on /table/operations
  * Attach Ajax Event handlers for Table operations
  */
 AJAX.registerOnload('table/operations.js', function () {
@@ -62,7 +62,7 @@ AJAX.registerOnload('table/operations.js', function () {
             if (typeof data !== 'undefined' && data.success === true) {
                 CommonParams.set('db', data.params.db);
                 CommonParams.set('table', data.params.table);
-                CommonActions.refreshMain('tbl_sql.php', function () {
+                CommonActions.refreshMain('index.php?route=/table/sql', function () {
                     Functions.ajaxShowMessage(data.message);
                 });
                 // Refresh navigation when the table is copied
@@ -161,7 +161,7 @@ AJAX.registerOnload('table/operations.js', function () {
             } else if (typeof data !== 'undefined' && data.success === true) {
                 $tempDiv = $('<div id=\'temp_div\'></div>');
                 $tempDiv.html(data.message);
-                var $success = $tempDiv.find('.result_query .success');
+                var $success = $tempDiv.find('.result_query .alert-success');
                 Functions.ajaxShowMessage($success);
                 $('<div class=\'sqlqueryresults ajax\'></div>').prependTo('#page_content');
                 $('.sqlqueryresults').html(data.message);

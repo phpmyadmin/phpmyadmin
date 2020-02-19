@@ -1,14 +1,10 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Single signon for phpMyAdmin
  *
  * This is just example how to use session based single signon with
  * phpMyAdmin, it is not intended to be perfect code and look, only
  * shows how you can integrate this functionality in your application.
- *
- * @package    PhpMyAdmin
- * @subpackage Example
  */
 declare(strict_types=1);
 

@@ -1,37 +1,31 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * CSV export code
- *
- * @package    PhpMyAdmin-Export
- * @subpackage CSV
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
-use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
+use function mb_strtolower;
+use function mb_substr;
+use function preg_replace;
+use function str_replace;
+use function stripslashes;
+use function trim;
 
 /**
  * Handles the export for the CSV format
- *
- * @package    PhpMyAdmin-Export
- * @subpackage CSV
  */
 class ExportCsv extends ExportPlugin
 {
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();
@@ -55,29 +49,29 @@ class ExportCsv extends ExportPlugin
         // $exportPluginProperties
         // this will be shown as "Format specific options"
         $exportSpecificOptions = new OptionsPropertyRootGroup(
-            "Format Specific Options"
+            'Format Specific Options'
         );
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup("general_opts");
+        $generalOptions = new OptionsPropertyMainGroup('general_opts');
         // create leaf items and add them to the group
         $leaf = new TextPropertyItem(
-            "separator",
+            'separator',
             __('Columns separated with:')
         );
         $generalOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
-            "enclosed",
+            'enclosed',
             __('Columns enclosed with:')
         );
         $generalOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
-            "escaped",
+            'escaped',
             __('Columns escaped with:')
         );
         $generalOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
-            "terminated",
+            'terminated',
             __('Lines terminated with:')
         );
         $generalOptions->addProperty($leaf);
@@ -297,7 +291,7 @@ class ExportCsv extends ExportPlugin
                                 "\r",
                                 "\n",
                             ],
-                            "",
+                            '',
                             $row[$j]
                         );
                     }
@@ -343,5 +337,19 @@ class ExportCsv extends ExportPlugin
         $GLOBALS['dbi']->freeResult($result);
 
         return true;
+    }
+
+    /**
+     * Outputs result of raw query in CSV format
+     *
+     * @param string $err_url   the url to go back in case of error
+     * @param string $sql_query the rawquery to output
+     * @param string $crlf      the end of line sequence
+     *
+     * @return bool if succeeded
+     */
+    public function exportRawQuery(string $err_url, string $sql_query, string $crlf): bool
+    {
+        return $this->exportData('', '', $crlf, $err_url, $sql_query);
     }
 }

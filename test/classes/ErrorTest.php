@@ -1,22 +1,17 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for Error.php
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Error;
-use PhpMyAdmin\Tests\PmaTestCase;
-use PhpMyAdmin\Theme;
+use function preg_match;
+use const DIRECTORY_SEPARATOR;
 
 /**
  * Error class testing.
- *
- * @package PhpMyAdmin-test
  */
 class ErrorTest extends PmaTestCase
 {
@@ -31,7 +26,6 @@ class ErrorTest extends PmaTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
@@ -43,7 +37,6 @@ class ErrorTest extends PmaTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -86,8 +79,6 @@ class ErrorTest extends PmaTestCase
      *
      * @param string $file     actual
      * @param string $expected expected
-     *
-     * @return void
      *
      * @dataProvider filePathProvider
      */
@@ -154,7 +145,7 @@ class ErrorTest extends PmaTestCase
     public function testGetDisplay()
     {
         $this->assertStringContainsString(
-            '<div class="error"><strong>Warning</strong>',
+            '<div class="alert alert-danger" role="alert"><strong>Warning</strong>',
             $this->object->getDisplay()
         );
     }

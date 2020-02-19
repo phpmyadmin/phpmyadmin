@@ -1,4 +1,3 @@
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * @fileoverview    functions used in server privilege pages
  * @name            Server Privileges
@@ -9,15 +8,11 @@
  *
  */
 
-/* global checkboxesSel */ // js/functions.js
-/* global zxcvbn */ // js/vendor/zxcvbn.js
-
 /**
  * Validates the "add a user" form
  *
  * @return boolean  whether the form is validated or not
  */
-// eslint-disable-next-line no-unused-vars
 function checkAddUser (theForm) {
     if (theForm.elements.pred_hostname.value === 'userdefined' && theForm.elements.hostname.value === '') {
         alert(Messages.strHostEmpty);
@@ -32,40 +27,10 @@ function checkAddUser (theForm) {
     }
 
     return Functions.checkPassword($(theForm));
-} // end of the 'checkAddUser()' function
-
-function checkPasswordStrength (value, meterObject, meterObjectLabel, username) {
-    // List of words we don't want to appear in the password
-    var customDict = [
-        'phpmyadmin',
-        'mariadb',
-        'mysql',
-        'php',
-        'my',
-        'admin',
-    ];
-    if (username !== null) {
-        customDict.push(username);
-    }
-    var zxcvbnObject = zxcvbn(value, customDict);
-    var strength = zxcvbnObject.score;
-    strength = parseInt(strength);
-    meterObject.val(strength);
-    switch (strength) {
-    case 0: meterObjectLabel.html(Messages.strExtrWeak);
-        break;
-    case 1: meterObjectLabel.html(Messages.strVeryWeak);
-        break;
-    case 2: meterObjectLabel.html(Messages.strWeak);
-        break;
-    case 3: meterObjectLabel.html(Messages.strGood);
-        break;
-    case 4: meterObjectLabel.html(Messages.strStrong);
-    }
 }
 
 /**
- * AJAX scripts for server_privileges page.
+ * AJAX scripts for /server/privileges page.
  *
  * Actions ajaxified here:
  * Add user
@@ -132,7 +97,7 @@ AJAX.registerOnload('server/privileges.js', function () {
         var meterObjLabel = $('#password_strength');
         var username = $('input[name="username"]');
         username = username.val();
-        checkPasswordStrength($(this).val(), meterObj, meterObjLabel, username);
+        Functions.checkPasswordStrength($(this).val(), meterObj, meterObjLabel, username);
     });
 
     /**
@@ -147,7 +112,7 @@ AJAX.registerOnload('server/privileges.js', function () {
     $('#text_pma_change_pw').on('keyup', function () {
         var meterObj = $('#change_password_strength_meter');
         var meterObjLabel = $('#change_password_strength');
-        checkPasswordStrength($(this).val(), meterObj, meterObjLabel, CommonParams.get('user'));
+        Functions.checkPasswordStrength($(this).val(), meterObj, meterObjLabel, CommonParams.get('user'));
     });
 
     /**
@@ -208,14 +173,15 @@ AJAX.registerOnload('server/privileges.js', function () {
 
                         // Re-check the classes of each row
                         $form
-                            .find('tbody').find('tr:odd')
-                            .removeClass('even').addClass('odd')
-                            .end()
-                            .find('tr:even')
-                            .removeClass('odd').addClass('even');
-
+                            .find('tbody').find('tr').each(function (index) {
+                                if (index >= 0 && index % 2 === 0) {
+                                    $(this).removeClass('odd').addClass('even');
+                                } else if (index >= 0 && index % 2 !== 0) {
+                                    $(this).removeClass('even').addClass('odd');
+                                }
+                            });
                         // update the checkall checkbox
-                        $(checkboxesSel).trigger('change');
+                        $(Functions.checkboxesSel).trigger('change');
                     });
                 } else {
                     Functions.ajaxShowMessage(data.error, false);
@@ -245,7 +211,7 @@ AJAX.registerOnload('server/privileges.js', function () {
                         var $message = Functions.ajaxShowMessage();
                         var argsep = CommonParams.get('arg_separator');
                         $.post(
-                            'server_privileges.php',
+                            'index.php?route=/server/privileges',
                             $('#changeUserGroupDialog').find('form').serialize() + argsep + 'ajax_request=1',
                             function (data) {
                                 Functions.ajaxRemoveMessage($message);
@@ -388,13 +354,17 @@ AJAX.registerOnload('server/privileges.js', function () {
                 Functions.ajaxRemoveMessage($msgbox);
                 // This form is not on screen when first entering Privileges
                 // if there are more than 50 users
-                $('div.notice').remove();
+                $('.alert-primary').remove();
                 $('#usersForm').hide('medium').remove();
                 $('#fieldset_add_user').hide('medium').remove();
                 $('#initials_table')
                     .prop('id', 'initials_table_old')
                     .after(data.message).show('medium')
-                    .siblings('h2').not(':first').remove();
+                    .siblings('h2').not($('#initials_table')
+                        .prop('id', 'initials_table_old')
+                        .after(data.message).show('medium')
+                        .siblings('h2').first())
+                    .remove();
                 // prevent double initials table
                 $('#initials_table_old').remove();
             } else {
@@ -428,52 +398,54 @@ AJAX.registerOnload('server/privileges.js', function () {
      * Create submenu for simpler interface
      */
     var addOrUpdateSubmenu = function () {
-        var $topmenu2 = $('#topmenu2');
+        var $subNav = $('.nav-pills');
         var $editUserDialog = $('#edit_user_dialog');
         var submenuLabel;
         var submenuLink;
         var linkNumber;
 
         // if submenu exists yet, remove it first
-        if ($topmenu2.length > 0) {
-            $topmenu2.remove();
+        if ($subNav.length > 0) {
+            $subNav.remove();
         }
 
         // construct a submenu from the existing fieldsets
-        $topmenu2 = $('<ul></ul>').prop('id', 'topmenu2');
+        $subNav = $('<ul></ul>').prop('class', 'nav nav-pills m-2');
 
         $('#edit_user_dialog .submenu-item').each(function () {
             submenuLabel = $(this).find('legend[data-submenu-label]').data('submenu-label');
 
             submenuLink = $('<a></a>')
+                .prop('class', 'nav-link')
                 .prop('href', '#')
                 .html(submenuLabel);
 
             $('<li></li>')
+                .prop('class', 'nav-item')
                 .append(submenuLink)
-                .appendTo($topmenu2);
+                .appendTo($subNav);
         });
 
         // click handlers for submenu
-        $topmenu2.find('a').on('click', function (e) {
+        $subNav.find('a').on('click', function (e) {
             e.preventDefault();
             // if already active, ignore click
-            if ($(this).hasClass('tabactive')) {
+            if ($(this).hasClass('active')) {
                 return;
             }
-            $topmenu2.find('a').removeClass('tabactive');
-            $(this).addClass('tabactive');
+            $subNav.find('a').removeClass('active');
+            $(this).addClass('active');
 
             // which section to show now?
-            linkNumber = $topmenu2.find('a').index($(this));
+            linkNumber = $subNav.find('a').index($(this));
             // hide all sections but the one to show
             $('#edit_user_dialog .submenu-item').hide().eq(linkNumber).show();
         });
 
         // make first menu item active
         // TODO: support URL hash history
-        $topmenu2.find('> :first-child a').addClass('tabactive');
-        $editUserDialog.prepend($topmenu2);
+        $subNav.find('> :first-child a').addClass('active');
+        $editUserDialog.prepend($subNav);
 
         // hide all sections but the first
         $('#edit_user_dialog .submenu-item').hide().eq(0).show();
@@ -483,7 +455,7 @@ AJAX.registerOnload('server/privileges.js', function () {
     };
 
     $('input.autofocus').trigger('focus');
-    $(checkboxesSel).trigger('change');
+    $(Functions.checkboxesSel).trigger('change');
     Functions.displayPasswordGenerateButton();
     if ($('#edit_user_dialog').length > 0) {
         addOrUpdateSubmenu();
@@ -491,4 +463,12 @@ AJAX.registerOnload('server/privileges.js', function () {
 
     var windowWidth = $(window).width();
     $('.jsresponsive').css('max-width', (windowWidth - 35) + 'px');
+
+    $('#addUsersForm').on('submit', function () {
+        return checkAddUser(this);
+    });
+
+    $('#copyUserForm').on('submit', function () {
+        return checkAddUser(this);
+    });
 });

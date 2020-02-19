@@ -1,5 +1,5 @@
 <div id="master_addslaveuser_gui">
-  <form action="server_privileges.php" method="post" autocomplete="off" onsubmit="return checkAddUser(this);">
+  <form action="{{ url('/server/privileges') }}" method="post" autocomplete="off" id="addUsersForm">
     {{ get_hidden_inputs('', '') }}
 
     <fieldset id="fieldset_add_user_login">

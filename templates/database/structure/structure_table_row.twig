@@ -1,5 +1,5 @@
 <tr id="row_tbl_{{ curr }}"{{ table_is_view ? ' class="is_view"' }} data-filter-row="{{ current_table['TABLE_NAME']|upper }}">
-    <td class="center print_ignore">
+    <td class="text-center print_ignore">
         <input type="checkbox"
             name="selected_tbl[]"
             class="{{ input_class }}"
@@ -7,13 +7,13 @@
             id="checkbox_tbl_{{ curr }}">
     </td>
     <th>
-        <a href="sql.php{{ tbl_url_query|raw }}&amp;pos=0" title="{{ browse_table_label_title }}">
+        <a href="{{ url('/sql', table_url_params|merge({'pos': 0})) }}" title="{{ browse_table_label_title }}">
             {{ browse_table_label_truename }}
         </a>
         {{ tracking_icon|raw }}
     </th>
     {% if server_slave_status %}
-        <td class="center">
+        <td class="text-center">
             {{ ignored ? get_image('s_cancel', 'Not replicated'|trans) }}
             {{ do ? get_image('s_success', 'Replicated'|trans) }}
         </td>
@@ -21,7 +21,7 @@
 
     {# Favorite table anchor #}
     {% if num_favorite_tables > 0 %}
-        <td class="center print_ignore">
+        <td class="text-center print_ignore">
             {# Check if current table is already in favorite list #}
             {% set fav_params = {
                 'db': db,
@@ -39,47 +39,53 @@
         </td>
     {% endif %}
 
-    <td class="center print_ignore">
-        <a href="sql.php{{ tbl_url_query|raw }}&amp;pos=0">
+    <td class="text-center print_ignore">
+        <a href="{{ url('/sql', table_url_params|merge({'pos': 0})) }}">
             {{ browse_table_title|raw }}
         </a>
 
     </td>
-    <td class="center print_ignore">
-        <a href="tbl_structure.php{{ tbl_url_query|raw }}">
+    <td class="text-center print_ignore">
+        <a href="{{ url('/table/structure', table_url_params) }}">
             {{ titles['Structure']|raw }}
         </a>
     </td>
-    <td class="center print_ignore">
-        <a href="tbl_select.php{{ tbl_url_query|raw }}">
+    <td class="text-center print_ignore">
+        <a href="{{ url('/table/search', table_url_params) }}">
             {{ search_table_title|raw }}
         </a>
     </td>
 
     {% if not db_is_system_schema %}
-        <td class="insert_table center print_ignore">
-            <a href="tbl_change.php{{ tbl_url_query|raw }}">{{ titles['Insert']|raw }}</a>
+        <td class="insert_table text-center print_ignore">
+            <a href="{{ url('/table/change', table_url_params) }}">{{ titles['Insert']|raw }}</a>
         </td>
         {% if table_is_view %}
-            <td class="center print_ignore">
-                <a href="view_create.php{{- get_common({
-                                'db': db,
-                                'table': current_table['TABLE_NAME']
-                            }) }}">{{ titles['Edit']|raw }}</a>
+            <td class="text-center print_ignore">
+                <a href="{{ url('/view/create', {
+                    'db': db,
+                    'table': current_table['TABLE_NAME']
+                }) }}">{{ titles['Edit']|raw }}</a>
             </td>
         {% else %}
-          <td class="center print_ignore">
-                <a class="truncate_table_anchor ajax" href="sql.php" data-post="{{ tbl_url_query|raw }}&amp;sql_query=
-                {{- empty_table_sql_query }}&amp;message_to_show={{ empty_table_message_to_show }}">
+          <td class="text-center print_ignore">
+                <a class="truncate_table_anchor ajax" href="{{ url('/sql') }}" data-post="{{ get_common(table_url_params|merge({
+                  'sql_query': empty_table_sql_query,
+                  'message_to_show': empty_table_message_to_show
+                }), '') }}">
                     {{ empty_table_title|raw }}
                 </a>
           </td>
         {% endif %}
-        <td class="center print_ignore">
+        <td class="text-center print_ignore">
             <a class="ajax drop_table_anchor
-                {{- table_is_view or current_table['ENGINE'] == null ? ' view' }}"
-                href="sql.php" data-post="{{ tbl_url_query|raw }}&amp;reload=1&amp;purge=1&amp;sql_query=
-                {{- drop_query|url_encode }}&amp;message_to_show={{ drop_message|url_encode }}">
+                {{- table_is_view or current_table['ENGINE'] == null ? ' view' }}" href="{{ url('/sql') }}" data-post="
+                {{- get_common(table_url_params|merge({
+                  'reload': 1,
+                  'purge': 1,
+                  'sql_query': drop_query,
+                  'message_to_show': drop_message
+                }), '') }}">
                 {{ titles['Drop']|raw }}
             </a>
         </td>
@@ -95,11 +101,10 @@
         <td class="value tbl_rows"
             data-table="{{ current_table['TABLE_NAME'] }}">
             {% if approx_rows %}
-                <a href="db_structure.php{{ get_common({
+                <a href="{{ url('/database/structure/real-row-count', {
                     'ajax_request': true,
                     'db': db,
-                    'table': current_table['TABLE_NAME'],
-                    'real_row_count': 'true'
+                    'table': current_table['TABLE_NAME']
                 }) }}" class="ajax real_row_count">
                     <bdi>
                         ~{{ row_count }}
@@ -128,7 +133,7 @@
 
         {% if is_show_stats %}
             <td class="value tbl_size">
-                <a href="tbl_structure.php{{ tbl_url_query|raw }}#showusage">
+                <a href="{{ url('/table/structure', table_url_params) }}#showusage">
                     <span>{{ formatted_size }}</span>&nbsp;<span class="unit">{{ unit }}</span>
                 </a>
             </td>
@@ -216,7 +221,7 @@
 
         {% set colspan_for_structure = action_colspan + 3 %}
         <td colspan="{{ colspan_for_structure - db_is_system_schema ? 6 : 9 }}"
-            class="center">
+            class="text-center">
             {% trans 'in use' %}
         </td>
     {% endif %}

@@ -1,34 +1,37 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * functions for displaying server status sub item: monitor
- *
- * @usedby  server_status_monitor.php
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Server\Status;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\SysInfo;
+use PhpMyAdmin\Server\SysInfo\SysInfo;
 use PhpMyAdmin\Util;
+use function array_sum;
+use function count;
+use function implode;
+use function is_numeric;
+use function json_decode;
+use function mb_strlen;
+use function mb_strpos;
+use function mb_strtolower;
+use function mb_substr;
+use function microtime;
+use function preg_match;
+use function preg_replace;
+use function strlen;
 
 /**
  * functions for displaying server status sub item: monitor
- *
- * @package PhpMyAdmin
  */
 class Monitor
 {
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /**
-     * Monitor constructor.
      * @param DatabaseInterface $dbi DatabaseInterface instance
      */
     public function __construct($dbi)
@@ -241,7 +244,7 @@ class Monitor
                     $memory = $sysinfo->memory();
                 }
 
-                $ret['value'] = isset($memory[$pName]) ? $memory[$pName] : 0;
+                $ret['value'] = $memory[$pName] ?? 0;
                 break;
         }
 
@@ -464,13 +467,13 @@ class Monitor
      */
     public function getJsonForLoggingVars(?string $name, ?string $value): array
     {
-        if (isset($name) && isset($value)) {
+        if (isset($name, $value)) {
             $escapedValue = $this->dbi->escapeString($value);
             if (! is_numeric($escapedValue)) {
                 $escapedValue = "'" . $escapedValue . "'";
             }
 
-            if (! preg_match("/[^a-zA-Z0-9_]+/", $name)) {
+            if (! preg_match('/[^a-zA-Z0-9_]+/', $name)) {
                 $this->dbi->query(
                     'SET GLOBAL ' . $name . ' = ' . $escapedValue
                 );

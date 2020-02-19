@@ -1,10 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Abstract class for the text file upload input transformations plugins
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage TextFileUpload
  */
 declare(strict_types=1);
 
@@ -12,13 +8,11 @@ namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use stdClass;
+use function htmlspecialchars;
 
 /**
  * Provides common methods for all of the text file upload
  * input transformations plugins.
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage TextFileUpload
  */
 abstract class TextFileUploadTransformationsPlugin extends IOTransformationsPlugin
 {
@@ -98,6 +92,6 @@ abstract class TextFileUploadTransformationsPlugin extends IOTransformationsPlug
      */
     public static function getName()
     {
-        return "Text file upload";
+        return 'Text file upload';
     }
 }

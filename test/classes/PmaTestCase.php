@@ -1,43 +1,39 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Base class for phpMyAdmin tests
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Response;
-use PHPUnit\Framework\MockObject\MockBuilder;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use ReflectionProperty;
+use function array_slice;
+use function call_user_func_array;
+use function count;
+use function end;
+use function is_array;
+use function is_int;
 
 /**
  * Base class for phpMyAdmin tests
- *
- * @package PhpMyAdmin-test
  */
 class PmaTestCase extends TestCase
 {
-    /**
-     * @var Response|null
-     */
+    /** @var Response|null */
     protected $restoreInstance = null;
 
-    /**
-     * @var ReflectionProperty|null
-     */
+    /** @var ReflectionProperty|null */
     protected $attrInstance = null;
 
     /**
      * This method is called before the first test of this test class is run.
-     *
-     * @return void
      */
     public static function setUpBeforeClass(): void
     {
+        $cfg = [];
         require ROOT_PATH . 'libraries/config.default.php';
         $GLOBALS['cfg'] = $cfg;
     }
@@ -47,13 +43,13 @@ class PmaTestCase extends TestCase
      *
      * @param mixed[] ...$param parameter for header method
      *
-     * @return MockBuilder
+     * @return MockObject
      */
     public function mockResponse(...$param)
     {
         $this->restoreInstance = Response::getInstance();
 
-        $mockResponse = $this->getMockBuilder('PhpMyAdmin\Response')
+        $mockResponse = $this->getMockBuilder(Response::class)
             ->disableOriginalConstructor()
             ->setMethods([
                 'header',
@@ -107,8 +103,6 @@ class PmaTestCase extends TestCase
 
     /**
      * Tear down function for mockResponse method
-     *
-     * @return void
      */
     protected function tearDown(): void
     {

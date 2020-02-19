@@ -1,10 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Selenium TestCase for typing and executing SQL query tests
- *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  */
 declare(strict_types=1);
 
@@ -13,30 +9,26 @@ namespace PhpMyAdmin\Tests\Selenium;
 /**
  * SqlQueryTest class
  *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  * @group      selenium
  */
 class SqlQueryTest extends TestBase
 {
     /**
      * Setup the browser environment to run the selenium test case
-     *
-     * @return void
      */
     protected function setUp(): void
     {
         parent::setUp();
 
         $this->dbQuery(
-            "CREATE TABLE `test_table` ("
-            . " `id` int(11) NOT NULL AUTO_INCREMENT,"
-            . " `val` int(11) NOT NULL,"
-            . " PRIMARY KEY (`id`)"
-            . ")"
+            'CREATE TABLE `test_table` ('
+            . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
+            . ' `val` int(11) NOT NULL,'
+            . ' PRIMARY KEY (`id`)'
+            . ')'
         );
         $this->dbQuery(
-            "INSERT INTO `test_table` (val) VALUES (2), (3), (4), (5);"
+            'INSERT INTO `test_table` (val) VALUES (2), (3), (4), (5);'
         );
         $this->login();
     }

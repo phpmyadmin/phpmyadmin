@@ -1,5 +1,5 @@
 <form method="post" action="{{ action }}" class="
-    {{- action == 'tbl_create.php' ? 'create_table' : 'append_fields' -}}
+    {{- action == url('/table/create') ? 'create_table' : 'append_fields' -}}
     _form ajax lock-page">
     {{ get_hidden_inputs(form_params) }}
     {# happens when an index has been set on a column #}
@@ -16,7 +16,7 @@
     <input type="hidden" name="spatial_indexes" value="
         {{- spatial_indexes is not empty ? spatial_indexes : '[]' }}">
 
-    {% if action == 'tbl_create.php' %}
+    {% if action == url('/table/create') %}
         <div id="table_name_col_no_outer">
             <table id="table_name_col_no" class="tdblock">
                 <tr class="vmiddle floatleft">
@@ -54,6 +54,7 @@
             'content_cells': content_cells,
             'change_column': change_column,
             'is_virtual_columns_supported': is_virtual_columns_supported,
+            'server_version' : server_version,
             'browse_mime': browse_mime,
             'server_type': server_type,
             'max_rows': max_rows,
@@ -64,7 +65,7 @@
             'charsets': charsets
         } only %}
     {% endif %}
-    {% if action == 'tbl_create.php' %}
+    {% if action == url('/table/create') %}
         <div class="responsivetable">
         <table>
             <tr class="vtop">
@@ -145,6 +146,9 @@
         </div>
     {% endif %}
     <fieldset class="tblFooters">
+        {% if action == url('/table/add-field') %}
+            <input type="checkbox" name="online_transaction" value="ONLINE_TRANSACTION_ENABLED" />{% trans %}Online transaction{% context %}Online transaction part of the SQL DDL for InnoDB{% endtrans %}{{ show_mysql_docu('innodb-online-ddl') }}
+        {% endif %}
         <input class="btn btn-secondary preview_sql" type="button"
             value="{% trans 'Preview SQL' %}">
         <input class="btn btn-primary" type="submit"

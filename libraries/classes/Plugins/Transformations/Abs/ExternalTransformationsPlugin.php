@@ -1,10 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Abstract class for the external transformations plugins
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage External
  */
 declare(strict_types=1);
 
@@ -12,11 +8,18 @@ namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use stdClass;
+use function count;
+use function fclose;
+use function feof;
+use function fgets;
+use function fwrite;
+use function htmlspecialchars;
+use function is_resource;
+use function proc_close;
+use function proc_open;
 
 /**
  * Provides common methods for all of the external transformations plugins.
- *
- * @package PhpMyAdmin
  */
 abstract class ExternalTransformationsPlugin extends TransformationsPlugin
 {
@@ -80,7 +83,6 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
 
         $allowed_programs = [];
 
-        //
         // WARNING:
         //
         // It's up to administrator to allow anything here. Note that users may
@@ -115,12 +117,12 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
         $newstring = '';
         $descriptorspec = [
             0 => [
-                "pipe",
-                "r",
+                'pipe',
+                'r',
             ],
             1 => [
-                "pipe",
-                "w",
+                'pipe',
+                'w',
             ],
         ];
         $process = proc_open($program . ' ' . $options[1], $descriptorspec, $pipes);
@@ -145,7 +147,6 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
         return $retstring;
     }
 
-
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
     /**
@@ -155,6 +156,6 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
      */
     public static function getName()
     {
-        return "External";
+        return 'External';
     }
 }

@@ -1,4 +1,3 @@
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * @fileoverview    functions used on the server databases list page
  * @name            Server Databases
@@ -19,7 +18,7 @@ AJAX.registerTeardown('server/databases.js', function () {
 });
 
 /**
- * AJAX scripts for server_databases.php
+ * AJAX scripts for /server/databases
  *
  * Actions ajaxified here:
  * Drop Databases
@@ -45,7 +44,7 @@ AJAX.registerOnload('server/databases.js', function () {
         });
         if (! selectedDbs.length) {
             Functions.ajaxShowMessage(
-                $('<div class="notice"></div>').text(
+                $('<div class="alert alert-primary" role="alert"></div>').text(
                     Messages.strNoDatabasesSelected
                 ),
                 2000
@@ -61,7 +60,7 @@ AJAX.registerOnload('server/databases.js', function () {
         var argsep = CommonParams.get('arg_separator');
         $(this).confirm(
             question,
-            $form.prop('action') + '?' + $(this).serialize() +
+            'index.php?route=/server/databases/destroy&' + $(this).serialize() +
                 argsep + 'drop_selected_dbs=1',
             function (url) {
                 Functions.ajaxShowMessage(Messages.strProcessingRequest, false);

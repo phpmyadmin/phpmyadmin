@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for PMA_StorageEngine_pbxt
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -12,17 +9,14 @@ namespace PhpMyAdmin\Tests\Engines;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Engines\Pbxt;
 use PhpMyAdmin\Tests\PmaTestCase;
+use function sprintf;
 
 /**
  * Tests for PhpMyAdmin\Engines\Pbxt;
- *
- * @package PhpMyAdmin-test
  */
 class PbxtTest extends PmaTestCase
 {
-    /**
-     * @access protected
-     */
+    /** @access protected */
     protected $object;
 
     /**
@@ -30,7 +24,6 @@ class PbxtTest extends PmaTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
@@ -43,7 +36,6 @@ class PbxtTest extends PmaTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -176,8 +168,6 @@ class PbxtTest extends PmaTestCase
      * @param string $output         Expected output
      *
      * @dataProvider providerFortTestResolveTypeSize
-     *
-     * @return void
      */
     public function testResolveTypeSize($formatted_size, $output): void
     {

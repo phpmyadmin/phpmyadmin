@@ -1,28 +1,37 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Displays a list of server status variables
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;
 
-use PhpMyAdmin\Util;
+use PhpMyAdmin\Common;
+use PhpMyAdmin\Html\Generator;
+use function in_array;
+use function is_numeric;
+use function mb_strpos;
 
-/**
- * Class VariablesController
- * @package PhpMyAdmin\Controllers\Server\Status
- */
 class VariablesController extends AbstractController
 {
-    /**
-     * @param array $params Request parameters
-     * @return string HTML
-     */
-    public function index(array $params): string
+    public function index(): void
     {
+        $params = [
+            'flush' => $_POST['flush'] ?? null,
+            'filterAlert' => $_POST['filterAlert'] ?? null,
+            'filterText' => $_POST['filterText'] ?? null,
+            'filterCategory' => $_POST['filterCategory'] ?? null,
+            'dontFormat' => $_POST['dontFormat'] ?? null,
+        ];
+
+        Common::server();
+
+        $header = $this->response->getHeader();
+        $scripts = $header->getScripts();
+        $scripts->addFile('server/status/variables.js');
+        $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
+        $scripts->addFile('server/status/sorter.js');
+
         if (isset($params['flush'])) {
             $this->flush($params['flush']);
         }
@@ -72,7 +81,7 @@ class VariablesController extends AbstractController
                 // Fields containing % are calculated,
                 // they can not be described in MySQL documentation
                 if (mb_strpos($name, '%') === false) {
-                    $variables[$name]['doc'] = Util::linkToVarDocumentation(
+                    $variables[$name]['doc'] = Generator::linkToVarDocumentation(
                         $name,
                         $this->dbi->isMariaDB()
                     );
@@ -96,7 +105,7 @@ class VariablesController extends AbstractController
             }
         }
 
-        return $this->template->render('server/status/variables/index', [
+        $this->response->addHTML($this->template->render('server/status/variables/index', [
             'is_data_loaded' => $this->data->dataLoaded,
             'filter_text' => ! empty($params['filterText']) ? $params['filterText'] : '',
             'is_only_alerts' => ! empty($params['filterAlert']),
@@ -104,14 +113,13 @@ class VariablesController extends AbstractController
             'categories' => $categories ?? [],
             'links' => $links ?? [],
             'variables' => $variables ?? [],
-        ]);
+        ]));
     }
 
     /**
      * Flush status variables if requested
      *
      * @param string $flush Variable name
-     * @return void
      */
     private function flush(string $flush): void
     {
@@ -171,11 +179,11 @@ class VariablesController extends AbstractController
             // depends on Key_read_requests
             // normally lower then 1:0.01
             'Key_reads' => isset($this->data->status['Key_read_requests'])
-                ? (0.01 * $this->data->status['Key_read_requests']) : 0,
+                ? 0.01 * $this->data->status['Key_read_requests'] : 0,
             // depends on Key_write_requests
             // normally nearly 1:1
             'Key_writes' => isset($this->data->status['Key_write_requests'])
-                ? (0.9 * $this->data->status['Key_write_requests']) : 0,
+                ? 0.9 * $this->data->status['Key_write_requests'] : 0,
 
             'Key_buffer_fraction' => 0.5,
 

@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for NodeFactory class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -16,15 +13,11 @@ use PHPUnit\Framework\Exception;
 
 /**
  * Tests for NodeFactory class
- *
- * @package PhpMyAdmin-test
  */
 class NodeFactoryTest extends PmaTestCase
 {
     /**
      * SetUp for test cases
-     *
-     * @return void
      */
     protected function setUp(): void
     {

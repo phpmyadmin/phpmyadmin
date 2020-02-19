@@ -1,5 +1,5 @@
 <a id="db_search"></a>
-<form id="db_search_form" method="post" action="db_search.php" name="db_search" class="ajax lock-page">
+<form id="db_search_form" method="post" action="{{ url('/database/search') }}" name="db_search" class="ajax lock-page">
     {{ get_hidden_inputs(db) }}
     <fieldset>
         <legend>{% trans 'Search in database' %}</legend>
@@ -7,7 +7,7 @@
             <label for="criteriaSearchString" class="displayblock">
                 {% trans 'Words or values to search for (wildcard: "%"):' %}
             </label>
-            <input id="criteriaSearchString" name="criteriaSearchString" class="all85" type="text" value="
+            <input id="criteriaSearchString" name="criteriaSearchString" class="w-75" type="text" value="
                 {{- criteria_search_string }}">
         </p>
 
@@ -55,7 +55,7 @@
             <label for="criteriaColumnName" class="displayblock">
                 {% trans 'Inside column:' %}
             </label>
-            <input id="criteriaColumnName" type="text" name="criteriaColumnName" class="all85" value="
+            <input id="criteriaColumnName" type="text" name="criteriaColumnName" class="w-75" value="
                 {{- criteria_column_name is not empty ? criteria_column_name }}">
         </p>
     </fieldset>
@@ -81,4 +81,4 @@
     {# This sqlqueryform div is used to load the delete form in the db search #}
 </div>
 {# Toggle query box link #}
-<a id="togglequerybox"></a>
+<button class="btn btn-secondary" id="togglequerybox"></button>

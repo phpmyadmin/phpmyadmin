@@ -3,7 +3,6 @@ basically follow the structure presented here. The messages must use our
 gettext mechanism, see https://wiki.phpmyadmin.net/pma/Gettext_for_developers.
 
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * [Name] import plugin for phpMyAdmin
  *

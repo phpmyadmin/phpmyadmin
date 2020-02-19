@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Second authentication factor handling
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -11,7 +8,6 @@ namespace PhpMyAdmin\Plugins\TwoFactor;
 
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
 use Samyoul\U2F\U2FServer\U2FException;
 use Samyoul\U2F\U2FServer\U2FServer;
@@ -20,19 +16,17 @@ use Throwable;
 use Twig_Error_Loader;
 use Twig_Error_Runtime;
 use Twig_Error_Syntax;
+use function json_decode;
+use function json_encode;
 
 /**
  * Hardware key based two-factor authentication
  *
  * Supports FIDO U2F tokens
- *
- * @package PhpMyAdmin
  */
 class Key extends TwoFactorPlugin
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     public static $id = 'key';
 
     /**
@@ -71,12 +65,12 @@ class Key extends TwoFactorPlugin
     /**
      * Checks authentication, returns true on success
      *
-     * @return boolean
+     * @return bool
      */
     public function check()
     {
         $this->_provided = false;
-        if (! isset($_POST['u2f_authentication_response']) || ! isset($_SESSION['authenticationRequest'])) {
+        if (! isset($_POST['u2f_authentication_response'], $_SESSION['authenticationRequest'])) {
             return false;
         }
         $this->_provided = true;
@@ -135,6 +129,7 @@ class Key extends TwoFactorPlugin
      * Renders user interface to configure two-factor authentication
      *
      * @return string HTML code
+     *
      * @throws U2FException
      * @throws Throwable
      * @throws Twig_Error_Loader
@@ -160,12 +155,12 @@ class Key extends TwoFactorPlugin
     /**
      * Performs backend configuration
      *
-     * @return boolean
+     * @return bool
      */
     public function configure()
     {
         $this->_provided = false;
-        if (! isset($_POST['u2f_registration_response']) || ! isset($_SESSION['registrationRequest'])) {
+        if (! isset($_POST['u2f_registration_response'], $_SESSION['registrationRequest'])) {
             return false;
         }
         $this->_provided = true;

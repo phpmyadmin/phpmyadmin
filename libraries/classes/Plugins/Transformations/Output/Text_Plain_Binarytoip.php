@@ -1,23 +1,17 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Handles the binary to IPv4/IPv6 transformation for text plain
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage BinaryToIP
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Output;
 
+use PhpMyAdmin\Utils\FormatConverter;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use stdClass;
 
 /**
  * Handles the binary to IPv4/IPv6 transformation for text plain
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage BinaryToIP
  */
 // @codingStandardsIgnoreLine
 class Text_Plain_Binarytoip extends TransformationsPlugin
@@ -48,20 +42,8 @@ class Text_Plain_Binarytoip extends TransformationsPlugin
      */
     public function applyTransformation($buffer, array $options = [], ?stdClass $meta = null)
     {
-        if (0 !== strpos($buffer, '0x')) {
-            return $buffer;
-        }
-
-        $ipHex = substr($buffer, 2);
-        $ipBin = hex2bin($ipHex);
-
-        if (false === $ipBin) {
-            return $buffer;
-        }
-
-        return @inet_ntop($ipBin);
+        return FormatConverter::binaryToIp($buffer);
     }
-
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
@@ -72,7 +54,7 @@ class Text_Plain_Binarytoip extends TransformationsPlugin
      */
     public static function getName()
     {
-        return "Binary To IPv4/IPv6";
+        return 'Binary To IPv4/IPv6';
     }
 
     /**
@@ -82,7 +64,7 @@ class Text_Plain_Binarytoip extends TransformationsPlugin
      */
     public static function getMIMEType()
     {
-        return "Text";
+        return 'Text';
     }
 
     /**
@@ -92,6 +74,6 @@ class Text_Plain_Binarytoip extends TransformationsPlugin
      */
     public static function getMIMESubtype()
     {
-        return "Plain";
+        return 'Plain';
     }
 }

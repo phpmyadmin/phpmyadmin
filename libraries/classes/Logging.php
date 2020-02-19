@@ -1,22 +1,26 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Logging functionality for webserver.
  *
  * This includes web server specific code to log some information.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Core;
+use function closelog;
+use function date;
+use function error_log;
+use function function_exists;
+use function openlog;
+use function syslog;
+use const LOG_AUTHPRIV;
+use const LOG_NDELAY;
+use const LOG_PID;
+use const LOG_WARNING;
 
 /**
  * Misc logging functions
- *
- * @package PhpMyAdmin
  */
 class Logging
 {

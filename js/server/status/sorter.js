@@ -16,7 +16,7 @@ function initTableSorter (tabid) {
         break;
     }
     $table.tablesorter(opts);
-    $table.find('tr:first th')
+    $table.find('tr').first().find('th')
         .append('<div class="sorticon"></div>');
 }
 

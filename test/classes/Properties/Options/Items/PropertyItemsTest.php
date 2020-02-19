@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for *PhpMyAdmin\Properties\PropertyItem class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -20,8 +17,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * tests for *PhpMyAdmin\Properties\PropertyItem class
- *
- * @package PhpMyAdmin-test
  */
 class PropertyItemsTest extends TestCase
 {
@@ -35,14 +30,14 @@ class PropertyItemsTest extends TestCase
         $object = new BoolPropertyItem(null, 'Text');
 
         $this->assertEquals(
-            "Text",
+            'Text',
             $object->getText()
         );
 
         $object->setText('xtext2');
 
         $this->assertEquals(
-            "xtext2",
+            'xtext2',
             $object->getText()
         );
     }
@@ -57,14 +52,14 @@ class PropertyItemsTest extends TestCase
         $object = new BoolPropertyItem('xname');
 
         $this->assertEquals(
-            "xname",
+            'xname',
             $object->getName()
         );
 
         $object->setName('xname2');
 
         $this->assertEquals(
-            "xname2",
+            'xname2',
             $object->getName()
         );
     }
@@ -79,7 +74,7 @@ class PropertyItemsTest extends TestCase
         $object = new BoolPropertyItem();
 
         $this->assertEquals(
-            "bool",
+            'bool',
             $object->getItemType()
         );
     }
@@ -94,7 +89,7 @@ class PropertyItemsTest extends TestCase
         $object = new DocPropertyItem();
 
         $this->assertEquals(
-            "doc",
+            'doc',
             $object->getItemType()
         );
     }
@@ -109,7 +104,7 @@ class PropertyItemsTest extends TestCase
         $object = new HiddenPropertyItem();
 
         $this->assertEquals(
-            "hidden",
+            'hidden',
             $object->getItemType()
         );
     }
@@ -124,7 +119,7 @@ class PropertyItemsTest extends TestCase
         $object = new MessageOnlyPropertyItem();
 
         $this->assertEquals(
-            "messageOnly",
+            'messageOnly',
             $object->getItemType()
         );
     }
@@ -139,7 +134,7 @@ class PropertyItemsTest extends TestCase
         $object = new RadioPropertyItem();
 
         $this->assertEquals(
-            "radio",
+            'radio',
             $object->getItemType()
         );
     }
@@ -154,7 +149,7 @@ class PropertyItemsTest extends TestCase
         $object = new SelectPropertyItem();
 
         $this->assertEquals(
-            "select",
+            'select',
             $object->getItemType()
         );
     }
@@ -169,7 +164,7 @@ class PropertyItemsTest extends TestCase
         $object = new TextPropertyItem();
 
         $this->assertEquals(
-            "text",
+            'text',
             $object->getItemType()
         );
     }

@@ -1,4 +1,3 @@
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 
 /* global isStorageSupported */ // js/config.js
 /* global ErrorReport */ // js/error_report.js
@@ -550,9 +549,9 @@ var AJAX = {
                     var source = data.selflink.split('?')[0];
                     // Check for faulty links
                     var $selflinkReplace = {
-                        'import.php': 'tbl_sql.php',
-                        'tbl_chart.php': 'sql.php',
-                        'tbl_gis_visualization.php': 'sql.php'
+                        'index.php?route=/import': 'index.php?route=/table/sql',
+                        'index.php?route=/table/chart': 'index.php?route=/sql',
+                        'index.php?route=/table/gis-visualization': 'index.php?route=/sql'
                     };
                     if ($selflinkReplace[source]) {
                         var replacement = $selflinkReplace[source];
@@ -873,7 +872,7 @@ AJAX.registerOnload('functions.js', function () {
  */
 $(function () {
     var menuContent = $('<div></div>')
-        .append($('#serverinfo').clone())
+        .append($('#server-breadcrumb').clone())
         .append($('#topmenucontainer').clone())
         .html();
     if (history && history.pushState) {
@@ -943,7 +942,7 @@ $(document).on('submit', 'form', AJAX.requestHandler);
  * Gracefully handle fatal server errors
  * (e.g: 500 - Internal server error)
  */
-$(document).ajaxError(function (event, request) {
+$(document).on('ajaxError', function (event, request) {
     if (AJAX.debug) {
         // eslint-disable-next-line no-console
         console.log('AJAX error: status=' + request.status + ', text=' + request.statusText);
@@ -961,7 +960,7 @@ $(document).ajaxError(function (event, request) {
             details += '<div>' + Functions.escapeHtml(Messages.strErrorConnection) + '</div>';
         }
         Functions.ajaxShowMessage(
-            '<div class="error">' +
+            '<div class="alert alert-danger" role="alert">' +
             Messages.strErrorProcessingRequest +
             details +
             '</div>',

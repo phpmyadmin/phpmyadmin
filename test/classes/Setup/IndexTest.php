@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for methods under PhpMyAdmin\Setup\Index
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,15 +11,11 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * tests for methods under PhpMyAdmin\Setup\Index
- *
- * @package PhpMyAdmin-test
  */
 class IndexTest extends TestCase
 {
     /**
      * SetUp for test cases
-     *
-     * @return void
      */
     protected function setUp(): void
     {

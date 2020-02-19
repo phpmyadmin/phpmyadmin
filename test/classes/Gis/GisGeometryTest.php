@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Test for PhpMyAdmin\Gis\GisGeometry
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,14 +11,10 @@ use ReflectionClass;
 
 /**
  * Tests for PhpMyAdmin\Gis\GisGeometry class
- *
- * @package PhpMyAdmin-test
  */
 class GisGeometryTest extends TestCase
 {
-    /**
-     * @access protected
-     */
+    /** @access protected */
     protected $object;
 
     /**
@@ -29,7 +22,6 @@ class GisGeometryTest extends TestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
@@ -41,7 +33,6 @@ class GisGeometryTest extends TestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -72,7 +63,6 @@ class GisGeometryTest extends TestCase
      * @param array  $output    Expected output array
      *
      * @dataProvider providerForTestSetMinMax
-     * @return void
      */
     public function testSetMinMax($point_set, $min_max, $output): void
     {
@@ -131,7 +121,6 @@ class GisGeometryTest extends TestCase
      * @param string $output Expected output
      *
      * @dataProvider providerForTestGenerateParams
-     * @return void
      */
     public function testGenerateParams($value, $output): void
     {
@@ -167,7 +156,7 @@ class GisGeometryTest extends TestCase
                 ],
             ],
             [
-                "foo",
+                'foo',
                 [
                     'srid' => '0',
                     'wkt'  => '',
@@ -179,13 +168,12 @@ class GisGeometryTest extends TestCase
     /**
      * tests extractPoints method
      *
-     * @param string  $point_set  String of comma separated points
-     * @param array   $scale_data Data related to scaling
-     * @param boolean $linear     If true, as a 1D array, else as a 2D array
-     * @param array   $output     Expected output
+     * @param string $point_set  String of comma separated points
+     * @param array  $scale_data Data related to scaling
+     * @param bool   $linear     If true, as a 1D array, else as a 2D array
+     * @param array  $output     Expected output
      *
      * @dataProvider providerForTestExtractPoints
-     * @return void
      */
     public function testExtractPoints($point_set, $scale_data, $linear, $output): void
     {
@@ -299,7 +287,6 @@ class GisGeometryTest extends TestCase
      * @param array  $scale_data data related to scaling
      * @param string $output     expected output
      *
-     * @return void
      * @dataProvider providerForTestGetBoundsForOl
      */
     public function testGetBoundsForOl($srid, $scale_data, $output): void
@@ -351,7 +338,6 @@ class GisGeometryTest extends TestCase
      * @param string $srid     spatial reference id
      * @param string $output   expected output
      *
-     * @return void
      * @dataProvider providerForTestGetPolygonArrayForOpenLayers
      */
     public function testGetPolygonArrayForOpenLayers($polygons, $srid, $output): void

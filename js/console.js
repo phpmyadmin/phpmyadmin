@@ -1,4 +1,3 @@
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Used in or for console
  *
@@ -73,7 +72,7 @@ var Console = {
         Console.$consoleTemplates = $('#pma_console').find('>.templates');
 
         // Generate a from for post
-        Console.$requestForm = $('<form method="post" action="import.php">' +
+        Console.$requestForm = $('<form method="post" action="index.php?route=/import">' +
             '<input name="is_js_confirmed" value="0">' +
             '<textarea name="sql_query"></textarea>' +
             '<input name="console_message_id" value="0">' +
@@ -171,7 +170,7 @@ var Console = {
                 ConsoleMessages.showInstructions(Console.config.EnterExecutes);
             });
 
-            $(document).ajaxComplete(function (event, xhr, ajaxOptions) {
+            $(document).on('ajaxComplete', function (event, xhr, ajaxOptions) {
                 if (ajaxOptions.dataType && ajaxOptions.dataType.indexOf('json') !== -1) {
                     return;
                 }
@@ -913,7 +912,7 @@ var ConsoleMessages = {
         $targetMessage.find('.action.delete_bookmark').on('click', function () {
             var $message = $(this).closest('.message');
             if (confirm(Messages.strConsoleDeleteBookmarkConfirm + '\n' + $message.find('.bookmark_label').text())) {
-                $.post('import.php',
+                $.post('index.php?route=/import',
                     {
                         'server': CommonParams.get('server'),
                         'action_bookmark': 2,
@@ -1048,7 +1047,7 @@ var ConsoleBookmarks = {
         }
     },
     refresh: function () {
-        $.get('import.php',
+        $.get('index.php?route=/import',
             {
                 'ajax_request': true,
                 'server': CommonParams.get('server'),
@@ -1084,7 +1083,7 @@ var ConsoleBookmarks = {
                 return;
             }
             $(this).prop('disabled', true);
-            $.post('import.php',
+            $.post('index.php?route=/import',
                 {
                     'ajax_request': true,
                     'console_bookmark_add': 'true',
@@ -1118,7 +1117,7 @@ var ConsoleDebug = {
     },
     initialize: function () {
         // Try to get debug info after every AJAX request
-        $(document).ajaxSuccess(function (event, xhr, settings, data) {
+        $(document).on('ajaxSuccess', function (event, xhr, settings, data) {
             if (data.debug) {
                 ConsoleDebug.showLog(data.debug, settings.url);
             }

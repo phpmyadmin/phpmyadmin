@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Holds the PhpMyAdmin\Controllers\TransformationOverviewController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -13,22 +10,17 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
+use function array_keys;
 
 /**
  * Lists available transformation plugins
- *
- * @package PhpMyAdmin\Controllers
  */
 class TransformationOverviewController extends AbstractController
 {
-    /**
-     * @var Transformations
-     */
+    /** @var Transformations */
     private $transformations;
 
     /**
-     * TransformationOverviewController constructor.
-     *
      * @param Response          $response        Response object
      * @param DatabaseInterface $dbi             DatabaseInterface object
      * @param Template          $template        Template object
@@ -41,11 +33,11 @@ class TransformationOverviewController extends AbstractController
         $this->transformations = $transformations;
     }
 
-    /**
-     * @return string HTML
-     */
-    public function indexAction(): string
+    public function index(): void
     {
+        $header = $this->response->getHeader();
+        $header->disableMenuAndConsole();
+
         $types = $this->transformations->getAvailableMimeTypes();
 
         $mimeTypes = [];
@@ -72,9 +64,9 @@ class TransformationOverviewController extends AbstractController
             }
         }
 
-        return $this->template->render('transformation_overview', [
+        $this->response->addHTML($this->template->render('transformation_overview', [
             'mime_types' => $mimeTypes,
             'transformations' => $transformations,
-        ]);
+        ]));
     }
 }

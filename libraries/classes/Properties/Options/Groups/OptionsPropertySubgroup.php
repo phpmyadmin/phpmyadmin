@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Holds the PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -14,8 +11,6 @@ use PhpMyAdmin\Properties\PropertyItem;
 
 /**
  * Group property item class of type subgroup
- *
- * @package PhpMyAdmin
  */
 class OptionsPropertySubgroup extends OptionsPropertyGroup
 {
@@ -39,7 +34,7 @@ class OptionsPropertySubgroup extends OptionsPropertyGroup
      */
     public function getItemType()
     {
-        return "subgroup";
+        return 'subgroup';
     }
 
     /**

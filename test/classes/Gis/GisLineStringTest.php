@@ -1,22 +1,19 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Test for PhpMyAdmin\Gis\GisLineString
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisLineString;
-use PhpMyAdmin\Tests\Gis\GisGeomTestCase;
 use TCPDF;
+use function function_exists;
+use function imagecreatetruecolor;
+use function preg_match;
 
 /**
  * Tests for PhpMyAdmin\Gis\GisLineString class
- *
- * @package PhpMyAdmin-test
  */
 class GisLineStringTest extends GisGeomTestCase
 {
@@ -31,7 +28,6 @@ class GisLineStringTest extends GisGeomTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
@@ -43,7 +39,6 @@ class GisLineStringTest extends GisGeomTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -186,8 +181,9 @@ class GisLineStringTest extends GisGeomTestCase
      * @param array    $scale_data array containing data related to scaling
      * @param resource $image      image object
      *
-     * @dataProvider providerForPrepareRowAsPng
      * @return void
+     *
+     * @dataProvider providerForPrepareRowAsPng
      */
     public function testPrepareRowAsPng(
         $spatial,
@@ -242,8 +238,9 @@ class GisLineStringTest extends GisGeomTestCase
      * @param array  $scale_data array containing data related to scaling
      * @param TCPDF  $pdf        TCPDF instance
      *
-     * @dataProvider providerForPrepareRowAsPdf
      * @return void
+     *
+     * @dataProvider providerForPrepareRowAsPdf
      */
     public function testPrepareRowAsPdf(
         $spatial,
@@ -294,8 +291,9 @@ class GisLineStringTest extends GisGeomTestCase
      * @param array  $scale_data array containing data related to scaling
      * @param string $output     expected output
      *
-     * @dataProvider providerForPrepareRowAsSvg
      * @return void
+     *
+     * @dataProvider providerForPrepareRowAsSvg
      */
     public function testPrepareRowAsSvg(
         $spatial,
@@ -348,8 +346,9 @@ class GisLineStringTest extends GisGeomTestCase
      * @param array  $scale_data array containing data related to scaling
      * @param string $output     expected output
      *
-     * @dataProvider providerForPrepareRowAsOl
      * @return void
+     *
+     * @dataProvider providerForPrepareRowAsOl
      */
     public function testPrepareRowAsOl(
         $spatial,

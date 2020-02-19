@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Holds ProcessesControllerTest
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -12,26 +9,18 @@ namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\ProcessesController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
+use function htmlspecialchars;
 
-/**
- * Class ProcessesControllerTest
- * @package PhpMyAdmin\Tests\Controllers\Server\Status
- */
 class ProcessesControllerTest extends TestCase
 {
-    /**
-     * @var Data
-     */
+    /** @var Data */
     private $data;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
@@ -82,7 +71,7 @@ class ProcessesControllerTest extends TestCase
             ],
             [
                 "SELECT concat('Com_', variable_name), variable_value "
-                . "FROM data_dictionary.GLOBAL_STATEMENTS",
+                . 'FROM data_dictionary.GLOBAL_STATEMENTS',
                 0,
                 1,
                 DatabaseInterface::CONNECT_USER,
@@ -103,25 +92,19 @@ class ProcessesControllerTest extends TestCase
         $this->data = new Data();
     }
 
-    /**
-     * @return void
-     */
     public function testIndex(): void
     {
+        $response = new Response();
+
         $controller = new ProcessesController(
-            Response::getInstance(),
+            $response,
             $GLOBALS['dbi'],
             new Template(),
             $this->data
         );
 
-        $html = $controller->index([
-            'showExecuting' => null,
-            'full' => null,
-            'column_name' => null,
-            'order_by_field' => null,
-            'sort_order' => null,
-        ]);
+        $controller->index();
+        $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(
             'Note: Enabling the auto refresh here might cause '
@@ -130,7 +113,7 @@ class ProcessesControllerTest extends TestCase
         );
         // Test tab links
         $this->assertStringContainsString(
-            '<div class="tabLinks">',
+            '<div class="tabLinks row">',
             $html
         );
         $this->assertStringContainsString(
@@ -172,17 +155,17 @@ class ProcessesControllerTest extends TestCase
             $html
         );
         $this->assertStringContainsString(
-            'server_status_processes.php',
+            'index.php?route=/server/status/processes',
             $html
         );
 
-        $html = $controller->index([
-            'showExecuting' => null,
-            'full' => '1',
-            'column_name' => 'Database',
-            'order_by_field' => 'db',
-            'sort_order' => 'ASC',
-        ]);
+        $_POST['full'] = '1';
+        $_POST['column_name'] = 'Database';
+        $_POST['order_by_field'] = 'db';
+        $_POST['sort_order'] = 'ASC';
+
+        $controller->index();
+        $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(
             'Truncate shown queries',
@@ -197,13 +180,12 @@ class ProcessesControllerTest extends TestCase
             $html
         );
 
-        $html = $controller->index([
-            'showExecuting' => null,
-            'full' => '1',
-            'column_name' => 'Host',
-            'order_by_field' => 'Host',
-            'sort_order' => 'DESC',
-        ]);
+        $_POST['column_name'] = 'Host';
+        $_POST['order_by_field'] = 'Host';
+        $_POST['sort_order'] = 'DESC';
+
+        $controller->index();
+        $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(
             'Host',
@@ -215,9 +197,6 @@ class ProcessesControllerTest extends TestCase
         );
     }
 
-    /**
-     * @return void
-     */
     public function testRefresh(): void
     {
         $process = [
@@ -234,22 +213,28 @@ class ProcessesControllerTest extends TestCase
         $GLOBALS['dbi']->expects($this->any())->method('fetchAssoc')
             ->will($this->onConsecutiveCalls($process));
 
+        $response = new Response();
+        $response->setAjax(true);
+
         $controller = new ProcessesController(
-            Response::getInstance(),
+            $response,
             $GLOBALS['dbi'],
             new Template(),
             $this->data
         );
 
-        $html = $controller->refresh([
-            'showExecuting' => null,
-            'full' => '1',
-            'column_name' => null,
-            'order_by_field' => 'process',
-            'sort_order' => 'DESC',
-        ]);
+        $_POST['full'] = '1';
+        $_POST['order_by_field'] = 'process';
+        $_POST['sort_order'] = 'DESC';
 
-        $killProcess = 'href="server_status_processes.php" data-post="'
+        $controller->refresh();
+        $html = $response->getHTMLResult();
+
+        $this->assertStringContainsString(
+            'index.php?route=/server/status/processes',
+            $html
+        );
+        $killProcess = 'data-post="'
             . Url::getCommon(['kill' => $process['Id']], '') . '"';
         $this->assertStringContainsString(
             $killProcess,

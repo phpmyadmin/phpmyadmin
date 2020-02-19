@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Second authentication factor handling
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -16,19 +13,16 @@ use PragmaRX\Google2FA\Exceptions\IncompatibleWithGoogleAuthenticatorException;
 use PragmaRX\Google2FA\Exceptions\InvalidCharactersException;
 use PragmaRX\Google2FA\Exceptions\SecretKeyTooShortException;
 use PragmaRX\Google2FAQRCode\Google2FA;
+use function extension_loaded;
 
 /**
  * HOTP and TOTP based two-factor authentication
  *
  * Also known as Google, Authy, or OTP
- *
- * @package PhpMyAdmin
  */
 class Application extends TwoFactorPlugin
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     public static $id = 'application';
 
     protected $_google2fa;
@@ -52,25 +46,16 @@ class Application extends TwoFactorPlugin
         }
     }
 
-    /**
-     * Get any property of this class
-     *
-     * @param string $property name of the property
-     *
-     * @return mixed|void if property exist, value of the relevant property
-     */
-    public function __get($property)
+    public function getGoogle2fa(): Google2FA
     {
-        switch ($property) {
-            case 'google2fa':
-                return $this->_google2fa;
-        }
+        return $this->_google2fa;
     }
 
     /**
      * Checks authentication, returns true on success
      *
-     * @return boolean
+     * @return bool
+     *
      * @throws IncompatibleWithGoogleAuthenticatorException
      * @throws InvalidCharactersException
      * @throws SecretKeyTooShortException
@@ -121,7 +106,8 @@ class Application extends TwoFactorPlugin
     /**
      * Performs backend configuration
      *
-     * @return boolean
+     * @return bool
+     *
      * @throws IncompatibleWithGoogleAuthenticatorException
      * @throws InvalidCharactersException
      * @throws SecretKeyTooShortException

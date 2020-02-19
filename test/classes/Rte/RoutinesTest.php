@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for PhpMyAdmin\Rte\Routines
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -18,20 +15,14 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * This class is for testing PhpMyAdmin\Rte\Routines methods
- *
- * @package PhpMyAdmin-test
  */
 class RoutinesTest extends TestCase
 {
-    /**
-     * @var Routines
-     */
+    /** @var Routines */
     private $routines;
 
     /**
      * Set up
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -52,8 +43,6 @@ class RoutinesTest extends TestCase
      *
      * @param array $in  Input
      * @param array $out Expected output
-     *
-     * @return void
      *
      * @dataProvider providerGetDataFromRequest
      */
@@ -319,8 +308,6 @@ class RoutinesTest extends TestCase
      * @param mixed $index   Index
      * @param array $matcher Matcher
      *
-     * @return void
-     *
      * @depends testGetParameterRowEmpty
      * @dataProvider providerGetParameterRow
      */
@@ -400,8 +387,6 @@ class RoutinesTest extends TestCase
      *
      * @param array $data    Data for routine
      * @param array $matcher Matcher
-     *
-     * @return void
      *
      * @depends testGetParameterRow
      * @dataProvider providerGetParameterRowAjax
@@ -1168,8 +1153,6 @@ class RoutinesTest extends TestCase
      * @param array  $request Request
      * @param string $query   Query
      * @param int    $num_err Error number
-     *
-     * @return void
      *
      * @dataProvider providerGetQueryFromRequest
      */

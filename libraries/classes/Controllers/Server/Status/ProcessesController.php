@@ -1,29 +1,39 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Holds the PhpMyAdmin\Controllers\Server\Status\ProcessesController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;
 
+use PhpMyAdmin\Common;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Util;
+use function array_keys;
+use function count;
+use function mb_strtolower;
+use function strlen;
+use function ucfirst;
 
-/**
- * Class ProcessesController
- * @package PhpMyAdmin\Controllers\Server\Status
- */
 class ProcessesController extends AbstractController
 {
-    /**
-     * @param array $params Request parameters
-     * @return string
-     */
-    public function index(array $params): string
+    public function index(): void
     {
+        $params = [
+            'showExecuting' => $_POST['showExecuting'] ?? null,
+            'full' => $_POST['full'] ?? null,
+            'column_name' => $_POST['column_name'] ?? null,
+            'order_by_field' => $_POST['order_by_field'] ?? null,
+            'sort_order' => $_POST['sort_order'] ?? null,
+        ];
+
+        Common::server();
+
+        $header = $this->response->getHeader();
+        $scripts = $header->getScripts();
+        $scripts->addFile('server/status/processes.js');
+
         $isChecked = false;
         if (! empty($params['showExecuting'])) {
             $isChecked = true;
@@ -39,31 +49,43 @@ class ProcessesController extends AbstractController
 
         $serverProcessList = $this->getList($params);
 
-        return $this->template->render('server/status/processes/index', [
+        $this->response->addHTML($this->template->render('server/status/processes/index', [
             'url_params' => $urlParams,
             'is_checked' => $isChecked,
             'server_process_list' => $serverProcessList,
-        ]);
+        ]));
     }
 
     /**
      * Only sends the process list table
-     *
-     * @param array $params Request parameters
-     * @return string
      */
-    public function refresh(array $params): string
+    public function refresh(): void
     {
-        return $this->getList($params);
+        $params = [
+            'showExecuting' => $_POST['showExecuting'] ?? null,
+            'full' => $_POST['full'] ?? null,
+            'column_name' => $_POST['column_name'] ?? null,
+            'order_by_field' => $_POST['order_by_field'] ?? null,
+            'sort_order' => $_POST['sort_order'] ?? null,
+        ];
+
+        if (! $this->response->isAjax()) {
+            return;
+        }
+
+        $this->response->addHTML($this->getList($params));
     }
 
     /**
      * @param array $params Request parameters
-     * @return array
      */
-    public function kill(array $params): array
+    public function kill(array $params): void
     {
-        $kill = (int) $params['kill'];
+        if (! $this->response->isAjax()) {
+            return;
+        }
+
+        $kill = (int) $params['id'];
         $query = $this->dbi->getKillQuery($kill);
 
         if ($this->dbi->tryQuery($query)) {
@@ -82,15 +104,11 @@ class ProcessesController extends AbstractController
         }
         $message->addParam($kill);
 
-        $json = [];
-        $json['message'] = $message;
-
-        return $json;
+        $this->response->addJSON(['message' => $message]);
     }
 
     /**
      * @param array $params Request parameters
-     * @return string
      */
     private function getList(array $params): string
     {
@@ -224,7 +242,7 @@ class ProcessesController extends AbstractController
                 'time' => $process['Time'],
                 'state' => ! empty($process['State']) ? $process['State'] : '---',
                 'progress' => ! empty($process['Progress']) ? $process['Progress'] : '---',
-                'info' => ! empty($process['Info']) ? Util::formatSql(
+                'info' => ! empty($process['Info']) ? Generator::formatSql(
                     $process['Info'],
                     ! $showFullSql
                 ) : '---',

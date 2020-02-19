@@ -4,7 +4,6 @@ have str* messages with their definition in language files, but if you build
 some plugins for your use, you can directly use texts in plugin.
 
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * [Name] export plugin for phpMyAdmin
  *

@@ -1,4 +1,3 @@
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * @fileoverview    function used in QBE for DB
  * @name            Database Operations
@@ -13,7 +12,7 @@
 /* global generateFromBlock, generateWhereBlock */ // js/database/query_generator.js
 
 /**
- * js file for handling AJAX and other events in db_multi_table_query.php
+ * js file for handling AJAX and other events in /database/multi-table-query
  */
 
 /**
@@ -71,7 +70,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         $.ajax({
             type: 'GET',
             async: false,
-            url: 'db_multi_table_query.php',
+            url: 'index.php?route=/database/multi-table-query/tables',
             data: {
                 'server': sessionStorage.server,
                 'db': $('#db_name').val(),
@@ -133,7 +132,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         };
         $.ajax({
             type: 'POST',
-            url: 'db_multi_table_query.php',
+            url: 'index.php?route=/database/multi-table-query/query',
             data: data,
             success: function (data) {
                 var $resultsDom = $(data.message);

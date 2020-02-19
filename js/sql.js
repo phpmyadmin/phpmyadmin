@@ -1,4 +1,3 @@
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * @fileoverview    functions used wherever an sql query form is used
  *
@@ -146,9 +145,9 @@ Sql.getFieldName = function ($tableResults, $thisField) {
     var thisFieldIndex = $thisField.index();
     // ltr or rtl direction does not impact how the DOM was generated
     // check if the action column in the left exist
-    var leftActionExist = !$tableResults.find('th:first').hasClass('draggable');
+    var leftActionExist = !$tableResults.find('th').first().hasClass('draggable');
     // number of column span for checkbox and Actions
-    var leftActionSkip = leftActionExist ? $tableResults.find('th:first').attr('colspan') - 1 : 0;
+    var leftActionSkip = leftActionExist ? $tableResults.find('th').first().attr('colspan') - 1 : 0;
 
     // If this column was sorted, the text of the a element contains something
     // like <small>1</small> that is useful to indicate the order in case
@@ -156,7 +155,9 @@ Sql.getFieldName = function ($tableResults, $thisField) {
     // of the column name so we strip it ( .clone() to .end() )
     var fieldName = $tableResults
         .find('thead')
-        .find('th:eq(' + (thisFieldIndex - leftActionSkip) + ') a')
+        .find('th')
+        .eq(thisFieldIndex - leftActionSkip)
+        .find('a')
         .clone()    // clone the element
         .children() // select all the children
         .remove()   // remove all of them
@@ -164,7 +165,7 @@ Sql.getFieldName = function ($tableResults, $thisField) {
         .text();    // grab the text
     // happens when just one row (headings contain no a)
     if (fieldName === '') {
-        var $heading = $tableResults.find('thead').find('th:eq(' + (thisFieldIndex - leftActionSkip) + ')').children('span');
+        var $heading = $tableResults.find('thead').find('th').eq(thisFieldIndex - leftActionSkip).children('span');
         // may contain column comment enclosed in a span - detach it temporarily to read the column name
         var $tempColComment = $heading.children().detach();
         fieldName = $heading.text();
@@ -351,12 +352,12 @@ AJAX.registerOnload('sql.js', function () {
 
         textArea.value = '';
 
-        $('#serverinfo a').each(function () {
+        $('#server-breadcrumb a').each(function () {
             textArea.value += $(this).text().split(':')[1].trim() + '/';
         });
         textArea.value += '\t\t' + window.location.href;
         textArea.value += '\n';
-        $('.success').each(function () {
+        $('.alert-success').each(function () {
             textArea.value += $(this).text() + '\n\n';
         });
 
@@ -437,8 +438,8 @@ AJAX.registerOnload('sql.js', function () {
      * @name    appendToggleSpan
      */
     // do not add this link more than once
-    if (! $('#sqlqueryform').find('a').is('#togglequerybox')) {
-        $('<a id="togglequerybox"></a>')
+    if (! $('#sqlqueryform').find('button').is('#togglequerybox')) {
+        $('<button class="btn btn-secondary" id="togglequerybox"></button>')
             .html(Messages.strHideQueryBox)
             .appendTo('#sqlqueryform')
         // initially hidden because at this point, nothing else
@@ -470,13 +471,13 @@ AJAX.registerOnload('sql.js', function () {
      * @memberOf    jQuery
      */
     $(document).on('click', '#button_submit_query', function () {
-        $('.success,.error').hide();
+        $('.alert-success,.alert-danger').hide();
         // hide already existing error or success message
         var $form = $(this).closest('form');
         // the Go button related to query submission was clicked,
         // instead of the one related to Bookmarks, so empty the
         // id_bookmark selector to avoid misinterpretation in
-        // import.php about what needs to be done
+        // /import about what needs to be done
         $form.find('select[name=id_bookmark]').val('');
         // let normal event propagation happen
         if (isStorageSupported('localStorage')) {
@@ -569,7 +570,7 @@ AJAX.registerOnload('sql.js', function () {
         }
 
         // remove any div containing a previous error message
-        $('div.error').remove();
+        $('.alert-danger').remove();
 
         var $msgbox = Functions.ajaxShowMessage();
         var $sqlqueryresultsouter = $('#sqlqueryresultsouter');
@@ -642,12 +643,12 @@ AJAX.registerOnload('sql.js', function () {
                     var url;
                     if (data.db) {
                         if (data.table) {
-                            url = 'table_sql.php';
+                            url = 'index.php?route=/table/sql';
                         } else {
-                            url = 'db_sql.php';
+                            url = 'index.php?route=/database/sql';
                         }
                     } else {
-                        url = 'server_sql.php';
+                        url = 'index.php?route=/server/sql';
                     }
                     CommonActions.refreshMain(url, function () {
                         $('#sqlqueryresultsouter')
@@ -857,7 +858,7 @@ AJAX.registerOnload('sql.js', function () {
 Sql.changeClassForColumn = function ($thisTh, newClass, isAddClass) {
     // index 0 is the th containing the big T
     var thIndex = $thisTh.index();
-    var hasBigT = $thisTh.closest('tr').children(':first').hasClass('column_action');
+    var hasBigT = $thisTh.closest('tr').children().first().hasClass('column_action');
     // .eq() is zero-based
     if (hasBigT) {
         thIndex--;
@@ -866,7 +867,7 @@ Sql.changeClassForColumn = function ($thisTh, newClass, isAddClass) {
     if (! $table.length) {
         $table = $thisTh.parents('table').siblings('.table_results');
     }
-    var $tds = $table.find('tbody tr').find('td.data:eq(' + thIndex + ')');
+    var $tds = $table.find('tbody tr').find('td.data').eq(thIndex);
     if (isAddClass === undefined) {
         $tds.toggleClass(newClass);
     } else {
@@ -938,7 +939,7 @@ Sql.browseForeignDialog = function ($thisA) {
                 });
             }
             // updates values in dialog
-            $.post($(this).attr('action') + '?ajax_request=1', postParams, function (data) {
+            $.post($(this).attr('action') + '&ajax_request=1', postParams, function (data) {
                 var $obj = $('<div>').html(data.message);
                 $(formId).html($obj.find(formId).html());
                 $(tableId).html($obj.find(tableId).html());
@@ -1085,12 +1086,12 @@ Sql.initStickyColumns = function ($tableResults) {
  */
 Sql.rearrangeStickyColumns = function ($stickyColumns, $tableResults) {
     var $originalHeader = $tableResults.find('thead');
-    var $originalColumns = $originalHeader.find('tr:first').children();
+    var $originalColumns = $originalHeader.find('tr').first().children();
     var $clonedHeader = $originalHeader.clone();
     var isFirefox = navigator.userAgent.indexOf('Firefox') > -1;
     var isSafari = navigator.userAgent.indexOf('Safari') > -1;
     // clone width per cell
-    $clonedHeader.find('tr:first').children().each(function (i) {
+    $clonedHeader.find('tr').first().children().each(function (i) {
         var width = $originalColumns.eq(i).width();
         if (! isFirefox && ! isSafari) {
             width += 1;

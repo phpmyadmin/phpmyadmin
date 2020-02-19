@@ -1,20 +1,26 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Used to render the header of PMA's pages
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\Navigation;
+use function defined;
+use function gmdate;
+use function header;
+use function htmlspecialchars;
+use function implode;
+use function ini_get;
+use function is_bool;
+use function strlen;
+use function strtolower;
+use function urlencode;
 
 /**
  * Class used to output the HTTP and HTML headers
- *
- * @package PhpMyAdmin
  */
 class Header
 {
@@ -104,14 +110,10 @@ class Header
      */
     private $_headerIsSent;
 
-    /**
-     * @var UserPreferences
-     */
+    /** @var UserPreferences */
     private $userPreferences;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     private $template;
 
     /**
@@ -119,6 +121,8 @@ class Header
      */
     public function __construct()
     {
+        global $db, $table;
+
         $this->template = new Template();
 
         $this->_isEnabled = true;
@@ -126,11 +130,9 @@ class Header
         $this->_bodyId = '';
         $this->_title = '';
         $this->_console = new Console();
-        $db = strlen($GLOBALS['db']) ? $GLOBALS['db'] : '';
-        $table = strlen($GLOBALS['table']) ? $GLOBALS['table'] : '';
         $this->_menu = new Menu(
-            $db,
-            $table
+            $db ?? '',
+            $table ?? ''
         );
         $this->_menuEnabled = true;
         $this->_warningsEnabled = true;
@@ -153,15 +155,12 @@ class Header
 
     /**
      * Loads common scripts
-     *
-     * @return void
      */
     private function _addDefaultScripts(): void
     {
         // Localised strings
         $this->_scripts->addFile('vendor/jquery/jquery.min.js');
         $this->_scripts->addFile('vendor/jquery/jquery-migrate.js');
-        $this->_scripts->addFile('whitelist.php');
         $this->_scripts->addFile('vendor/sprintf.js');
         $this->_scripts->addFile('ajax.js');
         $this->_scripts->addFile('keyhandler.js');
@@ -191,6 +190,7 @@ class Header
         // the user preferences have not been merged at this point
 
         $this->_scripts->addFile('messages.php', ['l' => $GLOBALS['lang']]);
+        $this->_scripts->addCode($this->getVariablesForJavaScript());
         $this->_scripts->addFile('config.js');
         $this->_scripts->addFile('doclinks.js');
         $this->_scripts->addFile('functions.js');
@@ -215,10 +215,9 @@ class Header
      */
     public function getJsParams(): array
     {
-        $db = strlen($GLOBALS['db']) ? $GLOBALS['db'] : '';
-        $table = strlen($GLOBALS['table']) ? $GLOBALS['table'] : '';
-        $pftext = isset($_SESSION['tmpval']['pftext'])
-            ? $_SESSION['tmpval']['pftext'] : '';
+        global $db, $table;
+
+        $pftext = $_SESSION['tmpval']['pftext'] ?? '';
 
         $params = [
             'common_query' => Url::getCommonRaw(),
@@ -228,8 +227,8 @@ class Header
             ),
             'lang' => $GLOBALS['lang'],
             'server' => $GLOBALS['server'],
-            'table' => $table,
-            'db' => $db,
+            'table' => $table ?? '',
+            'db' => $db ?? '',
             'token' => $_SESSION[' PMA_token '],
             'text_dir' => $GLOBALS['text_dir'],
             'show_databases_navigation_as_tree' => $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'],
@@ -253,9 +252,7 @@ class Header
             'arg_separator' => Url::getArgSeparator(),
             'PMA_VERSION' => PMA_VERSION,
         ];
-        if (isset($GLOBALS['cfg']['Server'])
-            && isset($GLOBALS['cfg']['Server']['auth_type'])
-        ) {
+        if (isset($GLOBALS['cfg']['Server'], $GLOBALS['cfg']['Server']['auth_type'])) {
             $params['auth_type'] = $GLOBALS['cfg']['Server']['auth_type'];
             if (isset($GLOBALS['cfg']['Server']['user'])) {
                 $params['user'] = $GLOBALS['cfg']['Server']['user'];
@@ -268,8 +265,6 @@ class Header
     /**
      * Returns, as a string, a list of parameters
      * used on the client side
-     *
-     * @return string
      */
     public function getJsParamsCode(): string
     {
@@ -286,8 +281,6 @@ class Header
 
     /**
      * Disables the rendering of the header
-     *
-     * @return void
      */
     public function disable(): void
     {
@@ -299,8 +292,6 @@ class Header
      * we are servicing an ajax request
      *
      * @param bool $isAjax Whether we are servicing an ajax request
-     *
-     * @return void
      */
     public function setAjax(bool $isAjax): void
     {
@@ -332,8 +323,6 @@ class Header
      * Setter for the ID attribute in the BODY tag
      *
      * @param string $id Value for the ID attribute
-     *
-     * @return void
      */
     public function setBodyId(string $id): void
     {
@@ -344,8 +333,6 @@ class Header
      * Setter for the title of the page
      *
      * @param string $title New title
-     *
-     * @return void
      */
     public function setTitle(string $title): void
     {
@@ -354,8 +341,6 @@ class Header
 
     /**
      * Disables the display of the top menu
-     *
-     * @return void
      */
     public function disableMenuAndConsole(): void
     {
@@ -365,8 +350,6 @@ class Header
 
     /**
      * Disables the display of the top menu
-     *
-     * @return void
      */
     public function disableWarnings(): void
     {
@@ -375,8 +358,6 @@ class Header
 
     /**
      * Turns on 'print view' mode
-     *
-     * @return void
      */
     public function enablePrintView(): void
     {
@@ -392,6 +373,8 @@ class Header
      */
     public function getDisplay(): string
     {
+        global $db, $table;
+
         if (! $this->_headerIsSent && $this->_isEnabled) {
             if (! $this->_isAjax) {
                 $this->sendHttpHeaders();
@@ -448,10 +431,7 @@ class Header
                 $messages = $this->getMessage();
             }
             if (empty($_REQUEST['recent_table'])) {
-                $recentTable = $this->_addRecentTable(
-                    $GLOBALS['db'],
-                    $GLOBALS['table']
-                );
+                $recentTable = $this->_addRecentTable($db, $table);
             }
             return $this->template->render('header', [
                 'is_ajax' => $this->_isAjax,
@@ -487,8 +467,6 @@ class Header
     /**
      * Returns the message to be displayed at the top of
      * the page, including the executed SQL query, if any.
-     *
-     * @return string
      */
     public function getMessage(): string
     {
@@ -504,7 +482,7 @@ class Header
             if (isset($GLOBALS['buffer_message'])) {
                 $buffer_message = $GLOBALS['buffer_message'];
             }
-            $retval .= Util::getMessage($message);
+            $retval .= Generator::getMessage($message);
             if (isset($buffer_message)) {
                 $GLOBALS['buffer_message'] = $buffer_message;
             }
@@ -514,8 +492,6 @@ class Header
 
     /**
      * Sends out the HTTP headers
-     *
-     * @return void
      */
     public function sendHttpHeaders(): void
     {
@@ -560,25 +536,25 @@ class Header
             . "style-src 'self' 'unsafe-inline' "
             . $captcha_url
             . $GLOBALS['cfg']['CSPAllow']
-            . ";"
+            . ';'
             . "img-src 'self' data: "
             . $GLOBALS['cfg']['CSPAllow']
             . $map_tile_urls
             . $captcha_url
-            . ";"
+            . ';'
             . "object-src 'none';"
         );
         header(
             "X-Content-Security-Policy: default-src 'self' "
             . $captcha_url
             . $GLOBALS['cfg']['CSPAllow'] . ';'
-            . "options inline-script eval-script;"
-            . "referrer no-referrer;"
+            . 'options inline-script eval-script;'
+            . 'referrer no-referrer;'
             . "img-src 'self' data: "
             . $GLOBALS['cfg']['CSPAllow']
             . $map_tile_urls
             . $captcha_url
-            . ";"
+            . ';'
             . "object-src 'none';"
         );
         header(
@@ -589,7 +565,7 @@ class Header
             . $captcha_url
             . $GLOBALS['cfg']['CSPAllow']
             . " 'unsafe-inline' 'unsafe-eval';"
-            . "referrer no-referrer;"
+            . 'referrer no-referrer;'
             . "style-src 'self' 'unsafe-inline' "
             . $captcha_url
             . ';'
@@ -597,7 +573,7 @@ class Header
             . $GLOBALS['cfg']['CSPAllow']
             . $map_tile_urls
             . $captcha_url
-            . ";"
+            . ';'
             . "object-src 'none';"
         );
         // Re-enable possible disabled XSS filters
@@ -632,8 +608,6 @@ class Header
     /**
      * If the page is missing the title, this function
      * will set it to something reasonable
-     *
-     * @return string
      */
     public function getPageTitle(): string
     {
@@ -663,8 +637,6 @@ class Header
      *
      * @param string $db    Database name where the table is located.
      * @param string $table The table name
-     *
-     * @return string
      */
     private function _addRecentTable(string $db, string $table): string
     {
@@ -695,6 +667,20 @@ class Header
      */
     public static function getVersionParameter(): string
     {
-        return "v=" . urlencode(PMA_VERSION);
+        return 'v=' . urlencode(PMA_VERSION);
+    }
+
+    private function getVariablesForJavaScript(): string
+    {
+        global $cfg, $pmaThemeImage;
+
+        $maxInputVars = ini_get('max_input_vars');
+        $maxInputVarsValue = $maxInputVars === false || $maxInputVars === '' ? 'false' : (int) $maxInputVars;
+
+        return $this->template->render('javascript/variables', [
+            'first_day_of_calendar' => $cfg['FirstDayOfCalendar'],
+            'pma_theme_image' => $pmaThemeImage,
+            'max_input_vars' => $maxInputVarsValue,
+        ]);
     }
 }

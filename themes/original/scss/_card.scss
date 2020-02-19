@@ -1,0 +1,13 @@
+.card {
+  border-top: none;
+  border-bottom: none;
+  border-#{$right}: none;
+}
+
+.card-header {
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  font-weight: bold;
+  font-size: 120%;
+  border: 0;
+}

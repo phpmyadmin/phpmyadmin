@@ -1,29 +1,22 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for PhpMyAdmin\Relation
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Theme;
 use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for PhpMyAdmin\Relation
  *
- * @package PhpMyAdmin-test
  * @group medium
  */
 class RelationTest extends TestCase
 {
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
     /**
@@ -31,7 +24,6 @@ class RelationTest extends TestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
@@ -41,7 +33,7 @@ class RelationTest extends TestCase
         $GLOBALS['cfg']['Server']['pmadb'] = 'phpmyadmin';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ZeroConf'] = true;
-        $_SESSION['relation'][$GLOBALS['server']] = "PMA_relation";
+        $_SESSION['relation'][$GLOBALS['server']] = 'PMA_relation';
         $_SESSION['relation'] = [];
 
         $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
@@ -72,7 +64,7 @@ class RelationTest extends TestCase
         $GLOBALS['dbi'] = $dbi;
         $this->relation->dbi = $GLOBALS['dbi'];
 
-        $sql = "insert into PMA_bookmark A,B values(1, 2)";
+        $sql = 'insert into PMA_bookmark A,B values(1, 2)';
         $this->assertEquals(
             'executeResult1',
             $this->relation->queryAsControlUser($sql)
@@ -121,14 +113,14 @@ class RelationTest extends TestCase
 
         //$cfg['Servers'][$i]['relation']
         $result = "\$cfg['Servers'][\$i]['pmadb']  ... </th><td class=\"right\">"
-            . "<span class=\"success\"><strong>OK</strong></span>";
+            . '<span class="success"><strong>OK</strong></span>';
         $this->assertStringContainsString(
             $result,
             $retval
         );
         // $cfg['Servers'][$i]['relation']
         $result = "\$cfg['Servers'][\$i]['relation']  ... </th><td class=\"right\">"
-            . "<span class=\"caution\"><strong>not OK</strong></span>";
+            . '<span class="caution"><strong>not OK</strong></span>';
         $this->assertStringContainsString(
             $result,
             $retval
@@ -141,8 +133,8 @@ class RelationTest extends TestCase
         );
         // $cfg['Servers'][$i]['table_info']
         $result = "\$cfg['Servers'][\$i]['table_info']  ... </th>"
-            . "<td class=\"right\">"
-            . "<span class=\"caution\"><strong>not OK</strong></span>";
+            . '<td class="right">'
+            . '<span class="caution"><strong>not OK</strong></span>';
         $this->assertStringContainsString(
             $result,
             $retval
@@ -167,7 +159,7 @@ class RelationTest extends TestCase
             $result,
             $retval
         );
-        $result = "<strong>not OK</strong>";
+        $result = '<strong>not OK</strong>';
         $this->assertStringContainsString(
             $result,
             $retval

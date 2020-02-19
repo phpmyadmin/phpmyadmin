@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * The InnoDB storage engine
- *
- * @package PhpMyAdmin-Engines
  */
 declare(strict_types=1);
 
@@ -11,11 +8,11 @@ namespace PhpMyAdmin\Engines;
 
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Util;
+use function htmlspecialchars;
+use function implode;
 
 /**
  * The InnoDB storage engine
- *
- * @package PhpMyAdmin-Engines
  */
 class Innodb extends StorageEngine
 {
@@ -380,16 +377,14 @@ class Innodb extends StorageEngine
      *
      * (do not confuse this with phpMyAdmin's storage engine plugins!)
      *
-     * @return boolean whether this feature is supported or not
+     * @return bool whether this feature is supported or not
      */
     public function supportsFilePerTable()
     {
-        return (
-            $GLOBALS['dbi']->fetchValue(
+        return $GLOBALS['dbi']->fetchValue(
                 "SHOW GLOBAL VARIABLES LIKE 'innodb_file_per_table';",
                 0,
                 1
-            ) == 'ON'
-        );
+            ) == 'ON';
     }
 }

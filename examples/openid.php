@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Single signon for phpMyAdmin using OpenID
  *
@@ -11,9 +10,6 @@
  *
  * User first authenticates using OpenID and based on content of $AUTH_MAP
  * the login information is passed to phpMyAdmin in session data.
- *
- * @package    PhpMyAdmin
- * @subpackage Example
  */
 declare(strict_types=1);
 
@@ -33,6 +29,8 @@ $AUTH_MAP = [
         'password' => '',
     ],
 ];
+
+// phpcs:disable PSR1.Files.SideEffects
 
 /**
  * Simple function to show HTML page with given content.
@@ -56,7 +54,7 @@ function Show_page($contents)
     </head>
     <body>
     <?php
-    if (isset($_SESSION) && isset($_SESSION['PMA_single_signon_error_message'])) {
+    if (isset($_SESSION['PMA_single_signon_error_message'])) {
         echo '<p class="error">' , $_SESSION['PMA_single_signon_message'] , '</p>';
         unset($_SESSION['PMA_single_signon_message']);
     }
@@ -77,12 +75,13 @@ function Show_page($contents)
 function Die_error($e)
 {
     $contents = "<div class='relyingparty_results'>\n";
-    $contents .= "<pre>" . htmlspecialchars($e->getMessage()) . "</pre>\n";
+    $contents .= '<pre>' . htmlspecialchars($e->getMessage()) . "</pre>\n";
     $contents .= "</div class='relyingparty_results'>";
     Show_page($contents);
     exit;
 }
 
+// phpcs:enable
 
 /* Need to have cookie visible from parent directory */
 session_set_cookie_params(0, '/', '', $secure_cookie, true);
@@ -106,7 +105,7 @@ if ($returnTo[strlen($returnTo) - 1] != '/') {
 $returnTo .= 'openid.php';
 
 /* Display form */
-if (! count($_GET) && ! count($_POST) || isset($_GET['phpMyAdmin'])) {
+if ((! count($_GET) && ! count($_POST)) || isset($_GET['phpMyAdmin'])) {
     /* Show simple form */
     $content = '<form action="openid.php" method="post">
 OpenID: <input type="text" name="identifier"><br>
@@ -130,7 +129,7 @@ if (isset($_POST['identifier']) && is_string($_POST['identifier'])) {
 /* Create OpenID object */
 try {
     $o = new OpenID_RelyingParty($returnTo, $realm, $identifier);
-} catch (Exception $e) {
+} catch (Throwable $e) {
     Die_error($e);
 }
 
@@ -138,13 +137,13 @@ try {
 if (isset($_POST['start'])) {
     try {
         $authRequest = $o->prepare();
-    } catch (Exception $e) {
+    } catch (Throwable $e) {
         Die_error($e);
     }
 
     $url = $authRequest->getAuthorizeURL();
 
-    header("Location: $url");
+    header('Location: ' . $url);
     exit;
 } else {
     /* Grab query string */
@@ -158,7 +157,7 @@ if (isset($_POST['start'])) {
     /* Check reply */
     try {
         $message = new OpenID_Message($queryString, OpenID_Message::FORMAT_HTTP);
-    } catch (Exception $e) {
+    } catch (Throwable $e) {
         Die_error($e);
     }
 

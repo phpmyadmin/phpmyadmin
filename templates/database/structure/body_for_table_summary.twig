@@ -22,14 +22,12 @@
         {% set row_sum_url = {
             'ajax_request': true,
             'db': db,
-            'real_row_count': 'true',
             'real_row_count_all': 'true'
         } %}
     {% endif %}
     {% if approx_rows %}
         {% set cell_text -%}
-            <a href="db_structure.php
-                {{- get_common(row_sum_url) }}" class="ajax row_count_sum">~
+            <a href="{{ url('/database/structure/real-row-count', row_sum_url) }}" class="ajax row_count_sum">~
                 {{- row_count_sum -}}
             </a>
         {%- endset %}
@@ -44,7 +42,7 @@
             {# MySQL >= 5.5.3 #}
             {% set default_engine = dbi.fetchValue('SELECT @@default_storage_engine;') %}
         {% endif %}
-        <th class="center">
+        <th class="text-center">
             <dfn title="{{ '%s is the default storage engine on this MySQL server.'|trans|format(default_engine) }}">
                 {{ default_engine }}
             </dfn>

@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for Bookmark class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,8 +11,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for Bookmark class
- *
- * @package PhpMyAdmin-test
  */
 class BookmarkTest extends TestCase
 {
@@ -24,7 +19,6 @@ class BookmarkTest extends TestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {

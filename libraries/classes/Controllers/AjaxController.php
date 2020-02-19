@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds the PhpMyAdmin\Controllers\AjaxController
- *
- * @package PhpMyAdmin\Controllers
+ * Generic AJAX endpoint for getting information about database
  */
 declare(strict_types=1);
 
@@ -14,21 +11,17 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+use function json_decode;
 
 /**
- * Class AjaxController
- * @package PhpMyAdmin\Controllers
+ * Generic AJAX endpoint for getting information about database
  */
 class AjaxController extends AbstractController
 {
-    /**
-     * @var Config
-     */
+    /** @var Config */
     private $config;
 
     /**
-     * AjaxController constructor.
-     *
      * @param Response          $response Response instance
      * @param DatabaseInterface $dbi      DatabaseInterface instance
      * @param Template          $template Template object
@@ -40,58 +33,70 @@ class AjaxController extends AbstractController
         $this->config = $config;
     }
 
-    /**
-     * @return array JSON
-     */
-    public function databases(): array
+    public function databases(): void
     {
         global $dblist;
 
-        return ['databases' => $dblist->databases];
+        $this->response->addJSON(['databases' => $dblist->databases]);
     }
 
-    /**
-     * @param array $params Request parameters
-     * @return array JSON
-     */
-    public function tables(array $params): array
+    public function tables(): void
     {
-        return ['tables' => $this->dbi->getTables($params['db'])];
+        if (! isset($_POST['db'])) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON(['message' => Message::error()]);
+            return;
+        }
+
+        $this->response->addJSON(['tables' => $this->dbi->getTables($_POST['db'])]);
     }
 
-    /**
-     * @param array $params Request parameters
-     * @return array JSON
-     */
-    public function columns(array $params): array
+    public function columns(): void
     {
-        return [
+        if (! isset($_POST['db'], $_POST['table'])) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON(['message' => Message::error()]);
+            return;
+        }
+
+        $this->response->addJSON([
             'columns' => $this->dbi->getColumnNames(
-                $params['db'],
-                $params['table']
+                $_POST['db'],
+                $_POST['table']
             ),
-        ];
+        ]);
     }
 
-    /**
-     * @param array $params Request parameters
-     * @return array JSON
-     */
-    public function getConfig(array $params): array
+    public function getConfig(): void
     {
-        return ['value' => $this->config->get($params['key'])];
+        if (! isset($_POST['key'])) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON(['message' => Message::error()]);
+            return;
+        }
+
+        $this->response->addJSON(['value' => $this->config->get($_POST['key'])]);
     }
 
-    /**
-     * @param array $params Request parameters
-     * @return true|Message
-     */
-    public function setConfig(array $params)
+    public function setConfig(): void
     {
-        return $this->config->setUserValue(
+        if (! isset($_POST['key'], $_POST['value'])) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON(['message' => Message::error()]);
+            return;
+        }
+
+        $result = $this->config->setUserValue(
             null,
-            $params['key'],
-            json_decode($params['value'])
+            $_POST['key'],
+            json_decode($_POST['value'])
         );
+
+        if ($result === true) {
+            return;
+        }
+
+        $this->response->setRequestStatus(false);
+        $this->response->addJSON(['message' => $result]);
     }
 }

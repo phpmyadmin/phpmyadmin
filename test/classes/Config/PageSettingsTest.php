@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for Page-related settings
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -15,15 +12,11 @@ use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PhpMyAdmin\Config\PageSettings
- *
- * @package PhpMyAdmin-test
  */
 class PageSettingsTest extends PmaTestCase
 {
     /**
      * Setup tests
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -64,7 +57,7 @@ class PageSettingsTest extends PmaTestCase
             '<div id="page_settings_modal">'
             . '<div class="page_settings">'
             . '<form method="post" '
-            . 'action="phpunit?db=db&amp;table=&amp;server=1&amp;target=&amp;lang=en" '
+            . 'action="phpunit?db=db&server=1&lang=en" '
             . 'class="config-form disableAjax">',
             $html
         );

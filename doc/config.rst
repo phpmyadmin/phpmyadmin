@@ -1044,7 +1044,7 @@ Server connection settings
 
     Since release 4.1.0 you can create different user groups with menu items
     attached to them. Users can be assigned to these groups and the logged in
-    user would only see menu items configured to the usergroup he is assigned to.
+    user would only see menu items configured to the usergroup they are assigned to.
     To do this it needs two tables "usergroups" (storing allowed menu items for each
     user group) and "users" (storing users and their assignments to user groups).
 
@@ -2874,6 +2874,16 @@ Design customization
     name of the column. The comment is shown as a tool-tip for that
     column.
 
+.. config:option:: $cfg['FirstDayOfCalendar']
+
+    :type: integer
+    :default: 0
+
+    This will define the first day of week in the calendar. The number
+    can be set from 0 to 6, which represents the seven days of the week,
+    Sunday to Saturday respectively. This value can also be configured by the user
+    in server settings -> features -> general -> First Day calendar field.
+
 Text fields
 -----------
 
@@ -3422,6 +3432,18 @@ Developer
 .. warning::
 
     These settings might have huge effect on performance or security.
+
+.. config:option:: $cfg['environment']
+
+    :type: string
+    :default: ``'production'``
+
+    Sets the working environment.
+
+    This only needs to be changed when you are developing phpMyAdmin itself.
+    The ``development`` mode may display debug information in some places.
+
+    Possible values are ``'production'`` or ``'development'``.
 
 .. config:option:: $cfg['DBG']
 

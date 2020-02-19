@@ -1,32 +1,44 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * This class includes various sanitization methods that can be called statically
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Core;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\Html\MySQLDocumentation;
+use function array_keys;
+use function array_merge;
+use function count;
+use function htmlspecialchars;
+use function in_array;
+use function is_array;
+use function is_bool;
+use function is_int;
+use function is_string;
+use function preg_match;
+use function preg_replace;
+use function preg_replace_callback;
+use function str_replace;
+use function strlen;
+use function strncmp;
+use function strtolower;
+use function strtr;
+use function substr;
 
 /**
  * This class includes various sanitization methods that can be called statically
- *
- * @package PhpMyAdmin
  */
 class Sanitize
 {
     /**
      * Checks whether given link is valid
      *
-     * @param string  $url   URL to check
-     * @param boolean $http  Whether to allow http links
-     * @param boolean $other Whether to allow ftp and mailto links
+     * @param string $url   URL to check
+     * @param bool   $http  Whether to allow http links
+     * @param bool   $other Whether to allow ftp and mailto links
      *
-     * @return boolean True if string can be used as link
+     * @return bool True if string can be used as link
      */
     public static function checkLink($url, $http = false, $other = false)
     {
@@ -35,26 +47,7 @@ class Sanitize
             'https://',
             './url.php?url=https%3a%2f%2f',
             './doc/html/',
-            // possible return values from Util::getScriptNameForOption
             './index.php?',
-            './server_databases.php?',
-            './server_status.php?',
-            './server_variables.php?',
-            './server_privileges.php?',
-            './db_structure.php?',
-            './db_sql.php?',
-            './db_search.php?',
-            './db_operations.php?',
-            './tbl_structure.php?',
-            './tbl_sql.php?',
-            './tbl_select.php?',
-            './tbl_change.php?',
-            './sql.php?',
-            // Hardcoded options in \PhpMyAdmin\Config\SpecialSchemaLinks
-            './db_events.php?',
-            './db_routines.php?',
-            './server_privileges.php?',
-            './tbl_structure.php?',
         ];
         $is_setup = $GLOBALS['PMA_Config'] !== null && $GLOBALS['PMA_Config']->get('is_setup');
         // Adjust path to setup script location
@@ -144,7 +137,7 @@ class Sanitize
                 $page = 'setup';
             }
         }
-        $link = Util::getDocuLink($page, $anchor);
+        $link = MySQLDocumentation::getDocumentationLink($page, $anchor);
         return '<a href="' . $link . '" target="documentation">';
     }
 
@@ -160,9 +153,9 @@ class Sanitize
      *
      * <a title="<?php echo Sanitize::sanitizeMessage($foo, true); ?>">bar</a>
      *
-     * @param string  $message the message
-     * @param boolean $escape  whether to escape html in result
-     * @param boolean $safe    whether string is safe (can keep < and > chars)
+     * @param string $message the message
+     * @param bool   $escape  whether to escape html in result
+     * @param bool   $safe    whether string is safe (can keep < and > chars)
      *
      * @return string   the sanitized message
      */
@@ -190,7 +183,7 @@ class Sanitize
             // used in common.inc.php:
             '[conferr]' => '<iframe src="show_config_errors.php"><a href="show_config_errors.php">show_config_errors.php</a></iframe>',
             // used in libraries/Util.php
-            '[dochelpicon]' => Util::getImage('b_help', __('Documentation')),
+            '[dochelpicon]' => Html\Generator::getImage('b_help', __('Documentation')),
         ];
 
         $message = strtr($message, $replace_pairs);
@@ -220,7 +213,6 @@ class Sanitize
         return $message;
     }
 
-
     /**
      * Sanitize a filename by removing anything besides legit characters
      *
@@ -230,11 +222,10 @@ class Sanitize
      *
      *    When exporting, avoiding generation of an unexpected double-extension file
      *
-     * @param string  $filename    The filename
-     * @param boolean $replaceDots Whether to also replace dots
+     * @param string $filename    The filename
+     * @param bool   $replaceDots Whether to also replace dots
      *
      * @return string  the sanitized filename
-     *
      */
     public static function sanitizeFilename($filename, $replaceDots = false)
     {
@@ -255,12 +246,12 @@ class Sanitize
      * This function is used to displays a javascript confirmation box for
      * "DROP/DELETE/ALTER" queries.
      *
-     * @param string  $a_string       the string to format
-     * @param boolean $add_backquotes whether to add backquotes to the string or not
+     * @param string $a_string       the string to format
+     * @param bool   $add_backquotes whether to add backquotes to the string or not
      *
      * @return string   the formatted string
      *
-     * @access  public
+     * @access public
      */
     public static function jsFormat($a_string = '', $add_backquotes = true)
     {
@@ -349,7 +340,7 @@ class Sanitize
         } elseif (is_array($value)) {
             $result .= '[';
             foreach ($value as $val) {
-                $result .= self::formatJsVal($val) . ",";
+                $result .= self::formatJsVal($val) . ',';
             }
             $result .= "];\n";
         } else {
@@ -359,68 +350,10 @@ class Sanitize
     }
 
     /**
-     * Prints an javascript assignment with proper escaping of a value
-     * and support for assigning array of strings.
-     *
-     * @param string $key   Name of value to set
-     * @param mixed  $value Value to set, can be either string or array of strings
-     *
-     * @return void
-     */
-    public static function printJsValue($key, $value)
-    {
-        echo self::getJsValue($key, $value);
-    }
-
-    /**
-     * Formats javascript assignment for form validation api
-     * with proper escaping of a value.
-     *
-     * @param string  $key   Name of value to set
-     * @param string  $value Value to set
-     * @param boolean $addOn Check if $.validator.format is required or not
-     * @param boolean $comma Check if comma is required
-     *
-     * @return string Javascript code.
-     */
-    public static function getJsValueForFormValidation($key, $value, $addOn, $comma)
-    {
-        $result = $key . ': ';
-        if ($addOn) {
-            $result .= '$.validator.format(';
-        }
-        $result .= self::formatJsVal($value);
-        if ($addOn) {
-            $result .= ')';
-        }
-        if ($comma) {
-            $result .= ', ';
-        }
-        return $result;
-    }
-
-    /**
-     * Prints javascript assignment for form validation api
-     * with proper escaping of a value.
-     *
-     * @param string  $key   Name of value to set
-     * @param string  $value Value to set
-     * @param boolean $addOn Check if $.validator.format is required or not
-     * @param boolean $comma Check if comma is required
-     *
-     * @return void
-     */
-    public static function printJsValueForFormValidation($key, $value, $addOn = false, $comma = true)
-    {
-        echo self::getJsValueForFormValidation($key, $value, $addOn, $comma);
-    }
-
-    /**
      * Removes all variables from request except whitelisted ones.
      *
      * @param string[] $whitelist list of variables to allow
      *
-     * @return void
      * @access public
      */
     public static function removeRequestVars(&$whitelist): void
@@ -428,18 +361,6 @@ class Sanitize
         // do not check only $_REQUEST because it could have been overwritten
         // and use type casting because the variables could have become
         // strings
-        if (! isset($_REQUEST)) {
-            $_REQUEST = [];
-        }
-        if (! isset($_GET)) {
-            $_GET = [];
-        }
-        if (! isset($_POST)) {
-            $_POST = [];
-        }
-        if (! isset($_COOKIE)) {
-            $_COOKIE = [];
-        }
         $keys = array_keys(
             array_merge((array) $_REQUEST, (array) $_GET, (array) $_POST, (array) $_COOKIE)
         );

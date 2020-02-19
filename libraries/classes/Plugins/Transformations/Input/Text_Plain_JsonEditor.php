@@ -1,10 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * JSON editing with syntax highlighted CodeMirror editor
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage JSON
  */
 declare(strict_types=1);
 
@@ -14,9 +10,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\CodeMirrorEditorTransformationPlugin;
 
 /**
  * JSON editing with syntax highlighted CodeMirror editor
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage JSON
  */
 // @codingStandardsIgnoreLine
 class Text_Plain_JsonEditor extends CodeMirrorEditorTransformationPlugin
@@ -60,7 +53,7 @@ class Text_Plain_JsonEditor extends CodeMirrorEditorTransformationPlugin
      */
     public static function getName()
     {
-        return "JSON";
+        return 'JSON';
     }
 
     /**
@@ -70,7 +63,7 @@ class Text_Plain_JsonEditor extends CodeMirrorEditorTransformationPlugin
      */
     public static function getMIMEType()
     {
-        return "Text";
+        return 'Text';
     }
 
     /**
@@ -80,6 +73,6 @@ class Text_Plain_JsonEditor extends CodeMirrorEditorTransformationPlugin
      */
     public static function getMIMESubtype()
     {
-        return "Plain";
+        return 'Plain';
     }
 }

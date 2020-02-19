@@ -1,22 +1,16 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Test for Message class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Tests\PmaTestCase;
-use PhpMyAdmin\Theme;
+use function md5;
 
 /**
  * Test for Message class
- *
- * @package PhpMyAdmin-test
  */
 class MessageTest extends PmaTestCase
 {
@@ -31,7 +25,6 @@ class MessageTest extends PmaTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
@@ -43,7 +36,6 @@ class MessageTest extends PmaTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -311,15 +303,15 @@ class MessageTest extends PmaTestCase
     public function testAddMessages()
     {
         $messages = [];
-        $messages[] = new Message("Test1");
-        $messages[] = new Message("PMA_Test2", Message::ERROR);
-        $messages[] = new Message("Test3");
+        $messages[] = new Message('Test1');
+        $messages[] = new Message('PMA_Test2', Message::ERROR);
+        $messages[] = new Message('Test3');
         $this->object->addMessages($messages, '');
 
         $this->assertEquals(
             [
                 Message::notice('Test1'),
-                Message::error("PMA_Test2"),
+                Message::error('PMA_Test2'),
                 Message::notice('Test3'),
             ],
             $this->object->getAddedMessages()
@@ -362,10 +354,10 @@ class MessageTest extends PmaTestCase
      */
     public function testSetParams()
     {
-        $this->object->setParams('test&<>');
-        $this->assertEquals('test&<>', $this->object->getParams());
-        $this->object->setParams('test&<>', true);
-        $this->assertEquals('test&amp;&lt;&gt;', $this->object->getParams());
+        $this->object->setParams(['test&<>']);
+        $this->assertEquals(['test&<>'], $this->object->getParams());
+        $this->object->setParams(['test&<>'], true);
+        $this->assertEquals(['test&amp;&lt;&gt;'], $this->object->getParams());
     }
 
     /**
@@ -436,8 +428,6 @@ class MessageTest extends PmaTestCase
      *
      * @param string $actual   BB code string
      * @param string $expected Expected decoded string
-     *
-     * @return void
      *
      * @dataProvider decodeBBDataProvider
      */
@@ -558,9 +548,12 @@ class MessageTest extends PmaTestCase
         $this->assertFalse($this->object->isDisplayed());
         $this->object->setMessage('Test Message');
 
-        $this->expectOutputString(
-            '<div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> '
-            . 'Test Message</div>'
+        $this->expectOutputString(<<<'HTML'
+<div class="alert alert-primary" role="alert">
+  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> Test Message
+</div>
+
+HTML
         );
         $this->object->display();
 
@@ -576,8 +569,13 @@ class MessageTest extends PmaTestCase
     {
         $this->object->setMessage('Test Message');
         $this->assertEquals(
-            '<div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> '
-            . 'Test Message</div>',
+            <<<'HTML'
+<div class="alert alert-primary" role="alert">
+  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> Test Message
+</div>
+
+HTML
+            ,
             $this->object->getDisplay()
         );
     }
@@ -604,18 +602,21 @@ class MessageTest extends PmaTestCase
         return [
             [
                 1,
-                '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
-                . 'class="icon ic_s_notice">  1 row affected.</div>',
+                '<div class="alert alert-primary" role="alert">' . "\n"
+                . '  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice">  1 row affected.' . "\n"
+                . '</div>' . "\n",
             ],
             [
                 2,
-                '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
-                . 'class="icon ic_s_notice">  2 rows affected.</div>',
+                '<div class="alert alert-primary" role="alert">' . "\n"
+                . '  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice">  2 rows affected.' . "\n"
+                . '</div>' . "\n",
             ],
             [
                 10000,
-                '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
-                . 'class="icon ic_s_notice">  10000 rows affected.</div>',
+                '<div class="alert alert-primary" role="alert">' . "\n"
+                . '  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice">  10000 rows affected.' . "\n"
+                . '</div>' . "\n",
             ],
         ];
     }
@@ -625,8 +626,6 @@ class MessageTest extends PmaTestCase
      *
      * @param int    $rows   Number of rows
      * @param string $output Expected string
-     *
-     * @return void
      *
      * @dataProvider providerAffectedRows
      */
@@ -649,18 +648,21 @@ class MessageTest extends PmaTestCase
         return [
             [
                 1,
-                '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
-                . 'class="icon ic_s_notice">  1 row inserted.</div>',
+                '<div class="alert alert-primary" role="alert">' . "\n"
+                . '  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice">  1 row inserted.' . "\n"
+                . '</div>' . "\n",
             ],
             [
                 2,
-                '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
-                . 'class="icon ic_s_notice">  2 rows inserted.</div>',
+                '<div class="alert alert-primary" role="alert">' . "\n"
+                . '  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice">  2 rows inserted.' . "\n"
+                . '</div>' . "\n",
             ],
             [
                 100000,
-                '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
-                . 'class="icon ic_s_notice">  100000 rows inserted.</div>',
+                '<div class="alert alert-primary" role="alert">' . "\n"
+                . '  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice">  100000 rows inserted.' . "\n"
+                . '</div>' . "\n",
             ],
         ];
     }
@@ -670,8 +672,6 @@ class MessageTest extends PmaTestCase
      *
      * @param int    $rows   Number of rows
      * @param string $output Expected string
-     *
-     * @return void
      *
      * @dataProvider providerInsertedRows
      */
@@ -694,18 +694,21 @@ class MessageTest extends PmaTestCase
         return [
             [
                 1,
-                '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
-                . 'class="icon ic_s_notice">  1 row deleted.</div>',
+                '<div class="alert alert-primary" role="alert">' . "\n"
+                . '  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice">  1 row deleted.' . "\n"
+                . '</div>' . "\n",
             ],
             [
                 2,
-                '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
-                . 'class="icon ic_s_notice">  2 rows deleted.</div>',
+                '<div class="alert alert-primary" role="alert">' . "\n"
+                . '  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice">  2 rows deleted.' . "\n"
+                . '</div>' . "\n",
             ],
             [
                 500000,
-                '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
-                . 'class="icon ic_s_notice">  500000 rows deleted.</div>',
+                '<div class="alert alert-primary" role="alert">' . "\n"
+                . '  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice">  500000 rows deleted.' . "\n"
+                . '</div>' . "\n",
             ],
         ];
     }
@@ -715,8 +718,6 @@ class MessageTest extends PmaTestCase
      *
      * @param int    $rows   Number of rows
      * @param string $output Expected string
-     *
-     * @return void
      *
      * @dataProvider providerDeletedRows
      */

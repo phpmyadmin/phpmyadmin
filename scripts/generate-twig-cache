@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4 ft=php: */
 declare(strict_types=1);
 
 use PhpMyAdmin\Config;
@@ -11,7 +10,6 @@ use PhpMyAdmin\Twig\MessageExtension;
 use PhpMyAdmin\Twig\PluginsExtension;
 use PhpMyAdmin\Twig\RelationExtension;
 use PhpMyAdmin\Twig\SanitizeExtension;
-use PhpMyAdmin\Twig\ServerPrivilegesExtension;
 use PhpMyAdmin\Twig\StorageEngineExtension;
 use PhpMyAdmin\Twig\TableExtension;
 use PhpMyAdmin\Twig\TrackerExtension;
@@ -31,6 +29,8 @@ require_once ROOT_PATH . 'libraries/vendor_config.php';
 require_once AUTOLOAD_FILE;
 
 $GLOBALS['PMA_Config'] = new Config(CONFIG_FILE);
+$GLOBALS['PMA_Config']->set('environment', 'production');
+$GLOBALS['cfg']['environment'] = 'production';
 $GLOBALS['dbi'] = new DatabaseInterface(new DbiDummy());
 
 $tplDir = dirname(__FILE__) . '/../templates';
@@ -48,7 +48,6 @@ $twig->addExtension(new MessageExtension());
 $twig->addExtension(new PluginsExtension());
 $twig->addExtension(new RelationExtension());
 $twig->addExtension(new SanitizeExtension());
-$twig->addExtension(new ServerPrivilegesExtension());
 $twig->addExtension(new StorageEngineExtension());
 $twig->addExtension(new TableExtension());
 $twig->addExtension(new TrackerExtension());

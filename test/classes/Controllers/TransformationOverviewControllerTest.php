@@ -1,9 +1,6 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Holds TransformationOverviewControllerTest class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -11,22 +8,18 @@ namespace PhpMyAdmin\Tests\Controllers;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\TransformationOverviewController;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for TransformationOverviewController class
- *
- * @package PhpMyAdmin-test
  */
 class TransformationOverviewControllerTest extends TestCase
 {
     /**
      * Prepares environment for the test.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -39,22 +32,22 @@ class TransformationOverviewControllerTest extends TestCase
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
     }
 
-    /**
-     * @return void
-     */
     public function testIndexAction(): void
     {
+        $response = new Response();
+
         $controller = new TransformationOverviewController(
-            Response::getInstance(),
+            $response,
             $GLOBALS['dbi'],
             new Template(),
             new Transformations()
         );
 
-        $actual = $controller->indexAction();
+        $controller->index();
+        $actual = $response->getHTMLResult();
 
         $this->assertStringContainsString(
-            __('Available media (MIME) types'),
+            __('Available media types'),
             $actual
         );
         $this->assertStringContainsString(
