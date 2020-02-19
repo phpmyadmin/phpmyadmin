@@ -1,0 +1,44 @@
+If you would like to make a contribution to the phpMyAdmin Project, please
+certify to the following:
+***
+phpMyAdmin Developer's Certificate of Origin. Version 1.0
+
+By making a contribution to this project, I certify that:
+
+(a) The contribution was created in whole or in part by me and I have the
+    right to submit it under the license of "GNU General Public License or
+    any later version" ("GPLv2-or-later"); or
+
+(b) The contribution is based upon previous work that, to the best of my
+    knowledge, is covered under an appropriate open source license and I have
+    the right under that license to submit that work with modifications,
+    whether created in whole or in part by me, under GPLv2-or-later; or
+
+(c) The contribution was provided directly to me by some other person who
+    certified (a) or (b) and I have not modified it.
+
+(d) I understand and agree that this project and the contribution are public
+    and that a record of the contribution (including all metadata and
+    personal information I submit with it, including my sign-off) is
+    maintained indefinitely and may be redistributed consistent with
+    phpMyAdmin's policies and the requirements of the GPLv2-or-later where
+    they are relevant.
+
+(e) I am granting this work to this project under the terms of the
+    GPLv2-or-later.
+
+    https://www.gnu.org/licenses/gpl-2.0.html
+
+***
+***
+And please confirm your certification to the above by adding the following
+line to your patch:
+
+    Signed-off-by: Jane Smith <jane.smith@example.org>
+
+using your real name (sorry, no pseudonyms or anonymous contributions).
+
+If you are a developer who is authorized to contribute to phpMyAdmin on
+behalf of your employer, then please use your corporate email address in the
+Signed-off-by tag.  If not, then please use a personal email address.
+

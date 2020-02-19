@@ -1,0 +1,6 @@
+<input type="checkbox" name="{{ html_field_name }}"
+{%- if html_field_id is defined %} id="{{ html_field_id }}"{% endif -%}
+{%- if checked is defined and checked %} checked="checked"{% endif -%}
+{%- if onclick is defined and onclick %} class="autosubmit"{% endif %}><label
+{%- if html_field_id is defined %} for="{{ html_field_id }}"
+{%- endif %}>{{ label }}</label>

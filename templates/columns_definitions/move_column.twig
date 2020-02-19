@@ -1,0 +1,15 @@
+<select id="field_{{ column_number }}_{{ ci - ci_offset }}"
+    name="field_move_to[{{ column_number }}]"
+    size="1"
+    width="5em">
+    <option value="" selected="selected">&nbsp;</option>
+    <option value="-first"{{ current_index == 0 ? ' disabled="disabled"' }}>
+        {% trans 'first' %}
+    </option>
+    {% for mi in 0..move_columns|length - 1 %}
+        <option value="{{ move_columns[mi].name }}"
+            {{- current_index == mi or current_index == mi + 1 ? ' disabled="disabled"' }}>
+            {{ 'after %s'|trans|format(backquote(move_columns[mi].name|e)) }}
+        </option>
+    {% endfor %}
+</select>

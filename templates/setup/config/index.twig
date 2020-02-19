@@ -1,0 +1,29 @@
+{% extends 'setup/base.twig' %}
+{% block content %}
+
+<h2>{% trans 'Configuration file' %}</h2>
+
+{{ form_top_html|raw }}
+
+<input type="hidden" name="eol" value="{{ eol }}">
+
+{{ fieldset_top_html|raw }}
+
+<tr>
+  <td>
+    <textarea cols="50" rows="20" name="textconfig" id="textconfig" spellcheck="false">
+      {{- config -}}
+    </textarea>
+  </td>
+</tr>
+
+<tr>
+  <td class="lastrow left">
+    <input class="green" type="submit" name="submit_download" value="{% trans 'Download' %}">
+  </td>
+</tr>
+
+{{ form_bottom_html|raw }}
+{{ fieldset_bottom_html|raw }}
+
+{% endblock %}

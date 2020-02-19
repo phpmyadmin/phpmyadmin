@@ -1,0 +1,20 @@
+<fieldset>
+    <div>
+        <label for="pos">{% trans "Start row:" %}</label>
+        <input type="number" name="pos" min="0" required="required"
+            {% if unlim_num_rows > 0 -%}
+                max="{{ unlim_num_rows - 1 }}"
+            {%- endif %}
+            value="{{ pos }}">
+
+        <label for="session_max_rows">{% trans "Number of rows:" %}</label>
+        <input type="number" name="session_max_rows" min="1"
+               value="{{ rows }}" required="required">
+        <input class="btn btn-primary" type="submit" name="submit" class="Go"
+               value="{% trans "Go" %}">
+        <input type="hidden" name="sql_query"
+               value="{{ sql_query }}">
+        <input type="hidden" name="unlim_num_rows"
+               value="{{ unlim_num_rows }}">
+    </div>
+</fieldset>

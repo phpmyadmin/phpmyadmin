@@ -1,0 +1,57 @@
+{% extends 'server/status/base.twig' %}
+{% set active = 'processes' %}
+{% block content %}
+
+<div class="row">
+<fieldset id="tableFilter">
+  <legend>{% trans 'Filters' %}</legend>
+  <form action="{{ url('/server/status/processes') }}" method="post">
+    {{ get_hidden_inputs(url_params) }}
+    <input class="btn btn-secondary" type="submit" value="{% trans 'Refresh' %}">
+    <div class="formelement">
+      <input type="checkbox" name="showExecuting" id="showExecuting" class="autosubmit"{{ is_checked ? ' checked' }}>
+      <label for="showExecuting">
+        {% trans 'Show only active' %}
+      </label>
+    </div>
+  </form>
+</fieldset>
+</div>
+
+{{ server_process_list|raw }}
+
+<div class="row">
+{{ 'Note: Enabling the auto refresh here might cause heavy traffic between the web server and the MySQL server.'|trans|notice }}
+</div>
+
+<div class="tabLinks row">
+  <label>
+    {% trans 'Refresh rate' %}:
+
+    <select id="id_refreshRate" class="refreshRate" name="refreshRate">
+      {% for rate in [2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200] %}
+        <option value="{{ rate }}"{{ rate == 5 ? ' selected' }}>
+          {% if rate < 60 %}
+            {% if rate == 1 %}
+              {{ '%d second'|trans|format(rate) }}
+            {% else %}
+              {{ '%d seconds'|trans|format(rate) }}
+            {% endif %}
+          {% else %}
+            {% if rate / 60 == 1 %}
+              {{ '%d minute'|trans|format(rate / 60) }}
+            {% else %}
+              {{ '%d minutes'|trans|format(rate / 60) }}
+            {% endif %}
+          {% endif %}
+        </option>
+      {% endfor %}
+    </select>
+  </label>
+  <a id="toggleRefresh" href="#">
+    {{ get_image('play') }}
+    {% trans 'Start auto refresh' %}
+  </a>
+</div>
+
+{% endblock %}

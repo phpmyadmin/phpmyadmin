@@ -1,0 +1,56 @@
+// configures general layout for detailed layout configuration please refer to the css files
+
+// navi frame
+
+// navi frame width
+$navi-width: 240px;
+
+// foreground (text) color for the navi frame
+$navi-color: #000;
+
+// background for the navi frame
+$navi-background: #f3f3f3;
+
+// foreground (text) color of the pointer in navi frame
+$navi-pointer-color: #000;
+
+// background of the pointer in navi frame
+$navi-pointer-background: #ddd;
+
+// main frame
+
+// foreground (text) color of the pointer in browse mode
+$browse-pointer-color: #000;
+
+// background of the pointer in browse mode
+$browse-pointer-background: #cfc;
+
+// foreground (text) color of the marker (visually marks row by clicking on it)
+// in browse mode
+$browse-marker-color: #000;
+
+// background of the marker (visually marks row by clicking on it) in browse mode
+$browse-marker-background: #fc9;
+
+// tables
+
+// border
+$border: 0;
+// table header and footer color
+$th-background: #d3dce3;
+// table header and footer background
+$th-color: #000;
+// table data row background
+$bg-one: #e5e5e5;
+// table data row background, alternate
+$bg-two: #d5d5d5;
+
+// Navbar
+
+$enable-transitions: false;
+
+// Breadcrumbs
+
+$breadcrumb-padding-y: 0.5rem;
+$breadcrumb-margin-bottom: 0;
+$breadcrumb-border-radius: 0;

@@ -1,0 +1,31 @@
+<div class="show_create_results">
+    <h2>{% trans 'Showing create queries' %}</h2>
+    {% set views = [] %}
+    {% set tables = [] %}
+    {% for object in db_objects %}
+        {% if dbi.getTable(db, object).isView() %}
+            {% set views = views|merge([object]) %}
+        {% else %}
+            {% set tables = tables|merge([object]) %}
+        {% endif %}
+    {% endfor %}
+    {% if tables is not empty %}
+        {% include 'database/structure/show_create_row.twig' with {
+            'db': db,
+            'title': 'Tables'|trans,
+            'raw_title': 'Table',
+            'db_objects': tables,
+            'dbi': dbi
+        } only %}
+    {% endif %}
+
+    {% if views is not empty %}
+        {% include 'database/structure/show_create_row.twig' with {
+            'db': db,
+            'title': 'Views'|trans,
+            'raw_title': 'View',
+            'db_objects': views,
+            'dbi': dbi
+        } only %}
+    {% endif %}
+</div>

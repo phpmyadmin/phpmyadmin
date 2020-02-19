@@ -1,0 +1,69 @@
+#!/bin/sh
+
+# Do not run as CGI
+if [ -n "$GATEWAY_INTERFACE" ] ; then
+    echo 'Can not invoke as CGI!'
+    exit 1
+fi
+
+set -e
+set -u
+
+if [ $# -lt 2 ] ; then
+    echo 'Usage: upload-release VERSION [DIR]'
+    echo 'Must be called in directory with binaries or with path'
+    exit 1
+fi
+REL=`echo $1 | tr -d -c '0-9a-z.-'`
+if [ "x$REL" != "x$1" ] ; then
+    echo "Invalid version: $1"
+    exit 1
+fi
+
+if [ $# -gt 1 ] ; then
+    cd "$2"
+fi
+
+BATCH=`mktemp`
+cat > $BATCH <<EOT
+cd /mnt/storage/files/phpMyAdmin
+mkdir $REL
+cd $REL
+put phpMyAdmin-$REL-all-languages.tar.xz
+put phpMyAdmin-$REL-english.tar.xz
+put phpMyAdmin-$REL-all-languages.tar.gz
+put phpMyAdmin-$REL-english.tar.gz
+put phpMyAdmin-$REL-all-languages.zip
+put phpMyAdmin-$REL-english.zip
+put phpMyAdmin-$REL-all-languages.tar.xz.asc
+put phpMyAdmin-$REL-english.tar.xz.asc
+put phpMyAdmin-$REL-all-languages.tar.gz.asc
+put phpMyAdmin-$REL-english.tar.gz.asc
+put phpMyAdmin-$REL-all-languages.zip.asc
+put phpMyAdmin-$REL-english.zip.asc
+put phpMyAdmin-$REL-all-languages.tar.xz.sha256
+put phpMyAdmin-$REL-english.tar.xz.sha256
+put phpMyAdmin-$REL-all-languages.tar.gz.sha256
+put phpMyAdmin-$REL-english.tar.gz.sha256
+put phpMyAdmin-$REL-all-languages.zip.sha256
+put phpMyAdmin-$REL-english.zip.sha256
+put phpMyAdmin-$REL-all-languages.tar.xz.sha1
+put phpMyAdmin-$REL-english.tar.xz.sha1
+put phpMyAdmin-$REL-all-languages.tar.gz.sha1
+put phpMyAdmin-$REL-english.tar.gz.sha1
+put phpMyAdmin-$REL-all-languages.zip.sha1
+put phpMyAdmin-$REL-english.zip.sha1
+put phpMyAdmin-$REL-notes.html
+put phpMyAdmin-$REL-source.tar.xz
+put phpMyAdmin-$REL-source.tar.xz.asc
+put phpMyAdmin-$REL-source.tar.xz.sha256
+put phpMyAdmin-$REL-source.tar.xz.sha1
+EOT
+
+# Upload to our file server
+sftp -P 11022 -f -b $BATCH files@hertz.phpmyadmin.net
+
+rm $BATCH
+
+# Sync files to CDN
+ssh -xka2 -p 11022 files@hertz.phpmyadmin.net ./bin/sync-files-cdn

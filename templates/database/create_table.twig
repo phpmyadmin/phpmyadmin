@@ -1,0 +1,23 @@
+<form id="create_table_form_minimal" method="post" action="{{ url('/table/create') }}" class="lock-page">
+    <fieldset>
+        <legend>
+        {% if show_icons('ActionLinksMode') -%}
+            {{ get_image('b_table_add') }}
+        {%- endif %}
+        {% trans "Create table" %}
+        </legend>
+        {{ get_hidden_inputs(db) }}
+        <div class="formelement">
+            {% trans "Name" %}:
+            <input type="text" name="table" maxlength="64" size="30" required="required">
+        </div>
+        <div class="formelement">
+            {% trans "Number of columns" %}:
+            <input type="number" min="1" name="num_fields" value="4" required="required">
+        </div>
+        <div class="clearfloat"></div>
+    </fieldset>
+    <fieldset class="tblFooters">
+        <input class="btn btn-primary" type="submit" value="{% trans "Go" %}">
+    </fieldset>
+</form>

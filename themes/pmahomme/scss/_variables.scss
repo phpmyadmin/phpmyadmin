@@ -1,0 +1,112 @@
+// configures general layout for detailed layout configuration please refer to the css files
+
+// navi frame
+
+// navi frame width
+$navi-width: 240px;
+
+// foreground (text) color for the navi frame
+$navi-color: #000;
+
+// background for the navi frame
+$navi-background: #f3f3f3;
+
+// foreground (text) color of the pointer in navi frame
+$navi-pointer-color: #000;
+
+// background of the pointer in navi frame
+$navi-pointer-background: #ddd;
+
+// main frame
+
+// foreground (text) color for the main frame
+$main-color: #444;
+
+// foreground (text) color of the pointer in browse mode
+$browse-pointer-color: #000;
+
+// background of the pointer in browse mode
+$browse-pointer-background: #cfc;
+
+// foreground (text) color of the marker (visually marks row by clicking on it)
+// in browse mode
+$browse-marker-color: #000;
+
+// background of the marker (visually marks row by clicking on it) in browse mode
+$browse-marker-background: #fc9;
+
+// tables
+
+// border
+$border: 0;
+// table header and footer color
+$th-background: #d3dce3;
+// table header and footer background
+$th-color: #000;
+// table data row background
+$bg-one: #e5e5e5;
+// table data row background, alternate
+$bg-two: #d5d5d5;
+
+// Bootstrap
+// ---------
+
+// Body
+
+$body-color: $main-color;
+
+// Typography
+
+$font-family-base: sans-serif;
+$font-family-monospace: monospace;
+
+$font-size-base: 0.82rem;
+
+// Buttons
+
+$enable-gradients: true;
+$enable-shadows: true;
+$enable-transitions: false;
+
+$primary: #ddd;
+$secondary: #ddd;
+
+$btn-border-radius: 0.85rem;
+$btn-line-height: 1.15;
+
+// Dropdowns
+
+$dropdown-padding-y: 0;
+$dropdown-item-padding-y: 0;
+$dropdown-item-padding-x: 0;
+
+// Navbar
+
+$enable-caret: false;
+$navbar-padding-y: 0;
+$navbar-padding-x: 0;
+$navbar-light-color: #235a81;
+$navbar-light-hover-color: #235a81;
+$navbar-light-active-color: #235a81;
+$navbar-light-disabled-color: #235a81;
+
+// Card
+
+$card-border-color: #999;
+$card-bg: #f3f3f3;
+$card-cap-bg: #bbb;
+$card-cap-color: #fff;
+
+// Breadcrumbs
+
+$breadcrumb-padding-y: 0.1rem;
+$breadcrumb-margin-bottom: 0;
+$breadcrumb-bg: #888;
+$breadcrumb-divider-color: #fff;
+$breadcrumb-divider: quote("»");
+$breadcrumb-border-radius: 0;
+
+// Alert
+
+$alert-margin-bottom: 0.5em;
+$alert-border-radius: 5px;

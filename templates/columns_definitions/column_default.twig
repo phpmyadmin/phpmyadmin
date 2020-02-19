@@ -1,0 +1,35 @@
+{# here we put 'NONE' as the default value of drop-down; otherwise users would
+have problems if they forget to enter the default value (example, for an INT) #}
+{% set translation %}{% trans %}None{% context %}for default{% endtrans %}{% endset %}
+{% set default_options = {
+    'NONE': translation,
+    'USER_DEFINED': 'As defined:'|trans,
+    'NULL': 'NULL',
+    'CURRENT_TIMESTAMP': 'CURRENT_TIMESTAMP'
+} %}
+
+<select name="field_default_type[{{ column_number }}]"
+    id="field_{{ column_number }}_{{ ci - ci_offset }}"
+    class="default_type">
+    {% for key, value in default_options %}
+        <option value="{{ key }}"
+            {%- if column_meta['DefaultType'] is defined
+                and column_meta['DefaultType'] == key %}
+                selected="selected"
+            {%- endif %}>
+            {{ value }}
+        </option>
+    {% endfor %}
+</select>
+{% if char_editing == 'textarea' %}
+    <textarea name="field_default_value[{{ column_number }}]"
+        cols="15"
+        class="textfield
+        default_value">{{ default_value }}</textarea>
+{% else %}
+    <input type="text"
+        name="field_default_value[{{ column_number }}]"
+        size="12"
+        value="{{ default_value }}"
+        class="textfield default_value">
+{% endif %}

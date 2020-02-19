@@ -1,0 +1,26 @@
+<select id="field_{{ column_number }}_{{ ci - ci_offset }}"
+    size="1"
+    name="field_{{ type }}[{{ column_number }}]">
+    <option value="" title="{% trans 'None' %}"></option>
+    {% if available_mime[type] is defined and available_mime[type] is iterable %}
+        {% for mimekey, transform in available_mime[type] %}
+            {% set checked = column_meta['Field'] is defined
+                and mime_map[column_meta['Field']][type] is defined
+                and mime_map[column_meta['Field']][type] matches
+                    '@' ~ available_mime[type ~ '_file_quoted'][mimekey] ~ '3?@i'
+                ? 'selected ' %}
+            {% set tooltip = get_description(
+                available_mime[type ~ '_file'][mimekey]
+            ) %}
+            {% set parts = transform|split(':') %}
+            {% set name = get_name(
+                available_mime[type ~ '_file'][mimekey]
+            ) ~ ' (' ~ parts[0]|lower ~ ':' ~ parts[1] ~ ')' %}
+            <option value="{{ available_mime[type ~ '_file'][mimekey] }}"
+                {{ checked }}
+                title="{{ tooltip }}">
+                {{ name }}
+            </option>
+        {% endfor %}
+    {% endif %}
+</select>

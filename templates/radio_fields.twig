@@ -1,0 +1,11 @@
+{% if class is not empty %}
+<div class="{{ class }}">
+{% endif %}
+<input type="radio" name="{{ html_field_name }}" id="{{ html_field_id|raw }}" value="{{ choice_value }}"{{ checked ? ' checked="checked"' }}>
+<label for="{{ html_field_id|raw }}">{{ (escape_label ? choice_label|e : choice_label)|raw }}</label>
+{% if is_line_break %}
+<br>
+{% endif %}
+{% if class is not empty %}
+</div>
+{% endif %}

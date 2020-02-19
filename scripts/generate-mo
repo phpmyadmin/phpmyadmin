@@ -1,0 +1,42 @@
+#!/bin/sh
+# Do not run as CGI
+if [ -n "$GATEWAY_INTERFACE" ] ; then
+    echo 'Can not invoke as CGI!'
+    exit 1
+fi
+
+if [ x$1 = x--quiet ] ; then
+    stats=""
+    shift
+else
+    stats="--statistics"
+fi
+
+compile() {
+    lang=`echo $1 | sed 's@po/\(.*\)\.po@\1@'`
+    if [ ! -z "$stats" ] ; then
+        echo -n "$lang: "
+    fi
+    mkdir -p locale/$lang/LC_MESSAGES
+    msgfmt $stats --check -o locale/$lang/LC_MESSAGES/phpmyadmin.mo $1
+    return $?
+}
+
+if [ ! -z "$1" ] ; then
+    compile po/$1.po
+    exit $?
+fi
+
+result=0
+for x in po/*.po  ; do
+    compile $x
+    ret=$?
+    if [ $ret != 0 ] ; then
+        tput setf 4 >&2
+        echo Error when compiling $x  >&2
+        tput sgr0 >&2
+        result=$ret
+    fi
+done
+
+exit $result

@@ -1,0 +1,331 @@
+phpMyAdmin - ChangeLog
+======================
+
+5.1.0 (not yet released)
+- issue #15350 Change Media (MIME) type references to Media type
+- issue #15377 Add a request router
+- issue        Automatically focus input in the two-factor authentication window
+- issue #15509 Replace gender-specific pronouns with gender-neutral pronouns
+- issue #15491 Improve complexity of generated passwords
+- issue #14909 Add a configuration option to define the 1st day of week
+- issue #12726 Made user names clickable in user accounts overview
+- issue #15729 Improve virtuality dropdown for MariaDB > 10.1
+- issue #15312 Added an option to perform ALTER ONLINE (ALGORITHM=INPLACE) when editing a table structure
+
+5.0.2 (not yet released)
+- issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page
+- issue #15767 Fixed can not copy user account since 5.0 - "error #1133"
+- issue #15772 Fixed error code 500 during pagination of the tables in a database
+- issue        Fix php error "Trying to access array offset on value of type null" on column distinct values feature
+- issue #15741 Fix fatal javascript error on clicking "Pick from Central Columns"
+- issue #15773 Fixed a view named "views" adds an expand button
+- issue #15432 Fixed names of the pages in the designer should be unique
+- issue #14310 Fixed column selector "See more" removes "Preview SQL" and "Save" area
+- issue        Fixed wrong jQuery function call in table search page
+- issue #15761 Fix uncaught TypeError when using "$cfg['ServerDefault'] = 0;"
+- issue #15780 Fixed unexpected UI of action links (text only mode)
+- issue #15674 Replace twig/extensions with phpmyadmin/twig-i18n-extension
+- issue #15799 Change location of profiling state documentation to fix column ordering
+- issue #15720 Fix designer adding all available tables to a designer page after adding a new relationship
+- issue #15791 Replace facebook/webdriver by php-webdriver/webdriver
+
+5.0.1 (2020-01-07)
+- issue #15719 Fixed error 500 when browsing a table when $cfg['LimitChars'] used a string and not an int value
+- issue #14936 Fixed display NULL on numeric fields has showing empty string since 5.0.0
+- issue #15722 Fix get Database structure fails with PHP error on replicated server
+- issue #15723 Fix can't browse certain tables since 5.0.0 update
+- issue        Prevent line wrap in DB structure size column
+- issue        Remove extra line break from downloaded blob content
+- issue #15725 Fixed error 500 when exporting - set time limit when $cfg['ExecTimeLimit'] used a string and not an int value
+- issue #15726 Fixed double delete icons on enum editor
+- issue #15717 Fixed warning popup not dissapearing on table stucture when using actions without any column selection
+- issue #15693 Fixed focus of active tab is lost by clicking refresh option on browse tab
+- issue #15734 Fix Uncaught TypeError: http_build_query() in setup
+- issue        Fix double slash in path when $cfg['TempDir'] has a trailing slash
+- issue #14875 Fix shp file import tests where failing when php dbase extension was enabled
+- issue #14299 Fix JS error "PMA_makegrid is not defined" when clicking on a table from the "Insert" tab opened in a new tab
+- issue #15351 Fixed 2FA setting removed each time the user edits another configuration setting
+- issue        [security] Fix SQL injection vulnerability on the user accounts page (PMASA-2020-1)
+
+5.0.0 (2019-12-26)
+- issue #13896 Drop support for PHP 5.5, PHP 5.6, PHP 7.0 and HHVM
+- issue #14007 Enable columns names by default for CSV exports
+- issue #13919 Remove font size feature
+- issue #12373 Add Metro theme
+- issue #14155 Add move columns preview SQL button
+- issue #14296 Enable strict mode in PHP files
+- issue #13627 Increase field width for editing varchar fields
+- issue #12603 Show warning for users with the default values for controluser and controlpass
+- issue #14589 Fix rendering of column comments in Safari, improve display in all browsers
+- issue #14330 New features for csv import plugin
+- issue #14417 Automatically add index while editing an existing row and setting auto increment
+- issue #13057 Add export option to drop user security definers from views
+- issue #14404 Drop view and or replace added to exporting view
+- issue #14594 Database "Search" selects all tables by default
+- issue #12158 Auto expand the single database
+- issue #13067 Inconsistency with submit buttons
+- issue #14683 Improper message in Show Hidden Navigation Tree Items
+- issue #14695 Remove unlabeled default collation from the bottom of the database list; this information is available elsewhere
+- issue #14677 Security confirm() before running UPDATE statement without WHERE condition
+- issue #13023 Show errors at the bottom of the page and add copy query button for errors in processing sql queries
+- issue #14633 Use Sass instead of PHP to compile CSS
+- issue #14765 Add initial support for Bootstrap 4
+- issue #14829 Change table column comment field from input to textarea
+- issue #14725 Console: ctrl+l clear line and ctrl+u clear console
+- issue #14837 Use charset 'windows-1252' when format is MS Excel
+- issue #15030 Move 'More settings' link from 'Appearance settings' to 'General settings'
+- issue #15029 Remove the redundant 'i' help/tool tip in page settings "Query History Length" area
+- issue #13424 Importing CSV now uses file name as the table name instead of 'TABLE #'
+- issue #14926 Add an Edit link for each view in tables list
+- issue #14890 Display column details in navigation bar
+- issue #14977 Add title for group in navigation bar
+- issue #14927 Show InnoDB table overhead (free space)
+- issue #15072 Add 'Close' button to the Monitor Instructions modal
+- issue #15174 Improved filter method in server variables page
+- issue #15266 Add an external dependency injection system
+- issue #15350 Change MIME type references to Media (MIME) type
+- issue        Fixed url.php crashing because it's not loading the DatabaseInterface service
+- issue #15540 Fixed uncaught TypeError: htmlspecialchars() in NavigationTree
+- issue        Fix twig deprecation notices for php 8.0
+- issue #15435 Fix ReCAPTCHA couldn't find user-provided function: Functions.recaptchaCallback
+- issue #15623 Fix width of picker modal and remove date picker for int fields
+- issue #14732 Fixed can't rename primary key with auto increment
+- issue #15677 Fix show process-list triggers a php exception
+- issue #15697 Fix uncaught php error: "Call to a member function get() on null" in db_export.php when exporting a table from the list
+
+4.9.4 (2020-01-07)
+- issue #15724 Fix 2FA was disabled by a bug
+- issue        [security] Fix SQL injection vulnerability on the user accounts page (PMASA-2020-1)
+
+4.9.3 (2019-12-26)
+- issue #15570 Fix page contents go underneath of floating menubar in some cases
+- issue #15591 Fix php notice 'Undefined index: foreign_keys_data' on relations view when the user has column access
+- issue #15592 Fix php warning "error_reporting() has been disabled for security reasons"
+- issue #15434 Fix middle click on table sort column name shows a blank page
+- issue        Fix php notice "Undefined index table_create_time" when setting displayed columns on results of a view
+- issue #15571 Fix fatal error when trying to edit row with row checked and button under the table
+- issue #15633 Fix designer set display field broken for php 5.x versions
+- issue #15621 Support CloudFront-Forwarded-Proto header for Amazon CloudFront proxy
+- issue        Fix php 8.0 php notices - Undefined index on login page
+- issue #15640 Fix php 7.4 error when trying to access array offset on value of type null on table browse
+- issue #15641 Fix replication actions where broken (start slave, stop slave, reset, ...)
+- issue #15608 Fix DisableIS is broken when with controluser configured (database list broken)
+- issue #15614 Fix undefined offset on index page for MySQL 5.7.8 (server charset)
+- issue #15692 Fix JavaScript error when user has not enough privilege to view query statistics.
+- issue #14248 Fixed date selection in search menu missing higher Z-index value
+- issue        Fix Uncaught php TypeError on php 8.0 when adding a column to table create form
+- issue #15682 Fix calendar not taking current time as default value
+- issue #15636 Fix php error trying to access array offset on value o type null on replication GUI
+- issue #15695 Fix input field for the time in datetime picker is disabled
+
+4.9.2 (2019-11-21)
+- issue #14184 Change the cookie name from phpMyAdmin to phpMyAdmin_https for HTTPS, fixes many "Failed to set session cookie" errors
+- issue #15304 Fix ssl_use php error
+- issue #14804 Fix undefined index: ssl_* variables
+- issue #14245 Fix mysql 8.0.3 and above fails on advisor
+- issue #15499 Fix unparenthesized php deprecation
+- issue #15482 Fix URL encoding plus sign (+) in the table or DB name when configuring foreign keys
+- issue #14898 Fixed bottom table in list in left panel blocked by horizontal scroll bar
+- issue #15161 Fix text area overflows its parent element on "Query" page
+- issue #15511 Fixed exporting users after a delete will delete all selected users on "Users" page
+- issue #14598 Fixed checking referencial integrity on "Operations" page
+- issue #14433 Fix "You do not have privileges to manipulate with the users!" on root superadmin
+- issue #15391 Fix GIS polygon of a geometry field is not drawn on "GIS visualization"
+- issue #15311 Fix adjust privileges on copy database fails with MariaDB
+- issue #15477 Fix display referential integrity check for InnoDB
+- issue #15236 Support phpunit 8 in our test suite to help packaging phpMyAdmin on Debian
+- issue #15522 Fix missing image error fills logs, removed ic_b_info icon from icon list
+- issue #15537 Fixed some issues with the sort by key selectors
+- issue #15546 Fix operators precedence in DatabaseInterface class
+- issue #14906 Test test suite on 32-bit systems
+- issue        Fix Long2IP transformation issue with PHP 7.1
+- issue #14951 Fix moving columns with DEFAULT NULL doesn't work on MariaDB 10.2+
+- issue #14951 Fix moving columns with INT AND DEFAULT CURRENT_TIMESTAMP doesn't work on MariaDB
+- issue #12241 Fixed table alias is removed when exporting a query
+- issue #15316 Fixed cross join clause is removed on export
+- issue #14809 Fix error "is_uploaded_file() expects parameter 1 to be string" when inserting blobs from files
+- issue #15127 Fix white square when refreshing designer or browsing other pages
+- issue #13912 Detect when phpMyAdmin storage tables are not accessible, help users browse corrupt DBs
+- issue #15465 Display profiling when query outputs no rows
+- issue        Fix setting and removing display field on Designer
+- issue        Added a warning when trying to set a display field on Designer and configuration storage is not setup
+- issue #15327 Fix shift-click in Export misses a checkbox
+- issue        [security] Fix improperly sanitized data when showing the Git branch (thanks to Ali Hubail for this report)
+- issue        [security] Fix security weaknesses in Designer feature,including a flaw where an attacker could trigger an SQL injection attack (PMASA-2019-5)
+
+4.9.1 (2019-09-20)
+- issue #15313 Added support for Twig 2
+- issue #15315 Fix cannot edit or export column with default CURRENT_TIMESTAMP in MySQL >= 8.0.13
+- issue        Fix a TypeError in Import class with PHP 8
+- issue #14270 Fix Middle-click on foreign key link broken
+- issue #14363 Fix broken relational links in tables
+- issue #14987 Fix weird error for empty collation
+- issue #15334 Fix export of GIS visualisation not working (PNG, PDF, SVG)
+- issue #14918 Use hex for the phpMyAdmin session token
+- issue        Added GB18030 Chinese collations description
+- issue        Added Russian, Swedish, Slovak and Chinese UCA 9.0.0 collations description
+- issue        Added description for the _ks (kana-sensitive) collation suffix
+- issue        Added description for the _nopad (NO PAD) collation suffix
+- issue #15404 Remove array/string curly braces access
+- issue #15427 Fixed "FilterLanguages" option does not work (configuration)
+- issue #15202 Fixed creating user with single quote in password results in no password user
+- issue #14950 Fixed left database overview "add column" triggers error
+- issue #15363 Fix remove unexpected quotes on text fields (structure and insert)
+- issue        Fix NULL wrongly checked on field change
+- issue #15388 Fix allow to rollback an empty statement
+- issue #14291 Fixed incorrect linkage from one table's value to another table
+- issue #15446 Fix tables added from other databases are not collapsing in the designer section
+- issue #14945 Fix designer page save fails if dB name contains period
+- issue        Display an error when trying to import in designer a table that's already imported
+- issue        Fix many bugs when adding new tables to designer
+- issue        Update CodeMirror to v5.48.4
+- issue        Update jQuery Migrate to v3.1.0
+- issue        Update jQuery Validation to v1.19.1
+- issue        Update jQuery to v3.4.1
+- issue        Update js-cookie to v2.2.1
+- issue        Remove fieldset closing tag when setting global privileges
+- issue #15425 Fix backslash in column name resulting an error in editing
+- issue #15380 Fix Status - Advisor error
+- issue #15439 Fix designer page status not updated when added a new table from another database
+- issue #15440 Fix page number is not being updated in the URL after saving a designer's page
+- issue        Fix reloading a designer's page
+- issue        Fix designer full screen mode button and text stuck when exiting full-screen mode
+- issue        Reduced possibility of causing heavy server traffic between the database and web servers
+- issue        Fix a situation where a server could be deleted while an administator is using the setup script
+
+4.9.0.1 (2019-06-04)
+- issue #14478 phpMyAdmin no longer streams the export data
+- issue #14514 Tables with SYSTEM VERSIONING show up as views instead of tables
+- issue #14515 Values cannot be edited in SYSTEM VERSIONING tables with INVISIBLE timestamps
+- issue        Fix header icon on server plugins page
+- issue #14298 Fixed error 500 on MultiTableQuery page when a empty query is passed
+- issue #14402 Fixed fatal javascript error while adding index to a new column
+- issue #14896 Fixed issue with plus/minus icon when refreshing an expanded database
+- issue #14922 Fixed json encode error in export
+- issue #13975 Fixed missing query time in German (fix decimal number format issue)
+- issue #14503 Fixed JavaScript events not activating on input (sql bookmark issue)
+- issue #14898 Fixed Bottom table is blocked in database list (left panel)
+- issue #14425 Fixed Null Checkbox automatically unmarked
+- issue #14870 Display correct date and time in Zip files
+- issue #14763 Fixed the loading symbol not appearing when refreshing the navigation
+- issue #14607 Count rows only if needed
+- issue #14832 Show Designer combo boxes when adding a constraint
+- issue #14948 Fix change password is not showing password strength difference at the second attempt
+- issue #14868 Fix edit view
+- issue #14943 Fixed loading Forever when creating new view without filling any field
+- issue #14843 Fix Bookmark::get() id matching SQL
+- issue #14734 Fixed invalid default value for bit field
+- issue #14311 Fixed undefined index in setup script
+- issue #14991 Fixed TypeError in GIS editor
+- issue        Fixed GIS data editor for multi server setup
+- issue #14312 Fixed type error in setup script when adding new server
+- issue #14053 Fix missed padding on query results
+- issue #14826 Fixed javascript error PMA_messages is not defined
+- issue        Show error message if config-set fails and not "loading..." forever
+- issue #14359 Prevent multiple error modals, and error-report request spamming from script
+- issue        Fixed error reporting javascript errors on multi server setup
+- issue        Fixed wrong property name on TableStructureController
+- issue #14811 Fix SHOW FULL TABLES FROM when a table is locked
+- issue #14916 Fix bug when creating or editing views
+- issue #14931 Fixed php error when using a query like SELECT 1 INTO @a; SELECT @a; in inline query edit
+- issue #15074 Make the server logo visible on theme "original"
+- issue #15077 Fixed incorrect page numbers
+- issue #14205 Fixed "No tables found in database" when you delete all tables from last page
+- issue #14957 Virtuality is not selected when editing generated column (added virtuality(stored) option for mariadb)
+- issue #14853 Insert page should not allow entering things into virtual columns
+- issue #15110 Fixed TypeError e.preventDefaulut is not a function
+- issue #15115 Improved label in Settings export, clarifying that it's a JSON file
+- issue #14816 Fixed [designer] Cannot read property 'style' of null
+- issue        Fixed [designer] Add new tables with database/table list modal
+- issue        Fixed query format on multi server setup
+- issue        Fixed remove partitioning on multi server setup
+- issue        Fixed normalization
+- issue        Fixed 'RESET SLAVE' button on replication slave
+- issue        Fixed sending a php error report on multi server setup
+- issue        Fixed downloading of monitor parameters for IE 11, Edge, Chrome and others
+- issue #15141 Fixed php notice Undefined index: designer_settings
+- issue #12729 Fixed sticky table header over dropdown menu
+- issue #15140 Fixed edit link does not work on failed insert
+- issue #14334 Fixed export table structure shows rows fields
+- issue #15010 Fixed empty SQL preview modal on tbl_relation
+- issue #14673 Fixed innodb & MySQL 8: DYNAMIC & COMPRESSED ROW_FORMAT missing
+- issue        Fixed empty success message when adding a new INDEX from left panel
+- issue #15150 Fixed generate password hidden on second open of change password modal
+- issue        Fixed import XML data with leading zeros
+- issue #15036 Fixed missing input fields checks for MaxSizeForInputField
+- issue #15119 Fixed uninterpreted HTML on Settings->Export page
+- issue #15159 Fixed missing query time and database in console
+- issue #13713 Fixed column comments in the floating table header
+- issue #15177 Fixed label alignment on login page
+- issue #15210 Fixed a typo in the english name of the Albanian language
+- issue        Fixed issue when resetting charset in import.php
+- issue #14460 Fixed forms where submitted multiple times on CTRL + ENTER
+- issue #15038 Fixed console height was allowing a negative values
+- issue #15219 Fixed 'No Password' option does not switch automatically to 'Use Text Field' in add user account
+- issue        Fixed importing the exported config on Server status monitor page
+- issue #15228 Fixed php notice 'Undefined index: foreign_keys_data' on designer when the user has column access
+- issue #12900 Fixed designer page saving gives error when configuration storage is not set up
+- issue #15229 Fixed php notice, added support for 'DELETE HISTORY' table privilege (MariaDB >= 10.3.4)
+- issue #14527 Fixed import settings function not working
+- issue #14908 Fixed uninterpreted HTML on Settings->Import (missing data error descriptions)
+- issue #14800 Fixed status->Processes doesn't show full query process list page
+- issue #14833 Fixed sort by Time not working in process list page
+- issue #14982 Fixed setting "null" keep an "enum" value
+- issue #14401 Fixed insert rows keypress Enter behavior
+- issue #15146 Fixed error reports can not be sent because they are too large
+- issue #15205 Fixed useless backquotes on sql preview modal when deleting an index
+- issue #13178 Fixed issues with uppercase table and database names (lower_case_table_names=1)
+- issue #14383 Fixed warning when browsing certain tables (GIS data)
+- issue #12865 Fixed MySQL 8.0.0 issues with GIS display
+- issue #15059 Fixed "Server charset" in "Database server" tab showing wrong information
+- issue #14614 Fixed mysql error "#2014 - Commands out of sync; you can't run this command now" on sql query
+- issue #15238 Fixed phpMyAdmin 4.8.5 doesn't show privileges of procedures (raw html displayed instead)
+- issue #13726 Fixed can not copy user on Percona Server 5.7
+- issue #15239 Fixed javascript error while fetching latest version info and switching pages
+- issue #14301 Fixed javascript error when editing a JSON data type column
+- issue #15240 Fixed apply a Settings form with errors shows a JSON response after using return back
+- issue #15043 Fixed multiple errors printing on Settings page
+- issue #15037 Fixed unexpected behavior of reset button on Settings
+- issue #15157 Fixed 'Settings' tab not marked as active when browsing 2FA settings
+- issue #14934 Fixed all fields readonly on Edit/Insert screens
+- issue #14588 Fixed export of geometry objects, GIS objects are now exported as hex
+- issue #14412 Better handling of errors with Signon authentication type
+- issue        Added support for AUTO_INCREMENT when using ROCKSDB, on Operations page
+- issue #15276 Fixed partitioning is missing in Structure page UI (MySQL 8.0)
+- issue #14252 Fixed DisableIS and database tree list (new database missing when refreshing the list)
+- issue #14621 Removed "Propose table structure" on MySQL 8.0
+- issue        Fixed editing of virtual columns on PerconaDB
+- issue #13854 Fixed column options are ignored for GENERATED/VIRTUAL/STORED columns
+- issue #15262 Fixed incorrect display of charset column (raw html)
+- issue        Added explicit parentheses in nested ternary operators
+- issue #15287 Fix auto_increment field is too small
+- issue #15283 Fix tries to change collation on views when changing collation on all tables/fields
+- issue        Fixed empty PMA_gotoWhitelist JavaScript array
+- issue #15079 Fixed responsive behaviour of instruction dialog box
+- issue #10846 Fixed javascript error when renaming a table
+- issue        Updated sql-parser to version 4.3.2
+- issue        [security] SQL injection in Designer (PMASA-2019-3)
+- issue        [security] CSRF attack on 'cookie' login form (PMASA-2019-4)
+
+4.8.5 (2019-01-25)
+- issue        Developer debug data was saved to the PHP error log
+- issue #14217 Fix issue when adding user on MySQL 8.0.11
+- issue #13788 Exporting a view structure based on another view with a sub-query throws no database selected error
+- issue #14635 Fix PHP error in GitRevision, error in processing request, error code 200
+- issue #14787 Cannot execute stored procedure
+- issue        Add Burmese language
+- issue #14794 Not responding to click, frozen interface, plugin Text_Plain_Sql error
+- issue #14786 Table level Operations functions missing
+- issue #14791 PHP warning, db_export.php#L91 urldecode()
+- issue #14775 Export to SQL format not available for tables
+- issue #14782 Error message shown instead of two-factor QR code when adding 2fa to a user
+- issue        [security] Arbitrary file read/delete relating to MySQL LOAD DATA LOCAL INFILE and an evil server instance (PMASA-2019-1)
+- issue        [security] SQL injection in Designer (PMASA-2019-2)
+
+         --- Older ChangeLogs can be found on our project website ---
+                     https://www.phpmyadmin.net/old-stuff/ChangeLogs/
+
+# vim: et ts=4 sw=4 sts=4
+# vim: ft=changelog fenc=utf-8
+# vim: fde=getline(v\:lnum-1)=~'^\\s*$'&&getline(v\:lnum)=~'\\S'?'>1'\:1&&v\:lnum>4&&getline(v\:lnum)!~'^#'
+# vim: fdn=1 fdm=expr

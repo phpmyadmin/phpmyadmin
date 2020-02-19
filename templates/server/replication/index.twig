@@ -1,0 +1,44 @@
+<div class="container-fluid">
+<div class="row">
+<h2>
+  {{ get_image('s_replication') }}
+  {% trans 'Replication' %}
+</h2>
+</div>
+
+{% if is_super_user %}
+<div class="row">
+  <div id="replication" class="container-fluid">
+    {{ error_messages|raw }}
+
+    {% if is_master %}
+      {{ master_replication_html|raw }}
+    {% elseif master_configure is null and clear_screen is null %}
+    <div class="row">
+      <fieldset>
+        <legend>{% trans 'Master replication' %}</legend>
+        {% apply format('<a href="' ~ url('/server/replication') ~ '" data-post="' ~ get_common(url_params|merge({'mr_configure': true}), '') ~ '">', '</a>')|raw %}
+          {% trans %}
+            This server is not configured as master in a replication process. Would you like to %sconfigure%s it?
+          {% endtrans %}
+        {% endapply %}
+      </fieldset>
+    </div>
+    {% endif %}
+
+    {% if master_configure is not null %}
+      {{ master_configuration_html|raw }}
+    {% else %}
+      {% if clear_screen is null %}
+        {{ slave_configuration_html|raw }}
+      {% endif %}
+      {% if slave_configure is not null %}
+        {{ change_master_html|raw }}
+      {% endif %}
+    {% endif %}
+  </div>
+</div>
+</div>
+{% else %}
+  {{ 'No privileges'|trans|error }}
+{% endif %}

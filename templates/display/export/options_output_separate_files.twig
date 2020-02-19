@@ -1,0 +1,12 @@
+<li>
+    <input type="checkbox" id="checkbox_as_separate_files"
+        name="as_separate_files" value="{{ export_type }}"
+        {{- is_checked ? ' checked' }}>
+    <label for="checkbox_as_separate_files">
+        {% if export_type == 'server' %}
+            {% trans 'Export databases as separate files' %}
+        {% elseif export_type == 'database' %}
+            {% trans 'Export tables as separate files' %}
+        {% endif %}
+    </label>
+</li>
