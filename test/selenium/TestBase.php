@@ -856,7 +856,7 @@ abstract class TestBase extends TestCase
 
         $this->waitForElement(
             'xpath',
-            "//a[@class='tabactive' and contains(., 'Browse')]"
+            "//a[@class='nav-link text-nowrap' and contains(., 'Browse')]"
         );
     }
 
@@ -888,7 +888,7 @@ abstract class TestBase extends TestCase
         // Wait for it to load
         $this->waitForElement(
             'xpath',
-            "//a[@class='tabactive' and contains(., 'Structure')]"
+            "//a[@class='nav-link text-nowrap' and contains(., 'Structure')]"
         );
     }
 

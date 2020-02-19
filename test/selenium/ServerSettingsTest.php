@@ -26,7 +26,7 @@ class ServerSettingsTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            "//a[@class='tabactive' and contains(., 'Settings')]"
+            "//a[@class='nav-link text-nowrap' and contains(., 'Settings')]"
         );
     }
 

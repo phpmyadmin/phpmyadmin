@@ -236,7 +236,7 @@ class OperationsTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            "//a[@class='tabactive' and contains(., 'Structure')]"
+            "//a[@class='nav-link text-nowrap' and contains(., 'Structure')]"
         );
 
         $result = $this->dbQuery('SHOW TABLES');
