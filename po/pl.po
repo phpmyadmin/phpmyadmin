@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:48-0300\n"
-"PO-Revision-Date: 2019-10-11 15:43+0000\n"
-"Last-Translator: Kozioł Marcin <koziol.martin@gmail.com>\n"
+"PO-Revision-Date: 2020-02-21 00:32+0000\n"
+"Last-Translator: Michal Biesiada <blade-14@o2.pl>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "pl/>\n"
 "Language: pl\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9-dev\n"
+"X-Generator: Weblate 3.11.1\n"
 
 #: index.php:52
 #, fuzzy, php-format
@@ -3328,7 +3328,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:260
 #: libraries/classes/Plugins/Export/ExportSql.php:314
 msgid "Exclude definition of current user"
-msgstr ""
+msgstr "Wyklucz definicję bieżącego użytkownika"
 
 #: libraries/classes/Config/Descriptions.php:261
 #: libraries/classes/Plugins/Export/ExportSql.php:320
@@ -3393,7 +3393,7 @@ msgstr "Sprawdzanie klucza zewnętrznego"
 
 #: libraries/classes/Config/Descriptions.php:285
 msgid "First day of calendar"
-msgstr ""
+msgstr "Pierwszy dzień kalendarza"
 
 #: libraries/classes/Config/Descriptions.php:286
 msgid "Browse mode"
