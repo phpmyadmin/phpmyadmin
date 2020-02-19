@@ -282,6 +282,7 @@ return static function (RouteCollector $routes): void {
         $routes->addRoute(['GET', 'POST'], '/gis-visualization', [GisVisualizationController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/import', [TableImportController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/indexes', [IndexesController::class, 'index']);
+        $routes->addRoute(['GET', 'POST'], '/indexes/rename', [IndexesController::class, 'indexRename']);
         $routes->addGroup('/maintenance', static function (RouteCollector $routes): void {
             $routes->post('/analyze', [MaintenanceController::class, 'analyze']);
             $routes->post('/check', [MaintenanceController::class, 'check']);

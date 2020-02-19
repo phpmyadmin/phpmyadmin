@@ -567,6 +567,7 @@ AJAX.registerTeardown('indexes.js', function () {
     $(document).off('change', '#select_index_choice');
     $(document).off('click', 'a.drop_primary_key_index_anchor.ajax');
     $(document).off('click', '#table_index tbody tr td.edit_index.ajax, #index_div .add_index.ajax');
+    $(document).off('click', '#table_index tbody tr td.rename_index.ajax');
     $(document).off('click', '#index_frm input[type=submit]');
     $('body').off('change', 'select[name*="field_key"]');
     $(document).off('click', '.show_index_dialog');
@@ -684,8 +685,8 @@ AJAX.registerOnload('indexes.js', function () {
     }); // end Drop Primary Key/Index
 
     /**
-     *Ajax event handler for index edit
-    **/
+     * Ajax event handler for index edit
+     **/
     $(document).on('click', '#table_index tbody tr td.edit_index.ajax, #index_div .add_index.ajax', function (event) {
         event.preventDefault();
         var url;
@@ -709,6 +710,21 @@ AJAX.registerOnload('indexes.js', function () {
         }
         url += CommonParams.get('arg_separator') + 'ajax_request=true';
         Functions.indexEditorDialog(url, title, function (data) {
+            CommonParams.set('db', data.params.db);
+            CommonParams.set('table', data.params.table);
+            CommonActions.refreshMain('index.php?route=/table/structure');
+        });
+    });
+
+    /**
+     * Ajax event handler for index rename
+     **/
+    $(document).on('click', '#table_index tbody tr td.rename_index.ajax', function (event) {
+        event.preventDefault();
+        var url = $(this).find('a').getPostData();
+        var title = Messages.strRenameIndex;
+        url += CommonParams.get('arg_separator') + 'ajax_request=true';
+        Functions.indexRenameDialog(url, title, function (data) {
             CommonParams.set('db', data.params.db);
             CommonParams.set('table', data.params.table);
             CommonActions.refreshMain('index.php?route=/table/structure');

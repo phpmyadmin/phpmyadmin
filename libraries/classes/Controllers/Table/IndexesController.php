@@ -9,6 +9,8 @@ use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Query\Compatibility;
+use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -62,12 +64,73 @@ class IndexesController extends AbstractController
         }
 
         if (isset($_POST['do_save_data'])) {
-            $this->doSaveData($index);
+            $this->doSaveData($index, false);
 
             return;
         }
 
         $this->displayForm($index);
+    }
+
+    public function indexRename(): void
+    {
+        global $db, $table, $url_params, $cfg, $err_url;
+
+        if (! isset($_POST['create_edit_table'])) {
+            Util::checkParameters(['db', 'table']);
+
+            $url_params = ['db' => $db, 'table' => $table];
+            $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+            $err_url .= Url::getCommon($url_params, '&');
+
+            DbTableExists::check();
+        }
+        if (isset($_POST['index'])) {
+            if (is_array($_POST['index'])) {
+                // coming already from form
+                $index = new Index($_POST['index']);
+            } else {
+                $index = $this->dbi->getTable($this->db, $this->table)->getIndex($_POST['index']);
+            }
+        } else {
+            $index = new Index();
+        }
+
+        if (isset($_POST['do_save_data'])) {
+            $this->doSaveData($index, true);
+
+            return;
+        }
+
+        $this->displayRenameForm($index);
+    }
+
+    /**
+     * Display the rename form to rename an index
+     *
+     * @param Index $index An Index instance.
+     */
+    public function displayRenameForm(Index $index): void
+    {
+        $this->dbi->selectDb($GLOBALS['db']);
+
+        $formParams = [
+            'db' => $this->db,
+            'table' => $this->table,
+        ];
+
+        if (isset($_POST['old_index'])) {
+            $formParams['old_index'] = $_POST['old_index'];
+        } elseif (isset($_POST['index'])) {
+            $formParams['old_index'] = $_POST['index'];
+        }
+
+        $this->addScriptFiles(['indexes.js']);
+
+        $this->render('table/index_rename_form', [
+            'index' => $index,
+            'form_params' => $formParams,
+        ]);
     }
 
     /**
@@ -136,16 +199,38 @@ class IndexesController extends AbstractController
      * run the query to build the new index
      * and moves back to /table/sql
      *
-     * @param Index $index An Index instance.
+     * @param Index $index      An Index instance.
+     * @param bool  $renameMode Rename the Index mode
      */
-    public function doSaveData(Index $index): void
+    public function doSaveData(Index $index, bool $renameMode): void
     {
         global $containerBuilder;
 
         $error = false;
+        $sql_query = '';
+        if ($renameMode && Compatibility::isCompatibleRenameIndex($this->dbi->getVersion())) {
+            $oldIndexName = $_POST['old_index'];
 
-        $sql_query = $this->dbi->getTable($this->db, $this->table)
-            ->getSqlQueryForIndexCreateOrEdit($index, $error);
+            if ($oldIndexName === 'PRIMARY') {
+                if ($index->getName() === '') {
+                    $index->setName('PRIMARY');
+                } elseif ($index->getName() !== 'PRIMARY') {
+                    $error = Message::error(
+                        __('The name of the primary key must be "PRIMARY"!')
+                    );
+                }
+            }
+
+            $sql_query = QueryGenerator::getSqlQueryForIndexRename(
+                $this->db,
+                $this->table,
+                $oldIndexName,
+                $index->getName()
+            );
+        } else {
+            $sql_query = $this->dbi->getTable($this->db, $this->table)
+                ->getSqlQueryForIndexCreateOrEdit($index, $error);
+        }
 
         // If there is a request for SQL previewing.
         if (isset($_POST['preview_sql'])) {

@@ -410,7 +410,7 @@
           <table id="table_index">
             <thead>
               <tr>
-                <th colspan="2" class="print_ignore">{% trans 'Action' %}</th>
+                <th colspan="3" class="print_ignore">{% trans 'Action' %}</th>
                 <th>{% trans 'Keyname' %}</th>
                 <th>{% trans 'Type' %}</th>
                 <th>{% trans 'Unique' %}</th>
@@ -434,6 +434,15 @@
                     'index': index.getName()
                   }, '') }}">
                     {{ get_icon('b_edit', 'Edit'|trans) }}
+                  </a>
+                </td>
+                <td rowspan="{{ columns_count }}" class="rename_index print_ignore ajax" >
+                  <a class="ajax" href="{{ url('/table/indexes/rename') }}" data-post="{{ get_common({
+                    'db': db,
+                    'table': table,
+                    'index': index.getName()
+                  }, '') }}">
+                    {{ get_icon('b_rename', 'Rename'|trans) }}
                   </a>
                 </td>
                 <td rowspan="{{ columns_count }}" class="print_ignore">

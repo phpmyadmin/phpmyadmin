@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Query;
 
+use PhpMyAdmin\Util;
 use function is_string;
 use function strlen;
 use function strpos;
@@ -155,5 +156,33 @@ class Compatibility
         }
 
         return $columns;
+    }
+
+    public static function isMySqlOrPerconaDb(): bool
+    {
+        $serverType = Util::getServerType();
+
+        return $serverType === 'MySQL' || $serverType === 'Percona Server';
+    }
+
+    public static function isMariaDb(): bool
+    {
+        $serverType = Util::getServerType();
+
+        return $serverType === 'MariaDB';
+    }
+
+    public static function isCompatibleRenameIndex(int $serverVersion): bool
+    {
+        if (self::isMySqlOrPerconaDb()) {
+            return $serverVersion >= 50700;
+        }
+
+        // @see https://mariadb.com/kb/en/alter-table/#rename-indexkey
+        if (self::isMariaDb()) {
+            return $serverVersion >= 100502;
+        }
+
+        return false;
     }
 }
