@@ -337,11 +337,11 @@ RTE.COMMON = {
                 that.$ajaxDialog = $('<div id="rteDialog">' + data.message + '</div>').dialog({
                     width: 700,
                     minWidth: 500,
-                    maxHeight: $(window).height(),
                     buttons: that.buttonOptions,
                     title: data.title,
                     modal: true,
                     open: function () {
+                        $('#rteDialog').dialog('option', 'max-height', $(window).height());
                         if ($('#rteDialog').parents('.ui-dialog').height() > $(window).height()) {
                             $('#rteDialog').dialog('option', 'height', $(window).height());
                         }
