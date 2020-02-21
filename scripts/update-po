@@ -13,7 +13,7 @@ set -e
 
 # Generate Twig template cache in clean dir
 rm -rf twig-templates/
-php ./scripts/generate-twig-cache
+php scripts/console cache:warmup
 
 # Update pot (template), ensure that advisor is at the end
 LOCS=`ls po/*.po | sed 's@.*/\(.*\)\.po@\1@'`

@@ -2,6 +2,7 @@
 <?php
 
 use PhpMyAdmin\Command\AdvisoryRulesCommand;
+use PhpMyAdmin\Command\CacheWarmupCommand;
 use Symfony\Component\Console\Application;
 
 if (! defined('ROOT_PATH')) {
@@ -15,5 +16,6 @@ require_once AUTOLOAD_FILE;
 $application = new Application('phpMyAdmin Console Tool');
 
 $application->add(new AdvisoryRulesCommand());
+$application->add(new CacheWarmupCommand());
 
 $application->run();
