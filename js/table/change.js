@@ -755,8 +755,8 @@ function changeValueFieldType (elem, searchIndex) {
         'BETWEEN' === type ||
         'NOT BETWEEN' === type
     ) {
-        $('#fieldID_' + searchIndex).attr('multiple', '');
+        $('#fieldID_' + searchIndex).prop('multiple', true);
     } else {
-        $('#fieldID_' + searchIndex).removeAttr('multiple');
+        $('#fieldID_' + searchIndex).prop('multiple', false);
     }
 }
