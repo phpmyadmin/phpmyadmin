@@ -78,7 +78,7 @@ AJAX.registerOnload('table/select.js', function () {
             return false;
         });
 
-    var tableRows = $('#fieldset_table_qbe select');
+    var tableRows = $('#fieldset_table_qbe select.column-operator');
     $.each(tableRows, function (index, item) {
         $(item).on('change', function () {
             changeValueFieldType(this, index);
