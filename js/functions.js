@@ -1196,7 +1196,7 @@ Functions.handleSimulateQueryButton = function () {
         if (! $simulateDml.length) {
             $('#button_submit_query')
                 .before('<input type="button" id="simulate_dml"' +
-                'tabindex="199" value="' +
+                'tabindex="199" class="btn btn-primary" value="' +
                 Messages.strSimulateDML +
                 '">');
         }
