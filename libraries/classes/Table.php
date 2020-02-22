@@ -2582,8 +2582,8 @@ class Table
                     $existrel_foreign[$master_field_md5]['ref_table_name'],
                     $existrel_foreign[$master_field_md5]['ref_index_list'],
                     $existrel_foreign[$master_field_md5]['constraint'],
-                    $options_array[$existrel_foreign[$master_field_md5]['on_delete']],
-                    $options_array[$existrel_foreign[$master_field_md5]['on_update']]
+                    $options_array[$existrel_foreign[$master_field_md5]['on_delete'] ?? ''] ?? null,
+                    $options_array[$existrel_foreign[$master_field_md5]['on_update'] ?? ''] ?? null
                 );
                 if (! isset($_POST['preview_sql'])) {
                     $display_query .= $sql_query_recreate . "\n";
