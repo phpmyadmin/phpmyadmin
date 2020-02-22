@@ -41,6 +41,7 @@ class NodeIndexContainer extends Node
         );
         $new->isNew = true;
         $new->icon = Util::getImage('b_index_add', $newLabel);
+        $new->title = $newLabel;
         $new->links = [
             'text' => 'tbl_indexes.php?server=' . $GLOBALS['server']
                 . '&amp;create_index=1&amp;added_fields=2'

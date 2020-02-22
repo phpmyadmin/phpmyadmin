@@ -35,12 +35,14 @@ class NodeDatabaseContainer extends Node
         if ($GLOBALS['is_create_db_priv']
             && $GLOBALS['cfg']['ShowCreateDb'] !== false
         ) {
+            $newLabel = _pgettext('Create new database', 'New');
             $new = NodeFactory::getInstance(
                 'Node',
-                _pgettext('Create new database', 'New')
+                $newLabel
             );
             $new->isNew = true;
             $new->icon = Util::getImage('b_newdb', '');
+            $new->title = $newLabel;
             $new->links = [
                 'text' => 'server_databases.php?server=' . $GLOBALS['server'],
                 'icon' => 'server_databases.php?server=' . $GLOBALS['server'],

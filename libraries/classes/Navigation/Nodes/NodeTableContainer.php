@@ -42,6 +42,7 @@ class NodeTableContainer extends NodeDatabaseChildContainer
         );
         $new->isNew = true;
         $new->icon = Util::getImage('b_table_add', $newLabel);
+        $new->title = $newLabel;
         $new->links = [
             'text' => 'tbl_create.php?server=' . $GLOBALS['server']
                 . '&amp;db=%2$s',
