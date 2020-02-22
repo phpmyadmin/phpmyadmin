@@ -324,14 +324,14 @@ class ReplicationGui
             if ($val['Field'] == 'User') {
                 strtok($val['Type'], '()');
                 $v = strtok('()');
-                if (is_int($v)) {
-                    $username_length = $v;
+                if (Util::isInteger($v)) {
+                    $username_length = (int) $v;
                 }
             } elseif ($val['Field'] == 'Host') {
                 strtok($val['Type'], '()');
                 $v = strtok('()');
-                if (is_int($v)) {
-                    $hostname_length = $v;
+                if (Util::isInteger($v)) {
+                    $hostname_length = (int) $v;
                 }
             }
         }
