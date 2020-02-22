@@ -491,33 +491,32 @@ class DatabaseInterface
      */
     private function _getSqlForTablesFull($this_databases, string $sql_where_table): string
     {
-        return '
-            SELECT *,
-                `TABLE_SCHEMA`       AS `Db`,
-                `TABLE_NAME`         AS `Name`,
-                `TABLE_TYPE`         AS `TABLE_TYPE`,
-                `ENGINE`             AS `Engine`,
-                `ENGINE`             AS `Type`,
-                `VERSION`            AS `Version`,
-                `ROW_FORMAT`         AS `Row_format`,
-                `TABLE_ROWS`         AS `Rows`,
-                `AVG_ROW_LENGTH`     AS `Avg_row_length`,
-                `DATA_LENGTH`        AS `Data_length`,
-                `MAX_DATA_LENGTH`    AS `Max_data_length`,
-                `INDEX_LENGTH`       AS `Index_length`,
-                `DATA_FREE`          AS `Data_free`,
-                `AUTO_INCREMENT`     AS `Auto_increment`,
-                `CREATE_TIME`        AS `Create_time`,
-                `UPDATE_TIME`        AS `Update_time`,
-                `CHECK_TIME`         AS `Check_time`,
-                `TABLE_COLLATION`    AS `Collation`,
-                `CHECKSUM`           AS `Checksum`,
-                `CREATE_OPTIONS`     AS `Create_options`,
-                `TABLE_COMMENT`      AS `Comment`
-            FROM `information_schema`.`TABLES` t
-            WHERE `TABLE_SCHEMA` ' . Util::getCollateForIS() . '
-                IN (\'' . implode("', '", $this_databases) . '\')
-                ' . $sql_where_table;
+        return 'SELECT *,'
+            . ' `TABLE_SCHEMA`       AS `Db`,'
+            . ' `TABLE_NAME`         AS `Name`,'
+            . ' `TABLE_TYPE`         AS `TABLE_TYPE`,'
+            . ' `ENGINE`             AS `Engine`,'
+            . ' `ENGINE`             AS `Type`,'
+            . ' `VERSION`            AS `Version`,'
+            . ' `ROW_FORMAT`         AS `Row_format`,'
+            . ' `TABLE_ROWS`         AS `Rows`,'
+            . ' `AVG_ROW_LENGTH`     AS `Avg_row_length`,'
+            . ' `DATA_LENGTH`        AS `Data_length`,'
+            . ' `MAX_DATA_LENGTH`    AS `Max_data_length`,'
+            . ' `INDEX_LENGTH`       AS `Index_length`,'
+            . ' `DATA_FREE`          AS `Data_free`,'
+            . ' `AUTO_INCREMENT`     AS `Auto_increment`,'
+            . ' `CREATE_TIME`        AS `Create_time`,'
+            . ' `UPDATE_TIME`        AS `Update_time`,'
+            . ' `CHECK_TIME`         AS `Check_time`,'
+            . ' `TABLE_COLLATION`    AS `Collation`,'
+            . ' `CHECKSUM`           AS `Checksum`,'
+            . ' `CREATE_OPTIONS`     AS `Create_options`,'
+            . ' `TABLE_COMMENT`      AS `Comment`'
+            . ' FROM `information_schema`.`TABLES` t'
+            . ' WHERE `TABLE_SCHEMA` ' . Util::getCollateForIS()
+            . ' IN (\'' . implode("', '", $this_databases) . '\')'
+            . ' ' . $sql_where_table;
     }
 
     /**
@@ -1168,18 +1167,17 @@ class DatabaseInterface
 
             // for PMA bc:
             // `[SCHEMA_FIELD_NAME]` AS `[SHOW_FULL_COLUMNS_FIELD_NAME]`
-            $sql = '
-                 SELECT *,
-                        `COLUMN_NAME`       AS `Field`,
-                        `COLUMN_TYPE`       AS `Type`,
-                        `COLLATION_NAME`    AS `Collation`,
-                        `IS_NULLABLE`       AS `Null`,
-                        `COLUMN_KEY`        AS `Key`,
-                        `COLUMN_DEFAULT`    AS `Default`,
-                        `EXTRA`             AS `Extra`,
-                        `PRIVILEGES`        AS `Privileges`,
-                        `COLUMN_COMMENT`    AS `Comment`
-                   FROM `information_schema`.`COLUMNS`';
+            $sql = 'SELECT *,'
+                        . ' `COLUMN_NAME`       AS `Field`,'
+                        . ' `COLUMN_TYPE`       AS `Type`,'
+                        . ' `COLLATION_NAME`    AS `Collation`,'
+                        . ' `IS_NULLABLE`       AS `Null`,'
+                        . ' `COLUMN_KEY`        AS `Key`,'
+                        . ' `COLUMN_DEFAULT`    AS `Default`,'
+                        . ' `EXTRA`             AS `Extra`,'
+                        . ' `PRIVILEGES`        AS `Privileges`,'
+                        . ' `COLUMN_COMMENT`    AS `Comment`'
+                   . ' FROM `information_schema`.`COLUMNS`';
 
             if (count($sql_wheres)) {
                 $sql .= "\n" . ' WHERE ' . implode(' AND ', $sql_wheres);
