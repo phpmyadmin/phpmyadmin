@@ -980,7 +980,7 @@ class Routines
         $retval .= '<tr>';
         $retval .= '    <td>&nbsp;</td>';
         $retval .= '    <td>';
-        $retval .= "        <input type='button'";
+        $retval .= '        <input type="button" class="btn btn-primary"';
         $retval .= "               name='routine_addparameter'";
         $retval .= "               value='" . __('Add parameter') . "'>";
         $retval .= '        <input ' . $disableRemoveParam . '';
