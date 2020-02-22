@@ -124,4 +124,17 @@ class DbiDummyTest extends TestCase
             ],
         ];
     }
+
+    /**
+     * Test for string escaping
+     *
+     * @return void
+     */
+    public function testEscapeString(): void
+    {
+        $this->assertEquals(
+            'a',
+            $GLOBALS['dbi']->escapeString('a')
+        );
+    }
 }

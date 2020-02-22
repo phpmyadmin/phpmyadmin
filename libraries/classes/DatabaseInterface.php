@@ -502,33 +502,32 @@ class DatabaseInterface implements DbalInterface
      */
     private function _getSqlForTablesFull($this_databases, string $sql_where_table): string
     {
-        return '
-            SELECT *,
-                `TABLE_SCHEMA`       AS `Db`,
-                `TABLE_NAME`         AS `Name`,
-                `TABLE_TYPE`         AS `TABLE_TYPE`,
-                `ENGINE`             AS `Engine`,
-                `ENGINE`             AS `Type`,
-                `VERSION`            AS `Version`,
-                `ROW_FORMAT`         AS `Row_format`,
-                `TABLE_ROWS`         AS `Rows`,
-                `AVG_ROW_LENGTH`     AS `Avg_row_length`,
-                `DATA_LENGTH`        AS `Data_length`,
-                `MAX_DATA_LENGTH`    AS `Max_data_length`,
-                `INDEX_LENGTH`       AS `Index_length`,
-                `DATA_FREE`          AS `Data_free`,
-                `AUTO_INCREMENT`     AS `Auto_increment`,
-                `CREATE_TIME`        AS `Create_time`,
-                `UPDATE_TIME`        AS `Update_time`,
-                `CHECK_TIME`         AS `Check_time`,
-                `TABLE_COLLATION`    AS `Collation`,
-                `CHECKSUM`           AS `Checksum`,
-                `CREATE_OPTIONS`     AS `Create_options`,
-                `TABLE_COMMENT`      AS `Comment`
-            FROM `information_schema`.`TABLES` t
-            WHERE `TABLE_SCHEMA` ' . Util::getCollateForIS() . '
-                IN (\'' . implode("', '", $this_databases) . '\')
-                ' . $sql_where_table;
+        return 'SELECT *,'
+            . ' `TABLE_SCHEMA`       AS `Db`,'
+            . ' `TABLE_NAME`         AS `Name`,'
+            . ' `TABLE_TYPE`         AS `TABLE_TYPE`,'
+            . ' `ENGINE`             AS `Engine`,'
+            . ' `ENGINE`             AS `Type`,'
+            . ' `VERSION`            AS `Version`,'
+            . ' `ROW_FORMAT`         AS `Row_format`,'
+            . ' `TABLE_ROWS`         AS `Rows`,'
+            . ' `AVG_ROW_LENGTH`     AS `Avg_row_length`,'
+            . ' `DATA_LENGTH`        AS `Data_length`,'
+            . ' `MAX_DATA_LENGTH`    AS `Max_data_length`,'
+            . ' `INDEX_LENGTH`       AS `Index_length`,'
+            . ' `DATA_FREE`          AS `Data_free`,'
+            . ' `AUTO_INCREMENT`     AS `Auto_increment`,'
+            . ' `CREATE_TIME`        AS `Create_time`,'
+            . ' `UPDATE_TIME`        AS `Update_time`,'
+            . ' `CHECK_TIME`         AS `Check_time`,'
+            . ' `TABLE_COLLATION`    AS `Collation`,'
+            . ' `CHECKSUM`           AS `Checksum`,'
+            . ' `CREATE_OPTIONS`     AS `Create_options`,'
+            . ' `TABLE_COMMENT`      AS `Comment`'
+            . ' FROM `information_schema`.`TABLES` t'
+            . ' WHERE `TABLE_SCHEMA` ' . Util::getCollateForIS()
+            . ' IN (\'' . implode("', '", $this_databases) . '\')'
+            . ' ' . $sql_where_table;
     }
 
     /**
@@ -918,34 +917,30 @@ class DatabaseInterface implements DbalInterface
                 $sql_where_schema = '';
             }
 
-            $sql  = 'SELECT *,
-                    CAST(BIN_NAME AS CHAR CHARACTER SET utf8) AS SCHEMA_NAME
-                FROM (';
-            $sql .= 'SELECT
-                BINARY s.SCHEMA_NAME AS BIN_NAME,
-                s.DEFAULT_COLLATION_NAME';
+            $sql  = 'SELECT *, '
+                    . 'CAST(BIN_NAME AS CHAR CHARACTER SET utf8) AS SCHEMA_NAME'
+                . ' FROM (';
+            $sql .= 'SELECT'
+                . ' BINARY s.SCHEMA_NAME AS BIN_NAME,'
+                . ' s.DEFAULT_COLLATION_NAME';
             if ($force_stats) {
-                $sql .= ',
-                    COUNT(t.TABLE_SCHEMA)  AS SCHEMA_TABLES,
-                    SUM(t.TABLE_ROWS)      AS SCHEMA_TABLE_ROWS,
-                    SUM(t.DATA_LENGTH)     AS SCHEMA_DATA_LENGTH,
-                    SUM(t.MAX_DATA_LENGTH) AS SCHEMA_MAX_DATA_LENGTH,
-                    SUM(t.INDEX_LENGTH)    AS SCHEMA_INDEX_LENGTH,
-                    SUM(t.DATA_LENGTH + t.INDEX_LENGTH)
-                                           AS SCHEMA_LENGTH,
-                    SUM(IF(t.ENGINE <> \'InnoDB\', t.DATA_FREE, 0))
-                                           AS SCHEMA_DATA_FREE';
+                $sql .= ','
+                . ' COUNT(t.TABLE_SCHEMA)  AS SCHEMA_TABLES,'
+                . ' SUM(t.TABLE_ROWS)      AS SCHEMA_TABLE_ROWS,'
+                . ' SUM(t.DATA_LENGTH)     AS SCHEMA_DATA_LENGTH,'
+                . ' SUM(t.MAX_DATA_LENGTH) AS SCHEMA_MAX_DATA_LENGTH,'
+                . ' SUM(t.INDEX_LENGTH)    AS SCHEMA_INDEX_LENGTH,'
+                . ' SUM(t.DATA_LENGTH + t.INDEX_LENGTH) AS SCHEMA_LENGTH,'
+                . ' SUM(IF(t.ENGINE <> \'InnoDB\', t.DATA_FREE, 0)) AS SCHEMA_DATA_FREE';
             }
-            $sql .= '
-                   FROM `information_schema`.SCHEMATA s ';
+            $sql .= ' FROM `information_schema`.SCHEMATA s ';
             if ($force_stats) {
-                $sql .= '
-                    LEFT JOIN `information_schema`.TABLES t
-                        ON BINARY t.TABLE_SCHEMA = BINARY s.SCHEMA_NAME';
+                $sql .= ' LEFT JOIN `information_schema`.TABLES t'
+                      . ' ON BINARY t.TABLE_SCHEMA = BINARY s.SCHEMA_NAME';
             }
-            $sql .= $sql_where_schema . '
-                    GROUP BY BINARY s.SCHEMA_NAME, s.DEFAULT_COLLATION_NAME
-                    ORDER BY ';
+            $sql .= $sql_where_schema
+                . ' GROUP BY BINARY s.SCHEMA_NAME, s.DEFAULT_COLLATION_NAME'
+                . ' ORDER BY ';
             if ($sort_by == 'SCHEMA_NAME'
                 || $sort_by == 'DEFAULT_COLLATION_NAME'
             ) {
@@ -1173,18 +1168,17 @@ class DatabaseInterface implements DbalInterface
 
             // for PMA bc:
             // `[SCHEMA_FIELD_NAME]` AS `[SHOW_FULL_COLUMNS_FIELD_NAME]`
-            $sql = '
-                 SELECT *,
-                        `COLUMN_NAME`       AS `Field`,
-                        `COLUMN_TYPE`       AS `Type`,
-                        `COLLATION_NAME`    AS `Collation`,
-                        `IS_NULLABLE`       AS `Null`,
-                        `COLUMN_KEY`        AS `Key`,
-                        `COLUMN_DEFAULT`    AS `Default`,
-                        `EXTRA`             AS `Extra`,
-                        `PRIVILEGES`        AS `Privileges`,
-                        `COLUMN_COMMENT`    AS `Comment`
-                   FROM `information_schema`.`COLUMNS`';
+            $sql = 'SELECT *,'
+                        . ' `COLUMN_NAME`       AS `Field`,'
+                        . ' `COLUMN_TYPE`       AS `Type`,'
+                        . ' `COLLATION_NAME`    AS `Collation`,'
+                        . ' `IS_NULLABLE`       AS `Null`,'
+                        . ' `COLUMN_KEY`        AS `Key`,'
+                        . ' `COLUMN_DEFAULT`    AS `Default`,'
+                        . ' `EXTRA`             AS `Extra`,'
+                        . ' `PRIVILEGES`        AS `Privileges`,'
+                        . ' `COLUMN_COMMENT`    AS `Comment`'
+                   . ' FROM `information_schema`.`COLUMNS`';
 
             if (count($sql_wheres)) {
                 $sql .= "\n" . ' WHERE ' . implode(' AND ', $sql_wheres);

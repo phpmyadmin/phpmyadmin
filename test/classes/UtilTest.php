@@ -1194,6 +1194,8 @@ class UtilTest extends PmaTestCase
      */
     public function testLocalisedDate(int $a, string $b, string $e, string $tz, string $locale): void
     {
+        // A test case for #15830 could be added for using the php setlocale on a Windows CI
+        // See https://github.com/phpmyadmin/phpmyadmin/issues/15830
         _setlocale(LC_ALL, $locale);
         $tmpTimezone = date_default_timezone_get();
         date_default_timezone_set($tz);

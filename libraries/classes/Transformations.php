@@ -292,20 +292,20 @@ class Transformations
         } else {
             $com_qry  = 'SELECT `column_name`, ';
         }
-        $com_qry .= '`mimetype`,
-                    `transformation`,
-                    `transformation_options`,
-                    `input_transformation`,
-                    `input_transformation_options`
-             FROM ' . Util::backquote($cfgRelation['db']) . '.'
-            . Util::backquote($cfgRelation['column_info']) . '
-             WHERE `db_name`    = \'' . $GLOBALS['dbi']->escapeString($db) . '\'
-               AND `table_name` = \'' . $GLOBALS['dbi']->escapeString($table) . '\'
-               AND ( `mimetype` != \'\'' . (! $strict ? '
-                  OR `transformation` != \'\'
-                  OR `transformation_options` != \'\'
-                  OR `input_transformation` != \'\'
-                  OR `input_transformation_options` != \'\'' : '') . ')';
+        $com_qry .= '`mimetype`, '
+                    . '`transformation`, '
+                    . '`transformation_options`, '
+                    . '`input_transformation`, '
+                    . '`input_transformation_options`'
+            . ' FROM ' . Util::backquote($cfgRelation['db']) . '.'
+            . Util::backquote($cfgRelation['column_info'])
+            . ' WHERE `db_name` = \'' . $GLOBALS['dbi']->escapeString($db) . '\''
+            . ' AND `table_name` = \'' . $GLOBALS['dbi']->escapeString($table) . '\''
+            . ' AND ( `mimetype` != \'\'' . (! $strict ?
+                ' OR `transformation` != \'\''
+                . ' OR `transformation_options` != \'\''
+                . ' OR `input_transformation` != \'\''
+                . ' OR `input_transformation_options` != \'\'' : '') . ')';
         $result = $GLOBALS['dbi']->fetchResult(
             $com_qry,
             'column_name',
