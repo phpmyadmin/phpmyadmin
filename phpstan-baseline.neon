@@ -3692,4 +3692,8 @@ parameters:
 			count: 1
 			path: test/selenium/TrackingTest.php
 
+		-
+			message: "#^Strict comparison using \\=\\=\\= between string and false will always evaluate to false\\.$#"
+			count: 1
+			path: libraries/classes/Util.php
 
