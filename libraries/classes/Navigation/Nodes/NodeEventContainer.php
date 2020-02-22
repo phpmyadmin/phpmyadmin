@@ -32,8 +32,9 @@ class NodeEventContainer extends NodeDatabaseChildContainer
         ];
         $this->realName = 'events';
 
+        $newLabel = _pgettext('Create new event', 'New');
         $new = NodeFactory::getInstanceForNewNode(
-            _pgettext('Create new event', 'New'),
+            $newLabel,
             'new_event italics'
         );
         $new->icon = Generator::getImage('b_event_add', '');

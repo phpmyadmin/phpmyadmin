@@ -101,6 +101,7 @@ class NodeFactory
         string $classes
     ): Node {
         $node = new Node($name, Node::OBJECT, false);
+        $node->title = $name;
         $node->isNew = true;
         $node->classes = $classes;
         return $node;

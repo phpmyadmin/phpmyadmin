@@ -1213,7 +1213,7 @@ class NavigationTree
                     $args[] = urlencode($parent->realName);
                 }
                 $link = vsprintf($node->links['text'], $args);
-                $title = $node->links['title'] ?? '';
+                $title = $node->links['title'] ?? $node->title ?? '';
                 if ($node->type == Node::CONTAINER) {
                     $retval .= "&nbsp;<a class='hover_show_full' href='" . $link . "'>";
                     $retval .= htmlspecialchars($node->name);
