@@ -898,6 +898,11 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
+			message: "#^Cannot assign offset int to \\(array\\)\\|string\\|true\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Encoding\\:\\:convertString\\(\\) should return string but returns string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Encoding.php

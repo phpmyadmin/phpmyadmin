@@ -64,6 +64,7 @@ phpMyAdmin - ChangeLog
 - issue #15958 Fix uncaught TypeError when sorting database tables by size or by rows
 - issue #15830 Fix strftime issue on windows for Japanese users on "Structure" tab
 - issue        Windows testsuite fixes
+- issue #15879 Added missing CSS class on "simulate query" button
 
 5.0.1 (2020-01-07)
 - issue #15719 Fixed error 500 when browsing a table when $cfg['LimitChars'] used a string and not an int value
