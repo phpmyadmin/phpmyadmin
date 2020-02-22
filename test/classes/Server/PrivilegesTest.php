@@ -1192,6 +1192,89 @@ class PrivilegesTest extends TestCase
     }
 
     /**
+     * Test case for getSqlQueriesForDisplayAndAddUser
+     *
+     * @return void
+     */
+    public function testGetSqlQueriesForDisplayAndAddUserMySql8011(): void
+    {
+
+        $GLOBALS['dbi']->expects($this->any())->method('getVersion')
+            ->will($this->returnValue(80011));
+        $this->serverPrivileges->dbi = $GLOBALS['dbi'];
+
+        $username = 'PMA_username';
+        $hostname = 'PMA_hostname';
+        $password = 'pma_password';
+        $_POST['pred_password'] = 'keep';
+        $_POST['authentication_plugin'] = 'mysql_native_password';
+
+        [
+            $create_user_real,
+            $create_user_show,
+        ] = $this->serverPrivileges->getSqlQueriesForDisplayAndAddUser(
+            $username,
+            $hostname,
+            $password
+        );
+
+        //validate 1: $create_user_real
+        $this->assertEquals(
+            'CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED WITH mysql_native_password'
+            . ' BY \'pma_password\';',
+            $create_user_real
+        );
+
+        //validate 2: $create_user_show
+        $this->assertEquals(
+            'CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED WITH mysql_native_password'
+            . ' BY \'***\';',
+            $create_user_show
+        );
+    }
+
+    /**
+     * Test case for getSqlQueriesForDisplayAndAddUser
+     *
+     * @return void
+     */
+    public function testGetSqlQueriesForDisplayAndAddUserMySql8016(): void
+    {
+
+        $GLOBALS['dbi']->expects($this->any())->method('getVersion')
+            ->will($this->returnValue(80016));
+        $this->serverPrivileges->dbi = $GLOBALS['dbi'];
+
+        $username = 'PMA_username';
+        $hostname = 'PMA_hostname';
+        $password = 'pma_password';
+        $_POST['pred_password'] = 'keep';
+
+        [
+            $create_user_real,
+            $create_user_show,
+        ] = $this->serverPrivileges->getSqlQueriesForDisplayAndAddUser(
+            $username,
+            $hostname,
+            $password
+        );
+
+        //validate 1: $create_user_real
+        $this->assertEquals(
+            'CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED'
+            . ' BY \'pma_password\';',
+            $create_user_real
+        );
+
+        //validate 2: $create_user_show
+        $this->assertEquals(
+            'CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED'
+            . ' BY \'***\';',
+            $create_user_show
+        );
+    }
+
+    /**
      * Test for getSqlQueriesForDisplayAndAddUser
      *
      * @return void
