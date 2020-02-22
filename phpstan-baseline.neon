@@ -2228,11 +2228,6 @@ parameters:
 			path: libraries/classes/Replication.php
 
 		-
-			message: "#^Call to function is_int\\(\\) with string\\|false will always evaluate to false\\.$#"
-			count: 2
-			path: libraries/classes/ReplicationGui.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of static method PhpMyAdmin\\\\Message\\:\\:success\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/ReplicationGui.php
