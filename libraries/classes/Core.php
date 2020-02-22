@@ -1285,7 +1285,8 @@ class Core
     {
         /** @var array $cfg */
         global $cfg;
-        return hash_hmac('sha256', $sqlQuery, $_SESSION[' HMAC_secret '] . $cfg['blowfish_secret']);
+        $secret = $_SESSION[' HMAC_secret '] ?? '';
+        return hash_hmac('sha256', $sqlQuery, $secret . $cfg['blowfish_secret']);
     }
 
     /**
@@ -1299,7 +1300,8 @@ class Core
     {
         /** @var array $cfg */
         global $cfg;
-        $hmac = hash_hmac('sha256', $sqlQuery, $_SESSION[' HMAC_secret '] . $cfg['blowfish_secret']);
+        $secret = $_SESSION[' HMAC_secret '] ?? '';
+        $hmac = hash_hmac('sha256', $sqlQuery, $secret . $cfg['blowfish_secret']);
         return hash_equals($hmac, $signature);
     }
 }
