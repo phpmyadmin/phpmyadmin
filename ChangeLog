@@ -65,6 +65,7 @@ phpMyAdmin - ChangeLog
 - issue #15830 Fix strftime issue on windows for Japanese users on "Structure" tab
 - issue        Windows testsuite fixes
 - issue #15879 Added missing CSS class on "simulate query" button
+- issue #15401 Fixed php notice "Undefined index HMAC_secret" for users upgrading phpMyAdmin without a log-out
 
 5.0.1 (2020-01-07)
 - issue #15719 Fixed error 500 when browsing a table when $cfg['LimitChars'] used a string and not an int value
