@@ -4,7 +4,11 @@
 .travis.yml export-ignore
 .scrutinizer.yml export-ignore
 .jshintrc export-ignore
+.stylelintrc.json export-ignore
+.eslintrc.json export-ignore
+.eslintignore export-ignore
 .weblate export-ignore
-codeconv.yml export-ignore
-.php_cs export-ignore
+codecov.yml export-ignore
 build.xml export-ignore
+phpcs.xml.dist export-ignore
+phpstan.neon.dist export-ignore
