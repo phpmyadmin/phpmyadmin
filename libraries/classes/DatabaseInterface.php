@@ -916,34 +916,30 @@ class DatabaseInterface
                 $sql_where_schema = '';
             }
 
-            $sql  = 'SELECT *,
-                    CAST(BIN_NAME AS CHAR CHARACTER SET utf8) AS SCHEMA_NAME
-                FROM (';
-            $sql .= 'SELECT
-                BINARY s.SCHEMA_NAME AS BIN_NAME,
-                s.DEFAULT_COLLATION_NAME';
+            $sql  = 'SELECT *, '
+                    . 'CAST(BIN_NAME AS CHAR CHARACTER SET utf8) AS SCHEMA_NAME'
+                . ' FROM (';
+            $sql .= 'SELECT'
+                . ' BINARY s.SCHEMA_NAME AS BIN_NAME,'
+                . ' s.DEFAULT_COLLATION_NAME';
             if ($force_stats) {
-                $sql .= ',
-                    COUNT(t.TABLE_SCHEMA)  AS SCHEMA_TABLES,
-                    SUM(t.TABLE_ROWS)      AS SCHEMA_TABLE_ROWS,
-                    SUM(t.DATA_LENGTH)     AS SCHEMA_DATA_LENGTH,
-                    SUM(t.MAX_DATA_LENGTH) AS SCHEMA_MAX_DATA_LENGTH,
-                    SUM(t.INDEX_LENGTH)    AS SCHEMA_INDEX_LENGTH,
-                    SUM(t.DATA_LENGTH + t.INDEX_LENGTH)
-                                           AS SCHEMA_LENGTH,
-                    SUM(IF(t.ENGINE <> \'InnoDB\', t.DATA_FREE, 0))
-                                           AS SCHEMA_DATA_FREE';
+                $sql .= ','
+                . ' COUNT(t.TABLE_SCHEMA)  AS SCHEMA_TABLES,'
+                . ' SUM(t.TABLE_ROWS)      AS SCHEMA_TABLE_ROWS,'
+                . ' SUM(t.DATA_LENGTH)     AS SCHEMA_DATA_LENGTH,'
+                . ' SUM(t.MAX_DATA_LENGTH) AS SCHEMA_MAX_DATA_LENGTH,'
+                . ' SUM(t.INDEX_LENGTH)    AS SCHEMA_INDEX_LENGTH,'
+                . ' SUM(t.DATA_LENGTH + t.INDEX_LENGTH) AS SCHEMA_LENGTH,'
+                . ' SUM(IF(t.ENGINE <> \'InnoDB\', t.DATA_FREE, 0)) AS SCHEMA_DATA_FREE';
             }
-            $sql .= '
-                   FROM `information_schema`.SCHEMATA s ';
+            $sql .= ' FROM `information_schema`.SCHEMATA s ';
             if ($force_stats) {
-                $sql .= '
-                    LEFT JOIN `information_schema`.TABLES t
-                        ON BINARY t.TABLE_SCHEMA = BINARY s.SCHEMA_NAME';
+                $sql .= ' LEFT JOIN `information_schema`.TABLES t'
+                      . ' ON BINARY t.TABLE_SCHEMA = BINARY s.SCHEMA_NAME';
             }
-            $sql .= $sql_where_schema . '
-                    GROUP BY BINARY s.SCHEMA_NAME, s.DEFAULT_COLLATION_NAME
-                    ORDER BY ';
+            $sql .= $sql_where_schema
+                . ' GROUP BY BINARY s.SCHEMA_NAME, s.DEFAULT_COLLATION_NAME'
+                . ' ORDER BY ';
             if ($sort_by == 'SCHEMA_NAME'
                 || $sort_by == 'DEFAULT_COLLATION_NAME'
             ) {

@@ -60,37 +60,37 @@ class TableTest extends PmaTestCase
             }
         };
 
-        $sql_isView_true =  "SELECT TABLE_NAME
-            FROM information_schema.VIEWS
-            WHERE TABLE_SCHEMA = 'PMA'
-                AND TABLE_NAME = 'PMA_BookMark'";
+        $sql_isView_true =  'SELECT TABLE_NAME'
+            . ' FROM information_schema.VIEWS'
+            . ' WHERE TABLE_SCHEMA = \'PMA\''
+            . ' AND TABLE_NAME = \'PMA_BookMark\'';
 
-        $sql_isView_false =  "SELECT TABLE_NAME
-            FROM information_schema.VIEWS
-            WHERE TABLE_SCHEMA = 'PMA'
-                AND TABLE_NAME = 'PMA_BookMark_2'";
+        $sql_isView_false =  'SELECT TABLE_NAME'
+            . ' FROM information_schema.VIEWS'
+            . ' WHERE TABLE_SCHEMA = \'PMA\''
+            . ' AND TABLE_NAME = \'PMA_BookMark_2\'';
 
-        $sql_isUpdatableView_true = "SELECT TABLE_NAME
-            FROM information_schema.VIEWS
-            WHERE TABLE_SCHEMA = 'PMA'
-                AND TABLE_NAME = 'PMA_BookMark'
-                AND IS_UPDATABLE = 'YES'";
+        $sql_isUpdatableView_true = 'SELECT TABLE_NAME'
+            . ' FROM information_schema.VIEWS'
+            . ' WHERE TABLE_SCHEMA = \'PMA\''
+            . ' AND TABLE_NAME = \'PMA_BookMark\''
+            . ' AND IS_UPDATABLE = \'YES\'';
 
-        $sql_isUpdatableView_false = "SELECT TABLE_NAME
-            FROM information_schema.VIEWS
-            WHERE TABLE_SCHEMA = 'PMA'
-                AND TABLE_NAME = 'PMA_BookMark_2'
-                AND IS_UPDATABLE = 'YES'";
+        $sql_isUpdatableView_false = 'SELECT TABLE_NAME'
+            . ' FROM information_schema.VIEWS'
+            . ' WHERE TABLE_SCHEMA = \'PMA\''
+            . ' AND TABLE_NAME = \'PMA_BookMark_2\''
+            . ' AND IS_UPDATABLE = \'YES\'';
 
-        $sql_analyzeStructure_true = "SELECT COLUMN_NAME, DATA_TYPE
-                FROM information_schema.COLUMNS
-                WHERE TABLE_SCHEMA = 'PMA'
-                AND TABLE_NAME = 'PMA_BookMark'";
+        $sql_analyzeStructure_true = 'SELECT COLUMN_NAME, DATA_TYPE'
+            . ' FROM information_schema.COLUMNS'
+            . ' WHERE TABLE_SCHEMA = \'PMA\''
+            . ' AND TABLE_NAME = \'PMA_BookMark\'';
 
-        $sql_copy_data = "SELECT TABLE_NAME
-            FROM information_schema.VIEWS
-            WHERE TABLE_SCHEMA = 'db_data'
-                AND TABLE_NAME = 'table_data'";
+        $sql_copy_data = 'SELECT TABLE_NAME'
+            . ' FROM information_schema.VIEWS'
+            . ' WHERE TABLE_SCHEMA = \'db_data\''
+            . ' AND TABLE_NAME = \'table_data\'';
 
         $getUniqueColumns_sql = "select unique column";
 
