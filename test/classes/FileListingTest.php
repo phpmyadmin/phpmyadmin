@@ -41,42 +41,36 @@ class FileListingTest extends TestCase
 
         $this->assertFalse($this->fileListing->getFileSelectOptions('nonexistent directory'));
 
-        $expectedHtmlWithoutActive = <<<HTML
-  <option value="one.txt">
-    one.txt
-  </option>
-  <option value="two.md">
-    two.md
-  </option>
-
-HTML;
+        $expectedHtmlWithoutActive =
+              '  <option value="one.txt">' . "\n"
+            . '    one.txt' . "\n"
+            . '  </option>' . "\n"
+            . '  <option value="two.md">' . "\n"
+            . '    two.md' . "\n"
+            . '  </option>' . "\n";
 
         $this->assertSame(
             $expectedHtmlWithoutActive,
             $this->fileListing->getFileSelectOptions($fixturesDir)
         );
 
-        $expectedHtmlWithActive = <<<HTML
-  <option value="one.txt">
-    one.txt
-  </option>
-  <option value="two.md" selected="selected">
-    two.md
-  </option>
-
-HTML;
+        $expectedHtmlWithActive =
+              '  <option value="one.txt">' . "\n"
+            . '    one.txt' . "\n"
+            . '  </option>' . "\n"
+            . '  <option value="two.md" selected="selected">' . "\n"
+            . '    two.md' . "\n"
+            . '  </option>' . "\n";
 
         $this->assertSame(
             $expectedHtmlWithActive,
             $this->fileListing->getFileSelectOptions($fixturesDir, '', 'two.md')
         );
 
-        $expectedFilteredHtml = <<<HTML
-  <option value="one.txt">
-    one.txt
-  </option>
-
-HTML;
+        $expectedFilteredHtml =
+              '  <option value="one.txt">' . "\n"
+            . '    one.txt' . "\n"
+            . '  </option>' . "\n";
 
         $this->assertSame(
             $expectedFilteredHtml,

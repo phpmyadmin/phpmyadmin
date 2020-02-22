@@ -548,12 +548,10 @@ class MessageTest extends PmaTestCase
         $this->assertFalse($this->object->isDisplayed());
         $this->object->setMessage('Test Message');
 
-        $this->expectOutputString(<<<'HTML'
-<div class="alert alert-primary" role="alert">
-  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> Test Message
-</div>
-
-HTML
+        $this->expectOutputString(
+            '<div class="alert alert-primary" role="alert">' . "\n"
+            . '  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> Test Message' . "\n"
+            . '</div>' . "\n"
         );
         $this->object->display();
 
@@ -569,13 +567,9 @@ HTML
     {
         $this->object->setMessage('Test Message');
         $this->assertEquals(
-            <<<'HTML'
-<div class="alert alert-primary" role="alert">
-  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> Test Message
-</div>
-
-HTML
-            ,
+            '<div class="alert alert-primary" role="alert">' . "\n"
+            . '  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> Test Message' . "\n"
+            . '</div>' . "\n",
             $this->object->getDisplay()
         );
     }
