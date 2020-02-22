@@ -3470,7 +3470,7 @@ AJAX.registerOnload('functions.js', function () {
                     '<table class=\'add\'><tr><td>' +
                     '<div class=\'slider\'></div>' +
                     '</td><td>' +
-                    '<form><div><input type=\'submit\' class=\'add_value\' value=\'' +
+                    '<form><div><input type=\'submit\' class=\'add_value btn btn-primary\' value=\'' +
                     Functions.sprintf(Messages.enum_addValue, 1) +
                     '\'></div></form>' +
                     '</td></tr></table>' +

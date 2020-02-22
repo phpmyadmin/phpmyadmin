@@ -245,7 +245,7 @@ class Normalization
             . "</select>"
             . "<span>" . __('split into ')
             . "</span><input id='numField' type='number' value='2'>"
-            . "<input type='submit' id='splitGo' value='" . __('Go') . "'></div>"
+            . '<input type="submit" class="btn btn-primary" id="splitGo" value="' . __('Go') . '"></div>'
             . "<div id='newCols'></div>"
             . "</fieldset><fieldset class='tblFooters'>"
             . "</fieldset>"
