@@ -2774,7 +2774,7 @@ class Privileges
                     $html_output .= '<span style="color: #FF0000">'
                         . __('Any') . '</span>';
                 } else {
-                    $html_output .= htmlspecialchars($current_user);
+                    $html_output .= htmlspecialchars((string) $current_user);
                 }
                 $html_output .= '</td>';
 
