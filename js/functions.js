@@ -4486,6 +4486,7 @@ Functions.createPrintAndBackButtons = function () {
     var backButton = $('<input>',{
         type: 'button',
         value: Messages.back,
+        class: 'btn btn-primary',
         id: 'back_button_print_view'
     });
     backButton.on('click', Functions.removePrintAndBackButton);
@@ -4493,6 +4494,7 @@ Functions.createPrintAndBackButtons = function () {
     var printButton = $('<input>',{
         type: 'button',
         value: Messages.print,
+        class: 'btn btn-primary',
         id: 'print_button_print_view'
     });
     printButton.on('click', Functions.printPage);
