@@ -130,7 +130,7 @@ var ErrorReport = {
 
         var $buttons = $('<div class="floatright"></div>');
 
-        var buttonHtml  = '<button id="show_error_report">';
+        var buttonHtml  = '<button class="btn btn-primary" id="show_error_report">';
         buttonHtml += Messages.strShowReportDetails;
         buttonHtml += '</button>';
 
