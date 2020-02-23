@@ -20,7 +20,8 @@ phpMyAdmin - ChangeLog
 - issue #14947 Use correct MySQL version if the version is 8.0 or above for documentation links
 - issue #15790 Use "MariaDB Documentation" instead of "MySQL Documentation" on a MariaDB server
 - issue #15880 Change "Show Query" link to a button
-- issue #13371 Aautomatically toggle the radio button to "Create a page and save it" on Designer
+- issue #13371 Automatically toggle the radio button to "Create a page and save it" on Designer
+- issue #12969 Tap and hold will not dismiss the error box anymore, you can now copy the error
 
 5.0.2 (not yet released)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page
