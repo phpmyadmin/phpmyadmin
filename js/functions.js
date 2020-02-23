@@ -4510,7 +4510,7 @@ Functions.createPrintAndBackButtons = function () {
     var backButton = $('<input>',{
         type: 'button',
         value: Messages.back,
-        class: 'btn btn-primary',
+        class: 'btn btn-secondary',
         id: 'back_button_print_view'
     });
     backButton.on('click', Functions.removePrintAndBackButton);
