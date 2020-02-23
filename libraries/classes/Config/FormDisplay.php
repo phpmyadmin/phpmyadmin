@@ -817,7 +817,7 @@ class FormDisplay
         $userPrefsDisallow = $GLOBALS['PMA_Config']->get('is_setup')
             ? $this->_configFile->get('UserprefsDisallow', [])
             : $GLOBALS['cfg']['UserprefsDisallow'];
-        $this->_userprefsDisallow = array_flip($userPrefsDisallow);
+        $this->_userprefsDisallow = array_flip($userPrefsDisallow ?? []);
     }
 
     /**
