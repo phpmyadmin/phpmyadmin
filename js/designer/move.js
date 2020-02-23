@@ -2128,7 +2128,7 @@ AJAX.registerOnload('designer/move.js', function () {
     });
     $('#SaveAs').on('click', function () {
         DesignerMove.saveAs();
-        $(document).ajaxStop(function () {
+        $(document).on('ajaxStop', function () {
             $('#selected_value').on('click', function () {
                 $('#save_page_new').prop('checked', true);
             });
