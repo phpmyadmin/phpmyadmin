@@ -83,11 +83,12 @@
       text-transform: uppercase;
       margin-#{$left}: 5px;
       content: "phpMyAdmin";
+      visibility: hidden;
     }
   }
 
   #imgpmalogo {
-    display: none;
+    margin-top: -6px;
   }
 
   #recentTableList {
