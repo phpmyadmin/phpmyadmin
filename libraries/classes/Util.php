@@ -1614,7 +1614,7 @@ class Util
         }
         $date = preg_replace('@%[pP]@', $am_pm, $date);
 
-        // Can return fale on windows for Japanese language
+        // Can return false on windows for Japanese language
         // See https://github.com/phpmyadmin/phpmyadmin/issues/15830
         $ret = strftime($date, (int) $timestamp);
         // Some OSes such as Win8.1 Traditional Chinese version did not produce UTF-8
