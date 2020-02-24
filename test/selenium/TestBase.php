@@ -973,6 +973,20 @@ abstract class TestBase extends TestCase
     }
 
     /**
+     * Scrolls to a coordinate such that the element
+     *
+     * @param WebDriverElement $element The element
+     *
+     * @return void
+     */
+    public function scrollToElement(WebDriverElement $element, int $xOffset = 0, int $yOffset = 0): void
+    {
+        $this->webDriver->executeScript(
+            'window.scrollBy(' . ($element->getLocation()->getX() + $xOffset) . ', ' . ($element->getLocation()->getY() + $yOffset) . ');'
+        );
+    }
+
+    /**
      * Scroll to the bottom of page
      *
      * @return void
