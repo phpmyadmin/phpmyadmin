@@ -96,6 +96,8 @@ AJAX.registerOnload('table/structure.js', function () {
                     Functions.ajaxRemoveMessage($msg);
                     Functions.initSlider();
                     Navigation.reload();
+                    var tableStructureUrl = 'index.php?route=/table/structure' + CommonParams.getUrlQuery('&');
+                    CommonActions.refreshMain(tableStructureUrl);
                 } else {
                     Functions.ajaxShowMessage(data.error, false);
                 }
