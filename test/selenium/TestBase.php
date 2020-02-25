@@ -1056,6 +1056,10 @@ abstract class TestBase extends TestCase
      */
     public function onNotSuccessfulTest(Throwable $t): void
     {
+        // End testing session
+        if ($this->webDriver !== null) {
+            $this->webDriver->quit();
+        }
         $SESSION_REST_URL = 'https://api.browserstack.com/automate/sessions/';
         // If this is being run on Browerstack,
         // mark the test on Browerstack as failure
