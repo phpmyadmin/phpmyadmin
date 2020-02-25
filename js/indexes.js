@@ -667,10 +667,9 @@ AJAX.registerOnload('indexes.js', function () {
                             .prependTo('#structure_content');
                         Functions.highlightSql($('#page_content'));
                     }
-                    CommonActions.refreshMain(false, function () {
-                        $('a.ajax[href^=#indexes]').trigger('click');
-                    });
                     Navigation.reload();
+                    var tableStructureUrl = 'index.php?route=/table/structure' + CommonParams.getUrlQuery('&');
+                    CommonActions.refreshMain(tableStructureUrl);
                 } else {
                     Functions.ajaxShowMessage(Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
@@ -704,10 +703,8 @@ AJAX.registerOnload('indexes.js', function () {
         }
         url += CommonParams.get('arg_separator') + 'ajax_request=true';
         Functions.indexEditorDialog(url, title, function () {
-            // refresh the page using ajax
-            CommonActions.refreshMain(false, function () {
-                $('a.ajax[href^=#indexes]').trigger('click');
-            });
+            var tableStructureUrl = 'index.php?route=/table/structure' + CommonParams.getUrlQuery('&');
+            CommonActions.refreshMain(tableStructureUrl);
         });
     });
 
