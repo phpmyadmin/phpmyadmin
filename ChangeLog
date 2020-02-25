@@ -22,6 +22,7 @@ phpMyAdmin - ChangeLog
 - issue #15880 Change "Show Query" link to a button
 - issue #13371 Automatically toggle the radio button to "Create a page and save it" on Designer
 - issue #12969 Tap and hold will not dismiss the error box anymore, you can now copy the error
+- issue #15582 Don't disable "Empty" table button after clicking it
 
 5.0.2 (not yet released)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page
