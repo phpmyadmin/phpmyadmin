@@ -995,10 +995,22 @@ abstract class TestBase extends TestCase
      *
      * @return void
      */
-    public function scrollToBottom()
+    public function scrollToBottom(): void
     {
         $this->webDriver->executeScript(
             'window.scrollTo(0,document.body.scrollHeight);'
+        );
+    }
+
+    /**
+     * Reload the page
+     *
+     * @return void
+     */
+    public function reloadPage(): void
+    {
+        $this->webDriver->executeScript(
+            'window.location.reload();'
         );
     }
 
