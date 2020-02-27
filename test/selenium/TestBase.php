@@ -318,6 +318,10 @@ abstract class TestBase extends TestCase
                     ChromeOptions::CAPABILITY,
                     $chromeOptions
                 );
+                $capabilities->setCapability(
+                    'loggingPrefs',
+                    ['browser' => 'ALL']
+                );
 
                 if ($this->hasCIConfig() && $this->hasBrowserstackConfig()) {
                     $capabilities->setCapability(
