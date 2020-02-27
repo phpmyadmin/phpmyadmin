@@ -65,6 +65,8 @@ abstract class TestBase extends TestCase
      */
     protected $sessionId;
 
+    private const SESSION_REST_URL = 'https://api.browserstack.com/automate/sessions/';
+
     /**
      * Configures the selenium and database link.
      *
@@ -1061,8 +1063,57 @@ abstract class TestBase extends TestCase
             $this->_mysqli->close();
             $this->_mysqli = null;
         }
-
+        if (! $this->hasFailed()) {
+            $this->markTestAs('passed', '');
+        }
         $this->webDriver->quit();
+    }
+
+    /**
+     * Mark test as failed or passed on BrowserStack
+     *
+     * @param string $status  passed or failed
+     * @param string $message a message
+     * @return void
+     */
+    private function markTestAs(string $status, string $message): void
+    {
+        // If this is being run on Browerstack,
+        // mark the test on Browerstack as failure
+        if ($this->hasBrowserstackConfig()) {
+            $payload = json_encode(
+                [
+                    'status' => $status,
+                    'reason' => $message,
+                ]
+            );
+
+            $ch = curl_init();
+            curl_setopt(
+                $ch,
+                CURLOPT_URL,
+                self::SESSION_REST_URL . $this->sessionId . '.json'
+            );
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
+            curl_setopt(
+                $ch,
+                CURLOPT_USERPWD,
+                $GLOBALS['TESTSUITE_BROWSERSTACK_USER']
+                    . ':' . $GLOBALS['TESTSUITE_BROWSERSTACK_KEY']
+            );
+
+            $headers = [];
+            $headers[] = 'Content-Type: application/json';
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+            curl_exec($ch);
+            if (curl_errno($ch)) {
+                echo 'Error: ' . curl_error($ch) . PHP_EOL;
+            }
+            curl_close($ch);
+        }
     }
 
     /**
@@ -1078,43 +1129,7 @@ abstract class TestBase extends TestCase
         if ($this->webDriver !== null) {
             $this->webDriver->quit();
         }
-        $SESSION_REST_URL = 'https://api.browserstack.com/automate/sessions/';
-        // If this is being run on Browerstack,
-        // mark the test on Browerstack as failure
-        if ($this->hasBrowserstackConfig()) {
-            $payload = json_encode(
-                [
-                    'status' => 'failed',
-                    'reason' => $t->getMessage(),
-                ]
-            );
-
-            $ch = curl_init();
-            curl_setopt(
-                $ch,
-                CURLOPT_URL,
-                $SESSION_REST_URL . $this->sessionId . ".json"
-            );
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
-            curl_setopt(
-                $ch,
-                CURLOPT_USERPWD,
-                $GLOBALS['TESTSUITE_BROWSERSTACK_USER']
-                    . ":" . $GLOBALS['TESTSUITE_BROWSERSTACK_KEY']
-            );
-
-            $headers = [];
-            $headers[] = "Content-Type: application/json";
-            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-            $result = curl_exec($ch);
-            if (curl_errno($ch)) {
-                echo 'Error: ' . curl_error($ch) . PHP_EOL;
-            }
-            curl_close($ch);
-        }
+        $this->markTestAs('failed', $t->getMessage());
 
         if ($this->hasBrowserstackConfig()) {
             $ch = curl_init();
@@ -1122,7 +1137,7 @@ abstract class TestBase extends TestCase
                 curl_setopt(
                     $ch,
                     CURLOPT_URL,
-                    $SESSION_REST_URL . $this->sessionId . ".json"
+                    self::SESSION_REST_URL . $this->sessionId . ".json"
                 );
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
                 curl_setopt(
