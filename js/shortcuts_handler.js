@@ -22,6 +22,7 @@ $(function () {
     var keyE = 69;
     var keyH = 72;
     var keyC = 67;
+    var keyI = 73;
     var keyBackSpace = 8;
     $(document).on('keyup', function (e) {
         if (e.target.nodeName === 'INPUT' || e.target.nodeName === 'TEXTAREA' || e.target.nodeName === 'SELECT') {
@@ -97,6 +98,9 @@ $(function () {
             tableOp = true;
         } else if (e.keyCode === keyE) {
             $('.ic_b_export').first().trigger('click');
+        } else if (e.keyCode === keyI) {
+            $('a.inline_edit_sql').first().trigger('click');
+            e.preventDefault();
         } else if (e.keyCode === keyBackSpace) {
             window.history.back();
         } else if (e.keyCode === keyH) {
