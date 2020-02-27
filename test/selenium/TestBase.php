@@ -980,6 +980,8 @@ abstract class TestBase extends TestCase
      * Scrolls to a coordinate such that the element
      *
      * @param WebDriverElement $element The element
+     * @param int              $xOffset The x offset to apply (defaults to 0)
+     * @param int              $yOffset The y offset to apply (defaults to 0)
      *
      * @return void
      */
