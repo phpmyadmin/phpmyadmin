@@ -70,11 +70,16 @@ class CreateDropDatabaseTest extends TestBase
         $this->waitAjax();
 
         $this->scrollToBottom();
-        $this->byCssSelector(
-            "input[name='selected_dbs[]'][value='" . $this->database_name . "']"
-        )->click();
 
-        $this->byCssSelector('button.mult_submit')->click();
+        $dbElement = $this->byCssSelector(
+            "input[name='selected_dbs[]'][value='" . $this->database_name . "']"
+        );
+        $this->scrollToElement($dbElement, 0, 20);
+        $dbElement->click();
+
+        $multSubmit = $this->byCssSelector('button.mult_submit');
+        $this->scrollToElement($multSubmit);
+        $multSubmit->click();
         $this->byCssSelector('button.submitOK')->click();
 
         $this->waitForElementNotPresent(
