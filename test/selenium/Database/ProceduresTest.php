@@ -226,7 +226,7 @@ class ProceduresTest extends TestBase
     private function _executeProcedure($text, $length)
     {
         $this->waitAjax();
-        $this->waitUntilElementIsVisible('linkText', ' Execute', 30)->click();// The space before Execute is because of &nbsp;
+        $this->waitUntilElementIsVisible('partialLinkText', 'Execute', 30)->click();// The space before Execute is because of &nbsp;
         $this->waitUntilElementIsVisible('name', "params[inp]", 30)->sendKeys($text);
         $this->byCssSelector("div.ui-dialog-buttonset button:nth-child(1)")->click();
 
