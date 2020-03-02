@@ -3,13 +3,15 @@ includes:
 parameters:
     level: max
     paths:
-        - %rootDir%/../../../
-    bootstrap: %rootDir%/../../../test/bootstrap-phpstan.php
+        - .
+    bootstrap: test/bootstrap-phpstan.php
     reportUnmatchedIgnoredErrors: true
     inferPrivatePropertyTypeFromConstructor: true
+    checkMissingIterableValueType: false
+    checkGenericClassInNonGenericObjectType: false
     excludes_analyse:
-        - %rootDir%/../../../examples/openid.php
-        - %rootDir%/../../../node_modules/*
-        - %rootDir%/../../../test/sami-config.php
-        - %rootDir%/../../../tmp/*
-        - %rootDir%/../../../vendor/*
+        - examples/openid.php
+        - node_modules/*
+        - test/sami-config.php
+        - tmp/*
+        - vendor/*
