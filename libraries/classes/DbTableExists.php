@@ -14,7 +14,13 @@ final class DbTableExists
      */
     public static function check(): void
     {
-        global $containerBuilder, $db, $table, $dbi, $is_db, $is_table, $message, $show_as_php, $sql_query;
+        self::checkDatabase();
+        self::checkTable();
+    }
+
+    private static function checkDatabase(): void
+    {
+        global $db, $dbi, $is_db, $message, $show_as_php, $sql_query;
 
         if (empty($is_db)) {
             if (strlen($db) > 0) {
@@ -53,6 +59,11 @@ final class DbTableExists
                 }
             }
         }
+    }
+
+    private static function checkTable(): void
+    {
+        global $containerBuilder, $db, $table, $dbi, $is_table;
 
         if (empty($is_table)
             && ! defined('PMA_SUBMIT_MULT')
