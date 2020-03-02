@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:37-0300\n"
-"PO-Revision-Date: 2018-04-16 18:34+0000\n"
-"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
-"Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"ar/>\n"
+"PO-Revision-Date: 2020-03-03 08:32+0000\n"
+"Last-Translator: yagoub fadel <yagoub76@gmail.com>\n"
+"Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/5-0/ar/"
+">\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 3.0-dev\n"
+"X-Generator: Weblate 4.0-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -119,16 +119,12 @@ msgid "You have to choose at least one column to display!"
 msgstr "عليك اختيار عمود واحد على الأقل للعرض!"
 
 #: db_qbe.php:159 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "محاكاة الإستعلام"
+msgstr "استعلام جداول متعددة"
 
 #: db_qbe.php:163 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query type"
 msgid "Query by example"
-msgstr "نوع الاستعلام"
+msgstr "مثال للاستعلام"
 
 #: db_qbe.php:182
 #, php-format
@@ -359,6 +355,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
+"انت تحاول تخفيض عدد الصفوف , لكن هذه الصفوف تحتوي علي بيانات مدرجة فيها "
+"وبتخفيض الصفوف ستواجة باحتمال خسارة هذه  البيانات . هل تريد المتابعه ؟"
 
 #: js/messages.php:78
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -514,10 +512,8 @@ msgid "Y values"
 msgstr "كل قيم Y"
 
 #: js/messages.php:146
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "من فظلك ادخل نفس القيمة مرة أخرى"
+msgstr "من فظلك ادخل  استعلام SQL اولا."
 
 #: js/messages.php:149
 msgid "The host name is empty!"
@@ -1082,16 +1078,12 @@ msgid "Please select the file you want to import."
 msgstr "﻿الرجاء تحديد الملف الذي تريد استيراده ."
 
 #: js/messages.php:339
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
-msgstr "الرجاء إدخال اسم صفحة صالح"
+msgstr "الرجاء إدخال اسم جدول صالح."
 
 #: js/messages.php:341
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
-msgstr "الرجاء إدخال اسم صفحة صالح"
+msgstr "الرجاء إدخال اسم قاعدة بيانات صالح ."
 
 #: js/messages.php:342
 msgid "No files available on server for import!"
@@ -1253,10 +1245,8 @@ msgid "No databases selected."
 msgstr "لا قواعد بيانات محددة."
 
 #: js/messages.php:382
-#, fuzzy
-#| msgid "No column selected."
 msgid "No accounts selected."
-msgstr "لايوجد صفوف مختارة"
+msgstr "لم يتم اختيار حسابات."
 
 #: js/messages.php:383
 msgid "Dropping column"
