@@ -5,6 +5,7 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
@@ -66,10 +67,7 @@ class TransformationWrapperController extends AbstractController
 
         $cfgRelation = $this->relation->getRelationsParam();
 
-        /**
-         * Ensures db and table are valid, else moves to the "parent" script
-         */
-        require_once ROOT_PATH . 'libraries/db_table_exists.inc.php';
+        DbTableExists::check();
 
         /**
          * Sets globals from $_REQUEST

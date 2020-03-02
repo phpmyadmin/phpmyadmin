@@ -183,7 +183,7 @@ final class Common
 
     public static function table(): void
     {
-        global $db, $table, $db_is_system_schema, $url_query, $url_params, $cfg, $dbi, $err_url, $err_url_0;
+        global $db, $table, $db_is_system_schema, $url_query, $url_params, $cfg, $dbi, $err_url, $err_url_0, $route;
 
         Util::checkParameters(['db', 'table']);
 
@@ -219,11 +219,10 @@ final class Common
         $err_url .= Url::getCommon($url_params, strpos($err_url, '?') === false ? '?' : '&');
 
         /**
-         * Ensures the database and the table exist (else move to the "parent" script)
          * Skip test if we are exporting as we can't tell whether a table name is an alias (which would fail the test).
          */
-        if (($_GET['route'] ?? $_POST['route'] ?? '') === '/table/export') {
-            require_once ROOT_PATH . 'libraries/db_table_exists.inc.php';
+        if ($route === '/table/export') {
+            DbTableExists::check();
         }
     }
 }

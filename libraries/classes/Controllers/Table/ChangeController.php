@@ -5,6 +5,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Forms\Fields\MaxFileSize;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\InsertEdit;
@@ -63,10 +64,7 @@ class ChangeController extends AbstractController
 
         PageSettings::showGroup('Edit');
 
-        /**
-         * Ensures db and table are valid, else moves to the "parent" script
-         */
-        require_once ROOT_PATH . 'libraries/db_table_exists.inc.php';
+        DbTableExists::check();
 
         /**
          * Determine whether Insert or Edit and set global variables
