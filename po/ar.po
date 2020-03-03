@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:48-0300\n"
-"PO-Revision-Date: 2018-04-16 18:34+0000\n"
-"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"PO-Revision-Date: 2020-03-05 05:32+0000\n"
+"Last-Translator: yagoub fadel <yagoub76@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ar/>\n"
 "Language: ar\n"
@@ -14,17 +14,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 3.0-dev\n"
+"X-Generator: Weblate 4.0-dev\n"
 
 #: index.php:52
-#, fuzzy, php-format
-#| msgid "Source database `%s` was not found!"
+#, php-format
 msgid "Error 404! The page %s was not found."
-msgstr "لم يعثر على قاعدة البيانات المصدر `%s`!"
+msgstr "خطأ 404! الصفحة %s غير موجودة ."
 
 #: index.php:59
 msgid "Error 405! Request method not allowed."
-msgstr ""
+msgstr "خطأ  405! الطلب بهذه الطريقة غير مسموح."
 
 #: js/messages.php:45
 msgid "Confirm"
@@ -261,10 +260,8 @@ msgid "Y values"
 msgstr "كل قيم Y"
 
 #: js/messages.php:145
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "من فظلك ادخل نفس القيمة مرة أخرى"
+msgstr "من فضلك ادخل استعلام SQL اولا ."
 
 #: js/messages.php:148
 msgid "The host name is empty!"
@@ -830,16 +827,12 @@ msgid "Please select the file you want to import."
 msgstr "﻿الرجاء تحديد الملف الذي تريد استيراده ."
 
 #: js/messages.php:338
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
-msgstr "الرجاء إدخال اسم صفحة صالح"
+msgstr "الرجاء إدخال اسم جدول صالح ."
 
 #: js/messages.php:340
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
-msgstr "الرجاء إدخال اسم صفحة صالح"
+msgstr "الرجاء إدخال اسم جيد لقاعد البيانات."
 
 #: js/messages.php:341
 msgid "No files available on server for import!"
@@ -1001,10 +994,8 @@ msgid "No databases selected."
 msgstr "لا قواعد بيانات محددة."
 
 #: js/messages.php:381
-#, fuzzy
-#| msgid "No column selected."
 msgid "No accounts selected."
-msgstr "لايوجد صفوف مختارة"
+msgstr "لم يتم اختيار حسابات ."
 
 #: js/messages.php:382
 msgid "Dropping column"
@@ -1257,15 +1248,11 @@ msgid "Are you sure?"
 msgstr "هل أنت متأكد؟"
 
 #: js/messages.php:448
-#, fuzzy
-#| msgid ""
-#| "This action may change some of the columns definition.<br/>Are you sure "
-#| "you want to continue?"
 msgid ""
 "This action may change some of the columns definition.<br>Are you sure you "
 "want to continue?"
 msgstr ""
-"هذا الإجراء قي يغيير بعض معرفات الأعمدة .<br/> هل انت متاكد انك تريد "
+"هذا الإجراء قد يغيير بعض معرفات الأعمدة .<br/> هل انت متاكد انك تريد "
 "المتابعة؟"
 
 #: js/messages.php:451
@@ -1630,10 +1617,8 @@ msgstr ""
 
 #: js/messages.php:573 templates/database/designer/main.twig:42
 #: templates/database/designer/main.twig:45
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
-msgstr "لم يعثر على جداول في قاعدة البيانات."
+msgstr "اضافة جداول من قواعد بيانات اخري"
 
 #: js/messages.php:574
 msgid "Page name"
@@ -1692,8 +1677,6 @@ msgid "%d object(s) created."
 msgstr "%d تم انشاء كائن / كائنات."
 
 #: js/messages.php:590
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
 msgstr "اسم العمود"
 
@@ -1741,10 +1724,8 @@ msgid "Double-click to copy column name."
 msgstr "أنقر مرتين لنسخ اسم العمود ."
 
 #: js/messages.php:609
-#, fuzzy
-#| msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
-msgstr "انقر على السهم المنسدل <br /> 0 لتبديل مستوى رؤية العمود."
+msgstr "انقر على السهم المنسدل <br /> 0 لتبديل مستوى رؤية العمود ."
 
 #: js/messages.php:611 libraries/classes/BrowseForeigners.php:349
 #: templates/display/results/table_navigation.twig:19
@@ -1814,11 +1795,8 @@ msgid "Print"
 msgstr "طباعة"
 
 #: js/messages.php:641
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br />by double-clicking directly on them."
 msgid "You can also edit most values<br>by double-clicking directly on them."
-msgstr "يمكنك أيضا تعديل معظم القيم <br /> بالنقر المزدوج عليها مباشرة."
+msgstr "يمكنك أيضا تعديل معظم القيم <br > بالنقر المزدوج عليها مباشرة."
 
 #: js/messages.php:646
 #, fuzzy
@@ -1961,16 +1939,12 @@ msgid ""
 msgstr "وفقا للإعدادات الخاصة بك، يتم تقديمها حاليا، يرجى التحلي بالصبر."
 
 #: js/messages.php:731
-#, fuzzy
-#| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
-msgstr "تم حذف الصفحة بنجاح"
+msgstr "تم  النقل بنجاح !"
 
 #: js/messages.php:732
-#, fuzzy
-#| msgid "Copying database"
 msgid "Copying failed!"
-msgstr "نسخ قاعدة البيانات"
+msgstr "النقل فاشل !"
 
 #: js/messages.php:735
 msgid "Execute this query again?"
@@ -2058,20 +2032,19 @@ msgstr "قوي"
 
 #: js/messages.php:761
 msgid "Timed out waiting for security key activation."
-msgstr ""
+msgstr "انتهت مهلة انتظار تفعيل مفتاح الأمان ."
 
 #: js/messages.php:762
 #, php-format
 msgid "Failed security key activation (%s)."
-msgstr ""
+msgstr "فشل تنشيط مفتاح الأمان  (%s) ."
 
 #: js/messages.php:765
-#, fuzzy, php-format
-#| msgid "The user %s already exists!"
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
-msgstr "اسم المستخدم %s موجود مسبقاً!"
+msgstr "الجدول %s موجود مسبقاً !"
 
 #: js/messages.php:766 libraries/classes/InsertEdit.php:304
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:54
@@ -2616,8 +2589,6 @@ msgid "Vietnamese"
 msgstr "الفيتنامية"
 
 #: libraries/classes/Charsets/Collation.php:521
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "غير حساس لحالة الأحرف"
@@ -2637,11 +2608,9 @@ msgid "accent-insensitive"
 msgstr "غير حساس لحالة الأحرف"
 
 #: libraries/classes/Charsets/Collation.php:530
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
-msgstr "حساس لحالة الأحرف"
+msgstr "لهجة حساسة لحالة الأحرف"
 
 #: libraries/classes/Charsets/Collation.php:533
 #, fuzzy
@@ -2805,10 +2774,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:113
-#, fuzzy
-#| msgid "Enable %s"
 msgid "Enable linter"
-msgstr "تفعيل %s"
+msgstr "تفعيل   linter"
 
 #: libraries/classes/Config/Descriptions.php:115
 msgid ""
@@ -2831,10 +2798,8 @@ msgid "Maximum size for input field"
 msgstr "أقصى حجم لحقل الإدخال"
 
 #: libraries/classes/Config/Descriptions.php:124
-#, fuzzy
-#| msgid "Number of columns for CHAR/VARCHAR textareas"
 msgid "Number of columns for CHAR/VARCHAR textareas."
-msgstr "عدد أعمدة مربع النص لـCHAR/VARCHAR"
+msgstr "عدد أعمدة مربع النص    CHAR/VARCHAR    مناطق النص"
 
 #: libraries/classes/Config/Descriptions.php:125
 msgid "CHAR textarea columns"
@@ -2905,20 +2870,16 @@ msgid "Default server tab"
 msgstr "تبويب الخادم الإفتراضي"
 
 #: libraries/classes/Config/Descriptions.php:145
-#, fuzzy
-#| msgid "Tab that is displayed when entering a table"
 msgid "Tab that is displayed when entering a table."
-msgstr "التبويب الذي يعرض عند الدخول إلى الجدول"
+msgstr "التبويب الذي يعرض عند الدخول إلى الجدول  ."
 
 #: libraries/classes/Config/Descriptions.php:146
 msgid "Default table tab"
 msgstr "تبويب الجدول الإفتراضي"
 
 #: libraries/classes/Config/Descriptions.php:147
-#, fuzzy
-#| msgid "Enclose table and column names with backquotes"
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "محاصرة أسماء الجداول و العواميد ب \"`\""
+msgstr "اكمال تلقائي للجدول و اسماء اللاعمدة في استعلامات SQL ."
 
 #: libraries/classes/Config/Descriptions.php:148
 msgid "Enable autocomplete for table and column names"
@@ -2941,10 +2902,8 @@ msgid "Hide table structure actions"
 msgstr "إخفاء إجراءات بنية الجدول"
 
 #: libraries/classes/Config/Descriptions.php:153
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Hex"
-msgstr "الترتيب الإفتراضي"
+msgstr "تحولات افتراضية من Hex"
 
 #: libraries/classes/Config/Descriptions.php:154
 #: libraries/classes/Config/Descriptions.php:156
@@ -2961,10 +2920,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:155
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for Substring"
-msgstr "خيارات التحويل"
+msgstr "التحولات الافتراضية من السلاسل الفرعية"
 
 #: libraries/classes/Config/Descriptions.php:157
 #, fuzzy
@@ -12806,12 +12763,12 @@ msgstr ""
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "انتهى الإستيراد بنجاح، %d استعلام تم تنفيذه."
+msgstr[0] "انتهى الإستيراد بنجاح، %d استعلام تم تنفيذه ."
 msgstr[1] "انتهى الإستيراد بنجاح، %d استعلام تم تنفيذه."
-msgstr[2] "انتهى الإستيراد بنجاح، %d استعلام تم تنفيذه."
-msgstr[3] "انتهى الإستيراد بنجاح، %d استعلام تم تنفيذه."
-msgstr[4] "انتهى الإستيراد بنجاح، %d استعلام تم تنفيذه."
-msgstr[5] "انتهى الإستيراد بنجاح، %d استعلام تم تنفيذه."
+msgstr[2] "انتهى الإستيراد بنجاح، %d الاستعلامان تم تنفيذهم ."
+msgstr[3] "انتهى الإستيراد بنجاح، %d الاستعلامات تم تنفيذها ."
+msgstr[4] "انتهى الإستيراد بنجاح، %d تم تنفيذ الاستعلامات."
+msgstr[5] "انتهى الإستيراد بنجاح، %d تم تنفيذ الاستعلامات ."
 
 #: libraries/entry_points/import.php:641
 #, php-format
@@ -13653,12 +13610,12 @@ msgstr "اسم العمود"
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s جدول (جداول)"
-msgstr[1] "%s جدول (جداول)"
-msgstr[2] "%s جدول (جداول)"
-msgstr[3] "%s جدول (جداول)"
-msgstr[4] "%s جدول (جداول)"
-msgstr[5] "%s جدول (جداول)"
+msgstr[0] "%s جدول"
+msgstr[1] "%s جدول"
+msgstr[2] "%s جدول"
+msgstr[3] "%s جداول"
+msgstr[4] "%s  جداول"
+msgstr[5] "%s جدول"
 
 #: templates/database/structure/body_for_table_summary.twig:17
 msgid "Sum"
