@@ -216,9 +216,10 @@ if (! empty($submit_mult) && ! empty($what)) {
 
     if ($what == 'replace_prefix_tbl' || $what == 'copy_tbl_change_prefix') {
         $response->disable();
-        $response->addHTML(
-            $multSubmits->getHtmlForReplacePrefixTable($action, $_url_params)
-        );
+        $response->addHTML($template->render('mult_submits/replace_prefix_table', [
+            'action' => $action,
+            'url_params' => $_url_params,
+        ]));
     } elseif ($what == 'add_prefix_tbl') {
         $response->disable();
         $response->addHTML($multSubmits->getHtmlForAddPrefixTable($action, $_url_params));

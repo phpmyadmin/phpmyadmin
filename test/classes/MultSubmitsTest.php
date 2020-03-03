@@ -68,36 +68,6 @@ class MultSubmitsTest extends TestCase
     }
 
     /**
-     * Test for getHtmlForReplacePrefixTable
-     *
-     * @return void
-     */
-    public function testGetHtmlForReplacePrefixTable()
-    {
-        $action = 'delete_row';
-        $urlParams = ['url_query' => 'PMA_original_url_query'];
-
-        //Call the test function
-        $html = $this->multSubmits->getHtmlForReplacePrefixTable($action, $urlParams);
-
-        //form action
-        $this->assertStringContainsString(
-            '<form id="ajax_form" action="delete_row" method="post">',
-            $html
-        );
-        //$Url::getHiddenInputs
-        $this->assertStringContainsString(
-            Url::getHiddenInputs($urlParams),
-            $html
-        );
-        //from_prefix
-        $this->assertStringContainsString(
-            '<input type="text" name="from_prefix" id="initialPrefix">',
-            $html
-        );
-    }
-
-    /**
      * Test for getHtmlForAddPrefixTable
      *
      * @return void

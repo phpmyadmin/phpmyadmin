@@ -413,40 +413,6 @@ class MultSubmits
     }
 
     /**
-     * Gets HTML for replace_prefix_tbl or copy_tbl_change_prefix
-     *
-     * @param string $action    action type
-     * @param array  $urlParams URL params
-     *
-     * @return string
-     */
-    public function getHtmlForReplacePrefixTable($action, array $urlParams)
-    {
-        $html  = '<form id="ajax_form" action="' . $action . '" method="post">';
-        $html .= Url::getHiddenInputs($urlParams);
-        $html .= '<fieldset class = "input">';
-        $html .= '<table>';
-        $html .= '<tr>';
-        $html .= '<td>' . __('From') . '</td>';
-        $html .= '<td>';
-        $html .= '<input type="text" name="from_prefix" id="initialPrefix">';
-        $html .= '</td>';
-        $html .= '</tr>';
-        $html .= '<tr>';
-        $html .= '<td>' . __('To') . '</td>';
-        $html .= '<td>';
-        $html .= '<input type="text" name="to_prefix" id="newPrefix">';
-        $html .= '</td>';
-        $html .= '</tr>';
-        $html .= '</table>';
-        $html .= '</fieldset>';
-        $html .= '<input type="hidden" name="mult_btn" value="' . __('Yes') . '">';
-        $html .= '</form>';
-
-        return $html;
-    }
-
-    /**
      * Gets HTML for add_prefix_tbl
      *
      * @param string $action    action type
