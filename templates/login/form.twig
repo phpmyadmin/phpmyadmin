@@ -20,7 +20,7 @@
 {% endif %}
 
 <form method="post" id="login_form" action="index.php?route=/" name="login_form" class="
-  {{- not is_session_expired ? 'disableAjax hide ' }}login js-show form-horizontal"{{ not has_autocomplete ? ' autocomplete="off"' }}>
+  {{- not is_session_expired ? 'disableAjax hide ' }}login js-show form-horizontal"{{ not has_autocomplete ? ' autocomplete="on"' }}>
   <fieldset>
     <legend class="col-form-label">
       <input type="hidden" name="set_session" value="{{ session_id }}">
@@ -46,7 +46,7 @@
         {% trans 'Username:' %}
       </label>
       <div class="col-8">
-        <input type="text" name="pma_username" id="input_username" value="{{ default_user }}" size="24" class="textfield form-control">
+        <input type="text" name="pma_username" id="input_username" value="{{ default_user }}" size="24" class="textfield form-control" autocomplete="on">
       </div>
     </div>
 
@@ -55,7 +55,7 @@
         {% trans 'Password:' %}
       </label>
       <div class="col-8">
-        <input type="password" name="pma_password" id="input_password" value="" size="24" class="textfield form-control">
+        <input type="password" name="pma_password" id="input_password" value="" size="24" class="textfield form-control" autocomplete="on">
       </div>
     </div>
 
