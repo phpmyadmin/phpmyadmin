@@ -28,7 +28,7 @@ class VariablesController extends AbstractController
 
         $header = $this->response->getHeader();
         $scripts = $header->getScripts();
-        $scripts->addFile('server/status/variables.js');
+        $scripts->addFile('dist/server/status/variables.js');
         $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
         $scripts->addFile('server/status/sorter.js');
 

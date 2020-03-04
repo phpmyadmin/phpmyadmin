@@ -8,6 +8,7 @@ module.exports = {
         'server/privileges': './js/src/server/privileges.js',
         'server/status/advisor': './js/src/server/status/advisor.js',
         'server/status/processes': './js/src/server/status/processes.js',
+        'server/status/variables': './js/src/server/status/variables.js',
         'server/user_groups': './js/src/server/user_groups.js',
         'server/variables': './js/src/server/variables.js',
     },

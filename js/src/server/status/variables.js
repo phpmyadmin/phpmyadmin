@@ -1,8 +1,5 @@
-/**
- *
- *
- * @package PhpMyAdmin
- */
+import $ from 'jquery';
+import AJAX from 'ajax';
 
 /**
  * Unbind all event handlers before tearing down a page
