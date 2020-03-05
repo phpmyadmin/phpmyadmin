@@ -10,20 +10,20 @@ return function (ContainerConfigurator $configurator) {
         foreach ($servicesFile['services'] as $serviceName => $service) {
             if (is_string($service)) {
                 $services->alias($serviceName, $service);
-            } else {
-                $theService = $services->set($serviceName, $service['class']);
-                if ($service['arguments'] !== null) {
-                    foreach ($service['arguments'] as &$argumentName) {
-                        if ($argumentName[0] === '@') {
-                            $services->alias($serviceName, substr($argumentName, 1));
-                            $argumentName = new Reference(substr($argumentName, 1));
-                        }
+                continue;
+            }
+            $theService = $services->set($serviceName, $service['class']);
+            if ($service['arguments'] !== null) {
+                foreach ($service['arguments'] as &$argumentName) {
+                    if ($argumentName[0] === '@') {
+                        $services->alias($serviceName, substr($argumentName, 1));
+                        $argumentName = new Reference(substr($argumentName, 1));
                     }
-                    $theService->args($service['arguments']);
                 }
-                if ($service['factory'] !== null) {
-                    $theService->factory($service['factory']);
-                }
+                $theService->args($service['arguments']);
+            }
+            if ($service['factory'] !== null) {
+                $theService->factory($service['factory']);
             }
         }
     };
