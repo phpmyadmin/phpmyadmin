@@ -25,6 +25,8 @@ phpMyAdmin - ChangeLog
 - issue #15582 Don't disable "Empty" table button after clicking it
 - issue #15662 Stay on the structure page after editing/adding/dropping indexes
 - issue #15663 show structure after adding a column
+- issue #16005 Remove symfony/yaml dependency
+- issue #16005 Improve performance of dependency injection system by removing yaml parsing
 
 5.0.2 (not yet released)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page
