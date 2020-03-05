@@ -48,7 +48,7 @@ use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Util;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
+use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
 
 global $containerBuilder, $error_handler, $PMA_Config, $server, $dbi, $lang, $cfg, $isConfigLoading, $auth_plugin;
 
@@ -96,9 +96,8 @@ if (! @is_readable(AUTOLOAD_FILE)) {
 require_once AUTOLOAD_FILE;
 
 $containerBuilder = new ContainerBuilder();
-$loader = new YamlFileLoader($containerBuilder, new FileLocator(__DIR__));
-$loader->load('services.yml');
-$loader->load('services_controllers.yml');
+$loader = new PhpFileLoader($containerBuilder, new FileLocator(__DIR__));
+$loader->load('services_loader.php');
 /** @var Migration $diMigration */
 $diMigration = $containerBuilder->get('di_migration');
 

@@ -23,7 +23,7 @@ define('PMA_MINIMUM_COMMON', true);
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-// Load database service because services.yaml is not available here
+// Load database service because services.php is not available here
 $containerBuilder->set(DatabaseInterface::class, DatabaseInterface::load());
 
 // Only output the http headers
