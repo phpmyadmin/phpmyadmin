@@ -21,6 +21,5 @@
 
     <logging>
         <log type="junit" target="build/logs/junit.xml" />
-        <log type="json" target="build/logs/phpunit.json" />
     </logging>
 </phpunit>
