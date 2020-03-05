@@ -38,6 +38,14 @@ if (!$GLOBALS['dbi']->getColumns($db, $table)) {
     PhpMyAdmin\Util::mysqlDie(__('Invalid table name'));
 }
 
+if (! isset($_GET['where_clause'])
+    || ! isset($_GET['where_clause_sign'])
+    || ! Core::checkSqlQuerySignature($_GET['where_clause'], $_GET['where_clause_sign'])
+) {
+    Core::fatalError(__('There is an issue with your request.'));
+    exit;
+}
+
 /* Grab data */
 $sql = 'SELECT ' . PhpMyAdmin\Util::backquote($_GET['transform_key'])
     . ' FROM ' . PhpMyAdmin\Util::backquote($table)
