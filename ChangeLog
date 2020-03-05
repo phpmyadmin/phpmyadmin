@@ -32,7 +32,7 @@ phpMyAdmin - ChangeLog
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page
 - issue #15767 Fixed can not copy user account since 5.0 - "error #1133"
 - issue #15772 Fixed error code 500 during pagination of the tables in a database
-- issue        Fix php error "Trying to access array offset on value of type null" on column distinct values feature
+- issue #16009 Fix php error "Trying to access array offset on value of type null" on column distinct values feature
 - issue #15741 Fix fatal javascript error on clicking "Pick from Central Columns"
 - issue #15773 Fixed a view named "views" adds an expand button
 - issue #15432 Fixed names of the pages in the designer should be unique
@@ -83,6 +83,7 @@ phpMyAdmin - ChangeLog
 - issue #15282 Fixed MySQL 8.0 password syntax error when creating a replication user
 - issue #15986 Fixed php fatal error "Uncaught TypeError: array_flip() expects parameter 1 to be array, null given"
 - issue        Fixed php fatal error "Uncaught TypeError: htmlspecialchars() expects parameter 1 to be string, int given"
+- issue        Support phpunit 9.0
 
 5.0.1 (2020-01-07)
 - issue #15719 Fixed error 500 when browsing a table when $cfg['LimitChars'] used a string and not an int value
