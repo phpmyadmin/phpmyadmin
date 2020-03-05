@@ -5,7 +5,7 @@ phpMyAdmin - ChangeLog
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page
 - issue #15767 Fixed can not copy user account since 5.0 - "error #1133"
 - issue #15772 Fixed error code 500 during pagination of the tables in a database
-- issue        Fix php error "Trying to access array offset on value of type null" on column distinct values feature
+- issue #16009 Fix php error "Trying to access array offset on value of type null" on column distinct values feature
 - issue #15741 Fix fatal javascript error on clicking "Pick from Central Columns"
 - issue #15773 Fixed a view named "views" adds an expand button
 - issue #15432 Fixed names of the pages in the designer should be unique
