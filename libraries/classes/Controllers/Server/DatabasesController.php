@@ -394,6 +394,7 @@ class DatabasesController extends AbstractController
                     $database['SCHEMA_NAME'],
                     true
                 ),
+                'is_pmadb' => $database['SCHEMA_NAME'] === $cfg['Server']['pmadb'],
                 'url' => $url,
             ];
             $collation = Charsets::findCollationByName(
