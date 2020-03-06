@@ -28,8 +28,8 @@ return function (ContainerConfigurator $configurator) {
         }
     };
 
-    $servicesFile = include __DIR__ . '/services.php';
+    $servicesFile = include ROOT_PATH . 'libraries/services.php';
     $loadServices($servicesFile, $services);
-    $servicesFile = include __DIR__ . '/services_controllers.php';
+    $servicesFile = include ROOT_PATH . 'libraries/services_controllers.php';
     $loadServices($servicesFile, $services);
 };
