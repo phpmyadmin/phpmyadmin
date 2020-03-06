@@ -84,6 +84,7 @@ phpMyAdmin - ChangeLog
 - issue #15986 Fixed php fatal error "Uncaught TypeError: array_flip() expects parameter 1 to be array, null given"
 - issue        Fixed php fatal error "Uncaught TypeError: htmlspecialchars() expects parameter 1 to be string, int given"
 - issue        Support phpunit 9.0
+- issue        Fix error in NavigationTree where $key might be sent as an int instead of a str to urlencode
 
 5.0.1 (2020-01-07)
 - issue #15719 Fixed error 500 when browsing a table when $cfg['LimitChars'] used a string and not an int value
