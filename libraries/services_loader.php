@@ -12,8 +12,8 @@ return function (ContainerConfigurator $configurator) {
                 $services->alias($serviceName, $service);
                 continue;
             }
-            $theService = $services->set($serviceName, $service['class']);
-            if ($service['arguments'] !== null) {
+            $theService = $services->set($serviceName, $service['class'] ?? null);
+            if (isset($service['arguments']) && $service['arguments'] !== null) {
                 foreach ($service['arguments'] as &$argumentName) {
                     if ($argumentName[0] === '@') {
                         $services->alias($serviceName, substr($argumentName, 1));
@@ -22,7 +22,7 @@ return function (ContainerConfigurator $configurator) {
                 }
                 $theService->args($service['arguments']);
             }
-            if ($service['factory'] !== null) {
+            if (isset($service['factory']) && $service['factory'] !== null) {
                 $theService->factory($service['factory']);
             }
         }
