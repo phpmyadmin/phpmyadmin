@@ -109,4 +109,20 @@ class UrlTest extends TestCase
         $expected = '?server=x' . htmlentities($separator) . 'lang=en';
         $this->assertEquals($expected, Url::getCommon());
     }
+
+    /**
+     * Test for Url::getFromRoute
+     *
+     * @return void
+     */
+    public function testGetFromRoute(): void
+    {
+        $generatedUrl = Url::getFromRoute('/test', [
+            'db' => '%3\$s',
+            'table' => '%2\$s',
+            'field' => '%1\$s',
+            'change_column' => 1,
+        ]);
+        $this->assertEquals('index.php?route=/test&amp;db=%253%5C%24s&amp;table=%252%5C%24s&amp;field=%251%5C%24s&amp;change_column=1&amp;lang=en', $generatedUrl);
+    }
 }
