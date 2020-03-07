@@ -283,7 +283,7 @@ return [
         [
             'class' => PhpMyAdmin\UserPreferences::class,
         ],
-        PhpMyAdmin\Response::class => '@response',
-        PhpMyAdmin\DatabaseInterface::class => '@dbi',
+        PhpMyAdmin\Response::class => 'response',
+        PhpMyAdmin\DatabaseInterface::class => 'dbi',
     ],
 ];
