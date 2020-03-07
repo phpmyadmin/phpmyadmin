@@ -257,29 +257,41 @@ class DatabasesController extends AbstractController
             || (! $this->dbi->isSuperuser() && ! $cfg['AllowUserDropDatabase'])
         ) {
             $message = Message::error();
-        } elseif (! isset($params['selected_dbs'])) {
+            $json = ['message' => $message];
+            $this->response->setRequestStatus($message->isSuccess());
+            $this->response->addJSON($json);
+
+            return;
+        }
+
+        if (! isset($params['selected_dbs'])) {
             $message = Message::error(__('No databases selected.'));
-        } else {
-            // for mult_submits.inc.php
-            $action = Url::getFromRoute('/server/databases');
-            $err_url = $action;
+            $json = ['message' => $message];
+            $this->response->setRequestStatus($message->isSuccess());
+            $this->response->addJSON($json);
 
-            $submit_mult = 'drop_db';
-            $mult_btn = __('Yes');
+            return;
+        }
 
-            include ROOT_PATH . 'libraries/mult_submits.inc.php';
+        // for mult_submits.inc.php
+        $action = Url::getFromRoute('/server/databases');
+        $err_url = $action;
 
-            if (empty($message)) { // no error message
-                $numberOfDatabases = count($selected);
-                $message = Message::success(
-                    _ngettext(
-                        '%1$d database has been dropped successfully.',
-                        '%1$d databases have been dropped successfully.',
-                        $numberOfDatabases
-                    )
-                );
-                $message->addParam($numberOfDatabases);
-            }
+        $submit_mult = 'drop_db';
+        $mult_btn = __('Yes');
+
+        include ROOT_PATH . 'libraries/mult_submits.inc.php';
+
+        if (empty($message)) { // no error message
+            $numberOfDatabases = count($selected);
+            $message = Message::success(
+                _ngettext(
+                    '%1$d database has been dropped successfully.',
+                    '%1$d databases have been dropped successfully.',
+                    $numberOfDatabases
+                )
+            );
+            $message->addParam($numberOfDatabases);
         }
 
         $json = [];
