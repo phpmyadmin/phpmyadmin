@@ -30,7 +30,7 @@ return [
         ],
         'central_columns' =>
         [
-            'class' => \PhpMyAdmin\CentralColumns::class,
+            'class' => PhpMyAdmin\CentralColumns::class,
             'arguments' =>
             [
                 '@dbi',
@@ -38,7 +38,7 @@ return [
         ],
         'check_user_privileges' =>
         [
-            'class' => \PhpMyAdmin\CheckUserPrivileges::class,
+            'class' => PhpMyAdmin\CheckUserPrivileges::class,
             'arguments' =>
             [
                 '@dbi',
@@ -119,7 +119,7 @@ return [
         ],
         'di_migration' =>
         [
-            'factory' => 'PhpMyAdmin\Di\Migration::getInstance',
+            'factory' => [PhpMyAdmin\Di\Migration::class, 'getInstance'],
             'arguments' =>
             [
                 '@service_container',
@@ -127,7 +127,7 @@ return [
         ],
         'mult_submits' =>
         [
-            'class' => \PhpMyAdmin\MultSubmits::class,
+            'class' => PhpMyAdmin\MultSubmits::class,
             'arguments' =>
                 [
                     'dbi' => '@dbi',
@@ -200,7 +200,7 @@ return [
         ],
         'response' =>
         [
-            'factory' => 'PhpMyAdmin\Response::getInstance',
+            'factory' => [PhpMyAdmin\Response::class, 'getInstance'],
         ],
         'server_plugins' =>
         [
