@@ -4796,16 +4796,6 @@ parameters:
 			path: libraries/common.inc.php
 
 		-
-			message: "#^Parameter \\#9 \\$originalUrlQuery of method PhpMyAdmin\\\\MultSubmits\\:\\:getUrlParams\\(\\) expects string, null given\\.$#"
-			count: 2
-			path: libraries/mult_submits.inc.php
-
-		-
-			message: "#^Parameter \\#6 \\$primary of method PhpMyAdmin\\\\MultSubmits\\:\\:buildOrExecuteQuery\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/mult_submits.inc.php
-
-		-
 			message: "#^Parameter \\#3 \\$subject of function preg_replace expects array\\|string, string\\|null given\\.$#"
 			count: 1
 			path: setup/index.php
@@ -5084,11 +5074,6 @@ parameters:
 			message: "#^Cannot call method getNativeName\\(\\) on PhpMyAdmin\\\\Language\\|false\\.$#"
 			count: 1
 			path: test/classes/LanguageTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\MultSubmitsTest\\:\\:\\$multSubmits has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/MultSubmitsTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"

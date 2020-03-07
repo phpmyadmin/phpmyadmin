@@ -17,6 +17,7 @@ use PHPUnit\Framework\TestCase;
  */
 class MultSubmitsTest extends TestCase
 {
+    /** @var MultSubmits */
     private $multSubmits;
 
     /**
