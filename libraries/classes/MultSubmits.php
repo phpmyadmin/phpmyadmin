@@ -22,6 +22,9 @@ use function preg_replace;
  */
 class MultSubmits
 {
+    /** @var DatabaseInterface */
+    private $dbi;
+
     /** @var Transformations */
     private $transformations;
 
@@ -34,13 +37,25 @@ class MultSubmits
     /** @var Template */
     private $template;
 
-    public function __construct()
-    {
-        $this->transformations = new Transformations();
-        $relation = new Relation($GLOBALS['dbi']);
-        $this->relationCleanup = new RelationCleanup($GLOBALS['dbi'], $relation);
-        $this->operations = new Operations($GLOBALS['dbi'], $relation);
-        $this->template = new Template();
+    /**
+     * @param DatabaseInterface $dbi             DatabaseInterface instance.
+     * @param Template          $template        Template instance.
+     * @param Transformations   $transformations Transformations instance.
+     * @param RelationCleanup   $relationCleanup RelationCleanup instance.
+     * @param Operations        $operations      Operations instance.
+     */
+    public function __construct(
+        $dbi,
+        Template $template,
+        Transformations $transformations,
+        RelationCleanup $relationCleanup,
+        Operations $operations
+    ) {
+        $this->dbi = $dbi;
+        $this->template = $template;
+        $this->transformations = $transformations;
+        $this->relationCleanup = $relationCleanup;
+        $this->operations = $operations;
     }
 
     /**
@@ -353,9 +368,9 @@ class MultSubmits
             if ($runParts && ! $copyTable) {
                 $sqlQuery .= $aQuery . ';' . "\n";
                 if ($queryType != 'drop_db') {
-                    $GLOBALS['dbi']->selectDb($db);
+                    $this->dbi->selectDb($db);
                 }
-                $result = $GLOBALS['dbi']->query($aQuery);
+                $result = $this->dbi->query($aQuery);
 
                 if ($queryType == 'drop_db') {
                     $this->transformations->clear($selected[$i]);

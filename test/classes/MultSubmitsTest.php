@@ -7,6 +7,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\MultSubmits;
+use PhpMyAdmin\Operations;
+use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationCleanup;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
 
@@ -65,7 +70,14 @@ class MultSubmitsTest extends TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $this->multSubmits = new MultSubmits();
+        $relation = new Relation($GLOBALS['dbi']);
+        $this->multSubmits = new MultSubmits(
+            $GLOBALS['dbi'],
+            new Template(),
+            new Transformations(),
+            new RelationCleanup($GLOBALS['dbi'], $relation),
+            new Operations($GLOBALS['dbi'], $relation)
+        );
     }
 
     /**

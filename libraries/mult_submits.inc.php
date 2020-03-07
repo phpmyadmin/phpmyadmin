@@ -40,9 +40,14 @@ $table_type = $_POST['table_type'] ?? $table_type ?? null;
 $to_prefix = $_POST['to_prefix'] ?? $to_prefix ?? null;
 $url_query = $_POST['url_query'] ?? $url_query ?? null;
 
-$response = Response::getInstance();
-$multSubmits = new MultSubmits();
-$template = new Template();
+/** @var Response $response */
+$response = $containerBuilder->get('response');
+
+/** @var Template $template */
+$template = $containerBuilder->get('template');
+
+/** @var MultSubmits $multSubmits */
+$multSubmits = $containerBuilder->get('mult_submits');
 
 $action = $action ?? '';
 
