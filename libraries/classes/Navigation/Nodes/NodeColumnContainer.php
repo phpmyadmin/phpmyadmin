@@ -25,14 +25,10 @@ class NodeColumnContainer extends Node
         $this->links = [
             'text' => Url::getFromRoute('/table/structure', [
                 'server' => $GLOBALS['server'],
-                'db' => '%2\$s',
-                'table' => '%1\$s',
-            ]),
+            ]) . '&amp;db=%2$s&amp;table=%1$s',
             'icon' => Url::getFromRoute('/table/structure', [
                 'server' => $GLOBALS['server'],
-                'db' => '%2\$s',
-                'table' => '%1\$s',
-            ]),
+            ]) . '&amp;db=%2$s&amp;table=%1$s',
         ];
         $this->realName = 'columns';
 

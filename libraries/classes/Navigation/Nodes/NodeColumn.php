@@ -33,18 +33,12 @@ class NodeColumn extends Node
         $this->links = [
             'text' => Url::getFromRoute('/table/structure', [
                 'server' => $GLOBALS['server'],
-                'db' => '%3\$s',
-                'table' => '%2\$s',
-                'field' => '%1\$s',
                 'change_column' => 1,
-            ]),
+            ]) . '&amp;db=%3$s&amp;table=%2$s&amp;field=%1$s',
             'icon' => Url::getFromRoute('/table/structure', [
                 'server' => $GLOBALS['server'],
-                'db' => '%3\$s',
-                'table' => '%2\$s',
-                'field' => '%1\$s',
                 'change_column' => 1,
-            ]),
+            ]) . '&amp;db=%3$s&amp;table=%2$s&amp;field=%1$s',
             'title' => __('Structure'),
         ];
     }
