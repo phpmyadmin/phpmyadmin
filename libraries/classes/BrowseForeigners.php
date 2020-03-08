@@ -238,7 +238,7 @@ class BrowseForeigners
         $keys   = [];
         foreach ($foreignData['disp_row'] as $relrow) {
             if ($foreignData['foreign_display'] != false) {
-                $descriptions[] = $relrow[$foreignData['foreign_display']];
+                $descriptions[] = $relrow[$foreignData['foreign_display']] ?? '';
             } else {
                 $descriptions[] = '';
             }
