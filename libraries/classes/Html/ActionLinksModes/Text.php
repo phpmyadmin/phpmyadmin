@@ -32,8 +32,8 @@ class Text implements ActionLinksModesInterface
         if (empty($value)) {
             $value = $text;
         }
-        return ' <input class="btn btn-link" type="submit" name="' . $name . '"'
+        return ' <button class="btn btn-link ' . $class . '" type="submit" name="' . $name . '"'
             . ' value="' . htmlspecialchars($value) . '"'
-            . ' title="' . htmlspecialchars($text) . '">' . "\n";
+            . ' title="' . htmlspecialchars($text) . '">' . htmlspecialchars($text) . '</button>' . "\n";
     }
 }
