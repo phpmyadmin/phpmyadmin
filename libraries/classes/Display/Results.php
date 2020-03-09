@@ -5156,7 +5156,7 @@ class Results
      * @param stdClass $meta             the meta-information about the field
      * @param string   $where_comparison data for the where clause
      *
-     * @return string  formatted data
+     * @return string|null  formatted data
      *
      * @access private
      */
@@ -5334,7 +5334,7 @@ class Results
                     ) {
                         // user chose "relational display field" in the
                         // display options, so show display field in the cell
-                        $displayedData = $default_function($dispval);
+                        $displayedData = $dispval === null ? '<em>NULL</em>' : $default_function($dispval);
                     } else {
                         // otherwise display data in the cell
                         $displayedData = $default_function($displayedData);
