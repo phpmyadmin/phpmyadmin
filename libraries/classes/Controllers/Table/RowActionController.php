@@ -16,7 +16,7 @@ class RowActionController extends AbstractController
     {
         global $containerBuilder, $db, $goto, $pmaThemeImage, $sql_query, $table;
         global $submit_mult, $active_page, $err_url, $original_sql_query, $url_query, $original_url_query;
-        global $disp_message, $disp_query, $single_table, $where_clause, $action;
+        global $disp_message, $disp_query, $where_clause, $action;
 
         if (isset($_POST['submit_mult'])) {
             $submit_mult = $_POST['submit_mult'];
@@ -25,8 +25,12 @@ class RowActionController extends AbstractController
             $submit_mult = 'row_delete';
         } elseif (isset($_POST['submit_mult_change_x'])) {
             $submit_mult = 'row_edit';
-        } elseif (isset($_POST['submit_mult_export_x'])) {
-            $submit_mult = 'row_export';
+        }
+
+        if (isset($_POST['submit_mult_export_x']) || $submit_mult === 'row_export' || $submit_mult === 'export') {
+            $this->export();
+
+            return;
         }
 
         // If the 'Ask for confirmation' button was pressed, this can only come
@@ -43,12 +47,7 @@ class RowActionController extends AbstractController
             case 'row_delete':
             case 'row_edit':
             case 'row_copy':
-            case 'row_export':
                 // leave as is
-                break;
-
-            case 'export':
-                $submit_mult = 'row_export';
                 break;
 
             case 'delete':
@@ -95,28 +94,6 @@ class RowActionController extends AbstractController
                     $active_page = Url::getFromRoute('/table/change');
                     /** @var ChangeController $controller */
                     $controller = $containerBuilder->get(ChangeController::class);
-                    $controller->index();
-                    break;
-
-                case 'row_export':
-                    // Needed to allow SQL export
-                    $single_table = true;
-
-                    // As we got the rows to be exported from the
-                    // 'rows_to_delete' checkbox, we use the index of it as the
-                    // indicating WHERE clause. Then we build the array which is used
-                    // for the /table/change script.
-                    $where_clause = [];
-                    if (isset($_POST['rows_to_delete'])
-                        && is_array($_POST['rows_to_delete'])
-                    ) {
-                        foreach ($_POST['rows_to_delete'] as $i => $i_where_clause) {
-                            $where_clause[] = $i_where_clause;
-                        }
-                    }
-                    $active_page = Url::getFromRoute('/table/export');
-                    /** @var ExportController $controller */
-                    $controller = $containerBuilder->get(ExportController::class);
                     $controller->index();
                     break;
 
@@ -178,5 +155,37 @@ class RowActionController extends AbstractController
                     );
             }
         }
+    }
+
+    private function export(): void
+    {
+        global $containerBuilder, $submit_mult, $active_page, $single_table, $where_clause;
+
+        $submit_mult = 'row_export';
+
+        if (isset($_POST['goto']) && (! isset($_POST['rows_to_delete']) || ! is_array($_POST['rows_to_delete']))) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No row selected.'));
+        }
+
+        // Needed to allow SQL export
+        $single_table = true;
+
+        // As we got the rows to be exported from the
+        // 'rows_to_delete' checkbox, we use the index of it as the
+        // indicating WHERE clause. Then we build the array which is used
+        // for the /table/change script.
+        $where_clause = [];
+        if (isset($_POST['rows_to_delete']) && is_array($_POST['rows_to_delete'])) {
+            foreach ($_POST['rows_to_delete'] as $i => $i_where_clause) {
+                $where_clause[] = $i_where_clause;
+            }
+        }
+
+        $active_page = Url::getFromRoute('/table/export');
+
+        /** @var ExportController $controller */
+        $controller = $containerBuilder->get(ExportController::class);
+        $controller->index();
     }
 }
