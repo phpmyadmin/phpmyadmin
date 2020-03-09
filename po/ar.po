@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:37-0300\n"
-"PO-Revision-Date: 2020-03-05 05:32+0000\n"
+"PO-Revision-Date: 2020-03-10 22:33+0000\n"
 "Last-Translator: yagoub fadel <yagoub76@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/5-0/ar/"
 ">\n"
@@ -420,6 +420,11 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
+"من خلال هذه العملية ، يحاول MySQL تعيين قيم البيانات بين عمليات الترتيب. إذا "
+"كانت مجموعات الأحرف غير متوافقة ، فقد يكون هناك فقد للبيانات وقد تكون هذه "
+"البيانات المفقودة <b> غيرا </ b> قابلة للاسترداد بمجرد تغيير ترتيب (نسخ) "
+"العمود مرة أخرى. <b> لتحويل البيانات الحالية ، يُقترح استخدام ميزة تعديل "
+"الأعمدة (الرابط \"تغيير\") في صفحة بنية الجدول. </b>"
 
 #: js/messages.php:112
 msgid ""
@@ -1448,13 +1453,15 @@ msgstr "استعرض القيم الغريبة"
 
 #: js/messages.php:434
 msgid "No previously auto-saved query is available. Loading default query."
-msgstr ""
+msgstr "لا يوجد استعلام تم حفظه مسبقًا تلقائيًا. تحميل الاستعلام الافتراضي."
 
 #: js/messages.php:435
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
+"لديك استعلام محفوظ مسبقًا. انقر فوق الحصول على استعلام محفوظ تلقائيًا لتحميل "
+"الاستعلام."
 
 #: js/messages.php:436
 #, php-format
@@ -1847,7 +1854,7 @@ msgstr ""
 
 #: js/messages.php:573
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "القيمة / استعلام فرعي فارغ"
 
 #: js/messages.php:574 templates/database/designer/main.twig:42
 #: templates/database/designer/main.twig:45
@@ -2197,13 +2204,11 @@ msgstr "نفذت %s من طلبات البحث%s  من المرات في %s من
 #: js/messages.php:743
 #, php-format
 msgid "%s argument(s) passed"
-msgstr ""
+msgstr "تم تمرير وسيطة ٪ s"
 
 #: js/messages.php:744
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show arguments"
-msgstr "تعليقات الجدول"
+msgstr "إظهار الحجج"
 
 #: js/messages.php:745
 #, fuzzy
