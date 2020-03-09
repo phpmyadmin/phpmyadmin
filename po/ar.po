@@ -4,9 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2019-05-06 11:48+0000\n"
-"Last-Translator: Ahmed M. Farrag <a.m.farrag@gmail.com>\n"
-"Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/4-8/ar/"
+"PO-Revision-Date: 2020-03-10 22:32+0000\n"
+"Last-Translator: yagoub fadel <yagoub76@gmail.com>\n"
+"Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/4-9/ar/"
 ">\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 3.7-dev\n"
+"X-Generator: Weblate 4.0-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -1001,6 +1001,11 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
+"من خلال هذه العملية ، يحاول MySQL تعيين قيم البيانات بين عمليات الترتيب. إذا "
+"كانت مجموعات الأحرف غير متوافقة ، فقد يكون هناك فقد للبيانات وقد تكون هذه "
+"البيانات المفقودة <b> غيرا </ b> قابلة للاسترداد بمجرد تغيير ترتيب (نسخ) "
+"العمود مرة أخرى. <b> لتحويل البيانات الحالية ، يُقترح استخدام ميزة تعديل "
+"الأعمدة (الرابط \"تغيير\") في صفحة بنية الجدول. </b>"
 
 #: js/messages.php:108
 msgid ""
@@ -2276,7 +2281,7 @@ msgstr ""
 
 #: js/messages.php:564
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "القيمة / استعلام فرعي فارغ"
 
 #: js/messages.php:565 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
@@ -2612,13 +2617,11 @@ msgstr "نفذت %s من طلبات البحث%s  من المرات في %s من
 #: js/messages.php:732
 #, php-format
 msgid "%s argument(s) passed"
-msgstr ""
+msgstr "تم تمرير وسيطة ٪ s"
 
 #: js/messages.php:733
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show arguments"
-msgstr "تعليقات الجدول"
+msgstr "إظهار الحجج"
 
 #: js/messages.php:734
 #, fuzzy
