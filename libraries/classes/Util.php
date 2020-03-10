@@ -418,7 +418,7 @@ class Util
      *
      * @access public
      */
-    public static function backquote($a_name, ?bool $do_it = true)
+    public static function backquote($a_name, $do_it = true)
     {
         return static::backquoteCompat($a_name, 'NONE', $do_it);
     } // end of the 'backquote()' function
@@ -447,7 +447,7 @@ class Util
     public static function backquoteCompat(
         $a_name,
         string $compatibility = 'MSSQL',
-        ?bool $do_it = true
+        $do_it = true
     ) {
         if (is_array($a_name)) {
             foreach ($a_name as &$data) {
