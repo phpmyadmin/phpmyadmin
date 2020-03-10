@@ -28,6 +28,7 @@ phpMyAdmin - ChangeLog
 - issue #16005 Remove symfony/yaml dependency
 - issue #16005 Improve performance of dependency injection system by removing yaml parsing
 - issue #15447 Disable phpMyAdmin storage database checkbox on databases list
+- issue #16001 Add autocomplete attributes on login form
 
 5.0.2 (not yet released)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page
