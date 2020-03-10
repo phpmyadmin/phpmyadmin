@@ -6,7 +6,7 @@
       <fieldset>
         <legend>
           {{ get_icon('b_usrcheck') }}
-          {{ 'Users having access to "%s"'|trans|format('<a href="' ~ database_url ~ get_common({'db': db}, '&') ~ '">' ~ db ~ '</a>')|raw }}
+          {{ 'Users having access to "%s"'|trans|format('<a href="' ~ database_url ~ get_common({'db': db}, '&') ~ '">' ~ db|escape('html') ~ '</a>')|raw }}
         </legend>
 
         <div class="responsivetable jsresponsive">
