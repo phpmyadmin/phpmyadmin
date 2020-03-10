@@ -220,7 +220,8 @@ class Header
         $pftext = $_SESSION['tmpval']['pftext'] ?? '';
 
         $params = [
-            'common_query' => Url::getCommonRaw(),
+            // Do not add any separator, JS code will decide
+            'common_query' => Url::getCommonRaw([], ''),
             'opendb_url' => Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'],
                 'database'
