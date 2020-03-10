@@ -29,6 +29,7 @@ phpMyAdmin - ChangeLog
 - issue #16005 Improve performance of dependency injection system by removing yaml parsing
 - issue #15447 Disable phpMyAdmin storage database checkbox on databases list
 - issue #16001 Add autocomplete attributes on login form
+- issue #13519 Add "Preview SQL" option on Index dialog box when creating a new table
 
 5.0.2 (not yet released)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page
