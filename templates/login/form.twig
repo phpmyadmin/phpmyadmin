@@ -46,7 +46,7 @@
         {% trans 'Username:' %}
       </label>
       <div class="col-8">
-        <input type="text" name="pma_username" id="input_username" value="{{ default_user }}" size="24" class="textfield form-control">
+        <input type="text" name="pma_username" id="input_username" value="{{ default_user }}" size="24" class="textfield form-control" autocomplete="username">
       </div>
     </div>
 
@@ -55,7 +55,7 @@
         {% trans 'Password:' %}
       </label>
       <div class="col-8">
-        <input type="password" name="pma_password" id="input_password" value="" size="24" class="textfield form-control">
+        <input type="password" name="pma_password" id="input_password" value="" size="24" class="textfield form-control" autocomplete="current-password">
       </div>
     </div>
 
