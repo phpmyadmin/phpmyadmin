@@ -622,6 +622,11 @@ table tr {
     border-bottom: none;
   }
 
+  // only one item
+  &:only-child {
+    background: none;
+  }
+
   th {
     text-align: $left;
     border-bottom: 1px solid #eee;

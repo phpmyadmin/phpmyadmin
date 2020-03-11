@@ -573,6 +573,11 @@ table tbody:first-of-type tr:nth-child(even) th,
   background: #dfdfdf;
 }
 
+// only one item
+table tbody:first-of-type tr:only-child {
+  background: none;
+}
+
 table tr {
   text-align: $left;
 
