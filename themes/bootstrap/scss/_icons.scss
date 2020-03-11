@@ -16,11 +16,11 @@
 }
 
 .ic_b_bookmark {
-  background-image: url('../img/b_bookmark.png');
+  background-image: url('../img/bookmark-plus.svg');
 }
 
 .ic_b_browse {
-  background-image: url('../img/b_browse.png');
+  background-image: url('../img/table-browse.svg');
 }
 
 .ic_b_calendar {
@@ -36,11 +36,11 @@
 }
 
 .ic_b_column_add {
-  background-image: url('../img/b_column_add.png');
+  background-image: url('../img/col-plus.svg');
 }
 
 .ic_b_comment {
-  background-image: url('../img/b_comment.png');
+  background-image: url('../img/comment.svg');
 }
 
 .ic_b_dbstatistics {
@@ -48,7 +48,7 @@
 }
 
 .ic_b_deltbl {
-  background-image: url('../img/b_deltbl.png');
+  background-image: url('../img/table-minus.svg');
 }
 
 .ic_b_docs {
@@ -60,11 +60,11 @@
 }
 
 .ic_b_drop {
-  background-image: url('../img/b_drop.png');
+  background-image: url('../img/minus.svg');
 }
 
 .ic_b_edit {
-  background-image: url('../img/b_edit.png');
+  background-image: url('../img/edit.svg');
 }
 
 .ic_b_empty {
@@ -76,14 +76,15 @@
 }
 
 .ic_b_event_add {
-  background-image: url('../img/b_event_add.png');
+  background-image: url('../img/event-plus.svg');
 }
 
 .ic_b_events {
-  background-image: url('../img/b_events.png');
+  background-image: url('../img/event.svg');
 }
 
-.ic_b_export {
+.ic_b_export,
+.ic_b_tblexport {
   background-image: url('../img/export.svg');
 }
 
@@ -92,7 +93,7 @@
 }
 
 .ic_b_find_replace {
-  background-image: url('../img/b_find_replace.png');
+  background-image: url('../img/search-replace.svg');
 }
 
 .ic_b_firstpage {
@@ -100,15 +101,15 @@
 }
 
 .ic_b_ftext {
-  background-image: url('../img/b_ftext.png');
+  background-image: url('../img/field-index-text.svg');
 }
 
 .ic_b_globe {
-  background-image: url('../img/b_globe.gif');
+  background-image: url('../img/globe-alt.svg');
 }
 
 .ic_b_group {
-  background-image: url('../img/b_group.png');
+  background-image: url('../img/databases.svg');
 }
 
 .ic_b_help {
@@ -119,16 +120,17 @@
   background-image: url('../img/home.svg');
 }
 
-.ic_b_import {
+.ic_b_import,
+.ic_b_tblimport {
   background-image: url('../img/import.svg');
 }
 
 .ic_b_index {
-  background-image: url('../img/b_index.png');
+  background-image: url('../img/field-index.svg');
 }
 
 .ic_b_index_add {
-  background-image: url('../img/b_index_add.png');
+  background-image: url('../img/index-plus.svg');
 }
 
 .ic_b_info {
@@ -142,7 +144,7 @@
 }
 
 .ic_b_insrow {
-  background-image: url('../img/b_insrow.png');
+  background-image: url('../img/row-plus.svg');
 }
 
 .ic_b_lastpage {
@@ -158,7 +160,7 @@
 }
 
 .ic_b_move {
-  background-image: url('../img/b_move.png');
+  background-image: url('../img/col-move.svg');
 }
 
 .ic_b_newdb {
@@ -194,7 +196,7 @@
 }
 
 .ic_b_primary {
-  background-image: url('../img/b_primary.png');
+  background-image: url('../img/key-primary.svg');
 }
 
 .ic_b_print {
@@ -202,7 +204,7 @@
 }
 
 .ic_b_props {
-  background-image: url('../img/b_props.png');
+  background-image: url('../img/table-engine.svg');
 }
 
 .ic_b_relations {
@@ -210,7 +212,7 @@
 }
 
 .ic_b_report {
-  background-image: url('../img/b_report.png');
+  background-image: url('../img/report.svg');
 }
 
 .ic_b_routine_add {
@@ -240,11 +242,11 @@
 }
 
 .ic_b_search {
-  background-image: url('../img/b_search.png');
+  background-image: url('../img/search.svg');
 }
 
 .ic_b_select {
-  background-image: url('../img/b_select.png');
+  background-image: url('../img/search-across.svg');
 }
 
 .ic_b_snewtbl {
@@ -252,7 +254,7 @@
 }
 
 .ic_b_spatial {
-  background-image: url('../img/b_spatial.png');
+  background-image: url('../img/field-spatial.svg');
 }
 
 .ic_b_sql {
@@ -272,15 +274,7 @@
 }
 
 .ic_b_tblanalyse {
-  background-image: url('../img/b_tblanalyse.png');
-}
-
-.ic_b_tblexport {
-  background-image: url('../img/b_tblexport.png');
-}
-
-.ic_b_tblimport {
-  background-image: url('../img/b_tblimport.png');
+  background-image: url('../img/table-analyse.svg');
 }
 
 .ic_b_tblops {
@@ -288,7 +282,7 @@
 }
 
 .ic_b_tbloptimize {
-  background-image: url('../img/b_tbloptimize.png');
+  background-image: url('../img/optimize.svg');
 }
 
 .ic_b_tipp {
@@ -296,11 +290,11 @@
 }
 
 .ic_b_trigger_add {
-  background-image: url('../img/b_trigger_add.png');
+  background-image: url('../img/flag-plus.svg');
 }
 
 .ic_b_triggers {
-  background-image: url('../img/b_triggers.png');
+  background-image: url('../img/flag.svg');
 }
 
 .ic_b_undo {
@@ -308,31 +302,28 @@
 }
 
 .ic_b_unique {
-  background-image: url('../img/b_unique.png');
+  background-image: url('../img/field-index-uinique.svg');
 }
 
 .ic_b_usradd {
-  background-image: url('../img/b_usradd.png');
-}
-
-.ic_b_usrcheck {
-  background-image: url('../img/b_usrcheck.png');
+  background-image: url('../img/user-plus.svg');
 }
 
 .ic_b_usrdrop {
-  background-image: url('../img/b_usrdrop.png');
+  background-image: url('../img/user-minus.svg');
 }
 
-.ic_b_usredit {
-  background-image: url('../img/b_usredit.png');
+.ic_b_usredit,
+.ic_b_usrcheck {
+  background-image: url('../img/user.svg');
 }
 
 .ic_b_usrlist {
-  background-image: url('../img/b_usrlist.png');
+  background-image: url('../img/users.svg');
 }
 
 .ic_b_versions {
-  background-image: url('../img/b_versions.png');
+  background-image: url('../img/version.svg');
 }
 
 .ic_b_view {
@@ -408,7 +399,7 @@
 }
 
 .ic_bd_primary {
-  background-image: url('../img/bd_primary.png');
+  background-image: url('../img/key.svg');
 }
 
 .ic_bd_routine_add {
@@ -432,15 +423,15 @@
 }
 
 .ic_centralColumns {
-  background-image: url('../img/centralColumns.png');
+  background-image: url('../img/col.svg');
 }
 
 .ic_centralColumns_add {
-  background-image: url('../img/centralColumns_add.png');
+  background-image: url('../img/col-plus.svg');
 }
 
 .ic_centralColumns_delete {
-  background-image: url('../img/centralColumns_delete.png');
+  background-image: url('../img/col-minus.svg');
 }
 
 .ic_col_drop {
@@ -457,7 +448,7 @@
 }
 
 .ic_eye {
-  background-image: url('../img/eye.png');
+  background-image: url('../img/glasses.svg');
 }
 
 .ic_eye_grey {
@@ -465,7 +456,7 @@
 }
 
 .ic_hide {
-  background-image: url('../img/hide.png');
+  background-image: url('../img/visibility-hidden.svg');
 }
 
 .ic_item {
@@ -520,7 +511,7 @@
 }
 
 .ic_normalize {
-  background-image: url('../img/normalize.png');
+  background-image: url('../img/wizard.svg');
 }
 
 .ic_pause {
@@ -532,7 +523,7 @@
 }
 
 .ic_play {
-  background-image: url('../img/play.png');
+  background-image: url('../img/triangle-right-1.svg');
 }
 
 .ic_s_asc {
@@ -564,7 +555,7 @@
 }
 
 .ic_s_error {
-  background-image: url('../img/s_error.png');
+  background-image: url('../img/error.svg');
 }
 
 .ic_s_host {
@@ -584,7 +575,7 @@
 }
 
 .ic_s_lock {
-  background-image: url('../img/s_lock.png');
+  background-image: url('../img/lock.svg');
 }
 
 .ic_s_loggoff {
@@ -592,7 +583,7 @@
 }
 
 .ic_s_notice {
-  background-image: url('../img/s_notice.png');
+  background-image: url('../img/notice.svg');
 }
 
 .ic_s_okay {
@@ -634,7 +625,7 @@
 }
 
 .ic_s_success {
-  background-image: url('../img/s_success.png');
+  background-image: url('../img/success.svg');
 }
 
 .ic_s_sync {
@@ -642,7 +633,7 @@
 }
 
 .ic_s_tbl {
-  background-image: url('../img/s_tbl.png');
+  background-image: url('../img/table.svg');
 }
 
 .ic_s_theme {
@@ -666,11 +657,11 @@
 }
 
 .ic_show {
-  background-image: url('../img/show.png');
+  background-image: url('../img/visibility.svg');
 }
 
 .ic_window-new {
-  background-image: url('../img/window-new.png');
+  background-image: url('../img/windows.svg');
 }
 
 .ic_ajax_clock_small {
