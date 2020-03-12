@@ -259,8 +259,9 @@ DesignerMove.resizeOsnTab = function () {
     var maxX = 0;
     var maxY = 0;
     for (var key in jTabs) {
-        var kX = parseInt(document.getElementById(key).style.left, 10) + document.getElementById(key).offsetWidth;
-        var kY = parseInt(document.getElementById(key).style.top, 10) + document.getElementById(key).offsetHeight;
+        var designerTable = document.getElementById('designer_table_' + key);
+        var kX = parseInt(designerTable.style.left, 10) + designerTable.offsetWidth;
+        var kY = parseInt(designerTable.style.top, 10) + designerTable.offsetHeight;
         maxX = maxX < kX ? kX : maxX;
         maxY = maxY < kY ? kY : maxY;
     }
@@ -279,107 +280,104 @@ DesignerMove.reload = function () {
     var x1;
     var x2;
     var a = [];
-    var K;
-    var key;
-    var key2;
-    var key3;
     DesignerMove.clear();
-    for (K in contr) {
-        for (key in contr[K]) {
-            // contr name
-            for (key2 in contr[K][key]) {
-                // table name
-                for (key3 in contr[K][key][key2]) {
-                    // field name
-                    if (!document.getElementById('check_vis_' + key2).checked ||
-                        !document.getElementById('check_vis_' + contr[K][key][key2][key3][0]).checked) {
-                        // if hide
-                        continue;
-                    }
-                    var x1Left  = document.getElementById(key2).offsetLeft + 1;
-                    var x1Right = x1Left + document.getElementById(key2).offsetWidth;
-                    var x2Left  = document.getElementById(contr[K][key][key2][key3][0]).offsetLeft;
-                    var x2Right = x2Left + document.getElementById(contr[K][key][key2][key3][0]).offsetWidth;
-                    a[0] = Math.abs(x1Left - x2Left);
-                    a[1] = Math.abs(x1Left - x2Right);
-                    a[2] = Math.abs(x1Right - x2Left);
-                    a[3] = Math.abs(x1Right - x2Right);
-                    n = sLeft = sRight = 0;
-                    for (var i = 1; i < 4; i++) {
-                        if (a[n] > a[i]) {
-                            n = i;
-                        }
-                    }
-                    if (n === 1) {
-                        x1 = x1Left - smS;
-                        x2 = x2Right + smS;
-                        if (x1 < x2) {
-                            n = 0;
-                        }
-                    }
-                    if (n === 2) {
-                        x1 = x1Right + smS;
-                        x2 = x2Left - smS;
-                        if (x1 > x2) {
-                            n = 0;
-                        }
-                    }
-                    if (n === 3) {
-                        x1 = x1Right + smS;
-                        x2 = x2Right + smS;
-                        sRight = 1;
-                    }
-                    if (n === 0) {
-                        x1 = x1Left - smS;
-                        x2 = x2Left - smS;
-                        sLeft = 1;
-                    }
+    for (var contrId in contr) {
+        var scriptContr = contr[contrId];
+        for (var foreignKeyId in scriptContr.foreignKeys) {
+            var foreignKey = scriptContr.foreignKeys[foreignKeyId];
+            var designerTable = document.getElementById('designer_table_' + foreignKey.sourceTableUuid);
+            var designerForeignTable = document.getElementById('designer_table_' + foreignKey.tableUuid);
+            var designerForeignColumn = document.getElementById('designer_col_' + foreignKey.uuid);
+            var designerColumn = document.getElementById('designer_col_' + foreignKey.uuidSource);
 
-                    var rowOffsetTop = 0;
-                    var tabHideButton = document.getElementById('id_hide_tbody_' + key2);
+            var tabHideButton = document.getElementById('id_hide_tbody_' + scriptContr.table.uuid);
+            var tabHideForeignButton = document.getElementById('id_hide_tbody_' + foreignKey.tableUuid);
 
-                    if (tabHideButton.innerHTML === 'v') {
-                        var fromColumn = document.getElementById(key2 + '.' + key3);
-                        if (fromColumn) {
-                            rowOffsetTop = fromColumn.offsetTop;
-                        } else {
-                            continue;
-                        }
-                    }
+            if (! document.getElementById('check_vis_' + scriptContr.table.uuid).checked ||
+                ! document.getElementById('check_vis_' + foreignKey.tableUuid).checked) {
+                // if hide
+                continue;
+            }
+            var x1Left  = designerTable.offsetLeft + 1;
+            var x1Right = x1Left + designerTable.offsetWidth;
+            var x2Left  = designerForeignTable.offsetLeft;
+            var x2Right = x2Left + designerForeignTable.offsetWidth;
+            a[0] = Math.abs(x1Left - x2Left);
+            a[1] = Math.abs(x1Left - x2Right);
+            a[2] = Math.abs(x1Right - x2Left);
+            a[3] = Math.abs(x1Right - x2Right);
 
-                    var y1 = document.getElementById(key2).offsetTop +
-                        rowOffsetTop +
-                        heightField;
-
-
-                    rowOffsetTop = 0;
-                    tabHideButton = document.getElementById('id_hide_tbody_' + contr[K][key][key2][key3][0]);
-                    if (tabHideButton.innerHTML === 'v') {
-                        var toColumn = document.getElementById(contr[K][key][key2][key3][0] +
-                            '.' + contr[K][key][key2][key3][1]);
-                        if (toColumn) {
-                            rowOffsetTop = toColumn.offsetTop;
-                        } else {
-                            continue;
-                        }
-                    }
-
-                    var y2 =
-                        document.getElementById(contr[K][key][key2][key3][0]).offsetTop +
-                        rowOffsetTop +
-                        heightField;
-
-                    var osnTab = document.getElementById('osn_tab');
-
-                    DesignerMove.line0(
-                        x1 + osnTab.offsetLeft,
-                        y1 - osnTab.offsetTop,
-                        x2 + osnTab.offsetLeft,
-                        y2 - osnTab.offsetTop,
-                        DesignerMove.getColorByTarget(contr[K][key][key2][key3][0] + '.' + contr[K][key][key2][key3][1])
-                    );
+            n = sLeft = sRight = 0;
+            for (var i = 1; i < 4; i++) {
+                if (a[n] > a[i]) {
+                    n = i;
                 }
             }
+            if (n === 1) {
+                x1 = x1Left - smS;
+                x2 = x2Right + smS;
+                if (x1 < x2) {
+                    n = 0;
+                }
+            }
+            if (n === 2) {
+                x1 = x1Right + smS;
+                x2 = x2Left - smS;
+                if (x1 > x2) {
+                    n = 0;
+                }
+            }
+            if (n === 3) {
+                x1 = x1Right + smS;
+                x2 = x2Right + smS;
+                sRight = 1;
+            }
+            if (n === 0) {
+                x1 = x1Left - smS;
+                x2 = x2Left - smS;
+                sLeft = 1;
+            }
+
+            var rowOffsetTop = 0;
+
+            if (tabHideButton.innerHTML === 'v') {
+                var fromColumn = designerColumn;
+                if (fromColumn) {
+                    rowOffsetTop = fromColumn.offsetTop;
+                } else {
+                    continue;
+                }
+            }
+
+            var y1 = designerTable.offsetTop +
+                rowOffsetTop +
+                heightField;
+
+
+            rowOffsetTop = 0;
+            if (tabHideForeignButton.innerHTML === 'v') {
+                var toColumn = designerForeignColumn;
+                if (toColumn) {
+                    rowOffsetTop = toColumn.offsetTop;
+                } else {
+                    continue;
+                }
+            }
+
+            var y2 =
+                designerForeignTable.offsetTop +
+                rowOffsetTop +
+                heightField;
+
+            var osnTab = document.getElementById('osn_tab');
+
+            DesignerMove.line0(
+                x1 + osnTab.offsetLeft,
+                y1 - osnTab.offsetTop,
+                x2 + osnTab.offsetLeft,
+                y2 - osnTab.offsetTop,
+                DesignerMove.getColorByTarget(foreignKey.tableName + '.' + foreignKey.colName)
+            );
         }
     }
 };
@@ -540,6 +538,7 @@ DesignerMove.addTableToTablesList = function (index, tableDom) {
     var table = $(tableDom).find('.small_tab_pref').attr('table_name');
     var dbEncoded = $(tableDom).find('.small_tab_pref').attr('db_url');
     var tableEncoded = $(tableDom).find('.small_tab_pref').attr('table_name_url');
+    var uniqueId = $(tableDom).find('.small_tab_pref').attr('unique_id');
     var tableIsChecked = $(tableDom).css('display') === 'block' ? 'checked' : '';
     var checkboxStatus = (tableIsChecked === 'checked') ? Messages.strHide : Messages.strShow;
     var $newTableLine = $('<tr>' +
@@ -555,27 +554,27 @@ DesignerMove.addTableToTablesList = function (index, tableDom) {
         '    <td width="1px">' +
         '        <input class="scroll_tab_checkbox"' +
         '            title="' + checkboxStatus + '"' +
-        '            id="check_vis_' + dbEncoded + '.' + tableEncoded + '"' +
+        '            id="check_vis_' + uniqueId + '"' +
         '            style="margin:0;"' +
         '            type="checkbox"' +
-        '            value="' + dbEncoded + '.' + tableEncoded + '"' + tableIsChecked +
+        '            value="check_visible_' + uniqueId + '"' + tableIsChecked +
         '            />' +
         '    </td>' +
         '    <td class="designer_Tabs"' +
-        '        designer_url_table_name="' + dbEncoded + '.' + tableEncoded + '">' + $('<div/>').text(db + '.' + table).html() + '</td>' +
+        '        unique_id="' + uniqueId + '">' + $('<div/>').text(db + '.' + table).html() + '</td>' +
         '</tr>');
     $('#id_scroll_tab table').first().append($newTableLine);
     $($newTableLine).find('.scroll_tab_struct').on('click', function () {
         DesignerMove.startTabUpd(db, table);
     });
-    $($newTableLine).on('click', '.designer_Tabs2,.designer_Tabs', function () {
-        DesignerMove.selectTab($(this).attr('designer_url_table_name'));
+    $($newTableLine).on('click', '.designer_Tabs', function () {
+        DesignerMove.selectTab($(this).attr('unique_id'));
     });
     $($newTableLine).find('.scroll_tab_checkbox').on('click', function () {
         $(this).attr('title', function (i, currentvalue) {
             return currentvalue === Messages.strHide ? Messages.strShow : Messages.strHide;
         });
-        DesignerMove.visibleTab(this,$(this).val());
+        DesignerMove.visibleTab(this, 'designer_table_' + $(this).val());
     });
     var $tablesCounter = $('#tables_counter');
     $tablesCounter.text(parseInt($tablesCounter.text(), 10) + 1);
@@ -607,15 +606,12 @@ DesignerMove.addOtherDbTables = function () {
         }, function (data) {
             var $newTableDom = $(data.message);
             $newTableDom.find('a').first().remove();
-
-            var dbEncoded = $($newTableDom).find('.small_tab_pref').attr('db_url');
-            var tableEncoded = $($newTableDom).find('.small_tab_pref').attr('table_name_url');
-
-            if (typeof dbEncoded === 'string' && typeof tableEncoded === 'string') { // Do not try to add if attr not found !
+            var dbTableNameUrl = $($newTableDom).find('.small_tab_pref').attr('unique_id');
+            if (typeof dbTableNameUrl === 'string') { // Do not try to add if attr not found !
                 $('#container-form').append($newTableDom);
                 DesignerMove.enableTableEvents(null, $newTableDom);
                 DesignerMove.addTableToTablesList(null, $newTableDom);
-                jTabs[dbEncoded + '.' + tableEncoded] = 1;
+                jTabs[dbTableNameUrl] = 1;
                 DesignerMove.markUnsaved();
             }
         });
@@ -692,8 +688,9 @@ DesignerMove.new = function () {
 // (del?) no for pdf
 DesignerMove.save = function (url) {
     for (var key in jTabs) {
-        document.getElementById('t_x_' + key + '_').value = parseInt(document.getElementById(key).style.left, 10);
-        document.getElementById('t_y_' + key + '_').value = parseInt(document.getElementById(key).style.top, 10);
+        var designerTable = document.getElementById('designer_table_' + key);
+        document.getElementById('t_x_' + key + '_').value = parseInt(designerTable.style.left, 10);
+        document.getElementById('t_y_' + key + '_').value = parseInt(designerTable.style.top, 10);
         document.getElementById('t_v_' + key + '_').value = document.getElementById('id_tbody_' + key).style.display === 'none' ? 0 : 1;
         document.getElementById('t_h_' + key + '_').value = document.getElementById('check_vis_' + key).checked ? 1 : 0;
     }
@@ -708,12 +705,13 @@ DesignerMove.getUrlPos = function (forceString) {
         var argsep = CommonParams.get('arg_separator');
         var i = 1;
         for (key in jTabs) {
-            poststr += argsep + 't_x[' + i + ']=' + parseInt(document.getElementById(key).style.left, 10);
-            poststr += argsep + 't_y[' + i + ']=' + parseInt(document.getElementById(key).style.top, 10);
+            var tab = document.getElementById('designer_table_' + key);
+            poststr += argsep + 't_x[' + i + ']=' + parseInt(tab.style.left, 10);
+            poststr += argsep + 't_y[' + i + ']=' + parseInt(tab.style.top, 10);
             poststr += argsep + 't_v[' + i + ']=' + (document.getElementById('id_tbody_' + key).style.display === 'none' ? 0 : 1);
             poststr += argsep + 't_h[' + i + ']=' + (document.getElementById('check_vis_' + key).checked ? 1 : 0);
-            poststr += argsep + 't_db[' + i + ']=' + $(document.getElementById(key)).attr('db_url');
-            poststr += argsep + 't_tbl[' + i + ']=' + $(document.getElementById(key)).attr('table_name_url');
+            poststr += argsep + 't_db[' + i + ']=' + atob($(tab).attr('db_name_base64'));
+            poststr += argsep + 't_tbl[' + i + ']=' + atob($(tab).attr('table_name_base64'));
             i++;
         }
         return poststr;
@@ -721,11 +719,12 @@ DesignerMove.getUrlPos = function (forceString) {
         var coords = [];
         for (key in jTabs) {
             if (document.getElementById('check_vis_' + key).checked) {
-                var x = parseInt(document.getElementById(key).style.left, 10);
-                var y = parseInt(document.getElementById(key).style.top, 10);
+                var designerTable = document.getElementById('designer_table_' + key);
+                var x = parseInt(designerTable.style.left, 10);
+                var y = parseInt(designerTable.style.top, 10);
                 var tbCoords = new DesignerObjects.TableCoordinate(
-                    $(document.getElementById(key)).attr('db_url'),
-                    $(document.getElementById(key)).attr('table_name_url'),
+                    atob($(designerTable).attr('db_name_base64')),
+                    atob($(designerTable).attr('table_name_base64')),
                     -1, x, y);
                 coords.push(tbCoords);
             }
@@ -1265,65 +1264,60 @@ DesignerMove.startRelation = function () {
 };
 
 // table field
-DesignerMove.clickField = function (db, T, f, pk) {
+DesignerMove.clickField = function (parentUniqueId, uniqueId, dbBase64, tableBase64, fieldBase64, pk) {
+    var db = atob(dbBase64);
+    var table = atob(tableBase64);
+    var field = atob(fieldBase64);
     var pkLocal = parseInt(pk);
     var argsep = CommonParams.get('arg_separator');
     if (onRelation) {
         if (!clickField) {
-            // .style.display=='none'        .style.display = 'none'
             if (!pkLocal) {
                 alert(Messages.strPleaseSelectPrimaryOrUniqueKey);
                 return;// 0;
-            }// PK
-            if (jTabs[db + '.' + T] !== 1) {
+            }// pk
+            if (jTabs[uniqueId] !== 1) {
                 document.getElementById('foreign_relation').style.display = 'none';
             }
             clickField = 1;
-            linkRelation = 'DB1=' + db + argsep + 'T1=' + T + argsep + 'F1=' + f;
+            linkRelation = 'DB1=' + db + argsep + 'T1=' + table + argsep + 'F1=' + field;
             document.getElementById('designer_hint').innerHTML = Messages.strSelectForeignKey;
         } else {
             DesignerMove.startRelation(); // hidden hint...
-            if (jTabs[db + '.' + T] !== 1 || !pkLocal) {
+            if (jTabs[uniqueId] !== 1 || !pkLocal) {
                 document.getElementById('foreign_relation').style.display = 'none';
             }
-            var left = globX - (document.getElementById('layer_new_relation').offsetWidth >> 1);
-            document.getElementById('layer_new_relation').style.left = left + 'px';
-            var top = globY - document.getElementById('layer_new_relation').offsetHeight;
-            document.getElementById('layer_new_relation').style.top  = top + 'px';
-            document.getElementById('layer_new_relation').style.display = 'block';
-            linkRelation += argsep + 'DB2=' + db + argsep + 'T2=' + T + argsep + 'F2=' + f;
+            var layerRelation = document.getElementById('layer_new_relation');
+            var left = globX - (layerRelation.offsetWidth >> 1);
+            layerRelation.style.left = left + 'px';
+            var top = globY - layerRelation.offsetHeight;
+            layerRelation.style.top  = top + 'px';
+            layerRelation.style.display = 'block';
+            linkRelation += argsep + 'DB2=' + db + argsep + 'T2=' + table + argsep + 'F2=' + field;
         }
     }
 
     if (onDisplayField) {
-        var fieldNameToSend = decodeURIComponent(f);
+        var fieldNameToSend = field;
         var newDisplayFieldClass = 'tab_field';
-        var oldTabField = document.getElementById('id_tr_' + T + '.' + displayField[T]);
+        // Remove the selected field
+        $(document.getElementById('id_tbody_' + parentUniqueId)).find('.tab_field_3,.tab_field_2').attr('class', 'tab_field');
         // if is display field
-        if (displayField[T] === f) {// The display field is already the one defined, user wants to remove it
+        if (displayField[parentUniqueId] === fieldBase64) {// The display field is already the one defined, user wants to remove it
             newDisplayFieldClass = 'tab_field';
-            delete displayField[T];
-            if (oldTabField) {// Clear the style
-                // Set display field class on old item
-                oldTabField.className = 'tab_field';
-            }
+            delete displayField[parentUniqueId];
             fieldNameToSend = '';
         } else {
             newDisplayFieldClass = 'tab_field_3';
-            if (displayField[T]) { // Had a previous one, clear it
-                if (oldTabField) {
-                    // Set display field class on old item
-                    oldTabField.className = 'tab_field';
-                }
-                delete displayField[T];
+            if (displayField[parentUniqueId]) { // Had a previous one, clear it
+                delete displayField[parentUniqueId];
             }
-            displayField[T] = f;
-
-            var tabField = document.getElementById('id_tr_' + T + '.' + displayField[T]);
-            if (tabField) {
-                // Set new display field class
-                tabField.className = newDisplayFieldClass;
-            }
+            displayField[parentUniqueId] = fieldBase64;
+        }
+        var tabField = document.getElementById('id_tr_' + uniqueId);
+        if (tabField) {
+            // Set new display field class
+            tabField.className = newDisplayFieldClass;
         }
         onDisplayField = 0;
         document.getElementById('designer_hint').innerHTML = '';
@@ -1337,7 +1331,7 @@ DesignerMove.clickField = function (db, T, f, pk) {
                 'ajax_request': true,
                 'server': server,
                 'db': db,
-                'table': T,
+                'table': table,
                 'field': fieldNameToSend
             },
             function (data) {
@@ -1390,7 +1384,7 @@ DesignerMove.smallTabAll = function (idThis) {
     if (icon.alt === 'v') {
         $('.designer_tab .small_tab,.small_tab2').each(function (index, element) {
             if ($(element).text() === 'v') {
-                DesignerMove.smallTab($(element).attr('table_name'), 0);
+                DesignerMove.smallTab($(element).attr('unique_id'), 0);
             }
         });
         icon.alt = '>';
@@ -1399,7 +1393,7 @@ DesignerMove.smallTabAll = function (idThis) {
     } else {
         $('.designer_tab .small_tab,.small_tab2').each(function (index, element) {
             if ($(element).text() !== 'v') {
-                DesignerMove.smallTab($(element).attr('table_name'), 0);
+                DesignerMove.smallTab($(element).attr('unique_id'), 0);
             }
         });
         icon.alt = 'v';
@@ -1414,9 +1408,9 @@ DesignerMove.smallTabAll = function (idThis) {
 
 // invert max/min all tables
 DesignerMove.smallTabInvert = function () {
-    for (var key in jTabs) {
-        DesignerMove.smallTab(key, 0);
-    }
+    $('.designer_tab .small_tab,.small_tab2').each(function (index, element) {
+        DesignerMove.smallTab($(element).attr('unique_id'), 0);
+    });
     DesignerMove.reload();
 };
 
@@ -1481,91 +1475,88 @@ DesignerMove.canvasClick = function (id, event) {
     var Key;
     var x1;
     var x2;
-    var K;
-    var key;
-    var key2;
-    var key3;
     var localX = isIe ? event.clientX + document.body.scrollLeft : event.pageX;
     var localY = isIe ? event.clientY + document.body.scrollTop : event.pageY;
     localX -= $('#osn_tab').offset().left;
     localY -= $('#osn_tab').offset().top;
     DesignerMove.clear();
-    for (K in contr) {
-        for (key in contr[K]) {
-            for (key2 in contr[K][key]) {
-                for (key3 in contr[K][key][key2]) {
-                    if (! document.getElementById('check_vis_' + key2).checked ||
-                        ! document.getElementById('check_vis_' + contr[K][key][key2][key3][0]).checked) {
-                        continue; // if hide
-                    }
-                    var x1Left  = document.getElementById(key2).offsetLeft + 1;// document.getElementById(key2+"."+key3).offsetLeft;
-                    var x1Right = x1Left + document.getElementById(key2).offsetWidth;
-                    var x2Left  = document.getElementById(contr[K][key][key2][key3][0]).offsetLeft;// +document.getElementById(contr[K][key2][key3][0]+"."+contr[K][key2][key3][1]).offsetLeft
-                    var x2Right = x2Left + document.getElementById(contr[K][key][key2][key3][0]).offsetWidth;
-                    a[0] = Math.abs(x1Left - x2Left);
-                    a[1] = Math.abs(x1Left - x2Right);
-                    a[2] = Math.abs(x1Right - x2Left);
-                    a[3] = Math.abs(x1Right - x2Right);
-                    n = sLeft = sRight = 0;
-                    for (var i = 1; i < 4; i++) {
-                        if (a[n] > a[i]) {
-                            n = i;
-                        }
-                    }
-                    if (n === 1) {
-                        x1 = x1Left - smS;
-                        x2 = x2Right + smS;
-                        if (x1 < x2) {
-                            n = 0;
-                        }
-                    }
-                    if (n === 2) {
-                        x1 = x1Right + smS;
-                        x2 = x2Left - smS;
-                        if (x1 > x2) {
-                            n = 0;
-                        }
-                    }
-                    if (n === 3) {
-                        x1 = x1Right + smS;
-                        x2 = x2Right + smS;
-                        sRight = 1;
-                    }
-                    if (n === 0) {
-                        x1 = x1Left - smS;
-                        x2 = x2Left - smS;
-                        sLeft    = 1;
-                    }
-
-                    var y1 = document.getElementById(key2).offsetTop + document.getElementById(key2 + '.' + key3).offsetTop + heightField;
-                    var y2 = document.getElementById(contr[K][key][key2][key3][0]).offsetTop +
-                                     document.getElementById(contr[K][key][key2][key3][0] + '.' + contr[K][key][key2][key3][1]).offsetTop + heightField;
-
-                    var osnTab = document.getElementById('osn_tab');
-                    if (!selected && localX > x1 - 10 && localX < x1 + 10 && localY > y1 - 7 && localY < y1 + 7) {
-                        DesignerMove.line0(
-                            x1 + osnTab.offsetLeft,
-                            y1 - osnTab.offsetTop,
-                            x2 + osnTab.offsetLeft,
-                            y2 - osnTab.offsetTop,
-                            'rgba(255,0,0,1)');
-
-                        selected = 1;
-                        Key0 = contr[K][key][key2][key3][0];
-                        Key1 = contr[K][key][key2][key3][1];
-                        Key2 = key2;
-                        Key3 = key3;
-                        Key = K;
-                    } else {
-                        DesignerMove.line0(
-                            x1 + osnTab.offsetLeft,
-                            y1 - osnTab.offsetTop,
-                            x2 + osnTab.offsetLeft,
-                            y2 - osnTab.offsetTop,
-                            DesignerMove.getColorByTarget(contr[K][key][key2][key3][0] + '.' + contr[K][key][key2][key3][1])
-                        );
-                    }
+    for (var contrId in contr) {
+        var scriptContr = contr[contrId];
+        for (var foreignKeyId in scriptContr.foreignKeys) {
+            var foreignKey = scriptContr.foreignKeys[foreignKeyId];
+            var designerTable = document.getElementById('designer_table_' + foreignKey.sourceTableUuid);
+            var designerForeignTable = document.getElementById('designer_table_' + foreignKey.tableUuid);
+            var designerForeignColumn = document.getElementById('designer_col_' + foreignKey.uuid);
+            var designerColumn = document.getElementById('designer_col_' + foreignKey.uuidSource);
+            if (! document.getElementById('check_vis_' + scriptContr.table.uuid).checked ||
+                ! document.getElementById('check_vis_' + foreignKey.tableUuid).checked) {
+                continue; // if hide
+            }
+            var x1Left  = designerTable.offsetLeft + 1;
+            var x1Right = x1Left + designerTable.offsetWidth;
+            var x2Left  = designerForeignTable.offsetLeft;
+            var x2Right = x2Left + designerForeignTable.offsetWidth;
+            a[0] = Math.abs(x1Left - x2Left);
+            a[1] = Math.abs(x1Left - x2Right);
+            a[2] = Math.abs(x1Right - x2Left);
+            a[3] = Math.abs(x1Right - x2Right);
+            n = sLeft = sRight = 0;
+            for (var i = 1; i < 4; i++) {
+                if (a[n] > a[i]) {
+                    n = i;
                 }
+            }
+            if (n === 1) {
+                x1 = x1Left - smS;
+                x2 = x2Right + smS;
+                if (x1 < x2) {
+                    n = 0;
+                }
+            }
+            if (n === 2) {
+                x1 = x1Right + smS;
+                x2 = x2Left - smS;
+                if (x1 > x2) {
+                    n = 0;
+                }
+            }
+            if (n === 3) {
+                x1 = x1Right + smS;
+                x2 = x2Right + smS;
+                sRight = 1;
+            }
+            if (n === 0) {
+                x1 = x1Left - smS;
+                x2 = x2Left - smS;
+                sLeft    = 1;
+            }
+
+            var y1 = designerTable.offsetTop + designerColumn.offsetTop + heightField;
+            var y2 = designerForeignTable.offsetTop + designerForeignColumn.offsetTop + heightField;
+
+            var osnTab = document.getElementById('osn_tab');
+            if (!selected && localX > x1 - 10 && localX < x1 + 10 && localY > y1 - 7 && localY < y1 + 7) {
+                DesignerMove.line0(
+                    x1 + osnTab.offsetLeft,
+                    y1 - osnTab.offsetTop,
+                    x2 + osnTab.offsetLeft,
+                    y2 - osnTab.offsetTop,
+                    'rgba(255,0,0,1)');
+
+                selected = 1; // Rect(x1-sm_x,y1-sm_y,10,10,"rgba(0,255,0,1)");
+                Key0 = foreignKey.tableName;
+                Key1 = foreignKey.colName;
+                Key2 = scriptContr.table.tableName;
+                Key3 = foreignKey.fkName;
+                Key = contrId;
+            } else {
+                DesignerMove.line0(
+                    x1 + osnTab.offsetLeft,
+                    y1 - osnTab.offsetTop,
+                    x2 + osnTab.offsetLeft,
+                    y2 - osnTab.offsetTop,
+                    DesignerMove.getColorByTarget(foreignKey.tableName + '.' + foreignKey.colName)
+                );
             }
         }
     }
@@ -1617,19 +1608,17 @@ DesignerMove.hideTabAll = function (idThis) {
         idThis.alt = 'v';
         idThis.src = idThis.dataset.down;
     }
-    var E = document.getElementById('container-form');
-    var EelementsLength = E.elements.length;
-    for (var i = 0; i < EelementsLength; i++) {
-        if (E.elements[i].type === 'checkbox' && E.elements[i].id.substring(0, 10) === 'check_vis_') {
-            if (idThis.alt === 'v') {
-                E.elements[i].checked = true;
-                document.getElementById(E.elements[i].value).style.display = '';
-            } else {
-                E.elements[i].checked = false;
-                document.getElementById(E.elements[i].value).style.display = 'none';
-            }
+
+    $('#container-form #id_scroll_tab input[class=scroll_tab_checkbox]:checkbox').each(function () {
+        var elementCheckBox = $(document.getElementById('designer_table_' + this.value));
+        if (idThis.alt === 'v') {
+            this.checked = true;
+            elementCheckBox.show();
+        } else {
+            this.checked = false;
+            elementCheckBox.hide();
         }
-    }
+    });
     DesignerMove.reload();
 };
 
@@ -1646,20 +1635,14 @@ DesignerMove.inArrayK = function (x, m) {
 
 DesignerMove.noHaveConstr = function (idThis) {
     var a = [];
-    var K;
-    var key;
-    var key2;
-    var key3;
-    for (K in contr) {
-        for (key in contr[K]) {
-            // contr name
-            for (key2 in contr[K][key]) {
-                // table name
-                for (key3 in contr[K][key][key2]) {
-                    // field name
-                    a[key2] = a[contr[K][key][key2][key3][0]] = 1; // exist constr
-                }
-            }
+
+    // Select all tables and their foreign tables
+    for (var contrId in contr) {
+        var scriptContr = contr[contrId];
+        a[scriptContr.table.uuid] = 1;
+        for (var foreignKeyId in scriptContr.foreignKeys) {
+            var foreignKey = scriptContr.foreignKeys[foreignKeyId];
+            a[foreignKey.tableUuid] = 1;
         }
     }
 
@@ -1670,21 +1653,18 @@ DesignerMove.noHaveConstr = function (idThis) {
         idThis.alt = 'v';
         idThis.src = idThis.dataset.down;
     }
-    var E = document.getElementById('container-form');
-    var EelementsLength = E.elements.length;
-    for (var i = 0; i < EelementsLength; i++) {
-        if (E.elements[i].type === 'checkbox' && E.elements[i].id.substring(0, 10) === 'check_vis_') {
-            if (!DesignerMove.inArrayK(E.elements[i].value, a)) {
-                if (idThis.alt === 'v') {
-                    E.elements[i].checked = true;
-                    document.getElementById(E.elements[i].value).style.display = '';
-                } else {
-                    E.elements[i].checked = false;
-                    document.getElementById(E.elements[i].value).style.display = 'none';
-                }
+    $('#container-form #id_scroll_tab input[class=scroll_tab_checkbox]:checkbox').each(function () {
+        if (!DesignerMove.inArrayK(this.value, a)) {
+            var elementCheckBox = $(document.getElementById('designer_table_' + this.value));
+            if (idThis.alt === 'v') {
+                this.checked = true;
+                elementCheckBox.show();
+            } else {
+                this.checked = false;
+                elementCheckBox.hide();
             }
         }
-    }
+    });
 };
 
 DesignerMove.generalScroll = function () {
@@ -1825,7 +1805,7 @@ DesignerMove.clickOption = function (dbName, tableName, columnName, tableDbNameU
     var designerOptions = document.getElementById('designer_optionse');
     var left = globX - (designerOptions.offsetWidth >> 1);
     designerOptions.style.left = left + 'px';
-    // var top = Glob_Y - designerOptions.offsetHeight - 10;
+    // var top = GlobY - designerOptions.offsetHeight - 10;
     designerOptions.style.top  = (screen.height / 4) + 'px';
     designerOptions.style.display = 'block';
     document.getElementById('ok_add_object_db_and_table_name_url').value = tableDbNameUrl;
@@ -2013,7 +1993,7 @@ DesignerMove.enableTableEvents = function (index, element) {
         DesignerMove.selectAll($(this).attr('table_name'), $(this).attr('db_name'), $(this).attr('id'));
     });
     $(element).on('click', '.small_tab,.small_tab2', function () {
-        DesignerMove.smallTab($(this).attr('table_name'), 1);
+        DesignerMove.smallTab($(this).attr('unique_id'), 1);
     });
     $(element).on('click', '.small_tab_pref_1', function () {
         DesignerMove.startTabUpd($(this).attr('db_url'), $(this).attr('table_name_url'));
@@ -2031,8 +2011,14 @@ DesignerMove.enableTableEvents = function (index, element) {
         );
     });
     $(element).on('click', '.tab_field_2,.tab_field_3,.tab_field', function () {
-        var params = ($(this).attr('click_field_param')).split(',');
-        DesignerMove.clickField(params[3], params[0], params[1], params[2]);
+        DesignerMove.clickField(
+            $(this).attr('parent_uuid'),
+            $(this).attr('unique_id'),
+            $(this).attr('db_base64'),
+            $(this).attr('table_name_base64'),
+            $(this).attr('col_name_base64'),
+            $(this).attr('is_pk_or_unique')
+        );
     });
 
     $(element).find('.tab_zag_noquery').on('mouseover', function () {
