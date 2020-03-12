@@ -19,7 +19,8 @@
   background-image: url('../img/bookmark-plus.svg');
 }
 
-.ic_b_browse {
+.ic_b_browse,
+.ic_b_sbrowse {
   background-image: url('../img/table-browse.svg');
 }
 
@@ -32,7 +33,7 @@
 }
 
 .ic_b_close {
-  background-image: url('../img/b_close.png');
+  background-image: url('../img/close.svg');
 }
 
 .ic_b_column_add {
@@ -156,7 +157,7 @@
 }
 
 .ic_b_more {
-  background-image: url('../img/b_more.png');
+  background-image: url('../img/triangle-down-1.svg');
 }
 
 .ic_b_move {
@@ -223,16 +224,9 @@
   background-image: url('../img/routine.svg');
 }
 
-.ic_b_save {
-  background-image: url('../img/b_save.png');
-}
-
+.ic_b_save,
 .ic_b_saveimage {
-  background-image: url('../img/b_saveimage.png');
-}
-
-.ic_b_sbrowse {
-  background-image: url('../img/b_sbrowse.png');
+  background-image: url('../img/save.svg');
 }
 
 .ic_b_sdb {
@@ -515,7 +509,7 @@
 }
 
 .ic_pause {
-  background-image: url('../img/pause.png');
+  background-image: url('../img/pause.svg');
 }
 
 .ic_php_sym {
@@ -527,7 +521,7 @@
 }
 
 .ic_s_asc {
-  background-image: url('../img/s_asc.png');
+  background-image: url('../img/sort-asc.svg');
 }
 
 .ic_s_asci {
@@ -551,7 +545,7 @@
 }
 
 .ic_s_desc {
-  background-image: url('../img/s_desc.png');
+  background-image: url('../img/sort-desc.svg');
 }
 
 .ic_s_error {
@@ -587,7 +581,7 @@
 }
 
 .ic_s_okay {
-  background-image: url('../img/s_okay.png');
+  background-image: url('../img/check.svg');
 }
 
 .ic_s_passwd {
