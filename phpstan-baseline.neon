@@ -551,26 +551,6 @@ parameters:
 			path: libraries/classes/Database/Designer.php
 
 		-
-			message: "#^Offset 'DTN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>, \\?'DTN' \\=\\> array\\<int, string\\>, \\?'SCN' \\=\\> array\\<int, string\\>, \\?'STN' \\=\\> array\\<int, string\\>\\)\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer/Common.php
-
-		-
-			message: "#^Offset 'STN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>, \\?'DTN' \\=\\> array\\<int, string\\>, \\?'SCN' \\=\\> array\\<int, string\\>, \\?'STN' \\=\\> array\\<int, string\\>\\)\\.$#"
-			count: 2
-			path: libraries/classes/Database/Designer/Common.php
-
-		-
-			message: "#^Offset 'DCN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>, \\?'DTN' \\=\\> array\\<int, string\\>, \\?'SCN' \\=\\> array\\<int, string\\>, \\?'STN' \\=\\> array\\<int, string\\>\\)\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer/Common.php
-
-		-
-			message: "#^Offset 'SCN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>, \\?'DTN' \\=\\> array\\<int, string\\>, \\?'SCN' \\=\\> array\\<int, string\\>, \\?'STN' \\=\\> array\\<int, string\\>\\)\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer/Common.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, int given\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer/Common.php

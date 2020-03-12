@@ -24,7 +24,6 @@ use function is_string;
 use function json_decode;
 use function json_encode;
 use function mb_strtoupper;
-use function rawurlencode;
 
 /**
  * Common functions for Designer
@@ -161,7 +160,7 @@ class Common
                         $field,
                         $designerTable->getDatabaseName(),
                         $designerTable->getTableName(),
-                        $value['master_field'],
+                        $value['master_field']
                     );
                 }
             }
