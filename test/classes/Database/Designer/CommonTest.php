@@ -57,16 +57,15 @@ class CommonTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('fetchResult')
             ->with(
-                "
-            SELECT CONCAT_WS('.', `db_name`, `table_name`) AS `name`,
-                `db_name` as `dbName`, `table_name` as `tableName`,
+                '
+            SELECT `db_name` as `dbName`, `table_name` as `tableName`,
                 `x` AS `X`,
                 `y` AS `Y`,
                 1 AS `V`,
                 1 AS `H`
             FROM `pmadb`.`table_coords`
-            WHERE pdf_page_number = " . $pg,
-                'name',
+            WHERE pdf_page_number = ' . $pg,
+                null,
                 null,
                 DatabaseInterface::CONNECT_CONTROL,
                 DatabaseInterface::QUERY_STORE

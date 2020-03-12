@@ -66,7 +66,7 @@ class DesignerController extends AbstractController
             } elseif ($_POST['dialog'] === 'add_table') {
                 // Pass the db and table to the getTablesInfo so we only have the table we asked for
                 $script_display_field = $this->designerCommon->getTablesInfo($_POST['db'], $_POST['table']);
-                $tab_column = $this->designerCommon->getColumnsInfo($script_display_field);
+                $this->designerCommon->addColumnsInfo($script_display_field);
                 $tables_all_keys = $this->designerCommon->getAllKeys($script_display_field);
                 $tables_pk_or_unique_keys = $this->designerCommon->getPkOrUniqueKeys($script_display_field);
 
@@ -75,7 +75,6 @@ class DesignerController extends AbstractController
                     $script_display_field,
                     [],
                     -1,
-                    $tab_column,
                     $tables_all_keys,
                     $tables_pk_or_unique_keys
                 );
@@ -193,7 +192,7 @@ class DesignerController extends AbstractController
             }
         }
 
-        $tab_column = $this->designerCommon->getColumnsInfo($script_display_field);
+        $this->designerCommon->addColumnsInfo($script_display_field);
         $script_tables = $this->designerCommon->getScriptTabs($script_display_field);
         $tables_pk_or_unique_keys = $this->designerCommon->getPkOrUniqueKeys($script_display_field);
         $tables_all_keys = $this->designerCommon->getAllKeys($script_display_field);

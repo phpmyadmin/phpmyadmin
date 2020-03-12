@@ -8,6 +8,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Database\Designer;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Database\Designer\DesignerTable;
+use PhpMyAdmin\Database\Designer\DesignerForeignKey;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Relation;
@@ -87,10 +89,10 @@ class Common
      *
      * @return array table column nfo
      */
-    public function getColumnsInfo(array $designerTables): array
+    public function addColumnsInfo(array $designerTables): array
     {
-        //$this->dbi->selectDb($GLOBALS['db']);
-        $tabColumn = [];
+        /** @var DesignerColumn[] $designerColumns */
+        $designerColumns = [];
 
         foreach ($designerTables as $designerTable) {
             $fieldsRs = $this->dbi->query(
@@ -101,99 +103,130 @@ class Common
                 DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_STORE
             );
-            $j = 0;
-            while ($row = $this->dbi->fetchAssoc($fieldsRs)) {
-                if (! isset($tabColumn[$designerTable->getDbTableString()])) {
-                    $tabColumn[$designerTable->getDbTableString()] = [];
-                }
-                $tabColumn[$designerTable->getDbTableString()]['COLUMN_ID'][$j]   = $j;
-                $tabColumn[$designerTable->getDbTableString()]['COLUMN_NAME'][$j] = $row['Field'];
-                $tabColumn[$designerTable->getDbTableString()]['TYPE'][$j]        = $row['Type'];
-                $tabColumn[$designerTable->getDbTableString()]['NULLABLE'][$j]    = $row['Null'];
-                $j++;
+            while ($row = $GLOBALS['dbi']->fetchAssoc($fieldsRs)) {
+                $col = new DesignerColumn(
+                    $designerTable->getDatabaseName(),
+                    $designerTable->getTableName(),
+                    $row['Field'],
+                    $row['Type'],
+                    $row['Null'] === 'YES'
+                );
+                $designerTable->addColumn($col);
+                $designerColumns[] = $col;
             }
         }
 
-        return $tabColumn;
+        return $designerColumns;
     }
 
     /**
-     * Returns JavaScript code for initializing vars
+     * Returns a list of foreign keys
      *
      * @param DesignerTable[] $designerTables The designer tables
-     *
-     * @return array JavaScript code
+     * @return array
      */
     public function getScriptContr(array $designerTables): array
     {
         $this->dbi->selectDb($GLOBALS['db']);
-        $con = [];
-        $con['C_NAME'] = [];
-        $i = 0;
-        $alltab_rs = $this->dbi->query(
+        /** @var array<array[]> $databaseForeignTables */
+        $databaseForeignTables = [];
+        $alltab_rs = $GLOBALS['dbi']->query(
             'SHOW TABLES FROM ' . Util::backquote($GLOBALS['db']),
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
-        while ($val = @$this->dbi->fetchRow($alltab_rs)) {
-            $row = $this->relation->getForeigners($GLOBALS['db'], $val[0], '', 'internal');
+        while ($val = @$GLOBALS['dbi']->fetchRow($alltab_rs)) {
+            $designerTable = new DesignerTable(
+                $GLOBALS['db'],
+                $val[0],
+                '', // No engine
+                null // No display field
+            );
+            /** @var DesignerForeignKey[] $foreignTables */
+            $foreignTables = [];
 
-            foreach ($row as $field => $value) {
-                $con['C_NAME'][$i] = '';
-                $con['DTN'][$i]    = rawurlencode($GLOBALS['db'] . '.' . $val[0]);
-                $con['DCN'][$i]    = rawurlencode($field);
-                $con['STN'][$i]    = rawurlencode(
-                    $value['foreign_db'] . '.' . $value['foreign_table']
-                );
-                $con['SCN'][$i]    = rawurlencode($value['foreign_field']);
-                $i++;
-            }
+            $row = $this->relation->getForeigners(
+                $designerTable->getDatabaseName(),
+                $designerTable->getTableName(),
+                '',
+                'internal'
+            );
 
-            $row = $this->relation->getForeigners($GLOBALS['db'], $val[0], '', 'foreign');
-
-            // We do not have access to the foreign keys if the user has partial access to the columns
-            if (! isset($row['foreign_keys_data'])) {
-                continue;
-            }
-
-            foreach ($row['foreign_keys_data'] as $one_key) {
-                foreach ($one_key['index_list'] as $index => $one_field) {
-                    $con['C_NAME'][$i] = rawurlencode($one_key['constraint']);
-                    $con['DTN'][$i]    = rawurlencode($GLOBALS['db'] . '.' . $val[0]);
-                    $con['DCN'][$i]    = rawurlencode($one_field);
-                    $con['STN'][$i]    = rawurlencode(
-                        ($one_key['ref_db_name'] ?? $GLOBALS['db'])
-                        . '.' . $one_key['ref_table_name']
+            if ($row !== false) {
+                foreach ($row as $field => $value) {
+                    $foreignTables[] = new DesignerForeignKey(
+                        $value['foreign_db'],
+                        $value['foreign_table'],
+                        $value['foreign_field'],
+                        $field,
+                        $designerTable->getDatabaseName(),
+                        $designerTable->getTableName(),
+                        $value['master_field'],
                     );
-                    $con['SCN'][$i] = rawurlencode($one_key['ref_index_list'][$index]);
-                    $i++;
                 }
             }
+
+            $row = $this->relation->getForeigners(
+                $designerTable->getDatabaseName(),
+                $designerTable->getTableName(),
+                '',
+                'foreign'
+            );
+
+            // We do not have access to the foreign keys if he user has partial access to the columns
+            if ($row !== false && isset($row['foreign_keys_data'])) {
+                foreach ($row['foreign_keys_data'] as $one_key) {
+                    foreach ($one_key['index_list'] as $index => $one_field) {
+                        $dbName = isset($one_key['ref_db_name']) ? $one_key['ref_db_name'] : $GLOBALS['db'];
+                        $foreignTables[] = new DesignerForeignKey(
+                            $dbName,
+                            $one_key['ref_table_name'],
+                            $one_key['ref_index_list'][$index],
+                            $one_key['constraint'],
+                            $designerTable->getDatabaseName(),
+                            $designerTable->getTableName(),
+                            $one_field
+                        );
+                    }
+                }
+            }
+            $databaseForeignTables[] = [
+                'table' => $designerTable,
+                'foreignTables' => $foreignTables,
+            ];
         }
 
+        /** @var string[] $tableDbNames */
         $tableDbNames = [];
         foreach ($designerTables as $designerTable) {
             $tableDbNames[] = rawurlencode($designerTable->getDbTableString());
         }
 
-        $ti = 0;
-        $retval = [];
-        for ($i = 0, $cnt = count($con['C_NAME']); $i < $cnt; $i++) {
-            $c_name_i = $con['C_NAME'][$i];
-            $dtn_i = $con['DTN'][$i];
-            $retval[$ti] = [];
-            $retval[$ti][$c_name_i] = [];
-            if (in_array($dtn_i, $tableDbNames) && in_array($con['STN'][$i], $tableDbNames)) {
-                $retval[$ti][$c_name_i][$dtn_i] = [];
-                $retval[$ti][$c_name_i][$dtn_i][$con['DCN'][$i]] = [
-                    0 => $con['STN'][$i],
-                    1 => $con['SCN'][$i],
+        /** @var array<string,DesignerForeignKey>[] $scriptContr */
+        $scriptContr = [];
+        /** @var array $foreignKey */
+        foreach ($databaseForeignTables as $foreignKey) {
+            /** @var DesignerTable $originalTable */
+            $originalTable = $foreignKey['table'];
+            /** @var DesignerForeignKey[] $foreignTablesToAdd */
+            $foreignTablesToAdd = [];
+            /** @var DesignerForeignKey $foreignTable */
+            foreach ($foreignKey['foreignTables'] as $foreignTable) {
+                if (in_array($originalTable->getDbTableString(), $tableDbNames) &&
+                    in_array($foreignTable->getDbTableString(), $tableDbNames)
+                ) {
+                    $foreignTablesToAdd[] = $foreignTable;
+                }
+            }
+            if (count($foreignTablesToAdd) > 0) {
+                $scriptContr[] = [
+                    'table' => $originalTable,
+                    'foreignKeys' => $foreignTablesToAdd,
                 ];
             }
-            $ti++;
         }
 
-        return $retval;
+        return $scriptContr;
     }
 
     /**
@@ -252,7 +285,7 @@ class Common
         ];
 
         foreach ($designerTables as $designerTable) {
-            $key = rawurlencode($designerTable->getDbTableString());
+            $key = $designerTable->getUniqueIdentifier();
             $retval['j_tabs'][$key] = $designerTable->supportsForeignkeys() ? 1 : 0;
             $retval['h_tabs'][$key] = 1;
         }
@@ -274,24 +307,34 @@ class Common
             return [];
         }
 
-        $query = "
-            SELECT CONCAT_WS('.', `db_name`, `table_name`) AS `name`,
-                `db_name` as `dbName`, `table_name` as `tableName`,
+        $query = '
+            SELECT `db_name` as `dbName`, `table_name` as `tableName`,
                 `x` AS `X`,
                 `y` AS `Y`,
                 1 AS `V`,
                 1 AS `H`
-            FROM " . Util::backquote($cfgRelation['db'])
+            FROM ' . Util::backquote($cfgRelation['db'])
                 . '.' . Util::backquote($cfgRelation['table_coords']) . '
             WHERE pdf_page_number = ' . intval($pg);
 
-        return $this->dbi->fetchResult(
+        $tabPositions = (array) $GLOBALS['dbi']->fetchResult(
             $query,
-            'name',
+            null,
             null,
             DatabaseInterface::CONNECT_CONTROL,
             DatabaseInterface::QUERY_STORE
         );
+        $tabPositionsOut = [];
+        foreach ($tabPositions as $tab) {
+            $dt = new DesignerTable(
+                $tab['dbName'],
+                $tab['tableName'],
+                '',
+                null
+            );
+            $tabPositionsOut[$dt->getUniqueIdentifier()] = $tab;
+        }
+        return $tabPositionsOut;
     }
 
     /**

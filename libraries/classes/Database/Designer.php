@@ -157,7 +157,7 @@ class Designer
      *
      * @return array stored values
      */
-    private function getSideMenuParamsArray()
+    private function getSideMenuParamsArray(): array
     {
         /** @var DatabaseInterface $dbi */
         global $dbi;
@@ -251,7 +251,6 @@ class Designer
      * @param DesignerTable[] $designerTables           The designer tables
      * @param array           $tab_pos                  tables positions
      * @param int             $display_page             page number of the selected page
-     * @param array           $tab_column               table column info
      * @param array           $tables_all_keys          all indices
      * @param array           $tables_pk_or_unique_keys unique or primary indices
      *
@@ -262,48 +261,18 @@ class Designer
         array $designerTables,
         array $tab_pos,
         $display_page,
-        array $tab_column,
         array $tables_all_keys,
         array $tables_pk_or_unique_keys
     ) {
-        $columns_type = [];
-        foreach ($designerTables as $designerTable) {
-            $table_name = $designerTable->getDbTableString();
-            $limit = count($tab_column[$table_name]['COLUMN_ID']);
-            for ($j = 0; $j < $limit; $j++) {
-                $table_column_name = $table_name . '.' . $tab_column[$table_name]['COLUMN_NAME'][$j];
-                if (isset($tables_pk_or_unique_keys[$table_column_name])) {
-                    $columns_type[$table_column_name] = 'designer/FieldKey_small';
-                } else {
-                    $columns_type[$table_column_name] = 'designer/Field_small';
-                    if (strpos($tab_column[$table_name]['TYPE'][$j], 'char') !== false
-                        || strpos($tab_column[$table_name]['TYPE'][$j], 'text') !== false) {
-                        $columns_type[$table_column_name] .= '_char';
-                    } elseif (strpos($tab_column[$table_name]['TYPE'][$j], 'int') !== false
-                        || strpos($tab_column[$table_name]['TYPE'][$j], 'float') !== false
-                        || strpos($tab_column[$table_name]['TYPE'][$j], 'double') !== false
-                        || strpos($tab_column[$table_name]['TYPE'][$j], 'decimal') !== false) {
-                        $columns_type[$table_column_name] .= '_int';
-                    } elseif (strpos($tab_column[$table_name]['TYPE'][$j], 'date') !== false
-                        || strpos($tab_column[$table_name]['TYPE'][$j], 'time') !== false
-                        || strpos($tab_column[$table_name]['TYPE'][$j], 'year') !== false) {
-                        $columns_type[$table_column_name] .= '_date';
-                    }
-                }
-            }
-        }
-
         return $this->template->render('database/designer/database_tables', [
             'db' => $GLOBALS['db'],
             'get_db' => $db,
             'has_query' => isset($_REQUEST['query']),
             'tab_pos' => $tab_pos,
             'display_page' => $display_page,
-            'tab_column' => $tab_column,
             'tables_all_keys' => $tables_all_keys,
             'tables_pk_or_unique_keys' => $tables_pk_or_unique_keys,
             'tables' => $designerTables,
-            'columns_type' => $columns_type,
             'theme' => $GLOBALS['PMA_Theme'],
         ]);
     }

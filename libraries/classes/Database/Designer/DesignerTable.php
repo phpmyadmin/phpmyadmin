@@ -16,6 +16,12 @@ class DesignerTable implements JsonSerializable
     private $databaseName;
     private $tableEngine;
     private $displayField;
+
+    /**
+     * The associated columns
+     *
+     * @var DesignerColumn[]
+     */
     private $columns = [];
 
     /**
@@ -115,7 +121,7 @@ class DesignerTable implements JsonSerializable
      */
     public function getDisplayFieldBase64(): string
     {
-        return base64_encode($this->getDisplayField());
+        return base64_encode($this->getDisplayField() ?? '');
     }
 
     /**
@@ -138,6 +144,9 @@ class DesignerTable implements JsonSerializable
         return $this->columns;
     }
 
+    /**
+     * @return array
+     */
     public function jsonSerialize()
     {
         return [
