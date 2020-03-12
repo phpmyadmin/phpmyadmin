@@ -324,7 +324,6 @@ $javascriptMessages = [
 
     /* Server status advisor */
 
-    'strAdvisorSystem' => __('Advisor system'),
     'strPerformanceIssues' => __('Possible performance issues'),
     'strIssuse' => __('Issue'),
     'strRecommendation' => __('Recommendation'),

@@ -109,11 +109,7 @@ class AdvisorControllerTest extends TestCase
         $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(
-            '<a href="#openAdvisorInstructions">',
-            $html
-        );
-        $this->assertStringContainsString(
-            '<div id="advisorInstructionsDialog"',
+            '#advisorInstructionsModal',
             $html
         );
         $this->assertStringContainsString(

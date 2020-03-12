@@ -8,10 +8,8 @@
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('server/status/advisor.js', function () {
-    $('a[href="#openAdvisorInstructions"]').off('click');
     $('#statustabs_advisor').html('');
     $('#advisorDialog').remove();
-    $('#instructionsDialog').remove();
 });
 
 AJAX.registerOnload('server/status/advisor.js', function () {
@@ -22,21 +20,6 @@ AJAX.registerOnload('server/status/advisor.js', function () {
 
     /** ** Server config advisor ****/
     var $dialog = $('<div></div>').attr('id', 'advisorDialog');
-    var $instructionsDialog = $('<div></div>')
-        .attr('id', 'instructionsDialog')
-        .html($('#advisorInstructionsDialog').html());
-
-    $('a[href="#openAdvisorInstructions"]').on('click', function () {
-        var dlgBtns = {};
-        dlgBtns[Messages.strClose] = function () {
-            $(this).dialog('close');
-        };
-        $instructionsDialog.dialog({
-            title: Messages.strAdvisorSystem,
-            width: '60%',
-            buttons: dlgBtns
-        });
-    });
 
     var $cnt = $('#statustabs_advisor');
     var $tbody;
