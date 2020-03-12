@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Database\Designer;
 
 use JsonSerializable;
 use PhpMyAdmin\Util;
+use function base64_encode;
 
 /**
  * Common class for Designer

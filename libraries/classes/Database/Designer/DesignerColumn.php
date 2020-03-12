@@ -1,10 +1,16 @@
 <?php
+
+declare(strict_types=1);
+
 /**
  * Holds the PhpMyAdmin\Database\Designer\DesignerColumn class
  */
+
 namespace PhpMyAdmin\Database\Designer;
 
 use JsonSerializable;
+use function base64_encode;
+use function strpos;
 
 /**
  * Common class for Designer
