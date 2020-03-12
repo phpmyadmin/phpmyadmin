@@ -4,17 +4,19 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Database\Designer;
 
+use JsonSerializable;
 use PhpMyAdmin\Util;
 
 /**
- * Common functions for Designer
+ * Common class for Designer
  */
-class DesignerTable
+class DesignerTable implements JsonSerializable
 {
     private $tableName;
     private $databaseName;
     private $tableEngine;
     private $displayField;
+    private $columns = [];
 
     /**
      * Create a new DesignerTable
@@ -61,6 +63,22 @@ class DesignerTable
     }
 
     /**
+     * Get the database name encoded in base64 format
+     */
+    public function getDatabaseNameBase64(): string
+    {
+        return base64_encode($this->databaseName);
+    }
+
+    /**
+     * Get the table name encoded in base64 format
+     */
+    public function getTableNameBase64(): string
+    {
+        return base64_encode($this->tableName);
+    }
+
+    /**
      * Get the table engine
      */
     public function getTableEngine(): string
@@ -69,7 +87,23 @@ class DesignerTable
     }
 
     /**
-     * Get the displayed field
+     * Get the db and table separated with a dot
+     */
+    public function getDbTableString(): string
+    {
+        return $this->databaseName . '.' . $this->tableName;
+    }
+
+    /**
+     * Get an unique identifier
+     */
+    public function getUniqueIdentifier(): string
+    {
+        return base64_encode($this->getDbTableString());
+    }
+
+    /**
+     * Get the display field if available
      */
     public function getDisplayField(): ?string
     {
@@ -77,10 +111,39 @@ class DesignerTable
     }
 
     /**
-     * Get the db and table separated with a dot
+     * Get the display field encoded in base64
      */
-    public function getDbTableString(): string
+    public function getDisplayFieldBase64(): string
     {
-        return $this->databaseName . '.' . $this->tableName;
+        return base64_encode($this->getDisplayField());
+    }
+
+    /**
+     * Add a column to the table
+     *
+     * @param DesignerColumn $column The designer column to add
+     */
+    public function addColumn(DesignerColumn $column): void
+    {
+        $this->columns[] = $column;
+    }
+
+    /**
+     * Get columns for a table
+     *
+     * @return DesignerColumn[]
+     */
+    public function getColumns(): array
+    {
+        return $this->columns;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'uuid' => $this->getUniqueIdentifier(),
+            'tableName' => $this->getTableName(),
+            'dbName' => $this->getDatabaseName(),
+        ];
     }
 }
