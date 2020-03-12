@@ -333,22 +333,12 @@ parameters:
 		-
 			message: "#^Offset 'DTN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'DTN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'SCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'STN' \\=\\> array\\<int, string\\>&nonEmpty\\)\\.$#"
 			count: 1
-			path: libraries/classes/Database/Designer/Common.php
+			path: libraries/classes/CreateAddField.php
 
 		-
-			message: "#^Offset 'STN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'DTN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'SCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'STN' \\=\\> array\\<int, string\\>&nonEmpty\\)\\.$#"
-			count: 2
-			path: libraries/classes/Database/Designer/Common.php
-
-		-
-			message: "#^Offset 'DCN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'DTN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'SCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'STN' \\=\\> array\\<int, string\\>&nonEmpty\\)\\.$#"
+			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, bool\\|resource given\\.$#"
 			count: 1
-			path: libraries/classes/Database/Designer/Common.php
-
-		-
-			message: "#^Offset 'SCN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'DTN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'SCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'STN' \\=\\> array\\<int, string\\>&nonEmpty\\)\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer/Common.php
+			path: libraries/classes/Database/Designer.php
 
 		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, int given\\.$#"

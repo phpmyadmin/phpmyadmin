@@ -577,12 +577,6 @@
     <InvalidArgument occurrences="1">
       <code>$pg</code>
     </InvalidArgument>
-    <PossiblyUndefinedArrayOffset occurrences="4">
-      <code>$con['DCN']</code>
-      <code>$con['DTN']</code>
-      <code>$con['SCN']</code>
-      <code>$con['STN']</code>
-    </PossiblyUndefinedArrayOffset>
   </file>
   <file src="libraries/classes/Database/Events.php">
     <PossiblyNullArgument occurrences="1">
