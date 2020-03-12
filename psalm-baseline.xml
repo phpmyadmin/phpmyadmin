@@ -178,14 +178,16 @@
       <code>$success</code>
       <code>$success</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="3">
+    <PossiblyNullArgument occurrences="5">
       <code>$page</code>
       <code>$display_page</code>
       <code>$display_page</code>
+      <code>$_GET['db']</code>
+      <code>$selected_page</code>
     </PossiblyNullArgument>
-    <PossiblyNullIterator occurrences="1">
-      <code>$tab_pos</code>
-    </PossiblyNullIterator>
+    <PossiblyUndefinedArrayOffset occurrences="1">
+      <code>$_GET['db']</code>
+    </PossiblyUndefinedArrayOffset>
   </file>
   <file src="libraries/classes/Controllers/Database/ExportController.php">
     <TypeDoesNotContainType occurrences="1">

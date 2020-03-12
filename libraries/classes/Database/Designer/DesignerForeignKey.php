@@ -1,11 +1,15 @@
 <?php
+
+declare(strict_types=1);
+
 /**
  * Holds the PhpMyAdmin\Database\Designer\DesignerForeignKey class
- *
  */
+
 namespace PhpMyAdmin\Database\Designer;
 
 use JsonSerializable;
+use function base64_encode;
 
 /**
  * Common class for Designer
@@ -32,13 +36,13 @@ class DesignerForeignKey implements JsonSerializable
      * @param string $sourceColumnName       The source column name
      */
     public function __construct(
-        $foreignKeyDatabaseName,
-        $foreignKeyTableName,
-        $foreignKeyColumnName,
-        $foreignKeyName,
-        $sourceDatabaseName,
-        $sourceTableName,
-        $sourceColumnName
+        string $foreignKeyDatabaseName,
+        string $foreignKeyTableName,
+        string $foreignKeyColumnName,
+        string $foreignKeyName,
+        string $sourceDatabaseName,
+        string $sourceTableName,
+        string $sourceColumnName
     ) {
         $this->foreignKeyDatabaseName = $foreignKeyDatabaseName;
         $this->foreignKeyTableName = $foreignKeyTableName;

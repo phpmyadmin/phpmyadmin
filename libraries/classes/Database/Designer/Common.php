@@ -8,8 +8,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Database\Designer;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Database\Designer\DesignerTable;
-use PhpMyAdmin\Database\Designer\DesignerForeignKey;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Relation;
@@ -24,6 +22,7 @@ use function is_string;
 use function json_decode;
 use function json_encode;
 use function mb_strtoupper;
+use function rawurlencode;
 
 /**
  * Common functions for Designer
@@ -105,7 +104,7 @@ class Common
                 DatabaseInterface::QUERY_STORE
             );
             while ($row = $GLOBALS['dbi']->fetchAssoc($fieldsRs)) {
-                $colKey = $designerTable->getDatabaseName() . '.' . $designerTable->getTableName() . '.' . $row['Field'];
+                $colKey = $designerTable->getDbTableString() . '.' . $row['Field'];
                 $isPkOrUnique = false;
                 if ($designerTable->supportsForeignkeys()) {
                     $isPkOrUnique = isset($tablesPkOrUniqueKeys[$colKey]);
@@ -133,6 +132,7 @@ class Common
      * Returns a list of foreign keys
      *
      * @param DesignerTable[] $designerTables The designer tables
+     *
      * @return array
      */
     public function getScriptContr(array $designerTables): array
@@ -187,7 +187,7 @@ class Common
             if ($row !== false && isset($row['foreign_keys_data'])) {
                 foreach ($row['foreign_keys_data'] as $one_key) {
                     foreach ($one_key['index_list'] as $index => $one_field) {
-                        $dbName = isset($one_key['ref_db_name']) ? $one_key['ref_db_name'] : $GLOBALS['db'];
+                        $dbName = $one_key['ref_db_name'] ?? $GLOBALS['db'];
                         $foreignTables[] = new DesignerForeignKey(
                             $dbName,
                             $one_key['ref_table_name'],
@@ -222,18 +222,22 @@ class Common
             $foreignTablesToAdd = [];
             /** @var DesignerForeignKey $foreignTable */
             foreach ($foreignKey['foreignTables'] as $foreignTable) {
-                if (in_array($originalTable->getDbTableString(), $tableDbNames) &&
-                    in_array($foreignTable->getDbTableString(), $tableDbNames)
+                if (! in_array($originalTable->getDbTableString(), $tableDbNames) ||
+                    ! in_array($foreignTable->getDbTableString(), $tableDbNames)
                 ) {
-                    $foreignTablesToAdd[] = $foreignTable;
+                    continue;
                 }
+
+                $foreignTablesToAdd[] = $foreignTable;
             }
-            if (count($foreignTablesToAdd) > 0) {
-                $scriptContr[] = [
-                    'table' => $originalTable,
-                    'foreignKeys' => $foreignTablesToAdd,
-                ];
+            if (count($foreignTablesToAdd) <= 0) {
+                continue;
             }
+
+            $scriptContr[] = [
+                'table' => $originalTable,
+                'foreignKeys' => $foreignTablesToAdd,
+            ];
         }
 
         return $scriptContr;
@@ -344,6 +348,7 @@ class Common
             );
             $tabPositionsOut[$dt->getUniqueIdentifier()] = $tab;
         }
+
         return $tabPositionsOut;
     }
 
