@@ -227,14 +227,16 @@
       <code>$success</code>
       <code>$success</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="3">
+    <PossiblyNullArgument occurrences="5">
+      <code>$_GET['db']</code>
       <code>$display_page</code>
       <code>$display_page</code>
       <code>$page</code>
+      <code>$selected_page</code>
     </PossiblyNullArgument>
-    <PossiblyNullIterator occurrences="1">
-      <code>$tab_pos</code>
-    </PossiblyNullIterator>
+    <PossiblyUndefinedArrayOffset occurrences="1">
+      <code>$_GET['db']</code>
+    </PossiblyUndefinedArrayOffset>
   </file>
   <file src="libraries/classes/Controllers/Database/ExportController.php">
     <TypeDoesNotContainNull occurrences="1">
@@ -572,14 +574,6 @@
       <code>(int) $displayPage</code>
       <code>(int) $displayPage</code>
     </RedundantCastGivenDocblockType>
-  </file>
-  <file src="libraries/classes/Database/Designer/Common.php">
-    <PossiblyUndefinedArrayOffset occurrences="4">
-      <code>$con['DCN']</code>
-      <code>$con['DTN']</code>
-      <code>$con['SCN']</code>
-      <code>$con['STN']</code>
-    </PossiblyUndefinedArrayOffset>
   </file>
   <file src="libraries/classes/Database/Events.php">
     <PossiblyNullArgument occurrences="1">
@@ -1491,6 +1485,11 @@
       <code>attributes</code>
     </PossiblyNullReference>
     <UndefinedPropertyFetch occurrences="1"/>
+  </file>
+  <file src="libraries/classes/Plugins/Import/Upload/UploadProgress.php">
+    <TooManyArguments occurrences="1">
+      <code>uploadprogress_get_info($id)</code>
+    </TooManyArguments>
   </file>
   <file src="libraries/classes/Plugins/ImportPlugin.php">
     <RedundantCastGivenDocblockType occurrences="1">

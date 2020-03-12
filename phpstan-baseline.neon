@@ -101,11 +101,6 @@ parameters:
 			path: libraries/classes/Controllers/BrowseForeignersController.php
 
 		-
-			message: "#^Argument of an invalid type array\\|null supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/DesignerController.php
-
-		-
 			message: "#^Parameter \\#1 \\$state of method PhpMyAdmin\\\\Response\\:\\:setRequestStatus\\(\\) expects bool, bool\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/DesignerController.php
@@ -229,26 +224,6 @@ parameters:
 			message: "#^Offset 'pass'\\|'port'\\|'user' does not exist on array\\(\\?'scheme' \\=\\> string, 'host' \\=\\> string, \\?'port' \\=\\> int, \\?'user' \\=\\> string, \\?'pass' \\=\\> string, \\?'path' \\=\\> string, \\?'query' \\=\\> string, \\?'fragment' \\=\\> string\\)\\.$#"
 			count: 1
 			path: libraries/classes/Core.php
-
-		-
-			message: "#^Offset 'DCN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'DTN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'SCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'STN' \\=\\> array\\<int, string\\>&nonEmpty\\)\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer/Common.php
-
-		-
-			message: "#^Offset 'DTN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'DTN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'SCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'STN' \\=\\> array\\<int, string\\>&nonEmpty\\)\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer/Common.php
-
-		-
-			message: "#^Offset 'SCN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'DTN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'SCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'STN' \\=\\> array\\<int, string\\>&nonEmpty\\)\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer/Common.php
-
-		-
-			message: "#^Offset 'STN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'DTN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'SCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'STN' \\=\\> array\\<int, string\\>&nonEmpty\\)\\.$#"
-			count: 2
-			path: libraries/classes/Database/Designer/Common.php
 
 		-
 			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:tryQuery\\(\\) expects string, string\\|null given\\.$#"

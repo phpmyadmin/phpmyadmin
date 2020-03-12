@@ -1,6 +1,6 @@
 /* global DesignerOfflineDB */ // js/designer/database.js
 // eslint-disable-next-line no-unused-vars
-/* global db, selectedPage:writable */ // js/designer/init.js
+/* global db, selectedPage:writable, jTabs */ // js/designer/init.js
 /* global DesignerMove */ // js/designer/move.js
 /* global DesignerObjects */ // js/designer/objects.js
 
@@ -26,14 +26,14 @@ DesignerPage.saveToNewPage = function (db, pageName, tablePositions, callback) {
                 if (tablePositions.length === tblCords.length) {
                     page.tblCords = tblCords;
                     DesignerOfflineDB.addObject('pdf_pages', page);
+                    if (typeof callback !== 'undefined') {
+                        callback(page);
+                    }
                 }
             };
             for (var pos = 0; pos < tablePositions.length; pos++) {
                 tablePositions[pos].pdfPgNr = page.pgNr;
                 DesignerPage.saveTablePositions(tablePositions[pos], saveCallback);
-            }
-            if (typeof callback !== 'undefined') {
-                callback(page);
             }
         }
     });
@@ -111,20 +111,38 @@ DesignerPage.loadFirstPage = function (db, callback) {
 };
 
 DesignerPage.showNewPageTables = function (check) {
-    var allTables = $('#id_scroll_tab').find('td input:checkbox');
+    var allTables = $('.scroll_tab_checkbox:checkbox');
     allTables.prop('checked', check);
-    for (var tab = 0; tab < allTables.length; tab++) {
+    var tableSize = allTables.length;
+    for (var tab = 0; tab < tableSize; tab++) {
         var input = allTables[tab];
         if (input.value) {
-            var element = document.getElementById(input.value);
+            // Remove check_visible_ from input.value
+            var val = input.value.replace('check_visible_','');
+            var element = document.getElementById('designer_table_' + val);
             element.style.top = DesignerPage.getRandom(550, 20) + 'px';
             element.style.left = DesignerPage.getRandom(700, 20) + 'px';
-            DesignerMove.visibleTab(input, input.value);
+            DesignerMove.visibleTab(input, 'designer_table_' + val);
         }
     }
     selectedPage = -1;
     $('#page_name').text(Messages.strUntitled);
     DesignerMove.markUnsaved();
+};
+
+DesignerPage.getTableFromData = function (data) {
+    var $newTableDom = $(data.message);
+    $newTableDom.find('a').first().remove();
+    var table = null;
+    for (var i = 0; i < $newTableDom.length; i++) {
+        if ($newTableDom[i].tagName === 'TABLE') {
+            table = $newTableDom[i];
+            break;
+        }
+    }
+    var dbTableNameUrl = $($newTableDom).find('.small_tab_pref').attr('unique_id');
+
+    return [table, dbTableNameUrl];
 };
 
 DesignerPage.loadHtmlForPage = function (pageId) {
@@ -133,18 +151,48 @@ DesignerPage.loadHtmlForPage = function (pageId) {
         $('#name-panel').find('#page_name').text(page.pageDescr);
         var tableMissing = false;
         for (var t = 0; t < tblCords.length; t++) {
-            var tbId = db + '.' + tblCords[t].tableName;
-            var table = document.getElementById(tbId);
-            if (table === null) {
-                tableMissing = true;
-                continue;
-            }
-            table.style.top = tblCords[t].y + 'px';
-            table.style.left = tblCords[t].x + 'px';
+            var tbId = btoa(tblCords[t].dbName + '.' + tblCords[t].tableName);
+            var table = document.getElementById('designer_table_' + tbId);
+            var yCord = tblCords[t].y + 'px';
+            var xCord = tblCords[t].x + 'px';
+            if (!table) {
+                $.ajax({
+                    type: 'POST',
+                    async: false,
+                    url: 'index.php?route=/database/designer',
+                    data: {
+                        'ajax_request' : true,
+                        'dialog' : 'add_table',
+                        'db' : tblCords[t].dbName,
+                        'table' : tblCords[t].tableName,
+                        'server': CommonParams.get('server')
+                    },
+                    // eslint-disable-next-line no-loop-func
+                    success: function (data) {
+                        var [table, dbTableNameUrl] = DesignerPage.getTableFromData(data);
+                        if (typeof dbTableNameUrl === 'string' && table) { // Do not try to add if attr not found !
+                            $('#container-form').append(table);
+                            DesignerMove.enableTableEvents(null, table);
+                            DesignerMove.addTableToTablesList(null, table);
+                            table.style.top = yCord;
+                            table.style.left = xCord;
+                            jTabs[dbTableNameUrl] = 1;
+                            var checkbox = document.getElementById('check_vis_' + tbId);
+                            checkbox.checked = true;
+                            var val = checkbox.value.replace('check_visible_','');
+                            DesignerMove.visibleTab(checkbox, 'designer_table_' + val);
+                        }
+                    }
+                });
+            } else {
+                table.style.top = yCord;
+                table.style.left = xCord;
 
-            var checkbox = document.getElementById('check_vis_' + tbId);
-            checkbox.checked = true;
-            DesignerMove.visibleTab(checkbox, checkbox.value);
+                var checkbox = document.getElementById('check_vis_' + tbId);
+                checkbox.checked = true;
+                var val = checkbox.value.replace('check_visible_','');
+                DesignerMove.visibleTab(checkbox, 'designer_table_' + val);
+            }
         }
         DesignerMove.markSaved();
         if (tableMissing === true) {

@@ -422,15 +422,16 @@ DesignerHistory.Aggregate = function (nOperator) {
 
 DesignerHistory.unique = function (arrayName) {
     var newArray = [];
+    var newArrayLength;
     uniquetop:
     for (var i = 0; i < arrayName.length; i++) {
-        var newArrayLength = newArray.length;
+        newArrayLength = newArray.length;
         for (var j = 0; j < newArrayLength; j++) {
             if (newArray[j] === arrayName[i]) {
                 continue uniquetop;
             }
         }
-        newArray[newArrayLength] = arrayName[i];
+        newArray.push(arrayName[i]);
     }
     return newArray;
 };
@@ -480,8 +481,9 @@ DesignerHistory.addArray = function (add, arr) {
  */
 DesignerHistory.removeArray = function (rem, arr) {
     var remLength = rem.length;
+    var arrLength;
     for (var i = 0; i < remLength; i++) {
-        var arrLength = arr.length;
+        arrLength = arr.length;
         for (var j = 0; j < arrLength; j++) {
             if (rem[i] === arr[j]) {
                 arr.splice(j, 1);
@@ -651,26 +653,25 @@ DesignerHistory.queryFrom = function () {
     quer = '`' + temp + '`';
     tabUsed.push(temp);
 
-    // if master table (key2) matches with tab used get all keys and check if tab_left matches
-    // after this check if master table (key2) matches with tab left then check if any foreign matches with master .
-    for (i = 0; i < 2; i++) {
+    function tableMatch (a, b) {
         for (K in contr) {
             for (key in contr[K]) {// contr name
                 for (key2 in contr[K][key]) {// table name
                     parts = key2.split('.');
-                    if (DesignerHistory.found(tabUsed, parts[1]) > 0) {
-                        for (key3 in contr[K][key][key2]) {
-                            parts1 = contr[K][key][key2][key3][0].split('.');
-                            if (DesignerHistory.found(tabLeft, parts1[1]) > 0) {
+                    if (DesignerHistory.found(a, parts[1]) > 0) {
+                        var contrKey2 = contr[K][key][key2];
+                        for (key3 in contrKey2) {
+                            var contrKey3 = contrKey2[key3];
+                            parts1 = contrKey3[0].split('.');
+                            if (DesignerHistory.found(b, parts1[1]) > 0) {
                                 if (DesignerHistory.found(constraintsAdded, key) > 0) {
                                     query += ' AND ' + '`' + parts[1] + '`.`' + key3 + '` = ';
-                                    query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` ';
+                                    query += '`' + parts1[1] + '`.`' + contrKey3[1] + '` ';
                                 } else {
                                     query += '\n' + 'LEFT JOIN ';
                                     query += '`' + parts[1] + '` ON ';
-                                    query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` = ';
+                                    query += '`' + parts1[1] + '`.`' + contrKey3[1] + '` = ';
                                     query += '`' + parts[1] + '`.`' + key3 + '` ';
-
                                     constraintsAdded.push(key);
                                 }
                                 tTabLeft.push(parts[1]);
@@ -680,37 +681,18 @@ DesignerHistory.queryFrom = function () {
                 }
             }
         }
+    }
+
+    // if master table (key2) matches with tab used get all keys and check if tab_left matches
+    // after this check if master table (key2) matches with tab left then check if any foreign matches with master .
+    for (i = 0; i < 2; i++) {
+        tableMatch(tabUsed, tabLeft);
         K = 0;
         tTabLeft = DesignerHistory.unique(tTabLeft);
         tabUsed = DesignerHistory.addArray(tTabLeft, tabUsed);
         tabLeft = DesignerHistory.removeArray(tTabLeft, tabLeft);
         tTabLeft = [];
-        for (K in contr) {
-            for (key in contr[K]) {
-                for (key2 in contr[K][key]) {// table name
-                    parts = key2.split('.');
-                    if (DesignerHistory.found(tabLeft, parts[1]) > 0) {
-                        for (key3 in contr[K][key][key2]) {
-                            parts1 = contr[K][key][key2][key3][0].split('.');
-                            if (DesignerHistory.found(tabUsed, parts1[1]) > 0) {
-                                if (DesignerHistory.found(constraintsAdded, key) > 0) {
-                                    query += ' AND ' + '`' + parts[1] + '`.`' + key3 + '` = ';
-                                    query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` ';
-                                } else {
-                                    query += '\n' + 'LEFT JOIN ';
-                                    query += '`' + parts[1] + '` ON ';
-                                    query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` = ';
-                                    query += '`' + parts[1] + '`.`' + key3 + '` ';
-
-                                    constraintsAdded.push(key);
-                                }
-                                tTabLeft.push(parts[1]);
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        tableMatch(tabLeft, tabUsed);
         tTabLeft = DesignerHistory.unique(tTabLeft);
         tabUsed = DesignerHistory.addArray(tTabLeft, tabUsed);
         tabLeft = DesignerHistory.removeArray(tTabLeft, tabLeft);
