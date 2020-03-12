@@ -75,18 +75,11 @@
             {% set table_columns = designerTable.getColumns() %}
             {% for designerColumn in table_columns %}
                 {% set col_name = designerColumn.getColumnName() %}
+                {% set col_type = designerColumn.getColumnType() %}
                 {% set col_name_base64 = designerColumn.getColumnNameBase64() %}
                 {% set col_name_uuid = designerColumn.getUniqueIdentifier() %}
                 {% set tmp_column = designerColumn.getDbTableColString() %}
                 {% set col_name_url = col_name|url_encode %}
-                {% set isPkOrUnique = 0 %}
-                {% if not designerTable.supportsForeignkeys() %}
-                    {% set isPkOrUnique = tables_pk_or_unique_keys[tmp_column] is defined ? 1 : 0 %}
-                {% else %}
-                    {# if foreign keys are supported, it's not necessary that the
-                    index is a primary key #}
-                    {% set isPkOrUnique = tables_all_keys[tmp_column] is defined ? 1 : 0 %}
-                {% endif %}
 
                 <tr id="id_tr_{{ col_name_uuid }}"
                     class="tab_field{{- display_field == col_name ? '_3' }}"
@@ -95,7 +88,7 @@
                     db_base64="{{ db_base64 }}"
                     table_name_base64="{{ table_name_base64 }}"
                     col_name_base64="{{ col_name_base64 }}"
-                    is_pk_or_unique="{{ isPkOrUnique }}" >
+                    is_pk_or_unique="{{ designerColumn.getIsPkOrUnique() ? 0 : 1 }}" >
                     {% if has_query %}
                         <td class="select_all">
                             <input class="select_all_store_col"
@@ -112,9 +105,8 @@
                     {% endif %}
                     <td width="10px" colspan="3" id="designer_col_{{ col_name_uuid }}">
                         <div class="nowrap">
-                            {% set type = columns_type[t_n ~ '.' ~ tab_column[t_n]['COLUMN_NAME'][j]] %}
-                            <img src="{{ theme.getImgPath(type) }}.png" alt="*">
-                            {{ tab_column[t_n]['COLUMN_NAME'][j] }} : {{ tab_column[t_n]['TYPE'][j] }}
+                            <img src="{{ theme.getImgPath(designerColumn.getColumnTypeForImage()) }}.png" alt="*">
+                            {{ col_name }} : {{ col_type }}
                         </div>
                     </td>
                     {% if has_query %}

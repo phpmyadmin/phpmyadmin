@@ -84,11 +84,13 @@ class Common
     /**
      * Retrieves table column info
      *
-     * @param DesignerTable[] $designerTables The designer tables
+     * @param DesignerTable[]   $designerTables       The designer tables
+     * @param array<string,int> $tablesPkOrUniqueKeys The data to indicate a db.table.col is a pk or unique
+     * @param array<string,int> $tablesAllKeys        The data to indicate a db.table.col is a key
      *
-     * @return array table column nfo
+     * @return DesignerColumn[]
      */
-    public function addColumnsInfo(array $designerTables): array
+    public function addColumnsInfo(array $designerTables, array $tablesPkOrUniqueKeys, array $tablesAllKeys): array
     {
         /** @var DesignerColumn[] $designerColumns */
         $designerColumns = [];
@@ -103,12 +105,21 @@ class Common
                 DatabaseInterface::QUERY_STORE
             );
             while ($row = $GLOBALS['dbi']->fetchAssoc($fieldsRs)) {
+                $colKey = $designerTable->getDatabaseName() . '.' . $designerTable->getTableName() . '.' . $row['Field'];
+                $isPkOrUnique = false;
+                if ($designerTable->supportsForeignkeys()) {
+                    $isPkOrUnique = isset($tablesPkOrUniqueKeys[$colKey]);
+                } else {
+                    // if foreign keys are supported, it's not necessary that the index is a primary key
+                    $isPkOrUnique = isset($tablesAllKeys[$colKey]);
+                }
                 $col = new DesignerColumn(
                     $designerTable->getDatabaseName(),
                     $designerTable->getTableName(),
                     $row['Field'],
                     $row['Type'],
-                    $row['Null'] === 'YES'
+                    $row['Null'] === 'YES',
+                    $isPkOrUnique
                 );
                 $designerTable->addColumn($col);
                 $designerColumns[] = $col;
@@ -233,7 +244,7 @@ class Common
      *
      * @param DesignerTable[] $designerTables The designer tables
      *
-     * @return array unique or primary indices
+     * @return array<string,int> unique or primary indices
      */
     public function getPkOrUniqueKeys(array $designerTables): array
     {
@@ -246,7 +257,7 @@ class Common
      * @param DesignerTable[] $designerTables The designer tables
      * @param bool            $unique_only    whether to include only unique ones
      *
-     * @return array indices
+     * @return array<string,int> indices
      */
     public function getAllKeys(array $designerTables, bool $unique_only = false): array
     {
@@ -297,7 +308,7 @@ class Common
      *
      * @param int $pg pdf page id
      *
-     * @return array<string,DesignerTable> of table positions
+     * @return array<string,array> of table positions
      */
     public function getTablePositions($pg): array
     {
