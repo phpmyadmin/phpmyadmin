@@ -111,15 +111,15 @@ DesignerPage.loadFirstPage = function (db, callback) {
 };
 
 DesignerPage.showNewPageTables = function (check) {
-    var allTables = $('#id_scroll_tab').find('td input:checkbox');
+    var allTables = $('.scroll_tab_checkbox:checkbox');
     allTables.prop('checked', check);
     for (var tab = 0; tab < allTables.length; tab++) {
         var input = allTables[tab];
         if (input.value) {
-            var element = document.getElementById(input.value);
+            var element = document.getElementById('designer_table_' + input.value);
             element.style.top = DesignerPage.getRandom(550, 20) + 'px';
             element.style.left = DesignerPage.getRandom(700, 20) + 'px';
-            DesignerMove.visibleTab(input, input.value);
+            DesignerMove.visibleTab(input, 'designer_table_' + input.value);
         }
     }
     selectedPage = -1;
@@ -133,14 +133,15 @@ DesignerPage.loadHtmlForPage = function (pageId) {
         $('#name-panel').find('#page_name').text(page.pageDescr);
         DesignerMove.markSaved();
         for (var t = 0; t < tblCords.length; t++) {
-            var tbId = db + '.' + tblCords[t].tableName;
-            var table = document.getElementById(tbId);
+            var tbId = btoa(tblCords[t].dbName + '.' + tblCords[t].tableName);
+            var table = document.getElementById('designer_table_' + tbId);
+            // FIXME: add if table
             table.style.top = tblCords[t].y + 'px';
             table.style.left = tblCords[t].x + 'px';
 
             var checkbox = document.getElementById('check_vis_' + tbId);
             checkbox.checked = true;
-            DesignerMove.visibleTab(checkbox, checkbox.value);
+            DesignerMove.visibleTab(checkbox, 'designer_table_' + checkbox.value);
         }
         selectedPage = page.pgNr;
     });
