@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-12 13:59+0100\n"
-"PO-Revision-Date: 2020-02-13 17:50+0000\n"
-"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
+"PO-Revision-Date: 2020-03-12 14:08+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.11-dev\n"
+"X-Generator: Weblate 4.0-dev\n"
 
 #: index.php:54
 #, php-format
@@ -4034,16 +4034,12 @@ msgid "Logo link URL"
 msgstr "URL du lien sous le logo"
 
 #: libraries/classes/Config/Descriptions.php:491
-#, fuzzy
-#| msgid ""
-#| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
-#| "([kbd]new[/kbd])."
 msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
 msgstr ""
-"Ouvrir la page en lien dans la fenêtre principale, ([kbd]main[/kbd]) ou dans "
-"une nouvelle fenêtre, ([kbd]new[/kbd])."
+"Ouvrir la page en lien dans la fenêtre principale, ([code]main[/code]) ou "
+"dans une nouvelle fenêtre, ([code]new[/code])."
 
 #: libraries/classes/Config/Descriptions.php:494
 msgid "Logo link target"
@@ -8547,6 +8543,7 @@ msgstr "Le fichier de déchargement a été enregistré sous %s."
 #: libraries/classes/Export.php:950
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
+"Exporter une requête libre n'est pas supporté pour cette méthode n'export."
 
 #: libraries/classes/File.php:269
 msgid "File was not an uploaded file."
@@ -10152,10 +10149,8 @@ msgstr "Exporter les entêtes de table"
 
 #: libraries/classes/Plugins/Export/ExportOdt.php:266
 #: libraries/classes/Plugins/Export/ExportTexytext.php:191
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Dumping data for query result"
-msgstr "Déchargement des données de la table"
+msgstr "Déchargement des données pour la requête"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:96
 msgid "Report title:"
@@ -10166,10 +10161,8 @@ msgid "Dumping data"
 msgstr "Déchargement des données"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:250
-#, fuzzy
-#| msgid "Query results"
 msgid "Query result data"
-msgstr "Opérations sur les résultats"
+msgstr "Résultats de la requête"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:308
 msgid "View structure"
@@ -10895,10 +10888,8 @@ msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgstr "Convertit une adresse de réseau Internet (IPv4/IPv6) au format binaire"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptolong.php:33
-#, fuzzy
-#| msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgid "Converts an Internet network address in (IPv4/IPv6) format to long."
-msgstr "Convertit une adresse de réseau Internet (IPv4/IPv6) au format binaire"
+msgstr "Convertit une adresse de réseau Internet (IPv4/IPv6) au format long."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:25
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -13007,11 +12998,9 @@ msgid "PARTITION definition:"
 msgstr "Définition de PARTITION :"
 
 #: templates/columns_definitions/column_definitions_form.twig:150
-#, fuzzy
-#| msgid "Enclose export in a transaction"
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
-msgstr "Utiliser le mode transactionnel"
+msgstr "Transaction ONLINE"
 
 #: templates/columns_definitions/column_length.twig:9
 msgid "Edit ENUM/SET values"
@@ -13660,16 +13649,12 @@ msgstr "Renommer la base de données en"
 #: templates/table/operations/index.twig:60
 #: templates/table/operations/index.twig:93
 #: templates/table/operations/index.twig:248
-#, fuzzy
-#| msgid ""
-#| "You don't have sufficient privileges to perform this operation; Please "
-#| "refer to the documentation for more details"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details."
 msgstr ""
 "L'utilisateur n'a pas les privilèges suffisants pour effectuer cette "
-"opération ; merci de se référer à la documentation pour plus de détails"
+"opération ; merci de se référer à la documentation pour plus de détails."
 
 #: templates/database/operations/index.twig:69
 msgid "Remove database"
@@ -14078,10 +14063,8 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "Exportation des tables depuis la base de données « %s »"
 
 #: templates/display/export/option_header.twig:9
-#, fuzzy
-#| msgid "Showing SQL query"
 msgid "Exporting raw query"
-msgstr "Affichage de la requête SQL"
+msgstr "Exportation de la requête"
 
 #: templates/display/export/option_header.twig:11
 #, php-format
@@ -14934,10 +14917,8 @@ msgid "View:"
 msgstr "Vue :"
 
 #: templates/mult_submits/copy_multiple_tables.twig:12
-#, fuzzy
-#| msgid "Options"
 msgid "Options:"
-msgstr "Options"
+msgstr "Options:"
 
 #: templates/mult_submits/copy_multiple_tables.twig:37
 msgid "Add AUTO INCREMENT value"
@@ -14972,16 +14953,12 @@ msgid "phpMyAdmin documentation"
 msgstr "Documentation de phpMyAdmin"
 
 #: templates/navigation/main.twig:40 templates/navigation/main.twig:41
-#, fuzzy
-#| msgid "Documentation"
 msgid "MariaDB Documentation"
-msgstr "Documentation"
+msgstr "Documentation MariaDB"
 
 #: templates/navigation/main.twig:40 templates/navigation/main.twig:41
-#, fuzzy
-#| msgid "Documentation"
 msgid "MySQL Documentation"
-msgstr "Documentation"
+msgstr "Documentation MySQL"
 
 #: templates/navigation/main.twig:44 templates/navigation/main.twig:45
 msgid "Navigation panel settings"
@@ -16649,10 +16626,8 @@ msgid "(singly)"
 msgstr "(à refaire après insertions/destructions)"
 
 #: templates/table/operations/index.twig:39
-#, fuzzy
-#| msgid "Move table to (database<b>.</b>table)"
 msgid "Move table to (database.table)"
-msgstr "Déplacer la table vers (base<b>.</b>table)"
+msgstr "Déplacer la table vers (base.table)"
 
 #: templates/table/operations/index.twig:82
 msgid "Table options"
@@ -16667,20 +16642,16 @@ msgid "Table comments"
 msgstr "Commentaires de la table"
 
 #: templates/table/operations/index.twig:111
-#, fuzzy
-#| msgid "Storage engines"
 msgid "Storage engine"
-msgstr "Moteurs de stockage"
+msgstr "Moteur de stockage"
 
 #: templates/table/operations/index.twig:134
 msgid "Change all column collations"
 msgstr "Changer le classement de toutes les colonnes"
 
 #: templates/table/operations/index.twig:210
-#, fuzzy
-#| msgid "Copy table to (database<b>.</b>table)"
 msgid "Copy table to (database.table)"
-msgstr "Copier la table vers (base<b>.</b>table)"
+msgstr "Copier la table vers (base.table)"
 
 #: templates/table/operations/index.twig:258
 msgid "Switch to copied table"
@@ -16704,10 +16675,8 @@ msgid "Remove partitioning"
 msgstr "Retirer le partitionnement"
 
 #: templates/table/operations/index.twig:374
-#, fuzzy
-#| msgid "Check referential integrity:"
 msgid "Check referential integrity"
-msgstr "Vérifier l'intégrité référentielle :"
+msgstr "Vérifier l'intégrité référentielle"
 
 #: templates/table/operations/view.twig:10
 msgid "Rename view to"
@@ -17038,15 +17007,13 @@ msgid "Click to toggle"
 msgstr "Cliquer pour commuter"
 
 #: templates/top_menu.twig:4
-#, fuzzy
-#| msgid "Table navigation bar"
 msgid "Toggle navigation"
-msgstr "Barre de navigation"
+msgstr "Afficher le menu"
 
 #. l10n: Current page
 #: templates/top_menu.twig:14
 msgid "(current)"
-msgstr ""
+msgstr "(actuelle)"
 
 #: templates/transformation_overview.twig:1
 msgid "Available media types"
