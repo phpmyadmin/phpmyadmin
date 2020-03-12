@@ -48,7 +48,7 @@ php ./scripts/advisor2po >> po/phpmyadmin.pot
 
 ver=`sed -n "/PMA_VERSION', '/ s/.*PMA_VERSION', '\(.*\)'.*/\1/p" libraries/classes/Config.php`
 
-sed -i '
+sed -i.~ '
     s/SOME DESCRIPTIVE TITLE/phpMyAdmin translation/;
     s/PACKAGE/phpMyAdmin/;
     s/(C) YEAR/(C) 2003 - '`date +%Y`'/;
@@ -57,7 +57,7 @@ sed -i '
 
 # Update po files (translations)
 for loc in $LOCS ; do
-    sed -i '
+    sed -i.~ '
         s/SOME DESCRIPTIVE TITLE/phpMyAdmin translation/;
         s/PACKAGE/phpMyAdmin/;
         s/(C) YEAR/(C) 2003 - '`date +%Y`'/;
