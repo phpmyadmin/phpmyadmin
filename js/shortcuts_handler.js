@@ -25,7 +25,7 @@ $(function () {
     var keyC = 67;
     var keyBackSpace = 8;
     $(document).on('keyup', function (e) {
-        if (e.target.nodeName === 'INPUT' || e.target.nodeName === 'TEXTAREA' || e.target.nodeName === 'SELECT') {
+        if (e.target.nodeName === 'INPUT' || e.target.nodeName === 'TEXTAREA' || e.target.nodeName === 'SELECT' || $(':focus').prop('contenteditable') === true) {
             return;
         }
 
@@ -53,7 +53,7 @@ $(function () {
             Console.toggle();
         }
 
-        if (e.target.nodeName === 'INPUT' || e.target.nodeName === 'TEXTAREA' || e.target.nodeName === 'SELECT') {
+        if (e.target.nodeName === 'INPUT' || e.target.nodeName === 'TEXTAREA' || e.target.nodeName === 'SELECT' || $(':focus').prop('contenteditable') === true) {
             return;
         }
 
