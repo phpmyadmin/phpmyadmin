@@ -153,6 +153,9 @@ class DesignerForeignKey implements JsonSerializable
         return base64_encode($this->getSourceDbTableString());
     }
 
+    /**
+     * @return array
+     */
     public function jsonSerialize()
     {
         return [

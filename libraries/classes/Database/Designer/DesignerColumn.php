@@ -122,6 +122,9 @@ class DesignerColumn implements JsonSerializable
         return base64_encode($this->getDbTableString());
     }
 
+    /**
+     * @return array
+     */
     public function jsonSerialize()
     {
         return [
@@ -130,7 +133,7 @@ class DesignerColumn implements JsonSerializable
             'dbName' => $this->getDatabaseName(),
             'tableName' => $this->getTableName(),
             'colName' => $this->getColumnName(),
-            'colType' => $this->columnType(),
+            'colType' => $this->getColumnType(),
             'isNullable' => $this->getIsNullable(),
         ];
     }
