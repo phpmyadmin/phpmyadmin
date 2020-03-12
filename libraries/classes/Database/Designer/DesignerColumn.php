@@ -11,11 +11,20 @@ use JsonSerializable;
  */
 class DesignerColumn implements JsonSerializable
 {
+    /** @var string */
     private $tableName;
+    /** @var string */
     private $databaseName;
+    /** @var string */
     private $columnName;
+    /** @var string */
     private $columnType;
+    /** @var bool */
     private $isNullable;
+    /** @var string */
+    private $columnTypeForImage;
+    /** @var bool */
+    private $isPkOrUnique;
 
     /**
      * Create a new DesignerColumn
@@ -25,19 +34,23 @@ class DesignerColumn implements JsonSerializable
      * @param string $columnName   The column name
      * @param string $columnType   The column type
      * @param bool   $isNullable   The column is nullable
+     * @param bool   $isPkOrUnique The column is a primary key or is unique
      */
     public function __construct(
-        $databaseName,
-        $tableName,
-        $columnName,
-        $columnType,
-        $isNullable
+        string $databaseName,
+        string $tableName,
+        string $columnName,
+        string $columnType,
+        bool $isNullable,
+        bool $isPkOrUnique
     ) {
         $this->databaseName = $databaseName;
         $this->tableName = $tableName;
         $this->columnName = $columnName;
         $this->columnType = $columnType;
         $this->isNullable = $isNullable;
+        $this->isPkOrUnique = $isPkOrUnique;
+        $this->fillColumnTypeForImage();
     }
 
     /**
@@ -81,13 +94,48 @@ class DesignerColumn implements JsonSerializable
     }
 
     /**
-     * Is the column nullable
-     *
-     * @return bool
+     * Get column type for image
      */
-    public function getIsNullable()
+    public function getColumnTypeForImage(): string
+    {
+        return $this->columnTypeForImage;
+    }
+
+    private function fillColumnTypeForImage(): void
+    {
+        if ($this->isPkOrUnique) {
+            $this->columnTypeForImage = 'designer/FieldKey_small';
+        } else {
+            if (strpos($this->columnType, 'char') !== false
+                || strpos($this->columnType, 'text') !== false) {
+                $this->columnTypeForImage = 'designer/Field_small_char';
+            } elseif (strpos($this->columnType, 'int') !== false
+                || strpos($this->columnType, 'float') !== false
+                || strpos($this->columnType, 'double') !== false
+                || strpos($this->columnType, 'decimal') !== false) {
+                $this->columnTypeForImage = 'designer/Field_small_int';
+            } elseif (strpos($this->columnType, 'date') !== false
+                || strpos($this->columnType, 'time') !== false
+                || strpos($this->columnType, 'year') !== false) {
+                $this->columnTypeForImage = 'designer/Field_small_date';
+            }
+        }
+    }
+
+    /**
+     * Is the column nullable
+     */
+    public function getIsNullable(): bool
     {
         return $this->isNullable;
+    }
+
+    /**
+     * Is the column a primary key or is unique
+     */
+    public function getIsPkOrUnique(): bool
+    {
+        return $this->isPkOrUnique;
     }
 
     /**
