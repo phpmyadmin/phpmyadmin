@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2020-03-11 08:19+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2020-03-15 08:36+0000\n"
+"Last-Translator: yagoub fadel <yagoub76@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/4-9/ar/"
 ">\n"
 "Language: ar\n"
@@ -333,11 +333,11 @@ msgstr "عليك اختيار عمود واحد على الأقل للعرض!"
 
 #: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
 msgid "Multi-table query"
-msgstr "استعلام متعدد الجداول"
+msgstr "استعلام جداول متعددة"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
 msgid "Query by example"
-msgstr "استعلم بمثال"
+msgstr "مثال للاستعلام"
 
 #: db_qbe.php:168
 #, php-format
@@ -528,16 +528,12 @@ msgid "Output"
 msgstr "المخرجات"
 
 #: gis_data_editor.php:423
-#, fuzzy
-#| msgid ""
-#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-#| "below into the \"Value\" field."
 msgid ""
 "Choose \"ST_GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"اختر \"جيومفرومتيكست\" من العمود \"دالة\" ولصق السلسلة أدناه في الحقل "
-"\"القيمة\"."
+"اختر \"جيومفرومتيكست\" من العمود \"دالة\" ,والصق السلسلة أدناه في الحقل \""
+"القيمة\"."
 
 #: import.php:73
 msgid "Succeeded"
@@ -1097,10 +1093,8 @@ msgid "Y values"
 msgstr "كل قيم Y"
 
 #: js/messages.php:142
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "من فظلك ادخل نفس القيمة مرة أخرى"
+msgstr "من فضلك ادخل قيمة SQL اولا."
 
 #: js/messages.php:145
 msgid "The host name is empty!"
@@ -1776,10 +1770,8 @@ msgid "No databases selected."
 msgstr "لا قواعد بيانات محددة."
 
 #: js/messages.php:374
-#, fuzzy
-#| msgid "No column selected."
 msgid "No accounts selected."
-msgstr "لايوجد صفوف مختارة"
+msgstr "لم يتم اختيار حسابات."
 
 #: js/messages.php:375
 msgid "Dropping column"
@@ -2285,10 +2277,8 @@ msgstr "القيمة / استعلام فرعي فارغ"
 
 #: js/messages.php:565 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
-msgstr "لم يعثر على جداول في قاعدة البيانات."
+msgstr "اضافة جداول من قواعد بيانات اخري"
 
 #: js/messages.php:566
 msgid "Page name"
@@ -2681,20 +2671,19 @@ msgstr "قوي"
 
 #: js/messages.php:751
 msgid "Timed out waiting for security key activation."
-msgstr ""
+msgstr "انتهت مهلة انتظار تنشيط مفتاح الأمان."
 
 #: js/messages.php:752
 #, php-format
 msgid "Failed security key activation (%s)."
-msgstr ""
+msgstr "فشل تنشيط مفتاح الأمان (٪ s)."
 
 #: js/messages.php:755
-#, fuzzy, php-format
-#| msgid "The user %s already exists!"
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
-msgstr "اسم المستخدم %s موجود مسبقاً!"
+msgstr "جدول %s موجود مسبقاً!"
 
 #: js/messages.php:756 libraries/classes/InsertEdit.php:288
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:54
@@ -3140,7 +3129,7 @@ msgstr ""
 #: libraries/classes/CentralColumns.php:362
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr ""
+msgstr "تعذرت إضافة٪ 1 $ s لأنها موجودة بالفعل في القائمة المركزية!"
 
 #: libraries/classes/CentralColumns.php:377
 msgid "Could not add columns!"
@@ -3150,7 +3139,7 @@ msgstr "تعذرت إضافة أعمدة!"
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
-msgstr ""
+msgstr "تعذرت إزالة الأعمدة٪ 1 $ s لأنها غير موجودة في قائمة الأعمدة المركزية!"
 
 #: libraries/classes/CentralColumns.php:466
 msgid "Could not remove columns!"
@@ -3220,7 +3209,7 @@ msgstr "الطول/القيمة"
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 msgid "Collation"
-msgstr ""
+msgstr "التجميع"
 
 #: libraries/classes/CentralColumns.php:753
 #, fuzzy
@@ -3515,25 +3504,19 @@ msgid "case-sensitive"
 msgstr "حساس لحالة الأحرف"
 
 #: libraries/classes/Charsets.php:673
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
-msgstr "غير حساس لحالة الأحرف"
+msgstr "غير حساس لحالة اللهجة"
 
 #: libraries/classes/Charsets.php:676
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
-msgstr "حساس لحالة الأحرف"
+msgstr "حساس لحالة اللهجة"
 
 #: libraries/classes/Charsets.php:679
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "حساس لحالة الأحرف"
+msgstr "حساسة للكانا"
 
 #: libraries/classes/Charsets.php:683
 msgctxt "Collation variant"
@@ -3593,6 +3576,8 @@ msgstr "خادم %d"
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
+"في حالة التمكين ، يمكن للمستخدم إدخال أي خادم MySQL في نموذج تسجيل الدخول "
+"لمصادقة ملف تعريف الارتباط."
 
 #: libraries/classes/Config/Descriptions.php:64
 msgid "Allow login to any MySQL server"
