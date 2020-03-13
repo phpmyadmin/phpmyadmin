@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-03-13 22:08+0100\n"
-"PO-Revision-Date: 2019-12-23 19:26+0000\n"
+"POT-Creation-Date: 2020-03-12 13:59+0100\n"
+"PO-Revision-Date: 2020-03-13 21:10+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Weblate 4.0-dev\n"
 
 #: index.php:54
 #, php-format
@@ -3958,16 +3958,12 @@ msgid "Logo link URL"
 msgstr "Logo bağlantısı URL'si"
 
 #: libraries/classes/Config/Descriptions.php:491
-#, fuzzy
-#| msgid ""
-#| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
-#| "([kbd]new[/kbd])."
 msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
 msgstr ""
-"Bağlantılı sayfayı ana pencerede ([kbd]main[/kbd]) veya yeni bir tanede "
-"([kbd]new[/kbd]) açar."
+"Bağlantılı sayfayı ana pencerede ([code]main[/code]) veya yeni bir tanede "
+"([code]new[/code]) açar."
 
 #: libraries/classes/Config/Descriptions.php:494
 msgid "Logo link target"
@@ -8414,7 +8410,7 @@ msgstr "Döküm, %s dosyasına kaydedildi."
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
 #: libraries/classes/Export.php:951
 msgid "Exporting a raw query is not supported for this export method."
-msgstr ""
+msgstr "Ham sorguyu dışa aktarmak, bu dışa aktarma yöntemi için desteklenmiyor."
 
 #: libraries/classes/File.php:269
 msgid "File was not an uploaded file."
@@ -9998,10 +9994,8 @@ msgstr "Tablo başlıklarını dışa aktar"
 
 #: libraries/classes/Plugins/Export/ExportOdt.php:266
 #: libraries/classes/Plugins/Export/ExportTexytext.php:191
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Dumping data for query result"
-msgstr "Tablo döküm verisi"
+msgstr "Sorgu sonucu için döküm verileri"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:96
 msgid "Report title:"
@@ -10012,10 +10006,8 @@ msgid "Dumping data"
 msgstr "Veri dökümleniyor"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:250
-#, fuzzy
-#| msgid "Query results"
 msgid "Query result data"
-msgstr "Sorgu sonuçları"
+msgstr "Sorgu sonucu verileri"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:308
 msgid "View structure"
@@ -10730,11 +10722,9 @@ msgstr ""
 "(IPv4/IPv6) biçimindeki bir Internet ağ adresini ikili değere dönüştürür"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptolong.php:33
-#, fuzzy
-#| msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgid "Converts an Internet network address in (IPv4/IPv6) format to long."
 msgstr ""
-"(IPv4/IPv6) biçimindeki bir Internet ağ adresini ikili değere dönüştürür"
+"(IPv4/IPv6) biçimindeki bir Internet ağ adresini uzun değere dönüştürür."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:25
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -12814,11 +12804,9 @@ msgid "PARTITION definition:"
 msgstr "PARTITION tanımı:"
 
 #: templates/columns_definitions/column_definitions_form.twig:150
-#, fuzzy
-#| msgid "Enclose export in a transaction"
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
-msgstr "İşlem içinde dışa aktarmayı kapsa"
+msgstr "Çevrimiçi işlem"
 
 #: templates/columns_definitions/column_length.twig:9
 msgid "Edit ENUM/SET values"
@@ -13465,16 +13453,12 @@ msgstr "Veritabanını şuna yeniden adlandır"
 #: templates/table/operations/index.twig:60
 #: templates/table/operations/index.twig:93
 #: templates/table/operations/index.twig:248
-#, fuzzy
-#| msgid ""
-#| "You don't have sufficient privileges to perform this operation; Please "
-#| "refer to the documentation for more details"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details."
 msgstr ""
 "Bu işlemi yapmak için yeterli yetkilere sahip değilsiniz; Lütfen daha fazla "
-"ayrıntı için belgelere bakın"
+"ayrıntı için belgelere bakın."
 
 #: templates/database/operations/index.twig:69
 msgid "Remove database"
@@ -13882,10 +13866,8 @@ msgstr "\"%s\" veritabanından tablolar dışa aktarılıyor"
 
 #. l10n: A query that the user has written freely
 #: templates/display/export/option_header.twig:9
-#, fuzzy
-#| msgid "Showing SQL query"
-msgid "Exporting a raw query"
-msgstr "SQL sorgusu gösteriliyor"
+msgid "Exporting raw query"
+msgstr "Ham sorgu dışa aktarılıyor"
 
 #: templates/display/export/option_header.twig:11
 #, php-format
@@ -14734,10 +14716,8 @@ msgid "View:"
 msgstr "Görünüm:"
 
 #: templates/mult_submits/copy_multiple_tables.twig:12
-#, fuzzy
-#| msgid "Options"
 msgid "Options:"
-msgstr "Seçenekler"
+msgstr "Seçenekler:"
 
 #: templates/mult_submits/copy_multiple_tables.twig:37
 msgid "Add AUTO INCREMENT value"
@@ -14772,16 +14752,12 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin belgeleri"
 
 #: templates/navigation/main.twig:40 templates/navigation/main.twig:41
-#, fuzzy
-#| msgid "Documentation"
 msgid "MariaDB Documentation"
-msgstr "Belgeler"
+msgstr "MariaDB Belgeleri"
 
 #: templates/navigation/main.twig:40 templates/navigation/main.twig:41
-#, fuzzy
-#| msgid "Documentation"
 msgid "MySQL Documentation"
-msgstr "Belgeler"
+msgstr "MySQL Belgeleri"
 
 #: templates/navigation/main.twig:44 templates/navigation/main.twig:45
 msgid "Navigation panel settings"
@@ -16479,10 +16455,8 @@ msgid "(singly)"
 msgstr "(birer birer)"
 
 #: templates/table/operations/index.twig:39
-#, fuzzy
-#| msgid "Move table to (database<b>.</b>table)"
 msgid "Move table to (database.table)"
-msgstr "Tabloyu şuna (veritabanı<b>.</b>tablo) taşı"
+msgstr "Tabloyu şuna (veritabanı.tablo) taşı"
 
 #: templates/table/operations/index.twig:82
 msgid "Table options"
@@ -16497,20 +16471,16 @@ msgid "Table comments"
 msgstr "Tablo açıklamaları"
 
 #: templates/table/operations/index.twig:111
-#, fuzzy
-#| msgid "Storage engines"
 msgid "Storage engine"
-msgstr "Depolama motorları"
+msgstr "Depolama motoru"
 
 #: templates/table/operations/index.twig:134
 msgid "Change all column collations"
 msgstr "Tüm sütun karşılaştırmalarını değiştir"
 
 #: templates/table/operations/index.twig:210
-#, fuzzy
-#| msgid "Copy table to (database<b>.</b>table)"
 msgid "Copy table to (database.table)"
-msgstr "Tabloyu şuna (veritabanı<b>.</b>tablo) kopyala"
+msgstr "Tabloyu şuna (veritabanı.tablo) kopyala"
 
 #: templates/table/operations/index.twig:258
 msgid "Switch to copied table"
@@ -16534,10 +16504,8 @@ msgid "Remove partitioning"
 msgstr "Bölümlemeyi kaldır"
 
 #: templates/table/operations/index.twig:374
-#, fuzzy
-#| msgid "Check referential integrity:"
 msgid "Check referential integrity"
-msgstr "Bilgi tutarlılığı denetimi:"
+msgstr "Bilgi tutarlılığını denetle"
 
 #: templates/table/operations/view.twig:10
 msgid "Rename view to"
@@ -16866,15 +16834,13 @@ msgstr "Değiştirmek için tıklayın"
 
 #. l10n: Show or hide the menu using the hamburger style button
 #: templates/top_menu.twig:4
-#, fuzzy
-#| msgid "Table navigation bar"
 msgid "Toggle navigation"
-msgstr "Tablo gezinti çubuğu"
+msgstr "Gezinmeyi değiştir"
 
 #. l10n: Current page
 #: templates/top_menu.twig:14
 msgid "(current)"
-msgstr ""
+msgstr "(şu anki)"
 
 #: templates/transformation_overview.twig:1
 msgid "Available media types"
