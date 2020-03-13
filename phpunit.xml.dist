@@ -23,14 +23,11 @@
         <whitelist addUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">.</directory>
             <exclude>
-                <!-- composer packages -->
-                <directory>vendor/</directory>
-                <!-- excluding the tests from the coverage -->
-                <directory>test/</directory>
-                <!-- excluding the twig cache from the coverage -->
-                <directory>tmp/</directory>
-                <!-- examples for users -->
-                <directory suffix=".php">examples</directory>
+                <directory>examples</directory>
+                <directory>node_modules</directory>
+                <directory>test</directory>
+                <directory>tmp</directory>
+                <directory>vendor</directory>
             </exclude>
         </whitelist>
     </filter>
