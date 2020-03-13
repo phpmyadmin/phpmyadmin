@@ -99,6 +99,7 @@ jobs:
       env: CI_MODE=test
       install:
         - composer install --no-interaction --ignore-platform-reqs
+        - nvm install 10
         - yarn install --non-interactive
 
     - stage: "PHP Unit tests"
@@ -131,6 +132,9 @@ jobs:
       env:
         - CI_MODE=test
         - YARN_GPG=no
+      install:
+        - composer install --no-interaction
+        - yarn install --non-interactive
       before_install:
         - choco install php composer
         - choco install mariadb --version=10.4.8
@@ -149,6 +153,7 @@ jobs:
         - pecl install dbase
         - php -m |grep -F 'dbase'
         - composer install --no-interaction
+        - nvm install 10
         - yarn install --non-interactive
 
     - stage: "PHP Unit tests"
