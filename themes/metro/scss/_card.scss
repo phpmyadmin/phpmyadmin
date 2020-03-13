@@ -7,3 +7,22 @@
 .card-body ul {
   padding-#{$left}: 0;
 }
+
+.accordion {
+  > .card {
+    border-radius: 0;
+
+    > .card-header {
+      background-color: $button-background;
+
+      .btn {
+        color: $button-color;
+
+        &:hover,
+        &:active {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

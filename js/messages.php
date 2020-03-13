@@ -322,16 +322,6 @@ $javascriptMessages = [
 
     'strAnalyzeQuery' => __('Analyse query'),
 
-    /* Server status advisor */
-
-    'strPerformanceIssues' => __('Possible performance issues'),
-    'strIssuse' => __('Issue'),
-    'strRecommendation' => __('Recommendation'),
-    'strRuleDetails' => __('Rule details'),
-    'strJustification' => __('Justification'),
-    'strFormula' => __('Used variable / formula'),
-    'strTest' => __('Test'),
-
     /* For query editor */
     'strFormatting' => __('Formatting SQL…'),
     'strNoParam' => __('No parameters found!'),

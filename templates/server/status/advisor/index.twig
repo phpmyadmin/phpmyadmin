@@ -5,9 +5,10 @@
 
   <h2>{% trans 'Advisor system' %}</h2>
 
-  {% if data is not empty %}
-
-    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#advisorInstructionsModal">
+  {% if data is empty %}
+    {{ 'Not enough privilege to view the advisor.'|trans|error }}
+  {% else %}
+    <button type="button" class="btn btn-secondary mb-4" data-toggle="modal" data-target="#advisorInstructionsModal">
       {{ get_icon('b_help', 'Instructions'|trans) }}
     </button>
 
@@ -49,11 +50,63 @@
       </div>
     </div>
 
-    <div id="statustabs_advisor" class="row"></div>
+    {% if data.parse.errors|length > 0 %}
+      <div class="alert alert-danger mt-2 mb-2" role="alert">
+        <h4 class="alert-heading">{% trans 'Rules file not well formed, following errors were found:' %}</h4>
+        <ul>
+          {% for error in data.parse.errors %}
+            <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
 
-    <div id="advisorData" class="hide">{{ data }}</div>
-  {% else %}
-    {{ 'Not enough privilege to view the advisor.'|trans|error }}
+    {% if data.run.errors|length > 0 %}
+      <div class="alert alert-danger mt-2 mb-2" role="alert">
+        <h4 class="alert-heading">{% trans 'Errors occurred while executing rule expressions:' %}</h4>
+        <ul>
+          {% for error in data.run.errors %}
+            <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+    {% if data.run.fired|length > 0 %}
+      <h4>{% trans 'Possible performance issues' %}</h4>
+
+      <div class="accordion mb-4" id="rulesAccordion">
+        {% for rule in data.run.fired %}
+          <div class="card">
+            <div class="card-header" id="heading{{ loop.index }}">
+              <button class="btn btn-link{{ not loop.first ? ' collapsed' }}" type="button" data-toggle="collapse" data-target="#collapse{{ loop.index }}" aria-expanded="{{ loop.first ? 'true' : 'false' }}" aria-controls="collapse{{ loop.index }}">
+                {{ rule.issue }}
+              </button>
+            </div>
+            <div id="collapse{{ loop.index }}" class="collapse{{ loop.first ? ' show' }}" aria-labelledby="heading{{ loop.index }}" data-parent="#rulesAccordion">
+              <div class="card-body">
+                <dl>
+                  <dt>{% trans 'Issue:' %}</dt>
+                  <dd>{{ rule.issue }}</dd>
+
+                  <dt>{% trans 'Recommendation:' %}</dt>
+                  <dd>{{ rule.recommendation|raw }}</dd>
+
+                  <dt>{% trans 'Justification:' %}</dt>
+                  <dd>{{ rule.justification }}</dd>
+
+                  <dt>{% trans 'Used variable / formula:' %}</dt>
+                  <dd>{{ rule.formula }}</dd>
+
+                  <dt>{% trans 'Test:' %}</dt>
+                  <dd>{{ rule.test }}</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
   {% endif %}
 
 {% endblock %}

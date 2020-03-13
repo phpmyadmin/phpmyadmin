@@ -120,21 +120,5 @@ class AdvisorControllerTest extends TestCase
             'Do note however that this system provides recommendations',
             $html
         );
-        $this->assertStringContainsString(
-            '<div id="advisorData" class="hide">',
-            $html
-        );
-        $this->assertStringContainsString(
-            htmlspecialchars(json_encode('parse')),
-            $html
-        );
-        $this->assertStringContainsString(
-            htmlspecialchars(json_encode('errors')),
-            $html
-        );
-        $this->assertStringContainsString(
-            htmlspecialchars(json_encode('run')),
-            $html
-        );
     }
 }

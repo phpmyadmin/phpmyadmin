@@ -19,3 +19,24 @@
   -webkit-box-shadow: 1px 1px 15px #999 inset;
   box-shadow: 1px 1px 15px #999 inset;
 }
+
+.accordion {
+  > .card {
+    > .card-header {
+      background-color: inherit;
+      box-shadow: none;
+
+      .btn {
+        color: #235a81;
+
+        &:active {
+          box-shadow: none;
+        }
+      }
+    }
+
+    .card-body {
+      background-color: #fff;
+    }
+  }
+}
