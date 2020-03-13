@@ -9,6 +9,7 @@ stages:
   - name: "Other tests"
 
 install:
+  - nvm install 10
   - composer install --no-interaction
   - yarn install --non-interactive
 
