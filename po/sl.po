@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-03-13 22:20+0100\n"
-"PO-Revision-Date: 2020-01-29 20:50+0000\n"
+"POT-Creation-Date: 2020-03-12 13:59+0100\n"
+"PO-Revision-Date: 2020-03-13 21:23+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -12,9 +12,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 3.11-dev\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 4.0-dev\n"
 
 #: index.php:54
 #, php-format
@@ -3960,16 +3960,12 @@ msgid "Logo link URL"
 msgstr "URL-povezava logotipa"
 
 #: libraries/classes/Config/Descriptions.php:491
-#, fuzzy
-#| msgid ""
-#| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
-#| "([kbd]new[/kbd])."
 msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
 msgstr ""
-"Odpre povezano stran v glavnem ([kbd]main[/kbd]) ali v novem oknu ([kbd]new[/"
-"kbd])."
+"Odpre povezano stran v glavnem ([code]main[/code]) ali v novem oknu "
+"([code]new[/code])."
 
 #: libraries/classes/Config/Descriptions.php:494
 msgid "Logo link target"
