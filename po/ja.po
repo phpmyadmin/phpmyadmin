@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-03-12 13:59+0100\n"
+"POT-Creation-Date: 2020-03-13 22:08+0100\n"
 "PO-Revision-Date: 2020-01-05 09:21+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -295,6 +295,8 @@ msgstr "選択したユーザを削除する"
 
 #: js/messages.php:143 libraries/classes/Tracking.php:250
 #: libraries/classes/Tracking.php:656
+#: templates/server/status/advisor/index.twig:20
+#: templates/server/status/advisor/index.twig:47
 msgid "Close"
 msgstr "閉じる"
 
@@ -855,47 +857,15 @@ msgstr "インポートに利用可能なファイルがサーバー上に存在
 msgid "Analyse query"
 msgstr "クエリを解析する"
 
-#: js/messages.php:327
-msgid "Advisor system"
-msgstr "アドバイザ・システム"
-
-#: js/messages.php:328
-msgid "Possible performance issues"
-msgstr "パフォーマンス的に検討が推奨される事象"
-
-#: js/messages.php:329
-msgid "Issue"
-msgstr "事象"
-
-#: js/messages.php:330
-msgid "Recommendation"
-msgstr "推奨設定"
-
-#: js/messages.php:331
-msgid "Rule details"
-msgstr "事象の詳細と判断理由"
-
-#: js/messages.php:332
-msgid "Justification"
-msgstr "判断理由"
-
-#: js/messages.php:333
-msgid "Used variable / formula"
-msgstr "判断値の算出方法"
-
-#: js/messages.php:334
-msgid "Test"
-msgstr "判断基準"
-
-#: js/messages.php:337
+#: js/messages.php:326
 msgid "Formatting SQL…"
 msgstr "SQLをフォーマットしています…"
 
-#: js/messages.php:338
+#: js/messages.php:327
 msgid "No parameters found!"
 msgstr "パラメータが見つかりませんでした！"
 
-#: js/messages.php:341 libraries/classes/BrowseForeigners.php:203
+#: js/messages.php:330 libraries/classes/BrowseForeigners.php:203
 #: libraries/classes/Controllers/Server/PrivilegesController.php:389
 #: libraries/classes/Index.php:652 libraries/classes/InsertEdit.php:1958
 #: libraries/classes/InsertEdit.php:1992
@@ -948,7 +918,7 @@ msgstr "パラメータが見つかりませんでした！"
 msgid "Go"
 msgstr "実行"
 
-#: js/messages.php:342 templates/database/designer/main.twig:343
+#: js/messages.php:331 templates/database/designer/main.twig:343
 #: templates/database/designer/main.twig:394
 #: templates/database/designer/main.twig:672
 #: templates/database/designer/main.twig:738
@@ -959,46 +929,46 @@ msgstr "実行"
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: js/messages.php:345 templates/header.twig:50
+#: js/messages.php:334 templates/header.twig:50
 msgid "Page-related settings"
 msgstr "ページ関連の設定"
 
-#: js/messages.php:346 templates/config/form_display/fieldset_bottom.twig:8
+#: js/messages.php:335 templates/config/form_display/fieldset_bottom.twig:8
 msgid "Apply"
 msgstr "適用"
 
-#: js/messages.php:349 templates/navigation/main.twig:59
+#: js/messages.php:338 templates/navigation/main.twig:59
 #: templates/server/status/monitor/index.twig:95
 msgid "Loading…"
 msgstr "読み込み中…"
 
-#: js/messages.php:350
+#: js/messages.php:339
 msgid "Request aborted!!"
 msgstr "リクエストを中止しました!!"
 
-#: js/messages.php:351
+#: js/messages.php:340
 msgid "Processing request"
 msgstr "要求を処理しています"
 
-#: js/messages.php:352
+#: js/messages.php:341
 msgid "Request failed!!"
 msgstr "リクエストは失敗しました!!"
 
-#: js/messages.php:353
+#: js/messages.php:342
 msgid "Error in processing request"
 msgstr "要求処理中でのエラー"
 
-#: js/messages.php:354
+#: js/messages.php:343
 #, php-format
 msgid "Error code: %s"
 msgstr "エラーコード：%s"
 
-#: js/messages.php:355
+#: js/messages.php:344
 #, php-format
 msgid "Error text: %s"
 msgstr "エラーテキスト：%s"
 
-#: js/messages.php:357
+#: js/messages.php:346
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
@@ -1006,25 +976,25 @@ msgstr ""
 "ネットワーク接続が失われているようです。接続状況とサーバーの状態を確認してく"
 "ださい。"
 
-#: js/messages.php:360 libraries/classes/Common.php:106
+#: js/messages.php:349 libraries/classes/Common.php:106
 #: libraries/classes/Controllers/Server/DatabasesController.php:268
 #: libraries/classes/DbTableExists.php:43
 msgid "No databases selected."
 msgstr "データベースが選択されていません。"
 
-#: js/messages.php:361
+#: js/messages.php:350
 msgid "No accounts selected."
 msgstr "アカウントが選択されていません。"
 
-#: js/messages.php:362
+#: js/messages.php:351
 msgid "Dropping column"
 msgstr "カラムを削除しています"
 
-#: js/messages.php:363
+#: js/messages.php:352
 msgid "Adding primary key"
 msgstr "主キーを追加する"
 
-#: js/messages.php:364 templates/console/display.twig:129
+#: js/messages.php:353 templates/console/display.twig:129
 #: templates/database/designer/main.twig:341
 #: templates/database/designer/main.twig:670
 #: templates/database/designer/main.twig:734
@@ -1034,23 +1004,23 @@ msgstr "主キーを追加する"
 msgid "OK"
 msgstr "OK"
 
-#: js/messages.php:365
+#: js/messages.php:354
 msgid "Click to dismiss this notification"
 msgstr "クリックすると、この通知を破棄します"
 
-#: js/messages.php:368
+#: js/messages.php:357
 msgid "Renaming databases"
 msgstr "データベースの名称を変更しています"
 
-#: js/messages.php:369
+#: js/messages.php:358
 msgid "Copying database"
 msgstr "データベースをコピーしています"
 
-#: js/messages.php:370
+#: js/messages.php:359
 msgid "Changing charset"
 msgstr "文字セットを変更しています"
 
-#: js/messages.php:371 libraries/classes/Config/FormDisplayTemplate.php:317
+#: js/messages.php:360 libraries/classes/Config/FormDisplayTemplate.php:317
 #: libraries/classes/IndexColumn.php:132 libraries/classes/Index.php:555
 #: libraries/classes/Index.php:583 libraries/classes/MultSubmits.php:492
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:652
@@ -1078,44 +1048,44 @@ msgstr "文字セットを変更しています"
 msgid "No"
 msgstr "いいえ"
 
-#: js/messages.php:374 templates/fk_checkbox.twig:4
+#: js/messages.php:363 templates/fk_checkbox.twig:4
 msgid "Enable foreign key checks"
 msgstr "外部キーのチェックを有効にする"
 
-#: js/messages.php:377
+#: js/messages.php:366
 msgid "Failed to get real row count."
 msgstr "実際の行数の取得に失敗しました。"
 
-#: js/messages.php:380
+#: js/messages.php:369
 msgid "Searching"
 msgstr "検索しています"
 
-#: js/messages.php:381
+#: js/messages.php:370
 msgid "Hide search results"
 msgstr "検索結果を隠す"
 
-#: js/messages.php:382
+#: js/messages.php:371
 msgid "Show search results"
 msgstr "検索結果を表示する"
 
-#: js/messages.php:383
+#: js/messages.php:372
 msgid "Browsing"
 msgstr "表示中"
 
-#: js/messages.php:384
+#: js/messages.php:373
 msgid "Deleting"
 msgstr "削除しています"
 
-#: js/messages.php:385
+#: js/messages.php:374
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "テーブル %s に対して条件に一致したものを削除しますか?"
 
-#: js/messages.php:388
+#: js/messages.php:377
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "ストアドファンクションの定義には、RETURN 文を含めなければなりません！"
 
-#: js/messages.php:389 libraries/classes/Config/Forms/User/ExportForm.php:151
+#: js/messages.php:378 libraries/classes/Config/Forms/User/ExportForm.php:151
 #: libraries/classes/Display/Results.php:4714
 #: libraries/classes/Display/Results.php:4969 libraries/classes/Menu.php:306
 #: libraries/classes/Menu.php:420 libraries/classes/Menu.php:556
@@ -1138,50 +1108,50 @@ msgstr "ストアドファンクションの定義には、RETURN 文を含め�
 msgid "Export"
 msgstr "エクスポート"
 
-#: js/messages.php:390
+#: js/messages.php:379
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
 "エクスポートできるルーチンがありません。この操作を実行する権限が無い可能性が"
 "あります。"
 
-#: js/messages.php:393 templates/rte/routines/parameter_row.twig:24
+#: js/messages.php:382 templates/rte/routines/parameter_row.twig:24
 msgid "ENUM/SET editor"
 msgstr "ENUM/SET エディタ"
 
-#: js/messages.php:394
+#: js/messages.php:383
 #, php-format
 msgid "Values for column %s"
 msgstr "カラム %s に対しての値"
 
-#: js/messages.php:395
+#: js/messages.php:384
 msgid "Values for a new column"
 msgstr "新しいカラムに対しての値"
 
-#: js/messages.php:396
+#: js/messages.php:385
 msgid "Enter each value in a separate field."
 msgstr "個々の入力欄にそれぞれ値を入力してください。"
 
-#: js/messages.php:397
+#: js/messages.php:386
 #, php-format
 msgid "Add %d value(s)"
 msgstr "値 %d を追加する"
 
-#: js/messages.php:401
+#: js/messages.php:390
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 "注意：ファイルに複数のテーブルが含まれている場合、それらは１つに統合されま"
 "す。"
 
-#: js/messages.php:405
+#: js/messages.php:394
 msgid "Hide query box"
 msgstr "クエリボックスを隠す"
 
-#: js/messages.php:406
+#: js/messages.php:395
 msgid "Show query box"
 msgstr "クエリボックスを表示"
 
-#: js/messages.php:407 libraries/classes/CentralColumns.php:939
+#: js/messages.php:396 libraries/classes/CentralColumns.php:939
 #: libraries/classes/Config/Descriptions.php:827
 #: libraries/classes/Display/Results.php:3265
 #: libraries/classes/Display/Results.php:4689
@@ -1197,7 +1167,7 @@ msgstr "クエリボックスを表示"
 msgid "Edit"
 msgstr "編集"
 
-#: js/messages.php:408 libraries/classes/CentralColumns.php:946
+#: js/messages.php:397 libraries/classes/CentralColumns.php:946
 #: libraries/classes/Display/Results.php:3341
 #: libraries/classes/Display/Results.php:4678
 #: libraries/classes/Server/UserGroups.php:132
@@ -1211,13 +1181,13 @@ msgstr "編集"
 msgid "Delete"
 msgstr "削除"
 
-#: js/messages.php:409 templates/display/results/table_navigation.twig:42
+#: js/messages.php:398 templates/display/results/table_navigation.twig:42
 #: templates/display/results/table_navigation.twig:44
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d は不正な行番号です。"
 
-#: js/messages.php:410
+#: js/messages.php:399
 #: libraries/classes/Controllers/Table/ChangeController.php:198
 #: libraries/classes/Controllers/Table/SearchController.php:359
 #: libraries/classes/Controllers/Table/ZoomSearchController.php:378
@@ -1226,11 +1196,11 @@ msgstr "%d は不正な行番号です。"
 msgid "Browse foreign values"
 msgstr "参照されている値を表示する"
 
-#: js/messages.php:411
+#: js/messages.php:400
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr "以前に自動保存クエリはありません。デフォルトクエリを読み込みします。"
 
-#: js/messages.php:412
+#: js/messages.php:401
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
@@ -1238,24 +1208,24 @@ msgstr ""
 "以前に保存したクエリがあります。そのクエリをロードするには、[自動保存クエリを"
 "取得]をクリックします。"
 
-#: js/messages.php:413
+#: js/messages.php:402
 #, php-format
 msgid "Variable %d:"
 msgstr "変数 %d:"
 
-#: js/messages.php:416 libraries/classes/Normalization.php:1008
+#: js/messages.php:405 libraries/classes/Normalization.php:1008
 msgid "Pick"
 msgstr "選択"
 
-#: js/messages.php:417
+#: js/messages.php:406
 msgid "Column selector"
 msgstr "カラムの選択"
 
-#: js/messages.php:418
+#: js/messages.php:407
 msgid "Search this list"
 msgstr "このリストの検索"
 
-#: js/messages.php:420
+#: js/messages.php:409
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
@@ -1264,67 +1234,67 @@ msgstr ""
 "中央のリストの列はありません。データベース「%s」の中央列リストが現在のテーブ"
 "ルの列が存在しないことを確認してください。"
 
-#: js/messages.php:423
+#: js/messages.php:412
 msgid "See more"
 msgstr "もっと見る"
 
-#: js/messages.php:424
+#: js/messages.php:413
 msgid "Are you sure?"
 msgstr "本当ですか?"
 
-#: js/messages.php:426
+#: js/messages.php:415
 msgid ""
 "This action may change some of the columns definition.<br>Are you sure you "
 "want to continue?"
 msgstr "この操作はいくつかのカラム定義を変更します。<br/>本当に続けますか？"
 
-#: js/messages.php:429
+#: js/messages.php:418
 msgid "Continue"
 msgstr "続ける"
 
-#: js/messages.php:432
+#: js/messages.php:421
 msgid "Add primary key"
 msgstr "主キーを追加する"
 
-#: js/messages.php:433
+#: js/messages.php:422
 msgid "Primary key added."
 msgstr "主キーを追加しました。"
 
-#: js/messages.php:434 libraries/classes/Normalization.php:278
+#: js/messages.php:423 libraries/classes/Normalization.php:278
 msgid "Taking you to next step…"
 msgstr "次のステップに進みます…"
 
-#: js/messages.php:435
+#: js/messages.php:424
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr "テーブル「%s」の第１正規形は完了しました。"
 
-#: js/messages.php:436 libraries/classes/Normalization.php:540
+#: js/messages.php:425 libraries/classes/Normalization.php:540
 #: libraries/classes/Normalization.php:588
 #: libraries/classes/Normalization.php:679
 #: libraries/classes/Normalization.php:744
 msgid "End of step"
 msgstr "最後のステップ"
 
-#: js/messages.php:437
+#: js/messages.php:426
 msgid "Second step of normalization (2NF)"
 msgstr "第２正規化 (2NF)"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:438 libraries/classes/Normalization.php:373
+#: js/messages.php:427 libraries/classes/Normalization.php:373
 #: templates/javascript/variables.twig:15
 msgid "Done"
 msgstr "決定"
 
-#: js/messages.php:439
+#: js/messages.php:428
 msgid "Confirm partial dependencies"
 msgstr "部分依存関係の確認"
 
-#: js/messages.php:440
+#: js/messages.php:429
 msgid "Selected partial dependencies are as follows:"
 msgstr "選択された部分的な依存は以下の通りです："
 
-#: js/messages.php:442
+#: js/messages.php:431
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
@@ -1332,26 +1302,26 @@ msgstr ""
 "備考：a, b -> d, f は、列「a」と列「b」の値を合わせれば、列「d」と列「f」の値"
 "を決定することが出来ます。"
 
-#: js/messages.php:445
+#: js/messages.php:434
 msgid "No partial dependencies selected!"
 msgstr "部分的な依存が選択されていません!"
 
-#: js/messages.php:446 js/messages.php:607 libraries/classes/Export.php:581
+#: js/messages.php:435 js/messages.php:596 libraries/classes/Export.php:581
 #: libraries/classes/Html/Generator.php:1152
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:303
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
 msgstr "戻る"
 
-#: js/messages.php:447
+#: js/messages.php:436
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr "テーブル内のデータに基づいて可能な部分的な依存関係を表示"
 
-#: js/messages.php:448
+#: js/messages.php:437
 msgid "Hide partial dependencies list"
 msgstr "部分従属の一覧を隠す"
 
-#: js/messages.php:450
+#: js/messages.php:439
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
@@ -1359,40 +1329,40 @@ msgstr ""
 "テーブルのデータサイズと列数に応じて数秒かかる場合があります。しばらくお待ち"
 "ください。"
 
-#: js/messages.php:453
+#: js/messages.php:442
 msgid "Step"
 msgstr "手順"
 
-#: js/messages.php:454
+#: js/messages.php:443
 msgid "The following actions will be performed:"
 msgstr "次のクエリを実行されます："
 
-#: js/messages.php:455
+#: js/messages.php:444
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr "カラム '%s' をテーブル '%s' から削除"
 
-#: js/messages.php:456
+#: js/messages.php:445
 msgid "Create the following table"
 msgstr "以下のテーブルを作成します"
 
-#: js/messages.php:459
+#: js/messages.php:448
 msgid "Third step of normalization (3NF)"
 msgstr "第３正規化(3NF)"
 
-#: js/messages.php:460
+#: js/messages.php:449
 msgid "Confirm transitive dependencies"
 msgstr "過渡的依存性の確認"
 
-#: js/messages.php:461
+#: js/messages.php:450
 msgid "Selected dependencies are as follows:"
 msgstr "選択された依存関係はこちらです："
 
-#: js/messages.php:462
+#: js/messages.php:451
 msgid "No dependencies selected!"
 msgstr "依存関係が選択されていません！"
 
-#: js/messages.php:465 libraries/classes/CentralColumns.php:963
+#: js/messages.php:454 libraries/classes/CentralColumns.php:963
 #: libraries/classes/InsertEdit.php:1868
 #: templates/columns_definitions/column_definitions_form.twig:156
 #: templates/server/variables/index.twig:12
@@ -1402,145 +1372,145 @@ msgstr "依存関係が選択されていません！"
 msgid "Save"
 msgstr "保存する"
 
-#: js/messages.php:468
+#: js/messages.php:457
 msgid "Hide search criteria"
 msgstr "検索条件を隠す"
 
-#: js/messages.php:469
+#: js/messages.php:458
 msgid "Show search criteria"
 msgstr "検索条件を表示する"
 
-#: js/messages.php:470
+#: js/messages.php:459
 msgid "Range search"
 msgstr "範囲検索"
 
-#: js/messages.php:471
+#: js/messages.php:460
 msgid "Column maximum:"
 msgstr "最大カラム:"
 
-#: js/messages.php:472
+#: js/messages.php:461
 msgid "Column minimum:"
 msgstr "最小カラム:"
 
-#: js/messages.php:473
+#: js/messages.php:462
 msgid "Minimum value:"
 msgstr "最小値:"
 
-#: js/messages.php:474
+#: js/messages.php:463
 msgid "Maximum value:"
 msgstr "最大値:"
 
-#: js/messages.php:477
+#: js/messages.php:466
 msgid "Hide find and replace criteria"
 msgstr "検索と置換の条件を隠す"
 
-#: js/messages.php:478
+#: js/messages.php:467
 msgid "Show find and replace criteria"
 msgstr "検索と置換の条件を表示"
 
-#: js/messages.php:482
+#: js/messages.php:471
 msgid "Each point represents a data row."
 msgstr "プロット点は、それぞれの行のデータを表します。"
 
-#: js/messages.php:484
+#: js/messages.php:473
 msgid "Hovering over a point will show its label."
 msgstr "プロット点にマウスカーソルを重ねると、そのラベルが表示されます。"
 
-#: js/messages.php:486
+#: js/messages.php:475
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "拡大するには、マウスでグラフ内を範囲選択してください。"
 
-#: js/messages.php:488
+#: js/messages.php:477
 msgid "Click reset zoom button to come back to original state."
 msgstr "「Reset zoom」ボタンをクリックすることで元の状態に戻せます。"
 
-#: js/messages.php:490
+#: js/messages.php:479
 msgid "Click a data point to view and possibly edit the data row."
 msgstr "プロット点をクリックすることで、行のデータの閲覧と編集が可能です。"
 
-#: js/messages.php:492
+#: js/messages.php:481
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr "グラフの右下をドラッグすることで、大きさの調整が行えます。"
 
-#: js/messages.php:495
+#: js/messages.php:484
 msgid "Select two columns"
 msgstr "カラムを 2 つ選択してください"
 
-#: js/messages.php:497
+#: js/messages.php:486
 msgid "Select two different columns"
 msgstr "異なるカラムを 2 つ選択してください"
 
-#: js/messages.php:499
+#: js/messages.php:488
 msgid "Data point content"
 msgstr "プロット点におけるデータ内容"
 
-#: js/messages.php:502 js/messages.php:673
+#: js/messages.php:491 js/messages.php:662
 #: libraries/classes/ErrorHandler.php:380 libraries/classes/InsertEdit.php:3063
 #: templates/table/index_form.twig:145 templates/table/index_form.twig:181
 msgid "Ignore"
 msgstr "無視"
 
-#: js/messages.php:503 libraries/classes/Display/Results.php:3269
+#: js/messages.php:492 libraries/classes/Display/Results.php:3269
 #: libraries/classes/Display/Results.php:4697
 #: libraries/classes/Html/Generator.php:75
 msgid "Copy"
 msgstr "コピー"
 
-#: js/messages.php:504 templates/gis_data_editor_form.twig:74
+#: js/messages.php:493 templates/gis_data_editor_form.twig:74
 #: templates/gis_data_editor_form.twig:94
 #: templates/gis_data_editor_form.twig:135
 #: templates/gis_data_editor_form.twig:187
 msgid "X"
 msgstr "X"
 
-#: js/messages.php:505 templates/gis_data_editor_form.twig:76
+#: js/messages.php:494 templates/gis_data_editor_form.twig:76
 #: templates/gis_data_editor_form.twig:96
 #: templates/gis_data_editor_form.twig:137
 #: templates/gis_data_editor_form.twig:189
 msgid "Y"
 msgstr "Y"
 
-#: js/messages.php:506
+#: js/messages.php:495
 msgid "Point"
 msgstr "座標"
 
-#: js/messages.php:507
+#: js/messages.php:496
 #, php-format
 msgid "Point %d"
 msgstr "座標 %d"
 
-#: js/messages.php:508
+#: js/messages.php:497
 msgid "Linestring"
 msgstr "線分"
 
-#: js/messages.php:509
+#: js/messages.php:498
 msgid "Polygon"
 msgstr "ポリゴン"
 
-#: js/messages.php:510 templates/display/results/options_block.twig:83
+#: js/messages.php:499 templates/display/results/options_block.twig:83
 msgid "Geometry"
 msgstr "幾何データ"
 
-#: js/messages.php:511
+#: js/messages.php:500
 msgid "Inner ring"
 msgstr "インナーリング"
 
-#: js/messages.php:512
+#: js/messages.php:501
 msgid "Outer ring"
 msgstr "アウターリング"
 
-#: js/messages.php:513 templates/gis_data_editor_form.twig:99
+#: js/messages.php:502 templates/gis_data_editor_form.twig:99
 #: templates/gis_data_editor_form.twig:140
 #: templates/gis_data_editor_form.twig:192
 msgid "Add a point"
 msgstr "座標を追加する"
 
-#: js/messages.php:514 templates/gis_data_editor_form.twig:144
+#: js/messages.php:503 templates/gis_data_editor_form.twig:144
 #: templates/gis_data_editor_form.twig:195
 msgid "Add an inner ring"
 msgstr "内輪を追加する"
 
-#: js/messages.php:515 libraries/classes/Config/FormDisplayTemplate.php:317
+#: js/messages.php:504 libraries/classes/Config/FormDisplayTemplate.php:317
 #: libraries/classes/Controllers/Server/DatabasesController.php:281
 #: libraries/classes/Controllers/Table/StructureController.php:792
 #: libraries/classes/Controllers/Table/StructureController.php:1559
@@ -1578,27 +1548,27 @@ msgstr "内輪を追加する"
 msgid "Yes"
 msgstr "はい"
 
-#: js/messages.php:516
+#: js/messages.php:505
 msgid "Do you want to copy encryption key?"
 msgstr "暗号化キーをコピーしますか？"
 
-#: js/messages.php:517
+#: js/messages.php:506
 msgid "Encryption key"
 msgstr "暗号化キー"
 
-#: js/messages.php:521
+#: js/messages.php:510
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr "スライダーで選択できない値はMySQLで入力することができます"
 
-#: js/messages.php:527
+#: js/messages.php:516
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr "MySQLは日付ピッカー以外の値も求めらます。必要に応じて入力してください"
 
-#: js/messages.php:533
+#: js/messages.php:522
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
@@ -1606,24 +1576,24 @@ msgstr ""
 "あなたがこのページに変更を加えた場合、変更を破棄する前に確認画面が表示される"
 "でしょう"
 
-#: js/messages.php:538
+#: js/messages.php:527
 msgid "Select referenced key"
 msgstr "参照されているキーを選択"
 
-#: js/messages.php:539
+#: js/messages.php:528
 msgid "Select Foreign Key"
 msgstr "外部キーを選択してください"
 
-#: js/messages.php:540
+#: js/messages.php:529
 msgid "Please select the primary key or a unique key!"
 msgstr "主キーまたはユニークキーを選択してください！"
 
-#: js/messages.php:541 templates/database/designer/main.twig:100
+#: js/messages.php:530 templates/database/designer/main.twig:100
 #: templates/database/designer/main.twig:103
 msgid "Choose column to display"
 msgstr "表示するカラムの選択"
 
-#: js/messages.php:543
+#: js/messages.php:532
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -1631,84 +1601,84 @@ msgstr ""
 "レイアウトの変更を保存していません。保存しないと失われてしまいます。このまま"
 "続行しますか?"
 
-#: js/messages.php:546
+#: js/messages.php:535
 msgid "value/subQuery is empty"
 msgstr "値・サブクエリは空です"
 
-#: js/messages.php:547 templates/database/designer/main.twig:42
+#: js/messages.php:536 templates/database/designer/main.twig:42
 #: templates/database/designer/main.twig:45
 msgid "Add tables from other databases"
 msgstr "他のデータベースからテーブルを追加"
 
-#: js/messages.php:548
+#: js/messages.php:537
 msgid "Page name"
 msgstr "ページ名"
 
-#: js/messages.php:549 templates/database/designer/main.twig:65
+#: js/messages.php:538 templates/database/designer/main.twig:65
 #: templates/database/designer/main.twig:68
 msgid "Save page"
 msgstr "ページの保存"
 
-#: js/messages.php:550 templates/database/designer/main.twig:72
+#: js/messages.php:539 templates/database/designer/main.twig:72
 #: templates/database/designer/main.twig:75
 msgid "Save page as"
 msgstr "名前を付けてページを保存"
 
-#: js/messages.php:551 templates/database/designer/main.twig:58
+#: js/messages.php:540 templates/database/designer/main.twig:58
 #: templates/database/designer/main.twig:61
 msgid "Open page"
 msgstr "ページを開く"
 
-#: js/messages.php:552
+#: js/messages.php:541
 msgid "Delete page"
 msgstr "ページの削除"
 
-#: js/messages.php:553 templates/database/designer/main.twig:12
+#: js/messages.php:542 templates/database/designer/main.twig:12
 msgid "Untitled"
 msgstr "無題"
 
-#: js/messages.php:554
+#: js/messages.php:543
 msgid "Please select a page to continue"
 msgstr "ページを選択してください"
 
-#: js/messages.php:555
+#: js/messages.php:544
 msgid "Please enter a valid page name"
 msgstr "有効なページ名を入力してください"
 
-#: js/messages.php:556
+#: js/messages.php:545
 msgid "Do you want to save the changes to the current page?"
 msgstr "現在のページに対する変更を保存しますか？"
 
-#: js/messages.php:557
+#: js/messages.php:546
 msgid "Successfully deleted the page"
 msgstr "ページの削除に成功しました"
 
-#: js/messages.php:558
+#: js/messages.php:547
 msgid "Export relational schema"
 msgstr "リレーショナルスキーマをエクスポートする"
 
-#: js/messages.php:559
+#: js/messages.php:548
 msgid "Modifications have been saved"
 msgstr "修正を保存しました"
 
-#: js/messages.php:562
+#: js/messages.php:551
 #, php-format
 msgid "%d object(s) created."
 msgstr "%d 個のオブジェクトを作成しました。"
 
-#: js/messages.php:563
+#: js/messages.php:552
 msgid "Column name"
 msgstr "カラム名"
 
-#: js/messages.php:564 templates/sql/query.twig:149
+#: js/messages.php:553 templates/sql/query.twig:149
 msgid "Submit"
 msgstr "実行する"
 
-#: js/messages.php:567
+#: js/messages.php:556
 msgid "Press escape to cancel editing."
 msgstr "ESC キーで編集をキャンセルします。"
 
-#: js/messages.php:569
+#: js/messages.php:558
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -1716,15 +1686,15 @@ msgstr ""
 "データの一部を変更しましたが保存していません。データを保存せずにこのページか"
 "ら移動してもよろしいですか?"
 
-#: js/messages.php:572
+#: js/messages.php:561
 msgid "Drag to reorder."
 msgstr "ドラッグで並び替えができます。"
 
-#: js/messages.php:573
+#: js/messages.php:562
 msgid "Click to sort results by this column."
 msgstr "クリックすると、結果をこのカラムを使ってソートします。"
 
-#: js/messages.php:575
+#: js/messages.php:564
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
@@ -1734,26 +1704,26 @@ msgstr ""
 "す<br /> Ctrl+クリック（またはAlt+クリック、（Macの場合はShift+Option+クリッ"
 "ク）すると、この列をORDER BY句から削除します"
 
-#: js/messages.php:579
+#: js/messages.php:568
 msgid "Click to mark/unmark."
 msgstr "クリックでカラムを反転/解除。"
 
-#: js/messages.php:580
+#: js/messages.php:569
 msgid "Double-click to copy column name."
 msgstr "ダブルクリックでカラム名をコピーします。"
 
-#: js/messages.php:582
+#: js/messages.php:571
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr "カラムの表示／非表示<br />状態を変更する場合、「▼」をクリック。"
 
-#: js/messages.php:584 libraries/classes/BrowseForeigners.php:345
+#: js/messages.php:573 libraries/classes/BrowseForeigners.php:345
 #: templates/display/results/table_navigation.twig:19
 #: templates/server/privileges/initials_row.twig:20
 #: templates/table/browse_foreigners/show_all.twig:4
 msgid "Show all"
 msgstr "すべて表示"
 
-#: js/messages.php:586
+#: js/messages.php:575
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -1762,11 +1732,11 @@ msgstr ""
 "ボックス、編集、コピー、削除のリンクに関連する機能は、保存後に動作しない場合"
 "があります。"
 
-#: js/messages.php:589
+#: js/messages.php:578
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr "有効な 16 進数の文字列を入力してください。有効な文字は 0-9、A-F です。"
 
-#: js/messages.php:591
+#: js/messages.php:580
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
@@ -1774,111 +1744,111 @@ msgstr ""
 "本当にすべての行を表示しますか？ 大きなテーブルはブラウザをクラッシュさせるこ"
 "とがあります。"
 
-#: js/messages.php:594
+#: js/messages.php:583
 msgid "Original length"
 msgstr "元の長さ"
 
-#: js/messages.php:597
+#: js/messages.php:586
 msgid "cancel"
 msgstr "キャンセル"
 
-#: js/messages.php:598
+#: js/messages.php:587
 #: libraries/classes/Controllers/Server/Status/StatusController.php:212
 msgid "Aborted"
 msgstr "中断"
 
-#: js/messages.php:599 libraries/classes/Controllers/ImportController.php:130
+#: js/messages.php:588 libraries/classes/Controllers/ImportController.php:130
 msgid "Failed"
 msgstr "失敗しました"
 
-#: js/messages.php:600
+#: js/messages.php:589
 msgid "Success"
 msgstr "成功"
 
-#: js/messages.php:601
+#: js/messages.php:590
 msgid "Import status"
 msgstr "インポートの状態"
 
-#: js/messages.php:602 templates/navigation/main.twig:85
+#: js/messages.php:591 templates/navigation/main.twig:85
 msgid "Drop files here"
 msgstr "ここにファイルをドロップします"
 
-#: js/messages.php:603
+#: js/messages.php:592
 msgid "Select database first"
 msgstr "最初にデータベースを選択してください"
 
-#: js/messages.php:606 libraries/classes/Display/Results.php:4852
+#: js/messages.php:595 libraries/classes/Display/Results.php:4852
 #: templates/database/data_dictionary/index.twig:64
 #: templates/database/structure/index.twig:12
 #: templates/table/structure/display_structure.twig:384
 msgid "Print"
 msgstr "印刷"
 
-#: js/messages.php:611
+#: js/messages.php:600
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr "ほとんどの値は、直接ダブルクリック<br />することでも、編集できます。"
 
-#: js/messages.php:613
+#: js/messages.php:602
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr "ほとんどの値は、直接クリック<br />することでも、編集できます。"
 
-#: js/messages.php:616
+#: js/messages.php:605
 msgid "Go to link:"
 msgstr "リンク先へ移動する:"
 
-#: js/messages.php:617
+#: js/messages.php:606
 msgid "Copy column name."
 msgstr "カラム名のコピー。"
 
-#: js/messages.php:618
+#: js/messages.php:607
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr "右クリックでカラム名をクリップボードにコピーしてください。"
 
-#: js/messages.php:621
+#: js/messages.php:610
 msgid "Generate password"
 msgstr "パスワードを生成する"
 
-#: js/messages.php:622
+#: js/messages.php:611
 #: templates/server/replication/master_add_slave_user.twig:73
 msgid "Generate"
 msgstr "生成する"
 
-#: js/messages.php:623 libraries/classes/Controllers/HomeController.php:113
+#: js/messages.php:612 libraries/classes/Controllers/HomeController.php:113
 #: libraries/classes/UserPassword.php:263
 #: templates/display/change_password/file_a.twig:9
 msgid "Change password"
 msgstr "パスワードを変更する"
 
-#: js/messages.php:626 templates/table/structure/display_structure.twig:128
+#: js/messages.php:615 templates/table/structure/display_structure.twig:128
 msgid "More"
 msgstr "その他"
 
-#: js/messages.php:629
+#: js/messages.php:618
 msgid "Show panel"
 msgstr "パネルを表示"
 
-#: js/messages.php:630
+#: js/messages.php:619
 msgid "Hide panel"
 msgstr "パネルを隠す"
 
-#: js/messages.php:631
+#: js/messages.php:620
 msgid "Show hidden navigation tree items."
 msgstr "隠されたナビゲーションツリー項目を表示します。"
 
-#: js/messages.php:632 libraries/classes/Config/Descriptions.php:485
+#: js/messages.php:621 libraries/classes/Config/Descriptions.php:485
 #: libraries/classes/Navigation/NavigationTree.php:1474
 msgid "Link with main panel"
 msgstr "メインパネルへのリンク"
 
-#: js/messages.php:633 libraries/classes/Navigation/NavigationTree.php:1477
+#: js/messages.php:622 libraries/classes/Navigation/NavigationTree.php:1477
 msgid "Unlink from main panel"
 msgstr "メインパネルのリンクを解除"
 
-#: js/messages.php:636
+#: js/messages.php:625
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "リクエストされたページが履歴にありません。おそらく有効期限切れです。"
 
-#: js/messages.php:640 libraries/classes/Setup/Index.php:177
+#: js/messages.php:629 libraries/classes/Setup/Index.php:177
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1888,49 +1858,49 @@ msgstr ""
 "します。最新バージョンは %s で、%s にリリースされています。"
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:644
+#: js/messages.php:633
 msgid ", latest stable version:"
 msgstr ", 最終安定バージョン:"
 
-#: js/messages.php:645
+#: js/messages.php:634
 msgid "up to date"
 msgstr "最新版"
 
-#: js/messages.php:647 libraries/classes/Display/Results.php:4784
+#: js/messages.php:636 libraries/classes/Display/Results.php:4784
 #: templates/view_create.twig:11
 msgid "Create view"
 msgstr "ビューを作成する"
 
-#: js/messages.php:650
+#: js/messages.php:639
 msgid "Send error report"
 msgstr "エラーレポートの送信"
 
-#: js/messages.php:651
+#: js/messages.php:640
 msgid "Submit error report"
 msgstr "エラーレポートを送信"
 
-#: js/messages.php:653
+#: js/messages.php:642
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr "JavaScript の致命的なエラーが発生しました。エラー報告を送信しますか?"
 
-#: js/messages.php:655
+#: js/messages.php:644
 msgid "Change report settings"
 msgstr "レポート設定の変更"
 
-#: js/messages.php:656
+#: js/messages.php:645
 msgid "Show report details"
 msgstr "エラーレポートの詳細を表示"
 
-#: js/messages.php:658
+#: js/messages.php:647
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 "PHPで設定された低い実行時間制限のため、エクスポートは完了しませんでした！"
 
-#: js/messages.php:662
+#: js/messages.php:651
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -1940,66 +1910,66 @@ msgstr ""
 "ると、PHPのmax_input_vars設定の制限により、いくつかのフィールドは無視されるこ"
 "とがあります。"
 
-#: js/messages.php:668 js/messages.php:681
+#: js/messages.php:657 js/messages.php:670
 msgid "Some errors have been detected on the server!"
 msgstr "サーバー上でいくつかのエラーが検出されました！"
 
-#: js/messages.php:670
+#: js/messages.php:659
 msgid "Please look at the bottom of this window."
 msgstr "このウィンドウの一番下を見てください。"
 
-#: js/messages.php:676 libraries/classes/ErrorHandler.php:384
+#: js/messages.php:665 libraries/classes/ErrorHandler.php:384
 msgid "Ignore All"
 msgstr "全て無視"
 
-#: js/messages.php:684
+#: js/messages.php:673
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr "設定に従って現在これらを送信しています。気長にお待ちください。"
 
-#: js/messages.php:692
+#: js/messages.php:681
 msgid "Successfully copied!"
 msgstr "ページのコピーに成功しました！"
 
-#: js/messages.php:693
+#: js/messages.php:682
 msgid "Copying failed!"
 msgstr "データベースのコピーに失敗しました！"
 
-#: js/messages.php:696
+#: js/messages.php:685
 msgid "Execute this query again?"
 msgstr "このクエリをもう一度実行しますか？"
 
-#: js/messages.php:697
+#: js/messages.php:686
 msgid "Do you really want to delete this bookmark?"
 msgstr "このブックマークを本当に削除しますか？"
 
-#: js/messages.php:698
+#: js/messages.php:687
 msgid "Some error occurred while getting SQL debug info."
 msgstr "SQL デバッグ情報を取得中にいくつかのエラーが発生しました。"
 
-#: js/messages.php:699
+#: js/messages.php:688
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s クエリは、%s 回を%s 秒で実行しました。"
 
-#: js/messages.php:700
+#: js/messages.php:689
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "%s個の引数が渡されました"
 
-#: js/messages.php:701
+#: js/messages.php:690
 msgid "Show arguments"
 msgstr "引数の表示"
 
-#: js/messages.php:702
+#: js/messages.php:691
 msgid "Hide arguments"
 msgstr "引数を非表示"
 
-#: js/messages.php:703
+#: js/messages.php:692
 msgid "Time taken:"
 msgstr "所要時間:"
 
-#: js/messages.php:704
+#: js/messages.php:693
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -2015,64 +1985,64 @@ msgstr ""
 "合は一般的に「プライベートモード」の利用がこの問題を引き起こすことがありま"
 "す。"
 
-#: js/messages.php:706
+#: js/messages.php:695
 msgid "Copy tables to"
 msgstr "テーブルのコピー先"
 
-#: js/messages.php:707
+#: js/messages.php:696
 msgid "Add table prefix"
 msgstr "テーブル接頭辞の追加"
 
-#: js/messages.php:708
+#: js/messages.php:697
 msgid "Replace table with prefix"
 msgstr "テーブル名の接頭辞を付け替える"
 
-#: js/messages.php:709 templates/database/structure/check_all_tables.twig:28
+#: js/messages.php:698 templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "接頭辞を付け替えてテーブルをコピーする"
 
-#: js/messages.php:712
+#: js/messages.php:701
 msgid "Extremely weak"
 msgstr "きわめて脆弱"
 
-#: js/messages.php:713
+#: js/messages.php:702
 msgid "Very weak"
 msgstr "とても脆弱"
 
-#: js/messages.php:714
+#: js/messages.php:703
 msgid "Weak"
 msgstr "脆弱"
 
-#: js/messages.php:715
+#: js/messages.php:704
 msgid "Good"
 msgstr "良好"
 
-#: js/messages.php:716
+#: js/messages.php:705
 msgid "Strong"
 msgstr "強固"
 
-#: js/messages.php:719
+#: js/messages.php:708
 msgid "Timed out waiting for security key activation."
 msgstr "セキュリティキーを有効化している最中にタイムアウトされました。"
 
-#: js/messages.php:720
+#: js/messages.php:709
 #, php-format
 msgid "Failed security key activation (%s)."
 msgstr "セキュリティキー「%s」の有効化が失敗しました。"
 
-#: js/messages.php:723
+#: js/messages.php:712
 #, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
 msgstr "テーブル %s は既に存在します!"
 
-#: js/messages.php:724 libraries/classes/InsertEdit.php:329
+#: js/messages.php:713 libraries/classes/InsertEdit.php:329
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "隠す"
 
-#: js/messages.php:725
+#: js/messages.php:714
 #: libraries/classes/Controllers/Table/ChangeController.php:203
 #: templates/database/multi_table_query/form.twig:47
 #: templates/database/tracking/tables.twig:19
@@ -2080,7 +2050,7 @@ msgstr "隠す"
 msgid "Show"
 msgstr "表示"
 
-#: js/messages.php:726 libraries/classes/Config/Forms/User/ExportForm.php:52
+#: js/messages.php:715 libraries/classes/Config/Forms/User/ExportForm.php:52
 #: libraries/classes/Config/Forms/User/ExportForm.php:99
 #: libraries/classes/Config/Forms/User/ExportForm.php:127
 #: libraries/classes/Controllers/Database/ExportController.php:95
@@ -5836,7 +5806,7 @@ msgid "You may want to refresh the page."
 msgstr "このページを再ロードすることがほしいみたい。"
 
 #: libraries/classes/Controllers/ExportController.php:237
-#: libraries/classes/Export.php:1301
+#: libraries/classes/Export.php:1302
 msgid "Bad type!"
 msgstr "エクスポート形式が正しくありません！"
 
@@ -8293,7 +8263,8 @@ msgstr "このウェブサーバにはファイル %s を保存する権限が�
 msgid "Dump has been saved to file %s."
 msgstr "ダンプをファイル %s に保存しました。"
 
-#: libraries/classes/Export.php:950
+#. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
+#: libraries/classes/Export.php:951
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 
@@ -13712,10 +13683,11 @@ msgstr "現在のサーバからデータベースをエクスポート"
 msgid "Exporting tables from \"%s\" database"
 msgstr "データベース \"%s\" からテーブルをエクスポート"
 
+#. l10n: A query that the user has written freely
 #: templates/display/export/option_header.twig:9
 #, fuzzy
 #| msgid "Showing SQL query"
-msgid "Exporting raw query"
+msgid "Exporting a raw query"
 msgstr "SQL クエリを表示"
 
 #: templates/display/export/option_header.twig:11
@@ -15464,11 +15436,20 @@ msgstr "スレーブステータス"
 msgid "Variable"
 msgstr "変数"
 
-#: templates/server/status/advisor/index.twig:8
+#: templates/server/status/advisor/index.twig:6
+#: templates/server/status/advisor/index.twig:19
+msgid "Advisor system"
+msgstr "アドバイザ・システム"
+
+#: templates/server/status/advisor/index.twig:9
+msgid "Not enough privilege to view the advisor."
+msgstr "アドバイザを表示する為に十分な権限はありません。"
+
+#: templates/server/status/advisor/index.twig:12
 msgid "Instructions"
 msgstr "アドバイザの利用にあたって"
 
-#: templates/server/status/advisor/index.twig:15
+#: templates/server/status/advisor/index.twig:26
 msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
@@ -15476,7 +15457,7 @@ msgstr ""
 "アドバイザ・システムは、サーバの状態変数を分析することにより、ふさわしいと思"
 "われるサーバ変数の調整方法を提供するものです。"
 
-#: templates/server/status/advisor/index.twig:20
+#: templates/server/status/advisor/index.twig:31
 msgid ""
 "Do note however that this system provides recommendations based on simple "
 "calculations and by rule of thumb which may not necessarily apply to your "
@@ -15485,7 +15466,7 @@ msgstr ""
 "このシステムは、単純な計算を基にして経験則によって調整方法を提供するため、お"
 "使いのシステムに必ずしも当てはまるものではないことに注意してください。"
 
-#: templates/server/status/advisor/index.twig:25
+#: templates/server/status/advisor/index.twig:36
 msgid ""
 "Prior to changing any of the configuration, be sure to know what you are "
 "changing (by reading the documentation) and how to undo the change. Wrong "
@@ -15495,7 +15476,7 @@ msgstr ""
 "を確認しておいてください。間違ったチューニングは、パフォーマンスに非常に悪影"
 "響を与える可能性があります。"
 
-#: templates/server/status/advisor/index.twig:30
+#: templates/server/status/advisor/index.twig:41
 msgid ""
 "The best way to tune your system would be to change only one setting at a "
 "time, observe or benchmark your database, and undo the change if there was "
@@ -15505,9 +15486,50 @@ msgstr ""
 "す。変更の度に、監視やベンチマークを行い、明確な改善が測定されなかった場合は"
 "変更した箇所を元に戻します。"
 
-#: templates/server/status/advisor/index.twig:38
-msgid "Not enough privilege to view the advisor."
-msgstr "アドバイザを表示する為に十分な権限はありません。"
+#. l10n: Advisor rules file
+#: templates/server/status/advisor/index.twig:55
+msgid "Rules file is not well formed, the following errors were found:"
+msgstr ""
+
+#: templates/server/status/advisor/index.twig:66
+#, fuzzy
+#| msgid "Some error occurred while getting SQL debug info."
+msgid "Errors occurred while executing rule expressions:"
+msgstr "SQL デバッグ情報を取得中にいくつかのエラーが発生しました。"
+
+#: templates/server/status/advisor/index.twig:76
+msgid "Possible performance issues"
+msgstr "パフォーマンス的に検討が推奨される事象"
+
+#: templates/server/status/advisor/index.twig:89
+#, fuzzy
+#| msgid "Issue"
+msgid "Issue:"
+msgstr "事象"
+
+#: templates/server/status/advisor/index.twig:92
+#, fuzzy
+#| msgid "Recommendation"
+msgid "Recommendation:"
+msgstr "推奨設定"
+
+#: templates/server/status/advisor/index.twig:95
+#, fuzzy
+#| msgid "Justification"
+msgid "Justification:"
+msgstr "判断理由"
+
+#: templates/server/status/advisor/index.twig:98
+#, fuzzy
+#| msgid "Used variable / formula"
+msgid "Used variable / formula:"
+msgstr "判断値の算出方法"
+
+#: templates/server/status/advisor/index.twig:101
+#, fuzzy
+#| msgid "Test"
+msgid "Test:"
+msgstr "判断基準"
 
 #: templates/server/status/base.twig:16
 msgid "Query statistics"
@@ -16633,6 +16655,7 @@ msgstr "他のテーマを入手する！"
 msgid "Click to toggle"
 msgstr "クリックでオン／オフ切り替え"
 
+#. l10n: Show or hide the menu using the hamburger style button
 #: templates/top_menu.twig:4
 #, fuzzy
 #| msgid "Table navigation bar"
@@ -16951,10 +16974,16 @@ msgid "Suboptimal caching method."
 msgstr "準最適キャッシュ方式です。"
 
 #: libraries/advisory_rules_generic.txt:149
+#, fuzzy
+#| msgid ""
+#| "You are using the MySQL Query cache with a fairly high traffic database. "
+#| "It might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
+#| "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL "
+#| "Query cache, especially if you have multiple slaves."
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
+"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
 "MySQL のクエリキャッシュをかなり高いトラフィックのデータベースに対して使用し"
@@ -17209,13 +17238,22 @@ msgid "Temp disk rate"
 msgstr "一時テーブルがディスク上に展開される割合"
 
 #: libraries/advisory_rules_generic.txt:223
+#, fuzzy
+#| msgid ""
+#| "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
+#| "some temporary tables are always being written to disk, independent of "
+#| "the value of these variables. To eliminate these you will have to rewrite "
+#| "your queries to avoid those conditions (Within a temporary table: "
+#| "Presence of a BLOB or TEXT column or presence of a column bigger than 512 "
+#| "bytes) as mentioned in the <a href=\"https://dev.mysql.com/doc/refman/5.5/"
+#| "en/internal-temporary-tables.html\">MySQL Documentation</a>"
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
 "value of these variables. To eliminate these you will have to rewrite your "
 "queries to avoid those conditions (Within a temporary table: Presence of a "
 "BLOB or TEXT column or presence of a column bigger than 512 bytes) as "
-"mentioned in the <a href=\"https://dev.mysql.com/doc/refman/5.5/en/internal-"
+"mentioned in the <a href=\"https://dev.mysql.com/doc/refman/8.0/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
 "{max_heap_table_size} と {tmp_table_size} を増加させることで改善されるかもし"
@@ -17980,6 +18018,9 @@ msgstr ""
 #: libraries/advisory_rules_mysql_before80003.txt:57
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit は 1 MiB に設定されています"
+
+#~ msgid "Rule details"
+#~ msgstr "事象の詳細と判断理由"
 
 #~ msgid "Partition %s"
 #~ msgstr "パーティション %s"
