@@ -6,7 +6,7 @@
         {% elseif export_type == 'database' %}
             {{ 'Exporting tables from "%s" database'|trans|format(db) }}
         {% elseif export_type == 'raw' %}
-            {% trans 'Exporting raw query' %}
+            {% trans %}Exporting a raw query{% notes %}A query that the user has written freely{% endtrans %}
         {% else %}
             {{ 'Exporting rows from "%s" table'|trans|format(table) }}
         {% endif %}

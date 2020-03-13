@@ -52,7 +52,7 @@
 
     {% if data.parse.errors|length > 0 %}
       <div class="alert alert-danger mt-2 mb-2" role="alert">
-        <h4 class="alert-heading">{% trans 'Rules file not well formed, following errors were found:' %}</h4>
+        <h4 class="alert-heading">{% trans %}Rules file is not well formed, the following errors were found:{% notes %}Advisor rules file{% endtrans %}</h4>
         <ul>
           {% for error in data.parse.errors %}
             <li>{{ error }}</li>

@@ -920,7 +920,7 @@ class Export
     }
 
     /**
-     * Export raw query
+     * Export a raw query
      *
      * @param string       $whatStrucOrData whether to export structure for each table or raw
      * @param ExportPlugin $export_plugin   the selected export plugin
@@ -947,6 +947,7 @@ class Export
                 $crlf
             )) {
                 $GLOBALS['message'] = Message::error(
+                    /* l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular */
                     __('Exporting a raw query is not supported for this export method.')
                 );
                 return;

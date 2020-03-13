@@ -2014,7 +2014,7 @@ class ExportSql extends ExportPlugin
     } // end of the '_getTableComments()' function
 
     /**
-     * Outputs raw query
+     * Outputs a raw query
      *
      * @param string $err_url   the url to go back in case of error
      * @param string $sql_query the rawquery to output
