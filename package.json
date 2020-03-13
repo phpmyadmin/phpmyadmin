@@ -6,6 +6,9 @@
   "author": "The phpMyAdmin Team <developers@phpmyadmin.net> (https://www.phpmyadmin.net/team/)",
   "license": "GPL-2.0",
   "private": true,
+  "engines": {
+    "node": ">=10"
+  },
   "dependencies": {
     "bootstrap": "^4.4.1",
     "codemirror": "5.52.0",
