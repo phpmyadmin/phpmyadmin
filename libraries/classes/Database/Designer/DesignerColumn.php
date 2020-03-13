@@ -118,6 +118,9 @@ class DesignerColumn implements JsonSerializable
                 || strpos($this->columnType, 'time') !== false
                 || strpos($this->columnType, 'year') !== false) {
                 $this->columnTypeForImage = 'designer/Field_small_date';
+            } else {
+                // Nothing found
+                $this->columnTypeForImage = 'designer/Field_small';
             }
         }
     }
