@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-03-13 22:08+0100\n"
+"POT-Creation-Date: 2020-03-13 22:20+0100\n"
 "PO-Revision-Date: 2019-04-27 17:19+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Malay <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -16608,6 +16608,7 @@ msgstr "Masa"
 msgid "Get auto-saved query"
 msgstr ""
 
+#. l10n: Bind parameters in the SQL query using :parameterName format
 #: templates/sql/query.twig:38
 #, fuzzy
 #| msgid "Bad parameters!"

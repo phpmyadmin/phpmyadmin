@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-03-13 22:08+0100\n"
+"POT-Creation-Date: 2020-03-13 22:20+0100\n"
 "PO-Revision-Date: 2020-03-01 23:32+0000\n"
 "Last-Translator: Michal Biesiada <blade-14@o2.pl>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -16459,6 +16459,7 @@ msgstr "ø Czas"
 msgid "Get auto-saved query"
 msgstr "Uzyskaj automatycznie zapisane zapytanie"
 
+#. l10n: Bind parameters in the SQL query using :parameterName format
 #: templates/sql/query.twig:38
 msgid "Bind parameters"
 msgstr "Parametry wiązania"

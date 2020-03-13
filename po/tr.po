@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-03-12 13:59+0100\n"
+"POT-Creation-Date: 2020-03-13 22:20+0100\n"
 "PO-Revision-Date: 2020-03-13 21:10+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -8410,7 +8410,8 @@ msgstr "Döküm, %s dosyasına kaydedildi."
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
 #: libraries/classes/Export.php:951
 msgid "Exporting a raw query is not supported for this export method."
-msgstr "Ham sorguyu dışa aktarmak, bu dışa aktarma yöntemi için desteklenmiyor."
+msgstr ""
+"Ham sorguyu dışa aktarmak, bu dışa aktarma yöntemi için desteklenmiyor."
 
 #: libraries/classes/File.php:269
 msgid "File was not an uploaded file."
@@ -13866,7 +13867,9 @@ msgstr "\"%s\" veritabanından tablolar dışa aktarılıyor"
 
 #. l10n: A query that the user has written freely
 #: templates/display/export/option_header.twig:9
-msgid "Exporting raw query"
+#, fuzzy
+#| msgid "Exporting raw query"
+msgid "Exporting a raw query"
 msgstr "Ham sorgu dışa aktarılıyor"
 
 #: templates/display/export/option_header.twig:11
@@ -16216,6 +16219,7 @@ msgstr "ø Süre"
 msgid "Get auto-saved query"
 msgstr "Otomatik kaydedilmiş sorguyu al"
 
+#. l10n: Bind parameters in the SQL query using :parameterName format
 #: templates/sql/query.twig:38
 msgid "Bind parameters"
 msgstr "Parametreleri bağla"
