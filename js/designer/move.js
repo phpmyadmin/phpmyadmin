@@ -2185,10 +2185,11 @@ AJAX.registerOnload('designer/move.js', function () {
         DesignerMove.sideMenuRight(this);
         return false;
     });
-    $('#side_menu').on('hover', function () {
+    $('#side_menu').on('mouseenter', function () {
         DesignerMove.showText();
         return false;
-    }, function () {
+    });
+    $('#side_menu').on('mouseleave', function () {
         DesignerMove.hideText();
         return false;
     });
