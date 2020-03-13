@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-12 13:59+0100\n"
-"PO-Revision-Date: 2020-03-12 14:08+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2020-03-13 21:10+0000\n"
+"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -14918,7 +14918,7 @@ msgstr "Vue :"
 
 #: templates/mult_submits/copy_multiple_tables.twig:12
 msgid "Options:"
-msgstr "Options:"
+msgstr "Options :"
 
 #: templates/mult_submits/copy_multiple_tables.twig:37
 msgid "Add AUTO INCREMENT value"
