@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-12 13:05+0100\n"
-"PO-Revision-Date: 2019-11-24 09:04+0000\n"
+"PO-Revision-Date: 2020-03-15 08:38+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
 "tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.10-dev\n"
+"X-Generator: Weblate 4.0-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -1132,7 +1132,7 @@ msgstr "Sorun"
 
 #: js/messages.php:351
 msgid "Recommendation"
-msgstr "Tavsiye"
+msgstr "Öneri"
 
 #: js/messages.php:352
 msgid "Rule details"
@@ -17635,7 +17635,7 @@ msgstr ""
 "Sorgu önbelleğinin, eğer doğru şekilde yapılandırılmışsa fazlasıyla "
 "performansı geliştirdiği biliniyor. {query_cache_size} 2 basamaklı MiB "
 "değeri olarak ve {query_cache_type} ayarı 'ON' ayarlayarak etkinleştirin. "
-"<b>Not:</b> Eğer memcached kullanıyorsanız, bu tavsiyeyi göz ardı edin."
+"<b>Not:</b> Eğer memcached kullanıyorsanız, bu öneriyi yoksayın."
 
 #: libraries/advisory_rules_mysql_before80003.txt:15
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
