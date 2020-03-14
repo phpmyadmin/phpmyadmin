@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-13 22:20+0100\n"
-"PO-Revision-Date: 2020-03-13 21:10+0000\n"
+"PO-Revision-Date: 2020-03-15 19:36+0000\n"
 "Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
@@ -14035,10 +14035,8 @@ msgstr "Exportation des tables depuis la base de données « %s »"
 
 #. l10n: A query that the user has written freely
 #: templates/display/export/option_header.twig:9
-#, fuzzy
-#| msgid "Exporting raw query"
 msgid "Exporting a raw query"
-msgstr "Exportation de la requête"
+msgstr "Exportation d'une requête brute"
 
 #: templates/display/export/option_header.twig:11
 #, php-format
@@ -15862,48 +15860,37 @@ msgstr ""
 #: templates/server/status/advisor/index.twig:55
 msgid "Rules file is not well formed, the following errors were found:"
 msgstr ""
+"Le fichier de règles n'est pas bien formé, les erreurs suivantes ont été "
+"rencontrées :"
 
 #: templates/server/status/advisor/index.twig:66
-#, fuzzy
-#| msgid "Some error occurred while getting SQL debug info."
 msgid "Errors occurred while executing rule expressions:"
 msgstr ""
-"Une erreur s'est produite lors de l'obtention des informations de débogage "
-"SQL."
+"Des erreurs se sont produites lors de l'exécution d'expressions de règles :"
 
 #: templates/server/status/advisor/index.twig:76
 msgid "Possible performance issues"
 msgstr "Impact possible sur les performances"
 
 #: templates/server/status/advisor/index.twig:89
-#, fuzzy
-#| msgid "Issue"
 msgid "Issue:"
-msgstr "Problème"
+msgstr "Problème :"
 
 #: templates/server/status/advisor/index.twig:92
-#, fuzzy
-#| msgid "Recommendation"
 msgid "Recommendation:"
-msgstr "Recommandation"
+msgstr "Recommandation :"
 
 #: templates/server/status/advisor/index.twig:95
-#, fuzzy
-#| msgid "Justification"
 msgid "Justification:"
-msgstr "Alignement"
+msgstr "Alignement :"
 
 #: templates/server/status/advisor/index.twig:98
-#, fuzzy
-#| msgid "Used variable / formula"
 msgid "Used variable / formula:"
-msgstr "Variable/Formule utilisée"
+msgstr "Variable/formule utilisée :"
 
 #: templates/server/status/advisor/index.twig:101
-#, fuzzy
-#| msgid "Test"
 msgid "Test:"
-msgstr "Test"
+msgstr "Test :"
 
 #: templates/server/status/base.twig:16
 msgid "Query statistics"
@@ -17354,12 +17341,6 @@ msgid "Suboptimal caching method."
 msgstr "Méthode de cache non efficace."
 
 #: libraries/advisory_rules_generic.txt:149
-#, fuzzy
-#| msgid ""
-#| "You are using the MySQL Query cache with a fairly high traffic database. "
-#| "It might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-#| "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL "
-#| "Query cache, especially if you have multiple slaves."
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
@@ -17368,7 +17349,7 @@ msgid ""
 msgstr ""
 "Le cache de requêtes MySQL est utilisé avec une base de données très "
 "sollicitée. Merci d'envisager l'utilisation de <a href=\"https://dev.mysql."
-"com/doc/refman/5.5/en/ha-memcached.html\">memcached</a> à la place, "
+"com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> à la place, "
 "spécialement en cas de nombreux serveurs esclaves."
 
 #: libraries/advisory_rules_generic.txt:150
@@ -17622,15 +17603,6 @@ msgid "Temp disk rate"
 msgstr "Fréquence d'écriture des tables temporaires sur disque"
 
 #: libraries/advisory_rules_generic.txt:223
-#, fuzzy
-#| msgid ""
-#| "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
-#| "some temporary tables are always being written to disk, independent of "
-#| "the value of these variables. To eliminate these you will have to rewrite "
-#| "your queries to avoid those conditions (Within a temporary table: "
-#| "Presence of a BLOB or TEXT column or presence of a column bigger than 512 "
-#| "bytes) as mentioned in the <a href=\"https://dev.mysql.com/doc/refman/5.5/"
-#| "en/internal-temporary-tables.html\">MySQL Documentation</a>"
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -17645,9 +17617,9 @@ msgstr ""
 "disque, peu importe la valeur de ces variables. Pour éliminer ces tables "
 "temporaires, il faut modifier les requêtes pour éviter ces conditions (dans "
 "une table temporaire : présence d'une colonne BLOB ou TEXT ou d'une colonne "
-"de taille supérieure à 512 octets) tel que décrit dans la <a href=\"https://"
-"dev.mysql.com/doc/refman/5.5/en/internal-temporary-tables.html"
-"\">documentation MySQL</a>"
+"de taille supérieure à 512 octets) tel que décrit dans la <a href=\""
+"https://dev.mysql.com/doc/refman/8.0/en/internal-temporary-tables.html\">"
+"documentation MySQL</a>"
 
 #: libraries/advisory_rules_generic.txt:224
 #, php-format
