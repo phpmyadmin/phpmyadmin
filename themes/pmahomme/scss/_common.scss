@@ -171,7 +171,7 @@ input {
   &[type=password],
   &[type=number],
   &[type=date],
-  &[type=checkbox] {
+  &:not(.form-check-input)[type=checkbox] {
     margin: 6px;
   }
 }
@@ -391,7 +391,7 @@ button {
 }
 
 input {
-  &[type=checkbox],
+  &:not(.form-check-input)[type=checkbox],
   &[type=radio] {
     vertical-align: -11%;
   }

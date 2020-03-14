@@ -85,10 +85,11 @@ $navbar-light-disabled-color: #00f;
 // Card
 
 $card-border-radius: 0;
-$card-border-width: 0.3em;
-$card-border-color: $th-background;
+$card-border-color: $main-color;
 $card-cap-bg: $th-background;
-$card-bg: none;
+$card-bg: $bg-one;
+$card-spacer-y: 0.5em;
+$card-spacer-x: 0.5em;
 
 // Breadcrumbs
 
