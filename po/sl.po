@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-12 13:59+0100\n"
-"PO-Revision-Date: 2020-03-13 21:23+0000\n"
+"PO-Revision-Date: 2020-03-15 19:36+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -8381,7 +8381,7 @@ msgstr "Dump je shranjen v datoteko %s."
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
 #: libraries/classes/Export.php:951
 msgid "Exporting a raw query is not supported for this export method."
-msgstr ""
+msgstr "Izvoz surove poizvedbe ni podprt pri tej metodi izvoza."
 
 #: libraries/classes/File.php:269
 msgid "File was not an uploaded file."
@@ -9967,10 +9967,8 @@ msgstr "Izvozi glave tabel"
 
 #: libraries/classes/Plugins/Export/ExportOdt.php:266
 #: libraries/classes/Plugins/Export/ExportTexytext.php:191
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Dumping data for query result"
-msgstr "Odloži podatke za tabelo"
+msgstr "Odloži podatke za rezultat poizvedbe"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:96
 msgid "Report title:"
@@ -9981,10 +9979,8 @@ msgid "Dumping data"
 msgstr "Odloži podatke"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:250
-#, fuzzy
-#| msgid "Query results"
 msgid "Query result data"
-msgstr "Rezultati poizvedbe"
+msgstr "Podatki rezultata poizvedbe"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:308
 msgid "View structure"
@@ -10694,11 +10690,9 @@ msgstr ""
 "Pretvori internetni omrežni naslov iz oblike (IPv4/IPv6) v dvojiško obliko"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptolong.php:33
-#, fuzzy
-#| msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgid "Converts an Internet network address in (IPv4/IPv6) format to long."
 msgstr ""
-"Pretvori internetni omrežni naslov iz oblike (IPv4/IPv6) v dvojiško obliko"
+"Pretvori internetni omrežni naslov iz oblike (IPv4/IPv6) v številsko obliko."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:25
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -12776,11 +12770,9 @@ msgid "PARTITION definition:"
 msgstr "Opredelitev PARTITION:"
 
 #: templates/columns_definitions/column_definitions_form.twig:150
-#, fuzzy
-#| msgid "Enclose export in a transaction"
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
-msgstr "Vključi izvoz v transakcijo"
+msgstr "Spletna transakcija"
 
 #: templates/columns_definitions/column_length.twig:9
 msgid "Edit ENUM/SET values"
@@ -13427,16 +13419,12 @@ msgstr "Preimenuj zbirko podatkov v"
 #: templates/table/operations/index.twig:60
 #: templates/table/operations/index.twig:93
 #: templates/table/operations/index.twig:248
-#, fuzzy
-#| msgid ""
-#| "You don't have sufficient privileges to perform this operation; Please "
-#| "refer to the documentation for more details"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details."
 msgstr ""
 "Nimate zadostnih pravic za izvedbo posega; prosimo, oglejte si dokumentacijo "
-"za več podrobnosti"
+"za več podrobnosti."
 
 #: templates/database/operations/index.twig:69
 msgid "Remove database"
@@ -13850,10 +13838,8 @@ msgstr "Izvažanje tabel iz zbirke podatkov \"%s\""
 
 #. l10n: A query that the user has written freely
 #: templates/display/export/option_header.twig:9
-#, fuzzy
-#| msgid "Showing SQL query"
 msgid "Exporting a raw query"
-msgstr "Prikazovanje poizvedbe SQL"
+msgstr "Izvažanje surove poizvedbe"
 
 #: templates/display/export/option_header.twig:11
 #, php-format
@@ -14699,10 +14685,8 @@ msgid "View:"
 msgstr "Pogled:"
 
 #: templates/mult_submits/copy_multiple_tables.twig:12
-#, fuzzy
-#| msgid "Options"
 msgid "Options:"
-msgstr "Možnosti"
+msgstr "Možnosti:"
 
 #: templates/mult_submits/copy_multiple_tables.twig:37
 msgid "Add AUTO INCREMENT value"
@@ -14737,16 +14721,12 @@ msgid "phpMyAdmin documentation"
 msgstr "Dokumentacija phpMyAdmin"
 
 #: templates/navigation/main.twig:40 templates/navigation/main.twig:41
-#, fuzzy
-#| msgid "Documentation"
 msgid "MariaDB Documentation"
-msgstr "Dokumentacija"
+msgstr "Dokumentacija MariaDB"
 
 #: templates/navigation/main.twig:40 templates/navigation/main.twig:41
-#, fuzzy
-#| msgid "Documentation"
 msgid "MySQL Documentation"
-msgstr "Dokumentacija"
+msgstr "Dokumentacija MySQL"
 
 #: templates/navigation/main.twig:44 templates/navigation/main.twig:45
 msgid "Navigation panel settings"
@@ -15662,48 +15642,35 @@ msgstr ""
 #. l10n: Advisor rules file
 #: templates/server/status/advisor/index.twig:55
 msgid "Rules file is not well formed, the following errors were found:"
-msgstr ""
+msgstr "Datoteka s pravili ni ustrezno oblikovana; našli smo naslednje napake:"
 
 #: templates/server/status/advisor/index.twig:66
-#, fuzzy
-#| msgid "Some error occurred while getting SQL debug info."
 msgid "Errors occurred while executing rule expressions:"
-msgstr ""
-"Med pridobivanjem informacij za odpravljanje napak SQL je prišlo do napake."
+msgstr "Med izvajanjem izrazov pravil je prišlo do napak:"
 
 #: templates/server/status/advisor/index.twig:76
 msgid "Possible performance issues"
 msgstr "Morebitni spori zmogljivosti"
 
 #: templates/server/status/advisor/index.twig:89
-#, fuzzy
-#| msgid "Issue"
 msgid "Issue:"
-msgstr "Spor"
+msgstr "Težava:"
 
 #: templates/server/status/advisor/index.twig:92
-#, fuzzy
-#| msgid "Recommendation"
 msgid "Recommendation:"
-msgstr "Priporočilo"
+msgstr "Priporočilo:"
 
 #: templates/server/status/advisor/index.twig:95
-#, fuzzy
-#| msgid "Justification"
 msgid "Justification:"
-msgstr "Utemeljitev"
+msgstr "Utemeljitev:"
 
 #: templates/server/status/advisor/index.twig:98
-#, fuzzy
-#| msgid "Used variable / formula"
 msgid "Used variable / formula:"
-msgstr "Uporabljena spremenljivka/formula"
+msgstr "Uporabljena spremenljivka/formula:"
 
 #: templates/server/status/advisor/index.twig:101
-#, fuzzy
-#| msgid "Test"
 msgid "Test:"
-msgstr "Preizkus"
+msgstr "Preizkus:"
 
 #: templates/server/status/base.twig:16
 msgid "Query statistics"
@@ -16444,10 +16411,8 @@ msgid "(singly)"
 msgstr "(posamezno)"
 
 #: templates/table/operations/index.twig:39
-#, fuzzy
-#| msgid "Move table to (database<b>.</b>table)"
 msgid "Move table to (database.table)"
-msgstr "Premakni tabelo v (zbirka_podatkov<b>.</b>tabela)"
+msgstr "Premakni tabelo v (zbirka_podatkov.tabela)"
 
 #: templates/table/operations/index.twig:82
 msgid "Table options"
@@ -16462,20 +16427,16 @@ msgid "Table comments"
 msgstr "Pripomba tabele"
 
 #: templates/table/operations/index.twig:111
-#, fuzzy
-#| msgid "Storage engines"
 msgid "Storage engine"
-msgstr "Pogoni skladiščenja"
+msgstr "Pogon skladiščenja"
 
 #: templates/table/operations/index.twig:134
 msgid "Change all column collations"
 msgstr "Spremeni vsa pravila za razvrščanje znakov v stolpcih"
 
 #: templates/table/operations/index.twig:210
-#, fuzzy
-#| msgid "Copy table to (database<b>.</b>table)"
 msgid "Copy table to (database.table)"
-msgstr "Kopiraj tabelo v (zbirka_podatkov<b>.</b>tabela)"
+msgstr "Kopiraj tabelo v (zbirka_podatkov.tabela)"
 
 #: templates/table/operations/index.twig:258
 msgid "Switch to copied table"
@@ -16499,10 +16460,8 @@ msgid "Remove partitioning"
 msgstr "Odstrani particioniranje"
 
 #: templates/table/operations/index.twig:374
-#, fuzzy
-#| msgid "Check referential integrity:"
 msgid "Check referential integrity"
-msgstr "Preveri referenčno integriteto:"
+msgstr "Preveri referenčno integriteto"
 
 #: templates/table/operations/view.twig:10
 msgid "Rename view to"
@@ -16830,15 +16789,13 @@ msgstr "Kliknite za preklop"
 
 #. l10n: Show or hide the menu using the hamburger style button
 #: templates/top_menu.twig:4
-#, fuzzy
-#| msgid "Table navigation bar"
 msgid "Toggle navigation"
-msgstr "Navigacijska vrstica tabele"
+msgstr "Preklopi navigacijo"
 
 #. l10n: Current page
 #: templates/top_menu.twig:14
 msgid "(current)"
-msgstr ""
+msgstr "(trenutno)"
 
 #: templates/transformation_overview.twig:1
 msgid "Available media types"
@@ -17141,12 +17098,6 @@ msgid "Suboptimal caching method."
 msgstr "Podoptimalni način predpomnjenja."
 
 #: libraries/advisory_rules_generic.txt:149
-#, fuzzy
-#| msgid ""
-#| "You are using the MySQL Query cache with a fairly high traffic database. "
-#| "It might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-#| "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL "
-#| "Query cache, especially if you have multiple slaves."
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
@@ -17155,7 +17106,7 @@ msgid ""
 msgstr ""
 "Uporabljate predpomnjenje poizvedb MySQL s precej prometno zbirko podatkov. "
 "Morda bi bilo koristno razmisliti o uporabi <a href=\"https://dev.mysql.com/"
-"doc/refman/5.5/en/ha-memcached.html\">memcached</a> namesto predpomnjenja "
+"doc/refman/5.6/en/ha-memcached.html\">memcached</a> namesto predpomnjenja "
 "poizvedb MySQL, še posebej, če imate več podrejencev."
 
 #: libraries/advisory_rules_generic.txt:150
@@ -17402,15 +17353,6 @@ msgid "Temp disk rate"
 msgstr "Delež začasnih tabel na disku"
 
 #: libraries/advisory_rules_generic.txt:223
-#, fuzzy
-#| msgid ""
-#| "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
-#| "some temporary tables are always being written to disk, independent of "
-#| "the value of these variables. To eliminate these you will have to rewrite "
-#| "your queries to avoid those conditions (Within a temporary table: "
-#| "Presence of a BLOB or TEXT column or presence of a column bigger than 512 "
-#| "bytes) as mentioned in the <a href=\"https://dev.mysql.com/doc/refman/5.5/"
-#| "en/internal-temporary-tables.html\">MySQL Documentation</a>"
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -17425,7 +17367,7 @@ msgstr ""
 "vrednosti teh spremenljivk. Da se tega znebite, boste morali preoblikovati "
 "vaše poizvedbe in se tako izogniti tem pogojem (znotraj začasne tabele: "
 "prisotnost stolpca BLOB ali TEXT ali prisotnost stolpca, večjega od 512 "
-"bajtov), kot je omenjeno v <a href=\"https://dev.mysql.com/doc/refman/5.5/en/"
+"bajtov), kot je omenjeno v <a href=\"https://dev.mysql.com/doc/refman/8.0/en/"
 "internal-temporary-tables.html\">dokumentaciji MySQL</a>"
 
 #: libraries/advisory_rules_generic.txt:224
