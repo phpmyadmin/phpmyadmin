@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-13 22:20+0100\n"
-"PO-Revision-Date: 2020-03-13 21:10+0000\n"
+"PO-Revision-Date: 2020-03-15 19:36+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -13867,8 +13867,6 @@ msgstr "\"%s\" veritabanından tablolar dışa aktarılıyor"
 
 #. l10n: A query that the user has written freely
 #: templates/display/export/option_header.twig:9
-#, fuzzy
-#| msgid "Exporting raw query"
 msgid "Exporting a raw query"
 msgstr "Ham sorgu dışa aktarılıyor"
 
@@ -15675,47 +15673,35 @@ msgstr ""
 #. l10n: Advisor rules file
 #: templates/server/status/advisor/index.twig:55
 msgid "Rules file is not well formed, the following errors were found:"
-msgstr ""
+msgstr "Kurallar dosyası iyi oluşturulmamış, aşağıdaki hatalar bulundu:"
 
 #: templates/server/status/advisor/index.twig:66
-#, fuzzy
-#| msgid "Some error occurred while getting SQL debug info."
 msgid "Errors occurred while executing rule expressions:"
-msgstr "SQL hata ayıklama bilgisi alınırken bazı hatalar meydana geldi."
+msgstr "Kural ifadeleri yürütülürken hata meydana geldi:"
 
 #: templates/server/status/advisor/index.twig:76
 msgid "Possible performance issues"
 msgstr "Olası performans sorunları"
 
 #: templates/server/status/advisor/index.twig:89
-#, fuzzy
-#| msgid "Issue"
 msgid "Issue:"
-msgstr "Sorun"
+msgstr "Sorun:"
 
 #: templates/server/status/advisor/index.twig:92
-#, fuzzy
-#| msgid "Recommendation"
 msgid "Recommendation:"
-msgstr "Tavsiye"
+msgstr "Öneri:"
 
 #: templates/server/status/advisor/index.twig:95
-#, fuzzy
-#| msgid "Justification"
 msgid "Justification:"
-msgstr "Gerekçe"
+msgstr "Gerekçe:"
 
 #: templates/server/status/advisor/index.twig:98
-#, fuzzy
-#| msgid "Used variable / formula"
 msgid "Used variable / formula:"
-msgstr "Kullanılan değişken / formül"
+msgstr "Kullanılan değişken / formül:"
 
 #: templates/server/status/advisor/index.twig:101
-#, fuzzy
-#| msgid "Test"
 msgid "Test:"
-msgstr "Deneme"
+msgstr "Deneme:"
 
 #: templates/server/status/base.twig:16
 msgid "Query statistics"
@@ -17145,12 +17131,6 @@ msgid "Suboptimal caching method."
 msgstr "Yetersiz önbellekleme yöntemi."
 
 #: libraries/advisory_rules_generic.txt:149
-#, fuzzy
-#| msgid ""
-#| "You are using the MySQL Query cache with a fairly high traffic database. "
-#| "It might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-#| "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL "
-#| "Query cache, especially if you have multiple slaves."
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
@@ -17159,7 +17139,7 @@ msgid ""
 msgstr ""
 "Oldukça yüksek trafikli veritabanı ile MySQL Sorgu önbelleği "
 "kullanıyorsunuz. MySQL Sorgu önbelleği yerine <a href=\"https://dev.mysql."
-"com/doc/refman/5.5/en/ha-memcached.html\">memcached</a> kullanmayı düşünmek "
+"com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> kullanmayı düşünmek "
 "değebilir, özellikle de çoklu bağımlı sunuculara sahipseniz."
 
 #: libraries/advisory_rules_generic.txt:150
@@ -17408,15 +17388,6 @@ msgid "Temp disk rate"
 msgstr "Geçici disk oranı"
 
 #: libraries/advisory_rules_generic.txt:223
-#, fuzzy
-#| msgid ""
-#| "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
-#| "some temporary tables are always being written to disk, independent of "
-#| "the value of these variables. To eliminate these you will have to rewrite "
-#| "your queries to avoid those conditions (Within a temporary table: "
-#| "Presence of a BLOB or TEXT column or presence of a column bigger than 512 "
-#| "bytes) as mentioned in the <a href=\"https://dev.mysql.com/doc/refman/5.5/"
-#| "en/internal-temporary-tables.html\">MySQL Documentation</a>"
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -17428,7 +17399,7 @@ msgid ""
 msgstr ""
 "{max_heap_table_size} ve {tmp_table_size} arttırmak yardımcı olabilir. Ancak "
 "bazı geçici tablolar her zaman bu değişkenlerin değerinden bağımsız, diske "
-"yazılmış olur. <a href=\"https://dev.mysql.com/doc/refman/5.5/en/internal-"
+"yazılmış olur. <a href=\"https://dev.mysql.com/doc/refman/8.0/en/internal-"
 "temporary-tables.html\">MySQL Belgeleri</a> içinde bahsedildiği gibi şu "
 "şartlardan (Geçici tablonun içerisinde: BLOB veya TEXT sütununun varlığı ya "
 "da 512 bayttan büyük sütunun varlığı) kaçınmak için bunları elemek "
@@ -17986,7 +17957,7 @@ msgstr ""
 "Sorgu önbelleğinin, eğer doğru şekilde yapılandırılmışsa fazlasıyla "
 "performansı geliştirdiği biliniyor. {query_cache_size} 2 basamaklı MiB "
 "değeri olarak ve {query_cache_type} ayarı 'ON' ayarlayarak etkinleştirin. "
-"<b>Not:</b> Eğer memcached kullanıyorsanız, bu tavsiyeyi göz ardı edin."
+"<b>Not:</b> Eğer memcached kullanıyorsanız, bu öneriyi yoksayın."
 
 #: libraries/advisory_rules_mysql_before80003.txt:15
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
