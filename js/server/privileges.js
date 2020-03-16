@@ -50,12 +50,12 @@ function checkAddUser (theForm) {
  */
 AJAX.registerTeardown('server/privileges.js', function () {
     $('#fieldset_add_user_login').off('change', 'input[name=\'username\']');
-    $(document).off('click', '#fieldset_delete_user_footer #buttonGo.ajax');
+    $(document).off('click', '#deleteUserCard .btn.ajax');
     $(document).off('click', 'a.edit_user_group_anchor.ajax');
     $(document).off('click', 'button.mult_submit[value=export]');
     $(document).off('click', 'a.export_user_anchor.ajax');
     $(document).off('click',  '#initials_table a.ajax');
-    $('#checkbox_drop_users_db').off('click');
+    $('#dropUsersDbCheckbox').off('click');
     $(document).off('click', '.checkall_box');
     $(document).off('change', '#checkbox_SSL_priv');
     $(document).off('change', 'input[name="ssl_type"]');
@@ -134,14 +134,14 @@ AJAX.registerOnload('server/privileges.js', function () {
      * @memberOf    jQuery
      * @name        revoke_user_click
      */
-    $(document).on('click', '#fieldset_delete_user_footer #buttonGo.ajax', function (event) {
+    $(document).on('click', '#deleteUserCard .btn.ajax', function (event) {
         event.preventDefault();
 
         var $thisButton = $(this);
         var $form = $('#usersForm');
 
         $thisButton.confirm(Messages.strDropUserWarning, $form.attr('action'), function (url) {
-            var $dropUsersDbCheckbox = $('#checkbox_drop_users_db');
+            var $dropUsersDbCheckbox = $('#dropUsersDbCheckbox');
             if ($dropUsersDbCheckbox.is(':checked')) {
                 var isConfirmed = confirm(Messages.strDropDatabaseStrongWarning + '\n' + Functions.sprintf(Messages.strDoYouReally, 'DROP DATABASE'));
                 if (! isConfirmed) {
@@ -158,7 +158,7 @@ AJAX.registerOnload('server/privileges.js', function () {
                     Functions.ajaxShowMessage(data.message);
                     // Refresh navigation, if we droppped some databases with the name
                     // that is the same as the username of the deleted user
-                    if ($('#checkbox_drop_users_db:checked').length) {
+                    if ($('#dropUsersDbCheckbox:checked').length) {
                         Navigation.reload();
                     }
                     // Remove the revoked user from the users list

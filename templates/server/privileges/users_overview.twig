@@ -113,39 +113,30 @@
   <div class="clearfloat"></div>
 
   {% if is_createuser %}
-    <div class="row">
-      <div class="col-12">
-        <fieldset id="fieldset_add_user">
-          <legend>{% trans %}New{% context %}Create new user{% endtrans %}</legend>
-          <a id="add_user_anchor" href="{{ url('/server/privileges', {'adduser': true}) }}">
-            {{ get_icon('b_usradd', 'Add user account'|trans) }}
-          </a>
-        </fieldset>
+    <div class="card mb-3">
+      <div class="card-header">{% trans %}New{% context %}Create new user{% endtrans %}</div>
+      <div class="card-body">
+        <a id="add_user_anchor" href="{{ url('/server/privileges', {'adduser': true}) }}">
+          {{ get_icon('b_usradd', 'Add user account'|trans) }}
+        </a>
       </div>
     </div>
   {% endif %}
 
-  <div class="row">
-    <div class="col-12">
-      <fieldset id="fieldset_delete_user">
-        <legend>
-          {{ get_icon('b_usrdrop') }}{% trans 'Remove selected user accounts' %}
-        </legend>
-        <input type="hidden" name="mode" value="2">
-
-        <p>({% trans 'Revoke all active privileges from the users and delete them afterwards.' %})</p>
-
-        <input type="checkbox" name="drop_users_db" id="checkbox_drop_users_db" title="
-          {%- trans 'Drop the databases that have the same names as the users.' %}">
-        <label for="checkbox_drop_users_db" title="
-          {%- trans 'Drop the databases that have the same names as the users.' %}">
+  <div id="deleteUserCard" class="card mb-3">
+    <div class="card-header">{{ get_icon('b_usrdrop', 'Remove selected user accounts'|trans) }}</div>
+    <div class="card-body">
+      <p class="card-text">{% trans 'Revoke all active privileges from the users and delete them afterwards.' %}</p>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="dropUsersDbCheckbox" name="drop_users_db">
+        <label class="form-check-label" for="dropUsersDbCheckbox">
           {% trans 'Drop the databases that have the same names as the users.' %}
         </label>
-      </fieldset>
+      </div>
+    </div>
+    <div class="card-footer text-right">
+      <input type="hidden" name="mode" value="2">
+      <input id="buttonGo" class="btn btn-primary ajax" type="submit" name="delete" value="{% trans 'Go' %}">
     </div>
   </div>
-
-  <fieldset id="fieldset_delete_user_footer" class="tblFooters">
-    <input id="buttonGo" class="btn btn-primary ajax" type="submit" name="delete" value="{% trans 'Go' %}">
-  </fieldset>
 </form>
