@@ -143,29 +143,6 @@ select {
   outline: none;
 }
 
-input {
-  &[type=text],
-  &[type=password],
-  &[type=number],
-  &[type=date] {
-    border-radius: 2px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    background: white;
-    border: 1px solid #aaa;
-    color: #555;
-    padding: 4px;
-  }
-
-  &[type=text],
-  &[type=password],
-  &[type=number],
-  &[type=date],
-  &:not(.form-check-input)[type=checkbox] {
-    margin: 6px;
-  }
-}
-
 select {
   margin: 6px;
 }
@@ -387,7 +364,7 @@ input {
   }
 }
 
-select {
+select:not(.form-control) {
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
@@ -1480,31 +1457,6 @@ a.button {
   }
 }
 
-div {
-  &#sqlquerycontainer {
-    float: $left;
-    width: 69%;
-  }
-
-  &#tablefieldscontainer {
-    float: $right;
-    width: 29%;
-    margin-top: -20px;
-
-    select {
-      width: 100%;
-      background: #fff;
-    }
-  }
-}
-
-#sqlquerycontainer,
-#sqlquerycontainerfull {
-  .btn {
-    margin: 5px;
-  }
-}
-
 textarea {
   &#sqlquery {
     width: 100%;
@@ -1521,10 +1473,6 @@ textarea {
     width: 95%;
     display: block;
   }
-}
-
-div#queryboxcontainer div#bookmarkoptions {
-  margin-top: 0.5em;
 }
 
 // end querybox

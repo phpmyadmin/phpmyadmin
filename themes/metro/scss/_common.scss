@@ -313,7 +313,6 @@ input {
     border: 1px solid $browse-gray-color;
     color: $th-color;
     padding: 5px;
-    margin: 6px;
     font-family: $font-family-base;
     background-color: $body-bg;
 
@@ -322,10 +321,15 @@ input {
       color: $main-color;
     }
   }
+
+  &:not(.form-control)[type="text"],
+  &[type="password"],
+  &[type="number"] {
+    margin: 6px;
+  }
 }
 
-.sqlbutton,
-#tablefieldinsertbuttoncontainer input[type="button"] {
+.sqlbutton {
   margin-top: 1em;
   margin-#{$left}: 0 !important;
   margin-#{$right}: 14px !important;
@@ -1503,25 +1507,6 @@ a.button {
   white-space: nowrap;
 }
 
-div {
-  &#sqlquerycontainer {
-    float: $left;
-    width: 69%;
-  }
-
-  &#tablefieldscontainer {
-    float: $right;
-    width: 29%;
-    margin-top: -20px;
-
-    select {
-      width: 100%;
-      background: #fff;
-      max-width: initial;
-    }
-  }
-}
-
 textarea {
   &#sqlquery {
     width: 100%;
@@ -1535,10 +1520,6 @@ textarea {
     width: 95%;
     display: block;
   }
-}
-
-div#queryboxcontainer div#bookmarkoptions {
-  margin-top: 0.5em;
 }
 
 /* end querybox */

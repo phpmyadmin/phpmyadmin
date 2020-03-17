@@ -167,7 +167,7 @@ input {
     padding: 4px;
   }
 
-  &[type=text],
+  &:not(.form-control)[type=text],
   &[type=password],
   &[type=number],
   &[type=date],
@@ -1506,31 +1506,6 @@ a.button {
   }
 }
 
-div {
-  &#sqlquerycontainer {
-    float: $left;
-    width: 69%;
-  }
-
-  &#tablefieldscontainer {
-    float: $right;
-    width: 29%;
-    margin-top: -20px;
-
-    select {
-      width: 100%;
-      background: #fff;
-    }
-  }
-}
-
-#sqlquerycontainer,
-#sqlquerycontainerfull {
-  .btn {
-    margin: 5px;
-  }
-}
-
 textarea {
   &#sqlquery {
     width: 100%;
@@ -1547,10 +1522,6 @@ textarea {
     width: 95%;
     display: block;
   }
-}
-
-div#queryboxcontainer div#bookmarkoptions {
-  margin-top: 0.5em;
 }
 
 // end querybox

@@ -512,17 +512,19 @@ AJAX.registerOnload('sql.js', function () {
             varCount = 0;
         }
 
-        var $varDiv = $('#bookmark_variables');
+        var $varDiv = $('#bookmarkVariables');
         $varDiv.empty();
         for (var i = 1; i <= varCount; i++) {
-            $varDiv.append($('<label for="bookmark_variable_' + i + '">' + Functions.sprintf(Messages.strBookmarkVariable, i) + '</label>'));
-            $varDiv.append($('<input type="text" size="10" name="bookmark_variable[' + i + ']" id="bookmark_variable_' + i + '">'));
+            $varDiv.append($('<div class="form-group">'));
+            $varDiv.append($('<label for="bookmarkVariable' + i + '">' + Functions.sprintf(Messages.strBookmarkVariable, i) + '</label>'));
+            $varDiv.append($('<input class="form-control" type="text" size="10" name="bookmark_variable[' + i + ']" id="bookmarkVariable' + i + '">'));
+            $varDiv.append($('</div>'));
         }
 
         if (varCount === 0) {
-            $varDiv.parent('.formelement').hide();
+            $varDiv.parent().hide();
         } else {
-            $varDiv.parent('.formelement').show();
+            $varDiv.parent().show();
         }
     });
 

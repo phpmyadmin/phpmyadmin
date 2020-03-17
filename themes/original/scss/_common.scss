@@ -1146,24 +1146,6 @@ div#profilingchart {
   margin-#{$right}: 40px;
 }
 
-/* querybox */
-
-div {
-  &#sqlquerycontainer {
-    float: $left;
-    width: 69%;
-  }
-
-  &#tablefieldscontainer {
-    float: $right;
-    width: 29%;
-
-    select {
-      width: 100%;
-    }
-  }
-}
-
 textarea {
   &#sqlquery {
     width: 100%;
@@ -1174,10 +1156,6 @@ textarea {
     width: 95%;
     display: block;
   }
-}
-
-div#queryboxcontainer div#bookmarkoptions {
-  margin-top: 0.5em;
 }
 
 /* end querybox */
