@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2020-03-15 08:36+0000\n"
+"PO-Revision-Date: 2020-03-18 04:36+0000\n"
 "Last-Translator: yagoub fadel <yagoub76@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/4-9/ar/"
 ">\n"
@@ -2337,8 +2337,6 @@ msgid "%d object(s) created."
 msgstr "%d تم انشاء كائن / كائنات."
 
 #: js/messages.php:582
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
 msgstr "اسم العمود"
 
@@ -2649,7 +2647,6 @@ msgid "Copy table with prefix"
 msgstr "نسخ الجدول مع البادئة"
 
 #: js/messages.php:744
-#, fuzzy
 msgid "Extremely weak"
 msgstr "ضعيف جدا"
 
@@ -2921,7 +2918,6 @@ msgstr "الأسبوع"
 #. * or "calendar-year-month".
 #.
 #: js/messages.php:899
-#, fuzzy
 msgid "calendar-month-year"
 msgstr "التقويم-الشهر-السنة"
 
@@ -3600,6 +3596,9 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting (XSS) attacks."
 msgstr ""
+"يتيح تمكين هذا للصفحة الموجودة على نطاق مختلف لاستدعاء phpMyAdmin داخل إطار ،"
+" وهو ثغرة أمنية [قوية] محتملة [/ قوية] تسمح بهجمات البرمجة النصية عبر "
+"الإطارات (XSS)."
 
 #: libraries/classes/Config/Descriptions.php:80
 msgid "Allow third party framing"
@@ -3668,6 +3667,8 @@ msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
+"استخدم محرر سهل الاستخدام لتحرير استعلامات SQL (CodeMirror) مع تمييز بناء "
+"الجملة وأرقام الأسطر."
 
 #: libraries/classes/Config/Descriptions.php:120
 msgid "Enable CodeMirror"
@@ -3677,7 +3678,7 @@ msgstr "تمكين CodeMirror"
 msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
-msgstr ""
+msgstr "ابحث عن أي أخطاء في الاستعلام قبل تنفيذه. يتطلب تمكين CodeMirror."
 
 #: libraries/classes/Config/Descriptions.php:127
 #, fuzzy
@@ -3689,7 +3690,7 @@ msgstr "تفعيل %s"
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
-msgstr ""
+msgstr "يحدد الحجم الأدنى لحقول الإدخال التي تم إنشاؤها لأعمدة CHAR و VARCHAR."
 
 #: libraries/classes/Config/Descriptions.php:134
 msgid "Minimum size for input field"
@@ -3699,7 +3700,7 @@ msgstr "الحد الأدنى لحجم حقل إدخال"
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
-msgstr ""
+msgstr "يحدد الحجم الأقصى لحقول الإدخال التي تم إنشاؤها لأعمدة CHAR و VARCHAR."
 
 #: libraries/classes/Config/Descriptions.php:141
 msgid "Maximum size for input field"
@@ -3716,10 +3717,8 @@ msgid "CHAR textarea columns"
 msgstr "أعمدة مربع النص لـ CHAR"
 
 #: libraries/classes/Config/Descriptions.php:147
-#, fuzzy
-#| msgid "Number of rows for CHAR/VARCHAR textareas"
 msgid "Number of rows for CHAR/VARCHAR textareas."
-msgstr "عدد صفوف مربع النص لـCHAR/VARCHAR"
+msgstr "عدد الصفوف للنصوص CHAR / VARCHAR."
 
 #: libraries/classes/Config/Descriptions.php:149
 msgid "CHAR textarea rows"
@@ -3752,7 +3751,7 @@ msgstr "تأكيد إستعلامات DROP"
 #: libraries/classes/Config/Descriptions.php:167
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
-msgstr ""
+msgstr "تسجيل استعلامات SQL ووقت تنفيذها ، ليتم عرضها في وحدة التحكم"
 
 #: libraries/classes/Config/Descriptions.php:169
 #: templates/console/display.twig:11 templates/console/display.twig:64
@@ -3760,10 +3759,8 @@ msgid "Debug SQL"
 msgstr "تصحيح SQL"
 
 #: libraries/classes/Config/Descriptions.php:171
-#, fuzzy
-#| msgid "Tab that is displayed when entering a database"
 msgid "Tab that is displayed when entering a database."
-msgstr "التبويب الذي يعرض عند الدخول إلى قاعدة البيانات"
+msgstr "علامة التبويب التي يتم عرضها عند إدخال قاعدة بيانات."
 
 #: libraries/classes/Config/Descriptions.php:173
 msgid "Default database tab"
@@ -3801,7 +3798,7 @@ msgstr "تمكين الإكمال التلقائي لأسماء الجداول �
 
 #: libraries/classes/Config/Descriptions.php:187
 msgid "Whether the table structure actions should be hidden."
-msgstr ""
+msgstr "لتحديد ما إذا كان يجب إخفاء إجراءات بنية الجدول."
 
 #: libraries/classes/Config/Descriptions.php:189
 msgid "Show column comments"
@@ -3810,6 +3807,7 @@ msgstr "اظهر تعليقات الجدول"
 #: libraries/classes/Config/Descriptions.php:191
 msgid "Whether column comments should be shown in table structure view"
 msgstr ""
+"لتحديد ما إذا كان يجب عرض تعليقات الأعمدة في طريقة عرض بنية الجدول أم لا"
 
 #: libraries/classes/Config/Descriptions.php:193
 msgid "Hide table structure actions"
@@ -3842,28 +3840,20 @@ msgid "Default transformations for Substring"
 msgstr "خيارات التحويل"
 
 #: libraries/classes/Config/Descriptions.php:203
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Bool2Text"
-msgstr "الترتيب الإفتراضي"
+msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:207
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for External"
-msgstr "الترتيب الإفتراضي"
+msgstr "التحويلات الافتراضية للخارج"
 
 #: libraries/classes/Config/Descriptions.php:211
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for PreApPend"
-msgstr "خيارات التحويل"
+msgstr "التحويلات الافتراضية لـ PrePend"
 
 #: libraries/classes/Config/Descriptions.php:215
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for DateFormat"
-msgstr "الترتيب الإفتراضي"
+msgstr "التحويلات الافتراضية لتنسيق التاريخ"
 
 #: libraries/classes/Config/Descriptions.php:219
 #, fuzzy
@@ -3981,8 +3971,6 @@ msgstr "حقل متجاهل بـ"
 #: libraries/classes/Config/Descriptions.php:328
 #: libraries/classes/Config/Descriptions.php:336
 #: libraries/classes/Config/Descriptions.php:415
-#, fuzzy
-#| msgid "Replace NULL by"
 msgid "Replace NULL with"
 msgstr "استبدل NULL بـ"
 
@@ -4126,18 +4114,12 @@ msgstr "تعطيل التحقق من المفتاح الغريب"
 
 #: libraries/classes/Config/Descriptions.php:366
 #: libraries/classes/Plugins/Export/ExportSql.php:169
-#, fuzzy
-#| msgid "Exporting rows from \"%s\" table"
 msgid "Export views as tables"
-msgstr "تصدير الأسطر من الجدول \"%s\""
+msgstr "تصدير العروض كجداول"
 
 #: libraries/classes/Config/Descriptions.php:368
-#, fuzzy
-#| msgid ""
-#| "Tracking of changes made in database. Requires the phpMyAdmin "
-#| "configuration storage."
 msgid "Export related metadata from phpMyAdmin configuration storage"
-msgstr "تعقب التغيرات الحاصلة على قاعدة البيانات."
+msgstr "تصدير بيانات التعريف ذات الصلة من تخزين تكوين phpMyAdmin"
 
 #: libraries/classes/Config/Descriptions.php:370
 #: libraries/classes/Config/Descriptions.php:372
@@ -4213,10 +4195,8 @@ msgstr ""
 "مربع الاختيار الافتراضي لقيمة التحقق من المفاتيح الخارجية لبعض طلبات البحث."
 
 #: libraries/classes/Config/Descriptions.php:432
-#, fuzzy
-#| msgid "Foreign key check:"
 msgid "Foreign key checks"
-msgstr "التحقق من المفتاح الخارجي:"
+msgstr "التحقق من المفتاح الخارجي"
 
 #: libraries/classes/Config/Descriptions.php:434
 msgid "Browse mode"
@@ -4307,8 +4287,6 @@ msgstr "خيارات عرض قواعد البيانات."
 
 #: libraries/classes/Config/Descriptions.php:478
 #: libraries/classes/Config/Forms/User/NaviForm.php:59
-#, fuzzy
-#| msgid "Navigation frame"
 msgid "Navigation panel"
 msgstr "إطار التصفح"
 
@@ -4323,8 +4301,6 @@ msgid "Navigation tree"
 msgstr "إطار التصفح"
 
 #: libraries/classes/Config/Descriptions.php:484
-#, fuzzy
-#| msgid "Customize navigation frame"
 msgid "Customize the navigation tree."
 msgstr "تخصيص اطار التصفح"
 
@@ -4403,10 +4379,8 @@ msgid ""
 msgstr "إعداد متقدم للخادم , لاتغير أي من هذه القيم حتى تعلم وظيفتها."
 
 #: libraries/classes/Config/Descriptions.php:536
-#, fuzzy
-#| msgid "Enter server connection parameters"
 msgid "Enter server connection parameters."
-msgstr "أدخل معلومات إتصال الخادم"
+msgstr "أدخل معلمات اتصال الخادم."
 
 #: libraries/classes/Config/Descriptions.php:538
 msgid "Configuration storage"
@@ -4495,10 +4469,8 @@ msgid "Choose how you want tabs to work."
 msgstr "إختر الطريقة التي تعمل بها التبويبات."
 
 #: libraries/classes/Config/Descriptions.php:581
-#, fuzzy
-#| msgid "Relational schema"
 msgid "Display relational schema"
-msgstr "بناء الارتباطات"
+msgstr "عرض المخطط العلائقي"
 
 #: libraries/classes/Config/Descriptions.php:585
 #: libraries/classes/Plugins/Schema/SchemaDia.php:72
@@ -4580,7 +4552,7 @@ msgstr "لاتحبط عندما يكون الخطأ في جمل الإدخال I
 #: libraries/classes/Config/Descriptions.php:639
 #: libraries/classes/Config/Descriptions.php:660
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "إضافة على التحديث الرئيسي المكرر"
 
 #: libraries/classes/Config/Descriptions.php:641
 #: libraries/classes/Config/Descriptions.php:662
