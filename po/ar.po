@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-13 22:20+0100\n"
-"PO-Revision-Date: 2020-03-15 19:36+0000\n"
+"PO-Revision-Date: 2020-03-18 04:36+0000\n"
 "Last-Translator: yagoub fadel <yagoub76@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ar/>\n"
@@ -1661,7 +1661,6 @@ msgid "%d object(s) created."
 msgstr "%d تم انشاء كائن / كائنات."
 
 #: js/messages.php:552
-#, fuzzy
 msgid "Column name"
 msgstr "اسم العمود"
 
@@ -1784,8 +1783,6 @@ msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr "يمكنك أيضا تعديل معظم القيم <br > بالنقر المزدوج عليها مباشرة."
 
 #: js/messages.php:602
-#, fuzzy
-#| msgid "You can also edit most values<br />by clicking directly on them."
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr "يمكنك أيضا تعديل معظم القيم <br /> بالنقر عليها مباشرة."
 
@@ -1993,7 +1990,6 @@ msgid "Copy table with prefix"
 msgstr "نسخ الجدول مع البادئة"
 
 #: js/messages.php:701
-#, fuzzy
 msgid "Extremely weak"
 msgstr "ضعيف جدا"
 
@@ -2656,6 +2652,9 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting (XSS) attacks."
 msgstr ""
+"يتيح تمكين هذا للصفحة الموجودة على نطاق مختلف لاستدعاء phpMyAdmin داخل إطار ،"
+" وهو ثغرة أمنية [قوية] محتملة [/ قوية] تسمح بهجمات البرمجة النصية عبر "
+"الإطارات (XSS)."
 
 #: libraries/classes/Config/Descriptions.php:80
 msgid "Allow third party framing"
@@ -2724,6 +2723,8 @@ msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
+"استخدم محرر سهل الاستخدام لتحرير استعلامات SQL (CodeMirror) مع تمييز بناء "
+"الجملة وأرقام الأسطر."
 
 #: libraries/classes/Config/Descriptions.php:107
 msgid "Enable CodeMirror"
@@ -2733,7 +2734,7 @@ msgstr "تمكين CodeMirror"
 msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
-msgstr ""
+msgstr "ابحث عن أي أخطاء في الاستعلام قبل تنفيذه. يتطلب تمكين CodeMirror."
 
 #: libraries/classes/Config/Descriptions.php:112
 msgid "Enable linter"
@@ -2743,7 +2744,7 @@ msgstr "تفعيل   linter"
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
-msgstr ""
+msgstr "يحدد الحجم الأدنى لحقول الإدخال التي تم إنشاؤها لأعمدة CHAR و VARCHAR."
 
 #: libraries/classes/Config/Descriptions.php:117
 msgid "Minimum size for input field"
@@ -2753,7 +2754,7 @@ msgstr "الحد الأدنى لحجم حقل إدخال"
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
-msgstr ""
+msgstr "يحدد الحجم الأقصى لحقول الإدخال التي تم إنشاؤها لأعمدة CHAR و VARCHAR."
 
 #: libraries/classes/Config/Descriptions.php:122
 msgid "Maximum size for input field"
@@ -2768,10 +2769,8 @@ msgid "CHAR textarea columns"
 msgstr "أعمدة مربع النص لـ CHAR"
 
 #: libraries/classes/Config/Descriptions.php:125
-#, fuzzy
-#| msgid "Number of rows for CHAR/VARCHAR textareas"
 msgid "Number of rows for CHAR/VARCHAR textareas."
-msgstr "عدد صفوف مربع النص لـCHAR/VARCHAR"
+msgstr "عدد الصفوف للنصوص CHAR / VARCHAR."
 
 #: libraries/classes/Config/Descriptions.php:126
 msgid "CHAR textarea rows"
@@ -2804,7 +2803,7 @@ msgstr "تأكيد إستعلامات DROP"
 #: libraries/classes/Config/Descriptions.php:138
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
-msgstr ""
+msgstr "تسجيل استعلامات SQL ووقت تنفيذها ، ليتم عرضها في وحدة التحكم"
 
 #: libraries/classes/Config/Descriptions.php:139
 #: templates/console/display.twig:11 templates/console/display.twig:64
@@ -2812,10 +2811,8 @@ msgid "Debug SQL"
 msgstr "تصحيح SQL"
 
 #: libraries/classes/Config/Descriptions.php:140
-#, fuzzy
-#| msgid "Tab that is displayed when entering a database"
 msgid "Tab that is displayed when entering a database."
-msgstr "التبويب الذي يعرض عند الدخول إلى قاعدة البيانات"
+msgstr "علامة التبويب التي يتم عرضها عند إدخال قاعدة بيانات."
 
 #: libraries/classes/Config/Descriptions.php:141
 msgid "Default database tab"
@@ -2849,7 +2846,7 @@ msgstr "تمكين الإكمال التلقائي لأسماء الجداول �
 
 #: libraries/classes/Config/Descriptions.php:148
 msgid "Whether the table structure actions should be hidden."
-msgstr ""
+msgstr "لتحديد ما إذا كان يجب إخفاء إجراءات بنية الجدول."
 
 #: libraries/classes/Config/Descriptions.php:149
 msgid "Show column comments"
@@ -2858,6 +2855,7 @@ msgstr "اظهر تعليقات الجدول"
 #: libraries/classes/Config/Descriptions.php:150
 msgid "Whether column comments should be shown in table structure view"
 msgstr ""
+"لتحديد ما إذا كان يجب عرض تعليقات الأعمدة في طريقة عرض بنية الجدول أم لا"
 
 #: libraries/classes/Config/Descriptions.php:151
 msgid "Hide table structure actions"
@@ -2886,28 +2884,20 @@ msgid "Default transformations for Substring"
 msgstr "التحولات الافتراضية من السلاسل الفرعية"
 
 #: libraries/classes/Config/Descriptions.php:156
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Bool2Text"
-msgstr "الترتيب الإفتراضي"
+msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:158
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for External"
-msgstr "الترتيب الإفتراضي"
+msgstr "التحويلات الافتراضية للخارج"
 
 #: libraries/classes/Config/Descriptions.php:160
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for PreApPend"
-msgstr "خيارات التحويل"
+msgstr "التحويلات الافتراضية لـ PrePend"
 
 #: libraries/classes/Config/Descriptions.php:162
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for DateFormat"
-msgstr "الترتيب الإفتراضي"
+msgstr "التحويلات الافتراضية لتنسيق التاريخ"
 
 #: libraries/classes/Config/Descriptions.php:164
 #, fuzzy
@@ -3024,8 +3014,6 @@ msgstr "حقل متجاهل بـ"
 #: libraries/classes/Config/Descriptions.php:224
 #: libraries/classes/Config/Descriptions.php:228
 #: libraries/classes/Config/Descriptions.php:273
-#, fuzzy
-#| msgid "Replace NULL by"
 msgid "Replace NULL with"
 msgstr "استبدل NULL بـ"
 
@@ -3192,18 +3180,12 @@ msgstr "تعطيل التحقق من المفتاح الغريب"
 
 #: libraries/classes/Config/Descriptions.php:243
 #: libraries/classes/Plugins/Export/ExportSql.php:188
-#, fuzzy
-#| msgid "Exporting rows from \"%s\" table"
 msgid "Export views as tables"
-msgstr "تصدير الأسطر من الجدول \"%s\""
+msgstr "تصدير العروض كجداول"
 
 #: libraries/classes/Config/Descriptions.php:244
-#, fuzzy
-#| msgid ""
-#| "Tracking of changes made in database. Requires the phpMyAdmin "
-#| "configuration storage."
 msgid "Export related metadata from phpMyAdmin configuration storage"
-msgstr "تعقب التغيرات الحاصلة على قاعدة البيانات."
+msgstr "تصدير بيانات التعريف ذات الصلة من تخزين تكوين phpMyAdmin"
 
 #: libraries/classes/Config/Descriptions.php:245
 #: libraries/classes/Config/Descriptions.php:246
@@ -3233,7 +3215,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:259
 #: libraries/classes/Plugins/Export/ExportSql.php:335
 msgid "Exclude definition of current user"
-msgstr ""
+msgstr "استبعاد تعريف المستخدم الحالي"
 
 #: libraries/classes/Config/Descriptions.php:260
 #: libraries/classes/Plugins/Export/ExportSql.php:341
@@ -3292,10 +3274,8 @@ msgstr ""
 "مربع الاختيار الافتراضي لقيمة التحقق من المفاتيح الخارجية لبعض طلبات البحث."
 
 #: libraries/classes/Config/Descriptions.php:283
-#, fuzzy
-#| msgid "Foreign key check:"
 msgid "Foreign key checks"
-msgstr "التحقق من المفتاح الخارجي:"
+msgstr "التحقق من المفتاح الخارجي"
 
 #: libraries/classes/Config/Descriptions.php:284
 msgid "First day of calendar"
@@ -3392,8 +3372,6 @@ msgstr "خيارات عرض قواعد البيانات."
 #: libraries/classes/Config/Descriptions.php:307
 #: libraries/classes/Config/Forms/User/NaviForm.php:65
 #: templates/preferences/header.twig:30
-#, fuzzy
-#| msgid "Navigation frame"
 msgid "Navigation panel"
 msgstr "إطار التصفح"
 
@@ -3408,8 +3386,6 @@ msgid "Navigation tree"
 msgstr "إطار التصفح"
 
 #: libraries/classes/Config/Descriptions.php:310
-#, fuzzy
-#| msgid "Customize navigation frame"
 msgid "Customize the navigation tree."
 msgstr "تخصيص اطار التصفح"
 
@@ -3500,10 +3476,8 @@ msgid ""
 msgstr "إعداد متقدم للخادم , لاتغير أي من هذه القيم حتى تعلم وظيفتها."
 
 #: libraries/classes/Config/Descriptions.php:341
-#, fuzzy
-#| msgid "Enter server connection parameters"
 msgid "Enter server connection parameters."
-msgstr "أدخل معلومات إتصال الخادم"
+msgstr "أدخل معلمات اتصال الخادم."
 
 #: libraries/classes/Config/Descriptions.php:342
 msgid "Configuration storage"
@@ -3592,10 +3566,8 @@ msgid "Choose how you want tabs to work."
 msgstr "إختر الطريقة التي تعمل بها التبويبات."
 
 #: libraries/classes/Config/Descriptions.php:367
-#, fuzzy
-#| msgid "Relational schema"
 msgid "Display relational schema"
-msgstr "بناء الارتباطات"
+msgstr "عرض المخطط العلائقي"
 
 #: libraries/classes/Config/Descriptions.php:369
 #: libraries/classes/Plugins/Schema/SchemaDia.php:64
@@ -3665,11 +3637,11 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:395
 msgid "Enable drag and drop import"
-msgstr ""
+msgstr "تمكين السحب والإفلات الاستيراد"
 
 #: libraries/classes/Config/Descriptions.php:396
 msgid "Uncheck the checkbox to disable drag and drop import"
-msgstr ""
+msgstr "قم بإلغاء تحديد مربع الاختيار لتعطيل السحب والإفلات الاستيراد"
 
 #: libraries/classes/Config/Descriptions.php:397
 msgid "Partial import: allow interrupt"
@@ -3685,7 +3657,7 @@ msgstr "لاتحبط عندما يكون الخطأ في جمل الإدخال I
 #: libraries/classes/Config/Descriptions.php:403
 #: libraries/classes/Config/Descriptions.php:415
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "إضافة على التحديث الرئيسي المكرر"
 
 #: libraries/classes/Config/Descriptions.php:404
 #: libraries/classes/Config/Descriptions.php:416
@@ -14561,7 +14533,6 @@ msgstr "رخصة"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: templates/javascript/variables.twig:8
-#, fuzzy
 msgid "calendar-month-year"
 msgstr "التقويم-الشهر-السنة"
 
