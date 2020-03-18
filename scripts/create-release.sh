@@ -218,11 +218,8 @@ echo "* Removing unneeded files"
 # Remove developer information
 rm -rf .github
 
-# Remove phpcs coding standard definition
-rm -rf PMAStandard
-
 # Testsuite setup
-rm -f .travis.yml .coveralls.yml .scrutinizer.yml .jshintrc .weblate codecov.yml
+rm -f .travis.yml .scrutinizer.yml .jshintrc .weblate codecov.yml
 
 # Remove readme for github
 rm -f README.rst
@@ -304,6 +301,9 @@ fi
 # Remove Bootstrap theme
 rm -rf themes/bootstrap
 
+# Warm up the routing cache
+./scripts/console routing:cache:warmup
+
 # Remove git metadata
 rm .git
 find . -name .gitignore -print0 | xargs -0 -r rm -f
@@ -351,7 +351,7 @@ for kit in $KITS ; do
         # Testsuite
         rm -rf test/
         rm phpunit.xml.* build.xml
-        rm -f .editorconfig .eslintignore .eslintrc.json .stylelintrc.json phpstan.neon.dist phpcs.xml.dist
+        rm -f .editorconfig .eslintignore .jshintrc .eslintrc.json .stylelintrc.json phpstan.neon.dist phpstan-baseline.neon phpcs.xml.dist
         # Gettext po files
         rm -rf po/
         # Documentation source code
