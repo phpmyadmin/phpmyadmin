@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2020-03-18 09:57+0000\n"
+"PO-Revision-Date: 2020-03-19 11:36+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/4-9/ar/"
 ">\n"
@@ -859,7 +859,7 @@ msgstr "أكد"
 #: js/messages.php:43
 #, php-format
 msgid "Do you really want to execute \"%s\"?"
-msgstr "هل تريد فعلاً تنفيذ  \"%s\"؟"
+msgstr "هل تريد فعلاً تنفيذ \"%s\"؟"
 
 #: js/messages.php:45 libraries/classes/MultSubmits.php:498
 msgid "You are about to DESTROY a complete database!"
@@ -999,7 +999,7 @@ msgid ""
 msgstr ""
 "من خلال هذه العملية ، يحاول MySQL تعيين قيم البيانات بين عمليات الترتيب. إذا "
 "كانت مجموعات الأحرف غير متوافقة ، فقد يكون هناك فقد للبيانات وقد تكون هذه "
-"البيانات المفقودة <b> غيرا </ b> قابلة للاسترداد بمجرد تغيير ترتيب (نسخ) "
+"البيانات المفقودة <b> غيرا </b> قابلة للاسترداد بمجرد تغيير ترتيب (نسخ) "
 "العمود مرة أخرى. <b> لتحويل البيانات الحالية ، يُقترح استخدام ميزة تعديل "
 "الأعمدة (الرابط \"تغيير\") في صفحة بنية الجدول. </b>"
 
@@ -1173,9 +1173,9 @@ msgid ""
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
 "اعدادات ترتيب المخطط في المتصفحات المحلية غير متوافق بعد الآن إلى الإصدار "
-"الأحدث من مراقب الشاشة.من المرجح جدا ان لاتعمل اعداداتك الحالية بعد الان ."
-"الرجاء إعادة تعيين التهيئة إلى الإعدادات الافتراضية في قائمة     <i>  "
-"اعدادات </i> ."
+"الأحدث من مراقب الشاشة.من المرجح جدا ان لاتعمل اعداداتك الحالية بعد الان "
+".الرجاء إعادة تعيين التهيئة إلى الإعدادات الافتراضية في قائمة <i>  اعدادات "
+"</i> ."
 
 #: js/messages.php:177
 msgid "Query cache efficiency"
@@ -3125,7 +3125,7 @@ msgstr ""
 #: libraries/classes/CentralColumns.php:362
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr "تعذرت إضافة٪ 1 $ s لأنها موجودة بالفعل في القائمة المركزية!"
+msgstr "تعذرت إضافة%1$s لأنها موجودة بالفعل في القائمة المركزية!"
 
 #: libraries/classes/CentralColumns.php:377
 msgid "Could not add columns!"
@@ -3135,7 +3135,7 @@ msgstr "تعذرت إضافة أعمدة!"
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
-msgstr "تعذرت إزالة الأعمدة٪ 1 $ s لأنها غير موجودة في قائمة الأعمدة المركزية!"
+msgstr "تعذرت إزالة الأعمدة%1$s لأنها غير موجودة في قائمة الأعمدة المركزية!"
 
 #: libraries/classes/CentralColumns.php:466
 msgid "Could not remove columns!"
@@ -3597,7 +3597,7 @@ msgid ""
 "cross-frame scripting (XSS) attacks."
 msgstr ""
 "يتيح تمكين هذا للصفحة الموجودة على نطاق مختلف لاستدعاء phpMyAdmin داخل إطار ،"
-" وهو ثغرة أمنية [قوية] محتملة [/ قوية] تسمح بهجمات البرمجة النصية عبر "
+" وهو ثغرة أمنية [strong] محتملة [/strong] تسمح بهجمات البرمجة النصية عبر "
 "الإطارات (XSS)."
 
 #: libraries/classes/Config/Descriptions.php:80
