@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-03-13 22:20+0100\n"
+"POT-Creation-Date: 2020-03-18 12:52+0100\n"
 "PO-Revision-Date: 2017-10-03 18:16+0000\n"
 "Last-Translator: urty5656 <urty5656@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -895,14 +895,14 @@ msgstr "파라미터를 찾을 수 없습니다!"
 #: templates/server/privileges/privileges_summary.twig:102
 #: templates/server/privileges/privileges_table.twig:833
 #: templates/server/privileges/user_properties.twig:149
-#: templates/server/privileges/users_overview.twig:149
+#: templates/server/privileges/users_overview.twig:139
 #: templates/server/replication/change_master.twig:33
 #: templates/server/replication/master_add_slave_user.twig:81
 #: templates/server/replication/master_configuration.twig:30
 #: templates/server/replication/slave_configuration.twig:16
 #: templates/server/replication/slave_configuration.twig:88
 #: templates/server/user_groups/edit_user_groups.twig:21
-#: templates/sql/query.twig:124 templates/sql/query.twig:166
+#: templates/sql/query.twig:132 templates/sql/query.twig:179
 #: templates/start_and_number_of_rows_panel.twig:14
 #: templates/table/find_replace/index.twig:59
 #: templates/table/operations/index.twig:26
@@ -1170,7 +1170,7 @@ msgstr "수정"
 #: templates/database/designer/main.twig:392
 #: templates/database/search/results.twig:43
 #: templates/display/export/template_loading.twig:22
-#: templates/setup/home/index.twig:62 templates/sql/query.twig:153
+#: templates/setup/home/index.twig:62 templates/sql/query.twig:167
 msgid "Delete"
 msgstr "삭제"
 
@@ -1672,7 +1672,7 @@ msgstr "%d 개의 개체가 생성되었습니다."
 msgid "Column name"
 msgstr "열(칼럼) 이름"
 
-#: js/messages.php:553 templates/sql/query.twig:149
+#: js/messages.php:553 templates/sql/query.twig:159
 msgid "Submit"
 msgstr "확인"
 
@@ -2998,7 +2998,7 @@ msgid "Character set of the file"
 msgstr "파일 문자셋"
 
 #: libraries/classes/Config/Descriptions.php:189
-#: libraries/classes/Config/Descriptions.php:205 templates/sql/query.twig:32
+#: libraries/classes/Config/Descriptions.php:205 templates/sql/query.twig:41
 #: templates/table/structure/display_table_stats.twig:78
 msgid "Format"
 msgstr "형식"
@@ -4944,7 +4944,7 @@ msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr "쿼리 전송 후 쿼리 박스가 화면상에 남아있을지 여부."
 
-#: libraries/classes/Config/Descriptions.php:822 templates/sql/query.twig:112
+#: libraries/classes/Config/Descriptions.php:822 templates/sql/query.twig:119
 msgid "Retain query box"
 msgstr "쿼리 박스 유지"
 
@@ -6508,7 +6508,7 @@ msgid "Progress"
 msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:160
-#: libraries/classes/Server/Status/Data.php:116
+#: libraries/classes/Server/Status/Data.php:116 templates/sql/query.twig:21
 msgid "SQL query"
 msgstr "SQL 질의"
 
@@ -8767,8 +8767,7 @@ msgstr "검색"
 #: libraries/classes/Util.php:1739 libraries/classes/Util.php:2496
 #: libraries/classes/Util.php:3149 libraries/classes/Util.php:3150
 #: libraries/config.values.php:65 libraries/config.values.php:79
-#: libraries/config.values.php:180 templates/sql/query.twig:59
-#: templates/sql/query.twig:62
+#: libraries/config.values.php:180 templates/sql/query.twig:76
 msgid "Insert"
 msgstr "삽입"
 
@@ -8859,7 +8858,7 @@ msgstr "복제"
 #: libraries/classes/Menu.php:594 libraries/classes/Server/Status/Data.php:195
 #: libraries/classes/Util.php:2470 libraries/config.values.php:158
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
-#: templates/sql/query.twig:159
+#: templates/sql/query.twig:172
 msgid "Variables"
 msgstr "환경설정값"
 
@@ -8972,7 +8971,7 @@ msgstr "클래스 \"%1$s\"를 불러올 수 없음"
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:23
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:24
-#: templates/sql/query.twig:46
+#: templates/sql/query.twig:63
 msgid "Columns"
 msgstr "열(컬럼)"
 
@@ -10648,7 +10647,7 @@ msgstr "브라우저 변형"
 msgid "Please see the documentation on how to update your column_info table."
 msgstr "도큐먼트에서 column_comments 테이블을 업데이트하는 방법을 참고하세요."
 
-#: libraries/classes/Relation.php:259 templates/sql/query.twig:132
+#: libraries/classes/Relation.php:259 templates/sql/query.twig:139
 msgid "Bookmarked SQL query"
 msgstr "북마크된 SQL 질의"
 
@@ -12836,7 +12835,7 @@ msgid "Requery"
 msgstr "다시 쿼리하기"
 
 #: templates/console/display.twig:7 templates/setup/home/index.twig:106
-#: templates/sql/query.twig:30
+#: templates/sql/query.twig:39
 msgid "Clear"
 msgstr "제거"
 
@@ -13486,7 +13485,7 @@ msgstr "모두 체크"
 #: templates/database/privileges/index.twig:129
 #: templates/server/privileges/add_user_fieldset.twig:4
 #: templates/server/privileges/user_overview.twig:20
-#: templates/server/privileges/users_overview.twig:119
+#: templates/server/privileges/users_overview.twig:117
 #: templates/table/privileges/index.twig:132
 msgctxt "Create new user"
 msgid "New"
@@ -13496,7 +13495,7 @@ msgstr ""
 #: templates/server/privileges/add_user_fieldset.twig:9
 #: templates/server/privileges/add_user.twig:3
 #: templates/server/privileges/user_overview.twig:22
-#: templates/server/privileges/users_overview.twig:121
+#: templates/server/privileges/users_overview.twig:120
 #: templates/table/privileges/index.twig:138
 msgid "Add user account"
 msgstr "사용자 추가"
@@ -15392,17 +15391,15 @@ msgid ""
 msgstr ""
 "... 사용자 테이블로부터 이전 것을 삭제하고, 권한 정보를 새로고침 합니다."
 
-#: templates/server/privileges/users_overview.twig:132
+#: templates/server/privileges/users_overview.twig:127
 msgid "Remove selected user accounts"
 msgstr "선택한 사용자를 삭제"
 
-#: templates/server/privileges/users_overview.twig:136
+#: templates/server/privileges/users_overview.twig:129
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr "모든 활성화된 권한을 박탈하고 사용자를 삭제함."
 
-#: templates/server/privileges/users_overview.twig:139
-#: templates/server/privileges/users_overview.twig:141
-#: templates/server/privileges/users_overview.twig:142
+#: templates/server/privileges/users_overview.twig:133
 msgid "Drop the databases that have the same names as the users."
 msgstr "사용자명과 같은 이름의 데이터베이스를 삭제합니다."
 
@@ -16177,7 +16174,7 @@ msgstr "이 SQL 질의를 북마크함"
 msgid "Label:"
 msgstr ""
 
-#: templates/sql/bookmark.twig:22 templates/sql/query.twig:80
+#: templates/sql/bookmark.twig:22 templates/sql/query.twig:91
 msgid "Let every user access this bookmark"
 msgstr ""
 
@@ -16215,42 +16212,48 @@ msgstr "닫기"
 msgid "ø Time"
 msgstr "시간"
 
-#: templates/sql/query.twig:34
+#: templates/sql/query.twig:45
 msgid "Get auto-saved query"
 msgstr ""
 
 #. l10n: Bind parameters in the SQL query using :parameterName format
-#: templates/sql/query.twig:38
+#: templates/sql/query.twig:52
 #, fuzzy
 #| msgid "Bad parameters!"
 msgid "Bind parameters"
 msgstr "잘못된 인자!"
 
-#: templates/sql/query.twig:74
+#: templates/sql/query.twig:85
 msgid "Bookmark this SQL query:"
 msgstr ""
 
-#: templates/sql/query.twig:85
+#: templates/sql/query.twig:96
 msgid "Replace existing bookmark of same name"
 msgstr ""
 
-#: templates/sql/query.twig:99
+#: templates/sql/query.twig:105 templates/sql/query.twig:107
 msgid "Delimiter"
 msgstr "구분자"
 
-#: templates/sql/query.twig:106
+#: templates/sql/query.twig:113
 msgid "Show this query here again"
 msgstr "이 질의를 다시 보여줌"
 
-#: templates/sql/query.twig:117
+#: templates/sql/query.twig:124
 msgid "Rollback when finished"
 msgstr ""
 
-#: templates/sql/query.twig:140
+#: templates/sql/query.twig:143
+#, fuzzy
+#| msgid "Bookmark"
+msgid "Bookmark:"
+msgstr "북마크"
+
+#: templates/sql/query.twig:150
 msgid "shared"
 msgstr "공유"
 
-#: templates/sql/query.twig:151
+#: templates/sql/query.twig:163
 msgid "View only"
 msgstr "보기만"
 

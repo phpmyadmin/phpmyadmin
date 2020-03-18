@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-03-13 22:20+0100\n"
+"POT-Creation-Date: 2020-03-18 12:52+0100\n"
 "PO-Revision-Date: 2018-03-19 23:34+0000\n"
 "Last-Translator: M. M. <m.mirena@gmail.com>\n"
 "Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -916,14 +916,14 @@ msgstr "Nuk gjenden parametra!"
 #: templates/server/privileges/privileges_summary.twig:102
 #: templates/server/privileges/privileges_table.twig:833
 #: templates/server/privileges/user_properties.twig:149
-#: templates/server/privileges/users_overview.twig:149
+#: templates/server/privileges/users_overview.twig:139
 #: templates/server/replication/change_master.twig:33
 #: templates/server/replication/master_add_slave_user.twig:81
 #: templates/server/replication/master_configuration.twig:30
 #: templates/server/replication/slave_configuration.twig:16
 #: templates/server/replication/slave_configuration.twig:88
 #: templates/server/user_groups/edit_user_groups.twig:21
-#: templates/sql/query.twig:124 templates/sql/query.twig:166
+#: templates/sql/query.twig:132 templates/sql/query.twig:179
 #: templates/start_and_number_of_rows_panel.twig:14
 #: templates/table/find_replace/index.twig:59
 #: templates/table/operations/index.twig:26
@@ -1198,7 +1198,7 @@ msgstr "Redakto"
 #: templates/database/designer/main.twig:392
 #: templates/database/search/results.twig:43
 #: templates/display/export/template_loading.twig:22
-#: templates/setup/home/index.twig:62 templates/sql/query.twig:153
+#: templates/setup/home/index.twig:62 templates/sql/query.twig:167
 msgid "Delete"
 msgstr "Fshij"
 
@@ -1708,7 +1708,7 @@ msgstr "%d objekt(e) u krijuan."
 msgid "Column name"
 msgstr "Emrat e kolonës"
 
-#: js/messages.php:553 templates/sql/query.twig:149
+#: js/messages.php:553 templates/sql/query.twig:159
 msgid "Submit"
 msgstr "Dërgo"
 
@@ -3056,7 +3056,7 @@ msgid "Character set of the file"
 msgstr "Seti i karaktereve të filit"
 
 #: libraries/classes/Config/Descriptions.php:189
-#: libraries/classes/Config/Descriptions.php:205 templates/sql/query.twig:32
+#: libraries/classes/Config/Descriptions.php:205 templates/sql/query.twig:41
 #: templates/table/structure/display_table_stats.twig:78
 msgid "Format"
 msgstr "Formati"
@@ -5050,7 +5050,7 @@ msgstr ""
 "Përcakton nëse kutia e pyetsorit duhet të qëndrojë në ekran pas dorëzimit të "
 "saj."
 
-#: libraries/classes/Config/Descriptions.php:822 templates/sql/query.twig:112
+#: libraries/classes/Config/Descriptions.php:822 templates/sql/query.twig:119
 msgid "Retain query box"
 msgstr "Mbaj kutinë e pyetsorit"
 
@@ -6659,7 +6659,7 @@ msgid "Progress"
 msgstr "Progresi"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:160
-#: libraries/classes/Server/Status/Data.php:116
+#: libraries/classes/Server/Status/Data.php:116 templates/sql/query.twig:21
 msgid "SQL query"
 msgstr "SQL pyetsor"
 
@@ -9060,8 +9060,7 @@ msgstr "Kërko"
 #: libraries/classes/Util.php:1739 libraries/classes/Util.php:2496
 #: libraries/classes/Util.php:3149 libraries/classes/Util.php:3150
 #: libraries/config.values.php:65 libraries/config.values.php:79
-#: libraries/config.values.php:180 templates/sql/query.twig:59
-#: templates/sql/query.twig:62
+#: libraries/config.values.php:180 templates/sql/query.twig:76
 msgid "Insert"
 msgstr "Fut"
 
@@ -9152,7 +9151,7 @@ msgstr "Replikimi"
 #: libraries/classes/Menu.php:594 libraries/classes/Server/Status/Data.php:195
 #: libraries/classes/Util.php:2470 libraries/config.values.php:158
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
-#: templates/sql/query.twig:159
+#: templates/sql/query.twig:172
 msgid "Variables"
 msgstr "Variablat"
 
@@ -9272,7 +9271,7 @@ msgstr "Nuk mund të ngarkojë class \"%1$s 1\""
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:23
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:24
-#: templates/sql/query.twig:46
+#: templates/sql/query.twig:63
 msgid "Columns"
 msgstr "Kolona"
 
@@ -11062,7 +11061,7 @@ msgstr ""
 "Ju lutem, shiko dokumentacionin mbi mënyrën se si aktualizohet tabela juaj "
 "column_info."
 
-#: libraries/classes/Relation.php:259 templates/sql/query.twig:132
+#: libraries/classes/Relation.php:259 templates/sql/query.twig:139
 msgid "Bookmarked SQL query"
 msgstr "Pyetsor SQL i faqeruajtur"
 
@@ -13180,7 +13179,7 @@ msgid "Requery"
 msgstr "Requery (kërkesë)"
 
 #: templates/console/display.twig:7 templates/setup/home/index.twig:106
-#: templates/sql/query.twig:30
+#: templates/sql/query.twig:39
 msgid "Clear"
 msgstr "Pastro"
 
@@ -13814,7 +13813,7 @@ msgstr "Shënjo të gjitha"
 #: templates/database/privileges/index.twig:129
 #: templates/server/privileges/add_user_fieldset.twig:4
 #: templates/server/privileges/user_overview.twig:20
-#: templates/server/privileges/users_overview.twig:119
+#: templates/server/privileges/users_overview.twig:117
 #: templates/table/privileges/index.twig:132
 msgctxt "Create new user"
 msgid "New"
@@ -13824,7 +13823,7 @@ msgstr "I ri"
 #: templates/server/privileges/add_user_fieldset.twig:9
 #: templates/server/privileges/add_user.twig:3
 #: templates/server/privileges/user_overview.twig:22
-#: templates/server/privileges/users_overview.twig:121
+#: templates/server/privileges/users_overview.twig:120
 #: templates/table/privileges/index.twig:138
 msgid "Add user account"
 msgstr "Shto llogari përdoruesi"
@@ -15731,18 +15730,16 @@ msgid ""
 msgstr ""
 "… fshij të vjetrin nga tabela e përdoruesve dhe pastaj ringarko privilegjet."
 
-#: templates/server/privileges/users_overview.twig:132
+#: templates/server/privileges/users_overview.twig:127
 msgid "Remove selected user accounts"
 msgstr "Largo llogaritë e zgjedhura të përdoruesve"
 
-#: templates/server/privileges/users_overview.twig:136
+#: templates/server/privileges/users_overview.twig:129
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr ""
 "Tërhiqi të gjitha privilegjet aktive nga përdoruesit dhe fshij ato më pas."
 
-#: templates/server/privileges/users_overview.twig:139
-#: templates/server/privileges/users_overview.twig:141
-#: templates/server/privileges/users_overview.twig:142
+#: templates/server/privileges/users_overview.twig:133
 msgid "Drop the databases that have the same names as the users."
 msgstr "Fshij databazat që kanë emra të njëjtë si përdoruesit."
 
@@ -16532,7 +16529,7 @@ msgstr "Faqeruaj këtë pyetsor SQL"
 msgid "Label:"
 msgstr "Etiketa:"
 
-#: templates/sql/bookmark.twig:22 templates/sql/query.twig:80
+#: templates/sql/bookmark.twig:22 templates/sql/query.twig:91
 msgid "Let every user access this bookmark"
 msgstr "Lejo çdo përdorues të hyjë në këtë faqeruajtës"
 
@@ -16564,40 +16561,46 @@ msgstr "Thirrje"
 msgid "ø Time"
 msgstr "ø Koha"
 
-#: templates/sql/query.twig:34
+#: templates/sql/query.twig:45
 msgid "Get auto-saved query"
 msgstr "Merr pyetsorin e auto-ruajtur"
 
 #. l10n: Bind parameters in the SQL query using :parameterName format
-#: templates/sql/query.twig:38
+#: templates/sql/query.twig:52
 msgid "Bind parameters"
 msgstr "Parametrat e lidhur"
 
-#: templates/sql/query.twig:74
+#: templates/sql/query.twig:85
 msgid "Bookmark this SQL query:"
 msgstr "Faqeruaj këtë pyetsor SQL:"
 
-#: templates/sql/query.twig:85
+#: templates/sql/query.twig:96
 msgid "Replace existing bookmark of same name"
 msgstr "Zëvendëso faqeruajtësin ekzistues me të njëjtin emër"
 
-#: templates/sql/query.twig:99
+#: templates/sql/query.twig:105 templates/sql/query.twig:107
 msgid "Delimiter"
 msgstr "Delimitër"
 
-#: templates/sql/query.twig:106
+#: templates/sql/query.twig:113
 msgid "Show this query here again"
 msgstr "Shfaq këtë pyetsor përsëri këtu"
 
-#: templates/sql/query.twig:117
+#: templates/sql/query.twig:124
 msgid "Rollback when finished"
 msgstr "Rikthe kur të përfundosh"
 
-#: templates/sql/query.twig:140
+#: templates/sql/query.twig:143
+#, fuzzy
+#| msgid "Bookmark"
+msgid "Bookmark:"
+msgstr "Faqeruajtës"
+
+#: templates/sql/query.twig:150
 msgid "shared"
 msgstr "ndarë"
 
-#: templates/sql/query.twig:151
+#: templates/sql/query.twig:163
 msgid "View only"
 msgstr "Shfaq vetëm"
 

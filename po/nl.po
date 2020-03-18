@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-03-13 22:20+0100\n"
+"POT-Creation-Date: 2020-03-18 12:52+0100\n"
 "PO-Revision-Date: 2020-03-15 19:36+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -909,14 +909,14 @@ msgstr "Parameters niet gevonden!"
 #: templates/server/privileges/privileges_summary.twig:102
 #: templates/server/privileges/privileges_table.twig:833
 #: templates/server/privileges/user_properties.twig:149
-#: templates/server/privileges/users_overview.twig:149
+#: templates/server/privileges/users_overview.twig:139
 #: templates/server/replication/change_master.twig:33
 #: templates/server/replication/master_add_slave_user.twig:81
 #: templates/server/replication/master_configuration.twig:30
 #: templates/server/replication/slave_configuration.twig:16
 #: templates/server/replication/slave_configuration.twig:88
 #: templates/server/user_groups/edit_user_groups.twig:21
-#: templates/sql/query.twig:124 templates/sql/query.twig:166
+#: templates/sql/query.twig:132 templates/sql/query.twig:179
 #: templates/start_and_number_of_rows_panel.twig:14
 #: templates/table/find_replace/index.twig:59
 #: templates/table/operations/index.twig:26
@@ -1190,7 +1190,7 @@ msgstr "Wijzigen"
 #: templates/database/designer/main.twig:392
 #: templates/database/search/results.twig:43
 #: templates/display/export/template_loading.twig:22
-#: templates/setup/home/index.twig:62 templates/sql/query.twig:153
+#: templates/setup/home/index.twig:62 templates/sql/query.twig:167
 msgid "Delete"
 msgstr "Verwijderen"
 
@@ -1700,7 +1700,7 @@ msgstr "%d object(en) aangemaakt."
 msgid "Column name"
 msgstr "Kolomnaam"
 
-#: js/messages.php:553 templates/sql/query.twig:149
+#: js/messages.php:553 templates/sql/query.twig:159
 msgid "Submit"
 msgstr "Verzenden"
 
@@ -3026,7 +3026,7 @@ msgid "Character set of the file"
 msgstr "Karakterset voor het bestand"
 
 #: libraries/classes/Config/Descriptions.php:189
-#: libraries/classes/Config/Descriptions.php:205 templates/sql/query.twig:32
+#: libraries/classes/Config/Descriptions.php:205 templates/sql/query.twig:41
 #: templates/table/structure/display_table_stats.twig:78
 msgid "Format"
 msgstr "Opmaken"
@@ -5005,7 +5005,7 @@ msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr "Bepaalt of het queryveld op het scherm moet blijven na invoer."
 
-#: libraries/classes/Config/Descriptions.php:822 templates/sql/query.twig:112
+#: libraries/classes/Config/Descriptions.php:822 templates/sql/query.twig:119
 msgid "Retain query box"
 msgstr "Queryveld behouden"
 
@@ -6599,7 +6599,7 @@ msgid "Progress"
 msgstr "Voortgang"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:160
-#: libraries/classes/Server/Status/Data.php:116
+#: libraries/classes/Server/Status/Data.php:116 templates/sql/query.twig:21
 msgid "SQL query"
 msgstr "SQL-query"
 
@@ -9000,8 +9000,7 @@ msgstr "Zoeken"
 #: libraries/classes/Util.php:1739 libraries/classes/Util.php:2496
 #: libraries/classes/Util.php:3149 libraries/classes/Util.php:3150
 #: libraries/config.values.php:65 libraries/config.values.php:79
-#: libraries/config.values.php:180 templates/sql/query.twig:59
-#: templates/sql/query.twig:62
+#: libraries/config.values.php:180 templates/sql/query.twig:76
 msgid "Insert"
 msgstr "Invoegen"
 
@@ -9092,7 +9091,7 @@ msgstr "Replicatie"
 #: libraries/classes/Menu.php:594 libraries/classes/Server/Status/Data.php:195
 #: libraries/classes/Util.php:2470 libraries/config.values.php:158
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
-#: templates/sql/query.twig:159
+#: templates/sql/query.twig:172
 msgid "Variables"
 msgstr "Variabelen"
 
@@ -9210,7 +9209,7 @@ msgstr "Klasse \"%1$s\" kon niet geladen worden"
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:23
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:24
-#: templates/sql/query.twig:46
+#: templates/sql/query.twig:63
 msgid "Columns"
 msgstr "Kolommen"
 
@@ -10960,7 +10959,7 @@ msgstr "Browsertransformaties"
 msgid "Please see the documentation on how to update your column_info table."
 msgstr "Raadpleeg de documentatie over hoe u de tabel column_info bijwerkt."
 
-#: libraries/classes/Relation.php:259 templates/sql/query.twig:132
+#: libraries/classes/Relation.php:259 templates/sql/query.twig:139
 msgid "Bookmarked SQL query"
 msgstr "Opgeslagen SQL-query"
 
@@ -13086,7 +13085,7 @@ msgid "Requery"
 msgstr "Query opnieuw uitvoeren"
 
 #: templates/console/display.twig:7 templates/setup/home/index.twig:106
-#: templates/sql/query.twig:30
+#: templates/sql/query.twig:39
 msgid "Clear"
 msgstr "Leegmaken"
 
@@ -13678,7 +13677,7 @@ msgstr "Selecteer alles"
 #: templates/database/privileges/index.twig:129
 #: templates/server/privileges/add_user_fieldset.twig:4
 #: templates/server/privileges/user_overview.twig:20
-#: templates/server/privileges/users_overview.twig:119
+#: templates/server/privileges/users_overview.twig:117
 #: templates/table/privileges/index.twig:132
 msgctxt "Create new user"
 msgid "New"
@@ -13688,7 +13687,7 @@ msgstr "Nieuw"
 #: templates/server/privileges/add_user_fieldset.twig:9
 #: templates/server/privileges/add_user.twig:3
 #: templates/server/privileges/user_overview.twig:22
-#: templates/server/privileges/users_overview.twig:121
+#: templates/server/privileges/users_overview.twig:120
 #: templates/table/privileges/index.twig:138
 msgid "Add user account"
 msgstr "Gebruikersaccount toevoegen"
@@ -15520,18 +15519,16 @@ msgstr ""
 "… de oude verwijderen van de gebruikerstabellen en de rechten nadien "
 "vernieuwen."
 
-#: templates/server/privileges/users_overview.twig:132
+#: templates/server/privileges/users_overview.twig:127
 msgid "Remove selected user accounts"
 msgstr "De geselecteerde gebruikersaccounts verwijderen"
 
-#: templates/server/privileges/users_overview.twig:136
+#: templates/server/privileges/users_overview.twig:129
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr ""
 "Trek alle actieve rechten in van alle gebruikers en verwijder deze daarna."
 
-#: templates/server/privileges/users_overview.twig:139
-#: templates/server/privileges/users_overview.twig:141
-#: templates/server/privileges/users_overview.twig:142
+#: templates/server/privileges/users_overview.twig:133
 msgid "Drop the databases that have the same names as the users."
 msgstr "Verwijder de databases die dezelfde naam hebben als de gebruikers."
 
@@ -16295,7 +16292,7 @@ msgstr "Deze SQL-query opslaan als bladwijzer"
 msgid "Label:"
 msgstr "Label:"
 
-#: templates/sql/bookmark.twig:22 templates/sql/query.twig:80
+#: templates/sql/bookmark.twig:22 templates/sql/query.twig:91
 msgid "Let every user access this bookmark"
 msgstr "Elke gebruiker toegang geven tot deze bladwijzer"
 
@@ -16327,40 +16324,46 @@ msgstr "Oproepen"
 msgid "ø Time"
 msgstr "Gemiddelde tijd"
 
-#: templates/sql/query.twig:34
+#: templates/sql/query.twig:45
 msgid "Get auto-saved query"
 msgstr "Neem automatisch opgeslagen query"
 
 #. l10n: Bind parameters in the SQL query using :parameterName format
-#: templates/sql/query.twig:38
+#: templates/sql/query.twig:52
 msgid "Bind parameters"
 msgstr "Koppel parameters"
 
-#: templates/sql/query.twig:74
+#: templates/sql/query.twig:85
 msgid "Bookmark this SQL query:"
 msgstr "Deze SQL-query onthouden:"
 
-#: templates/sql/query.twig:85
+#: templates/sql/query.twig:96
 msgid "Replace existing bookmark of same name"
 msgstr "Bladwijzer met dezelfde naam overschrijven"
 
-#: templates/sql/query.twig:99
+#: templates/sql/query.twig:105 templates/sql/query.twig:107
 msgid "Delimiter"
 msgstr "Scheidingsteken"
 
-#: templates/sql/query.twig:106
+#: templates/sql/query.twig:113
 msgid "Show this query here again"
 msgstr "Laat deze query hier zien"
 
-#: templates/sql/query.twig:117
+#: templates/sql/query.twig:124
 msgid "Rollback when finished"
 msgstr "Draai terug wanneer gereed"
 
-#: templates/sql/query.twig:140
+#: templates/sql/query.twig:143
+#, fuzzy
+#| msgid "Bookmark"
+msgid "Bookmark:"
+msgstr "Bladwijzer"
+
+#: templates/sql/query.twig:150
 msgid "shared"
 msgstr "gedeeld"
 
-#: templates/sql/query.twig:151
+#: templates/sql/query.twig:163
 msgid "View only"
 msgstr "Alleen bekijken"
 
@@ -17277,8 +17280,8 @@ msgid ""
 "cache, especially if you have multiple slaves."
 msgstr ""
 "U gebruikt MySQL-querycache op een druk gebruikte database. U kan overwegen "
-"om <a href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-memcached.html\""
-">memcached</a> te gebruiken in plaats van MySQL-querycache, vooral als u "
+"om <a href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-memcached.html"
+"\">memcached</a> te gebruiken in plaats van MySQL-querycache, vooral als u "
 "verschillende slaves heeft."
 
 #: libraries/advisory_rules_generic.txt:150
@@ -17544,8 +17547,8 @@ msgstr ""
 "Verhogen van {max_heap_table_size} en {tmp_table_size} kan helpen. Hoewel "
 "sommige tijdelijke tabellen altijd naar de harde schijf geschreven worden, "
 "onafhankelijk van de waarde van deze variabelen. Om dit te vermijden zullen "
-"deze query's herschreven moeten worden, om deze voorwaarden te vermijden ("
-"bij tijdelijke tabellen: Gebruik van een BLOB of TEXT kolom of een kolom "
+"deze query's herschreven moeten worden, om deze voorwaarden te vermijden "
+"(bij tijdelijke tabellen: Gebruik van een BLOB of TEXT kolom of een kolom "
 "groter dan 512 bytes) zoals vermeld wordt in de <a href=\"https://dev.mysql."
 "com/doc/refman/8.0/en/internal-temporary-tables.html\">MySQL Documentatie</a>"
 

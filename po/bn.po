@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-03-13 22:20+0100\n"
+"POT-Creation-Date: 2020-03-18 12:52+0100\n"
 "PO-Revision-Date: 2019-08-23 11:23+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -964,14 +964,14 @@ msgstr "প্যারামিটারগুলো খারপ!"
 #: templates/server/privileges/privileges_summary.twig:102
 #: templates/server/privileges/privileges_table.twig:833
 #: templates/server/privileges/user_properties.twig:149
-#: templates/server/privileges/users_overview.twig:149
+#: templates/server/privileges/users_overview.twig:139
 #: templates/server/replication/change_master.twig:33
 #: templates/server/replication/master_add_slave_user.twig:81
 #: templates/server/replication/master_configuration.twig:30
 #: templates/server/replication/slave_configuration.twig:16
 #: templates/server/replication/slave_configuration.twig:88
 #: templates/server/user_groups/edit_user_groups.twig:21
-#: templates/sql/query.twig:124 templates/sql/query.twig:166
+#: templates/sql/query.twig:132 templates/sql/query.twig:179
 #: templates/start_and_number_of_rows_panel.twig:14
 #: templates/table/find_replace/index.twig:59
 #: templates/table/operations/index.twig:26
@@ -1265,7 +1265,7 @@ msgstr "সম্পাদনা"
 #: templates/database/designer/main.twig:392
 #: templates/database/search/results.twig:43
 #: templates/display/export/template_loading.twig:22
-#: templates/setup/home/index.twig:62 templates/sql/query.twig:153
+#: templates/setup/home/index.twig:62 templates/sql/query.twig:167
 msgid "Delete"
 msgstr "মুছ"
 
@@ -1807,7 +1807,7 @@ msgstr "%d অবজেক্ট তৈরী করা হয়েছে"
 msgid "Column name"
 msgstr "স্তম্ভের নাম"
 
-#: js/messages.php:553 templates/sql/query.twig:149
+#: js/messages.php:553 templates/sql/query.twig:159
 msgid "Submit"
 msgstr "জমা"
 
@@ -3280,7 +3280,7 @@ msgid "Character set of the file"
 msgstr "ফাইলের বর্ণরাশি"
 
 #: libraries/classes/Config/Descriptions.php:189
-#: libraries/classes/Config/Descriptions.php:205 templates/sql/query.twig:32
+#: libraries/classes/Config/Descriptions.php:205 templates/sql/query.twig:41
 #: templates/table/structure/display_table_stats.twig:78
 msgid "Format"
 msgstr "গঠন"
@@ -5357,7 +5357,7 @@ msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr "পেশ করার পর অনুসন্ধান বক্সটি পর্দায় থাকবে কিনা।"
 
-#: libraries/classes/Config/Descriptions.php:822 templates/sql/query.twig:112
+#: libraries/classes/Config/Descriptions.php:822 templates/sql/query.twig:119
 msgid "Retain query box"
 msgstr "অনুসন্ধান বক্সটি রাখ"
 
@@ -6998,7 +6998,7 @@ msgid "Progress"
 msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:160
-#: libraries/classes/Server/Status/Data.php:116
+#: libraries/classes/Server/Status/Data.php:116 templates/sql/query.twig:21
 msgid "SQL query"
 msgstr "এসকিউএল অনুসন্ধান"
 
@@ -9383,8 +9383,7 @@ msgstr "খোঁজা"
 #: libraries/classes/Util.php:1739 libraries/classes/Util.php:2496
 #: libraries/classes/Util.php:3149 libraries/classes/Util.php:3150
 #: libraries/config.values.php:65 libraries/config.values.php:79
-#: libraries/config.values.php:180 templates/sql/query.twig:59
-#: templates/sql/query.twig:62
+#: libraries/config.values.php:180 templates/sql/query.twig:76
 msgid "Insert"
 msgstr "ইনর্সাট"
 
@@ -9479,7 +9478,7 @@ msgstr "অনুলিপি"
 #: libraries/classes/Menu.php:594 libraries/classes/Server/Status/Data.php:195
 #: libraries/classes/Util.php:2470 libraries/config.values.php:158
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
-#: templates/sql/query.twig:159
+#: templates/sql/query.twig:172
 msgid "Variables"
 msgstr "চলকসমূহ"
 
@@ -9601,7 +9600,7 @@ msgstr "কনফিগারেশন সংরক্ষন করা যায়
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:23
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:24
-#: templates/sql/query.twig:46
+#: templates/sql/query.twig:63
 msgid "Columns"
 msgstr "স্তম্ভসমূহ"
 
@@ -11395,7 +11394,7 @@ msgstr "ব্রাউজারের রুপান্তর"
 msgid "Please see the documentation on how to update your column_info table."
 msgstr "কিভাবে column_comments টেবল আপডেট করতে হবে তার জন্য সহায়িকা দেখুন।"
 
-#: libraries/classes/Relation.php:259 templates/sql/query.twig:132
+#: libraries/classes/Relation.php:259 templates/sql/query.twig:139
 msgid "Bookmarked SQL query"
 msgstr "বুকর্মাককৃত SQL অনুসন্ধান"
 
@@ -13619,7 +13618,7 @@ msgid "Requery"
 msgstr "সহ-অনুসন্ধান"
 
 #: templates/console/display.twig:7 templates/setup/home/index.twig:106
-#: templates/sql/query.twig:30
+#: templates/sql/query.twig:39
 msgid "Clear"
 msgstr "পরিস্কার"
 
@@ -14339,7 +14338,7 @@ msgstr "সবগুলোতে টিক দাও"
 #: templates/database/privileges/index.twig:129
 #: templates/server/privileges/add_user_fieldset.twig:4
 #: templates/server/privileges/user_overview.twig:20
-#: templates/server/privileges/users_overview.twig:119
+#: templates/server/privileges/users_overview.twig:117
 #: templates/table/privileges/index.twig:132
 msgctxt "Create new user"
 msgid "New"
@@ -14349,7 +14348,7 @@ msgstr "নতুন"
 #: templates/server/privileges/add_user_fieldset.twig:9
 #: templates/server/privileges/add_user.twig:3
 #: templates/server/privileges/user_overview.twig:22
-#: templates/server/privileges/users_overview.twig:121
+#: templates/server/privileges/users_overview.twig:120
 #: templates/table/privileges/index.twig:138
 #, fuzzy
 #| msgid "Add user group"
@@ -16358,19 +16357,17 @@ msgid ""
 "afterwards."
 msgstr "পুরাতনটি ব্যবহারকারী টেবল থেকে মুছে ফেল এবং অধিকারগুলো পুনারায় চালু কর।"
 
-#: templates/server/privileges/users_overview.twig:132
+#: templates/server/privileges/users_overview.twig:127
 #, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected user accounts"
 msgstr "নির্বাচিত ব্যবহারকারীদের মুছ"
 
-#: templates/server/privileges/users_overview.twig:136
+#: templates/server/privileges/users_overview.twig:129
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr "এই ব্যবহারকারীদের অধিকার বাতিল কর এবং মুছে ফেল।"
 
-#: templates/server/privileges/users_overview.twig:139
-#: templates/server/privileges/users_overview.twig:141
-#: templates/server/privileges/users_overview.twig:142
+#: templates/server/privileges/users_overview.twig:133
 msgid "Drop the databases that have the same names as the users."
 msgstr "এই ব্যবহারকারীর নামের সাথে মিল আছে এমন সব ডাটাবেইজ মুছে ফেল।"
 
@@ -17142,7 +17139,7 @@ msgstr "এই এসকিউএল অনুসন্ধানটি বুক
 msgid "Label:"
 msgstr "লেবেল:"
 
-#: templates/sql/bookmark.twig:22 templates/sql/query.twig:80
+#: templates/sql/bookmark.twig:22 templates/sql/query.twig:91
 msgid "Let every user access this bookmark"
 msgstr "পূর্ববর্তী সব ব্যবহারকারী এই বুকমার্কটি ব্যবহার করেছে।"
 
@@ -17174,42 +17171,48 @@ msgstr "ডাকা"
 msgid "ø Time"
 msgstr "সময় ø"
 
-#: templates/sql/query.twig:34
+#: templates/sql/query.twig:45
 msgid "Get auto-saved query"
 msgstr ""
 
 #. l10n: Bind parameters in the SQL query using :parameterName format
-#: templates/sql/query.twig:38
+#: templates/sql/query.twig:52
 #, fuzzy
 #| msgid "Bad parameters!"
 msgid "Bind parameters"
 msgstr "প্যারামিটারগুলো খারপ!"
 
-#: templates/sql/query.twig:74
+#: templates/sql/query.twig:85
 msgid "Bookmark this SQL query:"
 msgstr "এই SQL query টি বুকমার্ক করুন:"
 
-#: templates/sql/query.twig:85
+#: templates/sql/query.twig:96
 msgid "Replace existing bookmark of same name"
 msgstr "একই নামের বুকমার্কটি প্রতিস্থাপন কর"
 
-#: templates/sql/query.twig:99
+#: templates/sql/query.twig:105 templates/sql/query.twig:107
 msgid "Delimiter"
 msgstr "সীমিত করন"
 
-#: templates/sql/query.twig:106
+#: templates/sql/query.twig:113
 msgid "Show this query here again"
 msgstr "এই অনুসন্ধানটি আবার দেখাও"
 
-#: templates/sql/query.twig:117
+#: templates/sql/query.twig:124
 msgid "Rollback when finished"
 msgstr ""
 
-#: templates/sql/query.twig:140
+#: templates/sql/query.twig:143
+#, fuzzy
+#| msgid "Bookmark table"
+msgid "Bookmark:"
+msgstr "বুকর্মাক টেবল"
+
+#: templates/sql/query.twig:150
 msgid "shared"
 msgstr "উন্মুক্ত"
 
-#: templates/sql/query.twig:151
+#: templates/sql/query.twig:163
 msgid "View only"
 msgstr "শুধু দেখার জন্য"
 

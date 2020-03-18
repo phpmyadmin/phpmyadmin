@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-03-13 22:20+0100\n"
+"POT-Creation-Date: 2020-03-18 12:52+0100\n"
 "PO-Revision-Date: 2019-11-21 14:33+0000\n"
 "Last-Translator: Kongfa Warorot <gongpha@hotmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -880,14 +880,14 @@ msgstr "ไม่พบพารามิเตอร์!"
 #: templates/server/privileges/privileges_summary.twig:102
 #: templates/server/privileges/privileges_table.twig:833
 #: templates/server/privileges/user_properties.twig:149
-#: templates/server/privileges/users_overview.twig:149
+#: templates/server/privileges/users_overview.twig:139
 #: templates/server/replication/change_master.twig:33
 #: templates/server/replication/master_add_slave_user.twig:81
 #: templates/server/replication/master_configuration.twig:30
 #: templates/server/replication/slave_configuration.twig:16
 #: templates/server/replication/slave_configuration.twig:88
 #: templates/server/user_groups/edit_user_groups.twig:21
-#: templates/sql/query.twig:124 templates/sql/query.twig:166
+#: templates/sql/query.twig:132 templates/sql/query.twig:179
 #: templates/start_and_number_of_rows_panel.twig:14
 #: templates/table/find_replace/index.twig:59
 #: templates/table/operations/index.twig:26
@@ -1157,7 +1157,7 @@ msgstr "แก้ไข"
 #: templates/database/designer/main.twig:392
 #: templates/database/search/results.twig:43
 #: templates/display/export/template_loading.twig:22
-#: templates/setup/home/index.twig:62 templates/sql/query.twig:153
+#: templates/setup/home/index.twig:62 templates/sql/query.twig:167
 msgid "Delete"
 msgstr "ลบ"
 
@@ -1647,7 +1647,7 @@ msgstr "สร้างวัตถุจำนวน %d วัตถุแล�
 msgid "Column name"
 msgstr "ชื่อคอลัมน์"
 
-#: js/messages.php:553 templates/sql/query.twig:149
+#: js/messages.php:553 templates/sql/query.twig:159
 msgid "Submit"
 msgstr "ส่ง"
 
@@ -2945,7 +2945,7 @@ msgid "Character set of the file"
 msgstr "ชุดอักขระของไฟล์"
 
 #: libraries/classes/Config/Descriptions.php:189
-#: libraries/classes/Config/Descriptions.php:205 templates/sql/query.twig:32
+#: libraries/classes/Config/Descriptions.php:205 templates/sql/query.twig:41
 #: templates/table/structure/display_table_stats.twig:78
 msgid "Format"
 msgstr "รูปแบบ"
@@ -4933,7 +4933,7 @@ msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:822 templates/sql/query.twig:112
+#: libraries/classes/Config/Descriptions.php:822 templates/sql/query.twig:119
 #, fuzzy
 msgid "Retain query box"
 msgstr "คำค้น SQL"
@@ -6476,7 +6476,7 @@ msgid "Progress"
 msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:160
-#: libraries/classes/Server/Status/Data.php:116
+#: libraries/classes/Server/Status/Data.php:116 templates/sql/query.twig:21
 msgid "SQL query"
 msgstr "คำค้น SQL"
 
@@ -8771,8 +8771,7 @@ msgstr "ค้นหา"
 #: libraries/classes/Util.php:1739 libraries/classes/Util.php:2496
 #: libraries/classes/Util.php:3149 libraries/classes/Util.php:3150
 #: libraries/config.values.php:65 libraries/config.values.php:79
-#: libraries/config.values.php:180 templates/sql/query.twig:59
-#: templates/sql/query.twig:62
+#: libraries/config.values.php:180 templates/sql/query.twig:76
 msgid "Insert"
 msgstr "แทรก"
 
@@ -8868,7 +8867,7 @@ msgstr "การจำลองแบบ"
 #: libraries/classes/Menu.php:594 libraries/classes/Server/Status/Data.php:195
 #: libraries/classes/Util.php:2470 libraries/config.values.php:158
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
-#: templates/sql/query.twig:159
+#: templates/sql/query.twig:172
 msgid "Variables"
 msgstr "ตัวแปร"
 
@@ -8998,7 +8997,7 @@ msgstr "เพิ่มฟิลด์ใหม่"
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:23
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:24
-#: templates/sql/query.twig:46
+#: templates/sql/query.twig:63
 msgid "Columns"
 msgstr "คอลัมน์"
 
@@ -10769,7 +10768,7 @@ msgstr ""
 "โปรดอ่านเอกสารเกี่ยวกับ วิธีการปรับปรุงตาราง Column_comments (เก็บหมายเหตุของคอลัมน์) "
 "ของคุณ"
 
-#: libraries/classes/Relation.php:259 templates/sql/query.twig:132
+#: libraries/classes/Relation.php:259 templates/sql/query.twig:139
 msgid "Bookmarked SQL query"
 msgstr "คำค้นนี้ถูกจดไว้แล้ว"
 
@@ -13006,7 +13005,7 @@ msgid "Requery"
 msgstr "ในคำค้น"
 
 #: templates/console/display.twig:7 templates/setup/home/index.twig:106
-#: templates/sql/query.twig:30
+#: templates/sql/query.twig:39
 msgid "Clear"
 msgstr "ล้าง"
 
@@ -13728,7 +13727,7 @@ msgstr "เลือกทั้งหมด"
 #: templates/database/privileges/index.twig:129
 #: templates/server/privileges/add_user_fieldset.twig:4
 #: templates/server/privileges/user_overview.twig:20
-#: templates/server/privileges/users_overview.twig:119
+#: templates/server/privileges/users_overview.twig:117
 #: templates/table/privileges/index.twig:132
 msgctxt "Create new user"
 msgid "New"
@@ -13738,7 +13737,7 @@ msgstr ""
 #: templates/server/privileges/add_user_fieldset.twig:9
 #: templates/server/privileges/add_user.twig:3
 #: templates/server/privileges/user_overview.twig:22
-#: templates/server/privileges/users_overview.twig:121
+#: templates/server/privileges/users_overview.twig:120
 #: templates/table/privileges/index.twig:138
 #, fuzzy
 #| msgid "Add user"
@@ -15709,19 +15708,17 @@ msgid ""
 "afterwards."
 msgstr "… ลบของเก่าจากตารางผู้ใช้ แล้วเรียกใช้รายการสิทธิ์ใหม่หลังจากนั้น."
 
-#: templates/server/privileges/users_overview.twig:132
+#: templates/server/privileges/users_overview.twig:127
 #, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected user accounts"
 msgstr "ถอนผู้ใช้ที่เลือก"
 
-#: templates/server/privileges/users_overview.twig:136
+#: templates/server/privileges/users_overview.twig:129
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr "เพิกถอน active privileges ทั้งหมดจากผู้ใช้ และลบผู้ใช้ทิ้งหลังจากนั้น."
 
-#: templates/server/privileges/users_overview.twig:139
-#: templates/server/privileges/users_overview.twig:141
-#: templates/server/privileges/users_overview.twig:142
+#: templates/server/privileges/users_overview.twig:133
 msgid "Drop the databases that have the same names as the users."
 msgstr "โยนฐานข้อมูลที่มีชื่อเดียวกับผู้ใช้ทิ้ง."
 
@@ -16508,7 +16505,7 @@ msgstr "จดคำค้นนี้ไว้"
 msgid "Label:"
 msgstr "ป้ายชื่อ"
 
-#: templates/sql/bookmark.twig:22 templates/sql/query.twig:80
+#: templates/sql/bookmark.twig:22 templates/sql/query.twig:91
 msgid "Let every user access this bookmark"
 msgstr "อนุญาตให้ผู้ใช้ทุกคนเข้าถึงบุ๊กมาร์กนี้"
 
@@ -16550,42 +16547,48 @@ msgstr "ปิด"
 msgid "ø Time"
 msgstr "เวลา"
 
-#: templates/sql/query.twig:34
+#: templates/sql/query.twig:45
 msgid "Get auto-saved query"
 msgstr "รับคำสั่งที่บันทึกอัตโนมัติ"
 
 #. l10n: Bind parameters in the SQL query using :parameterName format
-#: templates/sql/query.twig:38
+#: templates/sql/query.twig:52
 msgid "Bind parameters"
 msgstr "โยงพารามิเตอร์"
 
-#: templates/sql/query.twig:74
+#: templates/sql/query.twig:85
 #, fuzzy
 #| msgid "Bookmark this SQL query"
 msgid "Bookmark this SQL query:"
 msgstr "จดคำค้นนี้ไว้"
 
-#: templates/sql/query.twig:85
+#: templates/sql/query.twig:96
 msgid "Replace existing bookmark of same name"
 msgstr "แทนที่บุ๊คมาร์คที่มีชื่อเดียวกัน"
 
-#: templates/sql/query.twig:99
+#: templates/sql/query.twig:105 templates/sql/query.twig:107
 msgid "Delimiter"
 msgstr "ตัวคั่น"
 
-#: templates/sql/query.twig:106
+#: templates/sql/query.twig:113
 msgid "Show this query here again"
 msgstr "แสดงคำค้นนี้อีกที"
 
-#: templates/sql/query.twig:117
+#: templates/sql/query.twig:124
 msgid "Rollback when finished"
 msgstr ""
 
-#: templates/sql/query.twig:140
+#: templates/sql/query.twig:143
+#, fuzzy
+#| msgid "Search"
+msgid "Bookmark:"
+msgstr "ค้นหา"
+
+#: templates/sql/query.twig:150
 msgid "shared"
 msgstr "﻿ใช้ร่วมกัน"
 
-#: templates/sql/query.twig:151
+#: templates/sql/query.twig:163
 msgid "View only"
 msgstr "ดูอย่างเดียว"
 
