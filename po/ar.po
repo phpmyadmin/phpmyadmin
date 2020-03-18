@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-12 13:05+0100\n"
 "PO-Revision-Date: 2020-03-19 11:36+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"Last-Translator: yagoub fadel <yagoub76@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/5-0/ar/"
 ">\n"
 "Language: ar\n"
@@ -3145,8 +3145,6 @@ msgid "case-insensitive"
 msgstr "غير حساس لحالة الأحرف"
 
 #: libraries/classes/Charsets/Collation.php:515
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "حساس لحالة الأحرف"
