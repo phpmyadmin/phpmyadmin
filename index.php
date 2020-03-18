@@ -7,7 +7,7 @@ declare(strict_types=1);
 use FastRoute\Dispatcher;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
-use function FastRoute\simpleDispatcher;
+use function FastRoute\cachedDispatcher;
 
 if (! defined('ROOT_PATH')) {
     // phpcs:disable PSR1.Files.SideEffects
@@ -15,7 +15,7 @@ if (! defined('ROOT_PATH')) {
     // phpcs:enable
 }
 
-global $containerBuilder, $route;
+global $containerBuilder, $route, $cfg;
 
 /** @var string $route */
 $route = $_GET['route'] ?? $_POST['route'] ?? '/';
@@ -41,7 +41,12 @@ if ($route === '/import-status') {
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $routes = require ROOT_PATH . 'libraries/routes.php';
-$dispatcher = simpleDispatcher($routes);
+/** @var \PhpMyAdmin\Config|null $config */
+$config = $GLOBALS['PMA_Config'];
+$dispatcher = cachedDispatcher($routes, [
+    'cacheFile' => $config !== null ? $config->getTempDir('routing') . '/routes.cache' : null,
+    'cacheDisabled' => ($cfg['environment'] ?? '') === 'development',
+]);
 $routeInfo = $dispatcher->dispatch(
     $_SERVER['REQUEST_METHOD'],
     rawurldecode($route)
