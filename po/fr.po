@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-18 12:52+0100\n"
-"PO-Revision-Date: 2020-03-15 19:36+0000\n"
-"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
+"PO-Revision-Date: 2020-03-20 09:36+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -16423,10 +16423,8 @@ msgid "Rollback when finished"
 msgstr "ROLLBACK à la fin"
 
 #: templates/sql/query.twig:143
-#, fuzzy
-#| msgid "Bookmark"
 msgid "Bookmark:"
-msgstr "Signet"
+msgstr "Signet :"
 
 #: templates/sql/query.twig:150
 msgid "shared"
