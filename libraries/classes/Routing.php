@@ -16,7 +16,6 @@ use function rawurldecode;
  */
 class Routing
 {
-
     public static function getDispatcher(): Dispatcher
     {
         global $cfg;
