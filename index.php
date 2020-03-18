@@ -14,14 +14,6 @@ if (! defined('ROOT_PATH')) {
 
 global $route;
 
-$route = Routing::getCurrentRoute();
-
-if ($route === '/import-status') {
-    // phpcs:disable PSR1.Files.SideEffects
-    define('PMA_MINIMUM_COMMON', true);
-    // phpcs:enable
-}
-
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $dispatcher = Routing::getDispatcher();

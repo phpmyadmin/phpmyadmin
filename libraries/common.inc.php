@@ -40,6 +40,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\MoTranslator\Loader;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Routing;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Session;
 use PhpMyAdmin\SqlParser\Lexer;
@@ -94,6 +95,14 @@ if (! @is_readable(AUTOLOAD_FILE)) {
     );
 }
 require_once AUTOLOAD_FILE;
+
+$route = Routing::getCurrentRoute();
+
+if ($route === '/import-status') {
+    // phpcs:disable PSR1.Files.SideEffects
+    define('PMA_MINIMUM_COMMON', true);
+    // phpcs:enable
+}
 
 $containerBuilder = new ContainerBuilder();
 $loader = new PhpFileLoader($containerBuilder, new FileLocator(__DIR__));
