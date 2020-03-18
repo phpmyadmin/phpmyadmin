@@ -13,6 +13,12 @@ define('PHPMYADMIN', true);
 require_once ROOT_PATH . 'libraries/vendor_config.php';
 require_once AUTOLOAD_FILE;
 
+if (! class_exists(Application::class)) {
+    echo 'Be sure to have dev-dependencies installed.' . PHP_EOL;
+    echo 'Command aborted.' . PHP_EOL;
+    exit(1);
+}
+
 $application = new Application('phpMyAdmin Console Tool');
 
 $application->add(new AdvisoryRulesCommand());
