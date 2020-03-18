@@ -303,7 +303,7 @@ rm -rf themes/bootstrap
 
 composer update
 # Warm up the routing cache
-./scripts/console routing:cache:warmup
+./scripts/console cache:warmup --routing
 composer update --no-dev --optimize-autoloader
 
 # Remove git metadata
