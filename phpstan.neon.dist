@@ -12,6 +12,7 @@ parameters:
     excludes_analyse:
         - examples/openid.php
         - node_modules/*
+        - libraries/cache/*
         - test/sami-config.php
         - tmp/*
         - twig-templates/*
