@@ -51,7 +51,7 @@ use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
 
-global $containerBuilder, $error_handler, $PMA_Config, $server, $dbi, $lang, $cfg, $isConfigLoading, $auth_plugin;
+global $containerBuilder, $error_handler, $PMA_Config, $server, $dbi, $lang, $cfg, $isConfigLoading, $auth_plugin, $route;
 
 /**
  * block attempts to directly run this script
