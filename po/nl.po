@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-18 12:52+0100\n"
-"PO-Revision-Date: 2020-03-15 19:36+0000\n"
+"PO-Revision-Date: 2020-03-20 09:36+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -16354,10 +16354,8 @@ msgid "Rollback when finished"
 msgstr "Draai terug wanneer gereed"
 
 #: templates/sql/query.twig:143
-#, fuzzy
-#| msgid "Bookmark"
 msgid "Bookmark:"
-msgstr "Bladwijzer"
+msgstr "Bladwijzer:"
 
 #: templates/sql/query.twig:150
 msgid "shared"
