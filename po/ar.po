@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-13 22:20+0100\n"
-"PO-Revision-Date: 2020-03-18 09:58+0000\n"
+"PO-Revision-Date: 2020-03-18 10:08+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ar/>\n"
@@ -23,7 +23,7 @@ msgstr "خطأ 404! الصفحة %s غير موجودة ."
 
 #: index.php:61
 msgid "Error 405! Request method not allowed."
-msgstr "خطأ  405! الطلب بهذه الطريقة غير مسموح."
+msgstr "خطأ 405! الطلب بهذه الطريقة غير مسموح."
 
 #: js/messages.php:51
 msgid "Confirm"
@@ -32,7 +32,7 @@ msgstr "أكد"
 #: js/messages.php:52
 #, php-format
 msgid "Do you really want to execute \"%s\"?"
-msgstr "هل تريد فعلاً تنفيذ  \"%s\"؟"
+msgstr "هل تريد فعلاً تنفيذ \"%s\"؟"
 
 #: js/messages.php:53 libraries/classes/MultSubmits.php:476
 msgid "You are about to DESTROY a complete database!"
@@ -170,7 +170,7 @@ msgid ""
 msgstr ""
 "من خلال هذه العملية ، يحاول MySQL تعيين قيم البيانات بين عمليات الترتيب. إذا "
 "كانت مجموعات الأحرف غير متوافقة ، فقد يكون هناك فقد للبيانات وقد تكون هذه "
-"البيانات المفقودة <b> غيرا </ b> قابلة للاسترداد بمجرد تغيير ترتيب (نسخ) "
+"البيانات المفقودة <b> غيرا </b> قابلة للاسترداد بمجرد تغيير ترتيب (نسخ) "
 "العمود مرة أخرى. <b> لتحويل البيانات الحالية ، يُقترح استخدام ميزة تعديل "
 "الأعمدة (الرابط \"تغيير\") في صفحة بنية الجدول. </b>"
 
@@ -348,9 +348,9 @@ msgid ""
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
 "اعدادات ترتيب المخطط في المتصفحات المحلية غير متوافق بعد الآن إلى الإصدار "
-"الأحدث من مراقب الشاشة.من المرجح جدا ان لاتعمل اعداداتك الحالية بعد الان ."
-"الرجاء إعادة تعيين التهيئة إلى الإعدادات الافتراضية في قائمة     <i>  "
-"اعدادات </i> ."
+"الأحدث من مراقب الشاشة.من المرجح جدا ان لاتعمل اعداداتك الحالية بعد الان "
+".الرجاء إعادة تعيين التهيئة إلى الإعدادات الافتراضية في قائمة <i>  اعدادات "
+"</i> ."
 
 #: js/messages.php:169
 msgid "Query cache efficiency"
@@ -2166,7 +2166,7 @@ msgstr ""
 #: libraries/classes/CentralColumns.php:387
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr "تعذرت إضافة٪ 1 $ s لأنها موجودة بالفعل في القائمة المركزية!"
+msgstr "تعذرت إضافة%1$s لأنها موجودة بالفعل في القائمة المركزية!"
 
 #: libraries/classes/CentralColumns.php:403
 msgid "Could not add columns!"
@@ -2176,7 +2176,7 @@ msgstr "تعذرت إضافة أعمدة!"
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
-msgstr "تعذرت إزالة الأعمدة٪ 1 $ s لأنها غير موجودة في قائمة الأعمدة المركزية!"
+msgstr "تعذرت إزالة الأعمدة%1$s لأنها غير موجودة في قائمة الأعمدة المركزية!"
 
 #: libraries/classes/CentralColumns.php:494
 msgid "Could not remove columns!"
@@ -2653,7 +2653,7 @@ msgid ""
 "cross-frame scripting (XSS) attacks."
 msgstr ""
 "يتيح تمكين هذا للصفحة الموجودة على نطاق مختلف لاستدعاء phpMyAdmin داخل إطار ،"
-" وهو ثغرة أمنية [قوية] محتملة [/ قوية] تسمح بهجمات البرمجة النصية عبر "
+" وهو ثغرة أمنية [strong] محتملة [/strong] تسمح بهجمات البرمجة النصية عبر "
 "الإطارات (XSS)."
 
 #: libraries/classes/Config/Descriptions.php:80
@@ -3911,16 +3911,12 @@ msgid "Logo link URL"
 msgstr "رابط الشعار"
 
 #: libraries/classes/Config/Descriptions.php:491
-#, fuzzy
-#| msgid ""
-#| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
-#| "([kbd]new[/kbd])"
 msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
 msgstr ""
-"فتح الصفحة المرتبطة في النافذة الرئيسية ([kbd]main[/kbd]) أو في نافذة جديدة "
-"([kbd]new[/kbd])"
+"فتح الصفحة المرتبطة في النافذة الرئيسية ([code]main[/code]) أو في نافذة "
+"جديدة ([code]new[/code])"
 
 #: libraries/classes/Config/Descriptions.php:494
 msgid "Logo link target"
