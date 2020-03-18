@@ -847,8 +847,8 @@ class Import
         }
 
         if ($cell == (string) (float) $cell
-            && mb_strpos($cell, '.') !== false
-            && mb_substr_count($cell, '.') === 1
+            && mb_strpos((string) $cell, '.') !== false
+            && mb_substr_count((string) $cell, '.') === 1
         ) {
             return self::DECIMAL;
         }
