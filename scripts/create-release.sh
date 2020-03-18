@@ -80,7 +80,7 @@ while [ $# -gt 0 ] ; do
                     exit 1
                 fi
             elif [ -z "$branch" ] ; then
-                branch=`echo $1 | tr -d -c '0-9A-Za-z_-'`
+                branch=`echo $1 | tr -d -c '/0-9A-Za-z_-'`
                 if [ "x$branch" != "x$1" ] ; then
                     echo "Invalid branch: $1"
                     exit 1
