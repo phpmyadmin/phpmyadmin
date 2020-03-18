@@ -99,37 +99,41 @@
         {% endif %}
       </div>
       <div class="card-footer">
-        <div class="form-inline float-left">
-          <div class="input-group mr-2">
-            <div class="input-group-prepend">
-              <span class="input-group-text">{% trans 'Delimiter' %}</span>
+        <div class="row">
+          <div class="form-inline col">
+            <div class="input-group mr-2">
+              <div class="input-group-prepend">
+                <span class="input-group-text">{% trans 'Delimiter' %}</span>
+              </div>
+              <label class="sr-only" for="id_sql_delimiter">{% trans 'Delimiter' %}</label>
+              <input class="form-control" type="text" name="sql_delimiter" tabindex="131" size="3" value="{{ delimiter }}" id="id_sql_delimiter">
             </div>
-            <label class="sr-only" for="id_sql_delimiter">{% trans 'Delimiter' %}</label>
-            <input class="form-control" type="text" name="sql_delimiter" tabindex="131" size="3" value="{{ delimiter }}" id="id_sql_delimiter">
+
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="show_query" value="1" id="checkbox_show_query" tabindex="132">
+              <label class="form-check-label" for="checkbox_show_query">{% trans 'Show this query here again' %}</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="retain_query_box" value="1" id="retain_query_box" tabindex="133"
+                {{- retain_query_box ? ' checked' }}>
+              <label class="form-check-label" for="retain_query_box">{% trans 'Retain query box' %}</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="rollback_query" value="1" id="rollback_query" tabindex="134">
+              <label class="form-check-label" for="rollback_query">{% trans 'Rollback when finished' %}</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+              {{ get_fk_checkbox() }}
+            </div>
           </div>
 
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" name="show_query" value="1" id="checkbox_show_query" tabindex="132">
-            <label class="form-check-label" for="checkbox_show_query">{% trans 'Show this query here again' %}</label>
-          </div>
-
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" name="retain_query_box" value="1" id="retain_query_box" tabindex="133"
-              {{- retain_query_box ? ' checked' }}>
-            <label class="form-check-label" for="retain_query_box">{% trans 'Retain query box' %}</label>
-          </div>
-
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" name="rollback_query" value="1" id="rollback_query" tabindex="134">
-            <label class="form-check-label" for="rollback_query">{% trans 'Rollback when finished' %}</label>
-          </div>
-
-          <div class="form-check form-check-inline">
-            {{ get_fk_checkbox() }}
+          <div class="col-lg-1 text-right">
+            <input class="btn btn-primary" type="submit" id="button_submit_query" name="SQL" tabindex="200" value="{% trans 'Go' %}">
           </div>
         </div>
-
-        <input class="btn btn-primary float-right" type="submit" id="button_submit_query" name="SQL" tabindex="200" value="{% trans 'Go' %}">
       </div>
     </div>
   {% endif %}
