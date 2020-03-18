@@ -301,8 +301,10 @@ fi
 # Remove Bootstrap theme
 rm -rf themes/bootstrap
 
+composer update
 # Warm up the routing cache
 ./scripts/console routing:cache:warmup
+composer update --no-dev
 
 # Remove git metadata
 rm .git
