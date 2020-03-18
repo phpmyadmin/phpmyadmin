@@ -143,10 +143,6 @@ select {
   outline: none;
 }
 
-select {
-  margin: 6px;
-}
-
 input {
   &[type=text],
   &[type=password],
@@ -254,9 +250,6 @@ input {
 }
 
 textarea {
-  overflow: visible;
-  margin: 6px;
-
   &.char {
     margin: 6px;
   }

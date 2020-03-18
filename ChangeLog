@@ -32,6 +32,7 @@ phpMyAdmin - ChangeLog
 - issue #13519 Add "Preview SQL" option on Index dialog box when creating a new table
 - issue #15954 Fixed export maximal length of created query input is too small
 - issue        Redesign the server status advisor page
+- issue #13124 Use same height for SQL query textarea and Columns select in SQL page
 
 5.0.2 (not yet released)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page
