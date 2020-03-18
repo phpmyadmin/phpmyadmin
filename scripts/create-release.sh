@@ -240,7 +240,7 @@ if [ ! -d libraries/tcpdf ] ; then
     cp composer.json composer.json.backup
     echo "* Running composer"
     composer config platform.php "$PHP_REQ"
-    composer update --no-dev
+    composer update --no-dev --optimize-autoloader
 
     # Parse the required versions from composer.json
     PACKAGES_VERSIONS=''
@@ -253,7 +253,7 @@ if [ ! -d libraries/tcpdf ] ; then
     do
         PACKAGES_VERSIONS="$PACKAGES_VERSIONS $PACKAGES:`awk "/require-dev/ {printline = 1; print; next } printline" composer.json | grep "$PACKAGES" | awk -F [\\"] '{print $4}'`"
     done
-    composer require --update-no-dev $PACKAGES_VERSIONS
+    composer require --optimize-autoloader --update-no-dev $PACKAGES_VERSIONS
 
     mv composer.json.backup composer.json
     echo "* Cleanup of composer packages"
@@ -304,7 +304,7 @@ rm -rf themes/bootstrap
 composer update
 # Warm up the routing cache
 ./scripts/console routing:cache:warmup
-composer update --no-dev
+composer update --no-dev --optimize-autoloader
 
 # Remove git metadata
 rm .git
@@ -331,7 +331,7 @@ if [ $do_test -eq 1 ] ; then
     rm -f .phpunit.result.cache
     # Remove libs installed for testing
     rm -rf build
-    composer update --no-dev
+    composer update --no-dev --optimize-autoloader
 fi
 
 
