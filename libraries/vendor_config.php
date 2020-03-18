@@ -81,6 +81,6 @@ define('LOCALE_PATH', ROOT_PATH . 'locale/');
 define('K_PATH_IMAGES', ROOT_PATH);
 
 /**
- * Define the cache directory for routing
+ * Define the cache directory for routing cache an other cache files
  */
-define('ROUTING_CACHE_DIR', ROOT_PATH . 'libraries/cache/');
+define('CACHE_DIR', ROOT_PATH . 'libraries/cache/');
