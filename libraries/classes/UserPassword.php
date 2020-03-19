@@ -114,7 +114,8 @@ class UserPassword
         if ($serverType == 'MySQL'
             && $serverVersion >= 50706
         ) {
-            $sql_query = 'ALTER USER \'' . $username . '\'@\'' . $hostname
+            $sql_query = 'ALTER USER \'' . $GLOBALS['dbi']->escapeString($username)
+                . '\'@\'' . $GLOBALS['dbi']->escapeString($hostname)
                 . '\' IDENTIFIED WITH ' . $orig_auth_plugin . ' BY '
                 . (($password == '') ? '\'\'' : '\'***\'');
         } elseif (($serverType == 'MySQL'
@@ -182,7 +183,8 @@ class UserPassword
         $serverVersion = $GLOBALS['dbi']->getVersion();
 
         if ($serverType == 'MySQL' && $serverVersion >= 50706) {
-            $local_query = 'ALTER USER \'' . $username . '\'@\'' . $hostname . '\''
+            $local_query = 'ALTER USER \'' . $GLOBALS['dbi']->escapeString($username)
+                . '\'@\'' . $GLOBALS['dbi']->escapeString($hostname) . '\''
                 . ' IDENTIFIED with ' . $orig_auth_plugin . ' BY '
                 . (($password == '')
                 ? '\'\''
@@ -208,8 +210,8 @@ class UserPassword
                 . " `authentication_string` = '" . $hashedPassword
                 . "', `Password` = '', "
                 . " `plugin` = '" . $orig_auth_plugin . "'"
-                . " WHERE `User` = '" . $username . "' AND Host = '"
-                . $hostname . "';";
+                . " WHERE `User` = '" . $GLOBALS['dbi']->escapeString($username)
+                . "' AND Host = '" . $GLOBALS['dbi']->escapeString($hostname) . "';";
         } else {
             $local_query = 'SET password = ' . (($password == '')
                 ? '\'\''
