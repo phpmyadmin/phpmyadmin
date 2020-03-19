@@ -136,5 +136,9 @@ class DbiDummyTest extends TestCase
             'a',
             $GLOBALS['dbi']->escapeString('a')
         );
+        $this->assertEquals(
+            'a\\\'',
+            $GLOBALS['dbi']->escapeString('a\'')
+        );
     }
 }
