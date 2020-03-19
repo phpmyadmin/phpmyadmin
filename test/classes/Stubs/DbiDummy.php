@@ -434,7 +434,7 @@ class DbiDummy implements DbiExtension
      */
     public function escapeString($link, $str)
     {
-        return $str;
+        return addslashes($str);
     }
 
     /**

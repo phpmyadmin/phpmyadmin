@@ -467,7 +467,7 @@ class CreateAddField
         if (! empty($_POST['tbl_storage_engine'])
             && ($_POST['tbl_storage_engine'] != 'Default')
         ) {
-            $sqlQuery .= ' ENGINE = ' . $_POST['tbl_storage_engine'];
+            $sqlQuery .= ' ENGINE = ' . $this->dbi->escapeString($_POST['tbl_storage_engine']);
         }
         if (! empty($_POST['tbl_collation'])) {
             $sqlQuery .= Util::getCharsetQueryPart($_POST['tbl_collation']);
