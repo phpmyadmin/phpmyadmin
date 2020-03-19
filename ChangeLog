@@ -62,6 +62,7 @@ phpMyAdmin - ChangeLog
 - issue        Fix failure if relational display field value is NULL - "Display column for relationships"
 - issue #16033 Remove vendor bin files from non source version of phpMyAdmin
 - issue #15898 [security] Fix escape tbl_storage_engine argument used on tbl_create.php
+- issue #15224 Don't fire keyboard shortcuts while SQL query area is focused (on a mobile for example)
 
 5.0.1 (2020-01-07)
 - issue #15719 Fixed error 500 when browsing a table when $cfg['LimitChars'] used a string and not an int value
