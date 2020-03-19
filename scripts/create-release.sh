@@ -360,6 +360,9 @@ for kit in $KITS ; do
         # Javascript sources
         rm -rf js/vendor/openlayers/src/
         rm -rf node_modules
+        # Remove bin files for non source version
+        # https://github.com/phpmyadmin/phpmyadmin/issues/16033
+        rm -rf vendor/bin
     fi
 
     # Remove developer scripts
