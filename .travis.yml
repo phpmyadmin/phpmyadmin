@@ -190,6 +190,7 @@ jobs:
       after_script: skip
       after_success: skip
       install:
+        - nvm install 10
         - source ~/virtualenv/python3.6/bin/activate
         - pip install 'Sphinx'
       script: ./scripts/create-release.sh --ci
@@ -203,6 +204,7 @@ jobs:
         - TESTSUITE_URL=http://127.0.0.1:8000
       before_install: phpenv config-rm xdebug.ini
       install:
+        - nvm install 10
         - ./test/install-browserstack
         - composer install --no-interaction
         - yarn install --non-interactive
