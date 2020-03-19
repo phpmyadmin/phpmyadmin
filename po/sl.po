@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-18 12:52+0100\n"
-"PO-Revision-Date: 2020-03-15 19:36+0000\n"
+"PO-Revision-Date: 2020-03-20 09:36+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -12,8 +12,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 4.0-dev\n"
 
 #: index.php:54
@@ -16196,10 +16196,8 @@ msgid "Rollback when finished"
 msgstr "Ob koncu razveljavi"
 
 #: templates/sql/query.twig:143
-#, fuzzy
-#| msgid "Bookmark"
 msgid "Bookmark:"
-msgstr "Zaznamek"
+msgstr "Zaznamek:"
 
 #: templates/sql/query.twig:150
 msgid "shared"
