@@ -46,6 +46,7 @@ class ResultsTest extends PmaTestCase
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['text_dir'] = 'ltr';
+        $_SESSION[' HMAC_secret '] = 'test';
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -1323,7 +1324,7 @@ class ResultsTest extends PmaTestCase
         $meta = new stdClass();
         $meta->type = 'BLOB';
         $meta->orgtable = 'bar';
-        $url_params = array('db' => 'foo', 'table' => 'bar');
+        $url_params = array('db' => 'foo', 'table' => 'bar', 'where_clause' => 'where_clause');
 
         return array(
             array(
@@ -1337,9 +1338,7 @@ class ResultsTest extends PmaTestCase
                 $meta,
                 $url_params,
                 null,
-                '<a href="tbl_get_field.php?db=foo&amp;table=bar&amp;server=0'
-                . '&amp;lang=en'
-                . '" class="disableAjax">1001</a>'
+                'class="disableAjax">1001</a>'
             ),
             array(
                 true,
@@ -1352,9 +1351,7 @@ class ResultsTest extends PmaTestCase
                 $meta,
                 $url_params,
                 null,
-                '<a href="tbl_get_field.php?db=foo&amp;table=bar&amp;server=0'
-                . '&amp;lang=en'
-                . '" class="disableAjax">0x123456</a>'
+                'class="disableAjax">0x123456</a>'
             ),
             array(
                 true,
@@ -1367,9 +1364,7 @@ class ResultsTest extends PmaTestCase
                 $meta,
                 $url_params,
                 null,
-                '<a href="tbl_get_field.php?db=foo&amp;table=bar&amp;server=0'
-                . '&amp;lang=en'
-                . '" class="disableAjax">[BLOB - 4 B]</a>'
+                'class="disableAjax">[BLOB - 4 B]</a>'
             ),
             array(
                 false,
@@ -1431,7 +1426,7 @@ class ResultsTest extends PmaTestCase
         $_SESSION['tmpval']['display_binary'] = $display_binary;
         $_SESSION['tmpval']['display_blob'] = $display_blob;
         $GLOBALS['cfg']['LimitChars'] = 50;
-        $this->assertEquals(
+        $this->assertContains(
             $output,
             $this->_callPrivateFunction(
                 '_handleNonPrintableContents',
@@ -1471,7 +1466,7 @@ class ResultsTest extends PmaTestCase
         $meta2->decimals = 0;
         $meta2->name = 'varchar';
         $meta2->orgname = 'varchar';
-        $url_params = array('db' => 'foo', 'table' => 'tbl');
+        $url_params = array('db' => 'foo', 'table' => 'tbl', 'where_clause' => 'where_clause');
 
         return array(
             array(
@@ -1489,11 +1484,7 @@ class ResultsTest extends PmaTestCase
                 array(),
                 0,
                 'binary',
-                '<td class="left   hex">' . PHP_EOL
-                . '    <a href="tbl_get_field.php?'
-                . 'db=foo&amp;table=tbl&amp;server=0&amp;lang=en'
-                . '" '
-                . 'class="disableAjax">[BLOB - 4 B]</a>' . PHP_EOL
+                'class="disableAjax">[BLOB - 4 B]</a>' . PHP_EOL
                 . '</td>' . PHP_EOL
             ),
             array(
@@ -1596,7 +1587,7 @@ class ResultsTest extends PmaTestCase
         $_SESSION['tmpval']['relational_display'] = false;
         $GLOBALS['cfg']['LimitChars'] = 50;
         $GLOBALS['cfg']['ProtectBinary'] = $protectBinary;
-        $this->assertEquals(
+        $this->assertContains(
             $output,
             $this->_callPrivateFunction(
                 '_getDataCellForNonNumericColumns',
