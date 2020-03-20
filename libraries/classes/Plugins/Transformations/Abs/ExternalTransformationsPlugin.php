@@ -111,7 +111,7 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
         if (isset($options[1]) && strlen((string) $options[1]) > 0) {
             trigger_error(sprintf(
                 __(
-                    'You are using the options field, which has been deprecated for security reasons. '
+                    'You are using the external transformation command line options field, which has been deprecated for security reasons. '
                     . 'Add all command line options directly to the definition in %s.'
                 ),
                 '[code]libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php[/code]'
