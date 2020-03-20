@@ -420,8 +420,8 @@ class TableSearchController extends TableController
     public function getDataRowAction()
     {
         $extra_data = array();
-        $row_info_query = 'SELECT * FROM `' . $_POST['db'] . '`.`'
-            . $_POST['table'] . '` WHERE ' .  $_POST['where_clause'];
+        $row_info_query = 'SELECT * FROM ' . Util::backquote($_POST['db']) . '.'
+            . Util::backquote($_POST['table']) . ' WHERE ' .  $_POST['where_clause'];
         $result = $this->dbi->query(
             $row_info_query . ";",
             DatabaseInterface::CONNECT_USER,
