@@ -29,10 +29,10 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
             . ' data via standard input. Returns the standard output of the'
             . ' application. The default is Tidy, to pretty-print HTML code.'
             . ' For security reasons, you have to manually edit the file'
-            . ' libraries/classes/Plugins/Transformations/Output/Text_Plain_External'
-            . '.php and list the tools you want to make available.'
+            . ' libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php'
+            . ' and list the tools you want to make available.'
             . ' The first option is then the number of the program you want to'
-            . ' use and the second option is the parameters for the program.'
+            . ' use. The second option should be blank for historical reasons.'
             . ' The third option, if set to 1, will convert the output using'
             . ' htmlspecialchars() (Default 1). The fourth option, if set to 1,'
             . ' will prevent wrapping and ensure that the output appears all on'
@@ -106,6 +106,16 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
             $program = $allowed_programs[$options[0]];
         } else {
             $program = $allowed_programs[0];
+        }
+
+        if (isset($options[1]) && strlen((string) $options[1]) > 0) {
+            trigger_error(sprintf(
+                __(
+                    'You are using the external transformation command line options field, which has been deprecated for security reasons. '
+                    . 'Add all command line options directly to the definition in %s.'
+                ),
+                '[code]libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php[/code]'
+            ), E_USER_DEPRECATED);
         }
 
         // needs PHP >= 4.3.0

@@ -166,12 +166,12 @@ class ErrorHandler
             */
             if (error_reporting() == 0 &&
                 $this->error_reporting != 0 &&
-                ($errno & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE)) == 0
+                ($errno & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_DEPRECATED)) == 0
             ) {
                 return;
             }
         } else {
-            if (($errno & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE)) == 0) {
+            if (($errno & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_DEPRECATED)) == 0) {
                 return;
             }
         }
@@ -229,6 +229,7 @@ class ErrorHandler
         case E_USER_NOTICE:
         case E_USER_WARNING:
         case E_USER_ERROR:
+        case E_USER_DEPRECATED:
             // just collect the error
             // display is called from outside
             break;
