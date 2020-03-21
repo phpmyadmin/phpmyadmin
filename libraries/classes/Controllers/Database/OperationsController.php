@@ -302,8 +302,6 @@ class OperationsController extends AbstractController
             $databaseComment = $this->relation->getDbComment($db);
         }
 
-        $createTable = CreateTable::getHtml($db);
-
         $hasAdjustPrivileges = $GLOBALS['db_priv'] && $GLOBALS['table_priv']
             && $GLOBALS['col_priv'] && $GLOBALS['proc_priv'] && $GLOBALS['is_reload_priv'];
 
@@ -337,7 +335,6 @@ class OperationsController extends AbstractController
             'db' => $db,
             'has_comment' => $cfgRelation['commwork'],
             'db_comment' => $databaseComment,
-            'create_table' => $createTable,
             'db_collation' => $db_collation,
             'has_adjust_privileges' => $hasAdjustPrivileges,
             'is_drop_database_allowed' => $isDropDatabaseAllowed,
