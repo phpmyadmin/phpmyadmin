@@ -5140,6 +5140,7 @@ class Results
         if (count($url_params) > 0
             && (! empty($tmpdb) && ! empty($meta->orgtable))
         ) {
+            $url_params['where_clause_sign'] = Core::signSqlQuery($url_params['where_clause']);
             $result = '<a href="'
                 . Url::getFromRoute('/table/get-field', $url_params)
                 . '" class="disableAjax">'

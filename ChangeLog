@@ -34,7 +34,7 @@ phpMyAdmin - ChangeLog
 - issue        Redesign the server status advisor page
 - issue #13124 Use same height for SQL query textarea and Columns select in SQL page
 
-5.0.2 (not yet released)
+5.0.2 (2020-03-20)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page
 - issue #15767 Fixed can not copy user account since 5.0 - "error #1133"
 - issue #15772 Fixed error code 500 during pagination of the tables in a database
@@ -96,6 +96,10 @@ phpMyAdmin - ChangeLog
 - issue #16033 Remove vendor bin files from non source version of phpMyAdmin
 - issue #15898 [security] Fix escape tbl_storage_engine argument used on tbl_create.php
 - issue #15224 Don't fire keyboard shortcuts while SQL query area is focused (on a mobile for example)
+- issue        [security] Fix SQL injection with certain usernames (PMASA-2020-2)
+- issue        [security] Fix SQL injection in particular search situations (PMASA-2020-3)
+- issue        [security] Fix SQL injection and XSS flaw (PMASA-2020-4)
+- issue        Deprecate "options" for the external transformation; options must now be hard-coded along with the program name directly in the file.
 
 5.0.1 (2020-01-07)
 - issue #15719 Fixed error 500 when browsing a table when $cfg['LimitChars'] used a string and not an int value
@@ -160,6 +164,12 @@ phpMyAdmin - ChangeLog
 - issue #14732 Fixed can't rename primary key with auto increment
 - issue #15677 Fix show process-list triggers a php exception
 - issue #15697 Fix uncaught php error: "Call to a member function get() on null" in db_export.php when exporting a table from the list
+
+4.9.5 (2020-03-20)
+- issue        [security] Fix SQL injection with certain usernames (PMASA-2020-2)
+- issue        [security] Fix SQL injection in particular search situations (PMASA-2020-3)
+- issue        [security] Fix SQL injection and XSS flaw (PMASA-2020-4)
+- issue        Deprecate "options" for the external transformation; options must now be hard-coded along with the program name directly in the file.
 
 4.9.4 (2020-01-07)
 - issue #15724 Fix 2FA was disabled by a bug
