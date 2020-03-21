@@ -1,6 +1,12 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.9.5 (2020-03-20)
+- issue        [security] Fix SQL injection with certain usernames (PMASA-2020-2)
+- issue        [security] Fix SQL injection in particular search situations (PMASA-2020-3)
+- issue        [security] Fix SQL injection and XSS flaw (PMASA-2020-4)
+- issue        Deprecate "options" for the external transformation; options must now be hard-coded along with the program name directly in the file.
+
 4.9.4 (2020-01-07)
 - issue #15724 Fix 2FA was disabled by a bug
 - issue        [security] Fix SQL injection vulnerability on the user accounts page (PMASA-2020-1)
