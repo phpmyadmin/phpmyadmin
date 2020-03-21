@@ -1489,7 +1489,7 @@ class ResultsTest extends PmaTestCase
         $_SESSION['tmpval']['display_binary'] = $display_binary;
         $_SESSION['tmpval']['display_blob'] = $display_blob;
         $GLOBALS['cfg']['LimitChars'] = 50;
-        $this->assertContains(
+        $this->assertStringContainsString(
             $output,
             $this->_callPrivateFunction(
                 '_handleNonPrintableContents',
@@ -1686,7 +1686,7 @@ class ResultsTest extends PmaTestCase
         $_SESSION['tmpval']['relational_display'] = false;
         $GLOBALS['cfg']['LimitChars'] = 50;
         $GLOBALS['cfg']['ProtectBinary'] = $protectBinary;
-        $this->assertContains(
+        $this->assertStringContainsString(
             $output,
             $this->_callPrivateFunction(
                 '_getDataCellForNonNumericColumns',
