@@ -974,7 +974,7 @@ class Routines
         $retval .= "<tr>";
         $retval .= "    <td>&nbsp;</td>";
         $retval .= "    <td>";
-        $retval .= "        <input type='button'";
+        $retval .= '        <input type="button" class="btn btn-primary"';
         $retval .= "               name='routine_addparameter'";
         $retval .= "               value='" . __('Add parameter') . "'>";
         $retval .= "        <input " . $disableRemoveParam . "";
@@ -1435,7 +1435,7 @@ class Routines
             // Generate output
             if ($outcome) {
                 // Pass the SQL queries through the "pretty printer"
-                $output  = Util::formatSql(implode($queries, "\n"));
+                $output  = Util::formatSql(implode("\n", $queries));
 
                 // Display results
                 $output .= "<fieldset><legend>";

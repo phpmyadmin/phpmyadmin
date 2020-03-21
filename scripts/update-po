@@ -17,6 +17,13 @@ php ./scripts/generate-twig-cache
 
 # Update pot (template), ensure that advisor is at the end
 LOCS=`ls po/*.po | sed 's@.*/\(.*\)\.po@\1@'`
+
+find . -name '*.php' -not -path './test/*' -not -path './po/*' -not -path './tmp/*' -not -path './release/*' -not -path './node_modules/*' -not -path './vendor/*' > twig-templates/filesList
+
+php ./scripts/match-twig-cache
+cat ./twig-templates/filesList | sort --dictionary-order --ignore-case --output ./twig-templates/filesList
+php ./scripts/match-twig-cache --reverse
+
 xgettext \
     -d phpmyadmin \
     --msgid-bugs-address=translators@phpmyadmin.net \
@@ -28,7 +35,7 @@ xgettext \
     --from-code=utf-8 \
     --keyword=__ --keyword=_gettext --keyword=_pgettext:1c,2 --keyword=_ngettext:1,2 \
     --copyright-holder="phpMyAdmin devel team" \
-    `find \( -name '*.php' -o -name '*.phtml' \) -not -path './test/*' -not -path './po/*' -not -path './tmp/*' -not -path './release/*' -not -path './vendor/*' | sort`
+    `cat ./twig-templates/filesList`
 
 # Fixup filenames for Twig templates
 php scripts/fix-po-twig
@@ -41,7 +48,7 @@ php ./scripts/advisor2po >> po/phpmyadmin.pot
 
 ver=`sed -n "/PMA_VERSION', '/ s/.*PMA_VERSION', '\(.*\)'.*/\1/p" libraries/classes/Config.php`
 
-sed -i '
+sed -i.~ '
     s/SOME DESCRIPTIVE TITLE/phpMyAdmin translation/;
     s/PACKAGE/phpMyAdmin/;
     s/(C) YEAR/(C) 2003 - '`date +%Y`'/;
@@ -50,7 +57,7 @@ sed -i '
 
 # Update po files (translations)
 for loc in $LOCS ; do
-    sed -i '
+    sed -i.~ '
         s/SOME DESCRIPTIVE TITLE/phpMyAdmin translation/;
         s/PACKAGE/phpMyAdmin/;
         s/(C) YEAR/(C) 2003 - '`date +%Y`'/;

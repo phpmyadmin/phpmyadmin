@@ -41,6 +41,7 @@ class NodeColumnContainer extends Node
         );
         $new->isNew = true;
         $new->icon = Util::getImage('b_column_add', $newLabel);
+        $new->title = $newLabel;
         $new->links = [
             'text' => 'tbl_addfield.php?server=' . $GLOBALS['server']
                 . '&amp;db=%3$s&amp;table=%2$s'

@@ -665,7 +665,7 @@ class Util
             // Adds a link to MySQL documentation.
             $error_msg .= '<p>' . "\n"
                 . '    <strong>' . __('MySQL said: ') . '</strong>'
-                . self::showMySQLDocu('Error-messages-server')
+                . self::showMySQLDocu('server-error-reference')
                 . "\n"
                 . '</p>' . "\n";
 
@@ -1614,10 +1614,12 @@ class Util
         }
         $date = preg_replace('@%[pP]@', $am_pm, $date);
 
+        // Can return false on windows for Japanese language
+        // See https://github.com/phpmyadmin/phpmyadmin/issues/15830
         $ret = strftime($date, (int) $timestamp);
         // Some OSes such as Win8.1 Traditional Chinese version did not produce UTF-8
         // output here. See https://github.com/phpmyadmin/phpmyadmin/issues/10598
-        if (mb_detect_encoding($ret, 'UTF-8', true) != 'UTF-8') {
+        if ($ret === false || mb_detect_encoding($ret, 'UTF-8', true) != 'UTF-8') {
             $ret = date('Y-m-d H:i:s', (int) $timestamp);
         }
 
@@ -2186,11 +2188,6 @@ class Util
     ) {
         if ($value == '') {
             $value = $text;
-        }
-        if ($GLOBALS['cfg']['ActionLinksMode'] == 'text') {
-            return ' <input class="btn btn-link" type="submit" name="' . $button_name . '"'
-                . ' value="' . htmlspecialchars($value) . '"'
-                . ' title="' . htmlspecialchars($text) . '">' . "\n";
         }
         return '<button class="btn btn-link ' . $button_class . '" type="submit"'
             . ' name="' . $button_name . '" value="' . htmlspecialchars($value)
@@ -2863,7 +2860,7 @@ class Util
      */
     public static function convertBitDefaultValue($bit_default_value)
     {
-        return rtrim(ltrim(htmlspecialchars_decode($bit_default_value, ENT_QUOTES), "b'"), "'");
+        return preg_replace("/^b'(\d*)'?$/", '$1', htmlspecialchars_decode($bit_default_value, ENT_QUOTES), 1);
     }
 
     /**
@@ -4971,5 +4968,32 @@ class Util
     public static function isInteger($input): bool
     {
         return ctype_digit((string) $input);
+    }
+
+    /**
+     * Get the protocol from the RFC 7239 Forwarded header
+     * @param string $headerContents The Forwarded header contents
+     * @return string the protocol http/https
+     */
+    public static function getProtoFromForwardedHeader(string $headerContents): string
+    {
+        if (strpos($headerContents, '=') !== false) {// does not contain any equal sign
+            $hops = explode(',', $headerContents);
+            $parts = explode(';', $hops[0]);
+            foreach ($parts as $part) {
+                $keyValueArray = explode('=', $part, 2);
+                if (count($keyValueArray) === 2) {
+                    [
+                        $keyName,
+                        $value,
+                    ] = $keyValueArray;
+                    $value = trim(strtolower($value));
+                    if (strtolower(trim($keyName)) === 'proto' && in_array($value, ['http', 'https'])) {
+                        return $value;
+                    }
+                }
+            }
+        }
+        return '';
     }
 }

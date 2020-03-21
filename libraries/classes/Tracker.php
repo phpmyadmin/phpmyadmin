@@ -716,8 +716,8 @@ class Tracker
                     $result['identifier'] = 'CREATE DATABASE' ;
                     $result['tablename']  = '' ;
 
-                    // In case of CREATE DATABASE, table field of the CreateStatement is actually name of the database
-                    $GLOBALS['db']        = $statement->name->table;
+                    // In case of CREATE DATABASE, database field of the CreateStatement is the name of the database
+                    $GLOBALS['db']        = $statement->name->database;
                 } elseif ($options[6] == 'INDEX'
                           || $options[6] == 'UNIQUE INDEX'
                           || $options[6] == 'FULLTEXT INDEX'
@@ -917,10 +917,10 @@ class Tracker
                 // we want to track
                 $sql_query .=
                 " WHERE FIND_IN_SET('" . $result['identifier'] . "',tracking) > 0" .
-                " AND `db_name` = '" . $GLOBALS['dbi']->escapeString($dbname) . "' " .
+                " AND `db_name` = '" . $GLOBALS['dbi']->escapeString($dbname ?? '') . "' " .
                 " AND `table_name` = '"
                 . $GLOBALS['dbi']->escapeString($result['tablename']) . "' " .
-                " AND `version` = '" . $GLOBALS['dbi']->escapeString($version) . "' ";
+                " AND `version` = '" . $GLOBALS['dbi']->escapeString($version ?? '') . "' ";
 
                 $relation->queryAsControlUser($sql_query);
             }

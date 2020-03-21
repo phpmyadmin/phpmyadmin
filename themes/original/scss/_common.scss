@@ -183,6 +183,10 @@ table {
   }
 }
 
+table {
+  border-collapse: separate;
+}
+
 img,
 input,
 select,
@@ -2377,7 +2381,7 @@ input#auto_increment_opt {
 }
 
 #table_name_col_no_outer {
-  margin-top: 30px;
+  margin-top: 45px;
 }
 
 #table_name_col_no {

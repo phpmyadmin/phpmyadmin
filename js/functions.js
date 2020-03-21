@@ -1196,7 +1196,7 @@ Functions.handleSimulateQueryButton = function () {
         if (! $simulateDml.length) {
             $('#button_submit_query')
                 .before('<input type="button" id="simulate_dml"' +
-                'tabindex="199" value="' +
+                'tabindex="199" class="btn btn-primary" value="' +
                 Messages.strSimulateDML +
                 '">');
         }
@@ -2279,6 +2279,10 @@ Functions.ajaxShowMessage = function (message, timeout, type) {
             'span',
             Messages.strDismiss
         );
+    }
+    // Hide spinner if this is not a loading message
+    if (msg !== Messages.strLoading) {
+        $retval.css('background-image', 'none');
     }
     Functions.highlightSql($retval);
 
@@ -3466,7 +3470,7 @@ AJAX.registerOnload('functions.js', function () {
                     '<table class=\'add\'><tr><td>' +
                     '<div class=\'slider\'></div>' +
                     '</td><td>' +
-                    '<form><div><input type=\'submit\' class=\'add_value\' value=\'' +
+                    '<form><div><input type=\'submit\' class=\'add_value btn btn-primary\' value=\'' +
                     Functions.sprintf(Messages.enum_addValue, 1) +
                     '\'></div></form>' +
                     '</td></tr></table>' +
@@ -3561,7 +3565,7 @@ AJAX.registerOnload('functions.js', function () {
                 url: href,
                 data: params,
                 success: function (data) {
-                    centralColumnList[db + '_' + table] = JSON.parse(data.message);
+                    centralColumnList[db + '_' + table] = data.message;
                 },
                 async:false
             });
@@ -3654,7 +3658,7 @@ AJAX.registerOnload('functions.js', function () {
                     $('#col_list').append(fields);
                     resultPointer = i;
                     if (resultPointer === listSize) {
-                        $('.tblFooters').hide();
+                        $('#seeMore').hide();
                     }
                     return false;
                 });
@@ -4482,6 +4486,7 @@ Functions.createPrintAndBackButtons = function () {
     var backButton = $('<input>',{
         type: 'button',
         value: Messages.back,
+        class: 'btn btn-primary',
         id: 'back_button_print_view'
     });
     backButton.on('click', Functions.removePrintAndBackButton);
@@ -4489,6 +4494,7 @@ Functions.createPrintAndBackButtons = function () {
     var printButton = $('<input>',{
         type: 'button',
         value: Messages.print,
+        class: 'btn btn-primary',
         id: 'print_button_print_view'
     });
     printButton.on('click', Functions.printPage);

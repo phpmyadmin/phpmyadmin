@@ -391,6 +391,38 @@ class Common
     }
 
     /**
+     * Get the status if the page already exists
+     * If no such exists, returns negative index.
+     *
+     * @param string $pg name
+     *
+     * @return bool if the page already exists
+     */
+    public function getPageExists(string $pg): bool
+    {
+        $cfgRelation = $this->relation->getRelationsParam();
+        if (! $cfgRelation['pdfwork']) {
+            return false;
+        }
+
+        $query = 'SELECT `page_nr`'
+            . ' FROM ' . Util::backquote($cfgRelation['db'])
+            . '.' . Util::backquote($cfgRelation['pdf_pages'])
+            . " WHERE `page_descr` = '" . $this->dbi->escapeString($pg) . "'";
+        $pageNos = $this->dbi->fetchResult(
+            $query,
+            null,
+            null,
+            DatabaseInterface::CONNECT_CONTROL,
+            DatabaseInterface::QUERY_STORE
+        );
+        if (is_array($pageNos) && count($pageNos) > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * Get the id of the page to load. If a default page exists it will be returned.
      * If no such exists, returns the id of the first page of the database.
      *
@@ -563,9 +595,9 @@ class Common
     public function addNewRelation($db, $T1, $F1, $T2, $F2, $on_delete, $on_update, $DB1, $DB2)
     {
         $tables = $this->dbi->getTablesFull($DB1, $T1);
-        $type_T1 = mb_strtoupper($tables[$T1]['ENGINE']);
+        $type_T1 = mb_strtoupper($tables[$T1]['ENGINE'] ?? '');
         $tables = $this->dbi->getTablesFull($DB2, $T2);
-        $type_T2 = mb_strtoupper($tables[$T2]['ENGINE']);
+        $type_T2 = mb_strtoupper($tables[$T2]['ENGINE'] ?? '');
 
         // native foreign key
         if (Util::isForeignKeySupported($type_T1)

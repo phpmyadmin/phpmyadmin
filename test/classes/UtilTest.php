@@ -483,6 +483,22 @@ class UtilTest extends PmaTestCase
                 "b'010111010'",
                 "010111010",
             ],
+            "database name starting with b" => [
+                "big database",
+                "big database",
+            ],
+            "database name containing b'" => [
+                "a b'ig database",
+                "a b'ig database",
+            ],
+            "database name in single quotes" => [
+                "'a*database*name'",
+                "'a*database*name'",
+            ],
+            "database name with multiple b'" => [
+                "b'ens datab'ase'",
+                "b'ens datab'ase'",
+            ],
         ];
     }
 
@@ -2041,19 +2057,24 @@ class UtilTest extends PmaTestCase
     /**
      * localised date test, globals are defined
      *
-     * @param string $a Current timestamp
-     * @param string $b Format
-     * @param string $e Expected output
+     * @param int    $a      Current timestamp
+     * @param string $b      Format
+     * @param string $e      Expected output
+     * @param string $tz     Timezone to set
+     * @param string $locale Locale to set
      *
      * @return void
      *
      * @covers \PhpMyAdmin\Util::localisedDate
      * @dataProvider providerLocalisedDate
      */
-    public function testLocalisedDate($a, $b, $e): void
+    public function testLocalisedDate(int $a, string $b, string $e, string $tz, string $locale): void
     {
+        // A test case for #15830 could be added for using the php setlocale on a Windows CI
+        // See https://github.com/phpmyadmin/phpmyadmin/issues/15830
+        _setlocale(LC_ALL, $locale);
         $tmpTimezone = date_default_timezone_get();
-        date_default_timezone_set('Europe/London');
+        date_default_timezone_set($tz);
 
         $this->assertEquals(
             $e,
@@ -2061,6 +2082,7 @@ class UtilTest extends PmaTestCase
         );
 
         date_default_timezone_set($tmpTimezone);
+        _setlocale(LC_ALL, 'en');
     }
 
     /**
@@ -2070,16 +2092,91 @@ class UtilTest extends PmaTestCase
      */
     public function providerLocalisedDate()
     {
+        $hasJaTranslations = file_exists(LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo');
         return [
             [
                 1227455558,
                 '',
                 'Nov 23, 2008 at 03:52 PM',
+                'Europe/London',
+                'en',
             ],
             [
                 1227455558,
                 '%Y-%m-%d %H:%M:%S %a',
                 '2008-11-23 15:52:38 Sun',
+                'Europe/London',
+                'en',
+            ],
+            [
+                1227455558,
+                '%Y-%m-%d %H:%M:%S %a',
+                '2008-11-23 16:52:38 Sun',
+                'Europe/Paris',
+                'en',
+            ],
+            [
+                1227455558,
+                '%Y-%m-%d %H:%M:%S %a',
+                '2008-11-24 00:52:38 Mon',
+                'Asia/Tokyo',
+                'en',
+            ],
+            [
+                1227455558,
+                '%a %A %b %B',
+                'Mon Mon Nov Nov',
+                'Asia/Tokyo',
+                'en',
+            ],
+            [
+                1227455558,
+                '%a %A %b %B %P',
+                'Mon Mon Nov Nov AM',
+                'Asia/Tokyo',
+                'en',
+            ],
+            [
+                1227455558,
+                '%Y-%m-%d %H:%M:%S %a',
+                $hasJaTranslations ? '2008-11-24 00:52:38 月' : '2008-11-24 00:52:38 Mon',
+                'Asia/Tokyo',
+                'ja',
+            ],
+            [
+                1227455558,
+                '%a %A %b %B',
+                $hasJaTranslations ? '月 月 11 月 11 月' : 'Mon Mon Nov Nov',
+                'Asia/Tokyo',
+                'ja',
+            ],
+            [
+                1227455558,
+                '%a %A %b %B %P',
+                $hasJaTranslations ? '月 月 11 月 11 月 午前' : 'Mon Mon Nov Nov AM',
+                'Asia/Tokyo',
+                'ja',
+            ],
+            [
+                1227455558,
+                '月月',
+                '月月',
+                'Asia/Tokyo',
+                'ja',
+            ],
+            [
+                1227455558,
+                '%Y 年 2 月 %d 日 %H:%M',
+                '2008 年 2 月 24 日 00:52',
+                'Asia/Tokyo',
+                'ja',
+            ],
+            [
+                1227455558,
+                '%Y 年 2 � %d 日 %H:%M',
+                '2008 年 2 � 24 日 00:52',
+                'Asia/Tokyo',
+                'ja',
             ],
         ];
     }
@@ -2680,6 +2777,123 @@ class UtilTest extends PmaTestCase
                 false,
                 'input',
             ],
+        ];
+    }
+
+    /**
+     * Test for Util::getProtoFromForwardedHeader
+     *
+     * @param string $header The http Forwarded header
+     * @param string $proto  The protocol http/https
+     *
+     * @return void
+     *
+     * @dataProvider providerForwardedHeaders
+     */
+    public function testGetProtoFromForwardedHeader(string $header, string $proto): void
+    {
+        $protocolDetected = Util::getProtoFromForwardedHeader($header);
+        $this->assertEquals($proto, $protocolDetected);
+    }
+
+    /**
+     * Data provider for Util::getProtoFromForwardedHeader test
+     * @source https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Forwarded MDN docs
+     * @source https://www.nginx.com/resources/wiki/start/topics/examples/forwarded/ Nginx docs
+     *
+     * @return array
+     */
+    public function providerForwardedHeaders(): array
+    {
+        return [
+            [
+                '',
+                '',
+            ],
+            [
+                '=',
+                '',
+            ],
+            [
+                'https',
+                '',
+            ],
+            [
+                'https',
+                '',
+            ],
+            [
+                '=https',
+                '',
+            ],
+            [
+                '=http',
+                '',
+            ],
+            [
+                'For="[2001:db8:cafe::17]:4711"',
+                '',
+            ],
+            [
+                'for=192.0.2.60;proto=http;by=203.0.113.43',
+                'http',
+            ],
+            [
+                'for=192.0.2.43, for=198.51.100.17',
+                '',
+            ],
+            [
+                'for=123.34.567.89',
+                '',
+            ],
+            [
+                'for=192.0.2.43, for="[2001:db8:cafe::17]"',
+                '',
+            ],
+            [
+                'for=12.34.56.78;host=example.com;proto=https, for=23.45.67.89',
+                'https',
+            ],
+            [
+                'for=12.34.56.78, for=23.45.67.89;secret=egah2CGj55fSJFs, for=10.1.2.3',
+                '',
+            ],
+            [
+                'for=injected;by="',
+                '',
+            ],
+            [
+                'for=injected;by=", for=real',
+                '',
+            ],
+            [
+                'for=192.0.2.60;proto=http;by=203.0.113.43',
+                'http',
+            ],
+            [
+                'for=192.0.2.60;proto=htTp;by=203.0.113.43',
+                'http',
+            ],
+            [
+                'for=192.0.2.60;proto=HTTP;by=203.0.113.43',
+                'http',
+            ],
+            [
+                'for=192.0.2.60;proto= http;by=203.0.113.43',
+                'http',
+            ],
+            [
+                'for=12.34.45.67;secret="special;proto=abc;test=1";proto=http,for=23.45.67.89',
+                'http',
+            ],
+            [
+                'for=12.34.45.67;secret="special;proto=abc;test=1";proto=418,for=23.45.67.89',
+                '',
+            ],
+            /*[ // this test case is very special and would need a different implementation
+                'for=12.34.45.67;secret="special;proto=http;test=1";proto=https,for=23.45.67.89',
+                'https'
+            ]*/
         ];
     }
 }

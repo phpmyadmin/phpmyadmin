@@ -45,7 +45,7 @@ $options_array = [
 $relation = $containerBuilder->get('relation');
 $cfgRelation = $relation->getRelationsParam();
 $tbl_storage_engine = mb_strtoupper(
-    $dbi->getTable($db, $table)->getStatusInfo('Engine')
+    $dbi->getTable($db, $table)->getStatusInfo('Engine') ?? ''
 );
 $upd_query = new Table($table, $db, $dbi);
 

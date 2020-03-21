@@ -114,6 +114,23 @@ class CreateAddFieldTest extends TestCase
                     'spatial_indexes' => '{}',
                 ],
             ],
+            [
+                'CREATE TABLE `db`.`table` () ENGINE = Inno\\\'DB CHARSET=armscii8 COMMENT = \'my \\\'table\';',
+                'db',
+                'table',
+                [
+                    'field_name' => [],
+                    'primary_indexes' => '{}',
+                    'indexes' => '{}',
+                    'unique_indexes' => '{}',
+                    'fulltext_indexes' => '{}',
+                    'spatial_indexes' => '{}',
+                    'tbl_storage_engine' => 'Inno\'DB',
+                    'tbl_collation' => 'armscii8',
+                    'connection' => 'aaaa',
+                    'comment' => 'my \'table',
+                ],
+            ],
         ];
     }
 

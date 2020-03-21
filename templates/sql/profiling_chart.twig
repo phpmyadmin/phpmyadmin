@@ -11,7 +11,6 @@
         </th>
         <th>
           {% trans 'State' %}
-          {{ show_mysql_docu('general-thread-states') }}
           <div class="sorticon"></div>
         </th>
         <th>
@@ -27,13 +26,12 @@
   </div>
 
   <div class="floatleft">
-    <h3>{% trans 'Summary by state' %}</h3>
+    <h3>{% trans 'Summary by state' %}{{ show_mysql_docu('general-thread-states') }}</h3>
     <table id="profilesummarytable">
       <thead>
       <tr>
         <th>
           {% trans 'State' %}
-          {{ show_mysql_docu('general-thread-states') }}
           <div class="sorticon"></div>
         </th>
         <th>

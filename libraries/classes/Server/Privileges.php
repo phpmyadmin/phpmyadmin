@@ -1937,8 +1937,11 @@ class Privileges
             && $mode == 'change'
         ) {
             $row = $this->dbi->fetchSingleRow(
-                'SELECT `plugin` FROM `mysql`.`user` WHERE '
-                . '`User` = "' . $username . '" AND `Host` = "' . $hostname . '" LIMIT 1'
+                'SELECT `plugin` FROM `mysql`.`user` WHERE `User` = "'
+                . $GLOBALS['dbi']->escapeString($username)
+                . '" AND `Host` = "'
+                . $GLOBALS['dbi']->escapeString($hostname)
+                . '" LIMIT 1'
             );
             // Table 'mysql'.'user' may not exist for some previous
             // versions of MySQL - in that case consider fallback value
@@ -1949,8 +1952,11 @@ class Privileges
             list($username, $hostname) = $this->dbi->getCurrentUserAndHost();
 
             $row = $this->dbi->fetchSingleRow(
-                'SELECT `plugin` FROM `mysql`.`user` WHERE '
-                . '`User` = "' . $username . '" AND `Host` = "' . $hostname . '"'
+                'SELECT `plugin` FROM `mysql`.`user` WHERE `User` = "'
+                . $GLOBALS['dbi']->escapeString($username)
+                . '" AND `Host` = "'
+                . $GLOBALS['dbi']->escapeString($hostname)
+                . '"'
             );
             if (is_array($row) && isset($row['plugin'])) {
                 $authentication_plugin = $row['plugin'];
@@ -2089,8 +2095,8 @@ class Privileges
                     . " `authentication_string` = '" . $hashedPassword
                     . "', `Password` = '', "
                     . " `plugin` = '" . $authentication_plugin . "'"
-                    . " WHERE `User` = '" . $username . "' AND Host = '"
-                    . $hostname . "';";
+                    . " WHERE `User` = '" . $GLOBALS['dbi']->escapeString($username)
+                    . "' AND Host = '" . $GLOBALS['dbi']->escapeString($hostname) . "';";
             } else {
                 // USE 'SET PASSWORD ...' syntax for rest of the versions
                 // Backup the old value, to be reset later
@@ -2100,8 +2106,8 @@ class Privileges
                 $orig_value = $row['@@old_passwords'];
                 $update_plugin_query = "UPDATE `mysql`.`user` SET"
                     . " `plugin` = '" . $authentication_plugin . "'"
-                    . " WHERE `User` = '" . $username . "' AND Host = '"
-                    . $hostname . "';";
+                    . " WHERE `User` = '" . $GLOBALS['dbi']->escapeString($username)
+                    . "' AND Host = '" . $GLOBALS['dbi']->escapeString($hostname) . "';";
 
                 // Update the plugin for the user
                 if (! $this->dbi->tryQuery($update_plugin_query)) {
@@ -2681,8 +2687,8 @@ class Privileges
     public function mergePrivMapFromResult(array &$privMap, $result)
     {
         while ($row = $this->dbi->fetchAssoc($result)) {
-            $user = $row['User'];
-            $host = $row['Host'];
+            $user = (string) $row['User'];
+            $host = (string) $row['Host'];
             if (! isset($privMap[$user])) {
                 $privMap[$user] = [];
             }
@@ -2774,7 +2780,7 @@ class Privileges
                     $html_output .= '<span style="color: #FF0000">'
                         . __('Any') . '</span>';
                 } else {
-                    $html_output .= htmlspecialchars($current_user);
+                    $html_output .= htmlspecialchars((string) $current_user);
                 }
                 $html_output .= '</td>';
 
@@ -4423,7 +4429,7 @@ class Privileges
             isset($_POST['old_usergroup']) ? $_POST['old_usergroup'] : null;
         $this->setUserGroup($_POST['username'], $old_usergroup);
 
-        if ($create_user_real === null) {
+        if ($create_user_real !== null) {
             $queries[] = $create_user_real;
         }
         $queries[] = $real_sql_query;
@@ -4497,10 +4503,10 @@ class Privileges
         $dbname_is_wildcard = null;
 
         if (isset($_REQUEST['username'])) {
-            $username = $_REQUEST['username'];
+            $username = (string) $_REQUEST['username'];
         }
         if (isset($_REQUEST['hostname'])) {
-            $hostname = $_REQUEST['hostname'];
+            $hostname = (string) $_REQUEST['hostname'];
         }
         /**
          * Checks if a dropdown box has been used for selecting a database / table
@@ -5480,7 +5486,12 @@ class Privileges
             } elseif ($serverType == 'MariaDB') {
                 $create_user_stmt .= ' IDENTIFIED BY \'%s\'';
             } elseif (($serverType == 'MySQL' || $serverType == 'Percona Server') && $serverVersion >= 80011) {
-                $create_user_stmt .= ' BY \'%s\'';
+                if (mb_strpos($create_user_stmt, 'IDENTIFIED') === false) {
+                    // Maybe the authentication_plugin was not posted and then a part is missing
+                    $create_user_stmt .= ' IDENTIFIED BY \'%s\'';
+                } else {
+                    $create_user_stmt .= ' BY \'%s\'';
+                }
             } else {
                 $create_user_stmt .= ' AS \'%s\'';
             }

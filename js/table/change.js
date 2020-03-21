@@ -149,6 +149,56 @@ function checkForCheckbox (multiEdit) {
     return true;
 }
 
+// used in Search page mostly for INT fields
+// eslint-disable-next-line no-unused-vars
+function verifyAfterSearchFieldChange (index) {
+    var $thisInput = $('input[name=\'criteriaValues[' + index + ']\']');
+    // validation for integer type
+    if ($thisInput.data('type') === 'INT') {
+        $('#tbl_search_form').validate();
+        validateIntField($thisInput, true);
+    }
+}
+
+/**
+ * Validate the an input contains an int value
+ * @param {jQuery} jqueryInput the Jquery object
+ * @param {boolean} returnValueIfIsNumber the value to return if the validator passes
+ * @returns {void}
+ */
+function validateIntField (jqueryInput, returnValueIfIsNumber) {
+    var mini = parseInt(jqueryInput.attr('min'));
+    var maxi = parseInt(jqueryInput.attr('max'));
+    jqueryInput.rules('add', {
+        number: {
+            param: true,
+            depends: function () {
+                return returnValueIfIsNumber;
+            }
+        },
+        min: {
+            param: mini,
+            depends: function () {
+                if (isNaN(jqueryInput.val())) {
+                    return false;
+                } else {
+                    return returnValueIfIsNumber;
+                }
+            }
+        },
+        max: {
+            param: maxi,
+            depends: function () {
+                if (isNaN(jqueryInput.val())) {
+                    return false;
+                } else {
+                    return returnValueIfIsNumber;
+                }
+            }
+        }
+    });
+}
+
 function verificationsAfterFieldChange (urlField, multiEdit, theType) {
     var evt = window.event || arguments.callee.caller.arguments[0];
     var target = evt.target || evt.srcElement;
@@ -231,36 +281,7 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
         }
         // validation for integer type
         if ($thisInput.data('type') === 'INT') {
-            var mini = parseInt($thisInput.attr('min'));
-            var maxi = parseInt($thisInput.attr('max'));
-            $thisInput.rules('add', {
-                number: {
-                    param : true,
-                    depends: function () {
-                        return checkForCheckbox(multiEdit);
-                    }
-                },
-                min: {
-                    param: mini,
-                    depends: function () {
-                        if (isNaN($thisInput.val())) {
-                            return false;
-                        } else {
-                            return checkForCheckbox(multiEdit);
-                        }
-                    }
-                },
-                max: {
-                    param: maxi,
-                    depends: function () {
-                        if (isNaN($thisInput.val())) {
-                            return false;
-                        } else {
-                            return checkForCheckbox(multiEdit);
-                        }
-                    }
-                }
-            });
+            validateIntField($thisInput, checkForCheckbox(multiEdit));
             // validation for CHAR types
         } else if ($thisInput.data('type') === 'CHAR') {
             var maxlen = $thisInput.data('maxlength');
@@ -452,7 +473,7 @@ AJAX.registerOnload('table/change.js', function () {
                     || thisElemSubmitTypeVal === 'insertignore'
                     || thisElemSubmitTypeVal === 'showinsert'
                 ) {
-                    $(valueField).val(0);
+                    $(valueField).val(null);
                 } else {
                     $(valueField).val(previousValue);
                 }
@@ -599,6 +620,16 @@ function addNewContinueInsertionFiels (event) {
             $anchor.attr('href', newHref);
         };
 
+        var restoreValue = function () {
+            if ($(this).closest('tr').find('span.column_type').html() === 'enum') {
+                if ($(this).val() === $checkedValue) {
+                    $(this).prop('checked', true);
+                } else {
+                    $(this).prop('checked', false);
+                }
+            }
+        };
+
         while (currRows < targetRows) {
             /**
              * @var $last_row    Object referring to the last row
@@ -609,6 +640,7 @@ function addNewContinueInsertionFiels (event) {
             // (also needs improvement because it should be calculated
             //  just once per cloned row, not once per column)
             var newRowIndex = 0;
+            var $checkedValue = $lastRow.find('input:checked').val();
 
             // Clone the insert tables
             $lastRow
@@ -619,6 +651,22 @@ function addNewContinueInsertionFiels (event) {
                 .end()
                 .find('.foreign_values_anchor')
                 .each(tempReplaceAnchor);
+
+            var $oldRow = $lastRow.find('.textfield');
+            $oldRow.each(restoreValue);
+
+            // set the value of enum field of new row to default
+            var $newRow = $('#insertForm').find('.insertRowTable:last');
+            $newRow.find('.textfield').each(function () {
+                if ($(this).closest('tr').find('span.column_type').html() === 'enum') {
+                    if ($(this).val() === $(this).closest('tr').find('span.default_value').html()) {
+                        $(this).prop('checked', true);
+                    } else {
+                        $(this).prop('checked', false);
+                    }
+                }
+            });
+
 
             // Insert/Clone the ignore checkboxes
             if (currRows === 1) {
@@ -667,15 +715,6 @@ function addNewContinueInsertionFiels (event) {
                 $(this).attr('tabindex', tabIndex);
                 // update the IDs of textfields to ensure that they are unique
                 $(this).attr('id', 'field_' + tabIndex + '_3');
-
-                // special handling for radio fields after updating ids to unique
-                if ($(this).closest('tr').find('span.column_type').html() === 'enum') {
-                    if ($(this).val() === $(this).closest('tr').find('span.default_value').html()) {
-                        $(this).prop('checked', true);
-                    } else {
-                        $(this).prop('checked', false);
-                    }
-                }
             });
         $('.control_at_footer')
             .each(function () {
@@ -717,8 +756,8 @@ function changeValueFieldType (elem, searchIndex) {
         'BETWEEN' === type ||
         'NOT BETWEEN' === type
     ) {
-        $('#fieldID_' + searchIndex).attr('multiple', '');
+        $('#fieldID_' + searchIndex).prop('multiple', true);
     } else {
-        $('#fieldID_' + searchIndex).removeAttr('multiple');
+        $('#fieldID_' + searchIndex).prop('multiple', false);
     }
 }

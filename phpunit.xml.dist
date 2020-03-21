@@ -22,7 +22,6 @@
     <logging>
         <log type="coverage-clover" target="build/logs/clover.xml" />
         <log type="junit" target="build/logs/junit.xml" />
-        <log type="json" target="build/logs/phpunit.json" />
     </logging>
 
     <filter>

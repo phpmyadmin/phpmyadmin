@@ -1801,7 +1801,7 @@ class Results
                 );
             $sort_direction[$special_index] = preg_match(
                 '@time|date@i',
-                $fields_meta->type
+                $fields_meta->type ?? ''
             ) ? self::DESCENDING_SORT_DIR : self::ASCENDING_SORT_DIR;
         }
 
@@ -2784,7 +2784,7 @@ class Results
 
             $not_null_class = $meta->not_null ? 'not_null' : '';
             $relation_class = isset($map[$meta->name]) ? 'relation' : '';
-            $hide_class = $col_visib && ! $col_visib[$currentColumn]
+            $hide_class = $col_visib && isset($col_visib[$currentColumn]) && ! $col_visib[$currentColumn]
                 ? 'hide'
                 : '';
             $grid_edit = $meta->orgtable != '' ? $grid_edit_class : '';
@@ -2861,6 +2861,7 @@ class Results
             $tblLower = mb_strtolower($meta->orgtable);
             $nameLower = mb_strtolower($meta->orgname);
             if (! empty($this->transformation_info[$dbLower][$tblLower][$nameLower])
+                && isset($row[$i])
                 && (trim($row[$i]) != '')
                 && ! $_SESSION['tmpval']['hide_transformation']
             ) {
@@ -4442,7 +4443,7 @@ class Results
                 $meta
             );
         } else {
-            $column_for_first_row = $row[$sorted_column_index];
+            $column_for_first_row = ($row !== null) ? $row[$sorted_column_index] : '';
         }
 
         $column_for_first_row = mb_strtoupper(
@@ -4471,7 +4472,7 @@ class Results
                 $meta
             );
         } else {
-            $column_for_last_row = $row[$sorted_column_index];
+            $column_for_last_row = ($row !== null) ? $row[$sorted_column_index] : '';
         }
 
         $column_for_last_row = mb_strtoupper(
@@ -4795,7 +4796,7 @@ class Results
                         __('Create view'),
                         true
                     ),
-                    ['class' => 'create_view ajax']
+                    ['class' => 'create_view ajax btn']
                 )
                 . '</span>' . "\n";
         }
@@ -4841,7 +4842,10 @@ class Results
                 __('Copy to clipboard'),
                 true
             ),
-            ['id' => 'copyToClipBoard']
+            [
+                'id' => 'copyToClipBoard' ,
+                'class' => 'btn',
+            ]
         );
     }
 
@@ -4861,7 +4865,10 @@ class Results
                 __('Print'),
                 true
             ),
-            ['id' => 'printView'],
+            [
+                'id' => 'printView' ,
+                'class' => 'btn',
+            ],
             'print_view'
         );
     }
@@ -4968,9 +4975,9 @@ class Results
                     'b_tblexport',
                     __('Export'),
                     true
-                )
-            )
-            . "\n";
+                ),
+                ['class' => 'btn']
+            );
 
             // prepare chart
             $results_operations_html .= Util::linkOrButton(
@@ -4979,9 +4986,9 @@ class Results
                     'b_chart',
                     __('Display chart'),
                     true
-                )
-            )
-            . "\n";
+                ),
+                ['class' => 'btn']
+            );
 
             // prepare GIS chart
             $geometry_found = false;
@@ -5002,9 +5009,9 @@ class Results
                             'b_globe',
                             __('Visualize GIS data'),
                             true
-                        )
-                    )
-                    . "\n";
+                        ),
+                        ['class' => 'btn']
+                    );
             }
         }
 
@@ -5071,13 +5078,14 @@ class Results
         $is_truncated = false;
         $result = '[' . $category;
 
-        if (isset($content)) {
+        if ($content !== null) {
             $size = strlen($content);
             $display_size = Util::formatByteDown($size, 3, 1);
             $result .= ' - ' . $display_size[0] . ' ' . $display_size[1];
         } else {
             $result .= ' - NULL';
             $size = 0;
+            $content = '';
         }
 
         $result .= ']';
@@ -5140,6 +5148,8 @@ class Results
         if (count($url_params) > 0
             && (! empty($tmpdb) && ! empty($meta->orgtable))
         ) {
+            $url_params['where_clause_sign'] = Core::signSqlQuery($url_params['where_clause']);
+
             $result = '<a href="tbl_get_field.php'
                 . Url::getCommon($url_params)
                 . '" class="disableAjax">'
@@ -5156,7 +5166,7 @@ class Results
      * @param stdClass $meta             the meta-information about the field
      * @param string   $where_comparison data for the where clause
      *
-     * @return string  formatted data
+     * @return string|null  formatted data
      *
      * @access  private
      *
@@ -5336,7 +5346,7 @@ class Results
                     ) {
                         // user chose "relational display field" in the
                         // display options, so show display field in the cell
-                        $displayedData = $default_function($dispval);
+                        $displayedData = $dispval === null ? '<em>NULL</em>' : $default_function($dispval);
                     } else {
                         // otherwise display data in the cell
                         $displayedData = $default_function($displayedData);

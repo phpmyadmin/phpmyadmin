@@ -405,8 +405,8 @@ if (isset($_GET['export'])
     || (isset($_POST['submit_mult']) && $_POST['submit_mult'] == 'export')
 ) {
     list($title, $export) = $serverPrivileges->getListForExportUserDefinition(
-        isset($username) ? $username : null,
-        isset($hostname) ? $hostname : null
+        isset($username) ? $username : '',
+        isset($hostname) ? $hostname : ''
     );
 
     unset($username, $hostname, $grants, $one_grant);

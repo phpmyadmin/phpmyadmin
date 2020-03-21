@@ -325,13 +325,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
     ThemeManager::getInstance()->setThemeCookie();
 
-    if (! empty($cfg['Server'])) {
-        /**
-         * Loads the proper database interface for this server
-         */
-        $containerBuilder->set(DatabaseInterface::class, DatabaseInterface::load());
-        $containerBuilder->setAlias('dbi', DatabaseInterface::class);
+    $containerBuilder->set(DatabaseInterface::class, DatabaseInterface::load());
+    $containerBuilder->setAlias('dbi', DatabaseInterface::class);
 
+    if (! empty($cfg['Server'])) {
         // get LoginCookieValidity from preferences cache
         // no generic solution for loading preferences from cache as some settings
         // need to be kept for processing in

@@ -28,7 +28,6 @@ after_script:
   - if [ -f vendor/bin/codacycoverage ] ; then php vendor/bin/codacycoverage clover || true ; fi
   - if [ -f php.log ] ; then cat php.log ; fi
   - if [ -f nginx-error.log ] ; then cat nginx-error.log ; fi
-  - if [ -f build/logs/phpunit.json ] ; then ./scripts/phpunit-top-tests build/logs/phpunit.json ; fi
   - if [ -f config.inc.php ] ; then rm -rf config.inc.php; fi
   - if [ "$CI_MODE" = "selenium" ] ; then ~/browserstack/BrowserStackLocal --daemon stop; fi
 
@@ -53,6 +52,7 @@ jobs:
   include:
     - stage: "Lint and analyse code"
       name: "Lint files"
+      before_install: phpenv config-rm xdebug.ini
       before_script: skip
       after_script: skip
       after_success: skip
@@ -64,6 +64,7 @@ jobs:
 
     - stage: "Lint and analyse code"
       name: "Run phpstan"
+      before_install: phpenv config-rm xdebug.ini
       before_script: skip
       after_script: skip
       after_success: skip
@@ -129,7 +130,8 @@ jobs:
         - CI_MODE=test
         - YARN_GPG=no
       before_install:
-        - choco install php composer mariadb
+        - choco install php composer
+        - choco install mariadb --version=10.4.8
         - export PATH=/c/tools/php74:/c/ProgramData/ComposerSetup/bin:/c/"Program Files"/"MariaDB 10.4"/bin:$PATH
         - PHP_EXTENSIONS="mysqli curl bz2 gd2 pdo_mysql"
         - for php_ext in $PHP_EXTENSIONS ; do sed -i -e "s/^;extension=${php_ext}/extension=${php_ext}/" /c/tools/php74/php.ini ; done

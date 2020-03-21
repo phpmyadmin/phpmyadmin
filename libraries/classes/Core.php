@@ -331,7 +331,7 @@ class Core
         ];
 
         $lang = 'en';
-        if (in_array($GLOBALS['lang'], $php_doc_languages)) {
+        if (isset($GLOBALS['lang']) && in_array($GLOBALS['lang'], $php_doc_languages)) {
             $lang = $GLOBALS['lang'];
         }
 
@@ -352,6 +352,9 @@ class Core
         bool $fatal = false,
         string $extra = ''
     ): void {
+        /** @var ErrorHandler $error_handler */
+        global $error_handler;
+
         /* Gettext does not have to be loaded yet here */
         if (function_exists('__')) {
             $message = __(
@@ -374,11 +377,11 @@ class Core
             return;
         }
 
-        $GLOBALS['error_handler']->addError(
+        $error_handler->addError(
             $message,
             E_USER_WARNING,
             '',
-            '',
+            0,
             false
         );
     }
@@ -435,7 +438,7 @@ class Core
         ];
 
         if (preg_match('/^([0-9]+)([KMGT])/i', $size, $matches)) {
-            return $matches[1] * $binaryprefixes[$matches[2]];
+            return (int) ($matches[1] * $binaryprefixes[$matches[2]]);
         }
 
         return (int) $size;
@@ -1282,7 +1285,8 @@ class Core
     {
         /** @var array $cfg */
         global $cfg;
-        return hash_hmac('sha256', $sqlQuery, $_SESSION[' HMAC_secret '] . $cfg['blowfish_secret']);
+        $secret = $_SESSION[' HMAC_secret '] ?? '';
+        return hash_hmac('sha256', $sqlQuery, $secret . $cfg['blowfish_secret']);
     }
 
     /**
@@ -1296,7 +1300,8 @@ class Core
     {
         /** @var array $cfg */
         global $cfg;
-        $hmac = hash_hmac('sha256', $sqlQuery, $_SESSION[' HMAC_secret '] . $cfg['blowfish_secret']);
+        $secret = $_SESSION[' HMAC_secret '] ?? '';
+        $hmac = hash_hmac('sha256', $sqlQuery, $secret . $cfg['blowfish_secret']);
         return hash_equals($hmac, $signature);
     }
 }

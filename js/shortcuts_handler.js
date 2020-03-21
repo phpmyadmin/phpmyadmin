@@ -25,6 +25,11 @@ $(function () {
     var keyC = 67;
     var keyBackSpace = 8;
     $(document).on('keyup', function (e) {
+        // is a string but is also a boolean according to https://api.jquery.com/prop/
+        if ($(e.target).prop('contenteditable') === 'true' || $(e.target).prop('contenteditable') === true) {
+            return;
+        }
+
         if (e.target.nodeName === 'INPUT' || e.target.nodeName === 'TEXTAREA' || e.target.nodeName === 'SELECT') {
             return;
         }
@@ -40,6 +45,11 @@ $(function () {
         }
     });
     $(document).on('keydown', function (e) {
+        // is a string but is also a boolean according to https://api.jquery.com/prop/
+        if ($(e.target).prop('contenteditable') === 'true' || $(e.target).prop('contenteditable') === true) {
+            return;
+        }
+
         // disable the shortcuts when session has timed out.
         if ($('#modalOverlay').length > 0) {
             return;

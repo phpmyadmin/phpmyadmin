@@ -65,7 +65,7 @@ if (isset($_POST['populateColumns'])) {
     exit;
 }
 if (isset($_POST['getColumnList'])) {
-    $response->addJSON($controller->getColumnList([
+    $response->addJSON('message', $controller->getColumnList([
         'cur_table' => $_POST['cur_table'] ?? null,
     ]));
     exit;

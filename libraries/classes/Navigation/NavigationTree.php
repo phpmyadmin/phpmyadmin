@@ -126,7 +126,7 @@ class NavigationTree
         if (isset($_REQUEST['aPath'])) {
             $this->aPath[0] = $this->parsePath($_REQUEST['aPath']);
             $this->pos2Name[0] = $_REQUEST['pos2_name'];
-            $this->pos2Value[0] = $_REQUEST['pos2_value'];
+            $this->pos2Value[0] = (int) $_REQUEST['pos2_value'];
             if (isset($_REQUEST['pos3_name'])) {
                 $this->pos3Name[0] = $_REQUEST['pos3_name'];
                 $this->pos3Value[0] = $_REQUEST['pos3_value'];
@@ -799,7 +799,7 @@ class NavigationTree
                 if ($node instanceof NodeTableContainer
                     || $node instanceof NodeViewContainer
                 ) {
-                    $tblGroup = '&amp;tbl_group=' . urlencode($key);
+                    $tblGroup = '&amp;tbl_group=' . urlencode((string) $key);
                     $groups[$key]->links = [
                         'text' => $node->links['text'] . $tblGroup,
                         'icon' => $node->links['icon'] . $tblGroup,
@@ -1082,7 +1082,7 @@ class NavigationTree
             // if node name itself is in sterile, then allow
             if ($node->isGroup
                 || (! in_array($parentName, $sterile) && ! $node->isNew)
-                || in_array($node->realName, $sterile)
+                || (in_array($node->realName, $sterile) && ! empty($node->children))
             ) {
                 $retval .= "<div class='block'>";
                 $iClass = '';
@@ -1193,7 +1193,7 @@ class NavigationTree
                     $args[] = urlencode($parent->realName);
                 }
                 $link = vsprintf($node->links['text'], $args);
-                $title = isset($node->links['title']) ? $node->links['title'] : '';
+                $title = isset($node->links['title']) ? $node->links['title'] : $node->title ?? '';
                 if ($node->type == Node::CONTAINER) {
                     $retval .= "&nbsp;<a class='hover_show_full' href='$link'>";
                     $retval .= htmlspecialchars($node->name);

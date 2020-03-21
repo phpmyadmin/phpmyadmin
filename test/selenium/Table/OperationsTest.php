@@ -231,9 +231,10 @@ class OperationsTest extends TestBase
      */
     public function testDropTable()
     {
-        $this->scrollToBottom();
-        $this->waitUntilElementIsVisible('id', 'drop_tbl_anchor', 30);
-        $this->byId("drop_tbl_anchor")->click();
+        $this->reloadPage();
+        $dropLink = $this->waitUntilElementIsVisible('partialLinkText', 'Delete the table (DROP)', 30);
+        $this->scrollToElement($this->byId('selflink'));
+        $dropLink->click();
         $this->byCssSelector("button.submitOK")->click();
         $this->waitAjax();
 

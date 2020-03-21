@@ -42,6 +42,7 @@ class NodeViewContainer extends NodeDatabaseChildContainer
         );
         $new->isNew = true;
         $new->icon = Util::getImage('b_view_add', $newLabel);
+        $new->title = $newLabel;
         $new->links = [
             'text' => 'view_create.php?server=' . $GLOBALS['server']
                 . '&amp;db=%2$s',
