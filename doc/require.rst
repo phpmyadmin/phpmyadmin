@@ -56,5 +56,5 @@ Web browser
 To access phpMyAdmin you need a web browser with cookies and JavaScript
 enabled.
 
-You need browser which is supported by jQuery 2.0, see
+You need a browser which is supported by jQuery 2.0, see
 <https://jquery.com/browser-support/>.
