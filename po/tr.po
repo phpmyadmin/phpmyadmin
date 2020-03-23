@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-12 13:05+0100\n"
-"PO-Revision-Date: 2020-03-15 08:38+0000\n"
+"PO-Revision-Date: 2020-03-23 20:52+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
 "tr/>\n"
@@ -2709,13 +2709,13 @@ msgstr "%s. satırda geçersiz kural bildirimi."
 #: libraries/classes/Advisor.php:604
 #, php-format
 msgid "Unexpected characters on line %s."
-msgstr "%s. satırda beklenmedik karakterler."
+msgstr "%s. satırda beklenmeyen karakterler."
 
 #: libraries/classes/Advisor.php:618
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
-"%1$s. satırda beklenmedik karakter. Beklenen sekme, ama bulunan \"%2$s\"."
+"%1$s. satırda beklenmeyen karakter. Beklenen sekme, ama bulunan \"%2$s\"."
 
 #: libraries/classes/Advisor.php:657
 msgid "per second"
@@ -6356,7 +6356,7 @@ msgid ""
 msgstr ""
 "mbstring PHP uzantısı bulunamadı ve çoklu bayt karakter grubu kullandığınız "
 "görünüyor. Mbstring uzantısı olmadan phpMyAdmin karakter dizgilerini doğru "
-"olarak bölemez ve bu beklenmedik sonuçlar doğurabilir."
+"olarak bölemez ve bu beklenmeyen sonuçlar doğurabilir."
 
 #: libraries/classes/Controllers/HomeController.php:360
 msgid ""
