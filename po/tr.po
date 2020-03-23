@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2020-03-15 08:36+0000\n"
+"PO-Revision-Date: 2020-03-23 20:52+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "tr/>\n"
@@ -774,7 +774,7 @@ msgid ""
 msgstr ""
 "mbstring PHP uzantısı bulunamadı ve çoklu bayt karakter grubu kullandığınız "
 "görünüyor. Mbstring uzantısı olmadan phpMyAdmin karakter dizgilerini doğru "
-"olarak bölemez ve bu beklenmedik sonuçlar doğurabilir."
+"olarak bölemez ve bu beklenmeyen sonuçlar doğurabilir."
 
 #: index.php:528
 msgid ""
@@ -3107,13 +3107,13 @@ msgstr "%s. satırda geçersiz kural bildirimi."
 #: libraries/classes/Advisor.php:575
 #, php-format
 msgid "Unexpected characters on line %s."
-msgstr "%s. satırda beklenmedik karakterler."
+msgstr "%s. satırda beklenmeyen karakterler."
 
 #: libraries/classes/Advisor.php:590
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
-"%1$s. satırda beklenmedik karakter. Beklenen sekme, ama bulunan \"%2$s\"."
+"%1$s. satırda beklenmeyen karakter. Beklenen sekme, ama bulunan \"%2$s\"."
 
 #: libraries/classes/Advisor.php:625
 msgid "per second"
