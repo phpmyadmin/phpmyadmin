@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-03-18 12:52+0100\n"
+"POT-Creation-Date: 2020-03-24 23:08+0100\n"
 "PO-Revision-Date: 2015-10-15 11:22+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Belarusian (latin) <https://hosted.weblate.org/projects/"
@@ -332,12 +332,12 @@ msgstr "Pustoje imia chostu!"
 msgid "The user name is empty!"
 msgstr "Pustoje imia karystalnika!"
 
-#: js/messages.php:140 libraries/classes/Server/Privileges.php:1073
+#: js/messages.php:140 libraries/classes/Server/Privileges.php:1079
 #: libraries/classes/UserPassword.php:71
 msgid "The password is empty!"
 msgstr "Pusty parol!"
 
-#: js/messages.php:141 libraries/classes/Server/Privileges.php:1071
+#: js/messages.php:141 libraries/classes/Server/Privileges.php:1077
 #: libraries/classes/UserPassword.php:75
 msgid "The passwords aren't the same!"
 msgstr "Paroli nie supadajuć!"
@@ -1003,10 +1003,11 @@ msgstr "Dadać novaje pole"
 #: libraries/classes/Tracking.php:497
 #: templates/columns_definitions/column_definitions_form.twig:43
 #: templates/database/create_table.twig:21
-#: templates/database/operations/index.twig:16
-#: templates/database/operations/index.twig:59
-#: templates/database/operations/index.twig:153
-#: templates/database/operations/index.twig:194
+#: templates/database/operations/index.twig:19
+#: templates/database/operations/index.twig:44
+#: templates/database/operations/index.twig:81
+#: templates/database/operations/index.twig:188
+#: templates/database/operations/index.twig:228
 #: templates/database/search/main.twig:63
 #: templates/display/change_password/file_e.twig:4
 #: templates/display/export/options_format.twig:18
@@ -1029,7 +1030,7 @@ msgstr "Dadać novaje pole"
 #: templates/server/replication/slave_configuration.twig:16
 #: templates/server/replication/slave_configuration.twig:88
 #: templates/server/user_groups/edit_user_groups.twig:21
-#: templates/sql/query.twig:132 templates/sql/query.twig:179
+#: templates/sql/query.twig:134 templates/sql/query.twig:183
 #: templates/start_and_number_of_rows_panel.twig:14
 #: templates/table/find_replace/index.twig:59
 #: templates/table/operations/index.twig:26
@@ -1250,7 +1251,7 @@ msgstr ""
 #: libraries/classes/Display/Results.php:4969 libraries/classes/Menu.php:306
 #: libraries/classes/Menu.php:420 libraries/classes/Menu.php:556
 #: libraries/classes/Rte/RteList.php:185
-#: libraries/classes/Server/Privileges.php:1662 libraries/classes/Util.php:2465
+#: libraries/classes/Server/Privileges.php:1668 libraries/classes/Util.php:2465
 #: libraries/classes/Util.php:2480 libraries/classes/Util.php:2497
 #: libraries/classes/Util.php:3158 libraries/classes/Util.php:3159
 #: templates/database/privileges/index.twig:91
@@ -1339,7 +1340,7 @@ msgstr "Redagavać"
 #: templates/database/designer/main.twig:392
 #: templates/database/search/results.twig:43
 #: templates/display/export/template_loading.twig:22
-#: templates/setup/home/index.twig:62 templates/sql/query.twig:167
+#: templates/setup/home/index.twig:62 templates/sql/query.twig:171
 msgid "Delete"
 msgstr "Vydalić"
 
@@ -1638,7 +1639,7 @@ msgid "Data point content"
 msgstr "Pamier ukazalnika na dadzienyja"
 
 #: js/messages.php:491 js/messages.php:662
-#: libraries/classes/ErrorHandler.php:380 libraries/classes/InsertEdit.php:3063
+#: libraries/classes/ErrorHandler.php:381 libraries/classes/InsertEdit.php:3063
 #: templates/table/index_form.twig:145 templates/table/index_form.twig:181
 msgid "Ignore"
 msgstr "Ignaravać"
@@ -1892,7 +1893,7 @@ msgstr "Źmieniena radkoŭ: %1$d."
 msgid "Column name"
 msgstr "Nazvy kalonak"
 
-#: js/messages.php:553 templates/sql/query.twig:159
+#: js/messages.php:553 templates/sql/query.twig:163
 msgid "Submit"
 msgstr "Adpravić"
 
@@ -2044,7 +2045,7 @@ msgid "Generate"
 msgstr "Zgieneravać"
 
 #: js/messages.php:612 libraries/classes/Controllers/HomeController.php:113
-#: libraries/classes/UserPassword.php:263
+#: libraries/classes/UserPassword.php:265
 #: templates/display/change_password/file_a.twig:9
 msgid "Change password"
 msgstr "Źmianić parol"
@@ -2164,7 +2165,7 @@ msgstr ""
 msgid "Please look at the bottom of this window."
 msgstr ""
 
-#: js/messages.php:665 libraries/classes/ErrorHandler.php:384
+#: js/messages.php:665 libraries/classes/ErrorHandler.php:385
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
@@ -2481,7 +2482,9 @@ msgstr ""
 #: templates/columns_definitions/table_fields_definitions.twig:9
 #: templates/database/central_columns/main.twig:17
 #: templates/database/central_columns/main.twig:236
-#: templates/database/create_table.twig:11 templates/setup/home/index.twig:43
+#: templates/database/create_table.twig:11
+#: templates/database/operations/index.twig:33
+#: templates/setup/home/index.twig:43
 #: templates/table/structure/display_structure.twig:21
 msgid "Name"
 msgstr "Nazva"
@@ -2549,7 +2552,8 @@ msgstr "Pa zmoŭčańni"
 #: templates/columns_definitions/table_fields_definitions.twig:24
 #: templates/database/central_columns/main.twig:33
 #: templates/database/central_columns/main.twig:252
-#: templates/database/operations/index.twig:165
+#: templates/database/operations/index.twig:197
+#: templates/database/operations/index.twig:201
 #: templates/database/structure/table_header.twig:31
 #: templates/home/index.twig:55 templates/server/collations/index.twig:13
 #: templates/server/databases/index.twig:41
@@ -3550,7 +3554,7 @@ msgid "Remember file name template"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:237
-#: templates/database/operations/index.twig:128
+#: templates/database/operations/index.twig:163
 #: templates/table/operations/index.twig:53
 #: templates/table/operations/index.twig:235
 msgid "Add AUTO_INCREMENT value"
@@ -3598,7 +3602,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:252
 #: libraries/classes/Config/Descriptions.php:253
 #: libraries/classes/Config/Descriptions.php:266
-#: templates/database/operations/index.twig:124
+#: templates/database/operations/index.twig:158
 #: templates/table/operations/index.twig:231
 #, php-format
 msgid "Add %s"
@@ -4989,6 +4993,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:688
+#: templates/database/operations/index.twig:127
 #: templates/server/databases/index.twig:37
 #, fuzzy
 #| msgid "database name"
@@ -5356,7 +5361,7 @@ msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:822 templates/sql/query.twig:119
+#: libraries/classes/Config/Descriptions.php:822 templates/sql/query.twig:120
 #, fuzzy
 #| msgid "in query"
 msgid "Retain query box"
@@ -5451,8 +5456,8 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:148
 #: libraries/classes/Plugins/Export/ExportOdt.php:191
 #: libraries/classes/Plugins/Export/ExportTexytext.php:132
-#: libraries/classes/Server/Privileges.php:1983
-#: libraries/classes/Server/Privileges.php:1985
+#: libraries/classes/Server/Privileges.php:1989
+#: libraries/classes/Server/Privileges.php:1991
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:109
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -5491,8 +5496,8 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:859
 #: libraries/classes/Plugins/Export/ExportXml.php:508
 #: libraries/classes/Rte/RteList.php:123 libraries/classes/Rte/Triggers.php:390
-#: libraries/classes/Server/Privileges.php:1989
-#: libraries/classes/Server/Privileges.php:1991
+#: libraries/classes/Server/Privileges.php:1995
+#: libraries/classes/Server/Privileges.php:1997
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
 #: templates/database/tracking/tables.twig:120
@@ -6153,7 +6158,7 @@ msgstr "Baza dadzienych %s była pierajmienavanaja ŭ %s"
 msgid "Database %1$s has been copied to %2$s."
 msgstr "Baza dadzienych %s była skapijavanaja ŭ %s"
 
-#: libraries/classes/Controllers/Database/OperationsController.php:323
+#: libraries/classes/Controllers/Database/OperationsController.php:321
 #, fuzzy, php-format
 #| msgid ""
 #| " additional features for working with linked tables have been ctivated. "
@@ -6916,7 +6921,7 @@ msgid "ID"
 msgstr "ID"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:132
-#: libraries/classes/Server/Privileges.php:2960
+#: libraries/classes/Server/Privileges.php:2966
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Karystalnik"
@@ -7788,7 +7793,14 @@ msgstr "Vaš SQL-zapyt byŭ paśpiachova vykanany"
 msgid "Invalid table name"
 msgstr "Niekarektnaje imia tablicy"
 
-#: libraries/classes/Controllers/Table/GetFieldController.php:55
+#. l10n: In case a SQL query did not pass a security check
+#: libraries/classes/Controllers/Table/GetFieldController.php:51
+#, fuzzy
+#| msgid "The number of threads that are not sleeping."
+msgid "There is an issue with your request."
+msgstr "Kolkaść patokaŭ, jakija nie źjaŭlajucca śpiačymi."
+
+#: libraries/classes/Controllers/Table/GetFieldController.php:64
 #: libraries/classes/Import.php:151 libraries/classes/InsertEdit.php:218
 #: libraries/classes/Rte/Routines.php:1509 libraries/classes/Sql.php:1212
 msgid "MySQL returned an empty result set (i.e. zero rows)."
@@ -8516,7 +8528,7 @@ msgstr "Pakazać PDF-schiemu"
 msgid "Visualize GIS data"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:5184
+#: libraries/classes/Display/Results.php:5185
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -8874,13 +8886,13 @@ msgstr ""
 msgid "Too many error messages, some are not displayed."
 msgstr ""
 
-#: libraries/classes/ErrorHandler.php:369
+#: libraries/classes/ErrorHandler.php:370
 #, fuzzy
 #| msgid "Import"
 msgid "Report"
 msgstr "Imrart"
 
-#: libraries/classes/ErrorHandler.php:374 templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:375 templates/error/report_form.twig:25
 #, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically send report next time"
@@ -9469,7 +9481,7 @@ msgid "Insert"
 msgstr "Ustavić"
 
 #: libraries/classes/Menu.php:326 libraries/classes/Menu.php:444
-#: libraries/classes/Server/Privileges.php:2934 libraries/classes/Util.php:2483
+#: libraries/classes/Server/Privileges.php:2940 libraries/classes/Util.php:2483
 #: libraries/classes/Util.php:2499 libraries/config.values.php:160
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
@@ -9559,7 +9571,7 @@ msgstr "Replikacyja"
 #: libraries/classes/Menu.php:594 libraries/classes/Server/Status/Data.php:195
 #: libraries/classes/Util.php:2470 libraries/config.values.php:158
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
-#: templates/sql/query.twig:172
+#: templates/sql/query.twig:176
 msgid "Variables"
 msgstr "Źmiennyja"
 
@@ -11259,13 +11271,13 @@ msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
 "default is Tidy, to pretty-print HTML code. For security reasons, you have "
-"to manually edit the file libraries/classes/Plugins/Transformations/Output/"
-"Text_Plain_External.php and list the tools you want to make available. The "
-"first option is then the number of the program you want to use and the "
-"second option is the parameters for the program. The third option, if set to "
-"1, will convert the output using htmlspecialchars() (Default 1). The fourth "
-"option, if set to 1, will prevent wrapping and ensure that the output "
-"appears all on one line (Default 1)."
+"to manually edit the file libraries/classes/Plugins/Transformations/Abs/"
+"ExternalTransformationsPlugin.php and list the tools you want to make "
+"available. The first option is then the number of the program you want to "
+"use. The second option should be blank for historical reasons. The third "
+"option, if set to 1, will convert the output using htmlspecialchars() "
+"(Default 1). The fourth option, if set to 1, will prevent wrapping and "
+"ensure that the output appears all on one line (Default 1)."
 msgstr ""
 "TOLKI DLA LINUX: Zapuskaje źniešniuju pragramu i pieradaje joj dadzienyja "
 "pola praz standartny ŭvod. Viartaje standartny vyvad pragramy. Pragrama pa "
@@ -11278,6 +11290,14 @@ msgstr ""
 "vykarystoŭvajučy htmlspecialchars() (Pa zmoŭčańni 1). Čaćviertaja opcyja, "
 "kali vyznačanaja jak 1, praduchilić pieranos pa słovach, kab pierakanacca, "
 "što ŭvieś vychadny patok budzie vyviedzieny ŭ adzin radok (Pa zmoŭčańni 1)."
+
+#: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:119
+#, php-format
+msgid ""
+"You are using the external transformation command line options field, which "
+"has been deprecated for security reasons. Add all command line options "
+"directly to the definition in %s."
+msgstr ""
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:26
 #, fuzzy
@@ -11592,7 +11612,7 @@ msgstr ""
 "Za infarmacyjaj jak abnavić tablicu column_comments źviarniciesia, kali "
 "łaska, da dakumentacyi."
 
-#: libraries/classes/Relation.php:259 templates/sql/query.twig:139
+#: libraries/classes/Relation.php:259 templates/sql/query.twig:143
 msgid "Bookmarked SQL query"
 msgstr "Zakładzieny SQL-zapyt"
 
@@ -12016,8 +12036,8 @@ msgstr ""
 
 #: libraries/classes/Rte/Routines.php:1053
 #: templates/columns_definitions/table_fields_definitions.twig:36
-#: templates/database/operations/index.twig:52
-#: templates/database/operations/index.twig:143
+#: templates/database/operations/index.twig:74
+#: templates/database/operations/index.twig:176
 #: templates/mult_submits/copy_multiple_tables.twig:48
 #: templates/table/operations/index.twig:64
 #: templates/table/operations/index.twig:97
@@ -12325,23 +12345,23 @@ msgstr "Aŭtentyfikacyja…"
 msgid "SHA256 password authentication"
 msgstr "Aŭtentyfikacyja…"
 
-#: libraries/classes/Server/Privileges.php:1212
+#: libraries/classes/Server/Privileges.php:1218
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Parol dla %s paśpiachova źmienieny."
 
-#: libraries/classes/Server/Privileges.php:1260
+#: libraries/classes/Server/Privileges.php:1266
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Vy anulavali pryvilei dla %s."
 
-#: libraries/classes/Server/Privileges.php:1589
+#: libraries/classes/Server/Privileges.php:1595
 #: templates/database/privileges/index.twig:122
 #: templates/table/privileges/index.twig:125
 msgid "Not enough privilege to view users."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1656
+#: libraries/classes/Server/Privileges.php:1662
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:72
@@ -12351,24 +12371,24 @@ msgstr ""
 msgid "Edit privileges"
 msgstr "Redagavać pryvilei"
 
-#: libraries/classes/Server/Privileges.php:1659
+#: libraries/classes/Server/Privileges.php:1665
 msgid "Revoke"
 msgstr "Anulavać"
 
-#: libraries/classes/Server/Privileges.php:1984
+#: libraries/classes/Server/Privileges.php:1990
 #: templates/server/privileges/privileges_table.twig:240
 msgid "Database-specific privileges"
 msgstr "Specyfičnyja pryvilei bazy dadzienych"
 
-#: libraries/classes/Server/Privileges.php:1990
+#: libraries/classes/Server/Privileges.php:1996
 #: templates/server/privileges/privileges_summary.twig:18
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:242
 msgid "Table-specific privileges"
 msgstr "Pryvilei, specyfičnyja dla tablicy"
 
-#: libraries/classes/Server/Privileges.php:1995
-#: libraries/classes/Server/Privileges.php:1997
+#: libraries/classes/Server/Privileges.php:2001
+#: libraries/classes/Server/Privileges.php:2003
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:58
@@ -12377,31 +12397,31 @@ msgstr "Pryvilei, specyfičnyja dla tablicy"
 msgid "Routine"
 msgstr "Pracedury"
 
-#: libraries/classes/Server/Privileges.php:1996
+#: libraries/classes/Server/Privileges.php:2002
 #: templates/server/privileges/edit_routine_privileges.twig:47
 #, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
 msgstr "Specyfičnyja pryvilei kalonak"
 
-#: libraries/classes/Server/Privileges.php:2334
+#: libraries/classes/Server/Privileges.php:2340
 msgid "No users selected for deleting!"
 msgstr "Na vybranyja karystalniki dla vydaleńnia!"
 
-#: libraries/classes/Server/Privileges.php:2337
+#: libraries/classes/Server/Privileges.php:2343
 msgid "Reloading the privileges"
 msgstr "Pierazahruzić pryvilei"
 
-#: libraries/classes/Server/Privileges.php:2356
+#: libraries/classes/Server/Privileges.php:2362
 msgid "The selected users have been deleted successfully."
 msgstr "Vybranyja karystalniki byli paśpiachova vydalenyja."
 
-#: libraries/classes/Server/Privileges.php:2434
+#: libraries/classes/Server/Privileges.php:2440
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Vy źmianili pryvilei dla %s."
 
-#: libraries/classes/Server/Privileges.php:2464
+#: libraries/classes/Server/Privileges.php:2470
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 #, fuzzy
@@ -12409,34 +12429,34 @@ msgstr "Vy źmianili pryvilei dla %s."
 msgid "No user found."
 msgstr "Nie znojdzieny karystalnik."
 
-#: libraries/classes/Server/Privileges.php:2544
+#: libraries/classes/Server/Privileges.php:2550
 #, php-format
 msgid "Deleting %s"
 msgstr "Vydaleńnie %s"
 
-#: libraries/classes/Server/Privileges.php:2572
+#: libraries/classes/Server/Privileges.php:2578
 msgid "The privileges were reloaded successfully."
 msgstr "Pryvilei byli paśpiachova pierazahružanyja."
 
-#: libraries/classes/Server/Privileges.php:2670
+#: libraries/classes/Server/Privileges.php:2676
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Karystalnik %s užo isnuje!"
 
-#: libraries/classes/Server/Privileges.php:2951
+#: libraries/classes/Server/Privileges.php:2957
 #, fuzzy, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "Pryvilei"
 
-#: libraries/classes/Server/Privileges.php:3094
+#: libraries/classes/Server/Privileges.php:3100
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:3137
+#: libraries/classes/Server/Privileges.php:3143
 #, fuzzy, php-format
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -12454,7 +12474,7 @@ msgstr ""
 "jakija vykarystoŭvaje server, kali jany byli źmienienyja ŭručnuju. U hetym "
 "vypadku vam treba %spierazahruzić pryvilei%s da taho, jak vy praciahniecie."
 
-#: libraries/classes/Server/Privileges.php:3153
+#: libraries/classes/Server/Privileges.php:3159
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -12473,7 +12493,7 @@ msgstr ""
 "jakija vykarystoŭvaje server, kali jany byli źmienienyja ŭručnuju. U hetym "
 "vypadku vam treba %spierazahruzić pryvilei%s da taho, jak vy praciahniecie."
 
-#: libraries/classes/Server/Privileges.php:3490
+#: libraries/classes/Server/Privileges.php:3496
 msgid "You have added a new user."
 msgstr "Byŭ dadadzieny novy karystalnik."
 
@@ -12811,21 +12831,21 @@ msgid "No data"
 msgstr "Bazy dadzienych adsutničajuć"
 
 #: libraries/classes/Tracking.php:331
-#: templates/database/operations/index.twig:112
+#: templates/database/operations/index.twig:135
 #: templates/mult_submits/copy_multiple_tables.twig:17
 #: templates/table/operations/index.twig:223
 msgid "Structure only"
 msgstr "Tolki strukturu"
 
 #: libraries/classes/Tracking.php:334
-#: templates/database/operations/index.twig:112
+#: templates/database/operations/index.twig:147
 #: templates/mult_submits/copy_multiple_tables.twig:27
 #: templates/table/operations/index.twig:223
 msgid "Data only"
 msgstr "Tolki dadzienyja"
 
 #: libraries/classes/Tracking.php:337
-#: templates/database/operations/index.twig:112
+#: templates/database/operations/index.twig:141
 #: templates/mult_submits/copy_multiple_tables.twig:22
 #: templates/table/operations/index.twig:223
 msgid "Structure and data"
@@ -14116,10 +14136,12 @@ msgstr ""
 #: templates/database/create_table.twig:7
 #: templates/database/designer/main.twig:86
 #: templates/database/designer/main.twig:89
+#: templates/database/operations/index.twig:29
 msgid "Create table"
 msgstr "Stvaryć tablicu"
 
 #: templates/database/create_table.twig:15
+#: templates/database/operations/index.twig:37
 #, fuzzy
 #| msgid "Number of fields"
 msgid "Number of columns"
@@ -14478,18 +14500,26 @@ msgstr "Dadać %s novyja pali"
 msgid "Update query"
 msgstr "Abnavić zapyt"
 
-#: templates/database/operations/index.twig:10
+#: templates/database/operations/index.twig:9
+#: templates/database/operations/index.twig:13
 msgid "Database comment"
 msgstr "Kamentar da bazy dadzienych"
 
-#: templates/database/operations/index.twig:39
+#: templates/database/operations/index.twig:60
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Rename database to"
 msgstr "Pierajmienavać bazu dadzienych u"
 
-#: templates/database/operations/index.twig:48
-#: templates/database/operations/index.twig:139
+#: templates/database/operations/index.twig:64
+#: templates/export/alias_add.twig:15
+#, fuzzy
+#| msgid "database name"
+msgid "New database name"
+msgstr "imia bazy dadzienych"
+
+#: templates/database/operations/index.twig:72
+#: templates/database/operations/index.twig:174
 #: templates/table/operations/index.twig:60
 #: templates/table/operations/index.twig:93
 #: templates/table/operations/index.twig:248
@@ -14500,50 +14530,50 @@ msgid ""
 "to the documentation for more details."
 msgstr "Vy nia majecie dastatkovych pryvilejaŭ być u hetym miescy ŭ hety čas!"
 
-#: templates/database/operations/index.twig:69
+#: templates/database/operations/index.twig:89
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
 msgstr "Pierajmienavać bazu dadzienych u"
 
-#: templates/database/operations/index.twig:75
+#: templates/database/operations/index.twig:94
 #, php-format
 msgid "Database %s has been dropped."
 msgstr "Baza dadzienych %s była vydalenaja."
 
-#: templates/database/operations/index.twig:80
+#: templates/database/operations/index.twig:99
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Drop the database (DROP)"
 msgstr "Kapijavać bazu dadzienych u"
 
-#: templates/database/operations/index.twig:107
+#: templates/database/operations/index.twig:123
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copy database to"
 msgstr "Kapijavać bazu dadzienych u"
 
-#: templates/database/operations/index.twig:120
+#: templates/database/operations/index.twig:153
 msgid "CREATE DATABASE before copying"
 msgstr "vykanać CREATE DATABASE pierad kapijavańniem"
 
-#: templates/database/operations/index.twig:132
+#: templates/database/operations/index.twig:168
 #: templates/mult_submits/copy_multiple_tables.twig:42
 #: templates/table/operations/index.twig:240
 msgid "Add constraints"
 msgstr "Dadać abmiežavańni"
 
-#: templates/database/operations/index.twig:149
+#: templates/database/operations/index.twig:183
 msgid "Switch to copied database"
 msgstr "Pierajści da skapijavanaj bazy dadzienych"
 
-#: templates/database/operations/index.twig:184
+#: templates/database/operations/index.twig:219
 #, fuzzy
 #| msgid "Continued table caption"
 msgid "Change all tables collations"
 msgstr "Praciahnuty zahałovak tablicy"
 
-#: templates/database/operations/index.twig:189
+#: templates/database/operations/index.twig:223
 msgid "Change all tables columns collations"
 msgstr ""
 
@@ -15373,12 +15403,6 @@ msgstr ""
 #| msgid "Select Tables"
 msgid "Select database:"
 msgstr "Vybierycie tablicu(y)"
-
-#: templates/export/alias_add.twig:15
-#, fuzzy
-#| msgid "database name"
-msgid "New database name"
-msgstr "imia bazy dadzienych"
 
 #: templates/export/alias_add.twig:23
 #, fuzzy
@@ -17627,29 +17651,29 @@ msgstr "Dadać hety SQL-zapyt u zakładki"
 msgid "Replace existing bookmark of same name"
 msgstr "Zamianić isnuju zakładku z takim ža imiem"
 
-#: templates/sql/query.twig:105 templates/sql/query.twig:107
+#: templates/sql/query.twig:106 templates/sql/query.twig:108
 msgid "Delimiter"
 msgstr "Raździalalnik"
 
-#: templates/sql/query.twig:113
+#: templates/sql/query.twig:114
 msgid "Show this query here again"
 msgstr "Pakazać hety zapyt znoŭ"
 
-#: templates/sql/query.twig:124
+#: templates/sql/query.twig:125
 msgid "Rollback when finished"
 msgstr ""
 
-#: templates/sql/query.twig:143
+#: templates/sql/query.twig:147
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Bookmark:"
 msgstr "Vydalić suviaź"
 
-#: templates/sql/query.twig:150
+#: templates/sql/query.twig:154
 msgid "shared"
 msgstr ""
 
-#: templates/sql/query.twig:163
+#: templates/sql/query.twig:167
 msgid "View only"
 msgstr "Tolki prahlad"
 

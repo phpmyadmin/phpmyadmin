@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-03-18 12:52+0100\n"
+"POT-Creation-Date: 2020-03-24 23:08+0100\n"
 "PO-Revision-Date: 2019-04-27 17:19+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Uzbek (latin) <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -332,12 +332,12 @@ msgstr "Xost nomi bo‘sh!"
 msgid "The user name is empty!"
 msgstr "Foydalanuvchi nomi belgilanmagan!"
 
-#: js/messages.php:140 libraries/classes/Server/Privileges.php:1073
+#: js/messages.php:140 libraries/classes/Server/Privileges.php:1079
 #: libraries/classes/UserPassword.php:71
 msgid "The password is empty!"
 msgstr "Parol belgilanmagan!"
 
-#: js/messages.php:141 libraries/classes/Server/Privileges.php:1071
+#: js/messages.php:141 libraries/classes/Server/Privileges.php:1077
 #: libraries/classes/UserPassword.php:75
 msgid "The passwords aren't the same!"
 msgstr "Kiritilgan parollar bir xil emas!"
@@ -1006,10 +1006,11 @@ msgstr "Indеks(lar)ni saqlash"
 #: libraries/classes/Tracking.php:497
 #: templates/columns_definitions/column_definitions_form.twig:43
 #: templates/database/create_table.twig:21
-#: templates/database/operations/index.twig:16
-#: templates/database/operations/index.twig:59
-#: templates/database/operations/index.twig:153
-#: templates/database/operations/index.twig:194
+#: templates/database/operations/index.twig:19
+#: templates/database/operations/index.twig:44
+#: templates/database/operations/index.twig:81
+#: templates/database/operations/index.twig:188
+#: templates/database/operations/index.twig:228
 #: templates/database/search/main.twig:63
 #: templates/display/change_password/file_e.twig:4
 #: templates/display/export/options_format.twig:18
@@ -1032,7 +1033,7 @@ msgstr "Indеks(lar)ni saqlash"
 #: templates/server/replication/slave_configuration.twig:16
 #: templates/server/replication/slave_configuration.twig:88
 #: templates/server/user_groups/edit_user_groups.twig:21
-#: templates/sql/query.twig:132 templates/sql/query.twig:179
+#: templates/sql/query.twig:134 templates/sql/query.twig:183
 #: templates/start_and_number_of_rows_panel.twig:14
 #: templates/table/find_replace/index.twig:59
 #: templates/table/operations/index.twig:26
@@ -1254,7 +1255,7 @@ msgstr ""
 #: libraries/classes/Display/Results.php:4969 libraries/classes/Menu.php:306
 #: libraries/classes/Menu.php:420 libraries/classes/Menu.php:556
 #: libraries/classes/Rte/RteList.php:185
-#: libraries/classes/Server/Privileges.php:1662 libraries/classes/Util.php:2465
+#: libraries/classes/Server/Privileges.php:1668 libraries/classes/Util.php:2465
 #: libraries/classes/Util.php:2480 libraries/classes/Util.php:2497
 #: libraries/classes/Util.php:3158 libraries/classes/Util.php:3159
 #: templates/database/privileges/index.twig:91
@@ -1343,7 +1344,7 @@ msgstr "Tahrirlash"
 #: templates/database/designer/main.twig:392
 #: templates/database/search/results.twig:43
 #: templates/display/export/template_loading.twig:22
-#: templates/setup/home/index.twig:62 templates/sql/query.twig:167
+#: templates/setup/home/index.twig:62 templates/sql/query.twig:171
 msgid "Delete"
 msgstr "O‘chirish"
 
@@ -1649,7 +1650,7 @@ msgid "Data point content"
 msgstr "Ma`lumotlar fayli ko‘rsatgichi hajmi"
 
 #: js/messages.php:491 js/messages.php:662
-#: libraries/classes/ErrorHandler.php:380 libraries/classes/InsertEdit.php:3063
+#: libraries/classes/ErrorHandler.php:381 libraries/classes/InsertEdit.php:3063
 #: templates/table/index_form.twig:145 templates/table/index_form.twig:181
 msgid "Ignore"
 msgstr "E`tibor bermaslik"
@@ -1903,7 +1904,7 @@ msgstr ""
 msgid "Column name"
 msgstr "Maydon nomlari"
 
-#: js/messages.php:553 templates/sql/query.twig:159
+#: js/messages.php:553 templates/sql/query.twig:163
 msgid "Submit"
 msgstr "Bajarish"
 
@@ -2055,7 +2056,7 @@ msgid "Generate"
 msgstr "Generatsiya qilish"
 
 #: js/messages.php:612 libraries/classes/Controllers/HomeController.php:113
-#: libraries/classes/UserPassword.php:263
+#: libraries/classes/UserPassword.php:265
 #: templates/display/change_password/file_a.twig:9
 msgid "Change password"
 msgstr "Parolni o‘zgartirish"
@@ -2184,7 +2185,7 @@ msgstr ""
 msgid "Please look at the bottom of this window."
 msgstr ""
 
-#: js/messages.php:665 libraries/classes/ErrorHandler.php:384
+#: js/messages.php:665 libraries/classes/ErrorHandler.php:385
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
@@ -2502,7 +2503,9 @@ msgstr ""
 #: templates/columns_definitions/table_fields_definitions.twig:9
 #: templates/database/central_columns/main.twig:17
 #: templates/database/central_columns/main.twig:236
-#: templates/database/create_table.twig:11 templates/setup/home/index.twig:43
+#: templates/database/create_table.twig:11
+#: templates/database/operations/index.twig:33
+#: templates/setup/home/index.twig:43
 #: templates/table/structure/display_structure.twig:21
 msgid "Name"
 msgstr "Nomi"
@@ -2570,7 +2573,8 @@ msgstr "Andoza"
 #: templates/columns_definitions/table_fields_definitions.twig:24
 #: templates/database/central_columns/main.twig:33
 #: templates/database/central_columns/main.twig:252
-#: templates/database/operations/index.twig:165
+#: templates/database/operations/index.twig:197
+#: templates/database/operations/index.twig:201
 #: templates/database/structure/table_header.twig:31
 #: templates/home/index.twig:55 templates/server/collations/index.twig:13
 #: templates/server/databases/index.twig:41
@@ -3636,7 +3640,7 @@ msgid "Remember file name template"
 msgstr "Fayl nomi shablonini yodda saqlash"
 
 #: libraries/classes/Config/Descriptions.php:237
-#: templates/database/operations/index.twig:128
+#: templates/database/operations/index.twig:163
 #: templates/table/operations/index.twig:53
 #: templates/table/operations/index.twig:235
 msgid "Add AUTO_INCREMENT value"
@@ -3689,7 +3693,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:252
 #: libraries/classes/Config/Descriptions.php:253
 #: libraries/classes/Config/Descriptions.php:266
-#: templates/database/operations/index.twig:124
+#: templates/database/operations/index.twig:158
 #: templates/table/operations/index.twig:231
 #, php-format
 msgid "Add %s"
@@ -5341,6 +5345,7 @@ msgstr ""
 "[kbd]\"phpmyadmin\"[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:688
+#: templates/database/operations/index.twig:127
 #: templates/server/databases/index.twig:37
 #, fuzzy
 #| msgid "database name"
@@ -5798,7 +5803,7 @@ msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:822 templates/sql/query.twig:119
+#: libraries/classes/Config/Descriptions.php:822 templates/sql/query.twig:120
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "Retain query box"
@@ -5918,8 +5923,8 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:148
 #: libraries/classes/Plugins/Export/ExportOdt.php:191
 #: libraries/classes/Plugins/Export/ExportTexytext.php:132
-#: libraries/classes/Server/Privileges.php:1983
-#: libraries/classes/Server/Privileges.php:1985
+#: libraries/classes/Server/Privileges.php:1989
+#: libraries/classes/Server/Privileges.php:1991
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:109
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -5958,8 +5963,8 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:859
 #: libraries/classes/Plugins/Export/ExportXml.php:508
 #: libraries/classes/Rte/RteList.php:123 libraries/classes/Rte/Triggers.php:390
-#: libraries/classes/Server/Privileges.php:1989
-#: libraries/classes/Server/Privileges.php:1991
+#: libraries/classes/Server/Privileges.php:1995
+#: libraries/classes/Server/Privileges.php:1997
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
 #: templates/database/tracking/tables.twig:120
@@ -6766,7 +6771,7 @@ msgstr "\"%1$s\" ma`lumotlar bazasining nomi \"%2$s\" deb o‘zgartirildi."
 msgid "Database %1$s has been copied to %2$s."
 msgstr "\"%1$s\" ma`lumotlar bazasidan \"%2$s\" ga nusxa ko‘chirildi."
 
-#: libraries/classes/Controllers/Database/OperationsController.php:323
+#: libraries/classes/Controllers/Database/OperationsController.php:321
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -7567,7 +7572,7 @@ msgid "ID"
 msgstr "ID"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:132
-#: libraries/classes/Server/Privileges.php:2960
+#: libraries/classes/Server/Privileges.php:2966
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Foydalanuvchi"
@@ -8455,7 +8460,14 @@ msgstr "SQL so‘rovi muvaffaqiyatli bajarildi"
 msgid "Invalid table name"
 msgstr "Jadval nomi noto‘g‘ri"
 
-#: libraries/classes/Controllers/Table/GetFieldController.php:55
+#. l10n: In case a SQL query did not pass a security check
+#: libraries/classes/Controllers/Table/GetFieldController.php:51
+#, fuzzy
+#| msgid "There are no configured servers"
+msgid "There is an issue with your request."
+msgstr "Bironta ham konfiguratsiyalangan server mavjud emas"
+
+#: libraries/classes/Controllers/Table/GetFieldController.php:64
 #: libraries/classes/Import.php:151 libraries/classes/InsertEdit.php:218
 #: libraries/classes/Rte/Routines.php:1509 libraries/classes/Sql.php:1212
 msgid "MySQL returned an empty result set (i.e. zero rows)."
@@ -9187,7 +9199,7 @@ msgstr "PDF-sxemani ko‘rsatish"
 msgid "Visualize GIS data"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:5184
+#: libraries/classes/Display/Results.php:5185
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -9543,13 +9555,13 @@ msgstr ""
 msgid "Too many error messages, some are not displayed."
 msgstr ""
 
-#: libraries/classes/ErrorHandler.php:369
+#: libraries/classes/ErrorHandler.php:370
 #, fuzzy
 #| msgid "Import"
 msgid "Report"
 msgstr "Import"
 
-#: libraries/classes/ErrorHandler.php:374 templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:375 templates/error/report_form.twig:25
 #, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically send report next time"
@@ -10149,7 +10161,7 @@ msgid "Insert"
 msgstr "Qo‘yish"
 
 #: libraries/classes/Menu.php:326 libraries/classes/Menu.php:444
-#: libraries/classes/Server/Privileges.php:2934 libraries/classes/Util.php:2483
+#: libraries/classes/Server/Privileges.php:2940 libraries/classes/Util.php:2483
 #: libraries/classes/Util.php:2499 libraries/config.values.php:160
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
@@ -10239,7 +10251,7 @@ msgstr "Replikatsiya (zaxira nusxa ko‘chirish)"
 #: libraries/classes/Menu.php:594 libraries/classes/Server/Status/Data.php:195
 #: libraries/classes/Util.php:2470 libraries/config.values.php:158
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
-#: templates/sql/query.twig:172
+#: templates/sql/query.twig:176
 msgid "Variables"
 msgstr "O‘zgaruvchilar"
 
@@ -11951,13 +11963,13 @@ msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
 "default is Tidy, to pretty-print HTML code. For security reasons, you have "
-"to manually edit the file libraries/classes/Plugins/Transformations/Output/"
-"Text_Plain_External.php and list the tools you want to make available. The "
-"first option is then the number of the program you want to use and the "
-"second option is the parameters for the program. The third option, if set to "
-"1, will convert the output using htmlspecialchars() (Default 1). The fourth "
-"option, if set to 1, will prevent wrapping and ensure that the output "
-"appears all on one line (Default 1)."
+"to manually edit the file libraries/classes/Plugins/Transformations/Abs/"
+"ExternalTransformationsPlugin.php and list the tools you want to make "
+"available. The first option is then the number of the program you want to "
+"use. The second option should be blank for historical reasons. The third "
+"option, if set to 1, will convert the output using htmlspecialchars() "
+"(Default 1). The fourth option, if set to 1, will prevent wrapping and "
+"ensure that the output appears all on one line (Default 1)."
 msgstr ""
 "FAQAT LINUX: Tashqi dasturni ishga tushiradi yoki unga maydon ma`lumotlarini "
 "uzatadi. Asl qiymatda bo‘lganda, \"Tidy\" (HTML kodni formatlash) "
@@ -11970,6 +11982,14 @@ msgstr ""
 "To‘rtinchi parametr 1 deb belgilansa, satrdan-satrga o‘tish belgilariga "
 "e`tibor berilmaydi va barcha ma`lumotlar bir satrda chiqariladi (asl "
 "qiymati: 1)."
+
+#: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:119
+#, php-format
+msgid ""
+"You are using the external transformation command line options field, which "
+"has been deprecated for security reasons. Add all command line options "
+"directly to the definition in %s."
+msgstr ""
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:26
 #, fuzzy
@@ -12290,7 +12310,7 @@ msgstr ""
 "\"column_comments\" jadvalini yangilash zarur. Batafsil ma`lumot uchun "
 "dokumentatsiyaga qarang."
 
-#: libraries/classes/Relation.php:259 templates/sql/query.twig:139
+#: libraries/classes/Relation.php:259 templates/sql/query.twig:143
 msgid "Bookmarked SQL query"
 msgstr "Xatcho‘p qo‘yilgan SQL so‘rovi"
 
@@ -12748,8 +12768,8 @@ msgstr ""
 
 #: libraries/classes/Rte/Routines.php:1053
 #: templates/columns_definitions/table_fields_definitions.twig:36
-#: templates/database/operations/index.twig:52
-#: templates/database/operations/index.twig:143
+#: templates/database/operations/index.twig:74
+#: templates/database/operations/index.twig:176
 #: templates/mult_submits/copy_multiple_tables.twig:48
 #: templates/table/operations/index.twig:64
 #: templates/table/operations/index.twig:97
@@ -13063,23 +13083,23 @@ msgstr "Autentifikatsiya tartibi"
 msgid "SHA256 password authentication"
 msgstr "Autentifikatsiya tartibi"
 
-#: libraries/classes/Server/Privileges.php:1212
+#: libraries/classes/Server/Privileges.php:1218
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "\"%s\" foydalanuvchining paroli muvaffaqiyatli o‘zgartirildi."
 
-#: libraries/classes/Server/Privileges.php:1260
+#: libraries/classes/Server/Privileges.php:1266
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "\"%s\" foydalanuvchining privilegiyalari bekor qilindi."
 
-#: libraries/classes/Server/Privileges.php:1589
+#: libraries/classes/Server/Privileges.php:1595
 #: templates/database/privileges/index.twig:122
 #: templates/table/privileges/index.twig:125
 msgid "Not enough privilege to view users."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1656
+#: libraries/classes/Server/Privileges.php:1662
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:72
@@ -13089,24 +13109,24 @@ msgstr ""
 msgid "Edit privileges"
 msgstr "Privilegiyalarni tahrirlash"
 
-#: libraries/classes/Server/Privileges.php:1659
+#: libraries/classes/Server/Privileges.php:1665
 msgid "Revoke"
 msgstr "Bekor qilish"
 
-#: libraries/classes/Server/Privileges.php:1984
+#: libraries/classes/Server/Privileges.php:1990
 #: templates/server/privileges/privileges_table.twig:240
 msgid "Database-specific privileges"
 msgstr "Ma`lumotlar bazasi privilegiyalari"
 
-#: libraries/classes/Server/Privileges.php:1990
+#: libraries/classes/Server/Privileges.php:1996
 #: templates/server/privileges/privileges_summary.twig:18
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:242
 msgid "Table-specific privileges"
 msgstr "Jadval darajasijagi privilegiyalar"
 
-#: libraries/classes/Server/Privileges.php:1995
-#: libraries/classes/Server/Privileges.php:1997
+#: libraries/classes/Server/Privileges.php:2001
+#: libraries/classes/Server/Privileges.php:2003
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:58
@@ -13115,31 +13135,31 @@ msgstr "Jadval darajasijagi privilegiyalar"
 msgid "Routine"
 msgstr "Muolajalar"
 
-#: libraries/classes/Server/Privileges.php:1996
+#: libraries/classes/Server/Privileges.php:2002
 #: templates/server/privileges/edit_routine_privileges.twig:47
 #, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
 msgstr "Maydon privilegiyalari"
 
-#: libraries/classes/Server/Privileges.php:2334
+#: libraries/classes/Server/Privileges.php:2340
 msgid "No users selected for deleting!"
 msgstr "O‘chirish lozim bo‘lgan foydalanuvchilar tanlanmagan!"
 
-#: libraries/classes/Server/Privileges.php:2337
+#: libraries/classes/Server/Privileges.php:2343
 msgid "Reloading the privileges"
 msgstr "Privilegiyalar qayta yuklanmoqda"
 
-#: libraries/classes/Server/Privileges.php:2356
+#: libraries/classes/Server/Privileges.php:2362
 msgid "The selected users have been deleted successfully."
 msgstr "Belgilangan foydalanuvchilar muvaffaqiyatli o‘chirildi."
 
-#: libraries/classes/Server/Privileges.php:2434
+#: libraries/classes/Server/Privileges.php:2440
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "\"%s\" uchun privilegiyalar o‘zgartirildi."
 
-#: libraries/classes/Server/Privileges.php:2464
+#: libraries/classes/Server/Privileges.php:2470
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 #, fuzzy
@@ -13147,34 +13167,34 @@ msgstr "\"%s\" uchun privilegiyalar o‘zgartirildi."
 msgid "No user found."
 msgstr "Bironta ham foydalanuvchi topilmadi."
 
-#: libraries/classes/Server/Privileges.php:2544
+#: libraries/classes/Server/Privileges.php:2550
 #, php-format
 msgid "Deleting %s"
 msgstr "\"%s\" o‘chirilmoqda"
 
-#: libraries/classes/Server/Privileges.php:2572
+#: libraries/classes/Server/Privileges.php:2578
 msgid "The privileges were reloaded successfully."
 msgstr "Privilegiyalar muvaffaqiyatli qayta yuklandi."
 
-#: libraries/classes/Server/Privileges.php:2670
+#: libraries/classes/Server/Privileges.php:2676
 #, php-format
 msgid "The user %s already exists!"
 msgstr "\"%s\" nomli foydalanuvchi mavjud!"
 
-#: libraries/classes/Server/Privileges.php:2951
+#: libraries/classes/Server/Privileges.php:2957
 #, fuzzy, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "Privilegiyalar"
 
-#: libraries/classes/Server/Privileges.php:3094
+#: libraries/classes/Server/Privileges.php:3100
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:3137
+#: libraries/classes/Server/Privileges.php:3143
 #, fuzzy, php-format
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -13192,7 +13212,7 @@ msgstr ""
 "ma`lumotlar server tomonidan ishlatilayotgan privilegiyalardan farq qilishi "
 "mumkin. Bu holda %sprivilegiyalarni qayta yuklash%s kerak."
 
-#: libraries/classes/Server/Privileges.php:3153
+#: libraries/classes/Server/Privileges.php:3159
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -13211,7 +13231,7 @@ msgstr ""
 "ma`lumotlar server tomonidan ishlatilayotgan privilegiyalardan farq qilishi "
 "mumkin. Bu holda %sprivilegiyalarni qayta yuklash%s kerak."
 
-#: libraries/classes/Server/Privileges.php:3490
+#: libraries/classes/Server/Privileges.php:3496
 msgid "You have added a new user."
 msgstr "Siz yangi foydalanuvchi qo‘shdingiz."
 
@@ -13555,21 +13575,21 @@ msgid "No data"
 msgstr "Ma`lumotlar bazasi mavjud emas"
 
 #: libraries/classes/Tracking.php:331
-#: templates/database/operations/index.twig:112
+#: templates/database/operations/index.twig:135
 #: templates/mult_submits/copy_multiple_tables.twig:17
 #: templates/table/operations/index.twig:223
 msgid "Structure only"
 msgstr "Faqat tuzilishi"
 
 #: libraries/classes/Tracking.php:334
-#: templates/database/operations/index.twig:112
+#: templates/database/operations/index.twig:147
 #: templates/mult_submits/copy_multiple_tables.twig:27
 #: templates/table/operations/index.twig:223
 msgid "Data only"
 msgstr "Faqat ma`lumotlar"
 
 #: libraries/classes/Tracking.php:337
-#: templates/database/operations/index.twig:112
+#: templates/database/operations/index.twig:141
 #: templates/mult_submits/copy_multiple_tables.twig:22
 #: templates/table/operations/index.twig:223
 msgid "Structure and data"
@@ -14875,10 +14895,12 @@ msgstr "Saralash uchun bosing"
 #: templates/database/create_table.twig:7
 #: templates/database/designer/main.twig:86
 #: templates/database/designer/main.twig:89
+#: templates/database/operations/index.twig:29
 msgid "Create table"
 msgstr "Jadval tuzish"
 
 #: templates/database/create_table.twig:15
+#: templates/database/operations/index.twig:37
 #, fuzzy
 #| msgid "Number of fields"
 msgid "Number of columns"
@@ -15236,18 +15258,26 @@ msgstr "Ustun(lar) qo‘shish"
 msgid "Update query"
 msgstr "So‘rovni yangilash"
 
-#: templates/database/operations/index.twig:10
+#: templates/database/operations/index.twig:9
+#: templates/database/operations/index.twig:13
 msgid "Database comment"
 msgstr "Ma`lumotlar bazasiga izoh"
 
-#: templates/database/operations/index.twig:39
+#: templates/database/operations/index.twig:60
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Rename database to"
 msgstr "Ma`lumotlar bazasi nomini quyidagiga o‘zgartirish"
 
-#: templates/database/operations/index.twig:48
-#: templates/database/operations/index.twig:139
+#: templates/database/operations/index.twig:64
+#: templates/export/alias_add.twig:15
+#, fuzzy
+#| msgid "database name"
+msgid "New database name"
+msgstr "ma`lumotlar bazasi nomi"
+
+#: templates/database/operations/index.twig:72
+#: templates/database/operations/index.twig:174
 #: templates/table/operations/index.twig:60
 #: templates/table/operations/index.twig:93
 #: templates/table/operations/index.twig:248
@@ -15258,50 +15288,50 @@ msgid ""
 "to the documentation for more details."
 msgstr "Ushbu sahifaga kirish uchun Sizda yetarli huquq mavjud emas!"
 
-#: templates/database/operations/index.twig:69
+#: templates/database/operations/index.twig:89
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
 msgstr "Ma`lumotlar bazasi nomini quyidagiga o‘zgartirish"
 
-#: templates/database/operations/index.twig:75
+#: templates/database/operations/index.twig:94
 #, php-format
 msgid "Database %s has been dropped."
 msgstr "\"%s\" ma`lumotlar ombori o‘chirildi."
 
-#: templates/database/operations/index.twig:80
+#: templates/database/operations/index.twig:99
 #, fuzzy
 #| msgid "Go to database"
 msgid "Drop the database (DROP)"
 msgstr "Ushbu bazaga o‘tish"
 
-#: templates/database/operations/index.twig:107
+#: templates/database/operations/index.twig:123
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copy database to"
 msgstr "Ma`lumotlar bazasidan quyidagiga nusxa olish"
 
-#: templates/database/operations/index.twig:120
+#: templates/database/operations/index.twig:153
 msgid "CREATE DATABASE before copying"
 msgstr "Nusxa ko‘chirishdan oldin ma`lumotlar bazasi tuzing (CREATE DATABASE)"
 
-#: templates/database/operations/index.twig:132
+#: templates/database/operations/index.twig:168
 #: templates/mult_submits/copy_multiple_tables.twig:42
 #: templates/table/operations/index.twig:240
 msgid "Add constraints"
 msgstr "Cheklovlar qo‘shish"
 
-#: templates/database/operations/index.twig:149
+#: templates/database/operations/index.twig:183
 msgid "Switch to copied database"
 msgstr "Nusxa olingan ma`lumotlar bazasiga o‘tish"
 
-#: templates/database/operations/index.twig:184
+#: templates/database/operations/index.twig:219
 #, fuzzy
 #| msgid "Continued table caption"
 msgid "Change all tables collations"
 msgstr "Jadval sarlavhasi (davomi)"
 
-#: templates/database/operations/index.twig:189
+#: templates/database/operations/index.twig:223
 msgid "Change all tables columns collations"
 msgstr ""
 
@@ -16146,12 +16176,6 @@ msgstr ""
 #| msgid "Select Tables"
 msgid "Select database:"
 msgstr "Jadvallarni tanlang"
-
-#: templates/export/alias_add.twig:15
-#, fuzzy
-#| msgid "database name"
-msgid "New database name"
-msgstr "ma`lumotlar bazasi nomi"
 
 #: templates/export/alias_add.twig:23
 #, fuzzy
@@ -18507,29 +18531,29 @@ msgstr "Ushbu SQL so‘roviga xatcho‘p tuzish"
 msgid "Replace existing bookmark of same name"
 msgstr "Shu nomli xatcho‘pni almashtirish"
 
-#: templates/sql/query.twig:105 templates/sql/query.twig:107
+#: templates/sql/query.twig:106 templates/sql/query.twig:108
 msgid "Delimiter"
 msgstr "Taqsimlovchi"
 
-#: templates/sql/query.twig:113
+#: templates/sql/query.twig:114
 msgid "Show this query here again"
 msgstr "Ushbu so‘rovni qayta ko‘rsatish"
 
-#: templates/sql/query.twig:124
+#: templates/sql/query.twig:125
 msgid "Rollback when finished"
 msgstr ""
 
-#: templates/sql/query.twig:143
+#: templates/sql/query.twig:147
 #, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmark:"
 msgstr "Xatcho‘plar jadvali"
 
-#: templates/sql/query.twig:150
+#: templates/sql/query.twig:154
 msgid "shared"
 msgstr ""
 
-#: templates/sql/query.twig:163
+#: templates/sql/query.twig:167
 msgid "View only"
 msgstr "Faqat ko‘rish"
 
