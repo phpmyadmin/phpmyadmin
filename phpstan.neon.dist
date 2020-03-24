@@ -14,4 +14,5 @@ parameters:
         - node_modules/*
         - test/sami-config.php
         - tmp/*
+        - twig-templates/*
         - vendor/*
