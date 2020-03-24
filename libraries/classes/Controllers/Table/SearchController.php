@@ -220,7 +220,7 @@ class SearchController extends AbstractController
     {
         $extra_data = [];
         $row_info_query = 'SELECT * FROM ' . Util::backquote($_POST['db']) . '.'
-            . Util::backquote($_POST['table']) . ' WHERE ' .  $_POST['where_clause'];
+            . Util::backquote($_POST['table']) . ' WHERE ' . $_POST['where_clause'];
         $result = $this->dbi->query(
             $row_info_query . ';',
             DatabaseInterface::CONNECT_USER,

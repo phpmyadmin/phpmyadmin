@@ -57,7 +57,7 @@
         "symfony/expression-language": "^4.2",
         "symfony/polyfill-ctype": "^1.8",
         "symfony/polyfill-mbstring": "^1.3",
-        "twig/twig": "^2.4",
+        "twig/twig": "^2.9",
         "williamdes/mariadb-mysql-kbs": "^1.2"
     },
     "conflict": {

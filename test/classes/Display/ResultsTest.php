@@ -1376,7 +1376,7 @@ class ResultsTest extends PmaTestCase
                 $meta,
                 $url_params,
                 null,
-                'class="disableAjax">1001</a>'
+                'class="disableAjax">1001</a>',
             ],
             [
                 true,
@@ -1395,7 +1395,7 @@ class ResultsTest extends PmaTestCase
                 $meta,
                 $url_params,
                 null,
-                'class="disableAjax">0x123456</a>'
+                'class="disableAjax">0x123456</a>',
             ],
             [
                 true,
@@ -1414,7 +1414,7 @@ class ResultsTest extends PmaTestCase
                 $meta,
                 $url_params,
                 null,
-                'class="disableAjax">[BLOB - 4 B]</a>'
+                'class="disableAjax">[BLOB - 4 B]</a>',
             ],
             [
                 false,
@@ -1562,7 +1562,7 @@ class ResultsTest extends PmaTestCase
                 0,
                 'binary',
                 'class="disableAjax">[BLOB - 4 B]</a>' . PHP_EOL
-                . '</td>' . PHP_EOL
+                . '</td>' . PHP_EOL,
             ],
             [
                 'noblob',
