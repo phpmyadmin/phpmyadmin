@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-12 13:05+0100\n"
 "PO-Revision-Date: 2020-03-24 13:54+0000\n"
-"Last-Translator: Hara Desu <aqjbgr09@gmail.com>\n"
+"Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-0/id/>\n"
 "Language: id\n"
@@ -1480,6 +1480,8 @@ msgstr "Menjelajahi nilai luar"
 #: js/messages.php:434
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr ""
+"Tidak kueri yang disimpan otomatis sebelumnya yang tersedia. Memuat kueri "
+"awal."
 
 #: js/messages.php:435
 msgid ""
