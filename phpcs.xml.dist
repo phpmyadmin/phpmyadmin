@@ -75,6 +75,8 @@
 
     <exclude-pattern>*/node_modules/*</exclude-pattern>
     <exclude-pattern>*/test/sami-config.php</exclude-pattern>
+    <exclude-pattern>*.twig</exclude-pattern>
+    <exclude-pattern>*/twig-templates/*</exclude-pattern>
     <exclude-pattern>*/tmp/*</exclude-pattern>
     <exclude-pattern>*/vendor/*</exclude-pattern>
 
