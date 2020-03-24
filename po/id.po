@@ -3,16 +3,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-12 13:05+0100\n"
-"PO-Revision-Date: 2020-01-07 01:21+0000\n"
-"Last-Translator: Timothy Aditya Sutantyo <timisutantyo@gmail.com>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/"
-"phpmyadmin/5-0/id/>\n"
+"PO-Revision-Date: 2020-03-24 13:54+0000\n"
+"Last-Translator: Hara Desu <aqjbgr09@gmail.com>\n"
+"Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
+"5-0/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Weblate 4.0-dev\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
@@ -1104,16 +1104,12 @@ msgid "Please select the file you want to import."
 msgstr "Silahkan pilih berkas yang ingin anda impor."
 
 #: js/messages.php:339
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
-msgstr "Masukan halaman yang benar"
+msgstr "Masukan nama tabel yang benar."
 
 #: js/messages.php:341
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
-msgstr "Masukan halaman yang benar"
+msgstr "Masukan database yang benar."
 
 #: js/messages.php:342
 msgid "No files available on server for import!"
