@@ -324,7 +324,7 @@ input {
 
   &:not(.form-control)[type="text"],
   &[type="password"],
-  &[type="number"] {
+  &:not(.form-control)[type="number"] {
     margin: 6px;
   }
 }
@@ -405,9 +405,12 @@ select {
   color: $th-color;
   padding: 4px;
   font-family: $font-family-base;
-  margin: 5px;
   background-color: $body-bg;
   max-width: 17em;
+
+  &:not(.form-control) {
+    margin: 5px;
+  }
 
   &:focus {
     border: 1px solid $navi-hover-background;

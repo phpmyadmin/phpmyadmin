@@ -1,9 +1,15 @@
 .list-group {
   margin: 1rem 0 0;
+  padding-bottom: 10px;
+}
+
+#maincontainer .list-group-item {
+  display: list-item;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .list-group-item {
-  display: list-item;
   border: none;
 }
 

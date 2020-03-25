@@ -169,14 +169,14 @@ input {
 
   &:not(.form-control)[type=text],
   &[type=password],
-  &[type=number],
+  &:not(.form-control)[type=number],
   &[type=date],
   &:not(.form-check-input)[type=checkbox] {
     margin: 6px;
   }
 }
 
-select {
+select:not(.form-control) {
   margin: 6px;
 }
 
@@ -405,7 +405,10 @@ select {
   color: #333;
   padding: 3px;
   background: white;
-  margin: 6px;
+
+  &:not(.form-control) {
+    margin: 6px;
+  }
 
   &[multiple] {
     background: linear-gradient(#fff, #f2f2f2);

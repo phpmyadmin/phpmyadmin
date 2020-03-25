@@ -59,7 +59,7 @@
       <div class="card mb-2">
         <div class="card-header">{{ get_icon('b_edit', 'Rename database to'|trans) }}</div>
         <div class="card-body">
-          <div class="form-row">
+          <div class="form-group form-row">
             <div class="col-auto">
               <label class="sr-only" for="new_db_name">{% trans 'New database name' %}</label>
               <input class="form-control textfield" id="new_db_name" type="text" name="newname" maxlength="64" required>
@@ -122,33 +122,35 @@
     <div class="card mb-2">
       <div class="card-header">{{ get_icon('b_edit', 'Copy database to'|trans) }}</div>
       <div class="card-body">
-        <div class="form-row">
+        <div class="form-group form-row">
           <div class="col-auto">
             <label class="sr-only" for="renameDbNameInput">{% trans 'Database name' %}</label>
             <input class="form-control textfield" id="renameDbNameInput" type="text" maxlength="64" name="newname" required>
           </div>
         </div>
 
-        <div class="form-check mt-2">
-          <input class="form-check-input" type="radio" name="what" id="whatRadio1" value="structure">
-          <label class="form-check-label" for="whatRadio1">
-            {% trans 'Structure only' %}
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="what" id="whatRadio2" value="data" checked>
-          <label class="form-check-label" for="whatRadio2">
-            {% trans 'Structure and data' %}
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="what" id="whatRadio3" value="dataonly">
-          <label class="form-check-label" for="whatRadio3">
-            {% trans 'Data only' %}
-          </label>
+        <div class="form-group">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="what" id="whatRadio1" value="structure">
+            <label class="form-check-label" for="whatRadio1">
+              {% trans 'Structure only' %}
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="what" id="whatRadio2" value="data" checked>
+            <label class="form-check-label" for="whatRadio2">
+              {% trans 'Structure and data' %}
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="what" id="whatRadio3" value="dataonly">
+            <label class="form-check-label" for="whatRadio3">
+              {% trans 'Data only' %}
+            </label>
+          </div>
         </div>
 
-        <div class="form-check mt-2">
+        <div class="form-check">
           <input class="form-check-input" type="checkbox" name="create_database_before_copying" value="1" id="checkbox_create_database_before_copying" checked>
           <label class="form-check-label" for="checkbox_create_database_before_copying">{% trans 'CREATE DATABASE before copying' %}</label>
         </div>
@@ -196,7 +198,7 @@
     <div class="card mb-2">
       <div class="card-header">{{ get_icon('s_asci', 'Collation'|trans) }}</div>
       <div class="card-body">
-        <div class="form-row">
+        <div class="form-group form-row">
           <div class="col-auto">
             <label class="sr-only" for="select_db_collation">{% trans 'Collation' %}</label>
             <select class="form-control" lang="en" dir="ltr" name="db_collation" id="select_db_collation">
