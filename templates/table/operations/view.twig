@@ -1,29 +1,27 @@
-<div>
+<div class="container-fluid">
   <form method="post" action="{{ url('/view/operations') }}">
     {{ get_hidden_inputs(db, table) }}
     <input type="hidden" name="reload" value="1">
+    <input type="hidden" name="submitoptions" value="1">
 
-    <fieldset>
-      <legend>{% trans 'Operations' %}</legend>
-
-      <div class="form-group form-inline">
-        <label for="newNameInput">{% trans 'Rename view to' %}</label>
-        <input id="newNameInput" class="form-control" type="text" name="new_name" onfocus="this.select()" value="{{ table }}" required>
+    <div class="card mb-2">
+      <div class="card-header">{% trans 'Operations' %}</div>
+      <div class="card-body">
+        <div class="form-inline">
+          <label for="newNameInput">{% trans 'Rename view to' %}</label>
+          <input id="newNameInput" class="form-control ml-2" type="text" name="new_name" onfocus="this.select()" value="{{ table }}" required>
+        </div>
       </div>
-    </fieldset>
-
-    <fieldset class="tblFooters">
-      <input type="hidden" name="submitoptions" value="1">
-      <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
-    </fieldset>
+      <div class="card-footer text-right">
+        <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
+      </div>
+    </div>
   </form>
-</div>
 
-<div>
-  <fieldset class="caution">
-    <legend>{% trans 'Delete data or table' %}</legend>
-    <ul>
-      <li>
+  <div class="card mb-2">
+    <div class="card-header">{% trans 'Delete data or table' %}</div>
+    <div class="card-body">
+      <div class="card-text">
         {{ link_or_button(
           url('/sql', url_params|merge({
             'sql_query': 'DROP VIEW ' ~ backquote(table),
@@ -36,11 +34,11 @@
           'Delete the view (DROP)'|trans,
           {
             'id': 'drop_view_anchor',
-            'class': 'ajax'
+            'class': 'text-danger ajax'
           }
         ) }}
         {{ show_mysql_docu('DROP VIEW') }}
-      </li>
-    </ul>
-  </fieldset>
+      </div>
+    </div>
+  </div>
 </div>
