@@ -64,7 +64,7 @@ class OperationsTest extends TestBase
             'val'
         );
 
-        $this->byId('order_order_desc')->click();
+        $this->byId('tableOrderDescRadio')->click();
         $this->byCssSelector(
             "form#alterTableOrderby input[type='submit']"
         )->click();

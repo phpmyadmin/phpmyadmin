@@ -941,12 +941,7 @@ fieldset.caution {
   }
 }
 
-#tbl_maintenance {
-  padding: 0;
-}
-
-fieldset.caution li,
-#tbl_maintenance li {
+fieldset.caution li {
   display: block;
 }
 
@@ -961,21 +956,6 @@ fieldset.caution li {
 
   a:nth-child(2) img {
     background: url('../img/s_info.png') !important;
-  }
-}
-
-#tbl_maintenance li {
-  a {
-    font-family: $font-family-bold;
-    text-transform: uppercase;
-    font-weight: normal;
-  }
-
-  &::before {
-    /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
-    font-family: "IcoMoon";
-    content: "%";
-    margin-#{$right}: 10px;
   }
 }
 
@@ -2276,20 +2256,6 @@ form {
   &#multi_edit_central_columns fieldset.tblFooters {
     background: none;
     border: none;
-  }
-
-  &#tableOptionsForm {
-    input[name="comment"],
-    select[name="tbl_collation"] {
-      width: 130px;
-    }
-  }
-
-  &#alterTableOrderby .tblFooters,
-  &#moveTableForm .tblFooters,
-  &#copyTable .tblFooters,
-  &#tableOptionsForm .tblFooters {
-    margin-top: -40px;
   }
 }
 
