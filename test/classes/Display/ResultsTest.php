@@ -1578,8 +1578,8 @@ class ResultsTest extends PmaTestCase
                 [],
                 0,
                 'binary',
-                'class="disableAjax">[BLOB - 4 B]</a>' . PHP_EOL
-                . '</td>' . PHP_EOL,
+                'class="disableAjax">[BLOB - 4 B]</a>' . "\n"
+                . '</td>' . "\n",
             ],
             [
                 'noblob',
