@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-24 23:08+0100\n"
-"PO-Revision-Date: 2020-03-20 09:36+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2020-03-25 18:20+0000\n"
+"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -7495,10 +7495,8 @@ msgstr "Nom de table invalide"
 
 #. l10n: In case a SQL query did not pass a security check
 #: libraries/classes/Controllers/Table/GetFieldController.php:51
-#, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
-msgstr "Il y a trop de jointures sans index."
+msgstr "Il y a un problème avec votre demande."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:64
 #: libraries/classes/Import.php:151 libraries/classes/InsertEdit.php:218
@@ -10720,18 +10718,6 @@ msgstr ""
 "utilisée, merci de laisser la première option vide."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:34
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Output/Text_Plain_External.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -10747,14 +10733,15 @@ msgstr ""
 "(Linux seulement) Exécute un programme externe et lui envoie le contenu de "
 "la colonne via l'entrée standard. Puis capture la sortie standard de ce "
 "programme externe. Le programme par défaut est Tidy, pour un affichage "
-"embelli du code HTML. Pour des raisons de sécurité, il faut éditer le "
-"script /classes/Plugins/Transformations/Output/Text_Plain_External.php et y "
-"insérer les noms de programmes externes à rendre disponibles. La première "
-"option est le numéro du programme à utiliser, la seconde contient les "
-"paramètres pour ce programme. En 3ème option, une valeur de 1 va convertir "
-"le résultat avec la fonction htmlspecialchars() (par défaut, 1). En option "
-"4, une valeur de 1 va interdire tout retour à la ligne pour afficher sur une "
-"seule ligne (par défaut, 1)."
+"embelli du code HTML. Pour des raisons de sécurité, il faut éditer le script "
+"libraries/classes/Plugins/Transformations/Abs/"
+"ExternalTransformationsPlugin.php et y insérer les noms de programmes "
+"externes à rendre disponibles. La première option est le numéro du programme "
+"à utiliser. La seconde option devrait être vide pour raisons historiques. En "
+"3ème option, si paramétré à 1, va convertir le résultat avec la fonction "
+"htmlspecialchars() (par défaut, 1). La 4ème option, si paramétrée à 1 va "
+"interdire tout retour à la ligne pour afficher sur une seule ligne (par "
+"défaut, 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:119
 #, php-format
@@ -10763,6 +10750,9 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"Vous utilisez le champ d'options de la ligne de commande de transformation "
+"externe, qui a été déprécié pour des raisons de sécurité. Ajoutez toutes les "
+"options de la ligne de commande directement à la définition en %s."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:26
 msgid ""
