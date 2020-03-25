@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-24 23:08+0100\n"
-"PO-Revision-Date: 2020-03-24 08:46+0000\n"
+"PO-Revision-Date: 2020-03-25 18:20+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -7404,10 +7404,8 @@ msgstr "Geçersiz tablo adı"
 
 #. l10n: In case a SQL query did not pass a security check
 #: libraries/classes/Controllers/Table/GetFieldController.php:51
-#, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
-msgstr "İndeksler olmaksızın çok fazla birleştirme var."
+msgstr "İsteğinizle ilgili bir sorun var."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:64
 #: libraries/classes/Import.php:151 libraries/classes/InsertEdit.php:218
@@ -10588,18 +10586,6 @@ msgstr ""
 "ayarlamanız gerekir."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:34
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Output/Text_Plain_External.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -10615,13 +10601,13 @@ msgstr ""
 "SADECE LINUX: Harici bir uygulama çalıştırır ve sütun verisini standart "
 "girdi yoluyla besler. Uygulamanın standart çıktısı döner. Düzgün HTML kodu "
 "baskısı için varsayılan düzenlidir. Güvenlik nedeniyle libraries/classes/"
-"Plugins/Transformations/Output/Text_Plain_External.php dosyasını elle "
-"düzenlemeli ve olmasını istediğiniz araçları listelemelisiniz. İlk seçenek "
-"kullanmak istediğiniz program sayısı ve ikinci seçenek program için "
-"parametrelerdir. Üçüncü seçenek, eğer 1'e ayarlanırsa, htmlspecialchars() "
-"işlevi kullanılarak çıktıyı dönüştürecektir (Varsayılan 1). Dördüncü "
-"seçenek, eğer 1'e ayarlanırsa, sözcük kaydırma korunacak ve tüm çıktı tek "
-"bir satırda görünecektir (Varsayılan 1)."
+"Plugins/Transformations/Abs/ExternalTransformationsPlugin.php dosyasını elle "
+"düzenlemeli ve olmasını istediğiniz araçları listelemelisiniz. İlk seçenek, "
+"daha sonra kullanmak istediğiniz programın sayısıdır. İkinci seçenek, "
+"geçmişteki nedenlerden dolayı boş olmalıdır. Üçüncü seçenek, eğer 1 olarak "
+"ayarlanırsa, htmlspecialchars() işlevi kullanılarak çıktıyı dönüştürecektir ("
+"Varsayılan 1). Dördüncü seçenek, eğer 1 olarak ayarlanırsa, sözcük kaydırma "
+"korunacak ve tüm çıktı tek bir satırda görünecektir (Varsayılan 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:119
 #, php-format
@@ -10630,6 +10616,9 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"Güvenlik nedenleriyle kullanım dışı bırakılmış, dönüşüm komut satırı "
+"seçenekleri alanını kullanıyorsunuz. Tüm komut satırı seçeneklerini doğrudan "
+"%s içindeki tanıma ekleyin."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:26
 msgid ""
