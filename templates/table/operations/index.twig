@@ -201,10 +201,14 @@
         </div>
       {% endif %}
 
-      {% if row_format_dropdown is not empty %}
+      {% if row_formats is not empty %}
         <div class="form-group form-inline">
           <label for="new_row_format">ROW_FORMAT</label>
-          {{ row_format_dropdown|raw }}
+          <select class="form-control ml-2" id="new_row_format" name="new_row_format">
+            {% for row_format in row_formats %}
+              <option value="{{ row_format }}"{{ row_format == row_format_current|upper ? ' selected' }}>{{ row_format }}</option>
+            {% endfor %}
+          </select>
         </div>
       {% endif %}
     </div>

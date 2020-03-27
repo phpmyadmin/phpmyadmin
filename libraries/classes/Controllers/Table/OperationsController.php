@@ -418,18 +418,7 @@ class OperationsController extends AbstractController
         $hasAutoIncrement = strlen((string) $auto_increment) > 0
             && $pma_table->isEngine(['MYISAM', 'ARIA', 'INNODB', 'PBXT', 'ROCKSDB']);
 
-        $rowFormatDropDown = '';
         $possibleRowFormats = $this->operations->getPossibleRowFormat();
-
-        if (isset($possibleRowFormats[$tbl_storage_engine])) {
-            $currentRowFormat = mb_strtoupper($GLOBALS['showtable']['Row_format']);
-            $rowFormatDropDown = DropDown::generate(
-                'new_row_format',
-                $possibleRowFormats[$tbl_storage_engine],
-                $currentRowFormat,
-                'new_row_format'
-            );
-        }
 
         $databaseList = [];
         if (count($GLOBALS['dblist']->databases) <= $GLOBALS['cfg']['MaxDbList']) {
@@ -470,7 +459,8 @@ class OperationsController extends AbstractController
             'charsets' => $charsets,
             'collations' => $collations,
             'tbl_collation' => $tbl_collation,
-            'row_format_dropdown' => $rowFormatDropDown,
+            'row_formats' => $possibleRowFormats[$tbl_storage_engine] ?? [],
+            'row_format_current' => $GLOBALS['showtable']['Row_format'],
             'has_auto_increment' => $hasAutoIncrement,
             'auto_increment' => $auto_increment,
             'has_pack_keys' => $hasPackKeys,
