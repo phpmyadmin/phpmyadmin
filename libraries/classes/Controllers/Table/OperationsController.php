@@ -435,10 +435,9 @@ class OperationsController extends AbstractController
             );
         }
 
-        $databaseList = '';
-
+        $databaseList = [];
         if (count($GLOBALS['dblist']->databases) <= $GLOBALS['cfg']['MaxDbList']) {
-            $databaseList = $GLOBALS['dblist']->databases->getHtmlOptions(true, false);
+            $databaseList = $GLOBALS['dblist']->databases->getList();
         }
 
         $hasForeignKeys = ! empty($this->relation->getForeigners($db, $table, '', 'foreign'));

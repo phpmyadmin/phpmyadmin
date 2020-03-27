@@ -51,37 +51,25 @@ abstract class ListAbstract extends ArrayObject
     }
 
     /**
-     * returns HTML <option>-tags to be used inside <select></select>
-     *
-     * @param string|true $selected                   the selected db or true for
-     *                                                selecting current db
-     * @param bool        $include_information_schema whether include information schema
-     *
-     * @return string  HTML option tags
+     * @return array<int, array<string, bool|string>>
      */
-    public function getHtmlOptions(
-        $selected = '',
-        $include_information_schema = true
-    ) {
-        if ($selected === true) {
-            $selected = $this->getDefault();
-        }
+    public function getList(): array
+    {
+        $selected = $this->getDefault();
 
-        $options = '';
-        foreach ($this as $each_item) {
-            if ($include_information_schema === false
-                && $GLOBALS['dbi']->isSystemSchema($each_item)
-            ) {
+        $list = [];
+        foreach ($this as $eachItem) {
+            if ($GLOBALS['dbi']->isSystemSchema($eachItem)) {
                 continue;
             }
-            $options .= '<option value="' . htmlspecialchars($each_item) . '"';
-            if ($selected === $each_item) {
-                $options .= ' selected="selected"';
-            }
-            $options .= '>' . htmlspecialchars($each_item) . '</option>' . "\n";
+
+            $list[] = [
+                'name' => $eachItem,
+                'is_selected' => $selected === $eachItem,
+            ];
         }
 
-        return $options;
+        return $list;
     }
 
     /**

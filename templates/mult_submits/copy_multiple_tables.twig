@@ -4,7 +4,9 @@
   <fieldset>
     <strong><label for="db_name_dropdown">{% trans 'Database:' %}</label></strong>
     <select id="db_name_dropdown" name="target_db">
-      {{ options|raw }}
+      {% for each_db in options %}
+        <option value="{{ each_db.name }}"{{ each_db.is_selected ? ' selected' }}>{{ each_db.name }}</option>
+      {% endfor %}
     </select>
 
     <br><br>

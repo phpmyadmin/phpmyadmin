@@ -423,7 +423,7 @@ class MultSubmits
         return $this->template->render('mult_submits/copy_multiple_tables', [
             'action' => $action,
             'url_params' => $urlParams,
-            'options' => $databasesList->getHtmlOptions(true, false),
+            'options' => $databasesList->getList(),
         ]);
     }
 
