@@ -110,11 +110,14 @@
                 </td>
                 <td width="25">&nbsp;</td>
                 <td>
-                    {{ get_html_select(
-                        'tbl_storage_engine',
-                        null,
-                        tbl_storage_engine
-                    ) }}
+                  <select class="form-control" name="tbl_storage_engine" aria-label="{% trans 'Storage engine' %}">
+                    {% for engine in storage_engines %}
+                      <option value="{{ engine.name }}"{% if engine.comment is not empty %} title="{{ engine.comment }}"{% endif %}
+                        {{- engine.name|lower == tbl_storage_engine|lower or (tbl_storage_engine is empty and engine.is_default) ? ' selected' }}>
+                        {{- engine.name -}}
+                      </option>
+                    {% endfor %}
+                  </select>
                 </td>
                 <td width="25">&nbsp;</td>
                 <td>
@@ -137,7 +140,8 @@
                 <tr>
                     <td colspan="5">
                         {% include 'columns_definitions/partitions.twig' with {
-                            'partition_details': partition_details
+                          'partition_details': partition_details,
+                          'storage_engines': storage_engines
                         } only %}
                     </td>
                 </tr>

@@ -7,13 +7,14 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\StorageEngine;
+use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * Tests for StorageEngine.php
  */
 class StorageEngineTest extends PmaTestCase
 {
-    /** @access protected */
+    /** @var StorageEngine|MockObject */
     protected $object;
 
     /**
@@ -26,7 +27,7 @@ class StorageEngineTest extends PmaTestCase
     {
         $GLOBALS['server'] = 1;
         $this->object = $this->getMockForAbstractClass(
-            'PhpMyAdmin\StorageEngine',
+            StorageEngine::class,
             ['dummy']
         );
     }
@@ -76,20 +77,19 @@ class StorageEngineTest extends PmaTestCase
         );
     }
 
-    /**
-     * Test for getHtmlSelect
-     *
-     * @return void
-     *
-     * @group medium
-     */
-    public function testGetHtmlSelect()
+    public function testGetArray(): void
     {
-        $html = $this->object->getHtmlSelect();
+        $actual = $this->object->getArray();
 
-        $this->assertStringContainsString(
-            '<option value="dummy" title="dummy comment">',
-            $html
+        $this->assertEquals(
+            [
+                'dummy' => [
+                    'name' => 'dummy',
+                    'comment' => 'dummy comment',
+                    'is_default' => false,
+                ],
+            ],
+            $actual
         );
     }
 

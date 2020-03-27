@@ -5,7 +5,8 @@
     <fieldset>
         <legend>{% trans 'Edit partitioning' %}</legend>
         {% include 'columns_definitions/partitions.twig' with {
-            'partition_details': partition_details
+          'partition_details': partition_details,
+          'storage_engines': storage_engines
         } only %}
     </fieldset>
     <fieldset class="tblFooters">

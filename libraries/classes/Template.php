@@ -12,7 +12,6 @@ use PhpMyAdmin\Twig\MessageExtension;
 use PhpMyAdmin\Twig\PluginsExtension;
 use PhpMyAdmin\Twig\RelationExtension;
 use PhpMyAdmin\Twig\SanitizeExtension;
-use PhpMyAdmin\Twig\StorageEngineExtension;
 use PhpMyAdmin\Twig\TableExtension;
 use PhpMyAdmin\Twig\TrackerExtension;
 use PhpMyAdmin\Twig\TransformationsExtension;
@@ -78,7 +77,6 @@ class Template
             $twig->addExtension(new PluginsExtension());
             $twig->addExtension(new RelationExtension());
             $twig->addExtension(new SanitizeExtension());
-            $twig->addExtension(new StorageEngineExtension());
             $twig->addExtension(new TableExtension());
             $twig->addExtension(new TrackerExtension());
             $twig->addExtension(new TransformationsExtension());

@@ -560,12 +560,15 @@ class StructureController extends AbstractController
             $partitionDetails = $this->_extractPartitionDetails();
         }
 
+        $storageEngines = StorageEngine::getArray();
+
         $partitionDetails = TablePartitionDefinition::getDetails($partitionDetails);
         $this->response->addHTML(
             $this->template->render('table/structure/partition_definition_form', [
                 'db' => $this->db,
                 'table' => $this->table,
                 'partition_details' => $partitionDetails,
+                'storage_engines' => $storageEngines,
             ])
         );
     }

@@ -122,56 +122,29 @@ class StorageEngine
     }
 
     /**
-     * Returns HTML code for storage engine select box
-     *
-     * @param string $name                    The name of the select form element
-     * @param string $id                      The ID of the form field
-     * @param string $selected                The selected engine
-     * @param bool   $offerUnavailableEngines Should unavailable storage
-     *                                        engines be offered?
-     * @param bool   $addEmpty                Whether to provide empty option
-     *
-     * @return string html selectbox
-     *
-     * @static
+     * @return array<int|string, array<string, mixed>>
      */
-    public static function getHtmlSelect(
-        $name = 'engine',
-        $id = null,
-        $selected = null,
-        $offerUnavailableEngines = false,
-        $addEmpty = false
-    ) {
-        $selected = mb_strtolower((string) $selected);
-        $output = '<select name="' . $name . '"'
-            . (empty($id) ? '' : ' id="' . $id . '"') . '>' . "\n";
+    public static function getArray(): array
+    {
+        $engines = [];
 
-        if ($addEmpty) {
-            $output .= '<option value=""></option>';
-        }
-
-        foreach (self::getStorageEngines() as $key => $details) {
+        foreach (self::getStorageEngines() as $details) {
             // Don't show PERFORMANCE_SCHEMA engine (MySQL 5.5)
-            if (! $offerUnavailableEngines
-                && ($details['Support'] == 'NO'
-                || $details['Support'] == 'DISABLED'
-                || $details['Engine'] == 'PERFORMANCE_SCHEMA')
+            if ($details['Support'] === 'NO'
+                || $details['Support'] === 'DISABLED'
+                || $details['Engine'] === 'PERFORMANCE_SCHEMA'
             ) {
                 continue;
             }
 
-            $output .= '    <option value="' . htmlspecialchars($key) . '"'
-                . (empty($details['Comment'])
-                    ? '' : ' title="' . htmlspecialchars($details['Comment']) . '"')
-                . (mb_strtolower($key) == $selected
-                    || (empty($selected) && $details['Support'] == 'DEFAULT' && ! $addEmpty)
-                    ? ' selected="selected"' : '')
-                . '>' . "\n"
-                . '        ' . htmlspecialchars($details['Engine']) . "\n"
-                . '    </option>' . "\n";
+            $engines[$details['Engine']] = [
+                'name' => $details['Engine'],
+                'comment' => $details['Comment'],
+                'is_default' => $details['Support'] === 'DEFAULT',
+            ];
         }
-        $output .= '</select>' . "\n";
-        return $output;
+
+        return $engines;
     }
 
     /**

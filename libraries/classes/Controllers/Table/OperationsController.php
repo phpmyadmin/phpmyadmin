@@ -406,11 +406,7 @@ class OperationsController extends AbstractController
             $comment = preg_replace('@; InnoDB free:.*?$@', '', (string) $show_comment);
         }
 
-        $storageEngineSelect = StorageEngine::getHtmlSelect(
-            'new_tbl_storage_engine',
-            null,
-            $tbl_storage_engine
-        );
+        $storageEngines = StorageEngine::getArray();
 
         $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
         $collations = Charsets::getCollations($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
@@ -469,7 +465,8 @@ class OperationsController extends AbstractController
             'columns' => $columns,
             'hide_order_table' => $hideOrderTable,
             'table_comment' => $comment,
-            'storage_engine_select' => $storageEngineSelect,
+            'storage_engine' => $tbl_storage_engine,
+            'storage_engines' => $storageEngines,
             'charsets' => $charsets,
             'collations' => $collations,
             'tbl_collation' => $tbl_collation,

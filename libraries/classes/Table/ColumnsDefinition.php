@@ -11,6 +11,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Partition;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\TablePartitionDefinition;
 use PhpMyAdmin\Template;
@@ -488,6 +489,8 @@ final class ColumnsDefinition
             ];
         }
 
+        $storageEngines = StorageEngine::getArray();
+
         $html = $template->render('columns_definitions/column_definitions_form', [
             'is_backup' => $is_backup,
             'fields_meta' => $fields_meta ?? null,
@@ -506,6 +509,7 @@ final class ColumnsDefinition
             'tbl_collation' => $_POST['tbl_collation'] ?? null,
             'charsets' => $charsetsList,
             'tbl_storage_engine' => $_POST['tbl_storage_engine'] ?? null,
+            'storage_engines' => $storageEngines,
             'connection' => $_POST['connection'] ?? null,
             'change_column' => $_POST['change_column'] ?? null,
             'is_virtual_columns_supported' => Util::isVirtualColumnsSupported(),

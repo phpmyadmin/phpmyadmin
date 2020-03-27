@@ -5381,11 +5381,6 @@ parameters:
 			path: test/classes/Setup/FormProcessingTest.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\StorageEngineTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/StorageEngineTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$expected of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) expects class\\-string\\<object\\>, string given\\.$#"
 			count: 1
 			path: test/classes/StorageEngineTest.php
