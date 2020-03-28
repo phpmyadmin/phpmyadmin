@@ -45,7 +45,7 @@ class ImportAjax
          * list of available plugins
          */
         $plugins = [
-            // PHP 5.4 session-based upload progress is problematic, see bug 3964
+            // in PHP 5.4 session-based upload progress was problematic, see closed bug 3964
             //"session",
             'progress',
             'apc',
