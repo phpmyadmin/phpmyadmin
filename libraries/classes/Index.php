@@ -453,22 +453,6 @@ class Index
     }
 
     /**
-     * Return a list of all index choices
-     *
-     * @return string[] index choices
-     */
-    public static function getIndexChoices()
-    {
-        return [
-            'PRIMARY',
-            'INDEX',
-            'UNIQUE',
-            'SPATIAL',
-            'FULLTEXT',
-        ];
-    }
-
-    /**
      * Returns a lit of all index types
      *
      * @return string[] index types
@@ -481,36 +465,9 @@ class Index
         ];
     }
 
-    /**
-     * Returns HTML for the index choice selector
-     *
-     * @param bool $edit_table whether this is table editing
-     *
-     * @return string HTML for the index choice selector
-     */
-    public function generateIndexChoiceSelector($edit_table)
+    public function hasPrimary(): bool
     {
-        $html_options = '<select name="index[Index_choice]"'
-            . ' id="select_index_choice" '
-            . ($edit_table ? 'disabled="disabled"' : '') . '>';
-
-        foreach (self::getIndexChoices() as $each_index_choice) {
-            if ($each_index_choice === 'PRIMARY'
-                && $this->_choice !== 'PRIMARY'
-                && self::getPrimary($this->_table, $this->_schema)
-            ) {
-                // skip PRIMARY if there is already one in the table
-                continue;
-            }
-            $html_options .= '<option value="' . $each_index_choice . '"'
-                 . ($this->_choice == $each_index_choice
-                 ? ' selected="selected"'
-                 : '')
-                 . '>' . $each_index_choice . '</option>' . "\n";
-        }
-        $html_options .= '</select>';
-
-        return $html_options;
+        return (bool) self::getPrimary($this->_table, $this->_schema);
     }
 
     /**

@@ -194,12 +194,6 @@ class IndexesControllerTest extends PmaTestCase
             $html
         );
 
-        // generateIndexSelector
-        $this->assertStringContainsString(
-            $index->generateIndexChoiceSelector(false),
-            $html
-        );
-
         $this->assertStringContainsString(
             sprintf(__('Add %s column(s) to index'), 1),
             $html

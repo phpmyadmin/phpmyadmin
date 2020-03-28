@@ -100,21 +100,6 @@ class IndexTest extends PmaTestCase
     }
 
     /**
-     * Test for getIndexChoices
-     *
-     * @return void
-     */
-    public function testGetIndexChoices()
-    {
-        $index_choices = Index::getIndexChoices();
-        $this->assertCount(5, $index_choices);
-        $this->assertEquals(
-            'PRIMARY,INDEX,UNIQUE,SPATIAL,FULLTEXT',
-            implode(',', $index_choices)
-        );
-    }
-
-    /**
      * Test for isUnique
      *
      * @return void

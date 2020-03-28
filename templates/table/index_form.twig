@@ -36,7 +36,16 @@
                         </label>
                     </strong>
                 </div>
-                {{ index.generateIndexChoiceSelector(create_edit_table)|raw }}
+
+              <select name="index[Index_choice]" id="select_index_choice"{{ create_edit_table ? ' disabled' }}>
+                {% if index.getChoice() == 'PRIMARY' or not index.hasPrimary() %}
+                  <option value="PRIMARY"{{ index.getChoice() == 'PRIMARY' ? ' selected' }}>PRIMARY</option>
+                {% endif %}
+                <option value="INDEX"{{ index.getChoice() == 'INDEX' ? ' selected' }}>INDEX</option>
+                <option value="UNIQUE"{{ index.getChoice() == 'UNIQUE' ? ' selected' }}>UNIQUE</option>
+                <option value="SPATIAL"{{ index.getChoice() == 'SPATIAL' ? ' selected' }}>SPATIAL</option>
+                <option value="FULLTEXT"{{ index.getChoice() == 'FULLTEXT' ? ' selected' }}>FULLTEXT</option>
+              </select>
             </div>
 
             {% include 'div_for_slider_effect.twig' with {
