@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-24 23:08+0100\n"
-"PO-Revision-Date: 2020-03-20 09:36+0000\n"
+"PO-Revision-Date: 2020-03-30 06:26+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -7458,10 +7458,8 @@ msgstr "Ongeldige tabelnaam"
 
 #. l10n: In case a SQL query did not pass a security check
 #: libraries/classes/Controllers/Table/GetFieldController.php:51
-#, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
-msgstr "Er zijn teveel JOINS zonder indexen."
+msgstr "Er is een probleem met je vraag."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:64
 #: libraries/classes/Import.php:151 libraries/classes/InsertEdit.php:218
@@ -10669,18 +10667,6 @@ msgstr ""
 "gekozen is het vereist dat de eerste optie leeg is."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:34
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Output/Text_Plain_External.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -10696,14 +10682,15 @@ msgstr ""
 "ALLEEN LINUX: Start een externe applicatie op en voedt de kolomdata via "
 "standaard invoer. Geeft standaard uitvoer van de applicatie terug. Standaard "
 "is Tidy, om nette HTML-code te tonen. Om veiligheidsredenen zult u handmatig "
-"het bestand libraries/classes/Plugins/Transformations/Output/"
-"Text_Plain_External.php moeten aanpassen en in de lijst de tools selecteren "
-"die u beschikbaar wil maken. De eerste optie is het nummer van het programma "
-"dat u wilt gebruiken, de tweede optie zijn de parameters voor dit programma. "
-"De derde parameter, wanneer ingesteld op 1, zal de output omzetten door "
-"middel van htmlspecialchars() (Standaardwaarde is 1). Een vierde parameter, "
-"wanneer ingesteld als 1 zal NOWRAP aan de inhoudscel toevoegen, zodat de "
-"gehele uitvoer getoond zal worden op 1 regel (Standaardwaarde is 1)."
+"het bestand ibraries/classes/Plugins/Transformations/Abs/"
+"ExternalTransformationsPlugin.php moeten aanpassen en in de lijst de tools "
+"selecteren die u beschikbaar wil maken. De eerste optie is het nummer van "
+"het programma dat u wilt gebruiken. De tweede optie moet leeg blijven om "
+"historische redenen. De derde parameter, wanneer ingesteld op 1, zal de "
+"output omzetten door middel van htmlspecialchars() (Standaardwaarde is 1). "
+"Een vierde parameter, wanneer ingesteld als 1 zal NOWRAP aan de inhoudscel "
+"toevoegen, zodat de gehele uitvoer getoond zal worden op 1 regel ("
+"Standaardwaarde is 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:119
 #, php-format
@@ -10712,6 +10699,9 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"Je gebruikt het externe transformatie opdrachtregel optie veld, wat "
+"afgeraden wordt vanwege beveiligingsredenen. Voeg alle opdrachtregelopties "
+"toe aan de definitie in %s."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:26
 msgid ""
