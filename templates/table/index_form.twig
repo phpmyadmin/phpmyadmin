@@ -80,7 +80,12 @@
                         </label>
                     </strong>
                 </div>
-                {{ index.generateIndexTypeSelector()|raw }}
+
+              <select name="index[Index_type]" id="select_index_type">
+                {% for index_type in ['', 'BTREE', 'HASH'] %}
+                  <option value="{{ index_type }}"{{ index.getType() == index_type ? ' selected' }}>{{ index_type }}</option>
+                {% endfor %}
+              </select>
             </div>
 
             <div>

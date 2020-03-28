@@ -471,26 +471,6 @@ class Index
     }
 
     /**
-     * Returns HTML for the index type selector
-     *
-     * @return string HTML for the index type selector
-     */
-    public function generateIndexTypeSelector()
-    {
-        $types = ['' => '--'];
-        foreach (self::getIndexTypes() as $type) {
-            $types[$type] = $type;
-        }
-
-        return Html\Forms\Fields\DropDown::generate(
-            'index[Index_type]',
-            $types,
-            $this->_type,
-            'select_index_type'
-        );
-    }
-
-    /**
      * Returns how the index is packed
      *
      * @return string how the index is packed
