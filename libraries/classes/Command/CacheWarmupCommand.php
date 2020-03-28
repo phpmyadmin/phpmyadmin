@@ -73,7 +73,7 @@ final class CacheWarmupCommand extends Command
         }
     }
 
-    public function warmUpRoutingCache(OutputInterface $output): int
+    private function warmUpRoutingCache(OutputInterface $output): int
     {
         $output->writeln('Warming up the routing cache', OutputInterface::VERBOSITY_VERBOSE);
         Routing::getDispatcher();
@@ -81,7 +81,7 @@ final class CacheWarmupCommand extends Command
         return 0;
     }
 
-    public function warmUpTwigCache(OutputInterface $output): int
+    private function warmUpTwigCache(OutputInterface $output): int
     {
         global $cfg, $PMA_Config, $dbi;
 
