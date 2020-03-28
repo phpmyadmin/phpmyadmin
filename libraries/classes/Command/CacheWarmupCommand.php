@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Command;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Routing;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Twig\CoreExtension;
 use PhpMyAdmin\Twig\I18nExtension;
@@ -41,13 +42,50 @@ final class CacheWarmupCommand extends Command
     protected function configure(): void
     {
         $this->setDescription('Warms up the Twig templates cache');
+        $this->addOption('twig', null, null, 'Warm up twig templates cache.');
+        $this->addOption('routing', null, null, 'Warm up routing cache.');
         $this->setHelp('The <info>%command.name%</info> command warms up the cache of the Twig templates.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        if ($input->getOption('twig') === true && $input->getOption('routing') === true) {
+            $output->writeln('Please specify --twig or --routing');
+            return 1;
+        } elseif ($input->getOption('twig') === true) {
+            return $this->warmUpTwigCache($output);
+        } elseif ($input->getOption('routing') === true) {
+            return $this->warmUpRoutingCache($output);
+        } else {
+            $output->writeln('Warming up all caches.', OutputInterface::VERBOSITY_VERBOSE);
+            $twigCode = $this->warmUptwigCache($output);
+            if ($twigCode !== 0) {
+                $output->writeln('Twig cache generation had an error.');
+                return $twigCode;
+            }
+            $routingCode = $this->warmUpTwigCache($output);
+            if ($routingCode !== 0) {
+                $output->writeln('Routing cache generation had an error.');
+                return $twigCode;
+            }
+            $output->writeln('Warm up of all caches done.', OutputInterface::VERBOSITY_VERBOSE);
+            return 0;
+        }
+    }
+
+    private function warmUpRoutingCache(OutputInterface $output): int
+    {
+        $output->writeln('Warming up the routing cache', OutputInterface::VERBOSITY_VERBOSE);
+        Routing::getDispatcher();
+        $output->writeln('Warm up done.', OutputInterface::VERBOSITY_VERBOSE);
+        return 0;
+    }
+
+    private function warmUpTwigCache(OutputInterface $output): int
+    {
         global $cfg, $PMA_Config, $dbi;
 
+        $output->writeln('Warming up the twig cache', OutputInterface::VERBOSITY_VERBOSE);
         $cfg['environment'] = 'production';
         $PMA_Config = new Config(CONFIG_FILE);
         $PMA_Config->set('environment', $cfg['environment']);
@@ -77,12 +115,15 @@ final class CacheWarmupCommand extends Command
         /** @var CacheInterface $twigCache */
         $twigCache = $twig->getCache(false);
 
+        $output->writeln('Searching for files...', OutputInterface::VERBOSITY_VERY_VERBOSE);
+
         $replacements = [];
         $templates = new RecursiveIteratorIterator(
             new RecursiveDirectoryIterator($tplDir),
             RecursiveIteratorIterator::LEAVES_ONLY
         );
 
+        $output->writeln('Warming templates', OutputInterface::VERBOSITY_VERY_VERBOSE);
         foreach ($templates as $file) {
             // Skip test files
             if (strpos($file->getPathname(), '/test/') !== false) {
@@ -91,6 +132,7 @@ final class CacheWarmupCommand extends Command
             // force compilation
             if ($file->isFile() && $file->getExtension() === 'twig') {
                 $name = str_replace($tplDir . '/', '', $file->getPathname());
+                $output->writeln('Loading: ' . $name, OutputInterface::VERBOSITY_DEBUG);
                 $template = $twig->loadTemplate($name);
 
                 // Generate line map
@@ -101,6 +143,7 @@ final class CacheWarmupCommand extends Command
             }
         }
 
+        $output->writeln('Writing replacements...', OutputInterface::VERBOSITY_VERY_VERBOSE);
         // Store replacements in JSON
         $handle = fopen($tmpDir . '/replace.json', 'w');
         if ($handle === false) {
@@ -109,6 +152,7 @@ final class CacheWarmupCommand extends Command
 
         fwrite($handle, (string) json_encode($replacements));
         fclose($handle);
+        $output->writeln('Warm up done.', OutputInterface::VERBOSITY_VERBOSE);
 
         return 0;
     }

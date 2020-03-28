@@ -25,6 +25,7 @@
             <exclude>
                 <directory>examples</directory>
                 <directory>node_modules</directory>
+                <directory>libraries/cache</directory>
                 <directory>test</directory>
                 <directory>tmp</directory>
                 <directory>vendor</directory>

@@ -80,7 +80,7 @@ while [ $# -gt 0 ] ; do
                     exit 1
                 fi
             elif [ -z "$branch" ] ; then
-                branch=`echo $1 | tr -d -c '0-9A-Za-z_-'`
+                branch=`echo $1 | tr -d -c '/0-9A-Za-z_-'`
                 if [ "x$branch" != "x$1" ] ; then
                     echo "Invalid branch: $1"
                     exit 1
@@ -218,11 +218,8 @@ echo "* Removing unneeded files"
 # Remove developer information
 rm -rf .github
 
-# Remove phpcs coding standard definition
-rm -rf PMAStandard
-
 # Testsuite setup
-rm -f .travis.yml .coveralls.yml .scrutinizer.yml .jshintrc .weblate codecov.yml
+rm -f .travis.yml .scrutinizer.yml .jshintrc .weblate codecov.yml
 
 # Remove readme for github
 rm -f README.rst
@@ -243,7 +240,7 @@ if [ ! -d libraries/tcpdf ] ; then
     cp composer.json composer.json.backup
     echo "* Running composer"
     composer config platform.php "$PHP_REQ"
-    composer update --no-dev
+    composer update --no-dev --optimize-autoloader
 
     # Parse the required versions from composer.json
     PACKAGES_VERSIONS=''
@@ -256,7 +253,7 @@ if [ ! -d libraries/tcpdf ] ; then
     do
         PACKAGES_VERSIONS="$PACKAGES_VERSIONS $PACKAGES:`awk "/require-dev/ {printline = 1; print; next } printline" composer.json | grep "$PACKAGES" | awk -F [\\"] '{print $4}'`"
     done
-    composer require --update-no-dev $PACKAGES_VERSIONS
+    composer require --optimize-autoloader --update-no-dev $PACKAGES_VERSIONS
 
     mv composer.json.backup composer.json
     echo "* Cleanup of composer packages"
@@ -304,6 +301,11 @@ fi
 # Remove Bootstrap theme
 rm -rf themes/bootstrap
 
+composer update
+# Warm up the routing cache
+./scripts/console cache:warmup --routing
+composer update --no-dev --optimize-autoloader
+
 # Remove git metadata
 rm .git
 find . -name .gitignore -print0 | xargs -0 -r rm -f
@@ -329,7 +331,7 @@ if [ $do_test -eq 1 ] ; then
     rm -f .phpunit.result.cache
     # Remove libs installed for testing
     rm -rf build
-    composer update --no-dev
+    composer update --no-dev --optimize-autoloader
 fi
 
 
@@ -351,7 +353,7 @@ for kit in $KITS ; do
         # Testsuite
         rm -rf test/
         rm phpunit.xml.* build.xml
-        rm -f .editorconfig .eslintignore .eslintrc.json .stylelintrc.json phpstan.neon.dist phpcs.xml.dist
+        rm -f .editorconfig .eslintignore .jshintrc .eslintrc.json .stylelintrc.json phpstan.neon.dist phpstan-baseline.neon phpcs.xml.dist
         # Gettext po files
         rm -rf po/
         # Documentation source code

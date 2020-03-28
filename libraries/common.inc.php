@@ -40,6 +40,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\MoTranslator\Loader;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Routing;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Session;
 use PhpMyAdmin\SqlParser\Lexer;
@@ -50,7 +51,7 @@ use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
 
-global $containerBuilder, $error_handler, $PMA_Config, $server, $dbi, $lang, $cfg, $isConfigLoading, $auth_plugin;
+global $containerBuilder, $error_handler, $PMA_Config, $server, $dbi, $lang, $cfg, $isConfigLoading, $auth_plugin, $route;
 
 /**
  * block attempts to directly run this script
@@ -94,6 +95,14 @@ if (! @is_readable(AUTOLOAD_FILE)) {
     );
 }
 require_once AUTOLOAD_FILE;
+
+$route = Routing::getCurrentRoute();
+
+if ($route === '/import-status') {
+    // phpcs:disable PSR1.Files.SideEffects
+    define('PMA_MINIMUM_COMMON', true);
+    // phpcs:enable
+}
 
 $containerBuilder = new ContainerBuilder();
 $loader = new PhpFileLoader($containerBuilder, new FileLocator(__DIR__));
