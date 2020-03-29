@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-24 23:04+0100\n"
-"PO-Revision-Date: 2019-04-16 19:05+0000\n"
+"PO-Revision-Date: 2020-03-30 06:26+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
+"et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6-dev\n"
+"X-Generator: Weblate 4.0-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -1941,10 +1941,8 @@ msgid "%d object(s) created."
 msgstr "Loodi %d objekt(i)."
 
 #: js/messages.php:591
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
-msgstr "Veergude nimed"
+msgstr "Veeru nimi"
 
 #: js/messages.php:592 libraries/classes/SqlQueryForm.php:430
 msgid "Submit"
@@ -2306,12 +2304,11 @@ msgid "Failed security key activation (%s)."
 msgstr "Turvavõtme aktiveerimine nurjus (%s)."
 
 #: js/messages.php:766
-#, fuzzy, php-format
-#| msgid "Table %s already exists!"
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
-msgstr "%s tabel on juba olemas!"
+msgstr "Tabel %s on juba olemas!"
 
 #: js/messages.php:767 libraries/classes/InsertEdit.php:304
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:56
@@ -2599,7 +2596,7 @@ msgstr "Palun sisesta korrektne kuupäev"
 
 #: js/messages.php:942
 msgid "Please enter a valid date ( ISO )"
-msgstr "Palun sisesta korrektne kuupäev (ISO)"
+msgstr "Palun sisesta korrektne kuupäev (ISO vorming)"
 
 #: js/messages.php:944
 msgid "Please enter a valid number"
@@ -3191,12 +3188,9 @@ msgid "accent-sensitive"
 msgstr "diakriitikute tundlik"
 
 #: libraries/classes/Charsets/Collation.php:524
-#, fuzzy
-#| msgctxt "Collation variant"
-#| msgid "accent-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "diakriitikute tundlik"
+msgstr "katakana tundlik"
 
 #: libraries/classes/Charsets/Collation.php:528
 msgctxt "Collation variant"
@@ -3211,7 +3205,7 @@ msgstr "binaarne"
 #: libraries/classes/Charsets/Collation.php:534
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "täiendusteta"
 
 #: libraries/classes/Config/Descriptions.php:69
 msgid ""
@@ -3698,10 +3692,8 @@ msgstr "Nime võti"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:557
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #: templates/database/data_dictionary/index.twig:25
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media (MIME) type"
-msgstr "MIME-tüüp"
+msgstr "Meedia (MIME) tüüp"
 
 #: libraries/classes/Config/Descriptions.php:219
 #: libraries/classes/Config/Descriptions.php:231
@@ -4896,16 +4888,12 @@ msgid "Bookmark table"
 msgstr "Järjehoidja tabel"
 
 #: libraries/classes/Config/Descriptions.php:616
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: "
-#| "[kbd]pma__column_info[/kbd]."
 msgid ""
 "Leave blank for no column comments/media (MIME) types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Jäta tühjaks, kui puuduvad kommentaarid/mime-tüübid, soovitatav: "
-"[kbd]pma__column_info[/kbd]."
+"Jäta tühjaks veerukommentaaride/meedia (MIME) tüüpide keelamiseks, "
+"soovitatav: [kbd]pma__column_info[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:619
 msgid "Column information table"
@@ -7419,18 +7407,14 @@ msgid "possible exploit"
 msgstr "võimalik turvaauk"
 
 #: libraries/classes/Database/Designer/Common.php:566
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr ""
-"Häälestuse salvestuskoht ei ole valmis keskse veergude nimekirja "
-"funktsionaalsuse kasutamiseks."
+"phpMyAdmini häälestuse salvestuskoht ei ole seadistatud funksiooniks \"Kuva "
+"võimalused\"."
 
 #: libraries/classes/Database/Designer/Common.php:615
 msgid "Error: relationship already exists."
@@ -8803,8 +8787,8 @@ msgstr "Pluginad"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "Mõjutati %1$d rida."
-msgstr[1] "Mõjutati %1$d rida."
+msgstr[0] "Muudeti %1$d rida."
+msgstr[1] "Muudeti %1$d rida."
 
 #: libraries/classes/Message.php:271
 #, php-format
@@ -8902,10 +8886,8 @@ msgstr ""
 "jõudlust. Kaalu navigeerimispaneelil elementide grupeerimise keelamist."
 
 #: libraries/classes/Navigation/NavigationTree.php:795
-#, fuzzy
-#| msgid "Groups:"
 msgid "Groups"
-msgstr "Grupid:"
+msgstr "Grupid"
 
 #: libraries/classes/Navigation/NavigationTree.php:961
 #, php-format
@@ -9907,10 +9889,8 @@ msgstr "Näita kommentaare"
 #: libraries/classes/Plugins/Export/ExportLatex.php:156
 #: libraries/classes/Plugins/Export/ExportOdt.php:116
 #: libraries/classes/Plugins/Export/ExportSql.php:132
-#, fuzzy
-#| msgid "Display MIME types"
 msgid "Display media (MIME) types"
-msgstr "Näita MIME-tüüpe"
+msgstr "Kuva meedia (MIME) tüüpe"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
 msgid "Put columns names in the first row:"
@@ -10203,10 +10183,8 @@ msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT tabelile"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1910
-#, fuzzy
-#| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA (MIME) TYPES FOR TABLE"
-msgstr "MIME TYPES FOR TABLE"
+msgstr "TABELI MEEDIA (MIME) TÜÜBID"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1933
 msgid "RELATIONSHIPS FOR TABLE"
@@ -10542,18 +10520,6 @@ msgstr ""
 "jätma esimese valiku tühjaks."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:31
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Output/Text_Plain_External.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -10567,15 +10533,15 @@ msgid ""
 "ensure that the output appears all on one line (Default 1)."
 msgstr ""
 "AINULT LINUXILE: Käivitab välise programmi ja söödab ta standardsisendisse "
-"veergude andmed. Tagastab programmi standardväljundi. Vaikimisi on Tidy, et "
-"luua loetav HTML kood. Turvalisuse tõttu pead sa käsitsi muutma faili "
+"veergude andmed. Tagastab programmi standardväljundi. Vaikeväärtus on Tidy, "
+"et luua loetav HTML kood. Turvalisuse tõttu pead sa käsitsi muutma faili "
 "libraries/classes/Plugins/Transformations/Output/Text_Plain_External.php ja "
 "loetlema võimalikud vahendid, mida kasutada. Esimene parameeter on "
-"kasutatava programmi number ja teine programmi enda parameetrid. Kolmas "
-"parameeter, kui ta on 1, teostab väljundi teisendamise funktsiooni "
-"htmlspecialchars() abil (vaikimisi on 1). Neljas parameeter, kui on 1, "
-"keelab ridade murdmise ja kindlustab, et väljund on täielikult ainult ühel "
-"real (vaikimisi on 1)."
+"kasutatava programmi number. Teine parameeter peaks ajaloolistel põhjustel "
+"olema tühi. Kolmas parameeter, kui ta on 1, teisendab väljundit "
+"funktsiooniga htmlspecialchars() (vaikeväärtus on 1). Neljas parameeter, kui "
+"on 1, keelab ridade murdmise ja kindlustab, et väljund on täielikult ainult "
+"ühel real (vaikeväärtus on 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:117
 #, php-format
@@ -10584,6 +10550,9 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"Sa kasutad välise transformaatori käsurea parameetrite välja, mis ei ole "
+"turvalisuse kaalutlustel soovitatav. Lisa kõik käsurea parameetrid otse %s "
+"definitsiooni."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:31
 msgid ""
@@ -13226,7 +13195,7 @@ msgstr "mitte kumbki ülal nimetatuist"
 
 #: libraries/db_common.inc.php:153 tbl_operations.php:243
 msgid "No collation provided."
-msgstr ""
+msgstr "Järjestamise reeglid puuduvad."
 
 #: libraries/mult_submits.inc.php:59
 #: templates/database/structure/check_all_tables.twig:2
@@ -13268,10 +13237,8 @@ msgid "View dump (schema) of databases"
 msgstr "Vaata andmebaaside tõmmist (skeemi)"
 
 #: server_privileges.php:89
-#, fuzzy
-#| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
-msgstr "Lubab kustutada andmeid."
+msgstr "Lubab ajalooliste ridade kustutamise."
 
 #: server_privileges.php:160 server_user_groups.php:44
 msgid "No Privileges"
@@ -13322,10 +13289,8 @@ msgstr "Vigane tabeli nimi"
 
 #. l10n: In case a SQL query did not pass a security check
 #: tbl_get_field.php:62
-#, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
-msgstr "Siin on liiga palju ilma indeksiteta liitmisi."
+msgstr "Su päring ei läbinud turvalisuse kontrolli."
 
 #: tbl_replace.php:266
 #, php-format
@@ -13762,10 +13727,9 @@ msgid "See table structure"
 msgstr "Vaata tabeli struktuuri"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "Vali kõik"
+msgstr "Vali \"%s\""
 
 #: templates/database/designer/database_tables.twig:109
 #, php-format
@@ -14071,7 +14035,7 @@ msgstr "Summa"
 
 #: templates/database/structure/check_all_tables.twig:6
 msgid "Check tables having overhead"
-msgstr "Kontrolli ballastiga  tabeleid"
+msgstr "Kontrolli ballastiga tabeleid"
 
 #: templates/database/structure/check_all_tables.twig:10
 msgid "Copy table"
@@ -14861,10 +14825,8 @@ msgid "An error has occurred while loading the navigation display"
 msgstr "Navigeerimiskuva laadimisel toimus viga"
 
 #: templates/navigation/main.twig:89
-#, fuzzy
-#| msgid "SQL dump"
 msgid "SQL upload"
-msgstr "SQL tõmmis"
+msgstr "SQL üleslaadimine"
 
 #: templates/preferences/autoload.twig:7
 msgid ""
@@ -15135,26 +15097,20 @@ msgid "Author"
 msgstr "Autor"
 
 #: templates/server/plugins/index.twig:37
-#, fuzzy
-#| msgid "active"
 msgid "inactive"
-msgstr "aktiivne"
+msgstr "mitte aktiivne"
 
 #: templates/server/plugins/index.twig:39
 msgid "disabled"
 msgstr "keelatud"
 
 #: templates/server/plugins/index.twig:41
-#, fuzzy
-#| msgid "Deleting"
 msgid "deleting"
-msgstr "Kustutamine"
+msgstr "kustutatakse"
 
 #: templates/server/plugins/index.twig:43
-#, fuzzy
-#| msgid "Delete"
 msgid "deleted"
-msgstr "Kustuta"
+msgstr "kustutatud"
 
 #: templates/server/privileges/add_user_fieldset.twig:2
 msgctxt "Create new user"
@@ -16245,10 +16201,8 @@ msgid "Edit partitioning"
 msgstr "Muuda partitsioneerimist"
 
 #: templates/table/structure/display_structure.twig:70
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media (MIME) type:"
-msgstr "MIME-tüüp"
+msgstr "Meedia (MIME) tüüp:"
 
 #: templates/table/structure/display_structure.twig:91
 #: templates/table/tracking/structure_snapshot_columns.twig:47
@@ -16412,10 +16366,8 @@ msgid "Click to toggle"
 msgstr "Muuda"
 
 #: templates/transformation_overview.twig:1
-#, fuzzy
-#| msgid "Available MIME types"
 msgid "Available media (MIME) types"
-msgstr "Saadavalolevad MIME-tüübid"
+msgstr "Saadavalolevad meedia (MIME) tüübid"
 
 #: templates/transformation_overview.twig:13
 msgid "Available browser display transformations"
@@ -16423,8 +16375,6 @@ msgstr "Saadavalolevad veebilehitseja kuva transformatsioonid"
 
 #: templates/transformation_overview.twig:19
 #: templates/transformation_overview.twig:38
-#, fuzzy
-#| msgid "Description"
 msgctxt "for media (MIME) type transformation"
 msgid "Description"
 msgstr "Kirjeldus"
