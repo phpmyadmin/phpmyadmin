@@ -564,15 +564,14 @@ class Index
     /**
      * Show index data
      *
-     * @param string $table      The table name
-     * @param string $schema     The schema name
-     * @param bool   $print_mode Whether the output is for the print mode
+     * @param string $table  The table name
+     * @param string $schema The schema name
      *
      * @return string HTML for showing index
      *
      * @access public
      */
-    public static function getHtmlForIndexes($table, $schema, $print_mode = false)
+    public static function getHtmlForIndexes($table, $schema)
     {
         $indexes = self::getFromTable($table, $schema);
 
@@ -581,32 +580,27 @@ class Index
         $no_indexes .= Message::notice(__('No index defined!'))->getDisplay();
         $no_indexes .= '</div>';
 
-        if (! $print_mode) {
-            $r  = '<fieldset class="index_info">';
-            $r .= '<legend id="index_header">' . __('Indexes');
-            $r .= MySQLDocumentation::show('optimizing-database-structure');
+        $r  = '<fieldset class="index_info">';
+        $r .= '<legend id="index_header">' . __('Indexes');
+        $r .= MySQLDocumentation::show('optimizing-database-structure');
 
-            $r .= '</legend>';
-            $r .= $no_indexes;
-            if (count($indexes) < 1) {
-                $r .= '</fieldset>';
-                return $r;
-            }
-            $r .= self::findDuplicates($table, $schema);
-        } else {
-            $r  = '<h3>' . __('Indexes') . '</h3>';
-            $r .= $no_indexes;
-            if (count($indexes) < 1) {
-                return $r;
-            }
+        $r .= '</legend>';
+        $r .= $no_indexes;
+
+        if (count($indexes) < 1) {
+            $r .= '</fieldset>';
+            return $r;
         }
+
+        $r .= self::findDuplicates($table, $schema);
+
         $r .= '<div class="responsivetable jsresponsive">';
         $r .= '<table id="table_index">';
         $r .= '<thead>';
         $r .= '<tr>';
-        if (! $print_mode) {
-            $r .= '<th colspan="2" class="print_ignore">' . __('Action') . '</th>';
-        }
+
+        $r .= '<th colspan="2" class="print_ignore">' . __('Action') . '</th>';
+
         $r .= '<th>' . __('Keyname') . '</th>';
         $r .= '<th>' . __('Type') . '</th>';
         $r .= '<th>' . __('Unique') . '</th>';
@@ -624,56 +618,50 @@ class Index
             $r .= '<tbody class="row_span">';
             $r .= '<tr class="noclick" >';
 
-            if (! $print_mode) {
-                $this_params = $GLOBALS['url_params'];
-                $this_params['index'] = $index->getName();
-                $r .= '<td class="edit_index print_ignore';
-                $r .= ' ajax';
-                $r .= '" ' . $row_span . '>'
-                   . '    <a class="';
-                $r .= 'ajax';
-                $r .= '" href="' . Url::getFromRoute('/table/indexes') . '" data-post="' . Url::getCommon($this_params, '')
-                   . '">' . Generator::getIcon('b_edit', __('Edit')) . '</a>'
-                   . '</td>' . "\n";
-                $this_params = $GLOBALS['url_params'];
-                if ($index->getName() == 'PRIMARY') {
-                    $this_params['sql_query'] = 'ALTER TABLE '
-                        . Util::backquote($table)
-                        . ' DROP PRIMARY KEY;';
-                    $this_params['message_to_show']
-                        = __('The primary key has been dropped.');
-                    $js_msg = Sanitize::jsFormat($this_params['sql_query'], false);
-                } else {
-                    $this_params['sql_query'] = 'ALTER TABLE '
-                        . Util::backquote($table) . ' DROP INDEX '
-                        . Util::backquote($index->getName()) . ';';
-                    $this_params['message_to_show'] = sprintf(
-                        __('Index %s has been dropped.'),
-                        htmlspecialchars($index->getName())
-                    );
-                    $js_msg = Sanitize::jsFormat($this_params['sql_query'], false);
-                }
+            $this_params = $GLOBALS['url_params'];
+            $this_params['index'] = $index->getName();
+            $r .= '<td class="edit_index print_ignore';
+            $r .= ' ajax';
+            $r .= '" ' . $row_span . '>'
+               . '    <a class="';
+            $r .= 'ajax';
+            $r .= '" href="' . Url::getFromRoute('/table/indexes') . '" data-post="' . Url::getCommon($this_params, '')
+               . '">' . Generator::getIcon('b_edit', __('Edit')) . '</a>'
+               . '</td>' . "\n";
+            $this_params = $GLOBALS['url_params'];
 
-                $r .= '<td ' . $row_span . ' class="print_ignore">';
-                $r .= '<input type="hidden" class="drop_primary_key_index_msg"'
-                    . ' value="' . $js_msg . '">';
-                $r .= Generator::linkOrButton(
-                    Url::getFromRoute('/sql', $this_params),
-                    Generator::getIcon('b_drop', __('Drop')),
-                    ['class' => 'drop_primary_key_index_anchor ajax']
-                );
-                $r .= '</td>' . "\n";
-            }
-
-            if (! $print_mode) {
-                $r .= '<th ' . $row_span . '>'
-                    . htmlspecialchars($index->getName())
-                    . '</th>';
+            if ($index->getName() == 'PRIMARY') {
+                $this_params['sql_query'] = 'ALTER TABLE '
+                    . Util::backquote($table)
+                    . ' DROP PRIMARY KEY;';
+                $this_params['message_to_show']
+                    = __('The primary key has been dropped.');
+                $js_msg = Sanitize::jsFormat($this_params['sql_query'], false);
             } else {
-                $r .= '<td ' . $row_span . '>'
-                    . htmlspecialchars($index->getName())
-                    . '</td>';
+                $this_params['sql_query'] = 'ALTER TABLE '
+                    . Util::backquote($table) . ' DROP INDEX '
+                    . Util::backquote($index->getName()) . ';';
+                $this_params['message_to_show'] = sprintf(
+                    __('Index %s has been dropped.'),
+                    htmlspecialchars($index->getName())
+                );
+                $js_msg = Sanitize::jsFormat($this_params['sql_query'], false);
             }
+
+            $r .= '<td ' . $row_span . ' class="print_ignore">';
+            $r .= '<input type="hidden" class="drop_primary_key_index_msg"'
+                . ' value="' . $js_msg . '">';
+            $r .= Generator::linkOrButton(
+                Url::getFromRoute('/sql', $this_params),
+                Generator::getIcon('b_drop', __('Drop')),
+                ['class' => 'drop_primary_key_index_anchor ajax']
+            );
+            $r .= '</td>' . "\n";
+
+            $r .= '<th ' . $row_span . '>'
+                . htmlspecialchars($index->getName())
+                . '</th>';
+
             $r .= '<td ' . $row_span . '>';
             $type = $index->getType();
             if (! empty($type)) {
@@ -715,9 +703,8 @@ class Index
         } // end while
         $r .= '</table>';
         $r .= '</div>';
-        if (! $print_mode) {
-            $r .= '</fieldset>';
-        }
+
+        $r .= '</fieldset>';
 
         return $r;
     }

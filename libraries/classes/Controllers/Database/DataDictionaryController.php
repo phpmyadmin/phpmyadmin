@@ -119,22 +119,13 @@ class DataDictionaryController extends AbstractController
                 ];
             }
 
-            $indexesTable = '';
-            if (count(Index::getFromTable($tableName, $this->db)) > 0) {
-                $indexesTable = Index::getHtmlForIndexes(
-                    $tableName,
-                    $this->db,
-                    true
-                );
-            }
-
             $tables[$tableName] = [
                 'name' => $tableName,
                 'comment' => $showComment,
                 'has_relation' => $hasRelation,
                 'has_mime' => $cfgRelation['mimework'],
                 'columns' => $rows,
-                'indexes_table' => $indexesTable,
+                'indexes' => Index::getFromTable($tableName, $this->db),
             ];
         }
 
