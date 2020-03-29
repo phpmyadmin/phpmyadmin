@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2019-08-25 09:23+0000\n"
+"PO-Revision-Date: 2020-03-30 06:26+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "et/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9-dev\n"
+"X-Generator: Weblate 4.0-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -2360,10 +2360,8 @@ msgid "%d object(s) created."
 msgstr "Loodi %d objekt(i)."
 
 #: js/messages.php:582
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
-msgstr "Veergude nimed"
+msgstr "Veeru nimi"
 
 #: js/messages.php:583 libraries/classes/SqlQueryForm.php:419
 msgid "Submit"
@@ -2994,7 +2992,7 @@ msgstr "Palun sisesta korrektne kuupäev"
 
 #: js/messages.php:934
 msgid "Please enter a valid date ( ISO )"
-msgstr "Palun sisesta korrektne kuupäev (ISO)"
+msgstr "Palun sisesta korrektne kuupäev (ISO vorming)"
 
 #: js/messages.php:936
 msgid "Please enter a valid number"
@@ -6827,18 +6825,14 @@ msgid "Could not load schema plugins, please check your installation!"
 msgstr "Skeemi pluginaid ei suudetud laadida, palun kontrolli oma paigaldust!"
 
 #: libraries/classes/Database/Designer/Common.php:518
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr ""
-"Häälestuse salvestuskoht ei ole valmis keskse veergude nimekirja "
-"funktsionaalsuse kasutamiseks."
+"phpMyAdmini häälestuse salvestuskoht ei ole seadistatud funksiooniks \"Kuva "
+"võimalused\"."
 
 #: libraries/classes/Database/Designer/Common.php:565
 msgid "Error: relationship already exists."
@@ -8206,8 +8200,8 @@ msgstr "Pluginad"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "Mõjutati %1$d rida."
-msgstr[1] "Mõjutati %1$d rida."
+msgstr[0] "Muudeti %1$d rida."
+msgstr[1] "Muudeti %1$d rida."
 
 #: libraries/classes/Message.php:266
 #, php-format
@@ -13855,7 +13849,7 @@ msgstr "mitte kumbki ülal nimetatuist"
 
 #: libraries/db_common.inc.php:151 tbl_operations.php:224
 msgid "No collation provided."
-msgstr "Sortimine puudub."
+msgstr "Järjestamise reeglid puuduvad."
 
 #: libraries/mult_submits.inc.php:337
 msgid "Success!"
@@ -15305,10 +15299,9 @@ msgid "See table structure"
 msgstr "Vaata tabeli struktuuri"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "Vali kõik"
+msgstr "Vali \"%s\""
 
 #: templates/database/designer/database_tables.twig:126
 #, php-format
@@ -15546,7 +15539,7 @@ msgstr "Vali veerg, mida näidata:"
 
 #: templates/database/structure/check_all_tables.twig:6
 msgid "Check tables having overhead"
-msgstr "Kontrolli ballastiga  tabeleid"
+msgstr "Kontrolli ballastiga tabeleid"
 
 #: templates/database/structure/check_all_tables.twig:10
 msgid "Copy table"
