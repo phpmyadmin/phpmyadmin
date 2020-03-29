@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-24 23:08+0100\n"
-"PO-Revision-Date: 2019-08-25 09:23+0000\n"
+"PO-Revision-Date: 2020-03-30 06:26+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/et/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9-dev\n"
+"X-Generator: Weblate 4.0-dev\n"
 
 #: index.php:54
 #, php-format
@@ -1680,10 +1680,8 @@ msgid "%d object(s) created."
 msgstr "Loodi %d objekt(i)."
 
 #: js/messages.php:552
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
-msgstr "Veergude nimed"
+msgstr "Veeru nimi"
 
 #: js/messages.php:553 templates/sql/query.twig:163
 msgid "Submit"
@@ -2651,7 +2649,7 @@ msgstr "täiendusteta"
 #: libraries/classes/Common.php:173
 #: libraries/classes/Controllers/Table/OperationsController.php:263
 msgid "No collation provided."
-msgstr "Sortimine puudub."
+msgstr "Järjestamise reeglid puuduvad."
 
 #: libraries/classes/Config/Descriptions.php:67
 msgid ""
@@ -7318,10 +7316,8 @@ msgstr "Vigane tabeli nimi"
 
 #. l10n: In case a SQL query did not pass a security check
 #: libraries/classes/Controllers/Table/GetFieldController.php:51
-#, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
-msgstr "Siin on liiga palju ilma indeksiteta liitmisi."
+msgstr "Su päring ei läbinud turvalisuse kontrolli."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:64
 #: libraries/classes/Import.php:151 libraries/classes/InsertEdit.php:218
@@ -7532,18 +7528,14 @@ msgid "possible exploit"
 msgstr "võimalik turvaauk"
 
 #: libraries/classes/Database/Designer/Common.php:562
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr ""
-"Häälestuse salvestuskoht ei ole valmis keskse veergude nimekirja "
-"funktsionaalsuse kasutamiseks."
+"phpMyAdmini häälestuse salvestuskoht ei ole seadistatud funksiooniks \"Kuva "
+"võimalused\"."
 
 #: libraries/classes/Database/Designer/Common.php:611
 msgid "Error: relationship already exists."
@@ -8959,8 +8951,8 @@ msgstr "Pluginad"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "Mõjutati %1$d rida."
-msgstr[1] "Mõjutati %1$d rida."
+msgstr[0] "Muudeti %1$d rida."
+msgstr[1] "Muudeti %1$d rida."
 
 #: libraries/classes/Message.php:275
 #, php-format
@@ -10492,18 +10484,6 @@ msgstr ""
 "jätma esimese valiku tühjaks."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:34
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Output/Text_Plain_External.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -10517,15 +10497,15 @@ msgid ""
 "ensure that the output appears all on one line (Default 1)."
 msgstr ""
 "AINULT LINUXILE: Käivitab välise programmi ja söödab ta standardsisendisse "
-"veergude andmed. Tagastab programmi standardväljundi. Vaikimisi on Tidy, et "
-"luua loetav HTML kood. Turvalisuse tõttu pead sa käsitsi muutma faili "
+"veergude andmed. Tagastab programmi standardväljundi. Vaikeväärtus on Tidy, "
+"et luua loetav HTML kood. Turvalisuse tõttu pead sa käsitsi muutma faili "
 "libraries/classes/Plugins/Transformations/Output/Text_Plain_External.php ja "
 "loetlema võimalikud vahendid, mida kasutada. Esimene parameeter on "
-"kasutatava programmi number ja teine programmi enda parameetrid. Kolmas "
-"parameeter, kui ta on 1, teostab väljundi teisendamise funktsiooni "
-"htmlspecialchars() abil (vaikimisi on 1). Neljas parameeter, kui on 1, "
-"keelab ridade murdmise ja kindlustab, et väljund on täielikult ainult ühel "
-"real (vaikimisi on 1)."
+"kasutatava programmi number. Teine parameeter peaks ajaloolistel põhjustel "
+"olema tühi. Kolmas parameeter, kui ta on 1, teisendab väljundit "
+"funktsiooniga htmlspecialchars() (vaikeväärtus on 1). Neljas parameeter, kui "
+"on 1, keelab ridade murdmise ja kindlustab, et väljund on täielikult ainult "
+"ühel real (vaikeväärtus on 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:119
 #, php-format
@@ -10534,6 +10514,9 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"Sa kasutad välise transformaatori käsurea parameetrite välja, mis ei ole "
+"turvalisuse kaalutlustel soovitatav. Lisa kõik käsurea parameetrid otse %s "
+"definitsiooni."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:26
 msgid ""
@@ -13109,10 +13092,9 @@ msgid "See table structure"
 msgstr "Vaata tabeli struktuuri"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "Vali kõik"
+msgstr "Vali \"%s\""
 
 #: templates/database/designer/database_tables.twig:109
 #, php-format
@@ -13598,7 +13580,7 @@ msgstr "Summa"
 
 #: templates/database/structure/check_all_tables.twig:6
 msgid "Check tables having overhead"
-msgstr "Kontrolli ballastiga  tabeleid"
+msgstr "Kontrolli ballastiga tabeleid"
 
 #: templates/database/structure/check_all_tables.twig:10
 msgid "Copy table"
@@ -14506,7 +14488,7 @@ msgstr "Palun sisesta korrektne kuupäev"
 
 #: templates/javascript/variables.twig:95
 msgid "Please enter a valid date ( ISO )"
-msgstr "Palun sisesta korrektne kuupäev (ISO)"
+msgstr "Palun sisesta korrektne kuupäev (ISO vorming)"
 
 #: templates/javascript/variables.twig:96
 msgid "Please enter a valid number"
