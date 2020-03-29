@@ -194,7 +194,7 @@ final class RelationController extends AbstractController
                 'dbi' => $this->dbi,
                 'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
                 'foreignKeySupported' => $foreignKeySupported,
-                'displayIndexesHtml' => $foreignKeySupported ? Index::getHtmlForDisplayIndexes() : null,
+                'indexes_html' => $foreignKeySupported ? Index::getHtmlForIndexes($this->table, $this->db) : null,
                 'route' => $route,
             ])
         );

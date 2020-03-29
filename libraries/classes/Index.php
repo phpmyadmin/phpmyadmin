@@ -562,40 +562,6 @@ class Index
     }
 
     /**
-     * Get HTML for display indexes
-     *
-     * @return string
-     */
-    public static function getHtmlForDisplayIndexes()
-    {
-        $html_output = '<div id="index_div" class="w-100 ajax" >';
-        $html_output .= self::getHtmlForIndexes(
-            $GLOBALS['table'],
-            $GLOBALS['db']
-        );
-        $html_output .= '<fieldset class="tblFooters print_ignore" style="text-align: '
-            . 'left;"><form action="' . Url::getFromRoute('/table/indexes') . '" method="post">';
-        $html_output .= Url::getHiddenInputs(
-            $GLOBALS['db'],
-            $GLOBALS['table']
-        );
-        $html_output .= sprintf(
-            __('Create an index on &nbsp;%s&nbsp;columns'),
-            '<input type="number" name="added_fields" value="1" '
-            . 'min="1" required="required">'
-        );
-        $html_output .= '<input type="hidden" name="create_index" value="1">'
-            . '<input class="btn btn-primary add_index ajax"'
-            . ' type="submit" value="' . __('Go') . '">';
-
-        $html_output .= '</form>'
-            . '</fieldset>'
-            . '</div>';
-
-        return $html_output;
-    }
-
-    /**
      * Show index data
      *
      * @param string $table      The table name

@@ -217,7 +217,24 @@
         <input class="btn btn-primary" type="submit" value="{% trans 'Save' %}">
     </fieldset>
 </form>
+
 {% if foreignKeySupported %}
-    {{ displayIndexesHtml|raw }}
+  <div id="index_div" class="w-100 ajax">
+    {{ indexes_html|raw }}
+
+    <fieldset class="tblFooters print_ignore text-left">
+      <form action="{{ url('/table/indexes') }}" method="post">
+        {{ get_hidden_inputs(db, table) }}
+        <input type="hidden" name="create_index" value="1">
+
+        {% apply format('<input class="mx-2" type="number" name="added_fields" value="1" min="1" required>')|raw %}
+          {% trans %}Create an index on %s columns{% endtrans %}
+        {% endapply %}
+
+        <input class="btn btn-primary add_index ajax" type="submit" value="{% trans 'Go' %}">
+      </form>
+    </fieldset>
+  </div>
 {% endif %}
+
 {% endblock %}

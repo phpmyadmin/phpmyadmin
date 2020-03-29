@@ -1331,7 +1331,7 @@ class StructureController extends AbstractController
             ],
             'collations' => $collations,
             'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
-            'displayIndexesHtml' => Index::getHtmlForDisplayIndexes(),
+            'indexes_html' => Index::getHtmlForIndexes($this->table, $this->db),
             'cfg_relation' => $this->relation->getRelationsParam(),
             'hide_structure_actions' => $hideStructureActions,
             'db' => $this->db,
