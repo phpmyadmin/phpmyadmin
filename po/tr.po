@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-24 23:04+0100\n"
-"PO-Revision-Date: 2020-03-25 18:20+0000\n"
+"PO-Revision-Date: 2020-03-31 00:26+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
 "tr/>\n"
@@ -11898,7 +11898,7 @@ msgstr "Kullanıcı adı:"
 #: templates/server/replication/master_add_slave_user.twig:19
 #: templates/server/replication/master_add_slave_user.twig:24
 msgid "User name"
-msgstr "Kullanıcı Adı"
+msgstr "Kullanıcı adı"
 
 #: libraries/classes/Server/Privileges.php:1647
 #: templates/server/replication/master_add_slave_user.twig:20
@@ -12060,7 +12060,7 @@ msgstr "genel"
 
 #: libraries/classes/Server/Privileges.php:2839
 msgid "database-specific"
-msgstr "Veritabanına özgü"
+msgstr "veritabanına özgü"
 
 #: libraries/classes/Server/Privileges.php:2841
 msgid "wildcard"
