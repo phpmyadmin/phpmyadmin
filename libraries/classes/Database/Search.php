@@ -321,22 +321,8 @@ class Search
      */
     public function getMainHtml()
     {
-        $choices = [
-            '1' => $this->searchTypes[1] . ' '
-                . Generator::showHint(
-                    __('Words are separated by a space character (" ").')
-                ),
-            '2' => $this->searchTypes[2] . ' '
-                . Generator::showHint(
-                    __('Words are separated by a space character (" ").')
-                ),
-            '3' => $this->searchTypes[3],
-            '4' => $this->searchTypes[4],
-            '5' => $this->searchTypes[5] . ' ' . MySQLDocumentation::show('Regexp'),
-        ];
         return $this->template->render('database/search/main', [
             'db' => $this->db,
-            'choices' => $choices,
             'criteria_search_string' => $this->criteriaSearchString,
             'criteria_search_type' => $this->criteriaSearchType,
             'criteria_tables' => $this->criteriaTables,

@@ -144,10 +144,14 @@
         {% endfor %}
       </select>
 
-      {{ get_radio_fields('order', {
-          'ASC': 'Ascending'|trans,
-          'DESC': 'Descending'|trans
-        }, 'ASC', false, true, 'formelement') }}
+      <div class="formelement">
+        <input type="radio" name="order" id="orderByAscRadio" value="ASC" checked>
+        <label for="orderByAscRadio">{% trans 'Ascending' %}</label>
+      </div>
+      <div class="formelement">
+        <input type="radio" name="order" id="orderByDescRadio" value="DESC">
+        <label for="orderByDescRadio">{% trans 'Descending' %}</label>
+      </div>
 
     </fieldset>
     <div class="clearfloat"></div>

@@ -201,11 +201,11 @@ AJAX.registerOnload('table/operations.js', function () {
             $.post($form.attr('action'), submitData, AJAX.responseHandler);
         }
 
-        if ($('#partition_operation_DROP').is(':checked')) {
+        if ($('#partitionOperationRadioDrop').is(':checked')) {
             $form.confirm(Messages.strDropPartitionWarning, $form.attr('action'), function () {
                 submitPartitionMaintenance();
             });
-        } else if ($('#partition_operation_TRUNCATE').is(':checked')) {
+        } else if ($('#partitionOperationRadioTruncate').is(':checked')) {
             $form.confirm(Messages.strTruncatePartitionWarning, $form.attr('action'), function () {
                 submitPartitionMaintenance();
             });

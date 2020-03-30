@@ -2130,7 +2130,7 @@ AJAX.registerOnload('designer/move.js', function () {
         DesignerMove.saveAs();
         $(document).on('ajaxStop', function () {
             $('#selected_value').on('click', function () {
-                $('#save_page_new').prop('checked', true);
+                $('#savePageNewRadio').prop('checked', true);
             });
         });
         return false;

@@ -13,16 +13,27 @@
 
         <fieldset>
             <legend>{% trans 'Find:' %}</legend>
-            {# 4th parameter set to true to add line breaks #}
-            {# 5th parameter set to false to avoid htmlspecialchars() escaping
-            in the label since we have some HTML in some labels #}
-            {{ get_radio_fields(
-                'criteriaSearchType',
-                choices,
-                criteria_search_type,
-                true,
-                false
-            ) }}
+
+            <div>
+              <input type="radio" name="criteriaSearchType" id="criteriaSearchTypeRadio1" value="1"{{ criteria_search_type == '1' ? ' checked' }}>
+              <label for="criteriaSearchTypeRadio1">{% trans 'at least one of the words' %} {{ show_hint('Words are separated by a space character (" ").'|trans) }}</label>
+            </div>
+            <div>
+              <input type="radio" name="criteriaSearchType" id="criteriaSearchTypeRadio2" value="2"{{ criteria_search_type == '2' ? ' checked' }}>
+              <label for="criteriaSearchTypeRadio2">{% trans 'all of the words' %} {{ show_hint('Words are separated by a space character (" ").'|trans) }}</label>
+            </div>
+            <div>
+              <input type="radio" name="criteriaSearchType" id="criteriaSearchTypeRadio3" value="3"{{ criteria_search_type == '3' ? ' checked' }}>
+              <label for="criteriaSearchTypeRadio3">{% trans 'the exact phrase as substring' %}</label>
+            </div>
+            <div>
+              <input type="radio" name="criteriaSearchType" id="criteriaSearchTypeRadio4" value="4"{{ criteria_search_type == '4' ? ' checked' }}>
+              <label for="criteriaSearchTypeRadio4">{% trans 'the exact phrase as whole field' %}</label>
+            </div>
+            <div>
+              <input type="radio" name="criteriaSearchType" id="criteriaSearchTypeRadio5" value="5"{{ criteria_search_type == '5' ? ' checked' }}>
+              <label for="criteriaSearchTypeRadio5">{% trans 'as regular expression' %} {{ show_mysql_docu('Regexp') }}</label>
+            </div>
         </fieldset>
 
         <fieldset>

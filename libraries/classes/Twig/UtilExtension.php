@@ -90,11 +90,6 @@ class UtilExtension extends AbstractExtension
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
-                'get_radio_fields',
-                '\PhpMyAdmin\Html\Forms\Fields\RadioList::generate',
-                ['is_safe' => ['html']]
-            ),
-            new TwigFunction(
                 'get_select_upload_file_block',
                 '\PhpMyAdmin\Html\Forms\Fields\DropDownUploadFileBlock::generate',
                 ['is_safe' => ['html']]

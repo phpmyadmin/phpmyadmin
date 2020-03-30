@@ -919,18 +919,22 @@ class Normalization
             . __('Improve table structure (Normalization):') . '</legend>';
         $htmlOutput .= '<h3>' . __('Select up to what step you want to normalize')
             . '</h3>';
-        $choices = [
-            '1nf' => __('First step of normalization (1NF)'),
-            '2nf'      => __('Second step of normalization (1NF+2NF)'),
-            '3nf'  => __('Third step of normalization (1NF+2NF+3NF)'),
-        ];
 
-        $htmlOutput .= Html\Forms\Fields\RadioList::generate(
-            'normalizeTo',
-            $choices,
-            '1nf',
-            true
-        );
+        $htmlOutput .= '<div><input type="radio" name="normalizeTo" id="normalizeToRadio1" value="1nf" checked>';
+        $htmlOutput .= ' <label for="normalizeToRadio1">';
+        $htmlOutput .= __('First step of normalization (1NF)');
+        $htmlOutput .= '</label></div>';
+
+        $htmlOutput .= '<div><input type="radio" name="normalizeTo" id="normalizeToRadio2" value="2nf">';
+        $htmlOutput .= ' <label for="normalizeToRadio2">';
+        $htmlOutput .= __('Second step of normalization (1NF+2NF)');
+        $htmlOutput .= '</label></div>';
+
+        $htmlOutput .= '<div><input type="radio" name="normalizeTo" id="normalizeToRadio3" value="3nf">';
+        $htmlOutput .= ' <label for="normalizeToRadio3">';
+        $htmlOutput .= __('Third step of normalization (1NF+2NF+3NF)');
+        $htmlOutput .= '</label></div>';
+
         $htmlOutput .= '</fieldset><fieldset class="tblFooters">'
             . "<span class='floatleft'>" . __(
                 'Hint: Please follow the procedure carefully in order '
