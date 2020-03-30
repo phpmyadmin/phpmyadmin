@@ -67,11 +67,6 @@ class UtilExtension extends AbstractExtension
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
-                'get_dropdown',
-                '\PhpMyAdmin\Html\Forms\Fields\DropDown::generate',
-                ['is_safe' => ['html']]
-            ),
-            new TwigFunction(
                 'get_fk_checkbox',
                 '\PhpMyAdmin\Html\Forms\Fields\FKCheckbox::generate',
                 ['is_safe' => ['html']]

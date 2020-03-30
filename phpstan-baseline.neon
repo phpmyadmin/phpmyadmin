@@ -5001,11 +5001,6 @@ parameters:
 			path: test/classes/Gis/GisPolygonTest.php
 
 		-
-			message: "#^Parameter \\#3 \\$active_choice of static method PhpMyAdmin\\\\Html\\\\Forms\\\\Fields\\\\DropDown\\:\\:generate\\(\\) expects string, null given\\.$#"
-			count: 2
-			path: test/classes/Html/Forms/Fields/DropDownTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\Import\\:\\:getColumnNumberFromName\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: test/classes/ImportTest.php

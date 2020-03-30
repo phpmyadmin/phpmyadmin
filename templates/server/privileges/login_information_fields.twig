@@ -72,7 +72,11 @@
     </label>
     <span class="options">&nbsp;</span>
 
-    {{ auth_plugin_dropdown|raw }}
+    <select name="authentication_plugin" id="select_authentication_plugin">
+      {% for plugin_name, plugin_description in active_auth_plugins %}
+        <option value="{{ plugin_name }}"{{ plugin_name == auth_plugin ? ' selected' }}>{{ plugin_description }}</option>
+      {% endfor %}
+    </select>
 
     <div id="ssl_reqd_warning"{{ auth_plugin != 'sha256_password' ? ' class="hide"' }}>
       {% apply notice %}

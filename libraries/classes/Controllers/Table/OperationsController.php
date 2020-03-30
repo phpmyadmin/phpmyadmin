@@ -8,7 +8,6 @@ use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\SqlController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Html\Forms\Fields\DropDown;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;

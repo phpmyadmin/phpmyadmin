@@ -382,7 +382,7 @@ class PrivilegesTest extends TestCase
 
         // Current user's group selected
         $this->assertStringContainsString(
-            '<option value="userG" selected="selected">userG</option>',
+            '<option value="userG" selected>userG</option>',
             $actualHtml
         );
 
@@ -2072,122 +2072,6 @@ class PrivilegesTest extends TestCase
         ];
         $actual = $this->serverPrivileges->getDbRightsForUserOverview();
         $this->assertEquals($expected, $actual);
-    }
-
-    /**
-     * Test for getHtmlForAuthPluginsDropdown()
-     *
-     * @return void
-     */
-    public function testGetHtmlForAuthPluginsDropdown()
-    {
-        $oldDbi = $GLOBALS['dbi'];
-
-        //Mock DBI
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects($this->any())
-            ->method('query')
-            ->will($this->onConsecutiveCalls(true, true));
-
-        $plugins = [
-            [
-                'PLUGIN_NAME' => 'mysql_native_password',
-                'PLUGIN_DESCRIPTION' => 'Native MySQL authentication',
-            ],
-            [
-                'PLUGIN_NAME' => 'sha256_password',
-                'PLUGIN_DESCRIPTION' => 'SHA256 password authentication',
-            ],
-        ];
-        $dbi->expects($this->any())
-            ->method('fetchAssoc')
-            ->will(
-                $this->onConsecutiveCalls(
-                    $plugins[0],
-                    $plugins[1],
-                    null, /* For Assertion 1 */
-                    $plugins[0],
-                    $plugins[1],
-                    null  /* For Assertion 2 */
-                )
-            );
-        $GLOBALS['dbi'] = $dbi;
-        $this->serverPrivileges->dbi = $dbi;
-
-        /* Assertion 1 */
-        $actualHtml = $this->serverPrivileges->getHtmlForAuthPluginsDropdown(
-            'mysql_native_password',
-            'new',
-            'new'
-        );
-        $this->assertEquals(
-            '<select name="authentication_plugin" id="select_authentication_plugin">'
-            . "\n"
-            . '<option value="mysql_native_password" selected="selected">'
-            . 'Native MySQL authentication</option>'
-            . "\n"
-            . '<option value="sha256_password">'
-            . 'SHA256 password authentication</option>' . "\n" . '</select>'
-            . "\n",
-            $actualHtml
-        );
-
-        /* Assertion 2 */
-        $actualHtml = $this->serverPrivileges->getHtmlForAuthPluginsDropdown(
-            'mysql_native_password',
-            'change_pw',
-            'new'
-        );
-        $this->assertEquals(
-            '<select name="authentication_plugin" '
-            . 'id="select_authentication_plugin_cp">'
-            . "\n" . '<option '
-            . 'value="mysql_native_password" selected="selected">'
-            . 'Native MySQL authentication</option>'
-            . "\n" . '<option value="sha256_password">'
-            . 'SHA256 password authentication</option>' . "\n" . '</select>'
-            . "\n",
-            $actualHtml
-        );
-
-        /* Assertion 3 */
-        $actualHtml = $this->serverPrivileges->getHtmlForAuthPluginsDropdown(
-            'mysql_native_password',
-            'new',
-            'old'
-        );
-        $this->assertEquals(
-            '<select name="authentication_plugin" '
-            . 'id="select_authentication_plugin">'
-            . "\n" . '<option '
-            . 'value="mysql_native_password" selected="selected">'
-            . 'Native MySQL authentication</option>' . "\n" . '</select>'
-            . "\n",
-            $actualHtml
-        );
-
-        /* Assertion 4 */
-        $actualHtml = $this->serverPrivileges->getHtmlForAuthPluginsDropdown(
-            'mysql_native_password',
-            'change_pw',
-            'old'
-        );
-        $this->assertEquals(
-            '<select name="authentication_plugin" '
-            . 'id="select_authentication_plugin_cp">'
-            . "\n"
-            . '<option value="mysql_native_password" selected="selected">'
-            . 'Native MySQL authentication</option>'
-            . "\n" . '</select>'
-            . "\n",
-            $actualHtml
-        );
-
-        // Restore old DBI
-        $GLOBALS['dbi'] = $oldDbi;
-        $this->serverPrivileges->dbi = $oldDbi;
     }
 
     /**

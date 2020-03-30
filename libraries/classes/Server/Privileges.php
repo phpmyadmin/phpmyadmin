@@ -9,7 +9,6 @@ namespace PhpMyAdmin\Server;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\ChangePassword;
-use PhpMyAdmin\Html\Forms\Fields\DropDown;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Message;
@@ -568,7 +567,7 @@ class Privileges
             );
         }
 
-        $allUserGroups = ['' => ''];
+        $allUserGroups = [];
         $sql_query = 'SELECT DISTINCT `usergroup` FROM ' . $groupTable;
         $result = $this->relation->queryAsControlUser($sql_query, false);
         if ($result) {
@@ -787,47 +786,6 @@ class Privileges
     /**
      * Gets the currently active authentication plugins
      *
-     * @param string $orig_auth_plugin Default Authentication plugin
-     * @param string $mode             are we creating a new user or are we just
-     *                                 changing  one?
-     *                                 (allowed values: 'new', 'edit', 'change_pw')
-     * @param string $versions         Is MySQL version newer or older than 5.5.7
-     *
-     * @return string
-     */
-    public function getHtmlForAuthPluginsDropdown(
-        $orig_auth_plugin,
-        $mode = 'new',
-        $versions = 'new'
-    ) {
-        $select_id = 'select_authentication_plugin'
-            . ($mode == 'change_pw' ? '_cp' : '');
-
-        if ($versions == 'new') {
-            $active_auth_plugins = $this->getActiveAuthPlugins();
-
-            if (isset($active_auth_plugins['mysql_old_password'])) {
-                unset($active_auth_plugins['mysql_old_password']);
-            }
-        } else {
-            $active_auth_plugins = [
-                'mysql_native_password' => __('Native MySQL authentication'),
-            ];
-        }
-
-        $html_output = DropDown::generate(
-            'authentication_plugin',
-            $active_auth_plugins,
-            $orig_auth_plugin,
-            $select_id
-        );
-
-        return $html_output;
-    }
-
-    /**
-     * Gets the currently active authentication plugins
-     *
      * @return array  array of plugin names and descriptions
      */
     public function getActiveAuthPlugins()
@@ -913,24 +871,15 @@ class Privileges
             $host
         );
 
-        if (($serverType == 'MySQL'
-            && $serverVersion >= 50507)
-            || ($serverType == 'MariaDB'
-            && $serverVersion >= 50200)
-        ) {
-            $isNew = true;
-            $authPluginDropdown = $this->getHtmlForAuthPluginsDropdown(
-                $authPlugin,
-                $mode,
-                'new'
-            );
-        } else {
-            $isNew = false;
-            $authPluginDropdown = $this->getHtmlForAuthPluginsDropdown(
-                $authPlugin,
-                $mode,
-                'old'
-            );
+        $isNew = ($serverType == 'MySQL' && $serverVersion >= 50507)
+            || ($serverType == 'MariaDB' && $serverVersion >= 50200);
+
+        $activeAuthPlugins = ['mysql_native_password' => __('Native MySQL authentication')];
+        if ($isNew) {
+            $activeAuthPlugins = $this->getActiveAuthPlugins();
+            if (isset($activeAuthPlugins['mysql_old_password'])) {
+                unset($activeAuthPlugins['mysql_old_password']);
+            }
         }
 
         return $this->template->render('server/privileges/login_information_fields', [
@@ -944,7 +893,7 @@ class Privileges
             'this_host' => $thisHost,
             'is_change' => $mode === 'change',
             'auth_plugin' => $authPlugin,
-            'auth_plugin_dropdown' => $authPluginDropdown,
+            'active_auth_plugins' => $activeAuthPlugins,
             'is_new' => $isNew,
         ]);
     }
