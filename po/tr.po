@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-30 21:49+0200\n"
-"PO-Revision-Date: 2020-03-25 18:20+0000\n"
+"PO-Revision-Date: 2020-03-31 00:26+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -15190,10 +15190,8 @@ msgid "User group"
 msgstr "Kullanıcı grubu"
 
 #: templates/server/privileges/choose_user_group.twig:6
-#, fuzzy
-#| msgid "User group"
 msgid "User group:"
-msgstr "Kullanıcı grubu"
+msgstr "Kullanıcı grubu:"
 
 #: templates/server/privileges/edit_routine_privileges.twig:4
 #: templates/server/privileges/user_properties.twig:4
@@ -16525,11 +16523,9 @@ msgid "Alter table order by"
 msgstr "Tablo sıralamasını şuna göre değiştir"
 
 #: templates/table/operations/index.twig:20
-#, fuzzy
-#| msgid "(singly)"
 msgctxt "Alter table order by a single field."
 msgid "(singly)"
-msgstr "(birer birer)"
+msgstr "(tek başına)"
 
 #: templates/table/operations/index.twig:50
 msgid "Move table to (database.table)"
@@ -16655,10 +16651,9 @@ msgstr "Görüntülemek için sütun seçin:"
 
 #: templates/table/relation/common_form.twig:317
 #: templates/table/structure/display_structure.twig:542
-#, fuzzy, php-format
-#| msgid "Create an index on &nbsp;%s&nbsp;columns"
+#, php-format
 msgid "Create an index on %s columns"
-msgstr "&nbsp;%s&nbsp;sütunda indeks oluştur"
+msgstr "%s sütunda indeks oluştur"
 
 #: templates/table/relation/foreign_key_row.twig:15
 #, php-format
