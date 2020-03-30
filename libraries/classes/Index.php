@@ -6,12 +6,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Html\MySQLDocumentation;
 use function array_pop;
 use function count;
 use function htmlspecialchars;
-use function sprintf;
 use function strlen;
 
 /**
@@ -559,154 +556,6 @@ class Index
     public function getColumns()
     {
         return $this->_columns;
-    }
-
-    /**
-     * Show index data
-     *
-     * @param string $table  The table name
-     * @param string $schema The schema name
-     *
-     * @return string HTML for showing index
-     *
-     * @access public
-     */
-    public static function getHtmlForIndexes($table, $schema)
-    {
-        $indexes = self::getFromTable($table, $schema);
-
-        $no_indexes_class = count($indexes) > 0 ? ' hide' : '';
-        $no_indexes  = "<div class='no_indexes_defined" . $no_indexes_class . "'>";
-        $no_indexes .= Message::notice(__('No index defined!'))->getDisplay();
-        $no_indexes .= '</div>';
-
-        $r  = '<fieldset class="index_info">';
-        $r .= '<legend id="index_header">' . __('Indexes');
-        $r .= MySQLDocumentation::show('optimizing-database-structure');
-
-        $r .= '</legend>';
-        $r .= $no_indexes;
-
-        if (count($indexes) < 1) {
-            $r .= '</fieldset>';
-            return $r;
-        }
-
-        $r .= self::findDuplicates($table, $schema);
-
-        $r .= '<div class="responsivetable jsresponsive">';
-        $r .= '<table id="table_index">';
-        $r .= '<thead>';
-        $r .= '<tr>';
-
-        $r .= '<th colspan="2" class="print_ignore">' . __('Action') . '</th>';
-
-        $r .= '<th>' . __('Keyname') . '</th>';
-        $r .= '<th>' . __('Type') . '</th>';
-        $r .= '<th>' . __('Unique') . '</th>';
-        $r .= '<th>' . __('Packed') . '</th>';
-        $r .= '<th>' . __('Column') . '</th>';
-        $r .= '<th>' . __('Cardinality') . '</th>';
-        $r .= '<th>' . __('Collation') . '</th>';
-        $r .= '<th>' . __('Null') . '</th>';
-        $r .= '<th>' . __('Comment') . '</th>';
-        $r .= '</tr>';
-        $r .= '</thead>';
-
-        foreach ($indexes as $index) {
-            $row_span = ' rowspan="' . $index->getColumnCount() . '" ';
-            $r .= '<tbody class="row_span">';
-            $r .= '<tr class="noclick" >';
-
-            $this_params = $GLOBALS['url_params'];
-            $this_params['index'] = $index->getName();
-            $r .= '<td class="edit_index print_ignore';
-            $r .= ' ajax';
-            $r .= '" ' . $row_span . '>'
-               . '    <a class="';
-            $r .= 'ajax';
-            $r .= '" href="' . Url::getFromRoute('/table/indexes') . '" data-post="' . Url::getCommon($this_params, '')
-               . '">' . Generator::getIcon('b_edit', __('Edit')) . '</a>'
-               . '</td>' . "\n";
-            $this_params = $GLOBALS['url_params'];
-
-            if ($index->getName() == 'PRIMARY') {
-                $this_params['sql_query'] = 'ALTER TABLE '
-                    . Util::backquote($table)
-                    . ' DROP PRIMARY KEY;';
-                $this_params['message_to_show']
-                    = __('The primary key has been dropped.');
-                $js_msg = Sanitize::jsFormat($this_params['sql_query'], false);
-            } else {
-                $this_params['sql_query'] = 'ALTER TABLE '
-                    . Util::backquote($table) . ' DROP INDEX '
-                    . Util::backquote($index->getName()) . ';';
-                $this_params['message_to_show'] = sprintf(
-                    __('Index %s has been dropped.'),
-                    htmlspecialchars($index->getName())
-                );
-                $js_msg = Sanitize::jsFormat($this_params['sql_query'], false);
-            }
-
-            $r .= '<td ' . $row_span . ' class="print_ignore">';
-            $r .= '<input type="hidden" class="drop_primary_key_index_msg"'
-                . ' value="' . $js_msg . '">';
-            $r .= Generator::linkOrButton(
-                Url::getFromRoute('/sql', $this_params),
-                Generator::getIcon('b_drop', __('Drop')),
-                ['class' => 'drop_primary_key_index_anchor ajax']
-            );
-            $r .= '</td>' . "\n";
-
-            $r .= '<th ' . $row_span . '>'
-                . htmlspecialchars($index->getName())
-                . '</th>';
-
-            $r .= '<td ' . $row_span . '>';
-            $type = $index->getType();
-            if (! empty($type)) {
-                $r .= htmlspecialchars($type);
-            } else {
-                $r .= htmlspecialchars($index->getChoice());
-            }
-            $r .= '</td>';
-            $r .= '<td ' . $row_span . '>' . $index->isUnique(true) . '</td>';
-            $r .= '<td ' . $row_span . '>' . $index->isPacked() . '</td>';
-
-            foreach ($index->getColumns() as $column) {
-                if ($column->getSeqInIndex() > 1) {
-                    $r .= '<tr class="noclick" >';
-                }
-                $r .= '<td>' . htmlspecialchars($column->getName());
-                if ($column->getSubPart()) {
-                    $r .= ' (' . htmlspecialchars($column->getSubPart()) . ')';
-                }
-                $r .= '</td>';
-                $r .= '<td>'
-                    . htmlspecialchars((string) $column->getCardinality())
-                    . '</td>';
-                $r .= '<td>'
-                    . htmlspecialchars((string) $column->getCollation())
-                    . '</td>';
-                $r .= '<td>'
-                    . htmlspecialchars($column->getNull(true))
-                    . '</td>';
-
-                if ($column->getSeqInIndex() == 1
-                ) {
-                    $r .= '<td ' . $row_span . '>'
-                        . htmlspecialchars($index->getComments()) . '</td>';
-                }
-                $r .= '</tr>';
-            } // end foreach $index['Sequences']
-            $r .= '</tbody>';
-        } // end while
-        $r .= '</table>';
-        $r .= '</div>';
-
-        $r .= '</fieldset>';
-
-        return $r;
     }
 
     /**

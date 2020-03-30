@@ -1100,14 +1100,20 @@ class Sql
             );
 
             if (isset($_POST['dropped_column'])
-                && strlen($db) > 0
-                && strlen($table) > 0
+                && isset($db) && strlen($db) > 0
+                && isset($table) && strlen($table) > 0
             ) {
                 // to refresh the list of indexes (Ajax mode)
-                $extra_data['indexes_list'] = Index::getHtmlForIndexes(
-                    $table,
-                    $db
-                );
+
+                $indexes = Index::getFromTable($table, $db);
+                $indexesDuplicates = Index::findDuplicates($table, $db);
+                $template = new Template();
+
+                $extra_data['indexes_list'] = $template->render('indexes', [
+                    'url_params' => $GLOBALS['url_params'],
+                    'indexes' => $indexes,
+                    'indexes_duplicates' => $indexesDuplicates,
+                ]);
             }
         }
 

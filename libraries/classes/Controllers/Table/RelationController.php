@@ -194,7 +194,8 @@ final class RelationController extends AbstractController
                 'dbi' => $this->dbi,
                 'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
                 'foreignKeySupported' => $foreignKeySupported,
-                'indexes_html' => $foreignKeySupported ? Index::getHtmlForIndexes($this->table, $this->db) : null,
+                'indexes' => $foreignKeySupported ? Index::getFromTable($this->table, $this->db) : null,
+                'indexes_duplicates' => $foreignKeySupported ? Index::findDuplicates($this->table, $this->db) : null,
                 'route' => $route,
             ])
         );

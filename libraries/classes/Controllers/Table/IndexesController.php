@@ -138,12 +138,20 @@ class IndexesController extends AbstractController
                     'message',
                     Generator::getMessage($message, $sql_query, 'success')
                 );
+
+                $indexes = Index::getFromTable($this->table, $this->db);
+                $indexesDuplicates = Index::findDuplicates($this->table, $this->db);
+
                 $this->response->addJSON(
                     'index_table',
-                    Index::getHtmlForIndexes(
-                        $this->table,
-                        $this->db
-                    )
+                    $this->template->render('indexes', [
+                        'url_params' => [
+                            'db' => $this->db,
+                            'table' => $this->table,
+                        ],
+                        'indexes' => $indexes,
+                        'indexes_duplicates' => $indexesDuplicates,
+                    ])
                 );
             } else {
                 /** @var StructureController $controller */
