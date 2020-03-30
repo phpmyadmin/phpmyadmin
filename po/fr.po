@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-30 21:49+0200\n"
-"PO-Revision-Date: 2020-03-25 18:20+0000\n"
+"PO-Revision-Date: 2020-03-31 00:26+0000\n"
 "Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
@@ -15368,10 +15368,8 @@ msgid "User group"
 msgstr "Groupe d'utilisateurs"
 
 #: templates/server/privileges/choose_user_group.twig:6
-#, fuzzy
-#| msgid "User group"
 msgid "User group:"
-msgstr "Groupe d'utilisateurs"
+msgstr "Groupe d'utilisateurs :"
 
 #: templates/server/privileges/edit_routine_privileges.twig:4
 #: templates/server/privileges/user_properties.twig:4
@@ -16720,11 +16718,9 @@ msgid "Alter table order by"
 msgstr "<b>Ordonner</b> la table par"
 
 #: templates/table/operations/index.twig:20
-#, fuzzy
-#| msgid "(singly)"
 msgctxt "Alter table order by a single field."
 msgid "(singly)"
-msgstr "(à refaire après insertions/destructions)"
+msgstr "(à titre individuel)"
 
 #: templates/table/operations/index.twig:50
 msgid "Move table to (database.table)"
@@ -16851,10 +16847,9 @@ msgstr "Choisir la colonne à afficher :"
 
 #: templates/table/relation/common_form.twig:317
 #: templates/table/structure/display_structure.twig:542
-#, fuzzy, php-format
-#| msgid "Create an index on &nbsp;%s&nbsp;columns"
+#, php-format
 msgid "Create an index on %s columns"
-msgstr "Créer un index sur &nbsp;%s&nbsp;colonnes"
+msgstr "Créer un index sur %s colonnes"
 
 #: templates/table/relation/foreign_key_row.twig:15
 #, php-format
