@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-03-24 23:08+0100\n"
+"POT-Creation-Date: 2020-03-30 21:49+0200\n"
 "PO-Revision-Date: 2019-11-13 09:05+0000\n"
 "Last-Translator: Mattias Münster <mattiasmun@gmail.com>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -14,15 +14,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.10-dev\n"
-
-#: index.php:54
-#, php-format
-msgid "Error 404! The page %s was not found."
-msgstr "Fel 404! Sidan %s hittades inte."
-
-#: index.php:61
-msgid "Error 405! Request method not allowed."
-msgstr "Fel 405! Förfrågningsmetoden ej tillåten."
 
 #: js/messages.php:51
 msgid "Confirm"
@@ -226,7 +217,7 @@ msgstr "Lägg till index"
 msgid "Edit index"
 msgstr "Redigera register"
 
-#: js/messages.php:116 templates/table/index_form.twig:215
+#: js/messages.php:116 templates/table/index_form.twig:229
 #, php-format
 msgid "Add %s column(s) to index"
 msgstr "Lägg till %s kolumn(er) till index"
@@ -248,8 +239,8 @@ msgid "Please select column(s) for the index."
 msgstr "Välj kolumner för indexet."
 
 #: js/messages.php:123 libraries/classes/InsertEdit.php:1954
-#: templates/columns_definitions/column_definitions_form.twig:153
-#: templates/table/index_form.twig:220
+#: templates/columns_definitions/column_definitions_form.twig:157
+#: templates/table/index_form.twig:234
 #: templates/table/relation/common_form.twig:216
 msgid "Preview SQL"
 msgstr "Förhandsgranska SQL"
@@ -283,12 +274,12 @@ msgstr "Värdnamnet är tomt!"
 msgid "The user name is empty!"
 msgstr "Användarnamnet saknas!"
 
-#: js/messages.php:140 libraries/classes/Server/Privileges.php:1079
+#: js/messages.php:140 libraries/classes/Server/Privileges.php:1028
 #: libraries/classes/UserPassword.php:71
 msgid "The password is empty!"
 msgstr "Lösenordet saknas!"
 
-#: js/messages.php:141 libraries/classes/Server/Privileges.php:1077
+#: js/messages.php:141 libraries/classes/Server/Privileges.php:1026
 #: libraries/classes/UserPassword.php:75
 msgid "The passwords aren't the same!"
 msgstr "Lösenorden överensstämmer inte!"
@@ -875,10 +866,9 @@ msgstr "Inga parametrar funna!"
 
 #: js/messages.php:330 libraries/classes/BrowseForeigners.php:203
 #: libraries/classes/Controllers/Server/PrivilegesController.php:389
-#: libraries/classes/Index.php:652 libraries/classes/InsertEdit.php:1958
-#: libraries/classes/InsertEdit.php:1992
+#: libraries/classes/InsertEdit.php:1958 libraries/classes/InsertEdit.php:1992
 #: libraries/classes/Normalization.php:252
-#: libraries/classes/Normalization.php:939 libraries/classes/Rte/Events.php:575
+#: libraries/classes/Normalization.php:943 libraries/classes/Rte/Events.php:575
 #: libraries/classes/Rte/Routines.php:1113
 #: libraries/classes/Rte/Routines.php:1735
 #: libraries/classes/Rte/Triggers.php:455 libraries/classes/Tracking.php:346
@@ -888,13 +878,13 @@ msgstr "Inga parametrar funna!"
 #: templates/database/operations/index.twig:19
 #: templates/database/operations/index.twig:44
 #: templates/database/operations/index.twig:81
-#: templates/database/operations/index.twig:188
-#: templates/database/operations/index.twig:228
-#: templates/database/search/main.twig:63
+#: templates/database/operations/index.twig:190
+#: templates/database/operations/index.twig:230
+#: templates/database/search/main.twig:74
 #: templates/display/change_password/file_e.twig:4
 #: templates/display/export/options_format.twig:18
 #: templates/display/import/import.twig:192
-#: templates/display/results/options_block.twig:118
+#: templates/display/results/options_block.twig:91
 #: templates/gis_data_editor_form.twig:211 templates/header_location.twig:18
 #: templates/login/form.twig:79 templates/login/form.twig:81
 #: templates/preferences/manage/main.twig:46
@@ -915,14 +905,16 @@ msgstr "Inga parametrar funna!"
 #: templates/sql/query.twig:134 templates/sql/query.twig:183
 #: templates/start_and_number_of_rows_panel.twig:14
 #: templates/table/find_replace/index.twig:59
-#: templates/table/operations/index.twig:26
-#: templates/table/operations/index.twig:71
-#: templates/table/operations/index.twig:199
-#: templates/table/operations/index.twig:262
-#: templates/table/operations/index.twig:365
-#: templates/table/operations/view.twig:17
-#: templates/table/search/index.twig:157
+#: templates/table/operations/index.twig:38
+#: templates/table/operations/index.twig:88
+#: templates/table/operations/index.twig:217
+#: templates/table/operations/index.twig:306
+#: templates/table/operations/index.twig:409
+#: templates/table/operations/view.twig:16
+#: templates/table/relation/common_form.twig:320
+#: templates/table/search/index.twig:161
 #: templates/table/structure/display_structure.twig:442
+#: templates/table/structure/display_structure.twig:545
 #: templates/table/zoom_search/index.twig:154 templates/view_create.twig:116
 msgid "Go"
 msgstr "Kör"
@@ -1028,8 +1020,8 @@ msgid "Changing charset"
 msgstr "Ändrar teckenuppsättning"
 
 #: js/messages.php:360 libraries/classes/Config/FormDisplayTemplate.php:317
-#: libraries/classes/IndexColumn.php:132 libraries/classes/Index.php:555
-#: libraries/classes/Index.php:583 libraries/classes/MultSubmits.php:492
+#: libraries/classes/IndexColumn.php:132 libraries/classes/Index.php:489
+#: libraries/classes/Index.php:517 libraries/classes/MultSubmits.php:492
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:652
 #: libraries/classes/Plugins/Export/ExportLatex.php:633
 #: libraries/classes/Plugins/Export/ExportOdt.php:807
@@ -1037,7 +1029,8 @@ msgstr "Ändrar teckenuppsättning"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:771
 #: templates/database/central_columns/main.twig:370
 #: templates/database/data_dictionary/index.twig:39
-#: templates/database/privileges/index.twig:69
+#: templates/database/data_dictionary/index.twig:83
+#: templates/database/privileges/index.twig:69 templates/indexes.twig:58
 #: templates/preferences/autoload.twig:12
 #: templates/preferences/manage/error.twig:19
 #: templates/server/privileges/new_user_ajax.twig:22
@@ -1048,7 +1041,9 @@ msgstr "Ändrar teckenuppsättning"
 #: templates/server/privileges/users_overview.twig:52
 #: templates/server/privileges/users_overview.twig:62
 #: templates/table/privileges/index.twig:73
+#: templates/table/relation/common_form.twig:280
 #: templates/table/structure/display_structure.twig:80
+#: templates/table/structure/display_structure.twig:505
 #: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
@@ -1098,7 +1093,7 @@ msgstr ""
 #: libraries/classes/Display/Results.php:4969 libraries/classes/Menu.php:306
 #: libraries/classes/Menu.php:420 libraries/classes/Menu.php:556
 #: libraries/classes/Rte/RteList.php:185
-#: libraries/classes/Server/Privileges.php:1668 libraries/classes/Util.php:2465
+#: libraries/classes/Server/Privileges.php:1617 libraries/classes/Util.php:2465
 #: libraries/classes/Util.php:2480 libraries/classes/Util.php:2497
 #: libraries/classes/Util.php:3158 libraries/classes/Util.php:3159
 #: templates/database/privileges/index.twig:91
@@ -1160,14 +1155,16 @@ msgstr "Visa frågerutan"
 #: libraries/classes/Display/Results.php:3265
 #: libraries/classes/Display/Results.php:4689
 #: libraries/classes/Html/Generator.php:807
-#: libraries/classes/Html/Generator.php:1076 libraries/classes/Index.php:733
+#: libraries/classes/Html/Generator.php:1076
 #: libraries/classes/Server/UserGroups.php:123 libraries/classes/Util.php:3156
 #: libraries/classes/Util.php:3157 templates/console/bookmark_content.twig:7
 #: templates/console/display.twig:31 templates/console/display.twig:175
 #: templates/database/central_columns/main.twig:281
-#: templates/database/central_columns/main.twig:402
+#: templates/database/central_columns/main.twig:402 templates/indexes.twig:33
 #: templates/server/variables/index.twig:42
 #: templates/server/variables/index.twig:45 templates/setup/home/index.twig:57
+#: templates/table/relation/common_form.twig:255
+#: templates/table/structure/display_structure.twig:480
 msgid "Edit"
 msgstr "Redigera"
 
@@ -1215,7 +1212,7 @@ msgstr ""
 msgid "Variable %d:"
 msgstr "Miljövariabeln %d:"
 
-#: js/messages.php:405 libraries/classes/Normalization.php:1008
+#: js/messages.php:405 libraries/classes/Normalization.php:1012
 msgid "Pick"
 msgstr "Välj"
 
@@ -1372,11 +1369,11 @@ msgstr "Inga beroenden valda!"
 
 #: js/messages.php:454 libraries/classes/CentralColumns.php:963
 #: libraries/classes/InsertEdit.php:1868
-#: templates/columns_definitions/column_definitions_form.twig:156
+#: templates/columns_definitions/column_definitions_form.twig:160
 #: templates/server/variables/index.twig:12
 #: templates/table/gis_visualization/gis_visualization.twig:48
 #: templates/table/relation/common_form.twig:217
-#: templates/table/structure/partition_definition_form.twig:12
+#: templates/table/structure/partition_definition_form.twig:13
 msgid "Save"
 msgstr "Spara"
 
@@ -1455,7 +1452,7 @@ msgstr "Innehåll för datapunkt"
 
 #: js/messages.php:491 js/messages.php:662
 #: libraries/classes/ErrorHandler.php:381 libraries/classes/InsertEdit.php:3063
-#: templates/table/index_form.twig:145 templates/table/index_form.twig:181
+#: templates/table/index_form.twig:159 templates/table/index_form.twig:195
 msgid "Ignore"
 msgstr "Ignorera"
 
@@ -1496,7 +1493,7 @@ msgstr "Linestring"
 msgid "Polygon"
 msgstr "Polygon"
 
-#: js/messages.php:499 templates/display/results/options_block.twig:83
+#: js/messages.php:499 templates/display/results/options_block.twig:75
 msgid "Geometry"
 msgstr "Geometri"
 
@@ -1521,13 +1518,13 @@ msgstr "Lägg till ny inre ring"
 
 #: js/messages.php:504 libraries/classes/Config/FormDisplayTemplate.php:317
 #: libraries/classes/Controllers/Server/DatabasesController.php:281
-#: libraries/classes/Controllers/Table/StructureController.php:792
-#: libraries/classes/Controllers/Table/StructureController.php:1559
-#: libraries/classes/Controllers/Table/StructureController.php:1568
-#: libraries/classes/Controllers/Table/StructureController.php:1573
-#: libraries/classes/Controllers/Table/StructureController.php:1578
-#: libraries/classes/Controllers/Table/StructureController.php:1583
-#: libraries/classes/IndexColumn.php:135 libraries/classes/Index.php:582
+#: libraries/classes/Controllers/Table/StructureController.php:795
+#: libraries/classes/Controllers/Table/StructureController.php:1563
+#: libraries/classes/Controllers/Table/StructureController.php:1572
+#: libraries/classes/Controllers/Table/StructureController.php:1577
+#: libraries/classes/Controllers/Table/StructureController.php:1582
+#: libraries/classes/Controllers/Table/StructureController.php:1587
+#: libraries/classes/IndexColumn.php:135 libraries/classes/Index.php:516
 #: libraries/classes/MultSubmits.php:453 libraries/classes/MultSubmits.php:490
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:653
 #: libraries/classes/Plugins/Export/ExportLatex.php:633
@@ -1537,8 +1534,9 @@ msgstr "Lägg till ny inre ring"
 #: libraries/mult_submits.inc.php:94 libraries/mult_submits.inc.php:237
 #: templates/database/central_columns/main.twig:370
 #: templates/database/data_dictionary/index.twig:39
-#: templates/database/privileges/index.twig:69
-#: templates/mult_submits/copy_multiple_tables.twig:53
+#: templates/database/data_dictionary/index.twig:83
+#: templates/database/privileges/index.twig:69 templates/indexes.twig:58
+#: templates/mult_submits/copy_multiple_tables.twig:55
 #: templates/mult_submits/replace_prefix_table.twig:20
 #: templates/preferences/autoload.twig:11
 #: templates/preferences/manage/error.twig:18
@@ -1550,7 +1548,9 @@ msgstr "Lägg till ny inre ring"
 #: templates/server/privileges/users_overview.twig:50
 #: templates/server/privileges/users_overview.twig:62
 #: templates/table/privileges/index.twig:73
+#: templates/table/relation/common_form.twig:280
 #: templates/table/structure/display_structure.twig:80
+#: templates/table/structure/display_structure.twig:505
 #: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
@@ -1801,7 +1801,7 @@ msgid "Select database first"
 msgstr "Markera databasen först"
 
 #: js/messages.php:595 libraries/classes/Display/Results.php:4852
-#: templates/database/data_dictionary/index.twig:64
+#: templates/database/data_dictionary/index.twig:117
 #: templates/database/structure/index.twig:12
 #: templates/table/structure/display_structure.twig:384
 msgid "Print"
@@ -2184,7 +2184,10 @@ msgid "Search:"
 msgstr "Sök:"
 
 #: libraries/classes/BrowseForeigners.php:220
-#: libraries/classes/BrowseForeigners.php:224 libraries/classes/Index.php:707
+#: libraries/classes/BrowseForeigners.php:224
+#: templates/database/data_dictionary/index.twig:65 templates/indexes.twig:15
+#: templates/table/relation/common_form.twig:237
+#: templates/table/structure/display_structure.twig:462
 #: templates/table/tracking/structure_snapshot_indexes.twig:5
 msgid "Keyname"
 msgstr "Nyckelnamn"
@@ -2263,7 +2266,7 @@ msgstr "NEJ"
 msgid "Name"
 msgstr "Namn"
 
-#: libraries/classes/CentralColumns.php:1011 libraries/classes/Index.php:708
+#: libraries/classes/CentralColumns.php:1011
 #: libraries/classes/InsertEdit.php:347
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:289
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:385
@@ -2283,11 +2286,14 @@ msgstr "Namn"
 #: templates/database/central_columns/main.twig:21
 #: templates/database/central_columns/main.twig:240
 #: templates/database/data_dictionary/index.twig:17
+#: templates/database/data_dictionary/index.twig:66
 #: templates/database/privileges/index.twig:19
-#: templates/database/structure/table_header.twig:30
+#: templates/database/structure/table_header.twig:30 templates/indexes.twig:16
 #: templates/table/privileges/index.twig:21
+#: templates/table/relation/common_form.twig:238
 #: templates/table/search/index.twig:39
 #: templates/table/structure/display_structure.twig:22
+#: templates/table/structure/display_structure.twig:463
 #: templates/table/tracking/structure_snapshot_columns.twig:7
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/table/zoom_search/index.twig:39
@@ -2322,19 +2328,23 @@ msgstr "Längd/Värden"
 msgid "Default"
 msgstr "Standardvärde"
 
-#: libraries/classes/CentralColumns.php:1014 libraries/classes/Index.php:713
+#: libraries/classes/CentralColumns.php:1014
 #: templates/columns_definitions/table_fields_definitions.twig:24
 #: templates/database/central_columns/main.twig:33
 #: templates/database/central_columns/main.twig:252
-#: templates/database/operations/index.twig:197
-#: templates/database/operations/index.twig:201
+#: templates/database/data_dictionary/index.twig:71
+#: templates/database/operations/index.twig:199
+#: templates/database/operations/index.twig:203
 #: templates/database/structure/table_header.twig:31
-#: templates/home/index.twig:55 templates/server/collations/index.twig:13
+#: templates/home/index.twig:55 templates/indexes.twig:21
+#: templates/server/collations/index.twig:13
 #: templates/server/databases/index.twig:41
 #: templates/server/databases/index.twig:126
-#: templates/table/operations/index.twig:118
+#: templates/table/operations/index.twig:142
+#: templates/table/relation/common_form.twig:243
 #: templates/table/search/index.twig:40
 #: templates/table/structure/display_structure.twig:23
+#: templates/table/structure/display_structure.twig:468
 #: templates/table/structure/display_table_stats.twig:102
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
@@ -2350,7 +2360,7 @@ msgstr "Kollationering"
 msgid "Attributes"
 msgstr "Attribut"
 
-#: libraries/classes/CentralColumns.php:1016 libraries/classes/Index.php:714
+#: libraries/classes/CentralColumns.php:1016
 #: libraries/classes/InsertEdit.php:1985
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:292
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:388
@@ -2366,7 +2376,10 @@ msgstr "Attribut"
 #: templates/database/central_columns/main.twig:41
 #: templates/database/central_columns/main.twig:260
 #: templates/database/data_dictionary/index.twig:18
+#: templates/database/data_dictionary/index.twig:72 templates/indexes.twig:22
+#: templates/table/relation/common_form.twig:244
 #: templates/table/structure/display_structure.twig:25
+#: templates/table/structure/display_structure.twig:469
 #: templates/table/tracking/structure_snapshot_columns.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/zoom_search/result_form.twig:33
@@ -2770,7 +2783,7 @@ msgid "no-pad"
 msgstr ""
 
 #: libraries/classes/Common.php:173
-#: libraries/classes/Controllers/Table/OperationsController.php:263
+#: libraries/classes/Controllers/Table/OperationsController.php:262
 msgid "No collation provided."
 msgstr ""
 
@@ -3314,9 +3327,9 @@ msgid "Remember file name template"
 msgstr "Kom ihåg mall för filnamn"
 
 #: libraries/classes/Config/Descriptions.php:237
-#: templates/database/operations/index.twig:163
-#: templates/table/operations/index.twig:53
-#: templates/table/operations/index.twig:235
+#: templates/database/operations/index.twig:165
+#: templates/table/operations/index.twig:74
+#: templates/table/operations/index.twig:278
 msgid "Add AUTO_INCREMENT value"
 msgstr "Lägg till AUTO_INCREMENT-värde"
 
@@ -3358,8 +3371,8 @@ msgstr "Exportera relaterade metadata från sparade inställningar i phpMyAdmin"
 #: libraries/classes/Config/Descriptions.php:252
 #: libraries/classes/Config/Descriptions.php:253
 #: libraries/classes/Config/Descriptions.php:266
-#: templates/database/operations/index.twig:158
-#: templates/table/operations/index.twig:231
+#: templates/database/operations/index.twig:160
+#: templates/table/operations/index.twig:273
 #, php-format
 msgid "Add %s"
 msgstr "Lägg till %s"
@@ -4858,7 +4871,7 @@ msgstr ""
 "när man skapar en tabell."
 
 #: libraries/classes/Config/Descriptions.php:738
-#: templates/mult_submits/copy_multiple_tables.twig:32
+#: templates/mult_submits/copy_multiple_tables.twig:34
 msgid "Add DROP TABLE"
 msgstr "Lägg till DROP TABLE"
 
@@ -5212,14 +5225,18 @@ msgstr "Titel på webbläsarfönstret när en databas är vald."
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:148
 #: libraries/classes/Plugins/Export/ExportOdt.php:191
 #: libraries/classes/Plugins/Export/ExportTexytext.php:132
-#: libraries/classes/Server/Privileges.php:1989
-#: libraries/classes/Server/Privileges.php:1991
+#: libraries/classes/Server/Privileges.php:1938
+#: libraries/classes/Server/Privileges.php:1940
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:109
 #: templates/server/privileges/edit_routine_privileges.twig:17
 #: templates/server/privileges/privileges_table.twig:233
 #: templates/server/privileges/user_properties.twig:22
 #: templates/server/privileges/user_properties.twig:71
+#: templates/table/operations/index.twig:56
+#: templates/table/operations/index.twig:62
+#: templates/table/operations/index.twig:233
+#: templates/table/operations/index.twig:239
 #: templates/table/relation/common_form.twig:35
 #: templates/table/relation/common_form.twig:168
 #: templates/table/relation/foreign_key_row.twig:96
@@ -5250,8 +5267,8 @@ msgstr "Titel på webbläsarfönstret när en tabell är markerad."
 #: libraries/classes/Config/Descriptions.php:859
 #: libraries/classes/Plugins/Export/ExportXml.php:508
 #: libraries/classes/Rte/RteList.php:123 libraries/classes/Rte/Triggers.php:390
-#: libraries/classes/Server/Privileges.php:1995
-#: libraries/classes/Server/Privileges.php:1997
+#: libraries/classes/Server/Privileges.php:1944
+#: libraries/classes/Server/Privileges.php:1946
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
 #: templates/database/tracking/tables.twig:120
@@ -5259,6 +5276,8 @@ msgstr "Titel på webbläsarfönstret när en tabell är markerad."
 #: templates/server/privileges/privileges_table.twig:235
 #: templates/server/privileges/user_properties.twig:37
 #: templates/server/privileges/user_properties.twig:82
+#: templates/table/operations/index.twig:67
+#: templates/table/operations/index.twig:244
 #: templates/table/relation/common_form.twig:36
 #: templates/table/relation/common_form.twig:175
 #: templates/table/relation/foreign_key_row.twig:106
@@ -5932,7 +5951,7 @@ msgstr "Inga tabeller funna i databasen."
 
 #: libraries/classes/Controllers/Database/ExportController.php:99
 #: templates/database/designer/database_tables.twig:31
-#: templates/database/search/main.twig:32
+#: templates/database/search/main.twig:43
 #: templates/display/export/select_options.twig:4
 #: templates/server/replication/database_multibox.twig:7
 msgid "Select all"
@@ -5976,20 +5995,20 @@ msgid "Favorite List is full!"
 msgstr "Favoritlistan är full!"
 
 #: libraries/classes/Controllers/Database/StructureController.php:512
-#: templates/table/operations/index.twig:317
-#: templates/table/operations/view.twig:29
+#: templates/table/operations/index.twig:356
+#: templates/table/operations/view.twig:27
 #, php-format
 msgid "View %s has been dropped."
 msgstr "Vyn %s har tagits bort."
 
 #: libraries/classes/Controllers/Database/StructureController.php:513
-#: templates/table/operations/index.twig:317
+#: templates/table/operations/index.twig:356
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "Tabellen %s har tagits bort."
 
 #: libraries/classes/Controllers/Database/StructureController.php:569
-#: templates/table/operations/index.twig:296
+#: templates/table/operations/index.twig:335
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Tabellen %s har tömts."
@@ -6220,7 +6239,7 @@ msgstr ""
 "Kunde inte läsa in insticksprogram för import, kontrollera din installation!"
 
 #: libraries/classes/Controllers/ImportController.php:623
-#: libraries/classes/Sql.php:639 libraries/classes/Sql.php:1400
+#: libraries/classes/Sql.php:639 libraries/classes/Sql.php:1406
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Bokmärket %s har skapats."
@@ -6327,9 +6346,11 @@ msgid "Rows"
 msgstr "Rader"
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:455
-#: libraries/classes/Index.php:683 libraries/classes/Index.php:694
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:23
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:24
+#: templates/database/data_dictionary/index.twig:59 templates/indexes.twig:3
+#: templates/table/relation/common_form.twig:225
+#: templates/table/structure/display_structure.twig:450
 #: templates/table/tracking/structure_snapshot_indexes.twig:1
 msgid "Indexes"
 msgstr "Index"
@@ -6353,12 +6374,12 @@ msgid "View dump (schema) of databases"
 msgstr "Visa dump (schema) för databaser"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:127
-#: libraries/classes/Server/Privileges.php:278
+#: libraries/classes/Server/Privileges.php:277
 msgid "Includes all privileges except GRANT."
 msgstr "Inkluderar alla privilegier förutom GRANT."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:128
-#: libraries/classes/Server/Privileges.php:411
+#: libraries/classes/Server/Privileges.php:410
 #: templates/server/privileges/privileges_table.twig:161
 #: templates/server/privileges/privileges_table.twig:164
 #: templates/server/privileges/privileges_table.twig:356
@@ -6367,21 +6388,21 @@ msgid "Allows altering the structure of existing tables."
 msgstr "Tillåter ändring av befintliga tabellers struktur."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:129
-#: libraries/classes/Server/Privileges.php:497
+#: libraries/classes/Server/Privileges.php:496
 #: templates/server/privileges/privileges_table.twig:443
 #: templates/server/privileges/privileges_table.twig:446
 msgid "Allows altering and dropping stored routines."
 msgstr "Tillåter ändring och borttagning av lagrade rutiner."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:130
-#: libraries/classes/Server/Privileges.php:371
+#: libraries/classes/Server/Privileges.php:370
 #: templates/server/privileges/privileges_table.twig:335
 #: templates/server/privileges/privileges_table.twig:343
 msgid "Allows creating new databases and tables."
 msgstr "Tillåter skapande av nya databaser och tabeller."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:131
-#: libraries/classes/Server/Privileges.php:492
+#: libraries/classes/Server/Privileges.php:491
 #: templates/server/privileges/privileges_table.twig:430
 #: templates/server/privileges/privileges_table.twig:433
 msgid "Allows creating stored routines."
@@ -6396,22 +6417,22 @@ msgid "Allows creating new tables."
 msgstr "Tillåter skapande av nya tabeller."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:133
-#: libraries/classes/Server/Privileges.php:430
+#: libraries/classes/Server/Privileges.php:429
 #: templates/server/privileges/privileges_table.twig:404
 #: templates/server/privileges/privileges_table.twig:407
 msgid "Allows creating temporary tables."
 msgstr "Tillåter skapande av temporära tabeller."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:134
-#: libraries/classes/Server/Privileges.php:502
+#: libraries/classes/Server/Privileges.php:501
 #: templates/server/privileges/privileges_table.twig:682
 #: templates/server/privileges/privileges_table.twig:685
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Tillåter skapande, borttagning och omdöpning av användarkonton."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:135
-#: libraries/classes/Server/Privileges.php:450
-#: libraries/classes/Server/Privileges.php:466
+#: libraries/classes/Server/Privileges.php:449
+#: libraries/classes/Server/Privileges.php:465
 #: templates/server/privileges/privileges_table.twig:173
 #: templates/server/privileges/privileges_table.twig:176
 #: templates/server/privileges/privileges_table.twig:470
@@ -6422,7 +6443,7 @@ msgid "Allows creating new views."
 msgstr "Tillåter skapande av nya vyer."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:136
-#: libraries/classes/Server/Privileges.php:366
+#: libraries/classes/Server/Privileges.php:365
 #: templates/server/privileges/privileges_table.twig:100
 #: templates/server/privileges/privileges_table.twig:103
 #: templates/server/privileges/privileges_table.twig:299
@@ -6431,8 +6452,8 @@ msgid "Allows deleting data."
 msgstr "Tillåter borttagning av data."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:137
-#: libraries/classes/Server/Privileges.php:482
-#: libraries/classes/Server/Privileges.php:487
+#: libraries/classes/Server/Privileges.php:481
+#: libraries/classes/Server/Privileges.php:486
 #: templates/server/privileges/privileges_table.twig:210
 #: templates/server/privileges/privileges_table.twig:214
 #, fuzzy
@@ -6441,7 +6462,7 @@ msgid "Allows deleting historical rows."
 msgstr "Tillåter borttagning av data."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:138
-#: libraries/classes/Server/Privileges.php:376
+#: libraries/classes/Server/Privileges.php:375
 #: templates/server/privileges/privileges_table.twig:383
 #: templates/server/privileges/privileges_table.twig:391
 msgid "Allows dropping databases and tables."
@@ -6456,21 +6477,21 @@ msgid "Allows dropping tables."
 msgstr "Tillåter borttagning av tabeller."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:140
-#: libraries/classes/Server/Privileges.php:455
+#: libraries/classes/Server/Privileges.php:454
 #: templates/server/privileges/privileges_table.twig:500
 #: templates/server/privileges/privileges_table.twig:503
 msgid "Allows to set up events for the event scheduler."
 msgstr "Tillåter skapande av händelser för händelseschemaläggaren."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:141
-#: libraries/classes/Server/Privileges.php:507
+#: libraries/classes/Server/Privileges.php:506
 #: templates/server/privileges/privileges_table.twig:456
 #: templates/server/privileges/privileges_table.twig:459
 msgid "Allows executing stored routines."
 msgstr "Tillåter utförande av lagrade rutiner."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:142
-#: libraries/classes/Server/Privileges.php:396
+#: libraries/classes/Server/Privileges.php:395
 #: templates/server/privileges/privileges_table.twig:313
 #: templates/server/privileges/privileges_table.twig:316
 msgid "Allows importing data from and exporting data into files."
@@ -6487,7 +6508,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:147
-#: libraries/classes/Server/Privileges.php:406
+#: libraries/classes/Server/Privileges.php:405
 #: templates/server/privileges/privileges_table.twig:149
 #: templates/server/privileges/privileges_table.twig:152
 #: templates/server/privileges/privileges_table.twig:369
@@ -6496,7 +6517,7 @@ msgid "Allows creating and dropping indexes."
 msgstr "Tillåter skapande och borttagning av index."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:148
-#: libraries/classes/Server/Privileges.php:356
+#: libraries/classes/Server/Privileges.php:355
 #: templates/server/privileges/privileges_table.twig:36
 #: templates/server/privileges/privileges_table.twig:273
 #: templates/server/privileges/privileges_table.twig:276
@@ -6504,7 +6525,7 @@ msgid "Allows inserting and replacing data."
 msgstr "Tillåter infogning och ersättning av data."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:149
-#: libraries/classes/Server/Privileges.php:435
+#: libraries/classes/Server/Privileges.php:434
 #: templates/server/privileges/privileges_table.twig:629
 #: templates/server/privileges/privileges_table.twig:632
 msgid "Allows locking tables for the current thread."
@@ -6539,14 +6560,14 @@ msgid "Limits the number of simultaneous connections the user may have."
 msgstr "Begränsar antalet samtidiga förbindelser som användaren kan ha."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:163
-#: libraries/classes/Server/Privileges.php:391
+#: libraries/classes/Server/Privileges.php:390
 #: templates/server/privileges/privileges_table.twig:562
 #: templates/server/privileges/privileges_table.twig:565
 msgid "Allows viewing processes of all users."
 msgstr "Tillåter visning av processer för alla användare."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:164
-#: libraries/classes/Server/Privileges.php:401
+#: libraries/classes/Server/Privileges.php:400
 #: templates/server/privileges/privileges_table.twig:78
 #: templates/server/privileges/privileges_table.twig:642
 #: templates/server/privileges/privileges_table.twig:645
@@ -6554,7 +6575,7 @@ msgid "Has no effect in this MySQL version."
 msgstr "Har ingen effekt i denna version av MySQL."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:166
-#: libraries/classes/Server/Privileges.php:381
+#: libraries/classes/Server/Privileges.php:380
 #: templates/server/privileges/privileges_table.twig:575
 #: templates/server/privileges/privileges_table.twig:578
 msgid "Allows reloading server settings and flushing the server's caches."
@@ -6562,21 +6583,21 @@ msgstr ""
 "Tillåter omladdning av serverinställningar och rensning av serverns cache."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:169
-#: libraries/classes/Server/Privileges.php:445
+#: libraries/classes/Server/Privileges.php:444
 #: templates/server/privileges/privileges_table.twig:656
 #: templates/server/privileges/privileges_table.twig:659
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr "Ger användaren rätt att fråga var slav- / huvudservrarna är."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:171
-#: libraries/classes/Server/Privileges.php:440
+#: libraries/classes/Server/Privileges.php:439
 #: templates/server/privileges/privileges_table.twig:669
 #: templates/server/privileges/privileges_table.twig:672
 msgid "Needed for the replication slaves."
 msgstr "Nödvändigt för replikeringsslavar."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:172
-#: libraries/classes/Server/Privileges.php:351
+#: libraries/classes/Server/Privileges.php:350
 #: templates/server/privileges/privileges_table.twig:15
 #: templates/server/privileges/privileges_table.twig:260
 #: templates/server/privileges/privileges_table.twig:263
@@ -6584,15 +6605,15 @@ msgid "Allows reading data."
 msgstr "Tillåter läsning av data."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:173
-#: libraries/classes/Server/Privileges.php:416
+#: libraries/classes/Server/Privileges.php:415
 #: templates/server/privileges/privileges_table.twig:601
 #: templates/server/privileges/privileges_table.twig:604
 msgid "Gives access to the complete list of databases."
 msgstr "Ger tillgång till den fullständiga databaslistan."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:174
-#: libraries/classes/Server/Privileges.php:471
-#: libraries/classes/Server/Privileges.php:477
+#: libraries/classes/Server/Privileges.php:470
+#: libraries/classes/Server/Privileges.php:476
 #: templates/server/privileges/privileges_table.twig:185
 #: templates/server/privileges/privileges_table.twig:188
 #: templates/server/privileges/privileges_table.twig:417
@@ -6601,14 +6622,14 @@ msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Tillåter utförande av SHOW CREATE VIEW-frågor."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:175
-#: libraries/classes/Server/Privileges.php:386
+#: libraries/classes/Server/Privileges.php:385
 #: templates/server/privileges/privileges_table.twig:588
 #: templates/server/privileges/privileges_table.twig:591
 msgid "Allows shutting down the server."
 msgstr "Tillåter avstängning av servern."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:177
-#: libraries/classes/Server/Privileges.php:422
+#: libraries/classes/Server/Privileges.php:421
 #: templates/server/privileges/privileges_table.twig:548
 #: templates/server/privileges/privileges_table.twig:552
 msgid ""
@@ -6621,7 +6642,7 @@ msgstr ""
 "variabler eller döda andra användares trådar."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:181
-#: libraries/classes/Server/Privileges.php:460
+#: libraries/classes/Server/Privileges.php:459
 #: templates/server/privileges/privileges_table.twig:197
 #: templates/server/privileges/privileges_table.twig:200
 #: templates/server/privileges/privileges_table.twig:513
@@ -6630,7 +6651,7 @@ msgid "Allows creating and dropping triggers."
 msgstr "Tillåter skapande och borttagning av triggers."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:182
-#: libraries/classes/Server/Privileges.php:361
+#: libraries/classes/Server/Privileges.php:360
 #: templates/server/privileges/privileges_table.twig:57
 #: templates/server/privileges/privileges_table.twig:286
 #: templates/server/privileges/privileges_table.twig:289
@@ -6638,7 +6659,7 @@ msgid "Allows changing data."
 msgstr "Tillåter ändring av data."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:183
-#: libraries/classes/Server/Privileges.php:269
+#: libraries/classes/Server/Privileges.php:268
 msgid "No privileges."
 msgstr "Inga privilegier."
 
@@ -6682,7 +6703,7 @@ msgid "ID"
 msgstr "ID"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:132
-#: libraries/classes/Server/Privileges.php:2966
+#: libraries/classes/Server/Privileges.php:2915
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Användare"
@@ -7489,8 +7510,8 @@ msgstr "Radslut"
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:145
 #: libraries/classes/Controllers/Table/IndexesController.php:134
-#: libraries/classes/Controllers/Table/StructureController.php:748
-#: libraries/classes/Controllers/Table/StructureController.php:1013
+#: libraries/classes/Controllers/Table/StructureController.php:751
+#: libraries/classes/Controllers/Table/StructureController.php:1016
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Tabellen %1$s har ändrats."
@@ -7524,7 +7545,7 @@ msgid "View dump (schema) of table"
 msgstr "Visa SQL-satser för tabellen"
 
 #: libraries/classes/Controllers/Table/FindReplaceController.php:182
-#: libraries/classes/Controllers/Table/RelationController.php:270
+#: libraries/classes/Controllers/Table/RelationController.php:271
 #: libraries/classes/Controllers/Table/RowActionController.php:90
 #: libraries/classes/Controllers/ViewOperationsController.php:76
 #: libraries/classes/Display/Results.php:4218 libraries/classes/Message.php:176
@@ -7545,12 +7566,12 @@ msgstr "Det finns för många JOINS som saknar index."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:64
 #: libraries/classes/Import.php:151 libraries/classes/InsertEdit.php:218
-#: libraries/classes/Rte/Routines.php:1509 libraries/classes/Sql.php:1212
+#: libraries/classes/Rte/Routines.php:1509 libraries/classes/Sql.php:1218
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL returnerade ett tomt resultat (dvs inga rader)."
 
-#: libraries/classes/Controllers/Table/OperationsController.php:111
-#: libraries/classes/Controllers/Table/OperationsController.php:293
+#: libraries/classes/Controllers/Table/OperationsController.php:110
+#: libraries/classes/Controllers/Table/OperationsController.php:292
 #: libraries/classes/Controllers/Table/StructureController.php:116
 #: libraries/classes/Navigation/Nodes/NodeView.php:28
 #: templates/database/structure/structure_table_row.twig:124
@@ -7558,18 +7579,18 @@ msgstr "MySQL returnerade ett tomt resultat (dvs inga rader)."
 msgid "View"
 msgstr "Vy"
 
-#: libraries/classes/Controllers/Table/OperationsController.php:311
+#: libraries/classes/Controllers/Table/OperationsController.php:310
 #: libraries/classes/Controllers/Table/ReplaceController.php:390
 #: libraries/classes/Core.php:836 libraries/mult_submits.inc.php:362
 #: templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Ingen förändring"
 
-#: libraries/classes/Controllers/Table/RelationController.php:217
+#: libraries/classes/Controllers/Table/RelationController.php:218
 msgid "Display column was successfully updated."
 msgstr "Kolumnen har uppdaterats."
 
-#: libraries/classes/Controllers/Table/RelationController.php:299
+#: libraries/classes/Controllers/Table/RelationController.php:300
 #, fuzzy
 #| msgid "Internal relations were successfully updated."
 msgid "Internal relationships were successfully updated."
@@ -7607,40 +7628,41 @@ msgstr "Kolumnerna har flyttats framgångsrikt."
 msgid "Failed to get description of column %s!"
 msgstr "Det gick inte att få riktiga radantal."
 
-#: libraries/classes/Controllers/Table/StructureController.php:759
-#: libraries/classes/Controllers/Table/StructureController.php:1062
+#: libraries/classes/Controllers/Table/StructureController.php:762
+#: libraries/classes/Controllers/Table/StructureController.php:1065
 #: libraries/classes/Tracking.php:790
 msgid "Query error"
 msgstr "Sökningsfel"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1007
+#: libraries/classes/Controllers/Table/StructureController.php:1010
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "Tabellen %1$s har ändrats. Privilegierna har justerats."
 
-#: libraries/classes/Controllers/Table/StructureController.php:1238
+#: libraries/classes/Controllers/Table/StructureController.php:1241
 #: templates/table/structure/display_structure.twig:288
 msgid "Change"
 msgstr "Ändra"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1239
-#: libraries/classes/Controllers/Table/StructureController.php:1240
-#: libraries/classes/Index.php:759 libraries/classes/Operations.php:691
-#: libraries/classes/Rte/RteList.php:192 libraries/classes/Util.php:3152
-#: libraries/classes/Util.php:3153
+#: libraries/classes/Controllers/Table/StructureController.php:1242
+#: libraries/classes/Controllers/Table/StructureController.php:1243
+#: libraries/classes/Operations.php:691 libraries/classes/Rte/RteList.php:192
+#: libraries/classes/Util.php:3152 libraries/classes/Util.php:3153
 #: templates/database/structure/check_all_tables.twig:16
-#: templates/rte/routines/parameter_row.twig:51
+#: templates/indexes.twig:51 templates/rte/routines/parameter_row.twig:51
 #: templates/server/databases/index.twig:304
+#: templates/table/relation/common_form.twig:273
 #: templates/table/relation/foreign_key_row.twig:26
 #: templates/table/structure/display_structure.twig:295
-#: templates/table/structure/display_structure.twig:476
+#: templates/table/structure/display_structure.twig:498
+#: templates/table/structure/display_structure.twig:575
 msgid "Drop"
 msgstr "Radera"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1241
-#: libraries/classes/Controllers/Table/StructureController.php:1246
-#: libraries/classes/Controllers/Table/StructureController.php:1302
+#: libraries/classes/Controllers/Table/StructureController.php:1244
+#: libraries/classes/Controllers/Table/StructureController.php:1249
+#: libraries/classes/Controllers/Table/StructureController.php:1305
 #: templates/columns_definitions/column_indexes.twig:4
 #: templates/database/data_dictionary/index.twig:33
 #: templates/table/structure/display_structure.twig:304
@@ -7648,9 +7670,9 @@ msgstr "Radera"
 msgid "Primary"
 msgstr "Primär"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1242
-#: libraries/classes/Controllers/Table/StructureController.php:1247
-#: libraries/classes/Controllers/Table/StructureController.php:1307
+#: libraries/classes/Controllers/Table/StructureController.php:1245
+#: libraries/classes/Controllers/Table/StructureController.php:1250
+#: libraries/classes/Controllers/Table/StructureController.php:1310
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:28
 #: templates/columns_definitions/column_indexes.twig:12
 #: templates/columns_definitions/table_fields_definitions.twig:46
@@ -7660,30 +7682,32 @@ msgstr "Primär"
 msgid "Index"
 msgstr "Index"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1243
-#: libraries/classes/Controllers/Table/StructureController.php:1248
-#: libraries/classes/Index.php:709
+#: libraries/classes/Controllers/Table/StructureController.php:1246
+#: libraries/classes/Controllers/Table/StructureController.php:1251
 #: templates/columns_definitions/column_indexes.twig:8
+#: templates/database/data_dictionary/index.twig:67 templates/indexes.twig:17
+#: templates/table/relation/common_form.twig:239
 #: templates/table/structure/display_structure.twig:311
+#: templates/table/structure/display_structure.twig:464
 #: templates/table/tracking/structure_snapshot_indexes.twig:7
 msgid "Unique"
 msgstr "Unik"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1244
-#: libraries/classes/Controllers/Table/StructureController.php:1249
+#: libraries/classes/Controllers/Table/StructureController.php:1247
+#: libraries/classes/Controllers/Table/StructureController.php:1252
 #: templates/columns_definitions/column_indexes.twig:20
 msgid "Spatial"
 msgstr "Spatial"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1245
-#: libraries/classes/Controllers/Table/StructureController.php:1250
+#: libraries/classes/Controllers/Table/StructureController.php:1248
+#: libraries/classes/Controllers/Table/StructureController.php:1253
 #: templates/columns_definitions/column_indexes.twig:16
 #: templates/table/structure/display_structure.twig:325
 #: templates/table/structure/display_structure.twig:337
 msgid "Fulltext"
 msgstr "Fulltext"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1251
+#: libraries/classes/Controllers/Table/StructureController.php:1254
 msgid "Distinct values"
 msgstr "Distinkta värden"
 
@@ -7988,39 +8012,45 @@ msgid "Delete bookmark"
 msgstr "Ta bort bokmärke"
 
 #: libraries/classes/Database/Search.php:110
+#: templates/database/search/main.twig:19
 msgid "at least one of the words"
 msgstr "minst ett av orden"
 
 #: libraries/classes/Database/Search.php:111
+#: templates/database/search/main.twig:23
 #, fuzzy
 #| msgid "at least one of the words"
 msgid "all of the words"
 msgstr "minst ett av orden"
 
 #: libraries/classes/Database/Search.php:112
+#: templates/database/search/main.twig:27
 #, fuzzy
 #| msgid "the exact phrase"
 msgid "the exact phrase as substring"
 msgstr "den exakta frasen"
 
 #: libraries/classes/Database/Search.php:113
+#: templates/database/search/main.twig:31
 #, fuzzy
 #| msgid "the exact phrase"
 msgid "the exact phrase as whole field"
 msgstr "den exakta frasen"
 
 #: libraries/classes/Database/Search.php:114
+#: templates/database/search/main.twig:35
 msgid "as regular expression"
 msgstr "som reguljärt uttryck"
-
-#: libraries/classes/Database/Search.php:327
-#: libraries/classes/Database/Search.php:331
-msgid "Words are separated by a space character (\" \")."
-msgstr "Ord separeras av ett mellanslag (\" \")."
 
 #: libraries/classes/Dbal/DbiMysqli.php:183
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
+
+#: libraries/classes/Display/ChangePassword.php:88
+#: libraries/classes/Server/Privileges.php:803
+#: libraries/classes/Server/Privileges.php:877
+msgid "Native MySQL authentication"
+msgstr "MySQL-autentisering"
 
 #: libraries/classes/Display/Export.php:338
 msgid "@SERVER@ will become the server name"
@@ -8113,12 +8143,12 @@ msgid "End"
 msgstr "Slut"
 
 #: libraries/classes/Display/Results.php:1619
-#: templates/display/results/options_block.twig:18
+#: templates/display/results/options_block.twig:19
 msgid "Partial texts"
 msgstr "Förkortade texter"
 
 #: libraries/classes/Display/Results.php:1623
-#: templates/display/results/options_block.twig:18
+#: templates/display/results/options_block.twig:23
 msgid "Full texts"
 msgstr "Kompletta texter"
 
@@ -8131,8 +8161,8 @@ msgstr "Kompletta texter"
 #: templates/server/databases/index.twig:131
 #: templates/server/databases/index.twig:150
 #: templates/server/status/processes/list.twig:12
-#: templates/table/operations/index.twig:21
-#: templates/table/search/index.twig:147
+#: templates/table/operations/index.twig:31
+#: templates/table/search/index.twig:153
 msgid "Descending"
 msgstr "Fallande"
 
@@ -8145,8 +8175,8 @@ msgstr "Fallande"
 #: templates/server/databases/index.twig:129
 #: templates/server/databases/index.twig:148
 #: templates/server/status/processes/list.twig:14
-#: templates/table/operations/index.twig:18
-#: templates/table/search/index.twig:147
+#: templates/table/operations/index.twig:27
+#: templates/table/search/index.twig:149
 msgid "Ascending"
 msgstr "Stigande"
 
@@ -8180,7 +8210,7 @@ msgstr "%1$d totalt, %2$d i fråga"
 msgid "%d total"
 msgstr "%d totalt"
 
-#: libraries/classes/Display/Results.php:4586 libraries/classes/Sql.php:1218
+#: libraries/classes/Display/Results.php:4586 libraries/classes/Sql.php:1224
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Frågan tog %01.4f sekunder."
@@ -8773,7 +8803,7 @@ msgstr "%d fel hittades under analys."
 msgid "MySQL said: "
 msgstr "MySQL sa: "
 
-#: libraries/classes/Import.php:310 libraries/classes/Sql.php:1226
+#: libraries/classes/Import.php:310 libraries/classes/Sql.php:1232
 msgid "[ROLLBACK occurred.]"
 msgstr "[ÅTERTOG tidigare version]"
 
@@ -8865,95 +8895,7 @@ msgstr ""
 "Enda Infoga, uppdatera, ta bort och ersätta SQL-körningar som innehåller "
 "transaktionella tabeller kan rullas tillbaka."
 
-#: libraries/classes/Index.php:646
-#, php-format
-msgid "Create an index on &nbsp;%s&nbsp;columns"
-msgstr "Skapa ett index för &nbsp;%s&nbsp;kolumn(er)"
-
-#: libraries/classes/Index.php:678
-msgid "No index defined!"
-msgstr "Inga index är definierade!"
-
-#: libraries/classes/Index.php:705 libraries/classes/Rte/RteList.php:110
-#: libraries/classes/Rte/RteList.php:125 libraries/classes/Rte/RteList.php:138
-#: templates/database/central_columns/main.twig:234
-#: templates/database/privileges/index.twig:22
-#: templates/database/structure/table_header.twig:22
-#: templates/database/tracking/tables.twig:18
-#: templates/database/tracking/tables.twig:121
-#: templates/server/databases/index.twig:166
-#: templates/server/privileges/privileges_summary.twig:22
-#: templates/server/privileges/users_overview.twig:19
-#: templates/server/user_groups/user_groups.twig:21
-#: templates/server/variables/index.twig:31
-#: templates/table/privileges/index.twig:24
-#: templates/table/structure/display_partitions.twig:33
-#: templates/table/structure/display_structure.twig:34
-#: templates/table/tracking/main.twig:32
-#: templates/table/tracking/report_table.twig:8
-msgid "Action"
-msgstr "Åtgärd"
-
-#: libraries/classes/Index.php:710
-#: templates/table/tracking/structure_snapshot_indexes.twig:8
-msgid "Packed"
-msgstr "Packad"
-
-#: libraries/classes/Index.php:711 libraries/classes/InsertEdit.php:1976
-#: libraries/classes/Navigation/Nodes/NodeColumn.php:32
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:286
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:382
-#: libraries/classes/Plugins/Export/ExportLatex.php:547
-#: libraries/classes/Plugins/Export/ExportOdt.php:393
-#: libraries/classes/Plugins/Export/ExportOdt.php:495
-#: libraries/classes/Plugins/Export/ExportTexytext.php:299
-#: libraries/classes/Plugins/Export/ExportTexytext.php:390
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:511
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:684
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:717
-#: templates/columns_definitions/column_name.twig:16
-#: templates/database/data_dictionary/index.twig:16
-#: templates/table/index_form.twig:119
-#: templates/table/relation/common_form.twig:17
-#: templates/table/relation/common_form.twig:22
-#: templates/table/relation/common_form.twig:37
-#: templates/table/relation/common_form.twig:117
-#: templates/table/relation/common_form.twig:182
-#: templates/table/relation/foreign_key_row.twig:118
-#: templates/table/relation/foreign_key_row.twig:128
-#: templates/table/search/index.twig:38
-#: templates/table/tracking/structure_snapshot_columns.twig:6
-#: templates/table/tracking/structure_snapshot_indexes.twig:9
-#: templates/table/zoom_search/index.twig:38
-#: templates/table/zoom_search/result_form.twig:32
-msgid "Column"
-msgstr "Kolumn"
-
-#: libraries/classes/Index.php:712
-#: templates/table/tracking/structure_snapshot_indexes.twig:10
-msgid "Cardinality"
-msgstr "Kardinalitet"
-
-#: libraries/classes/Index.php:715 libraries/classes/Rte/Events.php:562
-#: libraries/classes/Rte/Routines.php:1100
-#: templates/columns_definitions/partitions.twig:85
-#: templates/database/structure/table_header.twig:46
-#: templates/table/structure/display_partitions.twig:31
-#: templates/table/tracking/structure_snapshot_columns.twig:12
-#: templates/table/tracking/structure_snapshot_indexes.twig:13
-msgid "Comment"
-msgstr "Kommentar"
-
-#: libraries/classes/Index.php:741
-msgid "The primary key has been dropped."
-msgstr "Den primära nyckeln har tagits bort."
-
-#: libraries/classes/Index.php:748
-#, php-format
-msgid "Index %s has been dropped."
-msgstr "Index %s har tagits bort."
-
-#: libraries/classes/Index.php:878
+#: libraries/classes/Index.php:617
 #, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
@@ -9040,6 +8982,39 @@ msgstr ""
 "Använd TAB-tangenten för att flytta från värde till värde, eller CTRL+pil "
 "för att flytta vart som helst."
 
+#: libraries/classes/InsertEdit.php:1976
+#: libraries/classes/Navigation/Nodes/NodeColumn.php:32
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:286
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:382
+#: libraries/classes/Plugins/Export/ExportLatex.php:547
+#: libraries/classes/Plugins/Export/ExportOdt.php:393
+#: libraries/classes/Plugins/Export/ExportOdt.php:495
+#: libraries/classes/Plugins/Export/ExportTexytext.php:299
+#: libraries/classes/Plugins/Export/ExportTexytext.php:390
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:511
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:684
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:717
+#: templates/columns_definitions/column_name.twig:16
+#: templates/database/data_dictionary/index.twig:16
+#: templates/database/data_dictionary/index.twig:69 templates/indexes.twig:19
+#: templates/table/index_form.twig:133 templates/table/operations/index.twig:13
+#: templates/table/relation/common_form.twig:17
+#: templates/table/relation/common_form.twig:22
+#: templates/table/relation/common_form.twig:37
+#: templates/table/relation/common_form.twig:117
+#: templates/table/relation/common_form.twig:182
+#: templates/table/relation/common_form.twig:241
+#: templates/table/relation/foreign_key_row.twig:118
+#: templates/table/relation/foreign_key_row.twig:128
+#: templates/table/search/index.twig:38
+#: templates/table/structure/display_structure.twig:466
+#: templates/table/tracking/structure_snapshot_columns.twig:6
+#: templates/table/tracking/structure_snapshot_indexes.twig:9
+#: templates/table/zoom_search/index.twig:38
+#: templates/table/zoom_search/result_form.twig:32
+msgid "Column"
+msgstr "Kolumn"
+
 #: libraries/classes/InsertEdit.php:1986
 #: libraries/classes/Rte/Routines.php:1652
 #: templates/database/designer/main.twig:488
@@ -9055,11 +9030,11 @@ msgstr ""
 msgid "Value"
 msgstr "Värde"
 
-#: libraries/classes/InsertEdit.php:2378 libraries/classes/Sql.php:1209
+#: libraries/classes/InsertEdit.php:2378 libraries/classes/Sql.php:1215
 msgid "Showing SQL query"
 msgstr "Visar SQL-fråga"
 
-#: libraries/classes/InsertEdit.php:2403 libraries/classes/Sql.php:1187
+#: libraries/classes/InsertEdit.php:2403 libraries/classes/Sql.php:1193
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Infogade rad-id: %1$d"
@@ -9114,7 +9089,7 @@ msgid "Insert"
 msgstr "Lägg till"
 
 #: libraries/classes/Menu.php:326 libraries/classes/Menu.php:444
-#: libraries/classes/Server/Privileges.php:2940 libraries/classes/Util.php:2483
+#: libraries/classes/Server/Privileges.php:2889 libraries/classes/Util.php:2483
 #: libraries/classes/Util.php:2499 libraries/config.values.php:160
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
@@ -9126,7 +9101,7 @@ msgstr "Privilegier"
 #: libraries/classes/Menu.php:336 libraries/classes/Menu.php:345
 #: libraries/classes/Menu.php:435 libraries/classes/Util.php:1741
 #: libraries/classes/Util.php:2482 libraries/classes/Util.php:2500
-#: libraries/config.values.php:170 templates/table/operations/view.twig:7
+#: libraries/config.values.php:170 templates/table/operations/view.twig:8
 msgid "Operations"
 msgstr "Operationer"
 
@@ -9412,7 +9387,7 @@ msgid "Make all columns atomic"
 msgstr "Göra alla kolumner encelliga"
 
 #: libraries/classes/Normalization.php:220
-#: libraries/classes/Normalization.php:923
+#: libraries/classes/Normalization.php:925
 msgid "First step of normalization (1NF)"
 msgstr "Första steg av normalisering (1NF)"
 
@@ -9691,21 +9666,21 @@ msgstr "Förbättra tabellstrukturen (normalisering):"
 msgid "Select up to what step you want to normalize"
 msgstr "Välj till vilket steg du vill normalisera"
 
-#: libraries/classes/Normalization.php:924
+#: libraries/classes/Normalization.php:930
 msgid "Second step of normalization (1NF+2NF)"
 msgstr "Andra steget av normalisering (1NF + 2NF)"
 
-#: libraries/classes/Normalization.php:925
+#: libraries/classes/Normalization.php:935
 msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "Tredje steget i normalisering (1NF + 2NF + 3NF)"
 
-#: libraries/classes/Normalization.php:936
+#: libraries/classes/Normalization.php:940
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
 msgstr "Tips: Följ anvisningar noga för att få rätt normalisering"
 
-#: libraries/classes/Normalization.php:1002
+#: libraries/classes/Normalization.php:1006
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
@@ -9713,7 +9688,7 @@ msgstr ""
 "Denna lista är baserad på en delmängd av tabellens data och är inte "
 "nödvändigtvis korrekt. "
 
-#: libraries/classes/Normalization.php:1018
+#: libraries/classes/Normalization.php:1022
 msgid "No partial dependencies found!"
 msgstr "Inga partiella beroenden hittade!"
 
@@ -9757,32 +9732,32 @@ msgid "Repair table"
 msgstr "Reparera tabell"
 
 #: libraries/classes/Operations.php:675
-#: templates/table/structure/display_structure.twig:467
+#: templates/table/structure/display_structure.twig:566
 msgid "Analyze"
 msgstr "Analysera"
 
 #: libraries/classes/Operations.php:676
-#: templates/table/structure/display_structure.twig:467
+#: templates/table/structure/display_structure.twig:566
 msgid "Check"
 msgstr "Kontrollera"
 
 #: libraries/classes/Operations.php:677
-#: templates/table/structure/display_structure.twig:467
+#: templates/table/structure/display_structure.twig:566
 msgid "Optimize"
 msgstr "Optimera"
 
 #: libraries/classes/Operations.php:678
-#: templates/table/structure/display_structure.twig:467
+#: templates/table/structure/display_structure.twig:566
 msgid "Rebuild"
 msgstr "Återskapa"
 
 #: libraries/classes/Operations.php:679
-#: templates/table/structure/display_structure.twig:467
+#: templates/table/structure/display_structure.twig:566
 msgid "Repair"
 msgstr "Reparera"
 
 #: libraries/classes/Operations.php:680
-#: templates/table/structure/display_structure.twig:467
+#: templates/table/structure/display_structure.twig:566
 msgid "Truncate"
 msgstr "Avkorta"
 
@@ -11292,6 +11267,15 @@ msgstr "Kan inte ändra master!"
 msgid "Master server changed successfully to %s."
 msgstr "Huvudservern har ändrats till %s."
 
+#: libraries/classes/Routing.php:66
+#, php-format
+msgid "Error 404! The page %s was not found."
+msgstr "Fel 404! Sidan %s hittades inte."
+
+#: libraries/classes/Routing.php:73
+msgid "Error 405! Request method not allowed."
+msgstr "Fel 405! Förfrågningsmetoden ej tillåten."
+
 #: libraries/classes/Rte/Events.php:165 libraries/classes/Rte/Events.php:174
 #: libraries/classes/Rte/Events.php:205 libraries/classes/Rte/Routines.php:302
 #: libraries/classes/Rte/Routines.php:326
@@ -11371,6 +11355,18 @@ msgstr "Vid avslut, bevara"
 #: libraries/classes/Rte/Triggers.php:442 templates/view_create.twig:45
 msgid "Definer"
 msgstr "Definierare"
+
+#: libraries/classes/Rte/Events.php:562 libraries/classes/Rte/Routines.php:1100
+#: templates/columns_definitions/partitions.twig:85
+#: templates/database/data_dictionary/index.twig:73
+#: templates/database/structure/table_header.twig:46 templates/indexes.twig:23
+#: templates/table/relation/common_form.twig:245
+#: templates/table/structure/display_partitions.twig:31
+#: templates/table/structure/display_structure.twig:470
+#: templates/table/tracking/structure_snapshot_columns.twig:12
+#: templates/table/tracking/structure_snapshot_indexes.twig:13
+msgid "Comment"
+msgstr "Kommentar"
 
 #: libraries/classes/Rte/Events.php:601 libraries/classes/Rte/Routines.php:1154
 #: libraries/classes/Rte/Triggers.php:481
@@ -11506,11 +11502,11 @@ msgstr "Är deterministisk"
 #: libraries/classes/Rte/Routines.php:1053
 #: templates/columns_definitions/table_fields_definitions.twig:36
 #: templates/database/operations/index.twig:74
-#: templates/database/operations/index.twig:176
-#: templates/mult_submits/copy_multiple_tables.twig:48
-#: templates/table/operations/index.twig:64
-#: templates/table/operations/index.twig:97
-#: templates/table/operations/index.twig:252
+#: templates/database/operations/index.twig:178
+#: templates/mult_submits/copy_multiple_tables.twig:50
+#: templates/table/operations/index.twig:81
+#: templates/table/operations/index.twig:115
+#: templates/table/operations/index.twig:293
 msgid "Adjust privileges"
 msgstr "Ändra privilegier"
 
@@ -11581,6 +11577,28 @@ msgstr "Utför rutin"
 #: libraries/classes/Rte/Routines.php:1643
 msgid "Routine parameters"
 msgstr "Rutinparametrar"
+
+#: libraries/classes/Rte/RteList.php:110 libraries/classes/Rte/RteList.php:125
+#: libraries/classes/Rte/RteList.php:138
+#: templates/database/central_columns/main.twig:234
+#: templates/database/privileges/index.twig:22
+#: templates/database/structure/table_header.twig:22
+#: templates/database/tracking/tables.twig:18
+#: templates/database/tracking/tables.twig:121 templates/indexes.twig:14
+#: templates/server/databases/index.twig:166
+#: templates/server/privileges/privileges_summary.twig:22
+#: templates/server/privileges/users_overview.twig:19
+#: templates/server/user_groups/user_groups.twig:21
+#: templates/server/variables/index.twig:31
+#: templates/table/privileges/index.twig:24
+#: templates/table/relation/common_form.twig:236
+#: templates/table/structure/display_partitions.twig:33
+#: templates/table/structure/display_structure.twig:34
+#: templates/table/structure/display_structure.twig:461
+#: templates/table/tracking/main.twig:32
+#: templates/table/tracking/report_table.twig:8
+msgid "Action"
+msgstr "Åtgärd"
 
 #: libraries/classes/Rte/RteList.php:112
 msgid "Returns"
@@ -11761,32 +11779,27 @@ msgstr "Saknar information för att läsa in sökningen."
 msgid "Error while loading the search."
 msgstr "Fel då sökningen lästes in."
 
-#: libraries/classes/Server/Privileges.php:814
-#: libraries/classes/Server/Privileges.php:845
-msgid "Native MySQL authentication"
-msgstr "MySQL-autentisering"
-
-#: libraries/classes/Server/Privileges.php:847
+#: libraries/classes/Server/Privileges.php:805
 msgid "SHA256 password authentication"
 msgstr "SHA256 lösenordsautentisering"
 
-#: libraries/classes/Server/Privileges.php:1218
+#: libraries/classes/Server/Privileges.php:1167
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Lösenordet för %s har ändrats."
 
-#: libraries/classes/Server/Privileges.php:1266
+#: libraries/classes/Server/Privileges.php:1215
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Du har upphävt privilegierna för %s."
 
-#: libraries/classes/Server/Privileges.php:1595
+#: libraries/classes/Server/Privileges.php:1544
 #: templates/database/privileges/index.twig:122
 #: templates/table/privileges/index.twig:125
 msgid "Not enough privilege to view users."
 msgstr "Inte tillräckligt privilegier för att visa användare."
 
-#: libraries/classes/Server/Privileges.php:1662
+#: libraries/classes/Server/Privileges.php:1611
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:72
@@ -11794,24 +11807,24 @@ msgstr "Inte tillräckligt privilegier för att visa användare."
 msgid "Edit privileges"
 msgstr "Redigera behörigheter"
 
-#: libraries/classes/Server/Privileges.php:1665
+#: libraries/classes/Server/Privileges.php:1614
 msgid "Revoke"
 msgstr "Upphäv"
 
-#: libraries/classes/Server/Privileges.php:1990
+#: libraries/classes/Server/Privileges.php:1939
 #: templates/server/privileges/privileges_table.twig:240
 msgid "Database-specific privileges"
 msgstr "Databasspecifika privilegier"
 
-#: libraries/classes/Server/Privileges.php:1996
+#: libraries/classes/Server/Privileges.php:1945
 #: templates/server/privileges/privileges_summary.twig:18
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:242
 msgid "Table-specific privileges"
 msgstr "Tabellspecifika privilegier"
 
-#: libraries/classes/Server/Privileges.php:2001
-#: libraries/classes/Server/Privileges.php:2003
+#: libraries/classes/Server/Privileges.php:1950
+#: libraries/classes/Server/Privileges.php:1952
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:58
@@ -11820,56 +11833,56 @@ msgstr "Tabellspecifika privilegier"
 msgid "Routine"
 msgstr "Rutiner"
 
-#: libraries/classes/Server/Privileges.php:2002
+#: libraries/classes/Server/Privileges.php:1951
 #: templates/server/privileges/edit_routine_privileges.twig:47
 #, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
 msgstr "Kolumnspecifika privilegier"
 
-#: libraries/classes/Server/Privileges.php:2340
+#: libraries/classes/Server/Privileges.php:2289
 msgid "No users selected for deleting!"
 msgstr "Inga användare valda för borttagning!"
 
-#: libraries/classes/Server/Privileges.php:2343
+#: libraries/classes/Server/Privileges.php:2292
 msgid "Reloading the privileges"
 msgstr "Laddar om privilegierna"
 
-#: libraries/classes/Server/Privileges.php:2362
+#: libraries/classes/Server/Privileges.php:2311
 msgid "The selected users have been deleted successfully."
 msgstr "De valda användarna har tagits bort."
 
-#: libraries/classes/Server/Privileges.php:2440
+#: libraries/classes/Server/Privileges.php:2389
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Du har uppdaterat privilegierna för %s."
 
-#: libraries/classes/Server/Privileges.php:2470
+#: libraries/classes/Server/Privileges.php:2419
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr "Ingen användare hittades."
 
-#: libraries/classes/Server/Privileges.php:2550
+#: libraries/classes/Server/Privileges.php:2499
 #, php-format
 msgid "Deleting %s"
 msgstr "Tar bort %s"
 
-#: libraries/classes/Server/Privileges.php:2578
+#: libraries/classes/Server/Privileges.php:2527
 msgid "The privileges were reloaded successfully."
 msgstr "Privilegierna har laddats om."
 
-#: libraries/classes/Server/Privileges.php:2676
+#: libraries/classes/Server/Privileges.php:2625
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Användaren %s finns redan!"
 
-#: libraries/classes/Server/Privileges.php:2957
+#: libraries/classes/Server/Privileges.php:2906
 #, php-format
 msgid "Privileges for %s"
 msgstr "Privilegier för %s"
 
-#: libraries/classes/Server/Privileges.php:3100
+#: libraries/classes/Server/Privileges.php:3049
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -11879,7 +11892,7 @@ msgstr ""
 "tillgängligt. Detta kommer att hindra andra användare från att ansluta om "
 "värddelen av deras konto tillåter anslutning från alla värddatorer (%)."
 
-#: libraries/classes/Server/Privileges.php:3143
+#: libraries/classes/Server/Privileges.php:3092
 #, fuzzy, php-format
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -11897,7 +11910,7 @@ msgstr ""
 "behörigheter servern använder, om manuella ändringar har gjorts. Är så "
 "fallet bör du %sladda om behörigheterna%s innan du fortsätter."
 
-#: libraries/classes/Server/Privileges.php:3159
+#: libraries/classes/Server/Privileges.php:3108
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -11918,7 +11931,7 @@ msgstr ""
 "fallet bör du ladda om behörigheterna innan du fortsätter, du har dock inte "
 "privilegierna för detta."
 
-#: libraries/classes/Server/Privileges.php:3496
+#: libraries/classes/Server/Privileges.php:3445
 msgid "You have added a new user."
 msgstr "Du har lagt till en ny användare."
 
@@ -12047,11 +12060,11 @@ msgstr "Bokmärke ej skapat!"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Använd bokmärket \"%s\" som standard webbläsarfråga."
 
-#: libraries/classes/Sql.php:1206
+#: libraries/classes/Sql.php:1212
 msgid "Showing as PHP code"
 msgstr "Visar som PHP-kod"
 
-#: libraries/classes/Sql.php:1588
+#: libraries/classes/Sql.php:1594
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -12061,7 +12074,7 @@ msgstr ""
 "rutnätsredigera, kryssruta, redigera, kopiera och radera är inte "
 "tillgängliga. %s"
 
-#: libraries/classes/Sql.php:1602
+#: libraries/classes/Sql.php:1608
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -12071,7 +12084,7 @@ msgstr ""
 "rutnätsredigera, kryssruta, redigera, kopiera och radera kan orsaka oönskat "
 "resultat, %s"
 
-#: libraries/classes/Sql.php:1636
+#: libraries/classes/Sql.php:1642
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problem med index för tabell `%s`"
@@ -12092,30 +12105,30 @@ msgstr "Kör SQL-fråga/frågor i databasen %s"
 msgid "Run SQL query/queries on table %s"
 msgstr "Kör SQL-fråga/frågor i tabellen %s"
 
-#: libraries/classes/StorageEngine.php:278
+#: libraries/classes/StorageEngine.php:251
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
 "Det finns ingen detaljerad statusinformation tillgänglig för denna "
 "lagringsmotor."
 
-#: libraries/classes/StorageEngine.php:381
+#: libraries/classes/StorageEngine.php:354
 #: templates/database/structure/body_for_table_summary.twig:46
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s är standardmotorn för denna MySQL-server."
 
-#: libraries/classes/StorageEngine.php:384
+#: libraries/classes/StorageEngine.php:357
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "%s är tillgänglig på denna MySQL-server."
 
-#: libraries/classes/StorageEngine.php:387
+#: libraries/classes/StorageEngine.php:360
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "%s har inaktiverats på denna MySQL-server."
 
-#: libraries/classes/StorageEngine.php:392
+#: libraries/classes/StorageEngine.php:365
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Denna MySQL-server stödjer inte lagringsmotorn %s."
@@ -12193,7 +12206,7 @@ msgstr "Inga delar av index är definierade!"
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Fel vid skapande av främmande nyckel för %1$s (kontrollera datatyper)"
 
-#: libraries/classes/Template.php:115
+#: libraries/classes/Template.php:113
 #, fuzzy, php-format
 #| msgid "Error while loading the search."
 msgid "Error while working with template cache: %s"
@@ -12242,23 +12255,23 @@ msgid "No data"
 msgstr "Inget data"
 
 #: libraries/classes/Tracking.php:331
-#: templates/database/operations/index.twig:135
-#: templates/mult_submits/copy_multiple_tables.twig:17
-#: templates/table/operations/index.twig:223
+#: templates/database/operations/index.twig:136
+#: templates/mult_submits/copy_multiple_tables.twig:19
+#: templates/table/operations/index.twig:253
 msgid "Structure only"
 msgstr "Enbart struktur"
 
 #: libraries/classes/Tracking.php:334
-#: templates/database/operations/index.twig:147
-#: templates/mult_submits/copy_multiple_tables.twig:27
-#: templates/table/operations/index.twig:223
+#: templates/database/operations/index.twig:148
+#: templates/mult_submits/copy_multiple_tables.twig:29
+#: templates/table/operations/index.twig:265
 msgid "Data only"
 msgstr "Enbart data"
 
 #: libraries/classes/Tracking.php:337
-#: templates/database/operations/index.twig:141
-#: templates/mult_submits/copy_multiple_tables.twig:22
-#: templates/table/operations/index.twig:223
+#: templates/database/operations/index.twig:142
+#: templates/mult_submits/copy_multiple_tables.twig:24
+#: templates/table/operations/index.twig:259
 msgid "Structure and data"
 msgstr "Struktur och data"
 
@@ -12830,22 +12843,22 @@ msgstr "Inga filer hittades i ZIP-arkivet!"
 msgid "Error in ZIP archive:"
 msgstr "Fel i ZIP-arkiv:"
 
-#: libraries/common.inc.php:216
+#: libraries/common.inc.php:225
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/common.inc.php:370
+#: libraries/common.inc.php:379
 msgid "Invalid authentication method set in configuration:"
 msgstr "Ogiltig metod för verifiering angiven i konfiguration:"
 
-#: libraries/common.inc.php:424
+#: libraries/common.inc.php:433
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Du bör uppgradera till %s %s eller senare."
 
-#: libraries/common.inc.php:479
+#: libraries/common.inc.php:488
 msgid "Error: Token mismatch"
 msgstr "Fel: Token matchningsfel"
 
@@ -13062,11 +13075,19 @@ msgstr "Lagringsmotor:"
 msgid "Connection:"
 msgstr "Anslutning:"
 
-#: templates/columns_definitions/column_definitions_form.twig:133
+#: templates/columns_definitions/column_definitions_form.twig:113
+#: templates/columns_definitions/partitions.twig:137
+#: templates/table/operations/index.twig:128
+#, fuzzy
+#| msgid "Storage Engines"
+msgid "Storage engine"
+msgstr "Lagringsmotorer"
+
+#: templates/columns_definitions/column_definitions_form.twig:136
 msgid "PARTITION definition:"
 msgstr "Partitionsdefinition:"
 
-#: templates/columns_definitions/column_definitions_form.twig:150
+#: templates/columns_definitions/column_definitions_form.twig:154
 #, fuzzy
 #| msgid "Enclose export in a transaction"
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
@@ -13137,7 +13158,7 @@ msgid "Subpartitions:"
 msgstr "partitionerad"
 
 #: templates/columns_definitions/partitions.twig:76
-#: templates/table/operations/index.twig:344
+#: templates/table/operations/index.twig:384
 #: templates/table/structure/display_partitions.twig:24
 #, fuzzy
 #| msgid "Partition %s"
@@ -13444,12 +13465,12 @@ msgid "The central list of columns for the current database is empty"
 msgstr "Huvudförteckningen över kolumner i den aktuella databasen är tom."
 
 #: templates/database/central_columns/main.twig:182
-#: templates/display/results/table_navigation.twig:73
+#: templates/display/results/table_navigation.twig:66
 msgid "Filter rows"
 msgstr "Filtrera rader"
 
 #: templates/database/central_columns/main.twig:183
-#: templates/display/results/table_navigation.twig:75
+#: templates/display/results/table_navigation.twig:68
 msgid "Search this table"
 msgstr "Sök i denna tabell"
 
@@ -13487,6 +13508,26 @@ msgstr "Antal kolumner"
 #| msgid "Database comment"
 msgid "Database comment:"
 msgstr "Databaskommentar"
+
+#: templates/database/data_dictionary/index.twig:68 templates/indexes.twig:18
+#: templates/table/relation/common_form.twig:240
+#: templates/table/structure/display_structure.twig:465
+#: templates/table/tracking/structure_snapshot_indexes.twig:8
+msgid "Packed"
+msgstr "Packad"
+
+#: templates/database/data_dictionary/index.twig:70 templates/indexes.twig:20
+#: templates/table/relation/common_form.twig:242
+#: templates/table/structure/display_structure.twig:467
+#: templates/table/tracking/structure_snapshot_indexes.twig:10
+msgid "Cardinality"
+msgstr "Kardinalitet"
+
+#: templates/database/data_dictionary/index.twig:110 templates/indexes.twig:85
+#: templates/table/relation/common_form.twig:307
+#: templates/table/structure/display_structure.twig:532
+msgid "No index defined!"
+msgstr "Inga index är definierade!"
 
 #: templates/database/designer/database_tables.twig:37
 msgid "Show/hide columns"
@@ -13681,15 +13722,15 @@ msgstr "Aktör"
 msgid "Active options"
 msgstr "Aktiva alternativ"
 
-#: templates/database/designer/page_save_as.twig:17
+#: templates/database/designer/page_save_as.twig:19
 msgid "Save to selected page"
 msgstr "Spara till vald sida"
 
-#: templates/database/designer/page_save_as.twig:17
+#: templates/database/designer/page_save_as.twig:23
 msgid "Create a page and save to it"
 msgstr "Skapa en sida och spara till den"
 
-#: templates/database/designer/page_save_as.twig:30
+#: templates/database/designer/page_save_as.twig:29
 msgid "New page name"
 msgstr "Nytt sidnamn"
 
@@ -13805,10 +13846,10 @@ msgid "New database name"
 msgstr "Nytt Databasnamn"
 
 #: templates/database/operations/index.twig:72
-#: templates/database/operations/index.twig:174
-#: templates/table/operations/index.twig:60
-#: templates/table/operations/index.twig:93
-#: templates/table/operations/index.twig:248
+#: templates/database/operations/index.twig:176
+#: templates/table/operations/index.twig:79
+#: templates/table/operations/index.twig:113
+#: templates/table/operations/index.twig:291
 #, fuzzy
 #| msgid ""
 #| "You don't have sufficient privileges to perform this operation; Please "
@@ -13837,27 +13878,27 @@ msgstr "Tag bort databasen (DROP)"
 msgid "Copy database to"
 msgstr "Kopiera databasen till"
 
-#: templates/database/operations/index.twig:153
+#: templates/database/operations/index.twig:155
 msgid "CREATE DATABASE before copying"
 msgstr "CREATE DATABASE före kopiering"
 
-#: templates/database/operations/index.twig:168
-#: templates/mult_submits/copy_multiple_tables.twig:42
-#: templates/table/operations/index.twig:240
+#: templates/database/operations/index.twig:170
+#: templates/mult_submits/copy_multiple_tables.twig:44
+#: templates/table/operations/index.twig:284
 msgid "Add constraints"
 msgstr "Lägg till restriktioner"
 
-#: templates/database/operations/index.twig:183
+#: templates/database/operations/index.twig:185
 msgid "Switch to copied database"
 msgstr "Byt till den kopierade databasen"
 
-#: templates/database/operations/index.twig:219
+#: templates/database/operations/index.twig:221
 #, fuzzy
 #| msgid "Change all column collations"
 msgid "Change all tables collations"
 msgstr "Ändra alla kolumners sortering"
 
-#: templates/database/operations/index.twig:223
+#: templates/database/operations/index.twig:225
 #, fuzzy
 #| msgid "Change all column collations"
 msgid "Change all tables columns collations"
@@ -13984,17 +14025,22 @@ msgstr "Ord eller värden att söka efter (jokertecken: \"%\"):"
 msgid "Find:"
 msgstr "Hitta:"
 
-#: templates/database/search/main.twig:29
+#: templates/database/search/main.twig:19
+#: templates/database/search/main.twig:23
+msgid "Words are separated by a space character (\" \")."
+msgstr "Ord separeras av ett mellanslag (\" \")."
+
+#: templates/database/search/main.twig:40
 msgid "Inside tables:"
 msgstr "Inuti tabeller:"
 
-#: templates/database/search/main.twig:35
+#: templates/database/search/main.twig:46
 #: templates/display/export/select_options.twig:8
 #: templates/server/replication/database_multibox.twig:8
 msgid "Unselect all"
 msgstr "Avmarkera alla"
 
-#: templates/database/search/main.twig:56
+#: templates/database/search/main.twig:67
 msgid "Inside column:"
 msgstr "Inuti kolumnen:"
 
@@ -14040,13 +14086,13 @@ msgid "Show create"
 msgstr "Visa/Skapa"
 
 #: templates/database/structure/check_all_tables.twig:14
-#: templates/table/operations/index.twig:289
-#: templates/table/operations/view.twig:24
+#: templates/table/operations/index.twig:329
+#: templates/table/operations/view.twig:22
 msgid "Delete data or table"
 msgstr "Ta bort data eller tabell"
 
 #: templates/database/structure/check_all_tables.twig:18
-#: templates/table/operations/index.twig:269
+#: templates/table/operations/index.twig:312
 msgid "Table maintenance"
 msgstr "Tabellunderhåll"
 
@@ -14113,7 +14159,7 @@ msgstr ""
 "[doc@faq3-11] FAQ 3.11 [/doc]."
 
 #: templates/database/structure/table_header.twig:36
-#: templates/table/index_form.twig:122
+#: templates/table/index_form.twig:136
 msgid "Size"
 msgstr "Storlek"
 
@@ -14199,12 +14245,12 @@ msgstr ""
 msgid "Re-type:"
 msgstr "Skriv igen:"
 
-#: templates/display/change_password/file_b.twig:2
-#: templates/display/change_password/file_d.twig:2
+#: templates/display/change_password/file_b.twig:3
+#: templates/display/change_password/file_d.twig:3
 msgid "Password Hashing:"
 msgstr "Hashning av lösenord:"
 
-#: templates/display/change_password/file_b.twig:9
+#: templates/display/change_password/file_b.twig:17
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
 "connection that encrypts the password using RSA</i>'; while connecting to "
@@ -14507,35 +14553,33 @@ msgstr ""
 "Vänligen vänta, filen laddas upp. Detaljer om denna uppladdning är inte "
 "tillgängliga."
 
-#: templates/display/results/options_block.twig:34
+#: templates/display/results/options_block.twig:31
 msgid "Relational key"
 msgstr "Besläktad nyckel"
 
-#: templates/display/results/options_block.twig:34
+#: templates/display/results/options_block.twig:35
 #, fuzzy
 #| msgid "Display column for relations"
 msgid "Display column for relationships"
 msgstr "Visa kolumnen för förbindelserna"
 
-#: templates/display/results/options_block.twig:50
+#: templates/display/results/options_block.twig:41
 msgid "Show binary contents"
 msgstr "Visa binärt innehåll"
 
-#: templates/display/results/options_block.twig:57
+#: templates/display/results/options_block.twig:48
 msgid "Show BLOB contents"
 msgstr "Visa BLOB-innehåll"
 
-#: templates/display/results/options_block.twig:71
+#: templates/display/results/options_block.twig:62
 msgid "Hide browser transformation"
 msgstr "Dölj webbläsarens transformation"
 
-#: templates/display/results/options_block.twig:83
-#: templates/display/results/options_block.twig:100
+#: templates/display/results/options_block.twig:80
 msgid "Well Known Text"
 msgstr "Välkänd text"
 
-#: templates/display/results/options_block.twig:83
-#: templates/display/results/options_block.twig:100
+#: templates/display/results/options_block.twig:84
 msgid "Well Known Binary"
 msgstr "Välkänd binär"
 
@@ -14553,7 +14597,7 @@ msgstr "Spara editerade data"
 msgid "Restore column order"
 msgstr "Återställ ordningen på kolumner"
 
-#: templates/display/results/table_navigation.twig:67
+#: templates/display/results/table_navigation.twig:56
 msgid "All"
 msgstr "Alla"
 
@@ -14818,6 +14862,17 @@ msgstr "Lista över ändringar"
 #: templates/home/index.twig:208 templates/server/plugins/index.twig:30
 msgid "License"
 msgstr "Licens"
+
+#: templates/indexes.twig:39 templates/table/relation/common_form.twig:261
+#: templates/table/structure/display_structure.twig:486
+msgid "The primary key has been dropped."
+msgstr "Den primära nyckeln har tagits bort."
+
+#: templates/indexes.twig:44 templates/table/relation/common_form.twig:266
+#: templates/table/structure/display_structure.twig:491
+#, php-format
+msgid "Index %s has been dropped."
+msgstr "Index %s har tagits bort."
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: templates/javascript/variables.twig:8
@@ -15113,13 +15168,13 @@ msgstr "Verifiera"
 msgid "View:"
 msgstr "Vyer:"
 
-#: templates/mult_submits/copy_multiple_tables.twig:12
+#: templates/mult_submits/copy_multiple_tables.twig:14
 #, fuzzy
 #| msgid "Options"
 msgid "Options:"
 msgstr "Alternativ"
 
-#: templates/mult_submits/copy_multiple_tables.twig:37
+#: templates/mult_submits/copy_multiple_tables.twig:39
 msgid "Add AUTO INCREMENT value"
 msgstr "Lägg till AUTO INCREMENT-värde"
 
@@ -15542,9 +15597,14 @@ msgid "Grant all privileges on database %s."
 msgstr "Bevilja alla privilegier för databas \"%s\"."
 
 #: templates/server/privileges/choose_user_group.twig:4
-#: templates/server/privileges/choose_user_group.twig:5
 #: templates/server/privileges/users_overview.twig:16
 msgid "User group"
+msgstr "Användargrupp"
+
+#: templates/server/privileges/choose_user_group.twig:6
+#, fuzzy
+#| msgid "User group"
+msgid "User group:"
 msgstr "Användargrupp"
 
 #: templates/server/privileges/edit_routine_privileges.twig:4
@@ -15706,7 +15766,7 @@ msgstr "Insticksmodul-verifiering"
 msgid "Password hashing method"
 msgstr "Hashning av lösenord"
 
-#: templates/server/privileges/login_information_fields.twig:79
+#: templates/server/privileges/login_information_fields.twig:83
 #, fuzzy
 #| msgid ""
 #| "This method requires using an '<i>SSL connection</i>' or an "
@@ -16904,29 +16964,29 @@ msgstr ""
 msgid "Index choice:"
 msgstr "Index val:"
 
-#: templates/table/index_form.twig:42
+#: templates/table/index_form.twig:51
 #, fuzzy
 #| msgid "Active options"
 msgid "Advanced Options"
 msgstr "Aktiva alternativ"
 
-#: templates/table/index_form.twig:52
+#: templates/table/index_form.twig:61
 msgid "Key block size:"
 msgstr "Nyckelblockstorlek:"
 
-#: templates/table/index_form.twig:69
+#: templates/table/index_form.twig:78
 msgid "Index type:"
 msgstr "Indextyp:"
 
-#: templates/table/index_form.twig:81
+#: templates/table/index_form.twig:95
 msgid "Parser:"
 msgstr "Parser:"
 
-#: templates/table/index_form.twig:97
+#: templates/table/index_form.twig:111
 msgid "Comment:"
 msgstr "Kommentar:"
 
-#: templates/table/index_form.twig:140 templates/table/index_form.twig:177
+#: templates/table/index_form.twig:154 templates/table/index_form.twig:191
 msgid "Drag to reorder"
 msgstr "Dra om du vill ändra ordning"
 
@@ -16935,80 +16995,77 @@ msgstr "Dra om du vill ändra ordning"
 msgid "Continue insertion with %s rows"
 msgstr "Fortsätt inmatning med %s rader"
 
-#: templates/table/operations/index.twig:7
+#: templates/table/operations/index.twig:9
 msgid "Alter table order by"
 msgstr "Sortera om tabellen efter"
 
-#: templates/table/operations/index.twig:14
+#: templates/table/operations/index.twig:20
+#, fuzzy
+#| msgid "(singly)"
+msgctxt "Alter table order by a single field."
 msgid "(singly)"
 msgstr "(var för sig)"
 
-#: templates/table/operations/index.twig:39
+#: templates/table/operations/index.twig:50
 #, fuzzy
 #| msgid "Move table to (database<b>.</b>table)"
 msgid "Move table to (database.table)"
 msgstr "Flytta tabellen till (databas<b>.</b>tabell)"
 
-#: templates/table/operations/index.twig:82
+#: templates/table/operations/index.twig:103
 msgid "Table options"
 msgstr "Tabellalternativ"
 
-#: templates/table/operations/index.twig:85
+#: templates/table/operations/index.twig:107
 msgid "Rename table to"
 msgstr "Döp om tabellen till"
 
-#: templates/table/operations/index.twig:104
+#: templates/table/operations/index.twig:122
 msgid "Table comments"
 msgstr "Tabellkommentarer"
 
-#: templates/table/operations/index.twig:111
-#, fuzzy
-#| msgid "Storage Engines"
-msgid "Storage engine"
-msgstr "Lagringsmotorer"
-
-#: templates/table/operations/index.twig:134
+#: templates/table/operations/index.twig:158
 msgid "Change all column collations"
 msgstr "Ändra alla kolumners sortering"
 
-#: templates/table/operations/index.twig:210
+#: templates/table/operations/index.twig:227
 #, fuzzy
 #| msgid "Copy table to (database<b>.</b>table)"
 msgid "Copy table to (database.table)"
 msgstr "Kopiera tabellen till (databas<b>.</b>tabell)"
 
-#: templates/table/operations/index.twig:258
+#: templates/table/operations/index.twig:300
 msgid "Switch to copied table"
 msgstr "Byt till kopierad tabell"
 
-#: templates/table/operations/index.twig:299
+#: templates/table/operations/index.twig:338
 msgid "Empty the table (TRUNCATE)"
 msgstr "Töm tabellen (TRUNCATE)"
 
-#: templates/table/operations/index.twig:318
+#: templates/table/operations/index.twig:357
 msgid "Delete the table (DROP)"
 msgstr "Ta bort tabellen (DROP)"
 
-#: templates/table/operations/index.twig:340
+#: templates/table/operations/index.twig:378
 msgid "Partition maintenance"
 msgstr "Underhåll av partition"
 
-#: templates/table/operations/index.twig:360
+#: templates/table/operations/index.twig:404
 #: templates/table/structure/display_partitions.twig:137
 msgid "Remove partitioning"
 msgstr "Ta bort partitionering"
 
-#: templates/table/operations/index.twig:374
+#: templates/table/operations/index.twig:417
 #, fuzzy
 #| msgid "Check referential integrity:"
 msgid "Check referential integrity"
 msgstr "Kontrollera referensintegritet:"
 
-#: templates/table/operations/view.twig:10
+#: templates/table/operations/view.twig:11
 msgid "Rename view to"
 msgstr "Ändra namn till"
 
-#: templates/table/operations/view.twig:34
+#: templates/table/operations/view.twig:32
 msgid "Delete the view (DROP)"
 msgstr "Ta bort vyn (DROP)"
 
@@ -17075,6 +17132,13 @@ msgstr ""
 msgid "Choose column to display:"
 msgstr "Välj kolumn att visa:"
 
+#: templates/table/relation/common_form.twig:317
+#: templates/table/structure/display_structure.twig:542
+#, fuzzy, php-format
+#| msgid "Create an index on &nbsp;%s&nbsp;columns"
+msgid "Create an index on %s columns"
+msgstr "Skapa ett index för &nbsp;%s&nbsp;kolumn(er)"
+
 #: templates/table/relation/foreign_key_row.twig:15
 #, php-format
 msgid "Foreign key constraint %s has been dropped"
@@ -17105,7 +17169,7 @@ msgid "Display order:"
 msgstr "Visningsordning:"
 
 #: templates/table/structure/display_partitions.twig:4
-#: templates/table/structure/display_structure.twig:480
+#: templates/table/structure/display_structure.twig:579
 msgid "Partitions"
 msgstr "Partitioner"
 

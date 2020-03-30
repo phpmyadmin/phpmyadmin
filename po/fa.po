@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-03-24 23:08+0100\n"
+"POT-Creation-Date: 2020-03-30 21:49+0200\n"
 "PO-Revision-Date: 2019-04-27 17:19+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -14,15 +14,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.6.1\n"
-
-#: index.php:54
-#, fuzzy, php-format
-msgid "Error 404! The page %s was not found."
-msgstr "جستجو در پايگاه‌داده"
-
-#: index.php:61
-msgid "Error 405! Request method not allowed."
-msgstr ""
 
 #: js/messages.php:51
 msgid "Confirm"
@@ -254,7 +245,7 @@ msgstr "افزودن index"
 msgid "Edit index"
 msgstr "ویرایش کردن ایندکس"
 
-#: js/messages.php:116 templates/table/index_form.twig:215
+#: js/messages.php:116 templates/table/index_form.twig:229
 #, fuzzy, php-format
 #| msgid "Add %d column(s) to index"
 msgid "Add %s column(s) to index"
@@ -285,8 +276,8 @@ msgid "Please select column(s) for the index."
 msgstr "افزودن %d  ستون جديد به index"
 
 #: js/messages.php:123 libraries/classes/InsertEdit.php:1954
-#: templates/columns_definitions/column_definitions_form.twig:153
-#: templates/table/index_form.twig:220
+#: templates/columns_definitions/column_definitions_form.twig:157
+#: templates/table/index_form.twig:234
 #: templates/table/relation/common_form.twig:216
 msgid "Preview SQL"
 msgstr ""
@@ -330,12 +321,12 @@ msgstr "نام ميزبان خالي است!"
 msgid "The user name is empty!"
 msgstr "نام كاربر خالي است!"
 
-#: js/messages.php:140 libraries/classes/Server/Privileges.php:1079
+#: js/messages.php:140 libraries/classes/Server/Privileges.php:1028
 #: libraries/classes/UserPassword.php:71
 msgid "The password is empty!"
 msgstr "اسم رمز خالي است!"
 
-#: js/messages.php:141 libraries/classes/Server/Privileges.php:1077
+#: js/messages.php:141 libraries/classes/Server/Privileges.php:1026
 #: libraries/classes/UserPassword.php:75
 msgid "The passwords aren't the same!"
 msgstr "اسم رمزها مانند هم نمي‌باشد!"
@@ -951,10 +942,9 @@ msgstr "ورودی های اشتباه!"
 
 #: js/messages.php:330 libraries/classes/BrowseForeigners.php:203
 #: libraries/classes/Controllers/Server/PrivilegesController.php:389
-#: libraries/classes/Index.php:652 libraries/classes/InsertEdit.php:1958
-#: libraries/classes/InsertEdit.php:1992
+#: libraries/classes/InsertEdit.php:1958 libraries/classes/InsertEdit.php:1992
 #: libraries/classes/Normalization.php:252
-#: libraries/classes/Normalization.php:939 libraries/classes/Rte/Events.php:575
+#: libraries/classes/Normalization.php:943 libraries/classes/Rte/Events.php:575
 #: libraries/classes/Rte/Routines.php:1113
 #: libraries/classes/Rte/Routines.php:1735
 #: libraries/classes/Rte/Triggers.php:455 libraries/classes/Tracking.php:346
@@ -964,13 +954,13 @@ msgstr "ورودی های اشتباه!"
 #: templates/database/operations/index.twig:19
 #: templates/database/operations/index.twig:44
 #: templates/database/operations/index.twig:81
-#: templates/database/operations/index.twig:188
-#: templates/database/operations/index.twig:228
-#: templates/database/search/main.twig:63
+#: templates/database/operations/index.twig:190
+#: templates/database/operations/index.twig:230
+#: templates/database/search/main.twig:74
 #: templates/display/change_password/file_e.twig:4
 #: templates/display/export/options_format.twig:18
 #: templates/display/import/import.twig:192
-#: templates/display/results/options_block.twig:118
+#: templates/display/results/options_block.twig:91
 #: templates/gis_data_editor_form.twig:211 templates/header_location.twig:18
 #: templates/login/form.twig:79 templates/login/form.twig:81
 #: templates/preferences/manage/main.twig:46
@@ -991,14 +981,16 @@ msgstr "ورودی های اشتباه!"
 #: templates/sql/query.twig:134 templates/sql/query.twig:183
 #: templates/start_and_number_of_rows_panel.twig:14
 #: templates/table/find_replace/index.twig:59
-#: templates/table/operations/index.twig:26
-#: templates/table/operations/index.twig:71
-#: templates/table/operations/index.twig:199
-#: templates/table/operations/index.twig:262
-#: templates/table/operations/index.twig:365
-#: templates/table/operations/view.twig:17
-#: templates/table/search/index.twig:157
+#: templates/table/operations/index.twig:38
+#: templates/table/operations/index.twig:88
+#: templates/table/operations/index.twig:217
+#: templates/table/operations/index.twig:306
+#: templates/table/operations/index.twig:409
+#: templates/table/operations/view.twig:16
+#: templates/table/relation/common_form.twig:320
+#: templates/table/search/index.twig:161
 #: templates/table/structure/display_structure.twig:442
+#: templates/table/structure/display_structure.twig:545
 #: templates/table/zoom_search/index.twig:154 templates/view_create.twig:116
 msgid "Go"
 msgstr "تاييد"
@@ -1124,8 +1116,8 @@ msgid "Changing charset"
 msgstr "تغییر نویسهگان"
 
 #: js/messages.php:360 libraries/classes/Config/FormDisplayTemplate.php:317
-#: libraries/classes/IndexColumn.php:132 libraries/classes/Index.php:555
-#: libraries/classes/Index.php:583 libraries/classes/MultSubmits.php:492
+#: libraries/classes/IndexColumn.php:132 libraries/classes/Index.php:489
+#: libraries/classes/Index.php:517 libraries/classes/MultSubmits.php:492
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:652
 #: libraries/classes/Plugins/Export/ExportLatex.php:633
 #: libraries/classes/Plugins/Export/ExportOdt.php:807
@@ -1133,7 +1125,8 @@ msgstr "تغییر نویسهگان"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:771
 #: templates/database/central_columns/main.twig:370
 #: templates/database/data_dictionary/index.twig:39
-#: templates/database/privileges/index.twig:69
+#: templates/database/data_dictionary/index.twig:83
+#: templates/database/privileges/index.twig:69 templates/indexes.twig:58
 #: templates/preferences/autoload.twig:12
 #: templates/preferences/manage/error.twig:19
 #: templates/server/privileges/new_user_ajax.twig:22
@@ -1144,7 +1137,9 @@ msgstr "تغییر نویسهگان"
 #: templates/server/privileges/users_overview.twig:52
 #: templates/server/privileges/users_overview.twig:62
 #: templates/table/privileges/index.twig:73
+#: templates/table/relation/common_form.twig:280
 #: templates/table/structure/display_structure.twig:80
+#: templates/table/structure/display_structure.twig:505
 #: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
@@ -1197,7 +1192,7 @@ msgstr "تعریف یک تابع ذخیره شده باید شامل یک دست
 #: libraries/classes/Display/Results.php:4969 libraries/classes/Menu.php:306
 #: libraries/classes/Menu.php:420 libraries/classes/Menu.php:556
 #: libraries/classes/Rte/RteList.php:185
-#: libraries/classes/Server/Privileges.php:1668 libraries/classes/Util.php:2465
+#: libraries/classes/Server/Privileges.php:1617 libraries/classes/Util.php:2465
 #: libraries/classes/Util.php:2480 libraries/classes/Util.php:2497
 #: libraries/classes/Util.php:3158 libraries/classes/Util.php:3159
 #: templates/database/privileges/index.twig:91
@@ -1263,14 +1258,16 @@ msgstr "نمایش جعبه پرس و جو"
 #: libraries/classes/Display/Results.php:3265
 #: libraries/classes/Display/Results.php:4689
 #: libraries/classes/Html/Generator.php:807
-#: libraries/classes/Html/Generator.php:1076 libraries/classes/Index.php:733
+#: libraries/classes/Html/Generator.php:1076
 #: libraries/classes/Server/UserGroups.php:123 libraries/classes/Util.php:3156
 #: libraries/classes/Util.php:3157 templates/console/bookmark_content.twig:7
 #: templates/console/display.twig:31 templates/console/display.twig:175
 #: templates/database/central_columns/main.twig:281
-#: templates/database/central_columns/main.twig:402
+#: templates/database/central_columns/main.twig:402 templates/indexes.twig:33
 #: templates/server/variables/index.twig:42
 #: templates/server/variables/index.twig:45 templates/setup/home/index.twig:57
+#: templates/table/relation/common_form.twig:255
+#: templates/table/structure/display_structure.twig:480
 msgid "Edit"
 msgstr "ويرايش"
 
@@ -1319,7 +1316,7 @@ msgstr ""
 msgid "Variable %d:"
 msgstr "متغییر"
 
-#: js/messages.php:405 libraries/classes/Normalization.php:1008
+#: js/messages.php:405 libraries/classes/Normalization.php:1012
 msgid "Pick"
 msgstr ""
 
@@ -1484,11 +1481,11 @@ msgstr "هیچ پایگاه داده ای انتخاب نشده است."
 
 #: js/messages.php:454 libraries/classes/CentralColumns.php:963
 #: libraries/classes/InsertEdit.php:1868
-#: templates/columns_definitions/column_definitions_form.twig:156
+#: templates/columns_definitions/column_definitions_form.twig:160
 #: templates/server/variables/index.twig:12
 #: templates/table/gis_visualization/gis_visualization.twig:48
 #: templates/table/relation/common_form.twig:217
-#: templates/table/structure/partition_definition_form.twig:12
+#: templates/table/structure/partition_definition_form.twig:13
 msgid "Save"
 msgstr "ذخيره"
 
@@ -1579,7 +1576,7 @@ msgstr "محتوای داده ها"
 
 #: js/messages.php:491 js/messages.php:662
 #: libraries/classes/ErrorHandler.php:381 libraries/classes/InsertEdit.php:3063
-#: templates/table/index_form.twig:145 templates/table/index_form.twig:181
+#: templates/table/index_form.twig:159 templates/table/index_form.twig:195
 msgid "Ignore"
 msgstr "در نظر نگرفتن"
 
@@ -1620,7 +1617,7 @@ msgstr "رشته خطی"
 msgid "Polygon"
 msgstr "چند گوشه"
 
-#: js/messages.php:499 templates/display/results/options_block.twig:83
+#: js/messages.php:499 templates/display/results/options_block.twig:75
 msgid "Geometry"
 msgstr "هندسه"
 
@@ -1649,13 +1646,13 @@ msgstr "افزودن يك حلقه داخلی"
 
 #: js/messages.php:504 libraries/classes/Config/FormDisplayTemplate.php:317
 #: libraries/classes/Controllers/Server/DatabasesController.php:281
-#: libraries/classes/Controllers/Table/StructureController.php:792
-#: libraries/classes/Controllers/Table/StructureController.php:1559
-#: libraries/classes/Controllers/Table/StructureController.php:1568
-#: libraries/classes/Controllers/Table/StructureController.php:1573
-#: libraries/classes/Controllers/Table/StructureController.php:1578
-#: libraries/classes/Controllers/Table/StructureController.php:1583
-#: libraries/classes/IndexColumn.php:135 libraries/classes/Index.php:582
+#: libraries/classes/Controllers/Table/StructureController.php:795
+#: libraries/classes/Controllers/Table/StructureController.php:1563
+#: libraries/classes/Controllers/Table/StructureController.php:1572
+#: libraries/classes/Controllers/Table/StructureController.php:1577
+#: libraries/classes/Controllers/Table/StructureController.php:1582
+#: libraries/classes/Controllers/Table/StructureController.php:1587
+#: libraries/classes/IndexColumn.php:135 libraries/classes/Index.php:516
 #: libraries/classes/MultSubmits.php:453 libraries/classes/MultSubmits.php:490
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:653
 #: libraries/classes/Plugins/Export/ExportLatex.php:633
@@ -1665,8 +1662,9 @@ msgstr "افزودن يك حلقه داخلی"
 #: libraries/mult_submits.inc.php:94 libraries/mult_submits.inc.php:237
 #: templates/database/central_columns/main.twig:370
 #: templates/database/data_dictionary/index.twig:39
-#: templates/database/privileges/index.twig:69
-#: templates/mult_submits/copy_multiple_tables.twig:53
+#: templates/database/data_dictionary/index.twig:83
+#: templates/database/privileges/index.twig:69 templates/indexes.twig:58
+#: templates/mult_submits/copy_multiple_tables.twig:55
 #: templates/mult_submits/replace_prefix_table.twig:20
 #: templates/preferences/autoload.twig:11
 #: templates/preferences/manage/error.twig:18
@@ -1678,7 +1676,9 @@ msgstr "افزودن يك حلقه داخلی"
 #: templates/server/privileges/users_overview.twig:50
 #: templates/server/privileges/users_overview.twig:62
 #: templates/table/privileges/index.twig:73
+#: templates/table/relation/common_form.twig:280
 #: templates/table/structure/display_structure.twig:80
+#: templates/table/structure/display_structure.twig:505
 #: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
@@ -1951,7 +1951,7 @@ msgid "Select database first"
 msgstr "Select Tables"
 
 #: js/messages.php:595 libraries/classes/Display/Results.php:4852
-#: templates/database/data_dictionary/index.twig:64
+#: templates/database/data_dictionary/index.twig:117
 #: templates/database/structure/index.twig:12
 #: templates/table/structure/display_structure.twig:384
 msgid "Print"
@@ -2359,7 +2359,10 @@ msgid "Search:"
 msgstr "جستجو"
 
 #: libraries/classes/BrowseForeigners.php:220
-#: libraries/classes/BrowseForeigners.php:224 libraries/classes/Index.php:707
+#: libraries/classes/BrowseForeigners.php:224
+#: templates/database/data_dictionary/index.twig:65 templates/indexes.twig:15
+#: templates/table/relation/common_form.twig:237
+#: templates/table/structure/display_structure.twig:462
 #: templates/table/tracking/structure_snapshot_indexes.twig:5
 msgid "Keyname"
 msgstr "نام کلید"
@@ -2437,7 +2440,7 @@ msgstr ""
 msgid "Name"
 msgstr "اسم"
 
-#: libraries/classes/CentralColumns.php:1011 libraries/classes/Index.php:708
+#: libraries/classes/CentralColumns.php:1011
 #: libraries/classes/InsertEdit.php:347
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:289
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:385
@@ -2457,11 +2460,14 @@ msgstr "اسم"
 #: templates/database/central_columns/main.twig:21
 #: templates/database/central_columns/main.twig:240
 #: templates/database/data_dictionary/index.twig:17
+#: templates/database/data_dictionary/index.twig:66
 #: templates/database/privileges/index.twig:19
-#: templates/database/structure/table_header.twig:30
+#: templates/database/structure/table_header.twig:30 templates/indexes.twig:16
 #: templates/table/privileges/index.twig:21
+#: templates/table/relation/common_form.twig:238
 #: templates/table/search/index.twig:39
 #: templates/table/structure/display_structure.twig:22
+#: templates/table/structure/display_structure.twig:463
 #: templates/table/tracking/structure_snapshot_columns.twig:7
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/table/zoom_search/index.twig:39
@@ -2496,19 +2502,23 @@ msgstr "طول/مقادير*"
 msgid "Default"
 msgstr "پيش‌ فرض"
 
-#: libraries/classes/CentralColumns.php:1014 libraries/classes/Index.php:713
+#: libraries/classes/CentralColumns.php:1014
 #: templates/columns_definitions/table_fields_definitions.twig:24
 #: templates/database/central_columns/main.twig:33
 #: templates/database/central_columns/main.twig:252
-#: templates/database/operations/index.twig:197
-#: templates/database/operations/index.twig:201
+#: templates/database/data_dictionary/index.twig:71
+#: templates/database/operations/index.twig:199
+#: templates/database/operations/index.twig:203
 #: templates/database/structure/table_header.twig:31
-#: templates/home/index.twig:55 templates/server/collations/index.twig:13
+#: templates/home/index.twig:55 templates/indexes.twig:21
+#: templates/server/collations/index.twig:13
 #: templates/server/databases/index.twig:41
 #: templates/server/databases/index.twig:126
-#: templates/table/operations/index.twig:118
+#: templates/table/operations/index.twig:142
+#: templates/table/relation/common_form.twig:243
 #: templates/table/search/index.twig:40
 #: templates/table/structure/display_structure.twig:23
+#: templates/table/structure/display_structure.twig:468
 #: templates/table/structure/display_table_stats.twig:102
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
@@ -2524,7 +2534,7 @@ msgstr "مقایسه"
 msgid "Attributes"
 msgstr "ويژگيها"
 
-#: libraries/classes/CentralColumns.php:1016 libraries/classes/Index.php:714
+#: libraries/classes/CentralColumns.php:1016
 #: libraries/classes/InsertEdit.php:1985
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:292
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:388
@@ -2540,7 +2550,10 @@ msgstr "ويژگيها"
 #: templates/database/central_columns/main.twig:41
 #: templates/database/central_columns/main.twig:260
 #: templates/database/data_dictionary/index.twig:18
+#: templates/database/data_dictionary/index.twig:72 templates/indexes.twig:22
+#: templates/table/relation/common_form.twig:244
 #: templates/table/structure/display_structure.twig:25
+#: templates/table/structure/display_structure.twig:469
 #: templates/table/tracking/structure_snapshot_columns.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/zoom_search/result_form.twig:33
@@ -2894,7 +2907,7 @@ msgid "no-pad"
 msgstr ""
 
 #: libraries/classes/Common.php:173
-#: libraries/classes/Controllers/Table/OperationsController.php:263
+#: libraries/classes/Controllers/Table/OperationsController.php:262
 msgid "No collation provided."
 msgstr ""
 
@@ -3433,9 +3446,9 @@ msgid "Remember file name template"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:237
-#: templates/database/operations/index.twig:163
-#: templates/table/operations/index.twig:53
-#: templates/table/operations/index.twig:235
+#: templates/database/operations/index.twig:165
+#: templates/table/operations/index.twig:74
+#: templates/table/operations/index.twig:278
 msgid "Add AUTO_INCREMENT value"
 msgstr "مقدار افزایشی خودکار اضافه شود"
 
@@ -3479,8 +3492,8 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:252
 #: libraries/classes/Config/Descriptions.php:253
 #: libraries/classes/Config/Descriptions.php:266
-#: templates/database/operations/index.twig:158
-#: templates/table/operations/index.twig:231
+#: templates/database/operations/index.twig:160
+#: templates/table/operations/index.twig:273
 #, php-format
 msgid "Add %s"
 msgstr "افزودن %s"
@@ -4962,7 +4975,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:738
-#: templates/mult_submits/copy_multiple_tables.twig:32
+#: templates/mult_submits/copy_multiple_tables.twig:34
 msgid "Add DROP TABLE"
 msgstr ""
 
@@ -5284,14 +5297,18 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:148
 #: libraries/classes/Plugins/Export/ExportOdt.php:191
 #: libraries/classes/Plugins/Export/ExportTexytext.php:132
-#: libraries/classes/Server/Privileges.php:1989
-#: libraries/classes/Server/Privileges.php:1991
+#: libraries/classes/Server/Privileges.php:1938
+#: libraries/classes/Server/Privileges.php:1940
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:109
 #: templates/server/privileges/edit_routine_privileges.twig:17
 #: templates/server/privileges/privileges_table.twig:233
 #: templates/server/privileges/user_properties.twig:22
 #: templates/server/privileges/user_properties.twig:71
+#: templates/table/operations/index.twig:56
+#: templates/table/operations/index.twig:62
+#: templates/table/operations/index.twig:233
+#: templates/table/operations/index.twig:239
 #: templates/table/relation/common_form.twig:35
 #: templates/table/relation/common_form.twig:168
 #: templates/table/relation/foreign_key_row.twig:96
@@ -5322,8 +5339,8 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:859
 #: libraries/classes/Plugins/Export/ExportXml.php:508
 #: libraries/classes/Rte/RteList.php:123 libraries/classes/Rte/Triggers.php:390
-#: libraries/classes/Server/Privileges.php:1995
-#: libraries/classes/Server/Privileges.php:1997
+#: libraries/classes/Server/Privileges.php:1944
+#: libraries/classes/Server/Privileges.php:1946
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
 #: templates/database/tracking/tables.twig:120
@@ -5331,6 +5348,8 @@ msgstr ""
 #: templates/server/privileges/privileges_table.twig:235
 #: templates/server/privileges/user_properties.twig:37
 #: templates/server/privileges/user_properties.twig:82
+#: templates/table/operations/index.twig:67
+#: templates/table/operations/index.twig:244
 #: templates/table/relation/common_form.twig:36
 #: templates/table/relation/common_form.twig:175
 #: templates/table/relation/foreign_key_row.twig:106
@@ -5967,7 +5986,7 @@ msgstr "در اين پايگاه داده هيچ جدولي وجود ندارد 
 
 #: libraries/classes/Controllers/Database/ExportController.php:99
 #: templates/database/designer/database_tables.twig:31
-#: templates/database/search/main.twig:32
+#: templates/database/search/main.twig:43
 #: templates/display/export/select_options.twig:4
 #: templates/server/replication/database_multibox.twig:7
 msgid "Select all"
@@ -6015,22 +6034,22 @@ msgid "Favorite List is full!"
 msgstr ""
 
 #: libraries/classes/Controllers/Database/StructureController.php:512
-#: templates/table/operations/index.twig:317
-#: templates/table/operations/view.twig:29
+#: templates/table/operations/index.twig:356
+#: templates/table/operations/view.twig:27
 #, fuzzy, php-format
 #| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "نمای %s حذف شد"
 
 #: libraries/classes/Controllers/Database/StructureController.php:513
-#: templates/table/operations/index.twig:317
+#: templates/table/operations/index.twig:356
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
 msgstr "جدول %s حذف شد"
 
 #: libraries/classes/Controllers/Database/StructureController.php:569
-#: templates/table/operations/index.twig:296
+#: templates/table/operations/index.twig:335
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "جدول %s خالی شد."
@@ -6246,7 +6265,7 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr "خطا در بارگزاری افزونه ها, لطفا مراحل نصب را چک کنید!"
 
 #: libraries/classes/Controllers/ImportController.php:623
-#: libraries/classes/Sql.php:639 libraries/classes/Sql.php:1400
+#: libraries/classes/Sql.php:639 libraries/classes/Sql.php:1406
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "نشانه گذاری %s ایجاد شده است."
@@ -6362,9 +6381,11 @@ msgid "Rows"
 msgstr "سطرها"
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:455
-#: libraries/classes/Index.php:683 libraries/classes/Index.php:694
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:23
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:24
+#: templates/database/data_dictionary/index.twig:59 templates/indexes.twig:3
+#: templates/table/relation/common_form.twig:225
+#: templates/table/structure/display_structure.twig:450
 #: templates/table/tracking/structure_snapshot_indexes.twig:1
 msgid "Indexes"
 msgstr "فهرست‌ها"
@@ -6388,12 +6409,12 @@ msgid "View dump (schema) of databases"
 msgstr "نمايش الگوي(طرح) پايگاه داده"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:127
-#: libraries/classes/Server/Privileges.php:278
+#: libraries/classes/Server/Privileges.php:277
 msgid "Includes all privileges except GRANT."
 msgstr "وارد کردن تمام دسترسی ها به غیر از GRANT."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:128
-#: libraries/classes/Server/Privileges.php:411
+#: libraries/classes/Server/Privileges.php:410
 #: templates/server/privileges/privileges_table.twig:161
 #: templates/server/privileges/privileges_table.twig:164
 #: templates/server/privileges/privileges_table.twig:356
@@ -6402,21 +6423,21 @@ msgid "Allows altering the structure of existing tables."
 msgstr "دادن مجوز برای تغییر ساختار جدول های ایجاد شده ."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:129
-#: libraries/classes/Server/Privileges.php:497
+#: libraries/classes/Server/Privileges.php:496
 #: templates/server/privileges/privileges_table.twig:443
 #: templates/server/privileges/privileges_table.twig:446
 msgid "Allows altering and dropping stored routines."
 msgstr "دادن مجوز برای تغییر یا حذف روال های ذخیره شده."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:130
-#: libraries/classes/Server/Privileges.php:371
+#: libraries/classes/Server/Privileges.php:370
 #: templates/server/privileges/privileges_table.twig:335
 #: templates/server/privileges/privileges_table.twig:343
 msgid "Allows creating new databases and tables."
 msgstr "دادن مجوز برای ساخت پایگاه داده و جدول جدید."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:131
-#: libraries/classes/Server/Privileges.php:492
+#: libraries/classes/Server/Privileges.php:491
 #: templates/server/privileges/privileges_table.twig:430
 #: templates/server/privileges/privileges_table.twig:433
 msgid "Allows creating stored routines."
@@ -6431,22 +6452,22 @@ msgid "Allows creating new tables."
 msgstr "دادن مجوز برای ایجاد جدول جدید."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:133
-#: libraries/classes/Server/Privileges.php:430
+#: libraries/classes/Server/Privileges.php:429
 #: templates/server/privileges/privileges_table.twig:404
 #: templates/server/privileges/privileges_table.twig:407
 msgid "Allows creating temporary tables."
 msgstr "دادن مجوز برای ایجاد جدول موقت."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:134
-#: libraries/classes/Server/Privileges.php:502
+#: libraries/classes/Server/Privileges.php:501
 #: templates/server/privileges/privileges_table.twig:682
 #: templates/server/privileges/privileges_table.twig:685
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "دادن مجوز برای ایجاد , حذف و تغییر نام کاربران."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:135
-#: libraries/classes/Server/Privileges.php:450
-#: libraries/classes/Server/Privileges.php:466
+#: libraries/classes/Server/Privileges.php:449
+#: libraries/classes/Server/Privileges.php:465
 #: templates/server/privileges/privileges_table.twig:173
 #: templates/server/privileges/privileges_table.twig:176
 #: templates/server/privileges/privileges_table.twig:470
@@ -6457,7 +6478,7 @@ msgid "Allows creating new views."
 msgstr "دادن مجوز برای ایجاد نمایه جدید."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:136
-#: libraries/classes/Server/Privileges.php:366
+#: libraries/classes/Server/Privileges.php:365
 #: templates/server/privileges/privileges_table.twig:100
 #: templates/server/privileges/privileges_table.twig:103
 #: templates/server/privileges/privileges_table.twig:299
@@ -6466,8 +6487,8 @@ msgid "Allows deleting data."
 msgstr "دادن مجوز برای حذف اطلاعات."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:137
-#: libraries/classes/Server/Privileges.php:482
-#: libraries/classes/Server/Privileges.php:487
+#: libraries/classes/Server/Privileges.php:481
+#: libraries/classes/Server/Privileges.php:486
 #: templates/server/privileges/privileges_table.twig:210
 #: templates/server/privileges/privileges_table.twig:214
 #, fuzzy
@@ -6476,7 +6497,7 @@ msgid "Allows deleting historical rows."
 msgstr "دادن مجوز برای حذف اطلاعات."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:138
-#: libraries/classes/Server/Privileges.php:376
+#: libraries/classes/Server/Privileges.php:375
 #: templates/server/privileges/privileges_table.twig:383
 #: templates/server/privileges/privileges_table.twig:391
 msgid "Allows dropping databases and tables."
@@ -6491,7 +6512,7 @@ msgid "Allows dropping tables."
 msgstr ""
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:140
-#: libraries/classes/Server/Privileges.php:455
+#: libraries/classes/Server/Privileges.php:454
 #: templates/server/privileges/privileges_table.twig:500
 #: templates/server/privileges/privileges_table.twig:503
 #, fuzzy
@@ -6500,14 +6521,14 @@ msgid "Allows to set up events for the event scheduler."
 msgstr "دادن مجوز برای قرار دهی رویداد برای لیست رویدادهای زمانی"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:141
-#: libraries/classes/Server/Privileges.php:507
+#: libraries/classes/Server/Privileges.php:506
 #: templates/server/privileges/privileges_table.twig:456
 #: templates/server/privileges/privileges_table.twig:459
 msgid "Allows executing stored routines."
 msgstr ""
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:142
-#: libraries/classes/Server/Privileges.php:396
+#: libraries/classes/Server/Privileges.php:395
 #: templates/server/privileges/privileges_table.twig:313
 #: templates/server/privileges/privileges_table.twig:316
 msgid "Allows importing data from and exporting data into files."
@@ -6524,7 +6545,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:147
-#: libraries/classes/Server/Privileges.php:406
+#: libraries/classes/Server/Privileges.php:405
 #: templates/server/privileges/privileges_table.twig:149
 #: templates/server/privileges/privileges_table.twig:152
 #: templates/server/privileges/privileges_table.twig:369
@@ -6533,7 +6554,7 @@ msgid "Allows creating and dropping indexes."
 msgstr ""
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:148
-#: libraries/classes/Server/Privileges.php:356
+#: libraries/classes/Server/Privileges.php:355
 #: templates/server/privileges/privileges_table.twig:36
 #: templates/server/privileges/privileges_table.twig:273
 #: templates/server/privileges/privileges_table.twig:276
@@ -6541,7 +6562,7 @@ msgid "Allows inserting and replacing data."
 msgstr ""
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:149
-#: libraries/classes/Server/Privileges.php:435
+#: libraries/classes/Server/Privileges.php:434
 #: templates/server/privileges/privileges_table.twig:629
 #: templates/server/privileges/privileges_table.twig:632
 msgid "Allows locking tables for the current thread."
@@ -6574,14 +6595,14 @@ msgid "Limits the number of simultaneous connections the user may have."
 msgstr ""
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:163
-#: libraries/classes/Server/Privileges.php:391
+#: libraries/classes/Server/Privileges.php:390
 #: templates/server/privileges/privileges_table.twig:562
 #: templates/server/privileges/privileges_table.twig:565
 msgid "Allows viewing processes of all users."
 msgstr ""
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:164
-#: libraries/classes/Server/Privileges.php:401
+#: libraries/classes/Server/Privileges.php:400
 #: templates/server/privileges/privileges_table.twig:78
 #: templates/server/privileges/privileges_table.twig:642
 #: templates/server/privileges/privileges_table.twig:645
@@ -6589,28 +6610,28 @@ msgid "Has no effect in this MySQL version."
 msgstr ""
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:166
-#: libraries/classes/Server/Privileges.php:381
+#: libraries/classes/Server/Privileges.php:380
 #: templates/server/privileges/privileges_table.twig:575
 #: templates/server/privileges/privileges_table.twig:578
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:169
-#: libraries/classes/Server/Privileges.php:445
+#: libraries/classes/Server/Privileges.php:444
 #: templates/server/privileges/privileges_table.twig:656
 #: templates/server/privileges/privileges_table.twig:659
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr ""
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:171
-#: libraries/classes/Server/Privileges.php:440
+#: libraries/classes/Server/Privileges.php:439
 #: templates/server/privileges/privileges_table.twig:669
 #: templates/server/privileges/privileges_table.twig:672
 msgid "Needed for the replication slaves."
 msgstr ""
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:172
-#: libraries/classes/Server/Privileges.php:351
+#: libraries/classes/Server/Privileges.php:350
 #: templates/server/privileges/privileges_table.twig:15
 #: templates/server/privileges/privileges_table.twig:260
 #: templates/server/privileges/privileges_table.twig:263
@@ -6618,15 +6639,15 @@ msgid "Allows reading data."
 msgstr ""
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:173
-#: libraries/classes/Server/Privileges.php:416
+#: libraries/classes/Server/Privileges.php:415
 #: templates/server/privileges/privileges_table.twig:601
 #: templates/server/privileges/privileges_table.twig:604
 msgid "Gives access to the complete list of databases."
 msgstr ""
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:174
-#: libraries/classes/Server/Privileges.php:471
-#: libraries/classes/Server/Privileges.php:477
+#: libraries/classes/Server/Privileges.php:470
+#: libraries/classes/Server/Privileges.php:476
 #: templates/server/privileges/privileges_table.twig:185
 #: templates/server/privileges/privileges_table.twig:188
 #: templates/server/privileges/privileges_table.twig:417
@@ -6635,14 +6656,14 @@ msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr ""
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:175
-#: libraries/classes/Server/Privileges.php:386
+#: libraries/classes/Server/Privileges.php:385
 #: templates/server/privileges/privileges_table.twig:588
 #: templates/server/privileges/privileges_table.twig:591
 msgid "Allows shutting down the server."
 msgstr ""
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:177
-#: libraries/classes/Server/Privileges.php:422
+#: libraries/classes/Server/Privileges.php:421
 #: templates/server/privileges/privileges_table.twig:548
 #: templates/server/privileges/privileges_table.twig:552
 msgid ""
@@ -6652,7 +6673,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:181
-#: libraries/classes/Server/Privileges.php:460
+#: libraries/classes/Server/Privileges.php:459
 #: templates/server/privileges/privileges_table.twig:197
 #: templates/server/privileges/privileges_table.twig:200
 #: templates/server/privileges/privileges_table.twig:513
@@ -6663,7 +6684,7 @@ msgid "Allows creating and dropping triggers."
 msgstr "دادن مجوز برای تغییر یا حذف روال های ذخیره شده."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:182
-#: libraries/classes/Server/Privileges.php:361
+#: libraries/classes/Server/Privileges.php:360
 #: templates/server/privileges/privileges_table.twig:57
 #: templates/server/privileges/privileges_table.twig:286
 #: templates/server/privileges/privileges_table.twig:289
@@ -6671,7 +6692,7 @@ msgid "Allows changing data."
 msgstr ""
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:183
-#: libraries/classes/Server/Privileges.php:269
+#: libraries/classes/Server/Privileges.php:268
 #, fuzzy
 msgid "No privileges."
 msgstr "امتيازات"
@@ -6713,7 +6734,7 @@ msgid "ID"
 msgstr "شناسه"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:132
-#: libraries/classes/Server/Privileges.php:2966
+#: libraries/classes/Server/Privileges.php:2915
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "كاربر"
@@ -7398,8 +7419,8 @@ msgstr ""
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:145
 #: libraries/classes/Controllers/Table/IndexesController.php:134
-#: libraries/classes/Controllers/Table/StructureController.php:748
-#: libraries/classes/Controllers/Table/StructureController.php:1013
+#: libraries/classes/Controllers/Table/StructureController.php:751
+#: libraries/classes/Controllers/Table/StructureController.php:1016
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr ""
@@ -7435,7 +7456,7 @@ msgid "View dump (schema) of table"
 msgstr "نمايش الگوي جدول"
 
 #: libraries/classes/Controllers/Table/FindReplaceController.php:182
-#: libraries/classes/Controllers/Table/RelationController.php:270
+#: libraries/classes/Controllers/Table/RelationController.php:271
 #: libraries/classes/Controllers/Table/RowActionController.php:90
 #: libraries/classes/Controllers/ViewOperationsController.php:76
 #: libraries/classes/Display/Results.php:4218 libraries/classes/Message.php:176
@@ -7456,12 +7477,12 @@ msgstr ""
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:64
 #: libraries/classes/Import.php:151 libraries/classes/InsertEdit.php:218
-#: libraries/classes/Rte/Routines.php:1509 libraries/classes/Sql.php:1212
+#: libraries/classes/Rte/Routines.php:1509 libraries/classes/Sql.php:1218
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL يك نتيجه خالي داد. (مثلا 0 سطر)."
 
-#: libraries/classes/Controllers/Table/OperationsController.php:111
-#: libraries/classes/Controllers/Table/OperationsController.php:293
+#: libraries/classes/Controllers/Table/OperationsController.php:110
+#: libraries/classes/Controllers/Table/OperationsController.php:292
 #: libraries/classes/Controllers/Table/StructureController.php:116
 #: libraries/classes/Navigation/Nodes/NodeView.php:28
 #: templates/database/structure/structure_table_row.twig:124
@@ -7469,18 +7490,18 @@ msgstr "MySQL يك نتيجه خالي داد. (مثلا 0 سطر)."
 msgid "View"
 msgstr "نمایه"
 
-#: libraries/classes/Controllers/Table/OperationsController.php:311
+#: libraries/classes/Controllers/Table/OperationsController.php:310
 #: libraries/classes/Controllers/Table/ReplaceController.php:390
 #: libraries/classes/Core.php:836 libraries/mult_submits.inc.php:362
 #: templates/preview_sql.twig:3
 msgid "No change"
 msgstr ""
 
-#: libraries/classes/Controllers/Table/RelationController.php:217
+#: libraries/classes/Controllers/Table/RelationController.php:218
 msgid "Display column was successfully updated."
 msgstr ""
 
-#: libraries/classes/Controllers/Table/RelationController.php:299
+#: libraries/classes/Controllers/Table/RelationController.php:300
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationships were successfully updated."
@@ -7524,43 +7545,44 @@ msgstr "پايگاه داده %s حذف گرديد."
 msgid "Failed to get description of column %s!"
 msgstr "دریافت سرصفحه ها مقدور نمی باشد"
 
-#: libraries/classes/Controllers/Table/StructureController.php:759
-#: libraries/classes/Controllers/Table/StructureController.php:1062
+#: libraries/classes/Controllers/Table/StructureController.php:762
+#: libraries/classes/Controllers/Table/StructureController.php:1065
 #: libraries/classes/Tracking.php:790
 #, fuzzy
 #| msgid "Query"
 msgid "Query error"
 msgstr "پرس و جو"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1007
+#: libraries/classes/Controllers/Table/StructureController.php:1010
 #, fuzzy, php-format
 #| msgid "Table %s has been moved to %s."
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "جدول %s به %s انتقال داده‌شد."
 
-#: libraries/classes/Controllers/Table/StructureController.php:1238
+#: libraries/classes/Controllers/Table/StructureController.php:1241
 #: templates/table/structure/display_structure.twig:288
 msgid "Change"
 msgstr "تغيير"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1239
-#: libraries/classes/Controllers/Table/StructureController.php:1240
-#: libraries/classes/Index.php:759 libraries/classes/Operations.php:691
-#: libraries/classes/Rte/RteList.php:192 libraries/classes/Util.php:3152
-#: libraries/classes/Util.php:3153
+#: libraries/classes/Controllers/Table/StructureController.php:1242
+#: libraries/classes/Controllers/Table/StructureController.php:1243
+#: libraries/classes/Operations.php:691 libraries/classes/Rte/RteList.php:192
+#: libraries/classes/Util.php:3152 libraries/classes/Util.php:3153
 #: templates/database/structure/check_all_tables.twig:16
-#: templates/rte/routines/parameter_row.twig:51
+#: templates/indexes.twig:51 templates/rte/routines/parameter_row.twig:51
 #: templates/server/databases/index.twig:304
+#: templates/table/relation/common_form.twig:273
 #: templates/table/relation/foreign_key_row.twig:26
 #: templates/table/structure/display_structure.twig:295
-#: templates/table/structure/display_structure.twig:476
+#: templates/table/structure/display_structure.twig:498
+#: templates/table/structure/display_structure.twig:575
 msgid "Drop"
 msgstr "حذف"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1241
-#: libraries/classes/Controllers/Table/StructureController.php:1246
-#: libraries/classes/Controllers/Table/StructureController.php:1302
+#: libraries/classes/Controllers/Table/StructureController.php:1244
+#: libraries/classes/Controllers/Table/StructureController.php:1249
+#: libraries/classes/Controllers/Table/StructureController.php:1305
 #: templates/columns_definitions/column_indexes.twig:4
 #: templates/database/data_dictionary/index.twig:33
 #: templates/table/structure/display_structure.twig:304
@@ -7568,9 +7590,9 @@ msgstr "حذف"
 msgid "Primary"
 msgstr "اصلي"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1242
-#: libraries/classes/Controllers/Table/StructureController.php:1247
-#: libraries/classes/Controllers/Table/StructureController.php:1307
+#: libraries/classes/Controllers/Table/StructureController.php:1245
+#: libraries/classes/Controllers/Table/StructureController.php:1250
+#: libraries/classes/Controllers/Table/StructureController.php:1310
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:28
 #: templates/columns_definitions/column_indexes.twig:12
 #: templates/columns_definitions/table_fields_definitions.twig:46
@@ -7580,30 +7602,32 @@ msgstr "اصلي"
 msgid "Index"
 msgstr "فهرست"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1243
-#: libraries/classes/Controllers/Table/StructureController.php:1248
-#: libraries/classes/Index.php:709
+#: libraries/classes/Controllers/Table/StructureController.php:1246
+#: libraries/classes/Controllers/Table/StructureController.php:1251
 #: templates/columns_definitions/column_indexes.twig:8
+#: templates/database/data_dictionary/index.twig:67 templates/indexes.twig:17
+#: templates/table/relation/common_form.twig:239
 #: templates/table/structure/display_structure.twig:311
+#: templates/table/structure/display_structure.twig:464
 #: templates/table/tracking/structure_snapshot_indexes.twig:7
 msgid "Unique"
 msgstr "يكتا"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1244
-#: libraries/classes/Controllers/Table/StructureController.php:1249
+#: libraries/classes/Controllers/Table/StructureController.php:1247
+#: libraries/classes/Controllers/Table/StructureController.php:1252
 #: templates/columns_definitions/column_indexes.twig:20
 msgid "Spatial"
 msgstr ""
 
-#: libraries/classes/Controllers/Table/StructureController.php:1245
-#: libraries/classes/Controllers/Table/StructureController.php:1250
+#: libraries/classes/Controllers/Table/StructureController.php:1248
+#: libraries/classes/Controllers/Table/StructureController.php:1253
 #: templates/columns_definitions/column_indexes.twig:16
 #: templates/table/structure/display_structure.twig:325
 #: templates/table/structure/display_structure.twig:337
 msgid "Fulltext"
 msgstr "كاملا متن"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1251
+#: libraries/classes/Controllers/Table/StructureController.php:1254
 #, fuzzy
 #| msgid "Use this value"
 msgid "Distinct values"
@@ -7933,39 +7957,47 @@ msgid "Delete bookmark"
 msgstr "حذف رابطه"
 
 #: libraries/classes/Database/Search.php:110
+#: templates/database/search/main.twig:19
 msgid "at least one of the words"
 msgstr "حداقل يكي از كلمات"
 
 #: libraries/classes/Database/Search.php:111
+#: templates/database/search/main.twig:23
 #, fuzzy
 #| msgid "at least one of the words"
 msgid "all of the words"
 msgstr "حداقل يكي از كلمات"
 
 #: libraries/classes/Database/Search.php:112
+#: templates/database/search/main.twig:27
 #, fuzzy
 #| msgid "the exact phrase"
 msgid "the exact phrase as substring"
 msgstr "عبارت كامل"
 
 #: libraries/classes/Database/Search.php:113
+#: templates/database/search/main.twig:31
 #, fuzzy
 #| msgid "the exact phrase"
 msgid "the exact phrase as whole field"
 msgstr "عبارت كامل"
 
 #: libraries/classes/Database/Search.php:114
+#: templates/database/search/main.twig:35
 msgid "as regular expression"
 msgstr "بعنوان مبين منظم(as regular expression)"
-
-#: libraries/classes/Database/Search.php:327
-#: libraries/classes/Database/Search.php:331
-msgid "Words are separated by a space character (\" \")."
-msgstr "كلمات با علامت فاصله (\" \") جدا مي‌شوند."
 
 #: libraries/classes/Dbal/DbiMysqli.php:183
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
+
+#: libraries/classes/Display/ChangePassword.php:88
+#: libraries/classes/Server/Privileges.php:803
+#: libraries/classes/Server/Privileges.php:877
+#, fuzzy
+#| msgid "Authentication"
+msgid "Native MySQL authentication"
+msgstr "ورود"
 
 #: libraries/classes/Display/Export.php:338
 msgid "@SERVER@ will become the server name"
@@ -8054,13 +8086,13 @@ msgid "End"
 msgstr "انتها"
 
 #: libraries/classes/Display/Results.php:1619
-#: templates/display/results/options_block.twig:18
+#: templates/display/results/options_block.twig:19
 #, fuzzy
 msgid "Partial texts"
 msgstr "متغییر"
 
 #: libraries/classes/Display/Results.php:1623
-#: templates/display/results/options_block.twig:18
+#: templates/display/results/options_block.twig:23
 #, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
@@ -8075,8 +8107,8 @@ msgstr "كاملا متن"
 #: templates/server/databases/index.twig:131
 #: templates/server/databases/index.twig:150
 #: templates/server/status/processes/list.twig:12
-#: templates/table/operations/index.twig:21
-#: templates/table/search/index.twig:147
+#: templates/table/operations/index.twig:31
+#: templates/table/search/index.twig:153
 msgid "Descending"
 msgstr "نزولي"
 
@@ -8089,8 +8121,8 @@ msgstr "نزولي"
 #: templates/server/databases/index.twig:129
 #: templates/server/databases/index.twig:148
 #: templates/server/status/processes/list.twig:14
-#: templates/table/operations/index.twig:18
-#: templates/table/search/index.twig:147
+#: templates/table/operations/index.twig:27
+#: templates/table/search/index.twig:149
 msgid "Ascending"
 msgstr "صعودي"
 
@@ -8127,7 +8159,7 @@ msgstr ""
 msgid "%d total"
 msgstr "جمع كل"
 
-#: libraries/classes/Display/Results.php:4586 libraries/classes/Sql.php:1218
+#: libraries/classes/Display/Results.php:4586 libraries/classes/Sql.php:1224
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr ""
@@ -8699,7 +8731,7 @@ msgstr ""
 msgid "MySQL said: "
 msgstr "پيغام MySQL : "
 
-#: libraries/classes/Import.php:310 libraries/classes/Sql.php:1226
+#: libraries/classes/Import.php:310 libraries/classes/Sql.php:1232
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -8789,96 +8821,7 @@ msgid ""
 "engine tables can be rolled back."
 msgstr ""
 
-#: libraries/classes/Index.php:646
-#, fuzzy, php-format
-#| msgid "Create an index on&nbsp;%s&nbsp;columns"
-msgid "Create an index on &nbsp;%s&nbsp;columns"
-msgstr "ساخت يك فهرست در&nbsp;%s&nbsp;ستون"
-
-#: libraries/classes/Index.php:678
-msgid "No index defined!"
-msgstr "هيچ فهرستي تعريف‌نشده‌است!"
-
-#: libraries/classes/Index.php:705 libraries/classes/Rte/RteList.php:110
-#: libraries/classes/Rte/RteList.php:125 libraries/classes/Rte/RteList.php:138
-#: templates/database/central_columns/main.twig:234
-#: templates/database/privileges/index.twig:22
-#: templates/database/structure/table_header.twig:22
-#: templates/database/tracking/tables.twig:18
-#: templates/database/tracking/tables.twig:121
-#: templates/server/databases/index.twig:166
-#: templates/server/privileges/privileges_summary.twig:22
-#: templates/server/privileges/users_overview.twig:19
-#: templates/server/user_groups/user_groups.twig:21
-#: templates/server/variables/index.twig:31
-#: templates/table/privileges/index.twig:24
-#: templates/table/structure/display_partitions.twig:33
-#: templates/table/structure/display_structure.twig:34
-#: templates/table/tracking/main.twig:32
-#: templates/table/tracking/report_table.twig:8
-msgid "Action"
-msgstr "عمل"
-
-#: libraries/classes/Index.php:710
-#: templates/table/tracking/structure_snapshot_indexes.twig:8
-msgid "Packed"
-msgstr ""
-
-#: libraries/classes/Index.php:711 libraries/classes/InsertEdit.php:1976
-#: libraries/classes/Navigation/Nodes/NodeColumn.php:32
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:286
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:382
-#: libraries/classes/Plugins/Export/ExportLatex.php:547
-#: libraries/classes/Plugins/Export/ExportOdt.php:393
-#: libraries/classes/Plugins/Export/ExportOdt.php:495
-#: libraries/classes/Plugins/Export/ExportTexytext.php:299
-#: libraries/classes/Plugins/Export/ExportTexytext.php:390
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:511
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:684
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:717
-#: templates/columns_definitions/column_name.twig:16
-#: templates/database/data_dictionary/index.twig:16
-#: templates/table/index_form.twig:119
-#: templates/table/relation/common_form.twig:17
-#: templates/table/relation/common_form.twig:22
-#: templates/table/relation/common_form.twig:37
-#: templates/table/relation/common_form.twig:117
-#: templates/table/relation/common_form.twig:182
-#: templates/table/relation/foreign_key_row.twig:118
-#: templates/table/relation/foreign_key_row.twig:128
-#: templates/table/search/index.twig:38
-#: templates/table/tracking/structure_snapshot_columns.twig:6
-#: templates/table/tracking/structure_snapshot_indexes.twig:9
-#: templates/table/zoom_search/index.twig:38
-#: templates/table/zoom_search/result_form.twig:32
-msgid "Column"
-msgstr "ستون"
-
-#: libraries/classes/Index.php:712
-#: templates/table/tracking/structure_snapshot_indexes.twig:10
-msgid "Cardinality"
-msgstr ""
-
-#: libraries/classes/Index.php:715 libraries/classes/Rte/Events.php:562
-#: libraries/classes/Rte/Routines.php:1100
-#: templates/columns_definitions/partitions.twig:85
-#: templates/database/structure/table_header.twig:46
-#: templates/table/structure/display_partitions.twig:31
-#: templates/table/tracking/structure_snapshot_columns.twig:12
-#: templates/table/tracking/structure_snapshot_indexes.twig:13
-msgid "Comment"
-msgstr "توضيحات"
-
-#: libraries/classes/Index.php:741
-msgid "The primary key has been dropped."
-msgstr "كليد اصلي حذف گرديد."
-
-#: libraries/classes/Index.php:748
-#, php-format
-msgid "Index %s has been dropped."
-msgstr "فهرست %s حذف گرديد."
-
-#: libraries/classes/Index.php:878
+#: libraries/classes/Index.php:617
 #, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
@@ -8965,6 +8908,39 @@ msgstr ""
 "استفاده از کلید Tab برای جابجایی بین مقادیر، یا CTRL + فلش ها برای جابجایی "
 "به هر نقطه."
 
+#: libraries/classes/InsertEdit.php:1976
+#: libraries/classes/Navigation/Nodes/NodeColumn.php:32
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:286
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:382
+#: libraries/classes/Plugins/Export/ExportLatex.php:547
+#: libraries/classes/Plugins/Export/ExportOdt.php:393
+#: libraries/classes/Plugins/Export/ExportOdt.php:495
+#: libraries/classes/Plugins/Export/ExportTexytext.php:299
+#: libraries/classes/Plugins/Export/ExportTexytext.php:390
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:511
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:684
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:717
+#: templates/columns_definitions/column_name.twig:16
+#: templates/database/data_dictionary/index.twig:16
+#: templates/database/data_dictionary/index.twig:69 templates/indexes.twig:19
+#: templates/table/index_form.twig:133 templates/table/operations/index.twig:13
+#: templates/table/relation/common_form.twig:17
+#: templates/table/relation/common_form.twig:22
+#: templates/table/relation/common_form.twig:37
+#: templates/table/relation/common_form.twig:117
+#: templates/table/relation/common_form.twig:182
+#: templates/table/relation/common_form.twig:241
+#: templates/table/relation/foreign_key_row.twig:118
+#: templates/table/relation/foreign_key_row.twig:128
+#: templates/table/search/index.twig:38
+#: templates/table/structure/display_structure.twig:466
+#: templates/table/tracking/structure_snapshot_columns.twig:6
+#: templates/table/tracking/structure_snapshot_indexes.twig:9
+#: templates/table/zoom_search/index.twig:38
+#: templates/table/zoom_search/result_form.twig:32
+msgid "Column"
+msgstr "ستون"
+
 #: libraries/classes/InsertEdit.php:1986
 #: libraries/classes/Rte/Routines.php:1652
 #: templates/database/designer/main.twig:488
@@ -8980,11 +8956,11 @@ msgstr ""
 msgid "Value"
 msgstr "مقدار"
 
-#: libraries/classes/InsertEdit.php:2378 libraries/classes/Sql.php:1209
+#: libraries/classes/InsertEdit.php:2378 libraries/classes/Sql.php:1215
 msgid "Showing SQL query"
 msgstr "نمایش پرس و جو SQL"
 
-#: libraries/classes/InsertEdit.php:2403 libraries/classes/Sql.php:1187
+#: libraries/classes/InsertEdit.php:2403 libraries/classes/Sql.php:1193
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "درج شناسه ردیف: %1$d"
@@ -9039,7 +9015,7 @@ msgid "Insert"
 msgstr "درج"
 
 #: libraries/classes/Menu.php:326 libraries/classes/Menu.php:444
-#: libraries/classes/Server/Privileges.php:2940 libraries/classes/Util.php:2483
+#: libraries/classes/Server/Privileges.php:2889 libraries/classes/Util.php:2483
 #: libraries/classes/Util.php:2499 libraries/config.values.php:160
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
@@ -9051,7 +9027,7 @@ msgstr "امتيازات"
 #: libraries/classes/Menu.php:336 libraries/classes/Menu.php:345
 #: libraries/classes/Menu.php:435 libraries/classes/Util.php:1741
 #: libraries/classes/Util.php:2482 libraries/classes/Util.php:2500
-#: libraries/config.values.php:170 templates/table/operations/view.twig:7
+#: libraries/config.values.php:170 templates/table/operations/view.twig:8
 msgid "Operations"
 msgstr "عمليات"
 
@@ -9371,7 +9347,7 @@ msgid "Make all columns atomic"
 msgstr ""
 
 #: libraries/classes/Normalization.php:220
-#: libraries/classes/Normalization.php:923
+#: libraries/classes/Normalization.php:925
 msgid "First step of normalization (1NF)"
 msgstr ""
 
@@ -9617,27 +9593,27 @@ msgstr "پيشنهاد ساختار جدول"
 msgid "Select up to what step you want to normalize"
 msgstr ""
 
-#: libraries/classes/Normalization.php:924
+#: libraries/classes/Normalization.php:930
 msgid "Second step of normalization (1NF+2NF)"
 msgstr ""
 
-#: libraries/classes/Normalization.php:925
+#: libraries/classes/Normalization.php:935
 msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr ""
 
-#: libraries/classes/Normalization.php:936
+#: libraries/classes/Normalization.php:940
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
 msgstr ""
 
-#: libraries/classes/Normalization.php:1002
+#: libraries/classes/Normalization.php:1006
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
 msgstr ""
 
-#: libraries/classes/Normalization.php:1018
+#: libraries/classes/Normalization.php:1022
 msgid "No partial dependencies found!"
 msgstr ""
 
@@ -9685,32 +9661,32 @@ msgid "Repair table"
 msgstr "بازسازی جدول"
 
 #: libraries/classes/Operations.php:675
-#: templates/table/structure/display_structure.twig:467
+#: templates/table/structure/display_structure.twig:566
 msgid "Analyze"
 msgstr ""
 
 #: libraries/classes/Operations.php:676
-#: templates/table/structure/display_structure.twig:467
+#: templates/table/structure/display_structure.twig:566
 msgid "Check"
 msgstr ""
 
 #: libraries/classes/Operations.php:677
-#: templates/table/structure/display_structure.twig:467
+#: templates/table/structure/display_structure.twig:566
 msgid "Optimize"
 msgstr ""
 
 #: libraries/classes/Operations.php:678
-#: templates/table/structure/display_structure.twig:467
+#: templates/table/structure/display_structure.twig:566
 msgid "Rebuild"
 msgstr ""
 
 #: libraries/classes/Operations.php:679
-#: templates/table/structure/display_structure.twig:467
+#: templates/table/structure/display_structure.twig:566
 msgid "Repair"
 msgstr "تعمیر"
 
 #: libraries/classes/Operations.php:680
-#: templates/table/structure/display_structure.twig:467
+#: templates/table/structure/display_structure.twig:566
 msgid "Truncate"
 msgstr ""
 
@@ -11184,6 +11160,15 @@ msgstr ""
 msgid "Master server changed successfully to %s."
 msgstr ""
 
+#: libraries/classes/Routing.php:66
+#, fuzzy, php-format
+msgid "Error 404! The page %s was not found."
+msgstr "جستجو در پايگاه‌داده"
+
+#: libraries/classes/Routing.php:73
+msgid "Error 405! Request method not allowed."
+msgstr ""
+
 #: libraries/classes/Rte/Events.php:165 libraries/classes/Rte/Events.php:174
 #: libraries/classes/Rte/Events.php:205 libraries/classes/Rte/Routines.php:302
 #: libraries/classes/Rte/Routines.php:326
@@ -11274,6 +11259,18 @@ msgstr "تمام وروديها"
 #: libraries/classes/Rte/Triggers.php:442 templates/view_create.twig:45
 msgid "Definer"
 msgstr ""
+
+#: libraries/classes/Rte/Events.php:562 libraries/classes/Rte/Routines.php:1100
+#: templates/columns_definitions/partitions.twig:85
+#: templates/database/data_dictionary/index.twig:73
+#: templates/database/structure/table_header.twig:46 templates/indexes.twig:23
+#: templates/table/relation/common_form.twig:245
+#: templates/table/structure/display_partitions.twig:31
+#: templates/table/structure/display_structure.twig:470
+#: templates/table/tracking/structure_snapshot_columns.twig:12
+#: templates/table/tracking/structure_snapshot_indexes.twig:13
+msgid "Comment"
+msgstr "توضيحات"
 
 #: libraries/classes/Rte/Events.php:601 libraries/classes/Rte/Routines.php:1154
 #: libraries/classes/Rte/Triggers.php:481
@@ -11416,11 +11413,11 @@ msgstr ""
 #: libraries/classes/Rte/Routines.php:1053
 #: templates/columns_definitions/table_fields_definitions.twig:36
 #: templates/database/operations/index.twig:74
-#: templates/database/operations/index.twig:176
-#: templates/mult_submits/copy_multiple_tables.twig:48
-#: templates/table/operations/index.twig:64
-#: templates/table/operations/index.twig:97
-#: templates/table/operations/index.twig:252
+#: templates/database/operations/index.twig:178
+#: templates/mult_submits/copy_multiple_tables.twig:50
+#: templates/table/operations/index.twig:81
+#: templates/table/operations/index.twig:115
+#: templates/table/operations/index.twig:293
 msgid "Adjust privileges"
 msgstr "تنظیم امتیازات"
 
@@ -11487,6 +11484,28 @@ msgstr ""
 #: libraries/classes/Rte/Routines.php:1643
 msgid "Routine parameters"
 msgstr ""
+
+#: libraries/classes/Rte/RteList.php:110 libraries/classes/Rte/RteList.php:125
+#: libraries/classes/Rte/RteList.php:138
+#: templates/database/central_columns/main.twig:234
+#: templates/database/privileges/index.twig:22
+#: templates/database/structure/table_header.twig:22
+#: templates/database/tracking/tables.twig:18
+#: templates/database/tracking/tables.twig:121 templates/indexes.twig:14
+#: templates/server/databases/index.twig:166
+#: templates/server/privileges/privileges_summary.twig:22
+#: templates/server/privileges/users_overview.twig:19
+#: templates/server/user_groups/user_groups.twig:21
+#: templates/server/variables/index.twig:31
+#: templates/table/privileges/index.twig:24
+#: templates/table/relation/common_form.twig:236
+#: templates/table/structure/display_partitions.twig:33
+#: templates/table/structure/display_structure.twig:34
+#: templates/table/structure/display_structure.twig:461
+#: templates/table/tracking/main.twig:32
+#: templates/table/tracking/report_table.twig:8
+msgid "Action"
+msgstr "عمل"
 
 #: libraries/classes/Rte/RteList.php:112
 #, fuzzy
@@ -11675,36 +11694,29 @@ msgstr ""
 msgid "Error while loading the search."
 msgstr "خطا در موقع جابجا کردن فایل آپلود شده."
 
-#: libraries/classes/Server/Privileges.php:814
-#: libraries/classes/Server/Privileges.php:845
-#, fuzzy
-#| msgid "Authentication"
-msgid "Native MySQL authentication"
-msgstr "ورود"
-
-#: libraries/classes/Server/Privileges.php:847
+#: libraries/classes/Server/Privileges.php:805
 #, fuzzy
 #| msgid "Change password"
 msgid "SHA256 password authentication"
 msgstr "تغيير کلمه ی عبور"
 
-#: libraries/classes/Server/Privileges.php:1218
+#: libraries/classes/Server/Privileges.php:1167
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1266
+#: libraries/classes/Server/Privileges.php:1215
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "شما امتيازات %s را ابطال كرديد."
 
-#: libraries/classes/Server/Privileges.php:1595
+#: libraries/classes/Server/Privileges.php:1544
 #: templates/database/privileges/index.twig:122
 #: templates/table/privileges/index.twig:125
 msgid "Not enough privilege to view users."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1662
+#: libraries/classes/Server/Privileges.php:1611
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:72
@@ -11714,24 +11726,24 @@ msgstr ""
 msgid "Edit privileges"
 msgstr "ويرايش امتيازات"
 
-#: libraries/classes/Server/Privileges.php:1665
+#: libraries/classes/Server/Privileges.php:1614
 msgid "Revoke"
 msgstr "ابطال"
 
-#: libraries/classes/Server/Privileges.php:1990
+#: libraries/classes/Server/Privileges.php:1939
 #: templates/server/privileges/privileges_table.twig:240
 msgid "Database-specific privileges"
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1996
+#: libraries/classes/Server/Privileges.php:1945
 #: templates/server/privileges/privileges_summary.twig:18
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:242
 msgid "Table-specific privileges"
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:2001
-#: libraries/classes/Server/Privileges.php:2003
+#: libraries/classes/Server/Privileges.php:1950
+#: libraries/classes/Server/Privileges.php:1952
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:58
@@ -11739,31 +11751,31 @@ msgstr ""
 msgid "Routine"
 msgstr "افزودن ستون جديد"
 
-#: libraries/classes/Server/Privileges.php:2002
+#: libraries/classes/Server/Privileges.php:1951
 #: templates/server/privileges/edit_routine_privileges.twig:47
 #, fuzzy
 #| msgid "Check Privileges"
 msgid "Routine-specific privileges"
 msgstr "چک سطح دسترسی"
 
-#: libraries/classes/Server/Privileges.php:2340
+#: libraries/classes/Server/Privileges.php:2289
 msgid "No users selected for deleting!"
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:2343
+#: libraries/classes/Server/Privileges.php:2292
 msgid "Reloading the privileges"
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:2362
+#: libraries/classes/Server/Privileges.php:2311
 msgid "The selected users have been deleted successfully."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:2440
+#: libraries/classes/Server/Privileges.php:2389
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "امتيازات %s به هنگام گرديد."
 
-#: libraries/classes/Server/Privileges.php:2470
+#: libraries/classes/Server/Privileges.php:2419
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 #, fuzzy
@@ -11771,34 +11783,34 @@ msgstr "امتيازات %s به هنگام گرديد."
 msgid "No user found."
 msgstr "هيچ كاربري وچود ندارد."
 
-#: libraries/classes/Server/Privileges.php:2550
+#: libraries/classes/Server/Privileges.php:2499
 #, php-format
 msgid "Deleting %s"
 msgstr "در حال پاک کردن %s"
 
-#: libraries/classes/Server/Privileges.php:2578
+#: libraries/classes/Server/Privileges.php:2527
 msgid "The privileges were reloaded successfully."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:2676
+#: libraries/classes/Server/Privileges.php:2625
 #, php-format
 msgid "The user %s already exists!"
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:2957
+#: libraries/classes/Server/Privileges.php:2906
 #, fuzzy, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "امتيازات"
 
-#: libraries/classes/Server/Privileges.php:3100
+#: libraries/classes/Server/Privileges.php:3049
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:3143
+#: libraries/classes/Server/Privileges.php:3092
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -11807,7 +11819,7 @@ msgid ""
 "%sreload the privileges%s before you continue."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:3159
+#: libraries/classes/Server/Privileges.php:3108
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -11816,7 +11828,7 @@ msgid ""
 "privilege."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:3496
+#: libraries/classes/Server/Privileges.php:3445
 msgid "You have added a new user."
 msgstr "شما يك كاربر جديد اضافه كرديد."
 
@@ -11955,11 +11967,11 @@ msgstr "بوک مارک  %s ایجاد شده"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/classes/Sql.php:1206
+#: libraries/classes/Sql.php:1212
 msgid "Showing as PHP code"
 msgstr ""
 
-#: libraries/classes/Sql.php:1588
+#: libraries/classes/Sql.php:1594
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -11971,7 +11983,7 @@ msgstr ""
 "این جدول هیچ مقدار کلیدی ندارد. امکانات ویرایش جدولی، چک باکس ها ، ویرایش ، "
 "کپی و حذف ممکن است کار نکنند."
 
-#: libraries/classes/Sql.php:1602
+#: libraries/classes/Sql.php:1608
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -11983,7 +11995,7 @@ msgstr ""
 "این جدول هیچ مقدار کلیدی ندارد. امکانات ویرایش جدولی، چک باکس ها ، ویرایش ، "
 "کپی و حذف ممکن است کار نکنند."
 
-#: libraries/classes/Sql.php:1636
+#: libraries/classes/Sql.php:1642
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr ""
@@ -12004,28 +12016,28 @@ msgstr "اجراي پرس و جو(ها)ي SQL در پايگاه‌داده %s"
 msgid "Run SQL query/queries on table %s"
 msgstr "اجراي پرس و جو(ها)ي SQL در پايگاه‌داده %s"
 
-#: libraries/classes/StorageEngine.php:278
+#: libraries/classes/StorageEngine.php:251
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
 
-#: libraries/classes/StorageEngine.php:381
+#: libraries/classes/StorageEngine.php:354
 #: templates/database/structure/body_for_table_summary.twig:46
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "در این پایگاه داده(mysql) موتور پیش فرض ذخیره سازی %s میباشد ."
 
-#: libraries/classes/StorageEngine.php:384
+#: libraries/classes/StorageEngine.php:357
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr ""
 
-#: libraries/classes/StorageEngine.php:387
+#: libraries/classes/StorageEngine.php:360
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr ""
 
-#: libraries/classes/StorageEngine.php:392
+#: libraries/classes/StorageEngine.php:365
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr ""
@@ -12112,7 +12124,7 @@ msgstr "هيچ فهرستي تعريف‌نشده‌است!"
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 
-#: libraries/classes/Template.php:115
+#: libraries/classes/Template.php:113
 #, fuzzy, php-format
 #| msgid "Error while moving uploaded file."
 msgid "Error while working with template cache: %s"
@@ -12163,23 +12175,23 @@ msgid "No data"
 msgstr "No databases"
 
 #: libraries/classes/Tracking.php:331
-#: templates/database/operations/index.twig:135
-#: templates/mult_submits/copy_multiple_tables.twig:17
-#: templates/table/operations/index.twig:223
+#: templates/database/operations/index.twig:136
+#: templates/mult_submits/copy_multiple_tables.twig:19
+#: templates/table/operations/index.twig:253
 msgid "Structure only"
 msgstr "فقط ساختار"
 
 #: libraries/classes/Tracking.php:334
-#: templates/database/operations/index.twig:147
-#: templates/mult_submits/copy_multiple_tables.twig:27
-#: templates/table/operations/index.twig:223
+#: templates/database/operations/index.twig:148
+#: templates/mult_submits/copy_multiple_tables.twig:29
+#: templates/table/operations/index.twig:265
 msgid "Data only"
 msgstr "فقط داده‌ها"
 
 #: libraries/classes/Tracking.php:337
-#: templates/database/operations/index.twig:141
-#: templates/mult_submits/copy_multiple_tables.twig:22
-#: templates/table/operations/index.twig:223
+#: templates/database/operations/index.twig:142
+#: templates/mult_submits/copy_multiple_tables.twig:24
+#: templates/table/operations/index.twig:259
 msgid "Structure and data"
 msgstr "ساختار و داده‌ها"
 
@@ -12702,22 +12714,22 @@ msgstr ""
 msgid "Error in ZIP archive:"
 msgstr ""
 
-#: libraries/common.inc.php:216
+#: libraries/common.inc.php:225
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/common.inc.php:370
+#: libraries/common.inc.php:379
 msgid "Invalid authentication method set in configuration:"
 msgstr "روش احراز هویت در تنظیمات صحیح نمی باشد:"
 
-#: libraries/common.inc.php:424
+#: libraries/common.inc.php:433
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "شما باید به  %s %s یا جدیدتر به روز شوید."
 
-#: libraries/common.inc.php:479
+#: libraries/common.inc.php:488
 msgid "Error: Token mismatch"
 msgstr ""
 
@@ -12958,11 +12970,19 @@ msgstr "موتور ذخیره سازی"
 msgid "Connection:"
 msgstr "اتصالات"
 
-#: templates/columns_definitions/column_definitions_form.twig:133
+#: templates/columns_definitions/column_definitions_form.twig:113
+#: templates/columns_definitions/partitions.twig:137
+#: templates/table/operations/index.twig:128
+#, fuzzy
+#| msgid "Storage Engines"
+msgid "Storage engine"
+msgstr "موتور ذخیره سازی"
+
+#: templates/columns_definitions/column_definitions_form.twig:136
 msgid "PARTITION definition:"
 msgstr ""
 
-#: templates/columns_definitions/column_definitions_form.twig:150
+#: templates/columns_definitions/column_definitions_form.twig:154
 #, fuzzy
 #| msgid "Information"
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
@@ -13041,7 +13061,7 @@ msgid "Subpartitions:"
 msgstr "موقعیت"
 
 #: templates/columns_definitions/partitions.twig:76
-#: templates/table/operations/index.twig:344
+#: templates/table/operations/index.twig:384
 #: templates/table/structure/display_partitions.twig:24
 #, fuzzy
 #| msgid "Position"
@@ -13396,14 +13416,14 @@ msgid "The central list of columns for the current database is empty"
 msgstr "فهرست مرکزی ستون‌ها برای پایگاه داده در حال استفاده خالی است."
 
 #: templates/database/central_columns/main.twig:182
-#: templates/display/results/table_navigation.twig:73
+#: templates/display/results/table_navigation.twig:66
 #, fuzzy
 #| msgid "Filter"
 msgid "Filter rows"
 msgstr "فیلتر"
 
 #: templates/database/central_columns/main.twig:183
-#: templates/display/results/table_navigation.twig:75
+#: templates/display/results/table_navigation.twig:68
 #, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
@@ -13448,6 +13468,26 @@ msgstr "تعداد سطرها در هر صفحه"
 #| msgid "Database comment"
 msgid "Database comment:"
 msgstr "توضيحات پایگاه داده"
+
+#: templates/database/data_dictionary/index.twig:68 templates/indexes.twig:18
+#: templates/table/relation/common_form.twig:240
+#: templates/table/structure/display_structure.twig:465
+#: templates/table/tracking/structure_snapshot_indexes.twig:8
+msgid "Packed"
+msgstr ""
+
+#: templates/database/data_dictionary/index.twig:70 templates/indexes.twig:20
+#: templates/table/relation/common_form.twig:242
+#: templates/table/structure/display_structure.twig:467
+#: templates/table/tracking/structure_snapshot_indexes.twig:10
+msgid "Cardinality"
+msgstr ""
+
+#: templates/database/data_dictionary/index.twig:110 templates/indexes.twig:85
+#: templates/table/relation/common_form.twig:307
+#: templates/table/structure/display_structure.twig:532
+msgid "No index defined!"
+msgstr "هيچ فهرستي تعريف‌نشده‌است!"
 
 #: templates/database/designer/database_tables.twig:37
 #, fuzzy
@@ -13664,19 +13704,19 @@ msgstr "عمليات"
 msgid "Active options"
 msgstr "گزینه های فعال"
 
-#: templates/database/designer/page_save_as.twig:17
+#: templates/database/designer/page_save_as.twig:19
 #, fuzzy
 #| msgid "Export to selected page"
 msgid "Save to selected page"
 msgstr "صدور اطلاعات به صفحه انتخاب شده"
 
-#: templates/database/designer/page_save_as.twig:17
+#: templates/database/designer/page_save_as.twig:23
 #, fuzzy
 #| msgid "Create a page and export to it"
 msgid "Create a page and save to it"
 msgstr "ایجاد صفحه و صدور اطلاعات به آن"
 
-#: templates/database/designer/page_save_as.twig:30
+#: templates/database/designer/page_save_as.twig:29
 #, fuzzy
 #| msgid "New page name: "
 msgid "New page name"
@@ -13801,10 +13841,10 @@ msgid "New database name"
 msgstr "نام پايگاه داده"
 
 #: templates/database/operations/index.twig:72
-#: templates/database/operations/index.twig:174
-#: templates/table/operations/index.twig:60
-#: templates/table/operations/index.twig:93
-#: templates/table/operations/index.twig:248
+#: templates/database/operations/index.twig:176
+#: templates/table/operations/index.twig:79
+#: templates/table/operations/index.twig:113
+#: templates/table/operations/index.twig:291
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details."
@@ -13829,25 +13869,25 @@ msgstr "حذف پایگاه داده"
 msgid "Copy database to"
 msgstr "کپی کردن پابگاه داده به"
 
-#: templates/database/operations/index.twig:153
+#: templates/database/operations/index.twig:155
 msgid "CREATE DATABASE before copying"
 msgstr "پیش از کپی پایگاه داده ایجاد شود"
 
-#: templates/database/operations/index.twig:168
-#: templates/mult_submits/copy_multiple_tables.twig:42
-#: templates/table/operations/index.twig:240
+#: templates/database/operations/index.twig:170
+#: templates/mult_submits/copy_multiple_tables.twig:44
+#: templates/table/operations/index.twig:284
 msgid "Add constraints"
 msgstr "اعمال محدودیت ها"
 
-#: templates/database/operations/index.twig:183
+#: templates/database/operations/index.twig:185
 msgid "Switch to copied database"
 msgstr "تعویض به پایگاه داده ی کپی شده"
 
-#: templates/database/operations/index.twig:219
+#: templates/database/operations/index.twig:221
 msgid "Change all tables collations"
 msgstr ""
 
-#: templates/database/operations/index.twig:223
+#: templates/database/operations/index.twig:225
 msgid "Change all tables columns collations"
 msgstr ""
 
@@ -13981,11 +14021,16 @@ msgstr "كلمه(ها) يا مقدار(ها) براي جستجو (wildcard: \"%\
 msgid "Find:"
 msgstr "یافتن :"
 
-#: templates/database/search/main.twig:29
+#: templates/database/search/main.twig:19
+#: templates/database/search/main.twig:23
+msgid "Words are separated by a space character (\" \")."
+msgstr "كلمات با علامت فاصله (\" \") جدا مي‌شوند."
+
+#: templates/database/search/main.twig:40
 msgid "Inside tables:"
 msgstr "درجدول های:"
 
-#: templates/database/search/main.twig:35
+#: templates/database/search/main.twig:46
 #: templates/display/export/select_options.twig:8
 #: templates/server/replication/database_multibox.twig:8
 #, fuzzy
@@ -13993,7 +14038,7 @@ msgstr "درجدول های:"
 msgid "Unselect all"
 msgstr "عدم انتخاب همه"
 
-#: templates/database/search/main.twig:56
+#: templates/database/search/main.twig:67
 msgid "Inside column:"
 msgstr "در ستونها:"
 
@@ -14041,15 +14086,15 @@ msgid "Show create"
 msgstr "نمايش رنگ"
 
 #: templates/database/structure/check_all_tables.twig:14
-#: templates/table/operations/index.twig:289
-#: templates/table/operations/view.twig:24
+#: templates/table/operations/index.twig:329
+#: templates/table/operations/view.twig:22
 #, fuzzy
 #| msgid "Dumping data for table"
 msgid "Delete data or table"
 msgstr "حذف داده‌هاي جدول"
 
 #: templates/database/structure/check_all_tables.twig:18
-#: templates/table/operations/index.twig:269
+#: templates/table/operations/index.twig:312
 msgid "Table maintenance"
 msgstr "نگهداشت جدول"
 
@@ -14121,7 +14166,7 @@ msgid ""
 msgstr ""
 
 #: templates/database/structure/table_header.twig:36
-#: templates/table/index_form.twig:122
+#: templates/table/index_form.twig:136
 msgid "Size"
 msgstr "اندازه"
 
@@ -14211,14 +14256,14 @@ msgstr ""
 msgid "Re-type:"
 msgstr "دوباره نوشتن"
 
-#: templates/display/change_password/file_b.twig:2
-#: templates/display/change_password/file_d.twig:2
+#: templates/display/change_password/file_b.twig:3
+#: templates/display/change_password/file_d.twig:3
 #, fuzzy
 #| msgid "Password Hashing"
 msgid "Password Hashing:"
 msgstr "رمزگذاری پسورد"
 
-#: templates/display/change_password/file_b.twig:9
+#: templates/display/change_password/file_b.twig:17
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
 "connection that encrypts the password using RSA</i>'; while connecting to "
@@ -14535,36 +14580,34 @@ msgid ""
 "not available."
 msgstr ""
 
-#: templates/display/results/options_block.twig:34
+#: templates/display/results/options_block.twig:31
 msgid "Relational key"
 msgstr ""
 
-#: templates/display/results/options_block.twig:34
+#: templates/display/results/options_block.twig:35
 #, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display column for relationships"
 msgstr "نمايش توضيحات ستون"
 
-#: templates/display/results/options_block.twig:50
+#: templates/display/results/options_block.twig:41
 msgid "Show binary contents"
 msgstr ""
 
-#: templates/display/results/options_block.twig:57
+#: templates/display/results/options_block.twig:48
 msgid "Show BLOB contents"
 msgstr ""
 
-#: templates/display/results/options_block.twig:71
+#: templates/display/results/options_block.twig:62
 #, fuzzy
 msgid "Hide browser transformation"
 msgstr "اطلاعات ورود"
 
-#: templates/display/results/options_block.twig:83
-#: templates/display/results/options_block.twig:100
+#: templates/display/results/options_block.twig:80
 msgid "Well Known Text"
 msgstr ""
 
-#: templates/display/results/options_block.twig:83
-#: templates/display/results/options_block.twig:100
+#: templates/display/results/options_block.twig:84
 msgid "Well Known Binary"
 msgstr ""
 
@@ -14584,7 +14627,7 @@ msgstr ""
 msgid "Restore column order"
 msgstr "اضافه يا حذف ستونها"
 
-#: templates/display/results/table_navigation.twig:67
+#: templates/display/results/table_navigation.twig:56
 msgid "All"
 msgstr "همه"
 
@@ -14854,6 +14897,17 @@ msgstr "لیست تغییرات"
 #: templates/home/index.twig:208 templates/server/plugins/index.twig:30
 msgid "License"
 msgstr "اعتبار"
+
+#: templates/indexes.twig:39 templates/table/relation/common_form.twig:261
+#: templates/table/structure/display_structure.twig:486
+msgid "The primary key has been dropped."
+msgstr "كليد اصلي حذف گرديد."
+
+#: templates/indexes.twig:44 templates/table/relation/common_form.twig:266
+#: templates/table/structure/display_structure.twig:491
+#, php-format
+msgid "Index %s has been dropped."
+msgstr "فهرست %s حذف گرديد."
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: templates/javascript/variables.twig:8
@@ -15181,12 +15235,12 @@ msgstr ""
 msgid "View:"
 msgstr "مشاهده ها:"
 
-#: templates/mult_submits/copy_multiple_tables.twig:12
+#: templates/mult_submits/copy_multiple_tables.twig:14
 #, fuzzy
 msgid "Options:"
 msgstr "عمليات"
 
-#: templates/mult_submits/copy_multiple_tables.twig:37
+#: templates/mult_submits/copy_multiple_tables.twig:39
 msgid "Add AUTO INCREMENT value"
 msgstr "افزودن ارزش افزایش بصورت خودکار"
 
@@ -15609,10 +15663,15 @@ msgid "Grant all privileges on database %s."
 msgstr "تنظیمات دسترسی به پایگاه داده \"%s\" را بررسی کنید."
 
 #: templates/server/privileges/choose_user_group.twig:4
-#: templates/server/privileges/choose_user_group.twig:5
 #: templates/server/privileges/users_overview.twig:16
 msgid "User group"
 msgstr ""
+
+#: templates/server/privileges/choose_user_group.twig:6
+#, fuzzy
+#| msgid "User"
+msgid "User group:"
+msgstr "كاربر"
 
 #: templates/server/privileges/edit_routine_privileges.twig:4
 #: templates/server/privileges/user_properties.twig:4
@@ -15775,7 +15834,7 @@ msgstr "ورود"
 msgid "Password hashing method"
 msgstr "رمزگذاری پسورد"
 
-#: templates/server/privileges/login_information_fields.twig:79
+#: templates/server/privileges/login_information_fields.twig:83
 msgid ""
 "This method requires using an '<em>SSL connection</em>' or an "
 "'<em>unencrypted connection that encrypts the password using RSA</em>'; "
@@ -17006,33 +17065,33 @@ msgstr "\"PRIMARY\" فقط <b>بايد</b> نام <b>يك</b> كليد اصلي 
 msgid "Index choice:"
 msgstr "اسم فهرست&nbsp;:"
 
-#: templates/table/index_form.twig:42
+#: templates/table/index_form.twig:51
 #, fuzzy
 #| msgid "Active options"
 msgid "Advanced Options"
 msgstr "گزینه های فعال"
 
-#: templates/table/index_form.twig:52
+#: templates/table/index_form.twig:61
 msgid "Key block size:"
 msgstr ""
 
-#: templates/table/index_form.twig:69
+#: templates/table/index_form.twig:78
 msgid "Index type:"
 msgstr "نوع فهرست&nbsp;:"
 
-#: templates/table/index_form.twig:81
+#: templates/table/index_form.twig:95
 #, fuzzy
 #| msgid "User:"
 msgid "Parser:"
 msgstr "كاربر:"
 
-#: templates/table/index_form.twig:97
+#: templates/table/index_form.twig:111
 #, fuzzy
 #| msgid "Comment"
 msgid "Comment:"
 msgstr "توضيحات"
 
-#: templates/table/index_form.twig:140 templates/table/index_form.twig:177
+#: templates/table/index_form.twig:154 templates/table/index_form.twig:191
 #, fuzzy
 #| msgid "Drag to reorder"
 msgid "Drag to reorder"
@@ -17043,81 +17102,78 @@ msgstr "برای دوباره مرتب کردن drag کنید"
 msgid "Continue insertion with %s rows"
 msgstr ""
 
-#: templates/table/operations/index.twig:7
+#: templates/table/operations/index.twig:9
 msgid "Alter table order by"
 msgstr "تغيير جدول مرتب شده با"
 
-#: templates/table/operations/index.twig:14
+#: templates/table/operations/index.twig:20
+#, fuzzy
+#| msgid "(singly)"
+msgctxt "Alter table order by a single field."
 msgid "(singly)"
 msgstr "(تنها)"
 
-#: templates/table/operations/index.twig:39
+#: templates/table/operations/index.twig:50
 #, fuzzy
 #| msgid "Move table to (database<b>.</b>table)"
 msgid "Move table to (database.table)"
 msgstr "انتقال جدول به (پايگاه داده<b>.</b>جدول)"
 
-#: templates/table/operations/index.twig:82
+#: templates/table/operations/index.twig:103
 msgid "Table options"
 msgstr ""
 
-#: templates/table/operations/index.twig:85
+#: templates/table/operations/index.twig:107
 msgid "Rename table to"
 msgstr "بازناميدن جدول به"
 
-#: templates/table/operations/index.twig:104
+#: templates/table/operations/index.twig:122
 msgid "Table comments"
 msgstr "توضيحات جدول"
 
-#: templates/table/operations/index.twig:111
-#, fuzzy
-#| msgid "Storage Engines"
-msgid "Storage engine"
-msgstr "موتور ذخیره سازی"
-
-#: templates/table/operations/index.twig:134
+#: templates/table/operations/index.twig:158
 msgid "Change all column collations"
 msgstr ""
 
-#: templates/table/operations/index.twig:210
+#: templates/table/operations/index.twig:227
 #, fuzzy
 #| msgid "Copy table to (database<b>.</b>table)"
 msgid "Copy table to (database.table)"
 msgstr "كپي كردن جدول به (پايگاه داده<b>.</b>جدول)"
 
-#: templates/table/operations/index.twig:258
+#: templates/table/operations/index.twig:300
 msgid "Switch to copied table"
 msgstr ""
 
-#: templates/table/operations/index.twig:299
+#: templates/table/operations/index.twig:338
 msgid "Empty the table (TRUNCATE)"
 msgstr ""
 
-#: templates/table/operations/index.twig:318
+#: templates/table/operations/index.twig:357
 #, fuzzy
 msgid "Delete the table (DROP)"
 msgstr "No databases"
 
-#: templates/table/operations/index.twig:340
+#: templates/table/operations/index.twig:378
 #, fuzzy
 msgid "Partition maintenance"
 msgstr "نگهداشت جدول"
 
-#: templates/table/operations/index.twig:360
+#: templates/table/operations/index.twig:404
 #: templates/table/structure/display_partitions.twig:137
 msgid "Remove partitioning"
 msgstr ""
 
-#: templates/table/operations/index.twig:374
+#: templates/table/operations/index.twig:417
 msgid "Check referential integrity"
 msgstr ""
 
-#: templates/table/operations/view.twig:10
+#: templates/table/operations/view.twig:11
 #, fuzzy
 msgid "Rename view to"
 msgstr "بازناميدن جدول به"
 
-#: templates/table/operations/view.twig:34
+#: templates/table/operations/view.twig:32
 #, fuzzy
 msgid "Delete the view (DROP)"
 msgstr "No databases"
@@ -17195,6 +17251,13 @@ msgstr ""
 msgid "Choose column to display:"
 msgstr "ستون را براي نمايش انتخاب نماييد"
 
+#: templates/table/relation/common_form.twig:317
+#: templates/table/structure/display_structure.twig:542
+#, fuzzy, php-format
+#| msgid "Create an index on&nbsp;%s&nbsp;columns"
+msgid "Create an index on %s columns"
+msgstr "ساخت يك فهرست در&nbsp;%s&nbsp;ستون"
+
 #: templates/table/relation/foreign_key_row.twig:15
 #, fuzzy, php-format
 #| msgid "Add constraints"
@@ -17230,7 +17293,7 @@ msgid "Display order:"
 msgstr "ترتيب نمايش:"
 
 #: templates/table/structure/display_partitions.twig:4
-#: templates/table/structure/display_structure.twig:480
+#: templates/table/structure/display_structure.twig:579
 #, fuzzy
 #| msgid "Position"
 msgid "Partitions"
