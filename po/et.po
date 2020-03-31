@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-30 21:49+0200\n"
-"PO-Revision-Date: 2020-03-30 06:26+0000\n"
+"PO-Revision-Date: 2020-03-31 16:16+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/et/>\n"
@@ -3311,7 +3311,7 @@ msgstr "Võõrvõtme(te) kontrollid"
 
 #: libraries/classes/Config/Descriptions.php:284
 msgid "First day of calendar"
-msgstr ""
+msgstr "Kalendri esimene päev"
 
 #: libraries/classes/Config/Descriptions.php:285
 msgid "Browse mode"
@@ -3951,15 +3951,11 @@ msgid "Logo link URL"
 msgstr "Logo lingi URL"
 
 #: libraries/classes/Config/Descriptions.php:491
-#, fuzzy
-#| msgid ""
-#| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
-#| "([kbd]new[/kbd])."
 msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
 msgstr ""
-"Ava lingitud leht peaaknas ([kbd]main[/kbd]) või uues ([kbd]new[/kbd])."
+"Ava lingitud leht peaaknas ([code]main[/code]) või uues ([code]new[/code])."
 
 #: libraries/classes/Config/Descriptions.php:494
 msgid "Logo link target"
@@ -8349,7 +8345,7 @@ msgstr "Tõmmis salvestati %s faili."
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
 #: libraries/classes/Export.php:951
 msgid "Exporting a raw query is not supported for this export method."
-msgstr ""
+msgstr "Valitud ekspordimeetodiga ei ole toorpäringute eksport toetatud."
 
 #: libraries/classes/File.php:269
 msgid "File was not an uploaded file."
@@ -9874,10 +9870,8 @@ msgstr "Ekspordi tabeli päised"
 
 #: libraries/classes/Plugins/Export/ExportOdt.php:266
 #: libraries/classes/Plugins/Export/ExportTexytext.php:191
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Dumping data for query result"
-msgstr "Andmete tõmmistamine tabelile"
+msgstr "Andmete tõmmistamine päringu tulemuseks"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:96
 msgid "Report title:"
@@ -9888,10 +9882,8 @@ msgid "Dumping data"
 msgstr "Andmete tõmmistamine"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:250
-#, fuzzy
-#| msgid "Query results"
 msgid "Query result data"
-msgstr "Päringu tulemused"
+msgstr "Päringu tulemuse andmed"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:308
 msgid "View structure"
@@ -10614,11 +10606,9 @@ msgstr ""
 "Teisendab tekstina antud Interneti IPv4/IPv6 võrguaadressi binaarkujule"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptolong.php:33
-#, fuzzy
-#| msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgid "Converts an Internet network address in (IPv4/IPv6) format to long."
 msgstr ""
-"Teisendab tekstina antud Interneti IPv4/IPv6 võrguaadressi binaarkujule"
+"Teisendab tekstina antud Interneti IPv4/IPv6 võrguaadressi pikaks täisarvuks."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:25
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -12405,8 +12395,6 @@ msgstr "Dets"
 
 #. l10n: Short week day name for Sunday
 #: libraries/classes/Util.php:784
-#, fuzzy
-#| msgid "Sun"
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "Püh"
@@ -12721,21 +12709,17 @@ msgstr "Ühendus:"
 #: templates/columns_definitions/column_definitions_form.twig:113
 #: templates/columns_definitions/partitions.twig:137
 #: templates/table/operations/index.twig:128
-#, fuzzy
-#| msgid "Storage engines"
 msgid "Storage engine"
-msgstr "Salvestusmootorid"
+msgstr "Salvestusmootor"
 
 #: templates/columns_definitions/column_definitions_form.twig:136
 msgid "PARTITION definition:"
 msgstr "PARTITION definitsioon:"
 
 #: templates/columns_definitions/column_definitions_form.twig:154
-#, fuzzy
-#| msgid "Enclose export in a transaction"
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
-msgstr "Lisa eksport ülekandesse"
+msgstr "Online ülekanne"
 
 #: templates/columns_definitions/column_length.twig:9
 msgid "Edit ENUM/SET values"
@@ -13410,16 +13394,12 @@ msgstr "Uue andmebaasi nimi"
 #: templates/table/operations/index.twig:79
 #: templates/table/operations/index.twig:113
 #: templates/table/operations/index.twig:291
-#, fuzzy
-#| msgid ""
-#| "You don't have sufficient privileges to perform this operation; Please "
-#| "refer to the documentation for more details"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details."
 msgstr ""
-"Selle operatsiooni teostamiseks puuduvad sul õigused. Täiendavat teavet "
-"leiad dokumentatsioonist"
+"Selle operatsiooni teostamiseks puuduvad sul vastavad õigused. Täiendavat "
+"teavet leiad dokumentatsioonist."
 
 #: templates/database/operations/index.twig:89
 msgid "Remove database"
@@ -13832,10 +13812,8 @@ msgstr "Tabelite eksportimine \"%s\" andmebaasist"
 
 #. l10n: A query that the user has written freely
 #: templates/display/export/option_header.twig:9
-#, fuzzy
-#| msgid "Showing SQL query"
 msgid "Exporting a raw query"
-msgstr "Näitan SQL päringut"
+msgstr "Toorpäringu eksportimine"
 
 #: templates/display/export/option_header.twig:11
 #, php-format
@@ -14393,9 +14371,6 @@ msgstr "kalender-kuu-aasta"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: templates/javascript/variables.twig:11
-#, fuzzy
-#| msgctxt "Year suffix"
-#| msgid "none"
 msgid "none"
 msgstr "puudub"
 
@@ -14681,16 +14656,12 @@ msgid "Verify"
 msgstr "Kinnita"
 
 #: templates/menu/breadcrumbs.twig:27
-#, fuzzy
-#| msgid "Views:"
 msgid "View:"
-msgstr "Vaated:"
+msgstr "Vaade:"
 
 #: templates/mult_submits/copy_multiple_tables.twig:14
-#, fuzzy
-#| msgid "Options"
 msgid "Options:"
-msgstr "Valikud"
+msgstr "Valikud:"
 
 #: templates/mult_submits/copy_multiple_tables.twig:39
 msgid "Add AUTO INCREMENT value"
@@ -14725,16 +14696,12 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmini dokumentatsioon"
 
 #: templates/navigation/main.twig:40 templates/navigation/main.twig:41
-#, fuzzy
-#| msgid "Documentation"
 msgid "MariaDB Documentation"
-msgstr "Dokumentatsioon"
+msgstr "MariaDB dokumentatsioon"
 
 #: templates/navigation/main.twig:40 templates/navigation/main.twig:41
-#, fuzzy
-#| msgid "Documentation"
 msgid "MySQL Documentation"
-msgstr "Dokumentatsioon"
+msgstr "MySQLi dokumentatsioon"
 
 #: templates/navigation/main.twig:44 templates/navigation/main.twig:45
 msgid "Navigation panel settings"
@@ -15085,10 +15052,8 @@ msgid "User group"
 msgstr "Kasutaja grupp"
 
 #: templates/server/privileges/choose_user_group.twig:6
-#, fuzzy
-#| msgid "User group"
 msgid "User group:"
-msgstr "Kasutaja grupp"
+msgstr "Kasutaja grupp:"
 
 #: templates/server/privileges/edit_routine_privileges.twig:4
 #: templates/server/privileges/user_properties.twig:4
@@ -15644,47 +15609,35 @@ msgstr ""
 #. l10n: Advisor rules file
 #: templates/server/status/advisor/index.twig:55
 msgid "Rules file is not well formed, the following errors were found:"
-msgstr ""
+msgstr "Reegli vorming on problemaatiline, sest leiti järgmised vead:"
 
 #: templates/server/status/advisor/index.twig:66
-#, fuzzy
-#| msgid "Some error occurred while getting SQL debug info."
 msgid "Errors occurred while executing rule expressions:"
-msgstr "SQL silumisinfo hankimisel esines vigu."
+msgstr "Reeglite väljendite käivitamisel esines vigu:"
 
 #: templates/server/status/advisor/index.twig:76
 msgid "Possible performance issues"
 msgstr "Võimalikud jõudlusprobleemid"
 
 #: templates/server/status/advisor/index.twig:89
-#, fuzzy
-#| msgid "Issue"
 msgid "Issue:"
-msgstr "Probleem"
+msgstr "Probleem:"
 
 #: templates/server/status/advisor/index.twig:92
-#, fuzzy
-#| msgid "Recommendation"
 msgid "Recommendation:"
-msgstr "Soovitus"
+msgstr "Soovitus:"
 
 #: templates/server/status/advisor/index.twig:95
-#, fuzzy
-#| msgid "Justification"
 msgid "Justification:"
-msgstr "Põhjendus"
+msgstr "Põhjendus:"
 
 #: templates/server/status/advisor/index.twig:98
-#, fuzzy
-#| msgid "Used variable / formula"
 msgid "Used variable / formula:"
-msgstr "Kasutatud muutuja / valem"
+msgstr "Kasutatud muutuja / valem:"
 
 #: templates/server/status/advisor/index.twig:101
-#, fuzzy
-#| msgid "Test"
 msgid "Test:"
-msgstr "Testi"
+msgstr "Test:"
 
 #: templates/server/status/base.twig:16
 msgid "Query statistics"
@@ -16208,10 +16161,8 @@ msgid "Rollback when finished"
 msgstr "Tagasipööramine lõpetamisel"
 
 #: templates/sql/query.twig:147
-#, fuzzy
-#| msgid "Bookmark"
 msgid "Bookmark:"
-msgstr "Järjehoidja"
+msgstr "Järjehoidja:"
 
 #: templates/sql/query.twig:154
 msgid "shared"
@@ -16422,17 +16373,13 @@ msgid "Alter table order by"
 msgstr "Muuda tabelit, sorteeri"
 
 #: templates/table/operations/index.twig:20
-#, fuzzy
-#| msgid "(singly)"
 msgctxt "Alter table order by a single field."
 msgid "(singly)"
 msgstr "(üksikult)"
 
 #: templates/table/operations/index.twig:50
-#, fuzzy
-#| msgid "Move table to (database<b>.</b>table)"
 msgid "Move table to (database.table)"
-msgstr "Teisalda tabel kohta (andmebaas<b>.</b>tabel)"
+msgstr "Teisalda tabel kohta (andmebaas.tabel)"
 
 #: templates/table/operations/index.twig:103
 msgid "Table options"
@@ -16451,10 +16398,8 @@ msgid "Change all column collations"
 msgstr "Vaheta kõigi veergude sortimist"
 
 #: templates/table/operations/index.twig:227
-#, fuzzy
-#| msgid "Copy table to (database<b>.</b>table)"
 msgid "Copy table to (database.table)"
-msgstr "Kopeeri tabel kohta (andmebaas<b>.</b>tabel)"
+msgstr "Kopeeri tabel kohta (andmebaas.tabel)"
 
 #: templates/table/operations/index.twig:300
 msgid "Switch to copied table"
@@ -16478,10 +16423,8 @@ msgid "Remove partitioning"
 msgstr "Eemalda partitsioneerimine"
 
 #: templates/table/operations/index.twig:417
-#, fuzzy
-#| msgid "Check referential integrity:"
 msgid "Check referential integrity"
-msgstr "Kontrolli pärinevust:"
+msgstr "Kontrolli pärinevust"
 
 #: templates/table/operations/view.twig:11
 msgid "Rename view to"
@@ -16557,10 +16500,9 @@ msgstr "Vali veerg, mida näidata:"
 
 #: templates/table/relation/common_form.twig:317
 #: templates/table/structure/display_structure.twig:542
-#, fuzzy, php-format
-#| msgid "Create an index on &nbsp;%s&nbsp;columns"
+#, php-format
 msgid "Create an index on %s columns"
-msgstr "Loo indeks &nbsp;%s&nbsp;veergudesse"
+msgstr "Loo veergudele %s indeks"
 
 #: templates/table/relation/foreign_key_row.twig:15
 #, php-format
@@ -16817,15 +16759,13 @@ msgstr "Muuda"
 
 #. l10n: Show or hide the menu using the hamburger style button
 #: templates/top_menu.twig:4
-#, fuzzy
-#| msgid "Table navigation bar"
 msgid "Toggle navigation"
-msgstr "Tabeli navigeerimisriba"
+msgstr "Lülita navigeerimisriba"
 
 #. l10n: Current page
 #: templates/top_menu.twig:14
 msgid "(current)"
-msgstr ""
+msgstr "(praegune)"
 
 #: templates/transformation_overview.twig:1
 msgid "Available media types"
@@ -17125,12 +17065,6 @@ msgid "Suboptimal caching method."
 msgstr "Väheoptimaalse puhverdamise meetod."
 
 #: libraries/advisory_rules_generic.txt:149
-#, fuzzy
-#| msgid ""
-#| "You are using the MySQL Query cache with a fairly high traffic database. "
-#| "It might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-#| "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL "
-#| "Query cache, especially if you have multiple slaves."
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
@@ -17138,9 +17072,9 @@ msgid ""
 "cache, especially if you have multiple slaves."
 msgstr ""
 "Sa kasutad MySQL päringu puhvrit küllaltki suure liiklusega andmebaasis. "
-"Tasub kaaluda MySQL päringu puhvri asemel kasutada <a href=\"https://dev."
-"mysql.com/doc/refman/5.5/en/ha-memcached.html\">mälu puhvrit</a>, eriti, kui "
-"sul on palju alluvaid."
+"MySQL päringu puhvri kasutamise asemel võiksid kaaluda <a href=\""
+"https://dev.mysql.com/doc/refman/5.6/en/ha-memcached.html\">mälu puhvrit</a>"
+", seda eriti suure hulga alluvserverite puhul."
 
 #: libraries/advisory_rules_generic.txt:150
 #, php-format
@@ -17388,15 +17322,6 @@ msgid "Temp disk rate"
 msgstr "Ajutise ketta hulk"
 
 #: libraries/advisory_rules_generic.txt:223
-#, fuzzy
-#| msgid ""
-#| "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
-#| "some temporary tables are always being written to disk, independent of "
-#| "the value of these variables. To eliminate these you will have to rewrite "
-#| "your queries to avoid those conditions (Within a temporary table: "
-#| "Presence of a BLOB or TEXT column or presence of a column bigger than 512 "
-#| "bytes) as mentioned in the <a href=\"https://dev.mysql.com/doc/refman/5.5/"
-#| "en/internal-temporary-tables.html\">MySQL Documentation</a>"
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -17411,7 +17336,7 @@ msgstr ""
 "väärtusest. Nende vältimiseks pead oma päringud üle kirjutama, et vältida "
 "taolisi tingimusi (ajutises tabelis: BLOB või TEXT veeruga või üle 512 "
 "baidise veeruga), mida on mainitud <a href=\"https://dev.mysql.com/doc/"
-"refman/5.5/en/internal-temporary-tables.html\">MySQL dokumentatsioonis</a>"
+"refman/8.0/en/internal-temporary-tables.html\">MySQL dokumentatsioonis</a>"
 
 #: libraries/advisory_rules_generic.txt:224
 #, php-format
