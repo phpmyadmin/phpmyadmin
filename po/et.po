@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-24 23:04+0100\n"
-"PO-Revision-Date: 2020-03-30 06:26+0000\n"
+"PO-Revision-Date: 2020-03-31 16:32+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
 "et/>\n"
@@ -12978,7 +12978,7 @@ msgstr "Muuda kohapeal"
 #: libraries/classes/Util.php:1573
 msgctxt "Short week day name"
 msgid "Sun"
-msgstr "Päike"
+msgstr "Püh"
 
 #: libraries/classes/Util.php:1611
 msgctxt "AM/PM indication in time"
