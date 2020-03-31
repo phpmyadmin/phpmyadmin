@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2020-03-19 11:36+0000\n"
+"PO-Revision-Date: 2020-04-01 06:02+0000\n"
 "Last-Translator: yagoub fadel <yagoub76@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/4-9/ar/"
 ">\n"
@@ -932,8 +932,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
-"نحاول تقليل عدد الصفوف، لكن هناك بيانات مدخلة في هذه الصفوف وسوف تُفقد. هل "
-"تريد المتابعة؟"
+"أنت تحاول تقليل عدد الصفوف ، ولكنك أدخلت بالفعل البيانات في تلك الصفوف التي "
+"سيتم فقدها. هل ترغب في الاستمرار؟"
 
 #: js/messages.php:74
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -3830,6 +3830,8 @@ msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
 msgstr ""
+"قائمة قيم الخيارات للتحويلات الافتراضية. سيتم استبدالها إذا تم ملء التحويل "
+"في صفحة بنية الجدول."
 
 #: libraries/classes/Config/Descriptions.php:199
 #, fuzzy
