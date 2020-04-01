@@ -10,6 +10,7 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Encoding;
+use PhpMyAdmin\FileListing;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ImportPlugin;
@@ -120,6 +121,38 @@ class Import
             'can_convert_kanji' => Encoding::canConvertKanji(),
             'charsets' => $charsets,
             'is_foreign_key_check' => Util::isForeignKeyCheck(),
+            'user_upload_dir' => Util::userDir($cfg['UploadDir'] ?? ''),
+            'local_files' => self::getLocalFiles($importList),
         ]);
+    }
+
+    /**
+     * @param array $importList List of plugin instances.
+     *
+     * @return false|string
+     */
+    private static function getLocalFiles(array $importList)
+    {
+        $fileListing = new FileListing();
+
+        $extensions = '';
+        foreach ($importList as $importPlugin) {
+            if (! empty($extensions)) {
+                $extensions .= '|';
+            }
+            $extensions .= $importPlugin->getProperties()->getExtension();
+        }
+
+        $matcher = '@\.(' . $extensions . ')(\.(' . $fileListing->supportedDecompressions() . '))?$@';
+
+        $active = isset($GLOBALS['timeout_passed'], $GLOBALS['local_import_file']) && $GLOBALS['timeout_passed']
+            ? $GLOBALS['local_import_file']
+            : '';
+
+        return $fileListing->getFileSelectOptions(
+            Util::userDir($GLOBALS['cfg']['UploadDir'] ?? ''),
+            $matcher,
+            $active
+        );
     }
 }

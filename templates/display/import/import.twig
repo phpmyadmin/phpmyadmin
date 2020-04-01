@@ -79,14 +79,22 @@
                             <p>{% trans 'You may also drag and drop a file on any page.' %}</p>
                         </li>
                         <li>
-                            <input type="radio" name="file_location" id="radio_local_import_file"
-                                {%- if timeout_passed_global is not empty and local_import_file is not empty %}
-                                    checked="checked"
-                                {%- endif %}>
-                            {{ get_select_upload_file_block(
-                                import_list,
-                                upload_dir
-                            ) }}
+                          <input type="radio" name="file_location" id="radio_local_import_file"
+                            {{- timeout_passed_global is not empty and local_import_file is not empty ? ' checked' }}>
+                          <label for="radio_local_import_file">
+                            {{ 'Select from the web server upload directory [strong]%s[/strong]:'|trans|format(user_upload_dir)|sanitize }}
+                          </label>
+
+                          {% if local_files is same as(false) %}
+                            {{ 'The directory you set for upload work cannot be reached.'|trans|error }}
+                          {% elseif local_files is not empty %}
+                            <select size="1" name="local_import_file" id="select_local_import_file" aria-label="{% trans 'Select file to import' %}">
+                              <option value=""></option>
+                              {{ local_files|raw }}
+                            </select>
+                          {% else %}
+                            <em>{% trans 'There are no files to upload!' %}</em>
+                          {% endif %}
                         </li>
                     </ul>
                 {% elseif is_upload %}
@@ -102,13 +110,23 @@
                     <input type="hidden" name="MAX_FILE_SIZE" value="{{ max_upload_size }}">
 
                     <p>{% trans 'You may also drag and drop a file on any page.' %}</p>
-                {% elseif not is_upload %}
-                    {{ 'File uploads are not allowed on this server.'|trans|notice }}
                 {% elseif upload_dir is not empty %}
-                    {{ get_select_upload_file_block(
-                        import_list,
-                        upload_dir
-                    ) }}
+                  <label for="select_local_import_file">
+                    {{ 'Select from the web server upload directory [strong]%s[/strong]:'|trans|format(user_upload_dir)|sanitize }}
+                  </label>
+
+                  {% if local_files is same as(false) %}
+                    {{ 'The directory you set for upload work cannot be reached.'|trans|error }}
+                  {% elseif local_files is not empty %}
+                    <select size="1" name="local_import_file" id="select_local_import_file">
+                      <option value=""></option>
+                      {{ local_files|raw }}
+                    </select>
+                  {% else %}
+                    <em>{% trans 'There are no files to upload!' %}</em>
+                  {% endif %}
+                {% else %}
+                    {{ 'File uploads are not allowed on this server.'|trans|notice }}
                 {% endif %}
             </div>
 

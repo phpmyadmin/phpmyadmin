@@ -84,11 +84,6 @@ class UtilExtension extends AbstractExtension
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
-                'get_select_upload_file_block',
-                '\PhpMyAdmin\Html\Forms\Fields\DropDownUploadFileBlock::generate',
-                ['is_safe' => ['html']]
-            ),
-            new TwigFunction(
                 'get_start_and_number_of_rows_panel',
                 'PhpMyAdmin\Html\Generator::getStartAndNumberOfRowsPanel',
                 ['is_safe' => ['html']]
