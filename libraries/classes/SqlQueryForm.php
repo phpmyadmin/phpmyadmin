@@ -124,6 +124,7 @@ class SqlQueryForm
             'display_tab' => $display_tab,
             'bookmarks' => $bookmarks,
             'can_convert_kanji' => Encoding::canConvertKanji(),
+            'is_foreign_key_check' => Util::isForeignKeyCheck(),
         ]);
     }
 

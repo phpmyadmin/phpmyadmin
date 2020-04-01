@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Html\Forms\Fields\FKCheckbox;
 use function count;
 use function htmlspecialchars;
 use function in_array;
@@ -483,7 +482,12 @@ class MultSubmits
         // Display option to disable foreign key checks while dropping tables
         if ($what === 'drop_tbl' || $what === 'empty_tbl' || $what === 'row_delete') {
             $html .= '<div id="foreignkeychk">';
-            $html .= FKCheckbox::generate();
+            $html .= '<input type="hidden" name="fk_checks" value="0">';
+            $html .= '<input type="checkbox" name="fk_checks" id="fk_checks" value="1"';
+            $html .= Util::isForeignKeyCheck() ? ' checked>' : '>';
+            $html .= ' <label for="fk_checks">';
+            $html .= __('Enable foreign key checks');
+            $html .= '</label>';
             $html .= '</div>';
         }
         $html .= '<input id="buttonYes" class="btn btn-secondary" type="submit" name="mult_btn" value="'

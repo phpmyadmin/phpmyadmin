@@ -14,6 +14,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Util;
 use function function_exists;
 use function intval;
 
@@ -118,6 +119,7 @@ class Import
             'offset' => $offset ?? null,
             'can_convert_kanji' => Encoding::canConvertKanji(),
             'charsets' => $charsets,
+            'is_foreign_key_check' => Util::isForeignKeyCheck(),
         ]);
     }
 }

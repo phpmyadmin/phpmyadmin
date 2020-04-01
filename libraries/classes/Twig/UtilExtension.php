@@ -66,11 +66,6 @@ class UtilExtension extends AbstractExtension
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
-                'get_fk_checkbox',
-                '\PhpMyAdmin\Html\Forms\Fields\FKCheckbox::generate',
-                ['is_safe' => ['html']]
-            ),
-            new TwigFunction(
                 'get_gis_datatypes',
                 'PhpMyAdmin\Util::getGISDatatypes'
             ),

@@ -125,8 +125,10 @@
               <label class="form-check-label" for="rollback_query">{% trans 'Rollback when finished' %}</label>
             </div>
 
-            <div class="form-check form-check-inline">
-              {{ get_fk_checkbox() }}
+            <div class="form-check">
+              <input type="hidden" name="fk_checks" value="0">
+              <input class="form-check-input" type="checkbox" name="fk_checks" id="fk_checks" value="1"{{ is_foreign_key_check ? ' checked' }}>
+              <label class="form-check-label" for="fk_checks">{% trans 'Enable foreign key checks' %}</label>
             </div>
           </div>
 
