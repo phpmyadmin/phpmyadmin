@@ -1226,11 +1226,6 @@ parameters:
 			path: libraries/classes/Engines/Pbxt.php
 
 		-
-			message: "#^Parameter \\#1 \\$value of static method PhpMyAdmin\\\\Util\\:\\:formatByteDown\\(\\) expects float\\|int, int\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Engines/Pbxt.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Error\\:\\:\\$hide_location has no typehint specified\\.$#"
 			count: 1
 			path: libraries/classes/Error.php
@@ -1764,16 +1759,6 @@ parameters:
 			message: "#^Parameter \\#5 \\$pdf of method PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:prepareRowAsPdf\\(\\) expects TCPDF, object\\|resource\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisVisualization.php
-
-		-
-			message: "#^Parameter \\#1 \\$max_upload_size of static method PhpMyAdmin\\\\Util\\:\\:getFormattedMaximumUploadSize\\(\\) expects int, string given\\.$#"
-			count: 1
-			path: libraries/classes/Html/Forms/Fields/BrowseUploadFileBlock.php
-
-		-
-			message: "#^Parameter \\#1 \\$max_size of static method PhpMyAdmin\\\\Html\\\\Forms\\\\Fields\\\\MaxFileSize\\:\\:generate\\(\\) expects int, string given\\.$#"
-			count: 1
-			path: libraries/classes/Html/Forms/Fields/BrowseUploadFileBlock.php
 
 		-
 			message: "#^Parameter \\#1 \\$str of function nl2br expects string, array\\|string given\\.$#"
@@ -4624,11 +4609,6 @@ parameters:
 			message: "#^Cannot access offset 0 on string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Url.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between float\\|int and null will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
 
 		-
 			message: "#^Parameter \\#3 \\$subject of function preg_replace expects array\\|string, string\\|null given\\.$#"

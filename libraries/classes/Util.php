@@ -121,7 +121,7 @@ class Util
     /**
      * Returns the formatted maximum size for an upload
      *
-     * @param int $max_upload_size the size
+     * @param int|string $max_upload_size the size
      *
      * @return string the message
      *
@@ -509,9 +509,9 @@ class Util
     /**
      * Formats $value to byte view
      *
-     * @param double|int $value the value to format
-     * @param int        $limes the sensitiveness
-     * @param int        $comma the number of decimals to retain
+     * @param float|int|string|null $value the value to format
+     * @param int                   $limes the sensitiveness
+     * @param int                   $comma the number of decimals to retain
      *
      * @return array|null the formatted value and its unit
      *
@@ -585,12 +585,11 @@ class Util
      * echo formatNumber(0, 6);             //       0
      * </code>
      *
-     * @param double $value          the value to format
-     * @param int    $digits_left    number of digits left of the comma
-     * @param int    $digits_right   number of digits right of the comma
-     * @param bool   $only_down      do not reformat numbers below 1
-     * @param bool   $noTrailingZero removes trailing zeros right of the comma
-     *                               (default: true)
+     * @param float|int|string $value          the value to format
+     * @param int              $digits_left    number of digits left of the comma
+     * @param int              $digits_right   number of digits right of the comma
+     * @param bool             $only_down      do not reformat numbers below 1
+     * @param bool             $noTrailingZero removes trailing zeros right of the comma (default: true)
      *
      * @return string   the formatted value and its unit
      *

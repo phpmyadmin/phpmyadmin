@@ -65,8 +65,17 @@
                     <ul>
                         <li>
                             <input type="radio" name="file_location" id="radio_import_file" required="required">
-                            {{ get_browse_upload_file_block(max_upload_size) }}
-                            {% trans 'You may also drag and drop a file on any page.' %}
+                            <label for="radio_import_file">{% trans 'Browse your computer:' %}</label>
+
+                            <div id="upload_form_status" class="hide"></div>
+                            <div id="upload_form_status_info" class="hide"></div>
+
+                            <input type="file" name="import_file" id="input_import_file" aria-label="{% trans 'Browse your computer' %}">
+
+                            {{ get_formatted_maximum_upload_size(max_upload_size) }}
+                            {{ generate_hidden_max_file_size(max_upload_size) }}
+
+                            <p>{% trans 'You may also drag and drop a file on any page.' %}</p>
                         </li>
                         <li>
                             <input type="radio" name="file_location" id="radio_local_import_file"
@@ -80,7 +89,16 @@
                         </li>
                     </ul>
                 {% elseif is_upload %}
-                    {{ get_browse_upload_file_block(max_upload_size) }}
+                    <label for="input_import_file">{% trans 'Browse your computer:' %}</label>
+
+                    <div id="upload_form_status" class="hide"></div>
+                    <div id="upload_form_status_info" class="hide"></div>
+
+                    <input type="file" name="import_file" id="input_import_file">
+
+                    {{ get_formatted_maximum_upload_size(max_upload_size) }}
+                    {{ generate_hidden_max_file_size(max_upload_size) }}
+
                     <p>{% trans 'You may also drag and drop a file on any page.' %}</p>
                 {% elseif not is_upload %}
                     {{ 'File uploads are not allowed on this server.'|trans|notice }}
