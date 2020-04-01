@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
-use PhpMyAdmin\Html\Forms\Fields\MaxFileSize;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Relation;
@@ -279,10 +278,7 @@ class ChangeController extends AbstractController
         );
 
         if ($biggest_max_file_size > 0) {
-            $html_output .= '        '
-                . MaxFileSize::generate(
-                    $biggest_max_file_size
-                ) . "\n";
+            $html_output .= '<input type="hidden" name="MAX_FILE_SIZE" value="' . $biggest_max_file_size . '">' . "\n";
         }
         $html_output .= '</form>';
 

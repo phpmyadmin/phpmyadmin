@@ -163,11 +163,6 @@ class UtilExtension extends AbstractExtension
                 'timespan_format',
                 'PhpMyAdmin\Util::timespanFormat'
             ),
-            new TwigFunction(
-                'generate_hidden_max_file_size',
-                '\PhpMyAdmin\Html\Forms\Fields\MaxFileSize::generate',
-                ['is_safe' => ['html']]
-            ),
         ];
     }
 

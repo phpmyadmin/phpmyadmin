@@ -73,7 +73,8 @@
                             <input type="file" name="import_file" id="input_import_file" aria-label="{% trans 'Browse your computer' %}">
 
                             {{ get_formatted_maximum_upload_size(max_upload_size) }}
-                            {{ generate_hidden_max_file_size(max_upload_size) }}
+
+                            <input type="hidden" name="MAX_FILE_SIZE" value="{{ max_upload_size }}">
 
                             <p>{% trans 'You may also drag and drop a file on any page.' %}</p>
                         </li>
@@ -97,7 +98,8 @@
                     <input type="file" name="import_file" id="input_import_file">
 
                     {{ get_formatted_maximum_upload_size(max_upload_size) }}
-                    {{ generate_hidden_max_file_size(max_upload_size) }}
+
+                    <input type="hidden" name="MAX_FILE_SIZE" value="{{ max_upload_size }}">
 
                     <p>{% trans 'You may also drag and drop a file on any page.' %}</p>
                 {% elseif not is_upload %}
