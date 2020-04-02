@@ -1,0 +1,48 @@
+<form action="{{ url('/database/qbe') }}" method="post" id="formQBE" class="lock-page">
+  {{ get_hidden_inputs(url_params) }}
+
+  <div class="w-100">
+    <fieldset>
+
+      {{ saved_searches_field|raw }}
+
+      <div class="responsivetable jsresponsive">
+        <table class="data w-100">
+
+          {{ column_names_row|raw }}
+          {{ column_alias_row|raw }}
+          {{ show_row|raw }}
+          {{ sort_row|raw }}
+          {{ sort_order|raw }}
+          {{ criteria_input_box_row|raw }}
+          {{ ins_del_and_or_criteria_rows|raw }}
+          {{ modify_columns_row|raw }}
+
+        </table>
+      </div>
+    </fieldset>
+  </div>
+
+  {{ table_footers|raw }}
+  {{ tables_list|raw }}
+
+</form>
+
+<form action="{{ url('/database/qbe') }}" method="post" class="lock-page">
+  {{ get_hidden_inputs(db) }}
+  <input type="hidden" name="submit_sql" value="1">
+
+  <div class="floatleft w-50">
+    <fieldset id="tblQbe">
+      <legend>{{ 'SQL query on database <b>%s</b>:'|trans|format(db_link)|raw }}</legend>
+
+      <textarea cols="80" name="sql_query" id="textSqlquery" rows="{{ criteria_tables_count > 30 ? '15' : '7' }}" dir="ltr" aria-label="{% trans 'SQL query' %}">
+        {{- sql_query -}}
+      </textarea>
+    </fieldset>
+
+    <fieldset class="tblFooters" id="tblQbeFooters">
+      <input class="btn btn-primary" type="submit" value="{% trans 'Submit query' %}">
+    </fieldset>
+  </div>
+</form>
