@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2020-04-01 06:02+0000\n"
+"PO-Revision-Date: 2020-04-02 10:42+0000\n"
 "Last-Translator: yagoub fadel <yagoub76@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/4-9/ar/"
 ">\n"
@@ -3868,10 +3868,8 @@ msgid "Default transformations for TextImageLink"
 msgstr "خيارات التحويل"
 
 #: libraries/classes/Config/Descriptions.php:227
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for TextLink"
-msgstr "خيارات التحويل"
+msgstr "التحويلات الافتراضية لرابط النص"
 
 #: libraries/classes/Config/Descriptions.php:232
 msgid "Show server listing as a list instead of a drop down."
@@ -4144,6 +4142,8 @@ msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
 msgstr ""
+"إضافة إذا لم يكن موجودًا (أقل كفاءة حيث سيتم إنشاء الفهارس أثناء إنشاء "
+"الجدول)"
 
 #: libraries/classes/Config/Descriptions.php:391
 msgid "Use ignore inserts"
