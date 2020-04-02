@@ -312,36 +312,6 @@ class QbeTest extends PmaTestCase
     }
 
     /**
-     * Test for _getInsDelAndOrCell
-     *
-     * @return void
-     */
-    public function testGetInsDelAndOrCell()
-    {
-        $this->assertEquals(
-            '<td class="value nowrap"><!-- Row controls --><table class="nospac'
-            . 'ing nopadding"><tr><td class="value nowrap"><small>Ins:</small>'
-            . '<input type="checkbox" name="criteriaRowInsert[3]"></td><td '
-            . 'class="value"><strong>And:</strong></td><td><input type="radio" '
-            . 'name="criteriaAndOrRow[3]" value="and"></td></tr><tr><td class="'
-            . 'value nowrap"><small>Del:</small><input type="checkbox" '
-            . 'name="criteriaRowDelete[3]"></td><td class="value"><strong>'
-            . 'Or:</strong></td><td><input type="radio" name="criteriaAndOrRow[3]" '
-            . 'value="or" checked="checked"></td></tr></table></td>',
-            $this->_callProtectedFunction(
-                '_getInsDelAndOrCell',
-                [
-                    3,
-                    [
-                        'and' => '',
-                        'or' => ' checked="checked"',
-                    ],
-                ]
-            )
-        );
-    }
-
-    /**
      * Test for _getInputboxRow
      *
      * @return void
@@ -369,29 +339,23 @@ class QbeTest extends PmaTestCase
      */
     public function testGetInsDelAndOrCriteriaRows()
     {
-        $this->assertEquals(
-            '<tr class="noclick"><td class="value nowrap"><!-- Row controls'
-            . ' --><table class="nospacing nopadding"><tr><td class="value '
-            . 'nowrap"><small>Ins:</small><input type="checkbox" name="'
-            . 'criteriaRowInsert[0]"></td><td class="value"><strong>And:'
-            . '</strong></td><td><input type="radio" name="criteriaAndOrRow[0]" '
-            . 'value="and"></td></tr><tr><td class="value nowrap"><small>Del:'
-            . '</small><input type="checkbox" name="criteriaRowDelete[0]"></td>'
-            . '<td class="value"><strong>Or:</strong></td><td><input type='
-            . '"radio" name="criteriaAndOrRow[0]" value="or" checked="checked">'
-            . '</td></tr></table></td><td class="text-center"><input type="text" '
+        $actual = $this->_callProtectedFunction(
+            '_getInsDelAndOrCriteriaRows',
+            [
+                2,
+                3,
+            ]
+        );
+
+        $this->assertStringContainsString('<tr class="noclick">', $actual);
+        $this->assertStringContainsString(
+            '<td class="text-center"><input type="text" '
             . 'name="Or0[0]" value="" class="textfield" style="width: 12ex" '
             . 'size="20"></td><td class="text-center"><input type="text" name="Or0[1]" '
             . 'value="" class="textfield" style="width: 12ex" size="20"></td><td '
             . 'class="text-center"><input type="text" name="Or0[2]" value="" class='
             . '"textfield" style="width: 12ex" size="20"></td></tr>',
-            $this->_callProtectedFunction(
-                '_getInsDelAndOrCriteriaRows',
-                [
-                    2,
-                    3,
-                ]
-            )
+            $actual
         );
     }
 

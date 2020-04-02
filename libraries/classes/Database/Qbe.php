@@ -920,55 +920,6 @@ class Qbe
     }
 
     /**
-     * Provides Insert/Delete options for criteria inputbox
-     * with AND/OR relationship modification options
-     *
-     * @param int   $row_index       Number of criteria row
-     * @param array $checked_options If checked
-     *
-     * @return string HTML
-     */
-    private function _getInsDelAndOrCell($row_index, array $checked_options)
-    {
-        $html_output = '<td class="value nowrap">';
-        $html_output .= '<!-- Row controls -->';
-        $html_output .= '<table class="nospacing nopadding">';
-        $html_output .= '<tr>';
-        $html_output .= '<td class="value nowrap">';
-        $html_output .= '<small>' . __('Ins:') . '</small>';
-        $html_output .= '<input type="checkbox"'
-            . ' name="criteriaRowInsert[' . $row_index . ']">';
-        $html_output .= '</td>';
-        $html_output .= '<td class="value">';
-        $html_output .= '<strong>' . __('And:') . '</strong>';
-        $html_output .= '</td>';
-        $html_output .= '<td>';
-        $html_output .= '<input type="radio"'
-            . ' name="criteriaAndOrRow[' . $row_index . ']" value="and"'
-            . $checked_options['and'] . '>';
-        $html_output .= '</td>';
-        $html_output .= '</tr>';
-        $html_output .= '<tr>';
-        $html_output .= '<td class="value nowrap">';
-        $html_output .= '<small>' . __('Del:') . '</small>';
-        $html_output .= '<input type="checkbox"'
-            . ' name="criteriaRowDelete[' . $row_index . ']">';
-        $html_output .= '</td>';
-        $html_output .= '<td class="value">';
-        $html_output .= '<strong>' . __('Or:') . '</strong>';
-        $html_output .= '</td>';
-        $html_output .= '<td>';
-        $html_output .= '<input type="radio"'
-            . ' name="criteriaAndOrRow[' . $row_index . ']"'
-            . ' value="or"' . $checked_options['or'] . '>';
-        $html_output .= '</td>';
-        $html_output .= '</tr>';
-        $html_output .= '</table>';
-        $html_output .= '</td>';
-        return $html_output;
-    }
-
-    /**
      * Provides rows for criteria inputbox Insert/Delete options
      * with AND/OR relationship modification options
      *
@@ -1035,13 +986,13 @@ class Qbe
             if (isset($this->_criteriaRowInsert[$row_index])
                 && $this->_criteriaRowInsert[$row_index] == 'on'
             ) {
-                $checked_options['or']  = ' checked="checked"';
-                $checked_options['and'] = '';
+                $checked_options['or'] = true;
+                $checked_options['and'] = false;
                 $html_output .= '<tr class="noclick">';
-                $html_output .= $this->_getInsDelAndOrCell(
-                    $new_row_count,
-                    $checked_options
-                );
+                $html_output .= $this->template->render('database/qbe/ins_del_and_or_cell', [
+                    'row_index' => $new_row_count,
+                    'checked_options' => $checked_options,
+                ]);
                 $html_output .= $this->_getInputboxRow(
                     $new_row_count
                 );
@@ -1060,17 +1011,17 @@ class Qbe
             if (isset($this->_criteriaAndOrRow[$row_index])
                 && $this->_criteriaAndOrRow[$row_index] == 'and'
             ) {
-                $checked_options['and'] =  ' checked="checked"';
-                $checked_options['or']  =  '';
+                $checked_options['and'] = true;
+                $checked_options['or'] = false;
             } else {
-                $checked_options['or']  =  ' checked="checked"';
-                $checked_options['and'] =  '';
+                $checked_options['or'] = true;
+                $checked_options['and'] = false;
             }
             $html_output .= '<tr class="noclick">';
-            $html_output .= $this->_getInsDelAndOrCell(
-                $new_row_count,
-                $checked_options
-            );
+            $html_output .= $this->template->render('database/qbe/ins_del_and_or_cell', [
+                'row_index' => $new_row_count,
+                'checked_options' => $checked_options,
+            ]);
             $html_output .= $this->_getInputboxRow(
                 $new_row_count
             );
