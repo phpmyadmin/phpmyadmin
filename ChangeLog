@@ -4,6 +4,7 @@ phpMyAdmin - ChangeLog
 5.0.3 (not yet released)
 - issue #15983 Require twig ^2.9
 - issue        Move Sass to the development dependencies
+- issue        Fix option to import files locally appearing as not available
 
 5.0.2 (2020-03-20)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page

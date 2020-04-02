@@ -82,13 +82,13 @@
                 {% elseif is_upload %}
                     {{ get_browse_upload_file_block(max_upload_size) }}
                     <p>{% trans 'You may also drag and drop a file on any page.' %}</p>
-                {% elseif not is_upload %}
-                    {{ 'File uploads are not allowed on this server.'|trans|notice }}
                 {% elseif upload_dir is not empty %}
                     {{ get_select_upload_file_block(
                         import_list,
                         upload_dir
                     ) }}
+                {% else %}
+                    {{ 'File uploads are not allowed on this server.'|trans|notice }}
                 {% endif %}
             </div>
 
