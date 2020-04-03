@@ -1454,13 +1454,13 @@ class Util
      * Converts a BIT type default value
      * for example, b'010' becomes 010
      *
-     * @param string|null $bit_default_value value
+     * @param string|null $bitDefaultValue value
      *
      * @return string the converted value
      */
-    public static function convertBitDefaultValue(?string $bit_default_value): string
+    public static function convertBitDefaultValue(?string $bitDefaultValue): string
     {
-        return (string) preg_replace("/^b'(\d*)'?$/", '$1', htmlspecialchars_decode((string) $bit_default_value, ENT_QUOTES), 1);
+        return (string) preg_replace("/^b'(\d*)'?$/", '$1', htmlspecialchars_decode((string) $bitDefaultValue, ENT_QUOTES), 1);
     }
 
     /**
