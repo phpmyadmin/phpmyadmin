@@ -23,7 +23,37 @@
     </fieldset>
   </div>
 
-  {{ table_footers|raw }}
+  <fieldset class="tblFooters">
+    <div class="floatleft">
+      <label for="criteriaRowAddSelect">{% trans 'Add/Delete criteria rows:' %}</label>
+      <select size="1" name="criteriaRowAdd" id="criteriaRowAddSelect">
+        <option value="-3">-3</option>
+        <option value="-2">-2</option>
+        <option value="-1">-1</option>
+        <option value="0" selected>0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+    </div>
+
+    <div class="floatleft">
+      <label for="criteriaColumnAddSelect">{% trans 'Add/Delete columns:' %}</label>
+      <select size="1" name="criteriaColumnAdd" id="criteriaColumnAddSelect">
+        <option value="-3">-3</option>
+        <option value="-2">-2</option>
+        <option value="-1">-1</option>
+        <option value="0" selected>0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+    </div>
+
+    <div class="floatleft">
+      <input class="btn btn-secondary" type="submit" name="modify" value="{% trans 'Update query' %}">
+    </div>
+  </fieldset>
 
   <div class="floatleft w-100">
     <fieldset>

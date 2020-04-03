@@ -768,38 +768,6 @@ class Qbe
     }
 
     /**
-     * Provides footer options for adding/deleting row/columns
-     *
-     * @param string $type Whether row or column
-     *
-     * @return string HTML for footer options
-     */
-    private function _getFootersOptions($type)
-    {
-        return $this->template->render('database/qbe/footer_options', [
-            'type' => $type,
-        ]);
-    }
-
-    /**
-     * Provides search form table's footer options
-     *
-     * @return string HTML for table footer
-     */
-    private function _getTableFooters()
-    {
-        $html_output = '<fieldset class="tblFooters">';
-        $html_output .= $this->_getFootersOptions('row');
-        $html_output .= $this->_getFootersOptions('column');
-        $html_output .= '<div class="floatleft">';
-        $html_output .= '<input class="btn btn-secondary" type="submit" name="modify"'
-            . ' value="' . __('Update Query') . '">';
-        $html_output .= '</div>';
-        $html_output .= '</fieldset>';
-        return $html_output;
-    }
-
-    /**
      * Provides And/Or modification cell along with Insert/Delete options
      * (For modifying search form's table columns)
      *
@@ -1694,8 +1662,6 @@ class Qbe
         $url_params['criteriaColumnCount'] = $this->_new_column_count;
         $url_params['rows'] = $this->_new_row_count;
 
-        $tableFooters = $this->_getTableFooters();
-
         if (empty($this->_formColumns)) {
             $this->_formColumns = [];
         }
@@ -1715,7 +1681,6 @@ class Qbe
             'criteria_input_box_row' => $criteriaInputBoxRow,
             'ins_del_and_or_criteria_rows' => $insDelAndOrCriteriaRows,
             'modify_columns_row' => $modifyColumnsRow,
-            'table_footers' => $tableFooters,
             'sql_query' => $sqlQuery,
         ]);
     }

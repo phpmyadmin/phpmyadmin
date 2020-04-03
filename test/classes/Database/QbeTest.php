@@ -201,66 +201,6 @@ class QbeTest extends PmaTestCase
     }
 
     /**
-     * Test for _getFootersOptions
-     *
-     * @return void
-     */
-    public function testGetFootersOptions()
-    {
-        $this->assertStringContainsString(
-            'Add/Delete criteria rows',
-            $this->_callProtectedFunction(
-                '_getFootersOptions',
-                ['row']
-            )
-        );
-        $this->assertStringContainsString(
-            'name="criteriaRowAdd"',
-            $this->_callProtectedFunction(
-                '_getFootersOptions',
-                ['row']
-            )
-        );
-        $this->assertStringContainsString(
-            '<option value="0" selected="selected">0</option>',
-            $this->_callProtectedFunction(
-                '_getFootersOptions',
-                ['row']
-            )
-        );
-    }
-
-    /**
-     * Test for _getTableFooters
-     *
-     * @return void
-     */
-    public function testGetTableFooters()
-    {
-        $this->assertStringContainsString(
-            'name="criteriaRowAdd"',
-            $this->_callProtectedFunction(
-                '_getTableFooters',
-                []
-            )
-        );
-        $this->assertStringContainsString(
-            'name="criteriaColumnAdd"',
-            $this->_callProtectedFunction(
-                '_getTableFooters',
-                []
-            )
-        );
-        $this->assertStringContainsString(
-            '<input class="btn btn-secondary" type="submit" name="modify" value="Update Query">',
-            $this->_callProtectedFunction(
-                '_getTableFooters',
-                []
-            )
-        );
-    }
-
-    /**
      * Test for _getAndOrColCell
      *
      * @return void
