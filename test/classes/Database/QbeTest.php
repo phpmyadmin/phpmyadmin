@@ -126,13 +126,6 @@ class QbeTest extends PmaTestCase
     public function testGetSortRow()
     {
         $this->assertStringContainsString(
-            '<th>Sort:</th>',
-            $this->_callProtectedFunction(
-                '_getSortRow',
-                []
-            )
-        );
-        $this->assertStringContainsString(
             'name="criteriaSort[0]"',
             $this->_callProtectedFunction(
                 '_getSortRow',
@@ -163,11 +156,11 @@ class QbeTest extends PmaTestCase
     public function testGetShowRow()
     {
         $this->assertEquals(
-            '<tr class="noclick"><th>Show:</th><td class="text-center"><input type'
+            '<td class="text-center"><input type'
             . '="checkbox" name="criteriaShow[0]"></td><td class="text-center">'
             . '<input type="checkbox" name="criteriaShow[1]"></td><td '
             . 'class="text-center"><input type="checkbox" name="criteriaShow[2]">'
-            . '</td></tr>',
+            . '</td>',
             $this->_callProtectedFunction(
                 '_getShowRow',
                 []
@@ -183,7 +176,7 @@ class QbeTest extends PmaTestCase
     public function testGetCriteriaInputboxRow()
     {
         $this->assertEquals(
-            '<tr class="noclick"><th>Criteria:</th><td class="text-center">'
+            '<td class="text-center">'
             . '<input type="hidden" name="prev_criteria[0]" value="">'
             . '<input type="text" name="criteria[0]" value="" class="textfield" '
             . 'style="width: 12ex" size="20"></td><td class="text-center">'
@@ -192,7 +185,7 @@ class QbeTest extends PmaTestCase
             . 'style="width: 12ex" size="20"></td><td class="text-center">'
             . '<input type="hidden" name="prev_criteria[2]" value="">'
             . '<input type="text" name="criteria[2]" value="" class="textfield" '
-            . 'style="width: 12ex" size="20"></td></tr>',
+            . 'style="width: 12ex" size="20"></td>',
             $this->_callProtectedFunction(
                 '_getCriteriaInputboxRow',
                 []
@@ -229,7 +222,7 @@ class QbeTest extends PmaTestCase
     public function testGetModifyColumnsRow()
     {
         $this->assertEquals(
-            '<tr class="noclick"><th>Modify:</th><td class="text-center"><strong>'
+            '<td class="text-center"><strong>'
             . 'Or:</strong><input type="radio" name="criteriaAndOrColumn[0]" value'
             . '="or">&nbsp;&nbsp;<strong>And:</strong><input type="radio" name='
             . '"criteriaAndOrColumn[0]" value="and" checked="checked"><br>Ins'
@@ -242,8 +235,7 @@ class QbeTest extends PmaTestCase
             . '"criteriaColumnInsert[1]">&nbsp;&nbsp;Del<input type="checkbox" '
             . 'name="criteriaColumnDelete[1]"></td><td class="text-center"><br>Ins'
             . '<input type="checkbox" name="criteriaColumnInsert[2]">&nbsp;&nbsp;'
-            . 'Del<input type="checkbox" name="criteriaColumnDelete[2]"></td>'
-            . '</tr>',
+            . 'Del<input type="checkbox" name="criteriaColumnDelete[2]"></td>',
             $this->_callProtectedFunction(
                 '_getModifyColumnsRow',
                 []

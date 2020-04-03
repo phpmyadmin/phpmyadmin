@@ -8,16 +8,42 @@
 
       <div class="responsivetable jsresponsive">
         <table class="data w-100">
+          <tr class="noclick">
+            <th>{% trans 'Column:' %}</th>
+            {{ column_names_row|raw }}
+          </tr>
 
-          {{ column_names_row|raw }}
-          {{ column_alias_row|raw }}
-          {{ show_row|raw }}
-          {{ sort_row|raw }}
-          {{ sort_order|raw }}
-          {{ criteria_input_box_row|raw }}
+          <tr class="noclick">
+            <th>{% trans 'Alias:' %}</th>
+            {{ column_alias_row|raw }}
+          </tr>
+
+          <tr class="noclick">
+            <th>{% trans 'Show:' %}</th>
+            {{ show_row|raw }}
+          </tr>
+
+          <tr class="noclick">
+            <th>{% trans 'Sort:' %}</th>
+            {{ sort_row|raw }}
+          </tr>
+
+          <tr class="noclick">
+            <th>{% trans 'Sort order:' %}</th>
+            {{ sort_order|raw }}
+          </tr>
+
+          <tr class="noclick">
+            <th>{% trans 'Criteria:' %}</th>
+            {{ criteria_input_box_row|raw }}
+          </tr>
+
           {{ ins_del_and_or_criteria_rows|raw }}
-          {{ modify_columns_row|raw }}
 
+          <tr class="noclick">
+            <th>{% trans 'Modify:' %}</th>
+            {{ modify_columns_row|raw }}
+          </tr>
         </table>
       </div>
     </fieldset>

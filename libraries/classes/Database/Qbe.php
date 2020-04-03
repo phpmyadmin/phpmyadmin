@@ -472,8 +472,8 @@ class Qbe
      */
     private function _getColumnNamesRow()
     {
-        $html_output = '<tr class="noclick">';
-        $html_output .= '<th>' . __('Column:') . '</th>';
+        $html_output = '';
+
         $new_column_count = 0;
         for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
             if (isset($this->_criteriaColumnInsert[$column_index])
@@ -503,7 +503,7 @@ class Qbe
             $new_column_count++;
         } // end for
         $this->_new_column_count = $new_column_count;
-        $html_output .= '</tr>';
+
         return $html_output;
     }
 
@@ -514,8 +514,8 @@ class Qbe
      */
     private function _getColumnAliasRow()
     {
-        $html_output = '<tr class="noclick">';
-        $html_output .= '<th>' . __('Alias:') . '</th>';
+        $html_output = '';
+
         $new_column_count = 0;
 
         for ($colInd = 0; $colInd < $this->_criteria_column_count; $colInd++) {
@@ -550,8 +550,8 @@ class Qbe
                 . ' value="' . htmlspecialchars($tmp_alias) . '">';
             $html_output .= '</td>';
             $new_column_count++;
-        } // end for
-        $html_output .= '</tr>';
+        }
+
         return $html_output;
     }
 
@@ -562,8 +562,8 @@ class Qbe
      */
     private function _getSortRow()
     {
-        $html_output = '<tr class="noclick">';
-        $html_output .= '<th>' . __('Sort:') . '</th>';
+        $html_output = '';
+
         $new_column_count = 0;
 
         for ($colInd = 0; $colInd < $this->_criteria_column_count; $colInd++) {
@@ -608,8 +608,8 @@ class Qbe
                 $selected
             );
             $new_column_count++;
-        } // end for
-        $html_output .= '</tr>';
+        }
+
         return $html_output;
     }
 
@@ -620,8 +620,8 @@ class Qbe
      */
     private function _getSortOrder()
     {
-        $html_output = '<tr class="noclick">';
-        $html_output .= '<th>' . __('Sort order:') . '</th>';
+        $html_output = '';
+
         $new_column_count = 0;
 
         for ($colInd = 0; $colInd < $this->_criteria_column_count; $colInd++) {
@@ -655,8 +655,8 @@ class Qbe
                 $sortOrder
             );
             $new_column_count++;
-        } // end for
-        $html_output .= '</tr>';
+        }
+
         return $html_output;
     }
 
@@ -667,8 +667,8 @@ class Qbe
      */
     private function _getShowRow()
     {
-        $html_output = '<tr class="noclick">';
-        $html_output .= '<th>' . __('Show:') . '</th>';
+        $html_output = '';
+
         $new_column_count = 0;
         for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
             if (! empty($this->_criteriaColumnInsert)
@@ -700,8 +700,8 @@ class Qbe
                 . $checked_options . '>';
             $html_output .= '</td>';
             $new_column_count++;
-        } // end for
-        $html_output .= '</tr>';
+        }
+
         return $html_output;
     }
 
@@ -712,8 +712,8 @@ class Qbe
      */
     private function _getCriteriaInputboxRow()
     {
-        $html_output = '<tr class="noclick">';
-        $html_output .= '<th>' . __('Criteria:') . '</th>';
+        $html_output = '';
+
         $new_column_count = 0;
         for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
             if (! empty($this->_criteriaColumnInsert)
@@ -762,8 +762,8 @@ class Qbe
                 . ' size="20">';
             $html_output .= '</td>';
             $new_column_count++;
-        } // end for
-        $html_output .= '</tr>';
+        }
+
         return $html_output;
     }
 
@@ -811,8 +811,8 @@ class Qbe
      */
     private function _getModifyColumnsRow()
     {
-        $html_output = '<tr class="noclick">';
-        $html_output .= '<th>' . __('Modify:') . '</th>';
+        $html_output = '';
+
         $new_column_count = 0;
         for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
             if (! empty($this->_criteriaColumnInsert)
@@ -850,8 +850,8 @@ class Qbe
                 $column_index + 1 == $this->_criteria_column_count
             );
             $new_column_count++;
-        } // end for
-        $html_output .= '</tr>';
+        }
+
         return $html_output;
     }
 
