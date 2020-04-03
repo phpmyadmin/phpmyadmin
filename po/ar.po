@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-03-30 21:49+0200\n"
+"POT-Creation-Date: 2020-04-03 09:06+0200\n"
 "PO-Revision-Date: 2020-04-02 10:42+0000\n"
 "Last-Translator: yagoub fadel <yagoub76@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -25,7 +25,7 @@ msgstr "أكد"
 msgid "Do you really want to execute \"%s\"?"
 msgstr "هل تريد فعلاً تنفيذ \"%s\"؟"
 
-#: js/messages.php:53 libraries/classes/MultSubmits.php:476
+#: js/messages.php:53 libraries/classes/MultSubmits.php:475
 msgid "You are about to DESTROY a complete database!"
 msgstr "أنت على وشك إزالة كامل قاعدة البيانات !"
 
@@ -314,14 +314,14 @@ msgid "Other"
 msgstr "آخر"
 
 #. l10n: Thousands separator
-#: js/messages.php:154 libraries/classes/Util.php:619
-#: libraries/classes/Util.php:650
+#: js/messages.php:154 libraries/classes/Util.php:618
+#: libraries/classes/Util.php:649
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:156 libraries/classes/Util.php:617
-#: libraries/classes/Util.php:648
+#: js/messages.php:156 libraries/classes/Util.php:616
+#: libraries/classes/Util.php:647
 msgid "."
 msgstr "."
 
@@ -478,7 +478,7 @@ msgid "Traffic"
 msgstr "بيانات سير"
 
 #: js/messages.php:207 libraries/classes/Menu.php:566
-#: libraries/classes/Util.php:2467
+#: libraries/classes/Util.php:2466
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "الإعدادات"
@@ -697,7 +697,7 @@ msgstr "إشرح الخرج"
 #: js/messages.php:279
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:152
 #: libraries/classes/Menu.php:533 libraries/classes/Rte/Events.php:460
-#: libraries/classes/Rte/RteList.php:137 libraries/classes/Util.php:2463
+#: libraries/classes/Rte/RteList.php:137 libraries/classes/Util.php:2462
 #: libraries/config.values.php:156 templates/database/tracking/tables.twig:17
 #: templates/table/tracking/main.twig:31
 msgid "Status"
@@ -810,8 +810,8 @@ msgstr ""
 
 #: js/messages.php:316 libraries/classes/Config/Forms/User/ImportForm.php:64
 #: libraries/classes/Menu.php:315 libraries/classes/Menu.php:430
-#: libraries/classes/Menu.php:561 libraries/classes/Util.php:2466
-#: libraries/classes/Util.php:2481 libraries/classes/Util.php:2498
+#: libraries/classes/Menu.php:561 libraries/classes/Util.php:2465
+#: libraries/classes/Util.php:2480 libraries/classes/Util.php:2497
 #: templates/display/import/import.twig:38 templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
 #: templates/server/status/monitor/index.twig:78
@@ -869,7 +869,7 @@ msgstr "لم يتم العثور على معلمات!"
 #: templates/database/search/main.twig:74
 #: templates/display/change_password/file_e.twig:4
 #: templates/display/export/options_format.twig:18
-#: templates/display/import/import.twig:192
+#: templates/display/import/import.twig:232
 #: templates/display/results/options_block.twig:91
 #: templates/gis_data_editor_form.twig:211 templates/header_location.twig:18
 #: templates/login/form.twig:79 templates/login/form.twig:81
@@ -888,7 +888,7 @@ msgstr "لم يتم العثور على معلمات!"
 #: templates/server/replication/slave_configuration.twig:16
 #: templates/server/replication/slave_configuration.twig:88
 #: templates/server/user_groups/edit_user_groups.twig:21
-#: templates/sql/query.twig:134 templates/sql/query.twig:183
+#: templates/sql/query.twig:136 templates/sql/query.twig:185
 #: templates/start_and_number_of_rows_panel.twig:14
 #: templates/table/find_replace/index.twig:59
 #: templates/table/operations/index.twig:38
@@ -1008,7 +1008,7 @@ msgstr "تغيير مجموعة الأحرف"
 
 #: js/messages.php:360 libraries/classes/Config/FormDisplayTemplate.php:317
 #: libraries/classes/IndexColumn.php:132 libraries/classes/Index.php:489
-#: libraries/classes/Index.php:517 libraries/classes/MultSubmits.php:492
+#: libraries/classes/Index.php:517 libraries/classes/MultSubmits.php:496
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:652
 #: libraries/classes/Plugins/Export/ExportLatex.php:633
 #: libraries/classes/Plugins/Export/ExportOdt.php:807
@@ -1037,7 +1037,8 @@ msgstr "تغيير مجموعة الأحرف"
 msgid "No"
 msgstr "لا"
 
-#: js/messages.php:363 templates/fk_checkbox.twig:4
+#: js/messages.php:363 libraries/classes/MultSubmits.php:489
+#: templates/display/import/import.twig:204 templates/sql/query.twig:131
 msgid "Enable foreign key checks"
 msgstr "تمكين عمليات التحقق من المفتاح الخارجي"
 
@@ -1079,9 +1080,9 @@ msgstr "تعريف الدالة المخزنة يجب أن تحتوي جملة R
 #: libraries/classes/Display/Results.php:4969 libraries/classes/Menu.php:306
 #: libraries/classes/Menu.php:420 libraries/classes/Menu.php:556
 #: libraries/classes/Rte/RteList.php:185
-#: libraries/classes/Server/Privileges.php:1617 libraries/classes/Util.php:2465
-#: libraries/classes/Util.php:2480 libraries/classes/Util.php:2497
-#: libraries/classes/Util.php:3158 libraries/classes/Util.php:3159
+#: libraries/classes/Server/Privileges.php:1617 libraries/classes/Util.php:2464
+#: libraries/classes/Util.php:2479 libraries/classes/Util.php:2496
+#: libraries/classes/Util.php:3157 libraries/classes/Util.php:3158
 #: templates/database/privileges/index.twig:91
 #: templates/database/privileges/index.twig:116
 #: templates/database/structure/check_all_tables.twig:12
@@ -1143,8 +1144,8 @@ msgstr "إظهار صندوق الإستعلام"
 #: libraries/classes/Display/Results.php:4689
 #: libraries/classes/Html/Generator.php:807
 #: libraries/classes/Html/Generator.php:1076
-#: libraries/classes/Server/UserGroups.php:123 libraries/classes/Util.php:3156
-#: libraries/classes/Util.php:3157 templates/console/bookmark_content.twig:7
+#: libraries/classes/Server/UserGroups.php:123 libraries/classes/Util.php:3155
+#: libraries/classes/Util.php:3156 templates/console/bookmark_content.twig:7
 #: templates/console/display.twig:31 templates/console/display.twig:175
 #: templates/database/central_columns/main.twig:281
 #: templates/database/central_columns/main.twig:402 templates/indexes.twig:33
@@ -1163,9 +1164,10 @@ msgstr "تعديل"
 #: templates/database/central_columns/main.twig:284
 #: templates/database/central_columns/main.twig:409
 #: templates/database/designer/main.twig:392
+#: templates/database/qbe/ins_del_and_or_cell.twig:18
 #: templates/database/search/results.twig:43
 #: templates/display/export/template_loading.twig:22
-#: templates/setup/home/index.twig:62 templates/sql/query.twig:171
+#: templates/setup/home/index.twig:62 templates/sql/query.twig:173
 msgid "Delete"
 msgstr "حذف"
 
@@ -1176,7 +1178,7 @@ msgid "%d is not valid row number."
 msgstr "%d ليس رقم عمود صالح."
 
 #: js/messages.php:399
-#: libraries/classes/Controllers/Table/ChangeController.php:198
+#: libraries/classes/Controllers/Table/ChangeController.php:197
 #: libraries/classes/Controllers/Table/SearchController.php:359
 #: libraries/classes/Controllers/Table/ZoomSearchController.php:378
 #: libraries/classes/Controllers/Table/ZoomSearchController.php:422
@@ -1510,7 +1512,7 @@ msgstr "﻿إضافة حلقة الداخلية"
 #: libraries/classes/Controllers/Table/StructureController.php:1582
 #: libraries/classes/Controllers/Table/StructureController.php:1587
 #: libraries/classes/IndexColumn.php:135 libraries/classes/Index.php:516
-#: libraries/classes/MultSubmits.php:453 libraries/classes/MultSubmits.php:490
+#: libraries/classes/MultSubmits.php:452 libraries/classes/MultSubmits.php:494
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:653
 #: libraries/classes/Plugins/Export/ExportLatex.php:633
 #: libraries/classes/Plugins/Export/ExportOdt.php:808
@@ -1667,7 +1669,7 @@ msgstr "%d تم انشاء كائن / كائنات."
 msgid "Column name"
 msgstr "اسم العمود"
 
-#: js/messages.php:553 templates/sql/query.twig:163
+#: js/messages.php:553 templates/sql/query.twig:165
 msgid "Submit"
 msgstr "إرسال"
 
@@ -2034,7 +2036,7 @@ msgid "Hide"
 msgstr "أخفاء"
 
 #: js/messages.php:714
-#: libraries/classes/Controllers/Table/ChangeController.php:203
+#: libraries/classes/Controllers/Table/ChangeController.php:202
 #: templates/database/multi_table_query/form.twig:47
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
@@ -2050,8 +2052,8 @@ msgstr "عرض"
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:56
 #: libraries/classes/Navigation/Nodes/NodeTable.php:296
-#: libraries/classes/Util.php:1736 libraries/classes/Util.php:2476
-#: libraries/classes/Util.php:2493 libraries/classes/Util.php:3151
+#: libraries/classes/Util.php:1735 libraries/classes/Util.php:2475
+#: libraries/classes/Util.php:2492 libraries/classes/Util.php:3150
 #: libraries/config.values.php:59 libraries/config.values.php:73
 #: libraries/config.values.php:164 libraries/config.values.php:174
 #: templates/columns_definitions/table_fields_definitions.twig:4
@@ -3228,8 +3230,7 @@ msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
 msgstr ""
-"إضافة إذا لم يكن موجودًا (أقل كفاءة حيث سيتم إنشاء الفهارس أثناء إنشاء "
-"الجدول)"
+"إضافة إذا لم يكن موجودًا (أقل كفاءة حيث سيتم إنشاء الفهارس أثناء إنشاء الجدول)"
 
 #: libraries/classes/Config/Descriptions.php:259
 #: libraries/classes/Plugins/Export/ExportSql.php:335
@@ -3377,7 +3378,7 @@ msgstr "LaTeX"
 
 #: libraries/classes/Config/Descriptions.php:305
 #: libraries/classes/Config/Descriptions.php:371 libraries/classes/Menu.php:523
-#: libraries/classes/Util.php:2461 libraries/config.values.php:154
+#: libraries/classes/Util.php:2460 libraries/config.values.php:154
 #: templates/navigation/tree/database_select.twig:11
 #: templates/server/databases/index.twig:8
 #: templates/server/privileges/user_properties.twig:20
@@ -3522,8 +3523,8 @@ msgstr "تعقب التغيرات الحاصلة على قاعدة البيان�
 #: libraries/classes/Config/Descriptions.php:353 libraries/classes/Menu.php:284
 #: libraries/classes/Menu.php:400 libraries/classes/Menu.php:528
 #: libraries/classes/Navigation/Nodes/NodeTable.php:305
-#: libraries/classes/Util.php:1737 libraries/classes/Util.php:2462
-#: libraries/classes/Util.php:2477 libraries/classes/Util.php:2494
+#: libraries/classes/Util.php:1736 libraries/classes/Util.php:2461
+#: libraries/classes/Util.php:2476 libraries/classes/Util.php:2493
 #: libraries/config.values.php:61 libraries/config.values.php:75
 #: libraries/config.values.php:166 libraries/config.values.php:176
 msgid "SQL"
@@ -5926,7 +5927,7 @@ msgstr ""
 "أسئلة وأجوبة 1.16[/doc]."
 
 #: libraries/classes/Controllers/ImportController.php:583
-#: libraries/classes/Display/Import.php:59
+#: libraries/classes/Display/Import.php:61
 msgid "Could not load import plugins, please check your installation!"
 msgstr "لم أتمكن من تحميل قوابس الاستيراد، الرجاء فحص تثبيتك!"
 
@@ -6429,7 +6430,8 @@ msgid "Progress"
 msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:160
-#: libraries/classes/Server/Status/Data.php:116 templates/sql/query.twig:21
+#: libraries/classes/Server/Status/Data.php:116
+#: templates/database/qbe/selection_form.twig:109 templates/sql/query.twig:21
 msgid "SQL query"
 msgstr "استعلام SQL"
 
@@ -7238,7 +7240,7 @@ msgstr "تغيير"
 #: libraries/classes/Controllers/Table/StructureController.php:1242
 #: libraries/classes/Controllers/Table/StructureController.php:1243
 #: libraries/classes/Operations.php:691 libraries/classes/Rte/RteList.php:192
-#: libraries/classes/Util.php:3152 libraries/classes/Util.php:3153
+#: libraries/classes/Util.php:3151 libraries/classes/Util.php:3152
 #: templates/database/structure/check_all_tables.twig:16
 #: templates/indexes.twig:51 templates/rte/routines/parameter_row.twig:51
 #: templates/server/databases/index.twig:304
@@ -7500,96 +7502,41 @@ msgstr "أخفق الاتصال بمستخدم التحكم كما هو معرف
 msgid "See %sour documentation%s for more information."
 msgstr ""
 
-#: libraries/classes/Database/Qbe.php:476
-#: templates/table/find_replace/index.twig:38
-msgid "Column:"
-msgstr "عمود :"
-
-#: libraries/classes/Database/Qbe.php:518
-msgid "Alias:"
-msgstr "الاسم المستعار:"
-
-#: libraries/classes/Database/Qbe.php:566
-msgid "Sort:"
-msgstr "ترتيب :"
-
-#: libraries/classes/Database/Qbe.php:624
-msgid "Sort order:"
-msgstr "امر ترتيب:"
-
-#: libraries/classes/Database/Qbe.php:671
-msgid "Show:"
-msgstr "عرض :"
-
-#: libraries/classes/Database/Qbe.php:716
-msgid "Criteria:"
-msgstr "المعايير :"
-
-#: libraries/classes/Database/Qbe.php:796
-#: libraries/classes/Database/Qbe.php:828
-msgid "Update Query"
-msgstr "تجديد الإستعلام"
-
-#: libraries/classes/Database/Qbe.php:811
-msgid "Use Tables"
-msgstr "إستخدم الجداول"
-
-#: libraries/classes/Database/Qbe.php:851
-#: libraries/classes/Database/Qbe.php:958
+#: libraries/classes/Database/Qbe.php:787
+#: templates/database/qbe/ins_del_and_or_cell.twig:21
 msgid "Or:"
 msgstr "أو :"
 
-#: libraries/classes/Database/Qbe.php:855
-#: libraries/classes/Database/Qbe.php:943
+#: libraries/classes/Database/Qbe.php:791
+#: templates/database/qbe/ins_del_and_or_cell.twig:9
 msgid "And:"
 msgstr "و:"
 
-#: libraries/classes/Database/Qbe.php:860
+#: libraries/classes/Database/Qbe.php:796
 msgid "Ins"
 msgstr "إدخال"
 
-#: libraries/classes/Database/Qbe.php:863
+#: libraries/classes/Database/Qbe.php:799
 msgid "Del"
 msgstr "حذف"
 
-#: libraries/classes/Database/Qbe.php:879
-msgid "Modify:"
-msgstr "تعديل :"
-
-#: libraries/classes/Database/Qbe.php:938
-msgid "Ins:"
-msgstr "إدخال:"
-
-#: libraries/classes/Database/Qbe.php:953
-msgid "Del:"
-msgstr "حذف:"
-
-#: libraries/classes/Database/Qbe.php:1806
-#, php-format
-msgid "SQL query on database <b>%s</b>:"
-msgstr "إستعلام SQL في قاعدة البيانات <b>%s</b>:"
-
-#: libraries/classes/Database/Qbe.php:1825
-msgid "Submit Query"
-msgstr "إرسال الإستعلام"
-
-#: libraries/classes/Database/Qbe.php:1839
+#: libraries/classes/Database/Qbe.php:1695
 msgid "Saved bookmarked search:"
 msgstr "البحث المحفوظ الذي تم وضع إشارة مرجعية له:"
 
-#: libraries/classes/Database/Qbe.php:1841
+#: libraries/classes/Database/Qbe.php:1697
 msgid "New bookmark"
 msgstr "إشارة جديدة"
 
-#: libraries/classes/Database/Qbe.php:1867
+#: libraries/classes/Database/Qbe.php:1723
 msgid "Create bookmark"
 msgstr "إنشاء إشارة مرجعية"
 
-#: libraries/classes/Database/Qbe.php:1870
+#: libraries/classes/Database/Qbe.php:1726
 msgid "Update bookmark"
 msgstr "عرض العلامة المرجعية"
 
-#: libraries/classes/Database/Qbe.php:1872
+#: libraries/classes/Database/Qbe.php:1728
 msgid "Delete bookmark"
 msgstr "حذف الإشارة المرجعية"
 
@@ -7729,8 +7676,8 @@ msgid "Full texts"
 msgstr "نصوص كاملة"
 
 #: libraries/classes/Display/Results.php:2016
-#: libraries/classes/Display/Results.php:2042 libraries/classes/Util.php:3072
-#: libraries/classes/Util.php:3095 libraries/config.values.php:112
+#: libraries/classes/Display/Results.php:2042 libraries/classes/Util.php:3071
+#: libraries/classes/Util.php:3094 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:66
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:114
@@ -7743,8 +7690,8 @@ msgid "Descending"
 msgstr "تنازليا"
 
 #: libraries/classes/Display/Results.php:2024
-#: libraries/classes/Display/Results.php:2034 libraries/classes/Util.php:3064
-#: libraries/classes/Util.php:3087 libraries/config.values.php:111
+#: libraries/classes/Display/Results.php:2034 libraries/classes/Util.php:3063
+#: libraries/classes/Util.php:3086 libraries/config.values.php:111
 #: templates/database/multi_table_query/form.twig:65
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:112
@@ -8236,25 +8183,6 @@ msgstr "إفتح نافذة phpMyAdmin جديدة"
 msgid "Print view"
 msgstr "عرض نسخة للطباعة"
 
-#: libraries/classes/Html/Forms/Fields/BrowseUploadFileBlock.php:33
-#: templates/preferences/manage/main.twig:22
-msgid "Browse your computer:"
-msgstr "تصفح حاسبك:"
-
-#: libraries/classes/Html/Forms/Fields/DropDownUploadFileBlock.php:35
-#, php-format
-msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "إختر مجلد الرفع من الخادم <b>%s</b>:"
-
-#: libraries/classes/Html/Forms/Fields/DropDownUploadFileBlock.php:64
-#: libraries/classes/InsertEdit.php:1565
-msgid "The directory you set for upload work cannot be reached."
-msgstr "لا يمكن الوصول إلى الدليل اللذي عينته لعمل التحميل."
-
-#: libraries/classes/Html/Forms/Fields/DropDownUploadFileBlock.php:76
-msgid "There are no files to upload!"
-msgstr "لايوجد أي ملفات لرفعها!"
-
 #: libraries/classes/Html/Generator.php:183
 #, fuzzy, php-format
 #| msgid "Jump to database \"%s\"."
@@ -8297,6 +8225,7 @@ msgstr "بدون كود PHP"
 
 #: libraries/classes/Html/Generator.php:827
 #: templates/database/multi_table_query/form.twig:177
+#: templates/database/qbe/selection_form.twig:115
 msgid "Submit query"
 msgstr "إرسال الإستعلام"
 
@@ -8454,7 +8383,14 @@ msgstr "بسبب طوله,<br /> فمن المحتمل أن هذا الحقل غ
 msgid "Binary - do not edit"
 msgstr "ثنائي - لاتحرره"
 
+#: libraries/classes/InsertEdit.php:1565
+#: templates/display/import/import.twig:89
+#: templates/display/import/import.twig:119
+msgid "The directory you set for upload work cannot be reached."
+msgstr "لا يمكن الوصول إلى الدليل اللذي عينته لعمل التحميل."
+
 #: libraries/classes/InsertEdit.php:1568
+#: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:26
 #: templates/server/privileges/privileges_table.twig:47
 #: templates/server/privileges/privileges_table.twig:68
@@ -8590,8 +8526,8 @@ msgstr "%1$s (بالقرب من <code>%2$s</code>)"
 
 #: libraries/classes/Menu.php:269
 #: libraries/classes/Navigation/Nodes/NodeTable.php:308
-#: libraries/classes/Util.php:1740 libraries/classes/Util.php:2492
-#: libraries/classes/Util.php:3145 libraries/classes/Util.php:3146
+#: libraries/classes/Util.php:1739 libraries/classes/Util.php:2491
+#: libraries/classes/Util.php:3144 libraries/classes/Util.php:3145
 #: libraries/config.values.php:67 libraries/config.values.php:81
 #: libraries/config.values.php:182 templates/database/search/results.twig:34
 #: templates/table/structure/display_structure.twig:279
@@ -8600,9 +8536,9 @@ msgstr "استعراض"
 
 #: libraries/classes/Menu.php:288 libraries/classes/Menu.php:404
 #: libraries/classes/Navigation/Nodes/NodeTable.php:299
-#: libraries/classes/Util.php:1738 libraries/classes/Util.php:2478
-#: libraries/classes/Util.php:2495 libraries/classes/Util.php:3147
-#: libraries/classes/Util.php:3148 libraries/config.values.php:63
+#: libraries/classes/Util.php:1737 libraries/classes/Util.php:2477
+#: libraries/classes/Util.php:2494 libraries/classes/Util.php:3146
+#: libraries/classes/Util.php:3147 libraries/config.values.php:63
 #: libraries/config.values.php:77 libraries/config.values.php:168
 #: libraries/config.values.php:178
 msgid "Search"
@@ -8610,16 +8546,18 @@ msgstr "إبحث"
 
 #: libraries/classes/Menu.php:299
 #: libraries/classes/Navigation/Nodes/NodeTable.php:302
-#: libraries/classes/Util.php:1739 libraries/classes/Util.php:2496
-#: libraries/classes/Util.php:3149 libraries/classes/Util.php:3150
+#: libraries/classes/Util.php:1738 libraries/classes/Util.php:2495
+#: libraries/classes/Util.php:3148 libraries/classes/Util.php:3149
 #: libraries/config.values.php:65 libraries/config.values.php:79
-#: libraries/config.values.php:180 templates/sql/query.twig:76
+#: libraries/config.values.php:180
+#: templates/database/qbe/ins_del_and_or_cell.twig:6
+#: templates/sql/query.twig:76
 msgid "Insert"
 msgstr "إدخال"
 
 #: libraries/classes/Menu.php:326 libraries/classes/Menu.php:444
-#: libraries/classes/Server/Privileges.php:2889 libraries/classes/Util.php:2483
-#: libraries/classes/Util.php:2499 libraries/config.values.php:160
+#: libraries/classes/Server/Privileges.php:2889 libraries/classes/Util.php:2482
+#: libraries/classes/Util.php:2498 libraries/config.values.php:160
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
 #: templates/server/sub_page_header.twig:2
@@ -8628,15 +8566,15 @@ msgid "Privileges"
 msgstr "الإمتيازات"
 
 #: libraries/classes/Menu.php:336 libraries/classes/Menu.php:345
-#: libraries/classes/Menu.php:435 libraries/classes/Util.php:1741
-#: libraries/classes/Util.php:2482 libraries/classes/Util.php:2500
+#: libraries/classes/Menu.php:435 libraries/classes/Util.php:1740
+#: libraries/classes/Util.php:2481 libraries/classes/Util.php:2499
 #: libraries/config.values.php:170 templates/table/operations/view.twig:8
 msgid "Operations"
 msgstr "عمليات"
 
 #: libraries/classes/Menu.php:351 libraries/classes/Menu.php:470
-#: libraries/classes/Relation.php:314 libraries/classes/Util.php:2487
-#: libraries/classes/Util.php:2501
+#: libraries/classes/Relation.php:314 libraries/classes/Util.php:2486
+#: libraries/classes/Util.php:2500
 msgid "Tracking"
 msgstr "تتبع"
 
@@ -8648,8 +8586,8 @@ msgstr "تتبع"
 #: libraries/classes/Plugins/Export/ExportSql.php:2119
 #: libraries/classes/Plugins/Export/ExportTexytext.php:548
 #: libraries/classes/Plugins/Export/ExportXml.php:131
-#: libraries/classes/Rte/Words.php:60 libraries/classes/Util.php:2486
-#: libraries/classes/Util.php:2502
+#: libraries/classes/Rte/Words.php:60 libraries/classes/Util.php:2485
+#: libraries/classes/Util.php:2501
 msgid "Triggers"
 msgstr "القوادح"
 
@@ -8658,12 +8596,12 @@ msgstr "القوادح"
 msgid "Database seems to be empty!"
 msgstr "قاعدة البيانات فارغة!"
 
-#: libraries/classes/Menu.php:412 libraries/classes/Util.php:2479
+#: libraries/classes/Menu.php:412 libraries/classes/Util.php:2478
 msgid "Query"
 msgstr "استعلام بواسطة مثال"
 
 #: libraries/classes/Menu.php:450 libraries/classes/Rte/Words.php:46
-#: libraries/classes/Util.php:2484
+#: libraries/classes/Util.php:2483
 msgid "Routines"
 msgstr "روتينات"
 
@@ -8671,15 +8609,15 @@ msgstr "روتينات"
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:23
 #: libraries/classes/Plugins/Export/ExportSql.php:1004
 #: libraries/classes/Plugins/Export/ExportXml.php:111
-#: libraries/classes/Rte/Words.php:74 libraries/classes/Util.php:2485
+#: libraries/classes/Rte/Words.php:74 libraries/classes/Util.php:2484
 msgid "Events"
 msgstr "أحداث"
 
-#: libraries/classes/Menu.php:477 libraries/classes/Util.php:2488
+#: libraries/classes/Menu.php:477 libraries/classes/Util.php:2487
 msgid "Designer"
 msgstr "المصمم"
 
-#: libraries/classes/Menu.php:486 libraries/classes/Util.php:2489
+#: libraries/classes/Menu.php:486 libraries/classes/Util.php:2488
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "الأعمدة المركزية"
@@ -8689,12 +8627,12 @@ msgid "User accounts"
 msgstr "حسابات المستخدمين"
 
 #: libraries/classes/Menu.php:581 libraries/classes/Server/Status/Data.php:122
-#: libraries/classes/Util.php:2468 templates/server/binlog/index.twig:3
+#: libraries/classes/Util.php:2467 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "سجل ثنائي"
 
 #: libraries/classes/Menu.php:588 libraries/classes/Server/Status/Data.php:127
-#: libraries/classes/Util.php:2469
+#: libraries/classes/Util.php:2468
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
 #: templates/server/replication/index.twig:5
@@ -8702,21 +8640,21 @@ msgid "Replication"
 msgstr "إستنساخ"
 
 #: libraries/classes/Menu.php:594 libraries/classes/Server/Status/Data.php:195
-#: libraries/classes/Util.php:2470 libraries/config.values.php:158
+#: libraries/classes/Util.php:2469 libraries/config.values.php:158
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
-#: templates/sql/query.twig:176
+#: templates/sql/query.twig:178
 msgid "Variables"
 msgstr "متغيرات"
 
-#: libraries/classes/Menu.php:599 libraries/classes/Util.php:2471
+#: libraries/classes/Menu.php:599 libraries/classes/Util.php:2470
 msgid "Charsets"
 msgstr "مجموعات المحارف"
 
-#: libraries/classes/Menu.php:604 libraries/classes/Util.php:2473
+#: libraries/classes/Menu.php:604 libraries/classes/Util.php:2472
 msgid "Engines"
 msgstr "محركات"
 
-#: libraries/classes/Menu.php:609 libraries/classes/Util.php:2472
+#: libraries/classes/Menu.php:609 libraries/classes/Util.php:2471
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
 msgstr "القوابس"
@@ -8754,13 +8692,13 @@ msgstr[3] "%1$d صفوف أضيفت."
 msgstr[4] "%1$d صفوف أضيفت."
 msgstr[5] "%1$d صفوف أضيفت."
 
-#: libraries/classes/MultSubmits.php:445
+#: libraries/classes/MultSubmits.php:444
 #, fuzzy
 #| msgid "Add new field"
 msgid "Add prefix"
 msgstr "إضافة حقل جديد"
 
-#: libraries/classes/MultSubmits.php:478
+#: libraries/classes/MultSubmits.php:477
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
@@ -9416,7 +9354,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:98
 #: templates/display/export/format_dropdown.twig:2
-#: templates/display/import/import.twig:169
+#: templates/display/import/import.twig:209
 msgid "Format:"
 msgstr "الصيغة:"
 
@@ -10305,7 +10243,7 @@ msgstr ""
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:69
-#: libraries/classes/Util.php:801
+#: libraries/classes/Util.php:800
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d %B %Y الساعة %H:%M"
 
@@ -10641,7 +10579,7 @@ msgstr "تحويل المتصفح"
 msgid "Please see the documentation on how to update your column_info table."
 msgstr "رجاء راجع التوثيق لكيفية تحديث جدول column_comments."
 
-#: libraries/classes/Relation.php:259 templates/sql/query.twig:143
+#: libraries/classes/Relation.php:259 templates/sql/query.twig:145
 msgid "Bookmarked SQL query"
 msgstr "علامة مرجعية SQL-استعلام"
 
@@ -11731,18 +11669,18 @@ msgstr ""
 msgid "Problems with indexes of table `%s`"
 msgstr ""
 
-#: libraries/classes/SqlQueryForm.php:143
+#: libraries/classes/SqlQueryForm.php:144
 #, fuzzy, php-format
 #| msgid "Run SQL query/queries on database %s"
 msgid "Run SQL query/queries on server “%s”"
 msgstr "تنفيذ استعلام/استعلامات SQL على قاعدة بيانات %s"
 
-#: libraries/classes/SqlQueryForm.php:160
+#: libraries/classes/SqlQueryForm.php:161
 #, php-format
 msgid "Run SQL query/queries on database %s"
 msgstr "تنفيذ استعلام/استعلامات SQL على قاعدة بيانات %s"
 
-#: libraries/classes/SqlQueryForm.php:186
+#: libraries/classes/SqlQueryForm.php:187
 #, fuzzy, php-format
 #| msgid "Run SQL query/queries on database %s"
 msgid "Run SQL query/queries on table %s"
@@ -12279,78 +12217,78 @@ msgstr "كبير: %s%s"
 
 #. l10n: Short month name
 #. l10n: Short month name for January
-#: libraries/classes/Util.php:758 templates/javascript/variables.twig:34
+#: libraries/classes/Util.php:757 templates/javascript/variables.twig:34
 msgid "Jan"
 msgstr "يناير"
 
 #. l10n: Short month name
 #. l10n: Short month name for February
-#: libraries/classes/Util.php:760 templates/javascript/variables.twig:35
+#: libraries/classes/Util.php:759 templates/javascript/variables.twig:35
 msgid "Feb"
 msgstr "فبراير"
 
 #. l10n: Short month name
 #. l10n: Short month name for March
-#: libraries/classes/Util.php:762 templates/javascript/variables.twig:36
+#: libraries/classes/Util.php:761 templates/javascript/variables.twig:36
 msgid "Mar"
 msgstr "مارس"
 
 #. l10n: Short month name
 #. l10n: Short month name for April
-#: libraries/classes/Util.php:764 templates/javascript/variables.twig:37
+#: libraries/classes/Util.php:763 templates/javascript/variables.twig:37
 msgid "Apr"
 msgstr "أبريل"
 
 #. l10n: Short month name
-#: libraries/classes/Util.php:766
+#: libraries/classes/Util.php:765
 msgctxt "Short month name"
 msgid "May"
 msgstr "مايو"
 
 #. l10n: Short month name
 #. l10n: Short month name for June
-#: libraries/classes/Util.php:768 templates/javascript/variables.twig:39
+#: libraries/classes/Util.php:767 templates/javascript/variables.twig:39
 msgid "Jun"
 msgstr "يونيو"
 
 #. l10n: Short month name
 #. l10n: Short month name for July
-#: libraries/classes/Util.php:770 templates/javascript/variables.twig:40
+#: libraries/classes/Util.php:769 templates/javascript/variables.twig:40
 msgid "Jul"
 msgstr "يوليو"
 
 #. l10n: Short month name
 #. l10n: Short month name for August
-#: libraries/classes/Util.php:772 templates/javascript/variables.twig:41
+#: libraries/classes/Util.php:771 templates/javascript/variables.twig:41
 msgid "Aug"
 msgstr "أغسطس"
 
 #. l10n: Short month name
 #. l10n: Short month name for September
-#: libraries/classes/Util.php:774 templates/javascript/variables.twig:42
+#: libraries/classes/Util.php:773 templates/javascript/variables.twig:42
 msgid "Sep"
 msgstr "سبتمبر"
 
 #. l10n: Short month name
 #. l10n: Short month name for October
-#: libraries/classes/Util.php:776 templates/javascript/variables.twig:43
+#: libraries/classes/Util.php:775 templates/javascript/variables.twig:43
 msgid "Oct"
 msgstr "أكتوبر"
 
 #. l10n: Short month name
 #. l10n: Short month name for November
-#: libraries/classes/Util.php:778 templates/javascript/variables.twig:44
+#: libraries/classes/Util.php:777 templates/javascript/variables.twig:44
 msgid "Nov"
 msgstr "نوفمبر"
 
 #. l10n: Short month name
 #. l10n: Short month name for December
-#: libraries/classes/Util.php:780 templates/javascript/variables.twig:45
+#: libraries/classes/Util.php:779 templates/javascript/variables.twig:45
 msgid "Dec"
 msgstr "ديسمبر"
 
 #. l10n: Short week day name for Sunday
-#: libraries/classes/Util.php:784
+#: libraries/classes/Util.php:783
 #, fuzzy
 #| msgid "Sun"
 msgctxt "Short week day name for Sunday"
@@ -12358,69 +12296,69 @@ msgid "Sun"
 msgstr "الأحد"
 
 #. l10n: Short week day name for Monday
-#: libraries/classes/Util.php:786 templates/javascript/variables.twig:58
+#: libraries/classes/Util.php:785 templates/javascript/variables.twig:58
 msgid "Mon"
 msgstr "الإثنين"
 
 #. l10n: Short week day name for Tuesday
-#: libraries/classes/Util.php:788 templates/javascript/variables.twig:59
+#: libraries/classes/Util.php:787 templates/javascript/variables.twig:59
 msgid "Tue"
 msgstr "الثلاثاء"
 
 #. l10n: Short week day name for Wednesday
-#: libraries/classes/Util.php:790 templates/javascript/variables.twig:60
+#: libraries/classes/Util.php:789 templates/javascript/variables.twig:60
 msgid "Wed"
 msgstr "الأربعاء"
 
 #. l10n: Short week day name for Thursday
-#: libraries/classes/Util.php:792 templates/javascript/variables.twig:61
+#: libraries/classes/Util.php:791 templates/javascript/variables.twig:61
 msgid "Thu"
 msgstr "الخميس"
 
 #. l10n: Short week day name for Friday
-#: libraries/classes/Util.php:794 templates/javascript/variables.twig:62
+#: libraries/classes/Util.php:793 templates/javascript/variables.twig:62
 msgid "Fri"
 msgstr "الجمعة"
 
 #. l10n: Short week day name for Saturday
-#: libraries/classes/Util.php:796 templates/javascript/variables.twig:63
+#: libraries/classes/Util.php:795 templates/javascript/variables.twig:63
 msgid "Sat"
 msgstr "السبت"
 
-#: libraries/classes/Util.php:822
+#: libraries/classes/Util.php:821
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr "مساء"
 
-#: libraries/classes/Util.php:824
+#: libraries/classes/Util.php:823
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr "صباحا"
 
-#: libraries/classes/Util.php:894
+#: libraries/classes/Util.php:893
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s يوم، %s ساعة، %s دقيقة و%s ثانية"
 
-#: libraries/classes/Util.php:929
+#: libraries/classes/Util.php:928
 msgid "Missing parameter:"
 msgstr "مدخلات مفقودة:"
 
-#: libraries/classes/Util.php:2464
+#: libraries/classes/Util.php:2463
 msgid "Users"
 msgstr "المستخدمون"
 
-#: libraries/classes/Util.php:3056
+#: libraries/classes/Util.php:3055
 #: templates/database/multi_table_query/form.twig:64
 msgid "Sort"
 msgstr "ترتيب"
 
-#: libraries/classes/Util.php:3154 libraries/classes/Util.php:3155
+#: libraries/classes/Util.php:3153 libraries/classes/Util.php:3154
 #: templates/database/structure/check_all_tables.twig:15
 msgid "Empty"
 msgstr "إفراغ"
 
-#: libraries/classes/Util.php:3160 libraries/classes/Util.php:3161
+#: libraries/classes/Util.php:3159 libraries/classes/Util.php:3160
 msgid "Execute"
 msgstr "تنفيذ"
 
@@ -13530,6 +13468,8 @@ msgid "+ Add column"
 msgstr "إضافة عمود"
 
 #: templates/database/multi_table_query/form.twig:176
+#: templates/database/qbe/selection_form.twig:80
+#: templates/database/qbe/selection_form.twig:96
 #, fuzzy
 #| msgid "Update Query"
 msgid "Update query"
@@ -13703,14 +13643,6 @@ msgstr ""
 msgid "Add user account"
 msgstr "إضافة مستخدم"
 
-#: templates/database/qbe/footer_options.twig:3
-msgid "Add/Delete criteria rows"
-msgstr "إضافه/حذف معايير الصفوف"
-
-#: templates/database/qbe/footer_options.twig:5
-msgid "Add/Delete columns"
-msgstr "إضافه/حذف عمود"
-
 #: templates/database/qbe/index.twig:16
 #, php-format
 msgid "Switch to %svisual builder%s"
@@ -13719,6 +13651,73 @@ msgstr "التحويل إلى %s الباني المرئي %s"
 #: templates/database/qbe/index.twig:20
 msgid "You have to choose at least one column to display!"
 msgstr "عليك اختيار عمود واحد على الأقل للعرض!"
+
+#: templates/database/qbe/ins_del_and_or_cell.twig:5
+msgid "Ins:"
+msgstr "إدخال:"
+
+#: templates/database/qbe/ins_del_and_or_cell.twig:12
+#, fuzzy
+#| msgid "And:"
+msgid "And"
+msgstr "و:"
+
+#: templates/database/qbe/ins_del_and_or_cell.twig:17
+msgid "Del:"
+msgstr "حذف:"
+
+#: templates/database/qbe/selection_form.twig:12
+#: templates/table/find_replace/index.twig:38
+msgid "Column:"
+msgstr "عمود :"
+
+#: templates/database/qbe/selection_form.twig:17
+msgid "Alias:"
+msgstr "الاسم المستعار:"
+
+#: templates/database/qbe/selection_form.twig:22
+msgid "Show:"
+msgstr "عرض :"
+
+#: templates/database/qbe/selection_form.twig:27
+msgid "Sort:"
+msgstr "ترتيب :"
+
+#: templates/database/qbe/selection_form.twig:32
+msgid "Sort order:"
+msgstr "امر ترتيب:"
+
+#: templates/database/qbe/selection_form.twig:37
+msgid "Criteria:"
+msgstr "المعايير :"
+
+#: templates/database/qbe/selection_form.twig:44
+msgid "Modify:"
+msgstr "تعديل :"
+
+#: templates/database/qbe/selection_form.twig:54
+#, fuzzy
+#| msgid "Add/Delete criteria rows"
+msgid "Add/Delete criteria rows:"
+msgstr "إضافه/حذف معايير الصفوف"
+
+#: templates/database/qbe/selection_form.twig:67
+#, fuzzy
+#| msgid "Add/Delete columns"
+msgid "Add/Delete columns:"
+msgstr "إضافه/حذف عمود"
+
+#: templates/database/qbe/selection_form.twig:86
+#: templates/database/qbe/selection_form.twig:88
+#, fuzzy
+#| msgid "Use Tables"
+msgid "Use tables"
+msgstr "إستخدم الجداول"
+
+#: templates/database/qbe/selection_form.twig:107
+#, php-format
+msgid "SQL query on database <b>%s</b>:"
+msgstr "إستعلام SQL في قاعدة البيانات <b>%s</b>:"
 
 #: templates/database/search/main.twig:5
 msgid "Search in database"
@@ -14027,12 +14026,12 @@ msgid "Exporting rows from \"%s\" table"
 msgstr "تصدير الأسطر من الجدول \"%s\""
 
 #: templates/display/export/options_format.twig:2
-#: templates/display/import/import.twig:175
+#: templates/display/import/import.twig:215
 msgid "Format-specific options:"
 msgstr "إعدادات الصيغة المخصصة:"
 
 #: templates/display/export/options_format.twig:4
-#: templates/display/import/import.twig:177
+#: templates/display/import/import.twig:217
 msgid ""
 "Scroll down to fill in the options for the selected format and ignore the "
 "options for other formats."
@@ -14040,12 +14039,12 @@ msgstr ""
 "اسحب للأسفل لتعيين خيارات الصيغة المختارة و لتجاهل إعدادات الصيغ الأخرى."
 
 #: templates/display/export/options_format.twig:12
-#: templates/display/import/import.twig:186
+#: templates/display/import/import.twig:226
 msgid "Encoding Conversion:"
 msgstr "تحويل ترميز النص:"
 
 #: templates/display/export/options_output_charset.twig:3
-#: templates/display/import/import.twig:97
+#: templates/display/import/import.twig:135
 msgid "Character set of the file:"
 msgstr "ترميز الأحرف للملف:"
 
@@ -14198,29 +14197,59 @@ msgstr ""
 "يجب على اسم الملف المضغوط أن ينتهي بـ <b>.[format].[compression]</b>. مثال: "
 "<b>.sql.zip</b>"
 
-#: templates/display/import/import.twig:69
-#: templates/display/import/import.twig:84
+#: templates/display/import/import.twig:68
+#: templates/display/import/import.twig:101
+#: templates/preferences/manage/main.twig:22
+msgid "Browse your computer:"
+msgstr "تصفح حاسبك:"
+
+#: templates/display/import/import.twig:73
+#, fuzzy
+#| msgid "Browse your computer:"
+msgid "Browse your computer"
+msgstr "تصفح حاسبك:"
+
+#: templates/display/import/import.twig:79
+#: templates/display/import/import.twig:112
 msgid "You may also drag and drop a file on any page."
 msgstr ""
 
-#: templates/display/import/import.twig:86
+#: templates/display/import/import.twig:85
+#: templates/display/import/import.twig:115
+#, fuzzy, php-format
+#| msgid "Select from the web server upload directory <b>%s</b>:"
+msgid "Select from the web server upload directory [strong]%s[/strong]:"
+msgstr "إختر مجلد الرفع من الخادم <b>%s</b>:"
+
+#: templates/display/import/import.twig:91
+#, fuzzy
+#| msgid "File to import:"
+msgid "Select file to import"
+msgstr "ملف للاستيراد:"
+
+#: templates/display/import/import.twig:96
+#: templates/display/import/import.twig:126
+msgid "There are no files to upload!"
+msgstr "لايوجد أي ملفات لرفعها!"
+
+#: templates/display/import/import.twig:129
 msgid "File uploads are not allowed on this server."
 msgstr "التحميلات إلى هذا المخدّم غير مرخّصة لها."
 
-#: templates/display/import/import.twig:125
+#: templates/display/import/import.twig:163
 #, fuzzy
 #| msgid "Partial Import:"
 msgid "Partial import:"
 msgstr "مستوردةٌ جزئية :"
 
-#: templates/display/import/import.twig:130
+#: templates/display/import/import.twig:168
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
 "انتهت مُهلة عمليّة الإستراد السابقة, بعد إعادة الإرسال سنستمرُّ من الموقف %d."
 
-#: templates/display/import/import.twig:138
+#: templates/display/import/import.twig:176
 #, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
@@ -14236,13 +14265,13 @@ msgstr ""
 "<i>(يمكن أن تكون هذه هي طريقة جيّدة لإستراد ملفات كبيرة, في كلّ الأحوال يمكنها "
 "كسر العمليّات.)</i>"
 
-#: templates/display/import/import.twig:145
+#: templates/display/import/import.twig:183
 #, fuzzy
 #| msgid "Number of rows to skip, starting from the first row:"
 msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr "عدد الصّفوف الّتي يجب تجاوزها, ابتداءًا من الصّف الأوّل :"
 
-#: templates/display/import/import.twig:162
+#: templates/display/import/import.twig:200
 msgid "Other options:"
 msgstr "خيارات اخري :"
 
@@ -16543,17 +16572,17 @@ msgstr "أعرض هذا الاستعلام هنا مرة أخرى"
 msgid "Rollback when finished"
 msgstr ""
 
-#: templates/sql/query.twig:147
+#: templates/sql/query.twig:149
 #, fuzzy
 #| msgid "Table Search"
 msgid "Bookmark:"
 msgstr "بحث في الجدول"
 
-#: templates/sql/query.twig:154
+#: templates/sql/query.twig:156
 msgid "shared"
 msgstr "مشترك"
 
-#: templates/sql/query.twig:167
+#: templates/sql/query.twig:169
 msgid "View only"
 msgstr "عرض فقط"
 
@@ -18473,6 +18502,12 @@ msgstr ""
 #: libraries/advisory_rules_mysql_before80003.txt:57
 msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
+
+#~ msgid "Update Query"
+#~ msgstr "تجديد الإستعلام"
+
+#~ msgid "Submit Query"
+#~ msgstr "إرسال الإستعلام"
 
 #~ msgid "Rule details"
 #~ msgstr "تفاصيل القواعد"
