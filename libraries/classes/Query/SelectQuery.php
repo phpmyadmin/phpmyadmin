@@ -27,7 +27,7 @@ final class SelectQuery extends Query
      * Make a new SELECT query
      * @param string[] $expressions The columns to select
      */
-    public function __construct(array $expressions = [])
+    public function __construct(array $expressions = ['*'])
     {
         $this->expressions = $expressions;
     }

@@ -12,6 +12,13 @@ use PHPUnit\Framework\TestCase;
  */
 class SelectQueryTest extends TestCase
 {
+    public function testSelectDefaultWildcardSymbol(): void
+    {
+        $query = Builder::select()->database('db')->table('mytable');
+        $this->assertSame('SELECT * FROM `db`.`mytable`', $query->toSql());
+        $this->assertSame([], $query->getPlaceHolderValues());
+    }
+
     public function testSelect(): void
     {
         $query = Builder::select(['a', 'b'])->database('db')->table('mytable');
