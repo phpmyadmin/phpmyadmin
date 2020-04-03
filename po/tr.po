@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2020-03-23 20:52+0000\n"
+"PO-Revision-Date: 2020-04-03 19:45+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "tr/>\n"
@@ -1508,9 +1508,9 @@ msgid ""
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
-"Bu sütunlar birlikte gruplanmış özdeş sorguların miktarını gösterir. Ancak "
-"sadece SQL Metnin kendisi gruplama kriteri olarak kullanılır, böylece "
-"başlama zamanı gibi, sorguların diğer öznitelikleri farklı olabilir."
+"Bu sütun, birlikte gruplandırılan aynı sorguların miktarını gösterir. Ancak "
+"sadece SQL sorgusunun kendisi gruplandırma ölçütü olarak kullanıldığından, "
+"başlangıç zamanı gibi sorguların diğer öznitelikleri farklı olabilir."
 
 #: js/messages.php:278
 msgid ""
@@ -1518,9 +1518,9 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
-"INSERT'lerin gruplanmasından bu yana sorgular seçildi, aynı tablo içindeki "
-"INSERT sorguları, eklenen verinin hiçe sayılması, aynı zamanda birlikte "
-"gruplanır."
+"INSERT'lerin sorgularının gruplandırılması seçildiğinden, aynı tablo "
+"içindeki INSERT sorguları da, eklenen veriler göz ardı edilerek, birlikte "
+"gruplandırılır."
 
 #: js/messages.php:283
 msgid "Log data loaded. Queries executed in this time span:"
@@ -2135,11 +2135,11 @@ msgstr "Kaydet"
 
 #: js/messages.php:485
 msgid "Hide search criteria"
-msgstr "Arama kriterini gizle"
+msgstr "Arama ölçütünü gizle"
 
 #: js/messages.php:486
 msgid "Show search criteria"
-msgstr "Arama kriterini göster"
+msgstr "Arama ölçütünü göster"
 
 #: js/messages.php:487
 msgid "Range search"
@@ -2163,11 +2163,11 @@ msgstr "En fazla değer:"
 
 #: js/messages.php:494
 msgid "Hide find and replace criteria"
-msgstr "Bul ve değiştir kriterini gizle"
+msgstr "Bul ve değiştir ölçütünü gizle"
 
 #: js/messages.php:495
 msgid "Show find and replace criteria"
-msgstr "Bul ve değiştir kriterini göster"
+msgstr "Bul ve değiştir ölçütünü göster"
 
 #: js/messages.php:499
 msgid "Each point represents a data row."
@@ -3799,7 +3799,8 @@ msgstr "DROP sorgularını onayla"
 #: libraries/classes/Config/Descriptions.php:167
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
-msgstr "Konsolda görüntülenen, Günlük SQL'i sorguları ve çalıştırma süreleri"
+msgstr ""
+"Konsolda görüntülenecek olan, SQL sorguları ve çalıştırma sürelerini günlükle"
 
 #: libraries/classes/Config/Descriptions.php:169
 #: templates/console/display.twig:11 templates/console/display.twig:64
@@ -3832,7 +3833,7 @@ msgstr "Varsayılan tablo sekmesi"
 
 #: libraries/classes/Config/Descriptions.php:183
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "SQL sorgularında tablo ve sütun adlarını otomatik tamamlar."
+msgstr "SQL sorgularındaki tablo ve sütun adlarını otomatik tamamlar."
 
 #: libraries/classes/Config/Descriptions.php:185
 msgid "Enable autocomplete for table and column names"
@@ -6975,7 +6976,7 @@ msgstr "Göster:"
 
 #: libraries/classes/Database/Qbe.php:714
 msgid "Criteria:"
-msgstr "Kriter:"
+msgstr "Ölçüt:"
 
 #: libraries/classes/Database/Qbe.php:797
 #: libraries/classes/Database/Qbe.php:829
@@ -12021,7 +12022,7 @@ msgstr "Sadece SELECT,INSERT,UPDATE ve DELETE İfadeleri erişir"
 
 #: libraries/classes/Server/Status/Monitor.php:88
 msgid "Remove variable data in INSERT statements for better grouping"
-msgstr "Daha iyi gruplama için INSERT ifadelerindeki değişken veriyi kaldır"
+msgstr "Daha iyi gruplandırma için INSERT ifadelerindeki değişken veriyi kaldır"
 
 #: libraries/classes/Server/Status/Monitor.php:92
 msgid "Choose from which log you want the statistics to be generated from."
@@ -14791,11 +14792,11 @@ msgstr "Sütun kod adları"
 
 #: templates/database/multi_table_query/form.twig:50
 msgid "Use this column in criteria"
-msgstr "Bu sütunu kriter içinde kullan"
+msgstr "Bu sütunu ölçüt içinde kullan"
 
 #: templates/database/multi_table_query/form.twig:53
 msgid "criteria"
-msgstr "kriter"
+msgstr "ölçüt"
 
 #: templates/database/multi_table_query/form.twig:67
 msgid "Add as"
@@ -14807,7 +14808,7 @@ msgstr "Başka bir sütun"
 
 #: templates/database/multi_table_query/form.twig:140
 msgid "Enter criteria as free text"
-msgstr "Kriteri serbest metin olarak girin"
+msgstr "Ölçütü serbest metin olarak girin"
 
 #: templates/database/multi_table_query/form.twig:148
 msgid "Remove this column"
@@ -15752,15 +15753,15 @@ msgstr "Kullanıcı adı"
 
 #: templates/database/qbe/footer_options.twig:3
 msgid "Add/Delete criteria rows"
-msgstr "Kriter satırı Ekle/Sil"
+msgstr "Ölçüt satırlarını Ekle/Sil"
 
 #: templates/database/qbe/footer_options.twig:5
 msgid "Add/Delete columns"
-msgstr "Sütun Ekle/Sil"
+msgstr "Sütunları Ekle/Sil"
 
 #: templates/table/search/rows_zoom.twig:12
 msgid "Additional search criteria"
-msgstr "İlave arama kriteri"
+msgstr "İlave arama ölçütleri"
 
 #: templates/database/search/results.twig:12
 #, php-format
