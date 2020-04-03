@@ -800,38 +800,6 @@ class Qbe
     }
 
     /**
-     * Provides a select list of database tables
-     *
-     * @return string HTML for table select list
-     */
-    private function _getTablesList()
-    {
-        $html_output = '<div class="floatleft w-100">';
-        $html_output .= '<fieldset>';
-        $html_output .= '<legend>' . __('Use Tables') . '</legend>';
-        // Build the options list for each table name
-        $options = '';
-        $numTableListOptions = 0;
-        foreach ($this->_criteriaTables as $key => $val) {
-            $options .= '<option value="' . htmlspecialchars($key) . '"' . $val . '>'
-                . str_replace(' ', '&nbsp;', htmlspecialchars($key)) . '</option>';
-            $numTableListOptions++;
-        }
-        $html_output .= '<select name="TableList[]"'
-            . ' multiple="multiple" id="listTable"'
-            . ' size="' . ($numTableListOptions > 30 ? '15' : '7') . '">';
-        $html_output .= $options;
-        $html_output .= '</select>';
-        $html_output .= '</fieldset>';
-        $html_output .= '<fieldset class="tblFooters">';
-        $html_output .= '<input class="btn btn-secondary" type="submit" name="modify" value="'
-            . __('Update Query') . '">';
-        $html_output .= '</fieldset>';
-        $html_output .= '</div>';
-        return $html_output;
-    }
-
-    /**
      * Provides And/Or modification cell along with Insert/Delete options
      * (For modifying search form's table columns)
      *
@@ -1727,7 +1695,6 @@ class Qbe
         $url_params['rows'] = $this->_new_row_count;
 
         $tableFooters = $this->_getTableFooters();
-        $tablesList = $this->_getTablesList();
 
         if (empty($this->_formColumns)) {
             $this->_formColumns = [];
@@ -1738,7 +1705,7 @@ class Qbe
             'db' => $this->_db,
             'url_params' => $url_params,
             'db_link' => Generator::getDbLink($this->_db),
-            'criteria_tables_count' => count($this->_criteriaTables),
+            'criteria_tables' => $this->_criteriaTables,
             'saved_searches_field' => $savedSearchesField,
             'column_names_row' => $columnNamesRow,
             'column_alias_row' => $columnAliasRow,
@@ -1749,7 +1716,6 @@ class Qbe
             'ins_del_and_or_criteria_rows' => $insDelAndOrCriteriaRows,
             'modify_columns_row' => $modifyColumnsRow,
             'table_footers' => $tableFooters,
-            'tables_list' => $tablesList,
             'sql_query' => $sqlQuery,
         ]);
     }

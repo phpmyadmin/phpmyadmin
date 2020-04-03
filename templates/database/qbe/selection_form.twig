@@ -24,8 +24,22 @@
   </div>
 
   {{ table_footers|raw }}
-  {{ tables_list|raw }}
 
+  <div class="floatleft w-100">
+    <fieldset>
+      <legend>{% trans 'Use tables' %}</legend>
+
+      <select name="TableList[]" id="listTable" size="{{ criteria_tables|length > 30 ? '15' : '7' }}" aria-label="{% trans 'Use tables' %}" multiple>
+        {% for table, selected in criteria_tables %}
+          <option value="{{ table }}"{{ selected|raw }}>{{ table }}</option>
+        {% endfor %}
+      </select>
+    </fieldset>
+
+    <fieldset class="tblFooters">
+      <input class="btn btn-secondary" type="submit" name="modify" value="{% trans 'Update query' %}">
+    </fieldset>
+  </div>
 </form>
 
 <form action="{{ url('/database/qbe') }}" method="post" class="lock-page">
@@ -36,7 +50,7 @@
     <fieldset id="tblQbe">
       <legend>{{ 'SQL query on database <b>%s</b>:'|trans|format(db_link)|raw }}</legend>
 
-      <textarea cols="80" name="sql_query" id="textSqlquery" rows="{{ criteria_tables_count > 30 ? '15' : '7' }}" dir="ltr" aria-label="{% trans 'SQL query' %}">
+      <textarea cols="80" name="sql_query" id="textSqlquery" rows="{{ criteria_tables|length > 30 ? '15' : '7' }}" dir="ltr" aria-label="{% trans 'SQL query' %}">
         {{- sql_query -}}
       </textarea>
     </fieldset>
