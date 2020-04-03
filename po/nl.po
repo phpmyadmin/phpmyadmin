@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-04-03 09:06+0200\n"
-"PO-Revision-Date: 2020-03-31 00:26+0000\n"
+"PO-Revision-Date: 2020-04-03 19:45+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -13716,10 +13716,8 @@ msgid "Ins:"
 msgstr "Invoegen:"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:12
-#, fuzzy
-#| msgid "And:"
 msgid "And"
-msgstr "En:"
+msgstr "En"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:17
 msgid "Del:"
@@ -13755,21 +13753,15 @@ msgid "Modify:"
 msgstr "Aanpassen:"
 
 #: templates/database/qbe/selection_form.twig:54
-#, fuzzy
-#| msgid "Add/Delete criteria rows"
 msgid "Add/Delete criteria rows:"
-msgstr "Criterium-rijen toevoegen/verwijderen"
+msgstr "Criterium-rijen toevoegen/verwijderen:"
 
 #: templates/database/qbe/selection_form.twig:67
-#, fuzzy
-#| msgid "Add/Delete columns"
 msgid "Add/Delete columns:"
-msgstr "Kolommen toevoegen/verwijderen"
+msgstr "Kolommen toevoegen/verwijderen:"
 
 #: templates/database/qbe/selection_form.twig:86
 #: templates/database/qbe/selection_form.twig:88
-#, fuzzy
-#| msgid "Use Tables"
 msgid "Use tables"
 msgstr "Tabellen gebruiken"
 
@@ -14225,10 +14217,8 @@ msgid "Browse your computer:"
 msgstr "Blader op uw eigen pc:"
 
 #: templates/display/import/import.twig:73
-#, fuzzy
-#| msgid "Browse your computer:"
 msgid "Browse your computer"
-msgstr "Blader op uw eigen pc:"
+msgstr "Blader op uw eigen pc"
 
 #: templates/display/import/import.twig:79
 #: templates/display/import/import.twig:112
@@ -14237,16 +14227,13 @@ msgstr "U kan ook een bestand slepen en neerzetten op welke pagina dan ook."
 
 #: templates/display/import/import.twig:85
 #: templates/display/import/import.twig:115
-#, fuzzy, php-format
-#| msgid "Select from the web server upload directory <b>%s</b>:"
+#, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "Selecteer uit de webserver uploadmap <b>%s</b>:"
+msgstr "Selecteer uit de webserver uploadmap [strong]%s[/strong]:"
 
 #: templates/display/import/import.twig:91
-#, fuzzy
-#| msgid "File to import:"
 msgid "Select file to import"
-msgstr "Te importeren bestand:"
+msgstr "Selecteer te importeren bestand"
 
 #: templates/display/import/import.twig:96
 #: templates/display/import/import.twig:126
