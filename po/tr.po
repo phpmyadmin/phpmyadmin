@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-04-03 09:06+0200\n"
-"PO-Revision-Date: 2020-03-31 00:26+0000\n"
+"PO-Revision-Date: 2020-04-03 19:45+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -666,9 +666,9 @@ msgid ""
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
-"Bu sütunlar birlikte gruplanmış özdeş sorguların miktarını gösterir. Ancak "
-"sadece SQL Metnin kendisi gruplama kriteri olarak kullanılır, böylece "
-"başlama zamanı gibi, sorguların diğer öznitelikleri farklı olabilir."
+"Bu sütun, birlikte gruplandırılan aynı sorguların miktarını gösterir. Ancak "
+"sadece SQL sorgusunun kendisi gruplandırma ölçütü olarak kullanıldığından, "
+"başlangıç zamanı gibi sorguların diğer öznitelikleri farklı olabilir."
 
 #: js/messages.php:267
 msgid ""
@@ -676,9 +676,9 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
-"INSERT'lerin gruplanmasından bu yana sorgular seçildi, aynı tablo içindeki "
-"INSERT sorguları, eklenen verinin hiçe sayılması, aynı zamanda birlikte "
-"gruplanır."
+"INSERT'lerin sorgularının gruplandırılması seçildiğinden, aynı tablo "
+"içindeki INSERT sorguları da, eklenen veriler göz ardı edilerek, birlikte "
+"gruplandırılır."
 
 #: js/messages.php:271
 msgid "Log data loaded. Queries executed in this time span:"
@@ -1383,11 +1383,11 @@ msgstr "Kaydet"
 
 #: js/messages.php:457
 msgid "Hide search criteria"
-msgstr "Arama kriterini gizle"
+msgstr "Arama ölçütünü gizle"
 
 #: js/messages.php:458
 msgid "Show search criteria"
-msgstr "Arama kriterini göster"
+msgstr "Arama ölçütünü göster"
 
 #: js/messages.php:459
 msgid "Range search"
@@ -1411,11 +1411,11 @@ msgstr "En fazla değer:"
 
 #: js/messages.php:466
 msgid "Hide find and replace criteria"
-msgstr "Bul ve değiştir kriterini gizle"
+msgstr "Bul ve değiştir ölçütünü gizle"
 
 #: js/messages.php:467
 msgid "Show find and replace criteria"
-msgstr "Bul ve değiştir kriterini göster"
+msgstr "Bul ve değiştir ölçütünü göster"
 
 #: js/messages.php:471
 msgid "Each point represents a data row."
@@ -2867,7 +2867,8 @@ msgstr "DROP sorgularını onayla"
 #: libraries/classes/Config/Descriptions.php:138
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
-msgstr "Konsolda görüntülenen, Günlük SQL'i sorguları ve çalıştırma süreleri"
+msgstr ""
+"Konsolda görüntülenecek olan, SQL sorguları ve çalıştırma sürelerini günlükle"
 
 #: libraries/classes/Config/Descriptions.php:139
 #: templates/console/display.twig:11 templates/console/display.twig:64
@@ -2900,7 +2901,7 @@ msgstr "Varsayılan tablo sekmesi"
 
 #: libraries/classes/Config/Descriptions.php:146
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "SQL sorgularında tablo ve sütun adlarını otomatik tamamlar."
+msgstr "SQL sorgularındaki tablo ve sütun adlarını otomatik tamamlar."
 
 #: libraries/classes/Config/Descriptions.php:147
 msgid "Enable autocomplete for table and column names"
@@ -13410,11 +13411,11 @@ msgstr "Sütun kod adları"
 
 #: templates/database/multi_table_query/form.twig:53
 msgid "Use this column in criteria"
-msgstr "Bu sütunu kriter içinde kullan"
+msgstr "Bu sütunu ölçüt içinde kullan"
 
 #: templates/database/multi_table_query/form.twig:56
 msgid "criteria"
-msgstr "kriter"
+msgstr "ölçüt"
 
 #: templates/database/multi_table_query/form.twig:70
 msgid "Add as"
@@ -13426,7 +13427,7 @@ msgstr "Başka bir sütun"
 
 #: templates/database/multi_table_query/form.twig:142
 msgid "Enter criteria as free text"
-msgstr "Kriteri serbest metin olarak girin"
+msgstr "Ölçütü serbest metin olarak girin"
 
 #: templates/database/multi_table_query/form.twig:150
 msgid "Remove this column"
@@ -13613,10 +13614,8 @@ msgid "Ins:"
 msgstr "Ins:"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:12
-#, fuzzy
-#| msgid "And:"
 msgid "And"
-msgstr "Ve:"
+msgstr "Ve"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:17
 msgid "Del:"
@@ -13645,28 +13644,22 @@ msgstr "Sıralama düzeni:"
 
 #: templates/database/qbe/selection_form.twig:37
 msgid "Criteria:"
-msgstr "Kriter:"
+msgstr "Ölçüt:"
 
 #: templates/database/qbe/selection_form.twig:44
 msgid "Modify:"
 msgstr "Değiştir:"
 
 #: templates/database/qbe/selection_form.twig:54
-#, fuzzy
-#| msgid "Add/Delete criteria rows"
 msgid "Add/Delete criteria rows:"
-msgstr "Kriter satırı Ekle/Sil"
+msgstr "Ölçüt satırlarını Ekle/Sil:"
 
 #: templates/database/qbe/selection_form.twig:67
-#, fuzzy
-#| msgid "Add/Delete columns"
 msgid "Add/Delete columns:"
-msgstr "Sütun Ekle/Sil"
+msgstr "Sütunları Ekle/Sil:"
 
 #: templates/database/qbe/selection_form.twig:86
 #: templates/database/qbe/selection_form.twig:88
-#, fuzzy
-#| msgid "Use Tables"
 msgid "Use tables"
 msgstr "Tabloları kullan"
 
@@ -14120,10 +14113,8 @@ msgid "Browse your computer:"
 msgstr "Bilgisayara gözat:"
 
 #: templates/display/import/import.twig:73
-#, fuzzy
-#| msgid "Browse your computer:"
 msgid "Browse your computer"
-msgstr "Bilgisayara gözat:"
+msgstr "Bilgisayarınıza gözatın"
 
 #: templates/display/import/import.twig:79
 #: templates/display/import/import.twig:112
@@ -14133,16 +14124,13 @@ msgstr ""
 
 #: templates/display/import/import.twig:85
 #: templates/display/import/import.twig:115
-#, fuzzy, php-format
-#| msgid "Select from the web server upload directory <b>%s</b>:"
+#, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "Web sunucusu gönderme dizininden <b>%s</b> seçin:"
+msgstr "Web sunucusu [strong]%s[/strong] gönderme dizininden seçin:"
 
 #: templates/display/import/import.twig:91
-#, fuzzy
-#| msgid "File to import:"
 msgid "Select file to import"
-msgstr "İçe aktarmak için dosya:"
+msgstr "İçe aktarmak için dosya seç"
 
 #: templates/display/import/import.twig:96
 #: templates/display/import/import.twig:126
@@ -16022,7 +16010,7 @@ msgstr "Sadece SELECT,INSERT,UPDATE ve DELETE İfadeleri erişir"
 
 #: templates/server/status/monitor/index.twig:226
 msgid "Remove variable data in INSERT statements for better grouping"
-msgstr "Daha iyi gruplama için INSERT ifadelerindeki değişken veriyi kaldır"
+msgstr "Daha iyi gruplandırma için INSERT ifadelerindeki değişken veriyi kaldır"
 
 #: templates/server/status/monitor/index.twig:230
 msgid "Choose from which log you want the statistics to be generated from."
@@ -16899,7 +16887,7 @@ msgstr "İki farklı sütun için \"örnekle sorgulama\" (joker: \"%\") yap"
 
 #: templates/table/zoom_search/index.twig:56
 msgid "Additional search criteria"
-msgstr "İlave arama kriteri"
+msgstr "İlave arama ölçütleri"
 
 #: templates/table/zoom_search/index.twig:117
 msgid "Use this column to label each point"
