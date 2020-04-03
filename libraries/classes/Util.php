@@ -2860,7 +2860,7 @@ class Util
      */
     public static function convertBitDefaultValue($bit_default_value)
     {
-        return preg_replace("/^b'(\d*)'?$/", '$1', htmlspecialchars_decode($bit_default_value, ENT_QUOTES), 1);
+        return preg_replace("/^b'(\d*)'?$/", '$1', htmlspecialchars_decode((string) $bit_default_value, ENT_QUOTES), 1);
     }
 
     /**
