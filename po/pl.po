@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-04-03 09:06+0200\n"
-"PO-Revision-Date: 2020-03-01 23:32+0000\n"
+"PO-Revision-Date: 2020-04-03 08:31+0000\n"
 "Last-Translator: Michal Biesiada <blade-14@o2.pl>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "pl/>\n"
@@ -840,10 +840,8 @@ msgid "Please select the file you want to import."
 msgstr "Wybierz plik, który chcesz zaimportować."
 
 #: js/messages.php:319
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
-msgstr "Proszę podać poprawną nazwę strony"
+msgstr "Wprowadź prawidłową nazwę tabeli."
 
 #: js/messages.php:320
 #, fuzzy
