@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-04-03 09:06+0200\n"
-"PO-Revision-Date: 2020-03-31 00:26+0000\n"
+"PO-Revision-Date: 2020-04-03 19:45+0000\n"
 "Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
@@ -13780,10 +13780,8 @@ msgid "Ins:"
 msgstr "Insérer :"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:12
-#, fuzzy
-#| msgid "And:"
 msgid "And"
-msgstr "Et :"
+msgstr "Et"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:17
 msgid "Del:"
@@ -13819,23 +13817,17 @@ msgid "Modify:"
 msgstr "Modifier :"
 
 #: templates/database/qbe/selection_form.twig:54
-#, fuzzy
-#| msgid "Add/Delete criteria rows"
 msgid "Add/Delete criteria rows:"
-msgstr "Ajouter/Supprimer des lignes de critères"
+msgstr "Ajouter/supprimer des lignes de critères :"
 
 #: templates/database/qbe/selection_form.twig:67
-#, fuzzy
-#| msgid "Add/Delete columns"
 msgid "Add/Delete columns:"
-msgstr "Ajouter/Supprimer des colonnes"
+msgstr "Ajouter/supprimer des colonnes :"
 
 #: templates/database/qbe/selection_form.twig:86
 #: templates/database/qbe/selection_form.twig:88
-#, fuzzy
-#| msgid "Use Tables"
 msgid "Use tables"
-msgstr "Utiliser les tables"
+msgstr "Utiliser des tables"
 
 #: templates/database/qbe/selection_form.twig:107
 #, php-format
@@ -14288,10 +14280,8 @@ msgid "Browse your computer:"
 msgstr "Parcourir les fichiers :"
 
 #: templates/display/import/import.twig:73
-#, fuzzy
-#| msgid "Browse your computer:"
 msgid "Browse your computer"
-msgstr "Parcourir les fichiers :"
+msgstr "Parcourir les fichiers"
 
 #: templates/display/import/import.twig:79
 #: templates/display/import/import.twig:112
@@ -14302,16 +14292,15 @@ msgstr ""
 
 #: templates/display/import/import.twig:85
 #: templates/display/import/import.twig:115
-#, fuzzy, php-format
-#| msgid "Select from the web server upload directory <b>%s</b>:"
+#, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "Choisir depuis le répertoire de transfert du serveur Web <b>%s</b> :"
+msgstr ""
+"Choisir depuis le répertoire de transfert du serveur Web =[strong]%s[/strong]"
+" :"
 
 #: templates/display/import/import.twig:91
-#, fuzzy
-#| msgid "File to import:"
 msgid "Select file to import"
-msgstr "Fichier à importer :"
+msgstr "Sélectionnez le fichier à importer"
 
 #: templates/display/import/import.twig:96
 #: templates/display/import/import.twig:126
