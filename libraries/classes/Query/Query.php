@@ -19,18 +19,30 @@ abstract class Query
     protected $databaseName = null;
 
     /**
-     * The table name
+     * The table name (raw)
      * null if no table has been set
      * @var string|null
      */
     protected $tableName = null;
 
+    /**
+     * Set a database name
+     *
+     * @param string|null $databaseName The db name
+     * @return $this
+     */
     public function database(?string $databaseName): self
     {
         $this->databaseName = $databaseName;
         return $this;
     }
 
+    /**
+     * Set a table name
+     *
+     * @param string|null $tableName The table name
+     * @return $this
+     */
     public function table(?string $tableName): self
     {
         $this->tableName = $tableName;

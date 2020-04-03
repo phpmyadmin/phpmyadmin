@@ -11,10 +11,17 @@ use PhpMyAdmin\Util;
  */
 final class SelectQuery extends Query
 {
+    use Constraints, Orderable;
+
     /**
      * @var string[]
      */
-    private $expressions;
+    private $expressions = [];
+
+    /**
+     * @var string[]
+     */
+    private $rawExpressions = [];
 
     /**
      * Make a new SELECT query
@@ -25,9 +32,23 @@ final class SelectQuery extends Query
         $this->expressions = $expressions;
     }
 
+    public function count(string $column = '*', string $asColumnName = ''): self
+    {
+        if ($column !== '*') {
+            $column = Util::backquote($column);
+        }
+        if ($asColumnName !== '') {
+            $this->rawExpressions[] = 'COUNT(' . $column . ') AS ' . Util::backquote($asColumnName);
+            return $this;
+        }
+        $this->rawExpressions[] = 'COUNT(' . $column . ')';
+        return $this;
+    }
+
     public function selectedExpressions(): string
     {
-        $expressionParts = [];
+        // Init using raw values
+        $expressionParts = $this->rawExpressions;
         foreach ($this->expressions as $expression) {
             $expressionParts[] = Util::backquote($expression);
         }
@@ -36,7 +57,14 @@ final class SelectQuery extends Query
 
     public function toSql(): string
     {
-        return 'SELECT ' . $this->selectedExpressions() .
+        $query = 'SELECT ' . $this->selectedExpressions() .
         ' FROM ' . $this->getFromExpression();
+        if ($this->hasConstraintsExpressions()) {
+            $query .= ' WHERE ' . $this->buildPlaceHolders();
+        }
+        if ($this->hasOrderExpressions()) {
+            $query .= ' ORDER BY ' . $this->buildOrder();
+        }
+        return $query;
     }
 }
