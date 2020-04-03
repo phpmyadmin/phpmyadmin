@@ -39,7 +39,6 @@ phpMyAdmin - ChangeLog
 
 5.0.3 (not yet released)
 - issue #15983 Require twig ^2.9
-- issue        Move Sass to the development dependencies
 - issue        Fix option to import files locally appearing as not available
 - issue #16048 Fix to allow NULL as a default bit value
 
