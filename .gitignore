@@ -57,3 +57,4 @@ composer.lock
 # NPM
 /node_modules/
 phpstan.neon
+libraries/cache/
