@@ -1,21 +1,18 @@
 <?php
 /**
  * Selenium TestCase for table related tests
- *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium\Database;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
+use function str_replace;
+use const MYSQLI_ASSOC;
 
 /**
  * ProceduresTest class
  *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  * @group      selenium
  */
 class ProceduresTest extends TestBase
@@ -29,8 +26,6 @@ class ProceduresTest extends TestBase
 
     /**
      * Setup the browser environment to run the selenium test case
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -64,8 +59,6 @@ class ProceduresTest extends TestBase
 
     /**
      * Restore initial state
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -225,7 +218,7 @@ class ProceduresTest extends TestBase
     private function _executeProcedure($text, $length)
     {
         $this->waitAjax();
-        $this->waitUntilElementIsVisible('linkText', ' Execute', 30)->click();// The space before Execute is because of &nbsp;
+        $this->waitUntilElementIsVisible('partialLinkText', 'Execute', 30)->click();// The space before Execute is because of &nbsp;
         $this->waitUntilElementIsVisible('name', 'params[inp]', 30)->sendKeys($text);
         $this->byCssSelector('div.ui-dialog-buttonset button:nth-child(1)')->click();
 

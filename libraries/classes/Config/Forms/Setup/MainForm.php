@@ -1,17 +1,11 @@
 <?php
 /**
  * User preferences form
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Config\Forms\Setup;
 
-/**
- * Class MainForm
- * @package PhpMyAdmin\Config\Forms\Setup
- */
 class MainForm extends \PhpMyAdmin\Config\Forms\User\MainForm
 {
     /**

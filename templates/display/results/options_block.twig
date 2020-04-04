@@ -14,35 +14,26 @@
     } only %}
         <fieldset>
             <div class="formelement">
-                {# pftext means "partial or full texts" (done to reduce line lengths #}
-                {{ get_radio_fields(
-                    'pftext',
-                    {
-                        'P': 'Partial texts'|trans,
-                        'F': 'Full texts'|trans
-                    },
-                    pftext,
-                    true,
-                    true,
-                    '',
-                    'pftext_' ~ unique_id
-                ) }}
+              <div>
+                <input type="radio" name="pftext" id="partialFulltextRadioP{{ unique_id }}" value="P"{{ pftext == 'P' ? ' checked' }}>
+                <label for="partialFulltextRadioP{{ unique_id }}">{% trans 'Partial texts' %}</label>
+              </div>
+              <div>
+                <input type="radio" name="pftext" id="partialFulltextRadioF{{ unique_id }}" value="F"{{ pftext == 'F' ? ' checked' }}>
+                <label for="partialFulltextRadioF{{ unique_id }}">{% trans 'Full texts' %}</label>
+              </div>
             </div>
 
             {% if relwork and displaywork %}
                 <div class="formelement">
-                    {{ get_radio_fields(
-                        'relational_display',
-                        {
-                            'K': 'Relational key'|trans,
-                            'D': 'Display column for relationships'|trans
-                        },
-                        relational_display,
-                        true,
-                        true,
-                        '',
-                        'relational_display_' ~ unique_id
-                    ) }}
+                  <div>
+                    <input type="radio" name="relational_display" id="relationalDisplayRadioK{{ unique_id }}" value="K"{{ relational_display == 'K' ? ' checked' }}>
+                    <label for="relationalDisplayRadioK{{ unique_id }}">{% trans 'Relational key' %}</label>
+                  </div>
+                  <div>
+                    <input type="radio" name="relational_display" id="relationalDisplayRadioD{{ unique_id }}" value="D"{{ relational_display == 'D' ? ' checked' }}>
+                    <label for="relationalDisplayRadioD{{ unique_id }}">{% trans 'Display column for relationships' %}</label>
+                  </div>
                 </div>
             {% endif %}
 
@@ -77,40 +68,22 @@
                 } only %}
             </div>
 
-
-            {% if possible_as_geometry %}
-                <div class="formelement">
-                    {{ get_radio_fields(
-                        'geoOption',
-                        {
-                            'GEOM': 'Geometry'|trans,
-                            'WKT': 'Well Known Text'|trans,
-                            'WKB': 'Well Known Binary'|trans
-                        },
-                        geo_option,
-                        true,
-                        true,
-                        '',
-                        'geoOption_' ~ unique_id
-                    ) }}
+            <div class="formelement">
+              {% if possible_as_geometry %}
+                <div>
+                  <input type="radio" name="geoOption" id="geoOptionRadioGeom{{ unique_id }}" value="GEOM"{{ geo_option == 'GEOM' ? ' checked' }}>
+                  <label for="geoOptionRadioGeom{{ unique_id }}">{% trans 'Geometry' %}</label>
                 </div>
-            {% else %}
-                <div class="formelement">
-                    {{ possible_as_geometry }}
-                    {{ get_radio_fields(
-                        'geoOption',
-                        {
-                            'WKT': 'Well Known Text'|trans,
-                            'WKB': 'Well Known Binary'|trans
-                        },
-                        geo_option,
-                        true,
-                        true,
-                        '',
-                        'geoOption_' ~ unique_id
-                    ) }}
-                </div>
-            {% endif %}
+              {% endif %}
+              <div>
+                <input type="radio" name="geoOption" id="geoOptionRadioWkt{{ unique_id }}" value="WKT"{{ geo_option == 'WKT' ? ' checked' }}>
+                <label for="geoOptionRadioWkt{{ unique_id }}">{% trans 'Well Known Text' %}</label>
+              </div>
+              <div>
+                <input type="radio" name="geoOption" id="geoOptionRadioWkb{{ unique_id }}" value="WKB"{{ geo_option == 'WKB' ? ' checked' }}>
+                <label for="geoOptionRadioWkb{{ unique_id }}">{% trans 'Well Known Binary' %}</label>
+              </div>
+            </div>
             <div class="clearfloat"></div>
         </fieldset>
 

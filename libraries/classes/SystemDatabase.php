@@ -1,40 +1,27 @@
 <?php
 /**
  * hold PhpMyAdmin\SystemDatabase class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
 use mysqli_result;
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Util;
+use function count;
+use function sprintf;
 
-/**
- * Class SystemDatabase
- *
- * @package PhpMyAdmin
- */
 class SystemDatabase
 {
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     protected $dbi;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
     /**
      * Get instance of SystemDatabase
      *
      * @param DatabaseInterface $dbi Database interface for the system database
-     *
      */
     public function __construct(DatabaseInterface $dbi)
     {
@@ -110,9 +97,7 @@ class SystemDatabase
                     $add_comma ? ', ' : '',
                     $db,
                     $view_name,
-                    isset($column['real_column'])
-                    ? $column['real_column']
-                    : $column['refering_column'],
+                    $column['real_column'] ?? $column['refering_column'],
                     $data_row['comment'],
                     $data_row['mimetype'],
                     $data_row['transformation'],
@@ -131,6 +116,6 @@ class SystemDatabase
             }
         }
 
-        return ($column_count > 0) ? $new_transformations_sql : '';
+        return $column_count > 0 ? $new_transformations_sql : '';
     }
 }

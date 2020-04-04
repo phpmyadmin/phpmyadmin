@@ -10,7 +10,7 @@
   {{ sync_favorite_tables|raw }}
   <div class="container-fluid">
     <div class="row">
-      <div class="col-7 col-xs-12">
+      <div class="col-lg-7 col-12">
         {% if has_server %}
           {% if is_demo %}
             <div class="card mt-4">
@@ -18,11 +18,11 @@
                 {% trans 'phpMyAdmin Demo Server' %}
               </div>
               <div class="card-body">
-                {% filter format('<a href="url.php?url=https://demo.phpmyadmin.net/" target="_blank" rel="noopener noreferrer">demo.phpmyadmin.net</a>')|raw %}
+                {% apply format('<a href="url.php?url=https://demo.phpmyadmin.net/" target="_blank" rel="noopener noreferrer">demo.phpmyadmin.net</a>')|raw %}
                   {% trans %}
                     You are using the demo server. You can do anything here, but please do not change root, debian-sys-maint and pma users. More information is available at %s.
                   {% endtrans %}
-                {% endfilter %}
+                {% endapply %}
               </div>
             </div>
           {% endif %}
@@ -31,10 +31,9 @@
               <div class="card-header">
                 {% trans 'General settings' %}
               </div>
-              <div class="card-body">
-              <ul>
+              <ul class="list-group list-group-flush">
                 {% if has_server_selection %}
-                  <li id="li_select_server" class="no_bullets">
+                  <li id="li_select_server" class="list-group-item">
                     {{ get_image('s_host') }}
                     {{ server_selection|raw }}
                   </li>
@@ -43,7 +42,7 @@
                 {% if server > 0 %}
                   {{ change_password is not empty ? change_password|raw }}
 
-                  <li id="li_select_mysql_collation" class="no_bullets">
+                  <li id="li_select_mysql_collation" class="list-group-item">
                     <form class="disableAjax" method="post" action="{{ url('/collation-connection') }}">
                       {{ get_hidden_inputs(null, null, 4, 'collation_connection') }}
                       <label for="select_collation_connection">
@@ -71,7 +70,6 @@
                 {% endif %}
                 {{ user_preferences is not empty ? user_preferences|raw }}
               </ul>
-              </div>
             </div>
           {% endif %}
 
@@ -79,66 +77,62 @@
               <div class="card-header">
                 {% trans 'Appearance settings' %}
               </div>
-              <div class="card-body">
-              <ul>
+              <ul class="list-group list-group-flush">
                 {% if language_selector is not empty %}
-                  <li id="li_select_lang" class="no_bullets">
+                  <li id="li_select_lang" class="list-group-item">
                     {{ get_image('s_lang') }}
                     {{ language_selector|raw }}
                   </li>
                 {% endif %}
 
                 {% if theme_selection is not empty %}
-                  <li id="li_select_theme" class="no_bullets">
+                  <li id="li_select_theme" class="list-group-item">
                     {{ get_image('s_theme') }}
                     {{ theme_selection|raw }}
                   </li>
                 {% endif %}
               </ul>
-              </div>
             </div>
           </div>
 
-      <div class="col-5 col-xs-12">
+      <div class="col-lg-5 col-12">
         {% if database_server is not empty %}
           <div class="card mt-4">
             <div class="card-header">
               {% trans 'Database server' %}
             </div>
-            <div class="card-body">
-            <ul>
-              <li id="li_server_info">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
                 {% trans 'Server:' %}
                 {{ database_server.host }}
               </li>
-              <li id="li_server_type">
+              <li class="list-group-item">
                 {% trans 'Server type:' %}
                 {{ database_server.type }}
               </li>
-              <li id="li_server_connection">
+              <li class="list-group-item">
                 {% trans 'Server connection:' %}
                 {{ database_server.connection|raw }}
               </li>
-              <li id="li_server_version">
+              <li class="list-group-item">
                 {% trans 'Server version:' %}
                 {{ database_server.version }}
               </li>
-              <li id="li_mysql_proto">
+              <li class="list-group-item">
                 {% trans 'Protocol version:' %}
                 {{ database_server.protocol }}
               </li>
-              <li id="li_user_info">
+              <li class="list-group-item">
                 {% trans 'User:' %}
                 {{ database_server.user }}
               </li>
-              <li id="li_mysql_charset">
+              <li class="list-group-item">
                 {% trans 'Server charset:' %}
                 <span lang="en" dir="ltr">
                   {{ database_server.charset }}
                 </span>
               </li>
             </ul>
-            </div>
           </div>
         {% endif %}
 
@@ -147,24 +141,23 @@
             <div class="card-header">
               {% trans 'Web server' %}
             </div>
-            <div class="card-body">
-            <ul>
+            <ul class="list-group list-group-flush">
               {% if web_server is not empty %}
-                <li id="li_web_server_software">
+                <li class="list-group-item">
                   {{ web_server.software }}
                 </li>
-                <li id="li_mysql_client_version">
+                <li class="list-group-item" id="li_mysql_client_version">
                   {% trans 'Database client version:' %}
                   {{ web_server.database }}
                 </li>
-                <li id="li_used_php_extension">
+                <li class="list-group-item">
                   {% trans 'PHP extension:' %}
                   {% for extension in web_server.php_extensions %}
                     {{ extension }}
                     {{ show_php_docu('book.' ~ extension ~ '.php') }}
                   {% endfor %}
                 </li>
-                <li id="li_used_php_version">
+                <li class="list-group-item">
                   {% trans 'PHP version:' %}
                   {{ web_server.php_version }}
                 </li>
@@ -173,7 +166,6 @@
                 {{ php_info|raw }}
               {% endif %}
             </ul>
-            </div>
           </div>
         {% endif %}
 
@@ -181,44 +173,42 @@
             <div class="card-header">
               phpMyAdmin
             </div>
-            <div class="card-body">
-            <ul>
-              <li id="li_pma_version"{{ is_version_checked ? ' class="jsversioncheck"' }}>
+            <ul class="list-group list-group-flush">
+              <li id="li_pma_version" class="list-group-item{{ is_version_checked ? ' jsversioncheck' }}">
                 {% trans 'Version information:' %}
                 <span class="version">{{ phpmyadmin_version }}</span>
               </li>
-              <li id="li_pma_docs">
+              <li class="list-group-item">
                 <a href="{{ get_docu_link('index') }}" target="_blank" rel="noopener noreferrer">
                   {% trans 'Documentation' %}
                 </a>
               </li>
-              <li id="li_pma_homepage">
+              <li class="list-group-item">
                 <a href="{{ 'https://www.phpmyadmin.net/'|link }}" target="_blank" rel="noopener noreferrer">
                   {% trans 'Official Homepage' %}
                 </a>
               </li>
-              <li id="li_pma_contribute">
+              <li class="list-group-item">
                 <a href="{{ 'https://www.phpmyadmin.net/contribute/'|link }}" target="_blank" rel="noopener noreferrer">
                   {% trans 'Contribute' %}
                 </a>
               </li>
-              <li id="li_pma_support">
+              <li class="list-group-item">
                 <a href="{{ 'https://www.phpmyadmin.net/support/'|link }}" target="_blank" rel="noopener noreferrer">
                   {% trans 'Get support' %}
                 </a>
               </li>
-              <li id="li_pma_changes">
+              <li class="list-group-item">
                 <a href="{{ url('/changelog') }}" target="_blank">
                   {% trans 'List of changes' %}
                 </a>
               </li>
-              <li id="li_pma_license">
+              <li class="list-group-item">
                 <a href="{{ url('/license') }}" target="_blank">
                   {% trans 'License' %}
                 </a>
               </li>
             </ul>
-            </div>
           </div>
         </div>
       </div>

@@ -50,12 +50,12 @@ function checkAddUser (theForm) {
  */
 AJAX.registerTeardown('server/privileges.js', function () {
     $('#fieldset_add_user_login').off('change', 'input[name=\'username\']');
-    $(document).off('click', '#fieldset_delete_user_footer #buttonGo.ajax');
+    $(document).off('click', '#deleteUserCard .btn.ajax');
     $(document).off('click', 'a.edit_user_group_anchor.ajax');
     $(document).off('click', 'button.mult_submit[value=export]');
     $(document).off('click', 'a.export_user_anchor.ajax');
     $(document).off('click',  '#initials_table a.ajax');
-    $('#checkbox_drop_users_db').off('click');
+    $('#dropUsersDbCheckbox').off('click');
     $(document).off('click', '.checkall_box');
     $(document).off('change', '#checkbox_SSL_priv');
     $(document).off('change', 'input[name="ssl_type"]');
@@ -134,14 +134,14 @@ AJAX.registerOnload('server/privileges.js', function () {
      * @memberOf    jQuery
      * @name        revoke_user_click
      */
-    $(document).on('click', '#fieldset_delete_user_footer #buttonGo.ajax', function (event) {
+    $(document).on('click', '#deleteUserCard .btn.ajax', function (event) {
         event.preventDefault();
 
         var $thisButton = $(this);
         var $form = $('#usersForm');
 
         $thisButton.confirm(Messages.strDropUserWarning, $form.attr('action'), function (url) {
-            var $dropUsersDbCheckbox = $('#checkbox_drop_users_db');
+            var $dropUsersDbCheckbox = $('#dropUsersDbCheckbox');
             if ($dropUsersDbCheckbox.is(':checked')) {
                 var isConfirmed = confirm(Messages.strDropDatabaseStrongWarning + '\n' + Functions.sprintf(Messages.strDoYouReally, 'DROP DATABASE'));
                 if (! isConfirmed) {
@@ -158,7 +158,7 @@ AJAX.registerOnload('server/privileges.js', function () {
                     Functions.ajaxShowMessage(data.message);
                     // Refresh navigation, if we droppped some databases with the name
                     // that is the same as the username of the deleted user
-                    if ($('#checkbox_drop_users_db:checked').length) {
+                    if ($('#dropUsersDbCheckbox:checked').length) {
                         Navigation.reload();
                     }
                     // Remove the revoked user from the users list
@@ -173,12 +173,13 @@ AJAX.registerOnload('server/privileges.js', function () {
 
                         // Re-check the classes of each row
                         $form
-                            .find('tbody').find('tr:odd')
-                            .removeClass('even').addClass('odd')
-                            .end()
-                            .find('tr:even')
-                            .removeClass('odd').addClass('even');
-
+                            .find('tbody').find('tr').each(function (index) {
+                                if (index >= 0 && index % 2 === 0) {
+                                    $(this).removeClass('odd').addClass('even');
+                                } else if (index >= 0 && index % 2 !== 0) {
+                                    $(this).removeClass('even').addClass('odd');
+                                }
+                            });
                         // update the checkall checkbox
                         $(Functions.checkboxesSel).trigger('change');
                     });
@@ -359,7 +360,11 @@ AJAX.registerOnload('server/privileges.js', function () {
                 $('#initials_table')
                     .prop('id', 'initials_table_old')
                     .after(data.message).show('medium')
-                    .siblings('h2').not(':first').remove();
+                    .siblings('h2').not($('#initials_table')
+                        .prop('id', 'initials_table_old')
+                        .after(data.message).show('medium')
+                        .siblings('h2').first())
+                    .remove();
                 // prevent double initials table
                 $('#initials_table_old').remove();
             } else {
@@ -393,52 +398,54 @@ AJAX.registerOnload('server/privileges.js', function () {
      * Create submenu for simpler interface
      */
     var addOrUpdateSubmenu = function () {
-        var $topmenu2 = $('#topmenu2');
+        var $subNav = $('.nav-pills');
         var $editUserDialog = $('#edit_user_dialog');
         var submenuLabel;
         var submenuLink;
         var linkNumber;
 
         // if submenu exists yet, remove it first
-        if ($topmenu2.length > 0) {
-            $topmenu2.remove();
+        if ($subNav.length > 0) {
+            $subNav.remove();
         }
 
         // construct a submenu from the existing fieldsets
-        $topmenu2 = $('<ul></ul>').prop('id', 'topmenu2');
+        $subNav = $('<ul></ul>').prop('class', 'nav nav-pills m-2');
 
         $('#edit_user_dialog .submenu-item').each(function () {
             submenuLabel = $(this).find('legend[data-submenu-label]').data('submenu-label');
 
             submenuLink = $('<a></a>')
+                .prop('class', 'nav-link')
                 .prop('href', '#')
                 .html(submenuLabel);
 
             $('<li></li>')
+                .prop('class', 'nav-item')
                 .append(submenuLink)
-                .appendTo($topmenu2);
+                .appendTo($subNav);
         });
 
         // click handlers for submenu
-        $topmenu2.find('a').on('click', function (e) {
+        $subNav.find('a').on('click', function (e) {
             e.preventDefault();
             // if already active, ignore click
-            if ($(this).hasClass('tabactive')) {
+            if ($(this).hasClass('active')) {
                 return;
             }
-            $topmenu2.find('a').removeClass('tabactive');
-            $(this).addClass('tabactive');
+            $subNav.find('a').removeClass('active');
+            $(this).addClass('active');
 
             // which section to show now?
-            linkNumber = $topmenu2.find('a').index($(this));
+            linkNumber = $subNav.find('a').index($(this));
             // hide all sections but the one to show
             $('#edit_user_dialog .submenu-item').hide().eq(linkNumber).show();
         });
 
         // make first menu item active
         // TODO: support URL hash history
-        $topmenu2.find('> :first-child a').addClass('tabactive');
-        $editUserDialog.prepend($topmenu2);
+        $subNav.find('> :first-child a').addClass('active');
+        $editUserDialog.prepend($subNav);
 
         // hide all sections but the first
         $('#edit_user_dialog .submenu-item').hide().eq(0).show();

@@ -1,20 +1,17 @@
-{% include 'secondary_tabs.twig' with {
-    'url_params': {
-        'db': db
-    },
-    'sub_tabs': [
-        {
-            'link': url('/database/multi_table_query'),
-            'text': 'Multi-table query'|trans,
-            'active': route == '/database/multi_table_query'
-        },
-        {
-            'link': url('/database/qbe'),
-            'text': 'Query by example'|trans,
-            'active': route == '/database/qbe'
-        }
-    ]
-} only %}
+<ul class="nav nav-pills m-2">
+  <li class="nav-item">
+    <a class="nav-link active" href="{{ url('/database/multi-table-query', {'db': db}) }}">
+      {% trans 'Multi-table query' %}
+    </a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url('/database/qbe', {'db': db}) }}">
+      {% trans 'Query by example' %}
+    </a>
+  </li>
+</ul>
+
 {% include 'div_for_slider_effect.twig' with {
     'id': 'query_div',
     'message': 'Query window'|trans,
@@ -163,7 +160,7 @@
         </fieldset>
 
         <fieldset>
-            {% spaceless %}
+            {% apply spaceless %}
                 <textarea id="MultiSqlquery"
                     class="query-form__multi-sql-query"
                     cols="80"
@@ -171,7 +168,7 @@
                     name="sql_query"
                     dir="ltr">
                 </textarea>
-            {% endspaceless %}
+            {% endapply %}
         </fieldset>
     </fieldset>
 

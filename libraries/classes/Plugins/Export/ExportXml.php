@@ -1,16 +1,12 @@
 <?php
 /**
  * Set of functions used to build XML dumps of tables
- *
- * @package    PhpMyAdmin-Export
- * @subpackage XML
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -18,18 +14,26 @@ use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Util;
+use function count;
+use function htmlspecialchars;
+use function is_array;
+use function mb_substr;
+use function rtrim;
+use function str_replace;
+use function stripslashes;
+use function strlen;
+use const PHP_VERSION;
 
+// phpcs:disable PSR1.Files.SideEffects
 /* Can't do server export */
 if (! isset($GLOBALS['db']) || strlen($GLOBALS['db']) === 0) {
     $GLOBALS['skip_import'] = true;
     return;
 }
+// phpcs:enable
 
 /**
  * Handles the export for the XML class
- *
- * @package    PhpMyAdmin-Export
- * @subpackage XML
  */
 class ExportXml extends ExportPlugin
 {
@@ -46,9 +50,6 @@ class ExportXml extends ExportPlugin
      */
     private $_tables;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();
@@ -226,7 +227,7 @@ class ExportXml extends ExportPlugin
             || isset($GLOBALS['xml_export_tables'])
             || isset($GLOBALS['xml_export_triggers'])
             || isset($GLOBALS['xml_export_views']);
-        $export_data = isset($GLOBALS['xml_export_contents']) ? true : false;
+        $export_data = isset($GLOBALS['xml_export_contents']);
 
         if ($GLOBALS['output_charset_conversion']) {
             $charset = $GLOBALS['charset'];
@@ -541,7 +542,6 @@ class ExportXml extends ExportPlugin
 
         return true;
     }
-
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 

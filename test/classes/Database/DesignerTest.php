@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Database\Designer
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -17,20 +15,14 @@ use ReflectionMethod;
 
 /**
  * Tests for PhpMyAdmin\Database\Designer
- *
- * @package PhpMyAdmin-test
  */
 class DesignerTest extends TestCase
 {
-    /**
-     * @var Designer
-     */
+    /** @var Designer */
     private $designer;
 
     /**
      * Setup for test cases
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -187,12 +179,11 @@ class DesignerTest extends TestCase
         $this->assertStringContainsString('page2', $result);
 
         $this->assertStringContainsString(
-            '<input type="radio" name="save_page" id="save_page_same" value="same"'
-            . ' checked="checked">',
+            '<input type="radio" name="save_page" id="savePageSameRadio" value="same" checked>',
             $result
         );
         $this->assertStringContainsString(
-            '<input type="radio" name="save_page" id="save_page_new" value="new">',
+            '<input type="radio" name="save_page" id="savePageNewRadio" value="new">',
             $result
         );
         $this->assertStringContainsString(

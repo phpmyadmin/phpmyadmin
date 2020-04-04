@@ -1,8 +1,6 @@
 <?php
 /**
  * Set of functions used with the relation and PDF feature
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -12,27 +10,48 @@ use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Utils\Table as TableUtils;
+use function array_reverse;
+use function array_search;
+use function array_shift;
+use function asort;
+use function bin2hex;
+use function count;
+use function defined;
+use function explode;
+use function file_get_contents;
+use function htmlspecialchars;
+use function implode;
+use function in_array;
+use function is_array;
+use function is_string;
+use function ksort;
+use function mb_check_encoding;
+use function mb_strlen;
+use function mb_strtolower;
+use function mb_strtoupper;
+use function mb_substr;
+use function natcasesort;
+use function preg_match;
+use function sprintf;
+use function str_replace;
+use function strlen;
+use function strpos;
+use function trim;
+use function uksort;
+use function usort;
 
 /**
  * Set of functions used with the relation and PDF feature
- *
- * @package PhpMyAdmin
  */
 class Relation
 {
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     public $dbi;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
     /**
-     * Relation constructor.
-     *
      * @param DatabaseInterface|null $dbi      Database interface
      * @param Template|null          $template Template instance
      */
@@ -45,14 +64,13 @@ class Relation
     /**
      * Executes a query as controluser if possible, otherwise as normal user
      *
-     * @param string  $sql        the query to execute
-     * @param boolean $show_error whether to display SQL error messages or not
-     * @param int     $options    query options
+     * @param string $sql        the query to execute
+     * @param bool   $show_error whether to display SQL error messages or not
+     * @param int    $options    query options
      *
-     * @return resource|boolean the result set, or false if no result set
+     * @return resource|bool the result set, or false if no result set
      *
-     * @access  public
-     *
+     * @access public
      */
     public function queryAsControlUser($sql, $show_error = true, $options = 0)
     {
@@ -415,10 +433,10 @@ class Relation
     /**
      * prints out one diagnostic message for a feature
      *
-     * @param string  $feature_name       feature name in a message string
-     * @param string  $relation_parameter the $GLOBALS['cfgRelation'] parameter to check
-     * @param array   $messages           utility messages
-     * @param boolean $skip_line          whether to skip a line after the message
+     * @param string $feature_name       feature name in a message string
+     * @param string $relation_parameter the $GLOBALS['cfgRelation'] parameter to check
+     * @param array  $messages           utility messages
+     * @param bool   $skip_line          whether to skip a line after the message
      *
      * @return string
      */
@@ -446,10 +464,10 @@ class Relation
     /**
      * prints out one diagnostic message for a configuration parameter
      *
-     * @param string  $parameter            config parameter name to display
-     * @param boolean $relationParameterSet whether this parameter is set
-     * @param array   $messages             utility messages
-     * @param string  $docAnchor            anchor in documentation
+     * @param string $parameter            config parameter name to display
+     * @param bool   $relationParameterSet whether this parameter is set
+     * @param array  $messages             utility messages
+     * @param string $docAnchor            anchor in documentation
      *
      * @return string
      */
@@ -479,8 +497,9 @@ class Relation
      * just a copy of the functions used for relations ;-)
      * but added some stuff to check what will work
      *
-     * @access  protected
      * @return string[]    the relation parameters for the current user
+     *
+     * @access protected
      */
     public function checkRelationsParam(): array
     {
@@ -750,7 +769,8 @@ class Relation
      * Check if the table is accessible
      *
      * @param string $tableDbName The table or table.db
-     * @return boolean The table is accessible
+     *
+     * @return bool The table is accessible
      */
     public function canAccessStorageTable(string $tableDbName): bool
     {
@@ -768,7 +788,7 @@ class Relation
      *
      * @return bool false if upgrade failed
      *
-     * @access  public
+     * @access public
      */
     public function tryUpgradeTransformations()
     {
@@ -843,7 +863,7 @@ class Relation
      *
      * @return array    db,table,column
      *
-     * @access  public
+     * @access public
      */
     public function getForeigners($db, $table, $column = '', $source = 'both')
     {
@@ -924,7 +944,7 @@ class Relation
      *
      * @return string|false field name or false
      *
-     * @access  public
+     * @access public
      */
     public function getDisplayField($db, $table)
     {
@@ -986,7 +1006,7 @@ class Relation
      *
      * @return array    [column_name] = comment
      *
-     * @access  public
+     * @access public
      */
     public function getComments($db, $table = '')
     {
@@ -1016,7 +1036,7 @@ class Relation
      *
      * @return string   comment
      *
-     * @access  public
+     * @access public
      */
     public function getDbComment($db)
     {
@@ -1052,9 +1072,9 @@ class Relation
     /**
      * Gets the comment for a db
      *
-     * @access  public
-     *
      * @return array comments
+     *
+     * @access public
      */
     public function getDbComments()
     {
@@ -1092,9 +1112,9 @@ class Relation
      * @param string $db      the name of the db
      * @param string $comment the value of the column
      *
-     * @return boolean  true, if comment-query was made.
+     * @return bool true, if comment-query was made.
      *
-     * @access  public
+     * @access public
      */
     public function setDbComment($db, $comment = '')
     {
@@ -1139,7 +1159,7 @@ class Relation
      *
      * @return void
      *
-     * @access  public
+     * @access public
      */
     public function setHistory($db, $table, $username, $sqlquery)
     {
@@ -1199,7 +1219,7 @@ class Relation
      *
      * @return array|bool list of history items
      *
-     * @access  public
+     * @access public
      */
     public function getHistory($username)
     {
@@ -1248,7 +1268,7 @@ class Relation
      *
      * @return void
      *
-     * @access  public
+     * @access public
      */
     public function purgeHistory($username)
     {
@@ -1295,7 +1315,7 @@ class Relation
      *
      * @return array   the <option value=""><option>s
      *
-     * @access  protected
+     * @access protected
      */
     public function buildForeignDropdown(array $foreign, $data, $mode)
     {
@@ -1333,7 +1353,7 @@ class Relation
                 $key = htmlspecialchars($key);
             } else {
                 $key = '0x' . bin2hex($key);
-                if (false !== strpos($data, '0x')) {
+                if (strpos($data, '0x') !== false) {
                     $selected = ($key == trim($data));
                 } else {
                     $selected = ($key == '0x' . $data);
@@ -1354,7 +1374,7 @@ class Relation
                         mb_substr(
                             $value,
                             0,
-                            $GLOBALS['cfg']['LimitChars']
+                            (int) $GLOBALS['cfg']['LimitChars']
                         ) . '...'
                     );
                 }
@@ -1397,7 +1417,7 @@ class Relation
      *
      * @return string   the <option value=""><option>s
      *
-     * @access  public
+     * @access public
      */
     public function foreignDropdown(
         array $disp_row,
@@ -1406,7 +1426,7 @@ class Relation
         $data,
         $max = null
     ) {
-        if (null === $max) {
+        if ($max === null) {
             $max = $GLOBALS['cfg']['ForeignKeyMaxLimit'];
         }
 
@@ -1474,18 +1494,18 @@ class Relation
     /**
      * Gets foreign keys in preparation for a drop-down selector
      *
-     * @param array|boolean $foreigners     array of the foreign keys
-     * @param string        $field          the foreign field name
-     * @param bool          $override_total whether to override the total
-     * @param string        $foreign_filter a possible filter
-     * @param string        $foreign_limit  a possible LIMIT clause
-     * @param bool          $get_total      optional, whether to get total num of rows
-     *                                      in $foreignData['the_total;]
-     *                                      (has an effect of performance)
+     * @param array|bool $foreigners     array of the foreign keys
+     * @param string     $field          the foreign field name
+     * @param bool       $override_total whether to override the total
+     * @param string     $foreign_filter a possible filter
+     * @param string     $foreign_limit  a possible LIMIT clause
+     * @param bool       $get_total      optional, whether to get total num of rows
+     *                                   in $foreignData['the_total;]
+     *                                   (has an effect of performance)
      *
      * @return array    data about the foreign keys
      *
-     * @access  public
+     * @access public
      */
     public function getForeignData(
         $foreigners,
@@ -1597,12 +1617,12 @@ class Relation
 
         $foreignData = [];
         $foreignData['foreign_link'] = $foreign_link;
-        $foreignData['the_total'] = isset($the_total) ? $the_total : null;
+        $foreignData['the_total'] = $the_total ?? null;
         $foreignData['foreign_display'] = (
-            isset($foreign_display) ? $foreign_display : null
+            $foreign_display ?? null
         );
-        $foreignData['disp_row'] = isset($disp_row) ? $disp_row : null;
-        $foreignData['foreign_field'] = isset($foreign_field) ? $foreign_field : null;
+        $foreignData['disp_row'] = $disp_row ?? null;
+        $foreignData['foreign_field'] = $foreign_field ?? null;
 
         return $foreignData;
     }
@@ -1670,7 +1690,6 @@ class Relation
         }
     }
 
-
     /**
      * Performs SQL query used for renaming table.
      *
@@ -1708,7 +1727,6 @@ class Relation
             . '\'';
         $this->queryAsControlUser($query);
     }
-
 
     /**
      * Rename a table in relation tables
@@ -1992,17 +2010,11 @@ class Relation
             if ($column_index !== false) {
                 $foreigner['foreign_field']
                     = $one_key['ref_index_list'][$column_index];
-                $foreigner['foreign_db'] = isset($one_key['ref_db_name'])
-                    ? $one_key['ref_db_name']
-                    : $GLOBALS['db'];
+                $foreigner['foreign_db'] = $one_key['ref_db_name'] ?? $GLOBALS['db'];
                 $foreigner['foreign_table'] = $one_key['ref_table_name'];
                 $foreigner['constraint'] = $one_key['constraint'];
-                $foreigner['on_update'] = isset($one_key['on_update'])
-                    ? $one_key['on_update']
-                    : 'RESTRICT';
-                $foreigner['on_delete'] = isset($one_key['on_delete'])
-                    ? $one_key['on_delete']
-                    : 'RESTRICT';
+                $foreigner['on_update'] = $one_key['on_update'] ?? 'RESTRICT';
+                $foreigner['on_delete'] = $one_key['on_delete'] ?? 'RESTRICT';
 
                 return $foreigner;
             }
@@ -2065,8 +2077,8 @@ class Relation
     /**
      * Creates PMA tables in the given db, updates if already exists.
      *
-     * @param string  $db     database
-     * @param boolean $create whether to create tables if they don't exist.
+     * @param string $db     database
+     * @param bool   $create whether to create tables if they don't exist.
      *
      * @return void
      */
@@ -2150,8 +2162,8 @@ class Relation
     /**
      * Get Html for PMA tables fixing anchor.
      *
-     * @param boolean $allTables whether to create all tables
-     * @param boolean $createDb  whether to create the pmadb also
+     * @param bool $allTables whether to create all tables
+     * @param bool $createDb  whether to create the pmadb also
      *
      * @return string Html
      */
@@ -2201,9 +2213,9 @@ class Relation
     /**
      * Gets the relations info and status, depending on the condition
      *
-     * @param boolean $condition whether to look for foreigners or not
-     * @param string  $db        database name
-     * @param string  $table     table name
+     * @param bool   $condition whether to look for foreigners or not
+     * @param string $db        database name
+     * @param string $table     table name
      *
      * @return array ($res_rel, $have_rel)
      */
@@ -2232,7 +2244,7 @@ class Relation
     /**
      * Verifies if all the pmadb tables are defined
      *
-     * @return boolean
+     * @return bool
      */
     public function arePmadbTablesDefined()
     {

@@ -19,6 +19,10 @@ body#loginform {
   margin: 0;
   background-color: #666;
 
+  form#login_form label {
+    display: none !important;
+  }
+
   #page_content {
     background-color: $navi-background;
     margin: 0 !important;
@@ -138,10 +142,6 @@ body#loginform {
       clear: none;
     }
   }
-}
-
-form.login label {
-  display: none;
 }
 
 .turnOffSelect {
@@ -313,7 +313,6 @@ input {
     border: 1px solid $browse-gray-color;
     color: $th-color;
     padding: 5px;
-    margin: 6px;
     font-family: $font-family-base;
     background-color: $body-bg;
 
@@ -322,10 +321,15 @@ input {
       color: $main-color;
     }
   }
+
+  &:not(.form-control)[type="text"],
+  &[type="password"],
+  &:not(.form-control)[type="number"] {
+    margin: 6px;
+  }
 }
 
-.sqlbutton,
-#tablefieldinsertbuttoncontainer input[type="button"] {
+.sqlbutton {
   margin-top: 1em;
   margin-#{$left}: 0 !important;
   margin-#{$right}: 14px !important;
@@ -363,7 +367,7 @@ fieldset {
 legend {
   padding: 0 5px;
   width: initial;
-  font-size: 1rem;
+  font-size: 1em;
 }
 
 .some-margin {
@@ -401,9 +405,12 @@ select {
   color: $th-color;
   padding: 4px;
   font-family: $font-family-base;
-  margin: 5px;
   background-color: $body-bg;
   max-width: 17em;
+
+  &:not(.form-control) {
+    margin: 5px;
+  }
 
   &:focus {
     border: 1px solid $navi-hover-background;
@@ -620,6 +627,11 @@ table tr {
   &:nth-child(even) {
     background: $bg-one;
     border-bottom: none;
+  }
+
+  // only one item
+  &:only-child {
+    background: none;
   }
 
   th {
@@ -897,72 +909,9 @@ td.disabled {
 
 /* specific elements */
 
-/* topmenu */
-
-ul {
-  &#topmenu,
-  &#topmenu2 {
-    list-style-type: none;
-    margin: 0;
-    height: 48px;
-  }
-
-  &.tabs {
-    list-style-type: none;
-    margin: 0;
-  }
-
-  &#topmenu2 {
-    margin: -20px -10px 20px;
-    padding: 10px;
-    clear: both;
-  }
-
-  &#topmenu li,
-  &#topmenu2 li {
-    float: $left;
-    margin: 0;
-    vertical-align: middle;
-    padding-top: 10px;
-    height: 38px;
-  }
-}
-
-#topmenu img,
-#topmenu2 img {
-  margin-#{$right}: 0.5em;
-  vertical-align: -3px;
-}
-
-.menucontainer {
-  background-color: $th-background;
-  height: 48px;
-}
-
-.scrollindicator {
-  display: none;
-}
-
-/* default tab styles */
-#topmenu .tabactive {
-  background: #fff !important;
-}
-
-#topmenu2 .tabactive {
-  background: #ccc;
-}
-
-ul#topmenu2 a {
-  display: block;
-  margin: 7px 0;
-  margin-#{$left}: 0;
-  padding: 5px 15px;
-  white-space: nowrap;
-  font-family: $font-family-extra-bold;
-  font-weight: normal;
-  color: $navi-pointer-color;
-  text-transform: uppercase;
-  background-color: #f6f6f6;
+ul.tabs {
+  list-style-type: none;
+  margin: 0;
 }
 
 span {
@@ -995,12 +944,7 @@ fieldset.caution {
   }
 }
 
-#tbl_maintenance {
-  padding: 0;
-}
-
-fieldset.caution li,
-#tbl_maintenance li {
+fieldset.caution li {
   display: block;
 }
 
@@ -1015,83 +959,6 @@ fieldset.caution li {
 
   a:nth-child(2) img {
     background: url('../img/s_info.png') !important;
-  }
-}
-
-#tbl_maintenance li {
-  a {
-    font-family: $font-family-bold;
-    text-transform: uppercase;
-    font-weight: normal;
-  }
-
-  &::before {
-    /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
-    font-family: "IcoMoon";
-    content: "%";
-    margin-#{$right}: 10px;
-  }
-}
-
-#topmenu {
-  padding-#{$left}: 20px;
-  padding-#{$right}: 20px;
-}
-
-/* default tab styles */
-ul {
-  &#topmenu {
-    ul.only {
-      #{$left}: 0;
-    }
-
-    a,
-    span {
-      padding: 5px 10px;
-      height: 28px;
-      line-height: 28px;
-      font-family: $font-family-extra-bold;
-      text-transform: uppercase;
-      color: #666;
-      font-weight: normal;
-    }
-
-    ul {
-      a {
-        border-width: 1pt 0 0 0;
-      }
-
-      li:first-child a {
-        border-width: 0;
-      }
-
-      a:hover,
-      .tabactive {
-        text-decoration: none;
-      }
-    }
-
-    /* enabled hover/active tabs */
-    > li > {
-      a:hover,
-      .tabactive {
-        text-decoration: none;
-        color: #333;
-      }
-    }
-  }
-
-  &#topmenu2 a {
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
-
-  /* to be able to cancel the bottom border, use <li class="active"> */
-  &#topmenu > li.active {
-    border-#{$right}: 0;
   }
 }
 
@@ -1623,25 +1490,6 @@ a.button {
   white-space: nowrap;
 }
 
-div {
-  &#sqlquerycontainer {
-    float: $left;
-    width: 69%;
-  }
-
-  &#tablefieldscontainer {
-    float: $right;
-    width: 29%;
-    margin-top: -20px;
-
-    select {
-      width: 100%;
-      background: #fff;
-      max-width: initial;
-    }
-  }
-}
-
 textarea {
   &#sqlquery {
     width: 100%;
@@ -1655,10 +1503,6 @@ textarea {
     width: 95%;
     display: block;
   }
-}
-
-div#queryboxcontainer div#bookmarkoptions {
-  margin-top: 0.5em;
 }
 
 /* end querybox */
@@ -1715,79 +1559,6 @@ li {
     border: 1px solid $border-color;
     display: block;
     margin-bottom: 20px;
-  }
-
-  &#li_select_lang {
-    display: block;
-    padding: 10px;
-    padding-#{$left}: 20px;
-    font-family: $font-family-light;
-
-    select {
-      margin: 0 !important;
-      height: 26px;
-    }
-
-    &:hover {
-      background: #f6f6f6;
-    }
-  }
-
-  &#li_select_mysql_collation {
-    display: block;
-    padding: 10px;
-    padding-#{$left}: 20px;
-    font-family: $font-family-light;
-
-    select {
-      margin: 0 !important;
-    }
-
-    &:hover {
-      background: #f6f6f6;
-    }
-  }
-
-  &#li_select_theme {
-    display: block;
-    padding: 10px;
-    padding-#{$left}: 20px;
-    font-family: $font-family-light;
-
-    select {
-      margin: 0 !important;
-    }
-
-    &::after {
-      content: "Scheme: #{$color-scheme}";
-      margin-#{$left}: 10px;
-    }
-
-    &:hover {
-      background: #f6f6f6;
-    }
-  }
-
-  &#li_change_password {
-    display: block;
-    padding: 10px;
-    padding-#{$left}: 20px;
-    font-family: $font-family-light;
-
-    &:hover {
-      background: #f6f6f6;
-    }
-  }
-
-  &#li_user_preferences {
-    display: block;
-    padding: 10px;
-    padding-#{$left}: 20px;
-    font-family: $font-family-light;
-
-    &:hover {
-      background: #f6f6f6;
-    }
   }
 
   &#li_switch_dbstats {
@@ -2404,7 +2175,6 @@ table#index_columns {
     padding-#{$left}: 0.5em;
     text-align: $left;
     vertical-align: top;
-    width: 40%;
   }
 
   .doc {
@@ -2490,25 +2260,6 @@ form {
     background: none;
     border: none;
   }
-
-  &#tableOptionsForm {
-    input[name="comment"],
-    select[name="tbl_collation"] {
-      width: 130px;
-    }
-  }
-
-  &#formDatabaseComment .tblFooters,
-  &#create_table_form_minimal .tblFooters,
-  &#rename_db_form .tblFooters,
-  &#copy_db_form .tblFooters,
-  &#change_db_charset_form .tblFooters,
-  &#alterTableOrderby .tblFooters,
-  &#moveTableForm .tblFooters,
-  &#copyTable .tblFooters,
-  &#tableOptionsForm .tblFooters {
-    margin-top: -40px;
-  }
 }
 
 #create_table_form_minimal {
@@ -2527,10 +2278,6 @@ form {
   td {
     line-height: 35px;
   }
-}
-
-#fieldset_delete_user_footer {
-  margin-top: -59px;
 }
 
 #db_or_table_specific_priv .tblFooters {
@@ -2722,6 +2469,9 @@ form.append_fields_form .tblFooters {
 }
 
 #table_columns {
+  display: block;
+  overflow: auto;
+
   input {
     &[type="text"],
     &[type="password"],
@@ -2865,6 +2615,7 @@ form.append_fields_form .tblFooters {
 .tooltip {
   background: #333 !important;
   opacity: 0.8 !important;
+  z-index: 9999;
   border: 1px solid #000 !important;
   font-size: 10px !important;
   font-weight: normal !important;
@@ -3121,6 +2872,10 @@ form.append_fields_form .tblFooters {
 
 body .ui-widget {
   font-size: 1em;
+}
+
+body #ui-datepicker-div {
+  z-index: 9999 !important;
 }
 
 .ui-dialog fieldset legend a {

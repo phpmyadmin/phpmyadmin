@@ -23,7 +23,7 @@ AJAX.registerOnload('server/user_groups.js', function () {
     $(document).on('click', 'a.deleteUserGroup.ajax', function (event) {
         event.preventDefault();
         var $link = $(this);
-        var groupName = $link.parents('tr').find('td:first').text();
+        var groupName = $link.parents('tr').find('td').first().text();
         var buttonOptions = {};
         buttonOptions[Messages.strGo] = function () {
             $(this).dialog('close');

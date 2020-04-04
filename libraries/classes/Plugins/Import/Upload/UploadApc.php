@@ -1,8 +1,6 @@
 <?php
 /**
  * Provides upload functionalities for the import plugins
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -10,11 +8,11 @@ namespace PhpMyAdmin\Plugins\Import\Upload;
 
 use PhpMyAdmin\Display\ImportAjax;
 use PhpMyAdmin\Plugins\UploadInterface;
+use function array_key_exists;
+use function trim;
 
 /**
  * Implementation for the APC extension
- *
- * @package PhpMyAdmin
  */
 class UploadApc implements UploadInterface
 {
@@ -51,7 +49,7 @@ class UploadApc implements UploadInterface
                 'percent'  => 0,
                 'total'    => 0,
                 'complete' => 0,
-                'plugin'   => UploadApc::getIdKey(),
+                'plugin'   => self::getIdKey(),
             ];
         }
         $ret = $_SESSION[$SESSION_KEY][$id];

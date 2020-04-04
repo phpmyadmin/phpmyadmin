@@ -1,19 +1,24 @@
 <?php
 /**
  * Generates and renders the top menu
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Html\Generator;
+use function array_key_exists;
+use function count;
+use function in_array;
+use function mb_strpos;
+use function mb_strstr;
+use function mb_substr;
+use function md5;
+use function preg_replace;
+use function strlen;
+use function substr;
 
 /**
  * Class for generating the top menu
- *
- * @package PhpMyAdmin
  */
 class Menu
 {
@@ -32,9 +37,7 @@ class Menu
      */
     private $_table;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
     /** @var Template */
@@ -264,12 +267,12 @@ class Menu
 
         $tabs['browse']['icon'] = 'b_browse';
         $tabs['browse']['text'] = __('Browse');
-        $tabs['browse']['link'] = Url::getFromRoute('/sql');
+        $tabs['browse']['route'] = '/sql';
         $tabs['browse']['args']['pos'] = 0;
         $tabs['browse']['active'] = $route === '/sql';
 
         $tabs['structure']['icon'] = 'b_props';
-        $tabs['structure']['link'] = Url::getFromRoute('/table/structure');
+        $tabs['structure']['route'] = '/table/structure';
         $tabs['structure']['text'] = __('Structure');
         $tabs['structure']['active'] = in_array($route, [
             '/table/relation',
@@ -277,28 +280,28 @@ class Menu
         ]);
 
         $tabs['sql']['icon'] = 'b_sql';
-        $tabs['sql']['link'] = Url::getFromRoute('/table/sql');
+        $tabs['sql']['route'] = '/table/sql';
         $tabs['sql']['text'] = __('SQL');
         $tabs['sql']['active'] = $route === '/table/sql';
 
         $tabs['search']['icon'] = 'b_search';
         $tabs['search']['text'] = __('Search');
-        $tabs['search']['link'] = Url::getFromRoute('/table/search');
+        $tabs['search']['route'] = '/table/search';
         $tabs['search']['active'] = in_array($route, [
-            '/table/find_replace',
+            '/table/find-replace',
             '/table/search',
-            '/table/zoom_select',
+            '/table/zoom-search',
         ]);
 
         if (! $db_is_system_schema && (! $tbl_is_view || $updatable_view)) {
             $tabs['insert']['icon'] = 'b_insrow';
-            $tabs['insert']['link'] = Url::getFromRoute('/table/change');
+            $tabs['insert']['route'] = '/table/change';
             $tabs['insert']['text'] = __('Insert');
             $tabs['insert']['active'] = $route === '/table/change';
         }
 
         $tabs['export']['icon'] = 'b_tblexport';
-        $tabs['export']['link'] = Url::getFromRoute('/table/export');
+        $tabs['export']['route'] = '/table/export';
         $tabs['export']['args']['single_table'] = 'true';
         $tabs['export']['text'] = __('Export');
         $tabs['export']['active'] = $route === '/table/export';
@@ -308,14 +311,14 @@ class Menu
          */
         if (! $tbl_is_view && ! $db_is_system_schema) {
             $tabs['import']['icon'] = 'b_tblimport';
-            $tabs['import']['link'] = Url::getFromRoute('/table/import');
+            $tabs['import']['route'] = '/table/import';
             $tabs['import']['text'] = __('Import');
             $tabs['import']['active'] = $route === '/table/import';
         }
         if (($is_superuser || $isCreateOrGrantUser)
             && ! $db_is_system_schema
         ) {
-            $tabs['privileges']['link'] = Url::getFromRoute('/server/privileges');
+            $tabs['privileges']['route'] = '/server/privileges';
             $tabs['privileges']['args']['checkprivsdb'] = $this->_db;
             $tabs['privileges']['args']['checkprivstable'] = $this->_table;
             // stay on table view
@@ -329,7 +332,7 @@ class Menu
          */
         if (! $tbl_is_view && ! $db_is_system_schema) {
             $tabs['operation']['icon'] = 'b_tblops';
-            $tabs['operation']['link'] = Url::getFromRoute('/table/operations');
+            $tabs['operation']['route'] = '/table/operations';
             $tabs['operation']['text'] = __('Operations');
             $tabs['operation']['active'] = $route === '/table/operations';
         }
@@ -338,7 +341,7 @@ class Menu
          */
         if ($tbl_is_view && ! $db_is_system_schema) {
             $tabs['operation']['icon'] = 'b_tblops';
-            $tabs['operation']['link'] = Url::getFromRoute('/view/operations');
+            $tabs['operation']['route'] = '/view/operations';
             $tabs['operation']['text'] = __('Operations');
             $tabs['operation']['active'] = $route === '/view/operations';
         }
@@ -346,7 +349,7 @@ class Menu
         if (Tracker::isActive() && ! $db_is_system_schema) {
             $tabs['tracking']['icon'] = 'eye';
             $tabs['tracking']['text'] = __('Tracking');
-            $tabs['tracking']['link'] = Url::getFromRoute('/table/tracking');
+            $tabs['tracking']['route'] = '/table/tracking';
             $tabs['tracking']['active'] = $route === '/table/tracking';
         }
         if (! $db_is_system_schema
@@ -357,7 +360,7 @@ class Menu
             )
             && ! $tbl_is_view
         ) {
-            $tabs['triggers']['link'] = Url::getFromRoute('/table/triggers');
+            $tabs['triggers']['route'] = '/table/triggers';
             $tabs['triggers']['text'] = __('Triggers');
             $tabs['triggers']['icon'] = 'b_triggers';
             $tabs['triggers']['active'] = $route === '/table/triggers';
@@ -388,19 +391,19 @@ class Menu
 
         $tabs = [];
 
-        $tabs['structure']['link'] = Url::getFromRoute('/database/structure');
+        $tabs['structure']['route'] = '/database/structure';
         $tabs['structure']['text'] = __('Structure');
         $tabs['structure']['icon'] = 'b_props';
         $tabs['structure']['active'] = $route === '/database/structure';
 
-        $tabs['sql']['link'] = Url::getFromRoute('/database/sql');
+        $tabs['sql']['route'] = '/database/sql';
         $tabs['sql']['text'] = __('SQL');
         $tabs['sql']['icon'] = 'b_sql';
         $tabs['sql']['active'] = $route === '/database/sql';
 
         $tabs['search']['text'] = __('Search');
         $tabs['search']['icon'] = 'b_search';
-        $tabs['search']['link'] = Url::getFromRoute('/database/search');
+        $tabs['search']['route'] = '/database/search';
         $tabs['search']['active'] = $route === '/database/search';
         if ($num_tables == 0) {
             $tabs['search']['warning'] = __('Database seems to be empty!');
@@ -408,33 +411,33 @@ class Menu
 
         $tabs['query']['text'] = __('Query');
         $tabs['query']['icon'] = 's_db';
-        $tabs['query']['link'] = Url::getFromRoute('/database/multi_table_query');
-        $tabs['query']['active'] = $route === '/database/multi_table_query' || $route === '/database/qbe';
+        $tabs['query']['route'] = '/database/multi-table-query';
+        $tabs['query']['active'] = $route === '/database/multi-table-query' || $route === '/database/qbe';
         if ($num_tables == 0) {
             $tabs['query']['warning'] = __('Database seems to be empty!');
         }
 
         $tabs['export']['text'] = __('Export');
         $tabs['export']['icon'] = 'b_export';
-        $tabs['export']['link'] = Url::getFromRoute('/database/export');
+        $tabs['export']['route'] = '/database/export';
         $tabs['export']['active'] = $route === '/database/export';
         if ($num_tables == 0) {
             $tabs['export']['warning'] = __('Database seems to be empty!');
         }
 
         if (! $db_is_system_schema) {
-            $tabs['import']['link'] = Url::getFromRoute('/database/import');
+            $tabs['import']['route'] = '/database/import';
             $tabs['import']['text'] = __('Import');
             $tabs['import']['icon'] = 'b_import';
             $tabs['import']['active'] = $route === '/database/import';
 
-            $tabs['operation']['link'] = Url::getFromRoute('/database/operations');
+            $tabs['operation']['route'] = '/database/operations';
             $tabs['operation']['text'] = __('Operations');
             $tabs['operation']['icon'] = 'b_tblops';
             $tabs['operation']['active'] = $route === '/database/operations';
 
             if ($is_superuser || $isCreateOrGrantUser) {
-                $tabs['privileges']['link'] = Url::getFromRoute('/server/privileges');
+                $tabs['privileges']['route'] = '/server/privileges';
                 $tabs['privileges']['args']['checkprivsdb'] = $this->_db;
                 // stay on database view
                 $tabs['privileges']['args']['viewing_mode'] = 'db';
@@ -443,20 +446,20 @@ class Menu
                 $tabs['privileges']['active'] = $route === '/server/privileges';
             }
 
-            $tabs['routines']['link'] = Url::getFromRoute('/database/routines');
+            $tabs['routines']['route'] = '/database/routines';
             $tabs['routines']['text'] = __('Routines');
             $tabs['routines']['icon'] = 'b_routines';
             $tabs['routines']['active'] = $route === '/database/routines';
 
             if (Util::currentUserHasPrivilege('EVENT', $this->_db)) {
-                $tabs['events']['link'] = Url::getFromRoute('/database/events');
+                $tabs['events']['route'] = '/database/events';
                 $tabs['events']['text'] = __('Events');
                 $tabs['events']['icon'] = 'b_events';
                 $tabs['events']['active'] = $route === '/database/events';
             }
 
             if (Util::currentUserHasPrivilege('TRIGGER', $this->_db)) {
-                $tabs['triggers']['link'] = Url::getFromRoute('/database/triggers');
+                $tabs['triggers']['route'] = '/database/triggers';
                 $tabs['triggers']['text'] = __('Triggers');
                 $tabs['triggers']['icon'] = 'b_triggers';
                 $tabs['triggers']['active'] = $route === '/database/triggers';
@@ -466,15 +469,14 @@ class Menu
         if (Tracker::isActive() && ! $db_is_system_schema) {
             $tabs['tracking']['text'] = __('Tracking');
             $tabs['tracking']['icon'] = 'eye';
-            $tabs['tracking']['link'] = Url::getFromRoute('/database/tracking');
+            $tabs['tracking']['route'] = '/database/tracking';
             $tabs['tracking']['active'] = $route === '/database/tracking';
         }
 
         if (! $db_is_system_schema) {
             $tabs['designer']['text'] = __('Designer');
             $tabs['designer']['icon'] = 'b_relations';
-            $tabs['designer']['link'] = Url::getFromRoute('/database/designer');
-            $tabs['designer']['id'] = 'designer_tab';
+            $tabs['designer']['route'] = '/database/designer';
             $tabs['designer']['active'] = $route === '/database/designer';
         }
 
@@ -483,8 +485,8 @@ class Menu
         ) {
             $tabs['central_columns']['text'] = __('Central columns');
             $tabs['central_columns']['icon'] = 'centralColumns';
-            $tabs['central_columns']['link'] = Url::getFromRoute('/database/central_columns');
-            $tabs['central_columns']['active'] = $route === '/database/central_columns';
+            $tabs['central_columns']['route'] = '/database/central-columns';
+            $tabs['central_columns']['active'] = $route === '/database/central-columns';
         }
         return $tabs;
     }
@@ -517,17 +519,17 @@ class Menu
         $tabs = [];
 
         $tabs['databases']['icon'] = 's_db';
-        $tabs['databases']['link'] = Url::getFromRoute('/server/databases');
+        $tabs['databases']['route'] = '/server/databases';
         $tabs['databases']['text'] = __('Databases');
         $tabs['databases']['active'] = $route === '/server/databases';
 
         $tabs['sql']['icon'] = 'b_sql';
-        $tabs['sql']['link'] = Url::getFromRoute('/server/sql');
+        $tabs['sql']['route'] = '/server/sql';
         $tabs['sql']['text'] = __('SQL');
         $tabs['sql']['active'] = $route === '/server/sql';
 
         $tabs['status']['icon'] = 's_status';
-        $tabs['status']['link'] = Url::getFromRoute('/server/status');
+        $tabs['status']['route'] = '/server/status';
         $tabs['status']['text'] = __('Status');
         $tabs['status']['active'] = in_array($route, [
             '/server/status',
@@ -540,65 +542,70 @@ class Menu
 
         if ($is_superuser || $isCreateOrGrantUser) {
             $tabs['rights']['icon'] = 's_rights';
-            $tabs['rights']['link'] = Url::getFromRoute('/server/privileges');
+            $tabs['rights']['route'] = '/server/privileges';
             $tabs['rights']['text'] = __('User accounts');
             $tabs['rights']['active'] = in_array($route, [
                 '/server/privileges',
-                '/server/user_groups',
+                '/server/user-groups',
             ]);
             $tabs['rights']['args']['viewing_mode'] = 'server';
         }
 
         $tabs['export']['icon'] = 'b_export';
-        $tabs['export']['link'] = Url::getFromRoute('/server/export');
+        $tabs['export']['route'] = '/server/export';
         $tabs['export']['text'] = __('Export');
         $tabs['export']['active'] = $route === '/server/export';
 
         $tabs['import']['icon'] = 'b_import';
-        $tabs['import']['link'] = Url::getFromRoute('/server/import');
+        $tabs['import']['route'] = '/server/import';
         $tabs['import']['text'] = __('Import');
         $tabs['import']['active'] = $route === '/server/import';
 
         $tabs['settings']['icon'] = 'b_tblops';
-        $tabs['settings']['link'] = Url::getFromRoute('/preferences/manage');
+        $tabs['settings']['route'] = '/preferences/manage';
         $tabs['settings']['text'] = __('Settings');
         $tabs['settings']['active'] = in_array($route, [
-            '/preferences/forms',
+            '/preferences/export',
+            '/preferences/features',
+            '/preferences/import',
+            '/preferences/main-panel',
             '/preferences/manage',
-            '/preferences/twofactor',
+            '/preferences/navigation',
+            '/preferences/sql',
+            '/preferences/two-factor',
         ]);
 
         if (! empty($binary_logs)) {
             $tabs['binlog']['icon'] = 's_tbl';
-            $tabs['binlog']['link'] = Url::getFromRoute('/server/binlog');
+            $tabs['binlog']['route'] = '/server/binlog';
             $tabs['binlog']['text'] = __('Binary log');
             $tabs['binlog']['active'] = $route === '/server/binlog';
         }
 
         if ($is_superuser) {
             $tabs['replication']['icon'] = 's_replication';
-            $tabs['replication']['link'] = Url::getFromRoute('/server/replication');
+            $tabs['replication']['route'] = '/server/replication';
             $tabs['replication']['text'] = __('Replication');
             $tabs['replication']['active'] = $route === '/server/replication';
         }
 
         $tabs['vars']['icon'] = 's_vars';
-        $tabs['vars']['link'] = Url::getFromRoute('/server/variables');
+        $tabs['vars']['route'] = '/server/variables';
         $tabs['vars']['text'] = __('Variables');
         $tabs['vars']['active'] = $route === '/server/variables';
 
         $tabs['charset']['icon'] = 's_asci';
-        $tabs['charset']['link'] = Url::getFromRoute('/server/collations');
+        $tabs['charset']['route'] = '/server/collations';
         $tabs['charset']['text'] = __('Charsets');
         $tabs['charset']['active'] = $route === '/server/collations';
 
         $tabs['engine']['icon'] = 'b_engine';
-        $tabs['engine']['link'] = Url::getFromRoute('/server/engines');
+        $tabs['engine']['route'] = '/server/engines';
         $tabs['engine']['text'] = __('Engines');
         $tabs['engine']['active'] = $route === '/server/engines';
 
         $tabs['plugins']['icon'] = 'b_plugin';
-        $tabs['plugins']['link'] = Url::getFromRoute('/server/plugins');
+        $tabs['plugins']['route'] = '/server/plugins';
         $tabs['plugins']['text'] = __('Plugins');
         $tabs['plugins']['active'] = $route === '/server/plugins';
 

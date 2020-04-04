@@ -1,7 +1,6 @@
 <?php
 /**
  * Displays status of phpMyAdmin configuration storage
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -12,10 +11,6 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 
-/**
- * Class CheckRelationsController
- * @package PhpMyAdmin\Controllers
- */
 class CheckRelationsController extends AbstractController
 {
     /** @var Relation */
@@ -33,13 +28,15 @@ class CheckRelationsController extends AbstractController
         $this->relation = $relation;
     }
 
-    /**
-     * @param array $params Request parameters
-     * @return string
-     */
-    public function index(array $params): string
+    public function index(): void
     {
         global $db;
+
+        $params = [
+            'create_pmadb' => $_POST['create_pmadb'] ?? null,
+            'fixall_pmadb' => $_POST['fixall_pmadb'] ?? null,
+            'fix_pmadb' => $_POST['fix_pmadb'] ?? null,
+        ];
 
         // If request for creating the pmadb
         if (isset($params['create_pmadb']) && $this->relation->createPmaDatabase()) {
@@ -57,6 +54,6 @@ class CheckRelationsController extends AbstractController
             $this->relation->fixPmaTables($cfgRelation['db']);
         }
 
-        return $this->relation->getRelationsParamDiagnostic($cfgRelation);
+        $this->response->addHTML($this->relation->getRelationsParamDiagnostic($cfgRelation));
     }
 }

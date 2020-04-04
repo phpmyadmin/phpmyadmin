@@ -1,9 +1,6 @@
 <?php
 /**
  * Selenium TestCase for table related tests
- *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  */
 declare(strict_types=1);
 
@@ -14,16 +11,12 @@ use PhpMyAdmin\Tests\Selenium\TestBase;
 /**
  * OperationsTest class
  *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  * @group      selenium
  */
 class OperationsTest extends TestBase
 {
     /**
      * Setup the browser environment to run the selenium test case
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -71,7 +64,7 @@ class OperationsTest extends TestBase
             'val'
         );
 
-        $this->byId('order_order_desc')->click();
+        $this->byId('tableOrderDescRadio')->click();
         $this->byCssSelector(
             "form#alterTableOrderby input[type='submit']"
         )->click();
@@ -229,9 +222,10 @@ class OperationsTest extends TestBase
      */
     public function testDropTable()
     {
-        $this->scrollToBottom();
-        $this->waitUntilElementIsVisible('id', 'drop_tbl_anchor', 30);
-        $this->byId('drop_tbl_anchor')->click();
+        $this->reloadPage();
+        $dropLink = $this->waitUntilElementIsVisible('partialLinkText', 'Delete the table (DROP)', 30);
+        $this->scrollToElement($this->byId('selflink'));
+        $dropLink->click();
         $this->byCssSelector('button.submitOK')->click();
         $this->waitAjax();
 
@@ -243,7 +237,7 @@ class OperationsTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            "//a[@class='tabactive' and contains(., 'Structure')]"
+            "//a[@class='nav-link text-nowrap' and contains(., 'Structure')]"
         );
 
         $result = $this->dbQuery('SHOW TABLES');

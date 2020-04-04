@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\SqlQueryForm
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -15,25 +13,20 @@ use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
+use function htmlspecialchars;
 
 /**
  * PhpMyAdmin\Tests\SqlQueryFormTest class
  *
  * this class is for testing PhpMyAdmin\SqlQueryForm methods
- *
- * @package PhpMyAdmin-test
  */
 class SqlQueryFormTest extends TestCase
 {
-    /**
-     * @var SqlQueryForm
-     */
+    /** @var SqlQueryForm */
     private $sqlQueryForm;
 
     /**
      * Test for setUp
-     *
-     * @return void
      */
     protected function setUp(): void
     {

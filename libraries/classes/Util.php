@@ -1,8 +1,6 @@
 <?php
 /**
  * Hold the PhpMyAdmin\Util class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -15,11 +13,84 @@ use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Token;
 use phpseclib\Crypt\Random;
 use stdClass;
+use function abs;
+use function array_key_exists;
+use function array_map;
+use function array_merge;
+use function array_shift;
+use function array_unique;
+use function basename;
+use function bin2hex;
+use function chr;
+use function class_exists;
+use function count;
+use function ctype_digit;
+use function date;
+use function decbin;
+use function defined;
+use function explode;
+use function extension_loaded;
+use function fclose;
+use function floatval;
+use function floor;
+use function fread;
+use function function_exists;
+use function html_entity_decode;
+use function htmlentities;
+use function htmlspecialchars;
+use function htmlspecialchars_decode;
+use function implode;
+use function in_array;
+use function is_array;
+use function is_object;
+use function is_string;
+use function log10;
+use function ltrim;
+use function mb_detect_encoding;
+use function mb_strlen;
+use function mb_strpos;
+use function mb_strrpos;
+use function mb_strstr;
+use function mb_strtolower;
+use function mb_substr;
+use function number_format;
+use function ord;
+use function parse_url;
+use function pow;
+use function preg_match;
+use function preg_quote;
+use function preg_replace;
+use function range;
+use function reset;
+use function round;
+use function rtrim;
+use function set_time_limit;
+use function sort;
+use function sprintf;
+use function str_pad;
+use function str_replace;
+use function strcasecmp;
+use function strftime;
+use function stripos;
+use function strlen;
+use function strpos;
+use function strrev;
+use function strtolower;
+use function strtoupper;
+use function strtr;
+use function substr;
+use function time;
+use function trim;
+use function uksort;
+use function version_compare;
+use const ENT_COMPAT;
+use const ENT_QUOTES;
+use const PHP_INT_SIZE;
+use const PREG_OFFSET_CAPTURE;
+use const STR_PAD_LEFT;
 
 /**
  * Misc functions used all over the scripts.
- *
- * @package PhpMyAdmin
  */
 class Util
 {
@@ -28,7 +99,7 @@ class Util
      *
      * @param string $value Configuration option name
      *
-     * @return boolean Whether to show icons.
+     * @return bool Whether to show icons.
      */
     public static function showIcons($value)
     {
@@ -40,7 +111,7 @@ class Util
      *
      * @param string $value Configuration option name
      *
-     * @return boolean Whether to show text.
+     * @return bool Whether to show text.
      */
     public static function showText($value)
     {
@@ -50,11 +121,11 @@ class Util
     /**
      * Returns the formatted maximum size for an upload
      *
-     * @param integer $max_upload_size the size
+     * @param int|string $max_upload_size the size
      *
      * @return string the message
      *
-     * @access  public
+     * @access public
      */
     public static function getFormattedMaximumUploadSize($max_upload_size)
     {
@@ -73,7 +144,7 @@ class Util
      *
      * @return string the escaped string
      *
-     * @access  public
+     * @access public
      */
     public static function escapeMysqlWildcards($name)
     {
@@ -88,7 +159,7 @@ class Util
      *
      * @return string   the escaped string
      *
-     * @access  public
+     * @access public
      */
     public static function unescapeMysqlWildcards($name)
     {
@@ -143,7 +214,7 @@ class Util
      *
      * @return string  the URL link
      *
-     * @access  public
+     * @access public
      */
     public static function getMySQLDocuURL($link, $anchor = '')
     {
@@ -157,7 +228,9 @@ class Util
         $lang = 'en';
         if (isset($GLOBALS['dbi'])) {
             $serverVersion = $GLOBALS['dbi']->getVersion();
-            if ($serverVersion >= 50700) {
+            if ($serverVersion >= 80000) {
+                $mysql = '8.0';
+            } elseif ($serverVersion >= 50700) {
                 $mysql = '5.7';
             } elseif ($serverVersion >= 50600) {
                 $mysql = '5.6';
@@ -175,13 +248,29 @@ class Util
     }
 
     /**
+     * Get a URL link to the official documentation page of either MySQL
+     * or MariaDB depending on the databse server
+     * of the user.
+     * @param bool $isMariaDB if the database server is MariaDB
+     *
+     * @return string The URL link
+     */
+    public static function getDocuURL(bool $isMariaDB = false): string
+    {
+        if ($isMariaDB) {
+            $url = 'https://mariadb.com/kb/en/documentation/';
+            return Core::linkURL($url);
+        }
+        return self::getMySQLDocuURL('');
+    }
+
+    /**
      * Check the correct row count
      *
      * @param string $db    the db name
      * @param array  $table the table infos
      *
      * @return int the possibly modified row count
-     *
      */
     private static function _checkRowCount($db, array $table)
     {
@@ -213,7 +302,7 @@ class Util
      *
      * @param string   $db           name of db
      * @param string   $tables       name of tables
-     * @param integer  $limit_offset list offset
+     * @param int      $limit_offset list offset
      * @param int|bool $limit_count  max tables to return
      *
      * @return array    (recursive) grouped table list
@@ -320,14 +409,14 @@ class Util
      *
      * </code>
      *
-     * @param mixed   $a_name the database, table or field name to "backquote"
-     *                        or array of it
-     * @param boolean $do_it  a flag to bypass this function (used by dump
-     *                        functions)
+     * @param array|string $a_name the database, table or field name to "backquote"
+     *                             or array of it
+     * @param bool         $do_it  a flag to bypass this function (used by dump
+     *                             functions)
      *
-     * @return mixed    the "backquoted" database, table or field name
+     * @return mixed the "backquoted" database, table or field name
      *
-     * @access  public
+     * @access public
      */
     public static function backquote($a_name, $do_it = true)
     {
@@ -344,20 +433,20 @@ class Util
      *
      * </code>
      *
-     * @param mixed   $a_name        the database, table or field name to
-     *                               "backquote" or array of it
-     * @param string  $compatibility string compatibility mode (used by dump
-     *                               functions)
-     * @param boolean $do_it         a flag to bypass this function (used by dump
-     *                               functions)
+     * @param array|string $a_name        the database, table or field name to
+     *                                    "backquote" or array of it
+     * @param string       $compatibility string compatibility mode (used by dump
+     *                                    functions)
+     * @param bool         $do_it         a flag to bypass this function (used by dump
+     *                                    functions)
      *
      * @return mixed the "backquoted" database, table or field name
      *
-     * @access  public
+     * @access public
      */
     public static function backquoteCompat(
         $a_name,
-        $compatibility = 'MSSQL',
+        string $compatibility = 'MSSQL',
         $do_it = true
     ) {
         if (is_array($a_name)) {
@@ -387,7 +476,7 @@ class Util
 
         // '0' is also empty for php :-(
         if (strlen((string) $a_name) > 0 && $a_name !== '*') {
-            return $quote . str_replace($quote, $escapeChar . $quote, $a_name) . $quote;
+            return $quote . str_replace($quote, $escapeChar . $quote, (string) $a_name) . $quote;
         }
 
         return $a_name;
@@ -396,9 +485,9 @@ class Util
     /**
      * Verifies if current MySQL server supports profiling
      *
-     * @access  public
+     * @return bool whether profiling is supported
      *
-     * @return boolean whether profiling is supported
+     * @access public
      */
     public static function profilingSupported()
     {
@@ -420,13 +509,13 @@ class Util
     /**
      * Formats $value to byte view
      *
-     * @param double|int $value the value to format
-     * @param int        $limes the sensitiveness
-     * @param int        $comma the number of decimals to retain
+     * @param float|int|string|null $value the value to format
+     * @param int                   $limes the sensitiveness
+     * @param int                   $comma the number of decimals to retain
      *
      * @return array|null the formatted value and its unit
      *
-     * @access  public
+     * @access public
      */
     public static function formatByteDown($value, $limes = 6, $comma = 0)
     {
@@ -481,7 +570,6 @@ class Util
         ];
     } // end of the 'formatByteDown' function
 
-
     /**
      * Formats $value to the given length and appends SI prefixes
      * with a $length of 0 no truncation occurs, number is only formatted
@@ -497,16 +585,15 @@ class Util
      * echo formatNumber(0, 6);             //       0
      * </code>
      *
-     * @param double  $value          the value to format
-     * @param integer $digits_left    number of digits left of the comma
-     * @param integer $digits_right   number of digits right of the comma
-     * @param boolean $only_down      do not reformat numbers below 1
-     * @param boolean $noTrailingZero removes trailing zeros right of the comma
-     *                                (default: true)
+     * @param float|int|string $value          the value to format
+     * @param int              $digits_left    number of digits left of the comma
+     * @param int              $digits_right   number of digits right of the comma
+     * @param bool             $only_down      do not reformat numbers below 1
+     * @param bool             $noTrailingZero removes trailing zeros right of the comma (default: true)
      *
      * @return string   the formatted value and its unit
      *
-     * @access  public
+     * @access public
      */
     public static function formatNumber(
         $value,
@@ -623,7 +710,7 @@ class Util
      *
      * @param string $formatted_size the size expression (for example 8MB)
      *
-     * @return integer  The numerical part of the expression (for example 8)
+     * @return int The numerical part of the expression (for example 8)
      */
     public static function extractValueFromFormattedSize($formatted_size)
     {
@@ -656,12 +743,12 @@ class Util
     /**
      * Writes localised date
      *
-     * @param integer $timestamp the current timestamp
-     * @param string  $format    format
+     * @param int    $timestamp the current timestamp
+     * @param string $format    format
      *
      * @return string   the formatted date
      *
-     * @access  public
+     * @access public
      */
     public static function localisedDate($timestamp = -1, $format = '')
     {
@@ -709,7 +796,7 @@ class Util
         ];
 
         if ($format == '') {
-            /* l10n: See https://secure.php.net/manual/en/function.strftime.php */
+            /* l10n: See https://www.php.net/manual/en/function.strftime.php */
             $format = __('%B %d, %Y at %I:%M %p');
         }
 
@@ -737,10 +824,12 @@ class Util
         }
         $date = preg_replace('@%[pP]@', $am_pm, $date);
 
+        // Can return false on windows for Japanese language
+        // See https://github.com/phpmyadmin/phpmyadmin/issues/15830
         $ret = strftime($date, (int) $timestamp);
         // Some OSes such as Win8.1 Traditional Chinese version did not produce UTF-8
         // output here. See https://github.com/phpmyadmin/phpmyadmin/issues/10598
-        if (mb_detect_encoding($ret, 'UTF-8', true) != 'UTF-8') {
+        if ($ret === false || mb_detect_encoding($ret, 'UTF-8', true) != 'UTF-8') {
             $ret = date('Y-m-d H:i:s', (int) $timestamp);
         }
 
@@ -816,7 +905,7 @@ class Util
      *
      * @param string[] $params  The names of the parameters needed by the calling
      *                          script
-     * @param boolean  $request Check parameters in request
+     * @param bool     $request Check parameters in request
      *
      * @return void
      *
@@ -851,20 +940,20 @@ class Util
     /**
      * Function to generate unique condition for specified row.
      *
-     * @param resource       $handle               current query result
-     * @param integer        $fields_cnt           number of fields
-     * @param stdClass[]     $fields_meta          meta information about fields
-     * @param array          $row                  current row
-     * @param boolean        $force_unique         generate condition only on pk
-     *                                             or unique
-     * @param string|boolean $restrict_to_table    restrict the unique condition
-     *                                             to this table or false if
-     *                                             none
-     * @param array|null     $analyzed_sql_results the analyzed query
-     *
-     * @access public
+     * @param resource    $handle               current query result
+     * @param int         $fields_cnt           number of fields
+     * @param stdClass[]  $fields_meta          meta information about fields
+     * @param array       $row                  current row
+     * @param bool        $force_unique         generate condition only on pk
+     *                                          or unique
+     * @param string|bool $restrict_to_table    restrict the unique condition
+     *                                          to this table or false if
+     *                                          none
+     * @param array|null  $analyzed_sql_results the analyzed query
      *
      * @return array the calculated condition and whether condition is unique
+     *
+     * @access public
      */
     public static function getUniqueCondition(
         $handle,
@@ -954,8 +1043,8 @@ class Util
                     && ($meta->type != 'real')
                 ) {
                     $con_val = '= ' . $row[$i];
-                } elseif ((($meta->type == 'blob') || ($meta->type == 'string'))
-                    && false !== stripos($field_flags, 'BINARY')
+                } elseif (($meta->type == 'blob') || ($meta->type == 'string')
+                    && stripos($field_flags, 'BINARY') !== false
                     && ! empty($row[$i])
                 ) {
                     // hexify only if this is a true not empty BLOB or a BINARY
@@ -1036,8 +1125,8 @@ class Util
     /**
      * Generate the charset query part
      *
-     * @param string  $collation Collation
-     * @param boolean $override  (optional) force 'CHARACTER SET' keyword
+     * @param string $collation Collation
+     * @param bool   $override  (optional) force 'CHARACTER SET' keyword
      *
      * @return string
      */
@@ -1073,7 +1162,7 @@ class Util
      *
      * @return string
      *
-     * @access  public
+     * @access public
      */
     public static function pageselector(
         $name,
@@ -1088,8 +1177,8 @@ class Util
         $prompt = ''
     ) {
         $increment = floor($nbTotalPage / $percent);
-        $pageNowMinusRange = ($pageNow - $range);
-        $pageNowPlusRange = ($pageNow + $range);
+        $pageNowMinusRange = $pageNow - $range;
+        $pageNowPlusRange = $pageNow + $range;
 
         $gotopage = $prompt . ' <select class="pageselector ajax"';
 
@@ -1196,12 +1285,14 @@ class Util
         return $gotopage;
     } // end function
 
-
     /**
      * Calculate page number through position
+     *
      * @param int $pos       position of first item
      * @param int $max_count number of items per page
+     *
      * @return int $page_num
+     *
      * @access public
      */
     public static function getPageFromPosition($pos, $max_count)
@@ -1263,7 +1354,7 @@ class Util
      *
      * @param string $var variable name
      *
-     * @return boolean
+     * @return bool
      */
     public static function cacheExists($var)
     {
@@ -1363,13 +1454,13 @@ class Util
      * Converts a BIT type default value
      * for example, b'010' becomes 010
      *
-     * @param string $bit_default_value value
+     * @param string|null $bitDefaultValue value
      *
      * @return string the converted value
      */
-    public static function convertBitDefaultValue($bit_default_value)
+    public static function convertBitDefaultValue(?string $bitDefaultValue): string
     {
-        return rtrim(ltrim(htmlspecialchars_decode($bit_default_value, ENT_QUOTES), "b'"), "'");
+        return (string) preg_replace("/^b'(\d*)'?$/", '$1', htmlspecialchars_decode((string) $bitDefaultValue, ENT_QUOTES), 1);
     }
 
     /**
@@ -1403,7 +1494,7 @@ class Util
             $spec_in_brackets = '';
         }
 
-        if ('enum' == $type || 'set' == $type) {
+        if ($type == 'enum' || $type == 'set') {
             // Define our working vars
             $enum_set_values = self::parseEnumSetValues($columnspec, false);
             $printtype = $type
@@ -1421,7 +1512,7 @@ class Util
             // this would be a BINARY or VARBINARY column type;
             // by the way, a BLOB should not show the BINARY attribute
             // because this is not accepted in MySQL syntax.
-            if (false !== strpos($printtype, 'binary')
+            if (strpos($printtype, 'binary') !== false
                 && ! preg_match('@binary[\(]@', $printtype)
             ) {
                 $printtype = str_replace('binary', '', $printtype);
@@ -1478,7 +1569,7 @@ class Util
                 mb_substr(
                     $printtype,
                     0,
-                    $GLOBALS['cfg']['LimitChars']
+                    (int) $GLOBALS['cfg']['LimitChars']
                 ) . '...'
             );
             $displayed_type .= '</abbr>';
@@ -1503,7 +1594,7 @@ class Util
      *
      * @param string $engine engine
      *
-     * @return boolean
+     * @return bool
      */
     public static function isForeignKeySupported($engine)
     {
@@ -1535,7 +1626,7 @@ class Util
         } elseif ($GLOBALS['cfg']['DefaultForeignKeyChecks'] === 'disable') {
             return false;
         }
-        return ($GLOBALS['dbi']->getVariable('FOREIGN_KEY_CHECKS') == 'ON');
+        return $GLOBALS['dbi']->getVariable('FOREIGN_KEY_CHECKS') == 'ON';
     }
 
     /**
@@ -1775,14 +1866,14 @@ class Util
         /* Optional escaping */
         if ($escape !== null) {
             if (is_array($escape)) {
-                $escape_class = new $escape[1];
+                $escape_class = new $escape[1]();
                 $escape_method = $escape[0];
             }
             foreach ($replace as $key => $val) {
                 if (isset($escape_class, $escape_method)) {
                     $replace[$key] = $escape_class->$escape_method($val);
                 } else {
-                    $replace[$key] = ($escape == 'backquote')
+                    $replace[$key] = $escape == 'backquote'
                         ? self::$escape($val)
                         : $escape($val);
                 }
@@ -1831,7 +1922,6 @@ class Util
      * @param string $selected The value to mark as selected in HTML mode
      *
      * @return mixed   An HTML snippet or an array of datatypes.
-     *
      */
     public static function getSupportedDatatypes($html = false, $selected = '')
     {
@@ -1903,7 +1993,7 @@ class Util
      */
     public static function createGISData($gis_string, $mysqlVersion)
     {
-        $geomFromText = ($mysqlVersion >= 50600) ? 'ST_GeomFromText' : 'GeomFromText';
+        $geomFromText = $mysqlVersion >= 50600 ? 'ST_GeomFromText' : 'GeomFromText';
         $gis_string = trim($gis_string);
         $geom_types = '(POINT|MULTIPOINT|LINESTRING|MULTILINESTRING|'
             . 'POLYGON|MULTIPOLYGON|GEOMETRYCOLLECTION)';
@@ -2293,7 +2383,7 @@ class Util
 
         for ($i = 0, $length = mb_strlen($values_string); $i < $length; $i++) {
             $curr = mb_substr($values_string, $i, 1);
-            $next = ($i == mb_strlen($values_string) - 1)
+            $next = $i == mb_strlen($values_string) - 1
                 ? ''
                 : mb_substr($values_string, $i + 1, 1);
 
@@ -2334,11 +2424,11 @@ class Util
      * Get regular expression which occur first inside the given sql query.
      *
      * @param array  $regex_array Comparing regular expressions.
-     * @param String $query       SQL query to be checked.
+     * @param string $query       SQL query to be checked.
      *
-     * @return String Matching regular expression.
+     * @return string Matching regular expression.
      */
-    public static function getFirstOccurringRegularExpression(array $regex_array, $query)
+    public static function getFirstOccurringRegularExpression(array $regex_array, $query): string
     {
         $minimum_first_occurence_index = null;
         $regex = null;
@@ -2566,7 +2656,6 @@ class Util
      * @param string|null $sub_part part of script name
      *
      * @return array
-     *
      */
     public static function getDbInfo($db, ?string $sub_part)
     {
@@ -2610,7 +2699,7 @@ class Util
         $tooltip_aliasname = [];
 
         // Special speedup for newer MySQL Versions (in 4.0 format changed)
-        if (true === $cfg['SkipLockedTables']) {
+        if ($cfg['SkipLockedTables'] === true) {
             $db_info_result = $GLOBALS['dbi']->query(
                 'SHOW OPEN TABLES FROM ' . self::backquote($db) . ' WHERE In_use > 0;'
             );
@@ -2742,7 +2831,6 @@ class Util
      * @param object $db_info_result result set
      *
      * @return array list of tables
-     *
      */
     public static function getTablesWhenOpen($db, $db_info_result)
     {
@@ -2862,10 +2950,8 @@ class Util
     /**
      * Generates random string consisting of ASCII chars
      *
-     * @param integer $length Length of string
-     * @param bool    $asHex  (optional) Send the result as hex
-     *
-     * @return string
+     * @param int  $length Length of string
+     * @param bool $asHex  (optional) Send the result as hex
      */
     public static function generateRandom(int $length, bool $asHex = false): string
     {
@@ -2914,7 +3000,7 @@ class Util
     {
         // The function can be disabled in php.ini
         if (function_exists('set_time_limit')) {
-            @set_time_limit($GLOBALS['cfg']['ExecTimeLimit']);
+            @set_time_limit((int) $GLOBALS['cfg']['ExecTimeLimit']);
         }
     }
 
@@ -3040,8 +3126,6 @@ class Util
      * Check that input is an int or an int in a string
      *
      * @param mixed $input input to check
-     *
-     * @return bool
      */
     public static function isInteger($input): bool
     {
@@ -3079,5 +3163,32 @@ class Util
         $titles['NoFavorite'] = Generator::getIcon('b_no_favorite', '');
 
         return $titles;
+    }
+
+    /**
+     * Get the protocol from the RFC 7239 Forwarded header
+     * @param string $headerContents The Forwarded header contents
+     * @return string the protocol http/https
+     */
+    public static function getProtoFromForwardedHeader(string $headerContents): string
+    {
+        if (strpos($headerContents, '=') !== false) {// does not contain any equal sign
+            $hops = explode(',', $headerContents);
+            $parts = explode(';', $hops[0]);
+            foreach ($parts as $part) {
+                $keyValueArray = explode('=', $part, 2);
+                if (count($keyValueArray) === 2) {
+                    [
+                        $keyName,
+                        $value,
+                    ] = $keyValueArray;
+                    $value = trim(strtolower($value));
+                    if (strtolower(trim($keyName)) === 'proto' && in_array($value, ['http', 'https'])) {
+                        return $value;
+                    }
+                }
+            }
+        }
+        return '';
     }
 }

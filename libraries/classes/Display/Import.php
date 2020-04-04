@@ -1,8 +1,6 @@
 <?php
 /**
  * functions for displaying import for: server, database and table
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -11,17 +9,18 @@ namespace PhpMyAdmin\Display;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Display\ImportAjax;
 use PhpMyAdmin\Encoding;
+use PhpMyAdmin\FileListing;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Util;
+use function function_exists;
+use function intval;
 
 /**
  * PhpMyAdmin\Display\Import class
- *
- * @package PhpMyAdmin
  */
 class Import
 {
@@ -111,16 +110,49 @@ class Import
             'import_list' => $importList,
             'local_import_file' => $localImportFile,
             'is_upload' => $GLOBALS['is_upload'],
-            'upload_dir' => isset($cfg['UploadDir']) ? $cfg['UploadDir'] : null,
-            'timeout_passed_global' => isset($GLOBALS['timeout_passed']) ? $GLOBALS['timeout_passed'] : null,
+            'upload_dir' => $cfg['UploadDir'] ?? null,
+            'timeout_passed_global' => $GLOBALS['timeout_passed'] ?? null,
             'compressions' => $compressions,
             'is_encoding_supported' => Encoding::isSupported(),
             'encodings' => Encoding::listEncodings(),
-            'import_charset' => isset($cfg['Import']['charset']) ? $cfg['Import']['charset'] : null,
-            'timeout_passed' => isset($timeoutPassed) ? $timeoutPassed : null,
-            'offset' => isset($offset) ? $offset : null,
+            'import_charset' => $cfg['Import']['charset'] ?? null,
+            'timeout_passed' => $timeoutPassed ?? null,
+            'offset' => $offset ?? null,
             'can_convert_kanji' => Encoding::canConvertKanji(),
             'charsets' => $charsets,
+            'is_foreign_key_check' => Util::isForeignKeyCheck(),
+            'user_upload_dir' => Util::userDir($cfg['UploadDir'] ?? ''),
+            'local_files' => self::getLocalFiles($importList),
         ]);
+    }
+
+    /**
+     * @param array $importList List of plugin instances.
+     *
+     * @return false|string
+     */
+    private static function getLocalFiles(array $importList)
+    {
+        $fileListing = new FileListing();
+
+        $extensions = '';
+        foreach ($importList as $importPlugin) {
+            if (! empty($extensions)) {
+                $extensions .= '|';
+            }
+            $extensions .= $importPlugin->getProperties()->getExtension();
+        }
+
+        $matcher = '@\.(' . $extensions . ')(\.(' . $fileListing->supportedDecompressions() . '))?$@';
+
+        $active = isset($GLOBALS['timeout_passed'], $GLOBALS['local_import_file']) && $GLOBALS['timeout_passed']
+            ? $GLOBALS['local_import_file']
+            : '';
+
+        return $fileListing->getFileSelectOptions(
+            Util::userDir($GLOBALS['cfg']['UploadDir'] ?? ''),
+            $matcher,
+            $active
+        );
     }
 }

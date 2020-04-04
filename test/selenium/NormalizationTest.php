@@ -1,9 +1,6 @@
 <?php
 /**
  * Selenium TestCase for normalization
- *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  */
 declare(strict_types=1);
 
@@ -12,16 +9,12 @@ namespace PhpMyAdmin\Tests\Selenium;
 /**
  * PMA_SeleniumNormalizationTest class
  *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  * @group      selenium
  */
 class NormalizationTest extends TestBase
 {
     /**
      * Setup the browser environment to run the selenium test case
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -63,12 +56,12 @@ class NormalizationTest extends TestBase
         );
         $this->assertEquals(
             'First step of normalization (1NF)',
-            $this->byCssSelector('label[for=normalizeTo_1nf]')->getText()
+            $this->byCssSelector('label[for=normalizeToRadio1]')->getText()
         );
         $this->assertTrue(
             $this->isElementPresent(
                 'cssSelector',
-                'input[id=normalizeTo_1nf][type=radio]:checked'
+                'input[id=normalizeToRadio1][type=radio]:checked'
             )
         );
         $this->byCssSelector('input[name=submit_normalize]')->click();

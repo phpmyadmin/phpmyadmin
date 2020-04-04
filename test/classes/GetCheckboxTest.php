@@ -2,7 +2,6 @@
 /**
  * * Test for checkbox.phtml
  *
- * @package PhpMyAdmin-test
  * @group common.lib-tests
  */
 declare(strict_types=1);
@@ -15,20 +14,15 @@ use PHPUnit\Framework\TestCase;
 /**
  * * Test for checkbox.phtml
  *
- * @package PhpMyAdmin-test
  * @group common.lib-tests
  */
 class GetCheckboxTest extends TestCase
 {
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
     /**
      * Sets up the fixture
-     *
-     * @return void
      */
     protected function setUp(): void
     {

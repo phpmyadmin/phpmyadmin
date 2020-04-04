@@ -1,8 +1,6 @@
 <?php
 /**
  * Abstract class for the schema export plugins
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -17,8 +15,6 @@ use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
  * schema export plugins. Some of the plugins will also implement other public
  * methods, but those are not declared here, because they are not implemented
  * by all export plugins.
- *
- * @package PhpMyAdmin
  */
 abstract class SchemaPlugin
 {

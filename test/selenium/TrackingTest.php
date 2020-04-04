@@ -1,9 +1,6 @@
 <?php
 /**
  * Selenium TestCase for tracking related tests
- *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  */
 declare(strict_types=1);
 
@@ -12,16 +9,12 @@ namespace PhpMyAdmin\Tests\Selenium;
 /**
  * TrackingTest class
  *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  * @group      selenium
  */
 class TrackingTest extends TestBase
 {
     /**
      * Setup the browser environment to run the selenium test case
-     *
-     * @return void
      */
     protected function setUp(): void
     {

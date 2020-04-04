@@ -1,23 +1,17 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\VersionInformation;
+use function json_encode;
 
 /**
  * A caching proxy for retrieving version information from https://www.phpmyadmin.net/.
- * @package PhpMyAdmin\Controllers
  */
 class VersionCheckController extends AbstractController
 {
-    /**
-     * @return void
-     */
     public function index(): void
     {
         $_GET['ajax_request'] = 'true';

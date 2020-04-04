@@ -123,15 +123,14 @@ var ErrorReport = {
         ErrorReport.removeErrorNotification();
 
         var $div = $(
-            '<div style="position:fixed;bottom:0;left:0;right:0;margin:0;' +
-            'z-index:1000" class="alert alert-danger" role="alert" id="error_notification"></div>'
+            '<div class="alert alert-danger userPermissionModal" role="alert" id="error_notification"></div>'
         ).append(
             Functions.getImage('s_error') + Messages.strErrorOccurred
         );
 
         var $buttons = $('<div class="floatright"></div>');
 
-        var buttonHtml  = '<button id="show_error_report">';
+        var buttonHtml  = '<button class="btn btn-primary" id="show_error_report">';
         buttonHtml += Messages.strShowReportDetails;
         buttonHtml += '</button>';
 
@@ -199,7 +198,7 @@ var ErrorReport = {
      * @return void
      */
     redirectToSettings: function () {
-        window.location.href = 'index.php?route=/preferences/forms';
+        window.location.href = 'index.php?route=/preferences/features';
     },
     /**
      * Returns the report data to send to the server

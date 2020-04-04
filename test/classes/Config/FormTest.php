@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for Form class in config folder
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,23 +12,19 @@ use PhpMyAdmin\Config\Form;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionClass;
 use ReflectionProperty;
+use function array_keys;
+use function preg_match;
 
 /**
  * Tests for PMA_Form class
- *
- * @package PhpMyAdmin-test
  */
 class FormTest extends PmaTestCase
 {
-    /**
-     * @var Form
-     */
+    /** @var Form */
     protected $object;
 
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -50,8 +44,6 @@ class FormTest extends PmaTestCase
 
     /**
      * tearDown for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -62,6 +54,7 @@ class FormTest extends PmaTestCase
      * Test for Form::__constructor
      *
      * @return void
+     *
      * @group medium
      */
     public function testContructor()
@@ -305,5 +298,34 @@ class FormTest extends PmaTestCase
             'pmaform',
             $this->object->name
         );
+    }
+
+    /**
+     * Test for Form::cleanGroupPaths
+     *
+     * @return void
+     */
+    public function testCleanGroupPaths(): void
+    {
+        $this->object = $this->getMockBuilder(Form::class)
+            ->disableOriginalConstructor()
+            ->setMethods(['readFormPaths', 'readTypes'])
+            ->getMock();
+
+        $this->object->expects($this->exactly(1))->method('readFormPaths')->with([
+            ':group:OpenDocument-OpenOffice 試算表',
+            'group:test/data',
+            'Export/ods_columns',
+            'Export/ods_null',
+            ':group:end',
+        ]);
+
+        $this->object->loadForm('pmaform', [
+            ':group:OpenDocument/OpenOffice 試算表',
+            'group:test/data',
+            'Export/ods_columns',
+            'Export/ods_null',
+            ':group:end',
+        ]);
     }
 }

@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\Display\Error
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -16,21 +14,16 @@ use Twig_Error_Loader;
 use Twig_Error_Runtime;
 use Twig_Error_Syntax;
 
-require_once ROOT_PATH . 'libraries/config.default.php';
-
 /**
  * ErrorTest class
  *
  * this class is for testing PhpMyAdmin\Display\Error functions
- *
- * @package PhpMyAdmin-test
  */
 class ErrorTest extends TestCase
 {
     /**
      * Test for Error::display
      *
-     * @return void
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime
@@ -58,7 +51,6 @@ class ErrorTest extends TestCase
     /**
      * Test for Error::display
      *
-     * @return void
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime

@@ -1,33 +1,26 @@
 <?php
 /**
  * Tests for Table.php
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use ReflectionClass;
 use stdClass;
 
 /**
  * Tests behaviour of Table class
- *
- * @package PhpMyAdmin-test
  */
 class TableTest extends PmaTestCase
 {
     /**
      * Configures environment
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -51,6 +44,7 @@ class TableTest extends PmaTestCase
         {
             /**
              * @param mixed $name name
+             *
              * @return bool
              */
             public function exists($name)
@@ -59,37 +53,37 @@ class TableTest extends PmaTestCase
             }
         };
 
-        $sql_isView_true =  "SELECT TABLE_NAME
-            FROM information_schema.VIEWS
-            WHERE TABLE_SCHEMA = 'PMA'
-                AND TABLE_NAME = 'PMA_BookMark'";
+        $sql_isView_true =  'SELECT TABLE_NAME'
+            . ' FROM information_schema.VIEWS'
+            . ' WHERE TABLE_SCHEMA = \'PMA\''
+            . ' AND TABLE_NAME = \'PMA_BookMark\'';
 
-        $sql_isView_false =  "SELECT TABLE_NAME
-            FROM information_schema.VIEWS
-            WHERE TABLE_SCHEMA = 'PMA'
-                AND TABLE_NAME = 'PMA_BookMark_2'";
+        $sql_isView_false =  'SELECT TABLE_NAME'
+            . ' FROM information_schema.VIEWS'
+            . ' WHERE TABLE_SCHEMA = \'PMA\''
+            . ' AND TABLE_NAME = \'PMA_BookMark_2\'';
 
-        $sql_isUpdatableView_true = "SELECT TABLE_NAME
-            FROM information_schema.VIEWS
-            WHERE TABLE_SCHEMA = 'PMA'
-                AND TABLE_NAME = 'PMA_BookMark'
-                AND IS_UPDATABLE = 'YES'";
+        $sql_isUpdatableView_true = 'SELECT TABLE_NAME'
+            . ' FROM information_schema.VIEWS'
+            . ' WHERE TABLE_SCHEMA = \'PMA\''
+            . ' AND TABLE_NAME = \'PMA_BookMark\''
+            . ' AND IS_UPDATABLE = \'YES\'';
 
-        $sql_isUpdatableView_false = "SELECT TABLE_NAME
-            FROM information_schema.VIEWS
-            WHERE TABLE_SCHEMA = 'PMA'
-                AND TABLE_NAME = 'PMA_BookMark_2'
-                AND IS_UPDATABLE = 'YES'";
+        $sql_isUpdatableView_false = 'SELECT TABLE_NAME'
+            . ' FROM information_schema.VIEWS'
+            . ' WHERE TABLE_SCHEMA = \'PMA\''
+            . ' AND TABLE_NAME = \'PMA_BookMark_2\''
+            . ' AND IS_UPDATABLE = \'YES\'';
 
-        $sql_analyzeStructure_true = "SELECT COLUMN_NAME, DATA_TYPE
-                FROM information_schema.COLUMNS
-                WHERE TABLE_SCHEMA = 'PMA'
-                AND TABLE_NAME = 'PMA_BookMark'";
+        $sql_analyzeStructure_true = 'SELECT COLUMN_NAME, DATA_TYPE'
+            . ' FROM information_schema.COLUMNS'
+            . ' WHERE TABLE_SCHEMA = \'PMA\''
+            . ' AND TABLE_NAME = \'PMA_BookMark\'';
 
-        $sql_copy_data = "SELECT TABLE_NAME
-            FROM information_schema.VIEWS
-            WHERE TABLE_SCHEMA = 'db_data'
-                AND TABLE_NAME = 'table_data'";
+        $sql_copy_data = 'SELECT TABLE_NAME'
+            . ' FROM information_schema.VIEWS'
+            . ' WHERE TABLE_SCHEMA = \'db_data\''
+            . ' AND TABLE_NAME = \'table_data\'';
 
         $getUniqueColumns_sql = 'select unique column';
 
@@ -219,7 +213,7 @@ class TableTest extends PmaTestCase
             ],
         ];
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -402,11 +396,9 @@ class TableTest extends PmaTestCase
     /**
      * Test name validation
      *
-     * @param string  $name          name to test
-     * @param boolean $result        expected result
-     * @param boolean $is_backquoted is backquoted
-     *
-     * @return void
+     * @param string $name          name to test
+     * @param bool   $result        expected result
+     * @param bool   $is_backquoted is backquoted
      *
      * @dataProvider dataValidateName
      */
@@ -708,8 +700,162 @@ class TableTest extends PmaTestCase
             . "COMMENT 'PMA_comment' FIRST",
             $query
         );
-    }
 
+        $default_type = 'NONE';
+        $move_to = '-first';
+        $query = Table::generateFieldSpec(
+            'ids',
+            'INT',
+            '11',
+            $attribute,
+            $collation,
+            $null,
+            $default_type,
+            $default_value,
+            'AUTO_INCREMENT',
+            $comment,
+            $virtuality,
+            $expression,
+            $move_to,
+            ['id'],
+            'id'
+        );
+        $this->assertEquals(
+            '`ids` INT(11) PMA_attribute NULL AUTO_INCREMENT '
+            . "COMMENT 'PMA_comment' FIRST",
+            $query
+        );
+
+        $default_type = 'NONE';
+        $move_to = '-first';
+        $query = Table::generateFieldSpec(
+            'ids',
+            'INT',
+            '11',
+            $attribute,
+            $collation,
+            $null,
+            $default_type,
+            $default_value,
+            'AUTO_INCREMENT',
+            $comment,
+            $virtuality,
+            $expression,
+            $move_to,
+            ['othercol'],
+            'id'
+        );
+        // Add primary key for AUTO_INCREMENT if missing
+        $this->assertEquals(
+            '`ids` INT(11) PMA_attribute NULL AUTO_INCREMENT '
+            . "COMMENT 'PMA_comment' FIRST, add PRIMARY KEY (`ids`)",
+            $query
+        );
+
+        $default_type = 'NONE';
+        $move_to = '-first';
+        $query = Table::generateFieldSpec(
+            'id',
+            'INT',
+            '11',
+            $attribute,
+            $collation,
+            $null,
+            $default_type,
+            $default_value,
+            'DEF',
+            $comment,
+            $virtuality,
+            $expression,
+            $move_to,
+            ['id'],
+            'id'
+        );
+        // Do not add PK
+        $this->assertEquals(
+            '`id` INT(11) PMA_attribute NULL DEF '
+            . "COMMENT 'PMA_comment' FIRST",
+            $query
+        );
+
+        $default_type = 'NONE';
+        $move_to = '-first';
+        $query = Table::generateFieldSpec(
+            'ids',
+            'INT',
+            '11',
+            $attribute,
+            $collation,
+            $null,
+            $default_type,
+            $default_value,
+            'DEF',
+            $comment,
+            $virtuality,
+            $expression,
+            $move_to,
+            ['id'],
+            'id'
+        );
+        // Do not add PK
+        $this->assertEquals(
+            '`ids` INT(11) PMA_attribute NULL DEF '
+            . "COMMENT 'PMA_comment' FIRST",
+            $query
+        );
+
+        $default_type = 'NONE';
+        $move_to = '-first';
+        $query = Table::generateFieldSpec(
+            'ids',
+            'INT',
+            '11',
+            $attribute,
+            $collation,
+            $null,
+            $default_type,
+            $default_value,
+            'DEF',
+            $comment,
+            $virtuality,
+            $expression,
+            $move_to,
+            ['ids'],
+            'id'
+        );
+        // Add it beaucause it is missing
+        $this->assertEquals(
+            '`ids` INT(11) PMA_attribute NULL DEF '
+            . "COMMENT 'PMA_comment' FIRST, add PRIMARY KEY (`ids`)",
+            $query
+        );
+
+        $default_type = 'NONE';
+        $move_to = '-first';
+        $query = Table::generateFieldSpec(
+            'ids',
+            'INT',
+            '11',
+            $attribute,
+            $collation,
+            $null,
+            $default_type,
+            $default_value,
+            'USER_DEFINED',
+            $comment,
+            'VIRTUAL',
+            '1',
+            $move_to,
+            ['othercol'],
+            'id'
+        );
+        // Do not add PK since it is not a AUTO_INCREMENT
+        $this->assertEquals(
+            '`ids` INT(11) PMA_attribute AS (1) VIRTUAL NULL '
+            . "USER_DEFINED COMMENT 'PMA_comment' FIRST",
+            $query
+        );
+    }
 
     /**
      * Test for duplicateInfo
@@ -748,6 +894,7 @@ class TableTest extends PmaTestCase
             $ret
         );
     }
+
     /**
      * Test for isUpdatableView
      *
@@ -1016,7 +1163,6 @@ class TableTest extends PmaTestCase
         );
     }
 
-
     /**
      * Test for getUniqueColumns
      *
@@ -1101,6 +1247,7 @@ class TableTest extends PmaTestCase
      * Tests for _getSQLToCreateForeignKey() method.
      *
      * @return void
+     *
      * @test
      */
     public function testGetSQLToCreateForeignKey()
@@ -1164,6 +1311,7 @@ class TableTest extends PmaTestCase
      * Tests for getSqlQueryForIndexCreateOrEdit() method.
      *
      * @return void
+     *
      * @test
      */
     public function testGetSqlQueryForIndexCreateOrEdit()
@@ -1357,7 +1505,7 @@ class TableTest extends PmaTestCase
 
         //removeUiProp
         $table->removeUiProp($property);
-        $is_define_property = isset($table->uiprefs[$property]) ? true : false;
+        $is_define_property = isset($table->uiprefs[$property]);
         $this->assertEquals(
             false,
             $is_define_property

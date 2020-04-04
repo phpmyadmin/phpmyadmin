@@ -1,7 +1,6 @@
 <?php
 /**
  * Handle error report submission
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -14,10 +13,14 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\UserPreferences;
+use function count;
+use function in_array;
+use function is_string;
+use function json_decode;
+use function time;
 
 /**
  * Handle error report submission
- * @package PhpMyAdmin\Controllers
  */
 class ErrorReportController extends AbstractController
 {
@@ -46,9 +49,6 @@ class ErrorReportController extends AbstractController
         $this->errorHandler = $errorHandler;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $cfg;
@@ -81,7 +81,7 @@ class ErrorReportController extends AbstractController
                     $_SESSION['prev_error_subm_time'] = time();
                     $_SESSION['error_subm_count'] = (
                     isset($_SESSION['error_subm_count'])
-                        ? ($_SESSION['error_subm_count'] + 1)
+                        ? $_SESSION['error_subm_count'] + 1
                         : 0
                     );
                 }

@@ -169,13 +169,13 @@
 
           <tbody>
             {% for database in databases %}
-              <tr class="db-row{{ database.is_system_schema ? ' noclick' }}" data-filter-row="{{ database.name|upper }}">
+              <tr class="db-row{{ database.is_system_schema or database.is_pmadb ? ' noclick' }}" data-filter-row="{{ database.name|upper }}">
                 {% if is_drop_allowed %}
                   <td class="tool">
                     <input type="checkbox" name="selected_dbs[]" class="checkall" title="
                       {{- database.name }}" value="
                       {{- database.name }}"
-                      {{- database.is_system_schema ? ' disabled' }}>
+                      {{- database.is_system_schema or database.is_pmadb ? ' disabled' }}>
                   </td>
                 {% endif %}
 

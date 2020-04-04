@@ -1,9 +1,6 @@
 <?php
 /**
  * Image PNG Inline Transformations plugin for phpMyAdmin
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage Inline
  */
 declare(strict_types=1);
 
@@ -13,9 +10,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\InlineTransformationsPlugin;
 
 /**
  * Handles the inline transformation for image png
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage Inline
  */
 // @codingStandardsIgnoreLine
 class Image_PNG_Inline extends InlineTransformationsPlugin

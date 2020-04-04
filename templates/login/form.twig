@@ -3,11 +3,11 @@
 {% if is_demo %}
   <fieldset>
     <legend>{% trans 'phpMyAdmin Demo Server' %}</legend>
-    {% filter format('<a href="url.php?url=https://demo.phpmyadmin.net/" target="_blank" rel="noopener noreferrer">demo.phpmyadmin.net</a>')|raw %}
+    {% apply format('<a href="url.php?url=https://demo.phpmyadmin.net/" target="_blank" rel="noopener noreferrer">demo.phpmyadmin.net</a>')|raw %}
       {% trans %}
         You are using the demo server. You can do anything here, but please do not change root, debian-sys-maint and pma users. More information is available at %s.
       {% endtrans %}
-    {% endfilter %}
+    {% endapply %}
   </fieldset>
 {% endif %}
 
@@ -46,7 +46,7 @@
         {% trans 'Username:' %}
       </label>
       <div class="col-8">
-        <input type="text" name="pma_username" id="input_username" value="{{ default_user }}" size="24" class="textfield form-control">
+        <input type="text" name="pma_username" id="input_username" value="{{ default_user }}" size="24" class="textfield form-control" autocomplete="username">
       </div>
     </div>
 
@@ -55,7 +55,7 @@
         {% trans 'Password:' %}
       </label>
       <div class="col-8">
-        <input type="password" name="pma_password" id="input_password" value="" size="24" class="textfield form-control">
+        <input type="password" name="pma_password" id="input_password" value="" size="24" class="textfield form-control" autocomplete="current-password">
       </div>
     </div>
 
@@ -76,7 +76,7 @@
   <fieldset class="tblFooters">
     {% if has_captcha %}
       <script src="https://www.google.com/recaptcha/api.js?hl={{ lang }}" async defer></script>
-      <input class="btn btn-primary g-recaptcha" data-sitekey="{{ captcha_key }}" data-callback="Functions.recaptchaCallback" value="{% trans 'Go' %}" type="submit" id="input_go">
+      <input class="btn btn-primary g-recaptcha" data-sitekey="{{ captcha_key }}" data-callback="Functions_recaptchaCallback" value="{% trans 'Go' %}" type="submit" id="input_go">
     {% else %}
       <input class="btn btn-primary" value="{% trans 'Go' %}" type="submit" id="input_go">
     {% endif %}

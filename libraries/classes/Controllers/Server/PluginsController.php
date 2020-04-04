@@ -2,29 +2,28 @@
 
 /**
  * Holds the PhpMyAdmin\Controllers\Server\PluginsController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Plugins;
 use PhpMyAdmin\Template;
+use function array_keys;
+use function ksort;
+use function mb_strtolower;
+use function preg_replace;
 
 /**
  * Handles viewing server plugin details
- *
- * @package PhpMyAdmin\Controllers
  */
 class PluginsController extends AbstractController
 {
-    /**
-     * @var Plugins
-     */
+    /** @var Plugins */
     private $plugins;
 
     /**
@@ -39,14 +38,9 @@ class PluginsController extends AbstractController
         $this->plugins = $plugins;
     }
 
-    /**
-     * Index action
-     *
-     * @return string
-     */
-    public function index(): string
+    public function index(): void
     {
-        include ROOT_PATH . 'libraries/server_common.inc.php';
+        Common::server();
 
         $header = $this->response->getHeader();
         $scripts = $header->getScripts();
@@ -68,9 +62,10 @@ class PluginsController extends AbstractController
                 mb_strtolower($type)
             );
         }
-        return $this->template->render('server/plugins/index', [
+
+        $this->response->addHTML($this->template->render('server/plugins/index', [
             'plugins' => $plugins,
             'clean_types' => $cleanTypes,
-        ]);
+        ]));
     }
 }

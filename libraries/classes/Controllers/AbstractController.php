@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\AbstractController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -14,29 +12,19 @@ use PhpMyAdmin\Template;
 
 /**
  * Base class for all of controller
- *
- * @package PhpMyAdmin\Controllers
  */
 abstract class AbstractController
 {
-    /**
-     * @var Response
-     */
+    /** @var Response */
     protected $response;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     protected $dbi;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     protected $template;
 
     /**
-     * AbstractController constructor.
-     *
      * @param Response          $response Response object
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param Template          $template Template that should be used

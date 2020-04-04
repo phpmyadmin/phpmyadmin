@@ -1,24 +1,27 @@
 <?php
 /**
  * MediaWiki import plugin for phpMyAdmin
- *
- * @package    PhpMyAdmin-Import
- * @subpackage MediaWiki
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
 
-use PhpMyAdmin\Import;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
+use function count;
+use function explode;
+use function mb_strlen;
+use function mb_strpos;
+use function mb_substr;
+use function preg_match;
+use function str_replace;
+use function strcmp;
+use function strlen;
+use function trim;
 
 /**
  * Handles the import for the MediaWiki format
- *
- * @package    PhpMyAdmin-Import
- * @subpackage MediaWiki
  */
 class ImportMediawiki extends ImportPlugin
 {
@@ -29,9 +32,6 @@ class ImportMediawiki extends ImportPlugin
      */
     private $_analyze;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();
@@ -299,12 +299,11 @@ class ImportMediawiki extends ImportPlugin
      *                        table headers $table[2] -
      *                        array[][] of table content
      *                        rows </code>
-     *
      * @param array $sql_data 2-element array with sql data
      *
-     * @global bool $analyze whether to scan for column types
-     *
      * @return void
+     *
+     * @global bool $analyze whether to scan for column types
      */
     private function _importDataOneTable(array $table, array &$sql_data)
     {
@@ -387,9 +386,9 @@ class ImportMediawiki extends ImportPlugin
      *                        )
      * @param array $sql_data 2-element array with sql data
      *
-     * @global string $db      name of the database to import in
-     *
      * @return void
+     *
+     * @global string $db      name of the database to import in
      */
     private function _executeImportTables(array &$tables, array &$analyses, array &$sql_data)
     {
@@ -522,7 +521,6 @@ class ImportMediawiki extends ImportPlugin
         return $items;
     }
 
-
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
     /**
@@ -575,7 +573,7 @@ class ImportMediawiki extends ImportPlugin
     /**
      * Manage $inside_structure_comment
      *
-     * @param boolean $inside_structure_comment Value to test
+     * @param bool $inside_structure_comment Value to test
      *
      * @return bool
      */

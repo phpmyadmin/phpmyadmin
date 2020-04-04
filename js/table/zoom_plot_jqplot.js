@@ -135,7 +135,7 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
     // first column choice corresponds to the X axis
     $('#tableid_0').on('change', function () {
         // AJAX request for field type, collation, operators, and value field
-        $.post('index.php?route=/table/zoom_select', {
+        $.post('index.php?route=/table/zoom-search', {
             'ajax_request' : true,
             'change_tbl_info' : true,
             'server' : CommonParams.get('server'),
@@ -144,10 +144,10 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
             'field' : $('#tableid_0').val(),
             'it' : 0
         }, function (data) {
-            $('#tableFieldsId').find('tr:eq(1) td:eq(0)').html(data.field_type);
-            $('#tableFieldsId').find('tr:eq(1) td:eq(1)').html(data.field_collation);
-            $('#tableFieldsId').find('tr:eq(1) td:eq(2)').html(data.field_operators);
-            $('#tableFieldsId').find('tr:eq(1) td:eq(3)').html(data.field_value);
+            $('#tableFieldsId').find('tr').eq(1).find('td').eq(0).html(data.field_type);
+            $('#tableFieldsId').find('tr').eq(1).find('td').eq(1).html(data.field_collation);
+            $('#tableFieldsId').find('tr').eq(1).find('td').eq(2).html(data.field_operators);
+            $('#tableFieldsId').find('tr').eq(1).find('td').eq(3).html(data.field_value);
             xLabel = $('#tableid_0').val();
             $('#types_0').val(data.field_type);
             xType = data.field_type;
@@ -159,7 +159,7 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
     // second column choice corresponds to the Y axis
     $('#tableid_1').on('change', function () {
         // AJAX request for field type, collation, operators, and value field
-        $.post('index.php?route=/table/zoom_select', {
+        $.post('index.php?route=/table/zoom-search', {
             'ajax_request' : true,
             'change_tbl_info' : true,
             'server' : CommonParams.get('server'),
@@ -168,10 +168,10 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
             'field' : $('#tableid_1').val(),
             'it' : 1
         }, function (data) {
-            $('#tableFieldsId').find('tr:eq(2) td:eq(0)').html(data.field_type);
-            $('#tableFieldsId').find('tr:eq(2) td:eq(1)').html(data.field_collation);
-            $('#tableFieldsId').find('tr:eq(2) td:eq(2)').html(data.field_operators);
-            $('#tableFieldsId').find('tr:eq(2) td:eq(3)').html(data.field_value);
+            $('#tableFieldsId').find('tr').eq(2).find('td').eq(0).html(data.field_type);
+            $('#tableFieldsId').find('tr').eq(2).find('td').eq(1).html(data.field_collation);
+            $('#tableFieldsId').find('tr').eq(2).find('td').eq(2).html(data.field_operators);
+            $('#tableFieldsId').find('tr').eq(2).find('td').eq(3).html(data.field_value);
             yLabel = $('#tableid_1').val();
             $('#types_1').val(data.field_type);
             yType = data.field_type;
@@ -182,7 +182,7 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
 
     $('#tableid_2').on('change', function () {
         // AJAX request for field type, collation, operators, and value field
-        $.post('index.php?route=/table/zoom_select', {
+        $.post('index.php?route=/table/zoom-search', {
             'ajax_request' : true,
             'change_tbl_info' : true,
             'server' : CommonParams.get('server'),
@@ -191,10 +191,10 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
             'field' : $('#tableid_2').val(),
             'it' : 2
         }, function (data) {
-            $('#tableFieldsId').find('tr:eq(4) td:eq(0)').html(data.field_type);
-            $('#tableFieldsId').find('tr:eq(4) td:eq(1)').html(data.field_collation);
-            $('#tableFieldsId').find('tr:eq(4) td:eq(2)').html(data.field_operators);
-            $('#tableFieldsId').find('tr:eq(4) td:eq(3)').html(data.field_value);
+            $('#tableFieldsId').find('tr').eq(4).find('td').eq(0).html(data.field_type);
+            $('#tableFieldsId').find('tr').eq(4).find('td').eq(1).html(data.field_collation);
+            $('#tableFieldsId').find('tr').eq(4).find('td').eq(2).html(data.field_operators);
+            $('#tableFieldsId').find('tr').eq(4).find('td').eq(3).html(data.field_value);
             $('#types_2').val(data.field_type);
             $('#collations_2').val(data.field_collations);
             Functions.addDateTimePicker();
@@ -203,7 +203,7 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
 
     $('#tableid_3').on('change', function () {
         // AJAX request for field type, collation, operators, and value field
-        $.post('index.php?route=/table/zoom_select', {
+        $.post('index.php?route=/table/zoom-search', {
             'ajax_request' : true,
             'change_tbl_info' : true,
             'server' : CommonParams.get('server'),
@@ -212,10 +212,10 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
             'field' : $('#tableid_3').val(),
             'it' : 3
         }, function (data) {
-            $('#tableFieldsId').find('tr:eq(5) td:eq(0)').html(data.field_type);
-            $('#tableFieldsId').find('tr:eq(5) td:eq(1)').html(data.field_collation);
-            $('#tableFieldsId').find('tr:eq(5) td:eq(2)').html(data.field_operators);
-            $('#tableFieldsId').find('tr:eq(5) td:eq(3)').html(data.field_value);
+            $('#tableFieldsId').find('tr').eq(5).find('td').eq(0).html(data.field_type);
+            $('#tableFieldsId').find('tr').eq(5).find('td').eq(1).html(data.field_collation);
+            $('#tableFieldsId').find('tr').eq(5).find('td').eq(2).html(data.field_operators);
+            $('#tableFieldsId').find('tr').eq(5).find('td').eq(3).html(data.field_value);
             $('#types_3').val(data.field_type);
             $('#collations_3').val(data.field_collations);
             Functions.addDateTimePicker();
@@ -571,7 +571,7 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
                     'where_clause' : data[3]
                 };
 
-                $.post('index.php?route=/table/zoom_select', postParams, function (data) {
+                $.post('index.php?route=/table/zoom-search', postParams, function (data) {
                     // Row is contained in data.row_info,
                     // now fill the displayResultForm with row values
                     var key;

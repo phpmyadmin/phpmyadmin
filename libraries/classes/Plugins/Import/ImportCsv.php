@@ -3,26 +3,35 @@
  * CSV import plugin for phpMyAdmin
  *
  * @todo       add an option for handling NULL values
- * @package    PhpMyAdmin-Import
- * @subpackage CSV
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
 
 use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Import;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\NumberPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Util;
+use function array_splice;
+use function basename;
+use function count;
+use function is_array;
+use function mb_strlen;
+use function mb_strpos;
+use function mb_strtolower;
+use function mb_substr;
+use function preg_grep;
+use function preg_replace;
+use function preg_split;
+use function rtrim;
+use function strlen;
+use function strtr;
+use function trim;
 
 /**
  * Handles the import for the CSV format
- *
- * @package    PhpMyAdmin-Import
- * @subpackage CSV
  */
 class ImportCsv extends AbstractImportCsv
 {
@@ -33,9 +42,6 @@ class ImportCsv extends AbstractImportCsv
      */
     private $_analyze;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();
@@ -464,7 +470,7 @@ class ImportCsv extends AbstractImportCsv
                     }
 
                     // unquoted NULL string
-                    if (false === $need_end && $value === 'NULL') {
+                    if ($need_end === false && $value === 'NULL') {
                         $value = null;
                     }
 
@@ -791,6 +797,7 @@ class ImportCsv extends AbstractImportCsv
 
         return $ch;
     }
+
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
     /**

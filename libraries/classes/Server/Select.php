@@ -1,8 +1,6 @@
 <?php
 /**
  * Code for displaying server selection
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -10,19 +8,22 @@ namespace PhpMyAdmin\Server;
 
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function count;
+use function htmlspecialchars;
+use function implode;
+use function is_array;
+use function strpos;
 
 /**
  * Displays the MySQL servers choice form
- *
- * @package PhpMyAdmin
  */
 class Select
 {
     /**
      * Renders the server selection in list or selectbox form, or option tags only
      *
-     * @param boolean $not_only_options whether to include form tags or not
-     * @param boolean $omit_fieldset    whether to omit fieldset tag or not
+     * @param bool $not_only_options whether to include form tags or not
+     * @param bool $omit_fieldset    whether to omit fieldset tag or not
      *
      * @return string
      */

@@ -1,28 +1,21 @@
 <?php
 /**
  * Test for \PhpMyAdmin\Html\MySQLDocumentation class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Html;
 
-use PhpMyAdmin\Html\Forms;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Test for \PhpMyAdmin\Html\MySQLDocumentation class
- *
- * @package PhpMyAdmin-test
  */
 class MySQLDocumentationTest extends PmaTestCase
 {
     /**
      * Test for \PhpMyAdmin\Html\MySQLDocumentation::showDocumentation
-     *
-     * @return void
      *
      * @covers \PhpMyAdmin\Html\MySQLDocumentation::showDocumentation
      */

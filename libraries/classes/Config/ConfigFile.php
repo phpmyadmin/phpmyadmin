@@ -1,50 +1,57 @@
 <?php
 /**
  * Config file management
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Config;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
+use function array_diff;
+use function array_flip;
+use function array_keys;
+use function array_walk;
+use function count;
+use function is_array;
+use function preg_replace;
 
 /**
  * Config file management class.
  * Stores its data in $_SESSION
- *
- * @package PhpMyAdmin
  */
 class ConfigFile
 {
     /**
      * Stores default PMA config from config.default.php
+     *
      * @var array
      */
     private $_defaultCfg;
 
     /**
      * Stores allowed values for non-standard fields
+     *
      * @var array
      */
     private $_cfgDb;
 
     /**
      * Stores original PMA config, not modified by user preferences
+     *
      * @var array|null
      */
     private $_baseCfg;
 
     /**
      * Whether we are currently working in PMA Setup context
+     *
      * @var bool
      */
     private $_isInSetup;
 
     /**
      * Keys which will be always written to config file
+     *
      * @var array
      */
     private $_persistKeys = [];
@@ -52,12 +59,14 @@ class ConfigFile
     /**
      * Changes keys while updating config in {@link updateWithGlobalConfig()}
      * or reading by {@link getConfig()} or {@link getConfigArray()}
+     *
      * @var array
      */
     private $_cfgUpdateReadMapping = [];
 
     /**
      * Key filter for {@link set()}
+     *
      * @var array|null
      */
     private $_setFilter;
@@ -65,19 +74,19 @@ class ConfigFile
     /**
      * Instance id (key in $_SESSION array, separate for each server -
      * ConfigFile{server id})
+     *
      * @var string
      */
     private $_id;
 
     /**
      * Result for {@link _flattenArray()}
+     *
      * @var array|null
      */
     private $_flattenArrayResult;
 
     /**
-     * Constructor
-     *
      * @param array|null $baseConfig base configuration read from
      *                               {@link PhpMyAdmin\Config::$base_config},
      *                               use only when not in PMA Setup
@@ -394,15 +403,13 @@ class ConfigFile
      */
     public function getServers()
     {
-        return isset($_SESSION[$this->_id]['Servers'])
-            ? $_SESSION[$this->_id]['Servers']
-            : null;
+        return $_SESSION[$this->_id]['Servers'] ?? null;
     }
 
     /**
      * Returns DSN of given server
      *
-     * @param integer $server server index
+     * @param int $server server index
      *
      * @return string
      */

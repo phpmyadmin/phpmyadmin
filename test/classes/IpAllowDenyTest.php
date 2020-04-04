@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\IpAllowDeny
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -16,20 +14,14 @@ use PHPUnit\Framework\TestCase;
  * PhpMyAdmin\Tests\IpAllowDenyTest class
  *
  * this class is for testing PhpMyAdmin\IpAllowDeny
- *
- * @package PhpMyAdmin-test
  */
 class IpAllowDenyTest extends TestCase
 {
-    /**
-     * @var IpAllowDeny
-     */
+    /** @var IpAllowDeny */
     private $ipAllowDeny;
 
     /**
      * Prepares environment for the test.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -58,8 +50,6 @@ class IpAllowDenyTest extends TestCase
      * @param string $header   header
      * @param string $expected expected result
      * @param string $proxyip  proxyip
-     *
-     * @return void
      *
      * @dataProvider proxyIPs
      */

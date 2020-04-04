@@ -1,9 +1,6 @@
 <?php
 /**
  * Base class for Selenium tests
- *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  */
 declare(strict_types=1);
 
@@ -26,19 +23,42 @@ use mysqli;
 use mysqli_result;
 use PHPUnit\Framework\TestCase;
 use Throwable;
+use function curl_close;
+use function curl_errno;
+use function curl_error;
+use function curl_exec;
+use function curl_init;
+use function curl_setopt;
+use function getenv;
+use function is_string;
+use function json_decode;
+use function json_encode;
+use function mb_strtolower;
+use function mb_substr;
+use function preg_match;
+use function rand;
+use function sha1;
+use function sprintf;
+use function strlen;
+use function substr;
+use function trim;
+use function usleep;
+use const CURLOPT_CUSTOMREQUEST;
+use const CURLOPT_HTTPHEADER;
+use const CURLOPT_POSTFIELDS;
+use const CURLOPT_RETURNTRANSFER;
+use const CURLOPT_URL;
+use const CURLOPT_USERPWD;
+use const PHP_EOL;
 
 /**
  * Base class for Selenium tests.
  *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  * @group      selenium
  */
 abstract class TestBase extends TestCase
 {
-    /**
-     * @var RemoteWebDriver
-     */
+    /** @var RemoteWebDriver */
     protected $webDriver;
 
     /**
@@ -64,10 +84,10 @@ abstract class TestBase extends TestCase
      */
     protected $sessionId;
 
+    private const SESSION_REST_URL = 'https://api.browserstack.com/automate/sessions/';
+
     /**
      * Configures the selenium and database link.
-     *
-     * @return void
      *
      * @throws Exception
      */
@@ -75,6 +95,7 @@ abstract class TestBase extends TestCase
     {
         /**
          * Needs to be implemented
+         *
          * @ENV TESTSUITE_SELENIUM_COVERAGE
          * @ENV TESTSUITE_FULL
          */
@@ -85,13 +106,19 @@ abstract class TestBase extends TestCase
             return;
         }
 
-        $this->_mysqli = new mysqli(
-            $GLOBALS['TESTSUITE_SERVER'],
-            $GLOBALS['TESTSUITE_USER'],
-            $GLOBALS['TESTSUITE_PASSWORD'],
-            'mysql',
-            (int) $GLOBALS['TESTSUITE_PORT']
-        );
+        try {
+            $this->_mysqli = new mysqli(
+                $GLOBALS['TESTSUITE_SERVER'],
+                $GLOBALS['TESTSUITE_USER'],
+                $GLOBALS['TESTSUITE_PASSWORD'],
+                'mysql',
+                (int) $GLOBALS['TESTSUITE_PORT']
+            );
+        } catch (Exception $e) {
+            // when localhost is used, it tries to connect to a socket and throws and error
+            $this->markTestSkipped('Failed to connect to MySQL (' . $e->getMessage() . ')');
+            return;
+        }
 
         if ($this->_mysqli->connect_errno) {
             $this->markTestSkipped('Failed to connect to MySQL (' . $this->_mysqli->error . ')');
@@ -129,56 +156,35 @@ abstract class TestBase extends TestCase
 
     /**
      * Has CI config ( CI_MODE == selenium )
-     *
-     * @return bool
      */
     public function hasCIConfig(): bool
     {
         if (empty($GLOBALS['CI_MODE'])) {
             return false;
         }
-        if ($GLOBALS['CI_MODE'] != 'selenium') {
-            return false;
-        }
-        return true;
+        return $GLOBALS['CI_MODE'] == 'selenium';
     }
 
     /**
      * Has ENV variables set for Browserstack
-     *
-     * @return bool
      */
     public function hasBrowserstackConfig(): bool
     {
-        if (empty($GLOBALS['TESTSUITE_BROWSERSTACK_USER'])) {
-            return false;
-        }
-        if (empty($GLOBALS['TESTSUITE_BROWSERSTACK_KEY'])) {
-            return false;
-        }
-        return true;
+        return ! empty($GLOBALS['TESTSUITE_BROWSERSTACK_USER'])
+            && ! empty($GLOBALS['TESTSUITE_BROWSERSTACK_KEY']);
     }
 
     /**
      * Has ENV variables set for local Selenium server
-     *
-     * @return bool
      */
     public function hasSeleniumConfig(): bool
     {
-        if (empty($GLOBALS['TESTSUITE_SELENIUM_HOST'])) {
-            return false;
-        }
-        if (empty($GLOBALS['TESTSUITE_SELENIUM_PORT'])) {
-            return false;
-        }
-        return true;
+        return ! empty($GLOBALS['TESTSUITE_SELENIUM_HOST'])
+            && ! empty($GLOBALS['TESTSUITE_SELENIUM_PORT']);
     }
 
     /**
      * Get hub url
-     *
-     * @return string|null
      */
     public function getHubUrl(): ?string
     {
@@ -198,28 +204,18 @@ abstract class TestBase extends TestCase
 
     /**
      * Has TESTSUITE_SERVER, TESTSUITE_USER and TESTSUITE_DATABASE variables set
-     *
-     * @return boolean
      */
     public function hasTestSuiteDatabaseServer(): bool
     {
-        if (empty($GLOBALS['TESTSUITE_SERVER'])) {
-            return false;
-        }
-        if (empty($GLOBALS['TESTSUITE_USER'])) {
-            return false;
-        }
-        if (empty($GLOBALS['TESTSUITE_DATABASE'])) {
-            return false;
-        }
-        return true;
+        return ! empty($GLOBALS['TESTSUITE_SERVER'])
+            && ! empty($GLOBALS['TESTSUITE_USER'])
+            && ! empty($GLOBALS['TESTSUITE_DATABASE']);
     }
 
     /**
      * Navigate to URL
      *
      * @param string $url The URL
-     * @return void
      */
     private function navigateTo(string $url): void
     {
@@ -236,7 +232,6 @@ abstract class TestBase extends TestCase
      * Add specific capabilities
      *
      * @param DesiredCapabilities $capabilities The capabilities object
-     * @return void
      */
     public function addCapabilities(DesiredCapabilities $capabilities): void
     {
@@ -260,6 +255,7 @@ abstract class TestBase extends TestCase
 
         /**
          * Usefull for browserstack
+         *
          * @see https://github.com/phpmyadmin/phpmyadmin/pull/14595#issuecomment-418541475
          * Reports the name of the test to browserstack
          */
@@ -296,12 +292,9 @@ abstract class TestBase extends TestCase
 
     /**
      * Get basic capabilities
-     *
-     * @return DesiredCapabilities
      */
     public function getCapabilities(): DesiredCapabilities
     {
-
         switch ($GLOBALS['TESTSUITE_SELENIUM_BROWSER']) {
             case 'chrome':
             default:
@@ -311,8 +304,12 @@ abstract class TestBase extends TestCase
                     '--lang=en',
                 ]);
                 $capabilities->setCapability(
-                    ChromeOptions::CAPABILITY,
+                    ChromeOptions::CAPABILITY_W3C,
                     $chromeOptions
+                );
+                $capabilities->setCapability(
+                    'loggingPrefs',
+                    ['browser' => 'ALL']
                 );
 
                 if ($this->hasCIConfig() && $this->hasBrowserstackConfig()) {
@@ -371,7 +368,7 @@ abstract class TestBase extends TestCase
     /**
      * Checks whether user is a superuser.
      *
-     * @return boolean
+     * @return bool
      */
     protected function isSuperUser()
     {
@@ -453,7 +450,6 @@ abstract class TestBase extends TestCase
      * Get element by Id
      *
      * @param string $id The element ID
-     * @return WebDriverElement
      */
     public function byId(string $id): WebDriverElement
     {
@@ -464,7 +460,6 @@ abstract class TestBase extends TestCase
      * Get element by css selector
      *
      * @param string $selector The element css selector
-     * @return WebDriverElement
      */
     public function byCssSelector(string $selector): WebDriverElement
     {
@@ -475,7 +470,6 @@ abstract class TestBase extends TestCase
      * Get element by xpath
      *
      * @param string $xpath The xpath
-     * @return WebDriverElement
      */
     public function byXPath(string $xpath): WebDriverElement
     {
@@ -486,7 +480,6 @@ abstract class TestBase extends TestCase
      * Get element by linkText
      *
      * @param string $linkText The link text
-     * @return WebDriverElement
      */
     public function byLinkText(string $linkText): WebDriverElement
     {
@@ -495,8 +488,6 @@ abstract class TestBase extends TestCase
 
     /**
      * Double click
-     *
-     * @return void
      */
     public function doubleclick(): void
     {
@@ -505,8 +496,6 @@ abstract class TestBase extends TestCase
 
     /**
      * Simple click
-     *
-     * @return void
      */
     public function click(): void
     {
@@ -517,7 +506,6 @@ abstract class TestBase extends TestCase
      * Get element by byPartialLinkText
      *
      * @param string $partialLinkText The partial link text
-     * @return WebDriverElement
      */
     public function byPartialLinkText(string $partialLinkText): WebDriverElement
     {
@@ -526,8 +514,6 @@ abstract class TestBase extends TestCase
 
     /**
      * Returns true if the browser is safari
-     *
-     * @return boolean
      */
     public function isSafari(): bool
     {
@@ -538,7 +524,6 @@ abstract class TestBase extends TestCase
      * Get element by name
      *
      * @param string $name The name
-     * @return WebDriverElement
      */
     public function byName(string $name): WebDriverElement
     {
@@ -548,7 +533,7 @@ abstract class TestBase extends TestCase
     /**
      * Checks whether the login is successful
      *
-     * @return boolean
+     * @return bool
      */
     public function isSuccessLogin()
     {
@@ -558,7 +543,7 @@ abstract class TestBase extends TestCase
     /**
      * Checks whether the login is unsuccessful
      *
-     * @return boolean
+     * @return bool
      */
     public function isUnsuccessLogin()
     {
@@ -582,7 +567,7 @@ abstract class TestBase extends TestCase
      *
      * @param string $query SQL Query to be webDriver->executeScriptd
      *
-     * @return void|boolean|mysqli_result
+     * @return void|bool|mysqli_result
      *
      * @throws Exception
      */
@@ -594,7 +579,7 @@ abstract class TestBase extends TestCase
     /**
      * Check if user is logged in to phpmyadmin
      *
-     * @return boolean Where or not user is logged in
+     * @return bool Where or not user is logged in
      */
     public function isLoggedIn()
     {
@@ -634,10 +619,9 @@ abstract class TestBase extends TestCase
     /**
      * Wait for an element to be present on the page or timeout
      *
-     * @param string  $func    Locate using - cssSelector, xpath, tagName, partialLinkText, linkText, name, id, className
-     * @param string  $arg     Selector
-     * @param integer $timeout Timeout in seconds
-     * @return WebDriverElement
+     * @param string $func    Locate using - cssSelector, xpath, tagName, partialLinkText, linkText, name, id, className
+     * @param string $arg     Selector
+     * @param int    $timeout Timeout in seconds
      */
     public function waitUntilElementIsPresent(string $func, $arg, int $timeout): WebDriverElement
     {
@@ -649,10 +633,9 @@ abstract class TestBase extends TestCase
     /**
      * Wait for an element to be visible on the page or timeout
      *
-     * @param string  $func    Locate using - cssSelector, xpath, tagName, partialLinkText, linkText, name, id, className
-     * @param string  $arg     Selector
-     * @param integer $timeout Timeout in seconds
-     * @return WebDriverElement
+     * @param string $func    Locate using - cssSelector, xpath, tagName, partialLinkText, linkText, name, id, className
+     * @param string $arg     Selector
+     * @param int    $timeout Timeout in seconds
      */
     public function waitUntilElementIsVisible(string $func, $arg, int $timeout): WebDriverElement
     {
@@ -727,7 +710,7 @@ abstract class TestBase extends TestCase
         );
         $text = $element->getText();
 
-        return ($text && is_string($text)) ? trim($text) : '';
+        return $text && is_string($text) ? trim($text) : '';
     }
 
     /**
@@ -752,7 +735,7 @@ abstract class TestBase extends TestCase
         );
         $text = $element->getText();
 
-        return ($text && is_string($text)) ? trim($text) : '';
+        return $text && is_string($text) ? trim($text) : '';
     }
 
     /**
@@ -760,8 +743,6 @@ abstract class TestBase extends TestCase
      * browsers.
      *
      * @param string $text Keys to send
-     *
-     * @return void
      */
     public function keys(string $text): void
     {
@@ -781,8 +762,6 @@ abstract class TestBase extends TestCase
      * browsers.
      *
      * @param RemoteWebElement $element element
-     *
-     * @return void
      */
     public function moveto(RemoteWebElement $element): void
     {
@@ -834,8 +813,6 @@ abstract class TestBase extends TestCase
 
     /**
      * Accept alert
-     *
-     * @return void
      */
     public function acceptAlert(): void
     {
@@ -885,7 +862,7 @@ abstract class TestBase extends TestCase
 
         $this->waitForElement(
             'xpath',
-            "//a[@class='tabactive' and contains(., 'Browse')]"
+            "//a[@class='nav-link text-nowrap' and contains(., 'Browse')]"
         );
     }
 
@@ -917,7 +894,7 @@ abstract class TestBase extends TestCase
         // Wait for it to load
         $this->waitForElement(
             'xpath',
-            "//a[@class='tabactive' and contains(., 'Structure')]"
+            "//a[@class='nav-link text-nowrap' and contains(., 'Structure')]"
         );
     }
 
@@ -926,7 +903,6 @@ abstract class TestBase extends TestCase
      *
      * @param WebDriverElement $element The element
      * @param string           $value   The value of the option
-     * @return void
      */
     public function selectByValue(WebDriverElement $element, string $value): void
     {
@@ -939,7 +915,6 @@ abstract class TestBase extends TestCase
      *
      * @param WebDriverElement $element The element
      * @param string           $text    The text
-     * @return void
      */
     public function selectByLabel(WebDriverElement $element, string $text): void
     {
@@ -966,14 +941,42 @@ abstract class TestBase extends TestCase
     }
 
     /**
+     * Scrolls to a coordinate such that the element
+     *
+     * @param WebDriverElement $element The element
+     * @param int              $xOffset The x offset to apply (defaults to 0)
+     * @param int              $yOffset The y offset to apply (defaults to 0)
+     *
+     * @return void
+     */
+    public function scrollToElement(WebDriverElement $element, int $xOffset = 0, int $yOffset = 0): void
+    {
+        $this->webDriver->executeScript(
+            'window.scrollBy(' . ($element->getLocation()->getX() + $xOffset) . ', ' . ($element->getLocation()->getY() + $yOffset) . ');'
+        );
+    }
+
+    /**
      * Scroll to the bottom of page
      *
      * @return void
      */
-    public function scrollToBottom()
+    public function scrollToBottom(): void
     {
         $this->webDriver->executeScript(
             'window.scrollTo(0,document.body.scrollHeight);'
+        );
+    }
+
+    /**
+     * Reload the page
+     *
+     * @return void
+     */
+    public function reloadPage(): void
+    {
+        $this->webDriver->executeScript(
+            'window.location.reload();'
         );
     }
 
@@ -1012,8 +1015,6 @@ abstract class TestBase extends TestCase
 
     /**
      * Tear Down function for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -1022,27 +1023,28 @@ abstract class TestBase extends TestCase
             $this->_mysqli->close();
             $this->_mysqli = null;
         }
-
+        if (! $this->hasFailed()) {
+            $this->markTestAs('passed', '');
+        }
         $this->webDriver->quit();
     }
 
     /**
-     * Mark unsuccessful tests as 'Failures' on Browerstack
+     * Mark test as failed or passed on BrowserStack
      *
-     * @param Throwable $t Throwable
-     *
+     * @param string $status  passed or failed
+     * @param string $message a message
      * @return void
      */
-    public function onNotSuccessfulTest(Throwable $t): void
+    private function markTestAs(string $status, string $message): void
     {
-        $SESSION_REST_URL = 'https://api.browserstack.com/automate/sessions/';
         // If this is being run on Browerstack,
         // mark the test on Browerstack as failure
         if ($this->hasBrowserstackConfig()) {
             $payload = json_encode(
                 [
-                    'status' => 'failed',
-                    'reason' => $t->getMessage(),
+                    'status' => $status,
+                    'reason' => $message,
                 ]
             );
 
@@ -1050,7 +1052,7 @@ abstract class TestBase extends TestCase
             curl_setopt(
                 $ch,
                 CURLOPT_URL,
-                $SESSION_REST_URL . $this->sessionId . '.json'
+                self::SESSION_REST_URL . $this->sessionId . '.json'
             );
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
@@ -1066,12 +1068,28 @@ abstract class TestBase extends TestCase
             $headers[] = 'Content-Type: application/json';
             curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-            $result = curl_exec($ch);
-            if (curl_errno($ch)) {
+            curl_exec($ch);
+            if ($ch !== false && curl_errno($ch)) {
                 echo 'Error: ' . curl_error($ch) . PHP_EOL;
             }
             curl_close($ch);
         }
+    }
+
+    /**
+     * Mark unsuccessful tests as 'Failures' on Browerstack
+     *
+     * @param Throwable $t Throwable
+     *
+     * @return void
+     */
+    public function onNotSuccessfulTest(Throwable $t): void
+    {
+        // End testing session
+        if ($this->webDriver !== null) {
+            $this->webDriver->quit();
+        }
+        $this->markTestAs('failed', $t->getMessage());
 
         if ($this->hasBrowserstackConfig()) {
             $ch = curl_init();
@@ -1079,7 +1097,7 @@ abstract class TestBase extends TestCase
                 curl_setopt(
                     $ch,
                     CURLOPT_URL,
-                    $SESSION_REST_URL . $this->sessionId . '.json'
+                    self::SESSION_REST_URL . $this->sessionId . '.json'
                 );
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
                 curl_setopt(
@@ -1093,7 +1111,7 @@ abstract class TestBase extends TestCase
                 if (isset($proj->automation_session)) {
                     echo 'Test failed, get more information here: ' . $proj->automation_session->public_url . PHP_EOL;
                 }
-                if (curl_errno($ch)) {
+                if ($ch !== false && curl_errno($ch)) {
                     echo 'Error: ' . curl_error($ch) . PHP_EOL;
                 }
                 curl_close($ch);

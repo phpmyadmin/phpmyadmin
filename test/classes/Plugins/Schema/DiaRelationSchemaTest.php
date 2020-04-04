@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Plugins\Schema\Dia\DiaRelationSchema class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,14 +12,10 @@ use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PhpMyAdmin\Plugins\Schema\Dia\DiaRelationSchema class
- *
- * @package PhpMyAdmin-test
  */
 class DiaRelationSchemaTest extends PmaTestCase
 {
-    /**
-     * @access protected
-     */
+    /** @access protected */
     protected $object;
 
     /**
@@ -29,7 +23,6 @@ class DiaRelationSchemaTest extends PmaTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
@@ -133,7 +126,6 @@ class DiaRelationSchemaTest extends PmaTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {

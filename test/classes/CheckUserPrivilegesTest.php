@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\CheckUserPrivileges
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,20 +11,14 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * tests for PhpMyAdmin\CheckUserPrivileges
- *
- * @package PhpMyAdmin-test
  */
 class CheckUserPrivilegesTest extends TestCase
 {
-    /**
-     * @var CheckUserPrivileges
-     */
+    /** @var CheckUserPrivileges */
     private $checkUserPrivileges;
 
     /**
      * prepares environment for tests
-     *
-     * @return void
      */
     protected function setUp(): void
     {

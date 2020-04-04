@@ -1,20 +1,15 @@
 <?php
 /**
  * Tests for libraries/SystemDatabase.php
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\SystemDatabase;
-use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for libraries/SystemDatabase.php
- *
- * @package PhpMyAdmin-test
  */
 class SystemDatabaseTest extends PmaTestCase
 {
@@ -29,7 +24,6 @@ class SystemDatabaseTest extends PmaTestCase
      * Setup function for test cases
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
@@ -83,6 +77,7 @@ class SystemDatabaseTest extends PmaTestCase
      * Tests for PMA_getExistingTransformationData() method.
      *
      * @return void
+     *
      * @test
      */
     public function testPMAGetExistingTransformationData()
@@ -101,6 +96,7 @@ class SystemDatabaseTest extends PmaTestCase
      * Tests for PMA_getNewTransformationDataSql() method.
      *
      * @return void
+     *
      * @test
      */
     public function testPMAGetNewTransformationDataSql()

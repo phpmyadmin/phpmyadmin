@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Database\Designer\Common class
- *
- * @package PhpMyAdmin-Designer
  */
 declare(strict_types=1);
 
@@ -13,29 +11,29 @@ use PhpMyAdmin\Index;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Util;
+use function count;
+use function explode;
+use function in_array;
+use function intval;
+use function is_array;
+use function is_string;
+use function json_decode;
+use function json_encode;
+use function mb_strtoupper;
 use function rawurlencode;
-use PhpMyAdmin\Database\Designer\DesignerTable;
 
 /**
  * Common functions for Designer
- *
- * @package PhpMyAdmin-Designer
  */
 class Common
 {
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /**
-     * Common constructor.
-     *
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param Relation          $relation Relation instance
      */
@@ -50,12 +48,13 @@ class Common
      *
      * @param string $db    (optional) Filter only a DB ($table is required if you use $db)
      * @param string $table (optional) Filter only a table ($db is now required)
+     *
      * @return DesignerTable[] with table info
      */
     public function getTablesInfo(string $db = null, string $table = null): array
     {
         $designerTables = [];
-        $db = ($db === null) ? $GLOBALS['db'] : $db;
+        $db = $db ?? $GLOBALS['db'];
         // seems to be needed later
         $this->dbi->selectDb($db);
         if ($db === null && $table === null) {
@@ -67,7 +66,7 @@ class Common
         foreach ($tables as $one_table) {
             $DF = $this->relation->getDisplayField($db, $one_table['TABLE_NAME']);
             $DF = is_string($DF) ? $DF : '';
-            $DF = ($DF !== '') ? $DF : null;
+            $DF = $DF !== '' ? $DF : null;
             $designerTables[] = new DesignerTable(
                 $db,
                 $one_table['TABLE_NAME'],
@@ -83,6 +82,7 @@ class Common
      * Retrieves table column info
      *
      * @param DesignerTable[] $designerTables The designer tables
+     *
      * @return array table column nfo
      */
     public function getColumnsInfo(array $designerTables): array
@@ -121,6 +121,7 @@ class Common
      * Returns JavaScript code for initializing vars
      *
      * @param DesignerTable[] $designerTables The designer tables
+     *
      * @return array JavaScript code
      */
     public function getScriptContr(array $designerTables): array
@@ -159,8 +160,7 @@ class Common
                         $con['DTN'][$i]    = rawurlencode($GLOBALS['db'] . '.' . $val[0]);
                         $con['DCN'][$i]    = rawurlencode($one_field);
                         $con['STN'][$i]    = rawurlencode(
-                            (isset($one_key['ref_db_name']) ?
-                                $one_key['ref_db_name'] : $GLOBALS['db'])
+                            ($one_key['ref_db_name'] ?? $GLOBALS['db'])
                             . '.' . $one_key['ref_table_name']
                         );
                         $con['SCN'][$i] = rawurlencode($one_key['ref_index_list'][$index]);
@@ -198,6 +198,7 @@ class Common
      * Returns UNIQUE and PRIMARY indices
      *
      * @param DesignerTable[] $designerTables The designer tables
+     *
      * @return array unique or primary indices
      */
     public function getPkOrUniqueKeys(array $designerTables): array
@@ -237,6 +238,7 @@ class Common
      * Return j_tab and h_tab arrays
      *
      * @param DesignerTable[] $designerTables The designer tables
+     *
      * @return array
      */
     public function getScriptTabs(array $designerTables): array
@@ -314,7 +316,7 @@ class Common
             DatabaseInterface::CONNECT_CONTROL,
             DatabaseInterface::QUERY_STORE
         );
-        return ( is_array($page_name) && isset($page_name[0]) ) ? $page_name[0] : null;
+        return is_array($page_name) && isset($page_name[0]) ? $page_name[0] : null;
     }
 
     /**
@@ -322,7 +324,7 @@ class Common
      *
      * @param int $pg page id
      *
-     * @return boolean success/failure
+     * @return bool success/failure
      */
     public function deletePage($pg)
     {
@@ -387,6 +389,35 @@ class Common
             return intval($default_page_no[0]);
         }
         return -1;
+    }
+
+    /**
+     * Get the status if the page already exists
+     * If no such exists, returns negative index.
+     *
+     * @param string $pg name
+     *
+     * @return bool if the page already exists
+     */
+    public function getPageExists(string $pg): bool
+    {
+        $cfgRelation = $this->relation->getRelationsParam();
+        if (! $cfgRelation['pdfwork']) {
+            return false;
+        }
+
+        $query = 'SELECT `page_nr`'
+            . ' FROM ' . Util::backquote($cfgRelation['db'])
+            . '.' . Util::backquote($cfgRelation['pdf_pages'])
+            . " WHERE `page_descr` = '" . $this->dbi->escapeString($pg) . "'";
+        $pageNos = $this->dbi->fetchResult(
+            $query,
+            null,
+            null,
+            DatabaseInterface::CONNECT_CONTROL,
+            DatabaseInterface::QUERY_STORE
+        );
+        return is_array($pageNos) && count($pageNos) > 0;
     }
 
     /**
@@ -455,7 +486,7 @@ class Common
      *
      * @param int $pg pdf page id
      *
-     * @return boolean success/failure
+     * @return bool success/failure
      */
     public function saveTablePositions($pg)
     {
@@ -518,9 +549,9 @@ class Common
      * @param string $table table name
      * @param string $field display field name
      *
-     * @return array<bool,string>
+     * @return array<int,string|null|bool>
      */
-    public function saveDisplayField($db, $table, $field)
+    public function saveDisplayField($db, $table, $field): array
     {
         $cfgRelation = $this->relation->getRelationsParam();
         if (! $cfgRelation['displaywork']) {
@@ -555,14 +586,14 @@ class Common
      * @param string $DB1       database
      * @param string $DB2       database
      *
-     * @return array array of success/failure and message
+     * @return array<int,string|bool> array of success/failure and message
      */
-    public function addNewRelation($db, $T1, $F1, $T2, $F2, $on_delete, $on_update, $DB1, $DB2)
+    public function addNewRelation($db, $T1, $F1, $T2, $F2, $on_delete, $on_update, $DB1, $DB2): array
     {
         $tables = $this->dbi->getTablesFull($DB1, $T1);
-        $type_T1 = mb_strtoupper($tables[$T1]['ENGINE']);
+        $type_T1 = mb_strtoupper($tables[$T1]['ENGINE'] ?? '');
         $tables = $this->dbi->getTablesFull($DB2, $T2);
-        $type_T2 = mb_strtoupper($tables[$T2]['ENGINE']);
+        $type_T2 = mb_strtoupper($tables[$T2]['ENGINE'] ?? '');
 
         // native foreign key
         if (Util::isForeignKeySupported($type_T1)

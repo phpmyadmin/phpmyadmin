@@ -1,16 +1,12 @@
 <?php
 /**
  * Set of functions used to build OpenDocument Spreadsheet dumps of tables
- *
- * @package    PhpMyAdmin-Export
- * @subpackage ODS
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Export;
 use PhpMyAdmin\OpenDocument;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -19,18 +15,18 @@ use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
+use function bin2hex;
+use function date;
+use function htmlspecialchars;
+use function stripos;
+use function stripslashes;
+use function strtotime;
 
 /**
  * Handles the export for the ODS class
- *
- * @package    PhpMyAdmin-Export
- * @subpackage ODS
  */
 class ExportOds extends ExportPlugin
 {
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();
@@ -274,7 +270,7 @@ class ExportOds extends ExportPlugin
                         . htmlspecialchars($GLOBALS[$what . '_null'])
                         . '</text:p>'
                         . '</table:table-cell>';
-                } elseif (false !== stripos($field_flags[$j], 'BINARY')
+                } elseif (stripos($field_flags[$j], 'BINARY') !== false
                     && $fields_meta[$j]->blob
                 ) {
                     // ignore BLOB
@@ -340,5 +336,19 @@ class ExportOds extends ExportPlugin
         $GLOBALS['ods_buffer'] .= '</table:table>';
 
         return true;
+    }
+
+    /**
+     * Outputs result raw query in ODS format
+     *
+     * @param string $err_url   the url to go back in case of error
+     * @param string $sql_query the rawquery to output
+     * @param string $crlf      the end of line sequence
+     *
+     * @return bool if succeeded
+     */
+    public function exportRawQuery(string $err_url, string $sql_query, string $crlf): bool
+    {
+        return $this->exportData('', '', $crlf, $err_url, $sql_query);
     }
 }

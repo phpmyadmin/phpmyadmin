@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for FormDisplay class in config folder
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -15,23 +13,19 @@ use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionProperty;
+use function function_exists;
+use function gettype;
 
 /**
  * Tests for PMA_FormDisplay class
- *
- * @package PhpMyAdmin-test
  */
 class FormDisplayTest extends PmaTestCase
 {
-    /**
-     * @var FormDisplay
-     */
+    /** @var FormDisplay */
     protected $object;
 
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -43,8 +37,6 @@ class FormDisplayTest extends PmaTestCase
 
     /**
      * tearDown for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -55,6 +47,7 @@ class FormDisplayTest extends PmaTestCase
      * Test for FormDisplay::__constructor
      *
      * @return void
+     *
      * @group medium
      */
     public function testFormDisplayContructor()
@@ -72,6 +65,7 @@ class FormDisplayTest extends PmaTestCase
      * Test for FormDisplay::registerForm
      *
      * @return void
+     *
      * @group medium
      */
     public function testRegisterForm()
@@ -124,6 +118,7 @@ class FormDisplayTest extends PmaTestCase
      * Test for FormDisplay::process
      *
      * @return void
+     *
      * @group medium
      */
     public function testProcess()

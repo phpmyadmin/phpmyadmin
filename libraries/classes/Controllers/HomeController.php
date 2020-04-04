@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\HomeController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -12,6 +10,7 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\GitRevision;
@@ -27,26 +26,27 @@ use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\Util;
+use function count;
+use function extension_loaded;
+use function file_exists;
+use function ini_get;
+use function preg_match;
+use function sprintf;
+use function strlen;
+use function trigger_error;
+use const E_USER_NOTICE;
+use const E_USER_WARNING;
+use const PHP_VERSION;
 
-/**
- * Class HomeController
- * @package PhpMyAdmin\Controllers
- */
 class HomeController extends AbstractController
 {
-    /**
-     * @var Config
-     */
+    /** @var Config */
     private $config;
 
-    /**
-     * @var ThemeManager
-     */
+    /** @var ThemeManager */
     private $themeManager;
 
     /**
-     * HomeController constructor.
-     *
      * @param Response          $response     Response instance
      * @param DatabaseInterface $dbi          DatabaseInterface instance
      * @param Template          $template     Template object
@@ -60,18 +60,12 @@ class HomeController extends AbstractController
         $this->themeManager = $themeManager;
     }
 
-
-    /**
-     * @param array $params Request parameters
-     *
-     * @return string HTML
-     */
-    public function index(array $params): string
+    public function index(): void
     {
         global $cfg, $server, $collation_connection, $message, $show_query, $db, $table;
 
-        if ($this->response->isAjax() && ! empty($params['access_time'])) {
-            return '';
+        if ($this->response->isAjax() && ! empty($_REQUEST['access_time'])) {
+            return;
         }
 
         $db = '';
@@ -79,7 +73,7 @@ class HomeController extends AbstractController
         $show_query = '1';
 
         if ($server > 0) {
-            include ROOT_PATH . 'libraries/server_common.inc.php';
+            Common::server();
         }
 
         $languageManager = LanguageManager::getInstance();
@@ -119,7 +113,7 @@ class HomeController extends AbstractController
                             'Change password'
                         ),
                         'id' => 'li_change_password',
-                        'class' => 'no_bullets',
+                        'class' => 'list-group-item',
                         'url' => [
                             'href' => Url::getFromRoute('/user-password'),
                             'target' => null,
@@ -156,7 +150,7 @@ class HomeController extends AbstractController
                         'More settings'
                     ),
                     'id' => 'li_user_preferences',
-                    'class' => 'no_bullets',
+                    'class' => 'list-group-item',
                     'url' => [
                         'href' => Url::getFromRoute('/preferences/manage'),
                         'target' => null,
@@ -224,8 +218,8 @@ class HomeController extends AbstractController
         if ($cfg['ShowPhpInfo']) {
             $phpInfo = $this->template->render('list/item', [
                 'content' => __('Show PHP information'),
-                'id' => 'li_phpinfo',
-                'class' => null,
+                'id' => null,
+                'class' => 'list-group-item',
                 'url' => [
                     'href' => Url::getFromRoute('/phpinfo'),
                     'target' => '_blank',
@@ -267,7 +261,7 @@ class HomeController extends AbstractController
 
         $this->checkRequirements();
 
-        return $this->template->render('home/index', [
+        $this->response->addHTML($this->template->render('home/index', [
             'message' => $displayMessage ?? '',
             'partial_logout' => $partialLogout ?? '',
             'is_git_revision' => $this->config->isGitRevision(),
@@ -288,77 +282,60 @@ class HomeController extends AbstractController
             'is_version_checked' => $cfg['VersionCheck'],
             'phpmyadmin_version' => PMA_VERSION,
             'config_storage_message' => $configStorageMessage ?? '',
-        ]);
+        ]));
     }
 
-    /**
-     * @param array $params Request parameters
-     * @return void
-     */
-    public function setTheme(array $params): void
+    public function setTheme(): void
     {
-        $this->themeManager->setActiveTheme($params['set_theme']);
+        $this->themeManager->setActiveTheme($_POST['set_theme']);
         $this->themeManager->setThemeCookie();
 
         $userPreferences = new UserPreferences();
         $preferences = $userPreferences->load();
-        $preferences['config_data']['ThemeDefault'] = $params['set_theme'];
+        $preferences['config_data']['ThemeDefault'] = $_POST['set_theme'];
         $userPreferences->save($preferences['config_data']);
 
         $this->response->header('Location: index.php?route=/' . Url::getCommonRaw([], '&'));
     }
 
-    /**
-     * @param array $params Request parameters
-     * @return void
-     */
-    public function setCollationConnection(array $params): void
+    public function setCollationConnection(): void
     {
         $this->config->setUserValue(
             null,
             'DefaultConnectionCollation',
-            $params['collation_connection'],
+            $_POST['collation_connection'],
             'utf8mb4_unicode_ci'
         );
 
         $this->response->header('Location: index.php?route=/' . Url::getCommonRaw([], '&'));
     }
 
-    /**
-     * @return array JSON
-     */
-    public function reloadRecentTablesList(): array
+    public function reloadRecentTablesList(): void
     {
         if (! $this->response->isAjax()) {
-            return [];
+            return;
         }
-        return [
+
+        $this->response->addJSON([
             'list' => RecentFavoriteTable::getInstance('recent')->getHtmlList(),
-        ];
+        ]);
     }
 
-    /**
-     * @return string HTML
-     */
-    public function gitRevision(): string
+    public function gitRevision(): void
     {
         global $PMA_Config;
 
-        /** @var Config $PMA_Config */
         if (! $this->response->isAjax() || ! $PMA_Config->isGitRevision()) {
-            return '';
+            return;
         }
 
-        return (new GitRevision(
+        $this->response->addHTML((new GitRevision(
             $this->response,
             $this->config,
             $this->template
-        ))->display();
+        ))->display());
     }
 
-    /**
-     * @return void
-     */
     private function checkRequirements(): void
     {
         global $cfg, $server, $lang;

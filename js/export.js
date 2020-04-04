@@ -311,7 +311,7 @@ AJAX.registerOnload('export.js', function () {
     });
 
     // When MS Excel is selected as the Format automatically Switch to Character Set as windows-1252
-    $('#plugins').change(function () {
+    $('#plugins').on('change', function () {
         var selectedPluginName = $('#plugins').find('option:selected').val();
         if (selectedPluginName === 'excel') {
             $('#select_charset').val('windows-1252');
@@ -863,7 +863,7 @@ Export.addAlias = function (type, name, field, value) {
 
     var row = $('#alias_data tfoot tr').clone();
     row.find('th').text(type);
-    row.find('td:first').text(name);
+    row.find('td').first().text(name);
     row.find('input').attr('name', field);
     row.find('input').val(value);
     row.find('.alias_remove').on('click', function () {
@@ -933,7 +933,7 @@ AJAX.registerOnload('export.js', function () {
                 'server': CommonParams.get('server'),
                 'db': database,
             };
-            var url = 'index.php?route=/ajax/list-tables/' + encodeURIComponent(database);
+            var url = 'index.php?route=/ajax/list-tables';
             $.post(url, params, function (response) {
                 if (response.success === true) {
                     $.each(response.tables, function (idx, value) {
@@ -958,7 +958,7 @@ AJAX.registerOnload('export.js', function () {
             'db': database,
             'table': table,
         };
-        var url = 'index.php?route=/ajax/list-columns/' + encodeURIComponent(database) + '/' + encodeURIComponent(table);
+        var url = 'index.php?route=/ajax/list-columns';
         $.post(url, params, function (response) {
             if (response.success === true) {
                 $.each(response.columns, function (idx, value) {

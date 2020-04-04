@@ -1,9 +1,6 @@
 <?php
 /**
  * Abstract class for the SQL transformations plugins
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage SQL
  */
 declare(strict_types=1);
 
@@ -11,13 +8,10 @@ namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
-use PhpMyAdmin\Util;
 use stdClass;
 
 /**
  * Provides common methods for all of the SQL transformations plugins.
- *
- * @package PhpMyAdmin
  */
 abstract class SQLTransformationsPlugin extends TransformationsPlugin
 {
@@ -46,7 +40,6 @@ abstract class SQLTransformationsPlugin extends TransformationsPlugin
     {
         return Generator::formatSql($buffer);
     }
-
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 

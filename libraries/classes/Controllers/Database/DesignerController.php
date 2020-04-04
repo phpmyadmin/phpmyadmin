@@ -1,27 +1,25 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers\Database
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Database\Designer;
-use PhpMyAdmin\Database\Designer\Common;
+use PhpMyAdmin\Database\Designer\Common as DesignerCommon;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+use function htmlspecialchars;
+use function in_array;
+use function sprintf;
 
-/**
- * @package PhpMyAdmin\Controllers\Database
- */
 class DesignerController extends AbstractController
 {
     /** @var Designer */
     private $databaseDesigner;
 
-    /** @var Common */
+    /** @var DesignerCommon */
     private $designerCommon;
 
     /**
@@ -30,7 +28,7 @@ class DesignerController extends AbstractController
      * @param Template          $template         Template object
      * @param string            $db               Database name
      * @param Designer          $databaseDesigner Designer object
-     * @param Common            $designerCommon   Designer\Common object
+     * @param DesignerCommon    $designerCommon   Designer\Common object
      */
     public function __construct(
         $response,
@@ -38,16 +36,13 @@ class DesignerController extends AbstractController
         Template $template,
         $db,
         Designer $databaseDesigner,
-        Common $designerCommon
+        DesignerCommon $designerCommon
     ) {
         parent::__construct($response, $dbi, $template, $db);
         $this->databaseDesigner = $databaseDesigner;
         $this->designerCommon = $designerCommon;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $db, $script_display_field, $tab_column, $tables_all_keys, $tables_pk_or_unique_keys;
@@ -98,7 +93,20 @@ class DesignerController extends AbstractController
             } elseif ($_POST['operation'] == 'savePage') {
                 if ($_POST['save_page'] == 'same') {
                     $page = $_POST['selected_page'];
-                } else { // new
+                } elseif ($this->designerCommon->getPageExists($_POST['selected_value'])) {
+                    $this->response->addJSON(
+                        'message',
+                        /* l10n: The user tries to save a page with an existing name in Designer */
+                        __(
+                            sprintf(
+                                'There already exists a page named "%s" please rename it to something else.',
+                                htmlspecialchars($_POST['selected_value'])
+                            )
+                        )
+                    );
+                    $this->response->setRequestStatus(false);
+                    return;
+                } else {
                     $page = $this->designerCommon->createNewPage($_POST['selected_value'], $_POST['db']);
                     $this->response->addJSON('id', $page);
                 }
@@ -146,7 +154,7 @@ class DesignerController extends AbstractController
             return;
         }
 
-        require ROOT_PATH . 'libraries/db_common.inc.php';
+        Common::database();
 
         $script_display_field = $this->designerCommon->getTablesInfo();
 
@@ -215,7 +223,7 @@ class DesignerController extends AbstractController
             $tooltip_truename,
             $tooltip_aliasname,
             $pos
-            ) = Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+            ) = Util::getDbInfo($db, $sub_part ?? '');
 
         // Embed some data into HTML, later it will be read
         // by designer/init.js and converted to JS variables.

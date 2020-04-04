@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\CreateAddField
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,20 +11,14 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * This class is for testing PhpMyAdmin\CreateAddField methods
- *
- * @package PhpMyAdmin-test
  */
 class CreateAddFieldTest extends TestCase
 {
-    /**
-     * @var CreateAddField
-     */
+    /** @var CreateAddField */
     private $createAddField;
 
     /**
      * Set up for test cases
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -40,8 +32,6 @@ class CreateAddFieldTest extends TestCase
      * @param array  $request  $_REQUEST array
      *
      * @dataProvider providerGetPartitionsDefinition
-     *
-     * @return void
      */
     public function testGetPartitionsDefinition($expected, $request): void
     {
@@ -82,8 +72,6 @@ class CreateAddFieldTest extends TestCase
      * @param array  $request  $_REQUEST array
      *
      * @dataProvider providerGetTableCreationQuery
-     *
-     * @return void
      */
     public function testGetTableCreationQuery($expected, $db, $table, $request): void
     {
@@ -113,6 +101,23 @@ class CreateAddFieldTest extends TestCase
                     'spatial_indexes' => '{}',
                 ],
             ],
+            [
+                'CREATE TABLE `db`.`table` () ENGINE = Inno\\\'DB CHARSET=armscii8 COMMENT = \'my \\\'table\';',
+                'db',
+                'table',
+                [
+                    'field_name' => [],
+                    'primary_indexes' => '{}',
+                    'indexes' => '{}',
+                    'unique_indexes' => '{}',
+                    'fulltext_indexes' => '{}',
+                    'spatial_indexes' => '{}',
+                    'tbl_storage_engine' => 'Inno\'DB',
+                    'tbl_collation' => 'armscii8',
+                    'connection' => 'aaaa',
+                    'comment' => 'my \'table',
+                ],
+            ],
         ];
     }
 
@@ -123,8 +128,6 @@ class CreateAddFieldTest extends TestCase
      * @param array  $request  $_REQUEST array
      *
      * @dataProvider providerGetNumberOfFieldsFromRequest
-     *
-     * @return void
      */
     public function testGetNumberOfFieldsFromRequest($expected, $request): void
     {

@@ -1,31 +1,26 @@
 <?php
 /**
  * Get user's global privileges and some db-specific privileges
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Util;
+use function mb_strpos;
+use function mb_substr;
+use function preg_match;
+use function preg_replace;
+use function strpos;
 
 /**
  * PhpMyAdmin\CheckUserPrivileges class
- *
- * @package PhpMyAdmin
  */
 class CheckUserPrivileges
 {
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /**
-     * Constructor
-     *
      * @param DatabaseInterface $dbi DatabaseInterface object
      */
     public function __construct(DatabaseInterface $dbi)
@@ -92,8 +87,6 @@ class CheckUserPrivileges
      * @param string $show_grants_str     string containing grants for user
      * @param string $show_grants_dbname  name of db extracted from grant string
      * @param string $show_grants_tblname name of table extracted from grant string
-     *
-     * @return void
      */
     public function checkRequiredPrivilegesForAdjust(
         string $show_grants_str,
@@ -168,8 +161,6 @@ class CheckUserPrivileges
      * account. Other privileges might be available to the account, but they are not
      * displayed. For example, if an anonymous account exists, the named account
      * might be able to use its privileges, but SHOW GRANTS will not display them.
-     *
-     * @return void
      */
     private function analyseShowGrant(): void
     {
@@ -341,8 +332,6 @@ class CheckUserPrivileges
 
     /**
      * Get user's global privileges and some db-specific privileges
-     *
-     * @return void
      */
     public function getPrivileges(): void
     {

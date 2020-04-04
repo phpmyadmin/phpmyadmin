@@ -1,14 +1,12 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers\Database
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Database\Qbe;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SavedSearches;
@@ -16,12 +14,8 @@ use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function stripos;
 
-/**
- * Query by Example controller
- *
- * @package PhpMyAdmin\Controllers\Database
- */
 class QueryByExampleController extends AbstractController
 {
     /** @var Relation */
@@ -40,13 +34,10 @@ class QueryByExampleController extends AbstractController
         $this->relation = $relation;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $db, $pmaThemeImage, $url_query, $savedSearchList, $savedSearch, $currentSearchId;
-        global $message_to_display, $sql_query, $goto, $sub_part, $tables, $num_tables, $total_num_tables, $route;
+        global $sql_query, $goto, $sub_part, $tables, $num_tables, $total_num_tables;
         global $is_show_stats, $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos, $url_params;
 
         // Gets the relation settings
@@ -72,21 +63,21 @@ class QueryByExampleController extends AbstractController
             //Action field is sent.
             if (isset($_POST['action'])) {
                 $savedSearch->setSearchName($_POST['searchName']);
-                if ('create' === $_POST['action']) {
+                if ($_POST['action'] === 'create') {
                     $saveResult = $savedSearch->setId(null)
                         ->setCriterias($_POST)
                         ->save();
-                } elseif ('update' === $_POST['action']) {
+                } elseif ($_POST['action'] === 'update') {
                     $saveResult = $savedSearch->setCriterias($_POST)
                         ->save();
-                } elseif ('delete' === $_POST['action']) {
+                } elseif ($_POST['action'] === 'delete') {
                     $deleteResult = $savedSearch->delete();
                     //After deletion, reset search.
                     $savedSearch = new SavedSearches($GLOBALS, $this->relation);
                     $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
                         ->setDbname($db);
                     $_POST = [];
-                } elseif ('load' === $_POST['action']) {
+                } elseif ($_POST['action'] === 'load') {
                     if (empty($_POST['searchId'])) {
                         //when not loading a search, reset the object.
                         $savedSearch = new SavedSearches($GLOBALS, $this->relation);
@@ -107,10 +98,10 @@ class QueryByExampleController extends AbstractController
         /**
          * A query has been submitted -> (maybe) execute it
          */
-        $message_to_display = false;
+        $hasMessageToDisplay = false;
         if (isset($_POST['submit_sql']) && ! empty($sql_query)) {
-            if (0 !== stripos($sql_query, 'SELECT')) {
-                $message_to_display = true;
+            if (stripos($sql_query, 'SELECT') !== 0) {
+                $hasMessageToDisplay = true;
             } else {
                 $goto = Url::getFromRoute('/database/sql');
                 $sql = new Sql();
@@ -138,7 +129,7 @@ class QueryByExampleController extends AbstractController
         }
 
         $sub_part  = '_qbe';
-        require ROOT_PATH . 'libraries/db_common.inc.php';
+        Common::database();
 
         $url_params['goto'] = Url::getFromRoute('/database/qbe');
         $url_query .= Url::getCommon($url_params, '&');
@@ -153,55 +144,14 @@ class QueryByExampleController extends AbstractController
             $tooltip_truename,
             $tooltip_aliasname,
             $pos
-        ) = Util::getDbInfo($db, $sub_part === null ? '' : $sub_part);
+        ) = Util::getDbInfo($db, $sub_part ?? '');
 
-        if ($message_to_display) {
-            Message::error(
-                __('You have to choose at least one column to display!')
-            )
-                ->display();
-        }
-        unset($message_to_display);
+        $databaseQbe = new Qbe($this->relation, $this->template, $this->dbi, $db, $savedSearchList, $savedSearch);
 
-        // create new qbe search instance
-        $db_qbe = new Qbe($this->relation, $this->template, $this->dbi, $db, $savedSearchList, $savedSearch);
-
-        $secondaryTabs = [
-            'multi' => [
-                'link' => Url::getFromRoute('/database/multi_table_query'),
-                'text' => __('Multi-table query'),
-                'active' => $route === '/database/multi_table_query',
-            ],
-            'qbe' => [
-                'link' => Url::getFromRoute('/database/qbe'),
-                'text' => __('Query by example'),
-                'active' => $route === '/database/qbe',
-            ],
-        ];
-        $this->response->addHTML(
-            $this->template->render('secondary_tabs', [
-                'url_params' => $url_params,
-                'sub_tabs' => $secondaryTabs,
-            ])
-        );
-
-        $url = Url::getFromRoute(
-            '/database/designer',
-            array_merge($url_params, ['query' => 1])
-        );
-        $this->response->addHTML(
-            Message::notice(
-                sprintf(
-                    __('Switch to %svisual builder%s'),
-                    '<a href="' . $url . '">',
-                    '</a>'
-                )
-            )
-        );
-
-        /**
-         * Displays the Query by example form
-         */
-        $this->response->addHTML($db_qbe->getSelectionForm());
+        $this->response->addHTML($this->template->render('database/qbe/index', [
+            'url_params' => $url_params,
+            'has_message_to_display' => $hasMessageToDisplay,
+            'selection_form_html' => $databaseQbe->getSelectionForm(),
+        ]));
     }
 }

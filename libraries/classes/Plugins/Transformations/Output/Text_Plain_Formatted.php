@@ -1,9 +1,6 @@
 <?php
 /**
  * Text Plain Formatted Transformations plugin for phpMyAdmin
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage Formatted
  */
 declare(strict_types=1);
 
@@ -13,9 +10,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\FormattedTransformationsPlugin;
 
 /**
  * Handles the formatted transformation for text plain
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage Formatted
  */
 // @codingStandardsIgnoreLine
 class Text_Plain_Formatted extends FormattedTransformationsPlugin

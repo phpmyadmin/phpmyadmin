@@ -1,8 +1,6 @@
 <?php
 /**
  * Test for PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -16,14 +14,13 @@ use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * Tests for PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild class
- *
- * @package PhpMyAdmin-test
  */
 class NodeDatabaseChildTest extends PmaTestCase
 {
     /**
      * Mock of NodeDatabaseChild
-     * @var MockObject
+     *
+     * @var NodeDatabaseChild|MockObject
      */
     protected $object;
 
@@ -31,7 +28,6 @@ class NodeDatabaseChildTest extends PmaTestCase
      * Sets up the fixture.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
@@ -43,7 +39,7 @@ class NodeDatabaseChildTest extends PmaTestCase
         $_SESSION['relation'][1]['PMA_VERSION'] = PMA_VERSION;
         $_SESSION['relation'][1]['navwork'] = true;
         $this->object = $this->getMockForAbstractClass(
-            'PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild',
+            NodeDatabaseChild::class,
             ['child']
         );
     }
@@ -52,7 +48,6 @@ class NodeDatabaseChildTest extends PmaTestCase
      * Tears down the fixture.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -63,6 +58,7 @@ class NodeDatabaseChildTest extends PmaTestCase
      * Tests getHtmlForControlButtons() method
      *
      * @return void
+     *
      * @test
      */
     public function testGetHtmlForControlButtons()

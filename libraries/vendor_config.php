@@ -5,14 +5,14 @@
  *
  * For changing this file you should know what you are doing. For this reason
  * options here are not part of normal configuration.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
+// phpcs:disable PSR1.Files.SideEffects
 if (! defined('PHPMYADMIN')) {
     exit;
 }
+// phpcs:enable
 
 /**
  * Path to vendor autoload file. Useful when you want to
@@ -79,3 +79,8 @@ define('LOCALE_PATH', ROOT_PATH . 'locale/');
  * is used)
  */
 define('K_PATH_IMAGES', ROOT_PATH);
+
+/**
+ * Define the cache directory for routing cache an other cache files
+ */
+define('CACHE_DIR', ROOT_PATH . 'libraries/cache/');

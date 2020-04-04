@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Normalization class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -11,11 +9,24 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\Html\Generator;
+use function array_merge;
+use function array_pop;
+use function array_unique;
+use function count;
+use function explode;
+use function htmlspecialchars;
+use function implode;
+use function in_array;
+use function intval;
+use function json_encode;
+use function mb_strtoupper;
+use function sort;
+use function sprintf;
+use function str_replace;
+use function trim;
 
 /**
  * Set of functions used for normalization
- *
- * @package PhpMyAdmin
  */
 class Normalization
 {
@@ -26,24 +37,16 @@ class Normalization
      */
     private $dbi;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var Transformations
-     */
+    /** @var Transformations */
     private $transformations;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
     /**
-     * Constructor
-     *
      * @param DatabaseInterface $dbi             DatabaseInterface instance
      * @param Relation          $relation        Relation instance
      * @param Transformations   $transformations Transformations instance
@@ -116,10 +119,10 @@ class Normalization
     /**
      * get the html of the form to add the new column to given table
      *
-     * @param integer $numFields  number of columns to add
-     * @param string  $db         current database
-     * @param string  $table      current table
-     * @param array   $columnMeta array containing default values for the fields
+     * @param int    $numFields  number of columns to add
+     * @param string $db         current database
+     * @param string $table      current table
+     * @param array  $columnMeta array containing default values for the fields
      *
      * @return string HTML
      */
@@ -189,6 +192,7 @@ class Normalization
             'is_virtual_columns_supported' => Util::isVirtualColumnsSupported(),
             'browse_mime' => $GLOBALS['cfg']['BrowseMIME'],
             'server_type' => Util::getServerType(),
+            'server_version' => $this->dbi->getVersion(),
             'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
             'char_editing' => $GLOBALS['cfg']['CharEditing'],
             'attribute_types' => $this->dbi->types->getAttributes(),
@@ -245,7 +249,7 @@ class Normalization
             . '</select>'
             . '<span>' . __('split into ')
             . "</span><input id='numField' type='number' value='2'>"
-            . "<input type='submit' id='splitGo' value='" . __('Go') . "'></div>"
+            . '<input type="submit" class="btn btn-primary" id="splitGo" value="' . __('Go') . '"></div>'
             . "<div id='newCols'></div>"
             . "</fieldset><fieldset class='tblFooters'>"
             . '</fieldset>'
@@ -915,18 +919,22 @@ class Normalization
             . __('Improve table structure (Normalization):') . '</legend>';
         $htmlOutput .= '<h3>' . __('Select up to what step you want to normalize')
             . '</h3>';
-        $choices = [
-            '1nf' => __('First step of normalization (1NF)'),
-            '2nf'      => __('Second step of normalization (1NF+2NF)'),
-            '3nf'  => __('Third step of normalization (1NF+2NF+3NF)'),
-        ];
 
-        $htmlOutput .= Html\Forms\Fields\RadioList::generate(
-            'normalizeTo',
-            $choices,
-            '1nf',
-            true
-        );
+        $htmlOutput .= '<div><input type="radio" name="normalizeTo" id="normalizeToRadio1" value="1nf" checked>';
+        $htmlOutput .= ' <label for="normalizeToRadio1">';
+        $htmlOutput .= __('First step of normalization (1NF)');
+        $htmlOutput .= '</label></div>';
+
+        $htmlOutput .= '<div><input type="radio" name="normalizeTo" id="normalizeToRadio2" value="2nf">';
+        $htmlOutput .= ' <label for="normalizeToRadio2">';
+        $htmlOutput .= __('Second step of normalization (1NF+2NF)');
+        $htmlOutput .= '</label></div>';
+
+        $htmlOutput .= '<div><input type="radio" name="normalizeTo" id="normalizeToRadio3" value="3nf">';
+        $htmlOutput .= ' <label for="normalizeToRadio3">';
+        $htmlOutput .= __('Third step of normalization (1NF+2NF+3NF)');
+        $htmlOutput .= '</label></div>';
+
         $htmlOutput .= '</fieldset><fieldset class="tblFooters">'
             . "<span class='floatleft'>" . __(
                 'Hint: Please follow the procedure carefully in order '
@@ -1020,15 +1028,15 @@ class Normalization
     /**
      * check whether a particular column is dependent on given subset of primary key
      *
-     * @param string  $partialKey the partial key, subset of primary key,
-     *                            each column in key supposed to be backquoted
-     * @param string  $column     backquoted column on whose dependency being checked
-     * @param string  $table      current table
-     * @param integer $pkCnt      distinct value count for given partial key
-     * @param integer $colCnt     distinct value count for given column
-     * @param integer $totalRows  total distinct rows count of the table
+     * @param string $partialKey the partial key, subset of primary key,
+     *                           each column in key supposed to be backquoted
+     * @param string $column     backquoted column on whose dependency being checked
+     * @param string $table      current table
+     * @param int    $pkCnt      distinct value count for given partial key
+     * @param int    $colCnt     distinct value count for given column
+     * @param int    $totalRows  total distinct rows count of the table
      *
-     * @return boolean TRUE if $column is dependent on $partialKey, False otherwise
+     * @return bool TRUE if $column is dependent on $partialKey, False otherwise
      */
     private function checkPartialDependency(
         $partialKey,
@@ -1047,10 +1055,7 @@ class Normalization
         if ($pkCnt && $pkCnt == $colCnt && $colCnt == $pkColCnt) {
             return true;
         }
-        if ($totalRows && $totalRows == $pkCnt) {
-            return true;
-        }
-        return false;
+        return $totalRows && $totalRows == $pkCnt;
     }
 
     /**

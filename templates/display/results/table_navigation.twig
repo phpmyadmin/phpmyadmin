@@ -50,22 +50,15 @@
           'pos': pos
         })) }}
 
-        {% trans 'Number of rows:' %}
-
-        {{ get_dropdown(
-          'session_max_rows',
-          {
-            '25': 25,
-            '50': 50,
-            '100': 100,
-            '250': 250,
-            '500': 500,
-          },
-          max_rows,
-          '',
-          'autosubmit',
-          is_showing_all ? 'All'|trans
-        ) }}
+        <label for="sessionMaxRowsSelect">{% trans 'Number of rows:' %}</label>
+        <select class="autosubmit" name="session_max_rows" id="sessionMaxRowsSelect">
+          {% if is_showing_all %}
+            <option value="" disabled selected>{% trans 'All' %}</option>
+          {% endif %}
+          {% for option in ['25', '50', '100', '250', '500'] %}
+            <option value="{{ option }}"{{ max_rows == option ? ' selected' }}>{{ option }}</option>
+          {% endfor %}
+        </select>
       </form>
     </td>
     <td class="navigation_separator"></td>

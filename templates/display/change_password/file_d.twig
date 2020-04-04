@@ -1,0 +1,14 @@
+<tr class="vmiddle">
+  <td>
+    <label for="select_authentication_plugin_cp">{% trans 'Password Hashing:' %}</label>
+  </td>
+  <td>
+    <select name="authentication_plugin" id="select_authentication_plugin_cp">
+      {% for plugin_name, plugin_description in active_auth_plugins %}
+        <option value="{{ plugin_name }}"{{ plugin_name == orig_auth_plugin ? ' selected' }}>{{ plugin_description }}</option>
+      {% endfor %}
+    </select>
+  </td>
+</tr>
+<tr id="tr_element_before_generate_password"></tr>
+</table>

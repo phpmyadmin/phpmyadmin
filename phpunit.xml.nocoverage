@@ -9,11 +9,6 @@
         <testsuite name="Classes">
             <directory suffix="Test.php">test/classes</directory>
         </testsuite>
-        <testsuite name="Unit">
-            <file>test/EnvironmentTest.php</file>
-            <directory suffix="Test.php">test/libraries/common</directory>
-            <directory suffix="Test.php">test/libraries</directory>
-        </testsuite>
         <testsuite name="Selenium">
             <directory suffix="Test.php">test/selenium</directory>
         </testsuite>
@@ -21,6 +16,5 @@
 
     <logging>
         <log type="junit" target="build/logs/junit.xml" />
-        <log type="json" target="build/logs/phpunit.json" />
     </logging>
 </phpunit>

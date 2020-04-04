@@ -1,94 +1,130 @@
 <?php
 /**
  * Configuration handling.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
 use DirectoryIterator;
-use PhpMyAdmin\Config;
-use PhpMyAdmin\Core;
-use PhpMyAdmin\Error;
-use PhpMyAdmin\LanguageManager;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\ThemeManager;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\UserPreferences;
-use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\HttpRequest;
-
-/**
- * Indication for error handler (see end of this file).
- */
-$GLOBALS['pma_config_loading'] = false;
+use function array_filter;
+use function array_flip;
+use function array_intersect_key;
+use function array_key_exists;
+use function array_keys;
+use function array_merge;
+use function array_replace_recursive;
+use function array_shift;
+use function array_slice;
+use function basename;
+use function bin2hex;
+use function count;
+use function date;
+use function define;
+use function defined;
+use function error_get_last;
+use function error_reporting;
+use function explode;
+use function fclose;
+use function file_exists;
+use function file_get_contents;
+use function filemtime;
+use function fileperms;
+use function fopen;
+use function fread;
+use function fseek;
+use function function_exists;
+use function gd_info;
+use function gzuncompress;
+use function implode;
+use function in_array;
+use function ini_get;
+use function intval;
+use function is_dir;
+use function is_file;
+use function is_int;
+use function is_numeric;
+use function is_readable;
+use function is_string;
+use function is_writable;
+use function json_decode;
+use function max;
+use function mb_strstr;
+use function mb_strtolower;
+use function md5;
+use function min;
+use function mkdir;
+use function ob_end_clean;
+use function ob_get_clean;
+use function ob_start;
+use function ord;
+use function parse_url;
+use function preg_match;
+use function realpath;
+use function rtrim;
+use function setcookie;
+use function sprintf;
+use function str_replace;
+use function stripos;
+use function strlen;
+use function strpos;
+use function strtolower;
+use function substr;
+use function sys_get_temp_dir;
+use function time;
+use function trigger_error;
+use function trim;
+use function unpack;
+use const DIRECTORY_SEPARATOR;
+use const E_USER_ERROR;
+use const PHP_EOL;
+use const PHP_OS;
+use const PHP_URL_PATH;
+use const PHP_URL_SCHEME;
 
 /**
  * Configuration class
- *
- * @package PhpMyAdmin
  */
 class Config
 {
-    /**
-     * @var string  default config source
-     */
+    /** @var string  default config source */
     public $default_source = ROOT_PATH . 'libraries/config.default.php';
 
-    /**
-     * @var array   default configuration settings
-     */
+    /** @var array   default configuration settings */
     public $default = [];
 
-    /**
-     * @var array   configuration settings, without user preferences applied
-     */
+    /** @var array   configuration settings, without user preferences applied */
     public $base_settings = [];
 
-    /**
-     * @var array   configuration settings
-     */
+    /** @var array   configuration settings */
     public $settings = [];
 
-    /**
-     * @var string  config source
-     */
+    /** @var string  config source */
     public $source = '';
 
-    /**
-     * @var int     source modification time
-     */
+    /** @var int     source modification time */
     public $source_mtime = 0;
     public $default_source_mtime = 0;
     public $set_mtime = 0;
 
-    /**
-     * @var boolean
-     */
+    /** @var bool */
     public $error_config_file = false;
 
-    /**
-     * @var boolean
-     */
+    /** @var bool */
     public $error_config_default_file = false;
 
-    /**
-     * @var array
-     */
+    /** @var array */
     public $default_server = [];
 
     /**
-     * @var boolean whether init is done or not
+     * @var bool whether init is done or not
      * set this to false to force some initial checks
      * like checking for required functions
      */
     public $done = false;
 
     /**
-     * constructor
-     *
      * @param string $source source to read config from
      */
     public function __construct(?string $source = null)
@@ -107,8 +143,6 @@ class Config
 
     /**
      * sets system and application settings
-     *
-     * @return void
      */
     public function checkSystem(): void
     {
@@ -130,8 +164,6 @@ class Config
 
     /**
      * whether to use gzip output compression or not
-     *
-     * @return void
      */
     public function checkOutputCompression(): void
     {
@@ -151,8 +183,6 @@ class Config
      * Sets the client platform based on user agent
      *
      * @param string $user_agent the user agent
-     *
-     * @return void
      */
     private function _setClientPlatform(string $user_agent): void
     {
@@ -176,8 +206,6 @@ class Config
      * Based on a phpBuilder article:
      *
      * @see http://www.phpbuilder.net/columns/tim20000821.php
-     *
-     * @return void
      */
     public function checkClient(): void
     {
@@ -283,8 +311,6 @@ class Config
 
     /**
      * Whether GD2 is present
-     *
-     * @return void
      */
     public function checkGd2(): void
     {
@@ -317,16 +343,14 @@ class Config
 
     /**
      * Whether the Web server php is running on is IIS
-     *
-     * @return void
      */
     public function checkWebServer(): void
     {
         // some versions return Microsoft-IIS, some Microsoft/IIS
         // we could use a preg_match() but it's slower
         if (Core::getenv('SERVER_SOFTWARE')
-            && false !== stripos(Core::getenv('SERVER_SOFTWARE'), 'Microsoft')
-            && false !== stripos(Core::getenv('SERVER_SOFTWARE'), 'IIS')
+            && stripos(Core::getenv('SERVER_SOFTWARE'), 'Microsoft') !== false
+            && stripos(Core::getenv('SERVER_SOFTWARE'), 'IIS') !== false
         ) {
             $this->set('PMA_IS_IIS', 1);
         } else {
@@ -336,8 +360,6 @@ class Config
 
     /**
      * Whether the os php is running on is windows or not
-     *
-     * @return void
      */
     public function checkWebServerOs(): void
     {
@@ -345,10 +367,10 @@ class Config
         $this->set('PMA_IS_WINDOWS', 0);
         // If PHP_OS is defined then continue
         if (defined('PHP_OS')) {
-            if (false !== stripos(PHP_OS, 'win') && false === stripos(PHP_OS, 'darwin')) {
+            if (stripos(PHP_OS, 'win') !== false && stripos(PHP_OS, 'darwin') === false) {
                 // Is it some version of Windows
                 $this->set('PMA_IS_WINDOWS', 1);
-            } elseif (false !== stripos(PHP_OS, 'OS/2')) {
+            } elseif (stripos(PHP_OS, 'OS/2') !== false) {
                 // Is it OS/2 (No file permissions like Windows)
                 $this->set('PMA_IS_WINDOWS', 1);
             }
@@ -357,8 +379,8 @@ class Config
 
     /**
      * detects if Git revision
+     *
      * @param string $git_location (optional) verified git directory
-     * @return boolean
      */
     public function isGitRevision(&$git_location = null): bool
     {
@@ -420,8 +442,6 @@ class Config
 
     /**
      * detects Git revision, if running inside repo
-     *
-     * @return void
      */
     public function checkGitRevision(): void
     {
@@ -443,10 +463,10 @@ class Config
 
         $branch = false;
         // are we on any branch?
-        if (false !== strpos($ref_head, '/')) {
+        if (strpos($ref_head, '/') !== false) {
             // remove ref: prefix
             $ref_head = substr(trim($ref_head), 5);
-            if (0 === strpos($ref_head, 'refs/heads/')) {
+            if (strpos($ref_head, 'refs/heads/') === 0) {
                 $branch = substr($ref_head, 11);
             } else {
                 $branch = basename($ref_head);
@@ -769,10 +789,13 @@ class Config
     /**
      * loads default values from default source
      *
-     * @return boolean     success
+     * @return bool success
      */
     public function loadDefaults(): bool
     {
+        global $isConfigLoading;
+
+        /** @var array<string,mixed> $cfg */
         $cfg = [];
         if (! @file_exists($this->default_source)) {
             $this->error_config_default_file = true;
@@ -783,11 +806,13 @@ class Config
         if ($canUseErrorReporting) {
             $oldErrorReporting = error_reporting(0);
         }
+
         ob_start();
-        $GLOBALS['pma_config_loading'] = true;
+        $isConfigLoading = true;
         $eval_result = include $this->default_source;
-        $GLOBALS['pma_config_loading'] = false;
+        $isConfigLoading = false;
         ob_end_clean();
+
         if ($canUseErrorReporting) {
             error_reporting($oldErrorReporting);
         }
@@ -815,14 +840,14 @@ class Config
      * should be called on object creation
      *
      * @param string $source config file
-     *
-     * @return bool
      */
     public function load(?string $source = null): bool
     {
+        global $isConfigLoading;
+
         $this->loadDefaults();
 
-        if (null !== $source) {
+        if ($source !== null) {
             $this->setSource($source);
         }
 
@@ -841,11 +866,13 @@ class Config
         if ($canUseErrorReporting) {
             $oldErrorReporting = error_reporting(0);
         }
+
         ob_start();
-        $GLOBALS['pma_config_loading'] = true;
+        $isConfigLoading = true;
         $eval_result = include $this->getSource();
-        $GLOBALS['pma_config_loading'] = false;
+        $isConfigLoading = false;
         ob_end_clean();
+
         if ($canUseErrorReporting) {
             error_reporting($oldErrorReporting);
         }
@@ -887,8 +914,6 @@ class Config
 
     /**
      * Sets the connection collation
-     *
-     * @return void
      */
     private function _setConnectionCollation(): void
     {
@@ -903,17 +928,13 @@ class Config
     /**
      * Loads user preferences and merges them with current config
      * must be called after control connection has been established
-     *
-     * @return void
      */
     public function loadUserPreferences(): void
     {
         $userPreferences = new UserPreferences();
         // index.php should load these settings, so that phpmyadmin.css.php
         // will have everything available in session cache
-        $server = isset($GLOBALS['server'])
-            ? $GLOBALS['server']
-            : (! empty($GLOBALS['cfg']['ServerDefault'])
+        $server = $GLOBALS['server'] ?? (! empty($GLOBALS['cfg']['ServerDefault'])
                 ? $GLOBALS['cfg']['ServerDefault']
                 : 0);
         $cache_key = 'server_' . $server;
@@ -1082,8 +1103,6 @@ class Config
      * set source
      *
      * @param string $source source
-     *
-     * @return void
      */
     public function setSource(string $source): void
     {
@@ -1093,7 +1112,7 @@ class Config
     /**
      * check config source
      *
-     * @return boolean whether source is valid or not
+     * @return bool whether source is valid or not
      */
     public function checkConfigSource(): bool
     {
@@ -1137,8 +1156,6 @@ class Config
     /**
      * verifies the permissions on config file (if asked by configuration)
      * (must be called after config.inc.php has been merged)
-     *
-     * @return void
      */
     public function checkPermissions(): void
     {
@@ -1164,8 +1181,6 @@ class Config
     /**
      * Checks for errors
      * (must be called after config.inc.php has been merged)
-     *
-     * @return void
      */
     public function checkErrors(): void
     {
@@ -1196,7 +1211,7 @@ class Config
      *
      * @param string $setting config setting
      *
-     * @return mixed value
+     * @return mixed|null value
      */
     public function get(string $setting)
     {
@@ -1211,8 +1226,6 @@ class Config
      *
      * @param string $setting configuration option
      * @param mixed  $value   new value for configuration option
-     *
-     * @return void
      */
     public function set(string $setting, $value): void
     {
@@ -1254,8 +1267,6 @@ class Config
 
     /**
      * checks if upload is enabled
-     *
-     * @return void
      */
     public function checkUpload(): void
     {
@@ -1267,7 +1278,7 @@ class Config
         $this->set('enable_upload', true);
         // if set "php_admin_value file_uploads Off" in httpd.conf
         // ini_get() also returns the string "Off" in this case:
-        if ('off' == strtolower(ini_get('file_uploads'))) {
+        if (strtolower(ini_get('file_uploads')) == 'off') {
             $this->set('enable_upload', false);
         }
     }
@@ -1277,8 +1288,6 @@ class Config
      * Used with permission from Moodle (https://moodle.org/) by Martin Dougiamas
      *
      * this section generates $max_upload_size in bytes
-     *
-     * @return void
      */
     public function checkUploadSize(): void
     {
@@ -1300,12 +1309,10 @@ class Config
      * Checks if protocol is https
      *
      * This function checks if the https protocol on the active connection.
-     *
-     * @return bool
      */
     public function isHttps(): bool
     {
-        if (null !== $this->get('is_https')) {
+        if ($this->get('is_https') !== null) {
             return $this->get('is_https');
         }
 
@@ -1327,6 +1334,12 @@ class Config
             $is_https = true;
         } elseif (strtolower(Core::getenv('HTTP_X_FORWARDED_PROTO')) == 'https') {
             $is_https = true;
+        } elseif (strtolower(Core::getenv('HTTP_CLOUDFRONT_FORWARDED_PROTO')) === 'https') {
+            // Amazon CloudFront, issue #15621
+            $is_https = true;
+        } elseif (Util::getProtoFromForwardedHeader(Core::getenv('HTTP_FORWARDED')) === 'https') {
+            // RFC 7239 Forwarded header
+            $is_https = true;
         } elseif (Core::getenv('SERVER_PORT') == 443) {
             $is_https = true;
         }
@@ -1338,14 +1351,12 @@ class Config
 
     /**
      * Get phpMyAdmin root path
-     *
-     * @return string
      */
     public function getRootPath(): string
     {
         static $cookie_path = null;
 
-        if (null !== $cookie_path && ! defined('TESTSUITE')) {
+        if ($cookie_path !== null && ! defined('TESTSUITE')) {
             return $cookie_path;
         }
 
@@ -1385,8 +1396,6 @@ class Config
 
     /**
      * enables backward compatibility
-     *
-     * @return void
      */
     public function enableBc(): void
     {
@@ -1421,7 +1430,7 @@ class Config
      *
      * @param string $cookieName name of cookie to remove
      *
-     * @return boolean result of setcookie()
+     * @return bool result of setcookie()
      */
     public function removeCookie(string $cookieName): bool
     {
@@ -1453,7 +1462,7 @@ class Config
      * @param int    $validity validity of cookie in seconds (default is one month)
      * @param bool   $httponly whether cookie is only for HTTP (and not for scripts)
      *
-     * @return boolean result of setcookie()
+     * @return bool result of setcookie()
      */
     public function setCookie(
         string $cookie,
@@ -1462,7 +1471,7 @@ class Config
         ?int $validity = null,
         bool $httponly = true
     ): bool {
-        if (strlen($value) > 0 && null !== $default && $value === $default
+        if (strlen($value) > 0 && $default !== null && $value === $default
         ) {
             // default value is used
             if ($this->issetCookie($cookie)) {
@@ -1479,7 +1488,7 @@ class Config
 
         $httpCookieName = $this->getCookieName($cookie);
 
-        if (! $this->issetCookie($cookie) ||  $this->getCookie($cookie) !== $value) {
+        if (! $this->issetCookie($cookie) || $this->getCookie($cookie) !== $value) {
             // set cookie with new value
             /* Calculate cookie validity */
             if ($validity === null) {
@@ -1515,22 +1524,25 @@ class Config
      *
      * @param string $cookieName The name of the cookie to get
      *
-     * @return mixed result of getCookie()
+     * @return mixed|null result of getCookie()
      */
     public function getCookie(string $cookieName)
     {
-        return @$_COOKIE[$this->getCookieName($cookieName)];
+        if (isset($_COOKIE[$this->getCookieName($cookieName)])) {
+            return $_COOKIE[$this->getCookieName($cookieName)];
+        } else {
+            return null;
+        }
     }
 
     /**
      * Get the real cookie name
      *
      * @param string $cookieName The name of the cookie
-     * @return string
      */
     public function getCookieName(string $cookieName): string
     {
-        return $cookieName . ( ($this->isHttps()) ? '_https' : '' );
+        return $cookieName . ( $this->isHttps() ? '_https' : '' );
     }
 
     /**
@@ -1548,14 +1560,12 @@ class Config
     /**
      * Error handler to catch fatal errors when loading configuration
      * file
-     *
-     * @return void
      */
     public static function fatalErrorHandler(): void
     {
-        if (! isset($GLOBALS['pma_config_loading'])
-            || ! $GLOBALS['pma_config_loading']
-        ) {
+        global $isConfigLoading;
+
+        if (! isset($isConfigLoading) || ! $isConfigLoading) {
             return;
         }
 
@@ -1579,8 +1589,6 @@ class Config
      *
      * @param string $filename File to check and render
      * @param string $id       Div ID
-     *
-     * @return string
      */
     private static function _renderCustom(string $filename, string $id): string
     {
@@ -1597,8 +1605,6 @@ class Config
 
     /**
      * Renders user configured footer
-     *
-     * @return string
      */
     public static function renderFooter(): string
     {
@@ -1607,8 +1613,6 @@ class Config
 
     /**
      * Renders user configured footer
-     *
-     * @return string
      */
     public static function renderHeader(): string
     {
@@ -1619,8 +1623,6 @@ class Config
      * Returns temporary dir path
      *
      * @param string $name Directory name
-     *
-     * @return string|null
      */
     public function getTempDir(string $name): ?string
     {
@@ -1634,7 +1636,7 @@ class Config
         if (empty($path)) {
             $path = null;
         } else {
-            $path .= '/' . $name;
+            $path = rtrim($path, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $name;
             if (! @is_dir($path)) {
                 @mkdir($path, 0770, true);
             }
@@ -1649,8 +1651,6 @@ class Config
 
     /**
      * Returns temporary directory
-     *
-     * @return string|null
      */
     public function getUploadTempDir(): ?string
     {
@@ -1673,8 +1673,6 @@ class Config
 
     /**
      * Selects server based on request parameters.
-     *
-     * @return integer
      */
     public function selectServer(): int
     {
@@ -1729,8 +1727,6 @@ class Config
 
     /**
      * Checks whether Servers configuration is valid and possibly apply fixups.
-     *
-     * @return void
      */
     public function checkServers(): void
     {
@@ -1767,8 +1763,4 @@ class Config
             $this->settings['Servers'] = $new_servers;
         }
     }
-}
-
-if (! defined('TESTSUITE')) {
-    register_shutdown_function([Config::class, 'fatalErrorHandler']);
 }

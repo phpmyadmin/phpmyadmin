@@ -1,47 +1,19 @@
 <?php
 /**
  * Replication helpers
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function explode;
+use function mb_strtoupper;
+
 /**
  * PhpMyAdmin\Replication class
- *
- * @package PhpMyAdmin
  */
 class Replication
 {
-    /**
-     * Fill global replication_info variable.
-     *
-     * @param string $type               Type: master, slave
-     * @param string $replicationInfoKey Key in replication_info variable
-     * @param array  $mysqlInfo          MySQL data about replication
-     * @param string $mysqlKey           MySQL key
-     *
-     * @return array
-     */
-    public function fillInfo(
-        $type,
-        $replicationInfoKey,
-        array $mysqlInfo,
-        $mysqlKey
-    ) {
-        $GLOBALS['replication_info'][$type][$replicationInfoKey]
-            = empty($mysqlInfo[$mysqlKey])
-                ? []
-                : explode(
-                    ',',
-                    $mysqlInfo[$mysqlKey]
-                );
-
-        return $GLOBALS['replication_info'][$type][$replicationInfoKey];
-    }
-
     /**
      * Extracts database or table name from string
      *
@@ -53,7 +25,7 @@ class Replication
     public function extractDbOrTable($string, $what = 'db')
     {
         $list = explode('.', $string);
-        if ('db' == $what) {
+        if ($what == 'db') {
             return $list[0];
         } else {
             return $list[1];
@@ -68,12 +40,14 @@ class Replication
      *                        possible values: SQL_THREAD or IO_THREAD or null.
      *                        If it is set to null, it controls both
      *                        SQL_THREAD and IO_THREAD
-     * @param mixed  $link    mysql link
+     * @param int    $link    mysql link
      *
-     * @return mixed output of DatabaseInterface::tryQuery
+     * @return mixed|int output of DatabaseInterface::tryQuery
      */
     public function slaveControl($action, $control = null, $link = null)
     {
+        global $dbi;
+
         $action = mb_strtoupper($action);
         $control = mb_strtoupper($control);
 
@@ -84,7 +58,7 @@ class Replication
             return -1;
         }
 
-        return $GLOBALS['dbi']->tryQuery($action . ' SLAVE ' . $control . ';', $link);
+        return $dbi->tryQuery($action . ' SLAVE ' . $control . ';', $link);
     }
 
     /**

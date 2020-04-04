@@ -1,9 +1,6 @@
 <?php
 /**
  * Class for exporting CSV dumps of tables for excel
- *
- * @package    PhpMyAdmin-Export
- * @subpackage CSV-Excel
  */
 declare(strict_types=1);
 
@@ -19,9 +16,6 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 
 /**
  * Handles the export for the CSV-Excel format
- *
- * @package    PhpMyAdmin-Export
- * @subpackage CSV-Excel
  */
 class ExportExcel extends ExportCsv
 {

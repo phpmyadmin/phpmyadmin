@@ -1,24 +1,16 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers\Database
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
-/**
- * @package PhpMyAdmin\Controllers\Database
- */
 class SearchController extends AbstractController
 {
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $cfg, $db, $err_url, $url_query, $url_params, $tables, $num_tables, $total_num_tables, $sub_part;
@@ -30,7 +22,7 @@ class SearchController extends AbstractController
         $scripts->addFile('sql.js');
         $scripts->addFile('makegrid.js');
 
-        require ROOT_PATH . 'libraries/db_common.inc.php';
+        Common::database();
 
         // If config variable $cfg['UseDbSearch'] is on false : exit.
         if (! $cfg['UseDbSearch']) {
@@ -59,7 +51,7 @@ class SearchController extends AbstractController
                 $tooltip_truename,
                 $tooltip_aliasname,
                 $pos,
-            ] = Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+            ] = Util::getDbInfo($db, $sub_part ?? '');
         }
 
         // Main search form has been submitted, get results

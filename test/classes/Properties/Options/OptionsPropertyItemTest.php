@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\Properties\Options\OptionsPropertyItem class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -12,8 +10,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for PhpMyAdmin\Properties\Options\OptionsPropertyItem class
- *
- * @package PhpMyAdmin-test
  */
 class OptionsPropertyItemTest extends TestCase
 {
@@ -21,8 +17,6 @@ class OptionsPropertyItemTest extends TestCase
 
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -31,8 +25,6 @@ class OptionsPropertyItemTest extends TestCase
 
     /**
      * tearDown for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {

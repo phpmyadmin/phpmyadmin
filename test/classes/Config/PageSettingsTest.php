@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for Page-related settings
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,15 +12,11 @@ use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PhpMyAdmin\Config\PageSettings
- *
- * @package PhpMyAdmin-test
  */
 class PageSettingsTest extends PmaTestCase
 {
     /**
      * Setup tests
-     *
-     * @return void
      */
     protected function setUp(): void
     {

@@ -1,17 +1,15 @@
 <?php
 /**
  * Text link generator
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Html\ActionLinksModes;
 
+use function htmlspecialchars;
+
 /**
  * Text link generator
- *
- * @package PhpMyAdmin
  */
 class Text implements ActionLinksModesInterface
 {
@@ -23,8 +21,6 @@ class Text implements ActionLinksModesInterface
      * @param string $text  Text of the generated element
      * @param string $image Image of the generated element, if image mode
      * @param string $value Value of the generated element
-     *
-     * @return string
      */
     public static function generate(
         string $name,
@@ -36,8 +32,8 @@ class Text implements ActionLinksModesInterface
         if (empty($value)) {
             $value = $text;
         }
-        return ' <input class="btn btn-link" type="submit" name="' . $name . '"'
+        return ' <button class="btn btn-link ' . $class . '" type="submit" name="' . $name . '"'
             . ' value="' . htmlspecialchars($value) . '"'
-            . ' title="' . htmlspecialchars($text) . '">' . "\n";
+            . ' title="' . htmlspecialchars($text) . '">' . htmlspecialchars($text) . '</button>' . "\n";
     }
 }

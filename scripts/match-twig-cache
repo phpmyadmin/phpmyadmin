@@ -1,0 +1,28 @@
+<?php
+/* vim: set expandtab sw=4 ts=4 sts=4 ft=php: */
+declare(strict_types=1);
+
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
+}
+
+$tmpDir = ROOT_PATH . 'twig-templates';
+
+/* Read replacements file */
+$replacements = json_decode(file_get_contents($tmpDir . '/replace.json'), true);
+
+/* Read files list */
+$filesList = file_get_contents($tmpDir . '/filesList');
+
+$options = getopt('', ['reverse::']);
+
+foreach ($replacements as $templateName => $data) {
+    if (isset($options['reverse'])) {
+        $filesList = str_replace($data[0], $templateName, $filesList);
+    } else {
+        $filesList = str_replace($templateName, $data[0], $filesList);
+    }
+}
+
+/* Write back files list */
+file_put_contents($tmpDir . '/filesList', $filesList);

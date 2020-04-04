@@ -1,17 +1,15 @@
 <?php
 /**
  * Contains the factory class that handles the creation of geometric objects
- *
- * @package PhpMyAdmin-GIS
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
+use function strtoupper;
+
 /**
  * Factory class that handles the creation of geometric objects.
- *
- * @package PhpMyAdmin-GIS
  */
 class GisFactory
 {

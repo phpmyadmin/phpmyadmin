@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\CentralColumns
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -17,13 +15,11 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
-
-$GLOBALS['server'] = 1;
+use function array_slice;
+use function ceil;
 
 /**
  * tests for PhpMyAdmin\CentralColumns
- *
- * @package PhpMyAdmin-test
  */
 class CentralColumnsTest extends TestCase
 {
@@ -94,8 +90,6 @@ class CentralColumnsTest extends TestCase
 
     /**
      * prepares environment for tests
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -661,7 +655,7 @@ class CentralColumnsTest extends TestCase
             $text_dir
         );
         $this->assertStringContainsString(
-            '<form action="index.php?route=/database/central_columns',
+            '<form action="index.php?route=/database/central-columns',
             $result
         );
         $this->assertStringContainsString(

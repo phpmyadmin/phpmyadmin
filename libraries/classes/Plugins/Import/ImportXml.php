@@ -3,8 +3,6 @@
  * XML import plugin for phpMyAdmin
  *
  * @todo       Improve efficiency
- * @package    PhpMyAdmin-Import
- * @subpackage XML
  */
 declare(strict_types=1);
 
@@ -16,18 +14,20 @@ use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Util;
 use SimpleXMLElement;
+use function count;
+use function in_array;
+use function libxml_disable_entity_loader;
+use function simplexml_load_string;
+use function str_replace;
+use function strcmp;
+use function strlen;
+use const LIBXML_COMPACT;
 
 /**
  * Handles the import for the XML format
- *
- * @package    PhpMyAdmin-Import
- * @subpackage XML
  */
 class ImportXml extends ImportPlugin
 {
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();
@@ -147,7 +147,7 @@ class ImportXml extends ImportPlugin
         /**
          * Get the database name, collation and charset
          */
-        $db_attr = $xml->children(isset($namespaces['pma']) ? $namespaces['pma'] : null)
+        $db_attr = $xml->children($namespaces['pma'] ?? null)
             ->{'structure_schemas'}->{'database'};
 
         if ($db_attr instanceof SimpleXMLElement) {
@@ -237,7 +237,7 @@ class ImportXml extends ImportPlugin
         /**
          * Only attempt to analyze/collect data if there is data present
          */
-        if ($xml && @count($xml->children())) {
+        if ($xml && $xml->children()->count()) {
             $data_present = true;
 
             /**

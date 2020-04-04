@@ -1,8 +1,6 @@
 <?php
 /**
  * hold PhpMyAdmin\Twig\UtilExtension class
- *
- * @package PhpMyAdmin\Twig
  */
 declare(strict_types=1);
 
@@ -12,11 +10,6 @@ use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
 
-/**
- * Class UtilExtension
- *
- * @package PhpMyAdmin\Twig
- */
 class UtilExtension extends AbstractExtension
 {
     /**
@@ -32,17 +25,16 @@ class UtilExtension extends AbstractExtension
                 'PhpMyAdmin\Util::backquote'
             ),
             new TwigFunction(
-                'get_browse_upload_file_block',
-                '\PhpMyAdmin\Html\Forms\Fields\BrowseUploadFileBlock::generate',
-                ['is_safe' => ['html']]
-            ),
-            new TwigFunction(
                 'extract_column_spec',
                 'PhpMyAdmin\Util::extractColumnSpec'
             ),
             new TwigFunction(
                 'format_byte_down',
                 'PhpMyAdmin\Util::formatByteDown'
+            ),
+            new TwigFunction(
+                'get_formatted_maximum_upload_size',
+                'PhpMyAdmin\Util::getFormattedMaximumUploadSize'
             ),
             new TwigFunction(
                 'format_number',
@@ -74,27 +66,12 @@ class UtilExtension extends AbstractExtension
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
-                'get_dropdown',
-                '\PhpMyAdmin\Html\Forms\Fields\DropDown::generate',
-                ['is_safe' => ['html']]
-            ),
-            new TwigFunction(
-                'get_fk_checkbox',
-                '\PhpMyAdmin\Html\Forms\Fields\FKCheckbox::generate',
-                ['is_safe' => ['html']]
-            ),
-            new TwigFunction(
                 'get_gis_datatypes',
                 'PhpMyAdmin\Util::getGISDatatypes'
             ),
             new TwigFunction(
                 'get_gis_functions',
                 'PhpMyAdmin\Util::getGISFunctions'
-            ),
-            new TwigFunction(
-                'get_html_tab',
-                '\PhpMyAdmin\Html\Generator::getHtmlTab',
-                ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'get_icon',
@@ -104,16 +81,6 @@ class UtilExtension extends AbstractExtension
             new TwigFunction(
                 'get_image',
                 '\PhpMyAdmin\Html\Generator::getImage',
-                ['is_safe' => ['html']]
-            ),
-            new TwigFunction(
-                'get_radio_fields',
-                '\PhpMyAdmin\Html\Forms\Fields\RadioList::generate',
-                ['is_safe' => ['html']]
-            ),
-            new TwigFunction(
-                'get_select_upload_file_block',
-                '\PhpMyAdmin\Html\Forms\Fields\DropDownUploadFileBlock::generate',
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
@@ -168,6 +135,11 @@ class UtilExtension extends AbstractExtension
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
+                'get_docu_url',
+                'PhpMyAdmin\Util::getdocuURL',
+                ['is_safe' => ['html']]
+            ),
+            new TwigFunction(
                 'show_php_docu',
                 '\PhpMyAdmin\Html\Generator::showPHPDocumentation',
                 ['is_safe' => ['html']]
@@ -180,11 +152,6 @@ class UtilExtension extends AbstractExtension
             new TwigFunction(
                 'timespan_format',
                 'PhpMyAdmin\Util::timespanFormat'
-            ),
-            new TwigFunction(
-                'generate_hidden_max_file_size',
-                '\PhpMyAdmin\Html\Forms\Fields\MaxFileSize::generate',
-                ['is_safe' => ['html']]
             ),
         ];
     }

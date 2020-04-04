@@ -1,8 +1,6 @@
 <?php
 /**
  * Generic plugin interface.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -22,12 +20,30 @@ use PhpMyAdmin\Properties\Options\OptionsPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
 use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
-use PhpMyAdmin\Util;
+use function array_pop;
+use function class_exists;
+use function count;
+use function explode;
+use function get_class;
+use function htmlspecialchars;
+use function is_file;
+use function mb_strlen;
+use function mb_strpos;
+use function mb_strtolower;
+use function mb_strtoupper;
+use function mb_substr;
+use function method_exists;
+use function opendir;
+use function preg_match;
+use function preg_match_all;
+use function readdir;
+use function str_replace;
+use function strcasecmp;
+use function strcmp;
+use function usort;
 
 /**
  * PhpMyAdmin\Plugins class
- *
- * @package PhpMyAdmin
  */
 class Plugins
 {
@@ -59,7 +75,7 @@ class Plugins
             $fqnClass = 'PhpMyAdmin\\' . str_replace('/', '\\', mb_substr($plugins_dir, 18)) . $class_name;
             // check if class exists, could be caused by skip_import
             if (class_exists($fqnClass)) {
-                return new $fqnClass;
+                return new $fqnClass();
             }
         }
 
@@ -107,8 +123,8 @@ class Plugins
                 include_once $plugins_dir . $file;
                 if (! $GLOBALS['skip_import']) {
                     $class_name = $prefix_class_name . $matches[1];
-                    $plugin = new $class_name;
-                    if (null !== $plugin->getProperties()) {
+                    $plugin = new $class_name();
+                    if ($plugin->getProperties() !== null) {
                         $plugin_list[] = $plugin;
                     }
                 }
@@ -133,7 +149,7 @@ class Plugins
      */
     public static function getString($name)
     {
-        return isset($GLOBALS[$name]) ? $GLOBALS[$name] : $name;
+        return $GLOBALS[$name] ?? $name;
     }
 
     /**
@@ -277,7 +293,7 @@ class Plugins
      * @param string              $section       name of config section in $GLOBALS['cfg'][$section] for plugin
      * @param string              $plugin_name   unique plugin name
      * @param OptionsPropertyItem $propertyGroup options property main group instance
-     * @param boolean             $is_subgroup   if this group is a subgroup
+     * @param bool                $is_subgroup   if this group is a subgroup
      *
      * @return string  table row with option
      */

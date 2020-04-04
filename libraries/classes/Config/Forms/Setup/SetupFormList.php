@@ -1,8 +1,6 @@
 <?php
 /**
  * Setup preferences form
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -10,15 +8,9 @@ namespace PhpMyAdmin\Config\Forms\Setup;
 
 use PhpMyAdmin\Config\Forms\BaseFormList;
 
-/**
- * Class SetupFormList
- * @package PhpMyAdmin\Config\Forms\Setup
- */
 class SetupFormList extends BaseFormList
 {
-    /**
-     * @var array
-     */
+    /** @var array */
     protected static $all = [
         'Config',
         'Export',
@@ -29,8 +21,6 @@ class SetupFormList extends BaseFormList
         'Servers',
         'Sql',
     ];
-    /**
-     * @var string
-     */
+    /** @var string */
     protected static $ns = '\\PhpMyAdmin\\Config\\Forms\\Setup\\';
 }

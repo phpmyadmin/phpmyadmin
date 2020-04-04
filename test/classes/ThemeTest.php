@@ -1,39 +1,29 @@
 <?php
 /**
  * Test class for Theme.
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Theme;
+use function filemtime;
 
 /**
  * Test class for Theme.
- *
- * @package PhpMyAdmin-test
  */
 class ThemeTest extends PmaTestCase
 {
-    /**
-     * @var Theme
-     */
+    /** @var Theme */
     protected $object;
 
-    /**
-     * @var Theme backup for session theme
-     */
+    /** @var Theme backup for session theme */
     protected $backup;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -49,8 +39,6 @@ class ThemeTest extends PmaTestCase
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -61,6 +49,7 @@ class ThemeTest extends PmaTestCase
      * Test for Theme::loadInfo
      *
      * @return void
+     *
      * @group medium
      */
     public function testCheckImgPathNotExisted()
@@ -265,8 +254,6 @@ class ThemeTest extends PmaTestCase
      * @param string $file     file name for image
      * @param string $fallback fallback image
      * @param string $output   expected output
-     *
-     * @return void
      *
      * @dataProvider providerForGetImgPath
      */

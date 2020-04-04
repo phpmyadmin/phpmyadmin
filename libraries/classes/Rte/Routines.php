@@ -1,8 +1,6 @@
 <?php
 /**
  * Functions for routine management.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -12,8 +10,8 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Parser;
@@ -22,47 +20,51 @@ use PhpMyAdmin\SqlParser\Utils\Routine;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function array_merge;
+use function count;
+use function explode;
+use function htmlentities;
+use function htmlspecialchars;
+use function implode;
+use function in_array;
+use function is_array;
+use function is_string;
+use function max;
+use function mb_strpos;
+use function mb_strtolower;
+use function mb_strtoupper;
+use function preg_match;
+use function sprintf;
+use function stripos;
+use function substr;
+use function trigger_error;
+use const E_USER_WARNING;
+use const ENT_QUOTES;
 
 /**
  * PhpMyAdmin\Rte\Routines class
- *
- * @package PhpMyAdmin
  */
 class Routines
 {
-    /**
-     * @var Export
-     */
+    /** @var Export */
     private $export;
 
-    /**
-     * @var Footer
-     */
+    /** @var Footer */
     private $footer;
 
-    /**
-     * @var General
-     */
+    /** @var General */
     private $general;
 
-    /**
-     * @var RteList
-     */
+    /** @var RteList */
     private $rteList;
 
-    /**
-     * @var Words
-     */
+    /** @var Words */
     private $words;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /**
-     * Routines constructor.
-     *
      * @param DatabaseInterface $dbi DatabaseInterface object
      */
     public function __construct(DatabaseInterface $dbi)
@@ -548,7 +550,7 @@ class Routines
             'item_definer',
         ];
         foreach ($indices as $index) {
-            $retval[$index] = isset($_POST[$index]) ? $_POST[$index] : '';
+            $retval[$index] = $_POST[$index] ?? '';
         }
 
         $retval['item_type']         = 'PROCEDURE';
@@ -978,7 +980,7 @@ class Routines
         $retval .= '<tr>';
         $retval .= '    <td>&nbsp;</td>';
         $retval .= '    <td>';
-        $retval .= "        <input type='button'";
+        $retval .= '        <input type="button" class="btn btn-primary"';
         $retval .= "               name='routine_addparameter'";
         $retval .= "               value='" . __('Add parameter') . "'>";
         $retval .= '        <input ' . $disableRemoveParam . '';
@@ -1126,8 +1128,7 @@ class Routines
     {
         global $errors, $param_sqldataaccess, $param_directions, $dbi;
 
-        $_POST['item_type'] = isset($_POST['item_type'])
-            ? $_POST['item_type'] : '';
+        $_POST['item_type'] = $_POST['item_type'] ?? '';
 
         $query = 'CREATE ';
         if (! empty($_POST['item_definer'])) {
@@ -1245,7 +1246,7 @@ class Routines
                                 );
                         }
                     }
-                    if ($i != (count($item_param_name) - 1)) {
+                    if ($i != count($item_param_name) - 1) {
                         $params .= ', ';
                     }
                 } else {
@@ -1258,9 +1259,7 @@ class Routines
         }
         $query .= '(' . $params . ') ';
         if ($_POST['item_type'] == 'FUNCTION') {
-            $item_returntype = isset($_POST['item_returntype'])
-                ? $_POST['item_returntype']
-                : null;
+            $item_returntype = $_POST['item_returntype'] ?? null;
 
             if (! empty($item_returntype)
                 && in_array(
@@ -1665,8 +1664,8 @@ class Routines
             $retval .= '<td>' . $routine['item_param_type'][$i] . "</td>\n";
             if ($cfg['ShowFunctionFields']) {
                 $retval .= "<td>\n";
-                if (false !== stripos($routine['item_param_type'][$i], 'enum')
-                    || false !== stripos($routine['item_param_type'][$i], 'set')
+                if (stripos($routine['item_param_type'][$i], 'enum') !== false
+                    || stripos($routine['item_param_type'][$i], 'set') !== false
                     || in_array(
                         mb_strtolower($routine['item_param_type'][$i]),
                         $no_support_types

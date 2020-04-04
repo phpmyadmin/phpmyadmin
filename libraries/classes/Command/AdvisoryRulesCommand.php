@@ -1,8 +1,6 @@
 <?php
 /**
  * Translates advisory rules to Gettext format
- *
- * @package PhpMyAdmin\Command
  */
 declare(strict_types=1);
 
@@ -12,11 +10,13 @@ use PhpMyAdmin\Advisor;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use function addcslashes;
+use function array_search;
+use function implode;
+use function strstr;
 
 /**
  * Translates advisory rules to Gettext format
- *
- * @package PhpMyAdmin\Command
  */
 class AdvisoryRulesCommand extends Command
 {
@@ -29,9 +29,6 @@ class AdvisoryRulesCommand extends Command
     /** @var array */
     private $locations = [];
 
-    /**
-     * @return void
-     */
     protected function configure(): void
     {
         $this->setDescription('Translates advisory rules to Gettext format');
@@ -44,8 +41,6 @@ class AdvisoryRulesCommand extends Command
     /**
      * @param InputInterface  $input  input
      * @param OutputInterface $output output
-     *
-     * @return int
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
@@ -89,8 +84,6 @@ class AdvisoryRulesCommand extends Command
      * @param array  $rules rules array
      * @param int    $index rule index
      * @param string $type  rule type
-     *
-     * @return void
      */
     private function addMessage(string $file, array $rules, int $index, string $type): void
     {

@@ -1,22 +1,31 @@
 <?php
 /**
  * Recent and Favorite table list handling
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\Generator;
+use function array_key_exists;
+use function array_merge;
+use function array_pop;
+use function array_unique;
+use function array_unshift;
+use function count;
+use function htmlspecialchars;
+use function json_decode;
+use function json_encode;
+use function max;
+use function md5;
+use function ucfirst;
+use const SORT_REGULAR;
 
 /**
  * Handles the recently used and favorite tables.
  *
  * @TODO Change the release version in table pma_recent
  * (#recent in documentation)
- *
- * @package PhpMyAdmin
  */
 class RecentFavoriteTable
 {
@@ -44,9 +53,7 @@ class RecentFavoriteTable
      */
     private static $_instances = [];
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
     /**
@@ -162,7 +169,7 @@ class RecentFavoriteTable
      * Trim recent.favorite table according to the
      * NumRecentTables/NumFavoriteTables configuration.
      *
-     * @return boolean True if trimming occurred
+     * @return bool True if trimming occurred
      */
     public function trim()
     {
@@ -189,7 +196,7 @@ class RecentFavoriteTable
             if ($this->_tableType == 'recent') {
                 foreach ($this->_tables as $table) {
                     $html .= '<li class="warp_link">';
-                    $recent_url = Url::getFromRoute('/table/recent_favorite', [
+                    $recent_url = Url::getFromRoute('/table/recent-favorite', [
                         'db' => $table['db'],
                         'table' => $table['table'],
                     ]);
@@ -217,7 +224,7 @@ class RecentFavoriteTable
                         . Generator::getIcon('b_favorite')
                         . '</a>';
 
-                    $table_url = Url::getFromRoute('/table/recent_favorite', [
+                    $table_url = Url::getFromRoute('/table/recent-favorite', [
                         'db' => $table['db'],
                         'table' => $table['table'],
                     ]);
@@ -296,8 +303,8 @@ class RecentFavoriteTable
      * @param string $db    database
      * @param string $table table
      *
-     * @return boolean|Message True if invalid and removed, False if not invalid,
-     *                            Message if error while removing
+     * @return bool|Message True if invalid and removed, False if not invalid,
+     * Message if error while removing
      */
     public function removeIfInvalid($db, $table)
     {

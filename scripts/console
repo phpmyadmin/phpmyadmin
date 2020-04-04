@@ -2,6 +2,7 @@
 <?php
 
 use PhpMyAdmin\Command\AdvisoryRulesCommand;
+use PhpMyAdmin\Command\CacheWarmupCommand;
 use Symfony\Component\Console\Application;
 
 if (! defined('ROOT_PATH')) {
@@ -12,8 +13,15 @@ define('PHPMYADMIN', true);
 require_once ROOT_PATH . 'libraries/vendor_config.php';
 require_once AUTOLOAD_FILE;
 
+if (! class_exists(Application::class)) {
+    echo 'Be sure to have dev-dependencies installed.' . PHP_EOL;
+    echo 'Command aborted.' . PHP_EOL;
+    exit(1);
+}
+
 $application = new Application('phpMyAdmin Console Tool');
 
 $application->add(new AdvisoryRulesCommand());
+$application->add(new CacheWarmupCommand());
 
 $application->run();

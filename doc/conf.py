@@ -313,6 +313,8 @@ linkcheck_ignore = [
     r'https://pecl.php.net/.*',
     # 403 Client Error: Forbidden
     r'https://authy.com/.*',
+    # Site often changes links and reverts changes (9362bde02d0535a2f8cb74a18797249cb734c4b0)
+    r'https://www.yubico.com/.*',
     # 500 Server Error: Internal Server Error
     r'http://www.scriptalicious.com/.*',
 ]

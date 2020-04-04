@@ -1,20 +1,28 @@
 <?php
 /**
  * Holds the PhpMyAdmin\ErrorReport class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Error;
 use PhpMyAdmin\Utils\HttpRequest;
+use function count;
+use function http_build_query;
+use function json_encode;
+use function mb_strlen;
+use function mb_substr;
+use function parse_str;
+use function parse_url;
+use function preg_match;
+use function str_replace;
+use const E_USER_WARNING;
+use const JSON_PRETTY_PRINT;
+use const JSON_UNESCAPED_SLASHES;
+use const PHP_VERSION;
 
 /**
  * Error reporting functions used to generate and submit error reports
- *
- * @package PhpMyAdmin
  */
 class ErrorReport
 {
@@ -25,24 +33,16 @@ class ErrorReport
      */
     private $submissionUrl = 'https://reports.phpmyadmin.net/incidents/create';
 
-    /**
-     * @var HttpRequest
-     */
+    /** @var HttpRequest */
     private $httpRequest;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
     /**
-     * Constructor
-     *
      * @param HttpRequest $httpRequest HttpRequest instance
      * @param Relation    $relation    Relation instance
      * @param Template    $template    Template instance
@@ -58,7 +58,6 @@ class ErrorReport
      * Set the URL where to submit reports to
      *
      * @param string $submissionUrl Submission URL
-     * @return void
      */
     public function setSubmissionUrl(string $submissionUrl): void
     {
@@ -89,7 +88,6 @@ class ErrorReport
      */
     public function getData(string $exceptionType = 'js'): array
     {
-        /** @var Config $PMA_Config */
         global $PMA_Config;
 
         $relParams = $this->relation->getRelationsParam();

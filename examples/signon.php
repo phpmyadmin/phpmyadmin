@@ -5,9 +5,6 @@
  * This is just example how to use session based single signon with
  * phpMyAdmin, it is not intended to be perfect code and look, only
  * shows how you can integrate this functionality in your application.
- *
- * @package    PhpMyAdmin
- * @subpackage Example
  */
 declare(strict_types=1);
 
@@ -60,8 +57,8 @@ if (isset($_POST['user'])) {
     }
     ?>
     <form action="signon.php" method="post">
-    Username: <input type="text" name="user"><br>
-    Password: <input type="password" name="password"><br>
+    Username: <input type="text" name="user" autocomplete="username"><br>
+    Password: <input type="password" name="password" autocomplete="current-password"><br>
     Host: (will use the one from config.inc.php by default)
     <input type="text" name="host"><br>
     Port: (will use the one from config.inc.php by default)

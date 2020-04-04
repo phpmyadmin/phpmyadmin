@@ -1,21 +1,22 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Plugins\Export\Helpers\TableProperty class
- *
- * @package    PhpMyAdmin-Export
- * @subpackage CodeGen
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export\Helpers;
 
 use PhpMyAdmin\Plugins\Export\ExportCodegen;
+use function htmlspecialchars;
+use function mb_strpos;
+use function mb_substr;
+use function str_replace;
+use function strlen;
+use function trim;
+use const ENT_COMPAT;
 
 /**
  * PhpMyAdmin\Plugins\Export\Helpers\TableProperty class
- *
- * @package    PhpMyAdmin-Export
- * @subpackage CodeGen
  */
 class TableProperty
 {
@@ -62,8 +63,6 @@ class TableProperty
     public $ext;
 
     /**
-     * Constructor
-     *
      * @param array $row table row
      */
     public function __construct(array $row)
@@ -107,7 +106,7 @@ class TableProperty
      */
     public function isUnique(): string
     {
-        return ($this->key === 'PRI' || $this->key === 'UNI') ? 'true' : 'false';
+        return $this->key === 'PRI' || $this->key === 'UNI' ? 'true' : 'false';
     }
 
     /**

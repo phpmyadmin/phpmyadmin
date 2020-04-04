@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds VariablesControllerTest
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -11,25 +9,16 @@ namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\VariablesController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\Stubs\Response;
 use PHPUnit\Framework\TestCase;
 
-/**
- * Class VariablesControllerTest
- * @package PhpMyAdmin\Tests\Controllers\Server\Status
- */
 class VariablesControllerTest extends TestCase
 {
-    /**
-     * @var Data
-     */
+    /** @var Data */
     private $data;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
@@ -127,25 +116,19 @@ class VariablesControllerTest extends TestCase
         $this->data = new Data();
     }
 
-    /**
-     * @return void
-     */
     public function testIndex(): void
     {
+        $response = new Response();
+
         $controller = new VariablesController(
-            Response::getInstance(),
+            $response,
             $GLOBALS['dbi'],
             new Template(),
             $this->data
         );
 
-        $html = $controller->index([
-            'flush' => null,
-            'filterAlert' => null,
-            'filterText' => null,
-            'filterCategory' => null,
-            'dontFormat' => null,
-        ]);
+        $controller->index();
+        $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(
             '<fieldset id="tableFilter">',

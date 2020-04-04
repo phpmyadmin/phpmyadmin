@@ -1,47 +1,19 @@
+includes:
+    - phpstan-baseline.neon
 parameters:
-    level: 2
+    level: max
     paths:
-        - %rootDir%/../../../
-    bootstrap: %rootDir%/../../../test/bootstrap-phpstan.php
+        - .
+    bootstrap: test/bootstrap-phpstan.php
     reportUnmatchedIgnoredErrors: true
     inferPrivatePropertyTypeFromConstructor: true
-    ignoreErrors:
-        - '#NodeTrans::__construct\(\) does not call parent constructor#'
-        - '#PHPUnit\\Framework\\MockObject#'
-        - '#Call to an undefined method PhpMyAdmin\\Navigation\\Nodes\\Node\:\:getHiddenCount#'
-        - '#Variable \$http_response_header in isset\(\) always exists and is not nullable#'
-        -
-            message: '#Undefined variable: \$action#'
-            path: %currentWorkingDirectory%/libraries/mult_submits.inc.php
-        -
-            message: '#Undefined variable: \$action#'
-            path: %currentWorkingDirectory%/libraries/tbl_columns_definition_form.inc.php
-        -
-            message: '#Undefined variable: \$cfg#'
-            path: %currentWorkingDirectory%/test/classes/ConfigTest.php
-        -
-            message: '#Undefined variable: \$cfg#'
-            path: %currentWorkingDirectory%/test/classes/PmaTestCase.php
-        -
-            message: '#Undefined variable: \$cfg#'
-            path: %currentWorkingDirectory%/test/bootstrap-phpstan.php
-        -
-            message: '#Undefined variable: \$db_is_system_schema#'
-            path: %currentWorkingDirectory%/libraries/classes/Controllers/Table/StructureController.php
-        -
-            message: '#Instantiated class Sami\\Sami not found#'
-            path: %currentWorkingDirectory%/test/sami-config.php
-        -
-            message: '#Variable \$pdo might not be defined#'
-            path: %currentWorkingDirectory%/test/classes/EnvironmentTest.php
-        -
-            message: '#Function uploadprogress_get_info not found#'
-            path: %currentWorkingDirectory%/libraries/classes/Plugins/Import/Upload/UploadProgress.php
-        -
-            message: '#(Instantiated class COM not found|Call to method ConnectServer\(\) on an unknown class COM)#'
-            path: %currentWorkingDirectory%/libraries/classes/SysInfoWINNT.php
+    checkMissingIterableValueType: false
+    checkGenericClassInNonGenericObjectType: false
     excludes_analyse:
-        - %rootDir%/../../../tmp/*
-        - %rootDir%/../../../vendor/*
-        - %rootDir%/../../../node_modules/*
-        - %rootDir%/../../../examples/openid.php
+        - examples/openid.php
+        - node_modules/*
+        - libraries/cache/*
+        - test/sami-config.php
+        - tmp/*
+        - twig-templates/*
+        - vendor/*

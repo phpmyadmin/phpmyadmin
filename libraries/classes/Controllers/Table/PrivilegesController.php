@@ -1,7 +1,6 @@
 <?php
 /**
  * Controller for table privileges
- * @package PhpMyAdmin\Controllers\Table
  */
 declare(strict_types=1);
 
@@ -15,7 +14,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Controller for table privileges
- * @package PhpMyAdmin\Controllers\Table
  */
 class PrivilegesController extends AbstractController
 {
@@ -38,8 +36,6 @@ class PrivilegesController extends AbstractController
 
     /**
      * @param array $params Request parameters
-     *
-     * @return string
      */
     public function index(array $params): string
     {

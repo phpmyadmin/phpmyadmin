@@ -155,7 +155,7 @@ $body-color: $main-color;
 // Typography
 
 $font-family-base: "Open Sans", "Segoe UI", sans-serif;
-$font-family-monospace: Consolas, "Lucida Grande", monospace;
+$font-family-monospace: "Consolas", "Lucida Grande", monospace;
 
 $font-family-light: "Open Sans Light", "Segoe UI Light", "Segoe UI", sans-serif;
 $font-family-bold: "Open Sans Bold", sans-serif;
@@ -175,11 +175,32 @@ $btn-border-radius: 0;
 $btn-line-height: 1;
 $btn-padding-x: 0.5rem;
 
+// Dropdowns
+
+$dropdown-border-radius: 0;
+
+// Forms
+
+$input-border-radius: 0;
+$form-check-input-margin-y: 0;
+
+// Navbar
+
+$enable-caret: false;
+$navbar-padding-y: 0;
+$navbar-padding-x: 0;
+$navbar-nav-link-padding-x: 0;
+$navbar-nav-link-padding-y: 0;
+$navbar-light-color: #666;
+$navbar-light-hover-color: #333;
+$navbar-light-active-color: #666;
+$navbar-light-disabled-color: #666;
+
 // Card
 
-$card-border-width: 0;
-$card-cap-color: $navi-background;
-$card-cap-bg: $body-bg;
+$card-border-radius: 0;
+$card-cap-bg: $th-background;
+$card-bg: $th-background;
 
 // Breadcrumbs
 
@@ -195,3 +216,13 @@ $breadcrumb-border-radius: 0;
 $alert-margin-bottom: 1em;
 $alert-border-radius: 0;
 $alert-border-width: 0;
+
+// List group
+
+$list-group-bg: inherit;
+$list-group-item-padding-y: 0;
+
+// Modals
+
+$modal-content-border-radius: 0;
+$modal-header-padding-y: 0.5rem;

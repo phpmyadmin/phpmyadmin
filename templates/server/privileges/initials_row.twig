@@ -1,6 +1,7 @@
 <table id="initials_table" cellspacing="5">
     <tr>
-        {% for tmp_initial, initial_was_found in array_initials if tmp_initial is not same as(null) %}
+        {% for tmp_initial, initial_was_found in array_initials %}
+          {% if tmp_initial is not same as(null) %}
             {% if initial_was_found %}
                 <td>
                     <a class="ajax
@@ -12,6 +13,7 @@
             {% else %}
                 <td>{{ tmp_initial|raw }}</td>
             {% endif %}
+          {% endif %}
         {% endfor %}
         <td>
             <a href="{{ url('/server/privileges', {'showall': 1}) }}" class="nowrap">

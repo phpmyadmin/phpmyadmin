@@ -13,8 +13,8 @@
           <div class="card-body">
             <form class="prefs-form disableAjax" name="prefs_import" action="{{ url('/preferences/manage') }}" method="post"
                   enctype="multipart/form-data">
-                {{ generate_hidden_max_file_size(max_upload_size) }}
                 {{ get_hidden_inputs() }}
+                <input type="hidden" name="MAX_FILE_SIZE" value="{{ max_upload_size }}">
                 <input type="hidden" name="json" value="">
                 <input type="radio" id="import_text_file" name="import_type" value="text_file" checked="checked">
                 <label for="import_text_file"> {% trans 'Import from file' %} </label>

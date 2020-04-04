@@ -1,5 +1,3 @@
-{% if not is_ajax and is_enabled -%}
-
 <!doctype html>
 <html lang="{{ lang }}" dir="{{ text_dir }}">
 <head>
@@ -59,8 +57,5 @@
 
   <div id="page_content">
     {{ messages|raw }}
-{% endif %}
 
-{% if is_enabled and has_recent_table %}
-  {{ recent_table|raw }}
-{% endif %}
+    {{ recent_table|raw }}

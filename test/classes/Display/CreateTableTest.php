@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\Display\CreateTable
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -10,24 +8,18 @@ namespace PhpMyAdmin\Tests\Display;
 
 use PhpMyAdmin\Display\CreateTable;
 use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
 
 /**
  * PhpMyAdmin\Tests\Display\CreateTableTest class
  *
  * this class is for testing PhpMyAdmin\Display\CreateTable methods
- *
- * @package PhpMyAdmin-test
  */
 class CreateTableTest extends TestCase
 {
     /**
      * Test for setUp
-     *
-     * @return void
      */
     protected function setUp(): void
     {

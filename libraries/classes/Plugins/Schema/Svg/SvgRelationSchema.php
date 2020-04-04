@@ -1,21 +1,19 @@
 <?php
 /**
  * Contains PhpMyAdmin\Plugins\Schema\Svg\RelationStatsSvg class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Svg;
 
-use PhpMyAdmin\Plugins\Schema\Dia\RelationStatsDia;
 use PhpMyAdmin\Plugins\Schema\Dia\TableStatsDia;
 use PhpMyAdmin\Plugins\Schema\Eps\TableStatsEps;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 use PhpMyAdmin\Plugins\Schema\Pdf\TableStatsPdf;
-use PhpMyAdmin\Plugins\Schema\Svg\Svg;
-use PhpMyAdmin\Plugins\Schema\Svg\TableStatsSvg;
-use PhpMyAdmin\Relation;
+use function in_array;
+use function max;
+use function min;
+use function sprintf;
 
 /**
  * RelationStatsSvg Relation Schema Class
@@ -29,14 +27,11 @@ use PhpMyAdmin\Relation;
  * inherits ExportRelationSchema class has common functionality added
  * to this class
  *
- * @package PhpMyAdmin
  * @name Svg_Relation_Schema
  */
 class SvgRelationSchema extends ExportRelationSchema
 {
-    /**
-     * @var TableStatsDia[]|TableStatsEps[]|TableStatsPdf[]|TableStatsSvg[]
-     */
+    /** @var TableStatsDia[]|TableStatsEps[]|TableStatsPdf[]|TableStatsSvg[] */
     private $_tables = [];
     /** @var RelationStatsSvg[] Relations */
     private $_relations = [];
@@ -47,14 +42,12 @@ class SvgRelationSchema extends ExportRelationSchema
     private $_tablewidth;
 
     /**
-     * The "PhpMyAdmin\Plugins\Schema\Svg\SvgRelationSchema" constructor
-     *
      * Upon instantiation This starts writing the SVG XML document
      * user will be prompted for download as .svg extension
      *
-     * @param string $db database name
-     *
      * @see PMA_SVG
+     *
+     * @param string $db database name
      */
     public function __construct($db)
     {
@@ -192,18 +185,18 @@ class SvgRelationSchema extends ExportRelationSchema
     /**
      * Defines relation objects
      *
-     * @param string  $masterTable    The master table name
-     * @param string  $font           The font face
-     * @param int     $fontSize       Font size
-     * @param string  $masterField    The relation field in the master table
-     * @param string  $foreignTable   The foreign table name
-     * @param string  $foreignField   The relation field in the foreign table
-     * @param boolean $tableDimension Whether to display table position or not
-     *
-     * @return void
-     *
      * @see _setMinMax,Table_Stats_Svg::__construct(),
      *       PhpMyAdmin\Plugins\Schema\Svg\RelationStatsSvg::__construct()
+     *
+     * @param string $masterTable    The master table name
+     * @param string $font           The font face
+     * @param int    $fontSize       Font size
+     * @param string $masterField    The relation field in the master table
+     * @param string $foreignTable   The foreign table name
+     * @param string $foreignField   The relation field in the foreign table
+     * @param bool   $tableDimension Whether to display table position or not
+     *
+     * @return void
      */
     private function _addRelation(
         $masterTable,
@@ -256,9 +249,9 @@ class SvgRelationSchema extends ExportRelationSchema
      * connects master table's master field to
      * foreign table's foreign field
      *
-     * @return void
-     *
      * @see Relation_Stats_Svg::relationDraw()
+     *
+     * @return void
      */
     private function _drawRelations()
     {
@@ -270,9 +263,9 @@ class SvgRelationSchema extends ExportRelationSchema
     /**
      * Draws tables
      *
-     * @return void
-     *
      * @see Table_Stats_Svg::Table_Stats_tableDraw()
+     *
+     * @return void
      */
     private function _drawTables()
     {

@@ -6,7 +6,7 @@
 /* global DesignerHistory, historyArray, selectField */ // js/designer/history.js
 /* global contr, db, designerTablesEnabled, displayField, hTabs, jTabs, selectedPage:writable, server */ // js/designer/init.js
 /* global DesignerPage */ // js/designer/page.js
-/* global pmaThemeImage */ // js/messages.php
+/* global pmaThemeImage */ // templates/javascript/variables.twig
 
 var DesignerMove = {};
 
@@ -20,16 +20,25 @@ AJAX.registerTeardown('designer/move.js', function () {
 });
 
 AJAX.registerOnload('designer/move.js', function () {
-    $('#page_content').css({ 'margin-left': '3px' });
+    var $content = $('#page_content');
+    var $img = $('#toggleFullscreen').find('img');
+    var $span = $img.siblings('span');
+
+    $content.css({ 'margin-left': '3px' });
     $(document).on('fullscreenchange', function () {
-        if (! $.fn.fullScreen()) {
-            $('#page_content').removeClass('content_fullscreen')
+        if (!$.fn.fullScreen() || !$content.fullScreen()) {
+            $content.removeClass('content_fullscreen')
                 .css({ 'width': 'auto', 'height': 'auto' });
-            var $img = $('#toggleFullscreen').find('img');
-            var $span = $img.siblings('span');
-            $span.text($span.data('enter'));
+            $('#osn_tab').css({ 'width': 'auto', 'height': 'auto' });
             $img.attr('src', $img.data('enter'))
                 .attr('title', $span.data('enter'));
+            $span.text($span.data('enter'));
+
+            // Saving the fullscreen state in config when
+            // designer exists fullscreen mode via ESC key
+
+            var valueSent = 'off';
+            DesignerMove.saveValueInConfig('full_screen', valueSent);
         }
     });
 
@@ -90,7 +99,7 @@ DesignerMove.mouseDown = function (e) {
         curClick = e.target.parentNode.parentNode.parentNode.parentNode;
     } else if (e.target.className === 'tab_zag_2') {
         curClick = e.target.parentNode.parentNode.parentNode;
-    } else if (e.target.className === 'icon') {
+    } else if (e.target.id === 'layer_menu_sizer_btn') {
         layerMenuCurClick = 1;
     } else if (e.target.className === 'M_butt') {
         return false;
@@ -259,8 +268,6 @@ DesignerMove.resizeOsnTab = function () {
     osnTabWidth  = maxX + 50;
     osnTabHeight = maxY + 50;
     DesignerMove.canvasPos();
-    document.getElementById('osn_tab').style.width = osnTabWidth + 'px';
-    document.getElementById('osn_tab').style.height = osnTabHeight + 'px';
 };
 
 /**
@@ -511,12 +518,17 @@ DesignerMove.toggleFullscreen = function () {
         $content
             .addClass('content_fullscreen')
             .css({ 'width': screen.width - 5, 'height': screen.height - 5 });
+
+        $('#osn_tab').css({ 'width': screen.width + 'px', 'height': screen.height });
         valueSent = 'on';
         $content.fullScreen(true);
     } else {
         $img.attr('src', $img.data('enter'))
             .attr('title', $span.data('enter'));
         $span.text($span.data('enter'));
+        $content.removeClass('content_fullscreen')
+            .css({ 'width': 'auto', 'height': 'auto' });
+        $('#osn_tab').css({ 'width': 'auto', 'height': 'auto' });
         $content.fullScreen(false);
         valueSent = 'off';
     }
@@ -528,6 +540,8 @@ DesignerMove.addTableToTablesList = function (index, tableDom) {
     var table = $(tableDom).find('.small_tab_pref').attr('table_name');
     var dbEncoded = $(tableDom).find('.small_tab_pref').attr('db_url');
     var tableEncoded = $(tableDom).find('.small_tab_pref').attr('table_name_url');
+    var tableIsChecked = $(tableDom).css('display') === 'block' ? 'checked' : '';
+    var checkboxStatus = (tableIsChecked === 'checked') ? Messages.strHide : Messages.strShow;
     var $newTableLine = $('<tr>' +
         '    <td title="' + Messages.strStructure + '"' +
         '        width="1px"' +
@@ -540,25 +554,27 @@ DesignerMove.addTableToTablesList = function (index, tableDom) {
         '    </td>' +
         '    <td width="1px">' +
         '        <input class="scroll_tab_checkbox"' +
-        '            title="' + Messages.strHide + '"' +
+        '            title="' + checkboxStatus + '"' +
         '            id="check_vis_' + dbEncoded + '.' + tableEncoded + '"' +
         '            style="margin:0;"' +
         '            type="checkbox"' +
-        '            value="' + dbEncoded + '.' + tableEncoded + '"' +
-        '            checked="checked"' +
+        '            value="' + dbEncoded + '.' + tableEncoded + '"' + tableIsChecked +
         '            />' +
         '    </td>' +
         '    <td class="designer_Tabs"' +
         '        designer_url_table_name="' + dbEncoded + '.' + tableEncoded + '">' + $('<div/>').text(db + '.' + table).html() + '</td>' +
         '</tr>');
     $('#id_scroll_tab table').first().append($newTableLine);
-    $($newTableLine).find('.scroll_tab_struct').click(function () {
+    $($newTableLine).find('.scroll_tab_struct').on('click', function () {
         DesignerMove.startTabUpd(db, table);
     });
     $($newTableLine).on('click', '.designer_Tabs2,.designer_Tabs', function () {
         DesignerMove.selectTab($(this).attr('designer_url_table_name'));
     });
-    $($newTableLine).find('.scroll_tab_checkbox').click(function () {
+    $($newTableLine).find('.scroll_tab_checkbox').on('click', function () {
+        $(this).attr('title', function (i, currentvalue) {
+            return currentvalue === Messages.strHide ? Messages.strShow : Messages.strHide;
+        });
         DesignerMove.visibleTab(this,$(this).val());
     });
     var $tablesCounter = $('#tables_counter');
@@ -682,7 +698,7 @@ DesignerMove.save = function (url) {
         document.getElementById('t_h_' + key + '_').value = document.getElementById('check_vis_' + key).checked ? 1 : 0;
     }
     document.getElementById('container-form').action = url;
-    $('#container-form').submit();
+    $('#container-form').trigger('submit');
 };
 
 DesignerMove.getUrlPos = function (forceString) {
@@ -1589,6 +1605,7 @@ DesignerMove.visibleTab = function (id, tN) {
         document.getElementById(tN).style.display = 'none';
     }
     DesignerMove.reload();
+    DesignerMove.markUnsaved();
 };
 
 // max/min all tables
@@ -1705,17 +1722,19 @@ DesignerMove.showLeftMenu = function (idThis) {
 DesignerMove.sideMenuRight = function (idThis) {
     $('#side_menu').toggleClass('right');
     $('#layer_menu').toggleClass('left');
-    var icon = $(idThis.childNodes[0]);
-    var current = icon.attr('src');
-    icon.attr('src', icon.attr('data-right')).attr('data-right', current);
-
-    icon = $(document.getElementById('layer_menu_sizer').childNodes[0])
+    var moveMenuIcon = $(idThis.getElementsByTagName('img')[0]);
+    var resizeIcon = $('#layer_menu_sizer > img')
         .toggleClass('floatleft')
-        .toggleClass('floatright')
-        .children();
-    current = icon.attr('src');
-    icon.attr('src', icon.attr('data-right'));
-    icon.attr('data-right', current);
+        .toggleClass('floatright');
+
+    var srcResizeIcon = resizeIcon.attr('src');
+    resizeIcon.attr('src', resizeIcon.attr('data-right'));
+    resizeIcon.attr('data-right', srcResizeIcon);
+
+    var srcMoveIcon = moveMenuIcon.attr('src');
+    moveMenuIcon.attr('src', moveMenuIcon.attr('data-right'));
+    moveMenuIcon.attr('data-right', srcMoveIcon);
+
     menuMoved = !menuMoved;
     DesignerMove.saveValueInConfig('side_menu', $('#side_menu').hasClass('right'));
     $('#key_Left_Right').toggleClass('M_butt_Selected_down');
@@ -2016,16 +2035,16 @@ DesignerMove.enableTableEvents = function (index, element) {
         DesignerMove.clickField(params[3], params[0], params[1], params[2]);
     });
 
-    $(element).find('.tab_zag_noquery').mouseover(function () {
+    $(element).find('.tab_zag_noquery').on('mouseover', function () {
         DesignerMove.tableOnOver($(this).attr('table_name'),0, $(this).attr('query_set'));
     });
-    $(element).find('.tab_zag_noquery').mouseout(function () {
+    $(element).find('.tab_zag_noquery').on('mouseout', function () {
         DesignerMove.tableOnOver($(this).attr('table_name'),1, $(this).attr('query_set'));
     });
-    $(element).find('.tab_zag_query').mouseover(function () {
+    $(element).find('.tab_zag_query').on('mouseover', function () {
         DesignerMove.tableOnOver($(this).attr('table_name'),0, 1);
     });
-    $(element).find('.tab_zag_query').mouseout(function () {
+    $(element).find('.tab_zag_query').on('mouseout', function () {
         DesignerMove.tableOnOver($(this).attr('table_name'),1, 1);
     });
 
@@ -2109,6 +2128,11 @@ AJAX.registerOnload('designer/move.js', function () {
     });
     $('#SaveAs').on('click', function () {
         DesignerMove.saveAs();
+        $(document).on('ajaxStop', function () {
+            $('#selected_value').on('click', function () {
+                $('#savePageNewRadio').prop('checked', true);
+            });
+        });
         return false;
     });
     $('#delPages').on('click', function () {
@@ -2161,10 +2185,11 @@ AJAX.registerOnload('designer/move.js', function () {
         DesignerMove.sideMenuRight(this);
         return false;
     });
-    $('#side_menu').hover(function () {
+    $('#side_menu').on('mouseenter', function () {
         DesignerMove.showText();
         return false;
-    }, function () {
+    });
+    $('#side_menu').on('mouseleave', function () {
         DesignerMove.hideText();
         return false;
     });
@@ -2187,7 +2212,7 @@ AJAX.registerOnload('designer/move.js', function () {
     $('.designer_tab').each(DesignerMove.enableTableEvents);
     $('.designer_tab').each(DesignerMove.addTableToTablesList);
 
-    $('input#del_button').click(function () {
+    $('input#del_button').on('click', function () {
         DesignerMove.updRelation();
     });
     $('input#cancel_button').on('click', function () {

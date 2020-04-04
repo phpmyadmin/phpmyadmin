@@ -1,8 +1,6 @@
 <?php
 /**
  * hold PhpMyAdmin\Twig\UrlExtension class
- *
- * @package PhpMyAdmin\Twig
  */
 declare(strict_types=1);
 
@@ -11,11 +9,6 @@ namespace PhpMyAdmin\Twig;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
-/**
- * Class UrlExtension
- *
- * @package PhpMyAdmin\Twig
- */
 class UrlExtension extends AbstractExtension
 {
     /**

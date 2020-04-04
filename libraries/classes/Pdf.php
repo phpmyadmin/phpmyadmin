@@ -1,25 +1,20 @@
 <?php
 /**
  * TCPDF wrapper class.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
 use Exception;
-use PhpMyAdmin\Core;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
-use PhpMyAdmin\Util;
 use TCPDF;
 use TCPDF_FONTS;
+use function count;
+use function strlen;
+use function strtr;
 
 /**
  * PDF export base class providing basic configuration.
- *
- * @package PhpMyAdmin
  */
 class Pdf extends TCPDF
 {
@@ -34,16 +29,17 @@ class Pdf extends TCPDF
     /**
      * Constructs PDF and configures standard parameters.
      *
-     * @param string  $orientation page orientation
-     * @param string  $unit        unit
-     * @param string  $format      the format used for pages
-     * @param boolean $unicode     true means that the input text is unicode
-     * @param string  $encoding    charset encoding; default is UTF-8.
-     * @param boolean $diskcache   if true reduce the RAM memory usage by caching
-     *                             temporary data on filesystem (slower).
-     * @param boolean $pdfa        If TRUE set the document to PDF/A mode.
+     * @param string $orientation page orientation
+     * @param string $unit        unit
+     * @param string $format      the format used for pages
+     * @param bool   $unicode     true means that the input text is unicode
+     * @param string $encoding    charset encoding; default is UTF-8.
+     * @param bool   $diskcache   if true reduce the RAM memory usage by caching
+     *                            temporary data on filesystem (slower).
+     * @param bool   $pdfa        If TRUE set the document to PDF/A mode.
      *
      * @throws Exception
+     *
      * @access public
      */
     public function __construct(
@@ -67,8 +63,8 @@ class Pdf extends TCPDF
         $this->SetAuthor('phpMyAdmin ' . PMA_VERSION);
         $this->AddFont('DejaVuSans', '', 'dejavusans.php');
         $this->AddFont('DejaVuSans', 'B', 'dejavusansb.php');
-        $this->SetFont(Pdf::PMA_PDF_FONT, '', 14);
-        $this->setFooterFont([Pdf::PMA_PDF_FONT, '', 14]);
+        $this->SetFont(self::PMA_PDF_FONT, '', 14);
+        $this->setFooterFont([self::PMA_PDF_FONT, '', 14]);
     }
 
     /**
@@ -82,7 +78,7 @@ class Pdf extends TCPDF
         // Check if footer for this page already exists
         if (! isset($this->footerset[$this->page])) {
             $this->SetY(-15);
-            $this->SetFont(Pdf::PMA_PDF_FONT, '', 14);
+            $this->SetFont(self::PMA_PDF_FONT, '', 14);
             $this->Cell(
                 0,
                 6,

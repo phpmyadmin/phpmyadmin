@@ -1,8 +1,6 @@
 <?php
 /**
  * Contains abstract class to hold table preferences/statistics
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -13,7 +11,11 @@ use PhpMyAdmin\Font;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Util;
+use function array_flip;
+use function array_keys;
+use function array_merge;
 use function rawurldecode;
+use function sprintf;
 
 /**
  * Table preferences/statistics
@@ -21,7 +23,6 @@ use function rawurldecode;
  * This class preserves the table co-ordinates,fields
  * and helps in drawing/generating the tables.
  *
- * @package PhpMyAdmin
  * @abstract
  */
 abstract class TableStats
@@ -41,27 +42,21 @@ abstract class TableStats
     public $heightCell = 0;
     protected $offline;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     protected $relation;
 
-    /**
-     * @var Font
-     */
+    /** @var Font */
     protected $font;
 
     /**
-     * Constructor
-     *
      * @param Pdf\Pdf|Svg\Svg|Eps\Eps|Dia\Dia|Pdf\Pdf $diagram        schema diagram
      * @param string                                  $db             current db name
-     * @param integer                                 $pageNumber     current page number (from the
+     * @param int                                     $pageNumber     current page number (from the
      *                                                                $cfg['Servers'][$i]['table_coords'] table)
      * @param string                                  $tableName      table name
-     * @param boolean                                 $showKeys       whether to display keys or not
-     * @param boolean                                 $tableDimension whether to display table position or not
-     * @param boolean                                 $offline        whether the coordinates are sent
+     * @param bool                                    $showKeys       whether to display keys or not
+     * @param bool                                    $tableDimension whether to display table position or not
+     * @param bool                                    $offline        whether the coordinates are sent
      *                                                                from the browser
      */
     public function __construct(
@@ -135,6 +130,7 @@ abstract class TableStats
      * Displays an error when the table cannot be found.
      *
      * @return void
+     *
      * @abstract
      */
     abstract protected function showMissingTableError();
@@ -151,8 +147,8 @@ abstract class TableStats
                 $db = rawurldecode($_POST['t_db'][$key]);
                 $tbl = rawurldecode($_POST['t_tbl'][$key]);
                 if ($this->db . '.' . $this->tableName === $db . '.' . $tbl) {
-                    $this->x = (double) $_POST['t_x'][$key];
-                    $this->y = (double) $_POST['t_y'][$key];
+                    $this->x = (float) $_POST['t_x'][$key];
+                    $this->y = (float) $_POST['t_y'][$key];
                     break;
                 }
             }

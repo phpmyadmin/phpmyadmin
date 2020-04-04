@@ -1,7 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Controllers\Table\RelationController
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -16,24 +15,17 @@ use stdClass;
 
 /**
  * Tests for PhpMyAdmin\Controllers\Table\RelationController
- * @package PhpMyAdmin-test
  */
 class RelationControllerTest extends PmaTestCase
 {
-    /**
-     * @var \PhpMyAdmin\Tests\Stubs\Response
-     */
+    /** @var ResponseStub */
     private $_response;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     private $template;
 
     /**
      * Configures environment
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -52,6 +44,7 @@ class RelationControllerTest extends PmaTestCase
         {
             /**
              * @param mixed $name name
+             *
              * @return bool
              */
             public function exists($name)
@@ -96,6 +89,7 @@ class RelationControllerTest extends PmaTestCase
      *           table is a view.
      *
      * @return void
+     *
      * @test
      */
     public function testGetDropdownValueForTableActionIsView()
@@ -123,16 +117,10 @@ class RelationControllerTest extends PmaTestCase
             $this->template,
             $GLOBALS['db'],
             $GLOBALS['table'],
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
             new Relation($GLOBALS['dbi'], $this->template)
         );
 
-        $ctrl->getDropdownValueForTableAction();
+        $ctrl->getDropdownValueForTable();
         $json = $this->_response->getJSONResult();
         $this->assertEquals(
             $viewColumns,
@@ -147,6 +135,7 @@ class RelationControllerTest extends PmaTestCase
      *           table is not a view (real tabletable).
      *
      * @return void
+     *
      * @test
      */
     public function testGetDropdownValueForTableActionNotView()
@@ -172,16 +161,10 @@ class RelationControllerTest extends PmaTestCase
             $this->template,
             $GLOBALS['db'],
             $GLOBALS['table'],
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
             new Relation($GLOBALS['dbi'], $this->template)
         );
 
-        $ctrl->getDropdownValueForTableAction();
+        $ctrl->getDropdownValueForTable();
         $json = $this->_response->getJSONResult();
         $this->assertEquals(
             $indexedColumns,
@@ -195,6 +178,7 @@ class RelationControllerTest extends PmaTestCase
      * Case one: foreign
      *
      * @return void
+     *
      * @test
      */
     public function testGetDropdownValueForDbActionOne()
@@ -223,17 +207,11 @@ class RelationControllerTest extends PmaTestCase
             $this->template,
             $GLOBALS['db'],
             $GLOBALS['table'],
-            null,
-            null,
-            'INNODB',
-            null,
-            null,
-            null,
             new Relation($GLOBALS['dbi'], $this->template)
         );
 
         $_POST['foreign'] = 'true';
-        $ctrl->getDropdownValueForDbAction();
+        $ctrl->getDropdownValueForDatabase('INNODB');
         $json = $this->_response->getJSONResult();
         $this->assertEquals(
             ['table'],
@@ -247,6 +225,7 @@ class RelationControllerTest extends PmaTestCase
      * Case two: not foreign
      *
      * @return void
+     *
      * @test
      */
     public function testGetDropdownValueForDbActionTwo()
@@ -272,17 +251,11 @@ class RelationControllerTest extends PmaTestCase
             $this->template,
             $GLOBALS['db'],
             $GLOBALS['table'],
-            null,
-            null,
-            'INNODB',
-            null,
-            null,
-            null,
             new Relation($GLOBALS['dbi'], $this->template)
         );
 
         $_POST['foreign'] = 'false';
-        $ctrl->getDropdownValueForDbAction();
+        $ctrl->getDropdownValueForDatabase('INNODB');
         $json = $this->_response->getJSONResult();
         $this->assertEquals(
             ['table'],

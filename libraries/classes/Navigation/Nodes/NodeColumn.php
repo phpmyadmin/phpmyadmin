@@ -1,8 +1,6 @@
 <?php
 /**
  * Functionality for the navigation tree
- *
- * @package PhpMyAdmin-Navigation
  */
 declare(strict_types=1);
 
@@ -10,12 +8,11 @@ namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
+use function strlen;
+use function substr;
 
 /**
  * Represents a columns node in the navigation tree
- *
- * @package PhpMyAdmin-Navigation
  */
 class NodeColumn extends Node
 {
@@ -36,18 +33,12 @@ class NodeColumn extends Node
         $this->links = [
             'text' => Url::getFromRoute('/table/structure', [
                 'server' => $GLOBALS['server'],
-                'db' => '%3\$s',
-                'table' => '%2\$s',
-                'field' => '%1\$s',
                 'change_column' => 1,
-            ]),
+            ]) . '&amp;db=%3$s&amp;table=%2$s&amp;field=%1$s',
             'icon' => Url::getFromRoute('/table/structure', [
                 'server' => $GLOBALS['server'],
-                'db' => '%3\$s',
-                'table' => '%2\$s',
-                'field' => '%1\$s',
                 'change_column' => 1,
-            ]),
+            ]) . '&amp;db=%3$s&amp;table=%2$s&amp;field=%1$s',
             'title' => __('Structure'),
         ];
     }

@@ -1,19 +1,16 @@
 <?php
 /**
  * Abstract parent class for all Gis<Geom_type> test classes
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;
 
 use PHPUnit\Framework\TestCase;
+use function imagesx;
 
 /**
  * Abstract parent class for all Gis<Geom_type> test classes
- *
- * @package PhpMyAdmin-test
  */
 abstract class GisGeomTestCase extends TestCase
 {
@@ -27,7 +24,6 @@ abstract class GisGeomTestCase extends TestCase
      * @param array  $params expected output array
      *
      * @dataProvider providerForTestGenerateParams
-     * @return void
      */
     public function testGenerateParams($wkt, $index, $params): void
     {
@@ -51,7 +47,6 @@ abstract class GisGeomTestCase extends TestCase
      * @param array  $min_max expected results
      *
      * @dataProvider providerForTestScaleRow
-     * @return void
      */
     public function testScaleRow($spatial, $min_max): void
     {

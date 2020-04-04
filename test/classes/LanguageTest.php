@@ -1,32 +1,26 @@
 <?php
 /**
  * tests for Advisor class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\LanguageManager;
-use PhpMyAdmin\Tests\PmaTestCase;
+use function count;
+use function is_readable;
+use function strtolower;
 
 /**
  * Tests behaviour of PMA_Advisor class
- *
- * @package PhpMyAdmin-test
  */
 class LanguageTest extends PmaTestCase
 {
-    /**
-     * @var LanguageManager
-     */
+    /** @var LanguageManager */
     private $manager;
 
     /**
      * Setup for Language tests.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -37,9 +31,6 @@ class LanguageTest extends PmaTestCase
         $this->manager = new LanguageManager();
     }
 
-    /**
-     * @return void
-     */
     protected function tearDown(): void
     {
         // Ensure we have English locale after tests
@@ -160,8 +151,6 @@ class LanguageTest extends PmaTestCase
      * @param string $agent   Value for HTTP User-Agent header
      * @param string $default Value for default language
      * @param string $expect  Expected language name
-     *
-     * @return void
      *
      * @dataProvider selectDataProvider
      */
@@ -295,8 +284,6 @@ class LanguageTest extends PmaTestCase
      * Test for setting and parsing locales
      *
      * @param string $locale locale name
-     *
-     * @return void
      *
      * @group large
      * @dataProvider listLocales

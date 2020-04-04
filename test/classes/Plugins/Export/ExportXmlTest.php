@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportXml class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,11 +12,13 @@ use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
+use function array_shift;
+use function ob_get_clean;
+use function ob_start;
 
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportXml class
  *
- * @package PhpMyAdmin-test
  * @group medium
  */
 class ExportXmlTest extends PmaTestCase
@@ -27,8 +27,6 @@ class ExportXmlTest extends PmaTestCase
 
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -47,8 +45,6 @@ class ExportXmlTest extends PmaTestCase
 
     /**
      * tearDown for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -59,6 +55,7 @@ class ExportXmlTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\ExportXml::setProperties
      *
      * @return void
+     *
      * @group medium
      */
     public function testSetProperties()
@@ -201,6 +198,7 @@ class ExportXmlTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\ExportXml::exportHeader
      *
      * @return void
+     *
      * @group medium
      */
     public function testExportHeader()

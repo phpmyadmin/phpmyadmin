@@ -1,30 +1,29 @@
 <?php
 /**
  * SQL data types definition
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\DatabaseInterface;
+use function array_diff;
+use function array_merge;
+use function htmlspecialchars;
+use function in_array;
+use function mb_strtoupper;
+use function sort;
+use function sprintf;
+use function strncasecmp;
 
 /**
  * Class holding type definitions for MySQL and MariaDB.
- *
- * @package PhpMyAdmin
  */
 class Types
 {
-    /**
-     * @var DatabaseInterface Database interface
-     */
+    /** @var DatabaseInterface Database interface */
     private $_dbi;
 
     /**
-     * Constructor
-     *
      * @param DatabaseInterface $dbi Database interface instance
      */
     public function __construct($dbi)
@@ -52,7 +51,7 @@ class Types
      *
      * @param string $op operator name
      *
-     * @return boolean
+     * @return bool
      */
     public function isUnaryOperator($op)
     {
@@ -137,8 +136,8 @@ class Types
     /**
      * Returns operators for given type
      *
-     * @param string  $type Type of field
-     * @param boolean $null Whether field can be NULL
+     * @param string $type Type of field
+     * @param bool   $null Whether field can be NULL
      *
      * @return string[]
      */
@@ -165,9 +164,9 @@ class Types
     /**
      * Returns operators for given type as html options
      *
-     * @param string  $type             Type of field
-     * @param boolean $null             Whether field can be NULL
-     * @param string  $selectedOperator Option to be selected
+     * @param string $type             Type of field
+     * @param bool   $null             Whether field can be NULL
+     * @param string $selectedOperator Option to be selected
      *
      * @return string Generated Html
      */
@@ -195,7 +194,6 @@ class Types
      * @param string $type The data type to get a description.
      *
      * @return string
-     *
      */
     public function getTypeDescription($type)
     {
@@ -403,7 +401,6 @@ class Types
      * @param string $type The data type to get a class.
      *
      * @return string
-     *
      */
     public function getTypeClass($type)
     {
@@ -469,7 +466,6 @@ class Types
      * @param string $class The class to get function list.
      *
      * @return string[]
-     *
      */
     public function getFunctionsClass($class)
     {
@@ -657,7 +653,6 @@ class Types
      * @param string $type The data type to get function list.
      *
      * @return string[]
-     *
      */
     public function getFunctions($type)
     {
@@ -669,7 +664,6 @@ class Types
      * Returns array of all functions available.
      *
      * @return string[]
-     *
      */
     public function getAllFunctions()
     {
@@ -687,7 +681,6 @@ class Types
      * Returns array of all attributes available.
      *
      * @return string[]
-     *
      */
     public function getAttributes()
     {
@@ -707,7 +700,6 @@ class Types
      * estimated popularity.
      *
      * @return string[]
-     *
      */
     public function getColumns()
     {
@@ -810,8 +802,8 @@ class Types
     /**
      * Returns the min and max values of a given integer type
      *
-     * @param string  $type   integer type
-     * @param boolean $signed whether signed
+     * @param string $type   integer type
+     * @param bool   $signed whether signed
      *
      * @return string[] min and max values
      */
@@ -866,7 +858,7 @@ class Types
         $relevantArray = $signed
             ? $min_max_data['signed']
             : $min_max_data['unsigned'];
-        return isset($relevantArray[$type]) ? $relevantArray[$type] : [
+        return $relevantArray[$type] ?? [
             '',
             '',
         ];

@@ -1,13 +1,12 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\Server\BinlogController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
@@ -15,11 +14,10 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+use function array_key_exists;
 
 /**
  * Handles viewing binary logs
- *
- * @package PhpMyAdmin\Controllers
  */
 class BinlogController extends AbstractController
 {
@@ -47,18 +45,17 @@ class BinlogController extends AbstractController
         );
     }
 
-    /**
-     * Index action
-     *
-     * @param array $params Request params
-     *
-     * @return string
-     */
-    public function index(array $params): string
+    public function index(): void
     {
         global $cfg, $pmaThemeImage;
 
-        include_once ROOT_PATH . 'libraries/server_common.inc.php';
+        $params = [
+            'log' => $_POST['log'] ?? null,
+            'pos' => $_POST['pos'] ?? null,
+            'is_full_query' => $_POST['is_full_query'] ?? null,
+        ];
+
+        Common::server();
 
         $position = ! empty($params['pos']) ? (int) $params['pos'] : 0;
 
@@ -109,7 +106,7 @@ class BinlogController extends AbstractController
             $values[] = $value;
         }
 
-        return $this->template->render('server/binlog/index', [
+        $this->response->addHTML($this->template->render('server/binlog/index', [
             'url_params' => $urlParams,
             'binary_logs' => $this->binaryLogs,
             'log' => $params['log'],
@@ -123,15 +120,13 @@ class BinlogController extends AbstractController
             'has_icons' => Util::showIcons('TableNavigationLinksMode'),
             'is_full_query' => $isFullQuery,
             'image_path' => $pmaThemeImage,
-        ]);
+        ]));
     }
 
     /**
      * @param string $log      Binary log file name
      * @param int    $position Position to display
      * @param int    $maxRows  Maximum number of rows
-     *
-     * @return string
      */
     private function getSqlQuery(
         string $log,

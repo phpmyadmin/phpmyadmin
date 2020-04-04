@@ -1,14 +1,17 @@
 <?php
 /**
  * tests for PhpMyAdmin\MultSubmits
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\MultSubmits;
+use PhpMyAdmin\Operations;
+use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationCleanup;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
 
@@ -16,17 +19,14 @@ use PHPUnit\Framework\TestCase;
  * PhpMyAdmin\Tests\MultSubmitsTest class
  *
  * this class is for testing PhpMyAdmin\MultSubmits methods
- *
- * @package PhpMyAdmin-test
  */
 class MultSubmitsTest extends TestCase
 {
+    /** @var MultSubmits */
     private $multSubmits;
 
     /**
      * Test for setUp
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -70,36 +70,13 @@ class MultSubmitsTest extends TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $this->multSubmits = new MultSubmits();
-    }
-
-    /**
-     * Test for getHtmlForReplacePrefixTable
-     *
-     * @return void
-     */
-    public function testGetHtmlForReplacePrefixTable()
-    {
-        $action = 'delete_row';
-        $urlParams = ['url_query' => 'PMA_original_url_query'];
-
-        //Call the test function
-        $html = $this->multSubmits->getHtmlForReplacePrefixTable($action, $urlParams);
-
-        //form action
-        $this->assertStringContainsString(
-            '<form id="ajax_form" action="delete_row" method="post">',
-            $html
-        );
-        //$Url::getHiddenInputs
-        $this->assertStringContainsString(
-            Url::getHiddenInputs($urlParams),
-            $html
-        );
-        //from_prefix
-        $this->assertStringContainsString(
-            '<input type="text" name="from_prefix" id="initialPrefix">',
-            $html
+        $relation = new Relation($GLOBALS['dbi']);
+        $this->multSubmits = new MultSubmits(
+            $GLOBALS['dbi'],
+            new Template(),
+            new Transformations(),
+            new RelationCleanup($GLOBALS['dbi'], $relation),
+            new Operations($GLOBALS['dbi'], $relation)
         );
     }
 

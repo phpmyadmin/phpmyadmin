@@ -1,32 +1,23 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Font class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Font;
-use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PhpMyAdmin\Font class
- *
- * @package PhpMyAdmin-test
  */
 class FontTest extends PmaTestCase
 {
-    /**
-     * @var Font
-     */
+    /** @var Font */
     private $font;
 
     /**
      * Sets up the fixture
-     *
-     * @return void
      */
     protected function setUp(): void
     {

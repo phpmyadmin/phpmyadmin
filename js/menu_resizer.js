@@ -28,50 +28,29 @@
         if (windowWidth < 768) {
             $('#pma_navigation_resizer').css({ 'width': '0px' });
         }
-        // Sets the image for the left and right scroll indicator
-        $('.scrollindicator--left').html($(Functions.getImage('b_left').toString()));
-        $('.scrollindicator--right').html($(Functions.getImage('b_right').toString()));
-
-        // Set the width of the navigation bar without scroll indicator
-        $('.navigationbar').css({ 'width': widthCalculator.call($container) - 60 });
-
-        // Scroll the navigation bar on click
-        $('.scrollindicator--right').on('click', function () {
-            $('.navigationbar').scrollLeft($('.navigationbar').scrollLeft() + 70);
-        });
-        $('.scrollindicator--left').on('click', function () {
-            $('.navigationbar').scrollLeft($('.navigationbar').scrollLeft() - 70);
-        });
 
         // create submenu container
-        var link = $('<a></a>', { href: '#', 'class': 'tab nowrap' })
-            .text(Messages.strMore)
-            .on('click', false); // same as event.preventDefault()
+        var link = $('<a></a>', {
+            'href': '#',
+            'class': 'nav-link dropdown-toggle',
+            'id': 'navbarDropdown',
+            'role': 'button',
+            'data-toggle': 'dropdown',
+            'aria-haspopup': 'true',
+            'aria-expanded': 'false'
+        }).text(Messages.strMore);
+
         var img = $container.find('li img');
         if (img.length) {
             $(Functions.getImage('b_more').toString()).prependTo(link);
         }
-        var $submenu = $('<li></li>', { 'class': 'submenu' })
+        var $submenu = $('<li></li>', { 'class': 'nav-item dropdown d-none' })
             .append(link)
-            .append($('<ul></ul>'))
-            .on('mouseenter', function () {
-                if ($(this).find('ul .tabactive').length === 0) {
-                    $(this)
-                        .addClass('submenuhover')
-                        .find('> a')
-                        .addClass('tabactive');
-                }
-            })
-            .on('mouseleave', function () {
-                if ($(this).find('ul .tabactive').length === 0) {
-                    $(this)
-                        .removeClass('submenuhover')
-                        .find('> a')
-                        .removeClass('tabactive');
-                }
-            });
-        $container.children('.clearfloat').remove();
-        $container.append($submenu).append('<div class=\'clearfloat\'></div>');
+            .append($('<ul></ul>', {
+                'class': 'dropdown-menu dropdown-menu-right',
+                'aria-labelledby': 'navbarDropdown'
+            }));
+        $container.append($submenu);
         setTimeout(function () {
             self.resize();
         }, 4);
@@ -79,11 +58,11 @@
     MenuResizer.prototype.resize = function () {
         var wmax = this.widthCalculator.call(this.$container);
         var windowWidth = $(window).width();
-        var $submenu = this.$container.find('.submenu:last');
+        var $submenu = this.$container.find('.nav-item.dropdown').last();
         var submenuW = $submenu.outerWidth(true);
-        var $submenuUl = $submenu.find('ul');
+        var $submenuUl = $submenu.find('.dropdown-menu');
         var $li = this.$container.find('> li');
-        var $li2 = $submenuUl.find('li');
+        var $li2 = $submenuUl.find('.dropdown-item');
         var moreShown = $li2.length > 0;
         // Calculate the total width used by all the shown tabs
         var totalLen = moreShown ? submenuW : 0;
@@ -106,6 +85,7 @@
         while (totalLen >= wmax && --l >= 0) { // Process the tabs backwards
             hidden = true;
             var el = $($li[l]);
+            el.removeClass('nav-item').addClass('dropdown-item');
             var elWidth = el.outerWidth(true);
             el.data('width', elWidth);
             if (! moreShown) {
@@ -128,6 +108,7 @@
                 if (totalLen < wmax ||
                     (i === $li2.length - 1 && totalLen - submenuW < wmax)
                 ) {
+                    $($li2[i]).removeClass('dropdown-item').addClass('nav-item');
                     $($li2[i]).insertBefore($submenu);
                 } else {
                     break;
@@ -136,42 +117,21 @@
         }
         // Show/hide the "More" tab as needed
         if (windowWidth < 768) {
-            $('.navigationbar').css({ 'width': windowWidth - 80 - $('#pma_navigation').width() });
-            $submenu.removeClass('shown');
-            $('.navigationbar').css({ 'overflow': 'hidden' });
+            $('.navbar-collapse').css({ 'width': windowWidth - 80 - $('#pma_navigation').width() });
+            $submenu.addClass('d-none');
+            $('.navbar-collapse').css({ 'overflow': 'hidden' });
         } else {
-            $('.navigationbar').css({ 'width': 'auto' });
-            $('.navigationbar').css({ 'overflow': 'visible' });
+            $('.navbar-collapse').css({ 'width': 'auto' });
+            $('.navbar-collapse').css({ 'overflow': 'visible' });
             if ($submenuUl.find('li').length > 0) {
-                $submenu.addClass('shown');
+                $submenu.removeClass('d-none');
             } else {
-                $submenu.removeClass('shown');
+                $submenu.addClass('d-none');
             }
-        }
-        if (this.$container.find('> li').length === 1) {
-            // If there is only the "More" tab left, then we need
-            // to align the submenu to the left edge of the tab
-            $submenuUl.removeClass().addClass('only');
-        } else {
-            // Otherwise we align the submenu to the right edge of the tab
-            $submenuUl.removeClass().addClass('notonly');
-        }
-        if ($submenu.find('.tabactive').length) {
-            $submenu
-                .addClass('active')
-                .find('> a')
-                .removeClass('tab')
-                .addClass('tabactive');
-        } else {
-            $submenu
-                .removeClass('active')
-                .find('> a')
-                .addClass('tab')
-                .removeClass('tabactive');
         }
     };
     MenuResizer.prototype.destroy = function () {
-        var $submenu = this.$container.find('li.submenu').removeData();
+        var $submenu = this.$container.find('.nav-item.dropdown').removeData();
         $submenu.find('li').appendTo(this.$container);
         $submenu.remove();
     };

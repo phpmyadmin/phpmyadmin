@@ -1,21 +1,19 @@
 <?php
 /**
  * Test for PhpMyAdmin\Gis\GisMultiLineString
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisMultiLineString;
-use PhpMyAdmin\Tests\Gis\GisGeomTestCase;
 use TCPDF;
+use function function_exists;
+use function imagecreatetruecolor;
+use function preg_match;
 
 /**
  * Tests for PhpMyAdmin\Gis\GisMultiLineString class
- *
- * @package PhpMyAdmin-test
  */
 class GisMultiLineStringTest extends GisGeomTestCase
 {
@@ -30,7 +28,6 @@ class GisMultiLineStringTest extends GisGeomTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
@@ -42,7 +39,6 @@ class GisMultiLineStringTest extends GisGeomTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -260,7 +256,6 @@ class GisMultiLineStringTest extends GisGeomTestCase
         ];
     }
 
-
     /**
      * test case for prepareRowAsPng() method
      *
@@ -271,6 +266,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      * @param resource $image      image object
      *
      * @return void
+     *
      * @dataProvider providerForPrepareRowAsPng
      */
     public function testPrepareRowAsPng(
@@ -327,6 +323,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      * @param TCPDF  $pdf        TCPDF instance
      *
      * @return void
+     *
      * @dataProvider providerForPrepareRowAsPdf
      */
     public function testPrepareRowAsPdf(
@@ -379,6 +376,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      * @param string $output     expected output
      *
      * @return void
+     *
      * @dataProvider providerForPrepareRowAsSvg
      */
     public function testPrepareRowAsSvg(
@@ -435,6 +433,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      * @param string $output     expected output
      *
      * @return void
+     *
      * @dataProvider providerForPrepareRowAsOl
      */
     public function testPrepareRowAsOl(

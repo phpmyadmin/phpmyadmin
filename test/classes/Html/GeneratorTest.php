@@ -1,14 +1,11 @@
 <?php
 /**
  * Test for PhpMyAdmin\Util class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Html;
 
-use PhpMyAdmin\Html\Forms;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Util;
@@ -16,18 +13,17 @@ use Throwable;
 use Twig_Error_Loader;
 use Twig_Error_Runtime;
 use Twig_Error_Syntax;
+use function call_user_func_array;
+use function htmlspecialchars;
+use function urlencode;
 
 /**
  * Test for \PhpMyAdmin\Html\MySQLDocumentation class
- *
- * @package PhpMyAdmin-test
  */
 class GeneratorTest extends PmaTestCase
 {
     /**
      * Test for getDbLink
-     *
-     * @return void
      *
      * @group medium
      */
@@ -39,8 +35,6 @@ class GeneratorTest extends PmaTestCase
 
     /**
      * Test for getDbLink
-     *
-     * @return void
      *
      * @group medium
      */
@@ -67,8 +61,6 @@ class GeneratorTest extends PmaTestCase
 
     /**
      * Test for getDbLink
-     *
-     * @return void
      */
     public function testGetDbLink(): void
     {
@@ -90,8 +82,6 @@ class GeneratorTest extends PmaTestCase
 
     /**
      * Test for getDbLink
-     *
-     * @return void
      */
     public function testGetDbLinkWithSpecialChars(): void
     {
@@ -116,7 +106,6 @@ class GeneratorTest extends PmaTestCase
     /**
      * Test for getDivForSliderEffect
      *
-     * @return void
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime
@@ -140,7 +129,6 @@ class GeneratorTest extends PmaTestCase
     /**
      * Test for getDivForSliderEffect
      *
-     * @return void
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime
@@ -164,7 +152,6 @@ class GeneratorTest extends PmaTestCase
     /**
      * Test for getDivForSliderEffect
      *
-     * @return void
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime
@@ -186,8 +173,6 @@ class GeneratorTest extends PmaTestCase
 
     /**
      * Test for Util::getIcon
-     *
-     * @return void
      */
     public function testGetIconWithoutActionLinksMode(): void
     {
@@ -201,8 +186,6 @@ class GeneratorTest extends PmaTestCase
 
     /**
      * Test for Util::getIcon
-     *
-     * @return void
      */
     public function testGetIconWithActionLinksMode(): void
     {
@@ -216,8 +199,6 @@ class GeneratorTest extends PmaTestCase
 
     /**
      * Test for Util::getIcon
-     *
-     * @return void
      */
     public function testGetIconAlternate(): void
     {
@@ -234,8 +215,6 @@ class GeneratorTest extends PmaTestCase
 
     /**
      * Test for Util::getIcon
-     *
-     * @return void
      */
     public function testGetIconWithForceText(): void
     {
@@ -254,8 +233,6 @@ class GeneratorTest extends PmaTestCase
 
     /**
      * Test for showPHPDocumentation
-     *
-     * @return void
      */
     public function testShowPHPDocumentation(): void
     {
@@ -281,8 +258,6 @@ class GeneratorTest extends PmaTestCase
      * @param array  $params params
      * @param int    $limit  limit
      * @param string $match  match
-     *
-     * @return void
      *
      * @dataProvider linksOrButtons
      */
@@ -355,8 +330,6 @@ class GeneratorTest extends PmaTestCase
      * Test for formatSql
      *
      * @covers \PhpMyAdmin\Html\Generator::formatSql
-     *
-     * @return void
      */
     public function testFormatSql(): void
     {

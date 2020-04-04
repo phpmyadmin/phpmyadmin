@@ -1,9 +1,6 @@
 <?php
 /**
  * Text Plain SQL Transformations plugin for phpMyAdmin
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage SQL
  */
 declare(strict_types=1);
 
@@ -14,16 +11,10 @@ use PhpMyAdmin\Response;
 
 /**
  * Handles the sql transformation for text plain
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage SQL
  */
 // @codingStandardsIgnoreLine
 class Text_Plain_Sql extends SQLTransformationsPlugin
 {
-    /**
-     * No-arg constructor
-     */
     public function __construct()
     {
         if (! empty($GLOBALS['cfg']['CodemirrorEnable'])) {

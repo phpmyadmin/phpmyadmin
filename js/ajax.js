@@ -151,6 +151,13 @@ var AJAX = {
      * @return void
      */
     lockPageHandler: function (event) {
+        // don't consider checkbox event
+        if (typeof event.target !== 'undefined') {
+            if (event.target.type === 'checkbox') {
+                return;
+            }
+        }
+
         var newHash = null;
         var oldHash = null;
         var lockId;
@@ -544,7 +551,7 @@ var AJAX = {
                     var $selflinkReplace = {
                         'index.php?route=/import': 'index.php?route=/table/sql',
                         'index.php?route=/table/chart': 'index.php?route=/sql',
-                        'index.php?route=/table/gis_visualization': 'index.php?route=/sql'
+                        'index.php?route=/table/gis-visualization': 'index.php?route=/sql'
                     };
                     if ($selflinkReplace[source]) {
                         var replacement = $selflinkReplace[source];
@@ -935,7 +942,7 @@ $(document).on('submit', 'form', AJAX.requestHandler);
  * Gracefully handle fatal server errors
  * (e.g: 500 - Internal server error)
  */
-$(document).ajaxError(function (event, request) {
+$(document).on('ajaxError', function (event, request) {
     if (AJAX.debug) {
         // eslint-disable-next-line no-console
         console.log('AJAX error: status=' + request.status + ', text=' + request.statusText);

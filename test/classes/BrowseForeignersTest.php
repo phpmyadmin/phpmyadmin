@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\BrowseForeigners
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -15,8 +13,6 @@ use ReflectionClass;
 
 /**
  * Tests for PhpMyAdmin\BrowseForeigners
- *
- * @package PhpMyAdmin-test
  */
 class BrowseForeignersTest extends TestCase
 {
@@ -24,8 +20,6 @@ class BrowseForeignersTest extends TestCase
 
     /**
      * Setup for test cases
-     *
-     * @return void
      */
     protected function setUp(): void
     {

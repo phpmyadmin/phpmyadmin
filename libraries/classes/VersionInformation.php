@@ -1,21 +1,29 @@
 <?php
 /**
  * Responsible for retrieving version information and notifiying about latest version
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Utils\HttpRequest;
-use \stdClass;
+use stdClass;
+use function count;
+use function explode;
+use function intval;
+use function is_numeric;
+use function is_object;
+use function json_decode;
+use function preg_match;
+use function strlen;
+use function strpos;
+use function substr;
+use function time;
+use function version_compare;
+use const PHP_VERSION;
 
 /**
  * Responsible for retrieving version information and notifiying about latest version
- *
- * @package PhpMyAdmin
- *
  */
 class VersionInformation
 {
@@ -140,6 +148,8 @@ class VersionInformation
      */
     public function getLatestCompatibleVersion(array $releases)
     {
+        // Maintains the latest compatible version
+        $latestRelease = null;
         foreach ($releases as $release) {
             $phpVersions = $release->php_versions;
             $phpConditions = explode(',', $phpVersions);
@@ -149,7 +159,7 @@ class VersionInformation
                 }
             }
 
-            // We evalute MySQL version constraint if there are only
+            // We evaluate MySQL version constraint if there are only
             // one server configured.
             if (count($GLOBALS['cfg']['Servers']) === 1) {
                 $mysqlVersions = $release->mysql_versions;
@@ -160,15 +170,17 @@ class VersionInformation
                     }
                 }
             }
-
-            return [
-                'version' => $release->version,
-                'date' => $release->date,
-            ];
+            // To compare the current release with the previous latest release or no release is set
+            if ($latestRelease === null || version_compare($latestRelease['version'], $release->version, '<')) {
+                $latestRelease = [
+                    'version' => $release->version,
+                    'date' => $release->date
+                ];
+            }
         }
 
         // no compatible version
-        return null;
+        return $latestRelease;
     }
 
     /**
@@ -177,7 +189,7 @@ class VersionInformation
      * @param string $type      PHP or MySQL
      * @param string $condition version condition
      *
-     * @return boolean whether the condition is met
+     * @return bool whether the condition is met
      */
     public function evaluateVersionCondition(string $type, string $condition)
     {

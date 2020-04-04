@@ -1,20 +1,14 @@
 <?php
 /**
  * Abstract class for the I/O transformations plugins
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins;
 
-use PhpMyAdmin\Plugins\TransformationsPlugin;
-
 /**
  * Provides a common interface that will have to be implemented
  * by all of the Input/Output transformations plugins.
- *
- * @package PhpMyAdmin
  */
 abstract class IOTransformationsPlugin extends TransformationsPlugin
 {

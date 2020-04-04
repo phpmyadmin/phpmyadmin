@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Plugins\Import\ImportLdi class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -16,14 +14,10 @@ use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * Tests for PhpMyAdmin\Plugins\Import\ImportLdi class
- *
- * @package PhpMyAdmin-test
  */
 class ImportLdiTest extends PmaTestCase
 {
-    /**
-     * @access protected
-     */
+    /** @access protected */
     protected $object;
 
     /**
@@ -37,7 +31,6 @@ class ImportLdiTest extends PmaTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
@@ -81,7 +74,6 @@ class ImportLdiTest extends PmaTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -119,6 +111,7 @@ class ImportLdiTest extends PmaTestCase
     {
         /**
          * The \PhpMyAdmin\DatabaseInterface mocked object
+         *
          * @var MockObject $dbi
          */
         $dbi = $this->dbi;
@@ -164,6 +157,7 @@ class ImportLdiTest extends PmaTestCase
         $sql_query_disabled = false;
         /**
          * The \PhpMyAdmin\DatabaseInterface mocked object
+         *
          * @var MockObject $dbi
          */
         $dbi = $this->dbi;
@@ -231,6 +225,7 @@ class ImportLdiTest extends PmaTestCase
         $sql_query_disabled = false;
         /**
          * The \PhpMyAdmin\DatabaseInterface mocked object
+         *
          * @var MockObject $dbi
          */
         $dbi = $this->dbi;

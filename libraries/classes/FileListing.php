@@ -1,17 +1,24 @@
 <?php
 /**
  * Holds the PhpMyAdmin\FileListing class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function asort;
+use function closedir;
+use function file_exists;
+use function function_exists;
+use function is_file;
+use function is_link;
+use function opendir;
+use function preg_match;
+use function readdir;
+use function substr;
+
 /**
  * Functions for listing directories
- *
- * @package PhpMyAdmin
  */
 class FileListing
 {
@@ -69,7 +76,7 @@ class FileListing
 
         return $template->render('file_select_options', [
             'filesList' => $list,
-            'active' => $active
+            'active' => $active,
         ]);
     }
 

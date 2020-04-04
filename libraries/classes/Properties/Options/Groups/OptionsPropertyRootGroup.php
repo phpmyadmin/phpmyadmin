@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -12,8 +10,6 @@ use PhpMyAdmin\Properties\Options\OptionsPropertyGroup;
 
 /**
  * Group property item class of type root
- *
- * @package PhpMyAdmin
  */
 class OptionsPropertyRootGroup extends OptionsPropertyGroup
 {

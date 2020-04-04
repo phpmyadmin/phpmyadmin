@@ -1,9 +1,6 @@
 <?php
 /**
  * Text Plain XML Transformations plugin for phpMyAdmin
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage SQL
  */
 declare(strict_types=1);
 
@@ -12,19 +9,14 @@ namespace PhpMyAdmin\Plugins\Transformations\Output;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Response;
 use stdClass;
+use function htmlspecialchars;
 
 /**
  * Handles the XML transformation for text plain
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage XML
  */
 // @codingStandardsIgnoreLine
 class Text_Plain_Xml extends TransformationsPlugin
 {
-    /**
-     * No-arg constructor
-     */
     public function __construct()
     {
         if (! empty($GLOBALS['cfg']['CodemirrorEnable'])) {

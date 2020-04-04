@@ -1,31 +1,24 @@
 <?php
 /**
  * Holds CollationsControllerTest class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
-use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\CollationsController;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\Stubs\Response;
 use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for CollationsController class
- *
- * @package PhpMyAdmin-test
  */
 class CollationsControllerTest extends TestCase
 {
     /**
      * Prepares environment for the test.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -39,18 +32,18 @@ class CollationsControllerTest extends TestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
     }
 
-    /**
-     * @return void
-     */
     public function testIndexAction(): void
     {
+        $response = new Response();
+
         $controller = new CollationsController(
-            Response::getInstance(),
+            $response,
             $GLOBALS['dbi'],
             new Template()
         );
 
-        $actual = $controller->index();
+        $controller->index();
+        $actual = $response->getHTMLResult();
 
         $this->assertStringContainsString(
             '<div id="div_mysql_charset_collations" class="row">',

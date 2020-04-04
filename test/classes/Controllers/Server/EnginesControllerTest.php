@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds EnginesControllerTest class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -10,24 +8,20 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\EnginesController;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\MySQLDocumentation;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\Stubs\Response;
 use PHPStan\Testing\TestCase;
+use function htmlspecialchars;
 
 /**
  * Tests for EnginesController class
- *
- * @package PhpMyAdmin-test
  */
 class EnginesControllerTest extends TestCase
 {
     /**
      * Prepares environment for the test.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -41,18 +35,18 @@ class EnginesControllerTest extends TestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
     }
 
-    /**
-     * @return void
-     */
     public function testIndex(): void
     {
+        $response = new Response();
+
         $controller = new EnginesController(
-            Response::getInstance(),
+            $response,
             $GLOBALS['dbi'],
             new Template()
         );
 
-        $actual = $controller->index();
+        $controller->index();
+        $actual = $response->getHTMLResult();
 
         $this->assertStringContainsString(
             '<th>Storage Engine</th>',
@@ -90,26 +84,21 @@ class EnginesControllerTest extends TestCase
         );
     }
 
-    /**
-     * @return void
-     */
     public function testShow(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $GLOBALS['dbi'] = $dbi;
+        $response = new Response();
 
         $controller = new EnginesController(
-            Response::getInstance(),
+            $response,
             $GLOBALS['dbi'],
             new Template()
         );
 
-        $actual = $controller->show([
+        $controller->show([
             'engine' => 'Pbxt',
             'page' => 'page',
         ]);
+        $actual = $response->getHTMLResult();
 
         $enginePlugin = StorageEngine::getEngine('Pbxt');
 

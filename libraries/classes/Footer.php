@@ -1,19 +1,25 @@
 <?php
 /**
  * Used to render the footer of PMA's pages
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
 use Traversable;
+use function basename;
+use function file_exists;
+use function htmlspecialchars;
+use function in_array;
+use function is_array;
+use function is_object;
+use function json_encode;
+use function json_last_error;
+use function sprintf;
+use function strlen;
 
 /**
  * Class used to output the footer
- *
- * @package PhpMyAdmin
  */
 class Footer
 {
@@ -47,14 +53,10 @@ class Footer
      */
     private $_isEnabled;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     private $template;
 
     /**
@@ -71,8 +73,6 @@ class Footer
 
     /**
      * Returns the message for demo server to error messages
-     *
-     * @return string
      */
     private function _getDemoMessage(): string
     {
@@ -126,8 +126,6 @@ class Footer
 
     /**
      * Renders the debug messages
-     *
-     * @return string
      */
     public function getDebugMessage(): string
     {
@@ -149,8 +147,6 @@ class Footer
 
     /**
      * Returns the url of the current page
-     *
-     * @return string
      */
     public function getSelfUrl(): string
     {
@@ -204,8 +200,6 @@ class Footer
      * Renders the link to open a new page
      *
      * @param string $url The url of the page
-     *
-     * @return string
      */
     private function _getSelfLink(string $url): string
     {
@@ -228,8 +222,6 @@ class Footer
 
     /**
      * Renders the link to open a new page
-     *
-     * @return string
      */
     public function getErrorMessages(): string
     {
@@ -248,8 +240,6 @@ class Footer
 
     /**
      * Saves query in history
-     *
-     * @return void
      */
     private function _setHistory(): void
     {
@@ -270,8 +260,6 @@ class Footer
 
     /**
      * Disables the rendering of the footer
-     *
-     * @return void
      */
     public function disable(): void
     {
@@ -283,8 +271,6 @@ class Footer
      * we are servicing an ajax request
      *
      * @param bool $isAjax Whether we are servicing an ajax request
-     *
-     * @return void
      */
     public function setAjax(bool $isAjax): void
     {
@@ -293,8 +279,6 @@ class Footer
 
     /**
      * Turn on minimal display mode
-     *
-     * @return void
      */
     public function setMinimal(): void
     {
@@ -313,8 +297,6 @@ class Footer
 
     /**
      * Renders the footer
-     *
-     * @return string
      */
     public function getDisplay(): string
     {

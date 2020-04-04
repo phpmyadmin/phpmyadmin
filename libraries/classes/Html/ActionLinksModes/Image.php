@@ -1,19 +1,16 @@
 <?php
 /**
  * Image link generator
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Html\ActionLinksModes;
 
 use PhpMyAdmin\Html\Generator;
+use function htmlspecialchars;
 
 /**
  * Image link generator
- *
- * @package PhpMyAdmin
  */
 class Image implements ActionLinksModesInterface
 {
@@ -25,8 +22,6 @@ class Image implements ActionLinksModesInterface
      * @param string $text  Text of the generated element
      * @param string $image Image of the generated element, if image mode
      * @param string $value Value of the generated element
-     *
-     * @return string
      */
     public static function generate(
         string $name,

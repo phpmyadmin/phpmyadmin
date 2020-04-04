@@ -5,15 +5,18 @@
  * It has hardcoded results for given queries what makes easy to use it
  * in testsuite. Feel free to include other queries which your test will
  * need.
- *
- * @package    PhpMyAdmin-DBI
- * @subpackage Dummy
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Stubs;
 
-use PhpMyAdmin\Dbi\DbiExtension;
+use PhpMyAdmin\Dbal\DbiExtension;
+use function count;
+use function is_array;
+use function is_bool;
+use function preg_replace;
+use function str_replace;
+use function trim;
 
 /**
  * Fake database driver for testing purposes
@@ -21,15 +24,10 @@ use PhpMyAdmin\Dbi\DbiExtension;
  * It has hardcoded results for given queries what makes easy to use it
  * in testsuite. Feel free to include other queries which your test will
  * need.
- *
- * @package    PhpMyAdmin-DBI
- * @subpackage Dummy
  */
 class DbiDummy implements DbiExtension
 {
-    /**
-     * @var array
-     */
+    /** @var array */
     private $_queries = [];
 
     /**
@@ -37,9 +35,6 @@ class DbiDummy implements DbiExtension
      */
     public const OFFSET_GLOBAL = 1000;
 
-    /**
-     * DbiDummy constructor.
-     */
     public function __construct()
     {
         $this->init();
@@ -65,8 +60,8 @@ class DbiDummy implements DbiExtension
     /**
      * selects given database
      *
-     * @param string   $dbname name of db to select
-     * @param resource $link   mysql link resource
+     * @param string $dbname name of db to select
+     * @param object $link   mysql link resource
      *
      * @return bool
      */
@@ -80,9 +75,9 @@ class DbiDummy implements DbiExtension
     /**
      * runs a query and returns the result
      *
-     * @param string   $query   query to run
-     * @param resource $link    mysql link resource
-     * @param int      $options query options
+     * @param string $query   query to run
+     * @param object $link    mysql link resource
+     * @param int    $options query options
      *
      * @return mixed
      */
@@ -121,8 +116,8 @@ class DbiDummy implements DbiExtension
     /**
      * Run the multi query and output the results
      *
-     * @param resource $link  connection object
-     * @param string   $query multi query statement to execute
+     * @param object $link  connection object
+     * @param string $query multi query statement to execute
      *
      * @return array|bool
      */
@@ -212,8 +207,8 @@ class DbiDummy implements DbiExtension
     /**
      * Adjusts the result pointer to an arbitrary row in the result
      *
-     * @param object  $result database result
-     * @param integer $offset offset to seek
+     * @param object $result database result
+     * @param int    $offset offset to seek
      *
      * @return bool true on success, false on failure
      */
@@ -243,7 +238,7 @@ class DbiDummy implements DbiExtension
     /**
      * Check if there are any more query results from a multi query
      *
-     * @param resource $link the connection object
+     * @param object $link the connection object
      *
      * @return bool false
      */
@@ -255,9 +250,9 @@ class DbiDummy implements DbiExtension
     /**
      * Prepare next result from multi_query
      *
-     * @param resource $link the connection object
+     * @param object $link the connection object
      *
-     * @return boolean false
+     * @return bool false
      */
     public function nextResult($link)
     {
@@ -267,7 +262,7 @@ class DbiDummy implements DbiExtension
     /**
      * Store the result returned from multi query
      *
-     * @param resource $link the connection object
+     * @param object $link the connection object
      *
      * @return mixed false when empty results / result set when not empty
      */
@@ -279,7 +274,7 @@ class DbiDummy implements DbiExtension
     /**
      * Returns a string representing the type of connection used
      *
-     * @param resource $link mysql link
+     * @param object $link mysql link
      *
      * @return string type of connection used
      */
@@ -291,9 +286,9 @@ class DbiDummy implements DbiExtension
     /**
      * Returns the version of the MySQL protocol used
      *
-     * @param resource $link mysql link
+     * @param object $link mysql link
      *
-     * @return integer version of the MySQL protocol used
+     * @return int version of the MySQL protocol used
      */
     public function getProtoInfo($link)
     {
@@ -303,7 +298,7 @@ class DbiDummy implements DbiExtension
     /**
      * returns a string that represents the client library version
      *
-     * @param resource $link connection link
+     * @param object $link connection link
      *
      * @return string MySQL client library version
      */
@@ -315,7 +310,7 @@ class DbiDummy implements DbiExtension
     /**
      * returns last error message or false if no errors occurred
      *
-     * @param resource $link connection link
+     * @param object $link connection link
      *
      * @return string|bool error or false
      */
@@ -345,14 +340,15 @@ class DbiDummy implements DbiExtension
     /**
      * returns the number of rows affected by last query
      *
-     * @param resource $link           the mysql object
-     * @param bool     $get_from_cache whether to retrieve from cache
+     * @param object $link           the mysql object
+     * @param bool   $get_from_cache whether to retrieve from cache
      *
      * @return string|int
      */
     public function affectedRows($link = null, $get_from_cache = true)
     {
-        return 0;
+        global $cached_affected_rows;
+        return $cached_affected_rows ?? 0;
     }
 
     /**
@@ -433,7 +429,7 @@ class DbiDummy implements DbiExtension
      */
     public function escapeString($link, $str)
     {
-        return $str;
+        return addslashes($str);
     }
 
     /**
@@ -455,6 +451,7 @@ class DbiDummy implements DbiExtension
     /**
      * @param mixed  $link  link
      * @param string $query query
+     *
      * @return object|false
      */
     public function prepare($link, string $query)
@@ -478,9 +475,6 @@ class DbiDummy implements DbiExtension
         }
     }
 
-    /**
-     * @return void
-     */
     private function init(): void
     {
         /**
@@ -634,6 +628,10 @@ class DbiDummy implements DbiExtension
                 'result' => [
                     [''],
                 ],
+            ],
+            [
+                'query' => 'SHOW GLOBAL VARIABLES ;',
+                'result' => [],
             ],
             [
                 'query'  => 'SHOW GLOBAL VARIABLES LIKE \'innodb_file_per_table\';',
@@ -1838,7 +1836,74 @@ class DbiDummy implements DbiExtension
                     ],
                 ],
             ],
-
+            [
+                'query' => 'SHOW GLOBAL STATUS',
+                'columns' => ['Variable_name', 'Value'],
+                'result' => [
+                    ['Aborted_clients', '0'],
+                    ['Aborted_connects', '0'],
+                    ['Com_delete_multi', '0'],
+                    ['Com_create_function', '0'],
+                    ['Com_empty_query', '0'],
+                ],
+            ],
+            [
+                'query' => 'SHOW GLOBAL VARIABLES',
+                'columns' => ['Variable_name', 'Value'],
+                'result' => [
+                    ['auto_increment_increment', '1'],
+                    ['auto_increment_offset', '1'],
+                    ['automatic_sp_privileges', 'ON'],
+                    ['back_log', '50'],
+                    ['big_tables', 'OFF'],
+                    ['version', '8.0.2'],
+                ],
+            ],
+            [
+                'query' => 'SELECT start_time, user_host, Sec_to_Time(Sum(Time_to_Sec(query_time))) as query_time, Sec_to_Time(Sum(Time_to_Sec(lock_time))) as lock_time, SUM(rows_sent) AS rows_sent, SUM(rows_examined) AS rows_examined, db, sql_text, COUNT(sql_text) AS \'#\' FROM `mysql`.`slow_log` WHERE start_time > FROM_UNIXTIME(0) AND start_time < FROM_UNIXTIME(10) GROUP BY sql_text',
+                'columns' => ['sql_text', '#'],
+                'result' => [
+                    ['insert sql_text', 11],
+                    ['update sql_text', 10],
+                ],
+            ],
+            [
+                'query' => 'SELECT TIME(event_time) as event_time, user_host, thread_id, server_id, argument, count(argument) as \'#\' FROM `mysql`.`general_log` WHERE command_type=\'Query\' AND event_time > FROM_UNIXTIME(0) AND event_time < FROM_UNIXTIME(10) AND argument REGEXP \'^(INSERT|SELECT|UPDATE|DELETE)\' GROUP by argument',
+                'columns' => ['sql_text', '#', 'argument'],
+                'result' => [
+                    ['insert sql_text', 10, 'argument argument2'],
+                    ['update sql_text', 11, 'argument3 argument4'],
+                ],
+            ],
+            [
+                'query' => 'SET PROFILING=1;',
+                'result' => [],
+            ],
+            [
+                'query' => 'query',
+                'result' => [],
+            ],
+            [
+                'query' => 'EXPLAIN query',
+                'columns' => ['sql_text', '#', 'argument'],
+                'result' => [
+                    ['insert sql_text', 10, 'argument argument2'],
+                ],
+            ],
+            [
+                'query' => 'SELECT seq,state,duration FROM INFORMATION_SCHEMA.PROFILING WHERE QUERY_ID=1 ORDER BY seq',
+                'result' => [],
+            ],
+            [
+                'query' => 'SHOW GLOBAL VARIABLES WHERE Variable_name IN ("general_log","slow_query_log","long_query_time","log_output")',
+                'columns' => ['Variable_name', 'Value'],
+                'result' => [
+                    ['general_log', 'OFF'],
+                    ['log_output', 'FILE'],
+                    ['long_query_time', '10.000000'],
+                    ['slow_query_log', 'OFF'],
+                ],
+            ],
         ];
         /**
          * Current database.

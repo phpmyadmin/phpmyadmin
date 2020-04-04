@@ -1,9 +1,6 @@
 <?php
 /**
  * Selenium TestCase for table related tests
- *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  */
 declare(strict_types=1);
 
@@ -14,16 +11,12 @@ use PhpMyAdmin\Tests\Selenium\TestBase;
 /**
  * OperationsTest class
  *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  * @group      selenium
  */
 class OperationsTest extends TestBase
 {
     /**
      * setUp function
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -98,7 +91,7 @@ class OperationsTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            "//a[@class='item' and contains(., 'Database: " . $new_db_name . "')]"
+            "//a[contains(text(),'Database: ') and contains(text(),'" . $new_db_name . "')]"
         );
 
         $result = $this->dbQuery(

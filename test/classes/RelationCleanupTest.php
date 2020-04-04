@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\RelationCleanup
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -12,30 +10,23 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
+use function array_merge;
 
 /**
  * PhpMyAdmin\Tests\RelationCleanupTest class
  *
  * this class is for testing PhpMyAdmin\RelationCleanup methods
- *
- * @package PhpMyAdmin-test
  */
 class RelationCleanupTest extends TestCase
 {
-    /**
-     * @var Relation|MockObject
-     */
+    /** @var Relation|MockObject */
     private $relation;
 
-    /**
-     * @var RelationCleanup
-     */
+    /** @var RelationCleanup */
     private $relationCleanup;
 
     /**
      * Prepares environment for the test.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -94,8 +85,6 @@ class RelationCleanupTest extends TestCase
 
     /**
      * Test for column method
-     *
-     * @return void
      */
     public function testColumnWithoutRelations(): void
     {
@@ -107,8 +96,6 @@ class RelationCleanupTest extends TestCase
 
     /**
      * Test for column method
-     *
-     * @return void
      */
     public function testColumnWithRelations(): void
     {
@@ -135,8 +122,6 @@ class RelationCleanupTest extends TestCase
 
     /**
      * Test for table method
-     *
-     * @return void
      */
     public function testTableWithoutRelations(): void
     {
@@ -148,8 +133,6 @@ class RelationCleanupTest extends TestCase
 
     /**
      * Test for table method
-     *
-     * @return void
      */
     public function testTableWithRelations(): void
     {
@@ -182,8 +165,6 @@ class RelationCleanupTest extends TestCase
 
     /**
      * Test for database method
-     *
-     * @return void
      */
     public function testDatabaseWithoutRelations(): void
     {
@@ -195,8 +176,6 @@ class RelationCleanupTest extends TestCase
 
     /**
      * Test for database method
-     *
-     * @return void
      */
     public function testDatabaseWithRelations(): void
     {
@@ -236,8 +215,6 @@ class RelationCleanupTest extends TestCase
 
     /**
      * Test for user method
-     *
-     * @return void
      */
     public function testUserWithoutRelations(): void
     {
@@ -249,8 +226,6 @@ class RelationCleanupTest extends TestCase
 
     /**
      * Test for user method
-     *
-     * @return void
      */
     public function testUserWithRelations(): void
     {

@@ -10,7 +10,7 @@
         <a id="showusage"></a>
 
         {% if not tbl_is_view and not db_is_system_schema %}
-            <table id="tablespaceusage" class="w-100 data">
+            <table id="tablespaceusage" class="data">
                 <caption class="tblHeaders">{% trans 'Space usage' %}</caption>
                 <tbody>
                     <tr>
@@ -70,7 +70,7 @@
 
         {% set avg_size = avg_size is defined ? avg_size : null %}
         {% set avg_unit = avg_unit is defined ? avg_unit : null %}
-        <table id="tablerowstats" class="w-100 data">
+        <table id="tablerowstats" class="data">
             <caption class="tblHeaders">{% trans 'Row statistics' %}</caption>
             <tbody>
                 {% if showtable['Row_format'] is defined %}

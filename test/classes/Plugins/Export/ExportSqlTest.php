@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportSql class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -16,11 +14,13 @@ use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
 use stdClass;
+use function array_shift;
+use function ob_get_clean;
+use function ob_start;
 
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportSql class
  *
- * @package PhpMyAdmin-test
  * @group medium
  */
 class ExportSqlTest extends PmaTestCase
@@ -29,8 +29,6 @@ class ExportSqlTest extends PmaTestCase
 
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -49,8 +47,6 @@ class ExportSqlTest extends PmaTestCase
 
     /**
      * tearDown for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -61,6 +57,7 @@ class ExportSqlTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::setProperties
      *
      * @return void
+     *
      * @group medium
      */
     public function testSetProperties()
@@ -558,7 +555,6 @@ class ExportSqlTest extends PmaTestCase
         $this->assertStringContainsString(
             "SET FOREIGN_KEY_CHECKS=0;\n" .
             "SET SQL_MODE = \"NO_AUTO_VALUE_ON_ZERO\";\n" .
-            "SET AUTOCOMMIT = 0;\n" .
             "START TRANSACTION;\n" .
             "SET time_zone = \"+00:00\";\n",
             $result
@@ -701,7 +697,6 @@ class ExportSqlTest extends PmaTestCase
      */
     public function testExportEvents()
     {
-
         $GLOBALS['crlf'] = "\n";
         $GLOBALS['sql_structure_or_data'] = 'structure';
         $GLOBALS['sql_procedure_function'] = true;
@@ -940,11 +935,11 @@ class ExportSqlTest extends PmaTestCase
         );
     }
 
-
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::getTableDef
      *
      * @return void
+     *
      * @group medium
      */
     public function testGetTableDef()
@@ -1301,11 +1296,11 @@ class ExportSqlTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportStructure
      *
      * @return void
+     *
      * @group medium
      */
     public function testExportStructure()
     {
-
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
@@ -1506,6 +1501,7 @@ class ExportSqlTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportData
      *
      * @return void
+     *
      * @group medium
      */
     public function testExportData()
@@ -1662,6 +1658,7 @@ class ExportSqlTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportData
      *
      * @return void
+     *
      * @group medium
      */
     public function testExportDataWithUpdate()
@@ -1884,7 +1881,6 @@ class ExportSqlTest extends PmaTestCase
      */
     public function testMakeCreateTableMSSQLCompatible()
     {
-
         $query = "CREATE TABLE IF NOT EXISTS (\" date DEFAULT NULL,\n" .
             "\" date DEFAULT NULL\n\" date NOT NULL,\n\" date NOT NULL\n," .
             " \" date NOT NULL DEFAULT 'asd'," .

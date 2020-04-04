@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PMA_StorageEngine_innodb
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,14 +11,10 @@ use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PhpMyAdmin\Engines\Innodb
- *
- * @package PhpMyAdmin-test
  */
 class InnodbTest extends PmaTestCase
 {
-    /**
-     * @access protected
-     */
+    /** @access protected */
     protected $object;
 
     /**
@@ -28,7 +22,6 @@ class InnodbTest extends PmaTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
@@ -41,7 +34,6 @@ class InnodbTest extends PmaTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -181,82 +173,80 @@ class InnodbTest extends PmaTestCase
     public function testGetPageBufferpool()
     {
         $this->assertEquals(
-            '<table class="data" id="table_innodb_bufferpool_usage">
-    <caption class="tblHeaders">
-        Buffer Pool Usage
-    </caption>
-    <tfoot>
-        <tr>
-            <th colspan="2">
-                Total
-                : 4,096&nbsp;pages / 65,536&nbsp;KiB
-            </th>
-        </tr>
-    </tfoot>
-    <tbody>
-        <tr>
-            <th>Free pages</th>
-            <td class="value">0</td>
-        </tr>
-        <tr>
-            <th>Dirty pages</th>
-            <td class="value">0</td>
-        </tr>
-        <tr>
-            <th>Pages containing data</th>
-            <td class="value">0
-</td>
-        </tr>
-        <tr>
-            <th>Pages to be flushed</th>
-            <td class="value">0
-</td>
-        </tr>
-        <tr>
-            <th>Busy pages</th>
-            <td class="value">0
-</td>
-        </tr>    </tbody>
-</table>
-
-<table class="data" id="table_innodb_bufferpool_activity">
-    <caption class="tblHeaders">
-        Buffer Pool Activity
-    </caption>
-    <tbody>
-        <tr>
-            <th>Read requests</th>
-            <td class="value">64
-</td>
-        </tr>
-        <tr>
-            <th>Write requests</th>
-            <td class="value">64
-</td>
-        </tr>
-        <tr>
-            <th>Read misses</th>
-            <td class="value">32
-</td>
-        </tr>
-        <tr>
-            <th>Write waits</th>
-            <td class="value">0
-</td>
-        </tr>
-        <tr>
-            <th>Read misses in %</th>
-            <td class="value">50   %
-</td>
-        </tr>
-        <tr>
-            <th>Write waits in %</th>
-            <td class="value">0 %
-</td>
-        </tr>
-    </tbody>
-</table>
-',
+        '<table class="data" id="table_innodb_bufferpool_usage">' . "\n" .
+        '    <caption class="tblHeaders">' . "\n" .
+        '        Buffer Pool Usage' . "\n" .
+        '    </caption>' . "\n" .
+        '    <tfoot>' . "\n" .
+        '        <tr>' . "\n" .
+        '            <th colspan="2">' . "\n" .
+        '                Total' . "\n" .
+        '                : 4,096&nbsp;pages / 65,536&nbsp;KiB' . "\n" .
+        '            </th>' . "\n" .
+        '        </tr>' . "\n" .
+        '    </tfoot>' . "\n" .
+        '    <tbody>' . "\n" .
+        '        <tr>' . "\n" .
+        '            <th>Free pages</th>' . "\n" .
+        '            <td class="value">0</td>' . "\n" .
+        '        </tr>' . "\n" .
+        '        <tr>' . "\n" .
+        '            <th>Dirty pages</th>' . "\n" .
+        '            <td class="value">0</td>' . "\n" .
+        '        </tr>' . "\n" .
+        '        <tr>' . "\n" .
+        '            <th>Pages containing data</th>' . "\n" .
+        '            <td class="value">0' . "\n" .
+        '</td>' . "\n" .
+        '        </tr>' . "\n" .
+        '        <tr>' . "\n" .
+        '            <th>Pages to be flushed</th>' . "\n" .
+        '            <td class="value">0' . "\n" .
+        '</td>' . "\n" .
+        '        </tr>' . "\n" .
+        '        <tr>' . "\n" .
+        '            <th>Busy pages</th>' . "\n" .
+        '            <td class="value">0' . "\n" .
+        '</td>' . "\n" .
+        '        </tr>    </tbody>' . "\n" .
+        '</table>' . "\n\n" .
+        '<table class="data" id="table_innodb_bufferpool_activity">' . "\n" .
+        '    <caption class="tblHeaders">' . "\n" .
+        '        Buffer Pool Activity' . "\n" .
+        '    </caption>' . "\n" .
+        '    <tbody>' . "\n" .
+        '        <tr>' . "\n" .
+        '            <th>Read requests</th>' . "\n" .
+        '            <td class="value">64' . "\n" .
+        '</td>' . "\n" .
+        '        </tr>' . "\n" .
+        '        <tr>' . "\n" .
+        '            <th>Write requests</th>' . "\n" .
+        '            <td class="value">64' . "\n" .
+        '</td>' . "\n" .
+        '        </tr>' . "\n" .
+        '        <tr>' . "\n" .
+        '            <th>Read misses</th>' . "\n" .
+        '            <td class="value">32' . "\n" .
+        '</td>' . "\n" .
+        '        </tr>' . "\n" .
+        '        <tr>' . "\n" .
+        '            <th>Write waits</th>' . "\n" .
+        '            <td class="value">0' . "\n" .
+        '</td>' . "\n" .
+        '        </tr>' . "\n" .
+        '        <tr>' . "\n" .
+        '            <th>Read misses in %</th>' . "\n" .
+        '            <td class="value">50   %' . "\n" .
+        '</td>' . "\n" .
+        '        </tr>' . "\n" .
+        '        <tr>' . "\n" .
+        '            <th>Write waits in %</th>' . "\n" .
+        '            <td class="value">0 %' . "\n" .
+        '</td>' . "\n" .
+        '        </tr>' . "\n" .
+        '    </tbody>' . "\n" .
+        '</table>' . "\n",
             $this->object->getPageBufferpool()
         );
     }

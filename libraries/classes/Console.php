@@ -1,22 +1,16 @@
 <?php
 /**
  * Used to render the console of PMA's pages
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Bookmark;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Template;
-use PhpMyAdmin\Util;
+use function count;
+use function sprintf;
 
 /**
  * Class used to output the console
- *
- * @package PhpMyAdmin
  */
 class Console
 {
@@ -36,14 +30,10 @@ class Console
      */
     private $_isAjax;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
     /**
@@ -61,8 +51,6 @@ class Console
      * we are servicing an ajax request
      *
      * @param bool $isAjax Whether we are servicing an ajax request
-     *
-     * @return void
      */
     public function setAjax(bool $isAjax): void
     {
@@ -71,8 +59,6 @@ class Console
 
     /**
      * Disables the rendering of the footer
-     *
-     * @return void
      */
     public function disable(): void
     {
@@ -83,7 +69,6 @@ class Console
      * Renders the bookmark content
      *
      * @access public
-     * @return string
      */
     public static function getBookmarkContent(): string
     {
@@ -107,7 +92,6 @@ class Console
             } else {
                 $welcomeMessage = __('No bookmarks');
             }
-            unset($count_bookmarks, $private_message, $shared_message);
             return $template->render('console/bookmark_content', [
                 'welcome_message' => $welcomeMessage,
                 'bookmarks' => $bookmarks,
@@ -130,11 +114,10 @@ class Console
      * Renders the console
      *
      * @access public
-     * @return string
      */
     public function getDisplay(): string
     {
-        if ((! $this->_isAjax) && $this->_isEnabled) {
+        if (! $this->_isAjax && $this->_isEnabled) {
             $cfgBookmark = Bookmark::getParams(
                 $GLOBALS['cfg']['Server']['user']
             );

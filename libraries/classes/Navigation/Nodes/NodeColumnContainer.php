@@ -1,8 +1,6 @@
 <?php
 /**
  * Functionality for the navigation tree
- *
- * @package PhpMyAdmin-Navigation
  */
 declare(strict_types=1);
 
@@ -11,12 +9,9 @@ namespace PhpMyAdmin\Navigation\Nodes;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 
 /**
  * Represents a container for column nodes in the navigation tree
- *
- * @package PhpMyAdmin-Navigation
  */
 class NodeColumnContainer extends Node
 {
@@ -30,37 +25,31 @@ class NodeColumnContainer extends Node
         $this->links = [
             'text' => Url::getFromRoute('/table/structure', [
                 'server' => $GLOBALS['server'],
-                'db' => '%2\$s',
-                'table' => '%1\$s',
-            ]),
+            ]) . '&amp;db=%2$s&amp;table=%1$s',
             'icon' => Url::getFromRoute('/table/structure', [
                 'server' => $GLOBALS['server'],
-                'db' => '%2\$s',
-                'table' => '%1\$s',
-            ]),
+            ]) . '&amp;db=%2$s&amp;table=%1$s',
         ];
         $this->realName = 'columns';
 
         $newLabel = _pgettext('Create new column', 'New');
-        $new = NodeFactory::getInstance(
-            'Node',
-            $newLabel
+        $new = NodeFactory::getInstanceForNewNode(
+            $newLabel,
+            'new_column italics'
         );
-        $new->isNew = true;
         $new->icon = Generator::getImage('b_column_add', $newLabel);
         $new->links = [
-            'text' => Url::getFromRoute('/table/addfield', [
+            'text' => Url::getFromRoute('/table/add-field', [
                 'server' => $GLOBALS['server'],
                 'field_where' => 'last',
                 'after_field' => '',
             ]) . '&amp;db=%3$s&amp;table=%2$s',
-            'icon' => Url::getFromRoute('/table/addfield', [
+            'icon' => Url::getFromRoute('/table/add-field', [
                 'server' => $GLOBALS['server'],
                 'field_where' => 'last',
                 'after_field' => '',
             ]) . '&amp;db=%3$s&amp;table=%2$s',
         ];
-        $new->classes = 'new_column italics';
         $this->addChild($new);
     }
 }

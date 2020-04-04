@@ -1,26 +1,19 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\Database\MultiTableQueryController
- *
- * @package PhpMyAdmin\Controllers\Database
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Database\MultiTableQuery;
-use PhpMyAdmin\Template;
 
 /**
  * Handles database multi-table querying
- * @package PhpMyAdmin\Controllers\Database
  */
 class MultiTableQueryController extends AbstractController
 {
-    /**
-     * @return string
-     */
-    public function index(): string
+    public function index(): void
     {
         $header = $this->response->getHeader();
         $scripts = $header->getScripts();
@@ -30,16 +23,17 @@ class MultiTableQueryController extends AbstractController
 
         $queryInstance = new MultiTableQuery($this->dbi, $this->template, $this->db);
 
-        return $queryInstance->getFormHtml();
+        $this->response->addHTML($queryInstance->getFormHtml());
     }
 
-    /**
-     * @param array $params Request parameters
-     * @return void
-     */
-    public function displayResults(array $params): void
+    public function displayResults(): void
     {
         global $pmaThemeImage;
+
+        $params = [
+            'sql_query' => $_POST['sql_query'],
+            'db' => $_POST['db'] ?? $_GET['db'] ?? null,
+        ];
 
         MultiTableQuery::displayResults(
             $params['sql_query'],
@@ -48,17 +42,16 @@ class MultiTableQueryController extends AbstractController
         );
     }
 
-    /**
-     * @param array $params Request parameters
-     * @return array JSON
-     */
-    public function table(array $params): array
+    public function table(): void
     {
+        $params = [
+            'tables' => $_GET['tables'],
+            'db' => $_GET['db'] ?? null,
+        ];
         $constrains = $this->dbi->getForeignKeyConstrains(
             $params['db'],
             $params['tables']
         );
-
-        return ['foreignKeyConstrains' => $constrains];
+        $this->response->addJSON(['foreignKeyConstrains' => $constrains]);
     }
 }

@@ -1,28 +1,22 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Relation
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Theme;
 use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for PhpMyAdmin\Relation
  *
- * @package PhpMyAdmin-test
  * @group medium
  */
 class RelationTest extends TestCase
 {
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
     /**
@@ -30,7 +24,6 @@ class RelationTest extends TestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {

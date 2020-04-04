@@ -1,9 +1,6 @@
 <?php
 /**
  * Dia schema export code
- *
- * @package    PhpMyAdmin-Schema
- * @subpackage Dia
  */
 declare(strict_types=1);
 
@@ -18,15 +15,9 @@ use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
 
 /**
  * Handles the schema export for the Dia format
- *
- * @package    PhpMyAdmin-Schema
- * @subpackage Dia
  */
 class SchemaDia extends SchemaPlugin
 {
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         $this->setProperties();

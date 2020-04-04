@@ -1,25 +1,22 @@
 <?php
 /**
  * Displays query statistics for the server
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;
 
-/**
- * Class QueriesController
- * @package PhpMyAdmin\Controllers\Server\Status
- */
+use PhpMyAdmin\Common;
+use function array_sum;
+use function arsort;
+use function count;
+use function str_replace;
+
 class QueriesController extends AbstractController
 {
-    /**
-     * @return string HTML
-     */
-    public function index(): string
+    public function index(): void
     {
-        require_once ROOT_PATH . 'libraries/server_common.inc.php';
+        Common::server();
 
         $header = $this->response->getHeader();
         $scripts = $header->getScripts();
@@ -77,11 +74,11 @@ class QueriesController extends AbstractController
             }
         }
 
-        return $this->template->render('server/status/queries/index', [
+        $this->response->addHTML($this->template->render('server/status/queries/index', [
             'is_data_loaded' => $this->data->dataLoaded,
             'stats' => $stats ?? null,
             'queries' => $queries ?? [],
             'chart' => $chart ?? [],
-        ]);
+        ]));
     }
 }

@@ -1,36 +1,24 @@
 <?php
 /**
  * Holds the PhpMyAdmin\UserPassword class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Privileges;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
+use function strlen;
 
 /**
  * Functions for user password
- *
- * @package PhpMyAdmin
  */
 class UserPassword
 {
-    /**
-     * @var Privileges
-     */
+    /** @var Privileges */
     private $serverPrivileges;
 
     /**
-     * UserPassword constructor.
-     *
      * @param Privileges $serverPrivileges Privileges object
      */
     public function __construct(Privileges $serverPrivileges)
@@ -131,14 +119,15 @@ class UserPassword
         }
 
         $sql_query = 'SET password = '
-            . (($password == '') ? '\'\'' : $hashing_function . '(\'***\')');
+            . ($password == '' ? '\'\'' : $hashing_function . '(\'***\')');
 
         if ($serverType == 'MySQL'
             && $serverVersion >= 50706
         ) {
-            $sql_query = 'ALTER USER \'' . $username . '\'@\'' . $hostname
+            $sql_query = 'ALTER USER \'' . $GLOBALS['dbi']->escapeString($username)
+                . '\'@\'' . $GLOBALS['dbi']->escapeString($hostname)
                 . '\' IDENTIFIED WITH ' . $orig_auth_plugin . ' BY '
-                . (($password == '') ? '\'\'' : '\'***\'');
+                . ($password == '' ? '\'\'' : '\'***\'');
         } elseif (($serverType == 'MySQL'
             && $serverVersion >= 50507)
             || ($serverType == 'MariaDB'
@@ -215,9 +204,10 @@ class UserPassword
         $serverVersion = $GLOBALS['dbi']->getVersion();
 
         if ($serverType == 'MySQL' && $serverVersion >= 50706) {
-            $local_query = 'ALTER USER \'' . $username . '\'@\'' . $hostname . '\''
+            $local_query = 'ALTER USER \'' . $GLOBALS['dbi']->escapeString($username)
+                . '\'@\'' . $GLOBALS['dbi']->escapeString($hostname) . '\''
                 . ' IDENTIFIED with ' . $orig_auth_plugin . ' BY '
-                . (($password == '')
+                . ($password == ''
                 ? '\'\''
                 : '\'' . $GLOBALS['dbi']->escapeString($password) . '\'');
         } elseif ($serverType == 'MariaDB'
@@ -241,10 +231,10 @@ class UserPassword
                 . " `authentication_string` = '" . $hashedPassword
                 . "', `Password` = '', "
                 . " `plugin` = '" . $orig_auth_plugin . "'"
-                . " WHERE `User` = '" . $username . "' AND Host = '"
-                . $hostname . "';";
+                . " WHERE `User` = '" . $GLOBALS['dbi']->escapeString($username)
+                . "' AND Host = '" . $GLOBALS['dbi']->escapeString($hostname) . "';";
         } else {
-            $local_query = 'SET password = ' . (($password == '')
+            $local_query = 'SET password = ' . ($password == ''
                 ? '\'\''
                 : $hashing_function . '(\''
                     . $GLOBALS['dbi']->escapeString($password) . '\')');
@@ -278,9 +268,8 @@ class UserPassword
             $sql_query,
             'success'
         );
-        echo '<a href="' , Url::getFromRoute('/')
-            , ' target="_parent">' , "\n"
-            , '<strong>' , __('Back') , '</strong></a>';
+        $template = new Template();
+        echo $template->render('user_password');
         exit;
     }
 }

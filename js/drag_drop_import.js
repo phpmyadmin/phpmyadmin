@@ -15,15 +15,15 @@ var DragDropImport = {
      */
     liveUploadCount: 0,
     /**
-     * @var  string array, allowed extensions
+     * @var string array, allowed extensions
      */
     allowedExtensions: ['sql', 'xml', 'ldi', 'mediawiki', 'shp'],
     /**
-     * @var  string array, allowed extensions for compressed files
+     * @var string array, allowed extensions for compressed files
      */
     allowedCompressedExtensions: ['gz', 'bz2', 'zip'],
     /**
-     * @var obj array to store message returned by import_status.php
+     * @var obj array to store message returned by /import-status
      */
     importStatus: [],
     /**

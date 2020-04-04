@@ -1,21 +1,18 @@
 <?php
 /**
  * Test for PhpMyAdmin\Gis\GisPoint
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisPoint;
-use PhpMyAdmin\Tests\Gis\GisGeomTestCase;
 use TCPDF;
+use function function_exists;
+use function imagecreatetruecolor;
 
 /**
  * Tests for PhpMyAdmin\Gis\GisPoint class.
- *
- * @package PhpMyAdmin-test
  */
 class GisPointTest extends GisGeomTestCase
 {
@@ -30,7 +27,6 @@ class GisPointTest extends GisGeomTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
@@ -42,7 +38,6 @@ class GisPointTest extends GisGeomTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -111,7 +106,6 @@ class GisPointTest extends GisGeomTestCase
      * @param string $shape    expected shape in WKT
      *
      * @dataProvider providerForTestGetShape
-     * @return void
      */
     public function testGetShape($row_data, $shape): void
     {
@@ -203,6 +197,7 @@ class GisPointTest extends GisGeomTestCase
      * @param resource $image       image object
      *
      * @return void
+     *
      * @dataProvider providerForPrepareRowAsPng
      */
     public function testPrepareRowAsPng(
@@ -258,6 +253,7 @@ class GisPointTest extends GisGeomTestCase
      * @param TCPDF  $pdf         TCPDF instance
      *
      * @return void
+     *
      * @dataProvider providerForPrepareRowAsPdf
      */
     public function testPrepareRowAsPdf(
@@ -310,6 +306,7 @@ class GisPointTest extends GisGeomTestCase
      * @param string $output      expected output
      *
      * @return void
+     *
      * @dataProvider providerForPrepareRowAsSvg
      */
     public function testPrepareRowAsSvg(
@@ -364,6 +361,7 @@ class GisPointTest extends GisGeomTestCase
      * @param string $output      expected output
      *
      * @return void
+     *
      * @dataProvider providerForPrepareRowAsOl
      */
     public function testPrepareRowAsOl(

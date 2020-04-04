@@ -1,29 +1,29 @@
 <?php
 /**
  * URL redirector to avoid leaking Referer with some sensitive information.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
-use PhpMyAdmin\DatabaseInterface;
 
 if (! defined('ROOT_PATH')) {
+    // phpcs:disable PSR1.Files.SideEffects
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+    // phpcs:enable
 }
 
 global $containerBuilder;
 
-/**
- * Gets core libraries and defines some variables
- */
+// phpcs:disable PSR1.Files.SideEffects
 define('PMA_MINIMUM_COMMON', true);
+// phpcs:enable
+
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-// Load database service because services.yaml is not available here
+// Load database service because services.php is not available here
 $containerBuilder->set(DatabaseInterface::class, DatabaseInterface::load());
 
 // Only output the http headers
@@ -49,4 +49,4 @@ if (! Core::isValid($_GET['url'])
     // Do not display the value of $_GET['url'] to avoid showing injected content
     echo __('Taking you to the target site.');
 }
-die();
+die;

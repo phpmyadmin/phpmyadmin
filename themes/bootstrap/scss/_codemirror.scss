@@ -2,8 +2,11 @@ $textarea-cols: 40;
 $textarea-rows: 15;
 
 .CodeMirror {
-  height: ceil($textarea-rows * 1.2em);
+  height: 20rem;
   direction: ltr;
+  border: $card-border-width solid $card-border-color;
+
+  @include border-radius($card-border-radius);
 }
 
 #inline_editor_outer .CodeMirror {

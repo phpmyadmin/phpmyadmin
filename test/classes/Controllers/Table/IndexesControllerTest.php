@@ -1,15 +1,14 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Controllers\Table\IndexesController
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\IndexesController;
-use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
@@ -17,11 +16,10 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
+use function sprintf;
 
 /**
  * Tests for PhpMyAdmin\Controllers\Table\IndexesController
- * @package PhpMyAdmin-test
  */
 class IndexesControllerTest extends PmaTestCase
 {
@@ -29,7 +27,6 @@ class IndexesControllerTest extends PmaTestCase
      * Setup function for test cases
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
@@ -81,6 +78,7 @@ class IndexesControllerTest extends PmaTestCase
      * Tests for doSaveDataAction() method
      *
      * @return void
+     *
      * @test
      */
     public function testDoSaveDataAction()
@@ -97,19 +95,19 @@ class IndexesControllerTest extends PmaTestCase
             ->will($this->returnValue($table));
 
         $response = new ResponseStub();
+        $index = new Index();
 
         $ctrl = new IndexesController(
             $response,
             $GLOBALS['dbi'],
             new Template(),
             $GLOBALS['db'],
-            $GLOBALS['table'],
-            null
+            $GLOBALS['table']
         );
 
         // Preview SQL
         $_POST['preview_sql'] = true;
-        $ctrl->doSaveDataAction();
+        $ctrl->doSaveData($index);
         $jsonArray = $response->getJSONResult();
         $this->assertArrayHasKey('sql_data', $jsonArray);
         $this->assertStringContainsString(
@@ -121,7 +119,7 @@ class IndexesControllerTest extends PmaTestCase
         $response->clear();
         Response::getInstance()->setAjax(true);
         unset($_POST['preview_sql']);
-        $ctrl->doSaveDataAction();
+        $ctrl->doSaveData($index);
         $jsonArray = $response->getJSONResult();
         $this->assertArrayHasKey('index_table', $jsonArray);
         $this->assertArrayHasKey('message', $jsonArray);
@@ -132,6 +130,7 @@ class IndexesControllerTest extends PmaTestCase
      * Tests for displayFormAction()
      *
      * @return void
+     *
      * @test
      */
     public function testDisplayFormAction()
@@ -157,13 +156,12 @@ class IndexesControllerTest extends PmaTestCase
             $GLOBALS['dbi'],
             new Template(),
             $GLOBALS['db'],
-            $GLOBALS['table'],
-            $index
+            $GLOBALS['table']
         );
 
         $_POST['create_index'] = true;
         $_POST['added_fields'] = 3;
-        $ctrl->displayFormAction();
+        $ctrl->displayForm($index);
         $html = $response->getHTMLResult();
 
         //Url::getHiddenInputs
@@ -184,7 +182,7 @@ class IndexesControllerTest extends PmaTestCase
                     '"PRIMARY" <b>must</b> be the name of'
                     . ' and <b>only of</b> a primary key!'
                 )
-            )
+            )->getMessage()
         );
         $this->assertStringContainsString(
             $doc_html,
@@ -193,12 +191,6 @@ class IndexesControllerTest extends PmaTestCase
 
         $this->assertStringContainsString(
             MySQLDocumentation::show('ALTER_TABLE'),
-            $html
-        );
-
-        // generateIndexSelector
-        $this->assertStringContainsString(
-            $index->generateIndexChoiceSelector(false),
             $html
         );
 

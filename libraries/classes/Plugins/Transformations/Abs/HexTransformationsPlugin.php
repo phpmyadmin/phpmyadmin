@@ -1,9 +1,6 @@
 <?php
 /**
  * Abstract class for the hex transformations plugins
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage Hex
  */
 declare(strict_types=1);
 
@@ -11,11 +8,12 @@ namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use stdClass;
+use function bin2hex;
+use function chunk_split;
+use function intval;
 
 /**
  * Provides common methods for all of the hex transformations plugins.
- *
- * @package PhpMyAdmin
  */
 abstract class HexTransformationsPlugin extends TransformationsPlugin
 {

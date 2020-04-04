@@ -96,6 +96,7 @@ AJAX.registerOnload('table/structure.js', function () {
                     Functions.ajaxRemoveMessage($msg);
                     Functions.initSlider();
                     Navigation.reload();
+                    CommonActions.refreshMain('index.php?route=/table/structure');
                 } else {
                     Functions.ajaxShowMessage(data.error, false);
                 }
@@ -202,8 +203,8 @@ AJAX.registerOnload('table/structure.js', function () {
                     }
                     // Adjust the row numbers
                     for (var $row = $currRow.next(); $row.length > 0; $row = $row.next()) {
-                        var newVal = parseInt($row.find('td:nth-child(2)').text(), 10) - 1;
-                        $row.find('td:nth-child(2)').text(newVal);
+                        var newVal = parseInt($row.find(document.querySelectorAll('td:nth-child(2)')).text(), 10) - 1;
+                        $row.find(document.querySelectorAll('td:nth-child(2)')).text(newVal);
                     }
                     $afterFieldItem.remove();
                     $currRow.hide('medium').remove();
@@ -215,7 +216,7 @@ AJAX.registerOnload('table/structure.js', function () {
 
                     // by default select the (new) last option to add new column
                     // (in case last column is dropped)
-                    $('select[name=after_field] option:last').attr('selected','selected');
+                    $('select[name=after_field] option').last().attr('selected','selected');
 
                     // refresh table stats
                     if (data.tableStat) {
@@ -337,7 +338,7 @@ AJAX.registerOnload('table/structure.js', function () {
                     // Adjust the row numbers and colors
                     for (var $row = $firstrow; $row.length > 0; $row = $row.next()) {
                         $row
-                            .find('td:nth-child(2)')
+                            .find(document.querySelectorAll('td:nth-child(2)'))
                             .text($row.index() + 1)
                             .end()
                             .removeClass('odd even')

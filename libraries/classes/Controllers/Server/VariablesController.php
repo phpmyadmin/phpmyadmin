@@ -1,36 +1,39 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\Server\VariablesController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Util;
 use Williamdes\MariaDBMySQLKBS\KBException;
 use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
+use function header;
+use function htmlspecialchars;
+use function implode;
+use function in_array;
+use function is_numeric;
+use function mb_strtolower;
+use function pow;
+use function preg_match;
+use function str_replace;
+use function strtolower;
+use function trim;
 
 /**
  * Handles viewing and editing server variables
- *
- * @package PhpMyAdmin\Controllers
  */
 class VariablesController extends AbstractController
 {
-    /**
-     * Index action
-     *
-     * @param array $params Request parameters
-     *
-     * @return string
-     */
-    public function index(array $params): string
+    public function index(): void
     {
-        include ROOT_PATH . 'libraries/server_common.inc.php';
+        $params = ['filter' => $_GET['filter'] ?? null];
+
+        Common::server();
 
         $filterValue = ! empty($params['filter']) ? $params['filter'] : '';
 
@@ -83,25 +86,23 @@ class VariablesController extends AbstractController
             }
         }
 
-        return $this->template->render('server/variables/index', [
+        $this->response->addHTML($this->template->render('server/variables/index', [
             'variables' => $variables,
             'filter_value' => $filterValue,
             'is_superuser' => $this->dbi->isSuperuser(),
             'is_mariadb' => $this->dbi->isMariaDB(),
-        ]);
+        ]));
     }
 
     /**
      * Handle the AJAX request for a single variable value
      *
      * @param array $params Request parameters
-     *
-     * @return array
      */
-    public function getValue(array $params): array
+    public function getValue(array $params): void
     {
         if (! $this->response->isAjax()) {
-            return [];
+            return;
         }
 
         // Send with correct charset
@@ -129,20 +130,23 @@ class VariablesController extends AbstractController
             $json['message'] = $varValue[1];
         }
 
-        return $json;
+        $this->response->addJSON($json);
     }
 
     /**
      * Handle the AJAX request for setting value for a single variable
      *
-     * @param array $params Request parameters
-     *
-     * @return array
+     * @param array $vars Request parameters
      */
-    public function setValue(array $params): array
+    public function setValue(array $vars): void
     {
+        $params = [
+            'varName' => $vars['name'],
+            'varValue' => $_POST['varValue'] ?? null,
+        ];
+
         if (! $this->response->isAjax()) {
-            return [];
+            return;
         }
 
         $value = $params['varValue'];
@@ -205,14 +209,14 @@ class VariablesController extends AbstractController
             $json['error'] = __('Setting variable failed');
         }
 
-        return $json;
+        $this->response->addJSON($json);
     }
 
     /**
      * Format Variable
      *
-     * @param string  $name  variable name
-     * @param integer $value variable value
+     * @param string $name  variable name
+     * @param int    $value variable value
      *
      * @return array formatted string and bool if string is HTML formatted
      */

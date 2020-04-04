@@ -50,7 +50,7 @@ DatabaseStructure.adjustTotals = function () {
     /**
      * @var $allTr jQuery object that references all the rows in the list of tables
      */
-    var $allTr = $('#tablesForm').find('table.data tbody:first tr');
+    var $allTr = $('#tablesForm').find('table.data tbody').first().find('tr');
     // New summary values for the table
     var tableSum = $allTr.length;
     var rowsSum = 0;
@@ -308,14 +308,6 @@ AJAX.registerOnload('database/structure.js', function () {
                     var $tr = $thisAnchor.closest('tr');
                     $tr.find('.tbl_rows').text('0');
                     $tr.find('.tbl_size, .tbl_overhead').text('-');
-                    // Fetch inner span of this anchor
-                    // and replace the icon with its disabled version
-                    var span = $thisAnchor.html().replace(/b_empty/, 'bd_empty');
-                    // To disable further attempts to truncate the table,
-                    // replace the a element with its inner span (modified)
-                    $thisAnchor
-                        .replaceWith(span)
-                        .removeClass('truncate_table_anchor');
                     DatabaseStructure.adjustTotals();
                 } else {
                     Functions.ajaxShowMessage(Messages.strErrorProcessingRequest + ' : ' + data.error, false);

@@ -1,8 +1,6 @@
 <?php
 /**
  * Base class for preferences.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -10,17 +8,14 @@ namespace PhpMyAdmin\Config\Forms;
 
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\FormDisplay;
+use function is_int;
 
 /**
  * Base form for user preferences
- *
- * @package PhpMyAdmin
  */
 abstract class BaseForm extends FormDisplay
 {
     /**
-     * Constructor
-     *
      * @param ConfigFile $cf       Config file instance
      * @param int|null   $serverId 0 if new server, validation; >= 1 if editing a server
      */
@@ -49,9 +44,9 @@ abstract class BaseForm extends FormDisplay
      * End group blocks with:
      * ':group:end'
      *
-     * @todo This should be abstract, but that does not work in PHP 5
-     *
      * @return array
+     *
+     * @todo This should be abstract, but that does not work in PHP 5
      */
     public static function getForms()
     {
@@ -77,9 +72,9 @@ abstract class BaseForm extends FormDisplay
     /**
      * Returns name of the form
      *
-     * @todo This should be abstract, but that does not work in PHP 5
-     *
      * @return string
+     *
+     * @todo This should be abstract, but that does not work in PHP 5
      */
     public static function getName()
     {

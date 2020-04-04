@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Plugins\Import\ImportCsv class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -11,12 +9,10 @@ namespace PhpMyAdmin\Tests\Plugins\Import;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportCsv;
 use PhpMyAdmin\Tests\PmaTestCase;
-use PhpMyAdmin\Theme;
+use function basename;
 
 /**
  * Tests for PhpMyAdmin\Plugins\Import\ImportCsv class
- *
- * @package PhpMyAdmin-test
  */
 class ImportCsvTest extends PmaTestCase
 {
@@ -31,7 +27,6 @@ class ImportCsvTest extends PmaTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
@@ -76,7 +71,6 @@ class ImportCsvTest extends PmaTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {

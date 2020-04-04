@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\InsertEdit
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -18,11 +16,12 @@ use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 use ReflectionProperty;
 use stdClass;
+use function md5;
+use function sprintf;
 
 /**
  * Tests for PhpMyAdmin\InsertEdit
  *
- * @package PhpMyAdmin-test
  * @group medium
  */
 class InsertEditTest extends TestCase
@@ -31,8 +30,6 @@ class InsertEditTest extends TestCase
 
     /**
      * Setup for test cases
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -335,7 +332,7 @@ class InsertEditTest extends TestCase
         ];
         $_POST['sql_query'] = 'SELECT 1';
 
-        $result = $this->insertEdit->urlParamsInEditMode([1], $where_clause_array, '');
+        $result = $this->insertEdit->urlParamsInEditMode([1], $where_clause_array);
 
         $this->assertEquals(
             [
@@ -1715,7 +1712,6 @@ class InsertEditTest extends TestCase
          * This condition should be tested, however, it gives an undefined function
          * PhpMyAdmin\FileListing::getFileSelectOptions error:
          * $GLOBALS['cfg']['UploadDir'] = true;
-         *
          */
 
         $result = $this->callProtectedMethod('getBinaryAndBlobColumn', [
@@ -2596,20 +2592,20 @@ class InsertEditTest extends TestCase
         $GLOBALS['table'] = '';
 
         $this->assertEquals(
-            'libraries/entry_points/database/sql.php',
+            '/database/sql',
             $this->insertEdit->getGotoInclude('index')
         );
 
         $GLOBALS['table'] = 'tbl';
         $this->assertEquals(
-            'libraries/entry_points/table/sql.php',
+            '/table/sql',
             $this->insertEdit->getGotoInclude('index')
         );
 
-        $GLOBALS['goto'] = 'libraries/entry_points/database/sql.php';
+        $GLOBALS['goto'] = 'index.php?route=/database/sql';
 
         $this->assertEquals(
-            'libraries/entry_points/database/sql.php',
+            '/database/sql',
             $this->insertEdit->getGotoInclude('index')
         );
 
@@ -2620,7 +2616,7 @@ class InsertEditTest extends TestCase
 
         $_POST['after_insert'] = 'new_insert';
         $this->assertEquals(
-            'libraries/entry_points/table/change.php',
+            '/table/change',
             $this->insertEdit->getGotoInclude('index')
         );
     }

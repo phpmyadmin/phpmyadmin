@@ -1,15 +1,12 @@
 <?php
 /**
  * tests for PhpMyAdmin\Normalization
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Html\Forms\Fields\RadioList;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
@@ -19,11 +16,10 @@ use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 use stdClass;
+use function json_encode;
 
 /**
  * tests for PhpMyAdmin\Normalization
- *
- * @package PhpMyAdmin-test
  */
 class NormalizationTest extends TestCase
 {
@@ -31,8 +27,6 @@ class NormalizationTest extends TestCase
 
     /**
      * prepares environment for tests
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -543,19 +537,11 @@ class NormalizationTest extends TestCase
             '<input type="hidden" name="step1" value="1">',
             $result
         );
-        $choices = [
-            '1nf' => __('First step of normalization (1NF)'),
-            '2nf'      => __('Second step of normalization (1NF+2NF)'),
-            '3nf'  => __('Third step of normalization (1NF+2NF+3NF)'),
-        ];
 
-        $htmlTmp = RadioList::generate(
-            'normalizeTo',
-            $choices,
-            '1nf',
-            true
-        );
-        $this->assertStringContainsString($htmlTmp, $result);
+        $this->assertStringContainsString('type="radio" name="normalizeTo"', $result);
+        $this->assertStringContainsString('id="normalizeToRadio1" value="1nf" checked>', $result);
+        $this->assertStringContainsString('id="normalizeToRadio2" value="2nf">', $result);
+        $this->assertStringContainsString('id="normalizeToRadio3" value="3nf">', $result);
     }
 
     /**

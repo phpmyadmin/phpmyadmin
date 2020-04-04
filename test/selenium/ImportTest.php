@@ -1,9 +1,6 @@
 <?php
 /**
  * Selenium TestCase for import related tests
- *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  */
 declare(strict_types=1);
 
@@ -12,16 +9,12 @@ namespace PhpMyAdmin\Tests\Selenium;
 /**
  * ImportTest class
  *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  * @group      selenium
  */
 class ImportTest extends TestBase
 {
     /**
      * setUp function
-     *
-     * @return void
      */
     protected function setUp(): void
     {

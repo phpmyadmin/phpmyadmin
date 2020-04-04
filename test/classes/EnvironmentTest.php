@@ -1,21 +1,21 @@
 <?php
 /**
  * tests for environment like OS, PHP, modules, ...
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use Exception;
 use PDO;
 use PHPUnit\Framework\TestCase;
+use Throwable;
+use function constant;
+use function preg_match;
+use function version_compare;
+use const PHP_VERSION;
 
 /**
  * Environment tests
- *
- * @package PhpMyAdmin-test
  */
 class EnvironmentTest extends TestCase
 {
@@ -56,7 +56,7 @@ class EnvironmentTest extends TestCase
                 $pdo->errorCode(),
                 'Error trying to show tables for database'
             );
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             $this->markTestSkipped('Error: ' . $e->getMessage());
         }
 

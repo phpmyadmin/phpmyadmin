@@ -1,21 +1,16 @@
 <?php
 /**
  * Test for Message class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Tests\PmaTestCase;
-use PhpMyAdmin\Theme;
+use function md5;
 
 /**
  * Test for Message class
- *
- * @package PhpMyAdmin-test
  */
 class MessageTest extends PmaTestCase
 {
@@ -30,7 +25,6 @@ class MessageTest extends PmaTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
@@ -42,7 +36,6 @@ class MessageTest extends PmaTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -361,10 +354,10 @@ class MessageTest extends PmaTestCase
      */
     public function testSetParams()
     {
-        $this->object->setParams('test&<>');
-        $this->assertEquals('test&<>', $this->object->getParams());
-        $this->object->setParams('test&<>', true);
-        $this->assertEquals('test&amp;&lt;&gt;', $this->object->getParams());
+        $this->object->setParams(['test&<>']);
+        $this->assertEquals(['test&<>'], $this->object->getParams());
+        $this->object->setParams(['test&<>'], true);
+        $this->assertEquals(['test&amp;&lt;&gt;'], $this->object->getParams());
     }
 
     /**
@@ -435,8 +428,6 @@ class MessageTest extends PmaTestCase
      *
      * @param string $actual   BB code string
      * @param string $expected Expected decoded string
-     *
-     * @return void
      *
      * @dataProvider decodeBBDataProvider
      */
@@ -557,12 +548,10 @@ class MessageTest extends PmaTestCase
         $this->assertFalse($this->object->isDisplayed());
         $this->object->setMessage('Test Message');
 
-        $this->expectOutputString(<<<'HTML'
-<div class="alert alert-primary" role="alert">
-  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> Test Message
-</div>
-
-HTML
+        $this->expectOutputString(
+            '<div class="alert alert-primary" role="alert">' . "\n"
+            . '  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> Test Message' . "\n"
+            . '</div>' . "\n"
         );
         $this->object->display();
 
@@ -578,13 +567,9 @@ HTML
     {
         $this->object->setMessage('Test Message');
         $this->assertEquals(
-            <<<'HTML'
-<div class="alert alert-primary" role="alert">
-  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> Test Message
-</div>
-
-HTML
-            ,
+            '<div class="alert alert-primary" role="alert">' . "\n"
+            . '  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> Test Message' . "\n"
+            . '</div>' . "\n",
             $this->object->getDisplay()
         );
     }
@@ -636,8 +621,6 @@ HTML
      * @param int    $rows   Number of rows
      * @param string $output Expected string
      *
-     * @return void
-     *
      * @dataProvider providerAffectedRows
      */
     public function testAffectedRows($rows, $output): void
@@ -684,8 +667,6 @@ HTML
      * @param int    $rows   Number of rows
      * @param string $output Expected string
      *
-     * @return void
-     *
      * @dataProvider providerInsertedRows
      */
     public function testInsertedRows($rows, $output): void
@@ -731,8 +712,6 @@ HTML
      *
      * @param int    $rows   Number of rows
      * @param string $output Expected string
-     *
-     * @return void
      *
      * @dataProvider providerDeletedRows
      */

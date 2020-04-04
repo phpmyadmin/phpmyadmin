@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for FormDisplayTemplate
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,25 +12,17 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for FormDisplayTemplate
- *
- * @package PhpMyAdmin-test
  */
 class FormDisplayTemplateTest extends TestCase
 {
-    /**
-     * @var FormDisplayTemplate
-     */
+    /** @var FormDisplayTemplate */
     protected $formDisplayTemplate;
 
-    /**
-     * @var Config
-     */
+    /** @var Config */
     protected $config;
 
     /**
      * Setup tests
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -570,21 +560,19 @@ class FormDisplayTemplateTest extends TestCase
 
         $result = $this->formDisplayTemplate->displayJavascript(['var i = 1', 'i++']);
 
-        $jsTemplate = <<<HTML
-<script type="text/javascript">
-    if (typeof configInlineParams === 'undefined' || !Array.isArray(configInlineParams)) {
-        configInlineParams = [];
-    }
-    configInlineParams.push(function () {
-        var i = 1;
-i++;
-    });
-    if (typeof configScriptLoaded !== 'undefined' && configInlineParams) {
-        loadInlineConfig();
-    }
-</script>
-
-HTML;
+        $jsTemplate =
+        '<script type="text/javascript">' . "\n"
+        . '    if (typeof configInlineParams === \'undefined\' || !Array.isArray(configInlineParams)) {' . "\n"
+        . '        configInlineParams = [];' . "\n"
+        . '    }' . "\n"
+        . '    configInlineParams.push(function () {' . "\n"
+        . '        var i = 1;' . "\n"
+        . 'i++;' . "\n"
+        . '    });' . "\n"
+        . '    if (typeof configScriptLoaded !== \'undefined\' && configInlineParams) {' . "\n"
+        . '        loadInlineConfig();' . "\n"
+        . '    }' . "\n"
+        . '</script>' . "\n";
 
         $this->assertEquals($jsTemplate, $result);
     }

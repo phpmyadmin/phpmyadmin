@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Core class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -11,24 +9,23 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Sanitize;
-use PhpMyAdmin\Tests\PmaTestCase;
 use stdClass;
+use function hash;
+use function htmlspecialchars;
+use function mb_strpos;
+use function ob_end_clean;
+use function ob_get_contents;
+use function ob_start;
+use function preg_quote;
+use function serialize;
 
 /**
  * Tests for PhpMyAdmin\Core class
- *
- * @package PhpMyAdmin-test
  */
 class CoreTest extends PmaTestCase
 {
-    protected $goto_whitelist = [
-        'index.php',
-    ];
-
     /**
      * Setup for test cases
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -292,10 +289,8 @@ class CoreTest extends PmaTestCase
      *
      * @param string     $page      Page
      * @param array|null $whiteList White list
-     * @param boolean    $include   whether the page is going to be included
+     * @param bool       $include   whether the page is going to be included
      * @param int        $expected  Expected value
-     *
-     * @return void
      *
      * @dataProvider providerTestGotoNowhere
      */
@@ -326,37 +321,37 @@ class CoreTest extends PmaTestCase
             ],
             [
                 'shell.php',
-                $this->goto_whitelist,
+                ['index.php'],
                 false,
                 false,
             ],
             [
                 'shell.php',
-                $this->goto_whitelist,
+                ['index.php'],
                 true,
                 false,
             ],
             [
                 'index.php?sql.php&test=true',
-                $this->goto_whitelist,
+                ['index.php'],
                 false,
                 true,
             ],
             [
                 'index.php?sql.php&test=true',
-                $this->goto_whitelist,
+                ['index.php'],
                 true,
                 false,
             ],
             [
                 'index.php%3Fsql.php%26test%3Dtrue',
-                $this->goto_whitelist,
+                ['index.php'],
                 false,
                 true,
             ],
             [
                 'index.php%3Fsql.php%26test%3Dtrue',
-                $this->goto_whitelist,
+                ['index.php'],
                 true,
                 false,
             ],
@@ -370,8 +365,6 @@ class CoreTest extends PmaTestCase
      * @param string $request   The REQUEST_URI value
      * @param string $path_info The PATH_INFO value
      * @param string $expected  Expected result
-     *
-     * @return void
      *
      * @dataProvider providerTestPathInfo
      */
@@ -486,8 +479,6 @@ class CoreTest extends PmaTestCase
      * @param string $size     Size
      * @param int    $expected Expected value
      *
-     * @return void
-     *
      * @dataProvider providerTestGetRealSize
      */
     public function testGetRealSize($size, $expected): void
@@ -527,6 +518,14 @@ class CoreTest extends PmaTestCase
                 '1024',
                 1024,
             ],
+            [
+                '8000m',
+                8 * 1000 * 1024 * 1024,
+            ],
+            [
+                '8G',
+                8 * 1024 * 1024 * 1024,
+            ],
         ];
     }
 
@@ -550,8 +549,6 @@ class CoreTest extends PmaTestCase
      *
      * @param string $link URL where to go
      * @param string $url  Expected value
-     *
-     * @return void
      *
      * @dataProvider providerTestLinkURL
      */
@@ -655,18 +652,17 @@ class CoreTest extends PmaTestCase
         $testUri_html = htmlspecialchars($testUri);
         $testUri_js = Sanitize::escapeJsString($testUri);
 
-        $header = "<html>\n<head>\n    <title>- - -</title>
-    <meta http-equiv=\"expires\" content=\"0\">"
+        $header = "<html>\n<head>\n    <title>- - -</title>"
+            . "\n    <meta http-equiv=\"expires\" content=\"0\">"
             . "\n    <meta http-equiv=\"Pragma\" content=\"no-cache\">"
             . "\n    <meta http-equiv=\"Cache-Control\" content=\"no-cache\">"
             . "\n    <meta http-equiv=\"Refresh\" content=\"0;url=" . $testUri_html . '">'
-            . "\n    <script type=\"text/javascript\">\n        //<![CDATA[
-        setTimeout(function() { window.location = decodeURI('" . $testUri_js . "'); }, 2000);
-        //]]>\n    </script>\n</head>
-<body>\n<script type=\"text/javascript\">\n    //<![CDATA[
-    document.write('<p><a href=\"" . $testUri_html . '">' . __('Go') . "</a></p>');
-    //]]>\n</script>\n</body>\n</html>
-";
+            . "\n    <script type=\"text/javascript\">\n        //<![CDATA["
+            . "\n        setTimeout(function() { window.location = decodeURI('" . $testUri_js . "'); }, 2000);"
+            . "\n        //]]>\n    </script>\n</head>"
+            . "\n<body>\n<script type=\"text/javascript\">\n    //<![CDATA["
+            . "\n    document.write('<p><a href=\"" . $testUri_html . '">' . __('Go') . "</a></p>');"
+            . "\n    //]]>\n</script>\n</body>\n</html>\n";
 
         $this->expectOutputString($header);
 
@@ -732,8 +728,6 @@ class CoreTest extends PmaTestCase
      * @param string $url      URL to test
      * @param mixed  $expected Expected result
      *
-     * @return void
-     *
      * @dataProvider provideTestIsAllowedDomain
      */
     public function testIsAllowedDomain($url, $expected): void
@@ -794,8 +788,6 @@ class CoreTest extends PmaTestCase
      * @param mixed $var     Variable to check
      * @param mixed $type    Type
      * @param mixed $compare Compared value
-     *
-     * @return void
      *
      * @dataProvider providerTestNoVarType
      */
@@ -1117,14 +1109,11 @@ class CoreTest extends PmaTestCase
         $this->assertFalse(Core::isValid($var, 'identic', $compare));
     }
 
-
     /**
      * Test for Core::isValid
      *
      * @param mixed $var     Variable
      * @param mixed $compare Compare
-     *
-     * @return void
      *
      * @dataProvider provideTestSimilarType
      */
@@ -1205,8 +1194,6 @@ class CoreTest extends PmaTestCase
      * @param string $data     Serialized data
      * @param mixed  $expected Expected result
      *
-     * @return void
-     *
      * @dataProvider provideTestSafeUnserialize
      */
     public function testSafeUnserialize($data, $expected): void
@@ -1277,8 +1264,6 @@ class CoreTest extends PmaTestCase
      *
      * @param string $host     Test host name
      * @param string $expected Expected result
-     *
-     * @return void
      *
      * @dataProvider provideTestSanitizeMySQLHost
      */

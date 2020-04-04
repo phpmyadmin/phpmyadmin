@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\Server\Privileges
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -20,25 +18,21 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
 use stdClass;
+use function htmlspecialchars;
+use function implode;
 
 /**
  * PhpMyAdmin\Tests\Server\PrivilegesTest class
  *
  * this class is for testing PhpMyAdmin\Server\Privileges methods
- *
- * @package PhpMyAdmin-test
  */
 class PrivilegesTest extends TestCase
 {
-    /**
-     * @var Privileges $serverPrivileges
-     */
+    /** @var Privileges $serverPrivileges */
     private $serverPrivileges;
 
     /**
      * Prepares environment for the test.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -388,7 +382,7 @@ class PrivilegesTest extends TestCase
 
         // Current user's group selected
         $this->assertStringContainsString(
-            '<option value="userG" selected="selected">userG</option>',
+            '<option value="userG" selected>userG</option>',
             $actualHtml
         );
 
@@ -542,7 +536,6 @@ class PrivilegesTest extends TestCase
         );
         unset($_POST['change_copy']);
     }
-
 
     /**
      * Test for getListForExportUserDefinition
@@ -786,6 +779,7 @@ class PrivilegesTest extends TestCase
      * Test for getHtmlToDisplayPrivilegesTable
      *
      * @return void
+     *
      * @group medium
      */
     public function testGetHtmlToDisplayPrivilegesTable()
@@ -967,13 +961,93 @@ class PrivilegesTest extends TestCase
     }
 
     /**
+     * Test case for getSqlQueriesForDisplayAndAddUser
+     *
+     * @return void
+     */
+    public function testGetSqlQueriesForDisplayAndAddUserMySql8011(): void
+    {
+        $GLOBALS['dbi']->expects($this->any())->method('getVersion')
+            ->will($this->returnValue(80011));
+        $this->serverPrivileges->dbi = $GLOBALS['dbi'];
+
+        $username = 'PMA_username';
+        $hostname = 'PMA_hostname';
+        $password = 'pma_password';
+        $_POST['pred_password'] = 'keep';
+        $_POST['authentication_plugin'] = 'mysql_native_password';
+
+        [
+            $create_user_real,
+            $create_user_show,
+        ] = $this->serverPrivileges->getSqlQueriesForDisplayAndAddUser(
+            $username,
+            $hostname,
+            $password
+        );
+
+        //validate 1: $create_user_real
+        $this->assertEquals(
+            'CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED WITH mysql_native_password'
+            . ' BY \'pma_password\';',
+            $create_user_real
+        );
+
+        //validate 2: $create_user_show
+        $this->assertEquals(
+            'CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED WITH mysql_native_password'
+            . ' BY \'***\';',
+            $create_user_show
+        );
+    }
+
+    /**
+     * Test case for getSqlQueriesForDisplayAndAddUser
+     *
+     * @return void
+     */
+    public function testGetSqlQueriesForDisplayAndAddUserMySql8016(): void
+    {
+        $GLOBALS['dbi']->expects($this->any())->method('getVersion')
+            ->will($this->returnValue(80016));
+        $this->serverPrivileges->dbi = $GLOBALS['dbi'];
+
+        $username = 'PMA_username';
+        $hostname = 'PMA_hostname';
+        $password = 'pma_password';
+        $_POST['pred_password'] = 'keep';
+
+        [
+            $create_user_real,
+            $create_user_show,
+        ] = $this->serverPrivileges->getSqlQueriesForDisplayAndAddUser(
+            $username,
+            $hostname,
+            $password
+        );
+
+        //validate 1: $create_user_real
+        $this->assertEquals(
+            'CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED'
+            . ' BY \'pma_password\';',
+            $create_user_real
+        );
+
+        //validate 2: $create_user_show
+        $this->assertEquals(
+            'CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED'
+            . ' BY \'***\';',
+            $create_user_show
+        );
+    }
+
+    /**
      * Test for getSqlQueriesForDisplayAndAddUser
      *
      * @return void
      */
     public function testGetSqlQueriesForDisplayAndAddUser()
     {
-
         $GLOBALS['dbi']->expects($this->any())->method('getVersion')
             ->will($this->returnValue(50706));
         $this->serverPrivileges->dbi = $GLOBALS['dbi'];
@@ -1062,8 +1136,6 @@ class PrivilegesTest extends TestCase
 
     /**
      * Test for getHtmlForTableSpecificPrivileges
-     *
-     * @return void
      */
     public function testGetHtmlToDisplayPrivilegesTableWithTableSpecific(): void
     {
@@ -1230,6 +1302,7 @@ class PrivilegesTest extends TestCase
      * Test for getHtmlForAddUser
      *
      * @return void
+     *
      * @group medium
      */
     public function testGetHtmlForAddUser()
@@ -1999,122 +2072,6 @@ class PrivilegesTest extends TestCase
         ];
         $actual = $this->serverPrivileges->getDbRightsForUserOverview();
         $this->assertEquals($expected, $actual);
-    }
-
-    /**
-     * Test for getHtmlForAuthPluginsDropdown()
-     *
-     * @return void
-     */
-    public function testGetHtmlForAuthPluginsDropdown()
-    {
-        $oldDbi = $GLOBALS['dbi'];
-
-        //Mock DBI
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects($this->any())
-            ->method('query')
-            ->will($this->onConsecutiveCalls(true, true));
-
-        $plugins = [
-            [
-                'PLUGIN_NAME' => 'mysql_native_password',
-                'PLUGIN_DESCRIPTION' => 'Native MySQL authentication',
-            ],
-            [
-                'PLUGIN_NAME' => 'sha256_password',
-                'PLUGIN_DESCRIPTION' => 'SHA256 password authentication',
-            ],
-        ];
-        $dbi->expects($this->any())
-            ->method('fetchAssoc')
-            ->will(
-                $this->onConsecutiveCalls(
-                    $plugins[0],
-                    $plugins[1],
-                    null, /* For Assertion 1 */
-                    $plugins[0],
-                    $plugins[1],
-                    null  /* For Assertion 2 */
-                )
-            );
-        $GLOBALS['dbi'] = $dbi;
-        $this->serverPrivileges->dbi = $dbi;
-
-        /* Assertion 1 */
-        $actualHtml = $this->serverPrivileges->getHtmlForAuthPluginsDropdown(
-            'mysql_native_password',
-            'new',
-            'new'
-        );
-        $this->assertEquals(
-            '<select name="authentication_plugin" id="select_authentication_plugin">'
-            . "\n"
-            . '<option value="mysql_native_password" selected="selected">'
-            . 'Native MySQL authentication</option>'
-            . "\n"
-            . '<option value="sha256_password">'
-            . 'SHA256 password authentication</option>' . "\n" . '</select>'
-            . "\n",
-            $actualHtml
-        );
-
-        /* Assertion 2 */
-        $actualHtml = $this->serverPrivileges->getHtmlForAuthPluginsDropdown(
-            'mysql_native_password',
-            'change_pw',
-            'new'
-        );
-        $this->assertEquals(
-            '<select name="authentication_plugin" '
-            . 'id="select_authentication_plugin_cp">'
-            . "\n" . '<option '
-            . 'value="mysql_native_password" selected="selected">'
-            . 'Native MySQL authentication</option>'
-            . "\n" . '<option value="sha256_password">'
-            . 'SHA256 password authentication</option>' . "\n" . '</select>'
-            . "\n",
-            $actualHtml
-        );
-
-        /* Assertion 3 */
-        $actualHtml = $this->serverPrivileges->getHtmlForAuthPluginsDropdown(
-            'mysql_native_password',
-            'new',
-            'old'
-        );
-        $this->assertEquals(
-            '<select name="authentication_plugin" '
-            . 'id="select_authentication_plugin">'
-            . "\n" . '<option '
-            . 'value="mysql_native_password" selected="selected">'
-            . 'Native MySQL authentication</option>' . "\n" . '</select>'
-            . "\n",
-            $actualHtml
-        );
-
-        /* Assertion 4 */
-        $actualHtml = $this->serverPrivileges->getHtmlForAuthPluginsDropdown(
-            'mysql_native_password',
-            'change_pw',
-            'old'
-        );
-        $this->assertEquals(
-            '<select name="authentication_plugin" '
-            . 'id="select_authentication_plugin_cp">'
-            . "\n"
-            . '<option value="mysql_native_password" selected="selected">'
-            . 'Native MySQL authentication</option>'
-            . "\n" . '</select>'
-            . "\n",
-            $actualHtml
-        );
-
-        // Restore old DBI
-        $GLOBALS['dbi'] = $oldDbi;
-        $this->serverPrivileges->dbi = $oldDbi;
     }
 
     /**

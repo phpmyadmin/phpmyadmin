@@ -11,7 +11,7 @@ AJAX.registerTeardown('table/tracking.js', function () {
  * Bind event handlers
  */
 AJAX.registerOnload('table/tracking.js', function () {
-    $('#versions tr:first th').append($('<div class="sorticon"></div>'));
+    $('#versions tr').first().find('th').append($('<div class="sorticon"></div>'));
     $('#versions').tablesorter({
         sortList: [[1, 0]],
         headers: {
@@ -23,7 +23,7 @@ AJAX.registerOnload('table/tracking.js', function () {
     });
 
     if ($('#ddl_versions tbody tr').length > 0) {
-        $('#ddl_versions tr:first th').append($('<div class="sorticon"></div>'));
+        $('#ddl_versions tr').first().find('th').append($('<div class="sorticon"></div>'));
         $('#ddl_versions').tablesorter({
             sortList: [[0, 0]],
             headers: {
@@ -35,7 +35,7 @@ AJAX.registerOnload('table/tracking.js', function () {
     }
 
     if ($('#dml_versions tbody tr').length > 0) {
-        $('#dml_versions tr:first th').append($('<div class="sorticon"></div>'));
+        $('#dml_versions tr').first().find('th').append($('<div class="sorticon"></div>'));
         $('#dml_versions').tablesorter({
             sortList: [[0, 0]],
             headers: {

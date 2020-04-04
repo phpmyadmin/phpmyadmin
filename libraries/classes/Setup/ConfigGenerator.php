@@ -1,19 +1,25 @@
 <?php
 /**
  * Config file generator
- *
- * @package PhpMyAdmin-Setup
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Setup;
 
 use PhpMyAdmin\Config\ConfigFile;
+use function array_keys;
+use function count;
+use function gmdate;
+use function implode;
+use function is_array;
+use function mb_strpos;
+use function preg_replace;
+use function strtr;
+use function var_export;
+use const DATE_RFC1123;
 
 /**
  * Config file generation class
- *
- * @package PhpMyAdmin
  */
 class ConfigGenerator
 {
@@ -26,7 +32,7 @@ class ConfigGenerator
      */
     public static function getConfigFile(ConfigFile $cf)
     {
-        $crlf = (isset($_SESSION['eol']) && $_SESSION['eol'] == 'win')
+        $crlf = isset($_SESSION['eol']) && $_SESSION['eol'] == 'win'
             ? "\r\n"
             : "\n";
         $conf = $cf->getConfig();
@@ -105,7 +111,7 @@ class ConfigGenerator
      *
      * @param array $array Array to check
      *
-     * @return boolean
+     * @return bool
      */
     private static function _isZeroBasedArray(array $array)
     {

@@ -1,8 +1,6 @@
 <?php
 /**
  * Generate HTML for MySQL Documentation
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -10,11 +8,12 @@ namespace PhpMyAdmin\Html;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Util;
+use function defined;
+use function file_exists;
+use function htmlspecialchars;
 
 /**
  * Generate HTML for MySQL Documentation
- *
- * @package PhpMyAdmin
  */
 class MySQLDocumentation
 {
@@ -29,7 +28,7 @@ class MySQLDocumentation
      *
      * @return string  the html link
      *
-     * @access  public
+     * @access public
      */
     public static function show(
         $link,
@@ -60,13 +59,13 @@ class MySQLDocumentation
     /**
      * Displays a link to the phpMyAdmin documentation
      *
-     * @param string  $page   Page in documentation
-     * @param string  $anchor Optional anchor in page
-     * @param boolean $bbcode Optional flag indicating whether to output bbcode
+     * @param string $page   Page in documentation
+     * @param string $anchor Optional anchor in page
+     * @param bool   $bbcode Optional flag indicating whether to output bbcode
      *
      * @return string  the html link
      *
-     * @access  public
+     * @access public
      */
     public static function showDocumentation($page, $anchor = '', $bbcode = false): string
     {

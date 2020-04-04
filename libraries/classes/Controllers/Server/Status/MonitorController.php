@@ -1,34 +1,27 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\Server\Status\MonitorController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
-use PhpMyAdmin\SysInfo;
+use PhpMyAdmin\Server\SysInfo\SysInfo;
 use PhpMyAdmin\Template;
+use function is_numeric;
+use function microtime;
 
-/**
- * Class MonitorController
- * @package PhpMyAdmin\Controllers\Server\Status
- */
 class MonitorController extends AbstractController
 {
-    /**
-     * @var Monitor
-     */
+    /** @var Monitor */
     private $monitor;
 
     /**
-     * MonitorController constructor.
-     *
      * @param Response          $response Response object
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param Template          $template Template object
@@ -41,12 +34,9 @@ class MonitorController extends AbstractController
         $this->monitor = $monitor;
     }
 
-    /**
-     * @return string HTML
-     */
-    public function index(): string
+    public function index(): void
     {
-        require_once ROOT_PATH . 'libraries/server_common.inc.php';
+        Common::server();
 
         $header = $this->response->getHeader();
         $scripts = $header->getScripts();
@@ -78,116 +68,115 @@ class MonitorController extends AbstractController
             }
         }
 
-        return $this->template->render('server/status/monitor/index', [
+        $this->response->addHTML($this->template->render('server/status/monitor/index', [
             'image_path' => $GLOBALS['pmaThemeImage'],
             'javascript_variable_names' => $javascriptVariableNames,
             'form' => $form,
+        ]));
+    }
+
+    public function chartingData(): void
+    {
+        $params = ['requiredData' => $_POST['requiredData'] ?? null];
+
+        Common::server();
+
+        if (! $this->response->isAjax()) {
+            return;
+        }
+
+        $this->response->addJSON([
+            'message' => $this->monitor->getJsonForChartingData(
+                $params['requiredData'] ?? ''
+            ),
         ]);
     }
 
-    /**
-     * @param array $params Request parameters
-     * @return array JSON
-     */
-    public function chartingData(array $params): array
+    public function logDataTypeSlow(): void
     {
-        require_once ROOT_PATH . 'libraries/server_common.inc.php';
+        $params = [
+            'time_start' => $_POST['time_start'] ?? null,
+            'time_end' => $_POST['time_end'] ?? null,
+        ];
+
+        Common::server();
 
         if (! $this->response->isAjax()) {
-            return [];
+            return;
         }
 
-        $json = [];
-        $json['message'] = $this->monitor->getJsonForChartingData(
-            $params['requiredData'] ?? ''
-        );
-
-        return $json;
+        $this->response->addJSON([
+            'message' => $this->monitor->getJsonForLogDataTypeSlow(
+                (int) $params['time_start'],
+                (int) $params['time_end']
+            ),
+        ]);
     }
 
-    /**
-     * @param array $params Request parameters
-     * @return array JSON
-     */
-    public function logDataTypeSlow(array $params): array
+    public function logDataTypeGeneral(): void
     {
-        require_once ROOT_PATH . 'libraries/server_common.inc.php';
+        $params = [
+            'time_start' => $_POST['time_start'] ?? null,
+            'time_end' => $_POST['time_end'] ?? null,
+            'limitTypes' => $_POST['limitTypes'] ?? null,
+            'removeVariables' => $_POST['removeVariables'] ?? null,
+        ];
+
+        Common::server();
 
         if (! $this->response->isAjax()) {
-            return [];
+            return;
         }
 
-        $json = [];
-        $json['message'] = $this->monitor->getJsonForLogDataTypeSlow(
-            (int) $params['time_start'],
-            (int) $params['time_end']
-        );
-
-        return $json;
+        $this->response->addJSON([
+            'message' => $this->monitor->getJsonForLogDataTypeGeneral(
+                (int) $params['time_start'],
+                (int) $params['time_end'],
+                (bool) $params['limitTypes'],
+                (bool) $params['removeVariables']
+            ),
+        ]);
     }
 
-    /**
-     * @param array $params Request parameters
-     * @return array JSON
-     */
-    public function logDataTypeGeneral(array $params): array
+    public function loggingVars(): void
     {
-        require_once ROOT_PATH . 'libraries/server_common.inc.php';
+        $params = [
+            'varName' => $_POST['varName'] ?? null,
+            'varValue' => $_POST['varValue'] ?? null,
+        ];
+
+        Common::server();
 
         if (! $this->response->isAjax()) {
-            return [];
+            return;
         }
 
-        $json = [];
-        $json['message'] = $this->monitor->getJsonForLogDataTypeGeneral(
-            (int) $params['time_start'],
-            (int) $params['time_end'],
-            (bool) $params['limitTypes'],
-            (bool) $params['removeVariables']
-        );
-
-        return $json;
+        $this->response->addJSON([
+            'message' => $this->monitor->getJsonForLoggingVars(
+                $params['varName'],
+                $params['varValue']
+            ),
+        ]);
     }
 
-    /**
-     * @param array $params Request parameters
-     * @return array JSON
-     */
-    public function loggingVars(array $params): array
+    public function queryAnalyzer(): void
     {
-        require_once ROOT_PATH . 'libraries/server_common.inc.php';
+        $params = [
+            'database' => $_POST['database'] ?? null,
+            'query' => $_POST['query'] ?? null,
+        ];
+
+        Common::server();
 
         if (! $this->response->isAjax()) {
-            return [];
+            return;
         }
 
-        $json = [];
-        $json['message'] = $this->monitor->getJsonForLoggingVars(
-            $params['varName'],
-            $params['varValue']
-        );
-
-        return $json;
-    }
-
-    /**
-     * @param array $params Request parameters
-     * @return array JSON
-     */
-    public function queryAnalyzer(array $params): array
-    {
-        require_once ROOT_PATH . 'libraries/server_common.inc.php';
-
-        if (! $this->response->isAjax()) {
-            return [];
-        }
-
-        $json = [];
-        $json['message'] = $this->monitor->getJsonForQueryAnalyzer(
-            $params['database'] ?? '',
-            $params['query'] ?? ''
-        );
-
-        return $json;
+        $this->response->addJSON([
+            'message' => $this->monitor->getJsonForQueryAnalyzer(
+                $params['database'] ?? '',
+                $params['query'] ?? ''
+            ),
+        ]);
     }
 }

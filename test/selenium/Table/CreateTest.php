@@ -1,9 +1,6 @@
 <?php
 /**
  * Selenium TestCase for table related tests
- *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  */
 declare(strict_types=1);
 
@@ -14,15 +11,10 @@ use PhpMyAdmin\Tests\Selenium\TestBase;
 /**
  * CreateTest class
  *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  * @group      selenium
  */
 class CreateTest extends TestBase
 {
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -126,7 +118,7 @@ class CreateTest extends TestBase
         $this->waitForElement('partialLinkText', 'Structure')->click();
 
         $this->waitForElement('id', 'tablestructure');
-        $this->waitForElement('id', 'table_strucuture_id');
+        $this->waitForElement('id', 'table_structure_id');
 
         // make assertions for first row
         $this->assertStringContainsString(

@@ -1,8 +1,6 @@
 <?php
 /**
  * HTML Generator
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -25,11 +23,40 @@ use Twig_Error_Runtime;
 use Twig_Error_Syntax;
 use Williamdes\MariaDBMySQLKBS\KBException;
 use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
+use function addslashes;
+use function array_key_exists;
+use function array_merge;
+use function basename;
+use function ceil;
+use function count;
+use function explode;
+use function floor;
+use function htmlentities;
+use function htmlspecialchars;
+use function implode;
+use function in_array;
+use function ini_get;
+use function intval;
+use function is_array;
+use function mb_strlen;
+use function mb_strstr;
+use function mb_strtolower;
+use function mb_substr;
+use function nl2br;
+use function preg_match;
+use function preg_replace;
+use function sprintf;
+use function str_replace;
+use function strlen;
+use function strncmp;
+use function strpos;
+use function trigger_error;
+use function trim;
+use function urlencode;
+use const E_USER_NOTICE;
 
 /**
  * HTML Generator
- *
- * @package PhpMyAdmin
  */
 class Generator
 {
@@ -40,7 +67,7 @@ class Generator
      *
      * @return string  the html link
      *
-     * @access  public
+     * @access public
      */
     public static function showCopyToClipboard(string $text): string
     {
@@ -51,9 +78,9 @@ class Generator
     /**
      * Get a link to variable documentation
      *
-     * @param string  $name       The variable name
-     * @param boolean $useMariaDB Use only MariaDB documentation
-     * @param string  $text       (optional) The text for the link
+     * @param string $name       The variable name
+     * @param bool   $useMariaDB Use only MariaDB documentation
+     * @param string $text       (optional) The text for the link
      *
      * @return string link or empty string
      */
@@ -86,9 +113,7 @@ class Generator
      *
      * @param string $message the message for the tooltip
      *
-     * @return string
-     *
-     * @access  public
+     * @access public
      */
     public static function showHint($message): string
     {
@@ -104,115 +129,6 @@ class Generator
     }
 
     /**
-     * returns a tab for tabbed navigation.
-     * If the variables $link and $args ar left empty, an inactive tab is created
-     *
-     * @param array $tab        array with all options
-     * @param array $url_params tab specific URL parameters
-     *
-     * @return string  html code for one tab, a link if valid otherwise a span
-     *
-     * @throws Throwable
-     * @throws Twig_Error_Loader
-     * @throws Twig_Error_Runtime
-     * @throws Twig_Error_Syntax
-     * @access  public
-     */
-    public static function getHtmlTab(array $tab, array $url_params = []): string
-    {
-        $template = new Template();
-        // default values
-        $defaults = [
-            'text' => '',
-            'class' => '',
-            'active' => null,
-            'link' => '',
-            'sep' => '?',
-            'attr' => '',
-            'args' => '',
-            'warning' => '',
-            'fragment' => '',
-            'id' => '',
-        ];
-
-        $tab = array_merge($defaults, $tab);
-
-        // determine additional style-class
-        if (empty($tab['class'])) {
-            if (! empty($tab['active'])
-                || Core::isValid($GLOBALS['active_page'], 'identical', $tab['link'])
-            ) {
-                $tab['class'] = 'active';
-            } elseif ($tab['active'] === null && empty($GLOBALS['active_page'])
-                && (basename($GLOBALS['PMA_PHP_SELF']) == $tab['link'])
-            ) {
-                $tab['class'] = 'active';
-            }
-        }
-
-        // build the link
-        if (! empty($tab['link'])) {
-            // If there are any tab specific URL parameters, merge those with
-            // the general URL parameters
-            if (! empty($tab['args']) && is_array($tab['args'])) {
-                $url_params = array_merge($url_params, $tab['args']);
-            }
-            if (strpos($tab['link'], '?') === false) {
-                $tab['link'] = htmlentities($tab['link']) . Url::getCommon($url_params);
-            } else {
-                $tab['link'] = htmlentities($tab['link']) . Url::getCommon($url_params, '&');
-            }
-        }
-
-        if (! empty($tab['fragment'])) {
-            $tab['link'] .= $tab['fragment'];
-        }
-
-        // display icon
-        if (isset($tab['icon'])) {
-            // avoid generating an alt tag, because it only illustrates
-            // the text that follows and if browser does not display
-            // images, the text is duplicated
-            $tab['text'] = self::getIcon(
-                $tab['icon'],
-                $tab['text'],
-                false,
-                true,
-                'TabsMode'
-            );
-        } elseif (empty($tab['text'])) {
-            // check to not display an empty link-text
-            $tab['text'] = '?';
-            trigger_error(
-                'empty linktext in function ' . __FUNCTION__ . '()',
-                E_USER_NOTICE
-            );
-        }
-
-        //Set the id for the tab, if set in the params
-        $tabId = (empty($tab['id']) ? null : $tab['id']);
-
-        $item = [];
-        if (! empty($tab['link'])) {
-            $item = [
-                'content' => $tab['text'],
-                'url' => [
-                    'href' => empty($tab['link']) ? null : $tab['link'],
-                    'id' => $tabId,
-                    'class' => 'tab' . htmlentities($tab['class']),
-                ],
-            ];
-        } else {
-            $item['content'] = '<span class="tab' . htmlentities($tab['class']) . '"'
-                . $tabId . '>' . $tab['text'] . '</span>';
-        }
-
-        $item['class'] = $tab['class'] === 'active' ? 'active' : '';
-
-        return $template->render('list/item', $item);
-    }
-
-    /**
      * Generate a button or image tag
      *
      * @param string $button_name  name of button element
@@ -223,7 +139,7 @@ class Generator
      *
      * @return string              html content
      *
-     * @access  public
+     * @access public
      */
     public static function getButtonOrImage(
         $button_name,
@@ -245,8 +161,8 @@ class Generator
      */
     public static function getDbLink($database = ''): string
     {
-        if ('' === (string) $database) {
-            if ('' === (string) $GLOBALS['db']) {
+        if ((string) $database === '') {
+            if ((string) $GLOBALS['db'] === '') {
                 return '';
             }
             $database = $GLOBALS['db'];
@@ -279,8 +195,6 @@ class Generator
      * @param string $component       'mysql' (eventually, 'php')
      * @param string $minimum_version of this component
      * @param string $bugref          bug reference for this component
-     *
-     * @return String
      */
     public static function getExternalBug(
         $functionality,
@@ -312,6 +226,7 @@ class Generator
      * @param string|null $overrideDefault override InitialSlidersState config
      *
      * @return string         html div element
+     *
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime
@@ -324,7 +239,7 @@ class Generator
             'div_for_slider_effect',
             [
                 'id' => $id,
-                'initial_sliders_state' => ($overrideDefault != null) ? $overrideDefault
+                'initial_sliders_state' => $overrideDefault != null ? $overrideDefault
                     : $GLOBALS['cfg']['InitialSlidersState'],
                 'message' => $message,
             ]
@@ -342,6 +257,7 @@ class Generator
      *                            successfully processed
      *
      * @return string   HTML code for the toggle button
+     *
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime
@@ -384,11 +300,11 @@ class Generator
      * This function takes into account the ActionLinksMode
      * configuration setting and wraps the image tag in a span tag.
      *
-     * @param string  $icon          name of icon file
-     * @param string  $alternate     alternate text
-     * @param boolean $force_text    whether to force alternate text to be displayed
-     * @param boolean $menu_icon     whether this icon is for the menu bar or not
-     * @param string  $control_param which directive controls the display
+     * @param string $icon          name of icon file
+     * @param string $alternate     alternate text
+     * @param bool   $force_text    whether to force alternate text to be displayed
+     * @param bool   $menu_icon     whether this icon is for the menu bar or not
+     * @param string $control_param which directive controls the display
      *
      * @return string an html snippet
      */
@@ -427,8 +343,6 @@ class Generator
 
     /**
      * Returns information about SSL status for current connection
-     *
-     * @return string
      */
     public static function getServerSSL(): string
     {
@@ -462,9 +376,9 @@ class Generator
      *
      * @return string An HTML snippet of a dropdown list with function
      *                names appropriate for the requested column.
+     *
      * @global mixed $data data of currently edited row
      *                     (used to detect whether to choose defaults)
-     *
      * @global array $cfg  PMA configuration
      */
     public static function getDefaultFunctionForField(array $field, $insert_mode): string
@@ -572,16 +486,16 @@ class Generator
     /**
      * Renders a single link for the top of the navigation panel
      *
-     * @param string  $link        The url for the link
-     * @param bool    $showText    Whether to show the text or to
-     *                             only use it for title attributes
-     * @param string  $text        The text to display and use for title attributes
-     * @param bool    $showIcon    Whether to show the icon
-     * @param string  $icon        The filename of the icon to show
-     * @param string  $linkId      Value to use for the ID attribute
-     * @param boolean $disableAjax Whether to disable ajax page loading for this link
-     * @param string  $linkTarget  The name of the target frame for the link
-     * @param array   $classes     HTML classes to apply
+     * @param string $link        The url for the link
+     * @param bool   $showText    Whether to show the text or to
+     *                            only use it for title attributes
+     * @param string $text        The text to display and use for title attributes
+     * @param bool   $showIcon    Whether to show the icon
+     * @param string $icon        The filename of the icon to show
+     * @param string $linkId      Value to use for the ID attribute
+     * @param bool   $disableAjax Whether to disable ajax page loading for this link
+     * @param string $linkTarget  The name of the target frame for the link
+     * @param array  $classes     HTML classes to apply
      *
      * @return string HTML code for one link
      */
@@ -632,6 +546,7 @@ class Generator
      * @param string $sql_query sql query
      *
      * @return string html
+     *
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime
@@ -648,7 +563,7 @@ class Generator
         ) {
             $rows = $_SESSION['tmpval']['max_rows'];
         } else {
-            $rows = $GLOBALS['cfg']['MaxRows'];
+            $rows = (int) $GLOBALS['cfg']['MaxRows'];
             $_SESSION['tmpval']['max_rows'] = $rows;
         }
 
@@ -658,7 +573,7 @@ class Generator
             $pos = $_SESSION['tmpval']['pos'];
         } else {
             $number_of_line = (int) $_REQUEST['unlim_num_rows'];
-            $pos = ((ceil($number_of_line / $rows) - 1) * $rows);
+            $pos = (ceil($number_of_line / $rows) - 1) * $rows;
             $_SESSION['tmpval']['pos'] = $pos;
         }
 
@@ -719,13 +634,12 @@ class Generator
      * @param string         $sql_query the query to display
      * @param string         $type      the type (level) of the message
      *
-     * @return string
-     *
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime
      * @throws Twig_Error_Syntax
-     * @access  public
+     *
+     * @access public
      */
     public static function getMessage(
         $message,
@@ -736,7 +650,7 @@ class Generator
         $template = new Template();
         $retval = '';
 
-        if (null === $sql_query) {
+        if ($sql_query === null) {
             if (! empty($GLOBALS['display_query'])) {
                 $sql_query = $GLOBALS['display_query'];
             } elseif (! empty($GLOBALS['unparsed_sql'])) {
@@ -888,7 +802,7 @@ class Generator
             if (! empty($cfg['SQLQuery']['Edit'])
                 && empty($GLOBALS['show_as_php'])
             ) {
-                $edit_link .= Url::getCommon($url_params);
+                $edit_link .= Url::getCommon($url_params, '&');
                 $edit_link = ' [&nbsp;'
                     . self::linkOrButton($edit_link, __('Edit'))
                     . '&nbsp;]';
@@ -932,9 +846,9 @@ class Generator
                 && ! isset($GLOBALS['show_as_php']) // 'Submit query' does the same
                 && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $sql_query)
             ) {
-                $refresh_link = Url::getFromRoute('/import', $url_params);
+                $refresh_link = Url::getFromRoute('/sql', $url_params);
                 $refresh_link = ' [&nbsp;'
-                    . self::linkOrButton($refresh_link, __('Refresh')) . ']';
+                    . self::linkOrButton($refresh_link, __('Refresh')) . '&nbsp;]';
             } else {
                 $refresh_link = '';
             } //refresh
@@ -973,13 +887,13 @@ class Generator
                 && ! $query_too_big
                 && empty($GLOBALS['show_as_php'])
             ) {
-                $inline_edit_link = ' ['
+                $inline_edit_link = ' [&nbsp;'
                     . self::linkOrButton(
                         '#',
                         _pgettext('Inline edit query', 'Edit inline'),
                         ['class' => 'inline_edit_sql']
                     )
-                    . ']';
+                    . '&nbsp;]';
             } else {
                 $inline_edit_link = '';
             }
@@ -1000,7 +914,7 @@ class Generator
      *
      * @return string  the html link
      *
-     * @access  public
+     * @access public
      */
     public static function showPHPDocumentation($target): string
     {
@@ -1010,9 +924,9 @@ class Generator
     /**
      * Displays a link to the documentation as an icon
      *
-     * @param string  $link   documentation link
-     * @param string  $target optional link target
-     * @param boolean $bbcode optional flag indicating whether to output bbcode
+     * @param string $link   documentation link
+     * @param string $target optional link target
+     * @param bool   $bbcode optional flag indicating whether to output bbcode
      *
      * @return string the html link
      *
@@ -1041,8 +955,6 @@ class Generator
      * @param bool        $exit           Whether execution should be stopped or
      *                                    the error message should be returned.
      *
-     * @return string
-     *
      * @global string $table The current table.
      * @global string $db    The current database.
      *
@@ -1059,6 +971,7 @@ class Generator
 
         /**
          * Error message to be built.
+         *
          * @var string $error_msg
          */
         $error_msg = '';
@@ -1076,18 +989,21 @@ class Generator
 
         /**
          * The lexer used for analysis.
+         *
          * @var Lexer $lexer
          */
         $lexer = new Lexer($sql_query);
 
         /**
          * The parser used for analysis.
+         *
          * @var Parser $parser
          */
         $parser = new Parser($lexer->list);
 
         /**
          * The errors found by the lexer and the parser.
+         *
          * @var array $errors
          */
         $errors = ParserError::get(
@@ -1178,7 +1094,7 @@ class Generator
             // Adds a link to MySQL documentation.
             $error_msg .= '<p>' . "\n"
                 . '    <strong>' . __('MySQL said: ') . '</strong>'
-                . MySQLDocumentation::show('Error-messages-server')
+                . MySQLDocumentation::show('server-error-reference')
                 . "\n"
                 . '</p>' . "\n";
 
@@ -1354,7 +1270,7 @@ class Generator
              * The data-post indicates that client should do POST
              * this is handled in js/ajax.js
              */
-            $tag_params_strings[] = 'data-post="' . (isset($parts[1]) ? $parts[1] : '') . '"';
+            $tag_params_strings[] = 'data-post="' . ($parts[1] ?? '') . '"';
             $url = $parts[0];
             if (array_key_exists('class', $tag_params)
                 && strpos($tag_params['class'], 'create_view') !== false
@@ -1388,7 +1304,7 @@ class Generator
      *
      * @return string the  html content
      *
-     * @access  public
+     * @access public
      *
      * @todo    use $pos from $_url_params
      */
@@ -1402,7 +1318,6 @@ class Generator
         $name = 'pos',
         $classes = []
     ): string {
-
         // This is often coming from $cfg['MaxTableList'] and
         // people sometimes set it to empty string
         $max_count = intval($max_count);
@@ -1497,14 +1412,14 @@ class Generator
     /**
      * format sql strings
      *
-     * @param string  $sqlQuery raw SQL string
-     * @param boolean $truncate truncate the query if it is too long
+     * @param string $sqlQuery raw SQL string
+     * @param bool   $truncate truncate the query if it is too long
      *
      * @return string the formatted sql
      *
      * @global array  $cfg the configuration array
      *
-     * @access  public
+     * @access public
      */
     public static function formatSql($sqlQuery, $truncate = false): string
     {
@@ -1530,8 +1445,6 @@ class Generator
      * creates a drop-down list.
      *
      * @param string $selected The value to mark as selected in HTML mode
-     *
-     * @return string
      */
     public static function getSupportedDatatypes($selected): string
     {

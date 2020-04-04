@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds QueriesControllerTest
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -11,26 +9,19 @@ namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\QueriesController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
+use function array_sum;
+use function htmlspecialchars;
 
-/**
- * Class QueriesControllerTest
- * @package PhpMyAdmin\Tests\Controllers\Server\Status
- */
 class QueriesControllerTest extends TestCase
 {
-    /**
-     * @var Data
-     */
+    /** @var Data */
     private $data;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
@@ -111,19 +102,19 @@ class QueriesControllerTest extends TestCase
         ];
     }
 
-    /**
-     * @return void
-     */
     public function testIndex(): void
     {
+        $response = new Response();
+
         $controller = new QueriesController(
-            Response::getInstance(),
+            $response,
             $GLOBALS['dbi'],
             new Template(),
             $this->data
         );
 
-        $html = $controller->index();
+        $controller->index();
+        $html = $response->getHTMLResult();
 
         $hourFactor = 3600 / $this->data->status['Uptime'];
         $usedQueries = $this->data->used_queries;

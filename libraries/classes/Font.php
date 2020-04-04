@@ -1,17 +1,20 @@
 <?php
 /**
  * Class with Font related methods.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function ceil;
+use function is_array;
+use function mb_strlen;
+use function mb_strtolower;
+use function preg_replace;
+use function str_replace;
+
 /**
  * Class with Font related methods.
- *
- * @package PhpMyAdmin
  */
 class Font
 {
@@ -19,6 +22,7 @@ class Font
      * Get list with characters and the corresponding width modifiers.
      *
      * @return array with characters and corresponding width modifier
+     *
      * @access public
      */
     public function getCharLists(): array
@@ -170,10 +174,11 @@ class Font
      *
      * @param string     $text      string of which the width will be calculated
      * @param string     $font      name of the font like Arial,sans-serif etc
-     * @param integer    $fontSize  size of font
+     * @param int        $fontSize  size of font
      * @param array|null $charLists list of characters and their width modifiers
      *
-     * @return integer width of the text
+     * @return int width of the text
+     *
      * @access public
      */
     public function getStringWidth(
@@ -194,14 +199,14 @@ class Font
         $count = 0;
 
         foreach ($charLists as $charList) {
-            $count += ((mb_strlen($text)
+            $count += (mb_strlen($text)
                 - mb_strlen(str_replace($charList['chars'], '', $text))
-                ) * $charList['modifier']);
+                ) * $charList['modifier'];
         }
 
         $text  = str_replace(' ', '', $text);//remove the " "'s
         //all other chars
-        $count += (mb_strlen(preg_replace('/[a-z0-9]/i', '', $text)) * 0.3);
+        $count += mb_strlen(preg_replace('/[a-z0-9]/i', '', $text)) * 0.3;
 
         $modifier = 1;
         $font = mb_strtolower($font);

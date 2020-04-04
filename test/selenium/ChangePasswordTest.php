@@ -1,21 +1,18 @@
 <?php
 /**
  * Selenium TestCase for change password related tests
- *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
 use PHPUnit\Framework\AssertionFailedError;
+use function array_push;
+use function trim;
 
 /**
  * PrivilegesTest class
  *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  * @group      selenium
  */
 class ChangePasswordTest extends TestBase

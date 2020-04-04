@@ -1,90 +1,42 @@
 <?php
-/**
- * Holds the PhpMyAdmin\Controllers\Table\ChartController
- *
- * @package PhpMyAdmin\Controllers
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Components\Limit;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function array_keys;
+use function htmlspecialchars;
+use function in_array;
+use function json_encode;
+use function min;
+use function strlen;
 
 /**
- * Handles table related logic
- *
- * @package PhpMyAdmin\Controllers
+ * Handles creation of the chart.
  */
 class ChartController extends AbstractController
 {
     /**
-     * @var string
-     */
-    protected $sql_query;
-
-    /**
-     * @var string
-     */
-    protected $url_query;
-
-    /**
-     * @var array
-     */
-    protected $cfg;
-
-    /**
-     * Constructor
-     *
-     * @param Response          $response  Response object
-     * @param DatabaseInterface $dbi       DatabaseInterface object
-     * @param Template          $template  Template object
-     * @param string            $db        Database name
-     * @param string            $table     Table name
-     * @param string            $sql_query Query
-     * @param string            $url_query Query URL
-     * @param array             $cfg       Configuration
-     */
-    public function __construct(
-        $response,
-        $dbi,
-        Template $template,
-        $db,
-        $table,
-        $sql_query,
-        $url_query,
-        array $cfg
-    ) {
-        parent::__construct($response, $dbi, $template, $db, $table);
-
-        $this->sql_query = $sql_query;
-        $this->url_query = $url_query;
-        $this->cfg = $cfg;
-    }
-
-    /**
      * Execute the query and return the result
-     *
-     * @return void
      */
-    public function indexAction()
+    public function index(): void
     {
-        $response = Response::getInstance();
-        if (isset($_REQUEST['pos'], $_REQUEST['session_max_rows']) && $response->isAjax()
+        global $db, $table, $cfg, $sql_query, $url_query;
+
+        if (isset($_REQUEST['pos'], $_REQUEST['session_max_rows']) && $this->response->isAjax()
         ) {
-            $this->ajaxAction();
+            $this->ajax();
             return;
         }
 
         // Throw error if no sql query is set
-        if (! isset($this->sql_query) || $this->sql_query == '') {
+        if (! isset($sql_query) || $sql_query == '') {
             $this->response->setRequestStatus(false);
             $this->response->addHTML(
                 Message::error(__('No SQL query was set to fetch data.'))
@@ -109,44 +61,38 @@ class ChartController extends AbstractController
             ]
         );
 
-        /**
-         * Extract values for common work
-         * @todo Extract common files
-         */
-        $db = &$this->db;
-        $table = &$this->table;
         $url_params = [];
 
         /**
          * Runs common work
          */
-        if (strlen($this->table) > 0) {
+        if (strlen($table) > 0) {
             $url_params['goto'] = Util::getScriptNameForOption(
-                $this->cfg['DefaultTabTable'],
+                $cfg['DefaultTabTable'],
                 'table'
             );
             $url_params['back'] = Url::getFromRoute('/table/sql');
-            include ROOT_PATH . 'libraries/tbl_common.inc.php';
-            $this->dbi->selectDb($GLOBALS['db']);
-        } elseif (strlen($this->db) > 0) {
+            Common::table();
+            $this->dbi->selectDb($db);
+        } elseif (strlen($db) > 0) {
             $url_params['goto'] = Util::getScriptNameForOption(
-                $this->cfg['DefaultTabDatabase'],
+                $cfg['DefaultTabDatabase'],
                 'database'
             );
             $url_params['back'] = Url::getFromRoute('/sql');
-            include ROOT_PATH . 'libraries/db_common.inc.php';
+            Common::database();
         } else {
             $url_params['goto'] = Util::getScriptNameForOption(
-                $this->cfg['DefaultTabServer'],
+                $cfg['DefaultTabServer'],
                 'server'
             );
             $url_params['back'] = Url::getFromRoute('/sql');
-            include ROOT_PATH . 'libraries/server_common.inc.php';
+            Common::server();
         }
 
         $data = [];
 
-        $result = $this->dbi->tryQuery($this->sql_query);
+        $result = $this->dbi->tryQuery($sql_query);
         $fields_meta = $this->dbi->getFieldsMeta($result);
         while ($row = $this->dbi->fetchAssoc($result)) {
             $data[] = $row;
@@ -174,7 +120,7 @@ class ChartController extends AbstractController
             return;
         }
 
-        $url_params['db'] = $this->db;
+        $url_params['db'] = $db;
         $url_params['reload'] = 1;
 
         /**
@@ -182,36 +128,29 @@ class ChartController extends AbstractController
          */
         $this->response->addHTML(
             $this->template->render('table/chart/tbl_chart', [
-                'url_query' => $this->url_query,
+                'url_query' => $url_query,
                 'url_params' => $url_params,
                 'keys' => $keys,
                 'fields_meta' => $fields_meta,
                 'numeric_types' => $numeric_types,
                 'numeric_column_count' => $numeric_column_count,
-                'sql_query' => $this->sql_query,
+                'sql_query' => $sql_query,
             ])
         );
     }
 
     /**
      * Handle ajax request
-     *
-     * @return void
      */
-    public function ajaxAction()
+    public function ajax(): void
     {
-        /**
-         * Extract values for common work
-         * @todo Extract common files
-         */
-        $db = &$this->db;
-        $table = &$this->table;
+        global $db, $table, $sql_query;
 
-        if (strlen($this->table) > 0 && strlen($this->db) > 0) {
-            include ROOT_PATH . 'libraries/tbl_common.inc.php';
+        if (strlen($table) > 0 && strlen($db) > 0) {
+            Common::table();
         }
 
-        $parser = new Parser($this->sql_query);
+        $parser = new Parser($sql_query);
         /**
          * @var SelectStatement $statement
          */

@@ -37,8 +37,8 @@
             {{- get_image('b_docs', 'phpMyAdmin documentation'|trans) -}}
           </a>
 
-          <a href="{{ get_mysql_docu_url('') }}" title="{% trans 'Documentation' %}" target="_blank" rel="noopener noreferrer">
-            {{- get_image('b_sqlhelp', 'Documentation'|trans) -}}
+          <a href="{{ get_docu_url(is_mariadb) }}" title="{{ is_mariadb ? 'MariaDB Documentation'|trans : 'MySQL Documentation'|trans }}" target="_blank" rel="noopener noreferrer">
+            {{- get_image('b_sqlhelp', is_mariadb ? 'MariaDB Documentation'|trans : 'MySQL Documentation'|trans) -}}
           </a>
 
           <a id="pma_navigation_settings_icon"{{ not is_navigation_settings_enabled ? ' class="hide"' }} href="#" title="{% trans 'Navigation panel settings' %}">

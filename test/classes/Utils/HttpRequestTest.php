@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\Utils\HttpRequest class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -11,21 +9,18 @@ namespace PhpMyAdmin\Tests\Utils;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Utils\HttpRequest;
 use ReflectionClass;
+use function curl_version;
+use function function_exists;
+use function ini_get;
+use function stripos;
+use const CURLOPT_CAINFO;
+use const CURLOPT_CAPATH;
 
-/**
- * Class HttpRequestTest
- * @package PhpMyAdmin\Tests\Utils
- */
 class HttpRequestTest extends PmaTestCase
 {
-    /**
-     * @var HttpRequest
-     */
+    /** @var HttpRequest */
     private $httpRequest;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $this->httpRequest = new HttpRequest();
@@ -54,7 +49,7 @@ class HttpRequestTest extends PmaTestCase
     /**
      * Skip test if CURL extension is not installed
      *
-     * @param boolean $ssl_flags Whether to check support for SSL flags
+     * @param bool $ssl_flags Whether to check support for SSL flags
      *
      * @return void
      */
@@ -87,11 +82,7 @@ class HttpRequestTest extends PmaTestCase
      * @param bool   $expected           expected result
      *
      * @group medium
-     *
-     * @return void
-     *
      * @dataProvider httpRequests
-     *
      * @group network
      */
     public function testCurl($url, $method, $return_only_status, $expected): void
@@ -110,11 +101,7 @@ class HttpRequestTest extends PmaTestCase
      * @param bool   $expected           expected result
      *
      * @group medium
-     *
-     * @return void
-     *
      * @dataProvider httpRequests
-     *
      * @group network
      */
     public function testCurlCAPath($url, $method, $return_only_status, $expected): void
@@ -140,11 +127,7 @@ class HttpRequestTest extends PmaTestCase
      * @param bool   $expected           expected result
      *
      * @group medium
-     *
-     * @return void
-     *
      * @dataProvider httpRequests
-     *
      * @group network
      */
     public function testCurlCAInfo($url, $method, $return_only_status, $expected): void
@@ -170,11 +153,7 @@ class HttpRequestTest extends PmaTestCase
      * @param bool   $expected           expected result
      *
      * @group medium
-     *
-     * @return void
-     *
      * @dataProvider httpRequests
-     *
      * @group network
      */
     public function testFopen($url, $method, $return_only_status, $expected): void
@@ -186,7 +165,6 @@ class HttpRequestTest extends PmaTestCase
         $this->validateHttp($result, $expected);
     }
 
-
     /**
      * Test for http request using generic interface
      *
@@ -196,11 +174,7 @@ class HttpRequestTest extends PmaTestCase
      * @param bool   $expected           expected result
      *
      * @group medium
-     *
-     * @return void
-     *
      * @dataProvider httpRequests
-     *
      * @group network
      */
     public function testCreate($url, $method, $return_only_status, $expected): void

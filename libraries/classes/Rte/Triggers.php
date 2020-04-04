@@ -1,8 +1,6 @@
 <?php
 /**
  * Functions for trigger management.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -14,47 +12,40 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function count;
+use function explode;
+use function htmlentities;
+use function htmlspecialchars;
+use function in_array;
+use function mb_strpos;
+use function mb_strtoupper;
+use function sprintf;
+use const ENT_QUOTES;
 
 /**
  * PhpMyAdmin\Rte\Triggers class
- *
- * @package PhpMyAdmin
  */
 class Triggers
 {
-    /**
-     * @var Export
-     */
+    /** @var Export */
     private $export;
 
-    /**
-     * @var Footer
-     */
+    /** @var Footer */
     private $footer;
 
-    /**
-     * @var General
-     */
+    /** @var General */
     private $general;
 
-    /**
-     * @var RteList
-     */
+    /** @var RteList */
     private $rteList;
 
-    /**
-     * @var Words
-     */
+    /** @var Words */
     private $words;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /**
-     * Triggers constructor.
-     *
      * @param DatabaseInterface $dbi DatabaseInterface object
      */
     public function __construct(DatabaseInterface $dbi)
@@ -303,7 +294,7 @@ class Triggers
             'item_definer',
         ];
         foreach ($indices as $index) {
-            $retval[$index] = isset($_POST[$index]) ? $_POST[$index] : '';
+            $retval[$index] = $_POST[$index] ?? '';
         }
         return $retval;
     }

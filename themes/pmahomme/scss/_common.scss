@@ -167,24 +167,20 @@ input {
     padding: 4px;
   }
 
-  &[type=text],
+  &:not(.form-control)[type=text],
   &[type=password],
-  &[type=number],
+  &:not(.form-control)[type=number],
   &[type=date],
-  &[type=checkbox] {
+  &:not(.form-check-input)[type=checkbox] {
     margin: 6px;
   }
 }
 
-select {
+select:not(.form-control) {
   margin: 6px;
 }
 
 input {
-  &[type=number] {
-    width: 50px;
-  }
-
   &[type=text],
   &[type=password],
   &[type=number],
@@ -350,7 +346,7 @@ fieldset {
     -webkit-box-shadow: 3px 3px 15px #bbb;
     box-shadow: 3px 3px 15px #bbb;
     width: initial;
-    font-size: 1rem;
+    font-size: 1em;
   }
 }
 
@@ -395,7 +391,7 @@ button {
 }
 
 input {
-  &[type=checkbox],
+  &:not(.form-check-input)[type=checkbox],
   &[type=radio] {
     vertical-align: -11%;
   }
@@ -409,7 +405,10 @@ select {
   color: #333;
   padding: 3px;
   background: white;
-  margin: 6px;
+
+  &:not(.form-control) {
+    margin: 6px;
+  }
 
   &[multiple] {
     background: linear-gradient(#fff, #f2f2f2);
@@ -575,6 +574,11 @@ table tbody:first-of-type tr:nth-child(even) th,
 #table_index tbody:nth-of-type(even) tr,
 #table_index tbody:nth-of-type(even) th {
   background: #dfdfdf;
+}
+
+// only one item
+table tbody:first-of-type tr:only-child {
+  background: none;
 }
 
 table tr {
@@ -865,6 +869,15 @@ div#modalOverlay {
   z-index: 900;
 }
 
+div#userPermissionModal {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  z-index: 1000;
+}
+
 form.login {
   input {
     &[type=text],
@@ -941,70 +954,16 @@ li.last.database {
 
 /* specific elements */
 
-#topmenu {
-  margin-top: 0.5em;
-  padding: 0.1em 0.3em;
-
-  a {
-    text-shadow: 0 1px 0 #fff;
-  }
-}
-
-ul {
-  &#topmenu,
-  &#topmenu2,
-  &.tabs {
-    font-weight: bold;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  &#topmenu2 {
-    margin: 0.25em 0.5em 0;
-    overflow: auto;
-    clear: both;
-  }
-
-  &#topmenu li,
-  &#topmenu2 li {
-    float: left;
-    margin: 0;
-    vertical-align: middle;
-  }
-}
-
-#topmenu img,
-#topmenu2 img {
-  margin-#{$right}: 0.5em;
-  vertical-align: -3px;
-}
-
-.menucontainer {
-  background: linear-gradient(#fff, #dcdcdc);
-  border-top: 1px solid #aaa;
-}
-
-.scrollindicator {
-  display: none;
+ul.tabs {
+  font-weight: bold;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 // default tab styles
 .tabactive {
   background: #fff !important;
-}
-
-ul#topmenu2 a {
-  display: block;
-  margin: 7px 6px 7px;
-  margin-#{$left}: 0;
-  padding: 4px 10px;
-  white-space: nowrap;
-  border: 1px solid #ddd;
-  border-radius: 20px;
-  -moz-border-radius: 20px;
-  -webkit-border-radius: 20px;
-  background: #f2f2f2;
 }
 
 span {
@@ -1025,84 +984,6 @@ fieldset.caution a {
     background-color: #f00;
   }
 }
-
-ul {
-  &#topmenu {
-    ul {
-      @if $direction == rtl {
-        -moz-box-shadow: -1px 1px 6px #ddd;
-        -webkit-box-shadow: -2px 2px 3px #666;
-        box-shadow: -2px 2px 3px #666;
-      } @else {
-        -moz-box-shadow: 1px 1px 6px #ddd;
-        -webkit-box-shadow: 2px 2px 3px #666;
-        box-shadow: 2px 2px 3px #666;
-      }
-
-      &.only {
-        #{$left}: 0;
-      }
-    }
-
-    > li {
-      border-#{$right}: 1px solid #fff;
-      border-#{$left}: 1px solid #ccc;
-      border-bottom: 1px solid #ccc;
-
-      &:first-child {
-        border-#{$left}: 0;
-      }
-    }
-
-    a,
-    span {
-      padding: 0.6em;
-    }
-
-    ul {
-      a {
-        border-width: 1pt 0 0 0;
-        -moz-border-radius: 0;
-        -webkit-border-radius: 0;
-        border-radius: 0;
-      }
-
-      li:first-child a {
-        border-width: 0;
-      }
-
-      a:hover,
-      .tabactive {
-        text-decoration: none;
-      }
-    }
-
-    > li > {
-      a:hover,
-      .tabactive {
-        text-decoration: none;
-      }
-    }
-  }
-
-  &#topmenu2 a {
-    &.tab:hover,
-    &.tabactive {
-      background-color: $bg-one;
-      border-radius: 0.3em;
-      -moz-border-radius: 0.3em;
-      -webkit-border-radius: 0.3em;
-      text-decoration: none;
-    }
-  }
-
-  // to be able to cancel the bottom border, use <li class="active">
-  &#topmenu > li.active {
-    border-#{$right}: 0;
-    border-bottom-color: #fff;
-  }
-}
-// end topmenu
 
 // zoom search
 div#dataDisplay {
@@ -1628,31 +1509,6 @@ a.button {
   }
 }
 
-div {
-  &#sqlquerycontainer {
-    float: $left;
-    width: 69%;
-  }
-
-  &#tablefieldscontainer {
-    float: $right;
-    width: 29%;
-    margin-top: -20px;
-
-    select {
-      width: 100%;
-      background: #fff;
-    }
-  }
-}
-
-#sqlquerycontainer,
-#sqlquerycontainerfull {
-  .btn {
-    margin: 5px;
-  }
-}
-
 textarea {
   &#sqlquery {
     width: 100%;
@@ -1669,10 +1525,6 @@ textarea {
     width: 95%;
     display: block;
   }
-}
-
-div#queryboxcontainer div#bookmarkoptions {
-  margin-top: 0.5em;
 }
 
 // end querybox
@@ -1790,6 +1642,7 @@ kbd {
 }
 
 code {
+  font-size: 1em;
   color: $main-color;
 
   &.php {
@@ -2344,7 +2197,6 @@ table#index_columns {
       padding-#{$left}: 0.5em;
       text-align: $left;
       vertical-align: top;
-      width: 40%;
       background: transparent;
       filter: none;
       border-top: 1px $bg-two solid;
@@ -2614,6 +2466,9 @@ input#auto_increment_opt {
 }
 
 #table_columns {
+  display: block;
+  overflow: auto;
+
   input {
     &[type=text],
     &[type=password],
@@ -2766,6 +2621,7 @@ input#auto_increment_opt {
 .tooltip {
   background: #333 !important;
   opacity: 0.8 !important;
+  z-index: 9999;
   border: 1px solid #000 !important;
   -moz-border-radius: 0.3em !important;
   -webkit-border-radius: 0.3em !important;
@@ -3030,6 +2886,10 @@ input#auto_increment_opt {
 
 body .ui-widget {
   font-size: 1em;
+}
+
+body #ui-datepicker-div {
+  z-index: 9999 !important;
 }
 
 .ui-dialog fieldset legend a {
@@ -3876,23 +3736,9 @@ body .ui-dialog {
 
 @media only screen and (max-width: 768px) {
   ul {
-    &#topmenu,
     &.tabs {
       display: flex;
     }
-  }
-
-  .navigationbar {
-    display: inline-flex;
-    margin: 0 !important;
-    border-radius: 0 !important;
-    overflow: auto;
-  }
-
-  .scrollindicator {
-    padding: 5px;
-    cursor: pointer;
-    display: inline;
   }
 
   .responsivetable {

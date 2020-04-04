@@ -1,9 +1,6 @@
 <?php
 /**
  * Selenium TestCase for table related tests
- *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  */
 declare(strict_types=1);
 
@@ -14,8 +11,6 @@ use PhpMyAdmin\Tests\Selenium\TestBase;
 /**
  * InsertTest class
  *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  * @group      selenium
  */
 class InsertTest extends TestBase
@@ -23,8 +18,6 @@ class InsertTest extends TestBase
     /**
      * Setup the browser environment to run the selenium t
      * est case
-     *
-     * @return void
      */
     protected function setUp(): void
     {

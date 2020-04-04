@@ -2,7 +2,7 @@ $textarea-cols: 40;
 $textarea-rows: 15;
 
 .CodeMirror {
-  height: ceil($textarea-rows * 1.2em);
+  height: 20rem;
   direction: ltr;
 }
 

@@ -1,30 +1,32 @@
 <?php
 /**
  * Holds the PhpMyAdmin\CreateAddField class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\Generator;
+use function array_merge;
+use function count;
+use function implode;
+use function in_array;
+use function intval;
+use function json_decode;
+use function min;
+use function preg_replace;
+use function strlen;
+use function trim;
 
 /**
- * Set of functions for /table/create and /table/addfield
- *
- * @package PhpMyAdmin
+ * Set of functions for /table/create and /table/add-field
  */
 class CreateAddField
 {
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /**
-     * Constructor
-     *
      * @param DatabaseInterface $dbi DatabaseInterface interface
      */
     public function __construct(DatabaseInterface $dbi)
@@ -60,9 +62,9 @@ class CreateAddField
      * Initiate the column creation statement according to the table creation or
      * add columns to a existing table
      *
-     * @param int     $fieldCount    number of columns
-     * @param boolean $isCreateTable true if requirement is to get the statement
-     *                               for table creation
+     * @param int  $fieldCount    number of columns
+     * @param bool $isCreateTable true if requirement is to get the statement
+     *                            for table creation
      *
      * @return array An array of initial sql statements
      *                             according to the request
@@ -85,26 +87,14 @@ class CreateAddField
                         $_POST['field_type'][$i],
                         $_POST['field_length'][$i],
                         $_POST['field_attribute'][$i],
-                        isset($_POST['field_collation'][$i])
-                        ? $_POST['field_collation'][$i]
-                        : '',
-                        isset($_POST['field_null'][$i])
-                        ? $_POST['field_null'][$i]
-                        : 'NO',
+                        $_POST['field_collation'][$i] ?? '',
+                        $_POST['field_null'][$i] ?? 'NO',
                         $_POST['field_default_type'][$i],
                         $_POST['field_default_value'][$i],
-                        isset($_POST['field_extra'][$i])
-                        ? $_POST['field_extra'][$i]
-                        : false,
-                        isset($_POST['field_comments'][$i])
-                        ? $_POST['field_comments'][$i]
-                        : '',
-                        isset($_POST['field_virtuality'][$i])
-                        ? $_POST['field_virtuality'][$i]
-                        : '',
-                        isset($_POST['field_expression'][$i])
-                        ? $_POST['field_expression'][$i]
-                        : ''
+                        $_POST['field_extra'][$i] ?? false,
+                        $_POST['field_comments'][$i] ?? '',
+                        $_POST['field_virtuality'][$i] ?? '',
+                        $_POST['field_expression'][$i] ?? ''
                     );
 
             $definition .= $this->setColumnCreationStatementSuffix(
@@ -162,11 +152,11 @@ class CreateAddField
     /**
      * Create relevant index statements
      *
-     * @param array   $index         an array of index columns
-     * @param string  $indexChoice   index choice that which represents
-     *                               the index type of $indexed_fields
-     * @param boolean $isCreateTable true if requirement is to get the statement
-     *                               for table creation
+     * @param array  $index         an array of index columns
+     * @param string $indexChoice   index choice that which represents
+     *                              the index type of $indexed_fields
+     * @param bool   $isCreateTable true if requirement is to get the statement
+     *                              for table creation
      *
      * @return array an array of sql statements for indexes
      */
@@ -233,8 +223,8 @@ class CreateAddField
     /**
      * Statement prefix for the buildColumnCreationStatement()
      *
-     * @param boolean $isCreateTable true if requirement is to get the statement
-     *                               for table creation
+     * @param bool $isCreateTable true if requirement is to get the statement
+     *                            for table creation
      *
      * @return string prefix
      */
@@ -250,11 +240,11 @@ class CreateAddField
     /**
      * Merge index definitions for one type of index
      *
-     * @param array   $definitions    the index definitions to merge to
-     * @param boolean $isCreateTable  true if requirement is to get the statement
-     *                                for table creation
-     * @param array   $indexedColumns the columns for one type of index
-     * @param string  $indexKeyword   the index keyword to use in the definition
+     * @param array  $definitions    the index definitions to merge to
+     * @param bool   $isCreateTable  true if requirement is to get the statement
+     *                               for table creation
+     * @param array  $indexedColumns the columns for one type of index
+     * @param string $indexKeyword   the index keyword to use in the definition
      *
      * @return array
      */
@@ -279,8 +269,8 @@ class CreateAddField
      * Returns sql statement according to the column and index specifications as
      * requested
      *
-     * @param boolean $isCreateTable true if requirement is to get the statement
-     *                               for table creation
+     * @param bool $isCreateTable true if requirement is to get the statement
+     *                            for table creation
      *
      * @return string sql statement
      */
@@ -302,7 +292,7 @@ class CreateAddField
 
         // Builds the PRIMARY KEY statements
         $primaryKeyStatements = $this->buildIndexStatements(
-            isset($fieldPrimary[0]) ? $fieldPrimary[0] : [],
+            $fieldPrimary[0] ?? [],
             ' PRIMARY KEY ',
             $isCreateTable
         );
@@ -388,8 +378,8 @@ class CreateAddField
     /**
      * Returns the definition of a partition/subpartition
      *
-     * @param array   $partition      array of partition/subpartition detiails
-     * @param boolean $isSubPartition whether a subpartition
+     * @param array $partition      array of partition/subpartition detiails
+     * @param bool  $isSubPartition whether a subpartition
      *
      * @return string partition/subpartition definition
      */
@@ -452,8 +442,6 @@ class CreateAddField
      *
      * @param string $db    database name
      * @param string $table table name
-     *
-     * @return string
      */
     public function getTableCreationQuery(string $db, string $table): string
     {
@@ -468,7 +456,7 @@ class CreateAddField
         if (! empty($_POST['tbl_storage_engine'])
             && ($_POST['tbl_storage_engine'] != 'Default')
         ) {
-            $sqlQuery .= ' ENGINE = ' . $_POST['tbl_storage_engine'];
+            $sqlQuery .= ' ENGINE = ' . $this->dbi->escapeString($_POST['tbl_storage_engine']);
         }
         if (! empty($_POST['tbl_collation'])) {
             $sqlQuery .= Util::getCharsetQueryPart($_POST['tbl_collation']);
@@ -492,8 +480,6 @@ class CreateAddField
 
     /**
      * Function to get the number of fields for the table creation form
-     *
-     * @return int
      */
     public function getNumberOfFieldsFromRequest(): int
     {
@@ -542,8 +528,14 @@ class CreateAddField
                 $errorUrl
             );
         }
+
         $sqlQuery = 'ALTER TABLE ' .
-            Util::backquote($table) . ' ' . $sqlStatement . ';';
+            Util::backquote($table) . ' ' . $sqlStatement;
+        if (isset($_POST['online_transaction'])) {
+            $sqlQuery .= ', ALGORITHM=INPLACE, LOCK=NONE';
+        }
+        $sqlQuery .= ';';
+
         // If there is a request for SQL previewing.
         if (isset($_POST['preview_sql'])) {
             Core::previewSQL($sqlQuery);

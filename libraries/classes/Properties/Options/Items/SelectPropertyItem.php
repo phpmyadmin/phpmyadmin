@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Properties\Options\Items\SelectPropertyItem class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -12,8 +10,6 @@ use PhpMyAdmin\Properties\Options\OptionsPropertyOneItem;
 
 /**
  * Single property item class of type select
- *
- * @package PhpMyAdmin
  */
 class SelectPropertyItem extends OptionsPropertyOneItem
 {

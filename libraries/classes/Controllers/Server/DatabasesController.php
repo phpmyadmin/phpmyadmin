@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\Server\DatabasesController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -12,50 +10,48 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function array_key_exists;
+use function array_keys;
+use function array_search;
+use function count;
+use function explode;
+use function in_array;
+use function mb_strlen;
+use function mb_strtolower;
+use function strlen;
+use function strpos;
 
 /**
  * Handles viewing and creating and deleting databases
- *
- * @package PhpMyAdmin\Controllers
  */
 class DatabasesController extends AbstractController
 {
-    /**
-     * @var array array of database details
-     */
+    /** @var array array of database details */
     private $databases = [];
 
-    /**
-     * @var int number of databases
-     */
+    /** @var int number of databases */
     private $databaseCount = 0;
 
-    /**
-     * @var string sort by column
-     */
+    /** @var string sort by column */
     private $sortBy;
 
-    /**
-     * @var string sort order of databases
-     */
+    /** @var string sort order of databases */
     private $sortOrder;
 
-    /**
-     * @var boolean whether to show database statistics
-     */
+    /** @var bool whether to show database statistics */
     private $hasStatistics;
 
-    /**
-     * @var int position in list navigation
-     */
+    /** @var int position in list navigation */
     private $position;
 
     /**
@@ -71,24 +67,24 @@ class DatabasesController extends AbstractController
         $checkUserPrivileges->getPrivileges();
     }
 
-    /**
-     * Index action
-     *
-     * @param array $params Request parameters
-     *
-     * @return string HTML
-     */
-    public function index(array $params): string
+    public function index(): void
     {
         global $cfg, $server, $dblist, $is_create_db_priv;
         global $replication_info, $db_to_create, $pmaThemeImage, $text_dir;
+
+        $params = [
+            'statistics' => $_REQUEST['statistics'] ?? null,
+            'pos' => $_REQUEST['pos'] ?? null,
+            'sort_by' => $_REQUEST['sort_by'] ?? null,
+            'sort_order' => $_REQUEST['sort_order'] ?? null,
+        ];
 
         $header = $this->response->getHeader();
         $scripts = $header->getScripts();
         $scripts->addFile('server/databases.js');
 
-        include_once ROOT_PATH . 'libraries/replication.inc.php';
-        include_once ROOT_PATH . 'libraries/server_common.inc.php';
+        Common::server();
+        ReplicationInfo::load();
 
         $this->setSortDetails($params['sort_by'], $params['sort_order']);
         $this->hasStatistics = ! empty($params['statistics']);
@@ -145,7 +141,7 @@ class DatabasesController extends AbstractController
 
         $headerStatistics = $this->getStatisticsColumns();
 
-        return $this->template->render('server/databases/index', [
+        $this->response->addHTML($this->template->render('server/databases/index', [
             'is_create_database_shown' => $cfg['ShowCreateDb'],
             'has_create_database_privileges' => $is_create_db_priv,
             'has_statistics' => $this->hasStatistics,
@@ -163,22 +159,21 @@ class DatabasesController extends AbstractController
             'is_drop_allowed' => $this->dbi->isSuperuser() || $cfg['AllowUserDropDatabase'],
             'pma_theme_image' => $pmaThemeImage,
             'text_dir' => $text_dir,
-        ]);
+        ]));
     }
 
-    /**
-     * Handles creating a new database
-     *
-     * @param array $params Request parameters
-     *
-     * @return array JSON
-     */
-    public function create(array $params): array
+    public function create(): void
     {
         global $cfg, $db;
 
+        $params = [
+            'new_db' => $_POST['new_db'] ?? null,
+            'db_collation' => $_POST['db_collation'] ?? null,
+        ];
+
         if (! isset($params['new_db']) || mb_strlen($params['new_db']) === 0 || ! $this->response->isAjax()) {
-            return ['message' => Message::error()];
+            $this->response->addJSON(['message' => Message::error()]);
+            return;
         }
 
         // lower_case_table_names=1 `DB` becomes `db`
@@ -242,48 +237,61 @@ class DatabasesController extends AbstractController
             ];
         }
 
-        return $json;
+        $this->response->addJSON($json);
     }
 
     /**
      * Handles dropping multiple databases
-     *
-     * @param array $params Request parameters
-     *
-     * @return array JSON
      */
-    public function destroy(array $params): array
+    public function destroy(): void
     {
         global $submit_mult, $mult_btn, $selected, $err_url, $cfg;
+
+        $params = [
+            'drop_selected_dbs' => $_POST['drop_selected_dbs'] ?? null,
+            'selected_dbs' => $_POST['selected_dbs'] ?? null,
+        ];
 
         if (! isset($params['drop_selected_dbs'])
             || ! $this->response->isAjax()
             || (! $this->dbi->isSuperuser() && ! $cfg['AllowUserDropDatabase'])
         ) {
             $message = Message::error();
-        } elseif (! isset($params['selected_dbs'])) {
+            $json = ['message' => $message];
+            $this->response->setRequestStatus($message->isSuccess());
+            $this->response->addJSON($json);
+
+            return;
+        }
+
+        if (! isset($params['selected_dbs'])) {
             $message = Message::error(__('No databases selected.'));
-        } else {
-            // for mult_submits.inc.php
-            $action = Url::getFromRoute('/server/databases');
-            $err_url = $action;
+            $json = ['message' => $message];
+            $this->response->setRequestStatus($message->isSuccess());
+            $this->response->addJSON($json);
 
-            $submit_mult = 'drop_db';
-            $mult_btn = __('Yes');
+            return;
+        }
 
-            include ROOT_PATH . 'libraries/mult_submits.inc.php';
+        // for mult_submits.inc.php
+        $action = Url::getFromRoute('/server/databases');
+        $err_url = $action;
 
-            if (empty($message)) { // no error message
-                $numberOfDatabases = count($selected);
-                $message = Message::success(
-                    _ngettext(
-                        '%1$d database has been dropped successfully.',
-                        '%1$d databases have been dropped successfully.',
-                        $numberOfDatabases
-                    )
-                );
-                $message->addParam($numberOfDatabases);
-            }
+        $submit_mult = 'drop_db';
+        $mult_btn = __('Yes');
+
+        include ROOT_PATH . 'libraries/mult_submits.inc.php';
+
+        if (empty($message)) { // no error message
+            $numberOfDatabases = count($selected);
+            $message = Message::success(
+                _ngettext(
+                    '%1$d database has been dropped successfully.',
+                    '%1$d databases have been dropped successfully.',
+                    $numberOfDatabases
+                )
+            );
+            $message->addParam($numberOfDatabases);
         }
 
         $json = [];
@@ -292,7 +300,7 @@ class DatabasesController extends AbstractController
             $this->response->setRequestStatus($message->isSuccess());
         }
 
-        return $json;
+        $this->response->addJSON($json);
     }
 
     /**
@@ -300,8 +308,6 @@ class DatabasesController extends AbstractController
      *
      * @param string|null $sortBy    sort by
      * @param string|null $sortOrder sort order
-     *
-     * @return void
      */
     private function setSortDetails(?string $sortBy, ?string $sortOrder): void
     {
@@ -400,6 +406,7 @@ class DatabasesController extends AbstractController
                     $database['SCHEMA_NAME'],
                     true
                 ),
+                'is_pmadb' => $database['SCHEMA_NAME'] === ($cfg['Server']['pmadb'] ?? ''),
                 'url' => $url,
             ];
             $collation = Charsets::findCollationByName(

@@ -134,20 +134,22 @@
                         </td>
                     {% endif %}
                     <td>
-                        {{ get_html_select(
-                            subpartition['prefix'] ~ '[engine]',
-                            null,
-                            subpartition['engine'],
-                            false,
-                            true
-                        ) }}
+                      <select name="{{ subpartition['prefix'] }}[engine]" aria-label="{% trans 'Storage engine' %}">
+                        <option value=""></option>
+                        {% for engine in storage_engines %}
+                          <option value="{{ engine.name }}"{% if engine.comment is not empty %} title="{{ engine.comment }}"{% endif %}
+                            {{- engine.name|lower == subpartition['engine']|lower ? ' selected' }}>
+                            {{- engine.name -}}
+                          </option>
+                        {% endfor %}
+                      </select>
                     </td>
                     <td>
-                        {% spaceless %}
+                        {% apply spaceless %}
                         <textarea name="{{ subpartition['prefix'] }}[comment]">
                             {{ subpartition['comment'] }}
                         </textarea>
-                        {% endspaceless %}
+                        {% endapply %}
                     </td>
                     <td>
                         <input type="text" name="{{ subpartition['prefix'] }}[data_directory]"

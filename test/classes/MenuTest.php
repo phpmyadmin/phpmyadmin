@@ -1,8 +1,6 @@
 <?php
 /**
  * Test for Menu class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -10,19 +8,16 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Menu;
-use PhpMyAdmin\Tests\PmaTestCase;
+use function define;
+use function defined;
 
 /**
  * Test for Menu class
- *
- * @package PhpMyAdmin-test
  */
 class MenuTest extends PmaTestCase
 {
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -94,7 +89,6 @@ class MenuTest extends PmaTestCase
         );
         $menu->display();
     }
-
 
     /**
      * Table menu setTable test

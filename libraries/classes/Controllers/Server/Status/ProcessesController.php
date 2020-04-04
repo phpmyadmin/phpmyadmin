@@ -1,30 +1,34 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\Server\Status\ProcessesController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Util;
+use function array_keys;
+use function count;
+use function mb_strtolower;
+use function strlen;
+use function ucfirst;
 
-/**
- * Class ProcessesController
- * @package PhpMyAdmin\Controllers\Server\Status
- */
 class ProcessesController extends AbstractController
 {
-    /**
-     * @param array $params Request parameters
-     * @return string
-     */
-    public function index(array $params): string
+    public function index(): void
     {
-        require_once ROOT_PATH . 'libraries/server_common.inc.php';
+        $params = [
+            'showExecuting' => $_POST['showExecuting'] ?? null,
+            'full' => $_POST['full'] ?? null,
+            'column_name' => $_POST['column_name'] ?? null,
+            'order_by_field' => $_POST['order_by_field'] ?? null,
+            'sort_order' => $_POST['sort_order'] ?? null,
+        ];
+
+        Common::server();
 
         $header = $this->response->getHeader();
         $scripts = $header->getScripts();
@@ -45,36 +49,40 @@ class ProcessesController extends AbstractController
 
         $serverProcessList = $this->getList($params);
 
-        return $this->template->render('server/status/processes/index', [
+        $this->response->addHTML($this->template->render('server/status/processes/index', [
             'url_params' => $urlParams,
             'is_checked' => $isChecked,
             'server_process_list' => $serverProcessList,
-        ]);
+        ]));
     }
 
     /**
      * Only sends the process list table
-     *
-     * @param array $params Request parameters
-     * @return string
      */
-    public function refresh(array $params): string
+    public function refresh(): void
     {
+        $params = [
+            'showExecuting' => $_POST['showExecuting'] ?? null,
+            'full' => $_POST['full'] ?? null,
+            'column_name' => $_POST['column_name'] ?? null,
+            'order_by_field' => $_POST['order_by_field'] ?? null,
+            'sort_order' => $_POST['sort_order'] ?? null,
+        ];
+
         if (! $this->response->isAjax()) {
-            return '';
+            return;
         }
 
-        return $this->getList($params);
+        $this->response->addHTML($this->getList($params));
     }
 
     /**
      * @param array $params Request parameters
-     * @return array
      */
-    public function kill(array $params): array
+    public function kill(array $params): void
     {
         if (! $this->response->isAjax()) {
-            return [];
+            return;
         }
 
         $kill = (int) $params['id'];
@@ -96,15 +104,11 @@ class ProcessesController extends AbstractController
         }
         $message->addParam($kill);
 
-        $json = [];
-        $json['message'] = $message;
-
-        return $json;
+        $this->response->addJSON(['message' => $message]);
     }
 
     /**
      * @param array $params Request parameters
-     * @return string
      */
     private function getList(array $params): string
     {

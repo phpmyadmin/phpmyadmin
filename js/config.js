@@ -44,9 +44,9 @@ AJAX.registerTeardown('config.js', function () {
 });
 
 AJAX.registerOnload('config.js', function () {
-    var $topmenuUpt = $('#topmenu2.user_prefs_tabs');
-    $topmenuUpt.find('li.active a').attr('rel', 'samepage');
-    $topmenuUpt.find('li:not(.active) a').attr('rel', 'newpage');
+    var $topmenuUpt = $('#user_prefs_tabs');
+    $topmenuUpt.find('a.active').attr('rel', 'samepage');
+    $topmenuUpt.find('a:not(.active)').attr('rel', 'newpage');
 });
 
 // default values for fields
@@ -615,10 +615,10 @@ function setupConfigTabs () {
                 e.preventDefault();
                 setTab($(this).attr('href').substr(1));
             })
-            .filter(':first')
+            .first()
             .parent()
             .addClass('active');
-        $this.find('div.tabs_contents fieldset').hide().filter(':first').show();
+        $this.find('div.tabs_contents fieldset').hide().first().show();
     });
 }
 
@@ -770,7 +770,7 @@ AJAX.registerOnload('config.js', function () {
             disabled = true;
         }
         $form.find('input[type=submit]').prop('disabled', disabled);
-    }).submit(function (e) {
+    }).on('submit', function (e) {
         var $form = $(this);
         if ($form.attr('name') === 'prefs_export' && $('#export_local_storage')[0].checked) {
             e.preventDefault();

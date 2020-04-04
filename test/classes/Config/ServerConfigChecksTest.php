@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for FormDisplay class in config folder
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,23 +12,18 @@ use PhpMyAdmin\Config\ServerConfigChecks;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionException;
 use ReflectionProperty;
+use function array_keys;
 
 /**
  * Tests for ServeConfigChecks class
- *
- * @package PhpMyAdmin-test
  */
 class ServerConfigChecksTest extends PmaTestCase
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     private $sessionID;
 
     /**
      * @throws ReflectionException
-     *
-     * @return void
      */
     protected function setUp(): void
     {

@@ -1,16 +1,12 @@
 <?php
 /**
  * Set of functions used to build OpenDocument Text dumps of tables
- *
- * @package    PhpMyAdmin-Export
- * @subpackage ODT
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Export;
 use PhpMyAdmin\OpenDocument;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -19,20 +15,18 @@ use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
-use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
+use function bin2hex;
+use function htmlspecialchars;
+use function str_replace;
+use function stripos;
+use function stripslashes;
 
 /**
  * Handles the export for the ODT class
- *
- * @package    PhpMyAdmin-Export
- * @subpackage ODT
  */
 class ExportOdt extends ExportPlugin
 {
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();
@@ -171,17 +165,11 @@ class ExportOdt extends ExportPlugin
         $GLOBALS['odt_buffer'] .= '</office:text>'
             . '</office:body>'
             . '</office:document-content>';
-        if (! $this->export->outputHandler(
-            OpenDocument::create(
-                'application/vnd.oasis.opendocument.text',
-                $GLOBALS['odt_buffer']
-            )
-        )
-        ) {
-            return false;
-        }
 
-        return true;
+        return $this->export->outputHandler(OpenDocument::create(
+            'application/vnd.oasis.opendocument.text',
+            $GLOBALS['odt_buffer']
+        ));
     }
 
     /**
@@ -272,9 +260,12 @@ class ExportOdt extends ExportPlugin
 
         $GLOBALS['odt_buffer']
             .= '<text:h text:outline-level="2" text:style-name="Heading_2"'
-            . ' text:is-list-header="true">'
-            . __('Dumping data for table') . ' ' . htmlspecialchars($table_alias)
-            . '</text:h>'
+            . ' text:is-list-header="true">';
+        $table_alias != ''
+            ? $GLOBALS['odt_buffer'] .= __('Dumping data for table') . ' ' . htmlspecialchars($table_alias)
+            : $GLOBALS['odt_buffer'] .= __('Dumping data for query result');
+        $GLOBALS['odt_buffer']
+            .= '</text:h>'
             . '<table:table'
             . ' table:name="' . htmlspecialchars($table_alias) . '_structure">'
             . '<table:table-column'
@@ -315,7 +306,7 @@ class ExportOdt extends ExportPlugin
                         . htmlspecialchars($GLOBALS[$what . '_null'])
                         . '</text:p>'
                         . '</table:table-cell>';
-                } elseif (false !== stripos($field_flags[$j], 'BINARY')
+                } elseif (stripos($field_flags[$j], 'BINARY') !== false
                     && $fields_meta[$j]->blob
                 ) {
                     // ignore BLOB
@@ -350,6 +341,20 @@ class ExportOdt extends ExportPlugin
         $GLOBALS['odt_buffer'] .= '</table:table>';
 
         return true;
+    }
+
+    /**
+     * Outputs result raw query in ODT format
+     *
+     * @param string $err_url   the url to go back in case of error
+     * @param string $sql_query the rawquery to output
+     * @param string $crlf      the end of line sequence
+     *
+     * @return bool if succeeded
+     */
+    public function exportRawQuery(string $err_url, string $sql_query, string $crlf): bool
+    {
+        return $this->exportData('', '', $crlf, $err_url, $sql_query);
     }
 
     /**
@@ -596,7 +601,7 @@ class ExportOdt extends ExportPlugin
      * @param string $table   table name
      * @param array  $aliases Aliases of db/table/columns
      *
-     * @return bool true
+     * @return string
      */
     protected function getTriggers($db, $table, array $aliases = [])
     {
@@ -651,7 +656,7 @@ class ExportOdt extends ExportPlugin
 
         $GLOBALS['odt_buffer'] .= '</table:table>';
 
-        return true;
+        return $GLOBALS['odt_buffer'];
     }
 
     /**
@@ -798,7 +803,7 @@ class ExportOdt extends ExportPlugin
         }
         $definition .= '<table:table-cell office:value-type="string">'
             . '<text:p>'
-            . (($column['Null'] == '' || $column['Null'] == 'NO')
+            . ($column['Null'] == '' || $column['Null'] == 'NO'
                 ? __('No')
                 : __('Yes'))
             . '</text:p>'

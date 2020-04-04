@@ -99,7 +99,7 @@ function loadSVG () {
     });
 
     // Removes the second SVG element unnecessarily added due to the above command
-    $placeholder.find('svg:nth-child(2)').remove();
+    $placeholder.find(document.querySelectorAll('svg:nth-child(2)')).remove();
 }
 
 /**

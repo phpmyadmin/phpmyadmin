@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Tracking
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -15,24 +13,21 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracking;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
+use function htmlspecialchars;
+use function sprintf;
 
 /**
  * Tests for PhpMyAdmin\Tracking
- *
- * @package PhpMyAdmin-test
  */
 class TrackingTest extends TestCase
 {
-    /**
-     * @var Tracking $tracking
-     */
+    /** @var Tracking $tracking */
     private $tracking;
 
     /**
      * Setup function for test cases
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
@@ -81,6 +76,7 @@ class TrackingTest extends TestCase
      * Tests for filter() method.
      *
      * @return void
+     *
      * @test
      */
     public function testFilter()
@@ -122,6 +118,7 @@ class TrackingTest extends TestCase
      * Tests for extractTableNames() method from nested table_list.
      *
      * @return void
+     *
      * @test
      */
     public function testExtractTableNames()
@@ -160,6 +157,7 @@ class TrackingTest extends TestCase
 
     /**
      * @return void
+     *
      * @test
      */
     public function testGetHtmlForMain()
@@ -254,7 +252,7 @@ class TrackingTest extends TestCase
 
         $item = sprintf(
             __('Create version %1$s of %2$s'),
-            ($last_version + 1),
+            $last_version + 1,
             htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table'])
         );
         $this->assertStringContainsString(
@@ -305,6 +303,7 @@ class TrackingTest extends TestCase
      * Tests for getTableLastVersionNumber() method.
      *
      * @return void
+     *
      * @test
      */
     public function testGetTableLastVersionNumber()
@@ -322,6 +321,7 @@ class TrackingTest extends TestCase
      * Tests for getSqlResultForSelectableTables() method.
      *
      * @return void
+     *
      * @test
      */
     public function testGetSQLResultForSelectableTables()
@@ -338,6 +338,7 @@ class TrackingTest extends TestCase
      * Tests for getHtmlForColumns() method.
      *
      * @return void
+     *
      * @test
      */
     public function testGetHtmlForColumns()
@@ -437,6 +438,7 @@ class TrackingTest extends TestCase
      * Tests for getListOfVersionsOfTable() method.
      *
      * @return void
+     *
      * @test
      */
     public function testGetListOfVersionsOfTable()
@@ -453,6 +455,7 @@ class TrackingTest extends TestCase
      * Tests for getHtmlForTrackingReport() method.
      *
      * @return void
+     *
      * @test
      */
     public function testGetHtmlForTrackingReportr()
@@ -551,6 +554,7 @@ class TrackingTest extends TestCase
      * Tests for getHtmlForDataManipulationStatements() method.
      *
      * @return void
+     *
      * @test
      */
     public function testGetHtmlForDataManipulationStatements()
@@ -614,6 +618,7 @@ class TrackingTest extends TestCase
      * Tests for getHtmlForDataDefinitionStatements() method.
      *
      * @return void
+     *
      * @test
      */
     public function testGetHtmlForDataDefinitionStatements()
@@ -682,6 +687,7 @@ class TrackingTest extends TestCase
      * Tests for getHtmlForIndexes() method.
      *
      * @return void
+     *
      * @test
      */
     public function testGetHtmlForIndexes()
@@ -757,6 +763,7 @@ class TrackingTest extends TestCase
      * Tests for getTrackingSet() method.
      *
      * @return void
+     *
      * @test
      */
     public function testGetTrackingSet()
@@ -797,11 +804,11 @@ class TrackingTest extends TestCase
         );
     }
 
-
     /**
      * Tests for getEntries() method.
      *
      * @return void
+     *
      * @test
      */
     public function testGetEntries()

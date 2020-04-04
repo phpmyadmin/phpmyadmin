@@ -1,8 +1,6 @@
 <?php
 /**
  * Test for PhpMyAdmin\Util class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -10,24 +8,28 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Html\Forms;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\MoTranslator\Loader;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\Util;
+use function date_default_timezone_get;
+use function date_default_timezone_set;
+use function floatval;
+use function htmlspecialchars;
+use function ini_get;
+use function ini_set;
+use function str_replace;
+use function strlen;
+use function trim;
 
 /**
  * Test for PhpMyAdmin\Util class
- *
- * @package PhpMyAdmin-test
  */
 class UtilTest extends PmaTestCase
 {
     /**
      * Test for createGISData
-     *
-     * @return void
      */
     public function testCreateGISDataOldMysql(): void
     {
@@ -43,8 +45,6 @@ class UtilTest extends PmaTestCase
 
     /**
      * Test for createGISData
-     *
-     * @return void
      */
     public function testCreateGISDataNewMysql(): void
     {
@@ -60,8 +60,6 @@ class UtilTest extends PmaTestCase
 
     /**
      * Test for getGISFunctions
-     *
-     * @return void
      */
     public function testGetGISFunctions(): void
     {
@@ -127,7 +125,6 @@ class UtilTest extends PmaTestCase
      * @param string $collation Collation
      * @param string $expected  Expected Charset Query
      *
-     * @return void
      * @test
      * @dataProvider charsetQueryData
      */
@@ -176,9 +173,9 @@ class UtilTest extends PmaTestCase
     /**
      * Test if cached data is available after set
      *
-     * @covers \PhpMyAdmin\Util::cacheExists
-     *
      * @return void
+     *
+     * @covers \PhpMyAdmin\Util::cacheExists
      */
     public function testCacheExists()
     {
@@ -194,9 +191,9 @@ class UtilTest extends PmaTestCase
     /**
      * Test if PhpMyAdmin\Util::cacheGet does not return data for non existing cache entries
      *
-     * @covers \PhpMyAdmin\Util::cacheGet
-     *
      * @return void
+     *
+     * @covers \PhpMyAdmin\Util::cacheGet
      */
     public function testCacheGet()
     {
@@ -212,9 +209,9 @@ class UtilTest extends PmaTestCase
     /**
      * Test retrieval of cached data
      *
-     * @covers \PhpMyAdmin\Util::cacheSet
-     *
      * @return void
+     *
+     * @covers \PhpMyAdmin\Util::cacheSet
      */
     public function testCacheSetGet()
     {
@@ -230,9 +227,9 @@ class UtilTest extends PmaTestCase
     /**
      * Test clearing cached values
      *
-     * @covers \PhpMyAdmin\Util::cacheUnset
-     *
      * @return void
+     *
+     * @covers \PhpMyAdmin\Util::cacheUnset
      */
     public function testCacheUnSet()
     {
@@ -255,9 +252,9 @@ class UtilTest extends PmaTestCase
     /**
      * Test clearing user cache
      *
-     * @covers \PhpMyAdmin\Util::clearUserCache
-     *
      * @return void
+     *
+     * @covers \PhpMyAdmin\Util::clearUserCache
      */
     public function testClearUserCache()
     {
@@ -278,9 +275,9 @@ class UtilTest extends PmaTestCase
     /**
      * Test for Util::checkParameters
      *
-     * @covers \PhpMyAdmin\Util::checkParameters
-     *
      * @return void
+     *
+     * @covers \PhpMyAdmin\Util::checkParameters
      */
     public function testCheckParameterMissing()
     {
@@ -308,9 +305,9 @@ class UtilTest extends PmaTestCase
     /**
      * Test for Util::checkParameters
      *
-     * @covers \PhpMyAdmin\Util::checkParameters
-     *
      * @return void
+     *
+     * @covers \PhpMyAdmin\Util::checkParameters
      */
     public function testCheckParameter()
     {
@@ -341,8 +338,6 @@ class UtilTest extends PmaTestCase
      * @param string $bit Value
      * @param string $val Expected value
      *
-     * @return void
-     *
      * @covers \PhpMyAdmin\Util::convertBitDefaultValue
      * @dataProvider providerConvertBitDefaultValue
      */
@@ -363,6 +358,10 @@ class UtilTest extends PmaTestCase
     {
         return [
             [
+                null,
+                '',
+            ],
+            [
                 "b'",
                 '',
             ],
@@ -373,6 +372,22 @@ class UtilTest extends PmaTestCase
             [
                 "b'010111010'",
                 '010111010',
+            ],
+            'database name starting with b' => [
+                'big database',
+                'big database',
+            ],
+            "database name containing b'" => [
+                "a b'ig database",
+                "a b'ig database",
+            ],
+            'database name in single quotes' => [
+                "'a*database*name'",
+                "'a*database*name'",
+            ],
+            "database name with multiple b'" => [
+                "b'ens datab'ase'",
+                "b'ens datab'ase'",
             ],
         ];
     }
@@ -426,8 +441,6 @@ class UtilTest extends PmaTestCase
      * @param string $a Expected value
      * @param string $b String to escape
      *
-     * @return void
-     *
      * @covers \PhpMyAdmin\Util::escapeMysqlWildcards
      * @dataProvider providerUnEscapeMysqlWildcards
      */
@@ -445,8 +458,6 @@ class UtilTest extends PmaTestCase
      * @param string $a String to unescape
      * @param string $b Expected value
      *
-     * @return void
-     *
      * @covers \PhpMyAdmin\Util::unescapeMysqlWildcards
      * @dataProvider providerUnEscapeMysqlWildcards
      */
@@ -463,8 +474,6 @@ class UtilTest extends PmaTestCase
      *
      * @param string $in  string to evaluate
      * @param string $out expected output
-     *
-     * @return void
      *
      * @covers \PhpMyAdmin\Util::expandUserString
      * @dataProvider providerExpandUserString
@@ -538,8 +547,6 @@ class UtilTest extends PmaTestCase
      *
      * @param string $in  Column specification
      * @param array  $out Expected value
-     *
-     * @return void
      *
      * @covers \PhpMyAdmin\Util::extractColumnSpec
      * @dataProvider providerExtractColumnSpec
@@ -689,8 +696,6 @@ class UtilTest extends PmaTestCase
      * @param int|string $size     Size
      * @param int        $expected Expected value
      *
-     * @return void
-     *
      * @covers \PhpMyAdmin\Util::extractValueFromFormattedSize
      * @dataProvider providerExtractValueFromFormattedSize
      */
@@ -734,8 +739,6 @@ class UtilTest extends PmaTestCase
      *
      * @param string $a Engine
      * @param bool   $e Expected Value
-     *
-     * @return void
      *
      * @covers \PhpMyAdmin\Util::isForeignKeySupported
      * @dataProvider providerIsForeignKeySupported
@@ -784,8 +787,6 @@ class UtilTest extends PmaTestCase
      * @param int   $b Sensitiveness
      * @param int   $c Number of decimals to retain
      * @param array $e Expected value
-     *
-     * @return void
      *
      * @covers \PhpMyAdmin\Util::formatByteDown
      * @dataProvider providerFormatByteDown
@@ -919,8 +920,6 @@ class UtilTest extends PmaTestCase
      * @param int   $b Sensitiveness
      * @param int   $c Number of decimals to retain
      * @param array $d Expected value
-     *
-     * @return void
      *
      * @covers \PhpMyAdmin\Util::formatNumber
      * @dataProvider providerFormatNumber
@@ -1076,8 +1075,6 @@ class UtilTest extends PmaTestCase
      * @param string $unit Unit
      * @param string $res  Result
      *
-     * @return void
-     *
      * @covers \PhpMyAdmin\Util::getFormattedMaximumUploadSize
      * @dataProvider providerGetFormattedMaximumUploadSize
      */
@@ -1141,8 +1138,6 @@ class UtilTest extends PmaTestCase
      * @param string $target Target
      * @param array  $result Expected value
      *
-     * @return void
-     *
      * @covers \PhpMyAdmin\Util::getTitleForTarget
      * @dataProvider providerGetTitleForTarget
      */
@@ -1192,19 +1187,22 @@ class UtilTest extends PmaTestCase
     /**
      * localised date test, globals are defined
      *
-     * @param string $a Current timestamp
-     * @param string $b Format
-     * @param string $e Expected output
-     *
-     * @return void
+     * @param int    $a      Current timestamp
+     * @param string $b      Format
+     * @param string $e      Expected output
+     * @param string $tz     Timezone to set
+     * @param string $locale Locale to set
      *
      * @covers \PhpMyAdmin\Util::localisedDate
      * @dataProvider providerLocalisedDate
      */
-    public function testLocalisedDate($a, $b, $e): void
+    public function testLocalisedDate(int $a, string $b, string $e, string $tz, string $locale): void
     {
+        // A test case for #15830 could be added for using the php setlocale on a Windows CI
+        // See https://github.com/phpmyadmin/phpmyadmin/issues/15830
+        _setlocale(LC_ALL, $locale);
         $tmpTimezone = date_default_timezone_get();
-        date_default_timezone_set('Europe/London');
+        date_default_timezone_set($tz);
 
         $this->assertEquals(
             $e,
@@ -1212,6 +1210,7 @@ class UtilTest extends PmaTestCase
         );
 
         date_default_timezone_set($tmpTimezone);
+        _setlocale(LC_ALL, 'en');
     }
 
     /**
@@ -1221,16 +1220,91 @@ class UtilTest extends PmaTestCase
      */
     public function providerLocalisedDate()
     {
+        $hasJaTranslations = file_exists(LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo');
         return [
             [
                 1227455558,
                 '',
                 'Nov 23, 2008 at 03:52 PM',
+                'Europe/London',
+                'en',
             ],
             [
                 1227455558,
                 '%Y-%m-%d %H:%M:%S %a',
                 '2008-11-23 15:52:38 Sun',
+                'Europe/London',
+                'en',
+            ],
+            [
+                1227455558,
+                '%Y-%m-%d %H:%M:%S %a',
+                '2008-11-23 16:52:38 Sun',
+                'Europe/Paris',
+                'en',
+            ],
+            [
+                1227455558,
+                '%Y-%m-%d %H:%M:%S %a',
+                '2008-11-24 00:52:38 Mon',
+                'Asia/Tokyo',
+                'en',
+            ],
+            [
+                1227455558,
+                '%a %A %b %B',
+                'Mon Mon Nov Nov',
+                'Asia/Tokyo',
+                'en',
+            ],
+            [
+                1227455558,
+                '%a %A %b %B %P',
+                'Mon Mon Nov Nov AM',
+                'Asia/Tokyo',
+                'en',
+            ],
+            [
+                1227455558,
+                '%Y-%m-%d %H:%M:%S %a',
+                $hasJaTranslations ? '2008-11-24 00:52:38 月' : '2008-11-24 00:52:38 Mon',
+                'Asia/Tokyo',
+                'ja',
+            ],
+            [
+                1227455558,
+                '%a %A %b %B',
+                $hasJaTranslations ? '月 月 11 月 11 月' : 'Mon Mon Nov Nov',
+                'Asia/Tokyo',
+                'ja',
+            ],
+            [
+                1227455558,
+                '%a %A %b %B %P',
+                $hasJaTranslations ? '月 月 11 月 11 月 午前' : 'Mon Mon Nov Nov AM',
+                'Asia/Tokyo',
+                'ja',
+            ],
+            [
+                1227455558,
+                '月月',
+                '月月',
+                'Asia/Tokyo',
+                'ja',
+            ],
+            [
+                1227455558,
+                '%Y 年 2 月 %d 日 %H:%M',
+                '2008 年 2 月 24 日 00:52',
+                'Asia/Tokyo',
+                'ja',
+            ],
+            [
+                1227455558,
+                '%Y 年 2 � %d 日 %H:%M',
+                '2008 年 2 � 24 日 00:52',
+                'Asia/Tokyo',
+                'ja',
             ],
         ];
     }
@@ -1240,8 +1314,6 @@ class UtilTest extends PmaTestCase
      *
      * @param int    $a Timespan in seconds
      * @param string $e Expected output
-     *
-     * @return void
      *
      * @covers \PhpMyAdmin\Util::timespanFormat
      * @dataProvider providerTimespanFormat
@@ -1282,11 +1354,9 @@ class UtilTest extends PmaTestCase
     /**
      * test for generating string contains printable bit value of selected data
      *
-     * @param integer $a Value
-     * @param int     $b Length
-     * @param string  $e Expected output
-     *
-     * @return void
+     * @param int    $a Value
+     * @param int    $b Length
+     * @param string $e Expected output
      *
      * @covers \PhpMyAdmin\Util::printableBitValue
      * @dataProvider providerPrintableBitValue
@@ -1325,8 +1395,6 @@ class UtilTest extends PmaTestCase
      *
      * @param string $param    String
      * @param string $expected Expected output
-     *
-     * @return void
      *
      * @covers \PhpMyAdmin\Util::unQuote
      * @dataProvider providerUnQuote
@@ -1372,8 +1440,6 @@ class UtilTest extends PmaTestCase
      * @param string $param    String
      * @param string $expected Expected output
      *
-     * @return void
-     *
      * @covers \PhpMyAdmin\Util::unQuote
      * @dataProvider providerUnQuoteSelectedChar
      */
@@ -1417,8 +1483,6 @@ class UtilTest extends PmaTestCase
      *
      * @param string $a String
      * @param string $b Expected output
-     *
-     * @return void
      *
      * @covers \PhpMyAdmin\Util::backquote
      * @dataProvider providerBackquote
@@ -1475,8 +1539,6 @@ class UtilTest extends PmaTestCase
      * @param string $entry               String
      * @param string $expectedNoneOutput  Expected none output
      * @param string $expectedMssqlOutput Expected MSSQL output
-     *
-     * @return void
      *
      * @covers \PhpMyAdmin\Util::backquoteCompat
      * @dataProvider providerBackquoteCompat
@@ -1573,8 +1635,6 @@ class UtilTest extends PmaTestCase
      * @param string $a String
      * @param string $e Expected output
      *
-     * @return void
-     *
      * @covers \PhpMyAdmin\Util::userDir
      * @dataProvider providerUserDir
      */
@@ -1609,8 +1669,6 @@ class UtilTest extends PmaTestCase
      *
      * @param string $a String
      * @param string $e Expected output
-     *
-     * @return void
      *
      * @covers \PhpMyAdmin\Util::duplicateFirstNewline
      * @dataProvider providerDuplicateFirstNewline
@@ -1683,8 +1741,6 @@ class UtilTest extends PmaTestCase
 
     /**
      * Test for PhpMyAdmin\Util::buildActionTitles
-     *
-     * @return void
      */
     public function testBuildActionTitles(): void
     {
@@ -1719,8 +1775,6 @@ class UtilTest extends PmaTestCase
      *
      * @param bool  $expected Expected result for a given input
      * @param mixed $input    Input data to check
-     *
-     * @return void
      *
      * @dataProvider providerIsInteger
      */
@@ -1758,6 +1812,123 @@ class UtilTest extends PmaTestCase
                 false,
                 'input',
             ],
+        ];
+    }
+
+    /**
+     * Test for Util::getProtoFromForwardedHeader
+     *
+     * @param string $header The http Forwarded header
+     * @param string $proto  The protocol http/https
+     *
+     * @return void
+     *
+     * @dataProvider providerForwardedHeaders
+     */
+    public function testGetProtoFromForwardedHeader(string $header, string $proto): void
+    {
+        $protocolDetected = Util::getProtoFromForwardedHeader($header);
+        $this->assertEquals($proto, $protocolDetected);
+    }
+
+    /**
+     * Data provider for Util::getProtoFromForwardedHeader test
+     * @source https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Forwarded MDN docs
+     * @source https://www.nginx.com/resources/wiki/start/topics/examples/forwarded/ Nginx docs
+     *
+     * @return array
+     */
+    public function providerForwardedHeaders(): array
+    {
+        return [
+            [
+                '',
+                '',
+            ],
+            [
+                '=',
+                '',
+            ],
+            [
+                'https',
+                '',
+            ],
+            [
+                'https',
+                '',
+            ],
+            [
+                '=https',
+                '',
+            ],
+            [
+                '=http',
+                '',
+            ],
+            [
+                'For="[2001:db8:cafe::17]:4711"',
+                '',
+            ],
+            [
+                'for=192.0.2.60;proto=http;by=203.0.113.43',
+                'http',
+            ],
+            [
+                'for=192.0.2.43, for=198.51.100.17',
+                '',
+            ],
+            [
+                'for=123.34.567.89',
+                '',
+            ],
+            [
+                'for=192.0.2.43, for="[2001:db8:cafe::17]"',
+                '',
+            ],
+            [
+                'for=12.34.56.78;host=example.com;proto=https, for=23.45.67.89',
+                'https',
+            ],
+            [
+                'for=12.34.56.78, for=23.45.67.89;secret=egah2CGj55fSJFs, for=10.1.2.3',
+                '',
+            ],
+            [
+                'for=injected;by="',
+                '',
+            ],
+            [
+                'for=injected;by=", for=real',
+                '',
+            ],
+            [
+                'for=192.0.2.60;proto=http;by=203.0.113.43',
+                'http',
+            ],
+            [
+                'for=192.0.2.60;proto=htTp;by=203.0.113.43',
+                'http',
+            ],
+            [
+                'for=192.0.2.60;proto=HTTP;by=203.0.113.43',
+                'http',
+            ],
+            [
+                'for=192.0.2.60;proto= http;by=203.0.113.43',
+                'http',
+            ],
+            [
+                'for=12.34.45.67;secret="special;proto=abc;test=1";proto=http,for=23.45.67.89',
+                'http',
+            ],
+            [
+                'for=12.34.45.67;secret="special;proto=abc;test=1";proto=418,for=23.45.67.89',
+                '',
+            ],
+            /*[ // this test case is very special and would need a different implementation
+                'for=12.34.45.67;secret="special;proto=http;test=1";proto=https,for=23.45.67.89',
+                'https'
+            ]*/
         ];
     }
 }

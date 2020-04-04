@@ -1,15 +1,12 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Tracker
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Util;
 use ReflectionClass;
@@ -18,8 +15,6 @@ use ReflectionProperty;
 
 /**
  * Tests for PhpMyAdmin\Tracker
- *
- * @package PhpMyAdmin-test
  */
 class TrackerTest extends PmaTestCase
 {
@@ -27,7 +22,6 @@ class TrackerTest extends PmaTestCase
      * Setup function for test cases
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
@@ -56,10 +50,12 @@ class TrackerTest extends PmaTestCase
 
         $cfg['dbi'] = $dbi;
     }
+
     /**
      * Test for Tracker::enable
      *
      * @return void
+     *
      * @test
      */
     public function testEnabled()
@@ -77,6 +73,7 @@ class TrackerTest extends PmaTestCase
      * Test for Tracker::isActive()
      *
      * @return void
+     *
      * @test
      */
     public function testIsActive()
@@ -118,7 +115,6 @@ class TrackerTest extends PmaTestCase
      * @param string $string   String to test against
      * @param string $expected Expected Table Name
      *
-     * @return void
      * @test
      * @dataProvider getTableNameData
      */
@@ -138,7 +134,6 @@ class TrackerTest extends PmaTestCase
      * Data Provider for testGetTableName
      *
      * @return array Test data
-     *
      */
     public function getTableNameData()
     {
@@ -162,6 +157,7 @@ class TrackerTest extends PmaTestCase
      * Test for Tracker::isTracked()
      *
      * @return void
+     *
      * @test
      */
     public function testIsTracked()
@@ -198,6 +194,7 @@ class TrackerTest extends PmaTestCase
      * Test for Tracker::getLogComment()
      *
      * @return void
+     *
      * @test
      */
     public function testGetLogComment()
@@ -215,6 +212,7 @@ class TrackerTest extends PmaTestCase
      * Test for Tracker::createVersion()
      *
      * @return void
+     *
      * @test
      */
     public function testCreateVersion()
@@ -329,6 +327,7 @@ class TrackerTest extends PmaTestCase
      * Test for Tracker::deleteTracking()
      *
      * @return void
+     *
      * @test
      */
     public function testDeleteTracking()
@@ -360,6 +359,7 @@ class TrackerTest extends PmaTestCase
      * Test for Tracker::createDatabaseVersion()
      *
      * @return void
+     *
      * @test
      */
     public function testCreateDatabaseVersion()
@@ -417,7 +417,6 @@ class TrackerTest extends PmaTestCase
      * @return void
      *
      * @test
-     *
      */
     public function testChangeTracking(
         $dbname = 'pma_db',
@@ -474,6 +473,7 @@ class TrackerTest extends PmaTestCase
      * Test for Tracker::testChangeTrackingData()
      *
      * @return void
+     *
      * @test
      */
     public function testChangeTrackingData()
@@ -566,6 +566,7 @@ class TrackerTest extends PmaTestCase
      * Test for Tracker::activateTracking()
      *
      * @return void
+     *
      * @test
      */
     public function testActivateTracking()
@@ -577,6 +578,7 @@ class TrackerTest extends PmaTestCase
      * Test for Tracker::deactivateTracking()
      *
      * @return void
+     *
      * @test
      */
     public function testDeactivateTracking()
@@ -590,7 +592,6 @@ class TrackerTest extends PmaTestCase
      * @param array $fetchArrayReturn Value to be returned by mocked fetchArray
      * @param array $expectedArray    Expected array
      *
-     * @return void
      * @test
      * @dataProvider getTrackedDataProvider
      */

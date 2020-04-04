@@ -1,6 +1,6 @@
 @import "../../pmahomme/scss/direction";
 @import "variables";
-@import "../../pmahomme/scss/bootstrap";
+@import "../../bootstrap/scss/bootstrap";
 @import "common";
 @import "../../pmahomme/scss/enum-editor";
 @import "../../pmahomme/scss/gis";
@@ -12,6 +12,11 @@
 @import "../../pmahomme/scss/resizable-menu";
 @import "icons";
 @import "reboot";
+@import "forms";
+@import "nav";
+@import "navbar";
 @import "card";
 @import "breadcrumbs";
 @import "alert";
+@import "list-group";
+@import "modal";

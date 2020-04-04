@@ -1,20 +1,16 @@
 <?php
 /**
  * Test for Index class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Index;
-use PhpMyAdmin\Tests\PmaTestCase;
+use function implode;
 
 /**
  * Test for Index class
- *
- * @package PhpMyAdmin-test
  */
 class IndexTest extends PmaTestCase
 {
@@ -22,8 +18,6 @@ class IndexTest extends PmaTestCase
 
     /**
      * Configures parameters.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -102,21 +96,6 @@ class IndexTest extends PmaTestCase
         $this->assertEquals(
             'PMA_Index_choice',
             $index->getChoice()
-        );
-    }
-
-    /**
-     * Test for getIndexChoices
-     *
-     * @return void
-     */
-    public function testGetIndexChoices()
-    {
-        $index_choices = Index::getIndexChoices();
-        $this->assertCount(5, $index_choices);
-        $this->assertEquals(
-            'PRIMARY,INDEX,UNIQUE,SPATIAL,FULLTEXT',
-            implode(',', $index_choices)
         );
     }
 

@@ -3,60 +3,72 @@
  * Holds the PhpMyAdmin\MultSubmits class
  *
  * @usedby  mult_submits.inc.php
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Html\Forms\Fields\FKCheckbox;
+use function count;
+use function htmlspecialchars;
+use function in_array;
+use function mb_strlen;
+use function mb_strpos;
+use function mb_substr;
+use function preg_replace;
 
 /**
  * Functions for multi submit forms
- *
- * @package PhpMyAdmin
  */
 class MultSubmits
 {
-    /**
-     * @var Transformations
-     */
+    /** @var DatabaseInterface */
+    private $dbi;
+
+    /** @var Transformations */
     private $transformations;
 
-    /**
-     * @var RelationCleanup
-     */
+    /** @var RelationCleanup */
     private $relationCleanup;
 
-    /**
-     * @var Operations
-     */
+    /** @var Operations */
     private $operations;
 
+    /** @var Template */
+    private $template;
+
     /**
-     * MultSubmits constructor.
+     * @param DatabaseInterface $dbi             DatabaseInterface instance.
+     * @param Template          $template        Template instance.
+     * @param Transformations   $transformations Transformations instance.
+     * @param RelationCleanup   $relationCleanup RelationCleanup instance.
+     * @param Operations        $operations      Operations instance.
      */
-    public function __construct()
-    {
-        $this->transformations = new Transformations();
-        $relation = new Relation($GLOBALS['dbi']);
-        $this->relationCleanup = new RelationCleanup($GLOBALS['dbi'], $relation);
-        $this->operations = new Operations($GLOBALS['dbi'], $relation);
+    public function __construct(
+        $dbi,
+        Template $template,
+        Transformations $transformations,
+        RelationCleanup $relationCleanup,
+        Operations $operations
+    ) {
+        $this->dbi = $dbi;
+        $this->template = $template;
+        $this->transformations = $transformations;
+        $this->relationCleanup = $relationCleanup;
+        $this->operations = $operations;
     }
 
     /**
      * Gets url params
      *
-     * @param string     $what             mult submit type
-     * @param bool       $reload           is reload
-     * @param string     $action           action type
-     * @param string     $db               database name
-     * @param string     $table            table name
-     * @param array      $selected         selected rows(table,db)
-     * @param array|null $views            table views
-     * @param string     $originalSqlQuery original sql query
-     * @param string     $originalUrlQuery original url query
+     * @param string      $what             mult submit type
+     * @param bool        $reload           is reload
+     * @param string      $action           action type
+     * @param string      $db               database name
+     * @param string      $table            table name
+     * @param array       $selected         selected rows(table,db)
+     * @param array|null  $views            table views
+     * @param string|null $originalSqlQuery original sql query
+     * @param string|null $originalUrlQuery original url query
      *
      * @return array
      */
@@ -110,14 +122,14 @@ class MultSubmits
     /**
      * Builds or execute queries for multiple elements, depending on $queryType
      *
-     * @param string     $queryType  query type
-     * @param array      $selected   selected tables
-     * @param string     $db         db name
-     * @param string     $table      table name
-     * @param array|null $views      table views
-     * @param string     $primary    table primary
-     * @param string     $fromPrefix from prefix original
-     * @param string     $toPrefix   to prefix original
+     * @param string      $queryType  query type
+     * @param array       $selected   selected tables
+     * @param string      $db         db name
+     * @param string      $table      table name
+     * @param array|null  $views      table views
+     * @param string|null $primary    table primary
+     * @param string|null $fromPrefix from prefix original
+     * @param string|null $toPrefix   to prefix original
      *
      * @return array
      */
@@ -288,13 +300,13 @@ class MultSubmits
                     $subFromPrefix = mb_substr(
                         $current,
                         0,
-                        mb_strlen($fromPrefix)
+                        mb_strlen((string) $fromPrefix)
                     );
                     if ($subFromPrefix == $fromPrefix) {
                         $newTableName = $toPrefix
                             . mb_substr(
                                 $current,
-                                mb_strlen($fromPrefix)
+                                mb_strlen((string) $fromPrefix)
                             );
                     } else {
                         $newTableName = $current;
@@ -313,7 +325,7 @@ class MultSubmits
 
                     $current = $selected[$i];
                     $newTableName = $toPrefix .
-                    mb_substr($current, mb_strlen($fromPrefix));
+                    mb_substr($current, mb_strlen((string) $fromPrefix));
 
                     // COPY TABLE AND CHANGE PREFIX PATTERN
                     Table::moveCopy(
@@ -355,9 +367,9 @@ class MultSubmits
             if ($runParts && ! $copyTable) {
                 $sqlQuery .= $aQuery . ';' . "\n";
                 if ($queryType != 'drop_db') {
-                    $GLOBALS['dbi']->selectDb($db);
+                    $this->dbi->selectDb($db);
                 }
-                $result = $GLOBALS['dbi']->query($aQuery);
+                $result = $this->dbi->query($aQuery);
 
                 if ($queryType == 'drop_db') {
                     $this->transformations->clear($selected[$i]);
@@ -374,7 +386,7 @@ class MultSubmits
             $_REQUEST['pos'] = $sql->calculatePosForLastPage(
                 $db,
                 $table,
-                isset($_REQUEST['pos']) ? $_REQUEST['pos'] : null
+                $_REQUEST['pos'] ?? null
             );
         }
 
@@ -399,9 +411,6 @@ class MultSubmits
      */
     public function getHtmlForCopyMultipleTables($action, array $urlParams)
     {
-        $html = '<form id="ajax_form" action="' . $action . '" method="post">';
-        $html .= Url::getHiddenInputs($urlParams);
-        $html .= '<fieldset class = "input">';
         $databasesList = $GLOBALS['dblist']->databases;
         foreach ($databasesList as $key => $databaseName) {
             if ($databaseName == $GLOBALS['db']) {
@@ -409,64 +418,12 @@ class MultSubmits
                 break;
             }
         }
-        $html .= '<strong><label for="db_name_dropdown">' . __('Database') . ':</label></strong>';
-        $html .= '<select id="db_name_dropdown" class="halfWidth" name="target_db" >'
-            . $databasesList->getHtmlOptions(true, false)
-            . '</select>';
-        $html .= '<br><br>';
-        $html .= '<strong><label>' . __('Options') . ':</label></strong><br>';
-        $html .= '<input type="radio" id ="what_structure" value="structure" name="what">';
-        $html .= '<label for="what_structure">' . __('Structure only') . '</label><br>';
-        $html .= '<input type="radio" id ="what_data" value="data" name="what" checked="checked">';
-        $html .= '<label for="what_data">' . __('Structure and data') . '</label><br>';
-        $html .= '<input type="radio" id ="what_dataonly" value="dataonly" name="what">';
-        $html .= '<label for="what_dataonly">' . __('Data only') . '</label><br><br>';
-        $html .= '<input type="checkbox" id="checkbox_drop" value="true" name="drop_if_exists">';
-        $html .= '<label for="checkbox_drop">' . __('Add DROP TABLE') . '</label><br>';
-        $html .= '<input type="checkbox" id="checkbox_auto_increment_cp" value="1" name="sql_auto_increment">';
-        $html .= '<label for="checkbox_auto_increment_cp">' . __('Add AUTO INCREMENT value') . '</label><br>';
-        $html .= '<input type="checkbox" id="checkbox_constraints" value="1" name="sql_auto_increment" checked="checked">';
-        $html .= '<label for="checkbox_constraints">' . __('Add constraints') . '</label><br><br>';
-        $html .= '<input name="adjust_privileges" value="1" id="checkbox_adjust_privileges" checked="checked" type="checkbox">';
-        $html .= '<label for="checkbox_adjust_privileges">' . __('Adjust privileges') . '<a href="./doc/html/faq.html#faq6-39" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a></label>';
-        $html .= '</fieldset>';
-        $html .= '<input type="hidden" name="mult_btn" value="' . __('Yes') . '">';
-        $html .= '</form>';
-        return $html;
-    }
 
-    /**
-     * Gets HTML for replace_prefix_tbl or copy_tbl_change_prefix
-     *
-     * @param string $action    action type
-     * @param array  $urlParams URL params
-     *
-     * @return string
-     */
-    public function getHtmlForReplacePrefixTable($action, array $urlParams)
-    {
-        $html  = '<form id="ajax_form" action="' . $action . '" method="post">';
-        $html .= Url::getHiddenInputs($urlParams);
-        $html .= '<fieldset class = "input">';
-        $html .= '<table>';
-        $html .= '<tr>';
-        $html .= '<td>' . __('From') . '</td>';
-        $html .= '<td>';
-        $html .= '<input type="text" name="from_prefix" id="initialPrefix">';
-        $html .= '</td>';
-        $html .= '</tr>';
-        $html .= '<tr>';
-        $html .= '<td>' . __('To') . '</td>';
-        $html .= '<td>';
-        $html .= '<input type="text" name="to_prefix" id="newPrefix">';
-        $html .= '</td>';
-        $html .= '</tr>';
-        $html .= '</table>';
-        $html .= '</fieldset>';
-        $html .= '<input type="hidden" name="mult_btn" value="' . __('Yes') . '">';
-        $html .= '</form>';
-
-        return $html;
+        return $this->template->render('mult_submits/copy_multiple_tables', [
+            'action' => $action,
+            'url_params' => $urlParams,
+            'options' => $databasesList->getList(),
+        ]);
     }
 
     /**
@@ -525,7 +482,12 @@ class MultSubmits
         // Display option to disable foreign key checks while dropping tables
         if ($what === 'drop_tbl' || $what === 'empty_tbl' || $what === 'row_delete') {
             $html .= '<div id="foreignkeychk">';
-            $html .= FKCheckbox::generate();
+            $html .= '<input type="hidden" name="fk_checks" value="0">';
+            $html .= '<input type="checkbox" name="fk_checks" id="fk_checks" value="1"';
+            $html .= Util::isForeignKeyCheck() ? ' checked>' : '>';
+            $html .= ' <label for="fk_checks">';
+            $html .= __('Enable foreign key checks');
+            $html .= '</label>';
             $html .= '</div>';
         }
         $html .= '<input id="buttonYes" class="btn btn-secondary" type="submit" name="mult_btn" value="'
@@ -641,7 +603,7 @@ class MultSubmits
             unset($fullQueryViews);
         }
 
-        $fullQueryViews = isset($fullQueryViews) ? $fullQueryViews : null;
+        $fullQueryViews = $fullQueryViews ?? null;
 
         return [
             $fullQuery,

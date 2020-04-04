@@ -2,8 +2,6 @@
 /**
  * This class is responsible for instantiating
  * the various components of the navigation panel
- *
- * @package PhpMyAdmin-navigation
  */
 declare(strict_types=1);
 
@@ -18,36 +16,33 @@ use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function count;
+use function defined;
+use function file_exists;
+use function is_bool;
+use function parse_url;
+use function strpos;
+use function trim;
+use const PHP_URL_HOST;
 
 /**
  * The navigation panel - displays server, db and table selection tree
- *
- * @package PhpMyAdmin-Navigation
  */
 class Navigation
 {
-    /**
-     * @var Template
-     */
+    /** @var Template */
     private $template;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @var NavigationTree
-     */
+    /** @var NavigationTree */
     private $tree;
 
     /**
-     * Navigation constructor.
      * @param Template          $template Template instance
      * @param Relation          $relation Relation instance
      * @param DatabaseInterface $dbi      DatabaseInterface instance
@@ -134,6 +129,7 @@ class Navigation
             'is_navigation_settings_enabled' => ! defined('PMA_DISABLE_NAVI_SETTINGS'),
             'navigation_settings' => $navigationSettings ?? '',
             'is_drag_drop_import_enabled' => $cfg['enable_drag_drop_import'] === true,
+            'is_mariadb' => $this->dbi->isMariaDB(),
         ]);
     }
 
@@ -234,6 +230,7 @@ class Navigation
     /**
      * @param string      $database Database name
      * @param string|null $table    Table name
+     *
      * @return array
      */
     private function getHiddenItems(string $database, ?string $table): array

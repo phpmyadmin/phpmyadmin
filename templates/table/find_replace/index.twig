@@ -1,0 +1,62 @@
+<ul class="nav nav-pills m-2">
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url('/table/search', {'db': db, 'table': table, 'pos': 0}) }}">
+      {{ get_icon('b_search', 'Table search'|trans) }}
+    </a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url('/table/zoom-search', {'db': db, 'table': table}) }}">
+      {{ get_icon('b_select', 'Zoom search'|trans) }}
+    </a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link active" href="{{ url('/table/find-replace', {'db': db, 'table': table}) }}">
+      {{ get_icon('b_find_replace', 'Find and replace'|trans) }}
+    </a>
+  </li>
+</ul>
+
+<form method="post" action="{{ url('/table/find-replace') }}" name="insertForm" id="find_replace_form" class="ajax lock-page">
+  {{ get_hidden_inputs(db, table) }}
+  <input type="hidden" name="goto" value="{{ goto }}">
+  <input type="hidden" name="back" value="{{ url('/table/find-replace') }}">
+
+  <fieldset id="fieldset_find_replace">
+    <fieldset id="fieldset_find">
+      <legend>
+        {% trans 'Find and replace' %}
+      </legend>
+
+      <label for="findInput">{% trans 'Find:' %}</label>
+      <input type="text" value="" name="find" id="findInput" required>
+
+      <label for="replaceWithInput">{% trans 'Replace with:' %}</label>
+      <input type="text" value="" name="replaceWith" id="replaceWithInput">
+
+      <label for="columnIndexSelect">{% trans 'Column:' %}</label>
+      <select name="columnIndex" id="columnIndexSelect">
+        {% for i in 0..column_names|length - 1 %}
+          {% set type = types[column_names[i]] %}
+
+          {% if sql_types.getTypeClass(type) == 'CHAR' %}
+            <option value="{{ i }}">
+              {{- column_names[i] -}}
+            </option>
+          {% endif %}
+        {% endfor %}
+      </select>
+
+      <input type="checkbox" name="useRegex" id="useRegex">
+      <label for="useRegex">
+        {% trans 'Use regular expression' %}
+      </label>
+    </fieldset>
+  </fieldset>
+
+  <fieldset class="tblFooters">
+    <input class="btn btn-primary" type="submit" name="submit" value="{% trans 'Go' %}">
+  </fieldset>
+</form>
+<div id="sqlqueryresultsouter"></div>

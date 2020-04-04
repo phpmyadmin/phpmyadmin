@@ -1,9 +1,6 @@
 <?php
 /**
  * Selenium TestCase for creating and deleting databases
- *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  */
 declare(strict_types=1);
 
@@ -12,16 +9,12 @@ namespace PhpMyAdmin\Tests\Selenium;
 /**
  * CreateDropDatabaseTest class
  *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  * @group      selenium
  */
 class CreateDropDatabaseTest extends TestBase
 {
     /**
      * Setup the browser environment to run the selenium test case
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -77,11 +70,16 @@ class CreateDropDatabaseTest extends TestBase
         $this->waitAjax();
 
         $this->scrollToBottom();
-        $this->byCssSelector(
-            "input[name='selected_dbs[]'][value='" . $this->database_name . "']"
-        )->click();
 
-        $this->byCssSelector('button.mult_submit')->click();
+        $dbElement = $this->byCssSelector(
+            "input[name='selected_dbs[]'][value='" . $this->database_name . "']"
+        );
+        $this->scrollToElement($dbElement, 0, 20);
+        $dbElement->click();
+
+        $multSubmit = $this->byCssSelector('button.mult_submit');
+        $this->scrollToElement($multSubmit);
+        $multSubmit->click();
         $this->byCssSelector('button.submitOK')->click();
 
         $this->waitForElementNotPresent(

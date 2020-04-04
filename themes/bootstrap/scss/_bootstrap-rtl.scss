@@ -1,0 +1,74 @@
+@if $direction == rtl {
+
+  //
+  // scss/_forms.scss
+  //
+
+  .form-check {
+    padding-left: inherit;
+    padding-right: $form-check-input-gutter;
+  }
+
+  .form-check-input {
+    margin-left: inherit;
+    margin-right: -$form-check-input-gutter;
+  }
+
+  //
+  // scss/utilities/_text.scss
+  //
+
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+      .text#{$infix}-left {
+        text-align: right !important;
+      }
+      .text#{$infix}-right {
+        text-align: left !important;
+      }
+    }
+  }
+
+  //
+  // scss/utilities/_spacing.scss
+  //
+
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+      @each $prop, $abbrev in (margin: m, padding: p) {
+        @each $size, $length in $spacers {
+          .#{$abbrev}r#{$infix}-#{$size} {
+            #{$prop}-left: $length !important;
+          }
+          .#{$abbrev}l#{$infix}-#{$size} {
+            #{$prop}-right: $length !important;
+          }
+        }
+      }
+
+      // Negative margins (e.g., where `.mb-n1` is negative version of `.mb-1`)
+      @each $size, $length in $spacers {
+        @if $size != 0 {
+          .mr#{$infix}-n#{$size} {
+            margin-left: -$length !important;
+          }
+          .ml#{$infix}-n#{$size} {
+            margin-right: -$length !important;
+          }
+        }
+      }
+
+      // Some special margin utils
+      .mr#{$infix}-auto {
+        margin-left: auto !important;
+      }
+      .ml#{$infix}-auto {
+        margin-right: auto !important;
+      }
+    }
+  }
+}

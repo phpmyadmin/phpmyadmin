@@ -1,16 +1,12 @@
 <?php
 /**
  * Set of functions used to build MediaWiki dumps of tables
- *
- * @package    PhpMyAdmin-Export
- * @subpackage MediaWiki
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -19,18 +15,16 @@ use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Util;
+use function array_values;
+use function count;
+use function htmlspecialchars;
+use function str_repeat;
 
 /**
  * Handles the export for the MediaWiki class
- *
- * @package    PhpMyAdmin-Export
- * @subpackage MediaWiki
  */
 class ExportMediawiki extends ExportPlugin
 {
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();
@@ -295,7 +289,9 @@ class ExportMediawiki extends ExportPlugin
 
         // Print data comment
         $output = $this->_exportComment(
-            'Table data for ' . Util::backquote($table_alias)
+            $table_alias != ''
+                ? 'Table data for ' . Util::backquote($table_alias)
+                : 'Query results'
         );
 
         // Begin the table construction
@@ -352,6 +348,20 @@ class ExportMediawiki extends ExportPlugin
         $output .= '|}' . str_repeat($this->_exportCRLF(), 2);
 
         return $this->export->outputHandler($output);
+    }
+
+    /**
+     * Outputs result raw query in MediaWiki format
+     *
+     * @param string $err_url   the url to go back in case of error
+     * @param string $sql_query the rawquery to output
+     * @param string $crlf      the end of line sequence
+     *
+     * @return bool if succeeded
+     */
+    public function exportRawQuery(string $err_url, string $sql_query, string $crlf): bool
+    {
+        return $this->exportData('', '', $crlf, $err_url, $sql_query);
     }
 
     /**

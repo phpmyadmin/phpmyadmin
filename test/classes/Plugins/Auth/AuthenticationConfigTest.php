@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\Plugins\Auth\AuthenticationConfig class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -12,11 +10,11 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Plugins\Auth\AuthenticationConfig;
 use PhpMyAdmin\Tests\PmaTestCase;
+use function ob_get_clean;
+use function ob_start;
 
 /**
  * tests for PhpMyAdmin\Plugins\Auth\AuthenticationConfig class
- *
- * @package PhpMyAdmin-test
  */
 class AuthenticationConfigTest extends PmaTestCase
 {
@@ -24,8 +22,6 @@ class AuthenticationConfigTest extends PmaTestCase
 
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -42,8 +38,6 @@ class AuthenticationConfigTest extends PmaTestCase
 
     /**
      * tearDown for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -118,7 +112,7 @@ class AuthenticationConfigTest extends PmaTestCase
 
         $this->assertStringContainsString(
             '<strong>MySQL said: </strong><a href="./url.php?url=https%3A%2F%2F' .
-            'dev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Ferror-messages-server.html"' .
+            'dev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Fserver-error-reference.html"' .
             ' target="mysql_doc">' .
             '<img src="themes/dot.gif" title="Documentation" alt="Documentation" ' .
             'class="icon ic_b_help"></a>',
