@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-04-03 09:06+0200\n"
-"PO-Revision-Date: 2020-03-31 16:16+0000\n"
+"PO-Revision-Date: 2020-04-04 17:01+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/et/>\n"
@@ -13486,10 +13486,8 @@ msgid "Ins:"
 msgstr "Lisa:"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:12
-#, fuzzy
-#| msgid "And:"
 msgid "And"
-msgstr "Ja:"
+msgstr "Ja"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:17
 msgid "Del:"
@@ -13525,21 +13523,15 @@ msgid "Modify:"
 msgstr "Muuda:"
 
 #: templates/database/qbe/selection_form.twig:54
-#, fuzzy
-#| msgid "Add/Delete criteria rows"
 msgid "Add/Delete criteria rows:"
-msgstr "Lisa/Kustuta kriteeriumiridu"
+msgstr "Lisa/Kustuta kriteeriumiridu:"
 
 #: templates/database/qbe/selection_form.twig:67
-#, fuzzy
-#| msgid "Add/Delete columns"
 msgid "Add/Delete columns:"
-msgstr "Lisa/Kustuta veergusid"
+msgstr "Lisa/Kustuta veergusid:"
 
 #: templates/database/qbe/selection_form.twig:86
 #: templates/database/qbe/selection_form.twig:88
-#, fuzzy
-#| msgid "Use Tables"
 msgid "Use tables"
 msgstr "Kasuta tabeleid"
 
@@ -13993,10 +13985,8 @@ msgid "Browse your computer:"
 msgstr "Sirvi oma arvutist:"
 
 #: templates/display/import/import.twig:73
-#, fuzzy
-#| msgid "Browse your computer:"
 msgid "Browse your computer"
-msgstr "Sirvi oma arvutist:"
+msgstr "Sirvi oma arvutist"
 
 #: templates/display/import/import.twig:79
 #: templates/display/import/import.twig:112
@@ -14005,16 +13995,13 @@ msgstr "Sa võid lohistada ja kukutada faili igale lehele."
 
 #: templates/display/import/import.twig:85
 #: templates/display/import/import.twig:115
-#, fuzzy, php-format
-#| msgid "Select from the web server upload directory <b>%s</b>:"
+#, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "Vali veebiserveri üleslaadimise kataloogist <b>%s</b>:"
+msgstr "Vali veebiserveri üleslaadimise kataloogist [strong]%s[/strong]:"
 
 #: templates/display/import/import.twig:91
-#, fuzzy
-#| msgid "File to import:"
 msgid "Select file to import"
-msgstr "Imporditav fail:"
+msgstr "Vali imporditav fail"
 
 #: templates/display/import/import.twig:96
 #: templates/display/import/import.twig:126
