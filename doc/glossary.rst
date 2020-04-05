@@ -196,7 +196,7 @@ From Wikipedia, the free encyclopedia
     Mac
        Apple Macintosh is a line of personal computers is designed, developed, manufactured, and marketed by Apple Computer.
 
-      .. seealso:: <https://en.wikipedia.org/wiki/Mac>
+       .. seealso:: <https://en.wikipedia.org/wiki/Mac>
 
     Mac OS X
       the operating system which is included with all currently shipping Apple Macintosh computers in the consumer and professional markets.
