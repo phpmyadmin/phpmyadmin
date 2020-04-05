@@ -315,6 +315,7 @@ class GisGeometryCollectionTest extends TestCase
             $scale_data
         );
         $this->assertEquals(1, preg_match($output, $string));
+        // assertMatchesRegularExpression added in 9.1
         $this->assertRegExp(
             $output,
             $this->object->prepareRowAsSvg(

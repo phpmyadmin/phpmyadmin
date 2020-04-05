@@ -178,6 +178,7 @@ class FormTest extends PmaTestCase
 
         // needs regexp because the counter is static
 
+        // assertMatchesRegularExpression added in 9.1
         $this->assertRegExp(
             '/^preffoo\/foo\/bar\/\:group\:end\:\d+$/',
             $result[1]
@@ -225,6 +226,7 @@ class FormTest extends PmaTestCase
         $keys = array_keys($result);
         $key = $keys[0];
 
+        // assertMatchesRegularExpression added in 9.1
         $this->assertRegExp(
             '/^\:group\:end\:(\d+)$/',
             $key
