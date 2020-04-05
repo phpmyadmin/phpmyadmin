@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-24 23:04+0100\n"
-"PO-Revision-Date: 2019-12-25 08:21+0000\n"
+"PO-Revision-Date: 2020-04-05 18:26+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/"
-"phpmyadmin/5-0/pt/>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
+"5-0/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Weblate 4.0-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -10697,18 +10697,6 @@ msgstr ""
 "opção, terá de configurar a primeira opção com uma cadeia vazia."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:31
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Output/Text_Plain_External.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -10725,11 +10713,11 @@ msgstr ""
 "coluna através do input predefinido. Retorna o output predefinido do "
 "aplicativo. A predefinição é Limpo, para impressão bonita do código HTML. "
 "Por razões de segurança, você tem que editar o ficheiro libraries/classes/"
-"Plugins/Transformations/Output/Text_Plain_External.php manualmente e listar "
-"as ferramentas que queira tornar disponível. A primeira opção é então o "
-"número do programa que deseja usar e a segunda opção são os parâmetros para "
-"o programa. A terceira opção, se for configurada 1, irá converter a saída "
-"usando htmlspecialchars() (predefinição 1). A quarta opção, se for "
+"Plugins/Transformations/Abs/ExternalTransformationsPlugin.php manualmente e "
+"listar as ferramentas que queira tornar disponível. A primeira opção é então "
+"o número do programa que deseja usar. A segunda opção deve estar em branco "
+"por razões históricas. A terceira opção, se for configurada 1, irá converter "
+"a saída usando htmlspecialchars() (predefinição 1). A quarta opção, se for "
 "configurada 1, prevenirá a quebra de linha e garantirá que a saída apareça "
 "toda em uma linha (predefinição 1)."
 
@@ -10740,6 +10728,9 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"Está a usar o campo de opções de linha de comando de transformação externa, "
+"que foi depreciado por motivos de segurança. Adicione todas as opções de "
+"linha de comando diretamente à definição em %s."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:31
 msgid ""
@@ -13507,10 +13498,8 @@ msgstr "Nome de tabela inválido"
 
 #. l10n: In case a SQL query did not pass a security check
 #: tbl_get_field.php:62
-#, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
-msgstr "Existem joins demais sem índices."
+msgstr "Há um problema com a sua requisição."
 
 #: tbl_replace.php:266
 #, php-format
