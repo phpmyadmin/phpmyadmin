@@ -180,6 +180,7 @@ jobs:
       after_script: skip
       after_success: skip
       install:
+        - nvm install 10
         - source ~/virtualenv/python3.6/bin/activate
         - pip install 'Sphinx'
       script: ./scripts/create-release.sh --ci
