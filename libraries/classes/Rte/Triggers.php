@@ -10,6 +10,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function count;
@@ -30,9 +31,6 @@ class Triggers
     /** @var Export */
     private $export;
 
-    /** @var Footer */
-    private $footer;
-
     /** @var General */
     private $general;
 
@@ -45,6 +43,9 @@ class Triggers
     /** @var DatabaseInterface */
     private $dbi;
 
+    /** @var Template */
+    private $template;
+
     /**
      * @param DatabaseInterface $dbi DatabaseInterface object
      */
@@ -52,10 +53,10 @@ class Triggers
     {
         $this->dbi = $dbi;
         $this->export = new Export($this->dbi);
-        $this->footer = new Footer($this->dbi);
         $this->general = new General($this->dbi);
         $this->rteList = new RteList($this->dbi);
         $this->words = new Words();
+        $this->template = new Template();
     }
 
     /**
@@ -99,11 +100,12 @@ class Triggers
          */
         $items = $this->dbi->getTriggers($db, $table);
         echo $this->rteList->get('trigger', $items);
-        /**
-         * Display a link for adding a new trigger,
-         * if the user has the necessary privileges
-         */
-        echo $this->footer->triggers();
+
+        echo $this->template->render('rte/triggers/footer', [
+            'db' => $db,
+            'table' => $table,
+            'has_privilege' => Util::currentUserHasPrivilege('TRIGGER', $db, $table),
+        ]);
     }
 
     /**

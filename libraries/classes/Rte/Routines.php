@@ -49,9 +49,6 @@ class Routines
     /** @var Export */
     private $export;
 
-    /** @var Footer */
-    private $footer;
-
     /** @var General */
     private $general;
 
@@ -64,6 +61,9 @@ class Routines
     /** @var DatabaseInterface */
     private $dbi;
 
+    /** @var Template */
+    private $template;
+
     /**
      * @param DatabaseInterface $dbi DatabaseInterface object
      */
@@ -71,10 +71,10 @@ class Routines
     {
         $this->dbi = $dbi;
         $this->export = new Export($this->dbi);
-        $this->footer = new Footer($this->dbi);
         $this->general = new General($this->dbi);
         $this->rteList = new RteList($this->dbi);
         $this->words = new Words();
+        $this->template = new Template();
     }
 
     /**
@@ -115,7 +115,7 @@ class Routines
      */
     public function main($type)
     {
-        global $db;
+        global $db, $table;
 
         $this->setGlobals();
         /**
@@ -132,10 +132,13 @@ class Routines
         }
         $items = $this->dbi->getRoutines($db, $type);
         echo $this->rteList->get('routine', $items);
-        /**
-         * Display the form for adding a new routine, if the user has the privileges.
-         */
-        echo $this->footer->routines();
+
+        echo $this->template->render('rte/routines/footer', [
+            'db' => $db,
+            'table' => $table,
+            'has_privilege' => Util::currentUserHasPrivilege('CREATE ROUTINE', $db, $table),
+        ]);
+
         /**
          * Display a warning for users with PHP's old "mysql" extension.
          */
@@ -800,8 +803,7 @@ class Routines
             ];
         }
 
-        $template = new Template();
-        return $template->render('rte/routines/parameter_row', [
+        return $this->template->render('rte/routines/parameter_row', [
             'class' => $class,
             'index' => $index,
             'param_directions' => $param_directions,

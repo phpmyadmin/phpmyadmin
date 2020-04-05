@@ -252,7 +252,7 @@ class Generator
      *
      * @param string $action      The URL for the request to be executed
      * @param string $select_name The name for the dropdown box
-     * @param array  $options     An array of options (see PhpMyAdmin\Rte\Footer)
+     * @param array  $options     An array of options
      * @param string $callback    A JS snippet to execute when the request is
      *                            successfully processed
      *

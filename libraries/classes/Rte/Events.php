@@ -10,6 +10,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function count;
@@ -31,9 +32,6 @@ class Events
     /** @var Export */
     private $export;
 
-    /** @var Footer */
-    private $footer;
-
     /** @var General */
     private $general;
 
@@ -46,6 +44,9 @@ class Events
     /** @var DatabaseInterface */
     private $dbi;
 
+    /** @var Template */
+    private $template;
+
     /**
      * @param DatabaseInterface $dbi DatabaseInterface object
      */
@@ -53,10 +54,10 @@ class Events
     {
         $this->dbi = $dbi;
         $this->export = new Export($this->dbi);
-        $this->footer = new Footer($this->dbi);
         $this->general = new General($this->dbi);
         $this->rteList = new RteList($this->dbi);
         $this->words = new Words();
+        $this->template = new Template();
     }
 
     /**
@@ -110,7 +111,7 @@ class Events
      */
     public function main()
     {
-        global $db;
+        global $db, $table;
 
         $this->setGlobals();
         /**
@@ -123,12 +124,13 @@ class Events
          */
         $items = $this->dbi->getEvents($db);
         echo $this->rteList->get('event', $items);
-        /**
-         * Display a link for adding a new event, if
-         * the user has the privileges and a link to
-         * toggle the state of the event scheduler.
-         */
-        echo $this->footer->events();
+
+        echo $this->template->render('rte/events/footer', [
+            'db' => $db,
+            'table' => $table,
+            'has_privilege' => Util::currentUserHasPrivilege('EVENT', $db, $table),
+            'toggle_button' => $this->getFooterToggleButton(),
+        ]);
     }
 
     /**
@@ -671,5 +673,43 @@ class Events
         }
 
         return $query;
+    }
+
+    private function getFooterToggleButton(): string
+    {
+        global $db, $table;
+
+        $es_state = $this->dbi->fetchValue(
+            "SHOW GLOBAL VARIABLES LIKE 'event_scheduler'",
+            0,
+            1
+        );
+        $es_state = mb_strtolower($es_state);
+        $options = [
+            0 => [
+                'label' => __('OFF'),
+                'value' => 'SET GLOBAL event_scheduler="OFF"',
+                'selected' => $es_state != 'on',
+            ],
+            1 => [
+                'label' => __('ON'),
+                'value' => 'SET GLOBAL event_scheduler="ON"',
+                'selected' => $es_state == 'on',
+            ],
+        ];
+
+        return Generator::toggleButton(
+            Url::getFromRoute(
+                '/sql',
+                [
+                    'db' => $db,
+                    'table' => $table,
+                    'goto' => Url::getFromRoute('/database/events', ['db' => $db]),
+                ]
+            ),
+            'sql_query',
+            $options,
+            'Functions.slidingMessage(data.sql_query);'
+        );
     }
 }
