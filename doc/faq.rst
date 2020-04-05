@@ -63,7 +63,7 @@ Please use instead the cookie authentication mode.
 
 This seems to be a PWS bug. Filippo Simoncini found a workaround (at
 this time there is no better fix): remove or comment the ``DOCTYPE``
-declarations (2 lines) from the scripts :file:`libraries/Header.class.php`
+declarations (2 lines) from the scripts :file:`libraries/classes/Header.php`
 and :file:`index.php`.
 
 .. _faq1_7:
@@ -525,8 +525,8 @@ error log file might give a clue.
 -----------------------------------------------------------------------------------------------------------
 
 If your cluster consist of different architectures, PHP code used for
-encryption/decryption won't work correct. This is caused by use of
-pack/unpack functions in code. Only solution is to use mcrypt
+encryption/decryption won't work correctly. This is caused by use of
+pack/unpack functions in code. Only solution is to use openssl
 extension which works fine in this case.
 
 .. _faq1_38:

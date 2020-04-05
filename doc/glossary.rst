@@ -196,7 +196,7 @@ From Wikipedia, the free encyclopedia
     Mac
        Apple Macintosh is a line of personal computers is designed, developed, manufactured, and marketed by Apple Computer.
 
-      .. seealso:: <https://en.wikipedia.org/wiki/Mac>
+       .. seealso:: <https://en.wikipedia.org/wiki/Mac>
 
     Mac OS X
       the operating system which is included with all currently shipping Apple Macintosh computers in the consumer and professional markets.
@@ -209,16 +209,6 @@ From Wikipedia, the free encyclopedia
        If you have troubles installing this extension, please follow :ref:`faqmysql`, it provides useful hints.
 
        .. seealso:: <https://www.php.net/manual/en/book.mbstring.php>
-
-    MCrypt
-      a cryptographic library.
-
-      .. seealso:: <https://en.wikipedia.org/wiki/MCrypt>
-
-    mcrypt
-      the MCrypt PHP extension.
-
-      .. seealso:: <https://www.php.net/mcrypt>
 
     Media type
       A media type (formerly known as MIME type) is a two-part identifier
