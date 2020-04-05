@@ -230,13 +230,13 @@ class AuthenticationCookieTest extends PmaTestCase
 
         $this->assertStringContainsString(
             '<input type="text" name="pma_username" id="input_username" ' .
-            'value="pmauser" size="24" class="textfield form-control" autocomplete="username">',
+            'value="pmauser" size="24" class="textfield" autocomplete="username">',
             $result
         );
 
         $this->assertStringContainsString(
             '<input type="password" name="pma_password" id="input_password" ' .
-            'value="" size="24" class="textfield form-control" autocomplete="current-password">',
+            'value="" size="24" class="textfield" autocomplete="current-password">',
             $result
         );
 
