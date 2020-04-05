@@ -210,16 +210,6 @@ From Wikipedia, the free encyclopedia
 
        .. seealso:: <https://www.php.net/manual/en/book.mbstring.php>
 
-    MCrypt
-      a cryptographic library.
-
-      .. seealso:: <https://en.wikipedia.org/wiki/MCrypt>
-
-    mcrypt
-      the MCrypt PHP extension.
-
-      .. seealso:: <https://www.php.net/mcrypt>
-
     Media type
       A media type (formerly known as MIME type) is a two-part identifier
       for file formats and format contents transmitted on the Internet.
