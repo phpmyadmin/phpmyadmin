@@ -9,6 +9,7 @@ stages:
   - name: "Other tests"
 
 install:
+  - nvm install 10
   - composer install --no-interaction
   - yarn install --non-interactive
 
@@ -96,6 +97,7 @@ jobs:
       name: "PHP nightly"
       env: CI_MODE=test
       install:
+        - nvm install 10
         - composer install --no-interaction --ignore-platform-reqs
         - yarn install --non-interactive
 
@@ -137,12 +139,16 @@ jobs:
         - for php_ext in $PHP_EXTENSIONS ; do sed -i -e "s/^;extension=${php_ext}/extension=${php_ext}/" /c/tools/php74/php.ini ; done
         - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /c/tools/php74/php.ini
         - find . -type f -name "*.php" -print0 | xargs -0 sed -i ':a;N;$!ba;s/\r//g'
+      install:
+        - composer install --no-interaction
+        - yarn install --non-interactive
 
     - stage: "PHP Unit tests"
       php: 7.1
       name: "PHP 7.1 with dbase extension"
       env: CI_MODE=test
       install:
+        - nvm install 10
         - pecl channel-update pecl.php.net
         - pecl install dbase
         - php -m |grep -F 'dbase'
@@ -187,6 +193,7 @@ jobs:
         - TESTSUITE_URL=http://127.0.0.1:8000
       before_install: phpenv config-rm xdebug.ini
       install:
+        - nvm install 10
         - ./test/install-browserstack
         - composer install --no-interaction
         - yarn install --non-interactive
