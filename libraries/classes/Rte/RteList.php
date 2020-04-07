@@ -207,35 +207,19 @@ class RteList
      * Creates the contents for a row in the list of routines
      *
      * @param array  $routine  An array of routine data
-     * @param string $rowclass Additional class
+     * @param string $rowClass Additional class
      *
      * @return string HTML code of a row for the list of routines
      */
-    public function getRoutineRow(array $routine, $rowclass = '')
+    public function getRoutineRow(array $routine, $rowClass = '')
     {
-        global $db, $table, $titles;
+        global $db, $table;
 
-        $sql_drop = sprintf(
+        $sqlDrop = sprintf(
             'DROP %s IF EXISTS %s',
             $routine['type'],
             Util::backquote($routine['name'])
         );
-
-        $retval  = "        <tr class='" . $rowclass . "'>\n";
-        $retval .= "            <td>\n";
-        $retval .= '                <input type="checkbox"'
-            . ' class="checkall" name="item_name[]"'
-            . ' value="' . htmlspecialchars($routine['name']) . '">';
-        $retval .= "            </td>\n";
-        $retval .= "            <td>\n";
-        $retval .= "                <span class='drop_sql hide'>"
-            . htmlspecialchars($sql_drop) . "</span>\n";
-        $retval .= "                <strong>\n";
-        $retval .= '                    '
-            . htmlspecialchars($routine['name']) . "\n";
-        $retval .= "                </strong>\n";
-        $retval .= "            </td>\n";
-        $retval .= "            <td>\n";
 
         // this is for our purpose to decide whether to
         // show the edit link or not, so we need the DEFINER for the routine
@@ -244,29 +228,14 @@ class RteList
             . "AND SPECIFIC_NAME='" . $this->dbi->escapeString($routine['name']) . "'"
             . "AND ROUTINE_TYPE='" . $this->dbi->escapeString($routine['type']) . "'";
         $query = 'SELECT `DEFINER` FROM INFORMATION_SCHEMA.ROUTINES WHERE ' . $where . ';';
-        $routine_definer = $this->dbi->fetchValue($query);
+        $routineDefiner = $this->dbi->fetchValue($query);
 
-        $curr_user = $this->dbi->getCurrentUser();
+        $currentUser = $this->dbi->getCurrentUser();
 
         // Since editing a procedure involved dropping and recreating, check also for
         // CREATE ROUTINE privilege to avoid lost procedures.
-        if ((Util::currentUserHasPrivilege('CREATE ROUTINE', $db)
-            && $curr_user == $routine_definer)
-            || $this->dbi->isSuperuser()
-        ) {
-            $retval .= '                <a class="ajax edit_anchor" href="'
-                . Url::getFromRoute('/database/routines', [
-                    'db' => $db,
-                    'table' => $table,
-                    'edit_item' => 1,
-                    'item_name' => $routine['name'],
-                    'item_type' => $routine['type'],
-                ]) . '">' . $titles['Edit'] . "</a>\n";
-        } else {
-            $retval .= '                ' . $titles['NoEdit'] . "\n";
-        }
-        $retval .= "            </td>\n";
-        $retval .= "            <td>\n";
+        $hasEditPrivilege = (Util::currentUserHasPrivilege('CREATE ROUTINE', $db)
+            && $currentUser == $routineDefiner) || $this->dbi->isSuperuser();
 
         // There is a problem with Util::currentUserHasPrivilege():
         // it does not detect all kinds of privileges, for example
@@ -284,6 +253,9 @@ class RteList
             $routine['type'],
             $routine['name']
         );
+        $hasExecutePrivilege = Util::currentUserHasPrivilege('EXECUTE', $db);
+        $executeAction = '';
+
         if ($definition !== null) {
             $parser = new Parser($definition);
 
@@ -294,80 +266,34 @@ class RteList
 
             $params = Routine::getParameters($stmt);
 
-            if (Util::currentUserHasPrivilege('EXECUTE', $db)) {
-                $execute_action = 'execute_routine';
+            if ($hasExecutePrivilege) {
+                $executeAction = 'execute_routine';
                 for ($i = 0; $i < $params['num']; $i++) {
                     if ($routine['type'] == 'PROCEDURE'
                         && $params['dir'][$i] == 'OUT'
                     ) {
                         continue;
                     }
-                    $execute_action = 'execute_dialog';
+                    $executeAction = 'execute_dialog';
                     break;
                 }
-                $queryPart = [
-                    $execute_action => 1,
-                    'item_name' => $routine['name'],
-                    'item_type' => $routine['type'],
-                ];
-                $retval .= '                <a class="ajax exec_anchor" href="'
-                    . Url::getFromRoute('/database/routines', [
-                        'db' => $db,
-                        'table' => $table,
-                    ])
-                    . ($execute_action === 'execute_routine'
-                        ? '" data-post="' . Url::getCommon($queryPart, '')
-                        : Url::getCommon($queryPart, '&')
-                    )
-                    . '">' . $titles['Execute'] . "</a>\n";
-            } else {
-                $retval .= '                ' . $titles['NoExecute'] . "\n";
             }
         }
 
-        $retval .= "            </td>\n";
-        $retval .= "            <td>\n";
-        if ((Util::currentUserHasPrivilege('CREATE ROUTINE', $db)
-            && $curr_user == $routine_definer)
-            || $this->dbi->isSuperuser()
-        ) {
-            $retval .= '                <a class="ajax export_anchor" href="'
-                . Url::getFromRoute('/database/routines', [
-                    'db' => $db,
-                    'table' => $table,
-                    'export_item' => 1,
-                    'item_name' => $routine['name'],
-                    'item_type' => $routine['type'],
-                ]) . '">' . $titles['Export'] . "</a>\n";
-        } else {
-            $retval .= '                ' . $titles['NoExport'] . "\n";
-        }
-        $retval .= "            </td>\n";
-        $retval .= "            <td>\n";
-        $retval .= Generator::linkOrButton(
-            Url::getFromRoute(
-                '/sql',
-                [
-                    'db' => $db,
-                    'table' => $table,
-                    'sql_query' => $sql_drop,
-                    'goto' => Url::getFromRoute('/database/routines', ['db' => $db]),
-                ]
-            ),
-            $titles['Drop'],
-            ['class' => 'ajax drop_anchor']
-        );
-        $retval .= "            </td>\n";
-        $retval .= "            <td>\n";
-        $retval .= '                 ' . $routine['type'] . "\n";
-        $retval .= "            </td>\n";
-        $retval .= "            <td dir=\"ltr\">\n";
-        $retval .= '                '
-            . htmlspecialchars($routine['returns']) . "\n";
-        $retval .= "            </td>\n";
-        $retval .= "        </tr>\n";
+        $hasExportPrivilege = (Util::currentUserHasPrivilege('CREATE ROUTINE', $db)
+            && $currentUser == $routineDefiner) || $this->dbi->isSuperuser();
 
-        return $retval;
+        return $this->template->render('rte/routines/row', [
+            'db' => $db,
+            'table' => $table,
+            'sql_drop' => $sqlDrop,
+            'routine' => $routine,
+            'row_class' => $rowClass,
+            'has_edit_privilege' => $hasEditPrivilege,
+            'has_export_privilege' => $hasExportPrivilege,
+            'has_execute_privilege' => $hasExecutePrivilege,
+            'execute_action' => $executeAction,
+        ]);
     }
 
     /**
