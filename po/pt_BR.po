@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-04-03 09:06+0200\n"
-"PO-Revision-Date: 2020-02-06 01:50+0000\n"
+"PO-Revision-Date: 2020-04-08 20:35+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/pt_BR/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.11-dev\n"
+"X-Generator: Weblate 4.0-dev\n"
 
 #: js/messages.php:51
 msgid "Confirm"
@@ -4009,16 +4009,12 @@ msgid "Logo link URL"
 msgstr "URL com link do logo"
 
 #: libraries/classes/Config/Descriptions.php:491
-#, fuzzy
-#| msgid ""
-#| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
-#| "([kbd]new[/kbd])."
 msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
 msgstr ""
-"Abre o link da página na janela principal ([kbd]main[/kbd]) ou em uma nova "
-"janela ([kbd]new[/kbd])."
+"Abre a página do link na janela principal ([code]main[/code]) ou em uma nova "
+"janela ([code]new[/code])."
 
 #: libraries/classes/Config/Descriptions.php:494
 msgid "Logo link target"
@@ -7474,10 +7470,8 @@ msgstr "Nome de tabela inválido"
 
 #. l10n: In case a SQL query did not pass a security check
 #: libraries/classes/Controllers/Table/GetFieldController.php:51
-#, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
-msgstr "Existem joins demais sem índices."
+msgstr "Há um problema com sua requisição."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:64
 #: libraries/classes/Import.php:151 libraries/classes/InsertEdit.php:218
