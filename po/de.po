@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-04-03 09:06+0200\n"
-"PO-Revision-Date: 2019-12-25 16:21+0000\n"
-"Last-Translator: ssantos <ssantos@web.de>\n"
+"PO-Revision-Date: 2020-04-09 07:26+0000\n"
+"Last-Translator: Predatorix Phoenix <predatorix@web.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "de/>\n"
 "Language: de\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Weblate 4.0-dev\n"
 
 #: js/messages.php:51
 msgid "Confirm"
@@ -4029,16 +4029,12 @@ msgid "Logo link URL"
 msgstr "URL für Logo-Link"
 
 #: libraries/classes/Config/Descriptions.php:491
-#, fuzzy
-#| msgid ""
-#| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
-#| "([kbd]new[/kbd])."
 msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
 msgstr ""
-"Öffne Links im aktuellen Fenster([kbd]main[/kbd]) oder in einem neuen "
-"Fenster ([kbd]new[/kbd])."
+"Öffne Links im aktuellen Fenster([code]main[/code]) oder in einem neuen "
+"Fenster ([code]new[/code])."
 
 #: libraries/classes/Config/Descriptions.php:494
 msgid "Logo link target"
@@ -7544,10 +7540,8 @@ msgstr "Ungültiger Tabellenname"
 
 #. l10n: In case a SQL query did not pass a security check
 #: libraries/classes/Controllers/Table/GetFieldController.php:51
-#, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
-msgstr "Es werden zu viele Joins ohne die Benutzung von Indizes durchgeführt."
+msgstr "Es gibt ein Problem mit Ihrer Anfrage."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:64
 #: libraries/classes/Import.php:151 libraries/classes/InsertEdit.php:218
@@ -7770,8 +7764,8 @@ msgctxt ""
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr ""
-"Der phpMyAdmin-Konfigurationsspeicher ist nicht für \"Anzeigefunktionen\" "
-"konfiguriert."
+"Der phpMyAdmin-Konfigurationsspeicher ist nicht für \"Anzeige-Features\" "
+"eingerichtet."
 
 #: libraries/classes/Database/Designer/Common.php:611
 msgid "Error: relationship already exists."
@@ -8530,6 +8524,8 @@ msgstr "Auflistung wurde in Datei %s gespeichert."
 #: libraries/classes/Export.php:951
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
+"Das Exportieren einer unformatierten Abfrage wird für diese Exportmethode "
+"nicht unterstützt."
 
 #: libraries/classes/File.php:269
 msgid "File was not an uploaded file."
@@ -10075,10 +10071,8 @@ msgstr "Exportiere Tabellenkopfzeilen"
 
 #: libraries/classes/Plugins/Export/ExportOdt.php:266
 #: libraries/classes/Plugins/Export/ExportTexytext.php:191
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Dumping data for query result"
-msgstr "Daten für Tabelle"
+msgstr "Gebe Daten für das Abfrageergebnis aus"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:96
 msgid "Report title:"
@@ -10089,10 +10083,8 @@ msgid "Dumping data"
 msgstr "Datendump"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:250
-#, fuzzy
-#| msgid "Query results"
 msgid "Query result data"
-msgstr "Abfrageergebnisse"
+msgstr "Abfrageergebnisdaten"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:308
 msgid "View structure"
@@ -10672,18 +10664,6 @@ msgstr ""
 "zu setzen."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:34
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Output/Text_Plain_External.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -10696,14 +10676,14 @@ msgid ""
 "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
 "ensure that the output appears all on one line (Default 1)."
 msgstr ""
-"NUR FÜR LINUX: Startet ein externes Programm und verwendet die Daten der "
-"Spalte für die Standardeingabe. Gibt die Standardausgabe der Anwendung "
-"zurück. Die Voreinstellung wurde für Tidy optimiert, um HTML code optisch zu "
+"NUR FÜR LINUX: Startet ein externes Programm und übergibt die Daten der "
+"Spalten über die Standardeingabe. Gibt die Standardausgabe der Anwendung "
+"zurück. Die Voreinstellung wurde für Tidy optimiert, um HTML-Code optisch zu "
 "formatieren. Aus Sicherheitsgründen müssen Sie die Datei libraries/classes/"
-"Plugins/Transformations/Output/Text_Plain_External.php von Hand bearbeiten, "
-"um weitere Programme verfügbar zu machen. Die erste Option ist die Nummer "
-"des dort hinterlegten Programmes und die zweite Option legt die Parameter "
-"für das externe Programm fest. Die dritte Option bestimmt, falls auf 1 "
+"Plugins/Transformations/Abs/ExternalTransformationsPlugin.php von Hand "
+"bearbeiten un dort zu verwendende Programme eintragen. Die erste Option ist "
+"die Nummer des dort hinterlegten Programms. Die zweite Option sollte aus "
+"historischen Gründen leer bleiben. Die dritte Option bestimmt, falls auf 1 "
 "gesetzt, dass die Ausgabe mit htmlspecialchars() formatiert wird (Standard: "
 "1). Die vierte Option bestimmt, falls auf 1 gesetzt, ob ein NOWRAP-Parameter "
 "der Tabellenzelle hinzugefügt wird, um einen automatischen Umbruch der "
@@ -10716,6 +10696,9 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"Sie verwenden das Befehlszeilenoptionsfeld für externe Transformation, das "
+"aus Sicherheitsgründen als veraltet gilt. Fügen Sie alle "
+"Befehlszeilenoptionen direkt zur Definition in %s hinzu."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:26
 msgid ""
@@ -10847,12 +10830,10 @@ msgstr ""
 "ein Binärformat"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptolong.php:33
-#, fuzzy
-#| msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgid "Converts an Internet network address in (IPv4/IPv6) format to long."
 msgstr ""
 "Konvertiert eine Internet-Protokoll-Adresse in (IPv4/IPv6)-Schreibweise in "
-"ein Binärformat"
+"den Long-Datentyp."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:25
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -12993,8 +12974,6 @@ msgstr "Verbindung:"
 #: templates/columns_definitions/column_definitions_form.twig:113
 #: templates/columns_definitions/partitions.twig:137
 #: templates/table/operations/index.twig:128
-#, fuzzy
-#| msgid "Storage engines"
 msgid "Storage engine"
 msgstr "Speicher-Engines"
 
@@ -13003,11 +12982,9 @@ msgid "PARTITION definition:"
 msgstr "PARTITION Definition:"
 
 #: templates/columns_definitions/column_definitions_form.twig:154
-#, fuzzy
-#| msgid "Enclose export in a transaction"
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
-msgstr "Export in einer Transaktion zusammenfassen"
+msgstr "Online-Transaktion"
 
 #: templates/columns_definitions/column_length.twig:9
 msgid "Edit ENUM/SET values"
@@ -13684,16 +13661,12 @@ msgstr "Neuer Datenbankname"
 #: templates/table/operations/index.twig:79
 #: templates/table/operations/index.twig:113
 #: templates/table/operations/index.twig:291
-#, fuzzy
-#| msgid ""
-#| "You don't have sufficient privileges to perform this operation; Please "
-#| "refer to the documentation for more details"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details."
 msgstr ""
 "Sie haben nicht genug Rechte um fortzufahren; Bitte wenden Sie sich für mehr "
-"Details an die Dokumentation"
+"Details an die Dokumentation."
 
 #: templates/database/operations/index.twig:89
 msgid "Remove database"
@@ -13839,10 +13812,8 @@ msgid "Ins:"
 msgstr "Einfg:"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:12
-#, fuzzy
-#| msgid "And:"
 msgid "And"
-msgstr "Und:"
+msgstr "Und"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:17
 msgid "Del:"
@@ -13878,23 +13849,17 @@ msgid "Modify:"
 msgstr "Änderung:"
 
 #: templates/database/qbe/selection_form.twig:54
-#, fuzzy
-#| msgid "Add/Delete criteria rows"
 msgid "Add/Delete criteria rows:"
-msgstr "Kriterienzeilen hinzufügen/entfernen"
+msgstr "Kriterienzeilen hinzufügen/entfernen:"
 
 #: templates/database/qbe/selection_form.twig:67
-#, fuzzy
-#| msgid "Add/Delete columns"
 msgid "Add/Delete columns:"
-msgstr "Spalten hinzufügen/entfernen"
+msgstr "Spalten hinzufügen/entfernen:"
 
 #: templates/database/qbe/selection_form.twig:86
 #: templates/database/qbe/selection_form.twig:88
-#, fuzzy
-#| msgid "Use Tables"
 msgid "Use tables"
-msgstr "Verwendete Tabellen"
+msgstr "Verwende Tabellen"
 
 #: templates/database/qbe/selection_form.twig:107
 #, php-format
@@ -14167,10 +14132,8 @@ msgstr "Exportiere Tabellen der Datenbank \"%s\""
 
 #. l10n: A query that the user has written freely
 #: templates/display/export/option_header.twig:9
-#, fuzzy
-#| msgid "Showing SQL query"
 msgid "Exporting a raw query"
-msgstr "Ansicht als SQL Abfrage"
+msgstr "Exportiere ein unformatierte Abfrage"
 
 #: templates/display/export/option_header.twig:11
 #, php-format
@@ -14350,10 +14313,8 @@ msgid "Browse your computer:"
 msgstr "Durchsuchen Sie Ihren Computer:"
 
 #: templates/display/import/import.twig:73
-#, fuzzy
-#| msgid "Browse your computer:"
 msgid "Browse your computer"
-msgstr "Durchsuchen Sie Ihren Computer:"
+msgstr "Durchsuchen Sie Ihren Computer"
 
 #: templates/display/import/import.twig:79
 #: templates/display/import/import.twig:112
@@ -14364,16 +14325,13 @@ msgstr ""
 
 #: templates/display/import/import.twig:85
 #: templates/display/import/import.twig:115
-#, fuzzy, php-format
-#| msgid "Select from the web server upload directory <b>%s</b>:"
+#, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "Wählen Sie vom Webserver-Uploadverzeichnis <b>%s</b>:"
+msgstr "Wählen Sie vom Webserver-Uploadverzeichnis [strong]%s[/strong]:"
 
 #: templates/display/import/import.twig:91
-#, fuzzy
-#| msgid "File to import:"
 msgid "Select file to import"
-msgstr "Zu importierende Datei:"
+msgstr "Zu importierende Datei auswählen:"
 
 #: templates/display/import/import.twig:96
 #: templates/display/import/import.twig:126
@@ -15060,10 +15018,8 @@ msgid "View:"
 msgstr "Ansicht:"
 
 #: templates/mult_submits/copy_multiple_tables.twig:14
-#, fuzzy
-#| msgid "Options"
 msgid "Options:"
-msgstr "Optionen"
+msgstr "Optionen:"
 
 #: templates/mult_submits/copy_multiple_tables.twig:39
 msgid "Add AUTO INCREMENT value"
@@ -15098,16 +15054,12 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin-Dokumentation"
 
 #: templates/navigation/main.twig:40 templates/navigation/main.twig:41
-#, fuzzy
-#| msgid "Documentation"
 msgid "MariaDB Documentation"
-msgstr "Dokumentation"
+msgstr "MariaDB-Dokumentation"
 
 #: templates/navigation/main.twig:40 templates/navigation/main.twig:41
-#, fuzzy
-#| msgid "Documentation"
 msgid "MySQL Documentation"
-msgstr "Dokumentation"
+msgstr "MySQL-Dokumentation"
 
 #: templates/navigation/main.twig:44 templates/navigation/main.twig:45
 msgid "Navigation panel settings"
@@ -15433,11 +15385,11 @@ msgstr "deaktiviert"
 
 #: templates/server/plugins/index.twig:45
 msgid "deleting"
-msgstr "lösche"
+msgstr "Lösche"
 
 #: templates/server/plugins/index.twig:47
 msgid "deleted"
-msgstr "gelöscht"
+msgstr "Gelöscht"
 
 #: templates/server/privileges/add_user.twig:12
 msgid "Database for user account"
@@ -15464,10 +15416,8 @@ msgid "User group"
 msgstr "Benutzergruppe"
 
 #: templates/server/privileges/choose_user_group.twig:6
-#, fuzzy
-#| msgid "User group"
 msgid "User group:"
-msgstr "Benutzergruppe"
+msgstr "Benutzergruppe:"
 
 #: templates/server/privileges/edit_routine_privileges.twig:4
 #: templates/server/privileges/user_properties.twig:4
@@ -16037,47 +15987,35 @@ msgstr ""
 #. l10n: Advisor rules file
 #: templates/server/status/advisor/index.twig:55
 msgid "Rules file is not well formed, the following errors were found:"
-msgstr ""
+msgstr "Die Regeln sind nicht wohlgeformt. Folgende Fehler wurden gefunden:"
 
 #: templates/server/status/advisor/index.twig:66
-#, fuzzy
-#| msgid "Some error occurred while getting SQL debug info."
 msgid "Errors occurred while executing rule expressions:"
-msgstr "Beim Laden der SQL-Debug-Informationen ist ein Fehler aufgetreten."
+msgstr "Beim Ausführen der Regelausdrücke sind Fehler aufgetreten."
 
 #: templates/server/status/advisor/index.twig:76
 msgid "Possible performance issues"
 msgstr "Mögliche Performance-Probleme"
 
 #: templates/server/status/advisor/index.twig:89
-#, fuzzy
-#| msgid "Issue"
 msgid "Issue:"
-msgstr "Problem"
+msgstr "Problem:"
 
 #: templates/server/status/advisor/index.twig:92
-#, fuzzy
-#| msgid "Recommendation"
 msgid "Recommendation:"
-msgstr "Empfehlung"
+msgstr "Empfehlung:"
 
 #: templates/server/status/advisor/index.twig:95
-#, fuzzy
-#| msgid "Justification"
 msgid "Justification:"
-msgstr "Ausrichtung"
+msgstr "Ausrichtung:"
 
 #: templates/server/status/advisor/index.twig:98
-#, fuzzy
-#| msgid "Used variable / formula"
 msgid "Used variable / formula:"
-msgstr "Benutzte Variable/Formel"
+msgstr "Benutzte Variable/Formel:"
 
 #: templates/server/status/advisor/index.twig:101
-#, fuzzy
-#| msgid "Test"
 msgid "Test:"
-msgstr "Test"
+msgstr "Test:"
 
 #: templates/server/status/base.twig:16
 msgid "Query statistics"
@@ -16613,10 +16551,8 @@ msgid "Rollback when finished"
 msgstr "Nach Abschluss zurücksetzen"
 
 #: templates/sql/query.twig:149
-#, fuzzy
-#| msgid "Bookmark"
 msgid "Bookmark:"
-msgstr "Lesezeichen"
+msgstr "Lesezeichen:"
 
 #: templates/sql/query.twig:156
 msgid "shared"
@@ -16829,17 +16765,13 @@ msgid "Alter table order by"
 msgstr "Tabelle sortieren nach"
 
 #: templates/table/operations/index.twig:20
-#, fuzzy
-#| msgid "(singly)"
 msgctxt "Alter table order by a single field."
 msgid "(singly)"
 msgstr "(einmalig)"
 
 #: templates/table/operations/index.twig:50
-#, fuzzy
-#| msgid "Move table to (database<b>.</b>table)"
 msgid "Move table to (database.table)"
-msgstr "Verschiebe Tabelle nach (Datenbank<b>.</b>Tabellenname)"
+msgstr "Verschiebe Tabelle nach (Datenbank.Tabellenname)"
 
 #: templates/table/operations/index.twig:103
 msgid "Table options"
@@ -16858,10 +16790,8 @@ msgid "Change all column collations"
 msgstr "Alle Spaltenkollationen ändern"
 
 #: templates/table/operations/index.twig:227
-#, fuzzy
-#| msgid "Copy table to (database<b>.</b>table)"
 msgid "Copy table to (database.table)"
-msgstr "Kopiere Tabelle nach (Datenbank<b>.</b>Tabellenname)"
+msgstr "Kopiere Tabelle nach (Datenbank.Tabellenname)"
 
 #: templates/table/operations/index.twig:300
 msgid "Switch to copied table"
@@ -16885,10 +16815,8 @@ msgid "Remove partitioning"
 msgstr "Entferne die Partitionierung"
 
 #: templates/table/operations/index.twig:417
-#, fuzzy
-#| msgid "Check referential integrity:"
 msgid "Check referential integrity"
-msgstr "Prüfe referentielle Integrität:"
+msgstr "Prüfe referentielle Integrität"
 
 #: templates/table/operations/view.twig:11
 msgid "Rename view to"
@@ -16966,10 +16894,9 @@ msgstr "Anzuzeigende Spalte auswählen:"
 
 #: templates/table/relation/common_form.twig:317
 #: templates/table/structure/display_structure.twig:542
-#, fuzzy, php-format
-#| msgid "Create an index on &nbsp;%s&nbsp;columns"
+#, php-format
 msgid "Create an index on %s columns"
-msgstr "Index über&nbsp;%s&nbsp;Spalten anlegen"
+msgstr "Erstelle Index über %s Spalten"
 
 #: templates/table/relation/foreign_key_row.twig:15
 #, php-format
@@ -17228,15 +17155,13 @@ msgstr "Zum Umschalten anklicken"
 
 #. l10n: Show or hide the menu using the hamburger style button
 #: templates/top_menu.twig:4
-#, fuzzy
-#| msgid "Table navigation bar"
 msgid "Toggle navigation"
-msgstr "Tabellen-Navigationsleiste"
+msgstr "Navigation umschalten"
 
 #. l10n: Current page
 #: templates/top_menu.twig:14
 msgid "(current)"
-msgstr ""
+msgstr "(aktuelle)"
 
 #: templates/transformation_overview.twig:1
 msgid "Available media types"
@@ -17546,12 +17471,6 @@ msgid "Suboptimal caching method."
 msgstr "Suboptimale Zwischenspeicher-Methode."
 
 #: libraries/advisory_rules_generic.txt:149
-#, fuzzy
-#| msgid ""
-#| "You are using the MySQL Query cache with a fairly high traffic database. "
-#| "It might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-#| "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL "
-#| "Query cache, especially if you have multiple slaves."
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
@@ -17560,7 +17479,7 @@ msgid ""
 msgstr ""
 "Sie verwenden den MySQL-Anfragen-Cache mit einer relativ hohen Traffic-"
 "Datenbank. Es wäre überlegenswert, <a href=\"https://dev.mysql.com/doc/"
-"refman/5.5/en/ha-memcached.html\"> Memcached</a> statt MySQL Query Cache "
+"refman/5.6/en/ha-memcached.html\"> Memcached</a> statt MySQL Query Cache "
 "verwenden vor allem, wenn Sie mehrere Slaves einsetzen."
 
 #: libraries/advisory_rules_generic.txt:150
@@ -17815,15 +17734,6 @@ msgid "Temp disk rate"
 msgstr "Temp Disk Rate"
 
 #: libraries/advisory_rules_generic.txt:223
-#, fuzzy
-#| msgid ""
-#| "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
-#| "some temporary tables are always being written to disk, independent of "
-#| "the value of these variables. To eliminate these you will have to rewrite "
-#| "your queries to avoid those conditions (Within a temporary table: "
-#| "Presence of a BLOB or TEXT column or presence of a column bigger than 512 "
-#| "bytes) as mentioned in the <a href=\"https://dev.mysql.com/doc/refman/5.5/"
-#| "en/internal-temporary-tables.html\">MySQL Documentation</a>"
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -17839,7 +17749,7 @@ msgstr ""
 "Abfragen so umschreiben das es nicht zu diesen Bedingungen kommt (Innerhalb "
 "einer temporären Tabelle: Vorhandensein eines BLOB- oder TEXT-Spalte oder "
 "eine Spalte größer als 512 Bytes) wie in der <a href=\"https://dev.mysql.com/"
-"doc/refman/5.5/en/internal-temporary-tables.html\">MySQL-Dokumentation</a> "
+"doc/refman/8.0/en/internal-temporary-tables.html\">MySQL-Dokumentation</a> "
 "erwähnt wird"
 
 #: libraries/advisory_rules_generic.txt:224
