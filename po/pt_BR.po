@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-24 23:04+0100\n"
-"PO-Revision-Date: 2019-12-19 20:21+0000\n"
+"PO-Revision-Date: 2020-04-09 07:25+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-0/pt_BR/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.10-dev\n"
+"X-Generator: Weblate 4.0-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -13501,10 +13501,8 @@ msgstr "Nome de tabela inválido"
 
 #. l10n: In case a SQL query did not pass a security check
 #: tbl_get_field.php:62
-#, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
-msgstr "Existem joins demais sem índices."
+msgstr "Há um problema com sua requisição."
 
 #: tbl_replace.php:266
 #, php-format
