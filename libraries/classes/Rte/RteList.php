@@ -300,89 +300,22 @@ class RteList
      * Creates the contents for a row in the list of triggers
      *
      * @param array  $trigger  An array of routine data
-     * @param string $rowclass Additional class
+     * @param string $rowClass Additional class
      *
      * @return string HTML code of a cell for the list of triggers
      */
-    public function getTriggerRow(array $trigger, $rowclass = '')
+    public function getTriggerRow(array $trigger, $rowClass = '')
     {
-        global $db, $table, $titles;
+        global $db, $table;
 
-        $retval  = "        <tr class='" . $rowclass . "'>\n";
-        $retval .= "            <td>\n";
-        $retval .= '                <input type="checkbox"'
-            . ' class="checkall" name="item_name[]"'
-            . ' value="' . htmlspecialchars($trigger['name']) . '">';
-        $retval .= "            </td>\n";
-        $retval .= "            <td>\n";
-        $retval .= "                <span class='drop_sql hide'>"
-            . htmlspecialchars($trigger['drop']) . "</span>\n";
-        $retval .= "                <strong>\n";
-        $retval .= '                    ' . htmlspecialchars($trigger['name']) . "\n";
-        $retval .= "                </strong>\n";
-        $retval .= "            </td>\n";
-        if (empty($table)) {
-            $retval .= "            <td>\n";
-            $retval .= '<a href="'
-                . Url::getFromRoute('/database/triggers', [
-                    'db' => $db,
-                    'table' => $trigger['table'],
-                ]) . '">'
-                . htmlspecialchars($trigger['table']) . '</a>';
-            $retval .= "            </td>\n";
-        }
-        $retval .= "            <td>\n";
-        if (Util::currentUserHasPrivilege('TRIGGER', $db, $table)) {
-            $retval .= '                <a class="ajax edit_anchor"'
-                . ' href="'
-                . Url::getFromRoute('/database/triggers', [
-                    'db' => $db,
-                    'table' => $table,
-                    'edit_item' => 1,
-                    'item_name' => $trigger['name'],
-                ]) . '">' . $titles['Edit'] . "</a>\n";
-        } else {
-            $retval .= '                ' . $titles['NoEdit'] . "\n";
-        }
-        $retval .= "            </td>\n";
-        $retval .= "            <td>\n";
-        $retval .= '                    <a class="ajax export_anchor"'
-            . ' href="'
-            . Url::getFromRoute('/database/triggers', [
-                'db' => $db,
-                'table' => $table,
-                'export_item' => 1,
-                'item_name' => $trigger['name'],
-            ]) . '">' . $titles['Export'] . "</a>\n";
-        $retval .= "            </td>\n";
-        $retval .= "            <td>\n";
-        if (Util::currentUserHasPrivilege('TRIGGER', $db)) {
-            $retval .= Generator::linkOrButton(
-                Url::getFromRoute(
-                    '/sql',
-                    [
-                        'db' => $db,
-                        'table' => $table,
-                        'sql_query' => $trigger['drop'],
-                        'goto' => Url::getFromRoute('/database/triggers', ['db' => $db]),
-                    ]
-                ),
-                $titles['Drop'],
-                ['class' => 'ajax drop_anchor']
-            );
-        } else {
-            $retval .= '                ' . $titles['NoDrop'] . "\n";
-        }
-        $retval .= "            </td>\n";
-        $retval .= "            <td>\n";
-        $retval .= '                 ' . $trigger['action_timing'] . "\n";
-        $retval .= "            </td>\n";
-        $retval .= "            <td>\n";
-        $retval .= '                 ' . $trigger['event_manipulation'] . "\n";
-        $retval .= "            </td>\n";
-        $retval .= "        </tr>\n";
-
-        return $retval;
+        return $this->template->render('rte/triggers/row', [
+            'db' => $db,
+            'table' => $table,
+            'trigger' => $trigger,
+            'has_drop_privilege' => Util::currentUserHasPrivilege('TRIGGER', $db),
+            'has_edit_privilege' => Util::currentUserHasPrivilege('TRIGGER', $db, $table),
+            'row_class' => $rowClass,
+        ]);
     }
 
     /**
