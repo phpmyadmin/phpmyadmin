@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-04-03 09:06+0200\n"
-"PO-Revision-Date: 2020-04-03 19:45+0000\n"
-"Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
+"PO-Revision-Date: 2020-04-08 12:26+0000\n"
+"Last-Translator: Oğuz Ersen <oguzersen@protonmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
 "Language: tr\n"
@@ -7807,7 +7807,7 @@ msgstr "kelimelerin tümü"
 #: libraries/classes/Database/Search.php:112
 #: templates/database/search/main.twig:27
 msgid "the exact phrase as substring"
-msgstr "alt dizge olarak kesin ifade"
+msgstr "alt dizgi olarak kesin ifade"
 
 #: libraries/classes/Database/Search.php:113
 #: templates/database/search/main.twig:31
