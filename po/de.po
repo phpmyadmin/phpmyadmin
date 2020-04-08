@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-24 23:04+0100\n"
-"PO-Revision-Date: 2019-12-25 08:21+0000\n"
-"Last-Translator: ssantos <ssantos@web.de>\n"
+"PO-Revision-Date: 2020-04-09 07:25+0000\n"
+"Last-Translator: Predatorix Phoenix <predatorix@web.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/5-0/de/"
 ">\n"
 "Language: de\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Weblate 4.0-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -1978,10 +1978,8 @@ msgid "%d object(s) created."
 msgstr "%d Objekt(e) erstellt."
 
 #: js/messages.php:591
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
-msgstr "Spaltennamen"
+msgstr "Spaltenname"
 
 #: js/messages.php:592 libraries/classes/SqlQueryForm.php:430
 msgid "Submit"
@@ -2358,8 +2356,7 @@ msgid "Failed security key activation (%s)."
 msgstr "Aktivierung des Sicherheitsschlüssels fehlgeschlagen (%s)."
 
 #: js/messages.php:766
-#, fuzzy, php-format
-#| msgid "Table %s already exists!"
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
@@ -3252,12 +3249,9 @@ msgid "accent-sensitive"
 msgstr "Beachtet Groß- und Kleinschreibung"
 
 #: libraries/classes/Charsets/Collation.php:524
-#, fuzzy
-#| msgctxt "Collation variant"
-#| msgid "accent-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "Beachtet Groß- und Kleinschreibung"
+msgstr "Beachtet Kana"
 
 #: libraries/classes/Charsets/Collation.php:528
 msgctxt "Collation variant"
@@ -3771,10 +3765,8 @@ msgstr "Kennzeichen"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:557
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #: templates/database/data_dictionary/index.twig:25
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media (MIME) type"
-msgstr "MIME-Typ"
+msgstr "Medientyp (MIME)"
 
 #: libraries/classes/Config/Descriptions.php:219
 #: libraries/classes/Config/Descriptions.php:231
@@ -5002,15 +4994,11 @@ msgid "Bookmark table"
 msgstr "Lesezeichen Tabelle"
 
 #: libraries/classes/Config/Descriptions.php:616
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: "
-#| "[kbd]pma__column_info[/kbd]."
 msgid ""
 "Leave blank for no column comments/media (MIME) types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Leer lassen für keine Spalten Kommentare/mime types, Vorschlag: "
+"Leer lassen für keine Spalten Kommentare/Medientypen (MIME), Vorschlag: "
 "[kbd]pma__column_info[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:619
@@ -7618,18 +7606,14 @@ msgid "possible exploit"
 msgstr "Mögliche Ausnutzung"
 
 #: libraries/classes/Database/Designer/Common.php:566
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr ""
-"Der Konfigurationsspeicher ist nicht bereit für die zentrale Liste der "
-"Spalten-Features."
+"Der phpMyAdmin-Konfigurationsspeicher ist nicht für \"Anzeige-Features\" "
+"eingerichtet."
 
 #: libraries/classes/Database/Designer/Common.php:615
 msgid "Error: relationship already exists."
@@ -10160,10 +10144,8 @@ msgstr "Kommentare anzeigen"
 #: libraries/classes/Plugins/Export/ExportLatex.php:156
 #: libraries/classes/Plugins/Export/ExportOdt.php:116
 #: libraries/classes/Plugins/Export/ExportSql.php:132
-#, fuzzy
-#| msgid "Display MIME types"
 msgid "Display media (MIME) types"
-msgstr "MIME-Typen anzeigen"
+msgstr "Medientypen (MIME) anzeigen"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
 msgid "Put columns names in the first row:"
@@ -10461,10 +10443,8 @@ msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT für Tabelle"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1910
-#, fuzzy
-#| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA (MIME) TYPES FOR TABLE"
-msgstr "MIME TYPEN DER TABELLE"
+msgstr "MEDIENTYPEN (MIME) DER TABELLE"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1933
 msgid "RELATIONSHIPS FOR TABLE"
@@ -10807,18 +10787,6 @@ msgstr ""
 "zu setzen."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:31
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Output/Text_Plain_External.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -10831,14 +10799,14 @@ msgid ""
 "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
 "ensure that the output appears all on one line (Default 1)."
 msgstr ""
-"NUR FÜR LINUX: Startet ein externes Programm und verwendet die Daten der "
-"Spalte für die Standardeingabe. Gibt die Standardausgabe der Anwendung "
-"zurück. Die Voreinstellung wurde für Tidy optimiert, um HTML code optisch zu "
+"NUR FÜR LINUX: Startet ein externes Programm und übergibt die Daten der "
+"Spalten über die Standardeingabe. Gibt die Standardausgabe der Anwendung "
+"zurück. Die Voreinstellung wurde für Tidy optimiert, um HTML-Code optisch zu "
 "formatieren. Aus Sicherheitsgründen müssen Sie die Datei libraries/classes/"
-"Plugins/Transformations/Output/Text_Plain_External.php von Hand bearbeiten, "
-"um weitere Programme verfügbar zu machen. Die erste Option ist die Nummer "
-"des dort hinterlegten Programmes und die zweite Option legt die Parameter "
-"für das externe Programm fest. Die dritte Option bestimmt, falls auf 1 "
+"Plugins/Transformations/Abs/ExternalTransformationsPlugin.php von Hand "
+"bearbeiten un dort zu verwendende Programme eintragen. Die erste Option ist "
+"die Nummer des dort hinterlegten Programms. Die zweite Option sollte aus "
+"historischen Gründen leer bleiben. Die dritte Option bestimmt, falls auf 1 "
 "gesetzt, dass die Ausgabe mit htmlspecialchars() formatiert wird (Standard: "
 "1). Die vierte Option bestimmt, falls auf 1 gesetzt, ob ein NOWRAP-Parameter "
 "der Tabellenzelle hinzugefügt wird, um einen automatischen Umbruch der "
@@ -10851,6 +10819,9 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"Sie verwenden das Befehlszeilenoptionsfeld für externe Transformation, das "
+"aus Sicherheitsgründen als veraltet gilt. Fügen Sie alle "
+"Befehlszeilenoptionen direkt zur Definition in %s hinzu."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:31
 msgid ""
@@ -13651,10 +13622,8 @@ msgstr "Ungültiger Tabellenname"
 
 #. l10n: In case a SQL query did not pass a security check
 #: tbl_get_field.php:62
-#, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
-msgstr "Es werden zu viele Joins ohne die Benutzung von Indizes durchgeführt."
+msgstr "Es gibt ein Problem mit Ihrer Anfrage."
 
 #: tbl_replace.php:266
 #, php-format
@@ -14091,10 +14060,9 @@ msgid "See table structure"
 msgstr "Tabellenstruktur ansehen"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "Alle auswählen"
+msgstr "\"%s\" auswählen"
 
 #: templates/database/designer/database_tables.twig:109
 #, php-format
@@ -15477,26 +15445,20 @@ msgid "Author"
 msgstr "Autor"
 
 #: templates/server/plugins/index.twig:37
-#, fuzzy
-#| msgid "active"
 msgid "inactive"
-msgstr "aktiv"
+msgstr "inaktiv"
 
 #: templates/server/plugins/index.twig:39
 msgid "disabled"
 msgstr "deaktiviert"
 
 #: templates/server/plugins/index.twig:41
-#, fuzzy
-#| msgid "Deleting"
 msgid "deleting"
-msgstr "Löschen"
+msgstr "Lösche"
 
 #: templates/server/plugins/index.twig:43
-#, fuzzy
-#| msgid "Delete"
 msgid "deleted"
-msgstr "Löschen"
+msgstr "Gelöscht"
 
 #: templates/server/privileges/add_user_fieldset.twig:2
 msgctxt "Create new user"
@@ -16613,10 +16575,8 @@ msgid "Edit partitioning"
 msgstr "Bearbeite die Partitionierung"
 
 #: templates/table/structure/display_structure.twig:70
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media (MIME) type:"
-msgstr "MIME-Typ"
+msgstr "Medientyp (MIME):"
 
 #: templates/table/structure/display_structure.twig:91
 #: templates/table/tracking/structure_snapshot_columns.twig:47
@@ -16780,10 +16740,8 @@ msgid "Click to toggle"
 msgstr "Zum Umschalten anklicken"
 
 #: templates/transformation_overview.twig:1
-#, fuzzy
-#| msgid "Available MIME types"
 msgid "Available media (MIME) types"
-msgstr "Verfügbare MIME-Typen"
+msgstr "Verfügbare Medientypen (MIME)"
 
 #: templates/transformation_overview.twig:13
 msgid "Available browser display transformations"
@@ -16791,8 +16749,6 @@ msgstr "Verfügbare Umwandlungen"
 
 #: templates/transformation_overview.twig:19
 #: templates/transformation_overview.twig:38
-#, fuzzy
-#| msgid "Description"
 msgctxt "for media (MIME) type transformation"
 msgid "Description"
 msgstr "Beschreibung"
