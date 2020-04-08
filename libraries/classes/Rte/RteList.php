@@ -322,82 +322,26 @@ class RteList
      * Creates the contents for a row in the list of events
      *
      * @param array  $event    An array of routine data
-     * @param string $rowclass Additional class
+     * @param string $rowClass Additional class
      *
      * @return string HTML code of a cell for the list of events
      */
-    public function getEventRow(array $event, $rowclass = '')
+    public function getEventRow(array $event, $rowClass = '')
     {
-        global $db, $table, $titles;
+        global $db, $table;
 
-        $sql_drop = sprintf(
+        $sqlDrop = sprintf(
             'DROP EVENT IF EXISTS %s',
             Util::backquote($event['name'])
         );
 
-        $retval  = "        <tr class='" . $rowclass . "'>\n";
-        $retval .= "            <td>\n";
-        $retval .= '                <input type="checkbox"'
-            . ' class="checkall" name="item_name[]"'
-            . ' value="' . htmlspecialchars($event['name']) . '">';
-        $retval .= "            </td>\n";
-        $retval .= "            <td>\n";
-        $retval .= "                <span class='drop_sql hide'>"
-            . htmlspecialchars($sql_drop) . "</span>\n";
-        $retval .= "                <strong>\n";
-        $retval .= '                    '
-            . htmlspecialchars($event['name']) . "\n";
-        $retval .= "                </strong>\n";
-        $retval .= "            </td>\n";
-        $retval .= "            <td>\n";
-        $retval .= '                 ' . $event['status'] . "\n";
-        $retval .= "            </td>\n";
-        $retval .= "            <td>\n";
-        if (Util::currentUserHasPrivilege('EVENT', $db)) {
-            $retval .= '                <a class="ajax edit_anchor" href="'
-                . Url::getFromRoute('/database/events', [
-                    'db' => $db,
-                    'table' => $table,
-                    'edit_item' => 1,
-                    'item_name' => $event['name'],
-                ]) . '">' . $titles['Edit'] . "</a>\n";
-        } else {
-            $retval .= '                ' . $titles['NoEdit'] . "\n";
-        }
-        $retval .= "            </td>\n";
-        $retval .= "            <td>\n";
-        $retval .= '                <a class="ajax export_anchor" href="'
-            . Url::getFromRoute('/database/events', [
-                'db' => $db,
-                'table' => $table,
-                'export_item' => 1,
-                'item_name' => $event['name'],
-            ]) . '">' . $titles['Export'] . "</a>\n";
-        $retval .= "            </td>\n";
-        $retval .= "            <td>\n";
-        if (Util::currentUserHasPrivilege('EVENT', $db)) {
-            $retval .= Generator::linkOrButton(
-                Url::getFromRoute(
-                    '/sql',
-                    [
-                        'db' => $db,
-                        'table' => $table,
-                        'sql_query' => $sql_drop,
-                        'goto' => Url::getFromRoute('/database/events', ['db' => $db]),
-                    ]
-                ),
-                $titles['Drop'],
-                ['class' => 'ajax drop_anchor']
-            );
-        } else {
-            $retval .= '                ' . $titles['NoDrop'] . "\n";
-        }
-        $retval .= "            </td>\n";
-        $retval .= "            <td>\n";
-        $retval .= '                 ' . $event['type'] . "\n";
-        $retval .= "            </td>\n";
-        $retval .= "        </tr>\n";
-
-        return $retval;
+        return $this->template->render('rte/events/row', [
+            'db' => $db,
+            'table' => $table,
+            'event' => $event,
+            'has_privilege' => Util::currentUserHasPrivilege('EVENT', $db),
+            'sql_drop' => $sqlDrop,
+            'row_class' => $rowClass,
+        ]);
     }
 }
