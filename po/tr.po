@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2020-04-09 07:25+0000\n"
+"PO-Revision-Date: 2020-04-10 08:09+0000\n"
 "Last-Translator: Oğuz Ersen <oguzersen@protonmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "tr/>\n"
@@ -15958,11 +15958,11 @@ msgstr "Bul ve değiştir - önizleme"
 
 #: templates/table/search/replace_preview.twig:18
 msgid "Original string"
-msgstr "Orijinal satır"
+msgstr "Orijinal dizgi"
 
 #: templates/table/search/replace_preview.twig:19
 msgid "Replaced string"
-msgstr "Değiştirilmiş satır"
+msgstr "Değiştirilmiş dizgi"
 
 #: templates/table/search/replace_preview.twig:37
 msgid "Replace"
