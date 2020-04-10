@@ -87,7 +87,7 @@ class Triggers
      */
     public function main()
     {
-        global $db, $table;
+        global $db, $table, $pmaThemeImage, $text_dir;
 
         $this->setGlobals();
         /**
@@ -95,11 +95,26 @@ class Triggers
          */
         $this->handleEditor();
         $this->export->triggers();
-        /**
-         * Display a list of available triggers
-         */
+
         $items = $this->dbi->getTriggers($db, $table);
-        echo $this->rteList->get('trigger', $items);
+        $response = Response::getInstance();
+        $isAjax = $response->isAjax() && empty($_REQUEST['ajax_page_request']);
+
+        $rows = '';
+        foreach ($items as $item) {
+            $rows .= $this->rteList->getTriggerRow(
+                $item,
+                $isAjax ? 'ajaxInsert hide' : ''
+            );
+        }
+
+        echo $this->template->render('rte/triggers/list', [
+            'db' => $db,
+            'table' => $table,
+            'items' => $items,
+            'rows' => $rows,
+            'select_all_arrow_src' => $pmaThemeImage . 'arrow_' . $text_dir . '.png',
+        ]);
 
         echo $this->template->render('rte/triggers/footer', [
             'db' => $db,

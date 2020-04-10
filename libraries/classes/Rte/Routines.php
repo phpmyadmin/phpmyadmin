@@ -115,7 +115,7 @@ class Routines
      */
     public function main($type)
     {
-        global $db, $table;
+        global $db, $table, $pmaThemeImage, $text_dir;
 
         $this->setGlobals();
         /**
@@ -130,8 +130,26 @@ class Routines
         if (! Core::isValid($type, ['FUNCTION', 'PROCEDURE'])) {
             $type = null;
         }
+
         $items = $this->dbi->getRoutines($db, $type);
-        echo $this->rteList->get('routine', $items);
+        $response = Response::getInstance();
+        $isAjax = $response->isAjax() && empty($_REQUEST['ajax_page_request']);
+
+        $rows = '';
+        foreach ($items as $item) {
+            $rows .= $this->rteList->getRoutineRow(
+                $item,
+                $isAjax ? 'ajaxInsert hide' : ''
+            );
+        }
+
+        echo $this->template->render('rte/routines/list', [
+            'db' => $db,
+            'table' => $table,
+            'items' => $items,
+            'rows' => $rows,
+            'select_all_arrow_src' => $pmaThemeImage . 'arrow_' . $text_dir . '.png',
+        ]);
 
         echo $this->template->render('rte/routines/footer', [
             'db' => $db,

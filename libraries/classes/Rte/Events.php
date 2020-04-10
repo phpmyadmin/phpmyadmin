@@ -111,7 +111,7 @@ class Events
      */
     public function main()
     {
-        global $db, $table;
+        global $db, $table, $pmaThemeImage, $text_dir;
 
         $this->setGlobals();
         /**
@@ -119,11 +119,26 @@ class Events
          */
         $this->handleEditor();
         $this->export->events();
-        /**
-         * Display a list of available events
-         */
+
         $items = $this->dbi->getEvents($db);
-        echo $this->rteList->get('event', $items);
+        $response = Response::getInstance();
+        $isAjax = $response->isAjax() && empty($_REQUEST['ajax_page_request']);
+
+        $rows = '';
+        foreach ($items as $item) {
+            $rows .= $this->rteList->getEventRow(
+                $item,
+                $isAjax ? 'ajaxInsert hide' : ''
+            );
+        }
+
+        echo $this->template->render('rte/events/list', [
+            'db' => $db,
+            'table' => $table,
+            'items' => $items,
+            'rows' => $rows,
+            'select_all_arrow_src' => $pmaThemeImage . 'arrow_' . $text_dir . '.png',
+        ]);
 
         echo $this->template->render('rte/events/footer', [
             'db' => $db,
