@@ -1,7 +1,5 @@
 <?php
-/**
- * Functions for trigger management.
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Rte;
@@ -24,7 +22,7 @@ use function sprintf;
 use const ENT_QUOTES;
 
 /**
- * PhpMyAdmin\Rte\Triggers class
+ * Functions for trigger management.
  */
 class Triggers
 {
@@ -33,9 +31,6 @@ class Triggers
 
     /** @var General */
     private $general;
-
-    /** @var RteList */
-    private $rteList;
 
     /** @var Words */
     private $words;
@@ -54,7 +49,6 @@ class Triggers
         $this->dbi = $dbi;
         $this->export = new Export($this->dbi);
         $this->general = new General($this->dbi);
-        $this->rteList = new RteList($this->dbi);
         $this->words = new Words();
         $this->template = new Template();
     }
@@ -98,14 +92,20 @@ class Triggers
 
         $items = $this->dbi->getTriggers($db, $table);
         $response = Response::getInstance();
+        $hasDropPrivilege = Util::currentUserHasPrivilege('TRIGGER', $db);
+        $hasEditPrivilege = Util::currentUserHasPrivilege('TRIGGER', $db, $table);
         $isAjax = $response->isAjax() && empty($_REQUEST['ajax_page_request']);
 
         $rows = '';
         foreach ($items as $item) {
-            $rows .= $this->rteList->getTriggerRow(
-                $item,
-                $isAjax ? 'ajaxInsert hide' : ''
-            );
+            $rows .= $this->template->render('rte/triggers/row', [
+                'db' => $db,
+                'table' => $table,
+                'trigger' => $item,
+                'has_drop_privilege' => $hasDropPrivilege,
+                'has_edit_privilege' => $hasEditPrivilege,
+                'row_class' => $isAjax ? 'ajaxInsert hide' : '',
+            ]);
         }
 
         echo $this->template->render('rte/triggers/list', [
@@ -238,7 +238,17 @@ class Triggers
                         || ($trigger !== false && $table == $trigger['table'])
                     ) {
                         $insert = true;
-                        $response->addJSON('new_row', $this->rteList->getTriggerRow($trigger));
+                        $response->addJSON(
+                            'new_row',
+                            $this->template->render('rte/triggers/row', [
+                                'db' => $db,
+                                'table' => $table,
+                                'trigger' => $trigger,
+                                'has_drop_privilege' => Util::currentUserHasPrivilege('TRIGGER', $db),
+                                'has_edit_privilege' => Util::currentUserHasPrivilege('TRIGGER', $db, $table),
+                                'row_class' => '',
+                            ])
+                        );
                         $response->addJSON(
                             'name',
                             htmlspecialchars(

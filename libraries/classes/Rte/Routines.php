@@ -1,7 +1,5 @@
 <?php
-/**
- * Functions for routine management.
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Rte;
@@ -42,7 +40,7 @@ use const E_USER_WARNING;
 use const ENT_QUOTES;
 
 /**
- * PhpMyAdmin\Rte\Routines class
+ * Functions for routine management.
  */
 class Routines
 {
@@ -51,9 +49,6 @@ class Routines
 
     /** @var General */
     private $general;
-
-    /** @var RteList */
-    private $rteList;
 
     /** @var Words */
     private $words;
@@ -72,7 +67,6 @@ class Routines
         $this->dbi = $dbi;
         $this->export = new Export($this->dbi);
         $this->general = new General($this->dbi);
-        $this->rteList = new RteList($this->dbi);
         $this->words = new Words();
         $this->template = new Template();
     }
@@ -137,7 +131,7 @@ class Routines
 
         $rows = '';
         foreach ($items as $item) {
-            $rows .= $this->rteList->getRoutineRow(
+            $rows .= $this->getRow(
                 $item,
                 $isAjax ? 'ajaxInsert hide' : ''
             );
@@ -399,7 +393,7 @@ class Routines
                 mb_strtoupper($_POST['item_name'])
             )
         );
-        $response->addJSON('new_row', $this->rteList->getRoutineRow($routine));
+        $response->addJSON('new_row', $this->getRow($routine));
         $response->addJSON('insert', ! empty($routine));
         $response->addJSON('message', $output);
         exit;
@@ -1762,5 +1756,98 @@ class Routines
         $retval .= "<!-- END ROUTINE EXECUTE FORM -->\n\n";
 
         return $retval;
+    }
+
+    /**
+     * Creates the contents for a row in the list of routines
+     *
+     * @param array  $routine  An array of routine data
+     * @param string $rowClass Additional class
+     *
+     * @return string HTML code of a row for the list of routines
+     */
+    private function getRow(array $routine, $rowClass = '')
+    {
+        global $db, $table;
+
+        $sqlDrop = sprintf(
+            'DROP %s IF EXISTS %s',
+            $routine['type'],
+            Util::backquote($routine['name'])
+        );
+
+        // this is for our purpose to decide whether to
+        // show the edit link or not, so we need the DEFINER for the routine
+        $where = 'ROUTINE_SCHEMA ' . Util::getCollateForIS() . '='
+            . "'" . $this->dbi->escapeString($db) . "' "
+            . "AND SPECIFIC_NAME='" . $this->dbi->escapeString($routine['name']) . "'"
+            . "AND ROUTINE_TYPE='" . $this->dbi->escapeString($routine['type']) . "'";
+        $query = 'SELECT `DEFINER` FROM INFORMATION_SCHEMA.ROUTINES WHERE ' . $where . ';';
+        $routineDefiner = $this->dbi->fetchValue($query);
+
+        $currentUser = $this->dbi->getCurrentUser();
+
+        // Since editing a procedure involved dropping and recreating, check also for
+        // CREATE ROUTINE privilege to avoid lost procedures.
+        $hasEditPrivilege = (Util::currentUserHasPrivilege('CREATE ROUTINE', $db)
+            && $currentUser == $routineDefiner) || $this->dbi->isSuperuser();
+
+        // There is a problem with Util::currentUserHasPrivilege():
+        // it does not detect all kinds of privileges, for example
+        // a direct privilege on a specific routine. So, at this point,
+        // we show the Execute link, hoping that the user has the correct rights.
+        // Also, information_schema might be hiding the ROUTINE_DEFINITION
+        // but a routine with no input parameters can be nonetheless executed.
+
+        // Check if the routine has any input parameters. If it does,
+        // we will show a dialog to get values for these parameters,
+        // otherwise we can execute it directly.
+
+        $definition = $this->dbi->getDefinition(
+            $db,
+            $routine['type'],
+            $routine['name']
+        );
+        $hasExecutePrivilege = Util::currentUserHasPrivilege('EXECUTE', $db);
+        $executeAction = '';
+
+        if ($definition !== null) {
+            $parser = new Parser($definition);
+
+            /**
+             * @var CreateStatement $stmt
+             */
+            $stmt = $parser->statements[0];
+
+            $params = Routine::getParameters($stmt);
+
+            if ($hasExecutePrivilege) {
+                $executeAction = 'execute_routine';
+                for ($i = 0; $i < $params['num']; $i++) {
+                    if ($routine['type'] == 'PROCEDURE'
+                        && $params['dir'][$i] == 'OUT'
+                    ) {
+                        continue;
+                    }
+                    $executeAction = 'execute_dialog';
+                    break;
+                }
+            }
+        }
+
+        $hasExportPrivilege = (Util::currentUserHasPrivilege('CREATE ROUTINE', $db)
+            && $currentUser == $routineDefiner) || $this->dbi->isSuperuser();
+
+        return $this->template->render('rte/routines/row', [
+            'db' => $db,
+            'table' => $table,
+            'sql_drop' => $sqlDrop,
+            'routine' => $routine,
+            'row_class' => $rowClass,
+            'has_edit_privilege' => $hasEditPrivilege,
+            'has_export_privilege' => $hasExportPrivilege,
+            'has_execute_privilege' => $hasExecutePrivilege,
+            'execute_action' => $executeAction,
+        ]);
     }
 }

@@ -1,7 +1,5 @@
 <?php
-/**
- * Functions for event management.
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Rte;
@@ -25,7 +23,7 @@ use function sprintf;
 use const ENT_QUOTES;
 
 /**
- * PhpMyAdmin\Rte\Events class
+ * Functions for event management.
  */
 class Events
 {
@@ -34,9 +32,6 @@ class Events
 
     /** @var General */
     private $general;
-
-    /** @var RteList */
-    private $rteList;
 
     /** @var Words */
     private $words;
@@ -55,7 +50,6 @@ class Events
         $this->dbi = $dbi;
         $this->export = new Export($this->dbi);
         $this->general = new General($this->dbi);
-        $this->rteList = new RteList($this->dbi);
         $this->words = new Words();
         $this->template = new Template();
     }
@@ -122,14 +116,23 @@ class Events
 
         $items = $this->dbi->getEvents($db);
         $response = Response::getInstance();
+        $hasPrivilege = Util::currentUserHasPrivilege('EVENT', $db);
         $isAjax = $response->isAjax() && empty($_REQUEST['ajax_page_request']);
 
         $rows = '';
         foreach ($items as $item) {
-            $rows .= $this->rteList->getEventRow(
-                $item,
-                $isAjax ? 'ajaxInsert hide' : ''
+            $sqlDrop = sprintf(
+                'DROP EVENT IF EXISTS %s',
+                Util::backquote($item['name'])
             );
+            $rows .= $this->template->render('rte/events/row', [
+                'db' => $db,
+                'table' => $table,
+                'event' => $item,
+                'has_privilege' => $hasPrivilege,
+                'sql_drop' => $sqlDrop,
+                'row_class' => $isAjax ? 'ajaxInsert hide' : '',
+            ]);
         }
 
         echo $this->template->render('rte/events/list', [
@@ -155,7 +158,7 @@ class Events
      */
     public function handleEditor()
     {
-        global $db, $errors, $message;
+        global $db, $table, $errors, $message;
 
         if (! empty($_POST['editor_process_add'])
             || ! empty($_POST['editor_process_edit'])
@@ -264,7 +267,21 @@ class Events
                         )
                     );
                     if (! empty($event)) {
-                        $response->addJSON('new_row', $this->rteList->getEventRow($event));
+                        $sqlDrop = sprintf(
+                            'DROP EVENT IF EXISTS %s',
+                            Util::backquote($event['name'])
+                        );
+                        $response->addJSON(
+                            'new_row',
+                            $this->template->render('rte/events/row', [
+                                'db' => $db,
+                                'table' => $table,
+                                'event' => $event,
+                                'has_privilege' => Util::currentUserHasPrivilege('EVENT', $db),
+                                'sql_drop' => $sqlDrop,
+                                'row_class' => '',
+                            ])
+                        );
                     }
                     $response->addJSON('insert', ! empty($event));
                     $response->addJSON('message', $output);
