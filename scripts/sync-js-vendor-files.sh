@@ -53,5 +53,7 @@ cp ./node_modules/zxcvbn/dist/zxcvbn.js ./js/vendor/zxcvbn.js
 cp ./node_modules/zxcvbn/dist/zxcvbn.js.map ./js/vendor/zxcvbn.js.map
 echo 'Updating tracekit'
 cp ./node_modules/tracekit/tracekit.js ./js/vendor/tracekit.js
+echo 'Updating u2f-api-polyfill'
+cp ./node_modules/u2f-api-polyfill/u2f-api-polyfill.js ./js/vendor/u2f-api-polyfill.js
 
 echo 'Done.'
