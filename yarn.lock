@@ -1223,10 +1223,10 @@ isexe@^2.0.0:
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=
 
-jquery-migrate@3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/jquery-migrate/-/jquery-migrate-3.1.0.tgz#8158de74cca39fb7fc2635db570151ae7ce3ddea"
-  integrity sha512-u/MtE1ST2pCr3rCyouJG2xMiw/k3OzLNeRKprjKTeHUezCGr0DyEgeXFdqFLmQfxfR5EsVu+mGo/sCcYdiYcIQ==
+jquery-migrate@3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/jquery-migrate/-/jquery-migrate-3.2.0.tgz#ddd4623f6295ab244cc3886a9cd58aad63b139c2"
+  integrity sha512-z5GCIYPLi/xrpFVeY2hN5cYm7xpkRlvjn3hkarekKtCHh+NgwZuxziT2t/LoXgnvOP+49GVf58lcYay9Tsucrw==
 
 jquery-mousewheel@3.1.13:
   version "3.1.13"
@@ -1253,10 +1253,10 @@ jquery.event.drag@2.2.2:
   resolved "https://registry.yarnpkg.com/jquery.event.drag/-/jquery.event.drag-2.2.2.tgz#11bbbf83f4c6ef5f3b5065564663913c9f964be1"
   integrity sha1-Ebu/g/TG7187UGVWRmORPJ+WS+E=
 
-jquery@3.4.1:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.4.1.tgz#714f1f8d9dde4bdfa55764ba37ef214630d80ef2"
-  integrity sha512-36+AdBzCL+y6qjw5Tx7HgzeGCzC81MDDgaUP8ld2zhx58HdqXGoBd+tHdrBMiyjGQs0Hxs/MLZTu/eHNJJuWPw==
+jquery@3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.5.0.tgz#9980b97d9e4194611c36530e7dc46a58d7340fc9"
+  integrity sha512-Xb7SVYMvygPxbFMpTFQiHh1J7HClEaThguL15N/Gg37Lri/qKyhRGZYzHRyLH8Stq3Aow0LsHO2O2ci86fCrNQ==
 
 js-cookie@2.2.1:
   version "2.2.1"
