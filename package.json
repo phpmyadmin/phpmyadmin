@@ -21,7 +21,7 @@
     "jquery.event.drag": "2.2.2",
     "js-cookie": "2.2.1",
     "sass": "^1.26.3",
-    "popper.js": "^1.16.0",
+    "popper.js": "^1.16.1",
     "tracekit": "0.4.5",
     "u2f-api-polyfill": "0.4.4",
     "updated-jqplot": "1.0.9",
