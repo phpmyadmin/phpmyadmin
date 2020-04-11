@@ -27,9 +27,6 @@ use const ENT_QUOTES;
  */
 class Events
 {
-    /** @var Export */
-    private $export;
-
     /** @var DatabaseInterface */
     private $dbi;
 
@@ -42,7 +39,6 @@ class Events
     public function __construct(DatabaseInterface $dbi)
     {
         $this->dbi = $dbi;
-        $this->export = new Export($this->dbi);
         $this->template = new Template();
     }
 
@@ -104,7 +100,7 @@ class Events
          * Process all requests
          */
         $this->handleEditor();
-        $this->export->events();
+        $this->export();
 
         $items = $this->dbi->getEvents($db);
         $response = Response::getInstance();
@@ -796,5 +792,59 @@ class Events
                 $message->display();
             }
         }
+    }
+
+    private function export(): void
+    {
+        global $db;
+
+        if (empty($_GET['export_item']) || empty($_GET['item_name'])) {
+            return;
+        }
+
+        $itemName = $_GET['item_name'];
+        $exportData = $this->dbi->getDefinition($db, 'EVENT', $itemName);
+
+        if (! $exportData) {
+            $exportData = false;
+        }
+
+        $response = Response::getInstance();
+
+        $itemName = htmlspecialchars(Util::backquote($_GET['item_name']));
+        if ($exportData !== false) {
+            $exportData = htmlspecialchars(trim($exportData));
+            $title = sprintf(__('Export of event %s'), $itemName);
+
+            if ($response->isAjax()) {
+                $response->addJSON('message', $exportData);
+                $response->addJSON('title', $title);
+
+                exit;
+            }
+
+            $exportData = '<textarea cols="40" rows="15" style="width: 100%;">'
+                . $exportData . '</textarea>';
+            echo "<fieldset>\n" . '<legend>' . $title . "</legend>\n"
+                . $exportData . "</fieldset>\n";
+
+            return;
+        }
+
+        $message = sprintf(
+            __('Error in processing request: No event with name %1$s found in database %2$s.'),
+            $itemName,
+            htmlspecialchars(Util::backquote($db))
+        );
+        $message = Message::error($message);
+
+        if ($response->isAjax()) {
+            $response->setRequestStatus(false);
+            $response->addJSON('message', $message);
+
+            exit;
+        }
+
+        $message->display();
     }
 }

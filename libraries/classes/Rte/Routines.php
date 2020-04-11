@@ -44,9 +44,6 @@ use const ENT_QUOTES;
  */
 class Routines
 {
-    /** @var Export */
-    private $export;
-
     /** @var DatabaseInterface */
     private $dbi;
 
@@ -59,7 +56,6 @@ class Routines
     public function __construct(DatabaseInterface $dbi)
     {
         $this->dbi = $dbi;
-        $this->export = new Export($this->dbi);
         $this->template = new Template();
     }
 
@@ -109,7 +105,7 @@ class Routines
          */
         $this->handleEditor();
         $this->handleExecute();
-        $this->export->routines();
+        $this->export();
         /**
          * Display a list of available routines
          */
@@ -1862,5 +1858,66 @@ class Routines
             . __('MySQL said: ') . $this->dbi->getError();
 
         return $errors;
+    }
+
+    private function export(): void
+    {
+        global $db;
+
+        if (empty($_GET['export_item']) || empty($_GET['item_name']) || empty($_GET['item_type'])) {
+            return;
+        }
+
+        if ($_GET['item_type'] !== 'FUNCTION' && $_GET['item_type'] !== 'PROCEDURE') {
+            return;
+        }
+
+        $routineDefinition = $this->dbi->getDefinition($db, $_GET['item_type'], $_GET['item_name']);
+        $exportData = false;
+
+        if ($routineDefinition !== null) {
+            $exportData = "DELIMITER $$\n" . $routineDefinition . "$$\nDELIMITER ;\n";
+        }
+
+        $response = Response::getInstance();
+
+        $itemName = htmlspecialchars(Util::backquote($_GET['item_name']));
+        if ($exportData !== false) {
+            $exportData = htmlspecialchars(trim($exportData));
+            $title = sprintf(__('Export of routine %s'), $itemName);
+
+            if ($response->isAjax()) {
+                $response->addJSON('message', $exportData);
+                $response->addJSON('title', $title);
+
+                exit;
+            }
+
+            $exportData = '<textarea cols="40" rows="15" style="width: 100%;">'
+                . $exportData . '</textarea>';
+            echo "<fieldset>\n" . '<legend>' . $title . "</legend>\n"
+                . $exportData . "</fieldset>\n";
+
+            return;
+        }
+
+        $message = sprintf(
+            __(
+                'Error in processing request: No routine with name %1$s found in database %2$s.'
+                . ' You might be lacking the necessary privileges to view/export this routine.'
+            ),
+            $itemName,
+            htmlspecialchars(Util::backquote($db))
+        );
+        $message = Message::error($message);
+
+        if ($response->isAjax()) {
+            $response->setRequestStatus(false);
+            $response->addJSON('message', $message);
+
+            exit;
+        }
+
+        $message->display();
     }
 }

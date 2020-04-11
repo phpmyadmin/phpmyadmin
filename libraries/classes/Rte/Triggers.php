@@ -26,9 +26,6 @@ use const ENT_QUOTES;
  */
 class Triggers
 {
-    /** @var Export */
-    private $export;
-
     /** @var DatabaseInterface */
     private $dbi;
 
@@ -41,7 +38,6 @@ class Triggers
     public function __construct(DatabaseInterface $dbi)
     {
         $this->dbi = $dbi;
-        $this->export = new Export($this->dbi);
         $this->template = new Template();
     }
 
@@ -80,7 +76,7 @@ class Triggers
          * Process all requests
          */
         $this->handleEditor();
-        $this->export->triggers();
+        $this->export();
 
         $items = $this->dbi->getTriggers($db, $table);
         $response = Response::getInstance();
@@ -596,5 +592,63 @@ class Triggers
                 $message->display();
             }
         }
+    }
+
+    private function export(): void
+    {
+        global $db, $table;
+
+        if (empty($_GET['export_item']) || empty($_GET['item_name'])) {
+            return;
+        }
+
+        $itemName = $_GET['item_name'];
+        $triggers = $this->dbi->getTriggers($db, $table, '');
+        $exportData = false;
+
+        foreach ($triggers as $trigger) {
+            if ($trigger['name'] === $itemName) {
+                $exportData = $trigger['create'];
+                break;
+            }
+        }
+
+        $response = Response::getInstance();
+
+        $itemName = htmlspecialchars(Util::backquote($_GET['item_name']));
+        if ($exportData !== false) {
+            $exportData = htmlspecialchars(trim($exportData));
+            $title = sprintf(__('Export of trigger %s'), $itemName);
+
+            if ($response->isAjax()) {
+                $response->addJSON('message', $exportData);
+                $response->addJSON('title', $title);
+
+                exit;
+            }
+
+            $exportData = '<textarea cols="40" rows="15" style="width: 100%;">'
+                . $exportData . '</textarea>';
+            echo "<fieldset>\n" . '<legend>' . $title . "</legend>\n"
+                . $exportData . "</fieldset>\n";
+
+            return;
+        }
+
+        $message = sprintf(
+            __('Error in processing request: No trigger with name %1$s found in database %2$s.'),
+            $itemName,
+            htmlspecialchars(Util::backquote($db))
+        );
+        $message = Message::error($message);
+
+        if ($response->isAjax()) {
+            $response->setRequestStatus(false);
+            $response->addJSON('message', $message);
+
+            exit;
+        }
+
+        $message->display();
     }
 }
