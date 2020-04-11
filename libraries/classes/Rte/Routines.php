@@ -47,9 +47,6 @@ class Routines
     /** @var Export */
     private $export;
 
-    /** @var General */
-    private $general;
-
     /** @var DatabaseInterface */
     private $dbi;
 
@@ -63,7 +60,6 @@ class Routines
     {
         $this->dbi = $dbi;
         $this->export = new Export($this->dbi);
-        $this->general = new General($this->dbi);
         $this->template = new Template();
     }
 
@@ -460,15 +456,7 @@ class Routines
             // but were unable to create the new one
             // Try to restore the backup query
             $result = $this->dbi->tryQuery($create_routine);
-            $errors = $this->general->checkResult(
-                $result,
-                __(
-                    'Sorry, we failed to restore'
-                    . ' the dropped routine.'
-                ),
-                $create_routine,
-                $errors
-            );
+            $errors = $this->checkResult($result, $create_routine, $errors);
 
             return [
                 $errors,
@@ -1848,5 +1836,31 @@ class Routines
             'has_execute_privilege' => $hasExecutePrivilege,
             'execute_action' => $executeAction,
         ]);
+    }
+
+    /**
+     * @param resource|bool $result          Query result
+     * @param string        $createStatement Query
+     * @param array         $errors          Errors
+     *
+     * @return array
+     */
+    private function checkResult($result, $createStatement, array $errors)
+    {
+        if ($result) {
+            return $errors;
+        }
+
+        // OMG, this is really bad! We dropped the query,
+        // failed to create a new one
+        // and now even the backup query does not execute!
+        // This should not happen, but we better handle
+        // this just in case.
+        $errors[] = __('Sorry, we failed to restore the dropped routine.') . '<br>'
+            . __('The backed up query was:')
+            . '"' . htmlspecialchars($createStatement) . '"<br>'
+            . __('MySQL said: ') . $this->dbi->getError();
+
+        return $errors;
     }
 }

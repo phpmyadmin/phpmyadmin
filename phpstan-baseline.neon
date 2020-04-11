@@ -3441,27 +3441,12 @@ parameters:
 			path: libraries/classes/Rte/Events.php
 
 		-
-			message: "#^Parameter \\#3 \\$createStatement of method PhpMyAdmin\\\\Rte\\\\General\\:\\:checkResult\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
 			message: "#^Cannot access offset 'item_name' on array\\|true\\.$#"
 			count: 1
 			path: libraries/classes/Rte/Events.php
 
 		-
 			message: "#^Cannot access offset 'item_original_name' on array\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Parameter \\#2 \\$mode of method PhpMyAdmin\\\\Rte\\\\General\\:\\:sendEditor\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Parameter \\#4 \\$title of method PhpMyAdmin\\\\Rte\\\\General\\:\\:sendEditor\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Rte/Events.php
 
@@ -3534,16 +3519,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$export_data of method PhpMyAdmin\\\\Rte\\\\Export\\:\\:handle\\(\\) expects string, string\\|false given\\.$#"
 			count: 2
 			path: libraries/classes/Rte/Export.php
-
-		-
-			message: "#^Parameter \\#2 \\$operation of method PhpMyAdmin\\\\Rte\\\\Events\\:\\:getEditorForm\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Rte/General.php
-
-		-
-			message: "#^Else branch is unreachable because previous condition is always true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/General.php
 
 		-
 			message: "#^Cannot access offset 'item_name' on array\\|true\\.$#"
@@ -3677,16 +3652,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'item_original_name' on array\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Triggers.php
-
-		-
-			message: "#^Parameter \\#2 \\$mode of method PhpMyAdmin\\\\Rte\\\\General\\:\\:sendEditor\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Triggers.php
-
-		-
-			message: "#^Parameter \\#4 \\$title of method PhpMyAdmin\\\\Rte\\\\General\\:\\:sendEditor\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Rte/Triggers.php
 

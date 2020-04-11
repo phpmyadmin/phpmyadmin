@@ -30,9 +30,6 @@ class Events
     /** @var Export */
     private $export;
 
-    /** @var General */
-    private $general;
-
     /** @var DatabaseInterface */
     private $dbi;
 
@@ -46,7 +43,6 @@ class Events
     {
         $this->dbi = $dbi;
         $this->export = new Export($this->dbi);
-        $this->general = new General($this->dbi);
         $this->template = new Template();
     }
 
@@ -195,14 +191,7 @@ class Events
                             // We dropped the old item, but were unable to create
                             // the new one. Try to restore the backup query
                             $result = $this->dbi->tryQuery($create_item);
-                            $errors = $this->general->checkResult(
-                                $result,
-                                __(
-                                    'Sorry, we failed to restore the dropped event.'
-                                ),
-                                $create_item,
-                                $errors
-                            );
+                            $errors = $this->checkResult($result, $create_item, $errors);
                         } else {
                             $message = Message::success(
                                 __('Event %1$s has been modified.')
@@ -299,9 +288,9 @@ class Events
             || ! empty($_POST['item_changetype'])))
         ) { // FIXME: this must be simpler than that
             $operation = '';
-            $title = null;
+            $title = '';
             $item = null;
-            $mode = null;
+            $mode = '';
             if (! empty($_POST['item_changetype'])) {
                 $operation = 'change';
             }
@@ -325,7 +314,7 @@ class Events
                 }
                 $mode = 'edit';
             }
-            $this->general->sendEditor('EVN', $mode, $item, $title, $db, $operation);
+            $this->sendEditor($mode, $item, $title, $db, $operation);
         }
     }
 
@@ -739,5 +728,73 @@ class Events
             $options,
             'Functions.slidingMessage(data.sql_query);'
         );
+    }
+
+    /**
+     * @param resource|bool $result          Query result
+     * @param string|null   $createStatement Query
+     * @param array         $errors          Errors
+     *
+     * @return array
+     */
+    private function checkResult($result, $createStatement, array $errors)
+    {
+        if ($result) {
+            return $errors;
+        }
+
+        // OMG, this is really bad! We dropped the query,
+        // failed to create a new one
+        // and now even the backup query does not execute!
+        // This should not happen, but we better handle
+        // this just in case.
+        $errors[] = __('Sorry, we failed to restore the dropped event.') . '<br>'
+            . __('The backed up query was:')
+            . '"' . htmlspecialchars((string) $createStatement) . '"<br>'
+            . __('MySQL said: ') . $this->dbi->getError();
+
+        return $errors;
+    }
+
+    /**
+     * Send editor via ajax or by echoing.
+     *
+     * @param string      $mode      Editor mode 'add' or 'edit'
+     * @param array|false $item      Data necessary to create the editor
+     * @param string      $title     Title of the editor
+     * @param string      $db        Database
+     * @param string      $operation Operation 'change' or ''
+     *
+     * @return void
+     */
+    private function sendEditor($mode, $item, $title, $db, $operation)
+    {
+        $response = Response::getInstance();
+        if ($item !== false) {
+            $editor = $this->getEditorForm($mode, $operation, $item);
+            if ($response->isAjax()) {
+                $response->addJSON('message', $editor);
+                $response->addJSON('title', $title);
+            } else {
+                echo "\n\n<h2>" . $title . "</h2>\n\n" . $editor;
+                unset($_POST);
+            }
+            exit;
+        } else {
+            $message  = __('Error in processing request:') . ' ';
+            $message .= sprintf(
+                __('No event with name %1$s found in database %2$s.'),
+                htmlspecialchars(Util::backquote($_REQUEST['item_name'])),
+                htmlspecialchars(Util::backquote($db))
+            );
+            $message = Message::error($message);
+            if ($response->isAjax()) {
+                $response->setRequestStatus(false);
+                $response->addJSON('message', $message);
+                exit;
+            } else {
+                $message->display();
+            }
+        }
     }
 }

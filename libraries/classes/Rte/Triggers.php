@@ -29,9 +29,6 @@ class Triggers
     /** @var Export */
     private $export;
 
-    /** @var General */
-    private $general;
-
     /** @var DatabaseInterface */
     private $dbi;
 
@@ -45,7 +42,6 @@ class Triggers
     {
         $this->dbi = $dbi;
         $this->export = new Export($this->dbi);
-        $this->general = new General($this->dbi);
         $this->template = new Template();
     }
 
@@ -163,14 +159,7 @@ class Triggers
                             // new one. Try to restore the backup query.
                             $result = $this->dbi->tryQuery($create_item);
 
-                            $errors = $this->general->checkResult(
-                                $result,
-                                __(
-                                    'Sorry, we failed to restore the dropped trigger.'
-                                ),
-                                $create_item,
-                                $errors
-                            );
+                            $errors = $this->checkResult($result, $create_item, $errors);
                         } else {
                             $message = Message::success(
                                 __('Trigger %1$s has been modified.')
@@ -273,9 +262,9 @@ class Triggers
             && (! empty($_REQUEST['add_item'])
             || ! empty($_REQUEST['edit_item']))) // FIXME: this must be simpler than that
         ) {
-            $mode = null;
+            $mode = '';
             $item = null;
-            $title = null;
+            $title = '';
             // Get the data for the form (if any)
             if (! empty($_REQUEST['add_item'])) {
                 $title = __('Add trigger');
@@ -295,7 +284,7 @@ class Triggers
                 }
                 $mode = 'edit';
             }
-            $this->general->sendEditor('TRI', $mode, $item, $title, $db);
+            $this->sendEditor($mode, $item, $title, $db);
         }
     }
 
@@ -540,5 +529,72 @@ class Triggers
         }
 
         return $query;
+    }
+
+    /**
+     * @param resource|bool $result          Query result
+     * @param string        $createStatement Query
+     * @param array         $errors          Errors
+     *
+     * @return array
+     */
+    private function checkResult($result, $createStatement, array $errors)
+    {
+        if ($result) {
+            return $errors;
+        }
+
+        // OMG, this is really bad! We dropped the query,
+        // failed to create a new one
+        // and now even the backup query does not execute!
+        // This should not happen, but we better handle
+        // this just in case.
+        $errors[] = __('Sorry, we failed to restore the dropped trigger.') . '<br>'
+            . __('The backed up query was:')
+            . '"' . htmlspecialchars($createStatement) . '"<br>'
+            . __('MySQL said: ') . $this->dbi->getError();
+
+        return $errors;
+    }
+
+    /**
+     * Send editor via ajax or by echoing.
+     *
+     * @param string      $mode  Editor mode 'add' or 'edit'
+     * @param array|false $item  Data necessary to create the editor
+     * @param string      $title Title of the editor
+     * @param string      $db    Database
+     *
+     * @return void
+     */
+    private function sendEditor($mode, $item, $title, $db)
+    {
+        $response = Response::getInstance();
+        if ($item !== false) {
+            $editor = $this->getEditorForm($mode, $item);
+            if ($response->isAjax()) {
+                $response->addJSON('message', $editor);
+                $response->addJSON('title', $title);
+            } else {
+                echo "\n\n<h2>" . $title . "</h2>\n\n" . $editor;
+                unset($_POST);
+            }
+            exit;
+        } else {
+            $message  = __('Error in processing request:') . ' ';
+            $message .= sprintf(
+                __('No trigger with name %1$s found in database %2$s.'),
+                htmlspecialchars(Util::backquote($_REQUEST['item_name'])),
+                htmlspecialchars(Util::backquote($db))
+            );
+            $message = Message::error($message);
+            if ($response->isAjax()) {
+                $response->setRequestStatus(false);
+                $response->addJSON('message', $message);
+                exit;
+            } else {
+                $message->display();
+            }
+        }
     }
 }
