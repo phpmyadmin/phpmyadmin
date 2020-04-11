@@ -25,5 +25,6 @@ cp ./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js ./js/vendor/bootstra
 cp ./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js.map ./js/vendor/bootstrap/bootstrap.bundle.min.js.map
 echo 'Updating zxcvbn'
 cp ./node_modules/zxcvbn/dist/zxcvbn.js ./js/vendor/zxcvbn.js
+cp ./node_modules/zxcvbn/dist/zxcvbn.js.map ./js/vendor/zxcvbn.js.map
 
 echo 'Done.'
