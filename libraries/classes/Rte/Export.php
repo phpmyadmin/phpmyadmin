@@ -34,12 +34,12 @@ class Export
      * This function is called from one of the other functions in this file
      * and it completes the handling of the export functionality.
      *
-     * @param string $export_data The SQL query to create the requested item
-     * @param string $type        RTE type (routine|trigger|event).
+     * @param string|false $export_data The SQL query to create the requested item
+     * @param string       $type        RTE type (routine|trigger|event).
      *
      * @return void
      */
-    private function handle($export_data, string $type)
+    private function handle($export_data, string $type): void
     {
         global $db;
 
@@ -63,32 +63,37 @@ class Export
         if ($export_data !== false) {
             $export_data = htmlspecialchars(trim($export_data));
             $title = sprintf($exportMessage, $item_name);
+
             if ($response->isAjax()) {
                 $response->addJSON('message', $export_data);
                 $response->addJSON('title', $title);
-                exit;
-            } else {
-                $export_data = '<textarea cols="40" rows="15" style="width: 100%;">'
-                   . $export_data . '</textarea>';
-                echo "<fieldset>\n"
-                   , '<legend>' . $title . "</legend>\n"
-                   , $export_data
-                   , "</fieldset>\n";
-            }
-        } else {
-            $_db = htmlspecialchars(Util::backquote($db));
-            $message  = __('Error in processing request:') . ' '
-                      . sprintf($noViewMessage, $item_name, $_db);
-            $message = Message::error($message);
 
-            if ($response->isAjax()) {
-                $response->setRequestStatus(false);
-                $response->addJSON('message', $message);
                 exit;
-            } else {
-                $message->display();
             }
+
+            $export_data = '<textarea cols="40" rows="15" style="width: 100%;">'
+               . $export_data . '</textarea>';
+            echo "<fieldset>\n"
+               , '<legend>' . $title . "</legend>\n"
+               , $export_data
+               , "</fieldset>\n";
+
+            return;
         }
+
+        $_db = htmlspecialchars(Util::backquote($db));
+        $message  = __('Error in processing request:') . ' '
+                  . sprintf($noViewMessage, $item_name, $_db);
+        $message = Message::error($message);
+
+        if ($response->isAjax()) {
+            $response->setRequestStatus(false);
+            $response->addJSON('message', $message);
+
+            exit;
+        }
+
+        $message->display();
     }
 
     /**
@@ -97,18 +102,22 @@ class Export
      *
      * @return void
      */
-    public function events()
+    public function events(): void
     {
         global $db;
 
-        if (! empty($_GET['export_item']) && ! empty($_GET['item_name'])) {
-            $item_name = $_GET['item_name'];
-            $export_data = $this->dbi->getDefinition($db, 'EVENT', $item_name);
-            if (! $export_data) {
-                $export_data = false;
-            }
-            $this->handle($export_data, 'event');
+        if (empty($_GET['export_item']) || empty($_GET['item_name'])) {
+            return;
         }
+
+        $item_name = $_GET['item_name'];
+        $export_data = $this->dbi->getDefinition($db, 'EVENT', $item_name);
+
+        if (! $export_data) {
+            $export_data = false;
+        }
+
+        $this->handle($export_data, 'event');
     }
 
     /**
@@ -117,32 +126,26 @@ class Export
      *
      * @return void
      */
-    public function routines()
+    public function routines(): void
     {
         global $db;
 
-        if (! empty($_GET['export_item'])
-            && ! empty($_GET['item_name'])
-            && ! empty($_GET['item_type'])
-        ) {
-            if ($_GET['item_type'] == 'FUNCTION' || $_GET['item_type'] == 'PROCEDURE') {
-                $rtn_definition
-                    = $this->dbi->getDefinition(
-                        $db,
-                        $_GET['item_type'],
-                        $_GET['item_name']
-                    );
-                if ($rtn_definition === null) {
-                    $export_data = false;
-                } else {
-                    $export_data = "DELIMITER $$\n"
-                        . $rtn_definition
-                        . "$$\nDELIMITER ;\n";
-                }
-
-                $this->handle($export_data, 'routine');
-            }
+        if (empty($_GET['export_item']) || empty($_GET['item_name']) || empty($_GET['item_type'])) {
+            return;
         }
+
+        if ($_GET['item_type'] !== 'FUNCTION' && $_GET['item_type'] !== 'PROCEDURE') {
+            return;
+        }
+
+        $rtn_definition = $this->dbi->getDefinition($db, $_GET['item_type'], $_GET['item_name']);
+        $export_data = false;
+
+        if ($rtn_definition !== null) {
+            $export_data = "DELIMITER $$\n" . $rtn_definition . "$$\nDELIMITER ;\n";
+        }
+
+        $this->handle($export_data, 'routine');
     }
 
     /**
@@ -151,21 +154,25 @@ class Export
      *
      * @return void
      */
-    public function triggers()
+    public function triggers(): void
     {
         global $db, $table;
 
-        if (! empty($_GET['export_item']) && ! empty($_GET['item_name'])) {
-            $item_name = $_GET['item_name'];
-            $triggers = $this->dbi->getTriggers($db, $table, '');
-            $export_data = false;
-            foreach ($triggers as $trigger) {
-                if ($trigger['name'] === $item_name) {
-                    $export_data = $trigger['create'];
-                    break;
-                }
-            }
-            $this->handle($export_data, 'trigger');
+        if (empty($_GET['export_item']) || empty($_GET['item_name'])) {
+            return;
         }
+
+        $item_name = $_GET['item_name'];
+        $triggers = $this->dbi->getTriggers($db, $table, '');
+        $export_data = false;
+
+        foreach ($triggers as $trigger) {
+            if ($trigger['name'] === $item_name) {
+                $export_data = $trigger['create'];
+                break;
+            }
+        }
+
+        $this->handle($export_data, 'trigger');
     }
 }

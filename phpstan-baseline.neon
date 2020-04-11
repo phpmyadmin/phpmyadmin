@@ -3511,16 +3511,6 @@ parameters:
 			path: libraries/classes/Rte/Events.php
 
 		-
-			message: "#^Else branch is unreachable because previous condition is always true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Export.php
-
-		-
-			message: "#^Parameter \\#1 \\$export_data of method PhpMyAdmin\\\\Rte\\\\Export\\:\\:handle\\(\\) expects string, string\\|false given\\.$#"
-			count: 2
-			path: libraries/classes/Rte/Export.php
-
-		-
 			message: "#^Cannot access offset 'item_name' on array\\|true\\.$#"
 			count: 1
 			path: libraries/classes/Rte/Routines.php
