@@ -33,13 +33,19 @@ class Events
     /** @var Template */
     private $template;
 
+    /** @var Response */
+    private $response;
+
     /**
-     * @param DatabaseInterface $dbi DatabaseInterface object
+     * @param DatabaseInterface $dbi      DatabaseInterface instance.
+     * @param Template          $template Template instance.
+     * @param Response          $response Response instance.
      */
-    public function __construct(DatabaseInterface $dbi)
+    public function __construct(DatabaseInterface $dbi, Template $template, $response)
     {
         $this->dbi = $dbi;
-        $this->template = new Template();
+        $this->template = $template;
+        $this->response = $response;
     }
 
     /**
@@ -103,9 +109,8 @@ class Events
         $this->export();
 
         $items = $this->dbi->getEvents($db);
-        $response = Response::getInstance();
         $hasPrivilege = Util::currentUserHasPrivilege('EVENT', $db);
-        $isAjax = $response->isAjax() && empty($_REQUEST['ajax_page_request']);
+        $isAjax = $this->response->isAjax() && empty($_REQUEST['ajax_page_request']);
 
         $rows = '';
         foreach ($items as $item) {
@@ -236,12 +241,12 @@ class Events
             }
 
             $output = Generator::getMessage($message, $sql_query);
-            $response = Response::getInstance();
-            if ($response->isAjax()) {
+
+            if ($this->response->isAjax()) {
                 if ($message->isSuccess()) {
                     $events = $this->dbi->getEvents($db, $_POST['item_name']);
                     $event = $events[0];
-                    $response->addJSON(
+                    $this->response->addJSON(
                         'name',
                         htmlspecialchars(
                             mb_strtoupper($_POST['item_name'])
@@ -252,7 +257,7 @@ class Events
                             'DROP EVENT IF EXISTS %s',
                             Util::backquote($event['name'])
                         );
-                        $response->addJSON(
+                        $this->response->addJSON(
                             'new_row',
                             $this->template->render('rte/events/row', [
                                 'db' => $db,
@@ -264,11 +269,11 @@ class Events
                             ])
                         );
                     }
-                    $response->addJSON('insert', ! empty($event));
-                    $response->addJSON('message', $output);
+                    $this->response->addJSON('insert', ! empty($event));
+                    $this->response->addJSON('message', $output);
                 } else {
-                    $response->setRequestStatus(false);
-                    $response->addJSON('message', $message);
+                    $this->response->setRequestStatus(false);
+                    $this->response->addJSON('message', $message);
                 }
                 exit;
             }
@@ -415,8 +420,6 @@ class Events
 
         $modeToUpper = mb_strtoupper($mode);
 
-        $response = Response::getInstance();
-
         // Escape special characters
         $need_escape = [
             'item_original_name',
@@ -489,7 +492,7 @@ class Events
         $retval .= "<tr>\n";
         $retval .= '    <td>' . __('Event type') . "</td>\n";
         $retval .= "    <td>\n";
-        if ($response->isAjax()) {
+        if ($this->response->isAjax()) {
             $retval .= "        <select name='item_type'>";
             foreach ($event_type as $key => $value) {
                 $selected = '';
@@ -580,7 +583,7 @@ class Events
         $retval .= "</tr>\n";
         $retval .= "</table>\n";
         $retval .= "</fieldset>\n";
-        if ($response->isAjax()) {
+        if ($this->response->isAjax()) {
             $retval .= "<input type='hidden' name='editor_process_" . $mode . "'\n";
             $retval .= "       value='true'>\n";
             $retval .= "<input type='hidden' name='ajax_request' value='true'>\n";
@@ -765,12 +768,11 @@ class Events
      */
     private function sendEditor($mode, $item, $title, $db, $operation)
     {
-        $response = Response::getInstance();
         if ($item !== false) {
             $editor = $this->getEditorForm($mode, $operation, $item);
-            if ($response->isAjax()) {
-                $response->addJSON('message', $editor);
-                $response->addJSON('title', $title);
+            if ($this->response->isAjax()) {
+                $this->response->addJSON('message', $editor);
+                $this->response->addJSON('title', $title);
             } else {
                 echo "\n\n<h2>" . $title . "</h2>\n\n" . $editor;
                 unset($_POST);
@@ -784,9 +786,9 @@ class Events
                 htmlspecialchars(Util::backquote($db))
             );
             $message = Message::error($message);
-            if ($response->isAjax()) {
-                $response->setRequestStatus(false);
-                $response->addJSON('message', $message);
+            if ($this->response->isAjax()) {
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', $message);
                 exit;
             } else {
                 $message->display();
@@ -809,16 +811,14 @@ class Events
             $exportData = false;
         }
 
-        $response = Response::getInstance();
-
         $itemName = htmlspecialchars(Util::backquote($_GET['item_name']));
         if ($exportData !== false) {
             $exportData = htmlspecialchars(trim($exportData));
             $title = sprintf(__('Export of event %s'), $itemName);
 
-            if ($response->isAjax()) {
-                $response->addJSON('message', $exportData);
-                $response->addJSON('title', $title);
+            if ($this->response->isAjax()) {
+                $this->response->addJSON('message', $exportData);
+                $this->response->addJSON('title', $title);
 
                 exit;
             }
@@ -838,9 +838,9 @@ class Events
         );
         $message = Message::error($message);
 
-        if ($response->isAjax()) {
-            $response->setRequestStatus(false);
-            $response->addJSON('message', $message);
+        if ($this->response->isAjax()) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', $message);
 
             exit;
         }

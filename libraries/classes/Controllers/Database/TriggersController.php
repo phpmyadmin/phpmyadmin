@@ -78,7 +78,7 @@ class TriggersController extends AbstractController
          */
         $errors = [];
 
-        $triggers = new Triggers($this->dbi);
+        $triggers = new Triggers($this->dbi, $this->template, $this->response);
         $triggers->main();
     }
 }

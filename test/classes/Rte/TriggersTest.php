@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Tests\Rte;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Rte\Triggers;
+use PhpMyAdmin\Template;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -31,7 +32,11 @@ class TriggersTest extends TestCase
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
 
-        $this->triggers = new Triggers($GLOBALS['dbi']);
+        $this->triggers = new Triggers(
+            $GLOBALS['dbi'],
+            new Template(),
+            Response::getInstance()
+        );
     }
 
     /**

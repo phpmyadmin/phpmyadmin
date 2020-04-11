@@ -32,13 +32,19 @@ class Triggers
     /** @var Template */
     private $template;
 
+    /** @var Response */
+    private $response;
+
     /**
-     * @param DatabaseInterface $dbi DatabaseInterface object
+     * @param DatabaseInterface $dbi      DatabaseInterface instance.
+     * @param Template          $template Template instance.
+     * @param Response          $response Response instance.
      */
-    public function __construct(DatabaseInterface $dbi)
+    public function __construct(DatabaseInterface $dbi, Template $template, $response)
     {
         $this->dbi = $dbi;
-        $this->template = new Template();
+        $this->template = $template;
+        $this->response = $response;
     }
 
     /**
@@ -79,10 +85,9 @@ class Triggers
         $this->export();
 
         $items = $this->dbi->getTriggers($db, $table);
-        $response = Response::getInstance();
         $hasDropPrivilege = Util::currentUserHasPrivilege('TRIGGER', $db);
         $hasEditPrivilege = Util::currentUserHasPrivilege('TRIGGER', $db, $table);
-        $isAjax = $response->isAjax() && empty($_REQUEST['ajax_page_request']);
+        $isAjax = $this->response->isAjax() && empty($_REQUEST['ajax_page_request']);
 
         $rows = '';
         foreach ($items as $item) {
@@ -204,8 +209,8 @@ class Triggers
             }
 
             $output = Generator::getMessage($message, $sql_query);
-            $response = Response::getInstance();
-            if ($response->isAjax()) {
+
+            if ($this->response->isAjax()) {
                 if ($message->isSuccess()) {
                     $items = $this->dbi->getTriggers($db, $table, '');
                     $trigger = false;
@@ -219,7 +224,7 @@ class Triggers
                         || ($trigger !== false && $table == $trigger['table'])
                     ) {
                         $insert = true;
-                        $response->addJSON(
+                        $this->response->addJSON(
                             'new_row',
                             $this->template->render('rte/triggers/row', [
                                 'db' => $db,
@@ -230,7 +235,7 @@ class Triggers
                                 'row_class' => '',
                             ])
                         );
-                        $response->addJSON(
+                        $this->response->addJSON(
                             'name',
                             htmlspecialchars(
                                 mb_strtoupper(
@@ -239,11 +244,11 @@ class Triggers
                             )
                         );
                     }
-                    $response->addJSON('insert', $insert);
-                    $response->addJSON('message', $output);
+                    $this->response->addJSON('insert', $insert);
+                    $this->response->addJSON('message', $output);
                 } else {
-                    $response->addJSON('message', $message);
-                    $response->setRequestStatus(false);
+                    $this->response->addJSON('message', $message);
+                    $this->response->setRequestStatus(false);
                 }
                 exit;
             }
@@ -357,7 +362,6 @@ class Triggers
         global $db, $table, $event_manipulations, $action_timings;
 
         $modeToUpper = mb_strtoupper($mode);
-        $response = Response::getInstance();
 
         // Escape special characters
         $need_escape = [
@@ -453,7 +457,7 @@ class Triggers
         $retval .= "</tr>\n";
         $retval .= "</table>\n";
         $retval .= "</fieldset>\n";
-        if ($response->isAjax()) {
+        if ($this->response->isAjax()) {
             $retval .= "<input type='hidden' name='editor_process_" . $mode . "'\n";
             $retval .= "       value='true'>\n";
             $retval .= "<input type='hidden' name='ajax_request' value='true'>\n";
@@ -565,12 +569,11 @@ class Triggers
      */
     private function sendEditor($mode, $item, $title, $db)
     {
-        $response = Response::getInstance();
         if ($item !== false) {
             $editor = $this->getEditorForm($mode, $item);
-            if ($response->isAjax()) {
-                $response->addJSON('message', $editor);
-                $response->addJSON('title', $title);
+            if ($this->response->isAjax()) {
+                $this->response->addJSON('message', $editor);
+                $this->response->addJSON('title', $title);
             } else {
                 echo "\n\n<h2>" . $title . "</h2>\n\n" . $editor;
                 unset($_POST);
@@ -584,9 +587,9 @@ class Triggers
                 htmlspecialchars(Util::backquote($db))
             );
             $message = Message::error($message);
-            if ($response->isAjax()) {
-                $response->setRequestStatus(false);
-                $response->addJSON('message', $message);
+            if ($this->response->isAjax()) {
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', $message);
                 exit;
             } else {
                 $message->display();
@@ -613,16 +616,14 @@ class Triggers
             }
         }
 
-        $response = Response::getInstance();
-
         $itemName = htmlspecialchars(Util::backquote($_GET['item_name']));
         if ($exportData !== false) {
             $exportData = htmlspecialchars(trim($exportData));
             $title = sprintf(__('Export of trigger %s'), $itemName);
 
-            if ($response->isAjax()) {
-                $response->addJSON('message', $exportData);
-                $response->addJSON('title', $title);
+            if ($this->response->isAjax()) {
+                $this->response->addJSON('message', $exportData);
+                $this->response->addJSON('title', $title);
 
                 exit;
             }
@@ -642,9 +643,9 @@ class Triggers
         );
         $message = Message::error($message);
 
-        if ($response->isAjax()) {
-            $response->setRequestStatus(false);
-            $response->addJSON('message', $message);
+        if ($this->response->isAjax()) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', $message);
 
             exit;
         }

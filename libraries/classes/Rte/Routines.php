@@ -50,13 +50,19 @@ class Routines
     /** @var Template */
     private $template;
 
+    /** @var Response */
+    private $response;
+
     /**
-     * @param DatabaseInterface $dbi DatabaseInterface object
+     * @param DatabaseInterface $dbi      DatabaseInterface instance.
+     * @param Template          $template Template instance.
+     * @param Response          $response Response instance.
      */
-    public function __construct(DatabaseInterface $dbi)
+    public function __construct(DatabaseInterface $dbi, Template $template, $response)
     {
         $this->dbi = $dbi;
-        $this->template = new Template();
+        $this->template = $template;
+        $this->response = $response;
     }
 
     /**
@@ -114,8 +120,7 @@ class Routines
         }
 
         $items = $this->dbi->getRoutines($db, $type);
-        $response = Response::getInstance();
-        $isAjax = $response->isAjax() && empty($_REQUEST['ajax_page_request']);
+        $isAjax = $this->response->isAjax() && empty($_REQUEST['ajax_page_request']);
 
         $rows = '';
         foreach ($items as $item) {
@@ -166,7 +171,6 @@ class Routines
         global $db, $errors;
 
         $errors = $this->handleRequestCreateOrEdit($errors, $db);
-        $response = Response::getInstance();
 
         /**
          * Display a form used to add/edit a routine, if necessary
@@ -219,11 +223,11 @@ class Routines
             if ($routine !== false) {
                 // Show form
                 $editor = $this->getEditorForm($mode, $operation, $routine);
-                if ($response->isAjax()) {
-                    $response->addJSON('message', $editor);
-                    $response->addJSON('title', $title);
-                    $response->addJSON('paramTemplate', $this->getParameterRow());
-                    $response->addJSON('type', $routine['item_type']);
+                if ($this->response->isAjax()) {
+                    $this->response->addJSON('message', $editor);
+                    $this->response->addJSON('title', $title);
+                    $this->response->addJSON('paramTemplate', $this->getParameterRow());
+                    $this->response->addJSON('type', $routine['item_type']);
                 } else {
                     echo "\n\n<h2>" . $title . "</h2>\n\n" . $editor;
                 }
@@ -242,9 +246,9 @@ class Routines
                 );
 
                 $message = Message::error($message);
-                if ($response->isAjax()) {
-                    $response->setRequestStatus(false);
-                    $response->addJSON('message', $message);
+                if ($this->response->isAjax()) {
+                    $this->response->setRequestStatus(false);
+                    $this->response->addJSON('message', $message);
                     exit;
                 } else {
                     $message->display();
@@ -361,14 +365,14 @@ class Routines
         }
 
         $output = Generator::getMessage($message, $sql_query);
-        $response = Response::getInstance();
-        if (! $response->isAjax()) {
+
+        if (! $this->response->isAjax()) {
             return $errors;
         }
 
         if (! $message->isSuccess()) {
-            $response->setRequestStatus(false);
-            $response->addJSON('message', $output);
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', $output);
             exit;
         }
 
@@ -378,15 +382,15 @@ class Routines
             $_POST['item_name']
         );
         $routine = $routines[0];
-        $response->addJSON(
+        $this->response->addJSON(
             'name',
             htmlspecialchars(
                 mb_strtoupper($_POST['item_name'])
             )
         );
-        $response->addJSON('new_row', $this->getRow($routine));
-        $response->addJSON('insert', ! empty($routine));
-        $response->addJSON('message', $output);
+        $this->response->addJSON('new_row', $this->getRow($routine));
+        $this->response->addJSON('insert', ! empty($routine));
+        $this->response->addJSON('message', $output);
         exit;
     }
 
@@ -833,8 +837,6 @@ class Routines
     {
         global $db, $errors, $param_sqldataaccess, $param_opts_num;
 
-        $response = Response::getInstance();
-
         // Escape special characters
         $need_escape = [
             'item_original_name',
@@ -932,7 +934,7 @@ class Routines
         $retval .= "<tr>\n";
         $retval .= '    <td>' . __('Type') . "</td>\n";
         $retval .= "    <td>\n";
-        if ($response->isAjax()) {
+        if ($this->response->isAjax()) {
             $retval .= "        <select name='item_type'>\n"
                 . "<option value='PROCEDURE'" . $isprocedure_select . ">PROCEDURE</option>\n"
                 . "<option value='FUNCTION'" . $isfunction_select . ">FUNCTION</option>\n"
@@ -1100,7 +1102,7 @@ class Routines
         $retval .= '</tr>';
         $retval .= '</table>';
         $retval .= '</fieldset>';
-        if ($response->isAjax()) {
+        if ($this->response->isAjax()) {
             $retval .= "<input type='hidden' name='editor_process_" . $mode . "'";
             $retval .= "       value='true'>";
             $retval .= "<input type='hidden' name='ajax_request' value='true'>";
@@ -1342,8 +1344,6 @@ class Routines
     {
         global $db;
 
-        $response = Response::getInstance();
-
         /**
          * Handle all user requests other than the default of listing routines
          */
@@ -1362,9 +1362,9 @@ class Routines
                     htmlspecialchars(Util::backquote($db))
                 );
                 $message = Message::error($message);
-                if ($response->isAjax()) {
-                    $response->setRequestStatus(false);
-                    $response->addJSON('message', $message);
+                if ($this->response->isAjax()) {
+                    $this->response->setRequestStatus(false);
+                    $this->response->addJSON('message', $message);
                     exit;
                 } else {
                     echo $message->getDisplay();
@@ -1520,10 +1520,10 @@ class Routines
             }
 
             // Print/send output
-            if ($response->isAjax()) {
-                $response->setRequestStatus($message->isSuccess());
-                $response->addJSON('message', $message->getDisplay() . $output);
-                $response->addJSON('dialog', false);
+            if ($this->response->isAjax()) {
+                $this->response->setRequestStatus($message->isSuccess());
+                $this->response->addJSON('message', $message->getDisplay() . $output);
+                $this->response->addJSON('dialog', false);
                 exit;
             } else {
                 echo $message->getDisplay() , $output;
@@ -1547,19 +1547,19 @@ class Routines
             );
             if ($routine !== false) {
                 $form = $this->getExecuteForm($routine);
-                if ($response->isAjax()) {
+                if ($this->response->isAjax()) {
                     $title = __('Execute routine') . ' ' . Util::backquote(
                         htmlentities($_GET['item_name'], ENT_QUOTES)
                     );
-                    $response->addJSON('message', $form);
-                    $response->addJSON('title', $title);
-                    $response->addJSON('dialog', true);
+                    $this->response->addJSON('message', $form);
+                    $this->response->addJSON('title', $title);
+                    $this->response->addJSON('dialog', true);
                 } else {
                     echo "\n\n<h2>" . __('Execute routine') . "</h2>\n\n";
                     echo $form;
                 }
                 exit;
-            } elseif ($response->isAjax()) {
+            } elseif ($this->response->isAjax()) {
                 $message  = __('Error in processing request:') . ' ';
                 $message .= sprintf(
                     __('No routine with name %1$s found in database %2$s.'),
@@ -1568,8 +1568,8 @@ class Routines
                 );
                 $message = Message::error($message);
 
-                $response->setRequestStatus(false);
-                $response->addJSON('message', $message);
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', $message);
                 exit;
             }
         }
@@ -1608,8 +1608,6 @@ class Routines
     {
         global $db, $cfg;
 
-        $response = Response::getInstance();
-
         // Escape special characters
         $routine['item_name'] = htmlentities($routine['item_name'], ENT_QUOTES);
         for ($i = 0; $i < $routine['item_num_params']; $i++) {
@@ -1630,7 +1628,7 @@ class Routines
         $retval .= "       value='" . $routine['item_type'] . "'>\n";
         $retval .= Url::getHiddenInputs($db) . "\n";
         $retval .= "<fieldset>\n";
-        if (! $response->isAjax()) {
+        if (! $this->response->isAjax()) {
             $retval .= '<legend>' . $routine['item_name'] . "</legend>\n";
             $retval .= "<table class='rte_table'>\n";
             $retval .= "<caption class='tblHeaders'>\n";
@@ -1725,7 +1723,7 @@ class Routines
             $retval .= "</tr>\n";
         }
         $retval .= "\n</table>\n";
-        if (! $response->isAjax()) {
+        if (! $this->response->isAjax()) {
             $retval .= "</fieldset>\n\n";
             $retval .= "<fieldset class='tblFooters'>\n";
             $retval .= "    <input type='submit' name='execute_routine'\n";
@@ -1879,16 +1877,14 @@ class Routines
             $exportData = "DELIMITER $$\n" . $routineDefinition . "$$\nDELIMITER ;\n";
         }
 
-        $response = Response::getInstance();
-
         $itemName = htmlspecialchars(Util::backquote($_GET['item_name']));
         if ($exportData !== false) {
             $exportData = htmlspecialchars(trim($exportData));
             $title = sprintf(__('Export of routine %s'), $itemName);
 
-            if ($response->isAjax()) {
-                $response->addJSON('message', $exportData);
-                $response->addJSON('title', $title);
+            if ($this->response->isAjax()) {
+                $this->response->addJSON('message', $exportData);
+                $this->response->addJSON('title', $title);
 
                 exit;
             }
@@ -1911,9 +1907,9 @@ class Routines
         );
         $message = Message::error($message);
 
-        if ($response->isAjax()) {
-            $response->setRequestStatus(false);
-            $response->addJSON('message', $message);
+        if ($this->response->isAjax()) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', $message);
 
             exit;
         }

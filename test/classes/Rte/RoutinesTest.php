@@ -10,6 +10,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Rte\Routines;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Types;
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +36,11 @@ class RoutinesTest extends TestCase
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
 
-        $this->routines = new Routines($GLOBALS['dbi']);
+        $this->routines = new Routines(
+            $GLOBALS['dbi'],
+            new Template(),
+            Response::getInstance()
+        );
     }
 
     /**
@@ -1195,7 +1200,11 @@ class RoutinesTest extends TestCase
             );
         $GLOBALS['dbi'] = $dbi;
 
-        $routines = new Routines($dbi);
+        $routines = new Routines(
+            $dbi,
+            new Template(),
+            Response::getInstance()
+        );
 
         unset($_POST);
         $_POST = $request;

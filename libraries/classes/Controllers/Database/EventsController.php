@@ -77,7 +77,7 @@ class EventsController extends AbstractController
          */
         $errors = [];
 
-        $events = new Events($this->dbi);
+        $events = new Events($this->dbi, $this->template, $this->response);
         $events->main();
     }
 }

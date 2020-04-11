@@ -102,7 +102,7 @@ class RoutinesController extends AbstractController
          */
         $errors = [];
 
-        $routines = new Routines($this->dbi);
+        $routines = new Routines($this->dbi, $this->template, $this->response);
         $routines->main($params['type']);
     }
 }

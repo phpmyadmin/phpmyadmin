@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Tests\Rte;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Rte\Events;
+use PhpMyAdmin\Template;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -33,7 +34,11 @@ class EventsTest extends TestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['tear_down']['server'] = true;
 
-        $this->events = new Events($GLOBALS['dbi']);
+        $this->events = new Events(
+            $GLOBALS['dbi'],
+            new Template(),
+            Response::getInstance()
+        );
     }
 
     /**
