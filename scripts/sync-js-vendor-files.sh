@@ -23,5 +23,7 @@ cp ./node_modules/jquery-migrate/dist/jquery-migrate.js ./js/vendor/jquery/jquer
 echo 'Updating bootstrap'
 cp ./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js ./js/vendor/bootstrap/bootstrap.bundle.min.js
 cp ./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js.map ./js/vendor/bootstrap/bootstrap.bundle.min.js.map
+echo 'Updating zxcvbn'
+cp ./node_modules/zxcvbn/dist/zxcvbn.js ./js/vendor/zxcvbn.js
 
 echo 'Done.'
