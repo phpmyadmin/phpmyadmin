@@ -19,9 +19,6 @@ use function trim;
  */
 class Export
 {
-    /** @var Words */
-    private $words;
-
     /** @var DatabaseInterface */
     private $dbi;
 
@@ -31,7 +28,6 @@ class Export
     public function __construct(DatabaseInterface $dbi)
     {
         $this->dbi = $dbi;
-        $this->words = new Words();
     }
 
     /**
@@ -39,19 +35,34 @@ class Export
      * and it completes the handling of the export functionality.
      *
      * @param string $export_data The SQL query to create the requested item
+     * @param string $type        RTE type (routine|trigger|event).
      *
      * @return void
      */
-    private function handle($export_data)
+    private function handle($export_data, string $type)
     {
         global $db;
 
         $response = Response::getInstance();
 
+        $exportMessage = '';
+        $noViewMessage = '';
+        if ($type === 'routine') {
+            $exportMessage = __('Export of routine %s');
+            $noViewMessage = __(
+                'No routine with name %1$s found in database %2$s. '
+                . 'You might be lacking the necessary privileges to view/export this routine.'
+            );
+        } elseif ($type === 'event') {
+            $exportMessage = __('Export of event %s');
+        } elseif ($type === 'trigger') {
+            $exportMessage = __('Export of trigger %s');
+        }
+
         $item_name = htmlspecialchars(Util::backquote($_GET['item_name']));
         if ($export_data !== false) {
             $export_data = htmlspecialchars(trim($export_data));
-            $title = sprintf($this->words->get('export'), $item_name);
+            $title = sprintf($exportMessage, $item_name);
             if ($response->isAjax()) {
                 $response->addJSON('message', $export_data);
                 $response->addJSON('title', $title);
@@ -67,7 +78,7 @@ class Export
         } else {
             $_db = htmlspecialchars(Util::backquote($db));
             $message  = __('Error in processing request:') . ' '
-                      . sprintf($this->words->get('no_view'), $item_name, $_db);
+                      . sprintf($noViewMessage, $item_name, $_db);
             $message = Message::error($message);
 
             if ($response->isAjax()) {
@@ -96,7 +107,7 @@ class Export
             if (! $export_data) {
                 $export_data = false;
             }
-            $this->handle($export_data);
+            $this->handle($export_data, 'event');
         }
     }
 
@@ -129,7 +140,7 @@ class Export
                         . "$$\nDELIMITER ;\n";
                 }
 
-                $this->handle($export_data);
+                $this->handle($export_data, 'routine');
             }
         }
     }
@@ -154,7 +165,7 @@ class Export
                     break;
                 }
             }
-            $this->handle($export_data);
+            $this->handle($export_data, 'trigger');
         }
     }
 }

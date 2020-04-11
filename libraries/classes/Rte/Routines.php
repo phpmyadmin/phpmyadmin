@@ -50,9 +50,6 @@ class Routines
     /** @var General */
     private $general;
 
-    /** @var Words */
-    private $words;
-
     /** @var DatabaseInterface */
     private $dbi;
 
@@ -67,7 +64,6 @@ class Routines
         $this->dbi = $dbi;
         $this->export = new Export($this->dbi);
         $this->general = new General($this->dbi);
-        $this->words = new Words();
         $this->template = new Template();
     }
 
@@ -207,7 +203,7 @@ class Routines
             $mode = null;
             $title = null;
             if (! empty($_REQUEST['add_item'])) {
-                $title = $this->words->get('add');
+                $title = __('Add routine');
                 $routine = $this->getDataFromRequest();
                 $mode = 'add';
             } elseif (! empty($_REQUEST['edit_item'])) {
@@ -243,7 +239,10 @@ class Routines
             } else {
                 $message  = __('Error in processing request:') . ' ';
                 $message .= sprintf(
-                    $this->words->get('no_edit'),
+                    __(
+                        'No routine with name %1$s found in database %2$s. '
+                        . 'You might be lacking the necessary privileges to edit this routine.'
+                    ),
                     htmlspecialchars(
                         Util::backquote($_REQUEST['item_name'])
                     ),
@@ -1374,7 +1373,7 @@ class Routines
             if ($routine === false) {
                 $message  = __('Error in processing request:') . ' ';
                 $message .= sprintf(
-                    $this->words->get('not_found'),
+                    __('No routine with name %1$s found in database %2$s.'),
                     htmlspecialchars(Util::backquote($_POST['item_name'])),
                     htmlspecialchars(Util::backquote($db))
                 );
@@ -1579,7 +1578,7 @@ class Routines
             } elseif ($response->isAjax()) {
                 $message  = __('Error in processing request:') . ' ';
                 $message .= sprintf(
-                    $this->words->get('not_found'),
+                    __('No routine with name %1$s found in database %2$s.'),
                     htmlspecialchars(Util::backquote($_GET['item_name'])),
                     htmlspecialchars(Util::backquote($db))
                 );

@@ -33,9 +33,6 @@ class Events
     /** @var General */
     private $general;
 
-    /** @var Words */
-    private $words;
-
     /** @var DatabaseInterface */
     private $dbi;
 
@@ -50,7 +47,6 @@ class Events
         $this->dbi = $dbi;
         $this->export = new Export($this->dbi);
         $this->general = new General($this->dbi);
-        $this->words = new Words();
         $this->template = new Template();
     }
 
@@ -311,7 +307,7 @@ class Events
             }
             // Get the data for the form (if any)
             if (! empty($_REQUEST['add_item'])) {
-                $title = $this->words->get('add');
+                $title = __('Add event');
                 $item = $this->getDataFromRequest();
                 $mode = 'add';
             } elseif (! empty($_REQUEST['edit_item'])) {

@@ -74,7 +74,6 @@ class General
     {
         $events = new Events($this->dbi);
         $triggers = new Triggers($this->dbi);
-        $words = new Words();
         $response = Response::getInstance();
         if ($item !== false) {
             // Show form
@@ -92,9 +91,15 @@ class General
             }
             exit;
         } else {
+            if ($type == 'TRI') {
+                $notFound = __('No trigger with name %1$s found in database %2$s.');
+            } else { // EVN
+                $notFound = __('No event with name %1$s found in database %2$s.');
+            }
+
             $message  = __('Error in processing request:') . ' ';
             $message .= sprintf(
-                $words->get('not_found'),
+                $notFound,
                 htmlspecialchars(Util::backquote($_REQUEST['item_name'])),
                 htmlspecialchars(Util::backquote($db))
             );
