@@ -680,10 +680,10 @@ escape-string-regexp@^1.0.5:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
 
-eslint-plugin-no-jquery@^2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-no-jquery/-/eslint-plugin-no-jquery-2.3.1.tgz#1c364cb863a38cc1570c8020155b6004cca62178"
-  integrity sha512-/fiQUBSOMUETnfBuiK5ewvtRbek1IRTy5ov/6RZ6nlybvZ337vyGaNPWM1KgaIoIeN7dairNrPfq0h7A0tpT3A==
+eslint-plugin-no-jquery@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-no-jquery/-/eslint-plugin-no-jquery-2.3.2.tgz#f2b007f24dbe2be0c0376323f8aac56b511ab24c"
+  integrity sha512-8M9GByb/JOO+dktgbFeC/YAMaqlscInO3fH3A9fLxZduH1NTXsIAUrimas6zDwOLBvEXpRaEZycc2QAl+W+Agw==
 
 eslint-scope@^5.0.0:
   version "5.0.0"
