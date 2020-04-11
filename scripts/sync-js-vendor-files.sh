@@ -57,4 +57,12 @@ echo 'Updating u2f-api-polyfill'
 cp ./node_modules/u2f-api-polyfill/u2f-api-polyfill.js ./js/vendor/u2f-api-polyfill.js
 echo 'Updating blueimp-md5'
 cp ./node_modules/blueimp-md5/js/md5.js ./js/vendor/jquery/jquery.md5.js
+#echo 'Updating jquery.svg.js'
+#see: https://github.com/kbwood/svg/blob/master/jquery.svg.js
+#echo 'Updating jquery-hashchange'
+#see: https://raw.githubusercontent.com/cowboy/jquery-hashchange/master/jquery.ba-hashchange.js
+#echo 'Updating jquery-uitablefilter'
+#see: https://github.com/natinusala/jquery-uitablefilter/blob/master/jquery.uitablefilter.js
+echo 'Updating jquery-tablesorter'
+cp ./node_modules/tablesorter/dist/js/jquery.tablesorter.js ./js/vendor/jquery/jquery.tablesorter.js
 echo 'Done.'
