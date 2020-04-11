@@ -10,6 +10,7 @@
     "node": ">=10"
   },
   "dependencies": {
+    "blueimp-md5": "^2.13.0",
     "bootstrap": "^4.4.1",
     "codemirror": "5.52.2",
     "jquery": "3.5.0",
@@ -20,8 +21,8 @@
     "jquery-validation": "1.19.1",
     "jquery.event.drag": "2.2.2",
     "js-cookie": "2.2.1",
-    "sass": "^1.26.3",
     "popper.js": "^1.16.1",
+    "sass": "^1.26.3",
     "tracekit": "0.4.5",
     "u2f-api-polyfill": "0.4.4",
     "updated-jqplot": "1.0.9",

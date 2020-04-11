@@ -355,6 +355,11 @@ binary-extensions@^2.0.0:
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-2.0.0.tgz#23c0df14f6a88077f5f986c0d167ec03c3d5537c"
   integrity sha512-Phlt0plgpIIBOGTT/ehfFnbNlfsDEiqmzE2KRXoX1bLIlir4X/MR+zSyBEkL05ffWgnRSf/DXv+WrUAVr93/ow==
 
+blueimp-md5@^2.13.0:
+  version "2.13.0"
+  resolved "https://registry.yarnpkg.com/blueimp-md5/-/blueimp-md5-2.13.0.tgz#07314b0c64dda0bf1733f96ce40d5af94eb28965"
+  integrity sha512-lmp0m647R5e77ORduxLW5mISIDcvgJZa52vMBv5uVI3UmSWTQjkJsZVBfaFqQPw/QFogJwvY6e3Gl9nP+Loe+Q==
+
 bootstrap@^4.4.1:
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.4.1.tgz#8582960eea0c5cd2bede84d8b0baf3789c3e8b01"

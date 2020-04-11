@@ -55,5 +55,6 @@ echo 'Updating tracekit'
 cp ./node_modules/tracekit/tracekit.js ./js/vendor/tracekit.js
 echo 'Updating u2f-api-polyfill'
 cp ./node_modules/u2f-api-polyfill/u2f-api-polyfill.js ./js/vendor/u2f-api-polyfill.js
-
+echo 'Updating blueimp-md5'
+cp ./node_modules/blueimp-md5/js/md5.js ./js/vendor/jquery/jquery.md5.js
 echo 'Done.'
