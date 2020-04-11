@@ -30,10 +30,10 @@
   "devDependencies": {
     "eslint": "^6.8.0",
     "eslint-plugin-no-jquery": "^2.3.1",
-    "stylelint": "^13.2.1",
+    "stylelint": "^13.3.2",
     "stylelint-config-recommended-scss": "^4.2.0",
     "stylelint-config-standard": "^20.0.0",
-    "stylelint-scss": "^3.14.2"
+    "stylelint-scss": "^3.16.1"
   },
   "resolutions": {
     "kind-of": "^6.0.3"
