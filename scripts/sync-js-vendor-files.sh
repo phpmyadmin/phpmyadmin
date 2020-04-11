@@ -60,9 +60,15 @@ cp ./node_modules/blueimp-md5/js/md5.js ./js/vendor/jquery/jquery.md5.js
 #echo 'Updating jquery.svg.js'
 #see: https://github.com/kbwood/svg/blob/master/jquery.svg.js
 #echo 'Updating jquery-hashchange'
-#see: https://raw.githubusercontent.com/cowboy/jquery-hashchange/master/jquery.ba-hashchange.js
+#see: https://github.com/cowboy/jquery-hashchange/blob/master/jquery.ba-hashchange.js
 #echo 'Updating jquery-uitablefilter'
 #see: https://github.com/natinusala/jquery-uitablefilter/blob/master/jquery.uitablefilter.js
 echo 'Updating jquery-tablesorter'
 cp ./node_modules/tablesorter/dist/js/jquery.tablesorter.js ./js/vendor/jquery/jquery.tablesorter.js
+#echo 'Updating jquery-fullscreen-plugin'
+#see: https://github.com/kayahr/jquery-fullscreen-plugin/blob/master/jquery.fullscreen.js
+#echo 'Updating jquery-debounce'
+#see: https://github.com/dfilatov/jquery-plugins/blob/master/src/jquery.debounce/jquery.debounce.js
+#echo 'Updating jquery-Timepicker-Addon'
+#see: https://github.com/trentrichardson/jQuery-Timepicker-Addon/blob/master/dist/jquery-ui-timepicker-addon.js
 echo 'Done.'
