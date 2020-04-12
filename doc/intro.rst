@@ -73,7 +73,7 @@ be valid MySQL users.
 
 .. [#f1]
 
-    phpMyAdmin can compress (:term:`Zip`, :term:`GZip` or :term:`RFC 1952`
+    phpMyAdmin can compress (:term:`ZIP`, :term:`GZip` or :term:`RFC 1952`
     formats) dumps and :term:`CSV` exports if you use PHP with
     :term:`Zlib` support (``--with-zlib``).
     Proper support may also need changes in :file:`php.ini`.

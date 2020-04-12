@@ -1362,11 +1362,11 @@ Server connection settings
     from all'`` if your rule order is set to ``'allow,deny'`` or
     ``'explicit'``.
 
-    For the :term:`IP address` matching
+    For the :term:`IP Address` matching
     system, the following work:
 
-    * ``xxx.xxx.xxx.xxx`` (an exact :term:`IP address`)
-    * ``xxx.xxx.xxx.[yyy-zzz]`` (an :term:`IP address` range)
+    * ``xxx.xxx.xxx.xxx`` (an exact :term:`IP Address`)
+    * ``xxx.xxx.xxx.[yyy-zzz]`` (an :term:`IP Address` range)
     * ``xxx.xxx.xxx.xxx/nn`` (CIDR, Classless Inter-Domain Routing type :term:`IP` addresses)
 
     But the following does not work:
