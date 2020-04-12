@@ -1228,6 +1228,11 @@ isexe@^2.0.0:
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=
 
+jqplot@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/jqplot/-/jqplot-1.0.9.tgz#2c5a5d6a97e396b31d7e710e3a38b8af8cf251e4"
+  integrity sha1-LFpdapfjlrMdfnEOOji4r4zyUeQ=
+
 jquery-migrate@3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/jquery-migrate/-/jquery-migrate-3.2.0.tgz#ddd4623f6295ab244cc3886a9cd58aad63b139c2"

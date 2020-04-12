@@ -13,6 +13,7 @@
     "blueimp-md5": "^2.13.0",
     "bootstrap": "^4.4.1",
     "codemirror": "5.52.2",
+    "jqplot": "^1.0.9",
     "jquery": "3.5.0",
     "jquery-migrate": "3.2.0",
     "jquery-mousewheel": "3.1.13",

@@ -71,4 +71,18 @@ cp ./node_modules/tablesorter/dist/js/jquery.tablesorter.js ./js/vendor/jquery/j
 #see: https://github.com/dfilatov/jquery-plugins/blob/master/src/jquery.debounce/jquery.debounce.js
 #echo 'Updating jquery-Timepicker-Addon'
 #see: https://github.com/trentrichardson/jQuery-Timepicker-Addon/blob/master/dist/jquery-ui-timepicker-addon.js
+echo 'Update jqplot'
+#see: https://github.com/jqPlot/jqPlot/blob/master/src/jquery.jqplot.js
+#see: https://github.com/jqPlot/jqPlot/blob/master/src/plugins/jqplot.pieRenderer.js
+#see: https://github.com/jqPlot/jqPlot/blob/master/src/plugins/jqplot.barRenderer.js
+#see: https://github.com/jqPlot/jqPlot/blob/master/src/plugins/jqplot.pointLabels.js
+#see: https://github.com/jqPlot/jqPlot/blob/master/src/plugins/jqplot.enhancedLegendRenderer.js
+#see: https://github.com/jqPlot/jqPlot/blob/master/src/plugins/jqplot.dateAxisRenderer.js
+#see: https://github.com/jqPlot/jqPlot/blob/master/src/plugins/jqplot.categoryAxisRenderer.js
+#see: https://github.com/jqPlot/jqPlot/blob/master/src/plugins/jqplot.canvasTextRenderer.js
+#see: https://github.com/jqPlot/jqPlot/blob/master/src/plugins/jqplot.canvasAxisLabelRenderer.js
+
+cp ./node_modules/jqplot/jqplot.cursor.js ./js/vendor/jqplot/plugins/jqplot.cursor.js
+cp ./node_modules/jqplot/jqplot.highlighter.js ./js/vendor/jqplot/plugins/jqplot.highlighter.js
+
 echo 'Done.'
