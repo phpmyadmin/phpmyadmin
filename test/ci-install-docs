@@ -2,4 +2,4 @@
 
 # Install deps for building documentation
 
-pip install 'Sphinx'
+pip install 'Sphinx<3.0.0'
