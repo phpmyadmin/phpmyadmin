@@ -93,7 +93,7 @@ class FormDisplayTemplateTest extends TestCase
         );
 
         $this->assertStringContainsString(
-            '<div class="tabs_contents row"',
+            '<div class="tabs_contents col"',
             $result
         );
     }
