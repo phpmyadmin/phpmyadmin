@@ -153,7 +153,6 @@ class EventsTest extends TestCase
      */
     public function testGetEditorFormAdd($data, $matcher): void
     {
-        $this->events->setGlobals();
         $this->assertStringContainsString(
             $matcher,
             $this->events->getEditorForm('add', 'change', $data)
@@ -238,7 +237,6 @@ class EventsTest extends TestCase
      */
     public function testGetEditorFormEdit($data, $matcher): void
     {
-        $this->events->setGlobals();
         $this->assertStringContainsString(
             $matcher,
             $this->events->getEditorForm('edit', 'change', $data)
@@ -324,7 +322,6 @@ class EventsTest extends TestCase
     public function testGetEditorFormAjax($data, $matcher): void
     {
         Response::getInstance()->setAjax(true);
-        $this->events->setGlobals();
         $this->assertStringContainsString(
             $matcher,
             $this->events->getEditorForm('edit', 'change', $data)
@@ -386,7 +383,6 @@ class EventsTest extends TestCase
         global $errors;
 
         $errors = [];
-        $this->events->setGlobals();
 
         unset($_POST);
         $_POST = $request;
