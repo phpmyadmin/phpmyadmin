@@ -155,9 +155,42 @@ function verifyAfterSearchFieldChange (index) {
     var $thisInput = $('input[name=\'criteriaValues[' + index + ']\']');
     // validation for integer type
     if ($thisInput.data('type') === 'INT') {
-        $('#tbl_search_form').validate();
-        validateIntField($thisInput, true);
+        var hasMultiple = $thisInput.prop('multiple');
+        if (hasMultiple) {
+            $('#tbl_search_form').validate();
+            // validator method for IN(...), NOT IN(...)
+            // BETWEEN and NOT BETWEEN
+            jQuery.validator.addMethod('validationFunctionForMultipleInt', function (value) {
+                return value.match(/^(\d\s*)+(,\s*\d+)*$/i) !== null;
+            },
+                Messages.strEnterValidNumber
+            );
+            validateMultipleIntField($thisInput, true);
+        } else {
+            $('#tbl_search_form').validate();
+            validateIntField($thisInput, true);
+        }
     }
+}
+
+/**
+ * Validate the an input contains multiple int values
+ * @param {jQuery} jqueryInput the Jquery object
+ * @param {boolean} returnValueIfFine the value to return if the validator passes
+ * @returns {void}
+ */
+function validateMultipleIntField (jqueryInput, returnValueIfFine) {
+    //removing previous rules
+    jqueryInput.rules('remove');
+
+    jqueryInput.rules('add', {
+        validationFunctionForMultipleInt: {
+            param: jqueryInput.value,
+            depends: function () {
+                return returnValueIfFine;
+            }
+        }
+    });
 }
 
 /**
@@ -167,8 +200,8 @@ function verifyAfterSearchFieldChange (index) {
  * @returns {void}
  */
 function validateIntField (jqueryInput, returnValueIfIsNumber) {
-    var mini = parseInt(jqueryInput.attr('min'));
-    var maxi = parseInt(jqueryInput.attr('max'));
+    var mini = parseInt(jqueryInput.data('min'));
+    var maxi = parseInt(jqueryInput.data('max'));
     jqueryInput.rules('add', {
         number: {
             param: true,
@@ -745,7 +778,7 @@ function addNewContinueInsertionFiels (event) {
 
 // eslint-disable-next-line no-unused-vars
 function changeValueFieldType (elem, searchIndex) {
-    var fieldsValue = $('select#fieldID_' + searchIndex);
+    var fieldsValue = $('input#fieldID_' + searchIndex);
     if (0 === fieldsValue.size()) {
         return;
     }
