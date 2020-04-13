@@ -130,7 +130,7 @@ class Routines
             );
         }
 
-        echo $this->template->render('rte/routines/list', [
+        echo $this->template->render('database/routines/list', [
             'db' => $db,
             'table' => $table,
             'items' => $items,
@@ -138,7 +138,7 @@ class Routines
             'select_all_arrow_src' => $pmaThemeImage . 'arrow_' . $text_dir . '.png',
         ]);
 
-        echo $this->template->render('rte/routines/footer', [
+        echo $this->template->render('database/routines/footer', [
             'db' => $db,
             'table' => $table,
             'has_privilege' => Util::currentUserHasPrivilege('CREATE ROUTINE', $db, $table),
@@ -802,7 +802,7 @@ class Routines
             ];
         }
 
-        return $this->template->render('rte/routines/parameter_row', [
+        return $this->template->render('database/routines/parameter_row', [
             'class' => $class,
             'index' => $index,
             'param_directions' => $param_directions,
@@ -1819,7 +1819,7 @@ class Routines
         $hasExportPrivilege = (Util::currentUserHasPrivilege('CREATE ROUTINE', $db)
             && $currentUser == $routineDefiner) || $this->dbi->isSuperuser();
 
-        return $this->template->render('rte/routines/row', [
+        return $this->template->render('database/routines/row', [
             'db' => $db,
             'table' => $table,
             'sql_drop' => $sqlDrop,
