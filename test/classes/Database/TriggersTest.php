@@ -1,20 +1,15 @@
 <?php
-/**
- * Tests for PhpMyAdmin\Rte\Triggers
- */
+
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\Rte;
+namespace PhpMyAdmin\Tests\Database;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Rte\Triggers;
 use PhpMyAdmin\Template;
 use PHPUnit\Framework\TestCase;
 
-/**
- * This class is for testing PhpMyAdmin\Rte\Triggers methods
- */
 class TriggersTest extends TestCase
 {
     /** @var Triggers */

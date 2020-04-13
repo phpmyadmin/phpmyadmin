@@ -901,6 +901,81 @@ parameters:
 			path: libraries/classes/Database/Designer/DesignerTable.php
 
 		-
+			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:tryQuery\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Database/Events.php
+
+		-
+			message: "#^Cannot access offset 'item_name' on array\\|true\\.$#"
+			count: 1
+			path: libraries/classes/Database/Events.php
+
+		-
+			message: "#^Cannot access offset 'item_original_name' on array\\|true\\.$#"
+			count: 1
+			path: libraries/classes/Database/Events.php
+
+		-
+			message: "#^Cannot access offset 'EVENT_NAME' on \\(array\\)\\|true\\.$#"
+			count: 1
+			path: libraries/classes/Database/Events.php
+
+		-
+			message: "#^Cannot access offset 'STATUS' on \\(array\\)\\|true\\.$#"
+			count: 1
+			path: libraries/classes/Database/Events.php
+
+		-
+			message: "#^Cannot access offset 'EVENT_TYPE' on \\(array\\)\\|true\\.$#"
+			count: 1
+			path: libraries/classes/Database/Events.php
+
+		-
+			message: "#^Cannot access offset 'EXECUTE_AT' on \\(array\\)\\|true\\.$#"
+			count: 1
+			path: libraries/classes/Database/Events.php
+
+		-
+			message: "#^Cannot access offset 'INTERVAL_VALUE' on \\(array\\)\\|true\\.$#"
+			count: 1
+			path: libraries/classes/Database/Events.php
+
+		-
+			message: "#^Cannot access offset 'INTERVAL_FIELD' on \\(array\\)\\|true\\.$#"
+			count: 1
+			path: libraries/classes/Database/Events.php
+
+		-
+			message: "#^Cannot access offset 'STARTS' on \\(array\\)\\|true\\.$#"
+			count: 1
+			path: libraries/classes/Database/Events.php
+
+		-
+			message: "#^Cannot access offset 'ENDS' on \\(array\\)\\|true\\.$#"
+			count: 1
+			path: libraries/classes/Database/Events.php
+
+		-
+			message: "#^Cannot access offset 'ON_COMPLETION' on \\(array\\)\\|true\\.$#"
+			count: 1
+			path: libraries/classes/Database/Events.php
+
+		-
+			message: "#^Cannot access offset 'EVENT_DEFINITION' on \\(array\\)\\|true\\.$#"
+			count: 1
+			path: libraries/classes/Database/Events.php
+
+		-
+			message: "#^Cannot access offset 'DEFINER' on \\(array\\)\\|true\\.$#"
+			count: 1
+			path: libraries/classes/Database/Events.php
+
+		-
+			message: "#^Cannot access offset 'EVENT_COMMENT' on \\(array\\)\\|true\\.$#"
+			count: 1
+			path: libraries/classes/Database/Events.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\Database\\\\Qbe\\:\\:\\$_currentSearch \\(PhpMyAdmin\\\\SavedSearches\\) does not accept PhpMyAdmin\\\\SavedSearches\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Database/Qbe.php
@@ -919,6 +994,141 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Database\\\\Qbe\\:\\:_getMasterTable\\(\\) should return string but returns int\\|string\\.$#"
 			count: 1
 			path: libraries/classes/Database/Qbe.php
+
+		-
+			message: "#^Cannot access offset 'item_name' on array\\|true\\.$#"
+			count: 1
+			path: libraries/classes/Database/Routines.php
+
+		-
+			message: "#^Cannot access offset 'item_original_name' on array\\|true\\.$#"
+			count: 1
+			path: libraries/classes/Database/Routines.php
+
+		-
+			message: "#^Parameter \\#1 \\$mode of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getEditorForm\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Database/Routines.php
+
+		-
+			message: "#^Parameter \\#3 \\$routine of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getEditorForm\\(\\) expects array, array\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Database/Routines.php
+
+		-
+			message: "#^Offset 'item_type' does not exist on array\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Database/Routines.php
+
+		-
+			message: "#^Parameter \\#2 \\$create_routine of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:create\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Database/Routines.php
+
+		-
+			message: "#^Cannot access offset 'SPECIFIC_NAME' on \\(array\\)\\|true\\.$#"
+			count: 2
+			path: libraries/classes/Database/Routines.php
+
+		-
+			message: "#^Cannot access offset 'ROUTINE_TYPE' on \\(array\\)\\|true\\.$#"
+			count: 2
+			path: libraries/classes/Database/Routines.php
+
+		-
+			message: "#^Cannot access offset 'DTD_IDENTIFIER' on \\(array\\)\\|true\\.$#"
+			count: 1
+			path: libraries/classes/Database/Routines.php
+
+		-
+			message: "#^Cannot access offset 'ROUTINE_DEFINITION' on \\(array\\)\\|true\\.$#"
+			count: 1
+			path: libraries/classes/Database/Routines.php
+
+		-
+			message: "#^Cannot access offset 'IS_DETERMINISTIC' on \\(array\\)\\|true\\.$#"
+			count: 1
+			path: libraries/classes/Database/Routines.php
+
+		-
+			message: "#^Cannot access offset 'SECURITY_TYPE' on \\(array\\)\\|true\\.$#"
+			count: 2
+			path: libraries/classes/Database/Routines.php
+
+		-
+			message: "#^Cannot access offset 'SQL_DATA_ACCESS' on \\(array\\)\\|true\\.$#"
+			count: 1
+			path: libraries/classes/Database/Routines.php
+
+		-
+			message: "#^Cannot access offset 'ROUTINE_COMMENT' on \\(array\\)\\|true\\.$#"
+			count: 1
+			path: libraries/classes/Database/Routines.php
+
+		-
+			message: "#^Cannot access offset 'item_num_params' on array\\|bool\\.$#"
+			count: 1
+			path: libraries/classes/Database/Routines.php
+
+		-
+			message: "#^Cannot access offset 'item_param_name' on array\\|bool\\.$#"
+			count: 6
+			path: libraries/classes/Database/Routines.php
+
+		-
+			message: "#^Cannot access offset 'item_type' on array\\|bool\\.$#"
+			count: 3
+			path: libraries/classes/Database/Routines.php
+
+		-
+			message: "#^Cannot access offset 'item_param_dir' on array\\|bool\\.$#"
+			count: 2
+			path: libraries/classes/Database/Routines.php
+
+		-
+			message: "#^Cannot access offset 'item_name' on array\\|bool\\.$#"
+			count: 4
+			path: libraries/classes/Database/Routines.php
+
+		-
+			message: "#^Parameter \\#1 \\$row of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:browseRow\\(\\) expects array, \\(array\\)\\|true given\\.$#"
+			count: 1
+			path: libraries/classes/Database/Routines.php
+
+		-
+			message: "#^Parameter \\#3 \\$number of function _ngettext expects int, int\\<0, max\\>\\|string given\\.$#"
+			count: 1
+			path: libraries/classes/Database/Routines.php
+
+		-
+			message: "#^Parameter \\#1 \\$routine of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getExecuteForm\\(\\) expects array, array\\|true given\\.$#"
+			count: 1
+			path: libraries/classes/Database/Routines.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Database\\\\Routines\\:\\:browseRow\\(\\) should return string but returns string\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Database/Routines.php
+
+		-
+			message: "#^Cannot access offset 'create' on array\\|bool\\.$#"
+			count: 1
+			path: libraries/classes/Database/Triggers.php
+
+		-
+			message: "#^Cannot access offset 'drop' on array\\|bool\\.$#"
+			count: 1
+			path: libraries/classes/Database/Triggers.php
+
+		-
+			message: "#^Cannot access offset 'item_name' on array\\|true\\.$#"
+			count: 1
+			path: libraries/classes/Database/Triggers.php
+
+		-
+			message: "#^Cannot access offset 'item_original_name' on array\\|true\\.$#"
+			count: 1
+			path: libraries/classes/Database/Triggers.php
 
 		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:_cacheTableData\\(\\) expects bool\\|string, array\\|string given\\.$#"
@@ -3436,216 +3646,6 @@ parameters:
 			path: libraries/classes/Response.php
 
 		-
-			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:tryQuery\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Cannot access offset 'item_name' on array\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Cannot access offset 'item_original_name' on array\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Cannot access offset 'EVENT_NAME' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Cannot access offset 'STATUS' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Cannot access offset 'EVENT_TYPE' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Cannot access offset 'EXECUTE_AT' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Cannot access offset 'INTERVAL_VALUE' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Cannot access offset 'INTERVAL_FIELD' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Cannot access offset 'STARTS' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Cannot access offset 'ENDS' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Cannot access offset 'ON_COMPLETION' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Cannot access offset 'EVENT_DEFINITION' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Cannot access offset 'DEFINER' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Cannot access offset 'EVENT_COMMENT' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Cannot access offset 'item_name' on array\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Cannot access offset 'item_original_name' on array\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Parameter \\#1 \\$mode of method PhpMyAdmin\\\\Rte\\\\Routines\\:\\:getEditorForm\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Parameter \\#3 \\$routine of method PhpMyAdmin\\\\Rte\\\\Routines\\:\\:getEditorForm\\(\\) expects array, array\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Offset 'item_type' does not exist on array\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Parameter \\#2 \\$create_routine of method PhpMyAdmin\\\\Rte\\\\Routines\\:\\:create\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Cannot access offset 'SPECIFIC_NAME' on \\(array\\)\\|true\\.$#"
-			count: 2
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Cannot access offset 'ROUTINE_TYPE' on \\(array\\)\\|true\\.$#"
-			count: 2
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Cannot access offset 'DTD_IDENTIFIER' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Cannot access offset 'ROUTINE_DEFINITION' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Cannot access offset 'IS_DETERMINISTIC' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Cannot access offset 'SECURITY_TYPE' on \\(array\\)\\|true\\.$#"
-			count: 2
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Cannot access offset 'SQL_DATA_ACCESS' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Cannot access offset 'ROUTINE_COMMENT' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Cannot access offset 'item_num_params' on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Cannot access offset 'item_param_name' on array\\|bool\\.$#"
-			count: 6
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Cannot access offset 'item_type' on array\\|bool\\.$#"
-			count: 3
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Cannot access offset 'item_param_dir' on array\\|bool\\.$#"
-			count: 2
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Cannot access offset 'item_name' on array\\|bool\\.$#"
-			count: 4
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Parameter \\#1 \\$row of method PhpMyAdmin\\\\Rte\\\\Routines\\:\\:browseRow\\(\\) expects array, \\(array\\)\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Parameter \\#3 \\$number of function _ngettext expects int, int\\<0, max\\>\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Parameter \\#1 \\$routine of method PhpMyAdmin\\\\Rte\\\\Routines\\:\\:getExecuteForm\\(\\) expects array, array\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Rte\\\\Routines\\:\\:browseRow\\(\\) should return string but returns string\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Cannot access offset 'create' on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'drop' on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'item_name' on array\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'item_original_name' on array\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Triggers.php
-
-		-
 			message: "#^Parameter \\#3 \\$subject of function preg_replace_callback expects array\\|string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Sanitize.php
@@ -4806,14 +4806,39 @@ parameters:
 			path: test/classes/CoreTest.php
 
 		-
+			message: "#^Parameter \\#1 \\$needle of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, array given\\.$#"
+			count: 2
+			path: test/classes/Database/EventsTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$expectedCount of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\) expects int, array given\\.$#"
+			count: 1
+			path: test/classes/Database/EventsTest.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\Tests\\\\Database\\\\QbeTest\\:\\:\\$object has no typehint specified\\.$#"
 			count: 1
 			path: test/classes/Database/QbeTest.php
 
 		-
+			message: "#^Parameter \\#1 \\$needle of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, array given\\.$#"
+			count: 8
+			path: test/classes/Database/RoutinesTest.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\Tests\\\\Database\\\\SearchTest\\:\\:\\$object has no typehint specified\\.$#"
 			count: 1
 			path: test/classes/Database/SearchTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$needle of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, array given\\.$#"
+			count: 3
+			path: test/classes/Database/TriggersTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$expectedCount of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\) expects int, string given\\.$#"
+			count: 1
+			path: test/classes/Database/TriggersTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:numRows\\(\\) expects mysqli_result, false given\\.$#"
@@ -5249,31 +5274,6 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\Tests\\\\Properties\\\\PropertyItemTest\\:\\:\\$stub has no typehint specified\\.$#"
 			count: 1
 			path: test/classes/Properties/PropertyItemTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$needle of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, array given\\.$#"
-			count: 2
-			path: test/classes/Rte/EventsTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$expectedCount of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\) expects int, array given\\.$#"
-			count: 1
-			path: test/classes/Rte/EventsTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$needle of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, array given\\.$#"
-			count: 8
-			path: test/classes/Rte/RoutinesTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$needle of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, array given\\.$#"
-			count: 3
-			path: test/classes/Rte/TriggersTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$expectedCount of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\) expects int, string given\\.$#"
-			count: 1
-			path: test/classes/Rte/TriggersTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:getMessage\\(\\) expects PhpMyAdmin\\\\Message\\|string, null given\\.$#"

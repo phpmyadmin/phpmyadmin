@@ -1,22 +1,17 @@
 <?php
-/**
- * Tests for PhpMyAdmin\Rte\Routines
- */
+
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\Rte;
+namespace PhpMyAdmin\Tests\Database;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Rte\Routines;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Types;
 use PHPUnit\Framework\TestCase;
 
-/**
- * This class is for testing PhpMyAdmin\Rte\Routines methods
- */
 class RoutinesTest extends TestCase
 {
     /** @var Routines */

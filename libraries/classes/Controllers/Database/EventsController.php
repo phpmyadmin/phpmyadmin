@@ -7,7 +7,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Common;
-use PhpMyAdmin\Rte\Events;
+use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function in_array;

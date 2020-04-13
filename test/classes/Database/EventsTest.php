@@ -1,20 +1,15 @@
 <?php
-/**
- * Tests for PhpMyAdmin\Rte\Events
- */
+
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\Rte;
+namespace PhpMyAdmin\Tests\Database;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Rte\Events;
 use PhpMyAdmin\Template;
 use PHPUnit\Framework\TestCase;
 
-/**
- * This class is for testing PhpMyAdmin\Rte\Events methods
- */
 class EventsTest extends TestCase
 {
     /** @var Events */

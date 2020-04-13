@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Common;
-use PhpMyAdmin\Rte\Triggers;
+use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function in_array;

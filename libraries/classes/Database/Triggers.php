@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Rte;
+namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
@@ -132,7 +132,8 @@ class Triggers
 
             $item_query = $this->getQueryFromRequest();
 
-            if (! count($errors)) { // set by PhpMyAdmin\Rte\Routines::getQueryFromRequest()
+            // set by getQueryFromRequest()
+            if (! count($errors)) {
                 // Execute the created query
                 if (! empty($_POST['editor_process_edit'])) {
                     // Backup the old trigger, in case something goes wrong

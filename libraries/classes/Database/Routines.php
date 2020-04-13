@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Rte;
+namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Charsets\Charset;
@@ -277,6 +277,8 @@ class Routines
 
         $sql_query = '';
         $routine_query = $this->getQueryFromRequest();
+
+        // set by getQueryFromRequest()
         if (! count($errors)) {
             // Execute the created query
             if (! empty($_POST['editor_process_edit'])) {
