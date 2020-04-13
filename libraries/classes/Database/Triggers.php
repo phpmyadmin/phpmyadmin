@@ -26,6 +26,12 @@ use const ENT_QUOTES;
  */
 class Triggers
 {
+    /** @var array<int, string> */
+    private $time = ['BEFORE', 'AFTER'];
+
+    /** @var array<int, string> */
+    private $event = ['INSERT', 'UPDATE', 'DELETE'];
+
     /** @var DatabaseInterface */
     private $dbi;
 
@@ -48,27 +54,6 @@ class Triggers
     }
 
     /**
-     * Sets required globals
-     *
-     * @return void
-     */
-    public function setGlobals()
-    {
-        global $action_timings, $event_manipulations;
-
-        // Some definitions for triggers
-        $action_timings = [
-            'BEFORE',
-            'AFTER',
-        ];
-        $event_manipulations = [
-            'INSERT',
-            'UPDATE',
-            'DELETE',
-        ];
-    }
-
-    /**
      * Main function for the triggers functionality
      *
      * @return void
@@ -77,7 +62,6 @@ class Triggers
     {
         global $db, $table, $pmaThemeImage, $text_dir;
 
-        $this->setGlobals();
         /**
          * Process all requests
          */
@@ -360,7 +344,7 @@ class Triggers
      */
     public function getEditorForm($mode, array $item)
     {
-        global $db, $table, $event_manipulations, $action_timings;
+        global $db, $table;
 
         $modeToUpper = mb_strtoupper($mode);
 
@@ -420,7 +404,7 @@ class Triggers
         $retval .= "<tr>\n";
         $retval .= '    <td>' . _pgettext('Trigger action time', 'Time') . "</td>\n";
         $retval .= "    <td><select name='item_timing'>\n";
-        foreach ($action_timings as $key => $value) {
+        foreach ($this->time as $key => $value) {
             $selected = '';
             if (! empty($item['item_action_timing'])
                 && $item['item_action_timing'] == $value
@@ -434,7 +418,7 @@ class Triggers
         $retval .= "<tr>\n";
         $retval .= '    <td>' . __('Event') . "</td>\n";
         $retval .= "    <td><select name='item_event'>\n";
-        foreach ($event_manipulations as $key => $value) {
+        foreach ($this->event as $key => $value) {
             $selected = '';
             if (! empty($item['item_event_manipulation'])
                 && $item['item_event_manipulation'] == $value
@@ -481,7 +465,7 @@ class Triggers
      */
     public function getQueryFromRequest()
     {
-        global $db, $errors, $action_timings, $event_manipulations;
+        global $db, $errors;
 
         $query = 'CREATE ';
         if (! empty($_POST['item_definer'])) {
@@ -501,14 +485,14 @@ class Triggers
             $errors[] = __('You must provide a trigger name!');
         }
         if (! empty($_POST['item_timing'])
-            && in_array($_POST['item_timing'], $action_timings)
+            && in_array($_POST['item_timing'], $this->time)
         ) {
             $query .= $_POST['item_timing'] . ' ';
         } else {
             $errors[] = __('You must provide a valid timing for the trigger!');
         }
         if (! empty($_POST['item_event'])
-            && in_array($_POST['item_event'], $event_manipulations)
+            && in_array($_POST['item_event'], $this->event)
         ) {
             $query .= $_POST['item_event'] . ' ';
         } else {
