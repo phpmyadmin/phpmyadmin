@@ -146,7 +146,10 @@ class Scripts
      */
     public function getDisplay()
     {
+        $baseDir = defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : '';
+
         return $this->template->render('scripts', [
+            'base_dir' => $baseDir,
             'files' => $this->_files,
             'version' => PMA_VERSION,
             'code' => $this->_code,
