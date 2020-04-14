@@ -157,8 +157,10 @@ matrix:
         - vendor/bin/phpcs --standard=phpcs.xml.dist
 
   allow_failures:
+    - os: osx
     - php: "nightly"
     - env: CI_MODE=test DBASE=true
+    - env: CI_MODE=docs
 
 cache:
   pip: true
