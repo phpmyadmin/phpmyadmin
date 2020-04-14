@@ -368,32 +368,8 @@ class Events
      */
     public function getEditorForm($mode, $operation, array $item)
     {
-        global $db, $table;
+        global $db;
 
-        $modeToUpper = mb_strtoupper($mode);
-
-        // Escape special characters
-        $need_escape = [
-            'item_original_name',
-            'item_name',
-            'item_type',
-            'item_execute_at',
-            'item_interval_value',
-            'item_starts',
-            'item_ends',
-            'item_definition',
-            'item_definer',
-            'item_comment',
-        ];
-        foreach ($need_escape as $index) {
-            $item[$index] = htmlentities((string) $item[$index], ENT_QUOTES);
-        }
-        $original_data = '';
-        if ($mode == 'edit') {
-            $original_data = "<input name='item_original_name' "
-                           . "type='hidden' value='" . $item['item_original_name'] . "'>\n";
-        }
-        // Handle some logic first
         if ($operation == 'change') {
             if ($item['item_type'] == 'RECURRING') {
                 $item['item_type']         = 'ONE TIME';
@@ -403,152 +379,16 @@ class Events
                 $item['item_type_toggle']  = 'ONE TIME';
             }
         }
-        if ($item['item_type'] == 'ONE TIME') {
-            $isrecurring_class = ' hide';
-            $isonetime_class   = '';
-        } else {
-            $isrecurring_class = '';
-            $isonetime_class   = ' hide';
-        }
-        // Create the output
-        $retval  = '';
-        $retval .= '<!-- START ' . $modeToUpper . " EVENT FORM -->\n\n";
-        $retval .= '<form class="rte_form" action="' . Url::getFromRoute('/database/events') . '" method="post">' . "\n";
-        $retval .= "<input name='" . $mode . "_item' type='hidden' value='1'>\n";
-        $retval .= $original_data;
-        $retval .= Url::getHiddenInputs($db, $table) . "\n";
-        $retval .= "<fieldset>\n";
-        $retval .= '<legend>' . __('Details') . "</legend>\n";
-        $retval .= "<table class='rte_table'>\n";
-        $retval .= "<tr>\n";
-        $retval .= '    <td>' . __('Event name') . "</td>\n";
-        $retval .= "    <td><input type='text' name='item_name' \n";
-        $retval .= "               value='" . $item['item_name'] . "'\n";
-        $retval .= "               maxlength='64'></td>\n";
-        $retval .= "</tr>\n";
-        $retval .= "<tr>\n";
-        $retval .= '    <td>' . __('Status') . "</td>\n";
-        $retval .= "    <td>\n";
-        $retval .= "        <select name='item_status'>\n";
-        foreach ($this->status['display'] as $key => $value) {
-            $selected = '';
-            if (! empty($item['item_status']) && $item['item_status'] == $value) {
-                $selected = " selected='selected'";
-            }
-            $retval .= '<option' . $selected . '>' . $value . '</option>';
-        }
-        $retval .= "        </select>\n";
-        $retval .= "    </td>\n";
-        $retval .= "</tr>\n";
 
-        $retval .= "<tr>\n";
-        $retval .= '    <td>' . __('Event type') . "</td>\n";
-        $retval .= "    <td>\n";
-        if ($this->response->isAjax()) {
-            $retval .= "        <select name='item_type'>";
-            foreach ($this->type as $key => $value) {
-                $selected = '';
-                if (! empty($item['item_type']) && $item['item_type'] == $value) {
-                    $selected = " selected='selected'";
-                }
-                $retval .= '<option' . $selected . '>' . $value . '</option>';
-            }
-            $retval .= "        </select>\n";
-        } else {
-            $retval .= "        <input name='item_type' type='hidden' \n";
-            $retval .= "               value='" . $item['item_type'] . "'>\n";
-            $retval .= "        <div class='font_weight_bold text-center w-50'>\n";
-            $retval .= '            ' . $item['item_type'] . "\n";
-            $retval .= "        </div>\n";
-            $retval .= "        <input type='submit'\n";
-            $retval .= "               name='item_changetype' class='w-50'\n";
-            $retval .= "               value='";
-            $retval .= sprintf(__('Change to %s'), $item['item_type_toggle']);
-            $retval .= "'>\n";
-        }
-        $retval .= "    </td>\n";
-        $retval .= "</tr>\n";
-        $retval .= "<tr class='onetime_event_row " . $isonetime_class . "'>\n";
-        $retval .= '    <td>' . __('Execute at') . "</td>\n";
-        $retval .= "    <td class='nowrap'>\n";
-        $retval .= "        <input type='text' name='item_execute_at'\n";
-        $retval .= "               value='" . $item['item_execute_at'] . "'\n";
-        $retval .= "               class='datetimefield'>\n";
-        $retval .= "    </td>\n";
-        $retval .= "</tr>\n";
-        $retval .= "<tr class='recurring_event_row " . $isrecurring_class . "'>\n";
-        $retval .= '    <td>' . __('Execute every') . "</td>\n";
-        $retval .= "    <td>\n";
-        $retval .= "        <input class='w-50' type='text'\n";
-        $retval .= "               name='item_interval_value'\n";
-        $retval .= "               value='" . $item['item_interval_value'] . "'>\n";
-        $retval .= "        <select class='w-50' name='item_interval_field'>";
-        foreach ($this->interval as $key => $value) {
-            $selected = '';
-            if (! empty($item['item_interval_field'])
-                && $item['item_interval_field'] == $value
-            ) {
-                $selected = " selected='selected'";
-            }
-            $retval .= '<option' . $selected . '>' . $value . '</option>';
-        }
-        $retval .= "        </select>\n";
-        $retval .= "    </td>\n";
-        $retval .= "</tr>\n";
-        $retval .= "<tr class='recurring_event_row" . $isrecurring_class . "'>\n";
-        $retval .= '    <td>' . _pgettext('Start of recurring event', 'Start');
-        $retval .= "    </td>\n";
-        $retval .= "    <td class='nowrap'>\n";
-        $retval .= "        <input type='text'\n name='item_starts'\n";
-        $retval .= "               value='" . $item['item_starts'] . "'\n";
-        $retval .= "               class='datetimefield'>\n";
-        $retval .= "    </td>\n";
-        $retval .= "</tr>\n";
-        $retval .= "<tr class='recurring_event_row" . $isrecurring_class . "'>\n";
-        $retval .= '    <td>' . _pgettext('End of recurring event', 'End') . "</td>\n";
-        $retval .= "    <td class='nowrap'>\n";
-        $retval .= "        <input type='text' name='item_ends'\n";
-        $retval .= "               value='" . $item['item_ends'] . "'\n";
-        $retval .= "               class='datetimefield'>\n";
-        $retval .= "    </td>\n";
-        $retval .= "</tr>\n";
-        $retval .= "<tr>\n";
-        $retval .= '    <td>' . __('Definition') . "</td>\n";
-        $retval .= "    <td><textarea name='item_definition' rows='15' cols='40'>";
-        $retval .= $item['item_definition'];
-        $retval .= "</textarea></td>\n";
-        $retval .= "</tr>\n";
-        $retval .= "<tr>\n";
-        $retval .= '    <td>' . __('On completion preserve') . "</td>\n";
-        $retval .= "    <td><input type='checkbox'\n";
-        $retval .= "             name='item_preserve'" . $item['item_preserve'] . "></td>\n";
-        $retval .= "</tr>\n";
-        $retval .= "<tr>\n";
-        $retval .= '    <td>' . __('Definer') . "</td>\n";
-        $retval .= "    <td><input type='text' name='item_definer'\n";
-        $retval .= "               value='" . $item['item_definer'] . "'></td>\n";
-        $retval .= "</tr>\n";
-        $retval .= "<tr>\n";
-        $retval .= '    <td>' . __('Comment') . "</td>\n";
-        $retval .= "    <td><input type='text' name='item_comment' maxlength='64'\n";
-        $retval .= "               value='" . $item['item_comment'] . "'></td>\n";
-        $retval .= "</tr>\n";
-        $retval .= "</table>\n";
-        $retval .= "</fieldset>\n";
-        if ($this->response->isAjax()) {
-            $retval .= "<input type='hidden' name='editor_process_" . $mode . "'\n";
-            $retval .= "       value='true'>\n";
-            $retval .= "<input type='hidden' name='ajax_request' value='true'>\n";
-        } else {
-            $retval .= "<fieldset class='tblFooters'>\n";
-            $retval .= "    <input type='submit' name='editor_process_" . $mode . "'\n";
-            $retval .= "           value='" . __('Go') . "'>\n";
-            $retval .= "</fieldset>\n";
-        }
-        $retval .= "</form>\n\n";
-        $retval .= '<!-- END ' . $modeToUpper . " EVENT FORM -->\n\n";
-
-        return $retval;
+        return $this->template->render('database/events/editor_form', [
+            'db' => $db,
+            'event' => $item,
+            'mode' => $mode,
+            'is_ajax' => $this->response->isAjax(),
+            'status_display' => $this->status['display'],
+            'event_type' => $this->type,
+            'event_interval' => $this->interval,
+        ]);
     }
 
     /**
