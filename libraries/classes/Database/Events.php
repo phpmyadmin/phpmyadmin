@@ -76,54 +76,22 @@ class Events
         $this->response = $response;
     }
 
-    /**
-     * Main function for the events functionality
-     *
-     * @return void
-     */
-    public function main()
+    public function main(): void
     {
-        global $db, $table, $pmaThemeImage, $text_dir;
+        global $db, $pmaThemeImage, $text_dir;
 
-        /**
-         * Process all requests
-         */
         $this->handleEditor();
         $this->export();
 
         $items = $this->dbi->getEvents($db);
-        $hasPrivilege = Util::currentUserHasPrivilege('EVENT', $db);
-        $isAjax = $this->response->isAjax() && empty($_REQUEST['ajax_page_request']);
 
-        $rows = '';
-        foreach ($items as $item) {
-            $sqlDrop = sprintf(
-                'DROP EVENT IF EXISTS %s',
-                Util::backquote($item['name'])
-            );
-            $rows .= $this->template->render('database/events/row', [
-                'db' => $db,
-                'table' => $table,
-                'event' => $item,
-                'has_privilege' => $hasPrivilege,
-                'sql_drop' => $sqlDrop,
-                'row_class' => $isAjax ? 'ajaxInsert hide' : '',
-            ]);
-        }
-
-        echo $this->template->render('database/events/list', [
+        echo $this->template->render('database/events/index', [
             'db' => $db,
-            'table' => $table,
             'items' => $items,
-            'rows' => $rows,
             'select_all_arrow_src' => $pmaThemeImage . 'arrow_' . $text_dir . '.png',
-        ]);
-
-        echo $this->template->render('database/events/footer', [
-            'db' => $db,
-            'table' => $table,
-            'has_privilege' => Util::currentUserHasPrivilege('EVENT', $db, $table),
+            'has_privilege' => Util::currentUserHasPrivilege('EVENT', $db),
             'toggle_button' => $this->getFooterToggleButton(),
+            'is_ajax' => $this->response->isAjax() && empty($_REQUEST['ajax_page_request']),
         ]);
     }
 
