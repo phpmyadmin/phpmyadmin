@@ -44,6 +44,15 @@ use const ENT_QUOTES;
  */
 class Routines
 {
+    /** @var array<int, string> */
+    private $directions = ['IN', 'OUT', 'INOUT'];
+
+    /** @var array<int, string> */
+    private $sqlDataAccess = ['CONTAINS SQL', 'NO SQL', 'READS SQL DATA', 'MODIFIES SQL DATA'];
+
+    /** @var array<int, string> */
+    private $numericOptions = ['UNSIGNED', 'ZEROFILL', 'UNSIGNED ZEROFILL'];
+
     /** @var DatabaseInterface */
     private $dbi;
 
@@ -66,33 +75,6 @@ class Routines
     }
 
     /**
-     * Sets required globals
-     *
-     * @return void
-     */
-    public function setGlobals()
-    {
-        global $param_directions, $param_opts_num, $param_sqldataaccess;
-
-        $param_directions = [
-            'IN',
-            'OUT',
-            'INOUT',
-        ];
-        $param_opts_num = [
-            'UNSIGNED',
-            'ZEROFILL',
-            'UNSIGNED ZEROFILL',
-        ];
-        $param_sqldataaccess = [
-            'NO SQL',
-            'CONTAINS SQL',
-            'READS SQL DATA',
-            'MODIFIES SQL DATA',
-        ];
-    }
-
-    /**
      * Main function for the routines functionality
      *
      * @param string $type 'FUNCTION' for functions,
@@ -105,7 +87,6 @@ class Routines
     {
         global $db, $table, $pmaThemeImage, $text_dir;
 
-        $this->setGlobals();
         /**
          * Process all requests
          */
@@ -540,8 +521,6 @@ class Routines
      */
     public function getDataFromRequest()
     {
-        global $param_directions, $param_sqldataaccess;
-
         $retval = [];
         $indices = [
             'item_name',
@@ -589,7 +568,7 @@ class Routines
             if ($_POST['item_type'] == 'PROCEDURE') {
                 $retval['item_param_dir'] = $_POST['item_param_dir'];
                 foreach ($retval['item_param_dir'] as $key => $value) {
-                    if (! in_array($value, $param_directions, true)) {
+                    if (! in_array($value, $this->directions, true)) {
                         $retval['item_param_dir'][$key] = '';
                     }
                 }
@@ -636,7 +615,7 @@ class Routines
         }
         $retval['item_sqldataaccess'] = '';
         if (isset($_POST['item_sqldataaccess'])
-            && in_array($_POST['item_sqldataaccess'], $param_sqldataaccess, true)
+            && in_array($_POST['item_sqldataaccess'], $this->sqlDataAccess, true)
         ) {
             $retval['item_sqldataaccess'] = $_POST['item_sqldataaccess'];
         }
@@ -768,8 +747,6 @@ class Routines
      */
     public function getParameterRow(array $routine = [], $index = null, $class = '')
     {
-        global $param_directions, $param_opts_num;
-
         if ($index === null) {
             // template row for AJAX request
             $i = 0;
@@ -807,8 +784,8 @@ class Routines
         return $this->template->render('database/routines/parameter_row', [
             'class' => $class,
             'index' => $index,
-            'param_directions' => $param_directions,
-            'param_opts_num' => $param_opts_num,
+            'param_directions' => $this->directions,
+            'param_opts_num' => $this->numericOptions,
             'item_param_dir' => $routine['item_param_dir'][$i] ?? '',
             'item_param_name' => $routine['item_param_name'][$i] ?? '',
             'item_param_length' => $routine['item_param_length'][$i] ?? '',
@@ -837,7 +814,7 @@ class Routines
      */
     public function getEditorForm($mode, $operation, array $routine)
     {
-        global $db, $errors, $param_sqldataaccess, $param_opts_num;
+        global $db, $errors;
 
         // Escape special characters
         $need_escape = [
@@ -1023,7 +1000,7 @@ class Routines
         $retval .= '    </div>';
         $retval .= "    <div><select name='item_returnopts_num'>";
         $retval .= "        <option value=''></option>";
-        foreach ($param_opts_num as $key => $value) {
+        foreach ($this->numericOptions as $key => $value) {
             $selected = '';
             if (! empty($routine['item_returnopts_num'])
                 && $routine['item_returnopts_num'] == $value
@@ -1088,7 +1065,7 @@ class Routines
         $retval .= '<tr>';
         $retval .= '    <td>' . __('SQL data access') . '</td>';
         $retval .= "    <td><select name='item_sqldataaccess'>";
-        foreach ($param_sqldataaccess as $key => $value) {
+        foreach ($this->sqlDataAccess as $key => $value) {
             $selected = '';
             if ($routine['item_sqldataaccess'] == $value) {
                 $selected = " selected='selected'";
@@ -1127,7 +1104,7 @@ class Routines
      */
     public function getQueryFromRequest()
     {
-        global $errors, $param_sqldataaccess, $param_directions, $dbi;
+        global $errors, $dbi;
 
         $_POST['item_type'] = $_POST['item_type'] ?? '';
 
@@ -1191,7 +1168,7 @@ class Routines
                 ) {
                     if ($_POST['item_type'] == 'PROCEDURE'
                         && ! empty($_POST['item_param_dir'][$i])
-                        && in_array($_POST['item_param_dir'][$i], $param_directions)
+                        && in_array($_POST['item_param_dir'][$i], $this->directions)
                     ) {
                         $params .= $_POST['item_param_dir'][$i] . ' '
                             . Util::backquote($item_param_name[$i])
@@ -1317,7 +1294,7 @@ class Routines
             $query .= 'NOT DETERMINISTIC ';
         }
         if (! empty($_POST['item_sqldataaccess'])
-            && in_array($_POST['item_sqldataaccess'], $param_sqldataaccess)
+            && in_array($_POST['item_sqldataaccess'], $this->sqlDataAccess)
         ) {
             $query .= $_POST['item_sqldataaccess'] . ' ';
         }
