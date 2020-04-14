@@ -104,6 +104,9 @@ matrix:
     - php: "5.5"
       env: CI_MODE=test
       dist: trusty
+      script:
+        - ./scripts/generate-mo --quiet
+        - ./vendor/bin/phpunit --configuration phpunit.xml.dist --exclude-group selenium,git-revision,network
     - php: "7.3"
       env: CI_MODE=test
       name: "Run tests using phpunit 8"
