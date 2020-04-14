@@ -110,7 +110,7 @@ jobs:
       language: node_js
       node_js: 10
       before_install:
-        - brew link --force gettext
+        - export PATH="/usr/local/opt/gettext/bin:$PATH"
         - echo "memory_limit=-1" > /usr/local/etc/php/7.4/conf.d/50-travis.ini
         - echo "pcre.jit=0" >> /usr/local/etc/php/7.4/conf.d/50-travis.ini
         - mysql.server start

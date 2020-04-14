@@ -88,7 +88,7 @@ class Monitor
         // ...and now assign them
         $ret = $this->getJsonForChartingDataSet($ret, $statusVarValues, $serverVarValues);
 
-        $ret['x'] = microtime(true) * 1000;
+        $ret['x'] = (int) (microtime(true) * 1000);
         return $ret;
     }
 
