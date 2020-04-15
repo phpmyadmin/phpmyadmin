@@ -3627,6 +3627,17 @@ body .ui-dialog {
   .ui-dialog-buttonpane .ui-dialog-buttonset {
     float: $right;
   }
+
+  .ui-dialog-buttonpane .ui-dialog-buttonset button {
+    color: #fff;
+    background-color: #6c757d !important;
+    border-color: #6c757d;
+    background: none;
+  }
+
+  .ui-dialog-buttonpane .ui-dialog-buttonset button:hover {
+    background-color: #5a6268 !important;
+  }
 }
 // end of styles for jQuery-ui to support rtl languages
 
