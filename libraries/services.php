@@ -89,6 +89,16 @@ return [
                 '@template',
             ],
         ],
+        'events' =>
+            [
+                'class' => PhpMyAdmin\Database\Events::class,
+                'arguments' =>
+                    [
+                        '@dbi',
+                        '@template',
+                        '@response',
+                    ],
+            ],
         'export' =>
         [
             'class' => PhpMyAdmin\Export::class,

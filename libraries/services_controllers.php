@@ -94,6 +94,7 @@ return [
                 'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
+                'events' => '@events',
             ],
         ],
         PhpMyAdmin\Controllers\Database\ExportController::class =>

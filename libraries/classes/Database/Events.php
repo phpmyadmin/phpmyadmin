@@ -13,14 +13,12 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function count;
 use function explode;
-use function htmlentities;
 use function htmlspecialchars;
 use function in_array;
 use function intval;
 use function mb_strpos;
 use function mb_strtoupper;
 use function sprintf;
-use const ENT_QUOTES;
 
 /**
  * Functions for event management.
@@ -74,25 +72,6 @@ class Events
         $this->dbi = $dbi;
         $this->template = $template;
         $this->response = $response;
-    }
-
-    public function main(): void
-    {
-        global $db, $pmaThemeImage, $text_dir;
-
-        $this->handleEditor();
-        $this->export();
-
-        $items = $this->dbi->getEvents($db);
-
-        echo $this->template->render('database/events/index', [
-            'db' => $db,
-            'items' => $items,
-            'select_all_arrow_src' => $pmaThemeImage . 'arrow_' . $text_dir . '.png',
-            'has_privilege' => Util::currentUserHasPrivilege('EVENT', $db),
-            'toggle_button' => $this->getFooterToggleButton(),
-            'is_ajax' => $this->response->isAjax() && empty($_REQUEST['ajax_page_request']),
-        ]);
     }
 
     /**
@@ -483,7 +462,7 @@ class Events
         return $query;
     }
 
-    private function getFooterToggleButton(): string
+    public function getFooterToggleButton(): string
     {
         global $db, $table;
 
@@ -588,7 +567,7 @@ class Events
         }
     }
 
-    private function export(): void
+    public function export(): void
     {
         global $db;
 
