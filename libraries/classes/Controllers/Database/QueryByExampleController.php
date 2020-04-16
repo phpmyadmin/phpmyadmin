@@ -148,10 +148,10 @@ class QueryByExampleController extends AbstractController
 
         $databaseQbe = new Qbe($this->relation, $this->template, $this->dbi, $db, $savedSearchList, $savedSearch);
 
-        $this->response->addHTML($this->template->render('database/qbe/index', [
+        $this->render('database/qbe/index', [
             'url_params' => $url_params,
             'has_message_to_display' => $hasMessageToDisplay,
             'selection_form_html' => $databaseQbe->getSelectionForm(),
-        ]));
+        ]);
     }
 }

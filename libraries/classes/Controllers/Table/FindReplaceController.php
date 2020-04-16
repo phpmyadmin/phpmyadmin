@@ -141,16 +141,14 @@ class FindReplaceController extends AbstractController
             );
         }
 
-        $this->response->addHTML(
-            $this->template->render('table/find_replace/index', [
-                'db' => $this->db,
-                'table' => $this->table,
-                'goto' => $goto,
-                'column_names' => $column_names,
-                'types' => $types,
-                'sql_types' => $this->dbi->types,
-            ])
-        );
+        $this->render('table/find_replace/index', [
+            'db' => $this->db,
+            'table' => $this->table,
+            'goto' => $goto,
+            'column_names' => $column_names,
+            'types' => $types,
+            'sql_types' => $this->dbi->types,
+        ]);
     }
 
     public function findAction(): void

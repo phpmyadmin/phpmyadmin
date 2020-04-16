@@ -330,7 +330,7 @@ class OperationsController extends AbstractController
             }
         }
 
-        $this->response->addHTML($this->template->render('database/operations/index', [
+        $this->render('database/operations/index', [
             'message' => $oldMessage,
             'db' => $db,
             'has_comment' => $cfgRelation['commwork'],
@@ -341,6 +341,6 @@ class OperationsController extends AbstractController
             'switch_to_new' => $switchToNew,
             'charsets' => $charsets,
             'collations' => $collations,
-        ]));
+        ]);
     }
 }

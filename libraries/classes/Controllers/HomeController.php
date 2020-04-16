@@ -261,7 +261,7 @@ class HomeController extends AbstractController
 
         $this->checkRequirements();
 
-        $this->response->addHTML($this->template->render('home/index', [
+        $this->render('home/index', [
             'message' => $displayMessage ?? '',
             'partial_logout' => $partialLogout ?? '',
             'is_git_revision' => $this->config->isGitRevision(),
@@ -282,7 +282,7 @@ class HomeController extends AbstractController
             'is_version_checked' => $cfg['VersionCheck'],
             'phpmyadmin_version' => PMA_VERSION,
             'config_storage_message' => $configStorageMessage ?? '',
-        ]));
+        ]);
     }
 
     public function setTheme(): void

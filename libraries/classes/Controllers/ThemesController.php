@@ -19,13 +19,13 @@ class ThemesController extends AbstractController
         $header->setTitle('phpMyAdmin - ' . __('Theme'));
         $header->disableMenuAndConsole();
 
-        $this->response->addHTML($this->template->render('themes', [
+        $this->render('themes', [
             'version' => preg_replace(
                 '/([0-9]*)\.([0-9]*)\..*/',
                 '\1_\2',
                 PMA_VERSION
             ),
             'previews' => ThemeManager::getInstance()->getPrintPreviews(),
-        ]));
+        ]);
     }
 }

@@ -19,9 +19,9 @@ class EnginesController extends AbstractController
     {
         Common::server();
 
-        $this->response->addHTML($this->template->render('server/engines/index', [
+        $this->render('server/engines/index', [
             'engines' => StorageEngine::getStorageEngines(),
-        ]));
+        ]);
     }
 
     /**
@@ -50,9 +50,9 @@ class EnginesController extends AbstractController
             ];
         }
 
-        $this->response->addHTML($this->template->render('server/engines/show', [
+        $this->render('server/engines/show', [
             'engine' => $engine,
             'page' => $page,
-        ]));
+        ]);
     }
 }

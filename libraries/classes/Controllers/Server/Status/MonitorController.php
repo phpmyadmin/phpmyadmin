@@ -68,11 +68,11 @@ class MonitorController extends AbstractController
             }
         }
 
-        $this->response->addHTML($this->template->render('server/status/monitor/index', [
+        $this->render('server/status/monitor/index', [
             'image_path' => $GLOBALS['pmaThemeImage'],
             'javascript_variable_names' => $javascriptVariableNames,
             'form' => $form,
-        ]));
+        ]);
     }
 
     public function chartingData(): void

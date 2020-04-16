@@ -106,7 +106,7 @@ class BinlogController extends AbstractController
             $values[] = $value;
         }
 
-        $this->response->addHTML($this->template->render('server/binlog/index', [
+        $this->render('server/binlog/index', [
             'url_params' => $urlParams,
             'binary_logs' => $this->binaryLogs,
             'log' => $params['log'],
@@ -120,7 +120,7 @@ class BinlogController extends AbstractController
             'has_icons' => Util::showIcons('TableNavigationLinksMode'),
             'is_full_query' => $isFullQuery,
             'image_path' => $pmaThemeImage,
-        ]));
+        ]);
     }
 
     /**

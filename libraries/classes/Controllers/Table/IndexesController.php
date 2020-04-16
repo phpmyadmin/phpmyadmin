@@ -92,16 +92,14 @@ class IndexesController extends AbstractController
 
         $this->response->getHeader()->getScripts()->addFile('indexes.js');
 
-        $this->response->addHTML(
-            $this->template->render('table/index_form', [
-                'fields' => $fields,
-                'index' => $index,
-                'form_params' => $form_params,
-                'add_fields' => $add_fields,
-                'create_edit_table' => isset($_POST['create_edit_table']),
-                'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
-            ])
-        );
+        $this->render('table/index_form', [
+            'fields' => $fields,
+            'index' => $index,
+            'form_params' => $form_params,
+            'add_fields' => $add_fields,
+            'create_edit_table' => isset($_POST['create_edit_table']),
+            'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
+        ]);
     }
 
     /**

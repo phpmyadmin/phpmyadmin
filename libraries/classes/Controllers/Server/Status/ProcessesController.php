@@ -49,11 +49,11 @@ class ProcessesController extends AbstractController
 
         $serverProcessList = $this->getList($params);
 
-        $this->response->addHTML($this->template->render('server/status/processes/index', [
+        $this->render('server/status/processes/index', [
             'url_params' => $urlParams,
             'is_checked' => $isChecked,
             'server_process_list' => $serverProcessList,
-        ]));
+        ]);
     }
 
     /**

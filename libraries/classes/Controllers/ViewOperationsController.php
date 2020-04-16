@@ -92,10 +92,10 @@ class ViewOperationsController extends AbstractController
             ));
         }
 
-        $this->response->addHTML($this->template->render('table/operations/view', [
+        $this->render('table/operations/view', [
             'db' => $db,
             'table' => $table,
             'url_params' => $url_params,
-        ]));
+        ]);
     }
 }

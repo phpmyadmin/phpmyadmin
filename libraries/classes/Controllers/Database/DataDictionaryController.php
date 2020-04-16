@@ -129,10 +129,10 @@ class DataDictionaryController extends AbstractController
             ];
         }
 
-        $this->response->addHTML($this->template->render('database/data_dictionary/index', [
+        $this->render('database/data_dictionary/index', [
             'database' => $this->db,
             'comment' => $comment,
             'tables' => $tables,
-        ]));
+        ]);
     }
 }

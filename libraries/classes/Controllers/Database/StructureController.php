@@ -177,14 +177,14 @@ class StructureController extends AbstractController
             $createTable = CreateTable::getHtml($this->db);
         }
 
-        $this->response->addHTML($this->template->render('database/structure/index', [
+        $this->render('database/structure/index', [
             'database' => $this->db,
             'has_tables' => $this->numTables > 0,
             'list_navigator_html' => $listNavigator ?? '',
             'table_list_html' => $tableList ?? '',
             'is_system_schema' => ! empty($this->dbIsSystemSchema),
             'create_table_html' => $createTable,
-        ]));
+        ]);
     }
 
     public function addRemoveFavoriteTablesAction(): void

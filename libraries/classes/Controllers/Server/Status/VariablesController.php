@@ -105,7 +105,7 @@ class VariablesController extends AbstractController
             }
         }
 
-        $this->response->addHTML($this->template->render('server/status/variables/index', [
+        $this->render('server/status/variables/index', [
             'is_data_loaded' => $this->data->dataLoaded,
             'filter_text' => ! empty($params['filterText']) ? $params['filterText'] : '',
             'is_only_alerts' => ! empty($params['filterAlert']),
@@ -113,7 +113,7 @@ class VariablesController extends AbstractController
             'categories' => $categories ?? [],
             'links' => $links ?? [],
             'variables' => $variables ?? [],
-        ]));
+        ]);
     }
 
     /**

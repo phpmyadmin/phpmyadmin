@@ -141,7 +141,7 @@ class DatabasesController extends AbstractController
 
         $headerStatistics = $this->getStatisticsColumns();
 
-        $this->response->addHTML($this->template->render('server/databases/index', [
+        $this->render('server/databases/index', [
             'is_create_database_shown' => $cfg['ShowCreateDb'],
             'has_create_database_privileges' => $is_create_db_priv,
             'has_statistics' => $this->hasStatistics,
@@ -159,7 +159,7 @@ class DatabasesController extends AbstractController
             'is_drop_allowed' => $this->dbi->isSuperuser() || $cfg['AllowUserDropDatabase'],
             'pma_theme_image' => $pmaThemeImage,
             'text_dir' => $text_dir,
-        ]));
+        ]);
     }
 
     public function create(): void

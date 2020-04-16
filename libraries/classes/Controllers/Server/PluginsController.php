@@ -63,9 +63,9 @@ class PluginsController extends AbstractController
             );
         }
 
-        $this->response->addHTML($this->template->render('server/plugins/index', [
+        $this->render('server/plugins/index', [
             'plugins' => $plugins,
             'clean_types' => $cleanTypes,
-        ]));
+        ]);
     }
 }

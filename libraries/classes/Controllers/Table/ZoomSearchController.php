@@ -235,23 +235,21 @@ class ZoomSearchController extends AbstractController
             }
         }
 
-        $this->response->addHTML(
-            $this->template->render('table/zoom_search/index', [
-                'db' => $this->db,
-                'table' => $this->table,
-                'goto' => $goto,
-                'self' => $this,
-                'geom_column_flag' => $this->_geomColumnFlag,
-                'column_names' => $column_names,
-                'data_label' => $dataLabel,
-                'keys' => $keys,
-                'criteria_column_names' => $criteria_column_names,
-                'criteria_column_types' => $_POST['criteriaColumnTypes'] ?? null,
-                'max_plot_limit' => ! empty($_POST['maxPlotLimit'])
-                    ? intval($_POST['maxPlotLimit'])
-                    : intval($GLOBALS['cfg']['maxRowPlotLimit']),
-            ])
-        );
+        $this->render('table/zoom_search/index', [
+            'db' => $this->db,
+            'table' => $this->table,
+            'goto' => $goto,
+            'self' => $this,
+            'geom_column_flag' => $this->_geomColumnFlag,
+            'column_names' => $column_names,
+            'data_label' => $dataLabel,
+            'keys' => $keys,
+            'criteria_column_names' => $criteria_column_names,
+            'criteria_column_types' => $_POST['criteriaColumnTypes'] ?? null,
+            'max_plot_limit' => ! empty($_POST['maxPlotLimit'])
+                ? intval($_POST['maxPlotLimit'])
+                : intval($GLOBALS['cfg']['maxRowPlotLimit']),
+        ]);
     }
 
     /**
@@ -384,23 +382,21 @@ class ZoomSearchController extends AbstractController
             $column_names_hashes[$columnName] = md5($columnName);
         }
 
-        $this->response->addHTML(
-            $this->template->render('table/zoom_search/result_form', [
-                'db' => $this->db,
-                'table' => $this->table,
-                'column_names' => $this->_columnNames,
-                'column_names_hashes' => $column_names_hashes,
-                'foreigners' => $this->_foreigners,
-                'column_null_flags' => $this->_columnNullFlags,
-                'column_types' => $this->_columnTypes,
-                'titles' => $titles,
-                'goto' => $goto,
-                'data' => $data,
-                'data_json' => json_encode($data),
-                'zoom_submit' => isset($_POST['zoom_submit']),
-                'foreign_max_limit' => $GLOBALS['cfg']['ForeignKeyMaxLimit'],
-            ])
-        );
+        $this->render('table/zoom_search/result_form', [
+            'db' => $this->db,
+            'table' => $this->table,
+            'column_names' => $this->_columnNames,
+            'column_names_hashes' => $column_names_hashes,
+            'foreigners' => $this->_foreigners,
+            'column_null_flags' => $this->_columnNullFlags,
+            'column_types' => $this->_columnTypes,
+            'titles' => $titles,
+            'goto' => $goto,
+            'data' => $data,
+            'data_json' => json_encode($data),
+            'zoom_submit' => isset($_POST['zoom_submit']),
+            'foreign_max_limit' => $GLOBALS['cfg']['ForeignKeyMaxLimit'],
+        ]);
     }
 
     /**

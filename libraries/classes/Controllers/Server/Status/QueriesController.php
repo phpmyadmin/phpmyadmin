@@ -74,11 +74,11 @@ class QueriesController extends AbstractController
             }
         }
 
-        $this->response->addHTML($this->template->render('server/status/queries/index', [
+        $this->render('server/status/queries/index', [
             'is_data_loaded' => $this->data->dataLoaded,
             'stats' => $stats ?? null,
             'queries' => $queries ?? [],
             'chart' => $chart ?? [],
-        ]));
+        ]);
     }
 }

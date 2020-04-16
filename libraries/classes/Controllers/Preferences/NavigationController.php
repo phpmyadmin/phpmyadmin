@@ -92,17 +92,17 @@ class NavigationController extends AbstractController
 
         $cfgRelation = $this->relation->getRelationsParam();
 
-        $this->response->addHTML($this->template->render('preferences/header', [
+        $this->render('preferences/header', [
             'route' => $route,
             'is_saved' => ! empty($_GET['saved']),
             'has_config_storage' => $cfgRelation['userconfigwork'],
-        ]));
+        ]);
 
         if ($formDisplay->hasErrors()) {
             $formErrors = $formDisplay->displayErrors();
         }
 
-        $this->response->addHTML($this->template->render('preferences/forms/main', [
+        $this->render('preferences/forms/main', [
             'error' => $error ? $error->getDisplay() : '',
             'has_errors' => $formDisplay->hasErrors(),
             'errors' => $formErrors ?? null,
@@ -113,7 +113,7 @@ class NavigationController extends AbstractController
                 Url::getFromRoute('/preferences/navigation'),
                 ['server' => $server]
             ),
-        ]));
+        ]);
 
         if ($this->response->isAjax()) {
             $this->response->addJSON('disableNaviSettings', true);

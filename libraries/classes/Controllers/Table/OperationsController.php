@@ -446,7 +446,7 @@ class OperationsController extends AbstractController
             (bool) $cfgRelation['relwork']
         );
 
-        $this->response->addHTML($this->template->render('table/operations/index', [
+        $this->render('table/operations/index', [
             'db' => $db,
             'table' => $table,
             'url_params' => $url_params,
@@ -480,6 +480,6 @@ class OperationsController extends AbstractController
             'partitions' => $partitions,
             'partitions_choices' => $partitionsChoices,
             'foreigners' => $foreigners,
-        ]));
+        ]);
     }
 }

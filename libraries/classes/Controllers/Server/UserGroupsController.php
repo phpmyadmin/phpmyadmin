@@ -55,10 +55,10 @@ class UserGroupsController extends AbstractController
         }
 
         $this->response->addHTML('<div class="container-fluid">');
-        $this->response->addHTML($this->template->render('server/privileges/subnav', [
+        $this->render('server/privileges/subnav', [
             'active' => 'user-groups',
             'is_super_user' => $this->dbi->isSuperuser(),
-        ]));
+        ]);
 
         /**
          * Delete user group

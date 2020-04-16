@@ -126,17 +126,15 @@ class ChartController extends AbstractController
         /**
          * Displays the page
          */
-        $this->response->addHTML(
-            $this->template->render('table/chart/tbl_chart', [
-                'url_query' => $url_query,
-                'url_params' => $url_params,
-                'keys' => $keys,
-                'fields_meta' => $fields_meta,
-                'numeric_types' => $numeric_types,
-                'numeric_column_count' => $numeric_column_count,
-                'sql_query' => $sql_query,
-            ])
-        );
+        $this->render('table/chart/tbl_chart', [
+            'url_query' => $url_query,
+            'url_params' => $url_params,
+            'keys' => $keys,
+            'fields_meta' => $fields_meta,
+            'numeric_types' => $numeric_types,
+            'numeric_column_count' => $numeric_column_count,
+            'sql_query' => $sql_query,
+        ]);
     }
 
     /**

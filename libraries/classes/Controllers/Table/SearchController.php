@@ -296,20 +296,18 @@ class SearchController extends AbstractController
             );
         }
 
-        $this->response->addHTML(
-            $this->template->render('table/search/index', [
-                'db' => $this->db,
-                'table' => $this->table,
-                'goto' => $goto,
-                'self' => $this,
-                'geom_column_flag' => $this->_geomColumnFlag,
-                'column_names' => $this->_columnNames,
-                'column_types' => $this->_columnTypes,
-                'column_collations' => $this->_columnCollations,
-                'default_sliders_state' => $cfg['InitialSlidersState'],
-                'max_rows' => intval($cfg['MaxRows']),
-            ])
-        );
+        $this->render('table/search/index', [
+            'db' => $this->db,
+            'table' => $this->table,
+            'goto' => $goto,
+            'self' => $this,
+            'geom_column_flag' => $this->_geomColumnFlag,
+            'column_names' => $this->_columnNames,
+            'column_types' => $this->_columnTypes,
+            'column_collations' => $this->_columnCollations,
+            'default_sliders_state' => $cfg['InitialSlidersState'],
+            'max_rows' => intval($cfg['MaxRows']),
+        ]);
     }
 
     /**

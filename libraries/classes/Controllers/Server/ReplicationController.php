@@ -83,7 +83,7 @@ class ReplicationController extends AbstractController
             }
         }
 
-        $this->response->addHTML($this->template->render('server/replication/index', [
+        $this->render('server/replication/index', [
             'url_params' => $url_params,
             'is_super_user' => $this->dbi->isSuperuser(),
             'error_messages' => $errorMessages,
@@ -95,6 +95,6 @@ class ReplicationController extends AbstractController
             'master_configuration_html' => $masterConfigurationHtml ?? '',
             'slave_configuration_html' => $slaveConfigurationHtml ?? '',
             'change_master_html' => $changeMasterHtml ?? '',
-        ]));
+        ]);
     }
 }

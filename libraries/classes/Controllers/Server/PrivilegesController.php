@@ -103,10 +103,10 @@ class PrivilegesController extends AbstractController
             && $GLOBALS['cfgRelation']['menuswork']
         ) {
             $this->response->addHTML('<div class="container-fluid">');
-            $this->response->addHTML($this->template->render('server/privileges/subnav', [
+            $this->render('server/privileges/subnav', [
                 'active' => 'privileges',
                 'is_super_user' => $this->dbi->isSuperuser(),
-            ]));
+            ]);
         }
 
         /**
@@ -203,12 +203,10 @@ class PrivilegesController extends AbstractController
         if (! $this->dbi->isSuperuser() && ! $GLOBALS['is_grantuser']
             && ! $GLOBALS['is_createuser']
         ) {
-            $this->response->addHTML(
-                $this->template->render('server/sub_page_header', [
-                    'type' => 'privileges',
-                    'is_image' => false,
-                ])
-            );
+            $this->render('server/sub_page_header', [
+                'type' => 'privileges',
+                'is_image' => false,
+            ]);
             $this->response->addHTML(
                 Message::error(__('No Privileges'))
                     ->getDisplay()

@@ -35,4 +35,13 @@ abstract class AbstractController
         $this->dbi = $dbi;
         $this->template = $template;
     }
+
+    /**
+     * @param string $template Template path name.
+     * @param array  $data     Associative array of template variables.
+     */
+    protected function render(string $template, array $data = []): void
+    {
+        $this->response->addHTML($this->template->render($template, $data));
+    }
 }

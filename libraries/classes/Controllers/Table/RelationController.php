@@ -174,31 +174,29 @@ final class RelationController extends AbstractController
         // common form
         $engine = $this->dbi->getTable($this->db, $this->table)->getStorageEngine();
         $foreignKeySupported = Util::isForeignKeySupported($storageEngine);
-        $this->response->addHTML(
-            $this->template->render('table/relation/common_form', [
-                'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
-                'db' => $this->db,
-                'table' => $this->table,
-                'cfg_relation' => $cfgRelation,
-                'tbl_storage_engine' => $storageEngine,
-                'existrel' => $relations,
-                'existrel_foreign' => array_key_exists('foreign_keys_data', $relationsForeign)
-                    ? $relationsForeign['foreign_keys_data']
-                    : [],
-                'options_array' => $options,
-                'column_array' => $column_array,
-                'column_hash_array' => $column_hash_array,
-                'save_row' => array_values($columns),
-                'url_params' => $GLOBALS['url_params'],
-                'databases' => $GLOBALS['dblist']->databases,
-                'dbi' => $this->dbi,
-                'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
-                'foreignKeySupported' => $foreignKeySupported,
-                'indexes' => $foreignKeySupported ? Index::getFromTable($this->table, $this->db) : null,
-                'indexes_duplicates' => $foreignKeySupported ? Index::findDuplicates($this->table, $this->db) : null,
-                'route' => $route,
-            ])
-        );
+        $this->render('table/relation/common_form', [
+            'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
+            'db' => $this->db,
+            'table' => $this->table,
+            'cfg_relation' => $cfgRelation,
+            'tbl_storage_engine' => $storageEngine,
+            'existrel' => $relations,
+            'existrel_foreign' => array_key_exists('foreign_keys_data', $relationsForeign)
+                ? $relationsForeign['foreign_keys_data']
+                : [],
+            'options_array' => $options,
+            'column_array' => $column_array,
+            'column_hash_array' => $column_hash_array,
+            'save_row' => array_values($columns),
+            'url_params' => $GLOBALS['url_params'],
+            'databases' => $GLOBALS['dblist']->databases,
+            'dbi' => $this->dbi,
+            'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
+            'foreignKeySupported' => $foreignKeySupported,
+            'indexes' => $foreignKeySupported ? Index::getFromTable($this->table, $this->db) : null,
+            'indexes_duplicates' => $foreignKeySupported ? Index::findDuplicates($this->table, $this->db) : null,
+            'route' => $route,
+        ]);
     }
 
     /**
