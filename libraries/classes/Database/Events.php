@@ -462,26 +462,33 @@ class Events
         return $query;
     }
 
+    private function getEventSchedulerStatus(): bool
+    {
+        $state = $this->dbi->fetchValue(
+            'SHOW GLOBAL VARIABLES LIKE \'event_scheduler\'',
+            0,
+            1
+        );
+        $state = strtoupper($state);
+
+        return $state === 'ON' || $state === '1';
+    }
+
     public function getFooterToggleButton(): string
     {
         global $db, $table;
 
-        $es_state = $this->dbi->fetchValue(
-            "SHOW GLOBAL VARIABLES LIKE 'event_scheduler'",
-            0,
-            1
-        );
-        $es_state = mb_strtolower($es_state);
+        $state = $this->getEventSchedulerStatus();
         $options = [
             0 => [
                 'label' => __('OFF'),
                 'value' => 'SET GLOBAL event_scheduler="OFF"',
-                'selected' => $es_state != 'on',
+                'selected' => ! $state,
             ],
             1 => [
                 'label' => __('ON'),
                 'value' => 'SET GLOBAL event_scheduler="ON"',
-                'selected' => $es_state == 'on',
+                'selected' => $state,
             ],
         ];
 
