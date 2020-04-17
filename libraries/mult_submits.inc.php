@@ -227,7 +227,10 @@ if (! empty($submit_mult) && ! empty($what)) {
         ]));
     } elseif ($what == 'add_prefix_tbl') {
         $response->disable();
-        $response->addHTML($multSubmits->getHtmlForAddPrefixTable($action, $_url_params));
+        $response->addHTML($template->render('mult_submits/add_prefix_table', [
+            'action' => $action,
+            'url_params' => $_url_params,
+        ]));
     } else {
         $response->addHTML($template->render('mult_submits/other_actions', [
             'action' => $action,

@@ -427,35 +427,6 @@ class MultSubmits
     }
 
     /**
-     * Gets HTML for add_prefix_tbl
-     *
-     * @param string $action    action type
-     * @param array  $urlParams URL params
-     *
-     * @return string
-     */
-    public function getHtmlForAddPrefixTable($action, array $urlParams)
-    {
-        $html  = '<form id="ajax_form" action="' . $action . '" method="post">';
-        $html .= Url::getHiddenInputs($urlParams);
-        $html .= '<fieldset class = "input">';
-        $html .= '<table>';
-        $html .= '<tr>';
-        $html .= '<td>' . __('Add prefix') . '</td>';
-        $html .= '<td>';
-        $html .= '<input type="text" name="add_prefix" id="txtPrefix">';
-        $html .= '</td>';
-        $html .= '</tr>';
-        $html .= '<tr>';
-        $html .= '</table>';
-        $html .= '</fieldset>';
-        $html .= '<input type="hidden" name="mult_btn" value="' . __('Yes') . '">';
-        $html .= '</form>';
-
-        return $html;
-    }
-
-    /**
      * Get query string from Selected
      *
      * @param string $what     mult_submit type

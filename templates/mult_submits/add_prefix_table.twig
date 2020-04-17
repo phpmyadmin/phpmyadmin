@@ -1,0 +1,16 @@
+<form id="ajax_form" action="{{ action|raw }}" method="post">
+  {{ get_hidden_inputs(url_params) }}
+
+  <fieldset class = "input">
+    <table>
+      <tr>
+        <td>{% trans 'Add prefix' %}</td>
+        <td>
+          <input type="text" name="add_prefix" id="txtPrefix" aria-label="{% trans 'Add prefix' %}">
+        </td>
+      </tr>
+      <tr>
+    </table>
+  </fieldset>
+  <input type="hidden" name="mult_btn" value="{% trans 'Yes' %}">
+</form>
