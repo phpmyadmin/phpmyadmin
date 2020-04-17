@@ -416,10 +416,11 @@ class StructureControllerTest extends PmaTestCase
             ->will($this->returnValue([]));
         $favoriteInstance->expects($this->at(2))
             ->method('getTables')
-            ->will($this->returnValue([[
-                'db' => 'db',
-                'table' => 'table',
-            ],
+            ->will($this->returnValue([
+                [
+                    'db' => 'db',
+                    'table' => 'table',
+                ],
             ]));
 
         $class = new ReflectionClass(StructureController::class);
@@ -488,10 +489,11 @@ class StructureControllerTest extends PmaTestCase
             'real_row_count_all' => 'abc',
         ]);
 
-        $expectedResult = [[
-            'table' => 'table',
-            'row_count' => 6,
-        ],
+        $expectedResult = [
+            [
+                'table' => 'table',
+                'row_count' => 6,
+            ],
         ];
         $this->assertEquals(
             json_encode($expectedResult),

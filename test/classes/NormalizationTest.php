@@ -85,10 +85,11 @@ class NormalizationTest extends TestCase
                 'PMA_db',
                 'PMA_table',
                 DatabaseInterface::CONNECT_USER,
-                [[
-                    'Key_name' => 'PRIMARY',
-                    'Column_name' => 'id',
-                ],
+                [
+                    [
+                        'Key_name' => 'PRIMARY',
+                        'Column_name' => 'id',
+                    ],
                 ],
             ],
             [
