@@ -172,7 +172,7 @@ final class ExportController extends AbstractController
         if (isset($_POST['raw_query']) || $isReturnBackFromRawExport) {
             $export_type = 'raw';
         } else {
-            $export_type = 'table';
+            $export_type = 'database';
         }
 
         $displayExport = new DisplayExport();
