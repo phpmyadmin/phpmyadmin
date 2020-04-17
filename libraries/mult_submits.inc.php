@@ -229,9 +229,13 @@ if (! empty($submit_mult) && ! empty($what)) {
         $response->disable();
         $response->addHTML($multSubmits->getHtmlForAddPrefixTable($action, $_url_params));
     } else {
-        $response->addHTML(
-            $multSubmits->getHtmlForOtherActions($what, $action, $_url_params, $full_query)
-        );
+        $response->addHTML($template->render('mult_submits/other_actions', [
+            'action' => $action,
+            'url_params' => $_url_params,
+            'what' => $what,
+            'full_query' => $full_query,
+            'is_foreign_key_check' => Util::isForeignKeyCheck(),
+        ]));
     }
     exit;
 } elseif (! empty($mult_btn) && $mult_btn == __('Yes')) {

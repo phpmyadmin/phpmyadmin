@@ -456,51 +456,6 @@ class MultSubmits
     }
 
     /**
-     * Gets HTML for other mult_submits actions
-     *
-     * @param string $what      mult_submit type
-     * @param string $action    action type
-     * @param array  $urlParams URL params
-     * @param string $fullQuery full sql query string
-     *
-     * @return string
-     */
-    public function getHtmlForOtherActions($what, $action, array $urlParams, $fullQuery)
-    {
-        $html = '<form action="' . $action . '" method="post">';
-        $html .= Url::getHiddenInputs($urlParams);
-        $html .= '<fieldset class="confirmation">';
-        $html .= '<legend>';
-        if ($what == 'drop_db') {
-            $html .=  __('You are about to DESTROY a complete database!') . ' ';
-        }
-        $html .= __('Do you really want to execute the following query?');
-        $html .= '</legend>';
-        $html .= '<code>' . $fullQuery . '</code>';
-        $html .= '</fieldset>';
-        $html .= '<fieldset class="tblFooters">';
-        // Display option to disable foreign key checks while dropping tables
-        if ($what === 'drop_tbl' || $what === 'empty_tbl' || $what === 'row_delete') {
-            $html .= '<div id="foreignkeychk">';
-            $html .= '<input type="hidden" name="fk_checks" value="0">';
-            $html .= '<input type="checkbox" name="fk_checks" id="fk_checks" value="1"';
-            $html .= Util::isForeignKeyCheck() ? ' checked>' : '>';
-            $html .= ' <label for="fk_checks">';
-            $html .= __('Enable foreign key checks');
-            $html .= '</label>';
-            $html .= '</div>';
-        }
-        $html .= '<input id="buttonYes" class="btn btn-secondary" type="submit" name="mult_btn" value="'
-            . __('Yes') . '">';
-        $html .= '<input id="buttonNo" class="btn btn-secondary" type="submit" name="mult_btn" value="'
-            . __('No') . '">';
-        $html .= '</fieldset>';
-        $html .= '</form>';
-
-        return $html;
-    }
-
-    /**
      * Get query string from Selected
      *
      * @param string $what     mult_submit type

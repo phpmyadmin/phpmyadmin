@@ -111,57 +111,6 @@ class MultSubmitsTest extends TestCase
     }
 
     /**
-     * Test for getHtmlForOtherActions
-     *
-     * @return void
-     */
-    public function testGetHtmlForOtherActions()
-    {
-        $what = 'replace_prefix_tbl';
-        $action = 'delete_row';
-        $urlParams = ['url_query' => 'PMA_original_url_query'];
-        $fullQuery = 'select column from PMA_table';
-
-        //Call the test function
-        $html = $this->multSubmits->getHtmlForOtherActions(
-            $what,
-            $action,
-            $urlParams,
-            $fullQuery
-        );
-
-        //validate 1: form action
-        $this->assertStringContainsString(
-            '<form action="' . $action . '" method="post">',
-            $html
-        );
-        //validate 2: $urlParams
-        $this->assertStringContainsString(
-            Url::getHiddenInputs($urlParams),
-            $html
-        );
-        //validate 3: conform
-        $this->assertStringContainsString(
-            __('Do you really want to execute the following query?'),
-            $html
-        );
-        //validate 4: query
-        $this->assertStringContainsString(
-            '<code>' . $fullQuery . '</code>',
-            $html
-        );
-        //validate 5: button : yes or no
-        $this->assertStringContainsString(
-            __('Yes'),
-            $html
-        );
-        $this->assertStringContainsString(
-            __('No'),
-            $html
-        );
-    }
-
-    /**
      * Test for getUrlParams
      *
      * @return void
