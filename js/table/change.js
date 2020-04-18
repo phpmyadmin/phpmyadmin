@@ -163,7 +163,7 @@ function verifyAfterSearchFieldChange (index) {
             jQuery.validator.addMethod('validationFunctionForMultipleInt', function (value) {
                 return value.match(/^(?:(?:\d\s*)|\s*)+(?:,\s*\d+)*$/i) !== null;
             },
-                Messages.strEnterValidNumber
+            Messages.strEnterValidNumber
             );
             validateMultipleIntField($thisInput, true);
         } else {
@@ -180,7 +180,7 @@ function verifyAfterSearchFieldChange (index) {
  * @returns {void}
  */
 function validateMultipleIntField (jqueryInput, returnValueIfFine) {
-    //removing previous rules
+    // removing previous rules
     jqueryInput.rules('remove');
 
     jqueryInput.rules('add', {
