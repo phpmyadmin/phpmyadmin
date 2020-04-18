@@ -11,9 +11,23 @@ echo "Using root dir: $ROOT_DIR"
 
 cd ${ROOT_DIR}
 
-# Uncomment when all the modules are in the package.json file
-#echo 'Delete all files'
-#find ./js/vendor/ -not -path './openlayers/*' -type f -delete
+# Remove each '-not -path' when a new package can be used from npm
+echo 'Delete vendor files we can replace from source dists'
+find ./js/vendor/ \
+    -not -path './js/vendor/openlayers/*' \
+    -not -path './js/vendor/sprintf.js' \
+    -not -path './js/vendor/jqplot/jquery.jqplot.js' \
+    -not -path './js/vendor/jqplot/plugins/jqplot.*.js' \
+    -not -path './js/vendor/jquery/jquery-ui.min.js' \
+    -not -path './js/vendor/jquery/jquery.uitablefilter.js' \
+    -not -path './js/vendor/jquery/jquery.sortableTable.js' \
+    -not -path './js/vendor/jquery/jquery.svg.js' \
+    -not -path './js/vendor/jquery/jquery.fullscreen.js' \
+    -not -path './js/vendor/jquery/jquery-ui-timepicker-addon.js' \
+    -not -path './js/vendor/jquery/jquery.event.drag-2.2.js' \
+    -not -path './js/vendor/jquery/jquery.debounce-1.0.6.js' \
+    -not -path './js/vendor/jquery/jquery.ba-hashchange-1.3.js' \
+    -type f -delete -print
 
 echo 'Updating codemirror'
 cp ./node_modules/codemirror/addon/hint/sql-hint.js ./js/vendor/codemirror/addon/hint/sql-hint.js
