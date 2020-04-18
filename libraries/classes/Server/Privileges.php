@@ -273,7 +273,8 @@ class Privileges
             && (! isset($_POST['grant_count']) || count($privs) == $_POST['grant_count'])
         ) {
             if ($enableHTML) {
-                $privs = ['<dfn title="'
+                $privs = [
+                    '<dfn title="'
                     . __('Includes all privileges except GRANT.')
                     . '">ALL PRIVILEGES</dfn>',
                 ];

@@ -957,7 +957,8 @@ class TableTest extends PmaTestCase
                 [
                     'PMA',
                     'PMA_BookMark',
-                ], null,
+                ],
+                null,
                 ['ENGINE' => 'MERGE'],
             ],
             [
@@ -965,7 +966,8 @@ class TableTest extends PmaTestCase
                     'PMA',
                     'PMA_BookMark',
                     'ENGINE',
-                ], null,
+                ],
+                null,
                 'MERGE',
             ],
         ];
@@ -992,7 +994,8 @@ class TableTest extends PmaTestCase
                 [
                     'PMA',
                     'PMA_BookMark',
-                ], null,
+                ],
+                null,
                 ['ENGINE' => 'MRG_MYISAM'],
             ],
             [
@@ -1000,7 +1003,8 @@ class TableTest extends PmaTestCase
                     'PMA',
                     'PMA_BookMark',
                     'ENGINE',
-                ], null,
+                ],
+                null,
                 'MRG_MYISAM',
             ],
         ];
@@ -1027,7 +1031,8 @@ class TableTest extends PmaTestCase
                 [
                     'PMA',
                     'PMA_BookMark',
-                ], null,
+                ],
+                null,
                 ['ENGINE' => 'ISDB'],
             ],
             [
@@ -1035,7 +1040,8 @@ class TableTest extends PmaTestCase
                     'PMA',
                     'PMA_BookMark',
                     'ENGINE',
-                ], null,
+                ],
+                null,
                 'ISDB',
             ],
         ];
@@ -1460,7 +1466,8 @@ class TableTest extends PmaTestCase
                     'PMA',
                     'PMA_BookMark',
                     'TABLE_TYPE',
-                ], null,
+                ],
+                null,
                 'VIEW',
             ],
         ];

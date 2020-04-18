@@ -43,6 +43,7 @@ phpMyAdmin - ChangeLog
 - issue #16048 Fix to allow NULL as a default bit value
 - issue #16062 Fix "htmlspecialchars() expects parameter 1 to be string, null given" on Export xml
 - issue #16078 Fix no charts in monitor when using a decimal separator ","
+- issue #16041 Fix IN(...) clause doesn't permit multiple values on "Search" page
 
 5.0.2 (2020-03-20)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page

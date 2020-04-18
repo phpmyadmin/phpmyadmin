@@ -501,10 +501,11 @@ class StructureControllerTest extends PmaTestCase
         $controller->handleRealRowCountRequestAction();
         $json = $this->response->getJSONResult();
 
-        $expectedResult = [[
-            'table' => 'table',
-            'row_count' => 6,
-        ],
+        $expectedResult = [
+            [
+                'table' => 'table',
+                'row_count' => 6,
+            ],
         ];
         $this->assertEquals(
             json_encode($expectedResult),
