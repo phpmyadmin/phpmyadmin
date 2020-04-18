@@ -1233,6 +1233,11 @@ jqplot@^1.0.9:
   resolved "https://registry.yarnpkg.com/jqplot/-/jqplot-1.0.9.tgz#2c5a5d6a97e396b31d7e710e3a38b8af8cf251e4"
   integrity sha1-LFpdapfjlrMdfnEOOji4r4zyUeQ=
 
+jquery-hashchange@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/jquery-hashchange/-/jquery-hashchange-2.0.0.tgz#905b801803b6928fa8b3655381badf42dc49ba82"
+  integrity sha512-9/RrnnUKw7qLy5e4X8nCusAlvXZPpUuNZv9BnpSfSfIY/RJLyhd1N1YRvP03H3RwEdx4TKTWZ59AnBgcrdfC3A==
+
 jquery-migrate@3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/jquery-migrate/-/jquery-migrate-3.2.0.tgz#ddd4623f6295ab244cc3886a9cd58aad63b139c2"

@@ -25,7 +25,6 @@ find ./js/vendor/ \
     -not -path './js/vendor/jquery/jquery.fullscreen.js' \
     -not -path './js/vendor/jquery/jquery-ui-timepicker-addon.js' \
     -not -path './js/vendor/jquery/jquery.debounce-1.0.6.js' \
-    -not -path './js/vendor/jquery/jquery.ba-hashchange-1.3.js' \
     -type f -delete -print
 
 echo 'Updating codemirror'
@@ -92,8 +91,8 @@ echo 'Updating blueimp-md5'
 cp ./node_modules/blueimp-md5/js/md5.js ./js/vendor/jquery/jquery.md5.js
 #echo 'Updating jquery.svg.js'
 #see: https://github.com/kbwood/svg/blob/master/jquery.svg.js
-#echo 'Updating jquery-hashchange'
-#see: https://github.com/cowboy/jquery-hashchange/blob/master/jquery.ba-hashchange.js
+echo 'Updating jquery-hashchange'
+cp ./node_modules/jquery-hashchange/jquery.ba-hashchange.js ./js/vendor/jquery/jquery.ba-hashchange-1.3.js
 echo 'Updating jquery-uitablefilter'
 cp ./node_modules/jquery-uitablefilter/jquery.uitablefilter.js js/vendor/jquery/jquery.uitablefilter.js
 echo 'Updating jquery-tablesorter'
