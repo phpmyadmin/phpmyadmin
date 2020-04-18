@@ -19,7 +19,6 @@ find ./js/vendor/ \
     -not -path './js/vendor/jqplot/jquery.jqplot.js' \
     -not -path './js/vendor/jqplot/plugins/jqplot.*.js' \
     -not -path './js/vendor/jquery/jquery-ui.min.js' \
-    -not -path './js/vendor/jquery/jquery.uitablefilter.js' \
     -not -path './js/vendor/jquery/jquery.sortableTable.js' \
     -not -path './js/vendor/jquery/jquery.svg.js' \
     -not -path './js/vendor/jquery/jquery.fullscreen.js' \
@@ -75,8 +74,8 @@ cp ./node_modules/blueimp-md5/js/md5.js ./js/vendor/jquery/jquery.md5.js
 #see: https://github.com/kbwood/svg/blob/master/jquery.svg.js
 #echo 'Updating jquery-hashchange'
 #see: https://github.com/cowboy/jquery-hashchange/blob/master/jquery.ba-hashchange.js
-#echo 'Updating jquery-uitablefilter'
-#see: https://github.com/natinusala/jquery-uitablefilter/blob/master/jquery.uitablefilter.js
+echo 'Updating jquery-uitablefilter'
+cp ./node_modules/jquery-uitablefilter/jquery.uitablefilter.js js/vendor/jquery/jquery.uitablefilter.js
 echo 'Updating jquery-tablesorter'
 cp ./node_modules/tablesorter/dist/js/jquery.tablesorter.js ./js/vendor/jquery/jquery.tablesorter.js
 #echo 'Updating jquery-fullscreen-plugin'

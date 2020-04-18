@@ -1253,6 +1253,11 @@ jquery-ui@1.12.1:
   resolved "https://registry.yarnpkg.com/jquery-ui/-/jquery-ui-1.12.1.tgz#bcb4045c8dd0539c134bc1488cdd3e768a7a9e51"
   integrity sha1-vLQEXI3QU5wTS8FIjN0+dop6nlE=
 
+jquery-uitablefilter@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/jquery-uitablefilter/-/jquery-uitablefilter-1.0.0.tgz#ba90c5345826b2fd1fe90ec127826f9e9e7bad39"
+  integrity sha512-iH3k0iiNXKtf6z9qV5htz0iGhSb+Hs9Za6V9GIAOeHdij77U96S2UT7j7FwMEyNZQmgrsKKzjfnLJq7lMGaANw==
+
 jquery-validation@1.19.1:
   version "1.19.1"
   resolved "https://registry.yarnpkg.com/jquery-validation/-/jquery-validation-1.19.1.tgz#a85043467dc2b70d9fff05778646d150e747742f"
