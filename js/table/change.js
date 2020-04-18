@@ -161,7 +161,7 @@ function verifyAfterSearchFieldChange (index) {
             // validator method for IN(...), NOT IN(...)
             // BETWEEN and NOT BETWEEN
             jQuery.validator.addMethod('validationFunctionForMultipleInt', function (value) {
-                return value.match(/^(\d\s*)+(,\s*\d+)*$/i) !== null;
+                return value.match(/^(?:(?:\d\s*)|\s*)+(?:,\s*\d+)*$/i) !== null;
             },
                 Messages.strEnterValidNumber
             );
