@@ -974,8 +974,8 @@ class SearchController extends AbstractController
                 $cleanType,
                 ! $is_unsigned
             );
-            $html_attributes = 'min="' . $min_max_values[0] . '" '
-                            . 'max="' . $min_max_values[1] . '"';
+            $html_attributes = 'data-min="' . $min_max_values[0] . '" '
+                            . 'data-max="' . $min_max_values[1] . '"';
             $type = 'INT';
         }
 
