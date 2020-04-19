@@ -2311,21 +2311,6 @@ parameters:
 			path: libraries/classes/Pdf.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Pdf\\:\\:Footer\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Pdf.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Pdf\\:\\:Error\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Pdf.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Pdf\\:\\:Error\\(\\) has parameter \\$error_message with no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Pdf.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of function mb_substr expects string, string\\|null given\\.$#"
 			count: 2
 			path: libraries/classes/Plugins.php
@@ -2657,11 +2642,6 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$aliases has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:Header\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
 
@@ -3102,16 +3082,6 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:\\$_offline has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:Header\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:Footer\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
 
