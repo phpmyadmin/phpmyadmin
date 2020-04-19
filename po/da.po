@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2019-04-27 16:55+0000\n"
+"PO-Revision-Date: 2020-04-20 15:11+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
-"Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/4-8/da/"
+"Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/4-9/da/"
 ">\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 4.0.2-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -10170,7 +10170,6 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:186
-#, fuzzy
 msgid "Hardware Security Key (FIDO U2F)"
 msgstr "Hardware sikkerhedsnøgle (FIDO U2F)"
 
