@@ -23,7 +23,6 @@ find ./js/vendor/ \
     -not -path './js/vendor/jquery/jquery.sortableTable.js' \
     -not -path './js/vendor/jquery/jquery.svg.js' \
     -not -path './js/vendor/jquery/jquery.fullscreen.js' \
-    -not -path './js/vendor/jquery/jquery-ui-timepicker-addon.js' \
     -not -path './js/vendor/jquery/jquery.debounce-1.0.6.js' \
     -type f -delete -print
 
@@ -101,8 +100,8 @@ cp ./node_modules/tablesorter/dist/js/jquery.tablesorter.js ./js/vendor/jquery/j
 #see: https://github.com/kayahr/jquery-fullscreen-plugin/blob/master/jquery.fullscreen.js
 #echo 'Updating jquery-debounce'
 #see: https://github.com/dfilatov/jquery-plugins/blob/master/src/jquery.debounce/jquery.debounce.js
-#echo 'Updating jquery-Timepicker-Addon'
-#see: https://github.com/trentrichardson/jQuery-Timepicker-Addon/blob/master/dist/jquery-ui-timepicker-addon.js
+echo 'Updating jquery-Timepicker-Addon'
+cp ./node_modules/jquery-ui-timepicker-addon/dist/jquery-ui-timepicker-addon.js ./js/vendor/jquery/jquery-ui-timepicker-addon.js
 echo 'Update jqplot'
 #see: https://github.com/jqPlot/jqPlot/blob/master/src/jquery.jqplot.js
 #see: https://github.com/jqPlot/jqPlot/blob/master/src/plugins/jqplot.pieRenderer.js
