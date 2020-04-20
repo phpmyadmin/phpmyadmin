@@ -12,7 +12,6 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
-use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -88,7 +87,6 @@ class MultSubmitsTest extends TestCase
     public function testGetUrlParams()
     {
         $what = 'row_delete';
-        $reload = true;
         $action = 'db_delete_row';
         $db = 'PMA_db';
         $table = 'PMA_table';
@@ -101,7 +99,6 @@ class MultSubmitsTest extends TestCase
 
         $urlParams = $this->multSubmits->getUrlParams(
             $what,
-            $reload,
             $action,
             $db,
             $table,
@@ -156,8 +153,11 @@ class MultSubmitsTest extends TestCase
         $_SESSION['tmpval']['max_rows'] = 25;
 
         list(
-            $result, $rebuildDatabaseList, $reloadRet,
-            $runParts, $executeQueryLater,,
+            $result,
+            $reloadRet,
+            $runParts,
+            $executeQueryLater,
+            ,
         ) = $this->multSubmits->buildOrExecuteQuery(
             $queryType,
             $selected,
@@ -181,12 +181,6 @@ class MultSubmitsTest extends TestCase
             $result
         );
 
-        //validate 3: $rebuildDatabaseList
-        $this->assertEquals(
-            false,
-            $rebuildDatabaseList
-        );
-
         //validate 4: $reloadRet
         $this->assertEquals(
             null,
@@ -194,9 +188,7 @@ class MultSubmitsTest extends TestCase
         );
 
         $queryType = 'analyze_tbl';
-        list(
-            ,,,, $executeQueryLater,,
-        ) = $this->multSubmits->buildOrExecuteQuery(
+        list(,,, $executeQueryLater,,) = $this->multSubmits->buildOrExecuteQuery(
             $queryType,
             $selected,
             $db,
@@ -232,13 +224,12 @@ class MultSubmitsTest extends TestCase
             'table2',
         ];
 
-        list($fullQuery, $reload, $fullQueryViews)
-            = $this->multSubmits->getQueryFromSelected(
-                $what,
-                $table,
-                $selected,
-                $views
-            );
+        list($fullQuery, $fullQueryViews) = $this->multSubmits->getQueryFromSelected(
+            $what,
+            $table,
+            $selected,
+            $views
+        );
 
         //validate 1: $fullQuery
         $this->assertStringContainsString(
@@ -246,38 +237,10 @@ class MultSubmitsTest extends TestCase
             $fullQuery
         );
 
-        //validate 2: $reload
-        $this->assertEquals(
-            false,
-            $reload
-        );
-
         //validate 3: $fullQueryViews
         $this->assertEquals(
             null,
             $fullQueryViews
-        );
-
-        $what = 'drop_db';
-
-        list($fullQuery, $reload, $fullQueryViews)
-            = $this->multSubmits->getQueryFromSelected(
-                $what,
-                $table,
-                $selected,
-                $views
-            );
-
-        //validate 1: $fullQuery
-        $this->assertStringContainsString(
-            'DROP DATABASE `table1`;<br>DROP DATABASE `table2`;',
-            $fullQuery
-        );
-
-        //validate 2: $reload
-        $this->assertEquals(
-            true,
-            $reload
         );
     }
 }

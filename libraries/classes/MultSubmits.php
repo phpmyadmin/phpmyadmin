@@ -61,7 +61,6 @@ class MultSubmits
      * Gets url params
      *
      * @param string      $what             mult submit type
-     * @param bool        $reload           is reload
      * @param string      $action           action type
      * @param string      $db               database name
      * @param string      $table            table name
@@ -74,7 +73,6 @@ class MultSubmits
      */
     public function getUrlParams(
         $what,
-        $reload,
         $action,
         $db,
         $table,
@@ -85,7 +83,6 @@ class MultSubmits
     ) {
         $urlParams = [
             'query_type' => $what,
-            'reload' => ! empty($reload) ? 1 : 0,
         ];
         if (mb_strpos(' ' . $action, 'db_') === 1 || mb_strpos($action, '?route=/database/') !== false) {
             $urlParams['db'] = $db;
@@ -143,7 +140,6 @@ class MultSubmits
         $fromPrefix,
         $toPrefix
     ) {
-        $rebuildDatabaseList = false;
         $reload = null;
         $aQuery = null;
         $sqlQuery = '';
@@ -168,15 +164,6 @@ class MultSubmits
                     $deletes = true;
                     $aQuery = $selected[$i];
                     $runParts = true;
-                    break;
-
-                case 'drop_db':
-                    $this->relationCleanup->database($selected[$i]);
-                    $aQuery = 'DROP DATABASE '
-                           . Util::backquote($selected[$i]);
-                    $reload = 1;
-                    $runParts = true;
-                    $rebuildDatabaseList = true;
                     break;
 
                 case 'drop_tbl':
@@ -366,14 +353,10 @@ class MultSubmits
             // statements will be run at once below
             if ($runParts && ! $copyTable) {
                 $sqlQuery .= $aQuery . ';' . "\n";
-                if ($queryType != 'drop_db') {
-                    $this->dbi->selectDb($db);
-                }
+                $this->dbi->selectDb($db);
                 $result = $this->dbi->query($aQuery);
 
-                if ($queryType == 'drop_db') {
-                    $this->transformations->clear($selected[$i]);
-                } elseif ($queryType == 'drop_tbl') {
+                if ($queryType == 'drop_tbl') {
                     $this->transformations->clear($db, $selected[$i]);
                 } elseif ($queryType == 'drop_fld') {
                     $this->transformations->clear($db, $table, $selected[$i]);
@@ -392,7 +375,6 @@ class MultSubmits
 
         return [
             $result,
-            $rebuildDatabaseList,
             $reload,
             $runParts,
             $executeQueryLater,
@@ -438,7 +420,6 @@ class MultSubmits
      */
     public function getQueryFromSelected($what, $table, array $selected, array $views)
     {
-        $reload = false;
         $fullQueryViews = null;
         $fullQuery = '';
 
@@ -459,12 +440,6 @@ class MultSubmits
                     // this feature only when there is a unique index.
                     . ' WHERE ' . htmlspecialchars($selectedValue)
                     . ';<br>';
-                    break;
-                case 'drop_db':
-                    $fullQuery .= 'DROP DATABASE '
-                    . Util::backquote(htmlspecialchars($selectedValue))
-                    . ';<br>';
-                    $reload = true;
                     break;
 
                 case 'drop_tbl':
@@ -533,7 +508,6 @@ class MultSubmits
 
         return [
             $fullQuery,
-            $reload,
             $fullQueryViews,
         ];
     }

@@ -56,8 +56,7 @@ $action = $action ?? '';
  */
 if (! empty($submit_mult)
     && $submit_mult != __('With selected:')
-    && (! empty($_POST['selected_dbs'])
-    || ! empty($_POST['selected_tbl'])
+    && (! empty($_POST['selected_tbl'])
     || ! empty($selected_fld)
     || ! empty($_POST['rows_to_delete']))
 ) {
@@ -65,12 +64,7 @@ if (! empty($submit_mult)
     define('PMA_SUBMIT_MULT', 1);
     // phpcs:enable
 
-    if (! empty($_POST['selected_dbs'])) {
-        // coming from server database view - do something with
-        // selected databases
-        $selected   = $_POST['selected_dbs'];
-        $query_type = 'drop_db';
-    } elseif (! empty($_POST['selected_tbl'])) {
+    if (! empty($_POST['selected_tbl'])) {
         // coming from database structure view - do something with
         // selected tables
         $selected = $_POST['selected_tbl'];
@@ -79,7 +73,6 @@ if (! empty($submit_mult)
             case 'add_prefix_tbl':
             case 'replace_prefix_tbl':
             case 'copy_tbl_change_prefix':
-            case 'drop_db':
             case 'drop_tbl':
             case 'empty_tbl':
                 $what = $submit_mult;
@@ -101,8 +94,7 @@ if (! empty($submit_mult)
                 exit;
             case 'copy_tbl':
                 $views = $dbi->getVirtualTables($db);
-                list($full_query, $reload, $full_query_views)
-                = $multSubmits->getQueryFromSelected(
+                list($full_query, $full_query_views) = $multSubmits->getQueryFromSelected(
                     $submit_mult,
                     $table,
                     $selected,
@@ -110,7 +102,6 @@ if (! empty($submit_mult)
                 );
                 $_url_params = $multSubmits->getUrlParams(
                     $submit_mult,
-                    $reload,
                     $action,
                     $db,
                     $table,
@@ -197,8 +188,7 @@ if (! empty($submit_mult) && ! empty($what)) {
     }
 
     // Builds the query
-    list($full_query, $reload, $full_query_views)
-        = $multSubmits->getQueryFromSelected(
+    list($full_query, $full_query_views) = $multSubmits->getQueryFromSelected(
             $what,
             $table,
             $selected,
@@ -208,7 +198,6 @@ if (! empty($submit_mult) && ! empty($what)) {
     // Displays the confirmation form
     $_url_params = $multSubmits->getUrlParams(
         $what,
-        $reload,
         $action,
         $db,
         $table,
@@ -270,8 +259,12 @@ if (! empty($submit_mult) && ! empty($what)) {
     }
 
     list(
-        $result, $rebuild_database_list, $reload_ret,
-        $run_parts, $execute_query_later, $sql_query, $sql_query_views
+        $result,
+        $reload_ret,
+        $run_parts,
+        $execute_query_later,
+        $sql_query,
+        $sql_query_views
     ) = $multSubmits->buildOrExecuteQuery(
         $query_type,
         $selected,
@@ -347,11 +340,6 @@ if (! empty($submit_mult) && ! empty($what)) {
         || $query_type == 'row_delete'
     ) {
         Util::handleDisableFKCheckCleanup($default_fk_check_value);
-    }
-    if ($rebuild_database_list) {
-        // avoid a problem with the database list navigator
-        // when dropping a db from server_databases
-        $dblist->databases->build();
     }
 } elseif (isset($submit_mult)
     && ($submit_mult == 'sync_unique_columns_central_list'

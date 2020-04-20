@@ -498,6 +498,8 @@ return [
                 'response' => '@response',
                 'dbi' => '@dbi',
                 'template' => '@template',
+                'transformations' => '@transformations',
+                'relationCleanup' => '@relation_cleanup',
             ],
         ],
         PhpMyAdmin\Controllers\Server\BinlogController::class =>

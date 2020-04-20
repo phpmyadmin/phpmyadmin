@@ -15,9 +15,11 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function array_key_exists;
@@ -54,14 +56,29 @@ class DatabasesController extends AbstractController
     /** @var int position in list navigation */
     private $position;
 
+    /** @var Transformations */
+    private $transformations;
+
+    /** @var RelationCleanup */
+    private $relationCleanup;
+
     /**
-     * @param Response          $response Response object
-     * @param DatabaseInterface $dbi      DatabaseInterface object
-     * @param Template          $template Template that should be used (if provided, default one otherwise)
+     * @param Response          $response        Response object
+     * @param DatabaseInterface $dbi             DatabaseInterface object
+     * @param Template          $template        Template that should be used (if provided, default one otherwise)
+     * @param Transformations   $transformations Transformations instance.
+     * @param RelationCleanup   $relationCleanup RelationCleanup instance.
      */
-    public function __construct($response, $dbi, Template $template)
-    {
+    public function __construct(
+        $response,
+        $dbi,
+        Template $template,
+        Transformations $transformations,
+        RelationCleanup $relationCleanup
+    ) {
         parent::__construct($response, $dbi, $template);
+        $this->transformations = $transformations;
+        $this->relationCleanup = $relationCleanup;
 
         $checkUserPrivileges = new CheckUserPrivileges($dbi);
         $checkUserPrivileges->getPrivileges();
@@ -245,7 +262,7 @@ class DatabasesController extends AbstractController
      */
     public function destroy(): void
     {
-        global $submit_mult, $mult_btn, $selected, $err_url, $cfg;
+        global $selected, $err_url, $cfg, $dblist, $reload;
 
         $params = [
             'drop_selected_dbs' => $_POST['drop_selected_dbs'] ?? null,
@@ -273,17 +290,29 @@ class DatabasesController extends AbstractController
             return;
         }
 
-        // for mult_submits.inc.php
-        $action = Url::getFromRoute('/server/databases');
-        $err_url = $action;
+        $err_url = Url::getFromRoute('/server/databases');
+        $selected = $_POST['selected_dbs'];
+        $rebuildDatabaseList = false;
+        $sqlQuery = '';
+        $result = null;
+        $numberOfDatabases = count($selected);
 
-        $submit_mult = 'drop_db';
-        $mult_btn = __('Yes');
+        for ($i = 0; $i < $numberOfDatabases; $i++) {
+            $this->relationCleanup->database($selected[$i]);
+            $aQuery = 'DROP DATABASE ' . Util::backquote($selected[$i]);
+            $reload = true;
+            $rebuildDatabaseList = true;
 
-        include ROOT_PATH . 'libraries/mult_submits.inc.php';
+            $sqlQuery .= $aQuery . ';' . "\n";
+            $result = $this->dbi->query($aQuery);
+            $this->transformations->clear($selected[$i]);
+        }
+
+        if ($rebuildDatabaseList) {
+            $dblist->databases->build();
+        }
 
         if (empty($message)) { // no error message
-            $numberOfDatabases = count($selected);
             $message = Message::success(
                 _ngettext(
                     '%1$d database has been dropped successfully.',
