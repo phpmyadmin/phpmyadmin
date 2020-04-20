@@ -14,13 +14,13 @@
  * @return boolean  whether the form is validated or not
  */
 function checkAddUser (theForm) {
-    if (theForm.elements.pred_hostname.value === 'userdefined' && theForm.elements.hostname.value === '') {
+    if (theForm.elements.hostname.value === '') {
         alert(Messages.strHostEmpty);
         theForm.elements.hostname.focus();
         return false;
     }
 
-    if (theForm.elements.pred_username.value === 'userdefined' && theForm.elements.username.value === '') {
+    if ((theForm.elements.pred_username && theForm.elements.pred_username.value === 'userdefined') && theForm.elements.username.value === '') {
         alert(Messages.strUserEmpty);
         theForm.elements.username.focus();
         return false;
