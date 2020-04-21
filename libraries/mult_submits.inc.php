@@ -110,10 +110,21 @@ if (! empty($submit_mult)
                     $original_sql_query ?? null,
                     $original_url_query ?? null
                 );
+
+                $databasesList = $dblist->databases;
+                foreach ($databasesList as $key => $databaseName) {
+                    if ($databaseName == $db) {
+                        $databasesList->offsetUnset($key);
+                        break;
+                    }
+                }
+
                 $response->disable();
-                $response->addHTML(
-                    $multSubmits->getHtmlForCopyMultipleTables($action, $_url_params)
-                );
+                $response->addHTML($this->template->render('mult_submits/copy_multiple_tables', [
+                    'action' => $action,
+                    'url_params' => $_url_params,
+                    'options' => $databasesList->getList(),
+                ]));
                 exit;
             case 'show_create':
                 $show_create = $template->render('database/structure/show_create', [

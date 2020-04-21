@@ -384,31 +384,6 @@ class MultSubmits
     }
 
     /**
-     * Gets HTML for copy tables form
-     *
-     * @param string $action    action type
-     * @param array  $urlParams URL params
-     *
-     * @return string
-     */
-    public function getHtmlForCopyMultipleTables($action, array $urlParams)
-    {
-        $databasesList = $GLOBALS['dblist']->databases;
-        foreach ($databasesList as $key => $databaseName) {
-            if ($databaseName == $GLOBALS['db']) {
-                $databasesList->offsetUnset($key);
-                break;
-            }
-        }
-
-        return $this->template->render('mult_submits/copy_multiple_tables', [
-            'action' => $action,
-            'url_params' => $urlParams,
-            'options' => $databasesList->getList(),
-        ]);
-    }
-
-    /**
      * Get query string from Selected
      *
      * @param string $what     mult_submit type
