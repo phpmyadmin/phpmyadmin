@@ -120,7 +120,7 @@ if (! empty($submit_mult)
                 }
 
                 $response->disable();
-                $response->addHTML($this->template->render('mult_submits/copy_multiple_tables', [
+                $response->addHTML($template->render('mult_submits/copy_multiple_tables', [
                     'action' => $action,
                     'url_params' => $_url_params,
                     'options' => $databasesList->getList(),
