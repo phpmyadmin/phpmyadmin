@@ -21,7 +21,7 @@ if (! defined('PHPMYADMIN')) {
 
 global $containerBuilder, $db, $table,  $clause_is_unique, $from_prefix, $goto, $message;
 global $mult_btn, $original_sql_query, $query_type, $reload, $dbi, $dblist;
-global $selected, $selected_fld, $selected_recent_table, $sql_query;
+global $selected, $selected_recent_table, $sql_query;
 global $submit_mult, $table_type, $to_prefix, $url_query, $pmaThemeImage;
 
 $clause_is_unique = $_POST['clause_is_unique'] ?? $clause_is_unique ?? null;
@@ -32,7 +32,6 @@ $original_sql_query = $_POST['original_sql_query'] ?? $original_sql_query ?? nul
 $query_type = $_POST['query_type'] ?? $query_type ?? null;
 $reload = $_POST['reload'] ?? $reload ?? null;
 $selected = $_POST['selected'] ?? $selected ?? null;
-$selected_fld = $_POST['selected_fld'] ?? $selected_fld ?? null;
 $selected_recent_table = $_POST['selected_recent_table'] ?? $selected_recent_table ?? null;
 $sql_query = $_POST['sql_query'] ?? $sql_query ?? null;
 $submit_mult = $_POST['submit_mult'] ?? $submit_mult ?? null;
@@ -56,8 +55,7 @@ $action = $action ?? '';
  */
 if (! empty($submit_mult)
     && $submit_mult != __('With selected:')
-    && (! empty($_POST['selected_tbl'])
-    || ! empty($selected_fld))
+    && ! empty($_POST['selected_tbl'])
 ) {
     // phpcs:disable PSR1.Files.SideEffects
     define('PMA_SUBMIT_MULT', 1);
@@ -233,25 +231,6 @@ if (! empty($submit_mult) && ! empty($what)) {
     }
     exit;
 } elseif (! empty($mult_btn) && $mult_btn == __('Yes')) {
-    /**
-     * Executes the query - dropping rows, columns/fields, tables or dbs
-     */
-    if ($query_type == 'primary_fld') {
-        // Gets table primary key
-        $dbi->selectDb($db);
-        $result = $dbi->query(
-            'SHOW KEYS FROM ' . Util::backquote($table) . ';'
-        );
-        $primary = '';
-        while ($row = $dbi->fetchAssoc($result)) {
-            // Backups the list of primary keys
-            if ($row['Key_name'] == 'PRIMARY') {
-                $primary .= $row['Column_name'] . ', ';
-            }
-        } // end while
-        $dbi->freeResult($result);
-    }
-
     $default_fk_check_value = false;
     if ($query_type == 'drop_tbl' || $query_type == 'empty_tbl') {
         $default_fk_check_value = Util::handleDisableFKCheckInit();

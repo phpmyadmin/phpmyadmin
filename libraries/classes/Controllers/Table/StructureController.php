@@ -19,6 +19,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Partition;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\SqlParser\Context;
@@ -71,6 +72,9 @@ class StructureController extends AbstractController
     /** @var Transformations */
     private $transformations;
 
+    /** @var RelationCleanup */
+    private $relationCleanup;
+
     /**
      * @param Response          $response        Response object
      * @param DatabaseInterface $dbi             DatabaseInterface object
@@ -80,6 +84,7 @@ class StructureController extends AbstractController
      * @param Relation          $relation        Relation instance
      * @param Transformations   $transformations Transformations instance
      * @param CreateAddField    $createAddField  CreateAddField instance
+     * @param RelationCleanup   $relationCleanup RelationCleanup instance.
      */
     public function __construct(
         $response,
@@ -89,12 +94,14 @@ class StructureController extends AbstractController
         $table,
         Relation $relation,
         Transformations $transformations,
-        CreateAddField $createAddField
+        CreateAddField $createAddField,
+        RelationCleanup $relationCleanup
     ) {
         parent::__construct($response, $dbi, $template, $db, $table);
         $this->createAddField = $createAddField;
         $this->relation = $relation;
         $this->transformations = $transformations;
+        $this->relationCleanup = $relationCleanup;
 
         $this->_url_query = Url::getCommonRaw(['db' => $db, 'table' => $table]);
         $this->table_obj = $this->dbi->getTable($this->db, $this->table);
@@ -104,6 +111,8 @@ class StructureController extends AbstractController
     {
         global $containerBuilder, $sql_query, $reread_info, $showtable;
         global $tbl_is_view, $tbl_storage_engine, $tbl_collation, $table_info_num_rows;
+        global $db, $table, $goto, $message, $mult_btn, $query_type;
+        global $selected, $selected_fld, $submit_mult, $url_query;
 
         $this->dbi->selectDb($this->db);
         $reread_info = $this->table_obj->getStatusInfo(null, true);
@@ -248,7 +257,188 @@ class StructureController extends AbstractController
                         $GLOBALS['mult_btn'] = $mult_btn_ret;
                         global $mult_btn;
                     }
-                    include ROOT_PATH . 'libraries/mult_submits.inc.php';
+
+                    $goto = $_POST['goto'] ?? $goto ?? null;
+                    $mult_btn = $_POST['mult_btn'] ?? $mult_btn ?? null;
+                    $query_type = $_POST['query_type'] ?? $query_type ?? null;
+                    $selected = $_POST['selected'] ?? $selected ?? null;
+                    $selected_fld = $_POST['selected_fld'] ?? $selected_fld ?? null;
+                    $sql_query = $_POST['sql_query'] ?? $sql_query ?? null;
+                    $submit_mult = $_POST['submit_mult'] ?? $submit_mult ?? null;
+                    $url_query = $_POST['url_query'] ?? $url_query ?? null;
+
+                    if (! empty($submit_mult)
+                        && $submit_mult != __('With selected:')
+                        && ! empty($selected_fld)
+                    ) {
+                        // phpcs:disable PSR1.Files.SideEffects
+                        define('PMA_SUBMIT_MULT', 1);
+                        // phpcs:enable
+                    }
+
+                    if (! empty($submit_mult) && ! empty($what)) {
+                        unset($message);
+
+                        Common::table();
+                        $url_query .= Url::getCommon([
+                            'goto' => Url::getFromRoute('/table/sql'),
+                            'back' => Url::getFromRoute('/table/sql'),
+                        ], '&');
+
+                        $full_query_views = null;
+                        $full_query = '';
+                        $selectedCount = count($selected);
+
+                        $i = 0;
+                        foreach ($selected as $selectedValue) {
+                            switch ($what) {
+                                case 'primary_fld':
+                                    if ($full_query == '') {
+                                        $full_query .= 'ALTER TABLE '
+                                            . Util::backquote(htmlspecialchars($table))
+                                            . '<br>&nbsp;&nbsp;DROP PRIMARY KEY,'
+                                            . '<br>&nbsp;&nbsp; ADD PRIMARY KEY('
+                                            . '<br>&nbsp;&nbsp;&nbsp;&nbsp; '
+                                            . Util::backquote(htmlspecialchars($selectedValue))
+                                            . ',';
+                                    } else {
+                                        $full_query .= '<br>&nbsp;&nbsp;&nbsp;&nbsp; '
+                                            . Util::backquote(htmlspecialchars($selectedValue))
+                                            . ',';
+                                    }
+                                    if ($i == $selectedCount - 1) {
+                                        $full_query = preg_replace('@,$@', ');<br>', $full_query);
+                                    }
+                                    break;
+                                case 'drop_fld':
+                                    if ($full_query == '') {
+                                        $full_query .= 'ALTER TABLE '
+                                            . Util::backquote(htmlspecialchars($table));
+                                    }
+                                    $full_query .= '<br>&nbsp;&nbsp;DROP '
+                                        . Util::backquote(htmlspecialchars($selectedValue))
+                                        . ',';
+                                    if ($i == $selectedCount - 1) {
+                                        $full_query = preg_replace('@,$@', ';<br>', $full_query);
+                                    }
+                                    break;
+                            }
+                            $i++;
+                        }
+
+                        $_url_params = [
+                            'db' => $db,
+                            'table' => $table,
+                            'query_type' => $what,
+                        ];
+                        foreach ($selected as $selectedValue) {
+                            $_url_params['selected'][] = $selectedValue;
+                        }
+
+                        $this->render('mult_submits/other_actions', [
+                            'action' => $action,
+                            'url_params' => $_url_params,
+                            'what' => $what,
+                            'full_query' => $full_query,
+                            'is_foreign_key_check' => Util::isForeignKeyCheck(),
+                        ]);
+
+                        exit;
+                    } elseif (! empty($mult_btn) && $mult_btn == __('Yes')) {
+                        if ($query_type == 'primary_fld') {
+                            // Gets table primary key
+                            $this->dbi->selectDb($db);
+                            $result = $this->dbi->query(
+                                'SHOW KEYS FROM ' . Util::backquote($table) . ';'
+                            );
+                            $primary = '';
+                            while ($row = $this->dbi->fetchAssoc($result)) {
+                                // Backups the list of primary keys
+                                if ($row['Key_name'] == 'PRIMARY') {
+                                    $primary .= $row['Column_name'] . ', ';
+                                }
+                            }
+                            $this->dbi->freeResult($result);
+                        }
+
+                        $sql_query = '';
+                        $sql_query_views = null;
+                        $result = null;
+                        $selectedCount = count($selected);
+
+                        for ($i = 0; $i < $selectedCount; $i++) {
+                            switch ($query_type) {
+                                case 'drop_fld':
+                                    $this->relationCleanup->column($db, $table, $selected[$i]);
+                                    $sql_query .= (empty($sql_query)
+                                            ? 'ALTER TABLE ' . Util::backquote($table)
+                                            : ',')
+                                        . ' DROP ' . Util::backquote($selected[$i])
+                                        . ($i == $selectedCount - 1 ? ';' : '');
+                                    break;
+
+                                case 'primary_fld':
+                                    $sql_query .= (empty($sql_query)
+                                            ? 'ALTER TABLE ' . Util::backquote($table)
+                                            . (empty($primary)
+                                                ? ''
+                                                : ' DROP PRIMARY KEY,') . ' ADD PRIMARY KEY( '
+                                            : ', ')
+                                        . Util::backquote($selected[$i])
+                                        . ($i == $selectedCount - 1 ? ');' : '');
+                                    break;
+
+                                case 'index_fld':
+                                    $sql_query .= (empty($sql_query)
+                                            ? 'ALTER TABLE ' . Util::backquote($table)
+                                            . ' ADD INDEX( '
+                                            : ', ')
+                                        . Util::backquote($selected[$i])
+                                        . ($i == $selectedCount - 1 ? ');' : '');
+                                    break;
+
+                                case 'unique_fld':
+                                    $sql_query .= (empty($sql_query)
+                                            ? 'ALTER TABLE ' . Util::backquote($table)
+                                            . ' ADD UNIQUE( '
+                                            : ', ')
+                                        . Util::backquote($selected[$i])
+                                        . ($i == $selectedCount - 1 ? ');' : '');
+                                    break;
+
+                                case 'spatial_fld':
+                                    $sql_query .= (empty($sql_query)
+                                            ? 'ALTER TABLE ' . Util::backquote($table)
+                                            . ' ADD SPATIAL( '
+                                            : ', ')
+                                        . Util::backquote($selected[$i])
+                                        . ($i == $selectedCount - 1 ? ');' : '');
+                                    break;
+
+                                case 'fulltext_fld':
+                                    $sql_query .= (empty($sql_query)
+                                            ? 'ALTER TABLE ' . Util::backquote($table)
+                                            . ' ADD FULLTEXT( '
+                                            : ', ')
+                                        . Util::backquote($selected[$i])
+                                        . ($i == $selectedCount - 1 ? ');' : '');
+                                    break;
+                            }
+                        }
+
+                        $this->dbi->selectDb($db);
+                        $result = $this->dbi->tryQuery($sql_query);
+                        if ($result && ! empty($sql_query_views)) {
+                            $sql_query .= ' ' . $sql_query_views . ';';
+                            $result = $this->dbi->tryQuery($sql_query_views);
+                            unset($sql_query_views);
+                        }
+
+                        if (! $result) {
+                            $message = Message::error((string) $this->dbi->getError());
+                        }
+                    }
+
                     /**
                      * if $submit_mult == 'change', execution will have stopped
                      * at this point

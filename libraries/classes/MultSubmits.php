@@ -14,7 +14,6 @@ use function in_array;
 use function mb_strlen;
 use function mb_strpos;
 use function mb_substr;
-use function preg_replace;
 
 /**
  * Functions for multi submit forms
@@ -192,62 +191,6 @@ class MultSubmits
                     $runParts = true;
                     break;
 
-                case 'drop_fld':
-                    $this->relationCleanup->column($db, $table, $selected[$i]);
-                    $sqlQuery .= (empty($sqlQuery)
-                        ? 'ALTER TABLE ' . Util::backquote($table)
-                        : ',')
-                        . ' DROP ' . Util::backquote($selected[$i])
-                        . ($i == $selectedCount - 1 ? ';' : '');
-                    break;
-
-                case 'primary_fld':
-                    $sqlQuery .= (empty($sqlQuery)
-                    ? 'ALTER TABLE ' . Util::backquote($table)
-                        . (empty($primary)
-                        ? ''
-                        : ' DROP PRIMARY KEY,') . ' ADD PRIMARY KEY( '
-                    : ', ')
-                        . Util::backquote($selected[$i])
-                        . ($i == $selectedCount - 1 ? ');' : '');
-                    break;
-
-                case 'index_fld':
-                    $sqlQuery .= (empty($sqlQuery)
-                    ? 'ALTER TABLE ' . Util::backquote($table)
-                        . ' ADD INDEX( '
-                    : ', ')
-                        . Util::backquote($selected[$i])
-                        . ($i == $selectedCount - 1 ? ');' : '');
-                    break;
-
-                case 'unique_fld':
-                    $sqlQuery .= (empty($sqlQuery)
-                    ? 'ALTER TABLE ' . Util::backquote($table)
-                        . ' ADD UNIQUE( '
-                    : ', ')
-                        . Util::backquote($selected[$i])
-                        . ($i == $selectedCount - 1 ? ');' : '');
-                    break;
-
-                case 'spatial_fld':
-                    $sqlQuery .= (empty($sqlQuery)
-                    ? 'ALTER TABLE ' . Util::backquote($table)
-                        . ' ADD SPATIAL( '
-                    : ', ')
-                        . Util::backquote($selected[$i])
-                        . ($i == $selectedCount - 1 ? ');' : '');
-                    break;
-
-                case 'fulltext_fld':
-                    $sqlQuery .= (empty($sqlQuery)
-                    ? 'ALTER TABLE ' . Util::backquote($table)
-                        . ' ADD FULLTEXT( '
-                    : ', ')
-                        . Util::backquote($selected[$i])
-                        . ($i == $selectedCount - 1 ? ');' : '');
-                    break;
-
                 case 'add_prefix_tbl':
                     $newTableName = $_POST['add_prefix'] . $selected[$i];
                     // ADD PREFIX TO TABLE NAME
@@ -334,8 +277,6 @@ class MultSubmits
 
                 if ($queryType == 'drop_tbl') {
                     $this->transformations->clear($db, $selected[$i]);
-                } elseif ($queryType == 'drop_fld') {
-                    $this->transformations->clear($db, $table, $selected[$i]);
                 }
             } // end if
         } // end for
@@ -378,8 +319,6 @@ class MultSubmits
             $fullQueryViews = '';
         }
 
-        $selectedCount = count($selected);
-        $i = 0;
         foreach ($selected as $selectedValue) {
             switch ($what) {
                 case 'drop_tbl':
@@ -398,40 +337,7 @@ class MultSubmits
                     $fullQuery .= Util::backquote(htmlspecialchars($selectedValue))
                             . ';<br>';
                     break;
-
-                case 'primary_fld':
-                    if ($fullQuery == '') {
-                        $fullQuery .= 'ALTER TABLE '
-                        . Util::backquote(htmlspecialchars($table))
-                        . '<br>&nbsp;&nbsp;DROP PRIMARY KEY,'
-                        . '<br>&nbsp;&nbsp; ADD PRIMARY KEY('
-                        . '<br>&nbsp;&nbsp;&nbsp;&nbsp; '
-                        . Util::backquote(htmlspecialchars($selectedValue))
-                        . ',';
-                    } else {
-                        $fullQuery .= '<br>&nbsp;&nbsp;&nbsp;&nbsp; '
-                        . Util::backquote(htmlspecialchars($selectedValue))
-                        . ',';
-                    }
-                    if ($i == $selectedCount - 1) {
-                        $fullQuery = preg_replace('@,$@', ');<br>', $fullQuery);
-                    }
-                    break;
-
-                case 'drop_fld':
-                    if ($fullQuery == '') {
-                        $fullQuery .= 'ALTER TABLE '
-                        . Util::backquote(htmlspecialchars($table));
-                    }
-                    $fullQuery .= '<br>&nbsp;&nbsp;DROP '
-                    . Util::backquote(htmlspecialchars($selectedValue))
-                    . ',';
-                    if ($i == $selectedCount - 1) {
-                        $fullQuery = preg_replace('@,$@', ';<br>', $fullQuery);
-                    }
-                    break;
-            } // end switch
-            $i++;
+            }
         }
 
         if ($what == 'drop_tbl') {

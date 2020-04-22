@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
@@ -76,15 +77,17 @@ class StructureControllerTest extends PmaTestCase
         $method = $class->getMethod('getKeyForTablePrimary');
         $method->setAccessible(true);
 
+        $relation = new Relation($GLOBALS['dbi'], $this->template);
         $ctrl = new StructureController(
             $this->_response,
             $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
             $GLOBALS['table'],
-            new Relation($GLOBALS['dbi'], $this->template),
+            $relation,
             new Transformations(),
-            new CreateAddField($GLOBALS['dbi'])
+            new CreateAddField($GLOBALS['dbi']),
+            new RelationCleanup($GLOBALS['dbi'], $relation)
         );
 
         // No primary key in db.table2
@@ -129,15 +132,17 @@ class StructureControllerTest extends PmaTestCase
         $method = $class->getMethod('getKeyForTablePrimary');
         $method->setAccessible(true);
 
+        $relation = new Relation($GLOBALS['dbi'], $this->template);
         $ctrl = new StructureController(
             $this->_response,
             $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
             $GLOBALS['table'],
-            new Relation($GLOBALS['dbi'], $this->template),
+            $relation,
             new Transformations(),
-            new CreateAddField($GLOBALS['dbi'])
+            new CreateAddField($GLOBALS['dbi']),
+            new RelationCleanup($GLOBALS['dbi'], $relation)
         );
 
         // With db.table, it has a primary key `column`
@@ -160,15 +165,17 @@ class StructureControllerTest extends PmaTestCase
         $method = $class->getMethod('adjustColumnPrivileges');
         $method->setAccessible(true);
 
+        $relation = new Relation($GLOBALS['dbi'], $this->template);
         $ctrl = new StructureController(
             $this->_response,
             $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
             $GLOBALS['table'],
-            new Relation($GLOBALS['dbi'], $this->template),
+            $relation,
             new Transformations(),
-            new CreateAddField($GLOBALS['dbi'])
+            new CreateAddField($GLOBALS['dbi']),
+            new RelationCleanup($GLOBALS['dbi'], $relation)
         );
 
         $this->assertEquals(
@@ -190,15 +197,17 @@ class StructureControllerTest extends PmaTestCase
         $method = $class->getMethod('getMultipleFieldCommandType');
         $method->setAccessible(true);
 
+        $relation = new Relation($GLOBALS['dbi'], $this->template);
         $ctrl = new StructureController(
             $this->_response,
             $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
             $GLOBALS['table'],
-            new Relation($GLOBALS['dbi'], $this->template),
+            $relation,
             new Transformations(),
-            new CreateAddField($GLOBALS['dbi'])
+            new CreateAddField($GLOBALS['dbi']),
+            new RelationCleanup($GLOBALS['dbi'], $relation)
         );
 
         $this->assertEquals(
@@ -257,15 +266,17 @@ class StructureControllerTest extends PmaTestCase
         $method = $class->getMethod('getDataForSubmitMult');
         $method->setAccessible(true);
 
+        $relation = new Relation($GLOBALS['dbi'], $this->template);
         $ctrl = new StructureController(
             $this->_response,
             $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
             $GLOBALS['table'],
-            new Relation($GLOBALS['dbi'], $this->template),
+            $relation,
             new Transformations(),
-            new CreateAddField($GLOBALS['dbi'])
+            new CreateAddField($GLOBALS['dbi']),
+            new RelationCleanup($GLOBALS['dbi'], $relation)
         );
 
         $submit_mult = 'index';

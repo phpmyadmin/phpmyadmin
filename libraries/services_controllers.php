@@ -949,6 +949,7 @@ return [
                 'relation' => '@relation',
                 'transformations' => '@transformations',
                 'create_add_field' => '@create_add_field',
+                'relationCleanup' => '@relation_cleanup',
             ],
         ],
         PhpMyAdmin\Controllers\Table\TrackingController::class =>
