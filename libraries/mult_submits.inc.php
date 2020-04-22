@@ -57,8 +57,7 @@ $action = $action ?? '';
 if (! empty($submit_mult)
     && $submit_mult != __('With selected:')
     && (! empty($_POST['selected_tbl'])
-    || ! empty($selected_fld)
-    || ! empty($_POST['rows_to_delete']))
+    || ! empty($selected_fld))
 ) {
     // phpcs:disable PSR1.Files.SideEffects
     define('PMA_SUBMIT_MULT', 1);
@@ -106,9 +105,7 @@ if (! empty($submit_mult)
                     $db,
                     $table,
                     $selected,
-                    $views,
-                    $original_sql_query ?? null,
-                    $original_url_query ?? null
+                    $views
                 );
 
                 $databasesList = $dblist->databases;
@@ -153,10 +150,6 @@ if (! empty($submit_mult)
                 );
                 break;
         } // end switch
-    } elseif (! (isset($selected_fld) && ! empty($selected_fld))) {
-        // coming from browsing - do something with selected rows
-        $what = 'row_delete';
-        $selected = $_REQUEST['rows_to_delete'];
     }
 }
 
@@ -213,9 +206,7 @@ if (! empty($submit_mult) && ! empty($what)) {
         $db,
         $table,
         $selected,
-        $views,
-        $original_sql_query ?? null,
-        $original_url_query ?? null
+        $views
     );
 
 
@@ -262,10 +253,7 @@ if (! empty($submit_mult) && ! empty($what)) {
     }
 
     $default_fk_check_value = false;
-    if ($query_type == 'drop_tbl'
-        || $query_type == 'empty_tbl'
-        || $query_type == 'row_delete'
-    ) {
+    if ($query_type == 'drop_tbl' || $query_type == 'empty_tbl') {
         $default_fk_check_value = Util::handleDisableFKCheckInit();
     }
 
@@ -346,10 +334,7 @@ if (! empty($submit_mult) && ! empty($what)) {
             $message = Message::error($dbi->getError());
         }
     }
-    if ($query_type == 'drop_tbl'
-        || $query_type == 'empty_tbl'
-        || $query_type == 'row_delete'
-    ) {
+    if ($query_type == 'drop_tbl' || $query_type == 'empty_tbl') {
         Util::handleDisableFKCheckCleanup($default_fk_check_value);
     }
 } elseif (isset($submit_mult)

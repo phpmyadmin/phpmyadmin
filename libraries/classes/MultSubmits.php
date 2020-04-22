@@ -60,14 +60,12 @@ class MultSubmits
     /**
      * Gets url params
      *
-     * @param string      $what             mult submit type
-     * @param string      $action           action type
-     * @param string      $db               database name
-     * @param string      $table            table name
-     * @param array       $selected         selected rows(table,db)
-     * @param array|null  $views            table views
-     * @param string|null $originalSqlQuery original sql query
-     * @param string|null $originalUrlQuery original url query
+     * @param string     $what     mult submit type
+     * @param string     $action   action type
+     * @param string     $db       database name
+     * @param string     $table    table name
+     * @param array      $selected selected rows(table,db)
+     * @param array|null $views    table views
      *
      * @return array
      */
@@ -77,39 +75,23 @@ class MultSubmits
         $db,
         $table,
         array $selected,
-        $views,
-        $originalSqlQuery,
-        $originalUrlQuery
+        $views
     ) {
         $urlParams = [
             'query_type' => $what,
         ];
         if (mb_strpos(' ' . $action, 'db_') === 1 || mb_strpos($action, '?route=/database/') !== false) {
             $urlParams['db'] = $db;
-        } elseif (mb_strpos(' ' . $action, 'tbl_') === 1 || mb_strpos($action, '?route=/table/') !== false
-            || $what == 'row_delete'
-        ) {
+        } elseif (mb_strpos(' ' . $action, 'tbl_') === 1 || mb_strpos($action, '?route=/table/') !== false) {
             $urlParams['db'] = $db;
             $urlParams['table'] = $table;
         }
         foreach ($selected as $selectedValue) {
-            if ($what == 'row_delete') {
-                $urlParams['selected'][] = 'DELETE FROM '
-                    . Util::backquote($table)
-                    . ' WHERE ' . $selectedValue . ' LIMIT 1;';
-            } else {
-                $urlParams['selected'][] = $selectedValue;
-            }
+            $urlParams['selected'][] = $selectedValue;
         }
         if ($what == 'drop_tbl' && ! empty($views)) {
             foreach ($views as $current) {
                 $urlParams['views'][] = $current;
-            }
-        }
-        if ($what == 'row_delete') {
-            $urlParams['original_sql_query'] = $originalSqlQuery;
-            if (! empty($originalUrlQuery)) {
-                $urlParams['original_url_query'] = $originalUrlQuery;
             }
         }
 
@@ -141,7 +123,7 @@ class MultSubmits
         $toPrefix
     ) {
         $reload = null;
-        $aQuery = null;
+        $aQuery = '';
         $sqlQuery = '';
         $sqlQueryViews = null;
         // whether to run query after each pass
@@ -160,12 +142,6 @@ class MultSubmits
 
         for ($i = 0; $i < $selectedCount; $i++) {
             switch ($queryType) {
-                case 'row_delete':
-                    $deletes = true;
-                    $aQuery = $selected[$i];
-                    $runParts = true;
-                    break;
-
                 case 'drop_tbl':
                     $this->relationCleanup->table($db, $selected[$i]);
                     $current = $selected[$i];
@@ -406,17 +382,6 @@ class MultSubmits
         $i = 0;
         foreach ($selected as $selectedValue) {
             switch ($what) {
-                case 'row_delete':
-                    $fullQuery .= 'DELETE FROM '
-                    . Util::backquote(htmlspecialchars($table))
-                    // Do not append a "LIMIT 1" clause here
-                    // (it's not binlog friendly).
-                    // We don't need the clause because the calling panel permits
-                    // this feature only when there is a unique index.
-                    . ' WHERE ' . htmlspecialchars($selectedValue)
-                    . ';<br>';
-                    break;
-
                 case 'drop_tbl':
                     $current = $selectedValue;
                     if (! empty($views) && in_array($current, $views)) {

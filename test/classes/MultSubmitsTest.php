@@ -86,16 +86,14 @@ class MultSubmitsTest extends TestCase
      */
     public function testGetUrlParams()
     {
-        $what = 'row_delete';
-        $action = 'db_delete_row';
+        $what = 'drop_tbl';
+        $action = 'index.php?route=/table/structure';
         $db = 'PMA_db';
         $table = 'PMA_table';
         $selected = [
             'index1' => 'table1',
         ];
         $views = null;
-        $originalSqlQuery = 'original_sql_query';
-        $originalUrlQuery = 'original_url_query';
 
         $urlParams = $this->multSubmits->getUrlParams(
             $what,
@@ -103,9 +101,7 @@ class MultSubmitsTest extends TestCase
             $db,
             $table,
             $selected,
-            $views,
-            $originalSqlQuery,
-            $originalUrlQuery
+            $views
         );
         $this->assertEquals(
             $what,
@@ -116,16 +112,12 @@ class MultSubmitsTest extends TestCase
             $urlParams['db']
         );
         $this->assertEquals(
-            ['DELETE FROM `PMA_table` WHERE table1 LIMIT 1;'],
+            $table,
+            $urlParams['table']
+        );
+        $this->assertEquals(
+            ['table1'],
             $urlParams['selected']
-        );
-        $this->assertEquals(
-            $originalSqlQuery,
-            $urlParams['original_sql_query']
-        );
-        $this->assertEquals(
-            $originalUrlQuery,
-            $urlParams['original_url_query']
         );
     }
 
@@ -136,7 +128,7 @@ class MultSubmitsTest extends TestCase
      */
     public function testBuildOrExecuteQuery()
     {
-        $queryType = 'row_delete';
+        $queryType = 'empty_tbl';
         $db = 'PMA_db';
         $table = 'PMA_table';
         $selected = [
