@@ -1371,11 +1371,6 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Encoding\\:\\:convertString\\(\\) should return string but returns string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Encoding.php

@@ -5369,55 +5369,6 @@ class Results
     }
 
     /**
-     * Prepares a checkbox for multi-row submits
-     *
-     * @see     _getTableBody(), _getCheckboxAndLinks()
-     *
-     * @param string $del_url           delete url
-     * @param array  $displayParts      array with explicit indexes for all
-     *                                  the display elements
-     * @param string $row_no            the row number
-     * @param string $where_clause_html url encoded where clause
-     * @param array  $condition_array   array of conditions in the where clause
-     * @param string $id_suffix         suffix for the id
-     * @param string $class             css classes for the td element
-     *
-     * @return string  the generated HTML
-     *
-     * @access private
-     */
-    private function _getCheckboxForMultiRowSubmissions(
-        $del_url,
-        array $displayParts,
-        $row_no,
-        $where_clause_html,
-        array $condition_array,
-        $id_suffix,
-        $class
-    ) {
-        $ret = '';
-
-        if (! empty($del_url) && $displayParts['del_lnk'] != self::KILL_PROCESS) {
-            $ret .= '<td ';
-            if (! empty($class)) {
-                $ret .= 'class="' . $class . '"';
-            }
-
-            $ret .= ' class="text-center print_ignore">'
-                . '<input type="checkbox" id="id_rows_to_delete'
-                . $row_no . $id_suffix
-                . '" name="rows_to_delete[' . $row_no . ']"'
-                . ' class="multi_checkbox checkall"'
-                . ' value="' . $where_clause_html . '">'
-                . '<input type="hidden" class="condition_array" value="'
-                . htmlspecialchars(json_encode($condition_array)) . '">'
-                . '    </td>';
-        }
-
-        return $ret;
-    }
-
-    /**
      * Prepares an Edit link
      *
      * @see     _getTableBody(), _getCheckboxAndLinks()
@@ -5587,15 +5538,13 @@ class Results
         $ret = '';
 
         if ($position == self::POSITION_LEFT) {
-            $ret .= $this->_getCheckboxForMultiRowSubmissions(
-                $del_url,
-                $displayParts,
-                $row_no,
-                $where_clause_html,
-                $condition_array,
-                '_left',
-                ''
-            );
+            $ret .= $this->template->render('display/results/checkbox_for_multi_row_submissions', [
+                'has_delete_link' => ! empty($del_url) && $displayParts['del_lnk'] !== self::KILL_PROCESS,
+                'row_number' => $row_no,
+                'where_clause' => $where_clause_html,
+                'condition' => json_encode($condition_array),
+                'is_right_position' => false,
+            ]);
 
             $ret .= $this->_getEditLink(
                 $edit_url,
@@ -5633,25 +5582,21 @@ class Results
                 $where_clause_html
             );
 
-            $ret .= $this->_getCheckboxForMultiRowSubmissions(
-                $del_url,
-                $displayParts,
-                $row_no,
-                $where_clause_html,
-                $condition_array,
-                '_right',
-                ''
-            );
+            $ret .= $this->template->render('display/results/checkbox_for_multi_row_submissions', [
+                'has_delete_link' => ! empty($del_url) && $displayParts['del_lnk'] !== self::KILL_PROCESS,
+                'row_number' => $row_no,
+                'where_clause' => $where_clause_html,
+                'condition' => json_encode($condition_array),
+                'is_right_position' => true,
+            ]);
         } else { // $position == self::POSITION_NONE
-            $ret .= $this->_getCheckboxForMultiRowSubmissions(
-                $del_url,
-                $displayParts,
-                $row_no,
-                $where_clause_html,
-                $condition_array,
-                '_left',
-                ''
-            );
+            $ret .= $this->template->render('display/results/checkbox_for_multi_row_submissions', [
+                'has_delete_link' => ! empty($del_url) && $displayParts['del_lnk'] != self::KILL_PROCESS,
+                'row_number' => $row_no,
+                'where_clause' => $where_clause_html,
+                'condition' => json_encode($condition_array),
+                'is_right_position' => false,
+            ]);
         }
 
         return $ret;
