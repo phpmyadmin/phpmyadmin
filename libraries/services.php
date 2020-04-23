@@ -135,18 +135,6 @@ return [
                 '@service_container',
             ],
         ],
-        'mult_submits' =>
-        [
-            'class' => PhpMyAdmin\MultSubmits::class,
-            'arguments' =>
-                [
-                    'dbi' => '@dbi',
-                    'template' => '@template',
-                    'transformations' => '@transformations',
-                    'relationCleanup' => '@relation_cleanup',
-                    'operations' => '@operations',
-                ],
-        ],
         'navigation' =>
         [
             'class' => PhpMyAdmin\Navigation\Navigation::class,

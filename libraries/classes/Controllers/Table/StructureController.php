@@ -240,8 +240,6 @@ class StructureController extends AbstractController
                         $action
                     );
                     //update the existing variables
-                    // todo: refactor mult_submits.inc.php such as
-                    // below globals are not needed anymore
                     if (isset($what_ret)) {
                         $GLOBALS['what'] = $what_ret;
                         global $what;
@@ -684,7 +682,6 @@ class StructureController extends AbstractController
      */
     protected function displayHtmlForColumnChange($selected, $action)
     {
-        // $selected comes from mult_submits.inc.php
         if (empty($selected)) {
             $selected[] = $_REQUEST['field'];
             $selected_cnt = 1;

@@ -10,13 +10,16 @@ namespace PhpMyAdmin\Tests\Controllers\Database;
 
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Operations;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Replication;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
+use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\MockObject\MockObject;
 use ReflectionClass;
 use ReflectionException;
@@ -42,6 +45,15 @@ class StructureControllerTest extends PmaTestCase
 
     /** @var Template */
     private $template;
+
+    /** @var Transformations */
+    private $transformations;
+
+    /** @var RelationCleanup */
+    private $relationCleanup;
+
+    /** @var Operations */
+    private $operations;
 
     /**
      * Prepares environment for the test.
@@ -81,6 +93,9 @@ class StructureControllerTest extends PmaTestCase
         $this->response = new ResponseStub();
         $this->relation = new Relation($dbi);
         $this->replication = new Replication();
+        $this->transformations = new Transformations();
+        $this->relationCleanup = new RelationCleanup($dbi, $this->relation);
+        $this->operations = new Operations($dbi, $this->relation);
     }
 
     /**
@@ -101,7 +116,10 @@ class StructureControllerTest extends PmaTestCase
             $this->template,
             $GLOBALS['db'],
             $this->relation,
-            $this->replication
+            $this->replication,
+            $this->transformations,
+            $this->relationCleanup,
+            $this->operations
         );
         // Showing statistics
         $property = $class->getProperty('isShowStats');
@@ -162,7 +180,10 @@ class StructureControllerTest extends PmaTestCase
             $this->template,
             $GLOBALS['db'],
             $this->relation,
-            $this->replication
+            $this->replication,
+            $this->transformations,
+            $this->relationCleanup,
+            $this->operations
         );
 
         $currentTable['ENGINE'] = 'InnoDB';
@@ -209,7 +230,10 @@ class StructureControllerTest extends PmaTestCase
             $this->template,
             $GLOBALS['db'],
             $this->relation,
-            $this->replication
+            $this->replication,
+            $this->transformations,
+            $this->relationCleanup,
+            $this->operations
         );
         // Showing statistics
         $property = $class->getProperty('isShowStats');
@@ -271,7 +295,10 @@ class StructureControllerTest extends PmaTestCase
             $this->template,
             $GLOBALS['db'],
             $this->relation,
-            $this->replication
+            $this->replication,
+            $this->transformations,
+            $this->relationCleanup,
+            $this->operations
         );
         list($currentTable,,,,,, $sumSize) = $method->invokeArgs(
             $controller,
@@ -293,7 +320,10 @@ class StructureControllerTest extends PmaTestCase
             $this->template,
             $GLOBALS['db'],
             $this->relation,
-            $this->replication
+            $this->replication,
+            $this->transformations,
+            $this->relationCleanup,
+            $this->operations
         );
         list($currentTable,,,,,,) = $method->invokeArgs(
             $controller,
@@ -329,7 +359,10 @@ class StructureControllerTest extends PmaTestCase
             $this->template,
             $GLOBALS['db'],
             $this->relation,
-            $this->replication
+            $this->replication,
+            $this->transformations,
+            $this->relationCleanup,
+            $this->operations
         );
 
         // When parameter $db is empty
@@ -376,7 +409,10 @@ class StructureControllerTest extends PmaTestCase
             $this->template,
             $GLOBALS['db'],
             $this->relation,
-            $this->replication
+            $this->replication,
+            $this->transformations,
+            $this->relationCleanup,
+            $this->operations
         );
 
         $_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']] = [
@@ -418,7 +454,10 @@ class StructureControllerTest extends PmaTestCase
             $this->template,
             $GLOBALS['db'],
             $this->relation,
-            $this->replication
+            $this->replication,
+            $this->transformations,
+            $this->relationCleanup,
+            $this->operations
         );
 
         // The user hash for test
@@ -480,7 +519,10 @@ class StructureControllerTest extends PmaTestCase
             $this->template,
             $GLOBALS['db'],
             $this->relation,
-            $this->replication
+            $this->replication,
+            $this->transformations,
+            $this->relationCleanup,
+            $this->operations
         );
         // Showing statistics
         $class = new ReflectionClass(StructureController::class);
@@ -530,7 +572,10 @@ class StructureControllerTest extends PmaTestCase
             $this->template,
             $GLOBALS['db'],
             $this->relation,
-            $this->replication
+            $this->replication,
+            $this->transformations,
+            $this->relationCleanup,
+            $this->operations
         );
         // Showing statistics
         $class = new ReflectionClass(StructureController::class);
