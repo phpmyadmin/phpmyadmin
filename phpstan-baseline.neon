@@ -1291,11 +1291,6 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#4 \\$row_no of method PhpMyAdmin\\\\Display\\\\Results\\:\\:_getCheckboxAndLinks\\(\\) expects string, int given\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Strict comparison using \\=\\=\\= between string and null will always evaluate to false\\.$#"
 			count: 3
 			path: libraries/classes/Display/Results.php

@@ -2585,39 +2585,31 @@ class Results
                 if (($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_LEFT)
                     || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH)
                 ) {
-                    $table_body_html .= $this->_getPlacedLinks(
-                        self::POSITION_LEFT,
-                        $del_url,
-                        $displayParts,
-                        $row_no,
-                        $where_clause,
-                        $where_clause_html,
-                        $condition_array,
-                        $edit_url,
-                        $copy_url,
-                        $edit_anchor_class,
-                        $edit_str,
-                        $copy_str,
-                        $del_str,
-                        $js_conf
-                    );
+                    $table_body_html .= $this->template->render('display/results/checkbox_and_links', [
+                        'position' => self::POSITION_LEFT,
+                        'has_checkbox' => ! empty($del_url) && $displayParts['del_lnk'] !== self::KILL_PROCESS,
+                        'edit' => ['url' => $edit_url, 'string' => $edit_str, 'clause_is_unique' => $clause_is_unique],
+                        'copy' => ['url' => $copy_url, 'string' => $copy_str],
+                        'delete' => ['url' => $del_url, 'string' => $del_str],
+                        'row_number' => $row_no,
+                        'where_clause' => $where_clause,
+                        'condition' => json_encode($condition_array),
+                        'is_ajax' => Response::getInstance()->isAjax(),
+                        'js_conf' => $js_conf ?? '',
+                    ]);
                 } elseif ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_NONE) {
-                    $table_body_html .= $this->_getPlacedLinks(
-                        self::POSITION_NONE,
-                        $del_url,
-                        $displayParts,
-                        $row_no,
-                        $where_clause,
-                        $where_clause_html,
-                        $condition_array,
-                        $edit_url,
-                        $copy_url,
-                        $edit_anchor_class,
-                        $edit_str,
-                        $copy_str,
-                        $del_str,
-                        $js_conf
-                    );
+                    $table_body_html .= $this->template->render('display/results/checkbox_and_links', [
+                        'position' => self::POSITION_NONE,
+                        'has_checkbox' => ! empty($del_url) && $displayParts['del_lnk'] !== self::KILL_PROCESS,
+                        'edit' => ['url' => $edit_url, 'string' => $edit_str, 'clause_is_unique' => $clause_is_unique],
+                        'copy' => ['url' => $copy_url, 'string' => $copy_str],
+                        'delete' => ['url' => $del_url, 'string' => $del_str],
+                        'row_number' => $row_no,
+                        'where_clause' => $where_clause,
+                        'condition' => json_encode($condition_array),
+                        'is_ajax' => Response::getInstance()->isAjax(),
+                        'js_conf' => $js_conf ?? '',
+                    ]);
                 } // end if (1.3)
             } // end if (1)
 
@@ -2644,22 +2636,18 @@ class Results
                 if (($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_RIGHT)
                     || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH)
                 ) {
-                    $table_body_html .= $this->_getPlacedLinks(
-                        self::POSITION_RIGHT,
-                        $del_url,
-                        $displayParts,
-                        $row_no,
-                        $where_clause ?? '',
-                        $where_clause_html ?? '',
-                        $condition_array ?? [],
-                        $edit_url,
-                        $copy_url,
-                        $edit_anchor_class,
-                        $edit_str,
-                        $copy_str,
-                        $del_str,
-                        $js_conf
-                    );
+                    $table_body_html .= $this->template->render('display/results/checkbox_and_links', [
+                        'position' => self::POSITION_RIGHT,
+                        'has_checkbox' => ! empty($del_url) && $displayParts['del_lnk'] !== self::KILL_PROCESS,
+                        'edit' => ['url' => $edit_url, 'string' => $edit_str, 'clause_is_unique' => $clause_is_unique ?? true],
+                        'copy' => ['url' => $copy_url, 'string' => $copy_str],
+                        'delete' => ['url' => $del_url, 'string' => $del_str],
+                        'row_number' => $row_no,
+                        'where_clause' => $where_clause ?? '',
+                        'condition' => json_encode($condition_array ?? []),
+                        'is_ajax' => Response::getInstance()->isAjax(),
+                        'js_conf' => $js_conf ?? '',
+                    ]);
                 }
             } // end if (3)
 
@@ -3411,68 +3399,6 @@ class Results
         }
 
         return $linkContent;
-    }
-
-    /**
-     * Prepare placed links
-     *
-     * @see     _getTableBody()
-     *
-     * @param string      $dir               the direction of links should place
-     * @param string      $del_url           the url for delete row
-     * @param array       $displayParts      which elements to display
-     * @param int         $row_no            the index of current row
-     * @param string      $where_clause      the where clause of the sql
-     * @param string      $where_clause_html the html encoded where clause
-     * @param array       $condition_array   array of keys (primary, unique, condition)
-     * @param string      $edit_url          the url for edit row
-     * @param string      $copy_url          the url for copy row
-     * @param string      $edit_anchor_class the class for html element for edit
-     * @param string      $edit_str          the label for edit row
-     * @param string      $copy_str          the label for copy row
-     * @param string      $del_str           the label for delete row
-     * @param string|null $js_conf           text for the JS confirmation
-     *
-     * @return string                      html content
-     *
-     * @access private
-     */
-    private function _getPlacedLinks(
-        $dir,
-        $del_url,
-        array $displayParts,
-        $row_no,
-        $where_clause,
-        $where_clause_html,
-        array $condition_array,
-        $edit_url,
-        $copy_url,
-        $edit_anchor_class,
-        $edit_str,
-        $copy_str,
-        $del_str,
-        ?string $js_conf
-    ) {
-        if (! isset($js_conf)) {
-            $js_conf = '';
-        }
-
-        return $this->_getCheckboxAndLinks(
-            $dir,
-            $del_url,
-            $displayParts,
-            $row_no,
-            $where_clause,
-            $where_clause_html,
-            $condition_array,
-            $edit_url,
-            $copy_url,
-            $edit_anchor_class,
-            $edit_str,
-            $copy_str,
-            $del_str,
-            $js_conf
-        );
     }
 
     /**
@@ -5366,240 +5292,6 @@ class Results
         $result .= '</td>' . "\n";
 
         return $result;
-    }
-
-    /**
-     * Prepares an Edit link
-     *
-     * @see     _getTableBody(), _getCheckboxAndLinks()
-     *
-     * @param string $edit_url          edit url
-     * @param string $class             css classes for td element
-     * @param string $edit_str          text for the edit link
-     * @param string $where_clause      where clause
-     * @param string $where_clause_html url encoded where clause
-     *
-     * @return string  the generated HTML
-     *
-     * @access private
-     */
-    private function _getEditLink(
-        $edit_url,
-        $class,
-        $edit_str,
-        $where_clause,
-        $where_clause_html
-    ) {
-        $ret = '';
-        if (! empty($edit_url)) {
-            $ret .= '<td class="' . $class . ' text-center print_ignore">'
-                . '<span class="nowrap">'
-                . Generator::linkOrButton($edit_url, $edit_str);
-            /*
-             * Where clause for selecting this row uniquely is provided as
-             * a hidden input. Used by jQuery scripts for handling grid editing
-             */
-            if (! empty($where_clause)) {
-                $ret .= '<input type="hidden" class="where_clause" value ="'
-                    . $where_clause_html . '">';
-            }
-            $ret .= '</span></td>';
-        }
-
-        return $ret;
-    }
-
-    /**
-     * Prepares an Copy link
-     *
-     * @see     _getTableBody(), _getCheckboxAndLinks()
-     *
-     * @param string $copy_url          copy url
-     * @param string $copy_str          text for the copy link
-     * @param string $where_clause      where clause
-     * @param string $where_clause_html url encoded where clause
-     * @param string $class             css classes for the td element
-     *
-     * @return string  the generated HTML
-     *
-     * @access private
-     */
-    private function _getCopyLink(
-        $copy_url,
-        $copy_str,
-        $where_clause,
-        $where_clause_html,
-        $class
-    ) {
-        $ret = '';
-        if (! empty($copy_url)) {
-            $ret .= '<td class="';
-            if (! empty($class)) {
-                $ret .= $class . ' ';
-            }
-
-            $ret .= 'text-center print_ignore"><span class="nowrap">'
-               . Generator::linkOrButton($copy_url, $copy_str);
-
-            /*
-             * Where clause for selecting this row uniquely is provided as
-             * a hidden input. Used by jQuery scripts for handling grid editing
-             */
-            if (! empty($where_clause)) {
-                $ret .= '<input type="hidden" class="where_clause" value="'
-                    . $where_clause_html . '">';
-            }
-            $ret .= '</span></td>';
-        }
-
-        return $ret;
-    }
-
-    /**
-     * Prepares a Delete link
-     *
-     * @see     _getTableBody(), _getCheckboxAndLinks()
-     *
-     * @param string $del_url delete url
-     * @param string $del_str text for the delete link
-     * @param string $js_conf text for the JS confirmation
-     * @param string $class   css classes for the td element
-     *
-     * @return string  the generated HTML
-     *
-     * @access private
-     */
-    private function _getDeleteLink($del_url, $del_str, $js_conf, $class)
-    {
-        $ret = '';
-        if (empty($del_url)) {
-            return $ret;
-        }
-
-        $ret .= '<td class="';
-        if (! empty($class)) {
-            $ret .= $class . ' ';
-        }
-        $ajax = Response::getInstance()->isAjax() ? ' ajax' : '';
-        $ret .= 'text-center print_ignore">'
-            . Generator::linkOrButton(
-                $del_url,
-                $del_str,
-                ['class' => 'delete_row requireConfirm' . $ajax]
-            )
-            . '<div class="hide">' . $js_conf . '</div>'
-            . '</td>';
-
-        return $ret;
-    }
-
-    /**
-     * Prepare checkbox and links at some position (left or right)
-     * (only called for horizontal mode)
-     *
-     * @see     _getPlacedLinks()
-     *
-     * @param string $position          the position of the checkbox and links
-     * @param string $del_url           delete url
-     * @param array  $displayParts      array with explicit indexes for all the
-     *                                  display elements
-     * @param string $row_no            row number
-     * @param string $where_clause      where clause
-     * @param string $where_clause_html url encoded where clause
-     * @param array  $condition_array   array of conditions in the where clause
-     * @param string $edit_url          edit url
-     * @param string $copy_url          copy url
-     * @param string $class             css classes for the td elements
-     * @param string $edit_str          text for the edit link
-     * @param string $copy_str          text for the copy link
-     * @param string $del_str           text for the delete link
-     * @param string $js_conf           text for the JS confirmation
-     *
-     * @return string  the generated HTML
-     *
-     * @access private
-     */
-    private function _getCheckboxAndLinks(
-        $position,
-        $del_url,
-        array $displayParts,
-        $row_no,
-        $where_clause,
-        $where_clause_html,
-        array $condition_array,
-        $edit_url,
-        $copy_url,
-        $class,
-        $edit_str,
-        $copy_str,
-        $del_str,
-        $js_conf
-    ) {
-        $ret = '';
-
-        if ($position == self::POSITION_LEFT) {
-            $ret .= $this->template->render('display/results/checkbox_for_multi_row_submissions', [
-                'has_delete_link' => ! empty($del_url) && $displayParts['del_lnk'] !== self::KILL_PROCESS,
-                'row_number' => $row_no,
-                'where_clause' => $where_clause_html,
-                'condition' => json_encode($condition_array),
-                'is_right_position' => false,
-            ]);
-
-            $ret .= $this->_getEditLink(
-                $edit_url,
-                $class,
-                $edit_str,
-                $where_clause,
-                $where_clause_html
-            );
-
-            $ret .= $this->_getCopyLink(
-                $copy_url,
-                $copy_str,
-                $where_clause,
-                $where_clause_html,
-                ''
-            );
-
-            $ret .= $this->_getDeleteLink($del_url, $del_str, $js_conf, '');
-        } elseif ($position == self::POSITION_RIGHT) {
-            $ret .= $this->_getDeleteLink($del_url, $del_str, $js_conf, '');
-
-            $ret .= $this->_getCopyLink(
-                $copy_url,
-                $copy_str,
-                $where_clause,
-                $where_clause_html,
-                ''
-            );
-
-            $ret .= $this->_getEditLink(
-                $edit_url,
-                $class,
-                $edit_str,
-                $where_clause,
-                $where_clause_html
-            );
-
-            $ret .= $this->template->render('display/results/checkbox_for_multi_row_submissions', [
-                'has_delete_link' => ! empty($del_url) && $displayParts['del_lnk'] !== self::KILL_PROCESS,
-                'row_number' => $row_no,
-                'where_clause' => $where_clause_html,
-                'condition' => json_encode($condition_array),
-                'is_right_position' => true,
-            ]);
-        } else { // $position == self::POSITION_NONE
-            $ret .= $this->template->render('display/results/checkbox_for_multi_row_submissions', [
-                'has_delete_link' => ! empty($del_url) && $displayParts['del_lnk'] != self::KILL_PROCESS,
-                'row_number' => $row_no,
-                'where_clause' => $where_clause_html,
-                'condition' => json_encode($condition_array),
-                'is_right_position' => false,
-            ]);
-        }
-
-        return $ret;
     }
 
     /**
