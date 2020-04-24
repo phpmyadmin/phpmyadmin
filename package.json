@@ -15,6 +15,7 @@
     "codemirror": "5.52.2",
     "jqplot": "^1.0.9",
     "jquery": "3.5.0",
+    "jquery-debounce-throttle": "^1.0.6-rc.0",
     "jquery-hashchange": "^2.0.0",
     "jquery-migrate": "3.2.0",
     "jquery-mousewheel": "3.1.13",

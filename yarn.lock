@@ -1233,6 +1233,13 @@ jqplot@^1.0.9:
   resolved "https://registry.yarnpkg.com/jqplot/-/jqplot-1.0.9.tgz#2c5a5d6a97e396b31d7e710e3a38b8af8cf251e4"
   integrity sha1-LFpdapfjlrMdfnEOOji4r4zyUeQ=
 
+jquery-debounce-throttle@^1.0.6-rc.0:
+  version "1.0.6-rc.0"
+  resolved "https://registry.yarnpkg.com/jquery-debounce-throttle/-/jquery-debounce-throttle-1.0.6-rc.0.tgz#59a7737e46d8b435d01bc94b224e98fa126aba46"
+  integrity sha512-GhdvfeD+sMiYdK4BT6WZOpxFbaS9o+87OaqdmH0K1hXyvZd0uzZukXSSy9lt9kQ6FoVY06GGphFmrpyJUrGyNQ==
+  dependencies:
+    jquery ">=1.7"
+
 jquery-hashchange@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/jquery-hashchange/-/jquery-hashchange-2.0.0.tgz#905b801803b6928fa8b3655381badf42dc49ba82"
@@ -1273,7 +1280,7 @@ jquery.event.drag@2.2.2:
   resolved "https://registry.yarnpkg.com/jquery.event.drag/-/jquery.event.drag-2.2.2.tgz#11bbbf83f4c6ef5f3b5065564663913c9f964be1"
   integrity sha1-Ebu/g/TG7187UGVWRmORPJ+WS+E=
 
-jquery@3.5.0, jquery@>=1.2.6:
+jquery@3.5.0, jquery@>=1.2.6, jquery@>=1.7:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.5.0.tgz#9980b97d9e4194611c36530e7dc46a58d7340fc9"
   integrity sha512-Xb7SVYMvygPxbFMpTFQiHh1J7HClEaThguL15N/Gg37Lri/qKyhRGZYzHRyLH8Stq3Aow0LsHO2O2ci86fCrNQ==
