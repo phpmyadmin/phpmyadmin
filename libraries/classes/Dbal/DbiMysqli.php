@@ -460,6 +460,10 @@ class DbiMysqli implements DbiExtension
         if (! $result instanceof mysqli_result) {
             return false;
         }
+        // Issue #16043 - client API mysqlnd seem not to have MYSQLI_TYPE_JSON defined
+        if (! defined('MYSQLI_TYPE_JSON')) {
+            define('MYSQLI_TYPE_JSON', 245);
+        }
         // Build an associative array for a type look up
         $typeAr = [];
         $typeAr[MYSQLI_TYPE_DECIMAL]     = 'real';
