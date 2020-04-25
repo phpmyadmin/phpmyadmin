@@ -4226,16 +4226,11 @@ class Results
         $this->__set('display_params', null);
 
         // 4. ----- Prepares the link for multi-fields edit and delete
-        $multiRowOperationLinks = '';
-        if ($displayParts['del_lnk'] == self::DELETE_ROW
-            && $displayParts['del_lnk'] != self::KILL_PROCESS
-        ) {
-            $multiRowOperationLinks = $this->_getMultiRowOperationLinks(
-                $dt_result,
-                $analyzed_sql_results,
-                $displayParts['del_lnk']
-            );
-        }
+        $bulkLinks = $this->getBulkLinks(
+            $dt_result,
+            $analyzed_sql_results,
+            $displayParts['del_lnk']
+        );
 
         // 5. ----- Prepare "Query results operations"
         $operations = '';
@@ -4251,7 +4246,7 @@ class Results
             'navigation' => $navigation,
             'headers' => $headers,
             'body' => $body,
-            'multi_row_operation_links' => $multiRowOperationLinks,
+            'bulk_links' => $bulkLinks,
             'operations' => $operations,
         ]);
     }
@@ -4590,16 +4585,18 @@ class Results
      * @param array  $analyzed_sql_results analyzed sql results
      * @param string $del_link             the display element - 'del_link'
      *
-     * @return string html content
-     *
-     * @access private
+     * @return array
      */
-    private function _getMultiRowOperationLinks(
+    private function getBulkLinks(
         &$dt_result,
         array $analyzed_sql_results,
         $del_link
-    ) {
+    ): array {
         global $dbi;
+
+        if ($del_link !== self::DELETE_ROW) {
+            return [];
+        }
 
         // fetch last row of the result set
         $dbi->dataSeek($dt_result, $this->__get('num_rows') - 1);
@@ -4627,15 +4624,14 @@ class Results
         // reset to first row for the loop in _getTableBody()
         $dbi->dataSeek($dt_result, 0);
 
-        return $this->template->render('display/results/multi_row_operation_links', [
+        return [
             'select_all_arrow' => $this->__get('pma_theme_image') . 'arrow_' . $this->__get('text_dir') . '.png',
             'unique_id' => $this->__get('unique_id'),
-            'is_delete' => $del_link === self::DELETE_ROW,
             'has_export_button' => $analyzed_sql_results['querytype'] === 'SELECT',
             'sql_query' => $this->__get('sql_query'),
             'url_query' => $this->__get('url_query'),
             'clause_is_unique' => $clause_is_unique,
-        ]);
+        ];
     }
 
     /**

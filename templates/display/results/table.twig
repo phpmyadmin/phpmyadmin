@@ -6,6 +6,33 @@
 </tbody>
 </table>
 </div>
-{{ multi_row_operation_links|raw }}
+
+{% if bulk_links is not empty %}
+    <div class="print_ignore">
+      <img class="selectallarrow" src="{{ bulk_links.select_all_arrow }}" width="38" height="22" alt="{% trans 'With selected:' %}">
+      <input type="checkbox" id="resultsForm_{{ bulk_links.unique_id }}_checkall" class="checkall_box" title="{% trans 'Check all' %}">
+      <label for="resultsForm_{{ bulk_links.unique_id }}_checkall">{% trans 'Check all' %}</label>
+      <em class="with-selected">{% trans 'With selected:' %}</em>
+
+      {{ get_button_or_image('submit_mult', 'mult_submit', 'Edit'|trans, 'b_edit', 'edit') }}
+
+      {{ get_button_or_image('submit_mult', 'mult_submit', 'Copy'|trans, 'b_insrow', 'copy') }}
+
+      {{ get_button_or_image('submit_mult', 'mult_submit', 'Delete'|trans, 'b_drop', 'delete') }}
+
+      {% if bulk_links.has_export_button %}
+        {{ get_button_or_image('submit_mult', 'mult_submit', 'Export'|trans, 'b_tblexport', 'export') }}
+      {% endif %}
+    </div>
+
+    <input type="hidden" name="clause_is_unique" value="{{ bulk_links.clause_is_unique }}">
+    <input type="hidden" name="sql_query" value="{{ bulk_links.sql_query }}">
+    {% if bulk_links.url_query is not empty %}
+      <input type="hidden" name="url_query" value="{{ bulk_links.url_query }}">
+    {% endif %}
+
+  </form>
+{% endif %}
+
 {{ navigation|raw }}
 {{ operations|raw }}
