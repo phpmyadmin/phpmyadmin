@@ -36,6 +36,7 @@ phpMyAdmin - ChangeLog
 - issue #16005 Add a new vendor constant "CACHE_DIR" that defaults to "libraries/cache/" and store routing cache into this folder
 - issue #16005 Warm-up the routing cache before building the release
 - issue #16005 Use --optimize-autoloader when installing composer vendors before building the release
+- issue #15992 Add back the table name to the printable version on "Structure" page
 
 5.0.3 (not yet released)
 - issue #15983 Require twig ^2.9
