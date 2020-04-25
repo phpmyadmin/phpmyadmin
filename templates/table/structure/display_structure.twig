@@ -1,5 +1,6 @@
 {% extends 'table/page_with_secondary_tabs.twig' %}
 {% block content %}
+<h1 class="d-none d-print-block">{{table}}</h1>
 <form method="post" action="{{ url('/table/structure') }}" name="fieldsForm" id="fieldsForm"
     class="ajax{{ hide_structure_actions ? ' HideStructureActions' }}">
     {{ get_hidden_inputs(db, table) }}
