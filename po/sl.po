@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-04-25 11:22+0200\n"
-"PO-Revision-Date: 2020-04-07 23:28+0000\n"
+"PO-Revision-Date: 2020-04-26 21:11+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -12,9 +12,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 4.0-dev\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 4.0.2-dev\n"
 
 #: js/messages.php:51
 msgid "Confirm"
@@ -7851,11 +7851,12 @@ msgid "Export of event %s"
 msgstr "Izvoz dogodka %s"
 
 #: libraries/classes/Database/Events.php:613
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s."
+#, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
-msgstr "Dogodka imenovanega %1$s ni mogoče najti v zbirki podatkov %2$s."
+msgstr ""
+"Napaka v obdelavi zahteve: Dogodka imenovanega %1$s ni mogoče najti v zbirki "
+"podatkov %2$s."
 
 #: libraries/classes/DatabaseInterface.php:1563
 #, php-format
@@ -8237,17 +8238,14 @@ msgid "Export of routine %s"
 msgstr "Izvoz rutine %s"
 
 #: libraries/classes/Database/Routines.php:1881
-#, fuzzy, php-format
-#| msgid ""
-#| "No routine with name %1$s found in database %2$s. You might be lacking "
-#| "the necessary privileges to view/export this routine."
+#, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
 "%2$s. You might be lacking the necessary privileges to view/export this "
 "routine."
 msgstr ""
-"V zbirki podatkov %2$s nismo našli nobene rutine z imenom %1$s. Morda nimate "
-"zahtevanih privilegijev za ogled/izvoz rutine."
+"Napaka v obdelavi zahteve: V zbirki podatkov %2$s nismo našli nobene rutine "
+"z imenom %1$s. Morda nimate zahtevanih privilegijev za ogled/izvoz rutine."
 
 #: libraries/classes/Database/Search.php:110
 #: templates/database/search/main.twig:19
@@ -8347,12 +8345,13 @@ msgid "Export of trigger %s"
 msgstr "Izvoz sprožilca %s"
 
 #: libraries/classes/Database/Triggers.php:625
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s."
+#, php-format
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
 "%2$s."
-msgstr "Sprožilca imenovanega %1$s ni mogoče najti v zbirki podatkov %2$s."
+msgstr ""
+"Napaka v obdelavi zahteve: Sprožilca imenovanega %1$s ni mogoče najti v "
+"zbirki podatkov %2$s."
 
 #: libraries/classes/Dbal/DbiMysqli.php:183
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -13686,12 +13685,9 @@ msgid "SQL query on database <b>%s</b>:"
 msgstr "Poizvedba SQL na zbirki podatkov <b>%s</b>:"
 
 #: templates/database/routines/footer.twig:2
-#, fuzzy
-#| msgctxt "Create new column"
-#| msgid "New"
 msgctxt "Create new routine"
 msgid "New"
-msgstr "Nov"
+msgstr "Novo"
 
 #: templates/database/routines/list.twig:11
 msgid "There are no routines to display."
