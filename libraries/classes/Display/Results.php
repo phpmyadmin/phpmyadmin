@@ -4599,93 +4599,43 @@ class Results
         array $analyzed_sql_results,
         $del_link
     ) {
-        $links_html = '<div class="print_ignore" >';
-        $url_query = $this->__get('url_query');
-        $delete_text = $del_link == self::DELETE_ROW ? __('Delete') : __('Kill');
-
-        $links_html .= $this->template->render('select_all', [
-            'pma_theme_image' => $this->__get('pma_theme_image'),
-            'text_dir' => $this->__get('text_dir'),
-            'form_name' => 'resultsForm_' . $this->__get('unique_id'),
-        ]);
-
-        $links_html .= Generator::getButtonOrImage(
-            'submit_mult',
-            'mult_submit',
-            __('Edit'),
-            'b_edit',
-            'edit'
-        );
-
-        $links_html .= Generator::getButtonOrImage(
-            'submit_mult',
-            'mult_submit',
-            __('Copy'),
-            'b_insrow',
-            'copy'
-        );
-
-        $links_html .= Generator::getButtonOrImage(
-            'submit_mult',
-            'mult_submit',
-            $delete_text,
-            'b_drop',
-            'delete'
-        );
-
-        if ($analyzed_sql_results['querytype'] == 'SELECT') {
-            $links_html .= Generator::getButtonOrImage(
-                'submit_mult',
-                'mult_submit',
-                __('Export'),
-                'b_tblexport',
-                'export'
-            );
-        }
-
-        $links_html .= "</div>\n";
-
-        $links_html .= '<input type="hidden" name="sql_query"'
-            . ' value="' . htmlspecialchars($this->__get('sql_query')) . '">'
-            . "\n";
-
-        if (! empty($url_query)) {
-            $links_html .= '<input type="hidden" name="url_query"'
-                . ' value="' . $url_query . '">' . "\n";
-        }
+        global $dbi;
 
         // fetch last row of the result set
-        $GLOBALS['dbi']->dataSeek($dt_result, $this->__get('num_rows') - 1);
-        $row = $GLOBALS['dbi']->fetchRow($dt_result);
+        $dbi->dataSeek($dt_result, $this->__get('num_rows') - 1);
+        $row = $dbi->fetchRow($dt_result);
 
         // @see DbiMysqi::fetchRow & DatabaseInterface::fetchRow
         if (! is_array($row)) {
             $row = [];
         }
 
-        // $clause_is_unique is needed by getTable() to generate the proper param
-        // in the multi-edit and multi-delete form
-        [$where_clause, $clause_is_unique, $condition_array]
-            = Util::getUniqueCondition(
-                $dt_result, // handle
-                $this->__get('fields_cnt'), // fields_cnt
-                $this->__get('fields_meta'), // fields_meta
-                $row, // row
-                false, // force_unique
-                false, // restrict_to_table
-                $analyzed_sql_results // analyzed_sql_results
-            );
-        unset($where_clause, $condition_array);
+        /**
+         * $clause_is_unique is needed by getTable() to generate the proper param
+         * in the multi-edit and multi-delete form
+         */
+        list(, $clause_is_unique,) = Util::getUniqueCondition(
+            $dt_result,
+            $this->__get('fields_cnt'),
+            $this->__get('fields_meta'),
+            $row,
+            false,
+            false,
+            $analyzed_sql_results
+        );
 
         // reset to first row for the loop in _getTableBody()
-        $GLOBALS['dbi']->dataSeek($dt_result, 0);
+        $dbi->dataSeek($dt_result, 0);
 
-        $links_html .= '<input type="hidden" name="clause_is_unique"'
-            . ' value="' . $clause_is_unique . '">' . "\n";
-
-        $links_html .= '</form>' . "\n";
-
-        return $links_html;
+        return $this->template->render('display/results/multi_row_operation_links', [
+            'select_all_arrow' => $this->__get('pma_theme_image') . 'arrow_' . $this->__get('text_dir') . '.png',
+            'unique_id' => $this->__get('unique_id'),
+            'is_delete' => $del_link === self::DELETE_ROW,
+            'has_export_button' => $analyzed_sql_results['querytype'] === 'SELECT',
+            'sql_query' => $this->__get('sql_query'),
+            'url_query' => $this->__get('url_query'),
+            'clause_is_unique' => $clause_is_unique,
+        ]);
     }
 
     /**
