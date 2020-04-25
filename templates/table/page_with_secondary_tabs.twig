@@ -1,5 +1,5 @@
 {% if cfg_relation['relwork'] or is_foreign_key_supported %}
-  <ul class="nav nav-pills m-2">
+  <ul class="nav nav-pills m-2 d-print-none">
     <li class="nav-item">
       <a href="{{ url('/table/structure', url_params) }}" id="table_structure_id" class="nav-link{{ route == '/table/structure' ? ' active' }}">
         {{ get_icon('b_props', 'Table structure'|trans) }}
