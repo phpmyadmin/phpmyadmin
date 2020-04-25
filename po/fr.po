@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-04-25 11:22+0200\n"
 "PO-Revision-Date: 2020-04-25 14:02+0000\n"
-"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
+"Last-Translator: Simon Picot <simonpicot06@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -8364,18 +8364,15 @@ msgid "Export of routine %s"
 msgstr "Exporter la procédure %s"
 
 #: libraries/classes/Database/Routines.php:1881
-#, fuzzy, php-format
-#| msgid ""
-#| "No routine with name %1$s found in database %2$s. You might be lacking "
-#| "the necessary privileges to view/export this routine."
+#, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
 "%2$s. You might be lacking the necessary privileges to view/export this "
 "routine."
 msgstr ""
-"Aucune routine avec le nom %1$s trouvé dans la base de données %2$s. "
-"L'utilisateur manque peut-être des privilèges nécessaires pour afficher/"
-"exporter cette routine."
+"Erreur dans le traitement de la demande : Aucune routine avec le nom %1$s "
+"trouvé dans la base de données %2$s. L'utilisateur manque peut-être des "
+"privilèges nécessaires pour afficher/exporter cette routine."
 
 #: libraries/classes/Database/Search.php:110
 #: templates/database/search/main.twig:19
