@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-04-03 09:06+0200\n"
+"POT-Creation-Date: 2020-04-25 11:22+0200\n"
 "PO-Revision-Date: 2018-11-02 01:00+0000\n"
 "Last-Translator: Stefan Murariu <stefan.murariu@yahoo.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -25,7 +25,7 @@ msgstr "Confirmă"
 msgid "Do you really want to execute \"%s\"?"
 msgstr "Sigur vrei să execuți „%s”?"
 
-#: js/messages.php:53 libraries/classes/MultSubmits.php:475
+#: js/messages.php:53
 msgid "You are about to DESTROY a complete database!"
 msgstr "Ești pe cale să DISTRUGI o bază de date întreagă!"
 
@@ -270,12 +270,12 @@ msgstr "Numele gazdei este gol!"
 msgid "The user name is empty!"
 msgstr "Numele de utilizator este gol!"
 
-#: js/messages.php:140 libraries/classes/Server/Privileges.php:1028
+#: js/messages.php:140 libraries/classes/Server/Privileges.php:1029
 #: libraries/classes/UserPassword.php:71
 msgid "The password is empty!"
 msgstr "Parola este goală!"
 
-#: js/messages.php:141 libraries/classes/Server/Privileges.php:1026
+#: js/messages.php:141 libraries/classes/Server/Privileges.php:1027
 #: libraries/classes/UserPassword.php:75
 msgid "The passwords aren't the same!"
 msgstr "Parolele nu sunt identice!"
@@ -702,9 +702,11 @@ msgstr "Explică ieșirea"
 
 #: js/messages.php:279
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:152
-#: libraries/classes/Menu.php:533 libraries/classes/Rte/Events.php:460
-#: libraries/classes/Rte/RteList.php:137 libraries/classes/Util.php:2462
-#: libraries/config.values.php:156 templates/database/tracking/tables.twig:17
+#: libraries/classes/Menu.php:533 libraries/classes/Util.php:2462
+#: libraries/config.values.php:156
+#: templates/database/events/editor_form.twig:18
+#: templates/database/events/index.twig:18
+#: templates/database/tracking/tables.twig:17
 #: templates/table/tracking/main.twig:31
 msgid "Status"
 msgstr "Stare"
@@ -715,8 +717,8 @@ msgstr "Stare"
 #: libraries/classes/Plugins/Export/ExportOdt.php:620
 #: libraries/classes/Plugins/Export/ExportTexytext.php:462
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:360
-#: libraries/classes/Rte/RteList.php:126 templates/javascript/variables.twig:81
-#: templates/sql/profiling_chart.twig:17
+#: templates/database/triggers/list.twig:22
+#: templates/javascript/variables.twig:81 templates/sql/profiling_chart.twig:17
 msgid "Time"
 msgstr "Oră"
 
@@ -865,16 +867,17 @@ msgid "No parameters found!"
 msgstr "Niciun parametru găsit!"
 
 #: js/messages.php:330 libraries/classes/BrowseForeigners.php:203
-#: libraries/classes/Controllers/Server/PrivilegesController.php:389
+#: libraries/classes/Controllers/Server/PrivilegesController.php:387
+#: libraries/classes/Database/Routines.php:1091
+#: libraries/classes/Database/Routines.php:1709
+#: libraries/classes/Database/Triggers.php:452
 #: libraries/classes/InsertEdit.php:1958 libraries/classes/InsertEdit.php:1992
 #: libraries/classes/Normalization.php:252
-#: libraries/classes/Normalization.php:943 libraries/classes/Rte/Events.php:575
-#: libraries/classes/Rte/Routines.php:1113
-#: libraries/classes/Rte/Routines.php:1735
-#: libraries/classes/Rte/Triggers.php:455 libraries/classes/Tracking.php:346
+#: libraries/classes/Normalization.php:943 libraries/classes/Tracking.php:346
 #: libraries/classes/Tracking.php:497
 #: templates/columns_definitions/column_definitions_form.twig:43
 #: templates/database/create_table.twig:21
+#: templates/database/events/editor_form.twig:107
 #: templates/database/operations/index.twig:19
 #: templates/database/operations/index.twig:44
 #: templates/database/operations/index.twig:81
@@ -886,7 +889,7 @@ msgstr "Niciun parametru găsit!"
 #: templates/display/import/import.twig:232
 #: templates/display/results/options_block.twig:91
 #: templates/gis_data_editor_form.twig:211 templates/header_location.twig:18
-#: templates/login/form.twig:79 templates/login/form.twig:81
+#: templates/login/form.twig:83 templates/login/form.twig:85
 #: templates/preferences/manage/main.twig:46
 #: templates/preferences/manage/main.twig:108
 #: templates/server/binlog/index.twig:34
@@ -978,7 +981,7 @@ msgstr ""
 "conectivitatea rețelei și starea serverului."
 
 #: js/messages.php:349 libraries/classes/Common.php:106
-#: libraries/classes/Controllers/Server/DatabasesController.php:268
+#: libraries/classes/Controllers/Server/DatabasesController.php:285
 #: libraries/classes/DbTableExists.php:43
 msgid "No databases selected."
 msgstr "Nicio bază de date selectată."
@@ -1023,7 +1026,7 @@ msgstr "Schimb setul de caractere"
 
 #: js/messages.php:360 libraries/classes/Config/FormDisplayTemplate.php:317
 #: libraries/classes/IndexColumn.php:132 libraries/classes/Index.php:489
-#: libraries/classes/Index.php:517 libraries/classes/MultSubmits.php:496
+#: libraries/classes/Index.php:517
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:652
 #: libraries/classes/Plugins/Export/ExportLatex.php:633
 #: libraries/classes/Plugins/Export/ExportOdt.php:807
@@ -1033,6 +1036,7 @@ msgstr "Schimb setul de caractere"
 #: templates/database/data_dictionary/index.twig:39
 #: templates/database/data_dictionary/index.twig:83
 #: templates/database/privileges/index.twig:69 templates/indexes.twig:58
+#: templates/mult_submits/other_actions.twig:22
 #: templates/preferences/autoload.twig:12
 #: templates/preferences/manage/error.twig:19
 #: templates/server/privileges/new_user_ajax.twig:22
@@ -1052,8 +1056,8 @@ msgstr "Schimb setul de caractere"
 msgid "No"
 msgstr "Nu"
 
-#: js/messages.php:363 libraries/classes/MultSubmits.php:489
-#: templates/display/import/import.twig:204 templates/sql/query.twig:131
+#: js/messages.php:363 templates/display/import/import.twig:204
+#: templates/mult_submits/other_actions.twig:17 templates/sql/query.twig:131
 msgid "Enable foreign key checks"
 msgstr "Activează verificările cheilor străine"
 
@@ -1091,16 +1095,23 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Definiția unei funcții stocate trebuie să conțină o declarație RETURN!"
 
 #: js/messages.php:378 libraries/classes/Config/Forms/User/ExportForm.php:151
-#: libraries/classes/Display/Results.php:4714
-#: libraries/classes/Display/Results.php:4969 libraries/classes/Menu.php:306
+#: libraries/classes/Display/Results.php:4640
+#: libraries/classes/Display/Results.php:4895 libraries/classes/Menu.php:306
 #: libraries/classes/Menu.php:420 libraries/classes/Menu.php:556
-#: libraries/classes/Rte/RteList.php:185
-#: libraries/classes/Server/Privileges.php:1617 libraries/classes/Util.php:2464
+#: libraries/classes/Server/Privileges.php:1618 libraries/classes/Util.php:2464
 #: libraries/classes/Util.php:2479 libraries/classes/Util.php:2496
 #: libraries/classes/Util.php:3157 libraries/classes/Util.php:3158
+#: templates/database/events/index.twig:55
+#: templates/database/events/index.twig:87
+#: templates/database/events/row.twig:33
 #: templates/database/privileges/index.twig:91
 #: templates/database/privileges/index.twig:116
+#: templates/database/routines/list.twig:34
+#: templates/database/routines/row.twig:58
+#: templates/database/routines/row.twig:61
 #: templates/database/structure/check_all_tables.twig:12
+#: templates/database/triggers/list.twig:37
+#: templates/database/triggers/row.twig:35
 #: templates/display/export/option_header.twig:3
 #: templates/preferences/header.twig:42
 #: templates/preferences/manage/main.twig:68
@@ -1118,7 +1129,7 @@ msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
 "Nicio rutină nu poate fi exportată. Pot să lipsească privilegiile necesare."
 
-#: js/messages.php:382 templates/rte/routines/parameter_row.twig:24
+#: js/messages.php:382 templates/database/routines/parameter_row.twig:24
 msgid "ENUM/SET editor"
 msgstr "Editor ENUM/SET"
 
@@ -1157,15 +1168,22 @@ msgstr "Arată caseta de interogare"
 
 #: js/messages.php:396 libraries/classes/CentralColumns.php:939
 #: libraries/classes/Config/Descriptions.php:827
-#: libraries/classes/Display/Results.php:3265
-#: libraries/classes/Display/Results.php:4689
+#: libraries/classes/Display/Results.php:3253
+#: libraries/classes/Display/Results.php:4615
 #: libraries/classes/Html/Generator.php:807
 #: libraries/classes/Html/Generator.php:1076
 #: libraries/classes/Server/UserGroups.php:123 libraries/classes/Util.php:3155
 #: libraries/classes/Util.php:3156 templates/console/bookmark_content.twig:7
 #: templates/console/display.twig:31 templates/console/display.twig:175
 #: templates/database/central_columns/main.twig:281
-#: templates/database/central_columns/main.twig:402 templates/indexes.twig:33
+#: templates/database/central_columns/main.twig:402
+#: templates/database/events/index.twig:43
+#: templates/database/events/index.twig:46
+#: templates/database/events/row.twig:20 templates/database/events/row.twig:23
+#: templates/database/routines/row.twig:18
+#: templates/database/routines/row.twig:21
+#: templates/database/triggers/row.twig:22
+#: templates/database/triggers/row.twig:25 templates/indexes.twig:33
 #: templates/server/variables/index.twig:42
 #: templates/server/variables/index.twig:45 templates/setup/home/index.twig:57
 #: templates/table/relation/common_form.twig:255
@@ -1174,8 +1192,8 @@ msgid "Edit"
 msgstr "Editează"
 
 #: js/messages.php:397 libraries/classes/CentralColumns.php:946
-#: libraries/classes/Display/Results.php:3341
-#: libraries/classes/Display/Results.php:4678
+#: libraries/classes/Display/Results.php:3329
+#: libraries/classes/Display/Results.php:4604
 #: libraries/classes/Server/UserGroups.php:132
 #: libraries/classes/Tracking.php:272 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:284
@@ -1196,9 +1214,9 @@ msgstr "%d nu este un număr de rând valid."
 
 #: js/messages.php:399
 #: libraries/classes/Controllers/Table/ChangeController.php:197
-#: libraries/classes/Controllers/Table/SearchController.php:359
-#: libraries/classes/Controllers/Table/ZoomSearchController.php:378
-#: libraries/classes/Controllers/Table/ZoomSearchController.php:422
+#: libraries/classes/Controllers/Table/SearchController.php:357
+#: libraries/classes/Controllers/Table/ZoomSearchController.php:376
+#: libraries/classes/Controllers/Table/ZoomSearchController.php:418
 #: templates/sql/relational_column_dropdown.twig:3
 msgid "Browse foreign values"
 msgstr "Răsfoiește valorile străine"
@@ -1464,8 +1482,8 @@ msgstr "Conținut punct de date"
 msgid "Ignore"
 msgstr "Ignoră"
 
-#: js/messages.php:492 libraries/classes/Display/Results.php:3269
-#: libraries/classes/Display/Results.php:4697
+#: js/messages.php:492 libraries/classes/Display/Results.php:3257
+#: libraries/classes/Display/Results.php:4623
 #: libraries/classes/Html/Generator.php:75
 msgid "Copy"
 msgstr "Copiază"
@@ -1525,26 +1543,29 @@ msgid "Add an inner ring"
 msgstr "Adăugă un inel interior"
 
 #: js/messages.php:504 libraries/classes/Config/FormDisplayTemplate.php:317
-#: libraries/classes/Controllers/Server/DatabasesController.php:281
-#: libraries/classes/Controllers/Table/StructureController.php:795
-#: libraries/classes/Controllers/Table/StructureController.php:1563
-#: libraries/classes/Controllers/Table/StructureController.php:1572
-#: libraries/classes/Controllers/Table/StructureController.php:1577
-#: libraries/classes/Controllers/Table/StructureController.php:1582
-#: libraries/classes/Controllers/Table/StructureController.php:1587
+#: libraries/classes/Controllers/Database/StructureController.php:416
+#: libraries/classes/Controllers/Database/StructureController.php:591
+#: libraries/classes/Controllers/Table/RowActionController.php:151
+#: libraries/classes/Controllers/Table/StructureController.php:345
+#: libraries/classes/Controllers/Table/StructureController.php:980
+#: libraries/classes/Controllers/Table/StructureController.php:1748
+#: libraries/classes/Controllers/Table/StructureController.php:1757
+#: libraries/classes/Controllers/Table/StructureController.php:1762
+#: libraries/classes/Controllers/Table/StructureController.php:1767
+#: libraries/classes/Controllers/Table/StructureController.php:1772
 #: libraries/classes/IndexColumn.php:135 libraries/classes/Index.php:516
-#: libraries/classes/MultSubmits.php:452 libraries/classes/MultSubmits.php:494
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:653
 #: libraries/classes/Plugins/Export/ExportLatex.php:633
 #: libraries/classes/Plugins/Export/ExportOdt.php:808
 #: libraries/classes/Plugins/Export/ExportTexytext.php:623
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:772
-#: libraries/mult_submits.inc.php:94 libraries/mult_submits.inc.php:237
 #: templates/database/central_columns/main.twig:370
 #: templates/database/data_dictionary/index.twig:39
 #: templates/database/data_dictionary/index.twig:83
 #: templates/database/privileges/index.twig:69 templates/indexes.twig:58
+#: templates/mult_submits/add_prefix_table.twig:15
 #: templates/mult_submits/copy_multiple_tables.twig:55
+#: templates/mult_submits/other_actions.twig:21
 #: templates/mult_submits/replace_prefix_table.twig:20
 #: templates/preferences/autoload.twig:11
 #: templates/preferences/manage/error.twig:18
@@ -1808,7 +1829,7 @@ msgstr "Aruncă fișiere aici"
 msgid "Select database first"
 msgstr "Mai întâi selectează baza de date"
 
-#: js/messages.php:595 libraries/classes/Display/Results.php:4852
+#: js/messages.php:595 libraries/classes/Display/Results.php:4778
 #: templates/database/data_dictionary/index.twig:117
 #: templates/database/structure/index.twig:12
 #: templates/table/structure/display_structure.twig:384
@@ -1906,7 +1927,7 @@ msgstr ", ultima versiune stabilă:"
 msgid "up to date"
 msgstr "la zi"
 
-#: js/messages.php:636 libraries/classes/Display/Results.php:4784
+#: js/messages.php:636 libraries/classes/Display/Results.php:4710
 #: templates/view_create.twig:11
 msgid "Create view"
 msgstr "Creează vizualizarea"
@@ -2253,25 +2274,28 @@ msgid "NO"
 msgstr "NU"
 
 #: libraries/classes/CentralColumns.php:1010
+#: libraries/classes/Database/Routines.php:943
+#: libraries/classes/Database/Routines.php:1621
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:481
 #: libraries/classes/Plugins/Export/ExportOdt.php:617
 #: libraries/classes/Plugins/Export/ExportTexytext.php:461
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:358
-#: libraries/classes/Rte/Routines.php:965
-#: libraries/classes/Rte/Routines.php:1647
-#: libraries/classes/Rte/RteList.php:109 libraries/classes/Rte/RteList.php:121
-#: libraries/classes/Rte/RteList.php:136
 #: templates/columns_definitions/table_fields_definitions.twig:9
 #: templates/database/central_columns/main.twig:17
 #: templates/database/central_columns/main.twig:236
 #: templates/database/create_table.twig:11
+#: templates/database/events/index.twig:17
 #: templates/database/operations/index.twig:33
-#: templates/setup/home/index.twig:43
+#: templates/database/routines/list.twig:17
+#: templates/database/triggers/list.twig:17 templates/setup/home/index.twig:43
 #: templates/table/structure/display_structure.twig:21
 msgid "Name"
 msgstr "Nume"
 
 #: libraries/classes/CentralColumns.php:1011
+#: libraries/classes/Database/Routines.php:914
+#: libraries/classes/Database/Routines.php:944
+#: libraries/classes/Database/Routines.php:1622
 #: libraries/classes/InsertEdit.php:347
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:289
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:385
@@ -2283,16 +2307,14 @@ msgstr "Nume"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:513
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:685
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:718
-#: libraries/classes/Rte/Routines.php:936
-#: libraries/classes/Rte/Routines.php:966
-#: libraries/classes/Rte/Routines.php:1648
-#: libraries/classes/Rte/RteList.php:111 libraries/classes/Rte/RteList.php:139
 #: templates/columns_definitions/table_fields_definitions.twig:12
 #: templates/database/central_columns/main.twig:21
 #: templates/database/central_columns/main.twig:240
 #: templates/database/data_dictionary/index.twig:17
 #: templates/database/data_dictionary/index.twig:66
+#: templates/database/events/index.twig:20
 #: templates/database/privileges/index.twig:19
+#: templates/database/routines/list.twig:19
 #: templates/database/structure/table_header.twig:30 templates/indexes.twig:16
 #: templates/table/privileges/index.twig:21
 #: templates/table/relation/common_form.twig:238
@@ -2306,7 +2328,7 @@ msgid "Type"
 msgstr "Tip"
 
 #: libraries/classes/CentralColumns.php:1012
-#: libraries/classes/Rte/Routines.php:967
+#: libraries/classes/Database/Routines.php:945
 #: templates/columns_definitions/table_fields_definitions.twig:16
 msgid "Length/Values"
 msgstr "Lungime/valori"
@@ -3478,7 +3500,7 @@ msgstr "Opțiuni afișare servere."
 
 #: libraries/classes/Config/Descriptions.php:313
 #: libraries/classes/Controllers/Database/ExportController.php:94
-#: libraries/classes/Controllers/Server/DatabasesController.php:440
+#: libraries/classes/Controllers/Server/DatabasesController.php:469
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:23
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:24
 #: libraries/classes/Plugins/Export/ExportXml.php:126
@@ -5159,8 +5181,8 @@ msgstr "Titlul ferestrei navigatorului când este selectată o bază de date."
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:148
 #: libraries/classes/Plugins/Export/ExportOdt.php:191
 #: libraries/classes/Plugins/Export/ExportTexytext.php:132
-#: libraries/classes/Server/Privileges.php:1938
-#: libraries/classes/Server/Privileges.php:1940
+#: libraries/classes/Server/Privileges.php:1939
+#: libraries/classes/Server/Privileges.php:1941
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:109
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -5199,13 +5221,14 @@ msgid "Title of browser window when a table is selected."
 msgstr "Titlul ferestrei navigatorului când este selectat un tabel."
 
 #: libraries/classes/Config/Descriptions.php:859
+#: libraries/classes/Database/Triggers.php:387
 #: libraries/classes/Plugins/Export/ExportXml.php:508
-#: libraries/classes/Rte/RteList.php:123 libraries/classes/Rte/Triggers.php:390
-#: libraries/classes/Server/Privileges.php:1944
-#: libraries/classes/Server/Privileges.php:1946
+#: libraries/classes/Server/Privileges.php:1945
+#: libraries/classes/Server/Privileges.php:1947
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
 #: templates/database/tracking/tables.twig:120
+#: templates/database/triggers/list.twig:19
 #: templates/server/privileges/privileges_table.twig:6
 #: templates/server/privileges/privileges_table.twig:235
 #: templates/server/privileges/user_properties.twig:37
@@ -5539,7 +5562,7 @@ msgstr "Personalizat"
 #: libraries/classes/Config/Forms/User/ExportForm.php:132
 #: libraries/classes/Config/Forms/User/ExportForm.php:138
 #: libraries/classes/Controllers/Database/ExportController.php:96
-#: libraries/classes/Controllers/Server/DatabasesController.php:450
+#: libraries/classes/Controllers/Server/DatabasesController.php:479
 #: templates/server/privileges/privileges_table.twig:254
 #: templates/table/structure/display_table_stats.twig:17
 msgid "Data"
@@ -5894,31 +5917,63 @@ msgstr ""
 msgid "Access denied!"
 msgstr "Acces refuzat!"
 
-#: libraries/classes/Controllers/Database/StructureController.php:257
+#: libraries/classes/Controllers/Database/StructureController.php:285
 msgid "Favorite List is full!"
 msgstr "Lista de favorite este plină!"
 
-#: libraries/classes/Controllers/Database/StructureController.php:512
+#: libraries/classes/Controllers/Database/StructureController.php:389
+#: libraries/classes/Controllers/Table/RowActionController.php:78
+#: libraries/classes/Controllers/Table/StructureController.php:269
+#: templates/database/events/index.twig:82
+#: templates/database/events/index.twig:85
+#: templates/database/privileges/index.twig:112
+#: templates/database/privileges/index.twig:115
+#: templates/database/routines/list.twig:29
+#: templates/database/routines/list.twig:32
+#: templates/database/structure/check_all_tables.twig:2
+#: templates/database/structure/check_all_tables.twig:9
+#: templates/database/triggers/list.twig:32
+#: templates/database/triggers/list.twig:35 templates/select_all.twig:2
+#: templates/select_all.twig:6
+#: templates/server/privileges/users_overview.twig:103
+#: templates/server/privileges/users_overview.twig:106
+#: templates/table/privileges/index.twig:116
+#: templates/table/privileges/index.twig:119
+msgid "With selected:"
+msgstr "Cu cele selectate:"
+
+#: libraries/classes/Controllers/Database/StructureController.php:833
+msgid "Success!"
+msgstr "Succes!"
+
+#: libraries/classes/Controllers/Database/StructureController.php:836
+#: libraries/classes/Controllers/Table/OperationsController.php:310
+#: libraries/classes/Controllers/Table/ReplaceController.php:390
+#: libraries/classes/Core.php:836 templates/preview_sql.twig:3
+msgid "No change"
+msgstr "Nicio modificare"
+
+#: libraries/classes/Controllers/Database/StructureController.php:1006
 #: templates/table/operations/index.twig:356
 #: templates/table/operations/view.twig:27
 #, php-format
 msgid "View %s has been dropped."
 msgstr "Vizualizarea %s a fost eliminată."
 
-#: libraries/classes/Controllers/Database/StructureController.php:513
+#: libraries/classes/Controllers/Database/StructureController.php:1007
 #: templates/table/operations/index.twig:356
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "Tabelul %s a fost eliminat."
 
-#: libraries/classes/Controllers/Database/StructureController.php:569
+#: libraries/classes/Controllers/Database/StructureController.php:1063
 #: templates/table/operations/index.twig:335
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Tabelul %s a fost golit."
 
-#: libraries/classes/Controllers/Database/StructureController.php:743
-#: libraries/classes/Display/Results.php:4543
+#: libraries/classes/Controllers/Database/StructureController.php:1237
+#: libraries/classes/Display/Results.php:4469
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -5927,7 +5982,7 @@ msgstr ""
 "Această vizualizare are cel puțin acest număr de rânduri. Te rog vezi "
 "%sdocumentația%s."
 
-#: libraries/classes/Controllers/Database/StructureController.php:978
+#: libraries/classes/Controllers/Database/StructureController.php:1472
 msgid "unknown"
 msgstr "necunoscut"
 
@@ -6237,12 +6292,12 @@ msgstr "Autentificarea pe două niveluri a fost înlăturată."
 msgid "Two-factor authentication has been configured."
 msgstr "Autentificarea pe două niveluri a fost configurată."
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:222
+#: libraries/classes/Controllers/Server/DatabasesController.php:239
 #, php-format
 msgid "Database %1$s has been created."
 msgstr "Baza de date %1$s a fost creată."
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:289
+#: libraries/classes/Controllers/Server/DatabasesController.php:318
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
@@ -6250,7 +6305,7 @@ msgstr[0] "O bază de data a fost eliminată cu succes."
 msgstr[1] "%1$d baze de data au fost eliminate cu succes."
 msgstr[2] "%1$d de baze de data au fost eliminate cu succes."
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:445
+#: libraries/classes/Controllers/Server/DatabasesController.php:474
 #: libraries/classes/Import.php:143
 #: templates/database/structure/table_header.twig:26
 #: templates/table/structure/display_partitions.twig:28
@@ -6259,7 +6314,7 @@ msgstr[2] "%1$d de baze de data au fost eliminate cu succes."
 msgid "Rows"
 msgstr "Rânduri"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:455
+#: libraries/classes/Controllers/Server/DatabasesController.php:484
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:23
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:24
 #: templates/database/data_dictionary/index.twig:59 templates/indexes.twig:3
@@ -6269,7 +6324,7 @@ msgstr "Rânduri"
 msgid "Indexes"
 msgstr "Indexuri"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:460
+#: libraries/classes/Controllers/Server/DatabasesController.php:489
 #: libraries/classes/Controllers/Server/Status/StatusController.php:139
 #: libraries/classes/Controllers/Server/Status/StatusController.php:228
 #: libraries/classes/Engines/Innodb.php:166
@@ -6277,7 +6332,7 @@ msgstr "Indexuri"
 msgid "Total"
 msgstr "Total"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:465
+#: libraries/classes/Controllers/Server/DatabasesController.php:494
 #: templates/database/structure/table_header.twig:38
 #: templates/table/structure/display_table_stats.twig:32
 #, fuzzy
@@ -6289,12 +6344,12 @@ msgid "View dump (schema) of databases"
 msgstr "Vezi dump-ul (schema) bazei de date"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:127
-#: libraries/classes/Server/Privileges.php:277
+#: libraries/classes/Server/Privileges.php:278
 msgid "Includes all privileges except GRANT."
 msgstr "Include toate privilegiile, cu excepția ACORDĂ."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:128
-#: libraries/classes/Server/Privileges.php:410
+#: libraries/classes/Server/Privileges.php:411
 #: templates/server/privileges/privileges_table.twig:161
 #: templates/server/privileges/privileges_table.twig:164
 #: templates/server/privileges/privileges_table.twig:356
@@ -6303,21 +6358,21 @@ msgid "Allows altering the structure of existing tables."
 msgstr "Permite modificarea structurii tabelelor existente."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:129
-#: libraries/classes/Server/Privileges.php:496
+#: libraries/classes/Server/Privileges.php:497
 #: templates/server/privileges/privileges_table.twig:443
 #: templates/server/privileges/privileges_table.twig:446
 msgid "Allows altering and dropping stored routines."
 msgstr "Permite modificarea și eliminarea rutinelor stocate."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:130
-#: libraries/classes/Server/Privileges.php:370
+#: libraries/classes/Server/Privileges.php:371
 #: templates/server/privileges/privileges_table.twig:335
 #: templates/server/privileges/privileges_table.twig:343
 msgid "Allows creating new databases and tables."
 msgstr "Permite crearea de baze de date și tabele noi."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:131
-#: libraries/classes/Server/Privileges.php:491
+#: libraries/classes/Server/Privileges.php:492
 #: templates/server/privileges/privileges_table.twig:430
 #: templates/server/privileges/privileges_table.twig:433
 msgid "Allows creating stored routines."
@@ -6332,22 +6387,22 @@ msgid "Allows creating new tables."
 msgstr "Permite crearea de tabele noi."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:133
-#: libraries/classes/Server/Privileges.php:429
+#: libraries/classes/Server/Privileges.php:430
 #: templates/server/privileges/privileges_table.twig:404
 #: templates/server/privileges/privileges_table.twig:407
 msgid "Allows creating temporary tables."
 msgstr "Permite crearea tabelelor temporare."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:134
-#: libraries/classes/Server/Privileges.php:501
+#: libraries/classes/Server/Privileges.php:502
 #: templates/server/privileges/privileges_table.twig:682
 #: templates/server/privileges/privileges_table.twig:685
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Permite crearea, eliminarea și redenumirea conturilor utilizatorilor."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:135
-#: libraries/classes/Server/Privileges.php:449
-#: libraries/classes/Server/Privileges.php:465
+#: libraries/classes/Server/Privileges.php:450
+#: libraries/classes/Server/Privileges.php:466
 #: templates/server/privileges/privileges_table.twig:173
 #: templates/server/privileges/privileges_table.twig:176
 #: templates/server/privileges/privileges_table.twig:470
@@ -6358,7 +6413,7 @@ msgid "Allows creating new views."
 msgstr "Permite crearea de vizualizări noi."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:136
-#: libraries/classes/Server/Privileges.php:365
+#: libraries/classes/Server/Privileges.php:366
 #: templates/server/privileges/privileges_table.twig:100
 #: templates/server/privileges/privileges_table.twig:103
 #: templates/server/privileges/privileges_table.twig:299
@@ -6367,8 +6422,8 @@ msgid "Allows deleting data."
 msgstr "Permite ștergerea datelor."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:137
-#: libraries/classes/Server/Privileges.php:481
-#: libraries/classes/Server/Privileges.php:486
+#: libraries/classes/Server/Privileges.php:482
+#: libraries/classes/Server/Privileges.php:487
 #: templates/server/privileges/privileges_table.twig:210
 #: templates/server/privileges/privileges_table.twig:214
 #, fuzzy
@@ -6377,7 +6432,7 @@ msgid "Allows deleting historical rows."
 msgstr "Permite ștergerea datelor."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:138
-#: libraries/classes/Server/Privileges.php:375
+#: libraries/classes/Server/Privileges.php:376
 #: templates/server/privileges/privileges_table.twig:383
 #: templates/server/privileges/privileges_table.twig:391
 msgid "Allows dropping databases and tables."
@@ -6392,7 +6447,7 @@ msgid "Allows dropping tables."
 msgstr "Permite eliminarea tabelelor."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:140
-#: libraries/classes/Server/Privileges.php:454
+#: libraries/classes/Server/Privileges.php:455
 #: templates/server/privileges/privileges_table.twig:500
 #: templates/server/privileges/privileges_table.twig:503
 msgid "Allows to set up events for the event scheduler."
@@ -6400,14 +6455,14 @@ msgstr ""
 "Permite inițializarea evenimentelor pentru programatorul de evenimente."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:141
-#: libraries/classes/Server/Privileges.php:506
+#: libraries/classes/Server/Privileges.php:507
 #: templates/server/privileges/privileges_table.twig:456
 #: templates/server/privileges/privileges_table.twig:459
 msgid "Allows executing stored routines."
 msgstr "Permite executarea rutinelor stocate."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:142
-#: libraries/classes/Server/Privileges.php:395
+#: libraries/classes/Server/Privileges.php:396
 #: templates/server/privileges/privileges_table.twig:313
 #: templates/server/privileges/privileges_table.twig:316
 msgid "Allows importing data from and exporting data into files."
@@ -6426,7 +6481,7 @@ msgstr ""
 "utilizatori sau să înlăture privilegiile altor utilizatori."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:147
-#: libraries/classes/Server/Privileges.php:405
+#: libraries/classes/Server/Privileges.php:406
 #: templates/server/privileges/privileges_table.twig:149
 #: templates/server/privileges/privileges_table.twig:152
 #: templates/server/privileges/privileges_table.twig:369
@@ -6435,7 +6490,7 @@ msgid "Allows creating and dropping indexes."
 msgstr "Permite crearea și eliminarea indexurilor."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:148
-#: libraries/classes/Server/Privileges.php:355
+#: libraries/classes/Server/Privileges.php:356
 #: templates/server/privileges/privileges_table.twig:36
 #: templates/server/privileges/privileges_table.twig:273
 #: templates/server/privileges/privileges_table.twig:276
@@ -6443,7 +6498,7 @@ msgid "Allows inserting and replacing data."
 msgstr "Permite inserarea și înlocuirea datelor."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:149
-#: libraries/classes/Server/Privileges.php:434
+#: libraries/classes/Server/Privileges.php:435
 #: templates/server/privileges/privileges_table.twig:629
 #: templates/server/privileges/privileges_table.twig:632
 msgid "Allows locking tables for the current thread."
@@ -6483,14 +6538,14 @@ msgstr ""
 "Limitează numărul conexiunilor simultane pe care utilizatorul îl poate avea."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:163
-#: libraries/classes/Server/Privileges.php:390
+#: libraries/classes/Server/Privileges.php:391
 #: templates/server/privileges/privileges_table.twig:562
 #: templates/server/privileges/privileges_table.twig:565
 msgid "Allows viewing processes of all users."
 msgstr "Permite vizualizarea proceselor pentru toți utilizatorii."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:164
-#: libraries/classes/Server/Privileges.php:400
+#: libraries/classes/Server/Privileges.php:401
 #: templates/server/privileges/privileges_table.twig:78
 #: templates/server/privileges/privileges_table.twig:642
 #: templates/server/privileges/privileges_table.twig:645
@@ -6498,7 +6553,7 @@ msgid "Has no effect in this MySQL version."
 msgstr "Nu are niciun efect în această versiune MySQL."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:166
-#: libraries/classes/Server/Privileges.php:380
+#: libraries/classes/Server/Privileges.php:381
 #: templates/server/privileges/privileges_table.twig:575
 #: templates/server/privileges/privileges_table.twig:578
 msgid "Allows reloading server settings and flushing the server's caches."
@@ -6507,21 +6562,21 @@ msgstr ""
 "serverului."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:169
-#: libraries/classes/Server/Privileges.php:444
+#: libraries/classes/Server/Privileges.php:445
 #: templates/server/privileges/privileges_table.twig:656
 #: templates/server/privileges/privileges_table.twig:659
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr "Permite utilizatorului să întrebe unde sunt serverele sclav/master."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:171
-#: libraries/classes/Server/Privileges.php:439
+#: libraries/classes/Server/Privileges.php:440
 #: templates/server/privileges/privileges_table.twig:669
 #: templates/server/privileges/privileges_table.twig:672
 msgid "Needed for the replication slaves."
 msgstr "Necesară pentru sclavii de replicare."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:172
-#: libraries/classes/Server/Privileges.php:350
+#: libraries/classes/Server/Privileges.php:351
 #: templates/server/privileges/privileges_table.twig:15
 #: templates/server/privileges/privileges_table.twig:260
 #: templates/server/privileges/privileges_table.twig:263
@@ -6529,15 +6584,15 @@ msgid "Allows reading data."
 msgstr "Permite citirea datelor."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:173
-#: libraries/classes/Server/Privileges.php:415
+#: libraries/classes/Server/Privileges.php:416
 #: templates/server/privileges/privileges_table.twig:601
 #: templates/server/privileges/privileges_table.twig:604
 msgid "Gives access to the complete list of databases."
 msgstr "Dă acces la lista completă de baze de date."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:174
-#: libraries/classes/Server/Privileges.php:470
-#: libraries/classes/Server/Privileges.php:476
+#: libraries/classes/Server/Privileges.php:471
+#: libraries/classes/Server/Privileges.php:477
 #: templates/server/privileges/privileges_table.twig:185
 #: templates/server/privileges/privileges_table.twig:188
 #: templates/server/privileges/privileges_table.twig:417
@@ -6546,14 +6601,14 @@ msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Permite executarea interogărilor ARATĂ CREARE VIZUALIZARE."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:175
-#: libraries/classes/Server/Privileges.php:385
+#: libraries/classes/Server/Privileges.php:386
 #: templates/server/privileges/privileges_table.twig:588
 #: templates/server/privileges/privileges_table.twig:591
 msgid "Allows shutting down the server."
 msgstr "Permite oprirea serverului."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:177
-#: libraries/classes/Server/Privileges.php:421
+#: libraries/classes/Server/Privileges.php:422
 #: templates/server/privileges/privileges_table.twig:548
 #: templates/server/privileges/privileges_table.twig:552
 msgid ""
@@ -6566,7 +6621,7 @@ msgstr ""
 "variabilelor globale sau oprirea firelor de execuție a altor utilizatori."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:181
-#: libraries/classes/Server/Privileges.php:459
+#: libraries/classes/Server/Privileges.php:460
 #: templates/server/privileges/privileges_table.twig:197
 #: templates/server/privileges/privileges_table.twig:200
 #: templates/server/privileges/privileges_table.twig:513
@@ -6575,7 +6630,7 @@ msgid "Allows creating and dropping triggers."
 msgstr "Permite crearea și eliminarea declanșatorilor."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:182
-#: libraries/classes/Server/Privileges.php:360
+#: libraries/classes/Server/Privileges.php:361
 #: templates/server/privileges/privileges_table.twig:57
 #: templates/server/privileges/privileges_table.twig:286
 #: templates/server/privileges/privileges_table.twig:289
@@ -6587,18 +6642,18 @@ msgstr "Permite modificarea datelor."
 msgid "No privileges."
 msgstr "Niciun privilegiu."
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:213
+#: libraries/classes/Controllers/Server/PrivilegesController.php:211
 #: libraries/classes/Controllers/Server/UserGroupsController.php:52
 msgid "No Privileges"
 msgstr "Niciun privilegiu"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:220
+#: libraries/classes/Controllers/Server/PrivilegesController.php:218
 #, fuzzy
 #| msgid "You do not have privileges to manipulate with the users!"
 msgid "You do not have the privileges to administrate the users!"
 msgstr "Nu ai privilegii pentru a gestiona utilizatorii!"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:234
+#: libraries/classes/Controllers/Server/PrivilegesController.php:232
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
@@ -6606,7 +6661,7 @@ msgstr ""
 "Numele de utilizator și numele gazdei nu s-au schimbat. Dacă vrei să schimbi "
 "numai parola, trebuie să folosești fila „Schimbă parola”."
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:483
+#: libraries/classes/Controllers/Server/PrivilegesController.php:481
 msgid "User has been added."
 msgstr "Utilizatorul a fost adăugat."
 
@@ -6628,7 +6683,7 @@ msgid "ID"
 msgstr "ID"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:132
-#: libraries/classes/Server/Privileges.php:2915
+#: libraries/classes/Server/Privileges.php:2916
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Utilizator"
@@ -7387,9 +7442,9 @@ msgid "End of line"
 msgstr "Sfârșit de linie"
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:145
-#: libraries/classes/Controllers/Table/IndexesController.php:134
-#: libraries/classes/Controllers/Table/StructureController.php:751
-#: libraries/classes/Controllers/Table/StructureController.php:1016
+#: libraries/classes/Controllers/Table/IndexesController.php:132
+#: libraries/classes/Controllers/Table/StructureController.php:936
+#: libraries/classes/Controllers/Table/StructureController.php:1201
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Tabelul %1$s a fost modificat cu succes."
@@ -7403,7 +7458,7 @@ msgstr "Nu a fost setată nicio interogare SQL pentru aducerea datelor."
 msgid "No numeric columns present in the table to plot."
 msgstr ""
 
-#: libraries/classes/Controllers/Table/ChartController.php:181
+#: libraries/classes/Controllers/Table/ChartController.php:179
 msgid "No data to display"
 msgstr "Nu sunt date de afișat"
 
@@ -7422,12 +7477,13 @@ msgstr "Tabelul %s există deja!"
 msgid "View dump (schema) of table"
 msgstr "Vezi dump-ul (schema) tabelului"
 
-#: libraries/classes/Controllers/Table/FindReplaceController.php:182
-#: libraries/classes/Controllers/Table/RelationController.php:271
-#: libraries/classes/Controllers/Table/RowActionController.php:90
+#: libraries/classes/Controllers/Table/FindReplaceController.php:180
+#: libraries/classes/Controllers/Table/RelationController.php:269
+#: libraries/classes/Controllers/Table/RowActionController.php:214
 #: libraries/classes/Controllers/ViewOperationsController.php:76
-#: libraries/classes/Display/Results.php:4218 libraries/classes/Message.php:176
-#: libraries/classes/Rte/Routines.php:1488 templates/sql/query.twig:7
+#: libraries/classes/Database/Routines.php:1464
+#: libraries/classes/Display/Results.php:4144 libraries/classes/Message.php:176
+#: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "Interogarea SQL a fost executată cu succes."
 
@@ -7443,32 +7499,26 @@ msgid "There is an issue with your request."
 msgstr "Există prea multe asocieri fără indexuri."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:64
+#: libraries/classes/Database/Routines.php:1485
 #: libraries/classes/Import.php:151 libraries/classes/InsertEdit.php:218
-#: libraries/classes/Rte/Routines.php:1509 libraries/classes/Sql.php:1218
+#: libraries/classes/Sql.php:1218
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL a returnat un set de rezultate gol (adică zero rânduri)."
 
 #: libraries/classes/Controllers/Table/OperationsController.php:110
 #: libraries/classes/Controllers/Table/OperationsController.php:292
-#: libraries/classes/Controllers/Table/StructureController.php:116
+#: libraries/classes/Controllers/Table/StructureController.php:125
 #: libraries/classes/Navigation/Nodes/NodeView.php:28
 #: templates/database/structure/structure_table_row.twig:124
 #: templates/database/structure/structure_table_row.twig:188
 msgid "View"
 msgstr "Vezi"
 
-#: libraries/classes/Controllers/Table/OperationsController.php:310
-#: libraries/classes/Controllers/Table/ReplaceController.php:390
-#: libraries/classes/Core.php:836 libraries/mult_submits.inc.php:362
-#: templates/preview_sql.twig:3
-msgid "No change"
-msgstr "Nicio modificare"
-
-#: libraries/classes/Controllers/Table/RelationController.php:218
+#: libraries/classes/Controllers/Table/RelationController.php:216
 msgid "Display column was successfully updated."
 msgstr "Coloana de afișare a fost actualizată cu succes."
 
-#: libraries/classes/Controllers/Table/RelationController.php:300
+#: libraries/classes/Controllers/Table/RelationController.php:298
 msgid "Internal relationships were successfully updated."
 msgstr "Relațiile interne au fost actualizate cu succes."
 
@@ -7477,13 +7527,13 @@ msgstr "Relațiile interne au fost actualizate cu succes."
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Rând: %1$s, coloană: %2$s, eroare: %3$s"
 
-#: libraries/classes/Controllers/Table/RowActionController.php:64
-#: libraries/classes/Controllers/Table/RowActionController.php:140
-#: libraries/classes/Controllers/Table/RowActionController.php:169
+#: libraries/classes/Controllers/Table/RowActionController.php:54
+#: libraries/classes/Controllers/Table/RowActionController.php:260
+#: libraries/classes/Controllers/Table/RowActionController.php:287
 msgid "No row selected."
 msgstr "Niciun rând selectat."
 
-#: libraries/classes/Controllers/Table/StructureController.php:169
+#: libraries/classes/Controllers/Table/StructureController.php:178
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
@@ -7491,43 +7541,51 @@ msgstr[0] "Numele „%s” este un cuvânt cheie rezervat pentru MySQL."
 msgstr[1] "Numele „%s” sunt cuvinte cheie rezervate pentru MySQL."
 msgstr[2] "Numele „%s” sunt cuvinte cheie rezervate pentru MySQL."
 
-#: libraries/classes/Controllers/Table/StructureController.php:265
+#: libraries/classes/Controllers/Table/StructureController.php:453
 msgid "No column selected."
 msgstr "Nicio coloană selectată."
 
-#: libraries/classes/Controllers/Table/StructureController.php:479
+#: libraries/classes/Controllers/Table/StructureController.php:667
 msgid "The columns have been moved successfully."
 msgstr "Coloanele au fost mutate cu succes."
 
-#: libraries/classes/Controllers/Table/StructureController.php:518
+#: libraries/classes/Controllers/Table/StructureController.php:705
 #, php-format
 msgid "Failed to get description of column %s!"
 msgstr "Obținerea descrierii coloanei %s a eșuat!"
 
-#: libraries/classes/Controllers/Table/StructureController.php:762
-#: libraries/classes/Controllers/Table/StructureController.php:1065
+#: libraries/classes/Controllers/Table/StructureController.php:947
+#: libraries/classes/Controllers/Table/StructureController.php:1250
 #: libraries/classes/Tracking.php:790
 msgid "Query error"
 msgstr "Eroare de interogare"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1010
+#: libraries/classes/Controllers/Table/StructureController.php:1195
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr ""
 "Tabelul %1$s a fost modificat cu succes. Privilegiile au fost ajustate."
 
-#: libraries/classes/Controllers/Table/StructureController.php:1241
+#: libraries/classes/Controllers/Table/StructureController.php:1426
 #: templates/table/structure/display_structure.twig:288
 msgid "Change"
 msgstr "Modifică"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1242
-#: libraries/classes/Controllers/Table/StructureController.php:1243
-#: libraries/classes/Operations.php:691 libraries/classes/Rte/RteList.php:192
-#: libraries/classes/Util.php:3151 libraries/classes/Util.php:3152
+#: libraries/classes/Controllers/Table/StructureController.php:1427
+#: libraries/classes/Controllers/Table/StructureController.php:1428
+#: libraries/classes/Operations.php:691 libraries/classes/Util.php:3151
+#: libraries/classes/Util.php:3152 templates/database/events/index.twig:64
+#: templates/database/events/index.twig:70
+#: templates/database/events/index.twig:88
+#: templates/database/events/row.twig:43 templates/database/events/row.twig:49
+#: templates/database/routines/list.twig:35
+#: templates/database/routines/parameter_row.twig:51
+#: templates/database/routines/row.twig:70
 #: templates/database/structure/check_all_tables.twig:16
-#: templates/indexes.twig:51 templates/rte/routines/parameter_row.twig:51
+#: templates/database/triggers/list.twig:38
+#: templates/database/triggers/row.twig:45
+#: templates/database/triggers/row.twig:51 templates/indexes.twig:51
 #: templates/server/databases/index.twig:304
 #: templates/table/relation/common_form.twig:273
 #: templates/table/relation/foreign_key_row.twig:26
@@ -7537,9 +7595,9 @@ msgstr "Modifică"
 msgid "Drop"
 msgstr "Elimină"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1244
-#: libraries/classes/Controllers/Table/StructureController.php:1249
-#: libraries/classes/Controllers/Table/StructureController.php:1305
+#: libraries/classes/Controllers/Table/StructureController.php:1429
+#: libraries/classes/Controllers/Table/StructureController.php:1434
+#: libraries/classes/Controllers/Table/StructureController.php:1490
 #: templates/columns_definitions/column_indexes.twig:4
 #: templates/database/data_dictionary/index.twig:33
 #: templates/table/structure/display_structure.twig:304
@@ -7547,9 +7605,9 @@ msgstr "Elimină"
 msgid "Primary"
 msgstr "Principal"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1245
-#: libraries/classes/Controllers/Table/StructureController.php:1250
-#: libraries/classes/Controllers/Table/StructureController.php:1310
+#: libraries/classes/Controllers/Table/StructureController.php:1430
+#: libraries/classes/Controllers/Table/StructureController.php:1435
+#: libraries/classes/Controllers/Table/StructureController.php:1495
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:28
 #: templates/columns_definitions/column_indexes.twig:12
 #: templates/columns_definitions/table_fields_definitions.twig:46
@@ -7559,8 +7617,8 @@ msgstr "Principal"
 msgid "Index"
 msgstr "Index"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1246
-#: libraries/classes/Controllers/Table/StructureController.php:1251
+#: libraries/classes/Controllers/Table/StructureController.php:1431
+#: libraries/classes/Controllers/Table/StructureController.php:1436
 #: templates/columns_definitions/column_indexes.twig:8
 #: templates/database/data_dictionary/index.twig:67 templates/indexes.twig:17
 #: templates/table/relation/common_form.twig:239
@@ -7570,21 +7628,21 @@ msgstr "Index"
 msgid "Unique"
 msgstr "Unic"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1247
-#: libraries/classes/Controllers/Table/StructureController.php:1252
+#: libraries/classes/Controllers/Table/StructureController.php:1432
+#: libraries/classes/Controllers/Table/StructureController.php:1437
 #: templates/columns_definitions/column_indexes.twig:20
 msgid "Spatial"
 msgstr "Spațial"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1248
-#: libraries/classes/Controllers/Table/StructureController.php:1253
+#: libraries/classes/Controllers/Table/StructureController.php:1433
+#: libraries/classes/Controllers/Table/StructureController.php:1438
 #: templates/columns_definitions/column_indexes.twig:16
 #: templates/table/structure/display_structure.twig:325
 #: templates/table/structure/display_structure.twig:337
 msgid "Fulltext"
 msgstr "Text întreg"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1254
+#: libraries/classes/Controllers/Table/StructureController.php:1439
 msgid "Distinct values"
 msgstr "Valori distincte"
 
@@ -7716,6 +7774,136 @@ msgid "Could not load schema plugins, please check your installation!"
 msgstr ""
 "Nu am putut încărca modulele din schemă, te rog verifică-ți instalarea!"
 
+#: libraries/classes/Database/Events.php:109
+#: libraries/classes/Database/Events.php:118
+#: libraries/classes/Database/Events.php:142
+#: libraries/classes/Database/Routines.php:295
+#: libraries/classes/Database/Routines.php:319
+#: libraries/classes/Database/Routines.php:433
+#: libraries/classes/Database/Routines.php:1493
+#: libraries/classes/Database/Triggers.php:130
+#: libraries/classes/Database/Triggers.php:139
+#: libraries/classes/Database/Triggers.php:164
+#, php-format
+msgid "The following query has failed: \"%s\""
+msgstr "Următoarea interogare a eșuat: „%s”"
+
+#: libraries/classes/Database/Events.php:113
+#: libraries/classes/Database/Events.php:122
+#: libraries/classes/Database/Events.php:146
+#: libraries/classes/Database/Events.php:531
+#: libraries/classes/Database/Routines.php:299
+#: libraries/classes/Database/Routines.php:323
+#: libraries/classes/Database/Routines.php:437
+#: libraries/classes/Database/Routines.php:1497
+#: libraries/classes/Database/Routines.php:1835
+#: libraries/classes/Database/Triggers.php:134
+#: libraries/classes/Database/Triggers.php:143
+#: libraries/classes/Database/Triggers.php:168
+#: libraries/classes/Database/Triggers.php:540
+#: libraries/classes/Html/Generator.php:1096
+msgid "MySQL said: "
+msgstr "MySQL zice: "
+
+#: libraries/classes/Database/Events.php:129
+#, php-format
+msgid "Event %1$s has been modified."
+msgstr "Evenimentul %1$s a fost modificat."
+
+#: libraries/classes/Database/Events.php:149
+#, php-format
+msgid "Event %1$s has been created."
+msgstr "Evenimentul %1$s a fost creat."
+
+#: libraries/classes/Database/Events.php:163
+#: libraries/classes/Database/Routines.php:339
+#: libraries/classes/Database/Triggers.php:185
+msgid "One or more errors have occurred while processing your request:"
+msgstr "Au apărut una sau mai multe erori în timpul procesării cererii tale:"
+
+#: libraries/classes/Database/Events.php:231
+#: templates/database/events/index.twig:101
+#: templates/database/events/index.twig:105
+msgid "Add event"
+msgstr "Adaugă eveniment"
+
+#: libraries/classes/Database/Events.php:235
+msgid "Edit event"
+msgstr "Editează evenimentul"
+
+#: libraries/classes/Database/Events.php:390
+#: libraries/classes/Database/Routines.php:1132
+#: libraries/classes/Database/Triggers.php:478
+#, fuzzy
+#| msgid "The definer must be in the \"username@hostname\" format"
+msgid "The definer must be in the \"username@hostname\" format!"
+msgstr ""
+"Datele introduse aici trebuie sa fie în format-ul \"nume-de-"
+"utilizator@numele-gazdei\" (username@hostname)"
+
+#: libraries/classes/Database/Events.php:397
+msgid "You must provide an event name!"
+msgstr "Trebuie să furnizezi un nume de eveniment!"
+
+#: libraries/classes/Database/Events.php:412
+msgid "You must provide a valid interval value for the event."
+msgstr "Trebuie să furnizezi o valoare validă a intervalului pentru eveniment."
+
+#: libraries/classes/Database/Events.php:431
+msgid "You must provide a valid execution time for the event."
+msgstr "Trebuie să furnizezi un timp valid de execuție pentru eveniment."
+
+#: libraries/classes/Database/Events.php:435
+msgid "You must provide a valid type for the event."
+msgstr "Trebuie să furnizezi un tip valid de eveniment."
+
+#: libraries/classes/Database/Events.php:459
+msgid "You must provide an event definition."
+msgstr "Trebuie să furnizezi o definiție a evenimentului."
+
+#: libraries/classes/Database/Events.php:484
+msgid "OFF"
+msgstr "OPRIT"
+
+#: libraries/classes/Database/Events.php:489
+msgid "ON"
+msgstr "PORNIT"
+
+#: libraries/classes/Database/Events.php:528
+msgid "Sorry, we failed to restore the dropped event."
+msgstr "Regretăm, nu am putut restaura evenimentul eliminat."
+
+#: libraries/classes/Database/Events.php:529
+#: libraries/classes/Database/Routines.php:1833
+#: libraries/classes/Database/Triggers.php:538
+msgid "The backed up query was:"
+msgstr "Interogarea de siguranță era:"
+
+#: libraries/classes/Database/Events.php:560
+#: libraries/classes/Database/Routines.php:217
+#: libraries/classes/Database/Routines.php:1337
+#: libraries/classes/Database/Routines.php:1542
+#: libraries/classes/Database/Triggers.php:568
+msgid "Error in processing request:"
+msgstr "Eroare la procesarea cererii:"
+
+#: libraries/classes/Database/Events.php:562
+#, php-format
+msgid "No event with name %1$s found in database %2$s."
+msgstr "Niciun eveniment cu numele %1$s găsit în baza de date %2$s."
+
+#: libraries/classes/Database/Events.php:595
+#, php-format
+msgid "Export of event %s"
+msgstr "Exportul evenimentului %s"
+
+#: libraries/classes/Database/Events.php:613
+#, fuzzy, php-format
+#| msgid "No event with name %1$s found in database %2$s."
+msgid ""
+"Error in processing request: No event with name %1$s found in database %2$s."
+msgstr "Niciun eveniment cu numele %1$s găsit în baza de date %2$s."
+
 #: libraries/classes/DatabaseInterface.php:1563
 #, php-format
 msgid ""
@@ -7810,6 +7998,306 @@ msgstr "Actualizează semnul de carte"
 msgid "Delete bookmark"
 msgstr "Șterge semnul de carte"
 
+#: libraries/classes/Database/Routines.php:134
+msgid ""
+"You are using PHP's deprecated 'mysql' extension, which is not capable of "
+"handling multi queries. [strong]The execution of some stored routines may "
+"fail![/strong] Please use the improved 'mysqli' extension to avoid any "
+"problems."
+msgstr ""
+"Folosești extensia învechită „mysql” a PHP, care nu este capabilă să "
+"gestioneze mai multe interogări. [strong]Execuția unor rutine stocate poate "
+"eșua![/strong] Te rog folosește extensia îmbunătățită „mysqli” pentru a "
+"evita orice problemă."
+
+#: libraries/classes/Database/Routines.php:183
+#: templates/database/routines/footer.twig:7
+#: templates/database/routines/footer.twig:11
+msgid "Add routine"
+msgstr "Adaugă rutină"
+
+#: libraries/classes/Database/Routines.php:187
+msgid "Edit routine"
+msgstr "Editează rutina"
+
+#: libraries/classes/Database/Routines.php:220
+#, php-format
+msgid ""
+"No routine with name %1$s found in database %2$s. You might be lacking the "
+"necessary privileges to edit this routine."
+msgstr ""
+"Nicio rutină cu numele %1$s găsită în baza de date %2$s. S-ar putea să fie "
+"blocate privilegiile necesare pentru a edita această rutină."
+
+#: libraries/classes/Database/Routines.php:276
+#: libraries/classes/Database/Routines.php:1141
+#, php-format
+msgid "Invalid routine type: \"%s\""
+msgstr "Tip de rutină invalid: „%s”"
+
+#: libraries/classes/Database/Routines.php:326
+#, php-format
+msgid "Routine %1$s has been created."
+msgstr "Rutina %1$s a fost creată."
+
+#: libraries/classes/Database/Routines.php:499
+#, php-format
+msgid "Routine %1$s has been modified. Privileges have been adjusted."
+msgstr "Rutina %1$s a fost modificată. Privilegiile au fost ajustate."
+
+#: libraries/classes/Database/Routines.php:504
+#, php-format
+msgid "Routine %1$s has been modified."
+msgstr "Rutina %1$s a fost modificată."
+
+#: libraries/classes/Database/Routines.php:906
+#: libraries/classes/Database/Triggers.php:379
+#: templates/database/events/editor_form.twig:9
+#: templates/database/events/editor_form.twig:12 templates/view_create.twig:8
+msgid "Details"
+msgstr "Detalii"
+
+#: libraries/classes/Database/Routines.php:909
+msgid "Routine name"
+msgstr "Nume rutină"
+
+#: libraries/classes/Database/Routines.php:928
+#: templates/database/events/editor_form.twig:41
+#, php-format
+msgid "Change to %s"
+msgstr "Schimbă în %s"
+
+#: libraries/classes/Database/Routines.php:934
+msgid "Parameters"
+msgstr "Parametri"
+
+#: libraries/classes/Database/Routines.php:942
+msgid "Direction"
+msgstr "Direcție"
+
+#: libraries/classes/Database/Routines.php:946
+#: libraries/classes/Import.php:1280 libraries/classes/Import.php:1314
+#: libraries/classes/Plugins/Export/ExportCodegen.php:82
+#: libraries/classes/Plugins/Export/ExportCsv.php:46
+#: libraries/classes/Plugins/Export/ExportExcel.php:33
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:46
+#: libraries/classes/Plugins/Export/ExportJson.php:70
+#: libraries/classes/Plugins/Export/ExportLatex.php:71
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:45
+#: libraries/classes/Plugins/Export/ExportOds.php:51
+#: libraries/classes/Plugins/Export/ExportOdt.php:59
+#: libraries/classes/Plugins/Export/ExportPdf.php:82
+#: libraries/classes/Plugins/Export/ExportPhparray.php:44
+#: libraries/classes/Plugins/Export/ExportSql.php:105
+#: libraries/classes/Plugins/Export/ExportTexytext.php:45
+#: libraries/classes/Plugins/Export/ExportXml.php:85
+#: libraries/classes/Plugins/Export/ExportYaml.php:42
+#: libraries/classes/Plugins/Import/AbstractImportCsv.php:30
+#: libraries/classes/Plugins/Import/ImportMediawiki.php:59
+#: libraries/classes/Plugins/Import/ImportOds.php:51
+#: libraries/classes/Plugins/Import/ImportShp.php:63
+#: libraries/classes/Plugins/Import/ImportSql.php:44
+#: libraries/classes/Plugins/Import/ImportXml.php:50
+#: templates/console/display.twig:7 templates/console/display.twig:140
+#: templates/database/designer/database_tables.twig:114
+#: templates/display/results/options_block.twig:10
+#: templates/table/search/index.twig:98
+#: templates/table/structure/display_table_stats.twig:91
+msgid "Options"
+msgstr "Opțiuni"
+
+#: libraries/classes/Database/Routines.php:963
+msgid "Add parameter"
+msgstr "Adaugă parametru"
+
+#: libraries/classes/Database/Routines.php:967
+msgid "Remove last parameter"
+msgstr "Înlătură ultimul parametru"
+
+#: libraries/classes/Database/Routines.php:972
+msgid "Return type"
+msgstr "Tip de revenire"
+
+#: libraries/classes/Database/Routines.php:978
+msgid "Return length/values"
+msgstr "Lungime/valori revenire"
+
+#: libraries/classes/Database/Routines.php:984
+msgid "Return options"
+msgstr "Opțiuni revenire"
+
+#: libraries/classes/Database/Routines.php:987
+#: templates/database/routines/parameter_row.twig:31
+#: templates/database/structure/table_header.twig:42
+msgid "Charset"
+msgstr "Set de caractere"
+
+#: libraries/classes/Database/Routines.php:1017
+#: libraries/classes/Database/Triggers.php:433
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:484
+#: libraries/classes/Plugins/Export/ExportOdt.php:626
+#: libraries/classes/Plugins/Export/ExportTexytext.php:464
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:364
+#: templates/database/events/editor_form.twig:75
+msgid "Definition"
+msgstr "Definiție"
+
+#: libraries/classes/Database/Routines.php:1023
+msgid "Is deterministic"
+msgstr "Este determinat"
+
+#: libraries/classes/Database/Routines.php:1031
+#: templates/columns_definitions/table_fields_definitions.twig:36
+#: templates/database/operations/index.twig:74
+#: templates/database/operations/index.twig:178
+#: templates/mult_submits/copy_multiple_tables.twig:50
+#: templates/table/operations/index.twig:81
+#: templates/table/operations/index.twig:115
+#: templates/table/operations/index.twig:293
+msgid "Adjust privileges"
+msgstr "Ajustează privilegiile"
+
+#: libraries/classes/Database/Routines.php:1042
+msgid ""
+"You do not have sufficient privileges to perform this operation; Please "
+"refer to the documentation for more details"
+msgstr ""
+"Nu ai suficiente privilegii pentru a efectua această operațiune; Te rog "
+"consultă documentația pentru mai multe detalii"
+
+#: libraries/classes/Database/Routines.php:1052
+#: libraries/classes/Database/Triggers.php:439
+#: templates/database/events/editor_form.twig:89 templates/view_create.twig:45
+#, fuzzy
+msgid "Definer"
+msgstr "Definitor"
+
+#: libraries/classes/Database/Routines.php:1057
+msgid "Security type"
+msgstr "Tip de securitate"
+
+#: libraries/classes/Database/Routines.php:1066
+msgid "SQL data access"
+msgstr "Acces la date SQL"
+
+#: libraries/classes/Database/Routines.php:1078
+#: templates/columns_definitions/partitions.twig:85
+#: templates/database/data_dictionary/index.twig:73
+#: templates/database/events/editor_form.twig:95
+#: templates/database/structure/table_header.twig:46 templates/indexes.twig:23
+#: templates/table/relation/common_form.twig:245
+#: templates/table/structure/display_partitions.twig:31
+#: templates/table/structure/display_structure.twig:470
+#: templates/table/tracking/structure_snapshot_columns.twig:12
+#: templates/table/tracking/structure_snapshot_indexes.twig:13
+msgid "Comment"
+msgstr "Comentariu"
+
+#: libraries/classes/Database/Routines.php:1148
+msgid "You must provide a routine name!"
+msgstr "Trebuie să furnizezi un nume de rutină!"
+
+#: libraries/classes/Database/Routines.php:1182
+#, php-format
+msgid "Invalid direction \"%s\" given for parameter."
+msgstr "Direcție dată „%s” este invalidă pentru parametru."
+
+#: libraries/classes/Database/Routines.php:1204
+#: libraries/classes/Database/Routines.php:1268
+msgid ""
+"You must provide length/values for routine parameters of type ENUM, SET, "
+"VARCHAR and VARBINARY."
+msgstr ""
+"Trebuie să furnizezi lungimea/valorile pentru parametrii rutinei de tipul "
+"ENUM, SET, VARCHAR și VARBINARY."
+
+#: libraries/classes/Database/Routines.php:1232
+msgid "You must provide a name and a type for each routine parameter."
+msgstr ""
+"Trebuie să furnizezi un nume și un tip pentru fiecare parametru al rutinei."
+
+#: libraries/classes/Database/Routines.php:1250
+msgid "You must provide a valid return type for the routine."
+msgstr "Trebuie să furnizezi un tip de revenire valid pentru rutină."
+
+#: libraries/classes/Database/Routines.php:1311
+msgid "You must provide a routine definition."
+msgstr "Trebuie să furnizezi o definiție a rutinei."
+
+#: libraries/classes/Database/Routines.php:1339
+#: libraries/classes/Database/Routines.php:1544
+#, php-format
+msgid "No routine with name %1$s found in database %2$s."
+msgstr "Nicio rutină cu numele %1$s găsită în baza de date %2$s."
+
+#: libraries/classes/Database/Routines.php:1424
+#, php-format
+msgid "Execution results of routine %s"
+msgstr "Rezultate de execuție ale rutinei %s"
+
+#: libraries/classes/Database/Routines.php:1472
+#, php-format
+msgid "%d row affected by the last statement inside the procedure."
+msgid_plural "%d rows affected by the last statement inside the procedure."
+msgstr[0] "Un rând afectat de ultima declarație din cadrul procedurii."
+msgstr[1] "%d rânduri afectate de ultima declarație din cadrul procedurii."
+msgstr[2] "%d de rânduri afectate de ultima declarație din cadrul procedurii."
+
+#: libraries/classes/Database/Routines.php:1530
+#: libraries/classes/Database/Routines.php:1537
+msgid "Execute routine"
+msgstr "Execută rutina"
+
+#: libraries/classes/Database/Routines.php:1614
+#: libraries/classes/Database/Routines.php:1617
+msgid "Routine parameters"
+msgstr "Parametri rutină"
+
+#: libraries/classes/Database/Routines.php:1624
+#: libraries/classes/InsertEdit.php:345
+#: libraries/classes/Navigation/Nodes/NodeFunction.php:28
+#: templates/table/search/index.twig:36
+#: templates/table/zoom_search/index.twig:36
+msgid "Function"
+msgstr "Funcție"
+
+#: libraries/classes/Database/Routines.php:1626
+#: libraries/classes/InsertEdit.php:1986
+#: templates/database/designer/main.twig:488
+#: templates/database/designer/main.twig:653
+#: templates/database/designer/main.twig:859
+#: templates/database/designer/main.twig:1052
+#: templates/server/replication/status_table.twig:17
+#: templates/server/status/variables/index.twig:73
+#: templates/server/variables/index.twig:33
+#: templates/table/search/index.twig:42
+#: templates/table/zoom_search/index.twig:42
+#: templates/table/zoom_search/result_form.twig:34
+msgid "Value"
+msgstr "Valoare"
+
+#: libraries/classes/Database/Routines.php:1832
+msgid "Sorry, we failed to restore the dropped routine."
+msgstr "Regretăm, nu am reușit să restaurăm rutina eliminată."
+
+#: libraries/classes/Database/Routines.php:1862
+#, php-format
+msgid "Export of routine %s"
+msgstr "Exportul rutinei %s"
+
+#: libraries/classes/Database/Routines.php:1881
+#, fuzzy, php-format
+#| msgid ""
+#| "No routine with name %1$s found in database %2$s. You might be lacking "
+#| "the necessary privileges to view/export this routine."
+msgid ""
+"Error in processing request: No routine with name %1$s found in database "
+"%2$s. You might be lacking the necessary privileges to view/export this "
+"routine."
+msgstr ""
+"Nicio rutină cu numele %1$s găsită în baza de date %2$s. S-ar putea să fie "
+"blocate privilegiile necesare pentru a vedea/exporta această rutină."
+
 #: libraries/classes/Database/Search.php:110
 #: templates/database/search/main.twig:19
 msgid "at least one of the words"
@@ -7835,13 +8323,93 @@ msgstr "fraza exactă ca întreg câmp"
 msgid "as regular expression"
 msgstr "ca expresie obișnuită"
 
+#: libraries/classes/Database/Triggers.php:151
+#, php-format
+msgid "Trigger %1$s has been modified."
+msgstr "Declanșatorul %1$s a fost modificat."
+
+#: libraries/classes/Database/Triggers.php:171
+#, php-format
+msgid "Trigger %1$s has been created."
+msgstr "Declanșatorul %1$s a fost creat."
+
+#: libraries/classes/Database/Triggers.php:256
+#: templates/database/triggers/footer.twig:7
+#: templates/database/triggers/footer.twig:11
+msgid "Add trigger"
+msgstr "Adaugă declanșator"
+
+#: libraries/classes/Database/Triggers.php:260
+msgid "Edit trigger"
+msgstr "Editează declanșatorul"
+
+#: libraries/classes/Database/Triggers.php:382
+msgid "Trigger name"
+msgstr "Nume declanșator"
+
+#: libraries/classes/Database/Triggers.php:405
+msgctxt "Trigger action time"
+msgid "Time"
+msgstr "Timp"
+
+#: libraries/classes/Database/Triggers.php:419
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:483
+#: libraries/classes/Plugins/Export/ExportOdt.php:623
+#: libraries/classes/Plugins/Export/ExportTexytext.php:463
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:362
+#: templates/database/triggers/list.twig:23
+msgid "Event"
+msgstr "Eveniment"
+
+#: libraries/classes/Database/Triggers.php:485
+msgid "You must provide a trigger name!"
+msgstr "Trebuie să furnizezi un nume de declanșator!"
+
+#: libraries/classes/Database/Triggers.php:492
+msgid "You must provide a valid timing for the trigger!"
+msgstr "Trebuie să furnizezi o sincronizare validă pentru declanșator!"
+
+#: libraries/classes/Database/Triggers.php:499
+msgid "You must provide a valid event for the trigger!"
+msgstr "Trebuie să furnizezi un eveniment valid pentru declanșator!"
+
+#: libraries/classes/Database/Triggers.php:507
+msgid "You must provide a valid table name!"
+msgstr "Trebuie să furnizezi un nume de tabel valid!"
+
+#: libraries/classes/Database/Triggers.php:513
+msgid "You must provide a trigger definition."
+msgstr "Trebuie să furnizezi o definiție pentru declanșator."
+
+#: libraries/classes/Database/Triggers.php:537
+msgid "Sorry, we failed to restore the dropped trigger."
+msgstr "Regret, restaurarea declanșatorului eliminat a eșuat."
+
+#: libraries/classes/Database/Triggers.php:570
+#, php-format
+msgid "No trigger with name %1$s found in database %2$s."
+msgstr "Niciun declanșator cu numele %1$s găsit în baza de date %2$s."
+
+#: libraries/classes/Database/Triggers.php:607
+#, php-format
+msgid "Export of trigger %s"
+msgstr "Exportul declanșatorului %s"
+
+#: libraries/classes/Database/Triggers.php:625
+#, fuzzy, php-format
+#| msgid "No trigger with name %1$s found in database %2$s."
+msgid ""
+"Error in processing request: No trigger with name %1$s found in database "
+"%2$s."
+msgstr "Niciun declanșator cu numele %1$s găsit în baza de date %2$s."
+
 #: libraries/classes/Dbal/DbiMysqli.php:183
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "Conexiunea SSL a fost impusă de server, este activată automat."
 
 #: libraries/classes/Display/ChangePassword.php:88
-#: libraries/classes/Server/Privileges.php:803
-#: libraries/classes/Server/Privileges.php:877
+#: libraries/classes/Server/Privileges.php:804
+#: libraries/classes/Server/Privileges.php:878
 msgid "Native MySQL authentication"
 msgstr "Autentificare nativă MySQL"
 
@@ -7973,61 +8541,61 @@ msgstr "Descrescător"
 msgid "Ascending"
 msgstr "Crescător"
 
-#: libraries/classes/Display/Results.php:3317
-#: libraries/classes/Display/Results.php:3332
+#: libraries/classes/Display/Results.php:3305
+#: libraries/classes/Display/Results.php:3320
 msgid "The row has been deleted."
 msgstr "Rândul a fost șters."
 
-#: libraries/classes/Display/Results.php:3364
-#: libraries/classes/Display/Results.php:4678
+#: libraries/classes/Display/Results.php:3352
+#: libraries/classes/Display/Results.php:4604
 #: templates/server/status/processes/list.twig:44
 #, fuzzy
 msgid "Kill"
 msgstr "Oprește"
 
-#: libraries/classes/Display/Results.php:4142
+#: libraries/classes/Display/Results.php:4068
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
 "Poate fi aproximativ. Vezi [doc@faq3-11]Întrebări frecvente 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:4555
+#: libraries/classes/Display/Results.php:4481
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Arăt rândurile %1s - %2s"
 
-#: libraries/classes/Display/Results.php:4569
+#: libraries/classes/Display/Results.php:4495
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d în total, %2$d în interogare"
 
-#: libraries/classes/Display/Results.php:4574
+#: libraries/classes/Display/Results.php:4500
 #, php-format
 msgid "%d total"
 msgstr "Total %d"
 
-#: libraries/classes/Display/Results.php:4586 libraries/classes/Sql.php:1224
+#: libraries/classes/Display/Results.php:4512 libraries/classes/Sql.php:1224
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Interogarea a durat %01.4f secunde."
 
-#: libraries/classes/Display/Results.php:4829
+#: libraries/classes/Display/Results.php:4755
 msgid "Copy to clipboard"
 msgstr "Copiază în clipboard"
 
-#: libraries/classes/Display/Results.php:4887
+#: libraries/classes/Display/Results.php:4813
 msgid "Query results operations"
 msgstr "Operații rezultate interogări"
 
-#: libraries/classes/Display/Results.php:4980
+#: libraries/classes/Display/Results.php:4906
 #: templates/table/chart/tbl_chart.twig:10
 msgid "Display chart"
 msgstr "Afișează diagrama"
 
-#: libraries/classes/Display/Results.php:5002
+#: libraries/classes/Display/Results.php:4928
 msgid "Visualize GIS data"
 msgstr "Vizualizează datelor GIS"
 
-#: libraries/classes/Display/Results.php:5185
+#: libraries/classes/Display/Results.php:5111
 msgid "Link not found!"
 msgstr "Legătură negăsită!"
 
@@ -8576,19 +9144,6 @@ msgstr "Analiză statică:"
 msgid "%d errors were found during analysis."
 msgstr "Au fost găsite %d erori în timpul analizei."
 
-#: libraries/classes/Html/Generator.php:1096
-#: libraries/classes/Rte/Events.php:169 libraries/classes/Rte/Events.php:178
-#: libraries/classes/Rte/Events.php:209 libraries/classes/Rte/General.php:56
-#: libraries/classes/Rte/Routines.php:306
-#: libraries/classes/Rte/Routines.php:330
-#: libraries/classes/Rte/Routines.php:444
-#: libraries/classes/Rte/Routines.php:1521
-#: libraries/classes/Rte/Triggers.php:139
-#: libraries/classes/Rte/Triggers.php:148
-#: libraries/classes/Rte/Triggers.php:180
-msgid "MySQL said: "
-msgstr "MySQL zice: "
-
 #: libraries/classes/Import.php:310 libraries/classes/Sql.php:1232
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK s-a făcut.]"
@@ -8611,37 +9166,6 @@ msgstr "Modifică orice setare dând clic pe legătura corespondentă „Opțiun
 #: libraries/classes/Import.php:1276
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Editează structura urmărind legătura „Structură”."
-
-#: libraries/classes/Import.php:1280 libraries/classes/Import.php:1314
-#: libraries/classes/Plugins/Export/ExportCodegen.php:82
-#: libraries/classes/Plugins/Export/ExportCsv.php:46
-#: libraries/classes/Plugins/Export/ExportExcel.php:33
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:46
-#: libraries/classes/Plugins/Export/ExportJson.php:70
-#: libraries/classes/Plugins/Export/ExportLatex.php:71
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:45
-#: libraries/classes/Plugins/Export/ExportOds.php:51
-#: libraries/classes/Plugins/Export/ExportOdt.php:59
-#: libraries/classes/Plugins/Export/ExportPdf.php:82
-#: libraries/classes/Plugins/Export/ExportPhparray.php:44
-#: libraries/classes/Plugins/Export/ExportSql.php:105
-#: libraries/classes/Plugins/Export/ExportTexytext.php:45
-#: libraries/classes/Plugins/Export/ExportXml.php:85
-#: libraries/classes/Plugins/Export/ExportYaml.php:42
-#: libraries/classes/Plugins/Import/AbstractImportCsv.php:30
-#: libraries/classes/Plugins/Import/ImportMediawiki.php:59
-#: libraries/classes/Plugins/Import/ImportOds.php:51
-#: libraries/classes/Plugins/Import/ImportShp.php:63
-#: libraries/classes/Plugins/Import/ImportSql.php:44
-#: libraries/classes/Plugins/Import/ImportXml.php:50
-#: libraries/classes/Rte/Routines.php:968 templates/console/display.twig:7
-#: templates/console/display.twig:140
-#: templates/database/designer/database_tables.twig:114
-#: templates/display/results/options_block.twig:10
-#: templates/table/search/index.twig:98
-#: templates/table/structure/display_table_stats.twig:91
-msgid "Options"
-msgstr "Opțiuni"
 
 #: libraries/classes/Import.php:1283
 #, php-format
@@ -8689,13 +9213,6 @@ msgid ""
 "removed."
 msgstr ""
 "Indexurile %1$s și %2$s par să fie egale și unul ar putea fi înlăturat."
-
-#: libraries/classes/InsertEdit.php:345
-#: libraries/classes/Navigation/Nodes/NodeFunction.php:28
-#: libraries/classes/Rte/Routines.php:1650 templates/table/search/index.twig:36
-#: templates/table/zoom_search/index.twig:36
-msgid "Function"
-msgstr "Funcție"
 
 #: libraries/classes/InsertEdit.php:524
 msgid "Binary"
@@ -8809,21 +9326,6 @@ msgstr ""
 msgid "Column"
 msgstr "Coloană"
 
-#: libraries/classes/InsertEdit.php:1986
-#: libraries/classes/Rte/Routines.php:1652
-#: templates/database/designer/main.twig:488
-#: templates/database/designer/main.twig:653
-#: templates/database/designer/main.twig:859
-#: templates/database/designer/main.twig:1052
-#: templates/server/replication/status_table.twig:17
-#: templates/server/status/variables/index.twig:73
-#: templates/server/variables/index.twig:33
-#: templates/table/search/index.twig:42
-#: templates/table/zoom_search/index.twig:42
-#: templates/table/zoom_search/result_form.twig:34
-msgid "Value"
-msgstr "Valoare"
-
 #: libraries/classes/InsertEdit.php:2378 libraries/classes/Sql.php:1215
 msgid "Showing SQL query"
 msgstr "Arăt interogarea SQL"
@@ -8887,7 +9389,7 @@ msgid "Insert"
 msgstr "Inserează"
 
 #: libraries/classes/Menu.php:326 libraries/classes/Menu.php:444
-#: libraries/classes/Server/Privileges.php:2889 libraries/classes/Util.php:2482
+#: libraries/classes/Server/Privileges.php:2890 libraries/classes/Util.php:2482
 #: libraries/classes/Util.php:2498 libraries/config.values.php:160
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
@@ -8917,8 +9419,8 @@ msgstr "Urmărire"
 #: libraries/classes/Plugins/Export/ExportSql.php:2119
 #: libraries/classes/Plugins/Export/ExportTexytext.php:548
 #: libraries/classes/Plugins/Export/ExportXml.php:131
-#: libraries/classes/Rte/Words.php:60 libraries/classes/Util.php:2485
-#: libraries/classes/Util.php:2501
+#: libraries/classes/Util.php:2485 libraries/classes/Util.php:2501
+#: templates/database/triggers/list.twig:6
 msgid "Triggers"
 msgstr "Declanșatori"
 
@@ -8931,8 +9433,8 @@ msgstr "Baza de date pare să fie goală!"
 msgid "Query"
 msgstr "Interogare"
 
-#: libraries/classes/Menu.php:450 libraries/classes/Rte/Words.php:46
-#: libraries/classes/Util.php:2483
+#: libraries/classes/Menu.php:450 libraries/classes/Util.php:2483
+#: templates/database/routines/list.twig:6
 msgid "Routines"
 msgstr "Rutine"
 
@@ -8940,7 +9442,7 @@ msgstr "Rutine"
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:23
 #: libraries/classes/Plugins/Export/ExportSql.php:1004
 #: libraries/classes/Plugins/Export/ExportXml.php:111
-#: libraries/classes/Rte/Words.php:74 libraries/classes/Util.php:2484
+#: libraries/classes/Util.php:2484 templates/database/events/index.twig:6
 msgid "Events"
 msgstr "Evenimente"
 
@@ -9014,14 +9516,6 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "Un rând inserat."
 msgstr[1] "%1$d rânduri inserate."
 msgstr[2] "%1$d de rânduri inserate."
-
-#: libraries/classes/MultSubmits.php:444
-msgid "Add prefix"
-msgstr "Adaugă prefix"
-
-#: libraries/classes/MultSubmits.php:477
-msgid "Do you really want to execute the following query?"
-msgstr "Sigur vrei să execuți interogarea următoare?"
 
 #: libraries/classes/Navigation/Navigation.php:213
 msgid "Groups:"
@@ -9121,6 +9615,7 @@ msgid "Show hidden items"
 msgstr "Arată elementele ascunse"
 
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:35
+#: templates/database/events/index.twig:96
 msgctxt "Create new event"
 msgid "New"
 msgstr "Nou"
@@ -9154,7 +9649,6 @@ msgid "Procedures"
 msgstr "Proceduri"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:37
-#: libraries/classes/Rte/Footer.php:63
 msgctxt "Create new procedure"
 msgid "New"
 msgstr "Nouă"
@@ -9169,6 +9663,7 @@ msgid "New"
 msgstr "Nou"
 
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:35
+#: templates/database/triggers/footer.twig:2
 msgctxt "Create new trigger"
 msgid "New"
 msgstr "Nou"
@@ -9808,23 +10303,6 @@ msgstr "Eliminarea datelor din tabel"
 #: templates/database/data_dictionary/index.twig:21
 msgid "Links to"
 msgstr "Legături la"
-
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:483
-#: libraries/classes/Plugins/Export/ExportOdt.php:623
-#: libraries/classes/Plugins/Export/ExportTexytext.php:463
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:362
-#: libraries/classes/Rte/RteList.php:127 libraries/classes/Rte/Triggers.php:422
-msgid "Event"
-msgstr "Eveniment"
-
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:484
-#: libraries/classes/Plugins/Export/ExportOdt.php:626
-#: libraries/classes/Plugins/Export/ExportTexytext.php:464
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:364
-#: libraries/classes/Rte/Events.php:546 libraries/classes/Rte/Routines.php:1039
-#: libraries/classes/Rte/Triggers.php:436
-msgid "Definition"
-msgstr "Definiție"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:556
 #: libraries/classes/Plugins/Export/ExportOdt.php:705
@@ -11091,486 +11569,6 @@ msgstr "Baza de date sursă „%s” nu a fost găsită!"
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
-#: libraries/classes/Rte/Events.php:165 libraries/classes/Rte/Events.php:174
-#: libraries/classes/Rte/Events.php:205 libraries/classes/Rte/Routines.php:302
-#: libraries/classes/Rte/Routines.php:326
-#: libraries/classes/Rte/Routines.php:440
-#: libraries/classes/Rte/Routines.php:1517
-#: libraries/classes/Rte/Triggers.php:135
-#: libraries/classes/Rte/Triggers.php:144
-#: libraries/classes/Rte/Triggers.php:176
-#, php-format
-msgid "The following query has failed: \"%s\""
-msgstr "Următoarea interogare a eșuat: „%s”"
-
-#: libraries/classes/Rte/Events.php:185
-msgid "Sorry, we failed to restore the dropped event."
-msgstr "Regretăm, nu am putut restaura evenimentul eliminat."
-
-#: libraries/classes/Rte/Events.php:192
-#, php-format
-msgid "Event %1$s has been modified."
-msgstr "Evenimentul %1$s a fost modificat."
-
-#: libraries/classes/Rte/Events.php:212
-#, php-format
-msgid "Event %1$s has been created."
-msgstr "Evenimentul %1$s a fost creat."
-
-#: libraries/classes/Rte/Events.php:226 libraries/classes/Rte/Routines.php:346
-#: libraries/classes/Rte/Triggers.php:197
-msgid "One or more errors have occurred while processing your request:"
-msgstr "Au apărut una sau mai multe erori în timpul procesării cererii tale:"
-
-#: libraries/classes/Rte/Events.php:284
-msgid "Edit event"
-msgstr "Editează evenimentul"
-
-#: libraries/classes/Rte/Events.php:451 libraries/classes/Rte/Routines.php:928
-#: libraries/classes/Rte/Triggers.php:382 templates/view_create.twig:8
-msgid "Details"
-msgstr "Detalii"
-
-#: libraries/classes/Rte/Events.php:454
-msgid "Event name"
-msgstr "Nume eveniment"
-
-#: libraries/classes/Rte/Events.php:475 templates/server/binlog/index.twig:86
-msgid "Event type"
-msgstr "Tip de eveniment"
-
-#: libraries/classes/Rte/Events.php:496 libraries/classes/Rte/Routines.php:950
-#, php-format
-msgid "Change to %s"
-msgstr "Schimbă în %s"
-
-#: libraries/classes/Rte/Events.php:502
-msgid "Execute at"
-msgstr "Execută la"
-
-#: libraries/classes/Rte/Events.php:510
-msgid "Execute every"
-msgstr "Execută fiecare"
-
-#: libraries/classes/Rte/Events.php:529
-msgctxt "Start of recurring event"
-msgid "Start"
-msgstr "Început"
-
-#: libraries/classes/Rte/Events.php:538
-msgctxt "End of recurring event"
-msgid "End"
-msgstr "Sfârșit"
-
-#: libraries/classes/Rte/Events.php:552
-msgid "On completion preserve"
-msgstr "Păstrare definitivă"
-
-#: libraries/classes/Rte/Events.php:557 libraries/classes/Rte/Routines.php:1074
-#: libraries/classes/Rte/Triggers.php:442 templates/view_create.twig:45
-#, fuzzy
-msgid "Definer"
-msgstr "Definitor"
-
-#: libraries/classes/Rte/Events.php:562 libraries/classes/Rte/Routines.php:1100
-#: templates/columns_definitions/partitions.twig:85
-#: templates/database/data_dictionary/index.twig:73
-#: templates/database/structure/table_header.twig:46 templates/indexes.twig:23
-#: templates/table/relation/common_form.twig:245
-#: templates/table/structure/display_partitions.twig:31
-#: templates/table/structure/display_structure.twig:470
-#: templates/table/tracking/structure_snapshot_columns.twig:12
-#: templates/table/tracking/structure_snapshot_indexes.twig:13
-msgid "Comment"
-msgstr "Comentariu"
-
-#: libraries/classes/Rte/Events.php:601 libraries/classes/Rte/Routines.php:1154
-#: libraries/classes/Rte/Triggers.php:481
-#, fuzzy
-#| msgid "The definer must be in the \"username@hostname\" format"
-msgid "The definer must be in the \"username@hostname\" format!"
-msgstr ""
-"Datele introduse aici trebuie sa fie în format-ul \"nume-de-"
-"utilizator@numele-gazdei\" (username@hostname)"
-
-#: libraries/classes/Rte/Events.php:608
-msgid "You must provide an event name!"
-msgstr "Trebuie să furnizezi un nume de eveniment!"
-
-#: libraries/classes/Rte/Events.php:623
-msgid "You must provide a valid interval value for the event."
-msgstr "Trebuie să furnizezi o valoare validă a intervalului pentru eveniment."
-
-#: libraries/classes/Rte/Events.php:642
-msgid "You must provide a valid execution time for the event."
-msgstr "Trebuie să furnizezi un timp valid de execuție pentru eveniment."
-
-#: libraries/classes/Rte/Events.php:646
-msgid "You must provide a valid type for the event."
-msgstr "Trebuie să furnizezi un tip valid de eveniment."
-
-#: libraries/classes/Rte/Events.php:670
-msgid "You must provide an event definition."
-msgstr "Trebuie să furnizezi o definiție a evenimentului."
-
-#: libraries/classes/Rte/Export.php:69 libraries/classes/Rte/General.php:95
-#: libraries/classes/Rte/Routines.php:229
-#: libraries/classes/Rte/Routines.php:1361
-#: libraries/classes/Rte/Routines.php:1566
-msgid "Error in processing request:"
-msgstr "Eroare la procesarea cererii:"
-
-#: libraries/classes/Rte/Footer.php:131
-msgid "OFF"
-msgstr "OPRIT"
-
-#: libraries/classes/Rte/Footer.php:136
-msgid "ON"
-msgstr "PORNIT"
-
-#: libraries/classes/Rte/Footer.php:148
-msgid "Event scheduler status"
-msgstr "Stare programator de evenimente"
-
-#: libraries/classes/Rte/General.php:54
-msgid "The backed up query was:"
-msgstr "Interogarea de siguranță era:"
-
-#: libraries/classes/Rte/Routines.php:145
-msgid ""
-"You are using PHP's deprecated 'mysql' extension, which is not capable of "
-"handling multi queries. [strong]The execution of some stored routines may "
-"fail![/strong] Please use the improved 'mysqli' extension to avoid any "
-"problems."
-msgstr ""
-"Folosești extensia învechită „mysql” a PHP, care nu este capabilă să "
-"gestioneze mai multe interogări. [strong]Execuția unor rutine stocate poate "
-"eșua![/strong] Te rog folosește extensia îmbunătățită „mysqli” pentru a "
-"evita orice problemă."
-
-#: libraries/classes/Rte/Routines.php:199
-msgid "Edit routine"
-msgstr "Editează rutina"
-
-#: libraries/classes/Rte/Routines.php:283
-#: libraries/classes/Rte/Routines.php:1163
-#, php-format
-msgid "Invalid routine type: \"%s\""
-msgstr "Tip de rutină invalid: „%s”"
-
-#: libraries/classes/Rte/Routines.php:333
-#, php-format
-msgid "Routine %1$s has been created."
-msgstr "Rutina %1$s a fost creată."
-
-#: libraries/classes/Rte/Routines.php:452
-msgid "Sorry, we failed to restore the dropped routine."
-msgstr "Regretăm, nu am reușit să restaurăm rutina eliminată."
-
-#: libraries/classes/Rte/Routines.php:514
-#, php-format
-msgid "Routine %1$s has been modified. Privileges have been adjusted."
-msgstr "Rutina %1$s a fost modificată. Privilegiile au fost ajustate."
-
-#: libraries/classes/Rte/Routines.php:519
-#, php-format
-msgid "Routine %1$s has been modified."
-msgstr "Rutina %1$s a fost modificată."
-
-#: libraries/classes/Rte/Routines.php:931
-msgid "Routine name"
-msgstr "Nume rutină"
-
-#: libraries/classes/Rte/Routines.php:956
-msgid "Parameters"
-msgstr "Parametri"
-
-#: libraries/classes/Rte/Routines.php:964
-msgid "Direction"
-msgstr "Direcție"
-
-#: libraries/classes/Rte/Routines.php:985
-msgid "Add parameter"
-msgstr "Adaugă parametru"
-
-#: libraries/classes/Rte/Routines.php:989
-msgid "Remove last parameter"
-msgstr "Înlătură ultimul parametru"
-
-#: libraries/classes/Rte/Routines.php:994
-msgid "Return type"
-msgstr "Tip de revenire"
-
-#: libraries/classes/Rte/Routines.php:1000
-msgid "Return length/values"
-msgstr "Lungime/valori revenire"
-
-#: libraries/classes/Rte/Routines.php:1006
-msgid "Return options"
-msgstr "Opțiuni revenire"
-
-#: libraries/classes/Rte/Routines.php:1009
-#: templates/database/structure/table_header.twig:42
-#: templates/rte/routines/parameter_row.twig:31
-msgid "Charset"
-msgstr "Set de caractere"
-
-#: libraries/classes/Rte/Routines.php:1045
-msgid "Is deterministic"
-msgstr "Este determinat"
-
-#: libraries/classes/Rte/Routines.php:1053
-#: templates/columns_definitions/table_fields_definitions.twig:36
-#: templates/database/operations/index.twig:74
-#: templates/database/operations/index.twig:178
-#: templates/mult_submits/copy_multiple_tables.twig:50
-#: templates/table/operations/index.twig:81
-#: templates/table/operations/index.twig:115
-#: templates/table/operations/index.twig:293
-msgid "Adjust privileges"
-msgstr "Ajustează privilegiile"
-
-#: libraries/classes/Rte/Routines.php:1064
-msgid ""
-"You do not have sufficient privileges to perform this operation; Please "
-"refer to the documentation for more details"
-msgstr ""
-"Nu ai suficiente privilegii pentru a efectua această operațiune; Te rog "
-"consultă documentația pentru mai multe detalii"
-
-#: libraries/classes/Rte/Routines.php:1079
-msgid "Security type"
-msgstr "Tip de securitate"
-
-#: libraries/classes/Rte/Routines.php:1088
-msgid "SQL data access"
-msgstr "Acces la date SQL"
-
-#: libraries/classes/Rte/Routines.php:1170
-msgid "You must provide a routine name!"
-msgstr "Trebuie să furnizezi un nume de rutină!"
-
-#: libraries/classes/Rte/Routines.php:1204
-#, php-format
-msgid "Invalid direction \"%s\" given for parameter."
-msgstr "Direcție dată „%s” este invalidă pentru parametru."
-
-#: libraries/classes/Rte/Routines.php:1226
-#: libraries/classes/Rte/Routines.php:1290
-msgid ""
-"You must provide length/values for routine parameters of type ENUM, SET, "
-"VARCHAR and VARBINARY."
-msgstr ""
-"Trebuie să furnizezi lungimea/valorile pentru parametrii rutinei de tipul "
-"ENUM, SET, VARCHAR și VARBINARY."
-
-#: libraries/classes/Rte/Routines.php:1254
-msgid "You must provide a name and a type for each routine parameter."
-msgstr ""
-"Trebuie să furnizezi un nume și un tip pentru fiecare parametru al rutinei."
-
-#: libraries/classes/Rte/Routines.php:1272
-msgid "You must provide a valid return type for the routine."
-msgstr "Trebuie să furnizezi un tip de revenire valid pentru rutină."
-
-#: libraries/classes/Rte/Routines.php:1333
-msgid "You must provide a routine definition."
-msgstr "Trebuie să furnizezi o definiție a rutinei."
-
-#: libraries/classes/Rte/Routines.php:1448
-#, php-format
-msgid "Execution results of routine %s"
-msgstr "Rezultate de execuție ale rutinei %s"
-
-#: libraries/classes/Rte/Routines.php:1496
-#, php-format
-msgid "%d row affected by the last statement inside the procedure."
-msgid_plural "%d rows affected by the last statement inside the procedure."
-msgstr[0] "Un rând afectat de ultima declarație din cadrul procedurii."
-msgstr[1] "%d rânduri afectate de ultima declarație din cadrul procedurii."
-msgstr[2] "%d de rânduri afectate de ultima declarație din cadrul procedurii."
-
-#: libraries/classes/Rte/Routines.php:1554
-#: libraries/classes/Rte/Routines.php:1561
-msgid "Execute routine"
-msgstr "Execută rutina"
-
-#: libraries/classes/Rte/Routines.php:1640
-#: libraries/classes/Rte/Routines.php:1643
-msgid "Routine parameters"
-msgstr "Parametri rutină"
-
-#: libraries/classes/Rte/RteList.php:110 libraries/classes/Rte/RteList.php:125
-#: libraries/classes/Rte/RteList.php:138
-#: templates/database/central_columns/main.twig:234
-#: templates/database/privileges/index.twig:22
-#: templates/database/structure/table_header.twig:22
-#: templates/database/tracking/tables.twig:18
-#: templates/database/tracking/tables.twig:121 templates/indexes.twig:14
-#: templates/server/databases/index.twig:166
-#: templates/server/privileges/privileges_summary.twig:22
-#: templates/server/privileges/users_overview.twig:19
-#: templates/server/user_groups/user_groups.twig:21
-#: templates/server/variables/index.twig:31
-#: templates/table/privileges/index.twig:24
-#: templates/table/relation/common_form.twig:236
-#: templates/table/structure/display_partitions.twig:33
-#: templates/table/structure/display_structure.twig:34
-#: templates/table/structure/display_structure.twig:461
-#: templates/table/tracking/main.twig:32
-#: templates/table/tracking/report_table.twig:8
-msgid "Action"
-msgstr "Acțiune"
-
-#: libraries/classes/Rte/RteList.php:112
-msgid "Returns"
-msgstr "Reveniri"
-
-#: libraries/classes/Rte/Triggers.php:156
-msgid "Sorry, we failed to restore the dropped trigger."
-msgstr "Regret, restaurarea declanșatorului eliminat a eșuat."
-
-#: libraries/classes/Rte/Triggers.php:163
-#, php-format
-msgid "Trigger %1$s has been modified."
-msgstr "Declanșatorul %1$s a fost modificat."
-
-#: libraries/classes/Rte/Triggers.php:183
-#, php-format
-msgid "Trigger %1$s has been created."
-msgstr "Declanșatorul %1$s a fost creat."
-
-#: libraries/classes/Rte/Triggers.php:262
-msgid "Edit trigger"
-msgstr "Editează declanșatorul"
-
-#: libraries/classes/Rte/Triggers.php:385
-msgid "Trigger name"
-msgstr "Nume declanșator"
-
-#: libraries/classes/Rte/Triggers.php:408
-msgctxt "Trigger action time"
-msgid "Time"
-msgstr "Timp"
-
-#: libraries/classes/Rte/Triggers.php:488
-msgid "You must provide a trigger name!"
-msgstr "Trebuie să furnizezi un nume de declanșator!"
-
-#: libraries/classes/Rte/Triggers.php:495
-msgid "You must provide a valid timing for the trigger!"
-msgstr "Trebuie să furnizezi o sincronizare validă pentru declanșator!"
-
-#: libraries/classes/Rte/Triggers.php:502
-msgid "You must provide a valid event for the trigger!"
-msgstr "Trebuie să furnizezi un eveniment valid pentru declanșator!"
-
-#: libraries/classes/Rte/Triggers.php:510
-msgid "You must provide a valid table name!"
-msgstr "Trebuie să furnizezi un nume de tabel valid!"
-
-#: libraries/classes/Rte/Triggers.php:516
-msgid "You must provide a trigger definition."
-msgstr "Trebuie să furnizezi o definiție pentru declanșator."
-
-#: libraries/classes/Rte/Words.php:29
-msgid "Add routine"
-msgstr "Adaugă rutină"
-
-#: libraries/classes/Rte/Words.php:31
-#, php-format
-msgid "Export of routine %s"
-msgstr "Exportul rutinei %s"
-
-#: libraries/classes/Rte/Words.php:32
-#: templates/database/privileges/index.twig:55
-#: templates/table/privileges/index.twig:59
-msgid "routine"
-msgstr "rutină"
-
-#: libraries/classes/Rte/Words.php:34
-msgid "You do not have the necessary privileges to create a routine."
-msgstr "Nu ai privilegiile necesare pentru a crea o rutină."
-
-#: libraries/classes/Rte/Words.php:37
-#, php-format
-msgid ""
-"No routine with name %1$s found in database %2$s. You might be lacking the "
-"necessary privileges to edit this routine."
-msgstr ""
-"Nicio rutină cu numele %1$s găsită în baza de date %2$s. S-ar putea să fie "
-"blocate privilegiile necesare pentru a edita această rutină."
-
-#: libraries/classes/Rte/Words.php:41
-#, php-format
-msgid ""
-"No routine with name %1$s found in database %2$s. You might be lacking the "
-"necessary privileges to view/export this routine."
-msgstr ""
-"Nicio rutină cu numele %1$s găsită în baza de date %2$s. S-ar putea să fie "
-"blocate privilegiile necesare pentru a vedea/exporta această rutină."
-
-#: libraries/classes/Rte/Words.php:44
-#, php-format
-msgid "No routine with name %1$s found in database %2$s."
-msgstr "Nicio rutină cu numele %1$s găsită în baza de date %2$s."
-
-#: libraries/classes/Rte/Words.php:45
-msgid "There are no routines to display."
-msgstr "Nu există nicio rutină de afișat."
-
-#: libraries/classes/Rte/Words.php:51
-msgid "Add trigger"
-msgstr "Adaugă declanșator"
-
-#: libraries/classes/Rte/Words.php:53
-#, php-format
-msgid "Export of trigger %s"
-msgstr "Exportul declanșatorului %s"
-
-#: libraries/classes/Rte/Words.php:54
-msgid "trigger"
-msgstr "declanșator"
-
-#: libraries/classes/Rte/Words.php:56
-msgid "You do not have the necessary privileges to create a trigger."
-msgstr "Nu ai privilegiile necesare pentru a crea un declanșator."
-
-#: libraries/classes/Rte/Words.php:58
-#, php-format
-msgid "No trigger with name %1$s found in database %2$s."
-msgstr "Niciun declanșator cu numele %1$s găsit în baza de date %2$s."
-
-#: libraries/classes/Rte/Words.php:59
-msgid "There are no triggers to display."
-msgstr "Nu există niciun declanșator de afișat."
-
-#: libraries/classes/Rte/Words.php:65
-msgid "Add event"
-msgstr "Adaugă eveniment"
-
-#: libraries/classes/Rte/Words.php:67
-#, php-format
-msgid "Export of event %s"
-msgstr "Exportul evenimentului %s"
-
-#: libraries/classes/Rte/Words.php:68
-msgid "event"
-msgstr "eveniment"
-
-#: libraries/classes/Rte/Words.php:70
-msgid "You do not have the necessary privileges to create an event."
-msgstr "Nu ai privilegiile necesare pentru a crea un eveniment."
-
-#: libraries/classes/Rte/Words.php:72
-#, php-format
-msgid "No event with name %1$s found in database %2$s."
-msgstr "Niciun eveniment cu numele %1$s găsit în baza de date %2$s."
-
-#: libraries/classes/Rte/Words.php:73
-msgid "There are no events to display."
-msgstr "Nu există niciun eveniment de afișat."
-
 #: libraries/classes/SavedSearches.php:270
 msgid "Please provide a name for this bookmarked search."
 msgstr ""
@@ -11598,27 +11596,27 @@ msgstr "Lipsesc informațiile pentru a încărca căutarea."
 msgid "Error while loading the search."
 msgstr "Eroare în timpul încărcării căutării."
 
-#: libraries/classes/Server/Privileges.php:805
+#: libraries/classes/Server/Privileges.php:806
 msgid "SHA256 password authentication"
 msgstr "Autentificare cu parolă SHA256"
 
-#: libraries/classes/Server/Privileges.php:1167
+#: libraries/classes/Server/Privileges.php:1168
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Parola pentru %s a fost schimbată cu succes."
 
-#: libraries/classes/Server/Privileges.php:1215
+#: libraries/classes/Server/Privileges.php:1216
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Ai revocat privilegiile pentru %s."
 
-#: libraries/classes/Server/Privileges.php:1544
+#: libraries/classes/Server/Privileges.php:1545
 #: templates/database/privileges/index.twig:122
 #: templates/table/privileges/index.twig:125
 msgid "Not enough privilege to view users."
 msgstr "Nu ai privilegii suficiente pentru a vedea utilizatorii."
 
-#: libraries/classes/Server/Privileges.php:1611
+#: libraries/classes/Server/Privileges.php:1612
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:72
@@ -11626,78 +11624,78 @@ msgstr "Nu ai privilegii suficiente pentru a vedea utilizatorii."
 msgid "Edit privileges"
 msgstr "Editează privilegiile"
 
-#: libraries/classes/Server/Privileges.php:1614
+#: libraries/classes/Server/Privileges.php:1615
 msgid "Revoke"
 msgstr "Revocă"
 
-#: libraries/classes/Server/Privileges.php:1939
+#: libraries/classes/Server/Privileges.php:1940
 #: templates/server/privileges/privileges_table.twig:240
 msgid "Database-specific privileges"
 msgstr "Privilegii specifice bazei de date"
 
-#: libraries/classes/Server/Privileges.php:1945
+#: libraries/classes/Server/Privileges.php:1946
 #: templates/server/privileges/privileges_summary.twig:18
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:242
 msgid "Table-specific privileges"
 msgstr "Privilegii specifice tabelului"
 
-#: libraries/classes/Server/Privileges.php:1950
-#: libraries/classes/Server/Privileges.php:1952
+#: libraries/classes/Server/Privileges.php:1951
+#: libraries/classes/Server/Privileges.php:1953
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:58
 msgid "Routine"
 msgstr "Rutină"
 
-#: libraries/classes/Server/Privileges.php:1951
+#: libraries/classes/Server/Privileges.php:1952
 #: templates/server/privileges/edit_routine_privileges.twig:47
 msgid "Routine-specific privileges"
 msgstr "Privilegii specifice rutinei"
 
-#: libraries/classes/Server/Privileges.php:2289
+#: libraries/classes/Server/Privileges.php:2290
 msgid "No users selected for deleting!"
 msgstr "Niciun utilizator selectat pentru ștergere!"
 
-#: libraries/classes/Server/Privileges.php:2292
+#: libraries/classes/Server/Privileges.php:2293
 msgid "Reloading the privileges"
 msgstr "Reîncarc privilegiile"
 
-#: libraries/classes/Server/Privileges.php:2311
+#: libraries/classes/Server/Privileges.php:2312
 msgid "The selected users have been deleted successfully."
 msgstr "Utilizatorii selectați au fost șterși cu succes."
 
-#: libraries/classes/Server/Privileges.php:2389
+#: libraries/classes/Server/Privileges.php:2390
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Ai actualizat privilegiile pentru %s."
 
-#: libraries/classes/Server/Privileges.php:2419
+#: libraries/classes/Server/Privileges.php:2420
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr "Niciun utilizator găsit."
 
-#: libraries/classes/Server/Privileges.php:2499
+#: libraries/classes/Server/Privileges.php:2500
 #, php-format
 msgid "Deleting %s"
 msgstr "Șterg %s"
 
-#: libraries/classes/Server/Privileges.php:2527
+#: libraries/classes/Server/Privileges.php:2528
 msgid "The privileges were reloaded successfully."
 msgstr "Privilegiile au fost reîncărcate cu succes."
 
-#: libraries/classes/Server/Privileges.php:2625
+#: libraries/classes/Server/Privileges.php:2626
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Utilizatorul %s există deja!"
 
-#: libraries/classes/Server/Privileges.php:2906
+#: libraries/classes/Server/Privileges.php:2907
 #, php-format
 msgid "Privileges for %s"
 msgstr "Privilegii pentru %s"
 
-#: libraries/classes/Server/Privileges.php:3049
+#: libraries/classes/Server/Privileges.php:3050
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -11707,7 +11705,7 @@ msgstr ""
 "conecteze. Acest lucru va împiedica conectarea altor utilizatori dacă partea "
 "gazdă a contului lor permite o conexiune de la orice gazdă (%)."
 
-#: libraries/classes/Server/Privileges.php:3092
+#: libraries/classes/Server/Privileges.php:3093
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -11720,7 +11718,7 @@ msgstr ""
 "privilegiile pe care le utilizează serverul, dacă au fost modificate manual. "
 "În acest caz, ar trebui %ssă reîncarci privilegiile%s înainte de a continua."
 
-#: libraries/classes/Server/Privileges.php:3108
+#: libraries/classes/Server/Privileges.php:3109
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -11734,7 +11732,7 @@ msgstr ""
 "În acest caz, privilegiile ar trebui să fie reîncărcate, dar în prezent nu "
 "ai privilegiul REÎNCARCĂ."
 
-#: libraries/classes/Server/Privileges.php:3445
+#: libraries/classes/Server/Privileges.php:3446
 msgid "You have added a new user."
 msgstr "Ai adăugat un utilizator nou."
 
@@ -12629,6 +12627,9 @@ msgid "Empty"
 msgstr "Golește"
 
 #: libraries/classes/Util.php:3159 libraries/classes/Util.php:3160
+#: templates/database/routines/row.twig:32
+#: templates/database/routines/row.twig:42
+#: templates/database/routines/row.twig:46
 msgid "Execute"
 msgstr "Execută"
 
@@ -12796,23 +12797,6 @@ msgstr "ambele de mai sus"
 #: libraries/config.values.php:332
 msgid "neither of the above"
 msgstr "niciuna din cele de sus"
-
-#: libraries/mult_submits.inc.php:58
-#: templates/database/privileges/index.twig:112
-#: templates/database/privileges/index.twig:115
-#: templates/database/structure/check_all_tables.twig:2
-#: templates/database/structure/check_all_tables.twig:9
-#: templates/select_all.twig:2 templates/select_all.twig:6
-#: templates/server/privileges/users_overview.twig:103
-#: templates/server/privileges/users_overview.twig:106
-#: templates/table/privileges/index.twig:116
-#: templates/table/privileges/index.twig:119
-msgid "With selected:"
-msgstr "Cu cele selectate:"
-
-#: libraries/mult_submits.inc.php:359
-msgid "Success!"
-msgstr "Succes!"
 
 #: setup/index.php:26
 msgid "Configuration already exists, setup is disabled!"
@@ -13257,6 +13241,29 @@ msgstr "Selectează o coloană."
 msgid "Click to sort."
 msgstr "Dă clic pentru a sorta."
 
+#: templates/database/central_columns/main.twig:234
+#: templates/database/events/index.twig:19
+#: templates/database/privileges/index.twig:22
+#: templates/database/routines/list.twig:18
+#: templates/database/structure/table_header.twig:22
+#: templates/database/tracking/tables.twig:18
+#: templates/database/tracking/tables.twig:121
+#: templates/database/triggers/list.twig:21 templates/indexes.twig:14
+#: templates/server/databases/index.twig:166
+#: templates/server/privileges/privileges_summary.twig:22
+#: templates/server/privileges/users_overview.twig:19
+#: templates/server/user_groups/user_groups.twig:21
+#: templates/server/variables/index.twig:31
+#: templates/table/privileges/index.twig:24
+#: templates/table/relation/common_form.twig:236
+#: templates/table/structure/display_partitions.twig:33
+#: templates/table/structure/display_structure.twig:34
+#: templates/table/structure/display_structure.twig:461
+#: templates/table/tracking/main.twig:32
+#: templates/table/tracking/report_table.twig:8
+msgid "Action"
+msgstr "Acțiune"
+
 #: templates/database/create_table.twig:7
 #: templates/database/designer/main.twig:86
 #: templates/database/designer/main.twig:89
@@ -13499,6 +13506,66 @@ msgstr "Selectează pagina"
 msgid "Select Export Relational Type"
 msgstr "Selectează tipul relațional de export"
 
+#: templates/database/events/editor_form.twig:28
+#: templates/server/binlog/index.twig:86
+msgid "Event type"
+msgstr "Tip de eveniment"
+
+#: templates/database/events/editor_form.twig:46
+msgid "Execute at"
+msgstr "Execută la"
+
+#: templates/database/events/editor_form.twig:52
+msgid "Execute every"
+msgstr "Execută fiecare"
+
+#: templates/database/events/editor_form.twig:63
+msgctxt "Start of recurring event"
+msgid "Start"
+msgstr "Început"
+
+#: templates/database/events/editor_form.twig:69
+msgctxt "End of recurring event"
+msgid "End"
+msgstr "Sfârșit"
+
+#: templates/database/events/editor_form.twig:83
+msgid "On completion preserve"
+msgstr "Păstrare definitivă"
+
+#: templates/database/events/index.twig:11
+msgid "There are no events to display."
+msgstr "Nu există niciun eveniment de afișat."
+
+#: templates/database/events/index.twig:83
+#: templates/database/events/index.twig:84
+#: templates/database/privileges/index.twig:113
+#: templates/database/privileges/index.twig:114
+#: templates/database/routines/list.twig:30
+#: templates/database/routines/list.twig:31
+#: templates/database/structure/check_all_tables.twig:3
+#: templates/database/structure/check_all_tables.twig:4
+#: templates/database/triggers/list.twig:33
+#: templates/database/triggers/list.twig:34 templates/select_all.twig:4
+#: templates/select_all.twig:5
+#: templates/server/privileges/edit_routine_privileges.twig:57
+#: templates/server/privileges/privileges_table.twig:244
+#: templates/server/privileges/privileges_table.twig:245
+#: templates/server/privileges/privileges_table.twig:253
+#: templates/server/privileges/privileges_table.twig:327
+#: templates/server/privileges/privileges_table.twig:527
+#: templates/server/privileges/users_overview.twig:104
+#: templates/server/privileges/users_overview.twig:105
+#: templates/server/user_groups/edit_user_groups.twig:11
+#: templates/table/privileges/index.twig:117
+#: templates/table/privileges/index.twig:118
+msgid "Check all"
+msgstr "Bifează tot"
+
+#: templates/database/events/index.twig:112
+msgid "Event scheduler status"
+msgstr "Stare programator de evenimente"
+
 #: templates/database/multi_table_query/form.twig:4
 #: templates/database/qbe/index.twig:4
 msgid "Multi-table query"
@@ -13691,24 +13758,10 @@ msgstr "specific bazei de date"
 msgid "wildcard"
 msgstr "metacaracter"
 
-#: templates/database/privileges/index.twig:113
-#: templates/database/privileges/index.twig:114
-#: templates/database/structure/check_all_tables.twig:3
-#: templates/database/structure/check_all_tables.twig:4
-#: templates/select_all.twig:4 templates/select_all.twig:5
-#: templates/server/privileges/edit_routine_privileges.twig:57
-#: templates/server/privileges/privileges_table.twig:244
-#: templates/server/privileges/privileges_table.twig:245
-#: templates/server/privileges/privileges_table.twig:253
-#: templates/server/privileges/privileges_table.twig:327
-#: templates/server/privileges/privileges_table.twig:527
-#: templates/server/privileges/users_overview.twig:104
-#: templates/server/privileges/users_overview.twig:105
-#: templates/server/user_groups/edit_user_groups.twig:11
-#: templates/table/privileges/index.twig:117
-#: templates/table/privileges/index.twig:118
-msgid "Check all"
-msgstr "Bifează tot"
+#: templates/database/privileges/index.twig:55
+#: templates/table/privileges/index.twig:59
+msgid "routine"
+msgstr "rutină"
 
 #: templates/database/privileges/index.twig:129
 #: templates/server/privileges/add_user_fieldset.twig:4
@@ -13805,6 +13858,21 @@ msgstr "Folosește tabele"
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
 msgstr "Interogare SQL în baza de date <b>%s</b>:"
+
+#: templates/database/routines/footer.twig:2
+#, fuzzy
+#| msgid "New"
+msgctxt "Create new routine"
+msgid "New"
+msgstr "Nou"
+
+#: templates/database/routines/list.twig:11
+msgid "There are no routines to display."
+msgstr "Nu există nicio rutină de afișat."
+
+#: templates/database/routines/list.twig:20
+msgid "Returns"
+msgstr "Reveniri"
 
 #: templates/database/search/main.twig:5
 msgid "Search in database"
@@ -14015,12 +14083,16 @@ msgstr "Tabele neurmărite"
 msgid "Track table"
 msgstr "Urmărește tabelul"
 
+#: templates/database/triggers/list.twig:11
+msgid "There are no triggers to display."
+msgstr "Nu există niciun declanșator de afișat."
+
 #: templates/display/change_password/file_a.twig:14
 msgid "No Password"
 msgstr "Nicio parolă"
 
 #: templates/display/change_password/file_a.twig:20
-#: templates/login/form.twig:55
+#: templates/login/form.twig:57
 #: templates/server/privileges/login_information_fields.twig:43
 #: templates/server/replication/change_master.twig:18
 #: templates/server/replication/master_add_slave_user.twig:49
@@ -14891,16 +14963,16 @@ msgstr "Te rog introdu o intrare HEX validă"
 msgid "Log in"
 msgstr "Autentificare"
 
-#: templates/login/form.twig:36 templates/login/form.twig:40
+#: templates/login/form.twig:36 templates/login/form.twig:41
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 "Poți introduce numele gazdei/adresa IP și portul separat printr-un spațiu."
 
-#: templates/login/form.twig:46
+#: templates/login/form.twig:48
 msgid "Username:"
 msgstr "Nume utilizator:"
 
-#: templates/login/form.twig:65
+#: templates/login/form.twig:67
 #, fuzzy
 #| msgid "Server Choice:"
 msgid "Server choice:"
@@ -14980,6 +15052,11 @@ msgstr "Verifică"
 msgid "View:"
 msgstr "Vizualizări:"
 
+#: templates/mult_submits/add_prefix_table.twig:7
+#: templates/mult_submits/add_prefix_table.twig:9
+msgid "Add prefix"
+msgstr "Adaugă prefix"
+
 #: templates/mult_submits/copy_multiple_tables.twig:14
 #, fuzzy
 #| msgid "Options"
@@ -14989,6 +15066,10 @@ msgstr "Opțiuni"
 #: templates/mult_submits/copy_multiple_tables.twig:39
 msgid "Add AUTO INCREMENT value"
 msgstr "Adaugă valoarea INCREMENTARE AUTOMATĂ"
+
+#: templates/mult_submits/other_actions.twig:6
+msgid "Do you really want to execute the following query?"
+msgstr "Sigur vrei să execuți interogarea următoare?"
 
 #: templates/mult_submits/replace_prefix_table.twig:7
 msgid "From"
@@ -18510,6 +18591,24 @@ msgstr ""
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit este setat la 1 MiO"
 
+#~ msgid "Event name"
+#~ msgstr "Nume eveniment"
+
+#~ msgid "You do not have the necessary privileges to create a routine."
+#~ msgstr "Nu ai privilegiile necesare pentru a crea o rutină."
+
+#~ msgid "trigger"
+#~ msgstr "declanșator"
+
+#~ msgid "You do not have the necessary privileges to create a trigger."
+#~ msgstr "Nu ai privilegiile necesare pentru a crea un declanșator."
+
+#~ msgid "event"
+#~ msgstr "eveniment"
+
+#~ msgid "You do not have the necessary privileges to create an event."
+#~ msgstr "Nu ai privilegiile necesare pentru a crea un eveniment."
+
 #~ msgid "Update Query"
 #~ msgstr "Actualizează interogarea"
 
@@ -19776,11 +19875,6 @@ msgstr "query_cache_limit este setat la 1 MiO"
 # comanda ARATĂ BAZELE DE DATE
 #~ msgid "SHOW DATABASES command"
 #~ msgstr "comanda SHOW DATABASES"
-
-#, fuzzy
-#~| msgid "New"
-#~ msgid "New"
-#~ msgstr "Nou"
 
 #, fuzzy
 #~| msgid "Version check"

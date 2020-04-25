@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-04-03 09:06+0200\n"
+"POT-Creation-Date: 2020-04-25 11:22+0200\n"
 "PO-Revision-Date: 2018-07-23 11:06+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -26,7 +26,7 @@ msgstr ""
 msgid "Do you really want to execute \"%s\"?"
 msgstr "Ar tikrai norite vykdyti „%s“?"
 
-#: js/messages.php:53 libraries/classes/MultSubmits.php:475
+#: js/messages.php:53
 msgid "You are about to DESTROY a complete database!"
 msgstr "Jūs ruošiatės SUNAIKINTI visą duomenų bazę!"
 
@@ -311,12 +311,12 @@ msgstr "Tuščias prisijungimo adresas!"
 msgid "The user name is empty!"
 msgstr "Tuščias vartotojo vardas!"
 
-#: js/messages.php:140 libraries/classes/Server/Privileges.php:1028
+#: js/messages.php:140 libraries/classes/Server/Privileges.php:1029
 #: libraries/classes/UserPassword.php:71
 msgid "The password is empty!"
 msgstr "Tuščias slaptažodis!"
 
-#: js/messages.php:141 libraries/classes/Server/Privileges.php:1026
+#: js/messages.php:141 libraries/classes/Server/Privileges.php:1027
 #: libraries/classes/UserPassword.php:75
 msgid "The passwords aren't the same!"
 msgstr "Slaptažodžiai nesutampa!"
@@ -750,9 +750,11 @@ msgstr "Paaiškinti išvestį"
 
 #: js/messages.php:279
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:152
-#: libraries/classes/Menu.php:533 libraries/classes/Rte/Events.php:460
-#: libraries/classes/Rte/RteList.php:137 libraries/classes/Util.php:2462
-#: libraries/config.values.php:156 templates/database/tracking/tables.twig:17
+#: libraries/classes/Menu.php:533 libraries/classes/Util.php:2462
+#: libraries/config.values.php:156
+#: templates/database/events/editor_form.twig:18
+#: templates/database/events/index.twig:18
+#: templates/database/tracking/tables.twig:17
 #: templates/table/tracking/main.twig:31
 msgid "Status"
 msgstr "Būsena"
@@ -763,8 +765,8 @@ msgstr "Būsena"
 #: libraries/classes/Plugins/Export/ExportOdt.php:620
 #: libraries/classes/Plugins/Export/ExportTexytext.php:462
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:360
-#: libraries/classes/Rte/RteList.php:126 templates/javascript/variables.twig:81
-#: templates/sql/profiling_chart.twig:17
+#: templates/database/triggers/list.twig:22
+#: templates/javascript/variables.twig:81 templates/sql/profiling_chart.twig:17
 msgid "Time"
 msgstr "Laikas"
 
@@ -919,16 +921,17 @@ msgid "No parameters found!"
 msgstr "Blogi parametrai!"
 
 #: js/messages.php:330 libraries/classes/BrowseForeigners.php:203
-#: libraries/classes/Controllers/Server/PrivilegesController.php:389
+#: libraries/classes/Controllers/Server/PrivilegesController.php:387
+#: libraries/classes/Database/Routines.php:1091
+#: libraries/classes/Database/Routines.php:1709
+#: libraries/classes/Database/Triggers.php:452
 #: libraries/classes/InsertEdit.php:1958 libraries/classes/InsertEdit.php:1992
 #: libraries/classes/Normalization.php:252
-#: libraries/classes/Normalization.php:943 libraries/classes/Rte/Events.php:575
-#: libraries/classes/Rte/Routines.php:1113
-#: libraries/classes/Rte/Routines.php:1735
-#: libraries/classes/Rte/Triggers.php:455 libraries/classes/Tracking.php:346
+#: libraries/classes/Normalization.php:943 libraries/classes/Tracking.php:346
 #: libraries/classes/Tracking.php:497
 #: templates/columns_definitions/column_definitions_form.twig:43
 #: templates/database/create_table.twig:21
+#: templates/database/events/editor_form.twig:107
 #: templates/database/operations/index.twig:19
 #: templates/database/operations/index.twig:44
 #: templates/database/operations/index.twig:81
@@ -940,7 +943,7 @@ msgstr "Blogi parametrai!"
 #: templates/display/import/import.twig:232
 #: templates/display/results/options_block.twig:91
 #: templates/gis_data_editor_form.twig:211 templates/header_location.twig:18
-#: templates/login/form.twig:79 templates/login/form.twig:81
+#: templates/login/form.twig:83 templates/login/form.twig:85
 #: templates/preferences/manage/main.twig:46
 #: templates/preferences/manage/main.twig:108
 #: templates/server/binlog/index.twig:34
@@ -1038,7 +1041,7 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:349 libraries/classes/Common.php:106
-#: libraries/classes/Controllers/Server/DatabasesController.php:268
+#: libraries/classes/Controllers/Server/DatabasesController.php:285
 #: libraries/classes/DbTableExists.php:43
 msgid "No databases selected."
 msgstr "Nepažymėjote duomenų bazės."
@@ -1095,7 +1098,7 @@ msgstr "Keičiama koduotė"
 
 #: js/messages.php:360 libraries/classes/Config/FormDisplayTemplate.php:317
 #: libraries/classes/IndexColumn.php:132 libraries/classes/Index.php:489
-#: libraries/classes/Index.php:517 libraries/classes/MultSubmits.php:496
+#: libraries/classes/Index.php:517
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:652
 #: libraries/classes/Plugins/Export/ExportLatex.php:633
 #: libraries/classes/Plugins/Export/ExportOdt.php:807
@@ -1105,6 +1108,7 @@ msgstr "Keičiama koduotė"
 #: templates/database/data_dictionary/index.twig:39
 #: templates/database/data_dictionary/index.twig:83
 #: templates/database/privileges/index.twig:69 templates/indexes.twig:58
+#: templates/mult_submits/other_actions.twig:22
 #: templates/preferences/autoload.twig:12
 #: templates/preferences/manage/error.twig:19
 #: templates/server/privileges/new_user_ajax.twig:22
@@ -1124,8 +1128,8 @@ msgstr "Keičiama koduotė"
 msgid "No"
 msgstr "Ne"
 
-#: js/messages.php:363 libraries/classes/MultSubmits.php:489
-#: templates/display/import/import.twig:204 templates/sql/query.twig:131
+#: js/messages.php:363 templates/display/import/import.twig:204
+#: templates/mult_submits/other_actions.twig:17 templates/sql/query.twig:131
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Enable foreign key checks"
@@ -1169,16 +1173,23 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Apibrėžimas „stored“ funkcijos turi turėti RETURN teiginį!"
 
 #: js/messages.php:378 libraries/classes/Config/Forms/User/ExportForm.php:151
-#: libraries/classes/Display/Results.php:4714
-#: libraries/classes/Display/Results.php:4969 libraries/classes/Menu.php:306
+#: libraries/classes/Display/Results.php:4640
+#: libraries/classes/Display/Results.php:4895 libraries/classes/Menu.php:306
 #: libraries/classes/Menu.php:420 libraries/classes/Menu.php:556
-#: libraries/classes/Rte/RteList.php:185
-#: libraries/classes/Server/Privileges.php:1617 libraries/classes/Util.php:2464
+#: libraries/classes/Server/Privileges.php:1618 libraries/classes/Util.php:2464
 #: libraries/classes/Util.php:2479 libraries/classes/Util.php:2496
 #: libraries/classes/Util.php:3157 libraries/classes/Util.php:3158
+#: templates/database/events/index.twig:55
+#: templates/database/events/index.twig:87
+#: templates/database/events/row.twig:33
 #: templates/database/privileges/index.twig:91
 #: templates/database/privileges/index.twig:116
+#: templates/database/routines/list.twig:34
+#: templates/database/routines/row.twig:58
+#: templates/database/routines/row.twig:61
 #: templates/database/structure/check_all_tables.twig:12
+#: templates/database/triggers/list.twig:37
+#: templates/database/triggers/row.twig:35
 #: templates/display/export/option_header.twig:3
 #: templates/preferences/header.twig:42
 #: templates/preferences/manage/main.twig:68
@@ -1195,7 +1206,7 @@ msgstr "Eksportuoti"
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
 
-#: js/messages.php:382 templates/rte/routines/parameter_row.twig:24
+#: js/messages.php:382 templates/database/routines/parameter_row.twig:24
 msgid "ENUM/SET editor"
 msgstr "ENUM/SET redaktorius"
 
@@ -1235,15 +1246,22 @@ msgstr "Rodyti užklausos laukelį"
 
 #: js/messages.php:396 libraries/classes/CentralColumns.php:939
 #: libraries/classes/Config/Descriptions.php:827
-#: libraries/classes/Display/Results.php:3265
-#: libraries/classes/Display/Results.php:4689
+#: libraries/classes/Display/Results.php:3253
+#: libraries/classes/Display/Results.php:4615
 #: libraries/classes/Html/Generator.php:807
 #: libraries/classes/Html/Generator.php:1076
 #: libraries/classes/Server/UserGroups.php:123 libraries/classes/Util.php:3155
 #: libraries/classes/Util.php:3156 templates/console/bookmark_content.twig:7
 #: templates/console/display.twig:31 templates/console/display.twig:175
 #: templates/database/central_columns/main.twig:281
-#: templates/database/central_columns/main.twig:402 templates/indexes.twig:33
+#: templates/database/central_columns/main.twig:402
+#: templates/database/events/index.twig:43
+#: templates/database/events/index.twig:46
+#: templates/database/events/row.twig:20 templates/database/events/row.twig:23
+#: templates/database/routines/row.twig:18
+#: templates/database/routines/row.twig:21
+#: templates/database/triggers/row.twig:22
+#: templates/database/triggers/row.twig:25 templates/indexes.twig:33
 #: templates/server/variables/index.twig:42
 #: templates/server/variables/index.twig:45 templates/setup/home/index.twig:57
 #: templates/table/relation/common_form.twig:255
@@ -1252,8 +1270,8 @@ msgid "Edit"
 msgstr "Redaguoti"
 
 #: js/messages.php:397 libraries/classes/CentralColumns.php:946
-#: libraries/classes/Display/Results.php:3341
-#: libraries/classes/Display/Results.php:4678
+#: libraries/classes/Display/Results.php:3329
+#: libraries/classes/Display/Results.php:4604
 #: libraries/classes/Server/UserGroups.php:132
 #: libraries/classes/Tracking.php:272 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:284
@@ -1274,9 +1292,9 @@ msgstr "%d nėra galimas eilutės numeris."
 
 #: js/messages.php:399
 #: libraries/classes/Controllers/Table/ChangeController.php:197
-#: libraries/classes/Controllers/Table/SearchController.php:359
-#: libraries/classes/Controllers/Table/ZoomSearchController.php:378
-#: libraries/classes/Controllers/Table/ZoomSearchController.php:422
+#: libraries/classes/Controllers/Table/SearchController.php:357
+#: libraries/classes/Controllers/Table/ZoomSearchController.php:376
+#: libraries/classes/Controllers/Table/ZoomSearchController.php:418
 #: templates/sql/relational_column_dropdown.twig:3
 msgid "Browse foreign values"
 msgstr "Naršyti išorines reikšmes"
@@ -1566,8 +1584,8 @@ msgstr "Duomenų rodyklės dydis"
 msgid "Ignore"
 msgstr "Ignoruoti"
 
-#: js/messages.php:492 libraries/classes/Display/Results.php:3269
-#: libraries/classes/Display/Results.php:4697
+#: js/messages.php:492 libraries/classes/Display/Results.php:3257
+#: libraries/classes/Display/Results.php:4623
 #: libraries/classes/Html/Generator.php:75
 msgid "Copy"
 msgstr "Kopijuoti"
@@ -1631,26 +1649,29 @@ msgid "Add an inner ring"
 msgstr "Sukurti vidinį žiedą"
 
 #: js/messages.php:504 libraries/classes/Config/FormDisplayTemplate.php:317
-#: libraries/classes/Controllers/Server/DatabasesController.php:281
-#: libraries/classes/Controllers/Table/StructureController.php:795
-#: libraries/classes/Controllers/Table/StructureController.php:1563
-#: libraries/classes/Controllers/Table/StructureController.php:1572
-#: libraries/classes/Controllers/Table/StructureController.php:1577
-#: libraries/classes/Controllers/Table/StructureController.php:1582
-#: libraries/classes/Controllers/Table/StructureController.php:1587
+#: libraries/classes/Controllers/Database/StructureController.php:416
+#: libraries/classes/Controllers/Database/StructureController.php:591
+#: libraries/classes/Controllers/Table/RowActionController.php:151
+#: libraries/classes/Controllers/Table/StructureController.php:345
+#: libraries/classes/Controllers/Table/StructureController.php:980
+#: libraries/classes/Controllers/Table/StructureController.php:1748
+#: libraries/classes/Controllers/Table/StructureController.php:1757
+#: libraries/classes/Controllers/Table/StructureController.php:1762
+#: libraries/classes/Controllers/Table/StructureController.php:1767
+#: libraries/classes/Controllers/Table/StructureController.php:1772
 #: libraries/classes/IndexColumn.php:135 libraries/classes/Index.php:516
-#: libraries/classes/MultSubmits.php:452 libraries/classes/MultSubmits.php:494
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:653
 #: libraries/classes/Plugins/Export/ExportLatex.php:633
 #: libraries/classes/Plugins/Export/ExportOdt.php:808
 #: libraries/classes/Plugins/Export/ExportTexytext.php:623
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:772
-#: libraries/mult_submits.inc.php:94 libraries/mult_submits.inc.php:237
 #: templates/database/central_columns/main.twig:370
 #: templates/database/data_dictionary/index.twig:39
 #: templates/database/data_dictionary/index.twig:83
 #: templates/database/privileges/index.twig:69 templates/indexes.twig:58
+#: templates/mult_submits/add_prefix_table.twig:15
 #: templates/mult_submits/copy_multiple_tables.twig:55
+#: templates/mult_submits/other_actions.twig:21
 #: templates/mult_submits/replace_prefix_table.twig:20
 #: templates/preferences/autoload.twig:11
 #: templates/preferences/manage/error.twig:18
@@ -1922,7 +1943,7 @@ msgstr ""
 msgid "Select database first"
 msgstr "Pasirinkite lenteles"
 
-#: js/messages.php:595 libraries/classes/Display/Results.php:4852
+#: js/messages.php:595 libraries/classes/Display/Results.php:4778
 #: templates/database/data_dictionary/index.twig:117
 #: templates/database/structure/index.twig:12
 #: templates/table/structure/display_structure.twig:384
@@ -2027,7 +2048,7 @@ msgstr ", naujausia stabili versija:"
 msgid "up to date"
 msgstr "naujausias"
 
-#: js/messages.php:636 libraries/classes/Display/Results.php:4784
+#: js/messages.php:636 libraries/classes/Display/Results.php:4710
 #: templates/view_create.twig:11
 msgid "Create view"
 msgstr "Sukurti rodinį"
@@ -2394,25 +2415,28 @@ msgid "NO"
 msgstr "Ne"
 
 #: libraries/classes/CentralColumns.php:1010
+#: libraries/classes/Database/Routines.php:943
+#: libraries/classes/Database/Routines.php:1621
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:481
 #: libraries/classes/Plugins/Export/ExportOdt.php:617
 #: libraries/classes/Plugins/Export/ExportTexytext.php:461
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:358
-#: libraries/classes/Rte/Routines.php:965
-#: libraries/classes/Rte/Routines.php:1647
-#: libraries/classes/Rte/RteList.php:109 libraries/classes/Rte/RteList.php:121
-#: libraries/classes/Rte/RteList.php:136
 #: templates/columns_definitions/table_fields_definitions.twig:9
 #: templates/database/central_columns/main.twig:17
 #: templates/database/central_columns/main.twig:236
 #: templates/database/create_table.twig:11
+#: templates/database/events/index.twig:17
 #: templates/database/operations/index.twig:33
-#: templates/setup/home/index.twig:43
+#: templates/database/routines/list.twig:17
+#: templates/database/triggers/list.twig:17 templates/setup/home/index.twig:43
 #: templates/table/structure/display_structure.twig:21
 msgid "Name"
 msgstr "Pavadinimas"
 
 #: libraries/classes/CentralColumns.php:1011
+#: libraries/classes/Database/Routines.php:914
+#: libraries/classes/Database/Routines.php:944
+#: libraries/classes/Database/Routines.php:1622
 #: libraries/classes/InsertEdit.php:347
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:289
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:385
@@ -2424,16 +2448,14 @@ msgstr "Pavadinimas"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:513
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:685
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:718
-#: libraries/classes/Rte/Routines.php:936
-#: libraries/classes/Rte/Routines.php:966
-#: libraries/classes/Rte/Routines.php:1648
-#: libraries/classes/Rte/RteList.php:111 libraries/classes/Rte/RteList.php:139
 #: templates/columns_definitions/table_fields_definitions.twig:12
 #: templates/database/central_columns/main.twig:21
 #: templates/database/central_columns/main.twig:240
 #: templates/database/data_dictionary/index.twig:17
 #: templates/database/data_dictionary/index.twig:66
+#: templates/database/events/index.twig:20
 #: templates/database/privileges/index.twig:19
+#: templates/database/routines/list.twig:19
 #: templates/database/structure/table_header.twig:30 templates/indexes.twig:16
 #: templates/table/privileges/index.twig:21
 #: templates/table/relation/common_form.twig:238
@@ -2447,7 +2469,7 @@ msgid "Type"
 msgstr "Tipas"
 
 #: libraries/classes/CentralColumns.php:1012
-#: libraries/classes/Rte/Routines.php:967
+#: libraries/classes/Database/Routines.php:945
 #: templates/columns_definitions/table_fields_definitions.twig:16
 msgid "Length/Values"
 msgstr "Ilgis/reikšmės*"
@@ -3762,7 +3784,7 @@ msgstr "Serverių rodymo nustatymai"
 
 #: libraries/classes/Config/Descriptions.php:313
 #: libraries/classes/Controllers/Database/ExportController.php:94
-#: libraries/classes/Controllers/Server/DatabasesController.php:440
+#: libraries/classes/Controllers/Server/DatabasesController.php:469
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:23
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:24
 #: libraries/classes/Plugins/Export/ExportXml.php:126
@@ -5701,8 +5723,8 @@ msgstr "Naršyklės lango pavadinimas kai duomenų bazė yra pasirinkta"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:148
 #: libraries/classes/Plugins/Export/ExportOdt.php:191
 #: libraries/classes/Plugins/Export/ExportTexytext.php:132
-#: libraries/classes/Server/Privileges.php:1938
-#: libraries/classes/Server/Privileges.php:1940
+#: libraries/classes/Server/Privileges.php:1939
+#: libraries/classes/Server/Privileges.php:1941
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:109
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -5747,13 +5769,14 @@ msgid "Title of browser window when a table is selected."
 msgstr "Naršyklės lango pavadinimas, kai pasirinkta lentelė"
 
 #: libraries/classes/Config/Descriptions.php:859
+#: libraries/classes/Database/Triggers.php:387
 #: libraries/classes/Plugins/Export/ExportXml.php:508
-#: libraries/classes/Rte/RteList.php:123 libraries/classes/Rte/Triggers.php:390
-#: libraries/classes/Server/Privileges.php:1944
-#: libraries/classes/Server/Privileges.php:1946
+#: libraries/classes/Server/Privileges.php:1945
+#: libraries/classes/Server/Privileges.php:1947
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
 #: templates/database/tracking/tables.twig:120
+#: templates/database/triggers/list.twig:19
 #: templates/server/privileges/privileges_table.twig:6
 #: templates/server/privileges/privileges_table.twig:235
 #: templates/server/privileges/user_properties.twig:37
@@ -6116,7 +6139,7 @@ msgstr "Pritaikytas"
 #: libraries/classes/Config/Forms/User/ExportForm.php:132
 #: libraries/classes/Config/Forms/User/ExportForm.php:138
 #: libraries/classes/Controllers/Database/ExportController.php:96
-#: libraries/classes/Controllers/Server/DatabasesController.php:450
+#: libraries/classes/Controllers/Server/DatabasesController.php:479
 #: templates/server/privileges/privileges_table.twig:254
 #: templates/table/structure/display_table_stats.twig:17
 msgid "Data"
@@ -6511,11 +6534,43 @@ msgstr "phpMyAdmin nustatymų saugykla išjungta. %sIšsiaiškinkite kodėl%s."
 msgid "Access denied!"
 msgstr "Priėjimas uždraustas!"
 
-#: libraries/classes/Controllers/Database/StructureController.php:257
+#: libraries/classes/Controllers/Database/StructureController.php:285
 msgid "Favorite List is full!"
 msgstr ""
 
-#: libraries/classes/Controllers/Database/StructureController.php:512
+#: libraries/classes/Controllers/Database/StructureController.php:389
+#: libraries/classes/Controllers/Table/RowActionController.php:78
+#: libraries/classes/Controllers/Table/StructureController.php:269
+#: templates/database/events/index.twig:82
+#: templates/database/events/index.twig:85
+#: templates/database/privileges/index.twig:112
+#: templates/database/privileges/index.twig:115
+#: templates/database/routines/list.twig:29
+#: templates/database/routines/list.twig:32
+#: templates/database/structure/check_all_tables.twig:2
+#: templates/database/structure/check_all_tables.twig:9
+#: templates/database/triggers/list.twig:32
+#: templates/database/triggers/list.twig:35 templates/select_all.twig:2
+#: templates/select_all.twig:6
+#: templates/server/privileges/users_overview.twig:103
+#: templates/server/privileges/users_overview.twig:106
+#: templates/table/privileges/index.twig:116
+#: templates/table/privileges/index.twig:119
+msgid "With selected:"
+msgstr "Pasirinktus:"
+
+#: libraries/classes/Controllers/Database/StructureController.php:833
+msgid "Success!"
+msgstr ""
+
+#: libraries/classes/Controllers/Database/StructureController.php:836
+#: libraries/classes/Controllers/Table/OperationsController.php:310
+#: libraries/classes/Controllers/Table/ReplaceController.php:390
+#: libraries/classes/Core.php:836 templates/preview_sql.twig:3
+msgid "No change"
+msgstr "Nėra pakeitimų"
+
+#: libraries/classes/Controllers/Database/StructureController.php:1006
 #: templates/table/operations/index.twig:356
 #: templates/table/operations/view.twig:27
 #, fuzzy, php-format
@@ -6523,21 +6578,21 @@ msgstr ""
 msgid "View %s has been dropped."
 msgstr "Rodinys %s buvo panaikintas"
 
-#: libraries/classes/Controllers/Database/StructureController.php:513
+#: libraries/classes/Controllers/Database/StructureController.php:1007
 #: templates/table/operations/index.twig:356
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
 msgstr "Lentelė %s panaikinta"
 
-#: libraries/classes/Controllers/Database/StructureController.php:569
+#: libraries/classes/Controllers/Database/StructureController.php:1063
 #: templates/table/operations/index.twig:335
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Lentelės reikšmės %s ištuštintos."
 
-#: libraries/classes/Controllers/Database/StructureController.php:743
-#: libraries/classes/Display/Results.php:4543
+#: libraries/classes/Controllers/Database/StructureController.php:1237
+#: libraries/classes/Display/Results.php:4469
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -6546,7 +6601,7 @@ msgstr ""
 "Šis rodinys turi mažiausiai tiek eilučių. Daugiau informacijos "
 "%sdokumentacijoje%s."
 
-#: libraries/classes/Controllers/Database/StructureController.php:978
+#: libraries/classes/Controllers/Database/StructureController.php:1472
 msgid "unknown"
 msgstr "nežinoma"
 
@@ -6854,12 +6909,12 @@ msgstr "Vidinis sąryšis įdėtas"
 msgid "Two-factor authentication has been configured."
 msgstr "Blogai nustatytas identifikavimo metodas nustatymuose:"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:222
+#: libraries/classes/Controllers/Server/DatabasesController.php:239
 #, php-format
 msgid "Database %1$s has been created."
 msgstr "Duomenų bazė %1$s sukurta."
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:289
+#: libraries/classes/Controllers/Server/DatabasesController.php:318
 #, fuzzy, php-format
 #| msgid "%s databases have been dropped successfully."
 msgid "%1$d database has been dropped successfully."
@@ -6868,7 +6923,7 @@ msgstr[0] "Sėkmingai pašalintos %s duomenų bazės."
 msgstr[1] "Sėkmingai pašalintos %s duomenų bazės."
 msgstr[2] "Sėkmingai pašalintos %s duomenų bazės."
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:445
+#: libraries/classes/Controllers/Server/DatabasesController.php:474
 #: libraries/classes/Import.php:143
 #: templates/database/structure/table_header.twig:26
 #: templates/table/structure/display_partitions.twig:28
@@ -6877,7 +6932,7 @@ msgstr[2] "Sėkmingai pašalintos %s duomenų bazės."
 msgid "Rows"
 msgstr "Eilutės"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:455
+#: libraries/classes/Controllers/Server/DatabasesController.php:484
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:23
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:24
 #: templates/database/data_dictionary/index.twig:59 templates/indexes.twig:3
@@ -6887,7 +6942,7 @@ msgstr "Eilutės"
 msgid "Indexes"
 msgstr "Indeksai"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:460
+#: libraries/classes/Controllers/Server/DatabasesController.php:489
 #: libraries/classes/Controllers/Server/Status/StatusController.php:139
 #: libraries/classes/Controllers/Server/Status/StatusController.php:228
 #: libraries/classes/Engines/Innodb.php:166
@@ -6895,7 +6950,7 @@ msgstr "Indeksai"
 msgid "Total"
 msgstr "Iš viso"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:465
+#: libraries/classes/Controllers/Server/DatabasesController.php:494
 #: templates/database/structure/table_header.twig:38
 #: templates/table/structure/display_table_stats.twig:32
 msgid "Overhead"
@@ -6906,12 +6961,12 @@ msgid "View dump (schema) of databases"
 msgstr "Peržiūrėti duomenų bazių atvaizdį (schemą)"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:127
-#: libraries/classes/Server/Privileges.php:277
+#: libraries/classes/Server/Privileges.php:278
 msgid "Includes all privileges except GRANT."
 msgstr "Įtraukti visas teises, išskyrus GRANT."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:128
-#: libraries/classes/Server/Privileges.php:410
+#: libraries/classes/Server/Privileges.php:411
 #: templates/server/privileges/privileges_table.twig:161
 #: templates/server/privileges/privileges_table.twig:164
 #: templates/server/privileges/privileges_table.twig:356
@@ -6920,21 +6975,21 @@ msgid "Allows altering the structure of existing tables."
 msgstr "Leisti keisti jau egzistuojančių lenetelių struktūrą."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:129
-#: libraries/classes/Server/Privileges.php:496
+#: libraries/classes/Server/Privileges.php:497
 #: templates/server/privileges/privileges_table.twig:443
 #: templates/server/privileges/privileges_table.twig:446
 msgid "Allows altering and dropping stored routines."
 msgstr "Leisti keisti pašalinti saugimas programas (stored routines)."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:130
-#: libraries/classes/Server/Privileges.php:370
+#: libraries/classes/Server/Privileges.php:371
 #: templates/server/privileges/privileges_table.twig:335
 #: templates/server/privileges/privileges_table.twig:343
 msgid "Allows creating new databases and tables."
 msgstr "Leisti kurti naujas duomenų bazes ir lenteles."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:131
-#: libraries/classes/Server/Privileges.php:491
+#: libraries/classes/Server/Privileges.php:492
 #: templates/server/privileges/privileges_table.twig:430
 #: templates/server/privileges/privileges_table.twig:433
 msgid "Allows creating stored routines."
@@ -6949,22 +7004,22 @@ msgid "Allows creating new tables."
 msgstr "Leisti kurti naujas lenteles."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:133
-#: libraries/classes/Server/Privileges.php:429
+#: libraries/classes/Server/Privileges.php:430
 #: templates/server/privileges/privileges_table.twig:404
 #: templates/server/privileges/privileges_table.twig:407
 msgid "Allows creating temporary tables."
 msgstr "Leisti kurti laikinas lenteles."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:134
-#: libraries/classes/Server/Privileges.php:501
+#: libraries/classes/Server/Privileges.php:502
 #: templates/server/privileges/privileges_table.twig:682
 #: templates/server/privileges/privileges_table.twig:685
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Leidžia kurti, šalinti ir pervadinti vartotojus."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:135
-#: libraries/classes/Server/Privileges.php:449
-#: libraries/classes/Server/Privileges.php:465
+#: libraries/classes/Server/Privileges.php:450
+#: libraries/classes/Server/Privileges.php:466
 #: templates/server/privileges/privileges_table.twig:173
 #: templates/server/privileges/privileges_table.twig:176
 #: templates/server/privileges/privileges_table.twig:470
@@ -6975,7 +7030,7 @@ msgid "Allows creating new views."
 msgstr "Leidžia sukurti naujus rodinius (view)."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:136
-#: libraries/classes/Server/Privileges.php:365
+#: libraries/classes/Server/Privileges.php:366
 #: templates/server/privileges/privileges_table.twig:100
 #: templates/server/privileges/privileges_table.twig:103
 #: templates/server/privileges/privileges_table.twig:299
@@ -6984,8 +7039,8 @@ msgid "Allows deleting data."
 msgstr "Leisti šalinti duomenis."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:137
-#: libraries/classes/Server/Privileges.php:481
-#: libraries/classes/Server/Privileges.php:486
+#: libraries/classes/Server/Privileges.php:482
+#: libraries/classes/Server/Privileges.php:487
 #: templates/server/privileges/privileges_table.twig:210
 #: templates/server/privileges/privileges_table.twig:214
 #, fuzzy
@@ -6994,7 +7049,7 @@ msgid "Allows deleting historical rows."
 msgstr "Leisti šalinti duomenis."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:138
-#: libraries/classes/Server/Privileges.php:375
+#: libraries/classes/Server/Privileges.php:376
 #: templates/server/privileges/privileges_table.twig:383
 #: templates/server/privileges/privileges_table.twig:391
 msgid "Allows dropping databases and tables."
@@ -7009,7 +7064,7 @@ msgid "Allows dropping tables."
 msgstr "Leisti šalinti lenteles."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:140
-#: libraries/classes/Server/Privileges.php:454
+#: libraries/classes/Server/Privileges.php:455
 #: templates/server/privileges/privileges_table.twig:500
 #: templates/server/privileges/privileges_table.twig:503
 #, fuzzy
@@ -7018,14 +7073,14 @@ msgid "Allows to set up events for the event scheduler."
 msgstr "Leisti nustatyti įvykius įvykių planuoklėje (scheduler)"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:141
-#: libraries/classes/Server/Privileges.php:506
+#: libraries/classes/Server/Privileges.php:507
 #: templates/server/privileges/privileges_table.twig:456
 #: templates/server/privileges/privileges_table.twig:459
 msgid "Allows executing stored routines."
 msgstr "Leisti įvykdyti saugomas programas (stored routines)."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:142
-#: libraries/classes/Server/Privileges.php:395
+#: libraries/classes/Server/Privileges.php:396
 #: templates/server/privileges/privileges_table.twig:313
 #: templates/server/privileges/privileges_table.twig:316
 msgid "Allows importing data from and exporting data into files."
@@ -7042,7 +7097,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:147
-#: libraries/classes/Server/Privileges.php:405
+#: libraries/classes/Server/Privileges.php:406
 #: templates/server/privileges/privileges_table.twig:149
 #: templates/server/privileges/privileges_table.twig:152
 #: templates/server/privileges/privileges_table.twig:369
@@ -7051,7 +7106,7 @@ msgid "Allows creating and dropping indexes."
 msgstr "Leisti įterpti ir modifikuoti indeksus."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:148
-#: libraries/classes/Server/Privileges.php:355
+#: libraries/classes/Server/Privileges.php:356
 #: templates/server/privileges/privileges_table.twig:36
 #: templates/server/privileges/privileges_table.twig:273
 #: templates/server/privileges/privileges_table.twig:276
@@ -7059,7 +7114,7 @@ msgid "Allows inserting and replacing data."
 msgstr "Leisti įterpti ir modifikuoti duomenis."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:149
-#: libraries/classes/Server/Privileges.php:434
+#: libraries/classes/Server/Privileges.php:435
 #: templates/server/privileges/privileges_table.twig:629
 #: templates/server/privileges/privileges_table.twig:632
 msgid "Allows locking tables for the current thread."
@@ -7096,7 +7151,7 @@ msgid "Limits the number of simultaneous connections the user may have."
 msgstr "Riboti skaičių lygiagrečių prisijungimų kurį naudotojai gali turėti."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:163
-#: libraries/classes/Server/Privileges.php:390
+#: libraries/classes/Server/Privileges.php:391
 #: templates/server/privileges/privileges_table.twig:562
 #: templates/server/privileges/privileges_table.twig:565
 #, fuzzy
@@ -7105,7 +7160,7 @@ msgid "Allows viewing processes of all users."
 msgstr "Leisti peržiūrėti procesus visiems naudotojams"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:164
-#: libraries/classes/Server/Privileges.php:400
+#: libraries/classes/Server/Privileges.php:401
 #: templates/server/privileges/privileges_table.twig:78
 #: templates/server/privileges/privileges_table.twig:642
 #: templates/server/privileges/privileges_table.twig:645
@@ -7113,7 +7168,7 @@ msgid "Has no effect in this MySQL version."
 msgstr "Negalioja šioje MySQL versijoje."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:166
-#: libraries/classes/Server/Privileges.php:380
+#: libraries/classes/Server/Privileges.php:381
 #: templates/server/privileges/privileges_table.twig:575
 #: templates/server/privileges/privileges_table.twig:578
 msgid "Allows reloading server settings and flushing the server's caches."
@@ -7121,7 +7176,7 @@ msgstr ""
 "Leisti perkrauti serverio nustatymus, bei išvalyti laikinąją atmintį (cache)."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:169
-#: libraries/classes/Server/Privileges.php:444
+#: libraries/classes/Server/Privileges.php:445
 #: templates/server/privileges/privileges_table.twig:656
 #: templates/server/privileges/privileges_table.twig:659
 msgid "Allows the user to ask where the slaves / masters are."
@@ -7129,14 +7184,14 @@ msgstr ""
 "Leisti vartotojo užklausas dėl atstatymo master / slave darbinių stočių."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:171
-#: libraries/classes/Server/Privileges.php:439
+#: libraries/classes/Server/Privileges.php:440
 #: templates/server/privileges/privileges_table.twig:669
 #: templates/server/privileges/privileges_table.twig:672
 msgid "Needed for the replication slaves."
 msgstr ""
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:172
-#: libraries/classes/Server/Privileges.php:350
+#: libraries/classes/Server/Privileges.php:351
 #: templates/server/privileges/privileges_table.twig:15
 #: templates/server/privileges/privileges_table.twig:260
 #: templates/server/privileges/privileges_table.twig:263
@@ -7144,15 +7199,15 @@ msgid "Allows reading data."
 msgstr "Leisti skaityti duomenis."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:173
-#: libraries/classes/Server/Privileges.php:415
+#: libraries/classes/Server/Privileges.php:416
 #: templates/server/privileges/privileges_table.twig:601
 #: templates/server/privileges/privileges_table.twig:604
 msgid "Gives access to the complete list of databases."
 msgstr "Suteikti prieigą prie visų duomenų bazių sąrašo."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:174
-#: libraries/classes/Server/Privileges.php:470
-#: libraries/classes/Server/Privileges.php:476
+#: libraries/classes/Server/Privileges.php:471
+#: libraries/classes/Server/Privileges.php:477
 #: templates/server/privileges/privileges_table.twig:185
 #: templates/server/privileges/privileges_table.twig:188
 #: templates/server/privileges/privileges_table.twig:417
@@ -7161,14 +7216,14 @@ msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Leidžia vykdyti SHOW CREATE VIEW užklausas."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:175
-#: libraries/classes/Server/Privileges.php:385
+#: libraries/classes/Server/Privileges.php:386
 #: templates/server/privileges/privileges_table.twig:588
 #: templates/server/privileges/privileges_table.twig:591
 msgid "Allows shutting down the server."
 msgstr "Leisti išjungti serverį."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:177
-#: libraries/classes/Server/Privileges.php:421
+#: libraries/classes/Server/Privileges.php:422
 #: templates/server/privileges/privileges_table.twig:548
 #: templates/server/privileges/privileges_table.twig:552
 msgid ""
@@ -7181,7 +7236,7 @@ msgstr ""
 "vartotojų atjungimui."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:181
-#: libraries/classes/Server/Privileges.php:459
+#: libraries/classes/Server/Privileges.php:460
 #: templates/server/privileges/privileges_table.twig:197
 #: templates/server/privileges/privileges_table.twig:200
 #: templates/server/privileges/privileges_table.twig:513
@@ -7192,7 +7247,7 @@ msgid "Allows creating and dropping triggers."
 msgstr "Leisti įterpti ir pašalinti trigerius"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:182
-#: libraries/classes/Server/Privileges.php:360
+#: libraries/classes/Server/Privileges.php:361
 #: templates/server/privileges/privileges_table.twig:57
 #: templates/server/privileges/privileges_table.twig:286
 #: templates/server/privileges/privileges_table.twig:289
@@ -7204,24 +7259,24 @@ msgstr "Leisti modifikuoti duomenis."
 msgid "No privileges."
 msgstr "Be teisių."
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:213
+#: libraries/classes/Controllers/Server/PrivilegesController.php:211
 #: libraries/classes/Controllers/Server/UserGroupsController.php:52
 msgid "No Privileges"
 msgstr "Nėra privilegijų"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:220
+#: libraries/classes/Controllers/Server/PrivilegesController.php:218
 #, fuzzy
 #| msgid "You do not have the necessary privileges to create an event"
 msgid "You do not have the privileges to administrate the users!"
 msgstr "Neturite pakankamai teisių sukurti įvykį"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:234
+#: libraries/classes/Controllers/Server/PrivilegesController.php:232
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
 msgstr ""
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:483
+#: libraries/classes/Controllers/Server/PrivilegesController.php:481
 msgid "User has been added."
 msgstr "Naudotojas buvo pridėtas."
 
@@ -7242,7 +7297,7 @@ msgid "ID"
 msgstr "ID"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:132
-#: libraries/classes/Server/Privileges.php:2915
+#: libraries/classes/Server/Privileges.php:2916
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Naudotojas"
@@ -7940,9 +7995,9 @@ msgid "End of line"
 msgstr "Eilutės galas"
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:145
-#: libraries/classes/Controllers/Table/IndexesController.php:134
-#: libraries/classes/Controllers/Table/StructureController.php:751
-#: libraries/classes/Controllers/Table/StructureController.php:1016
+#: libraries/classes/Controllers/Table/IndexesController.php:132
+#: libraries/classes/Controllers/Table/StructureController.php:936
+#: libraries/classes/Controllers/Table/StructureController.php:1201
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Lentelė %1$s sėkmingai pakeista."
@@ -7956,7 +8011,7 @@ msgstr ""
 msgid "No numeric columns present in the table to plot."
 msgstr ""
 
-#: libraries/classes/Controllers/Table/ChartController.php:181
+#: libraries/classes/Controllers/Table/ChartController.php:179
 #, fuzzy
 #| msgid "No data"
 msgid "No data to display"
@@ -7977,12 +8032,13 @@ msgstr "Lentelė %s jau yra!"
 msgid "View dump (schema) of table"
 msgstr "Peržiūrėti lentelės struktūros atvaizdį"
 
-#: libraries/classes/Controllers/Table/FindReplaceController.php:182
-#: libraries/classes/Controllers/Table/RelationController.php:271
-#: libraries/classes/Controllers/Table/RowActionController.php:90
+#: libraries/classes/Controllers/Table/FindReplaceController.php:180
+#: libraries/classes/Controllers/Table/RelationController.php:269
+#: libraries/classes/Controllers/Table/RowActionController.php:214
 #: libraries/classes/Controllers/ViewOperationsController.php:76
-#: libraries/classes/Display/Results.php:4218 libraries/classes/Message.php:176
-#: libraries/classes/Rte/Routines.php:1488 templates/sql/query.twig:7
+#: libraries/classes/Database/Routines.php:1464
+#: libraries/classes/Display/Results.php:4144 libraries/classes/Message.php:176
+#: templates/sql/query.twig:7
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully."
 msgid "Your SQL query has been executed successfully."
@@ -7998,34 +8054,28 @@ msgid "There is an issue with your request."
 msgstr ""
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:64
+#: libraries/classes/Database/Routines.php:1485
 #: libraries/classes/Import.php:151 libraries/classes/InsertEdit.php:218
-#: libraries/classes/Rte/Routines.php:1509 libraries/classes/Sql.php:1218
+#: libraries/classes/Sql.php:1218
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL gražino tuščią rezultatų rinkinį (nėra eilučių)."
 
 #: libraries/classes/Controllers/Table/OperationsController.php:110
 #: libraries/classes/Controllers/Table/OperationsController.php:292
-#: libraries/classes/Controllers/Table/StructureController.php:116
+#: libraries/classes/Controllers/Table/StructureController.php:125
 #: libraries/classes/Navigation/Nodes/NodeView.php:28
 #: templates/database/structure/structure_table_row.twig:124
 #: templates/database/structure/structure_table_row.twig:188
 msgid "View"
 msgstr "Rodinys"
 
-#: libraries/classes/Controllers/Table/OperationsController.php:310
-#: libraries/classes/Controllers/Table/ReplaceController.php:390
-#: libraries/classes/Core.php:836 libraries/mult_submits.inc.php:362
-#: templates/preview_sql.twig:3
-msgid "No change"
-msgstr "Nėra pakeitimų"
-
-#: libraries/classes/Controllers/Table/RelationController.php:218
+#: libraries/classes/Controllers/Table/RelationController.php:216
 #, fuzzy
 #| msgid "Thread %s was successfully killed."
 msgid "Display column was successfully updated."
 msgstr "Gija %s buvo sėkmingai išjungta."
 
-#: libraries/classes/Controllers/Table/RelationController.php:300
+#: libraries/classes/Controllers/Table/RelationController.php:298
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationships were successfully updated."
@@ -8036,15 +8086,15 @@ msgstr "Vidinis sąryšis įdėtas"
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
 
-#: libraries/classes/Controllers/Table/RowActionController.php:64
-#: libraries/classes/Controllers/Table/RowActionController.php:140
-#: libraries/classes/Controllers/Table/RowActionController.php:169
+#: libraries/classes/Controllers/Table/RowActionController.php:54
+#: libraries/classes/Controllers/Table/RowActionController.php:260
+#: libraries/classes/Controllers/Table/RowActionController.php:287
 #, fuzzy
 #| msgid "No rows selected"
 msgid "No row selected."
 msgstr "Nepasirinkti įrašai"
 
-#: libraries/classes/Controllers/Table/StructureController.php:169
+#: libraries/classes/Controllers/Table/StructureController.php:178
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
@@ -8052,48 +8102,56 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: libraries/classes/Controllers/Table/StructureController.php:265
+#: libraries/classes/Controllers/Table/StructureController.php:453
 #, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
 msgstr "Nepasirinkti įrašai"
 
-#: libraries/classes/Controllers/Table/StructureController.php:479
+#: libraries/classes/Controllers/Table/StructureController.php:667
 #, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "The columns have been moved successfully."
 msgstr "Pažymėti vartotojai sėkmingai pašalinti."
 
-#: libraries/classes/Controllers/Table/StructureController.php:518
+#: libraries/classes/Controllers/Table/StructureController.php:705
 #, fuzzy, php-format
 #| msgid "Failed to fetch headers"
 msgid "Failed to get description of column %s!"
 msgstr "Nepavyko gauti/priimti antraščių"
 
-#: libraries/classes/Controllers/Table/StructureController.php:762
-#: libraries/classes/Controllers/Table/StructureController.php:1065
+#: libraries/classes/Controllers/Table/StructureController.php:947
+#: libraries/classes/Controllers/Table/StructureController.php:1250
 #: libraries/classes/Tracking.php:790
 msgid "Query error"
 msgstr "Užklausos klaida"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1010
+#: libraries/classes/Controllers/Table/StructureController.php:1195
 #, fuzzy, php-format
 #| msgid "Table %1$s has been altered successfully."
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "Lentelė %1$s sėkmingai pakeista."
 
-#: libraries/classes/Controllers/Table/StructureController.php:1241
+#: libraries/classes/Controllers/Table/StructureController.php:1426
 #: templates/table/structure/display_structure.twig:288
 msgid "Change"
 msgstr "Redaguoti"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1242
-#: libraries/classes/Controllers/Table/StructureController.php:1243
-#: libraries/classes/Operations.php:691 libraries/classes/Rte/RteList.php:192
-#: libraries/classes/Util.php:3151 libraries/classes/Util.php:3152
+#: libraries/classes/Controllers/Table/StructureController.php:1427
+#: libraries/classes/Controllers/Table/StructureController.php:1428
+#: libraries/classes/Operations.php:691 libraries/classes/Util.php:3151
+#: libraries/classes/Util.php:3152 templates/database/events/index.twig:64
+#: templates/database/events/index.twig:70
+#: templates/database/events/index.twig:88
+#: templates/database/events/row.twig:43 templates/database/events/row.twig:49
+#: templates/database/routines/list.twig:35
+#: templates/database/routines/parameter_row.twig:51
+#: templates/database/routines/row.twig:70
 #: templates/database/structure/check_all_tables.twig:16
-#: templates/indexes.twig:51 templates/rte/routines/parameter_row.twig:51
+#: templates/database/triggers/list.twig:38
+#: templates/database/triggers/row.twig:45
+#: templates/database/triggers/row.twig:51 templates/indexes.twig:51
 #: templates/server/databases/index.twig:304
 #: templates/table/relation/common_form.twig:273
 #: templates/table/relation/foreign_key_row.twig:26
@@ -8103,9 +8161,9 @@ msgstr "Redaguoti"
 msgid "Drop"
 msgstr "Šalinti"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1244
-#: libraries/classes/Controllers/Table/StructureController.php:1249
-#: libraries/classes/Controllers/Table/StructureController.php:1305
+#: libraries/classes/Controllers/Table/StructureController.php:1429
+#: libraries/classes/Controllers/Table/StructureController.php:1434
+#: libraries/classes/Controllers/Table/StructureController.php:1490
 #: templates/columns_definitions/column_indexes.twig:4
 #: templates/database/data_dictionary/index.twig:33
 #: templates/table/structure/display_structure.twig:304
@@ -8113,9 +8171,9 @@ msgstr "Šalinti"
 msgid "Primary"
 msgstr "Pirminis"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1245
-#: libraries/classes/Controllers/Table/StructureController.php:1250
-#: libraries/classes/Controllers/Table/StructureController.php:1310
+#: libraries/classes/Controllers/Table/StructureController.php:1430
+#: libraries/classes/Controllers/Table/StructureController.php:1435
+#: libraries/classes/Controllers/Table/StructureController.php:1495
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:28
 #: templates/columns_definitions/column_indexes.twig:12
 #: templates/columns_definitions/table_fields_definitions.twig:46
@@ -8125,8 +8183,8 @@ msgstr "Pirminis"
 msgid "Index"
 msgstr "Indeksas"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1246
-#: libraries/classes/Controllers/Table/StructureController.php:1251
+#: libraries/classes/Controllers/Table/StructureController.php:1431
+#: libraries/classes/Controllers/Table/StructureController.php:1436
 #: templates/columns_definitions/column_indexes.twig:8
 #: templates/database/data_dictionary/index.twig:67 templates/indexes.twig:17
 #: templates/table/relation/common_form.twig:239
@@ -8136,21 +8194,21 @@ msgstr "Indeksas"
 msgid "Unique"
 msgstr "Unikalus"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1247
-#: libraries/classes/Controllers/Table/StructureController.php:1252
+#: libraries/classes/Controllers/Table/StructureController.php:1432
+#: libraries/classes/Controllers/Table/StructureController.php:1437
 #: templates/columns_definitions/column_indexes.twig:20
 msgid "Spatial"
 msgstr ""
 
-#: libraries/classes/Controllers/Table/StructureController.php:1248
-#: libraries/classes/Controllers/Table/StructureController.php:1253
+#: libraries/classes/Controllers/Table/StructureController.php:1433
+#: libraries/classes/Controllers/Table/StructureController.php:1438
 #: templates/columns_definitions/column_indexes.twig:16
 #: templates/table/structure/display_structure.twig:325
 #: templates/table/structure/display_structure.twig:337
 msgid "Fulltext"
 msgstr "Fulltext"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1254
+#: libraries/classes/Controllers/Table/StructureController.php:1439
 #, fuzzy
 #| msgid "Browse distinct values"
 msgid "Distinct values"
@@ -8306,6 +8364,140 @@ msgstr "Vidinis sąryšis įdėtas"
 msgid "Could not load schema plugins, please check your installation!"
 msgstr "Nepavyko įkelti importuotų įskiepių, prašome patikrinti įdiegimą!"
 
+#: libraries/classes/Database/Events.php:109
+#: libraries/classes/Database/Events.php:118
+#: libraries/classes/Database/Events.php:142
+#: libraries/classes/Database/Routines.php:295
+#: libraries/classes/Database/Routines.php:319
+#: libraries/classes/Database/Routines.php:433
+#: libraries/classes/Database/Routines.php:1493
+#: libraries/classes/Database/Triggers.php:130
+#: libraries/classes/Database/Triggers.php:139
+#: libraries/classes/Database/Triggers.php:164
+#, php-format
+msgid "The following query has failed: \"%s\""
+msgstr "Sekančios užklausos nepavyko: „%s“"
+
+#: libraries/classes/Database/Events.php:113
+#: libraries/classes/Database/Events.php:122
+#: libraries/classes/Database/Events.php:146
+#: libraries/classes/Database/Events.php:531
+#: libraries/classes/Database/Routines.php:299
+#: libraries/classes/Database/Routines.php:323
+#: libraries/classes/Database/Routines.php:437
+#: libraries/classes/Database/Routines.php:1497
+#: libraries/classes/Database/Routines.php:1835
+#: libraries/classes/Database/Triggers.php:134
+#: libraries/classes/Database/Triggers.php:143
+#: libraries/classes/Database/Triggers.php:168
+#: libraries/classes/Database/Triggers.php:540
+#: libraries/classes/Html/Generator.php:1096
+msgid "MySQL said: "
+msgstr "MySQL atsakymas: "
+
+#: libraries/classes/Database/Events.php:129
+#, php-format
+msgid "Event %1$s has been modified."
+msgstr "Įvykis %1$s buvo pakeistas."
+
+#: libraries/classes/Database/Events.php:149
+#, php-format
+msgid "Event %1$s has been created."
+msgstr "Įvykis %1$s buvo sukurtas."
+
+#: libraries/classes/Database/Events.php:163
+#: libraries/classes/Database/Routines.php:339
+#: libraries/classes/Database/Triggers.php:185
+#, fuzzy
+#| msgid ""
+#| "<b>One or more errors have occured while processing your request:</b>"
+msgid "One or more errors have occurred while processing your request:"
+msgstr "<b>Viena ar daugiau klaidų įvyko vykdant Jūsų užklausą:</b>"
+
+#: libraries/classes/Database/Events.php:231
+#: templates/database/events/index.twig:101
+#: templates/database/events/index.twig:105
+msgid "Add event"
+msgstr "Pridėti įvykį"
+
+#: libraries/classes/Database/Events.php:235
+msgid "Edit event"
+msgstr "Redaguoti įvykį"
+
+#: libraries/classes/Database/Events.php:390
+#: libraries/classes/Database/Routines.php:1132
+#: libraries/classes/Database/Triggers.php:478
+msgid "The definer must be in the \"username@hostname\" format!"
+msgstr ""
+
+#: libraries/classes/Database/Events.php:397
+#, fuzzy
+#| msgid "You must provide a valid table name"
+msgid "You must provide an event name!"
+msgstr "Jūs privalote pateikti teisingą lentelės vardą"
+
+#: libraries/classes/Database/Events.php:412
+msgid "You must provide a valid interval value for the event."
+msgstr ""
+
+#: libraries/classes/Database/Events.php:431
+msgid "You must provide a valid execution time for the event."
+msgstr ""
+
+#: libraries/classes/Database/Events.php:435
+msgid "You must provide a valid type for the event."
+msgstr ""
+
+#: libraries/classes/Database/Events.php:459
+msgid "You must provide an event definition."
+msgstr ""
+
+#: libraries/classes/Database/Events.php:484
+msgid "OFF"
+msgstr "IŠJUNGTA"
+
+#: libraries/classes/Database/Events.php:489
+msgid "ON"
+msgstr "ĮJUNGTA"
+
+#: libraries/classes/Database/Events.php:528
+msgid "Sorry, we failed to restore the dropped event."
+msgstr "Atsiprašome, nepavyko atstatyti pašalinto įvykio."
+
+#: libraries/classes/Database/Events.php:529
+#: libraries/classes/Database/Routines.php:1833
+#: libraries/classes/Database/Triggers.php:538
+msgid "The backed up query was:"
+msgstr ""
+
+#: libraries/classes/Database/Events.php:560
+#: libraries/classes/Database/Routines.php:217
+#: libraries/classes/Database/Routines.php:1337
+#: libraries/classes/Database/Routines.php:1542
+#: libraries/classes/Database/Triggers.php:568
+#, fuzzy
+#| msgid "Error in processing request"
+msgid "Error in processing request:"
+msgstr "Klaida vykdant užklausą"
+
+#: libraries/classes/Database/Events.php:562
+#, fuzzy, php-format
+#| msgid "No event with name %1$s found in database %2$s"
+msgid "No event with name %1$s found in database %2$s."
+msgstr "Nėra įvykio su vardu %1$s duomenų bazėje %2$s"
+
+#: libraries/classes/Database/Events.php:595
+#, php-format
+msgid "Export of event %s"
+msgstr "Įvykio %s eksportavimas"
+
+#: libraries/classes/Database/Events.php:613
+#, fuzzy, php-format
+#| msgid "No event with name %1$s found in database %2$s"
+msgid ""
+"Error in processing request: No event with name %1$s found in database %2$s."
+msgstr "Nėra įvykio su vardu %1$s duomenų bazėje %2$s"
+
 #: libraries/classes/DatabaseInterface.php:1563
 #, php-format
 msgid ""
@@ -8411,6 +8603,304 @@ msgstr "Rodomos žymelės"
 msgid "Delete bookmark"
 msgstr "Ištrinti sąryšį"
 
+#: libraries/classes/Database/Routines.php:134
+msgid ""
+"You are using PHP's deprecated 'mysql' extension, which is not capable of "
+"handling multi queries. [strong]The execution of some stored routines may "
+"fail![/strong] Please use the improved 'mysqli' extension to avoid any "
+"problems."
+msgstr ""
+
+#: libraries/classes/Database/Routines.php:183
+#: templates/database/routines/footer.twig:7
+#: templates/database/routines/footer.twig:11
+msgid "Add routine"
+msgstr ""
+
+#: libraries/classes/Database/Routines.php:187
+#, fuzzy
+#| msgid "Edit mode"
+msgid "Edit routine"
+msgstr "Redagavimo režimas"
+
+#: libraries/classes/Database/Routines.php:220
+#, php-format
+msgid ""
+"No routine with name %1$s found in database %2$s. You might be lacking the "
+"necessary privileges to edit this routine."
+msgstr ""
+
+#: libraries/classes/Database/Routines.php:276
+#: libraries/classes/Database/Routines.php:1141
+#, fuzzy, php-format
+#| msgid "Invalid server index: %s"
+msgid "Invalid routine type: \"%s\""
+msgstr "Blogas serverio indeksas: %s"
+
+#: libraries/classes/Database/Routines.php:326
+#, fuzzy, php-format
+#| msgid "Table %1$s has been created."
+msgid "Routine %1$s has been created."
+msgstr "Sukurta %1$s lentelė."
+
+#: libraries/classes/Database/Routines.php:499
+#, fuzzy, php-format
+#| msgid "Column %s has been dropped."
+msgid "Routine %1$s has been modified. Privileges have been adjusted."
+msgstr "Stulpelis %s panaikintas"
+
+#: libraries/classes/Database/Routines.php:504
+#, fuzzy, php-format
+#| msgid "Column %s has been dropped."
+msgid "Routine %1$s has been modified."
+msgstr "Stulpelis %s panaikintas"
+
+#: libraries/classes/Database/Routines.php:906
+#: libraries/classes/Database/Triggers.php:379
+#: templates/database/events/editor_form.twig:9
+#: templates/database/events/editor_form.twig:12 templates/view_create.twig:8
+msgid "Details"
+msgstr "Detalės"
+
+#: libraries/classes/Database/Routines.php:909
+#, fuzzy
+#| msgid "Column names"
+msgid "Routine name"
+msgstr "Stulpelių vardai"
+
+#: libraries/classes/Database/Routines.php:928
+#: templates/database/events/editor_form.twig:41
+#, php-format
+msgid "Change to %s"
+msgstr "Pakeisti į %s"
+
+#: libraries/classes/Database/Routines.php:934
+msgid "Parameters"
+msgstr "Parametrai"
+
+#: libraries/classes/Database/Routines.php:942
+msgid "Direction"
+msgstr "Nukreipimas"
+
+#: libraries/classes/Database/Routines.php:946
+#: libraries/classes/Import.php:1280 libraries/classes/Import.php:1314
+#: libraries/classes/Plugins/Export/ExportCodegen.php:82
+#: libraries/classes/Plugins/Export/ExportCsv.php:46
+#: libraries/classes/Plugins/Export/ExportExcel.php:33
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:46
+#: libraries/classes/Plugins/Export/ExportJson.php:70
+#: libraries/classes/Plugins/Export/ExportLatex.php:71
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:45
+#: libraries/classes/Plugins/Export/ExportOds.php:51
+#: libraries/classes/Plugins/Export/ExportOdt.php:59
+#: libraries/classes/Plugins/Export/ExportPdf.php:82
+#: libraries/classes/Plugins/Export/ExportPhparray.php:44
+#: libraries/classes/Plugins/Export/ExportSql.php:105
+#: libraries/classes/Plugins/Export/ExportTexytext.php:45
+#: libraries/classes/Plugins/Export/ExportXml.php:85
+#: libraries/classes/Plugins/Export/ExportYaml.php:42
+#: libraries/classes/Plugins/Import/AbstractImportCsv.php:30
+#: libraries/classes/Plugins/Import/ImportMediawiki.php:59
+#: libraries/classes/Plugins/Import/ImportOds.php:51
+#: libraries/classes/Plugins/Import/ImportShp.php:63
+#: libraries/classes/Plugins/Import/ImportSql.php:44
+#: libraries/classes/Plugins/Import/ImportXml.php:50
+#: templates/console/display.twig:7 templates/console/display.twig:140
+#: templates/database/designer/database_tables.twig:114
+#: templates/display/results/options_block.twig:10
+#: templates/table/search/index.twig:98
+#: templates/table/structure/display_table_stats.twig:91
+msgid "Options"
+msgstr "Nustatymai"
+
+#: libraries/classes/Database/Routines.php:963
+msgid "Add parameter"
+msgstr "Pridėti parametrą"
+
+#: libraries/classes/Database/Routines.php:967
+msgid "Remove last parameter"
+msgstr "Pašalinti paskutinį parametrą"
+
+#: libraries/classes/Database/Routines.php:972
+msgid "Return type"
+msgstr "Gražinimo tipas"
+
+#: libraries/classes/Database/Routines.php:978
+msgid "Return length/values"
+msgstr "Grąžinimo Ilgis/reikšmės"
+
+#: libraries/classes/Database/Routines.php:984
+msgid "Return options"
+msgstr "Grąžinimo parametrai"
+
+#: libraries/classes/Database/Routines.php:987
+#: templates/database/routines/parameter_row.twig:31
+#: templates/database/structure/table_header.twig:42
+msgid "Charset"
+msgstr "Koduotė"
+
+#: libraries/classes/Database/Routines.php:1017
+#: libraries/classes/Database/Triggers.php:433
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:484
+#: libraries/classes/Plugins/Export/ExportOdt.php:626
+#: libraries/classes/Plugins/Export/ExportTexytext.php:464
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:364
+#: templates/database/events/editor_form.twig:75
+#, fuzzy
+#| msgid "Description"
+msgid "Definition"
+msgstr "Paaiškinimas"
+
+#: libraries/classes/Database/Routines.php:1023
+msgid "Is deterministic"
+msgstr "Yra apibrėžtas"
+
+#: libraries/classes/Database/Routines.php:1031
+#: templates/columns_definitions/table_fields_definitions.twig:36
+#: templates/database/operations/index.twig:74
+#: templates/database/operations/index.twig:178
+#: templates/mult_submits/copy_multiple_tables.twig:50
+#: templates/table/operations/index.twig:81
+#: templates/table/operations/index.twig:115
+#: templates/table/operations/index.twig:293
+#, fuzzy
+#| msgid "Edit Privileges"
+msgid "Adjust privileges"
+msgstr "Redaguoti privilegijas"
+
+#: libraries/classes/Database/Routines.php:1042
+msgid ""
+"You do not have sufficient privileges to perform this operation; Please "
+"refer to the documentation for more details"
+msgstr ""
+
+#: libraries/classes/Database/Routines.php:1052
+#: libraries/classes/Database/Triggers.php:439
+#: templates/database/events/editor_form.twig:89 templates/view_create.twig:45
+msgid "Definer"
+msgstr ""
+
+#: libraries/classes/Database/Routines.php:1057
+msgid "Security type"
+msgstr "Saugumo tipas"
+
+#: libraries/classes/Database/Routines.php:1066
+msgid "SQL data access"
+msgstr "SQL duomenų priėjimas"
+
+#: libraries/classes/Database/Routines.php:1078
+#: templates/columns_definitions/partitions.twig:85
+#: templates/database/data_dictionary/index.twig:73
+#: templates/database/events/editor_form.twig:95
+#: templates/database/structure/table_header.twig:46 templates/indexes.twig:23
+#: templates/table/relation/common_form.twig:245
+#: templates/table/structure/display_partitions.twig:31
+#: templates/table/structure/display_structure.twig:470
+#: templates/table/tracking/structure_snapshot_columns.twig:12
+#: templates/table/tracking/structure_snapshot_indexes.twig:13
+msgid "Comment"
+msgstr "Komentaras"
+
+#: libraries/classes/Database/Routines.php:1148
+#, fuzzy
+#| msgid "You must provide a valid table name"
+msgid "You must provide a routine name!"
+msgstr "Jūs privalote pateikti teisingą lentelės vardą"
+
+#: libraries/classes/Database/Routines.php:1182
+#, php-format
+msgid "Invalid direction \"%s\" given for parameter."
+msgstr ""
+
+#: libraries/classes/Database/Routines.php:1204
+#: libraries/classes/Database/Routines.php:1268
+msgid ""
+"You must provide length/values for routine parameters of type ENUM, SET, "
+"VARCHAR and VARBINARY."
+msgstr ""
+
+#: libraries/classes/Database/Routines.php:1232
+msgid "You must provide a name and a type for each routine parameter."
+msgstr ""
+
+#: libraries/classes/Database/Routines.php:1250
+msgid "You must provide a valid return type for the routine."
+msgstr ""
+
+#: libraries/classes/Database/Routines.php:1311
+msgid "You must provide a routine definition."
+msgstr ""
+
+#: libraries/classes/Database/Routines.php:1339
+#: libraries/classes/Database/Routines.php:1544
+#, fuzzy, php-format
+#| msgid "No event with name %1$s found in database %2$s"
+msgid "No routine with name %1$s found in database %2$s."
+msgstr "Nėra įvykio su vardu %1$s duomenų bazėje %2$s"
+
+#: libraries/classes/Database/Routines.php:1424
+#, php-format
+msgid "Execution results of routine %s"
+msgstr ""
+
+#: libraries/classes/Database/Routines.php:1472
+#, php-format
+msgid "%d row affected by the last statement inside the procedure."
+msgid_plural "%d rows affected by the last statement inside the procedure."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: libraries/classes/Database/Routines.php:1530
+#: libraries/classes/Database/Routines.php:1537
+msgid "Execute routine"
+msgstr ""
+
+#: libraries/classes/Database/Routines.php:1614
+#: libraries/classes/Database/Routines.php:1617
+msgid "Routine parameters"
+msgstr ""
+
+#: libraries/classes/Database/Routines.php:1624
+#: libraries/classes/InsertEdit.php:345
+#: libraries/classes/Navigation/Nodes/NodeFunction.php:28
+#: templates/table/search/index.twig:36
+#: templates/table/zoom_search/index.twig:36
+msgid "Function"
+msgstr "Funkcija"
+
+#: libraries/classes/Database/Routines.php:1626
+#: libraries/classes/InsertEdit.php:1986
+#: templates/database/designer/main.twig:488
+#: templates/database/designer/main.twig:653
+#: templates/database/designer/main.twig:859
+#: templates/database/designer/main.twig:1052
+#: templates/server/replication/status_table.twig:17
+#: templates/server/status/variables/index.twig:73
+#: templates/server/variables/index.twig:33
+#: templates/table/search/index.twig:42
+#: templates/table/zoom_search/index.twig:42
+#: templates/table/zoom_search/result_form.twig:34
+msgid "Value"
+msgstr "Reikšmė"
+
+#: libraries/classes/Database/Routines.php:1832
+msgid "Sorry, we failed to restore the dropped routine."
+msgstr ""
+
+#: libraries/classes/Database/Routines.php:1862
+#, php-format
+msgid "Export of routine %s"
+msgstr ""
+
+#: libraries/classes/Database/Routines.php:1881
+#, php-format
+msgid ""
+"Error in processing request: No routine with name %1$s found in database "
+"%2$s. You might be lacking the necessary privileges to view/export this "
+"routine."
+msgstr ""
+
 #: libraries/classes/Database/Search.php:110
 #: templates/database/search/main.twig:19
 msgid "at least one of the words"
@@ -8442,13 +8932,102 @@ msgstr "ištisa frazė"
 msgid "as regular expression"
 msgstr "kaip reguliarųjį išsireiškimą"
 
+#: libraries/classes/Database/Triggers.php:151
+#, php-format
+msgid "Trigger %1$s has been modified."
+msgstr ""
+
+#: libraries/classes/Database/Triggers.php:171
+#, php-format
+msgid "Trigger %1$s has been created."
+msgstr ""
+
+#: libraries/classes/Database/Triggers.php:256
+#: templates/database/triggers/footer.twig:7
+#: templates/database/triggers/footer.twig:11
+msgid "Add trigger"
+msgstr ""
+
+#: libraries/classes/Database/Triggers.php:260
+msgid "Edit trigger"
+msgstr ""
+
+#: libraries/classes/Database/Triggers.php:382
+msgid "Trigger name"
+msgstr ""
+
+#: libraries/classes/Database/Triggers.php:405
+msgctxt "Trigger action time"
+msgid "Time"
+msgstr "Laikas"
+
+#: libraries/classes/Database/Triggers.php:419
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:483
+#: libraries/classes/Plugins/Export/ExportOdt.php:623
+#: libraries/classes/Plugins/Export/ExportTexytext.php:463
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:362
+#: templates/database/triggers/list.twig:23
+msgid "Event"
+msgstr "Įvykis"
+
+#: libraries/classes/Database/Triggers.php:485
+#, fuzzy
+#| msgid "You must provide a valid table name"
+msgid "You must provide a trigger name!"
+msgstr "Jūs privalote pateikti teisingą lentelės vardą"
+
+#: libraries/classes/Database/Triggers.php:492
+#, fuzzy
+#| msgid "You must provide a valid table name"
+msgid "You must provide a valid timing for the trigger!"
+msgstr "Jūs privalote pateikti teisingą lentelės vardą"
+
+#: libraries/classes/Database/Triggers.php:499
+#, fuzzy
+#| msgid "You must provide a valid table name"
+msgid "You must provide a valid event for the trigger!"
+msgstr "Jūs privalote pateikti teisingą lentelės vardą"
+
+#: libraries/classes/Database/Triggers.php:507
+#, fuzzy
+#| msgid "You must provide a valid table name"
+msgid "You must provide a valid table name!"
+msgstr "Jūs privalote pateikti teisingą lentelės vardą"
+
+#: libraries/classes/Database/Triggers.php:513
+msgid "You must provide a trigger definition."
+msgstr ""
+
+#: libraries/classes/Database/Triggers.php:537
+msgid "Sorry, we failed to restore the dropped trigger."
+msgstr ""
+
+#: libraries/classes/Database/Triggers.php:570
+#, fuzzy, php-format
+#| msgid "No event with name %1$s found in database %2$s"
+msgid "No trigger with name %1$s found in database %2$s."
+msgstr "Nėra įvykio su vardu %1$s duomenų bazėje %2$s"
+
+#: libraries/classes/Database/Triggers.php:607
+#, php-format
+msgid "Export of trigger %s"
+msgstr ""
+
+#: libraries/classes/Database/Triggers.php:625
+#, fuzzy, php-format
+#| msgid "No event with name %1$s found in database %2$s"
+msgid ""
+"Error in processing request: No trigger with name %1$s found in database "
+"%2$s."
+msgstr "Nėra įvykio su vardu %1$s duomenų bazėje %2$s"
+
 #: libraries/classes/Dbal/DbiMysqli.php:183
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
 #: libraries/classes/Display/ChangePassword.php:88
-#: libraries/classes/Server/Privileges.php:803
-#: libraries/classes/Server/Privileges.php:877
+#: libraries/classes/Server/Privileges.php:804
+#: libraries/classes/Server/Privileges.php:878
 #, fuzzy
 #| msgid "Cookie authentication"
 msgid "Native MySQL authentication"
@@ -8591,66 +9170,66 @@ msgstr "Mažėjimo tvarka"
 msgid "Ascending"
 msgstr "Didėjimo tvarka"
 
-#: libraries/classes/Display/Results.php:3317
-#: libraries/classes/Display/Results.php:3332
+#: libraries/classes/Display/Results.php:3305
+#: libraries/classes/Display/Results.php:3320
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Eilutė buvo ištrinta"
 
-#: libraries/classes/Display/Results.php:3364
-#: libraries/classes/Display/Results.php:4678
+#: libraries/classes/Display/Results.php:3352
+#: libraries/classes/Display/Results.php:4604
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Stabdyti procesą"
 
-#: libraries/classes/Display/Results.php:4142
+#: libraries/classes/Display/Results.php:4068
 #, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Gali būti apytikslis. Žiūrėkite [doc@faq3-11]DUK 3.11[/doc]"
 
-#: libraries/classes/Display/Results.php:4555
+#: libraries/classes/Display/Results.php:4481
 #, fuzzy, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "Rodomi įrašai"
 
-#: libraries/classes/Display/Results.php:4569
+#: libraries/classes/Display/Results.php:4495
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:4574
+#: libraries/classes/Display/Results.php:4500
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%d total"
 msgstr "iš viso"
 
-#: libraries/classes/Display/Results.php:4586 libraries/classes/Sql.php:1224
+#: libraries/classes/Display/Results.php:4512 libraries/classes/Sql.php:1224
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "Užklausa užtruko %01.4f sek."
 
-#: libraries/classes/Display/Results.php:4829
+#: libraries/classes/Display/Results.php:4755
 msgid "Copy to clipboard"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:4887
+#: libraries/classes/Display/Results.php:4813
 msgid "Query results operations"
 msgstr "Veiksmai su užklausos rezultatais"
 
-#: libraries/classes/Display/Results.php:4980
+#: libraries/classes/Display/Results.php:4906
 #: templates/table/chart/tbl_chart.twig:10
 msgid "Display chart"
 msgstr "Rodyti diagramą"
 
-#: libraries/classes/Display/Results.php:5002
+#: libraries/classes/Display/Results.php:4928
 msgid "Visualize GIS data"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:5185
+#: libraries/classes/Display/Results.php:5111
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -9178,19 +9757,6 @@ msgstr "Statiniai duomenys"
 msgid "%d errors were found during analysis."
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:1096
-#: libraries/classes/Rte/Events.php:169 libraries/classes/Rte/Events.php:178
-#: libraries/classes/Rte/Events.php:209 libraries/classes/Rte/General.php:56
-#: libraries/classes/Rte/Routines.php:306
-#: libraries/classes/Rte/Routines.php:330
-#: libraries/classes/Rte/Routines.php:444
-#: libraries/classes/Rte/Routines.php:1521
-#: libraries/classes/Rte/Triggers.php:139
-#: libraries/classes/Rte/Triggers.php:148
-#: libraries/classes/Rte/Triggers.php:180
-msgid "MySQL said: "
-msgstr "MySQL atsakymas: "
-
 #: libraries/classes/Import.php:310 libraries/classes/Sql.php:1232
 msgid "[ROLLBACK occurred.]"
 msgstr ""
@@ -9220,37 +9786,6 @@ msgstr ""
 #| msgid "Edit its structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Keisti jo struktūrą spauskite „Struktūra“ nuorodą"
-
-#: libraries/classes/Import.php:1280 libraries/classes/Import.php:1314
-#: libraries/classes/Plugins/Export/ExportCodegen.php:82
-#: libraries/classes/Plugins/Export/ExportCsv.php:46
-#: libraries/classes/Plugins/Export/ExportExcel.php:33
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:46
-#: libraries/classes/Plugins/Export/ExportJson.php:70
-#: libraries/classes/Plugins/Export/ExportLatex.php:71
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:45
-#: libraries/classes/Plugins/Export/ExportOds.php:51
-#: libraries/classes/Plugins/Export/ExportOdt.php:59
-#: libraries/classes/Plugins/Export/ExportPdf.php:82
-#: libraries/classes/Plugins/Export/ExportPhparray.php:44
-#: libraries/classes/Plugins/Export/ExportSql.php:105
-#: libraries/classes/Plugins/Export/ExportTexytext.php:45
-#: libraries/classes/Plugins/Export/ExportXml.php:85
-#: libraries/classes/Plugins/Export/ExportYaml.php:42
-#: libraries/classes/Plugins/Import/AbstractImportCsv.php:30
-#: libraries/classes/Plugins/Import/ImportMediawiki.php:59
-#: libraries/classes/Plugins/Import/ImportOds.php:51
-#: libraries/classes/Plugins/Import/ImportShp.php:63
-#: libraries/classes/Plugins/Import/ImportSql.php:44
-#: libraries/classes/Plugins/Import/ImportXml.php:50
-#: libraries/classes/Rte/Routines.php:968 templates/console/display.twig:7
-#: templates/console/display.twig:140
-#: templates/database/designer/database_tables.twig:114
-#: templates/display/results/options_block.twig:10
-#: templates/table/search/index.twig:98
-#: templates/table/structure/display_table_stats.twig:91
-msgid "Options"
-msgstr "Nustatymai"
 
 #: libraries/classes/Import.php:1283
 #, fuzzy, php-format
@@ -9297,13 +9832,6 @@ msgid ""
 "removed."
 msgstr ""
 "Žurnalai %1$s ir %2$s atrodo vienodi ir vienas iš jų gali būti pašalintas."
-
-#: libraries/classes/InsertEdit.php:345
-#: libraries/classes/Navigation/Nodes/NodeFunction.php:28
-#: libraries/classes/Rte/Routines.php:1650 templates/table/search/index.twig:36
-#: templates/table/zoom_search/index.twig:36
-msgid "Function"
-msgstr "Funkcija"
 
 #: libraries/classes/InsertEdit.php:524
 msgid "Binary"
@@ -9422,21 +9950,6 @@ msgstr ""
 msgid "Column"
 msgstr "Stulpelis"
 
-#: libraries/classes/InsertEdit.php:1986
-#: libraries/classes/Rte/Routines.php:1652
-#: templates/database/designer/main.twig:488
-#: templates/database/designer/main.twig:653
-#: templates/database/designer/main.twig:859
-#: templates/database/designer/main.twig:1052
-#: templates/server/replication/status_table.twig:17
-#: templates/server/status/variables/index.twig:73
-#: templates/server/variables/index.twig:33
-#: templates/table/search/index.twig:42
-#: templates/table/zoom_search/index.twig:42
-#: templates/table/zoom_search/result_form.twig:34
-msgid "Value"
-msgstr "Reikšmė"
-
 #: libraries/classes/InsertEdit.php:2378 libraries/classes/Sql.php:1215
 msgid "Showing SQL query"
 msgstr "Rodoma SQL užklausa"
@@ -9498,7 +10011,7 @@ msgid "Insert"
 msgstr "Įterpti"
 
 #: libraries/classes/Menu.php:326 libraries/classes/Menu.php:444
-#: libraries/classes/Server/Privileges.php:2889 libraries/classes/Util.php:2482
+#: libraries/classes/Server/Privileges.php:2890 libraries/classes/Util.php:2482
 #: libraries/classes/Util.php:2498 libraries/config.values.php:160
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
@@ -9528,8 +10041,8 @@ msgstr "Sekimas"
 #: libraries/classes/Plugins/Export/ExportSql.php:2119
 #: libraries/classes/Plugins/Export/ExportTexytext.php:548
 #: libraries/classes/Plugins/Export/ExportXml.php:131
-#: libraries/classes/Rte/Words.php:60 libraries/classes/Util.php:2485
-#: libraries/classes/Util.php:2501
+#: libraries/classes/Util.php:2485 libraries/classes/Util.php:2501
+#: templates/database/triggers/list.twig:6
 msgid "Triggers"
 msgstr ""
 
@@ -9542,8 +10055,8 @@ msgstr "Duomenų bazė atrodo tuščia!"
 msgid "Query"
 msgstr "SQL užklausa"
 
-#: libraries/classes/Menu.php:450 libraries/classes/Rte/Words.php:46
-#: libraries/classes/Util.php:2483
+#: libraries/classes/Menu.php:450 libraries/classes/Util.php:2483
+#: templates/database/routines/list.twig:6
 msgid "Routines"
 msgstr ""
 
@@ -9551,7 +10064,7 @@ msgstr ""
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:23
 #: libraries/classes/Plugins/Export/ExportSql.php:1004
 #: libraries/classes/Plugins/Export/ExportXml.php:111
-#: libraries/classes/Rte/Words.php:74 libraries/classes/Util.php:2484
+#: libraries/classes/Util.php:2484 templates/database/events/index.twig:6
 msgid "Events"
 msgstr "Įvykiai"
 
@@ -9631,16 +10144,6 @@ msgstr[0] "Įterpta %1$d eilutė."
 msgstr[1] "Įterptos %1$d eilutės."
 msgstr[2] "Įterpta %1$d eilučių."
 msgstr[3] ""
-
-#: libraries/classes/MultSubmits.php:444
-msgid "Add prefix"
-msgstr "Pridėti priešdėlį"
-
-#: libraries/classes/MultSubmits.php:477
-#, fuzzy
-#| msgid "Do you really want to "
-msgid "Do you really want to execute the following query?"
-msgstr "Ar tikrai norite "
 
 #: libraries/classes/Navigation/Navigation.php:213
 #, fuzzy
@@ -9756,6 +10259,7 @@ msgid "Show hidden items"
 msgstr "Rodyti indeksus"
 
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:35
+#: templates/database/events/index.twig:96
 msgctxt "Create new event"
 msgid "New"
 msgstr ""
@@ -9789,7 +10293,6 @@ msgid "Procedures"
 msgstr "Procedūros"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:37
-#: libraries/classes/Rte/Footer.php:63
 msgctxt "Create new procedure"
 msgid "New"
 msgstr ""
@@ -9806,6 +10309,7 @@ msgid "New"
 msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:35
+#: templates/database/triggers/footer.twig:2
 msgctxt "Create new trigger"
 msgid "New"
 msgstr ""
@@ -10416,25 +10920,6 @@ msgstr "Sukurta duomenų kopija lentelei"
 #: templates/database/data_dictionary/index.twig:21
 msgid "Links to"
 msgstr "Sąryšis su"
-
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:483
-#: libraries/classes/Plugins/Export/ExportOdt.php:623
-#: libraries/classes/Plugins/Export/ExportTexytext.php:463
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:362
-#: libraries/classes/Rte/RteList.php:127 libraries/classes/Rte/Triggers.php:422
-msgid "Event"
-msgstr "Įvykis"
-
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:484
-#: libraries/classes/Plugins/Export/ExportOdt.php:626
-#: libraries/classes/Plugins/Export/ExportTexytext.php:464
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:364
-#: libraries/classes/Rte/Events.php:546 libraries/classes/Rte/Routines.php:1039
-#: libraries/classes/Rte/Triggers.php:436
-#, fuzzy
-#| msgid "Description"
-msgid "Definition"
-msgstr "Paaiškinimas"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:556
 #: libraries/classes/Plugins/Export/ExportOdt.php:705
@@ -11815,510 +12300,6 @@ msgstr "Iš duomenų bazės"
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
-#: libraries/classes/Rte/Events.php:165 libraries/classes/Rte/Events.php:174
-#: libraries/classes/Rte/Events.php:205 libraries/classes/Rte/Routines.php:302
-#: libraries/classes/Rte/Routines.php:326
-#: libraries/classes/Rte/Routines.php:440
-#: libraries/classes/Rte/Routines.php:1517
-#: libraries/classes/Rte/Triggers.php:135
-#: libraries/classes/Rte/Triggers.php:144
-#: libraries/classes/Rte/Triggers.php:176
-#, php-format
-msgid "The following query has failed: \"%s\""
-msgstr "Sekančios užklausos nepavyko: „%s“"
-
-#: libraries/classes/Rte/Events.php:185
-msgid "Sorry, we failed to restore the dropped event."
-msgstr "Atsiprašome, nepavyko atstatyti pašalinto įvykio."
-
-#: libraries/classes/Rte/Events.php:192
-#, php-format
-msgid "Event %1$s has been modified."
-msgstr "Įvykis %1$s buvo pakeistas."
-
-#: libraries/classes/Rte/Events.php:212
-#, php-format
-msgid "Event %1$s has been created."
-msgstr "Įvykis %1$s buvo sukurtas."
-
-#: libraries/classes/Rte/Events.php:226 libraries/classes/Rte/Routines.php:346
-#: libraries/classes/Rte/Triggers.php:197
-#, fuzzy
-#| msgid ""
-#| "<b>One or more errors have occured while processing your request:</b>"
-msgid "One or more errors have occurred while processing your request:"
-msgstr "<b>Viena ar daugiau klaidų įvyko vykdant Jūsų užklausą:</b>"
-
-#: libraries/classes/Rte/Events.php:284
-msgid "Edit event"
-msgstr "Redaguoti įvykį"
-
-#: libraries/classes/Rte/Events.php:451 libraries/classes/Rte/Routines.php:928
-#: libraries/classes/Rte/Triggers.php:382 templates/view_create.twig:8
-msgid "Details"
-msgstr "Detalės"
-
-#: libraries/classes/Rte/Events.php:454
-#, fuzzy
-#| msgid "Event type"
-msgid "Event name"
-msgstr "Įvykio tipas"
-
-#: libraries/classes/Rte/Events.php:475 templates/server/binlog/index.twig:86
-msgid "Event type"
-msgstr "Įvykio tipas"
-
-#: libraries/classes/Rte/Events.php:496 libraries/classes/Rte/Routines.php:950
-#, php-format
-msgid "Change to %s"
-msgstr "Pakeisti į %s"
-
-#: libraries/classes/Rte/Events.php:502
-msgid "Execute at"
-msgstr "Vykdyti"
-
-#: libraries/classes/Rte/Events.php:510
-msgid "Execute every"
-msgstr "Vykdyti kas"
-
-#: libraries/classes/Rte/Events.php:529
-#, fuzzy
-#| msgid "Start"
-msgctxt "Start of recurring event"
-msgid "Start"
-msgstr "Paleisti"
-
-#: libraries/classes/Rte/Events.php:538
-#, fuzzy
-#| msgid "End"
-msgctxt "End of recurring event"
-msgid "End"
-msgstr "Pabaiga"
-
-#: libraries/classes/Rte/Events.php:552
-msgid "On completion preserve"
-msgstr "Pabaigus išlaikyti"
-
-#: libraries/classes/Rte/Events.php:557 libraries/classes/Rte/Routines.php:1074
-#: libraries/classes/Rte/Triggers.php:442 templates/view_create.twig:45
-msgid "Definer"
-msgstr ""
-
-#: libraries/classes/Rte/Events.php:562 libraries/classes/Rte/Routines.php:1100
-#: templates/columns_definitions/partitions.twig:85
-#: templates/database/data_dictionary/index.twig:73
-#: templates/database/structure/table_header.twig:46 templates/indexes.twig:23
-#: templates/table/relation/common_form.twig:245
-#: templates/table/structure/display_partitions.twig:31
-#: templates/table/structure/display_structure.twig:470
-#: templates/table/tracking/structure_snapshot_columns.twig:12
-#: templates/table/tracking/structure_snapshot_indexes.twig:13
-msgid "Comment"
-msgstr "Komentaras"
-
-#: libraries/classes/Rte/Events.php:601 libraries/classes/Rte/Routines.php:1154
-#: libraries/classes/Rte/Triggers.php:481
-msgid "The definer must be in the \"username@hostname\" format!"
-msgstr ""
-
-#: libraries/classes/Rte/Events.php:608
-#, fuzzy
-#| msgid "You must provide a valid table name"
-msgid "You must provide an event name!"
-msgstr "Jūs privalote pateikti teisingą lentelės vardą"
-
-#: libraries/classes/Rte/Events.php:623
-msgid "You must provide a valid interval value for the event."
-msgstr ""
-
-#: libraries/classes/Rte/Events.php:642
-msgid "You must provide a valid execution time for the event."
-msgstr ""
-
-#: libraries/classes/Rte/Events.php:646
-msgid "You must provide a valid type for the event."
-msgstr ""
-
-#: libraries/classes/Rte/Events.php:670
-msgid "You must provide an event definition."
-msgstr ""
-
-#: libraries/classes/Rte/Export.php:69 libraries/classes/Rte/General.php:95
-#: libraries/classes/Rte/Routines.php:229
-#: libraries/classes/Rte/Routines.php:1361
-#: libraries/classes/Rte/Routines.php:1566
-#, fuzzy
-#| msgid "Error in processing request"
-msgid "Error in processing request:"
-msgstr "Klaida vykdant užklausą"
-
-#: libraries/classes/Rte/Footer.php:131
-msgid "OFF"
-msgstr "IŠJUNGTA"
-
-#: libraries/classes/Rte/Footer.php:136
-msgid "ON"
-msgstr "ĮJUNGTA"
-
-#: libraries/classes/Rte/Footer.php:148
-msgid "Event scheduler status"
-msgstr "Įvykių planuotojo būsena"
-
-#: libraries/classes/Rte/General.php:54
-msgid "The backed up query was:"
-msgstr ""
-
-#: libraries/classes/Rte/Routines.php:145
-msgid ""
-"You are using PHP's deprecated 'mysql' extension, which is not capable of "
-"handling multi queries. [strong]The execution of some stored routines may "
-"fail![/strong] Please use the improved 'mysqli' extension to avoid any "
-"problems."
-msgstr ""
-
-#: libraries/classes/Rte/Routines.php:199
-#, fuzzy
-#| msgid "Edit mode"
-msgid "Edit routine"
-msgstr "Redagavimo režimas"
-
-#: libraries/classes/Rte/Routines.php:283
-#: libraries/classes/Rte/Routines.php:1163
-#, fuzzy, php-format
-#| msgid "Invalid server index: %s"
-msgid "Invalid routine type: \"%s\""
-msgstr "Blogas serverio indeksas: %s"
-
-#: libraries/classes/Rte/Routines.php:333
-#, fuzzy, php-format
-#| msgid "Table %1$s has been created."
-msgid "Routine %1$s has been created."
-msgstr "Sukurta %1$s lentelė."
-
-#: libraries/classes/Rte/Routines.php:452
-msgid "Sorry, we failed to restore the dropped routine."
-msgstr ""
-
-#: libraries/classes/Rte/Routines.php:514
-#, fuzzy, php-format
-#| msgid "Column %s has been dropped."
-msgid "Routine %1$s has been modified. Privileges have been adjusted."
-msgstr "Stulpelis %s panaikintas"
-
-#: libraries/classes/Rte/Routines.php:519
-#, fuzzy, php-format
-#| msgid "Column %s has been dropped."
-msgid "Routine %1$s has been modified."
-msgstr "Stulpelis %s panaikintas"
-
-#: libraries/classes/Rte/Routines.php:931
-#, fuzzy
-#| msgid "Column names"
-msgid "Routine name"
-msgstr "Stulpelių vardai"
-
-#: libraries/classes/Rte/Routines.php:956
-msgid "Parameters"
-msgstr "Parametrai"
-
-#: libraries/classes/Rte/Routines.php:964
-msgid "Direction"
-msgstr "Nukreipimas"
-
-#: libraries/classes/Rte/Routines.php:985
-msgid "Add parameter"
-msgstr "Pridėti parametrą"
-
-#: libraries/classes/Rte/Routines.php:989
-msgid "Remove last parameter"
-msgstr "Pašalinti paskutinį parametrą"
-
-#: libraries/classes/Rte/Routines.php:994
-msgid "Return type"
-msgstr "Gražinimo tipas"
-
-#: libraries/classes/Rte/Routines.php:1000
-msgid "Return length/values"
-msgstr "Grąžinimo Ilgis/reikšmės"
-
-#: libraries/classes/Rte/Routines.php:1006
-msgid "Return options"
-msgstr "Grąžinimo parametrai"
-
-#: libraries/classes/Rte/Routines.php:1009
-#: templates/database/structure/table_header.twig:42
-#: templates/rte/routines/parameter_row.twig:31
-msgid "Charset"
-msgstr "Koduotė"
-
-#: libraries/classes/Rte/Routines.php:1045
-msgid "Is deterministic"
-msgstr "Yra apibrėžtas"
-
-#: libraries/classes/Rte/Routines.php:1053
-#: templates/columns_definitions/table_fields_definitions.twig:36
-#: templates/database/operations/index.twig:74
-#: templates/database/operations/index.twig:178
-#: templates/mult_submits/copy_multiple_tables.twig:50
-#: templates/table/operations/index.twig:81
-#: templates/table/operations/index.twig:115
-#: templates/table/operations/index.twig:293
-#, fuzzy
-#| msgid "Edit Privileges"
-msgid "Adjust privileges"
-msgstr "Redaguoti privilegijas"
-
-#: libraries/classes/Rte/Routines.php:1064
-msgid ""
-"You do not have sufficient privileges to perform this operation; Please "
-"refer to the documentation for more details"
-msgstr ""
-
-#: libraries/classes/Rte/Routines.php:1079
-msgid "Security type"
-msgstr "Saugumo tipas"
-
-#: libraries/classes/Rte/Routines.php:1088
-msgid "SQL data access"
-msgstr "SQL duomenų priėjimas"
-
-#: libraries/classes/Rte/Routines.php:1170
-#, fuzzy
-#| msgid "You must provide a valid table name"
-msgid "You must provide a routine name!"
-msgstr "Jūs privalote pateikti teisingą lentelės vardą"
-
-#: libraries/classes/Rte/Routines.php:1204
-#, php-format
-msgid "Invalid direction \"%s\" given for parameter."
-msgstr ""
-
-#: libraries/classes/Rte/Routines.php:1226
-#: libraries/classes/Rte/Routines.php:1290
-msgid ""
-"You must provide length/values for routine parameters of type ENUM, SET, "
-"VARCHAR and VARBINARY."
-msgstr ""
-
-#: libraries/classes/Rte/Routines.php:1254
-msgid "You must provide a name and a type for each routine parameter."
-msgstr ""
-
-#: libraries/classes/Rte/Routines.php:1272
-msgid "You must provide a valid return type for the routine."
-msgstr ""
-
-#: libraries/classes/Rte/Routines.php:1333
-msgid "You must provide a routine definition."
-msgstr ""
-
-#: libraries/classes/Rte/Routines.php:1448
-#, php-format
-msgid "Execution results of routine %s"
-msgstr ""
-
-#: libraries/classes/Rte/Routines.php:1496
-#, php-format
-msgid "%d row affected by the last statement inside the procedure."
-msgid_plural "%d rows affected by the last statement inside the procedure."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-
-#: libraries/classes/Rte/Routines.php:1554
-#: libraries/classes/Rte/Routines.php:1561
-msgid "Execute routine"
-msgstr ""
-
-#: libraries/classes/Rte/Routines.php:1640
-#: libraries/classes/Rte/Routines.php:1643
-msgid "Routine parameters"
-msgstr ""
-
-#: libraries/classes/Rte/RteList.php:110 libraries/classes/Rte/RteList.php:125
-#: libraries/classes/Rte/RteList.php:138
-#: templates/database/central_columns/main.twig:234
-#: templates/database/privileges/index.twig:22
-#: templates/database/structure/table_header.twig:22
-#: templates/database/tracking/tables.twig:18
-#: templates/database/tracking/tables.twig:121 templates/indexes.twig:14
-#: templates/server/databases/index.twig:166
-#: templates/server/privileges/privileges_summary.twig:22
-#: templates/server/privileges/users_overview.twig:19
-#: templates/server/user_groups/user_groups.twig:21
-#: templates/server/variables/index.twig:31
-#: templates/table/privileges/index.twig:24
-#: templates/table/relation/common_form.twig:236
-#: templates/table/structure/display_partitions.twig:33
-#: templates/table/structure/display_structure.twig:34
-#: templates/table/structure/display_structure.twig:461
-#: templates/table/tracking/main.twig:32
-#: templates/table/tracking/report_table.twig:8
-msgid "Action"
-msgstr "Veiksmas"
-
-#: libraries/classes/Rte/RteList.php:112
-msgid "Returns"
-msgstr "Grąžina"
-
-#: libraries/classes/Rte/Triggers.php:156
-msgid "Sorry, we failed to restore the dropped trigger."
-msgstr ""
-
-#: libraries/classes/Rte/Triggers.php:163
-#, php-format
-msgid "Trigger %1$s has been modified."
-msgstr ""
-
-#: libraries/classes/Rte/Triggers.php:183
-#, php-format
-msgid "Trigger %1$s has been created."
-msgstr ""
-
-#: libraries/classes/Rte/Triggers.php:262
-msgid "Edit trigger"
-msgstr ""
-
-#: libraries/classes/Rte/Triggers.php:385
-msgid "Trigger name"
-msgstr ""
-
-#: libraries/classes/Rte/Triggers.php:408
-msgctxt "Trigger action time"
-msgid "Time"
-msgstr "Laikas"
-
-#: libraries/classes/Rte/Triggers.php:488
-#, fuzzy
-#| msgid "You must provide a valid table name"
-msgid "You must provide a trigger name!"
-msgstr "Jūs privalote pateikti teisingą lentelės vardą"
-
-#: libraries/classes/Rte/Triggers.php:495
-#, fuzzy
-#| msgid "You must provide a valid table name"
-msgid "You must provide a valid timing for the trigger!"
-msgstr "Jūs privalote pateikti teisingą lentelės vardą"
-
-#: libraries/classes/Rte/Triggers.php:502
-#, fuzzy
-#| msgid "You must provide a valid table name"
-msgid "You must provide a valid event for the trigger!"
-msgstr "Jūs privalote pateikti teisingą lentelės vardą"
-
-#: libraries/classes/Rte/Triggers.php:510
-#, fuzzy
-#| msgid "You must provide a valid table name"
-msgid "You must provide a valid table name!"
-msgstr "Jūs privalote pateikti teisingą lentelės vardą"
-
-#: libraries/classes/Rte/Triggers.php:516
-msgid "You must provide a trigger definition."
-msgstr ""
-
-#: libraries/classes/Rte/Words.php:29
-msgid "Add routine"
-msgstr ""
-
-#: libraries/classes/Rte/Words.php:31
-#, php-format
-msgid "Export of routine %s"
-msgstr ""
-
-#: libraries/classes/Rte/Words.php:32
-#: templates/database/privileges/index.twig:55
-#: templates/table/privileges/index.twig:59
-msgid "routine"
-msgstr ""
-
-#: libraries/classes/Rte/Words.php:34
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create an event"
-msgid "You do not have the necessary privileges to create a routine."
-msgstr "Neturite pakankamai teisių sukurti įvykį"
-
-#: libraries/classes/Rte/Words.php:37
-#, php-format
-msgid ""
-"No routine with name %1$s found in database %2$s. You might be lacking the "
-"necessary privileges to edit this routine."
-msgstr ""
-
-#: libraries/classes/Rte/Words.php:41
-#, php-format
-msgid ""
-"No routine with name %1$s found in database %2$s. You might be lacking the "
-"necessary privileges to view/export this routine."
-msgstr ""
-
-#: libraries/classes/Rte/Words.php:44
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s"
-msgid "No routine with name %1$s found in database %2$s."
-msgstr "Nėra įvykio su vardu %1$s duomenų bazėje %2$s"
-
-#: libraries/classes/Rte/Words.php:45
-msgid "There are no routines to display."
-msgstr ""
-
-#: libraries/classes/Rte/Words.php:51
-msgid "Add trigger"
-msgstr ""
-
-#: libraries/classes/Rte/Words.php:53
-#, php-format
-msgid "Export of trigger %s"
-msgstr ""
-
-#: libraries/classes/Rte/Words.php:54
-msgid "trigger"
-msgstr ""
-
-#: libraries/classes/Rte/Words.php:56
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create an event"
-msgid "You do not have the necessary privileges to create a trigger."
-msgstr "Neturite pakankamai teisių sukurti įvykį"
-
-#: libraries/classes/Rte/Words.php:58
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s"
-msgid "No trigger with name %1$s found in database %2$s."
-msgstr "Nėra įvykio su vardu %1$s duomenų bazėje %2$s"
-
-#: libraries/classes/Rte/Words.php:59
-msgid "There are no triggers to display."
-msgstr ""
-
-#: libraries/classes/Rte/Words.php:65
-msgid "Add event"
-msgstr "Pridėti įvykį"
-
-#: libraries/classes/Rte/Words.php:67
-#, php-format
-msgid "Export of event %s"
-msgstr "Įvykio %s eksportavimas"
-
-#: libraries/classes/Rte/Words.php:68
-msgid "event"
-msgstr "įvykis"
-
-#: libraries/classes/Rte/Words.php:70
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create an event"
-msgid "You do not have the necessary privileges to create an event."
-msgstr "Neturite pakankamai teisių sukurti įvykį"
-
-#: libraries/classes/Rte/Words.php:72
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s"
-msgid "No event with name %1$s found in database %2$s."
-msgstr "Nėra įvykio su vardu %1$s duomenų bazėje %2$s"
-
-#: libraries/classes/Rte/Words.php:73
-msgid "There are no events to display."
-msgstr "Nėra įvykių rodymui."
-
 #: libraries/classes/SavedSearches.php:270
 msgid "Please provide a name for this bookmarked search."
 msgstr ""
@@ -12350,29 +12331,29 @@ msgstr ""
 msgid "Error while loading the search."
 msgstr "Klaida perkeliant atsiųstą failą."
 
-#: libraries/classes/Server/Privileges.php:805
+#: libraries/classes/Server/Privileges.php:806
 #, fuzzy
 #| msgid "Signon authentication"
 msgid "SHA256 password authentication"
 msgstr "Prisijungimo tapatybės nustatymas"
 
-#: libraries/classes/Server/Privileges.php:1167
+#: libraries/classes/Server/Privileges.php:1168
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Vartotojo %s slaptažodis sėkmingai pakeistas."
 
-#: libraries/classes/Server/Privileges.php:1215
+#: libraries/classes/Server/Privileges.php:1216
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Jūs panaikinote privilegijas %s."
 
-#: libraries/classes/Server/Privileges.php:1544
+#: libraries/classes/Server/Privileges.php:1545
 #: templates/database/privileges/index.twig:122
 #: templates/table/privileges/index.twig:125
 msgid "Not enough privilege to view users."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1611
+#: libraries/classes/Server/Privileges.php:1612
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:72
@@ -12382,24 +12363,24 @@ msgstr ""
 msgid "Edit privileges"
 msgstr "Redaguoti privilegijas"
 
-#: libraries/classes/Server/Privileges.php:1614
+#: libraries/classes/Server/Privileges.php:1615
 msgid "Revoke"
 msgstr "Panaikinti"
 
-#: libraries/classes/Server/Privileges.php:1939
+#: libraries/classes/Server/Privileges.php:1940
 #: templates/server/privileges/privileges_table.twig:240
 msgid "Database-specific privileges"
 msgstr "Specifinės duomenų bazių privilegijos"
 
-#: libraries/classes/Server/Privileges.php:1945
+#: libraries/classes/Server/Privileges.php:1946
 #: templates/server/privileges/privileges_summary.twig:18
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:242
 msgid "Table-specific privileges"
 msgstr "Specifinės lentelių privilegijos"
 
-#: libraries/classes/Server/Privileges.php:1950
-#: libraries/classes/Server/Privileges.php:1952
+#: libraries/classes/Server/Privileges.php:1951
+#: libraries/classes/Server/Privileges.php:1953
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:58
@@ -12408,64 +12389,64 @@ msgstr "Specifinės lentelių privilegijos"
 msgid "Routine"
 msgstr "Stulpelių vardai"
 
-#: libraries/classes/Server/Privileges.php:1951
+#: libraries/classes/Server/Privileges.php:1952
 #: templates/server/privileges/edit_routine_privileges.twig:47
 #, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
 msgstr "Specifinės stulpelių privilegijos"
 
-#: libraries/classes/Server/Privileges.php:2289
+#: libraries/classes/Server/Privileges.php:2290
 msgid "No users selected for deleting!"
 msgstr "Nepasirinta vartotojų trynimui!"
 
-#: libraries/classes/Server/Privileges.php:2292
+#: libraries/classes/Server/Privileges.php:2293
 msgid "Reloading the privileges"
 msgstr "Perkraunamos privilegijos"
 
-#: libraries/classes/Server/Privileges.php:2311
+#: libraries/classes/Server/Privileges.php:2312
 msgid "The selected users have been deleted successfully."
 msgstr "Pažymėti vartotojai sėkmingai pašalinti."
 
-#: libraries/classes/Server/Privileges.php:2389
+#: libraries/classes/Server/Privileges.php:2390
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Jūs pakeitėte privilegijas %s."
 
-#: libraries/classes/Server/Privileges.php:2419
+#: libraries/classes/Server/Privileges.php:2420
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr "Nerasta jokių naudotojų."
 
-#: libraries/classes/Server/Privileges.php:2499
+#: libraries/classes/Server/Privileges.php:2500
 #, php-format
 msgid "Deleting %s"
 msgstr "Šaliname: %s"
 
-#: libraries/classes/Server/Privileges.php:2527
+#: libraries/classes/Server/Privileges.php:2528
 msgid "The privileges were reloaded successfully."
 msgstr "Teisės sėkmingai perkrautos."
 
-#: libraries/classes/Server/Privileges.php:2625
+#: libraries/classes/Server/Privileges.php:2626
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Vartotojas %s jau yra!"
 
-#: libraries/classes/Server/Privileges.php:2906
+#: libraries/classes/Server/Privileges.php:2907
 #, fuzzy, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "Privilegijos"
 
-#: libraries/classes/Server/Privileges.php:3049
+#: libraries/classes/Server/Privileges.php:3050
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:3092
+#: libraries/classes/Server/Privileges.php:3093
 #, fuzzy, php-format
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -12482,7 +12463,7 @@ msgstr ""
 "lentelės. Šiose lentelėse nurodytos teisės gali skirtis nuo nustatymų "
 "failuose nurodytų teisių. Todėl %sperkraukite teises%s, jeigu norite tęsti."
 
-#: libraries/classes/Server/Privileges.php:3108
+#: libraries/classes/Server/Privileges.php:3109
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -12500,7 +12481,7 @@ msgstr ""
 "lentelės. Šiose lentelėse nurodytos teisės gali skirtis nuo nustatymų "
 "failuose nurodytų teisių. Todėl %sperkraukite teises%s, jeigu norite tęsti."
 
-#: libraries/classes/Server/Privileges.php:3445
+#: libraries/classes/Server/Privileges.php:3446
 msgid "You have added a new user."
 msgstr "Jūs sukūrėte naują vartotoją."
 
@@ -13367,6 +13348,9 @@ msgid "Empty"
 msgstr "Išvalyti"
 
 #: libraries/classes/Util.php:3159 libraries/classes/Util.php:3160
+#: templates/database/routines/row.twig:32
+#: templates/database/routines/row.twig:42
+#: templates/database/routines/row.twig:46
 msgid "Execute"
 msgstr "Vykdyti"
 
@@ -13547,23 +13531,6 @@ msgstr "abu iš paminėtų"
 #: libraries/config.values.php:332
 msgid "neither of the above"
 msgstr "nei vieną iš paminėtų"
-
-#: libraries/mult_submits.inc.php:58
-#: templates/database/privileges/index.twig:112
-#: templates/database/privileges/index.twig:115
-#: templates/database/structure/check_all_tables.twig:2
-#: templates/database/structure/check_all_tables.twig:9
-#: templates/select_all.twig:2 templates/select_all.twig:6
-#: templates/server/privileges/users_overview.twig:103
-#: templates/server/privileges/users_overview.twig:106
-#: templates/table/privileges/index.twig:116
-#: templates/table/privileges/index.twig:119
-msgid "With selected:"
-msgstr "Pasirinktus:"
-
-#: libraries/mult_submits.inc.php:359
-msgid "Success!"
-msgstr ""
 
 #: setup/index.php:26
 msgid "Configuration already exists, setup is disabled!"
@@ -14129,6 +14096,29 @@ msgstr "Pasirinkite du stulpelius"
 msgid "Click to sort."
 msgstr "Spustelėkite surikiuoti."
 
+#: templates/database/central_columns/main.twig:234
+#: templates/database/events/index.twig:19
+#: templates/database/privileges/index.twig:22
+#: templates/database/routines/list.twig:18
+#: templates/database/structure/table_header.twig:22
+#: templates/database/tracking/tables.twig:18
+#: templates/database/tracking/tables.twig:121
+#: templates/database/triggers/list.twig:21 templates/indexes.twig:14
+#: templates/server/databases/index.twig:166
+#: templates/server/privileges/privileges_summary.twig:22
+#: templates/server/privileges/users_overview.twig:19
+#: templates/server/user_groups/user_groups.twig:21
+#: templates/server/variables/index.twig:31
+#: templates/table/privileges/index.twig:24
+#: templates/table/relation/common_form.twig:236
+#: templates/table/structure/display_partitions.twig:33
+#: templates/table/structure/display_structure.twig:34
+#: templates/table/structure/display_structure.twig:461
+#: templates/table/tracking/main.twig:32
+#: templates/table/tracking/report_table.twig:8
+msgid "Action"
+msgstr "Veiksmas"
+
 #: templates/database/create_table.twig:7
 #: templates/database/designer/main.twig:86
 #: templates/database/designer/main.twig:89
@@ -14410,6 +14400,72 @@ msgstr "Pasirinkite puslapį"
 msgid "Select Export Relational Type"
 msgstr "Pasirinkti eksportavimo sąryšinį tipą"
 
+#: templates/database/events/editor_form.twig:28
+#: templates/server/binlog/index.twig:86
+msgid "Event type"
+msgstr "Įvykio tipas"
+
+#: templates/database/events/editor_form.twig:46
+msgid "Execute at"
+msgstr "Vykdyti"
+
+#: templates/database/events/editor_form.twig:52
+msgid "Execute every"
+msgstr "Vykdyti kas"
+
+#: templates/database/events/editor_form.twig:63
+#, fuzzy
+#| msgid "Start"
+msgctxt "Start of recurring event"
+msgid "Start"
+msgstr "Paleisti"
+
+#: templates/database/events/editor_form.twig:69
+#, fuzzy
+#| msgid "End"
+msgctxt "End of recurring event"
+msgid "End"
+msgstr "Pabaiga"
+
+#: templates/database/events/editor_form.twig:83
+msgid "On completion preserve"
+msgstr "Pabaigus išlaikyti"
+
+#: templates/database/events/index.twig:11
+msgid "There are no events to display."
+msgstr "Nėra įvykių rodymui."
+
+#: templates/database/events/index.twig:83
+#: templates/database/events/index.twig:84
+#: templates/database/privileges/index.twig:113
+#: templates/database/privileges/index.twig:114
+#: templates/database/routines/list.twig:30
+#: templates/database/routines/list.twig:31
+#: templates/database/structure/check_all_tables.twig:3
+#: templates/database/structure/check_all_tables.twig:4
+#: templates/database/triggers/list.twig:33
+#: templates/database/triggers/list.twig:34 templates/select_all.twig:4
+#: templates/select_all.twig:5
+#: templates/server/privileges/edit_routine_privileges.twig:57
+#: templates/server/privileges/privileges_table.twig:244
+#: templates/server/privileges/privileges_table.twig:245
+#: templates/server/privileges/privileges_table.twig:253
+#: templates/server/privileges/privileges_table.twig:327
+#: templates/server/privileges/privileges_table.twig:527
+#: templates/server/privileges/users_overview.twig:104
+#: templates/server/privileges/users_overview.twig:105
+#: templates/server/user_groups/edit_user_groups.twig:11
+#: templates/table/privileges/index.twig:117
+#: templates/table/privileges/index.twig:118
+#, fuzzy
+#| msgid "Check All"
+msgid "Check all"
+msgstr "Pažymėti visas"
+
+#: templates/database/events/index.twig:112
+msgid "Event scheduler status"
+msgstr "Įvykių planuotojo būsena"
+
 #: templates/database/multi_table_query/form.twig:4
 #: templates/database/qbe/index.twig:4
 #, fuzzy
@@ -14628,26 +14684,10 @@ msgstr "tam tikros duomenų bazės"
 msgid "wildcard"
 msgstr "pakaitos simbolis"
 
-#: templates/database/privileges/index.twig:113
-#: templates/database/privileges/index.twig:114
-#: templates/database/structure/check_all_tables.twig:3
-#: templates/database/structure/check_all_tables.twig:4
-#: templates/select_all.twig:4 templates/select_all.twig:5
-#: templates/server/privileges/edit_routine_privileges.twig:57
-#: templates/server/privileges/privileges_table.twig:244
-#: templates/server/privileges/privileges_table.twig:245
-#: templates/server/privileges/privileges_table.twig:253
-#: templates/server/privileges/privileges_table.twig:327
-#: templates/server/privileges/privileges_table.twig:527
-#: templates/server/privileges/users_overview.twig:104
-#: templates/server/privileges/users_overview.twig:105
-#: templates/server/user_groups/edit_user_groups.twig:11
-#: templates/table/privileges/index.twig:117
-#: templates/table/privileges/index.twig:118
-#, fuzzy
-#| msgid "Check All"
-msgid "Check all"
-msgstr "Pažymėti visas"
+#: templates/database/privileges/index.twig:55
+#: templates/table/privileges/index.twig:59
+msgid "routine"
+msgstr ""
 
 #: templates/database/privileges/index.twig:129
 #: templates/server/privileges/add_user_fieldset.twig:4
@@ -14756,6 +14796,19 @@ msgstr "Naudoti lenteles"
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
 msgstr "SQL-užklausa duomenų bazėje <b>%s</b>:"
+
+#: templates/database/routines/footer.twig:2
+msgctxt "Create new routine"
+msgid "New"
+msgstr ""
+
+#: templates/database/routines/list.twig:11
+msgid "There are no routines to display."
+msgstr ""
+
+#: templates/database/routines/list.twig:20
+msgid "Returns"
+msgstr "Grąžina"
 
 #: templates/database/search/main.twig:5
 msgid "Search in database"
@@ -14989,12 +15042,16 @@ msgstr "Nesekamos lentelės"
 msgid "Track table"
 msgstr "Sekti lentelę"
 
+#: templates/database/triggers/list.twig:11
+msgid "There are no triggers to display."
+msgstr ""
+
 #: templates/display/change_password/file_a.twig:14
 msgid "No Password"
 msgstr "Nėra slaptažodžio"
 
 #: templates/display/change_password/file_a.twig:20
-#: templates/login/form.twig:55
+#: templates/login/form.twig:57
 #: templates/server/privileges/login_information_fields.twig:43
 #: templates/server/replication/change_master.twig:18
 #: templates/server/replication/master_add_slave_user.twig:49
@@ -15952,15 +16009,15 @@ msgstr "Neteisingas jungties skaičius"
 msgid "Log in"
 msgstr "Prisijungti"
 
-#: templates/login/form.twig:36 templates/login/form.twig:40
+#: templates/login/form.twig:36 templates/login/form.twig:41
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr "Jūs galite įvesti serverio vardą/IP adresą ir prievadą atskirtą tarpu."
 
-#: templates/login/form.twig:46
+#: templates/login/form.twig:48
 msgid "Username:"
 msgstr "Naudotojo vardas:"
 
-#: templates/login/form.twig:65
+#: templates/login/form.twig:67
 #, fuzzy
 #| msgid "Server Choice"
 msgid "Server choice:"
@@ -16032,6 +16089,11 @@ msgstr ""
 msgid "View:"
 msgstr "Rodinys (Views)"
 
+#: templates/mult_submits/add_prefix_table.twig:7
+#: templates/mult_submits/add_prefix_table.twig:9
+msgid "Add prefix"
+msgstr "Pridėti priešdėlį"
+
 #: templates/mult_submits/copy_multiple_tables.twig:14
 #, fuzzy
 #| msgid "Options"
@@ -16043,6 +16105,12 @@ msgstr "Nustatymai"
 #| msgid "Add AUTO_INCREMENT value"
 msgid "Add AUTO INCREMENT value"
 msgstr "Pridėti AUTO_INCREMENT reikšmę"
+
+#: templates/mult_submits/other_actions.twig:6
+#, fuzzy
+#| msgid "Do you really want to "
+msgid "Do you really want to execute the following query?"
+msgstr "Ar tikrai norite "
 
 #: templates/mult_submits/replace_prefix_table.twig:7
 msgid "From"
@@ -19672,6 +19740,29 @@ msgstr ""
 #: libraries/advisory_rules_mysql_before80003.txt:57
 msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Event type"
+#~ msgid "Event name"
+#~ msgstr "Įvykio tipas"
+
+#, fuzzy
+#~| msgid "You do not have the necessary privileges to create an event"
+#~ msgid "You do not have the necessary privileges to create a routine."
+#~ msgstr "Neturite pakankamai teisių sukurti įvykį"
+
+#, fuzzy
+#~| msgid "You do not have the necessary privileges to create an event"
+#~ msgid "You do not have the necessary privileges to create a trigger."
+#~ msgstr "Neturite pakankamai teisių sukurti įvykį"
+
+#~ msgid "event"
+#~ msgstr "įvykis"
+
+#, fuzzy
+#~| msgid "You do not have the necessary privileges to create an event"
+#~ msgid "You do not have the necessary privileges to create an event."
+#~ msgstr "Neturite pakankamai teisių sukurti įvykį"
 
 #~ msgid "Update Query"
 #~ msgstr "Atnaujinti užklausą"
