@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-04-25 11:22+0200\n"
-"PO-Revision-Date: 2020-04-10 08:09+0000\n"
-"Last-Translator: Oğuz Ersen <oguzersen@protonmail.com>\n"
+"PO-Revision-Date: 2020-04-26 21:11+0000\n"
+"Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
 "Language: tr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.0-dev\n"
+"X-Generator: Weblate 4.0.2-dev\n"
 
 #: js/messages.php:51
 msgid "Confirm"
@@ -7879,11 +7879,11 @@ msgid "Export of event %s"
 msgstr "%s olayını dışa aktarma"
 
 #: libraries/classes/Database/Events.php:613
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s."
+#, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
-msgstr "%2$s veritabanında %1$s adıyla olay bulunamadı."
+msgstr ""
+"İstek işlenirken hata oldu: %2$s veritabanında %1$s adıyla olay bulunamadı."
 
 #: libraries/classes/DatabaseInterface.php:1563
 #, php-format
@@ -8263,17 +8263,15 @@ msgid "Export of routine %s"
 msgstr "%s yordamını dışa aktarma"
 
 #: libraries/classes/Database/Routines.php:1881
-#, fuzzy, php-format
-#| msgid ""
-#| "No routine with name %1$s found in database %2$s. You might be lacking "
-#| "the necessary privileges to view/export this routine."
+#, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
 "%2$s. You might be lacking the necessary privileges to view/export this "
 "routine."
 msgstr ""
-"%2$s veritabanında bulunan %1$s adında yordam yok. Bu yordamı görüntülemek/"
-"dışa aktarmak için gerekli yetkiler yetersiz olabilir."
+"İstek işlenirken hata oldu: %2$s veritabanında bulunan %1$s adında yordam "
+"yok. Bu yordamı görüntülemek/dışa aktarmak için gerekli yetkiler yetersiz "
+"olabilir."
 
 #: libraries/classes/Database/Search.php:110
 #: templates/database/search/main.twig:19
@@ -8373,12 +8371,13 @@ msgid "Export of trigger %s"
 msgstr "%s tetikleyicisini dışa aktarma"
 
 #: libraries/classes/Database/Triggers.php:625
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s."
+#, php-format
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
 "%2$s."
-msgstr "%2$s veritabanında %1$s adıyla tetikleyici bulunamadı."
+msgstr ""
+"İstek işlenirken hata oldu: %2$s veritabanında %1$s adıyla tetikleyici "
+"bulunamadı."
 
 #: libraries/classes/Dbal/DbiMysqli.php:183
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -13722,9 +13721,6 @@ msgid "SQL query on database <b>%s</b>:"
 msgstr "<b>%s</b> veritabanındaki SQL sorgusu:"
 
 #: templates/database/routines/footer.twig:2
-#, fuzzy
-#| msgctxt "Create new column"
-#| msgid "New"
 msgctxt "Create new routine"
 msgid "New"
 msgstr "Yeni"
