@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-04-25 11:22+0200\n"
-"PO-Revision-Date: 2020-04-25 14:02+0000\n"
-"Last-Translator: Simon Picot <simonpicot06@gmail.com>\n"
+"PO-Revision-Date: 2020-04-26 21:11+0000\n"
+"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -8478,7 +8478,7 @@ msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
 "%2$s."
 msgstr ""
-"Erreur dans le traitement de la demande : Aucun déclencheur nommé %1$s n'a "
+"Erreur dans le traitement de la demande : aucun déclencheur nommé %1$s n'a "
 "été trouvé dans la base de données %2$s."
 
 #: libraries/classes/Dbal/DbiMysqli.php:183
@@ -13884,11 +13884,9 @@ msgid "SQL query on database <b>%s</b>:"
 msgstr "Requête SQL sur la base « <b>%s</b> » :"
 
 #: templates/database/routines/footer.twig:2
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new routine"
 msgid "New"
-msgstr "Créer"
+msgstr "Nouveau"
 
 #: templates/database/routines/list.twig:11
 msgid "There are no routines to display."
