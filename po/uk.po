@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-04-25 11:22+0200\n"
-"PO-Revision-Date: 2020-01-27 14:21+0000\n"
+"POT-Creation-Date: 2020-04-03 09:06+0200\n"
+"PO-Revision-Date: 2020-04-25 09:24+0000\n"
 "Last-Translator: Володимир Бриняк <bardvv@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/uk/>\n"
@@ -12,9 +12,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.11-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.0.2-dev\n"
 
 #: js/messages.php:51
 msgid "Confirm"
@@ -2692,7 +2692,7 @@ msgstr "двійковий"
 #: libraries/classes/Charsets/Collation.php:517
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "без заповнення"
 
 #: libraries/classes/Common.php:173
 #: libraries/classes/Controllers/Table/OperationsController.php:262
@@ -7701,17 +7701,13 @@ msgid "possible exploit"
 msgstr "можливе використання"
 
 #: libraries/classes/Database/Designer/Common.php:562
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr ""
-"Сховище конфігурації не готове через  елементи стовпців основного списку."
+"Сховище конфігурації phpMyAdmin не налаштовано для \"Відображення фунцій\"."
 
 #: libraries/classes/Database/Designer/Common.php:611
 msgid "Error: relationship already exists."
