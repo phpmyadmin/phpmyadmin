@@ -100,11 +100,9 @@
 
     {% if cfg_relation['relwork'] %}
         {% if is_foreign_key_supported(tbl_storage_engine) %}
-            {% include 'div_for_slider_effect.twig' with {
-                'id': 'ir_div',
-                'message': 'Internal relationships'|trans,
-                'initial_sliders_state': default_sliders_state
-            } only %}
+            <div id="ir_div"{% if default_sliders_state != 'disabled' -%}
+                {{- default_sliders_state == 'closed' ? ' style="display: none; overflow:auto;"' }} class="pma_auto_slider" title="{% trans 'Internal relationships' %}"
+            {%- endif %}>
         {% endif %}
 
         <fieldset>

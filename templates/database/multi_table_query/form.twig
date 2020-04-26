@@ -12,11 +12,8 @@
   </li>
 </ul>
 
-{% include 'div_for_slider_effect.twig' with {
-    'id': 'query_div',
-    'message': 'Query window'|trans,
-    'initial_sliders_state': 'open',
-} only %}
+<div id="query_div" class="pma_auto_slider" title="{% trans 'Query window' %}">
+
 <form action="" id="multi_table_query_form" class="multi_table_query_form query_form">
     <input type="hidden" id="db_name" value="{{ db }}">
     <fieldset>
@@ -52,11 +49,9 @@
                 <input type="checkbox"
                     title="{% trans 'Use this column in criteria' %}"
                     class="criteria_col">
-                {% include 'div_for_slider_effect.twig' with {
-                    'id': 'criteria_div' ~ id,
-                    'initial_sliders_state': 'closed',
-                    'message': 'criteria'|trans
-                } %}
+
+                <div id="criteria_div{{ id }}" class="pma_auto_slider" title="{% trans 'criteria' %}" style="display: none; overflow:auto;">
+
                 <div>
                     <table>
 
@@ -177,5 +172,5 @@
         <input class="btn btn-primary" type="button" id="submit_query" value="{% trans 'Submit query' %}">
     </fieldset>
 </form>
-</div>{# Slider div #}
+</div>
 <div id="sql_results"></div>

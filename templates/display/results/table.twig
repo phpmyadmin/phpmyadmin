@@ -28,11 +28,9 @@
       'display_options_form': 1
     }) }}
 
-    {% include 'div_for_slider_effect.twig' with {
-      'id': '',
-      'message': 'Options'|trans,
-      'initial_sliders_state': default_sliders_state
-    } only %}
+    <div{% if default_sliders_state != 'disabled' -%}
+      {{- default_sliders_state == 'closed' ? ' style="display: none; overflow:auto;"' }} class="pma_auto_slider" title="{% trans 'Options' %}"
+    {%- endif %}>
 
       <fieldset>
         <div class="formelement">
@@ -101,7 +99,7 @@
       <fieldset class="tblFooters">
         <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
       </fieldset>
-    </div>{# slider effect div #}
+    </div>
   </form>
 {% endif %}
 
