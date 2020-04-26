@@ -867,16 +867,9 @@ class Generator
             // be checked, which would reexecute an INSERT, for example
             if (! empty($refresh_link) && Util::profilingSupported()) {
                 $retval .= '<input type="hidden" name="profiling_form" value="1">';
-                $retval .= $template->render(
-                    'checkbox',
-                    [
-                        'html_field_name' => 'profiling',
-                        'label' => __('Profiling'),
-                        'checked' => isset($_SESSION['profiling']),
-                        'onclick' => true,
-                        'html_field_id' => '',
-                    ]
-                );
+                $retval .= '<input type="checkbox" name="profiling" id="profilingCheckbox" class="autosubmit"';
+                $retval .= isset($_SESSION['profiling']) ? ' checked' : '';
+                $retval .= '> <label for="profilingCheckbox">' . __('Profiling') . '</label>';
             }
             $retval .= '</form>';
 
