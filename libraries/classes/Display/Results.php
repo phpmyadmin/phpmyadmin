@@ -1192,7 +1192,7 @@ class Results
         $displayParams = $this->__get('display_params');
 
         // Output data needed for column reordering and show/hide column
-        $dataForResettingColumnOrder = $this->_getDataForResettingColumnOrder($analyzedSqlResults);
+        $columnOrder = $this->getDataForResettingColumnOrder($analyzedSqlResults);
 
         $displayParams['emptypre'] = 0;
         $displayParams['emptyafter'] = 0;
@@ -1202,9 +1202,9 @@ class Results
         $this->__set('display_params', $displayParams);
 
         // Display options (if we are not in print view)
-        $optionsBlock = '';
+        $optionsBlock = [];
         if (! (isset($printView) && ($printView == '1')) && ! $isLimitedDisplay) {
-            $optionsBlock = $this->_getOptionsBlock();
+            $optionsBlock = $this->getOptionsBlock();
 
             // prepare full/partial text button or link
             $fullOrPartialTextLink = $this->_getFullOrPartialTextButtonOrLink();
@@ -1248,8 +1248,8 @@ class Results
 
         return [
             'save_cells_at_once' => $GLOBALS['cfg']['SaveCellsAtOnce'],
-            'data_for_resetting_column_order' => $dataForResettingColumnOrder,
-            'options_block' => $optionsBlock,
+            'column_order' => $columnOrder,
+            'options' => $optionsBlock,
             'has_bulk_actions_form' => $displayParts['del_lnk'] === self::DELETE_ROW
                 || $displayParts['del_lnk'] === self::KILL_PROCESS,
             'button' => $buttonHtml,
@@ -1522,14 +1522,12 @@ class Results
      *
      * @param array $analyzedSqlResults analyzed sql results
      *
-     * @return string html content
-     *
-     * @access private
+     * @return array
      */
-    private function _getDataForResettingColumnOrder(array $analyzedSqlResults): string
+    private function getDataForResettingColumnOrder(array $analyzedSqlResults): array
     {
         if (! $this->_isSelect($analyzedSqlResults)) {
-            return '';
+            return [];
         }
 
         [$columnOrder, $columnVisibility] = $this->_getColumnParams(
@@ -1545,12 +1543,12 @@ class Results
             )->getStatusInfo('Create_time');
         }
 
-        return $this->template->render('display/results/data_for_resetting_column_order', [
-            'column_order' => $columnOrder,
-            'column_visibility' => $columnVisibility,
+        return [
+            'order' => $columnOrder,
+            'visibility' => $columnVisibility,
             'is_view' => $table->isView(),
             'table_create_time' => $tableCreateTime,
-        ]);
+        ];
     }
 
     /**
@@ -1558,34 +1556,24 @@ class Results
      *
      * @see getTableHeaders()
      *
-     * @return string html content
-     *
-     * @access private
+     * @return array
      */
-    private function _getOptionsBlock()
+    private function getOptionsBlock(): array
     {
         if (isset($_SESSION['tmpval']['possible_as_geometry']) && $_SESSION['tmpval']['possible_as_geometry'] == false) {
             if ($_SESSION['tmpval']['geoOption'] == self::GEOMETRY_DISP_GEOM) {
                 $_SESSION['tmpval']['geoOption'] = self::GEOMETRY_DISP_WKT;
             }
         }
-        return $this->template->render('display/results/options_block', [
-            'unique_id' => $this->__get('unique_id'),
+        return [
             'geo_option' => $_SESSION['tmpval']['geoOption'],
             'hide_transformation' => $_SESSION['tmpval']['hide_transformation'],
             'display_blob' => $_SESSION['tmpval']['display_blob'],
             'display_binary' => $_SESSION['tmpval']['display_binary'],
             'relational_display' => $_SESSION['tmpval']['relational_display'],
-            'displaywork' => $GLOBALS['cfgRelation']['displaywork'],
-            'relwork' => $GLOBALS['cfgRelation']['relwork'],
             'possible_as_geometry' => $_SESSION['tmpval']['possible_as_geometry'],
             'pftext' => $_SESSION['tmpval']['pftext'],
-            'db' => $this->__get('db'),
-            'table' => $this->__get('table'),
-            'sql_query' => $this->__get('sql_query'),
-            'goto' => $this->__get('goto'),
-            'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
-        ]);
+        ];
     }
 
     /**
@@ -4245,6 +4233,14 @@ class Results
             'db' => $this->__get('db'),
             'table' => $this->__get('table'),
             'unique_id' => $this->__get('unique_id'),
+            'sql_query' => $this->__get('sql_query'),
+            'url_query' => $this->__get('url_query'),
+            'goto' => $this->__get('goto'),
+            'displaywork' => $GLOBALS['cfgRelation']['displaywork'],
+            'relwork' => $GLOBALS['cfgRelation']['relwork'],
+            'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
+            'select_all_arrow' => $this->__get('pma_theme_image') . 'arrow_'
+                . $this->__get('text_dir') . '.png',
         ]);
     }
 
@@ -4622,10 +4618,7 @@ class Results
         $dbi->dataSeek($dt_result, 0);
 
         return [
-            'select_all_arrow' => $this->__get('pma_theme_image') . 'arrow_' . $this->__get('text_dir') . '.png',
             'has_export_button' => $analyzed_sql_results['querytype'] === 'SELECT',
-            'sql_query' => $this->__get('sql_query'),
-            'url_query' => $this->__get('url_query'),
             'clause_is_unique' => $clause_is_unique,
         ];
     }

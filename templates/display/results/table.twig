@@ -6,8 +6,115 @@
   {{ get_hidden_inputs(db, table) }}
 </div>
 
-{{ headers.data_for_resetting_column_order|raw }}
-{{ headers.options_block|raw }}
+{% if headers.column_order is not empty %}
+  {% if headers.column_order.order %}
+    <input class="col_order" type="hidden" value="{{ headers.column_order.order|join(',') }}">
+  {% endif %}
+  {% if headers.column_order.visibility %}
+    <input class="col_visib" type="hidden" value="{{ headers.column_order.visibility|join(',') }}">
+  {% endif %}
+  {% if not headers.column_order.is_view %}
+    <input class="table_create_time" type="hidden" value="{{ headers.column_order.table_create_time }}">
+  {% endif %}
+{% endif %}
+
+{% if headers.options is not empty %}
+  <form method="post" action="{{ url('/sql') }}" name="displayOptionsForm" class="ajax print_ignore">
+    {{ get_hidden_inputs({
+      'db': db,
+      'table': table,
+      'sql_query': sql_query,
+      'goto': goto,
+      'display_options_form': 1
+    }) }}
+
+    {% include 'div_for_slider_effect.twig' with {
+      'id': '',
+      'message': 'Options'|trans,
+      'initial_sliders_state': default_sliders_state
+    } only %}
+
+      <fieldset>
+        <div class="formelement">
+          <div>
+            <input type="radio" name="pftext" id="partialFulltextRadioP{{ unique_id }}" value="P"{{ headers.options.pftext == 'P' ? ' checked' }}>
+            <label for="partialFulltextRadioP{{ unique_id }}">{% trans 'Partial texts' %}</label>
+          </div>
+          <div>
+            <input type="radio" name="pftext" id="partialFulltextRadioF{{ unique_id }}" value="F"{{ headers.options.pftext == 'F' ? ' checked' }}>
+            <label for="partialFulltextRadioF{{ unique_id }}">{% trans 'Full texts' %}</label>
+          </div>
+        </div>
+
+        {% if relwork and displaywork %}
+          <div class="formelement">
+            <div>
+              <input type="radio" name="relational_display" id="relationalDisplayRadioK{{ unique_id }}" value="K"{{ headers.options.relational_display == 'K' ? ' checked' }}>
+              <label for="relationalDisplayRadioK{{ unique_id }}">{% trans 'Relational key' %}</label>
+            </div>
+            <div>
+              <input type="radio" name="relational_display" id="relationalDisplayRadioD{{ unique_id }}" value="D"{{ headers.options.relational_display == 'D' ? ' checked' }}>
+              <label for="relationalDisplayRadioD{{ unique_id }}">{% trans 'Display column for relationships' %}</label>
+            </div>
+          </div>
+        {% endif %}
+
+        <div class="formelement">
+          {% include 'checkbox.twig' with {
+            'html_field_name': 'display_binary',
+            'label': 'Show binary contents'|trans,
+            'checked': headers.options.display_binary is not empty,
+            'onclick': false,
+            'html_field_id': 'display_binary_' ~ unique_id
+          } only %}
+          {% include 'checkbox.twig' with {
+            'html_field_name': 'display_blob',
+            'label': 'Show BLOB contents'|trans,
+            'checked': headers.options.display_blob is not empty,
+            'onclick': false,
+            'html_field_id': 'display_blob_' ~ unique_id
+          } only %}
+        </div>
+
+        {# I would have preferred to name this "display_transformation".
+           This is the only way I found to be able to keep this setting sticky
+           per SQL query, and at the same time have a default that displays
+           the transformations. #}
+        <div class="formelement">
+          {% include 'checkbox.twig' with {
+            'html_field_name': 'hide_transformation',
+            'label': 'Hide browser transformation'|trans,
+            'checked': headers.options.hide_transformation is not empty,
+            'onclick': false,
+            'html_field_id': 'hide_transformation_' ~ unique_id
+          } only %}
+        </div>
+
+        <div class="formelement">
+          {% if headers.options.possible_as_geometry %}
+            <div>
+              <input type="radio" name="geoOption" id="geoOptionRadioGeom{{ unique_id }}" value="GEOM"{{ headers.options.geo_option == 'GEOM' ? ' checked' }}>
+              <label for="geoOptionRadioGeom{{ unique_id }}">{% trans 'Geometry' %}</label>
+            </div>
+          {% endif %}
+          <div>
+            <input type="radio" name="geoOption" id="geoOptionRadioWkt{{ unique_id }}" value="WKT"{{ headers.options.geo_option == 'WKT' ? ' checked' }}>
+            <label for="geoOptionRadioWkt{{ unique_id }}">{% trans 'Well Known Text' %}</label>
+          </div>
+          <div>
+            <input type="radio" name="geoOption" id="geoOptionRadioWkb{{ unique_id }}" value="WKB"{{ headers.options.geo_option == 'WKB' ? ' checked' }}>
+            <label for="geoOptionRadioWkb{{ unique_id }}">{% trans 'Well Known Binary' %}</label>
+          </div>
+        </div>
+        <div class="clearfloat"></div>
+      </fieldset>
+
+      <fieldset class="tblFooters">
+        <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
+      </fieldset>
+    </div>{# slider effect div #}
+  </form>
+{% endif %}
 
 {% if headers.has_bulk_actions_form %}
   <form method="post" action="{{ url('/table/row-action') }}" name="resultsForm" id="resultsForm_{{ unique_id }}" class="ajax">
@@ -33,7 +140,7 @@
 
 {% if bulk_links is not empty %}
     <div class="print_ignore">
-      <img class="selectallarrow" src="{{ bulk_links.select_all_arrow }}" width="38" height="22" alt="{% trans 'With selected:' %}">
+      <img class="selectallarrow" src="{{ select_all_arrow }}" width="38" height="22" alt="{% trans 'With selected:' %}">
       <input type="checkbox" id="resultsForm_{{ unique_id }}_checkall" class="checkall_box" title="{% trans 'Check all' %}">
       <label for="resultsForm_{{ unique_id }}_checkall">{% trans 'Check all' %}</label>
       <em class="with-selected">{% trans 'With selected:' %}</em>
@@ -50,9 +157,9 @@
     </div>
 
     <input type="hidden" name="clause_is_unique" value="{{ bulk_links.clause_is_unique }}">
-    <input type="hidden" name="sql_query" value="{{ bulk_links.sql_query }}">
-    {% if bulk_links.url_query is not empty %}
-      <input type="hidden" name="url_query" value="{{ bulk_links.url_query }}">
+    <input type="hidden" name="sql_query" value="{{ sql_query }}">
+    {% if url_query is not empty %}
+      <input type="hidden" name="url_query" value="{{ url_query }}">
     {% endif %}
 
   </form>
