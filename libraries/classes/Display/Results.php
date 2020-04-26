@@ -736,7 +736,7 @@ class Results
      * Return true if we are executing a query in the form of
      * "SELECT * FROM <a table> ..."
      *
-     * @see     _getTableHeaders(), _getColumnParams()
+     * @see getTableHeaders(), _getColumnParams()
      *
      * @param array $analyzed_sql_results analyzed sql results
      *
@@ -1048,7 +1048,7 @@ class Results
     /**
      * Get the headers of the results table, for all of the columns
      *
-     * @see    getTableHeaders()
+     * @see getTableHeaders()
      *
      * @param array  $displayParts                which elements to display
      * @param array  $analyzed_sql_results        analyzed sql results
@@ -1175,11 +1175,9 @@ class Results
      * @param array        $sortDirection             sort direction
      * @param bool         $isLimitedDisplay          with limited operations or not
      *
-     * @return string html content
-     *
-     * @access private
+     * @return array
      */
-    private function _getTableHeaders(
+    private function getTableHeaders(
         array &$displayParts,
         array $analyzedSqlResults,
         $unsortedSqlQuery,
@@ -1187,7 +1185,7 @@ class Results
         $sortExpressionNoDirection = '',
         array $sortDirection = [],
         $isLimitedDisplay = false
-    ): string {
+    ): array {
         // Needed for use in isset/empty or
         // use with array indexes/safe use in foreach
         $printView = $this->__get('printview');
@@ -1248,26 +1246,22 @@ class Results
             );
         }
 
-        return $this->template->render('display/results/table_headers', [
-            'db' => $this->__get('db'),
-            'table' => $this->__get('table'),
-            'unique_id' => $this->__get('unique_id'),
+        return [
             'save_cells_at_once' => $GLOBALS['cfg']['SaveCellsAtOnce'],
             'data_for_resetting_column_order' => $dataForResettingColumnOrder,
             'options_block' => $optionsBlock,
-            'delete_link' => $displayParts['del_lnk'],
-            'delete_row' => self::DELETE_ROW,
-            'kill_process' => self::KILL_PROCESS,
+            'has_bulk_actions_form' => $displayParts['del_lnk'] === self::DELETE_ROW
+                || $displayParts['del_lnk'] === self::KILL_PROCESS,
             'button' => $buttonHtml,
             'table_headers_for_columns' => $tableHeadersForColumns,
             'column_at_right_side' => $columnAtRightSide,
-        ]);
+        ];
     }
 
     /**
      * Prepare unsorted sql query and sort by key drop down
      *
-     * @see    _getTableHeaders()
+     * @see getTableHeaders()
      *
      * @param array      $analyzed_sql_results analyzed sql results
      * @param array|null $sort_expression      sort expression
@@ -1316,7 +1310,7 @@ class Results
     /**
      * Prepare sort by key dropdown - html code segment
      *
-     * @see _getTableHeaders()
+     * @see getTableHeaders()
      *
      * @param Index[]    $indexes          the indexes of the table for sort criteria
      * @param array|null $sortExpression   the sort expression
@@ -1396,7 +1390,7 @@ class Results
      * Set column span, row span and prepare html with full/partial
      * text button or link
      *
-     * @see    _getTableHeaders()
+     * @see getTableHeaders()
      *
      * @param array  $displayParts              which elements to display
      * @param string $full_or_partial_text_link full/partial link or text button
@@ -1465,7 +1459,7 @@ class Results
     /**
      * Get table comments as array
      *
-     * @see     _getTableHeaders()
+     * @see getTableHeaders()
      *
      * @param array $analyzed_sql_results analyzed sql results
      *
@@ -1498,7 +1492,7 @@ class Results
     /**
      * Set global array for store highlighted header fields
      *
-     * @see     _getTableHeaders()
+     * @see getTableHeaders()
      *
      * @param array $analyzed_sql_results analyzed sql results
      *
@@ -1524,7 +1518,7 @@ class Results
     /**
      * Prepare data for column restoring and show/hide
      *
-     * @see _getTableHeaders()
+     * @see getTableHeaders()
      *
      * @param array $analyzedSqlResults analyzed sql results
      *
@@ -1562,7 +1556,7 @@ class Results
     /**
      * Prepare option fields block
      *
-     * @see _getTableHeaders()
+     * @see getTableHeaders()
      *
      * @return string html content
      *
@@ -1597,7 +1591,7 @@ class Results
     /**
      * Get full/partial text button or link
      *
-     * @see     _getTableHeaders()
+     * @see getTableHeaders()
      *
      * @return string html content
      *
@@ -1634,7 +1628,7 @@ class Results
     /**
      * Get comment for row
      *
-     * @see _getTableHeaders()
+     * @see getTableHeaders()
      *
      * @param array $commentsMap comments array
      * @param array $fieldsMeta  set of field properties
@@ -1655,7 +1649,7 @@ class Results
     /**
      * Prepare parameters and html for sorted table header fields
      *
-     * @see    _getTableHeaders()
+     * @see getTableHeaders()
      *
      * @param stdClass $fields_meta                 set of field properties
      * @param array    $sort_expression             sort expression
@@ -1918,7 +1912,7 @@ class Results
     /**
      * Check whether the column is sorted
      *
-     * @see     _getTableHeaders()
+     * @see getTableHeaders()
      *
      * @param array  $sort_expression             sort expression
      * @param array  $sort_expression_nodirection sort expression without direction
@@ -2055,7 +2049,7 @@ class Results
     /**
      * Get sort order link
      *
-     * @see    _getTableHeaders()
+     * @see getTableHeaders()
      *
      * @param string   $order_img       the sort order image
      * @param stdClass $fields_meta     set of field properties
@@ -2111,7 +2105,7 @@ class Results
     /**
      * Prepare columns to draggable effect for sortable columns
      *
-     * @see    _getTableHeaders()
+     * @see getTableHeaders()
      *
      * @param bool     $col_visib   the column is visible (false)
      *                              array                the column is not visible (string array)
@@ -2159,7 +2153,7 @@ class Results
     /**
      * Prepare columns to draggable effect for non sortable columns
      *
-     * @see    _getTableHeaders()
+     * @see getTableHeaders()
      *
      * @param bool     $col_visib       the column is visible (false)
      *                                  array                    the column is not visible (string array)
@@ -2206,7 +2200,7 @@ class Results
     /**
      * Prepare column to show at right side - check boxes or empty column
      *
-     * @see     _getTableHeaders()
+     * @see getTableHeaders()
      *
      * @param array  $displayParts              which elements to display
      * @param string $full_or_partial_text_link full/partial link or text button
@@ -4205,7 +4199,7 @@ class Results
         // end 2b
 
         // 3. ----- Prepare the results table -----
-        $headers = $this->_getTableHeaders(
+        $headers = $this->getTableHeaders(
             $displayParts,
             $analyzed_sql_results,
             $unsorted_sql_query,
@@ -4248,6 +4242,9 @@ class Results
             'body' => $body,
             'bulk_links' => $bulkLinks,
             'operations' => $operations,
+            'db' => $this->__get('db'),
+            'table' => $this->__get('table'),
+            'unique_id' => $this->__get('unique_id'),
         ]);
     }
 
@@ -4626,7 +4623,6 @@ class Results
 
         return [
             'select_all_arrow' => $this->__get('pma_theme_image') . 'arrow_' . $this->__get('text_dir') . '.png',
-            'unique_id' => $this->__get('unique_id'),
             'has_export_button' => $analyzed_sql_results['querytype'] === 'SELECT',
             'sql_query' => $this->__get('sql_query'),
             'url_query' => $this->__get('url_query'),

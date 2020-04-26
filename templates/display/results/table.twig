@@ -1,17 +1,41 @@
 {{ sql_query_message|raw }}
 {{ navigation|raw }}
-{{ headers|raw }}
-<tbody>
-    {{ body|raw }}
-</tbody>
-</table>
+
+<input class="save_cells_at_once" type="hidden" value="{{ headers.save_cells_at_once }}">
+<div class="common_hidden_inputs">
+  {{ get_hidden_inputs(db, table) }}
 </div>
+
+{{ headers.data_for_resetting_column_order|raw }}
+{{ headers.options_block|raw }}
+
+{% if headers.has_bulk_actions_form %}
+  <form method="post" action="{{ url('/table/row-action') }}" name="resultsForm" id="resultsForm_{{ unique_id }}" class="ajax">
+    {{ get_hidden_inputs(db, table, 1) }}
+    <input type="hidden" name="goto" value="{{ url('/sql') }}">
+{% endif %}
+
+  <div class="responsivetable">
+    <table class="table_results data ajax" data-uniqueId="{{ unique_id }}">
+
+      {{ headers.button|raw }}
+      {{ headers.table_headers_for_columns|raw }}
+      {{ headers.column_at_right_side|raw }}
+
+        </tr>
+      </thead>
+
+      <tbody>
+        {{ body|raw }}
+      </tbody>
+    </table>
+  </div>
 
 {% if bulk_links is not empty %}
     <div class="print_ignore">
       <img class="selectallarrow" src="{{ bulk_links.select_all_arrow }}" width="38" height="22" alt="{% trans 'With selected:' %}">
-      <input type="checkbox" id="resultsForm_{{ bulk_links.unique_id }}_checkall" class="checkall_box" title="{% trans 'Check all' %}">
-      <label for="resultsForm_{{ bulk_links.unique_id }}_checkall">{% trans 'Check all' %}</label>
+      <input type="checkbox" id="resultsForm_{{ unique_id }}_checkall" class="checkall_box" title="{% trans 'Check all' %}">
+      <label for="resultsForm_{{ unique_id }}_checkall">{% trans 'Check all' %}</label>
       <em class="with-selected">{% trans 'With selected:' %}</em>
 
       {{ get_button_or_image('submit_mult', 'mult_submit', 'Edit'|trans, 'b_edit', 'edit') }}
