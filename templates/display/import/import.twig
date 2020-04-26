@@ -60,6 +60,21 @@
                 </div>
             {% endif %}
 
+            {% if extension_zip == false %}
+            <div class="formelementrow error" id="alert_message_for_zip">
+                <p>
+                    <strong>{% trans 'Please enable the php-zip extension to import a .zip file or the import will be aborted.' %}</strong>
+                </p>
+            </div>
+            {% endif %}
+            {% if extension_bz2 == false %}
+            <div class="formelementrow error" id="alert_message_for_bz2">
+                <p>
+                    <strong>{% trans 'Please enable the php-bz2 extension to import a .bz2 file or the import will be aborted.' %}</strong>
+                </p>
+            </div>
+            {% endif %}
+
             <div class="formelementrow" id="upload_form">
                 {% if is_upload and upload_dir is not empty %}
                     <ul>

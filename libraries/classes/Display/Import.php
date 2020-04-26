@@ -101,6 +101,8 @@ class Import
         }
 
         return $template->render('display/import/import', [
+            'extension_zip' => extension_loaded('zip'),
+            'extension_bz2' => extension_loaded('bz2'),
             'upload_id' => $uploadId,
             'handler' => $_SESSION[$SESSION_KEY]["handler"],
             'id_key' => $_SESSION[$SESSION_KEY]['handler']::getIdKey(),

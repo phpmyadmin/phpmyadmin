@@ -168,4 +168,22 @@ AJAX.registerOnload('import.js', function () {
         }
         return true;
     });
+
+    /**
+     * Check compressions of file before displaying
+     *  warnings for required extension not present for importing.
+     */
+    $('#alert_message_for_zip').hide();
+    $('#alert_message_for_bz2').hide();
+    $('#input_import_file').on('change',function () {
+        var name = $('#input_import_file').get(0);
+        var file = name.files.item(0);
+        if (file && file.type) {
+            if (file.type === 'application/zip' || file.type === 'application/x-zip' || file.type === 'application/x-zip-compressed') {
+                $('#alert_message_for_zip').show();
+            } else if (file.type === 'application/bzip2' || file.type === 'application/x-bz2' || file.type === 'application/x-bzip') {
+                $('#alert_message_for_bz2').show();
+            }
+        }
+    });
 });
