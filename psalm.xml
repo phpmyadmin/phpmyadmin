@@ -20,7 +20,6 @@
         <MissingClosureReturnType errorLevel="info" />
         <MissingPropertyType errorLevel="info" />
         <PropertyNotSetInConstructor errorLevel="info" />
-        <MissingClosureParamType errorLevel="info" />
 
         <MissingConstructor>
             <errorLevel type="suppress">

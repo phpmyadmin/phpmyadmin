@@ -108,7 +108,7 @@ class Language
      *
      * @return int same as strcmp
      */
-    public function cmp($other)
+    public function cmp(Language $other): int
     {
         return strcmp($this->name, $other->name);
     }

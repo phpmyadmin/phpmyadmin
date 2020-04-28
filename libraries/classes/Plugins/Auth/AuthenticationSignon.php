@@ -61,7 +61,7 @@ class AuthenticationSignon extends AuthenticationPlugin
         }
 
         /* Sanitize cookie params */
-        $defaultCookieParams = function ($key) {
+        $defaultCookieParams = function (string $key) {
             switch ($key) {
                 case 'lifetime':
                     return 0;

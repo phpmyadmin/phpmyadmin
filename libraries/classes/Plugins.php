@@ -131,12 +131,19 @@ class Plugins
             }
         }
 
-        usort($plugin_list, function ($cmp_name_1, $cmp_name_2) {
-            return strcasecmp(
-                $cmp_name_1->getProperties()->getText(),
-                $cmp_name_2->getProperties()->getText()
-            );
-        });
+        usort(
+            $plugin_list,
+            /**
+             * @param mixed $cmp_name_1
+             * @param mixed $cmp_name_2
+             */
+            function ($cmp_name_1, $cmp_name_2) {
+                return strcasecmp(
+                    $cmp_name_1->getProperties()->getText(),
+                    $cmp_name_2->getProperties()->getText()
+                );
+            }
+        );
         return $plugin_list;
     }
 
