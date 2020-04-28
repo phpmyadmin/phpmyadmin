@@ -29,7 +29,6 @@
         <PropertyNotSetInConstructor errorLevel="info" />
         <MissingConstructor errorLevel="info" />
         <MissingClosureParamType errorLevel="info" />
-        <MissingParamType errorLevel="info" />
 
         <RedundantCondition errorLevel="info" />
 

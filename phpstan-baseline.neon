@@ -4316,36 +4316,6 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Table\\\\ColumnsDefinition\\:\\:displayForm\\(\\) has parameter \\$action with no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Table/ColumnsDefinition.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Table\\\\ColumnsDefinition\\:\\:displayForm\\(\\) has parameter \\$field_fulltext with no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Table/ColumnsDefinition.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Table\\\\ColumnsDefinition\\:\\:displayForm\\(\\) has parameter \\$fields_meta with no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Table/ColumnsDefinition.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Table\\\\ColumnsDefinition\\:\\:displayForm\\(\\) has parameter \\$num_fields with no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Table/ColumnsDefinition.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Table\\\\ColumnsDefinition\\:\\:displayForm\\(\\) has parameter \\$regenerate with no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Table/ColumnsDefinition.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Table\\\\ColumnsDefinition\\:\\:displayForm\\(\\) has parameter \\$selected with no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Table/ColumnsDefinition.php
-
-		-
 			message: "#^Cannot access offset mixed on array\\|bool\\.$#"
 			count: 1
 			path: libraries/classes/Table/ColumnsDefinition.php
