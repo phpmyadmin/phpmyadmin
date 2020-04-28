@@ -239,4 +239,55 @@
 
 {{ navigation_html }}
 
-{{ operations|raw }}
+{% if operations is not empty %}
+  <fieldset class="print_ignore">
+    <legend>{% trans 'Query results operations' %}</legend>
+
+    {% if operations.has_print_link %}
+      {{ link_or_button(
+        '#',
+        get_icon('b_print', 'Print'|trans, true),
+        {'id': 'printView', 'class': 'btn'},
+        'print_view'
+      ) }}
+
+      {{ link_or_button(
+        '#',
+        get_icon('b_insrow', 'Copy to clipboard'|trans, true),
+        {'id': 'copyToClipBoard', 'class': 'btn'}
+      ) }}
+    {% endif %}
+
+    {% if not operations.has_procedure %}
+      {% if operations.has_export_link %}
+        {{ link_or_button(
+          url('/table/export', operations.url_params),
+          get_icon('b_tblexport', 'Export'|trans, true),
+          {'class': 'btn'}
+        ) }}
+
+        {{ link_or_button(
+          url('/table/chart', operations.url_params),
+          get_icon('b_chart', 'Display chart'|trans, true),
+          {'class': 'btn'}
+        ) }}
+
+        {% if operations.has_geometry %}
+          {{ link_or_button(
+            url('/table/gis-visualization', operations.url_params),
+            get_icon('b_globe', 'Visualize GIS data'|trans, true),
+            {'class': 'btn'}
+          ) }}
+        {% endif %}
+      {% endif %}
+
+      <span>
+        {{ link_or_button(
+          url('/view/create', {'db': db, 'table': table, 'sql_query': sql_query, 'printview': true}),
+          get_icon('b_view_add', 'Create view'|trans, true),
+          {'class': 'btn create_view ajax'}
+        ) }}
+      </span>
+    {% endif %}
+  </fieldset>
+{% endif %}

@@ -4210,9 +4210,9 @@ class Results
         );
 
         // 5. ----- Prepare "Query results operations"
-        $operations = '';
+        $operations = [];
         if ((! isset($printview) || ($printview != '1')) && ! $is_limited_display) {
-            $operations = $this->_getResultsOperations(
+            $operations = $this->getResultsOperations(
                 $displayParts,
                 $analyzed_sql_results
             );
@@ -4621,37 +4621,6 @@ class Results
     }
 
     /**
-     * Generates HTML to display the Create view in span tag
-     *
-     * @see _getResultsOperations()
-     *
-     * @param array $analyzed_sql_results analyzed sql results
-     * @param array $params               Array with URL Parameters
-     *
-     * @access private
-     */
-    private function _getLinkForCreateView(array $analyzed_sql_results, array $params): string
-    {
-        $results_operations_html = '';
-        if (empty($analyzed_sql_results['procedure'])) {
-            $results_operations_html .= '<span>'
-                . Generator::linkOrButton(
-                    Url::getFromRoute('/view/create', $params),
-                    Generator::getIcon(
-                        'b_view_add',
-                        __('Create view'),
-                        true
-                    ),
-                    ['class' => 'create_view ajax btn']
-                )
-                . '</span>' . "\n";
-        }
-        return $results_operations_html;
-    }
-
-    /**
-     * Calls the _getResultsOperations with $only_view as true
-     *
      * @param array $analyzed_sql_results analyzed sql results
      *
      * @return string
@@ -4660,62 +4629,31 @@ class Results
      */
     public function getCreateViewQueryResultOp(array $analyzed_sql_results)
     {
-        $results_operations_html = '';
-        //calling to _getResultOperations with a fake $displayParts
-        //and setting only_view parameter to be true to generate just view
-        $results_operations_html .= $this->_getResultsOperations(
-            [],
-            $analyzed_sql_results,
-            true
+        if (! empty($analyzed_sql_results['procedure'])) {
+            return '';
+        }
+
+        $results_operations_html = '<fieldset class="print_ignore" ><legend>'
+            . __('Query results operations') . '</legend>';
+        $results_operations_html .= '<span>';
+        $results_operations_html .= Generator::linkOrButton(
+            Url::getFromRoute('/view/create', [
+                'db' => $this->__get('db'),
+                'table' => $this->__get('table'),
+                'printview' => '1',
+                'sql_query' => $this->__get('sql_query'),
+            ]),
+            Generator::getIcon(
+                'b_view_add',
+                __('Create view'),
+                true
+            ),
+            ['class' => 'create_view ajax btn']
         );
+        $results_operations_html .= '</span>' . "\n";
+        $results_operations_html .= '</fieldset><br>';
+
         return $results_operations_html;
-    }
-
-    /**
-     * Get copy to clipboard links for results operations
-     *
-     * @return string
-     *
-     * @access private
-     */
-    private function _getCopytoclipboardLinks()
-    {
-        return Generator::linkOrButton(
-            '#',
-            Generator::getIcon(
-                'b_insrow',
-                __('Copy to clipboard'),
-                true
-            ),
-            [
-                'id' => 'copyToClipBoard' ,
-                'class' => 'btn',
-            ]
-        );
-    }
-
-    /**
-     * Get printview links for results operations
-     *
-     * @return string
-     *
-     * @access private
-     */
-    private function _getPrintviewLinks()
-    {
-        return Generator::linkOrButton(
-            '#',
-            Generator::getIcon(
-                'b_print',
-                __('Print'),
-                true
-            ),
-            [
-                'id' => 'printView' ,
-                'class' => 'btn',
-            ],
-            'print_view'
-        );
     }
 
     /**
@@ -4725,24 +4663,14 @@ class Results
      *
      * @param array $displayParts         the parts to display
      * @param array $analyzed_sql_results analyzed sql results
-     * @param bool  $only_view            Whether to show only view
      *
-     * @return string  html content
-     *
-     * @access private
+     * @return array<string, bool|array<string, string>>
      */
-    private function _getResultsOperations(
+    private function getResultsOperations(
         array $displayParts,
-        array $analyzed_sql_results,
-        $only_view = false
-    ) {
+        array $analyzed_sql_results
+    ): array {
         global $printview;
-
-        $results_operations_html = '';
-        $fields_meta = $this->__get('fields_meta'); // To safe use in foreach
-        $header_shown = false;
-        $header = '<fieldset class="print_ignore" ><legend>'
-            . __('Query results operations') . '</legend>';
 
         $_url_params = [
             'db'        => $this->__get('db'),
@@ -4750,31 +4678,8 @@ class Results
             'printview' => '1',
             'sql_query' => $this->__get('sql_query'),
         ];
-        $params = $_url_params;
 
-        if (! $header_shown) {
-            $results_operations_html .= $header;
-            $header_shown = true;
-        }
-        // if empty result set was produced we need to
-        // show only view and not other options
-        if ($only_view) {
-            $results_operations_html .= $this->_getLinkForCreateView(
-                $analyzed_sql_results,
-                $params
-            );
-
-            if ($header_shown) {
-                $results_operations_html .= '</fieldset><br>';
-            }
-            return $results_operations_html;
-        }
-
-        // Displays "printable view" link if required
-        if ($displayParts['pview_lnk'] == '1') {
-            $results_operations_html .= $this->_getPrintviewLinks();
-            $results_operations_html .= $this->_getCopytoclipboardLinks();
-        } // end displays "printable view"
+        $geometry_found = false;
 
         // Export link
         // (the url_query has extra parameters that won't be used to export)
@@ -4797,11 +4702,6 @@ class Results
                 $_url_params['raw_query'] = 'true';
             }
 
-            if (! $header_shown) {
-                $results_operations_html .= $header;
-                $header_shown = true;
-            }
-
             $_url_params['unlim_num_rows'] = $this->__get('unlim_num_rows');
 
             /**
@@ -4820,74 +4720,22 @@ class Results
                 }
             }
 
-            $results_operations_html .= Generator::linkOrButton(
-                    Url::getFromRoute('/table/export', $_url_params),
-                    Generator::getIcon(
-                        'b_tblexport',
-                        __('Export'),
-                        true
-                ),
-                ['class' => 'btn']
-            );
-
-            // prepare chart
-            $results_operations_html .= Generator::linkOrButton(
-                    Url::getFromRoute('/table/chart', $_url_params),
-                    Generator::getIcon(
-                        'b_chart',
-                        __('Display chart'),
-                        true
-                ),
-                ['class' => 'btn']
-            );
-
-            // prepare GIS chart
-            $geometry_found = false;
-            // If at least one geometry field is found
+            $fields_meta = $this->__get('fields_meta');
             foreach ($fields_meta as $meta) {
                 if ($meta->type == self::GEOMETRY_FIELD) {
                     $geometry_found = true;
                     break;
                 }
             }
-
-            if ($geometry_found) {
-                $results_operations_html
-                    .= Generator::linkOrButton(
-                        Url::getFromRoute('/table/gis-visualization', $_url_params),
-                        Generator::getIcon(
-                            'b_globe',
-                            __('Visualize GIS data'),
-                            true
-                        ),
-                        ['class' => 'btn']
-                    );
-            }
         }
 
-        // CREATE VIEW
-
-        /**
-         * @todo detect privileges to create a view
-         *       (but see 2006-01-19 note in PhpMyAdmin\Display\CreateTable,
-         *        I think we cannot detect db-specific privileges reliably)
-         * Note: we don't display a Create view link if we found a PROCEDURE clause
-         */
-        if (! $header_shown) {
-            $results_operations_html .= $header;
-            $header_shown = true;
-        }
-
-        $results_operations_html .= $this->_getLinkForCreateView(
-            $analyzed_sql_results,
-            $params
-        );
-
-        if ($header_shown) {
-            $results_operations_html .= '</fieldset><br>';
-        }
-
-        return $results_operations_html;
+        return [
+            'has_procedure' => ! empty($analyzed_sql_results['procedure']),
+            'has_geometry' => $geometry_found,
+            'has_print_link' => $displayParts['pview_lnk'] == '1',
+            'has_export_link' => $analyzed_sql_results['querytype'] === self::QUERY_TYPE_SELECT && ! isset($printview),
+            'url_params' => $_url_params,
+        ];
     }
 
     /**
