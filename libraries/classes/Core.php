@@ -860,6 +860,9 @@ class Core
         if (is_array($value)) {
             array_walk_recursive(
                 $value,
+                /**
+                 * @param mixed $item
+                 */
                 function ($item) use (&$empty) {
                     $empty = $empty && empty($item);
                 }

@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<psalm
+    autoloader="test/bootstrap-phpstan.php"
+    totallyTyped="false"
+    resolveFromConfigFile="true"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="https://getpsalm.org/schema/config"
+    xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+    errorBaseline="psalm-baseline.xml"
+>
+    <projectFiles>
+        <directory name="libraries/classes" />
+        <ignoreFiles>
+            <directory name="vendor" />
+        </ignoreFiles>
+    </projectFiles>
+
+    <issueHandlers>
+        <InternalMethod errorLevel="info" />
+        <MissingClosureReturnType errorLevel="info" />
+        <MissingPropertyType errorLevel="info" />
+        <PropertyNotSetInConstructor errorLevel="info" />
+
+        <MissingConstructor>
+            <errorLevel type="suppress">
+                <file name="libraries/classes/Properties/Plugins/ExportPluginProperties.php" />
+            </errorLevel>
+        </MissingConstructor>
+
+        <RedundantCondition errorLevel="info" />
+
+        <DocblockTypeContradiction errorLevel="info" />
+        <RedundantConditionGivenDocblockType errorLevel="info" />
+
+        <UnresolvableInclude>
+            <errorLevel type="suppress">
+                <file name="libraries/classes/Display/Results.php" />
+                <file name="libraries/classes/Plugins.php" />
+                <file name="libraries/classes/Controllers/Table/ReplaceController.php" />
+                <file name="libraries/classes/Controllers/ImportController.php" />
+                <file name="libraries/classes/Config.php" />
+            </errorLevel>
+        </UnresolvableInclude>
+
+        <RawObjectIteration>
+            <errorLevel type="suppress">
+                <file name="libraries/classes/Plugins/Export/ExportSql.php" />
+            </errorLevel>
+        </RawObjectIteration>
+
+        <InvalidStringClass>
+            <errorLevel type="suppress">
+                <file name="libraries/classes/TwoFactor.php" />
+                <file name="libraries/classes/Plugins.php" />
+                <file name="libraries/classes/Navigation/NodeFactory.php" />
+                <file name="libraries/classes/Config/PageSettings.php" />
+                <file name="libraries/classes/Config/Forms/BaseFormList.php" />
+            </errorLevel>
+        </InvalidStringClass>
+    </issueHandlers>
+</psalm>

@@ -1559,9 +1559,9 @@ class Routines
      *
      * @param array $row Columns
      *
-     * @return string
+     * @return null|string
      */
-    private function browseRow(array $row)
+    private function browseRow(array $row): ?string
     {
         $output = null;
         foreach ($row as $value) {

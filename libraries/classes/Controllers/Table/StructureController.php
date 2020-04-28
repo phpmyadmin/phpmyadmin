@@ -763,7 +763,7 @@ class StructureController extends AbstractController
      *
      * @return array[]|null array of partition details
      */
-    private function _extractPartitionDetails()
+    private function _extractPartitionDetails(): ?array
     {
         $createTable = (new Table($this->table, $this->db))->showCreate();
         if (! $createTable) {

@@ -16,6 +16,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Message;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 use function htmlspecialchars;
@@ -1126,6 +1127,8 @@ class PrivilegesTest extends TestCase
             "GRANT USAGE ON *.* TO 'PMA_username'@'PMA_hostname' REQUIRE NONE;",
             $sql_query
         );
+
+        $this->assertInstanceOf(Message::class, $message);
 
         //validate 6: $message
         $this->assertEquals(

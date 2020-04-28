@@ -24,13 +24,26 @@ use PhpMyAdmin\Util;
  */
 final class ColumnsDefinition
 {
+    /**
+     * @param Response          $response        Response object
+     * @param Template          $template        Template
+     * @param Transformations   $transformations Transformations
+     * @param Relation          $relation        Relation
+     * @param DatabaseInterface $dbi             Database Interface instance
+     * @param string            $action          Action
+     * @param int               $num_fields      The number of fields
+     * @param string|null       $regenerate      Use regeneration
+     * @param array|null        $selected        Selected
+     * @param array|null        $fields_meta     Fields meta
+     * @param array|null        $field_fulltext  Fields full text
+     */
     public static function displayForm(
         Response $response,
         Template $template,
         Transformations $transformations,
         Relation $relation,
         DatabaseInterface $dbi,
-        $action,
+        string $action,
         $num_fields = 0,
         $regenerate = null,
         $selected = null,

@@ -526,7 +526,7 @@ class GisPolygon extends GisGeometry
      *
      * @param array $ring array of points forming the ring
      *
-     * @return array|bool a point on the surface of the ring
+     * @return array|false a point on the surface of the ring
      *
      * @access public
      * @static

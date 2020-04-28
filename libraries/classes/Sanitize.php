@@ -159,10 +159,10 @@ class Sanitize
      *
      * @return string   the sanitized message
      */
-    public static function sanitizeMessage($message, $escape = false, $safe = false)
+    public static function sanitizeMessage(string $message, $escape = false, $safe = false)
     {
         if (! $safe) {
-            $message = strtr((string) $message, ['<' => '&lt;', '>' => '&gt;']);
+            $message = strtr($message, ['<' => '&lt;', '>' => '&gt;']);
         }
 
         /* Interpret bb code */
@@ -192,14 +192,14 @@ class Sanitize
         $pattern = '/\[a@([^]"@]*)(@([^]"]*))?\]/';
 
         /* Find and replace all links */
-        $message = preg_replace_callback($pattern, function ($match) {
+        $message = preg_replace_callback($pattern, function (array $match) {
             return self::replaceBBLink($match);
         }, $message);
 
         /* Replace documentation links */
         $message = preg_replace_callback(
             '/\[doc@([a-zA-Z0-9_-]+)(@([a-zA-Z0-9_-]*))?\]/',
-            function ($match) {
+            function (array $match) {
                 return self::replaceDocLink($match);
             },
             $message
@@ -302,7 +302,7 @@ class Sanitize
      *
      * @param string $value String to be formatted.
      *
-     * @return string formatted value.
+     * @return int|string formatted value.
      */
     public static function formatJsVal($value)
     {

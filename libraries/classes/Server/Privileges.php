@@ -244,6 +244,7 @@ class Privileges
                 ) {
                     // Required for proper escaping of ` (backtick) in a column name
                     $grant_cols = array_map(
+                        /** @param string $val */
                         function ($val) {
                             return Util::backquote($val);
                         },
@@ -3419,7 +3420,7 @@ class Privileges
      * @param string $alter_real_sql_query SQL query for ALTER USER
      * @param string $alter_sql_query      SQL query for ALTER USER to be displayed
      *
-     * @return array, $message
+     * @return array<int,string|Message>
      */
     public function addUserAndCreateDatabase(
         $_error,
@@ -3430,7 +3431,7 @@ class Privileges
         $dbname,
         $alter_real_sql_query,
         $alter_sql_query
-    ) {
+    ): array {
         if ($_error || (! empty($real_sql_query)
             && ! $this->dbi->tryQuery($real_sql_query))
         ) {

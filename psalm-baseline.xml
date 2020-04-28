@@ -1,0 +1,2800 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="3.11.2@d470903722cfcbc1cd04744c5491d3e6d13ec3d9">
+  <file src="libraries/classes/Advisor.php">
+    <PossiblyNullArgument occurrences="1">
+      <code>Util::formatByteDown($value, $limes, $comma)</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Bookmark.php">
+    <PossiblyInvalidArgument occurrences="2">
+      <code>$db</code>
+      <code>$result</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidArrayAccess occurrences="10">
+      <code>$cfgBookmark['db']</code>
+      <code>$cfgBookmark['table']</code>
+      <code>$cfgBookmark['db']</code>
+      <code>$cfgBookmark['table']</code>
+      <code>$cfgBookmark['db']</code>
+      <code>$cfgBookmark['table']</code>
+      <code>$cfgBookmark['user']</code>
+      <code>$cfgBookmark['db']</code>
+      <code>$cfgBookmark['table']</code>
+      <code>$cfgBookmark['user']</code>
+    </PossiblyInvalidArrayAccess>
+  </file>
+  <file src="libraries/classes/BrowseForeigners.php">
+    <InvalidScalarArgument occurrences="2">
+      <code>$pageNow</code>
+      <code>$nbTotalPage</code>
+    </InvalidScalarArgument>
+  </file>
+  <file src="libraries/classes/CentralColumns.php">
+    <InvalidScalarArgument occurrences="2">
+      <code>$tn_pageNow</code>
+      <code>$tn_nbTotalPage</code>
+    </InvalidScalarArgument>
+    <PossiblyInvalidArgument occurrences="5">
+      <code>$this-&gt;dbi-&gt;getError(DatabaseInterface::CONNECT_CONTROL)</code>
+      <code>$this-&gt;dbi-&gt;getError(DatabaseInterface::CONNECT_CONTROL)</code>
+      <code>$this-&gt;dbi-&gt;getError()</code>
+      <code>$this-&gt;dbi-&gt;getError()</code>
+      <code>$this-&gt;dbi-&gt;getError(DatabaseInterface::CONNECT_CONTROL)</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidArrayAccess occurrences="16">
+      <code>$cfgCentralColumns['db']</code>
+      <code>$cfgCentralColumns['table']</code>
+      <code>$cfgCentralColumns['db']</code>
+      <code>$cfgCentralColumns['table']</code>
+      <code>$cfgCentralColumns['db']</code>
+      <code>$cfgCentralColumns['table']</code>
+      <code>$cfgCentralColumns['db']</code>
+      <code>$cfgCentralColumns['table']</code>
+      <code>$cfgCentralColumns['db']</code>
+      <code>$cfgCentralColumns['table']</code>
+      <code>$cfgCentralColumns['table']</code>
+      <code>$cfgCentralColumns['db']</code>
+      <code>$cfgCentralColumns['table']</code>
+      <code>$cfgCentralColumns['db']</code>
+      <code>$cfgCentralColumns['db']</code>
+      <code>$cfgCentralColumns['table']</code>
+    </PossiblyInvalidArrayAccess>
+  </file>
+  <file src="libraries/classes/Charsets.php">
+    <PossiblyInvalidArgument occurrences="2">
+      <code>$row</code>
+      <code>$row</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidArrayAccess occurrences="3">
+      <code>$row['Charset']</code>
+      <code>$row['Charset']</code>
+      <code>$row['Collation']</code>
+    </PossiblyInvalidArrayAccess>
+    <TypeDoesNotContainType occurrences="1">
+      <code>$pieces === false</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="libraries/classes/CheckUserPrivileges.php">
+    <PossiblyFalseOperand occurrences="6">
+      <code>mb_strpos($row, ' ON ')</code>
+      <code>$tblname_start_offset</code>
+      <code>mb_strpos($row, ' ON ')</code>
+      <code>$tblname_start_offset</code>
+      <code>$tblname_end_offset</code>
+      <code>$tblname_start_offset</code>
+    </PossiblyFalseOperand>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$this-&gt;dbi-&gt;getError()</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidArrayAccess occurrences="1">
+      <code>$row[0]</code>
+    </PossiblyInvalidArrayAccess>
+  </file>
+  <file src="libraries/classes/Config.php">
+    <InvalidArgument occurrences="1">
+      <code>$user</code>
+    </InvalidArgument>
+    <NullableReturnStatement occurrences="1">
+      <code>$this-&gt;get('is_https')</code>
+    </NullableReturnStatement>
+    <ParadoxicalCondition occurrences="1">
+      <code>null</code>
+    </ParadoxicalCondition>
+    <PossiblyInvalidArgument occurrences="3">
+      <code>$is_found</code>
+      <code>$default_value</code>
+      <code>$request</code>
+    </PossiblyInvalidArgument>
+    <PossiblyNullArgument occurrences="1">
+      <code>$this-&gt;get('PMA_VERSION')</code>
+    </PossiblyNullArgument>
+    <PossiblyUndefinedArrayOffset occurrences="1">
+      <code>$parsed_url['path']</code>
+    </PossiblyUndefinedArrayOffset>
+  </file>
+  <file src="libraries/classes/Config/ConfigFile.php">
+    <PossiblyNullArgument occurrences="2">
+      <code>$this-&gt;_baseCfg</code>
+      <code>$cfg</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Config/Form.php">
+    <PossiblyNullPropertyAssignmentValue occurrences="1">
+      <code>$index</code>
+    </PossiblyNullPropertyAssignmentValue>
+  </file>
+  <file src="libraries/classes/Config/FormDisplay.php">
+    <PossiblyFalseArgument occurrences="5">
+      <code>$workPath</code>
+      <code>$workPath</code>
+      <code>$_POST[$key]</code>
+      <code>$_POST[$key]</code>
+      <code>$workPath</code>
+    </PossiblyFalseArgument>
+    <PossiblyFalseIterator occurrences="1">
+      <code>$values[$path]</code>
+    </PossiblyFalseIterator>
+    <PossiblyInvalidArgument occurrences="2">
+      <code>$valueDefault</code>
+      <code>$valueDefaultJs</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidIterator occurrences="1">
+      <code>$values[$path]</code>
+    </PossiblyInvalidIterator>
+  </file>
+  <file src="libraries/classes/Config/FormDisplayTemplate.php">
+    <PossiblyNullArrayAccess occurrences="2">
+      <code>$opts['values']</code>
+      <code>$opts['errors']</code>
+    </PossiblyNullArrayAccess>
+    <PossiblyNullIterator occurrences="2">
+      <code>$opts['values']</code>
+      <code>$opts['errors']</code>
+    </PossiblyNullIterator>
+  </file>
+  <file src="libraries/classes/Config/Forms/BaseFormList.php">
+    <UndefinedClass occurrences="2">
+      <code>new $class($cf)</code>
+      <code>$class::getFields()</code>
+    </UndefinedClass>
+  </file>
+  <file src="libraries/classes/Config/PageSettings.php">
+    <ArgumentTypeCoercion occurrences="2">
+      <code>$formDisplay</code>
+      <code>$formDisplay</code>
+    </ArgumentTypeCoercion>
+    <PossiblyNullArgument occurrences="1">
+      <code>$error</code>
+    </PossiblyNullArgument>
+    <ReferenceConstraintViolation occurrences="2">
+      <code>return $retval;</code>
+      <code>$error</code>
+    </ReferenceConstraintViolation>
+  </file>
+  <file src="libraries/classes/Config/Validator.php">
+    <InvalidArgument occurrences="1">
+      <code>$port</code>
+    </InvalidArgument>
+    <NullArgument occurrences="1">
+      <code>null</code>
+    </NullArgument>
+    <PossiblyFalseArgument occurrences="2">
+      <code>$test</code>
+      <code>$test</code>
+    </PossiblyFalseArgument>
+    <PossiblyInvalidArgument occurrences="2">
+      <code>$uv[$i]</code>
+      <code>$uv[$i]</code>
+    </PossiblyInvalidArgument>
+    <PossiblyNullArgument occurrences="2">
+      <code>$pass</code>
+      <code>$socket</code>
+    </PossiblyNullArgument>
+    <UndefinedFunction occurrences="2">
+      <code>mysql_connect($host . $port . $socket, $user, $pass)</code>
+      <code>mysql_close($conn)</code>
+    </UndefinedFunction>
+  </file>
+  <file src="libraries/classes/Controllers/BrowseForeignersController.php">
+    <PossiblyNullArgument occurrences="1">
+      <code>$foreignLimit ?? null</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Controllers/Database/DataDictionaryController.php">
+    <PossiblyInvalidArrayAccess occurrences="3">
+      <code>$foreigner['foreign_table']</code>
+      <code>$foreigner['foreign_field']</code>
+      <code>$mimeMap[$row['Field']]</code>
+    </PossiblyInvalidArrayAccess>
+  </file>
+  <file src="libraries/classes/Controllers/Database/DesignerController.php">
+    <PossiblyInvalidArgument occurrences="2">
+      <code>$success</code>
+      <code>$success</code>
+    </PossiblyInvalidArgument>
+    <PossiblyNullArgument occurrences="3">
+      <code>$page</code>
+      <code>$display_page</code>
+      <code>$display_page</code>
+    </PossiblyNullArgument>
+    <PossiblyNullIterator occurrences="1">
+      <code>$tab_pos</code>
+    </PossiblyNullIterator>
+  </file>
+  <file src="libraries/classes/Controllers/Database/ExportController.php">
+    <TypeDoesNotContainType occurrences="1">
+      <code>$sub_part</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="libraries/classes/Controllers/Database/MultiTableQueryController.php">
+    <PossiblyNullArgument occurrences="2">
+      <code>$params['db']</code>
+      <code>$params['db']</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Controllers/Database/OperationsController.php">
+    <NullArgument occurrences="1">
+      <code>null</code>
+    </NullArgument>
+    <TypeDoesNotContainType occurrences="1">
+      <code>$sub_part</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="libraries/classes/Controllers/Database/QueryByExampleController.php">
+    <TypeDoesNotContainType occurrences="1">
+      <code>$sub_part</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="libraries/classes/Controllers/Database/RoutinesController.php">
+    <PossiblyNullArgument occurrences="1">
+      <code>$params['type']</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Controllers/Database/SqlFormatController.php">
+    <PossiblyNullArgument occurrences="1">
+      <code>$query</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Controllers/Database/StructureController.php">
+    <InvalidScalarArgument occurrences="2">
+      <code>$formatted_size</code>
+      <code>$formatted_overhead</code>
+    </InvalidScalarArgument>
+    <UndefinedVariable occurrences="1">
+      <code>$sub_part</code>
+    </UndefinedVariable>
+  </file>
+  <file src="libraries/classes/Controllers/Database/TrackingController.php">
+    <TypeDoesNotContainType occurrences="1">
+      <code>$sub_part</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="libraries/classes/Controllers/ExportController.php">
+    <InvalidArgument occurrences="1">
+      <code>$asfile</code>
+    </InvalidArgument>
+    <PossiblyInvalidArgument occurrences="3">
+      <code>$file_handle</code>
+      <code>$dump_buffer</code>
+      <code>$dump_buffer</code>
+    </PossiblyInvalidArgument>
+  </file>
+  <file src="libraries/classes/Controllers/GisDataEditorController.php">
+    <PossiblyFalseOperand occurrences="1">
+      <code>mb_strpos($_POST['value'], '(')</code>
+    </PossiblyFalseOperand>
+    <PossiblyFalseReference occurrences="2">
+      <code>generateParams</code>
+      <code>generateWkt</code>
+    </PossiblyFalseReference>
+  </file>
+  <file src="libraries/classes/Controllers/HomeController.php">
+    <MissingFile occurrences="1">
+      <code>include ROOT_PATH . 'libraries/language_stats.inc.php'</code>
+    </MissingFile>
+    <PossiblyNullArgument occurrences="1">
+      <code>$this-&gt;config-&gt;get('TempDir')</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Controllers/ImportController.php">
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$skip &lt; $read_limit ? $skip : $read_limit</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidArrayAccess occurrences="3">
+      <code>$cfgBookmark['user']</code>
+      <code>$cfgBookmark['user']</code>
+      <code>$cfgBookmark['user']</code>
+    </PossiblyInvalidArrayAccess>
+    <PossiblyNullArgument occurrences="2">
+      <code>$import_handle-&gt;getError()</code>
+      <code>$import_handle-&gt;getError()</code>
+    </PossiblyNullArgument>
+    <PossiblyNullArrayAccess occurrences="1">
+      <code>$_FILES['import_file']['name']</code>
+    </PossiblyNullArrayAccess>
+    <PossiblyUndefinedArrayOffset occurrences="1">
+      <code>$_FILES['import_file']</code>
+    </PossiblyUndefinedArrayOffset>
+    <TypeDoesNotContainType occurrences="6">
+      <code>$file_to_unlink != ''</code>
+      <code>$bookmark_created</code>
+      <code>$finished &amp;&amp; ! $error</code>
+      <code>$timeout_passed</code>
+      <code>$offset == 0 || (isset($original_skip) &amp;&amp; $original_skip == $offset)</code>
+      <code>$result</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="libraries/classes/Controllers/Preferences/ExportController.php">
+    <PossiblyNullArgument occurrences="1">
+      <code>$tabHash</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Controllers/Preferences/FeaturesController.php">
+    <PossiblyNullArgument occurrences="1">
+      <code>$tabHash</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Controllers/Preferences/ImportController.php">
+    <PossiblyNullArgument occurrences="1">
+      <code>$tabHash</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Controllers/Preferences/MainPanelController.php">
+    <PossiblyNullArgument occurrences="1">
+      <code>$tabHash</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Controllers/Preferences/ManageController.php">
+    <PossiblyFalseArgument occurrences="1">
+      <code>$json</code>
+    </PossiblyFalseArgument>
+    <PossiblyFalseOperand occurrences="1">
+      <code>$pos</code>
+    </PossiblyFalseOperand>
+    <PossiblyNullArgument occurrences="1">
+      <code>$json</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Controllers/Preferences/NavigationController.php">
+    <PossiblyNullArgument occurrences="1">
+      <code>$tabHash</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Controllers/Preferences/SqlController.php">
+    <PossiblyNullArgument occurrences="1">
+      <code>$tabHash</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Controllers/SchemaExportController.php">
+    <PossiblyUndefinedArrayOffset occurrences="1">
+      <code>$_POST['export_type']</code>
+    </PossiblyUndefinedArrayOffset>
+  </file>
+  <file src="libraries/classes/Controllers/Server/CollationsController.php">
+    <PossiblyNullIterator occurrences="1">
+      <code>$this-&gt;charsets</code>
+    </PossiblyNullIterator>
+  </file>
+  <file src="libraries/classes/Controllers/Server/DatabasesController.php">
+    <NullArgument occurrences="1">
+      <code>null</code>
+    </NullArgument>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$this-&gt;dbi-&gt;getError()</code>
+    </PossiblyInvalidArgument>
+    <TypeDoesNotContainType occurrences="1">
+      <code>(int) $database[$key]</code>
+    </TypeDoesNotContainType>
+    <UndefinedVariable occurrences="2">
+      <code>$replication_types</code>
+      <code>$message</code>
+    </UndefinedVariable>
+  </file>
+  <file src="libraries/classes/Controllers/Server/PrivilegesController.php">
+    <PossiblyInvalidArgument occurrences="3">
+      <code>$dbname ?? ''</code>
+      <code>$dbname ?? ''</code>
+      <code>$dbname</code>
+    </PossiblyInvalidArgument>
+    <PossiblyNullArgument occurrences="3">
+      <code>$username ?? null</code>
+      <code>$hostname ?? null</code>
+      <code>$username ?? null</code>
+    </PossiblyNullArgument>
+    <TypeDoesNotContainType occurrences="1">
+      <code>$sub_part</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="libraries/classes/Controllers/Server/Status/ProcessesController.php">
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$process</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidArrayAccess occurrences="6">
+      <code>$process[$key]</code>
+      <code>$process['Id']</code>
+      <code>$process['User']</code>
+      <code>$process['Host']</code>
+      <code>$process['Command']</code>
+      <code>$process['Time']</code>
+    </PossiblyInvalidArrayAccess>
+    <PossiblyInvalidArrayAssignment occurrences="1">
+      <code>$process[$newKey]</code>
+    </PossiblyInvalidArrayAssignment>
+  </file>
+  <file src="libraries/classes/Controllers/Server/Status/StatusController.php">
+    <PossiblyNullArgument occurrences="7"/>
+  </file>
+  <file src="libraries/classes/Controllers/Server/VariablesController.php">
+    <PossiblyInvalidArrayAccess occurrences="4">
+      <code>$arr[1]</code>
+      <code>$arr[0]</code>
+      <code>$varValue[1]</code>
+      <code>$varValue[1]</code>
+    </PossiblyInvalidArrayAccess>
+    <PossiblyNullArgument occurrences="4">
+      <code>Util::formatByteDown($varValue[1], 3, 3)</code>
+      <code>$value</code>
+      <code>$value</code>
+      <code>Util::formatByteDown($value, 3, 3)</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Controllers/Setup/FormController.php">
+    <ArgumentTypeCoercion occurrences="1">
+      <code>new $formClass($this-&gt;config)</code>
+    </ArgumentTypeCoercion>
+    <PossiblyNullArgument occurrences="1">
+      <code>$formset</code>
+    </PossiblyNullArgument>
+    <UndefinedClass occurrences="1">
+      <code>new $formClass($this-&gt;config)</code>
+    </UndefinedClass>
+  </file>
+  <file src="libraries/classes/Controllers/Setup/HomeController.php">
+    <PossiblyNullArgument occurrences="1">
+      <code>$actionDone</code>
+    </PossiblyNullArgument>
+    <PossiblyNullIterator occurrences="1">
+      <code>$this-&gt;config-&gt;getServers()</code>
+    </PossiblyNullIterator>
+  </file>
+  <file src="libraries/classes/Controllers/Setup/ServersController.php">
+    <PossiblyNullArgument occurrences="2">
+      <code>$id</code>
+      <code>$id</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Controllers/Table/ChangeController.php">
+    <InvalidScalarArgument occurrences="1">
+      <code>$jsvkey</code>
+    </InvalidScalarArgument>
+    <PossiblyNullArgument occurrences="1">
+      <code>$where_clause ?? null</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Controllers/Table/ChartController.php">
+    <ImplicitToStringCast occurrences="1">
+      <code>Message::error(__('No SQL query was set to fetch data.'))</code>
+    </ImplicitToStringCast>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$data[0]</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidIterator occurrences="1">
+      <code>$data_row</code>
+    </PossiblyInvalidIterator>
+  </file>
+  <file src="libraries/classes/Controllers/Table/GisVisualizationController.php">
+    <ImplicitToStringCast occurrences="1">
+      <code>Message::error(__('No SQL query was set to fetch data.'))</code>
+    </ImplicitToStringCast>
+  </file>
+  <file src="libraries/classes/Controllers/Table/RelationController.php">
+    <PossiblyNullArgument occurrences="2">
+      <code>$multi_edit_columns_name</code>
+      <code>$multi_edit_columns_name</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Controllers/Table/ReplaceController.php">
+    <InvalidArgument occurrences="1">
+      <code>$insert_errors</code>
+    </InvalidArgument>
+    <PossiblyInvalidIterator occurrences="1">
+      <code>$mime_map</code>
+    </PossiblyInvalidIterator>
+    <PossiblyNullArgument occurrences="5">
+      <code>$multi_edit_columns_null</code>
+      <code>$multi_edit_columns_null_prev</code>
+      <code>$multi_edit_funcs</code>
+      <code>$multi_edit_salt</code>
+      <code>$multi_edit_columns_prev</code>
+    </PossiblyNullArgument>
+    <PossiblyUndefinedVariable occurrences="1">
+      <code>$extra_data</code>
+    </PossiblyUndefinedVariable>
+  </file>
+  <file src="libraries/classes/Controllers/Table/RowActionController.php">
+    <PossiblyNullIterator occurrences="1">
+      <code>$selected</code>
+    </PossiblyNullIterator>
+  </file>
+  <file src="libraries/classes/Controllers/Table/SearchController.php">
+    <InvalidReturnStatement occurrences="1">
+      <code>$this-&gt;dbi-&gt;fetchSingleRow($sql_query)</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>array</code>
+    </InvalidReturnType>
+    <PossiblyInvalidArrayAssignment occurrences="1">
+      <code>$row[$col]</code>
+    </PossiblyInvalidArrayAssignment>
+    <PossiblyInvalidIterator occurrences="1">
+      <code>$row</code>
+    </PossiblyInvalidIterator>
+  </file>
+  <file src="libraries/classes/Controllers/Table/StructureController.php">
+    <ImplicitToStringCast occurrences="1">
+      <code>$message</code>
+    </ImplicitToStringCast>
+    <InvalidGlobal occurrences="3">
+      <code>global $what;</code>
+      <code>global $query_type;</code>
+      <code>global $mult_btn;</code>
+    </InvalidGlobal>
+    <InvalidReturnStatement occurrences="1">
+      <code>$partitionDetails</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>array[]|null</code>
+    </InvalidReturnType>
+    <NullArgument occurrences="1">
+      <code>null</code>
+    </NullArgument>
+    <PossiblyFalseArgument occurrences="4">
+      <code>$openPos</code>
+      <code>$openPos</code>
+    </PossiblyFalseArgument>
+    <PossiblyFalseOperand occurrences="6">
+      <code>$openPos</code>
+      <code>$openPos</code>
+      <code>$closePos</code>
+      <code>$openPos</code>
+      <code>$openPos</code>
+      <code>$closePos</code>
+    </PossiblyFalseOperand>
+    <PossiblyInvalidArgument occurrences="2">
+      <code>$tmp_error</code>
+      <code>$analyzed_sql_results ?? ''</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidArrayAccess occurrences="5">
+      <code>$row['Key_name']</code>
+      <code>$row['Column_name']</code>
+      <code>$expressions[$column]</code>
+      <code>$row['Key_name']</code>
+      <code>$row['Column_name']</code>
+    </PossiblyInvalidArrayAccess>
+    <PossiblyNullArgument occurrences="2">
+      <code>$selected</code>
+      <code>$selected</code>
+    </PossiblyNullArgument>
+    <TypeDoesNotContainType occurrences="1">
+      <code>$result &amp;&amp; ! empty($sql_query_views)</code>
+    </TypeDoesNotContainType>
+    <UndefinedVariable occurrences="1">
+      <code>$what</code>
+    </UndefinedVariable>
+  </file>
+  <file src="libraries/classes/Controllers/Table/ZoomSearchController.php">
+    <PossiblyFalseArgument occurrences="3">
+      <code>$dataLabel</code>
+      <code>$dataLabel</code>
+      <code>$key</code>
+    </PossiblyFalseArgument>
+    <PossiblyInvalidArrayAccess occurrences="3">
+      <code>$row[$_POST['criteriaColumnNames'][0]]</code>
+      <code>$row[$_POST['criteriaColumnNames'][1]]</code>
+      <code>$row[$dataLabel]</code>
+    </PossiblyInvalidArrayAccess>
+    <PossiblyInvalidArrayAssignment occurrences="2">
+      <code>$row[$col]</code>
+      <code>$row['where_clause']</code>
+    </PossiblyInvalidArrayAssignment>
+    <PossiblyInvalidIterator occurrences="2">
+      <code>$row</code>
+      <code>$row</code>
+    </PossiblyInvalidIterator>
+    <PossiblyNullArrayAccess occurrences="3">
+      <code>$criteria_column_names[$i]</code>
+      <code>$criteria_column_names[$i]</code>
+      <code>$criteria_column_names[$i]</code>
+    </PossiblyNullArrayAccess>
+    <PossiblyNullArrayOffset occurrences="1">
+      <code>$keys</code>
+    </PossiblyNullArrayOffset>
+  </file>
+  <file src="libraries/classes/Controllers/TransformationWrapperController.php">
+    <PossiblyInvalidArrayAccess occurrences="3">
+      <code>$row[$transform_key]</code>
+      <code>$row[$transform_key]</code>
+      <code>$row[$transform_key]</code>
+    </PossiblyInvalidArrayAccess>
+  </file>
+  <file src="libraries/classes/Controllers/ViewCreateController.php">
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$this-&gt;dbi-&gt;getError()</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidArrayAccess occurrences="4">
+      <code>$item['DEFINER']</code>
+      <code>$item['SECURITY_TYPE']</code>
+      <code>$item['VIEW_DEFINITION']</code>
+      <code>$item['CHECK_OPTION']</code>
+    </PossiblyInvalidArrayAccess>
+    <PossiblyInvalidArrayAssignment occurrences="1">
+      <code>$item['ALGORITHM']</code>
+    </PossiblyInvalidArrayAssignment>
+  </file>
+  <file src="libraries/classes/Core.php">
+    <FalsableReturnStatement occurrences="1">
+      <code>getenv($var_name)</code>
+    </FalsableReturnStatement>
+    <InvalidOperand occurrences="1">
+      <code>$matches[1]</code>
+    </InvalidOperand>
+    <LoopInvalidation occurrences="4">
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+    </LoopInvalidation>
+    <PossiblyFalseArgument occurrences="2">
+      <code>mb_strpos($page . '?', '?')</code>
+      <code>mb_strpos($_page . '?', '?')</code>
+    </PossiblyFalseArgument>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$size</code>
+    </PossiblyInvalidArgument>
+    <PossiblyUndefinedArrayOffset occurrences="1">
+      <code>$arr['query']</code>
+    </PossiblyUndefinedArrayOffset>
+    <TypeDoesNotContainType occurrences="1">
+      <code>is_string($data)</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="libraries/classes/CreateAddField.php">
+    <PossiblyFalseArgument occurrences="1">
+      <code>$_POST['field_extra'][$i] ?? false</code>
+    </PossiblyFalseArgument>
+  </file>
+  <file src="libraries/classes/Database/DatabaseList.php">
+    <PossiblyNullPropertyAssignmentValue occurrences="1">
+      <code>null</code>
+    </PossiblyNullPropertyAssignmentValue>
+  </file>
+  <file src="libraries/classes/Database/Designer.php">
+    <InvalidArgument occurrences="1">
+      <code>$page_rs</code>
+    </InvalidArgument>
+    <PossiblyInvalidArrayAccess occurrences="2">
+      <code>$curr_page['page_descr']</code>
+      <code>$curr_page['page_nr']</code>
+    </PossiblyInvalidArrayAccess>
+  </file>
+  <file src="libraries/classes/Database/Designer/Common.php">
+    <InvalidArgument occurrences="1">
+      <code>$pg</code>
+    </InvalidArgument>
+    <NullArgument occurrences="1">
+      <code>$db</code>
+    </NullArgument>
+    <PossiblyInvalidArrayAccess occurrences="7">
+      <code>$row['Field']</code>
+      <code>$row['Type']</code>
+      <code>$row['Null']</code>
+      <code>$val[0]</code>
+      <code>$row['Column_name']</code>
+      <code>$row['Column_name']</code>
+      <code>$orig_data['settings_data']</code>
+    </PossiblyInvalidArrayAccess>
+    <PossiblyNullArgument occurrences="1">
+      <code>$table</code>
+    </PossiblyNullArgument>
+    <PossiblyUndefinedArrayOffset occurrences="4">
+      <code>$con['DTN']</code>
+      <code>$con['STN']</code>
+      <code>$con['SCN']</code>
+      <code>$con['DCN']</code>
+    </PossiblyUndefinedArrayOffset>
+    <TypeDoesNotContainNull occurrences="1">
+      <code>$db === null</code>
+    </TypeDoesNotContainNull>
+  </file>
+  <file src="libraries/classes/Database/Events.php">
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$item</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidArrayAccess occurrences="13">
+      <code>$item['item_name']</code>
+      <code>$item['EVENT_NAME']</code>
+      <code>$item['STATUS']</code>
+      <code>$item['EVENT_TYPE']</code>
+      <code>$item['EXECUTE_AT']</code>
+      <code>$item['INTERVAL_VALUE']</code>
+      <code>$item['INTERVAL_FIELD']</code>
+      <code>$item['STARTS']</code>
+      <code>$item['ENDS']</code>
+      <code>$item['ON_COMPLETION']</code>
+      <code>$item['EVENT_DEFINITION']</code>
+      <code>$item['DEFINER']</code>
+      <code>$item['EVENT_COMMENT']</code>
+    </PossiblyInvalidArrayAccess>
+    <PossiblyInvalidArrayAssignment occurrences="1">
+      <code>$item['item_original_name']</code>
+    </PossiblyInvalidArrayAssignment>
+    <PossiblyNullArgument occurrences="1">
+      <code>$create_item</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Database/Qbe.php">
+    <NullArgument occurrences="1">
+      <code>null</code>
+    </NullArgument>
+    <PossiblyNullArgument occurrences="1">
+      <code>$sortOrder</code>
+    </PossiblyNullArgument>
+    <PossiblyNullPropertyAssignmentValue occurrences="3">
+      <code>$currentSearch</code>
+      <code>null</code>
+      <code>null</code>
+    </PossiblyNullPropertyAssignmentValue>
+  </file>
+  <file src="libraries/classes/Database/Routines.php">
+    <PossiblyInvalidArgument occurrences="5">
+      <code>$routine</code>
+      <code>$routine['item_type_toggle']</code>
+      <code>$routine['item_returntype']</code>
+      <code>$row</code>
+      <code>$routine</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidArrayAccess occurrences="20">
+      <code>$routine['item_name']</code>
+      <code>$routine['item_type']</code>
+      <code>$routine['item_type']</code>
+      <code>$routine['SPECIFIC_NAME']</code>
+      <code>$routine['ROUTINE_TYPE']</code>
+      <code>$routine['ROUTINE_DEFINITION']</code>
+      <code>$routine['IS_DETERMINISTIC']</code>
+      <code>$routine['SECURITY_TYPE']</code>
+      <code>$routine['SECURITY_TYPE']</code>
+      <code>$routine['SQL_DATA_ACCESS']</code>
+      <code>$routine['ROUTINE_COMMENT']</code>
+      <code>$routine['item_num_params']</code>
+      <code>$routine['item_param_name']</code>
+      <code>$routine['item_type']</code>
+      <code>$routine['item_param_dir']</code>
+      <code>$routine['item_param_dir']</code>
+      <code>$routine['item_param_name']</code>
+      <code>$routine['item_type']</code>
+      <code>$routine['item_name']</code>
+      <code>$routine['item_name']</code>
+    </PossiblyInvalidArrayAccess>
+    <PossiblyInvalidArrayAssignment occurrences="2">
+      <code>$routine['item_original_name']</code>
+      <code>$routine['item_original_type']</code>
+    </PossiblyInvalidArrayAssignment>
+    <PossiblyNullArgument occurrences="4">
+      <code>$mode</code>
+      <code>$create_routine</code>
+      <code>$item_returntype</code>
+      <code>$item_returntype</code>
+    </PossiblyNullArgument>
+    <PossiblyNullArrayAccess occurrences="1">
+      <code>$routine['item_type']</code>
+    </PossiblyNullArrayAccess>
+  </file>
+  <file src="libraries/classes/Database/Search.php">
+    <InvalidArrayOffset occurrences="1">
+      <code>$this-&gt;searchTypes[$_POST['criteriaSearchType']]</code>
+    </InvalidArrayOffset>
+  </file>
+  <file src="libraries/classes/Database/Triggers.php">
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$item</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidArrayAccess occurrences="3">
+      <code>$trigger['create']</code>
+      <code>$trigger['drop']</code>
+      <code>$item['item_name']</code>
+    </PossiblyInvalidArrayAccess>
+    <PossiblyInvalidArrayAssignment occurrences="1">
+      <code>$item['item_original_name']</code>
+    </PossiblyInvalidArrayAssignment>
+  </file>
+  <file src="libraries/classes/DatabaseInterface.php">
+    <EmptyArrayAccess occurrences="1">
+      <code>$result_target[]</code>
+    </EmptyArrayAccess>
+    <InvalidReturnStatement occurrences="1">
+      <code>$this-&gt;_extension-&gt;getProtoInfo($this-&gt;_links[$link])</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>int|bool</code>
+    </InvalidReturnType>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$table</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidArrayAccess occurrences="6">
+      <code>$row['Rows']</code>
+      <code>$row['Data_length']</code>
+      <code>$row['Max_data_length']</code>
+      <code>$row['Index_length']</code>
+      <code>$row['Engine']</code>
+      <code>$row['Data_free']</code>
+    </PossiblyInvalidArrayAccess>
+  </file>
+  <file src="libraries/classes/Dbal/DbiMysqli.php">
+    <ImplementedReturnTypeMismatch occurrences="5">
+      <code>array|null</code>
+      <code>array|null</code>
+      <code>array|null</code>
+      <code>array|bool</code>
+      <code>string|false</code>
+    </ImplementedReturnTypeMismatch>
+    <InvalidPropertyFetch occurrences="2">
+      <code>$mysqli-&gt;connect_errno</code>
+      <code>$mysqli-&gt;connect_error</code>
+    </InvalidPropertyFetch>
+    <MoreSpecificImplementedParamType occurrences="24">
+      <code>$mysqli</code>
+      <code>$mysqli</code>
+      <code>$mysqli</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$mysqli</code>
+      <code>$mysqli</code>
+      <code>$mysqli</code>
+      <code>$mysqli</code>
+      <code>$mysqli</code>
+      <code>$mysqli</code>
+      <code>$mysqli</code>
+      <code>$result</code>
+      <code>$mysqli</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$mysqli</code>
+      <code>$mysqli</code>
+    </MoreSpecificImplementedParamType>
+    <PossiblyNullPropertyFetch occurrences="2">
+      <code>$mysqli-&gt;connect_errno</code>
+      <code>$mysqli-&gt;connect_error</code>
+    </PossiblyNullPropertyFetch>
+    <TypeDoesNotContainNull occurrences="2">
+      <code>$return_value === null</code>
+      <code>$return_value === false || $return_value === null</code>
+    </TypeDoesNotContainNull>
+  </file>
+  <file src="libraries/classes/Display/Export.php">
+    <InvalidScalarArgument occurrences="2">
+      <code>$numTables</code>
+      <code>$unlimNumRows</code>
+    </InvalidScalarArgument>
+  </file>
+  <file src="libraries/classes/Display/GitRevision.php">
+    <PossiblyNullArgument occurrences="12">
+      <code>$this-&gt;config-&gt;get('PMA_VERSION_GIT_COMMITHASH')</code>
+      <code>$this-&gt;config-&gt;get('PMA_VERSION_GIT_MESSAGE')</code>
+      <code>$this-&gt;config-&gt;get('PMA_VERSION_GIT_COMMITHASH')</code>
+      <code>$branch</code>
+      <code>$branch</code>
+      <code>$isRemoteBranch ? $branch : htmlspecialchars($branch)</code>
+      <code>$committer['date']</code>
+      <code>$committer['email']</code>
+      <code>$committer['name']</code>
+      <code>$author['date']</code>
+      <code>$author['email']</code>
+      <code>$author['name']</code>
+    </PossiblyNullArgument>
+    <PossiblyNullArrayAccess occurrences="6">
+      <code>$committer['date']</code>
+      <code>$committer['email']</code>
+      <code>$committer['name']</code>
+      <code>$author['date']</code>
+      <code>$author['email']</code>
+      <code>$author['name']</code>
+    </PossiblyNullArrayAccess>
+  </file>
+  <file src="libraries/classes/Display/ImportAjax.php">
+    <InvalidReturnStatement occurrences="1">
+      <code>ini_get('session.upload_progress.enabled')</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>bool</code>
+    </InvalidReturnType>
+  </file>
+  <file src="libraries/classes/Display/Results.php">
+    <ImplicitToStringCast occurrences="1">
+      <code>$message</code>
+    </ImplicitToStringCast>
+    <InvalidArgument occurrences="13">
+      <code>$dt_result</code>
+      <code>$added[$orgFullTableName]</code>
+      <code>$dt_result</code>
+      <code>$transformation_plugin</code>
+      <code>$default_function</code>
+      <code>$transformation_plugin</code>
+      <code>$default_function</code>
+      <code>$transformation_plugin</code>
+      <code>$default_function</code>
+      <code>$transform_options</code>
+      <code>$transform_options</code>
+      <code>$transform_options</code>
+      <code>$dt_result</code>
+    </InvalidArgument>
+    <InvalidOperand occurrences="1">
+      <code>$index</code>
+    </InvalidOperand>
+    <InvalidScalarArgument occurrences="3">
+      <code>$pageNow</code>
+      <code>$nbTotalPage</code>
+      <code>$original_length</code>
+    </InvalidScalarArgument>
+    <NullableReturnStatement occurrences="1">
+      <code>$this-&gt;__get('sql_query')</code>
+    </NullableReturnStatement>
+    <PossiblyInvalidArgument occurrences="6">
+      <code>$col_visib</code>
+      <code>$col_visib</code>
+      <code>$sortExpressionNoDirection</code>
+      <code>$this-&gt;transformations-&gt;getMime($this-&gt;__get('db'), $meta-&gt;orgtable, false, true)</code>
+      <code>$transform_options</code>
+      <code>$transform_options</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidArrayAccess occurrences="2">
+      <code>$col_order[$currentColumn]</code>
+      <code>$col_order[$n]</code>
+    </PossiblyInvalidArrayAccess>
+    <PossiblyNullArgument occurrences="57">
+      <code>$this-&gt;__get('sql_query')</code>
+      <code>$db</code>
+      <code>$table</code>
+      <code>$table</code>
+      <code>$db</code>
+      <code>$this-&gt;__get('sql_query')</code>
+      <code>$this-&gt;__get('sql_query')</code>
+      <code>$this-&gt;__get('sql_query')</code>
+      <code>$name</code>
+      <code>$fields_meta[$i]</code>
+      <code>$fields_meta[$i]</code>
+      <code>$col_visib_current</code>
+      <code>$fields_meta[$i]-&gt;name</code>
+      <code>$col_visib_current</code>
+      <code>$fields_meta[$i]</code>
+      <code>$this-&gt;__get('table')</code>
+      <code>$this-&gt;__get('db')</code>
+      <code>empty($field-&gt;database) ? $this-&gt;__get('db') : $field-&gt;database</code>
+      <code>$this-&gt;__get('table')</code>
+      <code>$this-&gt;__get('db')</code>
+      <code>$display_params</code>
+      <code>$this-&gt;__get('fields_cnt')</code>
+      <code>$this-&gt;__get('fields_meta')</code>
+      <code>$this-&gt;__get('table')</code>
+      <code>$this-&gt;__get('db')</code>
+      <code>$meta-&gt;orgtable</code>
+      <code>$this-&gt;__get('sql_query')</code>
+      <code>$this-&gt;__get('sql_query')</code>
+      <code>$meta-&gt;type</code>
+      <code>$this-&gt;__get('db')</code>
+      <code>$meta-&gt;orgtable</code>
+      <code>$meta-&gt;orgname</code>
+      <code>$this-&gt;__get('fields_cnt')</code>
+      <code>$this-&gt;__get('fields_meta')</code>
+      <code>$meta</code>
+      <code>$meta</code>
+      <code>$meta</code>
+      <code>$this-&gt;__get('table')</code>
+      <code>$this-&gt;__get('db')</code>
+      <code>$fields_meta[$m]-&gt;orgname</code>
+      <code>$this-&gt;__get('sql_query')</code>
+      <code>$this-&gt;__get('table')</code>
+      <code>$this-&gt;__get('db')</code>
+      <code>$this-&gt;__get('table')</code>
+      <code>$this-&gt;__get('table')</code>
+      <code>$is_field_truncated</code>
+      <code>$is_field_truncated</code>
+      <code>$this-&gt;__get('sql_query')</code>
+      <code>$this-&gt;__get('table')</code>
+      <code>$this-&gt;__get('table')</code>
+      <code>$sort_table</code>
+      <code>$this-&gt;__get('table')</code>
+      <code>$this-&gt;__get('db')</code>
+      <code>$this-&gt;__get('db')</code>
+      <code>$this-&gt;__get('table')</code>
+      <code>$this-&gt;__get('fields_cnt')</code>
+      <code>$this-&gt;__get('fields_meta')</code>
+    </PossiblyNullArgument>
+    <PossiblyNullArrayAccess occurrences="32">
+      <code>$fields_meta[$i]</code>
+      <code>$fields_meta[$i]</code>
+      <code>$fields_meta[$i]</code>
+      <code>$fields_meta[$i]</code>
+      <code>$fields_meta[$i]</code>
+      <code>$fields_meta[$i]</code>
+      <code>$fields_meta[$i]</code>
+      <code>$fields_meta[$i]</code>
+      <code>$display_params['desc']</code>
+      <code>$fields_meta[$i]</code>
+      <code>$fields_meta[$i]</code>
+      <code>$fields_meta[$i]</code>
+      <code>$display_params['desc']</code>
+      <code>$whereClauseMap[$row_no]</code>
+      <code>$fields_meta[$currentColumn]</code>
+      <code>$fields_meta[$i]</code>
+      <code>$whereClauseMap[$row_no]</code>
+      <code>$whereClauseMap[$row_no]</code>
+      <code>$display_params['data']</code>
+      <code>$display_params['data']</code>
+      <code>$display_params['data']</code>
+      <code>$display_params['data']</code>
+      <code>$display_params['rowdata']</code>
+      <code>$display_params['data']</code>
+      <code>$display_params['data']</code>
+      <code>$display_params['rowdata']</code>
+      <code>$fields_meta[$m]</code>
+      <code>$fields_meta[0]</code>
+      <code>$fields_meta[1]</code>
+      <code>$fields_meta[1]</code>
+      <code>$display_size[0]</code>
+      <code>$display_size[1]</code>
+    </PossiblyNullArrayAccess>
+    <PossiblyNullArrayOffset occurrences="1">
+      <code>$map</code>
+    </PossiblyNullArrayOffset>
+    <PossiblyNullIterator occurrences="2">
+      <code>$fields_meta</code>
+      <code>$fields_meta</code>
+    </PossiblyNullIterator>
+    <PossiblyNullPropertyFetch occurrences="12">
+      <code>$fields_meta[$i]-&gt;table</code>
+      <code>$fields_meta[$i]-&gt;table</code>
+      <code>$fields_meta[$i]-&gt;name</code>
+      <code>$meta-&gt;orgtable</code>
+      <code>$meta-&gt;orgtable</code>
+      <code>$meta-&gt;orgname</code>
+      <code>$meta-&gt;not_null</code>
+      <code>$meta-&gt;type</code>
+      <code>$meta-&gt;numeric</code>
+      <code>$fields_meta[$m]-&gt;orgname</code>
+      <code>$fields_meta[0]-&gt;table</code>
+      <code>$fields_meta[1]-&gt;name</code>
+    </PossiblyNullPropertyFetch>
+    <PossiblyUndefinedArrayOffset occurrences="1">
+      <code>$analyzed_sql_results['statement']</code>
+    </PossiblyUndefinedArrayOffset>
+    <TypeDoesNotContainNull occurrences="3">
+      <code>$column === null</code>
+      <code>$column === null</code>
+      <code>$column === null</code>
+    </TypeDoesNotContainNull>
+    <TypeDoesNotContainType occurrences="1">
+      <code>is_array($map)</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="libraries/classes/Encoding.php">
+    <PossiblyNullPropertyAssignmentValue occurrences="1">
+      <code>null</code>
+    </PossiblyNullPropertyAssignmentValue>
+  </file>
+  <file src="libraries/classes/Engines/Bdb.php">
+    <UndefinedConstant occurrences="3">
+      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
+    </UndefinedConstant>
+  </file>
+  <file src="libraries/classes/Engines/Innodb.php">
+    <LessSpecificImplementedReturnType occurrences="1">
+      <code>array</code>
+    </LessSpecificImplementedReturnType>
+    <PossiblyNullArgument occurrences="1"/>
+    <UndefinedConstant occurrences="18">
+      <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_BOOLEAN</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
+      <code>PMA_ENGINE_SUPPORT_YES</code>
+    </UndefinedConstant>
+  </file>
+  <file src="libraries/classes/Engines/Memory.php">
+    <UndefinedConstant occurrences="1">
+      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
+    </UndefinedConstant>
+  </file>
+  <file src="libraries/classes/Engines/Myisam.php">
+    <UndefinedConstant occurrences="6">
+      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
+    </UndefinedConstant>
+  </file>
+  <file src="libraries/classes/Engines/Pbxt.php">
+    <InvalidNullableReturnType occurrences="1">
+      <code>array</code>
+    </InvalidNullableReturnType>
+    <InvalidScalarArgument occurrences="1">
+      <code>$formatted_size</code>
+    </InvalidScalarArgument>
+    <LessSpecificImplementedReturnType occurrences="1">
+      <code>array</code>
+    </LessSpecificImplementedReturnType>
+    <NullableReturnStatement occurrences="1">
+      <code>Util::formatByteDown($value)</code>
+    </NullableReturnStatement>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$formatted_size</code>
+    </PossiblyInvalidArgument>
+    <UndefinedConstant occurrences="12">
+      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
+      <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
+    </UndefinedConstant>
+  </file>
+  <file src="libraries/classes/ErrorHandler.php">
+    <InvalidArgument occurrences="1">
+      <code>[$this, 'handleError']</code>
+    </InvalidArgument>
+    <PossiblyNullArgument occurrences="1">
+      <code>$errorNumber</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/ErrorReport.php">
+    <PossiblyUndefinedArrayOffset occurrences="1">
+      <code>$components['path']</code>
+    </PossiblyUndefinedArrayOffset>
+  </file>
+  <file src="libraries/classes/Export.php">
+    <InvalidReturnStatement occurrences="1">
+      <code>$memory_limit</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>int</code>
+    </InvalidReturnType>
+    <PossiblyInvalidArgument occurrences="2">
+      <code>$dump_buffer</code>
+      <code>$db_select</code>
+    </PossiblyInvalidArgument>
+    <PossiblyNullArgument occurrences="5">
+      <code>$line</code>
+      <code>$line</code>
+      <code>$line</code>
+      <code>$line</code>
+      <code>$line</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/File.php">
+    <FalsableReturnStatement occurrences="1">
+      <code>$this-&gt;detectCompression()</code>
+    </FalsableReturnStatement>
+    <InvalidFalsableReturnType occurrences="1">
+      <code>string</code>
+    </InvalidFalsableReturnType>
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$this-&gt;_handle</code>
+    </InvalidPropertyAssignmentValue>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$_FILES['fields_upload']</code>
+    </PossiblyInvalidArgument>
+    <PossiblyNullArgument occurrences="18">
+      <code>$this-&gt;getName()</code>
+      <code>$name</code>
+      <code>$this-&gt;getName()</code>
+      <code>$this-&gt;getName()</code>
+      <code>$this-&gt;getName()</code>
+      <code>$this-&gt;getName()</code>
+      <code>$this-&gt;getName()</code>
+      <code>$this-&gt;getName()</code>
+      <code>$this-&gt;getName()</code>
+      <code>$this-&gt;getName()</code>
+      <code>$this-&gt;getName()</code>
+      <code>$this-&gt;getName()</code>
+      <code>$this-&gt;getName()</code>
+      <code>$this-&gt;getName()</code>
+      <code>$this-&gt;getName()</code>
+      <code>$this-&gt;_handle</code>
+      <code>$this-&gt;_handle</code>
+      <code>$this-&gt;_handle</code>
+    </PossiblyNullArgument>
+    <PossiblyNullPropertyAssignmentValue occurrences="4">
+      <code>null</code>
+      <code>null</code>
+      <code>null</code>
+      <code>null</code>
+    </PossiblyNullPropertyAssignmentValue>
+  </file>
+  <file src="libraries/classes/Footer.php">
+    <InvalidReturnStatement occurrences="1">
+      <code>$object</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>object</code>
+    </InvalidReturnType>
+    <MissingFile occurrences="1">
+      <code>include ROOT_PATH . 'revision-info.php'</code>
+    </MissingFile>
+    <ReferenceConstraintViolation occurrences="2">
+      <code>return $object;</code>
+      <code>$object</code>
+    </ReferenceConstraintViolation>
+  </file>
+  <file src="libraries/classes/Gis/GisGeometry.php">
+    <PossiblyFalseOperand occurrences="2">
+      <code>$last_comma</code>
+      <code>$last_comma</code>
+    </PossiblyFalseOperand>
+  </file>
+  <file src="libraries/classes/Gis/GisLineString.php">
+    <InvalidScalarArgument occurrences="2">
+      <code>$srid</code>
+      <code>$srid</code>
+    </InvalidScalarArgument>
+  </file>
+  <file src="libraries/classes/Gis/GisMultiLineString.php">
+    <InvalidScalarArgument occurrences="2">
+      <code>$srid</code>
+      <code>$srid</code>
+    </InvalidScalarArgument>
+  </file>
+  <file src="libraries/classes/Gis/GisMultiPoint.php">
+    <InvalidScalarArgument occurrences="2">
+      <code>$srid</code>
+      <code>$srid</code>
+    </InvalidScalarArgument>
+  </file>
+  <file src="libraries/classes/Gis/GisMultiPolygon.php">
+    <InvalidScalarArgument occurrences="2">
+      <code>$srid</code>
+      <code>$srid</code>
+    </InvalidScalarArgument>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>count($points_arr) / 2</code>
+    </PossiblyInvalidArgument>
+    <PossiblyNullArgument occurrences="2">
+      <code>$label</code>
+      <code>$label</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Gis/GisPoint.php">
+    <InvalidScalarArgument occurrences="2">
+      <code>$srid</code>
+      <code>$srid</code>
+    </InvalidScalarArgument>
+  </file>
+  <file src="libraries/classes/Gis/GisPolygon.php">
+    <InvalidNullableReturnType occurrences="1">
+      <code>array|false</code>
+    </InvalidNullableReturnType>
+    <InvalidScalarArgument occurrences="2">
+      <code>$srid</code>
+      <code>$srid</code>
+    </InvalidScalarArgument>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>count($points_arr) / 2</code>
+    </PossiblyInvalidArgument>
+  </file>
+  <file src="libraries/classes/Gis/GisVisualization.php">
+    <ArgumentTypeCoercion occurrences="1">
+      <code>$results</code>
+    </ArgumentTypeCoercion>
+    <InvalidArgument occurrences="3">
+      <code>''</code>
+      <code>$image</code>
+      <code>''</code>
+    </InvalidArgument>
+    <NullArgument occurrences="3">
+      <code>null</code>
+      <code>null</code>
+      <code>null</code>
+    </NullArgument>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$results</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidOperand occurrences="2">
+      <code>$results</code>
+      <code>$results</code>
+    </PossiblyInvalidOperand>
+    <PossiblyNullPropertyAssignmentValue occurrences="1">
+      <code>null</code>
+    </PossiblyNullPropertyAssignmentValue>
+  </file>
+  <file src="libraries/classes/Html/Generator.php">
+    <InvalidScalarArgument occurrences="1">
+      <code>ceil($count / $max_count)</code>
+    </InvalidScalarArgument>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$server_msg</code>
+    </PossiblyInvalidArgument>
+  </file>
+  <file src="libraries/classes/Import.php">
+    <InvalidReturnStatement occurrences="1">
+      <code>$column_number</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>int</code>
+    </InvalidReturnType>
+    <ParadoxicalCondition occurrences="1">
+      <code>$error</code>
+    </ParadoxicalCondition>
+    <PossiblyFalseArgument occurrences="1">
+      <code>strpos($last_cumulative_size, ',')</code>
+    </PossiblyFalseArgument>
+    <PossiblyFalseOperand occurrences="3">
+      <code>strpos($last_cumulative_size, ',')</code>
+      <code>strpos($last_cumulative_size, ',')</code>
+      <code>$decPos</code>
+    </PossiblyFalseOperand>
+    <PossiblyInvalidArgument occurrences="5">
+      <code>$last_cumulative_size</code>
+      <code>$last_cumulative_size</code>
+      <code>$last_cumulative_size</code>
+      <code>$last_cumulative_size</code>
+      <code>$last_cumulative_size</code>
+    </PossiblyInvalidArgument>
+    <PossiblyNullArrayAccess occurrences="1">
+      <code>$additional_sql[$i]</code>
+    </PossiblyNullArrayAccess>
+    <TypeDoesNotContainType occurrences="1">
+      <code>is_array($table)</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="libraries/classes/Index.php">
+    <PossiblyNullPropertyAssignmentValue occurrences="3">
+      <code>null</code>
+      <code>null</code>
+      <code>null</code>
+    </PossiblyNullPropertyAssignmentValue>
+  </file>
+  <file src="libraries/classes/IndexColumn.php">
+    <PossiblyNullPropertyAssignmentValue occurrences="3">
+      <code>null</code>
+      <code>null</code>
+      <code>null</code>
+    </PossiblyNullPropertyAssignmentValue>
+  </file>
+  <file src="libraries/classes/InsertEdit.php">
+    <InvalidArgument occurrences="1">
+      <code>$current_result</code>
+    </InvalidArgument>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$row</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidArrayAccess occurrences="8">
+      <code>$foreigner['foreign_db']</code>
+      <code>$foreigner['foreign_table']</code>
+      <code>$foreigner['foreign_field']</code>
+      <code>$foreigner['foreign_db']</code>
+      <code>$foreigner['foreign_table']</code>
+      <code>$foreigner['foreign_field']</code>
+      <code>$row[0]</code>
+      <code>$mime_map[$table_column['Field']]</code>
+    </PossiblyInvalidArrayAccess>
+    <PossiblyInvalidOperand occurrences="2">
+      <code>$tmp</code>
+      <code>$insert_id</code>
+    </PossiblyInvalidOperand>
+    <PossiblyNullArrayAccess occurrences="2">
+      <code>$data_size[0]</code>
+      <code>$data_size[1]</code>
+    </PossiblyNullArrayAccess>
+    <PossiblyUndefinedVariable occurrences="1">
+      <code>$protected_row</code>
+    </PossiblyUndefinedVariable>
+    <TypeDoesNotContainType occurrences="2">
+      <code>$input_type === 'time'</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="libraries/classes/IpAllowDeny.php">
+    <InvalidOperand occurrences="1">
+      <code>$regs[5]</code>
+    </InvalidOperand>
+    <InvalidScalarArgument occurrences="1">
+      <code>$remote_ip</code>
+    </InvalidScalarArgument>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$newval</code>
+    </PossiblyInvalidArgument>
+  </file>
+  <file src="libraries/classes/Language.php">
+    <InvalidReturnStatement occurrences="2">
+      <code>preg_match($pattern, $header)</code>
+      <code>preg_match($pattern, $header)</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="2">
+      <code>bool</code>
+      <code>bool</code>
+    </InvalidReturnType>
+  </file>
+  <file src="libraries/classes/Menu.php">
+    <NullableReturnStatement occurrences="1">
+      <code>$allowedTabs</code>
+    </NullableReturnStatement>
+    <PossiblyFalseOperand occurrences="1">
+      <code>mb_strpos($row['tab'], '_')</code>
+    </PossiblyFalseOperand>
+    <PossiblyNullArrayAccess occurrences="1">
+      <code>$allowedTabs[$tabName]</code>
+    </PossiblyNullArrayAccess>
+  </file>
+  <file src="libraries/classes/Message.php">
+    <InvalidArgument occurrences="1">
+      <code>$message</code>
+    </InvalidArgument>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$params</code>
+    </PossiblyInvalidArgument>
+    <PossiblyNullPropertyAssignmentValue occurrences="1">
+      <code>null</code>
+    </PossiblyNullPropertyAssignmentValue>
+  </file>
+  <file src="libraries/classes/Navigation/Navigation.php">
+    <InvalidArgument occurrences="2">
+      <code>$result</code>
+      <code>$result</code>
+    </InvalidArgument>
+  </file>
+  <file src="libraries/classes/Navigation/NavigationTree.php">
+    <InvalidReturnStatement occurrences="1">
+      <code>$retval</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>Node|false</code>
+    </InvalidReturnType>
+    <InvalidScalarArgument occurrences="1">
+      <code>$this-&gt;pos3Value[$key] ?? ''</code>
+    </InvalidScalarArgument>
+    <PossiblyFalseArgument occurrences="2">
+      <code>$table</code>
+      <code>$node-&gt;realParent()</code>
+    </PossiblyFalseArgument>
+    <PossiblyFalseOperand occurrences="1">
+      <code>strrpos($class, '\\')</code>
+    </PossiblyFalseOperand>
+    <PossiblyFalseReference occurrences="7">
+      <code>getChild</code>
+      <code>getData</code>
+      <code>addChild</code>
+      <code>realParent</code>
+      <code>getPresence</code>
+      <code>getPresence</code>
+      <code>getPresence</code>
+    </PossiblyFalseReference>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$icons</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidIterator occurrences="1">
+      <code>$icons</code>
+    </PossiblyInvalidIterator>
+    <PossiblyInvalidOperand occurrences="1">
+      <code>$node-&gt;icon</code>
+    </PossiblyInvalidOperand>
+    <PossiblyInvalidPropertyFetch occurrences="2">
+      <code>$container-&gt;realName</code>
+      <code>$container-&gt;parent</code>
+    </PossiblyInvalidPropertyFetch>
+    <PossiblyNullArgument occurrences="1">
+      <code>$title</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Navigation/NodeFactory.php">
+    <LessSpecificReturnStatement occurrences="1">
+      <code>new $class($name, $type, $isGroup)</code>
+    </LessSpecificReturnStatement>
+    <MoreSpecificReturnType occurrences="1">
+      <code>Node</code>
+    </MoreSpecificReturnType>
+  </file>
+  <file src="libraries/classes/Navigation/Nodes/NodeDatabaseChild.php">
+    <PossiblyInvalidPropertyFetch occurrences="1">
+      <code>$this-&gt;realParent()-&gt;realName</code>
+    </PossiblyInvalidPropertyFetch>
+  </file>
+  <file src="libraries/classes/Navigation/Nodes/NodeTable.php">
+    <PossiblyInvalidPropertyAssignmentValue occurrences="1">
+      <code>$title</code>
+    </PossiblyInvalidPropertyAssignmentValue>
+    <PossiblyInvalidPropertyFetch occurrences="2">
+      <code>$this-&gt;realParent()-&gt;realName</code>
+      <code>$this-&gt;realParent()-&gt;realName</code>
+    </PossiblyInvalidPropertyFetch>
+  </file>
+  <file src="libraries/classes/Normalization.php">
+    <InvalidArgument occurrences="1">
+      <code>$columnTypeList</code>
+    </InvalidArgument>
+    <PossiblyInvalidArgument occurrences="3">
+      <code>$this-&gt;dbi-&gt;getError()</code>
+      <code>$this-&gt;dbi-&gt;getError()</code>
+      <code>$this-&gt;dbi-&gt;getError()</code>
+    </PossiblyInvalidArgument>
+  </file>
+  <file src="libraries/classes/OpenDocument.php">
+    <InvalidReturnStatement occurrences="1">
+      <code>$zipExtension-&gt;createFile($data, $name)</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>string</code>
+    </InvalidReturnType>
+  </file>
+  <file src="libraries/classes/Operations.php">
+    <PossiblyNullArgument occurrences="1">
+      <code>$tmp_query</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Plugins.php">
+    <InvalidNullableReturnType occurrences="1">
+      <code>string</code>
+    </InvalidNullableReturnType>
+    <NullOperand occurrences="6">
+      <code>$ret</code>
+      <code>$ret</code>
+      <code>$ret</code>
+      <code>$ret</code>
+      <code>$ret</code>
+      <code>$ret</code>
+    </NullOperand>
+    <NullableReturnStatement occurrences="1">
+      <code>$ret</code>
+    </NullableReturnStatement>
+    <PossiblyNullArgument occurrences="2">
+      <code>$text</code>
+      <code>$text</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Plugins/Auth/AuthenticationCookie.php">
+    <ImplementedReturnTypeMismatch occurrences="2">
+      <code>bool|void</code>
+      <code>void|bool</code>
+    </ImplementedReturnTypeMismatch>
+    <InvalidScalarArgument occurrences="1">
+      <code>Core::getIp()</code>
+    </InvalidScalarArgument>
+  </file>
+  <file src="libraries/classes/Plugins/Auth/AuthenticationHttp.php">
+    <ImplicitToStringCast occurrences="1"/>
+  </file>
+  <file src="libraries/classes/Plugins/Auth/AuthenticationSignon.php">
+    <InvalidArgument occurrences="1">
+      <code>$sessionCookieParams</code>
+    </InvalidArgument>
+    <PossiblyInvalidArgument occurrences="5">
+      <code>$sessionCookieParams['lifetime']</code>
+      <code>$sessionCookieParams['path']</code>
+      <code>$sessionCookieParams['domain']</code>
+      <code>$sessionCookieParams['secure']</code>
+      <code>$sessionCookieParams['httponly']</code>
+    </PossiblyInvalidArgument>
+  </file>
+  <file src="libraries/classes/Plugins/Export/ExportCodegen.php">
+    <PossiblyNullArgument occurrences="6">
+      <code>$table_alias</code>
+      <code>$table_alias</code>
+      <code>$table_alias</code>
+      <code>$table_alias</code>
+      <code>$table_alias</code>
+      <code>$table_alias</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Plugins/Export/ExportHtmlword.php">
+    <PossiblyNullArgument occurrences="5">
+      <code>$table_alias</code>
+      <code>$table_alias</code>
+      <code>$table_alias</code>
+      <code>$table_alias</code>
+      <code>$table_alias</code>
+    </PossiblyNullArgument>
+    <PossiblyUndefinedVariable occurrences="2">
+      <code>$comments</code>
+      <code>$mime_map</code>
+    </PossiblyUndefinedVariable>
+  </file>
+  <file src="libraries/classes/Plugins/Export/ExportLatex.php">
+    <PossiblyFalseArgument occurrences="4">
+      <code>$pos</code>
+      <code>$pos</code>
+      <code>$pos</code>
+      <code>$pos</code>
+    </PossiblyFalseArgument>
+  </file>
+  <file src="libraries/classes/Plugins/Export/ExportMediawiki.php">
+    <PossiblyNullArgument occurrences="2">
+      <code>$table_alias</code>
+      <code>$table_alias</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Plugins/Export/ExportOds.php">
+    <PossiblyNullArgument occurrences="1">
+      <code>$table_alias</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Plugins/Export/ExportOdt.php">
+    <PossiblyInvalidArrayAccess occurrences="2">
+      <code>$foreigner['foreign_table']</code>
+      <code>$foreigner['foreign_field']</code>
+    </PossiblyInvalidArrayAccess>
+    <PossiblyNullArgument occurrences="10">
+      <code>$table_alias</code>
+      <code>$table_alias</code>
+      <code>$view_alias</code>
+      <code>$col_as</code>
+      <code>$table_alias</code>
+      <code>$table_alias</code>
+      <code>$table_alias</code>
+      <code>$table_alias</code>
+      <code>$table_alias</code>
+      <code>$table_alias</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Plugins/Export/ExportPhparray.php">
+    <PossiblyNullArgument occurrences="1">
+      <code>$table_alias</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Plugins/Export/ExportSql.php">
+    <InvalidArgument occurrences="5"/>
+    <PossiblyFalseArgument occurrences="1">
+      <code>mb_strpos($collation, '_')</code>
+    </PossiblyFalseArgument>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$statement-&gt;body</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidOperand occurrences="1"/>
+    <PossiblyInvalidPropertyAssignmentValue occurrences="1">
+      <code>Context::escape($alias)</code>
+    </PossiblyInvalidPropertyAssignmentValue>
+    <PossiblyNullArgument occurrences="20">
+      <code>$view_alias</code>
+      <code>$view_alias</code>
+      <code>$view_alias</code>
+      <code>$table_alias</code>
+      <code>$table_alias</code>
+      <code>$table_alias</code>
+      <code>$table_alias</code>
+      <code>$table_alias</code>
+      <code>$table_alias</code>
+      <code>$table_alias</code>
+      <code>$table_alias</code>
+      <code>$table_alias</code>
+      <code>$table_alias</code>
+      <code>$table_alias</code>
+      <code>$table_alias</code>
+      <code>$table_alias</code>
+      <code>$table_alias</code>
+      <code>$table_alias</code>
+      <code>$table_alias</code>
+      <code>$table_alias</code>
+    </PossiblyNullArgument>
+    <ReferenceConstraintViolation occurrences="3">
+      <code>return $sql_query;</code>
+      <code>return $statement-&gt;build();</code>
+      <code>$flag</code>
+    </ReferenceConstraintViolation>
+    <UndefinedMethod occurrences="4">
+      <code>$statement-&gt;fields</code>
+      <code>$statement-&gt;fields</code>
+      <code>$statement-&gt;fields</code>
+      <code>$statement-&gt;fields</code>
+    </UndefinedMethod>
+  </file>
+  <file src="libraries/classes/Plugins/Export/ExportTexytext.php">
+    <PossiblyNullArgument occurrences="1">
+      <code>$col_as</code>
+    </PossiblyNullArgument>
+    <PossiblyUndefinedVariable occurrences="2">
+      <code>$comments</code>
+      <code>$mime_map</code>
+    </PossiblyUndefinedVariable>
+  </file>
+  <file src="libraries/classes/Plugins/Export/ExportXml.php">
+    <PossiblyNullArgument occurrences="1">
+      <code>$table_alias</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Plugins/Export/Helpers/Pdf.php">
+    <PossiblyUndefinedVariable occurrences="5">
+      <code>$data</code>
+      <code>$data</code>
+      <code>$res_rel</code>
+      <code>$res_rel</code>
+      <code>$mime_map</code>
+    </PossiblyUndefinedVariable>
+  </file>
+  <file src="libraries/classes/Plugins/Export/Helpers/TableProperty.php">
+    <PossiblyFalseArgument occurrences="1">
+      <code>$pos</code>
+    </PossiblyFalseArgument>
+  </file>
+  <file src="libraries/classes/Plugins/ExportPlugin.php">
+    <PossiblyInvalidArrayAccess occurrences="2">
+      <code>$foreigner['foreign_table']</code>
+      <code>$foreigner['foreign_field']</code>
+    </PossiblyInvalidArrayAccess>
+  </file>
+  <file src="libraries/classes/Plugins/Import/AbstractImportCsv.php">
+    <ImplementedReturnTypeMismatch occurrences="1">
+      <code>OptionsPropertyMainGroup|void</code>
+    </ImplementedReturnTypeMismatch>
+  </file>
+  <file src="libraries/classes/Plugins/Import/ImportCsv.php">
+    <ImplicitToStringCast occurrences="1">
+      <code>$hint</code>
+    </ImplicitToStringCast>
+    <PossiblyNullReference occurrences="2">
+      <code>addProperty</code>
+      <code>addProperty</code>
+    </PossiblyNullReference>
+  </file>
+  <file src="libraries/classes/Plugins/Import/ImportLdi.php">
+    <PossiblyNullReference occurrences="1">
+      <code>addProperty</code>
+    </PossiblyNullReference>
+  </file>
+  <file src="libraries/classes/Plugins/Import/ImportMediawiki.php">
+    <InvalidArgument occurrences="1">
+      <code>[]</code>
+    </InvalidArgument>
+    <PossiblyUndefinedVariable occurrences="1">
+      <code>$cur_temp_line</code>
+    </PossiblyUndefinedVariable>
+    <ReferenceConstraintViolation occurrences="1">
+      <code>$analyses</code>
+    </ReferenceConstraintViolation>
+  </file>
+  <file src="libraries/classes/Plugins/Import/ImportOds.php">
+    <InvalidArgument occurrences="2">
+      <code>$cell_attrs</code>
+      <code>$text</code>
+    </InvalidArgument>
+    <PossiblyInvalidArgument occurrences="3">
+      <code>$value</code>
+      <code>$cell</code>
+      <code>$tables[$i][Import::TBL_NAME]</code>
+    </PossiblyInvalidArgument>
+    <PossiblyNullArrayAccess occurrences="4">
+      <code>$attr['number-columns-repeated']</code>
+      <code>$attr['number-columns-repeated']</code>
+      <code>$tbl_attr['name']</code>
+      <code>$tbl_attr['name']</code>
+    </PossiblyNullArrayAccess>
+  </file>
+  <file src="libraries/classes/Plugins/Import/ImportShp.php">
+    <InvalidArgument occurrences="1">
+      <code>[]</code>
+    </InvalidArgument>
+  </file>
+  <file src="libraries/classes/Plugins/Import/ImportSql.php">
+    <InvalidArgument occurrences="2"/>
+  </file>
+  <file src="libraries/classes/Plugins/Import/ImportXml.php">
+    <ImplicitToStringCast occurrences="1">
+      <code>$attrs['name']</code>
+    </ImplicitToStringCast>
+    <InvalidArgument occurrences="1">
+      <code>[]</code>
+    </InvalidArgument>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$tables[$i][Import::TBL_NAME]</code>
+    </PossiblyInvalidArgument>
+    <PossiblyNullArgument occurrences="2">
+      <code>$namespaces['pma'] ?? null</code>
+      <code>$attrs['name']</code>
+    </PossiblyNullArgument>
+    <PossiblyNullArrayAccess occurrences="10">
+      <code>$db_attr['name']</code>
+      <code>$db_attr['collation']</code>
+      <code>$db_attr['charset']</code>
+      <code>$db_attr['name']</code>
+      <code>$attrs['name']</code>
+      <code>$tbl_attr['name']</code>
+      <code>$tbl_attr['name']</code>
+      <code>$row_attr['name']</code>
+      <code>$row_attr['name']</code>
+      <code>$tbl_attr['name']</code>
+    </PossiblyNullArrayAccess>
+    <TypeDoesNotContainNull occurrences="2">
+      <code>$db_name === null</code>
+      <code>$db_name === null</code>
+    </TypeDoesNotContainNull>
+  </file>
+  <file src="libraries/classes/Plugins/Import/ShapeFileImport.php">
+    <ImplementedReturnTypeMismatch occurrences="1">
+      <code>string|false</code>
+    </ImplementedReturnTypeMismatch>
+  </file>
+  <file src="libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php">
+    <PossiblyInvalidArgument occurrences="6">
+      <code>$this-&gt;_tables[$masterTable]</code>
+      <code>$this-&gt;_tables[$foreignTable]</code>
+      <code>$this-&gt;diagram</code>
+      <code>$this-&gt;diagram</code>
+      <code>$this-&gt;diagram</code>
+      <code>$this-&gt;diagram</code>
+    </PossiblyInvalidArgument>
+    <PossiblyNullArgument occurrences="5">
+      <code>$this-&gt;paper</code>
+      <code>$this-&gt;orientation</code>
+      <code>$this-&gt;showKeys</code>
+      <code>$this-&gt;showKeys</code>
+      <code>$this-&gt;showKeys</code>
+    </PossiblyNullArgument>
+    <PossiblyNullReference occurrences="2">
+      <code>startDiaDoc</code>
+      <code>endDiaDoc</code>
+    </PossiblyNullReference>
+    <TooFewArguments occurrences="1">
+      <code>tableDraw</code>
+    </TooFewArguments>
+  </file>
+  <file src="libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php">
+    <InvalidArgument occurrences="2">
+      <code>$this-&gt;_tables[$masterTable]</code>
+      <code>$this-&gt;_tables[$foreignTable]</code>
+    </InvalidArgument>
+    <InvalidScalarArgument occurrences="1">
+      <code>'10'</code>
+    </InvalidScalarArgument>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$this-&gt;diagram</code>
+    </PossiblyInvalidArgument>
+    <PossiblyNullArgument occurrences="11">
+      <code>$this-&gt;orientation</code>
+      <code>$this-&gt;diagram</code>
+      <code>$this-&gt;_tablewidth</code>
+      <code>$this-&gt;showKeys</code>
+      <code>$this-&gt;tableDimension</code>
+      <code>$this-&gt;diagram</code>
+      <code>$this-&gt;_tablewidth</code>
+      <code>$this-&gt;diagram</code>
+      <code>$this-&gt;_tablewidth</code>
+      <code>$this-&gt;tableDimension</code>
+      <code>$this-&gt;tableDimension</code>
+    </PossiblyNullArgument>
+    <PossiblyNullReference occurrences="12">
+      <code>setTitle</code>
+      <code>setAuthor</code>
+      <code>setDate</code>
+      <code>setOrientation</code>
+      <code>setFont</code>
+      <code>getFont</code>
+      <code>getFontSize</code>
+      <code>getFont</code>
+      <code>getFontSize</code>
+      <code>getFont</code>
+      <code>getFontSize</code>
+      <code>endEpsDoc</code>
+    </PossiblyNullReference>
+    <TooFewArguments occurrences="1">
+      <code>tableDraw</code>
+    </TooFewArguments>
+    <UndefinedDocblockClass occurrences="3">
+      <code>$this-&gt;diagram-&gt;getFontSize()</code>
+      <code>$this-&gt;diagram-&gt;getFontSize()</code>
+      <code>$this-&gt;diagram-&gt;getFontSize()</code>
+    </UndefinedDocblockClass>
+  </file>
+  <file src="libraries/classes/Plugins/Schema/Eps/TableStatsEps.php">
+    <ArgumentTypeCoercion occurrences="1">
+      <code>$diagram</code>
+    </ArgumentTypeCoercion>
+  </file>
+  <file src="libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php">
+    <InvalidArgument occurrences="2">
+      <code>$this-&gt;_tables[$masterTable]</code>
+      <code>$this-&gt;_tables[$foreignTable]</code>
+    </InvalidArgument>
+    <InvalidScalarArgument occurrences="6">
+      <code>$this-&gt;offline</code>
+      <code>'B'</code>
+      <code>''</code>
+      <code>'B'</code>
+      <code>''</code>
+      <code>''</code>
+    </InvalidScalarArgument>
+    <NullArgument occurrences="4">
+      <code>null</code>
+      <code>null</code>
+      <code>null</code>
+      <code>null</code>
+    </NullArgument>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$this-&gt;diagram</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidArrayAccess occurrences="6">
+      <code>$foreigner['foreign_db']</code>
+      <code>$foreigner['foreign_db']</code>
+      <code>$foreigner['foreign_table']</code>
+      <code>$foreigner['foreign_field']</code>
+      <code>$foreigner['foreign_field']</code>
+      <code>$foreigner['foreign_table']</code>
+    </PossiblyInvalidArrayAccess>
+    <PossiblyNullArgument occurrences="14">
+      <code>$this-&gt;orientation</code>
+      <code>$this-&gt;paper</code>
+      <code>$this-&gt;diagram</code>
+      <code>$this-&gt;_tablewidth</code>
+      <code>$this-&gt;showKeys</code>
+      <code>$this-&gt;tableDimension</code>
+      <code>$this-&gt;diagram</code>
+      <code>$this-&gt;_tablewidth</code>
+      <code>$this-&gt;showKeys</code>
+      <code>$this-&gt;tableDimension</code>
+      <code>$this-&gt;diagram</code>
+      <code>$this-&gt;_tablewidth</code>
+      <code>$this-&gt;showKeys</code>
+      <code>$this-&gt;tableDimension</code>
+    </PossiblyNullArgument>
+    <PossiblyNullPropertyFetch occurrences="14">
+      <code>$this-&gt;diagram-&gt;PMA_links</code>
+      <code>$this-&gt;diagram-&gt;PMA_links</code>
+      <code>$this-&gt;diagram-&gt;PMA_links</code>
+      <code>$this-&gt;diagram-&gt;PMA_links</code>
+      <code>$this-&gt;diagram-&gt;PMA_links</code>
+      <code>$this-&gt;diagram-&gt;PMA_links</code>
+      <code>$this-&gt;diagram-&gt;PMA_links</code>
+      <code>$this-&gt;diagram-&gt;PMA_links</code>
+      <code>$this-&gt;diagram-&gt;PMA_links</code>
+      <code>$this-&gt;diagram-&gt;PMA_links</code>
+      <code>$this-&gt;diagram-&gt;PMA_links</code>
+      <code>$this-&gt;diagram-&gt;PMA_links</code>
+      <code>$this-&gt;diagram-&gt;PMA_links</code>
+      <code>$this-&gt;diagram-&gt;PMA_links</code>
+    </PossiblyNullPropertyFetch>
+    <PossiblyNullReference occurrences="91">
+      <code>SetTitle</code>
+      <code>setCMargin</code>
+      <code>Open</code>
+      <code>SetAutoPageBreak</code>
+      <code>setOffline</code>
+      <code>SetAutoPageBreak</code>
+      <code>setCMargin</code>
+      <code>AddPage</code>
+      <code>Cell</code>
+      <code>Ln</code>
+      <code>AddLink</code>
+      <code>SetX</code>
+      <code>Cell</code>
+      <code>SetX</code>
+      <code>Cell</code>
+      <code>SetX</code>
+      <code>AddLink</code>
+      <code>AddLink</code>
+      <code>SetX</code>
+      <code>Cell</code>
+      <code>SetX</code>
+      <code>Cell</code>
+      <code>SetAutoPageBreak</code>
+      <code>AddPage</code>
+      <code>Bookmark</code>
+      <code>setAlias</code>
+      <code>PageNo</code>
+      <code>AddLink</code>
+      <code>SetLink</code>
+      <code>SetFont</code>
+      <code>Cell</code>
+      <code>SetFont</code>
+      <code>Ln</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Ln</code>
+      <code>SetFont</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>setWidths</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>setWidths</code>
+      <code>SetFont</code>
+      <code>AddLink</code>
+      <code>Bookmark</code>
+      <code>SetLink</code>
+      <code>row</code>
+      <code>SetFont</code>
+      <code>SetAutoPageBreak</code>
+      <code>setCMargin</code>
+      <code>AddPage</code>
+      <code>SetLink</code>
+      <code>Bookmark</code>
+      <code>setAlias</code>
+      <code>PageNo</code>
+      <code>getPageWidth</code>
+      <code>getPageHeight</code>
+      <code>setScale</code>
+      <code>setLineWidthScale</code>
+      <code>SetFontSize</code>
+      <code>SetMargins</code>
+      <code>SetDrawColor</code>
+      <code>getPageHeight</code>
+      <code>line</code>
+      <code>getPageWidth</code>
+      <code>SetXY</code>
+      <code>Cell</code>
+      <code>getPageWidth</code>
+      <code>line</code>
+      <code>getPageHeight</code>
+      <code>SetXY</code>
+      <code>Cell</code>
+      <code>setFontSizeScale</code>
+    </PossiblyNullReference>
+  </file>
+  <file src="libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php">
+    <ArgumentTypeCoercion occurrences="1">
+      <code>$diagram</code>
+    </ArgumentTypeCoercion>
+    <InvalidScalarArgument occurrences="2">
+      <code>'B'</code>
+      <code>''</code>
+    </InvalidScalarArgument>
+  </file>
+  <file src="libraries/classes/Plugins/Schema/RelationStats.php">
+    <InvalidArgument occurrences="2">
+      <code>$master_table</code>
+      <code>$foreign_table</code>
+    </InvalidArgument>
+  </file>
+  <file src="libraries/classes/Plugins/Schema/Svg/Svg.php">
+    <InvalidArgument occurrences="4">
+      <code>$x1</code>
+      <code>$y1</code>
+      <code>$x2</code>
+      <code>$y2</code>
+    </InvalidArgument>
+  </file>
+  <file src="libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php">
+    <InvalidArgument occurrences="2">
+      <code>$this-&gt;_tables[$masterTable]</code>
+      <code>$this-&gt;_tables[$foreignTable]</code>
+    </InvalidArgument>
+    <PossiblyInvalidArgument occurrences="2">
+      <code>$this-&gt;_tables[$table]</code>
+      <code>$this-&gt;diagram</code>
+    </PossiblyInvalidArgument>
+    <PossiblyNullArgument occurrences="10">
+      <code>$this-&gt;diagram</code>
+      <code>$this-&gt;_tablewidth</code>
+      <code>$this-&gt;showKeys</code>
+      <code>$this-&gt;tableDimension</code>
+      <code>$this-&gt;diagram</code>
+      <code>$this-&gt;_tablewidth</code>
+      <code>$this-&gt;diagram</code>
+      <code>$this-&gt;_tablewidth</code>
+      <code>$this-&gt;tableDimension</code>
+      <code>$this-&gt;tableDimension</code>
+    </PossiblyNullArgument>
+    <PossiblyNullReference occurrences="12">
+      <code>setTitle</code>
+      <code>SetAuthor</code>
+      <code>setFont</code>
+      <code>setFontSize</code>
+      <code>getFont</code>
+      <code>getFontSize</code>
+      <code>startSvgDoc</code>
+      <code>getFont</code>
+      <code>getFontSize</code>
+      <code>getFont</code>
+      <code>getFontSize</code>
+      <code>endSvgDoc</code>
+    </PossiblyNullReference>
+    <TooFewArguments occurrences="1">
+      <code>tableDraw</code>
+    </TooFewArguments>
+    <UndefinedDocblockClass occurrences="3">
+      <code>$this-&gt;diagram-&gt;getFontSize()</code>
+      <code>$this-&gt;diagram-&gt;getFontSize()</code>
+      <code>$this-&gt;diagram-&gt;getFontSize()</code>
+    </UndefinedDocblockClass>
+  </file>
+  <file src="libraries/classes/Plugins/Schema/Svg/TableStatsSvg.php">
+    <ArgumentTypeCoercion occurrences="1">
+      <code>$diagram</code>
+    </ArgumentTypeCoercion>
+  </file>
+  <file src="libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php">
+    <PossiblyInvalidOperand occurrences="1">
+      <code>$timestamp</code>
+    </PossiblyInvalidOperand>
+    <PossiblyNullPropertyFetch occurrences="1">
+      <code>$meta-&gt;type</code>
+    </PossiblyNullPropertyFetch>
+  </file>
+  <file src="libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php">
+    <EmptyArrayAccess occurrences="2">
+      <code>$allowed_programs[$options[0]]</code>
+      <code>$allowed_programs[0]</code>
+    </EmptyArrayAccess>
+    <ImplementedReturnTypeMismatch occurrences="1">
+      <code>bool</code>
+    </ImplementedReturnTypeMismatch>
+  </file>
+  <file src="libraries/classes/Plugins/Transformations/Output/Text_Plain_Binarytoip.php">
+    <FalsableReturnStatement occurrences="1">
+      <code>FormatConverter::binaryToIp($buffer)</code>
+    </FalsableReturnStatement>
+    <InvalidFalsableReturnType occurrences="1">
+      <code>string</code>
+    </InvalidFalsableReturnType>
+  </file>
+  <file src="libraries/classes/Properties/Options/OptionsPropertyOneItem.php">
+    <ImplementedParamTypeMismatch occurrences="1">
+      <code>$force</code>
+    </ImplementedParamTypeMismatch>
+    <ImplementedReturnTypeMismatch occurrences="1">
+      <code>bool</code>
+    </ImplementedReturnTypeMismatch>
+  </file>
+  <file src="libraries/classes/Relation.php">
+    <InvalidArgument occurrences="10">
+      <code>$tab_rs</code>
+      <code>$tab_rs</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$com_rs</code>
+      <code>$com_rs</code>
+      <code>$com_rs</code>
+      <code>$com_rs</code>
+      <code>$com_rs</code>
+      <code>$com_rs</code>
+    </InvalidArgument>
+    <InvalidReturnStatement occurrences="3">
+      <code>$cfgRelation</code>
+      <code>$this-&gt;queryAsControlUser($upd_query)</code>
+      <code>$this-&gt;dbi-&gt;insertId(DatabaseInterface::CONNECT_CONTROL)</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="2">
+      <code>bool</code>
+      <code>int</code>
+    </InvalidReturnType>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$foreigners</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidArrayAccess occurrences="44">
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$curr_table[0]</code>
+      <code>$row['comment']</code>
+      <code>$row['comment']</code>
+      <code>$row['db_name']</code>
+      <code>$foreigner['foreign_db']</code>
+      <code>$foreigner['foreign_table']</code>
+      <code>$foreigner['foreign_field']</code>
+    </PossiblyInvalidArrayAccess>
+    <PossiblyNullPropertyAssignmentValue occurrences="1">
+      <code>$dbi</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <TypeDoesNotContainType occurrences="1">
+      <code>$vtitle != ''</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="libraries/classes/Replication.php">
+    <PossiblyNullArgument occurrences="2">
+      <code>$control</code>
+      <code>$host</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/ReplicationGui.php">
+    <PossiblyFalseOperand occurrences="1">
+      <code>mb_strrpos($currentUser, '@')</code>
+    </PossiblyFalseOperand>
+    <PossiblyNullArgument occurrences="2">
+      <code>$messageSuccess</code>
+      <code>$messageError</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Response.php">
+    <InvalidReturnStatement occurrences="1">
+      <code>$this-&gt;_CWD</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>string</code>
+    </InvalidReturnType>
+  </file>
+  <file src="libraries/classes/SavedSearches.php">
+    <PossiblyInvalidArrayOffset occurrences="2">
+      <code>$criterias['criteriaColumn']</code>
+      <code>$criterias['Or' . $i]</code>
+    </PossiblyInvalidArrayOffset>
+    <PossiblyNullPropertyAssignmentValue occurrences="5">
+      <code>null</code>
+      <code>null</code>
+      <code>null</code>
+      <code>null</code>
+      <code>null</code>
+    </PossiblyNullPropertyAssignmentValue>
+  </file>
+  <file src="libraries/classes/Server/Plugins.php">
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$row</code>
+    </PossiblyInvalidArgument>
+  </file>
+  <file src="libraries/classes/Server/Privileges.php">
+    <InvalidArgument occurrences="6">
+      <code>$result</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$result</code>
+    </InvalidArgument>
+    <NullArgument occurrences="3">
+      <code>null</code>
+      <code>null</code>
+      <code>null</code>
+    </NullArgument>
+    <NullableReturnStatement occurrences="1">
+      <code>$authentication_plugin</code>
+    </NullableReturnStatement>
+    <PossiblyFalseArgument occurrences="1">
+      <code>mb_strpos($export_user, '&amp;')</code>
+    </PossiblyFalseArgument>
+    <PossiblyFalseOperand occurrences="6">
+      <code>mb_strpos($row1['Type'], '(')</code>
+      <code>mb_strpos($row1['Type'], ')')</code>
+      <code>mb_strpos($row1['Type'], '(')</code>
+      <code>mb_strrpos($currentUser, '@')</code>
+      <code>mb_strrpos($_user_name, '@')</code>
+      <code>mb_strrpos($export_user, ';')</code>
+    </PossiblyFalseOperand>
+    <PossiblyInvalidArgument occurrences="14">
+      <code>$db_rights_row</code>
+      <code>$db_rights[$row[$dbOrTableName]]</code>
+      <code>$row</code>
+      <code>$row</code>
+      <code>$db_rights_row</code>
+      <code>$dbname</code>
+      <code>$row</code>
+      <code>$row</code>
+      <code>$this-&gt;dbi-&gt;getError()</code>
+      <code>$this-&gt;dbi-&gt;getError()</code>
+      <code>$this-&gt;dbi-&gt;getError()</code>
+      <code>$this-&gt;dbi-&gt;getError()</code>
+      <code>$this-&gt;dbi-&gt;getError()</code>
+      <code>$this-&gt;dbi-&gt;getError()</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidArrayAccess occurrences="38">
+      <code>$row1['Type']</code>
+      <code>$row[0]</code>
+      <code>$row1[0]</code>
+      <code>$row1[0]</code>
+      <code>$row1[0]</code>
+      <code>$row1[0]</code>
+      <code>$row1[0]</code>
+      <code>$row1[0]</code>
+      <code>$row1[0]</code>
+      <code>$row1[1]</code>
+      <code>$row1[0]</code>
+      <code>$row['PLUGIN_NAME']</code>
+      <code>$row['PLUGIN_NAME']</code>
+      <code>$row['PLUGIN_DESCRIPTION']</code>
+      <code>$row['@@old_passwords']</code>
+      <code>$row[$dbOrTableName]</code>
+      <code>$row[$dbOrTableName]</code>
+      <code>$row['Db']</code>
+      <code>$row[0]</code>
+      <code>$row[0]</code>
+      <code>$row['User']</code>
+      <code>$row['Host']</code>
+      <code>$row['usergroup']</code>
+      <code>$row['username']</code>
+      <code>$row['authentication_string']</code>
+      <code>$row['password']</code>
+      <code>$row['Db']</code>
+      <code>$row['Table_name']</code>
+      <code>$row2['Column_priv']</code>
+      <code>$row2['Column_name']</code>
+      <code>$row2['Column_name']</code>
+      <code>$row2['Column_name']</code>
+      <code>$row2['Column_name']</code>
+      <code>$row['Table_priv']</code>
+      <code>$row['Db']</code>
+      <code>$row['Grant_priv']</code>
+      <code>$result['password']</code>
+      <code>$row['Status']</code>
+    </PossiblyInvalidArrayAccess>
+    <PossiblyInvalidArrayAssignment occurrences="6">
+      <code>$row1[1]</code>
+      <code>$row['PLUGIN_DESCRIPTION']</code>
+      <code>$row['PLUGIN_DESCRIPTION']</code>
+      <code>$db_rights[$row['Db']]['can_delete']</code>
+      <code>$row['privs']</code>
+      <code>$row['password']</code>
+    </PossiblyInvalidArrayAssignment>
+    <PossiblyInvalidIterator occurrences="1">
+      <code>$row</code>
+    </PossiblyInvalidIterator>
+    <PossiblyNullArgument occurrences="2">
+      <code>$old_usergroup</code>
+      <code>$dbname</code>
+    </PossiblyNullArgument>
+    <PossiblyUndefinedArrayOffset occurrences="1">
+      <code>$_POST['pred_dbname']</code>
+    </PossiblyUndefinedArrayOffset>
+  </file>
+  <file src="libraries/classes/Server/Status/Monitor.php">
+    <PossiblyFalseArgument occurrences="1">
+      <code>mb_strpos($row['sql_text'], ' ')</code>
+    </PossiblyFalseArgument>
+    <PossiblyInvalidArrayAccess occurrences="8">
+      <code>$row['sql_text']</code>
+      <code>$row['#']</code>
+      <code>$row['argument']</code>
+      <code>$row['#']</code>
+      <code>$row['argument']</code>
+      <code>$return['rows'][$insertTablesFirst]['argument']</code>
+      <code>$row['argument']</code>
+      <code>$row['argument']</code>
+    </PossiblyInvalidArrayAccess>
+    <PossiblyInvalidArrayAssignment occurrences="4">
+      <code>$row['sql_text']</code>
+      <code>$return['rows'][$insertTablesFirst]['#']</code>
+      <code>$return['rows'][$insertTablesFirst]['argument']</code>
+      <code>$row['argument']</code>
+    </PossiblyInvalidArrayAssignment>
+    <PossiblyNullArgument occurrences="2"/>
+  </file>
+  <file src="libraries/classes/Server/SysInfo/SunOs.php">
+    <ForbiddenCode occurrences="1">
+      <code>shell_exec('kstat -p d ' . $key)</code>
+    </ForbiddenCode>
+  </file>
+  <file src="libraries/classes/Server/UserGroups.php">
+    <InvalidArgument occurrences="8">
+      <code>$result</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$result</code>
+    </InvalidArgument>
+    <PossiblyInvalidArrayAccess occurrences="6">
+      <code>$row[0]</code>
+      <code>$row['usergroup']</code>
+      <code>$row['allowed']</code>
+      <code>$row['tab']</code>
+      <code>$row['tab']</code>
+      <code>$row['allowed']</code>
+    </PossiblyInvalidArrayAccess>
+    <PossiblyNullIterator occurrences="3">
+      <code>$tabs</code>
+      <code>$tabs</code>
+      <code>$tabs</code>
+    </PossiblyNullIterator>
+  </file>
+  <file src="libraries/classes/Session.php">
+    <PossiblyNullArgument occurrences="1">
+      <code>$config-&gt;getCookie('phpMyAdmin')</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Sql.php">
+    <InvalidArgument occurrences="3">
+      <code>$showtable</code>
+      <code>$showtable</code>
+      <code>$result</code>
+    </InvalidArgument>
+    <InvalidScalarArgument occurrences="3">
+      <code>''</code>
+      <code>$num_rows</code>
+      <code>$num_rows</code>
+    </InvalidScalarArgument>
+    <PossiblyFalseReference occurrences="2">
+      <code>save</code>
+      <code>save</code>
+    </PossiblyFalseReference>
+    <PossiblyInvalidArgument occurrences="5">
+      <code>$cfgBookmark</code>
+      <code>$fields_meta</code>
+      <code>$result</code>
+      <code>$fields_meta</code>
+      <code>$cfgBookmark</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidArrayAccess occurrences="3">
+      <code>$cfgBookmark['user']</code>
+      <code>$cfgBookmark['user']</code>
+      <code>$cfgBookmark['user']</code>
+    </PossiblyInvalidArrayAccess>
+    <PossiblyNullArgument occurrences="28">
+      <code>$db</code>
+      <code>$table</code>
+      <code>$db</code>
+      <code>$db</code>
+      <code>$table</code>
+      <code>$_POST['purge'] ?? null</code>
+      <code>$message_to_show ?? null</code>
+      <code>$url_query</code>
+      <code>$printview</code>
+      <code>$printview</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$url_query</code>
+      <code>$showtable</code>
+      <code>$sql_data ?? null</code>
+      <code>$disp_message ?? null</code>
+      <code>$url_query</code>
+      <code>$showtable</code>
+      <code>$db</code>
+      <code>$table</code>
+      <code>$db</code>
+      <code>$sql_query_for_bookmark ?? null</code>
+      <code>$extra_data ?? null</code>
+      <code>$db</code>
+      <code>$table</code>
+      <code>$result ?? null</code>
+      <code>$db</code>
+      <code>$table</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/SqlQueryForm.php">
+    <PossiblyFalseArgument occurrences="1">
+      <code>$query</code>
+    </PossiblyFalseArgument>
+  </file>
+  <file src="libraries/classes/StorageEngine.php">
+    <InvalidNullableReturnType occurrences="1">
+      <code>array</code>
+    </InvalidNullableReturnType>
+    <NullableReturnStatement occurrences="1">
+      <code>Util::formatByteDown($value)</code>
+    </NullableReturnStatement>
+  </file>
+  <file src="libraries/classes/SystemDatabase.php">
+    <PossiblyInvalidArrayAccess occurrences="6">
+      <code>$data_row['table_name']</code>
+      <code>$data_row['column_name']</code>
+      <code>$data_row['comment']</code>
+      <code>$data_row['mimetype']</code>
+      <code>$data_row['transformation']</code>
+      <code>$data_row['transformation_options']</code>
+    </PossiblyInvalidArrayAccess>
+  </file>
+  <file src="libraries/classes/Table.php">
+    <InvalidArgument occurrences="6">
+      <code>$table_copy_rs</code>
+      <code>$table_copy_rs</code>
+      <code>$comments_copy_rs</code>
+      <code>$comments_copy_rs</code>
+      <code>$this-&gt;relation-&gt;queryAsControlUser($sql_query)</code>
+      <code>$keyBlockSizes</code>
+    </InvalidArgument>
+    <InvalidReturnStatement occurrences="1">
+      <code>$table_auto_increment ?? ''</code>
+    </InvalidReturnStatement>
+    <PossiblyInvalidArgument occurrences="3">
+      <code>$this-&gt;_dbi-&gt;getError(DatabaseInterface::CONNECT_CONTROL)</code>
+      <code>$this-&gt;_dbi-&gt;getError(DatabaseInterface::CONNECT_CONTROL)</code>
+      <code>$tmp_error_create</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidArrayAccess occurrences="6">
+      <code>$comments_copy_row['column_name']</code>
+      <code>$comments_copy_row['comment']</code>
+      <code>$comments_copy_row['mimetype']</code>
+      <code>$comments_copy_row['transformation']</code>
+      <code>$comments_copy_row['transformation_options']</code>
+      <code>$result['row_count']</code>
+    </PossiblyInvalidArrayAccess>
+    <PossiblyInvalidIterator occurrences="1">
+      <code>$table_copy_row</code>
+    </PossiblyInvalidIterator>
+    <PossiblyNullArgument occurrences="5">
+      <code>$target_db</code>
+      <code>$existrel_foreign[$master_field_md5]['constraint']</code>
+      <code>$existrel_foreign[$master_field_md5]['ref_db_name']</code>
+      <code>$existrel_foreign[$master_field_md5]['ref_table_name']</code>
+      <code>$existrel_foreign[$master_field_md5]['ref_index_list']</code>
+    </PossiblyNullArgument>
+    <PossiblyNullArrayAccess occurrences="5">
+      <code>$existrel_foreign[$master_field_md5]['constraint']</code>
+      <code>$existrel_foreign[$master_field_md5]['ref_db_name']</code>
+      <code>$existrel_foreign[$master_field_md5]['ref_table_name']</code>
+      <code>$existrel_foreign[$master_field_md5]['ref_index_list']</code>
+      <code>$existrel_foreign[$master_field_md5]['constraint']</code>
+    </PossiblyNullArrayAccess>
+    <PossiblyNullPropertyAssignmentValue occurrences="2">
+      <code>null</code>
+      <code>null</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <PossiblyNullReference occurrences="7">
+      <code>$existrel_foreign[$master_field_md5]</code>
+      <code>$existrel_foreign[$master_field_md5]</code>
+      <code>$existrel_foreign[$master_field_md5]</code>
+      <code>$existrel_foreign[$master_field_md5]</code>
+      <code>$existrel_foreign[$master_field_md5]</code>
+      <code>$existrel_foreign[$master_field_md5]</code>
+      <code>$existrel_foreign[$master_field_md5]</code>
+    </PossiblyNullReference>
+    <ReferenceConstraintViolation occurrences="2">
+      <code>return $sql_query;</code>
+      <code>$error</code>
+    </ReferenceConstraintViolation>
+  </file>
+  <file src="libraries/classes/Table/ColumnsDefinition.php">
+    <PossiblyFalseArgument occurrences="2">
+      <code>$form_params['db']</code>
+      <code>$form_params['table']</code>
+    </PossiblyFalseArgument>
+    <PossiblyInvalidArrayAccess occurrences="1">
+      <code>$expressions[$columnMeta['Field']]</code>
+    </PossiblyInvalidArrayAccess>
+    <PossiblyUndefinedVariable occurrences="1">
+      <code>$submit_fulltext</code>
+    </PossiblyUndefinedVariable>
+  </file>
+  <file src="libraries/classes/Table/Search.php">
+    <PossiblyNullArrayOffset occurrences="2">
+      <code>$geom_funcs</code>
+      <code>$geom_funcs</code>
+    </PossiblyNullArrayOffset>
+  </file>
+  <file src="libraries/classes/ThemeManager.php">
+    <InvalidScalarArgument occurrences="1">
+      <code>$cookie_theme</code>
+    </InvalidScalarArgument>
+    <PossiblyNullArgument occurrences="2">
+      <code>$theme</code>
+      <code>$theme</code>
+    </PossiblyNullArgument>
+    <PossiblyNullArrayOffset occurrences="1">
+      <code>$this-&gt;themes</code>
+    </PossiblyNullArrayOffset>
+    <PossiblyNullPropertyAssignmentValue occurrences="2">
+      <code>$theme</code>
+      <code>null</code>
+    </PossiblyNullPropertyAssignmentValue>
+  </file>
+  <file src="libraries/classes/Tracker.php">
+    <InvalidReturnStatement occurrences="4">
+      <code>$result</code>
+      <code>$relation-&gt;queryAsControlUser($sql_query)</code>
+      <code>$relation-&gt;queryAsControlUser($sql_query)</code>
+      <code>$relation-&gt;queryAsControlUser($sql_query)</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="4">
+      <code>int</code>
+      <code>int</code>
+      <code>int</code>
+      <code>int</code>
+    </InvalidReturnType>
+    <InvalidScalarArgument occurrences="1">
+      <code>(int) $version - 1</code>
+    </InvalidScalarArgument>
+    <PossiblyFalseOperand occurrences="2">
+      <code>mb_strpos($log_entry, "\n")</code>
+      <code>mb_strpos($log_entry, "\n")</code>
+    </PossiblyFalseOperand>
+    <PossiblyInvalidPropertyFetch occurrences="4">
+      <code>$statement-&gt;body[3]-&gt;value</code>
+      <code>$statement-&gt;body[4]-&gt;value</code>
+      <code>$statement-&gt;body[2]-&gt;value</code>
+      <code>$statement-&gt;into-&gt;dest-&gt;table</code>
+    </PossiblyInvalidPropertyFetch>
+    <TypeDoesNotContainType occurrences="1">
+      <code>$dbname</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="libraries/classes/Tracking.php">
+    <InvalidReturnStatement occurrences="2">
+      <code>$relation-&gt;queryAsControlUser($sql_query)</code>
+      <code>$relation-&gt;queryAsControlUser($sql_query)</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="2">
+      <code>array</code>
+      <code>array</code>
+    </InvalidReturnType>
+    <InvalidScalarArgument occurrences="4">
+      <code>$filter_ts_from</code>
+      <code>$filter_ts_to</code>
+      <code>$filter_ts_from</code>
+      <code>$filter_ts_to</code>
+    </InvalidScalarArgument>
+    <NullArgument occurrences="1">
+      <code>null</code>
+    </NullArgument>
+  </file>
+  <file src="libraries/classes/Transformations.php">
+    <InvalidArgument occurrences="2">
+      <code>$class_name</code>
+      <code>$class_name</code>
+    </InvalidArgument>
+    <InvalidReturnStatement occurrences="1">
+      <code>$relation-&gt;queryAsControlUser($upd_query)</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>bool</code>
+    </InvalidReturnType>
+    <PossiblyNullArgument occurrences="1">
+      <code>$rtrimmed</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Twig/I18n/NodeTrans.php">
+    <PossiblyNullArgument occurrences="3">
+      <code>$msg1</code>
+      <code>$this-&gt;hasNode('count') ? $this-&gt;getNode('count') : null</code>
+      <code>$msg1</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/TwoFactor.php">
+    <LessSpecificReturnStatement occurrences="1">
+      <code>new $name($this)</code>
+    </LessSpecificReturnStatement>
+    <MoreSpecificReturnType occurrences="1">
+      <code>TwoFactorPlugin</code>
+    </MoreSpecificReturnType>
+    <PropertyTypeCoercion occurrences="2">
+      <code>new $cls($this)</code>
+      <code>new $cls($this)</code>
+    </PropertyTypeCoercion>
+  </file>
+  <file src="libraries/classes/Types.php">
+    <InvalidReturnStatement occurrences="1">
+      <code>$ret</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>string[]</code>
+    </InvalidReturnType>
+  </file>
+  <file src="libraries/classes/Util.php">
+    <EmptyArrayAccess occurrences="1">
+      <code>$group[$group_name]['tab' . $sep . 'count']</code>
+    </EmptyArrayAccess>
+    <InvalidArrayOffset occurrences="2">
+      <code>$group[$group_name]['is' . $sep . 'group']</code>
+      <code>$group[$group_name]['tab' . $sep . 'count']</code>
+    </InvalidArrayOffset>
+    <InvalidReturnStatement occurrences="2">
+      <code>$return_value</code>
+      <code>$gis_data_types</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="2">
+      <code>int</code>
+      <code>string[]</code>
+    </InvalidReturnType>
+    <InvalidScalarArgument occurrences="1">
+      <code>$value</code>
+    </InvalidScalarArgument>
+    <NullableReturnStatement occurrences="2">
+      <code>$wktval</code>
+      <code>$regex</code>
+    </NullableReturnStatement>
+    <PossiblyFalseOperand occurrences="2">
+      <code>mb_strrpos($columnspec, ')')</code>
+      <code>mb_strpos($value, '.')</code>
+    </PossiblyFalseOperand>
+    <PossiblyInvalidArgument occurrences="2">
+      <code>$table</code>
+      <code>$value</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidArrayAccess occurrences="2">
+      <code>$group[$group_name]['tab' . $sep . 'count']</code>
+      <code>$table['Name']</code>
+    </PossiblyInvalidArrayAccess>
+    <PossiblyInvalidArrayAssignment occurrences="2">
+      <code>$table['disp_name']</code>
+      <code>$group[$table_name]</code>
+    </PossiblyInvalidArrayAssignment>
+    <PossiblyInvalidArrayOffset occurrences="2">
+      <code>$table['Name']</code>
+      <code>$table['disp_name']</code>
+    </PossiblyInvalidArrayOffset>
+    <PossiblyInvalidIterator occurrences="1">
+      <code>$tables</code>
+    </PossiblyInvalidIterator>
+    <PossiblyInvalidOperand occurrences="3">
+      <code>$value</code>
+      <code>$value</code>
+      <code>$value</code>
+    </PossiblyInvalidOperand>
+    <TypeDoesNotContainType occurrences="1">
+      <code>$ret === false</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="libraries/classes/Utils/HttpRequest.php">
+    <InvalidArrayOffset occurrences="1">
+      <code>$context['http']['header']</code>
+    </InvalidArrayOffset>
+    <TypeDoesNotContainType occurrences="1">
+      <code>$curlStatus</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="libraries/classes/VersionInformation.php">
+    <LessSpecificReturnStatement occurrences="1">
+      <code>$data</code>
+    </LessSpecificReturnStatement>
+    <MoreSpecificReturnType occurrences="1">
+      <code>stdClass|null</code>
+    </MoreSpecificReturnType>
+    <PossiblyNullArgument occurrences="1">
+      <code>$version</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/ZipExtension.php">
+    <PossiblyFalseArgument occurrences="1">
+      <code>$ext_pos</code>
+    </PossiblyFalseArgument>
+  </file>
+</files>

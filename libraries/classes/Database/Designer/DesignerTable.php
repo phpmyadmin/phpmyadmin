@@ -71,10 +71,8 @@ class DesignerTable
 
     /**
      * Get the displayed field
-     *
-     * @return string
      */
-    public function getDisplayField()
+    public function getDisplayField(): ?string
     {
         return $this->displayField;
     }
