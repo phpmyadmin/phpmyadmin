@@ -328,9 +328,9 @@ abstract class AuthenticationPlugin
      * Checks whether two factor authentication is active
      * for given user and performs it.
      *
-     * @return bool|void
+     * @return void
      */
-    public function checkTwoFactor()
+    public function checkTwoFactor(): void
     {
         $twofactor = new TwoFactor($this->user);
 

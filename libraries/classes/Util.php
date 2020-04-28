@@ -517,7 +517,7 @@ class Util
      *
      * @access public
      */
-    public static function formatByteDown($value, $limes = 6, $comma = 0)
+    public static function formatByteDown($value, $limes = 6, $comma = 0): ?array
     {
         if ($value === null) {
             return null;
@@ -712,7 +712,7 @@ class Util
      *
      * @return int The numerical part of the expression (for example 8)
      */
-    public static function extractValueFromFormattedSize($formatted_size)
+    public static function extractValueFromFormattedSize($formatted_size): int
     {
         $return_value = -1;
 
@@ -1965,7 +1965,7 @@ class Util
      *
      * @return string[] GIS data types
      */
-    public static function getGISDatatypes($upper_case = false)
+    public static function getGISDatatypes($upper_case = false): array
     {
         $gis_data_types = [
             'geometry',

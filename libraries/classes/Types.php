@@ -701,7 +701,7 @@ class Types
      *
      * @return string[]
      */
-    public function getColumns()
+    public function getColumns(): array
     {
         $isMariaDB = $this->_dbi->isMariaDB();
         $serverVersion = $this->_dbi->getVersion();

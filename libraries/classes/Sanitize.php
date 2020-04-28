@@ -302,7 +302,7 @@ class Sanitize
      *
      * @param string $value String to be formatted.
      *
-     * @return string formatted value.
+     * @return int|string formatted value.
      */
     public static function formatJsVal($value)
     {
