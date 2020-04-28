@@ -1,7 +1,92 @@
-{{ sql_query_message|raw }}
-{{ navigation|raw }}
+{% set navigation_html %}
+  {% if navigation is not empty %}
+    <table class="navigation nospacing nopadding print_ignore">
+      <tr>
+        <td class="navigation_separator"></td>
 
-<input class="save_cells_at_once" type="hidden" value="{{ headers.save_cells_at_once }}">
+        {{ navigation.move_backward_buttons|raw }}
+        {{ navigation.page_selector|raw }}
+        {{ navigation.move_forward_buttons|raw }}
+
+        {% if navigation.number_total_page > 1 %}
+          <td><div class="navigation_separator">|</div></td>
+        {% endif %}
+
+        {% if navigation.has_show_all %}
+          <td>
+            <form action="{{ url('/sql') }}" method="post">
+              {{ get_hidden_fields(navigation.hidden_fields|merge({
+                'session_max_rows': navigation.session_max_rows,
+                'pos': '0'
+              })) }}
+              <input type="checkbox" name="navig" id="showAll_{{ unique_id }}" class="showAllRows" value="all"
+                {{- navigation.is_showing_all ? ' checked' }}>
+              <label for="showAll_{{ unique_id }}">{% trans 'Show all' %}</label>
+            </form>
+          </td>
+          <td><div class="navigation_separator">|</div></td>
+        {% endif %}
+
+        <td>
+          <div class="save_edited hide">
+            <input class="btn btn-link" type="submit" value="{% trans 'Save edited data' %}">
+            <div class="navigation_separator">|</div>
+          </div>
+        </td>
+        <td>
+          <div class="restore_column hide">
+            <input class="btn btn-link" type="submit" value="{% trans 'Restore column order' %}">
+            <div class="navigation_separator">|</div>
+          </div>
+        </td>
+        <td class="navigation_goto">
+          {# if displaying a VIEW, $unlim_num_rows could be zero because #}
+          {# of $cfg['MaxExactCountViews']; in this case, avoid passing #}
+          {# the 5th parameter to Functions.checkFormElementInRange() #}
+          {# (this means we can't validate the upper limit) #}
+          <form action="{{ url('/sql') }}" method="post" onsubmit="return (Functions.checkFormElementInRange(this, 'session_max_rows', '
+            {{- '%d is not valid row number.'|trans|replace({'\'': '\\\''}) -}}
+            ', 1) && Functions.checkFormElementInRange(this, 'pos', '
+            {{- '%d is not valid row number.'|trans|replace({'\'': '\\\''}) -}}
+            ', 0
+            {{- unlim_num_rows > 0 ? ', ' ~ (unlim_num_rows - 1) -}}
+            ));">
+
+            {{ get_hidden_fields(navigation.hidden_fields|merge({
+              'pos': navigation.pos
+            })) }}
+
+            <label for="sessionMaxRowsSelect">{% trans 'Number of rows:' %}</label>
+            <select class="autosubmit" name="session_max_rows" id="sessionMaxRowsSelect">
+              {% if navigation.is_showing_all %}
+                <option value="" disabled selected>{% trans 'All' %}</option>
+              {% endif %}
+              {% for option in ['25', '50', '100', '250', '500'] %}
+                <option value="{{ option }}"{{ navigation.max_rows == option ? ' selected' }}>{{ option }}</option>
+              {% endfor %}
+            </select>
+          </form>
+        </td>
+        <td class="navigation_separator"></td>
+        <td class="largescreenonly">
+          <span>{% trans 'Filter rows' %}:</span>
+          <input type="text" class="filter_rows" placeholder="
+          {%- trans 'Search this table' %}" data-for="{{ unique_id }}">
+        </td>
+        <td class="largescreenonly">
+          {{ navigation.sort_by_key|raw }}
+        </td>
+        <td class="navigation_separator"></td>
+      </tr>
+    </table>
+  {% endif %}
+{% endset %}
+
+{{ sql_query_message|raw }}
+
+{{ navigation_html }}
+
+<input class="save_cells_at_once" type="hidden" value="{{ save_cells_at_once }}">
 <div class="common_hidden_inputs">
   {{ get_hidden_inputs(db, table) }}
 </div>
@@ -152,5 +237,6 @@
   </form>
 {% endif %}
 
-{{ navigation|raw }}
+{{ navigation_html }}
+
 {{ operations|raw }}

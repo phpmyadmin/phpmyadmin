@@ -877,16 +877,14 @@ class Results
      * @param bool   $isInnodb      whether its InnoDB or not
      * @param string $sortByKeyHtml the sort by key dialog
      *
-     * @return string html content
-     *
-     * @access private
+     * @return array
      */
-    private function _getTableNavigation(
+    private function getTableNavigation(
         $posNext,
         $posPrevious,
         $isInnodb,
         $sortByKeyHtml
-    ): string {
+    ): array {
         $isShowingAll = $_SESSION['tmpval']['max_rows'] === self::ALL_ROWS;
 
         // Move to the beginning or to the previous page
@@ -930,7 +928,7 @@ class Results
             'goto' => $this->__get('goto'),
         ];
 
-        return $this->template->render('display/results/table_navigation', [
+        return [
             'move_backward_buttons' => $moveBackwardButtons,
             'page_selector' => $pageSelector,
             'move_forward_buttons' => $moveForwardButtons,
@@ -938,19 +936,17 @@ class Results
             'has_show_all' => $GLOBALS['cfg']['ShowAll'] || ($this->__get('unlim_num_rows') <= 500),
             'hidden_fields' => $hiddenFields,
             'session_max_rows' => $isShowingAll ? $GLOBALS['cfg']['MaxRows'] : 'all',
-            'unique_id' => $this->__get('unique_id'),
             'is_showing_all' => $isShowingAll,
-            'unlim_num_rows' => $this->__get('unlim_num_rows'),
             'max_rows' => $_SESSION['tmpval']['max_rows'],
             'pos' => $_SESSION['tmpval']['pos'],
             'sort_by_key' => $sortByKeyHtml,
-        ]);
+        ];
     }
 
     /**
      * Prepare move backward buttons - previous and first
      *
-     * @see     _getTableNavigation()
+     * @see getTableNavigation()
      *
      * @param string $html_sql_query the sql encoded by html special characters
      * @param int    $pos_prev       the offset for the "previous" page
@@ -982,7 +978,7 @@ class Results
     /**
      * Prepare move forward buttons - next and last
      *
-     * @see    _getTableNavigation()
+     * @see getTableNavigation()
      *
      * @param string $html_sql_query the sql encoded by htmlspecialchars()
      * @param int    $pos_next       the offset for the "next" page
@@ -1247,7 +1243,6 @@ class Results
         }
 
         return [
-            'save_cells_at_once' => $GLOBALS['cfg']['SaveCellsAtOnce'],
             'column_order' => $columnOrder,
             'options' => $optionsBlock,
             'has_bulk_actions_form' => $displayParts['del_lnk'] === self::DELETE_ROW
@@ -4153,9 +4148,9 @@ class Results
             $sort_by_key_html = $unsorted_sql_query = '';
         }
 
-        $navigation = '';
+        $navigation = [];
         if ($displayParts['nav_bar'] == '1' && $statement !== null && empty($statement->limit)) {
-            $navigation = $this->_getTableNavigation(
+            $navigation = $this->getTableNavigation(
                 $pos_next,
                 $pos_prev,
                 $is_innodb,
@@ -4236,8 +4231,10 @@ class Results
             'sql_query' => $this->__get('sql_query'),
             'url_query' => $this->__get('url_query'),
             'goto' => $this->__get('goto'),
+            'unlim_num_rows' => $this->__get('unlim_num_rows'),
             'displaywork' => $GLOBALS['cfgRelation']['displaywork'],
             'relwork' => $GLOBALS['cfgRelation']['relwork'],
+            'save_cells_at_once' => $GLOBALS['cfg']['SaveCellsAtOnce'],
             'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
             'select_all_arrow' => $this->__get('pma_theme_image') . 'arrow_'
                 . $this->__get('text_dir') . '.png',
