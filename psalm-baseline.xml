@@ -2594,10 +2594,10 @@
     </ReferenceConstraintViolation>
   </file>
   <file src="libraries/classes/Table/ColumnsDefinition.php">
-    <InvalidScalarArgument occurrences="2">
+    <PossiblyFalseArgument occurrences="2">
       <code>$form_params['db']</code>
       <code>$form_params['table']</code>
-    </InvalidScalarArgument>
+    </PossiblyFalseArgument>
     <PossiblyInvalidArrayAccess occurrences="1">
       <code>$expressions[$columnMeta['Field']]</code>
     </PossiblyInvalidArrayAccess>
