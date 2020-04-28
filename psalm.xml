@@ -37,10 +37,30 @@
         <DocblockTypeContradiction errorLevel="info" />
         <RedundantConditionGivenDocblockType errorLevel="info" />
 
-        <UnresolvableInclude errorLevel="info" />
+        <UnresolvableInclude>
+            <errorLevel type="suppress">
+                <file name="libraries/classes/Display/Results.php" />
+                <file name="libraries/classes/Plugins.php" />
+                <file name="libraries/classes/Controllers/Table/ReplaceController.php" />
+                <file name="libraries/classes/Controllers/ImportController.php" />
+                <file name="libraries/classes/Config.php" />
+            </errorLevel>
+        </UnresolvableInclude>
 
-        <RawObjectIteration errorLevel="info" />
+        <RawObjectIteration>
+            <errorLevel type="suppress">
+                <file name="libraries/classes/Plugins/Export/ExportSql.php" />
+            </errorLevel>
+        </RawObjectIteration>
 
-        <InvalidStringClass errorLevel="info" />
+        <InvalidStringClass>
+            <errorLevel type="suppress">
+                <file name="libraries/classes/TwoFactor.php" />
+                <file name="libraries/classes/Plugins.php" />
+                <file name="libraries/classes/Navigation/NodeFactory.php" />
+                <file name="libraries/classes/Config/PageSettings.php" />
+                <file name="libraries/classes/Config/Forms/BaseFormList.php" />
+            </errorLevel>
+        </InvalidStringClass>
     </issueHandlers>
 </psalm>
