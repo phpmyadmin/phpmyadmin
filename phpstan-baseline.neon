@@ -896,11 +896,6 @@ parameters:
 			path: libraries/classes/Database/Designer/Common.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Database\\\\Designer\\\\DesignerTable\\:\\:getDisplayField\\(\\) should return string but returns string\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer/DesignerTable.php
-
-		-
 			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:tryQuery\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Database/Events.php
@@ -1102,11 +1097,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$routine of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getExecuteForm\\(\\) expects array, array\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Routines.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Database\\\\Routines\\:\\:browseRow\\(\\) should return string but returns string\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Database/Routines.php
 
@@ -4916,7 +4906,7 @@ parameters:
 			path: test/classes/Gis/GisGeometryTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$point of method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:isPointInsidePolygon\\(\\) expects array, array\\|bool given\\.$#"
+			message: "#^Parameter \\#1 \\$point of method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:isPointInsidePolygon\\(\\) expects array, array\\|false given\\.$#"
 			count: 1
 			path: test/classes/Gis/GisPolygonTest.php
 
