@@ -16,19 +16,17 @@
     </projectFiles>
 
     <issueHandlers>
-        <LessSpecificReturnType errorLevel="info" />
-
         <InternalMethod errorLevel="info" />
-        <InternalProperty errorLevel="info" />
-        <InternalClass errorLevel="info" />
-
         <MissingClosureReturnType errorLevel="info" />
         <MissingPropertyType errorLevel="info" />
-        <MisplacedRequiredParam errorLevel="info" />
-
         <PropertyNotSetInConstructor errorLevel="info" />
-        <MissingConstructor errorLevel="info" />
         <MissingClosureParamType errorLevel="info" />
+
+        <MissingConstructor>
+            <errorLevel type="suppress">
+                <file name="libraries/classes/Properties/Plugins/ExportPluginProperties.php" />
+            </errorLevel>
+        </MissingConstructor>
 
         <RedundantCondition errorLevel="info" />
 
