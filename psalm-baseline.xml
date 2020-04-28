@@ -2611,14 +2611,6 @@
       <code>$geom_funcs</code>
     </PossiblyNullArrayOffset>
   </file>
-  <file src="libraries/classes/Template.php">
-    <LessSpecificReturnStatement occurrences="1">
-      <code>$template</code>
-    </LessSpecificReturnStatement>
-    <MoreSpecificReturnType occurrences="1">
-      <code>Twig_TemplateWrapper</code>
-    </MoreSpecificReturnType>
-  </file>
   <file src="libraries/classes/ThemeManager.php">
     <InvalidScalarArgument occurrences="1">
       <code>$cookie_theme</code>
