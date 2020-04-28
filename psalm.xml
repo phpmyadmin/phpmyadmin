@@ -18,16 +18,6 @@
     <issueHandlers>
         <LessSpecificReturnType errorLevel="info" />
 
-        <!-- level 3 issues - slightly lazy code writing, but provably low false-negatives -->
-
-        <DeprecatedMethod errorLevel="info" />
-        <DeprecatedProperty errorLevel="info" />
-        <DeprecatedClass errorLevel="info" />
-        <DeprecatedConstant errorLevel="info" />
-        <DeprecatedFunction errorLevel="info" />
-        <DeprecatedInterface errorLevel="info" />
-        <DeprecatedTrait errorLevel="info" />
-
         <InternalMethod errorLevel="info" />
         <InternalProperty errorLevel="info" />
         <InternalClass errorLevel="info" />
