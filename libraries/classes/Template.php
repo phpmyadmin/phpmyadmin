@@ -28,7 +28,7 @@ use Twig\Loader\FilesystemLoader;
 use Twig_Error_Loader;
 use Twig_Error_Runtime;
 use Twig_Error_Syntax;
-use Twig_TemplateWrapper;
+use Twig\TemplateWrapper;
 use function sprintf;
 use function trigger_error;
 use const E_USER_WARNING;
@@ -95,7 +95,7 @@ class Template
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function load(string $templateName): Twig_TemplateWrapper
+    public function load(string $templateName): TemplateWrapper
     {
         try {
             $template = static::$twig->load($templateName . '.twig');
