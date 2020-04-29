@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-04-25 11:22+0200\n"
-"PO-Revision-Date: 2020-04-03 19:45+0000\n"
+"PO-Revision-Date: 2020-04-30 17:11+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.0-dev\n"
+"X-Generator: Weblate 4.0.2\n"
 
 #: js/messages.php:51
 msgid "Confirm"
@@ -7936,11 +7936,12 @@ msgid "Export of event %s"
 msgstr "Export van gebeurtenis %s"
 
 #: libraries/classes/Database/Events.php:613
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s."
+#, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
-msgstr "Geen gebeurtenis met naam %1$s gevonden in database %2$s."
+msgstr ""
+"Fout bij uitvoeren verzoek: Geen gebeurtenis met naam %1$s gevonden in "
+"database %2$s."
 
 #: libraries/classes/DatabaseInterface.php:1563
 #, php-format
@@ -8320,17 +8321,15 @@ msgid "Export of routine %s"
 msgstr "Routine %s exporteren"
 
 #: libraries/classes/Database/Routines.php:1881
-#, fuzzy, php-format
-#| msgid ""
-#| "No routine with name %1$s found in database %2$s. You might be lacking "
-#| "the necessary privileges to view/export this routine."
+#, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
 "%2$s. You might be lacking the necessary privileges to view/export this "
 "routine."
 msgstr ""
-"Geen routine met de naam %1$s gevonden in database %2$s. Je hebt mogelijk "
-"niet de benodigde rechten om deze routine te lezen/wijzigen."
+"Fout bij uitvoeren verzoek: Geen routine met de naam %1$s gevonden in "
+"database %2$s. Je hebt mogelijk niet de benodigde rechten om deze routine te "
+"lezen/wijzigen."
 
 #: libraries/classes/Database/Search.php:110
 #: templates/database/search/main.twig:19
@@ -8430,12 +8429,13 @@ msgid "Export of trigger %s"
 msgstr "Export van trigger %s"
 
 #: libraries/classes/Database/Triggers.php:625
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s."
+#, php-format
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
 "%2$s."
-msgstr "Geen trigger met naam %1$s gevonden in database %2$s."
+msgstr ""
+"Fout bij uitvoeren verzoek: Geen trigger met naam %1$s gevonden in database "
+"%2$s."
 
 #: libraries/classes/Dbal/DbiMysqli.php:183
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -13824,12 +13824,9 @@ msgid "SQL query on database <b>%s</b>:"
 msgstr "SQL-query op database <b>%s</b>:"
 
 #: templates/database/routines/footer.twig:2
-#, fuzzy
-#| msgctxt "Create new column"
-#| msgid "New"
 msgctxt "Create new routine"
 msgid "New"
-msgstr "Nieuwe kolom aanmaken"
+msgstr "Nieuw"
 
 #: templates/database/routines/list.twig:11
 msgid "There are no routines to display."
