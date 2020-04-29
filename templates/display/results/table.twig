@@ -40,20 +40,10 @@
           </div>
         </td>
         <td class="navigation_goto">
-          {# if displaying a VIEW, $unlim_num_rows could be zero because #}
-          {# of $cfg['MaxExactCountViews']; in this case, avoid passing #}
-          {# the 5th parameter to Functions.checkFormElementInRange() #}
-          {# (this means we can't validate the upper limit) #}
-          <form action="{{ url('/sql') }}" method="post" onsubmit="return (Functions.checkFormElementInRange(this, 'session_max_rows', '
-            {{- '%d is not valid row number.'|trans|replace({'\'': '\\\''}) -}}
-            ', 1) && Functions.checkFormElementInRange(this, 'pos', '
-            {{- '%d is not valid row number.'|trans|replace({'\'': '\\\''}) -}}
-            ', 0
-            {{- unlim_num_rows > 0 ? ', ' ~ (unlim_num_rows - 1) -}}
-            ));">
-
+          <form action="{{ url('/sql') }}" method="post" id="maxRowsForm">
             {{ get_hidden_fields(navigation.hidden_fields|merge({
-              'pos': navigation.pos
+              'pos': navigation.pos,
+              'unlim_num_rows': unlim_num_rows
             })) }}
 
             <label for="sessionMaxRowsSelect">{% trans 'Number of rows:' %}</label>

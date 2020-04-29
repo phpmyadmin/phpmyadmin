@@ -884,14 +884,14 @@ Functions.emptyCheckTheField = function (theForm, theFieldName) {
 Functions.checkFormElementInRange = function (theForm, theFieldName, message, minimum, maximum) {
     var theField         = theForm.elements[theFieldName];
     var val              = parseInt(theField.value, 10);
-    var min = minimum;
-    var max = maximum;
+    var min = 0;
+    var max = Number.MAX_VALUE;
 
-    if (typeof(min) === 'undefined') {
-        min = 0;
+    if (typeof(minimum) !== 'undefined') {
+        min = minimum;
     }
-    if (typeof(max) === 'undefined') {
-        max = Number.MAX_VALUE;
+    if (typeof(maximum) !== 'undefined' && maximum !== null) {
+        max = maximum;
     }
 
     if (isNaN(val)) {
