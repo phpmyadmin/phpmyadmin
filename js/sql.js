@@ -845,12 +845,25 @@ AJAX.registerOnload('sql.js', function () {
     $('body').on('click', 'form[name="resultsForm"].ajax button[name="submit_mult"], form[name="resultsForm"].ajax input[name="submit_mult"]', function (e) {
         e.preventDefault();
         var $button = $(this);
+        var action = $button.val();
         var $form = $button.closest('form');
         var argsep = CommonParams.get('arg_separator');
-        var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'submit_mult=' + $button.val();
+        var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'submit_mult=' + action;
         Functions.ajaxShowMessage();
         AJAX.source = $form;
-        $.post($form.attr('action'), submitData, AJAX.responseHandler);
+
+        var url;
+        if (action === 'edit' || action === 'copy') {
+            url = 'index.php?route=/table/row-action/edit';
+        } else if (action === 'export') {
+            url = 'index.php?route=/table/row-action/export';
+        } else if (action === 'delete') {
+            url = 'index.php?route=/table/row-action/confirm-delete';
+        } else {
+            return;
+        }
+
+        $.post(url, submitData, AJAX.responseHandler);
     });
 
     $(document).on('submit', '#maxRowsForm', function () {

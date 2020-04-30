@@ -1,0 +1,25 @@
+<form action="{{ url('/table/row-action/delete') }}" method="post">
+  {{ get_hidden_inputs(hidden_inputs) }}
+
+  <fieldset class="confirmation">
+    <legend>
+      {% trans 'Do you really want to execute the following query?' %}
+    </legend>
+
+    <ul>
+      {% for row in selected %}
+        <li><code>DELETE FROM {{ backquote(table) }} WHERE {{ row }};</code></li>
+      {% endfor %}
+    </ul>
+  </fieldset>
+
+  <fieldset class="tblFooters">
+    <div id="foreignkeychk">
+      <input type="checkbox" name="fk_checks" id="fk_checks" value="1"{{ is_foreign_key_check ? ' checked' }}>
+      <label for="fk_checks">{% trans 'Enable foreign key checks' %}</label>
+    </div>
+
+    <input id="buttonYes" class="btn btn-secondary" type="submit" name="mult_btn" value="{% trans 'Yes' %}">
+    <input id="buttonNo" class="btn btn-secondary" type="submit" name="mult_btn" value="{% trans 'No' %}">
+  </fieldset>
+</form>

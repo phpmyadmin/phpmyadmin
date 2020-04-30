@@ -233,7 +233,12 @@ return function (RouteCollector $routes) {
         $routes->addRoute(['GET', 'POST'], '/recent-favorite', [RecentFavoriteController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/relation', [RelationController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/replace', [ReplaceController::class, 'index']);
-        $routes->addRoute(['GET', 'POST'], '/row-action', [RowActionController::class, 'index']);
+        $routes->addGroup('/row-action', function (RouteCollector $routes) {
+            $routes->post('/confirm-delete', [RowActionController::class, 'confirmDelete']);
+            $routes->post('/delete', [RowActionController::class, 'delete']);
+            $routes->post('/edit', [RowActionController::class, 'edit']);
+            $routes->post('/export', [RowActionController::class, 'export']);
+        });
         $routes->addRoute(['GET', 'POST'], '/search', [TableSearchController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/sql', [TableSqlController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/structure', [TableStructureController::class, 'index']);
