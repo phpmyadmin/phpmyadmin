@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-04-25 11:22+0200\n"
-"PO-Revision-Date: 2020-04-19 11:11+0000\n"
+"PO-Revision-Date: 2020-05-01 23:22+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.0.2-dev\n"
+"X-Generator: Weblate 4.1-dev\n"
 
 #: js/messages.php:51
 msgid "Confirm"
@@ -7935,11 +7935,12 @@ msgid "Export of event %s"
 msgstr "Exportação do evento %s"
 
 #: libraries/classes/Database/Events.php:613
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s."
+#, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
-msgstr "Nenhum evento com o nome %1$s foi encontrado no banco de dados %2$s."
+msgstr ""
+"Erro no processamento da requisição: nenhum evento com o nome %1$s foi "
+"encontrado no banco de dados %2$s."
 
 #: libraries/classes/DatabaseInterface.php:1563
 #, php-format
@@ -8318,17 +8319,15 @@ msgid "Export of routine %s"
 msgstr "Exportação da rotina %s"
 
 #: libraries/classes/Database/Routines.php:1881
-#, fuzzy, php-format
-#| msgid ""
-#| "No routine with name %1$s found in database %2$s. You might be lacking "
-#| "the necessary privileges to view/export this routine."
+#, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
 "%2$s. You might be lacking the necessary privileges to view/export this "
 "routine."
 msgstr ""
-"Nenhuma rotina com nome %1$s encontrada na base de dados %2$s. Você pode não "
-"ter os privilégios necessários para editar/exportar essa rotina."
+"Erro no processamento da requisição: nenhuma rotina com nome %1$s encontrada "
+"na base de dados %2$s. Pode não ter os privilégios necessários para editar/"
+"exportar essa rotina."
 
 #: libraries/classes/Database/Search.php:110
 #: templates/database/search/main.twig:19
@@ -8428,12 +8427,13 @@ msgid "Export of trigger %s"
 msgstr "Exportação do gatilho %s"
 
 #: libraries/classes/Database/Triggers.php:625
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s."
+#, php-format
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
 "%2$s."
-msgstr "Nenhum gatilho com o nome %1$s foi encontrado no banco de dados %2$s."
+msgstr ""
+"Erro no processamento da requisição: nenhum gatilho com o nome %1$s foi "
+"encontrado no banco de dados %2$s."
 
 #: libraries/classes/Dbal/DbiMysqli.php:183
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -13798,9 +13798,6 @@ msgid "SQL query on database <b>%s</b>:"
 msgstr "Consulta SQL na base de dados <b>%s</b>:"
 
 #: templates/database/routines/footer.twig:2
-#, fuzzy
-#| msgctxt "Create new column"
-#| msgid "New"
 msgctxt "Create new routine"
 msgid "New"
 msgstr "Nova"
