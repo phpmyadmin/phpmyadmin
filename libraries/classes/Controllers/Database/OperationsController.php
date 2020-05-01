@@ -244,7 +244,7 @@ class OperationsController extends AbstractController
                 $this->response->addJSON('newname', $_POST['newname']);
                 $this->response->addJSON(
                     'sql_query',
-                    Generator::getMessage(null, $sql_query)
+                    Generator::getMessage('', $sql_query)
                 );
                 $this->response->addJSON('db', $db);
                 return;

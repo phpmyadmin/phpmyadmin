@@ -1516,7 +1516,7 @@ class PrivilegesTest extends TestCase
 
         //sql_query
         $this->assertEquals(
-            Generator::getMessage(null, $sql_query),
+            Generator::getMessage('', $sql_query),
             $extra_data['sql_query']
         );
 

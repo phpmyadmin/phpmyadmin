@@ -1716,7 +1716,7 @@ class Privileges
 
         $extra_data = [];
         if (strlen($sql_query) > 0) {
-            $extra_data['sql_query'] = Generator::getMessage(null, $sql_query);
+            $extra_data['sql_query'] = Generator::getMessage('', $sql_query);
         }
 
         if (isset($_POST['change_copy'])) {
