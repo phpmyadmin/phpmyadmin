@@ -22,7 +22,7 @@ class Routing
 
         $routes = require ROOT_PATH . 'libraries/routes.php';
         return cachedDispatcher($routes, [
-            'cacheFile' => CACHE_DIR . 'routes.cache',
+            'cacheFile' => CACHE_DIR . 'routes.cache.php',
             'cacheDisabled' => ($cfg['environment'] ?? '') === 'development',
         ]);
     }
