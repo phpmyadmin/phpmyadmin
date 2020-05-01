@@ -332,7 +332,7 @@ class ExportSql extends ExportPlugin
                 $subgroup_create_view->setSubgroupHeader($leaf);
 
                 $leaf = new BoolPropertyItem(
-                    "simple_view_export",
+                    'simple_view_export',
                     /* l10n: Allow simplifying exported view syntax to only "CREATE VIEW" */
                     __('Use simple view export')
                 );
