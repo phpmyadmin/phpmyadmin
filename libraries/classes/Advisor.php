@@ -39,11 +39,34 @@ class Advisor
     public const GENERIC_RULES_FILE = 'libraries/advisory_rules_generic.txt';
     public const BEFORE_MYSQL80003_RULES_FILE = 'libraries/advisory_rules_mysql_before80003.txt';
 
+    /**
+     * @var DatabaseInterface
+     */
     protected $dbi;
+
+    /**
+     * @var array
+     */
     protected $variables;
+
+    /**
+     * @var array
+     */
     protected $globals;
+
+    /**
+     * @var array
+     */
     protected $parseResult;
+
+    /**
+     * @var array
+     */
     protected $runResult;
+
+    /**
+     * @var ExpressionLanguage
+     */
     protected $expression;
 
     /**

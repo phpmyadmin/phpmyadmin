@@ -6,36 +6,6 @@ parameters:
 			path: js/messages.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Advisor\\:\\:\\$dbi has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Advisor.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Advisor\\:\\:\\$variables has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Advisor.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Advisor\\:\\:\\$globals has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Advisor.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Advisor\\:\\:\\$parseResult has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Advisor.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Advisor\\:\\:\\$runResult has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Advisor.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Advisor\\:\\:\\$expression has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Advisor.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Advisor\\:\\:escapePercent\\(\\) should return string but returns string\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Advisor.php
