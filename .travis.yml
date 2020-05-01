@@ -73,6 +73,14 @@ jobs:
       after_success: skip
       script: composer phpstan
 
+    - stage: "Lint and analyse code"
+      name: "Run psalm"
+      before_install: phpenv config-rm xdebug.ini
+      before_script: skip
+      after_script: skip
+      after_success: skip
+      script: composer psalm
+
     - stage: "PHP Unit tests"
       php: 7.1
       name: "PHP 7.1"
