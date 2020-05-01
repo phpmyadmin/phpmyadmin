@@ -233,9 +233,6 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Controllers/Database/OperationsController.php">
-    <NullArgument occurrences="1">
-      <code>null</code>
-    </NullArgument>
     <TypeDoesNotContainType occurrences="1">
       <code>$sub_part</code>
     </TypeDoesNotContainType>
@@ -376,9 +373,6 @@
     </PossiblyNullIterator>
   </file>
   <file src="libraries/classes/Controllers/Server/DatabasesController.php">
-    <NullArgument occurrences="1">
-      <code>null</code>
-    </NullArgument>
     <PossiblyInvalidArgument occurrences="1">
       <code>$this-&gt;dbi-&gt;getError()</code>
     </PossiblyInvalidArgument>
@@ -2296,8 +2290,7 @@
       <code>$result</code>
       <code>$result</code>
     </InvalidArgument>
-    <NullArgument occurrences="3">
-      <code>null</code>
+    <NullArgument occurrences="2">
       <code>null</code>
       <code>null</code>
     </NullArgument>
