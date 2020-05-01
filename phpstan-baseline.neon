@@ -461,11 +461,6 @@ parameters:
 			path: libraries/classes/Controllers/Preferences/ManageController.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Server\\\\BinlogController\\:\\:\\$binaryLogs has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/BinlogController.php
-
-		-
 			message: "#^Argument of an invalid type array\\|null supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/CollationsController.php
@@ -1371,11 +1366,6 @@ parameters:
 			path: libraries/classes/Engines/Pbxt.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Error\\:\\:\\$hide_location has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Error.php
-
-		-
 			message: "#^Elseif branch is unreachable because previous condition is always true\\.$#"
 			count: 1
 			path: libraries/classes/Error.php
@@ -1389,16 +1379,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$str of function explode expects string, string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Error.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\ErrorHandler\\:\\:\\$hide_location has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/ErrorHandler.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\ErrorHandler\\:\\:\\$error_reporting has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/ErrorHandler.php
 
 		-
 			message: "#^Parameter \\#1 \\$error_handler of function set_error_handler expects \\(callable\\(int, string, string, int, array\\)\\: bool\\)\\|null, array\\(\\$this\\(PhpMyAdmin\\\\ErrorHandler\\), 'handleError'\\) given\\.$#"
@@ -3911,16 +3891,6 @@ parameters:
 			path: libraries/classes/Server/Status/Monitor.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\SysInfo\\\\Base\\:\\:\\$os has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Server/SysInfo/Base.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\SysInfo\\\\Linux\\:\\:\\$os has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Server/SysInfo/Linux.php
-
-		-
 			message: "#^Cannot access offset 1 on array\\<int, string\\>\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Server/SysInfo/Linux.php
@@ -3941,22 +3911,12 @@ parameters:
 			path: libraries/classes/Server/SysInfo/Linux.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\SysInfo\\\\SunOs\\:\\:\\$os has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Server/SysInfo/SunOs.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\SysInfo\\\\WindowsNt\\:\\:\\$_wmi has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Server/SysInfo/WindowsNt.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\SysInfo\\\\WindowsNt\\:\\:\\$os has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Server/SysInfo/WindowsNt.php
-
-		-
 			message: "#^Call to an undefined method COM\\:\\:ConnectServer\\(\\)\\.$#"
+			count: 1
+			path: libraries/classes/Server/SysInfo/WindowsNt.php
+
+		-
+			message: "#^Cannot call method Get\\(\\) on COM\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Server/SysInfo/WindowsNt.php
 
@@ -4304,16 +4264,6 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\ThemeManager\\:\\:\\$active_theme \\(string\\) does not accept string\\|null\\.$#"
 			count: 1
 			path: libraries/classes/ThemeManager.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tracker\\:\\:\\$enabled has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Tracker.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tracker\\:\\:\\$_tracking_cache has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Tracker.php
 
 		-
 			message: "#^Parameter \\#3 \\$version of static method PhpMyAdmin\\\\Tracker\\:\\:deactivateTracking\\(\\) expects string, int given\\.$#"
@@ -5319,11 +5269,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$newvalue of function ini_set expects string, string\\|false given\\.$#"
 			count: 1
 			path: test/classes/UtilTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\VersionInformationTest\\:\\:\\$_releases has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/VersionInformationTest.php
 
 		-
 			message: "#^Cannot access property \\$version on stdClass\\|null\\.$#"

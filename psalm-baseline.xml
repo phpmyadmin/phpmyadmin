@@ -511,11 +511,6 @@
       <code>$extra_data</code>
     </PossiblyUndefinedVariable>
   </file>
-  <file src="libraries/classes/Controllers/Table/RowActionController.php">
-    <PossiblyNullIterator occurrences="1">
-      <code>$selected</code>
-    </PossiblyNullIterator>
-  </file>
   <file src="libraries/classes/Controllers/Table/SearchController.php">
     <InvalidReturnStatement occurrences="1">
       <code>$this-&gt;dbi-&gt;fetchSingleRow($sql_query)</code>
@@ -2421,6 +2416,15 @@
     <ForbiddenCode occurrences="1">
       <code>shell_exec('kstat -p d ' . $key)</code>
     </ForbiddenCode>
+  </file>
+  <file src="libraries/classes/Server/SysInfo/WindowsNt.php">
+    <PossiblyNullReference occurrences="1">
+      <code>Get</code>
+    </PossiblyNullReference>
+    <UndefinedDocblockClass occurrences="2">
+      <code>COM|null</code>
+      <code>$this-&gt;_wmi</code>
+    </UndefinedDocblockClass>
   </file>
   <file src="libraries/classes/Server/UserGroups.php">
     <InvalidArgument occurrences="8">
