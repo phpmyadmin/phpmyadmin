@@ -1,6 +1,6 @@
 <?php
 /**
- * Bootstrap file for phpstan
+ * Bootstrap file for phpstan and psalm
  */
 declare(strict_types=1);
 
