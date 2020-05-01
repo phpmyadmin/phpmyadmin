@@ -122,6 +122,8 @@ class Error extends Message
 
     /**
      * Hide location of errors
+     *
+     * @var bool
      */
     protected $hide_location = false;
 

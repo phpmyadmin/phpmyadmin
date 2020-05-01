@@ -16,7 +16,16 @@ use function trim;
  */
 class WindowsNt extends Base
 {
+    /**
+     * @var COM|null
+     */
     private $_wmi;
+
+    /**
+     * The OS name
+     *
+     * @var string
+     */
     public $os = 'WINNT';
 
     /**

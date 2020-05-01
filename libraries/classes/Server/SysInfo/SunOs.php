@@ -14,6 +14,11 @@ use function trim;
  */
 class SunOs extends Base
 {
+    /**
+     * The OS name
+     *
+     * @var string
+     */
     public $os = 'SunOS';
 
     /**

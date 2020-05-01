@@ -44,11 +44,15 @@ class ErrorHandler
 
     /**
      * Hide location of errors
+     *
+     * @var bool
      */
     protected $hide_location = false;
 
     /**
      * Initial error reporting state
+     *
+     * @var int
      */
     protected $error_reporting = 0;
 

@@ -14,6 +14,9 @@ use stdClass;
  */
 class VersionInformationTest extends PmaTestCase
 {
+    /**
+     * @var stdClass[]
+     */
     private $_releases;
 
     /**

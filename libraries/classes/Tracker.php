@@ -41,11 +41,13 @@ class Tracker
 {
     /**
      * Whether tracking is ready.
+     * @var bool
      */
     protected static $enabled = false;
 
     /**
      * Cache to avoid quering tracking status multiple times.
+     * @var array
      */
     protected static $_tracking_cache = [];
 

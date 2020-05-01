@@ -22,7 +22,9 @@ use function array_key_exists;
 class BinlogController extends AbstractController
 {
     /**
-     * array binary log files
+     * binary log files
+     *
+     * @var array
      */
     protected $binaryLogs;
 

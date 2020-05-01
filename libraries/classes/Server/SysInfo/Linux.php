@@ -19,6 +19,11 @@ use function preg_split;
  */
 class Linux extends Base
 {
+    /**
+     * The OS name
+     *
+     * @var string
+     */
     public $os = 'Linux';
 
     /**

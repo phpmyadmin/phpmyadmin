@@ -11,6 +11,11 @@ use const PHP_OS;
  */
 class Base
 {
+    /**
+     * The OS name
+     *
+     * @var string
+     */
     public $os = PHP_OS;
 
     /**
