@@ -9,9 +9,10 @@
     errorBaseline="psalm-baseline.xml"
 >
     <projectFiles>
-        <directory name="libraries/classes" />
+        <directory name="libraries" />
         <ignoreFiles>
             <directory name="vendor" />
+            <directory name="libraries/cache" />
         </ignoreFiles>
     </projectFiles>
 
@@ -48,8 +49,21 @@
             </errorLevel>
         </RawObjectIteration>
 
+        <PossiblyUndefinedGlobalVariable>
+            <errorLevel type="suppress">
+                <file name="libraries/config.default.php" />
+            </errorLevel>
+        </PossiblyUndefinedGlobalVariable>
+
+        <InvalidGlobal>
+            <errorLevel type="suppress">
+                <file name="libraries/common.inc.php" />
+            </errorLevel>
+        </InvalidGlobal>
+
         <InvalidStringClass>
             <errorLevel type="suppress">
+                <file name="libraries/common.inc.php" />
                 <file name="libraries/classes/TwoFactor.php" />
                 <file name="libraries/classes/Plugins.php" />
                 <file name="libraries/classes/Navigation/NodeFactory.php" />
