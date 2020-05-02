@@ -823,7 +823,7 @@ class AuthenticationCookieTest extends PmaTestCase
 
         $this->assertEquals(
             $GLOBALS['conn_error'],
-            'No activity within 10 seconds; please log in again.'
+            'You have been automatically logged out due to inactivity of 10 seconds. Once you log in again, you should be able to resume the work where you left off.'
         );
     }
 

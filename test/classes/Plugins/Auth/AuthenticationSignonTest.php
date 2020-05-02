@@ -344,7 +344,7 @@ class AuthenticationSignonTest extends PmaTestCase
         $this->object->showFailure('no-activity');
 
         $this->assertEquals(
-            'No activity within 1440 seconds; please log in again.',
+            'You have been automatically logged out due to inactivity of 10 seconds. Once you log in again, you should be able to resume the work where you left off.',
             $_SESSION['PMA_single_signon_error_message']
         );
     }
