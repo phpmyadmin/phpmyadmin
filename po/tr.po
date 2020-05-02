@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-05-02 01:11+0200\n"
-"PO-Revision-Date: 2020-04-26 21:11+0000\n"
+"PO-Revision-Date: 2020-05-02 11:19+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.0.2-dev\n"
+"X-Generator: Weblate 4.1-dev\n"
 
 #: js/messages.php:51
 msgid "Confirm"
@@ -10463,7 +10463,7 @@ msgstr "%s değeri"
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
 #: libraries/classes/Plugins/Export/ExportSql.php:337
 msgid "Use simple view export"
-msgstr ""
+msgstr "Basit görünüm dışa aktarmayı kullan"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:376
 msgid ""
@@ -16600,10 +16600,8 @@ msgid "Index choice:"
 msgstr "İndeks tercihi:"
 
 #: templates/table/index_form.twig:52
-#, fuzzy
-#| msgid "Advanced Options"
 msgid "Advanced options"
-msgstr "Gelişmiş Seçenekler"
+msgstr "Gelişmiş seçenekler"
 
 #: templates/table/index_form.twig:59
 msgid "Key block size:"
