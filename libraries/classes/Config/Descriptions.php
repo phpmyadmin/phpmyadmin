@@ -898,6 +898,8 @@ class Descriptions
             'CaptchaLoginPublicKey_name' => __('Public key for reCaptcha'),
             'CaptchaLoginPrivateKey_desc' => __('Enter your private key for your domain reCaptcha service.'),
             'CaptchaLoginPrivateKey_name' => __('Private key for reCaptcha'),
+            'CaptchaSiteVerifyURL_desc' => __('Enter your siteverify URL for your reCaptcha service.'),
+            'CaptchaSiteVerifyURL_name' => __('URL for reCaptcha siteverify'),
 
             'SendErrorReports_desc' => __('Choose the default action when sending error reports.'),
             'SendErrorReports_name' => __('Send error reports'),

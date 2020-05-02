@@ -849,6 +849,13 @@ $cfg['CaptchaLoginPublicKey'] = '';
 $cfg['CaptchaLoginPrivateKey'] = '';
 
 /**
+ * if reCaptcha is enabled may need an URL for site verify
+ *
+ * @global string $cfg['CaptchaSiteVerifyURL']
+ */
+$cfg['CaptchaSiteVerifyURL'] = '';
+
+/**
  * Enable drag and drop import
  *
  * @see feature request : https://github.com/phpmyadmin/phpmyadmin/issues/13155
