@@ -80,6 +80,7 @@
     <exclude-pattern>*/twig-templates/*</exclude-pattern>
     <exclude-pattern>*/tmp/*</exclude-pattern>
     <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/libraries/cache/*</exclude-pattern>
 
     <file>.</file>
 </ruleset>

@@ -174,10 +174,16 @@ class GisVisualization
         $modified_query = 'SELECT ';
         $spatialAsText = 'ASTEXT';
         $spatialSrid = 'SRID';
+        $axisOrder = '';
 
         if ($this->_userSpecifiedSettings['mysqlVersion'] >= 50600) {
             $spatialAsText = 'ST_ASTEXT';
             $spatialSrid = 'ST_SRID';
+        }
+
+        // If MYSQL version >= 8.1 override default axis order
+        if ($this->_userSpecifiedSettings['mysqlVersion'] >= 80010) {
+            $axisOrder = ', \'axis-order=long-lat\'';
         }
 
         // If label column is chosen add it to the query
@@ -190,7 +196,7 @@ class GisVisualization
         // Wrap the spatial column with 'ST_ASTEXT()' function and add it
         $modified_query .= $spatialAsText . '('
             . Util::backquote($this->_userSpecifiedSettings['spatialColumn'])
-            . ') AS ' . Util::backquote(
+            . $axisOrder . ') AS ' . Util::backquote(
                 $this->_userSpecifiedSettings['spatialColumn']
             )
             . ', ';
