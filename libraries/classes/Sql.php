@@ -760,11 +760,11 @@ class Sql
     /**
      * Function to store the query as a bookmark
      *
-     * @param string    $db                     the current database
-     * @param string    $bkm_user               the bookmarking user
-     * @param string    $sql_query_for_bookmark the query to be stored in bookmark
-     * @param string    $bkm_label              bookmark label
-     * @param bool|null $bkm_replace            whether to replace existing bookmarks
+     * @param string $db                     the current database
+     * @param string $bkm_user               the bookmarking user
+     * @param string $sql_query_for_bookmark the query to be stored in bookmark
+     * @param string $bkm_label              bookmark label
+     * @param bool   $bkm_replace            whether to replace existing bookmarks
      *
      * @return void
      */
@@ -773,7 +773,7 @@ class Sql
         $bkm_user,
         $sql_query_for_bookmark,
         $bkm_label,
-        ?bool $bkm_replace
+        bool $bkm_replace
     ) {
         $bfields = [
             'bkm_database' => $db,
@@ -783,7 +783,7 @@ class Sql
         ];
 
         // Should we replace bookmark?
-        if (isset($bkm_replace)) {
+        if ($bkm_replace) {
             $bookmarks = Bookmark::getList(
                 $GLOBALS['dbi'],
                 $GLOBALS['cfg']['Server']['user'],
@@ -1060,7 +1060,7 @@ class Sql
                     $cfgBookmark['user'],
                     $sql_query_for_bookmark,
                     $_POST['bkm_label'],
-                    $_POST['bkm_replace'] ?? null
+                    isset($_POST['bkm_replace'])
                 );
             } // end store bookmarks
 

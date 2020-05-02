@@ -789,7 +789,7 @@ final class ImportController extends AbstractController
                     $cfgBookmark['user'],
                     $_POST['sql_query'],
                     $_POST['bkm_label'],
-                    $_POST['bkm_replace'] ?? null
+                    isset($_POST['bkm_replace'])
                 );
             }
 
@@ -805,7 +805,7 @@ final class ImportController extends AbstractController
                     $cfgBookmark['user'],
                     $_POST['sql_query'],
                     $_POST['bkm_label'],
-                    $_POST['bkm_replace'] ?? null
+                    isset($_POST['bkm_replace'])
                 );
             }
 
