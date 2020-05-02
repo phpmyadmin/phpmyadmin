@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-05-02 01:11+0200\n"
-"PO-Revision-Date: 2020-05-02 11:19+0000\n"
+"PO-Revision-Date: 2020-05-04 05:11+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
@@ -10252,6 +10252,9 @@ msgid ""
 "You have been automatically logged out due to inactivity of %s seconds. Once "
 "you log in again, you should be able to resume the work where you left off."
 msgstr ""
+"Vous avez été automatiquement déconnecté en raison d'une inactivité de %s "
+"secondes. Une fois reconnecté, vous devriez pouvoir reprendre le travail là "
+"où vous l'aviez laissé."
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:204
 #: libraries/classes/Plugins/AuthenticationPlugin.php:207
