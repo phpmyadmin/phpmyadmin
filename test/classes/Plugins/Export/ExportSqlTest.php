@@ -279,7 +279,7 @@ class ExportSqlTest extends PmaTestCase
         );
 
         $this->assertCount(
-            2,
+            3,
             $leaf->getProperties()
         );
 
