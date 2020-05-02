@@ -11,6 +11,7 @@ phpMyAdmin - ChangeLog
 - issue #14411 Support double tap to edit on mobile
 - issue #16043 Fix php error "Use of undefined constant MYSQLI_TYPE_JSON" when using the mysqlnd extension
 - issue #14611 Fix fatal JS error on index creation after using Enter key to submit the form
+- issue #16012 Set "axis-order" to swap lon and lat on MySQL >= 8.1
 
 5.0.2 (2020-03-20)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page
