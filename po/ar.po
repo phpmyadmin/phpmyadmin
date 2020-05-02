@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-05-02 01:11+0200\n"
+"POT-Creation-Date: 2020-05-02 13:17+0200\n"
 "PO-Revision-Date: 2020-04-02 10:42+0000\n"
 "Last-Translator: yagoub fadel <yagoub76@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1033,7 +1033,7 @@ msgstr "تغيير مجموعة الأحرف"
 #: templates/server/privileges/users_overview.twig:62
 #: templates/table/privileges/index.twig:73
 #: templates/table/relation/common_form.twig:278
-#: templates/table/row_action/confirm_delete.twig:23
+#: templates/table/row_action/confirm_delete.twig:29
 #: templates/table/structure/display_structure.twig:81
 #: templates/table/structure/display_structure.twig:506
 #: templates/table/tracking/structure_snapshot_columns.twig:33
@@ -1044,7 +1044,7 @@ msgstr "لا"
 
 #: js/messages.php:363 templates/display/import/import.twig:204
 #: templates/mult_submits/other_actions.twig:17 templates/sql/query.twig:131
-#: templates/table/row_action/confirm_delete.twig:19
+#: templates/table/row_action/confirm_delete.twig:25
 msgid "Enable foreign key checks"
 msgstr "تمكين عمليات التحقق من المفتاح الخارجي"
 
@@ -1457,7 +1457,7 @@ msgid "Data point content"
 msgstr "محتوى نقطة البيانات"
 
 #: js/messages.php:491 js/messages.php:662
-#: libraries/classes/ErrorHandler.php:381 libraries/classes/InsertEdit.php:3063
+#: libraries/classes/ErrorHandler.php:385 libraries/classes/InsertEdit.php:3063
 #: templates/table/index_form.twig:157 templates/table/index_form.twig:193
 msgid "Ignore"
 msgstr "تجاهل"
@@ -1525,7 +1525,7 @@ msgstr "﻿إضافة حلقة الداخلية"
 #: js/messages.php:504 libraries/classes/Config/FormDisplayTemplate.php:317
 #: libraries/classes/Controllers/Database/StructureController.php:416
 #: libraries/classes/Controllers/Database/StructureController.php:591
-#: libraries/classes/Controllers/Table/RowActionController.php:76
+#: libraries/classes/Controllers/Table/RowActionController.php:29
 #: libraries/classes/Controllers/Table/StructureController.php:345
 #: libraries/classes/Controllers/Table/StructureController.php:980
 #: libraries/classes/Controllers/Table/StructureController.php:1748
@@ -1558,7 +1558,7 @@ msgstr "﻿إضافة حلقة الداخلية"
 #: templates/server/privileges/users_overview.twig:62
 #: templates/table/privileges/index.twig:73
 #: templates/table/relation/common_form.twig:278
-#: templates/table/row_action/confirm_delete.twig:22
+#: templates/table/row_action/confirm_delete.twig:28
 #: templates/table/structure/display_structure.twig:81
 #: templates/table/structure/display_structure.twig:506
 #: templates/table/tracking/structure_snapshot_columns.twig:33
@@ -1939,7 +1939,7 @@ msgstr "تم اكتشاف بعض الأخطاء على الخادم!"
 msgid "Please look at the bottom of this window."
 msgstr "يرجى النظر في الجزء السفلي من هذه النافذة."
 
-#: js/messages.php:665 libraries/classes/ErrorHandler.php:385
+#: js/messages.php:665 libraries/classes/ErrorHandler.php:389
 msgid "Ignore All"
 msgstr "تجاهل الكل"
 
@@ -2086,37 +2086,37 @@ msgstr "عرض"
 msgid "Structure"
 msgstr "بناء"
 
-#: libraries/classes/Advisor.php:307
+#: libraries/classes/Advisor.php:330
 #, php-format
 msgid "Error when evaluating: %s"
 msgstr "حدث خطأ أثناء تقييم: %s"
 
-#: libraries/classes/Advisor.php:336
+#: libraries/classes/Advisor.php:359
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
 msgstr "فشلت في تقييم مسبق للقاعدة '%s'."
 
-#: libraries/classes/Advisor.php:353
+#: libraries/classes/Advisor.php:376
 #, php-format
 msgid "Failed calculating value for rule '%s'."
 msgstr "فشلت في حساب القيمة للقاعدة '%s'."
 
-#: libraries/classes/Advisor.php:372
+#: libraries/classes/Advisor.php:395
 #, php-format
 msgid "Failed running test for rule '%s'."
 msgstr "فشلت في تشغيل الإختبار للقاعدة '%s'."
 
-#: libraries/classes/Advisor.php:453
+#: libraries/classes/Advisor.php:476
 #, php-format
 msgid "Failed formatting string for rule '%s'."
 msgstr "فشل تنسيق النص لـ '%s'."
 
-#: libraries/classes/Advisor.php:576
+#: libraries/classes/Advisor.php:599
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr "خطأ في قراءة الملف: الملف '%s' غير موجود أو غير قابل للقراءة!"
 
-#: libraries/classes/Advisor.php:610
+#: libraries/classes/Advisor.php:633
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
@@ -2124,37 +2124,37 @@ msgstr ""
 "إعلان قاعدة غير صالح على السطر %1$s، السطر المتوقع هو %2$s من القاعدة "
 "السابقة."
 
-#: libraries/classes/Advisor.php:629
+#: libraries/classes/Advisor.php:652
 #, php-format
 msgid "Invalid rule declaration on line %s."
 msgstr "إعلان قاعدة غير صحيح على السطر %s."
 
-#: libraries/classes/Advisor.php:636
+#: libraries/classes/Advisor.php:659
 #, php-format
 msgid "Unexpected characters on line %s."
 msgstr "أحرف غير متوقعة على السطر %s."
 
-#: libraries/classes/Advisor.php:650
+#: libraries/classes/Advisor.php:673
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr "حرف غير متوقع على السطر %1$s. متوقع tab ، ولكن \"%2$s\" وجد."
 
-#: libraries/classes/Advisor.php:689
+#: libraries/classes/Advisor.php:712
 msgid "per second"
 msgstr "لكل ثانية"
 
-#: libraries/classes/Advisor.php:692
+#: libraries/classes/Advisor.php:715
 msgid "per minute"
 msgstr "لكل دقيقة"
 
-#: libraries/classes/Advisor.php:695
+#: libraries/classes/Advisor.php:718
 #: templates/server/status/queries/index.twig:39
 #: templates/server/status/status/index.twig:18
 #: templates/server/status/status/index.twig:38
 msgid "per hour"
 msgstr "لكل ساعة"
 
-#: libraries/classes/Advisor.php:698
+#: libraries/classes/Advisor.php:721
 msgid "per day"
 msgstr "يومياً"
 
@@ -5712,7 +5712,6 @@ msgid "Favorite List is full!"
 msgstr ""
 
 #: libraries/classes/Controllers/Database/StructureController.php:389
-#: libraries/classes/Controllers/Table/RowActionController.php:60
 #: libraries/classes/Controllers/Table/StructureController.php:269
 #: templates/database/events/index.twig:82
 #: templates/database/events/index.twig:85
@@ -7192,7 +7191,7 @@ msgstr "عرض بنية الجدول"
 
 #: libraries/classes/Controllers/Table/FindReplaceController.php:180
 #: libraries/classes/Controllers/Table/RelationController.php:269
-#: libraries/classes/Controllers/Table/RowActionController.php:139
+#: libraries/classes/Controllers/Table/RowActionController.php:54
 #: libraries/classes/Controllers/ViewOperationsController.php:76
 #: libraries/classes/Database/Routines.php:1464
 #: libraries/classes/Display/Results.php:4121 libraries/classes/Message.php:176
@@ -7240,10 +7239,9 @@ msgstr "العلاقات الداخلية تم تحديثها بنجاح ."
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
 
-#: libraries/classes/Controllers/Table/RowActionController.php:36
-#: libraries/classes/Controllers/Table/RowActionController.php:184
-#: libraries/classes/Controllers/Table/RowActionController.php:235
-#: libraries/classes/Controllers/Table/RowActionController.php:266
+#: libraries/classes/Controllers/Table/RowActionController.php:98
+#: libraries/classes/Controllers/Table/RowActionController.php:136
+#: libraries/classes/Controllers/Table/RowActionController.php:167
 #, fuzzy
 #| msgid "No rows selected"
 msgid "No row selected."
@@ -8670,15 +8668,15 @@ msgid ""
 "%sPrimeBase XT Home Page%s."
 msgstr ""
 
-#: libraries/classes/ErrorHandler.php:91
+#: libraries/classes/ErrorHandler.php:95
 msgid "Too many error messages, some are not displayed."
 msgstr "كثيراً من رسائل الخطأ، لن تعرض كلها."
 
-#: libraries/classes/ErrorHandler.php:370
+#: libraries/classes/ErrorHandler.php:374
 msgid "Report"
 msgstr "أبلغ عن"
 
-#: libraries/classes/ErrorHandler.php:375 templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:379 templates/error/report_form.twig:25
 msgid "Automatically send report next time"
 msgstr "إرسال التقرير تلقائيا في المرة القادمة"
 
@@ -9877,15 +9875,17 @@ msgstr ""
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:193
 #, php-format
-msgid "No activity within %s seconds; please log in again."
-msgstr "لانشاط منذ %s ثواني , الرجاء تسجيل الدخول من جديد."
+msgid ""
+"You have been automatically logged out due to inactivity of %s seconds. Once "
+"you log in again, you should be able to resume the work where you left off."
+msgstr ""
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:203
-#: libraries/classes/Plugins/AuthenticationPlugin.php:206
+#: libraries/classes/Plugins/AuthenticationPlugin.php:204
+#: libraries/classes/Plugins/AuthenticationPlugin.php:207
 msgid "Cannot log in to the MySQL server"
 msgstr "لا يمكن الدخول إلى خادم MySQL"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:352
+#: libraries/classes/Plugins/AuthenticationPlugin.php:353
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
@@ -15013,7 +15013,7 @@ msgid "Add AUTO INCREMENT value"
 msgstr "أضف قيمة AUTO_INCREMENT"
 
 #: templates/mult_submits/other_actions.twig:6
-#: templates/table/row_action/confirm_delete.twig:6
+#: templates/table/row_action/confirm_delete.twig:12
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
@@ -18579,6 +18579,9 @@ msgstr ""
 #: libraries/advisory_rules_mysql_before80003.txt:57
 msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
+
+#~ msgid "No activity within %s seconds; please log in again."
+#~ msgstr "لانشاط منذ %s ثواني , الرجاء تسجيل الدخول من جديد."
 
 #, fuzzy
 #~| msgid "Event type"

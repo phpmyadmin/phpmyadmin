@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-05-02 01:11+0200\n"
+"POT-Creation-Date: 2020-05-02 13:17+0200\n"
 "PO-Revision-Date: 2020-04-20 15:11+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1052,7 +1052,7 @@ msgstr "Ændrer tegnsæt"
 #: templates/server/privileges/users_overview.twig:62
 #: templates/table/privileges/index.twig:73
 #: templates/table/relation/common_form.twig:278
-#: templates/table/row_action/confirm_delete.twig:23
+#: templates/table/row_action/confirm_delete.twig:29
 #: templates/table/structure/display_structure.twig:81
 #: templates/table/structure/display_structure.twig:506
 #: templates/table/tracking/structure_snapshot_columns.twig:33
@@ -1063,7 +1063,7 @@ msgstr "Nej"
 
 #: js/messages.php:363 templates/display/import/import.twig:204
 #: templates/mult_submits/other_actions.twig:17 templates/sql/query.twig:131
-#: templates/table/row_action/confirm_delete.twig:19
+#: templates/table/row_action/confirm_delete.twig:25
 msgid "Enable foreign key checks"
 msgstr "Slå fremmednøgle-checks til"
 
@@ -1482,7 +1482,7 @@ msgid "Data point content"
 msgstr "Datapunkt-indhold"
 
 #: js/messages.php:491 js/messages.php:662
-#: libraries/classes/ErrorHandler.php:381 libraries/classes/InsertEdit.php:3063
+#: libraries/classes/ErrorHandler.php:385 libraries/classes/InsertEdit.php:3063
 #: templates/table/index_form.twig:157 templates/table/index_form.twig:193
 msgid "Ignore"
 msgstr "Ignorer"
@@ -1550,7 +1550,7 @@ msgstr "Tilføj en indre ring"
 #: js/messages.php:504 libraries/classes/Config/FormDisplayTemplate.php:317
 #: libraries/classes/Controllers/Database/StructureController.php:416
 #: libraries/classes/Controllers/Database/StructureController.php:591
-#: libraries/classes/Controllers/Table/RowActionController.php:76
+#: libraries/classes/Controllers/Table/RowActionController.php:29
 #: libraries/classes/Controllers/Table/StructureController.php:345
 #: libraries/classes/Controllers/Table/StructureController.php:980
 #: libraries/classes/Controllers/Table/StructureController.php:1748
@@ -1583,7 +1583,7 @@ msgstr "Tilføj en indre ring"
 #: templates/server/privileges/users_overview.twig:62
 #: templates/table/privileges/index.twig:73
 #: templates/table/relation/common_form.twig:278
-#: templates/table/row_action/confirm_delete.twig:22
+#: templates/table/row_action/confirm_delete.twig:28
 #: templates/table/structure/display_structure.twig:81
 #: templates/table/structure/display_structure.twig:506
 #: templates/table/tracking/structure_snapshot_columns.twig:33
@@ -1985,7 +1985,7 @@ msgstr "Der er registreret fejl på serveren!"
 msgid "Please look at the bottom of this window."
 msgstr "Gennemse venligst bunden af denne side."
 
-#: js/messages.php:665 libraries/classes/ErrorHandler.php:385
+#: js/messages.php:665 libraries/classes/ErrorHandler.php:389
 msgid "Ignore All"
 msgstr "Ignorér alle"
 
@@ -2143,38 +2143,38 @@ msgstr "Vis"
 msgid "Structure"
 msgstr "Struktur"
 
-#: libraries/classes/Advisor.php:307
+#: libraries/classes/Advisor.php:330
 #, php-format
 msgid "Error when evaluating: %s"
 msgstr "Fejl ved validering: %s"
 
-#: libraries/classes/Advisor.php:336
+#: libraries/classes/Advisor.php:359
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
 msgstr "Mislykkedes med at evaluere betingelse for reglen '%s'."
 
-#: libraries/classes/Advisor.php:353
+#: libraries/classes/Advisor.php:376
 #, php-format
 msgid "Failed calculating value for rule '%s'."
 msgstr "Mislykkedes med at beregne værdi for reglen '%s'."
 
-#: libraries/classes/Advisor.php:372
+#: libraries/classes/Advisor.php:395
 #, php-format
 msgid "Failed running test for rule '%s'."
 msgstr "Mislykkedes med at afvikle test for reglen '%s'."
 
-#: libraries/classes/Advisor.php:453
+#: libraries/classes/Advisor.php:476
 #, php-format
 msgid "Failed formatting string for rule '%s'."
 msgstr "Mislykkedes med at formatere streng for reglen '%s'."
 
-#: libraries/classes/Advisor.php:576
+#: libraries/classes/Advisor.php:599
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
 "Fejl ved læsning af fil: Filen '%s' eksisterer ikke eller er ikke læsbar!"
 
-#: libraries/classes/Advisor.php:610
+#: libraries/classes/Advisor.php:633
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
@@ -2182,37 +2182,37 @@ msgstr ""
 "Ugyldig regel-deklaration på linje %1$s, forventede linje %2$s fra forrige "
 "regel."
 
-#: libraries/classes/Advisor.php:629
+#: libraries/classes/Advisor.php:652
 #, php-format
 msgid "Invalid rule declaration on line %s."
 msgstr "Ugyldig regel-deklaration på linie %s."
 
-#: libraries/classes/Advisor.php:636
+#: libraries/classes/Advisor.php:659
 #, php-format
 msgid "Unexpected characters on line %s."
 msgstr "Uventet tegn på linje %s."
 
-#: libraries/classes/Advisor.php:650
+#: libraries/classes/Advisor.php:673
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr "Uventet tegn på linje %1$s. Forventede tabulering, men fandt \"%2$s\"."
 
-#: libraries/classes/Advisor.php:689
+#: libraries/classes/Advisor.php:712
 msgid "per second"
 msgstr "pr. sekund"
 
-#: libraries/classes/Advisor.php:692
+#: libraries/classes/Advisor.php:715
 msgid "per minute"
 msgstr "pr. minut"
 
-#: libraries/classes/Advisor.php:695
+#: libraries/classes/Advisor.php:718
 #: templates/server/status/queries/index.twig:39
 #: templates/server/status/status/index.twig:18
 #: templates/server/status/status/index.twig:38
 msgid "per hour"
 msgstr "pr. time"
 
-#: libraries/classes/Advisor.php:698
+#: libraries/classes/Advisor.php:721
 msgid "per day"
 msgstr "per dag"
 
@@ -5892,7 +5892,6 @@ msgid "Favorite List is full!"
 msgstr "Favoritliste er fyldt!"
 
 #: libraries/classes/Controllers/Database/StructureController.php:389
-#: libraries/classes/Controllers/Table/RowActionController.php:60
 #: libraries/classes/Controllers/Table/StructureController.php:269
 #: templates/database/events/index.twig:82
 #: templates/database/events/index.twig:85
@@ -7486,7 +7485,7 @@ msgstr "Vis dump (skema) over tabel"
 
 #: libraries/classes/Controllers/Table/FindReplaceController.php:180
 #: libraries/classes/Controllers/Table/RelationController.php:269
-#: libraries/classes/Controllers/Table/RowActionController.php:139
+#: libraries/classes/Controllers/Table/RowActionController.php:54
 #: libraries/classes/Controllers/ViewOperationsController.php:76
 #: libraries/classes/Database/Routines.php:1464
 #: libraries/classes/Display/Results.php:4121 libraries/classes/Message.php:176
@@ -7534,10 +7533,9 @@ msgstr "Opdateringen af de interne relationer blev gennemført."
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Række: %1$s, kolonne: %2$s, fejl: %3$s"
 
-#: libraries/classes/Controllers/Table/RowActionController.php:36
-#: libraries/classes/Controllers/Table/RowActionController.php:184
-#: libraries/classes/Controllers/Table/RowActionController.php:235
-#: libraries/classes/Controllers/Table/RowActionController.php:266
+#: libraries/classes/Controllers/Table/RowActionController.php:98
+#: libraries/classes/Controllers/Table/RowActionController.php:136
+#: libraries/classes/Controllers/Table/RowActionController.php:167
 msgid "No row selected."
 msgstr "Der er ikke valgt en række."
 
@@ -8920,15 +8918,15 @@ msgstr ""
 "Dokumentation og yderligere information om PBXT kan findes på %sPrimeBase XT "
 "hjemmeside%s."
 
-#: libraries/classes/ErrorHandler.php:91
+#: libraries/classes/ErrorHandler.php:95
 msgid "Too many error messages, some are not displayed."
 msgstr "For mange fejlmeddelelser, nogle vises ikke."
 
-#: libraries/classes/ErrorHandler.php:370
+#: libraries/classes/ErrorHandler.php:374
 msgid "Report"
 msgstr "Rapport"
 
-#: libraries/classes/ErrorHandler.php:375 templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:379 templates/error/report_form.twig:25
 msgid "Automatically send report next time"
 msgstr "Send automatisk rapport næste gang"
 
@@ -10144,16 +10142,17 @@ msgstr ""
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:193
 #, php-format
-msgid "No activity within %s seconds; please log in again."
+msgid ""
+"You have been automatically logged out due to inactivity of %s seconds. Once "
+"you log in again, you should be able to resume the work where you left off."
 msgstr ""
-"Ingen aktivitet i de seneste %s sekunder eller mere, log venligst ind igen."
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:203
-#: libraries/classes/Plugins/AuthenticationPlugin.php:206
+#: libraries/classes/Plugins/AuthenticationPlugin.php:204
+#: libraries/classes/Plugins/AuthenticationPlugin.php:207
 msgid "Cannot log in to the MySQL server"
 msgstr "Kan ikke logge ind på MySQL-serveren"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:352
+#: libraries/classes/Plugins/AuthenticationPlugin.php:353
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
@@ -15061,7 +15060,7 @@ msgid "Add AUTO INCREMENT value"
 msgstr "Tilføj AUTO INCREMENT værdi"
 
 #: templates/mult_submits/other_actions.twig:6
-#: templates/table/row_action/confirm_delete.twig:6
+#: templates/table/row_action/confirm_delete.twig:12
 msgid "Do you really want to execute the following query?"
 msgstr "Er du sikker på at du vil udføre følgende forespørgsel?"
 
@@ -18601,6 +18600,11 @@ msgstr ""
 #: libraries/advisory_rules_mysql_before80003.txt:57
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit er sat til 1 MiB"
+
+#~ msgid "No activity within %s seconds; please log in again."
+#~ msgstr ""
+#~ "Ingen aktivitet i de seneste %s sekunder eller mere, log venligst ind "
+#~ "igen."
 
 #~ msgid "Event name"
 #~ msgstr "Hændelsesnavn"

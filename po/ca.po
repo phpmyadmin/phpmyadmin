@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-05-02 01:11+0200\n"
+"POT-Creation-Date: 2020-05-02 13:17+0200\n"
 "PO-Revision-Date: 2020-04-11 15:51+0000\n"
 "Last-Translator: Sergi Almacellas Abellana <sergi@koolpi.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1053,7 +1053,7 @@ msgstr "Canvi del joc de caràcters"
 #: templates/server/privileges/users_overview.twig:62
 #: templates/table/privileges/index.twig:73
 #: templates/table/relation/common_form.twig:278
-#: templates/table/row_action/confirm_delete.twig:23
+#: templates/table/row_action/confirm_delete.twig:29
 #: templates/table/structure/display_structure.twig:81
 #: templates/table/structure/display_structure.twig:506
 #: templates/table/tracking/structure_snapshot_columns.twig:33
@@ -1064,7 +1064,7 @@ msgstr "No"
 
 #: js/messages.php:363 templates/display/import/import.twig:204
 #: templates/mult_submits/other_actions.twig:17 templates/sql/query.twig:131
-#: templates/table/row_action/confirm_delete.twig:19
+#: templates/table/row_action/confirm_delete.twig:25
 msgid "Enable foreign key checks"
 msgstr "Habilita les comprovacions de les claus foranes"
 
@@ -1484,7 +1484,7 @@ msgid "Data point content"
 msgstr "Contingut del punter de dades"
 
 #: js/messages.php:491 js/messages.php:662
-#: libraries/classes/ErrorHandler.php:381 libraries/classes/InsertEdit.php:3063
+#: libraries/classes/ErrorHandler.php:385 libraries/classes/InsertEdit.php:3063
 #: templates/table/index_form.twig:157 templates/table/index_form.twig:193
 msgid "Ignore"
 msgstr "Ignora"
@@ -1552,7 +1552,7 @@ msgstr "Afegeix un cercle interior"
 #: js/messages.php:504 libraries/classes/Config/FormDisplayTemplate.php:317
 #: libraries/classes/Controllers/Database/StructureController.php:416
 #: libraries/classes/Controllers/Database/StructureController.php:591
-#: libraries/classes/Controllers/Table/RowActionController.php:76
+#: libraries/classes/Controllers/Table/RowActionController.php:29
 #: libraries/classes/Controllers/Table/StructureController.php:345
 #: libraries/classes/Controllers/Table/StructureController.php:980
 #: libraries/classes/Controllers/Table/StructureController.php:1748
@@ -1585,7 +1585,7 @@ msgstr "Afegeix un cercle interior"
 #: templates/server/privileges/users_overview.twig:62
 #: templates/table/privileges/index.twig:73
 #: templates/table/relation/common_form.twig:278
-#: templates/table/row_action/confirm_delete.twig:22
+#: templates/table/row_action/confirm_delete.twig:28
 #: templates/table/structure/display_structure.twig:81
 #: templates/table/structure/display_structure.twig:506
 #: templates/table/tracking/structure_snapshot_columns.twig:33
@@ -1977,7 +1977,7 @@ msgstr "S'han detectat alguns errors al servidor!"
 msgid "Please look at the bottom of this window."
 msgstr "Mireu la part inferior d'aquesta finestra."
 
-#: js/messages.php:665 libraries/classes/ErrorHandler.php:385
+#: js/messages.php:665 libraries/classes/ErrorHandler.php:389
 msgid "Ignore All"
 msgstr "Ignora-ho tot"
 
@@ -2133,38 +2133,38 @@ msgstr "Mostra"
 msgid "Structure"
 msgstr "Estructura"
 
-#: libraries/classes/Advisor.php:307
+#: libraries/classes/Advisor.php:330
 #, php-format
 msgid "Error when evaluating: %s"
 msgstr "Error quan s'estava avaluant: %s"
 
-#: libraries/classes/Advisor.php:336
+#: libraries/classes/Advisor.php:359
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
 msgstr "No s'ha pogut avaluar la precondició per a la regla «%s»."
 
-#: libraries/classes/Advisor.php:353
+#: libraries/classes/Advisor.php:376
 #, php-format
 msgid "Failed calculating value for rule '%s'."
 msgstr "No s'ha pogut calcular el valor per a la regla «%s»."
 
-#: libraries/classes/Advisor.php:372
+#: libraries/classes/Advisor.php:395
 #, php-format
 msgid "Failed running test for rule '%s'."
 msgstr "Ha fallat l'execució de la prova per a la regla «%s»."
 
-#: libraries/classes/Advisor.php:453
+#: libraries/classes/Advisor.php:476
 #, php-format
 msgid "Failed formatting string for rule '%s'."
 msgstr "Error de format de cadena per a la regla «%s»."
 
-#: libraries/classes/Advisor.php:576
+#: libraries/classes/Advisor.php:599
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
 "Error en llegir el fitxer: el fitxer «%s» no existeix o bé no es pot llegir!"
 
-#: libraries/classes/Advisor.php:610
+#: libraries/classes/Advisor.php:633
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
@@ -2172,39 +2172,39 @@ msgstr ""
 "Declaració regla no vàlida a la línia %1$s, s'esperava la línia %2$s de la "
 "regla anterior."
 
-#: libraries/classes/Advisor.php:629
+#: libraries/classes/Advisor.php:652
 #, php-format
 msgid "Invalid rule declaration on line %s."
 msgstr "Declaració incorrecta de regla a la línia %s."
 
-#: libraries/classes/Advisor.php:636
+#: libraries/classes/Advisor.php:659
 #, php-format
 msgid "Unexpected characters on line %s."
 msgstr "Caràcters no esperats en la línia %s."
 
-#: libraries/classes/Advisor.php:650
+#: libraries/classes/Advisor.php:673
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
 "Caràcter inesperat en la línia %1$s. S'esperava una tabulació, però s'ha "
 "trobat \"%2$s\"."
 
-#: libraries/classes/Advisor.php:689
+#: libraries/classes/Advisor.php:712
 msgid "per second"
 msgstr "per segon"
 
-#: libraries/classes/Advisor.php:692
+#: libraries/classes/Advisor.php:715
 msgid "per minute"
 msgstr "per minut"
 
-#: libraries/classes/Advisor.php:695
+#: libraries/classes/Advisor.php:718
 #: templates/server/status/queries/index.twig:39
 #: templates/server/status/status/index.twig:18
 #: templates/server/status/status/index.twig:38
 msgid "per hour"
 msgstr "per hora"
 
-#: libraries/classes/Advisor.php:698
+#: libraries/classes/Advisor.php:721
 msgid "per day"
 msgstr "per dia"
 
@@ -5952,7 +5952,6 @@ msgid "Favorite List is full!"
 msgstr "La llista de preferits és plena!"
 
 #: libraries/classes/Controllers/Database/StructureController.php:389
-#: libraries/classes/Controllers/Table/RowActionController.php:60
 #: libraries/classes/Controllers/Table/StructureController.php:269
 #: templates/database/events/index.twig:82
 #: templates/database/events/index.twig:85
@@ -7578,7 +7577,7 @@ msgstr "Mostra el bolcat (esquema) de la taula"
 
 #: libraries/classes/Controllers/Table/FindReplaceController.php:180
 #: libraries/classes/Controllers/Table/RelationController.php:269
-#: libraries/classes/Controllers/Table/RowActionController.php:139
+#: libraries/classes/Controllers/Table/RowActionController.php:54
 #: libraries/classes/Controllers/ViewOperationsController.php:76
 #: libraries/classes/Database/Routines.php:1464
 #: libraries/classes/Display/Results.php:4121 libraries/classes/Message.php:176
@@ -7626,10 +7625,9 @@ msgstr "S'han actualitzat correctament les relacions internes."
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Fila: %1$s, Columna: %2$s, Error: %3$s"
 
-#: libraries/classes/Controllers/Table/RowActionController.php:36
-#: libraries/classes/Controllers/Table/RowActionController.php:184
-#: libraries/classes/Controllers/Table/RowActionController.php:235
-#: libraries/classes/Controllers/Table/RowActionController.php:266
+#: libraries/classes/Controllers/Table/RowActionController.php:98
+#: libraries/classes/Controllers/Table/RowActionController.php:136
+#: libraries/classes/Controllers/Table/RowActionController.php:167
 msgid "No row selected."
 msgstr "No s'ha seleccionat cap fila."
 
@@ -9035,15 +9033,15 @@ msgstr ""
 "Podeu trobar la documentació i més informació sobre PBXT a la %spàgina "
 "principal de PrimeBase XT%s."
 
-#: libraries/classes/ErrorHandler.php:91
+#: libraries/classes/ErrorHandler.php:95
 msgid "Too many error messages, some are not displayed."
 msgstr "Hi ha massa missatges d'error, alguns no es visualitzen."
 
-#: libraries/classes/ErrorHandler.php:370
+#: libraries/classes/ErrorHandler.php:374
 msgid "Report"
 msgstr "Informa"
 
-#: libraries/classes/ErrorHandler.php:375 templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:379 templates/error/report_form.twig:25
 msgid "Automatically send report next time"
 msgstr "La pròxima vegada envia automàticament l'informe"
 
@@ -10251,17 +10249,17 @@ msgstr ""
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:193
 #, php-format
-msgid "No activity within %s seconds; please log in again."
+msgid ""
+"You have been automatically logged out due to inactivity of %s seconds. Once "
+"you log in again, you should be able to resume the work where you left off."
 msgstr ""
-"Sense activitat des de fa %s segons o més; si us plau, identifiqueu-vos de "
-"nou."
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:203
-#: libraries/classes/Plugins/AuthenticationPlugin.php:206
+#: libraries/classes/Plugins/AuthenticationPlugin.php:204
+#: libraries/classes/Plugins/AuthenticationPlugin.php:207
 msgid "Cannot log in to the MySQL server"
 msgstr "No es pot identificar al servidor MySQL"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:352
+#: libraries/classes/Plugins/AuthenticationPlugin.php:353
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 "Heu habilitat l'autenticació de dos factors, confirmeu la vostra "
@@ -15125,7 +15123,7 @@ msgid "Add AUTO INCREMENT value"
 msgstr "Afegeix valor AUTO INCREMENT"
 
 #: templates/mult_submits/other_actions.twig:6
-#: templates/table/row_action/confirm_delete.twig:6
+#: templates/table/row_action/confirm_delete.twig:12
 msgid "Do you really want to execute the following query?"
 msgstr "Realment voleu executar la consulta següent?"
 
@@ -18722,6 +18720,11 @@ msgstr ""
 #: libraries/advisory_rules_mysql_before80003.txt:57
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "«query_cache_limit» està establert a 1 MiB"
+
+#~ msgid "No activity within %s seconds; please log in again."
+#~ msgstr ""
+#~ "Sense activitat des de fa %s segons o més; si us plau, identifiqueu-vos "
+#~ "de nou."
 
 #~ msgid "Event name"
 #~ msgstr "Nom d'esdeveniment"

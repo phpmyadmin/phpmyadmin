@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-05-02 01:11+0200\n"
+"POT-Creation-Date: 2020-05-02 13:17+0200\n"
 "PO-Revision-Date: 2019-09-18 18:27+0000\n"
 "Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -1016,7 +1016,7 @@ msgstr "更改字元編碼"
 #: templates/server/privileges/users_overview.twig:62
 #: templates/table/privileges/index.twig:73
 #: templates/table/relation/common_form.twig:278
-#: templates/table/row_action/confirm_delete.twig:23
+#: templates/table/row_action/confirm_delete.twig:29
 #: templates/table/structure/display_structure.twig:81
 #: templates/table/structure/display_structure.twig:506
 #: templates/table/tracking/structure_snapshot_columns.twig:33
@@ -1027,7 +1027,7 @@ msgstr "否"
 
 #: js/messages.php:363 templates/display/import/import.twig:204
 #: templates/mult_submits/other_actions.twig:17 templates/sql/query.twig:131
-#: templates/table/row_action/confirm_delete.twig:19
+#: templates/table/row_action/confirm_delete.twig:25
 msgid "Enable foreign key checks"
 msgstr "啟用外鍵檢查"
 
@@ -1431,7 +1431,7 @@ msgid "Data point content"
 msgstr "資料點內容"
 
 #: js/messages.php:491 js/messages.php:662
-#: libraries/classes/ErrorHandler.php:381 libraries/classes/InsertEdit.php:3063
+#: libraries/classes/ErrorHandler.php:385 libraries/classes/InsertEdit.php:3063
 #: templates/table/index_form.twig:157 templates/table/index_form.twig:193
 msgid "Ignore"
 msgstr "略過"
@@ -1499,7 +1499,7 @@ msgstr "新增內環"
 #: js/messages.php:504 libraries/classes/Config/FormDisplayTemplate.php:317
 #: libraries/classes/Controllers/Database/StructureController.php:416
 #: libraries/classes/Controllers/Database/StructureController.php:591
-#: libraries/classes/Controllers/Table/RowActionController.php:76
+#: libraries/classes/Controllers/Table/RowActionController.php:29
 #: libraries/classes/Controllers/Table/StructureController.php:345
 #: libraries/classes/Controllers/Table/StructureController.php:980
 #: libraries/classes/Controllers/Table/StructureController.php:1748
@@ -1532,7 +1532,7 @@ msgstr "新增內環"
 #: templates/server/privileges/users_overview.twig:62
 #: templates/table/privileges/index.twig:73
 #: templates/table/relation/common_form.twig:278
-#: templates/table/row_action/confirm_delete.twig:22
+#: templates/table/row_action/confirm_delete.twig:28
 #: templates/table/structure/display_structure.twig:81
 #: templates/table/structure/display_structure.twig:506
 #: templates/table/tracking/structure_snapshot_columns.twig:33
@@ -1899,7 +1899,7 @@ msgstr "偵測到伺服器發生錯誤！"
 msgid "Please look at the bottom of this window."
 msgstr "請瀏覽此視窗的底部。"
 
-#: js/messages.php:665 libraries/classes/ErrorHandler.php:385
+#: js/messages.php:665 libraries/classes/ErrorHandler.php:389
 msgid "Ignore All"
 msgstr "全部略過"
 
@@ -2048,73 +2048,73 @@ msgstr "顯示"
 msgid "Structure"
 msgstr "結構"
 
-#: libraries/classes/Advisor.php:307
+#: libraries/classes/Advisor.php:330
 #, php-format
 msgid "Error when evaluating: %s"
 msgstr "評估此項目時發生錯誤：%s"
 
-#: libraries/classes/Advisor.php:336
+#: libraries/classes/Advisor.php:359
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
 msgstr "在檢查預先狀況時，條件「%s」失敗。"
 
-#: libraries/classes/Advisor.php:353
+#: libraries/classes/Advisor.php:376
 #, php-format
 msgid "Failed calculating value for rule '%s'."
 msgstr "在計算值時，條件「%s」失敗。"
 
-#: libraries/classes/Advisor.php:372
+#: libraries/classes/Advisor.php:395
 #, php-format
 msgid "Failed running test for rule '%s'."
 msgstr "在執行測試時，條件「%s」失敗。"
 
-#: libraries/classes/Advisor.php:453
+#: libraries/classes/Advisor.php:476
 #, php-format
 msgid "Failed formatting string for rule '%s'."
 msgstr "無法產生規則「%s」的格式化文字。"
 
-#: libraries/classes/Advisor.php:576
+#: libraries/classes/Advisor.php:599
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr "讀取檔案出錯︰沒有「%s」檔案，又或無法讀取！"
 
-#: libraries/classes/Advisor.php:610
+#: libraries/classes/Advisor.php:633
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr "第 %1$s 行的規則宣告無效，上一修規則應在第 %2$s 行。"
 
-#: libraries/classes/Advisor.php:629
+#: libraries/classes/Advisor.php:652
 #, php-format
 msgid "Invalid rule declaration on line %s."
 msgstr "第 %s 行規則宣告無效。"
 
-#: libraries/classes/Advisor.php:636
+#: libraries/classes/Advisor.php:659
 #, php-format
 msgid "Unexpected characters on line %s."
 msgstr "第 %s 行有不明符號。"
 
-#: libraries/classes/Advisor.php:650
+#: libraries/classes/Advisor.php:673
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr "第 %1$s 行有不明符號。應該是 tab，但出現的是「%2$s」。"
 
-#: libraries/classes/Advisor.php:689
+#: libraries/classes/Advisor.php:712
 msgid "per second"
 msgstr "每秒"
 
-#: libraries/classes/Advisor.php:692
+#: libraries/classes/Advisor.php:715
 msgid "per minute"
 msgstr "每分鐘"
 
-#: libraries/classes/Advisor.php:695
+#: libraries/classes/Advisor.php:718
 #: templates/server/status/queries/index.twig:39
 #: templates/server/status/status/index.twig:18
 #: templates/server/status/status/index.twig:38
 msgid "per hour"
 msgstr "每小時"
 
-#: libraries/classes/Advisor.php:698
+#: libraries/classes/Advisor.php:721
 msgid "per day"
 msgstr "每天"
 
@@ -5603,7 +5603,6 @@ msgid "Favorite List is full!"
 msgstr "最愛清單已滿！"
 
 #: libraries/classes/Controllers/Database/StructureController.php:389
-#: libraries/classes/Controllers/Table/RowActionController.php:60
 #: libraries/classes/Controllers/Table/StructureController.php:269
 #: templates/database/events/index.twig:82
 #: templates/database/events/index.twig:85
@@ -7094,7 +7093,7 @@ msgstr "檢視資料表的傾印資料 (綱要)"
 
 #: libraries/classes/Controllers/Table/FindReplaceController.php:180
 #: libraries/classes/Controllers/Table/RelationController.php:269
-#: libraries/classes/Controllers/Table/RowActionController.php:139
+#: libraries/classes/Controllers/Table/RowActionController.php:54
 #: libraries/classes/Controllers/ViewOperationsController.php:76
 #: libraries/classes/Database/Routines.php:1464
 #: libraries/classes/Display/Results.php:4121 libraries/classes/Message.php:176
@@ -7142,10 +7141,9 @@ msgstr "內部關聯已成功更新。"
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "列：%1$s，欄：%2$s，錯誤：%3$s"
 
-#: libraries/classes/Controllers/Table/RowActionController.php:36
-#: libraries/classes/Controllers/Table/RowActionController.php:184
-#: libraries/classes/Controllers/Table/RowActionController.php:235
-#: libraries/classes/Controllers/Table/RowActionController.php:266
+#: libraries/classes/Controllers/Table/RowActionController.php:98
+#: libraries/classes/Controllers/Table/RowActionController.php:136
+#: libraries/classes/Controllers/Table/RowActionController.php:167
 msgid "No row selected."
 msgstr "尚未選擇列。"
 
@@ -8494,15 +8492,15 @@ msgid ""
 "%sPrimeBase XT Home Page%s."
 msgstr "有關 PBXT 的說明文件及更多資訊，請參訪 %sPrimeBase XT 主頁%s。"
 
-#: libraries/classes/ErrorHandler.php:91
+#: libraries/classes/ErrorHandler.php:95
 msgid "Too many error messages, some are not displayed."
 msgstr "錯誤訊息過多，還有一些未有顯示出來。"
 
-#: libraries/classes/ErrorHandler.php:370
+#: libraries/classes/ErrorHandler.php:374
 msgid "Report"
 msgstr "報告"
 
-#: libraries/classes/ErrorHandler.php:375 templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:379 templates/error/report_form.twig:25
 msgid "Automatically send report next time"
 msgstr "下次自動傳送錯誤報告"
 
@@ -9645,15 +9643,17 @@ msgstr "禁止無密碼登入 (請參閱 AllowNoPassword)"
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:193
 #, php-format
-msgid "No activity within %s seconds; please log in again."
-msgstr "登錄超時 (%s 秒未操作)，請重新登入。"
+msgid ""
+"You have been automatically logged out due to inactivity of %s seconds. Once "
+"you log in again, you should be able to resume the work where you left off."
+msgstr ""
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:203
-#: libraries/classes/Plugins/AuthenticationPlugin.php:206
+#: libraries/classes/Plugins/AuthenticationPlugin.php:204
+#: libraries/classes/Plugins/AuthenticationPlugin.php:207
 msgid "Cannot log in to the MySQL server"
 msgstr "無法登入 MySQL 伺服器"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:352
+#: libraries/classes/Plugins/AuthenticationPlugin.php:353
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr "已啟用雙因素認證，請確認登入。"
 
@@ -14349,7 +14349,7 @@ msgid "Add AUTO INCREMENT value"
 msgstr "加入自動遞增(AUTO INCREMENT)值"
 
 #: templates/mult_submits/other_actions.twig:6
-#: templates/table/row_action/confirm_delete.twig:6
+#: templates/table/row_action/confirm_delete.twig:12
 msgid "Do you really want to execute the following query?"
 msgstr "真的要執行以下查詢？"
 
@@ -17637,6 +17637,9 @@ msgstr ""
 #: libraries/advisory_rules_mysql_before80003.txt:57
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit 目前設定為 1 MB"
+
+#~ msgid "No activity within %s seconds; please log in again."
+#~ msgstr "登錄超時 (%s 秒未操作)，請重新登入。"
 
 #~ msgid "Event name"
 #~ msgstr "事件名稱"
