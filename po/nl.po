@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-05-02 01:11+0200\n"
-"PO-Revision-Date: 2020-05-02 11:19+0000\n"
+"PO-Revision-Date: 2020-05-04 05:11+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -10202,6 +10202,9 @@ msgid ""
 "You have been automatically logged out due to inactivity of %s seconds. Once "
 "you log in again, you should be able to resume the work where you left off."
 msgstr ""
+"Je bent automatisch afgemeld vanwege inactiviteit gedurende %s seconden. "
+"Eenmaal weer aangemeld, kun je verder waar je gebleven was toen je afgemeld "
+"werd."
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:204
 #: libraries/classes/Plugins/AuthenticationPlugin.php:207
