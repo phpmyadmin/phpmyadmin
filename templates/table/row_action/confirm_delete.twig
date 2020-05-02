@@ -1,5 +1,11 @@
 <form action="{{ url('/table/row-action/delete') }}" method="post">
-  {{ get_hidden_inputs(hidden_inputs) }}
+  {{ get_hidden_inputs({
+    'db': db,
+    'table': table,
+    'selected': selected,
+    'original_sql_query': sql_query,
+    'fk_checks': '0'
+  }) }}
 
   <fieldset class="confirmation">
     <legend>

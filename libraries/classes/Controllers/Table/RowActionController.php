@@ -17,140 +17,54 @@ class RowActionController extends AbstractController
 {
     public function delete(): void
     {
-        global $db, $goto, $pmaThemeImage, $sql_query, $table, $disp_message, $disp_query, $action;
-        global $submit_mult, $active_page, $err_url, $original_sql_query, $url_query, $original_url_query;
-        global $mult_btn, $query_type, $reload, $selected, $selected_fld;
+        global $db, $goto, $pmaThemeImage, $sql_query, $table, $disp_message, $disp_query;
+        global $active_page, $url_query;
 
-        $submit_mult = $_POST['submit_mult'] ?? '';
+        $mult_btn = $_POST['mult_btn'] ?? '';
+        $original_sql_query = $_POST['original_sql_query'] ?? '';
+        $selected = $_POST['selected'] ?? [];
 
-        if ($submit_mult === 'delete' || isset($_POST['mult_btn'])) {
-            $submit_mult = 'row_delete';
-        }
+        $sql = new Sql();
 
-        if (empty($submit_mult)) {
-            return;
-        }
-
-        if (isset($_POST['goto']) && (! isset($_POST['rows_to_delete']) || ! is_array($_POST['rows_to_delete']))) {
-            $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', __('No row selected.'));
-        }
-
-        $action = Url::getFromRoute('/table/row-action');
-        $err_url = Url::getFromRoute('/table/row-action', $GLOBALS['url_params']);
-        if (! isset($_POST['mult_btn'])) {
-            $original_sql_query = $sql_query;
-            if (! empty($url_query)) {
-                $original_url_query = $url_query;
-            }
-        }
-
-        $goto = $_POST['goto'] ?? $goto ?? '';
-        $mult_btn = $_POST['mult_btn'] ?? $mult_btn ?? null;
-        $original_sql_query = $_POST['original_sql_query'] ?? $original_sql_query ?? null;
-        $query_type = $_POST['query_type'] ?? $query_type ?? null;
-        $reload = $_POST['reload'] ?? $reload ?? null;
-        $selected = $_POST['selected'] ?? $selected ?? [];
-        $selected_fld = $_POST['selected_fld'] ?? $selected_fld ?? null;
-        $sql_query = $_POST['sql_query'] ?? $sql_query ?? '';
-        $submit_mult = $_POST['submit_mult'] ?? $submit_mult ?? null;
-        $url_query = $_POST['url_query'] ?? $url_query ?? null;
-
-        if (! empty($submit_mult)
-            && $submit_mult != __('With selected:')
-            && (! empty($_POST['selected_tbl'])
-                || ! empty($selected_fld)
-                || ! empty($_POST['rows_to_delete']))
-        ) {
-            // phpcs:disable PSR1.Files.SideEffects
-            define('PMA_SUBMIT_MULT', 1);
-            // phpcs:enable
-
-            if (! (isset($selected_fld) && ! empty($selected_fld))) {
-                // coming from browsing - do something with selected rows
-                $what = 'row_delete';
-                $selected = $_REQUEST['rows_to_delete'];
-            }
-        }
-
-        if (! empty($mult_btn) && $mult_btn == __('Yes')) {
-            $default_fk_check_value = false;
-
-            if ($query_type == 'drop_tbl'
-                || $query_type == 'empty_tbl'
-                || $query_type == 'row_delete'
-            ) {
-                $default_fk_check_value = Util::handleDisableFKCheckInit();
-            }
-
-            $aQuery = '';
+        if ($mult_btn === __('Yes')) {
+            $default_fk_check_value = Util::handleDisableFKCheckInit();
             $sql_query = '';
-            $sql_query_views = null;
-            // whether to run query after each pass
-            $run_parts = false;
-            $result = null;
-            $selectedCount = count($selected);
-            $deletes = false;
 
-            for ($i = 0; $i < $selectedCount; $i++) {
-                switch ($query_type) {
-                    case 'row_delete':
-                        $deletes = true;
-                        $aQuery = $selected[$i];
-                        $run_parts = true;
-                        break;
-                }
-
-                if ($run_parts) {
-                    $sql_query .= $aQuery . ';' . "\n";
-                    $this->dbi->selectDb($db);
-                    $result = $this->dbi->query($aQuery);
-                }
+            foreach ($selected as $row) {
+                $query = sprintf(
+                    'DELETE FROM %s WHERE %s LIMIT 1;',
+                    Util::backquote($table),
+                    $row
+                );
+                $sql_query .= $query . "\n";
+                $this->dbi->selectDb($db);
+                $result = $this->dbi->query($query);
             }
 
-            if ($deletes && ! empty($_REQUEST['pos'])) {
-                $sql = new Sql();
+            if (! empty($_REQUEST['pos'])) {
                 $_REQUEST['pos'] = $sql->calculatePosForLastPage(
                     $db,
                     $table,
-                    $_REQUEST['pos'] ?? null
+                    $_REQUEST['pos']
                 );
             }
 
-            if ($query_type == 'drop_tbl'
-                || $query_type == 'empty_tbl'
-                || $query_type == 'row_delete'
-            ) {
-                Util::handleDisableFKCheckCleanup($default_fk_check_value);
-            }
+            Util::handleDisableFKCheckCleanup($default_fk_check_value);
+
+            $disp_message = __('Your SQL query has been executed successfully.');
+            $disp_query = $sql_query;
         }
 
         $_url_params = $GLOBALS['url_params'];
         $_url_params['goto'] = Url::getFromRoute('/table/sql');
         $url_query = Url::getCommon($_url_params);
 
-        /**
-         * Show result of multi submit operation
-         */
-        // sql_query is not set when user does not confirm multi-delete
-        if ((! empty($submit_mult) || isset($_POST['mult_btn']))
-            && ! empty($sql_query)
-        ) {
-            $disp_message = __('Your SQL query has been executed successfully.');
-            $disp_query = $sql_query;
-        }
-
         if (isset($original_sql_query)) {
             $sql_query = $original_sql_query;
         }
 
-        if (isset($original_url_query)) {
-            $url_query = $original_url_query;
-        }
-
         $active_page = Url::getFromRoute('/sql');
 
-        $sql = new Sql();
         $sql->executeQueryAndSendQueryResponse(
             null,
             false,
@@ -188,24 +102,11 @@ class RowActionController extends AbstractController
 
         Common::table();
 
-        $rows = [];
-        foreach ($selected as $row) {
-            $rows[] = sprintf('DELETE FROM %s WHERE %s LIMIT 1;', Util::backquote($table), $row);
-        }
-
-        $hiddenInputs = [
+        $this->render('table/row_action/confirm_delete', [
             'db' => $db,
             'table' => $table,
-            'selected' => $rows,
-            'original_sql_query' => $sql_query,
-            'query_type' => 'row_delete',
-            'fk_checks' => '0',
-        ];
-
-        $this->render('table/row_action/confirm_delete', [
-            'table' => $table,
             'selected' => $selected,
-            'hidden_inputs' => $hiddenInputs,
+            'sql_query' => $sql_query,
             'is_foreign_key_check' => Util::isForeignKeyCheck(),
         ]);
     }
