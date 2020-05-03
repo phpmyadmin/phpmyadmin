@@ -2266,11 +2266,6 @@ parameters:
 			path: libraries/classes/Plugins/Auth/AuthenticationHttp.php
 
 		-
-			message: "#^Parameter \\#1 \\$options of function session_set_cookie_params expects array\\(\\)\\|array\\('lifetime' \\=\\> int, 'path' \\=\\> string, 'domain' \\=\\> string\\|null, 'secure' \\=\\> bool, 'httponly' \\=\\> bool\\), array given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
-
-		-
 			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportCodegen.php
