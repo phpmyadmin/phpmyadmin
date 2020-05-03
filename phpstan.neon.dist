@@ -51,6 +51,7 @@ parameters:
         - %rootDir%/../../../test/libraries/FilesTest.php
         - %rootDir%/../../../test/libraries/common/GetCheckboxTest.php
         - %rootDir%/../../../tmp/*
+        - %rootDir%/../../../twig-templates/*
         - %rootDir%/../../../vendor/*
         - %rootDir%/../../../node_modules/*
         - %rootDir%/../../../test/bootstrap-phpstan.php
