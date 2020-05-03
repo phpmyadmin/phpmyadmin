@@ -10,6 +10,7 @@
  */
 
 /* global generateFromBlock, generateWhereBlock */ // js/database/query_generator.js
+/* global md5 */ // js/vendor/jquery/jquery.md5.js
 
 /**
  * js file for handling AJAX and other events in /database/multi-table-query
@@ -171,7 +172,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
                 if ($sibs.length === 0) {
                     $sibs = $(this).parent().parent().find('.columnNameSelect');
                 }
-                $sibs.first().html($('#' + $.md5($(this).val())).html());
+                $sibs.first().html($('#' + md5($(this).val())).html());
             });
         });
 

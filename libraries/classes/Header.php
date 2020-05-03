@@ -171,8 +171,8 @@ class Header
         $this->_scripts->addFile('vendor/jquery/jquery.event.drag-2.2.js');
         $this->_scripts->addFile('vendor/jquery/jquery.validate.js');
         $this->_scripts->addFile('vendor/jquery/jquery-ui-timepicker-addon.js');
-        $this->_scripts->addFile('vendor/jquery/jquery.ba-hashchange-1.3.js');
-        $this->_scripts->addFile('vendor/jquery/jquery.debounce-1.0.5.js');
+        $this->_scripts->addFile('vendor/jquery/jquery.ba-hashchange-2.0.js');
+        $this->_scripts->addFile('vendor/jquery/jquery.debounce-1.0.6.js');
         $this->_scripts->addFile('menu_resizer.js');
 
         // Cross-framing protection

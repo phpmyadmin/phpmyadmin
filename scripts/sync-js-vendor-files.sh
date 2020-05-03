@@ -11,9 +11,18 @@ echo "Using root dir: $ROOT_DIR"
 
 cd ${ROOT_DIR}
 
-# Uncomment when all the modules are in the package.json file
-#echo 'Delete all files'
-#find ./js/vendor/ -not -path './openlayers/*' -type f -delete
+# Remove each '-not -path' when a new package can be used from npm
+echo 'Delete vendor files we can replace from source dists'
+# jquery.sortableTable.js is an internal lib
+find ./js/vendor/ \
+    -not -path './js/vendor/openlayers/*' \
+    -not -path './js/vendor/sprintf.js' \
+    -not -path './js/vendor/jqplot/jquery.jqplot.js' \
+    -not -path './js/vendor/jqplot/plugins/jqplot.*.js' \
+    -not -path './js/vendor/jquery/jquery-ui.min.js' \
+    -not -path './js/vendor/jquery/jquery.sortableTable.js' \
+    -not -path './js/vendor/jquery/jquery.svg.js' \
+    -type f -delete -print
 
 echo 'Updating codemirror'
 cp ./node_modules/codemirror/addon/hint/sql-hint.js ./js/vendor/codemirror/addon/hint/sql-hint.js
@@ -38,8 +47,28 @@ echo 'Updating jquery-mousewheel'
 cp ./node_modules/jquery-mousewheel/jquery.mousewheel.js ./js/vendor/jquery/jquery.mousewheel.js
 # echo 'Updating jquery-ui'
 # Impossible to do, they do not distribute dist files in the package...
-#echo 'Updating jquery.event.drag'
-#cp ./node_modules/jquery.event.drag/jquery.event.drag.js ./js/vendor/jquery/jquery.event.drag-2.2.js
+echo 'Updating jquery.event.drag'
+cp ./node_modules/jquery.event.drag/jquery.event.drag.js ./js/vendor/jquery/jquery.event.drag-2.2.js
+# https://github.com/devongovett/jquery.event.drag/commit/2db3b7865f31eee6a8145532554f8b02210180bf#diff-ab8497cedd384270de86ee2e9f06530e
+echo 'Patching jquery.event.drag to be jquery init compatible'
+echo '--- js/vendor/jquery/jquery.event.drag-2.2.js 2020-04-18 16:43:43.822208181 +0200
++++ js/vendor/jquery/jquery.event.drag-2.2.js	2020-04-18 16:44:29.342750892 +0200
+@@ -7,7 +7,7 @@
+ // Updated: 2012-05-21
+ // REQUIRES: jquery 1.7.x
+
+-module.exports = function( $ ){
++;(function( $ ){
+   // add the jquery instance method
+   $.fn.drag = function( str, arg, opts ){
+   	// figure out the event type
+@@ -397,4 +397,4 @@
+
+   // share the same special event configuration with related events...
+   $special.draginit = $special.dragstart = $special.dragend = drag;
+-};
++})( jQuery );
+' | patch --strip=0
 echo 'Updating jquery-validation'
 cp ./node_modules/jquery-validation/dist/jquery.validate.js ./js/vendor/jquery/jquery.validate.js
 cp ./node_modules/jquery-validation/dist/additional-methods.js ./js/vendor/jquery/additional-methods.js
@@ -53,5 +82,36 @@ cp ./node_modules/zxcvbn/dist/zxcvbn.js ./js/vendor/zxcvbn.js
 cp ./node_modules/zxcvbn/dist/zxcvbn.js.map ./js/vendor/zxcvbn.js.map
 echo 'Updating tracekit'
 cp ./node_modules/tracekit/tracekit.js ./js/vendor/tracekit.js
+echo 'Updating u2f-api-polyfill'
+cp ./node_modules/u2f-api-polyfill/u2f-api-polyfill.js ./js/vendor/u2f-api-polyfill.js
+echo 'Updating blueimp-md5'
+cp ./node_modules/blueimp-md5/js/md5.js ./js/vendor/jquery/jquery.md5.js
+#echo 'Updating jquery.svg.js'
+#see: https://github.com/kbwood/svg/blob/master/jquery.svg.js
+echo 'Updating jquery-hashchange'
+cp ./node_modules/jquery-hashchange/jquery.ba-hashchange.js ./js/vendor/jquery/jquery.ba-hashchange-2.0.js
+echo 'Updating jquery-uitablefilter'
+cp ./node_modules/jquery-uitablefilter/jquery.uitablefilter.js js/vendor/jquery/jquery.uitablefilter.js
+echo 'Updating jquery-tablesorter'
+cp ./node_modules/tablesorter/dist/js/jquery.tablesorter.js ./js/vendor/jquery/jquery.tablesorter.js
+echo 'Updating jquery-fullscreen-plugin'
+cp ./node_modules/jquery-fullscreen-plugin/jquery.fullscreen.js ./js/vendor/jquery/jquery.fullscreen.js
+echo 'Updating jquery-debounce'
+cp ./node_modules/jquery-debounce-throttle/index.js ./js/vendor/jquery/jquery.debounce-1.0.6.js
+echo 'Updating jquery-Timepicker-Addon'
+cp ./node_modules/jquery-ui-timepicker-addon/dist/jquery-ui-timepicker-addon.js ./js/vendor/jquery/jquery-ui-timepicker-addon.js
+echo 'Update jqplot'
+#see: https://github.com/jqPlot/jqPlot/blob/master/src/jquery.jqplot.js
+#see: https://github.com/jqPlot/jqPlot/blob/master/src/plugins/jqplot.pieRenderer.js
+#see: https://github.com/jqPlot/jqPlot/blob/master/src/plugins/jqplot.barRenderer.js
+#see: https://github.com/jqPlot/jqPlot/blob/master/src/plugins/jqplot.pointLabels.js
+#see: https://github.com/jqPlot/jqPlot/blob/master/src/plugins/jqplot.enhancedLegendRenderer.js
+#see: https://github.com/jqPlot/jqPlot/blob/master/src/plugins/jqplot.dateAxisRenderer.js
+#see: https://github.com/jqPlot/jqPlot/blob/master/src/plugins/jqplot.categoryAxisRenderer.js
+#see: https://github.com/jqPlot/jqPlot/blob/master/src/plugins/jqplot.canvasTextRenderer.js
+#see: https://github.com/jqPlot/jqPlot/blob/master/src/plugins/jqplot.canvasAxisLabelRenderer.js
+
+cp ./node_modules/jqplot/jqplot.cursor.js ./js/vendor/jqplot/plugins/jqplot.cursor.js
+cp ./node_modules/jqplot/jqplot.highlighter.js ./js/vendor/jqplot/plugins/jqplot.highlighter.js
 
 echo 'Done.'
