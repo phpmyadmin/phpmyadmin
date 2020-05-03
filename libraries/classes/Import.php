@@ -417,17 +417,33 @@ class Import
          * @todo BOM could be used for charset autodetection
          */
         if ($GLOBALS['offset'] == $size) {
-            // UTF-8
-            if (strncmp($result, "\xEF\xBB\xBF", 3) == 0) {
-                $result = mb_substr($result, 3);
-                // UTF-16 BE, LE
-            } elseif (strncmp($result, "\xFE\xFF", 2) == 0
-                || strncmp($result, "\xFF\xFE", 2) == 0
-            ) {
-                $result = mb_substr($result, 2);
-            }
+            $result = $this->skipByteOrderMarksFromContents($result);
         }
         return $result;
+    }
+
+    /**
+     * Skip possible byte order marks (I do not think we need more
+     * charsets, but feel free to add more, you can use wikipedia for
+     * reference: <https://en.wikipedia.org/wiki/Byte_Order_Mark>)
+     *
+     * @todo BOM could be used for charset autodetection
+     *
+     * @param string $contents The contents to strip BOM
+     * @return string
+     */
+    public function skipByteOrderMarksFromContents(string $contents): string
+    {
+        // UTF-8
+        if (strncmp($contents, "\xEF\xBB\xBF", 3) === 0) {
+            return mb_substr($contents, 3);
+            // UTF-16 BE, LE
+        } elseif (strncmp($contents, "\xFE\xFF", 2) === 0
+            || strncmp($contents, "\xFF\xFE", 2) === 0
+        ) {
+            return mb_substr($contents, 2);
+        }
+        return $contents;
     }
 
     /**
