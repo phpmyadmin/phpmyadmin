@@ -4,8 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-05-02 13:17+0200\n"
-"PO-Revision-Date: 2020-04-08 20:35+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2020-05-05 20:11+0000\n"
+"Last-Translator: André Victor Fochesatto Cordeiro "
+"<andrefochesatto@hotmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.0-dev\n"
+"X-Generator: Weblate 4.1-dev\n"
 
 #: js/messages.php:51
 msgid "Confirm"
@@ -7926,11 +7927,12 @@ msgid "Export of event %s"
 msgstr "Exportação do evento %s"
 
 #: libraries/classes/Database/Events.php:613
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s."
+#, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
-msgstr "Nenhum evento com o nome %1$s foi encontrado no banco de dados %2$s."
+msgstr ""
+"Erro ao processar requisição: Nenhum evento com o nome %1$s foi encontrado "
+"no banco de dados %2$s."
 
 #: libraries/classes/DatabaseInterface.php:1567
 #, php-format
@@ -8311,17 +8313,15 @@ msgid "Export of routine %s"
 msgstr "Exportação de rotina %s"
 
 #: libraries/classes/Database/Routines.php:1881
-#, fuzzy, php-format
-#| msgid ""
-#| "No routine with name %1$s found in database %2$s. You might be lacking "
-#| "the necessary privileges to view/export this routine."
+#, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
 "%2$s. You might be lacking the necessary privileges to view/export this "
 "routine."
 msgstr ""
-"Nenhum rotina com o nome %1$s encontrada no banco de dados %2$s. Você pode "
-"não ter os privilégios necessários para visualizar/exportar essa rotina."
+"Erro ao processar requisição: Nenhuma rotina com o nome %1$s foi encontrada "
+"no banco de dados %2$s. Você pode não ter os privilégios necessários para "
+"visualizar/exportar essa rotina."
 
 #: libraries/classes/Database/Search.php:110
 #: templates/database/search/main.twig:19
@@ -8421,12 +8421,13 @@ msgid "Export of trigger %s"
 msgstr "Exportação do gatilho %s"
 
 #: libraries/classes/Database/Triggers.php:625
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s."
+#, php-format
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
 "%2$s."
-msgstr "Nenhum gatilho com o nome %1$s foi encontrado no banco de dados %2$s."
+msgstr ""
+"Erro ao processar requisição: Nenhum gatilho com o nome %1$s foi encontrado "
+"no banco de dados %2$s."
 
 #: libraries/classes/Dbal/DbiMysqli.php:183
 msgid "SSL connection enforced by server, automatically enabling it."
