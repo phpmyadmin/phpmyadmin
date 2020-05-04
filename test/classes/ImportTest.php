@@ -642,4 +642,56 @@ class ImportTest extends TestCase
 
         $this->assertEquals(true, $this->import->checkIfRollbackPossible($sql_query));
     }
+
+    /**
+     * Data provider for testSkipByteOrderMarksFromContents
+     *
+     * @return array[]
+     */
+    public function providerContentWithByteOrderMarks(): array
+    {
+        return [
+            [
+                "\xEF\xBB\xBF blabla",
+                ' blabla',
+            ],
+            [
+                "\xEF\xBB\xBF blabla\xEF\xBB\xBF",
+                " blabla\xEF\xBB\xBF",
+            ],
+            [
+                "\xFE\xFF blabla",
+                ' blabla',
+            ],
+            [
+                "\xFE\xFF blabla\xFE\xFF",
+                " blabla\xFE\xFF",
+            ],
+            [
+                "\xFF\xFE blabla",
+                ' blabla',
+            ],
+            [
+                "\xFF\xFE blabla\xFF\xFE",
+                " blabla\xFF\xFE",
+            ],
+            [
+                "\xEF\xBB\xBF\x44\x52\x4F\x50\x20\x54\x41\x42\x4C\x45\x20\x49\x46\x20\x45\x58\x49\x53\x54\x53",
+                'DROP TABLE IF EXISTS',
+            ],
+        ];
+    }
+
+    /**
+     * Test for skipByteOrderMarksFromContents
+     *
+     * @param string $input         The contents to strip BOM
+     * @param string $cleanContents The contents cleaned
+     *
+     * @dataProvider providerContentWithByteOrderMarks
+     */
+    public function testSkipByteOrderMarksFromContents(string $input, string $cleanContents): void
+    {
+        $this->assertEquals($cleanContents, $this->import->skipByteOrderMarksFromContents($input));
+    }
 }
