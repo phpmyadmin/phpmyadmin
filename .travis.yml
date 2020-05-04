@@ -34,7 +34,7 @@ after_script:
 after_success:
   - bash <(curl -s https://codecov.io/bash)
   - if [ -f build/logs/clover.xml ] ; then curl -LsO https://scrutinizer-ci.com/ocular.phar && php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml; fi
-  - bash <(curl -Ls https://coverage.codacy.com/get.sh)
+  - if [ -f build/logs/clover.xml ] ; then bash <(curl -Ls https://coverage.codacy.com/get.sh) report -l php -r build/logs/clover.xml --partial; fi
 
 services:
   - mysql
