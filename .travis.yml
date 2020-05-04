@@ -177,7 +177,9 @@ jobs:
     - stage: "Documentation"
       name: "Build docs"
       before_script: skip
-      after_script: skip
+      after_script:
+        # Mark Codacy coverage final here because all steps of the previous stage did succeed
+        - bash <(curl -Ls https://coverage.codacy.com/get.sh) final
       after_success: skip
       install:
         - source ~/virtualenv/python3.6/bin/activate
