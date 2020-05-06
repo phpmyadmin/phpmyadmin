@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-05-02 13:17+0200\n"
-"PO-Revision-Date: 2018-10-02 16:39+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2020-05-07 23:12+0000\n"
+"Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "cs/>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 4.1-dev\n"
 
 #: js/messages.php:51
 msgid "Confirm"
@@ -262,10 +262,8 @@ msgid "Y values"
 msgstr "Hodnoty Y"
 
 #: js/messages.php:135
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "Prosím zadejte stejnou hodnotu znovu"
+msgstr "Nejprve zadejte dotaz SQL."
 
 #: js/messages.php:138
 msgid "The host name is empty!"
@@ -988,10 +986,8 @@ msgid "No databases selected."
 msgstr "Nebyla vybrána žádná databáze."
 
 #: js/messages.php:350
-#, fuzzy
-#| msgid "No column selected."
 msgid "No accounts selected."
-msgstr "Nebyl vybrán žádný sloupec."
+msgstr "Nebyl vybrán žádný účet."
 
 #: js/messages.php:351
 msgid "Dropping column"
@@ -1649,10 +1645,8 @@ msgstr ""
 
 #: js/messages.php:536 templates/database/designer/main.twig:42
 #: templates/database/designer/main.twig:45
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
-msgstr "V databázi nebyly nalezeny žádné tabulky."
+msgstr "Přidat tabulky z jiných databází"
 
 #: js/messages.php:537
 msgid "Page name"
@@ -1711,10 +1705,8 @@ msgid "%d object(s) created."
 msgstr "Bylo vytvořeno %d objektů."
 
 #: js/messages.php:552
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
-msgstr "Názvy polí"
+msgstr "Název sloupce"
 
 #: js/messages.php:553 templates/sql/query.twig:165
 msgid "Submit"
@@ -2093,8 +2085,7 @@ msgid "Failed security key activation (%s)."
 msgstr "Selhala aktivace bezpečnostního klíče (%s)."
 
 #: js/messages.php:712
-#, fuzzy, php-format
-#| msgid "Table %s already exists!"
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
@@ -2134,10 +2125,9 @@ msgid "Structure"
 msgstr "Struktura"
 
 #: libraries/classes/Advisor.php:330
-#, fuzzy, php-format
-#| msgid "Error while creating PDF:"
+#, php-format
 msgid "Error when evaluating: %s"
-msgstr "Chyba při vytváření PDF:"
+msgstr "Chyba při vyhodnocení: %s"
 
 #: libraries/classes/Advisor.php:359
 #, php-format
@@ -2428,8 +2418,6 @@ msgid "Unknown"
 msgstr "neznámý"
 
 #: libraries/classes/Charsets/Collation.php:181
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
 msgstr "Binární"
@@ -2455,8 +2443,6 @@ msgstr "Středoevropský"
 
 #: libraries/classes/Charsets/Collation.php:215
 #: libraries/classes/Charsets/Collation.php:386
-#, fuzzy
-#| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Ruština"
@@ -2481,8 +2467,6 @@ msgstr "Čínština"
 
 #: libraries/classes/Charsets/Collation.php:234
 #: libraries/classes/Charsets/Collation.php:350
-#, fuzzy
-#| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Japonština"
@@ -2495,8 +2479,6 @@ msgid "Baltic"
 msgstr "Baltické jazyky"
 
 #: libraries/classes/Charsets/Collation.php:244
-#, fuzzy
-#| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Arménština"
@@ -2507,8 +2489,6 @@ msgid "Cyrillic"
 msgstr "Cyrilice"
 
 #: libraries/classes/Charsets/Collation.php:250
-#, fuzzy
-#| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Arabština"
@@ -2520,15 +2500,11 @@ msgid "Korean"
 msgstr "Korejština"
 
 #: libraries/classes/Charsets/Collation.php:256
-#, fuzzy
-#| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Hebrejština"
 
 #: libraries/classes/Charsets/Collation.php:259
-#, fuzzy
-#| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Gruzínština"
@@ -2545,8 +2521,6 @@ msgstr "Čeština a Slovenština"
 
 #: libraries/classes/Charsets/Collation.php:268
 #: libraries/classes/Charsets/Collation.php:424
-#, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ukrajinština"
@@ -2624,8 +2598,6 @@ msgid "German (phone book order)"
 msgstr ""
 
 #: libraries/classes/Charsets/Collation.php:342
-#, fuzzy
-#| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Maďarština"
@@ -2641,15 +2613,11 @@ msgid "Classical Latin"
 msgstr "Latina (klasická)"
 
 #: libraries/classes/Charsets/Collation.php:357
-#, fuzzy
-#| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Lotyština"
 
 #: libraries/classes/Charsets/Collation.php:361
-#, fuzzy
-#| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Litevština"
@@ -2660,8 +2628,6 @@ msgid "Burmese"
 msgstr "Barmština"
 
 #: libraries/classes/Charsets/Collation.php:372
-#, fuzzy
-#| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Perština"
@@ -2693,11 +2659,9 @@ msgstr "Slovinština"
 
 #: libraries/classes/Charsets/Collation.php:401
 #: libraries/classes/Charsets/Collation.php:462
-#, fuzzy
-#| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr "Španělština"
+msgstr "Španělština (moderní)"
 
 #: libraries/classes/Charsets/Collation.php:408
 #: libraries/classes/Charsets/Collation.php:459
@@ -2706,22 +2670,16 @@ msgid "Spanish (traditional)"
 msgstr "Španělština (tradiční)"
 
 #: libraries/classes/Charsets/Collation.php:428
-#, fuzzy
-#| msgid "Vietnamese"
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnamština"
 
 #: libraries/classes/Charsets/Collation.php:495
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "nerozlišovat velká a malá písmena"
 
 #: libraries/classes/Charsets/Collation.php:498
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "rozlišovat velká a malá písmena"
@@ -3029,6 +2987,8 @@ msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
 msgstr ""
+"Hodnoty pro seznam voleb výchozích transformací. Pokud je na stránce "
+"struktury tabulky vyplněna transformace, budou tyto hodnoty přepsány."
 
 #: libraries/classes/Config/Descriptions.php:154
 #, fuzzy
@@ -3278,10 +3238,8 @@ msgstr "MIME typ"
 #: libraries/classes/Config/Descriptions.php:217
 #: libraries/classes/Config/Descriptions.php:229
 #: libraries/classes/Config/Descriptions.php:267
-#, fuzzy
-#| msgid "Relations"
 msgid "Relationships"
-msgstr "Relace"
+msgstr "Vztahy"
 
 #: libraries/classes/Config/Descriptions.php:222
 msgid "Export method"
@@ -4059,10 +4017,8 @@ msgid "Show databases navigation as tree"
 msgstr "Zobrazit databázovou navigaci jako strom"
 
 #: libraries/classes/Config/Descriptions.php:482
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation panel width"
-msgstr "Navigační panel"
+msgstr "Šířka navigačního panelu"
 
 #: libraries/classes/Config/Descriptions.php:483
 #, fuzzy
@@ -4193,22 +4149,16 @@ msgid "Show tables in tree"
 msgstr "Zobrazit/Skrýt tabulky ve stromu"
 
 #: libraries/classes/Config/Descriptions.php:520
-#, fuzzy
-#| msgid ""
-#| "Whether to offer the possibility of tree expansion in the navigation "
-#| "panel."
 msgid "Whether to show tables under database in the navigation tree"
-msgstr "Nabídnout možnost rozbalení stromu v navigačním panelu."
+msgstr "Zobrazit tabulky v navigačním stromu pod databází"
 
 #: libraries/classes/Config/Descriptions.php:521
 msgid "Show views in tree"
 msgstr "Zobrazit ve stromu pohledy"
 
 #: libraries/classes/Config/Descriptions.php:522
-#, fuzzy
-#| msgid "Show databases navigation as tree"
 msgid "Whether to show views under database in the navigation tree"
-msgstr "Zobrazit databázovou navigaci jako strom"
+msgstr "Zobrazit v navigačním stromu pohledy pod databází"
 
 #: libraries/classes/Config/Descriptions.php:523
 msgid "Show functions in tree"
@@ -4216,7 +4166,7 @@ msgstr "Zobrazit ve stromu fuknce"
 
 #: libraries/classes/Config/Descriptions.php:524
 msgid "Whether to show functions under database in the navigation tree"
-msgstr ""
+msgstr "Zobrazit v navigačním stromu funkce pod databází"
 
 #: libraries/classes/Config/Descriptions.php:525
 msgid "Show procedures in tree"
@@ -4224,17 +4174,15 @@ msgstr "Zobrazit ve stromu procedury"
 
 #: libraries/classes/Config/Descriptions.php:526
 msgid "Whether to show procedures under database in the navigation tree"
-msgstr ""
+msgstr "Zobrazit v navigačním stromu procedury pod databází"
 
 #: libraries/classes/Config/Descriptions.php:527
 msgid "Show events in tree"
 msgstr "Zobrazit ve stromu události"
 
 #: libraries/classes/Config/Descriptions.php:528
-#, fuzzy
-#| msgid "Show databases navigation as tree"
 msgid "Whether to show events under database in the navigation tree"
-msgstr "Zobrazit databázovou navigaci jako strom"
+msgstr "Zobrazit v navigačním stromu události pod databází"
 
 #: libraries/classes/Config/Descriptions.php:529
 #, fuzzy
@@ -4277,18 +4225,16 @@ msgstr "Kde zobrazit odkazy s akcemi při procházení"
 
 #: libraries/classes/Config/Descriptions.php:537
 msgid "Whether to show row links even in the absence of a unique key."
-msgstr ""
+msgstr "Zobrazit odkazy na řádky, i když neexistuje jedinečný klíč."
 
 #: libraries/classes/Config/Descriptions.php:538
 msgid "Show row links anyway"
-msgstr ""
+msgstr "Přesto zobrazit odkazy na řádky"
 
 #: libraries/classes/Config/Descriptions.php:539
 #: libraries/classes/Config/Descriptions.php:540
-#, fuzzy
-#| msgid "Disable foreign key checks"
 msgid "Disable shortcut keys"
-msgstr "Vypnout kontrolu cizích klíčů"
+msgstr "Zakázat klávesové zkratky"
 
 #: libraries/classes/Config/Descriptions.php:541
 msgid "Use natural order for sorting table and database names."
@@ -5049,16 +4995,13 @@ msgid "Show last check timestamp"
 msgstr "Zobrazit čas poslední kontroly"
 
 #: libraries/classes/Config/Descriptions.php:802
-#, fuzzy
-#| msgid "Show or hide a column displaying the comments for all tables."
 msgid "Show or hide a column displaying the charset for all tables."
-msgstr "Zobrazit nebo skrýt sloupec zobrazující komentář pro všechny tabulky."
+msgstr ""
+"Zobrazit nebo skrýt sloupec zobrazující znakovou sadu pro všechny tabulky."
 
 #: libraries/classes/Config/Descriptions.php:803
-#, fuzzy
-#| msgid "Show table comments"
 msgid "Show table charset"
-msgstr "Zobrazit komentář k tabulce"
+msgstr "Zobrazit znakovou sadu tabulky"
 
 #: libraries/classes/Config/Descriptions.php:805
 msgid ""
@@ -5459,16 +5402,12 @@ msgid "Switch to dark theme"
 msgstr "Přepnout na tmavý motiv"
 
 #: libraries/classes/Config/Descriptions.php:921
-#, fuzzy
-#| msgid "Console"
 msgid "Console height"
-msgstr "Konzole"
+msgstr "Výška konzole"
 
 #: libraries/classes/Config/Descriptions.php:922
-#, fuzzy
-#| msgid "Console"
 msgid "Console mode"
-msgstr "Konzole"
+msgstr "Režim konzole"
 
 #: libraries/classes/Config/Descriptions.php:923
 #: templates/console/display.twig:64
@@ -5481,10 +5420,8 @@ msgid "Order"
 msgstr "Pořadí"
 
 #: libraries/classes/Config/Descriptions.php:925
-#, fuzzy
-#| msgid "Order by:"
 msgid "Order by"
-msgstr "Seřadit dle:"
+msgstr "Seřadit dle"
 
 #: libraries/classes/Config/Descriptions.php:926
 msgid "Server connection collation"
@@ -5639,10 +5576,8 @@ msgid "CSV using LOAD DATA"
 msgstr "CSV pomocí LOAD DATA"
 
 #: libraries/classes/Config/Forms/User/MainForm.php:34
-#, fuzzy
-#| msgid "Input transformation"
 msgid "Default transformations"
-msgstr "Transformace při zadávání"
+msgstr "Výchozí transformace"
 
 #: libraries/classes/Config/PageSettings.php:135
 msgid "Cannot save settings, submitted configuration form contains errors!"
@@ -5962,7 +5897,8 @@ msgstr "Jméno databáze je prázdné!"
 #: libraries/classes/Controllers/Database/OperationsController.php:109
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
-"Nemohu zkopírovat databázi na to samé jméno. Změňte jméno a zkuste to znovu."
+"Nemohu vytvořit kopii databáze se stejným názvem. Změňte název a zkuste to "
+"znovu."
 
 #: libraries/classes/Controllers/Database/OperationsController.php:200
 #, php-format
@@ -6094,7 +6030,7 @@ msgstr "Děkujeme vám za odeslání tohoto hlášení."
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
-msgstr "Byla zjištěna chyba, ale  hlášení o ní se nepodařilo odeslat."
+msgstr "Byla zjištěna chyba, ale hlášení o ní se nepodařilo odeslat."
 
 #: libraries/classes/Controllers/ErrorReportController.php:121
 msgid "If you experience any problems please submit a bug report manually."
@@ -6351,16 +6287,12 @@ msgid "Could not import configuration"
 msgstr "Nepodařilo se nahrát konfiguraci"
 
 #: libraries/classes/Controllers/Preferences/TwoFactorController.php:55
-#, fuzzy
-#| msgid "Internal relation has been removed."
 msgid "Two-factor authentication has been removed."
-msgstr "Interní relace byla odstraněna."
+msgstr "Dvoufaktorová autentizace byla odstraněna."
 
 #: libraries/classes/Controllers/Preferences/TwoFactorController.php:65
-#, fuzzy
-#| msgid "Invalid authentication method set in configuration:"
 msgid "Two-factor authentication has been configured."
-msgstr "V nastavení máte špatnou přihlašovací metodu:"
+msgstr "Dvoufaktorová autentizace byla nastavena."
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:239
 #, php-format
@@ -6495,10 +6427,8 @@ msgstr "Umožňuje mazat data."
 #: libraries/classes/Server/Privileges.php:488
 #: templates/server/privileges/privileges_table.twig:210
 #: templates/server/privileges/privileges_table.twig:214
-#, fuzzy
-#| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
-msgstr "Umožňuje mazat data."
+msgstr "Umožňuje mazání historických řádků."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:138
 #: libraries/classes/Server/Privileges.php:377
@@ -6761,7 +6691,7 @@ msgstr "Příkaz"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:156
 msgid "Progress"
-msgstr ""
+msgstr "Postup"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:160
 #: libraries/classes/Server/Status/Data.php:116
@@ -7496,10 +7426,8 @@ msgstr ""
 "její použití."
 
 #: libraries/classes/Controllers/Setup/HomeController.php:80
-#, fuzzy
-#| msgid "Configuration saved."
 msgid "Configuration not saved!"
-msgstr "Nastavení bylo uloženo."
+msgstr "Nastavení nebylo uloženo!"
 
 #: libraries/classes/Controllers/Setup/HomeController.php:83
 msgid ""
@@ -7610,10 +7538,8 @@ msgid "Display column was successfully updated."
 msgstr "Zobrazený sloupec byl aktualizován."
 
 #: libraries/classes/Controllers/Table/RelationController.php:298
-#, fuzzy
-#| msgid "Internal relations were successfully updated."
 msgid "Internal relationships were successfully updated."
-msgstr "Interní relace byla úspěšně změněna."
+msgstr "Interní vztahy byly úspěšně aktualizovány."
 
 #: libraries/classes/Controllers/Table/ReplaceController.php:280
 #, php-format
@@ -7623,10 +7549,8 @@ msgstr "Řádek: %1$s, Sloupec: %2$s, Chyba: %3$s"
 #: libraries/classes/Controllers/Table/RowActionController.php:98
 #: libraries/classes/Controllers/Table/RowActionController.php:136
 #: libraries/classes/Controllers/Table/RowActionController.php:167
-#, fuzzy
-#| msgid "No versions selected."
 msgid "No row selected."
-msgstr "Nebyly vybrány žádné verze."
+msgstr "Nebyl vybrán žádný řádek."
 
 #: libraries/classes/Controllers/Table/StructureController.php:178
 #, php-format
@@ -7770,10 +7694,8 @@ msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Nemáte dostatečná práva na provedení této akce!"
 
 #: libraries/classes/Controllers/ViewCreateController.php:57
-#, fuzzy
-#| msgid "View name can not be empty"
 msgid "View name can not be empty!"
-msgstr "Název pohledu nemůže být prázdný."
+msgstr "Název pohledu nemůže být prázdný!"
 
 #: libraries/classes/Controllers/ViewOperationsController.php:79
 #: libraries/classes/Core.php:290 libraries/classes/Html/Generator.php:986
@@ -7824,10 +7746,8 @@ msgstr ""
 "Nastavení úložiště není připraveno pro centrální list sloupcových vlastností."
 
 #: libraries/classes/Database/Designer/Common.php:611
-#, fuzzy
-#| msgid "Error: relation already exists."
 msgid "Error: relationship already exists."
-msgstr "Chyba: Relace již existuje."
+msgstr "Chyba: Vztah již existuje."
 
 #: libraries/classes/Database/Designer/Common.php:660
 #, fuzzy
@@ -7843,23 +7763,19 @@ msgstr "Chyba: Relace cizího klíče nemohla být přidána!"
 
 #: libraries/classes/Database/Designer/Common.php:674
 msgid "Error: Missing index on column(s)."
-msgstr ""
+msgstr "Chyba: Chybí index na sloupcích."
 
 #: libraries/classes/Database/Designer/Common.php:682
 msgid "Error: Relational features are disabled!"
 msgstr "Chyba: Funkce relací jsou vypnuté!"
 
 #: libraries/classes/Database/Designer/Common.php:707
-#, fuzzy
-#| msgid "Internal relation has been added."
 msgid "Internal relationship has been added."
-msgstr "Interní relace byla vytvořena."
+msgstr "Byl přidán interní vztah."
 
 #: libraries/classes/Database/Designer/Common.php:714
-#, fuzzy
-#| msgid "Error: Internal relation could not be added!"
 msgid "Error: Internal relationship could not be added!"
-msgstr "Chyba: Interní relace nemohla být přidána!"
+msgstr "Chyba: Nelze přidat interní vztah!"
 
 #: libraries/classes/Database/Designer/Common.php:754
 #, fuzzy
@@ -7874,16 +7790,12 @@ msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "Chyba: Relace FOREGN KEY nemohla být odstraněna!"
 
 #: libraries/classes/Database/Designer/Common.php:788
-#, fuzzy
-#| msgid "Error: Internal relation could not be removed!"
 msgid "Error: Internal relationship could not be removed!"
-msgstr "Chyba: Itenrní relace nemohla být odstraněna!"
+msgstr "Chyba: Interní vztah nelze odstranit!"
 
 #: libraries/classes/Database/Designer/Common.php:794
-#, fuzzy
-#| msgid "Internal relation has been removed."
 msgid "Internal relationship has been removed."
-msgstr "Interní relace byla odstraněna."
+msgstr "Interní vztah byl odstraněn."
 
 #: libraries/classes/Database/Designer.php:139
 msgid "Could not load schema plugins, please check your installation!"
@@ -8000,10 +7912,9 @@ msgid "Error in processing request:"
 msgstr "Chyba při zpracování požadavku:"
 
 #: libraries/classes/Database/Events.php:562
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s"
+#, php-format
 msgid "No event with name %1$s found in database %2$s."
-msgstr "V databázi %2$s nebyla nalezen událost se jménem %1$s"
+msgstr "V databázi %2$s nebyla nalezena žádná událost s názvem %1$s."
 
 #: libraries/classes/Database/Events.php:595
 #, php-format
@@ -8064,10 +7975,8 @@ msgid "Details…"
 msgstr "Podrobnosti…"
 
 #: libraries/classes/DatabaseInterface.php:2611
-#, fuzzy
-#| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
-msgstr "Chybějící parametr:"
+msgstr "Chybí parametry připojení!"
 
 #: libraries/classes/DatabaseInterface.php:2638
 msgid "Connection for controluser as defined in your configuration failed."
@@ -8279,6 +8188,8 @@ msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
 msgstr ""
+"Nemáte dostatečná oprávnění k provedení této operace, další informace "
+"najdete v dokumentaci"
 
 #: libraries/classes/Database/Routines.php:1052
 #: libraries/classes/Database/Triggers.php:439
@@ -8339,10 +8250,9 @@ msgstr "Musíte zadat definici rutiny."
 
 #: libraries/classes/Database/Routines.php:1339
 #: libraries/classes/Database/Routines.php:1544
-#, fuzzy, php-format
-#| msgid "No routine with name %1$s found in database %2$s"
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "V databázi %2$s není žádná rutina se jménem %1$s"
+msgstr "V databázi %2$s nebyla nalezena žádná rutina s názvem %1$s."
 
 #: libraries/classes/Database/Routines.php:1424
 #, php-format
@@ -8414,24 +8324,18 @@ msgstr "alespoň jedno ze slov"
 
 #: libraries/classes/Database/Search.php:111
 #: templates/database/search/main.twig:23
-#, fuzzy
-#| msgid "at least one of the words"
 msgid "all of the words"
-msgstr "alespoň jedno ze slov"
+msgstr "všechna slova"
 
 #: libraries/classes/Database/Search.php:112
 #: templates/database/search/main.twig:27
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as substring"
-msgstr "přesnou frázi"
+msgstr "přesnou frázi jako podřetězec"
 
 #: libraries/classes/Database/Search.php:113
 #: templates/database/search/main.twig:31
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as whole field"
-msgstr "přesnou frázi"
+msgstr "přesnou frázi jako celé pole"
 
 #: libraries/classes/Database/Search.php:114
 #: templates/database/search/main.twig:35
@@ -8501,10 +8405,9 @@ msgid "Sorry, we failed to restore the dropped trigger."
 msgstr "Bohužel se nepodařilo obnovit odstraněnou spoušť."
 
 #: libraries/classes/Database/Triggers.php:570
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s"
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "V databázi %2$s není žádná spoušť se jménem %1$s"
+msgstr "V databázi %2$s nebyla nalezena žádná spoušť s názvem %1$s."
 
 #: libraries/classes/Database/Triggers.php:607
 #, php-format
@@ -8521,15 +8424,13 @@ msgstr "V databázi %2$s není žádná spoušť se jménem %1$s"
 
 #: libraries/classes/Dbal/DbiMysqli.php:183
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr ""
+msgstr "Server vyžaduje připojení SSL, bylo automaticky zapnuto."
 
 #: libraries/classes/Display/ChangePassword.php:88
 #: libraries/classes/Server/Privileges.php:805
 #: libraries/classes/Server/Privileges.php:879
-#, fuzzy
-#| msgid "Cookie authentication"
 msgid "Native MySQL authentication"
-msgstr "Přihlašování přes cookie"
+msgstr "Nativní autentizace MySQL"
 
 #: libraries/classes/Display/Export.php:338
 msgid "@SERVER@ will become the server name"
@@ -9171,8 +9072,7 @@ msgid "Print view"
 msgstr "Náhled pro tisk"
 
 #: libraries/classes/Html/Generator.php:183
-#, fuzzy, php-format
-#| msgid "Jump to database \"%s\"."
+#, php-format
 msgid "Jump to database “%s”."
 msgstr "Přejít na databázi „%s“."
 
@@ -9675,10 +9575,9 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr "Neplatný název třídy \"%1$s\", používám výchozí \"Node\""
 
 #: libraries/classes/Navigation/NodeFactory.php:64
-#, fuzzy, php-format
-#| msgid "Could not add columns!"
+#, php-format
 msgid "Could not load class \"%1$s\""
-msgstr "Nepodařilo se přidat sloupce!"
+msgstr "Nelze načíst třídu \"%1$s\""
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:23
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:24
@@ -10220,10 +10119,8 @@ msgid "Your session has expired. Please log in again."
 msgstr "Vaše sezení vypršelo, prosím přihlaste se znovu."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:299
-#, fuzzy
-#| msgid "Could not connect to the database server!"
 msgid "Failed to connect to the reCAPTCHA service!"
-msgstr "Nepodařilo se připojit databázovému serveru!"
+msgstr "Nepodařilo se připojit ke službě reCAPTCHA!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:301
 msgid "Entered captcha is wrong, try again!"
@@ -10231,7 +10128,7 @@ msgstr "Zadaný kód nebyl správný, zkuste to znovu!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:306
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
-msgstr ""
+msgstr "Chybí ověření reCAPTCHA, není blokované adblockem?"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:331
 msgid "You are not allowed to log in to this MySQL server!"
@@ -10596,10 +10493,9 @@ msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:320
-#, fuzzy, php-format
-#| msgid "Session value"
+#, php-format
 msgid "%s value"
-msgstr "Hodnota sezení"
+msgstr "Hodnota %s"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
 #: libraries/classes/Plugins/Export/ExportSql.php:337
@@ -10729,16 +10625,14 @@ msgid "Metadata"
 msgstr "Metadata"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1127
-#, fuzzy, php-format
-#| msgid "Metadata for %s"
+#, php-format
 msgid "Metadata for table %s"
-msgstr "Metadata pro %s"
+msgstr "Metadata tabulky %s"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1134
-#, fuzzy, php-format
-#| msgid "Metadata for %s"
+#, php-format
 msgid "Metadata for database %s"
-msgstr "Metadata pro %s"
+msgstr "Metadata databáze %s"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1464
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:648
@@ -10756,10 +10650,9 @@ msgid "Last check:"
 msgstr "Poslední kontrola:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1546
-#, fuzzy, php-format
-#| msgid "Table structure for table"
+#, php-format
 msgid "Error reading structure for table %s:"
-msgstr "Struktura tabulky"
+msgstr "Chyba při čtení struktury tabulky %s:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1630
 msgid "It appears your database uses views;"
@@ -10796,10 +10689,8 @@ msgid "MEDIA TYPES FOR TABLE"
 msgstr "MIME TYPY PRO TABULKU"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1970
-#, fuzzy
-#| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
-msgstr "RELACE PRO TABULKU"
+msgstr "VZTAHY TABULKY"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2165
 msgid "It appears your table uses triggers;"
@@ -10815,10 +10706,9 @@ msgid "(See below for the actual view)"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2306
-#, fuzzy, php-format
-#| msgid "Error reading data:"
+#, php-format
 msgid "Error reading data for table %s:"
-msgstr "Chyba při čtení dat:"
+msgstr "Chyba při čtení dat pro tabulku %s:"
 
 #: libraries/classes/Plugins/Export/ExportXml.php:105
 msgid "Object creation options (all are recommended)"
@@ -11241,7 +11131,7 @@ msgstr ""
 #: libraries/classes/Plugins/Transformations/Abs/RegexValidationTransformationsPlugin.php:51
 #, php-format
 msgid "Validation failed for the input string %s."
-msgstr ""
+msgstr "Nezdařilo se ověření vstupního řetězce %s."
 
 #: libraries/classes/Plugins/Transformations/Abs/SQLTransformationsPlugin.php:26
 msgid "Formats text as SQL query with syntax highlighting."
@@ -11347,18 +11237,17 @@ msgstr ""
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F."
 msgstr ""
+"Poskytuje autentizaci pomocí hardwarových bezpečnostních tokenů "
+"podporujících FIDO U2F."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:68
-#, fuzzy, php-format
-#| msgid "Hardware authentication failed!"
+#, php-format
 msgid "Two-factor authentication failed: %s"
-msgstr "Hardwarové přihlašování selhalo!"
+msgstr "Dvoufaktorová autentizace se nezdařila: %s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:72
-#, fuzzy
-#| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed."
-msgstr "Hardwarové přihlašování selhalo!"
+msgstr "Dvoufaktorová autentizace se nezdařila."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:125
 #, fuzzy
@@ -11368,17 +11257,15 @@ msgstr "Přihlašování config"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:135
 msgid "Login using password only."
-msgstr ""
+msgstr "Přihlášení pouze pomocí hesla."
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:48
-#, fuzzy
-#| msgid "Signon authentication"
 msgid "Simple two-factor authentication"
-msgstr "Přihlašování signon"
+msgstr "Jednoduchá dvoufaktorová autentizace"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:58
 msgid "For testing purposes only!"
-msgstr ""
+msgstr "Pouze pro účely testování!"
 
 #: libraries/classes/RecentFavoriteTable.php:149
 msgid "Could not save recent table!"
@@ -11683,7 +11570,7 @@ msgstr "Byla zrušena práva pro %s."
 #: templates/database/privileges/index.twig:122
 #: templates/table/privileges/index.twig:125
 msgid "Not enough privilege to view users."
-msgstr ""
+msgstr "Nedostatečná oprávnění k zobrazení uživatelů."
 
 #: libraries/classes/Server/Privileges.php:1613
 #: templates/database/privileges/index.twig:80
@@ -11714,10 +11601,8 @@ msgstr "Oprávnění pro jednotlivé tabulky"
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:58
-#, fuzzy
-#| msgid "Routines"
 msgid "Routine"
-msgstr "Rutiny"
+msgstr "Rutina"
 
 #: libraries/classes/Server/Privileges.php:1953
 #: templates/server/privileges/edit_routine_privileges.twig:47
@@ -11969,10 +11854,9 @@ msgid "Problems with indexes of table `%s`"
 msgstr "Problémy s klíči v tabulce „%s\""
 
 #: libraries/classes/SqlQueryForm.php:144
-#, fuzzy, php-format
-#| msgid "Run SQL query/queries on server %s"
+#, php-format
 msgid "Run SQL query/queries on server “%s”"
-msgstr "Spustit SQL dotaz(y) na serveru %s"
+msgstr "Spustit SQL dotaz(y) na serveru „%s“"
 
 #: libraries/classes/SqlQueryForm.php:161
 #, php-format
@@ -11980,10 +11864,9 @@ msgid "Run SQL query/queries on database %s"
 msgstr "Spustit SQL dotaz(y) na databázi %s"
 
 #: libraries/classes/SqlQueryForm.php:187
-#, fuzzy, php-format
-#| msgid "Run SQL query/queries on database %s"
+#, php-format
 msgid "Run SQL query/queries on table %s"
-msgstr "Spustit SQL dotaz(y) na databázi %s"
+msgstr "Spustit SQL dotaz(y) na tabulce %s"
 
 #: libraries/classes/StorageEngine.php:251
 msgid ""
@@ -12084,10 +11967,9 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Chyba při vytváření cizího klíče na %1$s (zkotrolujte typ pole)"
 
 #: libraries/classes/Template.php:113
-#, fuzzy, php-format
-#| msgid "Error while loading the search."
+#, php-format
 msgid "Error while working with template cache: %s"
-msgstr "Chyba při nahrávání vyhledávání."
+msgstr "Chyba při práci s mezipamětí šablon: %s"
 
 #: libraries/classes/ThemeManager.php:86
 #, php-format
@@ -12541,10 +12423,8 @@ msgid "The profile has been updated."
 msgstr "Přístup byl změněn."
 
 #: libraries/classes/UserPassword.php:79
-#, fuzzy
-#| msgid "Password Hashing:"
 msgid "Password is too long!"
-msgstr "Hašovací funkce pro heslo:"
+msgstr "Heslo je příliš dlouhé!"
 
 #: libraries/classes/UserPreferences.php:162
 msgid "Could not save configuration"
@@ -12870,7 +12750,7 @@ msgstr "ani jeden z výše uvedených"
 
 #: setup/index.php:26
 msgid "Configuration already exists, setup is disabled!"
-msgstr ""
+msgstr "Konfigurace již existuje, nastavení je zakázáno!"
 
 #: setup/validate.php:30
 msgid "Wrong data"
@@ -12968,10 +12848,8 @@ msgstr "Odstranit pole"
 
 #: templates/columns_definitions/column_virtuality.twig:30
 #: templates/table/structure/display_partitions.twig:26
-#, fuzzy
-#| msgid "Compression"
 msgid "Expression"
-msgstr "Komprese"
+msgstr "Výraz"
 
 #: templates/columns_definitions/move_column.twig:7
 msgid "first"
@@ -12991,16 +12869,12 @@ msgstr "používá oddíly"
 
 #: templates/columns_definitions/partitions.twig:32
 #: templates/columns_definitions/partitions.twig:60
-#, fuzzy
-#| msgid "Values for column %s"
 msgid "Expression or column list"
-msgstr "Hodnoty pro sloupec %s"
+msgstr "Seznam výrazů nebo sloupců"
 
 #: templates/columns_definitions/partitions.twig:37
-#, fuzzy
-#| msgid "Partitions"
 msgid "Partitions:"
-msgstr "Oddíly"
+msgstr "Oddíly:"
 
 #: templates/columns_definitions/partitions.twig:45
 #, fuzzy
@@ -13023,10 +12897,8 @@ msgid "Partition"
 msgstr "Oddíly"
 
 #: templates/columns_definitions/partitions.twig:78
-#, fuzzy
-#| msgid "Value"
 msgid "Values"
-msgstr "Hodnota"
+msgstr "Hodnoty"
 
 #: templates/columns_definitions/partitions.twig:82
 #, fuzzy
@@ -13041,10 +12913,8 @@ msgid "Engine"
 msgstr "Úložiště"
 
 #: templates/columns_definitions/partitions.twig:86
-#, fuzzy
-#| msgid "Data home directory"
 msgid "Data directory"
-msgstr "Domovský adresář pro data"
+msgstr "Datový adresář"
 
 #: templates/columns_definitions/partitions.twig:87
 #, fuzzy
@@ -13053,16 +12923,12 @@ msgid "Index directory"
 msgstr "Adresář pro ukládání"
 
 #: templates/columns_definitions/partitions.twig:88
-#, fuzzy
-#| msgid "Matched rows:"
 msgid "Max rows"
-msgstr "Odpovídající záznamy:"
+msgstr "Maximální počet řádků"
 
 #: templates/columns_definitions/partitions.twig:89
-#, fuzzy
-#| msgid "rows"
 msgid "Min rows"
-msgstr "řádcích"
+msgstr "Minimální počet řádků"
 
 #: templates/columns_definitions/partitions.twig:90
 #, fuzzy
@@ -13071,10 +12937,8 @@ msgid "Table space"
 msgstr "Vyhledávání v tabulce"
 
 #: templates/columns_definitions/partitions.twig:91
-#, fuzzy
-#| msgid "User group"
 msgid "Node group"
-msgstr "Skupina uživatele"
+msgstr "Skupina uzlů"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
 #, fuzzy
@@ -13410,10 +13274,8 @@ msgid "No index defined!"
 msgstr "Není definován žádný klíč!"
 
 #: templates/database/designer/database_tables.twig:37
-#, fuzzy
-#| msgid "Move columns"
 msgid "Show/hide columns"
-msgstr "Přesunout pole"
+msgstr "Zobrazit/skrýt sloupce"
 
 #: templates/database/designer/database_tables.twig:46
 msgid "See table structure"
@@ -13466,10 +13328,8 @@ msgstr "Odstranit stránky"
 #: templates/database/designer/main.twig:93
 #: templates/database/designer/main.twig:96
 #: templates/database/designer/main.twig:275
-#, fuzzy
-#| msgid "Create relation"
 msgid "Create relationship"
-msgstr "Vytvořit relaci"
+msgstr "Vytvořit vztah"
 
 #: templates/database/designer/main.twig:107
 #: templates/database/designer/main.twig:110
@@ -13538,20 +13398,16 @@ msgid "Hide/Show all"
 msgstr "Skrýt/Zobrazit vše"
 
 #: templates/database/designer/main.twig:216
-#, fuzzy
-#| msgid "Hide/Show Tables with no relation"
 msgid "Hide/Show tables with no relationship"
-msgstr "Skrýt/Zobrazit tabulky bez relací"
+msgstr "Skrýt/Zobrazit tabulky bez vztahu"
 
 #: templates/database/designer/main.twig:227
 msgid "Number of tables:"
 msgstr "Počet tabulek:"
 
 #: templates/database/designer/main.twig:385
-#, fuzzy
-#| msgid "Delete relation"
 msgid "Delete relationship"
-msgstr "Odstranit relaci"
+msgstr "Smazat vztah"
 
 #: templates/database/designer/main.twig:449
 #: templates/database/designer/main.twig:614
@@ -13688,17 +13544,13 @@ msgstr "Stav plánovače událostí"
 
 #: templates/database/multi_table_query/form.twig:4
 #: templates/database/qbe/index.twig:4
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Simulovat dotaz"
+msgstr "Dotaz na více tabulek"
 
 #: templates/database/multi_table_query/form.twig:10
 #: templates/database/qbe/index.twig:10
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "Dotaz selhal"
+msgstr "Dotaz podle příkladu"
 
 #: templates/database/multi_table_query/form.twig:15
 msgid "Query window"
@@ -13719,50 +13571,36 @@ msgid "select column"
 msgstr "Zvolte sloupec."
 
 #: templates/database/multi_table_query/form.twig:46
-#, fuzzy
-#| msgid "Tables"
 msgid "Table alias"
-msgstr "Tabulky"
+msgstr "Alias tabulky"
 
 #: templates/database/multi_table_query/form.twig:47
-#, fuzzy
-#| msgid "Column names"
 msgid "Column alias"
-msgstr "Názvy polí"
+msgstr "Alias sloupce"
 
 #: templates/database/multi_table_query/form.twig:50
-#, fuzzy
-#| msgid "Use this column to label each point"
 msgid "Use this column in criteria"
-msgstr "Použít tento sloupec pro přiřazení názvu každému bodu"
+msgstr "Použít tento sloupec v kritériích"
 
 #: templates/database/multi_table_query/form.twig:53
-#, fuzzy
-#| msgid "Criteria:"
 msgid "criteria"
-msgstr "Podmínka:"
+msgstr "kritéria"
 
 #: templates/database/multi_table_query/form.twig:65
-#, fuzzy
-#| msgid "Add %s"
 msgid "Add as"
-msgstr "Přidat %s"
+msgstr "Přidat jako"
 
 #: templates/database/multi_table_query/form.twig:110
-#, fuzzy
-#| msgid "Alter column(s)"
 msgid "Another column"
-msgstr "Změnit pole"
+msgstr "Další sloupec"
 
 #: templates/database/multi_table_query/form.twig:137
 msgid "Enter criteria as free text"
 msgstr ""
 
 #: templates/database/multi_table_query/form.twig:145
-#, fuzzy
-#| msgid "Remove redundant columns"
 msgid "Remove this column"
-msgstr "Odstranit nadbytečné sloupce"
+msgstr "Odstranit tento sloupec"
 
 #: templates/database/multi_table_query/form.twig:154
 #: templates/table/relation/foreign_key_row.twig:86
@@ -13772,8 +13610,6 @@ msgstr "+ Přidat sloupec"
 #: templates/database/multi_table_query/form.twig:171
 #: templates/database/qbe/selection_form.twig:80
 #: templates/database/qbe/selection_form.twig:96
-#, fuzzy
-#| msgid "Update Query"
 msgid "Update query"
 msgstr "Aktualizovat dotaz"
 
@@ -14085,10 +13921,8 @@ msgid "Check tables having overhead"
 msgstr "Zaškrtnout neoptimální"
 
 #: templates/database/structure/check_all_tables.twig:10
-#, fuzzy
-#| msgid "No tables"
 msgid "Copy table"
-msgstr "žádné tabulky"
+msgstr "Kopírovat tabulku"
 
 #: templates/database/structure/check_all_tables.twig:11
 msgid "Show create"
@@ -14359,10 +14193,9 @@ msgstr "Zobrazit výstup jako text"
 
 #: templates/display/export/options_output_save_dir.twig:5
 #: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Uložit na serveru v adresáři <b>%s</b>"
+msgstr "Uložit na serveru v adresáři <strong>%s</strong>"
 
 #: templates/display/export/options_output_separate_files.twig:7
 msgid "Export databases as separate files"
@@ -14622,10 +14455,8 @@ msgid "Relational key"
 msgstr "Relační klíč"
 
 #: templates/display/results/table.twig:130
-#, fuzzy
-#| msgid "Display column for relations"
 msgid "Display column for relationships"
-msgstr "Zobrazit sloupec pro relace"
+msgstr "Zobrazit sloupec pro vztahy"
 
 #: templates/display/results/table.twig:138
 msgid "Show binary contents"
@@ -14696,7 +14527,7 @@ msgstr "Prohlédněte si informace v hlášení:"
 
 #: templates/export/alias_add.twig:4
 msgid "Define new aliases"
-msgstr ""
+msgstr "Definovat nové aliasy"
 
 #: templates/export/alias_add.twig:9
 #, fuzzy
@@ -14725,10 +14556,8 @@ msgid "New column name"
 msgstr "Nový název sloupce"
 
 #: templates/export/alias_item.twig:8
-#, fuzzy
-#| msgid "Remote server"
 msgid "Remove"
-msgstr "Vzdálený server"
+msgstr "Odstranit"
 
 #: templates/filter.twig:4 templates/server/status/processes/index.twig:7
 #: templates/server/status/variables/index.twig:8
@@ -14863,10 +14692,8 @@ msgid "Server type:"
 msgstr "Typ serveru:"
 
 #: templates/home/index.twig:114
-#, fuzzy
-#| msgid "Insecure connection"
 msgid "Server connection:"
-msgstr "Nezabezpečené připojení"
+msgstr "Připojení k serveru:"
 
 #: templates/home/index.twig:122
 msgid "Protocol version:"
@@ -15178,24 +15005,24 @@ msgstr ""
 
 #: templates/login/twofactor/application_configure.twig:16
 #: templates/login/twofactor/application.twig:2
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication code:"
-msgstr "Přihlašování"
+msgstr "Ověřovací kód:"
 
 #: templates/login/twofactor/application.twig:4
 msgid ""
 "Open the two-factor authentication app on your device to view your "
 "authentication code and verify your identity."
 msgstr ""
+"Chcete-li zobrazit ověřovací kód a ověřit svou identitu, otevřete na svém "
+"zařízení aplikaci pro dvoufaktorovou autentizaci."
 
 #: templates/login/twofactor/invalid.twig:2
-#, fuzzy
-#| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "The configured two factor authentication is not available, please install "
 "missing dependencies."
-msgstr "Chybějící tabulky v úložišti nastavení phpMyAdmina"
+msgstr ""
+"Nakonfigurovaná dvoufaktorová autentizace není k dispozici, nainstalujte "
+"prosím chybějící závislosti."
 
 #: templates/login/twofactor/key_configure.twig:3
 msgid ""
@@ -15214,10 +15041,12 @@ msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm login on the device."
 msgstr ""
+"Připojte zařízení FIDO U2F k portu USB počítače. Poté v zařízení potvrďte "
+"přihlášení."
 
 #: templates/login/twofactor.twig:5
 msgid "Verify"
-msgstr ""
+msgstr "Ověřit"
 
 #: templates/menu/breadcrumbs.twig:27
 #, fuzzy
@@ -15316,10 +15145,8 @@ msgstr ""
 "Přejete si ho importovat do tohoto sezení?"
 
 #: templates/preferences/autoload.twig:13
-#, fuzzy
-#| msgid "Delete tracking"
 msgid "Delete settings"
-msgstr "Smazat sledovací data"
+msgstr "Smazat nastavení"
 
 #: templates/preferences/forms/main.twig:4
 msgid "Cannot save settings, submitted form contains errors!"
@@ -15330,10 +15157,8 @@ msgid "Manage your settings"
 msgstr "Spravujte svoje nastavení"
 
 #: templates/preferences/header.twig:12
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Two-factor authentication"
-msgstr "Přihlašování config"
+msgstr "Dvoufaktorová autentizace"
 
 #: templates/preferences/header.twig:55
 #: templates/preferences/manage/main.twig:72
@@ -15397,16 +15222,12 @@ msgstr ""
 "%sNastavovacího skriptu%s."
 
 #: templates/preferences/manage/main.twig:81
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as JSON file"
-msgstr "Uložit jako soubor"
+msgstr "Uložit jako soubor JSON"
 
 #: templates/preferences/manage/main.twig:85
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as PHP file"
-msgstr "Uložit jako soubor"
+msgstr "Uložit jako soubor PHP"
 
 #: templates/preferences/manage/main.twig:90
 msgid "Save to browser's storage"
@@ -15427,41 +15248,33 @@ msgstr "Můžete vymazat vaše nastavení a vrátit se k výchozím hodnotám."
 #: templates/preferences/two_factor/configure.twig:5
 #: templates/preferences/two_factor/main.twig:57
 #: templates/preferences/two_factor/main.twig:70
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Configure two-factor authentication"
-msgstr "Přihlašování config"
+msgstr "Nastavit dvoufaktorovou autentizaci"
 
 #: templates/preferences/two_factor/configure.twig:12
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Enable two-factor authentication"
-msgstr "Přihlašování config"
+msgstr "Povolit dvoufaktorovou autentizaci"
 
 #: templates/preferences/two_factor/confirm.twig:5
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Confirm disabling two-factor authentication"
-msgstr "Přihlašování config"
+msgstr "Potvrdit zakázání dvoufaktorové autentizace"
 
 #: templates/preferences/two_factor/confirm.twig:9
 msgid ""
 "By disabling two factor authentication you will be again able to login using "
 "password only."
 msgstr ""
+"Po zakázání dvoufaktorové autentizace se budete moci opět přihlásit pouze "
+"pomocí hesla."
 
 #: templates/preferences/two_factor/confirm.twig:13
 #: templates/preferences/two_factor/main.twig:46
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Disable two-factor authentication"
-msgstr "Přihlašování config"
+msgstr "Zakázat dvoufaktorovou autentizaci"
 
 #: templates/preferences/two_factor/main.twig:5
-#, fuzzy
-#| msgid "Authentication settings."
 msgid "Two-factor authentication status"
-msgstr "Nastavení přihlašování."
+msgstr "Stav dvoufaktorové autentizace"
 
 #: templates/preferences/two_factor/main.twig:11
 msgid ""
@@ -15483,16 +15296,16 @@ msgid ""
 msgstr ""
 
 #: templates/preferences/two_factor/main.twig:26
-#, fuzzy
-#| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "Two-factor authentication is not available, enable phpMyAdmin configuration "
 "storage to use it."
-msgstr "Chybějící tabulky v úložišti nastavení phpMyAdmina"
+msgstr ""
+"Dvoufaktorová autentizace není k dispozici. Pokud ji chcete používat, "
+"povolte úložiště konfigurace phpMyAdmin."
 
 #: templates/preferences/two_factor/main.twig:41
 msgid "You have enabled two factor authentication."
-msgstr ""
+msgstr "Povolili jste dvoufaktorovou autentizaci."
 
 #: templates/server/binlog/index.twig:10
 msgid "Select binary log to view"
@@ -15535,10 +15348,8 @@ msgid "Information"
 msgstr "Informace"
 
 #: templates/server/collations/index.twig:5
-#, fuzzy
-#| msgid "Character Sets and Collations"
 msgid "Character sets and collations"
-msgstr "Znakové sady a porovnávání"
+msgstr "Znakové sady a řazení"
 
 #: templates/server/databases/index.twig:6
 msgid "Databases statistics"
@@ -15567,10 +15378,9 @@ msgid "Slave replication"
 msgstr "Replikace podřízeného"
 
 #: templates/server/databases/index.twig:184
-#, fuzzy, php-format
-#| msgid "Jump to database"
+#, php-format
 msgid "Jump to database '%s'"
-msgstr "Přejít na databázi"
+msgstr "Přejít na databázi %s"
 
 #: templates/server/databases/index.twig:245
 #, php-format
@@ -15661,10 +15471,9 @@ msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr "Přidělit všechna oprávnění na jméno odpovídající masce (uživatel\\_%)."
 
 #: templates/server/privileges/add_user.twig:24
-#, fuzzy, php-format
-#| msgid "Grant all privileges on database \"%s\"."
+#, php-format
 msgid "Grant all privileges on database %s."
-msgstr "Přidělit všechna oprávnění na databázi „%s“."
+msgstr "Přidělit všechna oprávnění pro databázi %s."
 
 #: templates/server/privileges/choose_user_group.twig:4
 #: templates/server/privileges/users_overview.twig:16
@@ -15709,17 +15518,13 @@ msgstr ""
 
 #: templates/server/privileges/edit_routine_privileges.twig:76
 #: templates/server/privileges/edit_routine_privileges.twig:79
-#, fuzzy
-#| msgid "Allows altering and dropping stored routines."
 msgid "Allows altering and dropping this routine."
-msgstr "Umožňuje měnit a rušit uložené procedury."
+msgstr "Umožňuje změnit a zrušit tuto rutinu."
 
 #: templates/server/privileges/edit_routine_privileges.twig:88
 #: templates/server/privileges/edit_routine_privileges.twig:91
-#, fuzzy
-#| msgid "Allows executing stored routines."
 msgid "Allows executing this routine."
-msgstr "Umožňuje spouštět uložené procedury."
+msgstr "Umožňuje spustit tuto rutinu."
 
 #: templates/server/privileges/login_information_fields.twig:2
 #: templates/server/privileges/user_properties.twig:106
@@ -15871,10 +15676,8 @@ msgid "Add privileges on the following table:"
 msgstr "Přidat oprávnění pro tabulku:"
 
 #: templates/server/privileges/privileges_summary.twig:86
-#, fuzzy
-#| msgid "Add privileges on the following table:"
 msgid "Add privileges on the following routine:"
-msgstr "Přidat oprávnění pro tabulku:"
+msgstr "Přidat oprávnění k následující rutině:"
 
 #: templates/server/privileges/privileges_table.twig:29
 #: templates/server/privileges/privileges_table.twig:30
@@ -15929,7 +15732,7 @@ msgstr "Požaduje zabezpečené připojení."
 
 #: templates/server/privileges/privileges_table.twig:777
 msgid "Requires a valid X509 certificate."
-msgstr ""
+msgstr "Vyžaduje platný certifikát X509."
 
 #: templates/server/privileges/privileges_table.twig:798
 msgid "Requires that a specific cipher method be used for a connection."
@@ -16020,16 +15823,13 @@ msgid "Port:"
 msgstr "Port:"
 
 #: templates/server/replication/index.twig:21
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
-"Tento server není nastaven jako nadřízený v replikačním procesu. Přejete si "
-"ho <a href=\"%s\">nastavit</a>?"
+"Tento server není v replikačním procesu nastaven jako nadřízený. Přejete si "
+"ho %snastavit%s?"
 
 #: templates/server/replication/index.twig:43
 #, fuzzy
@@ -16127,10 +15927,8 @@ msgstr ""
 "report-host=host_name."
 
 #: templates/server/replication/slave_configuration.twig:5
-#, fuzzy
-#| msgid "Insecure connection"
 msgid "Master connection:"
-msgstr "Nezabezpečené připojení"
+msgstr "Hlavní připojení:"
 
 #: templates/server/replication/slave_configuration.twig:25
 msgid "Slave SQL Thread not running!"
@@ -16193,16 +15991,13 @@ msgid "Skip next %s errors."
 msgstr "Přeskočit %s dalších chyb."
 
 #: templates/server/replication/slave_configuration.twig:107
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
-"Tento server není nastaven jako podřízený v replikačním procesu. Přejete si "
-"ho <a href=\"%s\">nastavit</a>?"
+"Tento server není v replikačním procesu nastaven jako podřízený. Přejete si "
+"ho %snastavit%s?"
 
 #: templates/server/replication/status_table.twig:6
 msgid "Master status"
@@ -16510,8 +16305,6 @@ msgid "Clear series"
 msgstr "Odstranit série"
 
 #: templates/server/status/monitor/index.twig:201
-#, fuzzy
-#| msgid "Series in Chart:"
 msgid "Series in chart:"
 msgstr "Série v grafu:"
 
@@ -16633,7 +16426,7 @@ msgstr "Stav replikace"
 
 #: templates/server/status/status/index.twig:75
 msgid "Not enough privilege to view server status."
-msgstr ""
+msgstr "Nedostatečná oprávnění k zobrazení stavu serveru."
 
 #: templates/server/status/variables/index.twig:22
 msgid "Show only alert values"
@@ -16653,7 +16446,7 @@ msgstr "Související odkazy:"
 
 #: templates/server/status/variables/index.twig:136
 msgid "Not enough privilege to view status variables."
-msgstr ""
+msgstr "Nedostatečná oprávnění k zobrazení stavových proměnných."
 
 #: templates/server/user_groups/edit_user_groups.twig:2
 #: templates/server/user_groups/user_groups.twig:47
@@ -16700,17 +16493,16 @@ msgstr "Proměnné a nastavení serveru"
 
 #: templates/server/variables/index.twig:44
 msgid "This is a read-only variable and can not be edited"
-msgstr ""
+msgstr "Tato proměnná je pouze pro čtení a nelze ji upravovat"
 
 #: templates/server/variables/index.twig:70
 msgid "Session value"
 msgstr "Hodnota sezení"
 
 #: templates/server/variables/index.twig:82
-#, fuzzy, php-format
-#| msgid "Server variables and settings"
+#, php-format
 msgid "Not enough privilege to view server variables and settings. %s"
-msgstr "Proměnné a nastavení serveru"
+msgstr "Nedostatečná oprávnění k zobrazení proměnných a nastavení serveru. %s"
 
 #: templates/setup/base.twig:27 templates/setup/home/index.twig:20
 msgid "Overview"
@@ -16918,10 +16710,8 @@ msgid "Stacked"
 msgstr "Složený"
 
 #: templates/table/chart/tbl_chart.twig:51
-#, fuzzy
-#| msgid "Chart title"
 msgid "Chart title:"
-msgstr "Název grafu"
+msgstr "Název grafu:"
 
 #: templates/table/chart/tbl_chart.twig:56
 msgid "X-Axis:"
@@ -16952,16 +16742,12 @@ msgid "Series names are in a column"
 msgstr ""
 
 #: templates/table/chart/tbl_chart.twig:116
-#, fuzzy
-#| msgid "Inside column:"
 msgid "Series column:"
-msgstr "Uvnitř pole:"
+msgstr "Sloupec řady:"
 
 #: templates/table/chart/tbl_chart.twig:130
-#, fuzzy
-#| msgid "Values for column %s"
 msgid "Value Column:"
-msgstr "Hodnoty pro sloupec %s"
+msgstr "Sloupec hodnoty:"
 
 #: templates/table/chart/tbl_chart.twig:151
 msgid "Save chart as image"
@@ -17152,8 +16938,6 @@ msgid "table-specific"
 msgstr "závislé na tabulce"
 
 #: templates/table/relation/common_form.twig:9
-#, fuzzy
-#| msgid "Foreign key constraint"
 msgid "Foreign key constraints"
 msgstr "Omezení cizího klíče"
 
@@ -17175,7 +16959,7 @@ msgstr ""
 #: templates/table/relation/common_form.twig:23
 msgid ""
 "Only columns with index will be displayed. You can define an index below."
-msgstr ""
+msgstr "Budou se zobrazovat jen sloupce s indexem. Index můžete definovat níže."
 
 #: templates/table/relation/common_form.twig:27
 msgid "Foreign key constraint"
@@ -17187,10 +16971,8 @@ msgstr "+ Přidat omezení"
 
 #: templates/table/relation/common_form.twig:104
 #: templates/table/relation/common_form.twig:110
-#, fuzzy
-#| msgid "Internal relations"
 msgid "Internal relationships"
-msgstr "interních relací"
+msgstr "Interní vztahy"
 
 #: templates/table/relation/common_form.twig:116
 msgid "Internal relation"
@@ -17249,10 +17031,8 @@ msgid "Partitions"
 msgstr "Oddíly"
 
 #: templates/table/structure/display_partitions.twig:8
-#, fuzzy
-#| msgid "No index defined!"
 msgid "No partitioning defined!"
-msgstr "Není definován žádný klíč!"
+msgstr "Není definováno žádné rozdělení!"
 
 #: templates/table/structure/display_partitions.twig:11
 #, fuzzy
@@ -17282,10 +17062,8 @@ msgstr "používá oddíly"
 
 #: templates/table/structure/display_partitions.twig:141
 #: templates/table/structure/partition_definition_form.twig:6
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Edit partitioning"
-msgstr "Zrušit dělení"
+msgstr "Upravit rozdělení"
 
 #: templates/table/structure/display_structure.twig:71
 #, fuzzy
@@ -17351,7 +17129,7 @@ msgstr "Navrhnout strukturu tabulky"
 
 #: templates/table/structure/display_structure.twig:409
 msgid "Normalize"
-msgstr ""
+msgstr "Normalizovat"
 
 #: templates/table/structure/display_structure.twig:415
 msgid "Track view"
@@ -17426,8 +17204,6 @@ msgstr "Vypnout teď"
 
 #: templates/table/tracking/report_table.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:5
-#, fuzzy
-#| msgid "#"
 msgctxt "Number"
 msgid "#"
 msgstr "#"
@@ -17762,6 +17538,8 @@ msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 msgstr ""
+"Dokumentaci Percona naleznete na adrese <a href=\"https://www.percona.com/"
+"software/documentation/\">https://www.percona.com/software/documentation/</a>"
 
 #: libraries/advisory_rules_generic.txt:133
 msgid "'percona' found in version_comment"
