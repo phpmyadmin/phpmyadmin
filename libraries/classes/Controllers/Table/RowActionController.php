@@ -113,23 +113,7 @@ class RowActionController extends AbstractController
 
     public function edit(): void
     {
-        global $containerBuilder, $submit_mult, $active_page, $where_clause;
-
-        $submit_mult = $_POST['submit_mult'] ?? '';
-
-        if (empty($submit_mult)) {
-            return;
-        }
-
-        if ($submit_mult === 'edit') {
-            $submit_mult = 'row_edit';
-        } elseif ($submit_mult === 'copy') {
-            $submit_mult = 'row_copy';
-        }
-
-        if ($submit_mult === 'row_copy') {
-            $_POST['default_action'] = 'insert';
-        }
+        global $containerBuilder, $active_page, $where_clause;
 
         if (isset($_POST['goto']) && (! isset($_POST['rows_to_delete']) || ! is_array($_POST['rows_to_delete']))) {
             $this->response->setRequestStatus(false);
@@ -158,9 +142,7 @@ class RowActionController extends AbstractController
 
     public function export(): void
     {
-        global $containerBuilder, $active_page, $single_table, $where_clause, $submit_mult;
-
-        $submit_mult = 'row_export';
+        global $containerBuilder, $active_page, $single_table, $where_clause;
 
         if (isset($_POST['goto']) && (! isset($_POST['rows_to_delete']) || ! is_array($_POST['rows_to_delete']))) {
             $this->response->setRequestStatus(false);

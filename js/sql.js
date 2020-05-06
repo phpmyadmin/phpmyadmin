@@ -848,12 +848,16 @@ AJAX.registerOnload('sql.js', function () {
         var action = $button.val();
         var $form = $button.closest('form');
         var argsep = CommonParams.get('arg_separator');
-        var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'submit_mult=' + action;
+        var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep;
         Functions.ajaxShowMessage();
         AJAX.source = $form;
 
         var url;
-        if (action === 'edit' || action === 'copy') {
+        if (action === 'edit') {
+            submitData = submitData + argsep + 'default_action=update';
+            url = 'index.php?route=/table/row-action/edit';
+        } else if (action === 'copy') {
+            submitData = submitData + argsep + 'default_action=insert';
             url = 'index.php?route=/table/row-action/edit';
         } else if (action === 'export') {
             url = 'index.php?route=/table/row-action/export';
