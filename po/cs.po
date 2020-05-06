@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2020-05-06 22:16+0000\n"
-"Last-Translator: Oldřich Strachota <oldrich.strachota@gmail.com>\n"
+"PO-Revision-Date: 2020-05-06 22:22+0000\n"
+"Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-9/cs/>"
 "\n"
 "Language: cs\n"
@@ -14278,7 +14278,7 @@ msgstr "Přidat nový server"
 
 #: setup/index.php:18
 msgid "Configuration already exists, setup is disabled!"
-msgstr "Konfigurace již existuje, setup je zakázaný!"
+msgstr "Konfigurace již existuje, nastavení je zakázáno!"
 
 #: setup/index.php:28
 msgid "Wrong GET file attribute value"
@@ -14565,6 +14565,8 @@ msgid ""
 "By disabling two factor authentication you will be again able to login using "
 "password only."
 msgstr ""
+"Po zakázání dvoufaktorové autentizace se budete moci opět přihlásit pouze "
+"pomocí hesla."
 
 #: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:37
 msgid "Disable two-factor authentication"
@@ -14936,6 +14938,8 @@ msgid ""
 "Open the two-factor authentication app on your device to view your "
 "authentication code and verify your identity."
 msgstr ""
+"Chcete-li zobrazit ověřovací kód a ověřit svou identitu, otevřete na svém "
+"zařízení aplikaci pro dvoufaktorovou autentizaci."
 
 #: templates/table/structure/move_columns_dialog.twig:1
 #: templates/table/structure/optional_action_links.twig:22
@@ -15616,7 +15620,7 @@ msgstr "Upravit rozdělení"
 
 #: templates/login/twofactor.twig:5
 msgid "Verify"
-msgstr ""
+msgstr "Ověřit"
 
 #: templates/display/export/option_header.twig:5
 msgid "Exporting databases from the current server"
