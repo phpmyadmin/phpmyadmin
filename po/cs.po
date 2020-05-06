@@ -7,7 +7,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
 "PO-Revision-Date: 2020-05-06 22:22+0000\n"
-"Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
+"Last-Translator: Oldřich Strachota <oldrich.strachota@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-9/cs/>"
 "\n"
 "Language: cs\n"
@@ -15073,7 +15073,7 @@ msgstr "Zvolte šablonu"
 
 #: templates/server/variables/variable_row.twig:6
 msgid "This is a read-only variable and can not be edited"
-msgstr ""
+msgstr "Tato proměnná je pouze pro čtení a nelze ji upravovat"
 
 #: templates/console/display.twig:7
 msgid "History"
@@ -15193,7 +15193,7 @@ msgstr "Navrhnout strukturu tabulky"
 
 #: templates/table/structure/optional_action_links.twig:25
 msgid "Normalize"
-msgstr ""
+msgstr "Normalizovat"
 
 #: templates/table/structure/optional_action_links.twig:31
 msgid "Track view"
@@ -15917,7 +15917,7 @@ msgstr ""
 
 #: templates/prefs_twofactor.twig:33
 msgid "You have enabled two factor authentication."
-msgstr ""
+msgstr "Povolili jste dvoufaktorové ověření."
 
 #: templates/display/export/options_output_radio.twig:5
 msgid "View output as text"
