@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2020-05-06 21:57+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2020-05-06 22:02+0000\n"
+"Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-9/cs/>"
 "\n"
 "Language: cs\n"
@@ -311,7 +311,7 @@ msgstr "Jméno databáze je prázdné!"
 #: db_operations.php:69
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
-"Nemohu vytvořit kopii databáze se stejným jménem. Změňte jméno a zkuste to "
+"Nemohu vytvořit kopii databáze se stejným názvem. Změňte název a zkuste to "
 "znovu."
 
 #: db_operations.php:156
@@ -3048,7 +3048,7 @@ msgstr "Chyba"
 #: libraries/classes/Advisor.php:259
 #, php-format
 msgid "Error when evaluating: %s"
-msgstr "Chyba při vytváření: %s"
+msgstr "Chyba při vyhodnocení: %s"
 
 #: libraries/classes/Advisor.php:290
 #, php-format
