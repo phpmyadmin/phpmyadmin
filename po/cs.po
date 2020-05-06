@@ -7,7 +7,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
 "PO-Revision-Date: 2020-05-06 21:57+0000\n"
-"Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-9/cs/>"
 "\n"
 "Language: cs\n"
@@ -311,7 +311,8 @@ msgstr "Jméno databáze je prázdné!"
 #: db_operations.php:69
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
-"Nemohu zkopírovat databázi na to samé jméno. Změňte jméno a zkuste to znovu."
+"Nemohu vytvořit kopii databáze se stejným jménem. Změňte jméno a zkuste to "
+"znovu."
 
 #: db_operations.php:156
 #, php-format
