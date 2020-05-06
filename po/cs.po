@@ -7,7 +7,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
 "PO-Revision-Date: 2020-05-06 22:09+0000\n"
-"Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
+"Last-Translator: Oldřich Strachota <oldrich.strachota@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-9/cs/>"
 "\n"
 "Language: cs\n"
@@ -10255,7 +10255,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:137
 msgid "Login using password only."
-msgstr ""
+msgstr "Přihlášení pouze pomocí hesla."
 
 #: libraries/classes/RecentFavoriteTable.php:145
 msgid "Could not save recent table!"
@@ -11025,6 +11025,8 @@ msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
 msgstr ""
+"Nemáte dostatečná oprávnění pro provedení této operace; Více informací "
+"najdete v dokumentaci"
 
 #: libraries/classes/Rte/Routines.php:1051
 msgid "Security type"
