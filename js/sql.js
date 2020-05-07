@@ -427,6 +427,9 @@ AJAX.registerOnload('sql.js', function () {
             $(document).on('scroll', window, function () {
                 Sql.handleStickyColumns($stickColumns, $tableResults);
             });
+            $(window).on('resize', function () {
+                Sql.resizeStickyColumns($stickColumns, $tableResults);
+            });
         });
     });
 
@@ -1101,6 +1104,14 @@ Sql.rearrangeStickyColumns = function ($stickyColumns, $tableResults) {
         }
     });
     $stickyColumns.empty().append($clonedHeader);
+};
+
+/**
+ * Adjust sticky columns on window resize
+ */
+Sql.resizeStickyColumns = function ($stickyColumns, $tableResults) {
+    $stickyColumns.css('width', $tableResults.width());
+    Sql.rearrangeStickyColumns($stickyColumns, $tableResults);
 };
 
 /**
