@@ -68,6 +68,7 @@ use PhpMyAdmin\Controllers\Table\AddFieldController;
 use PhpMyAdmin\Controllers\Table\ChangeController;
 use PhpMyAdmin\Controllers\Table\ChartController;
 use PhpMyAdmin\Controllers\Table\CreateController;
+use PhpMyAdmin\Controllers\Table\DeleteController;
 use PhpMyAdmin\Controllers\Table\ExportController as TableExportController;
 use PhpMyAdmin\Controllers\Table\FindReplaceController;
 use PhpMyAdmin\Controllers\Table\GetFieldController;
@@ -78,7 +79,6 @@ use PhpMyAdmin\Controllers\Table\OperationsController as TableOperationsControll
 use PhpMyAdmin\Controllers\Table\RecentFavoriteController;
 use PhpMyAdmin\Controllers\Table\RelationController;
 use PhpMyAdmin\Controllers\Table\ReplaceController;
-use PhpMyAdmin\Controllers\Table\RowActionController;
 use PhpMyAdmin\Controllers\Table\SearchController as TableSearchController;
 use PhpMyAdmin\Controllers\Table\SqlController as TableSqlController;
 use PhpMyAdmin\Controllers\Table\StructureController as TableStructureController;
@@ -220,10 +220,20 @@ return function (RouteCollector $routes) {
     });
     $routes->addGroup('/table', function (RouteCollector $routes) {
         $routes->addRoute(['GET', 'POST'], '/add-field', [AddFieldController::class, 'index']);
-        $routes->addRoute(['GET', 'POST'], '/change', [ChangeController::class, 'index']);
+        $routes->addGroup('/change', function (RouteCollector $routes) {
+            $routes->addRoute(['GET', 'POST'], '', [ChangeController::class, 'index']);
+            $routes->post('/rows', [ChangeController::class, 'rows']);
+        });
         $routes->addRoute(['GET', 'POST'], '/chart', [ChartController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/create', [CreateController::class, 'index']);
-        $routes->addRoute(['GET', 'POST'], '/export', [TableExportController::class, 'index']);
+        $routes->addGroup('/delete', function (RouteCollector $routes) {
+            $routes->post('/confirm', [DeleteController::class, 'confirm']);
+            $routes->post('/rows', [DeleteController::class, 'rows']);
+        });
+        $routes->addGroup('/export', function (RouteCollector $routes) {
+            $routes->addRoute(['GET', 'POST'], '', [TableExportController::class, 'index']);
+            $routes->post('/rows', [TableExportController::class, 'rows']);
+        });
         $routes->addRoute(['GET', 'POST'], '/find-replace', [FindReplaceController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/get-field', [GetFieldController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/gis-visualization', [GisVisualizationController::class, 'index']);
@@ -233,12 +243,6 @@ return function (RouteCollector $routes) {
         $routes->addRoute(['GET', 'POST'], '/recent-favorite', [RecentFavoriteController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/relation', [RelationController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/replace', [ReplaceController::class, 'index']);
-        $routes->addGroup('/row-action', function (RouteCollector $routes) {
-            $routes->post('/confirm-delete', [RowActionController::class, 'confirmDelete']);
-            $routes->post('/delete', [RowActionController::class, 'delete']);
-            $routes->post('/edit', [RowActionController::class, 'edit']);
-            $routes->post('/export', [RowActionController::class, 'export']);
-        });
         $routes->addRoute(['GET', 'POST'], '/search', [TableSearchController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/sql', [TableSqlController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/structure', [TableStructureController::class, 'index']);

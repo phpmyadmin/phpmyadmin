@@ -855,14 +855,14 @@ AJAX.registerOnload('sql.js', function () {
         var url;
         if (action === 'edit') {
             submitData = submitData + argsep + 'default_action=update';
-            url = 'index.php?route=/table/row-action/edit';
+            url = 'index.php?route=/table/change/rows';
         } else if (action === 'copy') {
             submitData = submitData + argsep + 'default_action=insert';
-            url = 'index.php?route=/table/row-action/edit';
+            url = 'index.php?route=/table/change/rows';
         } else if (action === 'export') {
-            url = 'index.php?route=/table/row-action/export';
+            url = 'index.php?route=/table/export/rows';
         } else if (action === 'delete') {
-            url = 'index.php?route=/table/row-action/confirm-delete';
+            url = 'index.php?route=/table/delete/confirm';
         } else {
             return;
         }
