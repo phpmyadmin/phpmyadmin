@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2020-05-07 23:12+0000\n"
-"Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
+"PO-Revision-Date: 2020-05-10 06:14+0000\n"
+"Last-Translator: Martin Šich <sich.martin64@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-9/cs/>"
 "\n"
 "Language: cs\n"
@@ -3429,11 +3429,9 @@ msgid "Estonian"
 msgstr "Estonština"
 
 #: libraries/classes/Charsets.php:502 libraries/classes/Charsets.php:623
-#, fuzzy
-#| msgid "Data dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
-msgstr "Datový slovník"
+msgstr "Němčina (slovník)"
 
 #: libraries/classes/Charsets.php:505 libraries/classes/Charsets.php:620
 msgctxt "Collation"
@@ -3518,7 +3516,7 @@ msgstr "Vietnamština"
 #: libraries/classes/Charsets.php:667
 msgctxt "Collation variant"
 msgid "case-insensitive"
-msgstr "nerozlišovat velká a malá písmena"
+msgstr "nerozlišovat velikost písmen"
 
 #: libraries/classes/Charsets.php:670
 msgctxt "Collation variant"
