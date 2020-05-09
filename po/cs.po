@@ -7,7 +7,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
 "PO-Revision-Date: 2020-05-10 06:14+0000\n"
-"Last-Translator: Martin Šich <sich.martin64@gmail.com>\n"
+"Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-9/cs/>"
 "\n"
 "Language: cs\n"
@@ -535,16 +535,12 @@ msgid "Output"
 msgstr "Výstup"
 
 #: gis_data_editor.php:423
-#, fuzzy
-#| msgid ""
-#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-#| "below into the \"Value\" field."
 msgid ""
 "Choose \"ST_GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Ze sloupce \"funkce\" zvolte \"ST_GeomFromText\" a vložte níže uvedený "
-"řetězec do pole \"hodnota\"."
+"Ve sloupci \"funkce\" zvolte \"ST_GeomFromText\" a do pole \"hodnota\" "
+"vložte níže uvedený řetězec."
 
 #: import.php:73
 msgid "Succeeded"
@@ -2252,13 +2248,12 @@ msgstr ""
 "přímo podle potřeby"
 
 #: js/messages.php:544
-#, fuzzy
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
-"MySQL podporuje i další hodnoty, které se nedají vybrat v kalendáři. Chcete-"
-"li je zadat, napište je."
+"MySQL podporuje i další hodnoty, které se nedají vybrat v kalendáři, ale lze "
+"je zadat přímo"
 
 #: js/messages.php:550
 msgid ""
@@ -3521,42 +3516,32 @@ msgstr "nerozlišovat velikost písmen"
 #: libraries/classes/Charsets.php:670
 msgctxt "Collation variant"
 msgid "case-sensitive"
-msgstr "rozlišovat velká a malá písmena"
+msgstr "rozlišovat velikost písmen"
 
 #: libraries/classes/Charsets.php:673
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
-msgstr "nerozlišovat velká a malá písmena"
+msgstr "nerozlišovat diakritiku"
 
 #: libraries/classes/Charsets.php:676
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
-msgstr "rozlišovat velká a malá písmena"
+msgstr "rozlišovat diakritiku"
 
 #: libraries/classes/Charsets.php:679
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "rozlišovat velká a malá písmena"
+msgstr "rozlišovat kana"
 
 #: libraries/classes/Charsets.php:683
-#, fuzzy
-#| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
-msgstr "mnohojazyčný"
+msgstr "víceúrovňové"
 
 #: libraries/classes/Charsets.php:686
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
-msgstr "Binární"
+msgstr "binární"
 
 #: libraries/classes/Charsets.php:689
 #, fuzzy
@@ -4232,10 +4217,8 @@ msgid "Foreign key limit"
 msgstr "Nejvyšší počet cizích klíčů"
 
 #: libraries/classes/Config/Descriptions.php:430
-#, fuzzy
 msgid "Default value for foreign key checks checkbox for some queries."
-msgstr ""
-"Implicitní hodnota cizího klíče, u některých dotazů, zaškrtne checkbox."
+msgstr "Výchozí hodnota cizího klíče u některých dotazů zaškrtne checkbox."
 
 #: libraries/classes/Config/Descriptions.php:432
 msgid "Foreign key checks"
@@ -4839,10 +4822,8 @@ msgid "Navigation panel width"
 msgstr "Šířka navigačního panelu"
 
 #: libraries/classes/Config/Descriptions.php:774
-#, fuzzy
-#| msgid "Show logo in navigation panel."
 msgid "Set to 0 to collapse navigation panel."
-msgstr "Zobrazit logo v navigačním panelu."
+msgstr "Při nastavení na hodnotu 0 je navigační panel skrytý."
 
 #: libraries/classes/Config/Descriptions.php:776
 msgid "Link with main panel by highlighting the current database or table."
@@ -5900,12 +5881,12 @@ msgid "Create PHP code"
 msgstr "Vytvořit PHP kód"
 
 #: libraries/classes/Config/Descriptions.php:1338
-#, fuzzy
-#| msgid "A warning is displayed on the main page if Suhosin is detected."
 msgid ""
 "Disable the default warning that is displayed on the main page if Suhosin is "
 "detected."
-msgstr "Vypne varování na hlavní stránce pokud se používá Suhosin."
+msgstr ""
+"Vypne výchozí varování, které je zobrazeno na hlavní stránce, když se "
+"používá Suhosin."
 
 #: libraries/classes/Config/Descriptions.php:1342
 msgid "Suhosin warning"
@@ -6178,14 +6159,10 @@ msgid "Show current browsing query"
 msgstr "Zobrazit aktuálně prohlížený dotaz"
 
 #: libraries/classes/Config/Descriptions.php:1472
-#, fuzzy
-#| msgid ""
-#| "Execute queries on Enter and insert new line with Shift + Enter. To make "
-#| "this permanent, view settings."
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgstr ""
-"Spustit dotazy zmáčknutím klávesy Enter a vložit nový řádek pomocí Shift + "
-"Enter.Chcete-li to nastavit trvale, podívejte se na nastavení."
+"Spouštět dotazy stisknutím klávesy Enter a vložit nový řádek pomocí Shift + "
+"Enter"
 
 #: libraries/classes/Config/Descriptions.php:1474
 #: templates/console/display.twig:168
@@ -6801,10 +6778,9 @@ msgid "The columns have been moved successfully."
 msgstr "Vybraná pole byla úspěšně přesunuta."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:535
-#, fuzzy, php-format
-#| msgid "Failed to get real row count."
+#, php-format
 msgid "Failed to get description of column %s!"
-msgstr "Chyba při čtení skutečného počtu řádek."
+msgstr "Chyba při čtení popisu sloupce %s!"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:771
 #: libraries/classes/Controllers/Table/TableStructureController.php:1067
@@ -6895,17 +6871,12 @@ msgstr ""
 "kompatibilní s phpMyAdminem a může způsobit poškození dat!"
 
 #: libraries/classes/Core.php:1231
-#, fuzzy
-#| msgid ""
-#| "You have enabled mbstring.func_overload in your PHP configuration. This "
-#| "option is incompatible with phpMyAdmin and might cause some data to be "
-#| "corrupted!"
 msgid ""
 "You have disabled ini_get and/or ini_set in php.ini. This option is "
 "incompatible with phpMyAdmin!"
 msgstr ""
-"V nastavení PHP máte zapnuto mbstring.func_overload. Toto nastavení není "
-"kompatibilní s phpMyAdminem a může způsobit poškození dat!"
+"V souboru php.ini máte zakázané použití funkce ini_get nebo ini_set. Toto "
+"nastavení není kompatibilní s phpMyAdminem!"
 
 #: libraries/classes/Core.php:1282
 msgid "GLOBALS overwrite attempt"
@@ -6921,33 +6892,25 @@ msgstr ""
 "Nepodařilo se nahrát pluginy schémata, zkontrolujte prosím vaší instalaci!"
 
 #: libraries/classes/Database/Designer/Common.php:518
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr ""
-"Nastavení úložiště není připraveno pro centrální list sloupcových vlastností."
+"Úložiště nastavení phpMyAdmina není nakonfigurováno pro \"Zobrazení funkcí\"."
 
 #: libraries/classes/Database/Designer/Common.php:565
 msgid "Error: relationship already exists."
 msgstr "Chyba: Vztah již existuje."
 
 #: libraries/classes/Database/Designer/Common.php:611
-#, fuzzy
-#| msgid "FOREIGN KEY relation has been added."
 msgid "FOREIGN KEY relationship has been added."
-msgstr "Relace FOREIGN KEY byla vytvořena."
+msgstr "Byl přidán vztah cizího klíče."
 
 #: libraries/classes/Database/Designer/Common.php:617
-#, fuzzy
-#| msgid "Error: FOREIGN KEY relation could not be added!"
 msgid "Error: FOREIGN KEY relationship could not be added!"
-msgstr "Chyba: Relace cizího klíče nemohla být přidána!"
+msgstr "Chyba: Nelze přidat vztah cizího klíče!"
 
 #: libraries/classes/Database/Designer/Common.php:622
 msgid "Error: Missing index on column(s)."
@@ -6966,16 +6929,12 @@ msgid "Error: Internal relationship could not be added!"
 msgstr "Chyba: Nelze přidat interní vztah!"
 
 #: libraries/classes/Database/Designer/Common.php:693
-#, fuzzy
-#| msgid "FOREIGN KEY relation has been removed."
 msgid "FOREIGN KEY relationship has been removed."
-msgstr "Relace FOREIGN KEY byla odstraněna."
+msgstr "Vztah cizího klíče byl odstraněn."
 
 #: libraries/classes/Database/Designer/Common.php:699
-#, fuzzy
-#| msgid "Error: FOREIGN KEY relation could not be removed!"
 msgid "Error: FOREIGN KEY relationship could not be removed!"
-msgstr "Chyba: Relace FOREGN KEY nemohla být odstraněna!"
+msgstr "Chyba: Vztah cizího klíče nelze odstranit!"
 
 #: libraries/classes/Database/Designer/Common.php:726
 msgid "Error: Internal relationship could not be removed!"
@@ -7104,20 +7063,15 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Slova jsou oddělena mezerou („ “)."
 
 #: libraries/classes/DatabaseInterface.php:1503
-#, fuzzy, php-format
-#| msgid ""
-#| "Unable to use timezone %1$s for server %2$d. Please check your "
-#| "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/"
-#| "em]. phpMyAdmin is currently using the default time zone of the database "
-#| "server."
+#, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
 "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
-"Nelze použít časové pásmo %1$s pro server %2$d. Prosím zkontrolujte vaše "
-"nastavení pro [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin "
-"momentálně používá výchozí časové pásmo databázového serveru."
+"Pro server %2$d nelze použít časové pásmo \"%1$s\". Zkontrolujte prosím "
+"nastavení konfigurace [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
+"phpMyAdmin momentálně používá výchozí časové pásmo databázového serveru."
 
 #: libraries/classes/DatabaseInterface.php:1550
 #, fuzzy
@@ -8113,14 +8067,11 @@ msgid "Edit next row"
 msgstr "Upravit následující řádek"
 
 #: libraries/classes/InsertEdit.php:1884
-#, fuzzy
-#| msgid ""
-#| "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
 msgstr ""
 "Použijte klávesu TAB pro pohyb mezi hodnotami nebo CTRL+šipky po pohyb všemi "
-"směry"
+"směry."
 
 #: libraries/classes/InsertEdit.php:1922
 #: libraries/classes/ReplicationGui.php:552
@@ -8434,10 +8385,8 @@ msgid "Log out"
 msgstr "Odhlásit se"
 
 #: libraries/classes/Navigation/NavigationHeader.php:179
-#, fuzzy
-#| msgid "Dumping data"
 msgid "Empty session data"
-msgstr "Vypisuji data"
+msgstr "Vyprázdnit data relace"
 
 #: libraries/classes/Navigation/NavigationHeader.php:197
 msgid "phpMyAdmin documentation"
@@ -8610,16 +8559,12 @@ msgid "Show me the central list of columns that are not already in this table"
 msgstr "Ukaž mi centrální list sloupců, které ještě nejsou v této tabulce"
 
 #: libraries/classes/Normalization.php:199
-#, fuzzy
-#| msgid ""
-#| "Select a column which can be split into more than one. (on select of 'no "
-#| "such column', it'll move to next step)"
 msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
 msgstr ""
-"Vyberte sloupec, který může být rozdělen do více než jednoho. (při výběru "
-"'žádný ze sloupců', budete přesunuti na další krok)"
+"Vyberte sloupec, který lze rozdělit na více sloupců (výběrem hodnoty 'žádný "
+"ze sloupců' přejdete na další krok)."
 
 #: libraries/classes/Normalization.php:206 normalization.php:19
 msgid "Select one…"
@@ -8746,8 +8691,8 @@ msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
 msgstr ""
-"Žádné dílčí závislosti nejsou možné, protože neexistuje žádný primární "
-"sloupec, protože primární klíč ( %1$s ) se skládá ze všech sloupců v tabulce."
+"Nejsou možné žádné dílčí závislosti, protože neexistuje žádný neprimární "
+"sloupec, jelikož primární klíč ( %1$s ) se skládá ze všech sloupců v tabulce."
 
 #: libraries/classes/Normalization.php:399
 #: libraries/classes/Normalization.php:444
@@ -8798,8 +8743,8 @@ msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr ""
-"Žádné částečné závislosti nelze považovat za primární klíč ( %1$s ), který "
-"obsahuje pouze jeden sloupec."
+"Nejsou možné žádné dílčí závislosti, protože primární klíč ( %1$s ) obsahuje "
+"pouze jeden sloupec."
 
 #: libraries/classes/Normalization.php:468
 #, php-format
@@ -8937,16 +8882,12 @@ msgid "Switch to copied database"
 msgstr "Přepnout na zkopírovanou databázi"
 
 #: libraries/classes/Operations.php:320
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables collations"
-msgstr "Změnit kódování všech sloupců"
+msgstr "Změnit kódování všech tabulek"
 
 #: libraries/classes/Operations.php:326
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables columns collations"
-msgstr "Změnit kódování všech sloupců"
+msgstr "Změnit kódování sloupců všech tabulek"
 
 #: libraries/classes/Operations.php:799
 msgid "Alter table order by"
@@ -10026,18 +9967,6 @@ msgstr ""
 "musí být prázdný."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:28
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/plugins/transformations/output/"
-#| "Text_Plain_External.class.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -10053,9 +9982,9 @@ msgstr ""
 "JEN PRO LINUX: Spustí externí program, na jeho standardní vstup pošle obsah "
 "pole a zobrazí výstup programu. Výchozí je program Tidy, který pěkně "
 "zformátuje HTML. Z bezpečnostních důvodů musíte jména povolených programů "
-"zapsat do souboru libraries/plugins/transformations/output/"
-"Text_Plain_External.class.php. První parametr je číslo programu, který má "
-"být spuštěn a druhý parametr udává parametry tohoto programu. Třetí parametr "
+"zapsat do souboru libraries/classes/Plugins/Transformations/Output/"
+"Text_Plain_External.php. První parametr je číslo programu, který má být "
+"spuštěn a druhý parametr udává parametry tohoto programu. Třetí parametr "
 "určuje, zda mají být ve výstupu nahrazeny HTML entity (např. pro zobrazení "
 "zdrojového kódu HTML) (výchozí je 1, tedy převádět na entity), čtvrtý (při "
 "nastavení na 1) zajistí přidání parametru NOWRAP k vypisovanému textu, čímž "
@@ -10208,10 +10137,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:146
-#, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication Application (2FA)"
-msgstr "Rozšíření pro přihlašování"
+msgstr "Aplikace pro přihlašování (2FA)"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:156
 msgid ""
@@ -10420,25 +10347,24 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Relation.php:2056
-#, fuzzy, php-format
-#| msgid "Missing phpMyAdmin configuration storage tables"
+#, php-format
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
-msgstr "Chybějící tabulky v úložišti nastavení phpMyAdmina"
+msgstr ""
+"%sVytvořit%s databázi s názvem 'phpmyadmin' a nastavit ji jako úložiště "
+"nastavení phpMyAdmina."
 
 #: libraries/classes/Relation.php:2064
-#, fuzzy, php-format
-#| msgid "Missing phpMyAdmin configuration storage tables"
+#, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
-msgstr "Chybějící tabulky v úložišti nastavení phpMyAdmina"
+msgstr "%sVytvořit%s úložiště nastavení phpMyAdmina v aktuální databázi."
 
 #: libraries/classes/Relation.php:2072
-#, fuzzy, php-format
-#| msgid "Missing phpMyAdmin configuration storage tables"
+#, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr "Chybějící tabulky v úložišti nastavení phpMyAdmina"
+msgstr "%sVytvořit%s chybějící tabulky v úložišti nastavení phpMyAdmina."
 
 #: libraries/classes/ReplicationGui.php:58
 #: libraries/classes/ReplicationGui.php:352
@@ -10469,13 +10395,6 @@ msgid "Master configuration"
 msgstr "Nastavení nadřízeného"
 
 #: libraries/classes/ReplicationGui.php:102
-#, fuzzy
-#| msgid ""
-#| "This server is not configured as master server in a replication process. "
-#| "You can choose from either replicating all databases and ignoring certain "
-#| "(useful if you want to replicate majority of databases) or you can choose "
-#| "to ignore all databases by default and allow only certain databases to be "
-#| "replicated. Please select the mode:"
 msgid ""
 "This server is not configured as a master server in a replication process. "
 "You can choose from either replicating all databases and ignoring some of "
@@ -10484,9 +10403,9 @@ msgid ""
 "databases to be replicated. Please select the mode:"
 msgstr ""
 "Tento server není nastaven jako nadřízený v replikačním procesu. Můžete si "
-"vybrat zda replikovat všechny databáze a přeskočit vybrané (vhodné pokud si "
-"přejete replikovat většinu databází) nebo můžete zvolit opačný přístup - jen "
-"vybrat databáze, které chcete synchronizovat. Prosím zvolte požadovaný režim:"
+"vybrat, zda chcete replikovat všechny databáze a některé z nich přeskočit ("
+"vhodné pokud chcete replikovat většinu databází), nebo zvolit opačný přístup "
+"a replikovat pouze vybrané databáze. Zvolte prosím požadovaný režim:"
 
 #: libraries/classes/ReplicationGui.php:111
 msgid "Replicate all databases; Ignore:"
@@ -11414,10 +11333,8 @@ msgid "Allows executing stored routines."
 msgstr "Umožňuje spouštět uložené procedury."
 
 #: libraries/classes/Server/Privileges.php:738
-#, fuzzy
-#| msgid "Requires SSL-encrypted connections."
 msgid "Does not require SSL-encrypted connections."
-msgstr "Požaduje zabezpečené připojení."
+msgstr "Nepožaduje zabezpečené připojení."
 
 #: libraries/classes/Server/Privileges.php:754
 msgid "Requires SSL-encrypted connections."
@@ -11585,10 +11502,8 @@ msgid "Authentication Plugin"
 msgstr "Rozšíření pro přihlašování"
 
 #: libraries/classes/Server/Privileges.php:1735
-#, fuzzy
-#| msgid "Password Hashing:"
 msgid "Password Hashing Method"
-msgstr "Hašovací funkce pro heslo:"
+msgstr "Metoda hašování hesla"
 
 #: libraries/classes/Server/Privileges.php:2025
 #, php-format
@@ -11710,10 +11625,8 @@ msgstr "Vytvořit nového uživatele se stejnými oprávněními a …"
 
 #: libraries/classes/Server/Privileges.php:3366
 #: templates/privileges/edit_routine_privileges.twig:12
-#, fuzzy
-#| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
-msgstr "Oprávnění pro jednotlivá pole"
+msgstr "Oprávnění pro jednotlivé rutiny"
 
 #: libraries/classes/Server/Privileges.php:3562
 #: libraries/classes/Server/UserGroups.php:89
@@ -11796,30 +11709,19 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:4752
-#, fuzzy, php-format
-#| msgid ""
-#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
-#| "privilege tables. The content of these tables may differ from the "
-#| "privileges the server uses, if they have been changed manually. In this "
-#| "case, you should %sreload the privileges%s before you continue."
+#, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
 "server uses, if they have been changed manually. In this case, you should "
 "%sreload the privileges%s before you continue."
 msgstr ""
-"Poznámka: phpMyAdmin získává oprávnění přímo z tabulek MySQL. Obsah těchto "
-"tabulek se může lišit od oprávnění, která server právě používá, pokud byly "
-"tyto tabulky upravovány. V tomto případě je vhodné provést %snové načtení "
-"oprávnění%s před pokračováním."
+"Poznámka: phpMyAdmin získává oprávnění uživatele přímo z tabulek MySQL. "
+"Pokud došlo k ruční úpravě těchto tabulek, může se jejich obsah lišit od "
+"oprávnění, která server právě používá. V tomto případě je před pokračováním "
+"vhodné provést %snové načtení oprávnění%s."
 
 #: libraries/classes/Server/Privileges.php:4769
-#, fuzzy
-#| msgid ""
-#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
-#| "privilege tables. The content of these tables may differ from the "
-#| "privileges the server uses, if they have been changed manually. In this "
-#| "case, you should %sreload the privileges%s before you continue."
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -11827,10 +11729,10 @@ msgid ""
 "privileges have to be reloaded but currently, you don't have the RELOAD "
 "privilege."
 msgstr ""
-"Poznámka: phpMyAdmin získává oprávnění přímo z tabulek MySQL. Obsah těchto "
-"tabulek se může lišit od oprávnění, která server právě používá, pokud byly "
-"tyto tabulky upravovány. V tomto případě je vhodné provést %snové načtení "
-"oprávnění%s před pokračováním."
+"Poznámka: phpMyAdmin získává oprávnění uživatele přímo z tabulek MySQL. "
+"Pokud došlo k ruční úpravě těchto tabulek, může se jejich obsah lišit od "
+"oprávnění, která server právě používá. V tom případě je třeba znovu načíst "
+"oprávnění, k tomu však nemáte dostatečné oprávnění."
 
 #: libraries/classes/Server/Privileges.php:5054
 msgid "You have added a new user."
@@ -12219,16 +12121,12 @@ msgid "Reset to default"
 msgstr "Obnovit na výchozí hodnotu"
 
 #: libraries/classes/Server/Status/Processes.php:33
-#, fuzzy
-#| msgid ""
-#| "Note: Enabling the database statistics here might cause heavy traffic "
-#| "between the web server and the MySQL server."
 msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
 msgstr ""
-"Poznámka: Zobrazení podrobností o databázích může způsobit značné zvýšení "
-"provozu mezi webserverem a MySQL serverem."
+"Poznámka: Pokud zde povolíte automatické obnovování, může to způsobit značné "
+"zvýšení provozu mezi webserverem a MySQL serverem."
 
 #: libraries/classes/Server/Status/Processes.php:65
 msgid "ID"
@@ -14572,17 +14470,13 @@ msgstr "Zakázat dvoufaktorovou autentizaci"
 
 #: templates/table/structure/check_all_table_column.twig:76
 #: templates/table/structure/actions_in_table_structure.twig:131
-#, fuzzy
-#| msgid "CHAR textarea columns"
 msgid "Add to central columns"
-msgstr "Sloupce pro textové oblasti typu CHAR"
+msgstr "Přidat do centrálních sloupců"
 
 #: templates/table/structure/check_all_table_column.twig:83
 #: templates/table/structure/actions_in_table_structure.twig:127
-#, fuzzy
-#| msgid "Remove column(s)"
 msgid "Remove from central columns"
-msgstr "Odstranit pole"
+msgstr "Odstranit z centrálních sloupců"
 
 #: templates/table/tracking/create_version.twig:11
 #, php-format
@@ -14656,16 +14550,12 @@ msgid "File may be compressed (%s) or uncompressed."
 msgstr "Soubor může být komprimovaný (%s) nebo nekomprimovaný."
 
 #: templates/display/import/import.twig:58
-#, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
 msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"Jméno komprimovaného souboru musí končit na <b>.[formát].[komprese]</b>. "
-"Například: <b>.sql.zip</b>"
+"Jméno komprimovaného souboru musí končit na "
+"<strong>.[formát].[komprese]</strong>. Například: <strong>.sql.zip</strong>"
 
 #: templates/display/import/import.twig:69
 #: templates/display/import/import.twig:84
@@ -14694,19 +14584,14 @@ msgstr ""
 "pokračovat od pozice %d."
 
 #: templates/display/import/import.twig:137
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <i>(This might be a good way to import "
-#| "large files, however it can break transactions.)</i>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <em>(This might be a good way to import large "
 "files, however it can break transactions.)</em>"
 msgstr ""
-"Povolit přerušení importu v případě že skript pozná, že se blíží časový "
-"limit nastavený v PHP. <i>(Tímto způsobem můžete importovat i velké soubory, "
-"ale může to způsobit problémy s transakcemi.)</i>"
+"Povolit přerušení importu v případě, že skript pozná, že se blíží časový "
+"limit nastavený v PHP. <em>(Tímto způsobem můžete importovat i velké "
+"soubory, ale může to způsobit problémy s transakcemi.)</em>"
 
 #: templates/display/import/import.twig:144
 msgid "Skip this number of queries (for SQL) starting from the first one:"
@@ -14780,17 +14665,13 @@ msgstr "Okno dotazů"
 
 #: templates/database/multi_table_query/form.twig:33
 #: templates/database/multi_table_query/form.twig:121
-#, fuzzy
-#| msgid "Select table"
 msgid "select table"
-msgstr "Vybrat tabulku"
+msgstr "vyberte tabulku"
 
 #: templates/database/multi_table_query/form.twig:40
 #: templates/database/multi_table_query/form.twig:129
-#, fuzzy
-#| msgid "Select a column."
 msgid "select column"
-msgstr "Zvolte sloupec."
+msgstr "vyberte sloupec"
 
 #: templates/database/multi_table_query/form.twig:46
 msgid "Table alias"
@@ -14901,10 +14782,8 @@ msgstr "Přepnout malé/velké"
 
 #: templates/database/designer/side_menu.twig:146
 #: templates/database/designer/side_menu.twig:149
-#, fuzzy
-#| msgid "Toggle relation lines"
 msgid "Toggle relationship lines"
-msgstr "Přepnout zobrazení relací"
+msgstr "Přepnout zobrazení vztahů"
 
 #: templates/database/designer/side_menu.twig:154
 #: templates/database/designer/side_menu.twig:157
@@ -14999,20 +14878,16 @@ msgstr "používá oddíly"
 
 #: templates/columns_definitions/partitions.twig:76
 #: templates/table/structure/display_partitions.twig:24
-#, fuzzy
-#| msgid "Partitions"
 msgid "Partition"
-msgstr "Oddíly"
+msgstr "Oddíl"
 
 #: templates/columns_definitions/partitions.twig:78
 msgid "Values"
 msgstr "Hodnoty"
 
 #: templates/columns_definitions/partitions.twig:82
-#, fuzzy
-#| msgid "partitioned"
 msgid "Subpartition"
-msgstr "používá oddíly"
+msgstr "Pododdíl"
 
 #: templates/columns_definitions/partitions.twig:84
 #, fuzzy
@@ -15256,22 +15131,16 @@ msgstr "Možnosti transformace při zobrazení"
 
 #: templates/columns_definitions/table_fields_definitions.twig:83
 #: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Zadejte parametry transformací v následujícím tvaru: 'a', 100, b,'c'…<br /"
-">Pokud potřebujete použít zpětné lomítko („\\“) nebo jednoduché uvozovky "
-"(„'“) mezi těmito hodnotami, vložte před ně zpětné lomítko (například '\\"
-"\\xyz' nebo 'a\\'b')."
+"Zadejte parametry transformací v následujícím tvaru: 'a', 100, b,'c'…<br />"
+"Pokud potřebujete mezi těmito hodnotami použít zpětné lomítko („\\“) nebo "
+"jednoduché uvozovky („'“), vložte před ně zpětné lomítko (například '\\\\"
+"xyz' nebo 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:93
 msgid "Input transformation options"
@@ -15371,10 +15240,8 @@ msgid "Is a foreign key."
 msgstr "Jedná se o cizí klíč."
 
 #: templates/columns_definitions/column_name.twig:40
-#, fuzzy
-#| msgid "Remove column(s)"
 msgid "Pick from Central Columns"
-msgstr "Odstranit pole"
+msgstr "Vybrat z centrálních sloupců"
 
 #: templates/display/import/javascript.twig:12
 msgid ""
@@ -15479,10 +15346,9 @@ msgid "See table structure"
 msgstr "Zobrazit strukturu tabulky"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "Vybrat vše"
+msgstr "Vybrat \"%s\""
 
 #: templates/database/designer/database_tables.twig:126
 #, php-format
@@ -15572,8 +15438,6 @@ msgid "Server variables and settings"
 msgstr "Proměnné a nastavení serveru"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Storage engines"
 msgstr "Úložiště"
 
@@ -15742,14 +15606,12 @@ msgid "Replace table prefix"
 msgstr "Změnit tabulce předponu"
 
 #: templates/database/structure/check_all_tables.twig:33
-#, fuzzy
-#| msgid "CHAR textarea columns"
 msgid "Add columns to central list"
-msgstr "Sloupce pro textové oblasti typu CHAR"
+msgstr "Přidat sloupce do centrálního seznamu"
 
 #: templates/database/structure/check_all_tables.twig:34
 msgid "Remove columns from central list"
-msgstr ""
+msgstr "Odstranit sloupce z centrálního seznamu"
 
 #: templates/database/structure/check_all_tables.twig:35
 #, fuzzy
@@ -15810,14 +15672,11 @@ msgstr[1] "%1$s odpovídající záznamy v <strong>%2$s</strong>"
 msgstr[2] "%1$s odpovídajících záznamů v <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Celkem:</b> <i>%s</i> odpovídající záznam"
-msgstr[1] "<b>Celkem:</b> <i>%s</i> odpovídající záznamy"
-msgstr[2] "<b>Celkem:</b> <i>%s</i> odpovídajících záznamů"
+msgstr[0] "<strong>Celkem:</strong> <em>%s</em> odpovídající záznam"
+msgstr[1] "<strong>Celkem:</strong> <em>%s</em> odpovídající záznamy"
+msgstr[2] "<strong>Celkem:</strong> <em>%s</em> odpovídajících záznamů"
 
 #: templates/database/structure/table_header.twig:27
 msgid ""
@@ -15877,10 +15736,8 @@ msgid "No preview available."
 msgstr "Náhled není k dispozici."
 
 #: templates/theme_preview.twig:13
-#, fuzzy
-#| msgid "take it"
 msgid "Take it"
-msgstr "zvolit"
+msgstr "Zvolit"
 
 #: templates/prefs_twofactor.twig:3
 msgid "Two-factor authentication status"
@@ -16284,40 +16141,33 @@ msgid "Define new aliases"
 msgstr "Definovat nové aliasy"
 
 #: templates/export/alias_add.twig:9
-#, fuzzy
-#| msgid "Select database"
 msgid "Select database:"
-msgstr "Zvolte databázi"
+msgstr "Vyberte databázi:"
 
 #: templates/export/alias_add.twig:15
 msgid "New database name"
 msgstr "Nové jméno databáze"
 
 #: templates/export/alias_add.twig:23
-#, fuzzy
-#| msgid "Select table"
 msgid "Select table:"
-msgstr "Vybrat tabulku"
+msgstr "Vyberte tabulku:"
 
 #: templates/export/alias_add.twig:29
 msgid "New table name"
 msgstr "Nové jméno tabulky"
 
 #: templates/export/alias_add.twig:37
-#, fuzzy
-#| msgid "Select a column."
 msgid "Select column:"
-msgstr "Zvolte sloupec."
+msgstr "Vyberte sloupec:"
 
 #: templates/export/alias_add.twig:43
 msgid "New column name"
 msgstr "Nový název sloupce"
 
 #: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create User"
+#, php-format
 msgid "Create %s"
-msgstr "Vytvořit uživatele"
+msgstr "Vytvořit %s"
 
 #: templates/encoding/kanji_encoding_form.twig:6
 msgctxt "None encoding conversion"
@@ -16403,10 +16253,8 @@ msgid "Column-specific privileges"
 msgstr "Oprávnění pro jednotlivá pole"
 
 #: url.php:41
-#, fuzzy
-#| msgid "Taking you to next step…"
 msgid "Taking you to the target site."
-msgstr "Přesměrovávám na další krok…"
+msgstr "Probíhá přesměrování na cílový web."
 
 #: user_password.php:37
 msgid "You don't have sufficient privileges to be here right now!"
@@ -16611,10 +16459,8 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr "Verze starší než 5.5.8 (první GA vydání 5.5)."
 
 #: libraries/advisory_rules_generic.txt:118
-#, fuzzy
-#| msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr "Měli byste aktualizovat na stabilní verzi MySQL 5.5"
+msgstr "Měli byste aktualizovat na stabilní verzi MySQL 5.5."
 
 #: libraries/advisory_rules_generic.txt:121
 #: libraries/advisory_rules_generic.txt:128
@@ -16720,16 +16566,12 @@ msgstr "Příliš mnoho řazení využívá dočasných tabulek."
 
 #: libraries/advisory_rules_generic.txt:158
 #: libraries/advisory_rules_generic.txt:165
-#, fuzzy
-#| msgid ""
-#| "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
-#| "depending on your system memory limits"
 msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits."
 msgstr ""
-"V závislosti na vaší paměti zvažte zvětšení {sort_buffer_size} nebo "
-"{read_rnd_buffer_size}"
+"V závislosti na velikosti operační paměti zvažte zvýšení hodnoty "
+"{sort_buffer_size} nebo {read_rnd_buffer_size}."
 
 #: libraries/advisory_rules_generic.txt:159
 #, php-format
@@ -16761,12 +16603,6 @@ msgid "There are lots of rows being sorted."
 msgstr "Muselo být řazeno příliš mnoho řádek."
 
 #: libraries/advisory_rules_generic.txt:172
-#, fuzzy
-#| msgid ""
-#| "While there is nothing wrong with a high amount of row sorting, you might "
-#| "want to make sure that the queries which require a lot of sorting use "
-#| "indexed columns in the ORDER BY clause, as this will result in much "
-#| "faster sorting"
 msgid ""
 "While there is nothing wrong with a high amount of row sorting, you might "
 "want to make sure that the queries which require a lot of sorting use "
@@ -16774,8 +16610,8 @@ msgid ""
 "sorting."
 msgstr ""
 "Na řazení není nic špatného, ale ujistěte se, že dotazy, které hojně "
-"využívají řazení používají klíče ve frázi ORDER BY, protože toto zajistí "
-"rychlejší řazení"
+"využívají řazení, používají klíče ve frázi ORDER BY, protože to zajistí "
+"mnohem rychlejší řazení."
 
 #: libraries/advisory_rules_generic.txt:173
 #, php-format
@@ -16791,17 +16627,12 @@ msgid "There are too many joins without indexes."
 msgstr "Probíhá příliš mnoho spojení tabulek bez využití klíčů."
 
 #: libraries/advisory_rules_generic.txt:180
-#, fuzzy
-#| msgid ""
-#| "This means that joins are doing full table scans. Adding indexes for the "
-#| "columns being used in the join conditions will greatly speed up table "
-#| "joins"
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins."
 msgstr ""
 "To znamená, že spojení tabulek musí často procházet celou tabulku. Přidáním "
-"klíčů na sloupce použité při slučování můžete tuto operaci značně urychlit"
+"klíčů na sloupce použité při spojování můžete tuto operaci značně urychlit."
 
 #: libraries/advisory_rules_generic.txt:181
 #, php-format
