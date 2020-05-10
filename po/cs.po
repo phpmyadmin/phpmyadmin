@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-04-25 13:24+0200\n"
-"PO-Revision-Date: 2020-05-10 06:14+0000\n"
+"PO-Revision-Date: 2020-05-12 18:28+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/5-0/cs/>"
 "\n"
@@ -1835,8 +1835,8 @@ msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
-"MySQL podporuje i další hodnoty, které se nedají vybrat v kalendáři, ale lze "
-"je zadat přímo"
+"MySQL podporuje i další hodnoty, které se nedají vybrat v kalendáři, ale v "
+"případě potřeby je můžete zadat přímo"
 
 #: js/messages.php:559
 msgid ""
@@ -1873,7 +1873,7 @@ msgstr ""
 
 #: js/messages.php:573
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "prázdná hodnota nebo poddotaz"
 
 #: js/messages.php:574 templates/database/designer/main.twig:42
 #: templates/database/designer/main.twig:45
@@ -3469,10 +3469,8 @@ msgid "Hide table structure actions"
 msgstr "Schovat akce při zobrazení struktury tabulky"
 
 #: libraries/classes/Config/Descriptions.php:154
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Hex"
-msgstr "Výchozí pořadí řazení"
+msgstr "Výchozí transformace pro Hex"
 
 #: libraries/classes/Config/Descriptions.php:155
 #: libraries/classes/Config/Descriptions.php:157
@@ -3491,52 +3489,36 @@ msgstr ""
 "struktury tabulky vyplněna transformace, budou tyto hodnoty přepsány."
 
 #: libraries/classes/Config/Descriptions.php:156
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for Substring"
-msgstr "Parametry vstupní transformace"
+msgstr "Výchozí transformace pro Substring"
 
 #: libraries/classes/Config/Descriptions.php:158
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Bool2Text"
-msgstr "Výchozí pořadí řazení"
+msgstr "Výchozí transformace pro Bool2Text"
 
 #: libraries/classes/Config/Descriptions.php:160
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for External"
-msgstr "Výchozí pořadí řazení"
+msgstr "Výchozí transformace pro External"
 
 #: libraries/classes/Config/Descriptions.php:162
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for PreApPend"
-msgstr "Parametry vstupní transformace"
+msgstr "Výchozí transformace pro PreApPend"
 
 #: libraries/classes/Config/Descriptions.php:164
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for DateFormat"
-msgstr "Výchozí pořadí řazení"
+msgstr "Výchozí transformace pro DateFormat"
 
 #: libraries/classes/Config/Descriptions.php:166
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for Inline"
-msgstr "Parametry vstupní transformace"
+msgstr "Výchozí transformace pro Inline"
 
 #: libraries/classes/Config/Descriptions.php:168
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for TextImageLink"
-msgstr "Parametry vstupní transformace"
+msgstr "Výchozí transformace pro TextImageLink"
 
 #: libraries/classes/Config/Descriptions.php:170
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for TextLink"
-msgstr "Parametry vstupní transformace"
+msgstr "Výchozí transformace pro TextLink"
 
 #: libraries/classes/Config/Descriptions.php:173
 msgid "Show server listing as a list instead of a drop down."
@@ -4472,16 +4454,12 @@ msgid "Maximum tables"
 msgstr "Nejvyšší počet zobrazených tabulek"
 
 #: libraries/classes/Config/Descriptions.php:477
-#, fuzzy
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]0[/kbd] for no limit)."
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"Počet bytů, které si může skript alokovat, např. [kbd]32M[/kbd] ([kbd]-1[/"
-"kbd] pro neomezené a [kbd]0[/kbd] pro žádnou změnu)."
+"Počet bytů, které si může skript alokovat, např. [kbd]32M[/kbd] "
+"([kbd]-1[/kbd] pro neomezené a [kbd]0[/kbd] pro žádnou změnu)."
 
 #: libraries/classes/Config/Descriptions.php:480
 msgid "Memory limit"
@@ -4595,7 +4573,7 @@ msgstr "Řetězec, který rozděluje tabulky do různých pater stromu."
 
 #: libraries/classes/Config/Descriptions.php:514
 msgid "Table tree separator"
-msgstr "Oddělovač tabulkovýho stromu"
+msgstr "Oddělovač tabulkového stromu"
 
 #: libraries/classes/Config/Descriptions.php:515
 msgid "Maximum table tree depth"
@@ -5011,18 +4989,13 @@ msgid "Hide databases matching regular expression (PCRE)."
 msgstr "Skrýt databáze odpovídající regulárnímu výrazu (PCRE)."
 
 #: libraries/classes/Config/Descriptions.php:641
-#, fuzzy
-#| msgid ""
-#| "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#| "bugs/2606/]PMA bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
-#| "Bugs[/a]"
 msgid ""
 "More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Více informací v [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA bug "
-"trackeru[/a] a [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
+"Další informace viz [a@https://github.com/phpmyadmin/phpmyadmin/issues/8970]"
+"phpMyAdmin issue tracker[/a] a [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
 
 #: libraries/classes/Config/Descriptions.php:644
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -6103,31 +6076,19 @@ msgid "You should use SSL connections if your database server supports it."
 msgstr "Měli byste použít SSL připojení, pokud to váš databázový podporuje."
 
 #: libraries/classes/Config/ServerConfigChecks.php:185
-#, fuzzy
-#| msgid ""
-#| "If you feel this is necessary, use additional protection settings - "
-#| "%shost authentication%s settings and %strusted proxies list%s. However, "
-#| "IP-based protection may not be reliable if your IP belongs to an ISP "
-#| "where thousands of users, including you, are connected to."
 msgid ""
 "If you feel this is necessary, use additional protection settings - %1$shost "
 "authentication%2$s settings and %3$strusted proxies list%4%s. However, IP-"
 "based protection may not be reliable if your IP belongs to an ISP where "
 "thousands of users, including you, are connected to."
 msgstr ""
-"Pokud to považujete za nutné, použijte další možnosti zabezpečení - "
-"%somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
-"založené na IP adresách nemusí být spolehlivé, pokud je vaše IP adresa "
-"dynamicky přidělována poskytovatelem spolu s mnoha dalšími uživateli."
+"Pokud to považujete za nutné, použijte další možnosti zabezpečení - %1$"
+"somezení počítačů%2$s a %3$sseznam důvěryhodných proxy%4%s. Nicméně "
+"zabezpečení založené na IP adresách nemusí být spolehlivé, pokud je vaše IP "
+"adresa dynamicky přidělována poskytovatelem spolu s mnoha dalšími uživateli."
 
 #: libraries/classes/Config/ServerConfigChecks.php:212
-#, fuzzy, php-format
-#| msgid ""
-#| "You set the [kbd]config[/kbd] authentication type and included username "
-#| "and password for auto-login, which is not a desirable option for live "
-#| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/"
-#| "kbd] or [kbd]http[/kbd]."
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -6135,10 +6096,10 @@ msgid ""
 "phpMyAdmin panel. Set %1$sauthentication type%2$s to [kbd]cookie[/kbd] or "
 "[kbd]http[/kbd]."
 msgstr ""
-"Nastavil jste typ přihlašování [kbd]config[/kbd] a zadal jste uživatelské "
-"jméno a heslo pro automatické přihlášení, což není doporučená volba pro "
-"produkční servery. Kdokoli kdo zná URL phpMyAdminu může přímo přistoupit k "
-"Vašemu phpMyAdmin panelu. Nastavte %styp přihlašování%s na [kbd]cookie[/kbd] "
+"Nastavili jste typ přihlašování [kbd]config[/kbd] a zadali uživatelské jméno "
+"a heslo pro automatické přihlášení, což není doporučená volba pro produkční "
+"servery. Kdokoli, kdo zná URL phpMyAdmina, může přímo přistoupit k Vašemu "
+"phpMyAdmin panelu. Nastavte %1$styp přihlašování%2$s na [kbd]cookie[/kbd] "
 "nebo [kbd]http[/kbd]."
 
 #: libraries/classes/Config/ServerConfigChecks.php:239
@@ -6182,18 +6143,15 @@ msgstr ""
 "Tajný klíč by měl obsahovat číslice, písmena [em]A[/em] zvláštní znaky."
 
 #: libraries/classes/Config/ServerConfigChecks.php:441
-#, fuzzy, php-format
-#| msgid ""
-#| "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may "
-#| "cause random session invalidation (currently session.gc_maxlifetime is "
-#| "%d)."
+#, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%sPlatnost přihlašovací cookie%s větší než %ssession.gc_maxlifetime%s může "
-"způsobit náhodné ukončení sezení (session.gc_maxlifetime je nastaveno na %d)."
+"%1$sPlatnost přihlašovací cookie%2$s větší než %3$sssession.gc_maxlifetime%4$"
+"s může způsobit náhodné ukončení relace (session.gc_maxlifetime je nastaveno "
+"na %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:465
 #, php-format
@@ -6216,28 +6174,22 @@ msgstr ""
 "nastavena na vyšší hodnotu než je tato."
 
 #: libraries/classes/Config/ServerConfigChecks.php:529
-#, fuzzy, php-format
-#| msgid ""
-#| "%sBzip2 compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sKomprese a dekomprese bzip2%s vyžaduje funkce (%s) které nejsou dostupné "
-"na tomto systému."
+"%1$sKomprese a dekomprese bzip2%2$s vyžaduje funkce (%3$s), které nejsou "
+"dostupné na tomto systému."
 
 #: libraries/classes/Config/ServerConfigChecks.php:561
-#, fuzzy, php-format
-#| msgid ""
-#| "%sGZip compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sGZip komprese a dekomprese%s vyžaduje funkce (%s) které nejsou dostupné na "
-"tomto systému."
+"%1$sKomprese a dekomprese gzip%2$s vyžaduje funkce (%3$s), které nejsou "
+"dostupné na tomto systému."
 
 #: libraries/classes/Config/Validator.php:221
 #: libraries/classes/Config/Validator.php:228
@@ -6293,9 +6245,9 @@ msgstr "Nesprávná IP adresa: %s"
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Zobrazuje se %1$d záložka (soukromá i sdílená)"
+msgstr[1] "Zobrazují se %1$d záložky (soukromé i sdílené)"
+msgstr[2] "Zobrazuje se %1$d záložek (soukromých i sdílených)"
 
 #: libraries/classes/Console.php:109
 msgid "No bookmarks"
@@ -7237,7 +7189,7 @@ msgstr "Nastavení proměnné selhalo"
 
 #: libraries/classes/Controllers/Setup/FormController.php:36 prefs_forms.php:43
 msgid "Incorrect form specified!"
-msgstr ""
+msgstr "Uveden chybný formulář!"
 
 #: libraries/classes/Controllers/Setup/HomeController.php:51
 msgid ""
@@ -9336,6 +9288,8 @@ msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
+"Aby bylo možné převést původní tabulku '%1$s' do druhé normální formy, je "
+"třeba vytvořit následující tabulky:"
 
 #: libraries/classes/Normalization.php:531
 #, php-format
@@ -9354,6 +9308,8 @@ msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
 msgstr ""
+"Aby bylo možné převést původní tabulku '%1$s' do třetí normální formy, je "
+"třeba vytvořit následující tabulky:"
 
 #: libraries/classes/Normalization.php:671
 msgid "The third step of normalization is complete."
@@ -10113,6 +10069,7 @@ msgstr "Přidat příkaz %s"
 #: libraries/classes/Plugins/Export/ExportSql.php:292
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
+"(méně efektivní, protože při vytvoření tabulky se budou generovat klíče)"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:300
 #, php-format
@@ -10229,13 +10186,13 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:543
 msgid "It appears your database uses routines;"
-msgstr ""
+msgstr "Vaše databáze zřejmě využívá rutiny;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:546
 #: libraries/classes/Plugins/Export/ExportSql.php:1596
 #: libraries/classes/Plugins/Export/ExportSql.php:2117
 msgid "alias export may not work reliably in all cases."
-msgstr ""
+msgstr "je možné, že export aliasů v některých případech neproběhne správně."
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1032
 msgid "Metadata"
@@ -10273,7 +10230,7 @@ msgstr "Chyba při čtení struktury tabulky %s:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1593
 msgid "It appears your database uses views;"
-msgstr ""
+msgstr "Vaše databáze zřejmě využívá pohledy;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1769
 msgid "Constraints for dumped tables"
@@ -10320,7 +10277,7 @@ msgstr "Struktura pro pohled %s exportovaná jako tabulka"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2175
 msgid "(See below for the actual view)"
-msgstr ""
+msgstr "(Vlastní pohled viz níže)"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2255
 #, php-format
@@ -10708,6 +10665,8 @@ msgid ""
 "Image upload functionality which also displays a thumbnail. The options are "
 "the width and height of the thumbnail in pixels. Defaults to 100 X 100."
 msgstr ""
+"Funkce nahrání obrázku, která zobrazuje také náhled. Lze zvolit šířku a "
+"výšku náhledu v bodech. Výchozí nastavení je 100 x 100."
 
 #: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:90
 msgid "Image preview here"
@@ -10743,6 +10702,8 @@ msgid ""
 "Validates the string using regular expression and performs insert only if "
 "string matches it. The first option is the Regular Expression."
 msgstr ""
+"Ověří řetězec pomocí regulárního výrazu a provede vložení pouze pokud mu "
+"řetězec odpovídá. První volba je regulární výraz."
 
 #: libraries/classes/Plugins/Transformations/Abs/RegexValidationTransformationsPlugin.php:55
 #, php-format
@@ -10771,6 +10732,8 @@ msgid ""
 "File upload functionality for TEXT columns. It does not have a textarea for "
 "input."
 msgstr ""
+"Funkce nahrání souboru pro sloupce typu TEXT. Neobsahuje textovou oblast pro "
+"vstup."
 
 #: libraries/classes/Plugins/Transformations/Abs/TextImageLinkTransformationsPlugin.php:32
 msgid ""
@@ -10793,19 +10756,19 @@ msgstr ""
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptobinary.php:33
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
-msgstr ""
+msgstr "Převede IP adresu (IPv4/IPv6) do binárního formátu"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:32
 msgid "Syntax highlighted CodeMirror editor for JSON."
-msgstr ""
+msgstr "Editor CodeMirror se zvýrazněním syntaxe pro JSON."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_SqlEditor.php:32
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr ""
+msgstr "Editor CodeMirror se zvýrazněním syntaxe pro SQL."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_XmlEditor.php:32
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
-msgstr ""
+msgstr "Editor CodeMirror se zvýrazněním syntaxe pro XML (a HTML)."
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Binarytoip.php:33
 msgid ""
@@ -10832,10 +10795,12 @@ msgid ""
 "Provides authentication using HOTP and TOTP applications such as FreeOTP, "
 "Google Authenticator or Authy."
 msgstr ""
+"Poskytuje ověření pomocí HOTP a TOTP aplikací jako je FreeOTP, Google "
+"Authenticator nebo Authy."
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:201
 msgid "Hardware Security Key (FIDO U2F)"
-msgstr ""
+msgstr "Hardwarový bezpečnostní klíč (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:211
 msgid ""
@@ -10985,13 +10950,11 @@ msgstr "Ukládání dotazů"
 
 #: libraries/classes/Relation.php:357
 msgid "Managing Central list of columns"
-msgstr ""
+msgstr "Správa centrálního seznamu sloupců"
 
 #: libraries/classes/Relation.php:368
-#, fuzzy
-#| msgid "Remember table's sorting"
 msgid "Remembering Designer Settings"
-msgstr "Pamatovat si řazení u tabulkek"
+msgstr "Zapamatování nastavení návrháře"
 
 #: libraries/classes/Relation.php:379
 msgid "Saving export templates"
@@ -11034,6 +10997,9 @@ msgid ""
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
+"Nemáte potřebná oprávnění k vytvoření databáze s názvem 'phpmyadmin'. "
+"Úložiště nastavení phpMyAdmina můžete nastavit v libovolné databázi na kartě "
+"'Operace'."
 
 #: libraries/classes/Relation.php:2168
 #, php-format
@@ -11060,6 +11026,8 @@ msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
+"Připojení k serveru je zakázáno, povolte prosím $cfg['AllowArbitraryServer'] "
+"v konfiguraci phpMyAdmina."
 
 #: libraries/classes/ReplicationGui.php:432
 msgid "Replication started successfully."
@@ -11484,6 +11452,8 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
+"V databázi %2$s nebyla nalezena žádná rutina s názvem %1$s. Je možné, že "
+"nemáte potřebná oprávnění k úpravě této rutiny."
 
 #: libraries/classes/Rte/Words.php:46
 #, php-format
@@ -11491,6 +11461,8 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to view/export this routine."
 msgstr ""
+"V databázi %2$s nebyla nalezena žádná rutina s názvem %1$s. Je možné, že "
+"nemáte potřebná oprávnění k zobrazení/exportu této rutiny."
 
 #: libraries/classes/Rte/Words.php:49
 #, php-format
@@ -11750,15 +11722,17 @@ msgstr "Vyžaduje platný certifikát X509."
 
 #: libraries/classes/Server/Privileges.php:844
 msgid "Requires that a specific cipher method be used for a connection."
-msgstr ""
+msgstr "Vyžaduje použití specifické metody šifrování pro připojení."
 
 #: libraries/classes/Server/Privileges.php:856
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr ""
+"Vyžaduje předložení platného certifikátu X509 vydaného touto certifikační "
+"autoritou."
 
 #: libraries/classes/Server/Privileges.php:868
 msgid "Requires that a valid X509 certificate with this subject be presented."
-msgstr ""
+msgstr "Vyžaduje předložení platného certifikátu X509 s tímto předmětem."
 
 #: libraries/classes/Server/Privileges.php:897 server_privileges.php:106
 msgid "Limits the number of queries the user may send to the server per hour."
@@ -11794,6 +11768,8 @@ msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
 msgstr ""
+"Umožňuje uživateli přidávat nebo odebírat ostatním uživatelům oprávnění k "
+"této rutině."
 
 #: libraries/classes/Server/Privileges.php:1011
 msgid "Allows altering and dropping this routine."
@@ -11865,6 +11841,8 @@ msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
 msgstr ""
+"Umožňuje uživateli přidávat nebo odebírat ostatním uživatelům oprávnění, "
+"která sám vlastní."
 
 #: libraries/classes/Server/Privileges.php:1567
 #: libraries/classes/Server/Privileges.php:1598
@@ -11872,10 +11850,8 @@ msgid "Native MySQL authentication"
 msgstr "Nativní autentizace MySQL"
 
 #: libraries/classes/Server/Privileges.php:1600
-#, fuzzy
-#| msgid "Signon authentication"
 msgid "SHA256 password authentication"
-msgstr "Přihlašování signon"
+msgstr "Ověřování heslem SHA256"
 
 #: libraries/classes/Server/Privileges.php:1634
 #: libraries/classes/Server/Privileges.php:3275
@@ -12172,6 +12148,7 @@ msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr ""
+"Poznámka: Pokoušíte se upravit práva uživatele, se kterým jste přihlášeni."
 
 #: libraries/classes/Server/Privileges.php:4822
 #: libraries/classes/Server/Users.php:32
@@ -12184,6 +12161,10 @@ msgid ""
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
+"Je k dispozici uživatelský účet umožňující připojení libovolného uživatele z "
+"lokálního hostitele. To zabrání připojení ostatních uživatelů, pokud "
+"nastavení hostitele na jejich účtu umožňuje připojení z libovolného (%) "
+"hostitele."
 
 #: libraries/classes/Server/Privileges.php:4942
 #, php-format
@@ -12195,8 +12176,8 @@ msgid ""
 msgstr ""
 "Poznámka: phpMyAdmin získává oprávnění uživatele přímo z tabulek MySQL. "
 "Pokud došlo k ruční úpravě těchto tabulek, může se jejich obsah lišit od "
-"oprávnění, která server právě používá. V tomto případě je před pokračováním "
-"vhodné provést %snové načtení oprávnění%s."
+"oprávnění, která server právě používá. V tom případě je před pokračováním "
+"vhodné %sznovu načíst oprávnění%s."
 
 #: libraries/classes/Server/Privileges.php:4959
 msgid ""
@@ -12433,7 +12414,7 @@ msgstr "Vyčistit"
 
 #: libraries/classes/SqlQueryForm.php:267
 msgid "Get auto-saved query"
-msgstr ""
+msgstr "Načíst automaticky uložený dotaz"
 
 #: libraries/classes/SqlQueryForm.php:273
 msgid "Bind parameters"
@@ -12461,7 +12442,7 @@ msgstr "Zobrazit zde tento dotaz znovu"
 
 #: libraries/classes/SqlQueryForm.php:376
 msgid "Rollback when finished"
-msgstr ""
+msgstr "Po dokončení vrátit zpět"
 
 #: libraries/classes/SqlQueryForm.php:421
 msgid "shared"
@@ -12984,6 +12965,8 @@ msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
 msgstr ""
+"Ukládá data a umožňuje efektivní přístup k nim v dokumentech JSON ("
+"JavaScript Object Notation)"
 
 #: libraries/classes/Types.php:726
 msgctxt "numeric types"
@@ -13085,12 +13068,12 @@ msgstr "Ned"
 #: libraries/classes/Util.php:1611
 msgctxt "AM/PM indication in time"
 msgid "PM"
-msgstr ""
+msgstr "odp."
 
 #: libraries/classes/Util.php:1613
 msgctxt "AM/PM indication in time"
 msgid "AM"
-msgstr ""
+msgstr "dop."
 
 #: libraries/classes/Util.php:1917
 #, php-format
@@ -13135,19 +13118,19 @@ msgstr "Spustit"
 
 #: libraries/classes/Util.php:4085
 msgid "SSL is not being used"
-msgstr ""
+msgstr "SSL se nepoužívá"
 
 #: libraries/classes/Util.php:4090
 msgid "SSL is used with disabled verification"
-msgstr ""
+msgstr "SSL se používá se zakázaným ověřením"
 
 #: libraries/classes/Util.php:4092
 msgid "SSL is used without certification authority"
-msgstr ""
+msgstr "SSL se používá bez certifikační autority"
 
 #: libraries/classes/Util.php:4095
 msgid "SSL is used"
-msgstr ""
+msgstr "SSL se používá"
 
 #: libraries/classes/Util.php:4198
 msgid "Users"
@@ -13171,6 +13154,8 @@ msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
+"Nepodařilo se nastavit session cookie. Možná pro přístup do phpMyAdmina "
+"používáte protokol HTTP místo HTTPS."
 
 #: libraries/common.inc.php:356
 msgid "Invalid authentication method set in configuration:"
@@ -13295,7 +13280,7 @@ msgstr "ani jeden z výše uvedených"
 
 #: libraries/db_common.inc.php:153 tbl_operations.php:243
 msgid "No collation provided."
-msgstr ""
+msgstr "Není uvedeno kódování."
 
 #: libraries/mult_submits.inc.php:59
 #: templates/database/structure/check_all_tables.twig:2
@@ -13320,7 +13305,7 @@ msgstr "Chybějící tabulky v úložišti nastavení phpMyAdmina"
 
 #: prefs_manage.php:64
 msgid "Paste it to your config.inc.php"
-msgstr ""
+msgstr "Tuto hodnotu vložte do souboru config.inc.php"
 
 #: prefs_manage.php:104
 msgid "Could not import configuration"
@@ -13357,6 +13342,8 @@ msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
 msgstr ""
+"Nezměnilo se uživatelské jméno a název počítače. Chcete-li změnit pouze "
+"heslo, použijte kartu 'Změnit heslo'."
 
 #: setup/index.php:28
 msgid "Configuration already exists, setup is disabled!"
@@ -13369,7 +13356,7 @@ msgstr "Chybná data"
 #: setup/validate.php:37
 #, php-format
 msgid "Wrong data or no validation for %s"
-msgstr ""
+msgstr "Chybná data nebo chybějící ověření pro %s"
 
 #: tbl_create.php:62 tbl_get_field.php:46
 #, php-format
@@ -13411,10 +13398,8 @@ msgid "Tracking of %s is activated."
 msgstr "Je zapnuté sledování %s."
 
 #: tbl_tracking.php:121
-#, fuzzy
-#| msgid "The selected users have been deleted successfully."
 msgid "Tracking versions deleted successfully."
-msgstr "Vybraní uživatelé byli úspěšně odstraněni."
+msgstr "Verze sledování byly úspěšně smazány."
 
 #: tbl_tracking.php:126
 msgid "No versions selected."
@@ -13446,10 +13431,8 @@ msgid "Add"
 msgstr "Přidat"
 
 #: templates/columns_definitions/column_definitions_form.twig:40
-#, fuzzy
-#| msgid "Add column(s)"
 msgid "column(s)"
-msgstr "Přidat pole"
+msgstr "pole"
 
 #: templates/columns_definitions/column_definitions_form.twig:73
 msgid "Collation:"
@@ -13500,10 +13483,8 @@ msgid "after %s"
 msgstr "po %s"
 
 #: templates/columns_definitions/partitions.twig:17
-#, fuzzy
-#| msgid "partitioned"
 msgid "Partition by:"
-msgstr "používá oddíly"
+msgstr "Rozdělit na oddíly podle:"
 
 #: templates/columns_definitions/partitions.twig:32
 #: templates/columns_definitions/partitions.twig:60
@@ -13515,16 +13496,12 @@ msgid "Partitions:"
 msgstr "Oddíly:"
 
 #: templates/columns_definitions/partitions.twig:45
-#, fuzzy
-#| msgid "partitioned"
 msgid "Subpartition by:"
-msgstr "používá oddíly"
+msgstr "Rozdělit na pododdíly podle:"
 
 #: templates/columns_definitions/partitions.twig:65
-#, fuzzy
-#| msgid "partitioned"
 msgid "Subpartitions:"
-msgstr "používá oddíly"
+msgstr "Pododdíly:"
 
 #: templates/columns_definitions/partitions.twig:76
 #: templates/table/structure/display_partitions.twig:24
@@ -13550,10 +13527,8 @@ msgid "Data directory"
 msgstr "Datový adresář"
 
 #: templates/columns_definitions/partitions.twig:87
-#, fuzzy
-#| msgid "Save directory"
 msgid "Index directory"
-msgstr "Adresář pro ukládání"
+msgstr "Adresář klíčů"
 
 #: templates/columns_definitions/partitions.twig:88
 msgid "Max rows"
@@ -13564,10 +13539,8 @@ msgid "Min rows"
 msgstr "Minimální počet řádků"
 
 #: templates/columns_definitions/partitions.twig:90
-#, fuzzy
-#| msgid "Table search"
 msgid "Table space"
-msgstr "Vyhledávání v tabulce"
+msgstr "Tabulkový prostor"
 
 #: templates/columns_definitions/partitions.twig:91
 msgid "Node group"
@@ -13601,7 +13574,7 @@ msgstr ""
 
 #: templates/columns_definitions/table_fields_definitions.twig:59
 msgid "Virtuality"
-msgstr ""
+msgstr "Virtualita"
 
 #: templates/columns_definitions/table_fields_definitions.twig:65
 msgid "Move column"
@@ -13991,8 +13964,6 @@ msgstr "Smazat vztah"
 
 #: templates/database/designer/main.twig:449
 #: templates/database/designer/main.twig:614
-#, fuzzy
-#| msgid "Relation operator"
 msgid "Relationship operator"
 msgstr "Relační operátor"
 
@@ -14099,7 +14070,7 @@ msgstr "Další sloupec"
 
 #: templates/database/multi_table_query/form.twig:144
 msgid "Enter criteria as free text"
-msgstr ""
+msgstr "Zadejte kritéria jako volný text"
 
 #: templates/database/multi_table_query/form.twig:152
 msgid "Remove this column"
@@ -14209,10 +14180,8 @@ msgid "Remove columns from central list"
 msgstr "Odstranit sloupce z centrálního seznamu"
 
 #: templates/database/structure/check_all_tables.twig:35
-#, fuzzy
-#| msgid "CHAR textarea columns"
 msgid "Make consistent with central list"
-msgstr "Sloupce pro textové oblasti typu CHAR"
+msgstr "Uvést do souladu s centrálním seznamem"
 
 #: templates/database/structure/favorite_anchor.twig:4
 msgid "Add to Favorites"
@@ -14414,10 +14383,9 @@ msgid "Save output to a file"
 msgstr "Uložit do souboru"
 
 #: templates/display/export/options_output.twig:51
-#, fuzzy, php-format
-#| msgid "Skip tables larger than"
+#, php-format
 msgid "Skip tables larger than %s MiB"
-msgstr "Přeskočit tabulky větší než"
+msgstr "Přeskočit tabulky větší než %s MiB"
 
 #: templates/display/export/options_rows.twig:2
 msgid "Rows:"
@@ -14506,7 +14474,7 @@ msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"Jméno komprimovaného souboru musí končit na "
+"Název komprimovaného souboru musí končit na "
 "<strong>.[formát].[komprese]</strong>. Například: <strong>.sql.zip</strong>"
 
 #: templates/display/import/import.twig:69
@@ -14650,25 +14618,21 @@ msgid "Convert to Kana"
 msgstr "Převést na Kanu"
 
 #: templates/error/report_form.twig:6
-#, fuzzy
-#| msgid ""
-#| "phpMyAdmin has encountered an error. We have collected data about this "
-#| "error as well as information about relevant configuration settings to "
-#| "send to the phpMyAdmin team to help us in debugging the problem."
 msgid ""
 "This report automatically includes data about the error and information "
 "about relevant configuration settings. It will be sent to the phpMyAdmin "
 "team for debugging the error."
 msgstr ""
-"phpMyAdmin zjistil chybu. Posbírali jsme informace o této chybě a "
-"souvisejících nastavení aby jsme je mohli odeslat vývojářům phpMyAdmina pro "
-"její opravení."
+"Toto hlášení automaticky obsahuje data o chybě a informace o příslušných "
+"nastaveních konfigurace. Budou odeslány vývojářům phpMyAdmina k odladění "
+"chyby."
 
 #: templates/error/report_form.twig:12
 msgid ""
 "Can you tell us the steps leading to this error? It decisively helps in "
 "debugging:"
 msgstr ""
+"Popište prosím kroky, které vedly k této chybě. Velmi to pomůže při ladění:"
 
 #: templates/error/report_form.twig:19
 msgid "You may examine the data in the error report:"
@@ -14891,10 +14855,12 @@ msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
 "device and enter authentication code it generates."
 msgstr ""
+"Naskenujte následující QR kód do aplikace pro dvoufaktorové ověření na vašem "
+"zařízení a zadejte vygenerovaný ověřovací kód."
 
 #: templates/login/twofactor/application_configure.twig:13
 msgid "Secret/key:"
-msgstr ""
+msgstr "Tajný klíč:"
 
 #: templates/login/twofactor/application_configure.twig:16
 #: templates/login/twofactor/application.twig:2
@@ -14922,12 +14888,16 @@ msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm registration on the device."
 msgstr ""
+"Připojte zařízení FIDO U2F k USB portu počítače. Poté na zařízení potvrďte "
+"registraci."
 
 #: templates/login/twofactor/key-https-warning.twig:3
 msgid ""
 "You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
 "most likely refuse to authenticate you."
 msgstr ""
+"Pro přístup k phpMyAdminovi nepoužíváte protokol https, zařízení FIDO U2F "
+"proto velmi pravděpodobně odmítne autentizaci."
 
 #: templates/login/twofactor/key.twig:3
 msgid ""
@@ -15102,19 +15072,21 @@ msgid ""
 "Two-factor authentication is not available, please install optional "
 "dependencies to enable authentication backends."
 msgstr ""
+"Dvoufaktorové ověření není k dispozici. Abyste ho mohli povolit, "
+"nainstalujte prosím volitelné závislosti."
 
 #: templates/preferences/two_factor/main.twig:10
 msgid "Following composer packages are missing:"
-msgstr ""
+msgstr "Chybí následující balíčky composeru:"
 
 #: templates/preferences/two_factor/main.twig:18
 msgid "Two-factor authentication is available and configured for this account."
-msgstr ""
+msgstr "Pro tento účet je dostupné a nastavené dvoufaktorové ověření."
 
 #: templates/preferences/two_factor/main.twig:20
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
-msgstr ""
+msgstr "Pro tento účet je dostupné dvoufaktorové ověření, ale není nastavené."
 
 #: templates/preferences/two_factor/main.twig:24
 msgid ""
@@ -15589,7 +15561,7 @@ msgstr ""
 
 #: templates/server/status/advisor/index.twig:36
 msgid "Not enough privilege to view the advisor."
-msgstr ""
+msgstr "Nedostatečná oprávnění k zobrazení poradce."
 
 #: templates/server/status/base.twig:15
 msgid "Query statistics"
@@ -15860,7 +15832,7 @@ msgstr "#"
 
 #: templates/server/status/queries/index.twig:53
 msgid "Not enough privilege to view query statistics."
-msgstr ""
+msgstr "Nedostatečná oprávnění k zobrazení statistiky dotazů."
 
 #: templates/server/status/status/index.twig:6
 #, php-format
@@ -16131,7 +16103,7 @@ msgstr "Hodnoty Y"
 
 #: templates/table/chart/tbl_chart.twig:113
 msgid "Series names are in a column"
-msgstr ""
+msgstr "Názvy řad jsou ve sloupci"
 
 #: templates/table/chart/tbl_chart.twig:116
 msgid "Series column:"
@@ -16180,7 +16152,7 @@ msgstr "Pokročilé možnosti"
 
 #: templates/table/index_form.twig:52
 msgid "Key block size:"
-msgstr ""
+msgstr "Velikost bloku klíče:"
 
 #: templates/table/index_form.twig:69
 msgid "Index type:"
@@ -16229,6 +16201,9 @@ msgid ""
 "an index on it. Alternatively, you can define an index below, before "
 "creating the foreign key."
 msgstr ""
+"Při vytvoření cizího klíče na sloupci bez klíče se na sloupci automaticky "
+"vytvoří klíč. Případně můžete před vytvořením cizího klíče definovat klíč "
+"níže."
 
 #: templates/table/relation/common_form.twig:23
 msgid ""
@@ -16355,16 +16330,12 @@ msgid "No partitioning defined!"
 msgstr "Není definováno žádné rozdělení!"
 
 #: templates/table/structure/display_partitions.twig:11
-#, fuzzy
-#| msgid "partitioned"
 msgid "Partitioned by:"
-msgstr "používá oddíly"
+msgstr "Rozdělení na oddíly:"
 
 #: templates/table/structure/display_partitions.twig:16
-#, fuzzy
-#| msgid "partitioned"
 msgid "Sub partitioned by:"
-msgstr "používá oddíly"
+msgstr "Rozdělení na pododdíly:"
 
 #: templates/table/structure/display_partitions.twig:29
 msgid "Data length"
@@ -16375,10 +16346,8 @@ msgid "Index length"
 msgstr "Délka klíče"
 
 #: templates/table/structure/display_partitions.twig:135
-#, fuzzy
-#| msgid "partitioned"
 msgid "Partition table"
-msgstr "používá oddíly"
+msgstr "Rozdělit tabulku"
 
 #: templates/table/structure/display_partitions.twig:141
 #: templates/table/structure/partition_definition_form.twig:6
@@ -17382,22 +17351,16 @@ msgid "Slow launch time"
 msgstr "Dlouhá doba spuštění"
 
 #: libraries/advisory_rules_generic.txt:318
-#, fuzzy
-#| msgid "Slow_launch_time is above 2s"
 msgid "Slow_launch_time is above 2s."
-msgstr "Slow_launch_time je nad 2s"
+msgstr "Hodnota slow_launch_time je větší než 2s."
 
 #: libraries/advisory_rules_generic.txt:319
-#, fuzzy
-#| msgid ""
-#| "Set {slow_launch_time} to 1s or 2s to correctly count threads that are "
-#| "slow to launch"
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch."
 msgstr ""
-"Nastavte {slow_launch_time} na 1s nebo 2s pro správné počítání vláken, která "
-"pomalu nabíhají"
+"Pro správné počítání vláken, která se pomalu spouštějí, nastavte hodnotu "
+"{slow_launch_time} na 1s nebo 2s."
 
 #: libraries/advisory_rules_generic.txt:320
 #, php-format
