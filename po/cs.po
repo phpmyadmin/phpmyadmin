@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2020-05-10 19:28+0000\n"
-"Last-Translator: Oldřich Strachota <oldrich.strachota@gmail.com>\n"
+"PO-Revision-Date: 2020-05-10 19:49+0000\n"
+"Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-9/cs/>"
 "\n"
 "Language: cs\n"
@@ -10649,8 +10649,8 @@ msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
-"Připojení na server je zakázáno, povolte, prosím $cfg['AllowArbitraryServer']"
-" v phpMyAdmin konfiguraci."
+"Připojení k serveru je zakázáno, povolte prosím $cfg['AllowArbitraryServer'] "
+"v konfiguraci phpMyAdmina."
 
 #: libraries/classes/ReplicationGui.php:923
 msgid "Replication started successfully."
@@ -11064,6 +11064,8 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
+"V databázi %2$s nebyla nalezena žádná rutina s názvem %1$s. Je možné, že "
+"nemáte potřebná oprávnění k úpravě této rutiny."
 
 #: libraries/classes/Rte/Words.php:44
 #, php-format
@@ -11071,6 +11073,8 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to view/export this routine."
 msgstr ""
+"V databázi %2$s nebyla nalezena žádná rutina s názvem %1$s. Je možné, že "
+"nemáte potřebná oprávnění k zobrazení/exportu této rutiny."
 
 #: libraries/classes/Rte/Words.php:47
 #, php-format
@@ -11330,7 +11334,7 @@ msgstr "Vyžaduje platný certifikát X509."
 
 #: libraries/classes/Server/Privileges.php:793
 msgid "Requires that a specific cipher method be used for a connection."
-msgstr ""
+msgstr "Vyžaduje použití specifické metody šifrování pro připojení."
 
 #: libraries/classes/Server/Privileges.php:806
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
@@ -11374,6 +11378,8 @@ msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
 msgstr ""
+"Umožňuje uživateli přidávat nebo odebírat ostatním uživatelům oprávnění k "
+"této rutině."
 
 #: libraries/classes/Server/Privileges.php:955
 msgid "Allows altering and dropping this routine."
@@ -11435,6 +11441,8 @@ msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
 msgstr ""
+"Umožňuje uživateli přidávat nebo odebírat ostatním uživatelům oprávnění, "
+"která sám vlastní."
 
 #: libraries/classes/Server/Privileges.php:1440
 #: libraries/classes/Server/Privileges.php:1471
@@ -13011,7 +13019,7 @@ msgstr "Vyčistit"
 
 #: libraries/classes/SqlQueryForm.php:254
 msgid "Get auto-saved query"
-msgstr ""
+msgstr "Načíst automaticky uložený dotaz"
 
 #: libraries/classes/SqlQueryForm.php:260
 msgid "Bind parameters"
@@ -13035,7 +13043,7 @@ msgstr "Zobrazit zde tento dotaz znovu"
 
 #: libraries/classes/SqlQueryForm.php:363
 msgid "Rollback when finished"
-msgstr ""
+msgstr "Po dokončení vrátit zpět"
 
 #: libraries/classes/SqlQueryForm.php:410
 msgid "shared"
@@ -14010,6 +14018,8 @@ msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
 msgstr ""
+"Nezměnilo se uživatelské jméno a název počítače. Chcete-li změnit pouze "
+"heslo, použijte kartu 'Změnit heslo'."
 
 #: server_status.php:35
 msgid "Not enough privilege to view server status."
@@ -14017,7 +14027,7 @@ msgstr "Nedostatečná oprávnění k zobrazení stavu serveru."
 
 #: server_status_advisor.php:33
 msgid "Not enough privilege to view the advisor."
-msgstr ""
+msgstr "Nedostatečná oprávnění k zobrazení poradce."
 
 #: server_status_processes.php:33
 #, php-format
@@ -14034,7 +14044,7 @@ msgstr ""
 
 #: server_status_queries.php:43
 msgid "Not enough privilege to view query statistics."
-msgstr ""
+msgstr "Nedostatečná oprávnění k zobrazení statistiky dotazů."
 
 #: server_status_variables.php:52
 msgid "Not enough privilege to view status variables."
@@ -14220,7 +14230,7 @@ msgstr "Chybná data"
 #: setup/validate.php:32
 #, php-format
 msgid "Wrong data or no validation for %s"
-msgstr ""
+msgstr "Chybná data nebo chybějící ověření pro %s"
 
 #: tbl_create.php:36 tbl_get_field.php:31
 #, php-format
