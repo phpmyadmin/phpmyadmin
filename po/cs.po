@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2020-05-10 06:14+0000\n"
+"PO-Revision-Date: 2020-05-10 19:28+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-9/cs/>"
 "\n"
@@ -4793,16 +4793,12 @@ msgid "Maximum tables"
 msgstr "Nejvyšší počet zobrazených tabulek"
 
 #: libraries/classes/Config/Descriptions.php:762
-#, fuzzy
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]0[/kbd] for no limit)."
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"Počet bytů, které si může skript alokovat, např. [kbd]32M[/kbd] ([kbd]-1[/"
-"kbd] pro neomezené a [kbd]0[/kbd] pro žádnou změnu)."
+"Počet bytů, které si může skript alokovat, např. [kbd]32M[/kbd] "
+"([kbd]-1[/kbd] pro neomezené a [kbd]0[/kbd] pro žádnou změnu)."
 
 #: libraries/classes/Config/Descriptions.php:766
 msgid "Memory limit"
@@ -6356,31 +6352,19 @@ msgid "You should use SSL connections if your database server supports it."
 msgstr "Měli byste použít SSL připojení, pokud to váš databázový podporuje."
 
 #: libraries/classes/Config/ServerConfigChecks.php:176
-#, fuzzy
-#| msgid ""
-#| "If you feel this is necessary, use additional protection settings - "
-#| "%shost authentication%s settings and %strusted proxies list%s. However, "
-#| "IP-based protection may not be reliable if your IP belongs to an ISP "
-#| "where thousands of users, including you, are connected to."
 msgid ""
 "If you feel this is necessary, use additional protection settings - %1$shost "
 "authentication%2$s settings and %3$strusted proxies list%4%s. However, IP-"
 "based protection may not be reliable if your IP belongs to an ISP where "
 "thousands of users, including you, are connected to."
 msgstr ""
-"Pokud to považujete za nutné, použijte další možnosti zabezpečení - "
-"%somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
-"založené na IP adresách nemusí být spolehlivé, pokud je vaše IP adresa "
-"dynamicky přidělována poskytovatelem spolu s mnoha dalšími uživateli."
+"Pokud to považujete za nutné, použijte další možnosti zabezpečení - %1$"
+"somezení počítačů%2$s a %3$sseznam důvěryhodných proxy%4%s. Nicméně "
+"zabezpečení založené na IP adresách nemusí být spolehlivé, pokud je vaše IP "
+"adresa dynamicky přidělována poskytovatelem spolu s mnoha dalšími uživateli."
 
 #: libraries/classes/Config/ServerConfigChecks.php:203
-#, fuzzy, php-format
-#| msgid ""
-#| "You set the [kbd]config[/kbd] authentication type and included username "
-#| "and password for auto-login, which is not a desirable option for live "
-#| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/"
-#| "kbd] or [kbd]http[/kbd]."
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -6388,10 +6372,10 @@ msgid ""
 "phpMyAdmin panel. Set %1$sauthentication type%2$s to [kbd]cookie[/kbd] or "
 "[kbd]http[/kbd]."
 msgstr ""
-"Nastavil jste typ přihlašování [kbd]config[/kbd] a zadal jste uživatelské "
-"jméno a heslo pro automatické přihlášení, což není doporučená volba pro "
-"produkční servery. Kdokoli kdo zná URL phpMyAdminu může přímo přistoupit k "
-"Vašemu phpMyAdmin panelu. Nastavte %styp přihlašování%s na [kbd]cookie[/kbd] "
+"Nastavili jste typ přihlašování [kbd]config[/kbd] a zadali uživatelské jméno "
+"a heslo pro automatické přihlášení, což není doporučená volba pro produkční "
+"servery. Kdokoli, kdo zná URL phpMyAdmina, může přímo přistoupit k Vašemu "
+"phpMyAdmin panelu. Nastavte %1$styp přihlašování%2$s na [kbd]cookie[/kbd] "
 "nebo [kbd]http[/kbd]."
 
 #: libraries/classes/Config/ServerConfigChecks.php:230
@@ -6435,18 +6419,15 @@ msgstr ""
 "Tajný klíč by měl obsahovat číslice, písmena [em]A[/em] zvláštní znaky."
 
 #: libraries/classes/Config/ServerConfigChecks.php:418
-#, fuzzy, php-format
-#| msgid ""
-#| "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may "
-#| "cause random session invalidation (currently session.gc_maxlifetime is "
-#| "%d)."
+#, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%sPlatnost přihlašovací cookie%s větší než %ssession.gc_maxlifetime%s může "
-"způsobit náhodné ukončení sezení (session.gc_maxlifetime je nastaveno na %d)."
+"%1$sPlatnost přihlašovací cookie%2$s větší než %3$sssession.gc_maxlifetime%4$"
+"s může způsobit náhodné ukončení relace (session.gc_maxlifetime je nastaveno "
+"na %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:442
 #, php-format
@@ -6469,28 +6450,22 @@ msgstr ""
 "nastavena na vyšší hodnotu než je tato."
 
 #: libraries/classes/Config/ServerConfigChecks.php:506
-#, fuzzy, php-format
-#| msgid ""
-#| "%sBzip2 compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sKomprese a dekomprese bzip2%s vyžaduje funkce (%s) které nejsou dostupné "
-"na tomto systému."
+"%1$sKomprese a dekomprese bzip2%2$s vyžaduje funkce (%3$s), které nejsou "
+"dostupné na tomto systému."
 
 #: libraries/classes/Config/ServerConfigChecks.php:538
-#, fuzzy, php-format
-#| msgid ""
-#| "%sGZip compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sGZip komprese a dekomprese%s vyžaduje funkce (%s) které nejsou dostupné na "
-"tomto systému."
+"%1$sKomprese a dekomprese gzip%2$s vyžaduje funkce (%3$s), které nejsou "
+"dostupné na tomto systému."
 
 #: libraries/classes/Config/Validator.php:214
 #: libraries/classes/Config/Validator.php:221
@@ -9486,6 +9461,7 @@ msgstr "Přidat příkaz %s"
 #: libraries/classes/Plugins/Export/ExportSql.php:290
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
+"(méně efektivní, protože při vytvoření tabulky se budou generovat klíče)"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:298
 #, php-format
@@ -9584,13 +9560,13 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:520
 msgid "It appears your database uses routines;"
-msgstr ""
+msgstr "Vaše databáze zřejmě využívá rutiny;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:523
 #: libraries/classes/Plugins/Export/ExportSql.php:1550
 #: libraries/classes/Plugins/Export/ExportSql.php:2072
 msgid "alias export may not work reliably in all cases."
-msgstr ""
+msgstr "je možné, že export aliasů v některých případech neproběhne správně."
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1010
 msgid "Metadata"
@@ -9628,7 +9604,7 @@ msgstr "Chyba při čtení struktury tabulky %s:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1547
 msgid "It appears your database uses views;"
-msgstr ""
+msgstr "Vaše databáze zřejmě využívá pohledy;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1724
 msgid "Constraints for dumped tables"
@@ -10078,6 +10054,8 @@ msgid ""
 "File upload functionality for TEXT columns. It does not have a textarea for "
 "input."
 msgstr ""
+"Funkce nahrání souboru pro sloupce typu TEXT. Neobsahuje textovou oblast pro "
+"vstup."
 
 #: libraries/classes/Plugins/Transformations/Abs/TextImageLinkTransformationsPlugin.php:33
 msgid ""
@@ -10104,15 +10082,15 @@ msgstr ""
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:30
 msgid "Syntax highlighted CodeMirror editor for JSON."
-msgstr ""
+msgstr "Editor CodeMirror se zvýrazněním syntaxe pro JSON."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_SqlEditor.php:30
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr ""
+msgstr "Editor CodeMirror se zvýrazněním syntaxe pro SQL."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_XmlEditor.php:30
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
-msgstr ""
+msgstr "Editor CodeMirror se zvýrazněním syntaxe pro XML (a HTML)."
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Binarytoip.php:30
 msgid ""
@@ -10135,6 +10113,7 @@ msgid ""
 "The gd PHP extension was not found. The QRcode can not be displayed without "
 "the gd PHP extension."
 msgstr ""
+"Nebylo nalezeno rozšíření PHP gd. Bez tohoto rozšíření nelze QRcode zobrazit."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:146
 msgid "Authentication Application (2FA)"
@@ -10296,13 +10275,11 @@ msgstr "Ukládání dotazů"
 
 #: libraries/classes/Relation.php:340
 msgid "Managing Central list of columns"
-msgstr ""
+msgstr "Správa centrálního seznamu sloupců"
 
 #: libraries/classes/Relation.php:351
-#, fuzzy
-#| msgid "Remember table's sorting"
 msgid "Remembering Designer Settings"
-msgstr "Pamatovat si řazení u tabulkek"
+msgstr "Zapamatování nastavení návrháře"
 
 #: libraries/classes/Relation.php:362
 msgid "Saving export templates"
@@ -10345,6 +10322,9 @@ msgid ""
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
+"Nemáte potřebná oprávnění k vytvoření databáze s názvem 'phpmyadmin'. "
+"Úložiště nastavení phpMyAdmina můžete nastavit v libovolné databázi na kartě "
+"'Operace'."
 
 #: libraries/classes/Relation.php:2056
 #, php-format
@@ -14271,10 +14251,8 @@ msgid "Tracking of %s is activated."
 msgstr "Je zapnuté sledování %s."
 
 #: tbl_tracking.php:103
-#, fuzzy
-#| msgid "The selected users have been deleted successfully."
 msgid "Tracking versions deleted successfully."
-msgstr "Vybraní uživatelé byli úspěšně odstraněni."
+msgstr "Verze sledování byly úspěšně smazány."
 
 #: tbl_tracking.php:108
 msgid "No versions selected."
@@ -14340,19 +14318,14 @@ msgid "disabled"
 msgstr "vypnuto"
 
 #: templates/error/report_form.twig:6
-#, fuzzy
-#| msgid ""
-#| "phpMyAdmin has encountered an error. We have collected data about this "
-#| "error as well as information about relevant configuration settings to "
-#| "send to the phpMyAdmin team to help us in debugging the problem."
 msgid ""
 "This report automatically includes data about the error and information "
 "about relevant configuration settings. It will be sent to the phpMyAdmin "
 "team for debugging the error."
 msgstr ""
-"phpMyAdmin zjistil chybu. Posbírali jsme informace o této chybě a "
-"souvisejících nastavení aby jsme je mohli odeslat vývojářům phpMyAdmina pro "
-"její opravení."
+"Toto hlášení automaticky obsahuje data o chybě a informace o příslušných "
+"nastaveních konfigurace. Budou odeslány vývojářům phpMyAdmina k odladění "
+"chyby."
 
 #: templates/error/report_form.twig:12
 msgid ""
@@ -14914,10 +14887,8 @@ msgid "Min rows"
 msgstr "Minimální počet řádků"
 
 #: templates/columns_definitions/partitions.twig:90
-#, fuzzy
-#| msgid "Table search"
 msgid "Table space"
-msgstr "Vyhledávání v tabulce"
+msgstr "Tabulkový prostor"
 
 #: templates/columns_definitions/partitions.twig:91
 msgid "Node group"
@@ -15614,10 +15585,8 @@ msgid "Remove columns from central list"
 msgstr "Odstranit sloupce z centrálního seznamu"
 
 #: templates/database/structure/check_all_tables.twig:35
-#, fuzzy
-#| msgid "CHAR textarea columns"
 msgid "Make consistent with central list"
-msgstr "Sloupce pro textové oblasti typu CHAR"
+msgstr "Uvést do souladu s centrálním seznamem"
 
 #: templates/database/designer/options_panel.twig:34
 #: templates/database/designer/options_panel.twig:199
@@ -15935,10 +15904,9 @@ msgid "Save output to a file"
 msgstr "Uložit do souboru"
 
 #: templates/display/export/options_output.twig:51
-#, fuzzy, php-format
-#| msgid "Skip tables larger than"
+#, php-format
 msgid "Skip tables larger than %s MiB"
-msgstr "Přeskočit tabulky větší než"
+msgstr "Přeskočit tabulky větší než %s MiB"
 
 #: templates/table/structure/display_structure.twig:194
 #: templates/table/structure/display_partitions.twig:4
@@ -15994,10 +15962,8 @@ msgid "Table name"
 msgstr "Jméno tabulky"
 
 #: templates/columns_definitions/column_definitions_form.twig:40
-#, fuzzy
-#| msgid "Add column(s)"
 msgid "column(s)"
-msgstr "Přidat pole"
+msgstr "pole"
 
 #: templates/columns_definitions/column_definitions_form.twig:74
 msgid "Collation:"
@@ -17062,16 +17028,12 @@ msgid "Slow_launch_time is above 2s."
 msgstr "Slow_launch_time je nad 2s"
 
 #: libraries/advisory_rules_generic.txt:319
-#, fuzzy
-#| msgid ""
-#| "Set {slow_launch_time} to 1s or 2s to correctly count threads that are "
-#| "slow to launch"
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch."
 msgstr ""
 "Nastavte {slow_launch_time} na 1s nebo 2s pro správné počítání vláken, která "
-"pomalu nabíhají"
+"pomalu nabíhají."
 
 #: libraries/advisory_rules_generic.txt:320
 #, php-format
