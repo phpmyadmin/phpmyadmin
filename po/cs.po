@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2020-05-10 19:58+0000\n"
-"Last-Translator: Oldřich Strachota <oldrich.strachota@gmail.com>\n"
+"PO-Revision-Date: 2020-05-11 19:40+0000\n"
+"Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-9/cs/>"
 "\n"
 "Language: cs\n"
@@ -2252,8 +2252,8 @@ msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
-"MySQL podporuje i další hodnoty, které se nedají vybrat v kalendáři, ale lze "
-"je zadat přímo"
+"MySQL podporuje i další hodnoty, které se nedají vybrat v kalendáři, ale v "
+"případě potřeby je můžete zadat přímo"
 
 #: js/messages.php:550
 msgid ""
@@ -4912,7 +4912,7 @@ msgstr "Řetězec, který rozděluje tabulky do různých pater stromu."
 
 #: libraries/classes/Config/Descriptions.php:825
 msgid "Table tree separator"
-msgstr "Oddělovač tabulkovýho stromu"
+msgstr "Oddělovač tabulkového stromu"
 
 #: libraries/classes/Config/Descriptions.php:827
 msgid "Maximum table tree depth"
@@ -8727,6 +8727,8 @@ msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
+"Aby bylo možné převést původní tabulku '%1$s' do druhé normální formy, je "
+"třeba vytvořit následující tabulky:"
 
 #: libraries/classes/Normalization.php:505
 #, php-format
@@ -8745,6 +8747,8 @@ msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
 msgstr ""
+"Aby bylo možné převést původní tabulku '%1$s' do třetí normální formy, je "
+"třeba vytvořit následující tabulky:"
 
 #: libraries/classes/Normalization.php:639
 msgid "The third step of normalization is complete."
@@ -8770,6 +8774,10 @@ msgid ""
 "value of the column.<br />Note: A column may have no transitive dependency, "
 "in that case you don't have to select any."
 msgstr ""
+"Pro každý z níže uvedených sloupců vyberte <b>minimální množinu</b> sloupců "
+"z dané množiny, jejichž kombinované hodnoty jsou dostačující k určení "
+"hodnoty tohoto sloupce.<br />Poznámka: Sloupec nemusí mít žádnou tranzitivní "
+"závislost, v tom případě nemusíte vybírat žádné sloupce."
 
 #: libraries/classes/Normalization.php:849
 msgid ""
@@ -9649,7 +9657,7 @@ msgstr "Struktura pro pohled %s exportovaná jako tabulka"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2130
 msgid "(See below for the actual view)"
-msgstr ""
+msgstr "(Vlastní pohled viz níže)"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2210
 #, php-format
@@ -9991,6 +9999,8 @@ msgid ""
 "Image upload functionality which also displays a thumbnail. The options are "
 "the width and height of the thumbnail in pixels. Defaults to 100 X 100."
 msgstr ""
+"Funkce nahrání obrázku, která zobrazuje také náhled. Lze zvolit šířku a "
+"výšku náhledu v bodech. Výchozí nastavení je 100 x 100."
 
 #: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:87
 msgid "Image preview here"
@@ -10026,6 +10036,8 @@ msgid ""
 "Validates the string using regular expression and performs insert only if "
 "string matches it. The first option is the Regular Expression."
 msgstr ""
+"Ověří řetězec pomocí regulárního výrazu a provede vložení pouze pokud mu "
+"řetězec odpovídá. První volba je regulární výraz."
 
 #: libraries/classes/Plugins/Transformations/Abs/RegexValidationTransformationsPlugin.php:52
 #, php-format
@@ -11339,10 +11351,12 @@ msgstr "Vyžaduje použití specifické metody šifrování pro připojení."
 #: libraries/classes/Server/Privileges.php:806
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr ""
+"Vyžaduje předložení platného certifikátu X509 vydaného touto certifikační "
+"autoritou."
 
 #: libraries/classes/Server/Privileges.php:819
 msgid "Requires that a valid X509 certificate with this subject be presented."
-msgstr ""
+msgstr "Vyžaduje předložení platného certifikátu X509 s tímto předmětem."
 
 #: libraries/classes/Server/Privileges.php:849 server_privileges.php:91
 msgid "Limits the number of queries the user may send to the server per hour."
@@ -11450,10 +11464,8 @@ msgid "Native MySQL authentication"
 msgstr "Nativní autentizace MySQL"
 
 #: libraries/classes/Server/Privileges.php:1473
-#, fuzzy
-#| msgid "Signon authentication"
 msgid "SHA256 password authentication"
-msgstr "Přihlašování signon"
+msgstr "Ověřování heslem SHA256"
 
 #: libraries/classes/Server/Privileges.php:1507
 #: libraries/classes/Server/Privileges.php:3122
@@ -11700,6 +11712,10 @@ msgid ""
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
+"Je k dispozici uživatelský účet umožňující připojení libovolného uživatele z "
+"lokálního hostitele. To zabrání připojení ostatních uživatelů, pokud "
+"nastavení hostitele na jejich účtu umožňuje připojení z libovolného (%) "
+"hostitele."
 
 #: libraries/classes/Server/Privileges.php:4752
 #, php-format
@@ -11711,8 +11727,8 @@ msgid ""
 msgstr ""
 "Poznámka: phpMyAdmin získává oprávnění uživatele přímo z tabulek MySQL. "
 "Pokud došlo k ruční úpravě těchto tabulek, může se jejich obsah lišit od "
-"oprávnění, která server právě používá. V tomto případě je před pokračováním "
-"vhodné provést %snové načtení oprávnění%s."
+"oprávnění, která server právě používá. V tom případě je před pokračováním "
+"vhodné %sznovu načíst oprávnění%s."
 
 #: libraries/classes/Server/Privileges.php:4769
 msgid ""
@@ -13583,6 +13599,8 @@ msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
 msgstr ""
+"Ukládá data a umožňuje efektivní přístup k nim v dokumentech JSON ("
+"JavaScript Object Notation)"
 
 #: libraries/classes/Types.php:718
 msgctxt "numeric types"
@@ -14543,7 +14561,7 @@ msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"Jméno komprimovaného souboru musí končit na "
+"Název komprimovaného souboru musí končit na "
 "<strong>.[formát].[komprese]</strong>. Například: <strong>.sql.zip</strong>"
 
 #: templates/display/import/import.twig:69
@@ -14860,10 +14878,8 @@ msgid "Subpartition by:"
 msgstr "používá oddíly"
 
 #: templates/columns_definitions/partitions.twig:65
-#, fuzzy
-#| msgid "partitioned"
 msgid "Subpartitions:"
-msgstr "používá oddíly"
+msgstr "Pododdíly:"
 
 #: templates/columns_definitions/partitions.twig:76
 #: templates/table/structure/display_partitions.twig:24
@@ -15074,12 +15090,6 @@ msgid "Delete relationship"
 msgstr "Smazat vztah"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
-#| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
@@ -15087,8 +15097,8 @@ msgid ""
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Pokud je pole typu „enum“ nebo „set“, zadávejte hodnoty v následujícím "
-"formátu: 'a','b','c'…<br />Pokud potřebujete zadat zpětné lomítko („\\“) "
-"nebo jednoduché uvozovky („'“) mezi těmito hodnotami, napište před ně zpětné "
+"formátu: 'a','b','c'…<br />Potřebujete-li mezi těmito hodnotami zadat zpětné "
+"lomítko („\\“) nebo jednoduché uvozovky („'“), napište před ně zpětné "
 "lomítko (příklad: '\\\\xyz' nebo 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
@@ -15747,12 +15757,12 @@ msgstr "Chybí následující balíčky composeru:"
 
 #: templates/prefs_twofactor.twig:18
 msgid "Two-factor authentication is available and configured for this account."
-msgstr "Pro tento účet je dvoufaktorové ověření dostupné a nakonfigurované."
+msgstr "Pro tento účet je dostupné a nastavené dvoufaktorové ověření."
 
 #: templates/prefs_twofactor.twig:20
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
-msgstr ""
+msgstr "Pro tento účet je dostupné dvoufaktorové ověření, ale není nastavené."
 
 #: templates/prefs_twofactor.twig:24
 msgid ""
@@ -17045,18 +17055,16 @@ msgid "Slow launch time"
 msgstr "Dlouhá doba spuštění"
 
 #: libraries/advisory_rules_generic.txt:318
-#, fuzzy
-#| msgid "Slow_launch_time is above 2s"
 msgid "Slow_launch_time is above 2s."
-msgstr "Slow_launch_time je nad 2s"
+msgstr "Hodnota slow_launch_time je větší než 2s."
 
 #: libraries/advisory_rules_generic.txt:319
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch."
 msgstr ""
-"Nastavte {slow_launch_time} na 1s nebo 2s pro správné počítání vláken, která "
-"pomalu nabíhají."
+"Pro správné počítání vláken, která se pomalu spouštějí, nastavte hodnotu "
+"{slow_launch_time} na 1s nebo 2s."
 
 #: libraries/advisory_rules_generic.txt:320
 #, php-format
