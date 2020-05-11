@@ -101,8 +101,8 @@ class CreateRemoveUserTest extends TestBase
             "(//input[@name='selected_usr[]'])[@value='" . $temp . "']"
         )->click();
 
-        $this->scrollIntoView('fieldset_delete_user_footer');
-        $this->byId('checkbox_drop_users_db')->click();
+        $this->scrollIntoView('deleteUserCard');
+        $this->byId('dropUsersDbCheckbox')->click();
 
         $this->byId('buttonGo')->click();
         $this->waitForElement('cssSelector', 'button.submitOK')->click();
