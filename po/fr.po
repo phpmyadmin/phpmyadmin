@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-05-11 23:02+0200\n"
-"PO-Revision-Date: 2020-05-04 05:11+0000\n"
+"PO-Revision-Date: 2020-05-12 18:28+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
@@ -5356,14 +5356,12 @@ msgid "Private key for reCaptcha"
 msgstr "Clé privée pour reCaptcha"
 
 #: libraries/classes/Config/Descriptions.php:901
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter your siteverify URL for your reCaptcha service."
-msgstr "Saisir la clé privée du service reCaptcha pour ce domaine."
+msgstr "Clé privée du service reCaptcha pour \"siteverify\"."
 
 #: libraries/classes/Config/Descriptions.php:902
 msgid "URL for reCaptcha siteverify"
-msgstr ""
+msgstr "URL pour reCaptcha \"siteverify\""
 
 #: libraries/classes/Config/Descriptions.php:904
 msgid "Choose the default action when sending error reports."
@@ -9193,11 +9191,11 @@ msgstr "SSL est utilisé"
 
 #: libraries/classes/Html/Generator.php:453
 msgid "The PHP function password_hash() with default options."
-msgstr ""
+msgstr "La fonction PHP password_hash() avec les options par défaut."
 
 #: libraries/classes/Html/Generator.php:454
 msgid "password_hash() PHP function"
-msgstr ""
+msgstr "La fonction PHP password_hash()"
 
 #: libraries/classes/Html/Generator.php:755
 msgid "Skip Explain SQL"
