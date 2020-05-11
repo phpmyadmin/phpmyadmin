@@ -13,14 +13,6 @@ install:
   - composer install --no-interaction
   - yarn install --non-interactive
 
-before_script:
-  - export TESTSUITE_PASSWORD=`openssl rand -base64 30`
-  - export TESTSUITE_BROWSERSTACK_KEY=`echo cHlDcHJTNmZwZjVlaUR2RmV6VkU= | base64 --decode`
-  - mysql -uroot -e "CREATE DATABASE IF NOT EXISTS test"
-  - mysql -uroot < sql/create_tables.sql
-  - mysql -uroot -e "SET PASSWORD = PASSWORD('$TESTSUITE_PASSWORD')"
-  - ./test/start-local-server
-
 script:
   - ./scripts/generate-mo --quiet
   - ./vendor/bin/phpunit --configuration phpunit.xml.dist --exclude-group selenium
@@ -29,7 +21,6 @@ after_script:
   - if [ -f php.log ] ; then cat php.log ; fi
   - if [ -f nginx-error.log ] ; then cat nginx-error.log ; fi
   - if [ -f config.inc.php ] ; then rm -rf config.inc.php; fi
-  - if [ "$CI_MODE" = "selenium" ] ; then ~/browserstack/BrowserStackLocal --daemon stop; fi
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
@@ -213,13 +204,21 @@ jobs:
         - TESTSUITE_SELENIUM_BROWSER=chrome
         - TESTSUITE_USER=root
         - TESTSUITE_URL=http://127.0.0.1:8000
+      before_script:
+        - export TESTSUITE_PASSWORD=`openssl rand -base64 30`
+        - mysql -uroot -e "CREATE DATABASE IF NOT EXISTS test"
+        - mysql -uroot < sql/create_tables.sql
+        - mysql -uroot -e "SET PASSWORD = PASSWORD('$TESTSUITE_PASSWORD')"
+        - ./test/start-local-server
+      after_script:
+        - ~/browserstack/BrowserStackLocal --daemon stop
       before_install: phpenv config-rm xdebug.ini
       install:
         - nvm install 10
         - ./test/install-browserstack
         - composer install --no-interaction
         - yarn install --non-interactive
-        - echo -e "<?php\n\$cfg['UploadDir'] = './test/test_data/';" > config.inc.php
+        - cp test/config.e2e.inc.php config.inc.php
       script: ./vendor/bin/phpunit --configuration phpunit.xml.nocoverage --group selenium --verbose --debug
       addons:
         apt:
