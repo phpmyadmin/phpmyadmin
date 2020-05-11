@@ -108,6 +108,14 @@ class EventsTest extends TestBase
         $proc = 'UPDATE ' . $this->database_name . '.`test_table` SET val=val+1';
         $this->typeInTextArea($proc);
 
+        $action = $this->webDriver->action();
+        // Resize the too big text box to access Go button
+        $element = $this->byXPath('//*[@class="ui-resizable-handle ui-resizable-s"]');
+        $action->moveToElement($element)
+                ->clickAndHold()
+                ->moveByOffset(0, -100)
+                ->perform();
+
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
         $this->waitForElement(
