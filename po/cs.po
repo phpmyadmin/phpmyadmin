@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2020-05-11 19:42+0000\n"
-"Last-Translator: Oldřich Strachota <oldrich.strachota@gmail.com>\n"
+"PO-Revision-Date: 2020-05-12 18:28+0000\n"
+"Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-9/cs/>"
 "\n"
 "Language: cs\n"
@@ -2290,7 +2290,7 @@ msgstr ""
 
 #: js/messages.php:564
 msgid "value/subQuery is empty"
-msgstr "hodnota/podDotaz je prázdný"
+msgstr "prázdná hodnota nebo poddotaz"
 
 #: js/messages.php:565 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
@@ -3833,10 +3833,8 @@ msgid "Hide table structure actions"
 msgstr "Schovat akce při zobrazení struktury tabulky"
 
 #: libraries/classes/Config/Descriptions.php:195
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Hex"
-msgstr "Výchozí pořadí řazení"
+msgstr "Výchozí transformace pro Hex"
 
 #: libraries/classes/Config/Descriptions.php:197
 #: libraries/classes/Config/Descriptions.php:201
@@ -3855,52 +3853,36 @@ msgstr ""
 "struktury tabulky vyplněna transformace, budou tyto hodnoty přepsány."
 
 #: libraries/classes/Config/Descriptions.php:199
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for Substring"
-msgstr "Parametry vstupní transformace"
+msgstr "Výchozí transformace pro Substring"
 
 #: libraries/classes/Config/Descriptions.php:203
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Bool2Text"
-msgstr "Výchozí pořadí řazení"
+msgstr "Výchozí transformace pro Bool2Text"
 
 #: libraries/classes/Config/Descriptions.php:207
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for External"
-msgstr "Výchozí pořadí řazení"
+msgstr "Výchozí transformace pro External"
 
 #: libraries/classes/Config/Descriptions.php:211
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for PreApPend"
-msgstr "Parametry vstupní transformace"
+msgstr "Výchozí transformace pro PreApPend"
 
 #: libraries/classes/Config/Descriptions.php:215
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for DateFormat"
-msgstr "Výchozí pořadí řazení"
+msgstr "Výchozí transformace pro DateFormat"
 
 #: libraries/classes/Config/Descriptions.php:219
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for Inline"
-msgstr "Parametry vstupní transformace"
+msgstr "Výchozí transformace pro Inline"
 
 #: libraries/classes/Config/Descriptions.php:223
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for TextImageLink"
-msgstr "Parametry vstupní transformace"
+msgstr "Výchozí transformace pro TextImageLink"
 
 #: libraries/classes/Config/Descriptions.php:227
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for TextLink"
-msgstr "Parametry vstupní transformace"
+msgstr "Výchozí transformace pro TextLink"
 
 #: libraries/classes/Config/Descriptions.php:232
 msgid "Show server listing as a list instead of a drop down."
@@ -5311,18 +5293,13 @@ msgid "Hide databases matching regular expression (PCRE)."
 msgstr "Skrýt databáze odpovídající regulárnímu výrazu (PCRE)."
 
 #: libraries/classes/Config/Descriptions.php:1041
-#, fuzzy
-#| msgid ""
-#| "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#| "bugs/2606/]PMA bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
-#| "Bugs[/a]"
 msgid ""
 "More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Více informací v [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA bug "
-"trackeru[/a] a [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
+"Další informace viz [a@https://github.com/phpmyadmin/phpmyadmin/issues/8970]"
+"phpMyAdmin issue tracker[/a] a [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
 
 #: libraries/classes/Config/Descriptions.php:1045
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -6521,9 +6498,9 @@ msgstr "Nesprávná IP adresa: %s"
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] "Zobrazuje se záložka %1$d (soukromá i sdílená)"
-msgstr[1] "Zobrazují se záložky %1$d (soukromé i sdílené)"
-msgstr[2] "Zobrazují se záložky %1$d (soukromé i sdílené)"
+msgstr[0] "Zobrazuje se %1$d záložka (soukromá i sdílená)"
+msgstr[1] "Zobrazují se %1$d záložky (soukromé i sdílené)"
+msgstr[2] "Zobrazuje se %1$d záložek (soukromých i sdílených)"
 
 #: libraries/classes/Console.php:100
 msgid "No bookmarks"
@@ -13761,8 +13738,8 @@ msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
-"Nepovedlo se nastavit session cookie. Možná místo HTTPS používáte HTTP "
-"protokol pro přístup do phpMyAdmin."
+"Nepodařilo se nastavit session cookie. Možná pro přístup do phpMyAdmina "
+"používáte protokol HTTP místo HTTPS."
 
 #: libraries/common.inc.php:344
 msgid "Invalid authentication method set in configuration:"
@@ -13887,7 +13864,7 @@ msgstr "ani jeden z výše uvedených"
 
 #: libraries/db_common.inc.php:151 tbl_operations.php:224
 msgid "No collation provided."
-msgstr ""
+msgstr "Není uvedeno kódování."
 
 #: libraries/mult_submits.inc.php:337
 msgid "Success!"
@@ -13920,7 +13897,7 @@ msgstr "Chyba: Navigace je přístupná jen přes AJAX"
 
 #: prefs_forms.php:30 setup/frames/form.inc.php:21
 msgid "Incorrect form specified!"
-msgstr ""
+msgstr "Uveden chybný formulář!"
 
 #: prefs_forms.php:82
 msgid "Cannot save settings, submitted form contains errors!"
@@ -13934,7 +13911,7 @@ msgstr "Chybějící tabulky v úložišti nastavení phpMyAdmina"
 
 #: prefs_manage.php:53
 msgid "Paste it to your config.inc.php"
-msgstr ""
+msgstr "Tuto hodnotu vložte do souboru config.inc.php"
 
 #: prefs_manage.php:93
 msgid "Could not import configuration"
@@ -14708,7 +14685,7 @@ msgstr "Další sloupec"
 
 #: templates/database/multi_table_query/form.twig:140
 msgid "Enter criteria as free text"
-msgstr ""
+msgstr "Zadejte kritéria jako volný text"
 
 #: templates/database/multi_table_query/form.twig:148
 msgid "Remove this column"
@@ -14859,10 +14836,8 @@ msgid "No databases"
 msgstr "Žádné databáze"
 
 #: templates/columns_definitions/partitions.twig:17
-#, fuzzy
-#| msgid "partitioned"
 msgid "Partition by:"
-msgstr "používá oddíly"
+msgstr "Rozdělit na oddíly podle:"
 
 #: templates/columns_definitions/partitions.twig:32
 #: templates/columns_definitions/partitions.twig:60
@@ -14874,10 +14849,8 @@ msgid "Partitions:"
 msgstr "Oddíly:"
 
 #: templates/columns_definitions/partitions.twig:45
-#, fuzzy
-#| msgid "partitioned"
 msgid "Subpartition by:"
-msgstr "používá oddíly"
+msgstr "Rozdělit na pododdíly podle:"
 
 #: templates/columns_definitions/partitions.twig:65
 msgid "Subpartitions:"
@@ -14907,10 +14880,8 @@ msgid "Data directory"
 msgstr "Datový adresář"
 
 #: templates/columns_definitions/partitions.twig:87
-#, fuzzy
-#| msgid "Save directory"
 msgid "Index directory"
-msgstr "Adresář pro ukládání"
+msgstr "Adresář klíčů"
 
 #: templates/columns_definitions/partitions.twig:88
 msgid "Max rows"
@@ -14944,6 +14915,9 @@ msgid ""
 "lead to non working phpMyAdmin or a security risk. Please fix your server "
 "configuration to indicate HTTPS properly."
 msgstr ""
+"Nesoulad protokolu HTTPS na serveru a na klientovi. Může vést k chybám "
+"funkčnosti phpMyAdmina nebo bezpečnostnímu riziku. Opravte prosím nastavení "
+"serveru tak, aby byl správně určen protokol HTTPS."
 
 #: templates/display/export/template_options.twig:1
 msgid "Select a template"
@@ -15113,7 +15087,7 @@ msgstr ""
 
 #: templates/columns_definitions/table_fields_definitions.twig:59
 msgid "Virtuality"
-msgstr ""
+msgstr "Virtualita"
 
 #: templates/columns_definitions/table_fields_definitions.twig:65
 msgid "Move column"
@@ -15206,7 +15180,7 @@ msgstr "Pokročilé možnosti"
 
 #: templates/table/index_form.twig:48
 msgid "Key block size:"
-msgstr ""
+msgstr "Velikost bloku klíče:"
 
 #: templates/table/index_form.twig:65
 msgid "Index type:"
@@ -15335,6 +15309,8 @@ msgid ""
 "You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
 "most likely refuse to authenticate you."
 msgstr ""
+"Pro přístup k phpMyAdminovi nepoužíváte protokol https, zařízení FIDO U2F "
+"proto velmi pravděpodobně odmítne autentizaci."
 
 #: templates/database/designer/database_tables.twig:37
 msgid "Show/hide columns"
@@ -15621,8 +15597,6 @@ msgstr "Uvést do souladu s centrálním seznamem"
 
 #: templates/database/designer/options_panel.twig:34
 #: templates/database/designer/options_panel.twig:199
-#, fuzzy
-#| msgid "Relation operator"
 msgid "Relationship operator"
 msgstr "Relační operátor"
 
@@ -16123,7 +16097,7 @@ msgstr "Hodnoty Y"
 
 #: templates/table/chart/tbl_chart.twig:115
 msgid "Series names are in a column"
-msgstr ""
+msgstr "Názvy řad jsou ve sloupci"
 
 #: templates/table/chart/tbl_chart.twig:118
 msgid "Series column:"
@@ -16188,16 +16162,12 @@ msgid "No partitioning defined!"
 msgstr "Není definováno žádné rozdělení!"
 
 #: templates/table/structure/display_partitions.twig:11
-#, fuzzy
-#| msgid "partitioned"
 msgid "Partitioned by:"
-msgstr "používá oddíly"
+msgstr "Rozdělení na oddíly:"
 
 #: templates/table/structure/display_partitions.twig:16
-#, fuzzy
-#| msgid "partitioned"
 msgid "Sub partitioned by:"
-msgstr "používá oddíly"
+msgstr "Rozdělení na pododdíly:"
 
 #: templates/table/structure/display_partitions.twig:29
 msgid "Data length"
@@ -16208,10 +16178,8 @@ msgid "Index length"
 msgstr "Délka klíče"
 
 #: templates/table/structure/display_partitions.twig:135
-#, fuzzy
-#| msgid "partitioned"
 msgid "Partition table"
-msgstr "používá oddíly"
+msgstr "Rozdělit tabulku"
 
 #: templates/table/structure/display_table_stats.twig:14
 msgid "Space usage"
@@ -16226,20 +16194,24 @@ msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
 "device and enter authentication code it generates."
 msgstr ""
+"Naskenujte následující QR kód do aplikace pro dvoufaktorové ověření na vašem "
+"zařízení a zadejte vygenerovaný ověřovací kód."
 
 #: templates/login/twofactor/application_configure.twig:11
 msgid ""
 "Please enter following secret/key into the two-factor authentication app on "
 "your device and enter authentication code it generates."
 msgstr ""
+"Zadejte následující tajný klíč do aplikace pro dvoufaktorové ověření na "
+"vašem zařízení a zadejte vygenerovaný ověřovací kód."
 
 #: templates/login/twofactor/application_configure.twig:14
 msgid "OTP url:"
-msgstr ""
+msgstr "URL adresa OTP:"
 
 #: templates/login/twofactor/application_configure.twig:18
 msgid "Secret/key:"
-msgstr ""
+msgstr "Tajný klíč:"
 
 #: templates/table/search/options_zoom.twig:6
 msgid "Use this column to label each point"
