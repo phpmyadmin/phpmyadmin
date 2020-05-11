@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-05-11 23:02+0200\n"
-"PO-Revision-Date: 2020-05-04 05:11+0000\n"
+"PO-Revision-Date: 2020-05-12 18:28+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -5308,14 +5308,12 @@ msgid "Private key for reCaptcha"
 msgstr "ReCaptcha için özel anahtar"
 
 #: libraries/classes/Config/Descriptions.php:901
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter your siteverify URL for your reCaptcha service."
-msgstr "Etki alanı reCaptcha hizmetiniz için özel anahtarınızı girin."
+msgstr "reCaptcha hizmetiniz için site doğrulama URL'nizi girin."
 
 #: libraries/classes/Config/Descriptions.php:902
 msgid "URL for reCaptcha siteverify"
-msgstr ""
+msgstr "reCaptcha site doğrulaması için URL"
 
 #: libraries/classes/Config/Descriptions.php:904
 msgid "Choose the default action when sending error reports."
@@ -9079,11 +9077,11 @@ msgstr "SSL kullanılmakta"
 
 #: libraries/classes/Html/Generator.php:453
 msgid "The PHP function password_hash() with default options."
-msgstr ""
+msgstr "Varsayılan seçeneklerle PHP işlevi password_hash()."
 
 #: libraries/classes/Html/Generator.php:454
 msgid "password_hash() PHP function"
-msgstr ""
+msgstr "password_hash() PHP işlevi"
 
 #: libraries/classes/Html/Generator.php:755
 msgid "Skip Explain SQL"
