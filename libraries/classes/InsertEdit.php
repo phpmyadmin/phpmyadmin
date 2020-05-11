@@ -36,6 +36,7 @@ use function mb_substr;
 use function md5;
 use function method_exists;
 use function min;
+use function password_hash;
 use function preg_match;
 use function preg_replace;
 use function sprintf;
@@ -47,6 +48,7 @@ use function strpos;
 use function substr;
 use function time;
 use function trim;
+use const PASSWORD_DEFAULT;
 
 /**
  * PhpMyAdmin\InsertEdit class
@@ -2616,6 +2618,9 @@ class InsertEdit
     ) {
         if (empty($multi_edit_funcs[$key])) {
             return $current_value;
+        } elseif ($multi_edit_funcs[$key] === 'PHP_PASSWORD_HASH') {
+            $hash = password_hash($current_value, PASSWORD_DEFAULT);
+            return "'" . $hash . "'";
         } elseif ($multi_edit_funcs[$key] === 'UUID') {
             /* This way user will know what UUID new row has */
             $uuid = $this->dbi->fetchValue('SELECT UUID()');

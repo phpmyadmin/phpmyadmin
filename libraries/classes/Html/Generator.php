@@ -449,6 +449,10 @@ class Generator
             $retval .= '>' . $function . '</option>' . "\n";
         } // end for
 
+        $retval .= '<option value="PHP_PASSWORD_HASH" title="';
+        $retval .= __('The PHP function password_hash() with default options.');
+        $retval .= '">' . __('password_hash() PHP function') . '</option>' . "\n";
+
         return $retval;
     }
 
