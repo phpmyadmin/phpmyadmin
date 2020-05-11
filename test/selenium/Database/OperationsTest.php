@@ -36,7 +36,7 @@ class OperationsTest extends TestBase
         $this->waitForElement('partialLinkText', 'Operations')->click();
         $this->waitForElement(
             'xpath',
-            '//legend[contains(., \'Rename database to\')]'
+            '//div[contains(., \'Rename database to\')]'
         );
     }
 
@@ -123,7 +123,7 @@ class OperationsTest extends TestBase
             ->sendKeys($new_db_name);
 
         $this->scrollIntoView('copy_db_form', -150);
-        $this->byCssSelector("form#copy_db_form input[type='submit']")->click();
+        $this->byCssSelector('form#copy_db_form input[name="submit_copy"]')->click();
 
         $this->waitForElement(
             'xpath',

@@ -46,7 +46,7 @@ class OperationsTest extends TestBase
         $this->waitAjax();
         $this->waitForElement(
             'xpath',
-            "//legend[contains(., 'Table maintenance')]"
+            "//div[contains(., 'Table maintenance')]"
         );
     }
 
