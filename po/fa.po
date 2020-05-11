@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-04-25 13:24+0200\n"
-"PO-Revision-Date: 2019-04-27 17:19+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
-"Language-Team: Persian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/fa/>\n"
+"PO-Revision-Date: 2020-05-12 18:28+0000\n"
+"Last-Translator: salman <amir1architect@yahoo.com>\n"
+"Language-Team: Persian <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
+"fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 4.1-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -107,7 +107,7 @@ msgstr ""
 #: db_operations.php:171
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "نام پایگاه داده %1$s به %2$s تغییر داده شد."
+msgstr "نام پایگاه داده %1$s به %2$s تغییرکرده است."
 
 #: db_operations.php:183
 #, php-format
@@ -295,7 +295,7 @@ msgstr "بازگشت"
 
 #: js/messages.php:46
 msgid "Confirm"
-msgstr ""
+msgstr "تایید"
 
 #: js/messages.php:47
 #, fuzzy, php-format
@@ -310,6 +310,8 @@ msgstr "شما برای حذف کامل پایگاه داده اقدام کرد�
 #: js/messages.php:51
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
+"نمی‌توان نام پایگاه داده را به همان نام تغییر داد. نام را تغییر دهید و "
+"دوباره تلاش کنید"
 
 #: js/messages.php:53
 msgid "You are about to DESTROY a complete table!"
@@ -471,10 +473,8 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:116
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save & close"
-msgstr "ذخيره به صورت پرونده"
+msgstr "ذخيره و بستن"
 
 #: js/messages.php:117 libraries/classes/InsertEdit.php:1929
 #: templates/config/form_display/fieldset_bottom.twig:9
@@ -500,10 +500,8 @@ msgid "Select at least one of the options!"
 msgstr "حداقل يكي از كلمات"
 
 #: js/messages.php:123
-#, fuzzy
-#| msgid "Not a valid port number"
 msgid "Please enter a valid number!"
-msgstr "شماره پورت معتبر نیست"
+msgstr "لطفا یک عدد معتبر وارد کنید!"
 
 #: js/messages.php:124
 #, fuzzy
@@ -524,10 +522,9 @@ msgid "Edit index"
 msgstr "ویرایش کردن ایندکس"
 
 #: js/messages.php:127 templates/table/index_form.twig:215
-#, fuzzy, php-format
-#| msgid "Add %d column(s) to index"
+#, php-format
 msgid "Add %s column(s) to index"
-msgstr "افزودن %d  ستون جديد به index"
+msgstr "افزودن %d  ستون به index"
 
 #: js/messages.php:128
 #, fuzzy
@@ -558,7 +555,7 @@ msgstr "افزودن %d  ستون جديد به index"
 #: templates/table/index_form.twig:220
 #: templates/table/relation/common_form.twig:216
 msgid "Preview SQL"
-msgstr ""
+msgstr "پیش‌نمایش SQL"
 
 #: js/messages.php:137
 #, fuzzy
@@ -567,10 +564,8 @@ msgid "Simulate query"
 msgstr "داخل کوئری"
 
 #: js/messages.php:138
-#, fuzzy
-#| msgid "Affected rows:"
 msgid "Matched rows:"
-msgstr "سطر تحت تاثیر قرار گرفته:"
+msgstr "سطر های منطبق:"
 
 #: js/messages.php:139 libraries/classes/Util.php:618
 #, fuzzy
@@ -863,11 +858,11 @@ msgstr "توقف مانیتور"
 
 #: js/messages.php:227 templates/server/status/processes/index.twig:49
 msgid "Start auto refresh"
-msgstr ""
+msgstr "شروع تازه سازی خودکار"
 
 #: js/messages.php:228
 msgid "Stop auto refresh"
-msgstr ""
+msgstr "پایان تازه سازی خودکار"
 
 #: js/messages.php:230
 msgid "general_log and slow_query_log are enabled."
@@ -957,9 +952,8 @@ msgid "Current settings"
 msgstr "تنظیمات فعلی"
 
 #: js/messages.php:261
-#, fuzzy
 msgid "Chart title"
-msgstr "No tables"
+msgstr "عنوان نمودار"
 
 #. l10n: As in differential values
 #: js/messages.php:263
@@ -1314,7 +1308,7 @@ msgstr "تغيير تنظیمات"
 
 #: js/messages.php:367 templates/config/form_display/fieldset_bottom.twig:8
 msgid "Apply"
-msgstr ""
+msgstr "اجرا"
 
 #: js/messages.php:370 templates/navigation/main.twig:59
 #: templates/server/status/monitor/index.twig:95
@@ -1323,7 +1317,7 @@ msgstr "در حال بارگیری…"
 
 #: js/messages.php:371
 msgid "Request aborted!!"
-msgstr ""
+msgstr "درخواست لغو شد."
 
 #: js/messages.php:372
 #, fuzzy
@@ -1346,12 +1340,12 @@ msgstr "خطا در پردازش درخواست"
 #: js/messages.php:375
 #, php-format
 msgid "Error code: %s"
-msgstr ""
+msgstr "شماره خطا: %s"
 
 #: js/messages.php:376
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "متن خطا: %s"
 
 #: js/messages.php:378
 msgid ""
@@ -2124,10 +2118,8 @@ msgstr ""
 "صفحه بدون ذخیره کردن داده ها اطمینان دارید؟"
 
 #: js/messages.php:600
-#, fuzzy
-#| msgid "Drag to reorder"
 msgid "Drag to reorder."
-msgstr "برای دوباره مرتب کردن drag کنید"
+msgstr "برای دوباره مرتب کردن بکشید."
 
 #: js/messages.php:601
 msgid "Click to sort results by this column."
@@ -2141,10 +2133,8 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:607
-#, fuzzy
-#| msgid "Click to mark/unmark"
 msgid "Click to mark/unmark."
-msgstr "برای علامتگذاری / برداشتن علامت اینجا را کلبک کن"
+msgstr "برای علامتگذاری / برداشتن علامت کلیک کنید."
 
 #: js/messages.php:608
 #, fuzzy
