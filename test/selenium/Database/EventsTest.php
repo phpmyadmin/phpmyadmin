@@ -149,6 +149,7 @@ class EventsTest extends TestBase
      *
      * @return void
      *
+     * @depends testAddEvent
      * @group large
      */
     public function testEditEvents()
@@ -189,6 +190,7 @@ class EventsTest extends TestBase
      *
      * @return void
      *
+     * @depends testAddEvent
      * @group large
      */
     public function testDropEvent()
