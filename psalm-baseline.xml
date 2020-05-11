@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.11.2@d470903722cfcbc1cd04744c5491d3e6d13ec3d9">
+<files psalm-version="3.11.4@58e1d8e68e5098bf4fbfdfb420c38d563f882549">
   <file src="libraries/classes/Advisor.php">
     <PossiblyNullArgument occurrences="1">
       <code>Util::formatByteDown($value, $limes, $comma)</code>
@@ -257,6 +257,14 @@
       <code>$formatted_size</code>
       <code>$formatted_overhead</code>
     </InvalidScalarArgument>
+    <PossiblyNullArrayAccess occurrences="6">
+      <code>$formatted_size</code>
+      <code>$unit</code>
+      <code>$formatted_overhead</code>
+      <code>$overhead_unit</code>
+      <code>$formatted_size</code>
+      <code>$unit</code>
+    </PossiblyNullArrayAccess>
     <UndefinedVariable occurrences="1">
       <code>$sub_part</code>
     </UndefinedVariable>
@@ -564,6 +572,22 @@
       <code>$selected</code>
       <code>$selected</code>
     </PossiblyNullArgument>
+    <PossiblyNullArrayAccess occurrences="14">
+      <code>$data_size</code>
+      <code>$data_unit</code>
+      <code>$index_size</code>
+      <code>$index_unit</code>
+      <code>$free_size</code>
+      <code>$free_unit</code>
+      <code>$effect_size</code>
+      <code>$effect_unit</code>
+      <code>$effect_size</code>
+      <code>$effect_unit</code>
+      <code>$tot_size</code>
+      <code>$tot_unit</code>
+      <code>$avg_size</code>
+      <code>$avg_unit</code>
+    </PossiblyNullArrayAccess>
     <TypeDoesNotContainType occurrences="1">
       <code>$result &amp;&amp; ! empty($sql_query_views)</code>
     </TypeDoesNotContainType>
@@ -725,6 +749,9 @@
     <NullArgument occurrences="1">
       <code>null</code>
     </NullArgument>
+    <PossiblyInvalidArrayAccess occurrences="1">
+      <code>$table</code>
+    </PossiblyInvalidArrayAccess>
     <PossiblyNullArgument occurrences="1">
       <code>$sortOrder</code>
     </PossiblyNullArgument>
@@ -1377,16 +1404,18 @@
     </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="libraries/classes/InsertEdit.php">
-    <InvalidArgument occurrences="1">
+    <InvalidArgument occurrences="2">
+      <code>PASSWORD_DEFAULT</code>
       <code>$current_result</code>
     </InvalidArgument>
     <PossiblyInvalidArgument occurrences="1">
       <code>$row</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="8">
+    <PossiblyInvalidArrayAccess occurrences="9">
       <code>$foreigner['foreign_db']</code>
       <code>$foreigner['foreign_table']</code>
       <code>$foreigner['foreign_field']</code>
+      <code>$dispval</code>
       <code>$foreigner['foreign_db']</code>
       <code>$foreigner['foreign_table']</code>
       <code>$foreigner['foreign_field']</code>
@@ -1860,15 +1889,20 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>$this-&gt;diagram</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="11">
+    <PossiblyNullArgument occurrences="16">
+      <code>$this-&gt;pageNumber</code>
       <code>$this-&gt;orientation</code>
       <code>$this-&gt;diagram</code>
+      <code>$this-&gt;pageNumber</code>
       <code>$this-&gt;_tablewidth</code>
       <code>$this-&gt;showKeys</code>
       <code>$this-&gt;tableDimension</code>
+      <code>$this-&gt;offline</code>
       <code>$this-&gt;diagram</code>
+      <code>$this-&gt;pageNumber</code>
       <code>$this-&gt;_tablewidth</code>
       <code>$this-&gt;diagram</code>
+      <code>$this-&gt;pageNumber</code>
       <code>$this-&gt;_tablewidth</code>
       <code>$this-&gt;tableDimension</code>
       <code>$this-&gt;tableDimension</code>
@@ -1906,14 +1940,6 @@
       <code>$this-&gt;_tables[$masterTable]</code>
       <code>$this-&gt;_tables[$foreignTable]</code>
     </InvalidArgument>
-    <InvalidScalarArgument occurrences="6">
-      <code>$this-&gt;offline</code>
-      <code>'B'</code>
-      <code>''</code>
-      <code>'B'</code>
-      <code>''</code>
-      <code>''</code>
-    </InvalidScalarArgument>
     <NullArgument occurrences="4">
       <code>null</code>
       <code>null</code>
@@ -1931,39 +1957,34 @@
       <code>$foreigner['foreign_field']</code>
       <code>$foreigner['foreign_table']</code>
     </PossiblyInvalidArrayAccess>
-    <PossiblyNullArgument occurrences="14">
+    <PossiblyNullArgument occurrences="22">
       <code>$this-&gt;orientation</code>
       <code>$this-&gt;paper</code>
+      <code>$this-&gt;pageNumber</code>
+      <code>$this-&gt;_withDoc</code>
+      <code>$this-&gt;offline</code>
       <code>$this-&gt;diagram</code>
+      <code>$this-&gt;pageNumber</code>
+      <code>$this-&gt;_tablewidth</code>
+      <code>$this-&gt;showKeys</code>
+      <code>$this-&gt;tableDimension</code>
+      <code>$this-&gt;offline</code>
+      <code>$this-&gt;diagram</code>
+      <code>$this-&gt;pageNumber</code>
       <code>$this-&gt;_tablewidth</code>
       <code>$this-&gt;showKeys</code>
       <code>$this-&gt;tableDimension</code>
       <code>$this-&gt;diagram</code>
+      <code>$this-&gt;pageNumber</code>
       <code>$this-&gt;_tablewidth</code>
       <code>$this-&gt;showKeys</code>
       <code>$this-&gt;tableDimension</code>
-      <code>$this-&gt;diagram</code>
-      <code>$this-&gt;_tablewidth</code>
-      <code>$this-&gt;showKeys</code>
-      <code>$this-&gt;tableDimension</code>
+      <code>$this-&gt;_withDoc</code>
     </PossiblyNullArgument>
-    <PossiblyNullPropertyFetch occurrences="14">
-      <code>$this-&gt;diagram-&gt;PMA_links</code>
-      <code>$this-&gt;diagram-&gt;PMA_links</code>
-      <code>$this-&gt;diagram-&gt;PMA_links</code>
-      <code>$this-&gt;diagram-&gt;PMA_links</code>
-      <code>$this-&gt;diagram-&gt;PMA_links</code>
-      <code>$this-&gt;diagram-&gt;PMA_links</code>
-      <code>$this-&gt;diagram-&gt;PMA_links</code>
-      <code>$this-&gt;diagram-&gt;PMA_links</code>
-      <code>$this-&gt;diagram-&gt;PMA_links</code>
-      <code>$this-&gt;diagram-&gt;PMA_links</code>
-      <code>$this-&gt;diagram-&gt;PMA_links</code>
-      <code>$this-&gt;diagram-&gt;PMA_links</code>
-      <code>$this-&gt;diagram-&gt;PMA_links</code>
+    <PossiblyNullPropertyFetch occurrences="1">
       <code>$this-&gt;diagram-&gt;PMA_links</code>
     </PossiblyNullPropertyFetch>
-    <PossiblyNullReference occurrences="91">
+    <PossiblyNullReference occurrences="32">
       <code>SetTitle</code>
       <code>setCMargin</code>
       <code>Open</code>
@@ -1971,65 +1992,6 @@
       <code>setOffline</code>
       <code>SetAutoPageBreak</code>
       <code>setCMargin</code>
-      <code>AddPage</code>
-      <code>Cell</code>
-      <code>Ln</code>
-      <code>AddLink</code>
-      <code>SetX</code>
-      <code>Cell</code>
-      <code>SetX</code>
-      <code>Cell</code>
-      <code>SetX</code>
-      <code>AddLink</code>
-      <code>AddLink</code>
-      <code>SetX</code>
-      <code>Cell</code>
-      <code>SetX</code>
-      <code>Cell</code>
-      <code>SetAutoPageBreak</code>
-      <code>AddPage</code>
-      <code>Bookmark</code>
-      <code>setAlias</code>
-      <code>PageNo</code>
-      <code>AddLink</code>
-      <code>SetLink</code>
-      <code>SetFont</code>
-      <code>Cell</code>
-      <code>SetFont</code>
-      <code>Ln</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Ln</code>
-      <code>SetFont</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>setWidths</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>setWidths</code>
-      <code>SetFont</code>
-      <code>AddLink</code>
-      <code>Bookmark</code>
-      <code>SetLink</code>
-      <code>row</code>
-      <code>SetFont</code>
       <code>SetAutoPageBreak</code>
       <code>setCMargin</code>
       <code>AddPage</code>
@@ -2089,14 +2051,19 @@
       <code>$this-&gt;_tables[$table]</code>
       <code>$this-&gt;diagram</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="10">
+    <PossiblyNullArgument occurrences="15">
+      <code>$this-&gt;pageNumber</code>
       <code>$this-&gt;diagram</code>
+      <code>$this-&gt;pageNumber</code>
       <code>$this-&gt;_tablewidth</code>
       <code>$this-&gt;showKeys</code>
       <code>$this-&gt;tableDimension</code>
+      <code>$this-&gt;offline</code>
       <code>$this-&gt;diagram</code>
+      <code>$this-&gt;pageNumber</code>
       <code>$this-&gt;_tablewidth</code>
       <code>$this-&gt;diagram</code>
+      <code>$this-&gt;pageNumber</code>
       <code>$this-&gt;_tablewidth</code>
       <code>$this-&gt;tableDimension</code>
       <code>$this-&gt;tableDimension</code>
@@ -2324,7 +2291,7 @@
       <code>$this-&gt;dbi-&gt;getError()</code>
       <code>$this-&gt;dbi-&gt;getError()</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="38">
+    <PossiblyInvalidArrayAccess occurrences="39">
       <code>$row1['Type']</code>
       <code>$row[0]</code>
       <code>$row1[0]</code>
@@ -2349,6 +2316,7 @@
       <code>$row['Host']</code>
       <code>$row['usergroup']</code>
       <code>$row['username']</code>
+      <code>$tmp_initial</code>
       <code>$row['authentication_string']</code>
       <code>$row['password']</code>
       <code>$row['Db']</code>
@@ -2766,6 +2734,10 @@
       <code>$value</code>
       <code>$value</code>
     </PossiblyInvalidOperand>
+    <PossiblyNullArrayAccess occurrences="2">
+      <code>$max_size</code>
+      <code>$max_unit</code>
+    </PossiblyNullArrayAccess>
     <TypeDoesNotContainType occurrences="1">
       <code>$ret === false</code>
     </TypeDoesNotContainType>

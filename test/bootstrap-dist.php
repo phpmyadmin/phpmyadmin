@@ -83,7 +83,9 @@ define('PMA_MAJOR_VERSION', $GLOBALS['PMA_Config']->get('PMA_MAJOR_VERSION'));
 // phpcs:enable
 
 /* Ensure default language is active */
-LanguageManager::getInstance()->getLanguage('en')->activate();
+/** @var \PhpMyAdmin\Language $languageEn */
+$languageEn = LanguageManager::getInstance()->getLanguage('en');
+$languageEn->activate();
 
 /* Load Database interface */
 $GLOBALS['dbi'] = DatabaseInterface::load(new DbiDummy());
@@ -91,6 +93,8 @@ $GLOBALS['dbi'] = DatabaseInterface::load(new DbiDummy());
 // Set proxy information from env, if available
 $http_proxy = getenv('http_proxy');
 if (PHP_SAPI == 'cli' && $http_proxy && ($url_info = parse_url($http_proxy))) {
+    /** @var string[] */
+    $url_info = $url_info;
     // phpcs:disable PSR1.Files.SideEffects
     define('PROXY_URL', $url_info['host'] . ':' . $url_info['port']);
     define('PROXY_USER', empty($url_info['user']) ? '' : $url_info['user']);
