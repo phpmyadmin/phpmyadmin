@@ -827,18 +827,28 @@ abstract class TestBase extends TestCase
     public function expandMore()
     {
         try {
-            $ele = $this->waitForElement('cssSelector', 'li.submenu > a');
-
-            $ele->click();
-            $this->waitForElement('cssSelector', 'li.submenuhover > a');
-
+            // "More" menu is not displayed on large screens
             $this->waitUntilElementIsPresent(
                 'cssSelector',
-                'li.submenuhover.submenu.shown',
-                5000
+                'li.nav-item.dropdown.d-none',
+                500
             );
         } catch (WebDriverException $e) {
-            return;
+            // Not found, searching for another alternative
+            try {
+                $ele = $this->waitForElement('cssSelector', 'li.submenu > a');
+
+                $ele->click();
+                $this->waitForElement('cssSelector', 'li.submenuhover > a');
+
+                $this->waitUntilElementIsPresent(
+                    'cssSelector',
+                    'li.submenuhover.submenu.shown',
+                    5000
+                );
+            } catch (WebDriverException $e) {
+                return;
+            }
         }
     }
 
