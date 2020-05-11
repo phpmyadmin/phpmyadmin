@@ -96,8 +96,8 @@ class PdfRelationSchema extends ExportRelationSchema
         $this->setAllTablesSameWidth(isset($_REQUEST['pdf_all_tables_same_width']));
         $this->setWithDataDictionary(isset($_REQUEST['pdf_with_doc']));
         $this->setTableOrder($_REQUEST['pdf_table_order']);
-        $this->setOrientation($_REQUEST['pdf_orientation']);
-        $this->setPaper($_REQUEST['pdf_paper']);
+        $this->setOrientation((string) $_REQUEST['pdf_orientation']);
+        $this->setPaper((string) $_REQUEST['pdf_paper']);
 
         // Initializes a new document
         parent::__construct(

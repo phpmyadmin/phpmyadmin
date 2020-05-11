@@ -83,7 +83,7 @@ class TableStatsSvg extends TableStats
      *
      * @return void
      */
-    protected function showMissingTableError()
+    protected function showMissingTableError(): void
     {
         ExportRelationSchema::dieSchema(
             $this->pageNumber,
@@ -104,7 +104,7 @@ class TableStatsSvg extends TableStats
      *
      * @access private
      */
-    private function _setWidthTable($font, $fontSize)
+    private function _setWidthTable($font, $fontSize): void
     {
         foreach ($this->fields as $field) {
             $this->width = max(
@@ -132,7 +132,7 @@ class TableStatsSvg extends TableStats
      *
      * @return void
      */
-    private function _setHeightTable($fontSize)
+    private function _setHeightTable($fontSize): void
     {
         $this->heightCell = $fontSize + 4;
         $this->height = (count($this->fields) + 1) * $this->heightCell;
@@ -149,7 +149,7 @@ class TableStatsSvg extends TableStats
      *
      * @access public
      */
-    public function tableDraw($showColor)
+    public function tableDraw($showColor): void
     {
         $this->diagram->printElement(
             'rect',

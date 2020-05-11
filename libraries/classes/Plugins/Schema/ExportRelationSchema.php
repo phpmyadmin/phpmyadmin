@@ -11,7 +11,6 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function htmlspecialchars;
-use function intval;
 use function rawurldecode;
 
 /**
@@ -43,7 +42,7 @@ class ExportRelationSchema
     {
         $this->db = $db;
         $this->diagram = $diagram;
-        $this->setPageNumber($_REQUEST['page_number']);
+        $this->setPageNumber((int) $_REQUEST['page_number']);
         $this->setOffline(isset($_REQUEST['offline_export']));
         $this->relation = new Relation($GLOBALS['dbi']);
     }
@@ -55,9 +54,9 @@ class ExportRelationSchema
      *
      * @return void
      */
-    public function setPageNumber($value)
+    public function setPageNumber(int $value): void
     {
-        $this->pageNumber = intval($value);
+        $this->pageNumber = $value;
     }
 
     /**
@@ -77,7 +76,7 @@ class ExportRelationSchema
      *
      * @return void
      */
-    public function setShowColor($value)
+    public function setShowColor(bool $value): void
     {
         $this->showColor = $value;
     }
@@ -99,7 +98,7 @@ class ExportRelationSchema
      *
      * @return void
      */
-    public function setTableDimension($value)
+    public function setTableDimension(bool $value): void
     {
         $this->tableDimension = $value;
     }
@@ -121,7 +120,7 @@ class ExportRelationSchema
      *
      * @return void
      */
-    public function setAllTablesSameWidth($value)
+    public function setAllTablesSameWidth(bool $value): void
     {
         $this->sameWide = $value;
     }
@@ -145,7 +144,7 @@ class ExportRelationSchema
      *
      * @access public
      */
-    public function setShowKeys($value)
+    public function setShowKeys(bool $value): void
     {
         $this->showKeys = $value;
     }
@@ -169,7 +168,7 @@ class ExportRelationSchema
      *
      * @access public
      */
-    public function setOrientation($value)
+    public function setOrientation(string $value): void
     {
         $this->orientation = $value == 'P' ? 'P' : 'L';
     }
@@ -193,7 +192,7 @@ class ExportRelationSchema
      *
      * @access public
      */
-    public function setPaper($value)
+    public function setPaper(string $value): void
     {
         $this->paper = $value;
     }
@@ -217,7 +216,7 @@ class ExportRelationSchema
      *
      * @access public
      */
-    public function setOffline($value)
+    public function setOffline(bool $value): void
     {
         $this->offline = $value;
     }
@@ -237,9 +236,9 @@ class ExportRelationSchema
     /**
      * Get the table names from the request
      *
-     * @return array an array of table names
+     * @return string[] an array of table names
      */
-    protected function getTablesFromRequest()
+    protected function getTablesFromRequest(): array
     {
         $tables = [];
         if (isset($_POST['t_tbl'])) {

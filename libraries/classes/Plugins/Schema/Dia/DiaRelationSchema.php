@@ -52,8 +52,8 @@ class DiaRelationSchema extends ExportRelationSchema
 
         $this->setShowColor(isset($_REQUEST['dia_show_color']));
         $this->setShowKeys(isset($_REQUEST['dia_show_keys']));
-        $this->setOrientation($_REQUEST['dia_orientation']);
-        $this->setPaper($_REQUEST['dia_paper']);
+        $this->setOrientation((string) $_REQUEST['dia_orientation']);
+        $this->setPaper((string) $_REQUEST['dia_paper']);
 
         $this->diagram->startDiaDoc(
             $this->paper,

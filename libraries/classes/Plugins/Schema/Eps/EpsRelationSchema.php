@@ -53,7 +53,7 @@ class EpsRelationSchema extends ExportRelationSchema
         $this->setShowKeys(isset($_REQUEST['eps_show_keys']));
         $this->setTableDimension(isset($_REQUEST['eps_show_table_dimension']));
         $this->setAllTablesSameWidth(isset($_REQUEST['eps_all_tables_same_width']));
-        $this->setOrientation($_REQUEST['eps_orientation']);
+        $this->setOrientation((string) $_REQUEST['eps_orientation']);
 
         $this->diagram->setTitle(
             sprintf(
