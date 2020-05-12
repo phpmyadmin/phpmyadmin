@@ -4,7 +4,7 @@
         {% for column in column_names %}
             <option value="{{ column }}"
                 {%- if column is same as(selected) %} selected="selected"{% endif %}>
-                {{ column|e|replace({' ': '&nbsp;'}) }}
+                {{- column -}}
             </option>
         {% endfor %}
     </select>
