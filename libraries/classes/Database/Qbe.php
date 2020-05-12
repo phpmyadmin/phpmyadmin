@@ -1073,7 +1073,7 @@ class Qbe
         } // end for
 
         if (! empty($where_clause) && $where_clause != '()') {
-            $where_clause = 'WHERE ' . htmlspecialchars($where_clause) . "\n";
+            $where_clause = 'WHERE ' . $where_clause . "\n";
         } // end if
         return $where_clause;
     }
@@ -1442,7 +1442,7 @@ class Qbe
         // Will include master tables and all tables that can be combined into
         // a cluster by their relation
         $finalized = [];
-        if (strlen($master) > 0) {
+        if (strlen((string) $master) > 0) {
             // Add master tables
             $finalized[$master] = '';
         }
