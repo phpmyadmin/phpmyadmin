@@ -69,6 +69,7 @@ class ServerSettingsTest extends TestBase
 
         $ele = $this->waitForElement('name', 'Servers-1-hide_db');
         $this->moveto($ele);
+        $ele->clear();
         $ele->sendKeys($this->database_name);
 
         $this->_saveConfig();
