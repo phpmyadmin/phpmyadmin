@@ -842,14 +842,14 @@ abstract class TestBase extends TestCase
         } catch (WebDriverException $e) {
             // Not found, searching for another alternative
             try {
-                $ele = $this->waitForElement('cssSelector', 'li.submenu > a');
+                $ele = $this->waitForElement('cssSelector', 'li.dropdown > a');
 
                 $ele->click();
-                $this->waitForElement('cssSelector', 'li.submenuhover > a');
+                $this->waitForElement('cssSelector', 'li.dropdown.show > a');
 
                 $this->waitUntilElementIsPresent(
                     'cssSelector',
-                    'li.submenuhover.submenu.shown',
+                    'li.nav-item.dropdown.show > ul',
                     5000
                 );
             } catch (WebDriverException $e) {
