@@ -5,8 +5,8 @@ language: php
 stages:
   - name: "Lint and analyse code"
   - name: "PHP Unit tests"
-  - name: "Documentation"
   - name: "Other tests"
+  - name: "Documentation"
 
 install:
   - nvm install 10
