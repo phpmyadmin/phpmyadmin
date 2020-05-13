@@ -9,7 +9,7 @@ fi
 set -e
 set -x
 
-if [ "$CI_MODE" != "selenium" -o -z "$TESTSUITE_BROWSERSTACK_KEY" ] ; then
+if [ "$CI_MODE" != "selenium" ] ; then
     exit 0
 fi
 
@@ -27,5 +27,7 @@ mkdir $DIR/sessions
 $HOME/.phpenv/versions/$PHP_VERSION/sbin/php-fpm --fpm-config $DIR/php-fpm.conf -c $DIR/php.ini
 nginx -c $DIR/nginx.conf
 
-# Start BrowserStack Local forwarder
-~/browserstack/BrowserStackLocal --force-local --localIdentifier "travis-$TRAVIS_JOB_NUMBER" --onlyAutomate --key "$TESTSUITE_BROWSERSTACK_KEY" --daemon start
+if [ ! -z "$TESTSUITE_BROWSERSTACK_KEY" ] ; then
+    # Start BrowserStack Local forwarder
+    ~/browserstack/BrowserStackLocal --force-local --localIdentifier "travis-$TRAVIS_JOB_NUMBER" --onlyAutomate --key "$TESTSUITE_BROWSERSTACK_KEY" --daemon start
+fi
