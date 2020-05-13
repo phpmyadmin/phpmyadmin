@@ -206,6 +206,7 @@ jobs:
         - TESTSUITE_URL=http://127.0.0.1:8000
       before_script:
         - export TESTSUITE_PASSWORD=`openssl rand -base64 30`
+        - export TESTSUITE_BROWSERSTACK_KEY=`echo cHlDcHJTNmZwZjVlaUR2RmV6VkU= | base64 --decode`
         - mysql -uroot -e "CREATE DATABASE IF NOT EXISTS test"
         - mysql -uroot < sql/create_tables.sql
         - mysql -uroot -e "SET PASSWORD = PASSWORD('$TESTSUITE_PASSWORD')"
