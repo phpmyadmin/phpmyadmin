@@ -1,11 +1,17 @@
 <?php
-/**
- * file upload functions
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use const UPLOAD_ERR_CANT_WRITE;
+use const UPLOAD_ERR_EXTENSION;
+use const UPLOAD_ERR_FORM_SIZE;
+use const UPLOAD_ERR_INI_SIZE;
+use const UPLOAD_ERR_NO_FILE;
+use const UPLOAD_ERR_NO_TMP_DIR;
+use const UPLOAD_ERR_OK;
+use const UPLOAD_ERR_PARTIAL;
 use function basename;
 use function bin2hex;
 use function bzopen;
@@ -300,44 +306,40 @@ class File
             $key
         );
 
-        // check for file upload errors
         switch ($file['error']) {
-        // we do not use the PHP constants here cause not all constants
-        // are defined in all versions of PHP - but the correct constants names
-        // are given as comment
-            case 0:
+            case UPLOAD_ERR_OK:
                 return $this->setUploadedFile($file['tmp_name']);
-            case 4: //UPLOAD_ERR_NO_FILE:
+            case UPLOAD_ERR_NO_FILE:
                 break;
-            case 1: //UPLOAD_ERR_INI_SIZE:
+            case UPLOAD_ERR_INI_SIZE:
                 $this->_error_message = Message::error(__(
                     'The uploaded file exceeds the upload_max_filesize directive in '
                     . 'php.ini.'
                 ));
                 break;
-            case 2: //UPLOAD_ERR_FORM_SIZE:
+            case UPLOAD_ERR_FORM_SIZE:
                 $this->_error_message = Message::error(__(
                     'The uploaded file exceeds the MAX_FILE_SIZE directive that was '
                     . 'specified in the HTML form.'
                 ));
                 break;
-            case 3: //UPLOAD_ERR_PARTIAL:
+            case UPLOAD_ERR_PARTIAL:
                 $this->_error_message = Message::error(__(
                     'The uploaded file was only partially uploaded.'
                 ));
                 break;
-            case 6: //UPLOAD_ERR_NO_TMP_DIR:
+            case UPLOAD_ERR_NO_TMP_DIR:
                 $this->_error_message = Message::error(__('Missing a temporary folder.'));
                 break;
-            case 7: //UPLOAD_ERR_CANT_WRITE:
+            case UPLOAD_ERR_CANT_WRITE:
                 $this->_error_message = Message::error(__('Failed to write file to disk.'));
                 break;
-            case 8: //UPLOAD_ERR_EXTENSION:
+            case UPLOAD_ERR_EXTENSION:
                 $this->_error_message = Message::error(__('File upload stopped by extension.'));
                 break;
             default:
                 $this->_error_message = Message::error(__('Unknown error in file upload.'));
-        } // end switch
+        }
 
         return false;
     }
