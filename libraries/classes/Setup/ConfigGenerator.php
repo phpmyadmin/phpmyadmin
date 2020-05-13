@@ -70,9 +70,8 @@ class ConfigGenerator
                 $ret .= self::_getVarExport($k, $cf->getDefault($k), $crlf);
             }
         }
-        $ret .= '?' . '>';
 
-        return $ret;
+        return $ret . '?>';
     }
 
     /**
@@ -150,9 +149,8 @@ class ConfigGenerator
                 $ret .= ($i > 0 ? ',' : '') . $crlf . '    ' . $retv[$i];
             }
         }
-        $ret .= ')';
 
-        return $ret;
+        return $ret . ')';
     }
 
     /**

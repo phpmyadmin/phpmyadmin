@@ -293,9 +293,8 @@ abstract class GisGeometry
                 0,
                 mb_strlen($ol_array) - 2
             );
-        $ol_array .= ')';
 
-        return $ol_array;
+        return $ol_array . ')';
     }
 
     /**
@@ -350,9 +349,8 @@ abstract class GisGeometry
                 0,
                 mb_strlen($ol_array) - 2
             );
-        $ol_array .= ')';
 
-        return $ol_array;
+        return $ol_array . ')';
     }
 
     /**
@@ -400,9 +398,8 @@ abstract class GisGeometry
                 0,
                 mb_strlen($ol_array) - 2
             );
-        $ol_array .= ')';
 
-        return $ol_array;
+        return $ol_array . ')';
     }
 
     /**

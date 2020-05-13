@@ -1298,9 +1298,8 @@ class ExportSql extends ExportPlugin
             $tmp[] = Util::backquote($col_alias) . ' ' .
                 $definition['Type'] . $crlf;
         }
-        $create_query .= implode(',', $tmp) . ');' . $crlf;
 
-        return $create_query;
+        return $create_query . implode(',', $tmp) . ');' . $crlf;
     }
 
     /**

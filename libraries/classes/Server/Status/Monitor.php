@@ -484,14 +484,12 @@ class Monitor
             }
         }
 
-        $loggingVars = $this->dbi->fetchResult(
+        return $this->dbi->fetchResult(
             'SHOW GLOBAL VARIABLES WHERE Variable_name IN'
             . ' ("general_log","slow_query_log","long_query_time","log_output")',
             0,
             1
         );
-
-        return $loggingVars;
     }
 
     /**

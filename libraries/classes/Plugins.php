@@ -428,9 +428,8 @@ class Plugins
                 $ret .= '</li>';
             }
         }
-        $ret .= "\n";
 
-        return $ret;
+        return $ret . "\n";
     }
 
     /**

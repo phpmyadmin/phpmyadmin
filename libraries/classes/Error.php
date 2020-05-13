@@ -410,9 +410,8 @@ class Error extends Message
                 }
             }
         }
-        $retval .= ')';
 
-        return $retval;
+        return $retval . ')';
     }
 
     /**

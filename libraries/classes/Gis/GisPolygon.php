@@ -322,11 +322,10 @@ class GisPolygon extends GisGeometry
 
         // Separate outer and inner polygons
         $parts = explode('),(', $polygon);
-        $row .= 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
+
+        return $row . 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
             . $this->getPolygonForOpenLayers($parts, $srid)
             . ', null, ' . json_encode($style_options) . '));';
-
-        return $row;
     }
 
     /**
@@ -402,9 +401,8 @@ class GisPolygon extends GisGeometry
                 0,
                 mb_strlen($wkt) - 1
             );
-        $wkt .= ')';
 
-        return $wkt;
+        return $wkt . ')';
     }
 
     /**

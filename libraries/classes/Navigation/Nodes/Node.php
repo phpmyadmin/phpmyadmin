@@ -366,9 +366,8 @@ class Node
                 $query .= $this->getWhereClause('SCHEMA_NAME', $searchClause);
                 $query .= 'ORDER BY `SCHEMA_NAME` ';
                 $query .= 'LIMIT ' . $pos . ', ' . $maxItems;
-                $retval = $GLOBALS['dbi']->fetchResult($query);
 
-                return $retval;
+                return $GLOBALS['dbi']->fetchResult($query);
             }
 
             if ($GLOBALS['dbs_to_test'] === false) {
@@ -450,9 +449,8 @@ class Node
             $query .= 'CONCAT(SCHEMA_NAME, ';
             $query .= "'" . $GLOBALS['dbi']->escapeString($dbSeparator) . "')) ";
             $query .= 'ORDER BY SCHEMA_NAME ASC';
-            $retval = $GLOBALS['dbi']->fetchResult($query);
 
-            return $retval;
+            return $GLOBALS['dbi']->fetchResult($query);
         }
 
         if ($GLOBALS['dbs_to_test'] === false) {
@@ -487,9 +485,8 @@ class Node
                     . "CONCAT(`Database`, '" . $dbSeparator . "')) = 1 ";
             }
             $query .= implode('OR', $subClauses) . ')';
-            $retval = $GLOBALS['dbi']->fetchResult($query);
 
-            return $retval;
+            return $GLOBALS['dbi']->fetchResult($query);
         }
 
         $retval = [];
@@ -571,19 +568,17 @@ class Node
                 $query = 'SELECT COUNT(*) ';
                 $query .= 'FROM INFORMATION_SCHEMA.SCHEMATA ';
                 $query .= $this->getWhereClause('SCHEMA_NAME', $searchClause);
-                $retval = (int) $GLOBALS['dbi']->fetchValue($query);
 
-                return $retval;
+                return (int) $GLOBALS['dbi']->fetchValue($query);
             }
 
             if ($GLOBALS['dbs_to_test'] === false) {
                 $query = 'SHOW DATABASES ';
                 $query .= $this->getWhereClause('Database', $searchClause);
-                $retval = $GLOBALS['dbi']->numRows(
+
+                return $GLOBALS['dbi']->numRows(
                     $GLOBALS['dbi']->tryQuery($query)
                 );
-
-                return $retval;
             }
 
             $retval = 0;
@@ -607,9 +602,8 @@ class Node
             $query .= 'FROM INFORMATION_SCHEMA.SCHEMATA ';
             $query .= $this->getWhereClause('SCHEMA_NAME', $searchClause);
             $query .= ') t ';
-            $retval = (int) $GLOBALS['dbi']->fetchValue($query);
 
-            return $retval;
+            return (int) $GLOBALS['dbi']->fetchValue($query);
         }
 
         if ($GLOBALS['dbs_to_test'] !== false) {
@@ -632,9 +626,8 @@ class Node
                     $prefixMap[$prefix] = 1;
                 }
             }
-            $retval = count($prefixMap);
 
-            return $retval;
+            return count($prefixMap);
         }
 
         $prefixMap = [];
@@ -650,9 +643,8 @@ class Node
                 $prefixMap[$prefix] = 1;
             }
         }
-        $retval = count($prefixMap);
 
-        return $retval;
+        return count($prefixMap);
     }
 
     /**
@@ -816,14 +808,13 @@ class Node
                     $GLOBALS['cfg']['Server']['user']
                 ) . "'"
                 . ' GROUP BY `db_name`';
-            $counts = $GLOBALS['dbi']->fetchResult(
+
+            return $GLOBALS['dbi']->fetchResult(
                 $sqlQuery,
                 'db_name',
                 'count',
                 DatabaseInterface::CONNECT_CONTROL
             );
-
-            return $counts;
         }
 
         return null;

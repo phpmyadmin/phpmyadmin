@@ -2218,9 +2218,7 @@ class Relation
         );
         $message->addParamHtml('</a>');
 
-        $retval .= $message->getDisplay();
-
-        return $retval;
+        return $retval . $message->getDisplay();
     }
 
     /**

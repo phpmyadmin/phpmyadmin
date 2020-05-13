@@ -378,9 +378,8 @@ class FormDisplay
 
         $js[] = "$.extend(defaultValues, {\n\t"
             . implode(",\n\t", $jsDefault) . '})';
-        $htmlOutput .= $this->formDisplayTemplate->displayJavascript($js);
 
-        return $htmlOutput;
+        return $htmlOutput . $this->formDisplayTemplate->displayJavascript($js);
     }
 
     /**

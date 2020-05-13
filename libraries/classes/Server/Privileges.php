@@ -152,13 +152,11 @@ class Privileges
             return '';
         }
 
-        $ret = " WHERE `User` LIKE '"
+        return " WHERE `User` LIKE '"
             . $this->dbi->escapeString($initial) . "%'"
             . " OR `User` LIKE '"
             . $this->dbi->escapeString(mb_strtolower($initial))
             . "%'";
-
-        return $ret;
     }
 
     /**
@@ -1632,9 +1630,8 @@ class Privileges
                 $html .= Generator::getIcon('b_tblexport', __('Export'));
                 break;
         }
-        $html .= '</a>';
 
-        return $html;
+        return $html . '</a>';
     }
 
     /**
@@ -1648,14 +1645,13 @@ class Privileges
         $user_group_table = Util::backquote($cfgRelation['db'])
             . '.' . Util::backquote($cfgRelation['usergroups']);
         $sql_query = 'SELECT COUNT(*) FROM ' . $user_group_table;
-        $user_group_count = $this->dbi->fetchValue(
+
+        return $this->dbi->fetchValue(
             $sql_query,
             0,
             0,
             DatabaseInterface::CONNECT_CONTROL
         );
-
-        return $user_group_count;
     }
 
     /**

@@ -421,7 +421,7 @@ class DatabaseInterface implements DbalInterface
         }
         $tablesListForQuery = rtrim($tablesListForQuery, ',');
 
-        $foreignKeyConstrains = $this->fetchResult(
+        return $this->fetchResult(
             'SELECT'
                     . ' TABLE_NAME,'
                     . ' COLUMN_NAME,'
@@ -437,8 +437,6 @@ class DatabaseInterface implements DbalInterface
             $link,
             self::QUERY_STORE
         );
-
-        return $foreignKeyConstrains;
     }
 
     /**
@@ -1316,12 +1314,10 @@ class DatabaseInterface implements DbalInterface
         ?string $column = null,
         bool $full = false
     ): string {
-        $sql = 'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS FROM '
+        return 'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS FROM '
             . Util::backquote($database) . '.' . Util::backquote($table)
             . ($column !== null ? "LIKE '"
             . $this->escapeString($column) . "'" : '');
-
-        return $sql;
     }
 
     /**

@@ -405,12 +405,10 @@ class Routines
         . '" AND Routine_type = "' . $_POST['item_original_type']
         . '";';
 
-        $privilegesBackup = $this->dbi->fetchResult(
+        return $this->dbi->fetchResult(
             $privilegesBackupQuery,
             0
         );
-
-        return $privilegesBackup;
     }
 
     /**

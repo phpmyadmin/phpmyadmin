@@ -358,12 +358,10 @@ class GisMultiPolygon extends GisGeometry
         // Separate each polygon
         $polygons = explode(')),((', $multipolygon);
 
-        $row .= 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
+        return $row . 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
             . 'new OpenLayers.Geometry.MultiPolygon('
             . $this->getPolygonArrayForOpenLayers($polygons, $srid)
             . '), null, ' . json_encode($style_options) . '));';
-
-        return $row;
     }
 
     /**
@@ -453,9 +451,8 @@ class GisMultiPolygon extends GisGeometry
                 0,
                 mb_strlen($wkt) - 1
             );
-        $wkt .= ')';
 
-        return $wkt;
+        return $wkt . ')';
     }
 
     /**
@@ -557,9 +554,7 @@ class GisMultiPolygon extends GisGeometry
                 mb_strlen($wkt) - 1
             );
 
-        $wkt .= ')'; // end of multipolygon
-
-        return $wkt;
+        return $wkt . ')';
     }
 
     /**

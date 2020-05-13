@@ -228,7 +228,7 @@ class NavigationTree
             $query .= " WHERE `SCHEMA_NAME` < '%s' ";
             $query .= ') t ';
 
-            $retval = $this->dbi->fetchValue(
+            return $this->dbi->fetchValue(
                 sprintf(
                     $query,
                     (int) $GLOBALS['cfg']['FirstLevelNavigationItems'],
@@ -237,8 +237,6 @@ class NavigationTree
                     $this->dbi->escapeString($GLOBALS['db'])
                 )
             );
-
-            return $retval;
         }
 
         $prefixMap = [];
@@ -292,9 +290,8 @@ class NavigationTree
         }
 
         $navItems = (int) $GLOBALS['cfg']['FirstLevelNavigationItems'];
-        $retval = (int) floor(count($prefixMap) / $navItems) * $navItems;
 
-        return $retval;
+        return (int) floor(count($prefixMap) / $navItems) * $navItems;
     }
 
     /**
@@ -463,9 +460,7 @@ class NavigationTree
             }
         }
         if (count($path) > 1 && $path[0] != 'tables') {
-            $retval = false;
-
-            return $retval;
+            return false;
         }
 
         array_shift($path); // remove container

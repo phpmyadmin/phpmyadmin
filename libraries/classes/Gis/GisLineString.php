@@ -283,11 +283,9 @@ class GisLineString extends GisGeometry
             );
         $points_arr = $this->extractPoints($linesrting, null);
 
-        $result .= 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
+        return $result . 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
             . $this->getLineForOpenLayers($points_arr, $srid)
             . ', null, ' . json_encode($style_options) . '));';
-
-        return $result;
     }
 
     /**
@@ -323,9 +321,8 @@ class GisLineString extends GisGeometry
                 0,
                 mb_strlen($wkt) - 1
             );
-        $wkt .= ')';
 
-        return $wkt;
+        return $wkt . ')';
     }
 
     /**

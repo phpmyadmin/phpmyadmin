@@ -331,12 +331,10 @@ class Import
         string $full
     ): ?array {
         if (! empty($sql) || ! empty($full)) {
-            $import_run_buffer = [
+            return [
                 'sql' => $sql,
                 'full' => $full,
             ];
-
-            return $import_run_buffer;
         }
 
         unset($GLOBALS['import_run_buffer']);

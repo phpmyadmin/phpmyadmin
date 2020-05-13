@@ -562,12 +562,10 @@ class Advisor
     {
         // Actually evaluate the code
         // This can throw exception
-        $value = $this->expression->evaluate(
+        return $this->expression->evaluate(
             $expr,
             array_merge($this->variables, $this->globals)
         );
-
-        return $value;
     }
 
     /**

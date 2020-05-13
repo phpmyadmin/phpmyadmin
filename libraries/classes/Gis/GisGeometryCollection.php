@@ -373,9 +373,8 @@ class GisGeometryCollection extends GisGeometry
                     mb_strlen($wkt) - 1
                 );
         }
-        $wkt .= ')';
 
-        return $wkt;
+        return $wkt . ')';
     }
 
     /**

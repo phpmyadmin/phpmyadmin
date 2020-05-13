@@ -210,10 +210,8 @@ class BrowseForeigners
         $output .= '<table width="100%" id="browse_foreign_table">';
 
         if (! is_array($foreignData['disp_row'])) {
-            $output .= '</tbody>'
+            return $output . '</tbody>'
                 . '</table>';
-
-            return $output;
         }
 
         $header = '<tr>

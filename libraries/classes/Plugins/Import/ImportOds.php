@@ -398,15 +398,11 @@ class ImportOds extends ImportPlugin
                 (string) $cell_attrs['value-type']
             )
         ) {
-            $value = (float) $cell_attrs['value'];
-
-            return $value;
+            return (float) $cell_attrs['value'];
         } elseif ($_REQUEST['ods_recognize_currency']
             && ! strcmp('currency', (string) $cell_attrs['value-type'])
         ) {
-            $value = (float) $cell_attrs['value'];
-
-            return $value;
+            return (float) $cell_attrs['value'];
         }
 
         /* We need to concatenate all paragraphs */
@@ -414,8 +410,7 @@ class ImportOds extends ImportPlugin
         foreach ($text as $paragraph) {
             $values[] = (string) $paragraph;
         }
-        $value = implode("\n", $values);
 
-        return $value;
+        return implode("\n", $values);
     }
 }

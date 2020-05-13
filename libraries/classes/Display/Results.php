@@ -1025,7 +1025,7 @@ class Results
             : 'false') . '"';
 
         // display the End button
-        $buttons_html .= $this->_getTableNavigationButton(
+        return $buttons_html . $this->_getTableNavigationButton(
             '&gt;&gt;',
             _pgettext('Last page', 'End'),
             @(ceil(
@@ -1038,8 +1038,6 @@ class Results
             $input_for_real_end,
             $onclick
         );
-
-        return $buttons_html;
     }
 
     /**
@@ -3551,15 +3549,11 @@ class Results
         array $analyzed_sql_results
     ) {
         if (! isset($column) || $column === null) {
-            $cell = $this->_buildNullDisplay($class, $condition_field, $meta);
-
-            return $cell;
+            return $this->_buildNullDisplay($class, $condition_field, $meta);
         }
 
         if ($column == '') {
-            $cell = $this->_buildEmptyDisplay($class, $condition_field, $meta);
-
-            return $cell;
+            return $this->_buildEmptyDisplay($class, $condition_field, $meta);
         }
 
         // Display as [GEOMETRY - (size)]
@@ -3574,13 +3568,11 @@ class Results
                 $_url_params
             );
 
-            $cell = $this->_buildValueDisplay(
+            return $this->_buildValueDisplay(
                 $class,
                 $condition_field,
                 $geometry_text
             );
-
-            return $cell;
         }
 
         if ($_SESSION['tmpval']['geoOption'] == self::GEOMETRY_DISP_WKT) {
@@ -3595,7 +3587,7 @@ class Results
                 // skip 3rd param
             ] = $this->_getPartialText($wktval);
 
-            $cell = $this->_getRowData(
+            return $this->_getRowData(
                 $class,
                 $condition_field,
                 $analyzed_sql_results,
@@ -3611,8 +3603,6 @@ class Results
                 $is_field_truncated,
                 ''
             );
-
-            return $cell;
         }
 
         // Prepare in  Well Known Binary (WKB) format.
@@ -3627,7 +3617,7 @@ class Results
                 // skip 3rd param
             ] = $this->_getPartialText($wkbval);
 
-            $cell = $this->_getRowData(
+            return $this->_getRowData(
                 $class,
                 $condition_field,
                 $analyzed_sql_results,
@@ -3643,8 +3633,6 @@ class Results
                 $is_field_truncated,
                 ''
             );
-
-            return $cell;
         }
 
         $wkbval = $this->_handleNonPrintableContents(
@@ -3657,13 +3645,11 @@ class Results
             $_url_params
         );
 
-        $cell = $this->_buildValueDisplay(
+        return $this->_buildValueDisplay(
             $class,
             $condition_field,
             $wkbval
         );
-
-        return $cell;
     }
 
     /**
@@ -3737,15 +3723,11 @@ class Results
         }
 
         if (! isset($column) || $column === null) {
-            $cell = $this->_buildNullDisplay($class, $condition_field, $meta);
-
-            return $cell;
+            return $this->_buildNullDisplay($class, $condition_field, $meta);
         }
 
         if ($column == '') {
-            $cell = $this->_buildEmptyDisplay($class, $condition_field, $meta);
-
-            return $cell;
+            return $this->_buildEmptyDisplay($class, $condition_field, $meta);
         }
 
         // Cut all fields to $GLOBALS['cfg']['LimitChars']
@@ -3810,13 +3792,11 @@ class Results
         }
 
         if ($formatted) {
-            $cell = $this->_buildValueDisplay(
+            return $this->_buildValueDisplay(
                 $class,
                 $condition_field,
                 $displayedColumn
             );
-
-            return $cell;
         }
 
         // transform functions may enable no-wrapping:
@@ -3835,7 +3815,7 @@ class Results
             . $GLOBALS['dbi']->escapeString($column)
             . '\'';
 
-        $cell = $this->_getRowData(
+        return $this->_getRowData(
             $class,
             $condition_field,
             $analyzed_sql_results,
@@ -3851,8 +3831,6 @@ class Results
             $is_field_truncated,
             $original_length
         );
-
-        return $cell;
     }
 
     /**

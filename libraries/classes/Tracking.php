@@ -1207,7 +1207,7 @@ class Tracking
             }
         }
 
-        $html = $this->template->render('database/tracking/tables', [
+        return $this->template->render('database/tracking/tables', [
             'db' => $db,
             'head_version_exists' => $headVersionExists,
             'untracked_tables_exists' => count($untrackedTables) > 0,
@@ -1217,8 +1217,6 @@ class Tracking
             'untracked_tables' => $untrackedTables,
             'pma_theme_image' => $pmaThemeImage,
         ]);
-
-        return $html;
     }
 
     /**

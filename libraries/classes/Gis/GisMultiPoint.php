@@ -283,12 +283,10 @@ class GisMultiPoint extends GisGeometry
             );
         $points_arr = $this->extractPoints($multipoint, null);
 
-        $result .= 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
+        return $result . 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
             . 'new OpenLayers.Geometry.MultiPoint('
             . $this->getPointsArrayForOpenLayers($points_arr, $srid)
             . '), null, ' . json_encode($style_options) . '));';
-
-        return $result;
     }
 
     /**
@@ -324,9 +322,8 @@ class GisMultiPoint extends GisGeometry
                 0,
                 mb_strlen($wkt) - 1
             );
-        $wkt .= ')';
 
-        return $wkt;
+        return $wkt . ')';
     }
 
     /**
@@ -352,9 +349,8 @@ class GisMultiPoint extends GisGeometry
                 0,
                 mb_strlen($wkt) - 1
             );
-        $wkt .= ')';
 
-        return $wkt;
+        return $wkt . ')';
     }
 
     /**
@@ -423,8 +419,7 @@ class GisMultiPoint extends GisGeometry
         if (mb_substr($ol_array, $olArrayLength - 2) == ', ') {
             $ol_array = mb_substr($ol_array, 0, $olArrayLength - 2);
         }
-        $ol_array .= ')';
 
-        return $ol_array;
+        return $ol_array . ')';
     }
 }

@@ -81,15 +81,14 @@ class Text_Plain_Iptolong extends IOTransformationsPlugin
             $val = '';
         }
         $class = 'transform_IPToLong';
-        $html .= '<input type="text" name="fields' . $column_name_appendix . '"'
+
+        return $html . '<input type="text" name="fields' . $column_name_appendix . '"'
             . ' value="' . $val . '"'
             . ' size="40"'
             . ' dir="' . $text_dir . '"'
             . ' class="' . $class . '"'
             . ' id="field_' . ($idindex) . '_3"'
             . ' tabindex="' . ($tabindex + $tabindex_for_value) . '" />';
-
-        return $html;
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */

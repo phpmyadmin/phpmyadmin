@@ -594,10 +594,8 @@ class ReplicationGui
         );
         $qStart = $this->replication->slaveControl('START', null, DatabaseInterface::CONNECT_USER);
 
-        $result = ($qStop !== false && $qStop !== -1 &&
+        return $qStop !== false && $qStop !== -1 &&
             $qSkip !== false && $qSkip !== -1 &&
-            $qStart !== false && $qStart !== -1);
-
-        return $result;
+            $qStart !== false && $qStart !== -1;
     }
 }

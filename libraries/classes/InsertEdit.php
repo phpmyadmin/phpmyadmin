@@ -1047,7 +1047,8 @@ class InsertEdit
             $textAreaRows = $GLOBALS['cfg']['TextareaRows'] * 2;
             $textareaCols = $GLOBALS['cfg']['TextareaCols'] * 2;
         }
-        $html_output = $backup_field . "\n"
+
+        return $backup_field . "\n"
             . '<textarea name="fields' . $column_name_appendix . '"'
             . ' class="' . $the_class . '"'
             . ($readOnly ? ' readonly="readonly"' : '')
@@ -1061,8 +1062,6 @@ class InsertEdit
             . ' data-type="' . $data_type . '">'
             . $special_chars_encoded
             . '</textarea>';
-
-        return $html_output;
     }
 
     /**
@@ -1954,9 +1953,8 @@ class InsertEdit
                     . __('Edit next row') . '</option>';
             }
         }
-        $html_output .= '</select>';
 
-        return $html_output;
+        return $html_output . '</select>';
     }
 
     /**
@@ -2369,14 +2367,13 @@ class InsertEdit
         } else {
             $insert_command = 'INSERT ';
         }
-        $query = [
+
+        return [
             $insert_command . 'INTO '
             . Util::backquote($GLOBALS['table'])
             . ' (' . implode(', ', $query_fields) . ') VALUES ('
             . implode('), (', $value_sets) . ')',
         ];
-
-        return $query;
     }
 
     /**
@@ -3596,10 +3593,9 @@ class InsertEdit
             }
         } // end for
         $o_rows++;
-        $html_output .= '  </tbody>'
+
+        return $html_output . '  </tbody>'
             . '</table></div><br>'
             . '<div class="clearfloat"></div>';
-
-        return $html_output;
     }
 }

@@ -89,15 +89,14 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
                 . '" value="' . htmlspecialchars($val) . '">';
         }
         $class = 'transform_IPToBin';
-        $html .= '<input type="text" name="fields' . $column_name_appendix . '"'
+
+        return $html . '<input type="text" name="fields' . $column_name_appendix . '"'
             . ' value="' . htmlspecialchars($val) . '"'
             . ' size="40"'
             . ' dir="' . $text_dir . '"'
             . ' class="' . $class . '"'
             . ' id="field_' . $idindex . '_3"'
             . ' tabindex="' . ($tabindex + $tabindex_for_value) . '">';
-
-        return $html;
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */

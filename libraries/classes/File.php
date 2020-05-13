@@ -375,15 +375,13 @@ class File
         string $rownumber,
         string $key
     ): array {
-        $new_file = [
+        return [
             'name' => $file['name']['multi_edit'][$rownumber][$key],
             'type' => $file['type']['multi_edit'][$rownumber][$key],
             'size' => $file['size']['multi_edit'][$rownumber][$key],
             'tmp_name' => $file['tmp_name']['multi_edit'][$rownumber][$key],
             'error' => $file['error']['multi_edit'][$rownumber][$key],
         ];
-
-        return $new_file;
     }
 
     /**

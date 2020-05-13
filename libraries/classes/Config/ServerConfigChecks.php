@@ -272,9 +272,7 @@ class ServerConfigChecks
         $serverId
     ) {
         if ($serverName == 'localhost') {
-            $serverName .= ' [' . $serverId . ']';
-
-            return $serverName;
+            return $serverName . ' [' . $serverId . ']';
         }
 
         return $serverName;

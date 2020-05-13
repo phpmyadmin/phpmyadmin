@@ -727,15 +727,13 @@ class Table
         $table = $this->_name;
 
         if ($this->_dbi->getCachedTableContent([$db, $table, 'ExactRows']) != null) {
-            $row_count = $this->_dbi->getCachedTableContent(
+            return $this->_dbi->getCachedTableContent(
                 [
                     $db,
                     $table,
                     'ExactRows',
                 ]
             );
-
-            return $row_count;
         }
         $row_count = false;
 
