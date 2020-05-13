@@ -1404,10 +1404,12 @@
     </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="libraries/classes/InsertEdit.php">
-    <InvalidArgument occurrences="2">
-      <code>PASSWORD_DEFAULT</code>
+    <InvalidArgument occurrences="1">
       <code>$current_result</code>
     </InvalidArgument>
+    <NullArgument occurrences="1">
+      <code>PASSWORD_DEFAULT</code>
+    </NullArgument>
     <PossiblyInvalidArgument occurrences="1">
       <code>$row</code>
     </PossiblyInvalidArgument>
