@@ -109,6 +109,7 @@ class TrackingController extends AbstractController
                         'type' => 'both',
                         'default_statements' => $cfg['Server']['tracking_default_statements'],
                     ]);
+
                     return;
                 }
             } else {
@@ -128,6 +129,7 @@ class TrackingController extends AbstractController
             if (empty($db_is_system_schema)) {
                 echo CreateTable::getHtml($db);
             }
+
             return;
         }
 

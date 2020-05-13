@@ -20,12 +20,13 @@ use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\SqlParser\Components\CreateDefinition;
-use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\Util;
+use const E_USER_ERROR;
+use const PHP_VERSION;
 use function bin2hex;
 use function count;
 use function defined;
@@ -47,8 +48,6 @@ use function stripos;
 use function strtotime;
 use function strtoupper;
 use function trigger_error;
-use const E_USER_ERROR;
-use const PHP_VERSION;
 
 /**
  * Handles the export for the SQL class
@@ -659,6 +658,7 @@ class ExportSql extends ExportPlugin
             foreach ($lines as $line) {
                 $result[] = '-- ' . $line . $GLOBALS['crlf'];
             }
+
             return implode('', $result);
         }
 
@@ -1548,6 +1548,7 @@ class ExportSql extends ExportPlugin
             if (! defined('TESTSUITE')) {
                 trigger_error($message, E_USER_ERROR);
             }
+
             return $this->_exportComment($message);
         }
 
@@ -2308,6 +2309,7 @@ class ExportSql extends ExportPlugin
             if (! defined('TESTSUITE')) {
                 trigger_error($message, E_USER_ERROR);
             }
+
             return $this->export->outputHandler(
                 $this->_exportComment($message)
             );
@@ -2719,6 +2721,7 @@ class ExportSql extends ExportPlugin
             '" float NOT NULL$3' . "\n",
             $create_query
         );
+
         return preg_replace(
             '/" (float|double)(\([0-9,]+,[0-9,]+\))? NOT NULL DEFAULT \'([^\'])/',
             '" float NOT NULL DEFAULT \'$3',

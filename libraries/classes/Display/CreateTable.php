@@ -46,6 +46,7 @@ class CreateTable
         $checkUserPrivileges->getPrivileges();
 
         $template = new Template();
+
         return $template->render('database/create_table', ['db' => $db]);
     }
 }

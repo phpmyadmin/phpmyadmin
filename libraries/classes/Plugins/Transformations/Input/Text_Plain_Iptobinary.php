@@ -6,8 +6,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Input;
 
-use PhpMyAdmin\Utils\FormatConverter;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
+use PhpMyAdmin\Utils\FormatConverter;
 use stdClass;
 use function htmlspecialchars;
 use function inet_ntop;

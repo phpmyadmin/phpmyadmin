@@ -18,6 +18,8 @@ use PhpMyAdmin\SqlParser\Utils\Routine;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use const E_USER_WARNING;
+use const ENT_QUOTES;
 use function array_merge;
 use function count;
 use function explode;
@@ -36,8 +38,7 @@ use function sprintf;
 use function stripos;
 use function substr;
 use function trigger_error;
-use const E_USER_WARNING;
-use const ENT_QUOTES;
+use function trim;
 
 /**
  * Functions for routine management.
@@ -1514,6 +1515,7 @@ class Routines
                 unset($_POST);
                 // Now deliberately fall through to displaying the routines list
             }
+
             return;
         } elseif (! empty($_GET['execute_dialog']) && ! empty($_GET['item_name'])) {
             /**
@@ -1572,6 +1574,7 @@ class Routines
             }
             $output .= '<td>' . $value . '</td>';
         }
+
         return $output;
     }
 

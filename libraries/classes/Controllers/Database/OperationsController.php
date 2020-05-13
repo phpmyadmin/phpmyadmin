@@ -7,7 +7,6 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Display\CreateTable;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
@@ -247,6 +246,7 @@ class OperationsController extends AbstractController
                     Generator::getMessage('', $sql_query)
                 );
                 $this->response->addJSON('db', $db);
+
                 return;
             }
         }

@@ -527,6 +527,7 @@ final class Collation
         if (count($suffixes) > 0) {
             $result .= ', ' . implode(', ', $suffixes);
         }
+
         return $result;
     }
 }

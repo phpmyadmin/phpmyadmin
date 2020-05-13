@@ -59,6 +59,7 @@ class Key extends TwoFactorPlugin
             $reg->index = $index;
             $result[] = $reg;
         }
+
         return $result;
     }
 
@@ -86,9 +87,11 @@ class Key extends TwoFactorPlugin
             );
             $this->_twofactor->config['settings']['registrations'][$authentication->index]['counter'] = $authentication->counter;
             $this->_twofactor->save();
+
             return true;
         } catch (U2FException $e) {
             $this->_message = $e->getMessage();
+
             return false;
         }
     }
@@ -119,6 +122,7 @@ class Key extends TwoFactorPlugin
         );
         $_SESSION['authenticationRequest'] = $request;
         $this->loadScripts();
+
         return $this->template->render('login/twofactor/key', [
             'request' => json_encode($request),
             'is_https' => $GLOBALS['PMA_Config']->isHttps(),
@@ -145,6 +149,7 @@ class Key extends TwoFactorPlugin
         $_SESSION['registrationRequest'] = $registrationData['request'];
 
         $this->loadScripts();
+
         return $this->template->render('login/twofactor/key_configure', [
             'request' => json_encode($registrationData['request']),
             'signatures' => json_encode($registrationData['signatures']),
@@ -179,9 +184,11 @@ class Key extends TwoFactorPlugin
                 'certificate' => $registration->getCertificate(),
                 'counter' => $registration->getCounter(),
             ];
+
             return true;
         } catch (U2FException $e) {
             $this->_message = $e->getMessage();
+
             return false;
         }
     }

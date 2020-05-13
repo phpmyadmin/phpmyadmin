@@ -1,4 +1,5 @@
 <?php
+
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisVisualization;
@@ -21,6 +22,7 @@ class GisVisualizationTest extends TestCase
         $class = new ReflectionClass(GisVisualization::class);
         $method = $class->getMethod($name);
         $method->setAccessible(true);
+
         return $method->invokeArgs($gisObject, $params);
     }
 

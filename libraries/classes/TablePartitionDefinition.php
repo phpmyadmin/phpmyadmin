@@ -89,6 +89,7 @@ class TablePartitionDefinition
         } else {
             $count = 0;
         }
+
         return $count;
     }
 
@@ -188,6 +189,7 @@ class TablePartitionDefinition
             }
         }
         $partitionDetails['partitions'] = $partitions;
+
         return $partitionDetails;
     }
 }

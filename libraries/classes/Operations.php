@@ -7,8 +7,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Engines\Innodb;
-use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use function array_merge;
 use function count;
@@ -171,6 +169,7 @@ class Operations
                 $GLOBALS['sql_query'] .= "\n" . $sql_view_standin;
             }
         }
+
         return $views;
     }
 
@@ -242,6 +241,7 @@ class Operations
                 }
             }
         }
+
         return $sqlContraints;
     }
 
@@ -932,6 +932,7 @@ class Operations
                     . ' ' . $warning['Message'];
             }
         }
+
         return $warning_messages;
     }
 

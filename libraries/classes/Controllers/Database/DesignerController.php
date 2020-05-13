@@ -83,6 +83,7 @@ class DesignerController extends AbstractController
             if (! empty($html)) {
                 $this->response->addHTML($html);
             }
+
             return;
         }
 
@@ -105,6 +106,7 @@ class DesignerController extends AbstractController
                         )
                     );
                     $this->response->setRequestStatus(false);
+
                     return;
                 } else {
                     $page = $this->designerCommon->createNewPage($_POST['selected_value'], $_POST['db']);

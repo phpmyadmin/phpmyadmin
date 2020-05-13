@@ -6,12 +6,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use const PREG_SET_ORDER;
 use function count;
 use function preg_match_all;
 use function preg_replace;
 use function str_replace;
 use function strlen;
-use const PREG_SET_ORDER;
 
 /**
  * Handles bookmarking SQL queries
@@ -130,6 +130,7 @@ class Bookmark
             . "'" . $this->dbi->escapeString($this->_user) . "', "
             . "'" . $this->dbi->escapeString($this->_query) . "', "
             . "'" . $this->dbi->escapeString($this->_label) . "')";
+
         return $this->dbi->query($query, DatabaseInterface::CONNECT_CONTROL);
     }
 
@@ -150,6 +151,7 @@ class Bookmark
         $query  = 'DELETE FROM ' . Util::backquote($cfgBookmark['db'])
             . '.' . Util::backquote($cfgBookmark['table'])
             . ' WHERE id = ' . $this->_id;
+
         return $this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL);
     }
 
@@ -162,6 +164,7 @@ class Bookmark
     {
         $matches = [];
         preg_match_all('/\[VARIABLE[0-9]*\]/', $this->_query, $matches, PREG_SET_ORDER);
+
         return count($matches);
     }
 
@@ -193,6 +196,7 @@ class Bookmark
                 $query = str_replace('[VARIABLE]', $var, $query);
             }
         }
+
         return $query;
     }
 
@@ -278,6 +282,7 @@ class Bookmark
         $bookmark->_user = $row['user'];
         $bookmark->_label = $row['label'];
         $bookmark->_query = $row['query'];
+
         return $bookmark;
     }
 

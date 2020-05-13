@@ -156,6 +156,7 @@ class CreateController extends AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', $this->dbi->getError());
             }
+
             return;
         }
 

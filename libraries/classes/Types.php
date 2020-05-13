@@ -391,6 +391,7 @@ class Types
                     . ' (JavaScript Object Notation) documents'
                 );
         }
+
         return '';
     }
 
@@ -419,14 +420,12 @@ class Types
             case 'BOOLEAN':
             case 'SERIAL':
                 return 'NUMBER';
-
             case 'DATE':
             case 'DATETIME':
             case 'TIMESTAMP':
             case 'TIME':
             case 'YEAR':
                 return 'DATE';
-
             case 'CHAR':
             case 'VARCHAR':
             case 'TINYTEXT':
@@ -442,7 +441,6 @@ class Types
             case 'ENUM':
             case 'SET':
                 return 'CHAR';
-
             case 'GEOMETRY':
             case 'POINT':
             case 'LINESTRING':
@@ -452,7 +450,6 @@ class Types
             case 'MULTIPOLYGON':
             case 'GEOMETRYCOLLECTION':
                 return 'SPATIAL';
-
             case 'JSON':
                 return 'JSON';
         }
@@ -516,8 +513,8 @@ class Types
                 ) {
                     $ret = array_diff($ret, ['INET6_NTOA']);
                 }
-                return $ret;
 
+                return $ret;
             case 'DATE':
                 return [
                     'CURRENT_DATE',
@@ -536,7 +533,6 @@ class Types
                     'UTC_TIMESTAMP',
                     'YEAR',
                 ];
-
             case 'NUMBER':
                 $ret = [
                     'ABS',
@@ -597,8 +593,8 @@ class Types
                 ) {
                     $ret = array_diff($ret, ['INET6_ATON']);
                 }
-                return $ret;
 
+                return $ret;
             case 'SPATIAL':
                 if ($serverVersion >= 50600) {
                     return [
@@ -644,6 +640,7 @@ class Types
                     ];
                 }
         }
+
         return [];
     }
 
@@ -657,6 +654,7 @@ class Types
     public function getFunctions($type)
     {
         $class = $this->getTypeClass($type);
+
         return $this->getFunctionsClass($class);
     }
 
@@ -674,6 +672,7 @@ class Types
             $this->getFunctionsClass('UUID')
         );
         sort($ret);
+
         return $ret;
     }
 
@@ -858,6 +857,7 @@ class Types
         $relevantArray = $signed
             ? $min_max_data['signed']
             : $min_max_data['unsigned'];
+
         return $relevantArray[$type] ?? [
             '',
             '',

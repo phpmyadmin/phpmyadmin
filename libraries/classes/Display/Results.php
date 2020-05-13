@@ -29,6 +29,7 @@ use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use stdClass;
+use const MYSQLI_TYPE_BIT;
 use function array_filter;
 use function array_key_exists;
 use function array_keys;
@@ -68,7 +69,6 @@ use function strpos;
 use function strtoupper;
 use function substr;
 use function trim;
-use const MYSQLI_TYPE_BIT;
 
 /**
  * Handle all the functionalities related to displaying results
@@ -861,6 +861,7 @@ class Results
                 ),
             ]);
         }
+
         return [
             $output,
             $nbTotalPage,
@@ -1155,6 +1156,7 @@ class Results
 
             $this->__set('display_params', $display_params);
         } // end for
+
         return $html;
     }
 
@@ -1560,6 +1562,7 @@ class Results
                 $_SESSION['tmpval']['geoOption'] = self::GEOMETRY_DISP_WKT;
             }
         }
+
         return [
             'geo_option' => $_SESSION['tmpval']['geoOption'],
             'hide_transformation' => $_SESSION['tmpval']['hide_transformation'],
@@ -1885,6 +1888,7 @@ class Results
         if (empty($order_img)) {
             $order_img = '';
         }
+
         return [
             $single_sort_order,
             $sort_order,
@@ -2023,6 +2027,7 @@ class Results
                     ]
                 );
         }
+
         return [
             $sort_order,
             $order_img,
@@ -3430,6 +3435,7 @@ class Results
         } else {
             $field_type_class = '';
         }
+
         return $field_type_class;
     }
 
@@ -3546,11 +3552,13 @@ class Results
     ) {
         if (! isset($column) || $column === null) {
             $cell = $this->_buildNullDisplay($class, $condition_field, $meta);
+
             return $cell;
         }
 
         if ($column == '') {
             $cell = $this->_buildEmptyDisplay($class, $condition_field, $meta);
+
             return $cell;
         }
 
@@ -3571,6 +3579,7 @@ class Results
                 $condition_field,
                 $geometry_text
             );
+
             return $cell;
         }
 
@@ -3602,6 +3611,7 @@ class Results
                 $is_field_truncated,
                 ''
             );
+
             return $cell;
         }
 
@@ -3633,6 +3643,7 @@ class Results
                 $is_field_truncated,
                 ''
             );
+
             return $cell;
         }
 
@@ -3727,11 +3738,13 @@ class Results
 
         if (! isset($column) || $column === null) {
             $cell = $this->_buildNullDisplay($class, $condition_field, $meta);
+
             return $cell;
         }
 
         if ($column == '') {
             $cell = $this->_buildEmptyDisplay($class, $condition_field, $meta);
+
             return $cell;
         }
 
@@ -3802,6 +3815,7 @@ class Results
                 $condition_field,
                 $displayedColumn
             );
+
             return $cell;
         }
 
@@ -4814,6 +4828,7 @@ class Results
                 $transform_options,
                 $meta
             );
+
             return $result;
         }
 

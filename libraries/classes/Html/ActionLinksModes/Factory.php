@@ -21,6 +21,7 @@ class Factory
         if ($mode === 'text') {
             return new Text();
         }
+
         return new Image();
     }
 }

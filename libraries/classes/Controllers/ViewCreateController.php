@@ -60,6 +60,7 @@ class ViewCreateController extends AbstractController
                 $message
             );
             $this->response->setRequestStatus(false);
+
             return;
         }
 
@@ -117,6 +118,7 @@ class ViewCreateController extends AbstractController
             if (! $this->dbi->tryQuery($sql_query)) {
                 if (! isset($_POST['ajax_dialog'])) {
                     $message = Message::rawError($this->dbi->getError());
+
                     return;
                 }
 
@@ -128,6 +130,7 @@ class ViewCreateController extends AbstractController
                     )
                 );
                 $this->response->setRequestStatus(false);
+
                 return;
             }
 

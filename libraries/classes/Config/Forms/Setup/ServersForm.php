@@ -104,6 +104,7 @@ class ServersForm extends BaseForm
                 ],
             ],
         ];
+
         // phpcs:enable
     }
 }

@@ -78,6 +78,7 @@ class TwoFactor
         if (! isset($result['settings'])) {
             $result['settings'] = [];
         }
+
         return $result;
     }
 
@@ -102,6 +103,7 @@ class TwoFactor
     public function showSubmit(): bool
     {
         $backend = $this->_backend;
+
         return $backend::$showSubmit;
     }
 
@@ -122,6 +124,7 @@ class TwoFactor
         if (class_exists(U2FServer::class)) {
             $result[] = 'key';
         }
+
         return $result;
     }
 
@@ -151,6 +154,7 @@ class TwoFactor
                 'dep' => 'samyoul/u2f-php-server',
             ];
         }
+
         return $result;
     }
 
@@ -169,6 +173,7 @@ class TwoFactor
         } elseif (! empty($name)) {
             $result = Invalid::class;
         }
+
         return $result;
     }
 
@@ -180,6 +185,7 @@ class TwoFactor
     public function getBackendForCurrentUser()
     {
         $name = $this->getBackendClass($this->config['backend']);
+
         return new $name($this);
     }
 
@@ -198,6 +204,7 @@ class TwoFactor
         if (empty($_SESSION['two_factor_check'])) {
             $_SESSION['two_factor_check'] = $this->_backend->check();
         }
+
         return $_SESSION['two_factor_check'];
     }
 
@@ -265,6 +272,7 @@ class TwoFactor
         if ($result !== true) {
             $result->display();
         }
+
         return true;
     }
 
@@ -285,6 +293,7 @@ class TwoFactor
                 'description' => $cls::getDescription(),
             ];
         }
+
         return $backends;
     }
 }

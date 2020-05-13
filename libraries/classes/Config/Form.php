@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Config;
 
+use const E_USER_ERROR;
 use function array_combine;
 use function array_shift;
 use function array_walk;
@@ -14,12 +15,13 @@ use function gettype;
 use function is_array;
 use function is_bool;
 use function is_int;
+use function is_string;
 use function ltrim;
 use function mb_strpos;
 use function mb_strrpos;
 use function mb_substr;
+use function str_replace;
 use function trigger_error;
-use const E_USER_ERROR;
 
 /**
  * Base class for forms, loads default configuration options, checks allowed
@@ -104,6 +106,7 @@ class Form
             ),
             '/'
         );
+
         return $this->_fieldsTypes[$key] ?? null;
     }
 
@@ -119,16 +122,19 @@ class Form
         $value = $this->_configFile->getDbEntry($optionPath);
         if ($value === null) {
             trigger_error($optionPath . ' - select options not defined', E_USER_ERROR);
+
             return [];
         }
         if (! is_array($value)) {
             trigger_error($optionPath . ' - not a static value list', E_USER_ERROR);
+
             return [];
         }
         // convert array('#', 'a', 'b') to array('a', 'b')
         if (isset($value[0]) && $value[0] === '#') {
             // remove first element ('#')
             array_shift($value);
+
             // $value has keys and value names, return it
             return $value;
         }
@@ -168,6 +174,7 @@ class Form
         if (is_array($value)) {
             $prefix .= $key . '/';
             array_walk($value, [$this, '_readFormPathsCallback'], $prefix);
+
             return;
         }
 
@@ -234,6 +241,7 @@ class Form
 
     /**
      * Remove slashes from group names
+     *
      * @see issue #15836
      *
      * @param array $form The form data
@@ -249,6 +257,7 @@ class Form
                 }
             }
         }
+
         return $form;
     }
 

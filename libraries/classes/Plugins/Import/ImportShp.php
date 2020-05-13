@@ -17,6 +17,7 @@ use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\ZipExtension;
+use const LOCK_EX;
 use function count;
 use function extension_loaded;
 use function file_exists;
@@ -29,7 +30,6 @@ use function strlen;
 use function substr;
 use function trim;
 use function unlink;
-use const LOCK_EX;
 
 /**
  * Handles the import for ESRI Shape files
@@ -201,6 +201,7 @@ class ImportShp extends ImportPlugin
                     __('MySQL Spatial Extension does not support ESRI type "%s".')
                 );
                 $message->addParam($shp->getShapeName());
+
                 return;
         }
 

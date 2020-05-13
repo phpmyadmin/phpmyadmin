@@ -68,10 +68,12 @@ class TwoFactorPlugin
                     sprintf(__('Two-factor authentication failed: %s'), $this->_message)
                 )->getDisplay();
             }
+
             return Message::rawError(
                 __('Two-factor authentication failed.')
             )->getDisplay();
         }
+
         return '';
     }
 

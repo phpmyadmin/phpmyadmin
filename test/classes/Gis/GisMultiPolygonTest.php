@@ -381,6 +381,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
         if (! function_exists('imagecreatetruecolor')) {
             $this->markTestSkipped('GD extension missing!');
         }
+
         return [
             [
                 'MULTIPOLYGON(((136 40,147 83,16 75,136 40)),'

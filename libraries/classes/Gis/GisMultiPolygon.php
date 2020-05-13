@@ -558,6 +558,7 @@ class GisMultiPolygon extends GisGeometry
             );
 
         $wkt .= ')'; // end of multipolygon
+
         return $wkt;
     }
 

@@ -76,6 +76,7 @@ class FeaturesForm extends BaseForm
                 'DBG/sql',
             ];
         }
+
         return $result;
     }
 

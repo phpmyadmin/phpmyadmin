@@ -8,6 +8,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Utils\HttpRequest;
 use stdClass;
+use const PHP_VERSION;
 use function count;
 use function explode;
 use function intval;
@@ -20,7 +21,6 @@ use function strpos;
 use function substr;
 use function time;
 use function version_compare;
-use const PHP_VERSION;
 
 /**
  * Responsible for retrieving version information and notifiying about latest version
@@ -70,6 +70,7 @@ class VersionInformation
                 'timestamp' => time(),
             ];
         }
+
         return $data;
     }
 
@@ -174,7 +175,7 @@ class VersionInformation
             if ($latestRelease === null || version_compare($latestRelease['version'], $release->version, '<')) {
                 $latestRelease = [
                     'version' => $release->version,
-                    'date' => $release->date
+                    'date' => $release->date,
                 ];
             }
         }
@@ -222,6 +223,7 @@ class VersionInformation
         if ($myVersion !== null && $operator !== null) {
             return version_compare($myVersion, $version, $operator);
         }
+
         return false;
     }
 
@@ -245,6 +247,7 @@ class VersionInformation
         if (isset($GLOBALS['dbi'])) {
             return $GLOBALS['dbi']->getVersionString();
         }
+
         return null;
     }
 }

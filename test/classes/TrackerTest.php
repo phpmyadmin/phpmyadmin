@@ -718,6 +718,7 @@ class TrackerTest extends PmaTestCase
             'schema_snapshot' => 'dataschema',
             'tracking' => 'SELECT, DELETE',
         ];
+
         return [
             [
                 $fetchArrayReturn[0],

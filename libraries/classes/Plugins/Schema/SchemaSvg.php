@@ -73,6 +73,7 @@ class SchemaSvg extends SchemaPlugin
     {
         $export = new SvgRelationSchema($db);
         $export->showOutput();
+
         return true;
     }
 }

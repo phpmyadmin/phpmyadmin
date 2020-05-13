@@ -129,6 +129,7 @@ class Encoding
         if (isset(self::$_enginemap[$engine])) {
             if (function_exists(self::$_enginemap[$engine][0])) {
                 self::$_engine = self::$_enginemap[$engine][1];
+
                 return;
             } else {
                 Core::warnMissingExtension(self::$_enginemap[$engine][2]);
@@ -139,6 +140,7 @@ class Encoding
         foreach (self::$_engineorder as $engine) {
             if (function_exists(self::$_enginemap[$engine][0])) {
                 self::$_engine = self::$_enginemap[$engine][1];
+
                 return;
             }
         }
@@ -165,6 +167,7 @@ class Encoding
         if (self::$_engine === null) {
             self::initEngine();
         }
+
         return self::$_engine != self::ENGINE_NONE;
     }
 
@@ -283,6 +286,7 @@ class Encoding
         } else {
             $dist = $str;
         }
+
         return $dist;
     }
 
@@ -325,6 +329,7 @@ class Encoding
     public static function kanjiEncodingForm(): string
     {
         $template = new Template();
+
         return $template->render('encoding/kanji_encoding_form');
     }
 

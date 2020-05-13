@@ -8,6 +8,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Encoding;
 use PHPUnit\Framework\TestCase;
+use const PHP_INT_SIZE;
 use function fclose;
 use function file_get_contents;
 use function fopen;
@@ -16,7 +17,6 @@ use function fwrite;
 use function mb_convert_encoding;
 use function mb_convert_kana;
 use function unlink;
-use const PHP_INT_SIZE;
 
 /**
  * Tests for Charset Conversions

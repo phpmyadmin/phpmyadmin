@@ -217,6 +217,7 @@ class GisGeometryCollectionTest extends TestCase
         if (! function_exists('imagecreatetruecolor')) {
             $this->markTestSkipped('GD extension missing!');
         }
+
         return [
             [
                 'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),'

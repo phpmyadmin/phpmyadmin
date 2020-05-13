@@ -3,6 +3,8 @@
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
 use Symfony\Component\DependencyInjection\Reference;
+use function is_string;
+use function substr;
 
 return function (ContainerConfigurator $configurator) {
     $services = $configurator->services();

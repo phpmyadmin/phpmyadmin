@@ -216,6 +216,7 @@ class GisMultiPointTest extends GisGeomTestCase
         if (! function_exists('imagecreatetruecolor')) {
             $this->markTestSkipped('GD extension missing!');
         }
+
         return [
             [
                 'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',

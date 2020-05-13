@@ -64,6 +64,7 @@ class ImportAjax
                 break;
             }
         }
+
         return [
             $SESSION_KEY,
             $upload_id,
@@ -85,6 +86,7 @@ class ImportAjax
         ) {
             return false;
         }
+
         return ini_get('apc.enabled') && ini_get('apc.rfc1867');
     }
 

@@ -16,7 +16,6 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Privileges;
-use PhpMyAdmin\Server\Users;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -211,6 +210,7 @@ class PrivilegesController extends AbstractController
                 Message::error(__('No Privileges'))
                     ->getDisplay()
             );
+
             return;
         }
         if (! $GLOBALS['is_grantuser'] && ! $GLOBALS['is_createuser']) {
@@ -236,6 +236,7 @@ class PrivilegesController extends AbstractController
                 )->getDisplay()
             );
             $this->response->setRequestStatus(false);
+
             return;
         }
 
@@ -399,6 +400,7 @@ class PrivilegesController extends AbstractController
                 $this->response->setRequestStatus($message->isSuccess());
                 $this->response->addJSON('message', $message);
                 $this->response->addJSON($extra_data);
+
                 return;
             }
         }
@@ -460,6 +462,7 @@ class PrivilegesController extends AbstractController
             if ($this->response->isAjax()) {
                 $this->response->addJSON('message', $export);
                 $this->response->addJSON('title', $title);
+
                 return;
             } else {
                 $this->response->addHTML('<h2>' . $title . '</h2>' . $export);
@@ -480,6 +483,7 @@ class PrivilegesController extends AbstractController
             } elseif ($this->response->isAjax() === true && empty($_REQUEST['ajax_page_request'])) {
                 $message = Message::success(__('User has been added.'));
                 $this->response->addJSON('message', $message);
+
                 return;
             } else {
                 $this->response->addHTML($databaseController->index([

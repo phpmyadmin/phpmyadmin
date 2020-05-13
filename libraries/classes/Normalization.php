@@ -113,6 +113,7 @@ class Normalization
                 }
             }
         }
+
         return $selectColHtml;
     }
 
@@ -254,6 +255,7 @@ class Normalization
             . "</fieldset><fieldset class='tblFooters'>"
             . '</fieldset>'
             . '</div>';
+
         return $html;
     }
 
@@ -298,6 +300,7 @@ class Normalization
                 . '<a href="#" id="addNewPrimary">'
                 . __('+ Add a new primary key column') . '</a>';
         }
+
         return [
             'legendText' => $legendText,
             'headText' => $headText,
@@ -335,6 +338,7 @@ class Normalization
             . __('Remove selected') . '">'
             . '<input class="btn btn-secondary" type="submit" value="' . __('No redundant column')
             . '" onclick="goToFinish1NF();">';
+
         return [
             'legendText' => $legendText,
             'headText' => $headText,
@@ -379,6 +383,7 @@ class Normalization
         foreach ($primarycols as $col) {
             $pk[] = $col->getName();
         }
+
         return [
             'legendText' => $legendText,
             'headText' => $headText,
@@ -474,6 +479,7 @@ class Normalization
             ) . '<br>';
             $extra = '<h3>' . __('Table is already in second normal form.') . '</h3>';
         }
+
         return [
             'legendText' => $legendText,
             'headText' => $headText,
@@ -512,6 +518,7 @@ class Normalization
             $i++;
             $tableName = 'table' . $i;
         }
+
         return $html;
     }
 
@@ -584,6 +591,7 @@ class Normalization
                 break;
             }
         }
+
         return [
             'legendText' => __('End of step'),
             'headText' => $headText,
@@ -651,6 +659,7 @@ class Normalization
                 }
             }
         }
+
         return [
             'html' => $html,
             'newTables' => $newTables,
@@ -740,6 +749,7 @@ class Normalization
                 break;
             }
         }
+
         return [
             'legendText' => __('End of step'),
             'headText' => $headText,
@@ -815,6 +825,7 @@ class Normalization
                 break;
             }
         }
+
         return [
             'queryError' => $error,
             'message' => $message,
@@ -893,6 +904,7 @@ class Normalization
             $subText = '';
             $extra = '<h3>' . __('Table is already in Third normal form!') . '</h3>';
         }
+
         return [
             'legendText' => $legendText,
             'headText' => $headText,
@@ -1022,6 +1034,7 @@ class Normalization
                 . __('No partial dependencies found!') . '</p>';
         }
         $html .= '</div>';
+
         return $html;
     }
 
@@ -1055,6 +1068,7 @@ class Normalization
         if ($pkCnt && $pkCnt == $colCnt && $colCnt == $pkColCnt) {
             return true;
         }
+
         return $totalRows && $totalRows == $pkCnt;
     }
 
@@ -1086,6 +1100,7 @@ class Normalization
                 $result[$column] = $res[0][$column . '_cnt'] ?? null;
             }
         }
+
         return $result;
     }
 
@@ -1105,6 +1120,7 @@ class Normalization
             }
         }
         array_pop($results); //remove key which consist of all primary key columns
+
         return $results;
     }
 }

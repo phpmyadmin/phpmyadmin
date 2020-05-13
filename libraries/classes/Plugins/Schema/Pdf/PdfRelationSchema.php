@@ -29,6 +29,7 @@ use function strtotime;
  */
 if (! class_exists('TCPDF')) {
     $GLOBALS['skip_import'] = true;
+
     return;
 }
 

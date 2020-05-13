@@ -80,6 +80,7 @@ class ResultsTest extends PmaTestCase
         $class = new ReflectionClass(DisplayResults::class);
         $method = $class->getMethod($name);
         $method->setAccessible(true);
+
         return $method->invokeArgs($this->object, $params);
     }
 
@@ -558,6 +559,7 @@ class ResultsTest extends PmaTestCase
         $parser = new Parser(
             'SELECT * FROM db_name WHERE `db_name`.`tbl`.id > 0 AND `id` < 10'
         );
+
         return [
             [
                 ['statement' => $parser->statements[0]],

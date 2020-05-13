@@ -10,6 +10,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
 use TCPDF;
+use const PNG_ALL_FILTERS;
 use function array_merge;
 use function base64_encode;
 use function count;
@@ -26,7 +27,6 @@ use function mb_strtolower;
 use function mb_substr;
 use function ob_get_clean;
 use function ob_start;
-use const PNG_ALL_FILTERS;
 
 /**
  * Handles visualization of GIS data
@@ -546,6 +546,7 @@ class GisVisualization
         } elseif ($format == 'ol') {
             return $this->asOl();
         }
+
         return '';
     }
 

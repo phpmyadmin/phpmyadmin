@@ -60,6 +60,7 @@ class FindReplaceController extends AbstractController
 
         if (isset($_POST['find'])) {
             $this->findAction();
+
             return;
         }
 
@@ -308,6 +309,7 @@ class FindReplaceController extends AbstractController
                 );
             }
         }
+
         return $result;
     }
 

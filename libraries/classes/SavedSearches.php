@@ -89,6 +89,7 @@ class SavedSearches
         }
 
         $this->_id = $searchId;
+
         return $this;
     }
 
@@ -112,6 +113,7 @@ class SavedSearches
     public function setSearchName($searchName)
     {
         $this->_searchName = $searchName;
+
         return $this;
     }
 
@@ -135,6 +137,7 @@ class SavedSearches
     public function setConfig(array $config)
     {
         $this->_config = $config;
+
         return $this;
     }
 
@@ -160,6 +163,7 @@ class SavedSearches
     {
         if ($json === true && is_string($criterias)) {
             $this->_criterias = json_decode($criterias, true);
+
             return $this;
         }
 
@@ -199,6 +203,7 @@ class SavedSearches
         }
 
         $this->_criterias = $data;
+
         return $this;
     }
 
@@ -222,6 +227,7 @@ class SavedSearches
     public function setUsername($username)
     {
         $this->_username = $username;
+
         return $this;
     }
 
@@ -245,6 +251,7 @@ class SavedSearches
     public function setDbname($dbname)
     {
         $this->_dbname = $dbname;
+
         return $this;
     }
 
@@ -356,6 +363,7 @@ class SavedSearches
             . "`search_data` = '"
             . $GLOBALS['dbi']->escapeString(json_encode($this->getCriterias())) . "' "
             . 'WHERE id = ' . $this->getId();
+
         return (bool) $this->relation->queryAsControlUser($sqlQuery);
     }
 

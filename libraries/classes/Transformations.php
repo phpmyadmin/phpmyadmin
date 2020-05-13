@@ -174,6 +174,7 @@ class Transformations
                 }
             }
         }
+
         return $stack;
     }
 
@@ -208,6 +209,7 @@ class Transformations
         if (class_exists($class_name)) {
             return $class_name::getInfo();
         }
+
         return '';
     }
 
@@ -226,6 +228,7 @@ class Transformations
         if (class_exists($class_name)) {
             return $class_name::getName();
         }
+
         return '';
     }
 
@@ -254,6 +257,7 @@ class Transformations
             ],
             $value
         );
+
         return str_replace(
             ' ',
             '',

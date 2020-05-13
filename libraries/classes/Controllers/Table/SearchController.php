@@ -196,6 +196,7 @@ class SearchController extends AbstractController
 
         if (isset($_POST['range_search'])) {
             $this->rangeSearchAction();
+
             return;
         }
 
@@ -414,6 +415,7 @@ class SearchController extends AbstractController
             'titles' => $titles,
             'in_fbs' => true,
         ]);
+
         return [
             'type' => $type,
             'collation' => $collation,

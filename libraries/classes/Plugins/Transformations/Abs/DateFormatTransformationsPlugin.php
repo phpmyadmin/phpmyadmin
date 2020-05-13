@@ -140,6 +140,7 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
             } else {
                 $text = 'INVALID DATE TYPE';
             }
+
             return '<dfn onclick="alert(\'' . Sanitize::jsFormat($source, false) . '\');" title="'
                 . htmlspecialchars((string) $source) . '">' . htmlspecialchars((string) $text) . '</dfn>';
         }

@@ -105,6 +105,7 @@ class FormDisplayTemplate
             'items' => $items,
         ]);
         $htmlOutput .= '<div class="tabs_contents col">';
+
         return $htmlOutput;
     }
 
@@ -391,6 +392,7 @@ class FormDisplayTemplate
             $htmlOutput .= '<td>&nbsp;</td>';
         }
         $htmlOutput .= '</tr>';
+
         return $htmlOutput;
     }
 

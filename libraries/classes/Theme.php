@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use const E_USER_ERROR;
 use function file_exists;
 use function file_get_contents;
 use function filemtime;
@@ -19,7 +20,6 @@ use function sprintf;
 use function trigger_error;
 use function trim;
 use function version_compare;
-use const E_USER_ERROR;
 
 /**
  * handles theme
@@ -194,6 +194,7 @@ class Theme
         // try current theme first
         if (is_dir($this->getPath() . '/img/')) {
             $this->setImgPath($this->getPath() . '/img/');
+
             return true;
         }
 
@@ -201,6 +202,7 @@ class Theme
         $fallback = './themes/' . ThemeManager::FALLBACK_THEME . '/img/';
         if (is_dir($fallback)) {
             $this->setImgPath($fallback);
+
             return true;
         }
 
@@ -212,6 +214,7 @@ class Theme
             ),
             E_USER_ERROR
         );
+
         return false;
     }
 

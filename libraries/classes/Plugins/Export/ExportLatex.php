@@ -15,13 +15,13 @@ use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Util;
+use const PHP_VERSION;
 use function count;
 use function in_array;
 use function mb_strpos;
 use function mb_substr;
 use function str_replace;
 use function stripslashes;
-use const PHP_VERSION;
 
 /**
  * Handles the export for the Latex format

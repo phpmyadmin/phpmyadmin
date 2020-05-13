@@ -7,7 +7,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Index;
-use function implode;
 
 /**
  * Test for Index class

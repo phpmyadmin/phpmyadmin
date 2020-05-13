@@ -78,6 +78,7 @@ class UserPreferences
                     'ts' => time(),
                 ];
             }
+
             return [
                 'config_data' => $_SESSION['userconfig']['db'],
                 'mtime' => $_SESSION['userconfig']['ts'],
@@ -122,6 +123,7 @@ class UserPreferences
             if (isset($_SESSION['cache'][$cache_key]['userprefs'])) {
                 unset($_SESSION['cache'][$cache_key]['userprefs']);
             }
+
             return true;
         }
 
@@ -166,8 +168,10 @@ class UserPreferences
                 ),
                 '<br><br>'
             );
+
             return $message;
         }
+
         return true;
     }
 
@@ -196,6 +200,7 @@ class UserPreferences
             }
             Core::arrayWrite($path, $cfg, $value);
         }
+
         return $cfg;
     }
 
@@ -222,6 +227,7 @@ class UserPreferences
         } else {
             $prefs['config_data'][$path] = $value;
         }
+
         return $this->save($prefs['config_data']);
     }
 
@@ -263,6 +269,7 @@ class UserPreferences
             && $_REQUEST['prefs_autoload'] == 'hide'
         ) {
             $_SESSION['userprefs_autoload'] = true;
+
             return '';
         }
 

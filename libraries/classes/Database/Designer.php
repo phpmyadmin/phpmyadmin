@@ -17,6 +17,7 @@ use PhpMyAdmin\Util;
 use stdClass;
 use function count;
 use function intval;
+use function is_array;
 use function json_decode;
 use function json_encode;
 use function strpos;
@@ -58,6 +59,7 @@ class Designer
     public function getHtmlForEditOrDeletePages($db, $operation)
     {
         $cfgRelation = $this->relation->getRelationsParam();
+
         return $this->template->render('database/designer/edit_delete_pages', [
             'db' => $db,
             'operation' => $operation,
@@ -76,6 +78,7 @@ class Designer
     public function getHtmlForPageSaveAs($db)
     {
         $cfgRelation = $this->relation->getRelationsParam();
+
         return $this->template->render('database/designer/page_save_as', [
             'db' => $db,
             'pdfwork' => $cfgRelation['pdfwork'],
@@ -112,6 +115,7 @@ class Designer
         while ($curr_page = $this->dbi->fetchAssoc($page_rs)) {
             $result[intval($curr_page['page_nr'])] = $curr_page['page_descr'];
         }
+
         return $result;
     }
 
@@ -284,6 +288,7 @@ class Designer
                 }
             }
         }
+
         return $this->template->render('database/designer/database_tables', [
             'db' => $GLOBALS['db'],
             'get_db' => $db,

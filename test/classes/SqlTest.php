@@ -56,6 +56,7 @@ class SqlTest extends TestCase
     {
         $method = new ReflectionMethod(Sql::class, $name);
         $method->setAccessible(true);
+
         return $method->invokeArgs($this->sql, $params);
     }
 

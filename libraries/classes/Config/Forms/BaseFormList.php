@@ -51,6 +51,7 @@ class BaseFormList
         if (static::isValid($name)) {
             return static::$ns . $name . 'Form';
         }
+
         return null;
     }
 
@@ -81,6 +82,7 @@ class BaseFormList
         foreach ($this->_forms as $form) {
             $ret = $ret && $form->process($allowPartialSave, $checkFormSubmit);
         }
+
         return $ret;
     }
 
@@ -95,6 +97,7 @@ class BaseFormList
         foreach ($this->_forms as $form) {
             $ret .= $form->displayErrors();
         }
+
         return $ret;
     }
 
@@ -121,6 +124,7 @@ class BaseFormList
         foreach ($this->_forms as $form) {
             $ret = $ret || $form->hasErrors();
         }
+
         return $ret;
     }
 
@@ -136,6 +140,7 @@ class BaseFormList
             $class = static::get($form);
             $names = array_merge($names, $class::getFields());
         }
+
         return $names;
     }
 }

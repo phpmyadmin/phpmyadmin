@@ -295,6 +295,7 @@ class BrowseForeigners
                 . '...'
             );
         }
+
         return [
             $description,
             $descriptionTitle,
@@ -346,6 +347,7 @@ class BrowseForeigners
             return null;
         }
         isset($_POST['pos']) ? $pos = $_POST['pos'] : $pos = 0;
+
         return 'LIMIT ' . $pos . ', ' . $this->maxRows . ' ';
     }
 }

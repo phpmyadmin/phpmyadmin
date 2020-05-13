@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\Routing;
 use FastRoute\Dispatcher;
 use PhpMyAdmin\Controllers\HomeController;
+use PhpMyAdmin\Routing;
 
 /**
  * Tests for PhpMyAdmin\Routing

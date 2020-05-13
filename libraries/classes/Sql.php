@@ -13,6 +13,7 @@ use PhpMyAdmin\SqlParser\Statements\AlterStatement;
 use PhpMyAdmin\SqlParser\Statements\DropStatement;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
+use const ENT_COMPAT;
 use function array_map;
 use function array_sum;
 use function bin2hex;
@@ -24,6 +25,7 @@ use function htmlspecialchars;
 use function in_array;
 use function is_array;
 use function is_bool;
+use function is_string;
 use function microtime;
 use function session_start;
 use function session_write_close;
@@ -33,7 +35,6 @@ use function stripos;
 use function strlen;
 use function strpos;
 use function ucwords;
-use const ENT_COMPAT;
 
 /**
  * Set of functions for the SQL executor
@@ -82,6 +83,7 @@ class Sql
         [
             $analyzed_sql_results,,
         ] = ParseAnalyze::sqlQuery($sql_query, $db);
+
         return $analyzed_sql_results;
     }
 
@@ -178,6 +180,7 @@ class Sql
                 $prev_table = $one_field_meta->table;
             }
         }
+
         return $just_one_table && $prev_table != '';
     }
 
@@ -216,6 +219,7 @@ class Sql
                 }
             }
         }
+
         return false;
     }
 
@@ -299,6 +303,7 @@ class Sql
                 'chart_json' => $chartJson,
             ]);
         }
+
         return '';
     }
 
@@ -343,6 +348,7 @@ class Sql
                     = $one_result['Duration'];
             }
         }
+
         return [
             $table,
             $chart_json,
@@ -477,6 +483,7 @@ class Sql
                 'sql_query' => $complete_query ?? $sql_query,
             ]);
         }
+
         return '';
     }
 
@@ -609,6 +616,7 @@ class Sql
             default:
                 $property_to_set = '';
         }
+
         return $pmatable->setUiProp(
             $property_to_set,
             $property_value,
@@ -867,6 +875,7 @@ class Sql
     {
         if (strlen($db) > 0) {
             $current_db = $GLOBALS['dbi']->fetchValue('SELECT DATABASE()');
+
             // $current_db is false, except when a USE statement was sent
             return ($current_db != false) && ($db !== $current_db);
         }

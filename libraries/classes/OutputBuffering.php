@@ -64,6 +64,7 @@ class OutputBuffering
                 $mode = 1;
             }
         }
+
         // Zero (0) is no mode or in other words output buffering is OFF.
         // Follow 2^0, 2^1, 2^2, 2^3 type values for the modes.
         // Useful if we ever decide to combine modes.  Then a bitmask field of
@@ -81,6 +82,7 @@ class OutputBuffering
         if (empty(self::$_instance)) {
             self::$_instance = new OutputBuffering();
         }
+
         return self::$_instance;
     }
 

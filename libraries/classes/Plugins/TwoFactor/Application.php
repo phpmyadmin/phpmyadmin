@@ -67,6 +67,7 @@ class Application extends TwoFactorPlugin
             return false;
         }
         $this->_provided = true;
+
         return $this->_google2fa->verifyKey(
             $this->_twofactor->config['settings']['secret'],
             $_POST['2fa_code']
@@ -96,6 +97,7 @@ class Application extends TwoFactorPlugin
             $this->_twofactor->user,
             $secret
         );
+
         return $this->template->render('login/twofactor/application_configure', [
             'image' => $inlineUrl,
             'secret' => $secret,
@@ -123,6 +125,7 @@ class Application extends TwoFactorPlugin
         if ($result) {
             unset($_SESSION['2fa_application_key']);
         }
+
         return $result;
     }
 

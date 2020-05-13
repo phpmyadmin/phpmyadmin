@@ -111,6 +111,7 @@ class GisDataEditorController extends AbstractController
                 'visualization' => $visualization,
                 'openLayers' => $open_layers,
             ]);
+
             return;
         }
 

@@ -223,6 +223,7 @@ class PageSettings
 
         $response = Response::getInstance();
         $response->addHTML($object->getErrorHTML());
+
         return $object->getHTML();
     }
 }

@@ -9,6 +9,10 @@ namespace PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Util;
+use const FILTER_FLAG_IPV4;
+use const FILTER_FLAG_IPV6;
+use const FILTER_VALIDATE_IP;
+use const PHP_INT_MAX;
 use function array_map;
 use function array_merge;
 use function array_shift;
@@ -33,10 +37,6 @@ use function preg_replace;
 use function sprintf;
 use function str_replace;
 use function trim;
-use const FILTER_FLAG_IPV4;
-use const FILTER_FLAG_IPV6;
-use const FILTER_VALIDATE_IP;
-use const PHP_INT_MAX;
 
 /**
  * Validation class for various validation functions
@@ -96,6 +96,7 @@ class Validator
                 ? array_merge((array) $validators[$field], $uvList)
                 : $uvList;
         }
+
         return $validators;
     }
 
@@ -190,6 +191,7 @@ class Validator
                 $newResult[$k2] = htmlspecialchars($v);
             }
         }
+
         return empty($newResult) ? true : $newResult;
     }
 
@@ -254,6 +256,7 @@ class Validator
                 $error .= ' - ' . $lastError['message'];
             }
         }
+
         return $error === null ? true : [$errorKey => $error];
     }
 
@@ -326,6 +329,7 @@ class Validator
                 $result = array_merge($result, $test);
             }
         }
+
         return $result;
     }
 
@@ -380,6 +384,7 @@ class Validator
                 $result = array_merge($result, $test);
             }
         }
+
         return $result;
     }
 
@@ -410,6 +415,7 @@ class Validator
 
         if ($currentError !== null) {
             $error = preg_replace('/^preg_match\(\): /', '', $currentError['message']);
+
             return [$path => $error];
         }
 
@@ -586,6 +592,7 @@ class Validator
             return '';
         }
         $result = preg_match($regex, Util::requestString($values[$path]));
+
         return [$path => $result ? '' : __('Incorrect value!')];
     }
 
@@ -601,6 +608,7 @@ class Validator
     public static function validateUpperBound($path, array $values, $maxValue)
     {
         $result = $values[$path] <= $maxValue;
+
         return [
             $path => $result ? '' : sprintf(
                 __('Value must be less than or equal to %s!'),

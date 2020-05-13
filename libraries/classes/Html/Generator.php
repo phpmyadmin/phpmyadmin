@@ -25,13 +25,10 @@ use Williamdes\MariaDBMySQLKBS\KBException;
 use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
 use function addslashes;
 use function array_key_exists;
-use function array_merge;
-use function basename;
 use function ceil;
 use function count;
 use function explode;
 use function floor;
-use function htmlentities;
 use function htmlspecialchars;
 use function implode;
 use function in_array;
@@ -50,10 +47,8 @@ use function str_replace;
 use function strlen;
 use function strncmp;
 use function strpos;
-use function trigger_error;
 use function trim;
 use function urlencode;
-use const E_USER_NOTICE;
 
 /**
  * HTML Generator
@@ -105,6 +100,7 @@ class Generator
         } catch (KBException $e) {
             unset($e);// phpstan workaround
         }
+
         return $html;
     }
 
@@ -122,6 +118,7 @@ class Generator
         } else {
             $classClause = '';
         }
+
         return '<span' . $classClause . '>'
             . self::getImage('b_help')
             . '<span class="hide">' . $message . '</span>'
@@ -174,6 +171,7 @@ class Generator
             $GLOBALS['cfg']['DefaultTabDatabase'],
             'database'
         );
+
         return '<a href="'
             . $scriptName
             . Url::getCommon(['db' => $database], strpos($scriptName, '?') === false ? '?' : '&')
@@ -212,6 +210,7 @@ class Generator
                 )
             );
         }
+
         return $ext_but_html;
     }
 
@@ -330,6 +329,7 @@ class Generator
             $class = '';
             $message = __('SSL is used');
         }
+
         return '<span class="' . $class . '">' . $message . '</span> ' . MySQLDocumentation::showDocumentation(
                 'setup',
                 'ssl'
@@ -510,6 +510,7 @@ class Generator
         if ($showText) {
             $retval .= '<br>';
         }
+
         return $retval;
     }
 
@@ -596,6 +597,7 @@ class Generator
             }
             $ret .= $devider;
         }
+
         return $ret;
     }
 
@@ -1160,6 +1162,7 @@ class Generator
 
         // generate the IMG tag
         $template = '<img src="themes/dot.gif" title="%s" alt="%s"%s>';
+
         return sprintf($template, $title, $alt, $attr_str);
     }
 
@@ -1400,6 +1403,7 @@ class Generator
                     $cfg['MaxCharactersInDisplayedSQL']
                 ) . '[...]';
         }
+
         return '<code class="sql"><pre>' . "\n"
             . htmlspecialchars($sqlQuery) . "\n"
             . '</pre></code>';
@@ -1454,6 +1458,7 @@ class Generator
                 );
             }
         }
+
         return $retval;
     }
 }

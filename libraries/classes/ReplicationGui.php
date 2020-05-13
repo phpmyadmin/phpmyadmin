@@ -9,7 +9,6 @@ namespace PhpMyAdmin;
 use function htmlspecialchars;
 use function in_array;
 use function is_array;
-use function is_int;
 use function mb_strrpos;
 use function mb_strtolower;
 use function mb_substr;
@@ -59,6 +58,7 @@ class ReplicationGui
                 $_SESSION['replication']['sr_action_status'] = 'unknown';
             }
         }
+
         return $html;
     }
 
@@ -335,6 +335,7 @@ class ReplicationGui
                 }
             }
         }
+
         return [
             $username_length,
             $hostname_length,

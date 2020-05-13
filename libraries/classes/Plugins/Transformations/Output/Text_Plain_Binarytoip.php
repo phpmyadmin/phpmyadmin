@@ -6,8 +6,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Output;
 
-use PhpMyAdmin\Utils\FormatConverter;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
+use PhpMyAdmin\Utils\FormatConverter;
 use stdClass;
 
 /**

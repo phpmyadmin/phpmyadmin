@@ -144,6 +144,7 @@ class Plugins
                 );
             }
         );
+
         return $plugin_list;
     }
 
@@ -179,6 +180,7 @@ class Plugins
         ) {
             return ' checked="checked"';
         }
+
         return '';
     }
 
@@ -222,6 +224,7 @@ class Plugins
                 $val = str_replace($match, $GLOBALS[$match], $val);
             }
         }
+
         return htmlspecialchars($val);
     }
 
@@ -426,6 +429,7 @@ class Plugins
             }
         }
         $ret .= "\n";
+
         return $ret;
     }
 
@@ -585,6 +589,7 @@ class Plugins
             default:
                 break;
         }
+
         return $ret;
     }
 
@@ -648,6 +653,7 @@ class Plugins
             }
             $ret .= '</div>';
         }
+
         return $ret;
     }
 }

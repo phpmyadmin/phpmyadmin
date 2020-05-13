@@ -190,6 +190,7 @@ class DatabasesController extends AbstractController
 
         if (! isset($params['new_db']) || mb_strlen($params['new_db']) === 0 || ! $this->response->isAjax()) {
             $this->response->addJSON(['message' => Message::error()]);
+
             return;
         }
 

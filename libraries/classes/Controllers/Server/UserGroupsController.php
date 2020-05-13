@@ -9,9 +9,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\UserGroups;
-use PhpMyAdmin\Server\Users;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 
 /**
  * Displays the 'User groups' sub page under 'Users' page.
@@ -51,6 +49,7 @@ class UserGroupsController extends AbstractController
             $this->response->addHTML(
                 Message::error(__('No Privileges'))->getDisplay()
             );
+
             return;
         }
 

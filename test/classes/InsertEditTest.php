@@ -82,6 +82,7 @@ class InsertEditTest extends TestCase
         $class = new ReflectionClass(InsertEdit::class);
         $method = $class->getMethod($name);
         $method->setAccessible(true);
+
         return $method->invokeArgs(
             $object ?? $this->insertEdit,
             $params

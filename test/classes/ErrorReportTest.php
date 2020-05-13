@@ -13,12 +13,12 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Utils\HttpRequest;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
+use const JSON_PRETTY_PRINT;
+use const JSON_UNESCAPED_SLASHES;
 use function define;
 use function defined;
 use function json_encode;
 use function phpversion;
-use const JSON_PRETTY_PRINT;
-use const JSON_UNESCAPED_SLASHES;
 
 /**
  * PhpMyAdmin\Tests\ErrorReportTest class
@@ -225,6 +225,7 @@ class ErrorReportTest extends TestCase
         $class = new ReflectionClass(ErrorReport::class);
         $method = $class->getMethod($name);
         $method->setAccessible(true);
+
         return $method->invokeArgs($this->errorReport, $params);
     }
 

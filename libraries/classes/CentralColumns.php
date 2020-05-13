@@ -149,6 +149,7 @@ class CentralColumns
             DatabaseInterface::CONNECT_CONTROL
         );
         $this->handleColumnExtra($has_list);
+
         return $has_list;
     }
 
@@ -279,6 +280,7 @@ class CentralColumns
         $isNull = $def['Null'] == 'NO' ? '0' : '1';
         $extra = $def['Extra'] ?? '';
         $default = $def['Default'] ?? '';
+
         return 'INSERT INTO '
             . Util::backquote($central_list_table) . ' '
             . 'VALUES ( \'' . $this->dbi->escapeString($db) . '\' ,'
@@ -410,6 +412,7 @@ class CentralColumns
                 }
             }
         }
+
         return $message;
     }
 
@@ -499,6 +502,7 @@ class CentralColumns
                 )
             );
         }
+
         return $message;
     }
 
@@ -572,6 +576,7 @@ class CentralColumns
                 }
             }
         }
+
         return $message;
     }
 
@@ -678,6 +683,7 @@ class CentralColumns
                 $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL)
             );
         }
+
         return true;
     }
 
@@ -720,6 +726,7 @@ class CentralColumns
                 return $message;
             }
         }
+
         return true;
     }
 
@@ -868,6 +875,7 @@ class CentralColumns
             ])
             . '</td>';
         $tableHtml .= '</tr>';
+
         return $tableHtml;
     }
 
@@ -917,6 +925,7 @@ class CentralColumns
             DatabaseInterface::CONNECT_CONTROL
         );
         $this->handleColumnExtra($columns_list);
+
         return $columns_list;
     }
 
@@ -947,6 +956,7 @@ class CentralColumns
             'b_drop',
             'remove_from_central_columns'
         );
+
         return $html_output;
     }
 
@@ -1036,6 +1046,7 @@ class CentralColumns
         $html .= '</table>';
         $html .= $this->getEditTableFooter();
         $html .= '</form>';
+
         return $html;
     }
 
@@ -1102,6 +1113,7 @@ class CentralColumns
                     . '</option>';
             }
         }
+
         return $selectColHtml;
     }
 

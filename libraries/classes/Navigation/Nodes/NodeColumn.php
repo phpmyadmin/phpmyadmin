@@ -63,6 +63,7 @@ class NodeColumn extends Node
                 $retval = 'pause';
                 break;
         }
+
         return $retval;
     }
 
@@ -85,6 +86,7 @@ class NodeColumn extends Node
             }
         }
         $retval .= ')';
+
         return $retval;
     }
 

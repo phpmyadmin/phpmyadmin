@@ -48,6 +48,7 @@ class ChangeLogController extends AbstractController
                 $filename,
                 '<a href="https://www.phpmyadmin.net/">phpmyadmin.net</a>'
             );
+
             return;
         }
 

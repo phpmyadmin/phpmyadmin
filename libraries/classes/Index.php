@@ -124,6 +124,7 @@ class Index
                 $index->setName($index_name);
                 self::$_registry[$schema][$table][$index->getName()] = $index;
             }
+
             return $index;
         }
 
@@ -188,6 +189,7 @@ class Index
                 $indexes[] = $index;
             }
         }
+
         return $indexes;
     }
 
@@ -627,6 +629,7 @@ class Index
                 continue 2;
             }
         }
+
         return $output;
     }
 }

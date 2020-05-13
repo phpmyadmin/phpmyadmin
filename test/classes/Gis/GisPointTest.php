@@ -227,6 +227,7 @@ class GisPointTest extends GisGeomTestCase
         if (! function_exists('imagecreatetruecolor')) {
             $this->markTestSkipped('GD extension missing!');
         }
+
         return [
             [
                 'POINT(12 35)',

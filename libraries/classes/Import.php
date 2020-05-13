@@ -89,9 +89,11 @@ class Import
             return false;
         } elseif ($timeout_passed) {
             return true;
+
             /* 5 in next row might be too much */
         } elseif (time() - $timestamp > $maximum_time - 5) {
             $timeout_passed = true;
+
             return true;
         }
 
@@ -134,6 +136,7 @@ class Import
 
             if (! $cfg['IgnoreMultiSubmitErrors']) {
                 $error = true;
+
                 return;
             }
         } else {
@@ -209,6 +212,7 @@ class Import
                 $sql,
                 $full
             );
+
             return;
         }
 
@@ -221,6 +225,7 @@ class Import
                 $sql,
                 $full
             );
+
             return;
         }
 
@@ -330,10 +335,12 @@ class Import
                 'sql' => $sql,
                 'full' => $full,
             ];
+
             return $import_run_buffer;
         }
 
         unset($GLOBALS['import_run_buffer']);
+
         return $import_run_buffer;
     }
 
@@ -361,6 +368,7 @@ class Import
 
             $reload = true;
         }
+
         return [
             $db,
             $reload,
@@ -407,11 +415,13 @@ class Import
             // but should return content of textarea
             if (mb_strlen($GLOBALS['import_text']) < $size) {
                 $GLOBALS['finished'] = true;
+
                 return $GLOBALS['import_text'];
             } else {
                 $r = mb_substr($GLOBALS['import_text'], 0, $size);
                 $GLOBALS['offset'] += $size;
                 $GLOBALS['import_text'] = mb_substr($GLOBALS['import_text'], $size);
+
                 return $r;
             }
         }
@@ -434,6 +444,7 @@ class Import
         if ($GLOBALS['offset'] == $size) {
             $result = $this->skipByteOrderMarksFromContents($result);
         }
+
         return $result;
     }
 
@@ -442,21 +453,23 @@ class Import
      * charsets, but feel free to add more, you can use wikipedia for
      * reference: <https://en.wikipedia.org/wiki/Byte_Order_Mark>)
      *
-     * @todo BOM could be used for charset autodetection
-     *
      * @param string $contents The contents to strip BOM
+     *
+     * @todo BOM could be used for charset autodetection
      */
     public function skipByteOrderMarksFromContents(string $contents): string
     {
         // UTF-8
         if (strncmp($contents, "\xEF\xBB\xBF", 3) === 0) {
             return mb_substr($contents, 3);
+
             // UTF-16 BE, LE
         } elseif (strncmp($contents, "\xFE\xFF", 2) === 0
             || strncmp($contents, "\xFF\xFE", 2) === 0
         ) {
             return mb_substr($contents, 2);
         }
+
         return $contents;
     }
 
@@ -558,6 +571,7 @@ class Import
             // $i=0 : 1; $i=1 : 26; $i=2 : 676; ...
             $column_number += $number * pow(26, $i);
         }
+
         return $column_number;
     }
 

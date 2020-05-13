@@ -49,6 +49,7 @@ class TwoFactorTest extends PmaTestCase
             ->getMock();
         $result->method('readConfig')->willReturn($config);
         $result->__construct($user);
+
         return $result;
     }
 

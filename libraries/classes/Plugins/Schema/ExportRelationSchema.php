@@ -246,6 +246,7 @@ class ExportRelationSchema
                 $tables[] = rawurldecode($table);
             }
         }
+
         return $tables;
     }
 

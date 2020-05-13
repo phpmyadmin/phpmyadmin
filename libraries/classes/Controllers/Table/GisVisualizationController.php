@@ -41,6 +41,7 @@ final class GisVisualizationController extends AbstractController
             $this->response->addHTML(
                 Message::error(__('No SQL query was set to fetch data.'))
             );
+
             return;
         }
 
@@ -100,6 +101,7 @@ final class GisVisualizationController extends AbstractController
 
         if (isset($_GET['saveToFile'])) {
             $this->saveToFile($visualizationSettings['spatialColumn'], $_GET['fileFormat']);
+
             return;
         }
 

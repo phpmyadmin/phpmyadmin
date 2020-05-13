@@ -89,6 +89,7 @@ class MultiTableQuery
                 $this->dbi->getColumns($this->db, $table)
             );
         }
+
         return $this->template->render('database/multi_table_query/form', [
             'db' => $this->db,
             'tables' => $tables,

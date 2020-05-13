@@ -9,6 +9,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Controllers\Table\ChangeController;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
+use const PASSWORD_DEFAULT;
 use function array_fill;
 use function array_flip;
 use function array_merge;
@@ -48,7 +49,6 @@ use function strpos;
 use function substr;
 use function time;
 use function trim;
-use const PASSWORD_DEFAULT;
 
 /**
  * PhpMyAdmin\InsertEdit class
@@ -119,6 +119,7 @@ class InsertEdit
         if (isset($_POST['clause_is_unique'])) {
             $_form_params['clause_is_unique'] = $_POST['clause_is_unique'];
         }
+
         return $_form_params;
     }
 
@@ -184,6 +185,7 @@ class InsertEdit
                 $found_unique_key = true;
             }
         }
+
         return [
             $where_clauses,
             $result,
@@ -244,6 +246,7 @@ class InsertEdit
             }
             unset($unique_condition, $tmp_clause_is_unique);
         }
+
         return $has_unique_condition;
     }
 
@@ -264,6 +267,7 @@ class InsertEdit
             DatabaseInterface::QUERY_STORE
         );
         $rows = array_fill(0, $GLOBALS['cfg']['InsertRows'], false);
+
         return [
             $result,
             $rows,
@@ -288,6 +292,7 @@ class InsertEdit
         if (! empty($_POST['sql_query'])) {
             $url_params['sql_query'] = $_POST['sql_query'];
         }
+
         return $url_params;
     }
 
@@ -326,6 +331,7 @@ class InsertEdit
                 . $this->showTypeOrFunctionLabel($which)
                 . '</a>';
         }
+
         return '<th><a href="' . Url::getFromRoute('/table/change') . '" data-post="'
             . Url::getCommon($this_url_params, '')
             . '" title="' . __('Hide') . '">'
@@ -438,6 +444,7 @@ class InsertEdit
                 return true;
             }
         }
+
         return false;
     }
 
@@ -474,6 +481,7 @@ class InsertEdit
                 $column['wrap']  = ' nowrap';
                 break;
         }
+
         return [
             $column['pma_type'],
             $column['wrap'],
@@ -546,6 +554,7 @@ class InsertEdit
             $html_output .= '</select>' . "\n";
             $html_output .= '</td>' . "\n";
         }
+
         return $html_output;
     }
 
@@ -651,6 +660,7 @@ class InsertEdit
         } else {
             $nullify_code = '5';
         }
+
         return $nullify_code;
     }
 
@@ -918,6 +928,7 @@ class InsertEdit
                 ''
             ) . '">'
             . str_replace("'", "\'", $titles['Browse']) . '</a>';
+
         return $html_output;
     }
 
@@ -1120,6 +1131,7 @@ class InsertEdit
                 $readOnly
             );
         }
+
         return $html_output;
     }
 
@@ -1142,6 +1154,7 @@ class InsertEdit
                 'html'  => htmlspecialchars($val),
             ];
         }
+
         return $column['values'];
     }
 
@@ -1200,6 +1213,7 @@ class InsertEdit
             $html_output .= '<input name="fields' . $column_name_appendix . '"'
                 . ' type="hidden" value="' . $selected_html . '">';
         }
+
         return $html_output;
     }
 
@@ -1253,6 +1267,7 @@ class InsertEdit
                 . $enum_value['html'] . '</label>' . "\n";
             $j++;
         }
+
         return $html_output;
     }
 
@@ -1319,6 +1334,7 @@ class InsertEdit
             $html_output .= '<input name="fields' . $column_name_appendix . '[]"'
                 . ' type="hidden" value="' . $selected_html . '">';
         }
+
         return $html_output;
     }
 
@@ -1346,6 +1362,7 @@ class InsertEdit
             }
             $column['select_size'] = min(4, count($column['values']));
         }
+
         return [
             $column['values'],
             $column['select_size'],
@@ -1533,6 +1550,7 @@ class InsertEdit
                 . 'max="' . $min_max_values[1] . '"';
             $data_type = 'INT';
         }
+
         return '<input type="' . $input_type . '"'
             . ' name="fields' . $column_name_appendix . '"'
             . ' value="' . $special_chars . '" size="' . $fieldsize . '"'
@@ -1615,6 +1633,7 @@ class InsertEdit
         if ($this_field_max_size > $biggest_max_file_size) {
             $biggest_max_file_size = $this_field_max_size;
         }
+
         return [
             $html_output,
             $biggest_max_file_size,
@@ -1720,6 +1739,7 @@ class InsertEdit
                     . $column_name_appendix . '" value="bit">';
             }
         }
+
         return $html_output;
     }
 
@@ -1752,6 +1772,7 @@ class InsertEdit
              */
             $fieldsize = $column['len'];
         }
+
         return min(
             max($fieldsize, $GLOBALS['cfg']['MinSizeForInputField']),
             $GLOBALS['cfg']['MaxSizeForInputField']
@@ -1766,6 +1787,7 @@ class InsertEdit
     private function getHtmlForGisDataTypes()
     {
         $edit_str = Generator::getIcon('b_edit', __('Edit/Insert'));
+
         return '<span class="open_gis_editor">'
             . Generator::linkOrButton(
                 '#',
@@ -1847,6 +1869,7 @@ class InsertEdit
             . '</tr>'
             . '</table>'
             . '</fieldset>';
+
         return $html_output;
     }
 
@@ -1879,6 +1902,7 @@ class InsertEdit
             . __('Show insert query')
             . '</option>'
             . '</select>';
+
         return $html_output;
     }
 
@@ -1931,6 +1955,7 @@ class InsertEdit
             }
         }
         $html_output .= '</select>';
+
         return $html_output;
     }
 
@@ -1995,6 +2020,7 @@ class InsertEdit
             . '</th>'
             . '</tr>'
             . '</tfoot>';
+
         return $html_output;
     }
 
@@ -2151,6 +2177,7 @@ class InsertEdit
         $special_chars_encoded = Util::duplicateFirstNewline(
             $special_chars
         );
+
         return [
             $real_null_value,
             $data,
@@ -2190,6 +2217,7 @@ class InsertEdit
         }
         $is_insertignore  = isset($_POST['submit_type'])
             && $_POST['submit_type'] == 'insertignore';
+
         return [
             $loop_array,
             $using_key,
@@ -2305,6 +2333,7 @@ class InsertEdit
                 $goto_include = '/table/sql';
             }
         }
+
         return $goto_include;
     }
 
@@ -2346,6 +2375,7 @@ class InsertEdit
             . ' (' . implode(', ', $query_fields) . ') VALUES ('
             . implode('), (', $value_sets) . ')',
         ];
+
         return $query;
     }
 
@@ -2410,6 +2440,7 @@ class InsertEdit
             }
             $warning_messages = $this->getWarningMessages();
         }
+
         return [
             $url_params,
             $total_affected_rows,
@@ -2433,6 +2464,7 @@ class InsertEdit
                 $warning['Level'] . ': #' . $warning['Code'] . ' ' . $warning['Message']
             );
         }
+
         return $warning_essages;
     }
 
@@ -2476,8 +2508,10 @@ class InsertEdit
             if ($dispresult) {
                 $this->dbi->freeResult($dispresult);
             }
+
             return $dispval;
         }
+
         return '';
     }
 
@@ -2531,6 +2565,7 @@ class InsertEdit
             $output .= htmlspecialchars($relation_field_value);
         }
         $output .= '</a>';
+
         return $output;
     }
 
@@ -2589,6 +2624,7 @@ class InsertEdit
                 }   // end of loop for each transformation cell
             }
         }
+
         return $extra_data;
     }
 
@@ -2620,10 +2656,12 @@ class InsertEdit
             return $current_value;
         } elseif ($multi_edit_funcs[$key] === 'PHP_PASSWORD_HASH') {
             $hash = password_hash($current_value, PASSWORD_DEFAULT);
+
             return "'" . $hash . "'";
         } elseif ($multi_edit_funcs[$key] === 'UUID') {
             /* This way user will know what UUID new row has */
             $uuid = $this->dbi->fetchValue('SELECT UUID()');
+
             return "'" . $uuid . "'";
         } elseif ((in_array($multi_edit_funcs[$key], $gis_from_text_functions)
             && substr($current_value, 0, 3) == "'''")
@@ -2633,6 +2671,7 @@ class InsertEdit
             $current_value = mb_substr($current_value, 1, -1);
             // Remove escaping apostrophes
             $current_value = str_replace("''", "'", $current_value);
+
             return $multi_edit_funcs[$key] . '(' . $current_value . ')';
         } elseif (! in_array($multi_edit_funcs[$key], $func_no_param)
             || ($current_value != "''"
@@ -2729,6 +2768,7 @@ class InsertEdit
                     . ' = ' . $current_value_as_an_array;
             }
         }
+
         return [
             $query_values,
             $query_fields,
@@ -2862,6 +2902,7 @@ class InsertEdit
                 $current_value = "''";
             }
         }  // end else (column value in the form)
+
         return $current_value;
     }
 
@@ -2920,6 +2961,7 @@ class InsertEdit
     public function getTableColumns($db, $table)
     {
         $this->dbi->selectDb($db);
+
         return array_values($this->dbi->getColumns($db, $table, null, true));
     }
 
@@ -3433,6 +3475,7 @@ class InsertEdit
                 $readOnly
             );
         }
+
         return $html_output;
     }
 

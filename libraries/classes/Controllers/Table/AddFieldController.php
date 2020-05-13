@@ -149,6 +149,7 @@ class AddFieldController extends AbstractController
                     'message',
                     Generator::getMessage($message, $sql_query, 'success')
                 );
+
                 return;
             } else {
                 $error_message_html = Generator::mysqlDie(
@@ -160,6 +161,7 @@ class AddFieldController extends AbstractController
                 );
                 $this->response->addHTML($error_message_html ?? '');
                 $this->response->setRequestStatus(false);
+
                 return;
             }
         }

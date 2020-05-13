@@ -10,6 +10,10 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Di\Migration;
 use PhpMyAdmin\Display\Error as DisplayError;
+use const DATE_RFC1123;
+use const E_USER_ERROR;
+use const E_USER_WARNING;
+use const FILTER_VALIDATE_IP;
 use function array_keys;
 use function array_pop;
 use function array_walk_recursive;
@@ -61,10 +65,6 @@ use function trigger_error;
 use function unserialize;
 use function urldecode;
 use function vsprintf;
-use const DATE_RFC1123;
-use const E_USER_ERROR;
-use const E_USER_WARNING;
-use const FILTER_VALIDATE_IP;
 
 /**
  * Core class
@@ -219,6 +219,7 @@ class Core
             if ($is_scalar && $type === 'length') {
                 return strlen((string) $var) > 0;
             }
+
             return $is_scalar;
         }
 
@@ -367,6 +368,7 @@ class Core
         }
         if ($fatal) {
             self::fatalError($message);
+
             return;
         }
 
@@ -657,6 +659,7 @@ class Core
             }
             $value =& $value[$key];
         }
+
         return $value;
     }
 
@@ -821,6 +824,7 @@ class Core
     {
         $buffer = htmlspecialchars($buffer);
         $buffer = str_replace('  ', ' &nbsp;', $buffer);
+
         return preg_replace("@((\015\012)|(\015)|(\012))@", '<br>' . "\n", $buffer);
     }
 
@@ -870,6 +874,7 @@ class Core
         } else {
             $empty = empty($value);
         }
+
         return $empty;
     }
 
@@ -1065,6 +1070,7 @@ class Core
         if ($position !== false) {
             return substr($name, 0, $position);
         }
+
         return $name;
     }
 
@@ -1246,6 +1252,7 @@ class Core
         global $cfg;
 
         $secret = $_SESSION[' HMAC_secret '] ?? '';
+
         return hash_hmac('sha256', $sqlQuery, $secret . $cfg['blowfish_secret']);
     }
 
@@ -1263,6 +1270,7 @@ class Core
 
         $secret = $_SESSION[' HMAC_secret '] ?? '';
         $hmac = hash_hmac('sha256', $sqlQuery, $secret . $cfg['blowfish_secret']);
+
         return hash_equals($hmac, $signature);
     }
 }

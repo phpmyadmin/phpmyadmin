@@ -27,6 +27,7 @@ class VersionCheckController extends AbstractController
 
         if (empty($versionDetails)) {
             echo json_encode([]);
+
             return;
         }
 

@@ -82,6 +82,7 @@ class QbeTest extends PmaTestCase
         $class = new ReflectionClass(Qbe::class);
         $method = $class->getMethod($name);
         $method->setAccessible(true);
+
         return $method->invokeArgs($this->object, $params);
     }
 

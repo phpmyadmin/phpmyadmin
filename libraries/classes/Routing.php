@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
 use FastRoute\Dispatcher;
 use function FastRoute\cachedDispatcher;
 use function mb_strlen;
 use function rawurldecode;
+use function sprintf;
 
 /**
  * Class used to warm up the routing cache and manage routing.
@@ -21,6 +20,7 @@ class Routing
         global $cfg;
 
         $routes = require ROOT_PATH . 'libraries/routes.php';
+
         return cachedDispatcher($routes, [
             'cacheFile' => CACHE_DIR . 'routes.cache.php',
             'cacheDisabled' => ($cfg['environment'] ?? '') === 'development',
@@ -43,11 +43,13 @@ class Routing
                 $route = '/sql';
             }
         }
+
         return $route;
     }
 
     /**
      * Call associated controller for a route using the dispatcher
+     *
      * @param string     $route      The current route
      * @param Dispatcher $dispatcher The dispatcher
      */

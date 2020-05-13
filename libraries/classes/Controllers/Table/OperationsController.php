@@ -25,6 +25,7 @@ use function mb_strstr;
 use function mb_strtolower;
 use function mb_strtoupper;
 use function preg_replace;
+use function strlen;
 
 class OperationsController extends AbstractController
 {
@@ -146,6 +147,7 @@ class OperationsController extends AbstractController
         if (isset($_POST['submit_move']) || isset($_POST['submit_copy'])) {
             //$_message = '';
             $this->operations->moveOrCopyTable($db, $table);
+
             // This was ended in an Ajax call
             return;
         }
@@ -261,6 +263,7 @@ class OperationsController extends AbstractController
                         'message',
                         Message::error(__('No collation provided.'))
                     );
+
                     return;
                 }
             }
@@ -323,6 +326,7 @@ class OperationsController extends AbstractController
                             Generator::getMessage('', $sql_query)
                         );
                     }
+
                     return;
                 }
             } else {
@@ -344,6 +348,7 @@ class OperationsController extends AbstractController
                             Generator::getMessage('', $sql_query)
                         );
                     }
+
                     return;
                 }
                 unset($warning_messages);

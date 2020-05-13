@@ -133,6 +133,7 @@ class Privileges
                 $db_and_table = Util::backquote($dbname) . '.*';
             }
         }
+
         return $db_and_table;
     }
 
@@ -156,6 +157,7 @@ class Privileges
             . " OR `User` LIKE '"
             . $this->dbi->escapeString(mb_strtolower($initial))
             . "%'";
+
         return $ret;
     }
 
@@ -283,6 +285,7 @@ class Privileges
                 $privs = ['ALL PRIVILEGES'];
             }
         }
+
         return $privs;
     }
 
@@ -533,6 +536,7 @@ class Privileges
                 . " AND '" . $this->dbi->escapeString(Util::unescapeMysqlWildcards($db)) . "'"
                 . ' LIKE `Db`;';
         }
+
         return 'SELECT `Table_priv`'
             . ' FROM `mysql`.`tables_priv`'
             . " WHERE `User` = '" . $this->dbi->escapeString($username) . "'"
@@ -925,6 +929,7 @@ class Privileges
                 $hostname_length = $val['CHARACTER_MAXIMUM_LENGTH'];
             }
         }
+
         return [
             $username_length,
             $hostname_length,
@@ -1006,6 +1011,7 @@ class Privileges
         foreach ($grants as $one_grant) {
             $response .= $one_grant . ";\n\n";
         }
+
         return $response;
     }
 
@@ -1175,6 +1181,7 @@ class Privileges
                 );
             }
         }
+
         return $message;
     }
 
@@ -1304,6 +1311,7 @@ class Privileges
             $max_user_connections = max(0, $max_user_connections);
             $sql_query .= ' MAX_USER_CONNECTIONS ' . $max_user_connections;
         }
+
         return ! empty($sql_query) ? ' WITH' . $sql_query : '';
     }
 
@@ -1357,6 +1365,7 @@ class Privileges
             $privileges[$userHost]['privileges'] = $privileges[$userHost]['privileges'] ?? [];
             $privileges[$userHost]['privileges'][] = $this->getSpecificPrivilege($privilege);
         }
+
         return $privileges;
     }
 
@@ -1398,6 +1407,7 @@ class Privileges
             $privilege['has_grant'] = $row['Grant_priv'] === 'Y';
             $privilege['privileges'] = $this->extractPrivInfo($row, true);
         }
+
         return $privilege;
     }
 
@@ -1469,6 +1479,7 @@ class Privileges
         while ($row = $this->dbi->fetchAssoc($result)) {
             $privileges[] = $row;
         }
+
         return $privileges;
     }
 
@@ -1507,6 +1518,7 @@ class Privileges
         while ($row = $this->dbi->fetchAssoc($result)) {
             $privileges[] = $row;
         }
+
         return $privileges;
     }
 
@@ -1531,6 +1543,7 @@ class Privileges
         while ($row = $this->dbi->fetchAssoc($result)) {
             $privileges[] = $row;
         }
+
         return $privileges;
     }
 
@@ -1891,6 +1904,7 @@ class Privileges
             }
         }
         $this->dbi->freeResult($result);
+
         return $db_rights;
     }
 
@@ -1915,6 +1929,7 @@ class Privileges
                 $result[$priv . '_priv'] = 'Y';
             }
         }
+
         return $result;
     }
 
@@ -2314,6 +2329,7 @@ class Privileges
                 );
             }
         }
+
         return [
             $sql_query,
             $message,
@@ -2513,6 +2529,7 @@ class Privileges
                 $GLOBALS['reload'] = true;
             }
         }
+
         return $queries;
     }
 
@@ -3362,6 +3379,7 @@ class Privileges
                 ? ' WITH GRANT OPTION;'
                 : ';');
         }
+
         return $queries;
     }
 
@@ -3507,6 +3525,7 @@ class Privileges
                 $message = Message::rawError($this->dbi->getError());
             }
         }
+
         return [
             $sql_query,
             $message,
@@ -3832,6 +3851,7 @@ class Privileges
                 return $routine['type'];
             }
         }
+
         return '';
     }
 
@@ -3860,6 +3880,7 @@ class Privileges
         if ($privileges === false) {
             $privileges = '';
         }
+
         return $this->parseProcPriv($privileges);
     }
 }

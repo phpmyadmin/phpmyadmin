@@ -10,7 +10,6 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
@@ -94,6 +93,7 @@ class ChangePassword
         }
 
         $html .= $template->render('display/change_password/file_e');
+
         return $html;
     }
 }

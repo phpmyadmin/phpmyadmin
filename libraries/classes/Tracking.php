@@ -7,6 +7,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\Generator;
+use const SORT_ASC;
 use function array_key_exists;
 use function array_merge;
 use function array_multisort;
@@ -24,7 +25,6 @@ use function rtrim;
 use function sprintf;
 use function strlen;
 use function strtotime;
-use const SORT_ASC;
 
 /**
  * PhpMyAdmin\Tracking class
@@ -86,6 +86,7 @@ class Tracking
             }
             $id++;
         }
+
         return $tmp_entries;
     }
 
@@ -199,6 +200,7 @@ class Tracking
     public function getTableLastVersionNumber($sql_result)
     {
         $maxversion = $GLOBALS['dbi']->fetchArray($sql_result);
+
         return intval(is_array($maxversion) ? $maxversion['version'] : null);
     }
 
@@ -344,6 +346,7 @@ class Tracking
             . htmlspecialchars($_POST['users']) . '">';
         $str5 = '<input type="hidden" name="list_report" value="1">'
             . '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">';
+
         return [
             $str1,
             $str2,
@@ -434,6 +437,7 @@ class Tracking
             );
         }
         $html .= '</form>';
+
         return $html;
     }
 
@@ -499,6 +503,7 @@ class Tracking
         $html .= '<br>' . sprintf(__('Export as %s'), $str_export1)
             . $str_export2 . '<br>';
         $html .= '</form>';
+
         return $html;
     }
 
@@ -755,6 +760,7 @@ class Tracking
                 __('Tracking data manipulation successfully deleted')
             );
         }
+
         return $html;
     }
 
@@ -791,6 +797,7 @@ class Tracking
             }
             $html .= $msg->getDisplay();
         }
+
         return $html;
     }
 
@@ -1239,6 +1246,7 @@ class Tracking
                 }
             }
         }
+
         return $untracked_tables;
     }
 
@@ -1252,6 +1260,7 @@ class Tracking
     public function getUntrackedTables($db)
     {
         $table_list = Util::getTableList($db);
+
         //Use helper function to get table list recursively.
         return $this->extractTableNames($table_list, $db);
     }

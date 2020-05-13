@@ -177,6 +177,7 @@ class SqlController extends AbstractController
          */
         if (isset($_POST['store_bkm'])) {
             $this->sql->addBookmark($goto);
+
             return;
         }
 
@@ -316,6 +317,7 @@ class SqlController extends AbstractController
         if ($status instanceof Message) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $status->getString());
+
             return;
         }
 

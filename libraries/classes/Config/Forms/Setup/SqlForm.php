@@ -16,6 +16,7 @@ class SqlForm extends \PhpMyAdmin\Config\Forms\User\SqlForm
         $result = parent::getForms();
         /* Following are not available to user */
         $result['Sql_queries'][] = 'QueryHistoryDB';
+
         return $result;
     }
 }

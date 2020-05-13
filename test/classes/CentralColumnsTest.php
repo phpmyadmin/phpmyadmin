@@ -180,6 +180,7 @@ class CentralColumnsTest extends TestCase
         $class = new ReflectionClass(CentralColumns::class);
         $method = $class->getMethod($name);
         $method->setAccessible(true);
+
         return $method->invokeArgs(
             $object ?? $this->centralColumns,
             $params

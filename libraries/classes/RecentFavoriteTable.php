@@ -7,6 +7,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\Generator;
+use const SORT_REGULAR;
 use function array_key_exists;
 use function array_merge;
 use function array_pop;
@@ -19,7 +20,6 @@ use function json_encode;
 use function max;
 use function md5;
 use function ucfirst;
-use const SORT_REGULAR;
 
 /**
  * Handles the recently used and favorite tables.
@@ -89,6 +89,7 @@ class RecentFavoriteTable
         if (! array_key_exists($type, self::$_instances)) {
             self::$_instances[$type] = new RecentFavoriteTable($type);
         }
+
         return self::$_instances[$type];
     }
 
@@ -122,6 +123,7 @@ class RecentFavoriteTable
                 $return = json_decode($row[0], true);
             }
         }
+
         return $return;
     }
 
@@ -160,8 +162,10 @@ class RecentFavoriteTable
                 ),
                 '<br><br>'
             );
+
             return $message;
         }
+
         return true;
     }
 
@@ -181,6 +185,7 @@ class RecentFavoriteTable
         while (count($this->_tables) > $max) {
             array_pop($this->_tables);
         }
+
         return $trimming_occurred;
     }
 
@@ -241,6 +246,7 @@ class RecentFavoriteTable
                     : __('There are no favorite tables.'))
                   . '</li>';
         }
+
         return $html;
     }
 
@@ -263,6 +269,7 @@ class RecentFavoriteTable
         }
         $html .= $this->getHtmlList();
         $html .= '</ul></div>';
+
         return $html;
     }
 
@@ -294,6 +301,7 @@ class RecentFavoriteTable
                 return $this->saveToDb();
             }
         }
+
         return true;
     }
 
@@ -316,6 +324,7 @@ class RecentFavoriteTable
                 }
             }
         }
+
         return false;
     }
 
@@ -337,6 +346,7 @@ class RecentFavoriteTable
         if ($this->_getPmaTable()) {
             return $this->saveToDb();
         }
+
         return true;
     }
 
@@ -363,6 +373,7 @@ class RecentFavoriteTable
             $retval  = '<a class="hide" id="sync_favorite_tables"';
             $retval .= ' href="' . $url . '"></a>';
         }
+
         return $retval;
     }
 
@@ -379,6 +390,7 @@ class RecentFavoriteTable
             'recent_table' => true,
         ]);
         $retval .= '"></a>';
+
         return $retval;
     }
 
@@ -400,6 +412,7 @@ class RecentFavoriteTable
             return Util::backquote($cfgRelation['db']) . '.'
                 . Util::backquote($cfgRelation[$this->_tableType]);
         }
+
         return null;
     }
 }

@@ -6,8 +6,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Server\SysInfo;
 
-use PhpMyAdmin\Server\SysInfo\SysInfo;
 use PhpMyAdmin\Server\SysInfo\Base;
+use PhpMyAdmin\Server\SysInfo\SysInfo;
 use PHPUnit\Framework\TestCase;
 
 /**

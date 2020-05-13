@@ -92,6 +92,7 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Count
         if ($this->_properties === null) {
             return 0;
         }
+
         return count($this->_properties);
     }
 

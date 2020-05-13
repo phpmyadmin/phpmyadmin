@@ -1,23 +1,18 @@
 <?php
 /**
  * Handles the IPv4/IPv6 to long transformation for text plain
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage IPToLong
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Input;
 
-use PhpMyAdmin\Utils\FormatConverter;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
+use PhpMyAdmin\Utils\FormatConverter;
 use stdClass;
+use function htmlspecialchars;
 
 /**
  * Handles the IPv4/IPv6 to long transformation for text plain
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage IPToLong
  */
 // @codingStandardsIgnoreLine
 class Text_Plain_Iptolong extends IOTransformationsPlugin

@@ -9,10 +9,10 @@ namespace PhpMyAdmin\Tests;
 use PDO;
 use PHPUnit\Framework\TestCase;
 use Throwable;
+use const PHP_VERSION;
 use function constant;
 use function preg_match;
 use function version_compare;
-use const PHP_VERSION;
 
 /**
  * Environment tests

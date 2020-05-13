@@ -66,6 +66,7 @@ abstract class BaseForm extends FormDisplay
                 $names[] = is_int($k) ? $v : $k;
             }
         }
+
         return $names;
     }
 

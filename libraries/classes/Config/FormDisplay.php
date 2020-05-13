@@ -17,6 +17,7 @@ use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
+use const E_USER_WARNING;
 use function array_flip;
 use function array_keys;
 use function array_search;
@@ -35,7 +36,6 @@ use function sprintf;
 use function str_replace;
 use function trigger_error;
 use function trim;
-use const E_USER_WARNING;
 
 /**
  * Form management class, displays and processes forms
@@ -186,6 +186,7 @@ class FormDisplay
         if (count($this->_forms) > 0) {
             return $this->save(array_keys($this->_forms), $allowPartialSave);
         }
+
         return false;
     }
 
@@ -294,6 +295,7 @@ class FormDisplay
             }
             $htmlOutput .= $this->formDisplayTemplate->displayFieldsetBottom($showButtons);
         }
+
         return $htmlOutput;
     }
 
@@ -469,9 +471,11 @@ class FormDisplay
                 } else {
                     $this->formDisplayTemplate->displayGroupFooter();
                 }
+
                 return $htmlOutput;
             case 'NULL':
                 trigger_error('Field ' . $systemPath . ' has no type', E_USER_WARNING);
+
                 return null;
         }
 
@@ -606,9 +610,11 @@ class FormDisplay
                 if (! is_bool($value)) {
                     settype($value, gettype($vk));
                 }
+
                 return true;
             }
         }
+
         return false;
     }
 
@@ -739,6 +745,7 @@ class FormDisplay
         if (! $allowPartialSave && ! empty($this->_errors)) {
             // don't look for non-critical errors
             $this->_validate();
+
             return $result;
         }
 
@@ -804,6 +811,7 @@ class FormDisplay
         if ($test == 'Import' || $test == 'Export') {
             return '';
         }
+
         return MySQLDocumentation::getDocumentationLink(
             'config',
             'cfg_' . $this->_getOptName($path)

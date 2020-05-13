@@ -222,6 +222,7 @@ class File
         if ($result === false) {
             return false;
         }
+
         return '0x' . bin2hex($result);
     }
 
@@ -267,6 +268,7 @@ class File
         if (! $this->isUploaded()) {
             $this->setName(null);
             $this->_error_message = Message::error(__('File was not an uploaded file.'));
+
             return false;
         }
 
@@ -303,7 +305,7 @@ class File
         // we do not use the PHP constants here cause not all constants
         // are defined in all versions of PHP - but the correct constants names
         // are given as comment
-            case 0: //UPLOAD_ERR_OK:
+            case 0:
                 return $this->setUploadedFile($file['tmp_name']);
             case 4: //UPLOAD_ERR_NO_FILE:
                 break;
@@ -450,10 +452,12 @@ class File
         if ($this->setUploadedFromTblChangeRequest($key, $rownumber)) {
             // well done ...
             $this->_error_message = null;
+
             return true;
         } elseif ($this->setSelectedFromTblChangeRequest($key, $rownumber)) {
             // well done ...
             $this->_error_message = null;
+
             return true;
         }
         // all failed, whether just no file uploaded/selected or an error
@@ -482,11 +486,13 @@ class File
         if (@is_link($this->getName())) {
             $this->_error_message = Message::error(__('File is a symbolic link'));
             $this->setName(null);
+
             return false;
         }
         if (! $this->isReadable()) {
             $this->_error_message = Message::error(__('File could not be read!'));
             $this->setName(null);
+
             return false;
         }
 
@@ -529,6 +535,7 @@ class File
             $this->_error_message = Message::error(__(
                 'Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc].'
             ));
+
             return false;
         }
 
@@ -547,6 +554,7 @@ class File
         ob_end_clean();
         if (! $move_uploaded_file_result) {
             $this->_error_message = Message::error(__('Error while moving uploaded file.'));
+
             return false;
         }
 
@@ -555,6 +563,7 @@ class File
 
         if (! $this->isReadable()) {
             $this->_error_message = Message::error(__('Cannot read uploaded file.'));
+
             return false;
         }
 
@@ -581,10 +590,12 @@ class File
 
         if (! $file) {
             $this->_error_message = Message::error(__('File could not be read!'));
+
             return false;
         }
 
         $this->_compression = Util::getCompressionMimeType($file);
+
         return $this->_compression;
     }
 
@@ -608,6 +619,7 @@ class File
         if ($this->_handle === null) {
             $this->open();
         }
+
         return $this->_handle;
     }
 
@@ -653,6 +665,7 @@ class File
                     $this->_handle = @bzopen($this->getName(), 'r');
                 } else {
                     $this->errorUnsupported();
+
                     return false;
                 }
                 break;
@@ -661,6 +674,7 @@ class File
                     $this->_handle = @gzopen($this->getName(), 'r');
                 } else {
                     $this->errorUnsupported();
+
                     return false;
                 }
                 break;
@@ -670,12 +684,14 @@ class File
                 }
 
                 $this->errorUnsupported();
+
                 return false;
             case 'none':
                 $this->_handle = @fopen($this->getName(), 'r');
                 break;
             default:
                 $this->errorUnsupported();
+
                 return false;
         }
 
@@ -692,10 +708,12 @@ class File
         $result = $this->zipExtension->getContents($this->getName(), $specific_entry);
         if (! empty($result['error'])) {
             $this->_error_message = Message::rawError($result['error']);
+
             return false;
         }
         $this->_content = $result['data'];
         $this->_offset = 0;
+
         return true;
     }
 
@@ -707,6 +725,7 @@ class File
         if ($this->_handle !== null) {
             return feof($this->_handle);
         }
+
         return $this->_offset == strlen($this->_content);
     }
 
@@ -740,6 +759,7 @@ class File
             case 'application/zip':
                 $result = mb_strcut($this->_content, $this->_offset, $size);
                 $this->_offset += strlen($result);
+
                 return $result;
             case 'none':
             default:

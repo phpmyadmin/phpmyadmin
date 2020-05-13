@@ -41,12 +41,14 @@ class Tracker
 {
     /**
      * Whether tracking is ready.
+     *
      * @var bool
      */
     protected static $enabled = false;
 
     /**
      * Cache to avoid quering tracking status multiple times.
+     *
      * @var array
      */
     protected static $_tracking_cache = [];
@@ -326,6 +328,7 @@ class Tracker
             $sql_query .= " AND `version` = '"
                 . $GLOBALS['dbi']->escapeString($version) . "'";
         }
+
         return $relation->queryAsControlUser($sql_query);
     }
 
@@ -532,6 +535,7 @@ class Tracker
                 . $statement . "',tracking) > 0";
         }
         $row = $GLOBALS['dbi']->fetchArray($relation->queryAsControlUser($sql_query));
+
         return $row[0] ?? -1;
     }
 
@@ -933,6 +937,7 @@ class Tracker
     {
         $relation = new Relation($GLOBALS['dbi']);
         $cfgRelation = $relation->getRelationsParam();
+
         return Util::backquote($cfgRelation['db'])
             . '.' . Util::backquote($cfgRelation['tracking']);
     }

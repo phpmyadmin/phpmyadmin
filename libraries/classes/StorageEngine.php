@@ -203,6 +203,7 @@ class StorageEngine
             return true;
         }
         $storage_engines = self::getStorageEngines();
+
         return isset($storage_engines[$engine]);
     }
 
@@ -365,6 +366,7 @@ class StorageEngine
                     'This MySQL server does not support the %s storage engine.'
                 );
         }
+
         return sprintf($message, htmlspecialchars($this->title));
     }
 

@@ -52,6 +52,7 @@ class GisGeometryTest extends TestCase
         $class = new ReflectionClass('PhpMyAdmin\Gis\GisGeometry');
         $method = $class->getMethod($name);
         $method->setAccessible(true);
+
         return $method->invokeArgs($this->object, $params);
     }
 

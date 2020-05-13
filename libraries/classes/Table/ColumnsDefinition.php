@@ -18,6 +18,21 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function array_merge;
+use function bin2hex;
+use function count;
+use function explode;
+use function in_array;
+use function intval;
+use function is_array;
+use function is_iterable;
+use function mb_strtoupper;
+use function preg_quote;
+use function preg_replace;
+use function rtrim;
+use function stripcslashes;
+use function substr;
+use function trim;
 
 /**
  * Displays the form used to define the structure of the table

@@ -103,6 +103,7 @@ class Index
                 ];
             }
         }
+
         return $return;
     }
 
@@ -131,6 +132,7 @@ class Index
                     . 'Maybe you\'re offline or the upgrade server does not respond.'
                 )
             );
+
             return;
         }
 
@@ -151,6 +153,7 @@ class Index
                 __('Version check'),
                 __('Got invalid version string from server')
             );
+
             return;
         }
 
@@ -164,6 +167,7 @@ class Index
                 __('Version check'),
                 __('Unparsable version string')
             );
+
             return;
         }
 

@@ -1122,6 +1122,7 @@ class TransformationPluginsTest extends PmaTestCase
                 . 'alt="[PMA_PNG_Inline]" border="0"></a>',
             ];
         }
+
         return $result;
     }
 

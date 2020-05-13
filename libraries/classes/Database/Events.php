@@ -19,6 +19,8 @@ use function intval;
 use function mb_strpos;
 use function mb_strtoupper;
 use function sprintf;
+use function strtoupper;
+use function trim;
 
 /**
  * Functions for event management.
@@ -281,6 +283,7 @@ class Events
             $retval['item_type']        = 'RECURRING';
             $retval['item_type_toggle'] = 'ONE TIME';
         }
+
         return $retval;
     }
 

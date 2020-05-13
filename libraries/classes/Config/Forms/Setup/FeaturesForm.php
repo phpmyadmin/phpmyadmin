@@ -67,7 +67,9 @@ class FeaturesForm extends \PhpMyAdmin\Config\Forms\User\FeaturesForm
             'AllowThirdPartyFraming',
             'ZeroConf',
         ];
+
         return $result;
+
         // phpcs:enable
     }
 }

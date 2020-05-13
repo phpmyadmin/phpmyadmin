@@ -85,6 +85,7 @@ class Partition extends SubPartition
         foreach ($this->subPartitions as $subPartition) {
             $rows += $subPartition->rows;
         }
+
         return $rows;
     }
 
@@ -103,6 +104,7 @@ class Partition extends SubPartition
         foreach ($this->subPartitions as $subPartition) {
             $dataLength += $subPartition->dataLength;
         }
+
         return $dataLength;
     }
 
@@ -121,6 +123,7 @@ class Partition extends SubPartition
         foreach ($this->subPartitions as $subPartition) {
             $indexLength += $subPartition->indexLength;
         }
+
         return $indexLength;
     }
 
@@ -168,8 +171,10 @@ class Partition extends SubPartition
                         $parentPartition->addSubPartition($partition);
                     }
                 }
+
                 return array_values($partitionMap);
             }
+
             return [];
         }
 
@@ -220,6 +225,7 @@ class Partition extends SubPartition
                 return $partition_method[0];
             }
         }
+
         return null;
     }
 
@@ -259,6 +265,7 @@ class Partition extends SubPartition
             }
             $already_checked = true;
         }
+
         return $have_partitioning;
     }
 }

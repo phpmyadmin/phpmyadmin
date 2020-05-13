@@ -17,6 +17,7 @@ use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use SimpleXMLElement;
+use const LIBXML_COMPACT;
 use function count;
 use function implode;
 use function libxml_disable_entity_loader;
@@ -24,7 +25,6 @@ use function rtrim;
 use function simplexml_load_string;
 use function strcmp;
 use function strlen;
-use const LIBXML_COMPACT;
 
 /**
  * Handles the import for the ODS format

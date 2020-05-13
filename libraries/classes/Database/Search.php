@@ -7,8 +7,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 use function array_intersect;
@@ -275,6 +273,7 @@ class Search
                 . implode(') ' . $implode_str . ' (', $likeClauses)
                 . ')';
         }
+
         return $where_clause;
     }
 

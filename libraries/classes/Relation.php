@@ -458,6 +458,7 @@ class Relation
         if ($skip_line) {
             $retval .= '<tr><td>&nbsp;</td></tr>';
         }
+
         return $retval;
     }
 
@@ -489,6 +490,7 @@ class Relation
             );
         }
         $retval .= '</td></tr>' . "\n";
+
         return $retval;
     }
 
@@ -554,6 +556,7 @@ class Relation
             // we return the array with the falses in it,
             // to avoid some 'Uninitialized string offset' errors later
             $GLOBALS['cfg']['Server']['pmadb'] = false;
+
             return $cfgRelation;
         }
 
@@ -779,6 +782,7 @@ class Relation
             false,
             DatabaseInterface::QUERY_STORE
         );
+
         return $result !== false;
     }
 
@@ -816,6 +820,7 @@ class Relation
             // no need to upgrade
             if ($rows === 2) {
                 return true;
+
                 // try silent upgrade without disturbing the user
             }
 
@@ -844,9 +849,11 @@ class Relation
                 );
             } while ($hasResult);
             $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
+
             // return true if no error exists otherwise false
             return empty($error);
         }
+
         // some failure, either in upgrading or something else
         // make some noise, time to wake up user.
         return false;
@@ -995,6 +1002,7 @@ class Relation
                 }
             }
         }
+
         return false;
     }
 
@@ -1237,6 +1245,7 @@ class Relation
             if (isset($_SESSION['sql_history'])) {
                 return array_reverse($_SESSION['sql_history']);
             }
+
             return false;
         }
 
@@ -1920,6 +1929,7 @@ class Relation
                 ]
             );
         }
+
         return $child_references;
     }
 
@@ -2069,8 +2079,10 @@ class Relation
             } else {
                 $GLOBALS['message'] = $error;
             }
+
             return false;
         }
+
         return true;
     }
 
@@ -2120,6 +2132,7 @@ class Relation
                     $this->dbi->tryQuery($createQueries[$table]);
                     if ($error = $this->dbi->getError()) {
                         $GLOBALS['message'] = $error;
+
                         return;
                     }
                     $foundOne = true;
@@ -2235,6 +2248,7 @@ class Relation
             $have_rel = false;
             $res_rel = [];
         } // end if
+
         return [
             $res_rel,
             $have_rel,
@@ -2293,6 +2307,7 @@ class Relation
         if ($GLOBALS['cfg']['NaturalOrder']) {
             usort($tables, 'strnatcasecmp');
         }
+
         return $tables;
     }
 }

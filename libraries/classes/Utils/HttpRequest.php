@@ -6,18 +6,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Utils;
 
-use function base64_encode;
-use function curl_exec;
-use function curl_getinfo;
-use function curl_init;
-use function curl_setopt;
-use function file_get_contents;
-use function function_exists;
-use function ini_get;
-use function intval;
-use function preg_match;
-use function stream_context_create;
-use function strlen;
 use const CURL_IPRESOLVE_V4;
 use const CURLINFO_HTTP_CODE;
 use const CURLINFO_SSL_VERIFYRESULT;
@@ -36,6 +24,18 @@ use const CURLOPT_SSL_VERIFYHOST;
 use const CURLOPT_SSL_VERIFYPEER;
 use const CURLOPT_TIMEOUT;
 use const CURLOPT_USERAGENT;
+use function base64_encode;
+use function curl_exec;
+use function curl_getinfo;
+use function curl_init;
+use function curl_setopt;
+use function file_get_contents;
+use function function_exists;
+use function ini_get;
+use function intval;
+use function preg_match;
+use function stream_context_create;
+use function strlen;
 
 /**
  * Handles HTTP requests
@@ -78,6 +78,7 @@ class HttpRequest
                     . $auth . "\r\n";
             }
         }
+
         return $context;
     }
 
@@ -104,6 +105,7 @@ class HttpRequest
         if ($returnOnlyStatus) {
             return true;
         }
+
         return $response;
     }
 
@@ -202,9 +204,11 @@ class HttpRequest
                     return $this->curl($url, $method, $returnOnlyStatus, $content, $header, CURLOPT_CAPATH);
                 }
             }
+
             return null;
         }
         $httpStatus = curl_getinfo($curlHandle, CURLINFO_HTTP_CODE);
+
         return $this->response($response, $httpStatus, $returnOnlyStatus);
     }
 
@@ -250,8 +254,10 @@ class HttpRequest
         if (isset($http_response_header)) {
             preg_match('#HTTP/[0-9\.]+\s+([0-9]+)#', $http_response_header[0], $out);
             $httpStatus = intval($out[1]);
+
             return $this->response($response, $httpStatus, $returnOnlyStatus);
         }
+
         return null;
     }
 
@@ -278,6 +284,7 @@ class HttpRequest
         } elseif (ini_get('allow_url_fopen')) {
             return $this->fopen($url, $method, $returnOnlyStatus, $content, $header);
         }
+
         return null;
     }
 }

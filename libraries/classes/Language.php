@@ -135,6 +135,7 @@ class Language
         $pattern = '/^('
             . addcslashes($this->regex, '/')
             . ')(;q=[0-9]\\.[0-9])?$/i';
+
         return preg_match($pattern, $header);
     }
 
@@ -150,6 +151,7 @@ class Language
         $pattern = '/(\(|\[|;[[:space:]])('
             . addcslashes($this->regex, '/')
             . ')(;|\]|\))/i';
+
         return preg_match($pattern, $header);
     }
 

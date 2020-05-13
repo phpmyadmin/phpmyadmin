@@ -35,6 +35,7 @@ class IndexesController extends AbstractController
 
         if (isset($_POST['do_save_data'])) {
             $this->doSaveData($index);
+
             return;
         }
 

@@ -23,6 +23,13 @@ use mysqli;
 use mysqli_result;
 use PHPUnit\Framework\TestCase;
 use Throwable;
+use const CURLOPT_CUSTOMREQUEST;
+use const CURLOPT_HTTPHEADER;
+use const CURLOPT_POSTFIELDS;
+use const CURLOPT_RETURNTRANSFER;
+use const CURLOPT_URL;
+use const CURLOPT_USERPWD;
+use const PHP_EOL;
 use function curl_close;
 use function curl_errno;
 use function curl_error;
@@ -43,13 +50,6 @@ use function strlen;
 use function substr;
 use function trim;
 use function usleep;
-use const CURLOPT_CUSTOMREQUEST;
-use const CURLOPT_HTTPHEADER;
-use const CURLOPT_POSTFIELDS;
-use const CURLOPT_RETURNTRANSFER;
-use const CURLOPT_URL;
-use const CURLOPT_USERPWD;
-use const PHP_EOL;
 
 /**
  * Base class for Selenium tests.
@@ -103,6 +103,7 @@ abstract class TestBase extends TestCase
 
         if (! $this->hasTestSuiteDatabaseServer()) {
             $this->markTestSkipped('Database server is not configured.');
+
             return;
         }
 
@@ -114,19 +115,22 @@ abstract class TestBase extends TestCase
                 'mysql',
                 (int) $GLOBALS['TESTSUITE_PORT']
             );
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             // when localhost is used, it tries to connect to a socket and throws and error
             $this->markTestSkipped('Failed to connect to MySQL (' . $e->getMessage() . ')');
+
             return;
         }
 
         if ($this->_mysqli->connect_errno) {
             $this->markTestSkipped('Failed to connect to MySQL (' . $this->_mysqli->error . ')');
+
             return;
         }
 
         if ($this->getHubUrl() === null) {
             $this->markTestSkipped('Selenium testing is not configured.');
+
             return;
         }
 
@@ -162,6 +166,7 @@ abstract class TestBase extends TestCase
         if (empty($GLOBALS['CI_MODE'])) {
             return false;
         }
+
         return $GLOBALS['CI_MODE'] == 'selenium';
     }
 
@@ -344,6 +349,7 @@ abstract class TestBase extends TestCase
                         '10.1' // Force Safari 10.1
                     );
                 }
+
                 return $capabilities;
             case 'edge':
                 $capabilities = DesiredCapabilities::microsoftEdge();
@@ -361,6 +367,7 @@ abstract class TestBase extends TestCase
                         'insider preview' // Force Edge insider preview
                     );
                 }
+
                 return $capabilities;
         }
     }
@@ -375,8 +382,10 @@ abstract class TestBase extends TestCase
         $result = $this->dbQuery('SELECT COUNT(*) FROM mysql.user');
         if ($result !== false) {
             $result->free();
+
             return true;
         }
+
         return false;
     }
 
@@ -684,6 +693,7 @@ abstract class TestBase extends TestCase
             // Element not present
             return false;
         }
+
         // Element Present
         return true;
     }
@@ -1044,6 +1054,7 @@ abstract class TestBase extends TestCase
      *
      * @param string $status  passed or failed
      * @param string $message a message
+     *
      * @return void
      */
     private function markTestAs(string $status, string $message): void

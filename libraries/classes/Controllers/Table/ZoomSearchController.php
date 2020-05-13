@@ -108,6 +108,7 @@ class ZoomSearchController extends AbstractController
             && $_POST['get_data_row'] == true
         ) {
             $this->getDataRowAction();
+
             return;
         }
 
@@ -119,6 +120,7 @@ class ZoomSearchController extends AbstractController
             && $_POST['change_tbl_info'] == true
         ) {
             $this->changeTableInfoAction();
+
             return;
         }
 
@@ -298,6 +300,7 @@ class ZoomSearchController extends AbstractController
             $this->response->addJSON('field_collation', '');
             $this->response->addJSON('field_operators', '');
             $this->response->addJSON('field_value', '');
+
             return;
         }
         $key = array_search($field, $this->_columnNames);
@@ -456,6 +459,7 @@ class ZoomSearchController extends AbstractController
             'titles' => $titles,
             'in_fbs' => true,
         ]);
+
         return [
             'type' => $type,
             'collation' => $collation,

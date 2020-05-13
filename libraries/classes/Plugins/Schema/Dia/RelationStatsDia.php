@@ -92,6 +92,7 @@ class RelationStatsDia
                 $pos,
             ];
         }
+
         return [
             $pos + $value,
             $pos + $value + 1,
@@ -223,6 +224,7 @@ class RelationStatsDia
             </dia:connections>
             </dia:object>'
         );
+
         return;
     }
 }

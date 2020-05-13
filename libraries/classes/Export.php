@@ -156,6 +156,7 @@ class Export
                                 __('Insufficient space to save the file %s.')
                             );
                             $GLOBALS['message']->addParam($save_filename);
+
                             return false;
                         }
                     } else {
@@ -194,6 +195,7 @@ class Export
                         __('Insufficient space to save the file %s.')
                     );
                     $GLOBALS['message']->addParam($save_filename);
+
                     return false;
                 }
                 $time_now = time();
@@ -209,6 +211,7 @@ class Export
             // We export as html - replace special chars
             echo htmlspecialchars($line);
         }
+
         return true;
     }
 
@@ -276,6 +279,7 @@ class Export
 
         // Some memory is needed for compression, assume 1/3
         $memory_limit /= 8;
+
         return $memory_limit;
     }
 
@@ -319,6 +323,7 @@ class Export
             $filename  .= '.zip';
             $mime_type = 'application/zip';
         }
+
         return [
             $filename,
             $mime_type,
@@ -438,6 +443,7 @@ class Export
             );
             $message->addParam($save_filename);
         }
+
         return [
             $save_filename,
             $message,
@@ -478,6 +484,7 @@ class Export
                 [$save_filename]
             );
         }
+
         return $message;
     }
 
@@ -500,6 +507,7 @@ class Export
             // without the optional parameter level because it bugs
             $dump_buffer = gzencode($dump_buffer);
         }
+
         return $dump_buffer;
     }
 
@@ -950,6 +958,7 @@ class Export
                     /* l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular */
                     __('Exporting a raw query is not supported for this export method.')
                 );
+
                 return;
             }
         }
@@ -1199,6 +1208,7 @@ class Export
                 }
             }
         }
+
         return $aliases;
     }
 
@@ -1220,6 +1230,7 @@ class Export
         }
 
         $sql = 'LOCK TABLES ' . implode(', ', $locks);
+
         return $this->dbi->tryQuery($sql);
     }
 

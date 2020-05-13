@@ -13,7 +13,6 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
-use function count;
 use function str_replace;
 
 class DataDictionaryController extends AbstractController

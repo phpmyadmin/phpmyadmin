@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Language;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\MoTranslator\Loader;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
@@ -83,7 +84,7 @@ define('PMA_MAJOR_VERSION', $GLOBALS['PMA_Config']->get('PMA_MAJOR_VERSION'));
 // phpcs:enable
 
 /* Ensure default language is active */
-/** @var \PhpMyAdmin\Language $languageEn */
+/** @var Language $languageEn */
 $languageEn = LanguageManager::getInstance()->getLanguage('en');
 $languageEn->activate();
 

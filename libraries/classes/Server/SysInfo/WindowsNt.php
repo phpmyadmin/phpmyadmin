@@ -16,9 +16,7 @@ use function trim;
  */
 class WindowsNt extends Base
 {
-    /**
-     * @var COM|null
-     */
+    /** @var COM|null */
     private $_wmi;
 
     /**

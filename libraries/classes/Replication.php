@@ -155,6 +155,7 @@ class Replication
             $output['File'] = $data[0]['File'];
             $output['Position'] = $data[0]['Position'];
         }
+
         return $output;
     }
 }

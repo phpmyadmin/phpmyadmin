@@ -16,6 +16,7 @@ use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use const PHP_URL_HOST;
 use function count;
 use function defined;
 use function file_exists;
@@ -23,7 +24,6 @@ use function is_bool;
 use function parse_url;
 use function strpos;
 use function trim;
-use const PHP_URL_HOST;
 
 /**
  * The navigation panel - displays server, db and table selection tree
@@ -256,6 +256,7 @@ class Navigation
             }
         }
         $this->dbi->freeResult($result);
+
         return $hidden;
     }
 
@@ -271,6 +272,7 @@ class Navigation
         } elseif (isset($pmaThemeImage) && @file_exists($pmaThemeImage . 'pma_logo2.png')) {
             return $pmaThemeImage . 'pma_logo2.png';
         }
+
         return '';
     }
 }

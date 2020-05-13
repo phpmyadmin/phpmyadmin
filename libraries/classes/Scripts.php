@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function defined;
 use function md5;
 use function strpos;
 
@@ -136,6 +137,7 @@ class Scripts
                 'fire' => $file['has_onload'],
             ];
         }
+
         return $retval;
     }
 

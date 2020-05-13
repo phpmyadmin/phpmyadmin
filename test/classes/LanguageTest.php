@@ -315,6 +315,7 @@ class LanguageTest extends PmaTestCase
         foreach (LanguageManager::getInstance()->availableLanguages() as $language) {
             $ret[] = [$language->getCode()];
         }
+
         return $ret;
     }
 }

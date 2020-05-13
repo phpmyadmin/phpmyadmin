@@ -11,6 +11,7 @@ use Exception;
 use PhpMyAdmin\Server\SysInfo\SysInfo;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 use Throwable;
+use const FILE_IGNORE_NEW_LINES;
 use function array_merge;
 use function array_merge_recursive;
 use function count;
@@ -29,7 +30,6 @@ use function sprintf;
 use function strpos;
 use function substr;
 use function vsprintf;
-use const FILE_IGNORE_NEW_LINES;
 
 /**
  * Advisor class
@@ -39,34 +39,22 @@ class Advisor
     public const GENERIC_RULES_FILE = 'libraries/advisory_rules_generic.txt';
     public const BEFORE_MYSQL80003_RULES_FILE = 'libraries/advisory_rules_mysql_before80003.txt';
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     protected $dbi;
 
-    /**
-     * @var array
-     */
+    /** @var array */
     protected $variables;
 
-    /**
-     * @var array
-     */
+    /** @var array */
     protected $globals;
 
-    /**
-     * @var array
-     */
+    /** @var array */
     protected $parseResult;
 
-    /**
-     * @var array
-     */
+    /** @var array */
     protected $runResult;
 
-    /**
-     * @var ExpressionLanguage
-     */
+    /** @var ExpressionLanguage */
     protected $expression;
 
     /**
@@ -430,6 +418,7 @@ class Advisor
         } else {
             $params = [];
         }
+
         return vsprintf($string, $params);
     }
 
@@ -449,6 +438,7 @@ class Advisor
                 $jst[1],
             ];
         }
+
         return [$rule['justification']];
     }
 
@@ -478,6 +468,7 @@ class Advisor
                             ),
                             $e
                         );
+
                         return;
                     }
 
@@ -528,6 +519,7 @@ class Advisor
         if ($isMariaDB || $this->globals['PMA_MYSQL_INT_VERSION'] < 80003) {
             $ruleFiles[] = self::BEFORE_MYSQL80003_RULES_FILE;
         }
+
         return $ruleFiles;
     }
 
@@ -599,6 +591,7 @@ class Advisor
                 __('Error in reading file: The file \'%s\' does not exist or is not readable!'),
                 $filename
             );
+
             return [
                 'rules' => $rules,
                 'lines' => $lines,

@@ -152,6 +152,7 @@ class ConfigFile
     {
         if ($keys === null) {
             $this->_setFilter = null;
+
             return;
         }
         // checking key presence is much faster than searching so move values
@@ -219,6 +220,7 @@ class ConfigFile
         // if the path isn't protected it may be removed
         if (isset($this->_persistKeys[$canonicalPath])) {
             Core::arrayWrite($path, $_SESSION[$this->_id], $value);
+
             return;
         }
 
@@ -243,6 +245,7 @@ class ConfigFile
         }
         if ($removePath) {
             Core::arrayRemove($path, $_SESSION[$this->_id]);
+
             return;
         }
 
@@ -282,6 +285,7 @@ class ConfigFile
         array_walk($this->_defaultCfg, [$this, '_flattenArray'], '');
         $flatConfig = $this->_flattenArrayResult;
         $this->_flattenArrayResult = null;
+
         return $flatConfig;
     }
 
@@ -356,6 +360,7 @@ class ConfigFile
             return $v;
         }
         $path = $this->getCanonicalPath($path);
+
         return $this->getDefault($path, $default);
     }
 
@@ -437,6 +442,7 @@ class ConfigFile
         } else {
             $dsn .= $this->getValue($path . '/socket');
         }
+
         return $dsn;
     }
 
@@ -457,6 +463,7 @@ class ConfigFile
             return $verbose;
         }
         $host = $this->get('Servers/' . $id . '/host');
+
         return empty($host) ? 'localhost' : $host;
     }
 
@@ -502,6 +509,7 @@ class ConfigFile
                 Core::arrayRemove($mapFrom, $c);
             }
         }
+
         return $c;
     }
 
@@ -532,6 +540,7 @@ class ConfigFile
             $c[$mapTo] = $c[$mapFrom];
             unset($c[$mapFrom]);
         }
+
         return $c;
     }
 }

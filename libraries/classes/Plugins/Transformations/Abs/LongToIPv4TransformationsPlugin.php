@@ -6,9 +6,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
-use PhpMyAdmin\Utils\FormatConverter;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\FormatConverter;
 use stdClass;
 use function htmlspecialchars;
 

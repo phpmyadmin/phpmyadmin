@@ -471,6 +471,7 @@ class GisPolygonTest extends GisGeomTestCase
         if (! function_exists('imagecreatetruecolor')) {
             $this->markTestSkipped('GD extension missing!');
         }
+
         return [
             [
                 'POLYGON((123 0,23 30,17 63,123 0))',

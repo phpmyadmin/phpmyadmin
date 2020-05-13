@@ -398,25 +398,30 @@ final class ReplaceController extends AbstractController
                 /** @var SqlController $controller */
                 $controller = $containerBuilder->get(SqlController::class);
                 $controller->index();
+
                 return;
             } elseif ($goto_include === '/database/sql') {
                 /** @var DatabaseSqlController $controller */
                 $controller = $containerBuilder->get(DatabaseSqlController::class);
                 $controller->index();
+
                 return;
             } elseif ($goto_include === '/table/change') {
                 /** @var ChangeController $controller */
                 $controller = $containerBuilder->get(ChangeController::class);
                 $controller->index();
+
                 return;
             } elseif ($goto_include === '/table/sql') {
                 /** @var TableSqlController $controller */
                 $controller = $containerBuilder->get(TableSqlController::class);
                 $controller->index();
+
                 return;
             }
 
             include ROOT_PATH . Core::securePath((string) $goto_include);
+
             return;
         }
         unset($multi_edit_columns, $is_insertignore);
@@ -568,6 +573,7 @@ final class ReplaceController extends AbstractController
             $this->response->setRequestStatus($message->isSuccess());
             $this->response->addJSON('message', $message);
             $this->response->addJSON($extra_data);
+
             return;
         }
 
@@ -596,21 +602,25 @@ final class ReplaceController extends AbstractController
             /** @var SqlController $controller */
             $controller = $containerBuilder->get(SqlController::class);
             $controller->index();
+
             return;
         } elseif ($goto_include === '/database/sql') {
             /** @var DatabaseSqlController $controller */
             $controller = $containerBuilder->get(DatabaseSqlController::class);
             $controller->index();
+
             return;
         } elseif ($goto_include === '/table/change') {
             /** @var ChangeController $controller */
             $controller = $containerBuilder->get(ChangeController::class);
             $controller->index();
+
             return;
         } elseif ($goto_include === '/table/sql') {
             /** @var TableSqlController $controller */
             $controller = $containerBuilder->get(TableSqlController::class);
             $controller->index();
+
             return;
         }
 

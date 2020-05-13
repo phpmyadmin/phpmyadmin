@@ -17,6 +17,7 @@ class MainForm extends \PhpMyAdmin\Config\Forms\User\MainForm
         /* Following are not available to user */
         $result['Startup'][] = 'ShowPhpInfo';
         $result['Startup'][] = 'ShowChgPassword';
+
         return $result;
     }
 }

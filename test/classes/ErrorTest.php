@@ -7,8 +7,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Error;
-use function preg_match;
 use const DIRECTORY_SEPARATOR;
+use function preg_match;
 
 /**
  * Error class testing.

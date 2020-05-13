@@ -51,6 +51,7 @@ class CentralColumnsController extends AbstractController
                 'col_type' => $_POST['col_type'] ?? null,
                 'collation' => $_POST['collation'] ?? null,
             ]);
+
             return;
         } elseif (isset($_POST['add_new_column'])) {
             $tmp_msg = $this->addNewColumn([
@@ -69,12 +70,14 @@ class CentralColumnsController extends AbstractController
             $this->response->addHTML($this->populateColumns([
                 'selectedTable' => $_POST['selectedTable'],
             ]));
+
             return;
         }
         if (isset($_POST['getColumnList'])) {
             $this->response->addJSON('message', $this->getColumnList([
                 'cur_table' => $_POST['cur_table'] ?? null,
             ]));
+
             return;
         }
         if (isset($_POST['add_column'])) {
@@ -95,6 +98,7 @@ class CentralColumnsController extends AbstractController
                 'selected_fld' => $_POST['selected_fld'] ?? null,
                 'db' => $_POST['db'] ?? null,
             ]));
+
             return;
         }
         if (isset($_POST['multi_edit_central_column_save'])) {
@@ -213,6 +217,7 @@ class CentralColumnsController extends AbstractController
         if ($columnDefault === 'NONE' && $params['col_default_sel'] !== 'USER_DEFINED') {
             $columnDefault = '';
         }
+
         return $this->centralColumns->updateOneColumn(
             $this->db,
             $params['orig_col_name'],
@@ -238,6 +243,7 @@ class CentralColumnsController extends AbstractController
         if ($columnDefault === 'NONE' && $params['col_default_sel'] !== 'USER_DEFINED') {
             $columnDefault = '';
         }
+
         return $this->centralColumns->updateOneColumn(
             $this->db,
             '',
@@ -298,6 +304,7 @@ class CentralColumnsController extends AbstractController
     {
         $name = [];
         parse_str($params['col_name'], $name);
+
         return $this->centralColumns->deleteColumnsFromList(
             $params['db'],
             $name['selected_fld'],

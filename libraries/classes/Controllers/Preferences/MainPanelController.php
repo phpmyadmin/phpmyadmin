@@ -15,7 +15,8 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
-use PhpMyAdmin\UserPreferencesHeader;
+use function define;
+use function ltrim;
 
 class MainPanelController extends AbstractController
 {
@@ -58,6 +59,7 @@ class MainPanelController extends AbstractController
             // revert erroneous fields to their default values
             $formDisplay->fixErrors();
             Core::sendHeaderLocation('./index.php?route=/preferences/main-panel');
+
             return;
         }
 
@@ -79,6 +81,7 @@ class MainPanelController extends AbstractController
                     null,
                     $hash
                 );
+
                 return;
             } else {
                 $error = $result;

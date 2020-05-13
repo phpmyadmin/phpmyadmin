@@ -52,11 +52,13 @@ class NavigationController extends AbstractController
                     __('Fatal error: The navigation can only be accessed via AJAX')
                 )->getDisplay()
             );
+
             return;
         }
 
         if (isset($_POST['getNaviSettings']) && $_POST['getNaviSettings']) {
             $this->response->addJSON('message', PageSettings::getNaviSettings());
+
             return;
         }
 
@@ -78,6 +80,7 @@ class NavigationController extends AbstractController
                         (! empty($_POST['tableName']) ? $_POST['tableName'] : null)
                     );
                 }
+
                 return;
             }
 
@@ -93,6 +96,7 @@ class NavigationController extends AbstractController
                         (! empty($_POST['tableName']) ? $_POST['tableName'] : null)
                     );
                 }
+
                 return;
             }
 
@@ -103,6 +107,7 @@ class NavigationController extends AbstractController
                         $this->navigation->getItemUnhideDialog($_POST['dbName'])
                     );
                 }
+
                 return;
             }
         }

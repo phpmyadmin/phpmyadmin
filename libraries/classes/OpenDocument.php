@@ -168,6 +168,7 @@ EOT;
         ];
 
         $zipExtension = new ZipExtension();
+
         return $zipExtension->createFile($data, $name);
     }
 }

@@ -234,6 +234,7 @@ class CreateAddField
         if (! $isCreateTable) {
             $sqlPrefix = ' ADD ';
         }
+
         return $sqlPrefix;
     }
 
@@ -262,6 +263,7 @@ class CreateAddField
             );
             $definitions = array_merge($definitions, $statements);
         }
+
         return $definitions;
     }
 
@@ -333,6 +335,7 @@ class CreateAddField
         if (count($definitions)) {
             $sqlStatement = implode(', ', $definitions);
         }
+
         return preg_replace('@, $@', '', $sqlStatement);
     }
 
@@ -540,6 +543,7 @@ class CreateAddField
         if (isset($_POST['preview_sql'])) {
             Core::previewSQL($sqlQuery);
         }
+
         return [
             $this->dbi->tryQuery($sqlQuery),
             $sqlQuery,

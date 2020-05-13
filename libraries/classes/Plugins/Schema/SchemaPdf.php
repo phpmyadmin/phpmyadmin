@@ -118,6 +118,7 @@ class SchemaPdf extends SchemaPlugin
     {
         $export = new PdfRelationSchema($db);
         $export->showOutput();
+
         return true;
     }
 }

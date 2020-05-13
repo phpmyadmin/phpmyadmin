@@ -33,6 +33,7 @@ class Image implements ActionLinksModesInterface
         if (empty($value)) {
             $value = $text;
         }
+
         return '<button class="btn btn-link ' . $class . '" type="submit"'
             . ' name="' . $name . '" value="' . htmlspecialchars($value)
             . '" title="' . htmlspecialchars($text) . '">' . "\n"

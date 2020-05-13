@@ -94,6 +94,7 @@ final class ImportController extends AbstractController
         // If there is a request to 'Simulate DML'.
         if (isset($_POST['simulate_dml'])) {
             $this->import->handleSimulateDmlRequest();
+
             return;
         }
 
@@ -103,6 +104,7 @@ final class ImportController extends AbstractController
                 'console_message_bookmark',
                 Console::getBookmarkContent()
             );
+
             return;
         }
         // If it's a console bookmark add request
@@ -129,9 +131,11 @@ final class ImportController extends AbstractController
                 } else {
                     $this->response->addJSON('message', __('Failed'));
                 }
+
                 return;
             } else {
                 $this->response->addJSON('message', __('Incomplete params'));
+
                 return;
             }
         }
@@ -415,6 +419,7 @@ final class ImportController extends AbstractController
                         $this->response->addJSON('message', $message);
                         $this->response->addJSON('sql_query', $import_text);
                         $this->response->addJSON('action_bookmark', $_POST['action_bookmark']);
+
                         return;
                     } else {
                         $run_query = false;
@@ -439,6 +444,7 @@ final class ImportController extends AbstractController
                         $this->response->addJSON('message', $message);
                         $this->response->addJSON('action_bookmark', $_POST['action_bookmark']);
                         $this->response->addJSON('id_bookmark', $id_bookmark);
+
                         return;
                     } else {
                         $run_query = false;
@@ -750,6 +756,7 @@ final class ImportController extends AbstractController
                         false,
                         $_SESSION['Import_message']['go_back_url']
                     );
+
                     return;
                 } // end if
 
@@ -795,6 +802,7 @@ final class ImportController extends AbstractController
 
             $this->response->addJSON('ajax_reload', $ajax_reload);
             $this->response->addHTML($html_output);
+
             return;
         } elseif ($result) {
             // Save a Bookmark with more than one queries (if Bookmark label given).

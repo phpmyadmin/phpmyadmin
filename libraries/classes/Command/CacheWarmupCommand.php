@@ -51,6 +51,7 @@ final class CacheWarmupCommand extends Command
     {
         if ($input->getOption('twig') === true && $input->getOption('routing') === true) {
             $output->writeln('Please specify --twig or --routing');
+
             return 1;
         } elseif ($input->getOption('twig') === true) {
             return $this->warmUpTwigCache($output);
@@ -61,14 +62,17 @@ final class CacheWarmupCommand extends Command
             $twigCode = $this->warmUptwigCache($output);
             if ($twigCode !== 0) {
                 $output->writeln('Twig cache generation had an error.');
+
                 return $twigCode;
             }
             $routingCode = $this->warmUpTwigCache($output);
             if ($routingCode !== 0) {
                 $output->writeln('Routing cache generation had an error.');
+
                 return $twigCode;
             }
             $output->writeln('Warm up of all caches done.', OutputInterface::VERBOSITY_VERBOSE);
+
             return 0;
         }
     }
@@ -78,6 +82,7 @@ final class CacheWarmupCommand extends Command
         $output->writeln('Warming up the routing cache', OutputInterface::VERBOSITY_VERBOSE);
         Routing::getDispatcher();
         $output->writeln('Warm up done.', OutputInterface::VERBOSITY_VERBOSE);
+
         return 0;
     }
 

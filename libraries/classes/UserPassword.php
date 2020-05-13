@@ -80,6 +80,7 @@ class UserPassword
                 $error = true;
             }
         }
+
         return [
             'error' => $error,
             'msg' => $message,
@@ -175,6 +176,7 @@ class UserPassword
         } else {
             $hashing_function = 'PASSWORD';
         }
+
         return $hashing_function;
     }
 

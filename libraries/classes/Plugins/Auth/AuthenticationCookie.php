@@ -302,10 +302,12 @@ class AuthenticationCookie extends AuthenticationPlugin
                         } else {
                             $conn_error = __('Entered captcha is wrong, try again!');
                         }
+
                         return false;
                     }
                 } else {
                     $conn_error = __('Missing reCAPTCHA verification, maybe it has been blocked by adblock?');
+
                     return false;
                 }
             }
@@ -332,6 +334,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                         $conn_error = __(
                             'You are not allowed to log in to this MySQL server!'
                         );
+
                         return false;
                     }
                 }
@@ -339,6 +342,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             }
             /* Secure current session on login to avoid session fixation */
             Session::secure();
+
             return true;
         }
 
@@ -641,6 +645,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 $_SESSION['encryption_key'] = Crypt\Random::string(32);
             }
         }
+
         return $_SESSION['encryption_key'];
     }
 
@@ -659,6 +664,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         while (strlen($secret) < 16) {
             $secret .= $secret;
         }
+
         return substr($secret, 0, 16);
     }
 
@@ -677,6 +683,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         if ($length > 16) {
             return substr($secret, 0, 16);
         }
+
         return $this->enlargeSecret(
             $length == 1 ? $secret : substr($secret, 0, -1)
         );
@@ -697,6 +704,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         if ($length > 16) {
             return substr($secret, -16);
         }
+
         return $this->enlargeSecret(
             $length == 1 ? $secret : substr($secret, 1)
         );
@@ -754,6 +762,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
         $this->cleanSSLErrors();
         $iv = base64_encode($iv);
+
         return json_encode(
             [
                 'iv' => $iv,
@@ -808,6 +817,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             $result = $cipher->decrypt(base64_decode($data['payload']));
         }
         $this->cleanSSLErrors();
+
         return $result;
     }
 
@@ -821,6 +831,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         if ($this->_use_openssl) {
             return openssl_cipher_iv_length('AES-128-CBC');
         }
+
         return (new Crypt\AES(Crypt\Base::MODE_CBC))->block_size;
     }
 

@@ -14,7 +14,6 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\SavedSearches;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function array_diff;
 use function array_fill;
@@ -33,7 +32,6 @@ use function mb_strtoupper;
 use function mb_substr;
 use function min;
 use function reset;
-use function sprintf;
 use function str_replace;
 use function stripos;
 use function strlen;
@@ -441,6 +439,7 @@ class Qbe
     private function _getSortOrderSelectCell($columnNumber, $sortOrder)
     {
         $totalColumnCount = $this->_getNewColumnCount();
+
         return $this->template->render('database/qbe/sort_order_select_cell', [
             'total_column_count' => $totalColumnCount,
             'column_number' => $columnNumber,
@@ -462,6 +461,7 @@ class Qbe
         if (! empty($this->_criteriaColumnDelete)) {
             $totalColumnCount -= count($this->_criteriaColumnDelete);
         }
+
         return $totalColumnCount;
     }
 
@@ -800,6 +800,7 @@ class Qbe
         $html_output .= '<input type="checkbox"'
             . ' name="criteriaColumnDelete[' . $column_number . ']">';
         $html_output .= '</td>';
+
         return $html_output;
     }
 
@@ -904,6 +905,7 @@ class Qbe
             }
             $new_column_count++;
         } // end for
+
         return $html_output;
     }
 
@@ -965,6 +967,7 @@ class Qbe
             $html_output .= '</tr>';
         } // end for
         $this->_new_row_count = $new_row_count;
+
         return $html_output;
     }
 
@@ -994,6 +997,7 @@ class Qbe
             $select_clause = 'SELECT '
                 . htmlspecialchars(implode(', ', $select_clauses)) . "\n";
         }
+
         return $select_clause;
     }
 
@@ -1075,6 +1079,7 @@ class Qbe
         if (! empty($where_clause) && $where_clause != '()') {
             $where_clause = 'WHERE ' . $where_clause . "\n";
         } // end if
+
         return $where_clause;
     }
 
@@ -1123,6 +1128,7 @@ class Qbe
             $orderby_clause = 'ORDER BY '
                 . htmlspecialchars(implode(', ', $orderby_clauses)) . "\n";
         }
+
         return $orderby_clause;
     }
 
@@ -1318,6 +1324,7 @@ class Qbe
                 $result = $table;
             }
         }
+
         // Return largest table
         return $result;
     }
@@ -1352,6 +1359,7 @@ class Qbe
                 }
             } // end if
         } // end for
+
         return [
             'where_clause_tables' => $where_clause_tables,
             'where_clause_columns' => $where_clause_columns,
@@ -1638,6 +1646,7 @@ class Qbe
         $sql_query .= $this->_getWhereClause();
         // get ORDER BY clause
         $sql_query .= $this->_getOrderByClause();
+
         return $sql_query;
     }
 
@@ -1785,6 +1794,7 @@ class Qbe
         if (isset($unique_columns) && count($unique_columns) > 0) {
             $candidate_columns = $unique_columns;
             $needsort = 1;
+
             return [
                 $candidate_columns,
                 $needsort,
@@ -1792,6 +1802,7 @@ class Qbe
         } elseif (isset($index_columns) && count($index_columns) > 0) {
             $candidate_columns = $index_columns;
             $needsort = 1;
+
             return [
                 $candidate_columns,
                 $needsort,
@@ -1799,6 +1810,7 @@ class Qbe
         } elseif (isset($where_clause_columns) && count($where_clause_columns) > 0) {
             $candidate_columns = $where_clause_columns;
             $needsort = 0;
+
             return [
                 $candidate_columns,
                 $needsort,
@@ -1807,6 +1819,7 @@ class Qbe
 
         $candidate_columns = $search_tables;
         $needsort = 0;
+
         return [
             $candidate_columns,
             $needsort,

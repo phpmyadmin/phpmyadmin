@@ -18,6 +18,7 @@ use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use const E_USER_WARNING;
 use function array_key_exists;
 use function array_keys;
 use function array_shift;
@@ -48,7 +49,6 @@ use function trim;
 use function urlencode;
 use function usort;
 use function vsprintf;
-use const E_USER_WARNING;
 
 /**
  * Displays a collapsible of database objects in the navigation frame
@@ -997,6 +997,7 @@ class NavigationTree
                 'parent_name' => $parentName ?? '',
             ]);
         }
+
         return false;
     }
 

@@ -1,24 +1,23 @@
 <?php
 /**
  * Format converter
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Utils;
 
 use PhpMyAdmin\Util;
-
+use function bin2hex;
 use function hex2bin;
 use function inet_ntop;
+use function inet_pton;
+use function ip2long;
+use function long2ip;
 use function strpos;
 use function substr;
 
 /**
  * Format converter
- *
- * @package PhpMyAdmin
  */
 class FormatConverter
 {

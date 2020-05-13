@@ -7,6 +7,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Utils\HttpRequest;
+use const E_USER_WARNING;
+use const JSON_PRETTY_PRINT;
+use const JSON_UNESCAPED_SLASHES;
+use const PHP_VERSION;
 use function count;
 use function http_build_query;
 use function json_encode;
@@ -16,10 +20,6 @@ use function parse_str;
 use function parse_url;
 use function preg_match;
 use function str_replace;
-use const E_USER_WARNING;
-use const JSON_PRETTY_PRINT;
-use const JSON_UNESCAPED_SLASHES;
-use const PHP_VERSION;
 
 /**
  * Error reporting functions used to generate and submit error reports
@@ -215,6 +215,7 @@ class ErrorReport
         }
 
         $uri = $scriptName . '?' . $query;
+
         return [
             $uri,
             $scriptName,
@@ -261,6 +262,7 @@ class ErrorReport
             unset($level['url']);
         }
         unset($level);
+
         return $stack;
     }
 

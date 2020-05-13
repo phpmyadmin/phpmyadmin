@@ -14,9 +14,7 @@ use stdClass;
  */
 class VersionInformationTest extends PmaTestCase
 {
-    /**
-     * @var stdClass[]
-     */
+    /** @var stdClass[] */
     private $_releases;
 
     /**
@@ -283,11 +281,13 @@ class VersionInformationTest extends PmaTestCase
     /**
      * Tests getLatestCompatibleVersion() with an new PHP version
      *
-     * @dataProvider dataProviderVersionConditions
      * @param array[]     $versions           The versions to use
      * @param array[]     $conditions         The conditions that will be executed
      * @param string|null $matchedLastVersion The version that will be matched
+     *
      * @return void
+     *
+     * @dataProvider dataProviderVersionConditions
      */
     public function testGetLatestCompatibleVersionWithNewPHPVersion(array $versions, array $conditions, ?string $matchedLastVersion): void
     {
@@ -317,6 +317,7 @@ class VersionInformationTest extends PmaTestCase
     /**
      * Provider for testGetLatestCompatibleVersionWithNewPHPVersion
      * Returns the conditions to be used for mocks
+     *
      * @return array[]
      */
     public function dataProviderVersionConditions(): array

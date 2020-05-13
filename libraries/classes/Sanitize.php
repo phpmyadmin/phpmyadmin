@@ -74,6 +74,7 @@ class Sanitize
                 return true;
             }
         }
+
         return false;
     }
 
@@ -138,6 +139,7 @@ class Sanitize
             }
         }
         $link = MySQLDocumentation::getDocumentationLink($page, $anchor);
+
         return '<a href="' . $link . '" target="documentation">';
     }
 
@@ -237,6 +239,7 @@ class Sanitize
         }
         $pattern .= '-]/';
         $filename = preg_replace($pattern, '_', $filename);
+
         return $filename;
     }
 
@@ -346,6 +349,7 @@ class Sanitize
         } else {
             $result .= self::formatJsVal($value) . ";\n";
         }
+
         return $result;
     }
 

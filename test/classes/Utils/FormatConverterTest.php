@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\Utils\FormatConverter class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -11,9 +9,6 @@ namespace PhpMyAdmin\Tests\Utils;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Utils\FormatConverter;
 
-/**
- * @package PhpMyAdmin\Tests\Utils
- */
 class FormatConverterTest extends PmaTestCase
 {
     /**

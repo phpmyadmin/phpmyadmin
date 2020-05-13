@@ -76,6 +76,7 @@ class Menu
     {
         $retval  = $this->_getBreadcrumbs();
         $retval .= $this->_getMenu();
+
         return $retval;
     }
 
@@ -122,6 +123,7 @@ class Menu
                 unset($tabs[$key]);
             }
         }
+
         return $this->template->render('top_menu', [
             'tabs' => $tabs,
             'url_params' => $url_params,
@@ -169,6 +171,7 @@ class Menu
             }
         }
         Util::cacheSet($cache_key, $allowedTabs);
+
         return $allowedTabs;
     }
 
@@ -488,6 +491,7 @@ class Menu
             $tabs['central_columns']['route'] = '/database/central-columns';
             $tabs['central_columns']['active'] = $route === '/database/central-columns';
         }
+
         return $tabs;
     }
 
@@ -622,6 +626,7 @@ class Menu
     public function setTable($table)
     {
         $this->_table = $table;
+
         return $this;
     }
 }

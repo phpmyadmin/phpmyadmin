@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use const PHP_SESSION_ACTIVE;
 use function defined;
 use function function_exists;
 use function htmlspecialchars;
@@ -28,7 +29,6 @@ use function session_status;
 use function session_unset;
 use function session_write_close;
 use function setcookie;
-use const PHP_SESSION_ACTIVE;
 
 /**
  * Session class

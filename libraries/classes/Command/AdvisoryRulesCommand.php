@@ -76,6 +76,7 @@ class AdvisoryRulesCommand extends Command
             $output->writeln('"');
             $output->writeln('msgstr ""');
         }
+
         return 0;
     }
 

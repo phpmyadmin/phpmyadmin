@@ -275,6 +275,7 @@ class DatabaseInterfaceTest extends PmaTestCase
             'controluser' => 'u2',
             'controlpass' => 'p2',
         ];
+
         return [
             [
                 $cfg_basic,

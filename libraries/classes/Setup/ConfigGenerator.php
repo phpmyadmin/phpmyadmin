@@ -7,6 +7,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Setup;
 
 use PhpMyAdmin\Config\ConfigFile;
+use const DATE_RFC1123;
 use function array_keys;
 use function count;
 use function gmdate;
@@ -16,7 +17,6 @@ use function mb_strpos;
 use function preg_replace;
 use function strtr;
 use function var_export;
-use const DATE_RFC1123;
 
 /**
  * Config file generation class
@@ -103,6 +103,7 @@ class ConfigGenerator
                     . var_export($v, true) . ';' . $crlf;
             }
         }
+
         return $ret;
     }
 
@@ -120,6 +121,7 @@ class ConfigGenerator
                 return false;
             }
         }
+
         return true;
     }
 
@@ -149,6 +151,7 @@ class ConfigGenerator
             }
         }
         $ret .= ')';
+
         return $ret;
     }
 
@@ -184,6 +187,7 @@ class ConfigGenerator
             $ret .= $crlf;
         }
         $ret .= '/* End of servers configuration */' . $crlf . $crlf;
+
         return $ret;
     }
 }

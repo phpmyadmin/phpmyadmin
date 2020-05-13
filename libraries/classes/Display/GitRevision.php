@@ -54,6 +54,7 @@ class GitRevision
 
         if (! $this->config->get('PMA_VERSION_GIT')) {
             $this->response->setRequestStatus(false);
+
             return '';
         }
 

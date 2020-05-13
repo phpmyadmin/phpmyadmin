@@ -15,8 +15,10 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\UserPreferences;
-use PhpMyAdmin\UserPreferencesHeader;
 use PhpMyAdmin\Util;
+use const JSON_PRETTY_PRINT;
+use const PHP_URL_PATH;
+use const UPLOAD_ERR_OK;
 use function array_merge;
 use function define;
 use function file_exists;
@@ -30,9 +32,6 @@ use function parse_url;
 use function str_replace;
 use function urlencode;
 use function var_export;
-use const JSON_PRETTY_PRINT;
-use const PHP_URL_PATH;
-use const UPLOAD_ERR_OK;
 
 /**
  * User preferences management page.
@@ -80,6 +79,7 @@ class ManageController extends AbstractController
             Core::downloadHeader($filename, 'application/json');
             $settings = $this->userPreferences->load();
             echo json_encode($settings['config_data'], JSON_PRETTY_PRINT);
+
             return;
         } elseif (isset($_POST['submit_export'], $_POST['export_type']) && $_POST['export_type'] == 'php_file') {
             // export to JSON file
@@ -93,11 +93,13 @@ class ManageController extends AbstractController
                 echo '$cfg[\'' . str_replace('/', '\'][\'', $key) . '\'] = ';
                 echo var_export($val, true) . ";\n";
             }
+
             return;
         } elseif (isset($_POST['submit_get_json'])) {
             $settings = $this->userPreferences->load();
             $this->response->addJSON('prefs', json_encode($settings['config_data']));
             $this->response->addJSON('mtime', $settings['mtime']);
+
             return;
         } elseif (isset($_POST['submit_import'])) {
             // load from JSON file
@@ -167,6 +169,7 @@ class ManageController extends AbstractController
                         'import_merge' => $_POST['import_merge'] ?? null,
                         'return_url' => $return_url,
                     ]);
+
                     return;
                 }
 
@@ -207,6 +210,7 @@ class ManageController extends AbstractController
                     // reload config
                     $PMA_Config->loadUserPreferences();
                     $this->userPreferences->redirect($return_url ?? '', $params);
+
                     return;
                 } else {
                     $error = $result;
@@ -219,10 +223,12 @@ class ManageController extends AbstractController
                 $PMA_Config->removeCookie('pma_collaction_connection');
                 $PMA_Config->removeCookie('pma_lang');
                 $this->userPreferences->redirect('index.php?route=/preferences/manage', $params);
+
                 return;
             } else {
                 $error = $result;
             }
+
             return;
         }
 

@@ -277,6 +277,7 @@ class Header
                 $params[$key] = $key . ':"' . Sanitize::escapeJsString($value) . '"';
             }
         }
+
         return 'CommonParams.setAll({' . implode(',', $params) . '});';
     }
 
@@ -494,6 +495,7 @@ class Header
                 $GLOBALS['buffer_message'] = $buffer_message;
             }
         }
+
         return $retval;
     }
 
@@ -636,6 +638,7 @@ class Header
                 $this->_title = 'phpMyAdmin';
             }
         }
+
         return $this->_title;
     }
 
@@ -663,6 +666,7 @@ class Header
                 $retval = $error->getDisplay();
             }
         }
+
         return $retval;
     }
 

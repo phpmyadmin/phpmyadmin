@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Controllers\Database\SqlController;
+use function defined;
+use function strlen;
 
 final class DbTableExists
 {

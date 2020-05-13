@@ -78,6 +78,7 @@ final class ExportController extends AbstractController
             $this->response->addHTML(
                 Message::error(__('No tables found in database.'))->getDisplay()
             );
+
             return;
         } // end if
 

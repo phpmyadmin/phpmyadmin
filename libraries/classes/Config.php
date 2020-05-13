@@ -8,6 +8,12 @@ namespace PhpMyAdmin;
 
 use DirectoryIterator;
 use PhpMyAdmin\Utils\HttpRequest;
+use const DIRECTORY_SEPARATOR;
+use const E_USER_ERROR;
+use const PHP_EOL;
+use const PHP_OS;
+use const PHP_URL_PATH;
+use const PHP_URL_SCHEME;
 use function array_filter;
 use function array_flip;
 use function array_intersect_key;
@@ -76,12 +82,6 @@ use function time;
 use function trigger_error;
 use function trim;
 use function unpack;
-use const DIRECTORY_SEPARATOR;
-use const E_USER_ERROR;
-use const PHP_EOL;
-use const PHP_OS;
-use const PHP_URL_PATH;
-use const PHP_URL_SCHEME;
 
 /**
  * Configuration class
@@ -316,16 +316,19 @@ class Config
     {
         if ($this->get('GD2Available') == 'yes') {
             $this->set('PMA_IS_GD2', 1);
+
             return;
         }
 
         if ($this->get('GD2Available') == 'no') {
             $this->set('PMA_IS_GD2', 0);
+
             return;
         }
 
         if (! function_exists('imagecreatetruecolor')) {
             $this->set('PMA_IS_GD2', 0);
+
             return;
         }
 
@@ -395,6 +398,7 @@ class Config
         ) {
             // Define location using cached value
             $git_location = $_SESSION['git_location'];
+
             return $_SESSION['is_git_revision'];
         }
 
@@ -407,6 +411,7 @@ class Config
             } else {
                 $_SESSION['git_location'] = null;
                 $_SESSION['is_git_revision'] = false;
+
                 return false;
             }
         } elseif (is_file($git)) {
@@ -420,6 +425,7 @@ class Config
             )) {
                 $_SESSION['git_location'] = null;
                 $_SESSION['is_git_revision'] = false;
+
                 return false;
             } elseif (@is_dir($gitmatch[1])) {
                 //Detected git external folder location
@@ -427,16 +433,19 @@ class Config
             } else {
                 $_SESSION['git_location'] = null;
                 $_SESSION['is_git_revision'] = false;
+
                 return false;
             }
         } else {
             $_SESSION['git_location'] = null;
             $_SESSION['is_git_revision'] = false;
+
             return false;
         }
         // Define session for caching
         $_SESSION['git_location'] = $git_location;
         $_SESSION['is_git_revision'] = true;
+
         return true;
     }
 
@@ -449,11 +458,13 @@ class Config
         $git_folder = '';
         if (! $this->isGitRevision($git_folder)) {
             $this->set('PMA_VERSION_GIT', 0);
+
             return;
         }
 
         if (! $ref_head = @file_get_contents($git_folder . '/HEAD')) {
             $this->set('PMA_VERSION_GIT', 0);
+
             return;
         }
 
@@ -477,6 +488,7 @@ class Config
                 $hash = @file_get_contents($ref_file);
                 if (! $hash) {
                     $this->set('PMA_VERSION_GIT', 0);
+
                     return;
                 }
                 $hash = trim($hash);
@@ -485,6 +497,7 @@ class Config
                 $packed_refs = @file_get_contents($git_folder . '/packed-refs');
                 if (! $packed_refs) {
                     $this->set('PMA_VERSION_GIT', 0);
+
                     return;
                 }
                 // split file to lines
@@ -508,6 +521,7 @@ class Config
                 }
                 if (! isset($hash)) {
                     $this->set('PMA_VERSION_GIT', 0);
+
                     // Could not find ref
                     return;
                 }
@@ -527,6 +541,7 @@ class Config
             if (@file_exists($git_file_name)) {
                 if (! $commit = @file_get_contents($git_file_name)) {
                     $this->set('PMA_VERSION_GIT', 0);
+
                     return;
                 }
                 $commit = explode("\0", gzuncompress($commit), 2);
@@ -773,6 +788,7 @@ class Config
             $message = trim($commit_json->message);
         } else {
             $this->set('PMA_VERSION_GIT', 0);
+
             return;
         }
 
@@ -799,6 +815,7 @@ class Config
         $cfg = [];
         if (! @file_exists($this->default_source)) {
             $this->error_config_default_file = true;
+
             return false;
         }
         $canUseErrorReporting = function_exists('error_reporting');
@@ -819,6 +836,7 @@ class Config
 
         if ($eval_result === false) {
             $this->error_config_default_file = true;
+
             return false;
         }
 
@@ -955,6 +973,7 @@ class Config
             || ! isset($_SESSION['cache'][$cache_key]['userprefs'])
         ) {
             $this->set('user_preferences', false);
+
             return;
         }
         $config_data = $_SESSION['cache'][$cache_key]['userprefs'];
@@ -1072,6 +1091,7 @@ class Config
         }
         Core::arrayWrite($cfg_path, $GLOBALS['cfg'], $new_cfg_value);
         Core::arrayWrite($cfg_path, $this->settings, $new_cfg_value);
+
         return $result;
     }
 
@@ -1095,6 +1115,7 @@ class Config
         } elseif ($cookie_exists) {
             return $this->getCookie($cookie_name);
         }
+
         // return value from $cfg array
         return $cfg_value;
     }
@@ -1123,6 +1144,7 @@ class Config
 
         if (! @file_exists($this->getSource())) {
             $this->source_mtime = 0;
+
             return false;
         }
 
@@ -1146,6 +1168,7 @@ class Config
                         $this->getSource()
                     )
                 );
+
                 return false;
             }
         }
@@ -1218,6 +1241,7 @@ class Config
         if (isset($this->settings[$setting])) {
             return $this->settings[$setting];
         }
+
         return null;
     }
 
@@ -1272,6 +1296,7 @@ class Config
     {
         if (! ini_get('file_uploads')) {
             $this->set('enable_upload', false);
+
             return;
         }
 
@@ -1368,6 +1393,7 @@ class Config
                 if (substr($path, -1) != '/') {
                     return $path . '/';
                 }
+
                 return $path;
             }
         }
@@ -1442,6 +1468,7 @@ class Config
         if (defined('TESTSUITE')) {
             return true;
         }
+
         return setcookie(
             $httpCookieName,
             '',
@@ -1478,6 +1505,7 @@ class Config
                 // remove cookie
                 return $this->removeCookie($cookie);
             }
+
             return false;
         }
 
@@ -1502,8 +1530,10 @@ class Config
             }
             if (defined('TESTSUITE')) {
                 $_COOKIE[$httpCookieName] = $value;
+
                 return true;
             }
+
             return setcookie(
                 $httpCookieName,
                 $value,
@@ -1600,6 +1630,7 @@ class Config
             $retval .= ob_get_clean();
             $retval .= '</div>';
         }
+
         return $retval;
     }
 
@@ -1646,6 +1677,7 @@ class Config
         }
 
         $temp_dir[$name] = $path;
+
         return $path;
     }
 

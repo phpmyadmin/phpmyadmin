@@ -13,6 +13,11 @@ use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Token;
 use phpseclib\Crypt\Random;
 use stdClass;
+use const ENT_COMPAT;
+use const ENT_QUOTES;
+use const PHP_INT_SIZE;
+use const PREG_OFFSET_CAPTURE;
+use const STR_PAD_LEFT;
 use function abs;
 use function array_key_exists;
 use function array_map;
@@ -45,7 +50,6 @@ use function is_array;
 use function is_object;
 use function is_string;
 use function log10;
-use function ltrim;
 use function mb_detect_encoding;
 use function mb_strlen;
 use function mb_strpos;
@@ -83,11 +87,6 @@ use function time;
 use function trim;
 use function uksort;
 use function version_compare;
-use const ENT_COMPAT;
-use const ENT_QUOTES;
-use const PHP_INT_SIZE;
-use const PREG_OFFSET_CAPTURE;
-use const STR_PAD_LEFT;
 
 /**
  * Misc functions used all over the scripts.
@@ -132,6 +131,7 @@ class Util
         // I have to reduce the second parameter (sensitiveness) from 6 to 4
         // to avoid weird results like 512 kKib
         [$max_size, $max_unit] = self::formatByteDown($max_upload_size, 4);
+
         return '(' . sprintf(__('Max: %s%s'), $max_size, $max_unit) . ')';
     }
 
@@ -199,6 +199,7 @@ class Util
                     $quote,
                     $unquoted_string
                 );
+
                 return $unquoted_string;
             }
         }
@@ -251,6 +252,7 @@ class Util
      * Get a URL link to the official documentation page of either MySQL
      * or MariaDB depending on the databse server
      * of the user.
+     *
      * @param bool $isMariaDB if the database server is MariaDB
      *
      * @return string The URL link
@@ -259,8 +261,10 @@ class Util
     {
         if ($isMariaDB) {
             $url = 'https://mariadb.com/kb/en/documentation/';
+
             return Core::linkURL($url);
         }
+
         return self::getMySQLDocuURL('');
     }
 
@@ -294,6 +298,7 @@ class Util
                     ->countRecords();
             }
         }
+
         return $rowCount;
     }
 
@@ -453,6 +458,7 @@ class Util
             foreach ($a_name as &$data) {
                 $data = self::backquoteCompat($data, $compatibility, $do_it);
             }
+
             return $a_name;
         }
 
@@ -620,6 +626,7 @@ class Util
             if (($originalValue != 0) && (floatval($value) == 0)) {
                 $value = ' <' . (1 / pow(10, $digits_right));
             }
+
             return $value;
         }
 
@@ -737,6 +744,7 @@ class Util
                 -1
             ) * pow(1024, 1);
         }
+
         return $return_value;
     }
 
@@ -1115,6 +1123,7 @@ class Util
         }
 
         $where_clause = trim(preg_replace('|\s?AND$|', '', $preferred_condition));
+
         return [
             $where_clause,
             $clause_is_unique,
@@ -1138,6 +1147,7 @@ class Util
         if ($override) {
             $keyword = ' CHARACTER SET ';
         }
+
         return $keyword . $charset
             . ($charset == $collation ? '' : ' COLLATE ' . $collation);
     }
@@ -1378,8 +1388,10 @@ class Util
         if ($callback) {
             $val = $callback();
             self::cacheSet($var, $val);
+
             return $val;
         }
+
         return null;
     }
 
@@ -1447,6 +1459,7 @@ class Util
             $printable = strrev($printable);
         }
         $printable = str_pad($printable, $length, '0', STR_PAD_LEFT);
+
         return $printable;
     }
 
@@ -1608,6 +1621,7 @@ class Util
             if (substr($ndbver, 0, 4) == 'ndb-') {
                 $ndbver = substr($ndbver, 4);
             }
+
             return version_compare($ndbver, '7.3', '>=');
         }
 
@@ -1626,6 +1640,7 @@ class Util
         } elseif ($GLOBALS['cfg']['DefaultForeignKeyChecks'] === 'disable') {
             return false;
         }
+
         return $GLOBALS['dbi']->getVariable('FOREIGN_KEY_CHECKS') == 'ON';
     }
 
@@ -1647,6 +1662,7 @@ class Util
                 $GLOBALS['dbi']->setVariable('FOREIGN_KEY_CHECKS', 'ON');
             }
         } // else do nothing, go with default
+
         return $default_fk_check_value;
     }
 
@@ -1716,6 +1732,7 @@ class Util
         if ($first_occurence === 0) {
             $string = "\n" . $string;
         }
+
         return $string;
     }
 
@@ -1739,6 +1756,7 @@ class Util
             'browse' => __('Browse'),
             'operations' => __('Operations'),
         ];
+
         return $mapping[$target] ?? false;
     }
 
@@ -1980,6 +1998,7 @@ class Util
         if ($upper_case) {
             $gis_data_types = array_map('mb_strtoupper', $gis_data_types);
         }
+
         return $gis_data_types;
     }
 
@@ -2242,6 +2261,7 @@ class Util
                 'type' => 'int',
             ];
         }
+
         return $funcs;
     }
 
@@ -2270,7 +2290,8 @@ class Util
         // required to use in the information schema database.
         [$user, $host] = $GLOBALS['dbi']->getCurrentUserAndHost();
 
-        if ($user === '') { // MySQL is started with --skip-grant-tables
+        // MySQL is started with --skip-grant-tables
+        if ($user === '') {
             return true;
         }
 
@@ -2337,8 +2358,11 @@ class Util
                 return true;
             }
         }
-        // If we reached this point, the user does not
-        // have even valid table-wise privileges.
+
+        /**
+         * If we reached this point, the user does not
+         * have even valid table-wise privileges.
+         */
         return false;
     }
 
@@ -2443,6 +2467,7 @@ class Util
                 }
             }
         }
+
         return $regex;
     }
 
@@ -2532,6 +2557,7 @@ class Util
         }
 
         $value .= '000000';
+
         return mb_substr(
             $value,
             0,
@@ -2561,6 +2587,7 @@ class Util
         if ($len >= 4 && $test == "PK\003\004") {
             return 'application/zip';
         }
+
         return 'none';
     }
 
@@ -2578,6 +2605,7 @@ class Util
         } elseif ($names === '2') {
             return 'COLLATE utf8_general_ci';
         }
+
         return '';
     }
 
@@ -2644,6 +2672,7 @@ class Util
     {
         $serverType = self::getServerType();
         $serverVersion = $GLOBALS['dbi']->getVersion();
+
         return in_array($serverType, ['MySQL', 'Percona Server']) && $serverVersion >= 50705
              || ($serverType == 'MariaDB' && $serverVersion >= 50200);
     }
@@ -2904,6 +2933,7 @@ class Util
             }
             unset($sot_cache);
         }
+
         return $tables;
     }
 
@@ -2944,6 +2974,7 @@ class Util
         while (is_array($value) || is_object($value)) {
             $value = reset($value);
         }
+
         return trim((string) $value);
     }
 
@@ -2973,6 +3004,7 @@ class Util
                 $result .= chr($byte);
             }
         }
+
         return $asHex ? bin2hex($result) : $result;
     }
 
@@ -2988,6 +3020,7 @@ class Util
         if (defined('TESTSUITE')) {
             return '0000-00-00 00:00:00';
         }
+
         return date($format);
     }
 
@@ -3026,6 +3059,7 @@ class Util
             $array = $array[$p];
             $p = array_shift($path);
         }
+
         return $array;
     }
 
@@ -3167,7 +3201,9 @@ class Util
 
     /**
      * Get the protocol from the RFC 7239 Forwarded header
+     *
      * @param string $headerContents The Forwarded header contents
+     *
      * @return string the protocol http/https
      */
     public static function getProtoFromForwardedHeader(string $headerContents): string
@@ -3189,6 +3225,7 @@ class Util
                 }
             }
         }
+
         return '';
     }
 }

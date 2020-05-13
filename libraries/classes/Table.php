@@ -17,6 +17,7 @@ use PhpMyAdmin\SqlParser\Statements\AlterStatement;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Statements\DropStatement;
 use PhpMyAdmin\SqlParser\Utils\Table as TableUtils;
+use const E_USER_WARNING;
 use function array_key_exists;
 use function array_map;
 use function count;
@@ -45,7 +46,6 @@ use function substr;
 use function substr_compare;
 use function trigger_error;
 use function trim;
-use const E_USER_WARNING;
 
 /**
  * Handles everything related to tables
@@ -162,6 +162,7 @@ class Table
         if ($backquoted) {
             return Util::backquote($this->_name);
         }
+
         return $this->_name;
     }
 
@@ -177,6 +178,7 @@ class Table
         if ($backquoted) {
             return Util::backquote($this->_db_name);
         }
+
         return $this->_db_name;
     }
 
@@ -212,6 +214,7 @@ class Table
                     return true;
                 }
             }
+
             return false;
         } else {
             return $tbl_storage_engine == $engine;
@@ -236,6 +239,7 @@ class Table
             || $GLOBALS['cfg']['Server']['DisableIS']
         ) {
             $type = $this->getStatusInfo('TABLE_TYPE');
+
             return $type == 'VIEW' || $type == 'SYSTEM VIEW';
         }
 
@@ -251,6 +255,7 @@ class Table
             . ' WHERE TABLE_SCHEMA = \'' . $this->_dbi->escapeString((string) $db) . '\''
             . ' AND TABLE_NAME = \'' . $this->_dbi->escapeString((string) $table) . '\''
         );
+
         return (bool) $result;
     }
 
@@ -272,6 +277,7 @@ class Table
             . ' AND TABLE_NAME = \'' . $this->_dbi->escapeString($this->_name) . '\''
             . ' AND IS_UPDATABLE = \'YES\''
         );
+
         return (bool) $result;
     }
 
@@ -345,6 +351,7 @@ class Table
                     E_USER_WARNING
                 );
             }
+
             return false;
         }
 
@@ -363,6 +370,7 @@ class Table
         if ($table_storage_engine === false) {
             return '';
         }
+
         return strtoupper((string) $table_storage_engine);
     }
 
@@ -377,6 +385,7 @@ class Table
         if ($table_comment === false) {
             return '';
         }
+
         return $table_comment;
     }
 
@@ -391,6 +400,7 @@ class Table
         if ($table_collation === false) {
             return '';
         }
+
         return $table_collation;
     }
 
@@ -406,6 +416,7 @@ class Table
             $table_num_row_info = $this->_dbi->getTable($this->_db_name, $GLOBALS['showtable']['Name'])
             ->countRecords(true);
         }
+
         return $table_num_row_info ?: 0;
     }
 
@@ -420,6 +431,7 @@ class Table
         if ($table_row_format === false) {
             return '';
         }
+
         return $table_row_format;
     }
 
@@ -431,6 +443,7 @@ class Table
     public function getAutoIncrement()
     {
         $table_auto_increment = $this->getStatusInfo('AUTO_INCREMENT', false, true);
+
         return $table_auto_increment ?? '';
     }
 
@@ -458,6 +471,7 @@ class Table
         $create_options['pack_keys'] = ! isset($create_options['pack_keys']) || strlen($create_options['pack_keys']) == 0
             ? 'DEFAULT'
             : $create_options['pack_keys'];
+
         return $create_options;
     }
 
@@ -720,6 +734,7 @@ class Table
                     'ExactRows',
                 ]
             );
+
             return $row_count;
         }
         $row_count = false;
@@ -984,6 +999,7 @@ class Table
             $tbl = new Table($source_table, $source_db);
             if ($tbl->rename($target_table, $target_db)) {
                 $GLOBALS['message'] = $tbl->getLastMessage();
+
                 return true;
             }
         }
@@ -1010,6 +1026,7 @@ class Table
                     )
                 );
             }
+
             return false;
         }
 
@@ -1328,6 +1345,7 @@ class Table
             );
 
             $GLOBALS['sql_query'] .= "\n\n" . $sql_drop_query . ';';
+
             // end if ($move)
             return true;
         }
@@ -1564,6 +1582,7 @@ class Table
             // Ensure the target is valid
             if (! $GLOBALS['dblist']->databases->exists($new_db)) {
                 $this->errors[] = __('Invalid database:') . ' ' . $new_db;
+
                 return false;
             }
         } else {
@@ -1582,6 +1601,7 @@ class Table
         if (! self::isValidName($new_name, true)) {
             $this->errors[] = __('Invalid table name:') . ' '
                 . $new_table->getFullName();
+
             return false;
         }
 
@@ -1621,6 +1641,7 @@ class Table
                 $this->getFullName(),
                 $new_table->getFullName()
             );
+
             return false;
         }
 
@@ -1642,6 +1663,7 @@ class Table
             htmlspecialchars($old_name),
             htmlspecialchars($new_name)
         );
+
         return true;
     }
 
@@ -1883,6 +1905,7 @@ class Table
                 ),
                 '<br><br>'
             );
+
             return $message;
         }
 
@@ -1918,6 +1941,7 @@ class Table
                     ),
                     '<br><br>'
                 );
+
                 return $message;
             }
         }
@@ -1994,6 +2018,7 @@ class Table
             }
             // remove the property, since it no longer exists in database
             $this->removeUiProp($property);
+
             return false;
         }
 
@@ -2012,6 +2037,7 @@ class Table
 
             // remove the property, since the table has been modified
             $this->removeUiProp($property);
+
             return false;
         }
 
@@ -2074,6 +2100,7 @@ class Table
         if ($cfgRelation['uiprefswork']) {
             return $this->saveUiPrefsToDb();
         }
+
         return true;
     }
 
@@ -2098,6 +2125,7 @@ class Table
                 return $this->saveUiPrefsToDb();
             }
         }
+
         return true;
     }
 
@@ -2119,6 +2147,7 @@ class Table
                 $return[] = $column_name;
             }
         }
+
         return $return;
     }
 
@@ -2145,6 +2174,7 @@ class Table
                 $columns[$row['Field']] = $row['Type'];
             }
         }
+
         return $columns;
     }
 
@@ -2308,8 +2338,10 @@ class Table
                 0,
                 false
             );
+
             return true;
         }
+
         return false;
     }
 
@@ -2399,6 +2431,7 @@ class Table
                 $updated = true;
             }
         }
+
         return $updated;
     }
 
@@ -2690,6 +2723,7 @@ class Table
                 $sql .= " AND  `COLUMN_NAME` = '" . $this->_dbi->escapeString($column)
                     . "'";
             }
+
             return $this->_dbi->fetchResult($sql, 'Field', 'Expression');
         }
 
@@ -2707,6 +2741,7 @@ class Table
         if ($column != null) {
             $expression = isset($fields[$column]['expr']) ?
                 substr($fields[$column]['expr'], 1, -1) : '';
+
             return [$column => $expression];
         }
 
@@ -2716,6 +2751,7 @@ class Table
                 $ret[$field] = substr($options['expr'], 1, -1);
             }
         }
+
         return $ret;
     }
 
@@ -2750,6 +2786,7 @@ class Table
                 Util::backquote($this->_name)
             )
         );
+
         return $result['row_count'];
     }
 
@@ -2773,6 +2810,7 @@ class Table
                 $columns_with_index[] = $column_name;
             }
         }
+
         return $columns_with_index;
     }
 }

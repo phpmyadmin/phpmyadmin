@@ -161,6 +161,7 @@ class IpAllowDeny
         if ($is_single) {
             $range_hex = bin2hex(inet_pton($test_range));
             $result = hash_equals($ip_hex, $range_hex);
+
             return $result;
         }
 
@@ -185,6 +186,7 @@ class IpAllowDeny
                 // check if the IP to test is within the range
                 $result = ($ip_hex >= $first_hex && $ip_hex <= $last_hex);
             }
+
             return $result;
         }
 

@@ -92,11 +92,13 @@ class Console
             } else {
                 $welcomeMessage = __('No bookmarks');
             }
+
             return $template->render('console/bookmark_content', [
                 'welcome_message' => $welcomeMessage,
                 'bookmarks' => $bookmarks,
             ]);
         }
+
         return '';
     }
 
@@ -135,6 +137,7 @@ class Console
                 'bookmark_content' => $bookmarkContent,
             ]);
         }
+
         return '';
     }
 }

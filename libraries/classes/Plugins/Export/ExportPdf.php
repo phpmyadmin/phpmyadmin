@@ -21,6 +21,7 @@ use function class_exists;
  */
 if (! class_exists('TCPDF')) {
     $GLOBALS['skip_import'] = true;
+
     return;
 }
 // phpcs:enable

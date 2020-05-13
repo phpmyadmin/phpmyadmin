@@ -11,13 +11,6 @@ use mysqli_result;
 use mysqli_stmt;
 use PhpMyAdmin\DatabaseInterface;
 use stdClass;
-use function defined;
-use function implode;
-use function is_array;
-use function is_bool;
-use function mysqli_init;
-use function stripos;
-use function trigger_error;
 use const E_USER_WARNING;
 use const MYSQLI_ASSOC;
 use const MYSQLI_AUTO_INCREMENT_FLAG;
@@ -69,6 +62,14 @@ use const MYSQLI_UNIQUE_KEY_FLAG;
 use const MYSQLI_UNSIGNED_FLAG;
 use const MYSQLI_USE_RESULT;
 use const MYSQLI_ZEROFILL_FLAG;
+use function define;
+use function defined;
+use function implode;
+use function is_array;
+use function is_bool;
+use function mysqli_init;
+use function stripos;
+use function trigger_error;
 
 /**
  * Interface to the MySQL Improved extension (MySQLi)
@@ -184,8 +185,10 @@ class DbiMysqli implements DbiExtension
                         E_USER_WARNING
                     );
                     $server['ssl'] = true;
+
                     return self::connect($user, $password, $server);
             }
+
             return false;
         }
 
@@ -258,6 +261,7 @@ class DbiMysqli implements DbiExtension
         if (! $result instanceof mysqli_result) {
             return null;
         }
+
         return $result->fetch_array(MYSQLI_BOTH);
     }
 
@@ -273,6 +277,7 @@ class DbiMysqli implements DbiExtension
         if (! $result instanceof mysqli_result) {
             return null;
         }
+
         return $result->fetch_array(MYSQLI_ASSOC);
     }
 
@@ -288,6 +293,7 @@ class DbiMysqli implements DbiExtension
         if (! $result instanceof mysqli_result) {
             return null;
         }
+
         return $result->fetch_array(MYSQLI_NUM);
     }
 
@@ -532,6 +538,7 @@ class DbiMysqli implements DbiExtension
             $fields[$k]->blob
                 = (int) (bool) ($fields[$k]->_flags & MYSQLI_BLOB_FLAG);
         }
+
         return $fields;
     }
 
@@ -565,6 +572,7 @@ class DbiMysqli implements DbiExtension
         if ($fieldDefinition !== false) {
             return $fieldDefinition->length;
         }
+
         return false;
     }
 
@@ -586,6 +594,7 @@ class DbiMysqli implements DbiExtension
         if ($fieldDefinition !== false) {
             return $fieldDefinition->name;
         }
+
         return '';
     }
 
@@ -627,6 +636,7 @@ class DbiMysqli implements DbiExtension
             ) {
                 $flags[] = 'binary';
             }
+
             return implode(' ', $flags);
         } else {
             return '';

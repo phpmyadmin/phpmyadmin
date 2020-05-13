@@ -38,11 +38,15 @@ use stdClass;
 use function array_keys;
 use function array_splice;
 use function count;
+use function define;
+use function htmlspecialchars;
 use function implode;
 use function in_array;
 use function is_array;
+use function is_string;
 use function mb_strpos;
 use function mb_strtoupper;
+use function preg_replace;
 use function sprintf;
 use function str_replace;
 use function strlen;
@@ -150,6 +154,7 @@ class StructureController extends AbstractController
             && $this->response->isAjax()
         ) {
             $this->moveColumns();
+
             return;
         }
 
@@ -185,6 +190,7 @@ class StructureController extends AbstractController
             } else {
                 $this->response->setRequestStatus(false);
             }
+
             return;
         }
         /**
@@ -195,6 +201,7 @@ class StructureController extends AbstractController
                 null,
                 Url::getFromRoute('/table/structure')
             );
+
             return;
         }
 
@@ -205,6 +212,7 @@ class StructureController extends AbstractController
             && ! isset($_POST['save_partitioning'])
         ) {
             $this->displayHtmlForPartitionChange();
+
             return;
         }
 
@@ -640,6 +648,7 @@ class StructureController extends AbstractController
         }
         if (empty($changes) && ! isset($_REQUEST['preview_sql'])) { // should never happen
             $this->response->setRequestStatus(false);
+
             return;
         }
         // query for moving the columns
@@ -982,6 +991,7 @@ class StructureController extends AbstractController
             if (isset($_POST['selected'])) {
                 $_POST['selected_fld'] = $_POST['selected'];
             }
+
             return 'row_delete';
         }
 
@@ -1290,6 +1300,7 @@ class StructureController extends AbstractController
                 }
             }
         }
+
         return $regenerate;
     }
 
@@ -1379,6 +1390,7 @@ class StructureController extends AbstractController
                 return true;
             }
         }
+
         return ! empty($_POST['field_move_to'][$i]);
     }
 
@@ -1509,6 +1521,7 @@ class StructureController extends AbstractController
         }
 
         $engine = $this->table_obj->getStorageEngine();
+
         return $this->template->render('table/structure/display_structure', [
             'url_params' => [
                 'db' => $this->db,
@@ -1661,6 +1674,7 @@ class StructureController extends AbstractController
                 'description' => $collation->getDescription(),
             ];
         }
+
         return $this->template->render('table/structure/display_table_stats', [
             'url_params' => [
                 'db' => $GLOBALS['db'],

@@ -45,6 +45,7 @@ class BrowseForeignersTest extends TestCase
         $class = new ReflectionClass(BrowseForeigners::class);
         $method = $class->getMethod($name);
         $method->setAccessible(true);
+
         return $method->invokeArgs(
             $object ?? $this->browseForeigners,
             $params

@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Stubs;
 
 use PhpMyAdmin\Dbal\DbiExtension;
+use function addslashes;
 use function count;
 use function is_array;
 use function is_bool;
@@ -348,6 +349,7 @@ class DbiDummy implements DbiExtension
     public function affectedRows($link = null, $get_from_cache = true)
     {
         global $cached_affected_rows;
+
         return $cached_affected_rows ?? 0;
     }
 

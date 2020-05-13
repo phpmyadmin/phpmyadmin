@@ -6,15 +6,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use function array_splice;
-use function count;
-use function defined;
-use function error_reporting;
-use function function_exists;
-use function headers_sent;
-use function htmlspecialchars;
-use function set_error_handler;
-use function trigger_error;
 use const E_COMPILE_ERROR;
 use const E_COMPILE_WARNING;
 use const E_CORE_ERROR;
@@ -25,10 +16,20 @@ use const E_NOTICE;
 use const E_PARSE;
 use const E_RECOVERABLE_ERROR;
 use const E_STRICT;
+use const E_USER_DEPRECATED;
 use const E_USER_ERROR;
 use const E_USER_NOTICE;
 use const E_USER_WARNING;
 use const E_WARNING;
+use function array_splice;
+use function count;
+use function defined;
+use function error_reporting;
+use function function_exists;
+use function headers_sent;
+use function htmlspecialchars;
+use function set_error_handler;
+use function trigger_error;
 
 /**
  * handling errors
@@ -128,6 +129,7 @@ class ErrorHandler
         if ($check) {
             $this->checkSavedErrors();
         }
+
         return $this->errors;
     }
 
@@ -153,6 +155,7 @@ class ErrorHandler
     {
         $errors = $this->getErrors(false);
         $this->errors = array_splice($errors, 0, $count);
+
         return array_splice($errors, $count);
     }
 
@@ -308,6 +311,7 @@ class ErrorHandler
                 $retval .= $error->getDisplay();
             }
         }
+
         return $retval;
     }
 
@@ -390,6 +394,7 @@ class ErrorHandler
                     . '" id="pma_ignore_all_errors_bottom" class="btn btn-secondary floatright">';
             $retval .= '</form>';
         }
+
         return $retval;
     }
 

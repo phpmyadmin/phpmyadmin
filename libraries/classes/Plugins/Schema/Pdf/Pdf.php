@@ -24,6 +24,7 @@ use function ucfirst;
  */
 if (! class_exists('TCPDF')) {
     $GLOBALS['skip_import'] = true;
+
     return;
 }
 
@@ -408,6 +409,7 @@ class Pdf extends PdfLib
                 $i++;
             }
         }
+
         return $nl;
     }
 

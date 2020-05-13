@@ -75,6 +75,7 @@ class SearchTest extends PmaTestCase
         $class = new ReflectionClass(Search::class);
         $method = $class->getMethod($name);
         $method->setAccessible(true);
+
         return $method->invokeArgs($this->object, $params);
     }
 

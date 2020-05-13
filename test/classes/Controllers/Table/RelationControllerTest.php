@@ -191,11 +191,13 @@ class RelationControllerTest extends PmaTestCase
                         static $count = 0;
                         if ($count == 0) {
                             $count++;
+
                             return [
                                 'Engine' => 'InnoDB',
                                 'Name' => 'table',
                             ];
                         }
+
                         return null;
                     }
                 )
@@ -238,8 +240,10 @@ class RelationControllerTest extends PmaTestCase
                         static $count = 0;
                         if ($count == 0) {
                             $count++;
+
                             return ['table'];
                         }
+
                         return null;
                     }
                 )

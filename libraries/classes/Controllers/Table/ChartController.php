@@ -32,6 +32,7 @@ class ChartController extends AbstractController
         if (isset($_REQUEST['pos'], $_REQUEST['session_max_rows']) && $this->response->isAjax()
         ) {
             $this->ajax();
+
             return;
         }
 
@@ -41,6 +42,7 @@ class ChartController extends AbstractController
             $this->response->addHTML(
                 Message::error(__('No SQL query was set to fetch data.'))
             );
+
             return;
         }
 
@@ -117,6 +119,7 @@ class ChartController extends AbstractController
                 'message',
                 __('No numeric columns present in the table to plot.')
             );
+
             return;
         }
 
@@ -177,6 +180,7 @@ class ChartController extends AbstractController
         if (empty($data)) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No data to display'));
+
             return;
         }
         $sanitized_data = [];

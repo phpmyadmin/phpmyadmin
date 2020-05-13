@@ -89,6 +89,7 @@ class Monitor
         $ret = $this->getJsonForChartingDataSet($ret, $statusVarValues, $serverVarValues);
 
         $ret['x'] = (int) (microtime(true) * 1000);
+
         return $ret;
     }
 
@@ -122,6 +123,7 @@ class Monitor
                 }
             }
         }
+
         return $ret;
     }
 
@@ -165,6 +167,7 @@ class Monitor
                 } /* foreach */
             } /* foreach */
         }
+
         return [
             $serverVars,
             $statusVars,
@@ -323,6 +326,7 @@ class Monitor
         $return['numRows'] = count($return['rows']);
 
         $this->dbi->freeResult($result);
+
         return $return;
     }
 
@@ -486,6 +490,7 @@ class Monitor
             0,
             1
         );
+
         return $loggingVars;
     }
 
@@ -544,6 +549,7 @@ class Monitor
             }
             $this->dbi->freeResult($result);
         }
+
         return $return;
     }
 }

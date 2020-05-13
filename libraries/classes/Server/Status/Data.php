@@ -262,6 +262,7 @@ class Data
                 = 100 - $server_status['Threads_created']
                 / $server_status['Connections'] * 100;
         }
+
         return $server_status;
     }
 
@@ -301,6 +302,7 @@ class Data
                 $sectionUsed['other'] = true;
             }
         }
+
         return [
             $allocationMap,
             $sectionUsed,
@@ -420,6 +422,7 @@ class Data
                 unset($server_status[$old]);
             }
         }
+
         return $server_status;
     }
 }

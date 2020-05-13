@@ -69,6 +69,7 @@ final class Search
                 . Util::backquote($_POST['orderByColumn'])
                 . ' ' . $_POST['order'];
         } // end if
+
         return $sql_query;
     }
 
@@ -117,6 +118,7 @@ final class Search
         if (! empty($fullWhereClause)) {
             return ' WHERE ' . implode(' AND ', $fullWhereClause);
         }
+
         return '';
     }
 
@@ -271,6 +273,7 @@ final class Search
         } elseif ($geom_funcs[$geom_func]['params'] > 1) {
             // create gis data from the criteria input
             $gis_data = Util::createGISData($criteriaValues, $this->dbi->getVersion());
+
             return $geom_func . '(' . Util::backquote($names)
                 . ', ' . $gis_data . ')';
         }
@@ -295,6 +298,7 @@ final class Search
             $where = $geom_function_applied . ' '
                 . $func_type . " '" . $criteriaValues . "'";
         }
+
         return $where;
     }
 

@@ -50,6 +50,7 @@ class FileListing
         }
         closedir($handle);
         asort($result);
+
         return $result;
     }
 

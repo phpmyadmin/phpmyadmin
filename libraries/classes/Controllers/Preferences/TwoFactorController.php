@@ -10,7 +10,6 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
-use PhpMyAdmin\UserPreferencesHeader;
 use function count;
 
 class TwoFactorController extends AbstractController
@@ -49,6 +48,7 @@ class TwoFactorController extends AbstractController
                 echo $this->template->render('preferences/two_factor/confirm', [
                     'form' => $twoFactor->render(),
                 ]);
+
                 return;
             } else {
                 $twoFactor->configure('');
@@ -60,6 +60,7 @@ class TwoFactorController extends AbstractController
                     'form' => $twoFactor->setup(),
                     'configure' => $_POST['2fa_configure'],
                 ]);
+
                 return;
             } else {
                 Message::rawNotice(__('Two-factor authentication has been configured.'))->display();

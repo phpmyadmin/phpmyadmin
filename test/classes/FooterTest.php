@@ -74,6 +74,7 @@ class FooterTest extends PmaTestCase
         $class = new ReflectionClass(Footer::class);
         $method = $class->getMethod($name);
         $method->setAccessible(true);
+
         return $method->invokeArgs($this->object, $params);
     }
 

@@ -56,6 +56,7 @@ class ErrorHandlerTest extends PmaTestCase
         $class = new ReflectionClass(ErrorHandler::class);
         $method = $class->getMethod($name);
         $method->setAccessible(true);
+
         return $method->invokeArgs($this->object, $params);
     }
 

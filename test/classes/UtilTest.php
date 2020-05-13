@@ -13,8 +13,10 @@ use PhpMyAdmin\MoTranslator\Loader;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\Util;
+use const LC_ALL;
 use function date_default_timezone_get;
 use function date_default_timezone_set;
+use function file_exists;
 use function floatval;
 use function htmlspecialchars;
 use function ini_get;
@@ -1221,6 +1223,7 @@ class UtilTest extends PmaTestCase
     public function providerLocalisedDate()
     {
         $hasJaTranslations = file_exists(LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo');
+
         return [
             [
                 1227455558,
@@ -1833,10 +1836,11 @@ class UtilTest extends PmaTestCase
 
     /**
      * Data provider for Util::getProtoFromForwardedHeader test
-     * @source https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Forwarded MDN docs
-     * @source https://www.nginx.com/resources/wiki/start/topics/examples/forwarded/ Nginx docs
      *
      * @return array
+     *
+     * @source https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Forwarded MDN docs
+     * @source https://www.nginx.com/resources/wiki/start/topics/examples/forwarded/ Nginx docs
      */
     public function providerForwardedHeaders(): array
     {

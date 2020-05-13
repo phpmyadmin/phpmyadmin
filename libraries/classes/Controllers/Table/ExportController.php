@@ -66,6 +66,7 @@ class ExportController extends AbstractController
         // handling export template actions
         if (isset($_POST['templateAction']) && $cfgRelation['exporttemplateswork']) {
             $this->export->handleTemplateActions($cfgRelation);
+
             return;
         }
 

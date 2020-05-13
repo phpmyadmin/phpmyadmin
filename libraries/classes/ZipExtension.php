@@ -62,6 +62,7 @@ class ZipExtension
             if ($this->zip->numFiles === 0) {
                 $error_message = __('No files found inside ZIP archive!');
                 $this->zip->close();
+
                 return [
                     'error' => $error_message,
                     'data' => $file_data,
@@ -78,6 +79,7 @@ class ZipExtension
             if (! isset($specific_entry)) {
                 $file_data = $first_zip_entry;
                 $this->zip->close();
+
                 return [
                     'error' => $error_message,
                     'data' => $file_data,
@@ -99,6 +101,7 @@ class ZipExtension
             }
 
             $this->zip->close();
+
             return [
                 'error' => $error_message,
                 'data' => $file_data,
@@ -106,6 +109,7 @@ class ZipExtension
         } else {
             $error_message = __('Error in ZIP archive:') . ' ' . $this->zip->getStatusString();
             $this->zip->close();
+
             return [
                 'error' => $error_message,
                 'data' => $file_data,
@@ -130,10 +134,12 @@ class ZipExtension
                 if (preg_match($regex, $this->zip->getNameIndex($i))) {
                     $filename = $this->zip->getNameIndex($i);
                     $this->zip->close();
+
                     return $filename;
                 }
             }
         }
+
         return false;
     }
 
@@ -152,6 +158,7 @@ class ZipExtension
         if ($res === true) {
             $num = $this->zip->numFiles;
         }
+
         return $num;
     }
 
@@ -168,8 +175,10 @@ class ZipExtension
         if ($this->zip->open($file) === true) {
             $result = $this->zip->getFromName($entry);
             $this->zip->close();
+
             return $result;
         }
+
         return false;
     }
 

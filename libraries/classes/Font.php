@@ -239,6 +239,7 @@ class Font
                 break;
         }
         $textWidth = $count * $fontSize;
+
         return (int) ceil($textWidth * $modifier);
     }
 }

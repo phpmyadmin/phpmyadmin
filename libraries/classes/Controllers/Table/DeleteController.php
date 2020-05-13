@@ -9,6 +9,7 @@ use PhpMyAdmin\Sql;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function is_array;
+use function sprintf;
 
 class DeleteController extends AbstractController
 {

@@ -232,6 +232,7 @@ class Export
     private function getHtmlForOptionsFormatDropdown($exportList)
     {
         $dropdown = Plugins::getChoice('Export', 'what', $exportList, 'format');
+
         return $this->template->render('display/export/format_dropdown', [
             'dropdown' => $dropdown,
         ]);
@@ -563,6 +564,7 @@ class Export
         $html .= $this->getHtmlForAliasModalDialog();
         $html .= $this->getHtmlForOptionsOutput($exportType);
         $html .= $this->getHtmlForOptionsFormat($exportList);
+
         return $html;
     }
 
@@ -645,6 +647,7 @@ class Export
         $html .= $this->template->render('export/alias_add');
 
         $html .= '</div>';
+
         return $html;
     }
 
@@ -737,6 +740,7 @@ class Export
         );
 
         $html .= '</form>';
+
         return $html;
     }
 

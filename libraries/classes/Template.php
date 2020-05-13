@@ -25,13 +25,13 @@ use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 use Twig\Extension\DebugExtension;
 use Twig\Loader\FilesystemLoader;
+use Twig\TemplateWrapper;
 use Twig_Error_Loader;
 use Twig_Error_Runtime;
 use Twig_Error_Syntax;
-use Twig\TemplateWrapper;
+use const E_USER_WARNING;
 use function sprintf;
 use function trigger_error;
-use const E_USER_WARNING;
 
 /**
  * Handle front end templating

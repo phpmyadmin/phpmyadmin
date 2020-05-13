@@ -102,6 +102,7 @@ final class RelationController extends AbstractController
             } else { // if only the db is selected
                 $this->getDropdownValueForDatabase($storageEngine);
             }
+
             return;
         }
 

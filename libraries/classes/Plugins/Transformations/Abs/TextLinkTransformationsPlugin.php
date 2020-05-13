@@ -48,6 +48,7 @@ abstract class TextLinkTransformationsPlugin extends TransformationsPlugin
         if (! Sanitize::checkLink($url, true, true)) {
             return htmlspecialchars($url);
         }
+
         return '<a href="'
             . htmlspecialchars($url)
             . '" title="'

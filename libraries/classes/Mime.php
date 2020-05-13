@@ -37,6 +37,7 @@ class Mime
         if ($len >= 4 && mb_substr($test, 0, 4) == "\x89PNG") {
             return 'image/png';
         }
+
         return 'application/octet-stream';
     }
 }
