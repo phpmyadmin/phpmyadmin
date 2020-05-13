@@ -838,11 +838,7 @@ abstract class TestBase extends TestCase
     {
         try {
             // "More" menu is not displayed on large screens
-            $this->waitUntilElementIsPresent(
-                'cssSelector',
-                'li.nav-item.dropdown.d-none',
-                500
-            );
+            $this->byCssSelector('li.nav-item.dropdown.d-none');
         } catch (WebDriverException $e) {
             // Not found, searching for another alternative
             try {
