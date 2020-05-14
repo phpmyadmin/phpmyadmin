@@ -279,6 +279,18 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
         });
     }
 
+    if (target.value === 'HEX' && theType.substring(0,3) === 'int') {
+        // Add note when HEX function is selected on a int
+        var newHexInfo = '<br><p id="note' +  target.id + '">' + Messages.HexConversionInfo + '</p>';
+        if (!$('#note' + target.id).length) {
+            $thisInput.after(newHexInfo);
+        }
+    } else {
+        $('#note' + target.id)
+            .prev('br')
+            .remove();
+        $('#note' + target.id).remove();
+    }
     // Unchecks the corresponding "NULL" control
     $('input[name=\'fields_null[multi_edit][' + multiEdit + '][' + urlField + ']\']').prop('checked', false);
 

@@ -504,6 +504,8 @@ $javascriptMessages = [
     'strYes' => __('Yes'),
     'strCopyEncryptionKey' => __('Do you want to copy encryption key?'),
     'strEncryptionKey' => __('Encryption key'),
+    /* l10n: Tip for HEX conversion of Integers */
+    'HexConversionInfo' => __('The HEX function will treat the integer as a string while calculating the hexadecimal value'),
 
     /* For Tip to be shown on Time field */
     'strMysqlAllowedValuesTipTime' => __(
