@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-05-14 13:58+0200\n"
-"PO-Revision-Date: 2020-05-12 18:28+0000\n"
+"PO-Revision-Date: 2020-05-14 12:53+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
@@ -1613,6 +1613,8 @@ msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr ""
+"La fonction HEX va utiliser cet entier comme une chaîne de caractères lors "
+"du calcul de la valeur hexadécimale"
 
 #: js/messages.php:512
 msgid ""
@@ -4002,10 +4004,6 @@ msgid "Maximum tables"
 msgstr "Nombre maximum de tables"
 
 #: libraries/classes/Config/Descriptions.php:476
-#, fuzzy
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
@@ -5086,8 +5084,6 @@ msgid "Retain query box"
 msgstr "Conserver la boîte de requêtes"
 
 #: libraries/classes/Config/Descriptions.php:823
-#, fuzzy
-#| msgid "Allow to display database and table statistics (eg. space usage)."
 msgid "Allow to display database and table statistics (e.g. space usage)."
 msgstr ""
 "Afficher les statistiques sur les bases de données et les tables (espace "
