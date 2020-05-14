@@ -556,7 +556,7 @@ abstract class TestBase extends TestCase
      */
     public function isUnsuccessLogin()
     {
-        return $this->isElementPresent('cssSelector', 'div.error');
+        return $this->isElementPresent('cssSelector', 'div #pma_errors');
     }
 
     /**
