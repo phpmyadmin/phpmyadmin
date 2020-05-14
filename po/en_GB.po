@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-04-25 13:24+0200\n"
-"PO-Revision-Date: 2019-04-29 11:45+0000\n"
+"PO-Revision-Date: 2020-05-15 12:41+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/en_GB/>\n"
+"phpmyadmin/5-0/en_GB/>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 4.1-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -1932,10 +1932,8 @@ msgid "%d object(s) created."
 msgstr "%d object(s) created."
 
 #: js/messages.php:591
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
-msgstr "Column names"
+msgstr "Column name"
 
 #: js/messages.php:592 libraries/classes/SqlQueryForm.php:430
 msgid "Submit"
@@ -2296,8 +2294,7 @@ msgid "Failed security key activation (%s)."
 msgstr "Failed security key activation (%s)."
 
 #: js/messages.php:766
-#, fuzzy, php-format
-#| msgid "Table %s already exists!"
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
@@ -3183,12 +3180,9 @@ msgid "accent-sensitive"
 msgstr "accent-sensitive"
 
 #: libraries/classes/Charsets/Collation.php:524
-#, fuzzy
-#| msgctxt "Collation variant"
-#| msgid "accent-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "accent-sensitive"
+msgstr "kana-sensitive"
 
 #: libraries/classes/Charsets/Collation.php:528
 msgctxt "Collation variant"
@@ -3203,7 +3197,7 @@ msgstr "binary"
 #: libraries/classes/Charsets/Collation.php:534
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "no-pad"
 
 #: libraries/classes/Config/Descriptions.php:69
 msgid ""
@@ -7417,18 +7411,13 @@ msgid "possible exploit"
 msgstr "possible exploit"
 
 #: libraries/classes/Database/Designer/Common.php:566
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr ""
-"The configuration storage is not ready for the central list of columns "
-"feature."
+"phpMyAdmin configuration storage is not configured for \"Display Features\"."
 
 #: libraries/classes/Database/Designer/Common.php:615
 msgid "Error: relationship already exists."
@@ -8904,10 +8893,8 @@ msgstr ""
 "performance. Consider disabling item grouping in the navigation panel."
 
 #: libraries/classes/Navigation/NavigationTree.php:795
-#, fuzzy
-#| msgid "Groups:"
 msgid "Groups"
-msgstr "Groups:"
+msgstr "Groups"
 
 #: libraries/classes/Navigation/NavigationTree.php:961
 #, php-format
@@ -10538,18 +10525,6 @@ msgstr ""
 "need to set the first option to the empty string."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:31
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Output/Text_Plain_External.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -10565,13 +10540,13 @@ msgstr ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
 "default is Tidy, to pretty-print HTML code. For security reasons, you have "
-"to manually edit the file libraries/classes/Plugins/Transformations/Output/"
-"Text_Plain_External.php and list the tools you want to make available. The "
-"first option is then the number of the program you want to use and the "
-"second option is the parameters for the program. The third option, if set to "
-"1, will convert the output using htmlspecialchars() (Default 1). The fourth "
-"option, if set to 1, will prevent wrapping and ensure that the output "
-"appears all on one line (Default 1)."
+"to manually edit the file libraries/classes/Plugins/Transformations/Abs/"
+"ExternalTransformationsPlugin.php and list the tools you want to make "
+"available. The first option is then the number of the program you want to "
+"use. The second option should be blank for historical reasons. The third "
+"option, if set to 1, will convert the output using htmlspecialchars() ("
+"Default 1). The fourth option, if set to 1, will prevent wrapping and ensure "
+"that the output appears all on one line (Default 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:117
 #, php-format
@@ -10580,6 +10555,9 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"You are using the external transformation command line options field, which "
+"has been deprecated for security reasons. Add all command line options "
+"directly to the definition in %s."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:31
 msgid ""
@@ -13225,7 +13203,7 @@ msgstr "neither of the above"
 
 #: libraries/db_common.inc.php:153 tbl_operations.php:243
 msgid "No collation provided."
-msgstr ""
+msgstr "No collation provided."
 
 #: libraries/mult_submits.inc.php:59
 #: templates/database/structure/check_all_tables.twig:2
@@ -13319,10 +13297,8 @@ msgstr "Invalid table name"
 
 #. l10n: In case a SQL query did not pass a security check
 #: tbl_get_field.php:62
-#, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
-msgstr "There are too many joins without indexes."
+msgstr "There is an issue with your request."
 
 #: tbl_replace.php:266
 #, php-format
@@ -13759,10 +13735,9 @@ msgid "See table structure"
 msgstr "See table structure"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "Select all"
+msgstr "Select \"%s\""
 
 #: templates/database/designer/database_tables.twig:109
 #, php-format
@@ -15132,26 +15107,20 @@ msgid "Author"
 msgstr "Author"
 
 #: templates/server/plugins/index.twig:37
-#, fuzzy
-#| msgid "active"
 msgid "inactive"
-msgstr "active"
+msgstr "inactive"
 
 #: templates/server/plugins/index.twig:39
 msgid "disabled"
 msgstr "disabled"
 
 #: templates/server/plugins/index.twig:41
-#, fuzzy
-#| msgid "Deleting"
 msgid "deleting"
-msgstr "Deleting"
+msgstr "deleting"
 
 #: templates/server/plugins/index.twig:43
-#, fuzzy
-#| msgid "Delete"
 msgid "deleted"
-msgstr "Delete"
+msgstr "deleted"
 
 #: templates/server/privileges/add_user_fieldset.twig:2
 msgctxt "Create new user"
