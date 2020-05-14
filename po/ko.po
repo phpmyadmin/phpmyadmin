@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-05-14 13:31+0200\n"
+"POT-Creation-Date: 2020-05-14 13:58+0200\n"
 "PO-Revision-Date: 2017-10-03 18:16+0000\n"
 "Last-Translator: urty5656 <urty5656@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1320,7 +1320,7 @@ msgstr ""
 msgid "No partial dependencies selected!"
 msgstr "부분 의존성이 선택되지 않았습니다!"
 
-#: js/messages.php:435 js/messages.php:596 libraries/classes/Export.php:589
+#: js/messages.php:435 js/messages.php:598 libraries/classes/Export.php:589
 #: libraries/classes/Html/Generator.php:1120
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:303
 #: templates/import_status.twig:2 templates/user_password.twig:2
@@ -1458,7 +1458,7 @@ msgstr "두 개의 서로다른 열 선택"
 msgid "Data point content"
 msgstr "데이터 포인트 내용"
 
-#: js/messages.php:491 js/messages.php:662
+#: js/messages.php:491 js/messages.php:664
 #: libraries/classes/ErrorHandler.php:389 libraries/classes/InsertEdit.php:3107
 #: templates/table/index_form.twig:157 templates/table/index_form.twig:193
 msgid "Ignore"
@@ -1577,7 +1577,14 @@ msgstr "암호화 키를 복사하겠습니까?"
 msgid "Encryption key"
 msgstr "암호화 키"
 
-#: js/messages.php:510
+#. l10n: Tip for HEX conversion of Integers
+#: js/messages.php:508
+msgid ""
+"The HEX function will treat the integer as a string while calculating the "
+"hexadecimal value"
+msgstr ""
+
+#: js/messages.php:512
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
@@ -1585,7 +1592,7 @@ msgstr ""
 "MySQL은 슬라이더로 선택되지 않는 추가값을 허용합니다; 값들을 직접 입력하길 원"
 "할 경우"
 
-#: js/messages.php:516
+#: js/messages.php:518
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
@@ -1593,7 +1600,7 @@ msgstr ""
 "MySQL은 Datepicker에서 선택할 수 없는 추가 값을 수신합니다. 원하는 경우 해당 "
 "값의 키를 직접 입력합니다"
 
-#: js/messages.php:522
+#: js/messages.php:524
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
@@ -1601,24 +1608,24 @@ msgstr ""
 "이 페이지를 변경했다는것을 나타냅니다; 변경사항을 적용하지 않고 나갈 경우 확"
 "인 메시지가 표시 됩니다"
 
-#: js/messages.php:527
+#: js/messages.php:529
 msgid "Select referenced key"
 msgstr "참고키 선택"
 
-#: js/messages.php:528
+#: js/messages.php:530
 msgid "Select Foreign Key"
 msgstr "외래키 선택"
 
-#: js/messages.php:529
+#: js/messages.php:531
 msgid "Please select the primary key or a unique key!"
 msgstr "기본키 혹은 유니크키를 선택하십시오!"
 
-#: js/messages.php:530 templates/database/designer/main.twig:100
+#: js/messages.php:532 templates/database/designer/main.twig:100
 #: templates/database/designer/main.twig:103
 msgid "Choose column to display"
 msgstr "출력할 필드 선택"
 
-#: js/messages.php:532
+#: js/messages.php:534
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -1626,86 +1633,86 @@ msgstr ""
 "레이아웃의 변경을 저장하지 않았습니다. 저장하지 않으면, 변경사항이 손실됩니"
 "다. 이대로 계속 하시겠습니까?"
 
-#: js/messages.php:535
+#: js/messages.php:537
 msgid "value/subQuery is empty"
 msgstr ""
 
-#: js/messages.php:536 templates/database/designer/main.twig:42
+#: js/messages.php:538 templates/database/designer/main.twig:42
 #: templates/database/designer/main.twig:45
 msgid "Add tables from other databases"
 msgstr "다른 데이터베이스에서 테이블 가져오기"
 
-#: js/messages.php:537
+#: js/messages.php:539
 msgid "Page name"
 msgstr "페이지 이름"
 
-#: js/messages.php:538 templates/database/designer/main.twig:65
+#: js/messages.php:540 templates/database/designer/main.twig:65
 #: templates/database/designer/main.twig:68
 msgid "Save page"
 msgstr "페이지 저장"
 
-#: js/messages.php:539 templates/database/designer/main.twig:72
+#: js/messages.php:541 templates/database/designer/main.twig:72
 #: templates/database/designer/main.twig:75
 msgid "Save page as"
 msgstr "페이지를 다른 이름으로 저장"
 
-#: js/messages.php:540 templates/database/designer/main.twig:58
+#: js/messages.php:542 templates/database/designer/main.twig:58
 #: templates/database/designer/main.twig:61
 msgid "Open page"
 msgstr "페이지 열기"
 
-#: js/messages.php:541
+#: js/messages.php:543
 msgid "Delete page"
 msgstr "페이지 삭제"
 
-#: js/messages.php:542 templates/database/designer/main.twig:12
+#: js/messages.php:544 templates/database/designer/main.twig:12
 msgid "Untitled"
 msgstr "제목 없음"
 
-#: js/messages.php:543
+#: js/messages.php:545
 msgid "Please select a page to continue"
 msgstr "계속할 페이지를 선택하세요"
 
-#: js/messages.php:544
+#: js/messages.php:546
 msgid "Please enter a valid page name"
 msgstr "올바른 페이지 이름을 입력하세요"
 
-#: js/messages.php:545
+#: js/messages.php:547
 msgid "Do you want to save the changes to the current page?"
 msgstr "현재 페이지의 수정된 내용을 저장하겠습니까?"
 
-#: js/messages.php:546
+#: js/messages.php:548
 msgid "Successfully deleted the page"
 msgstr "페이지 삭제 성공"
 
-#: js/messages.php:547
+#: js/messages.php:549
 msgid "Export relational schema"
 msgstr "관계 스키마를 내보내기"
 
-#: js/messages.php:548
+#: js/messages.php:550
 msgid "Modifications have been saved"
 msgstr "수정된 내용이 저장되었습니다"
 
-#: js/messages.php:551
+#: js/messages.php:553
 #, php-format
 msgid "%d object(s) created."
 msgstr "%d 개의 개체가 생성되었습니다."
 
-#: js/messages.php:552
+#: js/messages.php:554
 #, fuzzy
 #| msgid "Column names"
 msgid "Column name"
 msgstr "열(칼럼) 이름"
 
-#: js/messages.php:553 templates/sql/query.twig:165
+#: js/messages.php:555 templates/sql/query.twig:165
 msgid "Submit"
 msgstr "확인"
 
-#: js/messages.php:556
+#: js/messages.php:558
 msgid "Press escape to cancel editing."
 msgstr "편집을 취소하려면 ESC를 누르세요."
 
-#: js/messages.php:558
+#: js/messages.php:560
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -1713,15 +1720,15 @@ msgstr ""
 "일부 데이터를 변경한 후 저장하지 않았습니다. 데이터를 저장하지 않고 페이지를 "
 "이동하기를 원합니까?"
 
-#: js/messages.php:561
+#: js/messages.php:563
 msgid "Drag to reorder."
 msgstr "재정렬하려면 드래그하세요."
 
-#: js/messages.php:562
+#: js/messages.php:564
 msgid "Click to sort results by this column."
 msgstr "이 열의 값에 따라 결과를 정렬하려면 누르세요."
 
-#: js/messages.php:564
+#: js/messages.php:566
 #, fuzzy
 #| msgid ""
 #| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
@@ -1736,28 +1743,28 @@ msgstr ""
 "<br />- Ctrl+Click 또는 Alt+Click (맥: Shift+Option+Click) 으로 ORDER BY 절로"
 "부터 이 컬럼 제거"
 
-#: js/messages.php:568
+#: js/messages.php:570
 msgid "Click to mark/unmark."
 msgstr "선택/해제하려면 클릭하세요."
 
-#: js/messages.php:569
+#: js/messages.php:571
 msgid "Double-click to copy column name."
 msgstr "칼럼명을 복사하려면 더블클릭하세요."
 
-#: js/messages.php:571
+#: js/messages.php:573
 #, fuzzy
 #| msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr "칼럼보이기 여부를 바꾸려면<br />드롭다운 화살표를 클릭하세요."
 
-#: js/messages.php:573 libraries/classes/BrowseForeigners.php:344
+#: js/messages.php:575 libraries/classes/BrowseForeigners.php:344
 #: templates/display/results/table.twig:24
 #: templates/server/privileges/initials_row.twig:20
 #: templates/table/browse_foreigners/show_all.twig:4
 msgid "Show all"
 msgstr "모두 보기"
 
-#: js/messages.php:575
+#: js/messages.php:577
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -1765,11 +1772,11 @@ msgstr ""
 "이 테이블에는 유일 속성을 가진 컬럼이 없습니다. 저장 시에 격자창 편집, 체크박"
 "스, 편집, 복사, 삭제 등의 기능이 정상적으로 동작하지 않을 수 있습니다."
 
-#: js/messages.php:578
+#: js/messages.php:580
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr "올바른 16진수 문자열을 입력하세요. 사용가능한 문자는 0-9, A-F 입니다."
 
-#: js/messages.php:580
+#: js/messages.php:582
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
@@ -1777,118 +1784,118 @@ msgstr ""
 "정말 모든 열을 보시겠습니까? 테이블 크기가 큰 경우 브라우저가 정지할 수 있습"
 "니다."
 
-#: js/messages.php:583
+#: js/messages.php:585
 msgid "Original length"
 msgstr "원본 길이"
 
-#: js/messages.php:586
+#: js/messages.php:588
 msgid "cancel"
 msgstr "취소"
 
-#: js/messages.php:587
+#: js/messages.php:589
 #: libraries/classes/Controllers/Server/Status/StatusController.php:212
 msgid "Aborted"
 msgstr "중지됨"
 
-#: js/messages.php:588 libraries/classes/Controllers/ImportController.php:132
+#: js/messages.php:590 libraries/classes/Controllers/ImportController.php:132
 msgid "Failed"
 msgstr "실패함"
 
-#: js/messages.php:589
+#: js/messages.php:591
 msgid "Success"
 msgstr "성공"
 
-#: js/messages.php:590
+#: js/messages.php:592
 msgid "Import status"
 msgstr "상태 가져오기"
 
-#: js/messages.php:591 templates/navigation/main.twig:85
+#: js/messages.php:593 templates/navigation/main.twig:85
 msgid "Drop files here"
 msgstr "파일을 여기로 끌어오세요"
 
-#: js/messages.php:592
+#: js/messages.php:594
 msgid "Select database first"
 msgstr "데이터베이스를 먼저 선택하세요"
 
-#: js/messages.php:595 templates/database/data_dictionary/index.twig:117
+#: js/messages.php:597 templates/database/data_dictionary/index.twig:117
 #: templates/database/structure/index.twig:12
 #: templates/display/results/table.twig:237
 #: templates/table/structure/display_structure.twig:385
 msgid "Print"
 msgstr "인쇄"
 
-#: js/messages.php:600
+#: js/messages.php:602
 #, fuzzy
 #| msgid ""
 #| "You can also edit most values<br />by double-clicking directly on them."
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr "값을 더블클릭 하여 바로 수정할 수 있습니다.<br />(일부 제외)."
 
-#: js/messages.php:602
+#: js/messages.php:604
 #, fuzzy
 #| msgid "You can also edit most values<br />by clicking directly on them."
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr "값을 클릭하여 바로 수정할 수 있습니다.<br />(일부 제외)."
 
-#: js/messages.php:605
+#: js/messages.php:607
 msgid "Go to link:"
 msgstr "다음 링크로 이동 :"
 
-#: js/messages.php:606
+#: js/messages.php:608
 msgid "Copy column name."
 msgstr "컬럼 이름 복사."
 
-#: js/messages.php:607
+#: js/messages.php:609
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 "마우스 오른쪽버튼을 클릭하여 클립보드에 컬럼 이름을 복사할 수 있습니다."
 
-#: js/messages.php:610
+#: js/messages.php:612
 msgid "Generate password"
 msgstr "암호 생성"
 
-#: js/messages.php:611
+#: js/messages.php:613
 #: templates/server/replication/master_add_slave_user.twig:73
 msgid "Generate"
 msgstr "생성"
 
-#: js/messages.php:612 libraries/classes/Controllers/HomeController.php:113
+#: js/messages.php:614 libraries/classes/Controllers/HomeController.php:113
 #: libraries/classes/UserPassword.php:267
 #: templates/display/change_password/file_a.twig:9
 msgid "Change password"
 msgstr "암호 변경"
 
-#: js/messages.php:615 templates/table/structure/display_structure.twig:129
+#: js/messages.php:617 templates/table/structure/display_structure.twig:129
 msgid "More"
 msgstr "더보기"
 
-#: js/messages.php:618
+#: js/messages.php:620
 msgid "Show panel"
 msgstr "패널 표시"
 
-#: js/messages.php:619
+#: js/messages.php:621
 msgid "Hide panel"
 msgstr "패널 숨기기"
 
-#: js/messages.php:620
+#: js/messages.php:622
 msgid "Show hidden navigation tree items."
 msgstr "숨겨진 탐색 트리의 항목보기."
 
-#: js/messages.php:621 libraries/classes/Config/Descriptions.php:485
+#: js/messages.php:623 libraries/classes/Config/Descriptions.php:485
 #: libraries/classes/Navigation/NavigationTree.php:1470
 msgid "Link with main panel"
 msgstr "매인 패널에 링크"
 
-#: js/messages.php:622 libraries/classes/Navigation/NavigationTree.php:1473
+#: js/messages.php:624 libraries/classes/Navigation/NavigationTree.php:1473
 msgid "Unlink from main panel"
 msgstr "매인 패널에서 링크 해제"
 
-#: js/messages.php:625
+#: js/messages.php:627
 msgid "The requested page was not found in the history, it may have expired."
 msgstr ""
 "요청하신 페이지를 기록에서 찾을 수 없습니다. 만기 되었을 수도 있습니다."
 
-#: js/messages.php:629 libraries/classes/Setup/Index.php:181
+#: js/messages.php:631 libraries/classes/Setup/Index.php:181
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1897,48 +1904,48 @@ msgstr ""
 "phpMyAdmin 업그레이드가 필요합니다. 최신버전은 %s이며 %s에 릴리즈 되었습니다."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:633
+#: js/messages.php:635
 msgid ", latest stable version:"
 msgstr ", 최신 안정 버전:"
 
-#: js/messages.php:634
+#: js/messages.php:636
 msgid "up to date"
 msgstr "최신버전"
 
-#: js/messages.php:636 libraries/classes/Display/Results.php:4640
+#: js/messages.php:638 libraries/classes/Display/Results.php:4640
 #: templates/display/results/table.twig:276 templates/view_create.twig:11
 msgid "Create view"
 msgstr "뷰 생성"
 
-#: js/messages.php:639
+#: js/messages.php:641
 msgid "Send error report"
 msgstr "오류 보고서 전송"
 
-#: js/messages.php:640
+#: js/messages.php:642
 msgid "Submit error report"
 msgstr "오류 보고서 제출"
 
-#: js/messages.php:642
+#: js/messages.php:644
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr "치명적인 자바스크립트 오류 발생. 오류를 전송할까요?"
 
-#: js/messages.php:644
+#: js/messages.php:646
 msgid "Change report settings"
 msgstr "보고서 설정 변경"
 
-#: js/messages.php:645
+#: js/messages.php:647
 msgid "Show report details"
 msgstr "보고서 상세 보기"
 
-#: js/messages.php:647
+#: js/messages.php:649
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr "PHP의 실행시간 제한에 걸려 내보내기가 완료되지 않았습니다!"
 
-#: js/messages.php:651
+#: js/messages.php:653
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -1947,70 +1954,70 @@ msgstr ""
 "경고: 현재 페이지의 폼 필드는 %d개가 넘습니다. 폼이 전송될 때 PHP의 "
 "max_input_vars 설정에 의해 일부 필드가 손실될 수 있습니다."
 
-#: js/messages.php:657 js/messages.php:670
+#: js/messages.php:659 js/messages.php:672
 msgid "Some errors have been detected on the server!"
 msgstr "서버 에러가 감지되었습니다!"
 
-#: js/messages.php:659
+#: js/messages.php:661
 msgid "Please look at the bottom of this window."
 msgstr "이 창의 아래쪽을 보세요."
 
-#: js/messages.php:665 libraries/classes/ErrorHandler.php:393
+#: js/messages.php:667 libraries/classes/ErrorHandler.php:393
 msgid "Ignore All"
 msgstr "모두 무시"
 
-#: js/messages.php:673
+#: js/messages.php:675
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr "각 설정은 현재 전송중입니다. 기다려주세요."
 
-#: js/messages.php:681
+#: js/messages.php:683
 #, fuzzy
 #| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
 msgstr "페이지 삭제 성공"
 
-#: js/messages.php:682
+#: js/messages.php:684
 #, fuzzy
 #| msgid "Copying database"
 msgid "Copying failed!"
 msgstr "데이터베이스 복사 중"
 
-#: js/messages.php:685
+#: js/messages.php:687
 msgid "Execute this query again?"
 msgstr "이 질의를 다시 실행합니까?"
 
-#: js/messages.php:686
+#: js/messages.php:688
 msgid "Do you really want to delete this bookmark?"
 msgstr "정말 이 북마크를 삭제하겠습니까?"
 
-#: js/messages.php:687
+#: js/messages.php:689
 msgid "Some error occurred while getting SQL debug info."
 msgstr "SQL 디버그 정보를 가져오는 중 오류가 발생하였습니다."
 
-#: js/messages.php:688
+#: js/messages.php:690
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s 쿼리를 %s 번 %s 초 안에 처리했습니다."
 
-#: js/messages.php:689
+#: js/messages.php:691
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "%s개의 인수가 전달됨"
 
-#: js/messages.php:690
+#: js/messages.php:692
 msgid "Show arguments"
 msgstr "매개변수 보이기"
 
-#: js/messages.php:691
+#: js/messages.php:693
 msgid "Hide arguments"
 msgstr "매개변수 숨기기"
 
-#: js/messages.php:692
+#: js/messages.php:694
 msgid "Time taken:"
 msgstr "소요 시간 :"
 
-#: js/messages.php:693
+#: js/messages.php:695
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -2025,52 +2032,52 @@ msgstr ""
 "수 있습니다. 사파리에서는 일반적으로 \"개인 모드 브라우징\"에 의해 발생 됩니"
 "다."
 
-#: js/messages.php:695
+#: js/messages.php:697
 msgid "Copy tables to"
 msgstr "테이블을 복사합니다"
 
-#: js/messages.php:696
+#: js/messages.php:698
 msgid "Add table prefix"
 msgstr "테이블 접두사 추가"
 
-#: js/messages.php:697
+#: js/messages.php:699
 msgid "Replace table with prefix"
 msgstr "접두사로 테이블 교체"
 
-#: js/messages.php:698 templates/database/structure/check_all_tables.twig:28
+#: js/messages.php:700 templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "테이블에 접두사를 추가하여 복제"
 
-#: js/messages.php:701
+#: js/messages.php:703
 msgid "Extremely weak"
 msgstr "매우 취약"
 
-#: js/messages.php:702
+#: js/messages.php:704
 msgid "Very weak"
 msgstr "다소 취약"
 
-#: js/messages.php:703
+#: js/messages.php:705
 msgid "Weak"
 msgstr "취약"
 
-#: js/messages.php:704
+#: js/messages.php:706
 msgid "Good"
 msgstr "좋음"
 
-#: js/messages.php:705
+#: js/messages.php:707
 msgid "Strong"
 msgstr "강력함"
 
-#: js/messages.php:708
+#: js/messages.php:710
 msgid "Timed out waiting for security key activation."
 msgstr ""
 
-#: js/messages.php:709
+#: js/messages.php:711
 #, php-format
 msgid "Failed security key activation (%s)."
 msgstr ""
 
-#: js/messages.php:712
+#: js/messages.php:714
 #, fuzzy, php-format
 #| msgid "Table %s already exists!"
 msgctxt ""
@@ -2078,12 +2085,12 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "테이블 %s 가 이미 존재합니다!"
 
-#: js/messages.php:713 libraries/classes/InsertEdit.php:337
+#: js/messages.php:715 libraries/classes/InsertEdit.php:337
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "숨기기"
 
-#: js/messages.php:714
+#: js/messages.php:716
 #: libraries/classes/Controllers/Table/ChangeController.php:202
 #: templates/database/multi_table_query/form.twig:44
 #: templates/database/tracking/tables.twig:19
@@ -2091,7 +2098,7 @@ msgstr "숨기기"
 msgid "Show"
 msgstr "보기"
 
-#: js/messages.php:715 libraries/classes/Config/Forms/User/ExportForm.php:52
+#: js/messages.php:717 libraries/classes/Config/Forms/User/ExportForm.php:52
 #: libraries/classes/Config/Forms/User/ExportForm.php:99
 #: libraries/classes/Config/Forms/User/ExportForm.php:127
 #: libraries/classes/Controllers/Database/ExportController.php:96

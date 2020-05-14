@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-05-14 13:31+0200\n"
+"POT-Creation-Date: 2020-05-14 13:58+0200\n"
 "PO-Revision-Date: 2020-02-13 17:50+0000\n"
 "Last-Translator: popcorner <memoword@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -1294,7 +1294,7 @@ msgstr "注意： a, b -> d,f 表示a和b两列结合起来决定d和f两列的�
 msgid "No partial dependencies selected!"
 msgstr "没有已选择的局部依赖！"
 
-#: js/messages.php:435 js/messages.php:596 libraries/classes/Export.php:589
+#: js/messages.php:435 js/messages.php:598 libraries/classes/Export.php:589
 #: libraries/classes/Html/Generator.php:1120
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:303
 #: templates/import_status.twig:2 templates/user_password.twig:2
@@ -1430,7 +1430,7 @@ msgstr "选择两个不同的列"
 msgid "Data point content"
 msgstr "数据点内容"
 
-#: js/messages.php:491 js/messages.php:662
+#: js/messages.php:491 js/messages.php:664
 #: libraries/classes/ErrorHandler.php:389 libraries/classes/InsertEdit.php:3107
 #: templates/table/index_form.twig:157 templates/table/index_form.twig:193
 msgid "Ignore"
@@ -1549,139 +1549,146 @@ msgstr "是否要复制加密密匙？"
 msgid "Encryption key"
 msgstr "加密密匙"
 
-#: js/messages.php:510
+#. l10n: Tip for HEX conversion of Integers
+#: js/messages.php:508
+msgid ""
+"The HEX function will treat the integer as a string while calculating the "
+"hexadecimal value"
+msgstr ""
+
+#: js/messages.php:512
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr "MySQL 可接受滑动条上不可选的其他值；如果需要直接键入这些值"
 
-#: js/messages.php:516
+#: js/messages.php:518
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr "MySQL 可接受日期选择器无法选取的其他值；如果需要直接键入这些值"
 
-#: js/messages.php:522
+#: js/messages.php:524
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr "检测到您已经对页面做出了修改。因此在您放弃改动时会提示您确认"
 
-#: js/messages.php:527
+#: js/messages.php:529
 msgid "Select referenced key"
 msgstr "选择外键"
 
-#: js/messages.php:528
+#: js/messages.php:530
 msgid "Select Foreign Key"
 msgstr "选择外键"
 
-#: js/messages.php:529
+#: js/messages.php:531
 msgid "Please select the primary key or a unique key!"
 msgstr "请选择主键或唯一键！"
 
-#: js/messages.php:530 templates/database/designer/main.twig:100
+#: js/messages.php:532 templates/database/designer/main.twig:100
 #: templates/database/designer/main.twig:103
 msgid "Choose column to display"
 msgstr "选择要显示的字段"
 
-#: js/messages.php:532
+#: js/messages.php:534
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr "尚未保存当前布局。如果继续将会丢失本次的修改。是否继续？"
 
-#: js/messages.php:535
+#: js/messages.php:537
 msgid "value/subQuery is empty"
 msgstr "值/子查询为空"
 
-#: js/messages.php:536 templates/database/designer/main.twig:42
+#: js/messages.php:538 templates/database/designer/main.twig:42
 #: templates/database/designer/main.twig:45
 msgid "Add tables from other databases"
 msgstr "从其他数据库中添加表"
 
-#: js/messages.php:537
+#: js/messages.php:539
 msgid "Page name"
 msgstr "页面名称"
 
-#: js/messages.php:538 templates/database/designer/main.twig:65
+#: js/messages.php:540 templates/database/designer/main.twig:65
 #: templates/database/designer/main.twig:68
 msgid "Save page"
 msgstr "保存页面"
 
-#: js/messages.php:539 templates/database/designer/main.twig:72
+#: js/messages.php:541 templates/database/designer/main.twig:72
 #: templates/database/designer/main.twig:75
 msgid "Save page as"
 msgstr "保存页面为"
 
-#: js/messages.php:540 templates/database/designer/main.twig:58
+#: js/messages.php:542 templates/database/designer/main.twig:58
 #: templates/database/designer/main.twig:61
 msgid "Open page"
 msgstr "打开页面"
 
-#: js/messages.php:541
+#: js/messages.php:543
 msgid "Delete page"
 msgstr "删除页面"
 
-#: js/messages.php:542 templates/database/designer/main.twig:12
+#: js/messages.php:544 templates/database/designer/main.twig:12
 msgid "Untitled"
 msgstr "未命名"
 
-#: js/messages.php:543
+#: js/messages.php:545
 msgid "Please select a page to continue"
 msgstr "请选择一个页面"
 
-#: js/messages.php:544
+#: js/messages.php:546
 msgid "Please enter a valid page name"
 msgstr "请输入有效页面名称"
 
-#: js/messages.php:545
+#: js/messages.php:547
 msgid "Do you want to save the changes to the current page?"
 msgstr "是否保存对该页面的更改？"
 
-#: js/messages.php:546
+#: js/messages.php:548
 msgid "Successfully deleted the page"
 msgstr "成功删除页面"
 
-#: js/messages.php:547
+#: js/messages.php:549
 msgid "Export relational schema"
 msgstr "导出关系模式"
 
-#: js/messages.php:548
+#: js/messages.php:550
 msgid "Modifications have been saved"
 msgstr "已保存修改"
 
-#: js/messages.php:551
+#: js/messages.php:553
 #, php-format
 msgid "%d object(s) created."
 msgstr "已创建 %d 个对象。"
 
-#: js/messages.php:552
+#: js/messages.php:554
 msgid "Column name"
 msgstr "字段名"
 
-#: js/messages.php:553 templates/sql/query.twig:165
+#: js/messages.php:555 templates/sql/query.twig:165
 msgid "Submit"
 msgstr "提交"
 
-#: js/messages.php:556
+#: js/messages.php:558
 msgid "Press escape to cancel editing."
 msgstr "按 Esc 键取消编辑。"
 
-#: js/messages.php:558
+#: js/messages.php:560
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr "您已修改了一些数据但尚未保存。您真的要放弃保存并离开吗？"
 
-#: js/messages.php:561
+#: js/messages.php:563
 msgid "Drag to reorder."
 msgstr "拖拽以调整顺序。"
 
-#: js/messages.php:562
+#: js/messages.php:564
 msgid "Click to sort results by this column."
 msgstr "点此排序此列的结果。"
 
-#: js/messages.php:564
+#: js/messages.php:566
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
@@ -1691,26 +1698,26 @@ msgstr ""
 "<br>使用 Ctrl+Click 或者 Alt+Click （Mac：Shift+Option+Click ）即可将列从 "
 "ORDER BY 语句中移除"
 
-#: js/messages.php:568
+#: js/messages.php:570
 msgid "Click to mark/unmark."
 msgstr "点击以标记/取消标记。"
 
-#: js/messages.php:569
+#: js/messages.php:571
 msgid "Double-click to copy column name."
 msgstr "双击以复制字段名。"
 
-#: js/messages.php:571
+#: js/messages.php:573
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr "点击下箭头<br>以设置显示的字段。"
 
-#: js/messages.php:573 libraries/classes/BrowseForeigners.php:344
+#: js/messages.php:575 libraries/classes/BrowseForeigners.php:344
 #: templates/display/results/table.twig:24
 #: templates/server/privileges/initials_row.twig:20
 #: templates/table/browse_foreigners/show_all.twig:4
 msgid "Show all"
 msgstr "显示全部"
 
-#: js/messages.php:575
+#: js/messages.php:577
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -1718,121 +1725,121 @@ msgstr ""
 "该表没有唯一字段。在保存后单元格编辑、多选、编辑、复制和删除等功能可能无法正"
 "常使用。"
 
-#: js/messages.php:578
+#: js/messages.php:580
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr "请输入一个有效的十六进制字符串。只有0-9和A-F为有效字符。"
 
-#: js/messages.php:580
+#: js/messages.php:582
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr "您真的想要查看所有的行吗？若表过大可能会导致浏览器崩溃。"
 
-#: js/messages.php:583
+#: js/messages.php:585
 msgid "Original length"
 msgstr "原始长度"
 
-#: js/messages.php:586
+#: js/messages.php:588
 msgid "cancel"
 msgstr "取消"
 
-#: js/messages.php:587
+#: js/messages.php:589
 #: libraries/classes/Controllers/Server/Status/StatusController.php:212
 msgid "Aborted"
 msgstr "已取消"
 
-#: js/messages.php:588 libraries/classes/Controllers/ImportController.php:132
+#: js/messages.php:590 libraries/classes/Controllers/ImportController.php:132
 msgid "Failed"
 msgstr "失败"
 
-#: js/messages.php:589
+#: js/messages.php:591
 msgid "Success"
 msgstr "成功"
 
-#: js/messages.php:590
+#: js/messages.php:592
 msgid "Import status"
 msgstr "导入状态"
 
-#: js/messages.php:591 templates/navigation/main.twig:85
+#: js/messages.php:593 templates/navigation/main.twig:85
 msgid "Drop files here"
 msgstr "将文件拖动至此"
 
-#: js/messages.php:592
+#: js/messages.php:594
 msgid "Select database first"
 msgstr "先选择数据库"
 
-#: js/messages.php:595 templates/database/data_dictionary/index.twig:117
+#: js/messages.php:597 templates/database/data_dictionary/index.twig:117
 #: templates/database/structure/index.twig:12
 #: templates/display/results/table.twig:237
 #: templates/table/structure/display_structure.twig:385
 msgid "Print"
 msgstr "打印"
 
-#: js/messages.php:600
+#: js/messages.php:602
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr "您可以直接双击大部分<br>单元格以修改其值。"
 
-#: js/messages.php:602
+#: js/messages.php:604
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr "您可以直接点击大部分<br>单元格以修改其值。"
 
-#: js/messages.php:605
+#: js/messages.php:607
 msgid "Go to link:"
 msgstr "前往："
 
-#: js/messages.php:606
+#: js/messages.php:608
 msgid "Copy column name."
 msgstr "复制字段名。"
 
-#: js/messages.php:607
+#: js/messages.php:609
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr "在字段名上右键以复制到剪贴板。"
 
-#: js/messages.php:610
+#: js/messages.php:612
 msgid "Generate password"
 msgstr "生成密码"
 
-#: js/messages.php:611
+#: js/messages.php:613
 #: templates/server/replication/master_add_slave_user.twig:73
 msgid "Generate"
 msgstr "生成"
 
-#: js/messages.php:612 libraries/classes/Controllers/HomeController.php:113
+#: js/messages.php:614 libraries/classes/Controllers/HomeController.php:113
 #: libraries/classes/UserPassword.php:267
 #: templates/display/change_password/file_a.twig:9
 msgid "Change password"
 msgstr "修改密码"
 
-#: js/messages.php:615 templates/table/structure/display_structure.twig:129
+#: js/messages.php:617 templates/table/structure/display_structure.twig:129
 msgid "More"
 msgstr "更多"
 
-#: js/messages.php:618
+#: js/messages.php:620
 msgid "Show panel"
 msgstr "显示导航面板"
 
-#: js/messages.php:619
+#: js/messages.php:621
 msgid "Hide panel"
 msgstr "隐藏导航面板"
 
-#: js/messages.php:620
+#: js/messages.php:622
 msgid "Show hidden navigation tree items."
 msgstr "显示隐藏的导航树节点。"
 
-#: js/messages.php:621 libraries/classes/Config/Descriptions.php:485
+#: js/messages.php:623 libraries/classes/Config/Descriptions.php:485
 #: libraries/classes/Navigation/NavigationTree.php:1470
 msgid "Link with main panel"
 msgstr "与主面板链接"
 
-#: js/messages.php:622 libraries/classes/Navigation/NavigationTree.php:1473
+#: js/messages.php:624 libraries/classes/Navigation/NavigationTree.php:1473
 msgid "Unlink from main panel"
 msgstr "从主面板取消链接"
 
-#: js/messages.php:625
+#: js/messages.php:627
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "没有在历史记录中找到所请求的页面，页面可能已过期。"
 
-#: js/messages.php:629 libraries/classes/Setup/Index.php:181
+#: js/messages.php:631 libraries/classes/Setup/Index.php:181
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1840,48 +1847,48 @@ msgid ""
 msgstr "phpMyAdmin 有新版本了，请您考虑升级。最新的版本是 %s，于 %s 发布。"
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:633
+#: js/messages.php:635
 msgid ", latest stable version:"
 msgstr "，最新稳定版本："
 
-#: js/messages.php:634
+#: js/messages.php:636
 msgid "up to date"
 msgstr "已更新"
 
-#: js/messages.php:636 libraries/classes/Display/Results.php:4640
+#: js/messages.php:638 libraries/classes/Display/Results.php:4640
 #: templates/display/results/table.twig:276 templates/view_create.twig:11
 msgid "Create view"
 msgstr "新建视图"
 
-#: js/messages.php:639
+#: js/messages.php:641
 msgid "Send error report"
 msgstr "发送错误报告"
 
-#: js/messages.php:640
+#: js/messages.php:642
 msgid "Submit error report"
 msgstr "提交错误报告"
 
-#: js/messages.php:642
+#: js/messages.php:644
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr "发生致命JavaScript错误。是否发送错误报告？"
 
-#: js/messages.php:644
+#: js/messages.php:646
 msgid "Change report settings"
 msgstr "更改报告设置"
 
-#: js/messages.php:645
+#: js/messages.php:647
 msgid "Show report details"
 msgstr "显示报告详细信息"
 
-#: js/messages.php:647
+#: js/messages.php:649
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr "由于PHP设置的执行限制时间过低，您的导入未能完成！"
 
-#: js/messages.php:651
+#: js/messages.php:653
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -1890,66 +1897,66 @@ msgstr ""
 "警告：当前表单包含的字段多于 %d，受限于 PHP 中 max_input_vars 值的配置，该次"
 "提交有可能忽略其中一部分。"
 
-#: js/messages.php:657 js/messages.php:670
+#: js/messages.php:659 js/messages.php:672
 msgid "Some errors have been detected on the server!"
 msgstr "在服务上检测到错误！"
 
-#: js/messages.php:659
+#: js/messages.php:661
 msgid "Please look at the bottom of this window."
 msgstr "请查看此窗口的底部。"
 
-#: js/messages.php:665 libraries/classes/ErrorHandler.php:393
+#: js/messages.php:667 libraries/classes/ErrorHandler.php:393
 msgid "Ignore All"
 msgstr "忽略全部"
 
-#: js/messages.php:673
+#: js/messages.php:675
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr "正在提交您的设置，请耐心等待。"
 
-#: js/messages.php:681
+#: js/messages.php:683
 msgid "Successfully copied!"
 msgstr "成功复制！"
 
-#: js/messages.php:682
+#: js/messages.php:684
 msgid "Copying failed!"
 msgstr "复制失败！"
 
-#: js/messages.php:685
+#: js/messages.php:687
 msgid "Execute this query again?"
 msgstr "再次执行该查询？"
 
-#: js/messages.php:686
+#: js/messages.php:688
 msgid "Do you really want to delete this bookmark?"
 msgstr "您真的要删除该书签吗？"
 
-#: js/messages.php:687
+#: js/messages.php:689
 msgid "Some error occurred while getting SQL debug info."
 msgstr "获取SQL调试信息时出错。"
 
-#: js/messages.php:688
+#: js/messages.php:690
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s查询已执行%s次，耗时%s秒。"
 
-#: js/messages.php:689
+#: js/messages.php:691
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "%s 个参数已传递"
 
-#: js/messages.php:690
+#: js/messages.php:692
 msgid "Show arguments"
 msgstr "显示注释"
 
-#: js/messages.php:691
+#: js/messages.php:693
 msgid "Hide arguments"
 msgstr "隐藏注释"
 
-#: js/messages.php:692
+#: js/messages.php:694
 msgid "Time taken:"
 msgstr "用时："
 
-#: js/messages.php:693
+#: js/messages.php:695
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -1963,64 +1970,64 @@ msgstr ""
 "线网站数据”可能会解决这个问题。对于Safari浏览器，这个问题通常是由于“隐私浏览"
 "模式”导致的。"
 
-#: js/messages.php:695
+#: js/messages.php:697
 msgid "Copy tables to"
 msgstr "复制数据表到"
 
-#: js/messages.php:696
+#: js/messages.php:698
 msgid "Add table prefix"
 msgstr "添加表前缀"
 
-#: js/messages.php:697
+#: js/messages.php:699
 msgid "Replace table with prefix"
 msgstr "替换表前缀"
 
-#: js/messages.php:698 templates/database/structure/check_all_tables.twig:28
+#: js/messages.php:700 templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "复制表为新前缀"
 
-#: js/messages.php:701
+#: js/messages.php:703
 msgid "Extremely weak"
 msgstr "极弱"
 
-#: js/messages.php:702
+#: js/messages.php:704
 msgid "Very weak"
 msgstr "很弱"
 
-#: js/messages.php:703
+#: js/messages.php:705
 msgid "Weak"
 msgstr "弱"
 
-#: js/messages.php:704
+#: js/messages.php:706
 msgid "Good"
 msgstr "优"
 
-#: js/messages.php:705
+#: js/messages.php:707
 msgid "Strong"
 msgstr "强"
 
-#: js/messages.php:708
+#: js/messages.php:710
 msgid "Timed out waiting for security key activation."
 msgstr "等待安全密钥激活超时。"
 
-#: js/messages.php:709
+#: js/messages.php:711
 #, php-format
 msgid "Failed security key activation (%s)."
 msgstr "安全密钥激活失败（%s）。"
 
-#: js/messages.php:712
+#: js/messages.php:714
 #, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
 msgstr "数据表 %s 已存在！"
 
-#: js/messages.php:713 libraries/classes/InsertEdit.php:337
+#: js/messages.php:715 libraries/classes/InsertEdit.php:337
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "隐藏"
 
-#: js/messages.php:714
+#: js/messages.php:716
 #: libraries/classes/Controllers/Table/ChangeController.php:202
 #: templates/database/multi_table_query/form.twig:44
 #: templates/database/tracking/tables.twig:19
@@ -2028,7 +2035,7 @@ msgstr "隐藏"
 msgid "Show"
 msgstr "显示"
 
-#: js/messages.php:715 libraries/classes/Config/Forms/User/ExportForm.php:52
+#: js/messages.php:717 libraries/classes/Config/Forms/User/ExportForm.php:52
 #: libraries/classes/Config/Forms/User/ExportForm.php:99
 #: libraries/classes/Config/Forms/User/ExportForm.php:127
 #: libraries/classes/Controllers/Database/ExportController.php:96

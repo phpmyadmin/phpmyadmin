@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-05-14 13:31+0200\n"
+"POT-Creation-Date: 2020-05-14 13:58+0200\n"
 "PO-Revision-Date: 2020-05-05 20:11+0000\n"
 "Last-Translator: André Victor Fochesatto Cordeiro <andrefochesatto@hotmail."
 "com>\n"
@@ -1345,7 +1345,7 @@ msgstr ""
 msgid "No partial dependencies selected!"
 msgstr "Nenhuma dependência parcial selecionada!"
 
-#: js/messages.php:435 js/messages.php:596 libraries/classes/Export.php:589
+#: js/messages.php:435 js/messages.php:598 libraries/classes/Export.php:589
 #: libraries/classes/Html/Generator.php:1120
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:303
 #: templates/import_status.twig:2 templates/user_password.twig:2
@@ -1487,7 +1487,7 @@ msgstr "Selecione duas colunas diferentes"
 msgid "Data point content"
 msgstr "Conteúdo do ponteiro de dados"
 
-#: js/messages.php:491 js/messages.php:662
+#: js/messages.php:491 js/messages.php:664
 #: libraries/classes/ErrorHandler.php:389 libraries/classes/InsertEdit.php:3107
 #: templates/table/index_form.twig:157 templates/table/index_form.twig:193
 msgid "Ignore"
@@ -1606,7 +1606,14 @@ msgstr "Você deseja copiar a chave de encriptação?"
 msgid "Encryption key"
 msgstr "Chave de encriptação"
 
-#: js/messages.php:510
+#. l10n: Tip for HEX conversion of Integers
+#: js/messages.php:508
+msgid ""
+"The HEX function will treat the integer as a string while calculating the "
+"hexadecimal value"
+msgstr ""
+
+#: js/messages.php:512
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
@@ -1614,7 +1621,7 @@ msgstr ""
 "MySQL aceita valores que não seria possível seleciona-los com a barra; se o "
 "desejar insira-os diretamente"
 
-#: js/messages.php:516
+#: js/messages.php:518
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
@@ -1622,7 +1629,7 @@ msgstr ""
 "MySQL aceita valores adicionais não selecionáveis pela caixa de seleção; se "
 "desejar insira-os diretamente"
 
-#: js/messages.php:522
+#: js/messages.php:524
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
@@ -1630,24 +1637,24 @@ msgstr ""
 "Indica que você fez alterações nesta página; Você será questionado por uma "
 "confirmação antes de abandonar as alterações"
 
-#: js/messages.php:527
+#: js/messages.php:529
 msgid "Select referenced key"
 msgstr "Selecionar chave referenciada"
 
-#: js/messages.php:528
+#: js/messages.php:530
 msgid "Select Foreign Key"
 msgstr "Selecionar chave estrangeira"
 
-#: js/messages.php:529
+#: js/messages.php:531
 msgid "Please select the primary key or a unique key!"
 msgstr "Por favor, selecione uma chave primária ou uma chave única!"
 
-#: js/messages.php:530 templates/database/designer/main.twig:100
+#: js/messages.php:532 templates/database/designer/main.twig:100
 #: templates/database/designer/main.twig:103
 msgid "Choose column to display"
 msgstr "Marque a coluna para exibir"
 
-#: js/messages.php:532
+#: js/messages.php:534
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -1655,84 +1662,84 @@ msgstr ""
 "Você não salvou as mudanças no layout. Elas serão perdidas se você não salvá-"
 "las. Deseja continuar mesmo assim?"
 
-#: js/messages.php:535
+#: js/messages.php:537
 msgid "value/subQuery is empty"
 msgstr "valor/subconsulta está vazio"
 
-#: js/messages.php:536 templates/database/designer/main.twig:42
+#: js/messages.php:538 templates/database/designer/main.twig:42
 #: templates/database/designer/main.twig:45
 msgid "Add tables from other databases"
 msgstr "Adicione tabelas de outra base de dados"
 
-#: js/messages.php:537
+#: js/messages.php:539
 msgid "Page name"
 msgstr "Nome da página"
 
-#: js/messages.php:538 templates/database/designer/main.twig:65
+#: js/messages.php:540 templates/database/designer/main.twig:65
 #: templates/database/designer/main.twig:68
 msgid "Save page"
 msgstr "Selecionar página"
 
-#: js/messages.php:539 templates/database/designer/main.twig:72
+#: js/messages.php:541 templates/database/designer/main.twig:72
 #: templates/database/designer/main.twig:75
 msgid "Save page as"
 msgstr "Salvar página como"
 
-#: js/messages.php:540 templates/database/designer/main.twig:58
+#: js/messages.php:542 templates/database/designer/main.twig:58
 #: templates/database/designer/main.twig:61
 msgid "Open page"
 msgstr "Páginas abertas"
 
-#: js/messages.php:541
+#: js/messages.php:543
 msgid "Delete page"
 msgstr "Apagar página"
 
-#: js/messages.php:542 templates/database/designer/main.twig:12
+#: js/messages.php:544 templates/database/designer/main.twig:12
 msgid "Untitled"
 msgstr "Sem título"
 
-#: js/messages.php:543
+#: js/messages.php:545
 msgid "Please select a page to continue"
 msgstr "Favor escolher uma página para continuar"
 
-#: js/messages.php:544
+#: js/messages.php:546
 msgid "Please enter a valid page name"
 msgstr "Por favor, digite um número válido"
 
-#: js/messages.php:545
+#: js/messages.php:547
 msgid "Do you want to save the changes to the current page?"
 msgstr "Você quer salvar as alterações para a página atual?"
 
-#: js/messages.php:546
+#: js/messages.php:548
 msgid "Successfully deleted the page"
 msgstr "Página apagada com sucesso :)"
 
-#: js/messages.php:547
+#: js/messages.php:549
 msgid "Export relational schema"
 msgstr "Exportar esquema relacional"
 
-#: js/messages.php:548
+#: js/messages.php:550
 msgid "Modifications have been saved"
 msgstr "Modificações foram salvas"
 
-#: js/messages.php:551
+#: js/messages.php:553
 #, php-format
 msgid "%d object(s) created."
 msgstr "%d objeto(s) criado(s)."
 
-#: js/messages.php:552
+#: js/messages.php:554
 msgid "Column name"
 msgstr "Nome da coluna"
 
-#: js/messages.php:553 templates/sql/query.twig:165
+#: js/messages.php:555 templates/sql/query.twig:165
 msgid "Submit"
 msgstr "Submit"
 
-#: js/messages.php:556
+#: js/messages.php:558
 msgid "Press escape to cancel editing."
 msgstr "Pressione ESC para cancelar a edição."
 
-#: js/messages.php:558
+#: js/messages.php:560
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -1740,15 +1747,15 @@ msgstr ""
 "Você editou alguns dados e estes não foram salvos. Você tem certeza que quer "
 "sair desta página antes de salvar os dados?"
 
-#: js/messages.php:561
+#: js/messages.php:563
 msgid "Drag to reorder."
 msgstr "Arraste para reordenar."
 
-#: js/messages.php:562
+#: js/messages.php:564
 msgid "Click to sort results by this column."
 msgstr "Clique para ordenar os resultados por esta coluna."
 
-#: js/messages.php:564
+#: js/messages.php:566
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
@@ -1759,26 +1766,26 @@ msgstr ""
 "DECRESCENTE) .<br>- Ctrl+Clique ou Alt+Clique (Mac: Shift+Opção+Clique) para "
 "remover a coluna da ORDER BY (ORDEM POR) da cláusula"
 
-#: js/messages.php:568
+#: js/messages.php:570
 msgid "Click to mark/unmark."
 msgstr "Clique para marcar/desmarcar."
 
-#: js/messages.php:569
+#: js/messages.php:571
 msgid "Double-click to copy column name."
 msgstr "Clique duas vezes para copiar o nome da coluna."
 
-#: js/messages.php:571
+#: js/messages.php:573
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr "Clique na seta<br>para alternar a visibilidade da coluna."
 
-#: js/messages.php:573 libraries/classes/BrowseForeigners.php:344
+#: js/messages.php:575 libraries/classes/BrowseForeigners.php:344
 #: templates/display/results/table.twig:24
 #: templates/server/privileges/initials_row.twig:20
 #: templates/table/browse_foreigners/show_all.twig:4
 msgid "Show all"
 msgstr "Mostrar tudo"
 
-#: js/messages.php:575
+#: js/messages.php:577
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -1787,13 +1794,13 @@ msgstr ""
 "Editar, Marcar, Editar, Copiar e Apagar podem não funcionar mais depois de "
 "salvar."
 
-#: js/messages.php:578
+#: js/messages.php:580
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 "Por favor insira uma seqüência hexadecimal válido. Os caracteres válidos são "
 "0-9, A-F."
 
-#: js/messages.php:580
+#: js/messages.php:582
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
@@ -1801,118 +1808,118 @@ msgstr ""
 "Você realmente quer ver todas as linhas? Para uma tabela grande isto poderia "
 "travar o nevegador."
 
-#: js/messages.php:583
+#: js/messages.php:585
 msgid "Original length"
 msgstr "Tamanho original"
 
-#: js/messages.php:586
+#: js/messages.php:588
 msgid "cancel"
 msgstr "Cancelar"
 
-#: js/messages.php:587
+#: js/messages.php:589
 #: libraries/classes/Controllers/Server/Status/StatusController.php:212
 msgid "Aborted"
 msgstr "Abortado"
 
-#: js/messages.php:588 libraries/classes/Controllers/ImportController.php:132
+#: js/messages.php:590 libraries/classes/Controllers/ImportController.php:132
 msgid "Failed"
 msgstr "Falha"
 
-#: js/messages.php:589
+#: js/messages.php:591
 msgid "Success"
 msgstr "Sucesso"
 
-#: js/messages.php:590
+#: js/messages.php:592
 msgid "Import status"
 msgstr "Importar estado"
 
-#: js/messages.php:591 templates/navigation/main.twig:85
+#: js/messages.php:593 templates/navigation/main.twig:85
 msgid "Drop files here"
 msgstr "Solte os arquivos aqui"
 
-#: js/messages.php:592
+#: js/messages.php:594
 msgid "Select database first"
 msgstr "Primeiro escolha um banco de dados"
 
-#: js/messages.php:595 templates/database/data_dictionary/index.twig:117
+#: js/messages.php:597 templates/database/data_dictionary/index.twig:117
 #: templates/database/structure/index.twig:12
 #: templates/display/results/table.twig:237
 #: templates/table/structure/display_structure.twig:385
 msgid "Print"
 msgstr "Imprimir"
 
-#: js/messages.php:600
+#: js/messages.php:602
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr ""
 "Você também pode editar a maioria dos valores<br>clicando duas vezes sobre "
 "eles."
 
-#: js/messages.php:602
+#: js/messages.php:604
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr ""
 "Você também pode editar a maioria dos valores<br>clicando diretamente sobre "
 "eles."
 
-#: js/messages.php:605
+#: js/messages.php:607
 msgid "Go to link:"
 msgstr "Ir para o link:"
 
-#: js/messages.php:606
+#: js/messages.php:608
 msgid "Copy column name."
 msgstr "Copiar nome da coluna."
 
-#: js/messages.php:607
+#: js/messages.php:609
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 "Clique com o botão direito do mouse no nome da coluna para copiá-la para a "
 "área de transferência."
 
-#: js/messages.php:610
+#: js/messages.php:612
 msgid "Generate password"
 msgstr "Gerar senha"
 
-#: js/messages.php:611
+#: js/messages.php:613
 #: templates/server/replication/master_add_slave_user.twig:73
 msgid "Generate"
 msgstr "Gerar"
 
-#: js/messages.php:612 libraries/classes/Controllers/HomeController.php:113
+#: js/messages.php:614 libraries/classes/Controllers/HomeController.php:113
 #: libraries/classes/UserPassword.php:267
 #: templates/display/change_password/file_a.twig:9
 msgid "Change password"
 msgstr "Alterar a senha"
 
-#: js/messages.php:615 templates/table/structure/display_structure.twig:129
+#: js/messages.php:617 templates/table/structure/display_structure.twig:129
 msgid "More"
 msgstr "Mais"
 
-#: js/messages.php:618
+#: js/messages.php:620
 msgid "Show panel"
 msgstr "Mostrar painel"
 
-#: js/messages.php:619
+#: js/messages.php:621
 msgid "Hide panel"
 msgstr "Ocultar painel"
 
-#: js/messages.php:620
+#: js/messages.php:622
 msgid "Show hidden navigation tree items."
 msgstr "Mostrar itens ocultos da árvore de navegação."
 
-#: js/messages.php:621 libraries/classes/Config/Descriptions.php:485
+#: js/messages.php:623 libraries/classes/Config/Descriptions.php:485
 #: libraries/classes/Navigation/NavigationTree.php:1470
 msgid "Link with main panel"
 msgstr "Fazer ligação com painel principal"
 
-#: js/messages.php:622 libraries/classes/Navigation/NavigationTree.php:1473
+#: js/messages.php:624 libraries/classes/Navigation/NavigationTree.php:1473
 msgid "Unlink from main panel"
 msgstr "Encerrar ligação com painel principal"
 
-#: js/messages.php:625
+#: js/messages.php:627
 msgid "The requested page was not found in the history, it may have expired."
 msgstr ""
 "A página solicitada não foi encontrada no histórico, ela pode ter expirado."
 
-#: js/messages.php:629 libraries/classes/Setup/Index.php:181
+#: js/messages.php:631 libraries/classes/Setup/Index.php:181
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1922,28 +1929,28 @@ msgstr ""
 "atualização. A nova versão é %s, lançada em %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:633
+#: js/messages.php:635
 msgid ", latest stable version:"
 msgstr ", última versão estável:"
 
-#: js/messages.php:634
+#: js/messages.php:636
 msgid "up to date"
 msgstr "atualizado(a)"
 
-#: js/messages.php:636 libraries/classes/Display/Results.php:4640
+#: js/messages.php:638 libraries/classes/Display/Results.php:4640
 #: templates/display/results/table.twig:276 templates/view_create.twig:11
 msgid "Create view"
 msgstr "Criar view"
 
-#: js/messages.php:639
+#: js/messages.php:641
 msgid "Send error report"
 msgstr "Enviar relatório de erros"
 
-#: js/messages.php:640
+#: js/messages.php:642
 msgid "Submit error report"
 msgstr "Cadastrar relatório de erro"
 
-#: js/messages.php:642
+#: js/messages.php:644
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
@@ -1951,15 +1958,15 @@ msgstr ""
 "Ocorreu um erro fatal no JavaScript. Gostaria de enviar um relatório de "
 "erros?"
 
-#: js/messages.php:644
+#: js/messages.php:646
 msgid "Change report settings"
 msgstr "Alterar configurações de relatórios"
 
-#: js/messages.php:645
+#: js/messages.php:647
 msgid "Show report details"
 msgstr "Exibir detalhes de relatório"
 
-#: js/messages.php:647
+#: js/messages.php:649
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
@@ -1967,7 +1974,7 @@ msgstr ""
 "A exportação está incompleta devido ao baixo limite de tempo de execução nas "
 "configurações do PHP!"
 
-#: js/messages.php:651
+#: js/messages.php:653
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -1976,69 +1983,69 @@ msgstr ""
 "Aviso: um formulário nesta página tem mais de %d campos. Ao enviar, alguns "
 "campos podem ser ignorados, por causa da configuração max_input_vars do PHP."
 
-#: js/messages.php:657 js/messages.php:670
+#: js/messages.php:659 js/messages.php:672
 msgid "Some errors have been detected on the server!"
 msgstr "Alguns erros foram detectados no servidor!"
 
-#: js/messages.php:659
+#: js/messages.php:661
 msgid "Please look at the bottom of this window."
 msgstr "Por favor, olhe na parte inferior da janela."
 
-#: js/messages.php:665 libraries/classes/ErrorHandler.php:393
+#: js/messages.php:667 libraries/classes/ErrorHandler.php:393
 msgid "Ignore All"
 msgstr "Ignorar Tudo"
 
-#: js/messages.php:673
+#: js/messages.php:675
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 "De acordo com as definições, elas estão sendo submetidas atualmente, por "
 "favor, seja paciente."
 
-#: js/messages.php:681
+#: js/messages.php:683
 msgid "Successfully copied!"
 msgstr "Copiado com sucesso!"
 
-#: js/messages.php:682
+#: js/messages.php:684
 msgid "Copying failed!"
 msgstr "A cópia falhou!"
 
-#: js/messages.php:685
+#: js/messages.php:687
 msgid "Execute this query again?"
 msgstr "Executar esta consulta novamente?"
 
-#: js/messages.php:686
+#: js/messages.php:688
 msgid "Do you really want to delete this bookmark?"
 msgstr "Você realmente deseja excluir a busca \"%s\"?"
 
-#: js/messages.php:687
+#: js/messages.php:689
 msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 "Ocorreram alguns erros enquanto informações de debug do SQL eram gerados."
 
-#: js/messages.php:688
+#: js/messages.php:690
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s consultas executadas %s vezes em %s segundos."
 
-#: js/messages.php:689
+#: js/messages.php:691
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "%s parâmetro(s) passado(s)"
 
-#: js/messages.php:690
+#: js/messages.php:692
 msgid "Show arguments"
 msgstr "Mostrar comentários"
 
-#: js/messages.php:691
+#: js/messages.php:693
 msgid "Hide arguments"
 msgstr "Ocultar resultados"
 
-#: js/messages.php:692
+#: js/messages.php:694
 msgid "Time taken:"
 msgstr "Tempo gasto:"
 
-#: js/messages.php:693
+#: js/messages.php:695
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -2053,64 +2060,64 @@ msgstr ""
 "\"Dados Offline de Sites\" pode ajudar. No Safari, este problema é "
 "normalmente causado pelo \"Navegação Privada\"."
 
-#: js/messages.php:695
+#: js/messages.php:697
 msgid "Copy tables to"
 msgstr "Copiar tabelas para"
 
-#: js/messages.php:696
+#: js/messages.php:698
 msgid "Add table prefix"
 msgstr "Adicionar prefixo de tabela"
 
-#: js/messages.php:697
+#: js/messages.php:699
 msgid "Replace table with prefix"
 msgstr "Substituir a tabela com o prefixo"
 
-#: js/messages.php:698 templates/database/structure/check_all_tables.twig:28
+#: js/messages.php:700 templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "Copiar tabelas com prefixo"
 
-#: js/messages.php:701
+#: js/messages.php:703
 msgid "Extremely weak"
 msgstr "Extremamente fraco"
 
-#: js/messages.php:702
+#: js/messages.php:704
 msgid "Very weak"
 msgstr "Muito fraco"
 
-#: js/messages.php:703
+#: js/messages.php:705
 msgid "Weak"
 msgstr "Fraco"
 
-#: js/messages.php:704
+#: js/messages.php:706
 msgid "Good"
 msgstr "Bom"
 
-#: js/messages.php:705
+#: js/messages.php:707
 msgid "Strong"
 msgstr "Forte"
 
-#: js/messages.php:708
+#: js/messages.php:710
 msgid "Timed out waiting for security key activation."
 msgstr "O tempo de espera para ativação com chave de segurança foi excedido."
 
-#: js/messages.php:709
+#: js/messages.php:711
 #, php-format
 msgid "Failed security key activation (%s)."
 msgstr "Falha na ativação da chave de segurança (%s)."
 
-#: js/messages.php:712
+#: js/messages.php:714
 #, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
 msgstr "A tabela %s já existe!"
 
-#: js/messages.php:713 libraries/classes/InsertEdit.php:337
+#: js/messages.php:715 libraries/classes/InsertEdit.php:337
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Ocultar"
 
-#: js/messages.php:714
+#: js/messages.php:716
 #: libraries/classes/Controllers/Table/ChangeController.php:202
 #: templates/database/multi_table_query/form.twig:44
 #: templates/database/tracking/tables.twig:19
@@ -2118,7 +2125,7 @@ msgstr "Ocultar"
 msgid "Show"
 msgstr "Mostrar"
 
-#: js/messages.php:715 libraries/classes/Config/Forms/User/ExportForm.php:52
+#: js/messages.php:717 libraries/classes/Config/Forms/User/ExportForm.php:52
 #: libraries/classes/Config/Forms/User/ExportForm.php:99
 #: libraries/classes/Config/Forms/User/ExportForm.php:127
 #: libraries/classes/Controllers/Database/ExportController.php:96

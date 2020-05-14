@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-05-14 13:31+0200\n"
+"POT-Creation-Date: 2020-05-14 13:58+0200\n"
 "PO-Revision-Date: 2020-05-11 20:51+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1332,7 +1332,7 @@ msgstr ""
 msgid "No partial dependencies selected!"
 msgstr "Nebyly vybrány žádné částečné závislosti!"
 
-#: js/messages.php:435 js/messages.php:596 libraries/classes/Export.php:589
+#: js/messages.php:435 js/messages.php:598 libraries/classes/Export.php:589
 #: libraries/classes/Html/Generator.php:1120
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:303
 #: templates/import_status.twig:2 templates/user_password.twig:2
@@ -1470,7 +1470,7 @@ msgstr "Zvolte dva odlišné sloupce"
 msgid "Data point content"
 msgstr "Obsah datového bodu"
 
-#: js/messages.php:491 js/messages.php:662
+#: js/messages.php:491 js/messages.php:664
 #: libraries/classes/ErrorHandler.php:389 libraries/classes/InsertEdit.php:3107
 #: templates/table/index_form.twig:157 templates/table/index_form.twig:193
 msgid "Ignore"
@@ -1589,7 +1589,14 @@ msgstr "Přejete si zkopírovat šifrovací klíč?"
 msgid "Encryption key"
 msgstr "Šifrovací klíč"
 
-#: js/messages.php:510
+#. l10n: Tip for HEX conversion of Integers
+#: js/messages.php:508
+msgid ""
+"The HEX function will treat the integer as a string while calculating the "
+"hexadecimal value"
+msgstr ""
+
+#: js/messages.php:512
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
@@ -1597,7 +1604,7 @@ msgstr ""
 "Další platné hodnoty nelze vybrat nastavením jezdce; Zadejte tyto hodnoty "
 "přímo podle potřeby"
 
-#: js/messages.php:516
+#: js/messages.php:518
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
@@ -1605,7 +1612,7 @@ msgstr ""
 "MySQL podporuje i další hodnoty, které se nedají vybrat v kalendáři, ale v "
 "případě potřeby je můžete zadat přímo"
 
-#: js/messages.php:522
+#: js/messages.php:524
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
@@ -1613,24 +1620,24 @@ msgstr ""
 "Indikuje, že jste provedli změny na této stránce; budete vyzváni k potvrzení "
 "před opuštěním změn"
 
-#: js/messages.php:527
+#: js/messages.php:529
 msgid "Select referenced key"
 msgstr "Zvolte odkazovaný klíč"
 
-#: js/messages.php:528
+#: js/messages.php:530
 msgid "Select Foreign Key"
 msgstr "Zvolte cizí klíč"
 
-#: js/messages.php:529
+#: js/messages.php:531
 msgid "Please select the primary key or a unique key!"
 msgstr "Prosím zvolte primární nebo unikátní klíč!"
 
-#: js/messages.php:530 templates/database/designer/main.twig:100
+#: js/messages.php:532 templates/database/designer/main.twig:100
 #: templates/database/designer/main.twig:103
 msgid "Choose column to display"
 msgstr "Zvolte která pole zobrazit"
 
-#: js/messages.php:532
+#: js/messages.php:534
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -1638,98 +1645,98 @@ msgstr ""
 "Neuložili jste změny ve schématu. Pokud je neuložíte, budou ztraceny. "
 "Přejete si pokračovat?"
 
-#: js/messages.php:535
+#: js/messages.php:537
 msgid "value/subQuery is empty"
 msgstr "prázdná hodnota nebo poddotaz"
 
-#: js/messages.php:536 templates/database/designer/main.twig:42
+#: js/messages.php:538 templates/database/designer/main.twig:42
 #: templates/database/designer/main.twig:45
 msgid "Add tables from other databases"
 msgstr "Přidat tabulky z jiných databází"
 
-#: js/messages.php:537
+#: js/messages.php:539
 msgid "Page name"
 msgstr "Jméno stránky"
 
-#: js/messages.php:538 templates/database/designer/main.twig:65
+#: js/messages.php:540 templates/database/designer/main.twig:65
 #: templates/database/designer/main.twig:68
 msgid "Save page"
 msgstr "Uložit stránku"
 
-#: js/messages.php:539 templates/database/designer/main.twig:72
+#: js/messages.php:541 templates/database/designer/main.twig:72
 #: templates/database/designer/main.twig:75
 msgid "Save page as"
 msgstr "Uložit stránku jako"
 
-#: js/messages.php:540 templates/database/designer/main.twig:58
+#: js/messages.php:542 templates/database/designer/main.twig:58
 #: templates/database/designer/main.twig:61
 msgid "Open page"
 msgstr "Otevřít stránku"
 
-#: js/messages.php:541
+#: js/messages.php:543
 msgid "Delete page"
 msgstr "Odstranit stránku"
 
-#: js/messages.php:542 templates/database/designer/main.twig:12
+#: js/messages.php:544 templates/database/designer/main.twig:12
 msgid "Untitled"
 msgstr "Beze jména"
 
-#: js/messages.php:543
+#: js/messages.php:545
 msgid "Please select a page to continue"
 msgstr "Prosím vyberte stránku pro pokračování"
 
-#: js/messages.php:544
+#: js/messages.php:546
 msgid "Please enter a valid page name"
 msgstr "Prosím zadejte platný název stránky"
 
-#: js/messages.php:545
+#: js/messages.php:547
 msgid "Do you want to save the changes to the current page?"
 msgstr "Přejete si uložit změny na aktuální stránce?"
 
-#: js/messages.php:546
+#: js/messages.php:548
 msgid "Successfully deleted the page"
 msgstr "Stránka byla odstraněna"
 
-#: js/messages.php:547
+#: js/messages.php:549
 msgid "Export relational schema"
 msgstr "Exportovat relační schéma"
 
-#: js/messages.php:548
+#: js/messages.php:550
 msgid "Modifications have been saved"
 msgstr "Změny byly uloženy"
 
-#: js/messages.php:551
+#: js/messages.php:553
 #, php-format
 msgid "%d object(s) created."
 msgstr "Bylo vytvořeno %d objektů."
 
-#: js/messages.php:552
+#: js/messages.php:554
 msgid "Column name"
 msgstr "Název sloupce"
 
-#: js/messages.php:553 templates/sql/query.twig:165
+#: js/messages.php:555 templates/sql/query.twig:165
 msgid "Submit"
 msgstr "Provést"
 
-#: js/messages.php:556
+#: js/messages.php:558
 msgid "Press escape to cancel editing."
 msgstr "Klávesou Esc ukončíte editaci."
 
-#: js/messages.php:558
+#: js/messages.php:560
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr "Na stránce jsou neuložené změny. Opravdu si ji přejete opustit?"
 
-#: js/messages.php:561
+#: js/messages.php:563
 msgid "Drag to reorder."
 msgstr "Uspořádejte přetažením."
 
-#: js/messages.php:562
+#: js/messages.php:564
 msgid "Click to sort results by this column."
 msgstr "Klikněte pro seřazení výsledků podle tohoto sloupce."
 
-#: js/messages.php:564
+#: js/messages.php:566
 #, fuzzy
 #| msgid ""
 #| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
@@ -1744,28 +1751,28 @@ msgstr ""
 "<br />- Control+Kliknutí nebo Alt+Kliknutí(MAC: Shift+Option+Kliknutí) "
 "sloupec odstraní z ORDER BY podmínky"
 
-#: js/messages.php:568
+#: js/messages.php:570
 msgid "Click to mark/unmark."
 msgstr "Klikněte pro označení."
 
-#: js/messages.php:569
+#: js/messages.php:571
 msgid "Double-click to copy column name."
 msgstr "Poklepejte pro zkopírování jména pole."
 
-#: js/messages.php:571
+#: js/messages.php:573
 #, fuzzy
 #| msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr "Klikněte na šipku<br />pro vybrání sloupců."
 
-#: js/messages.php:573 libraries/classes/BrowseForeigners.php:344
+#: js/messages.php:575 libraries/classes/BrowseForeigners.php:344
 #: templates/display/results/table.twig:24
 #: templates/server/privileges/initials_row.twig:20
 #: templates/table/browse_foreigners/show_all.twig:4
 msgid "Show all"
 msgstr "Zobrazit vše"
 
-#: js/messages.php:575
+#: js/messages.php:577
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -1774,12 +1781,12 @@ msgstr ""
 "editování v mřížce, zaškrtávací políčka nebo odkazy na editaci a mazání "
 "fungovat."
 
-#: js/messages.php:578
+#: js/messages.php:580
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 "Prosím zadejte platný šestnáctkový řetězec. Můžete použít znaky 0-9, A-F."
 
-#: js/messages.php:580
+#: js/messages.php:582
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
@@ -1787,118 +1794,118 @@ msgstr ""
 "Opravdu si přejete zobrazit všechny řádky? U velké tabulky by mohlo dojít ke "
 "spadnutí prohlížeče."
 
-#: js/messages.php:583
+#: js/messages.php:585
 msgid "Original length"
 msgstr "Původní délka"
 
-#: js/messages.php:586
+#: js/messages.php:588
 msgid "cancel"
 msgstr "zrušit"
 
-#: js/messages.php:587
+#: js/messages.php:589
 #: libraries/classes/Controllers/Server/Status/StatusController.php:212
 msgid "Aborted"
 msgstr "Přerušené"
 
-#: js/messages.php:588 libraries/classes/Controllers/ImportController.php:132
+#: js/messages.php:590 libraries/classes/Controllers/ImportController.php:132
 msgid "Failed"
 msgstr "Chyba"
 
-#: js/messages.php:589
+#: js/messages.php:591
 msgid "Success"
 msgstr "Úspěch"
 
-#: js/messages.php:590
+#: js/messages.php:592
 msgid "Import status"
 msgstr "Stav importu"
 
-#: js/messages.php:591 templates/navigation/main.twig:85
+#: js/messages.php:593 templates/navigation/main.twig:85
 msgid "Drop files here"
 msgstr "Přetáhněte sem soubory"
 
-#: js/messages.php:592
+#: js/messages.php:594
 msgid "Select database first"
 msgstr "Nejdříve zvolte databázi"
 
-#: js/messages.php:595 templates/database/data_dictionary/index.twig:117
+#: js/messages.php:597 templates/database/data_dictionary/index.twig:117
 #: templates/database/structure/index.twig:12
 #: templates/display/results/table.twig:237
 #: templates/table/structure/display_structure.twig:385
 msgid "Print"
 msgstr "Vytisknout"
 
-#: js/messages.php:600
+#: js/messages.php:602
 #, fuzzy
 #| msgid ""
 #| "You can also edit most values<br />by double-clicking directly on them."
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr "Většinu polí můžete přímo upravit<br />dvojklikem na jejich obsah."
 
-#: js/messages.php:602
+#: js/messages.php:604
 #, fuzzy
 #| msgid "You can also edit most values<br />by clicking directly on them."
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr "Většinu polí můžete přímo upravit<br />kliknutím na jejich obsah."
 
-#: js/messages.php:605
+#: js/messages.php:607
 msgid "Go to link:"
 msgstr "Přejít na odkaz:"
 
-#: js/messages.php:606
+#: js/messages.php:608
 msgid "Copy column name."
 msgstr "Zkopírovat název pole."
 
-#: js/messages.php:607
+#: js/messages.php:609
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr "Klikněte pravým tlačítkem myši pro zkopírování názvu pole do schránky."
 
-#: js/messages.php:610
+#: js/messages.php:612
 msgid "Generate password"
 msgstr "Vytvořit heslo"
 
-#: js/messages.php:611
+#: js/messages.php:613
 #: templates/server/replication/master_add_slave_user.twig:73
 msgid "Generate"
 msgstr "Vytvořit"
 
-#: js/messages.php:612 libraries/classes/Controllers/HomeController.php:113
+#: js/messages.php:614 libraries/classes/Controllers/HomeController.php:113
 #: libraries/classes/UserPassword.php:267
 #: templates/display/change_password/file_a.twig:9
 msgid "Change password"
 msgstr "Změnit heslo"
 
-#: js/messages.php:615 templates/table/structure/display_structure.twig:129
+#: js/messages.php:617 templates/table/structure/display_structure.twig:129
 msgid "More"
 msgstr "Více"
 
-#: js/messages.php:618
+#: js/messages.php:620
 msgid "Show panel"
 msgstr "Zobrazit panel"
 
-#: js/messages.php:619
+#: js/messages.php:621
 msgid "Hide panel"
 msgstr "Skrýt panel"
 
-#: js/messages.php:620
+#: js/messages.php:622
 msgid "Show hidden navigation tree items."
 msgstr "Zobrazit skryté položky navigačního panelu."
 
-#: js/messages.php:621 libraries/classes/Config/Descriptions.php:485
+#: js/messages.php:623 libraries/classes/Config/Descriptions.php:485
 #: libraries/classes/Navigation/NavigationTree.php:1470
 msgid "Link with main panel"
 msgstr "Spojit s hlavním panelem"
 
-#: js/messages.php:622 libraries/classes/Navigation/NavigationTree.php:1473
+#: js/messages.php:624 libraries/classes/Navigation/NavigationTree.php:1473
 msgid "Unlink from main panel"
 msgstr "Odpojit od hlavního panelu"
 
-#: js/messages.php:625
+#: js/messages.php:627
 msgid "The requested page was not found in the history, it may have expired."
 msgstr ""
 "Požadovaná stránka nebyla nalezena v historii, možná jí již vypršela "
 "platnost."
 
-#: js/messages.php:629 libraries/classes/Setup/Index.php:181
+#: js/messages.php:631 libraries/classes/Setup/Index.php:181
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1908,49 +1915,49 @@ msgstr ""
 "je %s a byla vydána %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:633
+#: js/messages.php:635
 msgid ", latest stable version:"
 msgstr ", nejnovější stabilní verze:"
 
-#: js/messages.php:634
+#: js/messages.php:636
 msgid "up to date"
 msgstr "aktuální"
 
-#: js/messages.php:636 libraries/classes/Display/Results.php:4640
+#: js/messages.php:638 libraries/classes/Display/Results.php:4640
 #: templates/display/results/table.twig:276 templates/view_create.twig:11
 msgid "Create view"
 msgstr "Vytvořit pohled"
 
-#: js/messages.php:639
+#: js/messages.php:641
 msgid "Send error report"
 msgstr "Odeslat chybové hlášení"
 
-#: js/messages.php:640
+#: js/messages.php:642
 msgid "Submit error report"
 msgstr "Odeslat chybové hlášení"
 
-#: js/messages.php:642
+#: js/messages.php:644
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 "Došlo k chybě při běhu Javascriptu. Přejete si odeslat chybové hlášení?"
 
-#: js/messages.php:644
+#: js/messages.php:646
 msgid "Change report settings"
 msgstr "Změnit nastavení hlášení"
 
-#: js/messages.php:645
+#: js/messages.php:647
 msgid "Show report details"
 msgstr "Zobrazit podrobnosti hlášení"
 
-#: js/messages.php:647
+#: js/messages.php:649
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr "Váš export není kompletní kvůli omezené době běhu PHP!"
 
-#: js/messages.php:651
+#: js/messages.php:653
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -1959,70 +1966,70 @@ msgstr ""
 "Varování: Formulář na této stránce má více než %d polí. Při jeho odeslání "
 "mohou být kvůli nastavení PHP max_input_vars některá z nich ignorována."
 
-#: js/messages.php:657 js/messages.php:670
+#: js/messages.php:659 js/messages.php:672
 msgid "Some errors have been detected on the server!"
 msgstr "Na serveru došlo byly zjištěny chyby!"
 
-#: js/messages.php:659
+#: js/messages.php:661
 msgid "Please look at the bottom of this window."
 msgstr "Prosím podívejte se na spodní část okna."
 
-#: js/messages.php:665 libraries/classes/ErrorHandler.php:393
+#: js/messages.php:667 libraries/classes/ErrorHandler.php:393
 msgid "Ignore All"
 msgstr "Ignorovat vše"
 
-#: js/messages.php:673
+#: js/messages.php:675
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr "Podle vašeho nastavení jsou právě odesílány, prosím buďte trpěliví."
 
-#: js/messages.php:681
+#: js/messages.php:683
 #, fuzzy
 #| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
 msgstr "Stránka byla odstraněna"
 
-#: js/messages.php:682
+#: js/messages.php:684
 #, fuzzy
 #| msgid "Copying database"
 msgid "Copying failed!"
 msgstr "Kopíruji databázi"
 
-#: js/messages.php:685
+#: js/messages.php:687
 msgid "Execute this query again?"
 msgstr "Spustit tento dotaz znovu?"
 
-#: js/messages.php:686
+#: js/messages.php:688
 msgid "Do you really want to delete this bookmark?"
 msgstr "Opravdu si přejete odstranit tuto záložku?"
 
-#: js/messages.php:687
+#: js/messages.php:689
 msgid "Some error occurred while getting SQL debug info."
 msgstr "Při získávání ladících informací došlo k neznámé chybě."
 
-#: js/messages.php:688
+#: js/messages.php:690
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s dotazů bylo provedno %s krát během %s sekund."
 
-#: js/messages.php:689
+#: js/messages.php:691
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "Zadáno %s argumentů"
 
-#: js/messages.php:690
+#: js/messages.php:692
 msgid "Show arguments"
 msgstr "Zobrazit argumenty"
 
-#: js/messages.php:691
+#: js/messages.php:693
 msgid "Hide arguments"
 msgstr "Skrýt argumenty"
 
-#: js/messages.php:692
+#: js/messages.php:694
 msgid "Time taken:"
 msgstr "Doba běhu:"
 
-#: js/messages.php:693
+#: js/messages.php:695
 #, fuzzy
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
@@ -2038,64 +2045,64 @@ msgstr ""
 "tohoto úložiště. Toto poškození je možno opravit vymazáním offline dat v "
 "nastaveních. V Safari to bývá způsobeno Anonymním prohlížením."
 
-#: js/messages.php:695
+#: js/messages.php:697
 msgid "Copy tables to"
 msgstr "Zkopírovat tabulky do"
 
-#: js/messages.php:696
+#: js/messages.php:698
 msgid "Add table prefix"
 msgstr "Přidat tabulce předponu"
 
-#: js/messages.php:697
+#: js/messages.php:699
 msgid "Replace table with prefix"
 msgstr "Nahradit tabulce předponu"
 
-#: js/messages.php:698 templates/database/structure/check_all_tables.twig:28
+#: js/messages.php:700 templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "Zkopírovat tabulku s předponou"
 
-#: js/messages.php:701
+#: js/messages.php:703
 msgid "Extremely weak"
 msgstr "Extrémně slabé"
 
-#: js/messages.php:702
+#: js/messages.php:704
 msgid "Very weak"
 msgstr "Velmi slabé"
 
-#: js/messages.php:703
+#: js/messages.php:705
 msgid "Weak"
 msgstr "Slabé"
 
-#: js/messages.php:704
+#: js/messages.php:706
 msgid "Good"
 msgstr "Dobré"
 
-#: js/messages.php:705
+#: js/messages.php:707
 msgid "Strong"
 msgstr "Silné"
 
-#: js/messages.php:708
+#: js/messages.php:710
 msgid "Timed out waiting for security key activation."
 msgstr "Vypršel čas pro aktivaci bezpečnostního klíče."
 
-#: js/messages.php:709
+#: js/messages.php:711
 #, php-format
 msgid "Failed security key activation (%s)."
 msgstr "Selhala aktivace bezpečnostního klíče (%s)."
 
-#: js/messages.php:712
+#: js/messages.php:714
 #, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
 msgstr "Tabulka %s již existuje!"
 
-#: js/messages.php:713 libraries/classes/InsertEdit.php:337
+#: js/messages.php:715 libraries/classes/InsertEdit.php:337
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Skrýt"
 
-#: js/messages.php:714
+#: js/messages.php:716
 #: libraries/classes/Controllers/Table/ChangeController.php:202
 #: templates/database/multi_table_query/form.twig:44
 #: templates/database/tracking/tables.twig:19
@@ -2103,7 +2110,7 @@ msgstr "Skrýt"
 msgid "Show"
 msgstr "Zobrazit"
 
-#: js/messages.php:715 libraries/classes/Config/Forms/User/ExportForm.php:52
+#: js/messages.php:717 libraries/classes/Config/Forms/User/ExportForm.php:52
 #: libraries/classes/Config/Forms/User/ExportForm.php:99
 #: libraries/classes/Config/Forms/User/ExportForm.php:127
 #: libraries/classes/Controllers/Database/ExportController.php:96

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-05-14 13:31+0200\n"
+"POT-Creation-Date: 2020-05-14 13:58+0200\n"
 "PO-Revision-Date: 2019-09-18 18:27+0000\n"
 "Last-Translator: WWWesten <wwwesten@gmail.com>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1338,7 +1338,7 @@ msgstr ""
 msgid "No partial dependencies selected!"
 msgstr "Eshqandaı táýeldilik bólektelmedi!"
 
-#: js/messages.php:435 js/messages.php:596 libraries/classes/Export.php:589
+#: js/messages.php:435 js/messages.php:598 libraries/classes/Export.php:589
 #: libraries/classes/Html/Generator.php:1120
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:303
 #: templates/import_status.twig:2 templates/user_password.twig:2
@@ -1479,7 +1479,7 @@ msgstr "Eki túrli baǵandy bólekteý"
 msgid "Data point content"
 msgstr "Derekter núktesiniń mazmuny"
 
-#: js/messages.php:491 js/messages.php:662
+#: js/messages.php:491 js/messages.php:664
 #: libraries/classes/ErrorHandler.php:389 libraries/classes/InsertEdit.php:3107
 #: templates/table/index_form.twig:157 templates/table/index_form.twig:193
 msgid "Ignore"
@@ -1598,7 +1598,14 @@ msgstr "Shıfrlaý kiltin kóshirgińiz kele me?"
 msgid "Encryption key"
 msgstr "Shıfrlaý kilti"
 
-#: js/messages.php:510
+#. l10n: Tip for HEX conversion of Integers
+#: js/messages.php:508
+msgid ""
+"The HEX function will treat the integer as a string while calculating the "
+"hexadecimal value"
+msgstr ""
+
+#: js/messages.php:512
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
@@ -1606,7 +1613,7 @@ msgstr ""
 "MySQL júgirtki arqyly bólektelmeıtin qosymsha mánderdi qabyldaıdy; qajet "
 "bolsa, bul mánderdi tikeleı engizińiz"
 
-#: js/messages.php:516
+#: js/messages.php:518
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
@@ -1614,7 +1621,7 @@ msgstr ""
 "MySQL kúntańdaǵysh arqyly bólektelmeıtin qosymsha mánderdi qabyldaıdy; qajet "
 "bolsa, bul mánderdi tikeleı engizińiz"
 
-#: js/messages.php:522
+#: js/messages.php:524
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
@@ -1622,24 +1629,24 @@ msgstr ""
 "Bul betke ózgerister istegenińizdi kórsetedi; ózgertýden bas tartpas buryn "
 "rastaýyńyz usynylady"
 
-#: js/messages.php:527
+#: js/messages.php:529
 msgid "Select referenced key"
 msgstr "Baılanysqan kiltti bólekteý"
 
-#: js/messages.php:528
+#: js/messages.php:530
 msgid "Select Foreign Key"
 msgstr "Syrtqy kiltti bólekteý"
 
-#: js/messages.php:529
+#: js/messages.php:531
 msgid "Please select the primary key or a unique key!"
 msgstr "Alǵashqy kiltti nemese biregeı kiltti tańdańyz!"
 
-#: js/messages.php:530 templates/database/designer/main.twig:100
+#: js/messages.php:532 templates/database/designer/main.twig:100
 #: templates/database/designer/main.twig:103
 msgid "Choose column to display"
 msgstr "Beınelenetin baǵandy tańdaý"
 
-#: js/messages.php:532
+#: js/messages.php:534
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -1647,86 +1654,86 @@ msgstr ""
 "Ornalasýdaǵy ózgeristerdi saqtamadyńyz. Eger olardy saqtamasańyz, olar "
 "joǵalady. Jalǵastyrǵyńyz kele me?"
 
-#: js/messages.php:535
+#: js/messages.php:537
 msgid "value/subQuery is empty"
 msgstr "value/subQuery bos"
 
-#: js/messages.php:536 templates/database/designer/main.twig:42
+#: js/messages.php:538 templates/database/designer/main.twig:42
 #: templates/database/designer/main.twig:45
 msgid "Add tables from other databases"
 msgstr "Basqa derekqorlardan kestelerdi ústeý"
 
-#: js/messages.php:537
+#: js/messages.php:539
 msgid "Page name"
 msgstr "Bet aty"
 
-#: js/messages.php:538 templates/database/designer/main.twig:65
+#: js/messages.php:540 templates/database/designer/main.twig:65
 #: templates/database/designer/main.twig:68
 msgid "Save page"
 msgstr "Betti saqtaý"
 
-#: js/messages.php:539 templates/database/designer/main.twig:72
+#: js/messages.php:541 templates/database/designer/main.twig:72
 #: templates/database/designer/main.twig:75
 msgid "Save page as"
 msgstr "Betti basqasha saqtaý"
 
-#: js/messages.php:540 templates/database/designer/main.twig:58
+#: js/messages.php:542 templates/database/designer/main.twig:58
 #: templates/database/designer/main.twig:61
 msgid "Open page"
 msgstr "Betti ashý"
 
-#: js/messages.php:541
+#: js/messages.php:543
 msgid "Delete page"
 msgstr "Betti joıý"
 
-#: js/messages.php:542 templates/database/designer/main.twig:12
+#: js/messages.php:544 templates/database/designer/main.twig:12
 msgid "Untitled"
 msgstr "Atalmaǵan"
 
-#: js/messages.php:543
+#: js/messages.php:545
 msgid "Please select a page to continue"
 msgstr "Jalǵastyrý úshin betti bólekteńiz"
 
-#: js/messages.php:544
+#: js/messages.php:546
 msgid "Please enter a valid page name"
 msgstr "Jaramdy bet atyn engizińiz"
 
-#: js/messages.php:545
+#: js/messages.php:547
 msgid "Do you want to save the changes to the current page?"
 msgstr "Ózgertýlerdi aǵymdyq betke saqtaǵyńyz kele me?"
 
-#: js/messages.php:546
+#: js/messages.php:548
 msgid "Successfully deleted the page"
 msgstr "Bet sátti joıyldy"
 
-#: js/messages.php:547
+#: js/messages.php:549
 msgid "Export relational schema"
 msgstr "Qatynas sulbasyn eksporttaý"
 
-#: js/messages.php:548
+#: js/messages.php:550
 msgid "Modifications have been saved"
 msgstr "Ózgerister saqtaldy"
 
-#: js/messages.php:551
+#: js/messages.php:553
 #, php-format
 msgid "%d object(s) created."
 msgstr "%d nysan jasaldy."
 
-#: js/messages.php:552
+#: js/messages.php:554
 #, fuzzy
 #| msgid "Column names"
 msgid "Column name"
 msgstr "Baǵan ataýlary"
 
-#: js/messages.php:553 templates/sql/query.twig:165
+#: js/messages.php:555 templates/sql/query.twig:165
 msgid "Submit"
 msgstr "Jiberý"
 
-#: js/messages.php:556
+#: js/messages.php:558
 msgid "Press escape to cancel editing."
 msgstr "Óńdelýdi boldyrmaý úshin ESC basyńyz."
 
-#: js/messages.php:558
+#: js/messages.php:560
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -1734,15 +1741,15 @@ msgstr ""
 "Keıbir derekterdi óńdepsiz jáne olar saqtalmaǵan. Derekterdi saqtamas buryn "
 "osy betten ketýdi qalaısyz ba?"
 
-#: js/messages.php:561
+#: js/messages.php:563
 msgid "Drag to reorder."
 msgstr "Qaıta retteý úshin aparý."
 
-#: js/messages.php:562
+#: js/messages.php:564
 msgid "Click to sort results by this column."
 msgstr "Nátıjelerdi osy baǵan boıynsha suryptaý úshin basý."
 
-#: js/messages.php:564
+#: js/messages.php:566
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
@@ -1752,27 +1759,27 @@ msgstr ""
 "Shift+basyńyz.<br>- ORDER BY sóıleminen baǵandy joıý úshin Ctrl+basý nemese "
 "Alt+basý (Mac: Shift+Option+basý)"
 
-#: js/messages.php:568
+#: js/messages.php:570
 msgid "Click to mark/unmark."
 msgstr "Belgi qoıý/alý úshin basyńyz."
 
-#: js/messages.php:569
+#: js/messages.php:571
 msgid "Double-click to copy column name."
 msgstr "Baǵan ataýyn kóshirý úshin eki ret basyńyz."
 
-#: js/messages.php:571
+#: js/messages.php:573
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr ""
 "Baǵannyń kórinýin aýystyrý úshin<br>ashylmaly tizim kórsetkisin basyńyz."
 
-#: js/messages.php:573 libraries/classes/BrowseForeigners.php:344
+#: js/messages.php:575 libraries/classes/BrowseForeigners.php:344
 #: templates/display/results/table.twig:24
 #: templates/server/privileges/initials_row.twig:20
 #: templates/table/browse_foreigners/show_all.twig:4
 msgid "Show all"
 msgstr "Barlyǵyn kórsetý"
 
-#: js/messages.php:575
+#: js/messages.php:577
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -1781,11 +1788,11 @@ msgstr ""
 "Joıý siltemelerine qatysty múmkindikter saqtalǵannan keıin jumys istemeýi "
 "múmkin."
 
-#: js/messages.php:578
+#: js/messages.php:580
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr "Jaramdy onaltylyq joldy engizińiz. Jaramdy tańbalar - 0-9, A-F."
 
-#: js/messages.php:580
+#: js/messages.php:582
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
@@ -1793,116 +1800,116 @@ msgstr ""
 "Barlyq joldardy shynymen kórgińiz keledi me? Úlken keste úshin bul "
 "sholǵyshtyń buzylýyna akelýi múmkin."
 
-#: js/messages.php:583
+#: js/messages.php:585
 msgid "Original length"
 msgstr "Túpnusqa uzyndyǵy"
 
-#: js/messages.php:586
+#: js/messages.php:588
 msgid "cancel"
 msgstr "boldyrmaý"
 
-#: js/messages.php:587
+#: js/messages.php:589
 #: libraries/classes/Controllers/Server/Status/StatusController.php:212
 msgid "Aborted"
 msgstr "Úzilgen"
 
-#: js/messages.php:588 libraries/classes/Controllers/ImportController.php:132
+#: js/messages.php:590 libraries/classes/Controllers/ImportController.php:132
 msgid "Failed"
 msgstr "Sátsiz aıaqtaldy"
 
-#: js/messages.php:589
+#: js/messages.php:591
 msgid "Success"
 msgstr "Sátti"
 
-#: js/messages.php:590
+#: js/messages.php:592
 msgid "Import status"
 msgstr "Import mártebesi"
 
-#: js/messages.php:591 templates/navigation/main.twig:85
+#: js/messages.php:593 templates/navigation/main.twig:85
 msgid "Drop files here"
 msgstr "Faıldardy osynda aparyńyz"
 
-#: js/messages.php:592
+#: js/messages.php:594
 msgid "Select database first"
 msgstr "Aldymen derekqordy bólekteý"
 
-#: js/messages.php:595 templates/database/data_dictionary/index.twig:117
+#: js/messages.php:597 templates/database/data_dictionary/index.twig:117
 #: templates/database/structure/index.twig:12
 #: templates/display/results/table.twig:237
 #: templates/table/structure/display_structure.twig:385
 msgid "Print"
 msgstr "Basyp shyǵarý"
 
-#: js/messages.php:600
+#: js/messages.php:602
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr ""
 "Sondaı-aq, kóptegen mánderdi<br>tikeleı olardy eki ret basý arqyly óńdeýge "
 "bolady."
 
-#: js/messages.php:602
+#: js/messages.php:604
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr ""
 "Sondaı-aq, kóptegen mánderdi<br>tikeleı olardy basý arqyly óńdeýge bolady."
 
-#: js/messages.php:605
+#: js/messages.php:607
 msgid "Go to link:"
 msgstr "Siltemege ótý:"
 
-#: js/messages.php:606
+#: js/messages.php:608
 msgid "Copy column name."
 msgstr "Baǵan atyn kóshirý."
 
-#: js/messages.php:607
+#: js/messages.php:609
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 "Ony aralyq saqtaǵyshqa kóshirý úshin baǵan atyn tintýirdiń oń jaq "
 "túımeshigimen basyńyz."
 
-#: js/messages.php:610
+#: js/messages.php:612
 msgid "Generate password"
 msgstr "Paróldi jasap shyǵarý"
 
-#: js/messages.php:611
+#: js/messages.php:613
 #: templates/server/replication/master_add_slave_user.twig:73
 msgid "Generate"
 msgstr "jasap shyǵarý"
 
-#: js/messages.php:612 libraries/classes/Controllers/HomeController.php:113
+#: js/messages.php:614 libraries/classes/Controllers/HomeController.php:113
 #: libraries/classes/UserPassword.php:267
 #: templates/display/change_password/file_a.twig:9
 msgid "Change password"
 msgstr "Paról ózgertý"
 
-#: js/messages.php:615 templates/table/structure/display_structure.twig:129
+#: js/messages.php:617 templates/table/structure/display_structure.twig:129
 msgid "More"
 msgstr "Kóbirek"
 
-#: js/messages.php:618
+#: js/messages.php:620
 msgid "Show panel"
 msgstr "Taqtany kórsetý"
 
-#: js/messages.php:619
+#: js/messages.php:621
 msgid "Hide panel"
 msgstr "Taqtany jasyrý"
 
-#: js/messages.php:620
+#: js/messages.php:622
 msgid "Show hidden navigation tree items."
 msgstr "Sharlaý tarmaǵynyń jasyryn elementterin kórsetý."
 
-#: js/messages.php:621 libraries/classes/Config/Descriptions.php:485
+#: js/messages.php:623 libraries/classes/Config/Descriptions.php:485
 #: libraries/classes/Navigation/NavigationTree.php:1470
 msgid "Link with main panel"
 msgstr "Negizgi taqtamen baılanystyrý"
 
-#: js/messages.php:622 libraries/classes/Navigation/NavigationTree.php:1473
+#: js/messages.php:624 libraries/classes/Navigation/NavigationTree.php:1473
 msgid "Unlink from main panel"
 msgstr "Negizgi taqtadan ajyratý"
 
-#: js/messages.php:625
+#: js/messages.php:627
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "Saýal jiberilgen bet tarıhta tabylmady, onyń merzimi bitken múmkin."
 
-#: js/messages.php:629 libraries/classes/Setup/Index.php:181
+#: js/messages.php:631 libraries/classes/Setup/Index.php:181
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1912,28 +1919,28 @@ msgstr ""
 "Eń jańa nusqasy - %s, %s kezinde shyǵarylǵan."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:633
+#: js/messages.php:635
 msgid ", latest stable version:"
 msgstr ", eń sońǵy turaqty nusqasy:"
 
-#: js/messages.php:634
+#: js/messages.php:636
 msgid "up to date"
 msgstr "sońǵy nuqasynda"
 
-#: js/messages.php:636 libraries/classes/Display/Results.php:4640
+#: js/messages.php:638 libraries/classes/Display/Results.php:4640
 #: templates/display/results/table.twig:276 templates/view_create.twig:11
 msgid "Create view"
 msgstr "Kórinis jasaý"
 
-#: js/messages.php:639
+#: js/messages.php:641
 msgid "Send error report"
 msgstr "Qate esebin jiberý"
 
-#: js/messages.php:640
+#: js/messages.php:642
 msgid "Submit error report"
 msgstr "Qate esebin jiberý"
 
-#: js/messages.php:642
+#: js/messages.php:644
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
@@ -1941,15 +1948,15 @@ msgstr ""
 "Túzetilmeıtin JavaScript qatesi oryn aldy. Qate týraly esep jibergińiz kele "
 "me?"
 
-#: js/messages.php:644
+#: js/messages.php:646
 msgid "Change report settings"
 msgstr "Esep parametrlerin ózgertý"
 
-#: js/messages.php:645
+#: js/messages.php:647
 msgid "Show report details"
 msgstr "Esep egjeılerin kórsetý"
 
-#: js/messages.php:647
+#: js/messages.php:649
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
@@ -1957,7 +1964,7 @@ msgstr ""
 "PHP deńgeıinde oryndalý merziminiń shekteýi tómen bolýyna baılanysty "
 "eksportyńyz tolyq aıaqtalmady!"
 
-#: js/messages.php:651
+#: js/messages.php:653
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -1966,66 +1973,66 @@ msgstr ""
 "Eskertý: Osy bettegi pishinde %d astam óris bar. Jiberilý kezinde PHP "
 "max_input_vars konfıgýrasıasyna baılanysty keıbir órister elenbeýi múmkin."
 
-#: js/messages.php:657 js/messages.php:670
+#: js/messages.php:659 js/messages.php:672
 msgid "Some errors have been detected on the server!"
 msgstr "Serverde keıbir qateler anyqtaldy!"
 
-#: js/messages.php:659
+#: js/messages.php:661
 msgid "Please look at the bottom of this window."
 msgstr "Osy terezeniń tómengi jaǵyn qarańyz."
 
-#: js/messages.php:665 libraries/classes/ErrorHandler.php:393
+#: js/messages.php:667 libraries/classes/ErrorHandler.php:393
 msgid "Ignore All"
 msgstr "Barlyǵyn elemeý"
 
-#: js/messages.php:673
+#: js/messages.php:675
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr "Parametrlerińizge sáıkes, olar aǵymda jiberilýde, shydamdy bolyńyz."
 
-#: js/messages.php:681
+#: js/messages.php:683
 msgid "Successfully copied!"
 msgstr "Sátti kóshirildi!"
 
-#: js/messages.php:682
+#: js/messages.php:684
 msgid "Copying failed!"
 msgstr "Kóshirý sátsiz aıaqtaldy!"
 
-#: js/messages.php:685
+#: js/messages.php:687
 msgid "Execute this query again?"
 msgstr "Osy saýaldy qaıta oryndaý kerek pe?"
 
-#: js/messages.php:686
+#: js/messages.php:688
 msgid "Do you really want to delete this bookmark?"
 msgstr "Shynymen osy betbelgini joıǵyńyz kele me?"
 
-#: js/messages.php:687
+#: js/messages.php:689
 msgid "Some error occurred while getting SQL debug info."
 msgstr "SQL kúıin keltirý týraly aqparatty alý kezinde keıbir qate oryn aldy."
 
-#: js/messages.php:688
+#: js/messages.php:690
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s saýal %s ret %s sekýntte oryndaldy."
 
-#: js/messages.php:689
+#: js/messages.php:691
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "%s dálel ótti"
 
-#: js/messages.php:690
+#: js/messages.php:692
 msgid "Show arguments"
 msgstr "Dálelderdi kórsetý"
 
-#: js/messages.php:691
+#: js/messages.php:693
 msgid "Hide arguments"
 msgstr "Dálelderdi jasyrý"
 
-#: js/messages.php:692
+#: js/messages.php:694
 msgid "Time taken:"
 msgstr "Alynǵan ýaqyt:"
 
-#: js/messages.php:693
+#: js/messages.php:695
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -2040,64 +2047,64 @@ msgstr ""
 "múmkin. Safari sholǵyshynda mundaı másele ádette «Jeke sharlaý rejimi» "
 "arqyly týdyrylady."
 
-#: js/messages.php:695
+#: js/messages.php:697
 msgid "Copy tables to"
 msgstr "Kestelerdi kelesige kóshirý"
 
-#: js/messages.php:696
+#: js/messages.php:698
 msgid "Add table prefix"
 msgstr "Keste prefıksin ústeý"
 
-#: js/messages.php:697
+#: js/messages.php:699
 msgid "Replace table with prefix"
 msgstr "Prefıksi bar kesteni aýystyrý"
 
-#: js/messages.php:698 templates/database/structure/check_all_tables.twig:28
+#: js/messages.php:700 templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "Prefıksi bar kesteni kóshirý"
 
-#: js/messages.php:701
+#: js/messages.php:703
 msgid "Extremely weak"
 msgstr "Tipten álsiz"
 
-#: js/messages.php:702
+#: js/messages.php:704
 msgid "Very weak"
 msgstr "Óte álsiz"
 
-#: js/messages.php:703
+#: js/messages.php:705
 msgid "Weak"
 msgstr "Álsiz"
 
-#: js/messages.php:704
+#: js/messages.php:706
 msgid "Good"
 msgstr "Jaramdy"
 
-#: js/messages.php:705
+#: js/messages.php:707
 msgid "Strong"
 msgstr "Kúshti"
 
-#: js/messages.php:708
+#: js/messages.php:710
 msgid "Timed out waiting for security key activation."
 msgstr "Qaýipsizdik kiltin belsendirý úshin kútý ýaqyty bitti."
 
-#: js/messages.php:709
+#: js/messages.php:711
 #, php-format
 msgid "Failed security key activation (%s)."
 msgstr "Qaýipsizdik kiltin belsendirý sátsiz aıaqtaldy (%s)."
 
-#: js/messages.php:712
+#: js/messages.php:714
 #, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
 msgstr "%s kestesi áldeqashan bar!"
 
-#: js/messages.php:713 libraries/classes/InsertEdit.php:337
+#: js/messages.php:715 libraries/classes/InsertEdit.php:337
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Jasyrý"
 
-#: js/messages.php:714
+#: js/messages.php:716
 #: libraries/classes/Controllers/Table/ChangeController.php:202
 #: templates/database/multi_table_query/form.twig:44
 #: templates/database/tracking/tables.twig:19
@@ -2105,7 +2112,7 @@ msgstr "Jasyrý"
 msgid "Show"
 msgstr "Kórsetý"
 
-#: js/messages.php:715 libraries/classes/Config/Forms/User/ExportForm.php:52
+#: js/messages.php:717 libraries/classes/Config/Forms/User/ExportForm.php:52
 #: libraries/classes/Config/Forms/User/ExportForm.php:99
 #: libraries/classes/Config/Forms/User/ExportForm.php:127
 #: libraries/classes/Controllers/Database/ExportController.php:96
