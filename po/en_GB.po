@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-05-14 13:58+0200\n"
-"PO-Revision-Date: 2020-05-14 12:17+0000\n"
+"PO-Revision-Date: 2020-05-14 12:25+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/en_GB/>\n"
@@ -7801,11 +7801,11 @@ msgid "Export of event %s"
 msgstr "Export of event %s"
 
 #: libraries/classes/Database/Events.php:616
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s."
+#, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
-msgstr "No event with name %1$s found in database %2$s."
+msgstr ""
+"Error in processing request: No event with name %1$s found in database %2$s."
 
 #: libraries/classes/DatabaseInterface.php:1578
 #, php-format
@@ -8182,17 +8182,14 @@ msgid "Export of routine %s"
 msgstr "Export of routine %s"
 
 #: libraries/classes/Database/Routines.php:1882
-#, fuzzy, php-format
-#| msgid ""
-#| "No routine with name %1$s found in database %2$s. You might be lacking "
-#| "the necessary privileges to view/export this routine."
+#, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
 "%2$s. You might be lacking the necessary privileges to view/export this "
 "routine."
 msgstr ""
-"No routine with name %1$s found in database %2$s. You might be lacking the "
-"necessary privileges to view/export this routine."
+"Error in processing request: No routine with name %1$s found in database %2$"
+"s. You might be lacking the necessary privileges to view/export this routine."
 
 #: libraries/classes/Database/Search.php:108
 #: templates/database/search/main.twig:19
@@ -8292,12 +8289,13 @@ msgid "Export of trigger %s"
 msgstr "Export of trigger %s"
 
 #: libraries/classes/Database/Triggers.php:628
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s."
+#, php-format
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
 "%2$s."
-msgstr "No trigger with name %1$s found in database %2$s."
+msgstr ""
+"Error in processing request: No trigger with name %1$s found in database "
+"%2$s."
 
 #: libraries/classes/Dbal/DbiMysqli.php:184
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -9420,10 +9418,8 @@ msgstr ""
 "performance. Consider disabling item grouping in the navigation panel."
 
 #: libraries/classes/Navigation/NavigationTree.php:808
-#, fuzzy
-#| msgid "Groups:"
 msgid "Groups"
-msgstr "Groups:"
+msgstr "Groups"
 
 #: libraries/classes/Navigation/NavigationTree.php:974
 #, php-format
@@ -10235,10 +10231,8 @@ msgstr "Display comments"
 #: libraries/classes/Plugins/Export/ExportLatex.php:150
 #: libraries/classes/Plugins/Export/ExportOdt.php:109
 #: libraries/classes/Plugins/Export/ExportSql.php:151
-#, fuzzy
-#| msgid "Display MIME types"
 msgid "Display media types"
-msgstr "Display MIME types"
+msgstr "Display media types"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:167
 msgid "Put columns names in the first row:"
@@ -10299,10 +10293,8 @@ msgstr "Export table headers"
 
 #: libraries/classes/Plugins/Export/ExportOdt.php:266
 #: libraries/classes/Plugins/Export/ExportTexytext.php:191
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Dumping data for query result"
-msgstr "Dumping data for table"
+msgstr "Dumping data for query result"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:97
 msgid "Report title:"
@@ -10313,10 +10305,8 @@ msgid "Dumping data"
 msgstr "Dumping data"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:251
-#, fuzzy
-#| msgid "Query results"
 msgid "Query result data"
-msgstr "Query results"
+msgstr "Query result data"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:309
 msgid "View structure"
@@ -10548,10 +10538,8 @@ msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT for table"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1947
-#, fuzzy
-#| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
-msgstr "MIME TYPES FOR TABLE"
+msgstr "MEDIA TYPES FOR TABLE"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1970
 msgid "RELATIONSHIPS FOR TABLE"
@@ -10886,18 +10874,6 @@ msgstr ""
 "need to set the first option to the empty string."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:38
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Output/Text_Plain_External.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -10913,13 +10889,13 @@ msgstr ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
 "default is Tidy, to pretty-print HTML code. For security reasons, you have "
-"to manually edit the file libraries/classes/Plugins/Transformations/Output/"
-"Text_Plain_External.php and list the tools you want to make available. The "
-"first option is then the number of the program you want to use and the "
-"second option is the parameters for the program. The third option, if set to "
-"1, will convert the output using htmlspecialchars() (Default 1). The fourth "
-"option, if set to 1, will prevent wrapping and ensure that the output "
-"appears all on one line (Default 1)."
+"to manually edit the file libraries/classes/Plugins/Transformations/Abs/"
+"ExternalTransformationsPlugin.php and list the tools you want to make "
+"available. The first option is then the number of the program you want to "
+"use. The second option should be blank for historical reasons. The third "
+"option, if set to 1, will convert the output using htmlspecialchars() ("
+"Default 1). The fourth option, if set to 1, will prevent wrapping and ensure "
+"that the output appears all on one line (Default 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:123
 #, php-format
@@ -11054,10 +11030,8 @@ msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgstr "Converts an Internet network address in (IPv4/IPv6) format to binary"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptolong.php:28
-#, fuzzy
-#| msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgid "Converts an Internet network address in (IPv4/IPv6) format to long."
-msgstr "Converts an Internet network address in (IPv4/IPv6) format to binary"
+msgstr "Converts an Internet network address in (IPv4/IPv6) format to long."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:25
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -13446,16 +13420,12 @@ msgstr "New database name"
 #: templates/table/operations/index.twig:79
 #: templates/table/operations/index.twig:113
 #: templates/table/operations/index.twig:291
-#, fuzzy
-#| msgid ""
-#| "You don't have sufficient privileges to perform this operation; Please "
-#| "refer to the documentation for more details"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details."
 msgstr ""
-"You don't have sufficient privileges to perform this operation; please refer "
-"to the documentation for more details"
+"You don't have sufficient privileges to perform this operation; Please refer "
+"to the documentation for more details."
 
 #: templates/database/operations/index.twig:89
 msgid "Remove database"
@@ -13587,10 +13557,8 @@ msgid "Ins:"
 msgstr "Ins:"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:12
-#, fuzzy
-#| msgid "And:"
 msgid "And"
-msgstr "And:"
+msgstr "And"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:17
 msgid "Del:"
@@ -13626,16 +13594,12 @@ msgid "Modify:"
 msgstr "Modify:"
 
 #: templates/database/qbe/selection_form.twig:54
-#, fuzzy
-#| msgid "Add/Delete criteria rows"
 msgid "Add/Delete criteria rows:"
-msgstr "Add/Delete criteria rows"
+msgstr "Add/Delete criteria rows:"
 
 #: templates/database/qbe/selection_form.twig:67
-#, fuzzy
-#| msgid "Add/Delete columns"
 msgid "Add/Delete columns:"
-msgstr "Add/Delete columns"
+msgstr "Add/Delete columns:"
 
 #: templates/database/qbe/selection_form.twig:86
 #: templates/database/qbe/selection_form.twig:88
@@ -14110,10 +14074,8 @@ msgid "Browse your computer:"
 msgstr "Browse your computer:"
 
 #: templates/display/import/import.twig:73
-#, fuzzy
-#| msgid "Browse your computer:"
 msgid "Browse your computer"
-msgstr "Browse your computer:"
+msgstr "Browse your computer"
 
 #: templates/display/import/import.twig:79
 #: templates/display/import/import.twig:112
@@ -14122,16 +14084,13 @@ msgstr "You may also drag and drop a file on any page."
 
 #: templates/display/import/import.twig:85
 #: templates/display/import/import.twig:115
-#, fuzzy, php-format
-#| msgid "Select from the web server upload directory <b>%s</b>:"
+#, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "Select from the web server upload directory <b>%s</b>:"
+msgstr "Select from the web server upload directory [strong]%s[/strong]:"
 
 #: templates/display/import/import.twig:91
-#, fuzzy
-#| msgid "File to import:"
 msgid "Select file to import"
-msgstr "File to import:"
+msgstr "Select file to import"
 
 #: templates/display/import/import.twig:96
 #: templates/display/import/import.twig:126
@@ -14828,10 +14787,8 @@ msgid "Add prefix"
 msgstr "Add prefix"
 
 #: templates/mult_submits/copy_multiple_tables.twig:14
-#, fuzzy
-#| msgid "Options"
 msgid "Options:"
-msgstr "Options"
+msgstr "Options:"
 
 #: templates/mult_submits/copy_multiple_tables.twig:39
 msgid "Add AUTO INCREMENT value"
@@ -15227,10 +15184,8 @@ msgid "User group"
 msgstr "User group"
 
 #: templates/server/privileges/choose_user_group.twig:6
-#, fuzzy
-#| msgid "User group"
 msgid "User group:"
-msgstr "User group"
+msgstr "User group:"
 
 #: templates/server/privileges/edit_routine_privileges.twig:4
 #: templates/server/privileges/user_properties.twig:4
@@ -15791,44 +15746,32 @@ msgid "Rules file is not well formed, the following errors were found:"
 msgstr "Rules file is not well formed, the following errors were found:"
 
 #: templates/server/status/advisor/index.twig:66
-#, fuzzy
-#| msgid "Some error occurred while getting SQL debug info."
 msgid "Errors occurred while executing rule expressions:"
-msgstr "Some error occurred while getting SQL debug info."
+msgstr "Errors occurred while executing rule expressions:"
 
 #: templates/server/status/advisor/index.twig:76
 msgid "Possible performance issues"
 msgstr "Possible performance issues"
 
 #: templates/server/status/advisor/index.twig:89
-#, fuzzy
-#| msgid "Issue"
 msgid "Issue:"
-msgstr "Issue"
+msgstr "Issue:"
 
 #: templates/server/status/advisor/index.twig:92
-#, fuzzy
-#| msgid "Recommendation"
 msgid "Recommendation:"
-msgstr "Recommendation"
+msgstr "Recommendation:"
 
 #: templates/server/status/advisor/index.twig:95
-#, fuzzy
-#| msgid "Justification"
 msgid "Justification:"
-msgstr "Justification"
+msgstr "Justification:"
 
 #: templates/server/status/advisor/index.twig:98
-#, fuzzy
-#| msgid "Used variable / formula"
 msgid "Used variable / formula:"
-msgstr "Used variable / formula"
+msgstr "Used variable / formula:"
 
 #: templates/server/status/advisor/index.twig:101
-#, fuzzy
-#| msgid "Test"
 msgid "Test:"
-msgstr "Test"
+msgstr "Test:"
 
 #: templates/server/status/base.twig:16
 msgid "Query statistics"
@@ -16351,10 +16294,8 @@ msgid "Rollback when finished"
 msgstr "Rollback when finished"
 
 #: templates/sql/query.twig:149
-#, fuzzy
-#| msgid "Bookmark"
 msgid "Bookmark:"
-msgstr "Bookmark"
+msgstr "Bookmark:"
 
 #: templates/sql/query.twig:156
 msgid "shared"
@@ -16616,10 +16557,8 @@ msgid "Remove partitioning"
 msgstr "Remove partitioning"
 
 #: templates/table/operations/index.twig:417
-#, fuzzy
-#| msgid "Check referential integrity:"
 msgid "Check referential integrity"
-msgstr "Check referential integrity:"
+msgstr "Check referential integrity"
 
 #: templates/table/operations/view.twig:11
 msgid "Rename view to"
