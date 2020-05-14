@@ -473,7 +473,7 @@ class Descriptions
             'MaxTableList_desc' => __('Maximum number of tables displayed in table list.'),
             'MaxTableList_name' => __('Maximum tables'),
             'MemoryLimit_desc' => __(
-                'The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] '
+                'The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] '
                 . '([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change).'
             ),
             'MemoryLimit_name' => __('Memory limit'),
@@ -820,7 +820,7 @@ class Descriptions
             'ShowSQL_name' => __('Show SQL queries'),
             'RetainQueryBox_desc' => __('Defines whether the query box should stay on-screen after its submission.'),
             'RetainQueryBox_name' => __('Retain query box'),
-            'ShowStats_desc' => __('Allow to display database and table statistics (eg. space usage).'),
+            'ShowStats_desc' => __('Allow to display database and table statistics (e.g. space usage).'),
             'ShowStats_name' => __('Show statistics'),
             'SkipLockedTables_desc' => __('Mark used tables and make it possible to show databases with locked tables.'),
             'SkipLockedTables_name' => __('Skip locked tables'),
