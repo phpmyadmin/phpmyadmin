@@ -40,6 +40,7 @@ phpMyAdmin - ChangeLog
 - issue #14815 Allow simplifying exported view syntax to only "CREATE VIEW"
 - issue #15496 Add $cfg['CaptchaSiteVerifyURL'] for Google ReCaptcha siteVerifyUrl
 - issue #14772 Add the password_hash PHP function as an option when inserting data
+- issue #15136 Add a notice for Hex converter giving invalid results
 
 5.0.3 (not yet released)
 - issue #15983 Require twig ^2.9
