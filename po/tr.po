@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-05-14 13:58+0200\n"
-"PO-Revision-Date: 2020-05-12 18:28+0000\n"
+"PO-Revision-Date: 2020-05-15 20:51+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -1602,6 +1602,7 @@ msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr ""
+"HEX işlevi, onaltılı değeri hesaplarken tamsayı bir dizgi olarak davranacak"
 
 #: js/messages.php:512
 msgid ""
@@ -3960,16 +3961,12 @@ msgid "Maximum tables"
 msgstr "En fazla tablo"
 
 #: libraries/classes/Config/Descriptions.php:476
-#, fuzzy
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"Betiğe ayrılması için izin verilecek bayt sayısıdır, örn. [kbd]32M[/kbd] "
-"(sınırsız için [kbd]-1[/kbd] ve değişiklik olmaması için [kbd]0[/kbd])."
+"Betiğin ayırmasına izin verilen bayt sayısı, örn. [kbd]32M[/kbd] (sınırsız "
+"için [kbd]-1[/kbd] ve değişiklik olmaması için [kbd]0[/kbd])."
 
 #: libraries/classes/Config/Descriptions.php:479
 msgid "Memory limit"
@@ -5043,11 +5040,9 @@ msgid "Retain query box"
 msgstr "Sorgu kutusunu tut"
 
 #: libraries/classes/Config/Descriptions.php:823
-#, fuzzy
-#| msgid "Allow to display database and table statistics (eg. space usage)."
 msgid "Allow to display database and table statistics (e.g. space usage)."
 msgstr ""
-"Veritabanı ve tablo istatistiklerini görüntülemek için izin verir (örn. alan "
+"Veritabanı ve tablo istatistiklerini görüntülemeye izin verir (örn. alan "
 "kullanımı)."
 
 #: libraries/classes/Config/Descriptions.php:824
