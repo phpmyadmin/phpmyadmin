@@ -1297,6 +1297,199 @@ class Routines
         return $query;
     }
 
+    private function handleExecuteRoutine(): void
+    {
+        global $db;
+
+        // Build the queries
+        $routine = $this->getDataFromName(
+            $_POST['item_name'],
+            $_POST['item_type'],
+            false
+        );
+        if ($routine === false) {
+            $message  = __('Error in processing request:') . ' ';
+            $message .= sprintf(
+                __('No routine with name %1$s found in database %2$s.'),
+                htmlspecialchars(Util::backquote($_POST['item_name'])),
+                htmlspecialchars(Util::backquote($db))
+            );
+            $message = Message::error($message);
+            if ($this->response->isAjax()) {
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', $message);
+                exit;
+            } else {
+                echo $message->getDisplay();
+                unset($_POST);
+            }
+        }
+
+        $queries   = [];
+        $end_query = [];
+        $args      = [];
+        $all_functions = $this->dbi->types->getAllFunctions();
+        for ($i = 0; $i < $routine['item_num_params']; $i++) {
+            if (isset($_POST['params'][$routine['item_param_name'][$i]])) {
+                $value = $_POST['params'][$routine['item_param_name'][$i]];
+                if (is_array($value)) { // is SET type
+                    $value = implode(',', $value);
+                }
+                $value = $this->dbi->escapeString($value);
+                if (! empty($_POST['funcs'][$routine['item_param_name'][$i]])
+                    && in_array(
+                        $_POST['funcs'][$routine['item_param_name'][$i]],
+                        $all_functions
+                    )
+                ) {
+                    $queries[] = 'SET @p' . $i . '='
+                        . $_POST['funcs'][$routine['item_param_name'][$i]]
+                        . "('" . $value . "');\n";
+                } else {
+                    $queries[] = 'SET @p' . $i . "='" . $value . "';\n";
+                }
+                $args[] = '@p' . $i;
+            } else {
+                $args[] = '@p' . $i;
+            }
+            if ($routine['item_type'] == 'PROCEDURE') {
+                if ($routine['item_param_dir'][$i] == 'OUT'
+                    || $routine['item_param_dir'][$i] == 'INOUT'
+                ) {
+                    $end_query[] = '@p' . $i . ' AS '
+                        . Util::backquote($routine['item_param_name'][$i]);
+                }
+            }
+        }
+        if ($routine['item_type'] == 'PROCEDURE') {
+            $queries[] = 'CALL ' . Util::backquote($routine['item_name'])
+                        . '(' . implode(', ', $args) . ");\n";
+            if (count($end_query)) {
+                $queries[] = 'SELECT ' . implode(', ', $end_query) . ";\n";
+            }
+        } else {
+            $queries[] = 'SELECT ' . Util::backquote($routine['item_name'])
+                        . '(' . implode(', ', $args) . ') '
+                        . 'AS ' . Util::backquote($routine['item_name'])
+                        . ";\n";
+        }
+
+        // Get all the queries as one SQL statement
+        $multiple_query = implode('', $queries);
+
+        $outcome = true;
+        $affected = 0;
+
+        // Execute query
+        if (! $this->dbi->tryMultiQuery($multiple_query)) {
+            $outcome = false;
+        }
+
+        // Generate output
+        $output = '';
+        $nbResultsetToDisplay = 0;
+        if ($outcome) {
+            // Pass the SQL queries through the "pretty printer"
+            $output  = Generator::formatSql(implode("\n", $queries));
+
+            // Display results
+            $output .= '<fieldset><legend>';
+            $output .= sprintf(
+                __('Execution results of routine %s'),
+                Util::backquote(htmlspecialchars($routine['item_name']))
+            );
+            $output .= '</legend>';
+
+            do {
+                $result = $this->dbi->storeResult();
+                $num_rows = $this->dbi->numRows($result);
+
+                if (($result !== false) && ($num_rows > 0)) {
+                    $output .= '<table><tr>';
+                    foreach ($this->dbi->getFieldsMeta($result) as $field) {
+                        $output .= '<th>';
+                        $output .= htmlspecialchars($field->name);
+                        $output .= '</th>';
+                    }
+                    $output .= '</tr>';
+
+                    while ($row = $this->dbi->fetchAssoc($result)) {
+                        $output .= '<tr>' . $this->browseRow($row) . '</tr>';
+                    }
+
+                    $output .= '</table>';
+                    $nbResultsetToDisplay++;
+                    $affected = $num_rows;
+                }
+
+                if (! $this->dbi->moreResults()) {
+                    break;
+                }
+
+                $output .= '<br>';
+
+                $this->dbi->freeResult($result);
+            } while ($outcome = $this->dbi->nextResult());
+        }
+
+        if ($outcome) {
+            $output .= '</fieldset>';
+
+            $message = __('Your SQL query has been executed successfully.');
+            if ($routine['item_type'] == 'PROCEDURE') {
+                $message .= '<br>';
+
+                // TODO : message need to be modified according to the
+                // output from the routine
+                $message .= sprintf(
+                    _ngettext(
+                        '%d row affected by the last statement inside the '
+                        . 'procedure.',
+                        '%d rows affected by the last statement inside the '
+                        . 'procedure.',
+                        $affected
+                    ),
+                    $affected
+                );
+            }
+            $message = Message::success($message);
+
+            if ($nbResultsetToDisplay == 0) {
+                $notice = __(
+                    'MySQL returned an empty result set (i.e. zero rows).'
+                );
+                $output .= Message::notice($notice)->getDisplay();
+            }
+        } else {
+            $output = '';
+            $message = Message::error(
+                sprintf(
+                    __('The following query has failed: "%s"'),
+                    htmlspecialchars($multiple_query)
+                )
+                . '<br><br>'
+                . __('MySQL said: ') . $this->dbi->getError()
+            );
+        }
+
+        // Print/send output
+        if ($this->response->isAjax()) {
+            $this->response->setRequestStatus($message->isSuccess());
+            $this->response->addJSON('message', $message->getDisplay() . $output);
+            $this->response->addJSON('dialog', false);
+            exit;
+        } else {
+            echo $message->getDisplay() , $output;
+            if ($message->isError()) {
+                // At least one query has failed, so shouldn't
+                // execute any more queries, so we quit.
+                exit;
+            }
+            unset($_POST);
+            // Now deliberately fall through to displaying the routines list
+        }
+    }
+
     /**
      * Handles requests for executing a routine
      *
@@ -1310,195 +1503,7 @@ class Routines
          * Handle all user requests other than the default of listing routines
          */
         if (! empty($_POST['execute_routine']) && ! empty($_POST['item_name'])) {
-            // Build the queries
-            $routine = $this->getDataFromName(
-                $_POST['item_name'],
-                $_POST['item_type'],
-                false
-            );
-            if ($routine === false) {
-                $message  = __('Error in processing request:') . ' ';
-                $message .= sprintf(
-                    __('No routine with name %1$s found in database %2$s.'),
-                    htmlspecialchars(Util::backquote($_POST['item_name'])),
-                    htmlspecialchars(Util::backquote($db))
-                );
-                $message = Message::error($message);
-                if ($this->response->isAjax()) {
-                    $this->response->setRequestStatus(false);
-                    $this->response->addJSON('message', $message);
-                    exit;
-                } else {
-                    echo $message->getDisplay();
-                    unset($_POST);
-                }
-            }
-
-            $queries   = [];
-            $end_query = [];
-            $args      = [];
-            $all_functions = $this->dbi->types->getAllFunctions();
-            for ($i = 0; $i < $routine['item_num_params']; $i++) {
-                if (isset($_POST['params'][$routine['item_param_name'][$i]])) {
-                    $value = $_POST['params'][$routine['item_param_name'][$i]];
-                    if (is_array($value)) { // is SET type
-                        $value = implode(',', $value);
-                    }
-                    $value = $this->dbi->escapeString($value);
-                    if (! empty($_POST['funcs'][$routine['item_param_name'][$i]])
-                        && in_array(
-                            $_POST['funcs'][$routine['item_param_name'][$i]],
-                            $all_functions
-                        )
-                    ) {
-                        $queries[] = 'SET @p' . $i . '='
-                            . $_POST['funcs'][$routine['item_param_name'][$i]]
-                            . "('" . $value . "');\n";
-                    } else {
-                        $queries[] = 'SET @p' . $i . "='" . $value . "';\n";
-                    }
-                    $args[] = '@p' . $i;
-                } else {
-                    $args[] = '@p' . $i;
-                }
-                if ($routine['item_type'] == 'PROCEDURE') {
-                    if ($routine['item_param_dir'][$i] == 'OUT'
-                        || $routine['item_param_dir'][$i] == 'INOUT'
-                    ) {
-                        $end_query[] = '@p' . $i . ' AS '
-                            . Util::backquote($routine['item_param_name'][$i]);
-                    }
-                }
-            }
-            if ($routine['item_type'] == 'PROCEDURE') {
-                $queries[] = 'CALL ' . Util::backquote($routine['item_name'])
-                           . '(' . implode(', ', $args) . ");\n";
-                if (count($end_query)) {
-                    $queries[] = 'SELECT ' . implode(', ', $end_query) . ";\n";
-                }
-            } else {
-                $queries[] = 'SELECT ' . Util::backquote($routine['item_name'])
-                           . '(' . implode(', ', $args) . ') '
-                           . 'AS ' . Util::backquote($routine['item_name'])
-                            . ";\n";
-            }
-
-            // Get all the queries as one SQL statement
-            $multiple_query = implode('', $queries);
-
-            $outcome = true;
-            $affected = 0;
-
-            // Execute query
-            if (! $this->dbi->tryMultiQuery($multiple_query)) {
-                $outcome = false;
-            }
-
-            // Generate output
-            $output = '';
-            $nbResultsetToDisplay = 0;
-            if ($outcome) {
-                // Pass the SQL queries through the "pretty printer"
-                $output  = Generator::formatSql(implode("\n", $queries));
-
-                // Display results
-                $output .= '<fieldset><legend>';
-                $output .= sprintf(
-                    __('Execution results of routine %s'),
-                    Util::backquote(htmlspecialchars($routine['item_name']))
-                );
-                $output .= '</legend>';
-
-                do {
-                    $result = $this->dbi->storeResult();
-                    $num_rows = $this->dbi->numRows($result);
-
-                    if (($result !== false) && ($num_rows > 0)) {
-                        $output .= '<table><tr>';
-                        foreach ($this->dbi->getFieldsMeta($result) as $field) {
-                            $output .= '<th>';
-                            $output .= htmlspecialchars($field->name);
-                            $output .= '</th>';
-                        }
-                        $output .= '</tr>';
-
-                        while ($row = $this->dbi->fetchAssoc($result)) {
-                            $output .= '<tr>' . $this->browseRow($row) . '</tr>';
-                        }
-
-                        $output .= '</table>';
-                        $nbResultsetToDisplay++;
-                        $affected = $num_rows;
-                    }
-
-                    if (! $this->dbi->moreResults()) {
-                        break;
-                    }
-
-                    $output .= '<br>';
-
-                    $this->dbi->freeResult($result);
-                } while ($outcome = $this->dbi->nextResult());
-            }
-
-            if ($outcome) {
-                $output .= '</fieldset>';
-
-                $message = __('Your SQL query has been executed successfully.');
-                if ($routine['item_type'] == 'PROCEDURE') {
-                    $message .= '<br>';
-
-                    // TODO : message need to be modified according to the
-                    // output from the routine
-                    $message .= sprintf(
-                        _ngettext(
-                            '%d row affected by the last statement inside the '
-                            . 'procedure.',
-                            '%d rows affected by the last statement inside the '
-                            . 'procedure.',
-                            $affected
-                        ),
-                        $affected
-                    );
-                }
-                $message = Message::success($message);
-
-                if ($nbResultsetToDisplay == 0) {
-                    $notice = __(
-                        'MySQL returned an empty result set (i.e. zero rows).'
-                    );
-                    $output .= Message::notice($notice)->getDisplay();
-                }
-            } else {
-                $output = '';
-                $message = Message::error(
-                    sprintf(
-                        __('The following query has failed: "%s"'),
-                        htmlspecialchars($multiple_query)
-                    )
-                    . '<br><br>'
-                    . __('MySQL said: ') . $this->dbi->getError()
-                );
-            }
-
-            // Print/send output
-            if ($this->response->isAjax()) {
-                $this->response->setRequestStatus($message->isSuccess());
-                $this->response->addJSON('message', $message->getDisplay() . $output);
-                $this->response->addJSON('dialog', false);
-                exit;
-            } else {
-                echo $message->getDisplay() , $output;
-                if ($message->isError()) {
-                    // At least one query has failed, so shouldn't
-                    // execute any more queries, so we quit.
-                    exit;
-                }
-                unset($_POST);
-                // Now deliberately fall through to displaying the routines list
-            }
-
-            return;
+            $this->handleExecuteRoutine();
         } elseif (! empty($_GET['execute_dialog']) && ! empty($_GET['item_name'])) {
             /**
              * Display the execute form for a routine.
