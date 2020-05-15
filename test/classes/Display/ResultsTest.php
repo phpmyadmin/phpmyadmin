@@ -142,7 +142,7 @@ class ResultsTest extends PmaTestCase
             $actual
         );
         $this->assertStringContainsString(
-            '" method="post">',
+            '" method="post" >',
             $actual
         );
         $this->assertStringContainsString(
