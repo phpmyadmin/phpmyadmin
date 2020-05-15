@@ -610,6 +610,7 @@ table tbody:first-of-type tr:not(.nopointer):hover th,
 // hovered table rows
 #table_index tbody:hover tr,
 #table_index tbody:hover th,
+#table_index tbody:hover td,
 table tr.hover:not(.nopointer) th {
   background: linear-gradient(#ced6df, #b6c6d7);
   color: $browse-pointer-color;
