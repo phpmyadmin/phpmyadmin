@@ -162,10 +162,8 @@ class Response extends \PhpMyAdmin\Response
 
     /**
      * Get the status of an ajax response.
-     *
-     * @return bool
      */
-    public function getSuccessSate()
+    public function hasSuccessState(): bool
     {
         return $this->_isSuccess;
     }
