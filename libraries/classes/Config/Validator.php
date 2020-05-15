@@ -225,31 +225,15 @@ class Validator
 
         error_clear_last();
 
-        if (DatabaseInterface::checkDbExtension('mysqli')) {
-            $socket = empty($socket) ? null : $socket;
-            $port = empty($port) ? null : $port;
-            $extension = 'mysqli';
-        } else {
-            $socket = empty($socket) ? null : ':' . ($socket[0] == '/' ? '' : '/') . $socket;
-            $port = empty($port) ? null : ':' . $port;
-            $extension = 'mysql';
-        }
+        $socket = empty($socket) ? null : $socket;
+        $port = empty($port) ? null : $port;
 
-        if ($extension == 'mysql') {
-            $conn = @mysql_connect($host . $port . $socket, $user, $pass);
-            if (! $conn) {
-                $error = __('Could not connect to the database server!');
-            } else {
-                mysql_close($conn);
-            }
-        } else {
-            $conn = @mysqli_connect($host, $user, $pass, null, $port, $socket);
+        $conn = @mysqli_connect($host, $user, $pass, null, $port, $socket);
             if (! $conn) {
                 $error = __('Could not connect to the database server!');
             } else {
                 mysqli_close($conn);
             }
-        }
         if ($error !== null) {
             $lastError = error_get_last();
             if ($lastError !== null) {

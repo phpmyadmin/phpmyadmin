@@ -153,16 +153,6 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * Checks whether database extension is loaded
-     *
-     * @param string $extension mysql extension to check
-     */
-    public static function checkDbExtension(string $extension = 'mysqli'): bool
-    {
-        return function_exists($extension . '_connect');
-    }
-
-    /**
      * runs a query
      *
      * @param string $query               SQL query to execute
@@ -3161,7 +3151,7 @@ class DatabaseInterface implements DbalInterface
             return new self($extension);
         }
 
-        if (! self::checkDbExtension('mysqli')) {
+        if (! Util::checkDbExtension('mysqli')) {
             $docUrl = MySQLDocumentation::getDocumentationLink('faq', 'faqmysql');
             $docLink = sprintf(
                 __('See %sour documentation%s for more information.'),

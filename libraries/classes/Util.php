@@ -2938,6 +2938,16 @@ class Util
     }
 
     /**
+     * Checks whether database extension is loaded
+     *
+     * @param string $extension mysql extension to check
+     */
+    public static function checkDbExtension(string $extension = 'mysqli'): bool
+    {
+        return function_exists($extension . '_connect');
+    }
+
+    /**
      * Returs list of used PHP extensions.
      *
      * @return array of strings
@@ -2945,10 +2955,8 @@ class Util
     public static function listPHPExtensions()
     {
         $result = [];
-        if (DatabaseInterface::checkDbExtension('mysqli')) {
+        if (Util::checkDbExtension('mysqli')) {
             $result[] = 'mysqli';
-        } else {
-            $result[] = 'mysql';
         }
 
         if (extension_loaded('curl')) {
