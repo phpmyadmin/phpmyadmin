@@ -291,11 +291,6 @@ parameters:
 			path: libraries/classes/Config/Validator.php
 
 		-
-			message: "#^Parameter \\#3 \\$password of function mysql_connect expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Config/Validator.php
-
-		-
 			message: "#^Parameter \\#3 \\$passwd of function mysqli_connect expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Config/Validator.php

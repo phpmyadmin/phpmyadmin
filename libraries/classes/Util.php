@@ -2955,7 +2955,7 @@ class Util
     public static function listPHPExtensions(): array
     {
         $result = [];
-        if (Util::checkDbExtension('mysqli')) {
+        if (self::checkDbExtension('mysqli')) {
             $result[] = 'mysqli';
         }
 

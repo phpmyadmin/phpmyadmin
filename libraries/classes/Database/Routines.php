@@ -125,7 +125,6 @@ class Routines
             'table' => $table,
             'has_privilege' => Util::currentUserHasPrivilege('CREATE ROUTINE', $db, $table),
         ]);
-
     }
 
     /**

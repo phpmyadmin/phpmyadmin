@@ -229,11 +229,11 @@ class Validator
         $port = empty($port) ? null : $port;
 
         $conn = @mysqli_connect($host, $user, $pass, null, $port, $socket);
-            if (! $conn) {
-                $error = __('Could not connect to the database server!');
-            } else {
-                mysqli_close($conn);
-            }
+        if (! $conn) {
+            $error = __('Could not connect to the database server!');
+        } else {
+            mysqli_close($conn);
+        }
         if ($error !== null) {
             $lastError = error_get_last();
             if ($lastError !== null) {

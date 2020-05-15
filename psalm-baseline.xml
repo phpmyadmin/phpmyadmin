@@ -190,10 +190,6 @@
       <code>$pass</code>
       <code>$socket</code>
     </PossiblyNullArgument>
-    <UndefinedFunction occurrences="2">
-      <code>mysql_connect($host . $port . $socket, $user, $pass)</code>
-      <code>mysql_close($conn)</code>
-    </UndefinedFunction>
   </file>
   <file src="libraries/classes/Controllers/BrowseForeignersController.php">
     <PossiblyNullArgument occurrences="1">
