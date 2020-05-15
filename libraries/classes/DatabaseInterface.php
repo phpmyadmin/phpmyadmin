@@ -178,10 +178,15 @@ class DatabaseInterface implements DbalInterface
         int $options = 0,
         bool $cache_affected_rows = true
     ) {
-        $res = $this->tryQuery($query, $link, $options, $cache_affected_rows)
-           or Generator::mysqlDie($this->getError($link), $query);
+        $result = $this->tryQuery($query, $link, $options, $cache_affected_rows);
 
-        return $res;
+        if (! $result) {
+            Generator::mysqlDie($this->getError($link), $query);
+
+            return false;
+        }
+
+        return $result;
     }
 
     /**
