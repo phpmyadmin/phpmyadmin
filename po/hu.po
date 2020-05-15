@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-05-14 13:58+0200\n"
+"POT-Creation-Date: 2020-05-15 22:48+0200\n"
 "PO-Revision-Date: 2018-02-10 23:35+0000\n"
 "Last-Translator: Marczis István <marczisi@yahoo.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -875,8 +875,8 @@ msgstr "Nincs paraméter megadva!"
 
 #: js/messages.php:330 libraries/classes/BrowseForeigners.php:203
 #: libraries/classes/Controllers/Server/PrivilegesController.php:388
-#: libraries/classes/Database/Routines.php:1090
-#: libraries/classes/Database/Routines.php:1710
+#: libraries/classes/Database/Routines.php:1075
+#: libraries/classes/Database/Routines.php:1695
 #: libraries/classes/Database/Triggers.php:455
 #: libraries/classes/InsertEdit.php:1983 libraries/classes/InsertEdit.php:2017
 #: libraries/classes/Normalization.php:253
@@ -1108,8 +1108,8 @@ msgstr ""
 #: libraries/classes/Menu.php:309 libraries/classes/Menu.php:423
 #: libraries/classes/Menu.php:560 libraries/classes/Server/Privileges.php:1630
 #: libraries/classes/Util.php:2489 libraries/classes/Util.php:2504
-#: libraries/classes/Util.php:2521 libraries/classes/Util.php:3191
-#: libraries/classes/Util.php:3192 templates/database/events/index.twig:55
+#: libraries/classes/Util.php:2521 libraries/classes/Util.php:3199
+#: libraries/classes/Util.php:3200 templates/database/events/index.twig:55
 #: templates/database/events/index.twig:87
 #: templates/database/events/row.twig:33
 #: templates/database/privileges/index.twig:91
@@ -1177,11 +1177,11 @@ msgstr "Lekérdezési doboz megjelenítése"
 
 #: js/messages.php:396 libraries/classes/CentralColumns.php:948
 #: libraries/classes/Config/Descriptions.php:827
-#: libraries/classes/Display/Results.php:3233
+#: libraries/classes/Display/Results.php:3237
 #: libraries/classes/Html/Generator.php:782
 #: libraries/classes/Html/Generator.php:1044
-#: libraries/classes/Server/UserGroups.php:124 libraries/classes/Util.php:3189
-#: libraries/classes/Util.php:3190 templates/console/bookmark_content.twig:7
+#: libraries/classes/Server/UserGroups.php:124 libraries/classes/Util.php:3197
+#: libraries/classes/Util.php:3198 templates/console/bookmark_content.twig:7
 #: templates/console/display.twig:31 templates/console/display.twig:175
 #: templates/database/central_columns/main.twig:281
 #: templates/database/central_columns/main.twig:402
@@ -1201,7 +1201,7 @@ msgid "Edit"
 msgstr "Módosítás"
 
 #: js/messages.php:397 libraries/classes/CentralColumns.php:955
-#: libraries/classes/Display/Results.php:3309
+#: libraries/classes/Display/Results.php:3306
 #: libraries/classes/Server/UserGroups.php:133
 #: libraries/classes/Tracking.php:274 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:284
@@ -1494,7 +1494,7 @@ msgstr "Adatmutató tartalma"
 msgid "Ignore"
 msgstr "Kihagyás"
 
-#: js/messages.php:492 libraries/classes/Display/Results.php:3237
+#: js/messages.php:492 libraries/classes/Display/Results.php:3241
 #: libraries/classes/Html/Generator.php:70
 #: templates/display/results/table.twig:212
 msgid "Copy"
@@ -1556,15 +1556,15 @@ msgstr "Belső gyűrű hozzáadása"
 
 #: js/messages.php:504 libraries/classes/Config/FormDisplayTemplate.php:318
 #: libraries/classes/Controllers/Database/StructureController.php:421
-#: libraries/classes/Controllers/Database/StructureController.php:596
+#: libraries/classes/Controllers/Database/StructureController.php:594
 #: libraries/classes/Controllers/Table/DeleteController.php:27
-#: libraries/classes/Controllers/Table/StructureController.php:353
-#: libraries/classes/Controllers/Table/StructureController.php:989
-#: libraries/classes/Controllers/Table/StructureController.php:1762
-#: libraries/classes/Controllers/Table/StructureController.php:1771
-#: libraries/classes/Controllers/Table/StructureController.php:1776
-#: libraries/classes/Controllers/Table/StructureController.php:1781
-#: libraries/classes/Controllers/Table/StructureController.php:1786
+#: libraries/classes/Controllers/Table/StructureController.php:352
+#: libraries/classes/Controllers/Table/StructureController.php:988
+#: libraries/classes/Controllers/Table/StructureController.php:1761
+#: libraries/classes/Controllers/Table/StructureController.php:1770
+#: libraries/classes/Controllers/Table/StructureController.php:1775
+#: libraries/classes/Controllers/Table/StructureController.php:1780
+#: libraries/classes/Controllers/Table/StructureController.php:1785
 #: libraries/classes/IndexColumn.php:135 libraries/classes/Index.php:518
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:653
 #: libraries/classes/Plugins/Export/ExportLatex.php:633
@@ -1947,7 +1947,7 @@ msgstr ", utolsó stabil verzió:"
 msgid "up to date"
 msgstr "friss"
 
-#: js/messages.php:638 libraries/classes/Display/Results.php:4640
+#: js/messages.php:638 libraries/classes/Display/Results.php:4637
 #: templates/display/results/table.twig:276 templates/view_create.twig:11
 msgid "Create view"
 msgstr "Nézet létrehozása"
@@ -2147,7 +2147,7 @@ msgstr "Megjelenítés"
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:56
 #: libraries/classes/Navigation/Nodes/NodeTable.php:296
 #: libraries/classes/Util.php:1752 libraries/classes/Util.php:2500
-#: libraries/classes/Util.php:2517 libraries/classes/Util.php:3184
+#: libraries/classes/Util.php:2517 libraries/classes/Util.php:3192
 #: libraries/config.values.php:59 libraries/config.values.php:73
 #: libraries/config.values.php:164 libraries/config.values.php:174
 #: templates/columns_definitions/table_fields_definitions.twig:4
@@ -2302,8 +2302,8 @@ msgid "NO"
 msgstr "NEM"
 
 #: libraries/classes/CentralColumns.php:1020
-#: libraries/classes/Database/Routines.php:942
-#: libraries/classes/Database/Routines.php:1622
+#: libraries/classes/Database/Routines.php:927
+#: libraries/classes/Database/Routines.php:1607
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:481
 #: libraries/classes/Plugins/Export/ExportOdt.php:617
 #: libraries/classes/Plugins/Export/ExportTexytext.php:461
@@ -2321,9 +2321,9 @@ msgid "Name"
 msgstr "Név"
 
 #: libraries/classes/CentralColumns.php:1021
-#: libraries/classes/Database/Routines.php:913
-#: libraries/classes/Database/Routines.php:943
-#: libraries/classes/Database/Routines.php:1623
+#: libraries/classes/Database/Routines.php:898
+#: libraries/classes/Database/Routines.php:928
+#: libraries/classes/Database/Routines.php:1608
 #: libraries/classes/InsertEdit.php:355
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:289
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:385
@@ -2356,7 +2356,7 @@ msgid "Type"
 msgstr "Típus"
 
 #: libraries/classes/CentralColumns.php:1022
-#: libraries/classes/Database/Routines.php:944
+#: libraries/classes/Database/Routines.php:929
 #: templates/columns_definitions/table_fields_definitions.twig:16
 msgid "Length/Values"
 msgstr "Hossz/Értékek"
@@ -3547,7 +3547,7 @@ msgstr "A kiszolgálók megjelenítésének beállításai."
 
 #: libraries/classes/Config/Descriptions.php:313
 #: libraries/classes/Controllers/Database/ExportController.php:95
-#: libraries/classes/Controllers/Server/DatabasesController.php:470
+#: libraries/classes/Controllers/Server/DatabasesController.php:469
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:23
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:24
 #: libraries/classes/Plugins/Export/ExportXml.php:127
@@ -5509,28 +5509,28 @@ msgid "Server connection collation"
 msgstr "Kiszolgálókapcsolat illesztése"
 
 #: libraries/classes/Config/FormDisplay.php:122
-#: libraries/classes/Config/Validator.php:552
+#: libraries/classes/Config/Validator.php:536
 msgid "Not a positive number!"
 msgstr "Nem pozitív szám!"
 
 #: libraries/classes/Config/FormDisplay.php:123
-#: libraries/classes/Config/Validator.php:574
+#: libraries/classes/Config/Validator.php:558
 msgid "Not a non-negative number!"
 msgstr "Nem egy nem negatív szám!"
 
 #: libraries/classes/Config/FormDisplay.php:124
-#: libraries/classes/Config/Validator.php:530
+#: libraries/classes/Config/Validator.php:514
 msgid "Not a valid port number!"
 msgstr "Nem érvényes portszám!"
 
 #: libraries/classes/Config/FormDisplay.php:125
 #: libraries/classes/Config/FormDisplay.php:710
-#: libraries/classes/Config/Validator.php:596
+#: libraries/classes/Config/Validator.php:580
 msgid "Incorrect value!"
 msgstr "Helytelen érték!"
 
 #: libraries/classes/Config/FormDisplay.php:126
-#: libraries/classes/Config/Validator.php:614
+#: libraries/classes/Config/Validator.php:598
 #, php-format
 msgid "Value must be less than or equal to %s!"
 msgstr "Az értéknek egyenlőnek vagy kevesebbnek kell lennie mint %s!"
@@ -5625,7 +5625,7 @@ msgstr "Egyedi"
 #: libraries/classes/Config/Forms/User/ExportForm.php:132
 #: libraries/classes/Config/Forms/User/ExportForm.php:138
 #: libraries/classes/Controllers/Database/ExportController.php:97
-#: libraries/classes/Controllers/Server/DatabasesController.php:480
+#: libraries/classes/Controllers/Server/DatabasesController.php:479
 #: templates/server/privileges/privileges_table.twig:254
 #: templates/table/structure/display_table_stats.twig:17
 msgid "Data"
@@ -5878,21 +5878,20 @@ msgstr ""
 "A %sGZip tömörítéshez és kicsomagoláshoz%s olyan függvényekre (%s) van "
 "szükség, amelyek ezen a rendszeren nem elérhetőek."
 
-#: libraries/classes/Config/Validator.php:241
-#: libraries/classes/Config/Validator.php:248
+#: libraries/classes/Config/Validator.php:233
 msgid "Could not connect to the database server!"
 msgstr "Nem sikerült kapcsolódni az adatbázis-kiszolgálóhoz!"
 
-#: libraries/classes/Config/Validator.php:284
+#: libraries/classes/Config/Validator.php:268
 msgid "Invalid authentication type!"
 msgstr "Érvénytelen hitelesítési típus!"
 
-#: libraries/classes/Config/Validator.php:291
+#: libraries/classes/Config/Validator.php:275
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
 "Üres felhasználónév, miközben [kbd]config[/kbd] hitelesítési módot használ!"
 
-#: libraries/classes/Config/Validator.php:299
+#: libraries/classes/Config/Validator.php:283
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
@@ -5900,19 +5899,19 @@ msgstr ""
 "Üres signon munkamenetnév, miközben [kbd]signon[/kbd] hitelesítési módot "
 "használ!"
 
-#: libraries/classes/Config/Validator.php:308
+#: libraries/classes/Config/Validator.php:292
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
 "Üres signon URL, miközben [kbd]signon[/kbd] hitelesítési módot használ!"
 
-#: libraries/classes/Config/Validator.php:362
+#: libraries/classes/Config/Validator.php:346
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "Üres phpMyAdmin vezérlő felhasználó, miközben phpMyAdmin beállítástárolót "
 "használ!"
 
-#: libraries/classes/Config/Validator.php:369
+#: libraries/classes/Config/Validator.php:353
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
@@ -5920,11 +5919,11 @@ msgstr ""
 "Üres phpMyAdmin vezérlő felhasználó jelszó, miközben phpMyAdmin "
 "beállítástárolót használ!"
 
-#: libraries/classes/Config/Validator.php:459
+#: libraries/classes/Config/Validator.php:443
 msgid "Incorrect value:"
 msgstr "Pontatlan érték:"
 
-#: libraries/classes/Config/Validator.php:468
+#: libraries/classes/Config/Validator.php:452
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "A következő IP-cím hibás: %s"
@@ -6042,38 +6041,38 @@ msgstr "A kedvencek listája tele van!"
 msgid "With selected:"
 msgstr "A kijelöltekkel végzendő művelet:"
 
-#: libraries/classes/Controllers/Database/StructureController.php:838
+#: libraries/classes/Controllers/Database/StructureController.php:836
 msgid "Success!"
 msgstr "Sikerült!"
 
-#: libraries/classes/Controllers/Database/StructureController.php:841
+#: libraries/classes/Controllers/Database/StructureController.php:839
 #: libraries/classes/Controllers/Table/OperationsController.php:313
 #: libraries/classes/Controllers/Table/ReplaceController.php:390
 #: libraries/classes/Core.php:840 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Nincs változás"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1011
+#: libraries/classes/Controllers/Database/StructureController.php:1009
 #: templates/table/operations/index.twig:356
 #: templates/table/operations/view.twig:27
 #, php-format
 msgid "View %s has been dropped."
 msgstr "A(z) %s nézet el lett dobva."
 
-#: libraries/classes/Controllers/Database/StructureController.php:1012
+#: libraries/classes/Controllers/Database/StructureController.php:1010
 #: templates/table/operations/index.twig:356
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "A(z) %s tábla el lett dobva."
 
-#: libraries/classes/Controllers/Database/StructureController.php:1068
+#: libraries/classes/Controllers/Database/StructureController.php:1066
 #: templates/table/operations/index.twig:335
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "A(z) %s tábla kiürítése megtörtént."
 
-#: libraries/classes/Controllers/Database/StructureController.php:1243
-#: libraries/classes/Display/Results.php:4446
+#: libraries/classes/Controllers/Database/StructureController.php:1241
+#: libraries/classes/Display/Results.php:4443
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -6082,7 +6081,7 @@ msgstr ""
 "Ebben a nézetben legalább ennyi számú sor van. Kérjük, hogy nézzen utána a "
 "%sdokumentációban%s."
 
-#: libraries/classes/Controllers/Database/StructureController.php:1480
+#: libraries/classes/Controllers/Database/StructureController.php:1478
 msgid "unknown"
 msgstr "ismeretlen"
 
@@ -6396,14 +6395,14 @@ msgstr "Érvénytelen hitelesítési mód került beállításra a konfiguráci�
 msgid "Database %1$s has been created."
 msgstr "A(z) %1$s adatbázis elkészült."
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:319
+#: libraries/classes/Controllers/Server/DatabasesController.php:318
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
 msgstr[0] "A(z) %1$d adatbázis eldobása sikerült."
 msgstr[1] "A(z) %1$d adatbázis eldobása sikerült."
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:475
+#: libraries/classes/Controllers/Server/DatabasesController.php:474
 #: libraries/classes/Import.php:146
 #: templates/database/structure/table_header.twig:26
 #: templates/table/structure/display_partitions.twig:28
@@ -6412,7 +6411,7 @@ msgstr[1] "A(z) %1$d adatbázis eldobása sikerült."
 msgid "Rows"
 msgstr "Sorok"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:485
+#: libraries/classes/Controllers/Server/DatabasesController.php:484
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:23
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:24
 #: templates/database/data_dictionary/index.twig:59 templates/indexes.twig:3
@@ -6422,7 +6421,7 @@ msgstr "Sorok"
 msgid "Indexes"
 msgstr "Indexek"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:490
+#: libraries/classes/Controllers/Server/DatabasesController.php:489
 #: libraries/classes/Controllers/Server/Status/StatusController.php:139
 #: libraries/classes/Controllers/Server/Status/StatusController.php:228
 #: libraries/classes/Engines/Innodb.php:166
@@ -6430,7 +6429,7 @@ msgstr "Indexek"
 msgid "Total"
 msgstr "Összesen"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:495
+#: libraries/classes/Controllers/Server/DatabasesController.php:494
 #: templates/database/structure/table_header.twig:38
 #: templates/table/structure/display_table_stats.twig:32
 msgid "Overhead"
@@ -7593,8 +7592,8 @@ msgstr "Sorvége"
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:145
 #: libraries/classes/Controllers/Table/IndexesController.php:133
-#: libraries/classes/Controllers/Table/StructureController.php:945
-#: libraries/classes/Controllers/Table/StructureController.php:1211
+#: libraries/classes/Controllers/Table/StructureController.php:944
+#: libraries/classes/Controllers/Table/StructureController.php:1210
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "A(z) %1$s tábla módosítása sikerült."
@@ -7633,8 +7632,8 @@ msgstr "Már létezik %s nevű tábla!"
 #: libraries/classes/Controllers/Table/FindReplaceController.php:181
 #: libraries/classes/Controllers/Table/RelationController.php:270
 #: libraries/classes/Controllers/ViewOperationsController.php:76
-#: libraries/classes/Database/Routines.php:1463
-#: libraries/classes/Display/Results.php:4113 libraries/classes/Message.php:176
+#: libraries/classes/Database/Routines.php:1448
+#: libraries/classes/Display/Results.php:4110 libraries/classes/Message.php:176
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "Az SQL-lekérdezés végrehajtása sikerült."
@@ -7655,7 +7654,7 @@ msgid "There is an issue with your request."
 msgstr "Túl sok kapcsolat van indexek nélkül."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:64
-#: libraries/classes/Database/Routines.php:1484
+#: libraries/classes/Database/Routines.php:1469
 #: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:222
 #: libraries/classes/Sql.php:1227
 msgid "MySQL returned an empty result set (i.e. zero rows)."
@@ -7690,26 +7689,26 @@ msgid_plural "The names '%s' are MySQL reserved keywords."
 msgstr[0] "A(z) „%s” név a MySQL számára fenntartott kulcsszó."
 msgstr[1] "A(z) „%s” nevek a MySQL számára fenntartott kulcsszavak."
 
-#: libraries/classes/Controllers/Table/StructureController.php:461
+#: libraries/classes/Controllers/Table/StructureController.php:460
 msgid "No column selected."
 msgstr "Nem jelölt ki sort."
 
-#: libraries/classes/Controllers/Table/StructureController.php:676
+#: libraries/classes/Controllers/Table/StructureController.php:675
 msgid "The columns have been moved successfully."
 msgstr "Az oszlop mozgatása sikeresen megtörtént."
 
-#: libraries/classes/Controllers/Table/StructureController.php:714
+#: libraries/classes/Controllers/Table/StructureController.php:713
 #, php-format
 msgid "Failed to get description of column %s!"
 msgstr "At %s oszlop leírását nem tudtam lekérni!"
 
-#: libraries/classes/Controllers/Table/StructureController.php:956
-#: libraries/classes/Controllers/Table/StructureController.php:1260
+#: libraries/classes/Controllers/Table/StructureController.php:955
+#: libraries/classes/Controllers/Table/StructureController.php:1259
 #: libraries/classes/Tracking.php:796
 msgid "Query error"
 msgstr "Lekérdezési hiba"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1205
+#: libraries/classes/Controllers/Table/StructureController.php:1204
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
@@ -7717,15 +7716,15 @@ msgstr ""
 "A(z) %1$s tábla sikeresen módosítva lett. A jogosultságok módosítása "
 "megtörtént."
 
-#: libraries/classes/Controllers/Table/StructureController.php:1438
+#: libraries/classes/Controllers/Table/StructureController.php:1437
 #: templates/table/structure/display_structure.twig:289
 msgid "Change"
 msgstr "Módosítás"
 
+#: libraries/classes/Controllers/Table/StructureController.php:1438
 #: libraries/classes/Controllers/Table/StructureController.php:1439
-#: libraries/classes/Controllers/Table/StructureController.php:1440
-#: libraries/classes/Operations.php:691 libraries/classes/Util.php:3185
-#: libraries/classes/Util.php:3186 templates/database/events/index.twig:64
+#: libraries/classes/Operations.php:691 libraries/classes/Util.php:3193
+#: libraries/classes/Util.php:3194 templates/database/events/index.twig:64
 #: templates/database/events/index.twig:70
 #: templates/database/events/index.twig:88
 #: templates/database/events/row.twig:43 templates/database/events/row.twig:49
@@ -7745,9 +7744,9 @@ msgstr "Módosítás"
 msgid "Drop"
 msgstr "Eldobás"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1441
-#: libraries/classes/Controllers/Table/StructureController.php:1446
-#: libraries/classes/Controllers/Table/StructureController.php:1502
+#: libraries/classes/Controllers/Table/StructureController.php:1440
+#: libraries/classes/Controllers/Table/StructureController.php:1445
+#: libraries/classes/Controllers/Table/StructureController.php:1501
 #: templates/columns_definitions/column_indexes.twig:4
 #: templates/database/data_dictionary/index.twig:33
 #: templates/table/structure/display_structure.twig:305
@@ -7755,9 +7754,9 @@ msgstr "Eldobás"
 msgid "Primary"
 msgstr "Elsődleges"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1442
-#: libraries/classes/Controllers/Table/StructureController.php:1447
-#: libraries/classes/Controllers/Table/StructureController.php:1507
+#: libraries/classes/Controllers/Table/StructureController.php:1441
+#: libraries/classes/Controllers/Table/StructureController.php:1446
+#: libraries/classes/Controllers/Table/StructureController.php:1506
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:28
 #: templates/columns_definitions/column_indexes.twig:12
 #: templates/columns_definitions/table_fields_definitions.twig:46
@@ -7767,8 +7766,8 @@ msgstr "Elsődleges"
 msgid "Index"
 msgstr "Index"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1443
-#: libraries/classes/Controllers/Table/StructureController.php:1448
+#: libraries/classes/Controllers/Table/StructureController.php:1442
+#: libraries/classes/Controllers/Table/StructureController.php:1447
 #: templates/columns_definitions/column_indexes.twig:8
 #: templates/database/data_dictionary/index.twig:67 templates/indexes.twig:17
 #: templates/table/relation/common_form.twig:237
@@ -7778,21 +7777,21 @@ msgstr "Index"
 msgid "Unique"
 msgstr "Egyedi"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1444
-#: libraries/classes/Controllers/Table/StructureController.php:1449
+#: libraries/classes/Controllers/Table/StructureController.php:1443
+#: libraries/classes/Controllers/Table/StructureController.php:1448
 #: templates/columns_definitions/column_indexes.twig:20
 msgid "Spatial"
 msgstr "Térbeli"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1445
-#: libraries/classes/Controllers/Table/StructureController.php:1450
+#: libraries/classes/Controllers/Table/StructureController.php:1444
+#: libraries/classes/Controllers/Table/StructureController.php:1449
 #: templates/columns_definitions/column_indexes.twig:16
 #: templates/table/structure/display_structure.twig:326
 #: templates/table/structure/display_structure.twig:338
 msgid "Fulltext"
 msgstr "Teljes szöveg"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1451
+#: libraries/classes/Controllers/Table/StructureController.php:1450
 msgid "Distinct values"
 msgstr "Különböző értékek"
 
@@ -7926,10 +7925,10 @@ msgstr "Nem sikerült betölteni a séma bővítményeket, ellenőrizze a telep�
 #: libraries/classes/Database/Events.php:111
 #: libraries/classes/Database/Events.php:120
 #: libraries/classes/Database/Events.php:144
-#: libraries/classes/Database/Routines.php:296
-#: libraries/classes/Database/Routines.php:320
-#: libraries/classes/Database/Routines.php:432
-#: libraries/classes/Database/Routines.php:1492
+#: libraries/classes/Database/Routines.php:281
+#: libraries/classes/Database/Routines.php:305
+#: libraries/classes/Database/Routines.php:417
+#: libraries/classes/Database/Routines.php:1477
 #: libraries/classes/Database/Triggers.php:131
 #: libraries/classes/Database/Triggers.php:140
 #: libraries/classes/Database/Triggers.php:165
@@ -7941,11 +7940,11 @@ msgstr "A következő lekérdezés meghiúsult: \"%s\""
 #: libraries/classes/Database/Events.php:124
 #: libraries/classes/Database/Events.php:148
 #: libraries/classes/Database/Events.php:534
-#: libraries/classes/Database/Routines.php:300
-#: libraries/classes/Database/Routines.php:324
-#: libraries/classes/Database/Routines.php:436
-#: libraries/classes/Database/Routines.php:1496
-#: libraries/classes/Database/Routines.php:1836
+#: libraries/classes/Database/Routines.php:285
+#: libraries/classes/Database/Routines.php:309
+#: libraries/classes/Database/Routines.php:421
+#: libraries/classes/Database/Routines.php:1481
+#: libraries/classes/Database/Routines.php:1821
 #: libraries/classes/Database/Triggers.php:135
 #: libraries/classes/Database/Triggers.php:144
 #: libraries/classes/Database/Triggers.php:169
@@ -7965,7 +7964,7 @@ msgid "Event %1$s has been created."
 msgstr "A(z) %1$s esemény létrejött."
 
 #: libraries/classes/Database/Events.php:165
-#: libraries/classes/Database/Routines.php:340
+#: libraries/classes/Database/Routines.php:325
 #: libraries/classes/Database/Triggers.php:186
 msgid "One or more errors have occurred while processing your request:"
 msgstr "Egy vagy több hiba történt a kérés feldolgozása közben:"
@@ -7981,7 +7980,7 @@ msgid "Edit event"
 msgstr "Esemény módosítása"
 
 #: libraries/classes/Database/Events.php:393
-#: libraries/classes/Database/Routines.php:1131
+#: libraries/classes/Database/Routines.php:1116
 #: libraries/classes/Database/Triggers.php:481
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "A meghatározónak „felhasznalonev@gepnev” formátumban kell lennie!"
@@ -8019,15 +8018,15 @@ msgid "Sorry, we failed to restore the dropped event."
 msgstr "Elnézést, nem sikerült visszaállítani az eldobott eseményt."
 
 #: libraries/classes/Database/Events.php:532
-#: libraries/classes/Database/Routines.php:1834
+#: libraries/classes/Database/Routines.php:1819
 #: libraries/classes/Database/Triggers.php:541
 msgid "The backed up query was:"
 msgstr "Az elmentett lekérdezés:"
 
 #: libraries/classes/Database/Events.php:563
-#: libraries/classes/Database/Routines.php:218
-#: libraries/classes/Database/Routines.php:1336
-#: libraries/classes/Database/Routines.php:1542
+#: libraries/classes/Database/Routines.php:203
+#: libraries/classes/Database/Routines.php:1321
+#: libraries/classes/Database/Routines.php:1527
 #: libraries/classes/Database/Triggers.php:571
 msgid "Error in processing request:"
 msgstr "Hiba a kérés feldolgozásában:"
@@ -8049,7 +8048,7 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "Nem található %1$s nevű esemény a(z) %2$s adatbázisban."
 
-#: libraries/classes/DatabaseInterface.php:1578
+#: libraries/classes/DatabaseInterface.php:1573
 #, fuzzy, php-format
 #| msgid ""
 #| "Unable to use timezone %1$s for server %2$d. Please check your "
@@ -8066,11 +8065,11 @@ msgstr ""
 "beállításait. A phpMyAdmin jelenleg az adatbázis-kiszolgáló alapértelmezett "
 "időzónáját használja."
 
-#: libraries/classes/DatabaseInterface.php:1625
+#: libraries/classes/DatabaseInterface.php:1620
 msgid "Failed to set configured collation connection!"
 msgstr "Nem sikerült beállítani a beállított egyeztetés kapcsolatot!"
 
-#: libraries/classes/DatabaseInterface.php:2278
+#: libraries/classes/DatabaseInterface.php:2273
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -8078,34 +8077,34 @@ msgstr ""
 "A kiszolgáló nem válaszol (vagy a helyi kiszolgáló socket nincs megfelelően "
 "beállítotva)."
 
-#: libraries/classes/DatabaseInterface.php:2283
+#: libraries/classes/DatabaseInterface.php:2278
 msgid "The server is not responding."
 msgstr "A kiszolgáló nem válaszol."
 
-#: libraries/classes/DatabaseInterface.php:2287
+#: libraries/classes/DatabaseInterface.php:2282
 msgid "Logout and try as another user."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:2293
+#: libraries/classes/DatabaseInterface.php:2288
 msgid "Please check privileges of directory containing database."
 msgstr ""
 "Kérjük, ellenőrizze az adatbázist tartalmazó könyvtár hozzáférési jogait."
 
-#: libraries/classes/DatabaseInterface.php:2304
+#: libraries/classes/DatabaseInterface.php:2299
 msgid "Details…"
 msgstr "Részletek…"
 
-#: libraries/classes/DatabaseInterface.php:2633
+#: libraries/classes/DatabaseInterface.php:2628
 msgid "Missing connection parameters!"
 msgstr "Hiányzó kapcsolat paraméterek!"
 
-#: libraries/classes/DatabaseInterface.php:2662
+#: libraries/classes/DatabaseInterface.php:2657
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "A konfigurációban meghatározott kapcsolat a kontrollfelhasználó számára nem "
 "sikerült."
 
-#: libraries/classes/DatabaseInterface.php:3166
+#: libraries/classes/DatabaseInterface.php:3157
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "További információkért nézze meg a %sdokumentációnkat%s."
@@ -8148,83 +8147,71 @@ msgstr "Könyvjelző frissítése"
 msgid "Delete bookmark"
 msgstr "Könyvjelző törlése"
 
-#: libraries/classes/Database/Routines.php:135
-msgid ""
-"You are using PHP's deprecated 'mysql' extension, which is not capable of "
-"handling multi queries. [strong]The execution of some stored routines may "
-"fail![/strong] Please use the improved 'mysqli' extension to avoid any "
-"problems."
-msgstr ""
-"Ön a PHP elavult \"mysql\" kiterjesztését használja, amely nem képes multi "
-"lekérdezések használatára. [strong]Egyes tárolt rutinok végrehajtása "
-"sikertelen lehet![/strong] Kérjük, használja a fejlettebb 'mysqli' "
-"kiterjesztést a problémák elkerülése érdekében."
-
-#: libraries/classes/Database/Routines.php:184
+#: libraries/classes/Database/Routines.php:169
 #: templates/database/routines/footer.twig:7
 #: templates/database/routines/footer.twig:11
 msgid "Add routine"
 msgstr "Eljárás hozzáadása"
 
-#: libraries/classes/Database/Routines.php:188
+#: libraries/classes/Database/Routines.php:173
 msgid "Edit routine"
 msgstr "Eljárás szerkesztése"
 
-#: libraries/classes/Database/Routines.php:221
+#: libraries/classes/Database/Routines.php:206
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:277
-#: libraries/classes/Database/Routines.php:1140
+#: libraries/classes/Database/Routines.php:262
+#: libraries/classes/Database/Routines.php:1125
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "Érvénytelen eljárástípus: \"%s\""
 
-#: libraries/classes/Database/Routines.php:327
+#: libraries/classes/Database/Routines.php:312
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "A(z) %1$s eljárás létrejött."
 
-#: libraries/classes/Database/Routines.php:498
+#: libraries/classes/Database/Routines.php:483
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr ""
 "A(z) %1$s eljárás módosítása megtörtént. A jogosultságok módosítva lettek."
 
-#: libraries/classes/Database/Routines.php:503
+#: libraries/classes/Database/Routines.php:488
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "A(z) %1$s eljárás módosítása megtörtént."
 
-#: libraries/classes/Database/Routines.php:905
+#: libraries/classes/Database/Routines.php:890
 #: libraries/classes/Database/Triggers.php:382
 #: templates/database/events/editor_form.twig:9
 #: templates/database/events/editor_form.twig:12 templates/view_create.twig:8
 msgid "Details"
 msgstr "Részletek"
 
-#: libraries/classes/Database/Routines.php:908
+#: libraries/classes/Database/Routines.php:893
 msgid "Routine name"
 msgstr "Eljárás neve"
 
-#: libraries/classes/Database/Routines.php:927
+#: libraries/classes/Database/Routines.php:912
 #: templates/database/events/editor_form.twig:41
 #, php-format
 msgid "Change to %s"
 msgstr "Módosítás erre: %s"
 
-#: libraries/classes/Database/Routines.php:933
+#: libraries/classes/Database/Routines.php:918
 msgid "Parameters"
 msgstr "Paraméterek"
 
-#: libraries/classes/Database/Routines.php:941
+#: libraries/classes/Database/Routines.php:926
 msgid "Direction"
 msgstr "Irány"
 
-#: libraries/classes/Database/Routines.php:945
+#: libraries/classes/Database/Routines.php:930
 #: libraries/classes/Import.php:1307 libraries/classes/Import.php:1341
 #: libraries/classes/Plugins/Export/ExportCodegen.php:82
 #: libraries/classes/Plugins/Export/ExportCsv.php:46
@@ -8255,33 +8242,33 @@ msgstr "Irány"
 msgid "Options"
 msgstr "Beállítások"
 
-#: libraries/classes/Database/Routines.php:962
+#: libraries/classes/Database/Routines.php:947
 msgid "Add parameter"
 msgstr "Paraméter hozzáadása"
 
-#: libraries/classes/Database/Routines.php:966
+#: libraries/classes/Database/Routines.php:951
 msgid "Remove last parameter"
 msgstr "Utolsó paraméter eltávolítása"
 
-#: libraries/classes/Database/Routines.php:971
+#: libraries/classes/Database/Routines.php:956
 msgid "Return type"
 msgstr "Típus visszaadása"
 
-#: libraries/classes/Database/Routines.php:977
+#: libraries/classes/Database/Routines.php:962
 msgid "Return length/values"
 msgstr "Hossz/Értékek visszaadása"
 
-#: libraries/classes/Database/Routines.php:983
+#: libraries/classes/Database/Routines.php:968
 msgid "Return options"
 msgstr "Visszatérés beállításai"
 
-#: libraries/classes/Database/Routines.php:986
+#: libraries/classes/Database/Routines.php:971
 #: templates/database/routines/parameter_row.twig:31
 #: templates/database/structure/table_header.twig:42
 msgid "Charset"
 msgstr "Karakterkészlet"
 
-#: libraries/classes/Database/Routines.php:1016
+#: libraries/classes/Database/Routines.php:1001
 #: libraries/classes/Database/Triggers.php:436
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:484
 #: libraries/classes/Plugins/Export/ExportOdt.php:626
@@ -8291,11 +8278,11 @@ msgstr "Karakterkészlet"
 msgid "Definition"
 msgstr "Meghatározás"
 
-#: libraries/classes/Database/Routines.php:1022
+#: libraries/classes/Database/Routines.php:1007
 msgid "Is deterministic"
 msgstr "Determinisztikus"
 
-#: libraries/classes/Database/Routines.php:1030
+#: libraries/classes/Database/Routines.php:1015
 #: templates/columns_definitions/table_fields_definitions.twig:36
 #: templates/database/operations/index.twig:74
 #: templates/database/operations/index.twig:178
@@ -8306,7 +8293,7 @@ msgstr "Determinisztikus"
 msgid "Adjust privileges"
 msgstr "Jogosultságok módosítása"
 
-#: libraries/classes/Database/Routines.php:1041
+#: libraries/classes/Database/Routines.php:1026
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
@@ -8314,21 +8301,21 @@ msgstr ""
 "Nincs elegendő jogosultsága a művelet végrehajtásához. További részletekért "
 "nézze meg a dokumentációt"
 
-#: libraries/classes/Database/Routines.php:1051
+#: libraries/classes/Database/Routines.php:1036
 #: libraries/classes/Database/Triggers.php:442
 #: templates/database/events/editor_form.twig:89 templates/view_create.twig:45
 msgid "Definer"
 msgstr "Meghatározó"
 
-#: libraries/classes/Database/Routines.php:1056
+#: libraries/classes/Database/Routines.php:1041
 msgid "Security type"
 msgstr "Biztonság típusa"
 
-#: libraries/classes/Database/Routines.php:1065
+#: libraries/classes/Database/Routines.php:1050
 msgid "SQL data access"
 msgstr "SQL-adathozzáférés"
 
-#: libraries/classes/Database/Routines.php:1077
+#: libraries/classes/Database/Routines.php:1062
 #: templates/columns_definitions/partitions.twig:85
 #: templates/database/data_dictionary/index.twig:73
 #: templates/database/events/editor_form.twig:95
@@ -8341,17 +8328,17 @@ msgstr "SQL-adathozzáférés"
 msgid "Comment"
 msgstr "Megjegyzés"
 
-#: libraries/classes/Database/Routines.php:1147
+#: libraries/classes/Database/Routines.php:1132
 msgid "You must provide a routine name!"
 msgstr "Meg kell adnia egy eljárásnevet!"
 
-#: libraries/classes/Database/Routines.php:1181
+#: libraries/classes/Database/Routines.php:1166
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "Érvénytelen rendezés lett a paraméternek adva: \"%s\"."
 
-#: libraries/classes/Database/Routines.php:1203
-#: libraries/classes/Database/Routines.php:1267
+#: libraries/classes/Database/Routines.php:1188
+#: libraries/classes/Database/Routines.php:1252
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -8359,47 +8346,47 @@ msgstr ""
 "Meg kell adnia hosszat/értékeket az ENUM, SET, VARCHAR és VARBINARY rutin "
 "paramétereihez."
 
-#: libraries/classes/Database/Routines.php:1231
+#: libraries/classes/Database/Routines.php:1216
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "Meg kell adnia egy nevet és egy típust minden rutin paraméterhez."
 
-#: libraries/classes/Database/Routines.php:1249
+#: libraries/classes/Database/Routines.php:1234
 msgid "You must provide a valid return type for the routine."
 msgstr "Meg kell adnia egy érvényes visszatérési típust a rutinhoz."
 
-#: libraries/classes/Database/Routines.php:1310
+#: libraries/classes/Database/Routines.php:1295
 msgid "You must provide a routine definition."
 msgstr "Meg kell adnia a rutin leírását."
 
-#: libraries/classes/Database/Routines.php:1338
-#: libraries/classes/Database/Routines.php:1544
+#: libraries/classes/Database/Routines.php:1323
+#: libraries/classes/Database/Routines.php:1529
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "Nem található %1$s nevű eljárás a(z) %2$s adatbázisban."
 
-#: libraries/classes/Database/Routines.php:1423
+#: libraries/classes/Database/Routines.php:1408
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "A(z) %s eljárás végrehajtási eredményei"
 
-#: libraries/classes/Database/Routines.php:1471
+#: libraries/classes/Database/Routines.php:1456
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] "Az eljáráson belüli utolsó utasítás %d sort érintett."
 msgstr[1] "Az eljáráson belüli utolsó utasítás %d sort érintett."
 
-#: libraries/classes/Database/Routines.php:1530
-#: libraries/classes/Database/Routines.php:1537
+#: libraries/classes/Database/Routines.php:1515
+#: libraries/classes/Database/Routines.php:1522
 msgid "Execute routine"
 msgstr "Eljárás végrehajtása"
 
-#: libraries/classes/Database/Routines.php:1615
-#: libraries/classes/Database/Routines.php:1618
+#: libraries/classes/Database/Routines.php:1600
+#: libraries/classes/Database/Routines.php:1603
 msgid "Routine parameters"
 msgstr "Eljárás paraméterei"
 
-#: libraries/classes/Database/Routines.php:1625
+#: libraries/classes/Database/Routines.php:1610
 #: libraries/classes/InsertEdit.php:353
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:28
 #: templates/table/search/index.twig:36
@@ -8407,7 +8394,7 @@ msgstr "Eljárás paraméterei"
 msgid "Function"
 msgstr "Függvény"
 
-#: libraries/classes/Database/Routines.php:1627
+#: libraries/classes/Database/Routines.php:1612
 #: libraries/classes/InsertEdit.php:2011
 #: templates/database/designer/main.twig:488
 #: templates/database/designer/main.twig:653
@@ -8422,16 +8409,16 @@ msgstr "Függvény"
 msgid "Value"
 msgstr "Érték"
 
-#: libraries/classes/Database/Routines.php:1833
+#: libraries/classes/Database/Routines.php:1818
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Elnézést, nem sikerült visszaállítani az eldobott eljárást."
 
-#: libraries/classes/Database/Routines.php:1863
+#: libraries/classes/Database/Routines.php:1848
 #, php-format
 msgid "Export of routine %s"
 msgstr "%s eljárás exportálása"
 
-#: libraries/classes/Database/Routines.php:1882
+#: libraries/classes/Database/Routines.php:1867
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -8657,8 +8644,8 @@ msgid "Full texts"
 msgstr "Teljes szövegek"
 
 #: libraries/classes/Display/Results.php:1995
-#: libraries/classes/Display/Results.php:2021 libraries/classes/Util.php:3105
-#: libraries/classes/Util.php:3128 libraries/config.values.php:112
+#: libraries/classes/Display/Results.php:2021 libraries/classes/Util.php:3113
+#: libraries/classes/Util.php:3136 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:61
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:114
@@ -8671,8 +8658,8 @@ msgid "Descending"
 msgstr "Csökkenő"
 
 #: libraries/classes/Display/Results.php:2003
-#: libraries/classes/Display/Results.php:2013 libraries/classes/Util.php:3097
-#: libraries/classes/Util.php:3120 libraries/config.values.php:111
+#: libraries/classes/Display/Results.php:2013 libraries/classes/Util.php:3105
+#: libraries/classes/Util.php:3128 libraries/config.values.php:111
 #: templates/database/multi_table_query/form.twig:60
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:112
@@ -8684,46 +8671,46 @@ msgstr "Csökkenő"
 msgid "Ascending"
 msgstr "Növekvő"
 
-#: libraries/classes/Display/Results.php:3285
-#: libraries/classes/Display/Results.php:3300
+#: libraries/classes/Display/Results.php:3282
+#: libraries/classes/Display/Results.php:3297
 msgid "The row has been deleted."
 msgstr "A sor törlése megtörtént."
 
-#: libraries/classes/Display/Results.php:3332
+#: libraries/classes/Display/Results.php:3329
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Leállít"
 
-#: libraries/classes/Display/Results.php:4037
+#: libraries/classes/Display/Results.php:4034
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Becsült érték lehet. Lásd [doc@faq3-11]GyIK 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:4458
+#: libraries/classes/Display/Results.php:4455
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Sorok megjelenítése %1s-%2s"
 
-#: libraries/classes/Display/Results.php:4472
+#: libraries/classes/Display/Results.php:4469
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d összesen, %2$d a lekérdezésben"
 
-#: libraries/classes/Display/Results.php:4477
+#: libraries/classes/Display/Results.php:4474
 #, php-format
 msgid "%d total"
 msgstr "összesen %d"
 
-#: libraries/classes/Display/Results.php:4489 libraries/classes/Sql.php:1233
+#: libraries/classes/Display/Results.php:4486 libraries/classes/Sql.php:1233
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "A lekérdezés %01.4f másodpercig tartott."
 
-#: libraries/classes/Display/Results.php:4629
+#: libraries/classes/Display/Results.php:4626
 #: templates/display/results/table.twig:234
 msgid "Query results operations"
 msgstr "Műveletek a lekérdezési eredménnyel"
 
-#: libraries/classes/Display/Results.php:4884
+#: libraries/classes/Display/Results.php:4881
 msgid "Link not found!"
 msgstr "Nem található a hivatkozás!"
 
@@ -9494,7 +9481,7 @@ msgstr "%1$s (<code>%2$s</code> közelében)"
 #: libraries/classes/Menu.php:272
 #: libraries/classes/Navigation/Nodes/NodeTable.php:308
 #: libraries/classes/Util.php:1756 libraries/classes/Util.php:2516
-#: libraries/classes/Util.php:3178 libraries/classes/Util.php:3179
+#: libraries/classes/Util.php:3186 libraries/classes/Util.php:3187
 #: libraries/config.values.php:67 libraries/config.values.php:81
 #: libraries/config.values.php:182 templates/database/search/results.twig:34
 #: templates/table/structure/display_structure.twig:280
@@ -9504,8 +9491,8 @@ msgstr "Tartalom"
 #: libraries/classes/Menu.php:291 libraries/classes/Menu.php:407
 #: libraries/classes/Navigation/Nodes/NodeTable.php:299
 #: libraries/classes/Util.php:1754 libraries/classes/Util.php:2502
-#: libraries/classes/Util.php:2519 libraries/classes/Util.php:3180
-#: libraries/classes/Util.php:3181 libraries/config.values.php:63
+#: libraries/classes/Util.php:2519 libraries/classes/Util.php:3188
+#: libraries/classes/Util.php:3189 libraries/config.values.php:63
 #: libraries/config.values.php:77 libraries/config.values.php:168
 #: libraries/config.values.php:178
 msgid "Search"
@@ -9514,7 +9501,7 @@ msgstr "Keresés"
 #: libraries/classes/Menu.php:302
 #: libraries/classes/Navigation/Nodes/NodeTable.php:302
 #: libraries/classes/Util.php:1755 libraries/classes/Util.php:2520
-#: libraries/classes/Util.php:3182 libraries/classes/Util.php:3183
+#: libraries/classes/Util.php:3190 libraries/classes/Util.php:3191
 #: libraries/config.values.php:65 libraries/config.values.php:79
 #: libraries/config.values.php:180
 #: templates/database/qbe/ins_del_and_or_cell.twig:6
@@ -12764,17 +12751,17 @@ msgstr "Hiányzó paraméter:"
 msgid "Users"
 msgstr "Felhasználók"
 
-#: libraries/classes/Util.php:3089
+#: libraries/classes/Util.php:3097
 #: templates/database/multi_table_query/form.twig:59
 msgid "Sort"
 msgstr "Rendezés"
 
-#: libraries/classes/Util.php:3187 libraries/classes/Util.php:3188
+#: libraries/classes/Util.php:3195 libraries/classes/Util.php:3196
 #: templates/database/structure/check_all_tables.twig:15
 msgid "Empty"
 msgstr "Kiürítés"
 
-#: libraries/classes/Util.php:3193 libraries/classes/Util.php:3194
+#: libraries/classes/Util.php:3201 libraries/classes/Util.php:3202
 #: templates/database/routines/row.twig:32
 #: templates/database/routines/row.twig:42
 #: templates/database/routines/row.twig:46
@@ -12795,16 +12782,16 @@ msgid ""
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/common.inc.php:379
+#: libraries/common.inc.php:380
 msgid "Invalid authentication method set in configuration:"
 msgstr "Érvénytelen hitelesítési mód került beállításra a konfigurációban:"
 
-#: libraries/common.inc.php:433
+#: libraries/common.inc.php:434
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Frissítenie kell %s %s vagy újabb verzióra."
 
-#: libraries/common.inc.php:488
+#: libraries/common.inc.php:489
 msgid "Error: Token mismatch"
 msgstr "Hiba: Token eltérés"
 
@@ -17524,7 +17511,7 @@ msgstr "NÉZET neve"
 msgid "Column names"
 msgstr "Oszlopnevek"
 
-#: url.php:50
+#: url.php:51
 msgid "Taking you to the target site."
 msgstr "Átvitel a céloldalra."
 
@@ -18840,6 +18827,17 @@ msgstr ""
 #: libraries/advisory_rules_mysql_before80003.txt:57
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit 1 MB-ra állítva"
+
+#~ msgid ""
+#~ "You are using PHP's deprecated 'mysql' extension, which is not capable of "
+#~ "handling multi queries. [strong]The execution of some stored routines may "
+#~ "fail![/strong] Please use the improved 'mysqli' extension to avoid any "
+#~ "problems."
+#~ msgstr ""
+#~ "Ön a PHP elavult \"mysql\" kiterjesztését használja, amely nem képes "
+#~ "multi lekérdezések használatára. [strong]Egyes tárolt rutinok "
+#~ "végrehajtása sikertelen lehet![/strong] Kérjük, használja a fejlettebb "
+#~ "'mysqli' kiterjesztést a problémák elkerülése érdekében."
 
 #~ msgid "No activity within %s seconds; please log in again."
 #~ msgstr "Nem volt tevékenység %s másodperce; jelentkezzen be újra."
