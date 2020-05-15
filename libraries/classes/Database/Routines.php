@@ -126,21 +126,6 @@ class Routines
             'has_privilege' => Util::currentUserHasPrivilege('CREATE ROUTINE', $db, $table),
         ]);
 
-        /**
-         * Display a warning for users with PHP's old "mysql" extension.
-         */
-        if (! DatabaseInterface::checkDbExtension('mysqli')) {
-            trigger_error(
-                __(
-                    'You are using PHP\'s deprecated \'mysql\' extension, '
-                    . 'which is not capable of handling multi queries. '
-                    . '[strong]The execution of some stored routines may fail![/strong] '
-                    . 'Please use the improved \'mysqli\' extension to '
-                    . 'avoid any problems.'
-                ),
-                E_USER_WARNING
-            );
-        }
     }
 
     /**
