@@ -694,6 +694,14 @@ table tr.hover:not(.nopointer) th {
   color: $th-pointer-color;
 }
 
+/* hovered index table rows */
+#table_index tbody:hover tr,
+#table_index tbody:hover th,
+#table_index tbody:hover td {
+  background: $browse-marker-background;
+  color: $main-color;
+}
+
 /* marks table rows/cells if the db field is in a where condition */
 
 .condition {
