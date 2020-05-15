@@ -3152,12 +3152,8 @@ class DatabaseInterface implements DbalInterface
      */
     public static function load(?DbiExtension $extension = null): self
     {
-        global $dbi;
-
         if ($extension !== null) {
-            $dbi = new self($extension);
-
-            return $dbi;
+            return new self($extension);
         }
 
         if (! self::checkDbExtension('mysqli')) {
@@ -3174,9 +3170,7 @@ class DatabaseInterface implements DbalInterface
             );
         }
 
-        $dbi = new self(new DbiMysqli());
-
-        return $dbi;
+        return new self(new DbiMysqli());
     }
 
     /**

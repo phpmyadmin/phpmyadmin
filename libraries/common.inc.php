@@ -348,7 +348,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
     ThemeManager::getInstance()->setThemeCookie();
 
-    $containerBuilder->set(DatabaseInterface::class, DatabaseInterface::load());
+    $dbi = DatabaseInterface::load();
+    $containerBuilder->set(DatabaseInterface::class, $dbi);
     $containerBuilder->setAlias('dbi', DatabaseInterface::class);
 
     if (! empty($cfg['Server'])) {
