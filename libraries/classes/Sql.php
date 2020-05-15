@@ -1361,7 +1361,7 @@ class Sql
      *
      * @return void
      */
-    private function sendResponseForGridEdit($result)
+    private function getResponseForGridEdit($result): void
     {
         $row = $GLOBALS['dbi']->fetchRow($result);
         $field_flags = $GLOBALS['dbi']->fieldFlags($result, 0);
@@ -1370,7 +1370,6 @@ class Sql
         }
         $response = Response::getInstance();
         $response->addJSON('value', $row[0]);
-        exit;
     }
 
     /**
@@ -1681,8 +1680,8 @@ class Sql
         // If we are retrieving the full value of a truncated field or the original
         // value of a transformed field, show it here
         if (isset($_POST['grid_edit']) && $_POST['grid_edit'] == true) {
-            $this->sendResponseForGridEdit($result);
-            // script has exited at this point
+            $this->getResponseForGridEdit($result);
+            exit;
         }
 
         // Gets the list of fields properties
