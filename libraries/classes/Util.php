@@ -2940,9 +2940,9 @@ class Util
     /**
      * Returs list of used PHP extensions.
      *
-     * @return array of strings
+     * @return string[]
      */
-    public static function listPHPExtensions()
+    public static function listPHPExtensions(): array
     {
         $result = [];
         if (DatabaseInterface::checkDbExtension('mysqli')) {
@@ -2969,7 +2969,7 @@ class Util
      *
      * @return string
      */
-    public static function requestString($value)
+    public static function requestString($value): string
     {
         while (is_array($value) || is_object($value)) {
             $value = reset($value);
