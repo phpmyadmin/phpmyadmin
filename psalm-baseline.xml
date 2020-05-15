@@ -765,7 +765,7 @@
       <code>$row</code>
       <code>$routine</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="20">
+    <PossiblyInvalidArrayAccess occurrences="13">
       <code>$routine['item_name']</code>
       <code>$routine['item_type']</code>
       <code>$routine['item_type']</code>
@@ -777,12 +777,7 @@
       <code>$routine['SECURITY_TYPE']</code>
       <code>$routine['SQL_DATA_ACCESS']</code>
       <code>$routine['ROUTINE_COMMENT']</code>
-      <code>$routine['item_num_params']</code>
-      <code>$routine['item_param_name']</code>
       <code>$routine['item_type']</code>
-      <code>$routine['item_param_dir']</code>
-      <code>$routine['item_param_dir']</code>
-      <code>$routine['item_param_name']</code>
       <code>$routine['item_type']</code>
       <code>$routine['item_name']</code>
       <code>$routine['item_name']</code>
@@ -1403,9 +1398,6 @@
     <InvalidArgument occurrences="1">
       <code>$current_result</code>
     </InvalidArgument>
-    <NullArgument occurrences="1">
-      <code>PASSWORD_DEFAULT</code>
-    </NullArgument>
     <PossiblyInvalidArgument occurrences="1">
       <code>$row</code>
     </PossiblyInvalidArgument>

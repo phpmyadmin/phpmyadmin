@@ -1297,34 +1297,13 @@ class Routines
         return $query;
     }
 
-    private function handleExecuteRoutine(): void
+    /**
+     * @see handleExecuteRoutine
+     * @param array $routine The routine params
+     * @return string[] The SQL queries / SQL query parts
+     */
+    private function getQueriesFromRoutineForm(array $routine): array
     {
-        global $db;
-
-        // Build the queries
-        $routine = $this->getDataFromName(
-            $_POST['item_name'],
-            $_POST['item_type'],
-            false
-        );
-        if ($routine === false) {
-            $message  = __('Error in processing request:') . ' ';
-            $message .= sprintf(
-                __('No routine with name %1$s found in database %2$s.'),
-                htmlspecialchars(Util::backquote($_POST['item_name'])),
-                htmlspecialchars(Util::backquote($db))
-            );
-            $message = Message::error($message);
-            if ($this->response->isAjax()) {
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', $message);
-                exit;
-            } else {
-                echo $message->getDisplay();
-                unset($_POST);
-            }
-        }
-
         $queries   = [];
         $end_query = [];
         $args      = [];
@@ -1373,6 +1352,39 @@ class Routines
                         . 'AS ' . Util::backquote($routine['item_name'])
                         . ";\n";
         }
+        return $queries;
+    }
+
+    private function handleExecuteRoutine(): void
+    {
+        global $db;
+
+        // Build the queries
+        $routine = $this->getDataFromName(
+            $_POST['item_name'],
+            $_POST['item_type'],
+            false
+        );
+        if ($routine === false) {
+            $message  = __('Error in processing request:') . ' ';
+            $message .= sprintf(
+                __('No routine with name %1$s found in database %2$s.'),
+                htmlspecialchars(Util::backquote($_POST['item_name'])),
+                htmlspecialchars(Util::backquote($db))
+            );
+            $message = Message::error($message);
+            if ($this->response->isAjax()) {
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', $message);
+                exit;
+            } else {
+                echo $message->getDisplay();
+                unset($_POST);
+                //NOTE: Missing exit ?
+            }
+        }
+
+        $queries = is_array($routine) ? $this->getQueriesFromRoutineForm($routine) : [];
 
         // Get all the queries as one SQL statement
         $multiple_query = implode('', $queries);

@@ -1016,32 +1016,17 @@ parameters:
 			path: libraries/classes/Database/Routines.php
 
 		-
-			message: "#^Cannot access offset 'item_num_params' on array\\|bool\\.$#"
+			message: "#^Cannot access offset 'item_name' on array\\|bool\\.$#"
 			count: 1
 			path: libraries/classes/Database/Routines.php
 
 		-
-			message: "#^Cannot access offset 'item_param_name' on array\\|bool\\.$#"
-			count: 6
+			message: "#^Parameter \\#1 \\$row of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:browseRow\\(\\) expects array, \\(array\\)\\|true given\\.$#"
+			count: 1
 			path: libraries/classes/Database/Routines.php
 
 		-
 			message: "#^Cannot access offset 'item_type' on array\\|bool\\.$#"
-			count: 3
-			path: libraries/classes/Database/Routines.php
-
-		-
-			message: "#^Cannot access offset 'item_param_dir' on array\\|bool\\.$#"
-			count: 2
-			path: libraries/classes/Database/Routines.php
-
-		-
-			message: "#^Cannot access offset 'item_name' on array\\|bool\\.$#"
-			count: 4
-			path: libraries/classes/Database/Routines.php
-
-		-
-			message: "#^Parameter \\#1 \\$row of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:browseRow\\(\\) expects array, \\(array\\)\\|true given\\.$#"
 			count: 1
 			path: libraries/classes/Database/Routines.php
 
