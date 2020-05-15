@@ -74,7 +74,7 @@ class Advisor
             function () {
             },
             /**
-             * @param null $arguments
+             * @param array $arguments
              * @param float $num
              */
             function ($arguments, $num) {
@@ -86,7 +86,7 @@ class Advisor
             function () {
             },
             /**
-             * @param null $arguments
+             * @param array $arguments
              * @param string $string
              * @param int $start
              * @param int $length
@@ -100,7 +100,7 @@ class Advisor
             function () {
             },
             /**
-             * @param null $arguments
+             * @param array $arguments
              * @param string $pattern
              * @param string $subject
              */
@@ -113,7 +113,7 @@ class Advisor
             function () {
             },
             /**
-             * @param null $arguments
+             * @param array $arguments
              * @param float $num
              * @param int $precision
              */
@@ -126,7 +126,7 @@ class Advisor
             function () {
             },
             /**
-             * @param null $arguments
+             * @param array $arguments
              * @param string $seconds
              */
             function ($arguments, $seconds) {
@@ -138,7 +138,7 @@ class Advisor
             function () {
             },
             /**
-             * @param null $arguments
+             * @param array $arguments
              * @param int $value
              * @param int $limes
              * @param int $comma
@@ -152,7 +152,7 @@ class Advisor
             function () {
             },
             /**
-             * @param null $arguments
+             * @param array $arguments
              * @param int $value
              */
             function ($arguments, $value) {
