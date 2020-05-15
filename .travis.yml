@@ -192,6 +192,38 @@ jobs:
       script: ./scripts/create-release.sh --ci
 
     - stage: "Other tests"
+      name: "Run end-to-end tests on Google Chrome"
+      env:
+        - CI_MODE=selenium
+        - TESTSUITE_USER=root
+        - TESTSUITE_URL=http://127.0.0.1:8000
+        - TESTSUITE_HEADLESS=1
+      before_script:
+        # Enable user namespace cloning
+        #- "sysctl kernel.unprivileged_userns_clone=1"
+        # Launch XVFB
+        - "export DISPLAY=:99.0"
+        - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+        - export TESTSUITE_PASSWORD=`openssl rand -base64 30`
+        - mysql -uroot -e "CREATE DATABASE IF NOT EXISTS test"
+        - mysql -uroot < sql/create_tables.sql
+        - mysql -uroot -e "SET PASSWORD = PASSWORD('$TESTSUITE_PASSWORD')"
+        - ./test/start-local-server
+      install:
+        - nvm install 10
+        - composer install --no-interaction --no-dev --optimize-autoloader
+        - yarn install --non-interactive
+        - cp test/config.e2e.inc.php config.inc.php
+      script:
+        - curl -I "${TESTSUITE_URL}"
+        - yarn end-to-end
+      addons:
+        apt:
+          packages:
+            - nginx
+            - xvfb
+
+    - stage: "Other tests"
       name: "Run selenium tests on Google Chrome"
       env:
         - CI_MODE=selenium
