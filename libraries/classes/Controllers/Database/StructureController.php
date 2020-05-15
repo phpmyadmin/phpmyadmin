@@ -556,8 +556,6 @@ class StructureController extends AbstractController
                 unset($full_query_views);
             }
 
-            $full_query_views = $full_query_views ?? null;
-
             $_url_params = [
                 'query_type' => $what,
                 'db' => $db,
@@ -750,7 +748,7 @@ class StructureController extends AbstractController
                 if ($run_parts && ! $copyTable) {
                     $sql_query .= $aQuery . ';' . "\n";
                     $this->dbi->selectDb($db);
-                    $result = $this->dbi->query($aQuery);
+                    $this->dbi->query($aQuery);
 
                     if ($query_type == 'drop_tbl') {
                         $this->transformations->clear($db, $selected[$i]);

@@ -295,7 +295,6 @@ class DatabasesController extends AbstractController
         $selected = $_POST['selected_dbs'];
         $rebuildDatabaseList = false;
         $sqlQuery = '';
-        $result = null;
         $numberOfDatabases = count($selected);
 
         for ($i = 0; $i < $numberOfDatabases; $i++) {

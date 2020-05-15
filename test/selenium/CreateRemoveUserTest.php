@@ -94,7 +94,7 @@ class CreateRemoveUserTest extends TestBase
 
         // Removing the newly added user
         $this->waitForElement('partialLinkText', 'User accounts')->click();
-        $el = $this->waitForElement('id', 'usersForm');
+        $this->waitForElement('id', 'usersForm');
         $temp = $this->_txtUsername . '&amp;#27;localhost';
 
         $this->byXPath(

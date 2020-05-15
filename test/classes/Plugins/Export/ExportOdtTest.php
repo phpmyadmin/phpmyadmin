@@ -291,7 +291,7 @@ class ExportOdtTest extends PmaTestCase
         $GLOBALS['plugin_param']['single_table'] = false;
 
         $method->invoke($this->object, null);
-        $properties = $attrProperties->getValue($this->object);
+        $attrProperties->getValue($this->object);
 
         $generalOptionsArray = $options->getProperties();
 

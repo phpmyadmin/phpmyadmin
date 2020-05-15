@@ -2505,8 +2505,13 @@ class Results
             // 1. Prepares the row
 
             // In print view these variable needs to be initialized
-            $del_url = $del_str = $edit_anchor_class
-                = $edit_str = $js_conf = $copy_url = $copy_str = $edit_url = null;
+            $del_url = null;
+            $del_str = null;
+            $edit_str = null;
+            $js_conf = null;
+            $copy_url = null;
+            $copy_str = null;
+            $edit_url = null;
 
             // 1.2 Defines the URLs for the modify/delete link(s)
 
@@ -2542,7 +2547,6 @@ class Results
                         $copy_url,
                         $edit_str,
                         $copy_str,
-                        $edit_anchor_class,
                     ]
                             = $this->_getModifiedLinks(
                                 $where_clause,
@@ -3199,8 +3203,8 @@ class Results
      * @param bool   $clause_is_unique the unique condition of clause
      * @param string $url_sql_query    the analyzed sql query
      *
-     * @return array   5 element array - $edit_url, $copy_url,
-     *                 $edit_str, $copy_str, $edit_anchor_class
+     * @return array<int,string>       5 element array - $edit_url, $copy_url,
+     *                                                   $edit_str, $copy_str
      *
      * @access private
      */
@@ -3237,18 +3241,11 @@ class Results
             __('Copy')
         );
 
-        // Class definitions required for grid editing jQuery scripts
-        $edit_anchor_class = 'edit_row_anchor';
-        if ($clause_is_unique == 0) {
-            $edit_anchor_class .= ' nonunique';
-        }
-
         return [
             $edit_url,
             $copy_url,
             $edit_str,
             $copy_str,
-            $edit_anchor_class,
         ];
     }
 

@@ -498,7 +498,7 @@ class ExportCsvTest extends PmaTestCase
                 'test'
             )
         );
-        $result = ob_get_clean();
+        ob_get_clean();
 
         // case 2
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')

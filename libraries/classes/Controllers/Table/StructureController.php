@@ -291,7 +291,6 @@ class StructureController extends AbstractController
                             'back' => Url::getFromRoute('/table/sql'),
                         ], '&');
 
-                        $full_query_views = null;
                         $full_query = '';
                         $selectedCount = count($selected);
 

@@ -47,7 +47,7 @@ class CreateDropDatabaseTest extends TestBase
 
         $this->byId('buttonGo')->click();
 
-        $element = $this->waitForElement('linkText', 'Database: ' . $this->database_name);
+        $this->waitForElement('linkText', 'Database: ' . $this->database_name);
 
         $result = $this->dbQuery(
             'SHOW DATABASES LIKE \'' . $this->database_name . '\';'
