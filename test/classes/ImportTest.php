@@ -498,14 +498,14 @@ class ImportTest extends TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $update_query = 'UPDATE `table_1` '
+        $updateQuery = 'UPDATE `table_1` '
             . 'SET `id` = 20 '
             . 'WHERE `id` > 10';
-        $simulated_update_query = 'SELECT `id` FROM `table_1` WHERE `id` > 10 AND (`id` <> 20)';
+        $simulatedUpdateQuery = 'SELECT `id` FROM `table_1` WHERE `id` > 10 AND (`id` <> 20)';
 
-        $delete_query = 'DELETE FROM `table_1` '
+        $deleteQuery = 'DELETE FROM `table_1` '
             . 'WHERE `id` > 10';
-        $simulated_delete_query = 'SELECT * FROM `table_1` WHERE `id` > 10';
+        $simulatedDeleteQuery = 'SELECT * FROM `table_1` WHERE `id` > 10';
 
         $dbi->expects($this->any())
             ->method('numRows')
@@ -519,33 +519,33 @@ class ImportTest extends TestCase
 
         $dbi->expects($this->at(1))
             ->method('tryQuery')
-            ->with($simulated_update_query)
+            ->with($simulatedUpdateQuery)
             ->will($this->returnValue([]));
 
         $dbi->expects($this->at(4))
             ->method('tryQuery')
-            ->with($simulated_delete_query)
+            ->with($simulatedDeleteQuery)
             ->will($this->returnValue([]));
 
         $GLOBALS['dbi'] = $dbi;
 
-        $this->simulatedQueryTest($update_query, $simulated_update_query);
-        $this->simulatedQueryTest($delete_query, $simulated_delete_query);
+        $this->simulatedQueryTest($updateQuery, $simulatedUpdateQuery);
+        $this->simulatedQueryTest($deleteQuery, $simulatedDeleteQuery);
     }
 
     /**
      * Tests simulated UPDATE/DELETE query.
      *
-     * @param string $sql_query       SQL query
-     * @param string $simulated_query Simulated query
+     * @param string $sqlQuery       SQL query
+     * @param string $simulatedQuery Simulated query
      *
      * @return void
      */
-    public function simulatedQueryTest($sql_query, $simulated_query)
+    public function simulatedQueryTest($sqlQuery, $simulatedQuery)
     {
-        $parser = new Parser($sql_query);
+        $parser = new Parser($sqlQuery);
         $analyzed_sql_results = [
-            'query' => $sql_query,
+            'query' => $sqlQuery,
             'parser' => $parser,
             'statement' => $parser->statements[0],
         ];
@@ -555,7 +555,7 @@ class ImportTest extends TestCase
         // URL to matched rows.
         $_url_params = [
             'db'        => 'PMA',
-            'sql_query' => $simulated_query,
+            'sql_query' => $simulatedQuery,
         ];
         $matched_rows_url = Url::getFromRoute('/sql', $_url_params);
 
@@ -636,11 +636,11 @@ class ImportTest extends TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $sql_query = 'UPDATE `table_1` AS t1, `table_2` t2 '
+        $sqlQuery = 'UPDATE `table_1` AS t1, `table_2` t2 '
             . 'SET `table_1`.`id` = `table_2`.`id` '
             . 'WHERE 1';
 
-        $this->assertEquals(true, $this->import->checkIfRollbackPossible($sql_query));
+        $this->assertEquals(true, $this->import->checkIfRollbackPossible($sqlQuery));
     }
 
     /**

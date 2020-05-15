@@ -286,11 +286,11 @@ class GisLineStringTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsSvg() method
      *
-     * @param string $spatial    GIS LINESTRING object
-     * @param string $label      label for the GIS LINESTRING object
-     * @param string $line_color color for the GIS LINESTRING object
-     * @param array  $scale_data array containing data related to scaling
-     * @param string $output     expected output
+     * @param string $spatial   GIS LINESTRING object
+     * @param string $label     label for the GIS LINESTRING object
+     * @param string $lineColor color for the GIS LINESTRING object
+     * @param array  $scaleData array containing data related to scaling
+     * @param string $output    expected output
      *
      * @return void
      *
@@ -299,15 +299,15 @@ class GisLineStringTest extends GisGeomTestCase
     public function testPrepareRowAsSvg(
         $spatial,
         $label,
-        $line_color,
-        $scale_data,
+        $lineColor,
+        $scaleData,
         $output
     ) {
         $string = $this->object->prepareRowAsSvg(
             $spatial,
             $label,
-            $line_color,
-            $scale_data
+            $lineColor,
+            $scaleData
         );
         $this->assertEquals(1, preg_match($output, $string));
     }

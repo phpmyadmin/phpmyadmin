@@ -289,11 +289,11 @@ class GisMultiPointTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsSvg() method
      *
-     * @param string $spatial     GIS MULTIPOINT object
-     * @param string $label       label for the GIS MULTIPOINT object
-     * @param string $point_color color for the GIS MULTIPOINT object
-     * @param array  $scale_data  array containing data related to scaling
-     * @param string $output      expected output
+     * @param string $spatial    GIS MULTIPOINT object
+     * @param string $label      label for the GIS MULTIPOINT object
+     * @param string $pointColor color for the GIS MULTIPOINT object
+     * @param array  $scaleData  array containing data related to scaling
+     * @param string $output     expected output
      *
      * @return void
      *
@@ -302,15 +302,15 @@ class GisMultiPointTest extends GisGeomTestCase
     public function testPrepareRowAsSvg(
         $spatial,
         $label,
-        $point_color,
-        $scale_data,
+        $pointColor,
+        $scaleData,
         $output
     ) {
         $string = $this->object->prepareRowAsSvg(
             $spatial,
             $label,
-            $point_color,
-            $scale_data
+            $pointColor,
+            $scaleData
         );
         $this->assertEquals(1, preg_match($output, $string));
     }
