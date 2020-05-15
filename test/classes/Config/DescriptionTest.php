@@ -99,6 +99,7 @@ class DescriptionTest extends PmaTestCase
                     $this->assertGet($key . '/1/' . $item);
                     if ($item == 'AllowDeny') {
                         foreach ($val as $second => $val2) {
+                            $this->assertNotNull($val2);
                             $this->assertGet($key . '/1/' . $item . '/' . $second);
                         }
                     }

@@ -280,8 +280,6 @@ class StructureControllerTest extends PmaTestCase
         );
 
         $submit_mult = 'index';
-        $db = 'PMA_db';
-        $table = 'PMA_table';
         $selected = [
             'table1',
             'table2',
