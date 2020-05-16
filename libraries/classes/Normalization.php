@@ -52,8 +52,12 @@ class Normalization
      * @param Transformations   $transformations Transformations instance
      * @param Template          $template        Template instance
      */
-    public function __construct(DatabaseInterface $dbi, Relation $relation, Transformations $transformations, Template $template)
-    {
+    public function __construct(
+        DatabaseInterface $dbi,
+        Relation $relation,
+        Transformations $transformations,
+        Template $template
+    ) {
         $this->dbi = $dbi;
         $this->relation = $relation;
         $this->transformations = $transformations;

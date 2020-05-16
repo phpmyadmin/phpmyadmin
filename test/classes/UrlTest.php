@@ -123,6 +123,10 @@ class UrlTest extends TestCase
             'field' => '%1\$s',
             'change_column' => 1,
         ]);
-        $this->assertEquals('index.php?route=/test&amp;db=%253%5C%24s&amp;table=%252%5C%24s&amp;field=%251%5C%24s&amp;change_column=1&amp;lang=en', $generatedUrl);
+        $this->assertEquals(
+            'index.php?route=/test&amp;db=%253%5C%24s&amp;table=%252%'
+            . '5C%24s&amp;field=%251%5C%24s&amp;change_column=1&amp;lang=en',
+            $generatedUrl
+        );
     }
 }

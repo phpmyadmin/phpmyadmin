@@ -1272,7 +1272,9 @@ class DatabaseInterface implements DbalInterface
             $colCollation = $columns[$column_name]['COLLATION_NAME'];
             $colCollation = is_string($colCollation) ? $colCollation : '';
             $colCollationPosUnderscore = strpos($colCollation, '_');
-            $colCollationPosUnderscore = $colCollationPosUnderscore !== false ? $colCollationPosUnderscore : strlen($colCollation);
+            $colCollationPosUnderscore = $colCollationPosUnderscore !== false
+                ? $colCollationPosUnderscore
+                : strlen($colCollation);
             $columns[$column_name]['CHARACTER_SET_NAME']
                 = substr(
                     $colCollation,

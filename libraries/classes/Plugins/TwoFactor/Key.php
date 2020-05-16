@@ -80,12 +80,12 @@ class Key extends TwoFactorPlugin
             if ($response === null) {
                 return false;
             }
-            $authentication = U2FServer::authenticate(
+            $auth = U2FServer::authenticate(
                 $_SESSION['authenticationRequest'],
                 $this->getRegistrations(),
                 $response
             );
-            $this->_twofactor->config['settings']['registrations'][$authentication->index]['counter'] = $authentication->counter;
+            $this->_twofactor->config['settings']['registrations'][$auth->index]['counter'] = $auth->counter;
             $this->_twofactor->save();
 
             return true;

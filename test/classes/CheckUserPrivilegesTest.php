@@ -138,8 +138,8 @@ class CheckUserPrivilegesTest extends TestCase
             $show_grants_dbname
         );
 
-        $show_grants_full_row = 'GRANT ALL PRIVILEGES ON `cptest\_.a.b.c.d.e.f.g.h.i.j.k.l.m.n.o.p.q.r.s.t.u.v.w.x.y.z`.* TO '
-            . "'cptest'@'localhost'";
+        $show_grants_full_row = 'GRANT ALL PRIVILEGES ON `cptest\_.a.b.c.d.e.f.g.h.i.j.k.'
+            . 'l.m.n.o.p.q.r.s.t.u.v.w.x.y.z`.* TO ' . "'cptest'@'localhost'";
 
         list(
             $show_grants_str,

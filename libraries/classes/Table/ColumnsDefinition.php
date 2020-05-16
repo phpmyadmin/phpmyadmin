@@ -114,7 +114,8 @@ final class ColumnsDefinition
             }
         }
 
-        $is_backup = ($action != Url::getFromRoute('/table/create') && $action != Url::getFromRoute('/table/add-field'));
+        $is_backup = ($action != Url::getFromRoute('/table/create')
+            && $action != Url::getFromRoute('/table/add-field'));
 
         $cfgRelation = $relation->getRelationsParam();
 

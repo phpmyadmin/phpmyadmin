@@ -289,8 +289,11 @@ class VersionInformationTest extends PmaTestCase
      *
      * @dataProvider dataProviderVersionConditions
      */
-    public function testGetLatestCompatibleVersionWithNewPHPVersion(array $versions, array $conditions, ?string $matchedLastVersion): void
-    {
+    public function testGetLatestCompatibleVersionWithNewPHPVersion(
+        array $versions,
+        array $conditions,
+        ?string $matchedLastVersion
+    ): void {
         $GLOBALS['cfg']['Servers'] = [];
 
         $mockVersionInfo = $this->getMockBuilder(VersionInformation::class)

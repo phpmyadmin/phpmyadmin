@@ -322,7 +322,10 @@ class OperationsController extends AbstractController
                     '%sFind out why%s.'
                 )
             );
-            $message->addParamHtml('<a href="' . Url::getFromRoute('/check-relations') . '" data-post="' . $url_query . '">');
+            $message->addParamHtml(
+                '<a href="' . Url::getFromRoute('/check-relations')
+                . '" data-post="' . $url_query . '">'
+            );
             $message->addParamHtml('</a>');
             /* Show error if user has configured something, notice elsewhere */
             if (! empty($cfg['Servers'][$server]['pmadb'])) {

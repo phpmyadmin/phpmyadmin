@@ -277,10 +277,6 @@
     <PossiblyFalseOperand occurrences="1">
       <code>mb_strpos($_POST['value'], '(')</code>
     </PossiblyFalseOperand>
-    <PossiblyFalseReference occurrences="2">
-      <code>generateParams</code>
-      <code>generateWkt</code>
-    </PossiblyFalseReference>
   </file>
   <file src="libraries/classes/Controllers/HomeController.php">
     <MissingFile occurrences="1">
@@ -972,8 +968,8 @@
       <code>$meta</code>
       <code>$meta</code>
       <code>$meta</code>
-      <code>$this-&gt;__get('table')</code>
       <code>$this-&gt;__get('db')</code>
+      <code>$this-&gt;__get('table')</code>
       <code>$fields_meta[$m]-&gt;orgname</code>
       <code>$this-&gt;__get('sql_query')</code>
       <code>$this-&gt;__get('table')</code>
@@ -1287,19 +1283,15 @@
     </PossiblyInvalidArgument>
   </file>
   <file src="libraries/classes/Gis/GisVisualization.php">
-    <ArgumentTypeCoercion occurrences="1">
-      <code>$results</code>
-    </ArgumentTypeCoercion>
-    <InvalidArgument occurrences="3">
-      <code>''</code>
-      <code>$image</code>
-      <code>''</code>
-    </InvalidArgument>
     <NullArgument occurrences="3">
       <code>null</code>
       <code>null</code>
       <code>null</code>
     </NullArgument>
+    <PossiblyFalseOperand occurrences="2">
+      <code>$results</code>
+      <code>$results</code>
+    </PossiblyFalseOperand>
     <PossiblyInvalidArgument occurrences="1">
       <code>$results</code>
     </PossiblyInvalidArgument>
@@ -1380,6 +1372,9 @@
     <InvalidArgument occurrences="1">
       <code>$current_result</code>
     </InvalidArgument>
+    <NullArgument occurrences="1">
+      <code>PASSWORD_DEFAULT</code>
+    </NullArgument>
     <PossiblyInvalidArgument occurrences="1">
       <code>$row</code>
     </PossiblyInvalidArgument>
@@ -1926,8 +1921,8 @@
       <code>$foreigner['foreign_db']</code>
       <code>$foreigner['foreign_table']</code>
       <code>$foreigner['foreign_field']</code>
-      <code>$foreigner['foreign_field']</code>
       <code>$foreigner['foreign_table']</code>
+      <code>$foreigner['foreign_field']</code>
     </PossiblyInvalidArrayAccess>
     <PossiblyNullArgument occurrences="22">
       <code>$this-&gt;orientation</code>

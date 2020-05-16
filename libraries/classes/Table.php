@@ -468,9 +468,8 @@ class Table
             }
         }
         // we need explicit DEFAULT value here (different from '0')
-        $create_options['pack_keys'] = ! isset($create_options['pack_keys']) || strlen($create_options['pack_keys']) == 0
-            ? 'DEFAULT'
-            : $create_options['pack_keys'];
+        $hasPackKeys = isset($create_options['pack_keys']) && strlen($create_options['pack_keys']) > 0;
+        $create_options['pack_keys'] = $hasPackKeys ? $create_options['pack_keys'] : 'DEFAULT';
 
         return $create_options;
     }
@@ -1962,9 +1961,8 @@ class Table
         // set session variable if it's still undefined
         if (! isset($_SESSION['tmpval']['table_uiprefs'][$server_id][$this->_db_name][$this->_name])) {
             // check whether we can get from pmadb
-            $_SESSION['tmpval']['table_uiprefs'][$server_id][$this->_db_name][$this->_name] = $cfgRelation['uiprefswork']
-                ?  $this->getUiPrefsFromDb()
-                : [];
+            $uiPrefs = $cfgRelation['uiprefswork'] ? $this->getUiPrefsFromDb() : [];
+            $_SESSION['tmpval']['table_uiprefs'][$server_id][$this->_db_name][$this->_name] = $uiPrefs;
         }
         $this->uiprefs =& $_SESSION['tmpval']['table_uiprefs'][$server_id][$this->_db_name][$this->_name];
     }

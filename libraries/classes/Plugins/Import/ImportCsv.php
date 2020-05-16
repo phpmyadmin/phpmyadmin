@@ -285,7 +285,11 @@ class ImportCsv extends AbstractImportCsv
         $csv_finish = false;
         $max_lines = 0; // defaults to 0 (get all the lines)
 
-        // If we get a negative value, probably someone changed min value attribute in DOM or there is an integer overflow, whatever be the case, get all the lines
+        /**
+         * If we get a negative value, probably someone changed min value
+         * attribute in DOM or there is an integer overflow, whatever be
+         * the case, get all the lines.
+         */
         if (isset($_REQUEST['csv_partial_import']) && $_REQUEST['csv_partial_import'] > 0) {
             $max_lines = $_REQUEST['csv_partial_import'];
         }

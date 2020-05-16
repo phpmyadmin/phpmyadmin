@@ -113,17 +113,29 @@ class ExportTest extends TestCase
     public function testGetFinalFilenameAndMimetypeForFilename()
     {
         $exportPlugin = new ExportPhparray();
-        $finalFileName = $this->export->getFinalFilenameAndMimetypeForFilename($exportPlugin, 'zip', 'myfilename');
+        $finalFileName = $this->export->getFinalFilenameAndMimetypeForFilename(
+            $exportPlugin,
+            'zip',
+            'myfilename'
+        );
         $this->assertSame([
             'myfilename.php.zip',
             'application/zip',
         ], $finalFileName);
-        $finalFileName = $this->export->getFinalFilenameAndMimetypeForFilename($exportPlugin, 'gzip', 'myfilename');
+        $finalFileName = $this->export->getFinalFilenameAndMimetypeForFilename(
+            $exportPlugin,
+            'gzip',
+            'myfilename'
+        );
         $this->assertSame([
             'myfilename.php.gz',
             'application/x-gzip',
         ], $finalFileName);
-        $finalFileName = $this->export->getFinalFilenameAndMimetypeForFilename($exportPlugin, 'gzip', 'export.db1.table1.file');
+        $finalFileName = $this->export->getFinalFilenameAndMimetypeForFilename(
+            $exportPlugin,
+            'gzip',
+            'export.db1.table1.file'
+        );
         $this->assertSame([
             'export.db1.table1.file.php.gz',
             'application/x-gzip',

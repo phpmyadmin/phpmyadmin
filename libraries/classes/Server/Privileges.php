@@ -1752,8 +1752,9 @@ class Privileges
             $new_user_initial = mb_strtoupper(
                 mb_substr($username, 0, 1)
             );
-            $newUserInitialString = '<a href="' . Url::getFromRoute('/server/privileges', ['initial' => $new_user_initial]) . '">'
-                . $new_user_initial . '</a>';
+            $newUserInitialString = '<a href="';
+            $newUserInitialString .= Url::getFromRoute('/server/privileges', ['initial' => $new_user_initial]);
+            $newUserInitialString .= '">' . $new_user_initial . '</a>';
             $extra_data['new_user_initial'] = $new_user_initial;
             $extra_data['new_user_initial_string'] = $newUserInitialString;
         }

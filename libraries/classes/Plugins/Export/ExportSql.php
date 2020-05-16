@@ -2837,7 +2837,8 @@ class ExportSql extends ExportPlugin
                 if (! empty($field->key)) {
                     foreach ($field->key->columns as $key => $column) {
                         if (! empty($aliases[$old_database]['tables'][$old_table]['columns'][$column['name']])) {
-                            $field->key->columns[$key]['name'] = $aliases[$old_database]['tables'][$old_table]['columns'][$column['name']];
+                            $columnAliases = $aliases[$old_database]['tables'][$old_table]['columns'];
+                            $field->key->columns[$key]['name'] = $columnAliases[$column['name']];
                             $flag = true;
                         }
                     }

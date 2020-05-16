@@ -968,7 +968,8 @@ abstract class TestBase extends TestCase
     public function scrollToElement(WebDriverElement $element, int $xOffset = 0, int $yOffset = 0): void
     {
         $this->webDriver->executeScript(
-            'window.scrollBy(' . ($element->getLocation()->getX() + $xOffset) . ', ' . ($element->getLocation()->getY() + $yOffset) . ');'
+            'window.scrollBy(' . ($element->getLocation()->getX() + $xOffset)
+            . ', ' . ($element->getLocation()->getY() + $yOffset) . ');'
         );
     }
 

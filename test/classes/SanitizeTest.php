@@ -57,7 +57,8 @@ class SanitizeTest extends TestCase
     public function testDoc($link, $expected): void
     {
         $this->assertEquals(
-            '<a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2F' . $expected . '" target="documentation">doclink</a>',
+            '<a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2F'
+                . $expected . '" target="documentation">doclink</a>',
             Sanitize::sanitizeMessage('[doc@' . $link . ']doclink[/doc]')
         );
     }
@@ -123,8 +124,11 @@ class SanitizeTest extends TestCase
     public function testLinkAndXssInHref()
     {
         $this->assertEquals(
-            '<a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2F">doc</a>[a@javascript:alert(\'XSS\');@target]link</a>',
-            Sanitize::sanitizeMessage('[a@https://docs.phpmyadmin.net/]doc[/a][a@javascript:alert(\'XSS\');@target]link[/a]')
+            '<a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2F">doc</a>'
+                . '[a@javascript:alert(\'XSS\');@target]link</a>',
+            Sanitize::sanitizeMessage(
+                '[a@https://docs.phpmyadmin.net/]doc[/a][a@javascript:alert(\'XSS\');@target]link[/a]'
+            )
         );
     }
 

@@ -102,7 +102,8 @@ class ErrorTest extends PmaTestCase
             ],
             [
                 __FILE__,
-                '.' . DIRECTORY_SEPARATOR . 'test' . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'ErrorTest.php',
+                '.' . DIRECTORY_SEPARATOR . 'test' . DIRECTORY_SEPARATOR
+                    . 'classes' . DIRECTORY_SEPARATOR . 'ErrorTest.php',
             ],
             [
                 './NONEXISTING',

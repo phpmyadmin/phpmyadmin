@@ -823,7 +823,8 @@ class AuthenticationCookieTest extends PmaTestCase
 
         $this->assertEquals(
             $GLOBALS['conn_error'],
-            'You have been automatically logged out due to inactivity of 10 seconds. Once you log in again, you should be able to resume the work where you left off.'
+            'You have been automatically logged out due to inactivity of 10 seconds.'
+            . ' Once you log in again, you should be able to resume the work where you left off.'
         );
     }
 
@@ -961,7 +962,8 @@ class AuthenticationCookieTest extends PmaTestCase
         $this->object->setIV('testiv09testiv09');
         // works with the openssl extension active or inactive
         $this->assertEquals(
-            '{"iv":"dGVzdGl2MDl0ZXN0aXYwOQ==","mac":"347aa45ae1ade00c980f31129ec2defef18b2bfd","payload":"YDEaxOfP9nD9q\/2pC6hjfQ=="}',
+            '{"iv":"dGVzdGl2MDl0ZXN0aXYwOQ==","mac":"347aa45ae1ade00c980f31129ec2def'
+            . 'ef18b2bfd","payload":"YDEaxOfP9nD9q\/2pC6hjfQ=="}',
             $this->object->cookieEncrypt('data123', 'sec321')
         );
     }
@@ -1002,20 +1004,23 @@ class AuthenticationCookieTest extends PmaTestCase
         $this->assertEquals(
             'data123',
             $this->object->cookieDecrypt(
-                '{"iv":"dGVzdGl2MDl0ZXN0aXYwOQ==","mac":"347aa45ae1ade00c980f31129ec2defef18b2bfd","payload":"YDEaxOfP9nD9q\/2pC6hjfQ=="}',
+                '{"iv":"dGVzdGl2MDl0ZXN0aXYwOQ==","mac":"347aa45ae1ade00c980f31129ec'
+                . '2defef18b2bfd","payload":"YDEaxOfP9nD9q\/2pC6hjfQ=="}',
                 'sec321'
             )
         );
         $this->assertEquals(
             'root',
             $this->object->cookieDecrypt(
-                '{"iv":"AclJhCM7ryNiuPnw3Y8cXg==","mac":"d0ef75e852bc162e81496e116dc571182cb2cba6","payload":"O4vrt9R1xyzAw7ypvrLmQA=="}',
+                '{"iv":"AclJhCM7ryNiuPnw3Y8cXg==","mac":"d0ef75e852bc162e81496e116dc'
+                . '571182cb2cba6","payload":"O4vrt9R1xyzAw7ypvrLmQA=="}',
                 ':Kb1?)c(r{]-{`HW*hOzuufloK(M~!p'
             )
         );
         $this->assertFalse(
             $this->object->cookieDecrypt(
-                '{"iv":"AclJhCM7ryNiuPnw3Y8cXg==","mac":"d0ef75e852bc162e81496e116dc571182cb2cba6","payload":"O4vrt9R1xyzAw7ypvrLmQA=="}',
+                '{"iv":"AclJhCM7ryNiuPnw3Y8cXg==","mac":"d0ef75e852bc162e81496e116dc'
+                . '571182cb2cba6","payload":"O4vrt9R1xyzAw7ypvrLmQA=="}',
                 'aedzoiefpzf,zf1z7ef6ef84'
             )
         );

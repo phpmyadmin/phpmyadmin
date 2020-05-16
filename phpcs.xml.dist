@@ -13,9 +13,6 @@
         <exclude name="PEAR.Commenting.FunctionComment.MissingReturn"/>
     </rule>
 
-    <rule ref="Generic.Files.LineLength.TooLong">
-        <severity>4</severity>
-    </rule>
     <rule ref="Generic.Metrics.NestingLevel.TooHigh">
         <severity>4</severity>
     </rule>

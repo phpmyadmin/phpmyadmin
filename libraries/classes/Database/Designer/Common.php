@@ -565,7 +565,8 @@ class Common
             return [
                 false,
                 _pgettext(
-                    'phpMyAdmin configuration storage is not configured for "Display Features" on designer when user tries to set a display field.',
+                    'phpMyAdmin configuration storage is not configured for'
+                        . ' "Display Features" on designer when user tries to set a display field.',
                     'phpMyAdmin configuration storage is not configured for "Display Features".'
                 ),
             ];

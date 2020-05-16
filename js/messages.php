@@ -66,7 +66,10 @@ $javascriptMessages = [
     'strDropUserGroupWarning' => __('Do you really want to delete user group "%s"?'),
     'strConfirmDeleteQBESearch' => __('Do you really want to delete the search "%s"?'),
     'strConfirmNavigation' => __('You have unsaved changes; are you sure you want to leave this page?'),
-    'strConfirmRowChange' => __('You are trying to reduce the number of rows, but have already entered data in those rows which will be lost. Do you wish to continue?'),
+    'strConfirmRowChange' => __(
+        'You are trying to reduce the number of rows, but have already entered'
+        . ' data in those rows which will be lost. Do you wish to continue?'
+    ),
     'strDropUserWarning' => __('Do you really want to revoke the selected user(s) ?'),
     'strDeleteCentralColumnWarning' => __('Do you really want to delete this central column?'),
     'strDropRTEitems' => __('Do you really want to delete the selected items?'),
@@ -505,7 +508,9 @@ $javascriptMessages = [
     'strCopyEncryptionKey' => __('Do you want to copy encryption key?'),
     'strEncryptionKey' => __('Encryption key'),
     /* l10n: Tip for HEX conversion of Integers */
-    'HexConversionInfo' => __('The HEX function will treat the integer as a string while calculating the hexadecimal value'),
+    'HexConversionInfo' => __(
+        'The HEX function will treat the integer as a string while calculating the hexadecimal value'
+    ),
 
     /* For Tip to be shown on Time field */
     'strMysqlAllowedValuesTipTime' => __(
@@ -692,7 +697,13 @@ $javascriptMessages = [
     'strConsoleDebugShowArgs' => __('Show arguments'),
     'strConsoleDebugHideArgs' => __('Hide arguments'),
     'strConsoleDebugTimeTaken' => __('Time taken:'),
-    'strNoLocalStorage' => __('There was a problem accessing your browser storage, some features may not work properly for you. It is likely that the browser doesn\'t support storage or the quota limit has been reached. In Firefox, corrupted storage can also cause such a problem, clearing your "Offline Website Data" might help. In Safari, such problem is commonly caused by "Private Mode Browsing".'),
+    'strNoLocalStorage' => __(
+        'There was a problem accessing your browser storage, some features may not'
+        . ' work properly for you. It is likely that the browser doesn\'t support storage'
+        . ' or the quota limit has been reached. In Firefox, corrupted storage can also'
+        . ' cause such a problem, clearing your "Offline Website Data" might help. In Safari,'
+        . ' such problem is commonly caused by "Private Mode Browsing".'
+    ),
     // For modals in /database/structure
     'strCopyTablesTo' => __('Copy tables to'),
     'strAddPrefix' => __('Add table prefix'),
@@ -711,7 +722,10 @@ $javascriptMessages = [
     'strU2FError' => __('Failed security key activation (%s).'),
 
     /* Designer */
-    'strTableAlreadyExists' => _pgettext('The table already exists in the designer and can not be added once more.', 'Table %s already exists!'),
+    'strTableAlreadyExists' => _pgettext(
+        'The table already exists in the designer and can not be added once more.',
+        'Table %s already exists!'
+    ),
     'strHide' => __('Hide'),
     'strShow' => __('Show'),
     'strStructure' => __('Structure'),

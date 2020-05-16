@@ -41,8 +41,9 @@ class TrackingController extends AbstractController
 
     public function index(): void
     {
-        global $db, $pmaThemeImage, $text_dir, $url_query, $url_params, $tables, $num_tables, $pos, $data, $cfg;
-        global $total_num_tables, $sub_part, $is_show_stats, $db_is_system_schema, $tooltip_truename, $tooltip_aliasname;
+        global $db, $pmaThemeImage, $text_dir, $url_query, $url_params, $tables, $num_tables;
+        global $total_num_tables, $sub_part, $is_show_stats, $pos, $data, $cfg;
+        global $db_is_system_schema, $tooltip_truename, $tooltip_aliasname;
 
         //Get some js files needed for Ajax requests
         $header = $this->response->getHeader();

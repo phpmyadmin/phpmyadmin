@@ -1555,7 +1555,9 @@ class Results
      */
     private function getOptionsBlock(): array
     {
-        if (isset($_SESSION['tmpval']['possible_as_geometry']) && $_SESSION['tmpval']['possible_as_geometry'] == false) {
+        if (isset($_SESSION['tmpval']['possible_as_geometry'])
+            && $_SESSION['tmpval']['possible_as_geometry'] == false
+        ) {
             if ($_SESSION['tmpval']['geoOption'] == self::GEOMETRY_DISP_GEOM) {
                 $_SESSION['tmpval']['geoOption'] = self::GEOMETRY_DISP_WKT;
             }
@@ -1643,8 +1645,7 @@ class Results
      * @param int      $session_max_rows            maximum rows resulted by sql
      * @param string   $comments                    comment for row
      * @param array    $sort_direction              sort direction
-     * @param bool     $col_visib                   column is visible(false)
-     *                                              array                                column isn't visible(string array)
+     * @param bool     $col_visib                   column is visible(false) or column isn't visible(string array)
      * @param string   $col_visib_j                 element of $col_visib array
      *
      * @return array   2 element array - $order_link, $sorted_header_html
@@ -2623,7 +2624,11 @@ class Results
                     $table_body_html .= $this->template->render('display/results/checkbox_and_links', [
                         'position' => self::POSITION_RIGHT,
                         'has_checkbox' => ! empty($del_url) && $displayParts['del_lnk'] !== self::KILL_PROCESS,
-                        'edit' => ['url' => $edit_url, 'string' => $edit_str, 'clause_is_unique' => $clause_is_unique ?? true],
+                        'edit' => [
+                            'url' => $edit_url,
+                            'string' => $edit_str,
+                            'clause_is_unique' => $clause_is_unique ?? true,
+                        ],
                         'copy' => ['url' => $copy_url, 'string' => $copy_str],
                         'delete' => ['url' => $del_url, 'string' => $del_str],
                         'row_number' => $row_no,
@@ -2853,10 +2858,13 @@ class Results
                     $mime_map[$orgFullColName]['transformation_options'] ?? ''
                 );
 
+                $orgTable = mb_strtolower($meta->orgtable);
+                $orgName = mb_strtolower($meta->orgname);
+
                 $meta->mimetype = str_replace(
                     '_',
                     '/',
-                    $this->transformation_info[$dbLower][mb_strtolower($meta->orgtable)][mb_strtolower($meta->orgname)][2]
+                    $this->transformation_info[$dbLower][$orgTable][$orgName][2]
                 );
             }
 
@@ -3015,7 +3023,9 @@ class Results
         $field_name
     ) {
         $linking_url_params = [];
-        $link_relations = $specialSchemaLinks[mb_strtolower($this->__get('db'))][mb_strtolower($this->__get('table'))][$field_name];
+        $db = mb_strtolower($this->__get('db'));
+        $table = mb_strtolower($this->__get('table'));
+        $link_relations = $specialSchemaLinks[$db][$table][$field_name];
 
         if (! is_array($link_relations['link_param'])) {
             $linking_url_params[$link_relations['link_param']] = $column_value;

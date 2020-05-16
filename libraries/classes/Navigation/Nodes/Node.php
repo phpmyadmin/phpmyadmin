@@ -343,7 +343,8 @@ class Node
 
     /**
      * Returns the names of children of type $type present inside this container
-     * This method is overridden by the PhpMyAdmin\Navigation\Nodes\NodeDatabase and PhpMyAdmin\Navigation\Nodes\NodeTable classes
+     * This method is overridden by the PhpMyAdmin\Navigation\Nodes\NodeDatabase
+     * and PhpMyAdmin\Navigation\Nodes\NodeTable classes
      *
      * @param string $type         The type of item we are looking for
      *                             ('tables', 'views', etc)
@@ -552,7 +553,8 @@ class Node
 
     /**
      * Returns the number of children of type $type present inside this container
-     * This method is overridden by the PhpMyAdmin\Navigation\Nodes\NodeDatabase and PhpMyAdmin\Navigation\Nodes\NodeTable classes
+     * This method is overridden by the PhpMyAdmin\Navigation\Nodes\NodeDatabase
+     * and PhpMyAdmin\Navigation\Nodes\NodeTable classes
      *
      * @param string $type         The type of item we are looking for
      *                             ('tables', 'views', etc)

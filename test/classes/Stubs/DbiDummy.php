@@ -1607,7 +1607,11 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
-                'query'  => "SELECT *, CAST(BIN_NAME AS CHAR CHARACTER SET utf8) AS SCHEMA_NAME FROM (SELECT BINARY s.SCHEMA_NAME AS BIN_NAME, s.DEFAULT_COLLATION_NAME FROM `information_schema`.SCHEMATA s WHERE `SCHEMA_NAME` LIKE 'pma_test' GROUP BY BINARY s.SCHEMA_NAME, s.DEFAULT_COLLATION_NAME ORDER BY BINARY `SCHEMA_NAME` ASC) a",
+                'query'  => 'SELECT *, CAST(BIN_NAME AS CHAR CHARACTER SET utf8) AS SCHEMA_NAME'
+                    . ' FROM (SELECT BINARY s.SCHEMA_NAME AS BIN_NAME, s.DEFAULT_COLLATION_NAME'
+                    . " FROM `information_schema`.SCHEMATA s WHERE `SCHEMA_NAME` LIKE 'pma_test'"
+                    . ' GROUP BY BINARY s.SCHEMA_NAME, s.DEFAULT_COLLATION_NAME ORDER BY'
+                    . ' BINARY `SCHEMA_NAME` ASC) a',
                 'result' => [
                     [
                         'BIN_NAME' => 'pma_test',
@@ -1617,7 +1621,10 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
-                'query' => 'SELECT *, CAST(BIN_NAME AS CHAR CHARACTER SET utf8) AS SCHEMA_NAME FROM (SELECT BINARY s.SCHEMA_NAME AS BIN_NAME, s.DEFAULT_COLLATION_NAME FROM `information_schema`.SCHEMATA s GROUP BY BINARY s.SCHEMA_NAME, s.DEFAULT_COLLATION_NAME ORDER BY BINARY `SCHEMA_NAME` ASC) a',
+                'query' => 'SELECT *, CAST(BIN_NAME AS CHAR CHARACTER SET utf8) AS SCHEMA_NAME'
+                    . ' FROM (SELECT BINARY s.SCHEMA_NAME AS BIN_NAME, s.DEFAULT_COLLATION_NAME'
+                    . ' FROM `information_schema`.SCHEMATA s GROUP BY BINARY s.SCHEMA_NAME,'
+                    . ' s.DEFAULT_COLLATION_NAME ORDER BY BINARY `SCHEMA_NAME` ASC) a',
                 'columns' => [
                     'BIN_NAME',
                     'DEFAULT_COLLATION_NAME',
@@ -1638,7 +1645,17 @@ class DbiDummy implements DbiExtension
             ],
 
             [
-                'query' => "SELECT *, CAST(BIN_NAME AS CHAR CHARACTER SET utf8) AS SCHEMA_NAME FROM (SELECT BINARY s.SCHEMA_NAME AS BIN_NAME, s.DEFAULT_COLLATION_NAME, COUNT(t.TABLE_SCHEMA) AS SCHEMA_TABLES, SUM(t.TABLE_ROWS) AS SCHEMA_TABLE_ROWS, SUM(t.DATA_LENGTH) AS SCHEMA_DATA_LENGTH, SUM(t.MAX_DATA_LENGTH) AS SCHEMA_MAX_DATA_LENGTH, SUM(t.INDEX_LENGTH) AS SCHEMA_INDEX_LENGTH, SUM(t.DATA_LENGTH + t.INDEX_LENGTH) AS SCHEMA_LENGTH, SUM(IF(t.ENGINE <> 'InnoDB', t.DATA_FREE, 0)) AS SCHEMA_DATA_FREE FROM `information_schema`.SCHEMATA s LEFT JOIN `information_schema`.TABLES t ON BINARY t.TABLE_SCHEMA = BINARY s.SCHEMA_NAME GROUP BY BINARY s.SCHEMA_NAME, s.DEFAULT_COLLATION_NAME ORDER BY `SCHEMA_TABLES` DESC) a",
+                'query' => 'SELECT *, CAST(BIN_NAME AS CHAR CHARACTER SET utf8) AS SCHEMA_NAME'
+                    . ' FROM (SELECT BINARY s.SCHEMA_NAME AS BIN_NAME, s.DEFAULT_COLLATION_NAME,'
+                    . ' COUNT(t.TABLE_SCHEMA) AS SCHEMA_TABLES, SUM(t.TABLE_ROWS) AS'
+                    . ' SCHEMA_TABLE_ROWS, SUM(t.DATA_LENGTH) AS SCHEMA_DATA_LENGTH,'
+                    . ' SUM(t.MAX_DATA_LENGTH) AS SCHEMA_MAX_DATA_LENGTH, SUM(t.INDEX_LENGTH)'
+                    . ' AS SCHEMA_INDEX_LENGTH, SUM(t.DATA_LENGTH + t.INDEX_LENGTH) AS'
+                    . " SCHEMA_LENGTH, SUM(IF(t.ENGINE <> 'InnoDB', t.DATA_FREE, 0)) AS"
+                    . ' SCHEMA_DATA_FREE FROM `information_schema`.SCHEMATA s LEFT JOIN'
+                    . ' `information_schema`.TABLES t ON BINARY t.TABLE_SCHEMA = BINARY'
+                    . ' s.SCHEMA_NAME GROUP BY BINARY s.SCHEMA_NAME,'
+                    . ' s.DEFAULT_COLLATION_NAME ORDER BY `SCHEMA_TABLES` DESC) a',
                 'columns' => [
                     'BIN_NAME',
                     'DEFAULT_COLLATION_NAME',
@@ -1737,11 +1754,20 @@ class DbiDummy implements DbiExtension
                 'result' => [['ndb-7.4.10']],
             ],
             [
-                'query' => "SELECT *, `COLUMN_NAME` AS `Field`, `COLUMN_TYPE` AS `Type`, `COLLATION_NAME` AS `Collation`, `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`, `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`, `COLUMN_COMMENT` AS `Comment` FROM `information_schema`.`COLUMNS` WHERE `TABLE_SCHEMA` = 'information_schema' AND `TABLE_NAME` = 'PMA'",
+                'query' => 'SELECT *, `COLUMN_NAME` AS `Field`, `COLUMN_TYPE` AS'
+                    . ' `Type`, `COLLATION_NAME` AS `Collation`, `IS_NULLABLE` AS'
+                    . ' `Null`, `COLUMN_KEY` AS `Key`, `COLUMN_DEFAULT` AS `Default`,'
+                    . ' `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`,'
+                    . ' `COLUMN_COMMENT` AS `Comment` FROM `information_schema`.`COLUMNS`'
+                    . " WHERE `TABLE_SCHEMA` = 'information_schema' AND `TABLE_NAME` = 'PMA'",
                 'result' => [],
             ],
             [
-                'query' => "SELECT TABLE_NAME, COLUMN_NAME, REFERENCED_TABLE_NAME, REFERENCED_COLUMN_NAME FROM information_schema.key_column_usage WHERE referenced_table_name IS NOT NULL AND TABLE_SCHEMA = 'test' AND TABLE_NAME IN ('table1','table2') AND REFERENCED_TABLE_NAME IN ('table1','table2');",
+                'query' => 'SELECT TABLE_NAME, COLUMN_NAME, REFERENCED_TABLE_NAME,'
+                    . ' REFERENCED_COLUMN_NAME FROM information_schema.key_column_usage'
+                    . " WHERE referenced_table_name IS NOT NULL AND TABLE_SCHEMA = 'test'"
+                    . " AND TABLE_NAME IN ('table1','table2') AND"
+                    . " REFERENCED_TABLE_NAME IN ('table1','table2');",
                 'result' => [
                     [
                         'TABLE_NAME' => 'table2',
@@ -1752,7 +1778,8 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
-                'query' => "SELECT `item_name`, `item_type` FROM `pmadb`.`navigationhiding` WHERE `username`='user' AND `db_name`='db' AND `table_name`=''",
+                'query' => 'SELECT `item_name`, `item_type` FROM `pmadb`.`navigationhiding`'
+                    . " WHERE `username`='user' AND `db_name`='db' AND `table_name`=''",
                 'result' => [
                     [
                         'item_name' => 'tableName',
@@ -1765,7 +1792,9 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
-                'query' => 'SELECT `Table_priv` FROM `mysql`.`tables_priv` WHERE `User` = \'PMA_username\' AND `Host` = \'PMA_hostname\' AND `Db` = \'PMA_db\' AND `Table_name` = \'PMA_table\';',
+                'query' => 'SELECT `Table_priv` FROM `mysql`.`tables_priv` WHERE `User` ='
+                    . ' \'PMA_username\' AND `Host` = \'PMA_hostname\' AND `Db` ='
+                    . ' \'PMA_db\' AND `Table_name` = \'PMA_table\';',
                 'result' => [
                     [
                         'Table_priv' => 'Select,Insert,Update,References,Create View,Show view',
@@ -1818,7 +1847,9 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
-                'query' => 'SELECT `Column_name`, `Column_priv` FROM `mysql`.`columns_priv` WHERE `User` = \'PMA_username\' AND `Host` = \'PMA_hostname\' AND `Db` = \'PMA_db\' AND `Table_name` = \'PMA_table\';',
+                'query' => 'SELECT `Column_name`, `Column_priv` FROM `mysql`.`columns_priv`'
+                    . ' WHERE `User` = \'PMA_username\' AND `Host` = \'PMA_hostname\' AND'
+                    . ' `Db` = \'PMA_db\' AND `Table_name` = \'PMA_table\';',
                 'columns' => [
                     'Column_name',
                     'Column_priv',
@@ -1862,7 +1893,11 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
-                'query' => 'SELECT start_time, user_host, Sec_to_Time(Sum(Time_to_Sec(query_time))) as query_time, Sec_to_Time(Sum(Time_to_Sec(lock_time))) as lock_time, SUM(rows_sent) AS rows_sent, SUM(rows_examined) AS rows_examined, db, sql_text, COUNT(sql_text) AS \'#\' FROM `mysql`.`slow_log` WHERE start_time > FROM_UNIXTIME(0) AND start_time < FROM_UNIXTIME(10) GROUP BY sql_text',
+                'query' => 'SELECT start_time, user_host, Sec_to_Time(Sum(Time_to_Sec(query_time))) '
+                    . 'as query_time, Sec_to_Time(Sum(Time_to_Sec(lock_time))) as lock_time,'
+                    . ' SUM(rows_sent) AS rows_sent, SUM(rows_examined) AS rows_examined,'
+                    . ' db, sql_text, COUNT(sql_text) AS \'#\' FROM `mysql`.`slow_log` WHERE'
+                    . ' start_time > FROM_UNIXTIME(0) AND start_time < FROM_UNIXTIME(10) GROUP BY sql_text',
                 'columns' => ['sql_text', '#'],
                 'result' => [
                     ['insert sql_text', 11],
@@ -1870,7 +1905,11 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
-                'query' => 'SELECT TIME(event_time) as event_time, user_host, thread_id, server_id, argument, count(argument) as \'#\' FROM `mysql`.`general_log` WHERE command_type=\'Query\' AND event_time > FROM_UNIXTIME(0) AND event_time < FROM_UNIXTIME(10) AND argument REGEXP \'^(INSERT|SELECT|UPDATE|DELETE)\' GROUP by argument',
+                'query' => 'SELECT TIME(event_time) as event_time, user_host, thread_id,'
+                    . ' server_id, argument, count(argument) as \'#\' FROM `mysql`.`general_log`'
+                    . ' WHERE command_type=\'Query\' AND event_time > FROM_UNIXTIME(0)'
+                    . ' AND event_time < FROM_UNIXTIME(10) AND argument REGEXP \'^(INSERT'
+                    . '|SELECT|UPDATE|DELETE)\' GROUP by argument',
                 'columns' => ['sql_text', '#', 'argument'],
                 'result' => [
                     ['insert sql_text', 10, 'argument argument2'],
@@ -1897,7 +1936,8 @@ class DbiDummy implements DbiExtension
                 'result' => [],
             ],
             [
-                'query' => 'SHOW GLOBAL VARIABLES WHERE Variable_name IN ("general_log","slow_query_log","long_query_time","log_output")',
+                'query' => 'SHOW GLOBAL VARIABLES WHERE Variable_name IN '
+                    . '("general_log","slow_query_log","long_query_time","log_output")',
                 'columns' => ['Variable_name', 'Value'],
                 'result' => [
                     ['general_log', 'OFF'],

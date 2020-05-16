@@ -267,7 +267,9 @@ class ReplicationGui
 
         $variables = [];
         foreach ($replicationVariables as $variable) {
-            $serverReplicationVariable = is_array($serverReplication) && isset($serverReplication[0]) ? $serverReplication[0][$variable] : '';
+            $serverReplicationVariable = is_array($serverReplication) && isset($serverReplication[0])
+                ? $serverReplication[0][$variable]
+                : '';
 
             $variables[$variable] = [
                 'name' => $variable,
@@ -421,7 +423,10 @@ class ReplicationGui
 
             if (isset($_POST['slave_changemaster']) && ! $GLOBALS['cfg']['AllowArbitraryServer']) {
                 $_SESSION['replication']['sr_action_status'] = 'error';
-                $_SESSION['replication']['sr_action_info'] = __('Connection to server is disabled, please enable $cfg[\'AllowArbitraryServer\'] in phpMyAdmin configuration.');
+                $_SESSION['replication']['sr_action_info'] = __(
+                    'Connection to server is disabled, please enable'
+                    . ' $cfg[\'AllowArbitraryServer\'] in phpMyAdmin configuration.'
+                );
             } elseif (isset($_POST['slave_changemaster'])) {
                 $result = $this->handleRequestForSlaveChangeMaster();
             } elseif (isset($_POST['sr_slave_server_control'])) {

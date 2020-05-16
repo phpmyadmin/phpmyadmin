@@ -86,9 +86,11 @@ class Footer
             include ROOT_PATH . 'revision-info.php';
             $message .= sprintf(
                 __('Currently running Git revision %1$s from the %2$s branch.'),
-                '<a target="_blank" rel="noopener noreferrer" href="' . htmlspecialchars($repobase . $fullrevision) . '">'
+                '<a target="_blank" rel="noopener noreferrer" href="'
+                . htmlspecialchars($repobase . $fullrevision) . '">'
                 . htmlspecialchars($revision) . '</a>',
-                '<a target="_blank" rel="noopener noreferrer" href="' . htmlspecialchars($repobranchbase . $branch) . '">'
+                '<a target="_blank" rel="noopener noreferrer" href="'
+                . htmlspecialchars($repobranchbase . $branch) . '">'
                 . htmlspecialchars($branch) . '</a>'
             );
         } else {

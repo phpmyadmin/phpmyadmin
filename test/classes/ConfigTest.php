@@ -502,8 +502,19 @@ class ConfigTest extends PmaTestCase
      *
      * @dataProvider httpsParams
      */
-    public function testIsHttps($scheme, $https, string $forwarded, $uri, $lb, $front, $proto, $protoCloudFront, $pmaAbsoluteUri, $port, $expected): void
-    {
+    public function testIsHttps(
+        $scheme,
+        $https,
+        string $forwarded,
+        $uri,
+        $lb,
+        $front,
+        $proto,
+        $protoCloudFront,
+        $pmaAbsoluteUri,
+        $port,
+        $expected
+    ): void {
         $_SERVER['HTTP_SCHEME'] = $scheme;
         $_SERVER['HTTPS'] = $https;
         $_SERVER['HTTP_FORWARDED'] = $forwarded;

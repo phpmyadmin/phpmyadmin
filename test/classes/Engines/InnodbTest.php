@@ -58,7 +58,10 @@ class InnodbTest extends PmaTestCase
                 ],
                 'innodb_autoextend_increment' => [
                     'title' => __('Autoextend increment'),
-                    'desc'  => __('The increment size for extending the size of an autoextending tablespace when it becomes full.'),
+                    'desc'  => __(
+                        'The increment size for extending the size of an'
+                        . ' autoextending tablespace when it becomes full.'
+                    ),
                     'type'  => 2,
                 ],
                 'innodb_buffer_pool_size' => [

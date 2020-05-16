@@ -593,15 +593,18 @@ class Export
         $back_button .= '&amp;repopulate=1">' . __('Back') . '</a> ]</p>';
         $html .= '<br>';
         $html .= $back_button;
-        $refreshButton = '<form id="export_refresh_form" method="POST" action="' . Url::getFromRoute('/export') . '" class="disableAjax">';
+        $refreshButton = '<form id="export_refresh_form" method="POST" action="'
+            . Url::getFromRoute('/export') . '" class="disableAjax">';
         $refreshButton .= '[ <a class="disableAjax" onclick="$(this).parent().submit()">' . __('Refresh') . '</a> ]';
         foreach ($_POST as $name => $value) {
             if (is_array($value)) {
                 foreach ($value as $val) {
-                    $refreshButton .= '<input type="hidden" name="' . htmlentities((string) $name) . '[]" value="' . htmlentities((string) $val) . '">';
+                    $refreshButton .= '<input type="hidden" name="' . htmlentities((string) $name)
+                        . '[]" value="' . htmlentities((string) $val) . '">';
                 }
             } else {
-                $refreshButton .= '<input type="hidden" name="' . htmlentities((string) $name) . '" value="' . htmlentities((string) $value) . '">';
+                $refreshButton .= '<input type="hidden" name="' . htmlentities((string) $name)
+                    . '" value="' . htmlentities((string) $value) . '">';
             }
         }
         $refreshButton .= '</form>';
@@ -959,6 +962,7 @@ class Export
                 $crlf
             )) {
                 $GLOBALS['message'] = Message::error(
+                    // phpcs:disable Generic.Files.LineLength.TooLong
                     /* l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular */
                     __('Exporting a raw query is not supported for this export method.')
                 );

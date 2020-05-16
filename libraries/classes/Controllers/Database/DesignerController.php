@@ -183,7 +183,8 @@ class DesignerController extends AbstractController
 
         foreach ($tab_pos as $position) {
             if (! in_array($position['dbName'] . '.' . $position['tableName'], $fullTableNames)) {
-                foreach ($this->designerCommon->getTablesInfo($position['dbName'], $position['tableName']) as $designerTable) {
+                $designerTables = $this->designerCommon->getTablesInfo($position['dbName'], $position['tableName']);
+                foreach ($designerTables as $designerTable) {
                     $script_display_field[] = $designerTable;
                 }
             }

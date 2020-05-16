@@ -138,8 +138,14 @@ return function (RouteCollector $routes) {
         });
         $routes->addGroup('/structure', function (RouteCollector $routes) {
             $routes->addRoute(['GET', 'POST'], '', [StructureController::class, 'index']);
-            $routes->addRoute(['GET', 'POST'], '/favorite-table', [StructureController::class, 'addRemoveFavoriteTablesAction']);
-            $routes->addRoute(['GET', 'POST'], '/real-row-count', [StructureController::class, 'handleRealRowCountRequestAction']);
+            $routes->addRoute(['GET', 'POST'], '/favorite-table', [
+                StructureController::class,
+                'addRemoveFavoriteTablesAction',
+            ]);
+            $routes->addRoute(['GET', 'POST'], '/real-row-count', [
+                StructureController::class,
+                'handleRealRowCountRequestAction',
+            ]);
         });
         $routes->addRoute(['GET', 'POST'], '/tracking', [TrackingController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/triggers', [TriggersController::class, 'index']);

@@ -1018,9 +1018,12 @@ class ExportSqlTest extends PmaTestCase
             "KEY `idx_fk_staff_id` (`staff_id`),\n" .
             "KEY `idx_fk_customer_id` (`customer_id`),\n" .
             "KEY `fk_payment_rental` (`rental_id`),\n" .
-            "CONSTRAINT `fk_payment_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE,\n" .
-            "CONSTRAINT `fk_payment_rental` FOREIGN KEY (`rental_id`) REFERENCES `rental` (`rental_id`) ON DELETE SET NULL ON UPDATE CASCADE,\n" .
-            "CONSTRAINT `fk_payment_staff` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`staff_id`) ON UPDATE CASCADE\n" .
+            'CONSTRAINT `fk_payment_customer` FOREIGN KEY (`customer_id`) REFERENCES' .
+            " `customer` (`customer_id`) ON UPDATE CASCADE,\n" .
+            'CONSTRAINT `fk_payment_rental` FOREIGN KEY (`rental_id`) REFERENCES' .
+            " `rental` (`rental_id`) ON DELETE SET NULL ON UPDATE CASCADE,\n" .
+            'CONSTRAINT `fk_payment_staff` FOREIGN KEY (`staff_id`) REFERENCES' .
+            " `staff` (`staff_id`) ON UPDATE CASCADE\n" .
             ") ENGINE=InnoDB AUTO_INCREMENT=16050 DEFAULT CHARSET=utf8\n",
         ];
 

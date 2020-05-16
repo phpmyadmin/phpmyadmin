@@ -1237,7 +1237,8 @@ class Tracking
             if (is_array($value) && array_key_exists('is' . $sep . 'group', $value)
                 && $value['is' . $sep . 'group']
             ) {
-                $untracked_tables = array_merge($this->extractTableNames($value, $db), $untracked_tables); //Recursion step
+                // Recursion step
+                $untracked_tables = array_merge($this->extractTableNames($value, $db), $untracked_tables);
             } else {
                 if (is_array($value) && ($testing || Tracker::getVersion($db, $value['Name']) == -1)) {
                     $untracked_tables[] = $value['Name'];

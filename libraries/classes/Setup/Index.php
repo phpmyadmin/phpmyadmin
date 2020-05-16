@@ -178,7 +178,8 @@ class Index
                 'notice',
                 $message_id,
                 __('Version check'),
-                sprintf(__('A newer version of phpMyAdmin is available and you should consider upgrading. The newest version is %s, released on %s.'), $version, $date)
+                sprintf(__('A newer version of phpMyAdmin is available and you should consider upgrading.'
+                    . ' The newest version is %s, released on %s.'), $version, $date)
             );
         } else {
             if ($version_local % 100 == 0) {
@@ -186,7 +187,8 @@ class Index
                     'notice',
                     $message_id,
                     __('Version check'),
-                    Sanitize::sanitizeMessage(sprintf(__('You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable version is %s, released on %s.'), $version, $date))
+                    Sanitize::sanitizeMessage(sprintf(__('You are using Git version, run [kbd]git pull[/kbd]'
+                        . ' :-)[br]The latest stable version is %s, released on %s.'), $version, $date))
                 );
             } else {
                 self::messagesSet(

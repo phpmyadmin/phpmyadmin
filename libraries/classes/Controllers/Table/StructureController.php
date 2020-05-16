@@ -1578,7 +1578,8 @@ class StructureController extends AbstractController
      */
     protected function getTableStats()
     {
-        global $showtable, $db_is_system_schema, $tbl_is_view, $tbl_storage_engine, $table_info_num_rows, $tbl_collation;
+        global $showtable, $db_is_system_schema, $tbl_is_view;
+        global $tbl_storage_engine, $table_info_num_rows, $tbl_collation;
 
         if (empty($showtable)) {
             $showtable = $this->dbi->getTable(

@@ -128,7 +128,7 @@ class OperationsController extends AbstractController
             // or explicit (option found with a value of 0 or 1)
             // ($create_options['transactional'] may have been set by Table class,
             // from the $create_options)
-            $create_options['transactional'] = isset($create_options['transactional']) && $create_options['transactional'] == '0'
+            $create_options['transactional'] = ($create_options['transactional'] ?? '') == '0'
                 ? '0'
                 : '1';
             $create_options['page_checksum'] = $create_options['page_checksum'] ?? '';
@@ -211,7 +211,7 @@ class OperationsController extends AbstractController
                 $new_tbl_storage_engine = mb_strtoupper($_POST['new_tbl_storage_engine']);
 
                 if ($pma_table->isEngine('ARIA')) {
-                    $create_options['transactional'] = isset($create_options['transactional']) && $create_options['transactional'] == '0'
+                    $create_options['transactional'] = ($create_options['transactional'] ?? '') == '0'
                         ? '0'
                         : '1';
                     $create_options['page_checksum'] = $create_options['page_checksum'] ?? '';

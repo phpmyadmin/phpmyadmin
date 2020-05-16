@@ -374,7 +374,8 @@ class Triggers
         // Create the output
         $retval  = '';
         $retval .= '<!-- START ' . $modeToUpper . " TRIGGER FORM -->\n\n";
-        $retval .= '<form class="rte_form" action="' . Url::getFromRoute('/database/triggers') . '" method="post">' . "\n";
+        $retval .= '<form class="rte_form" action="' . Url::getFromRoute('/database/triggers')
+            . '" method="post">' . "\n";
         $retval .= "<input name='" . $mode . "_item' type='hidden' value='1'>\n";
         $retval .= $original_data;
         $retval .= Url::getHiddenInputs($db, $table) . "\n";

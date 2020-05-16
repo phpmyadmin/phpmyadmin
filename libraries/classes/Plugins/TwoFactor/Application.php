@@ -146,6 +146,8 @@ class Application extends TwoFactorPlugin
      */
     public static function getDescription()
     {
-        return __('Provides authentication using HOTP and TOTP applications such as FreeOTP, Google Authenticator or Authy.');
+        return __(
+            'Provides authentication using HOTP and TOTP applications such as FreeOTP, Google Authenticator or Authy.'
+        );
     }
 }

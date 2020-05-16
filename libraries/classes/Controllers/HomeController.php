@@ -250,7 +250,10 @@ class HomeController extends AbstractController
                         );
                 }
                 $messageInstance = Message::notice($messageText);
-                $messageInstance->addParamHtml('<a href="' . Url::getFromRoute('/check-relations') . '" data-post="' . Url::getCommon() . '">');
+                $messageInstance->addParamHtml(
+                    '<a href="' . Url::getFromRoute('/check-relations')
+                    . '" data-post="' . Url::getCommon() . '">'
+                );
                 $messageInstance->addParamHtml('</a>');
                 /* Show error if user has configured something, notice elsewhere */
                 if (! empty($cfg['Servers'][$server]['pmadb'])) {

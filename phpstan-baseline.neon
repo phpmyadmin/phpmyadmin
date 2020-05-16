@@ -376,16 +376,6 @@ parameters:
 			path: libraries/classes/Controllers/ExportController.php
 
 		-
-			message: "#^Cannot call method generateParams\\(\\) on PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\|PhpMyAdmin\\\\Gis\\\\GisLineString\\|PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\|PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\|PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\|PhpMyAdmin\\\\Gis\\\\GisPoint\\|PhpMyAdmin\\\\Gis\\\\GisPolygon\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/GisDataEditorController.php
-
-		-
-			message: "#^Cannot call method generateWkt\\(\\) on PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\|PhpMyAdmin\\\\Gis\\\\GisLineString\\|PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\|PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\|PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\|PhpMyAdmin\\\\Gis\\\\GisPoint\\|PhpMyAdmin\\\\Gis\\\\GisPolygon\\|false\\.$#"
-			count: 2
-			path: libraries/classes/Controllers/GisDataEditorController.php
-
-		-
 			message: "#^Cannot access offset 'user' on array\\|bool\\.$#"
 			count: 3
 			path: libraries/classes/Controllers/ImportController.php
@@ -1756,11 +1746,6 @@ parameters:
 			path: libraries/classes/Gis/GisVisualization.php
 
 		-
-			message: "#^Parameter \\#4 \\$results of method PhpMyAdmin\\\\Gis\\\\GisVisualization\\:\\:_prepareDataSet\\(\\) expects object, string given\\.$#"
-			count: 2
-			path: libraries/classes/Gis/GisVisualization.php
-
-		-
 			message: "#^Parameter \\#1 \\$im of function imagecolorallocate expects resource, resource\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisVisualization.php
@@ -1771,22 +1756,7 @@ parameters:
 			path: libraries/classes/Gis/GisVisualization.php
 
 		-
-			message: "#^Parameter \\#4 \\$results of method PhpMyAdmin\\\\Gis\\\\GisVisualization\\:\\:_prepareDataSet\\(\\) expects object, resource\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisVisualization.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of function base64_encode expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisVisualization.php
-
-		-
-			message: "#^Parameter \\#5 \\$image of method PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:prepareRowAsPng\\(\\) expects resource, object\\|resource\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisVisualization.php
-
-		-
-			message: "#^Parameter \\#5 \\$pdf of method PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:prepareRowAsPdf\\(\\) expects TCPDF, object\\|resource\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisVisualization.php
 

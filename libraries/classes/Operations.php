@@ -982,15 +982,19 @@ class Operations
 
             // For table specific privileges
             $query_table_specific = 'UPDATE ' . Util::backquote('tables_priv')
-                . 'SET Db = \'' . $this->dbi->escapeString($newDb) . '\', Table_name = \'' . $this->dbi->escapeString($newTable)
-                . '\' where Db = \'' . $this->dbi->escapeString($oldDb) . '\' AND Table_name = \'' . $this->dbi->escapeString($oldTable)
+                . 'SET Db = \'' . $this->dbi->escapeString($newDb)
+                . '\', Table_name = \'' . $this->dbi->escapeString($newTable)
+                . '\' where Db = \'' . $this->dbi->escapeString($oldDb)
+                . '\' AND Table_name = \'' . $this->dbi->escapeString($oldTable)
                 . '\';';
             $this->dbi->query($query_table_specific);
 
             // For column specific privileges
             $query_col_specific = 'UPDATE ' . Util::backquote('columns_priv')
-                . 'SET Db = \'' . $this->dbi->escapeString($newDb) . '\', Table_name = \'' . $this->dbi->escapeString($newTable)
-                . '\' where Db = \'' . $this->dbi->escapeString($oldDb) . '\' AND Table_name = \'' . $this->dbi->escapeString($oldTable)
+                . 'SET Db = \'' . $this->dbi->escapeString($newDb)
+                . '\', Table_name = \'' . $this->dbi->escapeString($newTable)
+                . '\' where Db = \'' . $this->dbi->escapeString($oldDb)
+                . '\' AND Table_name = \'' . $this->dbi->escapeString($oldTable)
                 . '\';';
             $this->dbi->query($query_col_specific);
 

@@ -51,7 +51,8 @@ use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
 
-global $containerBuilder, $error_handler, $PMA_Config, $server, $dbi, $lang, $cfg, $isConfigLoading, $auth_plugin, $route;
+global $containerBuilder, $error_handler, $PMA_Config, $server, $dbi;
+global $lang, $cfg, $isConfigLoading, $auth_plugin, $route;
 
 /**
  * block attempts to directly run this script
@@ -323,7 +324,10 @@ $PMA_Config->checkServers();
  * @global integer $server
  */
 $diMigration->setGlobal('server', $PMA_Config->selectServer());
-$diMigration->setGlobal('url_params', ['server' => $containerBuilder->getParameter('server')] + $containerBuilder->getParameter('url_params'));
+$diMigration->setGlobal(
+    'url_params',
+    ['server' => $containerBuilder->getParameter('server')] + $containerBuilder->getParameter('url_params')
+);
 
 /**
  * BC - enable backward compatibility

@@ -95,7 +95,11 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $response = Response::getInstance();
 
-        // When sending login modal after session has expired, send the new token explicitly with the response to update the token in all the forms having a hidden token.
+        /**
+         * When sending login modal after session has expired, send the
+         * new token explicitly with the response to update the token
+         * in all the forms having a hidden token.
+         */
         $session_expired = isset($_REQUEST['check_timeout']) || isset($_REQUEST['session_timedout']);
         if (! $session_expired && $response->loginPage()) {
             if (defined('TESTSUITE')) {
@@ -105,7 +109,11 @@ class AuthenticationCookie extends AuthenticationPlugin
             }
         }
 
-        // When sending login modal after session has expired, send the new token explicitly with the response to update the token in all the forms having a hidden token.
+        /**
+         * When sending login modal after session has expired, send the
+         * new token explicitly with the response to update the token
+         * in all the forms having a hidden token.
+         */
         if ($session_expired) {
             $response->setRequestStatus(false);
             $response->addJSON(
@@ -114,7 +122,10 @@ class AuthenticationCookie extends AuthenticationPlugin
             );
         }
 
-        // logged_in response parameter is used to check if the login, using the modal was successful after session expiration
+        /**
+         * logged_in response parameter is used to check if the login,
+         * using the modal was successful after session expiration.
+         */
         if (isset($_REQUEST['session_timedout'])) {
             $response->addJSON(
                 'logged_in',
@@ -217,7 +228,8 @@ class AuthenticationCookie extends AuthenticationPlugin
             'server_options' => $serversOptions,
             'server' => $GLOBALS['server'],
             'lang' => $GLOBALS['lang'],
-            'has_captcha' => ! empty($GLOBALS['cfg']['CaptchaLoginPrivateKey']) && ! empty($GLOBALS['cfg']['CaptchaLoginPublicKey']),
+            'has_captcha' => ! empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
+                && ! empty($GLOBALS['cfg']['CaptchaLoginPublicKey']),
             'captcha_key' => $GLOBALS['cfg']['CaptchaLoginPublicKey'],
             'form_params' => $_form_params,
             'errors' => $errors,

@@ -156,7 +156,9 @@ class SqlQueryForm
                 $GLOBALS['cfg']['DefaultTabDatabase'],
                 'database'
             );
-            $tmp_db_link = '<a href="' . $scriptName . Url::getCommon(['db' => $db], strpos($scriptName, '?') === false ? '?' : '&') . '">';
+            $tmp_db_link = '<a href="' . $scriptName
+                . Url::getCommon(['db' => $db], strpos($scriptName, '?') === false ? '?' : '&')
+                . '">';
             $tmp_db_link .= htmlspecialchars($db) . '</a>';
             $legend = sprintf(__('Run SQL query/queries on database %s'), $tmp_db_link);
             if (empty($query)) {

@@ -664,11 +664,11 @@ class GisVisualization
     /**
      * Prepares and return the dataset as needed by the visualization.
      *
-     * @param array  $data       Raw data
-     * @param array  $scale_data Data related to scaling
-     * @param string $format     Format of the visualization
-     * @param object $results    Image object in the case of png
-     *                           TCPDF object in the case of pdf
+     * @param array                       $data       Raw data
+     * @param array                       $scale_data Data related to scaling
+     * @param string                      $format     Format of the visualization
+     * @param resource|TCPDF|string|false $results    Image object in the case of png
+     *                                                TCPDF object in the case of pdf
      *
      * @return mixed the formatted array of data
      *
@@ -714,7 +714,7 @@ class GisVisualization
                     $scale_data,
                     $results
                 );
-            } elseif ($format == 'pdf') {
+            } elseif ($format == 'pdf' && $results instanceof TCPDF) {
                 $results = $gis_obj->prepareRowAsPdf(
                     $row[$this->_settings['spatialColumn']],
                     $label,

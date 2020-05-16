@@ -162,7 +162,8 @@ class TwoFactorPlugin
             $parsed['host'] = Core::getenv('HTTP_HOST');
         }
         if ($return_url) {
-            return $parsed['scheme'] . '://' . $parsed['host'] . (! empty($parsed['port']) ? ':' . $parsed['port'] : '');
+            return $parsed['scheme'] . '://' . $parsed['host']
+                . (! empty($parsed['port']) ? ':' . $parsed['port'] : '');
         } else {
             return $parsed['host'];
         }

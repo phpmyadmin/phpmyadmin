@@ -371,7 +371,8 @@ class TriggersTest extends TestCase
                 'foo',
                 'table3',
                 'BEGIN SET @A=1; SET @B=2; END',
-                'CREATE DEFINER=`foo``s`@`host` TRIGGER `trigger``s test` AFTER ON  FOR EACH ROW BEGIN SET @A=1; SET @B=2; END',
+                'CREATE DEFINER=`foo``s`@`host` TRIGGER `trigger``s test`'
+                    . ' AFTER ON  FOR EACH ROW BEGIN SET @A=1; SET @B=2; END',
                 2,
             ],
             [
@@ -381,7 +382,8 @@ class TriggersTest extends TestCase
                 'INSERT',
                 'table1',
                 'SET @A=NULL',
-                'CREATE DEFINER=`root`@`localhost` TRIGGER `trigger` BEFORE INSERT ON `table1` FOR EACH ROW SET @A=NULL',
+                'CREATE DEFINER=`root`@`localhost` TRIGGER `trigger`'
+                    . ' BEFORE INSERT ON `table1` FOR EACH ROW SET @A=NULL',
                 0,
             ],
         ];

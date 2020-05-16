@@ -881,7 +881,8 @@ class Routines
         $retval  = '';
         $retval .= '<!-- START ' . mb_strtoupper($mode)
             . " ROUTINE FORM -->\n\n";
-        $retval .= '<form class="rte_form" action="' . Url::getFromRoute('/database/routines') . '" method="post">' . "\n";
+        $retval .= '<form class="rte_form" action="' . Url::getFromRoute('/database/routines')
+            . '" method="post">' . "\n";
         $retval .= "<input name='" . $mode . "_item' type='hidden' value='1'>\n";
         $retval .= $original_routine;
         $retval .= Url::getHiddenInputs($db) . "\n";
