@@ -110,7 +110,8 @@
             "@phpstan",
             "@psalm",
             "@phpunit"
-        ]
+        ],
+        "update:baselines": "phpstan analyse --generate-baseline && psalm --update-baseline"
     },
     "config":{
         "sort-packages": true
