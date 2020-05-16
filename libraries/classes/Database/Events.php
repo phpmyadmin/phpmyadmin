@@ -240,7 +240,7 @@ class Events
                     && empty($_POST['item_changetype'])
                 ) {
                     $item = $this->getDataFromName($_REQUEST['item_name']);
-                    if ($item !== false) {
+                    if ($item !== null) {
                         $item['item_original_name'] = $item['item_name'];
                     }
                 } else {
@@ -293,9 +293,9 @@ class Events
      *
      * @param string $name The name of the event.
      *
-     * @return array|bool Data necessary to create the editor.
+     * @return array|null Data necessary to create the editor.
      */
-    public function getDataFromName($name)
+    public function getDataFromName($name): ?array
     {
         global $db;
 
@@ -309,7 +309,7 @@ class Events
         $query   = 'SELECT ' . $columns . ' FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE ' . $where . ';';
         $item    = $this->dbi->fetchSingleRow($query);
         if (! $item) {
-            return false;
+            return null;
         }
         $retval['item_name']   = $item['EVENT_NAME'];
         $retval['item_status'] = $item['STATUS'];
@@ -539,17 +539,17 @@ class Events
     /**
      * Send editor via ajax or by echoing.
      *
-     * @param string      $mode      Editor mode 'add' or 'edit'
-     * @param array|false $item      Data necessary to create the editor
-     * @param string      $title     Title of the editor
-     * @param string      $db        Database
-     * @param string      $operation Operation 'change' or ''
+     * @param string     $mode      Editor mode 'add' or 'edit'
+     * @param array|null $item      Data necessary to create the editor
+     * @param string     $title     Title of the editor
+     * @param string     $db        Database
+     * @param string     $operation Operation 'change' or ''
      *
      * @return void
      */
-    private function sendEditor($mode, $item, $title, $db, $operation)
+    private function sendEditor($mode, ?array $item, $title, $db, $operation)
     {
-        if ($item !== false) {
+        if ($item !== null) {
             $editor = $this->getEditorForm($mode, $operation, $item);
             if ($this->response->isAjax()) {
                 $this->response->addJSON('message', $editor);

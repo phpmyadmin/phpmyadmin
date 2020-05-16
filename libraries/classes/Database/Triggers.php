@@ -263,7 +263,7 @@ class Triggers
                     && empty($_POST['editor_process_edit'])
                 ) {
                     $item = $this->getDataFromName($_REQUEST['item_name']);
-                    if ($item !== false) {
+                    if ($item !== null) {
                         $item['item_original_name'] = $item['item_name'];
                     }
                 } else {
@@ -305,9 +305,9 @@ class Triggers
      *
      * @param string $name The name of the trigger.
      *
-     * @return array|bool Data necessary to create the editor.
+     * @return array|null Data necessary to create the editor.
      */
-    public function getDataFromName($name)
+    public function getDataFromName($name): ?array
     {
         global $db, $table;
 
@@ -319,7 +319,7 @@ class Triggers
             }
         }
         if (empty($temp)) {
-            return false;
+            return null;
         } else {
             $retval = [];
             $retval['create']                  = $temp['create'];
@@ -548,16 +548,16 @@ class Triggers
     /**
      * Send editor via ajax or by echoing.
      *
-     * @param string      $mode  Editor mode 'add' or 'edit'
-     * @param array|false $item  Data necessary to create the editor
-     * @param string      $title Title of the editor
-     * @param string      $db    Database
+     * @param string     $mode  Editor mode 'add' or 'edit'
+     * @param array|null $item  Data necessary to create the editor
+     * @param string     $title Title of the editor
+     * @param string     $db    Database
      *
      * @return void
      */
-    private function sendEditor($mode, $item, $title, $db)
+    private function sendEditor($mode, ?array $item, $title, $db)
     {
-        if ($item !== false) {
+        if ($item !== null) {
             $editor = $this->getEditorForm($mode, $item);
             if ($this->response->isAjax()) {
                 $this->response->addJSON('message', $editor);

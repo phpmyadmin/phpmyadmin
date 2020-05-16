@@ -177,7 +177,7 @@ class Routines
                         $_GET['item_name'],
                         $_GET['item_type']
                     );
-                    if ($routine !== false) {
+                    if ($routine !== null) {
                         $routine['item_original_name'] = $routine['item_name'];
                         $routine['item_original_type'] = $routine['item_type'];
                     }
@@ -186,7 +186,7 @@ class Routines
                 }
                 $mode = 'edit';
             }
-            if ($routine !== false) {
+            if ($routine !== null) {
                 // Show form
                 $editor = $this->getEditorForm($mode, $operation, $routine);
                 if ($this->response->isAjax()) {
@@ -614,9 +614,9 @@ class Routines
      * @param string $type Type of routine (ROUTINE|PROCEDURE)
      * @param bool   $all  Whether to return all data or just the info about parameters.
      *
-     * @return array|bool    Data necessary to create the routine editor.
+     * @return array|null    Data necessary to create the routine editor.
      */
-    public function getDataFromName($name, $type, $all = true)
+    public function getDataFromName($name, $type, $all = true): ?array
     {
         global $db;
 
@@ -635,7 +635,7 @@ class Routines
         $routine = $this->dbi->fetchSingleRow($query, 'ASSOC');
 
         if (! $routine) {
-            return false;
+            return null;
         }
 
         // Get required data
@@ -650,7 +650,7 @@ class Routines
             );
 
         if ($definition === null) {
-            return false;
+            return null;
         }
 
         $parser = new Parser($definition);
@@ -1365,7 +1365,7 @@ class Routines
             $_POST['item_type'],
             false
         );
-        if ($routine === false) {
+        if ($routine === null) {
             $message  = __('Error in processing request:') . ' ';
             $message .= sprintf(
                 __('No routine with name %1$s found in database %2$s.'),
@@ -1527,7 +1527,7 @@ class Routines
                 $_GET['item_type'],
                 true
             );
-            if ($routine !== false) {
+            if ($routine !== null) {
                 $form = $this->getExecuteForm($routine);
                 if ($this->response->isAjax()) {
                     $title = __('Execute routine') . ' ' . Util::backquote(
@@ -1585,9 +1585,9 @@ class Routines
      * @param array $routine Data for the routine returned by
      *                       getDataFromName()
      *
-     * @return string   HTML code for the routine execution dialog.
+     * @return string HTML code for the routine execution dialog.
      */
-    public function getExecuteForm(array $routine)
+    public function getExecuteForm(array $routine): string
     {
         global $db, $cfg;
 
