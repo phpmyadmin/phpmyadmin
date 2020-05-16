@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2020-05-12 18:28+0000\n"
-"Last-Translator: salman <amir1architect@yahoo.com>\n"
+"PO-Revision-Date: 2020-05-16 09:02+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "fa/>\n"
 "Language: fa\n"
@@ -1103,7 +1103,7 @@ msgstr "ویرایش کردن ایندکس"
 #: js/messages.php:123 templates/table/index_form.twig:211
 #, php-format
 msgid "Add %s column(s) to index"
-msgstr "افزودن %d  ستون به index"
+msgstr "افزودن %s  ستون به index"
 
 #: js/messages.php:124
 #, fuzzy
