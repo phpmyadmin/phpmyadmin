@@ -1081,6 +1081,108 @@ class Routines
     }
 
     /**
+     * Set the found errors and build the params
+     *
+     * @param string[] $itemParamName     The parameter names
+     * @param string[] $itemParamDir      The direction parameter (see $this->directions)
+     * @param array    $itemParamType     The parameter type
+     * @param array    $itemParamLength   A length or not for the paramter
+     * @param array    $itemParamOpsText  An optional charset for the paramter
+     * @param array    $itemParamOpsNum   An optional parameter for a $itemParamType NUMBER
+     * @param string   $itemType          The item type (PROCEDURE/FUNCTION)
+     * @param bool     $warnedAboutLength A boolean that will be switched if a the length warning is given
+     */
+    private function processParamsAndBuild(
+        array $itemParamName,
+        array $itemParamDir,
+        array $itemParamType,
+        array $itemParamLength,
+        array $itemParamOpsText,
+        array $itemParamOpsNum,
+        string $itemType,
+        bool &$warnedAboutLength
+    ): string {
+        global $errors, $dbi;
+
+        $params = '';
+        $warnedAboutDir = false;
+
+        for ($i = 0, $nb = count($itemParamName); $i < $nb; $i++) {
+            if (! empty($itemParamName[$i])
+                && ! empty($itemParamType[$i])
+            ) {
+                if ($itemType === 'PROCEDURE'
+                    && ! empty($itemParamDir[$i])
+                    && in_array($itemParamDir[$i], $this->directions)
+                ) {
+                    $params .= $itemParamDir[$i] . ' '
+                        . Util::backquote($itemParamName[$i])
+                        . ' ' . $itemParamType[$i];
+                } elseif ($itemType === 'FUNCTION') {
+                    $params .= Util::backquote($itemParamName[$i])
+                        . ' ' . $itemParamType[$i];
+                } elseif (! $warnedAboutDir) {
+                    $warnedAboutDir = true;
+                    $errors[] = sprintf(
+                        __('Invalid direction "%s" given for parameter.'),
+                        htmlspecialchars($itemParamDir[$i])
+                    );
+                }
+                if ($itemParamLength[$i] != ''
+                    && ! preg_match(
+                        '@^(DATE|TINYBLOB|TINYTEXT|BLOB|TEXT|'
+                        . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|'
+                        . 'SERIAL|BOOLEAN)$@i',
+                        $itemParamType[$i]
+                    )
+                ) {
+                    $params .= '(' . $itemParamLength[$i] . ')';
+                } elseif ($itemParamLength[$i] == ''
+                    && preg_match(
+                        '@^(ENUM|SET|VARCHAR|VARBINARY)$@i',
+                        $itemParamType[$i]
+                    )
+                ) {
+                    if (! $warnedAboutLength) {
+                        $warnedAboutLength = true;
+                        $errors[] = __(
+                            'You must provide length/values for routine parameters'
+                            . ' of type ENUM, SET, VARCHAR and VARBINARY.'
+                        );
+                    }
+                }
+                if (! empty($itemParamOpsText[$i])) {
+                    if ($dbi->types->getTypeClass($itemParamType[$i]) == 'CHAR') {
+                        if (! in_array($itemParamType[$i], ['VARBINARY', 'BINARY'])) {
+                            $params .= ' CHARSET '
+                                . mb_strtolower(
+                                    $itemParamOpsText[$i]
+                                );
+                        }
+                    }
+                }
+                if (! empty($itemParamOpsNum[$i])) {
+                    if ($dbi->types->getTypeClass($itemParamType[$i]) == 'NUMBER') {
+                        $params .= ' '
+                            . mb_strtoupper(
+                                $itemParamOpsNum[$i]
+                            );
+                    }
+                }
+                if ($i != count($itemParamName) - 1) {
+                    $params .= ', ';
+                }
+            } else {
+                $errors[] = __(
+                    'You must provide a name and a type for each routine parameter.'
+                );
+                break;
+            }
+        }
+        return $params;
+    }
+
+    /**
      * Composes the query necessary to create a routine from an HTTP request.
      *
      * @return string  The CREATE [ROUTINE | PROCEDURE] query.
@@ -1089,9 +1191,9 @@ class Routines
     {
         global $errors, $dbi;
 
-        $itemType = $_POST['item_type'] = $_POST['item_type'] ?? '';
-        $itemDefiner = $_POST['item_definer'];
-        $itemName = $_POST['item_name'];
+        $itemType = $_POST['item_type'] ?? '';
+        $itemDefiner = $_POST['item_definer'] ?? '';
+        $itemName = $_POST['item_name'] ?? '';
 
         $query = 'CREATE ';
         if (! empty($itemDefiner)) {
@@ -1132,16 +1234,16 @@ class Routines
         } else {
             $errors[] = __('You must provide a routine name!');
         }
+        $warnedAboutLength = false;
+
+        $itemParamName = $_POST['item_param_name'] ?? '';
+        $itemParamType = $_POST['item_param_type'] ?? '';
+        $itemParamLength = $_POST['item_param_length'] ?? '';
+        $itemParamDir = (array) ($_POST['item_param_dir'] ?? []);
+        $itemParamOpsText = (array) ($_POST['item_param_opts_text'] ?? []);
+        $itemParamOpsNum = (array) ($_POST['item_param_opts_num'] ?? []);
+
         $params = '';
-        $warned_about_length = false;
-
-        $itemParamName = $_POST['item_param_name'];
-        $itemParamType = $_POST['item_param_type'];
-        $itemParamLength = $_POST['item_param_length'];
-        $itemParamDir = $_POST['item_param_dir'];
-        $itemParamOpsText = $_POST['item_param_opts_text'];
-        $itemParamOpsNum = $_POST['item_param_opts_num'];
-
         if (! empty($itemParamName)
             && ! empty($itemParamType)
             && ! empty($itemParamLength)
@@ -1149,81 +1251,18 @@ class Routines
             && is_array($itemParamType)
             && is_array($itemParamLength)
         ) {
-            $warnedAboutDir = false;
-
-            for ($i = 0, $nb = count($itemParamName); $i < $nb; $i++) {
-                if (! empty($itemParamName[$i])
-                    && ! empty($itemParamType[$i])
-                ) {
-                    if ($itemType == 'PROCEDURE'
-                        && ! empty($itemParamDir[$i])
-                        && in_array($itemParamDir[$i], $this->directions)
-                    ) {
-                        $params .= $itemParamDir[$i] . ' '
-                            . Util::backquote($itemParamName[$i])
-                            . ' ' . $itemParamType[$i];
-                    } elseif ($itemType == 'FUNCTION') {
-                        $params .= Util::backquote($itemParamName[$i])
-                            . ' ' . $itemParamType[$i];
-                    } elseif (! $warnedAboutDir) {
-                        $warnedAboutDir = true;
-                        $errors[] = sprintf(
-                            __('Invalid direction "%s" given for parameter.'),
-                            htmlspecialchars($itemParamDir[$i])
-                        );
-                    }
-                    if ($itemParamLength[$i] != ''
-                        && ! preg_match(
-                            '@^(DATE|TINYBLOB|TINYTEXT|BLOB|TEXT|'
-                            . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|'
-                            . 'SERIAL|BOOLEAN)$@i',
-                            $itemParamType[$i]
-                        )
-                    ) {
-                        $params .= '(' . $itemParamLength[$i] . ')';
-                    } elseif ($itemParamLength[$i] == ''
-                        && preg_match(
-                            '@^(ENUM|SET|VARCHAR|VARBINARY)$@i',
-                            $itemParamType[$i]
-                        )
-                    ) {
-                        if (! $warned_about_length) {
-                            $warned_about_length = true;
-                            $errors[] = __(
-                                'You must provide length/values for routine parameters'
-                                . ' of type ENUM, SET, VARCHAR and VARBINARY.'
-                            );
-                        }
-                    }
-                    if (! empty($itemParamOpsText[$i])) {
-                        if ($dbi->types->getTypeClass($itemParamType[$i]) == 'CHAR') {
-                            if (! in_array($itemParamType[$i], ['VARBINARY', 'BINARY'])) {
-                                $params .= ' CHARSET '
-                                    . mb_strtolower(
-                                        $itemParamOpsText[$i]
-                                    );
-                            }
-                        }
-                    }
-                    if (! empty($itemParamOpsNum[$i])) {
-                        if ($dbi->types->getTypeClass($itemParamType[$i]) == 'NUMBER') {
-                            $params .= ' '
-                                . mb_strtoupper(
-                                    $itemParamOpsNum[$i]
-                                );
-                        }
-                    }
-                    if ($i != count($itemParamName) - 1) {
-                        $params .= ', ';
-                    }
-                } else {
-                    $errors[] = __(
-                        'You must provide a name and a type for each routine parameter.'
-                    );
-                    break;
-                }
-            }
+            $params = $this->processParamsAndBuild(
+                $itemParamName,
+                $itemParamDir,
+                $itemParamType,
+                $itemParamLength,
+                $itemParamOpsText,
+                $itemParamOpsNum,
+                $itemType,
+                $warnedAboutLength// Will possibly be modified by the function
+            );
         }
+
         $query .= '(' . $params . ') ';
         if ($itemType == 'FUNCTION') {
             $itemReturnType = $_POST['item_returntype'] ?? null;
@@ -1252,7 +1291,7 @@ class Routines
                     $itemReturnType
                 )
             ) {
-                if (! $warned_about_length) {
+                if (! $warnedAboutLength) {
                     $errors[] = __(
                         'You must provide length/values for routine parameters'
                         . ' of type ENUM, SET, VARCHAR and VARBINARY.'
@@ -1283,14 +1322,14 @@ class Routines
             $query .= 'NOT DETERMINISTIC ';
         }
 
-        $itemSqlDataAccess = $_POST['item_sqldataaccess'];
+        $itemSqlDataAccess = $_POST['item_sqldataaccess'] ?? '';
         if (! empty($itemSqlDataAccess)
             && in_array($itemSqlDataAccess, $this->sqlDataAccess)
         ) {
             $query .= $itemSqlDataAccess . ' ';
         }
 
-        $itemSecurityType = $_POST['item_securitytype'];
+        $itemSecurityType = $_POST['item_securitytype'] ?? '';
         if (! empty($itemSecurityType)) {
             if ($itemSecurityType === 'DEFINER'
                 || $itemSecurityType === 'INVOKER'
@@ -1299,7 +1338,7 @@ class Routines
             }
         }
 
-        $itemDefinition = $_POST['item_definition'];
+        $itemDefinition = $_POST['item_definition'] ?? '';
         if (! empty($itemDefinition)) {
             $query .= $itemDefinition;
         } else {

@@ -769,8 +769,8 @@
     <PossiblyNullArgument occurrences="5">
       <code>$mode</code>
       <code>$create_routine</code>
-      <code>$item_returntype</code>
-      <code>$item_returntype</code>
+      <code>$itemReturnType</code>
+      <code>$itemReturnType</code>
       <code>$routine['item_name']</code>
     </PossiblyNullArgument>
     <PossiblyNullArrayAccess occurrences="2">
