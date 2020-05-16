@@ -1085,16 +1085,18 @@ class Routines
      *
      * @return string  The CREATE [ROUTINE | PROCEDURE] query.
      */
-    public function getQueryFromRequest()
+    public function getQueryFromRequest(): string
     {
         global $errors, $dbi;
 
-        $_POST['item_type'] = $_POST['item_type'] ?? '';
+        $itemType = $_POST['item_type'] = $_POST['item_type'] ?? '';
+        $itemDefiner = $_POST['item_definer'];
+        $itemName = $_POST['item_name'];
 
         $query = 'CREATE ';
-        if (! empty($_POST['item_definer'])) {
-            if (mb_strpos($_POST['item_definer'], '@') !== false) {
-                $arr = explode('@', $_POST['item_definer']);
+        if (! empty($itemDefiner)) {
+            if (mb_strpos($itemDefiner, '@') !== false) {
+                $arr = explode('@', $itemDefiner);
 
                 $do_backquote = true;
                 if (substr($arr[0], 0, 1) === '`'
@@ -1115,70 +1117,74 @@ class Routines
                 $errors[] = __('The definer must be in the "username@hostname" format!');
             }
         }
-        if ($_POST['item_type'] == 'FUNCTION'
-            || $_POST['item_type'] == 'PROCEDURE'
+        if ($itemType == 'FUNCTION'
+            || $itemType == 'PROCEDURE'
         ) {
-            $query .= $_POST['item_type'] . ' ';
+            $query .= $itemType . ' ';
         } else {
             $errors[] = sprintf(
                 __('Invalid routine type: "%s"'),
-                htmlspecialchars($_POST['item_type'])
+                htmlspecialchars($itemType)
             );
         }
-        if (! empty($_POST['item_name'])) {
-            $query .= Util::backquote($_POST['item_name']);
+        if (! empty($itemName)) {
+            $query .= Util::backquote($itemName);
         } else {
             $errors[] = __('You must provide a routine name!');
         }
         $params = '';
-        $warned_about_dir    = false;
         $warned_about_length = false;
 
-        if (! empty($_POST['item_param_name'])
-            && ! empty($_POST['item_param_type'])
-            && ! empty($_POST['item_param_length'])
-            && is_array($_POST['item_param_name'])
-            && is_array($_POST['item_param_type'])
-            && is_array($_POST['item_param_length'])
-        ) {
-            $item_param_name = $_POST['item_param_name'];
-            $item_param_type = $_POST['item_param_type'];
-            $item_param_length = $_POST['item_param_length'];
+        $itemParamName = $_POST['item_param_name'];
+        $itemParamType = $_POST['item_param_type'];
+        $itemParamLength = $_POST['item_param_length'];
+        $itemParamDir = $_POST['item_param_dir'];
+        $itemParamOpsText = $_POST['item_param_opts_text'];
+        $itemParamOpsNum = $_POST['item_param_opts_num'];
 
-            for ($i = 0, $nb = count($item_param_name); $i < $nb; $i++) {
-                if (! empty($item_param_name[$i])
-                    && ! empty($item_param_type[$i])
+        if (! empty($itemParamName)
+            && ! empty($itemParamType)
+            && ! empty($itemParamLength)
+            && is_array($itemParamName)
+            && is_array($itemParamType)
+            && is_array($itemParamLength)
+        ) {
+            $warnedAboutDir = false;
+
+            for ($i = 0, $nb = count($itemParamName); $i < $nb; $i++) {
+                if (! empty($itemParamName[$i])
+                    && ! empty($itemParamType[$i])
                 ) {
-                    if ($_POST['item_type'] == 'PROCEDURE'
-                        && ! empty($_POST['item_param_dir'][$i])
-                        && in_array($_POST['item_param_dir'][$i], $this->directions)
+                    if ($itemType == 'PROCEDURE'
+                        && ! empty($itemParamDir[$i])
+                        && in_array($itemParamDir[$i], $this->directions)
                     ) {
-                        $params .= $_POST['item_param_dir'][$i] . ' '
-                            . Util::backquote($item_param_name[$i])
-                            . ' ' . $item_param_type[$i];
-                    } elseif ($_POST['item_type'] == 'FUNCTION') {
-                        $params .= Util::backquote($item_param_name[$i])
-                            . ' ' . $item_param_type[$i];
-                    } elseif (! $warned_about_dir) {
-                        $warned_about_dir = true;
+                        $params .= $itemParamDir[$i] . ' '
+                            . Util::backquote($itemParamName[$i])
+                            . ' ' . $itemParamType[$i];
+                    } elseif ($itemType == 'FUNCTION') {
+                        $params .= Util::backquote($itemParamName[$i])
+                            . ' ' . $itemParamType[$i];
+                    } elseif (! $warnedAboutDir) {
+                        $warnedAboutDir = true;
                         $errors[] = sprintf(
                             __('Invalid direction "%s" given for parameter.'),
-                            htmlspecialchars($_POST['item_param_dir'][$i])
+                            htmlspecialchars($itemParamDir[$i])
                         );
                     }
-                    if ($item_param_length[$i] != ''
+                    if ($itemParamLength[$i] != ''
                         && ! preg_match(
                             '@^(DATE|TINYBLOB|TINYTEXT|BLOB|TEXT|'
                             . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|'
                             . 'SERIAL|BOOLEAN)$@i',
-                            $item_param_type[$i]
+                            $itemParamType[$i]
                         )
                     ) {
-                        $params .= '(' . $item_param_length[$i] . ')';
-                    } elseif ($item_param_length[$i] == ''
+                        $params .= '(' . $itemParamLength[$i] . ')';
+                    } elseif ($itemParamLength[$i] == ''
                         && preg_match(
                             '@^(ENUM|SET|VARCHAR|VARBINARY)$@i',
-                            $item_param_type[$i]
+                            $itemParamType[$i]
                         )
                     ) {
                         if (! $warned_about_length) {
@@ -1189,25 +1195,25 @@ class Routines
                             );
                         }
                     }
-                    if (! empty($_POST['item_param_opts_text'][$i])) {
-                        if ($dbi->types->getTypeClass($item_param_type[$i]) == 'CHAR') {
-                            if (! in_array($item_param_type[$i], ['VARBINARY', 'BINARY'])) {
+                    if (! empty($itemParamOpsText[$i])) {
+                        if ($dbi->types->getTypeClass($itemParamType[$i]) == 'CHAR') {
+                            if (! in_array($itemParamType[$i], ['VARBINARY', 'BINARY'])) {
                                 $params .= ' CHARSET '
                                     . mb_strtolower(
-                                        $_POST['item_param_opts_text'][$i]
+                                        $itemParamOpsText[$i]
                                     );
                             }
                         }
                     }
-                    if (! empty($_POST['item_param_opts_num'][$i])) {
-                        if ($dbi->types->getTypeClass($item_param_type[$i]) == 'NUMBER') {
+                    if (! empty($itemParamOpsNum[$i])) {
+                        if ($dbi->types->getTypeClass($itemParamType[$i]) == 'NUMBER') {
                             $params .= ' '
                                 . mb_strtoupper(
-                                    $_POST['item_param_opts_num'][$i]
+                                    $itemParamOpsNum[$i]
                                 );
                         }
                     }
-                    if ($i != count($item_param_name) - 1) {
+                    if ($i != count($itemParamName) - 1) {
                         $params .= ', ';
                     }
                 } else {
@@ -1219,16 +1225,16 @@ class Routines
             }
         }
         $query .= '(' . $params . ') ';
-        if ($_POST['item_type'] == 'FUNCTION') {
-            $item_returntype = $_POST['item_returntype'] ?? null;
+        if ($itemType == 'FUNCTION') {
+            $itemReturnType = $_POST['item_returntype'] ?? null;
 
-            if (! empty($item_returntype)
+            if (! empty($itemReturnType)
                 && in_array(
-                    $item_returntype,
+                    $itemReturnType,
                     Util::getSupportedDatatypes()
                 )
             ) {
-                $query .= 'RETURNS ' . $item_returntype;
+                $query .= 'RETURNS ' . $itemReturnType;
             } else {
                 $errors[] = __('You must provide a valid return type for the routine.');
             }
@@ -1236,14 +1242,14 @@ class Routines
                 && ! preg_match(
                     '@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|'
                     . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN)$@i',
-                    $item_returntype
+                    $itemReturnType
                 )
             ) {
                 $query .= '(' . $_POST['item_returnlength'] . ')';
             } elseif (empty($_POST['item_returnlength'])
                 && preg_match(
                     '@^(ENUM|SET|VARCHAR|VARBINARY)$@i',
-                    $item_returntype
+                    $itemReturnType
                 )
             ) {
                 if (! $warned_about_length) {
@@ -1254,13 +1260,13 @@ class Routines
                 }
             }
             if (! empty($_POST['item_returnopts_text'])) {
-                if ($dbi->types->getTypeClass($item_returntype) == 'CHAR') {
+                if ($dbi->types->getTypeClass($itemReturnType) == 'CHAR') {
                     $query .= ' CHARSET '
                         . mb_strtolower($_POST['item_returnopts_text']);
                 }
             }
             if (! empty($_POST['item_returnopts_num'])) {
-                if ($dbi->types->getTypeClass($item_returntype) == 'NUMBER') {
+                if ($dbi->types->getTypeClass($itemReturnType) == 'NUMBER') {
                     $query .= ' '
                         . mb_strtoupper($_POST['item_returnopts_num']);
                 }
@@ -1276,20 +1282,26 @@ class Routines
         } else {
             $query .= 'NOT DETERMINISTIC ';
         }
-        if (! empty($_POST['item_sqldataaccess'])
-            && in_array($_POST['item_sqldataaccess'], $this->sqlDataAccess)
+
+        $itemSqlDataAccess = $_POST['item_sqldataaccess'];
+        if (! empty($itemSqlDataAccess)
+            && in_array($itemSqlDataAccess, $this->sqlDataAccess)
         ) {
-            $query .= $_POST['item_sqldataaccess'] . ' ';
+            $query .= $itemSqlDataAccess . ' ';
         }
-        if (! empty($_POST['item_securitytype'])) {
-            if ($_POST['item_securitytype'] == 'DEFINER'
-                || $_POST['item_securitytype'] == 'INVOKER'
+
+        $itemSecurityType = $_POST['item_securitytype'];
+        if (! empty($itemSecurityType)) {
+            if ($itemSecurityType === 'DEFINER'
+                || $itemSecurityType === 'INVOKER'
             ) {
-                $query .= 'SQL SECURITY ' . $_POST['item_securitytype'] . ' ';
+                $query .= 'SQL SECURITY ' . $itemSecurityType . ' ';
             }
         }
-        if (! empty($_POST['item_definition'])) {
-            $query .= $_POST['item_definition'];
+
+        $itemDefinition = $_POST['item_definition'];
+        if (! empty($itemDefinition)) {
+            $query .= $itemDefinition;
         } else {
             $errors[] = __('You must provide a routine definition.');
         }
