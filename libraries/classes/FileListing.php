@@ -32,7 +32,13 @@ class FileListing
      */
     public function getDirContent(string $dir, string $expression = '')
     {
-        if (! @file_exists($dir) || ! ($handle = @opendir($dir))) {
+        if (! @file_exists($dir)) {
+            return false;
+        }
+
+        $handle = @opendir($dir);
+
+        if ($handle === false) {
             return false;
         }
 

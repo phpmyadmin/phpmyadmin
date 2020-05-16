@@ -434,14 +434,18 @@ class Export
                 )
             );
             $message->addParam($save_filename);
-        } elseif (! $file_handle = @fopen($save_filename, 'w')) {
-            $message = Message::error(
-                __(
-                    'The web server does not have permission '
-                    . 'to save the file %s.'
-                )
-            );
-            $message->addParam($save_filename);
+        } else {
+            $file_handle = @fopen($save_filename, 'w');
+
+            if (! $file_handle) {
+                $message = Message::error(
+                    __(
+                        'The web server does not have permission '
+                        . 'to save the file %s.'
+                    )
+                );
+                $message->addParam($save_filename);
+            }
         }
 
         return [

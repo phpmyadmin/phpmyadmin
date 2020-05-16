@@ -279,8 +279,9 @@ class ThemeManager
     public function loadThemes()
     {
         $this->themes = [];
+        $handleThemes = opendir($this->_themes_path);
 
-        if (($handleThemes = opendir($this->_themes_path)) === false) {
+        if ($handleThemes === false) {
             trigger_error(
                 'phpMyAdmin-ERROR: cannot open themes folder: '
                 . $this->_themes_path,

@@ -1441,7 +1441,9 @@ class Routines
                 $output .= '<br>';
 
                 $this->dbi->freeResult($result);
-            } while ($outcome = $this->dbi->nextResult());
+
+                $outcome = $this->dbi->nextResult();
+            } while ($outcome);
         }
 
         if ($outcome) {

@@ -421,8 +421,9 @@ class SavedSearches
             . "WHERE id = '" . $GLOBALS['dbi']->escapeString($this->getId()) . "' ";
 
         $resList = $this->relation->queryAsControlUser($sqlQuery);
+        $oneResult = $GLOBALS['dbi']->fetchArray($resList);
 
-        if (($oneResult = $GLOBALS['dbi']->fetchArray($resList)) === false) {
+        if ($oneResult === false) {
             $message = Message::error(__('Error while loading the search.'));
             $response = Response::getInstance();
             $response->setRequestStatus($message->isSuccess());

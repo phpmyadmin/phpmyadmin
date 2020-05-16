@@ -1459,7 +1459,9 @@ class Import
 
             // Get the matched rows for the query.
             $result = $this->getMatchedRows($analyzed_sql_results);
-            if (! $error = $GLOBALS['dbi']->getError()) {
+            $error = $GLOBALS['dbi']->getError();
+
+            if (! $error) {
                 $sql_data[] = $result;
             } else {
                 break;

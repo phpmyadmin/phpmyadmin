@@ -186,29 +186,37 @@ class File
     /**
      * Gets file content
      *
-     * @return string|false the binary file content,
-     *                      or false if no content
+     * @return string|null|false the binary file content,
+     *                           or false if no content
      *
      * @access public
      */
     public function getRawContent()
     {
-        if ($this->_content === null) {
-            if ($this->isUploaded() && ! $this->checkUploadedFile()) {
-                return false;
-            }
+        if ($this->_content !== null) {
+            return $this->_content;
+        }
 
-            if (! $this->isReadable()) {
-                return false;
-            }
+        if ($this->isUploaded() && ! $this->checkUploadedFile()) {
+            return false;
+        }
 
-            if (function_exists('file_get_contents')) {
-                $this->_content = file_get_contents($this->getName());
-            } elseif ($size = filesize($this->getName())) {
-                $handle = fopen($this->getName(), 'rb');
-                $this->_content = fread($handle, $size);
-                fclose($handle);
-            }
+        if (! $this->isReadable()) {
+            return false;
+        }
+
+        if (function_exists('file_get_contents')) {
+            $this->_content = file_get_contents($this->getName());
+
+            return $this->_content;
+        }
+
+        $size = filesize($this->getName());
+
+        if ($size) {
+            $handle = fopen($this->getName(), 'rb');
+            $this->_content = fread($handle, $size);
+            fclose($handle);
         }
 
         return $this->_content;
@@ -225,7 +233,7 @@ class File
     public function getContent()
     {
         $result = $this->getRawContent();
-        if ($result === false) {
+        if ($result === false || $result === null) {
             return false;
         }
 

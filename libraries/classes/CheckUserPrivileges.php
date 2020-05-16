@@ -41,11 +41,10 @@ class CheckUserPrivileges
 
         $tblname_end_offset = mb_strpos($row, ' TO ');
         $tblname_start_offset = false;
+        $__tblname_start_offset = mb_strpos($row, '`.', $db_name_offset);
 
-        if (($__tblname_start_offset = mb_strpos($row, '`.', $db_name_offset))
-            && $__tblname_start_offset
-            < $tblname_end_offset) {
-                $tblname_start_offset = $__tblname_start_offset + 1;
+        if ($__tblname_start_offset && $__tblname_start_offset < $tblname_end_offset) {
+            $tblname_start_offset = $__tblname_start_offset + 1;
         }
 
         if (! $tblname_start_offset) {

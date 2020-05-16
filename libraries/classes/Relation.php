@@ -1298,21 +1298,25 @@ class Relation
             ORDER BY `timevalue` DESC
             LIMIT ' . $GLOBALS['cfg']['QueryHistoryMax'] . ', 1';
 
-        if ($max_time = $this->dbi->fetchValue(
+        $max_time = $this->dbi->fetchValue(
             $search_query,
             0,
             0,
             DatabaseInterface::CONNECT_CONTROL
-        )) {
-            $this->queryAsControlUser(
-                'DELETE FROM '
-                . Util::backquote($cfgRelation['db']) . '.'
-                . Util::backquote($cfgRelation['history']) . '
-                  WHERE `username` = \'' . $this->dbi->escapeString($username)
-                . '\'
-                    AND `timevalue` <= \'' . $max_time . '\''
-            );
+        );
+
+        if (! $max_time) {
+            return;
         }
+
+        $this->queryAsControlUser(
+            'DELETE FROM '
+            . Util::backquote($cfgRelation['db']) . '.'
+            . Util::backquote($cfgRelation['history']) . '
+              WHERE `username` = \'' . $this->dbi->escapeString($username)
+            . '\'
+                AND `timevalue` <= \'' . $max_time . '\''
+        );
     }
 
     /**
@@ -2069,21 +2073,23 @@ class Relation
     public function createPmaDatabase()
     {
         $this->dbi->tryQuery('CREATE DATABASE IF NOT EXISTS `phpmyadmin`');
-        if ($error = $this->dbi->getError()) {
-            if ($GLOBALS['errno'] == 1044) {
-                $GLOBALS['message'] =    __(
-                    'You do not have necessary privileges to create a database named'
-                    . ' \'phpmyadmin\'. You may go to \'Operations\' tab of any'
-                    . ' database to set up the phpMyAdmin configuration storage there.'
-                );
-            } else {
-                $GLOBALS['message'] = $error;
-            }
 
-            return false;
+        $error = $this->dbi->getError();
+        if (! $error) {
+            return true;
         }
 
-        return true;
+        $GLOBALS['message'] = $error;
+
+        if ($GLOBALS['errno'] === 1044) {
+            $GLOBALS['message'] = __(
+                'You do not have necessary privileges to create a database named'
+                . ' \'phpmyadmin\'. You may go to \'Operations\' tab of any'
+                . ' database to set up the phpMyAdmin configuration storage there.'
+            );
+        }
+
+        return false;
     }
 
     /**
@@ -2130,11 +2136,14 @@ class Relation
                         $this->dbi->selectDb($db);
                     }
                     $this->dbi->tryQuery($createQueries[$table]);
-                    if ($error = $this->dbi->getError()) {
+
+                    $error = $this->dbi->getError();
+                    if ($error) {
                         $GLOBALS['message'] = $error;
 
                         return;
                     }
+
                     $foundOne = true;
                     $GLOBALS['cfg']['Server'][$feature] = $table;
                 }

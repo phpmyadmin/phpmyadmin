@@ -30,13 +30,15 @@ class SunOs extends Base
      */
     private function _kstat($key)
     {
-        if ($m = shell_exec('kstat -p d ' . $key)) {
+        $m = shell_exec('kstat -p d ' . $key);
+
+        if ($m) {
             list(, $value) = explode("\t", trim($m), 2);
 
             return $value;
-        } else {
-            return '';
         }
+
+        return '';
     }
 
     /**

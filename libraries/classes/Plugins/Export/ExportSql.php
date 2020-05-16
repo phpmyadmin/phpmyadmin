@@ -1555,7 +1555,13 @@ class ExportSql extends ExportPlugin
         $old_mode = Context::$MODE;
 
         $warning = '';
-        if ($result != false && ($row = $GLOBALS['dbi']->fetchRow($result))) {
+
+        $row = null;
+        if ($result !== false) {
+            $row = $GLOBALS['dbi']->fetchRow($result);
+        }
+
+        if ($row) {
             $create_query = $row[1];
             unset($row);
 
@@ -1935,7 +1941,8 @@ class ExportSql extends ExportPlugin
         );
 
         if ($do_mime && $cfgRelation['mimework']) {
-            if (! ($mime_map = $this->transformations->getMime($db, $table, true))) {
+            $mime_map = $this->transformations->getMime($db, $table, true);
+            if (! $mime_map) {
                 unset($mime_map);
             }
         }

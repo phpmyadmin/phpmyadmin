@@ -91,23 +91,21 @@ $languageEn->activate();
 /* Load Database interface */
 $GLOBALS['dbi'] = DatabaseInterface::load(new DbiDummy());
 
-// Set proxy information from env, if available
-$http_proxy = getenv('http_proxy');
-if (PHP_SAPI == 'cli' && $http_proxy && ($url_info = parse_url($http_proxy))) {
-    /** @var string[] */
-    $url_info = $url_info;
-    // phpcs:disable PSR1.Files.SideEffects
-    define('PROXY_URL', $url_info['host'] . ':' . $url_info['port']);
-    define('PROXY_USER', empty($url_info['user']) ? '' : $url_info['user']);
-    define('PROXY_PASS', empty($url_info['pass']) ? '' : $url_info['pass']);
-    // phpcs:enable
-} else {
-    // phpcs:disable PSR1.Files.SideEffects
-    define('PROXY_URL', '');
-    define('PROXY_USER', '');
-    define('PROXY_PASS', '');
-    // phpcs:enable
+$httpProxy = getenv('http_proxy');
+$urlInfo = parse_url((string) $httpProxy);
+
+if (PHP_SAPI == 'cli' && is_array($urlInfo)) {
+    $proxyUrl = ($urlInfo['host'] ?? '')
+        . (isset($urlInfo['port']) ? ':' . $urlInfo['port'] : '');
+    $proxyUser = $urlInfo['user'] ?? '';
+    $proxyPass = $urlInfo['pass'] ?? '';
 }
+
+// phpcs:disable PSR1.Files.SideEffects
+define('PROXY_URL', $proxyUrl ?? '');
+define('PROXY_USER', $proxyUser ?? '');
+define('PROXY_PASS', $proxyPass ?? '');
+// phpcs:enable
 
 // Ensure we have session started
 session_start();

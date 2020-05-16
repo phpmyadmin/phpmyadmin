@@ -2415,8 +2415,9 @@ class InsertEdit
             if (! $result) {
                 $error_messages[] = $this->dbi->getError();
             } else {
-                // The next line contains a real assignment, it's not a typo
-                if ($tmp = @$this->dbi->affectedRows()) {
+                $tmp = @$this->dbi->affectedRows();
+
+                if ($tmp) {
                     $total_affected_rows += $tmp;
                 }
                 unset($tmp);
@@ -2931,7 +2932,9 @@ class InsertEdit
         $result = $this->dbi->tryQuery($sql_for_real_value);
         $fields_meta = $this->dbi->getFieldsMeta($result);
         $meta = $fields_meta[0];
-        if ($row = $this->dbi->fetchRow($result)) {
+        $row = $this->dbi->fetchRow($result);
+
+        if ($row) {
             $new_value = $row[0];
             if ((substr($meta->type, 0, 9) == 'timestamp')
                 || ($meta->type == 'datetime')

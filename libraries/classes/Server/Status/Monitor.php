@@ -512,7 +512,9 @@ class Monitor
             $this->dbi->selectDb($database);
         }
 
-        if ($profiling = Util::profilingSupported()) {
+        $profiling = Util::profilingSupported();
+
+        if ($profiling) {
             $this->dbi->query('SET PROFILING=1;');
         }
 

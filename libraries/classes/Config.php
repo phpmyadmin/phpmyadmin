@@ -462,13 +462,17 @@ class Config
             return;
         }
 
-        if (! $ref_head = @file_get_contents($git_folder . '/HEAD')) {
+        $ref_head = @file_get_contents($git_folder . '/HEAD');
+
+        if (! $ref_head) {
             $this->set('PMA_VERSION_GIT', 0);
 
             return;
         }
 
-        if ($common_dir_contents = @file_get_contents($git_folder . '/commondir')) {
+        $common_dir_contents = @file_get_contents($git_folder . '/commondir');
+
+        if ($common_dir_contents) {
             $git_folder .= DIRECTORY_SEPARATOR . trim($common_dir_contents);
         }
 
@@ -539,11 +543,14 @@ class Config
             $git_file_name = $git_folder . '/objects/'
                 . substr($hash, 0, 2) . '/' . substr($hash, 2);
             if (@file_exists($git_file_name)) {
-                if (! $commit = @file_get_contents($git_file_name)) {
+                $commit = @file_get_contents($git_file_name);
+
+                if (! $commit) {
                     $this->set('PMA_VERSION_GIT', 0);
 
                     return;
                 }
+
                 $commit = explode("\0", gzuncompress($commit), 2);
                 $commit = explode("\n", $commit[1]);
                 $_SESSION['PMA_VERSION_COMMITDATA_' . $hash] = $commit;
@@ -551,9 +558,13 @@ class Config
                 $pack_names = [];
                 // work with packed data
                 $packs_file = $git_folder . '/objects/info/packs';
-                if (@file_exists($packs_file)
-                    && $packs = @file_get_contents($packs_file)
-                ) {
+                $packs = '';
+
+                if (@file_exists($packs_file)) {
+                    $packs = @file_get_contents($packs_file);
+                }
+
+                if ($packs) {
                     // File exists. Read it, parse the file to get the names of the
                     // packs. (to look for them in .git/object/pack directory later)
                     foreach (explode("\n", $packs) as $line) {
@@ -1316,18 +1327,20 @@ class Config
      */
     public function checkUploadSize(): void
     {
-        if (! $filesize = ini_get('upload_max_filesize')) {
-            $filesize = '5M';
+        $fileSize = ini_get('upload_max_filesize');
+
+        if (! $fileSize) {
+            $fileSize = '5M';
         }
 
-        if ($postsize = ini_get('post_max_size')) {
-            $this->set(
-                'max_upload_size',
-                min(Core::getRealSize($filesize), Core::getRealSize($postsize))
-            );
-        } else {
-            $this->set('max_upload_size', Core::getRealSize($filesize));
+        $size = Core::getRealSize($fileSize);
+        $postSize = ini_get('post_max_size');
+
+        if ($postSize) {
+            $size = min($size, Core::getRealSize($postSize));
         }
+
+        $this->set('max_upload_size', $size);
     }
 
     /**

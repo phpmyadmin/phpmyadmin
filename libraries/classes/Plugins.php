@@ -95,11 +95,13 @@ class Plugins
     public static function getPlugins($plugin_type, $plugins_dir, $plugin_param)
     {
         $GLOBALS['plugin_param'] = $plugin_param;
-        /* Scan for plugins */
-        $plugin_list = [];
-        if (! ($handle = @opendir($plugins_dir))) {
-            return $plugin_list;
+
+        $handle = @opendir($plugins_dir);
+        if (! $handle) {
+            return [];
         }
+
+        $plugin_list = [];
 
         $namespace = 'PhpMyAdmin\\' . str_replace('/', '\\', mb_substr($plugins_dir, 18));
         $class_type = mb_strtoupper($plugin_type[0], 'UTF-8')
