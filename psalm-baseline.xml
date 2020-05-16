@@ -1318,6 +1318,9 @@
     <ParadoxicalCondition occurrences="1">
       <code>null</code>
     </ParadoxicalCondition>
+    <PossiblyNullArgument occurrences="1">
+      <code>$gitFolder</code>
+    </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Html/Generator.php">
     <InvalidScalarArgument occurrences="1">

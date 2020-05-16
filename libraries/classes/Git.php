@@ -129,19 +129,194 @@ class Git
     }
 
     /**
+     * Un pack a commit with gzuncompress
+     *
+     * @param string $gitFolder The Git folder
+     * @param string $hash      The commit hash
+     * @return array|false|null
+     */
+    private function unPackGz(string $gitFolder, string $hash)
+    {
+        $commit = false;
+
+        $gitFileName = $gitFolder . '/objects/'
+            . substr($hash, 0, 2) . '/' . substr($hash, 2);
+        if (@file_exists($gitFileName)) {
+            $commit = @file_get_contents($gitFileName);
+
+            if ($commit === false) {
+                $this->config->set('PMA_VERSION_GIT', 0);
+
+                return null;
+            }
+
+            $commit = explode("\0", gzuncompress($commit), 2);
+            $commit = explode("\n", $commit[1]);
+            $_SESSION['PMA_VERSION_COMMITDATA_' . $hash] = $commit;
+        } else {
+            $pack_names = [];
+            // work with packed data
+            $packs_file = $gitFolder . '/objects/info/packs';
+            $packs = '';
+
+            if (@file_exists($packs_file)) {
+                $packs = @file_get_contents($packs_file);
+            }
+
+            if ($packs) {
+                // File exists. Read it, parse the file to get the names of the
+                // packs. (to look for them in .git/object/pack directory later)
+                foreach (explode("\n", $packs) as $line) {
+                    // skip blank lines
+                    if (strlen(trim($line)) == 0) {
+                        continue;
+                    }
+                    // skip non pack lines
+                    if ($line[0] != 'P') {
+                        continue;
+                    }
+                    // parse names
+                    $pack_names[] = substr($line, 2);
+                }
+            } else {
+                // '.git/objects/info/packs' file can be missing
+                // (atlease in mysGit)
+                // File missing. May be we can look in the .git/object/pack
+                // directory for all the .pack files and use that list of
+                // files instead
+                $dirIterator = new DirectoryIterator(
+                    $gitFolder . '/objects/pack'
+                );
+                foreach ($dirIterator as $file_info) {
+                    $file_name = $file_info->getFilename();
+                    // if this is a .pack file
+                    if ($file_info->isFile() && substr($file_name, -5) == '.pack'
+                    ) {
+                        $pack_names[] = $file_name;
+                    }
+                }
+            }
+            $hash = strtolower($hash);
+            foreach ($pack_names as $pack_name) {
+                $index_name = str_replace('.pack', '.idx', $pack_name);
+
+                // load index
+                $index_data = @file_get_contents(
+                    $gitFolder . '/objects/pack/' . $index_name
+                );
+                if (! $index_data) {
+                    continue;
+                }
+                // check format
+                if (substr($index_data, 0, 4) != "\377tOc") {
+                    continue;
+                }
+                // check version
+                $version = unpack('N', substr($index_data, 4, 4));
+                if ($version[1] != 2) {
+                    continue;
+                }
+                // parse fanout table
+                $fanout = unpack(
+                    'N*',
+                    substr($index_data, 8, 256 * 4)
+                );
+
+                // find where we should search
+                $firstbyte = intval(substr($hash, 0, 2), 16);
+                // array is indexed from 1 and we need to get
+                // previous entry for start
+                if ($firstbyte == 0) {
+                    $start = 0;
+                } else {
+                    $start = $fanout[$firstbyte];
+                }
+                $end = $fanout[$firstbyte + 1];
+
+                // stupid linear search for our sha
+                $found = false;
+                $offset = 8 + (256 * 4);
+                for ($position = $start; $position < $end; $position++) {
+                    $sha = strtolower(
+                        bin2hex(
+                            substr($index_data, $offset + ($position * 20), 20)
+                        )
+                    );
+                    if ($sha == $hash) {
+                        $found = true;
+                        break;
+                    }
+                }
+                if (! $found) {
+                    continue;
+                }
+                // read pack offset
+                $offset = 8 + (256 * 4) + (24 * $fanout[256]);
+                $pack_offset = unpack(
+                    'N',
+                    substr($index_data, $offset + ($position * 4), 4)
+                );
+                $pack_offset = $pack_offset[1];
+
+                // open pack file
+                $pack_file = fopen(
+                    $gitFolder . '/objects/pack/' . $pack_name,
+                    'rb'
+                );
+                if ($pack_file === false) {
+                    continue;
+                }
+                // seek to start
+                fseek($pack_file, $pack_offset);
+
+                // parse header
+                $header = ord(fread($pack_file, 1));
+                $type = ($header >> 4) & 7;
+                $hasnext = ($header & 128) >> 7;
+                $size = $header & 0xf;
+                $offset = 4;
+
+                while ($hasnext) {
+                    $byte = ord(fread($pack_file, 1));
+                    $size |= ($byte & 0x7f) << $offset;
+                    $hasnext = ($byte & 128) >> 7;
+                    $offset += 7;
+                }
+
+                // we care only about commit objects
+                if ($type != 1) {
+                    continue;
+                }
+
+                // read data
+                $commit = fread($pack_file, $size);
+                fclose($pack_file);
+                if ($commit !== false) {
+                    $commit = gzuncompress($commit);
+                    if ($commit !== false) {
+                        $commit = explode("\n", $commit);
+                    }
+                }
+                $_SESSION['PMA_VERSION_COMMITDATA_' . $hash] = $commit;
+            }
+        }
+        return $commit;
+    }
+
+    /**
      * detects Git revision, if running inside repo
      */
     public function checkGitRevision(): void
     {
         // find out if there is a .git folder
-        $git_folder = '';
-        if (! $this->isGitRevision($git_folder)) {
+        $gitFolder = '';
+        if (! $this->isGitRevision($gitFolder)) {
             $this->config->set('PMA_VERSION_GIT', 0);
 
             return;
         }
 
-        $ref_head = @file_get_contents($git_folder . '/HEAD');
+        $ref_head = @file_get_contents($gitFolder . '/HEAD');
 
         if (! $ref_head) {
             $this->config->set('PMA_VERSION_GIT', 0);
@@ -149,10 +324,10 @@ class Git
             return;
         }
 
-        $common_dir_contents = @file_get_contents($git_folder . '/commondir');
+        $common_dir_contents = @file_get_contents($gitFolder . '/commondir');
 
-        if ($common_dir_contents) {
-            $git_folder .= DIRECTORY_SEPARATOR . trim($common_dir_contents);
+        if ($common_dir_contents !== false) {
+            $gitFolder .= DIRECTORY_SEPARATOR . trim($common_dir_contents);
         }
 
         $branch = false;
@@ -166,7 +341,7 @@ class Git
                 $branch = basename($ref_head);
             }
 
-            $ref_file = $git_folder . '/' . $ref_head;
+            $ref_file = $gitFolder . '/' . $ref_head;
             if (@file_exists($ref_file)) {
                 $hash = @file_get_contents($ref_file);
                 if ($hash === false) {
@@ -177,7 +352,7 @@ class Git
                 $hash = trim($hash);
             } else {
                 // deal with packed refs
-                $packed_refs = @file_get_contents($git_folder . '/packed-refs');
+                $packed_refs = @file_get_contents($gitFolder . '/packed-refs');
                 if ($packed_refs === false) {
                     $this->config->set('PMA_VERSION_GIT', 0);
 
@@ -219,166 +394,9 @@ class Git
         } elseif (isset($_SESSION['PMA_VERSION_COMMITDATA_' . $hash])) {
             $commit = $_SESSION['PMA_VERSION_COMMITDATA_' . $hash];
         } elseif (function_exists('gzuncompress')) {
-            $git_file_name = $git_folder . '/objects/'
-                . substr($hash, 0, 2) . '/' . substr($hash, 2);
-            if (@file_exists($git_file_name)) {
-                $commit = @file_get_contents($git_file_name);
-
-                if ($commit === false) {
-                    $this->config->set('PMA_VERSION_GIT', 0);
-
-                    return;
-                }
-
-                $commit = explode("\0", gzuncompress($commit), 2);
-                $commit = explode("\n", $commit[1]);
-                $_SESSION['PMA_VERSION_COMMITDATA_' . $hash] = $commit;
-            } else {
-                $pack_names = [];
-                // work with packed data
-                $packs_file = $git_folder . '/objects/info/packs';
-                $packs = '';
-
-                if (@file_exists($packs_file)) {
-                    $packs = @file_get_contents($packs_file);
-                }
-
-                if ($packs) {
-                    // File exists. Read it, parse the file to get the names of the
-                    // packs. (to look for them in .git/object/pack directory later)
-                    foreach (explode("\n", $packs) as $line) {
-                        // skip blank lines
-                        if (strlen(trim($line)) == 0) {
-                            continue;
-                        }
-                        // skip non pack lines
-                        if ($line[0] != 'P') {
-                            continue;
-                        }
-                        // parse names
-                        $pack_names[] = substr($line, 2);
-                    }
-                } else {
-                    // '.git/objects/info/packs' file can be missing
-                    // (atlease in mysGit)
-                    // File missing. May be we can look in the .git/object/pack
-                    // directory for all the .pack files and use that list of
-                    // files instead
-                    $dirIterator = new DirectoryIterator(
-                        $git_folder . '/objects/pack'
-                    );
-                    foreach ($dirIterator as $file_info) {
-                        $file_name = $file_info->getFilename();
-                        // if this is a .pack file
-                        if ($file_info->isFile() && substr($file_name, -5) == '.pack'
-                        ) {
-                            $pack_names[] = $file_name;
-                        }
-                    }
-                }
-                $hash = strtolower($hash);
-                foreach ($pack_names as $pack_name) {
-                    $index_name = str_replace('.pack', '.idx', $pack_name);
-
-                    // load index
-                    $index_data = @file_get_contents(
-                        $git_folder . '/objects/pack/' . $index_name
-                    );
-                    if (! $index_data) {
-                        continue;
-                    }
-                    // check format
-                    if (substr($index_data, 0, 4) != "\377tOc") {
-                        continue;
-                    }
-                    // check version
-                    $version = unpack('N', substr($index_data, 4, 4));
-                    if ($version[1] != 2) {
-                        continue;
-                    }
-                    // parse fanout table
-                    $fanout = unpack(
-                        'N*',
-                        substr($index_data, 8, 256 * 4)
-                    );
-
-                    // find where we should search
-                    $firstbyte = intval(substr($hash, 0, 2), 16);
-                    // array is indexed from 1 and we need to get
-                    // previous entry for start
-                    if ($firstbyte == 0) {
-                        $start = 0;
-                    } else {
-                        $start = $fanout[$firstbyte];
-                    }
-                    $end = $fanout[$firstbyte + 1];
-
-                    // stupid linear search for our sha
-                    $found = false;
-                    $offset = 8 + (256 * 4);
-                    for ($position = $start; $position < $end; $position++) {
-                        $sha = strtolower(
-                            bin2hex(
-                                substr($index_data, $offset + ($position * 20), 20)
-                            )
-                        );
-                        if ($sha == $hash) {
-                            $found = true;
-                            break;
-                        }
-                    }
-                    if (! $found) {
-                        continue;
-                    }
-                    // read pack offset
-                    $offset = 8 + (256 * 4) + (24 * $fanout[256]);
-                    $pack_offset = unpack(
-                        'N',
-                        substr($index_data, $offset + ($position * 4), 4)
-                    );
-                    $pack_offset = $pack_offset[1];
-
-                    // open pack file
-                    $pack_file = fopen(
-                        $git_folder . '/objects/pack/' . $pack_name,
-                        'rb'
-                    );
-                    if ($pack_file === false) {
-                        continue;
-                    }
-                    // seek to start
-                    fseek($pack_file, $pack_offset);
-
-                    // parse header
-                    $header = ord(fread($pack_file, 1));
-                    $type = ($header >> 4) & 7;
-                    $hasnext = ($header & 128) >> 7;
-                    $size = $header & 0xf;
-                    $offset = 4;
-
-                    while ($hasnext) {
-                        $byte = ord(fread($pack_file, 1));
-                        $size |= ($byte & 0x7f) << $offset;
-                        $hasnext = ($byte & 128) >> 7;
-                        $offset += 7;
-                    }
-
-                    // we care only about commit objects
-                    if ($type != 1) {
-                        continue;
-                    }
-
-                    // read data
-                    $commit = fread($pack_file, $size);
-                    if ($commit !== false) {
-                        $commit = gzuncompress($commit);
-                        if ($commit !== false) {
-                            $commit = explode("\n", $commit);
-                        }
-                    }
-                    $_SESSION['PMA_VERSION_COMMITDATA_' . $hash] = $commit;
-                    fclose($pack_file);
-                }
+            $commit = $this->unPackGz($gitFolder, $hash);
+            if ($commit === null) {
+                return;
             }
         }
 
