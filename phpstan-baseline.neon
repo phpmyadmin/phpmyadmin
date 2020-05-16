@@ -2536,18 +2536,8 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
 		-
-			message: "#^Parameter \\#2 \\$str2 of function strcmp expects string, float\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportOds.php
-
-		-
 			message: "#^Offset 'name' does not exist on SimpleXMLElement\\|null\\.$#"
 			count: 2
-			path: libraries/classes/Plugins/Import/ImportOds.php
-
-		-
-			message: "#^Parameter \\#1 \\$str1 of function strcmp expects string, array\\<int, array\\<int, float\\|string\\>\\|string\\>\\|string given\\.$#"
-			count: 1
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
 		-
