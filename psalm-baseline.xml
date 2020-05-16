@@ -766,13 +766,15 @@
       <code>$routine['SQL_DATA_ACCESS']</code>
       <code>$routine['ROUTINE_COMMENT']</code>
     </PossiblyInvalidArrayAccess>
-    <PossiblyNullArgument occurrences="4">
+    <PossiblyNullArgument occurrences="5">
       <code>$mode</code>
       <code>$create_routine</code>
       <code>$item_returntype</code>
       <code>$item_returntype</code>
+      <code>$routine['item_name']</code>
     </PossiblyNullArgument>
-    <PossiblyNullArrayAccess occurrences="1">
+    <PossiblyNullArrayAccess occurrences="2">
+      <code>$routine['item_name']</code>
       <code>$routine['item_type']</code>
     </PossiblyNullArrayAccess>
   </file>
@@ -780,6 +782,15 @@
     <InvalidArrayOffset occurrences="1">
       <code>$this-&gt;searchTypes[$_POST['criteriaSearchType']]</code>
     </InvalidArrayOffset>
+  </file>
+  <file src="libraries/classes/Database/Triggers.php">
+    <PossiblyNullArgument occurrences="1">
+      <code>$create_item</code>
+    </PossiblyNullArgument>
+    <PossiblyNullArrayAccess occurrences="2">
+      <code>$trigger['create']</code>
+      <code>$trigger['drop']</code>
+    </PossiblyNullArrayAccess>
   </file>
   <file src="libraries/classes/DatabaseInterface.php">
     <EmptyArrayAccess occurrences="1">
