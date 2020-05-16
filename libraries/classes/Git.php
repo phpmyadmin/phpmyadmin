@@ -8,6 +8,8 @@ namespace PhpMyAdmin;
 
 use DirectoryIterator;
 use PhpMyAdmin\Utils\HttpRequest;
+use stdClass;
+
 use const DIRECTORY_SEPARATOR;
 use const PHP_EOL;
 use function array_key_exists;
@@ -304,6 +306,90 @@ class Git
     }
 
     /**
+     * Extract committer, author and message from commit body
+     *
+     * @param array $commit The commit body
+     * @return array<int,array<string,string>|string>
+     */
+    private function extractDataFormTextBody(array $commit): array
+    {
+        $author = [
+            'name' => '',
+            'email' => '',
+            'date' => '',
+        ];
+        $committer = [
+            'name' => '',
+            'email' => '',
+            'date' => '',
+        ];
+
+        do {
+            $dataline = array_shift($commit);
+            $datalinearr = explode(' ', $dataline, 2);
+            $linetype = $datalinearr[0];
+            if (in_array($linetype, ['author', 'committer'])) {
+                $user = $datalinearr[1];
+                preg_match('/([^<]+)<([^>]+)> ([0-9]+)( [^ ]+)?/', $user, $user);
+                $user2 = [
+                    'name' => trim($user[1]),
+                    'email' => trim($user[2]),
+                    'date' => date('Y-m-d H:i:s', (int) $user[3]),
+                ];
+                if (isset($user[4])) {
+                    $user2['date'] .= $user[4];
+                }
+                $$linetype = $user2;
+            }
+        } while ($dataline != '');
+        $message = trim(implode(' ', $commit));
+
+        return [$author, $committer, $message];
+    }
+
+    /**
+     * Is the commit remote
+     *
+     * @param mixed   $commit         The commit
+     * @param boolean $isRemoteCommit Is the commit remote ?, will be modified by reference
+     * @param string  $hash           The commit hash
+     * @return stdClass|null The commit body from the GitHub API
+     */
+    private function isRemoteCommit(&$commit, bool &$isRemoteCommit, string $hash): ?stdClass
+    {
+        $httpRequest = new HttpRequest();
+
+        // check if commit exists in Github
+        if ($commit !== false
+            && isset($_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash])
+        ) {
+            $isRemoteCommit = $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash];
+        } else {
+            $link = 'https://www.phpmyadmin.net/api/commit/' . $hash . '/';
+            $is_found = $httpRequest->create($link, 'GET');
+            switch ($is_found) {
+                case false:
+                    $isRemoteCommit = false;
+                    $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash] = false;
+                    break;
+                case null:
+                    // no remote link for now, but don't cache this as Github is down
+                    $isRemoteCommit = false;
+                    break;
+                default:
+                    $isRemoteCommit = true;
+                    $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash] = true;
+                    if ($commit === false) {
+                        // if no local commit data, try loading from Github
+                        return json_decode((string) $is_found);
+                    }
+                    break;
+            }
+        }
+        return null;
+    }
+
+    /**
      * detects Git revision, if running inside repo
      */
     public function checkGitRevision(): void
@@ -400,35 +486,12 @@ class Git
             }
         }
 
-        $httpRequest = new HttpRequest();
-
-        // check if commit exists in Github
-        if ($commit !== false
-            && isset($_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash])
-        ) {
-            $is_remote_commit = $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash];
-        } else {
-            $link = 'https://www.phpmyadmin.net/api/commit/' . $hash . '/';
-            $is_found = $httpRequest->create($link, 'GET');
-            switch ($is_found) {
-                case false:
-                    $is_remote_commit = false;
-                    $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash] = false;
-                    break;
-                case null:
-                    // no remote link for now, but don't cache this as Github is down
-                    $is_remote_commit = false;
-                    break;
-                default:
-                    $is_remote_commit = true;
-                    $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash] = true;
-                    if ($commit === false) {
-                        // if no local commit data, try loading from Github
-                        $commit_json = json_decode((string) $is_found);
-                    }
-                    break;
-            }
-        }
+        $is_remote_commit = false;
+        $commit_json = $this->isRemoteCommit(
+            $commit, // Will be modified if necessary by the function
+            $is_remote_commit, // Will be modified if necessary by the function
+            $hash
+        );
 
         $is_remote_branch = false;
         if ($is_remote_commit && $branch !== false) {
@@ -436,6 +499,7 @@ class Git
             if (isset($_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash])) {
                 $is_remote_branch = $_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash];
             } else {
+                $httpRequest = new HttpRequest();
                 $link = 'https://www.phpmyadmin.net/api/tree/' . $branch . '/';
                 $is_found = $httpRequest->create($link, 'GET', true);
                 switch ($is_found) {
@@ -456,37 +520,8 @@ class Git
         }
 
         if ($commit !== false) {
-            $author = [
-                'name' => '',
-                'email' => '',
-                'date' => '',
-            ];
-            $committer = [
-                'name' => '',
-                'email' => '',
-                'date' => '',
-            ];
-
-            do {
-                $dataline = array_shift($commit);
-                $datalinearr = explode(' ', $dataline, 2);
-                $linetype = $datalinearr[0];
-                if (in_array($linetype, ['author', 'committer'])) {
-                    $user = $datalinearr[1];
-                    preg_match('/([^<]+)<([^>]+)> ([0-9]+)( [^ ]+)?/', $user, $user);
-                    $user2 = [
-                        'name' => trim($user[1]),
-                        'email' => trim($user[2]),
-                        'date' => date('Y-m-d H:i:s', (int) $user[3]),
-                    ];
-                    if (isset($user[4])) {
-                        $user2['date'] .= $user[4];
-                    }
-                    $$linetype = $user2;
-                }
-            } while ($dataline != '');
-            $message = trim(implode(' ', $commit));
-        } elseif (isset($commit_json, $commit_json->author, $commit_json->committer, $commit_json->message)) {
+            [$author, $committer, $message] = $this->extractDataFormTextBody($commit);
+        } elseif (isset($commit_json->author, $commit_json->committer, $commit_json->message)) {
             $author = [
                 'name' => $commit_json->author->name,
                 'email' => $commit_json->author->email,
