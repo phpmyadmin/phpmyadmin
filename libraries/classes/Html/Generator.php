@@ -622,7 +622,6 @@ class Generator
         $type = 'notice'
     ): string {
         global $cfg;
-        $template = new Template();
         $retval = '';
 
         if ($sql_query === null) {

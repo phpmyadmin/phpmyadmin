@@ -368,7 +368,6 @@ class StructureController extends AbstractController
 
                         $sql_query = '';
                         $sql_query_views = null;
-                        $result = null;
                         $selectedCount = count($selected);
 
                         for ($i = 0; $i < $selectedCount; $i++) {

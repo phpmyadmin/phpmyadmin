@@ -304,7 +304,7 @@ class DatabasesController extends AbstractController
             $rebuildDatabaseList = true;
 
             $sqlQuery .= $aQuery . ';' . "\n";
-            $result = $this->dbi->query($aQuery);
+            $this->dbi->query($aQuery);
             $this->transformations->clear($selected[$i]);
         }
 
