@@ -47,8 +47,6 @@ class TrackerTest extends PmaTestCase
             ->getMock();
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
-
-        $cfg['dbi'] = $dbi;
     }
 
     /**

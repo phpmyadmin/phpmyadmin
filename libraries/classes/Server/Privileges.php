@@ -2359,6 +2359,8 @@ class Privileges
             $sql_query1 = '';
         }
 
+        $sql_query2 = '';
+
         // Should not do a GRANT USAGE for a table-specific privilege, it
         // causes problems later (cannot revoke it)
         if (! (strlen($tablename) > 0
@@ -2396,9 +2398,8 @@ class Privileges
         }
         if (! empty($sql_query2)) {
             $this->dbi->query($sql_query2);
-        } else {
-            $sql_query2 = '';
         }
+
         $sql_query = $sql_query0 . ' ' . $sql_query1 . ' ' . $sql_query2;
         $message = Message::success(__('You have updated the privileges for %s.'));
         $message->addParam('\'' . $username . '\'@\'' . $hostname . '\'');

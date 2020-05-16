@@ -468,6 +468,7 @@ class CentralColumnsTest extends TestCase
      */
     public function testUpdateMultipleColumn()
     {
+        $params = [];
         $params['db'] = 'phpmyadmin';
         $params['orig_col_name'] = [
             'col1',
