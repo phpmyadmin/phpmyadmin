@@ -1183,13 +1183,75 @@ class Routines
     }
 
     /**
+     * Set the found errors and build the query
+     *
+     * @param string $query             The existing query
+     * @param bool   $warnedAboutLength If the length warning was given
+     */
+    private function processFunctionSpecificParameters(
+        string $query,
+        bool $warnedAboutLength
+    ): string {
+        global $errors, $dbi;
+
+        $itemReturnType = $_POST['item_returntype'] ?? null;
+
+        if (! empty($itemReturnType)
+            && in_array(
+                $itemReturnType,
+                Util::getSupportedDatatypes()
+            )
+        ) {
+            $query .= 'RETURNS ' . $itemReturnType;
+        } else {
+            $errors[] = __('You must provide a valid return type for the routine.');
+        }
+        if (! empty($_POST['item_returnlength'])
+            && ! preg_match(
+                '@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|'
+                . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN)$@i',
+                $itemReturnType
+            )
+        ) {
+            $query .= '(' . $_POST['item_returnlength'] . ')';
+        } elseif (empty($_POST['item_returnlength'])
+            && preg_match(
+                '@^(ENUM|SET|VARCHAR|VARBINARY)$@i',
+                $itemReturnType
+            )
+        ) {
+            if (! $warnedAboutLength) {
+                $errors[] = __(
+                    'You must provide length/values for routine parameters'
+                    . ' of type ENUM, SET, VARCHAR and VARBINARY.'
+                );
+            }
+        }
+        if (! empty($_POST['item_returnopts_text'])) {
+            if ($dbi->types->getTypeClass($itemReturnType) == 'CHAR') {
+                $query .= ' CHARSET '
+                    . mb_strtolower($_POST['item_returnopts_text']);
+            }
+        }
+        if (! empty($_POST['item_returnopts_num'])) {
+            if ($dbi->types->getTypeClass($itemReturnType) == 'NUMBER') {
+                $query .= ' '
+                    . mb_strtoupper($_POST['item_returnopts_num']);
+            }
+        }
+        $query .= ' ';
+
+        return $query;
+    }
+
+    /**
      * Composes the query necessary to create a routine from an HTTP request.
      *
      * @return string  The CREATE [ROUTINE | PROCEDURE] query.
      */
     public function getQueryFromRequest(): string
     {
-        global $errors, $dbi;
+        global $errors;
 
         $itemType = $_POST['item_type'] ?? '';
         $itemDefiner = $_POST['item_definer'] ?? '';
@@ -1265,52 +1327,7 @@ class Routines
 
         $query .= '(' . $params . ') ';
         if ($itemType == 'FUNCTION') {
-            $itemReturnType = $_POST['item_returntype'] ?? null;
-
-            if (! empty($itemReturnType)
-                && in_array(
-                    $itemReturnType,
-                    Util::getSupportedDatatypes()
-                )
-            ) {
-                $query .= 'RETURNS ' . $itemReturnType;
-            } else {
-                $errors[] = __('You must provide a valid return type for the routine.');
-            }
-            if (! empty($_POST['item_returnlength'])
-                && ! preg_match(
-                    '@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|'
-                    . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN)$@i',
-                    $itemReturnType
-                )
-            ) {
-                $query .= '(' . $_POST['item_returnlength'] . ')';
-            } elseif (empty($_POST['item_returnlength'])
-                && preg_match(
-                    '@^(ENUM|SET|VARCHAR|VARBINARY)$@i',
-                    $itemReturnType
-                )
-            ) {
-                if (! $warnedAboutLength) {
-                    $errors[] = __(
-                        'You must provide length/values for routine parameters'
-                        . ' of type ENUM, SET, VARCHAR and VARBINARY.'
-                    );
-                }
-            }
-            if (! empty($_POST['item_returnopts_text'])) {
-                if ($dbi->types->getTypeClass($itemReturnType) == 'CHAR') {
-                    $query .= ' CHARSET '
-                        . mb_strtolower($_POST['item_returnopts_text']);
-                }
-            }
-            if (! empty($_POST['item_returnopts_num'])) {
-                if ($dbi->types->getTypeClass($itemReturnType) == 'NUMBER') {
-                    $query .= ' '
-                        . mb_strtoupper($_POST['item_returnopts_num']);
-                }
-            }
-            $query .= ' ';
+            $query = $this->processFunctionSpecificParameters($query, $warnedAboutLength);
         }
         if (! empty($_POST['item_comment'])) {
             $query .= "COMMENT '" . $this->dbi->escapeString($_POST['item_comment'])
