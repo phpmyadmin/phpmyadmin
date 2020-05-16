@@ -856,16 +856,6 @@ parameters:
 			path: libraries/classes/Database/Events.php
 
 		-
-			message: "#^Cannot access offset 'item_name' on array\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Database/Events.php
-
-		-
-			message: "#^Cannot access offset 'item_original_name' on array\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Database/Events.php
-
-		-
 			message: "#^Cannot access offset 'EVENT_NAME' on \\(array\\)\\|true\\.$#"
 			count: 1
 			path: libraries/classes/Database/Events.php
@@ -946,27 +936,7 @@ parameters:
 			path: libraries/classes/Database/Qbe.php
 
 		-
-			message: "#^Cannot access offset 'item_name' on array\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Database/Routines.php
-
-		-
-			message: "#^Cannot access offset 'item_original_name' on array\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Database/Routines.php
-
-		-
 			message: "#^Parameter \\#1 \\$mode of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getEditorForm\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Routines.php
-
-		-
-			message: "#^Parameter \\#3 \\$routine of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getEditorForm\\(\\) expects array, array\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Routines.php
-
-		-
-			message: "#^Offset 'item_type' does not exist on array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Database/Routines.php
 
@@ -1016,7 +986,7 @@ parameters:
 			path: libraries/classes/Database/Routines.php
 
 		-
-			message: "#^Cannot access offset 'item_name' on array\\|bool\\.$#"
+			message: "#^Offset 'item_name' does not exist on array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Database/Routines.php
 
@@ -1026,7 +996,7 @@ parameters:
 			path: libraries/classes/Database/Routines.php
 
 		-
-			message: "#^Cannot access offset 'item_type' on array\\|bool\\.$#"
+			message: "#^Offset 'item_type' does not exist on array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Database/Routines.php
 
@@ -1036,27 +1006,12 @@ parameters:
 			path: libraries/classes/Database/Routines.php
 
 		-
-			message: "#^Parameter \\#1 \\$routine of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getExecuteForm\\(\\) expects array, array\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Routines.php
-
-		-
-			message: "#^Cannot access offset 'create' on array\\|bool\\.$#"
+			message: "#^Offset 'create' does not exist on array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Database/Triggers.php
 
 		-
-			message: "#^Cannot access offset 'drop' on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'item_name' on array\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'item_original_name' on array\\|true\\.$#"
+			message: "#^Offset 'drop' does not exist on array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Database/Triggers.php
 

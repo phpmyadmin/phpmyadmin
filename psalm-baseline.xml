@@ -716,11 +716,7 @@
     </TypeDoesNotContainNull>
   </file>
   <file src="libraries/classes/Database/Events.php">
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$item</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="13">
-      <code>$item['item_name']</code>
+    <PossiblyInvalidArrayAccess occurrences="12">
       <code>$item['EVENT_NAME']</code>
       <code>$item['STATUS']</code>
       <code>$item['EVENT_TYPE']</code>
@@ -734,9 +730,6 @@
       <code>$item['DEFINER']</code>
       <code>$item['EVENT_COMMENT']</code>
     </PossiblyInvalidArrayAccess>
-    <PossiblyInvalidArrayAssignment occurrences="1">
-      <code>$item['item_original_name']</code>
-    </PossiblyInvalidArrayAssignment>
     <PossiblyNullArgument occurrences="1">
       <code>$create_item</code>
     </PossiblyNullArgument>
@@ -758,17 +751,12 @@
     </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="libraries/classes/Database/Routines.php">
-    <PossiblyInvalidArgument occurrences="5">
-      <code>$routine</code>
+    <PossiblyInvalidArgument occurrences="3">
       <code>$routine['item_type_toggle']</code>
       <code>$routine['item_returntype']</code>
       <code>$row</code>
-      <code>$routine</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="13">
-      <code>$routine['item_name']</code>
-      <code>$routine['item_type']</code>
-      <code>$routine['item_type']</code>
+    <PossiblyInvalidArrayAccess occurrences="8">
       <code>$routine['SPECIFIC_NAME']</code>
       <code>$routine['ROUTINE_TYPE']</code>
       <code>$routine['ROUTINE_DEFINITION']</code>
@@ -777,15 +765,7 @@
       <code>$routine['SECURITY_TYPE']</code>
       <code>$routine['SQL_DATA_ACCESS']</code>
       <code>$routine['ROUTINE_COMMENT']</code>
-      <code>$routine['item_type']</code>
-      <code>$routine['item_type']</code>
-      <code>$routine['item_name']</code>
-      <code>$routine['item_name']</code>
     </PossiblyInvalidArrayAccess>
-    <PossiblyInvalidArrayAssignment occurrences="2">
-      <code>$routine['item_original_name']</code>
-      <code>$routine['item_original_type']</code>
-    </PossiblyInvalidArrayAssignment>
     <PossiblyNullArgument occurrences="4">
       <code>$mode</code>
       <code>$create_routine</code>
@@ -800,19 +780,6 @@
     <InvalidArrayOffset occurrences="1">
       <code>$this-&gt;searchTypes[$_POST['criteriaSearchType']]</code>
     </InvalidArrayOffset>
-  </file>
-  <file src="libraries/classes/Database/Triggers.php">
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$item</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="3">
-      <code>$trigger['create']</code>
-      <code>$trigger['drop']</code>
-      <code>$item['item_name']</code>
-    </PossiblyInvalidArrayAccess>
-    <PossiblyInvalidArrayAssignment occurrences="1">
-      <code>$item['item_original_name']</code>
-    </PossiblyInvalidArrayAssignment>
   </file>
   <file src="libraries/classes/DatabaseInterface.php">
     <EmptyArrayAccess occurrences="1">
