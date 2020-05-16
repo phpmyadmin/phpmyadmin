@@ -459,6 +459,7 @@ input.button {
   text-shadow: 0 1px 0 #fff;
   background-image: url(../themes/svg_gradient.php?from=ffffff&to=cccccc);
   background-size: 100% 100%;
+  background: -webkit-gradient(top, #fff, #ccc);
   background: -webkit-linear-gradient(top, #fff, #ccc);
   background: -moz-linear-gradient(top, #fff, #ccc);
   background: -ms-linear-gradient(top, #fff, #ccc);
@@ -473,6 +474,7 @@ input.button:hover {
   position: relative;
   background-image: url(../themes/svg_gradient.php?from=cccccc&to=dddddd);
   background-size: 100% 100%;
+  background: -webkit-gradient(top, #ccc, #ddd);
   background: -webkit-linear-gradient(top, #ccc, #ddd);
   background: -moz-linear-gradient(top, #ccc, #ddd);
   background: -ms-linear-gradient(top, #ccc, #ddd);
