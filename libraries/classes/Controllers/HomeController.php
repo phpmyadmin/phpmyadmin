@@ -14,6 +14,7 @@ use PhpMyAdmin\Common;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\GitRevision;
+use PhpMyAdmin\Git;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
@@ -261,10 +262,12 @@ class HomeController extends AbstractController
 
         $this->checkRequirements();
 
+        $git = new Git($this->config);
+
         $this->render('home/index', [
             'message' => $displayMessage ?? '',
             'partial_logout' => $partialLogout ?? '',
-            'is_git_revision' => $this->config->isGitRevision(),
+            'is_git_revision' => $git->isGitRevision(),
             'server' => $server,
             'sync_favorite_tables' => $syncFavoriteTables,
             'has_server' => $hasServer,
@@ -325,7 +328,13 @@ class HomeController extends AbstractController
     {
         global $PMA_Config;
 
-        if (! $this->response->isAjax() || ! $PMA_Config->isGitRevision()) {
+        if (! $this->response->isAjax()) {
+            return;
+        }
+
+        $git = new Git($PMA_Config);
+
+        if (! $git->isGitRevision()) {
             return;
         }
 

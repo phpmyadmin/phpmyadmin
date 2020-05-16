@@ -136,31 +136,6 @@ parameters:
 			path: libraries/classes/Config.php
 
 		-
-			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Config.php
-
-		-
-			message: "#^Parameter \\#2 \\$str of function explode expects string, string\\|false given\\.$#"
-			count: 2
-			path: libraries/classes/Config.php
-
-		-
-			message: "#^Parameter \\#1 \\$character of function ord expects string, string\\|false given\\.$#"
-			count: 2
-			path: libraries/classes/Config.php
-
-		-
-			message: "#^Parameter \\#1 \\$data of function gzuncompress expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Config.php
-
-		-
-			message: "#^Parameter \\#1 \\$json of function json_decode expects string, string\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/Config.php
-
-		-
 			message: "#^Parameter \\#1 \\$new_error_level of function error_reporting expects int, int\\|null given\\.$#"
 			count: 2
 			path: libraries/classes/Config.php
@@ -1814,6 +1789,21 @@ parameters:
 			message: "#^Parameter \\#5 \\$pdf of method PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:prepareRowAsPdf\\(\\) expects TCPDF, object\\|resource\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisVisualization.php
+
+		-
+			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, string\\|false given\\.$#"
+			count: 1
+			path: libraries/classes/Git.php
+
+		-
+			message: "#^Parameter \\#2 \\$str of function explode expects string, string\\|false given\\.$#"
+			count: 1
+			path: libraries/classes/Git.php
+
+		-
+			message: "#^Parameter \\#1 \\$character of function ord expects string, string\\|false given\\.$#"
+			count: 2
+			path: libraries/classes/Git.php
 
 		-
 			message: "#^Parameter \\#1 \\$str of function nl2br expects string, array\\|string given\\.$#"
@@ -4508,11 +4498,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$str of function strip_tags expects string, string\\|false given\\.$#"
 			count: 1
-			path: test/classes/ConfigTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$directory of function chdir expects string, string\\|false given\\.$#"
-			count: 5
 			path: test/classes/ConfigTest.php
 
 		-

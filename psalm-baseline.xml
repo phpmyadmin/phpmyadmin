@@ -91,17 +91,10 @@
     </PossiblyInvalidArrayAccess>
   </file>
   <file src="libraries/classes/Config.php">
-    <InvalidArgument occurrences="1">
-      <code>$user</code>
-    </InvalidArgument>
     <NullableReturnStatement occurrences="1">
       <code>$this-&gt;get('is_https')</code>
     </NullableReturnStatement>
-    <ParadoxicalCondition occurrences="1">
-      <code>null</code>
-    </ParadoxicalCondition>
-    <PossiblyInvalidArgument occurrences="3">
-      <code>$is_found</code>
+    <PossiblyInvalidArgument occurrences="2">
       <code>$default_value</code>
       <code>$request</code>
     </PossiblyInvalidArgument>
@@ -1317,6 +1310,14 @@
     <PossiblyNullPropertyAssignmentValue occurrences="1">
       <code>null</code>
     </PossiblyNullPropertyAssignmentValue>
+  </file>
+  <file src="libraries/classes/Git.php">
+    <InvalidArgument occurrences="1">
+      <code>$user</code>
+    </InvalidArgument>
+    <ParadoxicalCondition occurrences="1">
+      <code>null</code>
+    </ParadoxicalCondition>
   </file>
   <file src="libraries/classes/Html/Generator.php">
     <InvalidScalarArgument occurrences="1">
