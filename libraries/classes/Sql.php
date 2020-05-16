@@ -1952,7 +1952,7 @@ class Sql
                 $result,
                 $analyzed_sql_results
             );
-            if (empty($sql_data) || ($sql_data['valid_queries'] = 1)) {
+            if (empty($sql_data) || ($sql_data['valid_queries'] <= 1)) {
                 $response->addHTML($tableMaintenanceHtml);
                 exit;
             }
