@@ -354,6 +354,9 @@ class Node
      */
     public function getData($type, $pos, $searchClause = '')
     {
+        /** @var DatabaseInterface $dbi */
+        global $dbi;
+
         $maxItems = $GLOBALS['cfg']['FirstLevelNavigationItems'];
         if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping']
             || ! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']
@@ -367,24 +370,24 @@ class Node
                 $query .= 'ORDER BY `SCHEMA_NAME` ';
                 $query .= 'LIMIT ' . $pos . ', ' . $maxItems;
 
-                return $GLOBALS['dbi']->fetchResult($query);
+                return $dbi->fetchResult($query);
             }
 
             if ($GLOBALS['dbs_to_test'] === false) {
                 $retval = [];
                 $query = 'SHOW DATABASES ';
                 $query .= $this->getWhereClause('Database', $searchClause);
-                $handle = $GLOBALS['dbi']->tryQuery($query);
+                $handle = $dbi->tryQuery($query);
                 if ($handle === false) {
                     return $retval;
                 }
 
                 $count = 0;
-                if (! $GLOBALS['dbi']->dataSeek($handle, $pos)) {
+                if (! $dbi->dataSeek($handle, $pos)) {
                     return $retval;
                 }
 
-                while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                while ($arr = $dbi->fetchArray($handle)) {
                     if ($count < $maxItems) {
                         $retval[] = $arr[0];
                         $count++;
@@ -400,12 +403,12 @@ class Node
             $count = 0;
             foreach ($this->getDatabasesToSearch($searchClause) as $db) {
                 $query = "SHOW DATABASES LIKE '" . $db . "'";
-                $handle = $GLOBALS['dbi']->tryQuery($query);
+                $handle = $dbi->tryQuery($query);
                 if ($handle === false) {
                     continue;
                 }
 
-                while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                while ($arr = $dbi->fetchArray($handle)) {
                     if ($this->isHideDb($arr[0])) {
                         continue;
                     }
@@ -435,7 +438,7 @@ class Node
             $query .= 'SELECT DB_first_level ';
             $query .= 'FROM ( ';
             $query .= 'SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, ';
-            $query .= "'" . $GLOBALS['dbi']->escapeString($dbSeparator) . "', 1) ";
+            $query .= "'" . $dbi->escapeString($dbSeparator) . "', 1) ";
             $query .= 'DB_first_level ';
             $query .= 'FROM INFORMATION_SCHEMA.SCHEMATA ';
             $query .= $this->getWhereClause('SCHEMA_NAME', $searchClause);
@@ -445,23 +448,23 @@ class Node
             $query .= ') t2 ';
             $query .= $this->getWhereClause('SCHEMA_NAME', $searchClause);
             $query .= 'AND 1 = LOCATE(CONCAT(DB_first_level, ';
-            $query .= "'" . $GLOBALS['dbi']->escapeString($dbSeparator) . "'), ";
+            $query .= "'" . $dbi->escapeString($dbSeparator) . "'), ";
             $query .= 'CONCAT(SCHEMA_NAME, ';
-            $query .= "'" . $GLOBALS['dbi']->escapeString($dbSeparator) . "')) ";
+            $query .= "'" . $dbi->escapeString($dbSeparator) . "')) ";
             $query .= 'ORDER BY SCHEMA_NAME ASC';
 
-            return $GLOBALS['dbi']->fetchResult($query);
+            return $dbi->fetchResult($query);
         }
 
         if ($GLOBALS['dbs_to_test'] === false) {
             $query = 'SHOW DATABASES ';
             $query .= $this->getWhereClause('Database', $searchClause);
-            $handle = $GLOBALS['dbi']->tryQuery($query);
+            $handle = $dbi->tryQuery($query);
             $prefixes = [];
             if ($handle !== false) {
                 $prefixMap = [];
                 $total = $pos + $maxItems;
-                while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                while ($arr = $dbi->fetchArray($handle)) {
                     $prefix = strstr($arr[0], $dbSeparator, true);
                     if ($prefix === false) {
                         $prefix = $arr[0];
@@ -480,13 +483,13 @@ class Node
             $subClauses = [];
             foreach ($prefixes as $prefix) {
                 $subClauses[] = " LOCATE('"
-                    . $GLOBALS['dbi']->escapeString((string) $prefix) . $dbSeparator
+                    . $dbi->escapeString((string) $prefix) . $dbSeparator
                     . "', "
                     . "CONCAT(`Database`, '" . $dbSeparator . "')) = 1 ";
             }
             $query .= implode('OR', $subClauses) . ')';
 
-            return $GLOBALS['dbi']->fetchResult($query);
+            return $dbi->fetchResult($query);
         }
 
         $retval = [];
@@ -494,12 +497,12 @@ class Node
         $total = $pos + $maxItems;
         foreach ($this->getDatabasesToSearch($searchClause) as $db) {
             $query = "SHOW DATABASES LIKE '" . $db . "'";
-            $handle = $GLOBALS['dbi']->tryQuery($query);
+            $handle = $dbi->tryQuery($query);
             if ($handle === false) {
                 continue;
             }
 
-            while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+            while ($arr = $dbi->fetchArray($handle)) {
                 if ($this->isHideDb($arr[0])) {
                     continue;
                 }
@@ -517,12 +520,12 @@ class Node
 
         foreach ($this->getDatabasesToSearch($searchClause) as $db) {
             $query = "SHOW DATABASES LIKE '" . $db . "'";
-            $handle = $GLOBALS['dbi']->tryQuery($query);
+            $handle = $dbi->tryQuery($query);
             if ($handle === false) {
                 continue;
             }
 
-            while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+            while ($arr = $dbi->fetchArray($handle)) {
                 if ($this->isHideDb($arr[0])) {
                     continue;
                 }
@@ -559,6 +562,9 @@ class Node
      */
     public function getPresence($type = '', $searchClause = '')
     {
+        /** @var DatabaseInterface $dbi */
+        global $dbi;
+
         if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping']
             || ! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']
         ) {
@@ -569,23 +575,23 @@ class Node
                 $query .= 'FROM INFORMATION_SCHEMA.SCHEMATA ';
                 $query .= $this->getWhereClause('SCHEMA_NAME', $searchClause);
 
-                return (int) $GLOBALS['dbi']->fetchValue($query);
+                return (int) $dbi->fetchValue($query);
             }
 
             if ($GLOBALS['dbs_to_test'] === false) {
                 $query = 'SHOW DATABASES ';
                 $query .= $this->getWhereClause('Database', $searchClause);
 
-                return $GLOBALS['dbi']->numRows(
-                    $GLOBALS['dbi']->tryQuery($query)
+                return $dbi->numRows(
+                    $dbi->tryQuery($query)
                 );
             }
 
             $retval = 0;
             foreach ($this->getDatabasesToSearch($searchClause) as $db) {
                 $query = "SHOW DATABASES LIKE '" . $db . "'";
-                $retval += $GLOBALS['dbi']->numRows(
-                    $GLOBALS['dbi']->tryQuery($query)
+                $retval += $dbi->numRows(
+                    $dbi->tryQuery($query)
                 );
             }
 
@@ -603,19 +609,19 @@ class Node
             $query .= $this->getWhereClause('SCHEMA_NAME', $searchClause);
             $query .= ') t ';
 
-            return (int) $GLOBALS['dbi']->fetchValue($query);
+            return (int) $dbi->fetchValue($query);
         }
 
         if ($GLOBALS['dbs_to_test'] !== false) {
             $prefixMap = [];
             foreach ($this->getDatabasesToSearch($searchClause) as $db) {
                 $query = "SHOW DATABASES LIKE '" . $db . "'";
-                $handle = $GLOBALS['dbi']->tryQuery($query);
+                $handle = $dbi->tryQuery($query);
                 if ($handle === false) {
                     continue;
                 }
 
-                while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                while ($arr = $dbi->fetchArray($handle)) {
                     if ($this->isHideDb($arr[0])) {
                         continue;
                     }
@@ -633,9 +639,9 @@ class Node
         $prefixMap = [];
         $query = 'SHOW DATABASES ';
         $query .= $this->getWhereClause('Database', $searchClause);
-        $handle = $GLOBALS['dbi']->tryQuery($query);
+        $handle = $dbi->tryQuery($query);
         if ($handle !== false) {
-            while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+            while ($arr = $dbi->fetchArray($handle)) {
                 $prefix = strstr($arr[0], $dbSeparator, true);
                 if ($prefix === false) {
                     $prefix = $arr[0];
@@ -672,10 +678,13 @@ class Node
      */
     private function getDatabasesToSearch($searchClause)
     {
+        /** @var DatabaseInterface $dbi */
+        global $dbi;
+
         $databases = [];
         if (! empty($searchClause)) {
             $databases = [
-                '%' . $GLOBALS['dbi']->escapeString($searchClause) . '%',
+                '%' . $dbi->escapeString($searchClause) . '%',
             ];
         } elseif (! empty($GLOBALS['cfg']['Server']['only_db'])) {
             $databases = $GLOBALS['cfg']['Server']['only_db'];
@@ -698,18 +707,21 @@ class Node
      */
     private function getWhereClause($columnName, $searchClause = '')
     {
+        /** @var DatabaseInterface $dbi */
+        global $dbi;
+
         $whereClause = 'WHERE TRUE ';
         if (! empty($searchClause)) {
             $whereClause .= 'AND ' . Util::backquote($columnName)
                 . " LIKE '%";
-            $whereClause .= $GLOBALS['dbi']->escapeString($searchClause);
+            $whereClause .= $dbi->escapeString($searchClause);
             $whereClause .= "%' ";
         }
 
         if (! empty($GLOBALS['cfg']['Server']['hide_db'])) {
             $whereClause .= 'AND ' . Util::backquote($columnName)
                 . " NOT REGEXP '"
-                . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['hide_db'])
+                . $dbi->escapeString($GLOBALS['cfg']['Server']['hide_db'])
                 . "' ";
         }
 
@@ -724,7 +736,7 @@ class Node
             foreach ($GLOBALS['cfg']['Server']['only_db'] as $eachOnlyDb) {
                 $subClauses[] = ' ' . Util::backquote($columnName)
                     . " LIKE '"
-                    . $GLOBALS['dbi']->escapeString($eachOnlyDb) . "' ";
+                    . $dbi->escapeString($eachOnlyDb) . "' ";
             }
             $whereClause .= implode('OR', $subClauses) . ') ';
         }
@@ -796,6 +808,9 @@ class Node
      */
     public function getNavigationHidingData()
     {
+        /** @var DatabaseInterface $dbi */
+        global $dbi;
+
         $cfgRelation = $this->relation->getRelationsParam();
         if ($cfgRelation['navwork']) {
             $navTable = Util::backquote($cfgRelation['db'])
@@ -804,12 +819,12 @@ class Node
                 );
             $sqlQuery = 'SELECT `db_name`, COUNT(*) AS `count` FROM ' . $navTable
                 . " WHERE `username`='"
-                . $GLOBALS['dbi']->escapeString(
+                . $dbi->escapeString(
                     $GLOBALS['cfg']['Server']['user']
                 ) . "'"
                 . ' GROUP BY `db_name`';
 
-            return $GLOBALS['dbi']->fetchResult(
+            return $dbi->fetchResult(
                 $sqlQuery,
                 'db_name',
                 'count',

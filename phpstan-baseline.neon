@@ -4001,11 +4001,6 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Right side of \\|\\| is always true\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
 			message: "#^Parameter \\#3 \\$sqlData of method PhpMyAdmin\\\\Sql\\:\\:getHtmlForPreviousUpdateQuery\\(\\) expects array, array\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php

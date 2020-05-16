@@ -478,15 +478,18 @@ class ReplicationGui
      */
     public function handleRequestForSlaveChangeMaster()
     {
+        /** @var DatabaseInterface $dbi */
+        global $dbi;
+
         $sr = [];
         $_SESSION['replication']['m_username'] = $sr['username']
-            = $GLOBALS['dbi']->escapeString($_POST['username']);
+            = $dbi->escapeString($_POST['username']);
         $_SESSION['replication']['m_password'] = $sr['pma_pw']
-            = $GLOBALS['dbi']->escapeString($_POST['pma_pw']);
+            = $dbi->escapeString($_POST['pma_pw']);
         $_SESSION['replication']['m_hostname'] = $sr['hostname']
-            = $GLOBALS['dbi']->escapeString($_POST['hostname']);
+            = $dbi->escapeString($_POST['hostname']);
         $_SESSION['replication']['m_port']     = $sr['port']
-            = $GLOBALS['dbi']->escapeString($_POST['text_port']);
+            = $dbi->escapeString($_POST['text_port']);
         $_SESSION['replication']['m_correct']  = '';
         $_SESSION['replication']['sr_action_status'] = 'error';
         $_SESSION['replication']['sr_action_info'] = __('Unknown error');

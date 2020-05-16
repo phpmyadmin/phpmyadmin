@@ -158,6 +158,9 @@ class Designer
      */
     private function getSideMenuParamsArray()
     {
+        /** @var DatabaseInterface $dbi */
+        global $dbi;
+
         $params = [];
 
         $cfgRelation = $this->relation->getRelationsParam();
@@ -167,7 +170,7 @@ class Designer
                 . Util::backquote($cfgRelation['db']) . '.'
                 . Util::backquote($cfgRelation['designer_settings'])
                 . ' WHERE ' . Util::backquote('username') . ' = "'
-                . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user'])
+                . $dbi->escapeString($GLOBALS['cfg']['Server']['user'])
                 . '";';
 
             $result = $this->dbi->fetchSingleRow($query);
