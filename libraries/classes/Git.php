@@ -419,6 +419,69 @@ class Git
         return null;
     }
 
+    private function getHashFromHeadRef(string $gitFolder, string $refHead): array
+    {
+        $branch = false;
+
+        // are we on any branch?
+        if (strpos($refHead, '/') !== false) {
+            // remove ref: prefix
+            $refHead = substr(trim($refHead), 5);
+            if (strpos($refHead, 'refs/heads/') === 0) {
+                $branch = substr($refHead, 11);
+            } else {
+                $branch = basename($refHead);
+            }
+
+            $refFile = $gitFolder . '/' . $refHead;
+            if (@file_exists($refFile)) {
+                $hash = @file_get_contents($refFile);
+                if ($hash === false) {
+                    $this->config->set('PMA_VERSION_GIT', 0);
+
+                    return [null, null];
+                }
+                return [trim($hash), $branch];
+            } else {
+                // deal with packed refs
+                $packedRefs = @file_get_contents($gitFolder . '/packed-refs');
+                if ($packedRefs === false) {
+                    $this->config->set('PMA_VERSION_GIT', 0);
+
+                    return [null, null];
+                }
+                // split file to lines
+                $refLines = explode(PHP_EOL, $packedRefs);
+                foreach ($refLines as $line) {
+                    // skip comments
+                    if ($line[0] == '#') {
+                        continue;
+                    }
+                    // parse line
+                    $parts = explode(' ', $line);
+                    // care only about named refs
+                    if (count($parts) != 2) {
+                        continue;
+                    }
+                    // have found our ref?
+                    if ($parts[1] == $refHead) {
+                        $hash = $parts[0];
+                        break;
+                    }
+                }
+                if (! isset($hash)) {
+                    $this->config->set('PMA_VERSION_GIT', 0);
+
+                    // Could not find ref
+                    return [null, null];
+                }
+                return [$hash, $branch];
+            }
+        } else {
+            return [trim($refHead), $branch];
+        }
+    }
+
     /**
      * detects Git revision, if running inside repo
      */
@@ -446,62 +509,10 @@ class Git
             $gitFolder .= DIRECTORY_SEPARATOR . trim($common_dir_contents);
         }
 
-        $branch = false;
-        // are we on any branch?
-        if (strpos($ref_head, '/') !== false) {
-            // remove ref: prefix
-            $ref_head = substr(trim($ref_head), 5);
-            if (strpos($ref_head, 'refs/heads/') === 0) {
-                $branch = substr($ref_head, 11);
-            } else {
-                $branch = basename($ref_head);
-            }
 
-            $ref_file = $gitFolder . '/' . $ref_head;
-            if (@file_exists($ref_file)) {
-                $hash = @file_get_contents($ref_file);
-                if ($hash === false) {
-                    $this->config->set('PMA_VERSION_GIT', 0);
-
-                    return;
-                }
-                $hash = trim($hash);
-            } else {
-                // deal with packed refs
-                $packed_refs = @file_get_contents($gitFolder . '/packed-refs');
-                if ($packed_refs === false) {
-                    $this->config->set('PMA_VERSION_GIT', 0);
-
-                    return;
-                }
-                // split file to lines
-                $ref_lines = explode(PHP_EOL, $packed_refs);
-                foreach ($ref_lines as $line) {
-                    // skip comments
-                    if ($line[0] == '#') {
-                        continue;
-                    }
-                    // parse line
-                    $parts = explode(' ', $line);
-                    // care only about named refs
-                    if (count($parts) != 2) {
-                        continue;
-                    }
-                    // have found our ref?
-                    if ($parts[1] == $ref_head) {
-                        $hash = $parts[0];
-                        break;
-                    }
-                }
-                if (! isset($hash)) {
-                    $this->config->set('PMA_VERSION_GIT', 0);
-
-                    // Could not find ref
-                    return;
-                }
-            }
-        } else {
-            $hash = trim($ref_head);
+        [$hash, $branch] = $this->getHashFromHeadRef($gitFolder, $ref_head);
+        if ($hash === null) {
+            return;
         }
 
         $commit = false;
