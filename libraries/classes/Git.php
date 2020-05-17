@@ -130,6 +130,117 @@ class Git
         return true;
     }
 
+    private function readPackFile(string $packFile, int $packOffset): ?string
+    {
+        // open pack file
+        $packFileRes = fopen(
+            $packFile,
+            'rb'
+        );
+        if ($packFileRes === false) {
+            return null;
+        }
+        // seek to start
+        fseek($packFileRes, $packOffset);
+
+        // parse header
+        $headerData = fread($packFileRes, 1);
+        if ($headerData === false) {
+            return null;
+        }
+        $header = ord($headerData);
+        $type = ($header >> 4) & 7;
+        $hasnext = ($header & 128) >> 7;
+        $size = $header & 0xf;
+        $offset = 4;
+
+        while ($hasnext) {
+            $readData = fread($packFileRes, 1);
+            if ($readData === false) {
+                return null;
+            }
+            $byte = ord($readData);
+            $size |= ($byte & 0x7f) << $offset;
+            $hasnext = ($byte & 128) >> 7;
+            $offset += 7;
+        }
+
+        // we care only about commit objects
+        if ($type != 1) {
+            return null;
+        }
+
+        // read data
+        $commit = fread($packFileRes, $size);
+        fclose($packFileRes);
+
+        if ($commit === false) {
+            return null;
+        }
+        return $commit;
+    }
+
+    private function getPackOffset(string $packFile, string $hash): ?int
+    {
+        // load index
+        $index_data = @file_get_contents(
+            $packFile
+        );
+        if ($index_data === false) {
+            return null;
+        }
+        // check format
+        if (substr($index_data, 0, 4) != "\377tOc") {
+            return null;
+        }
+        // check version
+        $version = unpack('N', substr($index_data, 4, 4));
+        if ($version[1] != 2) {
+            return null;
+        }
+        // parse fanout table
+        $fanout = unpack(
+            'N*',
+            substr($index_data, 8, 256 * 4)
+        );
+
+        // find where we should search
+        $firstbyte = intval(substr($hash, 0, 2), 16);
+        // array is indexed from 1 and we need to get
+        // previous entry for start
+        if ($firstbyte == 0) {
+            $start = 0;
+        } else {
+            $start = $fanout[$firstbyte];
+        }
+        $end = $fanout[$firstbyte + 1];
+
+        // stupid linear search for our sha
+        $found = false;
+        $offset = 8 + (256 * 4);
+        for ($position = $start; $position < $end; $position++) {
+            $sha = strtolower(
+                bin2hex(
+                    substr($index_data, $offset + ($position * 20), 20)
+                )
+            );
+            if ($sha == $hash) {
+                $found = true;
+                break;
+            }
+        }
+        if (! $found) {
+            return null;
+        }
+        // read pack offset
+        $offset = 8 + (256 * 4) + (24 * $fanout[256]);
+        $packOffsets = unpack(
+            'N',
+            substr($index_data, $offset + ($position * 4), 4)
+        );
+        return $packOffsets[1];
+    }
+
     /**
      * Un pack a commit with gzuncompress
      *
@@ -152,7 +263,12 @@ class Git
                 return null;
             }
 
-            $commit = explode("\0", gzuncompress($commit), 2);
+            $commitData = gzuncompress($commit);
+            if ($commitData === false) {
+                return null;
+            }
+
+            $commit = explode("\0", $commitData, 2);
             $commit = explode("\n", $commit[1]);
             $_SESSION['PMA_VERSION_COMMITDATA_' . $hash] = $commit;
         } else {
@@ -202,98 +318,12 @@ class Git
             foreach ($pack_names as $pack_name) {
                 $index_name = str_replace('.pack', '.idx', $pack_name);
 
-                // load index
-                $index_data = @file_get_contents(
-                    $gitFolder . '/objects/pack/' . $index_name
-                );
-                if (! $index_data) {
+                $packOffset = $this->getPackOffset($gitFolder . '/objects/pack/' . $index_name, $hash);
+                if ($packOffset === null) {
                     continue;
                 }
-                // check format
-                if (substr($index_data, 0, 4) != "\377tOc") {
-                    continue;
-                }
-                // check version
-                $version = unpack('N', substr($index_data, 4, 4));
-                if ($version[1] != 2) {
-                    continue;
-                }
-                // parse fanout table
-                $fanout = unpack(
-                    'N*',
-                    substr($index_data, 8, 256 * 4)
-                );
-
-                // find where we should search
-                $firstbyte = intval(substr($hash, 0, 2), 16);
-                // array is indexed from 1 and we need to get
-                // previous entry for start
-                if ($firstbyte == 0) {
-                    $start = 0;
-                } else {
-                    $start = $fanout[$firstbyte];
-                }
-                $end = $fanout[$firstbyte + 1];
-
-                // stupid linear search for our sha
-                $found = false;
-                $offset = 8 + (256 * 4);
-                for ($position = $start; $position < $end; $position++) {
-                    $sha = strtolower(
-                        bin2hex(
-                            substr($index_data, $offset + ($position * 20), 20)
-                        )
-                    );
-                    if ($sha == $hash) {
-                        $found = true;
-                        break;
-                    }
-                }
-                if (! $found) {
-                    continue;
-                }
-                // read pack offset
-                $offset = 8 + (256 * 4) + (24 * $fanout[256]);
-                $pack_offset = unpack(
-                    'N',
-                    substr($index_data, $offset + ($position * 4), 4)
-                );
-                $pack_offset = $pack_offset[1];
-
-                // open pack file
-                $pack_file = fopen(
-                    $gitFolder . '/objects/pack/' . $pack_name,
-                    'rb'
-                );
-                if ($pack_file === false) {
-                    continue;
-                }
-                // seek to start
-                fseek($pack_file, $pack_offset);
-
-                // parse header
-                $header = ord(fread($pack_file, 1));
-                $type = ($header >> 4) & 7;
-                $hasnext = ($header & 128) >> 7;
-                $size = $header & 0xf;
-                $offset = 4;
-
-                while ($hasnext) {
-                    $byte = ord(fread($pack_file, 1));
-                    $size |= ($byte & 0x7f) << $offset;
-                    $hasnext = ($byte & 128) >> 7;
-                    $offset += 7;
-                }
-
-                // we care only about commit objects
-                if ($type != 1) {
-                    continue;
-                }
-
-                // read data
-                $commit = fread($pack_file, $size);
-                fclose($pack_file);
-                if ($commit !== false) {
+                $commit = $this->readPackFile($gitFolder . '/objects/pack/' . $pack_name, $packOffset);
+                if ($commit !== null) {
                     $commit = gzuncompress($commit);
                     if ($commit !== false) {
                         $commit = explode("\n", $commit);

@@ -1766,16 +1766,6 @@ parameters:
 			path: libraries/classes/Git.php
 
 		-
-			message: "#^Parameter \\#2 \\$str of function explode expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Git.php
-
-		-
-			message: "#^Parameter \\#1 \\$character of function ord expects string, string\\|false given\\.$#"
-			count: 2
-			path: libraries/classes/Git.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of function nl2br expects string, array\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Html/Generator.php
