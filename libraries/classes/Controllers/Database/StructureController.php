@@ -604,7 +604,6 @@ class StructureController extends AbstractController
             $run_parts = false;
             // whether to execute the query at the end (to display results)
             $execute_query_later = false;
-            $result = null;
 
             if ($query_type == 'drop_tbl') {
                 $sql_query_views = '';

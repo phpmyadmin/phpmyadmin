@@ -1061,11 +1061,6 @@ parameters:
 			path: libraries/classes/Display/Export.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\ImportAjax\\:\\:sessionCheck\\(\\) should return bool but returns string\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Display/ImportAjax.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Display\\\\Results\\:\\:\\$_property_array has no typehint specified\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php

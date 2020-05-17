@@ -351,15 +351,15 @@ class Config
     public function checkWebServerOs(): void
     {
         // Default to Unix or Equiv
-        $this->set('PMA_IS_WINDOWS', 0);
+        $this->set('PMA_IS_WINDOWS', false);
         // If PHP_OS is defined then continue
         if (defined('PHP_OS')) {
             if (stripos(PHP_OS, 'win') !== false && stripos(PHP_OS, 'darwin') === false) {
                 // Is it some version of Windows
-                $this->set('PMA_IS_WINDOWS', 1);
+                $this->set('PMA_IS_WINDOWS', true);
             } elseif (stripos(PHP_OS, 'OS/2') !== false) {
                 // Is it OS/2 (No file permissions like Windows)
-                $this->set('PMA_IS_WINDOWS', 1);
+                $this->set('PMA_IS_WINDOWS', true);
             }
         }
     }
@@ -750,7 +750,7 @@ class Config
             if (! ($perms === false) && ($perms & 2)) {
                 // This check is normally done after loading configuration
                 $this->checkWebServerOs();
-                if ($this->get('PMA_IS_WINDOWS') == 0) {
+                if ($this->get('PMA_IS_WINDOWS') === true) {
                     $this->source_mtime = 0;
                     Core::fatalError(
                         __(

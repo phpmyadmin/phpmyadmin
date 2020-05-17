@@ -365,13 +365,13 @@ class ConfigTest extends PmaTestCase
 
         if (defined('PHP_OS')) {
             if (stristr(PHP_OS, 'darwin')) {
-                $this->assertEquals(0, $this->object->get('PMA_IS_WINDOWS'));
+                $this->assertEquals(false, $this->object->get('PMA_IS_WINDOWS'));
             } elseif (stristr(PHP_OS, 'win')) {
-                $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'));
+                $this->assertEquals(true, $this->object->get('PMA_IS_WINDOWS'));
             } elseif (stristr(PHP_OS, 'OS/2')) {
-                $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'));
+                $this->assertEquals(true, $this->object->get('PMA_IS_WINDOWS'));
             } elseif (stristr(PHP_OS, 'Linux')) {
-                $this->assertEquals(0, $this->object->get('PMA_IS_WINDOWS'));
+                $this->assertEquals(false, $this->object->get('PMA_IS_WINDOWS'));
             } else {
                 $this->markTestIncomplete('Not known PHP_OS: ' . PHP_OS);
             }
@@ -379,7 +379,7 @@ class ConfigTest extends PmaTestCase
             $this->assertEquals(0, $this->object->get('PMA_IS_WINDOWS'));
 
             define('PHP_OS', 'Windows');
-            $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'));
+            $this->assertEquals(true, $this->object->get('PMA_IS_WINDOWS'));
         }
     }
 

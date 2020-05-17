@@ -880,14 +880,6 @@
       <code>$author['name']</code>
     </PossiblyNullArrayAccess>
   </file>
-  <file src="libraries/classes/Display/ImportAjax.php">
-    <InvalidReturnStatement occurrences="1">
-      <code>ini_get('session.upload_progress.enabled')</code>
-    </InvalidReturnStatement>
-    <InvalidReturnType occurrences="1">
-      <code>bool</code>
-    </InvalidReturnType>
-  </file>
   <file src="libraries/classes/Display/Results.php">
     <ImplicitToStringCast occurrences="1">
       <code>$message</code>
