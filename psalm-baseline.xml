@@ -1765,10 +1765,8 @@
       <code>$cell_attrs</code>
       <code>$text</code>
     </InvalidArgument>
-    <PossiblyInvalidArgument occurrences="3">
+    <PossiblyInvalidArgument occurrences="1">
       <code>$value</code>
-      <code>$cell</code>
-      <code>$tables[$i][Import::TBL_NAME]</code>
     </PossiblyInvalidArgument>
     <PossiblyNullArrayAccess occurrences="4">
       <code>$attr['number-columns-repeated']</code>

@@ -49,7 +49,7 @@ class Sanitize
             './doc/html/',
             './index.php?',
         ];
-        $is_setup = $GLOBALS['PMA_Config'] !== null && $GLOBALS['PMA_Config']->get('is_setup');
+        $is_setup = self::isSetup();
         // Adjust path to setup script location
         if ($is_setup) {
             foreach ($valid_starts as $key => $value) {
@@ -76,6 +76,16 @@ class Sanitize
         }
 
         return false;
+    }
+
+    /**
+     * Check if we are currently on a setup folder page
+     *
+     * @return bool
+     */
+    private static function isSetup(): bool
+    {
+        return $GLOBALS['PMA_Config'] !== null && $GLOBALS['PMA_Config']->get('is_setup');
     }
 
     /**
@@ -138,7 +148,7 @@ class Sanitize
                 $page = 'setup';
             }
         }
-        $link = MySQLDocumentation::getDocumentationLink($page, $anchor);
+        $link = MySQLDocumentation::getDocumentationLink($page, $anchor, self::isSetup() ? '../' : '');
 
         return '<a href="' . $link . '" target="documentation">';
     }

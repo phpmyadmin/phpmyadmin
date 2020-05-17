@@ -55,6 +55,8 @@ phpMyAdmin - ChangeLog
 - issue #16012 Set "axis-order" to swap lon and lat on MySQL >= 8.1
 - issue #16104 Fixed overwriting a bookmarked query causes a PHP fatal error
 - issue        Fix typo in a condition in the Sql class
+- issue #15996 Fix local setup doc links pointing to a wrong location
+- issue #16093 Fix error importing utf-8 with bom sql file
 
 5.0.2 (2020-03-20)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page
