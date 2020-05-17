@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-05-15 22:48+0200\n"
-"PO-Revision-Date: 2020-05-14 11:32+0000\n"
+"PO-Revision-Date: 2020-05-18 07:41+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -1604,6 +1604,8 @@ msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr ""
+"A função HEX irá tratar o inteiro como uma cadeia enquanto calcula o valor "
+"hexadecimal"
 
 #: js/messages.php:512
 msgid ""
@@ -3980,16 +3982,12 @@ msgid "Maximum tables"
 msgstr "Número máximo de tabelas"
 
 #: libraries/classes/Config/Descriptions.php:476
-#, fuzzy
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
 "A quantidade de bytes que um script pode alocar, ex. [kbd]32M[/kbd] "
-"([kbd]-1[/kbd] para nenhum limite e [kbd]0[/kbd] para sem alteração)."
+"([kbd]-1[/kbd] para nenhum limite e [kbd]0[/kbd] para nehnuma alteração)."
 
 #: libraries/classes/Config/Descriptions.php:479
 msgid "Memory limit"
@@ -5066,8 +5064,6 @@ msgid "Retain query box"
 msgstr "Reter a caixa da consulta (query)"
 
 #: libraries/classes/Config/Descriptions.php:823
-#, fuzzy
-#| msgid "Allow to display database and table statistics (eg. space usage)."
 msgid "Allow to display database and table statistics (e.g. space usage)."
 msgstr ""
 "Permitir exibir estatísticas da base de dados e tabelas (por exemplo, uso de "
