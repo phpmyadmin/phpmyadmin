@@ -60,7 +60,7 @@ final class SelectQuery extends Query
         $query = 'SELECT ' . $this->selectedExpressions() .
         ' FROM ' . $this->getFromExpression();
         if ($this->hasConstraintsExpressions()) {
-            $query .= ' WHERE ' . $this->buildPlaceHolders();
+            $query .= ' WHERE ' . $this->buildConstraints();
         }
         if ($this->hasOrderExpressions()) {
             $query .= ' ORDER BY ' . $this->buildOrder();

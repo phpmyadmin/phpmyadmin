@@ -61,13 +61,13 @@ trait Constraints
         return count($this->constraintsExpressions) > 0;
     }
 
-    public function buildPlaceHolders(): string
+    public function buildConstraints(): string
     {
         $query = '';
         foreach ($this->constraintsExpressions as $data) {
             $nbr = count($data);
             $isRaw = $nbr > 3;
-            if ($nbr === 3) {
+            if ($nbr >= 3) {
                 $query .= $data[0] . ' ' . $data[1] . ' ' . ($isRaw ? $data[2] : '?');
             }
             if ($nbr === 1) {
