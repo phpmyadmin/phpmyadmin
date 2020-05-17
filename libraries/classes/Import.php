@@ -434,14 +434,16 @@ class Import
      */
     public function skipByteOrderMarksFromContents(string $contents): string
     {
+        // Do not use mb_ functions they are sensible to mb_internal_encoding()
+
         // UTF-8
         if (strncmp($contents, "\xEF\xBB\xBF", 3) === 0) {
-            return mb_substr($contents, 3);
+            return substr($contents, 3);
             // UTF-16 BE, LE
         } elseif (strncmp($contents, "\xFE\xFF", 2) === 0
             || strncmp($contents, "\xFF\xFE", 2) === 0
         ) {
-            return mb_substr($contents, 2);
+            return substr($contents, 2);
         }
         return $contents;
     }

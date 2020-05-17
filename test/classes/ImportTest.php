@@ -669,6 +669,10 @@ class ImportTest extends TestCase
     {
         return [
             [
+                "\xEF\xBB\xBF blabla上海",
+                ' blabla上海',
+            ],
+            [
                 "\xEF\xBB\xBF blabla",
                 " blabla",
             ],
