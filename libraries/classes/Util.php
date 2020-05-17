@@ -443,12 +443,13 @@ class Util
     /**
      * Returns link to documentation.
      *
-     * @param string $page   Page in documentation
-     * @param string $anchor Optional anchor in page
+     * @param string $page       Page in documentation
+     * @param string $anchor     Optional anchor in page
+     * @param string $pathPrefix Optional path in case it is called in a folder (e.g. setup)
      *
      * @return string URL
      */
-    public static function getDocuLink($page, $anchor = '')
+    public static function getDocuLink($page, $anchor = '', string $pathPrefix = '')
     {
         /* Construct base URL */
         $url =  $page . '.html';
@@ -460,7 +461,7 @@ class Util
          * provide consistent URL for testsuite
          */
         if (! defined('TESTSUITE') && @file_exists(ROOT_PATH . 'doc/html/index.html')) {
-            return 'doc/html/' . $url;
+            return $pathPrefix . 'doc/html/' . $url;
         }
 
         return Core::linkURL('https://docs.phpmyadmin.net/en/latest/' . $url);

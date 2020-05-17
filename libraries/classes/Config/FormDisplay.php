@@ -785,7 +785,8 @@ class FormDisplay
         }
         return Util::getDocuLink(
             'config',
-            'cfg_' . $this->_getOptName($path)
+            'cfg_' . $this->_getOptName($path),
+            '../'
         );
     }
 
