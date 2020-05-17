@@ -9,7 +9,7 @@ use PhpMyAdmin\Util;
 /**
  * Represents a query
  */
-abstract class Query
+abstract class Query implements SqlRepresentation
 {
     /**
      * The database name (raw)
