@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2020-04-20 15:11+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2020-05-19 14:41+0000\n"
+"Last-Translator: Jesper Hertel <jesper.hertel@gmail.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/4-9/da/"
 ">\n"
 "Language: da\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.0.2-dev\n"
+"X-Generator: Weblate 4.1-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -620,7 +620,7 @@ msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
-"Desværre blev der ikke parset nogen data ved sidste kørsel, dette betyder "
+"Desværre blev der ikke parset nogen data ved sidste kørsel. Dette betyder "
 "normalt at phpMyAdmin ikke vil være i stand til at gennemføre importen med "
 "mindre du forøger PHP-tidsbegrænsningerne."
 
@@ -2454,7 +2454,7 @@ msgstr ""
 
 #: js/messages.php:614
 msgid "Original length"
-msgstr "Oprindelige længde"
+msgstr "Oprindelig længde"
 
 #: js/messages.php:617
 msgid "cancel"
@@ -8698,7 +8698,7 @@ msgstr ""
 #: libraries/classes/Normalization.php:399
 #: libraries/classes/Normalization.php:444
 msgid "Table is already in second normal form."
-msgstr "Tabellen forefindes allerede i sekundære, normale form."
+msgstr "Tabellen er allerede i anden normalform."
 
 #: libraries/classes/Normalization.php:404
 #, php-format
@@ -8753,8 +8753,8 @@ msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
-"For at indsætte den oprindelige tabel '%1$s' i den anden normale form, så "
-"skal vi oprette følgende tabeller:"
+"For at indsætte den oprindelige tabel '%1$s' i anden normalform, så skal vi "
+"oprette følgende tabeller:"
 
 #: libraries/classes/Normalization.php:505
 #, php-format
@@ -8773,8 +8773,8 @@ msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
 msgstr ""
-"For at indsætte den oprindelige tabel '%1$s' i den tredje normale form, så "
-"skal vi oprette følgende tabeller:"
+"For at indsætte den oprindelige tabel '%1$s' i tredje normalform, så skal vi "
+"oprette følgende tabeller:"
 
 #: libraries/classes/Normalization.php:639
 msgid "The third step of normalization is complete."
@@ -8815,7 +8815,7 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:853
 msgid "Table is already in Third normal form!"
-msgstr "Tabellen er allerede i den tredje normale form!"
+msgstr "Tabellen er allerede i tredje normalform!"
 
 #: libraries/classes/Normalization.php:879
 msgid "Improve table structure (Normalization):"
@@ -12488,11 +12488,11 @@ msgid ""
 "counter counts instances of these waits. If the buffer pool size was set "
 "properly, this value should be small."
 msgstr ""
-"Normalt sker skrivninger til InnoDB buffer poolen i baggrunden. Men, hvis "
-"der er brug for at læse eller oprette en side og der ikke er nogen rene "
-"sider tilgængelige, er det nødvendigt at vente på at der bliver flushet "
-"sider først. Denne tæller tæller hvor mange gange det er sket. Hvis buffer "
-"pool størrelsen er sat ordentligt, skulle denne værdi være lille."
+"Normalt sker skrivninger til InnoDB-bufferpuljen i baggrunden. Men hvis der "
+"er brug for at læse eller oprette en side og der ikke er nogen rene sider "
+"tilgængelige, er det nødvendigt at vente på at der bliver flushet sider "
+"først. Denne tæller tæller hvor mange gange det er sket. Hvis "
+"bufferpuljestørrelsen er sat ordentligt, bør denne værdi være lille."
 
 #: libraries/classes/Server/Status/Variables.php:496
 msgid "The number writes done to the InnoDB buffer pool."
