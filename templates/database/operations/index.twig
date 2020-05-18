@@ -6,7 +6,7 @@
     <form method="post" action="{{ url('/database/operations') }}" id="formDatabaseComment">
       {{ get_hidden_inputs(db) }}
       <div class="card mb-2">
-        <div class="card-header">{{ get_icon('b_comment', 'Database comment'|trans) }}</div>
+        <div class="card-header">{{ get_icon('b_comment', 'Database comment'|trans, true) }}</div>
         <div class="card-body">
           <div class="form-row">
             <div class="col-auto">
@@ -26,7 +26,7 @@
     {{ get_hidden_inputs(db) }}
 
     <div class="card mb-2">
-      <div class="card-header">{{ get_icon('b_table_add', 'Create table'|trans) }}</div>
+      <div class="card-header">{{ get_icon('b_table_add', 'Create table'|trans, true) }}</div>
       <div class="card-body">
         <div class="form-row">
           <div class="col-auto">
@@ -57,7 +57,7 @@
       {% endif %}
 
       <div class="card mb-2">
-        <div class="card-header">{{ get_icon('b_edit', 'Rename database to'|trans) }}</div>
+        <div class="card-header">{{ get_icon('b_edit', 'Rename database to'|trans, true) }}</div>
         <div class="card-body">
           <div class="form-group form-row">
             <div class="col-auto">
@@ -86,7 +86,7 @@
 
   {% if is_drop_database_allowed %}
     <div class="card mb-2">
-      <div class="card-header">{{ get_icon('b_deltbl', 'Remove database'|trans) }}</div>
+      <div class="card-header">{{ get_icon('b_deltbl', 'Remove database'|trans, true) }}</div>
       <div class="card-body">
         <div class="card-text">
           {{ link_or_button(
@@ -120,7 +120,7 @@
     {% endif %}
 
     <div class="card mb-2">
-      <div class="card-header">{{ get_icon('b_edit', 'Copy database to'|trans) }}</div>
+      <div class="card-header">{{ get_icon('b_edit', 'Copy database to'|trans, true) }}</div>
       <div class="card-body">
         <div class="form-group form-row">
           <div class="col-auto">
@@ -196,7 +196,7 @@
     {{ get_hidden_inputs(db) }}
 
     <div class="card mb-2">
-      <div class="card-header">{{ get_icon('s_asci', 'Collation'|trans) }}</div>
+      <div class="card-header">{{ get_icon('s_asci', 'Collation'|trans, true) }}</div>
       <div class="card-body">
         <div class="form-group form-row">
           <div class="col-auto">
