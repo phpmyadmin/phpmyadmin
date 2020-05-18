@@ -3459,3 +3459,13 @@ body {
 #filter_query_text {
   vertical-align: baseline;
 }
+
+.ui_tpicker_hour_slider,
+.ui_tpicker_minute_slider,
+.ui_tpicker_second_slider,
+.ui_tpicker_millisec_slider,
+.ui_tpicker_microsec_slider {
+  margin-left: 20px;
+  margin-top: 4px;
+  height: 0.75rem;
+}
