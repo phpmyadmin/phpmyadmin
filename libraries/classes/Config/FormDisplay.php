@@ -786,7 +786,7 @@ class FormDisplay
         return Util::getDocuLink(
             'config',
             'cfg_' . $this->_getOptName($path),
-            '../'
+            Sanitize::isSetup() ? '../' : ''
         );
     }
 

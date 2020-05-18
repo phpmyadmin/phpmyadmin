@@ -89,7 +89,7 @@ class Sanitize
      *
      * @return bool
      */
-    private static function isSetup(): bool
+    public static function isSetup(): bool
     {
         return $GLOBALS['PMA_Config'] !== null && $GLOBALS['PMA_Config']->get('is_setup');
     }
