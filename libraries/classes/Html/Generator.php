@@ -1422,7 +1422,7 @@ class Generator
 
         foreach ($GLOBALS['dbi']->types->getColumns() as $key => $value) {
             if (is_array($value)) {
-                $retval .= "<optgroup label='" . htmlspecialchars($key) . "'>";
+                $retval .= '<optgroup label="' . htmlspecialchars($key) . '">';
                 foreach ($value as $subvalue) {
                     if ($subvalue == $selected) {
                         $retval .= sprintf(
