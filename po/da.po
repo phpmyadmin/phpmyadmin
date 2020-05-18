@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-05-15 22:48+0200\n"
-"PO-Revision-Date: 2020-04-20 15:11+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2020-05-20 00:15+0000\n"
+"Last-Translator: Jesper Hertel <jesper.hertel@gmail.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "da/>\n"
 "Language: da\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.0.2-dev\n"
+"X-Generator: Weblate 4.1-dev\n"
 
 #: js/messages.php:51
 msgid "Confirm"
@@ -1810,7 +1810,7 @@ msgstr ""
 
 #: js/messages.php:585
 msgid "Original length"
-msgstr "Oprindelige længde"
+msgstr "Oprindelig længde"
 
 #: js/messages.php:588
 msgid "cancel"
@@ -6223,7 +6223,7 @@ msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
-"Desværre blev der ikke parset nogen data ved sidste kørsel, dette betyder "
+"Desværre blev der ikke parset nogen data ved sidste kørsel. Dette betyder "
 "normalt at phpMyAdmin ikke vil være i stand til at gennemføre importen med "
 "mindre du forøger PHP-tidsbegrænsningerne."
 
@@ -6949,11 +6949,11 @@ msgid ""
 "counter counts instances of these waits. If the buffer pool size was set "
 "properly, this value should be small."
 msgstr ""
-"Normalt sker skrivninger til InnoDB buffer poolen i baggrunden. Men, hvis "
-"der er brug for at læse eller oprette en side og der ikke er nogen rene "
-"sider tilgængelige, er det nødvendigt at vente på at der bliver flushet "
-"sider først. Denne tæller tæller hvor mange gange det er sket. Hvis buffer "
-"pool størrelsen er sat ordentligt, skulle denne værdi være lille."
+"Normalt sker skrivninger til InnoDB-bufferpuljen i baggrunden. Men hvis der "
+"er brug for at læse eller oprette en side og der ikke er nogen rene sider "
+"tilgængelige, er det nødvendigt at vente på at der bliver flushet sider "
+"først. Denne tæller tæller hvor mange gange det er sket. Hvis "
+"bufferpuljestørrelsen er sat ordentligt, bør denne værdi være lille."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:367
 msgid "The number writes done to the InnoDB buffer pool."
@@ -9819,7 +9819,7 @@ msgstr ""
 #: libraries/classes/Normalization.php:435
 #: libraries/classes/Normalization.php:480
 msgid "Table is already in second normal form."
-msgstr "Tabellen forefindes allerede i sekundære, normale form."
+msgstr "Tabellen er allerede i anden normalform."
 
 #: libraries/classes/Normalization.php:440
 #, php-format
@@ -9874,8 +9874,8 @@ msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
-"For at indsætte den oprindelige tabel '%1$s' i den anden normale form, så "
-"skal vi oprette følgende tabeller:"
+"For at indsætte den oprindelige tabel '%1$s' i anden normalform, så skal vi "
+"oprette følgende tabeller:"
 
 #: libraries/classes/Normalization.php:542
 #, php-format
@@ -9894,8 +9894,8 @@ msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
 msgstr ""
-"For at indsætte den oprindelige tabel '%1$s' i den tredje normale form, så "
-"skal vi oprette følgende tabeller:"
+"For at indsætte den oprindelige tabel '%1$s' i tredje normalform, så skal vi "
+"oprette følgende tabeller:"
 
 #: libraries/classes/Normalization.php:684
 msgid "The third step of normalization is complete."
@@ -9942,7 +9942,7 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:905
 msgid "Table is already in Third normal form!"
-msgstr "Tabellen er allerede i den tredje normale form!"
+msgstr "Tabellen er allerede i tredje normalform!"
 
 #: libraries/classes/Normalization.php:931
 msgid "Improve table structure (Normalization):"
