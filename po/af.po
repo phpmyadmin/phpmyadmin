@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-05-15 22:48+0200\n"
-"PO-Revision-Date: 2019-04-27 17:19+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2020-05-20 00:15+0000\n"
+"Last-Translator: Dwayne Bailey <dwayne@translate.org.za>\n"
 "Language-Team: Afrikaans <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/af/>\n"
 "Language: af\n"
@@ -13,17 +13,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 4.1-dev\n"
 
 #: js/messages.php:51
 msgid "Confirm"
 msgstr ""
 
 #: js/messages.php:52
-#, fuzzy, php-format
-#| msgid "Do you really want to "
+#, php-format
 msgid "Do you really want to execute \"%s\"?"
-msgstr "Wil jy regtig "
+msgstr "Wil jy regtig \"%s\" uitvoer?"
 
 #: js/messages.php:53
 msgid "You are about to DESTROY a complete database!"
@@ -88,16 +87,14 @@ msgid "This operation could take a long time. Proceed anyway?"
 msgstr ""
 
 #: js/messages.php:66
-#, fuzzy, php-format
-#| msgid "Do you really want to "
+#, php-format
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "Wil jy regtig "
+msgstr "Wil u regtig die gebruikergroep \"%s\" skrap?"
 
 #: js/messages.php:67
-#, fuzzy, php-format
-#| msgid "Do you really want to "
+#, php-format
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr "Wil jy regtig "
+msgstr "Wil jy regtig die soektog \"%s\" skrap?"
 
 #: js/messages.php:68
 msgid "You have unsaved changes; are you sure you want to leave this page?"
@@ -110,22 +107,18 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:70
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Wil jy regtig "
+msgstr "Wil u die geselekteerde gebruiker(s) regtig herroep?"
 
 #: js/messages.php:71
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to delete this central column?"
-msgstr "Wil jy regtig "
+msgstr "Wil u regtig hierdie sentrale kolom skrap?"
 
 #: js/messages.php:72
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to delete the selected items?"
-msgstr "Wil jy regtig "
+msgstr "Wil u die geselekteerde items regtig uitvee?"
 
 #: js/messages.php:74
 msgid ""
@@ -134,10 +127,8 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:77
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "Wil jy regtig "
+msgstr "Wil u die geselekteerde partisie(s) regtig 'TRUNCATE'?"
 
 #: js/messages.php:78
 #, fuzzy
@@ -1010,9 +1001,8 @@ msgstr ""
 
 #: js/messages.php:338 templates/navigation/main.twig:59
 #: templates/server/status/monitor/index.twig:95
-#, fuzzy
 msgid "Loading…"
-msgstr "Local"
+msgstr "Laai tans…"
 
 #: js/messages.php:339
 msgid "Request aborted!!"
@@ -1378,10 +1368,8 @@ msgid "Primary key added."
 msgstr "'n primere sleutel is bygevoeg op %s."
 
 #: js/messages.php:423 libraries/classes/Normalization.php:280
-#, fuzzy
-#| msgid "Tracking report"
 msgid "Taking you to next step…"
-msgstr "Naspeur verslag"
+msgstr "Neem u na die volgende stap …"
 
 #: js/messages.php:424
 #, php-format
@@ -5907,18 +5895,18 @@ msgstr "Die databasis naam is leeg!"
 #: libraries/classes/Controllers/Database/OperationsController.php:108
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
+"Kan nie databasis na dieselfde naam kopieer nie. Verander die naam en "
+"probeer weer."
 
 #: libraries/classes/Controllers/Database/OperationsController.php:199
-#, fuzzy, php-format
-#| msgid "Database %1$s has been renamed to %2$s."
+#, php-format
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "Databasis %1$s se naam is verander na %2$s"
+msgstr "Databasis %1$s se naam is verander na %2$s."
 
 #: libraries/classes/Controllers/Database/OperationsController.php:211
-#, fuzzy, php-format
-#| msgid "Database %1$s has been copied to %2$s."
+#, php-format
 msgid "Database %1$s has been copied to %2$s."
-msgstr "Databasis %1$s is gekopieer na %2$s"
+msgstr "Databasis %1$s is gekopieer na %2$s."
 
 #: libraries/classes/Controllers/Database/OperationsController.php:321
 #, fuzzy, php-format
@@ -6022,10 +6010,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/Database/TrackingController.php:117
-#, fuzzy
-#| msgid "With selected:"
 msgid "No tables selected."
-msgstr "Met gekose:"
+msgstr "Geen tabelle geselekteer nie."
 
 #: libraries/classes/Controllers/Database/TrackingController.php:150
 msgid "Database Log"
@@ -6168,10 +6154,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/ImportController.php:128
-#, fuzzy
-#| msgid "Access denied!"
 msgid "Succeeded"
-msgstr "Toegang Geweier!"
+msgstr "Suksesvol"
 
 #: libraries/classes/Controllers/ImportController.php:137
 #, fuzzy
@@ -6212,9 +6196,9 @@ msgstr ""
 
 #: libraries/classes/Controllers/ImportController.php:629
 #: libraries/classes/Sql.php:647 libraries/classes/Sql.php:1415
-#, fuzzy, php-format
+#, php-format
 msgid "Bookmark %s has been created."
-msgstr "Tabel %s is verwyder"
+msgstr "Boekmerk %s is geskep."
 
 #: libraries/classes/Controllers/ImportController.php:639
 #, php-format
@@ -6251,10 +6235,8 @@ msgstr ""
 
 #: libraries/classes/Controllers/NormalizationController.php:42
 #: libraries/classes/Normalization.php:243
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Select one…"
-msgstr "Voeg By/Verwyder Veld Kolomme"
+msgstr "Kies een …"
 
 #: libraries/classes/Controllers/NormalizationController.php:43
 #: libraries/classes/Normalization.php:244
@@ -9121,11 +9103,8 @@ msgid "Binary"
 msgstr "Biner"
 
 #: libraries/classes/InsertEdit.php:795
-#, fuzzy
-#| msgid "Because of its length,<br /> this field might not be editable "
 msgid "Because of its length,<br> this column might not be editable."
-msgstr ""
-" Omrede sy lengte,<br /> is hierdie veld moontlik nie veranderbaar nie "
+msgstr "Omrede sy lengte,<br> is hierdie veld moontlik nie veranderbaar nie."
 
 #: libraries/classes/InsertEdit.php:1421
 msgid "Binary - do not edit"
@@ -13514,17 +13493,13 @@ msgstr ""
 
 #: templates/database/multi_table_query/form.twig:4
 #: templates/database/qbe/index.twig:4
-#, fuzzy
-#| msgid "in query"
 msgid "Multi-table query"
-msgstr "in navraag"
+msgstr "Multi-tabel navraag"
 
 #: templates/database/multi_table_query/form.twig:10
 #: templates/database/qbe/index.twig:10
-#, fuzzy
-#| msgid "Query"
 msgid "Query by example"
-msgstr "Navraag dmv Voorbeeld"
+msgstr "Navraag dmv voorbeeld"
 
 #: templates/database/multi_table_query/form.twig:15
 #, fuzzy
@@ -13761,10 +13736,8 @@ msgid "Switch to %svisual builder%s"
 msgstr "Skakel oor na %svisual builder%s"
 
 #: templates/database/qbe/index.twig:20
-#, fuzzy
-#| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
-msgstr "Jy moet ten minste een Kolom kies om te vertoon"
+msgstr "U moet ten minste een kolom kies om te vertoon!"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:5
 msgid "Ins:"
@@ -13900,20 +13873,17 @@ msgid "Inside column:"
 msgstr "Binne tabel(le):"
 
 #: templates/database/search/results.twig:12
-#, fuzzy, php-format
-#| msgid "%s match(es) inside table <i>%s</i>"
+#, php-format
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%s resultate binne tabel <i>%s</i>"
-msgstr[1] "%s resultate binne tabel <i>%s</i>"
+msgstr[0] "%1$s resultaat binne tabel <strong>%2$s</strong>"
+msgstr[1] "%1$s resultate binne tabel <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Totaal:</b> <i>%s</i> ooreenkomste"
-msgstr[1] "<b>Totaal:</b> <i>%s</i> ooreenkomste"
+msgstr[0] "<strong>Totaal:</strong><em>%count%</em> ooreenkoms"
+msgstr[1] "<strong>Totaal:</strong><em>%count%</em> ooreenkomste"
 
 #: templates/database/structure/body_for_table_summary.twig:6
 #, php-format
@@ -14221,10 +14191,9 @@ msgstr "Stoor as leer (file)"
 
 #: templates/display/export/options_output_save_dir.twig:5
 #: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
-#| msgid "%s match(es) inside table <i>%s</i>"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "%s resultate binne tabel <i>%s</i>"
+msgstr "Stoor op bediener in die gids <strong>%s</strong>"
 
 #: templates/display/export/options_output_separate_files.twig:7
 #, fuzzy
