@@ -20,7 +20,7 @@ the file. This file is for over-writing the defaults; if you wish to use the
 default value there's no need to add a line here.
 
 The parameters which relate to design (like colors) are placed in
-:file:`themes/themename/layout.inc.php`. You might also want to create
+:file:`themes/themename/scss/_variables.scss`. You might also want to create
 :file:`config.footer.inc.php` and :file:`config.header.inc.php` files to add
 your site specific code to be included on start and end of each page.
 
@@ -217,8 +217,8 @@ Basic settings
 
     Setting this to ``true`` allows phpMyAdmin to be included inside a frame,
     and is a potential security hole allowing cross-frame scripting attacks or
-    clickjacking. Setting this to 'sameorigin' prevents phpMyAdmin to be 
-    included from another document in a frame, unless that document belongs 
+    clickjacking. Setting this to 'sameorigin' prevents phpMyAdmin to be
+    included from another document in a frame, unless that document belongs
     to the same domain.
 
 Server connection settings
@@ -2795,7 +2795,7 @@ Web server settings
 Theme settings
 --------------
 
-    Please directly modify :file:`themes/themename/layout.inc.php`, although
+    Please directly modify :file:`themes/themename/scss/_variables.scss`, although
     your changes will be overwritten with the next update.
 
 Design customization

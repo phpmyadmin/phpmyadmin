@@ -1,8 +1,11 @@
+# Export plugin creation
+
 This directory holds export plugins for phpMyAdmin. Any new plugin should
 basically follow the structure presented here. Official plugins need to
 have str* messages with their definition in language files, but if you build
 some plugins for your use, you can directly use texts in plugin.
 
+```php
 <?php
 /**
  * [Name] export plugin for phpMyAdmin
@@ -191,7 +194,7 @@ class Export[Name] extends PhpMyAdmin\Plugins\ExportPlugin
         return true;
     }
 
-    // optional - implement other methods defined in PhpMyAdmin\Plugins\ExportPlugin.class.php:
+    // optional - implement other methods defined in PhpMyAdmin\Plugins\ExportPlugin.php:
     //  - exportRoutines()
     //  - exportStructure()
     //  - getTableDefStandIn()
@@ -251,4 +254,4 @@ class Export[Name] extends PhpMyAdmin\Plugins\ExportPlugin
         $this->_globalVariableName = $global_variable_name;
     }
 }
-?>
+```

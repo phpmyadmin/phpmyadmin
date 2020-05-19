@@ -42,8 +42,7 @@ use function trim;
  * Validation class for various validation functions
  *
  * Validation function takes two argument: id for which it is called
- * and array of fields' values (usually values for entire formset, as defined
- * in forms.inc.php).
+ * and array of fields' values (usually values for entire formset).
  * The function must always return an array with an error (or error array)
  * assigned to a form element (formset name or field path). Even if there are
  * no errors, key must be set with an empty value.

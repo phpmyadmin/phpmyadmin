@@ -40,7 +40,7 @@ If you prefer to follow the git repository, the following branch and tag names m
 
 * ``STABLE`` is the current stable release.
 * ``master`` is the development branch.
-* Releases are tagged, for example version 4.0.1 was tagged as ``RELEASE_4_0_1``.
+* Releases are tagged, for example version 5.0.1 was tagged as ``RELEASE_5_0_1``.
 
 Note that phpMyAdmin uses Composer to manage library dependencies, when using git
 development versions you must manually run Composer.

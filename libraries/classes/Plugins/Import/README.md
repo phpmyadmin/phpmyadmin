@@ -1,7 +1,10 @@
+# Import plugin creation
+
 This directory holds import plugins for phpMyAdmin. Any new plugin should
 basically follow the structure presented here. The messages must use our
 gettext mechanism, see https://wiki.phpmyadmin.net/pma/Gettext_for_developers.
 
+```php
 <?php
 /**
  * [Name] import plugin for phpMyAdmin
@@ -152,4 +155,4 @@ class Import[Name] extends ImportPlugin
         $this->_myOptionalVariable = $my_optional_variable;
     }
 }
-?>
+```
