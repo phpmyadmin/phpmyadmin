@@ -102,7 +102,7 @@ class Operations
             . Util::backquote($_POST['newname']);
         if (isset($_POST['db_collation'])) {
             $local_query .= ' DEFAULT'
-                . Util::getCharsetQueryPart($_POST['db_collation']);
+                . Util::getCharsetQueryPart($_POST['db_collation'] ?? '');
         }
         $local_query .= ';';
         $GLOBALS['sql_query'] .= $local_query;
@@ -842,7 +842,7 @@ class Operations
             && $_POST['tbl_collation'] !== $tbl_collation
         ) {
             $table_alters[] = 'DEFAULT '
-                . Util::getCharsetQueryPart($_POST['tbl_collation']);
+                . Util::getCharsetQueryPart($_POST['tbl_collation'] ?? '');
         }
 
         if ($pma_table->isEngine(['MYISAM', 'ARIA', 'ISAM'])

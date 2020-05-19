@@ -118,7 +118,7 @@ final class Common
         if (isset($_POST['submitcollation'], $_POST['db_collation']) && ! empty($_POST['db_collation'])) {
             [$db_charset] = explode('_', $_POST['db_collation']);
             $sql_query = 'ALTER DATABASE ' . Util::backquote($db)
-                . ' DEFAULT' . Util::getCharsetQueryPart($_POST['db_collation']);
+                . ' DEFAULT' . Util::getCharsetQueryPart($_POST['db_collation'] ?? '');
             $dbi->query($sql_query);
             $message = Message::success();
 
@@ -140,7 +140,7 @@ final class Common
                         . '.'
                         . Util::backquote($tableName)
                         . ' DEFAULT '
-                        . Util::getCharsetQueryPart($_POST['db_collation']);
+                        . Util::getCharsetQueryPart($_POST['db_collation'] ?? '');
                     $dbi->query($sql_query);
 
                     /**
