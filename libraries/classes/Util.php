@@ -100,7 +100,7 @@ class Util
      *
      * @return bool Whether to show icons.
      */
-    public static function showIcons($value)
+    public static function showIcons($value): bool
     {
         return in_array($GLOBALS['cfg'][$value], ['icons', 'both']);
     }
@@ -112,7 +112,7 @@ class Util
      *
      * @return bool Whether to show text.
      */
-    public static function showText($value)
+    public static function showText($value): bool
     {
         return in_array($GLOBALS['cfg'][$value], ['text', 'both']);
     }
@@ -126,7 +126,7 @@ class Util
      *
      * @access public
      */
-    public static function getFormattedMaximumUploadSize($max_upload_size)
+    public static function getFormattedMaximumUploadSize($max_upload_size): string
     {
         // I have to reduce the second parameter (sensitiveness) from 6 to 4
         // to avoid weird results like 512 kKib
@@ -146,10 +146,10 @@ class Util
      *
      * @access public
      */
-    public static function escapeMysqlWildcards($name)
+    public static function escapeMysqlWildcards($name): string
     {
         return strtr($name, ['_' => '\\_', '%' => '\\%']);
-    } // end of the 'escapeMysqlWildcards()' function
+    }
 
     /**
      * removes slashes before "_" and "%" characters
@@ -157,14 +157,14 @@ class Util
      *
      * @param string $name the string to escape
      *
-     * @return string   the escaped string
+     * @return string the escaped string
      *
      * @access public
      */
-    public static function unescapeMysqlWildcards($name)
+    public static function unescapeMysqlWildcards($name): string
     {
         return strtr($name, ['\\_' => '_', '\\%' => '%']);
-    } // end of the 'unescapeMysqlWildcards()' function
+    }
 
     /**
      * removes quotes (',",`) from a quoted string
@@ -176,7 +176,7 @@ class Util
      *
      * @return string unqoted string
      */
-    public static function unQuote($quoted_string, $quote = null)
+    public static function unQuote(string $quoted_string, string $quote = null): string
     {
         $quotes = [];
 
@@ -217,7 +217,7 @@ class Util
      *
      * @access public
      */
-    public static function getMySQLDocuURL($link, $anchor = '')
+    public static function getMySQLDocuURL(string $link, string $anchor = ''): string
     {
         // Fixup for newly used names:
         $link = str_replace('_', '-', mb_strtolower($link));
@@ -317,7 +317,7 @@ class Util
         $tables = null,
         $limit_offset = 0,
         $limit_count = false
-    ) {
+    ): array {
         $sep = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
 
         if ($tables === null) {
@@ -426,7 +426,7 @@ class Util
     public static function backquote($a_name, $do_it = true)
     {
         return static::backquoteCompat($a_name, 'NONE', $do_it);
-    } // end of the 'backquote()' function
+    }
 
     /**
      * Adds backquotes on both sides of a database, table or field name.
@@ -878,9 +878,9 @@ class Util
      *
      * @param int $seconds the timespan
      *
-     * @return string  the formatted value
+     * @return string the formatted value
      */
-    public static function timespanFormat($seconds)
+    public static function timespanFormat($seconds): string
     {
         $days = floor($seconds / 86400);
         if ($days > 0) {
@@ -915,11 +915,9 @@ class Util
      *                          script
      * @param bool     $request Check parameters in request
      *
-     * @return void
-     *
      * @access public
      */
-    public static function checkParameters($params, $request = false)
+    public static function checkParameters($params, $request = false): void
     {
         $reported_script_name = basename($GLOBALS['PMA_PHP_SELF']);
         $found_error = false;
@@ -943,7 +941,7 @@ class Util
         if ($found_error) {
             Core::fatalError($error_message);
         }
-    } // end function
+    }
 
     /**
      * Function to generate unique condition for specified row.
@@ -971,7 +969,7 @@ class Util
         $force_unique = false,
         $restrict_to_table = false,
         $analyzed_sql_results = null
-    ) {
+    ): array {
         $primary_key          = '';
         $unique_key           = '';
         $nonprimary_condition = '';
@@ -1137,9 +1135,8 @@ class Util
      * @param string $collation Collation
      * @param bool   $override  (optional) force 'CHARACTER SET' keyword
      *
-     * @return string
      */
-    public static function getCharsetQueryPart($collation, $override = false)
+    public static function getCharsetQueryPart(string $collation, bool $override = false): string
     {
         [$charset] = explode('_', $collation);
         $keyword = ' CHARSET=';
@@ -1170,8 +1167,6 @@ class Util
      *                            be considered "nearby" and displayed as well?
      * @param string $prompt      The prompt to display (sometimes empty)
      *
-     * @return string
-     *
      * @access public
      */
     public static function pageselector(
@@ -1185,7 +1180,7 @@ class Util
         $percent = 20,
         $range = 10,
         $prompt = ''
-    ) {
+    ): string {
         $increment = floor($nbTotalPage / $percent);
         $pageNowMinusRange = $pageNow - $range;
         $pageNowPlusRange = $pageNow + $range;
@@ -1321,9 +1316,9 @@ class Util
      *
      * @param string $dir with wildcard for user
      *
-     * @return string  per user directory
+     * @return string per user directory
      */
-    public static function userDir($dir)
+    public static function userDir($dir): string
     {
         // add trailing slash
         if (mb_substr($dir, -1) != '/') {
@@ -1335,10 +1330,8 @@ class Util
 
     /**
      * Clears cache content which needs to be refreshed on user change.
-     *
-     * @return void
      */
-    public static function clearUserCache()
+    public static function clearUserCache():void
     {
         self::cacheUnset('is_superuser');
         self::cacheUnset('is_createuser');
@@ -1347,10 +1340,8 @@ class Util
 
     /**
      * Calculates session cache key
-     *
-     * @return string
      */
-    public static function cacheKey()
+    public static function cacheKey(): string
     {
         if (isset($GLOBALS['cfg']['Server']['user'])) {
             return 'server_' . $GLOBALS['server'] . '_' . $GLOBALS['cfg']['Server']['user'];
@@ -1364,9 +1355,8 @@ class Util
      *
      * @param string $var variable name
      *
-     * @return bool
      */
-    public static function cacheExists($var)
+    public static function cacheExists($var): bool
     {
         return isset($_SESSION['cache'][self::cacheKey()][$var]);
     }
@@ -1401,9 +1391,8 @@ class Util
      * @param string $var variable name
      * @param mixed  $val value
      *
-     * @return void
      */
-    public static function cacheSet($var, $val = null)
+    public static function cacheSet($var, $val = null): void
     {
         $_SESSION['cache'][self::cacheKey()][$var] = $val;
     }
@@ -1413,9 +1402,8 @@ class Util
      *
      * @param string $var variable name
      *
-     * @return void
      */
-    public static function cacheUnset($var)
+    public static function cacheUnset($var): void
     {
         unset($_SESSION['cache'][self::cacheKey()][$var]);
     }
@@ -1611,19 +1599,17 @@ class Util
      * Verifies if this table's engine supports foreign keys
      *
      * @param string $engine engine
-     *
-     * @return bool
      */
-    public static function isForeignKeySupported($engine)
+    public static function isForeignKeySupported($engine): bool
     {
         $engine = strtoupper((string) $engine);
-        if (($engine == 'INNODB') || ($engine == 'PBXT')) {
+        if (($engine === 'INNODB') || ($engine === 'PBXT')) {
             return true;
-        } elseif ($engine == 'NDBCLUSTER' || $engine == 'NDB') {
+        } elseif ($engine === 'NDBCLUSTER' || $engine === 'NDB') {
             $ndbver = strtolower(
                 $GLOBALS['dbi']->fetchValue('SELECT @@ndb_version_string')
             );
-            if (substr($ndbver, 0, 4) == 'ndb-') {
+            if (substr($ndbver, 0, 4) === 'ndb-') {
                 $ndbver = substr($ndbver, 4);
             }
 
@@ -1635,10 +1621,8 @@ class Util
 
     /**
      * Is Foreign key check enabled?
-     *
-     * @return bool
      */
-    public static function isForeignKeyCheck()
+    public static function isForeignKeyCheck(): bool
     {
         if ($GLOBALS['cfg']['DefaultForeignKeyChecks'] === 'enable') {
             return true;
@@ -1646,7 +1630,7 @@ class Util
             return false;
         }
 
-        return $GLOBALS['dbi']->getVariable('FOREIGN_KEY_CHECKS') == 'ON';
+        return $GLOBALS['dbi']->getVariable('FOREIGN_KEY_CHECKS') === 'ON';
     }
 
     /**
@@ -1676,9 +1660,8 @@ class Util
      *
      * @param bool $default_fk_check_value original value for 'FOREIGN_KEY_CHECKS'
      *
-     * @return void
      */
-    public static function handleDisableFKCheckCleanup($default_fk_check_value)
+    public static function handleDisableFKCheckCleanup($default_fk_check_value): void
     {
         $GLOBALS['dbi']->setVariable(
             'FOREIGN_KEY_CHECKS',
@@ -1731,7 +1714,7 @@ class Util
      *
      * @return string with the chars replaced
      */
-    public static function duplicateFirstNewline($string)
+    public static function duplicateFirstNewline(string $string): string
     {
         $first_occurence = mb_strpos($string, "\r\n");
         if ($first_occurence === 0) {
@@ -1972,11 +1955,11 @@ class Util
 
     /**
      * Returns a list of datatypes that are not (yet) handled by PMA.
-     * Used by: /table/change and libraries/db_routines.inc.php
+     * Used by: /table/change and libraries/Routines.php
      *
-     * @return array   list of datatypes
+     * @return array list of datatypes
      */
-    public static function unsupportedDatatypes()
+    public static function unsupportedDatatypes(): array
     {
         return [];
     }
@@ -2041,14 +2024,14 @@ class Util
      * @param bool   $display   if set to true separators will be added to the
      *                          output array.
      *
-     * @return array names and details of the functions that can be applied on
-     *               geometry data types.
+     * @return array<int|string,array<string,int|string>> names and details of the functions that can be applied on
+     *                                                    geometry data types.
      */
     public static function getGISFunctions(
         $geom_type = null,
         $binary = true,
         $display = false
-    ) {
+    ): array {
         $funcs = [];
         if ($display) {
             $funcs[] = ['display' => ' '];
@@ -2163,75 +2146,44 @@ class Util
                 $funcs[] = ['display' => '--------'];
             }
 
-            if ($GLOBALS['dbi']->getVersion() < 50601) {
-                $funcs['Crosses']    = [
-                    'params' => 2,
-                    'type' => 'int',
-                ];
-                $funcs['Contains']   = [
-                    'params' => 2,
-                    'type' => 'int',
-                ];
-                $funcs['Disjoint']   = [
-                    'params' => 2,
-                    'type' => 'int',
-                ];
-                $funcs['Equals']     = [
-                    'params' => 2,
-                    'type' => 'int',
-                ];
-                $funcs['Intersects'] = [
-                    'params' => 2,
-                    'type' => 'int',
-                ];
-                $funcs['Overlaps']   = [
-                    'params' => 2,
-                    'type' => 'int',
-                ];
-                $funcs['Touches']    = [
-                    'params' => 2,
-                    'type' => 'int',
-                ];
-                $funcs['Within']     = [
-                    'params' => 2,
-                    'type' => 'int',
-                ];
-            } else {
-                // If MySQl version is greater than or equal 5.6.1,
+            $spatialPrefix = '';
+            if ($GLOBALS['dbi']->getVersion() >= 50601) {
+                // If MySQL version is greater than or equal 5.6.1,
                 // use the ST_ prefix.
-                $funcs['ST_Crosses']    = [
-                    'params' => 2,
-                    'type' => 'int',
-                ];
-                $funcs['ST_Contains']   = [
-                    'params' => 2,
-                    'type' => 'int',
-                ];
-                $funcs['ST_Disjoint']   = [
-                    'params' => 2,
-                    'type' => 'int',
-                ];
-                $funcs['ST_Equals']     = [
-                    'params' => 2,
-                    'type' => 'int',
-                ];
-                $funcs['ST_Intersects'] = [
-                    'params' => 2,
-                    'type' => 'int',
-                ];
-                $funcs['ST_Overlaps']   = [
-                    'params' => 2,
-                    'type' => 'int',
-                ];
-                $funcs['ST_Touches']    = [
-                    'params' => 2,
-                    'type' => 'int',
-                ];
-                $funcs['ST_Within']     = [
-                    'params' => 2,
-                    'type' => 'int',
-                ];
+                $spatialPrefix = 'ST_';
             }
+            $funcs[$spatialPrefix . 'Crosses']    = [
+                'params' => 2,
+                'type' => 'int',
+            ];
+            $funcs[$spatialPrefix . 'Contains']   = [
+                'params' => 2,
+                'type' => 'int',
+            ];
+            $funcs[$spatialPrefix . 'Disjoint']   = [
+                'params' => 2,
+                'type' => 'int',
+            ];
+            $funcs[$spatialPrefix . 'Equals']     = [
+                'params' => 2,
+                'type' => 'int',
+            ];
+            $funcs[$spatialPrefix . 'Intersects'] = [
+                'params' => 2,
+                'type' => 'int',
+            ];
+            $funcs[$spatialPrefix . 'Overlaps']   = [
+                'params' => 2,
+                'type' => 'int',
+            ];
+            $funcs[$spatialPrefix . 'Touches']    = [
+                'params' => 2,
+                'type' => 'int',
+            ];
+            $funcs[$spatialPrefix . 'Within']     = [
+                'params' => 2,
+                'type' => 'int',
+            ];
 
             if ($display) {
                 $funcs[] = ['display' => '--------'];
@@ -2281,15 +2233,16 @@ class Util
      *            // 'CREATE ROUTINE' privilege or, if not, checks if the
      *            // user has this privilege on database 'mydb'.
      *
-     * @param string $priv The privilege to check
-     * @param mixed  $db   null, to only check global privileges
-     *                     string, db name where to also check for privileges
-     * @param mixed  $tbl  null, to only check global/db privileges
-     *                     string, table name where to also check for privileges
+     * @param string      $priv The privilege to check
+     * @param string|null $db   null, to only check global privileges
+     *                          string, db name where to also check
+     *                          for privileges
+     * @param string|null $tbl  null, to only check global/db privileges
+     *                          string, table name where to also check
+     *                          for privileges
      *
-     * @return bool
      */
-    public static function currentUserHasPrivilege($priv, $db = null, $tbl = null)
+    public static function currentUserHasPrivilege(string $priv, ?string $db = null, ?string $tbl = null): bool
     {
         // Get the username for the current user in the format
         // required to use in the information schema database.
@@ -2866,7 +2819,7 @@ class Util
      *
      * @return array list of tables
      */
-    public static function getTablesWhenOpen($db, $db_info_result)
+    public static function getTablesWhenOpen($db, $db_info_result): array
     {
         $sot_cache = [];
         $tables = [];
@@ -3039,10 +2992,8 @@ class Util
 
     /**
      * Wrapper around php's set_time_limit
-     *
-     * @return void
      */
-    public static function setTimeLimit()
+    public static function setTimeLimit(): void
     {
         // The function can be disabled in php.ini
         if (function_exists('set_time_limit')) {
