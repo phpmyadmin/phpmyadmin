@@ -1,5 +1,5 @@
-<form action="{{ url('/table/structure') }}" method="post">
-  {{ get_hidden_inputs(url_params) }}
+<form action="{{ url('/table/structure/drop') }}" method="post">
+  {{ get_hidden_inputs({'db': db, 'table': table, 'selected': fields}) }}
 
   <fieldset class="confirmation">
     <legend>

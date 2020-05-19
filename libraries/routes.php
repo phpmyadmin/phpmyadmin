@@ -253,6 +253,7 @@ return function (RouteCollector $routes) {
         $routes->addRoute(['GET', 'POST'], '/sql', [TableSqlController::class, 'index']);
         $routes->addGroup('/structure', function (RouteCollector $routes) {
             $routes->addRoute(['GET', 'POST'], '', [TableStructureController::class, 'index']);
+            $routes->post('/drop', [TableStructureController::class, 'drop']);
             $routes->post('/drop-confirm', [TableStructureController::class, 'dropConfirm']);
         });
         $routes->addRoute(['GET', 'POST'], '/tracking', [TableTrackingController::class, 'index']);
