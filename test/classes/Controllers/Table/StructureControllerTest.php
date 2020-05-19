@@ -215,12 +215,12 @@ class StructureControllerTest extends PmaTestCase
             $method->invoke($ctrl)
         );
 
-        $_POST['submit_mult_drop_x'] = true;
+        $_POST['submit_mult_unique_x'] = true;
         $this->assertEquals(
-            'drop',
+            'unique',
             $method->invoke($ctrl)
         );
-        unset($_POST['submit_mult_drop_x']);
+        unset($_POST['submit_mult_unique_x']);
 
         $_POST['submit_mult'] = 'create';
         $this->assertEquals(

@@ -412,12 +412,19 @@ AJAX.registerOnload('table/structure.js', function () {
     $('body').on('click', '#fieldsForm.ajax button[name="submit_mult"], #fieldsForm.ajax input[name="submit_mult"]', function (e) {
         e.preventDefault();
         var $button = $(this);
+        var action = $button.val();
         var $form = $button.parents('form');
         var argsep = CommonParams.get('arg_separator');
-        var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'submit_mult=' + $button.val();
+        var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'submit_mult=' + action;
         Functions.ajaxShowMessage();
         AJAX.source = $form;
-        $.post($form.attr('action'), submitData, AJAX.responseHandler);
+        var url = $form.attr('action');
+
+        if (action === 'drop') {
+            url = 'index.php?route=/table/structure/drop-confirm';
+        }
+
+        $.post(url, submitData, AJAX.responseHandler);
     });
 
     /**

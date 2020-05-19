@@ -315,18 +315,6 @@ class StructureController extends AbstractController
                                         $full_query = preg_replace('@,$@', ');<br>', $full_query);
                                     }
                                     break;
-                                case 'drop_fld':
-                                    if ($full_query == '') {
-                                        $full_query .= 'ALTER TABLE '
-                                            . Util::backquote(htmlspecialchars($table));
-                                    }
-                                    $full_query .= '<br>&nbsp;&nbsp;DROP '
-                                        . Util::backquote(htmlspecialchars($selectedValue))
-                                        . ',';
-                                    if ($i == $selectedCount - 1) {
-                                        $full_query = preg_replace('@,$@', ';<br>', $full_query);
-                                    }
-                                    break;
                             }
                             $i++;
                         }
@@ -549,6 +537,49 @@ class StructureController extends AbstractController
                 $columns_with_index
             )
         );
+    }
+
+    public function dropConfirm(): void
+    {
+        global $db, $table;
+
+        $selected = $_POST['selected_fld'] ?? null;
+
+        if (empty($selected)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No column selected.'));
+
+            return;
+        }
+
+        $this->dbi->selectDb($this->db);
+
+        PageSettings::showGroup('TableStructure');
+
+        $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
+        $checkUserPrivileges->getPrivileges();
+
+        $this->response->getHeader()->getScripts()->addFiles([
+            'table/structure.js',
+            'indexes.js',
+        ]);
+
+        Common::table();
+
+        $urlParams = [
+            'db' => $db,
+            'table' => $table,
+            'query_type' => 'drop_fld',
+        ];
+        foreach ($selected as $selectedValue) {
+            $urlParams['selected'][] = $selectedValue;
+        }
+
+        $this->render('table/structure/drop_confirm', [
+            'url_params' => $urlParams,
+            'table' => $table,
+            'fields' => $selected,
+        ]);
     }
 
     /**
@@ -966,7 +997,6 @@ class StructureController extends AbstractController
     {
         $types = [
             'change',
-            'drop',
             'primary',
             'index',
             'unique',
@@ -1748,9 +1778,6 @@ class StructureController extends AbstractController
         $mult_btn = null;
         $centralColsError = null;
         switch ($submit_mult) {
-            case 'drop':
-                $what     = 'drop_fld';
-                break;
             case 'primary':
                 // Gets table primary key
                 $primary = $this->getKeyForTablePrimary();
