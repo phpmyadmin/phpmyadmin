@@ -196,7 +196,13 @@ class NodeTable extends NodeDatabaseChild
                 if ($GLOBALS['dbi']->dataSeek($handle, $pos)) {
                     while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
                         if ($count < $maxItems) {
-                            $retval[] = $arr['Field'];
+                            $retval[] = [
+                                'name' => $arr['Field'],
+                                'key' => $arr['Key'],
+                                'type' => Util::extractColumnSpec($arr['Type'])['type'],
+                                'default' =>  $arr['Default'],
+                                'nullable' => ($arr['Null'] === 'NO' ? '' : 'nullable'),
+                            ];
                             $count++;
                         } else {
                             break;
