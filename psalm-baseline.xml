@@ -101,9 +101,6 @@
     <PossiblyNullArgument occurrences="1">
       <code>$this-&gt;get('PMA_VERSION')</code>
     </PossiblyNullArgument>
-    <PossiblyUndefinedArrayOffset occurrences="1">
-      <code>$parsed_url['path']</code>
-    </PossiblyUndefinedArrayOffset>
   </file>
   <file src="libraries/classes/Config/ConfigFile.php">
     <PossiblyNullArgument occurrences="2">

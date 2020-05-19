@@ -151,7 +151,7 @@ parameters:
 			path: libraries/classes/Config.php
 
 		-
-			message: "#^Cannot access offset 'path' on array\\(\\?'scheme' \\=\\> string, \\?'host' \\=\\> string, \\?'port' \\=\\> int, \\?'user' \\=\\> string, \\?'pass' \\=\\> string, \\?'path' \\=\\> string, \\?'query' \\=\\> string, \\?'fragment' \\=\\> string\\)\\|false\\.$#"
+			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, string\\|false\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Config.php
 

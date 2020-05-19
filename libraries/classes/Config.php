@@ -962,11 +962,11 @@ class Config
             }
         }
 
-        $parsed_url = parse_url($GLOBALS['PMA_PHP_SELF']);
+        $parsedUrlPath = parse_url($GLOBALS['PMA_PHP_SELF'], PHP_URL_PATH);
 
         $parts = explode(
             '/',
-            rtrim(str_replace('\\', '/', $parsed_url['path']), '/')
+            rtrim(str_replace('\\', '/', $parsedUrlPath), '/')
         );
 
         /* Remove filename */
