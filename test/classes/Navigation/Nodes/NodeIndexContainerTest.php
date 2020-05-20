@@ -19,6 +19,7 @@ class NodeIndexContainerTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $GLOBALS['server'] = 0;
     }
 

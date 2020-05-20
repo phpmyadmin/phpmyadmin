@@ -21,6 +21,7 @@ class OptionsPropertyRootGroupTest extends AbstractTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->object = new OptionsPropertyRootGroup();
     }
 
@@ -29,6 +30,7 @@ class OptionsPropertyRootGroupTest extends AbstractTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 

@@ -21,6 +21,7 @@ class OptionsPropertySubgroupTest extends AbstractTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->object = new OptionsPropertySubgroup();
     }
 
@@ -29,6 +30,7 @@ class OptionsPropertySubgroupTest extends AbstractTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 

@@ -28,6 +28,7 @@ class ExportTest extends AbstractTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Server']['host'] = 'localhost';

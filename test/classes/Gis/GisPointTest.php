@@ -30,6 +30,7 @@ class GisPointTest extends GisGeomTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->object = GisPoint::singleton();
     }
 
@@ -41,6 +42,7 @@ class GisPointTest extends GisGeomTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 

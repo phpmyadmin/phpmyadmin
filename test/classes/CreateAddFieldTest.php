@@ -22,6 +22,7 @@ class CreateAddFieldTest extends AbstractTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->createAddField = new CreateAddField($GLOBALS['dbi']);
     }
 

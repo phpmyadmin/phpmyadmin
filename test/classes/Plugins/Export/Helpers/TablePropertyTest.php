@@ -21,6 +21,7 @@ class TablePropertyTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $GLOBALS['server'] = 0;
         $row = [
             ' name ',
@@ -38,6 +39,7 @@ class TablePropertyTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 

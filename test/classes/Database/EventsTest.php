@@ -21,6 +21,7 @@ class EventsTest extends AbstractTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
@@ -42,6 +43,7 @@ class EventsTest extends AbstractTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         if ($GLOBALS['tear_down']['server']) {
             unset($GLOBALS['cfg']['ServerDefault']);
         }

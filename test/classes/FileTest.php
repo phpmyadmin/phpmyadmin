@@ -20,6 +20,7 @@ class FileTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $GLOBALS['charset_conversion'] = false;
     }
 

@@ -23,6 +23,7 @@ class CreateTableTest extends AbstractTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         //$GLOBALS
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;

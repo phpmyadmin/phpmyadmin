@@ -18,6 +18,7 @@ class DbiDummyTest extends AbstractTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['IconvExtraParams'] = '';
         $GLOBALS['server'] = 1;

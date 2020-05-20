@@ -27,6 +27,7 @@ class UserPreferencesTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         global $cfg;
         include ROOT_PATH . 'libraries/config.default.php';
         $GLOBALS['server'] = 0;

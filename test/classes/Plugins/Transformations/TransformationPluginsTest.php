@@ -44,6 +44,7 @@ class TransformationPluginsTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         // For Application Octetstream Download plugin
         global $row, $fields_meta;
         $fields_meta = [];
@@ -69,6 +70,7 @@ class TransformationPluginsTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
     }
 
     /**

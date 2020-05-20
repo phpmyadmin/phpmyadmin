@@ -23,6 +23,7 @@ class UrlTest extends AbstractTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         unset($_COOKIE['pma_lang']);
     }
 

@@ -26,6 +26,7 @@ class DesignerTest extends AbstractTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['PDFPageSizes'] = [

@@ -31,6 +31,7 @@ class GisPolygonTest extends GisGeomTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->object = GisPolygon::singleton();
     }
 
@@ -42,6 +43,7 @@ class GisPolygonTest extends GisGeomTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 

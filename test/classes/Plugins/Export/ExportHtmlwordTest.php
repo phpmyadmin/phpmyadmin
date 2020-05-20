@@ -37,6 +37,7 @@ class ExportHtmlwordTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $GLOBALS['server'] = 0;
         $this->object = new ExportHtmlword();
         $GLOBALS['output_kanji_conversion'] = false;
@@ -51,6 +52,7 @@ class ExportHtmlwordTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 

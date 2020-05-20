@@ -32,6 +32,7 @@ class IndexesControllerTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         /**
          * SET these to avoid undefined index error
          */

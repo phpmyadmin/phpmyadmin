@@ -21,6 +21,7 @@ class OptionsPropertyOneItemTest extends AbstractTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->stub = $this->getMockForAbstractClass(OptionsPropertyOneItem::class);
     }
 
@@ -29,6 +30,7 @@ class OptionsPropertyOneItemTest extends AbstractTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->stub);
     }
 

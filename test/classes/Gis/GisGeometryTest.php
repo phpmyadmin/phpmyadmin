@@ -26,6 +26,7 @@ class GisGeometryTest extends AbstractTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->object = $this->getMockForAbstractClass(GisGeometry::class);
     }
 
@@ -37,6 +38,7 @@ class GisGeometryTest extends AbstractTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 

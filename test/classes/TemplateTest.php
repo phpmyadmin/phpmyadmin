@@ -22,6 +22,7 @@ class TemplateTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->template = new Template();
     }
 

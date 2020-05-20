@@ -12,6 +12,19 @@ use PHPUnit\Framework\TestCase;
  */
 abstract class AbstractTestCase extends TestCase
 {
+    /**
+     * Prepares environment for the test.
+     * Clean all variables
+     */
+    protected function setUp(): void
+    {
+    }
 
-
+    /**
+     * Desctroys the environment built for the test.
+     * Clean all variables
+     */
+    protected function tearDown(): void
+    {
+    }
 }

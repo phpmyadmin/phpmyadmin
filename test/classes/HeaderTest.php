@@ -25,6 +25,7 @@ class HeaderTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         if (! defined('PMA_IS_WINDOWS')) {
             define('PMA_IS_WINDOWS', false);
         }

@@ -28,6 +28,7 @@ class SearchTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'pma';
         $GLOBALS['_POST'] = [];
@@ -61,6 +62,7 @@ class SearchTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 

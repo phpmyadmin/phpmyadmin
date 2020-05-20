@@ -27,6 +27,7 @@ class ExportTest extends AbstractTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->export = new Export($GLOBALS['dbi']);
     }
 

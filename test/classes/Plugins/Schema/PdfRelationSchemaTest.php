@@ -27,6 +27,7 @@ class PdfRelationSchemaTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $_REQUEST['page_number'] = 33;
         $_REQUEST['pdf_show_grid'] = true;
         $_REQUEST['pdf_show_color'] = true;
@@ -183,6 +184,7 @@ class PdfRelationSchemaTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 

@@ -29,6 +29,7 @@ class ErrorHandlerTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->object = new ErrorHandler();
         $GLOBALS['server'] = 0;
     }
@@ -41,6 +42,7 @@ class ErrorHandlerTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 

@@ -31,6 +31,7 @@ class GisMultiPointTest extends GisGeomTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->object = GisMultiPoint::singleton();
     }
 
@@ -42,6 +43,7 @@ class GisMultiPointTest extends GisGeomTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 

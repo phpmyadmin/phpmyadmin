@@ -22,6 +22,7 @@ class SelectTest extends AbstractTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         //$_REQUEST
         $_REQUEST['log'] = 'index1';
         $_REQUEST['pos'] = 3;

@@ -13,6 +13,7 @@ class SearchTest extends AbstractTestCase
 
     protected function setUp(): void
     {
+        parent::setUp();
         global $dbi;
 
         $this->search = new Search($dbi);

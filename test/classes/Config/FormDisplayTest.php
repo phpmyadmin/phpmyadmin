@@ -30,6 +30,7 @@ class FormDisplayTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['server'] = 0;
@@ -42,6 +43,7 @@ class FormDisplayTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 

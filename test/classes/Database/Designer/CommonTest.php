@@ -24,6 +24,7 @@ class CommonTest extends AbstractTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $GLOBALS['server'] = 1;
         $_SESSION = [
             'relation' => [

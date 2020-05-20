@@ -24,6 +24,7 @@ class ChangePasswordTest extends AbstractTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         //$GLOBALS
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();

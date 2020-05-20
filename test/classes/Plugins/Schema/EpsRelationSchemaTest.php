@@ -27,6 +27,7 @@ class EpsRelationSchemaTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $_REQUEST['page_number'] = 33;
         $_REQUEST['eps_show_color'] = true;
         $_REQUEST['eps_show_keys'] = true;
@@ -131,6 +132,7 @@ class EpsRelationSchemaTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 

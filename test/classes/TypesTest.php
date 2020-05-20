@@ -22,6 +22,7 @@ class TypesTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->object = new Types($GLOBALS['dbi']);
     }
 

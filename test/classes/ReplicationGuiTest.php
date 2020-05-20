@@ -32,6 +32,7 @@ class ReplicationGuiTest extends AbstractTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         //$_POST
         $_POST['mr_adduser'] = 'mr_adduser';
 

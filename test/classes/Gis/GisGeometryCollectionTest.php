@@ -31,6 +31,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->object = GisGeometryCollection::singleton();
     }
 
@@ -42,6 +43,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 

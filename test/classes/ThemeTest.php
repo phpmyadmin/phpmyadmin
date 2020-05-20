@@ -27,6 +27,7 @@ class ThemeTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->object = new Theme();
         $this->backup = $GLOBALS['PMA_Theme'];
         $GLOBALS['PMA_Theme'] = $this->object;
@@ -42,6 +43,7 @@ class ThemeTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         $GLOBALS['PMA_Theme'] = $this->backup;
     }
 

@@ -19,6 +19,7 @@ class IndexTest extends AbstractTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $GLOBALS['cfg']['ProxyUrl'] = '';
     }
 

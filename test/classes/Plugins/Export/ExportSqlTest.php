@@ -41,6 +41,7 @@ class ExportSqlTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
         $GLOBALS['output_kanji_conversion'] = false;
@@ -59,6 +60,7 @@ class ExportSqlTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 

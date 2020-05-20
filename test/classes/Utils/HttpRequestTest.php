@@ -23,6 +23,7 @@ class HttpRequestTest extends PmaTestCase
 
     protected function setUp(): void
     {
+        parent::setUp();
         $this->httpRequest = new HttpRequest();
     }
 

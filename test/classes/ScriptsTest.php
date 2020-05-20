@@ -27,6 +27,7 @@ class ScriptsTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->object = new Scripts();
         if (! defined('PMA_USR_BROWSER_AGENT')) {
             define('PMA_USR_BROWSER_AGENT', 'MOZILLA');
@@ -41,6 +42,7 @@ class ScriptsTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 

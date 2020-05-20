@@ -24,6 +24,7 @@ class ZipExtensionTest extends PmaTestCase
 
     protected function setUp(): void
     {
+        parent::setUp();
         $this->zipExtension = new ZipExtension();
     }
 

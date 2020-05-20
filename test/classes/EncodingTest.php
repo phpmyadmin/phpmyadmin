@@ -25,11 +25,13 @@ class EncodingTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
+        parent::setUp();
         Encoding::initEngine();
     }
 
     protected function tearDown(): void
     {
+        parent::tearDown();
         Encoding::initEngine();
     }
 

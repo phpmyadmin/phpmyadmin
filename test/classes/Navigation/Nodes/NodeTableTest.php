@@ -19,6 +19,7 @@ class NodeTableTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = 'b_browse';
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'] = '';

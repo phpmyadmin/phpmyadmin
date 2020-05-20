@@ -25,6 +25,7 @@ class IpAllowDenyTest extends AbstractTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $GLOBALS['cfg']['Server']['user'] = 'pma_username';
         $GLOBALS['cfg']['Server']['AllowDeny']['rules'][]
             = 'allow % 255.255.255.0/4';

@@ -105,6 +105,7 @@ abstract class PmaTestCase extends AbstractTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         if ($this->attrInstance !== null && $this->restoreInstance !== null) {
             $this->attrInstance->setValue($this->restoreInstance);
             $this->restoreInstance = null;

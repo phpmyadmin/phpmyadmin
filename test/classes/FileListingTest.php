@@ -17,6 +17,7 @@ class FileListingTest extends AbstractTestCase
 
     protected function setUp(): void
     {
+        parent::setUp();
         $this->fileListing = new FileListing();
     }
 

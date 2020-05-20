@@ -38,6 +38,7 @@ class ConfigFileTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $GLOBALS['server'] = 1;
         $this->object = new ConfigFile();
     }
@@ -47,6 +48,7 @@ class ConfigFileTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         $this->object->setConfigData([]);
         unset($this->object);
     }

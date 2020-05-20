@@ -30,6 +30,7 @@ class DbiMysqliTest extends AbstractTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->object = new DbiMysqli();
     }
 
