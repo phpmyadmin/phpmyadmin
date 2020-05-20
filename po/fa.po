@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2020-05-17 04:02+0000\n"
+"PO-Revision-Date: 2020-05-20 08:29+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "fa/>\n"
@@ -6879,7 +6879,7 @@ msgid "Database %1$s has been created."
 msgstr "پایگاه داده %1$s ایجاد شد."
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:208
-#, php-format
+#, fuzzy, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
 msgstr[0] "پايگاه داده %1$d حذف گرديد."
