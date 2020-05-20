@@ -423,10 +423,10 @@ class Plugins
 
         // Close the list element after $doc link is displayed
         if ($property_class !== null) {
-            if ($property_class === BoolPropertyItem::class
-                || $property_class === MessageOnlyPropertyItem::class
-                || $property_class === SelectPropertyItem::class
-                || $property_class === TextPropertyItem::class
+            if ($property_class == BoolPropertyItem::class
+                || $property_class == MessageOnlyPropertyItem::class
+                || $property_class == SelectPropertyItem::class
+                || $property_class == TextPropertyItem::class
             ) {
                 $ret .= '</li>';
             }
