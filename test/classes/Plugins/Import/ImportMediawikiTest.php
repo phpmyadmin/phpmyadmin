@@ -28,6 +28,7 @@ class ImportMediawikiTest extends PmaTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
         $GLOBALS['plugin_param'] = 'database';
         $this->object = new ImportMediawiki();

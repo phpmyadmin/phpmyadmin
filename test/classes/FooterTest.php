@@ -32,6 +32,7 @@ class FooterTest extends PmaTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::setLanguage();
         $_SERVER['SCRIPT_NAME'] = 'index.php';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['db'] = '';

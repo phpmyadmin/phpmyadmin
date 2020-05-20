@@ -17,6 +17,7 @@ class CharsetsTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::setUpEnv();
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
     }

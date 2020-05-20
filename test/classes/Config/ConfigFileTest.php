@@ -39,6 +39,7 @@ class ConfigFileTest extends PmaTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::loadDefaultConfig();
         $GLOBALS['server'] = 1;
         $this->object = new ConfigFile();
     }

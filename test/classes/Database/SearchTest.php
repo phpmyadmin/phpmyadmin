@@ -29,6 +29,8 @@ class SearchTest extends PmaTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::loadDefaultConfig();
+
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'pma';
         $GLOBALS['_POST'] = [];

@@ -15,6 +15,15 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 class FilesTest extends AbstractTestCase
 {
     /**
+     * Setup function for test cases
+     */
+    protected function setUp(): void
+    {
+        parent::setUp();
+        parent::setTheme();
+    }
+
+    /**
      * Test for dynamic javascript files
      *
      * @param string $name     Filename to test

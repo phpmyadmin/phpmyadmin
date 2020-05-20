@@ -125,6 +125,11 @@ abstract class AbstractTestCase extends TestCase
         // phpcs:enable
     }
 
+    protected function setUpEnv(): void
+    {
+        require ROOT_PATH . 'test/bootstrap-dist.php';
+    }
+
     /**
      * Desctroys the environment built for the test.
      * Clean all variables

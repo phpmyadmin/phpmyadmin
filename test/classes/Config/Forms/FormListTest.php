@@ -18,6 +18,7 @@ class FormListTest extends PmaTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::loadDefaultConfig();
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['server'] = 1;
     }

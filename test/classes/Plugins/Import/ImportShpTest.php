@@ -34,6 +34,7 @@ class ImportShpTest extends PmaTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::loadDefaultConfig();
         if (! defined('PMA_IS_WINDOWS')) {
             define('PMA_IS_WINDOWS', false);
         }

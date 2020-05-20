@@ -546,6 +546,8 @@ class ExportCsvTest extends PmaTestCase
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = true;
         $GLOBALS['save_on_server'] = false;
+        $GLOBALS['csv_enclosed'] = '';
+        $GLOBALS['csv_separator'] = '';
 
         ob_start();
         $this->assertTrue(
@@ -597,6 +599,7 @@ class ExportCsvTest extends PmaTestCase
         $GLOBALS['dbi'] = $dbi;
 
         $GLOBALS['csv_enclosed'] = '"';
+        $GLOBALS['csv_escaped'] = '';
 
         ob_start();
         $this->assertTrue(

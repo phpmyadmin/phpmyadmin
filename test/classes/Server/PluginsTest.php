@@ -14,6 +14,7 @@ class PluginsTest extends AbstractTestCase
 
     public function testGetAll(): void
     {
+        parent::setUpEnv();
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['server'] = 0;

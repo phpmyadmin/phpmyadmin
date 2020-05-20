@@ -159,6 +159,8 @@ class ExportJsonTest extends PmaTestCase
      */
     public function testExportFooter()
     {
+        $GLOBALS['crlf'] = '';
+
         $this->expectOutputString(
             ']'
         );

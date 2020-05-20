@@ -31,6 +31,17 @@ use function trim;
 class UtilTest extends PmaTestCase
 {
     /**
+     * init data for the test
+     */
+    protected function setUp(): void
+    {
+        parent::setUp();
+        parent::setLanguage();
+        parent::setTheme();
+        parent::loadDefaultConfig();
+    }
+
+    /**
      * Test for createGISData
      */
     public function testCreateGISDataOldMysql(): void

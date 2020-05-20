@@ -27,6 +27,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::setLanguage();
         $this->config = new Config();
         $this->formDisplayTemplate = new FormDisplayTemplate($this->config);
     }

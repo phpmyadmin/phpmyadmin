@@ -12,6 +12,16 @@ use PhpMyAdmin\Url;
 
 class PrivilegesControllerTest extends PmaTestCase
 {
+    /**
+     * Configures global environment.
+     */
+    protected function setUp(): void
+    {
+        parent::setUp();
+        parent::loadDefaultConfig();
+        parent::setLanguage();
+    }
+
     public function testIndex(): void
     {
         global $dbi, $db, $server, $cfg, $PMA_PHP_SELF, $is_grantuser, $is_createuser;

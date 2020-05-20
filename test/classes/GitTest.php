@@ -38,6 +38,7 @@ class GitTest extends PmaTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::setProxySettings();
         $this->config = new Config(CONFIG_FILE);
         $this->object = new Git($this->config);
     }

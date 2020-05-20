@@ -23,6 +23,7 @@ class RoutinesTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::setUpEnv();
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -31,6 +32,7 @@ class RoutinesTest extends AbstractTestCase
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
+        $GLOBALS['text_dir'] = 'ltr';
 
         $this->routines = new Routines(
             $GLOBALS['dbi'],

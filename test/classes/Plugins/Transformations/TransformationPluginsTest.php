@@ -45,6 +45,7 @@ class TransformationPluginsTest extends PmaTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::setLanguage();
         // For Application Octetstream Download plugin
         global $row, $fields_meta;
         $fields_meta = [];

@@ -147,6 +147,8 @@ class AdvisorTest extends PmaTestCase
      */
     public function testAddRule($rule, $expected, $error): void
     {
+        parent::loadDefaultConfig();
+        parent::setLanguage();
         $advisor = new Advisor($GLOBALS['dbi'], new ExpressionLanguage());
         $parseResult = $advisor->parseRulesFile(Advisor::GENERIC_RULES_FILE);
         $this->assertEquals($parseResult['errors'], []);

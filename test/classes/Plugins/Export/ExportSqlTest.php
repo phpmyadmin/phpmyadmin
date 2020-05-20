@@ -42,6 +42,7 @@ class ExportSqlTest extends PmaTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
         $GLOBALS['output_kanji_conversion'] = false;
@@ -469,6 +470,7 @@ class ExportSqlTest extends PmaTestCase
      */
     public function testExportFooter()
     {
+        $GLOBALS['crlf'] = '';
         $GLOBALS['sql_disable_fk'] = true;
         $GLOBALS['sql_use_transaction'] = true;
         $GLOBALS['charset'] = 'utf-8';
@@ -1466,6 +1468,7 @@ class ExportSqlTest extends PmaTestCase
             );
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['sql_views_as_tables'] = true;
+        unset($GLOBALS['sql_if_not_exists']);
 
         ob_start();
         $this->assertTrue(

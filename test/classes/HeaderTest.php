@@ -26,6 +26,8 @@ class HeaderTest extends PmaTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::setTheme();
+        parent::setLanguage();
         if (! defined('PMA_IS_WINDOWS')) {
             define('PMA_IS_WINDOWS', false);
         }

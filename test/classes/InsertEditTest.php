@@ -37,6 +37,7 @@ class InsertEditTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::setLanguage();
         $GLOBALS['server'] = 1;
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['ServerDefault'] = 1;
@@ -3489,6 +3490,7 @@ class InsertEditTest extends AbstractTestCase
     {
         $extra_data = ['isNeedToRecheck' => true];
 
+        $_POST['where_clause'] = [];
         $_POST['where_clause'][0] = 1;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

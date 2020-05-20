@@ -38,6 +38,7 @@ class PrivilegesTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::setLanguage();
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;

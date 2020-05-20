@@ -15,6 +15,18 @@ use function str_repeat;
 class LinterTest extends PmaTestCase
 {
     /**
+     * Sets up the fixture, for example, opens a network connection.
+     * This method is called before a test is executed.
+     *
+     * @access protected
+     */
+    protected function setUp(): void
+    {
+        parent::setUp();
+        parent::setLanguage();
+    }
+
+    /**
      * Test for Linter::getLines
      *
      * @return void

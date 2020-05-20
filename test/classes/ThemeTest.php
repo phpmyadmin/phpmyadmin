@@ -28,6 +28,7 @@ class ThemeTest extends PmaTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::setTheme();
         $this->object = new Theme();
         $this->backup = $GLOBALS['PMA_Theme'];
         $GLOBALS['PMA_Theme'] = $this->object;
@@ -236,6 +237,7 @@ class ThemeTest extends PmaTestCase
      */
     public function testGetPrintPreview()
     {
+        parent::setLanguage();
         $this->assertStringContainsString(
             '<h2>' . "\n" . '         (0.0.0.0)',
             $this->object->getPrintPreview()

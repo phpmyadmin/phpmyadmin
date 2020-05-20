@@ -157,6 +157,7 @@ class AuthenticationSignonTest extends PmaTestCase
      */
     public function testAuthCheckToken()
     {
+        $_SESSION = [];
         $this->mockResponse('Location: https://example.com/SignonURL');
 
         $GLOBALS['cfg']['Server']['SignonURL'] = 'https://example.com/SignonURL';
@@ -398,6 +399,7 @@ class AuthenticationSignonTest extends PmaTestCase
     {
         $GLOBALS['cfg']['Server']['SignonSession'] = 'newSession';
         $_COOKIE['newSession'] = '42';
+        unset($GLOBALS['errno']);
 
         $this->object = $this->getMockBuilder(AuthenticationSignon::class)
             ->disableOriginalConstructor()

@@ -31,6 +31,8 @@ class FormDisplayTest extends PmaTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::setTheme();
+        parent::loadDefaultConfig();
         $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['server'] = 0;

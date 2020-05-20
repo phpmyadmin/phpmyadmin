@@ -24,6 +24,7 @@ class UrlTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::setLanguage();
         unset($_COOKIE['pma_lang']);
     }
 

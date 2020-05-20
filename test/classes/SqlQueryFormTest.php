@@ -32,6 +32,7 @@ class SqlQueryFormTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::setLanguage();
         $this->sqlQueryForm = new SqlQueryForm(new Template());
 
         //$GLOBALS

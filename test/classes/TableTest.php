@@ -25,6 +25,8 @@ class TableTest extends PmaTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::loadDefaultConfig();
+
         /**
          * SET these to avoid undefined index error
          */

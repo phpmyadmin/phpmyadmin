@@ -30,8 +30,11 @@ class ErrorHandlerTest extends PmaTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::loadDefaultConfig();
         $this->object = new ErrorHandler();
+        $_SESSION['errors'] = [];
         $GLOBALS['server'] = 0;
+        $GLOBALS['cfg']['SendErrorReports'] = 'always';
     }
 
     /**
@@ -167,7 +170,6 @@ class ErrorHandlerTest extends PmaTestCase
      */
     public function testCheckSavedErrors()
     {
-        $_SESSION['errors'] = [];
 
         $this->_callProtectedFunction(
             'checkSavedErrors',

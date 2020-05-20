@@ -36,6 +36,7 @@ class ExportOdtTest extends PmaTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['output_charset_conversion'] = false;
@@ -483,6 +484,7 @@ class ExportOdtTest extends PmaTestCase
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['what'] = 'foo';
         $GLOBALS['foo_null'] = '&';
+        unset($GLOBALS['foo_columns']);
 
         $this->assertTrue(
             $this->object->exportData(

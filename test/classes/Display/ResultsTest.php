@@ -37,6 +37,7 @@ class ResultsTest extends PmaTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::setLanguage();
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';

@@ -35,6 +35,8 @@ class SearchControllerTest extends PmaTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::loadDefaultConfig();
+
         /**
          * SET these to avoid undefined index error
          */
@@ -43,6 +45,7 @@ class SearchControllerTest extends PmaTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'PMA';
         $GLOBALS['table'] = 'PMA_BookMark';
+        $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $relation = new Relation($GLOBALS['dbi']);
         $GLOBALS['cfgRelation'] = $relation->getRelationsParam();
