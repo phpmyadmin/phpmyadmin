@@ -34,6 +34,7 @@ class FormDisplayTest extends PmaTestCase
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['server'] = 0;
         $this->object = new FormDisplay(new ConfigFile());
+        Form::resetGroupCounter();
     }
 
     /**

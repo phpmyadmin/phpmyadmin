@@ -323,6 +323,7 @@ class SanitizeTest extends TestCase
      */
     public function testRemoveRequestVars()
     {
+        $GLOBALS['_POST'] = [];
         $_REQUEST['foo'] = 'bar';
         $_REQUEST['allow'] = 'all';
         $_REQUEST['second'] = 1;

@@ -48,6 +48,7 @@ class ReplicationGuiTest extends TestCase
         $GLOBALS['cfg']['ShowHint'] = true;
 
         $GLOBALS['table'] = 'table';
+        $GLOBALS['server'] = 0;
         $GLOBALS['url_params'] = [];
 
         ReplicationInfo::load();

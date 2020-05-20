@@ -55,6 +55,7 @@ class TransformationPluginsTest extends PmaTestCase
         // For Image_*_Inline plugin
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
+        $GLOBALS['Server'] = 1;
 
         // For Date Format plugin
         date_default_timezone_set('UTC');

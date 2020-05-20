@@ -106,6 +106,7 @@ class SqlQueryFormTest extends TestCase
      */
     public function testPMAGetHtmlForSqlQueryFormInsert()
     {
+        $GLOBALS['is_upload'] = true;
         //Call the test function
         $query = 'select * from PMA';
         $html = $this->sqlQueryForm->getHtml($query);

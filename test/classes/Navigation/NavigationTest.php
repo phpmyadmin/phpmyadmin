@@ -43,6 +43,8 @@ class NavigationTest extends PmaTestCase
             new Relation($GLOBALS['dbi']),
             $GLOBALS['dbi']
         );
+        $GLOBALS['cfgRelation']['db'] = 'pmadb';
+        $GLOBALS['cfgRelation']['navigationhiding'] = 'navigationhiding';
     }
 
     /**

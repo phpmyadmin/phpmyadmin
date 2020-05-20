@@ -117,6 +117,7 @@ class UrlTest extends TestCase
      */
     public function testGetFromRoute(): void
     {
+        unset($GLOBALS['server']);
         $generatedUrl = Url::getFromRoute('/test', [
             'db' => '%3\$s',
             'table' => '%2\$s',

@@ -30,6 +30,7 @@ class ErrorHandlerTest extends PmaTestCase
     protected function setUp(): void
     {
         $this->object = new ErrorHandler();
+        $GLOBALS['server'] = 0;
     }
 
     /**

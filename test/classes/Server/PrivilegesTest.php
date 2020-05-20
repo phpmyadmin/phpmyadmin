@@ -66,6 +66,8 @@ class PrivilegesTest extends TestCase
             'users' => 'users',
             'usergroups' => 'usergroups',
             'menuswork' => true,
+            'trackingwork' => true,
+            'tracking' => 'tracking',
         ];
 
         $pmaconfig = $this->getMockBuilder(Config::class)

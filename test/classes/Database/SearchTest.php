@@ -30,6 +30,7 @@ class SearchTest extends PmaTestCase
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'pma';
+        $GLOBALS['_POST'] = [];
 
         //mock DBI
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
