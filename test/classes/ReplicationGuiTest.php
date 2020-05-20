@@ -11,14 +11,14 @@ use PhpMyAdmin\Replication;
 use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\Template;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * PhpMyAdmin\Tests\ReplicationGuiTest class
  *
  * this class is for testing PhpMyAdmin\ReplicationGui methods
  */
-class ReplicationGuiTest extends TestCase
+class ReplicationGuiTest extends AbstractTestCase
 {
     /**
      * ReplicationGui instance

@@ -4,9 +4,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Charsets;
 
 use PhpMyAdmin\Charsets\Collation;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
-class CollationTest extends TestCase
+class CollationTest extends AbstractTestCase
 {
     public function testFromServer(): void
     {

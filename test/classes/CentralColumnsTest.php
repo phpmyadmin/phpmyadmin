@@ -14,7 +14,7 @@ use PhpMyAdmin\Types;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Message;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionClass;
 use function array_slice;
 use function ceil;
@@ -22,7 +22,7 @@ use function ceil;
 /**
  * tests for PhpMyAdmin\CentralColumns
  */
-class CentralColumnsTest extends TestCase
+class CentralColumnsTest extends AbstractTestCase
 {
     private $centralColumns;
 

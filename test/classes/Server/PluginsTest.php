@@ -5,9 +5,9 @@ namespace PhpMyAdmin\Tests\Server;
 
 use PhpMyAdmin\Server\Plugin;
 use PhpMyAdmin\Server\Plugins;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
-class PluginsTest extends TestCase
+class PluginsTest extends AbstractTestCase
 {
     /** @var Plugins */
     private $plugins;

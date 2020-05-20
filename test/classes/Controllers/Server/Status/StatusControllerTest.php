@@ -14,9 +14,9 @@ use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\Response;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
-class StatusControllerTest extends TestCase
+class StatusControllerTest extends AbstractTestCase
 {
     protected function setUp(): void
     {

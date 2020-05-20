@@ -9,12 +9,12 @@ namespace PhpMyAdmin\Tests\Database\Designer;
 use PhpMyAdmin\Database\Designer\Common;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PhpMyAdmin\Database\Designer\Common
  */
-class CommonTest extends TestCase
+class CommonTest extends AbstractTestCase
 {
     /** @var Common */
     private $designerCommon;

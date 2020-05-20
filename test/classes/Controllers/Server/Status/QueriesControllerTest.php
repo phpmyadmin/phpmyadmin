@@ -13,11 +13,11 @@ use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Util;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use function array_sum;
 use function htmlspecialchars;
 
-class QueriesControllerTest extends TestCase
+class QueriesControllerTest extends AbstractTestCase
 {
     /** @var Data */
     private $data;

@@ -7,13 +7,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Mime;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use function chr;
 
 /**
  * Test for mime detection.
  */
-class MimeTest extends TestCase
+class MimeTest extends AbstractTestCase
 {
     /**
      * Test for Mime::detect

@@ -9,7 +9,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
 use PHPUnit\Framework\MockObject\MockObject;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use function array_merge;
 
 /**
@@ -17,7 +17,7 @@ use function array_merge;
  *
  * this class is for testing PhpMyAdmin\RelationCleanup methods
  */
-class RelationCleanupTest extends TestCase
+class RelationCleanupTest extends AbstractTestCase
 {
     /** @var Relation|MockObject */
     private $relation;

@@ -17,7 +17,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use stdClass;
 use function htmlspecialchars;
 use function implode;
@@ -27,7 +27,7 @@ use function implode;
  *
  * this class is for testing PhpMyAdmin\Server\Privileges methods
  */
-class PrivilegesTest extends TestCase
+class PrivilegesTest extends AbstractTestCase
 {
     /** @var Privileges $serverPrivileges */
     private $serverPrivileges;

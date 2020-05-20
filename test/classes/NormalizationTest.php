@@ -14,7 +14,7 @@ use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Types;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Message;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionClass;
 use stdClass;
 use function json_encode;
@@ -22,7 +22,7 @@ use function json_encode;
 /**
  * tests for PhpMyAdmin\Normalization
  */
-class NormalizationTest extends TestCase
+class NormalizationTest extends AbstractTestCase
 {
     private $normalization;
 

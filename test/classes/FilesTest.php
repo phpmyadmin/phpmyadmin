@@ -7,12 +7,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\OutputBuffering;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * tests for bookmark.lib.php
  */
-class FilesTest extends TestCase
+class FilesTest extends AbstractTestCase
 {
     /**
      * Test for dynamic javascript files

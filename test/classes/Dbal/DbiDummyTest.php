@@ -6,12 +6,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Dbal;
 
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests basic functionality of dummy dbi driver
  */
-class DbiDummyTest extends TestCase
+class DbiDummyTest extends AbstractTestCase
 {
     /**
      * Configures test parameters.

@@ -7,12 +7,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\CheckUserPrivileges;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * tests for PhpMyAdmin\CheckUserPrivileges
  */
-class CheckUserPrivilegesTest extends TestCase
+class CheckUserPrivilegesTest extends AbstractTestCase
 {
     /** @var CheckUserPrivileges */
     private $checkUserPrivileges;

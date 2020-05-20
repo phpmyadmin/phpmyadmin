@@ -11,12 +11,12 @@ use PhpMyAdmin\Controllers\TransformationOverviewController;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Transformations;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for TransformationOverviewController class
  */
-class TransformationOverviewControllerTest extends TestCase
+class TransformationOverviewControllerTest extends AbstractTestCase
 {
     /**
      * Prepares environment for the test.

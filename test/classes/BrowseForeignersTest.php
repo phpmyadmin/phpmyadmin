@@ -8,13 +8,13 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\BrowseForeigners;
 use PhpMyAdmin\Template;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionClass;
 
 /**
  * Tests for PhpMyAdmin\BrowseForeigners
  */
-class BrowseForeignersTest extends TestCase
+class BrowseForeignersTest extends AbstractTestCase
 {
     private $browseForeigners;
 

@@ -7,12 +7,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Properties\Options;
 
 use PhpMyAdmin\Properties\Options\OptionsPropertyItem;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PhpMyAdmin\Properties\Options\OptionsPropertyItem class
  */
-class OptionsPropertyItemTest extends TestCase
+class OptionsPropertyItemTest extends AbstractTestCase
 {
     protected $stub;
 

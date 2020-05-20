@@ -11,14 +11,14 @@ use PhpMyAdmin\Controllers\Server\EnginesController;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
-use PHPStan\Testing\TestCase;
 use function htmlspecialchars;
 
 /**
  * Tests for EnginesController class
  */
-class EnginesControllerTest extends TestCase
+class EnginesControllerTest extends AbstractTestCase
 {
     /**
      * Prepares environment for the test.

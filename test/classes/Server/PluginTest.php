@@ -4,9 +4,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Server;
 
 use PhpMyAdmin\Server\Plugin;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
-class PluginTest extends TestCase
+class PluginTest extends AbstractTestCase
 {
     public function testFromState(): Plugin
     {

@@ -8,14 +8,14 @@ namespace PhpMyAdmin\Tests\Server;
 
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Util;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * PhpMyAdmin\Tests\Server\SelectTest class
  *
  * this class is for testing PhpMyAdmin\Server\Select methods
  */
-class SelectTest extends TestCase
+class SelectTest extends AbstractTestCase
 {
     /**
      * Prepares environment for the test.

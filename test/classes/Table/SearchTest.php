@@ -4,9 +4,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Table;
 
 use PhpMyAdmin\Table\Search;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
-class SearchTest extends TestCase
+class SearchTest extends AbstractTestCase
 {
     /** @var Search */
     private $search;

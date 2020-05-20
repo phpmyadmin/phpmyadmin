@@ -7,13 +7,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisGeometry;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionClass;
 
 /**
  * Tests for PhpMyAdmin\Gis\GisGeometry class
  */
-class GisGeometryTest extends TestCase
+class GisGeometryTest extends AbstractTestCase
 {
     /** @access protected */
     protected $object;

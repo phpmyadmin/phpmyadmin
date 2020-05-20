@@ -7,14 +7,14 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Sql;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
 use stdClass;
 
 /**
  * Tests for PhpMyAdmin\Sql
  */
-class SqlTest extends TestCase
+class SqlTest extends AbstractTestCase
 {
     /** @var Sql */
     private $sql;

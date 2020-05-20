@@ -7,12 +7,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Setup;
 
 use PhpMyAdmin\Setup\Index as SetupIndex;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * tests for methods under PhpMyAdmin\Setup\Index
  */
-class IndexTest extends TestCase
+class IndexTest extends AbstractTestCase
 {
     /**
      * SetUp for test cases

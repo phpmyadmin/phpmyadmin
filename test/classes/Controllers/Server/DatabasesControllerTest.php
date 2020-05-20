@@ -14,14 +14,14 @@ use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Transformations;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use stdClass;
 use function sprintf;
 
 /**
  * Tests for DatabasesController class
  */
-class DatabasesControllerTest extends TestCase
+class DatabasesControllerTest extends AbstractTestCase
 {
     protected function setUp(): void
     {

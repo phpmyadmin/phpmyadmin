@@ -13,7 +13,7 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionClass;
 use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
 use Williamdes\MariaDBMySQLKBS\SlimData as KBSlimData;
@@ -23,7 +23,7 @@ use function str_replace;
 /**
  * Tests for VariablesController class
  */
-class VariablesControllerTest extends TestCase
+class VariablesControllerTest extends AbstractTestCase
 {
     protected function setUp(): void
     {

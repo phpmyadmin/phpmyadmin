@@ -12,9 +12,9 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\Response;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
-class VariablesControllerTest extends TestCase
+class VariablesControllerTest extends AbstractTestCase
 {
     /** @var Data */
     private $data;

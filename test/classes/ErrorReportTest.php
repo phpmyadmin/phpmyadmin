@@ -11,7 +11,7 @@ use PhpMyAdmin\ErrorReport;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Utils\HttpRequest;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionClass;
 use const JSON_PRETTY_PRINT;
 use const JSON_UNESCAPED_SLASHES;
@@ -25,7 +25,7 @@ use function phpversion;
  *
  * this class is for testing PhpMyAdmin\ErrorReport methods
  */
-class ErrorReportTest extends TestCase
+class ErrorReportTest extends AbstractTestCase
 {
     /** @var ErrorReport $errorReport */
     private $errorReport;

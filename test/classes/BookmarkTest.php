@@ -7,12 +7,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Bookmark;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for Bookmark class
  */
-class BookmarkTest extends TestCase
+class BookmarkTest extends AbstractTestCase
 {
     /**
      * Sets up the fixture, for example, opens a network connection.

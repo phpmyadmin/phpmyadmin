@@ -10,12 +10,12 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\CollationsController;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\Response;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for CollationsController class
  */
-class CollationsControllerTest extends TestCase
+class CollationsControllerTest extends AbstractTestCase
 {
     /**
      * Prepares environment for the test.

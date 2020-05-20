@@ -12,12 +12,12 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Server\Plugins;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\Response;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PluginsController class
  */
-class PluginsControllerTest extends TestCase
+class PluginsControllerTest extends AbstractTestCase
 {
     /**
      * Prepares environment for the test.

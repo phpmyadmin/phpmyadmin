@@ -7,13 +7,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Url;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use function htmlentities;
 
 /**
  * Tests for methods in URL class
  */
-class UrlTest extends TestCase
+class UrlTest extends AbstractTestCase
 {
     /**
      * Sets up the fixture, for example, opens a network connection.

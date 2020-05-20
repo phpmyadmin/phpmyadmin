@@ -8,9 +8,9 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
-class TriggersTest extends TestCase
+class TriggersTest extends AbstractTestCase
 {
     /** @var Triggers */
     private $triggers;

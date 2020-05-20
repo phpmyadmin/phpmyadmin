@@ -7,12 +7,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Properties\Options\Groups;
 
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * tests for PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup class
  */
-class OptionsPropertyRootGroupTest extends TestCase
+class OptionsPropertyRootGroupTest extends AbstractTestCase
 {
     protected $object;
 

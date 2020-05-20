@@ -3,10 +3,10 @@
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisVisualization;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionClass;
 
-class GisVisualizationTest extends TestCase
+class GisVisualizationTest extends AbstractTestCase
 {
     /**
      * Call private functions by setting visibility to public.

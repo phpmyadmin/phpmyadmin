@@ -7,12 +7,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Sanitize;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for methods in Sanitize class
  */
-class SanitizeTest extends TestCase
+class SanitizeTest extends AbstractTestCase
 {
     /**
      * Tests for proper escaping of XSS.

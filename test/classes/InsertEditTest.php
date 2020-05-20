@@ -15,7 +15,7 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Scripts;
 use PhpMyAdmin\Header;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionClass;
 use ReflectionProperty;
 use stdClass;
@@ -27,7 +27,7 @@ use function sprintf;
  *
  * @group medium
  */
-class InsertEditTest extends TestCase
+class InsertEditTest extends AbstractTestCase
 {
     private $insertEdit;
 

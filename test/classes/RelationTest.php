@@ -8,14 +8,14 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PhpMyAdmin\Relation
  *
  * @group medium
  */
-class RelationTest extends TestCase
+class RelationTest extends AbstractTestCase
 {
     /** @var Relation */
     private $relation;

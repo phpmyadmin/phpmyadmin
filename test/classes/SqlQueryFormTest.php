@@ -13,7 +13,7 @@ use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use function htmlspecialchars;
 
 /**
@@ -21,7 +21,7 @@ use function htmlspecialchars;
  *
  * this class is for testing PhpMyAdmin\SqlQueryForm methods
  */
-class SqlQueryFormTest extends TestCase
+class SqlQueryFormTest extends AbstractTestCase
 {
     /** @var SqlQueryForm */
     private $sqlQueryForm;

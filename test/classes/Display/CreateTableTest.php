@@ -9,14 +9,14 @@ namespace PhpMyAdmin\Tests\Display;
 use PhpMyAdmin\Display\CreateTable;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Url;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * PhpMyAdmin\Tests\Display\CreateTableTest class
  *
  * this class is for testing PhpMyAdmin\Display\CreateTable methods
  */
-class CreateTableTest extends TestCase
+class CreateTableTest extends AbstractTestCase
 {
     /**
      * Test for setUp

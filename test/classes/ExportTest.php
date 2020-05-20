@@ -8,7 +8,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\Export\ExportPhparray;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * PhpMyAdmin\ExportTest class
@@ -17,7 +17,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @group large
  */
-class ExportTest extends TestCase
+class ExportTest extends AbstractTestCase
 {
     /** @var Export */
     private $export;

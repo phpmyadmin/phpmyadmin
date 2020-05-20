@@ -10,9 +10,9 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Types;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
-class RoutinesTest extends TestCase
+class RoutinesTest extends AbstractTestCase
 {
     /** @var Routines */
     private $routines;

@@ -9,9 +9,9 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
-class EventsTest extends TestCase
+class EventsTest extends AbstractTestCase
 {
     /** @var Events */
     private $events;

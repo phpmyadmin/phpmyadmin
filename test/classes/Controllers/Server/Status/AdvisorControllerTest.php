@@ -11,10 +11,10 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\Response;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
-class AdvisorControllerTest extends TestCase
+class AdvisorControllerTest extends AbstractTestCase
 {
     /** @var Response */
     private $response;

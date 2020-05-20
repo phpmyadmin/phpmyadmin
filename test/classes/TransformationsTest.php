@@ -8,12 +8,12 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Transformations;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * tests for transformation wrappers
  */
-class TransformationsTest extends TestCase
+class TransformationsTest extends AbstractTestCase
 {
     /** @var Transformations */
     private $transformations;
