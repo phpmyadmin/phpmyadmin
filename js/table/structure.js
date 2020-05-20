@@ -422,6 +422,8 @@ AJAX.registerOnload('table/structure.js', function () {
 
         if (action === 'drop') {
             url = 'index.php?route=/table/structure/drop-confirm';
+        } else if (action === 'primary') {
+            url = 'index.php?route=/table/structure/primary';
         }
 
         $.post(url, submitData, AJAX.responseHandler);

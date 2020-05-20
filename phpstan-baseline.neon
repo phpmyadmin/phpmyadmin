@@ -571,16 +571,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/StructureController.php
 
 		-
-			message: "#^Cannot access offset 'Key_name' on \\(array\\)\\|true\\.$#"
-			count: 2
-			path: libraries/classes/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Cannot access offset 'Column_name' on \\(array\\)\\|true\\.$#"
-			count: 2
-			path: libraries/classes/Controllers/Table/StructureController.php
-
-		-
 			message: "#^Cannot access offset mixed on array\\|bool\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/StructureController.php

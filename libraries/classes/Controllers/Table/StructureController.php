@@ -282,95 +282,13 @@ class StructureController extends AbstractController
                         // phpcs:enable
                     }
 
-                    if (! empty($submit_mult) && ! empty($what)) {
-                        unset($message);
-
-                        Common::table();
-                        $url_query .= Url::getCommon([
-                            'goto' => Url::getFromRoute('/table/sql'),
-                            'back' => Url::getFromRoute('/table/sql'),
-                        ], '&');
-
-                        $full_query = '';
-                        $selectedCount = count($selected);
-
-                        $i = 0;
-                        foreach ($selected as $selectedValue) {
-                            switch ($what) {
-                                case 'primary_fld':
-                                    if ($full_query == '') {
-                                        $full_query .= 'ALTER TABLE '
-                                            . Util::backquote(htmlspecialchars($table))
-                                            . '<br>&nbsp;&nbsp;DROP PRIMARY KEY,'
-                                            . '<br>&nbsp;&nbsp; ADD PRIMARY KEY('
-                                            . '<br>&nbsp;&nbsp;&nbsp;&nbsp; '
-                                            . Util::backquote(htmlspecialchars($selectedValue))
-                                            . ',';
-                                    } else {
-                                        $full_query .= '<br>&nbsp;&nbsp;&nbsp;&nbsp; '
-                                            . Util::backquote(htmlspecialchars($selectedValue))
-                                            . ',';
-                                    }
-                                    if ($i == $selectedCount - 1) {
-                                        $full_query = preg_replace('@,$@', ');<br>', $full_query);
-                                    }
-                                    break;
-                            }
-                            $i++;
-                        }
-
-                        $_url_params = [
-                            'db' => $db,
-                            'table' => $table,
-                            'query_type' => $what,
-                        ];
-                        foreach ($selected as $selectedValue) {
-                            $_url_params['selected'][] = $selectedValue;
-                        }
-
-                        $this->render('mult_submits/other_actions', [
-                            'action' => $action,
-                            'url_params' => $_url_params,
-                            'what' => $what,
-                            'full_query' => $full_query,
-                            'is_foreign_key_check' => Util::isForeignKeyCheck(),
-                        ]);
-
-                        exit;
-                    } elseif (! empty($mult_btn) && $mult_btn == __('Yes')) {
-                        if ($query_type == 'primary_fld') {
-                            // Gets table primary key
-                            $this->dbi->selectDb($db);
-                            $result = $this->dbi->query(
-                                'SHOW KEYS FROM ' . Util::backquote($table) . ';'
-                            );
-                            $primary = '';
-                            while ($row = $this->dbi->fetchAssoc($result)) {
-                                // Backups the list of primary keys
-                                if ($row['Key_name'] == 'PRIMARY') {
-                                    $primary .= $row['Column_name'] . ', ';
-                                }
-                            }
-                            $this->dbi->freeResult($result);
-                        }
-
+                    if (! empty($mult_btn) && $mult_btn == __('Yes')) {
                         $sql_query = '';
                         $sql_query_views = null;
                         $selectedCount = count($selected);
 
                         for ($i = 0; $i < $selectedCount; $i++) {
                             switch ($query_type) {
-                                case 'primary_fld':
-                                    $sql_query .= (empty($sql_query)
-                                            ? 'ALTER TABLE ' . Util::backquote($table)
-                                            . (empty($primary)
-                                                ? ''
-                                                : ' DROP PRIMARY KEY,') . ' ADD PRIMARY KEY( '
-                                            : ', ')
-                                        . Util::backquote($selected[$i])
-                                        . ($i == $selectedCount - 1 ? ');' : '');
-                                    break;
-
                                 case 'index_fld':
                                     $sql_query .= (empty($sql_query)
                                             ? 'ALTER TABLE ' . Util::backquote($table)
@@ -528,6 +446,138 @@ class StructureController extends AbstractController
                 $columns_with_index
             )
         );
+    }
+
+    public function primary(): void
+    {
+        global $db, $table, $message, $url_params;
+        global $sql_query, $reread_info, $showtable;
+        global $tbl_is_view, $tbl_storage_engine, $tbl_collation, $table_info_num_rows;
+
+        $this->dbi->selectDb($this->db);
+        $reread_info = $this->table_obj->getStatusInfo(null, true);
+        $showtable = $this->table_obj->getStatusInfo(
+            null,
+            (isset($reread_info) && $reread_info)
+        );
+
+        $tbl_is_view = false;
+        $tbl_storage_engine = $this->table_obj->getStorageEngine();
+        $tbl_collation = $this->table_obj->getCollation();
+        $table_info_num_rows = $this->table_obj->getNumRows();
+
+        PageSettings::showGroup('TableStructure');
+
+        $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
+        $checkUserPrivileges->getPrivileges();
+
+        $this->response->getHeader()->getScripts()->addFiles([
+            'table/structure.js',
+            'indexes.js',
+        ]);
+
+        $selected = $_POST['selected'] ?? [];
+        $selected_fld = $_POST['selected_fld'] ?? [];
+
+        if (empty($selected) && empty($selected_fld)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No column selected.'));
+
+            return;
+        }
+
+        $primary = $this->getKeyForTablePrimary();
+        if (empty($primary) && ! empty($selected_fld)) {
+            // no primary key, so we can safely create new
+            $mult_btn = __('Yes');
+            $selected = $selected_fld;
+        }
+
+        $mult_btn = $_POST['mult_btn'] ?? $mult_btn ?? '';
+
+        if (! empty($selected_fld) && ! empty($primary)) {
+            Common::table();
+
+            $this->render('table/structure/primary', [
+                'db' => $db,
+                'table' => $table,
+                'selected' => $selected_fld,
+            ]);
+
+            return;
+        }
+
+        if ($mult_btn === __('Yes')) {
+            $sql_query = 'ALTER TABLE ' . Util::backquote($table);
+            if (! empty($primary)) {
+                $sql_query .= ' DROP PRIMARY KEY,';
+            }
+            $sql_query .= ' ADD PRIMARY KEY(';
+
+            $i = 1;
+            $selectedCount = count($selected);
+            foreach ($selected as $field) {
+                $sql_query .= Util::backquote($field);
+                $sql_query .= $i++ === $selectedCount ? ');' : ', ';
+            }
+
+            $this->dbi->selectDb($db);
+            $result = $this->dbi->tryQuery($sql_query);
+
+            if (! $result) {
+                $message = Message::error((string) $this->dbi->getError());
+            }
+        }
+
+        if (empty($message)) {
+            $message = Message::success();
+        }
+        $this->response->addHTML(
+            Generator::getMessage($message, $sql_query)
+        );
+
+        $cfgRelation = $this->relation->getRelationsParam();
+
+        $url_params = [];
+
+        Common::table();
+
+        $this->_url_query = Url::getCommonRaw([
+            'db' => $db,
+            'table' => $table,
+            'goto' => Url::getFromRoute('/table/structure'),
+            'back' => Url::getFromRoute('/table/structure'),
+        ]);
+
+        $url_params['goto'] = Url::getFromRoute('/table/structure');
+        $url_params['back'] = Url::getFromRoute('/table/structure');
+
+        $primary = Index::getPrimary($this->table, $this->db);
+        $columns_with_index = $this->dbi
+            ->getTable($this->db, $this->table)
+            ->getColumnsWithIndex(
+                Index::UNIQUE | Index::INDEX | Index::SPATIAL
+                | Index::FULLTEXT
+            );
+        $columns_with_unique_index = $this->dbi
+            ->getTable($this->db, $this->table)
+            ->getColumnsWithIndex(Index::UNIQUE);
+
+        $fields = (array) $this->dbi->getColumns(
+            $this->db,
+            $this->table,
+            null,
+            true
+        );
+
+        $this->response->addHTML($this->displayStructure(
+            $cfgRelation,
+            $columns_with_unique_index,
+            $url_params,
+            $primary,
+            $fields,
+            $columns_with_index
+        ));
     }
 
     public function drop(): void
@@ -1091,7 +1141,6 @@ class StructureController extends AbstractController
     {
         $types = [
             'change',
-            'primary',
             'index',
             'unique',
             'spatial',
@@ -1845,10 +1894,10 @@ class StructureController extends AbstractController
         $primary = '';
         while ($row = $this->dbi->fetchAssoc($result)) {
             // Backups the list of primary keys
-            if ($row['Key_name'] == 'PRIMARY') {
+            if (is_array($row) && $row['Key_name'] == 'PRIMARY') {
                 $primary .= $row['Column_name'] . ', ';
             }
-        } // end while
+        }
         $this->dbi->freeResult($result);
 
         return $primary;
@@ -1872,19 +1921,6 @@ class StructureController extends AbstractController
         $mult_btn = null;
         $centralColsError = null;
         switch ($submit_mult) {
-            case 'primary':
-                // Gets table primary key
-                $primary = $this->getKeyForTablePrimary();
-                if (empty($primary)) {
-                    // no primary key, so we can safely create new
-                    $is_unset_submit_mult = true;
-                    $query_type = 'primary_fld';
-                    $mult_btn   = __('Yes');
-                } else {
-                    // primary key exists, so lets as user
-                    $what = 'primary_fld';
-                }
-                break;
             case 'index':
                 $is_unset_submit_mult = true;
                 $query_type = 'index_fld';
