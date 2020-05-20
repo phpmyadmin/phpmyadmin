@@ -71,4 +71,4 @@ done
 git add po/*.po po/phpmyadmin.pot
 git commit -s -m 'Update po files
 
-[CI skip]'
+[ci skip]'
