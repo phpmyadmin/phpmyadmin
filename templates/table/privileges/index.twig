@@ -8,7 +8,7 @@
         {{ 'Users having access to "%s"'|trans|format('<a href="' ~ table_url ~ get_common({
           'db': db,
           'table': table
-        }, '&') ~ '">' ~ db ~ '.' ~ table ~ '</a>')|raw }}
+        }, '&') ~ '">' ~ db|escape('html') ~ '.' ~ table|escape('html') ~ '</a>')|raw }}
       </legend>
 
       <div class="responsivetable jsresponsive">
