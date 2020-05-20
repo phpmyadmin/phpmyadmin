@@ -43,7 +43,7 @@ class TwoFactorTest extends PmaTestCase
         if (! isset($config['settings'])) {
             $config['settings'] = [];
         }
-        $result = $this->getMockBuilder('PhpMyAdmin\TwoFactor')
+        $result = $this->getMockBuilder(TwoFactor::class)
             ->setMethods(['readConfig'])
             ->disableOriginalConstructor()
             ->getMock();

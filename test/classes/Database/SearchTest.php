@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Database;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
@@ -31,7 +32,7 @@ class SearchTest extends PmaTestCase
         $GLOBALS['db'] = 'pma';
 
         //mock DBI
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 

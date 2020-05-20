@@ -61,7 +61,7 @@ class ImportLdiTest extends PmaTestCase
         $GLOBALS['table'] = 'phpmyadmintest';
 
         //Mock DBI
-        $this->dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $this->dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $this->dbi;

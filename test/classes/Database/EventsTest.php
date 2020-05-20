@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Database;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Response;
@@ -387,7 +388,7 @@ class EventsTest extends TestCase
         unset($_POST);
         $_POST = $request;
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())

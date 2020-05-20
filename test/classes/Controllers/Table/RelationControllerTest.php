@@ -6,8 +6,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Controllers\Table\RelationController;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
@@ -70,7 +72,7 @@ class RelationControllerTest extends PmaTestCase
                 'Column_name' => 'Column_name3',
             ],
         ];
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('getTableIndexes')
@@ -99,7 +101,7 @@ class RelationControllerTest extends PmaTestCase
             'viewCol2',
             'viewCol3',
         ];
-        $tableMock = $this->getMockBuilder('PhpMyAdmin\Table')
+        $tableMock = $this->getMockBuilder(Table::class)
             ->disableOriginalConstructor()
             ->getMock();
         // Test the situation when the table is a view
@@ -143,7 +145,7 @@ class RelationControllerTest extends PmaTestCase
         $indexedColumns = [
             'primaryTableCol',
         ];
-        $tableMock = $this->getMockBuilder('PhpMyAdmin\Table')
+        $tableMock = $this->getMockBuilder(Table::class)
             ->disableOriginalConstructor()
             ->getMock();
         // Test the situation when the table is a view

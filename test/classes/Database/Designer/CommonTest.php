@@ -47,7 +47,7 @@ class CommonTest extends TestCase
     {
         $pg = 1;
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('escapeString')
@@ -87,7 +87,7 @@ class CommonTest extends TestCase
         $pg = 1;
         $pageName = 'pageName';
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('escapeString')
@@ -122,7 +122,7 @@ class CommonTest extends TestCase
     {
         $pg = 1;
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -153,7 +153,7 @@ class CommonTest extends TestCase
         $db = 'db';
         $default_pg = '2';
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -188,7 +188,7 @@ class CommonTest extends TestCase
     {
         $db = 'db';
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -224,7 +224,7 @@ class CommonTest extends TestCase
         $db = 'db';
         $default_pg = '2';
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -260,7 +260,7 @@ class CommonTest extends TestCase
         $db = 'db';
         $first_pg = '1';
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 

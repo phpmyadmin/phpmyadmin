@@ -83,7 +83,7 @@ class ConfigGeneratorTest extends PmaTestCase
      */
     public function testGetVarExport()
     {
-        $reflection = new ReflectionClass('PhpMyAdmin\Setup\ConfigGenerator');
+        $reflection = new ReflectionClass(ConfigGenerator::class);
         $method = $reflection->getMethod('_getVarExport');
         $method->setAccessible(true);
 
@@ -134,7 +134,7 @@ class ConfigGeneratorTest extends PmaTestCase
      */
     public function testIsZeroBasedArray()
     {
-        $reflection = new ReflectionClass('PhpMyAdmin\Setup\ConfigGenerator');
+        $reflection = new ReflectionClass(ConfigGenerator::class);
         $method = $reflection->getMethod('_isZeroBasedArray');
         $method->setAccessible(true);
 
@@ -185,7 +185,7 @@ class ConfigGeneratorTest extends PmaTestCase
      */
     public function testExportZeroBasedArray()
     {
-        $reflection = new ReflectionClass('PhpMyAdmin\Setup\ConfigGenerator');
+        $reflection = new ReflectionClass(ConfigGenerator::class);
         $method = $reflection->getMethod('_exportZeroBasedArray');
         $method->setAccessible(true);
 

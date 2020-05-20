@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Auth;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Plugins\Auth\AuthenticationSignon;
 use PhpMyAdmin\Tests\PmaTestCase;
@@ -369,7 +370,7 @@ class AuthenticationSignonTest extends PmaTestCase
         $this->object->expects($this->exactly(1))
             ->method('showLoginForm');
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -405,7 +406,7 @@ class AuthenticationSignonTest extends PmaTestCase
         $this->object->expects($this->exactly(1))
             ->method('showLoginForm');
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 

@@ -80,7 +80,7 @@ class FormTest extends PmaTestCase
      */
     public function testGetOptionType()
     {
-        $attrFieldsTypes = new ReflectionProperty('PhpMyAdmin\Config\Form', '_fieldsTypes');
+        $attrFieldsTypes = new ReflectionProperty(Form::class, '_fieldsTypes');
         $attrFieldsTypes->setAccessible(true);
         $attrFieldsTypes->setValue(
             $this->object,
@@ -139,7 +139,7 @@ class FormTest extends PmaTestCase
      */
     public function testReadFormPathsCallBack()
     {
-        $reflection = new ReflectionClass('PhpMyAdmin\Config\Form');
+        $reflection = new ReflectionClass(Form::class);
         $method = $reflection->getMethod('_readFormPathsCallback');
         $method->setAccessible(true);
 
@@ -192,7 +192,7 @@ class FormTest extends PmaTestCase
      */
     public function testReadFormPaths()
     {
-        $reflection = new ReflectionClass('PhpMyAdmin\Config\Form');
+        $reflection = new ReflectionClass(Form::class);
         $method = $reflection->getMethod('readFormPaths');
         $method->setAccessible(true);
 
@@ -248,7 +248,7 @@ class FormTest extends PmaTestCase
      */
     public function testReadTypes()
     {
-        $reflection = new ReflectionClass('PhpMyAdmin\Config\Form');
+        $reflection = new ReflectionClass(Form::class);
         $method = $reflection->getMethod('readTypes');
         $method->setAccessible(true);
 
@@ -282,7 +282,7 @@ class FormTest extends PmaTestCase
      */
     public function testLoadForm()
     {
-        $this->object = $this->getMockBuilder('PhpMyAdmin\Config\Form')
+        $this->object = $this->getMockBuilder(Form::class)
             ->disableOriginalConstructor()
             ->setMethods(['readFormPaths', 'readTypes'])
             ->getMock();

@@ -6,12 +6,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Controllers\Table\IndexesController;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
@@ -44,7 +46,7 @@ class IndexesControllerTest extends PmaTestCase
             'server' => 1,
         ];
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -85,7 +87,7 @@ class IndexesControllerTest extends PmaTestCase
     {
         $sql_query = 'ALTER TABLE `db`.`table` DROP PRIMARY KEY, ADD UNIQUE ;';
 
-        $table = $this->getMockBuilder('PhpMyAdmin\Table')
+        $table = $this->getMockBuilder(Table::class)
             ->disableOriginalConstructor()
             ->getMock();
         $table->expects($this->any())->method('getSqlQueryForIndexCreateOrEdit')
@@ -135,7 +137,7 @@ class IndexesControllerTest extends PmaTestCase
      */
     public function testDisplayFormAction()
     {
-        $table = $this->getMockBuilder('PhpMyAdmin\Table')
+        $table = $this->getMockBuilder(Table::class)
             ->disableOriginalConstructor()
             ->getMock();
         $table->expects($this->any())->method('getStatusInfo')

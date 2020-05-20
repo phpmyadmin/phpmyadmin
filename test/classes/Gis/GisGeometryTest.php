@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;
 
+use PhpMyAdmin\Gis\GisGeometry;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 
@@ -25,7 +26,7 @@ class GisGeometryTest extends TestCase
      */
     protected function setUp(): void
     {
-        $this->object = $this->getMockForAbstractClass('PhpMyAdmin\Gis\GisGeometry');
+        $this->object = $this->getMockForAbstractClass(GisGeometry::class);
     }
 
     /**
@@ -49,7 +50,7 @@ class GisGeometryTest extends TestCase
      */
     private function _callProtectedFunction($name, $params)
     {
-        $class = new ReflectionClass('PhpMyAdmin\Gis\GisGeometry');
+        $class = new ReflectionClass(GisGeometry::class);
         $method = $class->getMethod($name);
         $method->setAccessible(true);
 

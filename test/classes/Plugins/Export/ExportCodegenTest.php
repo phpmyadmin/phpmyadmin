@@ -6,7 +6,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Export\ExportCodegen;
+use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
+use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
+use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
+use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionClass;
 use ReflectionMethod;
@@ -48,14 +55,14 @@ class ExportCodegenTest extends PmaTestCase
      */
     public function testInitSpecificVariables()
     {
-        $method = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportCodegen', 'initSpecificVariables');
+        $method = new ReflectionMethod(ExportCodegen::class, 'initSpecificVariables');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrCgFormats = new ReflectionProperty('PhpMyAdmin\Plugins\Export\ExportCodegen', '_cgFormats');
+        $attrCgFormats = new ReflectionProperty(ExportCodegen::class, '_cgFormats');
         $attrCgFormats->setAccessible(true);
 
-        $attrCgHandlers = new ReflectionProperty('PhpMyAdmin\Plugins\Export\ExportCodegen', '_cgHandlers');
+        $attrCgHandlers = new ReflectionProperty(ExportCodegen::class, '_cgHandlers');
         $attrCgHandlers->setAccessible(true);
 
         $this->assertEquals(
@@ -82,16 +89,16 @@ class ExportCodegenTest extends PmaTestCase
      */
     public function testSetProperties()
     {
-        $method = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportCodegen', 'setProperties');
+        $method = new ReflectionMethod(ExportCodegen::class, 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty('PhpMyAdmin\Plugins\Export\ExportCodegen', 'properties');
+        $attrProperties = new ReflectionProperty(ExportCodegen::class, 'properties');
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Plugins\ExportPluginProperties',
+            ExportPluginProperties::class,
             $properties
         );
 
@@ -118,7 +125,7 @@ class ExportCodegenTest extends PmaTestCase
         $options = $properties->getOptions();
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup',
+            OptionsPropertyRootGroup::class,
             $options
         );
 
@@ -131,7 +138,7 @@ class ExportCodegenTest extends PmaTestCase
         $generalOptions = $generalOptionsArray[0];
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup',
+            OptionsPropertyMainGroup::class,
             $generalOptions
         );
 
@@ -145,7 +152,7 @@ class ExportCodegenTest extends PmaTestCase
         $hidden = $generalProperties[0];
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem',
+            HiddenPropertyItem::class,
             $hidden
         );
 
@@ -157,7 +164,7 @@ class ExportCodegenTest extends PmaTestCase
         $select = $generalProperties[1];
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Items\SelectPropertyItem',
+            SelectPropertyItem::class,
             $select
         );
 
@@ -241,7 +248,7 @@ class ExportCodegenTest extends PmaTestCase
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = true;
         $GLOBALS['save_on_server'] = false;
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -322,7 +329,7 @@ class ExportCodegenTest extends PmaTestCase
      */
     public function testHandleNHibernateCSBody()
     {
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -342,7 +349,7 @@ class ExportCodegenTest extends PmaTestCase
             ->will($this->returnValue(null));
 
         $GLOBALS['dbi'] = $dbi;
-        $method = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportCodegen', '_handleNHibernateCSBody');
+        $method = new ReflectionMethod(ExportCodegen::class, '_handleNHibernateCSBody');
         $method->setAccessible(true);
         $result = $method->invoke($this->object, 'db', 'table', "\n");
 
@@ -387,7 +394,7 @@ class ExportCodegenTest extends PmaTestCase
      */
     public function testHandleNHibernateXMLBody()
     {
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -412,7 +419,7 @@ class ExportCodegenTest extends PmaTestCase
             ->will($this->returnValue(null));
 
         $GLOBALS['dbi'] = $dbi;
-        $method = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportCodegen', '_handleNHibernateXMLBody');
+        $method = new ReflectionMethod(ExportCodegen::class, '_handleNHibernateXMLBody');
         $method->setAccessible(true);
         $result = $method->invoke($this->object, 'db', 'table', "\n");
 
@@ -444,7 +451,7 @@ class ExportCodegenTest extends PmaTestCase
      */
     public function testSetGetCgFormats()
     {
-        $reflection = new ReflectionClass('PhpMyAdmin\Plugins\Export\ExportCodegen');
+        $reflection = new ReflectionClass(ExportCodegen::class);
 
         $getter = $reflection->getMethod('_getCgFormats');
         $setter = $reflection->getMethod('_setCgFormats');
@@ -472,7 +479,7 @@ class ExportCodegenTest extends PmaTestCase
      */
     public function testSetGetCgHandlers()
     {
-        $reflection = new ReflectionClass('PhpMyAdmin\Plugins\Export\ExportCodegen');
+        $reflection = new ReflectionClass(ExportCodegen::class);
 
         $getter = $reflection->getMethod('_getCgHandlers');
         $setter = $reflection->getMethod('_setCgHandlers');

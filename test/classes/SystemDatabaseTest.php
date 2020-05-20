@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\SystemDatabase;
 
 /**
@@ -33,7 +34,7 @@ class SystemDatabaseTest extends PmaTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['pmadb'] = '';
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 

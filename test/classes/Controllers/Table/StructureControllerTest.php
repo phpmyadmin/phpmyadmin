@@ -8,10 +8,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
+use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
@@ -43,11 +45,11 @@ class StructureControllerTest extends PmaTestCase
         $GLOBALS['cfg']['Server']['user'] = 'pma_user';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
 
-        $table = $this->getMockBuilder('PhpMyAdmin\Table')
+        $table = $this->getMockBuilder(Table::class)
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('getTable')
@@ -255,7 +257,7 @@ class StructureControllerTest extends PmaTestCase
      */
     public function testPMAGetDataForSubmitMult()
     {
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())

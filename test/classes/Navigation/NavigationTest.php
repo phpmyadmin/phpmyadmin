@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
@@ -66,7 +67,7 @@ class NavigationTest extends PmaTestCase
         $expectedQuery = 'INSERT INTO `pmadb`.`navigationhiding`'
             . '(`username`, `item_name`, `item_type`, `db_name`, `table_name`)'
             . " VALUES ('user','itemName','itemType','db','')";
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
@@ -92,7 +93,7 @@ class NavigationTest extends PmaTestCase
         $expectedQuery = 'DELETE FROM `pmadb`.`navigationhiding`'
             . " WHERE `username`='user' AND `item_name`='itemName'"
             . " AND `item_type`='itemType' AND `db_name`='db'";
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())

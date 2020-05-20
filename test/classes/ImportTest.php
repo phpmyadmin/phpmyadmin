@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Import;
 use PhpMyAdmin\SqlParser\Parser;
@@ -494,7 +495,7 @@ class ImportTest extends TestCase
     {
         $GLOBALS['db'] = 'PMA';
         //mock DBI
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -580,7 +581,7 @@ class ImportTest extends TestCase
     {
         $GLOBALS['db'] = 'PMA';
         //mock DBI
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 

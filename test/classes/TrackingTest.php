@@ -169,7 +169,7 @@ class TrackingTest extends TestCase
 
         // Mock dbi
         $dbi_old = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 

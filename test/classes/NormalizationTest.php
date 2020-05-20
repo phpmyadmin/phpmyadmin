@@ -13,6 +13,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Types;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Message;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 use stdClass;
@@ -44,7 +45,7 @@ class NormalizationTest extends TestCase
         //$_SESSION
 
         //mock DBI
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->types = new Types($dbi);
@@ -485,7 +486,7 @@ class NormalizationTest extends TestCase
         $this->assertArrayHasKey('queryError', $result);
         $this->assertArrayHasKey('message', $result);
         $this->assertInstanceOf(
-            'PhpMyAdmin\Message',
+            Message::class,
             $result['message']
         );
     }

@@ -182,7 +182,7 @@ class VersionInformationTest extends PmaTestCase
             [],
         ];
 
-        $mockVersionInfo = $this->getMockBuilder('PhpMyAdmin\VersionInformation')
+        $mockVersionInfo = $this->getMockBuilder(VersionInformation::class)
             ->setMethods(['evaluateVersionCondition'])
             ->getMock();
 
@@ -218,7 +218,7 @@ class VersionInformationTest extends PmaTestCase
             [],
         ];
 
-        $mockVersionInfo = $this->getMockBuilder('PhpMyAdmin\VersionInformation')
+        $mockVersionInfo = $this->getMockBuilder(VersionInformation::class)
             ->setMethods(['evaluateVersionCondition'])
             ->getMock();
 
@@ -249,7 +249,7 @@ class VersionInformationTest extends PmaTestCase
             [],
         ];
 
-        $mockVersionInfo = $this->getMockBuilder('PhpMyAdmin\VersionInformation')
+        $mockVersionInfo = $this->getMockBuilder(VersionInformation::class)
             ->setMethods(['evaluateVersionCondition'])
             ->getMock();
 
@@ -565,7 +565,7 @@ class VersionInformationTest extends PmaTestCase
      */
     public function testEvaluateVersionCondition()
     {
-        $mockVersionInfo = $this->getMockBuilder('PhpMyAdmin\VersionInformation')
+        $mockVersionInfo = $this->getMockBuilder(VersionInformation::class)
             ->setMethods(['getPHPVersion'])
             ->getMock();
 

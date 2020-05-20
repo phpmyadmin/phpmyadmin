@@ -6,7 +6,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Auth;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Header;
+use PhpMyAdmin\Footer;
 use PhpMyAdmin\Plugins\Auth\AuthenticationHttp;
 use PhpMyAdmin\Tests\PmaTestCase;
 use function base64_encode;
@@ -60,7 +63,7 @@ class AuthenticationHttpTest extends PmaTestCase
     public function doMockResponse($set_minimal, $body_id, $set_title, ...$headers)
     {
         // mock footer
-        $mockFooter = $this->getMockBuilder('PhpMyAdmin\Footer')
+        $mockFooter = $this->getMockBuilder(Footer::class)
             ->disableOriginalConstructor()
             ->setMethods(['setMinimal'])
             ->getMock();
@@ -71,7 +74,7 @@ class AuthenticationHttpTest extends PmaTestCase
 
         // mock header
 
-        $mockHeader = $this->getMockBuilder('PhpMyAdmin\Header')
+        $mockHeader = $this->getMockBuilder(Header::class)
             ->disableOriginalConstructor()
             ->setMethods(
                 [
@@ -413,7 +416,7 @@ class AuthenticationHttpTest extends PmaTestCase
      */
     public function testAuthFails()
     {
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -441,7 +444,7 @@ class AuthenticationHttpTest extends PmaTestCase
             $result
         );
 
-        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationHttp')
+        $this->object = $this->getMockBuilder(AuthenticationHttp::class)
             ->disableOriginalConstructor()
             ->setMethods(['authForm'])
             ->getMock();

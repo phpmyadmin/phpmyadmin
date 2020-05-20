@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PHPUnit\Framework\TestCase;
 
@@ -49,7 +50,7 @@ class RelationTest extends TestCase
      */
     public function testPMAQueryAsControlUser()
     {
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -205,7 +206,7 @@ class RelationTest extends TestCase
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $_SESSION['relation'] = [];
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -251,7 +252,7 @@ class RelationTest extends TestCase
      */
     public function testPMATryUpgradeTransformations()
     {
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())

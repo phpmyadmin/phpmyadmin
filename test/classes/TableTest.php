@@ -312,7 +312,7 @@ class TableTest extends PmaTestCase
     public function testCreate()
     {
         $table = new Table('table1', 'pma_test');
-        $this->assertInstanceOf('PhpMyAdmin\Table', $table);
+        $this->assertInstanceOf(Table::class, $table);
     }
 
     /**
@@ -1225,7 +1225,7 @@ class TableTest extends PmaTestCase
      */
     public function testGetColumnsMeta()
     {
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1383,7 +1383,7 @@ class TableTest extends PmaTestCase
     public function testCheckIfMinRecordsExist()
     {
         $old_dbi = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())

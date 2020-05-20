@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Schema;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Schema\Dia\DiaRelationSchema;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\PmaTestCase;
@@ -54,7 +55,7 @@ class DiaRelationSchemaTest extends PmaTestCase
         $relation = new Relation($GLOBALS['dbi']);
         $relation->getRelationsParam();
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 

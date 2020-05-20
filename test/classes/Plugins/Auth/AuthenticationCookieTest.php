@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Auth;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Footer;
@@ -103,7 +104,7 @@ class AuthenticationCookieTest extends PmaTestCase
             ->will($this->returnValue(false));
 
         // mock footer
-        $mockFooter = $this->getMockBuilder('PhpMyAdmin\Footer')
+        $mockFooter = $this->getMockBuilder(Footer::class)
             ->disableOriginalConstructor()
             ->setMethods(['setMinimal'])
             ->getMock();
@@ -114,7 +115,7 @@ class AuthenticationCookieTest extends PmaTestCase
 
         // mock header
 
-        $mockHeader = $this->getMockBuilder('PhpMyAdmin\Header')
+        $mockHeader = $this->getMockBuilder(Header::class)
             ->disableOriginalConstructor()
             ->setMethods(
                 [
@@ -162,7 +163,7 @@ class AuthenticationCookieTest extends PmaTestCase
 
         // mock error handler
 
-        $mockErrorHandler = $this->getMockBuilder('PhpMyAdmin\ErrorHandler')
+        $mockErrorHandler = $this->getMockBuilder(ErrorHandler::class)
             ->disableOriginalConstructor()
             ->setMethods(['hasDisplayErrors'])
             ->getMock();
@@ -558,7 +559,7 @@ class AuthenticationCookieTest extends PmaTestCase
         $GLOBALS['PMA_Config']->set('is_https', false);
 
         // mock for blowfish function
-        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationCookie')
+        $this->object = $this->getMockBuilder(AuthenticationCookie::class)
             ->disableOriginalConstructor()
             ->setMethods(['cookieDecrypt'])
             ->getMock();
@@ -599,7 +600,7 @@ class AuthenticationCookieTest extends PmaTestCase
         $GLOBALS['PMA_Config']->set('is_https', false);
 
         // mock for blowfish function
-        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationCookie')
+        $this->object = $this->getMockBuilder(AuthenticationCookie::class)
             ->disableOriginalConstructor()
             ->setMethods(['cookieDecrypt'])
             ->getMock();
@@ -644,7 +645,7 @@ class AuthenticationCookieTest extends PmaTestCase
         $GLOBALS['PMA_Config']->set('is_https', false);
 
         // mock for blowfish function
-        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationCookie')
+        $this->object = $this->getMockBuilder(AuthenticationCookie::class)
             ->disableOriginalConstructor()
             ->setMethods(['showFailure', 'cookieDecrypt'])
             ->getMock();
@@ -753,7 +754,7 @@ class AuthenticationCookieTest extends PmaTestCase
      */
     public function testAuthFailsNoPass()
     {
-        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationCookie')
+        $this->object = $this->getMockBuilder(AuthenticationCookie::class)
             ->disableOriginalConstructor()
             ->setMethods(['showLoginForm'])
             ->getMock();
@@ -779,7 +780,7 @@ class AuthenticationCookieTest extends PmaTestCase
      */
     public function testAuthFailsDeny()
     {
-        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationCookie')
+        $this->object = $this->getMockBuilder(AuthenticationCookie::class)
             ->disableOriginalConstructor()
             ->setMethods(['showLoginForm'])
             ->getMock();
@@ -804,7 +805,7 @@ class AuthenticationCookieTest extends PmaTestCase
      */
     public function testAuthFailsActivity()
     {
-        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationCookie')
+        $this->object = $this->getMockBuilder(AuthenticationCookie::class)
             ->disableOriginalConstructor()
             ->setMethods(['showLoginForm'])
             ->getMock();
@@ -833,7 +834,7 @@ class AuthenticationCookieTest extends PmaTestCase
      */
     public function testAuthFailsDBI()
     {
-        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationCookie')
+        $this->object = $this->getMockBuilder(AuthenticationCookie::class)
             ->disableOriginalConstructor()
             ->setMethods(['showLoginForm'])
             ->getMock();
@@ -841,7 +842,7 @@ class AuthenticationCookieTest extends PmaTestCase
         $GLOBALS['server'] = 2;
         $_COOKIE['pmaAuth-2'] = 'pass';
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -869,12 +870,12 @@ class AuthenticationCookieTest extends PmaTestCase
      */
     public function testAuthFailsErrno()
     {
-        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationCookie')
+        $this->object = $this->getMockBuilder(AuthenticationCookie::class)
             ->disableOriginalConstructor()
             ->setMethods(['showLoginForm'])
             ->getMock();
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -908,7 +909,7 @@ class AuthenticationCookieTest extends PmaTestCase
     public function testGetEncryptionSecretEmpty()
     {
         $method = new ReflectionMethod(
-            'PhpMyAdmin\Plugins\Auth\AuthenticationCookie',
+            AuthenticationCookie::class,
             '_getEncryptionSecret'
         );
         $method->setAccessible(true);
@@ -937,7 +938,7 @@ class AuthenticationCookieTest extends PmaTestCase
     public function testGetEncryptionSecretConfigured()
     {
         $method = new ReflectionMethod(
-            'PhpMyAdmin\Plugins\Auth\AuthenticationCookie',
+            AuthenticationCookie::class,
             '_getEncryptionSecret'
         );
         $method->setAccessible(true);
@@ -1123,7 +1124,7 @@ class AuthenticationCookieTest extends PmaTestCase
             'server' => 'b 2',
         ];
         $method = new ReflectionMethod(
-            'PhpMyAdmin\Plugins\Auth\AuthenticationCookie',
+            AuthenticationCookie::class,
             '_getSessionEncryptionSecret'
         );
         $method->setAccessible(true);

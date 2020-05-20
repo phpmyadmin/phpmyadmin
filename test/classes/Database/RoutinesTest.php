@@ -1155,7 +1155,7 @@ class RoutinesTest extends TestCase
         $errors = [];
 
         $old_dbi = $GLOBALS['dbi'] ?? null;
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->types = new Types($dbi);

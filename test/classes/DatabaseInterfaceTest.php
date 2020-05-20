@@ -7,6 +7,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\SystemDatabase;
+use PhpMyAdmin\Database\DatabaseList;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Util;
 use stdClass;
@@ -171,7 +173,7 @@ class DatabaseInterfaceTest extends PmaTestCase
     public function testGetSystemDatabase()
     {
         $sd = $this->_dbi->getSystemDatabase();
-        $this->assertInstanceOf('PhpMyAdmin\SystemDatabase', $sd);
+        $this->assertInstanceOf(SystemDatabase::class, $sd);
     }
 
     /**
@@ -186,7 +188,7 @@ class DatabaseInterfaceTest extends PmaTestCase
         $GLOBALS['db'] = '';
         $GLOBALS['cfg']['Server']['only_db'] = [];
         $this->_dbi->postConnectControl();
-        $this->assertInstanceOf('PhpMyAdmin\Database\DatabaseList', $GLOBALS['dblist']);
+        $this->assertInstanceOf(DatabaseList::class, $GLOBALS['dblist']);
     }
 
     /**

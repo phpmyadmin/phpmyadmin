@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ThemeManager;
 
@@ -25,7 +26,7 @@ class ThemeManagerTest extends PmaTestCase
         $GLOBALS['server'] = 99;
         $GLOBALS['PMA_Config'] = new Config();
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('escapeString')

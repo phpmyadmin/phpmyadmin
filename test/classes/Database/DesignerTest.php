@@ -58,7 +58,7 @@ class DesignerTest extends TestCase
      */
     private function _mockDatabaseInteraction($db)
     {
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 

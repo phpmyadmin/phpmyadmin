@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Auth;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Plugins\Auth\AuthenticationConfig;
@@ -95,7 +96,7 @@ class AuthenticationConfigTest extends PmaTestCase
         $GLOBALS['cfg']['Servers'] = [1];
         $GLOBALS['allowDeny_forbidden'] = false;
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;

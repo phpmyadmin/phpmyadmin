@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Controllers\Table\SearchController;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table\Search;
@@ -46,7 +47,7 @@ class SearchControllerTest extends PmaTestCase
         $GLOBALS['cfgRelation'] = $relation->getRelationsParam();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->types = new Types($dbi);

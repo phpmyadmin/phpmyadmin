@@ -80,7 +80,7 @@ class ReplicationGuiTest extends TestCase
             ],
         ];
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 

@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Properties;
 
+use PhpMyAdmin\Properties\PropertyItem;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -20,7 +21,7 @@ class PropertyItemTest extends TestCase
      */
     protected function setUp(): void
     {
-        $this->stub = $this->getMockForAbstractClass('PhpMyAdmin\Properties\PropertyItem');
+        $this->stub = $this->getMockForAbstractClass(PropertyItem::class);
     }
 
     /**

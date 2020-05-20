@@ -35,7 +35,7 @@ class ServerConfigChecksTest extends PmaTestCase
         $cf = new ConfigFile();
         $GLOBALS['ConfigFile'] = $cf;
 
-        $reflection = new ReflectionProperty('PhpMyAdmin\Config\ConfigFile', '_id');
+        $reflection = new ReflectionProperty(ConfigFile::class, '_id');
         $reflection->setAccessible(true);
         $this->sessionID = $reflection->getValue($cf);
 
@@ -69,7 +69,7 @@ class ServerConfigChecksTest extends PmaTestCase
         $_SESSION[$this->sessionID]['BZipDump'] = true;
         $_SESSION[$this->sessionID]['ZipDump'] = true;
 
-        $configChecker = $this->getMockBuilder('PhpMyAdmin\Config\ServerConfigChecks')
+        $configChecker = $this->getMockBuilder(ServerConfigChecks::class)
             ->setMethods(['functionExists'])
             ->setConstructorArgs([$GLOBALS['ConfigFile']])
             ->getMock();

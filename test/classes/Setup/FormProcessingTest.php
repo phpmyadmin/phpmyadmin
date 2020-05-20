@@ -8,6 +8,7 @@ namespace PhpMyAdmin\Tests\Setup;
 
 use PhpMyAdmin\Setup\FormProcessing;
 use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Config\FormDisplay;
 use function ob_get_clean;
 use function ob_start;
 
@@ -44,7 +45,7 @@ class FormProcessingTest extends PmaTestCase
         );
 
         // case 1
-        $formDisplay = $this->getMockBuilder('PhpMyAdmin\Config\FormDisplay')
+        $formDisplay = $this->getMockBuilder(FormDisplay::class)
             ->disableOriginalConstructor()
             ->setMethods(['process', 'getDisplay'])
             ->getMock();
@@ -61,7 +62,7 @@ class FormProcessingTest extends PmaTestCase
         FormProcessing::process($formDisplay);
 
         // case 2
-        $formDisplay = $this->getMockBuilder('PhpMyAdmin\Config\FormDisplay')
+        $formDisplay = $this->getMockBuilder(FormDisplay::class)
             ->disableOriginalConstructor()
             ->setMethods(['process', 'hasErrors', 'displayErrors'])
             ->getMock();
@@ -101,7 +102,7 @@ class FormProcessingTest extends PmaTestCase
         );
 
         // case 3
-        $formDisplay = $this->getMockBuilder('PhpMyAdmin\Config\FormDisplay')
+        $formDisplay = $this->getMockBuilder(FormDisplay::class)
             ->disableOriginalConstructor()
             ->setMethods(['process', 'hasErrors'])
             ->getMock();

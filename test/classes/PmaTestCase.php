@@ -94,7 +94,7 @@ class PmaTestCase extends TestCase
             }
         }
 
-        $this->attrInstance = new ReflectionProperty('PhpMyAdmin\Response', '_instance');
+        $this->attrInstance = new ReflectionProperty(Response::class, '_instance');
         $this->attrInstance->setAccessible(true);
         $this->attrInstance->setValue($mockResponse);
 

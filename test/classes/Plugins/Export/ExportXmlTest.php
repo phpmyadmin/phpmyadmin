@@ -8,6 +8,11 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Export\ExportXml;
+use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
+use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
+use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
+use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
+use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionMethod;
@@ -60,16 +65,16 @@ class ExportXmlTest extends PmaTestCase
      */
     public function testSetProperties()
     {
-        $method = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportXml', 'setProperties');
+        $method = new ReflectionMethod(ExportXml::class, 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty('PhpMyAdmin\Plugins\Export\ExportXml', 'properties');
+        $attrProperties = new ReflectionProperty(ExportXml::class, 'properties');
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Plugins\ExportPluginProperties',
+            ExportPluginProperties::class,
             $properties
         );
 
@@ -91,7 +96,7 @@ class ExportXmlTest extends PmaTestCase
         $options = $properties->getOptions();
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup',
+            OptionsPropertyRootGroup::class,
             $options
         );
 
@@ -105,7 +110,7 @@ class ExportXmlTest extends PmaTestCase
         $generalOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup',
+            OptionsPropertyMainGroup::class,
             $generalOptions
         );
 
@@ -119,14 +124,14 @@ class ExportXmlTest extends PmaTestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem',
+            HiddenPropertyItem::class,
             $property
         );
 
         $generalOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup',
+            OptionsPropertyMainGroup::class,
             $generalOptions
         );
 
@@ -140,42 +145,42 @@ class ExportXmlTest extends PmaTestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
+            BoolPropertyItem::class,
             $property
         );
 
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
+            BoolPropertyItem::class,
             $property
         );
 
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
+            BoolPropertyItem::class,
             $property
         );
 
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
+            BoolPropertyItem::class,
             $property
         );
 
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
+            BoolPropertyItem::class,
             $property
         );
 
         $generalOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup',
+            OptionsPropertyMainGroup::class,
             $generalOptions
         );
 
@@ -189,7 +194,7 @@ class ExportXmlTest extends PmaTestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
+            BoolPropertyItem::class,
             $property
         );
     }
@@ -228,7 +233,7 @@ class ExportXmlTest extends PmaTestCase
                 '"tbl"',
             ],
         ];
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -325,7 +330,7 @@ class ExportXmlTest extends PmaTestCase
         unset($GLOBALS['xml_export_procedures']);
         $GLOBALS['output_charset_conversion'] = 0;
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -480,11 +485,11 @@ class ExportXmlTest extends PmaTestCase
         $GLOBALS['asfile'] = true;
         $GLOBALS['output_charset_conversion'] = false;
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
-        $_table = $this->getMockBuilder('PhpMyAdmin\Table')
+        $_table = $this->getMockBuilder(Table::class)
             ->disableOriginalConstructor()
             ->getMock();
         $_table->expects($this->once())

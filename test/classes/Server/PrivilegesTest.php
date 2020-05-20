@@ -68,14 +68,14 @@ class PrivilegesTest extends TestCase
             'menuswork' => true,
         ];
 
-        $pmaconfig = $this->getMockBuilder('PhpMyAdmin\Config')
+        $pmaconfig = $this->getMockBuilder(Config::class)
             ->disableOriginalConstructor()
             ->getMock();
 
         $GLOBALS['PMA_Config'] = $pmaconfig;
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -338,7 +338,7 @@ class PrivilegesTest extends TestCase
         /* Assertion 2 */
         $oldDbi = $GLOBALS['dbi'];
         //Mock DBI
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -790,7 +790,7 @@ class PrivilegesTest extends TestCase
         $GLOBALS['username'] = 'username';
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1221,7 +1221,7 @@ class PrivilegesTest extends TestCase
         $GLOBALS['username'] = 'pma_username';
 
         $dbi_old = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $fields_info = [
@@ -1311,7 +1311,7 @@ class PrivilegesTest extends TestCase
     public function testGetHtmlForAddUser()
     {
         $dbi_old = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $fields_info = [
@@ -1548,7 +1548,7 @@ class PrivilegesTest extends TestCase
         $GLOBALS['cfgRelation']['menuswork'] = true;
 
         $dbi_old = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $expected_userGroup = 'pma_usergroup';
@@ -2038,7 +2038,7 @@ class PrivilegesTest extends TestCase
     public function testGetDbRightsForUserOverview()
     {
         //Mock DBI
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())
@@ -2085,7 +2085,7 @@ class PrivilegesTest extends TestCase
     public function testDeleteUser()
     {
         //Mock DBI
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())

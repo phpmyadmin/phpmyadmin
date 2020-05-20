@@ -7,6 +7,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisFactory;
+use PhpMyAdmin\Gis\GisMultiPolygon;
+use PhpMyAdmin\Gis\GisPolygon;
+use PhpMyAdmin\Gis\GisMultiLineString;
+use PhpMyAdmin\Gis\GisLineString;
+use PhpMyAdmin\Gis\GisMultiPoint;
+use PhpMyAdmin\Gis\GisPoint;
+use PhpMyAdmin\Gis\GisGeometryCollection;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -37,31 +44,31 @@ class GisFactoryTest extends TestCase
         return [
             [
                 'MULTIPOLYGON',
-                'PhpMyAdmin\Gis\GisMultiPolygon',
+                GisMultiPolygon::class,
             ],
             [
                 'POLYGON',
-                'PhpMyAdmin\Gis\GisPolygon',
+                GisPolygon::class,
             ],
             [
                 'MULTILINESTRING',
-                'PhpMyAdmin\Gis\GisMultiLineString',
+                GisMultiLineString::class,
             ],
             [
                 'LINESTRING',
-                'PhpMyAdmin\Gis\GisLineString',
+                GisLineString::class,
             ],
             [
                 'MULTIPOINT',
-                'PhpMyAdmin\Gis\GisMultiPoint',
+                GisMultiPoint::class,
             ],
             [
                 'POINT',
-                'PhpMyAdmin\Gis\GisPoint',
+                GisPoint::class,
             ],
             [
                 'GEOMETRYCOLLECTION',
-                'PhpMyAdmin\Gis\GisGeometryCollection',
+                GisGeometryCollection::class,
             ],
         ];
     }

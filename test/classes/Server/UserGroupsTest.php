@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Server;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Server\UserGroups;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
@@ -45,7 +46,7 @@ class UserGroupsTest extends TestCase
         $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups`'
             . ' ORDER BY `usergroup` ASC';
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
@@ -82,7 +83,7 @@ class UserGroupsTest extends TestCase
         $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups`'
             . ' ORDER BY `usergroup` ASC';
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
@@ -168,7 +169,7 @@ class UserGroupsTest extends TestCase
         $userGrpDelQuery = 'DELETE FROM `pmadb`.`usergroups`'
             . " WHERE `usergroup`='ug'";
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->at(1))
@@ -206,7 +207,7 @@ class UserGroupsTest extends TestCase
 
         $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups`'
             . " WHERE `usergroup`='ug'";
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())

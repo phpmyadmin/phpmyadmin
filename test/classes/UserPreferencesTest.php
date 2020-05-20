@@ -106,7 +106,7 @@ class UserPreferencesTest extends PmaTestCase
         $_SESSION['relation'][$GLOBALS['server']]['userconfig'] = 'testconf';
         $_SESSION['relation'][$GLOBALS['server']]['user'] = 'user';
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -203,7 +203,7 @@ class UserPreferencesTest extends PmaTestCase
         $query2 = 'UPDATE `pmadb`.`testconf` SET `timevalue` = NOW(), `config_data` = \''
             . json_encode([1]) . '\' WHERE `username` = \'user\'';
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -234,7 +234,7 @@ class UserPreferencesTest extends PmaTestCase
         $query2 = 'INSERT INTO `pmadb`.`testconf` (`username`, `timevalue`,`config_data`) '
             . 'VALUES (\'user\', NOW(), \'' . json_encode([1]) . '\')';
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 

@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Display;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Display\Results as DisplayResults;
@@ -46,7 +47,7 @@ class ResultsTest extends PmaTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $_SESSION[' HMAC_secret '] = 'test';
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1089,7 +1090,7 @@ class ResultsTest extends PmaTestCase
         ];
         $this->object->__set('fields_meta', $fields_meta);
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
