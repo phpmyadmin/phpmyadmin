@@ -12,6 +12,7 @@ use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
+use ReflectionClass;
 
 /**
  * Abstract class to hold some usefull methods used in tests
@@ -180,5 +181,25 @@ abstract class AbstractTestCase extends TestCase
             }
             unset($GLOBALS[$key]);
         }
+    }
+
+
+    /**
+     * Call protected functions by setting visibility to public.
+     *
+     * @param mixed $object       The object to inspect
+     * @param string $className   The class name
+     * @param string $name   method name
+     * @param array  $params parameters for the invocation
+     *
+     * @return mixed the output from the protected method.
+     */
+    protected function callProtectedFunction($object, string $className, string $name, array $params)
+    {
+        $class = new ReflectionClass($className);
+        $method = $class->getMethod($name);
+        $method->setAccessible(true);
+
+        return $method->invokeArgs($object, $params);
     }
 }

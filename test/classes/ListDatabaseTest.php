@@ -7,7 +7,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ListDatabase;
-use ReflectionClass;
 
 /**
  * tests for ListDatabase class
@@ -31,23 +30,6 @@ class ListDatabaseTest extends PmaTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['only_db'] = ['single\\_db'];
         $this->object = new ListDatabase();
-    }
-
-    /**
-     * Call protected functions by setting visibility to public.
-     *
-     * @param string $name   method name
-     * @param array  $params parameters for the invocation
-     *
-     * @return mixed the output from the protected method.
-     */
-    private function _callProtectedFunction($name, $params)
-    {
-        $class = new ReflectionClass(ListDatabase::class);
-        $method = $class->getMethod($name);
-        $method->setAccessible(true);
-
-        return $method->invokeArgs($this->object, $params);
     }
 
     /**
@@ -108,7 +90,9 @@ class ListDatabaseTest extends PmaTestCase
     {
         $GLOBALS['cfg']['Server']['hide_db'] = 'single\\_db';
         $this->assertEquals(
-            $this->_callProtectedFunction(
+            $this->callProtectedFunction(
+                $this->object,
+                ListDatabase::class,
                 'checkHideDatabase',
                 []
             ),

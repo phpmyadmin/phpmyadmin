@@ -10,7 +10,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
-use ReflectionClass;
 
 /**
  * Tests for database search.
@@ -69,23 +68,6 @@ class SearchTest extends PmaTestCase
     }
 
     /**
-     * Call protected functions by setting visibility to public.
-     *
-     * @param string $name   method name
-     * @param array  $params parameters for the invocation
-     *
-     * @return mixed the output from the protected method.
-     */
-    private function callProtectedFunction($name, $params)
-    {
-        $class = new ReflectionClass(Search::class);
-        $method = $class->getMethod($name);
-        $method->setAccessible(true);
-
-        return $method->invokeArgs($this->object, $params);
-    }
-
-    /**
      * Test for generating where clause for different search types
      *
      * @param string $type     type
@@ -102,6 +84,8 @@ class SearchTest extends PmaTestCase
         $this->assertEquals(
             $expected,
             $this->callProtectedFunction(
+                $this->object,
+                Search::class,
                 'getWhereClause',
                 ['table1']
             )
@@ -163,6 +147,8 @@ class SearchTest extends PmaTestCase
                 'delete' => 'DELETE FROM `pma`.`table1` WHERE FALSE',
             ],
             $this->callProtectedFunction(
+                $this->object,
+                Search::class,
                 'getSearchSqls',
                 ['table1']
             )
