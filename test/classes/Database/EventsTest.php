@@ -10,7 +10,6 @@ use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use ReflectionProperty;
 
 class EventsTest extends AbstractTestCase
 {
@@ -32,10 +31,7 @@ class EventsTest extends AbstractTestCase
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $response = new ReflectionProperty(Response::class, '_instance');
-        $response->setAccessible(true);
-        $response->setValue(null);
-        $response->setAccessible(false);
+
         $this->events = new Events(
             $GLOBALS['dbi'],
             new Template(),

@@ -21,11 +21,6 @@ use function is_int;
  */
 abstract class PmaTestCase extends AbstractTestCase
 {
-    /** @var Response|null */
-    protected $restoreInstance = null;
-
-    /** @var ReflectionProperty|null */
-    protected $attrInstance = null;
 
     /**
      * This method is called before the first test of this test class is run.
@@ -46,7 +41,6 @@ abstract class PmaTestCase extends AbstractTestCase
      */
     public function mockResponse(...$param)
     {
-        $this->restoreInstance = Response::getInstance();
 
         $mockResponse = $this->getMockBuilder(Response::class)
             ->disableOriginalConstructor()
@@ -93,9 +87,9 @@ abstract class PmaTestCase extends AbstractTestCase
             }
         }
 
-        $this->attrInstance = new ReflectionProperty(Response::class, '_instance');
-        $this->attrInstance->setAccessible(true);
-        $this->attrInstance->setValue($mockResponse);
+        $attrInstance = new ReflectionProperty(Response::class, '_instance');
+        $attrInstance->setAccessible(true);
+        $attrInstance->setValue($mockResponse);
 
         return $mockResponse;
     }
@@ -106,10 +100,9 @@ abstract class PmaTestCase extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
-        if ($this->attrInstance !== null && $this->restoreInstance !== null) {
-            $this->attrInstance->setValue($this->restoreInstance);
-            $this->restoreInstance = null;
-            $this->attrInstance = null;
-        }
+        $response = new ReflectionProperty(Response::class, '_instance');
+        $response->setAccessible(true);
+        $response->setValue(null);
+        $response->setAccessible(false);
     }
 }
