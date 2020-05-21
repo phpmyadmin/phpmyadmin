@@ -22,7 +22,7 @@ use function serialize;
 /**
  * Tests for PhpMyAdmin\Core class
  */
-class CoreTest extends PmaTestCase
+class CoreTest extends AbstractNetwokTestCase
 {
     /**
      * Setup for test cases

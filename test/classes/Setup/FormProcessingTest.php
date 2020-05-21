@@ -7,7 +7,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Setup;
 
 use PhpMyAdmin\Setup\FormProcessing;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractNetwokTestCase;
 use PhpMyAdmin\Config\FormDisplay;
 use function ob_get_clean;
 use function ob_start;
@@ -15,7 +15,7 @@ use function ob_start;
 /**
  * tests for methods under Formset processing library
  */
-class FormProcessingTest extends PmaTestCase
+class FormProcessingTest extends AbstractNetwokTestCase
 {
     /**
      * Prepares environment for the test.

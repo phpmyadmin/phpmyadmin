@@ -12,7 +12,7 @@ use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Footer;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Plugins\Auth\AuthenticationCookie;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractNetwokTestCase;
 use ReflectionException;
 use ReflectionMethod;
 use function base64_encode;
@@ -27,7 +27,7 @@ use function time;
 /**
  * tests for PhpMyAdmin\Plugins\Auth\AuthenticationCookie class
  */
-class AuthenticationCookieTest extends PmaTestCase
+class AuthenticationCookieTest extends AbstractNetwokTestCase
 {
     /** @var AuthenticationCookie */
     protected $object;

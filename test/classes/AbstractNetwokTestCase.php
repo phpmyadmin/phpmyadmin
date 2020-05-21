@@ -19,9 +19,8 @@ use function is_int;
 /**
  * Base class for phpMyAdmin tests
  */
-abstract class PmaTestCase extends AbstractTestCase
+abstract class AbstractNetwokTestCase extends AbstractTestCase
 {
-
     /**
      * This method is called before the first test of this test class is run.
      */
@@ -41,7 +40,6 @@ abstract class PmaTestCase extends AbstractTestCase
      */
     public function mockResponse(...$param)
     {
-
         $mockResponse = $this->getMockBuilder(Response::class)
             ->disableOriginalConstructor()
             ->setMethods([
