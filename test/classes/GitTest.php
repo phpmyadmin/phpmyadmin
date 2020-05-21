@@ -60,6 +60,9 @@ class GitTest extends PmaTestCase
      */
     public function testIsGitRevision()
     {
+        $_SESSION['git_location'] = '.cachedgitlocation';
+        $_SESSION['is_git_revision'] = true;
+
         $git_location = '';
 
         $this->assertTrue(
@@ -71,7 +74,7 @@ class GitTest extends PmaTestCase
             $this->config->get('PMA_VERSION_GIT')
         );
 
-        $this->assertEquals('.git', $git_location);
+        $this->assertEquals('.cachedgitlocation', $git_location);
     }
 
     /**
