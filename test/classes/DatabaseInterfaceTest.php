@@ -28,6 +28,7 @@ class DatabaseInterfaceTest extends PmaTestCase
     {
         parent::setUp();
         parent::loadDefaultConfig();
+        parent::defineVersionConstants();
         $GLOBALS['server'] = 0;
         $extension = new DbiDummy();
         $this->_dbi = new DatabaseInterface($extension);

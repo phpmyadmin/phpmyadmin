@@ -16,6 +16,7 @@ class FindReplaceControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::setLanguage();
         parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
 

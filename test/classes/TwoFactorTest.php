@@ -21,6 +21,7 @@ class TwoFactorTest extends PmaTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::defineVersionConstants();
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';

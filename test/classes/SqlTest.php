@@ -25,6 +25,9 @@ class SqlTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::defineVersionConstants();
+        parent::setLanguage();
+        parent::loadDefaultConfig();
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';

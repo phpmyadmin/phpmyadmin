@@ -38,6 +38,7 @@ class ExportHtmlwordTest extends PmaTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::defineVersionConstants();
         parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
         $this->object = new ExportHtmlword();

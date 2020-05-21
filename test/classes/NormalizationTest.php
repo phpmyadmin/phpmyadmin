@@ -32,6 +32,7 @@ class NormalizationTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::defineVersionConstants();
         $GLOBALS['cfg']['LimitChars'] = 50;
         $GLOBALS['cfg']['ServerDefault'] = 'PMA_server';
         $GLOBALS['cfg']['ShowHint'] = true;

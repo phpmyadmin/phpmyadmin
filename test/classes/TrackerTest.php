@@ -26,6 +26,7 @@ class TrackerTest extends PmaTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::defineVersionConstants();
         /**
          * SET these to avoid undefined index error
          */

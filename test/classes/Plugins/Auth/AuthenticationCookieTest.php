@@ -38,6 +38,7 @@ class AuthenticationCookieTest extends PmaTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::defineVersionConstants();
         parent::setLanguage();
         parent::setTheme();
         parent::setGlobalConfig();

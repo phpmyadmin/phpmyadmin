@@ -1,6 +1,6 @@
 <?php
 /**
- * tests for bookmark.lib.php
+ * tests for PhpMyAdmin\Bookmark
  */
 declare(strict_types=1);
 
@@ -10,7 +10,7 @@ use PhpMyAdmin\OutputBuffering;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
- * tests for bookmark.lib.php
+ * tests for PhpMyAdmin\Bookmark
  */
 class FilesTest extends AbstractTestCase
 {
@@ -20,6 +20,7 @@ class FilesTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::defineVersionConstants();
         parent::setTheme();
     }
 

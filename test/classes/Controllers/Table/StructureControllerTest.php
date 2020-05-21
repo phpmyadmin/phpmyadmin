@@ -39,6 +39,7 @@ class StructureControllerTest extends PmaTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::defineVersionConstants();
         parent::loadDefaultConfig();
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['server'] = 1;

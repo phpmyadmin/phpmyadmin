@@ -29,9 +29,9 @@ class FormTest extends PmaTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::defineVersionConstants();
         parent::setTheme();
         parent::loadDefaultConfig();
-        parent::defineVersionConstants();
         $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
         parent::setGlobalConfig();
         $GLOBALS['server'] = 0;

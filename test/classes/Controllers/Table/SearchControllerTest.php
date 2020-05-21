@@ -35,6 +35,7 @@ class SearchControllerTest extends PmaTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::defineVersionConstants();
         parent::loadDefaultConfig();
 
         /**

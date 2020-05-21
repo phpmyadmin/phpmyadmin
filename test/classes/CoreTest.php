@@ -30,6 +30,7 @@ class CoreTest extends PmaTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::defineVersionConstants();
         parent::setTheme();
         parent::setLanguage();
         parent::loadDefaultConfig();

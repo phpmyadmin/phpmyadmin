@@ -28,6 +28,7 @@ class ThemeTest extends PmaTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::defineVersionConstants();
         parent::setTheme();
         $this->object = new Theme();
         $this->backup = $GLOBALS['PMA_Theme'];

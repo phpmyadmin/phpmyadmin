@@ -31,6 +31,7 @@ class RelationCleanupTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::defineVersionConstants();
         $GLOBALS['server'] = 1;
         $_SESSION['relation'] = [];
         $_SESSION['relation'][$GLOBALS['server']] = [

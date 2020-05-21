@@ -22,7 +22,9 @@ class TriggersTest extends AbstractTestCase
     {
         parent::setUp();
         parent::setGlobalConfig();
+        parent::defineVersionConstants();
         parent::setLanguage();
+        $GLOBALS['server'] = 0;
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['db'] = 'pma_test';

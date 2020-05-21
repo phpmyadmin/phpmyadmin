@@ -32,6 +32,7 @@ class NodeDatabaseChildTest extends PmaTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::defineVersionConstants();
         parent::setTheme();
         parent::setLanguage();
         $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();

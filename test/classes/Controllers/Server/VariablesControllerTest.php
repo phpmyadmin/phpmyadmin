@@ -28,7 +28,9 @@ class VariablesControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::defineVersionConstants();
         parent::setGlobalConfig();
+        parent::setLanguage();
         $GLOBALS['PMA_Config']->enableBc();
 
         $GLOBALS['text_dir'] = 'ltr';

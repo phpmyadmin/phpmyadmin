@@ -32,6 +32,7 @@ class TrackingTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::defineVersionConstants();
         /**
          * SET these to avoid undefined index error
          */

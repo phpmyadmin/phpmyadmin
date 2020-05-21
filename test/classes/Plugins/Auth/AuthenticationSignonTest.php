@@ -31,6 +31,8 @@ class AuthenticationSignonTest extends PmaTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::defineVersionConstants();
+        parent::setLanguage();
         parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
@@ -157,7 +159,9 @@ class AuthenticationSignonTest extends PmaTestCase
      */
     public function testAuthCheckToken()
     {
-        $_SESSION = [];
+        $_SESSION = [
+            ' PMA_token ' => 'eefefef',
+        ];
         $this->mockResponse('Location: https://example.com/SignonURL');
 
         $GLOBALS['cfg']['Server']['SignonURL'] = 'https://example.com/SignonURL';
