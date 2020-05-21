@@ -1065,11 +1065,8 @@ abstract class TestBase extends TestCase
                     'reason' => $message,
                 ]
             );
-
+            /** @var resource $ch */
             $ch = curl_init();
-            if ($ch !== false) {
-                echo 'Curl init error' . PHP_EOL;
-            }
             curl_setopt(
                 $ch,
                 CURLOPT_URL,
