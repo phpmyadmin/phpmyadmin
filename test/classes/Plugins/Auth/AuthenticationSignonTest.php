@@ -9,7 +9,7 @@ namespace PhpMyAdmin\Tests\Plugins\Auth;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Plugins\Auth\AuthenticationSignon;
-use PhpMyAdmin\Tests\AbstractNetwokTestCase;
+use PhpMyAdmin\Tests\AbstractNetworkTestCase;
 use function ob_get_clean;
 use function ob_start;
 use function phpversion;
@@ -21,7 +21,7 @@ use function version_compare;
 /**
  * tests for PhpMyAdmin\Plugins\Auth\AuthenticationSignon class
  */
-class AuthenticationSignonTest extends AbstractNetwokTestCase
+class AuthenticationSignonTest extends AbstractNetworkTestCase
 {
     protected $object;
 

@@ -17,7 +17,7 @@ use function time;
 /**
  * tests for methods under PhpMyAdmin\UserPreferences class
  */
-class UserPreferencesTest extends AbstractNetwokTestCase
+class UserPreferencesTest extends AbstractNetworkTestCase
 {
     /** @var UserPreferences */
     private $userPreferences;

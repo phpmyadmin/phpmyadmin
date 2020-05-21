@@ -19,7 +19,7 @@ use function is_int;
 /**
  * Base class for phpMyAdmin tests
  */
-abstract class AbstractNetwokTestCase extends AbstractTestCase
+abstract class AbstractNetworkTestCase extends AbstractTestCase
 {
     /**
      * This method is called before the first test of this test class is run.

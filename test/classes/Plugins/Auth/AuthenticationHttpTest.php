@@ -11,7 +11,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Footer;
 use PhpMyAdmin\Plugins\Auth\AuthenticationHttp;
-use PhpMyAdmin\Tests\AbstractNetwokTestCase;
+use PhpMyAdmin\Tests\AbstractNetworkTestCase;
 use function base64_encode;
 use function ob_get_clean;
 use function ob_start;
@@ -19,7 +19,7 @@ use function ob_start;
 /**
  * tests for PhpMyAdmin\Plugins\Auth\AuthenticationHttp class
  */
-class AuthenticationHttpTest extends AbstractNetwokTestCase
+class AuthenticationHttpTest extends AbstractNetworkTestCase
 {
     /** @var AuthenticationHttp */
     protected $object;
