@@ -24,6 +24,7 @@ class VersionInformationTest extends PmaTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::setProxySettings();
         $this->_releases = [];
 
         $release = new stdClass();
