@@ -21,8 +21,8 @@ class TriggersTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::setUpEnv();
         parent::setGlobalConfig();
+        parent::setLanguage();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['db'] = 'pma_test';

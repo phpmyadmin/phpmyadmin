@@ -30,6 +30,8 @@ class CoreTest extends PmaTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::setTheme();
+        parent::setLanguage();
         parent::loadDefaultConfig();
 
         $GLOBALS['server'] = 0;
@@ -598,7 +600,6 @@ class CoreTest extends PmaTestCase
     public function testSendHeaderLocationWithoutSidWithIis()
     {
         $GLOBALS['server'] = 0;
-        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['PMA_Config']->set('PMA_IS_IIS', true);
 
@@ -606,8 +607,6 @@ class CoreTest extends PmaTestCase
 
         $this->mockResponse('Location: ' . $testUri);
         Core::sendHeaderLocation($testUri); // sets $GLOBALS['header']
-
-        $this->tearDown();
 
         $this->mockResponse('Refresh: 0; ' . $testUri);
         Core::sendHeaderLocation($testUri, true); // sets $GLOBALS['header']

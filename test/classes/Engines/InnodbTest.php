@@ -26,7 +26,6 @@ class InnodbTest extends PmaTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::setUpEnv();
         $GLOBALS['server'] = 0;
         $this->object = new Innodb('innodb');
     }

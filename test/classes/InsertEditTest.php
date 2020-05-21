@@ -38,6 +38,8 @@ class InsertEditTest extends AbstractTestCase
     {
         parent::setUp();
         parent::setLanguage();
+        parent::setGlobalConfig();
+        parent::loadDefaultConfig();
         $GLOBALS['server'] = 1;
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['ServerDefault'] = 1;
@@ -65,9 +67,19 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['cfg']['Confirm'] = true;
         $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
         $GLOBALS['cfg']['enable_drag_drop_import'] = true;
-        parent::setGlobalConfig();
-
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
+    }
+
+    /**
+     * Teardown all objects
+     */
+    protected function tearDown(): void
+    {
+        parent::tearDown();
+        $response = new ReflectionProperty(Response::class, '_instance');
+        $response->setAccessible(true);
+        $response->setValue(null);
+        $response->setAccessible(false);
     }
 
     /**
