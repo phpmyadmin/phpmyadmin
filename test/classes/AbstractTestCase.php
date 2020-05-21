@@ -183,21 +183,20 @@ abstract class AbstractTestCase extends TestCase
         }
     }
 
-
     /**
      * Call protected functions by setting visibility to public.
      *
-     * @param mixed $object       The object to inspect
-     * @param string $className   The class name
-     * @param string $name   method name
-     * @param array  $params parameters for the invocation
+     * @param object|null  $object     The object to inspect, pass null for static objects()
+     * @param class-string $className  The class name
+     * @param string       $methodName The method name
+     * @param array        $params     The parameters for the invocation
      *
      * @return mixed the output from the protected method.
      */
-    protected function callProtectedFunction($object, string $className, string $name, array $params)
+    protected function callFunction(?object $object, string $className, string $methodName, array $params)
     {
         $class = new ReflectionClass($className);
-        $method = $class->getMethod($name);
+        $method = $class->getMethod($methodName);
         $method->setAccessible(true);
 
         return $method->invokeArgs($object, $params);

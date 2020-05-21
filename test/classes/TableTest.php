@@ -11,7 +11,6 @@ use PhpMyAdmin\Index;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
-use ReflectionClass;
 use stdClass;
 
 /**
@@ -1274,13 +1273,12 @@ class TableTest extends PmaTestCase
             'foreignField2',
         ];
 
-        $class = new ReflectionClass(Table::class);
-        $method = $class->getMethod('_getSQLToCreateForeignKey');
-        $method->setAccessible(true);
         $tableObj = new Table('PMA_table', 'db');
 
-        $sql = $method->invokeArgs(
+        $sql = $this->callFunction(
             $tableObj,
+            Table::class,
+            '_getSQLToCreateForeignKey',
             [
                 $table,
                 $field,
@@ -1298,8 +1296,10 @@ class TableTest extends PmaTestCase
         );
 
         // Exclude db name when relations are made between table in the same db
-        $sql = $method->invokeArgs(
+        $sql = $this->callFunction(
             $tableObj,
+            Table::class,
+            '_getSQLToCreateForeignKey',
             [
                 $table,
                 $field,

@@ -54,7 +54,7 @@ class GisGeometryTest extends AbstractTestCase
     {
         $this->assertEquals(
             $output,
-            $this->callProtectedFunction(
+            $this->callFunction(
                 $this->object,
                 GisGeometry::class,
                 'setMinMax',
@@ -114,7 +114,7 @@ class GisGeometryTest extends AbstractTestCase
     {
         $this->assertEquals(
             $output,
-            $this->callProtectedFunction(
+            $this->callFunction(
                 $this->object,
                 GisGeometry::class,
                 'generateParams',
@@ -169,7 +169,7 @@ class GisGeometryTest extends AbstractTestCase
     {
         $this->assertEquals(
             $output,
-            $this->callProtectedFunction(
+            $this->callFunction(
                 $this->object,
                 GisGeometry::class,
                 'extractPoints',
@@ -285,7 +285,7 @@ class GisGeometryTest extends AbstractTestCase
     {
         $this->assertEquals(
             $output,
-            $this->callProtectedFunction(
+            $this->callFunction(
                 $this->object,
                 GisGeometry::class,
                 'getBoundsForOl',
@@ -338,7 +338,7 @@ class GisGeometryTest extends AbstractTestCase
     {
         $this->assertEquals(
             $output,
-            $this->callProtectedFunction(
+            $this->callFunction(
                 $this->object,
                 GisGeometry::class,
                 'getPolygonArrayForOpenLayers',

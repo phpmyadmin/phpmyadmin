@@ -49,22 +49,6 @@ class SqlTest extends AbstractTestCase
     }
 
     /**
-     * Call protected functions by setting visibility to public.
-     *
-     * @param string $name   method name
-     * @param array  $params parameters for the invocation
-     *
-     * @return mixed the output from the protected method.
-     */
-    private function callProtectedMethod($name, array $params = [])
-    {
-        $method = new ReflectionMethod(Sql::class, $name);
-        $method->setAccessible(true);
-
-        return $method->invokeArgs($this->sql, $params);
-    }
-
-    /**
      * Test for getSqlWithLimitClause
      *
      * @return void
@@ -80,7 +64,7 @@ class SqlTest extends AbstractTestCase
         );
         $this->assertEquals(
             'SELECT * FROM test LIMIT 1, 2 ',
-            $this->callProtectedMethod('getSqlWithLimitClause', [&$analyzed_sql_results])
+            $this->callFunction($this->sql, Sql::class, 'getSqlWithLimitClause', [&$analyzed_sql_results])
         );
     }
 
@@ -95,31 +79,31 @@ class SqlTest extends AbstractTestCase
         $GLOBALS['cfg']['RememberSorting'] = true;
 
         $this->assertTrue(
-            $this->callProtectedMethod('isRememberSortingOrder', [
+            $this->callFunction($this->sql, Sql::class, 'isRememberSortingOrder', [
                 $this->sql->parseAndAnalyze('SELECT * FROM tbl'),
             ])
         );
 
         $this->assertFalse(
-            $this->callProtectedMethod('isRememberSortingOrder', [
+            $this->callFunction($this->sql, Sql::class, 'isRememberSortingOrder', [
                 $this->sql->parseAndAnalyze('SELECT col FROM tbl'),
             ])
         );
 
         $this->assertFalse(
-            $this->callProtectedMethod('isRememberSortingOrder', [
+            $this->callFunction($this->sql, Sql::class, 'isRememberSortingOrder', [
                 $this->sql->parseAndAnalyze('SELECT 1'),
             ])
         );
 
         $this->assertFalse(
-            $this->callProtectedMethod('isRememberSortingOrder', [
+            $this->callFunction($this->sql, Sql::class, 'isRememberSortingOrder', [
                 $this->sql->parseAndAnalyze('SELECT col1, col2 FROM tbl'),
             ])
         );
 
         $this->assertFalse(
-            $this->callProtectedMethod('isRememberSortingOrder', [
+            $this->callFunction($this->sql, Sql::class, 'isRememberSortingOrder', [
                 $this->sql->parseAndAnalyze('SELECT COUNT(*) from tbl'),
             ])
         );
@@ -136,13 +120,13 @@ class SqlTest extends AbstractTestCase
         $GLOBALS['_SESSION']['tmpval']['max_rows'] = 10;
 
         $this->assertTrue(
-            $this->callProtectedMethod('isAppendLimitClause', [
+            $this->callFunction($this->sql, Sql::class, 'isAppendLimitClause', [
                 $this->sql->parseAndAnalyze('SELECT * FROM tbl'),
             ])
         );
 
         $this->assertFalse(
-            $this->callProtectedMethod('isAppendLimitClause', [
+            $this->callFunction($this->sql, Sql::class, 'isAppendLimitClause', [
                 $this->sql->parseAndAnalyze('SELECT * from tbl LIMIT 0, 10'),
             ])
         );
@@ -188,19 +172,19 @@ class SqlTest extends AbstractTestCase
     public function testIsDeleteTransformationInfo()
     {
         $this->assertTrue(
-            $this->callProtectedMethod('isDeleteTransformationInfo', [
+            $this->callFunction($this->sql, Sql::class, 'isDeleteTransformationInfo', [
                 $this->sql->parseAndAnalyze('ALTER TABLE tbl DROP COLUMN col'),
             ])
         );
 
         $this->assertTrue(
-            $this->callProtectedMethod('isDeleteTransformationInfo', [
+            $this->callFunction($this->sql, Sql::class, 'isDeleteTransformationInfo', [
                 $this->sql->parseAndAnalyze('DROP TABLE tbl'),
             ])
         );
 
         $this->assertFalse(
-            $this->callProtectedMethod('isDeleteTransformationInfo', [
+            $this->callFunction($this->sql, Sql::class, 'isDeleteTransformationInfo', [
                 $this->sql->parseAndAnalyze('SELECT * from tbl'),
             ])
         );
@@ -261,7 +245,7 @@ class SqlTest extends AbstractTestCase
             $col3,
         ];
         $this->assertFalse(
-            $this->callProtectedMethod('resultSetHasJustOneTable', [$fields_meta])
+            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta])
         );
 
         // should not matter on where the odd column occurs
@@ -271,7 +255,7 @@ class SqlTest extends AbstractTestCase
             $col1,
         ];
         $this->assertFalse(
-            $this->callProtectedMethod('resultSetHasJustOneTable', [$fields_meta])
+            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta])
         );
 
         $fields_meta = [
@@ -280,7 +264,7 @@ class SqlTest extends AbstractTestCase
             $col2,
         ];
         $this->assertFalse(
-            $this->callProtectedMethod('resultSetHasJustOneTable', [$fields_meta])
+            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta])
         );
     }
 
@@ -304,7 +288,7 @@ class SqlTest extends AbstractTestCase
         ];
 
         $this->assertTrue(
-            $this->callProtectedMethod('resultSetHasJustOneTable', [$fields_meta])
+            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta])
         );
     }
 
@@ -329,7 +313,7 @@ class SqlTest extends AbstractTestCase
             $col3,
         ];
         $this->assertTrue(
-            $this->callProtectedMethod('resultSetHasJustOneTable', [$fields_meta])
+            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta])
         );
 
         // should not matter on where the function column occurs
@@ -339,7 +323,7 @@ class SqlTest extends AbstractTestCase
             $col1,
         ];
         $this->assertTrue(
-            $this->callProtectedMethod('resultSetHasJustOneTable', [$fields_meta])
+            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta])
         );
 
         $fields_meta = [
@@ -348,7 +332,7 @@ class SqlTest extends AbstractTestCase
             $col2,
         ];
         $this->assertTrue(
-            $this->callProtectedMethod('resultSetHasJustOneTable', [$fields_meta])
+            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta])
         );
     }
 
@@ -373,7 +357,7 @@ class SqlTest extends AbstractTestCase
         ];
 
         $this->assertFalse(
-            $this->callProtectedMethod('resultSetHasJustOneTable', [$fields_meta])
+            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta])
         );
     }
 }

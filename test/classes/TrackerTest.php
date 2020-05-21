@@ -9,7 +9,6 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Util;
-use ReflectionClass;
 use ReflectionMethod;
 use ReflectionProperty;
 
@@ -120,13 +119,9 @@ class TrackerTest extends PmaTestCase
      */
     public function testGetTableName($string, $expected): void
     {
-        $reflection = new ReflectionClass(Tracker::class);
-        $method = $reflection->getMethod('getTableName');
-        $method->setAccessible(true);
-
         $this->assertEquals(
             $expected,
-            $method->invokeArgs(null, [$string])
+            $this->callFunction(null, Tracker::class, 'getTableName', [$string])
         );
     }
 

@@ -15,7 +15,6 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use ReflectionClass;
 use function array_slice;
 use function ceil;
 
@@ -164,30 +163,6 @@ class CentralColumnsTest extends AbstractTestCase
             ->will($this->returnArgument(0));
 
         $this->centralColumns = new CentralColumns($dbi);
-    }
-
-    /**
-     * Call protected functions by setting visibility to public.
-     *
-     * @param string         $name   method name
-     * @param array          $params parameters for the invocation
-     * @param CentralColumns $object CentralColumns instance object
-     *
-     * @return mixed the output from the protected method.
-     */
-    private function callProtectedMethod(
-        $name,
-        array $params = [],
-        CentralColumns $object = null
-    ) {
-        $class = new ReflectionClass(CentralColumns::class);
-        $method = $class->getMethod($name);
-        $method->setAccessible(true);
-
-        return $method->invokeArgs(
-            $object ?? $this->centralColumns,
-            $params
-        );
     }
 
     /**
@@ -551,13 +526,17 @@ class CentralColumnsTest extends AbstractTestCase
             __('A_I'),
         ];
         $this->assertStringContainsString(
-            $this->callProtectedMethod(
+            $this->callFunction(
+                $this->centralColumns,
+                CentralColumns::class,
                 'getEditTableHeader',
                 [$header_cells]
             ),
             $result
         );
-        $list_detail_cols = $this->callProtectedMethod(
+        $list_detail_cols = $this->callFunction(
+            $this->centralColumns,
+            CentralColumns::class,
             'findExistingColNames',
             [
                 'phpmyadmin',
@@ -566,7 +545,9 @@ class CentralColumnsTest extends AbstractTestCase
             ]
         );
         $this->assertStringContainsString(
-            $this->callProtectedMethod(
+            $this->callFunction(
+                $this->centralColumns,
+                CentralColumns::class,
                 'getHtmlForEditTableRow',
                 [
                     $list_detail_cols[0],
@@ -576,7 +557,7 @@ class CentralColumnsTest extends AbstractTestCase
             $result
         );
         $this->assertStringContainsString(
-            $this->callProtectedMethod('getEditTableFooter'),
+            $this->callFunction($this->centralColumns, CentralColumns::class, 'getEditTableFooter', []),
             $result
         );
     }
@@ -734,7 +715,7 @@ class CentralColumnsTest extends AbstractTestCase
     {
         $this->assertInstanceOf(
             Message::class,
-            $this->callProtectedMethod('configErrorMessage')
+            $this->callFunction($this->centralColumns, CentralColumns::class, 'configErrorMessage', [])
         );
     }
 
@@ -759,7 +740,9 @@ class CentralColumnsTest extends AbstractTestCase
             );
         $this->assertEquals(
             array_slice($this->modifiedColumnData, 1, 1),
-            $this->callProtectedMethod(
+            $this->callFunction(
+                $this->centralColumns,
+                CentralColumns::class,
                 'findExistingColNames',
                 [
                     'phpmyadmin',

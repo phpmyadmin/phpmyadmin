@@ -6,7 +6,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\VariablesController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
@@ -14,7 +13,6 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use ReflectionClass;
 use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
 use Williamdes\MariaDBMySQLKBS\SlimData as KBSlimData;
 use function htmlspecialchars;
@@ -140,10 +138,6 @@ class VariablesControllerTest extends AbstractTestCase
      */
     public function testFormatVariable(): void
     {
-        $class = new ReflectionClass(VariablesController::class);
-        $method = $class->getMethod('formatVariable');
-        $method->setAccessible(true);
-
         $controller = new VariablesController(
             Response::getInstance(),
             $GLOBALS['dbi'],
@@ -163,7 +157,12 @@ class VariablesControllerTest extends AbstractTestCase
             $nameForValueByte,
             '3',
         ];
-        [$formattedValue, $isHtmlFormatted] = $method->invokeArgs($controller, $args);
+        [$formattedValue, $isHtmlFormatted] = $this->callFunction(
+            $controller,
+            VariablesController::class,
+            'formatVariable',
+            $args
+        );
         $this->assertEquals(
             '<abbr title="3">3 B</abbr>',
             $formattedValue
@@ -175,7 +174,12 @@ class VariablesControllerTest extends AbstractTestCase
             $nameForValueNotByte,
             '3',
         ];
-        [$formattedValue, $isHtmlFormatted] = $method->invokeArgs($controller, $args);
+        [$formattedValue, $isHtmlFormatted] = $this->callFunction(
+            $controller,
+            VariablesController::class,
+            'formatVariable',
+            $args
+        );
         $this->assertEquals(
             '3',
             $formattedValue
@@ -187,7 +191,12 @@ class VariablesControllerTest extends AbstractTestCase
             $nameForValueNotByte,
             'value',
         ];
-        [$formattedValue, $isHtmlFormatted] = $method->invokeArgs($controller, $args);
+        [$formattedValue, $isHtmlFormatted] = $this->callFunction(
+            $controller,
+            VariablesController::class,
+            'formatVariable',
+            $args
+        );
         $this->assertEquals(
             'value',
             $formattedValue

@@ -15,7 +15,6 @@ use PhpMyAdmin\Types;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use ReflectionClass;
 use stdClass;
 use function json_encode;
 
@@ -572,16 +571,18 @@ class NormalizationTest extends AbstractTestCase
      */
     public function testGetAllCombinationPartialKeys()
     {
-        $class = new ReflectionClass(Normalization::class);
-        $method = $class->getMethod('getAllCombinationPartialKeys');
-        $method->setAccessible(true);
-
         $primaryKey = [
             'id',
             'col1',
             'col2',
         ];
-        $result = $method->invokeArgs($this->normalization, [$primaryKey]);
+        $result = $this->callFunction(
+            $this->normalization,
+            Normalization::class,
+            'getAllCombinationPartialKeys',
+            [$primaryKey]
+        );
+
         $this->assertEquals(
             [
                 '',

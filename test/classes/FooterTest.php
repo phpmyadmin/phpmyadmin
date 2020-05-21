@@ -6,10 +6,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Footer;
-use ReflectionClass;
 use function json_encode;
 
 /**
@@ -65,23 +63,6 @@ class FooterTest extends PmaTestCase
     }
 
     /**
-     * Call private functions by setting visibility to public.
-     *
-     * @param string $name   method name
-     * @param array  $params parameters for the invocation
-     *
-     * @return mixed the output from the private method.
-     */
-    private function _callPrivateFunction($name, $params)
-    {
-        $class = new ReflectionClass(Footer::class);
-        $method = $class->getMethod($name);
-        $method->setAccessible(true);
-
-        return $method->invokeArgs($this->object, $params);
-    }
-
-    /**
      * Test for getDebugMessage
      *
      * @return void
@@ -122,7 +103,9 @@ class FooterTest extends PmaTestCase
         $object->child = (object) [];
         $object->child->parent = $object;
 
-        $this->_callPrivateFunction(
+        $this->callFunction(
+            $this->object,
+            Footer::class,
             '_removeRecursion',
             [
                 &$object,
@@ -152,7 +135,9 @@ class FooterTest extends PmaTestCase
             . 'table=table&amp;server=1&amp;lang=en'
             . '" title="Open new phpMyAdmin window" '
             . 'target="_blank" rel="noopener noreferrer">Open new phpMyAdmin window</a></div>',
-            $this->_callPrivateFunction(
+            $this->callFunction(
+                $this->object,
+                Footer::class,
                 '_getSelfLink',
                 [
                     $this->object->getSelfUrl(),
@@ -177,7 +162,9 @@ class FooterTest extends PmaTestCase
             . 'target="_blank" rel="noopener noreferrer"><img src="themes/dot.gif" title="Open new '
             . 'phpMyAdmin window" alt="Open new phpMyAdmin window" '
             . 'class="icon ic_window-new"></a></div>',
-            $this->_callPrivateFunction(
+            $this->callFunction(
+                $this->object,
+                Footer::class,
                 '_getSelfLink',
                 [
                     $this->object->getSelfUrl(),
@@ -202,7 +189,9 @@ class FooterTest extends PmaTestCase
             . '&amp;server=1&amp;lang=en'
             . '" title="Open new phpMyAdmin window" '
             . 'target="_blank" rel="noopener noreferrer">Open new phpMyAdmin window</a></div>',
-            $this->_callPrivateFunction(
+            $this->callFunction(
+                $this->object,
+                Footer::class,
                 '_getSelfLink',
                 [
                     $this->object->getSelfUrl(),

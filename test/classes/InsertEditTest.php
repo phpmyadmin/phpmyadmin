@@ -16,7 +16,6 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Scripts;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use ReflectionClass;
 use ReflectionProperty;
 use stdClass;
 use function md5;
@@ -84,30 +83,6 @@ class InsertEditTest extends AbstractTestCase
     }
 
     /**
-     * Call protected functions by setting visibility to public.
-     *
-     * @param string     $name   method name
-     * @param array      $params parameters for the invocation
-     * @param InsertEdit $object InsertEdit instance object
-     *
-     * @return mixed the output from the protected method.
-     */
-    private function callProtectedMethod(
-        $name,
-        array $params = [],
-        InsertEdit $object = null
-    ) {
-        $class = new ReflectionClass(InsertEdit::class);
-        $method = $class->getMethod($name);
-        $method->setAccessible(true);
-
-        return $method->invokeArgs(
-            $object ?? $this->insertEdit,
-            $params
-        );
-    }
-
-    /**
      * Test for getFormParametersForInsertForm
      *
      * @return void
@@ -154,7 +129,12 @@ class InsertEditTest extends AbstractTestCase
     {
         $this->assertEquals(
             [],
-            $this->callProtectedMethod('getWhereClauseArray', [null])
+            $this->callFunction(
+                $this->insertEdit,
+                InsertEdit::class,
+                'getWhereClauseArray',
+                [null]
+                )
         );
 
         $this->assertEquals(
@@ -163,12 +143,22 @@ class InsertEditTest extends AbstractTestCase
                 2,
                 3,
             ],
-            $this->callProtectedMethod('getWhereClauseArray', [[1, 2, 3]])
+            $this->callFunction(
+                $this->insertEdit,
+                InsertEdit::class,
+                'getWhereClauseArray',
+                [[1, 2, 3]]
+                )
         );
 
         $this->assertEquals(
             ['clause'],
-            $this->callProtectedMethod('getWhereClauseArray', ['clause'])
+            $this->callFunction(
+                $this->insertEdit,
+                InsertEdit::class,
+                'getWhereClauseArray',
+                ['clause']
+                )
         );
     }
 
@@ -193,29 +183,34 @@ class InsertEditTest extends AbstractTestCase
             ->willReturnOnConsecutiveCalls(
                 'result1',
                 'result2'
-            );
+        );
 
         $dbi->expects($this->exactly(2))
             ->method('fetchAssoc')
             ->willReturnOnConsecutiveCalls(
                 ['assoc1'],
                 ['assoc2']
-            );
+        );
 
         $dbi->expects($this->exactly(2))
             ->method('getFieldsMeta')
             ->willReturnOnConsecutiveCalls(
                 [],
                 []
-            );
+        );
 
         $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
-        $result = $this->callProtectedMethod('analyzeWhereClauses', [
-            $clauses,
-            'table',
-            'db',
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'analyzeWhereClauses',
+            [
+                $clauses,
+                'table',
+                'db',
+            ]
+        );
 
         $this->assertEquals(
             [
@@ -263,13 +258,18 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
 
-        $result = $this->callProtectedMethod('showEmptyResultMessageOrSetUniqueCondition', [
-            ['1' => ['1' => 1]],
-            1,
-            [],
-            'SELECT',
-            ['1' => 'result1'],
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'showEmptyResultMessageOrSetUniqueCondition',
+            [
+                ['1' => ['1' => 1]],
+                1,
+                [],
+                'SELECT',
+                ['1' => 'result1'],
+            ]
+        );
 
         $this->assertTrue($result);
 
@@ -286,13 +286,18 @@ class InsertEditTest extends AbstractTestCase
         $response->setAccessible(true);
         $response->setValue($responseMock);
 
-        $result = $this->callProtectedMethod('showEmptyResultMessageOrSetUniqueCondition', [
-            [false],
-            0,
-            ['1'],
-            'SELECT',
-            ['1' => 'result1'],
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'showEmptyResultMessageOrSetUniqueCondition',
+            [
+                [false],
+                0,
+                ['1'],
+                'SELECT',
+                ['1' => 'result1'],
+            ]
+        );
 
         $response->setValue($restoreInstance);
 
@@ -324,7 +329,12 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
 
-        $result = $this->callProtectedMethod('loadFirstRow', ['table', 'db']);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'loadFirstRow',
+            ['table', 'db']
+        );
 
         $this->assertEquals(
             [
@@ -451,11 +461,16 @@ class InsertEditTest extends AbstractTestCase
             'Type' => 'float(10, 1)',
         ];
 
-        $result = $this->callProtectedMethod('analyzeTableColumnsArray', [
-            $column,
-            [],
-            false,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'analyzeTableColumnsArray',
+            [
+                $column,
+                [],
+                false,
+            ]
+        );
 
         $this->assertEquals(
             $result['Field_html'],
@@ -525,20 +540,30 @@ class InsertEditTest extends AbstractTestCase
         $column['Field_html'] = 'f1&lt;';
 
         $this->assertEquals(
-            $this->callProtectedMethod('getColumnTitle', [
-                $column,
-                [],
-            ]),
+            $this->callFunction(
+                $this->insertEdit,
+                InsertEdit::class,
+                'getColumnTitle',
+                [
+                    $column,
+                    [],
+                ]
+                ),
             'f1&lt;'
         );
 
         $comments = [];
         $comments['f1<'] = 'comment>';
 
-        $result = $this->callProtectedMethod('getColumnTitle', [
-            $column,
-            $comments,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getColumnTitle',
+            [
+                $column,
+                $comments,
+            ]
+        );
 
         $this->assertStringContainsString(
             'title="comment&gt;"',
@@ -631,10 +656,15 @@ class InsertEditTest extends AbstractTestCase
                 '',
                 false,
             ],
-            $this->callProtectedMethod('getEnumSetAndTimestampColumns', [
-                $column,
-                false,
-            ])
+            $this->callFunction(
+                $this->insertEdit,
+                InsertEdit::class,
+                'getEnumSetAndTimestampColumns',
+                [
+                    $column,
+                    false,
+                ]
+                )
         );
 
         $column['True_Type'] = 'enum';
@@ -644,10 +674,15 @@ class InsertEditTest extends AbstractTestCase
                 '',
                 false,
             ],
-            $this->callProtectedMethod('getEnumSetAndTimestampColumns', [
-                $column,
-                false,
-            ])
+            $this->callFunction(
+                $this->insertEdit,
+                InsertEdit::class,
+                'getEnumSetAndTimestampColumns',
+                [
+                    $column,
+                    false,
+                ]
+                )
         );
 
         $column['True_Type'] = 'timestamp';
@@ -658,10 +693,15 @@ class InsertEditTest extends AbstractTestCase
                 ' nowrap',
                 true,
             ],
-            $this->callProtectedMethod('getEnumSetAndTimestampColumns', [
-                $column,
-                false,
-            ])
+            $this->callFunction(
+                $this->insertEdit,
+                InsertEdit::class,
+                'getEnumSetAndTimestampColumns',
+                [
+                    $column,
+                    false,
+                ]
+                )
         );
 
         $column['True_Type'] = 'timestamp';
@@ -672,10 +712,15 @@ class InsertEditTest extends AbstractTestCase
                 ' nowrap',
                 false,
             ],
-            $this->callProtectedMethod('getEnumSetAndTimestampColumns', [
-                $column,
-                true,
-            ])
+            $this->callFunction(
+                $this->insertEdit,
+                InsertEdit::class,
+                'getEnumSetAndTimestampColumns',
+                [
+                    $column,
+                    true,
+                ]
+                )
         );
 
         $column['True_Type'] = 'SET';
@@ -686,10 +731,15 @@ class InsertEditTest extends AbstractTestCase
                 ' nowrap',
                 false,
             ],
-            $this->callProtectedMethod('getEnumSetAndTimestampColumns', [
-                $column,
-                false,
-            ])
+            $this->callFunction(
+                $this->insertEdit,
+                InsertEdit::class,
+                'getEnumSetAndTimestampColumns',
+                [
+                    $column,
+                    false,
+                ]
+                )
         );
 
         $column['True_Type'] = '';
@@ -700,10 +750,15 @@ class InsertEditTest extends AbstractTestCase
                 ' nowrap',
                 false,
             ],
-            $this->callProtectedMethod('getEnumSetAndTimestampColumns', [
-                $column,
-                false,
-            ])
+            $this->callFunction(
+                $this->insertEdit,
+                InsertEdit::class,
+                'getEnumSetAndTimestampColumns',
+                [
+                    $column,
+                    false,
+                ]
+                )
         );
     }
 
@@ -719,131 +774,166 @@ class InsertEditTest extends AbstractTestCase
         $column['is_blob'] = true;
         $this->assertStringContainsString(
             '<td class="text-center">Binary</td>',
-            $this->callProtectedMethod('getFunctionColumn', [
-                $column,
-                false,
-                '',
-                '',
-                [],
-                0,
-                0,
-                0,
-                false,
-                false,
-                [],
-            ])
+            $this->callFunction(
+                $this->insertEdit,
+                InsertEdit::class,
+                'getFunctionColumn',
+                [
+                    $column,
+                    false,
+                    '',
+                    '',
+                    [],
+                    0,
+                    0,
+                    0,
+                    false,
+                    false,
+                    [],
+                ]
+                )
         );
 
         $GLOBALS['cfg']['ProtectBinary'] = 'all';
         $column['is_binary'] = true;
         $this->assertStringContainsString(
             '<td class="text-center">Binary</td>',
-            $this->callProtectedMethod('getFunctionColumn', [
-                $column,
-                true,
-                '',
-                '',
-                [],
-                0,
-                0,
-                0,
-                false,
-                false,
-                [],
-            ])
+            $this->callFunction(
+                $this->insertEdit,
+                InsertEdit::class,
+                'getFunctionColumn',
+                [
+                    $column,
+                    true,
+                    '',
+                    '',
+                    [],
+                    0,
+                    0,
+                    0,
+                    false,
+                    false,
+                    [],
+                ]
+                )
         );
 
         $GLOBALS['cfg']['ProtectBinary'] = 'noblob';
         $column['is_blob'] = false;
         $this->assertStringContainsString(
             '<td class="text-center">Binary</td>',
-            $this->callProtectedMethod('getFunctionColumn', [
-                $column,
-                true,
-                '',
-                '',
-                [],
-                0,
-                0,
-                0,
-                false,
-                false,
-                [],
-            ])
+            $this->callFunction(
+                $this->insertEdit,
+                InsertEdit::class,
+                'getFunctionColumn',
+                [
+                    $column,
+                    true,
+                    '',
+                    '',
+                    [],
+                    0,
+                    0,
+                    0,
+                    false,
+                    false,
+                    [],
+                ]
+                )
         );
 
         $GLOBALS['cfg']['ProtectBinary'] = false;
         $column['True_Type'] = 'enum';
         $this->assertStringContainsString(
             '<td class="text-center">--</td>',
-            $this->callProtectedMethod('getFunctionColumn', [
-                $column,
-                true,
-                '',
-                '',
-                [],
-                0,
-                0,
-                0,
-                false,
-                false,
-                [],
-            ])
+            $this->callFunction(
+                $this->insertEdit,
+                InsertEdit::class,
+                'getFunctionColumn',
+                [
+                    $column,
+                    true,
+                    '',
+                    '',
+                    [],
+                    0,
+                    0,
+                    0,
+                    false,
+                    false,
+                    [],
+                ]
+                )
         );
 
         $column['True_Type'] = 'set';
         $this->assertStringContainsString(
             '<td class="text-center">--</td>',
-            $this->callProtectedMethod('getFunctionColumn', [
-                $column,
-                true,
-                '',
-                '',
-                [],
-                0,
-                0,
-                0,
-                false,
-                false,
-                [],
-            ])
+            $this->callFunction(
+                $this->insertEdit,
+                InsertEdit::class,
+                'getFunctionColumn',
+                [
+                    $column,
+                    true,
+                    '',
+                    '',
+                    [],
+                    0,
+                    0,
+                    0,
+                    false,
+                    false,
+                    [],
+                ]
+                )
         );
 
         $column['True_Type'] = '';
         $column['pma_type'] = 'int';
         $this->assertStringContainsString(
             '<td class="text-center">--</td>',
-            $this->callProtectedMethod('getFunctionColumn', [
-                $column,
-                true,
-                '',
-                '',
-                ['int'],
-                0,
-                0,
-                0,
-                false,
-                false,
-                [],
-            ])
+            $this->callFunction(
+                $this->insertEdit,
+                InsertEdit::class,
+                'getFunctionColumn',
+                [
+                    $column,
+                    true,
+                    '',
+                    '',
+                    ['int'],
+                    0,
+                    0,
+                    0,
+                    false,
+                    false,
+                    [],
+                ]
+                )
         );
 
         $column['Field'] = 'num';
         $this->assertStringContainsString(
             '<select name="funcsa" b tabindex="5" id="field_3_1"',
-            $this->callProtectedMethod('getFunctionColumn', [
-                $column,
-                true,
-                'a',
-                'b',
-                [],
-                2,
-                3,
-                3,
-                false,
-                false,
-                [],
-            ])
+            $this->callFunction(
+                $this->insertEdit,
+                InsertEdit::class,
+                'getFunctionColumn',
+                [
+                    $column,
+                    true,
+                    'a',
+                    'b',
+                    [],
+                    2,
+                    3,
+                    3,
+                    false,
+                    false,
+                    [],
+                ]
+                )
         );
     }
 
@@ -864,18 +954,23 @@ class InsertEditTest extends AbstractTestCase
             'foreign_keys_data' => [],
         ];
 
-        $result = $this->callProtectedMethod('getNullColumn', [
-            $column,
-            'a',
-            true,
-            2,
-            0,
-            1,
-            '<script>',
-            $foreigners,
-            [],
-            false,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getNullColumn',
+            [
+                $column,
+                'a',
+                true,
+                2,
+                0,
+                1,
+                '<script>',
+                $foreigners,
+                [],
+                false,
+            ]
+        );
 
         $this->assertStringContainsString(
             '<input type="hidden" name="fields_null_preva" value="on">',
@@ -908,18 +1003,23 @@ class InsertEditTest extends AbstractTestCase
 
         // case 2
         $column['Null'] = 'NO';
-        $result = $this->callProtectedMethod('getNullColumn', [
-            $column,
-            'a',
-            true,
-            2,
-            0,
-            1,
-            '<script>',
-            [],
-            [],
-            false,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getNullColumn',
+            [
+                $column,
+                'a',
+                true,
+                2,
+                0,
+                1,
+                '<script>',
+                [],
+                [],
+                false,
+            ]
+        );
 
         $this->assertEquals(
             "<td></td>\n",
@@ -928,18 +1028,23 @@ class InsertEditTest extends AbstractTestCase
 
         // case 3
         $column['Null'] = 'YES';
-        $result = $this->callProtectedMethod('getNullColumn', [
-            $column,
-            'a',
-            true,
-            2,
-            0,
-            1,
-            '<script>',
-            [],
-            [],
-            true,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getNullColumn',
+            [
+                $column,
+                'a',
+                true,
+                2,
+                0,
+                1,
+                '<script>',
+                [],
+                [],
+                true,
+            ]
+        );
 
         $this->assertEquals(
             "<td></td>\n",
@@ -963,32 +1068,47 @@ class InsertEditTest extends AbstractTestCase
         $column['Type'] = 'ababababababababababa';
         $this->assertEquals(
             '1',
-            $this->callProtectedMethod('getNullifyCodeForNullColumn', [
-                $column,
-                $foreigners,
-                [],
-            ])
+            $this->callFunction(
+                $this->insertEdit,
+                InsertEdit::class,
+                'getNullifyCodeForNullColumn',
+                [
+                    $column,
+                    $foreigners,
+                    [],
+                ]
+                )
         );
 
         $column['True_Type'] = 'enum';
         $column['Type'] = 'abababababababababab';
         $this->assertEquals(
             '2',
-            $this->callProtectedMethod('getNullifyCodeForNullColumn', [
-                $column,
-                $foreigners,
-                [],
-            ])
+            $this->callFunction(
+                $this->insertEdit,
+                InsertEdit::class,
+                'getNullifyCodeForNullColumn',
+                [
+                    $column,
+                    $foreigners,
+                    [],
+                ]
+                )
         );
 
         $column['True_Type'] = 'set';
         $this->assertEquals(
             '3',
-            $this->callProtectedMethod('getNullifyCodeForNullColumn', [
-                $column,
-                $foreigners,
-                [],
-            ])
+            $this->callFunction(
+                $this->insertEdit,
+                InsertEdit::class,
+                'getNullifyCodeForNullColumn',
+                [
+                    $column,
+                    $foreigners,
+                    [],
+                ]
+                )
         );
 
         $column['True_Type'] = '';
@@ -996,11 +1116,16 @@ class InsertEditTest extends AbstractTestCase
         $foreignData['foreign_link'] = '';
         $this->assertEquals(
             '4',
-            $this->callProtectedMethod('getNullifyCodeForNullColumn', [
-                $column,
-                $foreigners,
-                $foreignData,
-            ])
+            $this->callFunction(
+                $this->insertEdit,
+                InsertEdit::class,
+                'getNullifyCodeForNullColumn',
+                [
+                    $column,
+                    $foreigners,
+                    $foreignData,
+                ]
+                )
         );
     }
 
@@ -1015,23 +1140,28 @@ class InsertEditTest extends AbstractTestCase
         $column['Field'] = 'f';
         $titles['Browse'] = "'";
         $GLOBALS['cfg']['ServerDefault'] = 2;
-        $result = $this->callProtectedMethod('getForeignLink', [
-            $column,
-            'a',
-            'b',
-            'd',
-            2,
-            0,
-            1,
-            'abc',
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getForeignLink',
             [
-                'tbl',
-                'db',
-            ],
-            8,
-            $titles,
-            false,
-        ]);
+                $column,
+                'a',
+                'b',
+                'd',
+                2,
+                0,
+                1,
+                'abc',
+                [
+                    'tbl',
+                    'db',
+                ],
+                8,
+                $titles,
+                false,
+            ]
+        );
 
         $this->assertStringContainsString(
             '<input type="hidden" name="fields_typeb" value="foreign"',
@@ -1070,18 +1200,23 @@ class InsertEditTest extends AbstractTestCase
         $foreignData['foreign_display'] = null;
         $GLOBALS['cfg']['ForeignKeyMaxLimit'] = 1;
         $GLOBALS['cfg']['NaturalOrder'] = false;
-        $result = $this->callProtectedMethod('dispRowForeignData', [
-            $column,
-            'a',
-            'b',
-            'd',
-            2,
-            0,
-            1,
-            '<s>',
-            $foreignData,
-            false,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'dispRowForeignData',
+            [
+                $column,
+                'a',
+                'b',
+                'd',
+                2,
+                0,
+                1,
+                '<s>',
+                $foreignData,
+                false,
+            ]
+        );
 
         $this->assertStringContainsString(
             "a\n",
@@ -1115,18 +1250,23 @@ class InsertEditTest extends AbstractTestCase
         $foreignData['foreign_display'] = null;
         $GLOBALS['cfg']['ForeignKeyMaxLimit'] = 1;
         $GLOBALS['cfg']['NaturalOrder'] = false;
-        $result = $this->callProtectedMethod('dispRowForeignData', [
-            $column,
-            'a',
-            'b',
-            'd',
-            2,
-            0,
-            1,
-            '<s>',
-            $foreignData,
-            false,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'dispRowForeignData',
+            [
+                $column,
+                'a',
+                'b',
+                'd',
+                2,
+                0,
+                1,
+                '<s>',
+                $foreignData,
+                false,
+            ]
+        );
 
         $this->assertStringContainsString(
             "a\n",
@@ -1162,19 +1302,24 @@ class InsertEditTest extends AbstractTestCase
         $column['is_char'] = true;
         $column['Type'] = 'char(10)';
         $column['True_Type'] = 'char';
-        $result = $this->callProtectedMethod('getTextarea', [
-            $column,
-            'a',
-            'b',
-            '',
-            2,
-            0,
-            1,
-            'abc/',
-            'foobar',
-            'CHAR',
-            false,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getTextarea',
+            [
+                $column,
+                'a',
+                'b',
+                '',
+                2,
+                0,
+                1,
+                'abc/',
+                'foobar',
+                'CHAR',
+                false,
+            ]
+        );
 
         $this->assertStringContainsString(
             '<textarea name="fieldsb" class="char charField" '
@@ -1200,18 +1345,23 @@ class InsertEditTest extends AbstractTestCase
                 'plain' => 'data',
             ],
         ];
-        $result = $this->callProtectedMethod('getPmaTypeEnum', [
-            $column,
-            'a',
-            'b',
-            $extracted_columnspec,
-            'd',
-            2,
-            0,
-            1,
-            'foobar',
-            false,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getPmaTypeEnum',
+            [
+                $column,
+                'a',
+                'b',
+                $extracted_columnspec,
+                'd',
+                2,
+                0,
+                1,
+                'foobar',
+                false,
+            ]
+        );
 
         $this->assertStringContainsString(
             '<input type="hidden" name="fields_typeb" value="enum">',
@@ -1224,18 +1374,23 @@ class InsertEditTest extends AbstractTestCase
         );
 
         $column['Type'] = 'ababababababababababa';
-        $result = $this->callProtectedMethod('getPmaTypeEnum', [
-            $column,
-            'a',
-            'b',
-            $extracted_columnspec,
-            'd',
-            2,
-            0,
-            1,
-            'foobar',
-            false,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getPmaTypeEnum',
+            [
+                $column,
+                'a',
+                'b',
+                $extracted_columnspec,
+                'd',
+                2,
+                0,
+                1,
+                'foobar',
+                false,
+            ]
+        );
 
         $this->assertStringContainsString(
             '<input type="hidden" name="fields_typeb" value="enum"',
@@ -1264,10 +1419,15 @@ class InsertEditTest extends AbstractTestCase
 
         $column['values'] = 'abc';
 
-        $result = $this->callProtectedMethod('getColumnEnumValues', [
-            $column,
-            $extracted_columnspec,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getColumnEnumValues',
+            [
+                $column,
+                $extracted_columnspec,
+            ]
+        );
         $this->assertEquals(
             [
                 [
@@ -1301,17 +1461,22 @@ class InsertEditTest extends AbstractTestCase
             ],
         ];
 
-        $result = $this->callProtectedMethod('getDropDownDependingOnLength', [
-            [],
-            'a',
-            'b',
-            2,
-            0,
-            1,
-            'data',
-            $column_enum_values,
-            false,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getDropDownDependingOnLength',
+            [
+                [],
+                'a',
+                'b',
+                2,
+                0,
+                1,
+                'data',
+                $column_enum_values,
+                false,
+            ]
+        );
 
         $this->assertStringContainsString(
             '<select name="fieldsa" b class="textfield" tabindex="2" '
@@ -1340,17 +1505,22 @@ class InsertEditTest extends AbstractTestCase
         $column = [];
         $column['Default'] = 'data';
         $column['Null'] = 'YES';
-        $result = $this->callProtectedMethod('getDropDownDependingOnLength', [
-            $column,
-            'a',
-            'b',
-            2,
-            0,
-            1,
-            '',
-            $column_enum_values,
-            false,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getDropDownDependingOnLength',
+            [
+                $column,
+                'a',
+                'b',
+                2,
+                0,
+                1,
+                '',
+                $column_enum_values,
+                false,
+            ]
+        );
 
         $this->assertStringContainsString(
             '<option value="foo" selected="selected">',
@@ -1376,17 +1546,22 @@ class InsertEditTest extends AbstractTestCase
             ],
         ];
 
-        $result = $this->callProtectedMethod('getRadioButtonDependingOnLength', [
-            'a',
-            'b',
-            2,
-            [],
-            0,
-            1,
-            'data',
-            $column_enum_values,
-            false,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getRadioButtonDependingOnLength',
+            [
+                'a',
+                'b',
+                2,
+                [],
+                0,
+                1,
+                'data',
+                $column_enum_values,
+                false,
+            ]
+        );
 
         $this->assertStringContainsString(
             '<input type="radio" name="fieldsa" class="textfield" value="foo" '
@@ -1421,17 +1596,22 @@ class InsertEditTest extends AbstractTestCase
         $column = [];
         $column['Default'] = 'data';
         $column['Null'] = 'YES';
-        $result = $this->callProtectedMethod('getRadioButtonDependingOnLength', [
-            'a',
-            'b',
-            2,
-            $column,
-            0,
-            1,
-            '',
-            $column_enum_values,
-            false,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getRadioButtonDependingOnLength',
+            [
+                'a',
+                'b',
+                2,
+                $column,
+                0,
+                1,
+                '',
+                $column_enum_values,
+                false,
+            ]
+        );
 
         $this->assertStringContainsString(
             '<input type="radio" name="fieldsa" class="textfield" value="foo" '
@@ -1457,18 +1637,23 @@ class InsertEditTest extends AbstractTestCase
 
         $column['select_size'] = 1;
 
-        $result = $this->callProtectedMethod('getPmaTypeSet', [
-            $column,
-            [],
-            'a',
-            'b',
-            'c',
-            2,
-            0,
-            1,
-            'data,<',
-            false,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getPmaTypeSet',
+            [
+                $column,
+                [],
+                'a',
+                'b',
+                'c',
+                2,
+                0,
+                1,
+                'data,<',
+                false,
+            ]
+        );
 
         $this->assertStringContainsString("a\n", $result);
 
@@ -1501,10 +1686,15 @@ class InsertEditTest extends AbstractTestCase
             'a',
             '<',
         ];
-        $result = $this->callProtectedMethod('getColumnSetValueAndSelectSize', [
-            [],
-            $extracted_columnspec,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getColumnSetValueAndSelectSize',
+            [
+                [],
+                $extracted_columnspec,
+            ]
+        );
 
         $this->assertEquals(
             [
@@ -1528,10 +1718,15 @@ class InsertEditTest extends AbstractTestCase
             2,
         ];
         $column['select_size'] = 3;
-        $result = $this->callProtectedMethod('getColumnSetValueAndSelectSize', [
-            $column,
-            $extracted_columnspec,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getColumnSetValueAndSelectSize',
+            [
+                $column,
+                $extracted_columnspec,
+            ]
+        );
 
         $this->assertEquals(
             [
@@ -1561,23 +1756,28 @@ class InsertEditTest extends AbstractTestCase
         $column['True_Type'] = 'blob';
         $GLOBALS['max_upload_size'] = 65536;
 
-        $result = $this->callProtectedMethod('getBinaryAndBlobColumn', [
-            $column,
-            '12\\"23',
-            null,
-            20,
-            'a',
-            'b',
-            'c',
-            2,
-            1,
-            1,
-            '/',
-            null,
-            'foo',
-            true,
-            false,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getBinaryAndBlobColumn',
+            [
+                $column,
+                '12\\"23',
+                null,
+                20,
+                'a',
+                'b',
+                'c',
+                2,
+                1,
+                1,
+                '/',
+                null,
+                'foo',
+                true,
+                false,
+            ]
+        );
 
         $this->assertEquals(
             'Binary - do not edit (5 B)<input type="hidden" '
@@ -1592,23 +1792,28 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['cfg']['ProtectBinary'] = 'all';
         $column['is_binary'] = true;
 
-        $result = $this->callProtectedMethod('getBinaryAndBlobColumn', [
-            $column,
-            '1223',
-            null,
-            20,
-            'a',
-            'b',
-            'c',
-            2,
-            1,
-            1,
-            '/',
-            null,
-            'foo',
-            false,
-            false,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getBinaryAndBlobColumn',
+            [
+                $column,
+                '1223',
+                null,
+                20,
+                'a',
+                'b',
+                'c',
+                2,
+                1,
+                1,
+                '/',
+                null,
+                'foo',
+                false,
+                false,
+            ]
+        );
 
         $this->assertEquals(
             'Binary - do not edit (4 B)<input type="hidden" '
@@ -1621,23 +1826,28 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['cfg']['ProtectBinary'] = 'noblob';
         $column['is_blob'] = false;
 
-        $result = $this->callProtectedMethod('getBinaryAndBlobColumn', [
-            $column,
-            '1223',
-            null,
-            20,
-            'a',
-            'b',
-            'c',
-            2,
-            1,
-            1,
-            '/',
-            null,
-            'foo',
-            true,
-            false,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getBinaryAndBlobColumn',
+            [
+                $column,
+                '1223',
+                null,
+                20,
+                'a',
+                'b',
+                'c',
+                2,
+                1,
+                1,
+                '/',
+                null,
+                'foo',
+                true,
+                false,
+            ]
+        );
 
         $this->assertEquals(
             'Binary - do not edit (4 B)<input type="hidden" '
@@ -1657,23 +1867,28 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['cfg']['CharTextareaCols'] = 1;
         $GLOBALS['cfg']['LimitChars'] = 100;
 
-        $result = $this->callProtectedMethod('getBinaryAndBlobColumn', [
-            $column,
-            '1223',
-            null,
-            20,
-            'a',
-            'b',
-            'c',
-            2,
-            1,
-            1,
-            '/',
-            null,
-            'foo',
-            true,
-            false,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getBinaryAndBlobColumn',
+            [
+                $column,
+                '1223',
+                null,
+                20,
+                'a',
+                'b',
+                'c',
+                2,
+                1,
+                1,
+                '/',
+                null,
+                'foo',
+                true,
+                false,
+            ]
+        );
 
         $this->assertEquals(
             "\na\n"
@@ -1695,23 +1910,28 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['cfg']['TextareaRows'] = 20;
         $GLOBALS['cfg']['TextareaCols'] = 10;
 
-        $result = $this->callProtectedMethod('getBinaryAndBlobColumn', [
-            $column,
-            '1223',
-            null,
-            20,
-            'a',
-            'b',
-            'c',
-            2,
-            1,
-            1,
-            '/',
-            null,
-            'foo',
-            true,
-            false,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getBinaryAndBlobColumn',
+            [
+                $column,
+                '1223',
+                null,
+                20,
+                'a',
+                'b',
+                'c',
+                2,
+                1,
+                1,
+                '/',
+                null,
+                'foo',
+                true,
+                false,
+            ]
+        );
 
         $this->assertEquals(
             "\na\n"
@@ -1733,23 +1953,28 @@ class InsertEditTest extends AbstractTestCase
          * $GLOBALS['cfg']['UploadDir'] = true;
          */
 
-        $result = $this->callProtectedMethod('getBinaryAndBlobColumn', [
-            $column,
-            '1223',
-            null,
-            20,
-            'a',
-            'b',
-            'c',
-            2,
-            1,
-            1,
-            '/',
-            null,
-            'foo',
-            true,
-            false,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getBinaryAndBlobColumn',
+            [
+                $column,
+                '1223',
+                null,
+                20,
+                'a',
+                'b',
+                'c',
+                2,
+                1,
+                1,
+                '/',
+                null,
+                'foo',
+                true,
+                false,
+            ]
+        );
 
         $this->assertEquals(
             "\na\n"
@@ -1771,18 +1996,23 @@ class InsertEditTest extends AbstractTestCase
         $column = [];
         $column['pma_type'] = 'date';
         $column['True_Type'] = 'date';
-        $result = $this->callProtectedMethod('getHtmlInput', [
-            $column,
-            'a',
-            'b',
-            30,
-            'c',
-            23,
-            2,
-            0,
-            'DATE',
-            false,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getHtmlInput',
+            [
+                $column,
+                'a',
+                'b',
+                30,
+                'c',
+                23,
+                2,
+                0,
+                'DATE',
+                false,
+            ]
+        );
 
         $this->assertEquals(
             '<input type="text" name="fieldsa" value="b" size="30" data-type="DATE"'
@@ -1793,18 +2023,23 @@ class InsertEditTest extends AbstractTestCase
         // case 2 datetime
         $column['pma_type'] = 'datetime';
         $column['True_Type'] = 'datetime';
-        $result = $this->callProtectedMethod('getHtmlInput', [
-            $column,
-            'a',
-            'b',
-            30,
-            'c',
-            23,
-            2,
-            0,
-            'DATE',
-            false,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getHtmlInput',
+            [
+                $column,
+                'a',
+                'b',
+                30,
+                'c',
+                23,
+                2,
+                0,
+                'DATE',
+                false,
+            ]
+        );
         $this->assertEquals(
             '<input type="text" name="fieldsa" value="b" size="30" data-type="DATE"'
             . ' class="textfield datetimefield" c tabindex="25" id="field_0_3">',
@@ -1814,18 +2049,23 @@ class InsertEditTest extends AbstractTestCase
         // case 3 timestamp
         $column['pma_type'] = 'timestamp';
         $column['True_Type'] = 'timestamp';
-        $result = $this->callProtectedMethod('getHtmlInput', [
-            $column,
-            'a',
-            'b',
-            30,
-            'c',
-            23,
-            2,
-            0,
-            'DATE',
-            false,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getHtmlInput',
+            [
+                $column,
+                'a',
+                'b',
+                30,
+                'c',
+                23,
+                2,
+                0,
+                'DATE',
+                false,
+            ]
+        );
         $this->assertEquals(
             '<input type="text" name="fieldsa" value="b" size="30" data-type="DATE"'
             . ' class="textfield datetimefield" c tabindex="25" id="field_0_3">',
@@ -1843,10 +2083,15 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['max_upload_size'] = 257;
         $column = [];
         $column['pma_type'] = 'tinyblob';
-        $result = $this->callProtectedMethod('getMaxUploadSize', [
-            $column,
-            256,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getMaxUploadSize',
+            [
+                $column,
+                256,
+            ]
+        );
 
         $this->assertEquals(
             [
@@ -1859,10 +2104,15 @@ class InsertEditTest extends AbstractTestCase
         // case 2
         $GLOBALS['max_upload_size'] = 250;
         $column['pma_type'] = 'tinyblob';
-        $result = $this->callProtectedMethod('getMaxUploadSize', [
-            $column,
-            20,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getMaxUploadSize',
+            [
+                $column,
+                20,
+            ]
+        );
 
         $this->assertEquals(
             [
@@ -1897,22 +2147,27 @@ class InsertEditTest extends AbstractTestCase
 
         $extracted_columnspec = [];
         $extracted_columnspec['spec_in_brackets'] = 25;
-        $result = $this->callProtectedMethod('getValueColumnForOtherDatatypes', [
-            $column,
-            'defchar',
-            'a',
-            'b',
-            'c',
-            22,
-            '&lt;',
-            12,
-            1,
-            '/',
-            '&lt;',
-            "foo\nbar",
-            $extracted_columnspec,
-            false,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getValueColumnForOtherDatatypes',
+            [
+                $column,
+                'defchar',
+                'a',
+                'b',
+                'c',
+                22,
+                '&lt;',
+                12,
+                1,
+                '/',
+                '&lt;',
+                "foo\nbar",
+                $extracted_columnspec,
+                false,
+            ]
+        );
 
         $this->assertEquals(
             "a\n\na\n"
@@ -1928,22 +2183,27 @@ class InsertEditTest extends AbstractTestCase
         $column['Extra'] = 'auto_increment';
         $column['pma_type'] = 'timestamp';
         $column['True_Type'] = 'timestamp';
-        $result = $this->callProtectedMethod('getValueColumnForOtherDatatypes', [
-            $column,
-            'defchar',
-            'a',
-            'b',
-            'c',
-            22,
-            '&lt;',
-            12,
-            1,
-            '/',
-            '&lt;',
-            "foo\nbar",
-            $extracted_columnspec,
-            false,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getValueColumnForOtherDatatypes',
+            [
+                $column,
+                'defchar',
+                'a',
+                'b',
+                'c',
+                22,
+                '&lt;',
+                12,
+                1,
+                '/',
+                '&lt;',
+                "foo\nbar",
+                $extracted_columnspec,
+                false,
+            ]
+        );
 
         $this->assertEquals(
             "a\n"
@@ -1956,22 +2216,27 @@ class InsertEditTest extends AbstractTestCase
 
         // case 3: (else -> datetime)
         $column['pma_type'] = 'datetime';
-        $result = $this->callProtectedMethod('getValueColumnForOtherDatatypes', [
-            $column,
-            'defchar',
-            'a',
-            'b',
-            'c',
-            22,
-            '&lt;',
-            12,
-            1,
-            '/',
-            '&lt;',
-            "foo\nbar",
-            $extracted_columnspec,
-            false,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getValueColumnForOtherDatatypes',
+            [
+                $column,
+                'defchar',
+                'a',
+                'b',
+                'c',
+                22,
+                '&lt;',
+                12,
+                1,
+                '/',
+                '&lt;',
+                "foo\nbar",
+                $extracted_columnspec,
+                false,
+            ]
+        );
 
         $this->assertStringContainsString(
             '<input type="hidden" name="fields_typeb" value="datetime">',
@@ -1994,10 +2259,15 @@ class InsertEditTest extends AbstractTestCase
 
         $this->assertEquals(
             40,
-            $this->callProtectedMethod('getColumnSize', [
-                $column,
-                $extracted_columnspec,
-            ])
+            $this->callFunction(
+                $this->insertEdit,
+                InsertEdit::class,
+                'getColumnSize',
+                [
+                    $column,
+                    $extracted_columnspec,
+                ]
+                )
         );
 
         $this->assertEquals(
@@ -2010,10 +2280,15 @@ class InsertEditTest extends AbstractTestCase
         $column['len'] = 20;
         $this->assertEquals(
             30,
-            $this->callProtectedMethod('getColumnSize', [
-                $column,
-                $extracted_columnspec,
-            ])
+            $this->callFunction(
+                $this->insertEdit,
+                InsertEdit::class,
+                'getColumnSize',
+                [
+                    $column,
+                    $extracted_columnspec,
+                ]
+                )
         );
     }
 
@@ -2030,7 +2305,12 @@ class InsertEditTest extends AbstractTestCase
             '<a href="#" target="_blank"><span class="nowrap"><img src="themes/dot.'
             . 'gif" title="Edit/Insert" alt="Edit/Insert" class="icon ic_b_edit">'
             . '</span></a>',
-            $this->callProtectedMethod('getHtmlForGisDataTypes')
+            $this->callFunction(
+                $this->insertEdit,
+                InsertEdit::class,
+                'getHtmlForGisDataTypes',
+                []
+                )
         );
     }
 
@@ -2126,11 +2406,16 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetSubmitTypeDropDown()
     {
-        $result = $this->callProtectedMethod('getSubmitTypeDropDown', [
-            [],
-            2,
-            2,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getSubmitTypeDropDown',
+            [
+                [],
+                2,
+                2,
+            ]
+        );
 
         $this->assertStringContainsString(
             '<select name="submit_type" class="control_at_footer" tabindex="5">',
@@ -2150,11 +2435,16 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetAfterInsertDropDown()
     {
-        $result = $this->callProtectedMethod('getAfterInsertDropDown', [
-            '`t`.`f` = 2',
-            'new_insert',
-            true,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getAfterInsertDropDown',
+            [
+                '`t`.`f` = 2',
+                'new_insert',
+                true,
+            ]
+        );
 
         $this->assertStringContainsString(
             '<option value="new_insert" selected="selected">',
@@ -2180,10 +2470,15 @@ class InsertEditTest extends AbstractTestCase
     public function testGetSubmitAndResetButtonForActionsPanel()
     {
         $GLOBALS['cfg']['ShowHint'] = false;
-        $result = $this->callProtectedMethod('getSubmitAndResetButtonForActionsPanel', [
-            1,
-            0,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getSubmitAndResetButtonForActionsPanel',
+            [
+                1,
+                0,
+            ]
+        );
 
         $this->assertStringContainsString(
             '<input type="submit" class="btn btn-primary control_at_footer" value="Go" '
@@ -2216,9 +2511,14 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $url_params = ['ShowFunctionFields' => 2];
 
-        $result = $this->callProtectedMethod('getHeadAndFootOfInsertRowTable', [
-            $url_params,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getHeadAndFootOfInsertRowTable',
+            [
+                $url_params,
+            ]
+        );
 
         $this->assertStringContainsString(
             'index.php?route=/table/change',
@@ -2250,15 +2550,20 @@ class InsertEditTest extends AbstractTestCase
         $column['Key'] = 'PRI';
         $column['Extra'] = 'fooauto_increment';
 
-        $result = $this->callProtectedMethod('getSpecialCharsAndBackupFieldForExistingRow', [
-            $current_row,
-            $column,
-            [],
-            false,
-            [],
-            'a',
-            false,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getSpecialCharsAndBackupFieldForExistingRow',
+            [
+                $current_row,
+                $column,
+                [],
+                false,
+                [],
+                'a',
+                false,
+            ]
+        );
 
         $this->assertEquals(
             [
@@ -2278,15 +2583,20 @@ class InsertEditTest extends AbstractTestCase
         $extracted_columnspec['spec_in_brackets'] = 20;
         $column['True_Type'] = 'bit';
 
-        $result = $this->callProtectedMethod('getSpecialCharsAndBackupFieldForExistingRow', [
-            $current_row,
-            $column,
-            $extracted_columnspec,
-            false,
-            [],
-            'a',
-            false,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getSpecialCharsAndBackupFieldForExistingRow',
+            [
+                $current_row,
+                $column,
+                $extracted_columnspec,
+                false,
+                [],
+                'a',
+                false,
+            ]
+        );
 
         $this->assertEquals(
             [
@@ -2300,15 +2610,20 @@ class InsertEditTest extends AbstractTestCase
         );
 
         $current_row['f'] = 'abcd';
-        $result = $this->callProtectedMethod('getSpecialCharsAndBackupFieldForExistingRow', [
-            $current_row,
-            $column,
-            $extracted_columnspec,
-            false,
-            [],
-            'a',
-            true,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getSpecialCharsAndBackupFieldForExistingRow',
+            [
+                $current_row,
+                $column,
+                $extracted_columnspec,
+                false,
+                [],
+                'a',
+                true,
+            ]
+        );
 
         $this->assertEquals(
             [
@@ -2333,15 +2648,20 @@ class InsertEditTest extends AbstractTestCase
         $extracted_columnspec['spec_in_brackets'] = 20;
         $column['True_Type'] = 'int';
 
-        $result = $this->callProtectedMethod('getSpecialCharsAndBackupFieldForExistingRow', [
-            $current_row,
-            $column,
-            $extracted_columnspec,
-            false,
-            ['int'],
-            'a',
-            false,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getSpecialCharsAndBackupFieldForExistingRow',
+            [
+                $current_row,
+                $column,
+                $extracted_columnspec,
+                false,
+                ['int'],
+                'a',
+                false,
+            ]
+        );
 
         $this->assertEquals(
             [
@@ -2363,15 +2683,20 @@ class InsertEditTest extends AbstractTestCase
         $column['True_Type'] = 'char';
         $GLOBALS['cfg']['ShowFunctionFields'] = true;
 
-        $result = $this->callProtectedMethod('getSpecialCharsAndBackupFieldForExistingRow', [
-            $current_row,
-            $column,
-            $extracted_columnspec,
-            false,
-            ['int'],
-            'a',
-            false,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getSpecialCharsAndBackupFieldForExistingRow',
+            [
+                $current_row,
+                $column,
+                $extracted_columnspec,
+                false,
+                ['int'],
+                'a',
+                false,
+            ]
+        );
 
         $this->assertEquals(
             [
@@ -2387,15 +2712,20 @@ class InsertEditTest extends AbstractTestCase
         // Case 5
         $current_row['f'] = "11001\x00";
 
-        $result = $this->callProtectedMethod('getSpecialCharsAndBackupFieldForExistingRow', [
-            $current_row,
-            $column,
-            $extracted_columnspec,
-            false,
-            ['int'],
-            'a',
-            false,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getSpecialCharsAndBackupFieldForExistingRow',
+            [
+                $current_row,
+                $column,
+                $extracted_columnspec,
+                false,
+                ['int'],
+                'a',
+                false,
+            ]
+        );
 
         $this->assertEquals(
             [
@@ -2423,10 +2753,15 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['cfg']['ProtectBinary'] = false;
         $GLOBALS['cfg']['ShowFunctionFields'] = true;
 
-        $result = $this->callProtectedMethod('getSpecialCharsAndBackupFieldForInsertingMode', [
-            $column,
-            false,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getSpecialCharsAndBackupFieldForInsertingMode',
+            [
+                $column,
+                false,
+            ]
+        );
 
         $this->assertEquals(
             [
@@ -2443,10 +2778,15 @@ class InsertEditTest extends AbstractTestCase
         unset($column['Default']);
         $column['True_Type'] = 'char';
 
-        $result = $this->callProtectedMethod('getSpecialCharsAndBackupFieldForInsertingMode', [
-            $column,
-            false,
-        ]);
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getSpecialCharsAndBackupFieldForInsertingMode',
+            [
+                $column,
+                false,
+            ]
+        );
 
         $this->assertEquals(
             [
@@ -2900,7 +3240,12 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
 
-        $result = $this->callProtectedMethod('getWarningMessages');
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getWarningMessages',
+            []
+        );
 
         $this->assertEquals(
             [
@@ -3257,7 +3602,7 @@ class InsertEditTest extends AbstractTestCase
             ->willReturnOnConsecutiveCalls(
                 $this->returnArgument(0),
                 "20\'12"
-            );
+        );
 
         $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
@@ -3734,7 +4079,7 @@ class InsertEditTest extends AbstractTestCase
                         ],
                     ]
                 )
-            );
+        );
 
         $dbi->expects($this->any())
             ->method('getTable')
@@ -3742,7 +4087,7 @@ class InsertEditTest extends AbstractTestCase
                 $this->returnValue(
                     new Table('table', 'db')
                 )
-            );
+        );
 
         $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
@@ -3831,36 +4176,41 @@ class InsertEditTest extends AbstractTestCase
         ];
 
         // Test w/ input transformation
-        $actual = $this->callProtectedMethod('getHtmlForInsertEditFormColumn', [
-            $table_columns,
-            0,
-            [],
-            false,
-            [],
-            '',
-            '',
-            '',
-            false,
-            [],
-            &$o_rows,
-            &$tabindex,
-            0,
-            false,
-            0,
-            [],
-            0,
-            0,
-            'table',
-            'db',
-            0,
-            [],
-            0,
-            '',
-            '',
-            $repopulate,
-            $column_mime,
-            '',
-        ]);
+        $actual = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getHtmlForInsertEditFormColumn',
+            [
+                $table_columns,
+                0,
+                [],
+                false,
+                [],
+                '',
+                '',
+                '',
+                false,
+                [],
+                &$o_rows,
+                &$tabindex,
+                0,
+                false,
+                0,
+                [],
+                0,
+                0,
+                'table',
+                'db',
+                0,
+                [],
+                0,
+                '',
+                '',
+                $repopulate,
+                $column_mime,
+                '',
+            ]
+        );
 
         $this->assertStringContainsString(
             'col',
@@ -3911,36 +4261,41 @@ class InsertEditTest extends AbstractTestCase
         $repopulate = [
             md5('qwerty') => '12-10-14',
         ];
-        $actual = $this->callProtectedMethod('getHtmlForInsertEditFormColumn', [
-            $table_columns,
-            0,
-            [],
-            false,
-            [],
-            '',
-            '',
-            '',
-            true,
-            [],
-            &$o_rows,
-            &$tabindex,
-            0,
-            false,
-            0,
-            [],
-            0,
-            0,
-            'table',
-            'db',
-            0,
-            [],
-            0,
-            '',
-            '',
-            $repopulate,
-            [],
-            '',
-        ]);
+        $actual = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getHtmlForInsertEditFormColumn',
+            [
+                $table_columns,
+                0,
+                [],
+                false,
+                [],
+                '',
+                '',
+                '',
+                true,
+                [],
+                &$o_rows,
+                &$tabindex,
+                0,
+                false,
+                0,
+                [],
+                0,
+                0,
+                'table',
+                'db',
+                0,
+                [],
+                0,
+                '',
+                '',
+                $repopulate,
+                [],
+                '',
+            ]
+        );
         $this->assertStringContainsString(
             'qwerty',
             $actual

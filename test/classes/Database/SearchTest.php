@@ -83,7 +83,7 @@ class SearchTest extends PmaTestCase
         $this->object = new Search($GLOBALS['dbi'], 'pma_test', new Template());
         $this->assertEquals(
             $expected,
-            $this->callProtectedFunction(
+            $this->callFunction(
                 $this->object,
                 Search::class,
                 'getWhereClause',
@@ -146,7 +146,7 @@ class SearchTest extends PmaTestCase
                     'WHERE FALSE',
                 'delete' => 'DELETE FROM `pma`.`table1` WHERE FALSE',
             ],
-            $this->callProtectedFunction(
+            $this->callFunction(
                 $this->object,
                 Search::class,
                 'getSearchSqls',

@@ -9,7 +9,6 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\BrowseForeigners;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use ReflectionClass;
 
 /**
  * Tests for PhpMyAdmin\BrowseForeigners
@@ -30,27 +29,6 @@ class BrowseForeignersTest extends AbstractTestCase
         $GLOBALS['cfg']['ShowAll'] = false;
         $GLOBALS['pmaThemeImage'] = '';
         $this->browseForeigners = new BrowseForeigners(new Template());
-    }
-
-    /**
-     * Call protected functions by setting visibility to public.
-     *
-     * @param string           $name   method name
-     * @param array            $params parameters for the invocation
-     * @param BrowseForeigners $object BrowseForeigners instance object
-     *
-     * @return mixed the output from the protected method.
-     */
-    private function callProtectedMethod($name, $params, BrowseForeigners $object = null)
-    {
-        $class = new ReflectionClass(BrowseForeigners::class);
-        $method = $class->getMethod($name);
-        $method->setAccessible(true);
-
-        return $method->invokeArgs(
-            $object ?? $this->browseForeigners,
-            $params
-        );
     }
 
     /**
@@ -99,7 +77,9 @@ class BrowseForeignersTest extends AbstractTestCase
     {
         $this->assertEquals(
             '',
-            $this->callProtectedMethod(
+            $this->callFunction(
+                $this->browseForeigners,
+                BrowseForeigners::class,
                 'getHtmlForGotoPage',
                 [null]
             )
@@ -112,14 +92,18 @@ class BrowseForeignersTest extends AbstractTestCase
 
         $this->assertEquals(
             '',
-            $this->callProtectedMethod(
+            $this->callFunction(
+                $this->browseForeigners,
+                BrowseForeigners::class,
                 'getHtmlForGotoPage',
                 [$foreignData]
             )
         );
 
         $foreignData['the_total'] = 30;
-        $result = $this->callProtectedMethod(
+        $result = $this->callFunction(
+            $this->browseForeigners,
+            BrowseForeigners::class,
             'getHtmlForGotoPage',
             [$foreignData]
         );
@@ -165,7 +149,9 @@ class BrowseForeignersTest extends AbstractTestCase
                 'foobar&lt;baz',
                 '',
             ],
-            $this->callProtectedMethod(
+            $this->callFunction(
+                $this->browseForeigners,
+                BrowseForeigners::class,
                 'getDescriptionAndTitle',
                 [$desc]
             )
@@ -179,10 +165,11 @@ class BrowseForeignersTest extends AbstractTestCase
                 'fooba...',
                 'foobar&lt;baz',
             ],
-            $this->callProtectedMethod(
+            $this->callFunction(
+                $browseForeigners,
+                BrowseForeigners::class,
                 'getDescriptionAndTitle',
-                [$desc],
-                $browseForeigners
+                [$desc]
             )
         );
     }

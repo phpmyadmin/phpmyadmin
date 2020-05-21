@@ -90,7 +90,7 @@ class ListDatabaseTest extends PmaTestCase
     {
         $GLOBALS['cfg']['Server']['hide_db'] = 'single\\_db';
         $this->assertEquals(
-            $this->callProtectedFunction(
+            $this->callFunction(
                 $this->object,
                 ListDatabase::class,
                 'checkHideDatabase',
