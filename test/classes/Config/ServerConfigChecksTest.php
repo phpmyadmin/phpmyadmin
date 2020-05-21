@@ -9,7 +9,7 @@ namespace PhpMyAdmin\Tests\Config;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\ServerConfigChecks;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionException;
 use ReflectionProperty;
 use function array_keys;
@@ -17,7 +17,7 @@ use function array_keys;
 /**
  * Tests for ServeConfigChecks class
  */
-class ServerConfigChecksTest extends PmaTestCase
+class ServerConfigChecksTest extends AbstractTestCase
 {
     /** @var string */
     private $sessionID;

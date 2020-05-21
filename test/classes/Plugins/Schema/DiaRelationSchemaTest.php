@@ -9,12 +9,12 @@ namespace PhpMyAdmin\Tests\Plugins\Schema;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Schema\Dia\DiaRelationSchema;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PhpMyAdmin\Plugins\Schema\Dia\DiaRelationSchema class
  */
-class DiaRelationSchemaTest extends PmaTestCase
+class DiaRelationSchemaTest extends AbstractTestCase
 {
     /** @access protected */
     protected $object;

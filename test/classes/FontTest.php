@@ -11,7 +11,7 @@ use PhpMyAdmin\Font;
 /**
  * Tests for PhpMyAdmin\Font class
  */
-class FontTest extends PmaTestCase
+class FontTest extends AbstractTestCase
 {
     /** @var Font */
     private $font;

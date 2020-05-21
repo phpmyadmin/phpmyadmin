@@ -7,13 +7,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use function is_string;
 
 /**
  * Tests for PhpMyAdmin\Navigation\Nodes\NodeView class
  */
-class NodeViewTest extends PmaTestCase
+class NodeViewTest extends AbstractTestCase
 {
     /**
      * SetUp for test cases

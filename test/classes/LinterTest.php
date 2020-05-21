@@ -12,7 +12,7 @@ use function str_repeat;
 /**
  * Tests for PhpMyAdmin\Linter
  */
-class LinterTest extends PmaTestCase
+class LinterTest extends AbstractTestCase
 {
     /**
      * Sets up the fixture, for example, opens a network connection.

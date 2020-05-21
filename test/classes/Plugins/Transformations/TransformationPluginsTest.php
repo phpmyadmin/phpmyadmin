@@ -25,7 +25,7 @@ use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Longtoipv4;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_PreApPend;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Substring;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
 use function date_default_timezone_set;
 use function function_exists;
@@ -34,7 +34,7 @@ use function method_exists;
 /**
  * Tests for different input/output transformation plugins
  */
-class TransformationPluginsTest extends PmaTestCase
+class TransformationPluginsTest extends AbstractTestCase
 {
     /**
      * Sets up the fixture, for example, opens a network connection.

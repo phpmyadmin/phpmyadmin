@@ -16,7 +16,7 @@ use stdClass;
 /**
  * Tests behaviour of Table class
  */
-class TableTest extends PmaTestCase
+class TableTest extends AbstractTestCase
 {
     /**
      * Configures environment

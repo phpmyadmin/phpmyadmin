@@ -6,10 +6,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Utils;
 
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Utils\FormatConverter;
 
-class FormatConverterTest extends PmaTestCase
+class FormatConverterTest extends AbstractTestCase
 {
     /**
      * Test for binaryToIp

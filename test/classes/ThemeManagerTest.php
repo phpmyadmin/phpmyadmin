@@ -13,7 +13,7 @@ use PhpMyAdmin\ThemeManager;
 /**
  * tests for ThemeManager class
  */
-class ThemeManagerTest extends PmaTestCase
+class ThemeManagerTest extends AbstractTestCase
 {
     /**
      * SetUp for test cases

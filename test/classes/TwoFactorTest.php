@@ -16,7 +16,7 @@ use function in_array;
 /**
  * Tests behaviour of TwoFactor class
  */
-class TwoFactorTest extends PmaTestCase
+class TwoFactorTest extends AbstractTestCase
 {
     protected function setUp(): void
     {

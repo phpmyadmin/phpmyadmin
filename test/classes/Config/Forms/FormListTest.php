@@ -8,12 +8,12 @@ namespace PhpMyAdmin\Tests\Config\Forms;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PMA_FormDisplay class
  */
-class FormListTest extends PmaTestCase
+class FormListTest extends AbstractTestCase
 {
     protected function setUp(): void
     {

@@ -14,7 +14,7 @@ use function defined;
 /**
  * Tests for Script.php
  */
-class ScriptsTest extends PmaTestCase
+class ScriptsTest extends AbstractTestCase
 {
     /** @var Scripts */
     protected $object;

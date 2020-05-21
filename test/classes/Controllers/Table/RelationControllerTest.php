@@ -11,14 +11,14 @@ use PhpMyAdmin\Controllers\Table\RelationController;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use stdClass;
 
 /**
  * Tests for PhpMyAdmin\Controllers\Table\RelationController
  */
-class RelationControllerTest extends PmaTestCase
+class RelationControllerTest extends AbstractTestCase
 {
     /** @var ResponseStub */
     private $_response;

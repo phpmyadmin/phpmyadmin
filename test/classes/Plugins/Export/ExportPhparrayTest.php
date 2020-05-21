@@ -12,7 +12,7 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
 use function array_shift;
@@ -24,7 +24,7 @@ use function ob_start;
  *
  * @group medium
  */
-class ExportPhparrayTest extends PmaTestCase
+class ExportPhparrayTest extends AbstractTestCase
 {
     protected $object;
 

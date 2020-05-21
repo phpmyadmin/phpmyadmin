@@ -9,13 +9,13 @@ namespace PhpMyAdmin\Tests\Plugins\Import;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportCsv;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use function basename;
 
 /**
  * Tests for PhpMyAdmin\Plugins\Import\ImportCsv class
  */
-class ImportCsvTest extends PmaTestCase
+class ImportCsvTest extends AbstractTestCase
 {
     /**
      * @var ImportCsv

@@ -8,13 +8,13 @@ namespace PhpMyAdmin\Tests\Config;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Descriptions;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use function in_array;
 
 /**
  * Tests for PMA_FormDisplay class
  */
-class DescriptionTest extends PmaTestCase
+class DescriptionTest extends AbstractTestCase
 {
     /**
      * Setup tests

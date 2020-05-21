@@ -16,7 +16,7 @@ use stdClass;
 /**
  * Tests basic functionality of dummy dbi driver
  */
-class DatabaseInterfaceTest extends PmaTestCase
+class DatabaseInterfaceTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
     private $_dbi;

@@ -11,7 +11,7 @@ use PhpMyAdmin\ListDatabase;
 /**
  * tests for ListDatabase class
  */
-class ListDatabaseTest extends PmaTestCase
+class ListDatabaseTest extends AbstractTestCase
 {
     /**
      * ListDatabase instance

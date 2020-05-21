@@ -24,7 +24,7 @@ use PHPUnit\Framework\MockObject\MockObject;
 /**
  * Tests for StorageEngine.php
  */
-class StorageEngineTest extends PmaTestCase
+class StorageEngineTest extends AbstractTestCase
 {
     /** @var StorageEngine|MockObject */
     protected $object;

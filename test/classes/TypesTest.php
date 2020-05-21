@@ -11,7 +11,7 @@ use PhpMyAdmin\Types;
 /**
  * Testcase for MySQL types handling.
  */
-class TypesTest extends PmaTestCase
+class TypesTest extends AbstractTestCase
 {
     /** @var Types */
     protected $object;

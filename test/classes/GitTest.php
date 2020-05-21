@@ -23,7 +23,7 @@ use function rmdir;
  * Tests behaviour of PhpMyAdmin\Git class
  * @group git-revision
  */
-class GitTest extends PmaTestCase
+class GitTest extends AbstractTestCase
 {
     /** @var Git */
     protected $object;

@@ -15,7 +15,7 @@ use ReflectionProperty;
 /**
  * Tests for PhpMyAdmin\Tracker
  */
-class TrackerTest extends PmaTestCase
+class TrackerTest extends AbstractTestCase
 {
     /**
      * Setup function for test cases

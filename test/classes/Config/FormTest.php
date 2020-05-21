@@ -9,7 +9,7 @@ namespace PhpMyAdmin\Tests\Config;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Form;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionClass;
 use ReflectionProperty;
 use function array_keys;
@@ -18,7 +18,7 @@ use function preg_match;
 /**
  * Tests for PMA_Form class
  */
-class FormTest extends PmaTestCase
+class FormTest extends AbstractTestCase
 {
     /** @var Form */
     protected $object;

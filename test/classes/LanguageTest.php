@@ -14,7 +14,7 @@ use function strtolower;
 /**
  * Tests behaviour of PMA_Advisor class
  */
-class LanguageTest extends PmaTestCase
+class LanguageTest extends AbstractTestCase
 {
     /** @var LanguageManager */
     private $manager;

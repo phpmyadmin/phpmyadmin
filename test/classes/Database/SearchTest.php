@@ -9,12 +9,12 @@ namespace PhpMyAdmin\Tests\Database;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for database search.
  */
-class SearchTest extends PmaTestCase
+class SearchTest extends AbstractTestCase
 {
     /** @access protected */
     protected $object;

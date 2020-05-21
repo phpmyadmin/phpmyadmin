@@ -9,13 +9,13 @@ namespace PhpMyAdmin\Tests\Plugins\Import;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportLdi;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * Tests for PhpMyAdmin\Plugins\Import\ImportLdi class
  */
-class ImportLdiTest extends PmaTestCase
+class ImportLdiTest extends AbstractTestCase
 {
     /** @access protected */
     protected $object;

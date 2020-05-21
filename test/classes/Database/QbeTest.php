@@ -10,12 +10,12 @@ use PhpMyAdmin\Database\Qbe;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PhpMyAdmin\Database\Qbe class
  */
-class QbeTest extends PmaTestCase
+class QbeTest extends AbstractTestCase
 {
     /** @access protected */
     protected $object;

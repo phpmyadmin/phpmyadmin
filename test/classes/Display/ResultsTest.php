@@ -12,7 +12,7 @@ use PhpMyAdmin\Display\Results as DisplayResults;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Utils\Query;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Transformations;
 use stdClass;
 use function count;
@@ -21,7 +21,7 @@ use function hex2bin;
 /**
  * Test cases for displaying results.
  */
-class ResultsTest extends PmaTestCase
+class ResultsTest extends AbstractTestCase
 {
     /** @access protected */
     protected $object;

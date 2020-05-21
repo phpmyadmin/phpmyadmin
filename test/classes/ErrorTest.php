@@ -13,7 +13,7 @@ use function preg_match;
 /**
  * Error class testing.
  */
-class ErrorTest extends PmaTestCase
+class ErrorTest extends AbstractTestCase
 {
     /**
      * @var Error

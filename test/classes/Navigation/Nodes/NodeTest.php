@@ -9,13 +9,13 @@ namespace PhpMyAdmin\Tests\Navigation\Nodes;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Navigation\Nodes\Node;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
 
 /**
  * Tests for Node class
  */
-class NodeTest extends PmaTestCase
+class NodeTest extends AbstractTestCase
 {
     /**
      * SetUp for test cases

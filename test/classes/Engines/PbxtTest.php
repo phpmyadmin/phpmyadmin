@@ -8,13 +8,13 @@ namespace PhpMyAdmin\Tests\Engines;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Engines\Pbxt;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use function sprintf;
 
 /**
  * Tests for PhpMyAdmin\Engines\Pbxt;
  */
-class PbxtTest extends PmaTestCase
+class PbxtTest extends AbstractTestCase
 {
     /** @access protected */
     protected $object;

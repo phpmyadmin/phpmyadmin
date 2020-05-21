@@ -36,7 +36,7 @@ use function sys_get_temp_dir;
 /**
  * Tests behaviour of PhpMyAdmin\Config class
  */
-class ConfigTest extends PmaTestCase
+class ConfigTest extends AbstractTestCase
 {
     /**
      * Turn off backup globals

@@ -15,7 +15,7 @@ use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
 use stdClass;
@@ -26,7 +26,7 @@ use function array_shift;
  *
  * @group medium
  */
-class ExportOdtTest extends PmaTestCase
+class ExportOdtTest extends AbstractTestCase
 {
     protected $object;
 

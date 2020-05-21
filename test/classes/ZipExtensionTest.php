@@ -17,7 +17,7 @@ use function unlink;
 /**
  * Tests zip extension usage.
  */
-class ZipExtensionTest extends PmaTestCase
+class ZipExtensionTest extends AbstractTestCase
 {
     /** @var ZipExtension */
     private $zipExtension;

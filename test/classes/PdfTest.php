@@ -12,7 +12,7 @@ use PhpMyAdmin\Pdf;
 /**
  * tests for Pdf class
  */
-class PdfTest extends PmaTestCase
+class PdfTest extends AbstractTestCase
 {
     /**
      * SetUp for test cases

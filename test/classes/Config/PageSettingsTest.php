@@ -8,12 +8,12 @@ namespace PhpMyAdmin\Tests\Config;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PhpMyAdmin\Config\PageSettings
  */
-class PageSettingsTest extends PmaTestCase
+class PageSettingsTest extends AbstractTestCase
 {
     /**
      * Setup tests

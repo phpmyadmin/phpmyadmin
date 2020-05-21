@@ -9,12 +9,12 @@ namespace PhpMyAdmin\Tests\Plugins\Schema;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Schema\Svg\SvgRelationSchema;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PhpMyAdmin\Plugins\Schema\Svg\SvgRelationSchema class
  */
-class SvgRelationSchemaTest extends PmaTestCase
+class SvgRelationSchemaTest extends AbstractTestCase
 {
     /** @access protected */
     protected $object;

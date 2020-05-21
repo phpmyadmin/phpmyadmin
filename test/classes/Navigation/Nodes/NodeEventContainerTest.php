@@ -7,13 +7,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
 
 /**
  * Tests for PhpMyAdmin\Navigation\Nodes\NodeEventContainer class
  */
-class NodeEventContainerTest extends PmaTestCase
+class NodeEventContainerTest extends AbstractTestCase
 {
     /**
      * SetUp for test cases

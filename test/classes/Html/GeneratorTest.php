@@ -7,7 +7,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Html;
 
 use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Util;
 use function call_user_func_array;
 use function htmlspecialchars;
@@ -16,7 +16,7 @@ use function urlencode;
 /**
  * Test for \PhpMyAdmin\Html\MySQLDocumentation class
  */
-class GeneratorTest extends PmaTestCase
+class GeneratorTest extends AbstractTestCase
 {
     /**
      * Set up the test.

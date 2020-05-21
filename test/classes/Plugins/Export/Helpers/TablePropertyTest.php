@@ -7,12 +7,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Export\Helpers;
 
 use PhpMyAdmin\Plugins\Export\Helpers\TableProperty;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * tests for PhpMyAdmin\Plugins\Export\Helpers\TableProperty class
  */
-class TablePropertyTest extends PmaTestCase
+class TablePropertyTest extends AbstractTestCase
 {
     protected $object;
 

@@ -12,7 +12,7 @@ use stdClass;
 /**
  * Tests for methods in PhpMyAdmin\VersionInformation class
  */
-class VersionInformationTest extends PmaTestCase
+class VersionInformationTest extends AbstractTestCase
 {
     /** @var stdClass[] */
     private $_releases;

@@ -7,12 +7,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Html;
 
 use PhpMyAdmin\Html\MySQLDocumentation;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Test for \PhpMyAdmin\Html\MySQLDocumentation class
  */
-class MySQLDocumentationTest extends PmaTestCase
+class MySQLDocumentationTest extends AbstractTestCase
 {
     /**
      * Test for \PhpMyAdmin\Html\MySQLDocumentation::showDocumentation

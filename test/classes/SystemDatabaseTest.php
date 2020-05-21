@@ -12,7 +12,7 @@ use PhpMyAdmin\SystemDatabase;
 /**
  * Tests for libraries/SystemDatabase.php
  */
-class SystemDatabaseTest extends PmaTestCase
+class SystemDatabaseTest extends AbstractTestCase
 {
     /**
      * SystemDatabase instance

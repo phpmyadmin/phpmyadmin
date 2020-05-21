@@ -8,13 +8,13 @@ namespace PhpMyAdmin\Tests\Navigation;
 
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Navigation\Nodes\Node;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Exception;
 
 /**
  * Tests for NodeFactory class
  */
-class NodeFactoryTest extends PmaTestCase
+class NodeFactoryTest extends AbstractTestCase
 {
     /**
      * SetUp for test cases

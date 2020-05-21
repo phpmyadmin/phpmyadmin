@@ -6,7 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Utils;
 
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Utils\HttpRequest;
 use const CURLOPT_CAINFO;
 use const CURLOPT_CAPATH;
@@ -15,7 +15,7 @@ use function function_exists;
 use function ini_get;
 use function stripos;
 
-class HttpRequestTest extends PmaTestCase
+class HttpRequestTest extends AbstractTestCase
 {
     /** @var HttpRequest */
     private $httpRequest;

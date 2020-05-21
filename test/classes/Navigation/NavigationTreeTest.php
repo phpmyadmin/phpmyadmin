@@ -9,12 +9,12 @@ namespace PhpMyAdmin\Tests\Navigation;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Navigation\NavigationTree;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PhpMyAdmin\Navigation\NavigationTree class
  */
-class NavigationTreeTest extends PmaTestCase
+class NavigationTreeTest extends AbstractTestCase
 {
     /** @var NavigationTree */
     protected $object;

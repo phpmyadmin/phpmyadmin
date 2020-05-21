@@ -9,12 +9,12 @@ namespace PhpMyAdmin\Tests\Plugins\Schema;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Schema\Pdf\PdfRelationSchema;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PdfRelationSchema class
  */
-class PdfRelationSchemaTest extends PmaTestCase
+class PdfRelationSchemaTest extends AbstractTestCase
 {
     /** @access protected */
     protected $object;

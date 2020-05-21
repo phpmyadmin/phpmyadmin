@@ -15,7 +15,7 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Transformations;
 use ReflectionClass;
@@ -25,7 +25,7 @@ use ReflectionClass;
  *
  * this class is for testing StructureController class
  */
-class StructureControllerTest extends PmaTestCase
+class StructureControllerTest extends AbstractTestCase
 {
     /** @var ResponseStub */
     private $_response;

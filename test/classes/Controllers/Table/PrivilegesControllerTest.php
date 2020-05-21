@@ -7,10 +7,10 @@ use PhpMyAdmin\Controllers\Table\PrivilegesController;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
 
-class PrivilegesControllerTest extends PmaTestCase
+class PrivilegesControllerTest extends AbstractTestCase
 {
     /**
      * Configures global environment.

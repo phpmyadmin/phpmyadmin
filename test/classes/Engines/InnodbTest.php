@@ -7,12 +7,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Engines;
 
 use PhpMyAdmin\Engines\Innodb;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PhpMyAdmin\Engines\Innodb
  */
-class InnodbTest extends PmaTestCase
+class InnodbTest extends AbstractTestCase
 {
     /** @access protected */
     protected $object;

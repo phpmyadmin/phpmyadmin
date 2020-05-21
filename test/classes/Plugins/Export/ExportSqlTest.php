@@ -19,7 +19,7 @@ use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
 use stdClass;
@@ -32,7 +32,7 @@ use function ob_start;
  *
  * @group medium
  */
-class ExportSqlTest extends PmaTestCase
+class ExportSqlTest extends AbstractTestCase
 {
     protected $object;
 

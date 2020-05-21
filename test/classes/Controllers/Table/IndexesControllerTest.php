@@ -15,7 +15,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Url;
 use function sprintf;
@@ -23,7 +23,7 @@ use function sprintf;
 /**
  * Tests for PhpMyAdmin\Controllers\Table\IndexesController
  */
-class IndexesControllerTest extends PmaTestCase
+class IndexesControllerTest extends AbstractTestCase
 {
     /**
      * Setup function for test cases

@@ -9,12 +9,12 @@ namespace PhpMyAdmin\Tests\Plugins\Import;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportOds;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PhpMyAdmin\Plugins\Import\ImportOds class
  */
-class ImportOdsTest extends PmaTestCase
+class ImportOdsTest extends AbstractTestCase
 {
     /** @access protected */
     protected $object;

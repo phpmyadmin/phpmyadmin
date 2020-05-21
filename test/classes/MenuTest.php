@@ -14,7 +14,7 @@ use function defined;
 /**
  * Test for Menu class
  */
-class MenuTest extends PmaTestCase
+class MenuTest extends AbstractTestCase
 {
     /**
      * Configures global environment.

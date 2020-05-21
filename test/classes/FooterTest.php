@@ -13,7 +13,7 @@ use function json_encode;
 /**
  * Tests for Footer class
  */
-class FooterTest extends PmaTestCase
+class FooterTest extends AbstractTestCase
 {
     /** @var array store private attributes of PhpMyAdmin\Footer */
     public $privates = [];

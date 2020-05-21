@@ -13,7 +13,7 @@ use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 /**
  * Tests behaviour of PMA_Advisor class
  */
-class AdvisorTest extends PmaTestCase
+class AdvisorTest extends AbstractTestCase
 {
     /**
      * Sets up the fixture, for example, opens a network connection.

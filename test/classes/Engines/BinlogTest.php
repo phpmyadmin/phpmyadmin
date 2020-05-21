@@ -7,12 +7,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Engines;
 
 use PhpMyAdmin\Engines\Binlog;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PhpMyAdmin\Engines\Binlog
  */
-class BinlogTest extends PmaTestCase
+class BinlogTest extends AbstractTestCase
 {
     /** @access protected */
     protected $object;

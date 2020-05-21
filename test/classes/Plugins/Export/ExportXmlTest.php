@@ -14,7 +14,7 @@ use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Table;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
 use function array_shift;
@@ -26,7 +26,7 @@ use function ob_start;
  *
  * @group medium
  */
-class ExportXmlTest extends PmaTestCase
+class ExportXmlTest extends AbstractTestCase
 {
     protected $object;
 

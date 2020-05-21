@@ -9,7 +9,7 @@ namespace PhpMyAdmin\Tests\Plugins\Import;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportShp;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use function define;
 use function defined;
 use function extension_loaded;
@@ -17,7 +17,7 @@ use function extension_loaded;
 /**
  * Tests for PhpMyAdmin\Plugins\Import\ImportShp class
  */
-class ImportShpTest extends PmaTestCase
+class ImportShpTest extends AbstractTestCase
 {
     /**
      * @var ImportShp

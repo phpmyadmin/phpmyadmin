@@ -12,7 +12,7 @@ use function md5;
 /**
  * Test for Message class
  */
-class MessageTest extends PmaTestCase
+class MessageTest extends AbstractTestCase
 {
     /**
      * @var Message

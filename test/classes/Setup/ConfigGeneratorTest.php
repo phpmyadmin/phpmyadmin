@@ -9,13 +9,13 @@ namespace PhpMyAdmin\Tests\Setup;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Setup\ConfigGenerator;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionClass;
 
 /**
  * Tests for PhpMyAdmin\Setup\ConfigGenerator
  */
-class ConfigGeneratorTest extends PmaTestCase
+class ConfigGeneratorTest extends AbstractTestCase
 {
     /**
      * Sets up the fixture, for example, opens a network connection.

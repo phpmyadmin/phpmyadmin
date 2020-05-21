@@ -9,12 +9,12 @@ namespace PhpMyAdmin\Tests\Plugins\Import;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportMediawiki;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PhpMyAdmin\Plugins\Import\ImportMediawiki class
  */
-class ImportMediawikiTest extends PmaTestCase
+class ImportMediawikiTest extends AbstractTestCase
 {
     /** @access protected */
     protected $object;

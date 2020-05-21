@@ -15,7 +15,7 @@ use const E_WARNING;
 /**
  * Test for PhpMyAdmin\ErrorHandler class.
  */
-class ErrorHandlerTest extends PmaTestCase
+class ErrorHandlerTest extends AbstractTestCase
 {
     /** @access protected */
     protected $object;

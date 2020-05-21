@@ -15,7 +15,7 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
 use function array_shift;
@@ -27,7 +27,7 @@ use function ob_start;
  *
  * @group medium
  */
-class ExportLatexTest extends PmaTestCase
+class ExportLatexTest extends AbstractTestCase
 {
     protected $object;
 

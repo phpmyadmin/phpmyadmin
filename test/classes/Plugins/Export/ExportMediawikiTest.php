@@ -14,7 +14,7 @@ use PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
 use function array_shift;
@@ -26,7 +26,7 @@ use function ob_start;
  *
  * @group medium
  */
-class ExportMediawikiTest extends PmaTestCase
+class ExportMediawikiTest extends AbstractTestCase
 {
     protected $object;
 

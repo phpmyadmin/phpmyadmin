@@ -7,12 +7,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Schema;
 
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PhpMyAdmin\Plugins\Schema\ExportRelationSchema class
  */
-class ExportRelationSchemaTest extends PmaTestCase
+class ExportRelationSchemaTest extends AbstractTestCase
 {
     /** @access protected */
     protected $object;

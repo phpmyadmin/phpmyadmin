@@ -28,7 +28,7 @@ use function trim;
 /**
  * Test for PhpMyAdmin\Util class
  */
-class UtilTest extends PmaTestCase
+class UtilTest extends AbstractTestCase
 {
     /**
      * init data for the test

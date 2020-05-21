@@ -9,7 +9,7 @@ namespace PhpMyAdmin\Tests\Config;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\FormDisplay;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Config\Form;
 use ReflectionClass;
 use ReflectionMethod;
@@ -20,7 +20,7 @@ use function gettype;
 /**
  * Tests for PMA_FormDisplay class
  */
-class FormDisplayTest extends PmaTestCase
+class FormDisplayTest extends AbstractTestCase
 {
     /** @var FormDisplay */
     protected $object;

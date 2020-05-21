@@ -9,12 +9,12 @@ namespace PhpMyAdmin\Tests\Plugins\Schema;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Schema\Eps\EpsRelationSchema;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for EpsRelationSchema class
  */
-class EpsRelationSchemaTest extends PmaTestCase
+class EpsRelationSchemaTest extends AbstractTestCase
 {
     /** @access protected */
     protected $object;

@@ -17,7 +17,7 @@ use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Replication;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\MockObject\MockObject;
@@ -32,7 +32,7 @@ use function json_encode;
  *
  * this class is for testing StructureController class
  */
-class StructureControllerTest extends PmaTestCase
+class StructureControllerTest extends AbstractTestCase
 {
     /** @var ResponseStub */
     private $response;

@@ -14,7 +14,7 @@ use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionProperty;
@@ -26,7 +26,7 @@ use function ob_start;
  *
  * @group medium
  */
-class ExportCodegenTest extends PmaTestCase
+class ExportCodegenTest extends AbstractTestCase
 {
     /** @var ExportCodegen */
     protected $object;

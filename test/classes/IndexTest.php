@@ -11,7 +11,7 @@ use PhpMyAdmin\Index;
 /**
  * Test for Index class
  */
-class IndexTest extends PmaTestCase
+class IndexTest extends AbstractTestCase
 {
     private $_params = [];
 

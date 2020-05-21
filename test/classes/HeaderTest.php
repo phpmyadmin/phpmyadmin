@@ -18,7 +18,7 @@ use function defined;
  *
  * @group medium
  */
-class HeaderTest extends PmaTestCase
+class HeaderTest extends AbstractTestCase
 {
     /**
      * Configures global environment.

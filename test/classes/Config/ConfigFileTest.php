@@ -7,7 +7,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Config;
 
 use PhpMyAdmin\Config\ConfigFile;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use stdClass;
 use function array_keys;
 use function count;
@@ -15,7 +15,7 @@ use function count;
 /**
  * Tests for Config File Management
  */
-class ConfigFileTest extends PmaTestCase
+class ConfigFileTest extends AbstractTestCase
 {
     /**
      * Any valid key that exists in config.default.php and isn't empty

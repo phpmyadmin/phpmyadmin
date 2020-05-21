@@ -13,7 +13,7 @@ use function file_get_contents;
 /**
  * tests for PhpMyAdmin\File class
  */
-class FileTest extends PmaTestCase
+class FileTest extends AbstractTestCase
 {
     /**
      * Setup function for test cases

@@ -11,7 +11,7 @@ use PhpMyAdmin\Routing;
 /**
  * Tests for PhpMyAdmin\Routing
  */
-class RoutingTest extends PmaTestCase
+class RoutingTest extends AbstractTestCase
 {
     /**
      * Test for Routing::getDispatcher

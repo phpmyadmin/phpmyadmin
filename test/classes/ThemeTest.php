@@ -13,7 +13,7 @@ use function filemtime;
 /**
  * Test class for Theme.
  */
-class ThemeTest extends PmaTestCase
+class ThemeTest extends AbstractTestCase
 {
     /** @var Theme */
     protected $object;

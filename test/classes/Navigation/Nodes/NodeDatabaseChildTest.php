@@ -8,14 +8,14 @@ namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * Tests for PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild class
  */
-class NodeDatabaseChildTest extends PmaTestCase
+class NodeDatabaseChildTest extends AbstractTestCase
 {
     /**
      * Mock of NodeDatabaseChild

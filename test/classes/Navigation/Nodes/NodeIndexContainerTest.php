@@ -7,12 +7,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PhpMyAdmin\Navigation\Nodes\NodeIndexContainer class
  */
-class NodeIndexContainerTest extends PmaTestCase
+class NodeIndexContainerTest extends AbstractTestCase
 {
     /**
      * SetUp for test cases

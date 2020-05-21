@@ -7,12 +7,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Engines;
 
 use PhpMyAdmin\Engines\MrgMyisam;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PhpMyAdmin\Engines\MrgMyisam
  */
-class MrgMyisamTest extends PmaTestCase
+class MrgMyisamTest extends AbstractTestCase
 {
     /** @access protected */
     protected $object;

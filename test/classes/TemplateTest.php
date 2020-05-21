@@ -12,7 +12,7 @@ use Twig\Error\LoaderError;
 /**
  * Test for PhpMyAdmin\Template class
  */
-class TemplateTest extends PmaTestCase
+class TemplateTest extends AbstractTestCase
 {
     /** @var Template */
     protected $template;

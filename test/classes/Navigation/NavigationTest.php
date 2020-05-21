@@ -10,13 +10,13 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
 
 /**
  * Tests for PhpMyAdmin\Navigation\Navigation class
  */
-class NavigationTest extends PmaTestCase
+class NavigationTest extends AbstractTestCase
 {
     /** @var Navigation */
     protected $object;

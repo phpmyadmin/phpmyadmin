@@ -11,7 +11,7 @@ use PhpMyAdmin\Controllers\Table\SearchController;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Types;
 use stdClass;
@@ -19,7 +19,7 @@ use stdClass;
 /**
  * Tests for PMA_TableSearch
  */
-class SearchControllerTest extends PmaTestCase
+class SearchControllerTest extends AbstractTestCase
 {
     /** @var ResponseStub */
     private $_response;
