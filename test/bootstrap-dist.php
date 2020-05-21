@@ -41,34 +41,6 @@ if (! defined('PHPMYADMIN')) {
 }
 // phpcs:enable
 
-// Selenium tests setup
-$test_defaults = [
-    'TESTSUITE_SERVER' => 'localhost',
-    'TESTSUITE_USER' => 'root',
-    'TESTSUITE_PASSWORD' => '',
-    'TESTSUITE_DATABASE' => 'test',
-    'TESTSUITE_PORT' => 3306,
-    'TESTSUITE_URL' => 'http://localhost/phpmyadmin/',
-    'TESTSUITE_SELENIUM_HOST' => '',
-    'TESTSUITE_SELENIUM_PORT' => '4444',
-    'TESTSUITE_SELENIUM_BROWSER' => 'firefox',
-    'TESTSUITE_SELENIUM_COVERAGE' => '',
-    'TESTSUITE_BROWSERSTACK_USER' => '',
-    'TESTSUITE_BROWSERSTACK_KEY' => '',
-    'TESTSUITE_FULL' => '',
-    'CI_MODE' => '',
-];
-if (PHP_SAPI == 'cli') {
-    foreach ($test_defaults as $varname => $defvalue) {
-        $envvar = getenv($varname);
-        if ($envvar) {
-            $GLOBALS[$varname] = $envvar;
-        } else {
-            $GLOBALS[$varname] = $defvalue;
-        }
-    }
-}
-
 require_once ROOT_PATH . 'libraries/vendor_config.php';
 require_once AUTOLOAD_FILE;
 Loader::loadFunctions();

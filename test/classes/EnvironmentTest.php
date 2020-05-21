@@ -39,6 +39,7 @@ class EnvironmentTest extends AbstractTestCase
      */
     public function testMySQL()
     {
+        AbstractTestCase::defineTestingGlobals();
         try {
             $pdo = new PDO(
                 'mysql:host=' . $GLOBALS['TESTSUITE_SERVER'] . ';port=' . $GLOBALS['TESTSUITE_PORT'],

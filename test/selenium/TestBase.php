@@ -21,6 +21,7 @@ use Facebook\WebDriver\WebDriverSelect;
 use InvalidArgumentException;
 use mysqli;
 use mysqli_result;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\TestCase;
 use Throwable;
 use const CURLOPT_CUSTOMREQUEST;
@@ -93,6 +94,7 @@ abstract class TestBase extends TestCase
      */
     protected function setUp(): void
     {
+        AbstractTestCase::defineTestingGlobals();
         /**
          * Needs to be implemented
          *
