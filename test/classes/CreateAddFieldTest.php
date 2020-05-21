@@ -7,12 +7,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\CreateAddField;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * This class is for testing PhpMyAdmin\CreateAddField methods
  */
-class CreateAddFieldTest extends TestCase
+class CreateAddFieldTest extends AbstractTestCase
 {
     /** @var CreateAddField */
     private $createAddField;
@@ -22,6 +22,7 @@ class CreateAddFieldTest extends TestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->createAddField = new CreateAddField($GLOBALS['dbi']);
     }
 

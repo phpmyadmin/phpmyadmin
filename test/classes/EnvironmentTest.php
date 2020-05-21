@@ -7,7 +7,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PDO;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use Throwable;
 use const PHP_VERSION;
 use function constant;
@@ -17,7 +17,7 @@ use function version_compare;
 /**
  * Environment tests
  */
-class EnvironmentTest extends TestCase
+class EnvironmentTest extends AbstractTestCase
 {
     /**
      * Tests PHP version
@@ -39,6 +39,7 @@ class EnvironmentTest extends TestCase
      */
     public function testMySQL()
     {
+        AbstractTestCase::defineTestingGlobals();
         try {
             $pdo = new PDO(
                 'mysql:host=' . $GLOBALS['TESTSUITE_SERVER'] . ';port=' . $GLOBALS['TESTSUITE_PORT'],

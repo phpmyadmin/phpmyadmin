@@ -7,13 +7,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Url;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use function htmlentities;
 
 /**
  * Tests for methods in URL class
  */
-class UrlTest extends TestCase
+class UrlTest extends AbstractTestCase
 {
     /**
      * Sets up the fixture, for example, opens a network connection.
@@ -23,6 +23,8 @@ class UrlTest extends TestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::setLanguage();
         unset($_COOKIE['pma_lang']);
     }
 
@@ -117,6 +119,7 @@ class UrlTest extends TestCase
      */
     public function testGetFromRoute(): void
     {
+        unset($GLOBALS['server']);
         $generatedUrl = Url::getFromRoute('/test', [
             'db' => '%3\$s',
             'table' => '%2\$s',

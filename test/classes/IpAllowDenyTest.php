@@ -8,14 +8,14 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\IpAllowDeny;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * PhpMyAdmin\Tests\IpAllowDenyTest class
  *
  * this class is for testing PhpMyAdmin\IpAllowDeny
  */
-class IpAllowDenyTest extends TestCase
+class IpAllowDenyTest extends AbstractTestCase
 {
     /** @var IpAllowDeny */
     private $ipAllowDeny;
@@ -25,6 +25,7 @@ class IpAllowDenyTest extends TestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $GLOBALS['cfg']['Server']['user'] = 'pma_username';
         $GLOBALS['cfg']['Server']['AllowDeny']['rules'][]
             = 'allow % 255.255.255.0/4';

@@ -9,7 +9,7 @@ namespace PhpMyAdmin\Tests\Display;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Display\ChangePassword;
 use PhpMyAdmin\Url;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use function htmlspecialchars;
 
 /**
@@ -17,15 +17,16 @@ use function htmlspecialchars;
  *
  * this class is for testing PhpMyAdmin\Display\ChangePassword functions
  */
-class ChangePasswordTest extends TestCase
+class ChangePasswordTest extends AbstractTestCase
 {
     /**
      * Test for setUp
      */
     protected function setUp(): void
     {
+        parent::setUp();
         //$GLOBALS
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['cfg']['ServerDefault'] = 'PMA_server';

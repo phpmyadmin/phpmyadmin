@@ -14,12 +14,12 @@ use PhpMyAdmin\Gis\GisLineString;
 use PhpMyAdmin\Gis\GisMultiPoint;
 use PhpMyAdmin\Gis\GisPoint;
 use PhpMyAdmin\Gis\GisGeometryCollection;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Test class for PhpMyAdmin\Gis\GisFactory
  */
-class GisFactoryTest extends TestCase
+class GisFactoryTest extends AbstractTestCase
 {
     /**
      * Test factory method

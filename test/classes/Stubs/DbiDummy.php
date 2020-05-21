@@ -1199,6 +1199,12 @@ class DbiDummy implements DbiExtension
                 'result' => [],
             ],
             [
+                'query'  => 'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.'
+                    . "`TABLE_PRIVILEGES` WHERE GRANTEE='''pma_test''@''localhost'''"
+                    . " AND PRIVILEGE_TYPE='TRIGGER' AND 'db' LIKE `TABLE_SCHEMA` AND TABLE_NAME='table'",
+                'result' => [],
+            ],
+            [
                 'query'   => 'SELECT DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA'
                     . ' WHERE SCHEMA_NAME = \'pma_test\' LIMIT 1',
                 'columns' => ['DEFAULT_COLLATION_NAME'],

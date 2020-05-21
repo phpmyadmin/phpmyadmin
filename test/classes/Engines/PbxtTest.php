@@ -27,6 +27,9 @@ class PbxtTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::loadDefaultConfig();
+
         $GLOBALS['server'] = 0;
         $this->object = new Pbxt('pbxt');
     }
@@ -39,6 +42,7 @@ class PbxtTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 

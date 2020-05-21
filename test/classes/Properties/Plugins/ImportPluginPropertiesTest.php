@@ -7,12 +7,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Properties\Plugins;
 
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * tests for PhpMyAdmin\Properties\Plugins\ImportPluginProperties class
  */
-class ImportPluginPropertiesTest extends TestCase
+class ImportPluginPropertiesTest extends AbstractTestCase
 {
     protected $object;
 
@@ -21,6 +21,7 @@ class ImportPluginPropertiesTest extends TestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->object = new ImportPluginProperties();
     }
 
@@ -29,6 +30,7 @@ class ImportPluginPropertiesTest extends TestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 

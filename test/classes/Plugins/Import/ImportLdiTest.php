@@ -34,6 +34,7 @@ class ImportLdiTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         //setting
         $GLOBALS['server'] = 0;
         $GLOBALS['plugin_param'] = 'table';
@@ -77,6 +78,7 @@ class ImportLdiTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 

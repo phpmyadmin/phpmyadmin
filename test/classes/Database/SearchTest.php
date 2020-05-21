@@ -10,7 +10,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
-use ReflectionClass;
 
 /**
  * Tests for database search.
@@ -28,8 +27,12 @@ class SearchTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::loadDefaultConfig();
+
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'pma';
+        $GLOBALS['_POST'] = [];
 
         //mock DBI
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -60,24 +63,8 @@ class SearchTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
-    }
-
-    /**
-     * Call protected functions by setting visibility to public.
-     *
-     * @param string $name   method name
-     * @param array  $params parameters for the invocation
-     *
-     * @return mixed the output from the protected method.
-     */
-    private function callProtectedFunction($name, $params)
-    {
-        $class = new ReflectionClass(Search::class);
-        $method = $class->getMethod($name);
-        $method->setAccessible(true);
-
-        return $method->invokeArgs($this->object, $params);
     }
 
     /**
@@ -96,7 +83,9 @@ class SearchTest extends PmaTestCase
         $this->object = new Search($GLOBALS['dbi'], 'pma_test', new Template());
         $this->assertEquals(
             $expected,
-            $this->callProtectedFunction(
+            $this->callFunction(
+                $this->object,
+                Search::class,
                 'getWhereClause',
                 ['table1']
             )
@@ -157,7 +146,9 @@ class SearchTest extends PmaTestCase
                     'WHERE FALSE',
                 'delete' => 'DELETE FROM `pma`.`table1` WHERE FALSE',
             ],
-            $this->callProtectedFunction(
+            $this->callFunction(
+                $this->object,
+                Search::class,
                 'getSearchSqls',
                 ['table1']
             )

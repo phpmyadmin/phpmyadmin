@@ -7,12 +7,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Properties\Options\Groups;
 
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * tests for PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup class
  */
-class OptionsPropertyMainGroupTest extends TestCase
+class OptionsPropertyMainGroupTest extends AbstractTestCase
 {
     protected $object;
 
@@ -21,6 +21,7 @@ class OptionsPropertyMainGroupTest extends TestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->object = new OptionsPropertyMainGroup();
     }
 
@@ -29,6 +30,7 @@ class OptionsPropertyMainGroupTest extends TestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 

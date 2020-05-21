@@ -72,6 +72,13 @@ class Form
     private $_configFile;
 
     /**
+     * A counter for the number of groups
+     *
+     * @var int
+     */
+    private static $groupCounter = 0;
+
+    /**
      * Reads default config values
      *
      * @param string     $formName Form name
@@ -169,8 +176,6 @@ class Form
      */
     private function _readFormPathsCallback($value, $key, $prefix)
     {
-        static $groupCounter = 0;
-
         if (is_array($value)) {
             $prefix .= $key . '/';
             array_walk($value, [$this, '_readFormPathsCallback'], $prefix);
@@ -184,9 +189,17 @@ class Form
         }
         // add unique id to group ends
         if ($value == ':group:end') {
-            $value .= ':' . $groupCounter++;
+            $value .= ':' . self::$groupCounter++;
         }
         $this->fields[] = $prefix . $value;
+    }
+
+    /**
+     * Reset the group counter, function for testing purposes
+     */
+    public static function resetGroupCounter(): void
+    {
+        self::$groupCounter = 0;
     }
 
     /**

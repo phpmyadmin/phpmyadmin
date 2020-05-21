@@ -25,6 +25,7 @@ class BinlogTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $GLOBALS['server'] = 0;
         $this->object = new Binlog('binlog');
     }
@@ -37,6 +38,7 @@ class BinlogTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 

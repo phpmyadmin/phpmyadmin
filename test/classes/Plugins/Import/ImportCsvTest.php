@@ -31,6 +31,8 @@ class ImportCsvTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
         $GLOBALS['plugin_param'] = 'csv';
         $this->object = new ImportCsv();
@@ -75,6 +77,7 @@ class ImportCsvTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 
@@ -165,6 +168,10 @@ class ImportCsvTest extends PmaTestCase
             true,
             $GLOBALS['finished']
         );
+
+        unset($_REQUEST['csv_new_tbl_name']);
+        unset($_REQUEST['csv_new_db_name']);
+        unset($_REQUEST['csv_partial_import']);
     }
 
     /**

@@ -25,6 +25,7 @@ class MyisamTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $GLOBALS['server'] = 0;
         $this->object = new Myisam('myisam');
     }
@@ -37,6 +38,7 @@ class MyisamTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 

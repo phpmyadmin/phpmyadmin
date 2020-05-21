@@ -29,6 +29,7 @@ class ErrorTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->object = new Error(2, 'Compile Error', 'error.txt', 15);
     }
 
@@ -40,6 +41,7 @@ class ErrorTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 

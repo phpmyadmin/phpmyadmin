@@ -7,13 +7,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisGeometry;
-use PHPUnit\Framework\TestCase;
-use ReflectionClass;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PhpMyAdmin\Gis\GisGeometry class
  */
-class GisGeometryTest extends TestCase
+class GisGeometryTest extends AbstractTestCase
 {
     /** @access protected */
     protected $object;
@@ -26,6 +25,7 @@ class GisGeometryTest extends TestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->object = $this->getMockForAbstractClass(GisGeometry::class);
     }
 
@@ -37,24 +37,8 @@ class GisGeometryTest extends TestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
-    }
-
-    /**
-     * Call protected functions by making the visibility to public.
-     *
-     * @param string $name   method name
-     * @param array  $params parameters for the invocation
-     *
-     * @return mixed the output from the protected method.
-     */
-    private function _callProtectedFunction($name, $params)
-    {
-        $class = new ReflectionClass(GisGeometry::class);
-        $method = $class->getMethod($name);
-        $method->setAccessible(true);
-
-        return $method->invokeArgs($this->object, $params);
     }
 
     /**
@@ -70,7 +54,9 @@ class GisGeometryTest extends TestCase
     {
         $this->assertEquals(
             $output,
-            $this->_callProtectedFunction(
+            $this->callFunction(
+                $this->object,
+                GisGeometry::class,
                 'setMinMax',
                 [
                     $point_set,
@@ -128,7 +114,9 @@ class GisGeometryTest extends TestCase
     {
         $this->assertEquals(
             $output,
-            $this->_callProtectedFunction(
+            $this->callFunction(
+                $this->object,
+                GisGeometry::class,
                 'generateParams',
                 [$value]
             )
@@ -181,7 +169,9 @@ class GisGeometryTest extends TestCase
     {
         $this->assertEquals(
             $output,
-            $this->_callProtectedFunction(
+            $this->callFunction(
+                $this->object,
+                GisGeometry::class,
                 'extractPoints',
                 [
                     $point_set,
@@ -295,7 +285,9 @@ class GisGeometryTest extends TestCase
     {
         $this->assertEquals(
             $output,
-            $this->_callProtectedFunction(
+            $this->callFunction(
+                $this->object,
+                GisGeometry::class,
                 'getBoundsForOl',
                 [
                     $srid,
@@ -346,7 +338,9 @@ class GisGeometryTest extends TestCase
     {
         $this->assertEquals(
             $output,
-            $this->_callProtectedFunction(
+            $this->callFunction(
+                $this->object,
+                GisGeometry::class,
                 'getPolygonArrayForOpenLayers',
                 [
                     $polygons,

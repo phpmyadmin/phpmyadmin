@@ -44,6 +44,8 @@ class TransformationPluginsTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::setLanguage();
         // For Application Octetstream Download plugin
         global $row, $fields_meta;
         $fields_meta = [];
@@ -53,21 +55,12 @@ class TransformationPluginsTest extends PmaTestCase
         ];
 
         // For Image_*_Inline plugin
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
+        $GLOBALS['Server'] = 1;
 
         // For Date Format plugin
         date_default_timezone_set('UTC');
-    }
-
-    /**
-     * Tears down the fixture, for example, closes a network connection.
-     * This method is called after a test is executed.
-     *
-     * @access protected
-     */
-    protected function tearDown(): void
-    {
     }
 
     /**

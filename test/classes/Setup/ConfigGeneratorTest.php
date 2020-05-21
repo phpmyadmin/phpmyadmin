@@ -18,6 +18,16 @@ use ReflectionClass;
 class ConfigGeneratorTest extends PmaTestCase
 {
     /**
+     * Sets up the fixture, for example, opens a network connection.
+     * This method is called before a test is executed.
+     */
+    protected function setUp(): void
+    {
+        parent::setUp();
+        parent::loadDefaultConfig();
+    }
+
+    /**
      * Test for ConfigGenerator::getConfigFile
      *
      * @return void
@@ -28,7 +38,7 @@ class ConfigGeneratorTest extends PmaTestCase
     {
         unset($_SESSION['eol']);
 
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setGlobalConfig();
 
         $GLOBALS['server'] = 0;
         $cf = new ConfigFile();

@@ -7,7 +7,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Encoding;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use const PHP_INT_SIZE;
 use function fclose;
 use function file_get_contents;
@@ -21,15 +21,17 @@ use function unlink;
 /**
  * Tests for Charset Conversions
  */
-class EncodingTest extends TestCase
+class EncodingTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
+        parent::setUp();
         Encoding::initEngine();
     }
 
     protected function tearDown(): void
     {
+        parent::tearDown();
         Encoding::initEngine();
     }
 

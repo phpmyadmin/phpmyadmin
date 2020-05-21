@@ -11,7 +11,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Display\Export;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Util;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use function htmlspecialchars;
 
 /**
@@ -19,7 +19,7 @@ use function htmlspecialchars;
  *
  * @group large
  */
-class ExportTest extends TestCase
+class ExportTest extends AbstractTestCase
 {
     private $export;
 
@@ -28,7 +28,9 @@ class ExportTest extends TestCase
      */
     protected function setUp(): void
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setUp();
+        parent::setLanguage();
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['user'] = 'pma_user';

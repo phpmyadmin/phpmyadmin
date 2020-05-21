@@ -9,19 +9,21 @@ namespace PhpMyAdmin\Tests\Server;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Server\UserGroups;
 use PhpMyAdmin\Url;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use function htmlspecialchars;
 
 /**
  * Tests for PhpMyAdmin\Server\UserGroups
  */
-class UserGroupsTest extends TestCase
+class UserGroupsTest extends AbstractTestCase
 {
     /**
      * Prepares environment for the test.
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
 

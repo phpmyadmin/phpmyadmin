@@ -1,19 +1,29 @@
 <?php
 /**
- * tests for bookmark.lib.php
+ * tests for PhpMyAdmin\Bookmark
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\OutputBuffering;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
- * tests for bookmark.lib.php
+ * tests for PhpMyAdmin\Bookmark
  */
-class FilesTest extends TestCase
+class FilesTest extends AbstractTestCase
 {
+    /**
+     * Setup function for test cases
+     */
+    protected function setUp(): void
+    {
+        parent::setUp();
+        parent::defineVersionConstants();
+        parent::setTheme();
+    }
+
     /**
      * Test for dynamic javascript files
      *

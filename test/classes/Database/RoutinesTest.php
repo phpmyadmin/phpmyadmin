@@ -10,9 +10,9 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Types;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
-class RoutinesTest extends TestCase
+class RoutinesTest extends AbstractTestCase
 {
     /** @var Routines */
     private $routines;
@@ -22,7 +22,9 @@ class RoutinesTest extends TestCase
      */
     protected function setUp(): void
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setUp();
+        parent::setGlobalConfig();
+        parent::setLanguage();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
@@ -30,6 +32,7 @@ class RoutinesTest extends TestCase
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
+        $GLOBALS['text_dir'] = 'ltr';
 
         $this->routines = new Routines(
             $GLOBALS['dbi'],

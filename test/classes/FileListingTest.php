@@ -6,17 +6,18 @@
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\FileListing;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use function array_values;
 use function extension_loaded;
 
-class FileListingTest extends TestCase
+class FileListingTest extends AbstractTestCase
 {
     /** @var FileListing $fileListing */
     private $fileListing;
 
     protected function setUp(): void
     {
+        parent::setUp();
         $this->fileListing = new FileListing();
     }
 

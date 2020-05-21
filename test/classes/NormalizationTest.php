@@ -14,15 +14,14 @@ use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Types;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Message;
-use PHPUnit\Framework\TestCase;
-use ReflectionClass;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use stdClass;
 use function json_encode;
 
 /**
  * tests for PhpMyAdmin\Normalization
  */
-class NormalizationTest extends TestCase
+class NormalizationTest extends AbstractTestCase
 {
     private $normalization;
 
@@ -31,6 +30,8 @@ class NormalizationTest extends TestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
         $GLOBALS['cfg']['LimitChars'] = 50;
         $GLOBALS['cfg']['ServerDefault'] = 'PMA_server';
         $GLOBALS['cfg']['ShowHint'] = true;
@@ -570,16 +571,18 @@ class NormalizationTest extends TestCase
      */
     public function testGetAllCombinationPartialKeys()
     {
-        $class = new ReflectionClass(Normalization::class);
-        $method = $class->getMethod('getAllCombinationPartialKeys');
-        $method->setAccessible(true);
-
         $primaryKey = [
             'id',
             'col1',
             'col2',
         ];
-        $result = $method->invokeArgs($this->normalization, [$primaryKey]);
+        $result = $this->callFunction(
+            $this->normalization,
+            Normalization::class,
+            'getAllCombinationPartialKeys',
+            [$primaryKey]
+        );
+
         $this->assertEquals(
             [
                 '',

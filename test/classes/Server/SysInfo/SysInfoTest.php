@@ -8,12 +8,12 @@ namespace PhpMyAdmin\Tests\Server\SysInfo;
 
 use PhpMyAdmin\Server\SysInfo\Base;
 use PhpMyAdmin\Server\SysInfo\SysInfo;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * tests for sysinfo library
  */
-class SysInfoTest extends TestCase
+class SysInfoTest extends AbstractTestCase
 {
     /**
      * Test for OS detection

@@ -6,14 +6,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Properties\Options;
 
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Properties\Options\OptionsPropertyGroup;
 use ReflectionProperty;
 
 /**
  * Tests for PhpMyAdmin\Properties\Options\OptionsPropertyGroup class
  */
-class OptionsPropertyGroupTest extends TestCase
+class OptionsPropertyGroupTest extends AbstractTestCase
 {
     protected $stub;
 
@@ -22,6 +22,7 @@ class OptionsPropertyGroupTest extends TestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->stub = $this->getMockForAbstractClass(OptionsPropertyGroup::class);
     }
 
@@ -30,6 +31,7 @@ class OptionsPropertyGroupTest extends TestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->stub);
     }
 

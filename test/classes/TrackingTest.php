@@ -12,14 +12,14 @@ use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracking;
 use PhpMyAdmin\Url;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use function htmlspecialchars;
 use function sprintf;
 
 /**
  * Tests for PhpMyAdmin\Tracking
  */
-class TrackingTest extends TestCase
+class TrackingTest extends AbstractTestCase
 {
     /** @var Tracking $tracking */
     private $tracking;
@@ -31,6 +31,8 @@ class TrackingTest extends TestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
         /**
          * SET these to avoid undefined index error
          */

@@ -5,9 +5,9 @@ namespace PhpMyAdmin\Tests\Server;
 
 use PhpMyAdmin\Server\Plugin;
 use PhpMyAdmin\Server\Plugins;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
-class PluginsTest extends TestCase
+class PluginsTest extends AbstractTestCase
 {
     /** @var Plugins */
     private $plugins;
@@ -16,6 +16,7 @@ class PluginsTest extends TestCase
     {
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $GLOBALS['server'] = 0;
 
         $this->plugins = new Plugins($GLOBALS['dbi']);
 
@@ -48,6 +49,7 @@ class PluginsTest extends TestCase
     {
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        $GLOBALS['server'] = 0;
 
         $this->plugins = new Plugins($GLOBALS['dbi']);
 

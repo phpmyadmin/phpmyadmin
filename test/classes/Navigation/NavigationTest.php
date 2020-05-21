@@ -28,6 +28,9 @@ class NavigationTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::loadDefaultConfig();
+        parent::setLanguage();
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = '';
@@ -43,6 +46,8 @@ class NavigationTest extends PmaTestCase
             new Relation($GLOBALS['dbi']),
             $GLOBALS['dbi']
         );
+        $GLOBALS['cfgRelation']['db'] = 'pmadb';
+        $GLOBALS['cfgRelation']['navigationhiding'] = 'navigationhiding';
     }
 
     /**
@@ -52,6 +57,7 @@ class NavigationTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 

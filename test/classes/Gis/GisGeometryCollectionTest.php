@@ -7,7 +7,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisGeometryCollection;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use TCPDF;
 use function function_exists;
 use function imagecreatetruecolor;
@@ -18,7 +18,7 @@ use function preg_match;
 /**
  * Tests for PhpMyAdmin\Gis\GisGeometryCollection class
  */
-class GisGeometryCollectionTest extends TestCase
+class GisGeometryCollectionTest extends AbstractTestCase
 {
     /** @access protected */
     protected $object;
@@ -31,6 +31,7 @@ class GisGeometryCollectionTest extends TestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->object = GisGeometryCollection::singleton();
     }
 
@@ -42,6 +43,7 @@ class GisGeometryCollectionTest extends TestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 

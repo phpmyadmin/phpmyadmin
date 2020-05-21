@@ -7,12 +7,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Properties\Plugins;
 
 use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PhpMyAdmin\Properties\Plugins\PluginPropertyItem class
  */
-class PluginPropertyItemTest extends TestCase
+class PluginPropertyItemTest extends AbstractTestCase
 {
     protected $stub;
 
@@ -21,6 +21,7 @@ class PluginPropertyItemTest extends TestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->stub = $this->getMockForAbstractClass(PluginPropertyItem::class);
     }
 
@@ -29,6 +30,7 @@ class PluginPropertyItemTest extends TestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->stub);
     }
 

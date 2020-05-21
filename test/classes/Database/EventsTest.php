@@ -9,9 +9,10 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
+use ReflectionProperty;
 
-class EventsTest extends TestCase
+class EventsTest extends AbstractTestCase
 {
     /** @var Events */
     private $events;
@@ -21,31 +22,25 @@ class EventsTest extends TestCase
      */
     protected function setUp(): void
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setUp();
+        parent::setGlobalConfig();
+        parent::setLanguage();
+        $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['tear_down']['server'] = true;
-
+        $response = new ReflectionProperty(Response::class, '_instance');
+        $response->setAccessible(true);
+        $response->setValue(null);
+        $response->setAccessible(false);
         $this->events = new Events(
             $GLOBALS['dbi'],
             new Template(),
             Response::getInstance()
         );
-    }
-
-    /**
-     * Tear down
-     */
-    protected function tearDown(): void
-    {
-        if ($GLOBALS['tear_down']['server']) {
-            unset($GLOBALS['cfg']['ServerDefault']);
-        }
-        unset($GLOBALS['tear_down']);
     }
 
     /**

@@ -20,11 +20,18 @@ class TwoFactorTest extends PmaTestCase
 {
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $GLOBALS['cfg']['DBG'] = [
+            'simple2fa' => false,
+            'sql' => false,
+        ];
+        $GLOBALS['cfg']['NaturalOrder'] = true;
     }
 
     /**
@@ -127,6 +134,9 @@ class TwoFactorTest extends PmaTestCase
      */
     public function testApplication()
     {
+        parent::setLanguage();
+        parent::loadDefaultConfig();
+
         $object = new TwoFactor('user');
         if (! in_array('application', $object->getAvailable())) {
             $this->markTestSkipped('google2fa not available');
@@ -172,6 +182,9 @@ class TwoFactorTest extends PmaTestCase
      */
     public function testKey()
     {
+        parent::loadDefaultConfig();
+        parent::setLanguage();
+
         $object = new TwoFactor('user');
         if (! in_array('key', $object->getAvailable())) {
             $this->markTestSkipped('u2f-php-server not available');

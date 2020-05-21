@@ -32,6 +32,8 @@ class ExportJsonTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['output_charset_conversion'] = false;
@@ -46,6 +48,7 @@ class ExportJsonTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 
@@ -157,6 +160,8 @@ class ExportJsonTest extends PmaTestCase
      */
     public function testExportFooter()
     {
+        $GLOBALS['crlf'] = '';
+
         $this->expectOutputString(
             ']'
         );

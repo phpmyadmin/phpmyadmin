@@ -7,15 +7,17 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Charsets;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for MySQL Charsets
  */
-class CharsetsTest extends TestCase
+class CharsetsTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
+        parent::setUp();
+        $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
     }

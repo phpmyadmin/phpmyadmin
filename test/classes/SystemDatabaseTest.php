@@ -28,6 +28,8 @@ class SystemDatabaseTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
         /**
          * SET these to avoid undefine d index error
          */

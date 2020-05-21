@@ -11,8 +11,7 @@ use PhpMyAdmin\ErrorReport;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Utils\HttpRequest;
-use PHPUnit\Framework\TestCase;
-use ReflectionClass;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use const JSON_PRETTY_PRINT;
 use const JSON_UNESCAPED_SLASHES;
 use function define;
@@ -25,13 +24,15 @@ use function phpversion;
  *
  * this class is for testing PhpMyAdmin\ErrorReport methods
  */
-class ErrorReportTest extends TestCase
+class ErrorReportTest extends AbstractTestCase
 {
     /** @var ErrorReport $errorReport */
     private $errorReport;
 
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['ProxyUrl'] = '';
@@ -213,23 +214,6 @@ class ErrorReportTest extends TestCase
     }
 
     /**
-     * Call private functions by setting visibility to public.
-     *
-     * @param string $name   method name
-     * @param array  $params parameters for the invocation
-     *
-     * @return mixed the output from the private method.
-     */
-    private function _callPrivateFunction($name, $params)
-    {
-        $class = new ReflectionClass(ErrorReport::class);
-        $method = $class->getMethod($name);
-        $method->setAccessible(true);
-
-        return $method->invokeArgs($this->errorReport, $params);
-    }
-
-    /**
      * The urls to be tested for sanitization
      *
      * @return array[]
@@ -307,6 +291,14 @@ class ErrorReportTest extends TestCase
     public function testSanitizeUrl(string $url, array $result): void
     {
         // $this->errorReport->sanitizeUrl
-        $this->assertSame($result, $this->_callPrivateFunction('sanitizeUrl', [$url]));
+        $this->assertSame(
+            $result,
+            $this->callFunction(
+                $this->errorReport,
+                ErrorReport::class,
+                'sanitizeUrl',
+                [$url]
+            )
+        );
     }
 }

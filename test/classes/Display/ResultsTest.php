@@ -7,7 +7,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Display;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Display\Results as DisplayResults;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
@@ -15,7 +14,6 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Transformations;
-use ReflectionClass;
 use stdClass;
 use function count;
 use function hex2bin;
@@ -36,12 +34,15 @@ class ResultsTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
+        parent::setLanguage();
+        parent::setGlobalConfig();
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $this->object = new DisplayResults('as', '', 0, '', '');
-        $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -65,24 +66,8 @@ class ResultsTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
-    }
-
-    /**
-     * Call private functions by setting visibility to public.
-     *
-     * @param string $name   method name
-     * @param array  $params parameters for the invocation
-     *
-     * @return mixed the output from the private method.
-     */
-    private function _callPrivateFunction($name, array $params)
-    {
-        $class = new ReflectionClass(DisplayResults::class);
-        $method = $class->getMethod($name);
-        $method->setAccessible(true);
-
-        return $method->invokeArgs($this->object, $params);
     }
 
     /**
@@ -94,7 +79,9 @@ class ResultsTest extends PmaTestCase
     {
         $parser = new Parser('SELECT * FROM pma');
         $this->assertTrue(
-            $this->_callPrivateFunction(
+            $this->callFunction(
+                $this->object,
+                DisplayResults::class,
                 '_isSelect',
                 [
                     [
@@ -127,7 +114,9 @@ class ResultsTest extends PmaTestCase
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $_SESSION[' PMA_token '] = 'token';
 
-        $actual = $this->_callPrivateFunction(
+        $actual = $this->callFunction(
+            $this->object,
+            DisplayResults::class,
             '_getTableNavigationButton',
             [
                 &$caption,
@@ -240,7 +229,9 @@ class ResultsTest extends PmaTestCase
 
         $this->assertEquals(
             $output,
-            $this->_callPrivateFunction(
+            $this->callFunction(
+                $this->object,
+                DisplayResults::class,
                 '_getClassesForColumn',
                 [
                     $grid_edit_class,
@@ -262,7 +253,9 @@ class ResultsTest extends PmaTestCase
     {
         $this->assertEquals(
             'datetimefield',
-            $this->_callPrivateFunction(
+            $this->callFunction(
+                $this->object,
+                DisplayResults::class,
                 '_getClassForDateTimeRelatedFields',
                 [DisplayResults::DATETIME_FIELD]
             )
@@ -278,7 +271,9 @@ class ResultsTest extends PmaTestCase
     {
         $this->assertEquals(
             'datefield',
-            $this->_callPrivateFunction(
+            $this->callFunction(
+                $this->object,
+                DisplayResults::class,
                 '_getClassForDateTimeRelatedFields',
                 [DisplayResults::DATE_FIELD]
             )
@@ -294,7 +289,9 @@ class ResultsTest extends PmaTestCase
     {
         $this->assertEquals(
             'text',
-            $this->_callPrivateFunction(
+            $this->callFunction(
+                $this->object,
+                DisplayResults::class,
                 '_getClassForDateTimeRelatedFields',
                 [DisplayResults::STRING_FIELD]
             )
@@ -314,7 +311,12 @@ class ResultsTest extends PmaTestCase
                 0,
                 0,
             ],
-            $this->_callPrivateFunction('_getOffsets', [])
+            $this->callFunction(
+                $this->object,
+                DisplayResults::class,
+                '_getOffsets',
+                []
+            )
         );
     }
 
@@ -332,7 +334,12 @@ class ResultsTest extends PmaTestCase
                 9,
                 0,
             ],
-            $this->_callPrivateFunction('_getOffsets', [])
+            $this->callFunction(
+                $this->object,
+                DisplayResults::class,
+                '_getOffsets',
+                []
+            )
         );
     }
 
@@ -456,7 +463,9 @@ class ResultsTest extends PmaTestCase
 
         $this->assertEquals(
             $output,
-            $this->_callPrivateFunction(
+            $this->callFunction(
+                $this->object,
+                DisplayResults::class,
                 '_getSpecialLinkUrl',
                 [
                     $specialSchemaLinks,
@@ -540,7 +549,9 @@ class ResultsTest extends PmaTestCase
 
         $this->assertEquals(
             $output,
-            $this->_callPrivateFunction(
+            $this->callFunction(
+                $this->object,
+                DisplayResults::class,
                 '_getRowInfoForSpecialLinks',
                 [
                     $row,
@@ -583,7 +594,9 @@ class ResultsTest extends PmaTestCase
      */
     public function testSetHighlightedColumnGlobalField($analyzed_sql, $output): void
     {
-        $this->_callPrivateFunction(
+        $this->callFunction(
+            $this->object,
+            DisplayResults::class,
             '_setHighlightedColumnGlobalField',
             [$analyzed_sql]
         );
@@ -661,7 +674,9 @@ class ResultsTest extends PmaTestCase
         $GLOBALS['cfg']['LimitChars'] = $limitChars;
         $this->assertEquals(
             $output,
-            $this->_callPrivateFunction(
+            $this->callFunction(
+                $this->object,
+                DisplayResults::class,
                 '_getPartialText',
                 [$str]
             )
@@ -818,7 +833,9 @@ class ResultsTest extends PmaTestCase
         $GLOBALS['cfg']['LimitChars'] = 50;
         $this->assertStringContainsString(
             $output,
-            $this->_callPrivateFunction(
+            $this->callFunction(
+                $this->object,
+                DisplayResults::class,
                 '_handleNonPrintableContents',
                 [
                     $category,
@@ -1015,7 +1032,9 @@ class ResultsTest extends PmaTestCase
         $GLOBALS['cfg']['ProtectBinary'] = $protectBinary;
         $this->assertStringContainsString(
             $output,
-            $this->_callPrivateFunction(
+            $this->callFunction(
+                $this->object,
+                DisplayResults::class,
                 '_getDataCellForNonNumericColumns',
                 [
                     $column,
@@ -1122,7 +1141,9 @@ class ResultsTest extends PmaTestCase
         );
 
         // Actually invoke tested method
-        $output = $this->_callPrivateFunction(
+        $output = $this->callFunction(
+            $this->object,
+            DisplayResults::class,
             '_getRowValues',
             [
                 &$result,

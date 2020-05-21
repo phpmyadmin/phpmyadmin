@@ -8,9 +8,9 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
-class TriggersTest extends TestCase
+class TriggersTest extends AbstractTestCase
 {
     /** @var Triggers */
     private $triggers;
@@ -20,7 +20,11 @@ class TriggersTest extends TestCase
      */
     protected function setUp(): void
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setUp();
+        parent::setGlobalConfig();
+        parent::defineVersionConstants();
+        parent::setLanguage();
+        $GLOBALS['server'] = 0;
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['db'] = 'pma_test';

@@ -8,12 +8,12 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Transformations;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * tests for transformation wrappers
  */
-class TransformationsTest extends TestCase
+class TransformationsTest extends AbstractTestCase
 {
     /** @var Transformations */
     private $transformations;
@@ -23,6 +23,8 @@ class TransformationsTest extends TestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
         $GLOBALS['cfg'] = [

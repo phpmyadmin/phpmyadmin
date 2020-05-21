@@ -7,13 +7,23 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Sanitize;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for methods in Sanitize class
  */
-class SanitizeTest extends TestCase
+class SanitizeTest extends AbstractTestCase
 {
+    /**
+     * Sets up the fixture, for example, opens a network connection.
+     * This method is called before a test is executed.
+     */
+    protected function setUp(): void
+    {
+        parent::setUp();
+        parent::setLanguage();
+    }
+
     /**
      * Tests for proper escaping of XSS.
      *
@@ -323,6 +333,7 @@ class SanitizeTest extends TestCase
      */
     public function testRemoveRequestVars()
     {
+        $GLOBALS['_POST'] = [];
         $_REQUEST['foo'] = 'bar';
         $_REQUEST['allow'] = 'all';
         $_REQUEST['second'] = 1;

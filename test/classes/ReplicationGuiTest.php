@@ -11,14 +11,14 @@ use PhpMyAdmin\Replication;
 use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\Template;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * PhpMyAdmin\Tests\ReplicationGuiTest class
  *
  * this class is for testing PhpMyAdmin\ReplicationGui methods
  */
-class ReplicationGuiTest extends TestCase
+class ReplicationGuiTest extends AbstractTestCase
 {
     /**
      * ReplicationGui instance
@@ -32,6 +32,7 @@ class ReplicationGuiTest extends TestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         //$_POST
         $_POST['mr_adduser'] = 'mr_adduser';
 
@@ -48,6 +49,7 @@ class ReplicationGuiTest extends TestCase
         $GLOBALS['cfg']['ShowHint'] = true;
 
         $GLOBALS['table'] = 'table';
+        $GLOBALS['server'] = 0;
         $GLOBALS['url_params'] = [];
 
         ReplicationInfo::load();

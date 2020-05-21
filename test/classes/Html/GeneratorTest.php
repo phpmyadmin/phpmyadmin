@@ -19,6 +19,16 @@ use function urlencode;
 class GeneratorTest extends PmaTestCase
 {
     /**
+     * Set up the test.
+     */
+    protected function setUp(): void
+    {
+        parent::setUp();
+        parent::loadDefaultConfig();
+        parent::setLanguage();
+    }
+
+    /**
      * Test for getDbLink
      *
      * @group medium

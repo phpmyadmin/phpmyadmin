@@ -63,6 +63,7 @@ class ProceduresTest extends TestBase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         $this->dbQuery(
             "SET GLOBAL sql_mode = '" . $this->originalSqlMode . "';"
         );

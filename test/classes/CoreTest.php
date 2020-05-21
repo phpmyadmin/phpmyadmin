@@ -29,6 +29,12 @@ class CoreTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
+        parent::setTheme();
+        parent::setLanguage();
+        parent::loadDefaultConfig();
+
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';
@@ -595,7 +601,6 @@ class CoreTest extends PmaTestCase
     public function testSendHeaderLocationWithoutSidWithIis()
     {
         $GLOBALS['server'] = 0;
-        $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['PMA_Config']->set('PMA_IS_IIS', true);
 
@@ -603,8 +608,6 @@ class CoreTest extends PmaTestCase
 
         $this->mockResponse('Location: ' . $testUri);
         Core::sendHeaderLocation($testUri); // sets $GLOBALS['header']
-
-        $this->tearDown();
 
         $this->mockResponse('Refresh: 0; ' . $testUri);
         Core::sendHeaderLocation($testUri, true); // sets $GLOBALS['header']
@@ -618,7 +621,7 @@ class CoreTest extends PmaTestCase
     public function testSendHeaderLocationWithoutSidWithoutIis()
     {
         $GLOBALS['server'] = 0;
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['PMA_Config']->set('PMA_IS_IIS', null);
 
@@ -636,7 +639,7 @@ class CoreTest extends PmaTestCase
     public function testSendHeaderLocationIisLongUri()
     {
         $GLOBALS['server'] = 0;
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['PMA_Config']->set('PMA_IS_IIS', true);
 

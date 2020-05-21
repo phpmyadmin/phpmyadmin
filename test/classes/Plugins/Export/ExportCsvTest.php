@@ -35,6 +35,7 @@ class ExportCsvTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $GLOBALS['server'] = 0;
         $this->object = new ExportCsv();
     }
@@ -44,6 +45,7 @@ class ExportCsvTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 
@@ -544,6 +546,8 @@ class ExportCsvTest extends PmaTestCase
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = true;
         $GLOBALS['save_on_server'] = false;
+        $GLOBALS['csv_enclosed'] = '';
+        $GLOBALS['csv_separator'] = '';
 
         ob_start();
         $this->assertTrue(
@@ -595,6 +599,7 @@ class ExportCsvTest extends PmaTestCase
         $GLOBALS['dbi'] = $dbi;
 
         $GLOBALS['csv_enclosed'] = '"';
+        $GLOBALS['csv_escaped'] = '';
 
         ob_start();
         $this->assertTrue(

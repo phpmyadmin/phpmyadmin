@@ -27,6 +27,8 @@ class ImportMediawikiTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
         $GLOBALS['plugin_param'] = 'database';
         $this->object = new ImportMediawiki();
@@ -53,6 +55,7 @@ class ImportMediawikiTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 

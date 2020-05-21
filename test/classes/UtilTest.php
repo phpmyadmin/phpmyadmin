@@ -31,6 +31,18 @@ use function trim;
 class UtilTest extends PmaTestCase
 {
     /**
+     * init data for the test
+     */
+    protected function setUp(): void
+    {
+        parent::setUp();
+        parent::defineVersionConstants();
+        parent::setLanguage();
+        parent::setTheme();
+        parent::loadDefaultConfig();
+    }
+
+    /**
      * Test for createGISData
      */
     public function testCreateGISDataOldMysql(): void
@@ -283,7 +295,7 @@ class UtilTest extends PmaTestCase
      */
     public function testCheckParameterMissing()
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setGlobalConfig();
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
@@ -313,7 +325,7 @@ class UtilTest extends PmaTestCase
      */
     public function testCheckParameter()
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setGlobalConfig();
         $GLOBALS['cfg'] = ['ServerDefault' => 1];
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
@@ -482,7 +494,7 @@ class UtilTest extends PmaTestCase
      */
     public function testExpandUserString($in, $out): void
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg'] = [
             'Server' => [
