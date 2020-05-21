@@ -96,6 +96,7 @@ class CentralColumnsTest extends AbstractTestCase
     {
         parent::setUp();
         parent::setGlobalConfig();
+        parent::defineVersionConstants();
         $GLOBALS['cfg']['Server']['user'] = 'pma_user';
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $GLOBALS['cfg']['MaxRows'] = 10;

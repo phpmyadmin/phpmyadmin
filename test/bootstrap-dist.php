@@ -77,13 +77,5 @@ $GLOBALS['PMA_Config'] = new Config();
 $GLOBALS['PMA_Config']->set('environment', 'development');
 $GLOBALS['cfg']['environment'] = 'development';
 
-// Initialize PMA_VERSION variable
-// phpcs:disable PSR1.Files.SideEffects
-if (! defined('PMA_VERSION')) {
-    define('PMA_VERSION', $GLOBALS['PMA_Config']->get('PMA_VERSION'));
-    define('PMA_MAJOR_VERSION', $GLOBALS['PMA_Config']->get('PMA_MAJOR_VERSION'));
-}
-// phpcs:enable
-
 /* Load Database interface */
 $GLOBALS['dbi'] = DatabaseInterface::load(new DbiDummy());

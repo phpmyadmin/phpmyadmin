@@ -125,6 +125,18 @@ abstract class AbstractTestCase extends TestCase
         // phpcs:enable
     }
 
+    protected function defineVersionConstants(): void
+    {
+        global $PMA_Config;
+        // Initialize PMA_VERSION variable
+        // phpcs:disable PSR1.Files.SideEffects
+        if (! defined('PMA_VERSION')) {
+            define('PMA_VERSION', $PMA_Config->get('PMA_VERSION'));
+            define('PMA_MAJOR_VERSION', $PMA_Config->get('PMA_MAJOR_VERSION'));
+        }
+        // phpcs:enable
+    }
+
     /**
      * Desctroys the environment built for the test.
      * Clean all variables
