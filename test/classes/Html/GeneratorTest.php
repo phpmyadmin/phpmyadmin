@@ -18,7 +18,6 @@ use function urlencode;
  */
 class GeneratorTest extends PmaTestCase
 {
-
     /**
      * Set up the test.
      */

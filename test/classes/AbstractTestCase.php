@@ -136,6 +136,5 @@ abstract class AbstractTestCase extends TestCase
      */
     protected function tearDown(): void
     {
-
     }
 }

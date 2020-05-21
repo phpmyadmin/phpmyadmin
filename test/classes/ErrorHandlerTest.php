@@ -170,7 +170,6 @@ class ErrorHandlerTest extends PmaTestCase
      */
     public function testCheckSavedErrors()
     {
-
         $this->_callProtectedFunction(
             'checkSavedErrors',
             []

@@ -176,7 +176,6 @@ class Form
      */
     private function _readFormPathsCallback($value, $key, $prefix)
     {
-
         if (is_array($value)) {
             $prefix .= $key . '/';
             array_walk($value, [$this, '_readFormPathsCallback'], $prefix);

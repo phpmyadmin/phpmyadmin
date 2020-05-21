@@ -64,17 +64,6 @@ class TransformationPluginsTest extends PmaTestCase
     }
 
     /**
-     * Tears down the fixture, for example, closes a network connection.
-     * This method is called after a test is executed.
-     *
-     * @access protected
-     */
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-    }
-
-    /**
      * Data provider for testGetMulti
      *
      * @return array with test data

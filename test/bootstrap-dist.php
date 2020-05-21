@@ -89,4 +89,3 @@ if (! defined('PMA_VERSION')) {
 
 /* Load Database interface */
 $GLOBALS['dbi'] = DatabaseInterface::load(new DbiDummy());
-

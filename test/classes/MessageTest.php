@@ -33,17 +33,6 @@ class MessageTest extends PmaTestCase
     }
 
     /**
-     * Tears down the fixture, for example, closes a network connection.
-     * This method is called after a test is executed.
-     *
-     * @access protected
-     */
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-    }
-
-    /**
      * to String casting test
      *
      * @return void
