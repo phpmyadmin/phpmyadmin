@@ -19,7 +19,7 @@ class FormListTest extends PmaTestCase
     {
         parent::setUp();
         parent::loadDefaultConfig();
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setGlobalConfig();
         $GLOBALS['server'] = 1;
     }
 

@@ -34,7 +34,7 @@ class FormDisplayTest extends PmaTestCase
         parent::setTheme();
         parent::loadDefaultConfig();
         $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setGlobalConfig();
         $GLOBALS['server'] = 0;
         $this->object = new FormDisplay(new ConfigFile());
         Form::resetGroupCounter();

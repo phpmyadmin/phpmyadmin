@@ -26,7 +26,7 @@ class ChangePasswordTest extends AbstractTestCase
     {
         parent::setUp();
         //$GLOBALS
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['cfg']['ServerDefault'] = 'PMA_server';

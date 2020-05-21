@@ -294,7 +294,7 @@ class UtilTest extends PmaTestCase
      */
     public function testCheckParameterMissing()
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setGlobalConfig();
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
@@ -324,7 +324,7 @@ class UtilTest extends PmaTestCase
      */
     public function testCheckParameter()
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setGlobalConfig();
         $GLOBALS['cfg'] = ['ServerDefault' => 1];
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
@@ -493,7 +493,7 @@ class UtilTest extends PmaTestCase
      */
     public function testExpandUserString($in, $out): void
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg'] = [
             'Server' => [

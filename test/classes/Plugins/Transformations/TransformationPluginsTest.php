@@ -55,7 +55,7 @@ class TransformationPluginsTest extends PmaTestCase
         ];
 
         // For Image_*_Inline plugin
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['Server'] = 1;
 

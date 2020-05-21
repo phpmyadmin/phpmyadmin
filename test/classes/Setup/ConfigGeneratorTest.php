@@ -38,7 +38,7 @@ class ConfigGeneratorTest extends PmaTestCase
     {
         unset($_SESSION['eol']);
 
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setGlobalConfig();
 
         $GLOBALS['server'] = 0;
         $cf = new ConfigFile();

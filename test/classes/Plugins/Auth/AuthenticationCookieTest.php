@@ -40,7 +40,7 @@ class AuthenticationCookieTest extends PmaTestCase
         parent::setUp();
         parent::setLanguage();
         parent::setTheme();
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
         $GLOBALS['text_dir'] = 'ltr';

@@ -598,7 +598,7 @@ class CoreTest extends PmaTestCase
     public function testSendHeaderLocationWithoutSidWithIis()
     {
         $GLOBALS['server'] = 0;
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['PMA_Config']->set('PMA_IS_IIS', true);
 
@@ -621,7 +621,7 @@ class CoreTest extends PmaTestCase
     public function testSendHeaderLocationWithoutSidWithoutIis()
     {
         $GLOBALS['server'] = 0;
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['PMA_Config']->set('PMA_IS_IIS', null);
 
@@ -639,7 +639,7 @@ class CoreTest extends PmaTestCase
     public function testSendHeaderLocationIisLongUri()
     {
         $GLOBALS['server'] = 0;
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['PMA_Config']->set('PMA_IS_IIS', true);
 

@@ -28,7 +28,7 @@ class NavigationTreeTest extends PmaTestCase
     {
         parent::setUp();
         $GLOBALS['server'] = 1;
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['user'] = 'user';

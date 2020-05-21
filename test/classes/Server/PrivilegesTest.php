@@ -39,7 +39,7 @@ class PrivilegesTest extends AbstractTestCase
     {
         parent::setUp();
         parent::setLanguage();
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfgRelation'] = [];

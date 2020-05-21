@@ -22,7 +22,7 @@ class PageSettingsTest extends PmaTestCase
     {
         parent::setUp();
         parent::setLanguage();
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';

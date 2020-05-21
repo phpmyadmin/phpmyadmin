@@ -22,7 +22,7 @@ class AdvisorTest extends PmaTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setGlobalConfig();
         $GLOBALS['server'] = 1;
     }
 

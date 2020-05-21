@@ -28,7 +28,7 @@ class ServerConfigChecksTest extends PmaTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setGlobalConfig();
         $GLOBALS['cfg']['AvailableCharsets'] = [];
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $GLOBALS['server'] = 0;

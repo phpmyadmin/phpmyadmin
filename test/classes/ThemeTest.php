@@ -32,7 +32,7 @@ class ThemeTest extends PmaTestCase
         $this->object = new Theme();
         $this->backup = $GLOBALS['PMA_Theme'];
         $GLOBALS['PMA_Theme'] = $this->object;
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['server'] = '99';

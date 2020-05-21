@@ -30,7 +30,7 @@ class ExportTest extends AbstractTestCase
     {
         parent::setUp();
         parent::setLanguage();
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['user'] = 'pma_user';
