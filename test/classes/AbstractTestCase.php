@@ -136,5 +136,11 @@ abstract class AbstractTestCase extends TestCase
      */
     protected function tearDown(): void
     {
+        foreach ($GLOBALS as $key => $val) {
+            if (in_array($key, $this->globalsWhiteList)) {
+                continue;
+            }
+            unset($GLOBALS[$key]);
+        }
     }
 }
