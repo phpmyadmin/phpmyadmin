@@ -26,17 +26,14 @@ class EventsTest extends TestBase
     {
         parent::setUp();
         $this->dbQuery(
-            'CREATE TABLE `test_table` ('
+            'USE `' . $this->database_name . '`;'
+            . 'CREATE TABLE `test_table` ('
             . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
             . ' `val` int(11) NOT NULL,'
             . ' PRIMARY KEY (`id`)'
-            . ')'
-        );
-        $this->dbQuery(
-            'INSERT INTO `test_table` (val) VALUES (2);'
-        );
-        $this->dbQuery(
-            'SET GLOBAL event_scheduler="ON"'
+            . ');'
+            . 'INSERT INTO `test_table` (val) VALUES (2);'
+            . 'SET GLOBAL event_scheduler="ON";'
         );
         $this->login();
         $this->navigateDatabase($this->database_name);
@@ -137,18 +134,25 @@ class EventsTest extends TestBase
             )
         );
 
-        $result = $this->dbQuery(
+        $this->dbQuery(
             "SHOW EVENTS WHERE Db='" . $this->database_name
-            . "' AND Name='test_event'"
+            . "' AND Name='test_event'",
+            function () {
+                //TODO: improve the condition
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+            }
         );
-        $this->assertEquals(1, $result->num_rows);
 
         sleep(2);
-        $result = $this->dbQuery(
-            'SELECT val FROM `' . $this->database_name . '`.`test_table`'
+        $this->dbQuery(
+            'SELECT val FROM `' . $this->database_name . '`.`test_table`',
+            function () {
+                //TODO: improve the condition
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->assertEquals($this->database_name, $this->getCellByTableClass('table_results', 1, 1));
+                //$this->assertGreaterThan(2, $row['val']);
+            }
         );
-        $row = $result->fetch_assoc();
-        $this->assertGreaterThan(2, $row['val']);
     }
 
     /**
