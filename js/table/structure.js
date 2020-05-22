@@ -422,6 +422,8 @@ AJAX.registerOnload('table/structure.js', function () {
 
         if (action === 'drop') {
             url = 'index.php?route=/table/structure/drop-confirm';
+        } else if (action === 'ftext') {
+            url = 'index.php?route=/table/structure/fulltext';
         } else if (action === 'index') {
             url = 'index.php?route=/table/structure/index';
         } else if (action === 'primary') {
