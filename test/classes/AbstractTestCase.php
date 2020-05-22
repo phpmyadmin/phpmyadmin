@@ -51,6 +51,7 @@ abstract class AbstractTestCase extends TestCase
         $_SERVER = [
             // https://github.com/sebastianbergmann/phpunit/issues/4033
             'SCRIPT_NAME' => $_SERVER['SCRIPT_NAME'],
+            'REQUEST_TIME' => $_SERVER['REQUEST_TIME'],
             'REQUEST_TIME_FLOAT' => $_SERVER['REQUEST_TIME_FLOAT'],
             'PHP_SELF' => $_SERVER['PHP_SELF'],
             'argv' => $_SERVER['argv'],
