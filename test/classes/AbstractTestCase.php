@@ -32,11 +32,6 @@ abstract class AbstractTestCase extends TestCase
         '__composer_autoload_files',
         '__PHPUNIT_CONFIGURATION_FILE',
         '__PHPUNIT_BOOTSTRAP',
-        'TESTSUITE_SERVER',
-        'TESTSUITE_USER',
-        'TESTSUITE_PASSWORD',
-        'TESTSUITE_DATABASE',
-        'TESTSUITE_PORT',
     ];
 
     /**
@@ -53,6 +48,13 @@ abstract class AbstractTestCase extends TestCase
         }
         $_GET = [];
         $_POST = [];
+        $_SERVER = [
+            // https://github.com/sebastianbergmann/phpunit/issues/4033
+            'SCRIPT_NAME' => $_SERVER['SCRIPT_NAME'],
+            'REQUEST_TIME_FLOAT' => $_SERVER['REQUEST_TIME_FLOAT'],
+            'PHP_SELF' => $_SERVER['PHP_SELF'],
+            'argv' => $_SERVER['argv'],
+        ];
         $_SESSION = [
             ' PMA_token ' => 'token',
         ];
