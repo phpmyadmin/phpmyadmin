@@ -145,18 +145,6 @@ class StructureController extends AbstractController
         ]);
 
         /**
-         * Handle column moving
-         */
-        if (isset($_POST['move_columns'])
-            && is_array($_POST['move_columns'])
-            && $this->response->isAjax()
-        ) {
-            $this->moveColumns();
-
-            return;
-        }
-
-        /**
          * handle MySQL reserved words columns check
          */
         if (isset($_POST['reserved_word_check'])) {
@@ -672,14 +660,19 @@ class StructureController extends AbstractController
 
     /**
      * Moves columns in the table's structure based on $_REQUEST
-     *
-     * @return void
      */
-    protected function moveColumns()
+    public function moveColumns(): void
     {
+        if (! isset($_POST['move_columns'])
+            || ! is_array($_POST['move_columns'])
+            || ! $this->response->isAjax()
+        ) {
+            return;
+        }
+
         $this->dbi->selectDb($this->db);
 
-        /*
+        /**
          * load the definitions for all columns
          */
         $columns = $this->dbi->getColumnsFull($this->db, $this->table);

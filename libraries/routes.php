@@ -261,6 +261,7 @@ return function (RouteCollector $routes) {
             $routes->post('/drop-confirm', [TableStructureController::class, 'dropConfirm']);
             $routes->post('/fulltext', [TableStructureController::class, 'fulltext']);
             $routes->post('/index', [TableStructureController::class, 'addIndex']);
+            $routes->post('/move-columns', [TableStructureController::class, 'moveColumns']);
             $routes->post('/primary', [TableStructureController::class, 'primary']);
             $routes->post('/spatial', [TableStructureController::class, 'spatial']);
             $routes->post('/unique', [TableStructureController::class, 'unique']);
