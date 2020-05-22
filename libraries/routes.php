@@ -257,6 +257,7 @@ return function (RouteCollector $routes) {
             $routes->post('/drop-confirm', [TableStructureController::class, 'dropConfirm']);
             $routes->post('/index', [TableStructureController::class, 'addIndex']);
             $routes->post('/primary', [TableStructureController::class, 'primary']);
+            $routes->post('/unique', [TableStructureController::class, 'unique']);
         });
         $routes->addRoute(['GET', 'POST'], '/tracking', [TableTrackingController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/triggers', [TableTriggersController::class, 'index']);

@@ -221,13 +221,6 @@ class StructureControllerTest extends AbstractTestCase
             $method->invoke($ctrl)
         );
 
-        $_POST['submit_mult_unique_x'] = true;
-        $this->assertEquals(
-            'unique',
-            $method->invoke($ctrl)
-        );
-        unset($_POST['submit_mult_unique_x']);
-
         $_POST['submit_mult'] = 'create';
         $this->assertEquals(
             'create',
@@ -321,48 +314,6 @@ class StructureControllerTest extends AbstractTestCase
         );
 
         //validate 4:
-        $this->assertEquals(
-            __('Yes'),
-            $mult_btn
-        );
-
-        //validate 5: $centralColsError
-        $this->assertEquals(
-            null,
-            $centralColsError
-        );
-
-        $submit_mult = 'unique';
-
-        list($what, $query_type, $is_unset_submit_mult, $mult_btn, $centralColsError)
-            = $method->invokeArgs(
-                $ctrl,
-                [
-                    $submit_mult,
-                    $selected,
-                    $action,
-                ]
-            );
-
-        //validate 1: $what
-        $this->assertEquals(
-            null,
-            $what
-        );
-
-        //validate 2: $query_type
-        $this->assertEquals(
-            'unique_fld',
-            $query_type
-        );
-
-        //validate 3: $is_unset_submit_mult
-        $this->assertEquals(
-            true,
-            $is_unset_submit_mult
-        );
-
-        //validate 4: $mult_btn
         $this->assertEquals(
             __('Yes'),
             $mult_btn
