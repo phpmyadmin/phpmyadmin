@@ -426,6 +426,8 @@ AJAX.registerOnload('table/structure.js', function () {
             url = 'index.php?route=/table/structure/index';
         } else if (action === 'primary') {
             url = 'index.php?route=/table/structure/primary';
+        } else if (action === 'spatial') {
+            url = 'index.php?route=/table/structure/spatial';
         } else if (action === 'unique') {
             url = 'index.php?route=/table/structure/unique';
         }
