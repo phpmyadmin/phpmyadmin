@@ -98,7 +98,7 @@ class CreateDropDatabaseTest extends TestBase
         $this->dbQuery(
             'SHOW DATABASES LIKE \'' . $this->database_name . '\';',
             function () {
-                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->assertFalse($this->isElementPresent('className', 'table_results'));
             }
         );
     }
