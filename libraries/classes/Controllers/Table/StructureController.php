@@ -316,31 +316,7 @@ class StructureController extends AbstractController
 
     public function addToCentralColumns(): void
     {
-        global $sql_query, $reread_info, $showtable;
-        global $tbl_is_view, $tbl_storage_engine, $tbl_collation, $table_info_num_rows;
-        global $message, $url_params;
-
-        $this->dbi->selectDb($this->db);
-        $reread_info = $this->table_obj->getStatusInfo(null, true);
-        $showtable = $this->table_obj->getStatusInfo(
-            null,
-            (isset($reread_info) && $reread_info)
-        );
-
-        $tbl_is_view = false;
-        $tbl_storage_engine = $this->table_obj->getStorageEngine();
-        $tbl_collation = $this->table_obj->getCollation();
-        $table_info_num_rows = $this->table_obj->getNumRows();
-
-        PageSettings::showGroup('TableStructure');
-
-        $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
-        $checkUserPrivileges->getPrivileges();
-
-        $this->response->getHeader()->getScripts()->addFiles([
-            'table/structure.js',
-            'indexes.js',
-        ]);
+        global $sql_query, $message;
 
         $selected = $_POST['selected_fld'] ?? [];
 
@@ -368,72 +344,12 @@ class StructureController extends AbstractController
             Generator::getMessage($message, $sql_query)
         );
 
-        $cfgRelation = $this->relation->getRelationsParam();
-
-        $url_params = [];
-
-        Common::table();
-
-        $url_params['goto'] = Url::getFromRoute('/table/structure');
-        $url_params['back'] = Url::getFromRoute('/table/structure');
-
-        $this->_url_query = Url::getCommonRaw($url_params);
-
-        $primary = Index::getPrimary($this->table, $this->db);
-        $columns_with_index = $this->dbi
-            ->getTable($this->db, $this->table)
-            ->getColumnsWithIndex(
-                Index::UNIQUE | Index::INDEX | Index::SPATIAL
-                | Index::FULLTEXT
-            );
-        $columns_with_unique_index = $this->dbi
-            ->getTable($this->db, $this->table)
-            ->getColumnsWithIndex(Index::UNIQUE);
-
-        $fields = (array) $this->dbi->getColumns(
-            $this->db,
-            $this->table,
-            null,
-            true
-        );
-
-        $this->response->addHTML($this->displayStructure(
-            $cfgRelation,
-            $columns_with_unique_index,
-            $url_params,
-            $primary,
-            $fields,
-            $columns_with_index
-        ));
+        $this->index();
     }
 
     public function removeFromCentralColumns(): void
     {
-        global $sql_query, $reread_info, $showtable;
-        global $tbl_is_view, $tbl_storage_engine, $tbl_collation, $table_info_num_rows;
-        global $db, $message, $url_params;
-
-        $this->dbi->selectDb($this->db);
-        $reread_info = $this->table_obj->getStatusInfo(null, true);
-        $showtable = $this->table_obj->getStatusInfo(
-            null,
-            (isset($reread_info) && $reread_info)
-        );
-
-        $tbl_is_view = false;
-        $tbl_storage_engine = $this->table_obj->getStorageEngine();
-        $tbl_collation = $this->table_obj->getCollation();
-        $table_info_num_rows = $this->table_obj->getNumRows();
-
-        PageSettings::showGroup('TableStructure');
-
-        $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
-        $checkUserPrivileges->getPrivileges();
-
-        $this->response->getHeader()->getScripts()->addFiles([
-            'table/structure.js',
-            'indexes.js',
-        ]);
+        global $sql_query, $db, $message;
 
         $selected = $_POST['selected_fld'] ?? [];
 
@@ -462,72 +378,12 @@ class StructureController extends AbstractController
             Generator::getMessage($message, $sql_query)
         );
 
-        $cfgRelation = $this->relation->getRelationsParam();
-
-        $url_params = [];
-
-        Common::table();
-
-        $url_params['goto'] = Url::getFromRoute('/table/structure');
-        $url_params['back'] = Url::getFromRoute('/table/structure');
-
-        $this->_url_query = Url::getCommonRaw($url_params);
-
-        $primary = Index::getPrimary($this->table, $this->db);
-        $columns_with_index = $this->dbi
-            ->getTable($this->db, $this->table)
-            ->getColumnsWithIndex(
-                Index::UNIQUE | Index::INDEX | Index::SPATIAL
-                | Index::FULLTEXT
-            );
-        $columns_with_unique_index = $this->dbi
-            ->getTable($this->db, $this->table)
-            ->getColumnsWithIndex(Index::UNIQUE);
-
-        $fields = (array) $this->dbi->getColumns(
-            $this->db,
-            $this->table,
-            null,
-            true
-        );
-
-        $this->response->addHTML($this->displayStructure(
-            $cfgRelation,
-            $columns_with_unique_index,
-            $url_params,
-            $primary,
-            $fields,
-            $columns_with_index
-        ));
+        $this->index();
     }
 
     public function fulltext(): void
     {
-        global $sql_query, $reread_info, $showtable;
-        global $tbl_is_view, $tbl_storage_engine, $tbl_collation, $table_info_num_rows;
-        global $db, $table, $message, $url_params;
-
-        $this->dbi->selectDb($this->db);
-        $reread_info = $this->table_obj->getStatusInfo(null, true);
-        $showtable = $this->table_obj->getStatusInfo(
-            null,
-            (isset($reread_info) && $reread_info)
-        );
-
-        $tbl_is_view = false;
-        $tbl_storage_engine = $this->table_obj->getStorageEngine();
-        $tbl_collation = $this->table_obj->getCollation();
-        $table_info_num_rows = $this->table_obj->getNumRows();
-
-        PageSettings::showGroup('TableStructure');
-
-        $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
-        $checkUserPrivileges->getPrivileges();
-
-        $this->response->getHeader()->getScripts()->addFiles([
-            'table/structure.js',
-            'indexes.js',
-        ]);
+        global $sql_query, $db, $table, $message;
 
         $selected = $_POST['selected_fld'] ?? [];
 
@@ -561,72 +417,12 @@ class StructureController extends AbstractController
             Generator::getMessage($message, $sql_query)
         );
 
-        $cfgRelation = $this->relation->getRelationsParam();
-
-        $url_params = [];
-
-        Common::table();
-
-        $url_params['goto'] = Url::getFromRoute('/table/structure');
-        $url_params['back'] = Url::getFromRoute('/table/structure');
-
-        $this->_url_query = Url::getCommonRaw($url_params);
-
-        $primary = Index::getPrimary($this->table, $this->db);
-        $columns_with_index = $this->dbi
-            ->getTable($this->db, $this->table)
-            ->getColumnsWithIndex(
-                Index::UNIQUE | Index::INDEX | Index::SPATIAL
-                | Index::FULLTEXT
-            );
-        $columns_with_unique_index = $this->dbi
-            ->getTable($this->db, $this->table)
-            ->getColumnsWithIndex(Index::UNIQUE);
-
-        $fields = (array) $this->dbi->getColumns(
-            $this->db,
-            $this->table,
-            null,
-            true
-        );
-
-        $this->response->addHTML($this->displayStructure(
-            $cfgRelation,
-            $columns_with_unique_index,
-            $url_params,
-            $primary,
-            $fields,
-            $columns_with_index
-        ));
+        $this->index();
     }
 
     public function spatial(): void
     {
-        global $sql_query, $reread_info, $showtable;
-        global $tbl_is_view, $tbl_storage_engine, $tbl_collation, $table_info_num_rows;
-        global $db, $table, $message, $url_params;
-
-        $this->dbi->selectDb($this->db);
-        $reread_info = $this->table_obj->getStatusInfo(null, true);
-        $showtable = $this->table_obj->getStatusInfo(
-            null,
-            (isset($reread_info) && $reread_info)
-        );
-
-        $tbl_is_view = false;
-        $tbl_storage_engine = $this->table_obj->getStorageEngine();
-        $tbl_collation = $this->table_obj->getCollation();
-        $table_info_num_rows = $this->table_obj->getNumRows();
-
-        PageSettings::showGroup('TableStructure');
-
-        $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
-        $checkUserPrivileges->getPrivileges();
-
-        $this->response->getHeader()->getScripts()->addFiles([
-            'table/structure.js',
-            'indexes.js',
-        ]);
+        global $sql_query, $db, $table, $message;
 
         $selected = $_POST['selected_fld'] ?? [];
 
@@ -660,72 +456,12 @@ class StructureController extends AbstractController
             Generator::getMessage($message, $sql_query)
         );
 
-        $cfgRelation = $this->relation->getRelationsParam();
-
-        $url_params = [];
-
-        Common::table();
-
-        $url_params['goto'] = Url::getFromRoute('/table/structure');
-        $url_params['back'] = Url::getFromRoute('/table/structure');
-
-        $this->_url_query = Url::getCommonRaw($url_params);
-
-        $primary = Index::getPrimary($this->table, $this->db);
-        $columns_with_index = $this->dbi
-            ->getTable($this->db, $this->table)
-            ->getColumnsWithIndex(
-                Index::UNIQUE | Index::INDEX | Index::SPATIAL
-                | Index::FULLTEXT
-            );
-        $columns_with_unique_index = $this->dbi
-            ->getTable($this->db, $this->table)
-            ->getColumnsWithIndex(Index::UNIQUE);
-
-        $fields = (array) $this->dbi->getColumns(
-            $this->db,
-            $this->table,
-            null,
-            true
-        );
-
-        $this->response->addHTML($this->displayStructure(
-            $cfgRelation,
-            $columns_with_unique_index,
-            $url_params,
-            $primary,
-            $fields,
-            $columns_with_index
-        ));
+        $this->index();
     }
 
     public function unique(): void
     {
-        global $sql_query, $reread_info, $showtable;
-        global $tbl_is_view, $tbl_storage_engine, $tbl_collation, $table_info_num_rows;
-        global $db, $table, $message, $url_params;
-
-        $this->dbi->selectDb($this->db);
-        $reread_info = $this->table_obj->getStatusInfo(null, true);
-        $showtable = $this->table_obj->getStatusInfo(
-            null,
-            (isset($reread_info) && $reread_info)
-        );
-
-        $tbl_is_view = false;
-        $tbl_storage_engine = $this->table_obj->getStorageEngine();
-        $tbl_collation = $this->table_obj->getCollation();
-        $table_info_num_rows = $this->table_obj->getNumRows();
-
-        PageSettings::showGroup('TableStructure');
-
-        $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
-        $checkUserPrivileges->getPrivileges();
-
-        $this->response->getHeader()->getScripts()->addFiles([
-            'table/structure.js',
-            'indexes.js',
-        ]);
+        global $sql_query, $db, $table, $message;
 
         $selected = $_POST['selected_fld'] ?? [];
 
@@ -759,72 +495,12 @@ class StructureController extends AbstractController
             Generator::getMessage($message, $sql_query)
         );
 
-        $cfgRelation = $this->relation->getRelationsParam();
-
-        $url_params = [];
-
-        Common::table();
-
-        $url_params['goto'] = Url::getFromRoute('/table/structure');
-        $url_params['back'] = Url::getFromRoute('/table/structure');
-
-        $this->_url_query = Url::getCommonRaw($url_params);
-
-        $primary = Index::getPrimary($this->table, $this->db);
-        $columns_with_index = $this->dbi
-            ->getTable($this->db, $this->table)
-            ->getColumnsWithIndex(
-                Index::UNIQUE | Index::INDEX | Index::SPATIAL
-                | Index::FULLTEXT
-            );
-        $columns_with_unique_index = $this->dbi
-            ->getTable($this->db, $this->table)
-            ->getColumnsWithIndex(Index::UNIQUE);
-
-        $fields = (array) $this->dbi->getColumns(
-            $this->db,
-            $this->table,
-            null,
-            true
-        );
-
-        $this->response->addHTML($this->displayStructure(
-            $cfgRelation,
-            $columns_with_unique_index,
-            $url_params,
-            $primary,
-            $fields,
-            $columns_with_index
-        ));
+        $this->index();
     }
 
     public function addIndex(): void
     {
-        global $sql_query, $reread_info, $showtable;
-        global $tbl_is_view, $tbl_storage_engine, $tbl_collation, $table_info_num_rows;
-        global $db, $table, $message, $url_params;
-
-        $this->dbi->selectDb($this->db);
-        $reread_info = $this->table_obj->getStatusInfo(null, true);
-        $showtable = $this->table_obj->getStatusInfo(
-            null,
-            (isset($reread_info) && $reread_info)
-        );
-
-        $tbl_is_view = false;
-        $tbl_storage_engine = $this->table_obj->getStorageEngine();
-        $tbl_collation = $this->table_obj->getCollation();
-        $table_info_num_rows = $this->table_obj->getNumRows();
-
-        PageSettings::showGroup('TableStructure');
-
-        $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
-        $checkUserPrivileges->getPrivileges();
-
-        $this->response->getHeader()->getScripts()->addFiles([
-            'table/structure.js',
-            'indexes.js',
-        ]);
+        global $sql_query, $db, $table, $message;
 
         $selected = $_POST['selected_fld'] ?? [];
 
@@ -858,72 +534,12 @@ class StructureController extends AbstractController
             Generator::getMessage($message, $sql_query)
         );
 
-        $cfgRelation = $this->relation->getRelationsParam();
-
-        $url_params = [];
-
-        Common::table();
-
-        $url_params['goto'] = Url::getFromRoute('/table/structure');
-        $url_params['back'] = Url::getFromRoute('/table/structure');
-
-        $this->_url_query = Url::getCommonRaw($url_params);
-
-        $primary = Index::getPrimary($this->table, $this->db);
-        $columns_with_index = $this->dbi
-            ->getTable($this->db, $this->table)
-            ->getColumnsWithIndex(
-                Index::UNIQUE | Index::INDEX | Index::SPATIAL
-                | Index::FULLTEXT
-            );
-        $columns_with_unique_index = $this->dbi
-            ->getTable($this->db, $this->table)
-            ->getColumnsWithIndex(Index::UNIQUE);
-
-        $fields = (array) $this->dbi->getColumns(
-            $this->db,
-            $this->table,
-            null,
-            true
-        );
-
-        $this->response->addHTML($this->displayStructure(
-            $cfgRelation,
-            $columns_with_unique_index,
-            $url_params,
-            $primary,
-            $fields,
-            $columns_with_index
-        ));
+        $this->index();
     }
 
     public function primary(): void
     {
-        global $db, $table, $message, $url_params;
-        global $sql_query, $reread_info, $showtable;
-        global $tbl_is_view, $tbl_storage_engine, $tbl_collation, $table_info_num_rows;
-
-        $this->dbi->selectDb($this->db);
-        $reread_info = $this->table_obj->getStatusInfo(null, true);
-        $showtable = $this->table_obj->getStatusInfo(
-            null,
-            (isset($reread_info) && $reread_info)
-        );
-
-        $tbl_is_view = false;
-        $tbl_storage_engine = $this->table_obj->getStorageEngine();
-        $tbl_collation = $this->table_obj->getCollation();
-        $table_info_num_rows = $this->table_obj->getNumRows();
-
-        PageSettings::showGroup('TableStructure');
-
-        $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
-        $checkUserPrivileges->getPrivileges();
-
-        $this->response->getHeader()->getScripts()->addFiles([
-            'table/structure.js',
-            'indexes.js',
-        ]);
+        global $db, $table, $message, $sql_query;
 
         $selected = $_POST['selected'] ?? [];
         $selected_fld = $_POST['selected_fld'] ?? [];
@@ -985,77 +601,12 @@ class StructureController extends AbstractController
             Generator::getMessage($message, $sql_query)
         );
 
-        $cfgRelation = $this->relation->getRelationsParam();
-
-        $url_params = [];
-
-        Common::table();
-
-        $this->_url_query = Url::getCommonRaw([
-            'db' => $db,
-            'table' => $table,
-            'goto' => Url::getFromRoute('/table/structure'),
-            'back' => Url::getFromRoute('/table/structure'),
-        ]);
-
-        $url_params['goto'] = Url::getFromRoute('/table/structure');
-        $url_params['back'] = Url::getFromRoute('/table/structure');
-
-        $primary = Index::getPrimary($this->table, $this->db);
-        $columns_with_index = $this->dbi
-            ->getTable($this->db, $this->table)
-            ->getColumnsWithIndex(
-                Index::UNIQUE | Index::INDEX | Index::SPATIAL
-                | Index::FULLTEXT
-            );
-        $columns_with_unique_index = $this->dbi
-            ->getTable($this->db, $this->table)
-            ->getColumnsWithIndex(Index::UNIQUE);
-
-        $fields = (array) $this->dbi->getColumns(
-            $this->db,
-            $this->table,
-            null,
-            true
-        );
-
-        $this->response->addHTML($this->displayStructure(
-            $cfgRelation,
-            $columns_with_unique_index,
-            $url_params,
-            $primary,
-            $fields,
-            $columns_with_index
-        ));
+        $this->index();
     }
 
     public function drop(): void
     {
-        global $db, $table, $message;
-        global $sql_query, $reread_info, $showtable, $url_params;
-        global $tbl_is_view, $tbl_storage_engine, $tbl_collation, $table_info_num_rows;
-
-        $this->dbi->selectDb($this->db);
-        $reread_info = $this->table_obj->getStatusInfo(null, true);
-        $showtable = $this->table_obj->getStatusInfo(
-            null,
-            (isset($reread_info) && $reread_info)
-        );
-
-        $tbl_is_view = false;
-        $tbl_storage_engine = $this->table_obj->getStorageEngine();
-        $tbl_collation = $this->table_obj->getCollation();
-        $table_info_num_rows = $this->table_obj->getNumRows();
-
-        PageSettings::showGroup('TableStructure');
-
-        $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
-        $checkUserPrivileges->getPrivileges();
-
-        $this->response->getHeader()->getScripts()->addFiles([
-            'table/structure.js',
-            'indexes.js',
-        ]);
+        global $db, $table, $message, $sql_query;
 
         $selected = $_POST['selected'] ?? [];
 
@@ -1094,51 +645,7 @@ class StructureController extends AbstractController
             Generator::getMessage($message, $sql_query)
         );
 
-        $cfgRelation = $this->relation->getRelationsParam();
-
-        $url_params = [];
-
-        Common::table();
-
-        $this->_url_query = Url::getCommonRaw([
-            'db' => $db,
-            'table' => $table,
-            'goto' => Url::getFromRoute('/table/structure'),
-            'back' => Url::getFromRoute('/table/structure'),
-        ]);
-
-        $url_params['goto'] = Url::getFromRoute('/table/structure');
-        $url_params['back'] = Url::getFromRoute('/table/structure');
-
-        // 2. Gets table keys and retains them
-        // @todo should be: $server->db($db)->table($table)->primary()
-        $primary = Index::getPrimary($this->table, $this->db);
-        $columns_with_index = $this->dbi
-            ->getTable($this->db, $this->table)
-            ->getColumnsWithIndex(
-                Index::UNIQUE | Index::INDEX | Index::SPATIAL
-                | Index::FULLTEXT
-            );
-        $columns_with_unique_index = $this->dbi
-            ->getTable($this->db, $this->table)
-            ->getColumnsWithIndex(Index::UNIQUE);
-
-        // 3. Get fields
-        $fields = (array) $this->dbi->getColumns(
-            $this->db,
-            $this->table,
-            null,
-            true
-        );
-
-        $this->response->addHTML($this->displayStructure(
-            $cfgRelation,
-            $columns_with_unique_index,
-            $url_params,
-            $primary,
-            $fields,
-            $columns_with_index
-        ));
+        $this->index();
     }
 
     public function dropConfirm(): void
@@ -1153,18 +660,6 @@ class StructureController extends AbstractController
 
             return;
         }
-
-        $this->dbi->selectDb($this->db);
-
-        PageSettings::showGroup('TableStructure');
-
-        $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
-        $checkUserPrivileges->getPrivileges();
-
-        $this->response->getHeader()->getScripts()->addFiles([
-            'table/structure.js',
-            'indexes.js',
-        ]);
 
         Common::table();
 
