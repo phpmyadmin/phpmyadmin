@@ -592,11 +592,11 @@ abstract class TestBase extends TestCase
      *
      * @return bool Where or not user is logged in
      */
-    public function isLoggedIn()
+    public function isLoggedIn(): bool
     {
         return $this->isElementPresent(
             'xpath',
-            '//*[@id="server-breadcrumb"]/a[1]'
+            '//*[@class="navigationbar"]'
         );
     }
 
