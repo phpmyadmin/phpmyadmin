@@ -390,6 +390,193 @@ class StructureController extends AbstractController
         );
     }
 
+    public function addToCentralColumns(): void
+    {
+        global $sql_query, $reread_info, $showtable;
+        global $tbl_is_view, $tbl_storage_engine, $tbl_collation, $table_info_num_rows;
+        global $message, $url_params;
+
+        $this->dbi->selectDb($this->db);
+        $reread_info = $this->table_obj->getStatusInfo(null, true);
+        $showtable = $this->table_obj->getStatusInfo(
+            null,
+            (isset($reread_info) && $reread_info)
+        );
+
+        $tbl_is_view = false;
+        $tbl_storage_engine = $this->table_obj->getStorageEngine();
+        $tbl_collation = $this->table_obj->getCollation();
+        $table_info_num_rows = $this->table_obj->getNumRows();
+
+        PageSettings::showGroup('TableStructure');
+
+        $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
+        $checkUserPrivileges->getPrivileges();
+
+        $this->response->getHeader()->getScripts()->addFiles([
+            'table/structure.js',
+            'indexes.js',
+        ]);
+
+        $selected = $_POST['selected_fld'] ?? [];
+
+        if (empty($selected)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No column selected.'));
+
+            return;
+        }
+
+        $centralColumns = new CentralColumns($this->dbi);
+        $centralColsError = $centralColumns->syncUniqueColumns(
+            $selected,
+            false
+        );
+
+        if ($centralColsError instanceof Message) {
+            $message = $centralColsError;
+        }
+
+        if (empty($message)) {
+            $message = Message::success();
+        }
+        $this->response->addHTML(
+            Generator::getMessage($message, $sql_query)
+        );
+
+        $cfgRelation = $this->relation->getRelationsParam();
+
+        $url_params = [];
+
+        Common::table();
+
+        $url_params['goto'] = Url::getFromRoute('/table/structure');
+        $url_params['back'] = Url::getFromRoute('/table/structure');
+
+        $this->_url_query = Url::getCommonRaw($url_params);
+
+        $primary = Index::getPrimary($this->table, $this->db);
+        $columns_with_index = $this->dbi
+            ->getTable($this->db, $this->table)
+            ->getColumnsWithIndex(
+                Index::UNIQUE | Index::INDEX | Index::SPATIAL
+                | Index::FULLTEXT
+            );
+        $columns_with_unique_index = $this->dbi
+            ->getTable($this->db, $this->table)
+            ->getColumnsWithIndex(Index::UNIQUE);
+
+        $fields = (array) $this->dbi->getColumns(
+            $this->db,
+            $this->table,
+            null,
+            true
+        );
+
+        $this->response->addHTML($this->displayStructure(
+            $cfgRelation,
+            $columns_with_unique_index,
+            $url_params,
+            $primary,
+            $fields,
+            $columns_with_index
+        ));
+    }
+
+    public function removeFromCentralColumns(): void
+    {
+        global $sql_query, $reread_info, $showtable;
+        global $tbl_is_view, $tbl_storage_engine, $tbl_collation, $table_info_num_rows;
+        global $db, $message, $url_params;
+
+        $this->dbi->selectDb($this->db);
+        $reread_info = $this->table_obj->getStatusInfo(null, true);
+        $showtable = $this->table_obj->getStatusInfo(
+            null,
+            (isset($reread_info) && $reread_info)
+        );
+
+        $tbl_is_view = false;
+        $tbl_storage_engine = $this->table_obj->getStorageEngine();
+        $tbl_collation = $this->table_obj->getCollation();
+        $table_info_num_rows = $this->table_obj->getNumRows();
+
+        PageSettings::showGroup('TableStructure');
+
+        $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
+        $checkUserPrivileges->getPrivileges();
+
+        $this->response->getHeader()->getScripts()->addFiles([
+            'table/structure.js',
+            'indexes.js',
+        ]);
+
+        $selected = $_POST['selected_fld'] ?? [];
+
+        if (empty($selected)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No column selected.'));
+
+            return;
+        }
+
+        $centralColumns = new CentralColumns($this->dbi);
+        $centralColsError = $centralColumns->deleteColumnsFromList(
+            $db,
+            $selected,
+            false
+        );
+
+        if ($centralColsError instanceof Message) {
+            $message = $centralColsError;
+        }
+
+        if (empty($message)) {
+            $message = Message::success();
+        }
+        $this->response->addHTML(
+            Generator::getMessage($message, $sql_query)
+        );
+
+        $cfgRelation = $this->relation->getRelationsParam();
+
+        $url_params = [];
+
+        Common::table();
+
+        $url_params['goto'] = Url::getFromRoute('/table/structure');
+        $url_params['back'] = Url::getFromRoute('/table/structure');
+
+        $this->_url_query = Url::getCommonRaw($url_params);
+
+        $primary = Index::getPrimary($this->table, $this->db);
+        $columns_with_index = $this->dbi
+            ->getTable($this->db, $this->table)
+            ->getColumnsWithIndex(
+                Index::UNIQUE | Index::INDEX | Index::SPATIAL
+                | Index::FULLTEXT
+            );
+        $columns_with_unique_index = $this->dbi
+            ->getTable($this->db, $this->table)
+            ->getColumnsWithIndex(Index::UNIQUE);
+
+        $fields = (array) $this->dbi->getColumns(
+            $this->db,
+            $this->table,
+            null,
+            true
+        );
+
+        $this->response->addHTML($this->displayStructure(
+            $cfgRelation,
+            $columns_with_unique_index,
+            $url_params,
+            $primary,
+            $fields,
+            $columns_with_index
+        ));
+    }
+
     public function fulltext(): void
     {
         global $sql_query, $reread_info, $showtable;
@@ -2248,26 +2435,12 @@ class StructureController extends AbstractController
      */
     protected function getDataForSubmitMult($submit_mult, $selected, $action)
     {
-        $centralColumns = new CentralColumns($this->dbi);
         $what = null;
         $query_type = null;
         $is_unset_submit_mult = false;
         $mult_btn = null;
         $centralColsError = null;
         switch ($submit_mult) {
-            case 'add_to_central_columns':
-                $centralColsError = $centralColumns->syncUniqueColumns(
-                    $selected,
-                    false
-                );
-                break;
-            case 'remove_from_central_columns':
-                $centralColsError = $centralColumns->deleteColumnsFromList(
-                    $_POST['db'],
-                    $selected,
-                    false
-                );
-                break;
             case 'change':
                 $this->displayHtmlForColumnChange($selected, $action);
                 // execution stops here but PhpMyAdmin\Response correctly finishes
