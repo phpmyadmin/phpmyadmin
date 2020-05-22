@@ -398,7 +398,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
         $_REQUEST['prefs_autoload'] = 'nohide';
         $GLOBALS['cfg']['ServerDefault'] = 1;
-        $GLOBALS['PMA_PHP_SELF'] = 'phpunit';
+        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $result = $this->userPreferences->autoloadGetHeader();
 
         $this->assertStringContainsString(
@@ -422,7 +422,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
         );
 
         $this->assertStringContainsString(
-            '<input type="hidden" name="return_url" value="phpunit?">',
+            '<input type="hidden" name="return_url" value="index.php?">',
             $result
         );
     }
