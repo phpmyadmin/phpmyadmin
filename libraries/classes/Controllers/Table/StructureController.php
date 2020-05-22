@@ -231,67 +231,6 @@ class StructureController extends AbstractController
                         $GLOBALS['goto'],
                         $GLOBALS['pmaThemeImage']
                     );
-                } else {
-                    // handle multiple field commands
-                    // handle confirmation of deleting multiple columns
-                    $action = Url::getFromRoute('/table/structure');
-                    $GLOBALS['selected'] = $_POST['selected_fld'];
-                    [
-                        $what_ret,
-                        $query_type_ret,
-                        $is_unset_submit_mult,
-                        $mult_btn_ret,
-                        $centralColsError,
-                    ] = $this->getDataForSubmitMult(
-                        $submit_mult,
-                        $_POST['selected_fld'],
-                        $action
-                    );
-                    //update the existing variables
-                    if (isset($what_ret)) {
-                        $GLOBALS['what'] = $what_ret;
-                        global $what;
-                    }
-                    if (isset($query_type_ret)) {
-                        $GLOBALS['query_type'] = $query_type_ret;
-                        global $query_type;
-                    }
-                    if ($is_unset_submit_mult) {
-                        unset($submit_mult);
-                    }
-                    if (isset($mult_btn_ret)) {
-                        $GLOBALS['mult_btn'] = $mult_btn_ret;
-                        global $mult_btn;
-                    }
-
-                    $goto = $_POST['goto'] ?? $goto ?? null;
-                    $mult_btn = $_POST['mult_btn'] ?? $mult_btn ?? null;
-                    $query_type = $_POST['query_type'] ?? $query_type ?? null;
-                    $selected = $_POST['selected'] ?? $selected ?? null;
-                    $selected_fld = $_POST['selected_fld'] ?? $selected_fld ?? null;
-                    $sql_query = $_POST['sql_query'] ?? $sql_query ?? null;
-                    $submit_mult = $_POST['submit_mult'] ?? $submit_mult ?? null;
-                    $url_query = $_POST['url_query'] ?? $url_query ?? null;
-
-                    if (! empty($submit_mult)
-                        && $submit_mult != __('With selected:')
-                        && ! empty($selected_fld)
-                    ) {
-                        // phpcs:disable PSR1.Files.SideEffects
-                        define('PMA_SUBMIT_MULT', 1);
-                        // phpcs:enable
-                    }
-
-                    /**
-                     * if $submit_mult == 'change', execution will have stopped
-                     * at this point
-                     */
-                    if (empty($message)) {
-                        $message = Message::success();
-                    }
-                    $this->response->addHTML(
-                        Generator::getMessage($message, $sql_query)
-                    );
                 }
             } else {
                 $this->response->setRequestStatus(false);
@@ -388,6 +327,20 @@ class StructureController extends AbstractController
                 $columns_with_index
             )
         );
+    }
+
+    public function change(): void
+    {
+        $selected = $_POST['selected_fld'] ?? [];
+
+        if (empty($selected)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No column selected.'));
+
+            return;
+        }
+
+        $this->displayHtmlForColumnChange($selected, Url::getFromRoute('/table/structure'));
     }
 
     public function addToCentralColumns(): void
@@ -1664,10 +1617,7 @@ class StructureController extends AbstractController
      */
     protected function getMultipleFieldCommandType()
     {
-        $types = [
-            'change',
-            'browse',
-        ];
+        $types = ['browse'];
 
         foreach ($types as $type) {
             if (isset($_POST['submit_mult_' . $type . '_x'])) {
@@ -2422,40 +2372,5 @@ class StructureController extends AbstractController
         $this->dbi->freeResult($result);
 
         return $primary;
-    }
-
-    /**
-     * Get List of information for Submit Mult
-     *
-     * @param string $submit_mult mult_submit type
-     * @param array  $selected    the selected columns
-     * @param string $action      action type
-     *
-     * @return array
-     */
-    protected function getDataForSubmitMult($submit_mult, $selected, $action)
-    {
-        $what = null;
-        $query_type = null;
-        $is_unset_submit_mult = false;
-        $mult_btn = null;
-        $centralColsError = null;
-        switch ($submit_mult) {
-            case 'change':
-                $this->displayHtmlForColumnChange($selected, $action);
-                // execution stops here but PhpMyAdmin\Response correctly finishes
-                // the rendering
-                exit;
-            case 'browse':
-                // this should already be handled by /table/structure
-        }
-
-        return [
-            $what,
-            $query_type,
-            $is_unset_submit_mult,
-            $mult_btn,
-            $centralColsError,
-        ];
     }
 }

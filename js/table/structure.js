@@ -424,6 +424,8 @@ AJAX.registerOnload('table/structure.js', function () {
             url = 'index.php?route=/table/structure/central-columns-add';
         } else if (action === 'remove_from_central_columns') {
             url = 'index.php?route=/table/structure/central-columns-remove';
+        } else if (action === 'change') {
+            url = 'index.php?route=/table/structure/change';
         } else if (action === 'drop') {
             url = 'index.php?route=/table/structure/drop-confirm';
         } else if (action === 'ftext') {
