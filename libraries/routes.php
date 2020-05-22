@@ -253,6 +253,7 @@ return function (RouteCollector $routes) {
         $routes->addRoute(['GET', 'POST'], '/sql', [TableSqlController::class, 'index']);
         $routes->addGroup('/structure', function (RouteCollector $routes) {
             $routes->addRoute(['GET', 'POST'], '', [TableStructureController::class, 'index']);
+            $routes->post('/browse', [TableStructureController::class, 'browse']);
             $routes->post('/central-columns-add', [TableStructureController::class, 'addToCentralColumns']);
             $routes->post('/central-columns-remove', [TableStructureController::class, 'removeFromCentralColumns']);
             $routes->post('/change', [TableStructureController::class, 'change']);

@@ -113,10 +113,8 @@ class StructureController extends AbstractController
 
     public function index(): void
     {
-        global $containerBuilder, $sql_query, $reread_info, $showtable;
+        global $containerBuilder, $reread_info, $showtable, $url_params;
         global $tbl_is_view, $tbl_storage_engine, $tbl_collation, $table_info_num_rows;
-        global $db, $table, $goto, $message, $mult_btn, $query_type;
-        global $selected, $selected_fld, $submit_mult, $url_query, $url_params;
 
         $this->dbi->selectDb($this->db);
         $reread_info = $this->table_obj->getStatusInfo(null, true);
@@ -124,6 +122,7 @@ class StructureController extends AbstractController
             null,
             (isset($reread_info) && $reread_info)
         );
+
         if ($this->table_obj->isView()) {
             $tbl_is_view = true;
             $tbl_storage_engine = __('View');
@@ -131,6 +130,7 @@ class StructureController extends AbstractController
             $tbl_is_view = false;
             $tbl_storage_engine = $this->table_obj->getStorageEngine();
         }
+
         $tbl_collation = $this->table_obj->getCollation();
         $table_info_num_rows = $this->table_obj->getNumRows();
 
@@ -139,12 +139,10 @@ class StructureController extends AbstractController
         $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
         $checkUserPrivileges->getPrivileges();
 
-        $this->response->getHeader()->getScripts()->addFiles(
-            [
-                'table/structure.js',
-                'indexes.js',
-            ]
-        );
+        $this->response->getHeader()->getScripts()->addFiles([
+            'table/structure.js',
+            'indexes.js',
+        ]);
 
         /**
          * Handle column moving
@@ -193,6 +191,7 @@ class StructureController extends AbstractController
 
             return;
         }
+
         /**
          * A click on Change has been made for one column
          */
@@ -214,28 +213,6 @@ class StructureController extends AbstractController
             $this->displayHtmlForPartitionChange();
 
             return;
-        }
-
-        /**
-         * handle multiple field commands if required
-         *
-         * submit_mult_*_x comes from IE if <input type="img" ...> is used
-         */
-        $submit_mult = $this->getMultipleFieldCommandType();
-
-        if (! empty($submit_mult)) {
-            if (isset($_POST['selected_fld'])) {
-                if ($submit_mult == 'browse') {
-                    // browsing the table displaying only selected columns
-                    $this->displayTableBrowseForSelectedColumns(
-                        $GLOBALS['goto'],
-                        $GLOBALS['pmaThemeImage']
-                    );
-                }
-            } else {
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', __('No column selected.'));
-            }
         }
 
         /**
@@ -269,34 +246,17 @@ class StructureController extends AbstractController
             $GLOBALS['reload'] = true;
         }
 
-        /**
-         * Gets the relation settings
-         */
         $cfgRelation = $this->relation->getRelationsParam();
 
-        /**
-         * Runs common work
-         */
-        // set db, table references, for require_once that follows
-        // got to be eliminated in long run
-        $db = &$this->db;
-        $table = &$this->table;
         $url_params = [];
 
         Common::table();
 
-        $this->_url_query = Url::getCommonRaw([
-            'db' => $db,
-            'table' => $table,
-            'goto' => Url::getFromRoute('/table/structure'),
-            'back' => Url::getFromRoute('/table/structure'),
-        ]);
-        /* The url_params array is initialized in above include */
         $url_params['goto'] = Url::getFromRoute('/table/structure');
         $url_params['back'] = Url::getFromRoute('/table/structure');
 
-        // 2. Gets table keys and retains them
-        // @todo should be: $server->db($db)->table($table)->primary()
+        $this->_url_query = Url::getCommonRaw($url_params);
+
         $primary = Index::getPrimary($this->table, $this->db);
         $columns_with_index = $this->dbi
             ->getTable($this->db, $this->table)
@@ -308,7 +268,6 @@ class StructureController extends AbstractController
             ->getTable($this->db, $this->table)
             ->getColumnsWithIndex(Index::UNIQUE);
 
-        // 3. Get fields
         $fields = (array) $this->dbi->getColumns(
             $this->db,
             $this->table,
@@ -316,16 +275,28 @@ class StructureController extends AbstractController
             true
         );
 
-        //display table structure
-        $this->response->addHTML(
-            $this->displayStructure(
-                $cfgRelation,
-                $columns_with_unique_index,
-                $url_params,
-                $primary,
-                $fields,
-                $columns_with_index
-            )
+        $this->response->addHTML($this->displayStructure(
+            $cfgRelation,
+            $columns_with_unique_index,
+            $url_params,
+            $primary,
+            $fields,
+            $columns_with_index
+        ));
+    }
+
+    public function browse(): void
+    {
+        if (empty($_POST['selected_fld'])) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No column selected.'));
+
+            return;
+        }
+
+        $this->displayTableBrowseForSelectedColumns(
+            $GLOBALS['goto'],
+            $GLOBALS['pmaThemeImage']
         );
     }
 
@@ -1608,36 +1579,6 @@ class StructureController extends AbstractController
                 )
             );
         }
-    }
-
-    /**
-     * Function to get the type of command for multiple field handling
-     *
-     * @return string|null
-     */
-    protected function getMultipleFieldCommandType()
-    {
-        $types = ['browse'];
-
-        foreach ($types as $type) {
-            if (isset($_POST['submit_mult_' . $type . '_x'])) {
-                return $type;
-            }
-        }
-
-        if (isset($_POST['submit_mult'])) {
-            return $_POST['submit_mult'];
-        } elseif (isset($_POST['mult_btn'])
-            && $_POST['mult_btn'] == __('Yes')
-        ) {
-            if (isset($_POST['selected'])) {
-                $_POST['selected_fld'] = $_POST['selected'];
-            }
-
-            return 'row_delete';
-        }
-
-        return null;
     }
 
     /**
