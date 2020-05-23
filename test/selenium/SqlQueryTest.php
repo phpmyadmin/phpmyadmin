@@ -22,14 +22,13 @@ class SqlQueryTest extends TestBase
         parent::setUp();
 
         $this->dbQuery(
-            'CREATE TABLE `test_table` ('
+            'USE `' . $this->database_name . '`;'
+            . 'CREATE TABLE `test_table` ('
             . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
             . ' `val` int(11) NOT NULL,'
             . ' PRIMARY KEY (`id`)'
-            . ')'
-        );
-        $this->dbQuery(
-            'INSERT INTO `test_table` (val) VALUES (2), (3), (4), (5);'
+            . ');'
+            . 'INSERT INTO `test_table` (val) VALUES (2), (3), (4), (5);'
         );
         $this->login();
     }

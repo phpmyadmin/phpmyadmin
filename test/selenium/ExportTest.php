@@ -21,14 +21,13 @@ class ExportTest extends TestBase
     {
         parent::setUp();
         $this->dbQuery(
-            'CREATE TABLE `test_table` ('
+            'USE `' . $this->database_name . '`;'
+            . 'CREATE TABLE `test_table` ('
             . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
             . ' `val` int(11) NOT NULL,'
             . ' PRIMARY KEY (`id`)'
-            . ')'
-        );
-        $this->dbQuery(
-            'INSERT INTO `test_table` (val) VALUES (2);'
+            . ');'
+            . 'INSERT INTO `test_table` (val) VALUES (2);'
         );
 
         $this->login();
@@ -83,7 +82,7 @@ class ExportTest extends TestBase
      */
     public function testTableExport($plugin, $expected): void
     {
-        $this->dbQuery('INSERT INTO `test_table` (val) VALUES (3);');
+        $this->dbQuery('INSERT INTO `' . $this->database_name . '`.`test_table` (val) VALUES (3);');
 
         $this->navigateTable('test_table');
 
