@@ -20,10 +20,9 @@ use Facebook\WebDriver\WebDriverElement;
 use Facebook\WebDriver\WebDriverExpectedCondition;
 use Facebook\WebDriver\WebDriverSelect;
 use InvalidArgumentException;
-use mysqli;
-use mysqli_result;
 use PHPUnit\Framework\TestCase;
 use Throwable;
+use \Closure;
 use const CURLOPT_CUSTOMREQUEST;
 use const CURLOPT_HTTPHEADER;
 use const CURLOPT_POSTFIELDS;
@@ -64,14 +63,6 @@ abstract class TestBase extends TestCase
     protected $webDriver;
 
     /**
-     * mysqli object
-     *
-     * @access private
-     * @var mysqli
-     */
-    protected $_mysqli;
-
-    /**
      * Name of database for the test
      *
      * @access public
@@ -85,6 +76,12 @@ abstract class TestBase extends TestCase
      * @var string
      */
     protected $sessionId;
+
+    /**
+     * The window handle for the SQL tab
+     * @var string|null
+     */
+    private $sqlWindowHandle = null;
 
     private const SESSION_REST_URL = 'https://api.browserstack.com/automate/sessions/';
 
@@ -103,15 +100,9 @@ abstract class TestBase extends TestCase
          */
         parent::setUp();
 
-        if (! $this->hasTestSuiteDatabaseServer()) {
-            $this->markTestSkipped('Database server is not configured.');
-        }
-
-        if ($this->getHubUrl() === null) {
+        if ($this->getHubUrl() === '') {
             $this->markTestSkipped('Selenium testing is not configured.');
         }
-
-        $this->connectMySQL();
 
         $capabilities = $this->getCapabilities();
         $this->addCapabilities($capabilities);
@@ -124,40 +115,22 @@ abstract class TestBase extends TestCase
 
         $this->sessionId = $this->webDriver->getSessionId();
 
-        $this->database_name = getenv('TESTSUITE_DATABASE')
-            . mb_substr(sha1((string) rand()), 0, 7);
-        $this->dbQuery(
-            'CREATE DATABASE IF NOT EXISTS ' . $this->database_name
-        );
-        $this->dbQuery(
-            'USE ' . $this->database_name
-        );
+        $this->database_name = $this->getDbPrefix() . mb_substr(sha1((string) rand()), 0, 7);
 
         $this->navigateTo('');
         $this->webDriver->manage()->window()->maximize();
+        $this->dbQuery(
+            'CREATE DATABASE IF NOT EXISTS `' . $this->database_name . '`; USE `' . $this->database_name . '`;'
+        );
     }
 
-    private function connectMySQL(): void
+    public function getDbPrefix(): string
     {
-        $mysqlPort = getenv('TESTSUITE_PORT');
-        try {
-            $this->_mysqli = new mysqli(
-                (string) getenv('TESTSUITE_SERVER'),
-                (string) getenv('TESTSUITE_USER'),
-                (string) getenv('TESTSUITE_PASSWORD'),
-                'mysql',
-                $mysqlPort === false ? 3306 : (int) $mysqlPort
-            );
-        } catch (Throwable $e) {
-            // when localhost is used, it tries to connect to a socket and throws and error
-            $this->markTestSkipped('Failed to connect to MySQL (' . $e->getMessage() . ')');
+        $envVar = getenv('TESTSUITE_DATABASE_PREFIX');
+        if ($envVar) {
+            return $envVar;
         }
-
-        if (! $this->_mysqli->connect_errno) {
-            return;
-        }
-
-        $this->markTestSkipped('Failed to connect to MySQL (' . $this->_mysqli->error . ')');
+        return '';
     }
 
     private function getBrowserStackCredentials(): string
@@ -211,9 +184,9 @@ abstract class TestBase extends TestCase
     }
 
     /**
-     * Get hub url
+     * Get the selenium hub url
      */
-    public function getHubUrl(): ?string
+    private function getHubUrl(): string
     {
         if ($this->hasBrowserstackConfig()) {
             return 'https://'
@@ -227,17 +200,7 @@ abstract class TestBase extends TestCase
             . getenv('TESTSUITE_SELENIUM_PORT') . '/wd/hub';
         }
 
-        return null;
-    }
-
-    /**
-     * Has TESTSUITE_SERVER, TESTSUITE_USER and TESTSUITE_DATABASE variables set
-     */
-    public function hasTestSuiteDatabaseServer(): bool
-    {
-        return ! empty(getenv('TESTSUITE_SERVER'))
-            && ! empty(getenv('TESTSUITE_USER'))
-            && ! empty(getenv('TESTSUITE_DATABASE'));
+        return '';
     }
 
     /**
@@ -391,20 +354,13 @@ abstract class TestBase extends TestCase
     }
 
     /**
-     * Checks whether user is a superuser.
+     * Checks whether the user is a superuser.
      *
      * @return bool
      */
-    protected function isSuperUser()
+    protected function isSuperUser(): bool
     {
-        $result = $this->dbQuery('SELECT COUNT(*) FROM mysql.user');
-        if ($result !== false) {
-            $result->free();
-
-            return true;
-        }
-
-        return false;
+        return $this->dbQuery('SELECT COUNT(*) FROM mysql.user');
     }
 
     /**
@@ -450,6 +406,7 @@ abstract class TestBase extends TestCase
      */
     public function login(string $username = '', string $password = ''): void
     {
+        $this->logOutIfLoggedIn();
         if ($username === '') {
             $username = $this->getTestSuiteUserLogin();
         }
@@ -599,19 +556,60 @@ abstract class TestBase extends TestCase
     /**
      * Execute a database query
      *
-     * @param string $query SQL Query to be executed
+     * @param string       $query       SQL Query to be executed
+     * @param Closure|null $onResults   The function to call when the results are displayed
+     * @param Closure|null $afterSubmit The function to call after the submit button is clicked
      *
-     * @return void|bool|mysqli_result
+     * @return bool
      *
      * @throws Exception
      */
-    public function dbQuery($query)
+    public function dbQuery($query, ?Closure $onResults = null, ?Closure $afterSubmit = null): bool
     {
-        if ($this->_mysqli === null) {
-            $this->connectMySQL();
+        $didSucceed = false;
+        $handles = null;
+
+        if (! $this->sqlWindowHandle) {
+            $this->webDriver->executeScript("window.open('about:blank','_blank');", []);
+            $this->webDriver->wait()->until(
+                WebDriverExpectedCondition::numberOfWindowsToBe(2)
+            );
+            $handles = $this->webDriver->getWindowHandles();
+
+            $lastWindow = end($handles);
+            $this->webDriver->switchTo()->window($lastWindow);
+            $this->login();
+            $this->sqlWindowHandle = $lastWindow;
         }
 
-        return $this->_mysqli->query($query);
+        if ($handles === null) {
+            $handles = $this->webDriver->getWindowHandles();
+        }
+
+        if ($this->sqlWindowHandle) {
+            $this->webDriver->switchTo()->window($this->sqlWindowHandle);
+            $this->byXPath('//*[contains(@class,"nav-item") and contains(., "SQL")]')->click();
+            $this->waitAjax();
+            $this->typeInTextArea($query);
+            $this->byId('button_submit_query')->click();
+            if ($afterSubmit !== null) {
+                $afterSubmit->call($this);
+            }
+            $this->waitAjax();
+            $this->waitForElement('className', 'result_query');
+            // If present then
+            $didSucceed = $this->isElementPresent('xpath', '//*[@class="result_query"]//*[contains(., "success")]');
+            if ($onResults !== null) {
+                $onResults->call($this);
+            }
+        }
+
+        // echo PHP_EOL . 'Query: ' . $query . ', out: ' . (($didSucceed) ? 'yes' : 'no') . PHP_EOL;
+
+        reset($handles);
+        $lastWindow = current($handles);
+        $this->webDriver->switchTo()->window($lastWindow);
+        return $didSucceed;
     }
 
     /**
@@ -848,7 +846,7 @@ abstract class TestBase extends TestCase
     {
         $this->waitForElement('cssSelector', 'div.cm-s-default');
         $this->webDriver->executeScript(
-            "$('.cm-s-default')[" . $index . "].CodeMirror.setValue('" . $text . "');"
+            "$('.cm-s-default')[" . $index . '].CodeMirror.setValue(' . json_encode($text) . ');'
         );
     }
 
@@ -1067,11 +1065,7 @@ abstract class TestBase extends TestCase
      */
     protected function tearDown(): void
     {
-        if ($this->_mysqli != null) {
-            $this->dbQuery('DROP DATABASE IF EXISTS `' . $this->database_name . '`;');
-            $this->_mysqli->close();
-            $this->_mysqli = null;
-        }
+        $this->dbQuery('DROP DATABASE IF EXISTS `' . $this->database_name . '`;');
         if (! $this->hasFailed()) {
             $this->markTestAs('passed', '');
         }

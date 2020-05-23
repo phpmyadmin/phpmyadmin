@@ -51,10 +51,7 @@ class EventsTest extends TestBase
      */
     protected function tearDown(): void
     {
-        parent::tearDown();
-        if (isset($this->_mysqli)) {
-            $this->dbQuery('SET GLOBAL event_scheduler="OFF"');
-        }
+        $this->dbQuery('SET GLOBAL event_scheduler="OFF"');
         parent::tearDown();
     }
 
