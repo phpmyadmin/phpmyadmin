@@ -18,6 +18,7 @@ phpMyAdmin - ChangeLog
 - issue #16093 Fix error importing utf-8 with bom sql file
 - issue #16089 2FA UX enhancement: autofocus 2FA input
 - issue #16127 Fix table column description PHP error when ['DisableIS'] = true;
+- issue #16130 Fix local documentation links display when a PHP extension is missing
 
 5.0.2 (2020-03-20)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page
