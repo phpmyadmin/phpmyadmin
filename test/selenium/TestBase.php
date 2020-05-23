@@ -132,8 +132,6 @@ abstract class TestBase extends TestCase
 
         if ($this->getHubUrl() === null) {
             $this->markTestSkipped('Selenium testing is not configured.');
-
-            return;
         }
 
         $capabilities = $this->getCapabilities();
@@ -1107,32 +1105,33 @@ abstract class TestBase extends TestCase
         $this->markTestAs('failed', $t->getMessage());
 
         if ($this->hasBrowserstackConfig()) {
+            /** @var resource $ch */
             $ch = curl_init();
-            if ($ch !== false) {
-                curl_setopt(
-                    $ch,
-                    CURLOPT_URL,
-                    self::SESSION_REST_URL . $this->sessionId . '.json'
-                );
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-                curl_setopt(
-                    $ch,
-                    CURLOPT_USERPWD,
-                    $GLOBALS['TESTSUITE_BROWSERSTACK_USER']
-                    . ':' . $GLOBALS['TESTSUITE_BROWSERSTACK_KEY']
-                );
-                $result = curl_exec($ch);
-                $proj = json_decode($result);
-                if (isset($proj->automation_session)) {
-                    echo 'Test failed, get more information here: ' . $proj->automation_session->public_url . PHP_EOL;
-                }
-                if ($ch !== false && curl_errno($ch)) {
-                    echo 'Error: ' . curl_error($ch) . PHP_EOL;
-                }
-                curl_close($ch);
-            } else {
-                echo 'Error: curl_init' . PHP_EOL;
+            curl_setopt(
+                $ch,
+                CURLOPT_URL,
+                self::SESSION_REST_URL . $this->sessionId . '.json'
+            );
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt(
+                $ch,
+                CURLOPT_USERPWD,
+                $GLOBALS['TESTSUITE_BROWSERSTACK_USER']
+                . ':' . $GLOBALS['TESTSUITE_BROWSERSTACK_KEY']
+            );
+            $result = curl_exec($ch);
+            if (is_bool($result)) {
+                echo 'Error: ' . curl_error($ch) . PHP_EOL;
+                return;
             }
+            $proj = json_decode($result);
+            if (isset($proj->automation_session)) {
+                echo 'Test failed, get more information here: ' . $proj->automation_session->public_url . PHP_EOL;
+            }
+            if ($ch !== false && curl_errno($ch)) {
+                echo 'Error: ' . curl_error($ch) . PHP_EOL;
+            }
+            curl_close($ch);
         }
 
         // Call parent's onNotSuccessful to handle everything else
