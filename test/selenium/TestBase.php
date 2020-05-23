@@ -1020,17 +1020,21 @@ abstract class TestBase extends TestCase
 
     /**
      * Wait for AJAX completion
-     *
-     * @return void
      */
-    public function waitAjax()
+    public function waitAjax(): void
     {
         /* Wait while code is loading */
-        while ($this->webDriver->executeScript(
-            'return AJAX.active;'
-        )) {
-            usleep(5000);
-        }
+        $this->webDriver->executeAsyncScript(
+            'var callback = arguments[arguments.length - 1];'
+            . 'function startWaitingForAjax() {'
+            . '    if (! AJAX.active) {'
+            . '        callback();'
+            . '    } else {'
+            . '        setTimeout(startWaitingForAjax, 200);'
+            . '    }'
+            . '}'
+            . 'startWaitingForAjax();'
+        );
     }
 
     /**
