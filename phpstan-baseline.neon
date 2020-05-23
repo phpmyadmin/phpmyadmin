@@ -5257,7 +5257,7 @@ parameters:
 
 		-
 			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 4
+			count: 3
 			path: test/selenium/TestBase.php
 
 		-
@@ -5272,16 +5272,6 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Tests\\\\Selenium\\\\TestBase\\:\\:\\$_mysqli \\(mysqli\\) does not accept null\\.$#"
-			count: 1
-			path: test/selenium/TestBase.php
-
-		-
-			message: "#^Parameter \\#1 \\$json of function json_decode expects string, bool\\|string given\\.$#"
-			count: 1
-			path: test/selenium/TestBase.php
-
-		-
-			message: "#^Else branch is unreachable because previous condition is always true\\.$#"
 			count: 1
 			path: test/selenium/TestBase.php
 

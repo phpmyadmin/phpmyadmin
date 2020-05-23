@@ -513,11 +513,6 @@
     <ImplicitToStringCast occurrences="1">
       <code>$message</code>
     </ImplicitToStringCast>
-    <InvalidGlobal occurrences="3">
-      <code>global $what;</code>
-      <code>global $query_type;</code>
-      <code>global $mult_btn;</code>
-    </InvalidGlobal>
     <InvalidReturnStatement occurrences="1">
       <code>$partitionDetails</code>
     </InvalidReturnStatement>
@@ -543,17 +538,9 @@
       <code>$tmp_error</code>
       <code>$analyzed_sql_results ?? ''</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="5">
-      <code>$row['Key_name']</code>
-      <code>$row['Column_name']</code>
+    <PossiblyInvalidArrayAccess occurrences="1">
       <code>$expressions[$column]</code>
-      <code>$row['Key_name']</code>
-      <code>$row['Column_name']</code>
     </PossiblyInvalidArrayAccess>
-    <PossiblyNullArgument occurrences="2">
-      <code>$selected</code>
-      <code>$selected</code>
-    </PossiblyNullArgument>
     <PossiblyNullArrayAccess occurrences="14">
       <code>$data_size</code>
       <code>$data_unit</code>
@@ -570,12 +557,6 @@
       <code>$avg_size</code>
       <code>$avg_unit</code>
     </PossiblyNullArrayAccess>
-    <TypeDoesNotContainType occurrences="1">
-      <code>$result &amp;&amp; ! empty($sql_query_views)</code>
-    </TypeDoesNotContainType>
-    <UndefinedVariable occurrences="1">
-      <code>$what</code>
-    </UndefinedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/ZoomSearchController.php">
     <PossiblyFalseArgument occurrences="3">
