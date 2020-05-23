@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-05-15 22:48+0200\n"
-"PO-Revision-Date: 2020-05-15 23:51+0000\n"
+"PO-Revision-Date: 2020-05-23 23:32+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "cs/>\n"
@@ -2714,7 +2714,7 @@ msgstr "binární"
 #: libraries/classes/Charsets/Collation.php:517
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "nedoplňovat mezerami"
 
 #: libraries/classes/Common.php:173
 #: libraries/classes/Controllers/Table/OperationsController.php:264
@@ -3814,10 +3814,8 @@ msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Nepoužívat AUTO_INCREMENT pro nulové hodnoty"
 
 #: libraries/classes/Config/Descriptions.php:426
-#, fuzzy
-#| msgid "Read misses"
 msgid "Read as multibytes"
-msgstr "Číst jako řetězec"
+msgstr "Číst jako vícebajtové"
 
 #: libraries/classes/Config/Descriptions.php:427
 msgid "Initial state for sliders"
@@ -5634,10 +5632,10 @@ msgid ""
 "based protection may not be reliable if your IP belongs to an ISP where "
 "thousands of users, including you, are connected to."
 msgstr ""
-"Pokud to považujete za nutné, použijte další možnosti zabezpečení - "
-"%1$somezení počítačů%2$s a %3$sseznam důvěryhodných proxy%4%s. Nicméně "
-"zabezpečení založené na IP adresách nemusí být spolehlivé, pokud je vaše IP "
-"adresa dynamicky přidělována poskytovatelem spolu s mnoha dalšími uživateli."
+"Pokud to považujete za nutné, použijte další možnosti zabezpečení - %1$"
+"somezení počítačů%2$s a %3$sseznam důvěryhodných proxy%4%s. Zabezpečení "
+"založené na IP adresách však nemusí být spolehlivé, pokud je vaše IP adresa "
+"dynamicky přidělována poskytovatelem spolu s mnoha dalšími uživateli."
 
 #: libraries/classes/Config/ServerConfigChecks.php:199
 #, php-format
@@ -5850,7 +5848,7 @@ msgstr "Jméno databáze je prázdné!"
 #: libraries/classes/Controllers/Database/OperationsController.php:108
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
-"Nemohu vytvořit kopii databáze se stejným názvem. Změňte název a zkuste to "
+"Nelze vytvořit kopii databáze se stejným názvem. Změňte název a zkuste to "
 "znovu."
 
 #: libraries/classes/Controllers/Database/OperationsController.php:199
@@ -6226,10 +6224,8 @@ msgid "String"
 msgstr "Řetězce"
 
 #: libraries/classes/Controllers/Preferences/ManageController.php:90
-#, fuzzy
-#| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "phpMyAdmin configuration snippet"
-msgstr "Chybějící tabulky v úložišti nastavení phpMyAdmina"
+msgstr "Úryvek konfigurace phpMyAdmina"
 
 #: libraries/classes/Controllers/Preferences/ManageController.php:91
 msgid "Paste it to your config.inc.php"
@@ -7882,10 +7878,8 @@ msgstr ""
 "phpMyAdmin momentálně používá výchozí časové pásmo databázového serveru."
 
 #: libraries/classes/DatabaseInterface.php:1620
-#, fuzzy
-#| msgid "Failed to read configuration file!"
 msgid "Failed to set configured collation connection!"
-msgstr "Nepodařilo se načíst konfigurační soubor!"
+msgstr "Nepodařilo se nastavit nakonfigurované kódování pro připojení!"
 
 #: libraries/classes/DatabaseInterface.php:2273
 msgid ""
@@ -10241,7 +10235,7 @@ msgstr "Vytvořit pěkný JSON (snadno čitelné formátování)"
 
 #: libraries/classes/Plugins/Export/ExportJson.php:94
 msgid "Output unicode characters unescaped"
-msgstr ""
+msgstr "Vypsat znaky unicode bez escapování"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:47
 msgid "Content of table @TABLE@"
@@ -10378,10 +10372,8 @@ msgid "View structure"
 msgstr "Zobrazit strukturu"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:312
-#, fuzzy
-#| msgid "and then"
 msgid "Stand in"
-msgstr "Zůstat"
+msgstr "Nahrazení"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:122
 msgid ""
@@ -10634,7 +10626,7 @@ msgstr "VZTAHY TABULKY"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2165
 msgid "It appears your table uses triggers;"
-msgstr ""
+msgstr "Vaše tabulka zřejmě využívá spouště;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2202
 #, php-format
@@ -12834,8 +12826,6 @@ msgid "Subpartition"
 msgstr "Pododdíl"
 
 #: templates/columns_definitions/partitions.twig:84
-#, fuzzy
-#| msgid "Engines"
 msgid "Engine"
 msgstr "Úložiště"
 
@@ -14954,8 +14944,6 @@ msgid "Options:"
 msgstr "Nastavení"
 
 #: templates/mult_submits/copy_multiple_tables.twig:39
-#, fuzzy
-#| msgid "Add AUTO_INCREMENT value"
 msgid "Add AUTO INCREMENT value"
 msgstr "Přidat hodnotu AUTO_INCREMENT"
 
@@ -15753,10 +15741,10 @@ msgid ""
 "can choose to ignore all databases by default and allow only certain "
 "databases to be replicated. Please select the mode:"
 msgstr ""
-"Tento server není nastaven jako nadřízený v replikačním procesu. Můžete si "
-"vybrat, zda chcete replikovat všechny databáze a některé z nich přeskočit "
-"(vhodné pokud chcete replikovat většinu databází), nebo zvolit opačný "
-"přístup a replikovat pouze vybrané databáze. Zvolte prosím požadovaný režim:"
+"Tento server není v replikačním procesu nastaven jako nadřízený. Můžete si "
+"vybrat, zda chcete replikovat všechny databáze a některé z nich přeskočit ("
+"vhodné pokud chcete replikovat většinu databází), nebo zvolit opačný přístup "
+"a replikovat pouze vybrané databáze. Zvolte prosím požadovaný režim:"
 
 #: templates/server/replication/master_configuration.twig:9
 msgid "Replicate all databases; Ignore:"
