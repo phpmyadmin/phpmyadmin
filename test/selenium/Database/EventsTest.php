@@ -63,10 +63,16 @@ class EventsTest extends TestBase
         $end = date('Y-m-d H:i:s', strtotime('+1 day'));
 
         $this->dbQuery(
-            'CREATE EVENT `test_event` ON SCHEDULE EVERY 1 MINUTE_SECOND STARTS '
+            'USE `' . $this->database_name . '`;'
+            . 'CREATE EVENT `test_event` ON SCHEDULE EVERY 1 MINUTE_SECOND STARTS '
             . "'" . $start . "' ENDS '" . $end . "' ON COMPLETION NOT PRESERVE ENABLE "
             . 'DO UPDATE `' . $this->database_name
-            . '`.`test_table` SET val = val + 1'
+            . '`.`test_table` SET val = val + 1',
+            null,
+            function () {
+                // Do you really want to execute [..]
+                $this->acceptAlert();
+            }
         );
     }
 
@@ -135,11 +141,13 @@ class EventsTest extends TestBase
         );
 
         $this->dbQuery(
-            "SHOW EVENTS WHERE Db='" . $this->database_name
-            . "' AND Name='test_event'",
+            'USE `' . $this->database_name . '`;'
+            . 'SHOW EVENTS WHERE Db=\'' . $this->database_name . '\' AND Name=\'test_event\';',
             function () {
-                //TODO: improve the condition
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->assertEquals($this->database_name, $this->getCellByTableClass('table_results', 1, 1));
+                $this->assertEquals('test_event', $this->getCellByTableClass('table_results', 1, 2));
+                $this->assertEquals('RECURRING', $this->getCellByTableClass('table_results', 1, 5));
             }
         );
 
@@ -147,10 +155,9 @@ class EventsTest extends TestBase
         $this->dbQuery(
             'SELECT val FROM `' . $this->database_name . '`.`test_table`',
             function () {
-                //TODO: improve the condition
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
-                $this->assertEquals($this->database_name, $this->getCellByTableClass('table_results', 1, 1));
-                //$this->assertGreaterThan(2, $row['val']);
+                // [ ] | Edit | Copy | Delete | 1 | <number>
+                $this->assertGreaterThan(2, (int) $this->getCellByTableClass('table_results', 1, 5));
             }
         );
     }
@@ -189,11 +196,14 @@ class EventsTest extends TestBase
         );
 
         sleep(2);
-        $result = $this->dbQuery(
-            'SELECT val FROM `' . $this->database_name . '`.`test_table`'
+        $this->dbQuery(
+            'SELECT val FROM `' . $this->database_name . '`.`test_table`',
+            function () {
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                // [ ] | Edit | Copy | Delete | 5
+                $this->assertEquals('5', $this->getCellByTableClass('table_results', 1, 5));
+            }
         );
-        $row = $result->fetch_assoc();
-        $this->assertGreaterThan(2, $row['val']);
     }
 
     /**
@@ -212,7 +222,7 @@ class EventsTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            "//legend[contains(., 'Events')]"
+            '//legend[contains(., "Events")]'
         );
 
         $this->byPartialLinkText('Drop')->click();
@@ -223,10 +233,12 @@ class EventsTest extends TestBase
 
         $this->waitAjaxMessage();
 
-        $result = $this->dbQuery(
-            "SHOW EVENTS WHERE Db='" . $this->database_name
-            . "' AND Name='test_event'"
+        $this->dbQuery(
+            'USE `' . $this->database_name . '`;'
+            . 'SHOW EVENTS WHERE Db=\'' . $this->database_name . '\' AND Name=\'test_event\';',
+            function () {
+                $this->assertFalse($this->isElementPresent('className', 'table_results'));
+            }
         );
-        $this->assertEquals(0, $result->num_rows);
     }
 }
