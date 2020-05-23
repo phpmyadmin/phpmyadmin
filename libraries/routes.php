@@ -263,6 +263,7 @@ return function (RouteCollector $routes) {
             $routes->post('/index', [TableStructureController::class, 'addIndex']);
             $routes->post('/move-columns', [TableStructureController::class, 'moveColumns']);
             $routes->post('/primary', [TableStructureController::class, 'primary']);
+            $routes->post('/reserved-word-check', [TableStructureController::class, 'reservedWordCheck']);
             $routes->post('/spatial', [TableStructureController::class, 'spatial']);
             $routes->post('/unique', [TableStructureController::class, 'unique']);
         });

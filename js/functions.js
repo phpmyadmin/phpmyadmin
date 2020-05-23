@@ -2448,8 +2448,8 @@ Functions.checkReservedWordColumns = function ($form) {
     var isConfirmed = true;
     $.ajax({
         type: 'POST',
-        url: 'index.php?route=/table/structure',
-        data: $form.serialize() + CommonParams.get('arg_separator') + 'reserved_word_check=1',
+        url: 'index.php?route=/table/structure/reserved-word-check',
+        data: $form.serialize(),
         success: function (data) {
             if (typeof data.success !== 'undefined' && data.success === true) {
                 isConfirmed = confirm(data.message);

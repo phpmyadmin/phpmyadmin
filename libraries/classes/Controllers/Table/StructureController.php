@@ -145,42 +145,6 @@ class StructureController extends AbstractController
         ]);
 
         /**
-         * handle MySQL reserved words columns check
-         */
-        if (isset($_POST['reserved_word_check'])) {
-            if ($GLOBALS['cfg']['ReservedWordDisableWarning'] === false) {
-                $columns_names = $_POST['field_name'];
-                $reserved_keywords_names = [];
-                foreach ($columns_names as $column) {
-                    if (Context::isKeyword(trim($column), true)) {
-                        $reserved_keywords_names[] = trim($column);
-                    }
-                }
-                if (Context::isKeyword(trim($this->table), true)) {
-                    $reserved_keywords_names[] = trim($this->table);
-                }
-                if (count($reserved_keywords_names) === 0) {
-                    $this->response->setRequestStatus(false);
-                }
-                $this->response->addJSON(
-                    'message',
-                    sprintf(
-                        _ngettext(
-                            'The name \'%s\' is a MySQL reserved keyword.',
-                            'The names \'%s\' are MySQL reserved keywords.',
-                            count($reserved_keywords_names)
-                        ),
-                        implode(',', $reserved_keywords_names)
-                    )
-                );
-            } else {
-                $this->response->setRequestStatus(false);
-            }
-
-            return;
-        }
-
-        /**
          * A click on Change has been made for one column
          */
         if (isset($_GET['change_column'])) {
@@ -1801,5 +1765,42 @@ class StructureController extends AbstractController
         $this->dbi->freeResult($result);
 
         return $primary;
+    }
+
+    /**
+     * Handles MySQL reserved words columns check.
+     */
+    public function reservedWordCheck(): void
+    {
+        if ($GLOBALS['cfg']['ReservedWordDisableWarning'] !== false) {
+            $this->response->setRequestStatus(false);
+
+            return;
+        }
+
+        $columns_names = $_POST['field_name'];
+        $reserved_keywords_names = [];
+        foreach ($columns_names as $column) {
+            if (Context::isKeyword(trim($column), true)) {
+                $reserved_keywords_names[] = trim($column);
+            }
+        }
+        if (Context::isKeyword(trim($this->table), true)) {
+            $reserved_keywords_names[] = trim($this->table);
+        }
+        if (count($reserved_keywords_names) === 0) {
+            $this->response->setRequestStatus(false);
+        }
+        $this->response->addJSON(
+            'message',
+            sprintf(
+                _ngettext(
+                    'The name \'%s\' is a MySQL reserved keyword.',
+                    'The names \'%s\' are MySQL reserved keywords.',
+                    count($reserved_keywords_names)
+                ),
+                implode(',', $reserved_keywords_names)
+            )
+        );
     }
 }
