@@ -23,12 +23,13 @@ class StructureTest extends TestBase
     {
         parent::setUp();
         $this->dbQuery(
-            'CREATE TABLE `test_table` ('
+            'USE `' . $this->database_name . '`;'
+            . 'CREATE TABLE `test_table` ('
             . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
             . ' `val` int(11) NOT NULL,'
             . ' `val2` int(11) NOT NULL,'
             . ' PRIMARY KEY (`id`)'
-            . ')'
+            . ');'
         );
 
         $this->login();
