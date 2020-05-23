@@ -4461,11 +4461,6 @@ parameters:
 			path: test/classes/CoreTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$needle of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, array given\\.$#"
-			count: 2
-			path: test/classes/Database/EventsTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$expectedCount of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\) expects int, array given\\.$#"
 			count: 1
 			path: test/classes/Database/EventsTest.php

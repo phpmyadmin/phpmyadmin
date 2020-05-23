@@ -138,12 +138,12 @@ class EventsTest extends AbstractTestCase
     /**
      * Test for getEditorForm
      *
-     * @param array $data    Data for routine
-     * @param array $matcher Matcher
+     * @param array  $data    Data for routine
+     * @param string $matcher Matcher
      *
      * @dataProvider providerGetEditorFormAdd
      */
-    public function testGetEditorFormAdd($data, $matcher): void
+    public function testGetEditorFormAdd(array $data, string $matcher): void
     {
         $this->assertStringContainsString(
             $matcher,
@@ -227,7 +227,7 @@ class EventsTest extends AbstractTestCase
      *
      * @dataProvider providerGetEditorFormEdit
      */
-    public function testGetEditorFormEdit($data, $matcher): void
+    public function testGetEditorFormEdit(array $data, string $matcher): void
     {
         $this->assertStringContainsString(
             $matcher,
@@ -306,12 +306,12 @@ class EventsTest extends AbstractTestCase
     /**
      * Test for getEditorForm
      *
-     * @param array $data    Data for routine
-     * @param array $matcher Matcher
+     * @param array  $data    Data for routine
+     * @param string $matcher Matcher
      *
      * @dataProvider providerGetEditorFormAjax
      */
-    public function testGetEditorFormAjax($data, $matcher): void
+    public function testGetEditorFormAjax(array $data, string $matcher): void
     {
         Response::getInstance()->setAjax(true);
         $this->assertStringContainsString(
