@@ -8,7 +8,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Selenium\Database;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
-use const MYSQLI_ASSOC;
 use function str_replace;
 
 /**
@@ -21,9 +20,9 @@ class ProceduresTest extends TestBase
     /**
      * The sql_mode before tests
      *
-     * @var int
+     * @var string
      */
-    private $originalSqlMode = -1;
+    private $originalSqlMode = '';
 
     /**
      * Setup the browser environment to run the selenium test case
@@ -31,9 +30,8 @@ class ProceduresTest extends TestBase
     protected function setUp(): void
     {
         parent::setUp();
-        if ($this->originalSqlMode === -1) {
-            $this->originalSqlMode = $this->dbQuery('SELECT @@GLOBAL.SQL_MODE as globalsqm;')
-                ->fetch_all(MYSQLI_ASSOC)[0]['globalsqm'];
+        if ($this->originalSqlMode === '') {
+            $this->originalSqlMode = $this->getSqlMode();
             $this->dbQuery(
                 "SET GLOBAL sql_mode = '" .
                 str_replace(
@@ -45,12 +43,13 @@ class ProceduresTest extends TestBase
         }
 
         $this->dbQuery(
-            'CREATE TABLE `test_table` ('
+            'USE `' . $this->database_name . '`;'
+            . 'CREATE TABLE `test_table` ('
             . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
             . ' `name` varchar(20) NOT NULL,'
             . ' `datetimefield` datetime NOT NULL,'
             . ' PRIMARY KEY (`id`)'
-            . ')'
+            . ');'
         );
 
         $this->login();
@@ -59,19 +58,44 @@ class ProceduresTest extends TestBase
         $this->expandMore();
     }
 
+    private function getSqlMode(): string
+    {
+        $sqlMode = '';
+        $this->dbQuery(
+            'SELECT @@GLOBAL.SQL_MODE as globalsqm;',
+            function () use (&$sqlMode) {
+                $optionsSelector = '//a[contains(., "+ Options")]';
+                $fullTextSelector = '//label[contains(., "Full texts")]';
+                $this->assertTrue($this->isElementPresent('xpath', $optionsSelector));
+                $this->byXPath($optionsSelector)->click();
+                $this->waitForElement('xpath', $fullTextSelector);
+                sleep(2);// Wait for the animation to display the box
+                $this->byXPath($fullTextSelector)->click();
+                $this->byCssSelector('.slide-wrapper .tblFooters input[type=submit]')->click();
+                $this->waitAjax();
+                sleep(2);// Waitfor the new results
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $sqlMode = $this->getCellByTableClass('table_results', 1, 1);
+                $this->assertNotEmpty($sqlMode);
+            }
+        );
+        return $sqlMode;
+    }
+
     /**
      * Restore initial state
      */
     protected function tearDown(): void
     {
-        parent::tearDown();
-        $this->dbQuery(
-            "SET GLOBAL sql_mode = '" . $this->originalSqlMode . "';"
-        );
-        $this->assertEquals(
-            $this->originalSqlMode,
-            $this->dbQuery('SELECT @@GLOBAL.SQL_MODE as globalsqm;')->fetch_all(MYSQLI_ASSOC)[0]['globalsqm']
-        );
+        if ($this->originalSqlMode !== '') {
+            $this->dbQuery(
+                "SET GLOBAL sql_mode = '" . $this->originalSqlMode . "';"
+            );
+            $this->assertEquals(
+                $this->originalSqlMode,
+                $this->getSqlMode()
+            );
+        }
         parent::tearDown();
     }
 
@@ -83,7 +107,8 @@ class ProceduresTest extends TestBase
     private function procedureSQL()
     {
         $this->dbQuery(
-            'CREATE PROCEDURE `test_procedure`(IN `inp` VARCHAR(20), OUT `outp` INT)'
+            'USE `' . $this->database_name . '`;'
+            . 'CREATE PROCEDURE `test_procedure`(IN `inp` VARCHAR(20), OUT `outp` INT)'
             . ' NOT DETERMINISTIC READS SQL DATA SQL SECURITY DEFINER SELECT char_'
             . 'length(inp) + count(*) FROM test_table INTO outp'
         );
@@ -139,11 +164,14 @@ class ProceduresTest extends TestBase
             . "'Routine `test_procedure` has been created')]"
         );
 
-        $result = $this->dbQuery(
-            "SHOW PROCEDURE STATUS WHERE Db='" . $this->database_name . "'"
+        $this->dbQuery(
+            "SHOW PROCEDURE STATUS WHERE Db='" . $this->database_name . "'",
+            function () {
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->assertEquals($this->database_name, $this->getCellByTableClass('table_results', 1, 1));
+            }
         );
 
-        $this->assertEquals(1, $result->num_rows);
         $this->executeProcedure('test_procedure', 14);
     }
 
@@ -207,10 +235,12 @@ class ProceduresTest extends TestBase
 
         $this->waitAjaxMessage();
 
-        $result = $this->dbQuery(
-            "SHOW PROCEDURE STATUS WHERE Db='" . $this->database_name . "'"
+        $this->dbQuery(
+            "SHOW PROCEDURE STATUS WHERE Db='" . $this->database_name . "'",
+            function () {
+                $this->assertFalse($this->isElementPresent('className', 'table_results'));
+            }
         );
-        $this->assertEquals(0, $result->num_rows);
     }
 
     /**
