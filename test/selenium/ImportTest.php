@@ -33,12 +33,19 @@ class ImportTest extends TestBase
     public function testServerImport()
     {
         $this->doImport('server');
-        $result = $this->dbQuery("SHOW DATABASES LIKE 'test_import%'");
-        $this->assertGreaterThanOrEqual(2, $result->num_rows);
+        $this->dbQuery(
+            'SHOW DATABASES LIKE \'test_import%\'',
+            function () {
+                $this->assertEquals('test_import1', $this->getCellByTableClass('table_results', 1, 1));
+                $this->assertEquals('test_import2', $this->getCellByTableClass('table_results', 2, 1));
+            }
+        );
 
         // clear db
-        $this->dbQuery('DROP DATABASE test_import1');
-        $this->dbQuery('DROP DATABASE test_import2');
+        $this->dbQuery(
+            'DROP DATABASE test_import1;'
+            . 'DROP DATABASE test_import2;'
+        );
     }
 
     /**
@@ -50,14 +57,19 @@ class ImportTest extends TestBase
      */
     public function testDbImport()
     {
-        $this->dbQuery('CREATE DATABASE ' . $this->database_name);
+        $this->dbQuery('CREATE DATABASE IF NOT EXISTS `' . $this->database_name . '`');
         $this->navigateDatabase($this->database_name);
 
         $this->doImport('db');
 
-        $this->dbQuery('USE ' . $this->database_name);
-        $result = $this->dbQuery('SHOW TABLES');
-        $this->assertEquals(1, $result->num_rows);
+        $this->dbQuery(
+            'USE `' . $this->database_name . '`;'
+            . 'SHOW TABLES FROM `' . $this->database_name . '`',
+            function () {
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->assertEquals('test_table', $this->getCellByTableClass('table_results', 1, 1));
+            }
+        );
     }
 
     /**
@@ -70,18 +82,24 @@ class ImportTest extends TestBase
     public function testTableImport()
     {
         // setup the db
-        $this->dbQuery('CREATE DATABASE ' . $this->database_name);
-        $this->dbQuery('USE ' . $this->database_name);
         $this->dbQuery(
-            'CREATE TABLE IF NOT EXISTS `test_table` (`val` int(11) NOT NULL)'
+            'CREATE DATABASE IF NOT EXISTS `' . $this->database_name . '`;'
+            . 'USE `' . $this->database_name . '`;'
+            . 'CREATE TABLE IF NOT EXISTS `test_table` (`val` int(11) NOT NULL);'
         );
 
         $this->navigateTable('test_table');
 
         $this->doImport('table');
 
-        $result = $this->dbQuery('SELECT * FROM test_table');
-        $this->assertEquals(2, $result->num_rows);
+        $this->dbQuery(
+            'SELECT * FROM `' . $this->database_name . '`.test_table',
+            function () {
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->assertEquals('8', $this->getCellByTableClass('table_results', 1, 1));
+                $this->assertEquals('9', $this->getCellByTableClass('table_results', 2, 1));
+            }
+        );
     }
 
     /**
