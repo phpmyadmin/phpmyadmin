@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2020-05-15 23:51+0000\n"
+"PO-Revision-Date: 2020-05-24 20:41+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-9/cs/>"
 "\n"
@@ -311,7 +311,7 @@ msgstr "Jméno databáze je prázdné!"
 #: db_operations.php:69
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
-"Nemohu vytvořit kopii databáze se stejným názvem. Změňte název a zkuste to "
+"Nelze vytvořit kopii databáze se stejným názvem. Změňte název a zkuste to "
 "znovu."
 
 #: db_operations.php:156
@@ -3544,10 +3544,9 @@ msgid "binary"
 msgstr "binární"
 
 #: libraries/classes/Charsets.php:689
-#, fuzzy
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr "bez podložky"
+msgstr "nedoplňovat mezerami"
 
 #: libraries/classes/Config.php:1132
 #, php-format
@@ -4624,10 +4623,8 @@ msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Nepoužívat AUTO_INCREMENT pro nulové hodnoty"
 
 #: libraries/classes/Config/Descriptions.php:682
-#, fuzzy
-#| msgid "Read misses"
 msgid "Read as multibytes"
-msgstr "Číst jako multibytes"
+msgstr "Číst jako vícebajtové"
 
 #: libraries/classes/Config/Descriptions.php:684
 msgid "Initial state for sliders"
@@ -4779,7 +4776,7 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"Počet bytů, které si může skript alokovat, např. [kbd]32M[/kbd] "
+"Počet bajtů, které si může skript alokovat, např. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] pro neomezené a [kbd]0[/kbd] pro žádnou změnu)."
 
 #: libraries/classes/Config/Descriptions.php:766
@@ -6336,9 +6333,9 @@ msgid ""
 "thousands of users, including you, are connected to."
 msgstr ""
 "Pokud to považujete za nutné, použijte další možnosti zabezpečení - %1$"
-"somezení počítačů%2$s a %3$sseznam důvěryhodných proxy%4%s. Nicméně "
-"zabezpečení založené na IP adresách nemusí být spolehlivé, pokud je vaše IP "
-"adresa dynamicky přidělována poskytovatelem spolu s mnoha dalšími uživateli."
+"somezení počítačů%2$s a %3$sseznam důvěryhodných proxy%4%s. Zabezpečení "
+"založené na IP adresách však nemusí být spolehlivé, pokud je vaše IP adresa "
+"dynamicky přidělována poskytovatelem spolu s mnoha dalšími uživateli."
 
 #: libraries/classes/Config/ServerConfigChecks.php:203
 #, php-format
@@ -7026,10 +7023,8 @@ msgstr ""
 "phpMyAdmin momentálně používá výchozí časové pásmo databázového serveru."
 
 #: libraries/classes/DatabaseInterface.php:1550
-#, fuzzy
-#| msgid "Failed to read configuration file!"
 msgid "Failed to set configured collation connection!"
-msgstr "Nepodařilo se načíst konfigurační soubor!"
+msgstr "Nepodařilo se nastavit nakonfigurované kódování pro připojení!"
 
 #: libraries/classes/DatabaseInterface.php:2168
 msgid ""
@@ -8258,8 +8253,6 @@ msgid "Data only"
 msgstr "Jen data"
 
 #: libraries/classes/MultSubmits.php:407
-#, fuzzy
-#| msgid "Add AUTO_INCREMENT value"
 msgid "Add AUTO INCREMENT value"
 msgstr "Přidat hodnotu AUTO_INCREMENT"
 
@@ -9281,7 +9274,7 @@ msgstr "Vytvořit pěkný JSON (snadno čitelné formátování)"
 
 #: libraries/classes/Plugins/Export/ExportJson.php:95
 msgid "Output unicode characters unescaped"
-msgstr ""
+msgstr "Vypsat znaky unicode bez escapování"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:51
 msgid "Content of table @TABLE@"
@@ -9394,10 +9387,8 @@ msgid "View structure"
 msgstr "Zobrazit strukturu"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:286
-#, fuzzy
-#| msgid "and then"
 msgid "Stand in"
-msgstr "Zůstat"
+msgstr "Nahrazení"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:103
 msgid ""
@@ -9625,7 +9616,7 @@ msgstr "VZTAHY TABULKY"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2069
 msgid "It appears your table uses triggers;"
-msgstr ""
+msgstr "Vaše tabulka zřejmě využívá spouště;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2106
 #, php-format
@@ -9941,11 +9932,11 @@ msgid ""
 "appears all on one line (Default 1)."
 msgstr ""
 "JEN PRO LINUX: Spustí externí program, na jeho standardní vstup pošle obsah "
-"pole a zobrazí výstup programu. Výchozí je program Tidy, který pěkně "
-"zformátuje HTML. Z bezpečnostních důvodů musíte jména povolených programů "
-"zapsat do souboru libraries/classes/Plugins/Transformations/Output/"
+"pole a zobrazí výstup programu. Výchozí je program Tidy, který zformátuje "
+"kód HTML. Z bezpečnostních důvodů musíte jména povolených programů zapsat do "
+"souboru libraries/classes/Plugins/Transformations/Output/"
 "Text_Plain_External.php. První parametr je číslo programu, který má být "
-"spuštěn a druhý parametr udává parametry tohoto programu. Třetí parametr "
+"spuštěn, a druhý parametr udává parametry tohoto programu. Třetí parametr "
 "určuje, zda mají být ve výstupu nahrazeny HTML entity (např. pro zobrazení "
 "zdrojového kódu HTML) (výchozí je 1, tedy převádět na entity), čtvrtý (při "
 "nastavení na 1) zajistí přidání parametru NOWRAP k vypisovanému textu, čímž "
@@ -10373,7 +10364,7 @@ msgid ""
 "can choose to ignore all databases by default and allow only certain "
 "databases to be replicated. Please select the mode:"
 msgstr ""
-"Tento server není nastaven jako nadřízený v replikačním procesu. Můžete si "
+"Tento server není v replikačním procesu nastaven jako nadřízený. Můžete si "
 "vybrat, zda chcete replikovat všechny databáze a některé z nich přeskočit ("
 "vhodné pokud chcete replikovat většinu databází), nebo zvolit opačný přístup "
 "a replikovat pouze vybrané databáze. Zvolte prosím požadovaný režim:"
@@ -13904,10 +13895,8 @@ msgid "Cannot save settings, submitted form contains errors!"
 msgstr "Nepodařilo se uložit nastavení, odeslaný formulář obsahuje chyby!"
 
 #: prefs_manage.php:52
-#, fuzzy
-#| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "phpMyAdmin configuration snippet"
-msgstr "Chybějící tabulky v úložišti nastavení phpMyAdmina"
+msgstr "Úryvek konfigurace phpMyAdmina"
 
 #: prefs_manage.php:53
 msgid "Paste it to your config.inc.php"
@@ -14870,8 +14859,6 @@ msgid "Subpartition"
 msgstr "Pododdíl"
 
 #: templates/columns_definitions/partitions.twig:84
-#, fuzzy
-#| msgid "Engines"
 msgid "Engine"
 msgstr "Úložiště"
 
