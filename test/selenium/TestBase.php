@@ -1013,6 +1013,7 @@ abstract class TestBase extends TestCase
 
     /**
      * Wait for AJAX completion
+     * @return void
      */
     public function waitAjax(): void
     {
