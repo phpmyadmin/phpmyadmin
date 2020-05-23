@@ -7,7 +7,7 @@ For more information on allowing http access to this directory see:
 https://httpd.apache.org/docs/current/mod/mod_authz_host.html#allow
 
 Please visit the wiki for more information on unit testing:
-https://wiki.phpmyadmin.net/pma/UnitTesting
+https://wiki.phpmyadmin.net/pma/Unit_Testing
 
 Selenium tests
 --------------
@@ -16,14 +16,12 @@ To be able to run Selenium tests, you need to have webserver, database
 and Selenium running. Following environment variables configure where
 testsuite connects:
 
-TESTSUITE_SERVER
-    Database server to use.
 TESTSUITE_USER
-    Username for connecting to database.
+    Username to connect on the interface located at TESTSUITE_URL
 TESTSUITE_PASSWORD
-    Password for connecting to database.
-TESTSUITE_DATABASE
-    Database to use for testing.
+    Password to connect on the interface located at TESTSUITE_URL
+TESTSUITE_DATABASE_PREFIX
+    Database prefix to use for testing (Avoid database grouping characters like _).
 TESTSUITE_URL
     URL where tested phpMyAdmin is available.
 
@@ -84,4 +82,7 @@ Following instructions use PHP's built in server for the testing::
     php --server 127.0.0.1:$TESTSUITE_PORT > php.log &
 
     # Start BrowserStack Local client to forward the traffic
-    ~/browserstack/BrowserStackLocal -localIdentifier Manual "$TESTSUITE_BROWSERSTACK_KEY" 127.0.0.1,$TESTSUITE_PORT,0 & 
+    ~/browserstack/BrowserStackLocal -localIdentifier Manual "$TESTSUITE_BROWSERSTACK_KEY" 127.0.0.1,$TESTSUITE_PORT,0 &
+
+    # Stop BrowserStack Local
+    ~/browserstack/BrowserStackLocal --daemon stop
