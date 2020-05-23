@@ -135,9 +135,11 @@ class Sanitize
     public static function replaceDocLink(array $found)
     {
         if (count($found) >= 4) {
+            /* doc@page@anchor pattern */
             $page = $found[1];
             $anchor = $found[3];
         } else {
+            /* doc@anchor pattern */
             $anchor = $found[1];
             if (strncmp('faq', $anchor, 3) == 0) {
                 $page = 'faq';

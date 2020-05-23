@@ -317,4 +317,6 @@ linkcheck_ignore = [
     r'https://www.yubico.com/.*',
     # 500 Server Error: Internal Server Error
     r'http://www.scriptalicious.com/.*',
+    # Some timeouts and SSL issues: https://github.com/sektioneins/suhosin/issues/119
+    r'https://suhosin.org/.*',
 ]

@@ -3154,11 +3154,10 @@ class DatabaseInterface implements DbalInterface
         }
 
         if (! Util::checkDbExtension('mysqli')) {
-            $docUrl = MySQLDocumentation::getDocumentationLink('faq', 'faqmysql');
             $docLink = sprintf(
                 __('See %sour documentation%s for more information.'),
-                '[a@' . $docUrl . '@documentation]',
-                '[/a]'
+                '[doc@faqmysql]',
+                '[/doc]'
             );
             Core::warnMissingExtension(
                 'mysqli',

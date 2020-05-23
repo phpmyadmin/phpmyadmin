@@ -411,6 +411,18 @@ class MessageTest extends AbstractTestCase
                 . 'latest%2Fsetup.html%23foo" '
                 . 'target="documentation">link</a>',
             ],
+            [
+                '[doc@page@anchor]link[/doc]',
+                '<a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2F'
+                . 'latest%2Fpage.html%23anchor" '
+                . 'target="documentation">link</a>',
+            ],
+            [
+                '[doc@faqmysql]link[/doc]',
+                '<a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2F'
+                . 'latest%2Ffaq.html%23faqmysql" '
+                . 'target="documentation">link</a>',
+            ],
         ];
     }
 
