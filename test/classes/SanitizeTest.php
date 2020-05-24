@@ -7,7 +7,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Sanitize;
-use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for methods in Sanitize class

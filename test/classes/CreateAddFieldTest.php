@@ -7,7 +7,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\CreateAddField;
-use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * This class is for testing PhpMyAdmin\CreateAddField methods

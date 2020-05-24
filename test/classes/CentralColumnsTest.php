@@ -14,7 +14,6 @@ use PhpMyAdmin\Types;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Tests\AbstractTestCase;
 use function array_slice;
 use function ceil;
 

@@ -7,7 +7,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Tests\AbstractTestCase;
 use function htmlentities;
 
 /**

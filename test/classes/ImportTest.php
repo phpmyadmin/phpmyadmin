@@ -11,7 +11,6 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Import;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Tests\AbstractTestCase;
 use const PHP_INT_MAX;
 use function implode;
 use function sprintf;

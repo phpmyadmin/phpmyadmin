@@ -15,7 +15,6 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Scripts;
 use PhpMyAdmin\Header;
-use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionProperty;
 use stdClass;
 use function md5;

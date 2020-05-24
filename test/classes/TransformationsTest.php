@@ -8,7 +8,6 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Transformations;
-use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * tests for transformation wrappers

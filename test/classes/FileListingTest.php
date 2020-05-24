@@ -6,7 +6,6 @@
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\FileListing;
-use PhpMyAdmin\Tests\AbstractTestCase;
 use function array_values;
 use function extension_loaded;
 

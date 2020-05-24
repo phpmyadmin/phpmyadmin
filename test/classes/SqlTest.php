@@ -7,7 +7,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Sql;
-use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
 use stdClass;
 

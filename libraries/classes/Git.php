@@ -509,7 +509,6 @@ class Git
             $gitFolder .= DIRECTORY_SEPARATOR . trim($common_dir_contents);
         }
 
-
         [$hash, $branch] = $this->getHashFromHeadRef($gitFolder, $ref_head);
         if ($hash === null) {
             return;

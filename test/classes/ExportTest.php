@@ -8,7 +8,6 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\Export\ExportPhparray;
-use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * PhpMyAdmin\ExportTest class

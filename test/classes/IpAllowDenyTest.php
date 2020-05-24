@@ -8,7 +8,6 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\IpAllowDeny;
-use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * PhpMyAdmin\Tests\IpAllowDenyTest class

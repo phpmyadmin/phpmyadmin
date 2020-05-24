@@ -14,7 +14,6 @@ use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Types;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Tests\AbstractTestCase;
 use stdClass;
 use function json_encode;
 

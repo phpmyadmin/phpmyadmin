@@ -6,7 +6,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\Tests\AbstractTestCase;
 use const PHP_VERSION;
 use function version_compare;
 

@@ -7,7 +7,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Encoding;
-use PhpMyAdmin\Tests\AbstractTestCase;
 use const PHP_INT_SIZE;
 use function fclose;
 use function file_get_contents;
