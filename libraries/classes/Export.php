@@ -437,7 +437,7 @@ class Export
         } else {
             $file_handle = @fopen($save_filename, 'w');
 
-            if (! $file_handle) {
+            if ($file_handle === false) {
                 $message = Message::error(
                     __(
                         'The web server does not have permission '

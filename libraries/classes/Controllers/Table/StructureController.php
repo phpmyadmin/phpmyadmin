@@ -658,15 +658,14 @@ class StructureController extends AbstractController
             $data = $columns[$column];
             $extracted_columnspec = Util::extractColumnSpec($data['Type']);
             if (isset($data['Extra'])
-                && $data['Extra'] == 'on update CURRENT_TIMESTAMP'
+                && $data['Extra'] === 'on update CURRENT_TIMESTAMP'
             ) {
                 $extracted_columnspec['attribute'] = $data['Extra'];
                 unset($data['Extra']);
             }
-            $current_timestamp = ($data['Type'] == 'timestamp'
-                    || $data['Type'] == 'datetime')
-                && ($data['Default'] == 'CURRENT_TIMESTAMP'
-                    || $data['Default'] == 'current_timestamp()');
+            $timeType = $data['Type'] === 'timestamp' || $data['Type'] === 'datetime';
+            $timeDefault = $data['Default'] === 'CURRENT_TIMESTAMP' || $data['Default'] === 'current_timestamp()';
+            $current_timestamp = $timeType && $timeDefault;
 
             // @see https://mariadb.com/kb/en/library/information-schema-columns-table/#examples
             if ($data['Null'] === 'YES' && in_array($data['Default'], [$defaultNullValue, null])) {

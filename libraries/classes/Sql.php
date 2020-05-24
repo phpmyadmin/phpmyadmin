@@ -1351,7 +1351,7 @@ class Sql
                     true
                 );
 
-                if (is_array($profiling_results)) {
+                if ($profiling_results !== null) {
                     $header   = $response->getHeader();
                     $scripts  = $header->getScripts();
                     $scripts->addFile('sql.js');
@@ -1424,18 +1424,18 @@ class Sql
     /**
      * Function to get html for the sql query results table
      *
-     * @param DisplayResults $displayResultsObject instance of DisplayResult
-     * @param string         $pmaThemeImage        theme image uri
-     * @param string         $url_query            url query
-     * @param array          $displayParts         the parts to display
-     * @param bool           $editable             whether the result table is
-     *                                             editable or not
-     * @param int            $unlim_num_rows       unlimited number of rows
-     * @param int            $num_rows             number of rows
-     * @param bool           $showtable            whether to show table or not
-     * @param object|null    $result               result of the executed query
-     * @param array          $analyzed_sql_results analyzed sql results
-     * @param bool           $is_limited_display   Show only limited operations or not
+     * @param DisplayResults   $displayResultsObject instance of DisplayResult
+     * @param string           $pmaThemeImage        theme image uri
+     * @param string           $url_query            url query
+     * @param array            $displayParts         the parts to display
+     * @param bool             $editable             whether the result table is
+     *                                               editable or not
+     * @param int              $unlim_num_rows       unlimited number of rows
+     * @param int              $num_rows             number of rows
+     * @param bool             $showtable            whether to show table or not
+     * @param object|null|bool $result               result of the executed query
+     * @param array            $analyzed_sql_results analyzed sql results
+     * @param bool             $is_limited_display   Show only limited operations or not
      *
      * @return string
      */

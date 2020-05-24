@@ -588,12 +588,12 @@ class FormDisplay
     /**
      * Validates select field and casts $value to correct type
      *
-     * @param string $value   Current value
-     * @param array  $allowed List of allowed values
+     * @param string|bool $value   Current value
+     * @param array       $allowed List of allowed values
      *
      * @return bool
      */
-    private function _validateSelect(&$value, array $allowed)
+    private function _validateSelect(&$value, array $allowed): bool
     {
         $valueCmp = is_bool($value)
             ? (int) $value

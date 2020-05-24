@@ -237,9 +237,9 @@ class ServerConfigChecks
     /**
      * Set blowfish secret
      *
-     * @param string $blowfishSecret    Blowfish secret
-     * @param bool   $cookieAuthServer  Cookie auth is used
-     * @param bool   $blowfishSecretSet Blowfish secret set
+     * @param string|null $blowfishSecret    Blowfish secret
+     * @param bool        $cookieAuthServer  Cookie auth is used
+     * @param bool        $blowfishSecretSet Blowfish secret set
      *
      * @return array
      */
@@ -247,7 +247,7 @@ class ServerConfigChecks
         $blowfishSecret,
         $cookieAuthServer,
         $blowfishSecretSet
-    ) {
+    ): array {
         if ($cookieAuthServer && $blowfishSecret === null) {
             $blowfishSecretSet = true;
             $this->cfg->set('blowfish_secret', Util::generateRandom(32));

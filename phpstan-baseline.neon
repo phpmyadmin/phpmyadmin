@@ -206,11 +206,6 @@ parameters:
 			path: libraries/classes/Config/FormDisplay.php
 
 		-
-			message: "#^Call to function is_bool\\(\\) with string will always evaluate to false\\.$#"
-			count: 2
-			path: libraries/classes/Config/FormDisplay.php
-
-		-
 			message: "#^Parameter \\#2 \\$type of function settype expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Config/FormDisplay.php
@@ -239,16 +234,6 @@ parameters:
 			message: "#^Cannot call static method getFields\\(\\) on string\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Config/Forms/BaseFormList.php
-
-		-
-			message: "#^Result of && is always false\\.$#"
-			count: 1
-			path: libraries/classes/Config/ServerConfigChecks.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between string and null will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Config/ServerConfigChecks.php
 
 		-
 			message: "#^Parameter \\#1 \\$function of function call_user_func_array expects callable\\(\\)\\: mixed, string given\\.$#"
@@ -3861,16 +3846,6 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Call to function is_bool\\(\\) with object will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Call to function is_bool\\(\\) with object\\|null will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
 			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\Sql\\:\\:sendResponseForGridEdit\\(\\) expects object, object\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
@@ -4559,11 +4534,6 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\Tests\\\\ErrorHandlerTest\\:\\:\\$object has no typehint specified\\.$#"
 			count: 1
 			path: test/classes/ErrorHandlerTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$input of function array_values expects array, array\\|bool given\\.$#"
-			count: 1
-			path: test/classes/FileListingTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$data of function bin2hex expects string, string\\|false given\\.$#"
