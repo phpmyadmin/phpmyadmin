@@ -23,6 +23,7 @@ use function array_shift;
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportOds class
  *
+ * @requires extension zip
  * @group medium
  */
 class ExportOdsTest extends AbstractTestCase

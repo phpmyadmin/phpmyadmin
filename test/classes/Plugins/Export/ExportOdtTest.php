@@ -24,6 +24,7 @@ use function array_shift;
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportOdt class
  *
+ * @requires extension zip
  * @group medium
  */
 class ExportOdtTest extends AbstractTestCase

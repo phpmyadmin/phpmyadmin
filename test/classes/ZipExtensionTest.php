@@ -16,6 +16,8 @@ use function unlink;
 
 /**
  * Tests zip extension usage.
+ *
+ * @requires extension zip
  */
 class ZipExtensionTest extends AbstractTestCase
 {

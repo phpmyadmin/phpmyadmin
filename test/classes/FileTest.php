@@ -60,7 +60,7 @@ class FileTest extends AbstractTestCase
      *
      * @dataProvider compressedFiles
      * @requires extension bz2 1
-     * @requires extension zip 1
+     * @requires extension zip
      */
     public function testReadCompressed($file): void
     {

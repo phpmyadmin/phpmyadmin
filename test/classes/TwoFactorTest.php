@@ -130,9 +130,9 @@ class TwoFactorTest extends AbstractTestCase
     }
 
     /**
-     * @return void
+     * @requires extension xmlwriter
      */
-    public function testApplication()
+    public function testApplication(): void
     {
         parent::setLanguage();
         parent::loadDefaultConfig();

@@ -13,6 +13,9 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PhpMyAdmin\Plugins\Import\ImportXml class
+ *
+ * @requires extension xml
+ * @requires extension xmlwriter
  */
 class ImportXmlTest extends AbstractTestCase
 {

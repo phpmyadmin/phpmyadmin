@@ -13,6 +13,8 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PhpMyAdmin\Plugins\Import\ImportOds class
+ *
+ * @requires extension zip
  */
 class ImportOdsTest extends AbstractTestCase
 {

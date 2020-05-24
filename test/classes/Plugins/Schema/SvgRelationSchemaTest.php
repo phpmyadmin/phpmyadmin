@@ -13,6 +13,8 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PhpMyAdmin\Plugins\Schema\Svg\SvgRelationSchema class
+ *
+ * @requires extension xmlwriter
  */
 class SvgRelationSchemaTest extends AbstractTestCase
 {

@@ -13,6 +13,8 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PhpMyAdmin\Plugins\Schema\Dia\DiaRelationSchema class
+ *
+ * @requires extension xmlwriter
  */
 class DiaRelationSchemaTest extends AbstractTestCase
 {
