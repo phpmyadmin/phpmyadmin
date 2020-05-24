@@ -10,6 +10,7 @@ set -e
 set -x
 
 if [ "$CI_MODE" != "selenium" ] ; then
+    echo "Not in CI_MODE=selenium"
     exit 0
 fi
 
@@ -20,7 +21,7 @@ PHP_VERSION=$(phpenv version-name)
 
 # Create configuration with correct paths
 cp test/nginx.conf test/php-fpm.conf test/php.ini $DIR/
-sed -i -e "s@%DIR%@$DIR@" -e "s@%ROOT%@$CURRENT@" $DIR/*
+sed -i -e "s,%DIR%,$DIR," -e "s,%ROOT%,$CURRENT," $DIR/*
 mkdir $DIR/sessions
 
 # Start servers
@@ -28,6 +29,24 @@ $HOME/.phpenv/versions/$PHP_VERSION/sbin/php-fpm --fpm-config $DIR/php-fpm.conf 
 nginx -c $DIR/nginx.conf
 
 if [ ! -z "$TESTSUITE_BROWSERSTACK_KEY" ] ; then
+    echo "Using: BrowserStack"
+    # Install if necessary
+    if [ ! -f ~/browserstack/BrowserStackLocal ] ; then
+        mkdir -p ~/browserstack
+        cd ~/browserstack
+        wget https://www.browserstack.com/browserstack-local/BrowserStackLocal-linux-x64.zip
+        unzip BrowserStackLocal-linux-x64.zip
+    fi
     # Start BrowserStack Local forwarder
     ~/browserstack/BrowserStackLocal --force-local --localIdentifier "travis-$TRAVIS_JOB_NUMBER" --onlyAutomate --key "$TESTSUITE_BROWSERSTACK_KEY" --daemon start
+elif [ -z "$SKIP_STANDALONE" ] ; then
+    echo "Using: selenium-standalone"
+    if [ ! -f selenium-standalone ]; then
+        yarn global add selenium-standalone
+        selenium-standalone install
+    fi
+    selenium-standalone start -- -debug > ~/selenium-standalone.logs~ 2>&1 &
+    echo $! > ~/selenium-standalone.pid~
+else
+    echo "Using: nothing."
 fi

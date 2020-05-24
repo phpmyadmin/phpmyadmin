@@ -30,7 +30,6 @@ cache:
   yarn: true
   directories:
     - $HOME/.composer/cache/
-    - $HOME/browserstack
     - node_modules
 
 jobs:
@@ -201,9 +200,15 @@ jobs:
         - TESTSUITE_URL=http://127.0.0.1:8000
         - TESTSUITE_SERVER="127.0.0.1"
         - TESTSUITE_DATABASE="selenium"
+        - TESTSUITE_SELENIUM_HOST="127.0.0.1"
+        - TESTSUITE_SELENIUM_PORT="4444"
+        - SKIP_STANDALONE=1
+      before_install:
+        - docker run -d --rm --name=selenium --net=host -v /dev/shm:/dev/shm selenium/standalone-chrome:3.141.59
+        - phpenv config-rm xdebug.ini
+        - cp test/config.e2e.inc.php config.inc.php
       before_script:
         - export TESTSUITE_PASSWORD=`openssl rand -base64 30`
-        - export TESTSUITE_BROWSERSTACK_KEY=`echo cHlDcHJTNmZwZjVlaUR2RmV6VkU= | base64 --decode`
         - mysql -uroot -e "CREATE DATABASE IF NOT EXISTS test"
         - mysql -uroot < sql/create_tables.sql
         - mysql -uroot -e "SET PASSWORD = PASSWORD('$TESTSUITE_PASSWORD')"
@@ -213,11 +218,12 @@ jobs:
         - if [ -f php.log ] ; then cat php.log ; fi
         - if [ -f nginx-error.log ] ; then cat nginx-error.log ; fi
         - if [ -f config.inc.php ] ; then rm -rf config.inc.php; fi
-        - ~/browserstack/BrowserStackLocal --daemon stop
-      before_install:
-        - phpenv config-rm xdebug.ini
-        - ./test/install-browserstack
-        - cp test/config.e2e.inc.php config.inc.php
+        - ./test/stop-local-server
+        - docker logs selenium
+        - docker stop selenium
+      services:
+        - docker
+        - mysql
       addons:
         apt:
           packages:
