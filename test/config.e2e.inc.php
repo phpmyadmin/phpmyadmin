@@ -1,6 +1,4 @@
 <?php
-$cfg['FilterLanguages'] = '^(en)$';
-$cfg['Lang'] = 'en';
 $i = 0;
 $cfg['Servers'] = [];
 $i++;
