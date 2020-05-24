@@ -462,6 +462,11 @@ abstract class TestBase extends TestCase
             return;
         }
 
+        // Select English if the Language selector is available
+        if ($this->isElementPresent('id', 'sel-lang')) {
+            $this->selectByLabel($this->byId('sel-lang'), 'English');
+        }
+
         // Clear the input for Microsoft Edge (remebers the username)
         $this->waitForElement('id', 'input_username')->clear()->click()->sendKeys($username);
         $this->byId('input_password')->click()->sendKeys($password);
