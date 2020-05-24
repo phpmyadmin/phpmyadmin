@@ -204,6 +204,7 @@ jobs:
         - TESTSUITE_SELENIUM_BROWSER=chrome
         - TESTSUITE_USER=root
         - TESTSUITE_URL=http://127.0.0.1:8000
+        - TESTSUITE_DATABASE="selenium"
       before_script:
         - export TESTSUITE_PASSWORD=`openssl rand -base64 30`
         - export TESTSUITE_BROWSERSTACK_KEY=`echo cHlDcHJTNmZwZjVlaUR2RmV6VkU= | base64 --decode`
