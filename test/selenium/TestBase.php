@@ -163,6 +163,23 @@ abstract class TestBase extends TestCase
         }
     }
 
+    private function getBrowserStackCredentials(): string
+    {
+        return getenv('TESTSUITE_BROWSERSTACK_USER') . ':' . getenv('TESTSUITE_BROWSERSTACK_KEY');
+    }
+
+    protected function getTestSuiteUserLogin(): string
+    {
+        $user = getenv('TESTSUITE_USER');
+        return $user === false ? '' : $user;
+    }
+
+    protected function getTestSuiteUserPassword(): string
+    {
+        $user = getenv('TESTSUITE_PASSWORD');
+        return $user === false ? '' : $user;
+    }
+
     /**
      * Has CI config ( CI_MODE == selenium )
      */
