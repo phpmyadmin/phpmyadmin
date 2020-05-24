@@ -847,31 +847,28 @@ abstract class TestBase extends TestCase
     }
 
     /**
-     * Kills the More link in the menu
-     *
-     * @return void
+     * Clicks the "More" link in the menu
      */
-    public function expandMore()
+    public function expandMore(): void
     {
+        // "More" menu is not displayed on large screens
+        if ($this->isElementPresent('cssSelector', 'li.nav-item.dropdown.d-none')) {
+            return;
+        }
+        // Not found, searching for another alternative
         try {
-            // "More" menu is not displayed on large screens
-            $this->byCssSelector('li.nav-item.dropdown.d-none');
+            $ele = $this->waitForElement('cssSelector', 'li.dropdown > a');
+
+            $ele->click();
+            $this->waitForElement('cssSelector', 'li.dropdown.show > a');
+
+            $this->waitUntilElementIsPresent(
+                'cssSelector',
+                'li.nav-item.dropdown.show > ul',
+                5000
+            );
         } catch (WebDriverException $e) {
-            // Not found, searching for another alternative
-            try {
-                $ele = $this->waitForElement('cssSelector', 'li.dropdown > a');
-
-                $ele->click();
-                $this->waitForElement('cssSelector', 'li.dropdown.show > a');
-
-                $this->waitUntilElementIsPresent(
-                    'cssSelector',
-                    'li.nav-item.dropdown.show > ul',
-                    5000
-                );
-            } catch (WebDriverException $e) {
-                return;
-            }
+            return;
         }
     }
 
