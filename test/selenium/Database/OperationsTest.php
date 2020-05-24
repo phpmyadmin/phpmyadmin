@@ -138,6 +138,6 @@ class OperationsTest extends TestBase
         );
         $this->assertEquals(1, $result->num_rows);
 
-        $this->dbQuery('DROP DATABASE ' . $new_db_name);
+        $this->dbQuery('DROP DATABASE `' . $new_db_name . '`;');
     }
 }

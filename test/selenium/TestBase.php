@@ -1054,7 +1054,7 @@ abstract class TestBase extends TestCase
     protected function tearDown(): void
     {
         if ($this->_mysqli != null) {
-            $this->dbQuery('DROP DATABASE IF EXISTS ' . $this->database_name);
+            $this->dbQuery('DROP DATABASE IF EXISTS `' . $this->database_name . '`;');
             $this->_mysqli->close();
             $this->_mysqli = null;
         }

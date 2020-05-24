@@ -33,9 +33,8 @@ class CreateDropDatabaseTest extends TestBase
      */
     public function testCreateDropDatabase()
     {
-        // Drop database if it exists
         $this->dbQuery(
-            'DROP DATABASE IF EXISTS ' . $this->database_name . ';'
+            'DROP DATABASE IF EXISTS `' . $this->database_name . '`;'
         );
 
         $this->waitForElement('partialLinkText', 'Databases')->click();
