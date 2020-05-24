@@ -21,7 +21,6 @@ use Facebook\WebDriver\WebDriverSelect;
 use InvalidArgumentException;
 use mysqli;
 use mysqli_result;
-use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\TestCase;
 use Throwable;
 use const CURLOPT_CUSTOMREQUEST;
@@ -94,7 +93,6 @@ abstract class TestBase extends TestCase
      */
     protected function setUp(): void
     {
-        AbstractTestCase::defineTestingGlobals();
         /**
          * Needs to be implemented
          *
@@ -105,8 +103,6 @@ abstract class TestBase extends TestCase
 
         if (! $this->hasTestSuiteDatabaseServer()) {
             $this->markTestSkipped('Database server is not configured.');
-
-            return;
         }
 
         if ($this->getHubUrl() === null) {
@@ -126,7 +122,7 @@ abstract class TestBase extends TestCase
 
         $this->sessionId = $this->webDriver->getSessionId();
 
-        $this->database_name = $GLOBALS['TESTSUITE_DATABASE']
+        $this->database_name = getenv('TESTSUITE_DATABASE')
             . mb_substr(sha1((string) rand()), 0, 7);
         $this->dbQuery(
             'CREATE DATABASE IF NOT EXISTS ' . $this->database_name
@@ -141,25 +137,22 @@ abstract class TestBase extends TestCase
 
     private function connectMySQL(): void
     {
+        $mysqlPort = getenv('TESTSUITE_PORT');
         try {
             $this->_mysqli = new mysqli(
-                $GLOBALS['TESTSUITE_SERVER'],
-                $GLOBALS['TESTSUITE_USER'],
-                $GLOBALS['TESTSUITE_PASSWORD'],
+                (string) getenv('TESTSUITE_SERVER'),
+                (string) getenv('TESTSUITE_USER'),
+                (string) getenv('TESTSUITE_PASSWORD'),
                 'mysql',
-                (int) $GLOBALS['TESTSUITE_PORT']
+                $mysqlPort === false ? 3306 : (int) $mysqlPort
             );
         } catch (Throwable $e) {
             // when localhost is used, it tries to connect to a socket and throws and error
             $this->markTestSkipped('Failed to connect to MySQL (' . $e->getMessage() . ')');
-
-            return;
         }
 
         if ($this->_mysqli->connect_errno) {
             $this->markTestSkipped('Failed to connect to MySQL (' . $this->_mysqli->error . ')');
-
-            return;
         }
     }
 
@@ -185,11 +178,12 @@ abstract class TestBase extends TestCase
      */
     public function hasCIConfig(): bool
     {
-        if (empty($GLOBALS['CI_MODE'])) {
+        $mode = getenv('CI_MODE');
+        if (empty($mode)) {
             return false;
         }
 
-        return $GLOBALS['CI_MODE'] == 'selenium';
+        return $mode === 'selenium';
     }
 
     /**
@@ -197,8 +191,8 @@ abstract class TestBase extends TestCase
      */
     public function hasBrowserstackConfig(): bool
     {
-        return ! empty($GLOBALS['TESTSUITE_BROWSERSTACK_USER'])
-            && ! empty($GLOBALS['TESTSUITE_BROWSERSTACK_KEY']);
+        return ! empty(getenv('TESTSUITE_BROWSERSTACK_USER'))
+            && ! empty(getenv('TESTSUITE_BROWSERSTACK_KEY'));
     }
 
     /**
@@ -206,8 +200,8 @@ abstract class TestBase extends TestCase
      */
     public function hasSeleniumConfig(): bool
     {
-        return ! empty($GLOBALS['TESTSUITE_SELENIUM_HOST'])
-            && ! empty($GLOBALS['TESTSUITE_SELENIUM_PORT']);
+        return ! empty(getenv('TESTSUITE_SELENIUM_HOST'))
+            && ! empty(getenv('TESTSUITE_SELENIUM_PORT'));
     }
 
     /**
@@ -217,13 +211,12 @@ abstract class TestBase extends TestCase
     {
         if ($this->hasBrowserstackConfig()) {
             return 'https://'
-            . $GLOBALS['TESTSUITE_BROWSERSTACK_USER'] . ':'
-            . $GLOBALS['TESTSUITE_BROWSERSTACK_KEY'] .
+            . $this->getBrowserStackCredentials() .
             '@hub-cloud.browserstack.com/wd/hub';
         } elseif ($this->hasSeleniumConfig()) {
             return 'http://'
-            . $GLOBALS['TESTSUITE_SELENIUM_HOST'] . ':'
-            . $GLOBALS['TESTSUITE_SELENIUM_PORT'] . '/wd/hub';
+            . getenv('TESTSUITE_SELENIUM_HOST') . ':'
+            . getenv('TESTSUITE_SELENIUM_PORT') . '/wd/hub';
         } else {
             return null;
         }
@@ -234,9 +227,9 @@ abstract class TestBase extends TestCase
      */
     public function hasTestSuiteDatabaseServer(): bool
     {
-        return ! empty($GLOBALS['TESTSUITE_SERVER'])
-            && ! empty($GLOBALS['TESTSUITE_USER'])
-            && ! empty($GLOBALS['TESTSUITE_DATABASE']);
+        return ! empty(getenv('TESTSUITE_SERVER'))
+            && ! empty(getenv('TESTSUITE_USER'))
+            && ! empty(getenv('TESTSUITE_DATABASE'));
     }
 
     /**
@@ -246,10 +239,14 @@ abstract class TestBase extends TestCase
      */
     private function navigateTo(string $url): void
     {
-        if (substr($GLOBALS['TESTSUITE_URL'], -1) === '/') {
-            $url = $GLOBALS['TESTSUITE_URL'] . $url;
+        $suiteUrl = getenv('TESTSUITE_URL');
+        if ($suiteUrl === false) {
+            $suiteUrl = '';
+        }
+        if (substr($suiteUrl, -1) === '/') {
+            $url = $suiteUrl . $url;
         } else {
-            $url = $GLOBALS['TESTSUITE_URL'] . '/' . $url;
+            $url = $suiteUrl . '/' . $url;
         }
 
         $this->webDriver->get($url);
@@ -309,7 +306,7 @@ abstract class TestBase extends TestCase
      */
     public function getCapabilities(): DesiredCapabilities
     {
-        switch ($GLOBALS['TESTSUITE_SELENIUM_BROWSER']) {
+        switch (getenv('TESTSUITE_SELENIUM_BROWSER')) {
             case 'chrome':
             default:
                 $capabilities = DesiredCapabilities::chrome();
@@ -438,16 +435,14 @@ abstract class TestBase extends TestCase
      *
      * @param string $username Username
      * @param string $password Password
-     *
-     * @return void
      */
-    public function login($username = '', $password = '')
+    public function login(string $username = '', string $password = ''): void
     {
-        if ($username == '') {
-            $username = $GLOBALS['TESTSUITE_USER'];
+        if ($username === '') {
+            $username = $this->getTestSuiteUserLogin();
         }
-        if ($password == '') {
-            $password = $GLOBALS['TESTSUITE_PASSWORD'];
+        if ($password === '') {
+            $password = $this->getTestSuiteUserPassword();
         }
         $this->navigateTo('');
         /* Wait while page */
@@ -457,7 +452,7 @@ abstract class TestBase extends TestCase
             usleep(5000);
         }
 
-        /* Return if already logged in */
+        // Return if already logged in
         if ($this->isSuccessLogin()) {
             return;
         }
@@ -1104,8 +1099,7 @@ abstract class TestBase extends TestCase
             curl_setopt(
                 $ch,
                 CURLOPT_USERPWD,
-                $GLOBALS['TESTSUITE_BROWSERSTACK_USER']
-                    . ':' . $GLOBALS['TESTSUITE_BROWSERSTACK_KEY']
+                $this->getBrowserStackCredentials()
             );
 
             $headers = [];
@@ -1134,8 +1128,7 @@ abstract class TestBase extends TestCase
             curl_setopt(
                 $ch,
                 CURLOPT_USERPWD,
-                $GLOBALS['TESTSUITE_BROWSERSTACK_USER']
-                . ':' . $GLOBALS['TESTSUITE_BROWSERSTACK_KEY']
+                $this->getBrowserStackCredentials()
             );
             $result = curl_exec($ch);
             if (is_bool($result)) {

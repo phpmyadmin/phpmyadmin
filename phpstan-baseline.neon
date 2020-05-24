@@ -4556,11 +4556,6 @@ parameters:
 			path: test/classes/Engines/PbxtTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNull\\(\\) with string and 'Error when trying…' will always evaluate to false\\.$#"
-			count: 1
-			path: test/classes/EnvironmentTest.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Tests\\\\ErrorHandlerTest\\:\\:\\$object has no typehint specified\\.$#"
 			count: 1
 			path: test/classes/ErrorHandlerTest.php
@@ -5249,11 +5244,6 @@ parameters:
 			message: "#^Cannot access property \\$num_rows on bool\\|mysqli_result\\|void\\.$#"
 			count: 1
 			path: test/selenium/Table/OperationsTest.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 3
-			path: test/selenium/TestBase.php
 
 		-
 			message: "#^Parameter \\#1 \\$selenium_server_url of static method Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebDriver\\:\\:create\\(\\) expects string, string\\|null given\\.$#"
