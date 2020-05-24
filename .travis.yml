@@ -17,11 +17,6 @@ script:
   - ./scripts/generate-mo --quiet
   - ./vendor/bin/phpunit --configuration phpunit.xml.dist --exclude-group selenium
 
-after_script:
-  - if [ -f php.log ] ; then cat php.log ; fi
-  - if [ -f nginx-error.log ] ; then cat nginx-error.log ; fi
-  - if [ -f config.inc.php ] ; then rm -rf config.inc.php; fi
-
 after_success:
   - bash <(curl -s https://codecov.io/bash)
   - if [ -f build/logs/clover.xml ] ; then curl -LsO https://scrutinizer-ci.com/ocular.phar && php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml; fi
@@ -204,6 +199,7 @@ jobs:
         - TESTSUITE_SELENIUM_BROWSER=chrome
         - TESTSUITE_USER=root
         - TESTSUITE_URL=http://127.0.0.1:8000
+        - TESTSUITE_SERVER="127.0.0.1"
         - TESTSUITE_DATABASE="selenium"
       before_script:
         - export TESTSUITE_PASSWORD=`openssl rand -base64 30`
@@ -212,16 +208,16 @@ jobs:
         - mysql -uroot < sql/create_tables.sql
         - mysql -uroot -e "SET PASSWORD = PASSWORD('$TESTSUITE_PASSWORD')"
         - ./test/start-local-server
-      after_script:
-        - ~/browserstack/BrowserStackLocal --daemon stop
-      before_install: phpenv config-rm xdebug.ini
-      install:
-        - nvm install 10
-        - ./test/install-browserstack
-        - composer install --no-interaction
-        - yarn install --non-interactive
-        - cp test/config.e2e.inc.php config.inc.php
       script: ./vendor/bin/phpunit --configuration phpunit.xml.nocoverage --group selenium --verbose --debug
+      after_script:
+        - if [ -f php.log ] ; then cat php.log ; fi
+        - if [ -f nginx-error.log ] ; then cat nginx-error.log ; fi
+        - if [ -f config.inc.php ] ; then rm -rf config.inc.php; fi
+        - ~/browserstack/BrowserStackLocal --daemon stop
+      before_install:
+        - phpenv config-rm xdebug.ini
+        - ./test/install-browserstack
+        - cp test/config.e2e.inc.php config.inc.php
       addons:
         apt:
           packages:
