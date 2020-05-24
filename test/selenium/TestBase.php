@@ -109,30 +109,11 @@ abstract class TestBase extends TestCase
             return;
         }
 
-        try {
-            $this->_mysqli = new mysqli(
-                $GLOBALS['TESTSUITE_SERVER'],
-                $GLOBALS['TESTSUITE_USER'],
-                $GLOBALS['TESTSUITE_PASSWORD'],
-                'mysql',
-                (int) $GLOBALS['TESTSUITE_PORT']
-            );
-        } catch (Throwable $e) {
-            // when localhost is used, it tries to connect to a socket and throws and error
-            $this->markTestSkipped('Failed to connect to MySQL (' . $e->getMessage() . ')');
-
-            return;
-        }
-
-        if ($this->_mysqli->connect_errno) {
-            $this->markTestSkipped('Failed to connect to MySQL (' . $this->_mysqli->error . ')');
-
-            return;
-        }
-
         if ($this->getHubUrl() === null) {
             $this->markTestSkipped('Selenium testing is not configured.');
         }
+
+        $this->connectMySQL();
 
         $capabilities = $this->getCapabilities();
         $this->addCapabilities($capabilities);
@@ -156,6 +137,30 @@ abstract class TestBase extends TestCase
 
         $this->navigateTo('');
         $this->webDriver->manage()->window()->maximize();
+    }
+
+    private function connectMySQL(): void
+    {
+        try {
+            $this->_mysqli = new mysqli(
+                $GLOBALS['TESTSUITE_SERVER'],
+                $GLOBALS['TESTSUITE_USER'],
+                $GLOBALS['TESTSUITE_PASSWORD'],
+                'mysql',
+                (int) $GLOBALS['TESTSUITE_PORT']
+            );
+        } catch (Throwable $e) {
+            // when localhost is used, it tries to connect to a socket and throws and error
+            $this->markTestSkipped('Failed to connect to MySQL (' . $e->getMessage() . ')');
+
+            return;
+        }
+
+        if ($this->_mysqli->connect_errno) {
+            $this->markTestSkipped('Failed to connect to MySQL (' . $this->_mysqli->error . ')');
+
+            return;
+        }
     }
 
     /**
@@ -563,9 +568,9 @@ abstract class TestBase extends TestCase
     }
 
     /**
-     * webDriver->executeScripts a database query
+     * Execute a database query
      *
-     * @param string $query SQL Query to be webDriver->executeScriptd
+     * @param string $query SQL Query to be executed
      *
      * @return void|bool|mysqli_result
      *
@@ -573,6 +578,10 @@ abstract class TestBase extends TestCase
      */
     public function dbQuery($query)
     {
+        if ($this->_mysqli === null) {
+            $this->connectMySQL();
+        }
+
         return $this->_mysqli->query($query);
     }
 
@@ -1089,21 +1098,8 @@ abstract class TestBase extends TestCase
         }
     }
 
-    /**
-     * Mark unsuccessful tests as 'Failures' on Browerstack
-     *
-     * @param Throwable $t Throwable
-     *
-     * @return void
-     */
-    public function onNotSuccessfulTest(Throwable $t): void
+    private function getErrorVideoUrl(): void
     {
-        // End testing session
-        if ($this->webDriver !== null) {
-            $this->webDriver->quit();
-        }
-        $this->markTestAs('failed', $t->getMessage());
-
         if ($this->hasBrowserstackConfig()) {
             /** @var resource $ch */
             $ch = curl_init();
@@ -1133,6 +1129,25 @@ abstract class TestBase extends TestCase
             }
             curl_close($ch);
         }
+    }
+
+    /**
+     * Mark unsuccessful tests as 'Failures' on Browerstack
+     *
+     * @param Throwable $t Throwable
+     *
+     * @return void
+     */
+    public function onNotSuccessfulTest(Throwable $t): void
+    {
+        $this->markTestAs('failed', $t->getMessage());
+
+        // End testing session
+        if ($this->webDriver !== null) {
+            $this->webDriver->quit();
+        }
+
+        $this->getErrorVideoUrl();
 
         // Call parent's onNotSuccessful to handle everything else
         parent::onNotSuccessfulTest($t);
