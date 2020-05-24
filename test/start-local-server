@@ -15,18 +15,26 @@ if [ "$CI_MODE" != "selenium" ] ; then
 fi
 
 # Start php-fpm + nginx in temporary dir
-DIR=`mktemp -d`
+DIR=`mktemp -d --suffix=-phpMyAdminTest`
 CURRENT=`pwd`
-PHP_VERSION=$(phpenv version-name)
 
 # Create configuration with correct paths
 cp test/nginx.conf test/php-fpm.conf test/php.ini $DIR/
 sed -i -e "s,%DIR%,$DIR," -e "s,%ROOT%,$CURRENT," $DIR/*
 mkdir $DIR/sessions
 
+echo "Using temporary dir: ${DIR}"
+
+# You can define FPM_PATH to override the path for example FPM_PATH="php-fpm7.4"
+FPM_PATH="${FPM_PATH:-php-fpm}"
+if [ ! -z "${TRAVIS}" ]; then
+    PHP_VERSION=$(phpenv version-name)
+    FPM_PATH="$HOME/.phpenv/versions/$PHP_VERSION/sbin/php-fpm"
+fi
+
 # Start servers
-$HOME/.phpenv/versions/$PHP_VERSION/sbin/php-fpm --fpm-config $DIR/php-fpm.conf -c $DIR/php.ini
-nginx -c $DIR/nginx.conf
+"$FPM_PATH" --fpm-config $DIR/php-fpm.conf -c $DIR/php.ini
+${NGINX_PATH:-nginx} -c $DIR/nginx.conf
 
 if [ ! -z "$TESTSUITE_BROWSERSTACK_KEY" ] ; then
     echo "Using: BrowserStack"
