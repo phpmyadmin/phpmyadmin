@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-04-25 13:24+0200\n"
-"PO-Revision-Date: 2020-03-25 18:20+0000\n"
+"PO-Revision-Date: 2020-05-26 07:41+0000\n"
 "Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/5-0/fr/"
 ">\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.0-dev\n"
+"X-Generator: Weblate 4.1-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -2678,11 +2678,11 @@ msgstr "Merci de saisir une valeur supérieure ou égale à {0}"
 
 #: js/messages.php:987
 msgid "Please enter a valid date or time"
-msgstr "Merci de saisir saisir une date ou une heure valide"
+msgstr "Merci de saisir une date ou une heure valide"
 
 #: js/messages.php:992
 msgid "Please enter a valid HEX input"
-msgstr "Merci de saisir saisir une valeur hexadécimale valide"
+msgstr "Veuillez saisir une valeur hexadécimale valide"
 
 #: js/messages.php:997 libraries/classes/Core.php:295
 #: libraries/classes/Import.php:118 libraries/classes/InsertEdit.php:1537
