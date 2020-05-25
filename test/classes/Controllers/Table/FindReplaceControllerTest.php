@@ -3,13 +3,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Table\FindReplaceController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Types;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Types;
 
 class FindReplaceControllerTest extends AbstractTestCase
 {

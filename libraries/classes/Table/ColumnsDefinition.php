@@ -138,7 +138,7 @@ final class ColumnsDefinition
             'transformation',
         ];
         foreach ($mime_types as $mime_type) {
-            if (isset($available_mime[$mime_type]) and is_iterable($available_mime[$mime_type])) {
+            if (isset($available_mime[$mime_type]) && is_iterable($available_mime[$mime_type])) {
                 foreach ($available_mime[$mime_type] as $mimekey => $transform) {
                     $available_mime[$mime_type . '_file_quoted'][$mimekey] = preg_quote(
                         $available_mime[$mime_type . '_file'][$mimekey],

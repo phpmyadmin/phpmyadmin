@@ -6,7 +6,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Config\Forms;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Tests\AbstractTestCase;
 

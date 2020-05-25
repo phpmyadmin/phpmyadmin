@@ -6,14 +6,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\BinlogController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for BinlogController class

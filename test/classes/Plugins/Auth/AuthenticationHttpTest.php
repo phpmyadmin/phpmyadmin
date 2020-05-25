@@ -7,9 +7,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Auth;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Config;
-use PhpMyAdmin\Header;
 use PhpMyAdmin\Footer;
+use PhpMyAdmin\Header;
 use PhpMyAdmin\Plugins\Auth\AuthenticationHttp;
 use PhpMyAdmin\Tests\AbstractNetworkTestCase;
 use function base64_encode;

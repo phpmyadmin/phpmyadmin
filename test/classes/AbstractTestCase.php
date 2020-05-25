@@ -4,15 +4,22 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PHPUnit\Framework\TestCase;
-use PhpMyAdmin\SqlParser\Translator;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Language;
 use PhpMyAdmin\LanguageManager;
-use PhpMyAdmin\Config;
-use PhpMyAdmin\Theme;
+use PhpMyAdmin\SqlParser\Translator;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
+use PhpMyAdmin\Theme;
+use PHPUnit\Framework\TestCase;
 use ReflectionClass;
+use const PHP_SAPI;
+use function define;
+use function defined;
+use function getenv;
+use function in_array;
+use function is_array;
+use function parse_url;
 
 /**
  * Abstract class to hold some usefull methods used in tests

@@ -79,11 +79,9 @@ class ErrorReportController extends AbstractController
                     $this->response->addJSON('stopErrorReportLoop', '1');
                 } else {
                     $_SESSION['prev_error_subm_time'] = time();
-                    $_SESSION['error_subm_count'] = (
-                    isset($_SESSION['error_subm_count'])
+                    $_SESSION['error_subm_count'] = isset($_SESSION['error_subm_count'])
                         ? $_SESSION['error_subm_count'] + 1
-                        : 0
-                    );
+                        : 0;
                 }
             }
             $reportData = $this->errorReport->getData($_POST['exception_type']);

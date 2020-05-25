@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Database;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;

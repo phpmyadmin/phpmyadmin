@@ -6,7 +6,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Engines\Bdb;
 use PhpMyAdmin\Engines\Berkeleydb;
 use PhpMyAdmin\Engines\Binlog;
@@ -19,6 +18,7 @@ use PhpMyAdmin\Engines\Myisam;
 use PhpMyAdmin\Engines\Ndbcluster;
 use PhpMyAdmin\Engines\Pbxt;
 use PhpMyAdmin\Engines\PerformanceSchema;
+use PhpMyAdmin\StorageEngine;
 use PHPUnit\Framework\MockObject\MockObject;
 
 /**

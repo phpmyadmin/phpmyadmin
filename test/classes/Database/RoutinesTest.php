@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Database;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Types;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Types;
 
 class RoutinesTest extends AbstractTestCase
 {

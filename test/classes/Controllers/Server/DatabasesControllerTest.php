@@ -6,15 +6,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\DatabasesController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Transformations;
-use PhpMyAdmin\Tests\AbstractTestCase;
 use stdClass;
 use function sprintf;
 

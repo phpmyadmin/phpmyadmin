@@ -6,12 +6,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Display;
 
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\Export;
 use PhpMyAdmin\Plugins;
-use PhpMyAdmin\Util;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Util;
 use function htmlspecialchars;
 
 /**

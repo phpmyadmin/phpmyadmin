@@ -6,8 +6,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Controllers\Table\IndexesController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Index;

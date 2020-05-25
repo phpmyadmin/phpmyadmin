@@ -462,6 +462,7 @@ class Import
         // UTF-8
         if (strncmp($contents, "\xEF\xBB\xBF", 3) === 0) {
             return substr($contents, 3);
+
             // UTF-16 BE, LE
         } elseif (strncmp($contents, "\xFE\xFF", 2) === 0
             || strncmp($contents, "\xFF\xFE", 2) === 0

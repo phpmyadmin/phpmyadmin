@@ -224,7 +224,5 @@ class RelationStatsDia
             </dia:connections>
             </dia:object>'
         );
-
-        return;
     }
 }

@@ -6,11 +6,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Config;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
+use PhpMyAdmin\Config\Form;
 use PhpMyAdmin\Config\FormDisplay;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Config\Form;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionProperty;

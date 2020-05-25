@@ -8,8 +8,8 @@ namespace PhpMyAdmin\Tests\Server;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Server\UserGroups;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Url;
 use function htmlspecialchars;
 
 /**

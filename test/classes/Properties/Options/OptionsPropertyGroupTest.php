@@ -6,8 +6,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Properties\Options;
 
-use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Properties\Options\OptionsPropertyGroup;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionProperty;
 
 /**

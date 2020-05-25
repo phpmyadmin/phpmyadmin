@@ -6,7 +6,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Transformations;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Plugins\Transformations\Input\Image_JPEG_Upload;
 use PhpMyAdmin\Plugins\Transformations\Input\Text_Plain_FileUpload;
 use PhpMyAdmin\Plugins\Transformations\Input\Text_Plain_Iptolong;

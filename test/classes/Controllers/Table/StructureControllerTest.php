@@ -8,9 +8,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\CreateAddField;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Table;

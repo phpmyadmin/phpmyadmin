@@ -10,17 +10,18 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Git;
-
-use const PHP_EOL;
 use const CONFIG_FILE;
+use const PHP_EOL;
 use function chdir;
 use function file_put_contents;
 use function getcwd;
 use function mkdir;
 use function rmdir;
+use function unlink;
 
 /**
  * Tests behaviour of PhpMyAdmin\Git class
+ *
  * @group git-revision
  */
 class GitTest extends AbstractTestCase

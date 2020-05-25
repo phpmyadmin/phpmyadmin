@@ -8,8 +8,8 @@ namespace PhpMyAdmin\Tests\Display;
 
 use PhpMyAdmin\Display\CreateTable;
 use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Url;
 
 /**
  * PhpMyAdmin\Tests\Display\CreateTableTest class

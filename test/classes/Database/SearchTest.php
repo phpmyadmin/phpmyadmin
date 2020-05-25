@@ -6,8 +6,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Database;
 
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Database\Search;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 

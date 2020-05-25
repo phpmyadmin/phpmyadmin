@@ -8,10 +8,10 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Export\ExportJson;
-use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
-use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
+use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
+use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
 use ReflectionProperty;

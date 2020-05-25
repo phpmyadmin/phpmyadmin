@@ -6,7 +6,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Navigation\NavigationTree;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;

@@ -6,11 +6,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\CollationsController;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\Response;
 
 /**
  * Tests for CollationsController class

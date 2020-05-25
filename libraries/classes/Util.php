@@ -1134,7 +1134,6 @@ class Util
      *
      * @param string $collation Collation
      * @param bool   $override  (optional) force 'CHARACTER SET' keyword
-     *
      */
     public static function getCharsetQueryPart(string $collation, bool $override = false): string
     {
@@ -1331,7 +1330,7 @@ class Util
     /**
      * Clears cache content which needs to be refreshed on user change.
      */
-    public static function clearUserCache():void
+    public static function clearUserCache(): void
     {
         self::cacheUnset('is_superuser');
         self::cacheUnset('is_createuser');
@@ -1354,7 +1353,6 @@ class Util
      * Verifies if something is cached in the session
      *
      * @param string $var variable name
-     *
      */
     public static function cacheExists($var): bool
     {
@@ -1390,7 +1388,6 @@ class Util
      *
      * @param string $var variable name
      * @param mixed  $val value
-     *
      */
     public static function cacheSet($var, $val = null): void
     {
@@ -1401,7 +1398,6 @@ class Util
      * Removes cached information from the session
      *
      * @param string $var variable name
-     *
      */
     public static function cacheUnset($var): void
     {
@@ -1659,7 +1655,6 @@ class Util
      * Cleanup changes done for foreign key check
      *
      * @param bool $default_fk_check_value original value for 'FOREIGN_KEY_CHECKS'
-     *
      */
     public static function handleDisableFKCheckCleanup($default_fk_check_value): void
     {
@@ -2240,7 +2235,6 @@ class Util
      * @param string|null $tbl  null, to only check global/db privileges
      *                          string, table name where to also check
      *                          for privileges
-     *
      */
     public static function currentUserHasPrivilege(string $priv, ?string $db = null, ?string $tbl = null): bool
     {

@@ -6,14 +6,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\ProcessesController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Tests\AbstractTestCase;
 use function htmlspecialchars;
 
 class ProcessesControllerTest extends AbstractTestCase

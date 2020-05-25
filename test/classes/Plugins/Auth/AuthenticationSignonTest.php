@@ -7,7 +7,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Auth;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Plugins\Auth\AuthenticationSignon;
 use PhpMyAdmin\Tests\AbstractNetworkTestCase;
 use function ob_get_clean;

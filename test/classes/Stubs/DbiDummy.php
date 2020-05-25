@@ -233,7 +233,6 @@ class DbiDummy implements DbiExtension
      */
     public function freeResult($result)
     {
-        return;
     }
 
     /**

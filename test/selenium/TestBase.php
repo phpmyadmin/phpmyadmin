@@ -37,6 +37,7 @@ use function curl_exec;
 use function curl_init;
 use function curl_setopt;
 use function getenv;
+use function is_bool;
 use function is_string;
 use function json_decode;
 use function json_encode;
@@ -164,12 +165,14 @@ abstract class TestBase extends TestCase
     protected function getTestSuiteUserLogin(): string
     {
         $user = getenv('TESTSUITE_USER');
+
         return $user === false ? '' : $user;
     }
 
     protected function getTestSuiteUserPassword(): string
     {
         $user = getenv('TESTSUITE_PASSWORD');
+
         return $user === false ? '' : $user;
     }
 
@@ -1130,6 +1133,7 @@ abstract class TestBase extends TestCase
             $result = curl_exec($ch);
             if (is_bool($result)) {
                 echo 'Error: ' . curl_error($ch) . PHP_EOL;
+
                 return;
             }
             $proj = json_decode($result);

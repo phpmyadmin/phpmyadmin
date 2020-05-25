@@ -568,9 +568,9 @@ class ReplicationGui
             $qReset = $GLOBALS['dbi']->tryQuery('RESET SLAVE;');
             $qStart = $this->replication->slaveControl('START', null, DatabaseInterface::CONNECT_USER);
 
-            $result = ($qStop !== false && $qStop !== -1 &&
+            $result = $qStop !== false && $qStop !== -1 &&
                 $qReset !== false && $qReset !== -1 &&
-                $qStart !== false && $qStart !== -1);
+                $qStart !== false && $qStart !== -1;
         } else {
             $qControl = $this->replication->slaveControl(
                 $_POST['sr_slave_action'],
@@ -578,7 +578,7 @@ class ReplicationGui
                 DatabaseInterface::CONNECT_USER
             );
 
-            $result = ($qControl !== false && $qControl !== -1);
+            $result = $qControl !== false && $qControl !== -1;
         }
 
         return $result;

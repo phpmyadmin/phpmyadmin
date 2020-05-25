@@ -8,11 +8,11 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Export\ExportXml;
-use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
-use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
-use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
+use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
+use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
+use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;

@@ -6,12 +6,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\TransformationOverviewController;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Transformations;
-use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for TransformationOverviewController class

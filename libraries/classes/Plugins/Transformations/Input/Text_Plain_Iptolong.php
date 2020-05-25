@@ -89,7 +89,7 @@ class Text_Plain_Iptolong extends IOTransformationsPlugin
             . ' size="40"'
             . ' dir="' . $text_dir . '"'
             . ' class="transform_IPToLong"'
-            . ' id="field_' . ($idindex) . '_3"'
+            . ' id="field_' . $idindex . '_3"'
             . ' tabindex="' . ($tabindex + $tabindex_for_value) . '" />';
     }
 

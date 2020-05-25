@@ -7,13 +7,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\CentralColumns;
-use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Types;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-use PhpMyAdmin\Message;
 use function array_slice;
 use function ceil;
 

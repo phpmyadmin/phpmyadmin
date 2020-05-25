@@ -8,11 +8,11 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\Plugins\Export\ExportPdf;
 use PhpMyAdmin\Plugins\Export\Helpers\Pdf;
-use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
-use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
-use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
-use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
+use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
+use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
+use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
 use ReflectionProperty;

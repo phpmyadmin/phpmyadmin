@@ -6,9 +6,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Setup;
 
+use PhpMyAdmin\Config\FormDisplay;
 use PhpMyAdmin\Setup\FormProcessing;
 use PhpMyAdmin\Tests\AbstractNetworkTestCase;
-use PhpMyAdmin\Config\FormDisplay;
 use function ob_get_clean;
 use function ob_start;
 

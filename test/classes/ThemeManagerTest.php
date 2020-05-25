@@ -7,7 +7,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Config;
 use PhpMyAdmin\ThemeManager;
 
 /**

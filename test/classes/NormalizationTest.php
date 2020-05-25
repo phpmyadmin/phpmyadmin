@@ -7,13 +7,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Types;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Message;
 use stdClass;
 use function json_encode;
 

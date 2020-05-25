@@ -6,15 +6,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\StatusController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Replication;
 use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\Response;
 
 class StatusControllerTest extends AbstractTestCase
 {

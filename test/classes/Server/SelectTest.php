@@ -7,8 +7,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Server;
 
 use PhpMyAdmin\Server\Select;
-use PhpMyAdmin\Util;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Util;
 
 /**
  * PhpMyAdmin\Tests\Server\SelectTest class

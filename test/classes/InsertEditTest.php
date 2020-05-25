@@ -6,15 +6,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Header;
 use PhpMyAdmin\InsertEdit;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Scripts;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Scripts;
-use PhpMyAdmin\Header;
 use ReflectionProperty;
 use stdClass;
 use function md5;
