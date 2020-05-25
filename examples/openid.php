@@ -42,27 +42,25 @@ $AUTH_MAP = [
 function Show_page($contents)
 {
     header('Content-Type: text/html; charset=utf-8');
-    echo '<?xml version="1.0" encoding="utf-8"?>' , "\n";
-    ?>
-    <!DOCTYPE HTML>
-    <html lang="en" dir="ltr">
-    <head>
-    <link rel="icon" href="../favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-    <meta charset="utf-8">
-    <title>phpMyAdmin OpenID signon example</title>
-    </head>
-    <body>
-    <?php
+
+    echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
+    echo '<!DOCTYPE HTML>
+<html lang="en" dir="ltr">
+<head>
+<link rel="icon" href="../favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+<meta charset="utf-8">
+<title>phpMyAdmin OpenID signon example</title>
+</head>
+<body>';
+
     if (isset($_SESSION['PMA_single_signon_error_message'])) {
-        echo '<p class="error">' , $_SESSION['PMA_single_signon_message'] , '</p>';
+        echo '<p class="error">' . $_SESSION['PMA_single_signon_message'] . '</p>';
         unset($_SESSION['PMA_single_signon_message']);
     }
+
     echo $contents;
-    ?>
-    </body>
-    </html>
-    <?php
+    echo '</body></html>';
 }
 
 /**
@@ -110,9 +108,7 @@ if ((! count($_GET) && ! count($_POST)) || isset($_GET['phpMyAdmin'])) {
     $content = '<form action="openid.php" method="post">
 OpenID: <input type="text" name="identifier"><br>
 <input type="submit" name="start">
-</form>
-</body>
-</html>';
+</form>';
     Show_page($content);
     exit;
 }
