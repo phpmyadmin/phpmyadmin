@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2020-02-13 14:50+0000\n"
+"PO-Revision-Date: 2020-05-26 07:41+0000\n"
 "Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/4-9/fr/"
 ">\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.11-dev\n"
+"X-Generator: Weblate 4.1-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -423,7 +423,7 @@ msgstr "Utiliser OpenStreetMaps comme couche de base"
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:173
 msgid "SRID:"
-msgstr "SRID : "
+msgstr "SRID :"
 
 #: gis_data_editor.php:199
 #, php-format
@@ -3082,11 +3082,11 @@ msgstr "Merci de saisir une valeur supérieure ou égale à {0}"
 
 #: js/messages.php:979
 msgid "Please enter a valid date or time"
-msgstr "Merci de saisir saisir une date ou une heure valide"
+msgstr "Merci de saisir une date ou une heure valide"
 
 #: js/messages.php:984
 msgid "Please enter a valid HEX input"
-msgstr "Merci de saisir saisir une valeur hexadécimale valide"
+msgstr "Veuillez saisir une valeur hexadécimale valide"
 
 #: js/messages.php:989 libraries/classes/Core.php:297
 #: libraries/classes/Import.php:112 libraries/classes/InsertEdit.php:1495
@@ -5327,7 +5327,7 @@ msgid ""
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
 "Laisser vider pour désactiver les commentaires sur les colonnes et les types "
-"MIME; suggestion : [kbd]pma__column_info[/kbd]."
+"MIME ; suggestion : [kbd]pma__column_info[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1008
 msgid "Column information table"
