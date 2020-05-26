@@ -127,7 +127,7 @@ class DesignerController extends AbstractController
                 $this->response->setRequestStatus($success);
                 $this->response->addJSON('message', $message);
             } elseif ($_POST['operation'] == 'addNewRelation') {
-                list($success, $message) = $this->designerCommon->addNewRelation(
+                [$success, $message] = $this->designerCommon->addNewRelation(
                     $_POST['db'],
                     $_POST['T1'],
                     $_POST['F1'],
@@ -141,7 +141,7 @@ class DesignerController extends AbstractController
                 $this->response->setRequestStatus($success);
                 $this->response->addJSON('message', $message);
             } elseif ($_POST['operation'] == 'removeRelation') {
-                list($success, $message) = $this->designerCommon->removeRelation(
+                [$success, $message] = $this->designerCommon->removeRelation(
                     $_POST['T1'],
                     $_POST['F1'],
                     $_POST['T2'],
@@ -217,7 +217,7 @@ class DesignerController extends AbstractController
         $scripts->addFile('designer/move.js');
         $scripts->addFile('designer/init.js');
 
-        list(
+        [
             $tables,
             $num_tables,
             $total_num_tables,
@@ -226,8 +226,8 @@ class DesignerController extends AbstractController
             $db_is_system_schema,
             $tooltip_truename,
             $tooltip_aliasname,
-            $pos
-            ) = Util::getDbInfo($db, $sub_part ?? '');
+            $pos,
+        ] = Util::getDbInfo($db, $sub_part ?? '');
 
         // Embed some data into HTML, later it will be read
         // by designer/init.js and converted to JS variables.

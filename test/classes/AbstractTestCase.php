@@ -63,9 +63,7 @@ abstract class AbstractTestCase extends TestCase
             'PHP_SELF' => $_SERVER['PHP_SELF'],
             'argv' => $_SERVER['argv'],
         ];
-        $_SESSION = [
-            ' PMA_token ' => 'token',
-        ];
+        $_SESSION = [' PMA_token ' => 'token'];
         $_COOKIE = [];
         $_FILES = [];
         $_REQUEST = [];

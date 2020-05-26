@@ -320,33 +320,19 @@ class Results
         ];
         $this->transformation_info = [
             'information_schema' => [
-                'events' => [
-                    'event_definition' => $sql_highlighting_data,
-                ],
-                'processlist' => [
-                    'info' => $sql_highlighting_data,
-                ],
-                'routines' => [
-                    'routine_definition' => $sql_highlighting_data,
-                ],
-                'triggers' => [
-                    'action_statement' => $sql_highlighting_data,
-                ],
-                'views' => [
-                    'view_definition' => $sql_highlighting_data,
-                ],
+                'events' => ['event_definition' => $sql_highlighting_data],
+                'processlist' => ['info' => $sql_highlighting_data],
+                'routines' => ['routine_definition' => $sql_highlighting_data],
+                'triggers' => ['action_statement' => $sql_highlighting_data],
+                'views' => ['view_definition' => $sql_highlighting_data],
             ],
             'mysql' => [
                 'event' => [
                     'body' => $blob_sql_highlighting_data,
                     'body_utf8' => $blob_sql_highlighting_data,
                 ],
-                'general_log' => [
-                    'argument' => $sql_highlighting_data,
-                ],
-                'help_category' => [
-                    'url' => $link_data,
-                ],
+                'general_log' => ['argument' => $sql_highlighting_data],
+                'help_category' => ['url' => $link_data],
                 'help_topic' => [
                     'example' => $sql_highlighting_data,
                     'url' => $link_data,
@@ -357,9 +343,7 @@ class Results
                     'body' => $blob_sql_highlighting_data,
                     'body_utf8' => $blob_sql_highlighting_data,
                 ],
-                'slow_log' => [
-                    'sql_text' => $sql_highlighting_data,
-                ],
+                'slow_log' => ['sql_text' => $sql_highlighting_data],
             ],
         ];
 
@@ -368,14 +352,10 @@ class Results
             $this->transformation_info[$cfgRelation['db']] = [];
             $relDb = &$this->transformation_info[$cfgRelation['db']];
             if (! empty($cfgRelation['history'])) {
-                $relDb[$cfgRelation['history']] = [
-                    'sqlquery' => $sql_highlighting_data,
-                ];
+                $relDb[$cfgRelation['history']] = ['sqlquery' => $sql_highlighting_data];
             }
             if (! empty($cfgRelation['bookmark'])) {
-                $relDb[$cfgRelation['bookmark']] = [
-                    'query' => $sql_highlighting_data,
-                ];
+                $relDb[$cfgRelation['bookmark']] = ['query' => $sql_highlighting_data];
             }
             if (! empty($cfgRelation['tracking'])) {
                 $relDb[$cfgRelation['tracking']] = [
@@ -384,39 +364,25 @@ class Results
                 ];
             }
             if (! empty($cfgRelation['favorite'])) {
-                $relDb[$cfgRelation['favorite']] = [
-                    'tables' => $json_highlighting_data,
-                ];
+                $relDb[$cfgRelation['favorite']] = ['tables' => $json_highlighting_data];
             }
             if (! empty($cfgRelation['recent'])) {
-                $relDb[$cfgRelation['recent']] = [
-                    'tables' => $json_highlighting_data,
-                ];
+                $relDb[$cfgRelation['recent']] = ['tables' => $json_highlighting_data];
             }
             if (! empty($cfgRelation['savedsearches'])) {
-                $relDb[$cfgRelation['savedsearches']] = [
-                    'search_data' => $json_highlighting_data,
-                ];
+                $relDb[$cfgRelation['savedsearches']] = ['search_data' => $json_highlighting_data];
             }
             if (! empty($cfgRelation['designer_settings'])) {
-                $relDb[$cfgRelation['designer_settings']] = [
-                    'settings_data' => $json_highlighting_data,
-                ];
+                $relDb[$cfgRelation['designer_settings']] = ['settings_data' => $json_highlighting_data];
             }
             if (! empty($cfgRelation['table_uiprefs'])) {
-                $relDb[$cfgRelation['table_uiprefs']] = [
-                    'prefs' => $json_highlighting_data,
-                ];
+                $relDb[$cfgRelation['table_uiprefs']] = ['prefs' => $json_highlighting_data];
             }
             if (! empty($cfgRelation['userconfig'])) {
-                $relDb[$cfgRelation['userconfig']] = [
-                    'config_data' => $json_highlighting_data,
-                ];
+                $relDb[$cfgRelation['userconfig']] = ['config_data' => $json_highlighting_data];
             }
             if (! empty($cfgRelation['export_templates'])) {
-                $relDb[$cfgRelation['export_templates']] = [
-                    'template_data' => $json_highlighting_data,
-                ];
+                $relDb[$cfgRelation['export_templates']] = ['template_data' => $json_highlighting_data];
             }
         }
     }
@@ -2054,9 +2020,7 @@ class Results
         $order_url,
         $multi_order_url
     ) {
-        $order_link_params = [
-            'class' => 'sortlink',
-        ];
+        $order_link_params = ['class' => 'sortlink'];
 
         $order_link_content = htmlspecialchars($fields_meta->name);
         $inner_link_content = $order_link_content . $order_img
@@ -4599,7 +4563,7 @@ class Results
          * $clause_is_unique is needed by getTable() to generate the proper param
          * in the multi-edit and multi-delete form
          */
-        list(, $clause_is_unique,) = Util::getUniqueCondition(
+        [, $clause_is_unique] = Util::getUniqueCondition(
             $dt_result,
             $this->__get('fields_cnt'),
             $this->__get('fields_meta'),

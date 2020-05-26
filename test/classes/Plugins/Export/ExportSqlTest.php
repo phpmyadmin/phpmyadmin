@@ -1962,12 +1962,8 @@ class ExportSqlTest extends AbstractTestCase
             'a' => [
                 'alias' => 'aliastest',
                 'tables' => [
-                    'foo' => [
-                        'alias' => 'qwerty',
-                    ],
-                    'bar' => [
-                        'alias' => 'f',
-                    ],
+                    'foo' => ['alias' => 'qwerty'],
+                    'bar' => ['alias' => 'f'],
                 ],
             ],
         ];
@@ -2013,9 +2009,7 @@ class ExportSqlTest extends AbstractTestCase
                     ],
                     'bar' => [
                         'alias' => 'f',
-                        'columns' => [
-                            'xy' => 'n',
-                        ],
+                        'columns' => ['xy' => 'n'],
                     ],
                 ],
             ],
@@ -2062,9 +2056,7 @@ class ExportSqlTest extends AbstractTestCase
                     ],
                     'bar' => [
                         'alias' => 'f',
-                        'columns' => [
-                            'xy' => 'n',
-                        ],
+                        'columns' => ['xy' => 'n'],
                     ],
                 ],
             ],

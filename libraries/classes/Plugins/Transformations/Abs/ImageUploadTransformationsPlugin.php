@@ -100,9 +100,7 @@ abstract class ImageUploadTransformationsPlugin extends IOTransformationsPlugin
      */
     public function getScripts()
     {
-        return [
-            'transformations/image_upload.js',
-        ];
+        return ['transformations/image_upload.js'];
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */

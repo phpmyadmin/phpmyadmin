@@ -51,7 +51,7 @@ class ServerConfigChecks
         $blowfishSecretSet = false;
         $cookieAuthUsed = false;
 
-        list($cookieAuthUsed, $blowfishSecret, $blowfishSecretSet)
+        [$cookieAuthUsed, $blowfishSecret, $blowfishSecretSet]
             = $this->performConfigChecksServers(
                 $cookieAuthUsed,
                 $blowfishSecret,
@@ -149,7 +149,7 @@ class ServerConfigChecks
             );
             $serverName = htmlspecialchars($serverName);
 
-            list($blowfishSecret, $blowfishSecretSet)
+            [$blowfishSecret, $blowfishSecretSet]
                 = $this->performConfigChecksServersSetBlowfishSecret(
                     $blowfishSecret,
                     $cookieAuthServer,

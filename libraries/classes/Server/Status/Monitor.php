@@ -55,7 +55,7 @@ class Monitor
         $sysinfo = $cpuload = $memory = 0;
 
         /* Accumulate all required variables and data */
-        list($serverVars, $statusVars, $ret) = $this->getJsonForChartingDataGet(
+        [$serverVars, $statusVars, $ret] = $this->getJsonForChartingDataGet(
             $ret,
             $serverVars,
             $statusVars,
@@ -154,7 +154,7 @@ class Monitor
             foreach ($chartNodes as $nodeId => $nodeDataPoints) {
                 // For each data point in the series (usually just 1)
                 foreach ($nodeDataPoints as $pointId => $dataPoint) {
-                    list($serverVars, $statusVars, $ret[$chartId][$nodeId][$pointId])
+                    [$serverVars, $statusVars, $ret[$chartId][$nodeId][$pointId]]
                         = $this->getJsonForChartingDataSwitch(
                             $dataPoint['type'],
                             $dataPoint['name'],

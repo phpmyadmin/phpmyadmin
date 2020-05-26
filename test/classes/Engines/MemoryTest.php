@@ -53,9 +53,7 @@ class MemoryTest extends AbstractTestCase
         $this->assertEquals(
             $this->object->getVariables(),
             [
-                'max_heap_table_size' => [
-                    'type'  => 1,
-                ],
+                'max_heap_table_size' => ['type' => 1],
             ]
         );
     }

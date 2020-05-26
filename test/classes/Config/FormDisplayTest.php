@@ -188,9 +188,7 @@ class FormDisplayTest extends AbstractTestCase
             ],
         ];
 
-        $sysArr = [
-            'Servers/1/test' => 'Servers/1/test2',
-        ];
+        $sysArr = ['Servers/1/test' => 'Servers/1/test2'];
 
         $attrSystemPaths = $reflection->getProperty('_systemPaths');
         $attrSystemPaths->setAccessible(true);
@@ -235,9 +233,7 @@ class FormDisplayTest extends AbstractTestCase
             'Servers/3/test' => [],
         ];
 
-        $sysArr = [
-            'Servers/1/test' => 'Servers/1/host',
-        ];
+        $sysArr = ['Servers/1/test' => 'Servers/1/host'];
 
         $attrSystemPaths = $reflection->getProperty('_systemPaths');
         $attrSystemPaths->setAccessible(true);
@@ -250,9 +246,7 @@ class FormDisplayTest extends AbstractTestCase
         $this->assertEquals(
             [
                 'Servers' => [
-                    '1' => [
-                        'test' => 'localhost',
-                    ],
+                    '1' => ['test' => 'localhost'],
                 ],
             ],
             $_SESSION['ConfigFile0']

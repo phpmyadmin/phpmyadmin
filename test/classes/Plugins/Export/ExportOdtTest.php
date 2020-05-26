@@ -728,9 +728,7 @@ class ExportOdtTest extends AbstractTestCase
                 ]
             );
 
-        $columns = [
-            'Field' => 'fieldname',
-        ];
+        $columns = ['Field' => 'fieldname'];
         $dbi->expects($this->once())
             ->method('getColumns')
             ->with('database', '')
@@ -834,9 +832,7 @@ class ExportOdtTest extends AbstractTestCase
                 ]
             );
 
-        $columns = [
-            'Field' => 'fieldname',
-        ];
+        $columns = ['Field' => 'fieldname'];
 
         $dbi->expects($this->once())
             ->method('getColumns')

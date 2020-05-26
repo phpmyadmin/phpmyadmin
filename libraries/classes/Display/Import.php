@@ -42,10 +42,10 @@ class Import
 
         $template = new Template();
 
-        list(
+        [
             $SESSION_KEY,
             $uploadId,
-        ) = ImportAjax::uploadProgressSetup();
+        ] = ImportAjax::uploadProgressSetup();
 
         /* Scan for plugins */
         /** @var ImportPlugin[] $importList */

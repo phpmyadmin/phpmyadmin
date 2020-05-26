@@ -336,9 +336,7 @@ final class ExportController extends AbstractController
                 'table' => $table,
             ]);
         } elseif ($export_type === 'raw') {
-            $err_url = Url::getFromRoute('/server/export', [
-                'sql_query' => $sql_query,
-            ]);
+            $err_url = Url::getFromRoute('/server/export', ['sql_query' => $sql_query]);
         } else {
             Core::fatalError(__('Bad parameters!'));
         }
@@ -403,7 +401,7 @@ final class ExportController extends AbstractController
             if (empty($remember_template)) {
                 $remember_template = '';
             }
-            list($filename, $mime_type) = $this->export->getFilenameAndMimetype(
+            [$filename, $mime_type] = $this->export->getFilenameAndMimetype(
                 $export_type,
                 $remember_template,
                 $export_plugin,
@@ -425,7 +423,7 @@ final class ExportController extends AbstractController
 
         // Open file on server if needed
         if ($save_on_server) {
-            list($save_filename, $message, $file_handle) = $this->export->openFile(
+            [$save_filename, $message, $file_handle] = $this->export->openFile(
                 $filename,
                 $quick_export
             );
@@ -462,7 +460,7 @@ final class ExportController extends AbstractController
                         exit;
                     }
                 }
-                list($html, $back_button, $refreshButton) = $this->export->getHtmlForDisplayedExportHeader(
+                [$html, $back_button, $refreshButton] = $this->export->getHtmlForDisplayedExportHeader(
                     $export_type,
                     $db,
                     $table

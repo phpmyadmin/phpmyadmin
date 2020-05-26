@@ -747,9 +747,7 @@ class TypesTest extends AbstractTestCase
                     'MULTIPOLYGON',
                     'GEOMETRYCOLLECTION',
                 ],
-                'JSON' => [
-                    'JSON',
-                ],
+                'JSON' => ['JSON'],
             ],
             $this->object->getColumns()
         );

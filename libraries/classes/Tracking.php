@@ -531,9 +531,7 @@ class Tracking
         $drop_image_or_text
     ) {
         // no need for the secondth returned parameter
-        [
-            $html,
-        ] = $this->getHtmlForDataStatements(
+        [$html] = $this->getHtmlForDataStatements(
             $data,
             $filter_users,
             $filter_ts_from,
@@ -713,9 +711,7 @@ class Tracking
      */
     public function getHtmlForColumns(array $columns)
     {
-        return $this->template->render('table/tracking/structure_snapshot_columns', [
-            'columns' => $columns,
-        ]);
+        return $this->template->render('table/tracking/structure_snapshot_columns', ['columns' => $columns]);
     }
 
     /**
@@ -727,9 +723,7 @@ class Tracking
      */
     public function getHtmlForIndexes(array $indexes)
     {
-        return $this->template->render('table/tracking/structure_snapshot_indexes', [
-            'indexes' => $indexes,
-        ]);
+        return $this->template->render('table/tracking/structure_snapshot_indexes', ['indexes' => $indexes]);
     }
 
     /**

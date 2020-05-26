@@ -75,15 +75,11 @@ class EpsRelationSchemaTest extends AbstractTestCase
             ->method('tryQuery')
             ->will($this->returnValue('executed_1'));
 
-        $fetchArrayReturn = [
-            //table name in information_schema_relations
-            'table_name' => 'CHARACTER_SETS',
-        ];
+        //table name in information_schema_relations
+        $fetchArrayReturn = ['table_name' => 'CHARACTER_SETS'];
 
-        $fetchArrayReturn2 = [
-            //table name in information_schema_relations
-            'table_name' => 'COLLATIONS',
-        ];
+        //table name in information_schema_relations
+        $fetchArrayReturn2 = ['table_name' => 'COLLATIONS'];
 
         $dbi->expects($this->at(2))
             ->method('fetchAssoc')

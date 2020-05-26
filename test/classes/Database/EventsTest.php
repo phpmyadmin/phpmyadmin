@@ -457,8 +457,7 @@ class EventsTest extends AbstractTestCase
             ],
             // Testing failures
             [
-                [ // empty request
-                ],
+                [], // empty request
                 'CREATE EVENT ON SCHEDULE ON COMPLETION NOT PRESERVE DO ',
                 3,
             ],

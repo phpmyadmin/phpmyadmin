@@ -33,7 +33,7 @@ class SunOs extends Base
         $m = shell_exec('kstat -p d ' . $key);
 
         if ($m) {
-            list(, $value) = explode("\t", trim($m), 2);
+            [, $value] = explode("\t", trim($m), 2);
 
             return $value;
         }

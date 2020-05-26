@@ -1475,9 +1475,7 @@ class InsertEdit
                 . ' name="fields_upload' . $vkey . '[' . $column['Field_md5'] . ']"'
                 . ' class="textfield noDragDrop" id="field_' . $idindex . '_3" size="10"'
                 . ' ' . $onChangeClause . '>&nbsp;';
-            [
-                $html_out,
-            ] = $this->getMaxUploadSize(
+            [$html_out] = $this->getMaxUploadSize(
                 $column,
                 $biggest_max_file_size
             );

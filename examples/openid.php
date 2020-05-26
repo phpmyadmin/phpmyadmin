@@ -145,7 +145,7 @@ if (isset($_POST['start'])) {
 } else {
     /* Grab query string */
     if (! count($_POST)) {
-        list(, $queryString) = explode('?', $_SERVER['REQUEST_URI']);
+        [, $queryString] = explode('?', $_SERVER['REQUEST_URI']);
     } else {
         // I hate php sometimes
         $queryString = file_get_contents('php://input');

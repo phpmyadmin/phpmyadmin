@@ -172,7 +172,7 @@ class Import
         // If a 'USE <db>' SQL-clause was found and the query
         // succeeded, set our current $db to the new one
         if ($result != false) {
-            list($db, $reload) = $this->lookForUse(
+            [$db, $reload] = $this->lookForUse(
                 $sql,
                 $db,
                 $reload
@@ -1446,8 +1446,8 @@ class Import
                 'statement' => $statement,
             ];
 
-            if ((! (($statement instanceof UpdateStatement)
-                || ($statement instanceof DeleteStatement)))
+            if (! ($statement instanceof UpdateStatement
+                    || $statement instanceof DeleteStatement)
                 || ! empty($statement->join)
             ) {
                 $error = $error_msg;

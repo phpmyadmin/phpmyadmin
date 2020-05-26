@@ -192,7 +192,7 @@ class IpAllowDeny
 
         if ($is_cidr) {
             // Split in address and prefix length
-            list($first_ip, $subnet) = explode('/', $test_range);
+            [$first_ip, $subnet] = explode('/', $test_range);
 
             // Parse the address into a binary string
             $first_bin = inet_pton($first_ip);

@@ -266,12 +266,8 @@ class ExportXmlTest extends AbstractTestCase
         $dbi->expects($this->exactly(2))
             ->method('getProceduresOrFunctions')
             ->willReturnOnConsecutiveCalls(
-                [
-                    'fn',
-                ],
-                [
-                    'pr',
-                ]
+                ['fn'],
+                ['pr']
             );
 
         $dbi->expects($this->exactly(2))

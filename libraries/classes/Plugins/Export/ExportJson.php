@@ -228,7 +228,7 @@ class ExportJson extends ExportPlugin
                 'data' => '@@DATA@@',
             ]
         );
-        list($header, $footer) = explode('"@@DATA@@"', $buffer);
+        [$header, $footer] = explode('"@@DATA@@"', $buffer);
 
         if (! $this->export->outputHandler($header . $crlf . '[' . $crlf)) {
             return false;
@@ -307,7 +307,7 @@ class ExportJson extends ExportPlugin
                 'data' => '@@DATA@@',
             ]
         );
-        list($header, $footer) = explode('"@@DATA@@"', $buffer);
+        [$header, $footer] = explode('"@@DATA@@"', $buffer);
 
         if (! $this->export->outputHandler($header . $crlf . '[' . $crlf)) {
             return false;

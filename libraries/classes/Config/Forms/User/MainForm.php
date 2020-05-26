@@ -76,9 +76,7 @@ class MainForm extends BaseForm
                 'DefaultTabDatabase',
                 'DefaultTabTable',
             ],
-            'DisplayRelationalSchema' => [
-                'PDFDefaultPageSize',
-            ],
+            'DisplayRelationalSchema' => ['PDFDefaultPageSize'],
         ];
     }
 

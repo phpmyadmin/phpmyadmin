@@ -59,7 +59,7 @@ class RoutinesController extends AbstractController
                 $table = '';
                 Common::database();
 
-                list(
+                [
                     $tables,
                     $num_tables,
                     $total_num_tables,
@@ -68,8 +68,8 @@ class RoutinesController extends AbstractController
                     $db_is_system_schema,
                     $tooltip_truename,
                     $tooltip_aliasname,
-                    $pos
-                ) = Util::getDbInfo($db, $sub_part ?? '');
+                    $pos,
+                ] = Util::getDbInfo($db, $sub_part ?? '');
             }
         } else {
             /**

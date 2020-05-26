@@ -22,9 +22,7 @@ class Memory extends StorageEngine
     public function getVariables()
     {
         return [
-            'max_heap_table_size' => [
-                'type' => PMA_ENGINE_DETAILS_TYPE_SIZE,
-            ],
+            'max_heap_table_size' => ['type' => PMA_ENGINE_DETAILS_TYPE_SIZE],
         ];
     }
 }

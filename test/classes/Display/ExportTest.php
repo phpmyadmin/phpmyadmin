@@ -116,12 +116,8 @@ class ExportTest extends AbstractTestCase
         $GLOBALS['dbi']->cacheTableContent([$db, $table, 'ENGINE'], 'MERGE');
 
         $columns_info = [
-            'test_column1' => [
-                'COLUMN_NAME' => 'test_column1',
-            ],
-            'test_column2' => [
-                'COLUMN_NAME' => 'test_column2',
-            ],
+            'test_column1' => ['COLUMN_NAME' => 'test_column1'],
+            'test_column2' => ['COLUMN_NAME' => 'test_column2'],
         ];
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -252,12 +248,8 @@ class ExportTest extends AbstractTestCase
         $columns_info = [
             'test\'_db' => [
                 'test_<b>table' => [
-                    'co"l1' => [
-                        'COLUMN_NAME' => 'co"l1',
-                    ],
-                    'col<2' => [
-                        'COLUMN_NAME' => 'col<2',
-                    ],
+                    'co"l1' => ['COLUMN_NAME' => 'co"l1'],
+                    'col<2' => ['COLUMN_NAME' => 'col<2'],
                 ],
             ],
         ];

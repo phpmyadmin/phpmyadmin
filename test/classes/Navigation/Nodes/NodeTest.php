@@ -463,12 +463,8 @@ class NodeTest extends AbstractTestCase
         $dbi->expects($this->exactly(3))
             ->method('fetchArray')
             ->willReturnOnConsecutiveCalls(
-                [
-                    '0' => 'db',
-                ],
-                [
-                    '0' => 'aa_db',
-                ],
+                ['0' => 'db'],
+                ['0' => 'aa_db'],
                 false
             );
 

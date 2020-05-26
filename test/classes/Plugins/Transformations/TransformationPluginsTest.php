@@ -841,9 +841,7 @@ class TransformationPluginsTest extends AbstractTestCase
                 [
                     12345,
                     [0],
-                    ((object) [
-                        'type' => 'int',
-                    ]),
+                    ((object) ['type' => 'int']),
                 ],
                 '<dfn onclick="alert(\'12345\');" title="12345">'
                 . 'Jan 01, 1970 at 03:25 AM</dfn>',
@@ -853,9 +851,7 @@ class TransformationPluginsTest extends AbstractTestCase
                 [
                     12345678,
                     [0],
-                    ((object) [
-                        'type' => 'string',
-                    ]),
+                    ((object) ['type' => 'string']),
                 ],
                 '<dfn onclick="alert(\'12345678\');" title="12345678">'
                 . 'May 23, 1970 at 09:21 PM</dfn>',
@@ -865,9 +861,7 @@ class TransformationPluginsTest extends AbstractTestCase
                 [
                     123456789,
                     [0],
-                    ((object) [
-                        'type' => null,
-                    ]),
+                    ((object) ['type' => null]),
                 ],
                 '<dfn onclick="alert(\'123456789\');" title="123456789">'
                 . 'Nov 29, 1973 at 09:33 PM</dfn>',
@@ -877,9 +871,7 @@ class TransformationPluginsTest extends AbstractTestCase
                 [
                     '20100201',
                     [0],
-                    ((object) [
-                        'type' => null,
-                    ]),
+                    ((object) ['type' => null]),
                 ],
                 '<dfn onclick="alert(\'20100201\');" title="20100201">'
                 . 'Feb 01, 2010 at 12:00 AM</dfn>',

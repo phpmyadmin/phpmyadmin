@@ -55,62 +55,34 @@ class Innodb extends StorageEngine
                 'title' => 'innodb_additional_mem_pool_size',
                 'type'  => PMA_ENGINE_DETAILS_TYPE_SIZE,
             ],
-            'innodb_buffer_pool_awe_mem_mb'   => [
-                'type' => PMA_ENGINE_DETAILS_TYPE_SIZE,
-            ],
+            'innodb_buffer_pool_awe_mem_mb'   => ['type' => PMA_ENGINE_DETAILS_TYPE_SIZE],
             'innodb_checksums'                => [],
             'innodb_commit_concurrency'       => [],
-            'innodb_concurrency_tickets'      => [
-                'type' => PMA_ENGINE_DETAILS_TYPE_NUMERIC,
-            ],
+            'innodb_concurrency_tickets'      => ['type' => PMA_ENGINE_DETAILS_TYPE_NUMERIC],
             'innodb_doublewrite'              => [],
             'innodb_fast_shutdown'            => [],
-            'innodb_file_io_threads'          => [
-                'type' => PMA_ENGINE_DETAILS_TYPE_NUMERIC,
-            ],
+            'innodb_file_io_threads'          => ['type' => PMA_ENGINE_DETAILS_TYPE_NUMERIC],
             'innodb_file_per_table'           => [],
             'innodb_flush_log_at_trx_commit'  => [],
             'innodb_flush_method'             => [],
             'innodb_force_recovery'           => [],
-            'innodb_lock_wait_timeout'        => [
-                'type' => PMA_ENGINE_DETAILS_TYPE_NUMERIC,
-            ],
+            'innodb_lock_wait_timeout'        => ['type' => PMA_ENGINE_DETAILS_TYPE_NUMERIC],
             'innodb_locks_unsafe_for_binlog'  => [],
             'innodb_log_arch_dir'             => [],
             'innodb_log_archive'              => [],
-            'innodb_log_buffer_size'          => [
-                'type' => PMA_ENGINE_DETAILS_TYPE_SIZE,
-            ],
-            'innodb_log_file_size'            => [
-                'type' => PMA_ENGINE_DETAILS_TYPE_SIZE,
-            ],
-            'innodb_log_files_in_group'       => [
-                'type' => PMA_ENGINE_DETAILS_TYPE_NUMERIC,
-            ],
+            'innodb_log_buffer_size'          => ['type' => PMA_ENGINE_DETAILS_TYPE_SIZE],
+            'innodb_log_file_size'            => ['type' => PMA_ENGINE_DETAILS_TYPE_SIZE],
+            'innodb_log_files_in_group'       => ['type' => PMA_ENGINE_DETAILS_TYPE_NUMERIC],
             'innodb_log_group_home_dir'       => [],
-            'innodb_max_dirty_pages_pct'      => [
-                'type' => PMA_ENGINE_DETAILS_TYPE_NUMERIC,
-            ],
+            'innodb_max_dirty_pages_pct'      => ['type' => PMA_ENGINE_DETAILS_TYPE_NUMERIC],
             'innodb_max_purge_lag'            => [],
-            'innodb_mirrored_log_groups'      => [
-                'type' => PMA_ENGINE_DETAILS_TYPE_NUMERIC,
-            ],
-            'innodb_open_files'               => [
-                'type' => PMA_ENGINE_DETAILS_TYPE_NUMERIC,
-            ],
+            'innodb_mirrored_log_groups'      => ['type' => PMA_ENGINE_DETAILS_TYPE_NUMERIC],
+            'innodb_open_files'               => ['type' => PMA_ENGINE_DETAILS_TYPE_NUMERIC],
             'innodb_support_xa'               => [],
-            'innodb_sync_spin_loops'          => [
-                'type' => PMA_ENGINE_DETAILS_TYPE_NUMERIC,
-            ],
-            'innodb_table_locks'              => [
-                'type' => PMA_ENGINE_DETAILS_TYPE_BOOLEAN,
-            ],
-            'innodb_thread_concurrency'       => [
-                'type' => PMA_ENGINE_DETAILS_TYPE_NUMERIC,
-            ],
-            'innodb_thread_sleep_delay'       => [
-                'type' => PMA_ENGINE_DETAILS_TYPE_NUMERIC,
-            ],
+            'innodb_sync_spin_loops'          => ['type' => PMA_ENGINE_DETAILS_TYPE_NUMERIC],
+            'innodb_table_locks'              => ['type' => PMA_ENGINE_DETAILS_TYPE_BOOLEAN],
+            'innodb_thread_concurrency'       => ['type' => PMA_ENGINE_DETAILS_TYPE_NUMERIC],
+            'innodb_thread_sleep_delay'       => ['type' => PMA_ENGINE_DETAILS_TYPE_NUMERIC],
         ];
     }
 

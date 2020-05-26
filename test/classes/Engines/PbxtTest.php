@@ -223,9 +223,7 @@ class PbxtTest extends AbstractTestCase
     {
         $this->assertEquals(
             $this->object->getInfoPages(),
-            [
-                'Documentation' => 'Documentation',
-            ]
+            ['Documentation' => 'Documentation']
         );
     }
 

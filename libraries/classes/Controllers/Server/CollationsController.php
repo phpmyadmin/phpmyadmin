@@ -79,8 +79,6 @@ class CollationsController extends AbstractController
             ];
         }
 
-        $this->render('server/collations/index', [
-            'charsets' => $charsets,
-        ]);
+        $this->render('server/collations/index', ['charsets' => $charsets]);
     }
 }

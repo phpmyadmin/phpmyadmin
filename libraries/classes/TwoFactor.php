@@ -251,9 +251,7 @@ class TwoFactor
      */
     public function configure($name)
     {
-        $this->config = [
-            'backend' => $name,
-        ];
+        $this->config = ['backend' => $name];
         if ($name === '') {
             $cls = $this->getBackendClass($name);
             $this->config['settings'] = [];

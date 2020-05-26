@@ -102,9 +102,10 @@ class ReplicationGui
     {
         $databaseMultibox = $this->getHtmlForReplicationDbMultibox();
 
-        return $this->template->render('server/replication/master_configuration', [
-            'database_multibox' => $databaseMultibox,
-        ]);
+        return $this->template->render(
+            'server/replication/master_configuration',
+            ['database_multibox' => $databaseMultibox]
+        );
     }
 
     /**
@@ -208,9 +209,7 @@ class ReplicationGui
             }
         }
 
-        return $this->template->render('server/replication/database_multibox', [
-            'databases' => $databases,
-        ]);
+        return $this->template->render('server/replication/database_multibox', ['databases' => $databases]);
     }
 
     /**
@@ -222,10 +221,10 @@ class ReplicationGui
      */
     public function getHtmlForReplicationChangeMaster($submitName)
     {
-        list(
+        [
             $usernameLength,
-            $hostnameLength
-        ) = $this->getUsernameHostnameLength();
+            $hostnameLength,
+        ] = $this->getUsernameHostnameLength();
 
         return $this->template->render('server/replication/change_master', [
             'server_id' => time(),
@@ -352,10 +351,10 @@ class ReplicationGui
      */
     public function getHtmlForReplicationMasterAddSlaveUser()
     {
-        list(
+        [
             $usernameLength,
-            $hostnameLength
-        ) = $this->getUsernameHostnameLength();
+            $hostnameLength,
+        ] = $this->getUsernameHostnameLength();
 
         if (isset($_POST['username']) && strlen($_POST['username']) === 0) {
             $GLOBALS['pred_username'] = 'any';

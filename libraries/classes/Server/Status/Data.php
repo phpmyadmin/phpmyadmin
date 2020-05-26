@@ -369,9 +369,11 @@ class Data
         $sectionUsed = [];
 
         // sort vars into arrays
-        list(
-            $allocationMap, $sectionUsed, $used_queries
-        ) = $this->_sortVariables(
+        [
+            $allocationMap,
+            $sectionUsed,
+            $used_queries,
+        ] = $this->_sortVariables(
             $server_status,
             $allocations,
             $allocationMap,

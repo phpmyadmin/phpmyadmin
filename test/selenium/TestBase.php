@@ -315,9 +315,7 @@ abstract class TestBase extends TestCase
             default:
                 $capabilities = DesiredCapabilities::chrome();
                 $chromeOptions = new ChromeOptions();
-                $chromeOptions->addArguments([
-                    '--lang=en',
-                ]);
+                $chromeOptions->addArguments(['--lang=en']);
                 $capabilities->setCapability(
                     ChromeOptions::CAPABILITY_W3C,
                     $chromeOptions

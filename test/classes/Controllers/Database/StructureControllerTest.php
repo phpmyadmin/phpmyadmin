@@ -139,7 +139,7 @@ class StructureControllerTest extends AbstractTestCase
             'Index_length' => 0,
             'TABLE_NAME' => 'table',
         ];
-        list($currentTable,,, $sumSize) = $method->invokeArgs(
+        [$currentTable,,, $sumSize] = $method->invokeArgs(
             $controller,
             [
                 $currentTable,
@@ -161,7 +161,7 @@ class StructureControllerTest extends AbstractTestCase
         );
 
         $currentTable['ENGINE'] = 'MYISAM';
-        list($currentTable,,, $sumSize) = $method->invokeArgs(
+        [$currentTable,,, $sumSize] = $method->invokeArgs(
             $controller,
             [
                 $currentTable,
@@ -192,7 +192,7 @@ class StructureControllerTest extends AbstractTestCase
         );
 
         $currentTable['ENGINE'] = 'InnoDB';
-        list($currentTable,,, $sumSize)
+        [$currentTable,,, $sumSize]
             = $method->invokeArgs($controller, [$currentTable, 10]);
         $this->assertEquals(
             true,
@@ -204,7 +204,7 @@ class StructureControllerTest extends AbstractTestCase
         );
 
         $currentTable['ENGINE'] = 'MYISAM';
-        list($currentTable,,, $sumSize)
+        [$currentTable,,, $sumSize]
             = $method->invokeArgs($controller, [$currentTable, 10]);
         $this->assertEquals(
             false,
@@ -254,7 +254,7 @@ class StructureControllerTest extends AbstractTestCase
             'Name'         => 'table',
             'Data_free'    => 300,
         ];
-        list($currentTable,,,,, $overheadSize, $sumSize) = $method->invokeArgs(
+        [$currentTable,,,,, $overheadSize, $sumSize] = $method->invokeArgs(
             $controller,
             [
                 $currentTable,
@@ -280,7 +280,7 @@ class StructureControllerTest extends AbstractTestCase
         );
 
         unset($currentTable['Data_free']);
-        list($currentTable,,,,, $overheadSize,)  = $method->invokeArgs(
+        [$currentTable,,,,, $overheadSize]  = $method->invokeArgs(
             $controller,
             [
                 $currentTable,
@@ -305,7 +305,7 @@ class StructureControllerTest extends AbstractTestCase
             $this->relationCleanup,
             $this->operations
         );
-        list($currentTable,,,,,, $sumSize) = $method->invokeArgs(
+        [$currentTable,,,,,, $sumSize] = $method->invokeArgs(
             $controller,
             [
                 $currentTable,
@@ -330,7 +330,7 @@ class StructureControllerTest extends AbstractTestCase
             $this->relationCleanup,
             $this->operations
         );
-        list($currentTable,,,,,,) = $method->invokeArgs(
+        [$currentTable] = $method->invokeArgs(
             $controller,
             [
                 $currentTable,
@@ -377,18 +377,14 @@ class StructureControllerTest extends AbstractTestCase
         );
 
         // Correct parameter
-        $tables = [
-            'db.table',
-        ];
+        $tables = ['db.table'];
         $this->assertEquals(
             true,
             $method->invokeArgs($controller, [$tables, 'table'])
         );
 
         // Table not in database
-        $tables = [
-            'db.tab1e',
-        ];
+        $tables = ['db.tab1e'];
         $this->assertEquals(
             false,
             $method->invokeArgs($controller, [$tables, 'table'])

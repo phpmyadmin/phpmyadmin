@@ -486,9 +486,7 @@ class FormDisplayTemplate
             return '';
         }
 
-        return $this->template->render('javascript/display', [
-            'js_array' => $jsArray,
-        ]);
+        return $this->template->render('javascript/display', ['js_array' => $jsArray]);
     }
 
     /**

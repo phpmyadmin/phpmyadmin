@@ -741,9 +741,7 @@ class CentralColumns
      */
     private function getEditTableHeader(array $headers): string
     {
-        return $this->template->render('database/central_columns/edit_table_header', [
-            'headers' => $headers,
-        ]);
+        return $this->template->render('database/central_columns/edit_table_header', ['headers' => $headers]);
     }
 
     /**
@@ -768,9 +766,7 @@ class CentralColumns
                 'column_meta' => [
                     'Field' => $row['col_name'],
                 ],
-                'cfg_relation' => [
-                    'centralcolumnswork' => false,
-                ],
+                'cfg_relation' => ['centralcolumnswork' => false],
                 'max_rows' => $this->maxRows,
             ])
             . '</td>';

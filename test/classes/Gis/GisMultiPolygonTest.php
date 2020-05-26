@@ -210,9 +210,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
                 'MULTIPOLYGON(((35 10,10 20,15 40,45 45,35 10)'
                     . ',(20 30,35 32,30 20,20 30)),((123 0,23 30,17 63,123 0)))',
                 2,
-                [
-                    2 => $temp1,
-                ],
+                [2 => $temp1],
             ],
         ];
     }

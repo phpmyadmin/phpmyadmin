@@ -159,9 +159,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
      */
     public function testAuthCheckToken()
     {
-        $_SESSION = [
-            ' PMA_token ' => 'eefefef',
-        ];
+        $_SESSION = [' PMA_token ' => 'eefefef'];
         $this->mockResponse('Location: https://example.com/SignonURL');
 
         $GLOBALS['cfg']['Server']['SignonURL'] = 'https://example.com/SignonURL';

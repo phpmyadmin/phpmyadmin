@@ -653,9 +653,7 @@ class ExportTexytextTest extends AbstractTestCase
             'Type' => 'set(abc)enum123',
         ];
 
-        $unique_keys = [
-            'field',
-        ];
+        $unique_keys = ['field'];
 
         $this->assertEquals(
             '|//**field**//|set(abc)|Yes|NULL',
@@ -670,9 +668,7 @@ class ExportTexytextTest extends AbstractTestCase
             'Default' => 'def',
         ];
 
-        $unique_keys = [
-            'field',
-        ];
+        $unique_keys = ['field'];
 
         $this->assertEquals(
             '|fields|&amp;nbsp;|No|def',

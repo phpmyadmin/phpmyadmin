@@ -398,7 +398,7 @@ class ImportMediawiki extends ImportPlugin
         // $db_name : The currently selected database name, if applicable
         //            No backquotes
         // $options : An associative array of options
-        list($db_name, $options) = $this->getDbnameAndOptions($db, 'mediawiki_DB');
+        [$db_name, $options] = $this->getDbnameAndOptions($db, 'mediawiki_DB');
 
         // Array of SQL strings
         // Non-applicable parameters

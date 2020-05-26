@@ -330,9 +330,7 @@ return [
         [
             'class' => PhpMyAdmin\Controllers\ImportStatusController::class,
             'arguments' =>
-            [
-                'template' => '@template',
-            ],
+            ['template' => '@template'],
         ],
         PhpMyAdmin\Controllers\LicenseController::class =>
         [

@@ -18,41 +18,31 @@ return [
         [
             'class' => PhpMyAdmin\BrowseForeigners::class,
             'arguments' =>
-            [
-                '@template',
-            ],
+            ['@template'],
         ],
         'config' =>
         [
             'class' => PhpMyAdmin\Config::class,
             'arguments' =>
-            [
-                CONFIG_FILE,
-            ],
+            [CONFIG_FILE],
         ],
         'central_columns' =>
         [
             'class' => PhpMyAdmin\CentralColumns::class,
             'arguments' =>
-            [
-                '@dbi',
-            ],
+            ['@dbi'],
         ],
         'check_user_privileges' =>
         [
             'class' => PhpMyAdmin\CheckUserPrivileges::class,
             'arguments' =>
-            [
-                '@dbi',
-            ],
+            ['@dbi'],
         ],
         'create_add_field' =>
         [
             'class' => PhpMyAdmin\CreateAddField::class,
             'arguments' =>
-            [
-                '@dbi',
-            ],
+            ['@dbi'],
         ],
         'designer' =>
         [
@@ -105,9 +95,7 @@ return [
         [
             'class' => PhpMyAdmin\Export::class,
             'arguments' =>
-            [
-                '@dbi',
-            ],
+            ['@dbi'],
         ],
         'expression_language' =>
         [
@@ -125,17 +113,13 @@ return [
         [
             'class' => PhpMyAdmin\InsertEdit::class,
             'arguments' =>
-            [
-                '@dbi',
-            ],
+            ['@dbi'],
         ],
         'di_migration' =>
         [
             'factory' => [PhpMyAdmin\Di\Migration::class, 'getInstance'],
             'arguments' =>
-            [
-                '@service_container',
-            ],
+            ['@service_container'],
         ],
         'navigation' =>
         [
@@ -206,9 +190,7 @@ return [
         [
             'class' => PhpMyAdmin\Server\Plugins::class,
             'arguments' =>
-            [
-                '@dbi',
-            ],
+            ['@dbi'],
         ],
         'server_privileges' =>
         [
@@ -229,9 +211,7 @@ return [
         [
             'class' => PhpMyAdmin\SqlQueryForm::class,
             'arguments' =>
-            [
-                'template' => '@template',
-            ],
+            ['template' => '@template'],
         ],
         'status_data' =>
         [
@@ -241,17 +221,13 @@ return [
         [
             'class' => PhpMyAdmin\Server\Status\Monitor::class,
             'arguments' =>
-            [
-                '@dbi',
-            ],
+            ['@dbi'],
         ],
         'table_search' =>
         [
             'class' => PhpMyAdmin\Table\Search::class,
             'arguments' =>
-            [
-                'dbi' => '@dbi',
-            ],
+            ['dbi' => '@dbi'],
         ],
         'template' =>
         [
@@ -275,9 +251,7 @@ return [
         [
             'class' => PhpMyAdmin\UserPassword::class,
             'arguments' =>
-            [
-                '@server_privileges',
-            ],
+            ['@server_privileges'],
         ],
         'user_preferences' =>
         [

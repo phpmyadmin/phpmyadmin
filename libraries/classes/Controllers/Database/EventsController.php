@@ -39,7 +39,7 @@ final class EventsController extends AbstractController
         if (! $this->response->isAjax()) {
             Common::database();
 
-            list(
+            [
                 $tables,
                 $num_tables,
                 $total_num_tables,
@@ -48,8 +48,8 @@ final class EventsController extends AbstractController
                 $db_is_system_schema,
                 $tooltip_truename,
                 $tooltip_aliasname,
-                $pos
-            ) = Util::getDbInfo($db, $sub_part ?? '');
+                $pos,
+            ] = Util::getDbInfo($db, $sub_part ?? '');
         } elseif (strlen($db) > 0) {
             $this->dbi->selectDb($db);
             $url_query = $url_query ?? Url::getCommon(['db' => $db]);

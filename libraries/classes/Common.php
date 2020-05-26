@@ -129,7 +129,7 @@ final class Common
             if (isset($_POST['change_all_tables_collations']) &&
                 $_POST['change_all_tables_collations'] === 'on'
             ) {
-                list($tables, , , , , , , ,) = Util::getDbInfo($db, null);
+                [$tables] = Util::getDbInfo($db, null);
                 foreach ($tables as $tableName => $data) {
                     if ($dbi->getTable($db, $tableName)->isView()) {
                         // Skip views, we can not change the collation of a view.

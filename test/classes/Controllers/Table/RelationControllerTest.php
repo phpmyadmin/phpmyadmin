@@ -148,9 +148,7 @@ class RelationControllerTest extends AbstractTestCase
      */
     public function testGetDropdownValueForTableActionNotView()
     {
-        $indexedColumns = [
-            'primaryTableCol',
-        ];
+        $indexedColumns = ['primaryTableCol'];
         $tableMock = $this->getMockBuilder(Table::class)
             ->disableOriginalConstructor()
             ->getMock();

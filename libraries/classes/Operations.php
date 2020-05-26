@@ -525,9 +525,7 @@ class Operations
         // option values as keys then the dropdown option labels
 
         $possible_row_formats = [
-            'ARCHIVE' => [
-                'COMPRESSED' => 'COMPRESSED',
-            ],
+            'ARCHIVE' => ['COMPRESSED' => 'COMPRESSED'],
             'ARIA'  => [
                 'FIXED'     => 'FIXED',
                 'DYNAMIC'   => 'DYNAMIC',

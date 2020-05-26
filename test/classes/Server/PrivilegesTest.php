@@ -171,14 +171,13 @@ class PrivilegesTest extends AbstractTestCase
         //pre variable have been defined
         $_POST['pred_tablename'] = 'PMA_pred__tablename';
         $_POST['pred_dbname'] = ['PMA_pred_dbname'];
-        list(
-            ,,
+        [,,
             $dbname,
             $tablename,
             $routinename,
             $db_and_table,
             $dbname_is_wildcard,
-        ) = $this->serverPrivileges->getDataForDBInfo();
+        ] = $this->serverPrivileges->getDataForDBInfo();
         $this->assertEquals(
             'PMA_pred_dbname',
             $dbname

@@ -104,9 +104,7 @@ class MyisamTest extends AbstractTestCase
                 ],
                 'myisam_stats_method' => [],
                 'delay_key_write' => [],
-                'bulk_insert_buffer_size' => [
-                    'type'  => 1,
-                ],
+                'bulk_insert_buffer_size' => ['type' => 1],
                 'skip_external_locking' => [],
             ]
         );

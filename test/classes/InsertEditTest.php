@@ -2514,9 +2514,7 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getHeadAndFootOfInsertRowTable',
-            [
-                $url_params,
-            ]
+            [$url_params]
         );
 
         $this->assertStringContainsString(
@@ -3349,9 +3347,7 @@ class InsertEditTest extends AbstractTestCase
         ];
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $_POST['where_clause'] = 1;
-        $transformation = [
-            'transformation_options' => "'','option ,, quoted',abd",
-        ];
+        $transformation = ['transformation_options' => "'','option ,, quoted',abd"];
         $result = $this->insertEdit->transformEditedValues(
             'db',
             'table',
@@ -4166,9 +4162,7 @@ class InsertEditTest extends AbstractTestCase
                 'Privileges' => 'insert,update,select',
             ],
         ];
-        $repopulate = [
-            md5('col') => 'val',
-        ];
+        $repopulate = [md5('col') => 'val'];
         $column_mime = [
             'input_transformation' => 'Input/Image_JPEG_Upload.php',
             'input_transformation_options' => '150',
@@ -4257,9 +4251,7 @@ class InsertEditTest extends AbstractTestCase
                 'Privileges' => 'insert,update,select',
             ],
         ];
-        $repopulate = [
-            md5('qwerty') => '12-10-14',
-        ];
+        $repopulate = [md5('qwerty') => '12-10-14'];
         $actual = $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,

@@ -77,9 +77,7 @@ final class ColumnsDefinition
 
         $length_values_input_size = 8;
         $content_cells = [];
-        $form_params = [
-            'db' => $db,
-        ];
+        $form_params = ['db' => $db];
 
         if ($action == Url::getFromRoute('/table/create')) {
             $form_params['reload'] = 1;

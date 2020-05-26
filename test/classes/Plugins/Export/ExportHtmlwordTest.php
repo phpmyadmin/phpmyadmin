@@ -510,9 +510,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->with('database', '')
             ->will($this->returnValue($keys));
 
-        $columns = [
-            'Field' => 'fieldname',
-        ];
+        $columns = ['Field' => 'fieldname'];
         $dbi->expects($this->once())
             ->method('getColumns')
             ->with('database', '')
@@ -606,9 +604,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->with('database', '')
             ->will($this->returnValue($keys));
 
-        $columns = [
-            'Field' => 'fieldname',
-        ];
+        $columns = ['Field' => 'fieldname'];
 
         $dbi->expects($this->once())
             ->method('getColumns')
@@ -678,9 +674,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->with('database', '')
             ->will($this->returnValue($keys));
 
-        $columns = [
-            'Field' => 'fieldname',
-        ];
+        $columns = ['Field' => 'fieldname'];
 
         $dbi->expects($this->once())
             ->method('getColumns')
@@ -913,9 +907,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             'Type' => 'set(abc)enum123',
         ];
 
-        $unique_keys = [
-            'field',
-        ];
+        $unique_keys = ['field'];
 
         $this->assertEquals(
             '<tr class="print-category"><td class="print"><em>' .
@@ -932,9 +924,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             'Default' => 'def',
         ];
 
-        $unique_keys = [
-            'field',
-        ];
+        $unique_keys = ['field'];
 
         $this->assertEquals(
             '<tr class="print-category"><td class="print">fields</td>' .

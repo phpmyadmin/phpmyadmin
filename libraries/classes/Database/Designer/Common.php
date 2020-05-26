@@ -739,8 +739,8 @@ class Common
      */
     public function removeRelation($T1, $F1, $T2, $F2)
     {
-        list($DB1, $T1) = explode('.', $T1);
-        list($DB2, $T2) = explode('.', $T2);
+        [$DB1, $T1] = explode('.', $T1);
+        [$DB2, $T2] = explode('.', $T2);
 
         $tables = $this->dbi->getTablesFull($DB1, $T1);
         $type_T1 = mb_strtoupper($tables[$T1]['ENGINE']);

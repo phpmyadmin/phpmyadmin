@@ -2959,9 +2959,7 @@ class Privileges
             return '';
         }
         $rel_params = [];
-        $url_params = [
-            'adduser' => 1,
-        ];
+        $url_params = ['adduser' => 1];
         if (! empty($db)) {
             $url_params['dbname']
                 = $rel_params['checkprivsdb']

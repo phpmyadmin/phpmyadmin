@@ -732,9 +732,7 @@ class StructureController extends AbstractController
         if (isset($_REQUEST['preview_sql'])) { // preview sql
             $this->response->addJSON(
                 'sql_data',
-                $this->template->render('preview_sql', [
-                    'query_data' => $sql_query,
-                ])
+                $this->template->render('preview_sql', ['query_data' => $sql_query])
             );
         } else { // move column
             $this->dbi->tryQuery($sql_query);

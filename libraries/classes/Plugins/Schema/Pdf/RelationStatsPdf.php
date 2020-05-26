@@ -100,7 +100,7 @@ class RelationStatsPdf extends RelationStats
                     1,
                 ],
             ];
-            list ($a, $b, $c) = $case[$d];
+            [$a, $b, $c] = $case[$d];
             $e = 1 - ($j - 1) / 6;
             $this->diagram->SetDrawColor($a * 255 * $e, $b * 255 * $e, $c * 255 * $e);
         } else {

@@ -157,13 +157,13 @@ class Linter
         // Building the response.
         foreach ($errors as $idx => $error) {
             // Starting position of the string that caused the error.
-            list($fromLine, $fromColumn) = static::findLineNumberAndColumn(
+            [$fromLine, $fromColumn] = static::findLineNumberAndColumn(
                 $lines,
                 $error[3]
             );
 
             // Ending position of the string that caused the error.
-            list($toLine, $toColumn) = static::findLineNumberAndColumn(
+            [$toLine, $toColumn] = static::findLineNumberAndColumn(
                 $lines,
                 $error[3] + mb_strlen((string) $error[2])
             );

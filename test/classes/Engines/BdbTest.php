@@ -56,17 +56,11 @@ class BdbTest extends AbstractTestCase
                 'version_bdb' => [
                     'title' => __('Version information'),
                 ],
-                'bdb_cache_size' => [
-                    'type'  => 1,
-                ],
+                'bdb_cache_size' => ['type' => 1],
                 'bdb_home' => [],
-                'bdb_log_buffer_size' => [
-                    'type'  => 1,
-                ],
+                'bdb_log_buffer_size' => ['type' => 1],
                 'bdb_logdir' => [],
-                'bdb_max_lock' => [
-                    'type'  => 2,
-                ],
+                'bdb_max_lock' => ['type' => 2],
                 'bdb_shared_data' => [],
                 'bdb_tmpdir' => [],
                 'bdb_data_direct' => [],

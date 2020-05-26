@@ -64,14 +64,10 @@ class ExportTest extends AbstractTestCase
                 'alias' => 'test',
                 'tables' => [
                     'foo' => [
-                        'columns' => [
-                            'bar' => 'foobar',
-                        ],
+                        'columns' => ['bar' => 'foobar'],
                     ],
                     'baz' => [
-                        'columns' => [
-                            'a' => 'x',
-                        ],
+                        'columns' => ['a' => 'x'],
                     ],
                 ],
             ],
@@ -95,9 +91,7 @@ class ExportTest extends AbstractTestCase
                         ],
                     ],
                     'baz' => [
-                        'columns' => [
-                            'a' => 'x',
-                        ],
+                        'columns' => ['a' => 'x'],
                     ],
                 ],
             ],
