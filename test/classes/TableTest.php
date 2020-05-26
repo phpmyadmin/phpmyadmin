@@ -890,7 +890,8 @@ class TableTest extends AbstractTestCase
             $where_fields,
             $new_fields
         );
-        $this->assertTrue(
+        $this->assertSame(
+            -1,
             $ret
         );
     }
