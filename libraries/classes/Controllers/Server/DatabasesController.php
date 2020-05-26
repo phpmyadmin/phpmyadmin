@@ -2,6 +2,7 @@
 /**
  * Holds the PhpMyAdmin\Controllers\Server\DatabasesController
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;

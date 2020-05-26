@@ -2,6 +2,7 @@
 /**
  * phpinfo() wrapper to allow displaying only when configured to do so.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;

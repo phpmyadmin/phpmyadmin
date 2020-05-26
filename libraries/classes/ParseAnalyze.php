@@ -2,6 +2,7 @@
 /**
  * Parse and analyse a SQL query
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

@@ -2,6 +2,7 @@
 /**
  * Abstract class for syntax highlighted editors using CodeMirror
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Abs;

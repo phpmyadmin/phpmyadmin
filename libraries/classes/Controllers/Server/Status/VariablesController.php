@@ -2,6 +2,7 @@
 /**
  * Displays a list of server status variables
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;

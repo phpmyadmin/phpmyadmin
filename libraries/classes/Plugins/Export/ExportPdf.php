@@ -2,6 +2,7 @@
 /**
  * Produce a PDF report (export) from a query
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;

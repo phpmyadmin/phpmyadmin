@@ -2,6 +2,7 @@
 /**
  * Abstract class for the prepend/append transformations plugins
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Abs;

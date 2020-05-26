@@ -2,6 +2,7 @@
 /**
  * Tests zip extension usage.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;

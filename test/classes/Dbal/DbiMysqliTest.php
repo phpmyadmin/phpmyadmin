@@ -2,6 +2,7 @@
 /**
  * Tests for PhpMyAdmin\Dbi\DbiMysqli class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Dbal;

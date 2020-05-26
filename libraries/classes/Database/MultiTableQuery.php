@@ -2,6 +2,7 @@
 /**
  * Handles DB Multi-table query
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Database;

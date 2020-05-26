@@ -2,6 +2,7 @@
 /**
  * Handles plugins that show the upload progress
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Display;

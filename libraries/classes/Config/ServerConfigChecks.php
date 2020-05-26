@@ -2,6 +2,7 @@
 /**
  * Server config checks management
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Config;

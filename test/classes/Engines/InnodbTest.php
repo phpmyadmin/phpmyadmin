@@ -2,6 +2,7 @@
 /**
  * Tests for PMA_StorageEngine_innodb
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Engines;

@@ -2,6 +2,7 @@
 /**
  * Text Plain Prepend/Append Transformations plugin for phpMyAdmin
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations;

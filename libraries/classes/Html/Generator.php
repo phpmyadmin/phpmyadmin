@@ -2,6 +2,7 @@
 /**
  * HTML Generator
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Html;
@@ -82,7 +83,7 @@ class Generator
     public static function linkToVarDocumentation(
         string $name,
         bool $useMariaDB = false,
-        string $text = null
+        ?string $text = null
     ): string {
         $html = '';
         try {

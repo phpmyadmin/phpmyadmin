@@ -2,6 +2,7 @@
 /**
  * Used to render the console of PMA's pages
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

@@ -2,6 +2,7 @@
 /**
  * Contains PhpMyAdmin\Plugins\Schema\Pdf\TableStatsPdf class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Pdf;

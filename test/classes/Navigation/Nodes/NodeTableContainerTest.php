@@ -2,6 +2,7 @@
 /**
  * Tests for PhpMyAdmin\Navigation\Nodes\NodeTableContainer class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation\Nodes;

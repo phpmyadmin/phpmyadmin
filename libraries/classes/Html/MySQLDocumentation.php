@@ -2,6 +2,7 @@
 /**
  * Generate HTML for MySQL Documentation
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Html;

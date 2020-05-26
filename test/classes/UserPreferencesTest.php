@@ -2,6 +2,7 @@
 /**
  * tests for methods under PhpMyAdmin\UserPreferences class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;

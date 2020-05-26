@@ -2,6 +2,7 @@
 /**
  * tests for sysinfo library
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Server\SysInfo;

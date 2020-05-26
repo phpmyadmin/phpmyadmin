@@ -2,6 +2,7 @@
 /**
  * Static methods for URL/hidden inputs generating
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

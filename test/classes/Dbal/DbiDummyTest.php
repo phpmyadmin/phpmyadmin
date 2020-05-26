@@ -2,6 +2,7 @@
 /**
  * Test for faked database access
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Dbal;

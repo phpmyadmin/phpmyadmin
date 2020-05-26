@@ -2,6 +2,7 @@
 /**
  * Classes to create relation schema in Dia format.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Dia;

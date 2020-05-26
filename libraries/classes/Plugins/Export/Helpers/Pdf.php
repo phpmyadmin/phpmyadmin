@@ -2,6 +2,7 @@
 /**
  * PhpMyAdmin\Plugins\Export\Helpers\Pdf class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export\Helpers;

@@ -6,6 +6,7 @@
  * respectively, what make it easy to determine whether the output is correct in test
  * suite. Feel free to modify for any future test needs.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Stubs;

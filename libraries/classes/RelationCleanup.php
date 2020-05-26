@@ -2,6 +2,7 @@
 /**
  * Set of functions used for cleaning up phpMyAdmin tables
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

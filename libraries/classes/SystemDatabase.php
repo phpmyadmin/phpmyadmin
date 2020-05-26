@@ -2,6 +2,7 @@
 /**
  * hold PhpMyAdmin\SystemDatabase class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

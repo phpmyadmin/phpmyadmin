@@ -3,6 +3,7 @@
 /**
  * Holds the PhpMyAdmin\Controllers\Server\PluginsController
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;

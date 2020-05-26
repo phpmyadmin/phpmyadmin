@@ -2,6 +2,7 @@
 /**
  * Abstract class for the regex validation input transformations plugins
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Abs;

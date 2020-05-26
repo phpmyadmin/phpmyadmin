@@ -2,6 +2,7 @@
 /**
  * Holds the PhpMyAdmin\Controllers\Server\Status\ProcessesController
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;

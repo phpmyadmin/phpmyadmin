@@ -2,6 +2,7 @@
 /**
  * Translates advisory rules to Gettext format
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Command;

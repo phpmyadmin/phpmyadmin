@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Dbal;
@@ -256,7 +257,7 @@ interface DbalInterface
      * @param string $table    name of table to retrieve columns from
      * @param mixed  $link     mysql link resource
      *
-     * @return null|array
+     * @return array|null
      */
     public function getColumnNames(
         string $database,

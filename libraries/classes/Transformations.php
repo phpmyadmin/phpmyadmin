@@ -12,6 +12,7 @@
  * Please provide a comment for your function,
  * what it does and what parameters are available.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

@@ -2,6 +2,7 @@
 /**
  * Main interface for database interactions
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
@@ -113,7 +114,7 @@ class DatabaseInterface implements DbalInterface
     /** @var array Current user and host cache */
     private $_current_user;
 
-    /** @var null|string lower_case_table_names value cache */
+    /** @var string|null lower_case_table_names value cache */
     private $_lower_case_table_names = null;
 
     /** @var bool Whether connection is MariaDB */
@@ -1373,7 +1374,7 @@ class DatabaseInterface implements DbalInterface
      * @param string $table    name of table to retrieve columns from
      * @param mixed  $link     mysql link resource
      *
-     * @return null|array
+     * @return array|null
      */
     public function getColumnNames(
         string $database,
@@ -1793,7 +1794,7 @@ class DatabaseInterface implements DbalInterface
      * Returns row or element of a row
      *
      * @param array           $row   Row to process
-     * @param string|null|int $value Which column to return
+     * @param string|int|null $value Which column to return
      *
      * @return mixed
      */

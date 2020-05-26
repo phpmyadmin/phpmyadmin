@@ -2,6 +2,7 @@
 /**
  * MediaWiki import plugin for phpMyAdmin
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;

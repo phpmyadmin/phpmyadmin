@@ -2,6 +2,7 @@
 /**
  * tests for FormDisplay class in config folder
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Config;

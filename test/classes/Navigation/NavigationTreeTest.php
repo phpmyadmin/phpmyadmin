@@ -2,6 +2,7 @@
 /**
  * Test for PhpMyAdmin\Navigation\NavigationTree class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation;

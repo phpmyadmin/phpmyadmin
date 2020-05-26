@@ -1123,8 +1123,7 @@ class StructureController extends AbstractController
             $databaseCharset = $collation->getCharset();
         }
 
-        // table form
-        $html .= $this->template->render('database/structure/table_header', [
+        return $html . $this->template->render('database/structure/table_header', [
             'db' => $this->db,
             'db_is_system_schema' => $this->dbIsSystemSchema,
             'replication' => $GLOBALS['replication_info']['slave']['status'],
@@ -1171,8 +1170,6 @@ class StructureController extends AbstractController
                 'central_columns_work' => $GLOBALS['cfgRelation']['centralcolumnswork'] ?? null,
             ],
         ]);
-
-        return $html;
     }
 
     /**

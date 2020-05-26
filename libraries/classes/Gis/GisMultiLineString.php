@@ -2,6 +2,7 @@
 /**
  * Handles actions related to GIS MULTILINESTRING objects
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;

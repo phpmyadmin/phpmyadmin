@@ -2,6 +2,7 @@
 /**
  * Tests for EpsRelationSchema class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Schema;

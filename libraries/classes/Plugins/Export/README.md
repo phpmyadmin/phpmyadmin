@@ -13,6 +13,7 @@ some plugins for your use, you can directly use texts in plugin.
  * @package    PhpMyAdmin-Export
  * @subpackage [Name]
  */
+
 declare(strict_types=1);
 
 /**

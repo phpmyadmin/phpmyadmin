@@ -2,6 +2,7 @@
 /**
  * Classes to create relation schema in EPS format.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Eps;

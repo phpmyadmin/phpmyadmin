@@ -2,6 +2,7 @@
 /**
  * Handles the IPv4/IPv6 to binary transformation for text plain
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Input;

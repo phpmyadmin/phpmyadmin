@@ -2,6 +2,7 @@
 /**
  * Set of functions used with the relation and PDF feature
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

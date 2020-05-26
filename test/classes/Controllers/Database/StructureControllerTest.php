@@ -4,6 +4,7 @@
  *
  * this class is for testing StructureController class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Database;

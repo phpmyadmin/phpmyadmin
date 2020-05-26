@@ -2,6 +2,7 @@
 /**
  * Tests for PhpMyAdmin\Navigation\Nodes\NodeViewContainer class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation\Nodes;

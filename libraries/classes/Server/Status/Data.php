@@ -3,6 +3,7 @@
  * PhpMyAdmin\Server\Status\Data class
  * Used by server_status_*.php pages
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Server\Status;

@@ -2,6 +2,7 @@
 /**
  * Base class for phpMyAdmin tests
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;

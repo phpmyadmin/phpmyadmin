@@ -2,6 +2,7 @@
 /**
  * Test for PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation\Nodes;

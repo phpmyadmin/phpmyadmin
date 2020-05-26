@@ -2,6 +2,7 @@
 /**
  * holds the database index columns class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

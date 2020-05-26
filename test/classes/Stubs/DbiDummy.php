@@ -6,6 +6,7 @@
  * in testsuite. Feel free to include other queries which your test will
  * need.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Stubs;
@@ -31,9 +32,6 @@ class DbiDummy implements DbiExtension
     /** @var array */
     private $_queries = [];
 
-    /**
-     * @var int
-     */
     public const OFFSET_GLOBAL = 1000;
 
     public function __construct()

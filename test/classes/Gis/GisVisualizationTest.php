@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisVisualization;

@@ -2,6 +2,7 @@
 /**
  * Holds the PhpMyAdmin\Controllers\Database\DataDictionaryController
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;

@@ -2,6 +2,7 @@
 /**
  * Get user's global privileges and some db-specific privileges
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

@@ -2,6 +2,7 @@
 /**
  * Tests for PhpMyAdmin\CreateAddField
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;

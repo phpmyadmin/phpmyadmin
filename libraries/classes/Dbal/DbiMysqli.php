@@ -2,6 +2,7 @@
 /**
  * Interface to the MySQL Improved extension (MySQLi)
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Dbal;

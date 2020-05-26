@@ -2,6 +2,7 @@
 /**
  * set of functions with the Privileges section in pma
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Server;

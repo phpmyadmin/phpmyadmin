@@ -2,6 +2,7 @@
 /**
  * Tests for libraries/SystemDatabase.php
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;

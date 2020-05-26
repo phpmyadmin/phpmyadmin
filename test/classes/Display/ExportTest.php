@@ -2,6 +2,7 @@
 /**
  * tests for PhpMyAdmin\Display\Export
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Display;

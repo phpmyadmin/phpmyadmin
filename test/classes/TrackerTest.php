@@ -2,6 +2,7 @@
 /**
  * Tests for PhpMyAdmin\Tracker
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;

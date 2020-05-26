@@ -2,6 +2,7 @@
 /**
  * tests for Pdf class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;

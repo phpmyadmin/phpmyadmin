@@ -2,6 +2,7 @@
 /**
  * Code for displaying server selection
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Server;

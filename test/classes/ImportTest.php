@@ -2,6 +2,7 @@
 /**
  * Test for PhpMyAdmin\Import
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;

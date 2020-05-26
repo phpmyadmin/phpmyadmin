@@ -2,6 +2,7 @@
 /**
  * Selenium TestCase for change password related tests
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;

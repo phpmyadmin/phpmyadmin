@@ -2,6 +2,7 @@
 /**
  * Holds the PhpMyAdmin\Controllers\Setup\AbstractController
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Setup;

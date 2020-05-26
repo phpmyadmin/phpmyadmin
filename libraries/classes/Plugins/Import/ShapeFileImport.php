@@ -3,6 +3,7 @@
  * This class extends ShapeFile class to cater the following phpMyAdmin
  * specific requirements.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;

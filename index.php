@@ -2,6 +2,7 @@
 /**
  * Main loader script
  */
+
 declare(strict_types=1);
 
 use PhpMyAdmin\Routing;

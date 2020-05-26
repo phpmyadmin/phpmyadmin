@@ -27,6 +27,7 @@
  * - db connection
  * - authentication work
  */
+
 declare(strict_types=1);
 
 use PhpMyAdmin\Config;

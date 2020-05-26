@@ -3,6 +3,7 @@
  * Contains PhpMyAdmin\Plugins\Schema\ExportRelationSchema class which is
  * inherited by all schema classes.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema;

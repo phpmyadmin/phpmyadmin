@@ -21,6 +21,7 @@
  * warnings about the lack of privileges for CREATE TABLE. Tested
  * on MySQL 5.0.18.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Display;

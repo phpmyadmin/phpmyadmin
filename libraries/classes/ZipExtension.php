@@ -2,6 +2,7 @@
 /**
  * Interface for the zip extension
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

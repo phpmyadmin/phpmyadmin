@@ -2,6 +2,7 @@
 /**
  * Test for \PhpMyAdmin\Html\MySQLDocumentation class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Html;

@@ -3,6 +3,7 @@
  * This class is responsible for instantiating
  * the various components of the navigation panel
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation;

@@ -2,6 +2,7 @@
 /**
  * Library for extracting information about the sub-partitions
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

@@ -2,6 +2,7 @@
 /**
  * Superclass for the Property Group classes.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Properties\Options;

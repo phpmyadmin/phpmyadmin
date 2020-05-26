@@ -2,6 +2,7 @@
 /**
  * SQL data types definition
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

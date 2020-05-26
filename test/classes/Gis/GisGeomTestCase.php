@@ -2,6 +2,7 @@
 /**
  * Abstract parent class for all Gis<Geom_type> test classes
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;

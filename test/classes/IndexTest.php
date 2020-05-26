@@ -2,6 +2,7 @@
 /**
  * Test for Index class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;

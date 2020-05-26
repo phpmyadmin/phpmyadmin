@@ -2,6 +2,7 @@
 /**
  * Set of functions used to build dumps of tables as PHP Arrays
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;

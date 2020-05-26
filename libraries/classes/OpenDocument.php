@@ -2,6 +2,7 @@
 /**
  * Simple interface for creating OASIS OpenDocument files.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

@@ -2,6 +2,7 @@
 /**
  * tests for PhpMyAdmin\Normalization
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;

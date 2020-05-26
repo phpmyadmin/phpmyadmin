@@ -2,6 +2,7 @@
 /**
  * Library for extracting information about the available storage engines
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

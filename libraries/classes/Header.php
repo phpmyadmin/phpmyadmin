@@ -2,6 +2,7 @@
 /**
  * Used to render the header of PMA's pages
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

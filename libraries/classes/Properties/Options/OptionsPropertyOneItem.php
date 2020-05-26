@@ -2,6 +2,7 @@
 /**
  * Superclass for the single Property Item classes.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Properties\Options;

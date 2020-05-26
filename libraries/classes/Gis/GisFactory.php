@@ -2,6 +2,7 @@
 /**
  * Contains the factory class that handles the creation of geometric objects
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;

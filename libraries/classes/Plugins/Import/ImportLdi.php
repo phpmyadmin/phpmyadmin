@@ -2,6 +2,7 @@
 /**
  * CSV import plugin for phpMyAdmin using LOAD DATA
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;

@@ -1239,9 +1239,8 @@ class Routines
                     . mb_strtoupper($_POST['item_returnopts_num']);
             }
         }
-        $query .= ' ';
 
-        return $query;
+        return $query . ' ';
     }
 
     /**
@@ -1633,7 +1632,7 @@ class Routines
      *
      * @param array $row Columns
      *
-     * @return null|string
+     * @return string|null
      */
     private function browseRow(array $row): ?string
     {

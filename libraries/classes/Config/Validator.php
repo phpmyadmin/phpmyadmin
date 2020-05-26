@@ -2,6 +2,7 @@
 /**
  * Form validation for configuration editor
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Config;

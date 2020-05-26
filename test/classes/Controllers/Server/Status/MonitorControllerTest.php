@@ -2,6 +2,7 @@
 /**
  * Holds MonitorControllerTest
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server\Status;

@@ -3,6 +3,7 @@
  * The top-level class of the "Options" subtree of the object-oriented
  * properties system (the other subtree is "Plugin").
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Properties\Options;

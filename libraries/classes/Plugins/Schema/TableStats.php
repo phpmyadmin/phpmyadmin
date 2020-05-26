@@ -2,6 +2,7 @@
 /**
  * Contains abstract class to hold table preferences/statistics
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema;

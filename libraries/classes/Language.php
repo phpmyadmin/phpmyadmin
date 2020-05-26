@@ -2,6 +2,7 @@
 /**
  * Hold the PhpMyAdmin\Language class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

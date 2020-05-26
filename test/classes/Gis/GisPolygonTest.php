@@ -2,6 +2,7 @@
 /**
  * Test for PhpMyAdmin\Gis\GisPolygon
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;

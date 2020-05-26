@@ -3,6 +3,7 @@
  * HTTP Authentication plugin for phpMyAdmin.
  * NOTE: Requires PHP loaded as a Apache module.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Auth;

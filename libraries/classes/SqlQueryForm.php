@@ -8,6 +8,7 @@
  * @usedby  /table/structure
  * @usedby  /table/tracking
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

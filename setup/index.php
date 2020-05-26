@@ -2,6 +2,7 @@
 /**
  * Front controller for setup script
  */
+
 declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Setup\ConfigController;

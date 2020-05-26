@@ -2,6 +2,7 @@
 /**
  * Generates and renders the top menu
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

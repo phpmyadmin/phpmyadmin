@@ -2,6 +2,7 @@
 /**
  * Tests for all input/output transformation plugins
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Transformations;

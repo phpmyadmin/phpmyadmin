@@ -2,6 +2,7 @@
 /**
  * Base class for preferences.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Config\Forms;

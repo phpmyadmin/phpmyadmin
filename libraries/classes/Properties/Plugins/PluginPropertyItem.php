@@ -3,6 +3,7 @@
  * The top-level class of the "Plugin" subtree of the object-oriented
  * properties system (the other subtree is "Options").
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Properties\Plugins;

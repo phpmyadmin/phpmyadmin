@@ -2,6 +2,7 @@
 /**
  * tests for PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Properties\Options\Groups;

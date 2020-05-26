@@ -2,6 +2,7 @@
 /**
  * MySQL charset metadata and manipulations
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

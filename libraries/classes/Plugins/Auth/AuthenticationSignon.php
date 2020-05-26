@@ -2,6 +2,7 @@
 /**
  * SignOn Authentication plugin for phpMyAdmin
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Auth;
@@ -53,7 +54,7 @@ class AuthenticationSignon extends AuthenticationPlugin
      *
      * @param array $sessionCookieParams The cookie params
      */
-    public function setCookieParams(array $sessionCookieParams = null): void
+    public function setCookieParams(?array $sessionCookieParams = null): void
     {
         /* Session cookie params from config */
         if ($sessionCookieParams === null) {

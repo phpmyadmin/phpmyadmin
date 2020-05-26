@@ -4,6 +4,7 @@
  *
  * This includes web server specific code to log some information.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

@@ -2,6 +2,7 @@
 /**
  * Validation callback.
  */
+
 declare(strict_types=1);
 
 use PhpMyAdmin\Config\Validator;

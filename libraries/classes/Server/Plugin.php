@@ -2,6 +2,7 @@
 /**
  * Server Plugin value object
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Server;

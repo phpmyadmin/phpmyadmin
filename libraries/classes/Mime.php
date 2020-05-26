@@ -4,6 +4,7 @@
  *
  * @todo Maybe we could try to use fileinfo module if loaded
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

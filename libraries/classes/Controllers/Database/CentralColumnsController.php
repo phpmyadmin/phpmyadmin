@@ -2,6 +2,7 @@
 /**
  * Central Columns view/edit
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;

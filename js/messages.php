@@ -2,6 +2,7 @@
 /**
  * Exporting of translated messages from PHP to Javascript
  */
+
 declare(strict_types=1);
 
 use PhpMyAdmin\OutputBuffering;

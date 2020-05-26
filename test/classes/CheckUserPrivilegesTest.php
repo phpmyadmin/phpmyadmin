@@ -2,6 +2,7 @@
 /**
  * tests for PhpMyAdmin\CheckUserPrivileges
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;

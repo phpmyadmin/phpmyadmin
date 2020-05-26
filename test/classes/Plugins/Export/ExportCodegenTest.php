@@ -2,6 +2,7 @@
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportCodegen class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export;

@@ -2,6 +2,7 @@
 /**
  * tests for environment like OS, PHP, modules, ...
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;

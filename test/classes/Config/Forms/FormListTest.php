@@ -2,6 +2,7 @@
 /**
  * tests for FormList classes in config folder
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Config\Forms;

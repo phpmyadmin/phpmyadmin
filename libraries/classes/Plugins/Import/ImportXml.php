@@ -4,6 +4,7 @@
  *
  * @todo       Improve efficiency
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;

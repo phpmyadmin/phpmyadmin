@@ -2,6 +2,7 @@
 /**
  * Tests for Config File Management
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Config;
@@ -19,8 +20,6 @@ class ConfigFileTest extends AbstractTestCase
 {
     /**
      * Any valid key that exists in config.default.php and isn't empty
-     *
-     * @var string
      */
     public const SIMPLE_KEY_WITH_DEFAULT_VALUE = 'DefaultQueryTable';
 

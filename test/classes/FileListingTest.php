@@ -1,7 +1,6 @@
 <?php
-/**
- * Tests for PhpMyAdmin\FileListing
- */
+
+declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 

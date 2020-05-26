@@ -2,6 +2,7 @@
 /**
  * Tests for PMA_StorageEngine_myisam
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Engines;

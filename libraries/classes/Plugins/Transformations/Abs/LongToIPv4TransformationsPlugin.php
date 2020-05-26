@@ -2,6 +2,7 @@
 /**
  * Abstract class for the long to IPv4 transformations plugins
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Abs;

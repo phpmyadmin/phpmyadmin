@@ -2,6 +2,7 @@
 /**
  * Hold the PhpMyAdmin\Utils\HttpRequest class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Utils;
@@ -89,7 +90,7 @@ class HttpRequest
      * @param int   $httpStatus       HTTP response status code
      * @param bool  $returnOnlyStatus If set to true, the method would only return response status
      *
-     * @return string|null|bool
+     * @return string|bool|null
      */
     private function response(
         $response,
@@ -119,7 +120,7 @@ class HttpRequest
      * @param string $header           Header to be set for the HTTP request
      * @param int    $ssl              SSL mode to use
      *
-     * @return string|null|bool
+     * @return string|bool|null
      */
     private function curl(
         $url,
@@ -221,7 +222,7 @@ class HttpRequest
      * @param mixed  $content          Content to be sent with HTTP request
      * @param string $header           Header to be set for the HTTP request
      *
-     * @return string|null|bool
+     * @return string|bool|null
      */
     private function fopen(
         $url,
@@ -270,7 +271,7 @@ class HttpRequest
      * @param mixed  $content          Content to be sent with HTTP request
      * @param string $header           Header to be set for the HTTP request
      *
-     * @return string|null|bool
+     * @return string|bool|null
      */
     public function create(
         $url,

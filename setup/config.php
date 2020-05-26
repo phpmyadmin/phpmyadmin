@@ -2,6 +2,7 @@
 /**
  * Front controller for config view / download and clear
  */
+
 declare(strict_types=1);
 
 use PhpMyAdmin\Config\Forms\Setup\ConfigForm;

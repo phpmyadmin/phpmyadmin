@@ -2,6 +2,7 @@
 /**
  * Tests for PMA_StorageEngine_ndbcluster
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Engines;

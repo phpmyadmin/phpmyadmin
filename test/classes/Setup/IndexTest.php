@@ -2,6 +2,7 @@
 /**
  * tests for methods under PhpMyAdmin\Setup\Index
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Setup;

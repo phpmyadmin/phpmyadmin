@@ -2,6 +2,7 @@
 /**
  * Editor for Geometry data types.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;

@@ -2,6 +2,7 @@
 /**
  * functions for displaying server, database and table export
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Display;

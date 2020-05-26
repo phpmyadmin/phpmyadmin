@@ -2,6 +2,7 @@
 /**
  * Class for exporting CSV dumps of tables for excel
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;

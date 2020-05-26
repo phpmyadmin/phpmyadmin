@@ -2,6 +2,7 @@
 /**
  * Recent and Favorite table list handling
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

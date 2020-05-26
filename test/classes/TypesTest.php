@@ -2,6 +2,7 @@
 /**
  * Tests for Types.php
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;

@@ -2,6 +2,7 @@
 /**
  * Set of functions used to build MediaWiki dumps of tables
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;

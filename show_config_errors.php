@@ -2,6 +2,7 @@
 /**
  * Simple wrapper just to enable error reporting and include config
  */
+
 declare(strict_types=1);
 
 if (! defined('ROOT_PATH')) {

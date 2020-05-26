@@ -2,6 +2,7 @@
 /**
  * Git inspection
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
@@ -383,9 +384,9 @@ class Git
     /**
      * Is the commit remote
      *
-     * @param mixed   $commit         The commit
-     * @param boolean $isRemoteCommit Is the commit remote ?, will be modified by reference
-     * @param string  $hash           The commit hash
+     * @param mixed  $commit         The commit
+     * @param bool   $isRemoteCommit Is the commit remote ?, will be modified by reference
+     * @param string $hash           The commit hash
      *
      * @return stdClass|null The commit body from the GitHub API
      */

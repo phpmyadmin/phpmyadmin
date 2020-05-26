@@ -2,6 +2,7 @@
 /**
  * Provides upload functionalities for the import plugins
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import\Upload;

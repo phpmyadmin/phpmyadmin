@@ -2,6 +2,7 @@
 /**
  * Holds the PhpMyAdmin\Controllers\Database\MultiTableQueryController
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;

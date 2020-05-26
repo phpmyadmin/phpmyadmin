@@ -2,6 +2,7 @@
 /**
  * PDF schema handling
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Pdf;

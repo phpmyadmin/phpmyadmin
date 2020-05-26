@@ -3,6 +3,7 @@
  * This library is used with the server IP allow/deny host authentication
  * feature
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

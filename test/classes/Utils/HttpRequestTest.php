@@ -2,6 +2,7 @@
 /**
  * tests for PhpMyAdmin\Utils\HttpRequest class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Utils;

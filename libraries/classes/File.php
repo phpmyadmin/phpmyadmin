@@ -186,8 +186,7 @@ class File
     /**
      * Gets file content
      *
-     * @return string|null|false the binary file content,
-     *                           or false if no content
+     * @return string|false|null the binary file content, or false if no content
      *
      * @access public
      */

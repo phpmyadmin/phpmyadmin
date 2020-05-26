@@ -3,6 +3,7 @@
  * Database with allowed values for configuration stored in the $cfg array,
  * used by setup script and user preferences to generate forms.
  */
+
 declare(strict_types=1);
 
 if (! defined('PHPMYADMIN')) {

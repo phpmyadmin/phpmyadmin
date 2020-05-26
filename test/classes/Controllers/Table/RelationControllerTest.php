@@ -2,6 +2,7 @@
 /**
  * Tests for PhpMyAdmin\Controllers\Table\RelationController
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;

@@ -2,6 +2,7 @@
 /**
  * Holds the PhpMyAdmin\Controllers\Setup\HomeController
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Setup;

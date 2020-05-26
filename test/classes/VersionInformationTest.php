@@ -2,6 +2,7 @@
 /**
  * Tests for methods in PhpMyAdmin\VersionInformation class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;

@@ -9,6 +9,7 @@
  * o translated_path - work_path modified for HTML field name, a path with
  *                     slashes changed to hyphens, eg. Servers-4-verbose
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Config;

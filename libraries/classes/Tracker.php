@@ -2,6 +2,7 @@
 /**
  * Tracking changes on databases, tables and views
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

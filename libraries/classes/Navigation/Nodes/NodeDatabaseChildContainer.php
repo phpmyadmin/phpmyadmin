@@ -2,6 +2,7 @@
 /**
  * Represents container node that carries children of a database
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;

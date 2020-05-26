@@ -2,6 +2,7 @@
 /**
  * Functions for the replication GUI
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

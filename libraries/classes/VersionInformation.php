@@ -2,6 +2,7 @@
 /**
  * Responsible for retrieving version information and notifiying about latest version
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

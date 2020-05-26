@@ -2,6 +2,7 @@
 /**
  * Holds TransformationOverviewControllerTest class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers;

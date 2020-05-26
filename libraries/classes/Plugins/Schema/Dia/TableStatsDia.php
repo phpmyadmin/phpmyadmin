@@ -2,6 +2,7 @@
 /**
  * Contains PhpMyAdmin\Plugins\Schema\Dia\TableStatsDia class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Dia;

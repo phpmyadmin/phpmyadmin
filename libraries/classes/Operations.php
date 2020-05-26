@@ -2,6 +2,7 @@
 /**
  * Holds the PhpMyAdmin\Operations class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

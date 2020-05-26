@@ -2,6 +2,7 @@
 /**
  * tests for PhpMyAdmin\Properties\Plugins\ExportPluginProperties class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Properties\Plugins;

@@ -2,6 +2,7 @@
 /**
  * set of functions with the insert/edit features in pma
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

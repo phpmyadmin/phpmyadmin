@@ -2,6 +2,7 @@
 /**
  * hold PhpMyAdmin\Template class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
@@ -45,9 +46,6 @@ class Template
      */
     protected static $twig;
 
-    /**
-     * @var string
-     */
     public const BASE_PATH = 'templates/';
 
     public function __construct()

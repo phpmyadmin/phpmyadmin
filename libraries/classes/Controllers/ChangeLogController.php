@@ -2,6 +2,7 @@
 /**
  * Simple script to set correct charset for changelog
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;

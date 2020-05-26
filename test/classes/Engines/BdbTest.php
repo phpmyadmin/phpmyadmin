@@ -2,6 +2,7 @@
 /**
  * Tests for PhpMyAdmin\Engines\Bdb
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Engines;

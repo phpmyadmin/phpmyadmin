@@ -2,6 +2,7 @@
 /**
  * Migration from home-made DI to Symfony DI
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Di;

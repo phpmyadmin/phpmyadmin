@@ -2,6 +2,7 @@
 /**
  * Functionality for the navigation tree
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation;

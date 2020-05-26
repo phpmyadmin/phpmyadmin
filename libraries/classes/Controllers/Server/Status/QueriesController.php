@@ -2,6 +2,7 @@
 /**
  * Displays query statistics for the server
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;

@@ -2,6 +2,7 @@
 /**
  * Holds the PhpMyAdmin\Controllers\Setup\ConfigController
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Setup;

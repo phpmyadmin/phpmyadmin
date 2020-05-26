@@ -2,6 +2,7 @@
 /**
  * Analyzes a query and gives user feedback.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

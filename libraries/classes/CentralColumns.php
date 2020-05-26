@@ -2,6 +2,7 @@
 /**
  * Functions for displaying user preferences pages
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

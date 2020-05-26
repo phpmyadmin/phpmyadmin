@@ -2,6 +2,7 @@
 /**
  * Handles actions related to GIS MULTIPOINT objects
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;

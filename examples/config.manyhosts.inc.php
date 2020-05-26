@@ -5,6 +5,7 @@
  * a new host, just drop it into $hosts below. Contributed by
  * Matthew Hawkins.
  */
+
 declare(strict_types=1);
 
 $i = 0;

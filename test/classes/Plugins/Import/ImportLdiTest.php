@@ -2,6 +2,7 @@
 /**
  * Tests for PhpMyAdmin\Plugins\Import\ImportLdi class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Import;

@@ -2,6 +2,7 @@
 /**
  * Export to Texy! text.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;

@@ -2,6 +2,7 @@
 /**
  * Holds the PhpMyAdmin\Database\Designer\Common class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Database\Designer;
@@ -51,7 +52,7 @@ class Common
      *
      * @return DesignerTable[] with table info
      */
-    public function getTablesInfo(string $db = null, string $table = null): array
+    public function getTablesInfo(?string $db = null, ?string $table = null): array
     {
         $designerTables = [];
         $db = $db ?? $GLOBALS['db'];
@@ -556,7 +557,7 @@ class Common
      * @param string $table table name
      * @param string $field display field name
      *
-     * @return array<int,string|null|bool>
+     * @return array<int, (string|bool|null)>
      */
     public function saveDisplayField($db, $table, $field): array
     {

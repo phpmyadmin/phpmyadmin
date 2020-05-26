@@ -2,6 +2,7 @@
 /**
  * Set of functions for the SQL executor
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
@@ -1433,7 +1434,7 @@ class Sql
      * @param int              $unlim_num_rows       unlimited number of rows
      * @param int              $num_rows             number of rows
      * @param bool             $showtable            whether to show table or not
-     * @param object|null|bool $result               result of the executed query
+     * @param object|bool|null $result               result of the executed query
      * @param array            $analyzed_sql_results analyzed sql results
      * @param bool             $is_limited_display   Show only limited operations or not
      *

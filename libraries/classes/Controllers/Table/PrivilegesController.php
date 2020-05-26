@@ -2,6 +2,7 @@
 /**
  * Controller for table privileges
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;

@@ -2,6 +2,7 @@
 /**
  * tests for PhpMyAdmin\ErrorReport
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;

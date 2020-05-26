@@ -2,6 +2,7 @@
 /**
  * Handles actions related to GIS MULTIPOLYGON objects
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;

@@ -2,6 +2,7 @@
 /**
  * Image JPEG Upload Input Transformations plugin for phpMyAdmin
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Input;

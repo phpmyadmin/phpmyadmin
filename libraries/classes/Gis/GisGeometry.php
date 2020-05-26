@@ -2,6 +2,7 @@
 /**
  * Base class for all GIS data type classes
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;

@@ -2,6 +2,7 @@
 /**
  * URL redirector to avoid leaking Referer with some sensitive information.
  */
+
 declare(strict_types=1);
 
 use PhpMyAdmin\Core;

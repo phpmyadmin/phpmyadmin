@@ -2,6 +2,7 @@
 /**
  * Holds the PhpMyAdmin\UserPreferences class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

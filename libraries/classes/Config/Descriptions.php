@@ -2,6 +2,7 @@
 /**
  * Verbose descriptions for settings.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Config;

@@ -2,6 +2,7 @@
 /**
  * Loads libraries/common.inc.php and preforms some additional actions
  */
+
 declare(strict_types=1);
 
 use PhpMyAdmin\Config\ConfigFile;

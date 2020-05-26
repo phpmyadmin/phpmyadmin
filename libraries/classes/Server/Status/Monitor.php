@@ -2,6 +2,7 @@
 /**
  * functions for displaying server status sub item: monitor
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Server\Status;

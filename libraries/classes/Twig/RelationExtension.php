@@ -2,6 +2,7 @@
 /**
  * hold PhpMyAdmin\Twig\RelationExtension class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Twig;

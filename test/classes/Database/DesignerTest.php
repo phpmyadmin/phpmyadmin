@@ -2,6 +2,7 @@
 /**
  * Tests for PhpMyAdmin\Database\Designer
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Database;

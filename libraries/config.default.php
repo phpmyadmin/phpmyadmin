@@ -15,6 +15,7 @@
  *
  * All directives are explained in the documentation
  */
+
 declare(strict_types=1);
 
 /**

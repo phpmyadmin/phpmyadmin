@@ -2,6 +2,7 @@
 /**
  * Class with Font related methods.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

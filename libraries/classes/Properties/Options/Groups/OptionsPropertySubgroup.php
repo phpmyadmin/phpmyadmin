@@ -2,6 +2,7 @@
 /**
  * Holds the PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Properties\Options\Groups;

@@ -2,6 +2,7 @@
 /**
  * Set of functions used to build YAML dumps of tables
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;

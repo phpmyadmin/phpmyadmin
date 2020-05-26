@@ -2,6 +2,7 @@
 /**
  * Tests for PhpMyAdmin\Controllers\Table\IndexesController
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;

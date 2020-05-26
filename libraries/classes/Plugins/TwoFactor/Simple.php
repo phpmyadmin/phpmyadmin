@@ -2,6 +2,7 @@
 /**
  * Second authentication factor handling
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\TwoFactor;

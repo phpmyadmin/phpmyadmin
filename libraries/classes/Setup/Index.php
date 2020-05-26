@@ -2,6 +2,7 @@
 /**
  * Various checks and message functions used on index page.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Setup;

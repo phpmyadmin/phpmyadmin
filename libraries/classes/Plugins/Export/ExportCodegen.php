@@ -2,6 +2,7 @@
 /**
  * Set of functions used to build NHibernate dumps of tables
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;

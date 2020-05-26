@@ -2,6 +2,7 @@
 /**
  * Contains functions used by browse foreigners
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

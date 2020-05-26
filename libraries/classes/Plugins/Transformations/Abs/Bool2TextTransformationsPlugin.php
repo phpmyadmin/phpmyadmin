@@ -2,6 +2,7 @@
 /**
  * Abstract class for the Bool2Text transformations plugins
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Abs;

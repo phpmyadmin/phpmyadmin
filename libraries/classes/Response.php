@@ -2,6 +2,7 @@
 /**
  * Manages the rendering of pages in PMA
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

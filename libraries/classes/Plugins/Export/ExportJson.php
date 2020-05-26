@@ -2,6 +2,7 @@
 /**
  * Set of methods used to build dumps of tables as JSON
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;

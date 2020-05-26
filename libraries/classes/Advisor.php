@@ -3,6 +3,7 @@
  * A simple rules engine, that parses and executes the rules in advisory_rules.txt.
  * Adjusted to phpMyAdmin.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

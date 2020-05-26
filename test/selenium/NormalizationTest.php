@@ -2,6 +2,7 @@
 /**
  * Selenium TestCase for normalization
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;

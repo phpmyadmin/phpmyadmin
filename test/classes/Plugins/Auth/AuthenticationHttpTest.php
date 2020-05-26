@@ -2,6 +2,7 @@
 /**
  * tests for PhpMyAdmin\Plugins\Auth\AuthenticationHttp class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Auth;

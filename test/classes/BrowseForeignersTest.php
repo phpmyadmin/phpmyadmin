@@ -2,6 +2,7 @@
 /**
  * Tests for PhpMyAdmin\BrowseForeigners
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;

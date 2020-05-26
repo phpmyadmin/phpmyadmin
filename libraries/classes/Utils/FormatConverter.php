@@ -2,6 +2,7 @@
 /**
  * Format converter
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Utils;
@@ -30,14 +31,14 @@ class FormatConverter
      */
     public static function binaryToIp($buffer)
     {
-        if (0 !== strpos($buffer, '0x')) {
+        if (strpos($buffer, '0x') !== 0) {
             return $buffer;
         }
 
         $ipHex = substr($buffer, 2);
         $ipBin = hex2bin($ipHex);
 
-        if (false === $ipBin) {
+        if ($ipBin === false) {
             return $buffer;
         }
 

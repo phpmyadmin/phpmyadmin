@@ -2,6 +2,7 @@
 /**
  * Handles DB QBE search
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Database;

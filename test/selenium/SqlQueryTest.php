@@ -2,6 +2,7 @@
 /**
  * Selenium TestCase for typing and executing SQL query tests
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;

@@ -2,6 +2,7 @@
 /**
  * Selenium TestCase for 'query by example' tests
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium\Database;

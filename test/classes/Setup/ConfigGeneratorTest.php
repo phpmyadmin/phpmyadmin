@@ -2,6 +2,7 @@
 /**
  * tests for methods under Config file generator
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Setup;

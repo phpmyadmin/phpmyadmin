@@ -2,6 +2,7 @@
 /**
  * Functionality for the navigation tree in the left frame
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
@@ -29,13 +30,7 @@ use function strstr;
  */
 class Node
 {
-    /**
-     * @var int Defines a possible node type
-     */
     public const CONTAINER = 0;
-    /**
-     * @var int Defines a possible node type
-     */
     public const OBJECT = 1;
     /**
      * @var string A non-unique identifier for the node

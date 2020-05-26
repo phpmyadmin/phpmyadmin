@@ -2,6 +2,7 @@
 /**
  * CSV export code
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;

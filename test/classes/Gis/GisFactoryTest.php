@@ -2,6 +2,7 @@
 /**
  * Test for PhpMyAdmin\Gis\GisFactory
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;

@@ -2,6 +2,7 @@
 /**
  * Handles visualization of GIS data
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;

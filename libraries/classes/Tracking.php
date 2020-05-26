@@ -2,6 +2,7 @@
 /**
  * Functions used for database and table tracking
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

@@ -2,6 +2,7 @@
 /**
  * Tests for Charset Conversions
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;

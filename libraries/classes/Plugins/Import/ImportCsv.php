@@ -4,6 +4,7 @@
  *
  * @todo       add an option for handling NULL values
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;

@@ -2,6 +2,7 @@
 /**
  * User preferences form
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Config\Forms;
@@ -44,7 +45,7 @@ class BaseFormList
     /**
      * @param string $name Name
      *
-     * @return null|string
+     * @return string|null
      */
     public static function get($name)
     {

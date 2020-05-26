@@ -2,6 +2,7 @@
 /**
  * Minimal config file for test
  */
+
 declare(strict_types=1);
 
 $i = 0;

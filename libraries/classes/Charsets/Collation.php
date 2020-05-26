@@ -2,6 +2,7 @@
 /**
  * Value object class for a collation
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Charsets;

@@ -2,6 +2,7 @@
 /**
  * Text link generator
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Html\ActionLinksModes;

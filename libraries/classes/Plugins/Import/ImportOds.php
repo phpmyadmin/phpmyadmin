@@ -5,6 +5,7 @@
  * @todo       Pretty much everything
  * @todo       Importing of accented characters seems to fail
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;

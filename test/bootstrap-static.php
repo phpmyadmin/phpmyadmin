@@ -2,6 +2,7 @@
 /**
  * Bootstrap file for phpstan and psalm
  */
+
 declare(strict_types=1);
 
 use PhpMyAdmin\Config;

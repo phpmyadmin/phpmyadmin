@@ -2,6 +2,7 @@
 /**
  * This class is responsible for creating Node objects
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation;

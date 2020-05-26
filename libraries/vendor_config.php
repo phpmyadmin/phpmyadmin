@@ -6,6 +6,7 @@
  * For changing this file you should know what you are doing. For this reason
  * options here are not part of normal configuration.
  */
+
 declare(strict_types=1);
 
 // phpcs:disable PSR1.Files.SideEffects

@@ -2,6 +2,7 @@
 /**
  * JSON editing with syntax highlighted CodeMirror editor
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Input;

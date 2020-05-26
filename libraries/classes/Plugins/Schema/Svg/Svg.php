@@ -2,6 +2,7 @@
 /**
  * Classes to create relation schema in SVG format.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Svg;

@@ -2,6 +2,7 @@
 /**
  * Text Plain Image Link Transformations plugin for phpMyAdmin
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Output;

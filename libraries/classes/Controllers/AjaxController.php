@@ -2,6 +2,7 @@
 /**
  * Generic AJAX endpoint for getting information about database
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;

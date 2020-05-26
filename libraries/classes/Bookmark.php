@@ -2,6 +2,7 @@
 /**
  * Handles bookmarking SQL queries
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

@@ -2,6 +2,7 @@
 /**
  * Links configuration for MySQL system tables
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Config;

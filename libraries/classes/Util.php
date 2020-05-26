@@ -2,6 +2,7 @@
 /**
  * Hold the PhpMyAdmin\Util class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
@@ -176,7 +177,7 @@ class Util
      *
      * @return string unqoted string
      */
-    public static function unQuote(string $quoted_string, string $quote = null): string
+    public static function unQuote(string $quoted_string, ?string $quote = null): string
     {
         $quotes = [];
 

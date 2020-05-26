@@ -2,6 +2,7 @@
 /**
  * Holds class Message
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

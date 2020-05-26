@@ -2,6 +2,7 @@
 /**
  * ActionLinksModesInterface builder
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Html\ActionLinksModes;

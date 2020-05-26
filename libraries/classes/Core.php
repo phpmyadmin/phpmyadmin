@@ -4,6 +4,7 @@
  * This script is distinct from libraries/common.inc.php because this
  * script is called from /test.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
@@ -647,7 +648,7 @@ class Core
      * @param array  $array   the array
      * @param mixed  $default default value
      *
-     * @return array|null|mixed    array element or $default
+     * @return array|mixed|null array element or $default
      */
     public static function arrayRead(string $path, array $array, $default = null)
     {

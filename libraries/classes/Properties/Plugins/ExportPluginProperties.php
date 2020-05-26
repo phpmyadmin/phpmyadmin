@@ -2,6 +2,7 @@
 /**
  * Properties class for the export plug-in
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Properties\Plugins;

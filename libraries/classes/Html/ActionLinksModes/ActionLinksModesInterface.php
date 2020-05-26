@@ -2,6 +2,7 @@
 /**
  * Interface for links (image, text, …)
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Html\ActionLinksModes;
