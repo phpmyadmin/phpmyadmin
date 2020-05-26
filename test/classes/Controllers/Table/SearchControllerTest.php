@@ -155,7 +155,7 @@ class SearchControllerTest extends AbstractTestCase
         $GLOBALS['dbi']->expects($this->any())->method('fetchAssoc')
             ->will(
                 $this->returnCallback(
-                    function () {
+                    static function () {
                         static $count = 0;
                         if ($count == 0) {
                             $count++;

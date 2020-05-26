@@ -481,7 +481,7 @@ class Config
          */
         $matched_keys = array_filter(
             array_keys($cfg),
-            function ($key) {
+            static function ($key) {
                 return strpos($key, '/') === false;
             }
         );

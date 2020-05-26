@@ -193,7 +193,7 @@ class RelationControllerTest extends AbstractTestCase
             ->method('fetchArray')
             ->will(
                 $this->returnCallback(
-                    function () {
+                    static function () {
                         static $count = 0;
                         if ($count == 0) {
                             $count++;
@@ -242,7 +242,7 @@ class RelationControllerTest extends AbstractTestCase
             ->method('fetchArray')
             ->will(
                 $this->returnCallback(
-                    function () {
+                    static function () {
                         static $count = 0;
                         if ($count == 0) {
                             $count++;

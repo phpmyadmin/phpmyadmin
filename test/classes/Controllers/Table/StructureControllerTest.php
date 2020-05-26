@@ -119,7 +119,7 @@ class StructureControllerTest extends AbstractTestCase
             ->method('fetchAssoc')
             ->will(
                 $this->returnCallback(
-                    function () {
+                    static function () {
                         static $callCount = 0;
                         if ($callCount == 0) {
                             $callCount++;

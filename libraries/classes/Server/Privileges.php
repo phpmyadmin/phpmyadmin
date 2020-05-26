@@ -246,7 +246,7 @@ class Privileges
                     // Required for proper escaping of ` (backtick) in a column name
                     $grant_cols = array_map(
                         /** @param string $val */
-                        function ($val) {
+                        static function ($val) {
                             return Util::backquote($val);
                         },
                         $GLOBALS[$current_grant[0]]

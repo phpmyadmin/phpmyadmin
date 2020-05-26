@@ -140,7 +140,7 @@ class Plugins
              * @param mixed $cmp_name_1
              * @param mixed $cmp_name_2
              */
-            function ($cmp_name_1, $cmp_name_2) {
+            static function ($cmp_name_1, $cmp_name_2) {
                 return strcasecmp(
                     $cmp_name_1->getProperties()->getText(),
                     $cmp_name_2->getProperties()->getText()

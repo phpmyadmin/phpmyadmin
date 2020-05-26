@@ -72,19 +72,19 @@ class Advisor
          */
         $this->expression->register(
             'round',
-            function () {
+            static function () {
             },
             /**
              * @param array $arguments
              * @param float $num
              */
-            function ($arguments, $num) {
+            static function ($arguments, $num) {
                 return round($num);
             }
         );
         $this->expression->register(
             'substr',
-            function () {
+            static function () {
             },
             /**
              * @param array $arguments
@@ -92,51 +92,51 @@ class Advisor
              * @param int $start
              * @param int $length
              */
-            function ($arguments, $string, $start, $length) {
+            static function ($arguments, $string, $start, $length) {
                 return substr($string, $start, $length);
             }
         );
         $this->expression->register(
             'preg_match',
-            function () {
+            static function () {
             },
             /**
              * @param array $arguments
              * @param string $pattern
              * @param string $subject
              */
-            function ($arguments, $pattern, $subject) {
+            static function ($arguments, $pattern, $subject) {
                 return preg_match($pattern, $subject);
             }
         );
         $this->expression->register(
             'ADVISOR_bytime',
-            function () {
+            static function () {
             },
             /**
              * @param array $arguments
              * @param float $num
              * @param int $precision
              */
-            function ($arguments, $num, $precision) {
+            static function ($arguments, $num, $precision) {
                 return self::byTime($num, $precision);
             }
         );
         $this->expression->register(
             'ADVISOR_timespanFormat',
-            function () {
+            static function () {
             },
             /**
              * @param array $arguments
              * @param string $seconds
              */
-            function ($arguments, $seconds) {
+            static function ($arguments, $seconds) {
                 return self::timespanFormat((int) $seconds);
             }
         );
         $this->expression->register(
             'ADVISOR_formatByteDown',
-            function () {
+            static function () {
             },
             /**
              * @param array $arguments
@@ -144,13 +144,13 @@ class Advisor
              * @param int $limes
              * @param int $comma
              */
-            function ($arguments, $value, $limes = 6, $comma = 0) {
+            static function ($arguments, $value, $limes = 6, $comma = 0) {
                 return self::formatByteDown($value, $limes, $comma);
             }
         );
         $this->expression->register(
             'fired',
-            function () {
+            static function () {
             },
             /**
              * @param array $arguments

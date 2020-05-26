@@ -634,7 +634,7 @@ class DatabaseInterface implements DbalInterface
                          * @param array $a
                          * @param array $b
                          */
-                        function ($a, $b) {
+                        static function ($a, $b) {
                             $aLength = $a['Data_length'] + $a['Index_length'];
                             $bLength = $b['Data_length'] + $b['Index_length'];
 

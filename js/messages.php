@@ -41,7 +41,7 @@ $buffer = OutputBuffering::getInstance();
 $buffer->start();
 if (! defined('TESTSUITE')) {
     register_shutdown_function(
-        function () {
+        static function () {
             echo OutputBuffering::getInstance()->getContents();
         }
     );
