@@ -13,6 +13,8 @@ use PhpMyAdmin\Dbal\DbalInterface;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\Dbal\DbiMysqli;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Query\Cache;
+use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\SqlParser\Context;
 use const E_USER_WARNING;
 use const LOG_INFO;
@@ -108,9 +110,6 @@ class DatabaseInterface implements DbalInterface
      */
     private $_links;
 
-    /** @var array Table data cache */
-    private $_table_cache;
-
     /** @var array Current user and host cache */
     private $_current_user;
 
@@ -134,6 +133,9 @@ class DatabaseInterface implements DbalInterface
     /** @var Relation */
     private $relation;
 
+    /** @var Cache */
+    private $cache;
+
     /**
      * @param DbiExtension $ext Object to be used for database queries
      */
@@ -145,8 +147,8 @@ class DatabaseInterface implements DbalInterface
             $this->_links[self::CONNECT_USER] = 1;
             $this->_links[self::CONNECT_CONTROL] = 2;
         }
-        $this->_table_cache = [];
         $this->_current_user = [];
+        $this->cache = new Cache();
         $this->types = new Types($this);
         $this->relation = new Relation($this);
     }
@@ -178,90 +180,9 @@ class DatabaseInterface implements DbalInterface
         return $result;
     }
 
-    /**
-     * Get a cached value from table cache.
-     *
-     * @param array $contentPath Array of the name of the target value
-     * @param mixed $default     Return value on cache miss
-     *
-     * @return mixed cached value or default
-     */
-    public function getCachedTableContent(array $contentPath, $default = null)
+    public function getCache(): Cache
     {
-        return Util::getValueByKey($this->_table_cache, $contentPath, $default);
-    }
-
-    /**
-     * Set an item in table cache using dot notation.
-     *
-     * @param array|null $contentPath Array with the target path
-     * @param mixed      $value       Target value
-     */
-    public function cacheTableContent(?array $contentPath, $value): void
-    {
-        $loc = &$this->_table_cache;
-
-        if (! isset($contentPath)) {
-            $loc = $value;
-
-            return;
-        }
-
-        while (count($contentPath) > 1) {
-            $key = array_shift($contentPath);
-
-            // If the key doesn't exist at this depth, we will just create an empty
-            // array to hold the next value, allowing us to create the arrays to hold
-            // final values at the correct depth. Then we'll keep digging into the
-            // array.
-            if (! isset($loc[$key]) || ! is_array($loc[$key])) {
-                $loc[$key] = [];
-            }
-            $loc = &$loc[$key];
-        }
-
-        $loc[array_shift($contentPath)] = $value;
-    }
-
-    /**
-     * Clear the table cache.
-     */
-    public function clearTableCache(): void
-    {
-        $this->_table_cache = [];
-    }
-
-    /**
-     * Caches table data so Table does not require to issue
-     * SHOW TABLE STATUS again
-     *
-     * @param array       $tables information for tables of some databases
-     * @param string|bool $table  table name
-     */
-    private function _cacheTableData(array $tables, $table): void
-    {
-        // Note: I don't see why we would need array_merge_recursive() here,
-        // as it creates double entries for the same table (for example a double
-        // entry for Comment when changing the storage engine in Operations)
-        // Note 2: Instead of array_merge(), simply use the + operator because
-        //  array_merge() renumbers numeric keys starting with 0, therefore
-        //  we would lose a db name that consists only of numbers
-
-        foreach ($tables as $one_database => $its_tables) {
-            if (isset($this->_table_cache[$one_database])) {
-                // the + operator does not do the intended effect
-                // when the cache for one table already exists
-                if ($table
-                    && isset($this->_table_cache[$one_database][$table])
-                ) {
-                    unset($this->_table_cache[$one_database][$table]);
-                }
-                $this->_table_cache[$one_database]
-                    += $tables[$one_database];
-            } else {
-                $this->_table_cache[$one_database] = $tables[$one_database];
-            }
-        }
+        return $this->cache;
     }
 
     /**
@@ -434,100 +355,6 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * returns a segment of the SQL WHERE clause regarding table name and type
-     *
-     * @param array|string $table        table(s)
-     * @param bool         $tbl_is_group $table is a table group
-     * @param string       $table_type   whether table or view
-     *
-     * @return string a segment of the WHERE clause
-     */
-    private function _getTableCondition(
-        $table,
-        bool $tbl_is_group,
-        ?string $table_type
-    ): string {
-        // get table information from information_schema
-        if ($table) {
-            if (is_array($table)) {
-                $sql_where_table = 'AND t.`TABLE_NAME` '
-                    . Util::getCollateForIS() . ' IN (\''
-                    . implode(
-                        '\', \'',
-                        array_map(
-                            [
-                                $this,
-                                'escapeString',
-                            ],
-                            $table
-                        )
-                    )
-                    . '\')';
-            } elseif ($tbl_is_group === true) {
-                $sql_where_table = 'AND t.`TABLE_NAME` LIKE \''
-                    . Util::escapeMysqlWildcards(
-                        $this->escapeString($table)
-                    )
-                    . '%\'';
-            } else {
-                $sql_where_table = 'AND t.`TABLE_NAME` '
-                    . Util::getCollateForIS() . ' = \''
-                    . $this->escapeString($table) . '\'';
-            }
-        } else {
-            $sql_where_table = '';
-        }
-
-        if ($table_type) {
-            if ($table_type == 'view') {
-                $sql_where_table .= " AND t.`TABLE_TYPE` NOT IN ('BASE TABLE', 'SYSTEM VERSIONED')";
-            } elseif ($table_type == 'table') {
-                $sql_where_table .= " AND t.`TABLE_TYPE` IN ('BASE TABLE', 'SYSTEM VERSIONED')";
-            }
-        }
-
-        return $sql_where_table;
-    }
-
-    /**
-     * returns the beginning of the SQL statement to fetch the list of tables
-     *
-     * @param string[] $this_databases  databases to list
-     * @param string   $sql_where_table additional condition
-     *
-     * @return string the SQL statement
-     */
-    private function _getSqlForTablesFull($this_databases, string $sql_where_table): string
-    {
-        return 'SELECT *,'
-            . ' `TABLE_SCHEMA`       AS `Db`,'
-            . ' `TABLE_NAME`         AS `Name`,'
-            . ' `TABLE_TYPE`         AS `TABLE_TYPE`,'
-            . ' `ENGINE`             AS `Engine`,'
-            . ' `ENGINE`             AS `Type`,'
-            . ' `VERSION`            AS `Version`,'
-            . ' `ROW_FORMAT`         AS `Row_format`,'
-            . ' `TABLE_ROWS`         AS `Rows`,'
-            . ' `AVG_ROW_LENGTH`     AS `Avg_row_length`,'
-            . ' `DATA_LENGTH`        AS `Data_length`,'
-            . ' `MAX_DATA_LENGTH`    AS `Max_data_length`,'
-            . ' `INDEX_LENGTH`       AS `Index_length`,'
-            . ' `DATA_FREE`          AS `Data_free`,'
-            . ' `AUTO_INCREMENT`     AS `Auto_increment`,'
-            . ' `CREATE_TIME`        AS `Create_time`,'
-            . ' `UPDATE_TIME`        AS `Update_time`,'
-            . ' `CHECK_TIME`         AS `Check_time`,'
-            . ' `TABLE_COLLATION`    AS `Collation`,'
-            . ' `CHECKSUM`           AS `Checksum`,'
-            . ' `CREATE_OPTIONS`     AS `Create_options`,'
-            . ' `TABLE_COMMENT`      AS `Comment`'
-            . ' FROM `information_schema`.`TABLES` t'
-            . ' WHERE `TABLE_SCHEMA` ' . Util::getCollateForIS()
-            . ' IN (\'' . implode("', '", $this_databases) . '\')'
-            . ' ' . $sql_where_table;
-    }
-
-    /**
      * returns array of all tables in given db or dbs
      * this function expects unquoted names:
      * RIGHT: my_database
@@ -575,8 +402,14 @@ class DatabaseInterface implements DbalInterface
         $tables = [];
 
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            $sql_where_table = $this->_getTableCondition(
-                $table,
+            $sql_where_table = QueryGenerator::getTableCondition(
+                is_array($table) ? array_map(
+                    [
+                        $this,
+                        'escapeString',
+                    ],
+                    $table
+                ) : $this->escapeString($table),
                 $tbl_is_group,
                 $table_type
             );
@@ -596,7 +429,7 @@ class DatabaseInterface implements DbalInterface
                 $databases
             );
 
-            $sql = $this->_getSqlForTablesFull($this_databases, $sql_where_table);
+            $sql = QueryGenerator::getSqlForTablesFull($this_databases, $sql_where_table);
 
             // Sort the tables
             $sql .= ' ORDER BY ' . $sort_by . ' ' . $sort_order;
@@ -823,7 +656,7 @@ class DatabaseInterface implements DbalInterface
 
         // cache table data
         // so Table does not require to issue SHOW TABLE STATUS again
-        $this->_cacheTableData($tables, $table);
+        $this->cache->cacheTableData($tables, $table);
 
         if (isset($tables[$database])) {
             return $tables[$database];
@@ -1393,29 +1226,6 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * Returns SQL for fetching information on table indexes (SHOW INDEXES)
-     *
-     * @param string $database name of database
-     * @param string $table    name of the table whose indexes are to be retrieved
-     * @param string $where    additional conditions for WHERE
-     *
-     * @return string SQL for getting indexes
-     */
-    public function getTableIndexesSql(
-        string $database,
-        string $table,
-        ?string $where = null
-    ): string {
-        $sql = 'SHOW INDEXES FROM ' . Util::backquote($database) . '.'
-            . Util::backquote($table);
-        if ($where) {
-            $sql .= ' WHERE (' . $where . ')';
-        }
-
-        return $sql;
-    }
-
-    /**
      * Returns indexes of a table
      *
      * @param string $database name of database
@@ -1429,7 +1239,7 @@ class DatabaseInterface implements DbalInterface
         string $table,
         $link = self::CONNECT_USER
     ): array {
-        $sql = $this->getTableIndexesSql($database, $table);
+        $sql = QueryGenerator::getTableIndexesSql($database, $table);
         $indexes = $this->fetchResult($sql, null, null, $link);
 
         if (! is_array($indexes) || count($indexes) < 1) {

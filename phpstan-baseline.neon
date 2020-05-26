@@ -956,7 +956,7 @@ parameters:
 			path: libraries/classes/Database/Triggers.php
 
 		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:_cacheTableData\\(\\) expects bool\\|string, array\\|string given\\.$#"
+			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Query\\\\Cache\\:\\:cacheTableData\\(\\) expects bool\\|string, array\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
 
@@ -4964,11 +4964,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$pma_transformation_data of method PhpMyAdmin\\\\SystemDatabase\\:\\:getNewTransformationDataSql\\(\\) expects object, array given\\.$#"
 			count: 1
 			path: test/classes/SystemDatabaseTest.php
-
-		-
-			message: "#^Access to private property PhpMyAdmin\\\\DatabaseInterface&PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\:\\:\\$_table_cache\\.$#"
-			count: 1
-			path: test/classes/TableTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$table_name of class PhpMyAdmin\\\\Table constructor expects string, null given\\.$#"

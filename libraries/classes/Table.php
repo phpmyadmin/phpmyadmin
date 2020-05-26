@@ -10,6 +10,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Plugins\Export\ExportSql;
+use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Context;
@@ -236,7 +237,7 @@ class Table
         }
 
         // use cached data or load information with SHOW command
-        if ($this->_dbi->getCachedTableContent([$db, $table]) != null
+        if ($this->_dbi->getCache()->getCachedTableContent([$db, $table]) != null
             || $GLOBALS['cfg']['Server']['DisableIS']
         ) {
             $type = $this->getStatusInfo('TABLE_TYPE');
@@ -320,16 +321,18 @@ class Table
             $disable_error = true;
         }
 
+        $cachedResult = $this->_dbi->getCache()->getCachedTableContent([$db, $table]);
+
         // sometimes there is only one entry (ExactRows) so
         // we have to get the table's details
-        if ($this->_dbi->getCachedTableContent([$db, $table]) == null
+        if ($cachedResult === null
             || $force_read
-            || count($this->_dbi->getCachedTableContent([$db, $table])) === 1
+            || count($cachedResult) === 1
         ) {
             $this->_dbi->getTablesFull($db, $table);
         }
 
-        if ($this->_dbi->getCachedTableContent([$db, $table]) == null) {
+        if ($cachedResult === null) {
             // happens when we enter the table creation dialog
             // or when we really did not get any status info, for example
             // when $table == 'TABLE_NAMES' after the user tried SHOW TABLES
@@ -337,13 +340,13 @@ class Table
         }
 
         if ($info === null) {
-            return $this->_dbi->getCachedTableContent([$db, $table]);
+            return $cachedResult;
         }
 
         // array_key_exists allows for null values
         if (! array_key_exists(
             $info,
-            $this->_dbi->getCachedTableContent([$db, $table])
+            $cachedResult
         )
         ) {
             if (! $disable_error) {
@@ -356,7 +359,7 @@ class Table
             return false;
         }
 
-        return $this->_dbi->getCachedTableContent([$db, $table, $info]);
+        return $this->_dbi->getCache()->getCachedTableContent([$db, $table, $info]);
     }
 
     /**
@@ -365,7 +368,7 @@ class Table
      * @return string                 Return storage engine info if it is set for
      *                                the selected table else return blank.
      */
-    public function getStorageEngine()
+    public function getStorageEngine(): string
     {
         $table_storage_engine = $this->getStatusInfo('ENGINE', false, true);
         if ($table_storage_engine === false) {
@@ -726,8 +729,8 @@ class Table
         $db = $this->_db_name;
         $table = $this->_name;
 
-        if ($this->_dbi->getCachedTableContent([$db, $table, 'ExactRows']) != null) {
-            return $this->_dbi->getCachedTableContent(
+        if ($this->_dbi->getCache()->getCachedTableContent([$db, $table, 'ExactRows']) != null) {
+            return $this->_dbi->getCache()->getCachedTableContent(
                 [
                     $db,
                     $table,
@@ -738,12 +741,12 @@ class Table
         $row_count = false;
 
         if (! $force_exact) {
-            if (($this->_dbi->getCachedTableContent([$db, $table, 'Rows']) == null)
+            if (($this->_dbi->getCache()->getCachedTableContent([$db, $table, 'Rows']) == null)
                 && ! $is_view
             ) {
                 $tmp_tables = $this->_dbi->getTablesFull($db, $table);
                 if (isset($tmp_tables[$table])) {
-                    $this->_dbi->cacheTableContent(
+                    $this->_dbi->getCache()->cacheTableContent(
                         [
                             $db,
                             $table,
@@ -752,8 +755,8 @@ class Table
                     );
                 }
             }
-            if ($this->_dbi->getCachedTableContent([$db, $table, 'Rows']) != null) {
-                $row_count = $this->_dbi->getCachedTableContent(
+            if ($this->_dbi->getCache()->getCachedTableContent([$db, $table, 'Rows']) != null) {
+                $row_count = $this->_dbi->getCache()->getCachedTableContent(
                     [
                         $db,
                         $table,
@@ -803,7 +806,7 @@ class Table
             }
         }
         if ($row_count) {
-            $this->_dbi->cacheTableContent([$db, $table, 'ExactRows'], $row_count);
+            $this->_dbi->getCache()->cacheTableContent([$db, $table, 'ExactRows'], $row_count);
         }
 
         return $row_count;
@@ -1684,7 +1687,7 @@ class Table
      */
     public function getUniqueColumns($backquoted = true, $fullName = true)
     {
-        $sql = $this->_dbi->getTableIndexesSql(
+        $sql = QueryGenerator::getTableIndexesSql(
             $this->getDbName(),
             $this->getName(),
             'Non_unique = 0'
@@ -1760,7 +1763,7 @@ class Table
      */
     public function getIndexedColumns($backquoted = true, $fullName = true)
     {
-        $sql = $this->_dbi->getTableIndexesSql(
+        $sql = QueryGenerator::getTableIndexesSql(
             $this->getDbName(),
             $this->getName(),
             ''

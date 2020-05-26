@@ -288,7 +288,7 @@ class OperationsController extends AbstractController
         if ($reread_info) {
             // to avoid showing the old value (for example the AUTO_INCREMENT) after
             // a change, clear the cache
-            $this->dbi->clearTableCache();
+            $this->dbi->getCache()->clearTableCache();
             $this->dbi->selectDb($db);
             $GLOBALS['showtable'] = $pma_table->getStatusInfo(null, true);
             if ($pma_table->isView()) {
