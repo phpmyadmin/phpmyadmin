@@ -2747,7 +2747,7 @@ class InsertEditTest extends AbstractTestCase
     {
         $column = [];
         $column['True_Type'] = 'bit';
-        $column['Default'] = b'101';
+        $column['Default'] = 'b\'101\'';
         $column['is_binary'] = true;
         $GLOBALS['cfg']['ProtectBinary'] = false;
         $GLOBALS['cfg']['ShowFunctionFields'] = true;
@@ -2765,7 +2765,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertEquals(
             [
                 false,
-                '101',
+                'b\'101\'',
                 '101',
                 '',
                 '101',
@@ -3586,7 +3586,7 @@ class InsertEditTest extends AbstractTestCase
     public function testGetCurrentValueForDifferentTypes()
     {
         $prow = [];
-        $prow['a'] = b'101';
+        $prow['a'] = '101';
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
