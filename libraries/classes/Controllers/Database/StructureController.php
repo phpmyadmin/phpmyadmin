@@ -895,10 +895,10 @@ class StructureController extends AbstractController
                 $table_is_view,
                 $sum_size,
             ] = $this->getStuffForEngineTypeTable(
-                    $current_table,
-                    $sum_size,
-                    $overhead_size
-                );
+                $current_table,
+                $sum_size,
+                $overhead_size
+            );
 
             $curTable = $this->dbi
                 ->getTable($this->db, $current_table['TABLE_NAME']);
@@ -1428,14 +1428,14 @@ class StructureController extends AbstractController
                     $overhead_size,
                     $sum_size,
                 ] = $this->getValuesForAriaTable(
-                        $current_table,
-                        $sum_size,
-                        $overhead_size,
-                        $formatted_size,
-                        $unit,
-                        $formatted_overhead,
-                        $overhead_unit
-                    );
+                    $current_table,
+                    $sum_size,
+                    $overhead_size,
+                    $formatted_size,
+                    $unit,
+                    $formatted_overhead,
+                    $overhead_unit
+                );
                 break;
             case 'InnoDB':
             case 'PBMS':

@@ -251,8 +251,13 @@ class PrivilegesController extends AbstractController
          * Adds a user
          *   (Changes / copies a user, part II)
          */
-        [$ret_message, $ret_queries, $queries_for_display, $sql_query, $_add_user_error]
-            = $serverPrivileges->addUser(
+        [
+            $ret_message,
+            $ret_queries,
+            $queries_for_display,
+            $sql_query,
+            $_add_user_error,
+        ] = $serverPrivileges->addUser(
             $dbname ?? null,
             $username ?? null,
             $hostname ?? null,

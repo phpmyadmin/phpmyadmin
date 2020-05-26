@@ -332,9 +332,9 @@ class Generator
         }
 
         return '<span class="' . $class . '">' . $message . '</span> ' . MySQLDocumentation::showDocumentation(
-                'setup',
-                'ssl'
-            );
+            'setup',
+            'ssl'
+        );
     }
 
     /**
@@ -679,10 +679,10 @@ class Generator
                 // data), the parser chokes; so avoid parsing the query
                 $query_too_big = true;
                 $query_base = mb_substr(
-                        $sql_query,
-                        0,
-                        $cfg['MaxCharactersInDisplayedSQL']
-                    ) . '[...]';
+                    $sql_query,
+                    0,
+                    $cfg['MaxCharactersInDisplayedSQL']
+                ) . '[...]';
             } else {
                 $query_base = $sql_query;
             }
@@ -999,9 +999,9 @@ class Generator
                 $error_msg .= '<p><strong>' . __('Static analysis:')
                     . '</strong></p>';
                 $error_msg .= '<p>' . sprintf(
-                        __('%d errors were found during analysis.'),
-                        count($errors)
-                    ) . '</p>';
+                    __('%d errors were found during analysis.'),
+                    count($errors)
+                ) . '</p>';
                 $error_msg .= '<p><ol>';
                 $error_msg .= implode(
                     ParserError::format(
@@ -1014,8 +1014,8 @@ class Generator
 
             // Display the SQL query and link to MySQL documentation.
             $error_msg .= '<p><strong>' . __('SQL query:') . '</strong>' . self::showCopyToClipboard(
-                    $sql_query
-                ) . "\n";
+                $sql_query
+            ) . "\n";
             $formattedSqlToLower = mb_strtolower($formatted_sql);
 
             // TODO: Show documentation for all statement types.
@@ -1398,10 +1398,10 @@ class Generator
             && mb_strlen($sqlQuery) > $cfg['MaxCharactersInDisplayedSQL']
         ) {
             $sqlQuery = mb_substr(
-                    $sqlQuery,
-                    0,
-                    $cfg['MaxCharactersInDisplayedSQL']
-                ) . '[...]';
+                $sqlQuery,
+                0,
+                $cfg['MaxCharactersInDisplayedSQL']
+            ) . '[...]';
         }
 
         return '<code class="sql"><pre>' . "\n"

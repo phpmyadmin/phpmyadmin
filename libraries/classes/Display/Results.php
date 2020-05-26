@@ -1959,39 +1959,39 @@ class Results
         if (strtoupper(trim($sort_direction[$index])) == self::DESCENDING_SORT_DIR) {
             $sort_order .= ' ASC';
             $order_img   = ' ' . Generator::getImage(
-                    's_desc',
-                    __('Descending'),
-                    [
-                        'class' => 'soimg',
-                        'title' => '',
-                    ]
-                );
+                's_desc',
+                __('Descending'),
+                [
+                    'class' => 'soimg',
+                    'title' => '',
+                ]
+            );
             $order_img  .= ' ' . Generator::getImage(
-                    's_asc',
-                    __('Ascending'),
-                    [
-                        'class' => 'soimg hide',
-                        'title' => '',
-                    ]
-                );
+                's_asc',
+                __('Ascending'),
+                [
+                    'class' => 'soimg hide',
+                    'title' => '',
+                ]
+            );
         } else {
             $sort_order .= ' DESC';
             $order_img   = ' ' . Generator::getImage(
-                    's_asc',
-                    __('Ascending'),
-                    [
-                        'class' => 'soimg',
-                        'title' => '',
-                    ]
-                );
+                's_asc',
+                __('Ascending'),
+                [
+                    'class' => 'soimg',
+                    'title' => '',
+                ]
+            );
             $order_img  .=  ' ' . Generator::getImage(
-                    's_desc',
-                    __('Descending'),
-                    [
-                        'class' => 'soimg hide',
-                        'title' => '',
-                    ]
-                );
+                's_desc',
+                __('Descending'),
+                [
+                    'class' => 'soimg hide',
+                    'title' => '',
+                ]
+            );
         }
 
         return [

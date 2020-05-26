@@ -3052,21 +3052,21 @@ class Util
                 $futureSortOrder = 'DESC';
                 // current sort order is ASC
                 $orderImg = ' ' . Generator::getImage(
-                        's_asc',
-                        __('Ascending'),
-                        [
-                            'class' => 'sort_arrow',
-                            'title' => '',
-                        ]
-                    );
+                    's_asc',
+                    __('Ascending'),
+                    [
+                        'class' => 'sort_arrow',
+                        'title' => '',
+                    ]
+                );
                 $orderImg .= ' ' . Generator::getImage(
-                        's_desc',
-                        __('Descending'),
-                        [
-                            'class' => 'sort_arrow hide',
-                            'title' => '',
-                        ]
-                    );
+                    's_desc',
+                    __('Descending'),
+                    [
+                        'class' => 'sort_arrow hide',
+                        'title' => '',
+                    ]
+                );
                 // but on mouse over, show the reverse order (DESC)
                 $orderLinkParams['onmouseover'] = "$('.sort_arrow').toggle();";
                 // on mouse out, show current sort order (ASC)
@@ -3075,21 +3075,21 @@ class Util
                 $futureSortOrder = 'ASC';
                 // current sort order is DESC
                 $orderImg = ' ' . Generator::getImage(
-                        's_asc',
-                        __('Ascending'),
-                        [
-                            'class' => 'sort_arrow hide',
-                            'title' => '',
-                        ]
-                    );
+                    's_asc',
+                    __('Ascending'),
+                    [
+                        'class' => 'sort_arrow hide',
+                        'title' => '',
+                    ]
+                );
                 $orderImg .= ' ' . Generator::getImage(
-                        's_desc',
-                        __('Descending'),
-                        [
-                            'class' => 'sort_arrow',
-                            'title' => '',
-                        ]
-                    );
+                    's_desc',
+                    __('Descending'),
+                    [
+                        'class' => 'sort_arrow',
+                        'title' => '',
+                    ]
+                );
                 // but on mouse over, show the reverse order (ASC)
                 $orderLinkParams['onmouseover'] = "$('.sort_arrow').toggle();";
                 // on mouse out, show current sort order (DESC)

@@ -25,9 +25,6 @@
     <rule ref="Squiz.NamingConventions.ValidVariableName">
         <severity>4</severity>
     </rule>
-    <rule ref="PSR2.Methods.FunctionCallSignature.Indent">
-        <severity>0</severity>
-    </rule>
 
     <rule ref="Generic.CodeAnalysis.UselessOverridingMethod"/>
 

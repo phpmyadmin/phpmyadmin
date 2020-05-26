@@ -627,9 +627,9 @@ final class ImportController extends AbstractController
             $message = Message::notice(__('Showing bookmark'));
         } elseif ($bookmark_created) {
             $special_message = '[br]' . sprintf(
-                    __('Bookmark %s has been created.'),
-                    htmlspecialchars($_POST['bkm_label'])
-                );
+                __('Bookmark %s has been created.'),
+                htmlspecialchars($_POST['bkm_label'])
+            );
         } elseif ($finished && ! $error) {
             // Do not display the query with message, we do it separately
             $display_query = ';';

@@ -151,80 +151,80 @@ class InnodbTest extends AbstractTestCase
     public function testGetPageBufferpool()
     {
         $this->assertEquals(
-        '<table class="data" id="table_innodb_bufferpool_usage">' . "\n" .
-        '    <caption class="tblHeaders">' . "\n" .
-        '        Buffer Pool Usage' . "\n" .
-        '    </caption>' . "\n" .
-        '    <tfoot>' . "\n" .
-        '        <tr>' . "\n" .
-        '            <th colspan="2">' . "\n" .
-        '                Total' . "\n" .
-        '                : 4,096&nbsp;pages / 65,536&nbsp;KiB' . "\n" .
-        '            </th>' . "\n" .
-        '        </tr>' . "\n" .
-        '    </tfoot>' . "\n" .
-        '    <tbody>' . "\n" .
-        '        <tr>' . "\n" .
-        '            <th>Free pages</th>' . "\n" .
-        '            <td class="value">0</td>' . "\n" .
-        '        </tr>' . "\n" .
-        '        <tr>' . "\n" .
-        '            <th>Dirty pages</th>' . "\n" .
-        '            <td class="value">0</td>' . "\n" .
-        '        </tr>' . "\n" .
-        '        <tr>' . "\n" .
-        '            <th>Pages containing data</th>' . "\n" .
-        '            <td class="value">0' . "\n" .
-        '</td>' . "\n" .
-        '        </tr>' . "\n" .
-        '        <tr>' . "\n" .
-        '            <th>Pages to be flushed</th>' . "\n" .
-        '            <td class="value">0' . "\n" .
-        '</td>' . "\n" .
-        '        </tr>' . "\n" .
-        '        <tr>' . "\n" .
-        '            <th>Busy pages</th>' . "\n" .
-        '            <td class="value">0' . "\n" .
-        '</td>' . "\n" .
-        '        </tr>    </tbody>' . "\n" .
-        '</table>' . "\n\n" .
-        '<table class="data" id="table_innodb_bufferpool_activity">' . "\n" .
-        '    <caption class="tblHeaders">' . "\n" .
-        '        Buffer Pool Activity' . "\n" .
-        '    </caption>' . "\n" .
-        '    <tbody>' . "\n" .
-        '        <tr>' . "\n" .
-        '            <th>Read requests</th>' . "\n" .
-        '            <td class="value">64' . "\n" .
-        '</td>' . "\n" .
-        '        </tr>' . "\n" .
-        '        <tr>' . "\n" .
-        '            <th>Write requests</th>' . "\n" .
-        '            <td class="value">64' . "\n" .
-        '</td>' . "\n" .
-        '        </tr>' . "\n" .
-        '        <tr>' . "\n" .
-        '            <th>Read misses</th>' . "\n" .
-        '            <td class="value">32' . "\n" .
-        '</td>' . "\n" .
-        '        </tr>' . "\n" .
-        '        <tr>' . "\n" .
-        '            <th>Write waits</th>' . "\n" .
-        '            <td class="value">0' . "\n" .
-        '</td>' . "\n" .
-        '        </tr>' . "\n" .
-        '        <tr>' . "\n" .
-        '            <th>Read misses in %</th>' . "\n" .
-        '            <td class="value">50   %' . "\n" .
-        '</td>' . "\n" .
-        '        </tr>' . "\n" .
-        '        <tr>' . "\n" .
-        '            <th>Write waits in %</th>' . "\n" .
-        '            <td class="value">0 %' . "\n" .
-        '</td>' . "\n" .
-        '        </tr>' . "\n" .
-        '    </tbody>' . "\n" .
-        '</table>' . "\n",
+            '<table class="data" id="table_innodb_bufferpool_usage">' . "\n" .
+            '    <caption class="tblHeaders">' . "\n" .
+            '        Buffer Pool Usage' . "\n" .
+            '    </caption>' . "\n" .
+            '    <tfoot>' . "\n" .
+            '        <tr>' . "\n" .
+            '            <th colspan="2">' . "\n" .
+            '                Total' . "\n" .
+            '                : 4,096&nbsp;pages / 65,536&nbsp;KiB' . "\n" .
+            '            </th>' . "\n" .
+            '        </tr>' . "\n" .
+            '    </tfoot>' . "\n" .
+            '    <tbody>' . "\n" .
+            '        <tr>' . "\n" .
+            '            <th>Free pages</th>' . "\n" .
+            '            <td class="value">0</td>' . "\n" .
+            '        </tr>' . "\n" .
+            '        <tr>' . "\n" .
+            '            <th>Dirty pages</th>' . "\n" .
+            '            <td class="value">0</td>' . "\n" .
+            '        </tr>' . "\n" .
+            '        <tr>' . "\n" .
+            '            <th>Pages containing data</th>' . "\n" .
+            '            <td class="value">0' . "\n" .
+            '</td>' . "\n" .
+            '        </tr>' . "\n" .
+            '        <tr>' . "\n" .
+            '            <th>Pages to be flushed</th>' . "\n" .
+            '            <td class="value">0' . "\n" .
+            '</td>' . "\n" .
+            '        </tr>' . "\n" .
+            '        <tr>' . "\n" .
+            '            <th>Busy pages</th>' . "\n" .
+            '            <td class="value">0' . "\n" .
+            '</td>' . "\n" .
+            '        </tr>    </tbody>' . "\n" .
+            '</table>' . "\n\n" .
+            '<table class="data" id="table_innodb_bufferpool_activity">' . "\n" .
+            '    <caption class="tblHeaders">' . "\n" .
+            '        Buffer Pool Activity' . "\n" .
+            '    </caption>' . "\n" .
+            '    <tbody>' . "\n" .
+            '        <tr>' . "\n" .
+            '            <th>Read requests</th>' . "\n" .
+            '            <td class="value">64' . "\n" .
+            '</td>' . "\n" .
+            '        </tr>' . "\n" .
+            '        <tr>' . "\n" .
+            '            <th>Write requests</th>' . "\n" .
+            '            <td class="value">64' . "\n" .
+            '</td>' . "\n" .
+            '        </tr>' . "\n" .
+            '        <tr>' . "\n" .
+            '            <th>Read misses</th>' . "\n" .
+            '            <td class="value">32' . "\n" .
+            '</td>' . "\n" .
+            '        </tr>' . "\n" .
+            '        <tr>' . "\n" .
+            '            <th>Write waits</th>' . "\n" .
+            '            <td class="value">0' . "\n" .
+            '</td>' . "\n" .
+            '        </tr>' . "\n" .
+            '        <tr>' . "\n" .
+            '            <th>Read misses in %</th>' . "\n" .
+            '            <td class="value">50   %' . "\n" .
+            '</td>' . "\n" .
+            '        </tr>' . "\n" .
+            '        <tr>' . "\n" .
+            '            <th>Write waits in %</th>' . "\n" .
+            '            <td class="value">0 %' . "\n" .
+            '</td>' . "\n" .
+            '        </tr>' . "\n" .
+            '    </tbody>' . "\n" .
+            '</table>' . "\n",
             $this->object->getPageBufferpool()
         );
     }
