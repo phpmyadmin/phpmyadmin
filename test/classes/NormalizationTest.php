@@ -459,7 +459,7 @@ class NormalizationTest extends AbstractTestCase
         );
         $this->assertArrayHasKey('queryError', $result1);
         $this->assertEquals(__('End of step'), $result1['legendText']);
-        $this->assertEquals(false, $result1['queryError']);
+        $this->assertFalse($result1['queryError']);
     }
 
     /**

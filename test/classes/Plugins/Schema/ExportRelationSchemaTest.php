@@ -70,13 +70,11 @@ class ExportRelationSchemaTest extends AbstractTestCase
     public function testSetShowColor()
     {
         $this->object->setShowColor(true);
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $this->object->isShowColor()
         );
         $this->object->setShowColor(false);
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $this->object->isShowColor()
         );
     }
@@ -112,13 +110,11 @@ class ExportRelationSchemaTest extends AbstractTestCase
     public function testSetTableDimension()
     {
         $this->object->setTableDimension(true);
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $this->object->isTableDimension()
         );
         $this->object->setTableDimension(false);
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $this->object->isTableDimension()
         );
     }
@@ -154,13 +150,11 @@ class ExportRelationSchemaTest extends AbstractTestCase
     public function testSetAllTablesSameWidth()
     {
         $this->object->setAllTablesSameWidth(true);
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $this->object->isAllTableSameWidth()
         );
         $this->object->setAllTablesSameWidth(false);
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $this->object->isAllTableSameWidth()
         );
     }
@@ -175,13 +169,11 @@ class ExportRelationSchemaTest extends AbstractTestCase
     public function testSetShowKeys()
     {
         $this->object->setShowKeys(true);
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $this->object->isShowKeys()
         );
         $this->object->setShowKeys(false);
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $this->object->isShowKeys()
         );
     }

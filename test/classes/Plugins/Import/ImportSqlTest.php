@@ -97,8 +97,7 @@ class ImportSqlTest extends AbstractTestCase
             $sql_query
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['finished']
         );
     }

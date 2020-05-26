@@ -147,8 +147,7 @@ class StructureControllerTest extends AbstractTestCase
             ]
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $currentTable['COUNTED']
         );
         $this->assertEquals(
@@ -169,8 +168,7 @@ class StructureControllerTest extends AbstractTestCase
             ]
         );
 
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $currentTable['COUNTED']
         );
         $this->assertEquals(
@@ -194,8 +192,7 @@ class StructureControllerTest extends AbstractTestCase
         $currentTable['ENGINE'] = 'InnoDB';
         [$currentTable,,, $sumSize]
             = $method->invokeArgs($controller, [$currentTable, 10]);
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $currentTable['COUNTED']
         );
         $this->assertEquals(
@@ -206,8 +203,7 @@ class StructureControllerTest extends AbstractTestCase
         $currentTable['ENGINE'] = 'MYISAM';
         [$currentTable,,, $sumSize]
             = $method->invokeArgs($controller, [$currentTable, 10]);
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $currentTable['COUNTED']
         );
         $this->assertEquals(
@@ -371,22 +367,19 @@ class StructureControllerTest extends AbstractTestCase
         );
 
         // When parameter $db is empty
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $method->invokeArgs($controller, [[], 'table'])
         );
 
         // Correct parameter
         $tables = ['db.table'];
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $method->invokeArgs($controller, [$tables, 'table'])
         );
 
         // Table not in database
         $tables = ['db.tab1e'];
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $method->invokeArgs($controller, [$tables, 'table'])
         );
     }
@@ -423,13 +416,11 @@ class StructureControllerTest extends AbstractTestCase
             ],
         ];
 
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $method->invokeArgs($controller, [''])
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $method->invokeArgs($controller, ['table'])
         );
     }

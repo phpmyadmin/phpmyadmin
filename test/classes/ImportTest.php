@@ -642,7 +642,7 @@ class ImportTest extends AbstractTestCase
             . 'SET `table_1`.`id` = `table_2`.`id` '
             . 'WHERE 1';
 
-        $this->assertEquals(true, $this->import->checkIfRollbackPossible($sqlQuery));
+        $this->assertTrue($this->import->checkIfRollbackPossible($sqlQuery));
     }
 
     /**

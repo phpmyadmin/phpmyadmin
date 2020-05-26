@@ -132,8 +132,7 @@ class ImportLdiTest extends AbstractTestCase
         $GLOBALS['cfg']['Import']['ldi_local_option'] = 'auto';
         $this->object = new ImportLdi();
         $properties = $this->object->getProperties();
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['cfg']['Import']['ldi_local_option']
         );
         $this->assertEquals(
@@ -178,8 +177,7 @@ class ImportLdiTest extends AbstractTestCase
             $sql_query
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['finished']
         );
     }
@@ -205,8 +203,7 @@ class ImportLdiTest extends AbstractTestCase
             $GLOBALS['message']->__toString()
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['error']
         );
     }
@@ -273,8 +270,7 @@ class ImportLdiTest extends AbstractTestCase
             $sql_query
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['finished']
         );
     }

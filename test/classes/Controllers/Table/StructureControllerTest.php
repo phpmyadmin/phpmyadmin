@@ -185,8 +185,7 @@ class StructureControllerTest extends AbstractTestCase
             new RelationCleanup($GLOBALS['dbi'], $relation)
         );
 
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $method->invokeArgs($ctrl, [[]])
         );
     }

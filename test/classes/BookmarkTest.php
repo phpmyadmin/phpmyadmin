@@ -37,8 +37,7 @@ class BookmarkTest extends AbstractTestCase
      */
     public function testGetParams()
     {
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             Bookmark::getParams($GLOBALS['cfg']['Server']['user'])
         );
     }

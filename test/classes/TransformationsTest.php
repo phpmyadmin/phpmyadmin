@@ -250,8 +250,7 @@ class TransformationsTest extends AbstractTestCase
 
         // Case 1 : no configuration storage
         $actual = $this->transformations->clear('db');
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $actual
         );
 
@@ -261,22 +260,19 @@ class TransformationsTest extends AbstractTestCase
 
         // Case 2 : database delete
         $actual = $this->transformations->clear('db');
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $actual
         );
 
         // Case 3 : table delete
         $actual = $this->transformations->clear('db', 'table');
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $actual
         );
 
         // Case 4 : column delete
         $actual = $this->transformations->clear('db', 'table', 'col');
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $actual
         );
     }

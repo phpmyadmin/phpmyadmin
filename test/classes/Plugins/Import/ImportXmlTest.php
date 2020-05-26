@@ -152,8 +152,7 @@ class ImportXmlTest extends AbstractTestCase
             'Edit settings for `pma_bookmarktest`',
             $import_notice
         );
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['finished']
         );
     }

@@ -128,8 +128,7 @@ class ImportCsvTest extends AbstractTestCase
             $sql_query
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['finished']
         );
     }
@@ -165,8 +164,7 @@ class ImportCsvTest extends AbstractTestCase
             $sql_query
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['finished']
         );
 
@@ -224,8 +222,7 @@ class ImportCsvTest extends AbstractTestCase
             $sql_query
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['finished']
         );
     }

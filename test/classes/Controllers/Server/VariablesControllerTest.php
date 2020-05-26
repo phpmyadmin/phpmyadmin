@@ -168,7 +168,7 @@ class VariablesControllerTest extends AbstractTestCase
             '<abbr title="3">3 B</abbr>',
             $formattedValue
         );
-        $this->assertEquals(true, $isHtmlFormatted);
+        $this->assertTrue($isHtmlFormatted);
 
         //name is_numeric and the value type is not byte
         $args = [
@@ -185,7 +185,7 @@ class VariablesControllerTest extends AbstractTestCase
             '3',
             $formattedValue
         );
-        $this->assertEquals(false, $isHtmlFormatted);
+        $this->assertFalse($isHtmlFormatted);
 
         //value is not a number
         $args = [
@@ -202,6 +202,6 @@ class VariablesControllerTest extends AbstractTestCase
             'value',
             $formattedValue
         );
-        $this->assertEquals(false, $isHtmlFormatted);
+        $this->assertFalse($isHtmlFormatted);
     }
 }

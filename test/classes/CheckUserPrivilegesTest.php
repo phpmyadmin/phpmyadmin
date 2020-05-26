@@ -181,23 +181,19 @@ class CheckUserPrivilegesTest extends AbstractTestCase
             $show_grants_tblname
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['col_priv']
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['db_priv']
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['proc_priv']
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['table_priv']
         );
 
@@ -222,23 +218,19 @@ class CheckUserPrivilegesTest extends AbstractTestCase
             $show_grants_tblname
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['col_priv']
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['db_priv']
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['proc_priv']
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['table_priv']
         );
 
@@ -263,23 +255,19 @@ class CheckUserPrivilegesTest extends AbstractTestCase
             $show_grants_tblname
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['col_priv']
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['db_priv']
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['proc_priv']
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['table_priv']
         );
 
@@ -304,23 +292,19 @@ class CheckUserPrivilegesTest extends AbstractTestCase
             $show_grants_tblname
         );
 
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $GLOBALS['col_priv']
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['db_priv']
         );
 
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $GLOBALS['proc_priv']
         );
 
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $GLOBALS['table_priv']
         );
     }

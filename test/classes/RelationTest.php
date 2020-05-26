@@ -87,12 +87,10 @@ class RelationTest extends AbstractTestCase
     public function testPMAGetRelationsParam()
     {
         $relationsPara = $this->relation->getRelationsParam();
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $relationsPara['relwork']
         );
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $relationsPara['bookmarkwork']
         );
         $this->assertEquals(
@@ -193,8 +191,7 @@ class RelationTest extends AbstractTestCase
 
         $db = 'information_schema';
         $table = 'PMA';
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $this->relation->getDisplayField($db, $table)
         );
     }
@@ -275,15 +272,13 @@ class RelationTest extends AbstractTestCase
 
         // Case 1
         $actual = $this->relation->tryUpgradeTransformations();
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $actual
         );
 
         // Case 2
         $actual = $this->relation->tryUpgradeTransformations();
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $actual
         );
     }

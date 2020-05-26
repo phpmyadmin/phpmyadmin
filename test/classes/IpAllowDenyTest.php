@@ -140,27 +140,23 @@ class IpAllowDenyTest extends AbstractTestCase
         //IPV4 testing
         $testRange = '255.255.0.0/8';
         $ipToTest = '10.0.0.0';
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $this->ipAllowDeny->ipMaskTest($testRange, $ipToTest)
         );
 
         $testRange = '255.255.0.0/4';
         $ipToTest = '255.3.0.0';
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $this->ipAllowDeny->ipMaskTest($testRange, $ipToTest)
         );
 
         $testRange = '255.255.0.[0-10]';
         $ipToTest = '255.3.0.3';
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $this->ipAllowDeny->ipMaskTest($testRange, $ipToTest)
         );
         $ipToTest = '255.3.0.12';
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $this->ipAllowDeny->ipMaskTest($testRange, $ipToTest)
         );
 
@@ -168,42 +164,36 @@ class IpAllowDenyTest extends AbstractTestCase
         //not range
         $ipToTest = '2001:4998:c:a0d:0000:0000:4998:1020';
         $testRange = '2001:4998:c:a0d:0000:0000:4998:1020';
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $this->ipAllowDeny->ipMaskTest($testRange, $ipToTest)
         );
         $ipToTest = '2001:4998:c:a0d:0000:0000:4998:1020';
         $testRange = '2001:4998:c:a0d:0000:0000:4998:2020';
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $this->ipAllowDeny->ipMaskTest($testRange, $ipToTest)
         );
 
         //range
         $ipToTest = '2001:4998:c:a0d:0000:0000:4998:1020';
         $testRange = '2001:4998:c:a0d:0000:0000:4998:[1001-2010]';
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $this->ipAllowDeny->ipMaskTest($testRange, $ipToTest)
         );
         $ipToTest = '2001:4998:c:a0d:0000:0000:4998:3020';
         $testRange = '2001:4998:c:a0d:0000:0000:4998:[1001-2010]';
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $this->ipAllowDeny->ipMaskTest($testRange, $ipToTest)
         );
 
         //CDIR
         $ipToTest = '2001:4998:c:a0d:0000:0000:4998:1020';
         $testRange = '2001:4998:c:a0d:0000:0000:4998:[1001-2010]';
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $this->ipAllowDeny->ipMaskTest($testRange, $ipToTest)
         );
         $ipToTest = '2001:4998:c:a0d:0000:0000:4998:1000';
         $testRange = '2001:4998:c:a0d:0000:0000:4998:3020/24';
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $this->ipAllowDeny->ipMaskTest($testRange, $ipToTest)
         );
     }
@@ -216,52 +206,43 @@ class IpAllowDenyTest extends AbstractTestCase
     public function testAllowDeny()
     {
         $_SERVER['REMOTE_ADDR'] = '';
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $this->ipAllowDeny->allow()
         );
 
         $_SERVER['REMOTE_ADDR'] = '255.0.1.0';
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $this->ipAllowDeny->allow()
         );
         $_SERVER['REMOTE_ADDR'] = '10.0.0.0';
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $this->ipAllowDeny->allow()
         );
 
         $_SERVER['REMOTE_ADDR'] = '255.255.0.1';
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $this->ipAllowDeny->deny()
         );
         $_SERVER['REMOTE_ADDR'] = '255.124.0.5';
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $this->ipAllowDeny->deny()
         );
         $_SERVER['REMOTE_ADDR'] = '122.124.0.5';
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $this->ipAllowDeny->deny()
         );
 
         //IPV6
         $_SERVER['REMOTE_ADDR'] = '2001:4998:c:a0d:0000:0000:4998:1020';
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $this->ipAllowDeny->allow()
         );
         $_SERVER['REMOTE_ADDR'] = '2001:4998:c:a0d:0000:0000:4998:1000';
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $this->ipAllowDeny->allow()
         );
         $_SERVER['REMOTE_ADDR'] = '2001:4998:c:a0d:0000:0000:4998:1020';
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $this->ipAllowDeny->allow()
         );
     }

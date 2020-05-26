@@ -324,8 +324,7 @@ class TrackingTest extends AbstractTestCase
     {
         $ret = $this->tracking->getSqlResultForSelectableTables();
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $ret
         );
     }
@@ -441,8 +440,7 @@ class TrackingTest extends AbstractTestCase
     {
         $ret = $this->tracking->getListOfVersionsOfTable();
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $ret
         );
     }

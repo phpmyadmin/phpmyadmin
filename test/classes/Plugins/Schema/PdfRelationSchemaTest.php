@@ -199,24 +199,19 @@ class PdfRelationSchemaTest extends AbstractTestCase
             33,
             $this->object->getPageNumber()
         );
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $this->object->isShowGrid()
         );
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $this->object->isShowColor()
         );
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $this->object->isShowKeys()
         );
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $this->object->isTableDimension()
         );
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $this->object->isAllTableSameWidth()
         );
         $this->assertEquals(

@@ -535,8 +535,7 @@ class TrackerTest extends AbstractTestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             Tracker::changeTrackingData(
                 'pma_db',
                 'pma_table',
@@ -546,8 +545,7 @@ class TrackerTest extends AbstractTestCase
             )
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             Tracker::changeTrackingData(
                 'pma_db',
                 'pma_table',

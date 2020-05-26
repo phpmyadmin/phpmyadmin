@@ -158,8 +158,7 @@ class ImportOdsTest extends AbstractTestCase
         );
 
         //asset that the import process is finished
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['finished']
         );
     }

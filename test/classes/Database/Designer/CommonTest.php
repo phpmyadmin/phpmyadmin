@@ -142,7 +142,7 @@ class CommonTest extends AbstractTestCase
         $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
 
         $result = $this->designerCommon->deletePage($pg);
-        $this->assertEquals(true, $result);
+        $this->assertTrue($result);
     }
 
     /**
