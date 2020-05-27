@@ -2062,8 +2062,8 @@
   </file>
   <file src="libraries/classes/Relation.php">
     <InvalidArgument occurrences="10">
-      <code>$tab_rs</code>
-      <code>$tab_rs</code>
+      <code>$tableRes</code>
+      <code>$tableRes</code>
       <code>$result</code>
       <code>$result</code>
       <code>$com_rs</code>
@@ -2085,44 +2085,44 @@
       <code>$foreigners</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidArrayAccess occurrences="44">
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
-      <code>$curr_table[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
+      <code>$currTable[0]</code>
       <code>$row['comment']</code>
       <code>$row['comment']</code>
       <code>$row['db_name']</code>

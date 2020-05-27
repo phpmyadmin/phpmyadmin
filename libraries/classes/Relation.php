@@ -495,139 +495,8 @@ class Relation
         return $retval;
     }
 
-    /**
-     * Defines the relation parameters for the current user
-     * just a copy of the functions used for relations ;-)
-     * but added some stuff to check what will work
-     *
-     * @return string[]    the relation parameters for the current user
-     *
-     * @access protected
-     */
-    public function checkRelationsParam(): array
+    private function checkTableAccess(array $cfgRelation): array
     {
-        $cfgRelation                   = [];
-        $cfgRelation['PMA_VERSION']    = PMA_VERSION;
-
-        $workToTable = [
-            'relwork' => 'relation',
-            'displaywork' => [
-                'relation',
-                'table_info',
-            ],
-            'bookmarkwork' => 'bookmarktable',
-            'pdfwork' => [
-                'table_coords',
-                'pdf_pages',
-            ],
-            'commwork' => 'column_info',
-            'mimework' => 'column_info',
-            'historywork' => 'history',
-            'recentwork' => 'recent',
-            'favoritework' => 'favorite',
-            'uiprefswork' => 'table_uiprefs',
-            'trackingwork' => 'tracking',
-            'userconfigwork' => 'userconfig',
-            'menuswork' => [
-                'users',
-                'usergroups',
-            ],
-            'navwork' => 'navigationhiding',
-            'savedsearcheswork' => 'savedsearches',
-            'centralcolumnswork' => 'central_columns',
-            'designersettingswork' => 'designer_settings',
-            'exporttemplateswork' => 'export_templates',
-        ];
-
-        foreach ($workToTable as $work => $table) {
-            $cfgRelation[$work] = false;
-        }
-        $cfgRelation['allworks']       = false;
-        $cfgRelation['user']           = null;
-        $cfgRelation['db']             = null;
-
-        if ($GLOBALS['server'] == 0
-            || empty($GLOBALS['cfg']['Server']['pmadb'])
-            || ! $this->dbi->selectDb(
-                $GLOBALS['cfg']['Server']['pmadb'],
-                DatabaseInterface::CONNECT_CONTROL
-            )
-        ) {
-            // No server selected -> no bookmark table
-            // we return the array with the falses in it,
-            // to avoid some 'Uninitialized string offset' errors later
-            $GLOBALS['cfg']['Server']['pmadb'] = false;
-
-            return $cfgRelation;
-        }
-
-        $cfgRelation['user'] = $GLOBALS['cfg']['Server']['user'];
-        $cfgRelation['db'] = $GLOBALS['cfg']['Server']['pmadb'];
-
-        //  Now I just check if all tables that i need are present so I can for
-        //  example enable relations but not pdf...
-        //  I was thinking of checking if they have all required columns but I
-        //  fear it might be too slow
-
-        $tab_query = 'SHOW TABLES FROM '
-            . Util::backquote(
-                $GLOBALS['cfg']['Server']['pmadb']
-            );
-        $tab_rs = $this->queryAsControlUser(
-            $tab_query,
-            false,
-            DatabaseInterface::QUERY_STORE
-        );
-
-        if (! $tab_rs) {
-            // query failed ... ?
-            //$GLOBALS['cfg']['Server']['pmadb'] = false;
-            return $cfgRelation;
-        }
-
-        while ($curr_table = @$this->dbi->fetchRow($tab_rs)) {
-            if ($curr_table[0] == $GLOBALS['cfg']['Server']['bookmarktable']) {
-                $cfgRelation['bookmark']        = $curr_table[0];
-            } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['relation']) {
-                $cfgRelation['relation']        = $curr_table[0];
-            } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['table_info']) {
-                $cfgRelation['table_info']      = $curr_table[0];
-            } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['table_coords']) {
-                $cfgRelation['table_coords']    = $curr_table[0];
-            } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['column_info']) {
-                $cfgRelation['column_info']     = $curr_table[0];
-            } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['pdf_pages']) {
-                $cfgRelation['pdf_pages']       = $curr_table[0];
-            } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['history']) {
-                $cfgRelation['history']         = $curr_table[0];
-            } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['recent']) {
-                $cfgRelation['recent']          = $curr_table[0];
-            } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['favorite']) {
-                $cfgRelation['favorite']        = $curr_table[0];
-            } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['table_uiprefs']) {
-                $cfgRelation['table_uiprefs']   = $curr_table[0];
-            } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['tracking']) {
-                $cfgRelation['tracking']        = $curr_table[0];
-            } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['userconfig']) {
-                $cfgRelation['userconfig']      = $curr_table[0];
-            } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['users']) {
-                $cfgRelation['users']           = $curr_table[0];
-            } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['usergroups']) {
-                $cfgRelation['usergroups']      = $curr_table[0];
-            } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['navigationhiding']) {
-                $cfgRelation['navigationhiding']      = $curr_table[0];
-            } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['savedsearches']) {
-                $cfgRelation['savedsearches']    = $curr_table[0];
-            } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['central_columns']) {
-                $cfgRelation['central_columns']    = $curr_table[0];
-            } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['designer_settings']) {
-                $cfgRelation['designer_settings'] = $curr_table[0];
-            } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['export_templates']) {
-                $cfgRelation['export_templates']    = $curr_table[0];
-            }
-        } // end while
-        $this->dbi->freeResult($tab_rs);
-
         if (isset($cfgRelation['relation'])) {
             if ($this->canAccessStorageTable($cfgRelation['relation'])) {
                 $cfgRelation['relwork']     = true;
@@ -736,6 +605,154 @@ class Relation
                 $cfgRelation['exporttemplateswork']      = true;
             }
         }
+        return $cfgRelation;
+    }
+
+    private function fillCfgRelationWithTableNames(array $cfgRelation): ?array
+    {
+        $tabQuery = 'SHOW TABLES FROM '
+        . Util::backquote(
+            $GLOBALS['cfg']['Server']['pmadb']
+        );
+        $tableRes = $this->queryAsControlUser(
+            $tabQuery,
+            false,
+            DatabaseInterface::QUERY_STORE
+        );
+        if (is_bool($tableRes)) {
+            return null;
+        }
+        while ($currTable = @$this->dbi->fetchRow($tableRes)) {
+            if ($currTable[0] == $GLOBALS['cfg']['Server']['bookmarktable']) {
+                $cfgRelation['bookmark']        = $currTable[0];
+            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['relation']) {
+                $cfgRelation['relation']        = $currTable[0];
+            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['table_info']) {
+                $cfgRelation['table_info']      = $currTable[0];
+            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['table_coords']) {
+                $cfgRelation['table_coords']    = $currTable[0];
+            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['column_info']) {
+                $cfgRelation['column_info']     = $currTable[0];
+            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['pdf_pages']) {
+                $cfgRelation['pdf_pages']       = $currTable[0];
+            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['history']) {
+                $cfgRelation['history']         = $currTable[0];
+            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['recent']) {
+                $cfgRelation['recent']          = $currTable[0];
+            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['favorite']) {
+                $cfgRelation['favorite']        = $currTable[0];
+            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['table_uiprefs']) {
+                $cfgRelation['table_uiprefs']   = $currTable[0];
+            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['tracking']) {
+                $cfgRelation['tracking']        = $currTable[0];
+            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['userconfig']) {
+                $cfgRelation['userconfig']      = $currTable[0];
+            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['users']) {
+                $cfgRelation['users']           = $currTable[0];
+            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['usergroups']) {
+                $cfgRelation['usergroups']      = $currTable[0];
+            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['navigationhiding']) {
+                $cfgRelation['navigationhiding']      = $currTable[0];
+            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['savedsearches']) {
+                $cfgRelation['savedsearches']    = $currTable[0];
+            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['central_columns']) {
+                $cfgRelation['central_columns']    = $currTable[0];
+            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['designer_settings']) {
+                $cfgRelation['designer_settings'] = $currTable[0];
+            } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['export_templates']) {
+                $cfgRelation['export_templates']    = $currTable[0];
+            }
+        }
+        $this->dbi->freeResult($tableRes);
+        return $cfgRelation;
+    }
+
+    /**
+     * Defines the relation parameters for the current user
+     * just a copy of the functions used for relations ;-)
+     * but added some stuff to check what will work
+     *
+     * @return string[]    the relation parameters for the current user
+     *
+     * @access protected
+     */
+    public function checkRelationsParam(): array
+    {
+        $cfgRelation                   = [];
+        $cfgRelation['PMA_VERSION']    = PMA_VERSION;
+
+        $workToTable = [
+            'relwork' => 'relation',
+            'displaywork' => [
+                'relation',
+                'table_info',
+            ],
+            'bookmarkwork' => 'bookmarktable',
+            'pdfwork' => [
+                'table_coords',
+                'pdf_pages',
+            ],
+            'commwork' => 'column_info',
+            'mimework' => 'column_info',
+            'historywork' => 'history',
+            'recentwork' => 'recent',
+            'favoritework' => 'favorite',
+            'uiprefswork' => 'table_uiprefs',
+            'trackingwork' => 'tracking',
+            'userconfigwork' => 'userconfig',
+            'menuswork' => [
+                'users',
+                'usergroups',
+            ],
+            'navwork' => 'navigationhiding',
+            'savedsearcheswork' => 'savedsearches',
+            'centralcolumnswork' => 'central_columns',
+            'designersettingswork' => 'designer_settings',
+            'exporttemplateswork' => 'export_templates',
+        ];
+
+        foreach ($workToTable as $work => $table) {
+            $cfgRelation[$work] = false;
+        }
+        $cfgRelation['allworks']       = false;
+        $cfgRelation['user']           = null;
+        $cfgRelation['db']             = null;
+
+        if ($GLOBALS['server'] == 0
+            || empty($GLOBALS['cfg']['Server']['pmadb'])
+            || ! $this->dbi->selectDb(
+                $GLOBALS['cfg']['Server']['pmadb'],
+                DatabaseInterface::CONNECT_CONTROL
+            )
+        ) {
+            // No server selected -> no bookmark table
+            // we return the array with the falses in it,
+            // to avoid some 'Uninitialized string offset' errors later
+            $GLOBALS['cfg']['Server']['pmadb'] = false;
+
+            return $cfgRelation;
+        }
+
+        $cfgRelation['user'] = $GLOBALS['cfg']['Server']['user'];
+        $cfgRelation['db'] = $GLOBALS['cfg']['Server']['pmadb'];
+
+        //  Now I just check if all tables that i need are present so I can for
+        //  example enable relations but not pdf...
+        //  I was thinking of checking if they have all required columns but I
+        //  fear it might be too slow
+
+        $cfgRelationFilled = $this->fillCfgRelationWithTableNames($cfgRelation);
+
+        if ($cfgRelationFilled === null) {
+            // query failed ... ?
+            //$GLOBALS['cfg']['Server']['pmadb'] = false;
+            return $cfgRelation;
+        }
+
+        // Filling did success
+        $cfgRelation = $cfgRelationFilled;
+
+        $cfgRelation = $this->checkTableAccess($cfgRelation);
 
         $allWorks = true;
         foreach ($workToTable as $work => $table) {

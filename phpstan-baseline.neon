@@ -3221,12 +3221,7 @@ parameters:
 			path: libraries/classes/Relation.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Relation\\:\\:checkRelationsParam\\(\\) should return array\\<string\\> but returns array\\<string, string\\|false\\|null\\>\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchRow\\(\\) expects object, resource\\|true given\\.$#"
+			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchRow\\(\\) expects object, resource given\\.$#"
 			count: 1
 			path: libraries/classes/Relation.php
 
@@ -3236,13 +3231,23 @@ parameters:
 			path: libraries/classes/Relation.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, resource\\|true given\\.$#"
-			count: 2
+			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, resource given\\.$#"
+			count: 1
+			path: libraries/classes/Relation.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Relation\\:\\:checkRelationsParam\\(\\) should return array\\<string\\> but returns array\\<string, string\\|false\\|null\\>\\.$#"
+			count: 1
 			path: libraries/classes/Relation.php
 
 		-
 			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:numRows\\(\\) expects object, resource\\|true given\\.$#"
 			count: 3
+			path: libraries/classes/Relation.php
+
+		-
+			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, resource\\|true given\\.$#"
+			count: 1
 			path: libraries/classes/Relation.php
 
 		-
