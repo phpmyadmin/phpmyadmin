@@ -949,6 +949,77 @@ class Util
     }
 
     /**
+     * Build a condition and with a value
+     *
+     * @param string|int|float|null $row          The row value
+     * @param stdClass              $meta         The field metadata
+     * @param string                $fieldFlags   The field flags
+     * @param int                   $fieldsCount  A number of fields
+     * @param string                $conditionKey A key used for BINARY fields functions
+     * @param string                $condition    The condition
+     *
+     * @return array<int,string|null>
+     */
+    private static function getConditionValue(
+        $row,
+        stdClass $meta,
+        string $fieldFlags,
+        int $fieldsCount,
+        string $conditionKey,
+        string $condition
+    ): array {
+        if ($row === null) {
+            return ['IS NULL', $condition];
+        }
+
+        $conditionValue = '';
+        // timestamp is numeric on some MySQL 4.1
+        // for real we use CONCAT above and it should compare to string
+        if ($meta->numeric
+            && ($meta->type !== 'timestamp')
+            && ($meta->type !== 'real')
+        ) {
+            $conditionValue = '= ' . $row;
+        } elseif (($meta->type === 'blob') || ($meta->type === 'string')
+            && stripos($fieldFlags, 'BINARY') !== false
+            && ! empty($row)
+        ) {
+            // hexify only if this is a true not empty BLOB or a BINARY
+
+            // do not waste memory building a too big condition
+            if (mb_strlen((string) $row) < 1000) {
+                // use a CAST if possible, to avoid problems
+                // if the field contains wildcard characters % or _
+                $conditionValue = '= CAST(0x' . bin2hex((string) $row) . ' AS BINARY)';
+            } elseif ($fieldsCount === 1) {
+                // when this blob is the only field present
+                // try settling with length comparison
+                $condition = ' CHAR_LENGTH(' . $conditionKey . ') ';
+                $conditionValue = ' = ' . mb_strlen((string) $row);
+            } else {
+                // this blob won't be part of the final condition
+                $conditionValue = null;
+            }
+        } elseif (in_array($meta->type, self::getGISDatatypes())
+            && ! empty($row)
+        ) {
+            // do not build a too big condition
+            if (mb_strlen((string) $row) < 5000) {
+                $condition .= '=0x' . bin2hex((string) $row) . ' AND';
+            } else {
+                $condition = '';
+            }
+        } elseif ($meta->type === 'bit') {
+            $conditionValue = "= b'"
+                . self::printableBitValue((int) $row, (int) $meta->length) . "'";
+        } else {
+            $conditionValue = '= \''
+                . $GLOBALS['dbi']->escapeString($row) . '\'';
+        }
+        return [$conditionValue, $condition];
+    }
+
+    /**
      * Function to generate unique condition for specified row.
      *
      * @param resource    $handle               current query result
@@ -985,8 +1056,6 @@ class Util
         $condition_array = [];
 
         for ($i = 0; $i < $fields_cnt; ++$i) {
-            $con_val     = '';
-            $field_flags = $GLOBALS['dbi']->fieldFlags($handle, $i);
             $meta        = $fields_meta[$i];
 
             // do not use a column alias in a condition
@@ -1044,53 +1113,14 @@ class Util
             } // end if... else...
             $condition = ' ' . $con_key . ' ';
 
-            if (! isset($row[$i]) || $row[$i] === null) {
-                $con_val = 'IS NULL';
-            } else {
-                // timestamp is numeric on some MySQL 4.1
-                // for real we use CONCAT above and it should compare to string
-                if ($meta->numeric
-                    && ($meta->type != 'timestamp')
-                    && ($meta->type != 'real')
-                ) {
-                    $con_val = '= ' . $row[$i];
-                } elseif (($meta->type == 'blob') || ($meta->type == 'string')
-                    && stripos($field_flags, 'BINARY') !== false
-                    && ! empty($row[$i])
-                ) {
-                    // hexify only if this is a true not empty BLOB or a BINARY
-
-                    // do not waste memory building a too big condition
-                    if (mb_strlen($row[$i]) < 1000) {
-                        // use a CAST if possible, to avoid problems
-                        // if the field contains wildcard characters % or _
-                        $con_val = '= CAST(0x' . bin2hex($row[$i]) . ' AS BINARY)';
-                    } elseif ($fields_cnt == 1) {
-                        // when this blob is the only field present
-                        // try settling with length comparison
-                        $condition = ' CHAR_LENGTH(' . $con_key . ') ';
-                        $con_val = ' = ' . mb_strlen($row[$i]);
-                    } else {
-                        // this blob won't be part of the final condition
-                        $con_val = null;
-                    }
-                } elseif (in_array($meta->type, self::getGISDatatypes())
-                    && ! empty($row[$i])
-                ) {
-                    // do not build a too big condition
-                    if (mb_strlen($row[$i]) < 5000) {
-                        $condition .= '=0x' . bin2hex($row[$i]) . ' AND';
-                    } else {
-                        $condition = '';
-                    }
-                } elseif ($meta->type == 'bit') {
-                    $con_val = "= b'"
-                        . self::printableBitValue((int) $row[$i], (int) $meta->length) . "'";
-                } else {
-                    $con_val = '= \''
-                        . $GLOBALS['dbi']->escapeString($row[$i]) . '\'';
-                }
-            }
+            [$con_val, $condition] = self::getConditionValue(
+                (! isset($row[$i]) || $row[$i] === null) ? null : $row[$i],
+                $meta,
+                $GLOBALS['dbi']->fieldFlags($handle, $i),
+                $fields_cnt,
+                $con_key,
+                $condition
+            );
 
             if ($con_val === null) {
                 continue;
