@@ -73,6 +73,279 @@ class UtilTest extends AbstractTestCase
     }
 
     /**
+     * Test for listPHPExtensions
+     * @requires extension mysqli
+     * @requires extension curl
+     * @requires extension mbstring
+     */
+    public function testListPHPExtensions(): void
+    {
+        $this->assertSame(
+            [
+                'mysqli',
+                'curl',
+                'mbstring',
+            ],
+            Util::listPHPExtensions()
+        );
+    }
+
+    /**
+     * Test for private getConditionValue
+     */
+    public function testGetConditionValue(): void
+    {
+        $this->assertSame(
+            ['IS NULL', ''],
+            $this->callFunction(
+                null,
+                Util::class,
+                'getConditionValue',
+                [
+                    null,// row
+                    ((object) [
+                        'numeric' => false,
+                        'type' => 'string',
+                    ]),// field meta
+                    '',// field flags
+                    0,// fields count
+                    '',// condition key
+                    '',// condition
+                ]
+            )
+        );
+        $this->assertSame(
+            ['IS NULL', 'CONCAT(`table`.`orgname`)'],
+            $this->callFunction(
+                null,
+                Util::class,
+                'getConditionValue',
+                [
+                    null,// row
+                    ((object) [
+                        'numeric' => false,
+                        'type' => 'string',
+                    ]),// field meta
+                    '',// field flags
+                    0,// fields count
+                    '',// condition key
+                    'CONCAT(`table`.`orgname`)',// condition
+                ]
+            )
+        );
+        $this->assertSame(
+            ['= 123456', ''],
+            $this->callFunction(
+                null,
+                Util::class,
+                'getConditionValue',
+                [
+                    123456,// row
+                    ((object) [
+                        'numeric' => true,
+                        'type' => 'int',
+                    ]),// field meta
+                    '',// field flags
+                    0,// fields count
+                    '',// condition key
+                    '',// condition
+                ]
+            )
+        );
+        $this->assertSame(
+            ['= 123.456', ''],
+            $this->callFunction(
+                null,
+                Util::class,
+                'getConditionValue',
+                [
+                    123.456,// row
+                    ((object) [
+                        'numeric' => true,
+                        'type' => 'float',
+                    ]),// field meta
+                    '',// field flags
+                    0,// fields count
+                    '',// condition key
+                    '',// condition
+                ]
+            )
+        );
+        $this->assertSame(
+            ['= \'value\'', ''],
+            $this->callFunction(
+                null,
+                Util::class,
+                'getConditionValue',
+                [
+                    'value',// row
+                    ((object) [
+                        'numeric' => false,
+                        'type' => 'string',
+                    ]),// field meta
+                    '',// field flags
+                    0,// fields count
+                    '',// condition key
+                    '',// condition
+                ]
+            )
+        );
+        $this->assertSame(
+            ['= CAST(0x76616c7565 AS BINARY)', ''],
+            $this->callFunction(
+                null,
+                Util::class,
+                'getConditionValue',
+                [
+                    'value',// row
+                    ((object) [
+                        'numeric' => false,
+                        'type' => 'string',
+                    ]),// field meta
+                    'BINARY',// field flags
+                    0,// fields count
+                    '',// condition key
+                    '',// condition
+                ]
+            )
+        );
+        $this->assertSame(
+            ['= CAST(0x76616c7565 AS BINARY)', ''],
+            $this->callFunction(
+                null,
+                Util::class,
+                'getConditionValue',
+                [
+                    'value',// row
+                    ((object) [
+                        'numeric' => false,
+                        'type' => 'string',
+                    ]),// field meta
+                    'BINARY',// field flags
+                    1,// fields count
+                    '',// condition key
+                    '',// condition
+                ]
+            )
+        );
+        $this->assertSame(
+            [' = 1001', ' CHAR_LENGTH(conditionKey) '],
+            $this->callFunction(
+                null,
+                Util::class,
+                'getConditionValue',
+                [
+                    str_repeat('*', 1001),// row
+                    ((object) [
+                        'numeric' => false,
+                        'type' => 'string',
+                    ]),// field meta
+                    'BINARY',// field flags
+                    1,// fields count
+                    'conditionKey',// condition key
+                    'conditionInit',// condition
+                ]
+            )
+        );
+        $this->assertSame(
+            [null, 'conditionInit'],
+            $this->callFunction(
+                null,
+                Util::class,
+                'getConditionValue',
+                [
+                    str_repeat('*', 1001),// row
+                    ((object) [
+                        'numeric' => false,
+                        'type' => 'string',
+                    ]),// field meta
+                    'BINARY',// field flags
+                    0,// fields count
+                    'conditionKey',// condition key
+                    'conditionInit',// condition
+                ]
+            )
+        );
+        $this->assertSame(
+            ['= b\'0001\'', ''],
+            $this->callFunction(
+                null,
+                Util::class,
+                'getConditionValue',
+                [
+                    0x1,// row
+                    ((object) [
+                        'numeric' => false,
+                        'type' => 'bit',
+                        'length' => 4,
+                    ]),// field meta
+                    '',// field flags
+                    0,// fields count
+                    'conditionKey',// condition key
+                    '',// condition
+                ]
+            )
+        );
+        $this->assertSame(
+            ['', '=0x626c6f6f6f626262 AND'],
+            $this->callFunction(
+                null,
+                Util::class,
+                'getConditionValue',
+                [
+                    'blooobbb',// row
+                    ((object) [
+                        'numeric' => false,
+                        'type' => 'multipoint',
+                    ]),// field meta
+                    '',// field flags
+                    0,// fields count
+                    '',// condition key
+                    '',// condition
+                ]
+            )
+        );
+        $this->assertSame(
+            ['', '`table`.`tbl2`=0x626c6f6f6f626262 AND'],
+            $this->callFunction(
+                null,
+                Util::class,
+                'getConditionValue',
+                [
+                    'blooobbb',// row
+                    ((object) [
+                        'numeric' => false,
+                        'type' => 'multipoint',
+                    ]),// field meta
+                    '',// field flags
+                    0,// fields count
+                    '',// condition key
+                    '`table`.`tbl2`',// condition
+                ]
+            )
+        );
+        $this->assertSame(
+            ['', ''],
+            $this->callFunction(
+                null,
+                Util::class,
+                'getConditionValue',
+                [
+                    str_repeat('*', 5001),// row
+                    ((object) [
+                        'numeric' => false,
+                        'type' => 'multipoint',
+                    ]),// field meta
+                    '',// field flags
+                    0,// fields count
+                    '',// condition key
+                    '',// condition
+                ]
+            )
+        );
+    }
+
+    /**
      * Test for getGISFunctions
      */
     public function testGetGISFunctions(): void
