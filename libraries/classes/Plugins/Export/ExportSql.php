@@ -2920,11 +2920,14 @@ class ExportSql extends ExportPlugin
 
                 // Replacing only symbols (that are not variables) and unknown
                 // identifiers.
-                $replaceToken = ($token->type === Token::TYPE_SYMBOL)
+                $isSymbol = $token->type === Token::TYPE_SYMBOL;
+                $isKeyword = $token->type === Token::TYPE_KEYWORD;
+                $isNone = $token->type === Token::TYPE_NONE;
+                $replaceToken = $isSymbol
                     && (! ($token->flags & Token::FLAG_SYMBOL_VARIABLE))
-                    || (($token->type === Token::TYPE_KEYWORD)
-                        && (! ($token->flags & Token::FLAG_KEYWORD_RESERVED))
-                        || ($token->type === Token::TYPE_NONE));
+                    || ($isKeyword
+                    && (! ($token->flags & Token::FLAG_KEYWORD_RESERVED))
+                    || $isNone);
 
                 if (! $replaceToken) {
                     continue;

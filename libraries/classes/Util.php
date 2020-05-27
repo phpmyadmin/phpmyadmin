@@ -1092,7 +1092,7 @@ class Util
                 }
             }
 
-            if ($con_val == null) {
+            if ($con_val === null) {
                 continue;
             }
 

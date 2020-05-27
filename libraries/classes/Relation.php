@@ -1726,14 +1726,14 @@ class Relation
      * @return void
      */
     public function renameSingleTable(
-        $table,
-        $source_db,
-        $target_db,
-        $source_table,
-        $target_table,
-        $db_field,
-        $table_field
-    ) {
+        string $table,
+        string $source_db,
+        string $target_db,
+        string $source_table,
+        string $target_table,
+        string $db_field,
+        string $table_field
+    ): void {
         $query = 'UPDATE '
             . Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
             . Util::backquote($GLOBALS['cfgRelation'][$table])

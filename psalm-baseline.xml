@@ -371,10 +371,6 @@
     <TypeDoesNotContainType occurrences="1">
       <code>(int) $database[$key]</code>
     </TypeDoesNotContainType>
-    <UndefinedVariable occurrences="2">
-      <code>$replication_types</code>
-      <code>$message</code>
-    </UndefinedVariable>
   </file>
   <file src="libraries/classes/Controllers/Server/PrivilegesController.php">
     <PossiblyInvalidArgument occurrences="3">

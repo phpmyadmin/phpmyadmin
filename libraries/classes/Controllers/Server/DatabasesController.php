@@ -88,7 +88,7 @@ class DatabasesController extends AbstractController
     public function index(): void
     {
         global $cfg, $server, $dblist, $is_create_db_priv;
-        global $replication_info, $db_to_create, $pmaThemeImage, $text_dir;
+        global $replication_info, $replication_types, $db_to_create, $pmaThemeImage, $text_dir;
 
         $params = [
             'statistics' => $_REQUEST['statistics'] ?? null,
@@ -270,6 +270,8 @@ class DatabasesController extends AbstractController
             'drop_selected_dbs' => $_POST['drop_selected_dbs'] ?? null,
             'selected_dbs' => $_POST['selected_dbs'] ?? null,
         ];
+        /** @var Message|int $message */
+        $message = -1;
 
         if (! isset($params['drop_selected_dbs'])
             || ! $this->response->isAjax()
@@ -313,7 +315,7 @@ class DatabasesController extends AbstractController
             $dblist->databases->build();
         }
 
-        if (empty($message)) { // no error message
+        if ($message === -1) { // no error message
             $message = Message::success(
                 _ngettext(
                     '%1$d database has been dropped successfully.',
