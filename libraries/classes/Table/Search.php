@@ -271,7 +271,9 @@ final class Search
         // If the function takes multiple parameters
         if (strpos($func_type, 'IS NULL') !== false || strpos($func_type, 'IS NOT NULL') !== false) {
             return Util::backquote($names) . ' ' . $func_type;
-        } elseif ($geom_funcs[$geom_func]['params'] > 1) {
+        }
+
+        if ($geom_funcs[$geom_func]['params'] > 1) {
             // create gis data from the criteria input
             $gis_data = Util::createGISData($criteriaValues, $this->dbi->getVersion());
 

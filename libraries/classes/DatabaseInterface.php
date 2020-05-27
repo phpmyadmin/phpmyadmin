@@ -1202,7 +1202,9 @@ class DatabaseInterface implements DbalInterface
             }
 
             return $columns;
-        } elseif ($table === null) {
+        }
+
+        if ($table === null) {
             $tables = $this->getTables($database);
             foreach ($tables as $table) {
                 $columns[$table] = $this->getColumnsFull(
@@ -2662,7 +2664,9 @@ class DatabaseInterface implements DbalInterface
             );
 
             return false;
-        } elseif ($mode == self::CONNECT_AUXILIARY) {
+        }
+
+        if ($mode == self::CONNECT_AUXILIARY) {
             // Do not go back to main login if connection failed
             // (currently used only in unit testing)
             return false;

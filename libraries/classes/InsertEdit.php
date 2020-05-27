@@ -1581,7 +1581,9 @@ class InsertEdit
         if ($files === false) {
             return '<span style="color:red">' . __('Error') . '</span><br>' . "\n"
                 . __('The directory you set for upload work cannot be reached.') . "\n";
-        } elseif (! empty($files)) {
+        }
+
+        if (! empty($files)) {
             return "<br>\n"
                 . '<i>' . __('Or') . '</i> '
                 . __('web server upload directory:') . '<br>' . "\n"
@@ -2653,16 +2655,22 @@ class InsertEdit
     ) {
         if (empty($multi_edit_funcs[$key])) {
             return $current_value;
-        } elseif ($multi_edit_funcs[$key] === 'PHP_PASSWORD_HASH') {
+        }
+
+        if ($multi_edit_funcs[$key] === 'PHP_PASSWORD_HASH') {
             $hash = password_hash($current_value, PASSWORD_DEFAULT);
 
             return "'" . $hash . "'";
-        } elseif ($multi_edit_funcs[$key] === 'UUID') {
+        }
+
+        if ($multi_edit_funcs[$key] === 'UUID') {
             /* This way user will know what UUID new row has */
             $uuid = $this->dbi->fetchValue('SELECT UUID()');
 
             return "'" . $uuid . "'";
-        } elseif ((in_array($multi_edit_funcs[$key], $gis_from_text_functions)
+        }
+
+        if ((in_array($multi_edit_funcs[$key], $gis_from_text_functions)
             && substr($current_value, 0, 3) == "'''")
             || in_array($multi_edit_funcs[$key], $gis_from_wkb_functions)
         ) {
@@ -2672,7 +2680,9 @@ class InsertEdit
             $current_value = str_replace("''", "'", $current_value);
 
             return $multi_edit_funcs[$key] . '(' . $current_value . ')';
-        } elseif (! in_array($multi_edit_funcs[$key], $func_no_param)
+        }
+
+        if (! in_array($multi_edit_funcs[$key], $func_no_param)
             || ($current_value != "''"
             && in_array($multi_edit_funcs[$key], $func_optional_param))
         ) {

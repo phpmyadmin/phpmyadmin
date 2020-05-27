@@ -217,7 +217,9 @@ abstract class TestBase extends TestCase
             return 'https://'
             . $this->getBrowserStackCredentials() .
             '@hub-cloud.browserstack.com/wd/hub';
-        } elseif ($this->hasSeleniumConfig()) {
+        }
+
+        if ($this->hasSeleniumConfig()) {
             return 'http://'
             . getenv('TESTSUITE_SELENIUM_HOST') . ':'
             . getenv('TESTSUITE_SELENIUM_PORT') . '/wd/hub';

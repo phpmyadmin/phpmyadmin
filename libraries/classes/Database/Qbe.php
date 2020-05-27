@@ -1800,7 +1800,9 @@ class Qbe
                 $candidate_columns,
                 $needsort,
             ];
-        } elseif (isset($index_columns) && count($index_columns) > 0) {
+        }
+
+        if (isset($index_columns) && count($index_columns) > 0) {
             $candidate_columns = $index_columns;
             $needsort = 1;
 
@@ -1808,7 +1810,9 @@ class Qbe
                 $candidate_columns,
                 $needsort,
             ];
-        } elseif (isset($where_clause_columns) && count($where_clause_columns) > 0) {
+        }
+
+        if (isset($where_clause_columns) && count($where_clause_columns) > 0) {
             $candidate_columns = $where_clause_columns;
             $needsort = 0;
 

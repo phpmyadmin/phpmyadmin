@@ -1602,7 +1602,9 @@ class Util
         $engine = strtoupper((string) $engine);
         if (($engine === 'INNODB') || ($engine === 'PBXT')) {
             return true;
-        } elseif ($engine === 'NDBCLUSTER' || $engine === 'NDB') {
+        }
+
+        if ($engine === 'NDBCLUSTER' || $engine === 'NDB') {
             $ndbver = strtolower(
                 $GLOBALS['dbi']->fetchValue('SELECT @@ndb_version_string')
             );
@@ -1623,7 +1625,9 @@ class Util
     {
         if ($GLOBALS['cfg']['DefaultForeignKeyChecks'] === 'enable') {
             return true;
-        } elseif ($GLOBALS['cfg']['DefaultForeignKeyChecks'] === 'disable') {
+        }
+
+        if ($GLOBALS['cfg']['DefaultForeignKeyChecks'] === 'disable') {
             return false;
         }
 
@@ -2002,7 +2006,9 @@ class Util
             . 'POLYGON|MULTIPOLYGON|GEOMETRYCOLLECTION)';
         if (preg_match("/^'" . $geom_types . "\(.*\)',[0-9]*$/i", $gis_string)) {
             return $geomFromText . '(' . $gis_string . ')';
-        } elseif (preg_match('/^' . $geom_types . '\(.*\)$/i', $gis_string)) {
+        }
+
+        if (preg_match('/^' . $geom_types . '\(.*\)$/i', $gis_string)) {
             return $geomFromText . "('" . $gis_string . "')";
         }
 
@@ -2482,7 +2488,9 @@ class Util
 
         if ($level == null) {
             return $tabList;
-        } elseif (array_key_exists($level, $tabList)) {
+        }
+
+        if (array_key_exists($level, $tabList)) {
             return $tabList[$level];
         }
 
@@ -2555,7 +2563,9 @@ class Util
         $names = $GLOBALS['dbi']->getLowerCaseNames();
         if ($names === '0') {
             return 'COLLATE utf8_bin';
-        } elseif ($names === '2') {
+        }
+
+        if ($names === '2') {
             return 'COLLATE utf8_general_ci';
         }
 

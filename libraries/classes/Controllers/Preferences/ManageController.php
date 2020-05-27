@@ -82,7 +82,9 @@ class ManageController extends AbstractController
             echo json_encode($settings['config_data'], JSON_PRETTY_PRINT);
 
             return;
-        } elseif (isset($_POST['submit_export'], $_POST['export_type']) && $_POST['export_type'] == 'php_file') {
+        }
+
+        if (isset($_POST['submit_export'], $_POST['export_type']) && $_POST['export_type'] == 'php_file') {
             // export to JSON file
             $this->response->disable();
             $filename = 'phpMyAdmin-config-' . urlencode(Core::getenv('HTTP_HOST')) . '.php';
@@ -96,13 +98,17 @@ class ManageController extends AbstractController
             }
 
             return;
-        } elseif (isset($_POST['submit_get_json'])) {
+        }
+
+        if (isset($_POST['submit_get_json'])) {
             $settings = $this->userPreferences->load();
             $this->response->addJSON('prefs', json_encode($settings['config_data']));
             $this->response->addJSON('mtime', $settings['mtime']);
 
             return;
-        } elseif (isset($_POST['submit_import'])) {
+        }
+
+        if (isset($_POST['submit_import'])) {
             // load from JSON file
             $json = '';
             if (isset($_POST['import_type'], $_FILES['import_file'])

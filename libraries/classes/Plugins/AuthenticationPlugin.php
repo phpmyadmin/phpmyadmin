@@ -187,9 +187,13 @@ abstract class AuthenticationPlugin
                 'Login without a password is forbidden by configuration'
                 . ' (see AllowNoPassword)'
             );
-        } elseif ($failure == 'root-denied' || $failure == 'allow-denied') {
+        }
+
+        if ($failure == 'root-denied' || $failure == 'allow-denied') {
             return __('Access denied!');
-        } elseif ($failure == 'no-activity') {
+        }
+
+        if ($failure == 'no-activity') {
             return sprintf(
                 __('You have been automatically logged out due to inactivity of %s seconds.'
                 . ' Once you log in again, you should be able to resume the work where you left off.'),
@@ -200,7 +204,9 @@ abstract class AuthenticationPlugin
         $dbi_error = $GLOBALS['dbi']->getError();
         if (! empty($dbi_error)) {
             return htmlspecialchars($dbi_error);
-        } elseif (isset($GLOBALS['errno'])) {
+        }
+
+        if (isset($GLOBALS['errno'])) {
             return '#' . $GLOBALS['errno'] . ' '
             . __('Cannot log in to the MySQL server');
         }

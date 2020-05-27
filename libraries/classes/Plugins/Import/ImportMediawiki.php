@@ -107,7 +107,9 @@ class ImportMediawiki extends ImportPlugin
                 // Subtract data we didn't handle yet and stop processing
                 $GLOBALS['offset'] -= mb_strlen($buffer);
                 break;
-            } elseif ($data !== true) {
+            }
+
+            if ($data !== true) {
                 // Append new data to buffer
                 $buffer = $data;
                 unset($data);
@@ -149,7 +151,9 @@ class ImportMediawiki extends ImportPlugin
                 if (! strcmp(mb_substr($cur_buffer_line, 0, 4), '<!--')) {
                     $inside_comment = true;
                     continue;
-                } elseif ($inside_comment) {
+                }
+
+                if ($inside_comment) {
                     // Check end of comment
                     if (! strcmp(mb_substr($cur_buffer_line, 0, 4), '-->')
                     ) {

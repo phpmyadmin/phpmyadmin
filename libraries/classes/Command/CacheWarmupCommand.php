@@ -53,9 +53,13 @@ final class CacheWarmupCommand extends Command
             $output->writeln('Please specify --twig or --routing');
 
             return 1;
-        } elseif ($input->getOption('twig') === true) {
+        }
+
+        if ($input->getOption('twig') === true) {
             return $this->warmUpTwigCache($output);
-        } elseif ($input->getOption('routing') === true) {
+        }
+
+        if ($input->getOption('routing') === true) {
             return $this->warmUpRoutingCache($output);
         }
 

@@ -78,7 +78,9 @@ class ImportXml extends ImportPlugin
                 /* subtract data we didn't handle yet and stop processing */
                 $GLOBALS['offset'] -= strlen($buffer);
                 break;
-            } elseif ($data !== true) {
+            }
+
+            if ($data !== true) {
                 /* Append new data to buffer */
                 $buffer .= $data;
                 unset($data);

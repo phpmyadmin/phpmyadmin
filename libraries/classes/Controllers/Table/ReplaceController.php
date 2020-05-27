@@ -401,19 +401,25 @@ final class ReplaceController extends AbstractController
                 $controller->index();
 
                 return;
-            } elseif ($goto_include === '/database/sql') {
+            }
+
+            if ($goto_include === '/database/sql') {
                 /** @var DatabaseSqlController $controller */
                 $controller = $containerBuilder->get(DatabaseSqlController::class);
                 $controller->index();
 
                 return;
-            } elseif ($goto_include === '/table/change') {
+            }
+
+            if ($goto_include === '/table/change') {
                 /** @var ChangeController $controller */
                 $controller = $containerBuilder->get(ChangeController::class);
                 $controller->index();
 
                 return;
-            } elseif ($goto_include === '/table/sql') {
+            }
+
+            if ($goto_include === '/table/sql') {
                 /** @var TableSqlController $controller */
                 $controller = $containerBuilder->get(TableSqlController::class);
                 $controller->index();
@@ -604,19 +610,25 @@ final class ReplaceController extends AbstractController
             $controller->index();
 
             return;
-        } elseif ($goto_include === '/database/sql') {
+        }
+
+        if ($goto_include === '/database/sql') {
             /** @var DatabaseSqlController $controller */
             $controller = $containerBuilder->get(DatabaseSqlController::class);
             $controller->index();
 
             return;
-        } elseif ($goto_include === '/table/change') {
+        }
+
+        if ($goto_include === '/table/change') {
             /** @var ChangeController $controller */
             $controller = $containerBuilder->get(ChangeController::class);
             $controller->index();
 
             return;
-        } elseif ($goto_include === '/table/sql') {
+        }
+
+        if ($goto_include === '/table/sql') {
             /** @var TableSqlController $controller */
             $controller = $containerBuilder->get(TableSqlController::class);
             $controller->index();

@@ -88,11 +88,15 @@ class Import
         global $timestamp, $maximum_time, $timeout_passed;
         if ($maximum_time == 0) {
             return false;
-        } elseif ($timeout_passed) {
+        }
+
+        if ($timeout_passed) {
             return true;
 
             /* 5 in next row might be too much */
-        } elseif (time() - $timestamp > $maximum_time - 5) {
+        }
+
+        if (time() - $timestamp > $maximum_time - 5) {
             $timeout_passed = true;
 
             return true;
@@ -465,7 +469,9 @@ class Import
             return substr($contents, 3);
 
             // UTF-16 BE, LE
-        } elseif (strncmp($contents, "\xFE\xFF", 2) === 0
+        }
+
+        if (strncmp($contents, "\xFE\xFF", 2) === 0
             || strncmp($contents, "\xFF\xFE", 2) === 0
         ) {
             return substr($contents, 2);
@@ -667,7 +673,9 @@ class Import
          */
         if (! strcmp('NULL', $cell)) {
             return $last_cumulative_size;
-        } elseif ($curr_type == self::VARCHAR) {
+        }
+
+        if ($curr_type == self::VARCHAR) {
             /**
              * What to do if the current cell is of type VARCHAR
              */
@@ -680,7 +688,9 @@ class Import
                 }
 
                 return $last_cumulative_size;
-            } elseif ($last_cumulative_type == self::DECIMAL) {
+            }
+
+            if ($last_cumulative_type == self::DECIMAL) {
                 /**
                  * The last cumulative type was DECIMAL
                  */
@@ -691,7 +701,9 @@ class Import
                 }
 
                 return $oldM;
-            } elseif ($last_cumulative_type == self::BIGINT || $last_cumulative_type == self::INT) {
+            }
+
+            if ($last_cumulative_type == self::BIGINT || $last_cumulative_type == self::INT) {
                 /**
                  * The last cumulative type was BIGINT or INT
                  */
@@ -700,7 +712,9 @@ class Import
                 }
 
                 return $last_cumulative_size;
-            } elseif (! isset($last_cumulative_type) || $last_cumulative_type == self::NONE) {
+            }
+
+            if (! isset($last_cumulative_type) || $last_cumulative_type == self::NONE) {
                 /**
                  * This is the first row to be analyzed
                  */
@@ -715,7 +729,9 @@ class Import
              */
 
             return -1;
-        } elseif ($curr_type == self::DECIMAL) {
+        }
+
+        if ($curr_type == self::DECIMAL) {
             /**
              * What to do if the current cell is of type DECIMAL
              */
@@ -731,7 +747,9 @@ class Import
                 }
 
                 return $last_cumulative_size;
-            } elseif ($last_cumulative_type == self::DECIMAL) {
+            }
+
+            if ($last_cumulative_type == self::DECIMAL) {
                 /**
                  * The last cumulative type was DECIMAL
                  */
@@ -748,7 +766,9 @@ class Import
                 }
 
                 return $last_cumulative_size;
-            } elseif ($last_cumulative_type == self::BIGINT || $last_cumulative_type == self::INT) {
+            }
+
+            if ($last_cumulative_type == self::BIGINT || $last_cumulative_type == self::INT) {
                 /**
                  * The last cumulative type was BIGINT or INT
                  */
@@ -760,7 +780,9 @@ class Import
                 }
 
                 return $last_cumulative_size . ',' . $size[self::D];
-            } elseif (! isset($last_cumulative_type) || $last_cumulative_type == self::NONE) {
+            }
+
+            if (! isset($last_cumulative_type) || $last_cumulative_type == self::NONE) {
                 /**
                  * This is the first row to be analyzed
                  */
@@ -778,7 +800,9 @@ class Import
              */
 
             return -1;
-        } elseif ($curr_type == self::BIGINT || $curr_type == self::INT) {
+        }
+
+        if ($curr_type == self::BIGINT || $curr_type == self::INT) {
             /**
              * What to do if the current cell is of type BIGINT or INT
              */
@@ -791,7 +815,9 @@ class Import
                 }
 
                 return $last_cumulative_size;
-            } elseif ($last_cumulative_type == self::DECIMAL) {
+            }
+
+            if ($last_cumulative_type == self::DECIMAL) {
                 /**
                  * The last cumulative type was DECIMAL
                  */
@@ -808,7 +834,9 @@ class Import
 
                 /* Use $newInt + $oldD as new M */
                 return ($newInt + $oldD) . ',' . $oldD;
-            } elseif ($last_cumulative_type == self::BIGINT || $last_cumulative_type == self::INT) {
+            }
+
+            if ($last_cumulative_type == self::BIGINT || $last_cumulative_type == self::INT) {
                 /**
                  * The last cumulative type was BIGINT or INT
                  */
@@ -817,7 +845,9 @@ class Import
                 }
 
                 return $last_cumulative_size;
-            } elseif (! isset($last_cumulative_type) || $last_cumulative_type == self::NONE) {
+            }
+
+            if (! isset($last_cumulative_type) || $last_cumulative_type == self::NONE) {
                 /**
                  * This is the first row to be analyzed
                  */

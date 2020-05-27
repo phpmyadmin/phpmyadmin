@@ -201,7 +201,9 @@ class HttpRequest
             if (curl_getinfo($curlHandle, CURLINFO_SSL_VERIFYRESULT) != 0) {
                 if ($ssl == 0) {
                     return $this->curl($url, $method, $returnOnlyStatus, $content, $header, CURLOPT_CAINFO);
-                } elseif ($ssl == CURLOPT_CAINFO) {
+                }
+
+                if ($ssl == CURLOPT_CAINFO) {
                     return $this->curl($url, $method, $returnOnlyStatus, $content, $header, CURLOPT_CAPATH);
                 }
             }
@@ -282,7 +284,9 @@ class HttpRequest
     ) {
         if (function_exists('curl_init')) {
             return $this->curl($url, $method, $returnOnlyStatus, $content, $header);
-        } elseif (ini_get('allow_url_fopen')) {
+        }
+
+        if (ini_get('allow_url_fopen')) {
             return $this->fopen($url, $method, $returnOnlyStatus, $content, $header);
         }
 

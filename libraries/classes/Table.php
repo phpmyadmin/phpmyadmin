@@ -1553,13 +1553,10 @@ class Table
             // only allow the above regex in unquoted identifiers
             // see : https://dev.mysql.com/doc/refman/5.7/en/identifiers.html
             return true;
-        } elseif ($is_backquoted) {
-            // If backquoted, all characters should be allowed (except w/ trailing spaces)
-            return true;
         }
 
-        // If not backquoted and doesn't follow the above regex
-        return false;
+        // If backquoted, all characters should be allowed (except w/ trailing spaces).
+        return $is_backquoted;
     }
 
     /**

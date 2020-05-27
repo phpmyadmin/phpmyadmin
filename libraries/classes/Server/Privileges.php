@@ -528,7 +528,9 @@ class Privileges
             return 'SELECT * FROM `mysql`.`user`'
                 . " WHERE `User` = '" . $this->dbi->escapeString($username) . "'"
                 . " AND `Host` = '" . $this->dbi->escapeString($hostname) . "';";
-        } elseif ($table == '*') {
+        }
+
+        if ($table == '*') {
             return 'SELECT * FROM `mysql`.`db`'
                 . " WHERE `User` = '" . $this->dbi->escapeString($username) . "'"
                 . " AND `Host` = '" . $this->dbi->escapeString($hostname) . "'"

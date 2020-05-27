@@ -54,7 +54,9 @@ class CentralColumnsController extends AbstractController
             ]);
 
             return;
-        } elseif (isset($_POST['add_new_column'])) {
+        }
+
+        if (isset($_POST['add_new_column'])) {
             $tmp_msg = $this->addNewColumn([
                 'col_name' => $_POST['col_name'] ?? null,
                 'col_default' => $_POST['col_default'] ?? null,

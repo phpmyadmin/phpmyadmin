@@ -789,7 +789,9 @@ class Node
         if (! $GLOBALS['cfg']['NavigationTreeEnableExpansion']
         ) {
             return '';
-        } elseif ($match) {
+        }
+
+        if ($match) {
             $this->visible = true;
 
             return Generator::getImage('b_minus');

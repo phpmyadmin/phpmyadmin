@@ -107,7 +107,9 @@ class Git
                 $_SESSION['is_git_revision'] = false;
 
                 return false;
-            } elseif (@is_dir($gitmatch[1])) {
+            }
+
+            if (@is_dir($gitmatch[1])) {
                 //Detected git external folder location
                 $git_location = $gitmatch[1];
             } else {

@@ -542,9 +542,13 @@ class GisVisualization
     {
         if ($format == 'svg') {
             return $this->asSVG();
-        } elseif ($format == 'png') {
+        }
+
+        if ($format == 'png') {
             return $this->asPng();
-        } elseif ($format == 'ol') {
+        }
+
+        if ($format == 'ol') {
             return $this->asOl();
         }
 

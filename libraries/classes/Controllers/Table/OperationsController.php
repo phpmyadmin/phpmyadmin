@@ -381,7 +381,9 @@ class OperationsController extends AbstractController
                 if ($name == 'PRIMARY') {
                     $hideOrderTable = true;
                     break;
-                } elseif (! $idx->getNonUnique()) {
+                }
+
+                if (! $idx->getNonUnique()) {
                     $notNull = true;
                     foreach ($idx->getColumns() as $column) {
                         if ($column->getNull()) {

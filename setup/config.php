@@ -38,7 +38,9 @@ if (Core::ifSetOr($_POST['submit_clear'], '')) {
     // drop post data
     $response->generateHeader303('index.php' . Url::getCommonRaw());
     exit;
-} elseif (Core::ifSetOr($_POST['submit_download'], '')) {
+}
+
+if (Core::ifSetOr($_POST['submit_download'], '')) {
     // Output generated config file
     Core::downloadHeader('config.inc.php', 'text/plain');
     $response->disable();

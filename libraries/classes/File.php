@@ -461,7 +461,9 @@ class File
             $this->_error_message = null;
 
             return true;
-        } elseif ($this->setSelectedFromTblChangeRequest($key, $rownumber)) {
+        }
+
+        if ($this->setSelectedFromTblChangeRequest($key, $rownumber)) {
             // well done ...
             $this->_error_message = null;
 
