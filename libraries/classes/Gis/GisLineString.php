@@ -16,7 +16,6 @@ use function imagestring;
 use function json_encode;
 use function mb_strlen;
 use function mb_substr;
-use function mt_rand;
 use function trim;
 
 /**
@@ -219,7 +218,7 @@ class GisLineString extends GisGeometry
     {
         $line_options = [
             'name'         => $label,
-            'id'           => $label . mt_rand(),
+            'id'           => $label . $this->getRandomId(),
             'class'        => 'linestring vector',
             'fill'         => 'none',
             'stroke'       => $line_color,

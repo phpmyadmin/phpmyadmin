@@ -17,7 +17,6 @@ use function imagestring;
 use function json_encode;
 use function mb_strlen;
 use function mb_substr;
-use function mt_rand;
 use function trim;
 
 /**
@@ -267,7 +266,7 @@ class GisMultiLineString extends GisGeometry
                 $row .= $point[0] . ',' . $point[1] . ' ';
             }
             $row .= '"';
-            $line_options['id'] = $label . mt_rand();
+            $line_options['id'] = $label . $this->getRandomId();
             foreach ($line_options as $option => $val) {
                 $row .= ' ' . $option . '="' . trim((string) $val) . '"';
             }

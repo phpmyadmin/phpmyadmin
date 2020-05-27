@@ -16,7 +16,6 @@ use function imagestring;
 use function json_encode;
 use function mb_strlen;
 use function mb_substr;
-use function mt_rand;
 use function trim;
 
 /**
@@ -236,7 +235,7 @@ class GisMultiPoint extends GisGeometry
 
             $row .= '<circle cx="' . $point[0] . '" cy="'
                 . $point[1] . '" r="3"';
-            $point_options['id'] = $label . mt_rand();
+            $point_options['id'] = $label . $this->getRandomId();
             foreach ($point_options as $option => $val) {
                 $row .= ' ' . $option . '="' . trim((string) $val) . '"';
             }

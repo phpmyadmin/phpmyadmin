@@ -20,7 +20,6 @@ use function json_encode;
 use function mb_strlen;
 use function mb_strpos;
 use function mb_substr;
-use function mt_rand;
 use function trim;
 
 /**
@@ -309,7 +308,7 @@ class GisMultiPolygon extends GisGeometry
                     $row .= $this->_drawPath($inner_poly, $scale_data);
                 }
             }
-            $polygon_options['id'] = $label . mt_rand();
+            $polygon_options['id'] = $label . $this->getRandomId();
             $row .= '"';
             foreach ($polygon_options as $option => $val) {
                 $row .= ' ' . $option . '="' . trim((string) $val) . '"';

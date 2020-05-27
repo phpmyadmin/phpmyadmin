@@ -14,6 +14,7 @@ use function intval;
 use function mb_strlen;
 use function mb_strripos;
 use function mb_substr;
+use function mt_rand;
 use function preg_match;
 use function str_replace;
 use function trim;
@@ -420,5 +421,10 @@ abstract class GisGeometry
         return '(new OpenLayers.Geometry.Point(' . $point[0] . ',' . $point[1] . '))'
         . '.transform(new OpenLayers.Projection("EPSG:'
         . intval($srid) . '"), map.getProjectionObject())';
+    }
+
+    protected function getRandomId(): int
+    {
+        return mt_rand();
     }
 }

@@ -22,7 +22,6 @@ use function mb_strlen;
 use function mb_strpos;
 use function mb_substr;
 use function min;
-use function mt_rand;
 use function pow;
 use function sqrt;
 use function trim;
@@ -239,7 +238,7 @@ class GisPolygon extends GisGeometry
     {
         $polygon_options = [
             'name'         => $label,
-            'id'           => $label . mt_rand(),
+            'id'           => $label . $this->getRandomId(),
             'class'        => 'polygon vector',
             'stroke'       => 'black',
             'stroke-width' => 0.5,
