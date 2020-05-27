@@ -113,7 +113,7 @@ class ExportTest extends AbstractTestCase
         $num_tables_str = '10';
         $unlim_num_rows_str = 'unlim_num_rows_str';
         //$single_table = "single_table";
-        $GLOBALS['dbi']->cacheTableContent([$db, $table, 'ENGINE'], 'MERGE');
+        $GLOBALS['dbi']->getCache()->cacheTableContent([$db, $table, 'ENGINE'], 'MERGE');
 
         $columns_info = [
             'test_column1' => ['COLUMN_NAME' => 'test_column1'],

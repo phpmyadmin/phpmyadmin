@@ -11,8 +11,10 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
+use PhpMyAdmin\Query\Cache;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use stdClass;
+use ReflectionClass;
 
 /**
  * Tests behaviour of Table class
@@ -89,7 +91,7 @@ class TableTest extends AbstractTestCase
             . ' WHERE TABLE_SCHEMA = \'db_data\''
             . ' AND TABLE_NAME = \'table_data\'';
 
-        $getUniqueColumns_sql = 'select unique column';
+        $getUniqueColumns_sql = 'SHOW INDEXES FROM `PMA`.`PMA_BookMark`';
 
         $fetchResult = [
             [
@@ -146,7 +148,7 @@ class TableTest extends AbstractTestCase
                 ],
             ],
             [
-                $getUniqueColumns_sql,
+                $getUniqueColumns_sql . ' WHERE (Non_unique = 0)',
                 [
                     'Key_name',
                     null,
@@ -234,12 +236,9 @@ class TableTest extends AbstractTestCase
                 )
             );
 
-        $dbi->_table_cache['PMA']['PMA_BookMark'] = [
-            'ENGINE' => true,
-            'Create_time' => true,
-            'TABLE_TYPE' => true,
-            'Comment' => true,
-        ];
+        $cache = new Cache();
+        $dbi->expects($this->any())->method('getCache')
+            ->will($this->returnValue($cache));
 
         $databases = [];
         $database_name = 'PMA';
@@ -285,9 +284,6 @@ class TableTest extends AbstractTestCase
                     `username` text NOT NULL';
         $dbi->expects($this->any())->method('query')
             ->will($this->returnValue($create_sql));
-
-        $dbi->expects($this->any())->method('getTableIndexesSql')
-            ->will($this->returnValue($getUniqueColumns_sql));
 
         $dbi->expects($this->any())->method('insertId')
             ->will($this->returnValue(10));
@@ -933,9 +929,6 @@ class TableTest extends AbstractTestCase
             $tableObj->isMerge()
         );
 
-        $GLOBALS['dbi']->expects($this->any())
-            ->method('getCachedTableContent')
-            ->will($this->returnValue(['table_name' => 'PMA_BookMark']));
         $tableObj = new Table('PMA_BookMark', 'PMA');
         $this->assertFalse(
             $tableObj->isMerge()
@@ -949,28 +942,15 @@ class TableTest extends AbstractTestCase
      */
     public function testIsMergeCase2()
     {
-        $map = [
+        /** @var DatabaseInterface $dbi */
+        global $dbi;
+
+        $dbi->getCache()->cacheTableContent(
+            ['PMA', 'PMA_BookMark'],
             [
-                [
-                    'PMA',
-                    'PMA_BookMark',
-                ],
-                null,
-                ['ENGINE' => 'MERGE'],
-            ],
-            [
-                [
-                    'PMA',
-                    'PMA_BookMark',
-                    'ENGINE',
-                ],
-                null,
-                'MERGE',
-            ],
-        ];
-        $GLOBALS['dbi']->expects($this->any())
-            ->method('getCachedTableContent')
-            ->will($this->returnValueMap($map));
+                'ENGINE' => 'MERGE',
+            ]
+        );
 
         $tableObj = new Table('PMA_BookMark', 'PMA');
         $this->assertTrue(
@@ -985,28 +965,15 @@ class TableTest extends AbstractTestCase
      */
     public function testIsMergeCase3()
     {
-        $map = [
+        /** @var DatabaseInterface $dbi */
+        global $dbi;
+
+        $dbi->getCache()->cacheTableContent(
+            ['PMA', 'PMA_BookMark'],
             [
-                [
-                    'PMA',
-                    'PMA_BookMark',
-                ],
-                null,
-                ['ENGINE' => 'MRG_MYISAM'],
-            ],
-            [
-                [
-                    'PMA',
-                    'PMA_BookMark',
-                    'ENGINE',
-                ],
-                null,
-                'MRG_MYISAM',
-            ],
-        ];
-        $GLOBALS['dbi']->expects($this->any())
-            ->method('getCachedTableContent')
-            ->will($this->returnValueMap($map));
+                'ENGINE' => 'MRG_MYISAM',
+            ]
+        );
 
         $tableObj = new Table('PMA_BookMark', 'PMA');
         $this->assertTrue(
@@ -1015,35 +982,10 @@ class TableTest extends AbstractTestCase
     }
 
     /**
-     * Test for isMerge -- when ENGINE info is ISDB
-     *
-     * @return void
+     * Test for Table::isMerge -- when ENGINE info is ISDB
      */
-    public function testIsMergeCase4()
+    public function testIsMergeCase4(): void
     {
-        $map = [
-            [
-                [
-                    'PMA',
-                    'PMA_BookMark',
-                ],
-                null,
-                ['ENGINE' => 'ISDB'],
-            ],
-            [
-                [
-                    'PMA',
-                    'PMA_BookMark',
-                    'ENGINE',
-                ],
-                null,
-                'ISDB',
-            ],
-        ];
-        $GLOBALS['dbi']->expects($this->any())
-            ->method('getCachedTableContent')
-            ->will($this->returnValueMap($map));
-
         $tableObj = new Table('PMA_BookMark', 'PMA');
         $this->assertFalse(
             $tableObj->isMerge()
@@ -1433,47 +1375,17 @@ class TableTest extends AbstractTestCase
     }
 
     /**
-     * Test for countRecords
-     *
-     * @return void
+     * Test for Table::countRecords
      */
-    public function testCountRecords()
+    public function testCountRecords(): void
     {
-        $map = [
-            [
-                [
-                    'PMA',
-                    'PMA_BookMark',
-                ],
-                null,
-                [
-                    'Comment' => 'Comment222',
-                    'TABLE_TYPE' => 'VIEW',
-                ],
-            ],
-            [
-                [
-                    'PMA',
-                    'PMA_BookMark',
-                    'TABLE_TYPE',
-                ],
-                null,
-                'VIEW',
-            ],
-        ];
-        $GLOBALS['dbi']->expects($this->any())
-            ->method('getCachedTableContent')
-            ->will($this->returnValueMap($map));
-
         $table = 'PMA_BookMark';
         $db = 'PMA';
         $tableObj = new Table($table, $db);
 
-        $return = $tableObj->countRecords(true);
-        $expect = 20;
         $this->assertEquals(
-            $expect,
-            $return
+            20,
+            $tableObj->countRecords(true)
         );
     }
 

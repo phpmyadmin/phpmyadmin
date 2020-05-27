@@ -32,29 +32,6 @@ interface DbalInterface
     );
 
     /**
-     * Get a cached value from table cache.
-     *
-     * @param array $contentPath Array of the name of the target value
-     * @param mixed $default     Return value on cache miss
-     *
-     * @return mixed cached value or default
-     */
-    public function getCachedTableContent(array $contentPath, $default = null);
-
-    /**
-     * Set an item in table cache using dot notation.
-     *
-     * @param array|null $contentPath Array with the target path
-     * @param mixed      $value       Target value
-     */
-    public function cacheTableContent(?array $contentPath, $value): void;
-
-    /**
-     * Clear the table cache.
-     */
-    public function clearTableCache(): void;
-
-    /**
      * runs a query and returns the result
      *
      * @param string $query               query to run
@@ -264,17 +241,6 @@ interface DbalInterface
         string $table,
         $link = DatabaseInterface::CONNECT_USER
     ): ?array;
-
-    /**
-     * Returns SQL for fetching information on table indexes (SHOW INDEXES)
-     *
-     * @param string $database name of database
-     * @param string $table    name of the table whose indexes are to be retrieved
-     * @param string $where    additional conditions for WHERE
-     *
-     * @return string SQL for getting indexes
-     */
-    public function getTableIndexesSql(string $database, string $table, ?string $where = null): string;
 
     /**
      * Returns indexes of a table

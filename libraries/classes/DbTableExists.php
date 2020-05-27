@@ -80,7 +80,7 @@ final class DbTableExists
 
         $is_table = false;
         if (strlen($table) > 0) {
-            $is_table = $dbi->getCachedTableContent([$db, $table], false);
+            $is_table = $dbi->getCache()->getCachedTableContent([$db, $table], false);
             if ($is_table) {
                 return;
             }
