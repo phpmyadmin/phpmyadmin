@@ -217,9 +217,9 @@ class Table
             }
 
             return false;
-        } else {
-            return $tbl_storage_engine == $engine;
         }
+
+        return $tbl_storage_engine == $engine;
     }
 
     /**
@@ -1803,10 +1803,10 @@ class Table
         $move_columns_sql_result = $this->_dbi->tryQuery($move_columns_sql_query);
         if ($move_columns_sql_result !== false) {
             return $this->_dbi->getFieldsMeta($move_columns_sql_result);
-        } else {
-            // unsure how to reproduce but it was seen on the reporting server
-            return [];
         }
+
+        // unsure how to reproduce but it was seen on the reporting server
+        return [];
     }
 
     /**

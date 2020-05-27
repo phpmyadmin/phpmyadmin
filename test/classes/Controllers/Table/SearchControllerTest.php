@@ -164,9 +164,9 @@ class SearchControllerTest extends AbstractTestCase
                                 'col1' => 1,
                                 'col2' => 2,
                             ];
-                        } else {
-                            return null;
                         }
+
+                        return null;
                     }
                 )
             );

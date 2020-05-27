@@ -124,9 +124,9 @@ class Encoding
                 self::$_engine = self::$_enginemap[$engine][1];
 
                 return;
-            } else {
-                Core::warnMissingExtension(self::$_enginemap[$engine][2]);
             }
+
+            Core::warnMissingExtension(self::$_enginemap[$engine][2]);
         }
 
         /* Autodetection */

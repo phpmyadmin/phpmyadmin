@@ -165,8 +165,8 @@ class TwoFactorPlugin
         if ($return_url) {
             return $parsed['scheme'] . '://' . $parsed['host']
                 . (! empty($parsed['port']) ? ':' . $parsed['port'] : '');
-        } else {
-            return $parsed['host'];
         }
+
+        return $parsed['host'];
     }
 }

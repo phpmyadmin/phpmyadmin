@@ -248,9 +248,9 @@ class File
     {
         if ($this->getName() === null) {
             return false;
-        } else {
-            return is_uploaded_file($this->getName());
         }
+
+        return is_uploaded_file($this->getName());
     }
 
     /**

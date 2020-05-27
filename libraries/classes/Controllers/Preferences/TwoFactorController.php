@@ -51,10 +51,10 @@ class TwoFactorController extends AbstractController
                 ]);
 
                 return;
-            } else {
-                $twoFactor->configure('');
-                Message::rawNotice(__('Two-factor authentication has been removed.'))->display();
             }
+
+            $twoFactor->configure('');
+            Message::rawNotice(__('Two-factor authentication has been removed.'))->display();
         } elseif (isset($_POST['2fa_configure'])) {
             if (! $twoFactor->configure($_POST['2fa_configure'])) {
                 echo $this->template->render('preferences/two_factor/configure', [
@@ -63,9 +63,9 @@ class TwoFactorController extends AbstractController
                 ]);
 
                 return;
-            } else {
-                Message::rawNotice(__('Two-factor authentication has been configured.'))->display();
             }
+
+            Message::rawNotice(__('Two-factor authentication has been configured.'))->display();
         }
 
         $backend = $twoFactor->getBackend();

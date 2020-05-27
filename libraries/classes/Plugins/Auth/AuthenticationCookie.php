@@ -105,9 +105,9 @@ class AuthenticationCookie extends AuthenticationPlugin
         if (! $session_expired && $response->loginPage()) {
             if (defined('TESTSUITE')) {
                 return true;
-            } else {
-                exit;
             }
+
+            exit;
         }
 
         /**
@@ -240,9 +240,9 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         if (! defined('TESTSUITE')) {
             exit;
-        } else {
-            return true;
         }
+
+        return true;
     }
 
     /**
@@ -405,9 +405,9 @@ class AuthenticationCookie extends AuthenticationPlugin
             $this->showFailure('no-activity');
             if (! defined('TESTSUITE')) {
                 exit;
-            } else {
-                return false;
             }
+
+            return false;
         }
 
         // check password cookie
@@ -522,9 +522,9 @@ class AuthenticationCookie extends AuthenticationPlugin
 
             if (! defined('TESTSUITE')) {
                 exit;
-            } else {
-                return false;
             }
+
+            return false;
         }
         // Set server cookies if required (once per session) and, in this case,
         // force reload to ensure the client accepts cookies
@@ -544,9 +544,9 @@ class AuthenticationCookie extends AuthenticationPlugin
             );
             if (! defined('TESTSUITE')) {
                 exit;
-            } else {
-                return false;
             }
+
+            return false;
         } // end if
 
         return true;

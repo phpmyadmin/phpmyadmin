@@ -471,9 +471,9 @@ class PrivilegesController extends AbstractController
                 $this->response->addJSON('title', $title);
 
                 return;
-            } else {
-                $this->response->addHTML('<h2>' . $title . '</h2>' . $export);
             }
+
+            $this->response->addHTML('<h2>' . $title . '</h2>' . $export);
         }
 
         if (isset($_GET['adduser'])) {

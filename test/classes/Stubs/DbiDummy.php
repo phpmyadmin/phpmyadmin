@@ -469,9 +469,9 @@ class DbiDummy implements DbiExtension
     {
         if ($result >= self::OFFSET_GLOBAL) {
             return $GLOBALS['dummy_queries'][$result - self::OFFSET_GLOBAL];
-        } else {
-            return $this->_queries[$result];
         }
+
+        return $this->_queries[$result];
     }
 
     private function init(): void

@@ -320,19 +320,19 @@ class Triggers
         }
         if (empty($temp)) {
             return null;
-        } else {
-            $retval = [];
-            $retval['create']                  = $temp['create'];
-            $retval['drop']                    = $temp['drop'];
-            $retval['item_name']               = $temp['name'];
-            $retval['item_table']              = $temp['table'];
-            $retval['item_action_timing']      = $temp['action_timing'];
-            $retval['item_event_manipulation'] = $temp['event_manipulation'];
-            $retval['item_definition']         = $temp['definition'];
-            $retval['item_definer']            = $temp['definer'];
-
-            return $retval;
         }
+
+        $retval = [];
+        $retval['create']                  = $temp['create'];
+        $retval['drop']                    = $temp['drop'];
+        $retval['item_name']               = $temp['name'];
+        $retval['item_table']              = $temp['table'];
+        $retval['item_action_timing']      = $temp['action_timing'];
+        $retval['item_event_manipulation'] = $temp['event_manipulation'];
+        $retval['item_definition']         = $temp['definition'];
+        $retval['item_definer']            = $temp['definer'];
+
+        return $retval;
     }
 
     /**
@@ -580,9 +580,9 @@ class Triggers
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', $message);
                 exit;
-            } else {
-                $message->display();
             }
+
+            $message->display();
         }
     }
 

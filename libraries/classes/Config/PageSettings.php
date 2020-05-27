@@ -109,9 +109,9 @@ class PageSettings
                     $response->getFooter()->getSelfUrl()
                 );
                 exit;
-            } else {
-                $error = $result;
             }
+
+            $error = $result;
         }
     }
 

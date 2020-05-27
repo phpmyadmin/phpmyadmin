@@ -142,32 +142,32 @@ if (isset($_POST['start'])) {
 
     header('Location: ' . $url);
     exit;
+}
+
+/* Grab query string */
+if (! count($_POST)) {
+    [, $queryString] = explode('?', $_SERVER['REQUEST_URI']);
 } else {
-    /* Grab query string */
-    if (! count($_POST)) {
-        [, $queryString] = explode('?', $_SERVER['REQUEST_URI']);
-    } else {
-        // I hate php sometimes
-        $queryString = file_get_contents('php://input');
-    }
+    // I hate php sometimes
+    $queryString = file_get_contents('php://input');
+}
 
-    /* Check reply */
-    try {
-        $message = new OpenID_Message($queryString, OpenID_Message::FORMAT_HTTP);
-    } catch (Throwable $e) {
-        Die_error($e);
-    }
+/* Check reply */
+try {
+    $message = new OpenID_Message($queryString, OpenID_Message::FORMAT_HTTP);
+} catch (Throwable $e) {
+    Die_error($e);
+}
 
-    $id = $message->get('openid.claimed_id');
+$id = $message->get('openid.claimed_id');
 
-    if (! empty($id) && isset($AUTH_MAP[$id])) {
-        $_SESSION['PMA_single_signon_user'] = $AUTH_MAP[$id]['user'];
-        $_SESSION['PMA_single_signon_password'] = $AUTH_MAP[$id]['password'];
-        session_write_close();
-        /* Redirect to phpMyAdmin (should use absolute URL here!) */
-        header('Location: ../index.php');
-    } else {
-        Show_page('<p>User not allowed!</p>');
-        exit;
-    }
+if (! empty($id) && isset($AUTH_MAP[$id])) {
+    $_SESSION['PMA_single_signon_user'] = $AUTH_MAP[$id]['user'];
+    $_SESSION['PMA_single_signon_password'] = $AUTH_MAP[$id]['password'];
+    session_write_close();
+    /* Redirect to phpMyAdmin (should use absolute URL here!) */
+    header('Location: ../index.php');
+} else {
+    Show_page('<p>User not allowed!</p>');
+    exit;
 }

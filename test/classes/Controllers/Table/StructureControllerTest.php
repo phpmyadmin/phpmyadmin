@@ -128,9 +128,9 @@ class StructureControllerTest extends AbstractTestCase
                                 'Key_name'    => 'PRIMARY',
                                 'Column_name' => 'column',
                             ];
-                        } else {
-                            return null;
                         }
+
+                        return null;
                     }
                 )
             );

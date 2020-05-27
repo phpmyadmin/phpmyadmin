@@ -405,10 +405,10 @@ class Monitor
 
                             // Group this value, thus do not add to the result list
                             continue 2;
-                        } else {
-                            $insertTablesFirst = $i;
-                            $insertTables[$matches[2]] += $row['#'] - 1;
                         }
+
+                        $insertTablesFirst = $i;
+                        $insertTables[$matches[2]] += $row['#'] - 1;
                     }
                     // No break here
 

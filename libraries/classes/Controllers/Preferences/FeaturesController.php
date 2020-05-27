@@ -83,9 +83,9 @@ class FeaturesController extends AbstractController
                 );
 
                 return;
-            } else {
-                $error = $result;
             }
+
+            $error = $result;
         }
 
         // display forms

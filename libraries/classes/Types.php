@@ -618,28 +618,28 @@ class Types
                         'ST_PolyFromWKB',
                         'ST_MPolyFromWKB',
                     ];
-                } else {
-                    return [
-                        'GeomFromText',
-                        'GeomFromWKB',
-
-                        'GeomCollFromText',
-                        'LineFromText',
-                        'MLineFromText',
-                        'PointFromText',
-                        'MPointFromText',
-                        'PolyFromText',
-                        'MPolyFromText',
-
-                        'GeomCollFromWKB',
-                        'LineFromWKB',
-                        'MLineFromWKB',
-                        'PointFromWKB',
-                        'MPointFromWKB',
-                        'PolyFromWKB',
-                        'MPolyFromWKB',
-                    ];
                 }
+
+                return [
+                    'GeomFromText',
+                    'GeomFromWKB',
+
+                    'GeomCollFromText',
+                    'LineFromText',
+                    'MLineFromText',
+                    'PointFromText',
+                    'MPointFromText',
+                    'PolyFromText',
+                    'MPolyFromText',
+
+                    'GeomCollFromWKB',
+                    'LineFromWKB',
+                    'MLineFromWKB',
+                    'PointFromWKB',
+                    'MPointFromWKB',
+                    'PolyFromWKB',
+                    'MPolyFromWKB',
+                ];
         }
 
         return [];

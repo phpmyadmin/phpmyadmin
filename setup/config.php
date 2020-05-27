@@ -44,8 +44,8 @@ if (Core::ifSetOr($_POST['submit_clear'], '')) {
     $response->disable();
     echo ConfigGenerator::getConfigFile($GLOBALS['ConfigFile']);
     exit;
-} else {
-    // Show generated config file in a <textarea>
-    $response->generateHeader303('index.php' . Url::getCommonRaw(['page' => 'config']));
-    exit;
 }
+
+// Show generated config file in a <textarea>
+$response->generateHeader303('index.php' . Url::getCommonRaw(['page' => 'config']));
+exit;

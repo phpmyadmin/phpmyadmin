@@ -598,6 +598,7 @@ final class ImportController extends AbstractController
                     Util::handleDisableFKCheckCleanup($default_fk_check);
                 } catch (Throwable $e) {
                     Util::handleDisableFKCheckCleanup($default_fk_check);
+
                     throw $e;
                 }
             }

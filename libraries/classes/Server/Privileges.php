@@ -97,9 +97,9 @@ class Privileges
             if ($response->isAjax()) {
                 $response->addJSON('message', $dialog);
                 exit;
-            } else {
-                $html .= $dialog;
             }
+
+            $html .= $dialog;
         }
 
         return $html;

@@ -221,9 +221,9 @@ abstract class TestBase extends TestCase
             return 'http://'
             . getenv('TESTSUITE_SELENIUM_HOST') . ':'
             . getenv('TESTSUITE_SELENIUM_PORT') . '/wd/hub';
-        } else {
-            return null;
         }
+
+        return null;
     }
 
     /**

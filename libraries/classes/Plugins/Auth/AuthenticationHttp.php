@@ -41,9 +41,9 @@ class AuthenticationHttp extends AuthenticationPlugin
             $response->addJSON('reload_flag', '1');
             if (defined('TESTSUITE')) {
                 return true;
-            } else {
-                exit;
             }
+
+            exit;
         }
 
         return $this->authForm();
@@ -97,9 +97,9 @@ class AuthenticationHttp extends AuthenticationPlugin
 
         if (! defined('TESTSUITE')) {
             exit;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     /**

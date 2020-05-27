@@ -449,42 +449,42 @@ class Git
                 }
 
                 return [trim($hash), $branch];
-            } else {
-                // deal with packed refs
-                $packedRefs = @file_get_contents($gitFolder . '/packed-refs');
-                if ($packedRefs === false) {
-                    $this->config->set('PMA_VERSION_GIT', 0);
-
-                    return [null, null];
-                }
-                // split file to lines
-                $refLines = explode(PHP_EOL, $packedRefs);
-                foreach ($refLines as $line) {
-                    // skip comments
-                    if ($line[0] == '#') {
-                        continue;
-                    }
-                    // parse line
-                    $parts = explode(' ', $line);
-                    // care only about named refs
-                    if (count($parts) != 2) {
-                        continue;
-                    }
-                    // have found our ref?
-                    if ($parts[1] == $refHead) {
-                        $hash = $parts[0];
-                        break;
-                    }
-                }
-                if (! isset($hash)) {
-                    $this->config->set('PMA_VERSION_GIT', 0);
-
-                    // Could not find ref
-                    return [null, null];
-                }
-
-                return [$hash, $branch];
             }
+
+            // deal with packed refs
+            $packedRefs = @file_get_contents($gitFolder . '/packed-refs');
+            if ($packedRefs === false) {
+                $this->config->set('PMA_VERSION_GIT', 0);
+
+                return [null, null];
+            }
+            // split file to lines
+            $refLines = explode(PHP_EOL, $packedRefs);
+            foreach ($refLines as $line) {
+                // skip comments
+                if ($line[0] == '#') {
+                    continue;
+                }
+                // parse line
+                $parts = explode(' ', $line);
+                // care only about named refs
+                if (count($parts) != 2) {
+                    continue;
+                }
+                // have found our ref?
+                if ($parts[1] == $refHead) {
+                    $hash = $parts[0];
+                    break;
+                }
+            }
+            if (! isset($hash)) {
+                $this->config->set('PMA_VERSION_GIT', 0);
+
+                // Could not find ref
+                return [null, null];
+            }
+
+            return [$hash, $branch];
         } else {
             return [trim($refHead), $branch];
         }

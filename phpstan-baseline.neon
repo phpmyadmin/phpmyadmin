@@ -3186,11 +3186,6 @@ parameters:
 			path: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php
 
 		-
-			message: "#^If condition is always true\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Transformations/Abs/InlineTransformationsPlugin.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Transformations\\\\Output\\\\Text_Plain_Binarytoip\\:\\:applyTransformation\\(\\) should return string but returns string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Transformations/Output/Text_Plain_Binarytoip.php

@@ -214,9 +214,9 @@ class Routines
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', $message);
                     exit;
-                } else {
-                    $message->display();
                 }
+
+                $message->display();
             }
         }
     }
@@ -1447,11 +1447,11 @@ class Routines
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', $message);
                 exit;
-            } else {
-                echo $message->getDisplay();
-                unset($_POST);
-                //NOTE: Missing exit ?
             }
+
+            echo $message->getDisplay();
+            unset($_POST);
+            //NOTE: Missing exit ?
         }
 
         $queries = is_array($routine) ? $this->getQueriesFromRoutineForm($routine) : [];
@@ -1562,16 +1562,16 @@ class Routines
             $this->response->addJSON('message', $message->getDisplay() . $output);
             $this->response->addJSON('dialog', false);
             exit;
-        } else {
-            echo $message->getDisplay() , $output;
-            if ($message->isError()) {
-                // At least one query has failed, so shouldn't
-                // execute any more queries, so we quit.
-                exit;
-            }
-            unset($_POST);
-            // Now deliberately fall through to displaying the routines list
         }
+
+        echo $message->getDisplay() , $output;
+        if ($message->isError()) {
+            // At least one query has failed, so shouldn't
+            // execute any more queries, so we quit.
+            exit;
+        }
+        unset($_POST);
+        // Now deliberately fall through to displaying the routines list
     }
 
     /**

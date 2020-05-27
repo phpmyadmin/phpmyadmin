@@ -83,9 +83,9 @@ class NavigationController extends AbstractController
                 );
 
                 return;
-            } else {
-                $error = $result;
             }
+
+            $error = $result;
         }
 
         // display forms

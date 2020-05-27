@@ -416,13 +416,13 @@ class Import
                 $GLOBALS['finished'] = true;
 
                 return $GLOBALS['import_text'];
-            } else {
-                $r = mb_substr($GLOBALS['import_text'], 0, $size);
-                $GLOBALS['offset'] += $size;
-                $GLOBALS['import_text'] = mb_substr($GLOBALS['import_text'], $size);
-
-                return $r;
             }
+
+            $r = mb_substr($GLOBALS['import_text'], 0, $size);
+            $GLOBALS['offset'] += $size;
+            $GLOBALS['import_text'] = mb_substr($GLOBALS['import_text'], $size);
+
+            return $r;
         }
 
         $result = $import_handle->read($size);
@@ -1675,10 +1675,10 @@ class Import
             $message = Message::rawError($error);
             $response->addJSON('message', $message);
             exit;
-        } else {
-            // If everything fine, START a transaction.
-            $GLOBALS['dbi']->query('START TRANSACTION');
         }
+
+        // If everything fine, START a transaction.
+        $GLOBALS['dbi']->query('START TRANSACTION');
     }
 
     /**

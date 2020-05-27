@@ -571,9 +571,9 @@ class Events
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', $message);
                 exit;
-            } else {
-                $message->display();
             }
+
+            $message->display();
         }
     }
 

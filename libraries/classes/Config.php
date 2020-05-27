@@ -1125,9 +1125,9 @@ class Config
     {
         if (isset($_COOKIE[$this->getCookieName($cookieName)])) {
             return $_COOKIE[$this->getCookieName($cookieName)];
-        } else {
-            return null;
         }
+
+        return null;
     }
 
     /**

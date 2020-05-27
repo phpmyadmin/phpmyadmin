@@ -345,9 +345,9 @@ abstract class AuthenticationPlugin
         if ($response->loginPage()) {
             if (defined('TESTSUITE')) {
                 return;
-            } else {
-                exit;
             }
+
+            exit;
         }
         echo $this->template->render('login/header', ['theme' => $GLOBALS['PMA_Theme']]);
         Message::rawNotice(
