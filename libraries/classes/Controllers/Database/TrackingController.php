@@ -143,13 +143,15 @@ class TrackingController extends AbstractController
         );
 
         // If available print out database log
-        if (count($data['ddlog']) > 0) {
-            $log = '';
-            foreach ($data['ddlog'] as $entry) {
-                $log .= '# ' . $entry['date'] . ' ' . $entry['username'] . "\n"
-                    . $entry['statement'] . "\n";
-            }
-            echo Generator::getMessage(__('Database Log'), $log);
+        if (count($data['ddlog']) <= 0) {
+            return;
         }
+
+        $log = '';
+        foreach ($data['ddlog'] as $entry) {
+            $log .= '# ' . $entry['date'] . ' ' . $entry['username'] . "\n"
+                . $entry['statement'] . "\n";
+        }
+        echo Generator::getMessage(__('Database Log'), $log);
     }
 }

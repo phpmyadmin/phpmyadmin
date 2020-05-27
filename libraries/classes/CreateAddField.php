@@ -183,9 +183,11 @@ class CreateAddField
             $indexFields[$key] = Util::backquote(
                 $_POST['field_name'][$column['col_index']]
             );
-            if ($column['size']) {
-                $indexFields[$key] .= '(' . $column['size'] . ')';
+            if (! $column['size']) {
+                continue;
             }
+
+            $indexFields[$key] .= '(' . $column['size'] . ')';
         }
 
         $sqlQuery .= ' (' . implode(', ', $indexFields) . ')';

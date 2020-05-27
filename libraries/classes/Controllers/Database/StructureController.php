@@ -744,15 +744,19 @@ class StructureController extends AbstractController
 
                 // All "DROP TABLE", "DROP FIELD", "OPTIMIZE TABLE" and "REPAIR TABLE"
                 // statements will be run at once below
-                if ($run_parts && ! $copyTable) {
-                    $sql_query .= $aQuery . ';' . "\n";
-                    $this->dbi->selectDb($db);
-                    $this->dbi->query($aQuery);
-
-                    if ($query_type == 'drop_tbl') {
-                        $this->transformations->clear($db, $selected[$i]);
-                    }
+                if (! $run_parts || $copyTable) {
+                    continue;
                 }
+
+                $sql_query .= $aQuery . ';' . "\n";
+                $this->dbi->selectDb($db);
+                $this->dbi->query($aQuery);
+
+                if ($query_type != 'drop_tbl') {
+                    continue;
+                }
+
+                $this->transformations->clear($db, $selected[$i]);
             }
 
             if ($deletes && ! empty($_REQUEST['pos'])) {
@@ -838,9 +842,11 @@ class StructureController extends AbstractController
             $message = Message::success(__('No change'));
         }
 
-        if (empty($_POST['message'])) {
-            $_POST['message'] = Message::success();
+        if (! empty($_POST['message'])) {
+            return;
         }
+
+        $_POST['message'] = Message::success();
     }
 
     /**

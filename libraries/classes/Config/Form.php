@@ -265,11 +265,15 @@ class Form
     protected function cleanGroupPaths(array $form): array
     {
         foreach ($form as &$name) {
-            if (is_string($name)) {
-                if (mb_strpos($name, ':group:') === 0) {
-                    $name = str_replace('/', '-', $name);
-                }
+            if (! is_string($name)) {
+                continue;
             }
+
+            if (mb_strpos($name, ':group:') !== 0) {
+                continue;
+            }
+
+            $name = str_replace('/', '-', $name);
         }
 
         return $form;

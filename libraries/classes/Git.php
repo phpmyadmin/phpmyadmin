@@ -86,14 +86,14 @@ class Git
         // or a .git file (--separate-git-dir)
         $git = '.git';
         if (is_dir($git)) {
-            if (@is_file($git . '/config')) {
-                $git_location = $git;
-            } else {
+            if (! @is_file($git . '/config')) {
                 $_SESSION['git_location'] = null;
                 $_SESSION['is_git_revision'] = false;
 
                 return false;
             }
+
+            $git_location = $git;
         } elseif (is_file($git)) {
             $contents = file_get_contents($git);
             $gitmatch = [];
@@ -109,15 +109,15 @@ class Git
                 return false;
             }
 
-            if (@is_dir($gitmatch[1])) {
-                //Detected git external folder location
-                $git_location = $gitmatch[1];
-            } else {
+            if (! @is_dir($gitmatch[1])) {
                 $_SESSION['git_location'] = null;
                 $_SESSION['is_git_revision'] = false;
 
                 return false;
             }
+
+            //Detected git external folder location
+            $git_location = $gitmatch[1];
         } else {
             $_SESSION['git_location'] = null;
             $_SESSION['is_git_revision'] = false;
@@ -312,10 +312,12 @@ class Git
                 foreach ($dirIterator as $file_info) {
                     $file_name = $file_info->getFilename();
                     // if this is a .pack file
-                    if ($file_info->isFile() && substr($file_name, -5) == '.pack'
+                    if (! $file_info->isFile() || substr($file_name, -5) != '.pack'
                     ) {
-                        $pack_names[] = $file_name;
+                        continue;
                     }
+
+                    $pack_names[] = $file_name;
                 }
             }
             $hash = strtolower($hash);
@@ -364,19 +366,21 @@ class Git
             $dataline = array_shift($commit);
             $datalinearr = explode(' ', $dataline, 2);
             $linetype = $datalinearr[0];
-            if (in_array($linetype, ['author', 'committer'])) {
-                $user = $datalinearr[1];
-                preg_match('/([^<]+)<([^>]+)> ([0-9]+)( [^ ]+)?/', $user, $user);
-                $user2 = [
-                    'name' => trim($user[1]),
-                    'email' => trim($user[2]),
-                    'date' => date('Y-m-d H:i:s', (int) $user[3]),
-                ];
-                if (isset($user[4])) {
-                    $user2['date'] .= $user[4];
-                }
-                $$linetype = $user2;
+            if (! in_array($linetype, ['author', 'committer'])) {
+                continue;
             }
+
+            $user = $datalinearr[1];
+            preg_match('/([^<]+)<([^>]+)> ([0-9]+)( [^ ]+)?/', $user, $user);
+            $user2 = [
+                'name' => trim($user[1]),
+                'email' => trim($user[2]),
+                'date' => date('Y-m-d H:i:s', (int) $user[3]),
+            ];
+            if (isset($user[4])) {
+                $user2['date'] .= $user[4];
+            }
+            $$linetype = $user2;
         } while ($dataline != '');
         $message = trim(implode(' ', $commit));
 
@@ -432,64 +436,64 @@ class Git
         $branch = false;
 
         // are we on any branch?
-        if (strpos($refHead, '/') !== false) {
-            // remove ref: prefix
-            $refHead = substr(trim($refHead), 5);
-            if (strpos($refHead, 'refs/heads/') === 0) {
-                $branch = substr($refHead, 11);
-            } else {
-                $branch = basename($refHead);
-            }
-
-            $refFile = $gitFolder . '/' . $refHead;
-            if (@file_exists($refFile)) {
-                $hash = @file_get_contents($refFile);
-                if ($hash === false) {
-                    $this->config->set('PMA_VERSION_GIT', 0);
-
-                    return [null, null];
-                }
-
-                return [trim($hash), $branch];
-            }
-
-            // deal with packed refs
-            $packedRefs = @file_get_contents($gitFolder . '/packed-refs');
-            if ($packedRefs === false) {
-                $this->config->set('PMA_VERSION_GIT', 0);
-
-                return [null, null];
-            }
-            // split file to lines
-            $refLines = explode(PHP_EOL, $packedRefs);
-            foreach ($refLines as $line) {
-                // skip comments
-                if ($line[0] == '#') {
-                    continue;
-                }
-                // parse line
-                $parts = explode(' ', $line);
-                // care only about named refs
-                if (count($parts) != 2) {
-                    continue;
-                }
-                // have found our ref?
-                if ($parts[1] == $refHead) {
-                    $hash = $parts[0];
-                    break;
-                }
-            }
-            if (! isset($hash)) {
-                $this->config->set('PMA_VERSION_GIT', 0);
-
-                // Could not find ref
-                return [null, null];
-            }
-
-            return [$hash, $branch];
-        } else {
+        if (strpos($refHead, '/') === false) {
             return [trim($refHead), $branch];
         }
+
+        // remove ref: prefix
+        $refHead = substr(trim($refHead), 5);
+        if (strpos($refHead, 'refs/heads/') === 0) {
+            $branch = substr($refHead, 11);
+        } else {
+            $branch = basename($refHead);
+        }
+
+        $refFile = $gitFolder . '/' . $refHead;
+        if (@file_exists($refFile)) {
+            $hash = @file_get_contents($refFile);
+            if ($hash === false) {
+                $this->config->set('PMA_VERSION_GIT', 0);
+
+                return [null, null];
+            }
+
+            return [trim($hash), $branch];
+        }
+
+        // deal with packed refs
+        $packedRefs = @file_get_contents($gitFolder . '/packed-refs');
+        if ($packedRefs === false) {
+            $this->config->set('PMA_VERSION_GIT', 0);
+
+            return [null, null];
+        }
+        // split file to lines
+        $refLines = explode(PHP_EOL, $packedRefs);
+        foreach ($refLines as $line) {
+            // skip comments
+            if ($line[0] == '#') {
+                continue;
+            }
+            // parse line
+            $parts = explode(' ', $line);
+            // care only about named refs
+            if (count($parts) != 2) {
+                continue;
+            }
+            // have found our ref?
+            if ($parts[1] == $refHead) {
+                $hash = $parts[0];
+                break;
+            }
+        }
+        if (! isset($hash)) {
+            $this->config->set('PMA_VERSION_GIT', 0);
+
+            // Could not find ref
+            return [null, null];
+        }
+
+        return [$hash, $branch];
     }
 
     /**

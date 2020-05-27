@@ -96,14 +96,16 @@ class ThemeManager
 
         // check if user have a theme cookie
         $cookie_theme = $this->getThemeCookie();
-        if (! $cookie_theme || ! $this->setActiveTheme($cookie_theme)) {
-            if ($config_theme_exists) {
-                // otherwise use default theme
-                $this->setActiveTheme($this->theme_default);
-            } else {
-                // or fallback theme
-                $this->setActiveTheme(self::FALLBACK_THEME);
-            }
+        if ($cookie_theme && $this->setActiveTheme($cookie_theme)) {
+            return;
+        }
+
+        if ($config_theme_exists) {
+            // otherwise use default theme
+            $this->setActiveTheme($this->theme_default);
+        } else {
+            // or fallback theme
+            $this->setActiveTheme(self::FALLBACK_THEME);
         }
     }
 
@@ -307,10 +309,12 @@ class ThemeManager
             $new_theme = Theme::load(
                 $this->_themes_path . $PMA_Theme
             );
-            if ($new_theme) {
-                $new_theme->setId($PMA_Theme);
-                $this->themes[$PMA_Theme] = $new_theme;
+            if (! $new_theme) {
+                continue;
             }
+
+            $new_theme->setId($PMA_Theme);
+            $this->themes[$PMA_Theme] = $new_theme;
         } // end get themes
         closedir($handleThemes);
 

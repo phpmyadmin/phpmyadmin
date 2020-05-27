@@ -60,16 +60,20 @@ class ConfigGenerator
         foreach ($conf as $k => $v) {
             $k = preg_replace('/[^A-Za-z0-9_]/', '_', $k);
             $ret .= self::_getVarExport($k, $v, $crlf);
-            if (isset($persistKeys[$k])) {
-                unset($persistKeys[$k]);
+            if (! isset($persistKeys[$k])) {
+                continue;
             }
+
+            unset($persistKeys[$k]);
         }
         // keep 1d array keys which are present in $persist_keys (config.values.php)
         foreach (array_keys($persistKeys) as $k) {
-            if (mb_strpos($k, '/') === false) {
-                $k = preg_replace('/[^A-Za-z0-9_]/', '_', $k);
-                $ret .= self::_getVarExport($k, $cf->getDefault($k), $crlf);
+            if (mb_strpos($k, '/') !== false) {
+                continue;
             }
+
+            $k = preg_replace('/[^A-Za-z0-9_]/', '_', $k);
+            $ret .= self::_getVarExport($k, $cf->getDefault($k), $crlf);
         }
 
         return $ret . '?>';

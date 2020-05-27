@@ -383,18 +383,20 @@ class OperationsController extends AbstractController
                     break;
                 }
 
-                if (! $idx->getNonUnique()) {
-                    $notNull = true;
-                    foreach ($idx->getColumns() as $column) {
-                        if ($column->getNull()) {
-                            $notNull = false;
-                            break;
-                        }
-                    }
-                    if ($notNull) {
-                        $hideOrderTable = true;
+                if ($idx->getNonUnique()) {
+                    continue;
+                }
+
+                $notNull = true;
+                foreach ($idx->getColumns() as $column) {
+                    if ($column->getNull()) {
+                        $notNull = false;
                         break;
                     }
+                }
+                if ($notNull) {
+                    $hideOrderTable = true;
+                    break;
                 }
             }
         }

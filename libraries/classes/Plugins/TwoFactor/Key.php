@@ -38,9 +38,11 @@ class Key extends TwoFactorPlugin
     public function __construct(TwoFactor $twofactor)
     {
         parent::__construct($twofactor);
-        if (! isset($this->_twofactor->config['settings']['registrations'])) {
-            $this->_twofactor->config['settings']['registrations'] = [];
+        if (isset($this->_twofactor->config['settings']['registrations'])) {
+            return;
         }
+
+        $this->_twofactor->config['settings']['registrations'] = [];
     }
 
     /**

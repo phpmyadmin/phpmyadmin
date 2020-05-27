@@ -159,9 +159,11 @@ class Config
         }
 
         // enable output-buffering (if set to 'auto')
-        if (strtolower((string) $this->get('OBGzip')) == 'auto') {
-            $this->set('OBGzip', true);
+        if (strtolower((string) $this->get('OBGzip')) != 'auto') {
+            return;
         }
+
+        $this->set('OBGzip', true);
     }
 
     /**
@@ -354,14 +356,16 @@ class Config
         // Default to Unix or Equiv
         $this->set('PMA_IS_WINDOWS', false);
         // If PHP_OS is defined then continue
-        if (defined('PHP_OS')) {
-            if (stripos(PHP_OS, 'win') !== false && stripos(PHP_OS, 'darwin') === false) {
-                // Is it some version of Windows
-                $this->set('PMA_IS_WINDOWS', true);
-            } elseif (stripos(PHP_OS, 'OS/2') !== false) {
-                // Is it OS/2 (No file permissions like Windows)
-                $this->set('PMA_IS_WINDOWS', true);
-            }
+        if (! defined('PHP_OS')) {
+            return;
+        }
+
+        if (stripos(PHP_OS, 'win') !== false && stripos(PHP_OS, 'darwin') === false) {
+            // Is it some version of Windows
+            $this->set('PMA_IS_WINDOWS', true);
+        } elseif (stripos(PHP_OS, 'OS/2') !== false) {
+            // Is it OS/2 (No file permissions like Windows)
+            $this->set('PMA_IS_WINDOWS', true);
         }
     }
 
@@ -499,11 +503,13 @@ class Config
     private function _setConnectionCollation(): void
     {
         $collation_connection = $this->get('DefaultConnectionCollation');
-        if (! empty($collation_connection)
-            && $collation_connection != $GLOBALS['collation_connection']
+        if (empty($collation_connection)
+            || $collation_connection == $GLOBALS['collation_connection']
         ) {
-            $GLOBALS['dbi']->setCollation($collation_connection);
+            return;
         }
+
+        $GLOBALS['dbi']->setCollation($collation_connection);
     }
 
     /**
@@ -746,22 +752,28 @@ class Config
     public function checkPermissions(): void
     {
         // Check for permissions (on platforms that support it):
-        if ($this->get('CheckConfigurationPermissions') && @file_exists($this->getSource())) {
-            $perms = @fileperms($this->getSource());
-            if (! ($perms === false) && ($perms & 2)) {
-                // This check is normally done after loading configuration
-                $this->checkWebServerOs();
-                if ($this->get('PMA_IS_WINDOWS') === true) {
-                    $this->source_mtime = 0;
-                    Core::fatalError(
-                        __(
-                            'Wrong permissions on configuration file, '
-                            . 'should not be world writable!'
-                        )
-                    );
-                }
-            }
+        if (! $this->get('CheckConfigurationPermissions') || ! @file_exists($this->getSource())) {
+            return;
         }
+
+        $perms = @fileperms($this->getSource());
+        if ($perms === false || (! ($perms & 2))) {
+            return;
+        }
+
+        // This check is normally done after loading configuration
+        $this->checkWebServerOs();
+        if ($this->get('PMA_IS_WINDOWS') !== true) {
+            return;
+        }
+
+        $this->source_mtime = 0;
+        Core::fatalError(
+            __(
+                'Wrong permissions on configuration file, '
+                . 'should not be world writable!'
+            )
+        );
     }
 
     /**
@@ -779,17 +791,19 @@ class Config
             );
         }
 
-        if ($this->error_config_file) {
-            $error = '[strong]' . __('Failed to read configuration file!') . '[/strong]'
-                . '[br][br]'
-                . __(
-                    'This usually means there is a syntax error in it, '
-                    . 'please check any errors shown below.'
-                )
-                . '[br][br]'
-                . '[conferr]';
-            trigger_error($error, E_USER_ERROR);
+        if (! $this->error_config_file) {
+            return;
         }
+
+        $error = '[strong]' . __('Failed to read configuration file!') . '[/strong]'
+            . '[br][br]'
+            . __(
+                'This usually means there is a syntax error in it, '
+                . 'please check any errors shown below.'
+            )
+            . '[br][br]'
+            . '[conferr]';
+        trigger_error($error, E_USER_ERROR);
     }
 
     /**
@@ -816,12 +830,14 @@ class Config
      */
     public function set(string $setting, $value): void
     {
-        if (! isset($this->settings[$setting])
-            || $this->settings[$setting] !== $value
+        if (isset($this->settings[$setting])
+            && $this->settings[$setting] === $value
         ) {
-            $this->settings[$setting] = $value;
-            $this->set_mtime = time();
+            return;
         }
+
+        $this->settings[$setting] = $value;
+        $this->set_mtime = time();
     }
 
     /**
@@ -866,9 +882,11 @@ class Config
         $this->set('enable_upload', true);
         // if set "php_admin_value file_uploads Off" in httpd.conf
         // ini_get() also returns the string "Off" in this case:
-        if (strtolower(ini_get('file_uploads')) == 'off') {
-            $this->set('enable_upload', false);
+        if (strtolower(ini_get('file_uploads')) != 'off') {
+            return;
         }
+
+        $this->set('enable_upload', false);
     }
 
     /**
@@ -1010,9 +1028,11 @@ class Config
         ];
 
         foreach ($defines as $define) {
-            if (! defined($define)) {
-                define($define, $this->get($define));
+            if (defined($define)) {
+                continue;
             }
+
+            define($define, $this->get($define));
         }
     }
 

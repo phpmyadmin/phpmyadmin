@@ -102,9 +102,11 @@ class GisGeometryCollection extends GisGeometry
             }
 
             $c_minY = (float) $scale_data['minY'];
-            if (! isset($min_max['minY']) || $c_minY < $min_max['minY']) {
-                $min_max['minY'] = $c_minY;
+            if (isset($min_max['minY']) && $c_minY >= $min_max['minY']) {
+                continue;
             }
+
+            $min_max['minY'] = $c_minY;
         }
 
         return $min_max;
@@ -357,14 +359,16 @@ class GisGeometryCollection extends GisGeometry
         $geom_count = $gis_data['GEOMETRYCOLLECTION']['geom_count'] ?? 1;
         $wkt = 'GEOMETRYCOLLECTION(';
         for ($i = 0; $i < $geom_count; $i++) {
-            if (isset($gis_data[$i]['gis_type'])) {
-                $type = $gis_data[$i]['gis_type'];
-                $gis_obj = GisFactory::factory($type);
-                if (! $gis_obj) {
-                    continue;
-                }
-                $wkt .= $gis_obj->generateWkt($gis_data, $i, $empty) . ',';
+            if (! isset($gis_data[$i]['gis_type'])) {
+                continue;
             }
+
+            $type = $gis_data[$i]['gis_type'];
+            $gis_obj = GisFactory::factory($type);
+            if (! $gis_obj) {
+                continue;
+            }
+            $wkt .= $gis_obj->generateWkt($gis_data, $i, $empty) . ',';
         }
         if (isset($gis_data[0]['gis_type'])) {
             $wkt

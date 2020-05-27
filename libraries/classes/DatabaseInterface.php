@@ -855,9 +855,11 @@ class DatabaseInterface implements DbalInterface
 
         foreach ($tables_full as $table => $tmp) {
             $_table = $this->getTable($db, (string) $table);
-            if ($_table->isView()) {
-                $views[] = $table;
+            if (! $_table->isView()) {
+                continue;
             }
+
+            $views[] = $table;
         }
 
         return $views;
@@ -1356,12 +1358,14 @@ class DatabaseInterface implements DbalInterface
                 }
 
                 $index_columns = $index->getColumns();
-                if ($index_columns[$field]->getSeqInIndex() > 1) {
-                    if ($index->isUnique()) {
-                        $fields[$field]['Key'] = 'UNI';
-                    } else {
-                        $fields[$field]['Key'] = 'MUL';
-                    }
+                if ($index_columns[$field]->getSeqInIndex() <= 1) {
+                    continue;
+                }
+
+                if ($index->isUnique()) {
+                    $fields[$field]['Key'] = 'UNI';
+                } else {
+                    $fields[$field]['Key'] = 'MUL';
                 }
             }
         }
@@ -1643,11 +1647,15 @@ class DatabaseInterface implements DbalInterface
             }
         }
         $cfgRelation = $this->relation->getRelationsParam();
-        if (empty($cfgRelation['db']) && isset($GLOBALS['dblist'])) {
-            if ($GLOBALS['dblist']->databases->exists('phpmyadmin')) {
-                $this->relation->fixPmaTables('phpmyadmin', false);
-            }
+        if (! empty($cfgRelation['db']) || ! isset($GLOBALS['dblist'])) {
+            return;
         }
+
+        if (! $GLOBALS['dblist']->databases->exists('phpmyadmin')) {
+            return;
+        }
+
+        $this->relation->fixPmaTables('phpmyadmin', false);
     }
 
     /**
@@ -1658,14 +1666,16 @@ class DatabaseInterface implements DbalInterface
     public function postConnectControl(): void
     {
         // If Zero configuration mode enabled, check PMA tables in current db.
-        if ($GLOBALS['cfg']['ZeroConf'] == true) {
-            /**
-             * the DatabaseList class as a stub for the ListDatabase class
-             */
-            $GLOBALS['dblist'] = new DatabaseList();
-
-            $this->initRelationParamsCache();
+        if ($GLOBALS['cfg']['ZeroConf'] != true) {
+            return;
         }
+
+        /**
+         * the DatabaseList class as a stub for the ListDatabase class
+         */
+        $GLOBALS['dblist'] = new DatabaseList();
+
+        $this->initRelationParamsCache();
     }
 
     /**
@@ -1981,9 +1991,11 @@ class DatabaseInterface implements DbalInterface
         );
         $result = [];
         foreach ($shows as $one_show) {
-            if ($one_show['Db'] == $db && $one_show['Type'] == $which) {
-                $result[] = $one_show['Name'];
+            if ($one_show['Db'] != $db || $one_show['Type'] != $which) {
+                continue;
             }
+
+            $result[] = $one_show['Name'];
         }
 
         return $result;
@@ -2478,9 +2490,11 @@ class DatabaseInterface implements DbalInterface
         ];
         $systemSchemas = [];
         foreach ($schemas as $schema) {
-            if ($this->isSystemSchema($schema, true)) {
-                $systemSchemas[] = $schema;
+            if (! $this->isSystemSchema($schema, true)) {
+                continue;
             }
+
+            $systemSchemas[] = $schema;
         }
 
         return $systemSchemas;
@@ -2551,9 +2565,11 @@ class DatabaseInterface implements DbalInterface
                     'ssl_verify',
                 ];
                 foreach ($shared as $item) {
-                    if (isset($cfg['Server'][$item])) {
-                        $server[$item] = $cfg['Server'][$item];
+                    if (! isset($cfg['Server'][$item])) {
+                        continue;
                     }
+
+                    $server[$item] = $cfg['Server'][$item];
                 }
             }
             // Set configured port
@@ -2562,9 +2578,11 @@ class DatabaseInterface implements DbalInterface
             }
             // Set any configuration with control_ prefix
             foreach ($cfg['Server'] as $key => $val) {
-                if (substr($key, 0, 8) === 'control_') {
-                    $server[substr($key, 8)] = $val;
+                if (substr($key, 0, 8) !== 'control_') {
+                    continue;
                 }
+
+                $server[substr($key, 8)] = $val;
             }
         } else {
             if ($server === null) {
@@ -2937,10 +2955,12 @@ class DatabaseInterface implements DbalInterface
              * match existing strings
              */
             foreach ($result as $value) {
-                if (strlen($value->orgtable) !== 0 &&
-                        mb_strtolower($value->orgtable) === mb_strtolower($value->table)) {
-                    $value->orgtable = $value->table;
+                if (strlen($value->orgtable) === 0 ||
+                        mb_strtolower($value->orgtable) !== mb_strtolower($value->table)) {
+                    continue;
                 }
+
+                $value->orgtable = $value->table;
             }
         }
 

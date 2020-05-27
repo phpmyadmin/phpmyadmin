@@ -157,9 +157,11 @@ class ImportSql extends ImportPlugin
         // Extracting remaining statements.
         while (! $error && ! $timeout_passed && ! empty($bq->query)) {
             $statement = $bq->extract(true);
-            if (! empty($statement)) {
-                $this->import->runQuery($statement, $statement, $sql_data);
+            if (empty($statement)) {
+                continue;
             }
+
+            $this->import->runQuery($statement, $statement, $sql_data);
         }
 
         // Finishing.
@@ -185,10 +187,12 @@ class ImportSql extends ImportPlugin
         if (isset($request['sql_no_auto_value_on_zero'])) {
             $sql_modes[] = 'NO_AUTO_VALUE_ON_ZERO';
         }
-        if (count($sql_modes) > 0) {
-            $dbi->tryQuery(
-                'SET SQL_MODE="' . implode(',', $sql_modes) . '"'
-            );
+        if (count($sql_modes) <= 0) {
+            return;
         }
+
+        $dbi->tryQuery(
+            'SET SQL_MODE="' . implode(',', $sql_modes) . '"'
+        );
     }
 }

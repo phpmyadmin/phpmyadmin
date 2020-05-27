@@ -81,12 +81,14 @@ class Validator
                     continue;
                 }
                 for ($i = 1, $nb = count($uv); $i < $nb; $i++) {
-                    if (mb_substr($uv[$i], 0, 6) == 'value:') {
-                        $uv[$i] = Core::arrayRead(
-                            mb_substr($uv[$i], 6),
-                            $GLOBALS['PMA_Config']->base_settings
-                        );
+                    if (mb_substr($uv[$i], 0, 6) != 'value:') {
+                        continue;
                     }
+
+                    $uv[$i] = Core::arrayRead(
+                        mb_substr($uv[$i], 6),
+                        $GLOBALS['PMA_Config']->base_settings
+                    );
                 }
             }
             $validators[$field] = isset($validators[$field])
@@ -126,9 +128,11 @@ class Validator
         $vids = [];
         foreach ($validatorId as &$vid) {
             $vid = $cf->getCanonicalPath($vid);
-            if (isset($validators[$vid])) {
-                $vids[] = $vid;
+            if (! isset($validators[$vid])) {
+                continue;
             }
+
+            $vids[] = $vid;
         }
         if (empty($vids)) {
             return false;

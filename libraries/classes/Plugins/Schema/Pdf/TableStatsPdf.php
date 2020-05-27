@@ -78,9 +78,11 @@ class TableStatsPdf extends TableStats
         * can include table height which changes table width
         */
         $this->_setWidth($fontSize);
-        if ($sameWideWidth < $this->width) {
-            $sameWideWidth = $this->width;
+        if ($sameWideWidth >= $this->width) {
+            return;
         }
+
+        $sameWideWidth = $this->width;
     }
 
     /**

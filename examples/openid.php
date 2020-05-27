@@ -161,13 +161,13 @@ try {
 
 $id = $message->get('openid.claimed_id');
 
-if (! empty($id) && isset($AUTH_MAP[$id])) {
-    $_SESSION['PMA_single_signon_user'] = $AUTH_MAP[$id]['user'];
-    $_SESSION['PMA_single_signon_password'] = $AUTH_MAP[$id]['password'];
-    session_write_close();
-    /* Redirect to phpMyAdmin (should use absolute URL here!) */
-    header('Location: ../index.php');
-} else {
+if (empty($id) || ! isset($AUTH_MAP[$id])) {
     Show_page('<p>User not allowed!</p>');
     exit;
 }
+
+$_SESSION['PMA_single_signon_user'] = $AUTH_MAP[$id]['user'];
+$_SESSION['PMA_single_signon_password'] = $AUTH_MAP[$id]['password'];
+session_write_close();
+/* Redirect to phpMyAdmin (should use absolute URL here!) */
+header('Location: ../index.php');

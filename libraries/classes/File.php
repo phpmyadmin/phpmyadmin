@@ -107,9 +107,11 @@ class File
             $this->setName($name);
         }
 
-        if (extension_loaded('zip')) {
-            $this->zipExtension = new ZipExtension();
+        if (! extension_loaded('zip')) {
+            return;
         }
+
+        $this->zipExtension = new ZipExtension();
     }
 
     /**
@@ -670,22 +672,22 @@ class File
             case false:
                 return false;
             case 'application/bzip2':
-                if ($GLOBALS['cfg']['BZipDump'] && function_exists('bzopen')) {
-                    $this->_handle = @bzopen($this->getName(), 'r');
-                } else {
+                if (! $GLOBALS['cfg']['BZipDump'] || ! function_exists('bzopen')) {
                     $this->errorUnsupported();
 
                     return false;
                 }
+
+                $this->_handle = @bzopen($this->getName(), 'r');
                 break;
             case 'application/gzip':
-                if ($GLOBALS['cfg']['GZipDump'] && function_exists('gzopen')) {
-                    $this->_handle = @gzopen($this->getName(), 'r');
-                } else {
+                if (! $GLOBALS['cfg']['GZipDump'] || ! function_exists('gzopen')) {
                     $this->errorUnsupported();
 
                     return false;
                 }
+
+                $this->_handle = @gzopen($this->getName(), 'r');
                 break;
             case 'application/zip':
                 if ($GLOBALS['cfg']['ZipDump'] && function_exists('zip_open')) {

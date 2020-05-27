@@ -65,29 +65,31 @@ class RelationCleanup
             $this->relation->queryAsControlUser($remove_query);
         }
 
-        if ($cfgRelation['relwork']) {
-            $remove_query = 'DELETE FROM '
-                . Util::backquote($cfgRelation['db'])
-                . '.' . Util::backquote($cfgRelation['relation'])
-                . ' WHERE master_db  = \'' . $this->dbi->escapeString($db)
-                . '\''
-                . ' AND master_table = \'' . $this->dbi->escapeString($table)
-                . '\''
-                . ' AND master_field = \'' . $this->dbi->escapeString($column)
-                . '\'';
-            $this->relation->queryAsControlUser($remove_query);
-
-            $remove_query = 'DELETE FROM '
-                . Util::backquote($cfgRelation['db'])
-                . '.' . Util::backquote($cfgRelation['relation'])
-                . ' WHERE foreign_db  = \'' . $this->dbi->escapeString($db)
-                . '\''
-                . ' AND foreign_table = \'' . $this->dbi->escapeString($table)
-                . '\''
-                . ' AND foreign_field = \'' . $this->dbi->escapeString($column)
-                . '\'';
-            $this->relation->queryAsControlUser($remove_query);
+        if (! $cfgRelation['relwork']) {
+            return;
         }
+
+        $remove_query = 'DELETE FROM '
+            . Util::backquote($cfgRelation['db'])
+            . '.' . Util::backquote($cfgRelation['relation'])
+            . ' WHERE master_db  = \'' . $this->dbi->escapeString($db)
+            . '\''
+            . ' AND master_table = \'' . $this->dbi->escapeString($table)
+            . '\''
+            . ' AND master_field = \'' . $this->dbi->escapeString($column)
+            . '\'';
+        $this->relation->queryAsControlUser($remove_query);
+
+        $remove_query = 'DELETE FROM '
+            . Util::backquote($cfgRelation['db'])
+            . '.' . Util::backquote($cfgRelation['relation'])
+            . ' WHERE foreign_db  = \'' . $this->dbi->escapeString($db)
+            . '\''
+            . ' AND foreign_table = \'' . $this->dbi->escapeString($table)
+            . '\''
+            . ' AND foreign_field = \'' . $this->dbi->escapeString($column)
+            . '\'';
+        $this->relation->queryAsControlUser($remove_query);
     }
 
     /**
@@ -162,18 +164,20 @@ class RelationCleanup
             $this->relation->queryAsControlUser($remove_query);
         }
 
-        if ($cfgRelation['navwork']) {
-            $remove_query = 'DELETE FROM '
-                . Util::backquote($cfgRelation['db'])
-                . '.' . Util::backquote($cfgRelation['navigationhiding'])
-                . ' WHERE db_name  = \'' . $this->dbi->escapeString($db) . '\''
-                . ' AND (table_name = \'' . $this->dbi->escapeString($table)
-                . '\''
-                . ' OR (item_name = \'' . $this->dbi->escapeString($table)
-                . '\''
-                . ' AND item_type = \'table\'))';
-            $this->relation->queryAsControlUser($remove_query);
+        if (! $cfgRelation['navwork']) {
+            return;
         }
+
+        $remove_query = 'DELETE FROM '
+            . Util::backquote($cfgRelation['db'])
+            . '.' . Util::backquote($cfgRelation['navigationhiding'])
+            . ' WHERE db_name  = \'' . $this->dbi->escapeString($db) . '\''
+            . ' AND (table_name = \'' . $this->dbi->escapeString($table)
+            . '\''
+            . ' OR (item_name = \'' . $this->dbi->escapeString($table)
+            . '\''
+            . ' AND item_type = \'table\'))';
+        $this->relation->queryAsControlUser($remove_query);
     }
 
     /**
@@ -265,13 +269,15 @@ class RelationCleanup
             $this->relation->queryAsControlUser($remove_query);
         }
 
-        if ($cfgRelation['centralcolumnswork']) {
-            $remove_query = 'DELETE FROM '
-                . Util::backquote($cfgRelation['db'])
-                . '.' . Util::backquote($cfgRelation['central_columns'])
-                . ' WHERE db_name  = \'' . $this->dbi->escapeString($db) . '\'';
-            $this->relation->queryAsControlUser($remove_query);
+        if (! $cfgRelation['centralcolumnswork']) {
+            return;
         }
+
+        $remove_query = 'DELETE FROM '
+            . Util::backquote($cfgRelation['db'])
+            . '.' . Util::backquote($cfgRelation['central_columns'])
+            . ' WHERE db_name  = \'' . $this->dbi->escapeString($db) . '\'';
+        $this->relation->queryAsControlUser($remove_query);
     }
 
     /**
@@ -366,13 +372,15 @@ class RelationCleanup
             $this->relation->queryAsControlUser($remove_query);
         }
 
-        if ($cfgRelation['designersettingswork']) {
-            $remove_query = 'DELETE FROM '
-                . Util::backquote($cfgRelation['db'])
-                . '.' . Util::backquote($cfgRelation['designer_settings'])
-                . " WHERE `username`  = '" . $this->dbi->escapeString($username)
-                . "'";
-            $this->relation->queryAsControlUser($remove_query);
+        if (! $cfgRelation['designersettingswork']) {
+            return;
         }
+
+        $remove_query = 'DELETE FROM '
+            . Util::backquote($cfgRelation['db'])
+            . '.' . Util::backquote($cfgRelation['designer_settings'])
+            . " WHERE `username`  = '" . $this->dbi->escapeString($username)
+            . "'";
+        $this->relation->queryAsControlUser($remove_query);
     }
 }

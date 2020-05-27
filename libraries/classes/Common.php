@@ -42,9 +42,11 @@ final class Common
         $is_createuser = $dbi->isUserType('create');
 
         // now, select the mysql db
-        if ($dbi->isSuperuser()) {
-            $dbi->selectDb('mysql');
+        if (! $dbi->isSuperuser()) {
+            return;
         }
+
+        $dbi->selectDb('mysql');
     }
 
     public static function database(): void
@@ -147,11 +149,13 @@ final class Common
                     /**
                      * Changes columns charset if requested by the user
                      */
-                    if (isset($_POST['change_all_tables_columns_collations']) &&
-                        $_POST['change_all_tables_columns_collations'] === 'on'
+                    if (! isset($_POST['change_all_tables_columns_collations']) ||
+                        $_POST['change_all_tables_columns_collations'] !== 'on'
                     ) {
-                        $operations->changeAllColumnsCollation($db, $tableName, $_POST['db_collation']);
+                        continue;
                     }
+
+                    $operations->changeAllColumnsCollation($db, $tableName, $_POST['db_collation']);
                 }
             }
             unset($db_charset);
@@ -222,8 +226,10 @@ final class Common
         /**
          * Skip test if we are exporting as we can't tell whether a table name is an alias (which would fail the test).
          */
-        if ($route === '/table/export') {
-            DbTableExists::check();
+        if ($route !== '/table/export') {
+            return;
         }
+
+        DbTableExists::check();
     }
 }

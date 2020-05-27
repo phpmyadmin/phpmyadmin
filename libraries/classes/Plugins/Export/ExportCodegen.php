@@ -283,11 +283,13 @@ class ExportCodegen extends ExportPlugin
                 . self::cgMakeIdentifier($table_alias) . '() { }';
             $temp = [];
             foreach ($tableProperties as $tableProperty) {
-                if (! $tableProperty->isPK()) {
-                    $temp[] = $tableProperty->formatCs(
-                        '#dotNetPrimitiveType# #name#'
-                    );
+                if ($tableProperty->isPK()) {
+                    continue;
                 }
+
+                $temp[] = $tableProperty->formatCs(
+                    '#dotNetPrimitiveType# #name#'
+                );
             }
             $lines[] = '        public '
                 . self::cgMakeIdentifier($table_alias)
@@ -296,11 +298,13 @@ class ExportCodegen extends ExportPlugin
                 . ')';
             $lines[] = '        {';
             foreach ($tableProperties as $tableProperty) {
-                if (! $tableProperty->isPK()) {
-                    $lines[] = $tableProperty->formatCs(
-                        '            this._#name#=#name#;'
-                    );
+                if ($tableProperty->isPK()) {
+                    continue;
                 }
+
+                $lines[] = $tableProperty->formatCs(
+                    '            this._#name#=#name#;'
+                );
             }
             $lines[] = '        }';
             $lines[] = '        #endregion';

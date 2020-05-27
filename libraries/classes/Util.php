@@ -930,18 +930,22 @@ class Util
         }
 
         foreach ($params as $param) {
-            if (! isset($array[$param])) {
-                $error_message .= $reported_script_name
-                    . ': ' . __('Missing parameter:') . ' '
-                    . $param
-                    . MySQLDocumentation::showDocumentation('faq', 'faqmissingparameters', true)
-                    . '[br]';
-                $found_error = true;
+            if (isset($array[$param])) {
+                continue;
             }
+
+            $error_message .= $reported_script_name
+                . ': ' . __('Missing parameter:') . ' '
+                . $param
+                . MySQLDocumentation::showDocumentation('faq', 'faqmissingparameters', true)
+                . '[br]';
+            $found_error = true;
         }
-        if ($found_error) {
-            Core::fatalError($error_message);
+        if (! $found_error) {
+            return;
         }
+
+        Core::fatalError($error_message);
     }
 
     /**
@@ -1088,20 +1092,22 @@ class Util
                 }
             }
 
-            if ($con_val != null) {
-                $condition .= $con_val . ' AND';
-
-                if ($meta->primary_key > 0) {
-                    $primary_key .= $condition;
-                    $primary_key_array[$con_key] = $con_val;
-                } elseif ($meta->unique_key > 0) {
-                    $unique_key  .= $condition;
-                    $unique_key_array[$con_key] = $con_val;
-                }
-
-                $nonprimary_condition .= $condition;
-                $nonprimary_condition_array[$con_key] = $con_val;
+            if ($con_val == null) {
+                continue;
             }
+
+            $condition .= $con_val . ' AND';
+
+            if ($meta->primary_key > 0) {
+                $primary_key .= $condition;
+                $primary_key_array[$con_key] = $con_val;
+            } elseif ($meta->unique_key > 0) {
+                $unique_key  .= $condition;
+                $unique_key_array[$con_key] = $con_val;
+            }
+
+            $nonprimary_condition .= $condition;
+            $nonprimary_condition_array[$con_key] = $con_val;
         } // end for
 
         // Correction University of Virginia 19991216:
@@ -1230,9 +1236,11 @@ class Util
                     }
                 }
 
-                if ($i > 0 && $i <= $x) {
-                    $pages[] = $i;
+                if ($i <= 0 || $i > $x) {
+                    continue;
                 }
+
+                $pages[] = $i;
             }
 
             /*
@@ -1254,9 +1262,11 @@ class Util
             while ($i < $x) {
                 $dist = 2 * $dist;
                 $i = $pageNow + $dist;
-                if ($i > 0 && $i <= $x) {
-                    $pages[] = $i;
+                if ($i <= 0 || $i > $x) {
+                    continue;
                 }
+
+                $pages[] = $i;
             }
 
             $i = $pageNow;
@@ -1264,9 +1274,11 @@ class Util
             while ($i > 0) {
                 $dist = 2 * $dist;
                 $i = $pageNow - $dist;
-                if ($i > 0 && $i <= $x) {
-                    $pages[] = $i;
+                if ($i <= 0 || $i > $x) {
+                    continue;
                 }
+
+                $pages[] = $i;
             }
 
             // Since because of ellipsing of the current page some numbers may be
@@ -1938,9 +1950,11 @@ class Util
             foreach ($GLOBALS['dbi']->types->getColumns() as $value) {
                 if (is_array($value)) {
                     foreach ($value as $subvalue) {
-                        if ($subvalue !== '-') {
-                            $retval[] = $subvalue;
+                        if ($subvalue === '-') {
+                            continue;
                         }
+
+                        $retval[] = $subvalue;
                     }
                 } else {
                     if ($value !== '-') {
@@ -2278,24 +2292,24 @@ class Util
         }
         // If a database name was provided and user does not have the
         // required global privilege, try database-wise permissions.
-        if ($db !== null) {
-            $query .= " AND '%s' LIKE `TABLE_SCHEMA`";
-            $schema_privileges = $GLOBALS['dbi']->fetchValue(
-                sprintf(
-                    $query,
-                    'SCHEMA_PRIVILEGES',
-                    $username,
-                    $priv,
-                    $GLOBALS['dbi']->escapeString($db)
-                )
-            );
-            if ($schema_privileges) {
-                return true;
-            }
-        } else {
+        if ($db === null) {
             // There was no database name provided and the user
             // does not have the correct global privilege.
             return false;
+        }
+
+        $query .= " AND '%s' LIKE `TABLE_SCHEMA`";
+        $schema_privileges = $GLOBALS['dbi']->fetchValue(
+            sprintf(
+                $query,
+                'SCHEMA_PRIVILEGES',
+                $username,
+                $priv,
+                $GLOBALS['dbi']->escapeString($db)
+            )
+        );
+        if ($schema_privileges) {
+            return true;
         }
         // If a table name was also provided and we still didn't
         // find any valid privileges, try table-wise privileges.
@@ -2417,14 +2431,18 @@ class Util
         $regex = null;
 
         foreach ($regex_array as $test_regex) {
-            if (preg_match($test_regex, $query, $matches, PREG_OFFSET_CAPTURE)) {
-                if ($minimum_first_occurence_index === null
-                    || ($matches[0][1] < $minimum_first_occurence_index)
-                ) {
-                    $regex = $test_regex;
-                    $minimum_first_occurence_index = $matches[0][1];
-                }
+            if (! preg_match($test_regex, $query, $matches, PREG_OFFSET_CAPTURE)) {
+                continue;
             }
+
+            if ($minimum_first_occurence_index !== null
+                && ($matches[0][1] >= $minimum_first_occurence_index)
+            ) {
+                continue;
+            }
+
+            $regex = $test_regex;
+            $minimum_first_occurence_index = $matches[0][1];
         }
 
         return $regex;
@@ -2612,10 +2630,12 @@ class Util
 
             $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name']
                 = $row['Column_name'];
-            if (isset($row['Sub_part'])) {
-                $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Sub_part']
-                    = $row['Sub_part'];
+            if (! isset($row['Sub_part'])) {
+                continue;
             }
+
+            $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Sub_part']
+                = $row['Sub_part'];
         } // end while
 
         return [
@@ -2971,9 +2991,11 @@ class Util
             // to get ASCII only range
             $byte = ord($random_func(1)) & 0x7f;
             // We want only ASCII chars
-            if ($byte > 32) {
-                $result .= chr($byte);
+            if ($byte <= 32) {
+                continue;
             }
+
+            $result .= chr($byte);
         }
 
         return $asHex ? bin2hex($result) : $result;
@@ -3001,9 +3023,11 @@ class Util
     public static function setTimeLimit(): void
     {
         // The function can be disabled in php.ini
-        if (function_exists('set_time_limit')) {
-            @set_time_limit((int) $GLOBALS['cfg']['ExecTimeLimit']);
+        if (! function_exists('set_time_limit')) {
+            return;
         }
+
+        @set_time_limit((int) $GLOBALS['cfg']['ExecTimeLimit']);
     }
 
     /**
@@ -3182,15 +3206,17 @@ class Util
             $parts = explode(';', $hops[0]);
             foreach ($parts as $part) {
                 $keyValueArray = explode('=', $part, 2);
-                if (count($keyValueArray) === 2) {
-                    [
-                        $keyName,
-                        $value,
-                    ] = $keyValueArray;
-                    $value = trim(strtolower($value));
-                    if (strtolower(trim($keyName)) === 'proto' && in_array($value, ['http', 'https'])) {
-                        return $value;
-                    }
+                if (count($keyValueArray) !== 2) {
+                    continue;
+                }
+
+                [
+                    $keyName,
+                    $value,
+                ] = $keyValueArray;
+                $value = trim(strtolower($value));
+                if (strtolower(trim($keyName)) === 'proto' && in_array($value, ['http', 'https'])) {
+                    return $value;
                 }
             }
         }

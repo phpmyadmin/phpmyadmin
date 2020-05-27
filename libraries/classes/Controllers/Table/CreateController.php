@@ -137,20 +137,22 @@ class CreateController extends AbstractController
                     && $cfg['BrowseMIME']
                 ) {
                     foreach ($_POST['field_mimetype'] as $fieldindex => $mimetype) {
-                        if (isset($_POST['field_name'][$fieldindex])
-                            && strlen($_POST['field_name'][$fieldindex]) > 0
+                        if (! isset($_POST['field_name'][$fieldindex])
+                            || strlen($_POST['field_name'][$fieldindex]) <= 0
                         ) {
-                            $this->transformations->setMime(
-                                $db,
-                                $table,
-                                $_POST['field_name'][$fieldindex],
-                                $mimetype,
-                                $_POST['field_transformation'][$fieldindex],
-                                $_POST['field_transformation_options'][$fieldindex],
-                                $_POST['field_input_transformation'][$fieldindex],
-                                $_POST['field_input_transformation_options'][$fieldindex]
-                            );
+                            continue;
                         }
+
+                        $this->transformations->setMime(
+                            $db,
+                            $table,
+                            $_POST['field_name'][$fieldindex],
+                            $mimetype,
+                            $_POST['field_transformation'][$fieldindex],
+                            $_POST['field_transformation_options'][$fieldindex],
+                            $_POST['field_input_transformation'][$fieldindex],
+                            $_POST['field_input_transformation_options'][$fieldindex]
+                        );
                     }
                 }
             } else {

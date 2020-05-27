@@ -710,9 +710,11 @@ class StructureController extends AbstractController
             );
             // update current column_names array, first delete old position
             for ($j = 0, $ll = count($column_names); $j < $ll; $j++) {
-                if ($column_names[$j] == $column) {
-                    unset($column_names[$j]);
+                if ($column_names[$j] != $column) {
+                    continue;
                 }
+
+                unset($column_names[$j]);
             }
             // insert moved column
             array_splice($column_names, $i, 0, $column);
@@ -954,42 +956,44 @@ class StructureController extends AbstractController
             $partition =& $partitionDetails['partitions'][$i];
             $partition['prefix'] = 'partitions[' . $i . ']';
 
-            if ($partitionDetails['subpartition_count'] > 1) {
-                $partition['subpartition_count'] = $partitionDetails['subpartition_count'];
-                $partition['subpartitions'] = [];
+            if ($partitionDetails['subpartition_count'] <= 1) {
+                continue;
+            }
 
-                for ($j = 0, $jMax = (int) $partitionDetails['subpartition_count']; $j < $jMax; $j++) {
-                    if (! isset($stmt->partitions[$i]->subpartitions[$j])) {
-                        $partition['subpartitions'][$j] = [
-                            'name' => $partition['name'] . '_s' . $j,
-                            'engine' => '',
-                            'comment' => '',
-                            'data_directory' => '',
-                            'index_directory' => '',
-                            'max_rows' => '',
-                            'min_rows' => '',
-                            'tablespace' => '',
-                            'node_group' => '',
-                        ];
-                    } else {
-                        $sp = $stmt->partitions[$i]->subpartitions[$j];
-                        $partition['subpartitions'][$j] = [
-                            'name' => $sp->name,
-                            'engine' => $sp->options->has('ENGINE', true),
-                            'comment' => trim($sp->options->has('COMMENT', true), "'"),
-                            'data_directory' => trim($sp->options->has('DATA DIRECTORY', true), "'"),
-                            'index_directory' => trim($sp->options->has('INDEX_DIRECTORY', true), "'"),
-                            'max_rows' => $sp->options->has('MAX_ROWS', true),
-                            'min_rows' => $sp->options->has('MIN_ROWS', true),
-                            'tablespace' => $sp->options->has('TABLESPACE', true),
-                            'node_group' => $sp->options->has('NODEGROUP', true),
-                        ];
-                    }
+            $partition['subpartition_count'] = $partitionDetails['subpartition_count'];
+            $partition['subpartitions'] = [];
 
-                    $subpartition =& $partition['subpartitions'][$j];
-                    $subpartition['prefix'] = 'partitions[' . $i . ']'
-                        . '[subpartitions][' . $j . ']';
+            for ($j = 0, $jMax = (int) $partitionDetails['subpartition_count']; $j < $jMax; $j++) {
+                if (! isset($stmt->partitions[$i]->subpartitions[$j])) {
+                    $partition['subpartitions'][$j] = [
+                        'name' => $partition['name'] . '_s' . $j,
+                        'engine' => '',
+                        'comment' => '',
+                        'data_directory' => '',
+                        'index_directory' => '',
+                        'max_rows' => '',
+                        'min_rows' => '',
+                        'tablespace' => '',
+                        'node_group' => '',
+                    ];
+                } else {
+                    $sp = $stmt->partitions[$i]->subpartitions[$j];
+                    $partition['subpartitions'][$j] = [
+                        'name' => $sp->name,
+                        'engine' => $sp->options->has('ENGINE', true),
+                        'comment' => trim($sp->options->has('COMMENT', true), "'"),
+                        'data_directory' => trim($sp->options->has('DATA DIRECTORY', true), "'"),
+                        'index_directory' => trim($sp->options->has('INDEX_DIRECTORY', true), "'"),
+                        'max_rows' => $sp->options->has('MAX_ROWS', true),
+                        'min_rows' => $sp->options->has('MIN_ROWS', true),
+                        'tablespace' => $sp->options->has('TABLESPACE', true),
+                        'node_group' => $sp->options->has('NODEGROUP', true),
+                    ];
                 }
+
+                $subpartition =& $partition['subpartitions'][$j];
+                $subpartition['prefix'] = 'partitions[' . $i . ']'
+                    . '[subpartitions][' . $j . ']';
             }
         }
 
@@ -1138,13 +1142,15 @@ class StructureController extends AbstractController
                 $this->table_obj->removeUiProp(Table::PROP_SORTED_COLUMN);
             }
 
-            if (isset($_POST['field_adjust_privileges'][$i])
-                && ! empty($_POST['field_adjust_privileges'][$i])
-                && $_POST['field_orig'][$i] != $_POST['field_name'][$i]
+            if (! isset($_POST['field_adjust_privileges'][$i])
+                || empty($_POST['field_adjust_privileges'][$i])
+                || $_POST['field_orig'][$i] == $_POST['field_name'][$i]
             ) {
-                $adjust_privileges[$_POST['field_orig'][$i]]
-                    = $_POST['field_name'][$i];
+                continue;
             }
+
+            $adjust_privileges[$_POST['field_orig'][$i]]
+                = $_POST['field_name'][$i];
         } // end for
 
         if (count($changes) > 0 || isset($_POST['preview_sql'])) {
@@ -1255,24 +1261,26 @@ class StructureController extends AbstractController
 
                 // Change back to Original Collation and data type
                 for ($i = 0; $i < $field_cnt; $i++) {
-                    if ($changedToBlob[$i]) {
-                        $changes_revert[] = 'CHANGE ' . Table::generateAlter(
-                            Util::getValueByKey($_POST, "field_orig.${i}", ''),
-                            $_POST['field_name'][$i],
-                            $_POST['field_type_orig'][$i],
-                            $_POST['field_length_orig'][$i],
-                            $_POST['field_attribute_orig'][$i],
-                            Util::getValueByKey($_POST, "field_collation_orig.${i}", ''),
-                            Util::getValueByKey($_POST, "field_null_orig.${i}", 'NO'),
-                            $_POST['field_default_type_orig'][$i],
-                            $_POST['field_default_value_orig'][$i],
-                            Util::getValueByKey($_POST, "field_extra_orig.${i}", false),
-                            Util::getValueByKey($_POST, "field_comments_orig.${i}", ''),
-                            Util::getValueByKey($_POST, "field_virtuality_orig.${i}", ''),
-                            Util::getValueByKey($_POST, "field_expression_orig.${i}", ''),
-                            Util::getValueByKey($_POST, "field_move_to_orig.${i}", '')
-                        );
+                    if (! $changedToBlob[$i]) {
+                        continue;
                     }
+
+                    $changes_revert[] = 'CHANGE ' . Table::generateAlter(
+                        Util::getValueByKey($_POST, "field_orig.${i}", ''),
+                        $_POST['field_name'][$i],
+                        $_POST['field_type_orig'][$i],
+                        $_POST['field_length_orig'][$i],
+                        $_POST['field_attribute_orig'][$i],
+                        Util::getValueByKey($_POST, "field_collation_orig.${i}", ''),
+                        Util::getValueByKey($_POST, "field_null_orig.${i}", 'NO'),
+                        $_POST['field_default_type_orig'][$i],
+                        $_POST['field_default_value_orig'][$i],
+                        Util::getValueByKey($_POST, "field_extra_orig.${i}", false),
+                        Util::getValueByKey($_POST, "field_comments_orig.${i}", ''),
+                        Util::getValueByKey($_POST, "field_virtuality_orig.${i}", ''),
+                        Util::getValueByKey($_POST, "field_expression_orig.${i}", ''),
+                        Util::getValueByKey($_POST, "field_move_to_orig.${i}", '')
+                    );
                 }
 
                 $revert_query = 'ALTER TABLE ' . Util::backquote($this->table)
@@ -1297,14 +1305,16 @@ class StructureController extends AbstractController
         // update field names in relation
         if (isset($_POST['field_orig']) && is_array($_POST['field_orig'])) {
             foreach ($_POST['field_orig'] as $fieldindex => $fieldcontent) {
-                if ($_POST['field_name'][$fieldindex] != $fieldcontent) {
-                    $this->relation->renameField(
-                        $this->db,
-                        $this->table,
-                        $fieldcontent,
-                        $_POST['field_name'][$fieldindex]
-                    );
+                if ($_POST['field_name'][$fieldindex] == $fieldcontent) {
+                    continue;
                 }
+
+                $this->relation->renameField(
+                    $this->db,
+                    $this->table,
+                    $fieldcontent,
+                    $_POST['field_name'][$fieldindex]
+                );
             }
         }
 
@@ -1314,20 +1324,22 @@ class StructureController extends AbstractController
             && $GLOBALS['cfg']['BrowseMIME']
         ) {
             foreach ($_POST['field_mimetype'] as $fieldindex => $mimetype) {
-                if (isset($_POST['field_name'][$fieldindex])
-                    && strlen($_POST['field_name'][$fieldindex]) > 0
+                if (! isset($_POST['field_name'][$fieldindex])
+                    || strlen($_POST['field_name'][$fieldindex]) <= 0
                 ) {
-                    $this->transformations->setMime(
-                        $this->db,
-                        $this->table,
-                        $_POST['field_name'][$fieldindex],
-                        $mimetype,
-                        $_POST['field_transformation'][$fieldindex],
-                        $_POST['field_transformation_options'][$fieldindex],
-                        $_POST['field_input_transformation'][$fieldindex],
-                        $_POST['field_input_transformation_options'][$fieldindex]
-                    );
+                    continue;
                 }
+
+                $this->transformations->setMime(
+                    $this->db,
+                    $this->table,
+                    $_POST['field_name'][$fieldindex],
+                    $mimetype,
+                    $_POST['field_transformation'][$fieldindex],
+                    $_POST['field_transformation_options'][$fieldindex],
+                    $_POST['field_input_transformation'][$fieldindex],
+                    $_POST['field_input_transformation_options'][$fieldindex]
+                );
             }
         }
 
@@ -1542,12 +1554,14 @@ class StructureController extends AbstractController
                 $GLOBALS['cfg']['Server']['DisableIS'],
                 $field['Collation'] ?? ''
             );
-            if ($collation !== null) {
-                $collations[$collation->getName()] = [
-                    'name' => $collation->getName(),
-                    'description' => $collation->getDescription(),
-                ];
+            if ($collation === null) {
+                continue;
             }
+
+            $collations[$collation->getName()] = [
+                'name' => $collation->getName(),
+                'description' => $collation->getDescription(),
+            ];
         }
 
         $engine = $this->table_obj->getStorageEngine();
@@ -1753,9 +1767,11 @@ class StructureController extends AbstractController
         $primary = '';
         while ($row = $this->dbi->fetchAssoc($result)) {
             // Backups the list of primary keys
-            if (is_array($row) && $row['Key_name'] == 'PRIMARY') {
-                $primary .= $row['Column_name'] . ', ';
+            if (! is_array($row) || $row['Key_name'] != 'PRIMARY') {
+                continue;
             }
+
+            $primary .= $row['Column_name'] . ', ';
         }
         $this->dbi->freeResult($result);
 
@@ -1776,9 +1792,11 @@ class StructureController extends AbstractController
         $columns_names = $_POST['field_name'];
         $reserved_keywords_names = [];
         foreach ($columns_names as $column) {
-            if (Context::isKeyword(trim($column), true)) {
-                $reserved_keywords_names[] = trim($column);
+            if (! Context::isKeyword(trim($column), true)) {
+                continue;
             }
+
+            $reserved_keywords_names[] = trim($column);
         }
         if (Context::isKeyword(trim($this->table), true)) {
             $reserved_keywords_names[] = trim($this->table);

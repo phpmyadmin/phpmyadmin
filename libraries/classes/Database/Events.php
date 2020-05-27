@@ -214,42 +214,44 @@ class Events
         /**
          * Display a form used to add/edit a trigger, if necessary
          */
-        if (count($errors)
-            || (empty($_POST['editor_process_add'])
-            && empty($_POST['editor_process_edit'])
-            && (! empty($_REQUEST['add_item'])
-            || ! empty($_REQUEST['edit_item'])
-            || ! empty($_POST['item_changetype'])))
-        ) { // FIXME: this must be simpler than that
-            $operation = '';
-            $title = '';
-            $item = null;
-            $mode = '';
-            if (! empty($_POST['item_changetype'])) {
-                $operation = 'change';
-            }
-            // Get the data for the form (if any)
-            if (! empty($_REQUEST['add_item'])) {
-                $title = __('Add event');
-                $item = $this->getDataFromRequest();
-                $mode = 'add';
-            } elseif (! empty($_REQUEST['edit_item'])) {
-                $title = __('Edit event');
-                if (! empty($_REQUEST['item_name'])
-                    && empty($_POST['editor_process_edit'])
-                    && empty($_POST['item_changetype'])
-                ) {
-                    $item = $this->getDataFromName($_REQUEST['item_name']);
-                    if ($item !== null) {
-                        $item['item_original_name'] = $item['item_name'];
-                    }
-                } else {
-                    $item = $this->getDataFromRequest();
-                }
-                $mode = 'edit';
-            }
-            $this->sendEditor($mode, $item, $title, $db, $operation);
+        if (! count($errors)
+            && (! empty($_POST['editor_process_add'])
+            || ! empty($_POST['editor_process_edit'])
+            || (empty($_REQUEST['add_item'])
+            && empty($_REQUEST['edit_item'])
+            && empty($_POST['item_changetype'])))
+        ) {
+            return;
         }
+        // FIXME: this must be simpler than that
+        $operation = '';
+        $title = '';
+        $item = null;
+        $mode = '';
+        if (! empty($_POST['item_changetype'])) {
+            $operation = 'change';
+        }
+        // Get the data for the form (if any)
+        if (! empty($_REQUEST['add_item'])) {
+            $title = __('Add event');
+            $item = $this->getDataFromRequest();
+            $mode = 'add';
+        } elseif (! empty($_REQUEST['edit_item'])) {
+            $title = __('Edit event');
+            if (! empty($_REQUEST['item_name'])
+                && empty($_POST['editor_process_edit'])
+                && empty($_POST['item_changetype'])
+            ) {
+                $item = $this->getDataFromName($_REQUEST['item_name']);
+                if ($item !== null) {
+                    $item['item_original_name'] = $item['item_name'];
+                }
+            } else {
+                $item = $this->getDataFromRequest();
+            }
+            $mode = 'edit';
+        }
+        $this->sendEditor($mode, $item, $title, $db, $operation);
     }
 
     /**

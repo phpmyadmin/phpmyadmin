@@ -210,12 +210,16 @@ class ProcessesController extends AbstractController
                 'is_full' => false,
             ];
 
-            if (0 === --$sortableColCount) {
-                $columns[$columnKey]['has_full_query'] = true;
-                if ($showFullSql) {
-                    $columns[$columnKey]['is_full'] = true;
-                }
+            if (0 !== --$sortableColCount) {
+                continue;
             }
+
+            $columns[$columnKey]['has_full_query'] = true;
+            if (! $showFullSql) {
+                continue;
+            }
+
+            $columns[$columnKey]['is_full'] = true;
         }
 
         $rows = [];
@@ -227,10 +231,12 @@ class ProcessesController extends AbstractController
             ) {
                 foreach (array_keys($process) as $key) {
                     $newKey = ucfirst(mb_strtolower($key));
-                    if ($newKey !== $key) {
-                        $process[$newKey] = $process[$key];
-                        unset($process[$key]);
+                    if ($newKey === $key) {
+                        continue;
                     }
+
+                    $process[$newKey] = $process[$key];
+                    unset($process[$key]);
                 }
             }
 

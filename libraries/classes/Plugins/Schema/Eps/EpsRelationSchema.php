@@ -86,9 +86,11 @@ class EpsRelationSchema extends ExportRelationSchema
                 );
             }
 
-            if ($this->sameWide) {
-                $this->_tables[$table]->width = $this->_tablewidth;
+            if (! $this->sameWide) {
+                continue;
             }
+
+            $this->_tables[$table]->width = $this->_tablewidth;
         }
 
         $seen_a_relation = false;

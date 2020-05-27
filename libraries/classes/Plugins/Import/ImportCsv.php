@@ -465,15 +465,17 @@ class ImportCsv extends AbstractImportCsv
                         }
                         $i++;
                         $ch = mb_substr($buffer, $i, 1);
-                        if ($csv_terminated_len > 1 && $ch == $csv_terminated[0]) {
-                            $ch = $this->readCsvTerminatedString(
-                                $buffer,
-                                $ch,
-                                $i,
-                                $csv_terminated_len
-                            );
-                            $i += $csv_terminated_len - 1;
+                        if ($csv_terminated_len <= 1 || $ch != $csv_terminated[0]) {
+                            continue;
                         }
+
+                        $ch = $this->readCsvTerminatedString(
+                            $buffer,
+                            $ch,
+                            $i,
+                            $csv_terminated_len
+                        );
+                        $i += $csv_terminated_len - 1;
                     }
 
                     // unquoted NULL string
@@ -556,104 +558,106 @@ class ImportCsv extends AbstractImportCsv
                 }
 
                 // End of line
-                if ($csv_finish
-                    || $ch == $csv_new_line
-                    || ($csv_new_line == 'auto' && ($ch == "\r" || $ch == "\n"))
+                if (! $csv_finish
+                    && $ch != $csv_new_line
+                    && ($csv_new_line != 'auto' || ($ch != "\r" && $ch != "\n"))
                 ) {
-                    if ($csv_new_line == 'auto' && $ch == "\r") { // Handle "\r\n"
-                        if ($i >= ($len - 2) && ! $finished) {
-                            break; // We need more data to decide new line
-                        }
-                        if (mb_substr($buffer, $i + 1, 1) == "\n") {
-                            $i++;
-                        }
+                    continue;
+                }
+
+                if ($csv_new_line == 'auto' && $ch == "\r") { // Handle "\r\n"
+                    if ($i >= ($len - 2) && ! $finished) {
+                        break; // We need more data to decide new line
                     }
-                    // We didn't parse value till the end of line, so there was
-                    // empty one
-                    if (! $csv_finish) {
-                        $values[] = '';
+                    if (mb_substr($buffer, $i + 1, 1) == "\n") {
+                        $i++;
                     }
+                }
+                // We didn't parse value till the end of line, so there was
+                // empty one
+                if (! $csv_finish) {
+                    $values[] = '';
+                }
 
-                    if ($this->_getAnalyze()) {
-                        foreach ($values as $val) {
-                            $tempRow[] = $val;
-                            ++$col_count;
-                        }
-
-                        if ($col_count > $max_cols) {
-                            $max_cols = $col_count;
-                        }
-                        $col_count = 0;
-
-                        $rows[] = $tempRow;
-                        $tempRow = [];
-                    } else {
-                        // Do we have correct count of values?
-                        if (count($values) != $required_fields) {
-                            // Hack for excel
-                            if ($values[count($values) - 1] == ';') {
-                                unset($values[count($values) - 1]);
-                            } else {
-                                $message = Message::error(
-                                    __(
-                                        'Invalid column count in CSV input'
-                                        . ' on line %d.'
-                                    )
-                                );
-                                $message->addParam($line);
-                                $error = true;
-                                break;
-                            }
-                        }
-
-                        $first = true;
-                        $sql = $sql_template;
-                        foreach ($values as $key => $val) {
-                            if (! $first) {
-                                $sql .= ', ';
-                            }
-                            if ($val === null) {
-                                $sql .= 'NULL';
-                            } else {
-                                $sql .= '\''
-                                    . $GLOBALS['dbi']->escapeString($val)
-                                    . '\'';
-                            }
-
-                            $first = false;
-                        }
-                        $sql .= ')';
-                        if (isset($_POST['csv_replace'])) {
-                            $sql .= ' ON DUPLICATE KEY UPDATE ';
-                            foreach ($fields as $field) {
-                                $fieldName = Util::backquote(
-                                    $field['Field']
-                                );
-                                $sql .= $fieldName . ' = VALUES(' . $fieldName
-                                    . '), ';
-                            }
-                            $sql = rtrim($sql, ', ');
-                        }
-
-                        /**
-                         * @todo maybe we could add original line to verbose
-                         * SQL in comment
-                         */
-                        $this->import->runQuery($sql, $sql, $sql_data);
+                if ($this->_getAnalyze()) {
+                    foreach ($values as $val) {
+                        $tempRow[] = $val;
+                        ++$col_count;
                     }
 
-                    $line++;
-                    $csv_finish = false;
-                    $values = [];
-                    $buffer = mb_substr($buffer, $i + 1);
-                    $len = mb_strlen($buffer);
-                    $i = 0;
-                    $lasti = -1;
-                    $ch = mb_substr($buffer, 0, 1);
-                    if ($max_lines > 0 && $line == $max_lines_constraint) {
-                        $finished = 1;
-                        break;
+                    if ($col_count > $max_cols) {
+                        $max_cols = $col_count;
                     }
+                    $col_count = 0;
+
+                    $rows[] = $tempRow;
+                    $tempRow = [];
+                } else {
+                    // Do we have correct count of values?
+                    if (count($values) != $required_fields) {
+                        // Hack for excel
+                        if ($values[count($values) - 1] != ';') {
+                            $message = Message::error(
+                                __(
+                                    'Invalid column count in CSV input'
+                                    . ' on line %d.'
+                                )
+                            );
+                            $message->addParam($line);
+                            $error = true;
+                            break;
+                        }
+
+                        unset($values[count($values) - 1]);
+                    }
+
+                    $first = true;
+                    $sql = $sql_template;
+                    foreach ($values as $key => $val) {
+                        if (! $first) {
+                            $sql .= ', ';
+                        }
+                        if ($val === null) {
+                            $sql .= 'NULL';
+                        } else {
+                            $sql .= '\''
+                                . $GLOBALS['dbi']->escapeString($val)
+                                . '\'';
+                        }
+
+                        $first = false;
+                    }
+                    $sql .= ')';
+                    if (isset($_POST['csv_replace'])) {
+                        $sql .= ' ON DUPLICATE KEY UPDATE ';
+                        foreach ($fields as $field) {
+                            $fieldName = Util::backquote(
+                                $field['Field']
+                            );
+                            $sql .= $fieldName . ' = VALUES(' . $fieldName
+                                . '), ';
+                        }
+                        $sql = rtrim($sql, ', ');
+                    }
+
+                    /**
+                     * @todo maybe we could add original line to verbose
+                     * SQL in comment
+                     */
+                    $this->import->runQuery($sql, $sql, $sql_data);
+                }
+
+                $line++;
+                $csv_finish = false;
+                $values = [];
+                $buffer = mb_substr($buffer, $i + 1);
+                $len = mb_strlen($buffer);
+                $i = 0;
+                $lasti = -1;
+                $ch = mb_substr($buffer, 0, 1);
+                if ($max_lines > 0 && $line == $max_lines_constraint) {
+                    $finished = 1;
+                    break;
                 }
             } // End of parser loop
             if ($max_lines > 0 && $line == $max_lines_constraint) {
@@ -770,13 +774,15 @@ class ImportCsv extends AbstractImportCsv
         // Commit any possible data in buffers
         $this->import->runQuery('', '', $sql_data);
 
-        if (count($values) != 0 && ! $error) {
-            $message = Message::error(
-                __('Invalid format of CSV input on line %d.')
-            );
-            $message->addParam($line);
-            $error = true;
+        if (count($values) == 0 || $error) {
+            return;
         }
+
+        $message = Message::error(
+            __('Invalid format of CSV input on line %d.')
+        );
+        $message->addParam($line);
+        $error = true;
     }
 
     /**

@@ -147,19 +147,21 @@ class ErrorReport
             }
             foreach ($_SESSION['prev_errors'] as $errorObj) {
                 /** @var Error $errorObj */
-                if ($errorObj->getLine()
-                    && $errorObj->getType()
-                    && $errorObj->getNumber() != E_USER_WARNING
+                if (! $errorObj->getLine()
+                    || ! $errorObj->getType()
+                    || $errorObj->getNumber() == E_USER_WARNING
                 ) {
-                    $errors[$i++] = [
-                        'lineNum' => $errorObj->getLine(),
-                        'file' => $errorObj->getFile(),
-                        'type' => $errorObj->getType(),
-                        'msg' => $errorObj->getOnlyMessage(),
-                        'stackTrace' => $errorObj->getBacktrace(5),
-                        'stackhash' => $errorObj->getHash(),
-                    ];
+                    continue;
                 }
+
+                $errors[$i++] = [
+                    'lineNum' => $errorObj->getLine(),
+                    'file' => $errorObj->getFile(),
+                    'type' => $errorObj->getType(),
+                    'msg' => $errorObj->getOnlyMessage(),
+                    'stackTrace' => $errorObj->getBacktrace(5),
+                    'stackhash' => $errorObj->getHash(),
+                ];
             }
 
             // if there were no 'actual' errors to be submitted.
@@ -253,9 +255,11 @@ class ErrorReport
     {
         foreach ($stack as &$level) {
             foreach ($level['context'] as &$line) {
-                if (mb_strlen($line) > 80) {
-                    $line = mb_substr($line, 0, 75) . '//...';
+                if (mb_strlen($line) <= 80) {
+                    continue;
                 }
+
+                $line = mb_substr($line, 0, 75) . '//...';
             }
             [$uri, $scriptName] = $this->sanitizeUrl($level['url']);
             $level['uri'] = $uri;

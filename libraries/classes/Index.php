@@ -184,11 +184,13 @@ class Index
             ) {
                 $indexes[] = $index;
             }
-            if (($choices & self::FULLTEXT)
-                && $index->getChoice() == 'FULLTEXT'
+            if ((! ($choices & self::FULLTEXT))
+                || $index->getChoice() != 'FULLTEXT'
             ) {
-                $indexes[] = $index;
+                continue;
             }
+
+            $indexes[] = $index;
         }
 
         return $indexes;
@@ -253,11 +255,13 @@ class Index
      */
     public function addColumn(array $params)
     {
-        if (isset($params['Column_name'])
-            && strlen($params['Column_name']) > 0
+        if (! isset($params['Column_name'])
+            || strlen($params['Column_name']) <= 0
         ) {
-            $this->_columns[$params['Column_name']] = new IndexColumn($params);
+            return;
         }
+
+        $this->_columns[$params['Column_name']] = new IndexColumn($params);
     }
 
     /**
@@ -361,9 +365,11 @@ class Index
         if (isset($params['Key_block_size'])) {
             $this->_key_block_size = $params['Key_block_size'];
         }
-        if (isset($params['Parser'])) {
-            $this->_parser = $params['Parser'];
+        if (! isset($params['Parser'])) {
+            return;
         }
+
+        $this->_parser = $params['Parser'];
     }
 
     /**

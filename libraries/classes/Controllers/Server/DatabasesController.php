@@ -361,11 +361,13 @@ class DatabasesController extends AbstractController
         }
 
         $this->sortOrder = 'asc';
-        if (isset($sortOrder)
-            && mb_strtolower($sortOrder) === 'desc'
+        if (! isset($sortOrder)
+            || mb_strtolower($sortOrder) !== 'desc'
         ) {
-            $this->sortOrder = 'desc';
+            return;
         }
+
+        $this->sortOrder = 'desc';
     }
 
     /**
@@ -391,25 +393,27 @@ class DatabasesController extends AbstractController
                 ],
             ];
             foreach ($replicationTypes as $type) {
-                if ($replication_info[$type]['status']) {
+                if (! $replication_info[$type]['status']) {
+                    continue;
+                }
+
+                $key = array_search(
+                    $database['SCHEMA_NAME'],
+                    $replication_info[$type]['Ignore_DB']
+                );
+                if (strlen((string) $key) > 0) {
+                    $replication[$type]['is_replicated'] = false;
+                } else {
                     $key = array_search(
                         $database['SCHEMA_NAME'],
-                        $replication_info[$type]['Ignore_DB']
+                        $replication_info[$type]['Do_DB']
                     );
-                    if (strlen((string) $key) > 0) {
-                        $replication[$type]['is_replicated'] = false;
-                    } else {
-                        $key = array_search(
-                            $database['SCHEMA_NAME'],
-                            $replication_info[$type]['Do_DB']
-                        );
 
-                        if (strlen((string) $key) > 0
-                            || count($replication_info[$type]['Do_DB']) === 0
-                        ) {
-                            // if ($key != null) did not work for index "0"
-                            $replication[$type]['is_replicated'] = true;
-                        }
+                    if (strlen((string) $key) > 0
+                        || count($replication_info[$type]['Do_DB']) === 0
+                    ) {
+                        // if ($key != null) did not work for index "0"
+                        $replication[$type]['is_replicated'] = true;
                     }
                 }
             }
@@ -444,12 +448,14 @@ class DatabasesController extends AbstractController
                 $cfg['Server']['DisableIS'],
                 $database['DEFAULT_COLLATION_NAME']
             );
-            if ($collation !== null) {
-                $databases[$database['SCHEMA_NAME']]['collation'] = [
-                    'name' => $collation->getName(),
-                    'description' => $collation->getDescription(),
-                ];
+            if ($collation === null) {
+                continue;
             }
+
+            $databases[$database['SCHEMA_NAME']]['collation'] = [
+                'name' => $collation->getName(),
+                'description' => $collation->getDescription(),
+            ];
         }
 
         return [

@@ -139,12 +139,14 @@ class ConfigTest extends AbstractTestCase
                 $this->object->get('PMA_USR_BROWSER_AGENT')
             );
         }
-        if ($version != null) {
-            $this->assertEquals(
-                $version,
-                $this->object->get('PMA_USR_BROWSER_VER')
-            );
+        if ($version == null) {
+            return;
         }
+
+        $this->assertEquals(
+            $version,
+            $this->object->get('PMA_USR_BROWSER_VER')
+        );
     }
 
     /**
@@ -306,20 +308,22 @@ class ConfigTest extends AbstractTestCase
         $a = strip_tags(ob_get_contents());
         ob_end_clean();
 
-        if (preg_match('@GD Version[[:space:]]*\(.*\)@', $a, $v)) {
-            if (mb_strstr($v, '2.')) {
-                $this->assertEquals(
-                    1,
-                    $this->object->get('PMA_IS_GD2'),
-                    'PMA_IS_GD2 should be 1'
-                );
-            } else {
-                $this->assertEquals(
-                    0,
-                    $this->object->get('PMA_IS_GD2'),
-                    'PMA_IS_GD2 should be 0'
-                );
-            }
+        if (! preg_match('@GD Version[[:space:]]*\(.*\)@', $a, $v)) {
+            return;
+        }
+
+        if (mb_strstr($v, '2.')) {
+            $this->assertEquals(
+                1,
+                $this->object->get('PMA_IS_GD2'),
+                'PMA_IS_GD2 should be 1'
+            );
+        } else {
+            $this->assertEquals(
+                0,
+                $this->object->get('PMA_IS_GD2'),
+                'PMA_IS_GD2 should be 0'
+            );
         }
     }
 

@@ -427,9 +427,11 @@ class Pdf extends PdfLib
                 if ($tmpheight[$row . '-' . $this->page] < $this->GetY()) {
                     $tmpheight[$row . '-' . $this->page] = $this->GetY();
                 }
-                if ($this->page > $maxpage) {
-                    $maxpage = $this->page;
+                if ($this->page <= $maxpage) {
+                    continue;
                 }
+
+                $maxpage = $this->page;
             }
             // get the height we were in the last used page
             $h = $tmpheight[$row . '-' . $maxpage];
@@ -655,9 +657,11 @@ class Pdf extends PdfLib
                 if ($tmpheight[$row . '-' . $this->page] < $this->GetY()) {
                     $tmpheight[$row . '-' . $this->page] = $this->GetY();
                 }
-                if ($this->page > $maxpage) {
-                    $maxpage = $this->page;
+                if ($this->page <= $maxpage) {
+                    continue;
                 }
+
+                $maxpage = $this->page;
             }
 
             // get the height we were in the last used page
@@ -828,9 +832,11 @@ class Pdf extends PdfLib
             if (! array_key_exists($i, $colFits)) {
                 $this->tablewidths[$i] = $this->sColWidth + $surplusToAdd;
             }
-            if ($this->display_column[$i] == false) {
-                $this->tablewidths[$i] = 0;
+            if ($this->display_column[$i] != false) {
+                continue;
             }
+
+            $this->tablewidths[$i] = 0;
         }
 
         ksort($this->tablewidths);

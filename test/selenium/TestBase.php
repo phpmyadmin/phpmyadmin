@@ -153,9 +153,11 @@ abstract class TestBase extends TestCase
             $this->markTestSkipped('Failed to connect to MySQL (' . $e->getMessage() . ')');
         }
 
-        if ($this->_mysqli->connect_errno) {
-            $this->markTestSkipped('Failed to connect to MySQL (' . $this->_mysqli->error . ')');
+        if (! $this->_mysqli->connect_errno) {
+            return;
         }
+
+        $this->markTestSkipped('Failed to connect to MySQL (' . $this->_mysqli->error . ')');
     }
 
     private function getBrowserStackCredentials(): string
@@ -287,24 +289,26 @@ abstract class TestBase extends TestCase
             $projectName = 'phpMyAdmin (Travis)';
         }
 
-        if ($buildLocal) {
-            $capabilities->setCapability(
-                'bstack:options',
-                [
-                    'os' => 'Windows',
-                    'osVersion' => '10',
-                    'resolution' => '1920x1080',
-                    'projectName' => $projectName,
-                    'sessionName' => $testName,
-                    'buildName' => $buildId,
-                    'localIdentifier' => $buildId,
-                    'local' => $buildLocal,
-                    'debug' => false,
-                    'consoleLogs' => 'verbose',
-                    'networkLogs' => true,
-                ]
-            );
+        if (! $buildLocal) {
+            return;
         }
+
+        $capabilities->setCapability(
+            'bstack:options',
+            [
+                'os' => 'Windows',
+                'osVersion' => '10',
+                'resolution' => '1920x1080',
+                'projectName' => $projectName,
+                'sessionName' => $testName,
+                'buildName' => $buildId,
+                'localIdentifier' => $buildId,
+                'local' => $buildLocal,
+                'debug' => false,
+                'consoleLogs' => 'verbose',
+                'networkLogs' => true,
+            ]
+        );
     }
 
     /**
@@ -410,9 +414,11 @@ abstract class TestBase extends TestCase
      */
     protected function skipIfNotSuperUser()
     {
-        if (! $this->isSuperUser()) {
-            $this->markTestSkipped('Test user is not a superuser.');
+        if ($this->isSuperUser()) {
+            return;
         }
+
+        $this->markTestSkipped('Test user is not a superuser.');
     }
 
     /**
@@ -424,14 +430,16 @@ abstract class TestBase extends TestCase
     {
         $this->navigateTo('index.php?route=/check-relations');
         $pageContent = $this->waitForElement('id', 'page_content');
-        if (preg_match(
+        if (! preg_match(
             '/Configuration of pmadb… not OK/i',
             $pageContent->getText()
         )) {
-            $this->markTestSkipped(
-                'The phpMyAdmin configuration storage is not working.'
-            );
+            return;
         }
+
+        $this->markTestSkipped(
+            'The phpMyAdmin configuration storage is not working.'
+        );
     }
 
     /**
@@ -626,9 +634,11 @@ abstract class TestBase extends TestCase
      */
     public function logOutIfLoggedIn()
     {
-        if ($this->isLoggedIn()) {
-            $this->byCssSelector('img.icon.ic_s_loggoff')->click();
+        if (! $this->isLoggedIn()) {
+            return;
         }
+
+        $this->byCssSelector('img.icon.ic_s_loggoff')->click();
     }
 
     /**
@@ -819,11 +829,11 @@ abstract class TestBase extends TestCase
          * Not supported in Safari Webdriver, see
          * https://github.com/seleniumhq/selenium-google-code-issue-archive/issues/4136
          */
-        if ($this->isSafari()) {
-            $this->markTestSkipped('Alerts not supported on Safari browser.');
-        } else {
+        if (! $this->isSafari()) {
             return $this->webDriver->switchTo()->alert()->getText();
         }
+
+        $this->markTestSkipped('Alerts not supported on Safari browser.');
     }
 
     /**
@@ -1080,72 +1090,76 @@ abstract class TestBase extends TestCase
     {
         // If this is being run on Browerstack,
         // mark the test on Browerstack as failure
-        if ($this->hasBrowserstackConfig()) {
-            $payload = json_encode(
-                [
-                    'status' => $status,
-                    'reason' => $message,
-                ]
-            );
-            /** @var resource $ch */
-            $ch = curl_init();
-            curl_setopt(
-                $ch,
-                CURLOPT_URL,
-                self::SESSION_REST_URL . $this->sessionId . '.json'
-            );
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
-            curl_setopt(
-                $ch,
-                CURLOPT_USERPWD,
-                $this->getBrowserStackCredentials()
-            );
-
-            $headers = [];
-            $headers[] = 'Content-Type: application/json';
-            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-            curl_exec($ch);
-            if ($ch !== false && curl_errno($ch)) {
-                echo 'Error: ' . curl_error($ch) . PHP_EOL;
-            }
-            curl_close($ch);
+        if (! $this->hasBrowserstackConfig()) {
+            return;
         }
+
+        $payload = json_encode(
+            [
+                'status' => $status,
+                'reason' => $message,
+            ]
+        );
+        /** @var resource $ch */
+        $ch = curl_init();
+        curl_setopt(
+            $ch,
+            CURLOPT_URL,
+            self::SESSION_REST_URL . $this->sessionId . '.json'
+        );
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
+        curl_setopt(
+            $ch,
+            CURLOPT_USERPWD,
+            $this->getBrowserStackCredentials()
+        );
+
+        $headers = [];
+        $headers[] = 'Content-Type: application/json';
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        curl_exec($ch);
+        if ($ch !== false && curl_errno($ch)) {
+            echo 'Error: ' . curl_error($ch) . PHP_EOL;
+        }
+        curl_close($ch);
     }
 
     private function getErrorVideoUrl(): void
     {
-        if ($this->hasBrowserstackConfig()) {
-            /** @var resource $ch */
-            $ch = curl_init();
-            curl_setopt(
-                $ch,
-                CURLOPT_URL,
-                self::SESSION_REST_URL . $this->sessionId . '.json'
-            );
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt(
-                $ch,
-                CURLOPT_USERPWD,
-                $this->getBrowserStackCredentials()
-            );
-            $result = curl_exec($ch);
-            if (is_bool($result)) {
-                echo 'Error: ' . curl_error($ch) . PHP_EOL;
-
-                return;
-            }
-            $proj = json_decode($result);
-            if (isset($proj->automation_session)) {
-                echo 'Test failed, get more information here: ' . $proj->automation_session->public_url . PHP_EOL;
-            }
-            if ($ch !== false && curl_errno($ch)) {
-                echo 'Error: ' . curl_error($ch) . PHP_EOL;
-            }
-            curl_close($ch);
+        if (! $this->hasBrowserstackConfig()) {
+            return;
         }
+
+        /** @var resource $ch */
+        $ch = curl_init();
+        curl_setopt(
+            $ch,
+            CURLOPT_URL,
+            self::SESSION_REST_URL . $this->sessionId . '.json'
+        );
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt(
+            $ch,
+            CURLOPT_USERPWD,
+            $this->getBrowserStackCredentials()
+        );
+        $result = curl_exec($ch);
+        if (is_bool($result)) {
+            echo 'Error: ' . curl_error($ch) . PHP_EOL;
+
+            return;
+        }
+        $proj = json_decode($result);
+        if (isset($proj->automation_session)) {
+            echo 'Test failed, get more information here: ' . $proj->automation_session->public_url . PHP_EOL;
+        }
+        if ($ch !== false && curl_errno($ch)) {
+            echo 'Error: ' . curl_error($ch) . PHP_EOL;
+        }
+        curl_close($ch);
     }
 
     /**

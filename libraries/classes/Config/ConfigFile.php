@@ -111,9 +111,11 @@ class ConfigFile
         $this->_baseCfg = $baseConfig;
         $this->_isInSetup = $baseConfig === null;
         $this->_id = 'ConfigFile' . $GLOBALS['server'];
-        if (! isset($_SESSION[$this->_id])) {
-            $_SESSION[$this->_id] = [];
+        if (isset($_SESSION[$this->_id])) {
+            return;
         }
+
+        $_SESSION[$this->_id] = [];
     }
 
     /**
@@ -488,11 +490,13 @@ class ConfigFile
         }
         unset($_SESSION[$this->_id]['Servers'][$lastServer]);
 
-        if (isset($_SESSION[$this->_id]['ServerDefault'])
-            && $_SESSION[$this->_id]['ServerDefault'] == $lastServer
+        if (! isset($_SESSION[$this->_id]['ServerDefault'])
+            || $_SESSION[$this->_id]['ServerDefault'] != $lastServer
         ) {
-            unset($_SESSION[$this->_id]['ServerDefault']);
+            return;
         }
+
+        unset($_SESSION[$this->_id]['ServerDefault']);
     }
 
     /**
@@ -505,10 +509,12 @@ class ConfigFile
         $c = $_SESSION[$this->_id];
         foreach ($this->_cfgUpdateReadMapping as $mapTo => $mapFrom) {
             // if the key $c exists in $map_to
-            if (Core::arrayRead($mapTo, $c) !== null) {
-                Core::arrayWrite($mapTo, $c, Core::arrayRead($mapFrom, $c));
-                Core::arrayRemove($mapFrom, $c);
+            if (Core::arrayRead($mapTo, $c) === null) {
+                continue;
             }
+
+            Core::arrayWrite($mapTo, $c, Core::arrayRead($mapFrom, $c));
+            Core::arrayRemove($mapFrom, $c);
         }
 
         return $c;

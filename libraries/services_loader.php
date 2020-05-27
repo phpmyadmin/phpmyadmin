@@ -19,16 +19,20 @@ return static function (ContainerConfigurator $configurator) {
             $theService = $services->set($serviceName, $service['class'] ?? null);
             if (isset($service['arguments'])) {// !== null check
                 foreach ($service['arguments'] as &$argumentName) {
-                    if ($argumentName[0] === '@') {
-                        $services->alias($serviceName, substr($argumentName, 1));
-                        $argumentName = new Reference(substr($argumentName, 1));
+                    if ($argumentName[0] !== '@') {
+                        continue;
                     }
+
+                    $services->alias($serviceName, substr($argumentName, 1));
+                    $argumentName = new Reference(substr($argumentName, 1));
                 }
                 $theService->args($service['arguments']);
             }
-            if (isset($service['factory'])) {// !== null check
-                $theService->factory($service['factory']);
+            if (! isset($service['factory'])) {
+                continue;
             }
+            // !== null check
+            $theService->factory($service['factory']);
         }
     };
 

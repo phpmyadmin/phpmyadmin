@@ -45,9 +45,11 @@ abstract class OptionsPropertyItem extends PropertyItem
         if ($name) {
             $this->_name = $name;
         }
-        if ($text) {
-            $this->_text = $text;
+        if (! $text) {
+            return;
         }
+
+        $this->_text = $text;
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */

@@ -40,18 +40,22 @@ class VariablesController extends AbstractController
         if ($this->data->dataLoaded) {
             $categories = [];
             foreach ($this->data->sections as $sectionId => $sectionName) {
-                if (isset($this->data->sectionUsed[$sectionId])) {
-                    $categories[$sectionId] = [
-                        'id' => $sectionId,
-                        'name' => $sectionName,
-                        'is_selected' => false,
-                    ];
-                    if (! empty($params['filterCategory'])
-                        && $params['filterCategory'] === $sectionId
-                    ) {
-                        $categories[$sectionId]['is_selected'] = true;
-                    }
+                if (! isset($this->data->sectionUsed[$sectionId])) {
+                    continue;
                 }
+
+                $categories[$sectionId] = [
+                    'id' => $sectionId,
+                    'name' => $sectionName,
+                    'is_selected' => false,
+                ];
+                if (empty($params['filterCategory'])
+                    || $params['filterCategory'] !== $sectionId
+                ) {
+                    continue;
+                }
+
+                $categories[$sectionId]['is_selected'] = true;
             }
 
             $links = [];
@@ -95,13 +99,15 @@ class VariablesController extends AbstractController
                     }
                 }
 
-                if (isset($this->data->links[$name])) {
-                    foreach ($this->data->links[$name] as $linkName => $linkUrl) {
-                        $variables[$name]['description_doc'][] = [
-                            'name' => $linkName,
-                            'url' => $linkUrl,
-                        ];
-                    }
+                if (! isset($this->data->links[$name])) {
+                    continue;
+                }
+
+                foreach ($this->data->links[$name] as $linkName => $linkUrl) {
+                    $variables[$name]['description_doc'][] = [
+                        'name' => $linkName,
+                        'url' => $linkUrl,
+                    ];
                 }
             }
         }
@@ -130,9 +136,11 @@ class VariablesController extends AbstractController
             'QUERY CACHE',
         ];
 
-        if (in_array($flush, $flushCommands)) {
-            $this->dbi->query('FLUSH ' . $flush . ';');
+        if (! in_array($flush, $flushCommands)) {
+            return;
         }
+
+        $this->dbi->query('FLUSH ' . $flush . ';');
     }
 
     /**

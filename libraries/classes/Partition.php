@@ -34,9 +34,11 @@ class Partition extends SubPartition
         $this->expression = $row['PARTITION_EXPRESSION'];
         $this->description = $row['PARTITION_DESCRIPTION'];
         // no sub partitions, load all data to this object
-        if (empty($row['SUBPARTITION_NAME'])) {
-            $this->loadCommonData($row);
+        if (! empty($row['SUBPARTITION_NAME'])) {
+            return;
         }
+
+        $this->loadCommonData($row);
     }
 
     /**
@@ -166,11 +168,13 @@ class Partition extends SubPartition
                         $partitionMap[$row['PARTITION_NAME']] = $partition;
                     }
 
-                    if (! empty($row['SUBPARTITION_NAME'])) {
-                        $parentPartition = $partition;
-                        $partition = new SubPartition($row);
-                        $parentPartition->addSubPartition($partition);
+                    if (empty($row['SUBPARTITION_NAME'])) {
+                        continue;
                     }
+
+                    $parentPartition = $partition;
+                    $partition = new SubPartition($row);
+                    $parentPartition->addSubPartition($partition);
                 }
 
                 return array_values($partitionMap);

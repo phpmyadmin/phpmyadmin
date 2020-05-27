@@ -384,12 +384,12 @@ class Node
                 }
 
                 while ($arr = $dbi->fetchArray($handle)) {
-                    if ($count < $maxItems) {
-                        $retval[] = $arr[0];
-                        $count++;
-                    } else {
+                    if ($count >= $maxItems) {
                         break;
                     }
+
+                    $retval[] = $arr[0];
+                    $count++;
                 }
 
                 return $retval;

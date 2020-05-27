@@ -288,20 +288,24 @@ class Data
         foreach ($server_status as $name => $value) {
             $section_found = false;
             foreach ($allocations as $filter => $section) {
-                if (mb_strpos($name, $filter) !== false) {
-                    $allocationMap[$name] = $section;
-                    $sectionUsed[$section] = true;
-                    $section_found = true;
-                    if ($section == 'com' && $value > 0) {
-                        $used_queries[$name] = $value;
-                    }
-                    break; // Only exits inner loop
+                if (mb_strpos($name, $filter) === false) {
+                    continue;
                 }
+
+                $allocationMap[$name] = $section;
+                $sectionUsed[$section] = true;
+                $section_found = true;
+                if ($section == 'com' && $value > 0) {
+                    $used_queries[$name] = $value;
+                }
+                break; // Only exits inner loop
             }
-            if (! $section_found) {
-                $allocationMap[$name] = 'other';
-                $sectionUsed['other'] = true;
+            if ($section_found) {
+                continue;
             }
+
+            $allocationMap[$name] = 'other';
+            $sectionUsed['other'] = true;
         }
 
         return [
@@ -421,9 +425,11 @@ class Data
             'Com_dealloc_sql' => 'Com_stmt_close',
         ];
         foreach ($deprecated as $old => $new) {
-            if (isset($server_status[$old], $server_status[$new])) {
-                unset($server_status[$old]);
+            if (! isset($server_status[$old], $server_status[$new])) {
+                continue;
             }
+
+            unset($server_status[$old]);
         }
 
         return $server_status;

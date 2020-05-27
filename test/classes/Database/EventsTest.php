@@ -50,9 +50,11 @@ class EventsTest extends AbstractTestCase
     {
         unset($_POST);
         foreach ($in as $key => $value) {
-            if ($value !== '') {
-                $_POST[$key] = $value;
+            if ($value === '') {
+                continue;
             }
+
+            $_POST[$key] = $value;
         }
         $this->assertEquals($out, $this->events->getDataFromRequest());
     }

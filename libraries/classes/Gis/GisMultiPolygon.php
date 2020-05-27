@@ -477,10 +477,12 @@ class GisMultiPolygon extends GisGeometry
 
         // Find points on surface for inner rings
         foreach ($row_data['parts'] as $i => $ring) {
-            if (! $ring['isOuter']) {
-                $row_data['parts'][$i]['pointOnSurface']
-                    = GisPolygon::getPointOnSurface($ring['points']);
+            if ($ring['isOuter']) {
+                continue;
             }
+
+            $row_data['parts'][$i]['pointOnSurface']
+                = GisPolygon::getPointOnSurface($ring['points']);
         }
 
         // Classify inner rings to their respective outer rings.
@@ -495,16 +497,18 @@ class GisMultiPolygon extends GisGeometry
 
                 // If the pointOnSurface of the inner ring
                 // is also inside the outer ring
-                if (GisPolygon::isPointInsidePolygon(
+                if (! GisPolygon::isPointInsidePolygon(
                     $ring1['pointOnSurface'],
                     $ring2['points']
                 )
                 ) {
-                    if (! isset($ring2['inner'])) {
-                        $row_data['parts'][$k]['inner'] = [];
-                    }
-                    $row_data['parts'][$k]['inner'][] = $j;
+                    continue;
                 }
+
+                if (! isset($ring2['inner'])) {
+                    $row_data['parts'][$k]['inner'] = [];
+                }
+                $row_data['parts'][$k]['inner'][] = $j;
             }
         }
 

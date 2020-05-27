@@ -80,11 +80,13 @@ class NodeColumn extends Node
         $retval = $item['name'];
         $flag = 0;
         foreach ($item as $key => $value) {
-            if (! empty($value) && $key != 'name') {
-                $flag == 0 ? $retval .= ' (' : $retval .= ', ';
-                $flag = 1;
-                $retval .= $this->getTruncateValue($key, $value);
+            if (empty($value) || $key == 'name') {
+                continue;
             }
+
+            $flag == 0 ? $retval .= ' (' : $retval .= ', ';
+            $flag = 1;
+            $retval .= $this->getTruncateValue($key, $value);
         }
 
         return $retval . ')';

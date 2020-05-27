@@ -65,7 +65,7 @@ class AddFieldController extends AbstractController
     public function index(): void
     {
         global $err_url, $message, $action, $active_page, $sql_query;
-        global $abort, $num_fields, $regenerate, $result, $db, $table;
+        global $num_fields, $regenerate, $result, $db, $table;
 
         $header = $this->response->getHeader();
         $scripts = $header->getScripts();
@@ -83,11 +83,6 @@ class AddFieldController extends AbstractController
             'db' => $db,
             'table' => $table,
         ]);
-
-        /**
-         * The form used to define the field to add has been submitted
-         */
-        $abort = false;
 
         // check number of fields to be created
         if (isset($_POST['submit_num_fields'])) {
@@ -117,42 +112,7 @@ class AddFieldController extends AbstractController
 
             [$result, $sql_query] = $createAddField->tryColumnCreationQuery($db, $table, $err_url);
 
-            if ($result === true) {
-                // Update comment table for mime types [MIME]
-                if (isset($_POST['field_mimetype'])
-                    && is_array($_POST['field_mimetype'])
-                    && $cfg['BrowseMIME']
-                ) {
-                    foreach ($_POST['field_mimetype'] as $fieldindex => $mimetype) {
-                        if (isset($_POST['field_name'][$fieldindex])
-                            && strlen($_POST['field_name'][$fieldindex]) > 0
-                        ) {
-                            $this->transformations->setMime(
-                                $db,
-                                $table,
-                                $_POST['field_name'][$fieldindex],
-                                $mimetype,
-                                $_POST['field_transformation'][$fieldindex],
-                                $_POST['field_transformation_options'][$fieldindex],
-                                $_POST['field_input_transformation'][$fieldindex],
-                                $_POST['field_input_transformation_options'][$fieldindex]
-                            );
-                        }
-                    }
-                }
-
-                // Go back to the structure sub-page
-                $message = Message::success(
-                    __('Table %1$s has been altered successfully.')
-                );
-                $message->addParam($table);
-                $this->response->addJSON(
-                    'message',
-                    Generator::getMessage($message, $sql_query, 'success')
-                );
-
-                return;
-            } else {
+            if ($result !== true) {
                 $error_message_html = Generator::mysqlDie(
                     '',
                     '',
@@ -165,33 +125,65 @@ class AddFieldController extends AbstractController
 
                 return;
             }
+
+            // Update comment table for mime types [MIME]
+            if (isset($_POST['field_mimetype'])
+                && is_array($_POST['field_mimetype'])
+                && $cfg['BrowseMIME']
+            ) {
+                foreach ($_POST['field_mimetype'] as $fieldindex => $mimetype) {
+                    if (! isset($_POST['field_name'][$fieldindex])
+                        || strlen($_POST['field_name'][$fieldindex]) <= 0
+                    ) {
+                        continue;
+                    }
+
+                    $this->transformations->setMime(
+                        $db,
+                        $table,
+                        $_POST['field_name'][$fieldindex],
+                        $mimetype,
+                        $_POST['field_transformation'][$fieldindex],
+                        $_POST['field_transformation_options'][$fieldindex],
+                        $_POST['field_input_transformation'][$fieldindex],
+                        $_POST['field_input_transformation_options'][$fieldindex]
+                    );
+                }
+            }
+
+            // Go back to the structure sub-page
+            $message = Message::success(
+                __('Table %1$s has been altered successfully.')
+            );
+            $message->addParam($table);
+            $this->response->addJSON(
+                'message',
+                Generator::getMessage($message, $sql_query, 'success')
+            );
+
+            return;
         }
 
         /**
-         * Displays the form used to define the new field
+         * Gets tables information
          */
-        if ($abort === false) {
-            /**
-             * Gets tables information
-             */
-            Common::table();
+        Common::table();
 
-            $active_page = Url::getFromRoute('/table/structure');
-            /**
-             * Display the form
-             */
-            $action = Url::getFromRoute('/table/add-field');
+        $active_page = Url::getFromRoute('/table/structure');
+        /**
+         * Display the form
+         */
+        $action = Url::getFromRoute('/table/add-field');
 
-            ColumnsDefinition::displayForm(
-                $this->response,
-                $this->template,
-                $this->transformations,
-                $this->relation,
-                $this->dbi,
-                $action,
-                $num_fields,
-                $regenerate
-            );
-        }
+        ColumnsDefinition::displayForm(
+            $this->response,
+            $this->template,
+            $this->transformations,
+            $this->relation,
+            $this->dbi,
+            $action,
+            $num_fields,
+            $regenerate
+        );
     }
 }

@@ -192,12 +192,14 @@ class NavigationTree
         // Initialise the tree by creating a root node
         $node = NodeFactory::getInstance('NodeDatabaseContainer', 'root');
         $this->tree = $node;
-        if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']
-            && $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']
+        if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping']
+            || ! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']
         ) {
-            $this->tree->separator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
-            $this->tree->separatorDepth = 10000;
+            return;
         }
+
+        $this->tree->separator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
+        $this->tree->separatorDepth = 10000;
     }
 
     /**
@@ -452,12 +454,14 @@ class NavigationTree
                     default:
                         break;
                 }
-                if (isset($node)) {
-                    if ($type2 == $container->realName) {
-                        $node->pos2 = $pos2;
-                    }
-                    $container->addChild($node);
+                if (! isset($node)) {
+                    continue;
                 }
+
+                if ($type2 == $container->realName) {
+                    $node->pos2 = $pos2;
+                }
+                $container->addChild($node);
             }
         }
         if (count($path) > 1 && $path[0] != 'tables') {
@@ -529,13 +533,15 @@ class NavigationTree
                 default:
                     break;
             }
-            if (isset($node)) {
-                $node->pos2 = $container->parent->pos2;
-                if ($type3 == $container->realName) {
-                    $node->pos3 = $pos3;
-                }
-                $container->addChild($node);
+            if (! isset($node)) {
+                continue;
             }
+
+            $node->pos2 = $container->parent->pos2;
+            if ($type3 == $container->realName) {
+                $node->pos3 = $pos3;
+            }
+            $container->addChild($node);
         }
 
         return $retval;
@@ -736,13 +742,15 @@ class NavigationTree
                 $prefixPos = false;
                 foreach ($separators as $separator) {
                     $sepPos = mb_strpos((string) $child->name, $separator);
-                    if ($sepPos != false
-                        && $sepPos != mb_strlen($child->name)
-                        && $sepPos != 0
-                        && ($prefixPos === false || $sepPos < $prefixPos)
+                    if ($sepPos == false
+                        || $sepPos == mb_strlen($child->name)
+                        || $sepPos == 0
+                        || ($prefixPos !== false && $sepPos >= $prefixPos)
                     ) {
-                        $prefixPos = $sepPos;
+                        continue;
                     }
+
+                    $prefixPos = $sepPos;
                 }
                 if ($prefixPos !== false) {
                     $prefix = mb_substr($child->name, 0, $prefixPos);
@@ -754,23 +762,29 @@ class NavigationTree
                 }
                 //Bug #4375: Check if prefix is the name of a DB, to create a group.
                 foreach ($node->children as $otherChild) {
-                    if (array_key_exists($otherChild->name, $prefixes)) {
-                        $prefixes[$otherChild->name]++;
+                    if (! array_key_exists($otherChild->name, $prefixes)) {
+                        continue;
                     }
+
+                    $prefixes[$otherChild->name]++;
                 }
             }
             //Check if prefix is the name of a DB, to create a group.
             foreach ($node->children as $child) {
-                if (array_key_exists($child->name, $prefixes)) {
-                    $prefixes[$child->name]++;
+                if (! array_key_exists($child->name, $prefixes)) {
+                    continue;
                 }
+
+                $prefixes[$child->name]++;
             }
         }
         // It is not a group if it has only one item
         foreach ($prefixes as $key => $value) {
-            if ($value == 1) {
-                unset($prefixes[$key]);
+            if ($value > 1) {
+                continue;
             }
+
+            unset($prefixes[$key]);
         }
         // rfe #1634 Don't group if there's only one group and no other items
         if (count($prefixes) === 1) {
@@ -780,96 +794,98 @@ class NavigationTree
                 unset($prefixes[$key]);
             }
         }
-        if (count($prefixes)) {
-            /** @var Node[] $groups */
-            $groups = [];
-            foreach ($prefixes as $key => $value) {
-                // warn about large groups
-                if ($value > 500 && ! $this->largeGroupWarning) {
-                    trigger_error(
-                        __(
-                            'There are large item groups in navigation panel which '
-                            . 'may affect the performance. Consider disabling item '
-                            . 'grouping in the navigation panel.'
-                        ),
-                        E_USER_WARNING
+        if (! count($prefixes)) {
+            return;
+        }
+
+        /** @var Node[] $groups */
+        $groups = [];
+        foreach ($prefixes as $key => $value) {
+            // warn about large groups
+            if ($value > 500 && ! $this->largeGroupWarning) {
+                trigger_error(
+                    __(
+                        'There are large item groups in navigation panel which '
+                        . 'may affect the performance. Consider disabling item '
+                        . 'grouping in the navigation panel.'
+                    ),
+                    E_USER_WARNING
+                );
+                $this->largeGroupWarning = true;
+            }
+
+            $groups[$key] = new Node(
+                htmlspecialchars((string) $key),
+                Node::CONTAINER,
+                true
+            );
+            $groups[$key]->separator = $node->separator;
+            $groups[$key]->separatorDepth = $node->separatorDepth - 1;
+            $groups[$key]->icon = Generator::getImage(
+                'b_group',
+                __('Groups')
+            );
+            $groups[$key]->pos2 = $node->pos2;
+            $groups[$key]->pos3 = $node->pos3;
+            if ($node instanceof NodeTableContainer
+                || $node instanceof NodeViewContainer
+            ) {
+                $tblGroup = '&amp;tbl_group=' . urlencode((string) $key);
+                $groups[$key]->links = [
+                    'text' => $node->links['text'] . $tblGroup,
+                    'icon' => $node->links['icon'] . $tblGroup,
+                ];
+            }
+            $node->addChild($groups[$key]);
+            foreach ($separators as $separator) {
+                $separatorLength = strlen($separator);
+                // FIXME: this could be more efficient
+                foreach ($node->children as $child) {
+                    $keySeparatorLength = mb_strlen((string) $key) + $separatorLength;
+                    $nameSubstring = mb_substr(
+                        (string) $child->name,
+                        0,
+                        $keySeparatorLength
                     );
-                    $this->largeGroupWarning = true;
-                }
-
-                $groups[$key] = new Node(
-                    htmlspecialchars((string) $key),
-                    Node::CONTAINER,
-                    true
-                );
-                $groups[$key]->separator = $node->separator;
-                $groups[$key]->separatorDepth = $node->separatorDepth - 1;
-                $groups[$key]->icon = Generator::getImage(
-                    'b_group',
-                    __('Groups')
-                );
-                $groups[$key]->pos2 = $node->pos2;
-                $groups[$key]->pos3 = $node->pos3;
-                if ($node instanceof NodeTableContainer
-                    || $node instanceof NodeViewContainer
-                ) {
-                    $tblGroup = '&amp;tbl_group=' . urlencode((string) $key);
-                    $groups[$key]->links = [
-                        'text' => $node->links['text'] . $tblGroup,
-                        'icon' => $node->links['icon'] . $tblGroup,
-                    ];
-                }
-                $node->addChild($groups[$key]);
-                foreach ($separators as $separator) {
-                    $separatorLength = strlen($separator);
-                    // FIXME: this could be more efficient
-                    foreach ($node->children as $child) {
-                        $keySeparatorLength = mb_strlen((string) $key) + $separatorLength;
-                        $nameSubstring = mb_substr(
-                            (string) $child->name,
-                            0,
-                            $keySeparatorLength
-                        );
-                        if (($nameSubstring != $key . $separator
-                            && $child->name != $key)
-                            || $child->type != Node::OBJECT
-                        ) {
-                            continue;
-                        }
-                        $class = get_class($child);
-                        $className = substr($class, strrpos($class, '\\') + 1);
-                        unset($class);
-                        /** @var NodeDatabase $newChild */
-                        $newChild = NodeFactory::getInstance(
-                            $className,
-                            mb_substr(
-                                $child->name,
-                                $keySeparatorLength
-                            )
-                        );
-                        if ($child instanceof NodeDatabase
-                            && $child->getHiddenCount() > 0
-                        ) {
-                            $newChild->setHiddenCount($child->getHiddenCount());
-                        }
-
-                        $newChild->realName = $child->realName;
-                        $newChild->icon = $child->icon;
-                        $newChild->links = $child->links;
-                        $newChild->pos2 = $child->pos2;
-                        $newChild->pos3 = $child->pos3;
-                        $groups[$key]->addChild($newChild);
-                        foreach ($child->children as $elm) {
-                            $newChild->addChild($elm);
-                        }
-                        $node->removeChild($child->name);
+                    if (($nameSubstring != $key . $separator
+                        && $child->name != $key)
+                        || $child->type != Node::OBJECT
+                    ) {
+                        continue;
                     }
+                    $class = get_class($child);
+                    $className = substr($class, strrpos($class, '\\') + 1);
+                    unset($class);
+                    /** @var NodeDatabase $newChild */
+                    $newChild = NodeFactory::getInstance(
+                        $className,
+                        mb_substr(
+                            $child->name,
+                            $keySeparatorLength
+                        )
+                    );
+                    if ($child instanceof NodeDatabase
+                        && $child->getHiddenCount() > 0
+                    ) {
+                        $newChild->setHiddenCount($child->getHiddenCount());
+                    }
+
+                    $newChild->realName = $child->realName;
+                    $newChild->icon = $child->icon;
+                    $newChild->links = $child->links;
+                    $newChild->pos2 = $child->pos2;
+                    $newChild->pos3 = $child->pos3;
+                    $groups[$key]->addChild($newChild);
+                    foreach ($child->children as $elm) {
+                        $newChild->addChild($elm);
+                    }
+                    $node->removeChild($child->name);
                 }
             }
-            foreach ($prefixes as $key => $value) {
-                $this->groupNode($groups[$key]);
-                $groups[$key]->classes = 'navGroup';
-            }
+        }
+        foreach ($prefixes as $key => $value) {
+            $this->groupNode($groups[$key]);
+            $groups[$key]->classes = 'navGroup';
         }
     }
 
@@ -1313,20 +1329,22 @@ class NavigationTree
                 continue;
             }
             $paths = $node->getPaths();
-            if (isset($node->links['text'])) {
-                $title = isset($node->links['title']) ? '' : $node->links['title'];
-                $options .= '<option value="'
-                    . htmlspecialchars($node->realName) . '"'
-                    . ' title="' . htmlspecialchars($title) . '"'
-                    . ' apath="' . $paths['aPath'] . '"'
-                    . ' vpath="' . $paths['vPath'] . '"'
-                    . ' pos="' . $this->pos . '"';
-                if ($node->realName == $selected) {
-                    $options .= ' selected';
-                }
-                $options .= '>' . htmlspecialchars($node->realName);
-                $options .= '</option>';
+            if (! isset($node->links['text'])) {
+                continue;
             }
+
+            $title = isset($node->links['title']) ? '' : $node->links['title'];
+            $options .= '<option value="'
+                . htmlspecialchars($node->realName) . '"'
+                . ' title="' . htmlspecialchars($title) . '"'
+                . ' apath="' . $paths['aPath'] . '"'
+                . ' vpath="' . $paths['vPath'] . '"'
+                . ' pos="' . $this->pos . '"';
+            if ($node->realName == $selected) {
+                $options .= ' selected';
+            }
+            $options .= '>' . htmlspecialchars($node->realName);
+            $options .= '</option>';
         }
 
         $children = $this->tree->children;
@@ -1369,10 +1387,12 @@ class NavigationTree
             $node = $this->tree;
             foreach ($path as $value) {
                 $child = $node->getChild($value);
-                if ($child !== false) {
-                    $child->visible = true;
-                    $node = $child;
+                if ($child === false) {
+                    continue;
                 }
+
+                $child->visible = true;
+                $node = $child;
             }
         }
     }

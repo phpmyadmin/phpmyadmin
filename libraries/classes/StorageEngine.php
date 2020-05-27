@@ -65,24 +65,26 @@ class StorageEngine
     public function __construct($engine)
     {
         $storage_engines = self::getStorageEngines();
-        if (! empty($storage_engines[$engine])) {
-            $this->engine  = $engine;
-            $this->title   = $storage_engines[$engine]['Engine'];
-            $this->comment = ($storage_engines[$engine]['Comment'] ?? '');
-            switch ($storage_engines[$engine]['Support']) {
-                case 'DEFAULT':
-                    $this->support = PMA_ENGINE_SUPPORT_DEFAULT;
-                    break;
-                case 'YES':
-                    $this->support = PMA_ENGINE_SUPPORT_YES;
-                    break;
-                case 'DISABLED':
-                    $this->support = PMA_ENGINE_SUPPORT_DISABLED;
-                    break;
-                case 'NO':
-                default:
-                    $this->support = PMA_ENGINE_SUPPORT_NO;
-            }
+        if (empty($storage_engines[$engine])) {
+            return;
+        }
+
+        $this->engine  = $engine;
+        $this->title   = $storage_engines[$engine]['Engine'];
+        $this->comment = ($storage_engines[$engine]['Comment'] ?? '');
+        switch ($storage_engines[$engine]['Support']) {
+            case 'DEFAULT':
+                $this->support = PMA_ENGINE_SUPPORT_DEFAULT;
+                break;
+            case 'YES':
+                $this->support = PMA_ENGINE_SUPPORT_YES;
+                break;
+            case 'DISABLED':
+                $this->support = PMA_ENGINE_SUPPORT_DISABLED;
+                break;
+            case 'NO':
+            default:
+                $this->support = PMA_ENGINE_SUPPORT_NO;
         }
     }
 
@@ -112,9 +114,11 @@ class StorageEngine
                     }
                 );
                 foreach (explode(',', $disabled) as $engine) {
-                    if (isset($storage_engines[$engine])) {
-                        $storage_engines[$engine]['Support'] = 'DISABLED';
+                    if (! isset($storage_engines[$engine])) {
+                        continue;
                     }
+
+                    $storage_engines[$engine]['Support'] = 'DISABLED';
                 }
             }
         }
@@ -314,10 +318,12 @@ class StorageEngine
                 $mysql_vars[$row['Variable_name']]['title'] = $row['Variable_name'];
             }
 
-            if (! isset($mysql_vars[$row['Variable_name']]['type'])) {
-                $mysql_vars[$row['Variable_name']]['type']
-                    = PMA_ENGINE_DETAILS_TYPE_PLAINTEXT;
+            if (isset($mysql_vars[$row['Variable_name']]['type'])) {
+                continue;
             }
+
+            $mysql_vars[$row['Variable_name']]['type']
+                = PMA_ENGINE_DETAILS_TYPE_PLAINTEXT;
         }
         $GLOBALS['dbi']->freeResult($res);
 

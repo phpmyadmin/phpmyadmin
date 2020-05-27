@@ -31,16 +31,7 @@ class ChangeLogController extends AbstractController
          * Read changelog.
          */
         // Check if the file is available, some distributions remove these.
-        if (@is_readable($filename)) {
-            // Test if the if is in a compressed format
-            if (substr($filename, -3) == '.gz') {
-                ob_start();
-                readgzfile($filename);
-                $changelog = ob_get_clean();
-            } else {
-                $changelog = file_get_contents($filename);
-            }
-        } else {
+        if (! @is_readable($filename)) {
             printf(
                 __(
                     'The %s file is not available on this system, please visit ' .
@@ -51,6 +42,15 @@ class ChangeLogController extends AbstractController
             );
 
             return;
+        }
+
+        // Test if the if is in a compressed format
+        if (substr($filename, -3) == '.gz') {
+            ob_start();
+            readgzfile($filename);
+            $changelog = ob_get_clean();
+        } else {
+            $changelog = file_get_contents($filename);
         }
 
         /**

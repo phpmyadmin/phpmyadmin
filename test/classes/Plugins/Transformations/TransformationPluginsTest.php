@@ -712,13 +712,15 @@ class TransformationPluginsTest extends AbstractTestCase
      */
     public function testGetMulti($object, $method, $expected, $args = []): void
     {
-        if (method_exists($object, $method)) {
-            $reflectionMethod = new ReflectionMethod($object, $method);
-            $this->assertEquals(
-                $expected,
-                $reflectionMethod->invokeArgs($object, $args)
-            );
+        if (! method_exists($object, $method)) {
+            return;
         }
+
+        $reflectionMethod = new ReflectionMethod($object, $method);
+        $this->assertEquals(
+            $expected,
+            $reflectionMethod->invokeArgs($object, $args)
+        );
     }
 
     /**
@@ -1147,11 +1149,13 @@ class TransformationPluginsTest extends AbstractTestCase
         }
 
         // For output transformation plugins, this method may not exist
-        if (method_exists($object, 'getError')) {
-            $this->assertEquals(
-                $error,
-                $object->getError()
-            );
+        if (! method_exists($object, 'getError')) {
+            return;
         }
+
+        $this->assertEquals(
+            $error,
+            $object->getError()
+        );
     }
 }

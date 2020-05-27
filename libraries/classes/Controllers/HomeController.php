@@ -514,23 +514,27 @@ class HomeController extends AbstractController
          *
          * The data file is created while creating release by ./scripts/remove-incomplete-mo
          */
-        if (@file_exists(ROOT_PATH . 'libraries/language_stats.inc.php')) {
-            include ROOT_PATH . 'libraries/language_stats.inc.php';
-            /*
-             * This message is intentionally not translated, because we're
-             * handling incomplete translations here and focus on english
-             * speaking users.
-             */
-            if (isset($GLOBALS['language_stats'][$lang])
-                && $GLOBALS['language_stats'][$lang] < $cfg['TranslationWarningThreshold']
-            ) {
-                trigger_error(
-                    'You are using an incomplete translation, please help to make it '
-                    . 'better by [a@https://www.phpmyadmin.net/translate/'
-                    . '@_blank]contributing[/a].',
-                    E_USER_NOTICE
-                );
-            }
+        if (! @file_exists(ROOT_PATH . 'libraries/language_stats.inc.php')) {
+            return;
         }
+
+        include ROOT_PATH . 'libraries/language_stats.inc.php';
+        /*
+         * This message is intentionally not translated, because we're
+         * handling incomplete translations here and focus on english
+         * speaking users.
+         */
+        if (! isset($GLOBALS['language_stats'][$lang])
+            || $GLOBALS['language_stats'][$lang] >= $cfg['TranslationWarningThreshold']
+        ) {
+            return;
+        }
+
+        trigger_error(
+            'You are using an incomplete translation, please help to make it '
+            . 'better by [a@https://www.phpmyadmin.net/translate/'
+            . '@_blank]contributing[/a].',
+            E_USER_NOTICE
+        );
     }
 }

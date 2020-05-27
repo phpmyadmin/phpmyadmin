@@ -212,9 +212,11 @@ final class ExportController extends AbstractController
         ];
 
         foreach ($post_params as $one_post_param) {
-            if (isset($_POST[$one_post_param])) {
-                $GLOBALS[$one_post_param] = $_POST[$one_post_param];
+            if (! isset($_POST[$one_post_param])) {
+                continue;
             }
+
+            $GLOBALS[$one_post_param] = $_POST[$one_post_param];
         }
 
         Util::checkParameters(['what', 'export_type']);

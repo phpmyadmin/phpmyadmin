@@ -54,9 +54,11 @@ class Sanitize
         // Adjust path to setup script location
         if ($is_setup) {
             foreach ($valid_starts as $key => $value) {
-                if (substr($value, 0, 2) === './') {
-                    $valid_starts[$key] = '.' . $value;
+                if (substr($value, 0, 2) !== './') {
+                    continue;
                 }
+
+                $valid_starts[$key] = '.' . $value;
             }
         }
         if ($other) {
@@ -400,9 +402,11 @@ class Sanitize
             if (isset($_COOKIE[$key]) && ! is_string($_COOKIE[$key])) {
                 unset($_COOKIE[$key]);
             }
-            if (isset($_GET[$key]) && ! is_string($_GET[$key])) {
-                unset($_GET[$key]);
+            if (! isset($_GET[$key]) || is_string($_GET[$key])) {
+                continue;
             }
+
+            unset($_GET[$key]);
         }
     }
 }

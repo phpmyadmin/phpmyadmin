@@ -223,46 +223,48 @@ class Privileges
         $privs = [];
         $allPrivileges = true;
         foreach ($grants as $current_grant) {
-            if (($row !== null && isset($row[$current_grant[0]]))
-                || ($row === null && isset($GLOBALS[$current_grant[0]]))
+            if (($row === null || ! isset($row[$current_grant[0]]))
+                && ($row !== null || ! isset($GLOBALS[$current_grant[0]]))
             ) {
-                if (($row !== null && $row[$current_grant[0]] == 'Y')
-                    || ($row === null
-                    && ($GLOBALS[$current_grant[0]] == 'Y'
-                    || (is_array($GLOBALS[$current_grant[0]])
-                    && count($GLOBALS[$current_grant[0]]) == $_REQUEST['column_count']
-                    && empty($GLOBALS[$current_grant[0] . '_none']))))
-                ) {
-                    if ($enableHTML) {
-                        $privs[] = '<dfn title="' . $current_grant[2] . '">'
-                        . $current_grant[1] . '</dfn>';
-                    } else {
-                        $privs[] = $current_grant[1];
-                    }
-                } elseif (! empty($GLOBALS[$current_grant[0]])
-                    && is_array($GLOBALS[$current_grant[0]])
-                    && empty($GLOBALS[$current_grant[0] . '_none'])
-                ) {
-                    // Required for proper escaping of ` (backtick) in a column name
-                    $grant_cols = array_map(
-                        /** @param string $val */
-                        static function ($val) {
-                            return Util::backquote($val);
-                        },
-                        $GLOBALS[$current_grant[0]]
-                    );
+                continue;
+            }
 
-                    if ($enableHTML) {
-                        $privs[] = '<dfn title="' . $current_grant[2] . '">'
-                            . $current_grant[1] . '</dfn>'
-                            . ' (' . implode(', ', $grant_cols) . ')';
-                    } else {
-                        $privs[] = $current_grant[1]
-                            . ' (' . implode(', ', $grant_cols) . ')';
-                    }
+            if (($row !== null && $row[$current_grant[0]] == 'Y')
+                || ($row === null
+                && ($GLOBALS[$current_grant[0]] == 'Y'
+                || (is_array($GLOBALS[$current_grant[0]])
+                && count($GLOBALS[$current_grant[0]]) == $_REQUEST['column_count']
+                && empty($GLOBALS[$current_grant[0] . '_none']))))
+            ) {
+                if ($enableHTML) {
+                    $privs[] = '<dfn title="' . $current_grant[2] . '">'
+                    . $current_grant[1] . '</dfn>';
                 } else {
-                    $allPrivileges = false;
+                    $privs[] = $current_grant[1];
                 }
+            } elseif (! empty($GLOBALS[$current_grant[0]])
+                && is_array($GLOBALS[$current_grant[0]])
+                && empty($GLOBALS[$current_grant[0] . '_none'])
+            ) {
+                // Required for proper escaping of ` (backtick) in a column name
+                $grant_cols = array_map(
+                    /** @param string $val */
+                    static function ($val) {
+                        return Util::backquote($val);
+                    },
+                    $GLOBALS[$current_grant[0]]
+                );
+
+                if ($enableHTML) {
+                    $privs[] = '<dfn title="' . $current_grant[2] . '">'
+                        . $current_grant[1] . '</dfn>'
+                        . ' (' . implode(', ', $grant_cols) . ')';
+                } else {
+                    $privs[] = $current_grant[1]
+                        . ' (' . implode(', ', $grant_cols) . ')';
+                }
+            } else {
+                $allPrivileges = false;
             }
         }
         if (empty($privs)) {
@@ -633,9 +635,11 @@ class Privileges
                     . " WHERE `username`='" . $this->dbi->escapeString($username) . "'";
             }
         }
-        if (isset($upd_query)) {
-            $this->relation->queryAsControlUser($upd_query);
+        if (! isset($upd_query)) {
+            return;
         }
+
+        $this->relation->queryAsControlUser($upd_query);
     }
 
     /**
@@ -1394,9 +1398,11 @@ class Privileges
             foreach ($grantsArr as $grant) {
                 $specificPrivileges[$grant[0]] = 'N';
                 foreach ($tablePrivs as $tablePriv) {
-                    if ($grant[0] == $tablePriv) {
-                        $specificPrivileges[$grant[0]] = 'Y';
+                    if ($grant[0] != $tablePriv) {
+                        continue;
                     }
+
+                    $specificPrivileges[$grant[0]] = 'Y';
                 }
             }
             $privilege['privileges'] = $this->extractPrivInfo(
@@ -1832,12 +1838,14 @@ class Privileges
 
         $db_rights_sqls = [];
         foreach ($tables_to_search_for_users as $table_search_in) {
-            if (in_array($table_search_in, $tables)) {
-                $db_rights_sqls[] = '
-                    SELECT DISTINCT `' . $dbOrTableName . '`
-                    FROM `mysql`.' . Util::backquote($table_search_in)
-                   . $user_host_condition;
+            if (! in_array($table_search_in, $tables)) {
+                continue;
             }
+
+            $db_rights_sqls[] = '
+                SELECT DISTINCT `' . $dbOrTableName . '`
+                FROM `mysql`.' . Util::backquote($table_search_in)
+               . $user_host_condition;
         }
 
         $user_defaults = [
@@ -1897,11 +1905,13 @@ class Privileges
             } else {
                 $db_rights[$row[$dbOrTableName]] = $row;
             }
-            if ($type == 'database') {
-                // there are db specific rights for this user
-                // so we can drop this db rights
-                $db_rights[$row['Db']]['can_delete'] = true;
+            if ($type != 'database') {
+                continue;
             }
+
+            // there are db specific rights for this user
+            // so we can drop this db rights
+            $db_rights[$row['Db']]['can_delete'] = true;
         }
         $this->dbi->freeResult($result);
 
@@ -2078,9 +2088,11 @@ class Privileges
                     // because the list of databases has special characters
                     // already escaped in $foundRows,
                     // contrary to the output of SHOW DATABASES
-                    if (! in_array($current_db_escaped, $foundRows)) {
-                        $databases[] = $current_db;
+                    if (in_array($current_db_escaped, $foundRows)) {
+                        continue;
                     }
+
+                    $databases[] = $current_db;
                 }
             }
             $data['databases'] = $databases;
@@ -2094,9 +2106,11 @@ class Privileges
             $tables = [];
             if ($result) {
                 while ($row = $this->dbi->fetchRow($result)) {
-                    if (! in_array($row[0], $foundRows)) {
-                        $tables[] = $row[0];
+                    if (in_array($row[0], $foundRows)) {
+                        continue;
                     }
+
+                    $tables[] = $row[0];
                 }
                 $this->dbi->freeResult($result);
             }
@@ -2106,9 +2120,11 @@ class Privileges
 
             $routines = [];
             foreach ($routineData as $routine) {
-                if (! in_array($routine['name'], $foundRows)) {
-                    $routines[] = $routine['name'];
+                if (in_array($routine['name'], $foundRows)) {
+                    continue;
                 }
+
+                $routines[] = $routine['name'];
             }
             $data['routines'] = $routines;
         }
@@ -2208,9 +2224,11 @@ class Privileges
     {
         // initialize to false the letters A-Z
         for ($letter_counter = 1; $letter_counter < 27; $letter_counter++) {
-            if (! isset($array_initials[mb_chr($letter_counter + 64)])) {
-                $array_initials[mb_chr($letter_counter + 64)] = false;
+            if (isset($array_initials[mb_chr($letter_counter + 64)])) {
+                continue;
             }
+
+            $array_initials[mb_chr($letter_counter + 64)] = false;
         }
 
         $initials = $this->dbi->tryQuery(
@@ -2257,13 +2275,15 @@ class Privileges
 
         $db_rights_sqls = [];
         foreach ($tablesSearchForUsers as $table_search_in) {
-            if (in_array($table_search_in, $tables)) {
-                $db_rights_sqls[] = 'SELECT DISTINCT `User`, `Host` FROM `mysql`.`'
-                    . $table_search_in . '` '
-                    . (isset($_GET['initial'])
-                    ? $this->rangeOfUsers($_GET['initial'])
-                    : '');
+            if (! in_array($table_search_in, $tables)) {
+                continue;
             }
+
+            $db_rights_sqls[] = 'SELECT DISTINCT `User`, `Host` FROM `mysql`.`'
+                . $table_search_in . '` '
+                . (isset($_GET['initial'])
+                ? $this->rangeOfUsers($_GET['initial'])
+                : '');
         }
         $user_defaults = [
             'User'       => '',
@@ -2311,11 +2331,15 @@ class Privileges
             }
             $drop_user_error = '';
             foreach ($queries as $sql_query) {
-                if ($sql_query[0] != '#') {
-                    if (! $this->dbi->tryQuery($sql_query)) {
-                        $drop_user_error .= $this->dbi->getError() . "\n";
-                    }
+                if ($sql_query[0] == '#') {
+                    continue;
                 }
+
+                if ($this->dbi->tryQuery($sql_query)) {
+                    continue;
+                }
+
+                $drop_user_error .= $this->dbi->getError() . "\n";
             }
             // tracking sets this, causing the deleted db to be shown in navi
             unset($GLOBALS['db']);
@@ -2524,11 +2548,13 @@ class Privileges
                 . '\'@\'' . $this->dbi->escapeString($this_host) . '\';';
             $this->relationCleanup->user($this_user);
 
-            if (isset($_POST['drop_users_db'])) {
-                $queries[] = 'DROP DATABASE IF EXISTS '
-                    . Util::backquote($this_user) . ';';
-                $GLOBALS['reload'] = true;
+            if (! isset($_POST['drop_users_db'])) {
+                continue;
             }
+
+            $queries[] = 'DROP DATABASE IF EXISTS '
+                . Util::backquote($this_user) . ';';
+            $GLOBALS['reload'] = true;
         }
 
         return $queries;
@@ -3349,9 +3375,11 @@ class Privileges
                 if (in_array('Update', $tmp_array)) {
                     $tmp_privs2['Update'][] = $row2['Column_name'];
                 }
-                if (in_array('References', $tmp_array)) {
-                    $tmp_privs2['References'][] = $row2['Column_name'];
+                if (! in_array('References', $tmp_array)) {
+                    continue;
                 }
+
+                $tmp_privs2['References'][] = $row2['Column_name'];
             }
             if (count($tmp_privs2['Select']) > 0 && ! in_array('SELECT', $tmp_privs1)) {
                 $tmp_privs1[] = 'SELECT (`' . implode('`, `', $tmp_privs2['Select']) . '`)';

@@ -139,19 +139,21 @@ class ZoomSearchController extends AbstractController
          * Handle the input criteria and generate the query result
          * Form for displaying query results
          */
-        if (isset($_POST['zoom_submit'])
-            && $_POST['criteriaColumnNames'][0] != 'pma_null'
-            && $_POST['criteriaColumnNames'][1] != 'pma_null'
-            && $_POST['criteriaColumnNames'][0] != $_POST['criteriaColumnNames'][1]
+        if (! isset($_POST['zoom_submit'])
+            || $_POST['criteriaColumnNames'][0] == 'pma_null'
+            || $_POST['criteriaColumnNames'][1] == 'pma_null'
+            || $_POST['criteriaColumnNames'][0] == $_POST['criteriaColumnNames'][1]
         ) {
-            if (! isset($goto)) {
-                $goto = Util::getScriptNameForOption(
-                    $GLOBALS['cfg']['DefaultTabTable'],
-                    'table'
-                );
-            }
-            $this->zoomSubmitAction($dataLabel, $goto);
+            return;
         }
+
+        if (! isset($goto)) {
+            $goto = Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabTable'],
+                'table'
+            );
+        }
+        $this->zoomSubmitAction($dataLabel, $goto);
     }
 
     /**
@@ -231,11 +233,15 @@ class ZoomSearchController extends AbstractController
         $criteria_column_names = $_POST['criteriaColumnNames'] ?? null;
         $keys = [];
         for ($i = 0; $i < 4; $i++) {
-            if (isset($criteria_column_names[$i])) {
-                if ($criteria_column_names[$i] != 'pma_null') {
-                    $keys[$criteria_column_names[$i]] = array_search($criteria_column_names[$i], $column_names);
-                }
+            if (! isset($criteria_column_names[$i])) {
+                continue;
             }
+
+            if ($criteria_column_names[$i] == 'pma_null') {
+                continue;
+            }
+
+            $keys[$criteria_column_names[$i]] = array_search($criteria_column_names[$i], $column_names);
         }
 
         $this->render('table/zoom_search/index', [

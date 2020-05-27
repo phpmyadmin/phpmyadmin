@@ -139,17 +139,19 @@ final class CacheWarmupCommand extends Command
                 continue;
             }
             // force compilation
-            if ($file->isFile() && $file->getExtension() === 'twig') {
-                $name = str_replace($tplDir . '/', '', $file->getPathname());
-                $output->writeln('Loading: ' . $name, OutputInterface::VERBOSITY_DEBUG);
-                $template = $twig->loadTemplate($name);
-
-                // Generate line map
-                $cacheFilename = $twigCache->generateKey($name, $twig->getTemplateClass($name));
-                $template_file = 'templates/' . $name;
-                $cache_file = str_replace($tmpDir, 'twig-templates', $cacheFilename);
-                $replacements[$cache_file] = [$template_file, $template->getDebugInfo()];
+            if (! $file->isFile() || $file->getExtension() !== 'twig') {
+                continue;
             }
+
+            $name = str_replace($tplDir . '/', '', $file->getPathname());
+            $output->writeln('Loading: ' . $name, OutputInterface::VERBOSITY_DEBUG);
+            $template = $twig->loadTemplate($name);
+
+            // Generate line map
+            $cacheFilename = $twigCache->generateKey($name, $twig->getTemplateClass($name));
+            $template_file = 'templates/' . $name;
+            $cache_file = str_replace($tmpDir, 'twig-templates', $cacheFilename);
+            $replacements[$cache_file] = [$template_file, $template->getDebugInfo()];
         }
 
         $output->writeln('Writing replacements...', OutputInterface::VERBOSITY_VERY_VERBOSE);

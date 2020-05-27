@@ -1149,9 +1149,11 @@ class Generator
         // set all other attributes
         $attr_str = '';
         foreach ($attributes as $key => $value) {
-            if (! in_array($key, ['alt', 'title'])) {
-                $attr_str .= ' ' . $key . '="' . $value . '"';
+            if (in_array($key, ['alt', 'title'])) {
+                continue;
             }
+
+            $attr_str .= ' ' . $key . '="' . $value . '"';
         }
 
         // override the alt attribute

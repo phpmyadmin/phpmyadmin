@@ -123,14 +123,13 @@ class ImportOds extends ImportPlugin
                 break;
             }
 
-            if ($data !== true) {
-                /* Append new data to buffer */
-                $buffer .= $data;
-                unset($data);
+            if ($data === true) {
+                continue;
             }
-        }
 
-        unset($data);
+            /* Append new data to buffer */
+            $buffer .= $data;
+        }
 
         /**
          * Disable loading of external XML entities.

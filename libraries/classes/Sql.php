@@ -177,9 +177,11 @@ class Sql
             ) {
                 $just_one_table = false;
             }
-            if ($one_field_meta->table != '') {
-                $prev_table = $one_field_meta->table;
+            if ($one_field_meta->table == '') {
+                continue;
             }
+
+            $prev_table = $one_field_meta->table;
         }
 
         return $just_one_table && $prev_table != '';
@@ -203,21 +205,23 @@ class Sql
             $resultSetColumnNames[] = $oneMeta->name;
         }
         foreach (Index::getFromTable($table, $db) as $index) {
-            if ($index->isUnique()) {
-                $indexColumns = $index->getColumns();
-                $numberFound = 0;
-                foreach ($indexColumns as $indexColumnName => $dummy) {
-                    if (in_array($indexColumnName, $resultSetColumnNames)) {
-                        $numberFound++;
-                    } elseif (! in_array($indexColumnName, $columns)) {
-                        $numberFound++;
-                    } elseif (strpos($columns[$indexColumnName]['Extra'], 'INVISIBLE') !== false) {
-                        $numberFound++;
-                    }
+            if (! $index->isUnique()) {
+                continue;
+            }
+
+            $indexColumns = $index->getColumns();
+            $numberFound = 0;
+            foreach ($indexColumns as $indexColumnName => $dummy) {
+                if (in_array($indexColumnName, $resultSetColumnNames)) {
+                    $numberFound++;
+                } elseif (! in_array($indexColumnName, $columns)) {
+                    $numberFound++;
+                } elseif (strpos($columns[$indexColumnName]['Extra'], 'INVISIBLE') !== false) {
+                    $numberFound++;
                 }
-                if ($numberFound == count($indexColumns)) {
-                    return true;
-                }
+            }
+            if ($numberFound == count($indexColumns)) {
+                return true;
             }
         }
 
@@ -799,9 +803,11 @@ class Sql
                 $db
             );
             foreach ($bookmarks as $bookmark) {
-                if ($bookmark->getLabel() == $bkm_label) {
-                    $bookmark->delete();
+                if ($bookmark->getLabel() != $bkm_label) {
+                    continue;
                 }
+
+                $bookmark->delete();
             }
         }
 
@@ -896,16 +902,18 @@ class Sql
      */
     private function cleanupRelations($db, $table, ?string $column, $purge)
     {
-        if (! empty($purge) && strlen($db) > 0) {
-            if (strlen($table) > 0) {
-                if (isset($column) && strlen($column) > 0) {
-                    $this->relationCleanup->column($db, $table, $column);
-                } else {
-                    $this->relationCleanup->table($db, $table);
-                }
+        if (empty($purge) || strlen($db) <= 0) {
+            return;
+        }
+
+        if (strlen($table) > 0) {
+            if (isset($column) && strlen($column) > 0) {
+                $this->relationCleanup->column($db, $table, $column);
             } else {
-                $this->relationCleanup->database($db);
+                $this->relationCleanup->table($db, $table);
             }
+        } else {
+            $this->relationCleanup->database($db);
         }
     }
 
@@ -1647,13 +1655,15 @@ class Sql
         if (isset($queryType, $selectedTables) && $queryType == 'check_tbl' && is_array($selectedTables)) {
             foreach ($selectedTables as $table) {
                 $check = Index::findDuplicates($table, $database);
-                if (! empty($check)) {
-                    $output .= sprintf(
-                        __('Problems with indexes of table `%s`'),
-                        $table
-                    );
-                    $output .= $check;
+                if (empty($check)) {
+                    continue;
                 }
+
+                $output .= sprintf(
+                    __('Problems with indexes of table `%s`'),
+                    $table
+                );
+                $output .= $check;
             }
         }
 

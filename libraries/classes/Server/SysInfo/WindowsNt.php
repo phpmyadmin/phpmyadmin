@@ -87,13 +87,15 @@ class WindowsNt extends Base
             $arrInstance = [];
             foreach ($arrProp as $propItem) {
                 $name = $propItem->Name;
-                if (empty($strValue) || in_array($name, $strValue)) {
-                    $value = $objItem->$name;
-                    if (is_string($value)) {
-                        $arrInstance[$name] = trim($value);
-                    } else {
-                        $arrInstance[$name] = $value;
-                    }
+                if (! empty($strValue) && ! in_array($name, $strValue)) {
+                    continue;
+                }
+
+                $value = $objItem->$name;
+                if (is_string($value)) {
+                    $arrInstance[$name] = trim($value);
+                } else {
+                    $arrInstance[$name] = $value;
                 }
             }
             $arrData[] = $arrInstance;

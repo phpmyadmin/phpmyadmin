@@ -42,9 +42,11 @@ class Application extends TwoFactorPlugin
             $this->_google2fa = new Google2FA(new SvgImageBackEnd());
         }
         $this->_google2fa->setWindow(8);
-        if (! isset($this->_twofactor->config['settings']['secret'])) {
-            $this->_twofactor->config['settings']['secret'] = '';
+        if (isset($this->_twofactor->config['settings']['secret'])) {
+            return;
         }
+
+        $this->_twofactor->config['settings']['secret'] = '';
     }
 
     public function getGoogle2fa(): Google2FA

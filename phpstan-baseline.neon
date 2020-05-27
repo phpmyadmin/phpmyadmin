@@ -1021,11 +1021,6 @@ parameters:
 			path: libraries/classes/Dbal/DbiMysqli.php
 
 		-
-			message: "#^Else branch is unreachable because previous condition is always true\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
 			message: "#^Parameter \\#5 \\$numTables of method PhpMyAdmin\\\\Display\\\\Export\\:\\:getHtmlForOptions\\(\\) expects string, int given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Export.php
@@ -4027,11 +4022,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$str of function substr expects string, string\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Right side of && is always true\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
 

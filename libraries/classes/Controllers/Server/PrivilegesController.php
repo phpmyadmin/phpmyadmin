@@ -549,10 +549,12 @@ class PrivilegesController extends AbstractController
             }
         }
 
-        if ((isset($_GET['viewing_mode']) && $_GET['viewing_mode'] == 'server')
-            && $cfgRelation['menuswork']
+        if ((! isset($_GET['viewing_mode']) || $_GET['viewing_mode'] != 'server')
+            || ! $cfgRelation['menuswork']
         ) {
-            $this->response->addHTML('</div>');
+            return;
         }
+
+        $this->response->addHTML('</div>');
     }
 }

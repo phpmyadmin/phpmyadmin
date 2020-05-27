@@ -75,9 +75,11 @@ class Index
         foreach ($_SESSION['messages'] as &$messages) {
             $remove_ids = [];
             foreach ($messages as $id => &$msg) {
-                if ($msg['active'] == false) {
-                    $remove_ids[] = $id;
+                if ($msg['active'] != false) {
+                    continue;
                 }
+
+                $remove_ids[] = $id;
             }
             foreach ($remove_ids as $id) {
                 unset($messages[$id]);
@@ -139,12 +141,12 @@ class Index
 
         $releases = $version_data->releases;
         $latestCompatible = $versionInformation->getLatestCompatibleVersion($releases);
-        if ($latestCompatible != null) {
-            $version = $latestCompatible['version'];
-            $date = $latestCompatible['date'];
-        } else {
+        if ($latestCompatible == null) {
             return;
         }
+
+        $version = $latestCompatible['version'];
+        $date = $latestCompatible['date'];
 
         $version_upstream = $versionInformation->versionToInt($version);
         if ($version_upstream === false) {

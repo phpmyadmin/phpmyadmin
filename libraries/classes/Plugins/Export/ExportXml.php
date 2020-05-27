@@ -67,9 +67,11 @@ class ExportXml extends ExportPlugin
     {
         global $table, $tables;
         $this->_setTable($table);
-        if (is_array($tables)) {
-            $this->_setTables($tables);
+        if (! is_array($tables)) {
+            return;
         }
+
+        $this->_setTables($tables);
     }
 
     /**
@@ -321,29 +323,33 @@ class ExportXml extends ExportPlugin
                 $head .= $tbl . ';' . $crlf;
                 $head .= '            </pma:' . $type . '>' . $crlf;
 
-                if (isset($GLOBALS['xml_export_triggers'])
-                    && $GLOBALS['xml_export_triggers']
+                if (! isset($GLOBALS['xml_export_triggers'])
+                    || ! $GLOBALS['xml_export_triggers']
                 ) {
-                    // Export triggers
-                    $triggers = $GLOBALS['dbi']->getTriggers($db, $table);
-                    if ($triggers) {
-                        foreach ($triggers as $trigger) {
-                            $code = $trigger['create'];
-                            $head .= '            <pma:trigger name="'
-                                . htmlspecialchars($trigger['name']) . '">' . $crlf;
-
-                            // Do some formatting
-                            $code = mb_substr(rtrim($code), 0, -3);
-                            $code = '                ' . htmlspecialchars($code);
-                            $code = str_replace("\n", "\n                ", $code);
-
-                            $head .= $code . $crlf;
-                            $head .= '            </pma:trigger>' . $crlf;
-                        }
-
-                        unset($trigger, $triggers);
-                    }
+                    continue;
                 }
+
+                // Export triggers
+                $triggers = $GLOBALS['dbi']->getTriggers($db, $table);
+                if (! $triggers) {
+                    continue;
+                }
+
+                foreach ($triggers as $trigger) {
+                    $code = $trigger['create'];
+                    $head .= '            <pma:trigger name="'
+                        . htmlspecialchars($trigger['name']) . '">' . $crlf;
+
+                    // Do some formatting
+                    $code = mb_substr(rtrim($code), 0, -3);
+                    $code = '                ' . htmlspecialchars($code);
+                    $code = str_replace("\n", "\n                ", $code);
+
+                    $head .= $code . $crlf;
+                    $head .= '            </pma:trigger>' . $crlf;
+                }
+
+                unset($trigger, $triggers);
             }
 
             if (isset($GLOBALS['xml_export_functions'])

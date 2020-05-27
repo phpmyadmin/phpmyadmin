@@ -48,12 +48,14 @@ class FileListing
             $dir .= '/';
         }
         while ($file = @readdir($handle)) {
-            if (@is_file($dir . $file)
-                && ! @is_link($dir . $file)
-                && ($expression == '' || preg_match($expression, $file))
+            if (! @is_file($dir . $file)
+                || @is_link($dir . $file)
+                || ($expression != '' && ! preg_match($expression, $file))
             ) {
-                $result[] = $file;
+                continue;
             }
+
+            $result[] = $file;
         }
         closedir($handle);
         asort($result);

@@ -112,9 +112,11 @@ class GisMultiPoint extends GisGeometry
 
         foreach ($points_arr as $point) {
             // draw a small circle to mark the point
-            if ($point[0] != '' && $point[1] != '') {
-                imagearc($image, $point[0], $point[1], 7, 7, 0, 360, $color);
+            if ($point[0] == '' || $point[1] == '') {
+                continue;
             }
+
+            imagearc($image, $point[0], $point[1], 7, 7, 0, 360, $color);
         }
         // print label for each point
         if ((isset($label) && trim($label) != '')
@@ -177,9 +179,11 @@ class GisMultiPoint extends GisGeometry
 
         foreach ($points_arr as $point) {
             // draw a small circle to mark the point
-            if ($point[0] != '' && $point[1] != '') {
-                $pdf->Circle($point[0], $point[1], 2, 0, 360, 'D', $line);
+            if ($point[0] == '' || $point[1] == '') {
+                continue;
             }
+
+            $pdf->Circle($point[0], $point[1], 2, 0, 360, 'D', $line);
         }
         // print label for each point
         if ((isset($label) && trim($label) != '')
@@ -226,15 +230,17 @@ class GisMultiPoint extends GisGeometry
 
         $row = '';
         foreach ($points_arr as $point) {
-            if ($point[0] != '' && $point[1] != '') {
-                $row .= '<circle cx="' . $point[0] . '" cy="'
-                    . $point[1] . '" r="3"';
-                $point_options['id'] = $label . mt_rand();
-                foreach ($point_options as $option => $val) {
-                    $row .= ' ' . $option . '="' . trim((string) $val) . '"';
-                }
-                $row .= '/>';
+            if ($point[0] == '' || $point[1] == '') {
+                continue;
             }
+
+            $row .= '<circle cx="' . $point[0] . '" cy="'
+                . $point[1] . '" r="3"';
+            $point_options['id'] = $label . mt_rand();
+            foreach ($point_options as $option => $val) {
+                $row .= ' ' . $option . '="' . trim((string) $val) . '"';
+            }
+            $row .= '/>';
         }
 
         return $row;
@@ -411,9 +417,11 @@ class GisMultiPoint extends GisGeometry
     {
         $ol_array = 'new Array(';
         foreach ($points_arr as $point) {
-            if ($point[0] != '' && $point[1] != '') {
-                $ol_array .= $this->getPointForOpenLayers($point, $srid) . ', ';
+            if ($point[0] == '' || $point[1] == '') {
+                continue;
             }
+
+            $ol_array .= $this->getPointForOpenLayers($point, $srid) . ', ';
         }
 
         $olArrayLength = mb_strlen($ol_array);

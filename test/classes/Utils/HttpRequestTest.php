@@ -40,19 +40,23 @@ class HttpRequestTest extends AbstractTestCase
         if (! function_exists('curl_init')) {
             $this->markTestSkipped('curl not supported');
         }
-        if ($ssl_flags) {
-            $curl = curl_version();
-            /*
-             * Some SSL engines in CURL do not support CURLOPT_CAPATH
-             * and CURLOPT_CAINFO flags, see
-             * https://curl.haxx.se/docs/ssl-compared.html
-             */
-            if (stripos($curl['ssl_version'], 'WinSSL') !== false
-                || stripos($curl['ssl_version'], 'SecureTransport') !== false
-            ) {
-                $this->markTestSkipped('Not supported in CURL SSL backend: ' . $curl['ssl_version']);
-            }
+        if (! $ssl_flags) {
+            return;
         }
+
+        $curl = curl_version();
+        /*
+         * Some SSL engines in CURL do not support CURLOPT_CAPATH
+         * and CURLOPT_CAINFO flags, see
+         * https://curl.haxx.se/docs/ssl-compared.html
+         */
+        if (stripos($curl['ssl_version'], 'WinSSL') === false
+            && stripos($curl['ssl_version'], 'SecureTransport') === false
+        ) {
+            return;
+        }
+
+        $this->markTestSkipped('Not supported in CURL SSL backend: ' . $curl['ssl_version']);
     }
 
     /**

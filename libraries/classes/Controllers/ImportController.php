@@ -110,35 +110,35 @@ final class ImportController extends AbstractController
         }
         // If it's a console bookmark add request
         if (isset($_POST['console_bookmark_add'])) {
-            if (isset($_POST['label'], $_POST['db'], $_POST['bookmark_query'], $_POST['shared'])) {
-                $cfgBookmark = Bookmark::getParams($cfg['Server']['user']);
-                $bookmarkFields = [
-                    'bkm_database' => $_POST['db'],
-                    'bkm_user' => $cfgBookmark['user'],
-                    'bkm_sql_query' => $_POST['bookmark_query'],
-                    'bkm_label' => $_POST['label'],
-                ];
-                $isShared = ($_POST['shared'] == 'true');
-                $bookmark = Bookmark::createBookmark(
-                    $this->dbi,
-                    $cfg['Server']['user'],
-                    $bookmarkFields,
-                    $isShared
-                );
-                if ($bookmark !== false && $bookmark->save()) {
-                    $this->response->addJSON('message', __('Succeeded'));
-                    $this->response->addJSON('data', $bookmarkFields);
-                    $this->response->addJSON('isShared', $isShared);
-                } else {
-                    $this->response->addJSON('message', __('Failed'));
-                }
-
-                return;
-            } else {
+            if (! isset($_POST['label'], $_POST['db'], $_POST['bookmark_query'], $_POST['shared'])) {
                 $this->response->addJSON('message', __('Incomplete params'));
 
                 return;
             }
+
+            $cfgBookmark = Bookmark::getParams($cfg['Server']['user']);
+            $bookmarkFields = [
+                'bkm_database' => $_POST['db'],
+                'bkm_user' => $cfgBookmark['user'],
+                'bkm_sql_query' => $_POST['bookmark_query'],
+                'bkm_label' => $_POST['label'],
+            ];
+            $isShared = ($_POST['shared'] == 'true');
+            $bookmark = Bookmark::createBookmark(
+                $this->dbi,
+                $cfg['Server']['user'],
+                $bookmarkFields,
+                $isShared
+            );
+            if ($bookmark !== false && $bookmark->save()) {
+                $this->response->addJSON('message', __('Succeeded'));
+                $this->response->addJSON('data', $bookmarkFields);
+                $this->response->addJSON('isShared', $isShared);
+            } else {
+                $this->response->addJSON('message', __('Failed'));
+            }
+
+            return;
         }
 
         // reset import messages for ajax request
@@ -834,8 +834,10 @@ final class ImportController extends AbstractController
         }
 
         // If there is request for ROLLBACK in the end.
-        if (isset($_POST['rollback_query'])) {
-            $this->dbi->query('ROLLBACK');
+        if (! isset($_POST['rollback_query'])) {
+            return;
         }
+
+        $this->dbi->query('ROLLBACK');
     }
 }

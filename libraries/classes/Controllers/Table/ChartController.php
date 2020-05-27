@@ -109,9 +109,11 @@ class ChartController extends AbstractController
         ];
         $numeric_column_count = 0;
         foreach ($keys as $idx => $key) {
-            if (in_array($fields_meta[$idx]->type, $numeric_types)) {
-                $numeric_column_count++;
+            if (! in_array($fields_meta[$idx]->type, $numeric_types)) {
+                continue;
             }
+
+            $numeric_column_count++;
         }
 
         if ($numeric_column_count == 0) {

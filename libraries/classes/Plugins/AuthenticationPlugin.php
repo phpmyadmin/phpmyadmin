@@ -139,9 +139,11 @@ abstract class AuthenticationPlugin
             && $GLOBALS['cfg']['Server']['auth_type'] == 'cookie'
         ) {
             foreach ($GLOBALS['cfg']['Servers'] as $key => $val) {
-                if ($PMA_Config->issetCookie('pmaAuth-' . $key)) {
-                    $server = $key;
+                if (! $PMA_Config->issetCookie('pmaAuth-' . $key)) {
+                    continue;
                 }
+
+                $server = $key;
             }
         }
 
@@ -325,11 +327,13 @@ abstract class AuthenticationPlugin
         }
 
         // is a login without password allowed?
-        if (! $cfg['Server']['AllowNoPassword']
-            && $cfg['Server']['password'] === ''
+        if ($cfg['Server']['AllowNoPassword']
+            || $cfg['Server']['password'] !== ''
         ) {
-            $this->showFailure('empty-denied');
+            return;
         }
+
+        $this->showFailure('empty-denied');
     }
 
     /**

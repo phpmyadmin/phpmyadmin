@@ -74,9 +74,11 @@ class TableStatsEps extends TableStats
         // setWidth must me after setHeight, because title
         // can include table height which changes table width
         $this->_setWidthTable($font, $fontSize);
-        if ($same_wide_width < $this->width) {
-            $same_wide_width = $this->width;
+        if ($same_wide_width >= $this->width) {
+            return;
         }
+
+        $same_wide_width = $this->width;
     }
 
     /**

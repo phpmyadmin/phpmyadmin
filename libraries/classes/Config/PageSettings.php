@@ -99,20 +99,22 @@ class PageSettings
      */
     private function _processPageSettings(&$formDisplay, &$cf, &$error)
     {
-        if ($formDisplay->process(false) && ! $formDisplay->hasErrors()) {
-            // save settings
-            $result = $this->userPreferences->save($cf->getConfigArray());
-            if ($result === true) {
-                // reload page
-                $response = Response::getInstance();
-                Core::sendHeaderLocation(
-                    $response->getFooter()->getSelfUrl()
-                );
-                exit;
-            }
-
-            $error = $result;
+        if (! $formDisplay->process(false) || $formDisplay->hasErrors()) {
+            return;
         }
+
+        // save settings
+        $result = $this->userPreferences->save($cf->getConfigArray());
+        if ($result === true) {
+            // reload page
+            $response = Response::getInstance();
+            Core::sendHeaderLocation(
+                $response->getFooter()->getSelfUrl()
+            );
+            exit;
+        }
+
+        $error = $result;
     }
 
     /**

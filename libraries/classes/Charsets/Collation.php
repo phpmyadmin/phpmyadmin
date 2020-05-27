@@ -173,7 +173,7 @@ final class Collation
 
         $level = 0;
         foreach ($parts as $part) {
-            if ($level == 0) {
+            if ($level === 0) {
                 /* Next will be language */
                 $level = 1;
                 /* First should be charset */
@@ -284,7 +284,7 @@ final class Collation
                 }
                 continue;
             }
-            if ($level == 1) {
+            if ($level === 1) {
                 /* Next will be variant unless changed later */
                 $level = 4;
                 /* Locale name or code */
@@ -441,7 +441,7 @@ final class Collation
                 }
                 // Not parsed token, fall to next level
             }
-            if ($level == 2) {
+            if ($level === 2) {
                 /* Next will be variant */
                 $level = 4;
                 /* Germal variant */
@@ -452,7 +452,7 @@ final class Collation
                 $name = _pgettext('Collation', 'German (dictionary order)');
                 // Not parsed token, fall to next level
             }
-            if ($level == 3) {
+            if ($level === 3) {
                 /* Next will be variant */
                 $level = 4;
                 /* Spanish variant */
@@ -463,7 +463,7 @@ final class Collation
                 $name = _pgettext('Collation', 'Spanish (modern)');
                 // Not parsed token, fall to next level
             }
-            if ($level == 4) {
+            if ($level === 4) {
                 /* Next will be suffix */
                 $level = 5;
                 /* Variant */
@@ -489,35 +489,37 @@ final class Collation
                 }
                 // Not parsed token, fall to next level
             }
-            if ($level == 5) {
-                /* Suffixes */
-                switch ($part) {
-                    case 'ci':
-                        $suffixes[] = _pgettext('Collation variant', 'case-insensitive');
-                        break;
-                    case 'cs':
-                        $suffixes[] = _pgettext('Collation variant', 'case-sensitive');
-                        break;
-                    case 'ai':
-                        $suffixes[] = _pgettext('Collation variant', 'accent-insensitive');
-                        break;
-                    case 'as':
-                        $suffixes[] = _pgettext('Collation variant', 'accent-sensitive');
-                        break;
-                    case 'ks':
-                        $suffixes[] = _pgettext('Collation variant', 'kana-sensitive');
-                        break;
-                    case 'w2':
-                    case 'l2':
-                        $suffixes[] = _pgettext('Collation variant', 'multi-level');
-                        break;
-                    case 'bin':
-                        $suffixes[] = _pgettext('Collation variant', 'binary');
-                        break;
-                    case 'nopad':
-                        $suffixes[] = _pgettext('Collation variant', 'no-pad');
-                        break;
-                }
+            if ($level < 5) {
+                continue;
+            }
+
+            /* Suffixes */
+            switch ($part) {
+                case 'ci':
+                    $suffixes[] = _pgettext('Collation variant', 'case-insensitive');
+                    break;
+                case 'cs':
+                    $suffixes[] = _pgettext('Collation variant', 'case-sensitive');
+                    break;
+                case 'ai':
+                    $suffixes[] = _pgettext('Collation variant', 'accent-insensitive');
+                    break;
+                case 'as':
+                    $suffixes[] = _pgettext('Collation variant', 'accent-sensitive');
+                    break;
+                case 'ks':
+                    $suffixes[] = _pgettext('Collation variant', 'kana-sensitive');
+                    break;
+                case 'w2':
+                case 'l2':
+                    $suffixes[] = _pgettext('Collation variant', 'multi-level');
+                    break;
+                case 'bin':
+                    $suffixes[] = _pgettext('Collation variant', 'binary');
+                    break;
+                case 'nopad':
+                    $suffixes[] = _pgettext('Collation variant', 'no-pad');
+                    break;
             }
         }
 

@@ -459,9 +459,11 @@ class CentralColumns
             $has_list = $this->findExistingColNames($database, $cols);
             foreach ($field_select as $table) {
                 foreach ($fields[$table] as $column) {
-                    if (! in_array($column, $has_list)) {
-                        $colNotExist[] = "'" . $column . "'";
+                    if (in_array($column, $has_list)) {
+                        continue;
                     }
+
+                    $colNotExist[] = "'" . $column . "'";
                 }
             }
         } else {
@@ -472,9 +474,11 @@ class CentralColumns
             $cols = trim($cols, ',');
             $has_list = $this->findExistingColNames($database, $cols);
             foreach ($field_select as $column) {
-                if (! in_array($column, $has_list)) {
-                    $colNotExist[] = "'" . $column . "'";
+                if (in_array($column, $has_list)) {
+                    continue;
                 }
+
+                $colNotExist[] = "'" . $column . "'";
             }
         }
         if (! empty($colNotExist)) {
@@ -533,48 +537,52 @@ class CentralColumns
                 );
                 //column definition can only be changed if
                 //it is not referenced by another column
-                if ($column_status['isEditable']) {
-                    $query .= ' MODIFY ' . Util::backquote($column['col_name']) . ' '
-                        . $this->dbi->escapeString($column['col_type']);
-                    if ($column['col_length']) {
-                        $query .= '(' . $column['col_length'] . ')';
-                    }
-
-                    $query .= ' ' . $column['col_attribute'];
-                    if ($column['col_isNull']) {
-                        $query .= ' NULL';
-                    } else {
-                        $query .= ' NOT NULL';
-                    }
-
-                    $query .= ' ' . $column['col_extra'];
-                    if ($column['col_default']) {
-                        if ($column['col_default'] != 'CURRENT_TIMESTAMP'
-                            && $column['col_default'] != 'current_timestamp()') {
-                            $query .= ' DEFAULT \'' . $this->dbi->escapeString(
-                                (string) $column['col_default']
-                            ) . '\'';
-                        } else {
-                            $query .= ' DEFAULT ' . $this->dbi->escapeString(
-                                $column['col_default']
-                            );
-                        }
-                    }
-                    $query .= ',';
+                if (! $column_status['isEditable']) {
+                    continue;
                 }
+
+                $query .= ' MODIFY ' . Util::backquote($column['col_name']) . ' '
+                    . $this->dbi->escapeString($column['col_type']);
+                if ($column['col_length']) {
+                    $query .= '(' . $column['col_length'] . ')';
+                }
+
+                $query .= ' ' . $column['col_attribute'];
+                if ($column['col_isNull']) {
+                    $query .= ' NULL';
+                } else {
+                    $query .= ' NOT NULL';
+                }
+
+                $query .= ' ' . $column['col_extra'];
+                if ($column['col_default']) {
+                    if ($column['col_default'] != 'CURRENT_TIMESTAMP'
+                        && $column['col_default'] != 'current_timestamp()') {
+                        $query .= ' DEFAULT \'' . $this->dbi->escapeString(
+                            (string) $column['col_default']
+                        ) . '\'';
+                    } else {
+                        $query .= ' DEFAULT ' . $this->dbi->escapeString(
+                            $column['col_default']
+                        );
+                    }
+                }
+                $query .= ',';
             }
             $query = trim($query, ' ,') . ';';
-            if (! $this->dbi->tryQuery($query)) {
-                if ($message === true) {
-                    $message = Message::error(
-                        $this->dbi->getError()
-                    );
-                } else {
-                    $message->addText(
-                        $this->dbi->getError(),
-                        '<br>'
-                    );
-                }
+            if ($this->dbi->tryQuery($query)) {
+                continue;
+            }
+
+            if ($message === true) {
+                $message = Message::error(
+                    $this->dbi->getError()
+                );
+            } else {
+                $message->addText(
+                    $this->dbi->getError(),
+                    '<br>'
+                );
             }
         }
 
@@ -1104,11 +1112,13 @@ class CentralColumns
         );
         $selectColHtml = '';
         foreach ($columns as $column) {
-            if (! in_array($column, $existing_cols)) {
-                $selectColHtml .= '<option value="' . htmlspecialchars($column) . '">'
-                    . htmlspecialchars($column)
-                    . '</option>';
+            if (in_array($column, $existing_cols)) {
+                continue;
             }
+
+            $selectColHtml .= '<option value="' . htmlspecialchars($column) . '">'
+                . htmlspecialchars($column)
+                . '</option>';
         }
 
         return $selectColHtml;

@@ -58,9 +58,11 @@ class Linter
 
         $lines = [0];
         for ($i = 0; $i < $len; ++$i) {
-            if ($str[$i] === "\n") {
-                $lines[] = $i + 1;
+            if ($str[$i] !== "\n") {
+                continue;
             }
+
+            $lines[] = $i + 1;
         }
 
         return $lines;

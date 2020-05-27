@@ -678,9 +678,11 @@ class Advisor
             }
 
             // Rule complete
-            if ($ruleLine == $numRules) {
-                $ruleLine = -1;
+            if ($ruleLine != $numRules) {
+                continue;
             }
+
+            $ruleLine = -1;
         }
 
         return [

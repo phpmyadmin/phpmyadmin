@@ -29,20 +29,22 @@ class NodeDatabaseContainer extends Node
 
         parent::__construct($name, Node::CONTAINER);
 
-        if ($GLOBALS['is_create_db_priv']
-            && $GLOBALS['cfg']['ShowCreateDb'] !== false
+        if (! $GLOBALS['is_create_db_priv']
+            || $GLOBALS['cfg']['ShowCreateDb'] === false
         ) {
-            $newLabel = _pgettext('Create new database', 'New');
-            $new = NodeFactory::getInstanceForNewNode(
-                $newLabel,
-                'new_database italics'
-            );
-            $new->icon = Generator::getImage('b_newdb', '');
-            $new->links = [
-                'text' => Url::getFromRoute('/server/databases', ['server' => $GLOBALS['server']]),
-                'icon' => Url::getFromRoute('/server/databases', ['server' => $GLOBALS['server']]),
-            ];
-            $this->addChild($new);
+            return;
         }
+
+        $newLabel = _pgettext('Create new database', 'New');
+        $new = NodeFactory::getInstanceForNewNode(
+            $newLabel,
+            'new_database italics'
+        );
+        $new->icon = Generator::getImage('b_newdb', '');
+        $new->links = [
+            'text' => Url::getFromRoute('/server/databases', ['server' => $GLOBALS['server']]),
+            'icon' => Url::getFromRoute('/server/databases', ['server' => $GLOBALS['server']]),
+        ];
+        $this->addChild($new);
     }
 }

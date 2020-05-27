@@ -71,9 +71,11 @@ class Url
             }
         } else {
             foreach ($skip as $skipping) {
-                if (isset($params[$skipping])) {
-                    unset($params[$skipping]);
+                if (! isset($params[$skipping])) {
+                    continue;
                 }
+
+                unset($params[$skipping]);
             }
         }
 

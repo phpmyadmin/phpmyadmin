@@ -69,9 +69,11 @@ class ErrorHandler
         if (! defined('TESTSUITE')) {
             set_error_handler([$this, 'handleError']);
         }
-        if (function_exists('error_reporting')) {
-            $this->error_reporting = error_reporting();
+        if (! function_exists('error_reporting')) {
+            return;
         }
+
+        $this->error_reporting = error_reporting();
     }
 
     /**
@@ -102,11 +104,13 @@ class ErrorHandler
                 break;
             }
 
-            if (($error instanceof Error)
-                && ! $error->isDisplayed()
+            if ((! ($error instanceof Error))
+                || $error->isDisplayed()
             ) {
-                $_SESSION['errors'][$key] = $error;
+                continue;
             }
+
+            $_SESSION['errors'][$key] = $error;
         }
     }
 
@@ -310,9 +314,11 @@ class ErrorHandler
     {
         $retval = '';
         foreach ($this->getErrors() as $error) {
-            if ($error->isUserError() && ! $error->isDisplayed()) {
-                $retval .= $error->getDisplay();
+            if (! $error->isUserError() || $error->isDisplayed()) {
+                continue;
             }
+
+            $retval .= $error->getDisplay();
         }
 
         return $retval;
@@ -352,9 +358,11 @@ class ErrorHandler
         // display errors if SendErrorReports is set to 'ask'.
         if ($GLOBALS['cfg']['SendErrorReports'] != 'never') {
             foreach ($this->getErrors() as $error) {
-                if (! $error->isDisplayed()) {
-                    $retval .= $error->getDisplay();
+                if ($error->isDisplayed()) {
+                    continue;
                 }
+
+                $retval .= $error->getDisplay();
             }
         } else {
             $retval .= $this->getDispUserErrors();
@@ -406,18 +414,22 @@ class ErrorHandler
      */
     protected function checkSavedErrors(): void
     {
-        if (isset($_SESSION['errors'])) {
-            // restore saved errors
-            foreach ($_SESSION['errors'] as $hash => $error) {
-                if ($error instanceof Error && ! isset($this->errors[$hash])) {
-                    $this->errors[$hash] = $error;
-                }
+        if (! isset($_SESSION['errors'])) {
+            return;
+        }
+
+        // restore saved errors
+        foreach ($_SESSION['errors'] as $hash => $error) {
+            if (! ($error instanceof Error) || isset($this->errors[$hash])) {
+                continue;
             }
 
-            // delete stored errors
-            $_SESSION['errors'] = [];
-            unset($_SESSION['errors']);
+            $this->errors[$hash] = $error;
         }
+
+        // delete stored errors
+        $_SESSION['errors'] = [];
+        unset($_SESSION['errors']);
     }
 
     /**
@@ -442,9 +454,11 @@ class ErrorHandler
         $count = 0;
         if ($this->countErrors()) {
             foreach ($this->getErrors() as $error) {
-                if ($error->isUserError()) {
-                    $count++;
+                if (! $error->isUserError()) {
+                    continue;
                 }
+
+                $count++;
             }
         }
 

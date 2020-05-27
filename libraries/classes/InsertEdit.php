@@ -182,9 +182,11 @@ class InsertEdit
                 $local_query,
                 $result
             );
-            if ($has_unique_condition) {
-                $found_unique_key = true;
+            if (! $has_unique_condition) {
+                continue;
             }
+
+            $found_unique_key = true;
         }
 
         return [
@@ -2237,22 +2239,24 @@ class InsertEdit
     {
         global $containerBuilder;
 
-        if (isset($_POST['insert_rows'])
-            && is_numeric($_POST['insert_rows'])
-            && $_POST['insert_rows'] != $GLOBALS['cfg']['InsertRows']
+        if (! isset($_POST['insert_rows'])
+            || ! is_numeric($_POST['insert_rows'])
+            || $_POST['insert_rows'] == $GLOBALS['cfg']['InsertRows']
         ) {
-            $GLOBALS['cfg']['InsertRows'] = $_POST['insert_rows'];
-            $response = Response::getInstance();
-            $header = $response->getHeader();
-            $scripts = $header->getScripts();
-            $scripts->addFile('vendor/jquery/additional-methods.js');
-            $scripts->addFile('table/change.js');
-            if (! defined('TESTSUITE')) {
-                /** @var ChangeController $controller */
-                $controller = $containerBuilder->get(ChangeController::class);
-                $controller->index();
-                exit;
-            }
+            return;
+        }
+
+        $GLOBALS['cfg']['InsertRows'] = $_POST['insert_rows'];
+        $response = Response::getInstance();
+        $header = $response->getHeader();
+        $scripts = $header->getScripts();
+        $scripts->addFile('vendor/jquery/additional-methods.js');
+        $scripts->addFile('table/change.js');
+        if (! defined('TESTSUITE')) {
+            /** @var ChangeController $controller */
+            $controller = $containerBuilder->get(ChangeController::class);
+            $controller->index();
+            exit;
         }
     }
 
@@ -2614,14 +2618,16 @@ class InsertEdit
                 $transformation_plugin = new $class_name();
 
                 foreach ($edited_values as $cell_index => $curr_cell_edited_values) {
-                    if (isset($curr_cell_edited_values[$column_name])) {
-                        $edited_values[$cell_index][$column_name]
-                            = $extra_data['transformations'][$cell_index]
-                                = $transformation_plugin->applyTransformation(
-                                    $curr_cell_edited_values[$column_name],
-                                    $transform_options
-                                );
+                    if (! isset($curr_cell_edited_values[$column_name])) {
+                        continue;
                     }
+
+                    $edited_values[$cell_index][$column_name]
+                        = $extra_data['transformations'][$cell_index]
+                            = $transformation_plugin->applyTransformation(
+                                $curr_cell_edited_values[$column_name],
+                                $transform_options
+                            );
                 }   // end of loop for each transformation cell
             }
         }
@@ -3573,38 +3579,40 @@ class InsertEdit
                 'VIRTUAL GENERATED',
                 'STORED GENERATED',
             ];
-            if (! in_array($table_column['Extra'], $virtual)) {
-                $html_output .= $this->getHtmlForInsertEditFormColumn(
-                    $table_columns,
-                    $column_number,
-                    $comments_map,
-                    $timestamp_seen,
-                    $current_result,
-                    $chg_evt_handler,
-                    $jsvkey,
-                    $vkey,
-                    $insert_mode,
-                    $current_row,
-                    $o_rows,
-                    $tabindex,
-                    $columns_cnt,
-                    $is_upload,
-                    $tabindex_for_function,
-                    $foreigners,
-                    $tabindex_for_null,
-                    $tabindex_for_value,
-                    $table,
-                    $db,
-                    $row_id,
-                    $titles,
-                    $biggest_max_file_size,
-                    $default_char_editing,
-                    $text_dir,
-                    $repopulate,
-                    $column_mime,
-                    $where_clause
-                );
+            if (in_array($table_column['Extra'], $virtual)) {
+                continue;
             }
+
+            $html_output .= $this->getHtmlForInsertEditFormColumn(
+                $table_columns,
+                $column_number,
+                $comments_map,
+                $timestamp_seen,
+                $current_result,
+                $chg_evt_handler,
+                $jsvkey,
+                $vkey,
+                $insert_mode,
+                $current_row,
+                $o_rows,
+                $tabindex,
+                $columns_cnt,
+                $is_upload,
+                $tabindex_for_function,
+                $foreigners,
+                $tabindex_for_null,
+                $tabindex_for_value,
+                $table,
+                $db,
+                $row_id,
+                $titles,
+                $biggest_max_file_size,
+                $default_char_editing,
+                $text_dir,
+                $repopulate,
+                $column_mime,
+                $where_clause
+            );
         } // end for
         $o_rows++;
 

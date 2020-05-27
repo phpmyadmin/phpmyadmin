@@ -721,12 +721,14 @@ class LanguageManager
             $path = LOCALE_PATH
                 . '/' . $file
                 . '/LC_MESSAGES/phpmyadmin.mo';
-            if ($file != '.'
-                && $file != '..'
-                && @file_exists($path)
+            if ($file == '.'
+                || $file == '..'
+                || ! @file_exists($path)
             ) {
-                $result[] = $file;
+                continue;
             }
+
+            $result[] = $file;
         }
         /* Close the handle */
         closedir($handle);
@@ -932,15 +934,17 @@ class LanguageManager
     public function showWarnings()
     {
         // now, that we have loaded the language strings we can send the errors
-        if ($this->_lang_failed_cfg
-            || $this->_lang_failed_cookie
-            || $this->_lang_failed_request
+        if (! $this->_lang_failed_cfg
+            && ! $this->_lang_failed_cookie
+            && ! $this->_lang_failed_request
         ) {
-            trigger_error(
-                __('Ignoring unsupported language code.'),
-                E_USER_ERROR
-            );
+            return;
         }
+
+        trigger_error(
+            __('Ignoring unsupported language code.'),
+            E_USER_ERROR
+        );
     }
 
     /**

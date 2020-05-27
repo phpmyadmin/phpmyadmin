@@ -126,9 +126,11 @@ final class GisVisualizationController extends AbstractController
         $this->visualization->setUserSpecifiedSettings($visualizationSettings);
         if ($visualizationSettings != null) {
             foreach ($this->visualization->getSettings() as $setting => $val) {
-                if (! isset($visualizationSettings[$setting])) {
-                    $visualizationSettings[$setting] = $val;
+                if (isset($visualizationSettings[$setting])) {
+                    continue;
                 }
+
+                $visualizationSettings[$setting] = $val;
             }
         }
 

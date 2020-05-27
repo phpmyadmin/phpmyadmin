@@ -772,12 +772,14 @@ class TrackerTest extends AbstractTestCase
             );
         }
 
-        if ($tablename_after_rename) {
-            $this->assertEquals(
-                $result['tablename_after_rename'],
-                $tablename_after_rename
-            );
+        if (! $tablename_after_rename) {
+            return;
         }
+
+        $this->assertEquals(
+            $result['tablename_after_rename'],
+            $tablename_after_rename
+        );
     }
 
     /**

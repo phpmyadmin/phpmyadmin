@@ -318,11 +318,13 @@ class RecentFavoriteTable
     public function removeIfInvalid($db, $table)
     {
         foreach ($this->_tables as $tbl) {
-            if ($tbl['db'] == $db && $tbl['table'] == $table) {
-                // TODO Figure out a better way to find the existence of a table
-                if (! $GLOBALS['dbi']->getColumns($tbl['db'], $tbl['table'])) {
-                    return $this->remove($tbl['db'], $tbl['table']);
-                }
+            if ($tbl['db'] != $db || $tbl['table'] != $table) {
+                continue;
+            }
+
+            // TODO Figure out a better way to find the existence of a table
+            if (! $GLOBALS['dbi']->getColumns($tbl['db'], $tbl['table'])) {
+                return $this->remove($tbl['db'], $tbl['table']);
             }
         }
 
@@ -340,9 +342,11 @@ class RecentFavoriteTable
     public function remove($db, $table)
     {
         foreach ($this->_tables as $key => $value) {
-            if ($value['db'] == $db && $value['table'] == $table) {
-                unset($this->_tables[$key]);
+            if ($value['db'] != $db || $value['table'] != $table) {
+                continue;
             }
+
+            unset($this->_tables[$key]);
         }
         if ($this->_getPmaTable()) {
             return $this->saveToDb();

@@ -38,23 +38,25 @@ class UserPassword
     public function getChangePassMessage(array $change_password_message, $sql_query = '')
     {
         $response = Response::getInstance();
-        if ($response->isAjax()) {
-            /**
-             * If in an Ajax request, we don't need to show the rest of the page
-             */
-            if ($change_password_message['error']) {
-                $response->addJSON('message', $change_password_message['msg']);
-                $response->setRequestStatus(false);
-            } else {
-                $sql_query = Generator::getMessage(
-                    $change_password_message['msg'],
-                    $sql_query,
-                    'success'
-                );
-                $response->addJSON('message', $sql_query);
-            }
-            exit;
+        if (! $response->isAjax()) {
+            return;
         }
+
+        /**
+         * If in an Ajax request, we don't need to show the rest of the page
+         */
+        if ($change_password_message['error']) {
+            $response->addJSON('message', $change_password_message['msg']);
+            $response->setRequestStatus(false);
+        } else {
+            $sql_query = Generator::getMessage(
+                $change_password_message['msg'],
+                $sql_query,
+                'success'
+            );
+            $response->addJSON('message', $sql_query);
+        }
+        exit;
     }
 
     /**

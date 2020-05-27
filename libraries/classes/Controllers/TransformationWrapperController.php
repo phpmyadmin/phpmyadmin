@@ -85,15 +85,17 @@ class TransformationWrapperController extends AbstractController
             'newWidth',
         ];
         foreach ($request_params as $one_request_param) {
-            if (isset($_REQUEST[$one_request_param])) {
-                if (in_array($one_request_param, $size_params)) {
-                    $GLOBALS[$one_request_param] = intval($_REQUEST[$one_request_param]);
-                    if ($GLOBALS[$one_request_param] > 2000) {
-                        $GLOBALS[$one_request_param] = 2000;
-                    }
-                } else {
-                    $GLOBALS[$one_request_param] = $_REQUEST[$one_request_param];
+            if (! isset($_REQUEST[$one_request_param])) {
+                continue;
+            }
+
+            if (in_array($one_request_param, $size_params)) {
+                $GLOBALS[$one_request_param] = intval($_REQUEST[$one_request_param]);
+                if ($GLOBALS[$one_request_param] > 2000) {
+                    $GLOBALS[$one_request_param] = 2000;
                 }
+            } else {
+                $GLOBALS[$one_request_param] = $_REQUEST[$one_request_param];
             }
         }
 
@@ -132,9 +134,11 @@ class TransformationWrapperController extends AbstractController
             );
 
             foreach ($mime_options as $key => $option) {
-                if (substr($option, 0, 10) == '; charset=') {
-                    $mime_options['charset'] = $option;
+                if (substr($option, 0, 10) != '; charset=') {
+                    continue;
                 }
+
+                $mime_options['charset'] = $option;
             }
         }
 

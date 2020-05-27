@@ -64,9 +64,11 @@ class MonitorController extends AbstractController
 
         $javascriptVariableNames = [];
         foreach ($this->data->status as $name => $value) {
-            if (is_numeric($value)) {
-                $javascriptVariableNames[] = $name;
+            if (! is_numeric($value)) {
+                continue;
             }
+
+            $javascriptVariableNames[] = $name;
         }
 
         $this->render('server/status/monitor/index', [

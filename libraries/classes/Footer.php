@@ -251,19 +251,21 @@ class Footer
      */
     private function _setHistory(): void
     {
-        if (! Core::isValid($_REQUEST['no_history'])
-            && empty($GLOBALS['error_message'])
-            && ! empty($GLOBALS['sql_query'])
-            && isset($GLOBALS['dbi'])
-            && $GLOBALS['dbi']->isUserType('logged')
+        if (Core::isValid($_REQUEST['no_history'])
+            || ! empty($GLOBALS['error_message'])
+            || empty($GLOBALS['sql_query'])
+            || ! isset($GLOBALS['dbi'])
+            || ! $GLOBALS['dbi']->isUserType('logged')
         ) {
-            $this->relation->setHistory(
-                Core::ifSetOr($GLOBALS['db'], ''),
-                Core::ifSetOr($GLOBALS['table'], ''),
-                $GLOBALS['cfg']['Server']['user'],
-                $GLOBALS['sql_query']
-            );
+            return;
         }
+
+        $this->relation->setHistory(
+            Core::ifSetOr($GLOBALS['db'], ''),
+            Core::ifSetOr($GLOBALS['table'], ''),
+            $GLOBALS['cfg']['Server']['user'],
+            $GLOBALS['sql_query']
+        );
     }
 
     /**

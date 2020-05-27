@@ -50,11 +50,13 @@ class Session
          * Check if token is properly generated (the generation can fail, for example
          * due to missing /dev/random for openssl).
          */
-        if (empty($_SESSION[' PMA_token '])) {
-            Core::fatalError(
-                'Failed to generate random CSRF token!'
-            );
+        if (! empty($_SESSION[' PMA_token '])) {
+            return;
         }
+
+        Core::fatalError(
+            'Failed to generate random CSRF token!'
+        );
     }
 
     /**
@@ -221,28 +223,32 @@ class Session
          * Token which is used for authenticating access queries.
          * (we use "space PMA_token space" to prevent overwriting)
          */
-        if (empty($_SESSION[' PMA_token '])) {
-            self::generateToken();
-
-            /**
-             * Check for disk space on session storage by trying to write it.
-             *
-             * This seems to be most reliable approach to test if sessions are working,
-             * otherwise the check would fail with custom session backends.
-             */
-            $orig_error_count = $errorHandler->countErrors();
-            session_write_close();
-            if ($errorHandler->countErrors() > $orig_error_count) {
-                $errors = $errorHandler->sliceErrors($orig_error_count);
-                self::sessionFailed($errors);
-            }
-            session_start();
-            if (empty($_SESSION[' PMA_token '])) {
-                Core::fatalError(
-                    'Failed to store CSRF token in session! ' .
-                    'Probably sessions are not working properly.'
-                );
-            }
+        if (! empty($_SESSION[' PMA_token '])) {
+            return;
         }
+
+        self::generateToken();
+
+        /**
+         * Check for disk space on session storage by trying to write it.
+         *
+         * This seems to be most reliable approach to test if sessions are working,
+         * otherwise the check would fail with custom session backends.
+         */
+        $orig_error_count = $errorHandler->countErrors();
+        session_write_close();
+        if ($errorHandler->countErrors() > $orig_error_count) {
+            $errors = $errorHandler->sliceErrors($orig_error_count);
+            self::sessionFailed($errors);
+        }
+        session_start();
+        if (! empty($_SESSION[' PMA_token '])) {
+            return;
+        }
+
+        Core::fatalError(
+            'Failed to store CSRF token in session! ' .
+            'Probably sessions are not working properly.'
+        );
     }
 }

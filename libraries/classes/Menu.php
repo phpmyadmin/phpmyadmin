@@ -120,9 +120,11 @@ class Menu
 
         $allowedTabs = $this->_getAllowedTabs($level);
         foreach ($tabs as $key => $value) {
-            if (! array_key_exists($key, $allowedTabs)) {
-                unset($tabs[$key]);
+            if (array_key_exists($key, $allowedTabs)) {
+                continue;
             }
+
+            unset($tabs[$key]);
         }
 
         return $this->template->render('top_menu', [

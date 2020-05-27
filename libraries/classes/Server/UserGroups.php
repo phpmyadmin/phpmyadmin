@@ -165,11 +165,13 @@ class UserGroups
         $tabNames = [];
         $tabs = Util::getMenuTabList($level);
         foreach ($tabs as $tab => $tabName) {
-            if (! isset($row[$level . '_' . $tab])
-                || $row[$level . '_' . $tab] == 'Y'
+            if (isset($row[$level . '_' . $tab])
+                && $row[$level . '_' . $tab] != 'Y'
             ) {
-                $tabNames[] = $tabName;
+                continue;
             }
+
+            $tabNames[] = $tabName;
         }
 
         return implode(', ', $tabNames);

@@ -44,9 +44,11 @@ class ImportShp extends ImportPlugin
     {
         parent::__construct();
         $this->setProperties();
-        if (extension_loaded('zip')) {
-            $this->zipExtension = new ZipExtension();
+        if (! extension_loaded('zip')) {
+            return;
         }
+
+        $this->zipExtension = new ZipExtension();
     }
 
     /**

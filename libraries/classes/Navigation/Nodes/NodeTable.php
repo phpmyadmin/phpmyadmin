@@ -196,18 +196,18 @@ class NodeTable extends NodeDatabaseChild
                 $count = 0;
                 if ($GLOBALS['dbi']->dataSeek($handle, $pos)) {
                     while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                        if ($count < $maxItems) {
-                            $retval[] = [
-                                'name' => $arr['Field'],
-                                'key' => $arr['Key'],
-                                'type' => Util::extractColumnSpec($arr['Type'])['type'],
-                                'default' =>  $arr['Default'],
-                                'nullable' => ($arr['Null'] === 'NO' ? '' : 'nullable'),
-                            ];
-                            $count++;
-                        } else {
+                        if ($count >= $maxItems) {
                             break;
                         }
+
+                        $retval[] = [
+                            'name' => $arr['Field'],
+                            'key' => $arr['Key'],
+                            'type' => Util::extractColumnSpec($arr['Type'])['type'],
+                            'default' =>  $arr['Default'],
+                            'nullable' => ($arr['Null'] === 'NO' ? '' : 'nullable'),
+                        ];
+                        $count++;
                     }
                 }
                 break;
@@ -259,12 +259,12 @@ class NodeTable extends NodeDatabaseChild
                 $count = 0;
                 if ($GLOBALS['dbi']->dataSeek($handle, $pos)) {
                     while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                        if ($count < $maxItems) {
-                            $retval[] = $arr['Trigger'];
-                            $count++;
-                        } else {
+                        if ($count >= $maxItems) {
                             break;
                         }
+
+                        $retval[] = $arr['Trigger'];
+                        $count++;
                     }
                 }
                 break;

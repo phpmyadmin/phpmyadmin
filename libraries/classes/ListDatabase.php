@@ -48,9 +48,11 @@ class ListDatabase extends ListAbstract
         }
 
         foreach ($this->getArrayCopy() as $key => $db) {
-            if (preg_match('/' . $GLOBALS['cfg']['Server']['hide_db'] . '/', $db)) {
-                $this->offsetUnset($key);
+            if (! preg_match('/' . $GLOBALS['cfg']['Server']['hide_db'] . '/', $db)) {
+                continue;
             }
+
+            $this->offsetUnset($key);
         }
     }
 

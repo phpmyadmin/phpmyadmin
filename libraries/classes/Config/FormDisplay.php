@@ -290,9 +290,11 @@ class FormDisplay
                     $jsDefault
                 );
                 // register JS validators for this field
-                if (isset($validators[$path])) {
-                    $this->formDisplayTemplate->addJsValidate($translatedPath, $validators[$path], $js);
+                if (! isset($validators[$path])) {
+                    continue;
                 }
+
+                $this->formDisplayTemplate->addJsValidate($translatedPath, $validators[$path], $js);
             }
             $htmlOutput .= $this->formDisplayTemplate->displayFieldsetBottom($showButtons);
         }
@@ -491,9 +493,11 @@ class FormDisplay
         // TrustedProxies requires changes before displaying
         if ($systemPath == 'TrustedProxies') {
             foreach ($value as $ip => &$v) {
-                if (! preg_match('/^-\d+$/', $ip)) {
-                    $v = $ip . ': ' . $v;
+                if (preg_match('/^-\d+$/', $ip)) {
+                    continue;
                 }
+
+                $v = $ip . ': ' . $v;
             }
         }
         $this->_setComments($systemPath, $opts);
@@ -603,16 +607,18 @@ class FormDisplay
             // equality comparison only if both values are numeric or not numeric
             // (allows to skip 0 == 'string' equalling to true)
             // or identity (for string-string)
-            if (($vk == $value && ! (is_numeric($valueCmp) xor is_numeric($vk)))
-                || $vk === $value
+            if (! (($vk == $value && ! (is_numeric($valueCmp) xor is_numeric($vk)))
+                || $vk === $value)
             ) {
-                // keep boolean value as boolean
-                if (! is_bool($value)) {
-                    settype($value, gettype($vk));
-                }
-
-                return true;
+                continue;
             }
+
+            // keep boolean value as boolean
+            if (! is_bool($value)) {
+                settype($value, gettype($vk));
+            }
+
+            return true;
         }
 
         return false;
@@ -641,12 +647,12 @@ class FormDisplay
 
         $this->_errors = [];
         foreach ($forms as $formName) {
-            if (isset($this->_forms[$formName])) {
-                /** @var Form $form */
-                $form = $this->_forms[$formName];
-            } else {
+            if (! isset($this->_forms[$formName])) {
                 continue;
             }
+
+            /** @var Form $form */
+            $form = $this->_forms[$formName];
             // get current server id
             $changeIndex = $form->index === 0
                 ? $this->_configFile->getServerCount() + 1
@@ -665,9 +671,7 @@ class FormDisplay
                 // ensure the value is set
                 if (! isset($_POST[$key])) {
                     // checkboxes aren't set by browsers if they're off
-                    if ($type == 'boolean') {
-                        $_POST[$key] = false;
-                    } else {
+                    if ($type != 'boolean') {
                         $this->_errors[$form->name][] = sprintf(
                             __('Missing data for %s'),
                             '<i>' . Descriptions::get($systemPath) . '</i>'
@@ -675,6 +679,8 @@ class FormDisplay
                         $result = false;
                         continue;
                     }
+
+                    $_POST[$key] = false;
                 }
 
                 // user preferences allow/disallow
@@ -922,16 +928,20 @@ class FormDisplay
             $opts['comment'] = $comment;
             $opts['comment_warning'] = true;
         }
-        if (! $GLOBALS['PMA_Config']->get('is_setup')) {
-            if ($systemPath == 'MaxDbList' || $systemPath == 'MaxTableList'
-                || $systemPath == 'QueryHistoryMax'
-            ) {
-                $opts['comment'] = sprintf(
-                    __('maximum %s'),
-                    $GLOBALS['cfg'][$systemPath]
-                );
-            }
+        if ($GLOBALS['PMA_Config']->get('is_setup')) {
+            return;
         }
+
+        if ($systemPath != 'MaxDbList' && $systemPath != 'MaxTableList'
+            && $systemPath != 'QueryHistoryMax'
+        ) {
+            return;
+        }
+
+        $opts['comment'] = sprintf(
+            __('maximum %s'),
+            $GLOBALS['cfg'][$systemPath]
+        );
     }
 
     /**
@@ -946,9 +956,11 @@ class FormDisplay
     {
         foreach ($postValues as $v) {
             $v = Util::requestString($v);
-            if ($v !== '') {
-                $_POST[$key][] = $v;
+            if ($v === '') {
+                continue;
             }
+
+            $_POST[$key][] = $v;
         }
     }
 }

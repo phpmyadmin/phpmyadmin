@@ -140,84 +140,86 @@ class Routines
          * Display a form used to add/edit a routine, if necessary
          */
         // FIXME: this must be simpler than that
-        if (count($errors)
-            || ( empty($_POST['editor_process_add'])
-            && empty($_POST['editor_process_edit'])
-            && (! empty($_REQUEST['add_item']) || ! empty($_REQUEST['edit_item'])
-            || ! empty($_POST['routine_addparameter'])
-            || ! empty($_POST['routine_removeparameter'])
-            || ! empty($_POST['routine_changetype'])))
+        if (! count($errors)
+            && ( ! empty($_POST['editor_process_add'])
+            || ! empty($_POST['editor_process_edit'])
+            || (empty($_REQUEST['add_item']) && empty($_REQUEST['edit_item'])
+            && empty($_POST['routine_addparameter'])
+            && empty($_POST['routine_removeparameter'])
+            && empty($_POST['routine_changetype'])))
         ) {
-            // Handle requests to add/remove parameters and changing routine type
-            // This is necessary when JS is disabled
-            $operation = '';
-            if (! empty($_POST['routine_addparameter'])) {
-                $operation = 'add';
-            } elseif (! empty($_POST['routine_removeparameter'])) {
-                $operation = 'remove';
-            } elseif (! empty($_POST['routine_changetype'])) {
-                $operation = 'change';
-            }
-            // Get the data for the form (if any)
-            $routine = null;
-            $mode = null;
-            $title = null;
-            if (! empty($_REQUEST['add_item'])) {
-                $title = __('Add routine');
-                $routine = $this->getDataFromRequest();
-                $mode = 'add';
-            } elseif (! empty($_REQUEST['edit_item'])) {
-                $title = __('Edit routine');
-                if (! $operation && ! empty($_GET['item_name'])
-                    && empty($_POST['editor_process_edit'])
-                ) {
-                    $routine = $this->getDataFromName(
-                        $_GET['item_name'],
-                        $_GET['item_type']
-                    );
-                    if ($routine !== null) {
-                        $routine['item_original_name'] = $routine['item_name'];
-                        $routine['item_original_type'] = $routine['item_type'];
-                    }
-                } else {
-                    $routine = $this->getDataFromRequest();
-                }
-                $mode = 'edit';
-            }
-            if ($routine !== null) {
-                // Show form
-                $editor = $this->getEditorForm($mode, $operation, $routine);
-                if ($this->response->isAjax()) {
-                    $this->response->addJSON('message', $editor);
-                    $this->response->addJSON('title', $title);
-                    $this->response->addJSON('paramTemplate', $this->getParameterRow());
-                    $this->response->addJSON('type', $routine['item_type']);
-                } else {
-                    echo "\n\n<h2>" . $title . "</h2>\n\n" . $editor;
-                }
-                exit;
-            } else {
-                $message  = __('Error in processing request:') . ' ';
-                $message .= sprintf(
-                    __(
-                        'No routine with name %1$s found in database %2$s. '
-                        . 'You might be lacking the necessary privileges to edit this routine.'
-                    ),
-                    htmlspecialchars(
-                        Util::backquote($_REQUEST['item_name'])
-                    ),
-                    htmlspecialchars(Util::backquote($db))
+            return;
+        }
+
+        // Handle requests to add/remove parameters and changing routine type
+        // This is necessary when JS is disabled
+        $operation = '';
+        if (! empty($_POST['routine_addparameter'])) {
+            $operation = 'add';
+        } elseif (! empty($_POST['routine_removeparameter'])) {
+            $operation = 'remove';
+        } elseif (! empty($_POST['routine_changetype'])) {
+            $operation = 'change';
+        }
+        // Get the data for the form (if any)
+        $routine = null;
+        $mode = null;
+        $title = null;
+        if (! empty($_REQUEST['add_item'])) {
+            $title = __('Add routine');
+            $routine = $this->getDataFromRequest();
+            $mode = 'add';
+        } elseif (! empty($_REQUEST['edit_item'])) {
+            $title = __('Edit routine');
+            if (! $operation && ! empty($_GET['item_name'])
+                && empty($_POST['editor_process_edit'])
+            ) {
+                $routine = $this->getDataFromName(
+                    $_GET['item_name'],
+                    $_GET['item_type']
                 );
-
-                $message = Message::error($message);
-                if ($this->response->isAjax()) {
-                    $this->response->setRequestStatus(false);
-                    $this->response->addJSON('message', $message);
-                    exit;
+                if ($routine !== null) {
+                    $routine['item_original_name'] = $routine['item_name'];
+                    $routine['item_original_type'] = $routine['item_type'];
                 }
-
-                $message->display();
+            } else {
+                $routine = $this->getDataFromRequest();
             }
+            $mode = 'edit';
+        }
+        if ($routine !== null) {
+            // Show form
+            $editor = $this->getEditorForm($mode, $operation, $routine);
+            if ($this->response->isAjax()) {
+                $this->response->addJSON('message', $editor);
+                $this->response->addJSON('title', $title);
+                $this->response->addJSON('paramTemplate', $this->getParameterRow());
+                $this->response->addJSON('type', $routine['item_type']);
+            } else {
+                echo "\n\n<h2>" . $title . "</h2>\n\n" . $editor;
+            }
+            exit;
+        } else {
+            $message  = __('Error in processing request:') . ' ';
+            $message .= sprintf(
+                __(
+                    'No routine with name %1$s found in database %2$s. '
+                    . 'You might be lacking the necessary privileges to edit this routine.'
+                ),
+                htmlspecialchars(
+                    Util::backquote($_REQUEST['item_name'])
+                ),
+                htmlspecialchars(Util::backquote($db))
+            );
+
+            $message = Message::error($message);
+            if ($this->response->isAjax()) {
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', $message);
+                exit;
+            }
+
+            $message->display();
         }
     }
 
@@ -549,17 +551,21 @@ class Routines
             if ($_POST['item_type'] == 'PROCEDURE') {
                 $retval['item_param_dir'] = $_POST['item_param_dir'];
                 foreach ($retval['item_param_dir'] as $key => $value) {
-                    if (! in_array($value, $this->directions, true)) {
-                        $retval['item_param_dir'][$key] = '';
+                    if (in_array($value, $this->directions, true)) {
+                        continue;
                     }
+
+                    $retval['item_param_dir'][$key] = '';
                 }
             }
             $retval['item_param_name'] = $_POST['item_param_name'];
             $retval['item_param_type'] = $_POST['item_param_type'];
             foreach ($retval['item_param_type'] as $key => $value) {
-                if (! in_array($value, Util::getSupportedDatatypes(), true)) {
-                    $retval['item_param_type'][$key] = '';
+                if (in_array($value, Util::getSupportedDatatypes(), true)) {
+                    continue;
                 }
+
+                $retval['item_param_type'][$key] = '';
             }
             $retval['item_param_length']    = $_POST['item_param_length'];
             $retval['item_param_opts_num']  = $_POST['item_param_opts_num'];
@@ -1107,76 +1113,78 @@ class Routines
         $warnedAboutDir = false;
 
         for ($i = 0, $nb = count($itemParamName); $i < $nb; $i++) {
-            if (! empty($itemParamName[$i])
-                && ! empty($itemParamType[$i])
+            if (empty($itemParamName[$i])
+                || empty($itemParamType[$i])
             ) {
-                if ($itemType === 'PROCEDURE'
-                    && ! empty($itemParamDir[$i])
-                    && in_array($itemParamDir[$i], $this->directions)
-                ) {
-                    $params .= $itemParamDir[$i] . ' '
-                        . Util::backquote($itemParamName[$i])
-                        . ' ' . $itemParamType[$i];
-                } elseif ($itemType === 'FUNCTION') {
-                    $params .= Util::backquote($itemParamName[$i])
-                        . ' ' . $itemParamType[$i];
-                } elseif (! $warnedAboutDir) {
-                    $warnedAboutDir = true;
-                    $errors[] = sprintf(
-                        __('Invalid direction "%s" given for parameter.'),
-                        htmlspecialchars($itemParamDir[$i])
-                    );
-                }
-                if ($itemParamLength[$i] != ''
-                    && ! preg_match(
-                        '@^(DATE|TINYBLOB|TINYTEXT|BLOB|TEXT|'
-                        . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|'
-                        . 'SERIAL|BOOLEAN)$@i',
-                        $itemParamType[$i]
-                    )
-                ) {
-                    $params .= '(' . $itemParamLength[$i] . ')';
-                } elseif ($itemParamLength[$i] == ''
-                    && preg_match(
-                        '@^(ENUM|SET|VARCHAR|VARBINARY)$@i',
-                        $itemParamType[$i]
-                    )
-                ) {
-                    if (! $warnedAboutLength) {
-                        $warnedAboutLength = true;
-                        $errors[] = __(
-                            'You must provide length/values for routine parameters'
-                            . ' of type ENUM, SET, VARCHAR and VARBINARY.'
-                        );
-                    }
-                }
-                if (! empty($itemParamOpsText[$i])) {
-                    if ($dbi->types->getTypeClass($itemParamType[$i]) == 'CHAR') {
-                        if (! in_array($itemParamType[$i], ['VARBINARY', 'BINARY'])) {
-                            $params .= ' CHARSET '
-                                . mb_strtolower(
-                                    $itemParamOpsText[$i]
-                                );
-                        }
-                    }
-                }
-                if (! empty($itemParamOpsNum[$i])) {
-                    if ($dbi->types->getTypeClass($itemParamType[$i]) == 'NUMBER') {
-                        $params .= ' '
-                            . mb_strtoupper(
-                                $itemParamOpsNum[$i]
-                            );
-                    }
-                }
-                if ($i != count($itemParamName) - 1) {
-                    $params .= ', ';
-                }
-            } else {
                 $errors[] = __(
                     'You must provide a name and a type for each routine parameter.'
                 );
                 break;
             }
+
+            if ($itemType === 'PROCEDURE'
+                && ! empty($itemParamDir[$i])
+                && in_array($itemParamDir[$i], $this->directions)
+            ) {
+                $params .= $itemParamDir[$i] . ' '
+                    . Util::backquote($itemParamName[$i])
+                    . ' ' . $itemParamType[$i];
+            } elseif ($itemType === 'FUNCTION') {
+                $params .= Util::backquote($itemParamName[$i])
+                    . ' ' . $itemParamType[$i];
+            } elseif (! $warnedAboutDir) {
+                $warnedAboutDir = true;
+                $errors[] = sprintf(
+                    __('Invalid direction "%s" given for parameter.'),
+                    htmlspecialchars($itemParamDir[$i])
+                );
+            }
+            if ($itemParamLength[$i] != ''
+                && ! preg_match(
+                    '@^(DATE|TINYBLOB|TINYTEXT|BLOB|TEXT|'
+                    . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|'
+                    . 'SERIAL|BOOLEAN)$@i',
+                    $itemParamType[$i]
+                )
+            ) {
+                $params .= '(' . $itemParamLength[$i] . ')';
+            } elseif ($itemParamLength[$i] == ''
+                && preg_match(
+                    '@^(ENUM|SET|VARCHAR|VARBINARY)$@i',
+                    $itemParamType[$i]
+                )
+            ) {
+                if (! $warnedAboutLength) {
+                    $warnedAboutLength = true;
+                    $errors[] = __(
+                        'You must provide length/values for routine parameters'
+                        . ' of type ENUM, SET, VARCHAR and VARBINARY.'
+                    );
+                }
+            }
+            if (! empty($itemParamOpsText[$i])) {
+                if ($dbi->types->getTypeClass($itemParamType[$i]) == 'CHAR') {
+                    if (! in_array($itemParamType[$i], ['VARBINARY', 'BINARY'])) {
+                        $params .= ' CHARSET '
+                            . mb_strtolower(
+                                $itemParamOpsText[$i]
+                            );
+                    }
+                }
+            }
+            if (! empty($itemParamOpsNum[$i])) {
+                if ($dbi->types->getTypeClass($itemParamType[$i]) == 'NUMBER') {
+                    $params .= ' '
+                        . mb_strtoupper(
+                            $itemParamOpsNum[$i]
+                        );
+                }
+            }
+            if ($i == count($itemParamName) - 1) {
+                continue;
+            }
+
+            $params .= ', ';
         }
 
         return $params;
@@ -1400,14 +1408,18 @@ class Routines
             } else {
                 $args[] = '@p' . $i;
             }
-            if ($routine['item_type'] == 'PROCEDURE') {
-                if ($routine['item_param_dir'][$i] == 'OUT'
-                    || $routine['item_param_dir'][$i] == 'INOUT'
-                ) {
-                    $end_query[] = '@p' . $i . ' AS '
-                        . Util::backquote($routine['item_param_name'][$i]);
-                }
+            if ($routine['item_type'] != 'PROCEDURE') {
+                continue;
             }
+
+            if ($routine['item_param_dir'][$i] != 'OUT'
+                && $routine['item_param_dir'][$i] != 'INOUT'
+            ) {
+                continue;
+            }
+
+            $end_query[] = '@p' . $i . ' AS '
+                . Util::backquote($routine['item_param_name'][$i]);
         }
         if ($routine['item_type'] == 'PROCEDURE') {
             $queries[] = 'CALL ' . Util::backquote($routine['item_name'])

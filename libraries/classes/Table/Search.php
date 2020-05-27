@@ -111,9 +111,11 @@ final class Search
                 $tmp_geom_func
             );
 
-            if ($whereClause) {
-                $fullWhereClause[] = $whereClause;
+            if (! $whereClause) {
+                continue;
             }
+
+            $fullWhereClause[] = $whereClause;
         } // end foreach
 
         if (! empty($fullWhereClause)) {

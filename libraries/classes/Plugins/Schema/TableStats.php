@@ -143,15 +143,17 @@ abstract class TableStats
      */
     protected function loadCoordinates()
     {
-        if (isset($_POST['t_h'])) {
-            foreach ($_POST['t_h'] as $key => $value) {
-                $db = rawurldecode($_POST['t_db'][$key]);
-                $tbl = rawurldecode($_POST['t_tbl'][$key]);
-                if ($this->db . '.' . $this->tableName === $db . '.' . $tbl) {
-                    $this->x = (float) $_POST['t_x'][$key];
-                    $this->y = (float) $_POST['t_y'][$key];
-                    break;
-                }
+        if (! isset($_POST['t_h'])) {
+            return;
+        }
+
+        foreach ($_POST['t_h'] as $key => $value) {
+            $db = rawurldecode($_POST['t_db'][$key]);
+            $tbl = rawurldecode($_POST['t_tbl'][$key]);
+            if ($this->db . '.' . $this->tableName === $db . '.' . $tbl) {
+                $this->x = (float) $_POST['t_x'][$key];
+                $this->y = (float) $_POST['t_y'][$key];
+                break;
             }
         }
     }
@@ -178,12 +180,16 @@ abstract class TableStats
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
-        if ($GLOBALS['dbi']->numRows($result) > 0) {
-            while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
-                if ($row['Key_name'] == 'PRIMARY') {
-                    $this->primary[] = $row['Column_name'];
-                }
+        if ($GLOBALS['dbi']->numRows($result) <= 0) {
+            return;
+        }
+
+        while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
+            if ($row['Key_name'] != 'PRIMARY') {
+                continue;
             }
+
+            $this->primary[] = $row['Column_name'];
         }
     }
 

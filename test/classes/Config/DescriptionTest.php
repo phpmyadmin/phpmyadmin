@@ -98,11 +98,13 @@ class DescriptionTest extends AbstractTestCase
             if ($key == 'Servers') {
                 foreach ($value[1] as $item => $val) {
                     $this->assertGet($key . '/1/' . $item);
-                    if ($item == 'AllowDeny') {
-                        foreach ($val as $second => $val2) {
-                            $this->assertNotNull($val2);
-                            $this->assertGet($key . '/1/' . $item . '/' . $second);
-                        }
+                    if ($item != 'AllowDeny') {
+                        continue;
+                    }
+
+                    foreach ($val as $second => $val2) {
+                        $this->assertNotNull($val2);
+                        $this->assertGet($key . '/1/' . $item . '/' . $second);
                     }
                 }
             } elseif (in_array($key, $nested)) {

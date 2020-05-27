@@ -201,9 +201,11 @@ class Triggers
                     $items = $this->dbi->getTriggers($db, $table, '');
                     $trigger = false;
                     foreach ($items as $value) {
-                        if ($value['name'] == $_POST['item_name']) {
-                            $trigger = $value;
+                        if ($value['name'] != $_POST['item_name']) {
+                            continue;
                         }
+
+                        $trigger = $value;
                     }
                     $insert = false;
                     if (empty($table)
@@ -243,36 +245,38 @@ class Triggers
         /**
          * Display a form used to add/edit a trigger, if necessary
          */
-        if (count($errors)
-            || (empty($_POST['editor_process_add'])
-            && empty($_POST['editor_process_edit'])
-            && (! empty($_REQUEST['add_item'])
-            || ! empty($_REQUEST['edit_item']))) // FIXME: this must be simpler than that
+        if (! count($errors)
+            && (! empty($_POST['editor_process_add'])
+            || ! empty($_POST['editor_process_edit'])
+            || (empty($_REQUEST['add_item'])
+            && empty($_REQUEST['edit_item']))) // FIXME: this must be simpler than that
         ) {
-            $mode = '';
-            $item = null;
-            $title = '';
-            // Get the data for the form (if any)
-            if (! empty($_REQUEST['add_item'])) {
-                $title = __('Add trigger');
-                $item = $this->getDataFromRequest();
-                $mode = 'add';
-            } elseif (! empty($_REQUEST['edit_item'])) {
-                $title = __('Edit trigger');
-                if (! empty($_REQUEST['item_name'])
-                    && empty($_POST['editor_process_edit'])
-                ) {
-                    $item = $this->getDataFromName($_REQUEST['item_name']);
-                    if ($item !== null) {
-                        $item['item_original_name'] = $item['item_name'];
-                    }
-                } else {
-                    $item = $this->getDataFromRequest();
-                }
-                $mode = 'edit';
-            }
-            $this->sendEditor($mode, $item, $title, $db);
+            return;
         }
+
+        $mode = '';
+        $item = null;
+        $title = '';
+        // Get the data for the form (if any)
+        if (! empty($_REQUEST['add_item'])) {
+            $title = __('Add trigger');
+            $item = $this->getDataFromRequest();
+            $mode = 'add';
+        } elseif (! empty($_REQUEST['edit_item'])) {
+            $title = __('Edit trigger');
+            if (! empty($_REQUEST['item_name'])
+                && empty($_POST['editor_process_edit'])
+            ) {
+                $item = $this->getDataFromName($_REQUEST['item_name']);
+                if ($item !== null) {
+                    $item['item_original_name'] = $item['item_name'];
+                }
+            } else {
+                $item = $this->getDataFromRequest();
+            }
+            $mode = 'edit';
+        }
+        $this->sendEditor($mode, $item, $title, $db);
     }
 
     /**
@@ -314,9 +318,11 @@ class Triggers
         $temp = [];
         $items = $this->dbi->getTriggers($db, $table, '');
         foreach ($items as $value) {
-            if ($value['name'] == $name) {
-                $temp = $value;
+            if ($value['name'] != $name) {
+                continue;
             }
+
+            $temp = $value;
         }
         if (empty($temp)) {
             return null;

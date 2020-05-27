@@ -394,9 +394,11 @@ class NodeDatabase extends Node
         if ($cfgRelation['navwork']) {
             $hiddenItems = $this->getHiddenItems(substr($type, 0, -1));
             foreach ($retval as $key => $item) {
-                if (in_array($item, $hiddenItems)) {
-                    unset($retval[$key]);
+                if (! in_array($item, $hiddenItems)) {
+                    continue;
                 }
+
+                unset($retval[$key]);
             }
         }
 
@@ -488,12 +490,12 @@ class NodeDatabase extends Node
                 $count = 0;
                 if ($GLOBALS['dbi']->dataSeek($handle, $pos)) {
                     while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                        if ($count < $maxItems) {
-                            $retval[] = $arr[0];
-                            $count++;
-                        } else {
+                        if ($count >= $maxItems) {
                             break;
                         }
+
+                        $retval[] = $arr[0];
+                        $count++;
                     }
                 }
             }
@@ -570,12 +572,12 @@ class NodeDatabase extends Node
                 $count = 0;
                 if ($GLOBALS['dbi']->dataSeek($handle, $pos)) {
                     while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                        if ($count < $maxItems) {
-                            $retval[] = $arr['Name'];
-                            $count++;
-                        } else {
+                        if ($count >= $maxItems) {
                             break;
                         }
+
+                        $retval[] = $arr['Name'];
+                        $count++;
                     }
                 }
             }
@@ -650,12 +652,12 @@ class NodeDatabase extends Node
                 $count = 0;
                 if ($GLOBALS['dbi']->dataSeek($handle, $pos)) {
                     while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                        if ($count < $maxItems) {
-                            $retval[] = $arr['Name'];
-                            $count++;
-                        } else {
+                        if ($count >= $maxItems) {
                             break;
                         }
+
+                        $retval[] = $arr['Name'];
+                        $count++;
                     }
                 }
             }

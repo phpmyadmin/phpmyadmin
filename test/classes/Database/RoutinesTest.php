@@ -53,10 +53,12 @@ class RoutinesTest extends AbstractTestCase
         unset($_POST);
         unset($_REQUEST);
         foreach ($in as $key => $value) {
-            if ($value !== '') {
-                $_POST[$key] = $value;
-                $_REQUEST[$key] = $value;
+            if ($value === '') {
+                continue;
             }
+
+            $_POST[$key] = $value;
+            $_REQUEST[$key] = $value;
         }
         $this->assertEquals($out, $this->routines->getDataFromRequest());
     }

@@ -115,23 +115,32 @@ class Plugins
             // (for example ._csv.php) so the following regexp
             // matches a file which does not start with a dot but ends
             // with ".php"
-            if (is_file($plugins_dir . $file)
-                && preg_match(
+            if (! is_file($plugins_dir . $file)
+                || ! preg_match(
                     '@^' . $class_type . '([^\.]+)\.php$@i',
                     $file,
                     $matches
                 )
             ) {
-                $GLOBALS['skip_import'] = false;
-                include_once $plugins_dir . $file;
-                if (! $GLOBALS['skip_import']) {
-                    $class_name = $prefix_class_name . $matches[1];
-                    $plugin = new $class_name();
-                    if ($plugin->getProperties() !== null) {
-                        $plugin_list[] = $plugin;
-                    }
-                }
+                continue;
             }
+
+            /** @var bool */
+            $GLOBALS['skip_import'] = false;
+
+            include_once $plugins_dir . $file;
+
+            if ($GLOBALS['skip_import']) {
+                continue;
+            }
+
+            $class_name = $prefix_class_name . $matches[1];
+            $plugin = new $class_name();
+            if ($plugin->getProperties() === null) {
+                continue;
+            }
+
+            $plugin_list[] = $plugin;
         }
 
         usort(
@@ -223,9 +232,11 @@ class Plugins
 
         $val = $GLOBALS['cfg'][$section][$opt];
         foreach ($matches[0] as $match) {
-            if (isset($GLOBALS[$match])) {
-                $val = str_replace($match, $GLOBALS[$match], $val);
+            if (! isset($GLOBALS[$match])) {
+                continue;
             }
+
+            $val = str_replace($match, $GLOBALS[$match], $val);
         }
 
         return htmlspecialchars($val);

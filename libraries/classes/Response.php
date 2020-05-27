@@ -577,9 +577,11 @@ class Response
         } else {
             $header .= 'Web server is down';
         }
-        if (PHP_SAPI !== 'cgi-fcgi') {
-            $this->header($header);
+        if (PHP_SAPI === 'cgi-fcgi') {
+            return;
         }
+
+        $this->header($header);
     }
 
     /**

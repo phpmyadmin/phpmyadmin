@@ -286,9 +286,11 @@ class Results
      */
     public function __set($property, $value)
     {
-        if (array_key_exists($property, $this->_property_array)) {
-            $this->_property_array[$property] = $value;
+        if (! array_key_exists($property, $this->_property_array)) {
+            return;
         }
+
+        $this->_property_array[$property] = $value;
     }
 
     /**
@@ -348,43 +350,47 @@ class Results
         ];
 
         $cfgRelation = $this->relation->getRelationsParam();
-        if ($cfgRelation['db']) {
-            $this->transformation_info[$cfgRelation['db']] = [];
-            $relDb = &$this->transformation_info[$cfgRelation['db']];
-            if (! empty($cfgRelation['history'])) {
-                $relDb[$cfgRelation['history']] = ['sqlquery' => $sql_highlighting_data];
-            }
-            if (! empty($cfgRelation['bookmark'])) {
-                $relDb[$cfgRelation['bookmark']] = ['query' => $sql_highlighting_data];
-            }
-            if (! empty($cfgRelation['tracking'])) {
-                $relDb[$cfgRelation['tracking']] = [
-                    'schema_sql' => $sql_highlighting_data,
-                    'data_sql' => $sql_highlighting_data,
-                ];
-            }
-            if (! empty($cfgRelation['favorite'])) {
-                $relDb[$cfgRelation['favorite']] = ['tables' => $json_highlighting_data];
-            }
-            if (! empty($cfgRelation['recent'])) {
-                $relDb[$cfgRelation['recent']] = ['tables' => $json_highlighting_data];
-            }
-            if (! empty($cfgRelation['savedsearches'])) {
-                $relDb[$cfgRelation['savedsearches']] = ['search_data' => $json_highlighting_data];
-            }
-            if (! empty($cfgRelation['designer_settings'])) {
-                $relDb[$cfgRelation['designer_settings']] = ['settings_data' => $json_highlighting_data];
-            }
-            if (! empty($cfgRelation['table_uiprefs'])) {
-                $relDb[$cfgRelation['table_uiprefs']] = ['prefs' => $json_highlighting_data];
-            }
-            if (! empty($cfgRelation['userconfig'])) {
-                $relDb[$cfgRelation['userconfig']] = ['config_data' => $json_highlighting_data];
-            }
-            if (! empty($cfgRelation['export_templates'])) {
-                $relDb[$cfgRelation['export_templates']] = ['template_data' => $json_highlighting_data];
-            }
+        if (! $cfgRelation['db']) {
+            return;
         }
+
+        $this->transformation_info[$cfgRelation['db']] = [];
+        $relDb = &$this->transformation_info[$cfgRelation['db']];
+        if (! empty($cfgRelation['history'])) {
+            $relDb[$cfgRelation['history']] = ['sqlquery' => $sql_highlighting_data];
+        }
+        if (! empty($cfgRelation['bookmark'])) {
+            $relDb[$cfgRelation['bookmark']] = ['query' => $sql_highlighting_data];
+        }
+        if (! empty($cfgRelation['tracking'])) {
+            $relDb[$cfgRelation['tracking']] = [
+                'schema_sql' => $sql_highlighting_data,
+                'data_sql' => $sql_highlighting_data,
+            ];
+        }
+        if (! empty($cfgRelation['favorite'])) {
+            $relDb[$cfgRelation['favorite']] = ['tables' => $json_highlighting_data];
+        }
+        if (! empty($cfgRelation['recent'])) {
+            $relDb[$cfgRelation['recent']] = ['tables' => $json_highlighting_data];
+        }
+        if (! empty($cfgRelation['savedsearches'])) {
+            $relDb[$cfgRelation['savedsearches']] = ['search_data' => $json_highlighting_data];
+        }
+        if (! empty($cfgRelation['designer_settings'])) {
+            $relDb[$cfgRelation['designer_settings']] = ['settings_data' => $json_highlighting_data];
+        }
+        if (! empty($cfgRelation['table_uiprefs'])) {
+            $relDb[$cfgRelation['table_uiprefs']] = ['prefs' => $json_highlighting_data];
+        }
+        if (! empty($cfgRelation['userconfig'])) {
+            $relDb[$cfgRelation['userconfig']] = ['config_data' => $json_highlighting_data];
+        }
+        if (empty($cfgRelation['export_templates'])) {
+            return;
+        }
+
+        $relDb[$cfgRelation['export_templates']] = ['template_data' => $json_highlighting_data];
     }
 
     /**
@@ -603,9 +609,11 @@ class Results
 
             // Always display print view link
             $displayParts['pview_lnk'] = (string) '1';
-            if ($fields_meta[$i]->table != '') {
-                $prev_table = $fields_meta[$i]->table;
+            if ($fields_meta[$i]->table == '') {
+                continue;
             }
+
+            $prev_table = $fields_meta[$i]->table;
         } // end for
 
         if ($prev_table == '') { // no table for any of the columns
@@ -2046,12 +2054,14 @@ class Results
      */
     private function _getClassForNumericColumnType($fields_meta, array &$th_class)
     {
-        if (preg_match(
+        if (! preg_match(
             '@int|decimal|float|double|real|bit|boolean|serial@i',
             (string) $fields_meta->type
         )) {
-            $th_class[] = 'right';
+            return;
         }
+
+        $th_class[] = 'right';
     }
 
     /**
@@ -2348,9 +2358,11 @@ class Results
         ];
 
         foreach ($matches as $key => $value) {
-            if (mb_strpos($meta->flags, $key) !== false) {
-                $classes[] = $value;
+            if (mb_strpos($meta->flags, $key) === false) {
+                continue;
             }
+
+            $classes[] = $value;
         }
 
         if (mb_strpos($meta->type, 'bit') !== false) {
@@ -2626,18 +2638,20 @@ class Results
             $meta = $fields_meta[$currentColumn];
             $orgFullTableName = $this->__get('db') . '.' . $meta->orgtable;
 
-            if ($GLOBALS['cfgRelation']['commwork']
-                && $GLOBALS['cfgRelation']['mimework']
-                && $GLOBALS['cfg']['BrowseMIME']
-                && ! $_SESSION['tmpval']['hide_transformation']
-                && empty($added[$orgFullTableName])
+            if (! $GLOBALS['cfgRelation']['commwork']
+                || ! $GLOBALS['cfgRelation']['mimework']
+                || ! $GLOBALS['cfg']['BrowseMIME']
+                || $_SESSION['tmpval']['hide_transformation']
+                || ! empty($added[$orgFullTableName])
             ) {
-                $mimeMap = array_merge(
-                    $mimeMap,
-                    $this->transformations->getMime($this->__get('db'), $meta->orgtable, false, true)
-                );
-                $added[$orgFullTableName] = true;
+                continue;
             }
+
+            $mimeMap = array_merge(
+                $mimeMap,
+                $this->transformations->getMime($this->__get('db'), $meta->orgtable, false, true)
+            );
+            $added[$orgFullTableName] = true;
         }
 
         // special browser transformation for some SHOW statements
@@ -3110,10 +3124,12 @@ class Results
             if ($col_order !== false) {
                 $fields_cnt = $this->__get('fields_cnt');
                 foreach ($col_order as $value) {
-                    if ($value >= $fields_cnt) {
-                        $pmatable->removeUiProp(Table::PROP_COLUMN_ORDER);
-                        $fields_cnt = false;
+                    if ($value < $fields_cnt) {
+                        continue;
                     }
+
+                    $pmatable->removeUiProp(Table::PROP_COLUMN_ORDER);
+                    $fields_cnt = false;
                 }
             }
             $col_visib = $pmatable->getUiProp(Table::PROP_COLUMN_VISIB);
@@ -4493,34 +4509,36 @@ class Results
             self::POSITION_BOTH
         );
 
-        if (! empty($exist_rel)) {
-            foreach ($exist_rel as $master_field => $rel) {
-                if ($master_field != 'foreign_keys_data') {
-                    $display_field = $this->relation->getDisplayField(
-                        $rel['foreign_db'],
-                        $rel['foreign_table']
-                    );
-                    $map[$master_field] = [
-                        $rel['foreign_table'],
-                        $rel['foreign_field'],
-                        $display_field,
-                        $rel['foreign_db'],
-                    ];
-                } else {
-                    foreach ($rel as $key => $one_key) {
-                        foreach ($one_key['index_list'] as $index => $one_field) {
-                            $display_field = $this->relation->getDisplayField(
-                                $one_key['ref_db_name'] ?? $GLOBALS['db'],
-                                $one_key['ref_table_name']
-                            );
+        if (empty($exist_rel)) {
+            return;
+        }
 
-                            $map[$one_field] = [
-                                $one_key['ref_table_name'],
-                                $one_key['ref_index_list'][$index],
-                                $display_field,
-                                $one_key['ref_db_name'] ?? $GLOBALS['db'],
-                            ];
-                        }
+        foreach ($exist_rel as $master_field => $rel) {
+            if ($master_field != 'foreign_keys_data') {
+                $display_field = $this->relation->getDisplayField(
+                    $rel['foreign_db'],
+                    $rel['foreign_table']
+                );
+                $map[$master_field] = [
+                    $rel['foreign_table'],
+                    $rel['foreign_field'],
+                    $display_field,
+                    $rel['foreign_db'],
+                ];
+            } else {
+                foreach ($rel as $key => $one_key) {
+                    foreach ($one_key['index_list'] as $index => $one_field) {
+                        $display_field = $this->relation->getDisplayField(
+                            $one_key['ref_db_name'] ?? $GLOBALS['db'],
+                            $one_key['ref_table_name']
+                        );
+
+                        $map[$one_field] = [
+                            $one_key['ref_table_name'],
+                            $one_key['ref_index_list'][$index],
+                            $display_field,
+                            $one_key['ref_db_name'] ?? $GLOBALS['db'],
+                        ];
                     }
                 }
             }
@@ -4934,9 +4952,11 @@ class Results
                 if (empty($expr->alias) || empty($expr->column)) {
                     continue;
                 }
-                if (strcasecmp($meta->name, $expr->alias) == 0) {
-                    $meta->name = $expr->column;
+                if (strcasecmp($meta->name, $expr->alias) != 0) {
+                    continue;
                 }
+
+                $meta->name = $expr->column;
             }
         }
 

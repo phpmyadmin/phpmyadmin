@@ -204,9 +204,11 @@ class ReplicationGui
     {
         $databases = [];
         foreach ($GLOBALS['dblist']->databases as $database) {
-            if (! $GLOBALS['dbi']->isSystemSchema($database)) {
-                $databases[] = $database;
+            if ($GLOBALS['dbi']->isSystemSchema($database)) {
+                continue;
             }
+
+            $databases[] = $database;
         }
 
         return $this->template->render('server/replication/database_multibox', ['databases' => $databases]);
@@ -295,13 +297,15 @@ class ReplicationGui
                 'Replicate_Wild_Do_Table',
                 'Replicate_Wild_Ignore_Table',
             ];
-            if (in_array($variable, $variablesWrap)) {
-                $variables[$variable]['value'] = str_replace(
-                    ',',
-                    ', ',
-                    $serverReplicationVariable
-                );
+            if (! in_array($variable, $variablesWrap)) {
+                continue;
             }
+
+            $variables[$variable]['value'] = str_replace(
+                ',',
+                ', ',
+                $serverReplicationVariable
+            );
         }
 
         return $this->template->render('server/replication/status_table', [
@@ -415,65 +419,67 @@ class ReplicationGui
      */
     public function handleControlRequest()
     {
-        if (isset($_POST['sr_take_action'])) {
-            $refresh = false;
-            $result = false;
-            $messageSuccess = null;
-            $messageError = null;
-
-            if (isset($_POST['slave_changemaster']) && ! $GLOBALS['cfg']['AllowArbitraryServer']) {
-                $_SESSION['replication']['sr_action_status'] = 'error';
-                $_SESSION['replication']['sr_action_info'] = __(
-                    'Connection to server is disabled, please enable'
-                    . ' $cfg[\'AllowArbitraryServer\'] in phpMyAdmin configuration.'
-                );
-            } elseif (isset($_POST['slave_changemaster'])) {
-                $result = $this->handleRequestForSlaveChangeMaster();
-            } elseif (isset($_POST['sr_slave_server_control'])) {
-                $result = $this->handleRequestForSlaveServerControl();
-                $refresh = true;
-
-                switch ($_POST['sr_slave_action']) {
-                    case 'start':
-                        $messageSuccess = __('Replication started successfully.');
-                        $messageError = __('Error starting replication.');
-                        break;
-                    case 'stop':
-                        $messageSuccess = __('Replication stopped successfully.');
-                        $messageError = __('Error stopping replication.');
-                        break;
-                    case 'reset':
-                        $messageSuccess = __('Replication resetting successfully.');
-                        $messageError = __('Error resetting replication.');
-                        break;
-                    default:
-                        $messageSuccess = __('Success.');
-                        $messageError = __('Error.');
-                        break;
-                }
-            } elseif (isset($_POST['sr_slave_skip_error'])) {
-                $result = $this->handleRequestForSlaveSkipError();
-            }
-
-            if ($refresh) {
-                $response = Response::getInstance();
-                if ($response->isAjax()) {
-                    $response->setRequestStatus($result);
-                    $response->addJSON(
-                        'message',
-                        $result
-                        ? Message::success($messageSuccess)
-                        : Message::error($messageError)
-                    );
-                } else {
-                    Core::sendHeaderLocation(
-                        './index.php?route=/server/replication'
-                        . Url::getCommonRaw($GLOBALS['url_params'], '&')
-                    );
-                }
-            }
-            unset($refresh);
+        if (! isset($_POST['sr_take_action'])) {
+            return;
         }
+
+        $refresh = false;
+        $result = false;
+        $messageSuccess = null;
+        $messageError = null;
+
+        if (isset($_POST['slave_changemaster']) && ! $GLOBALS['cfg']['AllowArbitraryServer']) {
+            $_SESSION['replication']['sr_action_status'] = 'error';
+            $_SESSION['replication']['sr_action_info'] = __(
+                'Connection to server is disabled, please enable'
+                . ' $cfg[\'AllowArbitraryServer\'] in phpMyAdmin configuration.'
+            );
+        } elseif (isset($_POST['slave_changemaster'])) {
+            $result = $this->handleRequestForSlaveChangeMaster();
+        } elseif (isset($_POST['sr_slave_server_control'])) {
+            $result = $this->handleRequestForSlaveServerControl();
+            $refresh = true;
+
+            switch ($_POST['sr_slave_action']) {
+                case 'start':
+                    $messageSuccess = __('Replication started successfully.');
+                    $messageError = __('Error starting replication.');
+                    break;
+                case 'stop':
+                    $messageSuccess = __('Replication stopped successfully.');
+                    $messageError = __('Error stopping replication.');
+                    break;
+                case 'reset':
+                    $messageSuccess = __('Replication resetting successfully.');
+                    $messageError = __('Error resetting replication.');
+                    break;
+                default:
+                    $messageSuccess = __('Success.');
+                    $messageError = __('Error.');
+                    break;
+            }
+        } elseif (isset($_POST['sr_slave_skip_error'])) {
+            $result = $this->handleRequestForSlaveSkipError();
+        }
+
+        if ($refresh) {
+            $response = Response::getInstance();
+            if ($response->isAjax()) {
+                $response->setRequestStatus($result);
+                $response->addJSON(
+                    'message',
+                    $result
+                    ? Message::success($messageSuccess)
+                    : Message::error($messageError)
+                );
+            } else {
+                Core::sendHeaderLocation(
+                    './index.php?route=/server/replication'
+                    . Url::getCommonRaw($GLOBALS['url_params'], '&')
+                );
+            }
+        }
+        unset($refresh);
     }
 
     /**

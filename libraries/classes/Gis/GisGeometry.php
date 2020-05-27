@@ -179,9 +179,11 @@ abstract class GisGeometry
             if (! isset($min_max['maxY']) || $y > $min_max['maxY']) {
                 $min_max['maxY'] = $y;
             }
-            if (! isset($min_max['minY']) || $y < $min_max['minY']) {
-                $min_max['minY'] = $y;
+            if (isset($min_max['minY']) && $y >= $min_max['minY']) {
+                continue;
             }
+
+            $min_max['minY'] = $y;
         }
 
         return $min_max;

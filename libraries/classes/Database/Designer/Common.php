@@ -139,34 +139,35 @@ class Common
         while ($val = @$this->dbi->fetchRow($alltab_rs)) {
             $row = $this->relation->getForeigners($GLOBALS['db'], $val[0], '', 'internal');
 
-            if ($row !== false) {
-                foreach ($row as $field => $value) {
-                    $con['C_NAME'][$i] = '';
-                    $con['DTN'][$i]    = rawurlencode($GLOBALS['db'] . '.' . $val[0]);
-                    $con['DCN'][$i]    = rawurlencode($field);
-                    $con['STN'][$i]    = rawurlencode(
-                        $value['foreign_db'] . '.' . $value['foreign_table']
-                    );
-                    $con['SCN'][$i]    = rawurlencode($value['foreign_field']);
-                    $i++;
-                }
+            foreach ($row as $field => $value) {
+                $con['C_NAME'][$i] = '';
+                $con['DTN'][$i]    = rawurlencode($GLOBALS['db'] . '.' . $val[0]);
+                $con['DCN'][$i]    = rawurlencode($field);
+                $con['STN'][$i]    = rawurlencode(
+                    $value['foreign_db'] . '.' . $value['foreign_table']
+                );
+                $con['SCN'][$i]    = rawurlencode($value['foreign_field']);
+                $i++;
             }
+
             $row = $this->relation->getForeigners($GLOBALS['db'], $val[0], '', 'foreign');
 
             // We do not have access to the foreign keys if the user has partial access to the columns
-            if ($row !== false && isset($row['foreign_keys_data'])) {
-                foreach ($row['foreign_keys_data'] as $one_key) {
-                    foreach ($one_key['index_list'] as $index => $one_field) {
-                        $con['C_NAME'][$i] = rawurlencode($one_key['constraint']);
-                        $con['DTN'][$i]    = rawurlencode($GLOBALS['db'] . '.' . $val[0]);
-                        $con['DCN'][$i]    = rawurlencode($one_field);
-                        $con['STN'][$i]    = rawurlencode(
-                            ($one_key['ref_db_name'] ?? $GLOBALS['db'])
-                            . '.' . $one_key['ref_table_name']
-                        );
-                        $con['SCN'][$i] = rawurlencode($one_key['ref_index_list'][$index]);
-                        $i++;
-                    }
+            if (! isset($row['foreign_keys_data'])) {
+                continue;
+            }
+
+            foreach ($row['foreign_keys_data'] as $one_key) {
+                foreach ($one_key['index_list'] as $index => $one_field) {
+                    $con['C_NAME'][$i] = rawurlencode($one_key['constraint']);
+                    $con['DTN'][$i]    = rawurlencode($GLOBALS['db'] . '.' . $val[0]);
+                    $con['DCN'][$i]    = rawurlencode($one_field);
+                    $con['STN'][$i]    = rawurlencode(
+                        ($one_key['ref_db_name'] ?? $GLOBALS['db'])
+                        . '.' . $one_key['ref_table_name']
+                    );
+                    $con['SCN'][$i] = rawurlencode($one_key['ref_index_list'][$index]);
+                    $i++;
                 }
             }
         }

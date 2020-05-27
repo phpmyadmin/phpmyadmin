@@ -96,53 +96,57 @@ class CheckUserPrivileges
         // '... ALL PRIVILEGES ON *.* ...' OR '... ALL PRIVILEGES ON `mysql`.* ..'
         // OR
         // SELECT, INSERT, UPDATE, DELETE .... ON *.* OR `mysql`.*
-        if ($show_grants_str == 'ALL'
-            || $show_grants_str == 'ALL PRIVILEGES'
-            || (mb_strpos(
+        if ($show_grants_str != 'ALL'
+            && $show_grants_str != 'ALL PRIVILEGES'
+            && (mb_strpos(
                 $show_grants_str,
                 'SELECT, INSERT, UPDATE, DELETE'
-            ) !== false)
+            ) === false)
         ) {
-            if ($show_grants_dbname == '*'
-                && $show_grants_tblname == '*'
+            return;
+        }
+
+        if ($show_grants_dbname == '*'
+            && $show_grants_tblname == '*'
+        ) {
+            $GLOBALS['col_priv'] = true;
+            $GLOBALS['db_priv'] = true;
+            $GLOBALS['proc_priv'] = true;
+            $GLOBALS['table_priv'] = true;
+
+            if ($show_grants_str == 'ALL PRIVILEGES'
+                || $show_grants_str == 'ALL'
             ) {
+                $GLOBALS['is_reload_priv'] = true;
+            }
+        }
+
+        // check for specific tables in `mysql` db
+        // Ex. '... ALL PRIVILEGES on `mysql`.`columns_priv` .. '
+        if ($show_grants_dbname != 'mysql') {
+            return;
+        }
+
+        switch ($show_grants_tblname) {
+            case 'columns_priv':
+                $GLOBALS['col_priv'] = true;
+                break;
+            case 'db':
+                $GLOBALS['db_priv'] = true;
+                break;
+            case 'procs_priv':
+                $GLOBALS['proc_priv'] = true;
+                break;
+            case 'tables_priv':
+                $GLOBALS['table_priv'] = true;
+                break;
+            case '*':
                 $GLOBALS['col_priv'] = true;
                 $GLOBALS['db_priv'] = true;
                 $GLOBALS['proc_priv'] = true;
                 $GLOBALS['table_priv'] = true;
-
-                if ($show_grants_str == 'ALL PRIVILEGES'
-                    || $show_grants_str == 'ALL'
-                ) {
-                    $GLOBALS['is_reload_priv'] = true;
-                }
-            }
-
-            // check for specific tables in `mysql` db
-            // Ex. '... ALL PRIVILEGES on `mysql`.`columns_priv` .. '
-            if ($show_grants_dbname == 'mysql') {
-                switch ($show_grants_tblname) {
-                    case 'columns_priv':
-                        $GLOBALS['col_priv'] = true;
-                        break;
-                    case 'db':
-                        $GLOBALS['db_priv'] = true;
-                        break;
-                    case 'procs_priv':
-                        $GLOBALS['proc_priv'] = true;
-                        break;
-                    case 'tables_priv':
-                        $GLOBALS['table_priv'] = true;
-                        break;
-                    case '*':
-                        $GLOBALS['col_priv'] = true;
-                        $GLOBALS['db_priv'] = true;
-                        $GLOBALS['proc_priv'] = true;
-                        $GLOBALS['table_priv'] = true;
-                        break;
-                    default:
-                }
-            }
+                break;
+            default:
         }
     }
 

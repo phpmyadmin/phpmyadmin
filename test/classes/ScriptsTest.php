@@ -30,9 +30,11 @@ class ScriptsTest extends AbstractTestCase
     {
         parent::setUp();
         $this->object = new Scripts();
-        if (! defined('PMA_USR_BROWSER_AGENT')) {
-            define('PMA_USR_BROWSER_AGENT', 'MOZILLA');
+        if (defined('PMA_USR_BROWSER_AGENT')) {
+            return;
         }
+
+        define('PMA_USR_BROWSER_AGENT', 'MOZILLA');
     }
 
     /**

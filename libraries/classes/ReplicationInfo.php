@@ -132,64 +132,66 @@ final class ReplicationInfo
             } else {
                 $replication_info[$type]['status'] = false;
             }
-            if ($replication_info[$type]['status']) {
-                if ($type == 'master') {
-                    self::fill(
-                        $type,
-                        'Do_DB',
-                        $server_master_replication[0],
-                        'Binlog_Do_DB'
-                    );
+            if (! $replication_info[$type]['status']) {
+                continue;
+            }
 
-                    self::fill(
-                        $type,
-                        'Ignore_DB',
-                        $server_master_replication[0],
-                        'Binlog_Ignore_DB'
-                    );
-                } elseif ($type == 'slave') {
-                    self::fill(
-                        $type,
-                        'Do_DB',
-                        $server_slave_replication[0],
-                        'Replicate_Do_DB'
-                    );
+            if ($type == 'master') {
+                self::fill(
+                    $type,
+                    'Do_DB',
+                    $server_master_replication[0],
+                    'Binlog_Do_DB'
+                );
 
-                    self::fill(
-                        $type,
-                        'Ignore_DB',
-                        $server_slave_replication[0],
-                        'Replicate_Ignore_DB'
-                    );
+                self::fill(
+                    $type,
+                    'Ignore_DB',
+                    $server_master_replication[0],
+                    'Binlog_Ignore_DB'
+                );
+            } elseif ($type == 'slave') {
+                self::fill(
+                    $type,
+                    'Do_DB',
+                    $server_slave_replication[0],
+                    'Replicate_Do_DB'
+                );
 
-                    self::fill(
-                        $type,
-                        'Do_Table',
-                        $server_slave_replication[0],
-                        'Replicate_Do_Table'
-                    );
+                self::fill(
+                    $type,
+                    'Ignore_DB',
+                    $server_slave_replication[0],
+                    'Replicate_Ignore_DB'
+                );
 
-                    self::fill(
-                        $type,
-                        'Ignore_Table',
-                        $server_slave_replication[0],
-                        'Replicate_Ignore_Table'
-                    );
+                self::fill(
+                    $type,
+                    'Do_Table',
+                    $server_slave_replication[0],
+                    'Replicate_Do_Table'
+                );
 
-                    self::fill(
-                        $type,
-                        'Wild_Do_Table',
-                        $server_slave_replication[0],
-                        'Replicate_Wild_Do_Table'
-                    );
+                self::fill(
+                    $type,
+                    'Ignore_Table',
+                    $server_slave_replication[0],
+                    'Replicate_Ignore_Table'
+                );
 
-                    self::fill(
-                        $type,
-                        'Wild_Ignore_Table',
-                        $server_slave_replication[0],
-                        'Replicate_Wild_Ignore_Table'
-                    );
-                }
+                self::fill(
+                    $type,
+                    'Wild_Do_Table',
+                    $server_slave_replication[0],
+                    'Replicate_Wild_Do_Table'
+                );
+
+                self::fill(
+                    $type,
+                    'Wild_Ignore_Table',
+                    $server_slave_replication[0],
+                    'Replicate_Wild_Ignore_Table'
+                );
             }
         }
     }

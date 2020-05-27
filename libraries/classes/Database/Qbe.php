@@ -982,17 +982,19 @@ class Qbe
         $select_clause = '';
         $select_clauses = [];
         for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
-            if (! empty($this->_formColumns[$column_index])
-                && isset($this->_formShows[$column_index])
-                && $this->_formShows[$column_index] == 'on'
+            if (empty($this->_formColumns[$column_index])
+                || ! isset($this->_formShows[$column_index])
+                || $this->_formShows[$column_index] != 'on'
             ) {
-                $select = $this->_formColumns[$column_index];
-                if (! empty($this->_formAliases[$column_index])) {
-                    $select .= ' AS '
-                        . Util::backquote($this->_formAliases[$column_index]);
-                }
-                $select_clauses[] = $select;
+                continue;
             }
+
+            $select = $this->_formColumns[$column_index];
+            if (! empty($this->_formAliases[$column_index])) {
+                $select .= ' AS '
+                    . Util::backquote($this->_formAliases[$column_index]);
+            }
+            $select_clauses[] = $select;
         } // end for
         if (! empty($select_clauses)) {
             $select_clause = 'SELECT '
@@ -1021,14 +1023,16 @@ class Qbe
                     . mb_strtoupper($this->_formAndOrCols[$last_where])
                     . ' ';
             }
-            if (! empty($this->_formColumns[$column_index])
-                && ! empty($this->_formCriterions[$column_index])
+            if (empty($this->_formColumns[$column_index])
+                || empty($this->_formCriterions[$column_index])
             ) {
-                $where_clause .= '(' . $this->_formColumns[$column_index] . ' '
-                    . $this->_formCriterions[$column_index] . ')';
-                $last_where = $column_index;
-                $criteria_cnt++;
+                continue;
             }
+
+            $where_clause .= '(' . $this->_formColumns[$column_index] . ' '
+                . $this->_formCriterions[$column_index] . ')';
+            $last_where = $column_index;
+            $criteria_cnt++;
         } // end for
         if ($criteria_cnt > 1) {
             $where_clause = '(' . $where_clause . ')';
@@ -1052,16 +1056,18 @@ class Qbe
                         )
                         . ' ';
                 }
-                if (! empty($this->_formColumns[$column_index])
-                    && ! empty($_POST['Or' . $row_index][$column_index])
+                if (empty($this->_formColumns[$column_index])
+                    || empty($_POST['Or' . $row_index][$column_index])
                 ) {
-                    $qry_orwhere .= '(' . $this->_formColumns[$column_index]
-                        . ' '
-                        . $_POST['Or' . $row_index][$column_index]
-                        . ')';
-                    $last_orwhere = $column_index;
-                    $criteria_cnt++;
+                    continue;
                 }
+
+                $qry_orwhere .= '(' . $this->_formColumns[$column_index]
+                    . ' '
+                    . $_POST['Or' . $row_index][$column_index]
+                    . ')';
+                $last_orwhere = $column_index;
+                $criteria_cnt++;
             } // end for
             if ($criteria_cnt > 1) {
                 $qry_orwhere      = '(' . $qry_orwhere . ')';
@@ -1120,10 +1126,12 @@ class Qbe
                 continue;
             }
 
-            if (! empty($sort[$column_index])) {
-                $orderby_clauses[] = $columns[$column_index] . ' '
-                    . $sort[$column_index];
+            if (empty($sort[$column_index])) {
+                continue;
             }
+
+            $orderby_clauses[] = $columns[$column_index] . ' '
+                . $sort[$column_index];
         } // end for
         if (! empty($orderby_clauses)) {
             $orderby_clause = 'ORDER BY '
@@ -1154,19 +1162,21 @@ class Qbe
             $indexes = $this->dbi->getTableIndexes($this->_db, $table);
             foreach ($indexes as $index) {
                 $column = $table . '.' . $index['Column_name'];
-                if (isset($search_columns[$column])) {
-                    if ($index['Non_unique'] == 0) {
-                        if (isset($where_clause_columns[$column])) {
-                            $unique_columns[$column] = 'Y';
-                        } else {
-                            $unique_columns[$column] = 'N';
-                        }
+                if (! isset($search_columns[$column])) {
+                    continue;
+                }
+
+                if ($index['Non_unique'] == 0) {
+                    if (isset($where_clause_columns[$column])) {
+                        $unique_columns[$column] = 'Y';
                     } else {
-                        if (isset($where_clause_columns[$column])) {
-                            $index_columns[$column] = 'Y';
-                        } else {
-                            $index_columns[$column] = 'N';
-                        }
+                        $unique_columns[$column] = 'N';
+                    }
+                } else {
+                    if (isset($where_clause_columns[$column])) {
+                        $index_columns[$column] = 'Y';
+                    } else {
+                        $index_columns[$column] = 'N';
                     }
                 }
             } // end while (each index of a table)
@@ -1288,10 +1298,12 @@ class Qbe
                     continue;
                 }
                 foreach ($foreigner as $one_key) {
-                    if (in_array($one_key['ref_table_name'], $candidate_columns)) {
-                        $foreign_tables[$one_key['ref_table_name']]
-                            = $one_key['ref_table_name'];
+                    if (! in_array($one_key['ref_table_name'], $candidate_columns)) {
+                        continue;
                     }
+
+                    $foreign_tables[$one_key['ref_table_name']]
+                        = $one_key['ref_table_name'];
                 }
             }
         }
@@ -1320,10 +1332,12 @@ class Qbe
                 $tsize[$table] = $_table->countRecords();
                 $checked_tables[$table] = 1;
             }
-            if ($tsize[$table] > $maxsize) {
-                $maxsize = $tsize[$table];
-                $result = $table;
+            if ($tsize[$table] <= $maxsize) {
+                continue;
             }
+
+            $maxsize = $tsize[$table];
+            $result = $table;
         }
 
         // Return largest table
@@ -1387,15 +1401,17 @@ class Qbe
         // We only start this if we have fields, otherwise it would be dumb
         foreach ($formColumns as $value) {
             $parts = explode('.', $value);
-            if (! empty($parts[0]) && ! empty($parts[1])) {
-                $table = str_replace('`', '', $parts[0]);
-                $search_tables[$table] = $table;
-                $search_columns[] = $table . '.' . str_replace(
-                    '`',
-                    '',
-                    $parts[1]
-                );
+            if (empty($parts[0]) || empty($parts[1])) {
+                continue;
             }
+
+            $table = str_replace('`', '', $parts[0]);
+            $search_tables[$table] = $table;
+            $search_columns[] = $table . '.' . str_replace(
+                '`',
+                '',
+                $parts[1]
+            );
         } // end while
 
         // Create LEFT JOINS out of Relations
@@ -1611,11 +1627,13 @@ class Qbe
                         $finalized[$foreignTable] = $clause;
                         $added = true;
                     }
-                    if ($added) {
-                        // We are done if all tables are in $finalized
-                        if (count($finalized) == count($searchTables)) {
-                            return;
-                        }
+                    if (! $added) {
+                        continue;
+                    }
+
+                    // We are done if all tables are in $finalized
+                    if (count($finalized) == count($searchTables)) {
+                        return;
                     }
                 }
             }
