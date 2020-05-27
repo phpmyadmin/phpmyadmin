@@ -1,80 +1,57 @@
 <?xml version="1.0"?>
-<ruleset
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    name="phpMyAdmin"
-    xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd"
->
-    <rule ref="vendor/phpmyadmin/coding-standard/PhpMyAdmin/ruleset.xml">
-        <exclude name="PEAR.Commenting.ClassComment.Missing"/>
-        <exclude name="PEAR.Commenting.ClassComment.MissingPackageTag"/>
-        <exclude name="PEAR.Commenting.FileComment.Missing"/>
-        <exclude name="PEAR.Commenting.FileComment.MissingPackageTag"/>
-        <exclude name="PEAR.Commenting.FunctionComment.Missing"/>
-        <exclude name="PEAR.Commenting.FunctionComment.MissingReturn"/>
-    </rule>
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd">
+    <!-- Show progress and sniff codes -->
+    <arg value="ps"/>
 
-    <rule ref="Generic.Metrics.NestingLevel.TooHigh">
-        <severity>4</severity>
-    </rule>
-    <rule ref="PSR2.Classes.PropertyDeclaration.Underscore">
-        <severity>4</severity>
-    </rule>
-    <rule ref="PSR2.Methods.MethodDeclaration.Underscore">
-        <severity>4</severity>
-    </rule>
-    <rule ref="Squiz.NamingConventions.ValidVariableName">
-        <severity>4</severity>
-    </rule>
-
-    <rule ref="Generic.CodeAnalysis.UselessOverridingMethod"/>
-
-    <rule ref="Generic.Strings.UnnecessaryStringConcat">
-        <properties>
-            <property name="allowMultiline" value="true"/>
-        </properties>
-    </rule>
-
-    <rule ref="Squiz.Arrays.ArrayDeclaration">
-        <exclude name="Squiz.Arrays.ArrayDeclaration.DoubleArrowNotAligned"/>
-        <exclude name="Squiz.Arrays.ArrayDeclaration.KeyNotAligned"/>
-        <exclude name="Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed"/>
-        <exclude name="Squiz.Arrays.ArrayDeclaration.CloseBraceNotAligned"/>
-        <exclude name="Squiz.Arrays.ArrayDeclaration.ValueNotAligned"/>
-        <exclude name="Squiz.Arrays.ArrayDeclaration.SingleLineNotAllowed"/>
-    </rule>
-
-    <rule ref="Squiz.Classes.SelfMemberReference"/>
-
-    <rule ref="Squiz.Strings.DoubleQuoteUsage"/>
-
-    <rule ref="Squiz.WhiteSpace.FunctionOpeningBraceSpace"/>
-    <rule ref="Squiz.WhiteSpace.FunctionSpacing">
-        <properties>
-            <property name="spacing" value="1" />
-            <property name="spacingBeforeFirst" value="0"/>
-            <property name="spacingAfterLast" value="0"/>
-        </properties>
-    </rule>
-    <rule ref="Squiz.WhiteSpace.LogicalOperatorSpacing"/>
-    <rule ref="Squiz.WhiteSpace.SemicolonSpacing"/>
-    <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace">
-        <properties>
-            <property name="ignoreBlankLines" value="false"/>
-        </properties>
-    </rule>
-
-    <arg value="sp"/>
+    <arg name="cache"/>
     <arg name="colors"/>
     <arg name="extensions" value="php"/>
 
-    <exclude-pattern>*/node_modules/*</exclude-pattern>
-    <exclude-pattern>*/libraries/cache/*</exclude-pattern>
-    <exclude-pattern>*/test/sami-config.php</exclude-pattern>
-    <exclude-pattern>*.twig</exclude-pattern>
-    <exclude-pattern>*/twig-templates/*</exclude-pattern>
-    <exclude-pattern>*/tmp/*</exclude-pattern>
-    <exclude-pattern>*/vendor/*</exclude-pattern>
-    <exclude-pattern>*/libraries/cache/*</exclude-pattern>
-
     <file>.</file>
+
+    <exclude-pattern>libraries/cache/routes.cache.php</exclude-pattern>
+    <exclude-pattern>test/sami-config.php</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/tmp/*</exclude-pattern>
+    <exclude-pattern>*/twig-templates/*</exclude-pattern>
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+
+    <rule ref="PhpMyAdmin">
+        <exclude name="PSR2.Methods.MethodDeclaration.Underscore"/>
+        <exclude name="PSR2.Classes.PropertyDeclaration.Underscore"/>
+        <exclude name="SlevomatCodingStandard.Operators.DisallowEqualOperators"/>
+        <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration"/>
+
+        <exclude name="Squiz.Arrays.ArrayDeclaration"/>
+        <exclude name="SlevomatCodingStandard.Classes.EmptyLinesAroundClassBraces"/>
+        <exclude name="SlevomatCodingStandard.Commenting.DocCommentSpacing.IncorrectLinesCountBetweenDescriptionAndAnnotations"/>
+        <exclude name="SlevomatCodingStandard.Commenting.InlineDocCommentDeclaration.InvalidFormat"/>
+        <exclude name="SlevomatCodingStandard.ControlStructures.ControlStructureSpacing"/>
+        <exclude name="SlevomatCodingStandard.ControlStructures.EarlyExit"/>
+        <exclude name="SlevomatCodingStandard.Functions.StaticClosure"/>
+        <exclude name="SlevomatCodingStandard.Namespaces.AlphabeticallySortedUses"/>
+        <exclude name="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFallbackGlobalName"/>
+        <exclude name="SlevomatCodingStandard.Namespaces.UnusedUses"/>
+        <exclude name="SlevomatCodingStandard.PHP.ShortList"/>
+        <exclude name="SlevomatCodingStandard.PHP.UselessParentheses"/>
+        <exclude name="SlevomatCodingStandard.TypeHints.DeclareStrictTypes"/>
+        <exclude name="SlevomatCodingStandard.TypeHints.NullableTypeForNullDefaultValue"/>
+    </rule>
+
+    <rule ref="Generic.PHP.ForbiddenFunctions">
+        <exclude-pattern>libraries/classes/Config/FormDisplay.php</exclude-pattern>
+    </rule>
+
+    <rule ref="Squiz.Functions.GlobalFunction">
+        <exclude-pattern>examples/openid.php</exclude-pattern>
+        <exclude-pattern>examples/signon-script.php</exclude-pattern>
+    </rule>
+
+    <rule ref="SlevomatCodingStandard.Classes.UnusedPrivateElements.UnusedMethod">
+        <exclude-pattern>libraries/classes/Advisor.php</exclude-pattern>
+        <exclude-pattern>libraries/classes/Config/Form.php</exclude-pattern>
+        <exclude-pattern>libraries/classes/Config/ConfigFile.php</exclude-pattern>
+        <exclude-pattern>libraries/classes/DatabaseInterface.php</exclude-pattern>
+        <exclude-pattern>libraries/classes/Plugins/Export/ExportCodegen.php</exclude-pattern>
+    </rule>
 </ruleset>
