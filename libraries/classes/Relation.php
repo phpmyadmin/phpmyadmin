@@ -497,12 +497,6 @@ class Relation
 
     private function checkTableAccess(array $cfgRelation): array
     {
-        if (isset($cfgRelation['relation'])) {
-            if ($this->canAccessStorageTable($cfgRelation['relation'])) {
-                $cfgRelation['relwork']     = true;
-            }
-        }
-
         if (isset($cfgRelation['relation'], $cfgRelation['table_info'])) {
             if ($this->canAccessStorageTable($cfgRelation['table_info'])) {
                 $cfgRelation['displaywork'] = true;
@@ -526,48 +520,6 @@ class Relation
             }
         }
 
-        if (isset($cfgRelation['history'])) {
-            if ($this->canAccessStorageTable($cfgRelation['history'])) {
-                $cfgRelation['historywork']     = true;
-            }
-        }
-
-        if (isset($cfgRelation['recent'])) {
-            if ($this->canAccessStorageTable($cfgRelation['recent'])) {
-                $cfgRelation['recentwork']      = true;
-            }
-        }
-
-        if (isset($cfgRelation['favorite'])) {
-            if ($this->canAccessStorageTable($cfgRelation['favorite'])) {
-                $cfgRelation['favoritework']    = true;
-            }
-        }
-
-        if (isset($cfgRelation['table_uiprefs'])) {
-            if ($this->canAccessStorageTable($cfgRelation['table_uiprefs'])) {
-                $cfgRelation['uiprefswork']     = true;
-            }
-        }
-
-        if (isset($cfgRelation['tracking'])) {
-            if ($this->canAccessStorageTable($cfgRelation['tracking'])) {
-                $cfgRelation['trackingwork']     = true;
-            }
-        }
-
-        if (isset($cfgRelation['userconfig'])) {
-            if ($this->canAccessStorageTable($cfgRelation['userconfig'])) {
-                $cfgRelation['userconfigwork']   = true;
-            }
-        }
-
-        if (isset($cfgRelation['bookmark'])) {
-            if ($this->canAccessStorageTable($cfgRelation['bookmark'])) {
-                $cfgRelation['bookmarkwork']     = true;
-            }
-        }
-
         if (isset($cfgRelation['users'], $cfgRelation['usergroups'])) {
             if ($this->canAccessStorageTable($cfgRelation['users'])) {
                 if ($this->canAccessStorageTable($cfgRelation['usergroups'])) {
@@ -576,35 +528,30 @@ class Relation
             }
         }
 
-        if (isset($cfgRelation['navigationhiding'])) {
-            if ($this->canAccessStorageTable($cfgRelation['navigationhiding'])) {
-                $cfgRelation['navwork']          = true;
+        $settings = [
+            'export_templates' => 'exporttemplateswork',
+            'designer_settings' => 'designersettingswork',
+            'central_columns' => 'centralcolumnswork',
+            'savedsearches' => 'savedsearcheswork',
+            'navigationhiding' => 'navwork',
+            'bookmark' => 'bookmarkwork',
+            'userconfig' => 'userconfigwork',
+            'tracking' => 'trackingwork',
+            'table_uiprefs' => 'uiprefswork',
+            'favorite' => 'favoritework',
+            'recent' => 'recentwork',
+            'history' => 'historywork',
+            'relation' => 'relwork',
+        ];
+
+        foreach ($settings as $setingName => $worksKey) {
+            if (isset($cfgRelation[$setingName])) {
+                if ($this->canAccessStorageTable($cfgRelation[$setingName])) {
+                    $cfgRelation[$worksKey] = true;
+                }
             }
         }
 
-        if (isset($cfgRelation['savedsearches'])) {
-            if ($this->canAccessStorageTable($cfgRelation['savedsearches'])) {
-                $cfgRelation['savedsearcheswork']      = true;
-            }
-        }
-
-        if (isset($cfgRelation['central_columns'])) {
-            if ($this->canAccessStorageTable($cfgRelation['central_columns'])) {
-                $cfgRelation['centralcolumnswork']      = true;
-            }
-        }
-
-        if (isset($cfgRelation['designer_settings'])) {
-            if ($this->canAccessStorageTable($cfgRelation['designer_settings'])) {
-                $cfgRelation['designersettingswork']    = true;
-            }
-        }
-
-        if (isset($cfgRelation['export_templates'])) {
-            if ($this->canAccessStorageTable($cfgRelation['export_templates'])) {
-                $cfgRelation['exporttemplateswork']      = true;
-            }
-        }
         return $cfgRelation;
     }
 
