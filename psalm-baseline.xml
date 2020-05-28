@@ -304,13 +304,12 @@
     <PossiblyUndefinedArrayOffset occurrences="1">
       <code>$_FILES['import_file']</code>
     </PossiblyUndefinedArrayOffset>
-    <TypeDoesNotContainType occurrences="6">
+    <TypeDoesNotContainType occurrences="5">
       <code>$file_to_unlink != ''</code>
       <code>$bookmark_created</code>
       <code>$finished &amp;&amp; ! $error</code>
       <code>$timeout_passed</code>
       <code>$offset == 0 || (isset($original_skip) &amp;&amp; $original_skip == $offset)</code>
-      <code>$result</code>
     </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Controllers/Preferences/ExportController.php">
