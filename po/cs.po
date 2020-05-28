@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2020-05-24 20:41+0000\n"
+"PO-Revision-Date: 2020-05-29 20:41+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-9/cs/>"
 "\n"
@@ -772,8 +772,8 @@ msgid ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
-"Rozšíření mbstring pro PHP nebylo nalezeno a zdá se, že požíváte více "
-"bajtovou znakovou sadu. Bez rozšíření mbstring neumí phpMyAdmin správně "
+"Rozšíření mbstring pro PHP nebylo nalezeno a zdá se, že používáte "
+"vícebajtovou znakovou sadu. Bez rozšíření mbstring neumí phpMyAdmin správně "
 "rozdělovat řetězce a proto to může mít nečekané následky."
 
 #: index.php:528
@@ -2058,8 +2058,8 @@ msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
-"Poznámka: a,b -> d,f zahrnuje hodnoty sloupců a a b kombinaci dohromady může "
-"určit hodnoty sloupce d a sloupce f."
+"Poznámka: a,b -> d,f znamená, že kombinace hodnoty sloupce a s hodnotou "
+"sloupce b může určovat hodnoty sloupce d a sloupce f."
 
 #: js/messages.php:460
 msgid "No partial dependencies selected!"
@@ -3271,7 +3271,7 @@ msgstr "Znaková sada"
 
 #: libraries/classes/Charsets.php:339
 msgid "Unknown"
-msgstr "Neznámý"
+msgstr "Není známo"
 
 #: libraries/classes/Charsets.php:353
 msgctxt "Collation"
@@ -5277,7 +5277,7 @@ msgid ""
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host."
 msgstr ""
-"Jiný port pro připojení k serveru serveru, na kterém bude umístěno úložiště "
+"Jiný port pro připojení k serveru, na kterém bude umístěno úložiště "
 "nastavení phpMyAdmina; ponechte prázdné pro použití výchozího portu, nebo "
 "již nastaveného, pokud je nastaven stejný server jako pro připojení."
 
@@ -8364,7 +8364,7 @@ msgstr[2] "nalezeno %s výsledků"
 #: libraries/classes/Navigation/NavigationTree.php:1368
 #: libraries/classes/Navigation/NavigationTree.php:1400
 msgid "Type to filter these, Enter to search all"
-msgstr "Zadáním tohoto filtru, Enter pro vyhledání všeho"
+msgstr "Při psaní se filtrují zobrazené, Enter prohledá vše"
 
 #: libraries/classes/Navigation/NavigationTree.php:1370
 #: libraries/classes/Navigation/NavigationTree.php:1401
@@ -8973,7 +8973,7 @@ msgstr "Vyprázdnit"
 
 #: libraries/classes/Operations.php:1608
 msgid "Coalesce"
-msgstr "Splynout"
+msgstr "Spojit"
 
 #: libraries/classes/Operations.php:1617
 msgid "Partition maintenance"
@@ -16924,7 +16924,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.txt:280
 #, php-format
 msgid "Immediate table locks %%"
-msgstr "Okamžité zámky tabulky %%"
+msgstr "Procento okamžitého získání zámku tabulky"
 
 #: libraries/advisory_rules_generic.txt:283
 #: libraries/advisory_rules_generic.txt:290
