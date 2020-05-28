@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-05-15 22:48+0200\n"
-"PO-Revision-Date: 2020-05-23 23:32+0000\n"
+"PO-Revision-Date: 2020-05-29 20:41+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "cs/>\n"
@@ -1327,8 +1327,8 @@ msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
-"Poznámka: a,b -> d,f zahrnuje hodnoty sloupců a a b kombinaci dohromady může "
-"určit hodnoty sloupce d a sloupce f."
+"Poznámka: a,b -> d,f znamená, že kombinace hodnoty sloupce a s hodnotou "
+"sloupce b může určovat hodnoty sloupce d a sloupce f."
 
 #: js/messages.php:437
 msgid "No partial dependencies selected!"
@@ -2416,11 +2416,8 @@ msgid "A_I"
 msgstr "A_I"
 
 #: libraries/classes/Charsets/Collation.php:167
-#, fuzzy
-#| msgctxt "Collation"
-#| msgid "Unknown"
 msgid "Unknown"
-msgstr "neznámý"
+msgstr "Není známo"
 
 #: libraries/classes/Charsets/Collation.php:181
 msgctxt "Collation"
@@ -4492,7 +4489,7 @@ msgid ""
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host."
 msgstr ""
-"Jiný port pro připojení k serveru serveru, na kterém bude umístěno úložiště "
+"Jiný port pro připojení k serveru, na kterém bude umístěno úložiště "
 "nastavení phpMyAdmina; ponechte prázdné pro použití výchozího portu, nebo "
 "již nastaveného, pokud je nastaven stejný server jako pro připojení."
 
@@ -6037,8 +6034,8 @@ msgid ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
-"Rozšíření mbstring pro PHP nebylo nalezeno a zdá se, že požíváte více "
-"bajtovou znakovou sadu. Bez rozšíření mbstring neumí phpMyAdmin správně "
+"Rozšíření mbstring pro PHP nebylo nalezeno a zdá se, že používáte "
+"vícebajtovou znakovou sadu. Bez rozšíření mbstring neumí phpMyAdmin správně "
 "rozdělovat řetězce a proto to může mít nečekané následky."
 
 #: libraries/classes/Controllers/HomeController.php:377
@@ -9491,7 +9488,7 @@ msgstr[2] "nalezeno %s výsledků"
 #: libraries/classes/Navigation/NavigationTree.php:1405
 #: libraries/classes/Navigation/NavigationTree.php:1437
 msgid "Type to filter these, Enter to search all"
-msgstr ""
+msgstr "Při psaní se filtrují zobrazené, Enter prohledá vše"
 
 #: libraries/classes/Navigation/NavigationTree.php:1407
 #: libraries/classes/Navigation/NavigationTree.php:1438
@@ -9978,10 +9975,8 @@ msgid "Truncate"
 msgstr "Vyprázdnit"
 
 #: libraries/classes/Operations.php:693
-#, fuzzy
-#| msgid "Collapse"
 msgid "Coalesce"
-msgstr "Vyhledat první platný záznam"
+msgstr "Spojit"
 
 #: libraries/classes/Operations.php:1124
 msgid "Can't move table to same one!"
