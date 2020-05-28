@@ -31,10 +31,10 @@ class NodeTrans extends TransNode
      */
     public function __construct(
         Node $body,
-        Node $plural = null,
-        AbstractExpression $count = null,
-        Node $context = null,
-        Node $notes = null,
+        ?Node $plural = null,
+        ?AbstractExpression $count = null,
+        ?Node $context = null,
+        ?Node $notes = null,
         $lineno,
         $tag = null
     ) {
@@ -66,11 +66,11 @@ class NodeTrans extends TransNode
     {
         $compiler->addDebugInfo($this);
 
-        list($msg, $vars) = $this->compileString($this->getNode('body'));
+        [$msg, $vars] = $this->compileString($this->getNode('body'));
 
         $msg1 = null;
         if ($this->hasNode('plural')) {
-            list($msg1, $vars1) = $this->compileString($this->getNode('plural'));
+            [$msg1, $vars1] = $this->compileString($this->getNode('plural'));
 
             $vars = array_merge($vars, $vars1);
         }

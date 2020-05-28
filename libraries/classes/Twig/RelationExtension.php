@@ -21,6 +21,7 @@ class RelationExtension extends AbstractExtension
     public function getFunctions()
     {
         $relation = new Relation($GLOBALS['dbi']);
+
         return [
             new TwigFunction(
                 'foreign_dropdown',

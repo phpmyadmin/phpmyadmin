@@ -1016,6 +1016,7 @@ class Util
             $conditionValue = '= \''
                 . $GLOBALS['dbi']->escapeString($row) . '\'';
         }
+
         return [$conditionValue, $condition];
     }
 
@@ -1114,7 +1115,7 @@ class Util
             $condition = ' ' . $con_key . ' ';
 
             [$con_val, $condition] = self::getConditionValue(
-                (! isset($row[$i]) || $row[$i] === null) ? null : $row[$i],
+                ! isset($row[$i]) || $row[$i] === null ? null : $row[$i],
                 $meta,
                 $GLOBALS['dbi']->fieldFlags($handle, $i),
                 $fields_cnt,

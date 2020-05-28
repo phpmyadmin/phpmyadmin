@@ -538,6 +538,7 @@ class Response
      */
     public function header($text)
     {
+        // phpcs:ignore SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly
         header($text);
     }
 

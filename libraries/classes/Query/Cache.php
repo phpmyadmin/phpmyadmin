@@ -1,16 +1,19 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Query;
 
 use PhpMyAdmin\Util;
+use function array_shift;
+use function count;
+use function is_array;
 
 /**
  * Handles caching results
  */
 class Cache
 {
-
     /** @var array Table data cache */
     private $tableCache = [];
 

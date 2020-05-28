@@ -9,6 +9,8 @@
 
 declare(strict_types=1);
 
+// phpcs:disable Squiz.Functions.GlobalFunction
+
 /**
  * This function returns username and password.
  *

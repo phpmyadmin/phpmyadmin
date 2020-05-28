@@ -615,6 +615,7 @@ class FormDisplay
 
             // keep boolean value as boolean
             if (! is_bool($value)) {
+                // phpcs:ignore Generic.PHP.ForbiddenFunctions
                 settype($value, gettype($vk));
             }
 
@@ -699,12 +700,14 @@ class FormDisplay
                 switch ($type) {
                     case 'double':
                         $_POST[$key] = Util::requestString($_POST[$key]);
+                        // phpcs:ignore Generic.PHP.ForbiddenFunctions
                         settype($_POST[$key], 'float');
                         break;
                     case 'boolean':
                     case 'integer':
                         if ($_POST[$key] !== '') {
                             $_POST[$key] = Util::requestString($_POST[$key]);
+                            // phpcs:ignore Generic.PHP.ForbiddenFunctions
                             settype($_POST[$key], $type);
                         }
                         break;

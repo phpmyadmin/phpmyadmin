@@ -21,6 +21,7 @@ class TransformationsExtension extends AbstractExtension
     public function getFunctions()
     {
         $transformations = new Transformations();
+
         return [
             new TwigFunction(
                 'get_description',

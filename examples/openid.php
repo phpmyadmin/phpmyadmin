@@ -31,7 +31,7 @@ $AUTH_MAP = [
     ],
 ];
 
-// phpcs:disable PSR1.Files.SideEffects
+// phpcs:disable PSR1.Files.SideEffects,Squiz.Functions.GlobalFunction
 
 /**
  * Simple function to show HTML page with given content.

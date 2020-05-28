@@ -9,12 +9,11 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
+use PhpMyAdmin\Query\Cache;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
-use PhpMyAdmin\Query\Cache;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use stdClass;
-use ReflectionClass;
 
 /**
  * Tests behaviour of Table class
@@ -947,9 +946,7 @@ class TableTest extends AbstractTestCase
 
         $dbi->getCache()->cacheTableContent(
             ['PMA', 'PMA_BookMark'],
-            [
-                'ENGINE' => 'MERGE',
-            ]
+            ['ENGINE' => 'MERGE']
         );
 
         $tableObj = new Table('PMA_BookMark', 'PMA');
@@ -970,9 +967,7 @@ class TableTest extends AbstractTestCase
 
         $dbi->getCache()->cacheTableContent(
             ['PMA', 'PMA_BookMark'],
-            [
-                'ENGINE' => 'MRG_MYISAM',
-            ]
+            ['ENGINE' => 'MRG_MYISAM']
         );
 
         $tableObj = new Table('PMA_BookMark', 'PMA');

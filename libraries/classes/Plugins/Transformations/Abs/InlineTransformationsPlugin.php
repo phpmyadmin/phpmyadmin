@@ -11,6 +11,7 @@ use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Url;
 use stdClass;
 use function array_merge;
+use function defined;
 use function htmlspecialchars;
 
 /**

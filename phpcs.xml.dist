@@ -22,29 +22,7 @@
         <exclude name="SlevomatCodingStandard.Operators.DisallowEqualOperators"/>
         <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration"/>
 
-        <exclude name="Squiz.Arrays.ArrayDeclaration"/>
-        <exclude name="SlevomatCodingStandard.Classes.EmptyLinesAroundClassBraces"/>
-        <exclude name="SlevomatCodingStandard.Commenting.DocCommentSpacing.IncorrectLinesCountBetweenDescriptionAndAnnotations"/>
-        <exclude name="SlevomatCodingStandard.Commenting.InlineDocCommentDeclaration.InvalidFormat"/>
-        <exclude name="SlevomatCodingStandard.ControlStructures.ControlStructureSpacing"/>
         <exclude name="SlevomatCodingStandard.ControlStructures.EarlyExit"/>
-        <exclude name="SlevomatCodingStandard.Functions.StaticClosure"/>
-        <exclude name="SlevomatCodingStandard.Namespaces.AlphabeticallySortedUses"/>
-        <exclude name="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFallbackGlobalName"/>
-        <exclude name="SlevomatCodingStandard.Namespaces.UnusedUses"/>
-        <exclude name="SlevomatCodingStandard.PHP.ShortList"/>
-        <exclude name="SlevomatCodingStandard.PHP.UselessParentheses"/>
-        <exclude name="SlevomatCodingStandard.TypeHints.DeclareStrictTypes"/>
-        <exclude name="SlevomatCodingStandard.TypeHints.NullableTypeForNullDefaultValue"/>
-    </rule>
-
-    <rule ref="Generic.PHP.ForbiddenFunctions">
-        <exclude-pattern>libraries/classes/Config/FormDisplay.php</exclude-pattern>
-    </rule>
-
-    <rule ref="Squiz.Functions.GlobalFunction">
-        <exclude-pattern>examples/openid.php</exclude-pattern>
-        <exclude-pattern>examples/signon-script.php</exclude-pattern>
     </rule>
 
     <rule ref="SlevomatCodingStandard.Classes.UnusedPrivateElements.UnusedMethod">

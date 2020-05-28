@@ -95,6 +95,8 @@ class Plugins
      */
     public static function getPlugins($plugin_type, $plugins_dir, $plugin_param)
     {
+        global $skip_import;
+
         $GLOBALS['plugin_param'] = $plugin_param;
 
         $handle = @opendir($plugins_dir);
@@ -125,12 +127,12 @@ class Plugins
                 continue;
             }
 
-            /** @var bool */
-            $GLOBALS['skip_import'] = false;
+            /** @var bool $skip_import */
+            $skip_import = false;
 
             include_once $plugins_dir . $file;
 
-            if ($GLOBALS['skip_import']) {
+            if ($skip_import) {
                 continue;
             }
 

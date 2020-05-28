@@ -1,9 +1,12 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Query;
 
 use PhpMyAdmin\Util;
+use function implode;
+use function is_array;
 
 /**
  * Handles generating SQL queries

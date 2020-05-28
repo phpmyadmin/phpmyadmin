@@ -21,6 +21,7 @@ use function floatval;
 use function htmlspecialchars;
 use function ini_get;
 use function ini_set;
+use function str_repeat;
 use function str_replace;
 use function strlen;
 use function trim;
@@ -74,6 +75,7 @@ class UtilTest extends AbstractTestCase
 
     /**
      * Test for listPHPExtensions
+     *
      * @requires extension mysqli
      * @requires extension curl
      * @requires extension mbstring
