@@ -377,7 +377,7 @@ parameters:
 
 		-
 			message: "#^Elseif condition is always false\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/Controllers/ImportController.php
 
 		-
@@ -387,11 +387,6 @@ parameters:
 
 		-
 			message: "#^If condition is always false\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/ImportController.php
-
-		-
-			message: "#^Else branch is unreachable because previous condition is always true\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/ImportController.php
 

@@ -546,11 +546,15 @@ class Relation
         ];
 
         foreach ($settings as $setingName => $worksKey) {
-            if (isset($cfgRelation[$setingName])) {
-                if ($this->canAccessStorageTable($cfgRelation[$setingName])) {
-                    $cfgRelation[$worksKey] = true;
-                }
+            if (! isset($cfgRelation[$setingName])) {
+                continue;
             }
+
+            if (! $this->canAccessStorageTable($cfgRelation[$setingName])) {
+                continue;
+            }
+
+            $cfgRelation[$worksKey] = true;
         }
 
         return $cfgRelation;

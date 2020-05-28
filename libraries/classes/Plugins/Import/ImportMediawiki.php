@@ -195,7 +195,9 @@ class ImportMediawiki extends ImportPlugin
                         }
                     }
                     continue;
-                } elseif (preg_match('/^\{\|(.*)$/', $cur_buffer_line, $matches)) {
+                }
+
+                if (preg_match('/^\{\|(.*)$/', $cur_buffer_line, $matches)) {
                     // Check start of table
 
                     // This will store all the column info on all rows from

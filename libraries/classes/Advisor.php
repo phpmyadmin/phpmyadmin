@@ -646,7 +646,9 @@ class Advisor
                     );
                 }
                 continue;
-            } elseif ($ruleLine == -1) {
+            }
+
+            if ($ruleLine == -1) {
                 $errors[] = sprintf(
                     __('Unexpected characters on line %s.'),
                     $i + 1

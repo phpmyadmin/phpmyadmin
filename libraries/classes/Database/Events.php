@@ -561,22 +561,22 @@ class Events
                 unset($_POST);
             }
             exit;
-        } else {
-            $message  = __('Error in processing request:') . ' ';
-            $message .= sprintf(
-                __('No event with name %1$s found in database %2$s.'),
-                htmlspecialchars(Util::backquote($_REQUEST['item_name'])),
-                htmlspecialchars(Util::backquote($db))
-            );
-            $message = Message::error($message);
-            if ($this->response->isAjax()) {
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', $message);
-                exit;
-            }
-
-            $message->display();
         }
+
+        $message  = __('Error in processing request:') . ' ';
+        $message .= sprintf(
+            __('No event with name %1$s found in database %2$s.'),
+            htmlspecialchars(Util::backquote($_REQUEST['item_name'])),
+            htmlspecialchars(Util::backquote($db))
+        );
+        $message = Message::error($message);
+        if ($this->response->isAjax()) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', $message);
+            exit;
+        }
+
+        $message->display();
     }
 
     public function export(): void

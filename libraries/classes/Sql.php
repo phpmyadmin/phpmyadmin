@@ -658,16 +658,16 @@ class Sql
                 $response->addJSON('message', $msg);
             }
             exit;
-        } else {
-            // go back to /sql to redisplay query; do not use &amp; in this case:
-            /**
-             * @todo In which scenario does this happen?
-             */
-            Core::sendHeaderLocation(
-                './' . $goto
-                . '&label=' . $_POST['bkm_fields']['bkm_label']
-            );
         }
+
+        // go back to /sql to redisplay query; do not use &amp; in this case:
+        /**
+         * @todo In which scenario does this happen?
+         */
+        Core::sendHeaderLocation(
+            './' . $goto
+            . '&label=' . $_POST['bkm_fields']['bkm_label']
+        );
     }
 
     /**

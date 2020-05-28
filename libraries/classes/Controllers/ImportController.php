@@ -357,8 +357,10 @@ final class ImportController extends AbstractController
         $charset_conversion = false;
         $reset_charset = false;
         $bookmark_created = false;
-        $result = false;
         $msg = 'Sorry an unexpected error happened!';
+
+        /** @var mixed|bool $result */
+        $result = false;
 
         // Bookmark Support: get a query back from bookmark if required
         if (! empty($_POST['id_bookmark'])) {
@@ -806,7 +808,9 @@ final class ImportController extends AbstractController
             $this->response->addHTML($html_output);
 
             return;
-        } elseif ($result) {
+        }
+
+        if ($result) {
             // Save a Bookmark with more than one queries (if Bookmark label given).
             if (! empty($_POST['bkm_label']) && ! empty($import_text)) {
                 $cfgBookmark = Bookmark::getParams($cfg['Server']['user']);

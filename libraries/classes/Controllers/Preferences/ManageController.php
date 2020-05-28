@@ -219,9 +219,9 @@ class ManageController extends AbstractController
                     $this->userPreferences->redirect($return_url ?? '', $params);
 
                     return;
-                } else {
-                    $error = $result;
                 }
+
+                $error = $result;
             }
         } elseif (isset($_POST['submit_clear'])) {
             $result = $this->userPreferences->save([]);

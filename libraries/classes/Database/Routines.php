@@ -199,28 +199,28 @@ class Routines
                 echo "\n\n<h2>" . $title . "</h2>\n\n" . $editor;
             }
             exit;
-        } else {
-            $message  = __('Error in processing request:') . ' ';
-            $message .= sprintf(
-                __(
-                    'No routine with name %1$s found in database %2$s. '
-                    . 'You might be lacking the necessary privileges to edit this routine.'
-                ),
-                htmlspecialchars(
-                    Util::backquote($_REQUEST['item_name'])
-                ),
-                htmlspecialchars(Util::backquote($db))
-            );
-
-            $message = Message::error($message);
-            if ($this->response->isAjax()) {
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', $message);
-                exit;
-            }
-
-            $message->display();
         }
+
+        $message  = __('Error in processing request:') . ' ';
+        $message .= sprintf(
+            __(
+                'No routine with name %1$s found in database %2$s. '
+                . 'You might be lacking the necessary privileges to edit this routine.'
+            ),
+            htmlspecialchars(
+                Util::backquote($_REQUEST['item_name'])
+            ),
+            htmlspecialchars(Util::backquote($db))
+        );
+
+        $message = Message::error($message);
+        if ($this->response->isAjax()) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', $message);
+            exit;
+        }
+
+        $message->display();
     }
 
     /**
@@ -1623,7 +1623,9 @@ class Routines
                     echo $form;
                 }
                 exit;
-            } elseif ($this->response->isAjax()) {
+            }
+
+            if ($this->response->isAjax()) {
                 $message  = __('Error in processing request:') . ' ';
                 $message .= sprintf(
                     __('No routine with name %1$s found in database %2$s.'),

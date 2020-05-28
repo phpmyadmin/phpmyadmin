@@ -591,7 +591,9 @@ class StructureController extends AbstractController
                 ]);
             }
             exit;
-        } elseif (! empty($mult_btn) && $mult_btn == __('Yes')) {
+        }
+
+        if (! empty($mult_btn) && $mult_btn == __('Yes')) {
             $default_fk_check_value = false;
             if ($query_type == 'drop_tbl' || $query_type == 'empty_tbl') {
                 $default_fk_check_value = Util::handleDisableFKCheckInit();
