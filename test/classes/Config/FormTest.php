@@ -138,14 +138,14 @@ class FormTest extends AbstractTestCase
     }
 
     /**
-     * Test for Form::_readFormPathsCallback
+     * Test for Form::readFormPathsCallback
      *
      * @return void
      */
     public function testReadFormPathsCallBack()
     {
         $reflection = new ReflectionClass(Form::class);
-        $method = $reflection->getMethod('_readFormPathsCallback');
+        $method = $reflection->getMethod('readFormPathsCallback');
         $method->setAccessible(true);
 
         $array = [

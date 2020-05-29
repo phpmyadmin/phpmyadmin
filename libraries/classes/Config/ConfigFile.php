@@ -81,7 +81,7 @@ class ConfigFile
     private $_id;
 
     /**
-     * Result for {@link _flattenArray()}
+     * Result for {@link flattenArray()}
      *
      * @var array|null
      */
@@ -266,12 +266,18 @@ class ConfigFile
      *
      * @return void
      */
-    private function _flattenArray($value, $key, $prefix)
+    private function flattenArray($value, $key, $prefix)
     {
         // no recursion for numeric arrays
         if (is_array($value) && ! isset($value[0])) {
             $prefix .= $key . '/';
-            array_walk($value, [$this, '_flattenArray'], $prefix);
+            array_walk(
+                $value,
+                function ($value, $key, $prefix) {
+                    $this->flattenArray($value, $key, $prefix);
+                },
+                $prefix
+            );
         } else {
             $this->_flattenArrayResult[$prefix . $key] = $value;
         }
@@ -285,7 +291,13 @@ class ConfigFile
     public function getFlatDefaultConfig()
     {
         $this->_flattenArrayResult = [];
-        array_walk($this->_defaultCfg, [$this, '_flattenArray'], '');
+        array_walk(
+            $this->_defaultCfg,
+            function ($value, $key, $prefix) {
+                $this->flattenArray($value, $key, $prefix);
+            },
+            ''
+        );
         $flatConfig = $this->_flattenArrayResult;
         $this->_flattenArrayResult = null;
 
@@ -304,7 +316,13 @@ class ConfigFile
     {
         // load config array and flatten it
         $this->_flattenArrayResult = [];
-        array_walk($cfg, [$this, '_flattenArray'], '');
+        array_walk(
+            $cfg,
+            function ($value, $key, $prefix) {
+                $this->flattenArray($value, $key, $prefix);
+            },
+            ''
+        );
         $flatConfig = $this->_flattenArrayResult;
         $this->_flattenArrayResult = null;
 
@@ -528,7 +546,13 @@ class ConfigFile
     public function getConfigArray()
     {
         $this->_flattenArrayResult = [];
-        array_walk($_SESSION[$this->_id], [$this, '_flattenArray'], '');
+        array_walk(
+            $_SESSION[$this->_id],
+            function ($value, $key, $prefix) {
+                $this->flattenArray($value, $key, $prefix);
+            },
+            ''
+        );
         $c = $this->_flattenArrayResult;
         $this->_flattenArrayResult = null;
 

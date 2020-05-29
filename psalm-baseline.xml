@@ -103,12 +103,34 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Config/ConfigFile.php">
+    <MissingClosureParamType occurrences="12">
+      <code>$value</code>
+      <code>$key</code>
+      <code>$prefix</code>
+      <code>$value</code>
+      <code>$key</code>
+      <code>$prefix</code>
+      <code>$value</code>
+      <code>$key</code>
+      <code>$prefix</code>
+      <code>$value</code>
+      <code>$key</code>
+      <code>$prefix</code>
+    </MissingClosureParamType>
     <PossiblyNullArgument occurrences="2">
       <code>$this-&gt;_baseCfg</code>
       <code>$cfg</code>
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Config/Form.php">
+    <MissingClosureParamType occurrences="6">
+      <code>$value</code>
+      <code>$key</code>
+      <code>$prefix</code>
+      <code>$value</code>
+      <code>$key</code>
+      <code>$prefix</code>
+    </MissingClosureParamType>
     <PossiblyNullPropertyAssignmentValue occurrences="1">
       <code>$index</code>
     </PossiblyNullPropertyAssignmentValue>
@@ -766,6 +788,10 @@
     <InvalidReturnType occurrences="1">
       <code>int|bool</code>
     </InvalidReturnType>
+    <MissingClosureParamType occurrences="2">
+      <code>$a</code>
+      <code>$b</code>
+    </MissingClosureParamType>
     <PossiblyInvalidArgument occurrences="1">
       <code>$table</code>
     </PossiblyInvalidArgument>

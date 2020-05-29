@@ -870,10 +870,9 @@ class DatabaseInterface implements DbalInterface
             $GLOBALS['callback_sort_by'] = $sort_by;
             usort(
                 $databases,
-                [
-                    self::class,
-                    '_usortComparisonCallback',
-                ]
+                static function ($a, $b) {
+                    return self::usortComparisonCallback($a, $b);
+                }
             );
             unset($GLOBALS['callback_sort_order'], $GLOBALS['callback_sort_by']);
 
@@ -899,7 +898,7 @@ class DatabaseInterface implements DbalInterface
      *
      * @access private
      */
-    private static function _usortComparisonCallback($a, $b): int
+    private static function usortComparisonCallback($a, $b): int
     {
         if ($GLOBALS['cfg']['NaturalOrder']) {
             $sorter = 'strnatcasecmp';

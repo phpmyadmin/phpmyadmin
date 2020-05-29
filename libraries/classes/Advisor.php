@@ -485,20 +485,18 @@ class Advisor
                 // linking to /server/variables
                 $rule['recommendation'] = preg_replace_callback(
                     '/\{([a-z_0-9]+)\}/Ui',
-                    [
-                        $this,
-                        'replaceVariable',
-                    ],
+                    function (array $matches) {
+                        return $this->replaceVariable($matches);
+                    },
                     $this->translate($rule['recommendation'])
                 );
 
                 // Replaces external Links with Core::linkURL() generated links
                 $rule['recommendation'] = preg_replace_callback(
                     '#href=("|\')(https?://[^\1]+)\1#i',
-                    [
-                        $this,
-                        'replaceLinkURL',
-                    ],
+                    function (array $matches) {
+                        return $this->replaceLinkURL($matches);
+                    },
                     $rule['recommendation']
                 );
                 break;

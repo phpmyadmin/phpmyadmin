@@ -175,11 +175,17 @@ class Form
      *
      * @return void
      */
-    private function _readFormPathsCallback($value, $key, $prefix)
+    private function readFormPathsCallback($value, $key, $prefix)
     {
         if (is_array($value)) {
             $prefix .= $key . '/';
-            array_walk($value, [$this, '_readFormPathsCallback'], $prefix);
+            array_walk(
+                $value,
+                function ($value, $key, $prefix) {
+                    $this->readFormPathsCallback($value, $key, $prefix);
+                },
+                $prefix
+            );
 
             return;
         }
@@ -214,7 +220,13 @@ class Form
     {
         // flatten form fields' paths and save them to $fields
         $this->fields = [];
-        array_walk($form, [$this, '_readFormPathsCallback'], '');
+        array_walk(
+            $form,
+            function ($value, $key, $prefix) {
+                $this->readFormPathsCallback($value, $key, $prefix);
+            },
+            ''
+        );
 
         // $this->fields is an array of the form: [0..n] => 'field path'
         // change numeric indexes to contain field names (last part of the path)

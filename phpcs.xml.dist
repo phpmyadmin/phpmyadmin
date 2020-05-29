@@ -25,10 +25,6 @@
     </rule>
 
     <rule ref="SlevomatCodingStandard.Classes.UnusedPrivateElements.UnusedMethod">
-        <exclude-pattern>libraries/classes/Advisor.php</exclude-pattern>
-        <exclude-pattern>libraries/classes/Config/Form.php</exclude-pattern>
-        <exclude-pattern>libraries/classes/Config/ConfigFile.php</exclude-pattern>
-        <exclude-pattern>libraries/classes/DatabaseInterface.php</exclude-pattern>
         <exclude-pattern>libraries/classes/Plugins/Export/ExportCodegen.php</exclude-pattern>
     </rule>
 </ruleset>
