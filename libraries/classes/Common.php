@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Query\Utilities;
 use function explode;
 use function strlen;
 use function strpos;
@@ -59,7 +60,7 @@ final class Common
         $response = Response::getInstance();
         $is_show_stats = $cfg['ShowStats'];
 
-        $db_is_system_schema = $dbi->isSystemSchema($db);
+        $db_is_system_schema = Utilities::isSystemSchema($db);
         if ($db_is_system_schema) {
             $is_show_stats = false;
         }
@@ -192,7 +193,7 @@ final class Common
 
         Util::checkParameters(['db', 'table']);
 
-        $db_is_system_schema = $dbi->isSystemSchema($db);
+        $db_is_system_schema = Utilities::isSystemSchema($db);
 
         /**
          * Set parameters for links

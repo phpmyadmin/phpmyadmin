@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Query\Utilities;
 use function array_key_exists;
 use function count;
 use function in_array;
@@ -261,7 +262,7 @@ class Menu
         /** @var DatabaseInterface $dbi */
         global $route, $dbi;
 
-        $db_is_system_schema = $dbi->isSystemSchema($this->_db);
+        $db_is_system_schema = Utilities::isSystemSchema($this->_db);
         $tbl_is_view = $dbi->getTable($this->_db, $this->_table)
             ->isView();
         $updatable_view = false;
@@ -389,7 +390,7 @@ class Menu
         /** @var DatabaseInterface $dbi */
         global $route, $dbi;
 
-        $db_is_system_schema = $dbi->isSystemSchema($this->_db);
+        $db_is_system_schema = Utilities::isSystemSchema($this->_db);
         $num_tables = count($dbi->getTables($this->_db));
         $is_superuser = $dbi->isSuperuser();
         $isCreateOrGrantUser = $dbi->isUserType('grant')

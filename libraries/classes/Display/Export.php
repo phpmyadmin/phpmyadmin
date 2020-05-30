@@ -14,6 +14,7 @@ use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportPlugin;
+use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
@@ -79,7 +80,7 @@ class Export
 
         $databases = [];
         foreach ($GLOBALS['dblist']->databases as $currentDb) {
-            if ($GLOBALS['dbi']->isSystemSchema($currentDb, true)) {
+            if (Utilities::isSystemSchema($currentDb, true)) {
                 continue;
             }
             $isSelected = false;

@@ -10,6 +10,7 @@ namespace PhpMyAdmin;
 use Closure;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Token;
 use phpseclib\Crypt\Random;
@@ -293,7 +294,7 @@ class Util
             // set this because Table::countRecords() can use it
             $tbl_is_view = $table['TABLE_TYPE'] == 'VIEW';
 
-            if ($tbl_is_view || $GLOBALS['dbi']->isSystemSchema($db)) {
+            if ($tbl_is_view || Utilities::isSystemSchema($db)) {
                 $rowCount = $GLOBALS['dbi']
                     ->getTable($db, $table['Name'])
                     ->countRecords();
@@ -2728,7 +2729,7 @@ class Util
          */
         $db_is_system_schema = false;
 
-        if ($GLOBALS['dbi']->isSystemSchema($db)) {
+        if (Utilities::isSystemSchema($db)) {
             $is_show_stats = false;
             $db_is_system_schema = true;
         }

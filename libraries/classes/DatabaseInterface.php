@@ -16,6 +16,7 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Query\Cache;
 use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
+use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SqlParser\Context;
 use const E_USER_WARNING;
 use const LOG_INFO;
@@ -2157,50 +2158,6 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * Get the list of system schemas
-     *
-     * @return array list of system schemas
-     */
-    public function getSystemSchemas(): array
-    {
-        $schemas = [
-            'information_schema',
-            'performance_schema',
-            'mysql',
-            'sys',
-        ];
-        $systemSchemas = [];
-        foreach ($schemas as $schema) {
-            if (! $this->isSystemSchema($schema, true)) {
-                continue;
-            }
-
-            $systemSchemas[] = $schema;
-        }
-
-        return $systemSchemas;
-    }
-
-    /**
-     * Checks whether given schema is a system schema
-     *
-     * @param string $schema_name        Name of schema (database) to test
-     * @param bool   $testForMysqlSchema Whether 'mysql' schema should
-     *                                   be treated the same as IS and DD
-     */
-    public function isSystemSchema(
-        string $schema_name,
-        bool $testForMysqlSchema = false
-    ): bool {
-        $schema_name = strtolower($schema_name);
-
-        return $schema_name == 'information_schema'
-            || $schema_name == 'performance_schema'
-            || ($schema_name == 'mysql' && $testForMysqlSchema)
-            || $schema_name == 'sys';
-    }
-
-    /**
      * Return connection parameters for the database server
      *
      * @param int        $mode   Connection mode on of CONNECT_USER, CONNECT_CONTROL
@@ -2774,7 +2731,7 @@ class DatabaseInterface implements DbalInterface
      */
     public function getDbCollation(string $db): string
     {
-        if ($this->isSystemSchema($db)) {
+        if (Utilities::isSystemSchema($db)) {
             // We don't have to check the collation of the virtual
             // information_schema database: We know it!
             return 'utf8_general_ci';

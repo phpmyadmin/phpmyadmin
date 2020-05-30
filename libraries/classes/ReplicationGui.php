@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Query\Utilities;
 use function htmlspecialchars;
 use function in_array;
 use function is_array;
@@ -204,7 +205,7 @@ class ReplicationGui
     {
         $databases = [];
         foreach ($GLOBALS['dblist']->databases as $database) {
-            if ($GLOBALS['dbi']->isSystemSchema($database)) {
+            if (Utilities::isSystemSchema($database)) {
                 continue;
             }
 

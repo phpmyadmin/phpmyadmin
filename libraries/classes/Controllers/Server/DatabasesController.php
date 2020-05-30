@@ -16,6 +16,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\Response;
@@ -438,7 +439,7 @@ class DatabasesController extends AbstractController
                 'collation' => [],
                 'statistics' => $statistics,
                 'replication' => $replication,
-                'is_system_schema' => $this->dbi->isSystemSchema(
+                'is_system_schema' => Utilities::isSystemSchema(
                     $database['SCHEMA_NAME'],
                     true
                 ),

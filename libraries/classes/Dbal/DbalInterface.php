@@ -545,23 +545,6 @@ interface DbalInterface
     public function getLowerCaseNames();
 
     /**
-     * Get the list of system schemas
-     *
-     * @return array list of system schemas
-     */
-    public function getSystemSchemas(): array;
-
-    /**
-     * Checks whether given schema is a system schema
-     *
-     * @param string $schema_name        Name of schema (database) to test
-     * @param bool   $testForMysqlSchema Whether 'mysql' schema should
-     *                                   be treated the same as IS and
-     *                                   DD
-     */
-    public function isSystemSchema(string $schema_name, bool $testForMysqlSchema = false): bool;
-
-    /**
      * Return connection parameters for the database server
      *
      * @param int        $mode   Connection mode on of CONNECT_USER, CONNECT_CONTROL

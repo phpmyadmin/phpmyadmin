@@ -10,6 +10,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Display\Results as DisplayResults;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SqlParser\Statements\AlterStatement;
 use PhpMyAdmin\SqlParser\Statements\DropStatement;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
@@ -1605,7 +1606,7 @@ class Sql
     private function getMessageIfMissingColumnIndex($table, $database, $editable, $hasUniqueKey): string
     {
         $output = '';
-        if (! empty($table) && ($GLOBALS['dbi']->isSystemSchema($database) || ! $editable)) {
+        if (! empty($table) && (Utilities::isSystemSchema($database) || ! $editable)) {
             $output = Message::notice(
                 sprintf(
                     __(
@@ -1789,7 +1790,7 @@ class Sql
             'pview_lnk' => '1',
         ];
 
-        if ($GLOBALS['dbi']->isSystemSchema($db) || ! $editable) {
+        if (Utilities::isSystemSchema($db) || ! $editable) {
             $displayParts = [
                 'edit_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
                 'del_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,

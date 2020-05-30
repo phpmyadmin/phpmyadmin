@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Query\Utilities;
 use function mb_strpos;
 use function mb_substr;
 use function preg_match;
@@ -206,7 +207,7 @@ class CheckUserPrivileges
         $GLOBALS['is_reload_priv'] = false;
         $GLOBALS['db_to_create'] = '';
         $GLOBALS['dbs_where_create_table_allowed'] = [];
-        $GLOBALS['dbs_to_test'] = $this->dbi->getSystemSchemas();
+        $GLOBALS['dbs_to_test'] = Utilities::getSystemSchemas();
         $GLOBALS['proc_priv'] = false;
         $GLOBALS['db_priv'] = false;
         $GLOBALS['col_priv'] = false;

@@ -251,9 +251,6 @@ class TableTest extends AbstractTestCase
         $dbi->expects($this->any())->method('getTablesFull')
             ->will($this->returnValue($databases));
 
-        $dbi->expects($this->any())->method('isSystemSchema')
-            ->will($this->returnValue(false));
-
         $dbi->expects($this->any())->method('numRows')
             ->will($this->returnValue(20));
 
