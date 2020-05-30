@@ -64,23 +64,12 @@ class ExportCodegenTest extends AbstractTestCase
         $attrCgFormats = new ReflectionProperty(ExportCodegen::class, '_cgFormats');
         $attrCgFormats->setAccessible(true);
 
-        $attrCgHandlers = new ReflectionProperty(ExportCodegen::class, '_cgHandlers');
-        $attrCgHandlers->setAccessible(true);
-
         $this->assertEquals(
             [
                 'NHibernate C# DO',
                 'NHibernate XML',
             ],
             $attrCgFormats->getValue($this->object)
-        );
-
-        $this->assertEquals(
-            [
-                '_handleNHibernateCSBody',
-                '_handleNHibernateXMLBody',
-            ],
-            $attrCgHandlers->getValue($this->object)
         );
     }
 
@@ -325,7 +314,7 @@ class ExportCodegenTest extends AbstractTestCase
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportCodegen::_handleNHibernateCSBody
+     * Test for PhpMyAdmin\Plugins\Export\ExportCodegen::handleNHibernateCSBody
      *
      * @return void
      */
@@ -351,7 +340,7 @@ class ExportCodegenTest extends AbstractTestCase
             ->will($this->returnValue(null));
 
         $GLOBALS['dbi'] = $dbi;
-        $method = new ReflectionMethod(ExportCodegen::class, '_handleNHibernateCSBody');
+        $method = new ReflectionMethod(ExportCodegen::class, 'handleNHibernateCSBody');
         $method->setAccessible(true);
         $result = $method->invoke($this->object, 'db', 'table', "\n");
 
@@ -390,7 +379,7 @@ class ExportCodegenTest extends AbstractTestCase
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportCodegen::_handleNHibernateXMLBody
+     * Test for PhpMyAdmin\Plugins\Export\ExportCodegen::handleNHibernateXMLBody
      *
      * @return void
      */
@@ -421,7 +410,7 @@ class ExportCodegenTest extends AbstractTestCase
             ->will($this->returnValue(null));
 
         $GLOBALS['dbi'] = $dbi;
-        $method = new ReflectionMethod(ExportCodegen::class, '_handleNHibernateXMLBody');
+        $method = new ReflectionMethod(ExportCodegen::class, 'handleNHibernateXMLBody');
         $method->setAccessible(true);
         $result = $method->invoke($this->object, 'db', 'table', "\n");
 
@@ -457,34 +446,6 @@ class ExportCodegenTest extends AbstractTestCase
 
         $getter = $reflection->getMethod('_getCgFormats');
         $setter = $reflection->getMethod('_setCgFormats');
-
-        $getter->setAccessible(true);
-        $setter->setAccessible(true);
-
-        $setter->invoke($this->object, [1, 2]);
-
-        $this->assertEquals(
-            [
-                1,
-                2,
-            ],
-            $getter->invoke($this->object)
-        );
-    }
-
-    /**
-     * Test for
-     *     - PhpMyAdmin\Plugins\Export\ExportCodegen::_getCgHandlers
-     *     - PhpMyAdmin\Plugins\Export\ExportCodegen::_setCgHandlers
-     *
-     * @return void
-     */
-    public function testSetGetCgHandlers()
-    {
-        $reflection = new ReflectionClass(ExportCodegen::class);
-
-        $getter = $reflection->getMethod('_getCgHandlers');
-        $setter = $reflection->getMethod('_setCgHandlers');
 
         $getter->setAccessible(true);
         $setter->setAccessible(true);

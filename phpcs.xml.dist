@@ -23,8 +23,4 @@
         <exclude name="SlevomatCodingStandard.Operators.DisallowEqualOperators"/>
         <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration"/>
     </rule>
-
-    <rule ref="SlevomatCodingStandard.Classes.UnusedPrivateElements.UnusedMethod">
-        <exclude-pattern>libraries/classes/Plugins/Export/ExportCodegen.php</exclude-pattern>
-    </rule>
 </ruleset>
