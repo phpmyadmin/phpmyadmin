@@ -1026,15 +1026,13 @@ class NavigationTree
         $retval = '';
         $paths = $node->getPaths();
         if (isset($paths['aPath_clean'][2])) {
-            $retval .= "<span class='hide pos2_name'>";
-            $retval .= $paths['aPath_clean'][2];
-            $retval .= '</span>';
-            $retval .= "<span class='hide pos2_value'>";
-            $retval .= htmlspecialchars((string) $node->pos2);
-            $retval .= '</span>';
+            $retval .= '<span class="hide pos2_nav"';
+            $retval .= ' data-name="' . $paths['aPath_clean'][2] . '"';
+            $retval .= ' data-value="' . htmlspecialchars((string) $node->pos2) . '"';
+            $retval .= '"></span>';
         }
         if (isset($paths['aPath_clean'][4])) {
-            $retval .= "<span class='hide pos3_name'>";
+            $retval .= '<span class="hide pos3_name">';
             $retval .= $paths['aPath_clean'][4];
             $retval .= '</span>';
             $retval .= "<span class='hide pos3_value'>";

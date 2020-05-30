@@ -133,12 +133,13 @@ Navigation.loadChildNodes = function (isNode, $expandElem, callback) {
             return;
         }
         $destination = $expandElem.closest('li');
+        var pos2Name = $expandElem.find('span.pos2_nav');
         params = {
             'aPath': $expandElem.find('span.aPath').text(),
             'vPath': $expandElem.find('span.vPath').text(),
             'pos': $expandElem.find('span.pos').text(),
-            'pos2_name': $expandElem.find('span.pos2_name').text(),
-            'pos2_value': $expandElem.find('span.pos2_value').text(),
+            'pos2_name': pos2Name.attr('data-name'),
+            'pos2_value': pos2Name.attr('data-value'),
             'searchClause': '',
             'searchClause2': ''
         };
@@ -245,25 +246,17 @@ Navigation.traverseForPaths = function () {
             params['n' + count + '_aPath'] = $(this).find('span.aPath').text();
             params['n' + count + '_vPath'] = $(this).find('span.vPath').text();
 
-            var pos2Name = $(this).find('span.pos2_name').text();
-            if (! pos2Name) {
-                pos2Name = $(this)
+            var pos2Nav = $(this).find('span.pos2_nav');
+
+            if (pos2Nav.length === 0) {
+                pos2Nav = $(this)
                     .parent()
                     .parent()
-                    .find('span.pos2_name').last()
-                    .text();
-            }
-            var pos2Value = $(this).find('span.pos2_value').text();
-            if (! pos2Value) {
-                pos2Value = $(this)
-                    .parent()
-                    .parent()
-                    .find('span.pos2_value').last()
-                    .text();
+                    .find('span.pos2_nav').last();
             }
 
-            params['n' + count + '_pos2_name'] = pos2Name;
-            params['n' + count + '_pos2_value'] = pos2Value;
+            params['n' + count + '_pos2_name'] = pos2Nav.attr('data-name');
+            params['n' + count + '_pos2_value'] = pos2Nav.attr('data-value');
 
             params['n' + count + '_pos3_name'] = $(this).find('span.pos3_name').text();
             params['n' + count + '_pos3_value'] = $(this).find('span.pos3_value').text();
