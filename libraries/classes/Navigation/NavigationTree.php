@@ -145,11 +145,11 @@ class NavigationTree
         // Get the active node
         if (isset($_REQUEST['aPath'])) {
             $this->aPath[0] = $this->parsePath($_REQUEST['aPath']);
-            $this->pos2Name[0] = $_REQUEST['pos2_name'];
-            $this->pos2Value[0] = (int) $_REQUEST['pos2_value'];
+            $this->pos2Name[0] = $_REQUEST['pos2_name'] ?? '';
+            $this->pos2Value[0] = (int) $_REQUEST['pos2_value'] ?? 0;
             if (isset($_REQUEST['pos3_name'])) {
-                $this->pos3Name[0] = $_REQUEST['pos3_name'];
-                $this->pos3Value[0] = $_REQUEST['pos3_value'];
+                $this->pos3Name[0] = $_REQUEST['pos3_name'] ?? '';
+                $this->pos3Value[0] = (int) $_REQUEST['pos3_value'] ?? 0;
             }
         } else {
             if (isset($_POST['n0_aPath'])) {
