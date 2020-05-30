@@ -258,8 +258,10 @@ Navigation.traverseForPaths = function () {
             params['n' + count + '_pos2_name'] = pos2Nav.attr('data-name');
             params['n' + count + '_pos2_value'] = pos2Nav.attr('data-value');
 
-            params['n' + count + '_pos3_name'] = $(this).find('span.pos3_name').text();
-            params['n' + count + '_pos3_value'] = $(this).find('span.pos3_value').text();
+            var pos3Nav = $(this).find('span.pos3_nav');
+
+            params['n' + count + '_pos3_name'] = pos3Nav.attr('data-name');
+            params['n' + count + '_pos3_value'] = pos3Nav.attr('data-value');
             count++;
         }
     });
