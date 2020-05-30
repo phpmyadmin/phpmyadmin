@@ -78,7 +78,7 @@ class ZoomSearchController extends AbstractController
         $this->_columnNullFlags = [];
         $this->_geomColumnFlag = false;
         $this->_foreigners = [];
-        $this->_loadTableInfo();
+        $this->loadTableInfo();
     }
 
     public function index(): void
@@ -160,7 +160,7 @@ class ZoomSearchController extends AbstractController
      * Gets all the columns of a table along with their types, collations
      * and whether null or not.
      */
-    private function _loadTableInfo(): void
+    private function loadTableInfo(): void
     {
         // Gets the list and number of columns
         $columns = $this->dbi->getColumns(

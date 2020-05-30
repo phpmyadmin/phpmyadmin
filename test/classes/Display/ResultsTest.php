@@ -72,7 +72,7 @@ class ResultsTest extends AbstractTestCase
     }
 
     /**
-     * Test for _isSelect function
+     * Test for isSelect function
      *
      * @return void
      */
@@ -83,7 +83,7 @@ class ResultsTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 DisplayResults::class,
-                '_isSelect',
+                'isSelect',
                 [
                     [
                         'statement' => $parser->statements[0],
@@ -118,7 +118,7 @@ class ResultsTest extends AbstractTestCase
         $actual = $this->callFunction(
             $this->object,
             DisplayResults::class,
-            '_getTableNavigationButton',
+            'getTableNavigationButton',
             [
                 &$caption,
                 $title,
@@ -204,7 +204,7 @@ class ResultsTest extends AbstractTestCase
     }
 
     /**
-     * Test for _getClassesForColumn
+     * Test for getClassesForColumn
      *
      * @param string $grid_edit_class  the class for all editable columns
      * @param string $not_null_class   the class for not null columns
@@ -233,7 +233,7 @@ class ResultsTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 DisplayResults::class,
-                '_getClassesForColumn',
+                'getClassesForColumn',
                 [
                     $grid_edit_class,
                     $not_null_class,
@@ -246,7 +246,7 @@ class ResultsTest extends AbstractTestCase
     }
 
     /**
-     * Test for _getClassForDateTimeRelatedFields - case 1
+     * Test for getClassForDateTimeRelatedFields - case 1
      *
      * @return void
      */
@@ -257,14 +257,14 @@ class ResultsTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 DisplayResults::class,
-                '_getClassForDateTimeRelatedFields',
+                'getClassForDateTimeRelatedFields',
                 [DisplayResults::DATETIME_FIELD]
             )
         );
     }
 
     /**
-     * Test for _getClassForDateTimeRelatedFields - case 2
+     * Test for getClassForDateTimeRelatedFields - case 2
      *
      * @return void
      */
@@ -275,14 +275,14 @@ class ResultsTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 DisplayResults::class,
-                '_getClassForDateTimeRelatedFields',
+                'getClassForDateTimeRelatedFields',
                 [DisplayResults::DATE_FIELD]
             )
         );
     }
 
     /**
-     * Test for _getClassForDateTimeRelatedFields - case 3
+     * Test for getClassForDateTimeRelatedFields - case 3
      *
      * @return void
      */
@@ -293,14 +293,14 @@ class ResultsTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 DisplayResults::class,
-                '_getClassForDateTimeRelatedFields',
+                'getClassForDateTimeRelatedFields',
                 [DisplayResults::STRING_FIELD]
             )
         );
     }
 
     /**
-     * Test for _getOffsets - case 1
+     * Test for getOffsets - case 1
      *
      * @return void
      */
@@ -315,14 +315,14 @@ class ResultsTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 DisplayResults::class,
-                '_getOffsets',
+                'getOffsets',
                 []
             )
         );
     }
 
     /**
-     * Test for _getOffsets - case 2
+     * Test for getOffsets - case 2
      *
      * @return void
      */
@@ -338,7 +338,7 @@ class ResultsTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 DisplayResults::class,
-                '_getOffsets',
+                'getOffsets',
                 []
             )
         );
@@ -395,14 +395,14 @@ class ResultsTest extends AbstractTestCase
     }
 
     /**
-     * Test _getSpecialLinkUrl
+     * Test getSpecialLinkUrl
      *
      * @param string $db           the database name
      * @param string $table        the table name
      * @param string $column_value column value
      * @param array  $row_info     information about row
      * @param string $field_name   column name
-     * @param bool   $output       output of _getSpecialLinkUrl
+     * @param bool   $output       output of getSpecialLinkUrl
      *
      * @return void
      *
@@ -467,7 +467,7 @@ class ResultsTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 DisplayResults::class,
-                '_getSpecialLinkUrl',
+                'getSpecialLinkUrl',
                 [
                     $specialSchemaLinks,
                     $column_value,
@@ -526,13 +526,13 @@ class ResultsTest extends AbstractTestCase
     }
 
     /**
-     * Test _getRowInfoForSpecialLinks
+     * Test getRowInfoForSpecialLinks
      *
      * @param array $fields_meta  meta information about fields
      * @param int   $fields_count number of fields
      * @param array $row          current row data
      * @param array $col_order    the column order
-     * @param bool  $output       output of _getRowInfoForSpecialLinks
+     * @param bool  $output       output of getRowInfoForSpecialLinks
      *
      * @return void
      *
@@ -553,7 +553,7 @@ class ResultsTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 DisplayResults::class,
-                '_getRowInfoForSpecialLinks',
+                'getRowInfoForSpecialLinks',
                 [
                     $row,
                     $col_order,
@@ -586,10 +586,10 @@ class ResultsTest extends AbstractTestCase
     }
 
     /**
-     * Test _setHighlightedColumnGlobalField
+     * Test setHighlightedColumnGlobalField
      *
      * @param array $analyzed_sql the analyzed query
-     * @param array $output       setting value of _setHighlightedColumnGlobalField
+     * @param array $output       setting value of setHighlightedColumnGlobalField
      *
      * @dataProvider dataProviderForTestSetHighlightedColumnGlobalField
      */
@@ -598,7 +598,7 @@ class ResultsTest extends AbstractTestCase
         $this->callFunction(
             $this->object,
             DisplayResults::class,
-            '_setHighlightedColumnGlobalField',
+            'setHighlightedColumnGlobalField',
             [$analyzed_sql]
         );
 
@@ -660,12 +660,12 @@ class ResultsTest extends AbstractTestCase
     }
 
     /**
-     * Test _getPartialText
+     * Test getPartialText
      *
      * @param string $pftext     Partial or Full text
      * @param int    $limitChars Partial or Full text
      * @param string $str        the string to be tested
-     * @param bool   $output     return value of _getPartialText
+     * @param bool   $output     return value of getPartialText
      *
      * @dataProvider dataProviderForTestGetPartialText
      */
@@ -678,7 +678,7 @@ class ResultsTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 DisplayResults::class,
-                '_getPartialText',
+                'getPartialText',
                 [$str]
             )
         );
@@ -795,7 +795,7 @@ class ResultsTest extends AbstractTestCase
     }
 
     /**
-     * Test _handleNonPrintableContents
+     * Test handleNonPrintableContents
      *
      * @param bool   $display_binary        show binary contents?
      * @param bool   $display_blob          show blob contents?
@@ -837,7 +837,7 @@ class ResultsTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 DisplayResults::class,
-                '_handleNonPrintableContents',
+                'handleNonPrintableContents',
                 [
                     $category,
                     $content,
@@ -985,7 +985,7 @@ class ResultsTest extends AbstractTestCase
     }
 
     /**
-     * Test _getDataCellForNonNumericColumns
+     * Test getDataCellForNonNumericColumns
      *
      * @param bool   $protectBinary         all|blob|noblob|no
      * @param string $column                the relevant column in data row
@@ -1036,7 +1036,7 @@ class ResultsTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 DisplayResults::class,
-                '_getDataCellForNonNumericColumns',
+                'getDataCellForNonNumericColumns',
                 [
                     $column,
                     $class,
@@ -1145,7 +1145,7 @@ class ResultsTest extends AbstractTestCase
         $output = $this->callFunction(
             $this->object,
             DisplayResults::class,
-            '_getRowValues',
+            'getRowValues',
             [
                 &$result,
                 [

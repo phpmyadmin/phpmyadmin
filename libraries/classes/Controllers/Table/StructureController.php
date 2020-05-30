@@ -824,7 +824,7 @@ class StructureController extends AbstractController
     {
         $partitionDetails = null;
         if (! isset($_POST['partition_by'])) {
-            $partitionDetails = $this->_extractPartitionDetails();
+            $partitionDetails = $this->extractPartitionDetails();
         }
 
         $storageEngines = StorageEngine::getArray();
@@ -843,7 +843,7 @@ class StructureController extends AbstractController
      *
      * @return array[]|null array of partition details
      */
-    private function _extractPartitionDetails(): ?array
+    private function extractPartitionDetails(): ?array
     {
         $createTable = (new Table($this->table, $this->db))->showCreate();
         if (! $createTable) {

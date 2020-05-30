@@ -1051,12 +1051,12 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#4 \\$sort_expression_nodirection of method PhpMyAdmin\\\\Display\\\\Results\\:\\:_getTableHeadersForColumns\\(\\) expects array, array\\|string given\\.$#"
+			message: "#^Parameter \\#4 \\$sort_expression_nodirection of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTableHeadersForColumns\\(\\) expects array, array\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#2 \\$sort_order of method PhpMyAdmin\\\\Display\\\\Results\\:\\:_getSortingUrlParams\\(\\) expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#2 \\$sort_order of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getSortingUrlParams\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
@@ -1076,27 +1076,27 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#9 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:_getDataCellForNumericColumns\\(\\) expects string, array\\<int, string\\> given\\.$#"
+			message: "#^Parameter \\#9 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForNumericColumns\\(\\) expects string, array\\<int, string\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#8 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:_getDataCellForGeometryColumns\\(\\) expects string, array\\<int, string\\> given\\.$#"
+			message: "#^Parameter \\#8 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForGeometryColumns\\(\\) expects string, array\\<int, string\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#9 \\$transform_options of method PhpMyAdmin\\\\Display\\\\Results\\:\\:_getDataCellForGeometryColumns\\(\\) expects string, array given\\.$#"
+			message: "#^Parameter \\#9 \\$transform_options of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForGeometryColumns\\(\\) expects string, array given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#8 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:_getDataCellForNonNumericColumns\\(\\) expects string, array\\<int, string\\> given\\.$#"
+			message: "#^Parameter \\#8 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForNonNumericColumns\\(\\) expects string, array\\<int, string\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#9 \\$transform_options of method PhpMyAdmin\\\\Display\\\\Results\\:\\:_getDataCellForNonNumericColumns\\(\\) expects string, array given\\.$#"
+			message: "#^Parameter \\#9 \\$transform_options of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForNonNumericColumns\\(\\) expects string, array given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
@@ -1106,22 +1106,22 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#12 \\$transform_options of method PhpMyAdmin\\\\Display\\\\Results\\:\\:_getRowData\\(\\) expects array, string given\\.$#"
+			message: "#^Parameter \\#12 \\$transform_options of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getRowData\\(\\) expects array, string given\\.$#"
 			count: 3
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:_getOffsets\\(\\) should return array\\<int\\> but returns array\\<int, \\(array\\|float\\|int\\)\\>\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getOffsets\\(\\) should return array\\<int\\> but returns array\\<int, \\(array\\|float\\|int\\)\\>\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#4 \\$transform_options of method PhpMyAdmin\\\\Display\\\\Results\\:\\:_handleNonPrintableContents\\(\\) expects string, array given\\.$#"
+			message: "#^Parameter \\#4 \\$transform_options of method PhpMyAdmin\\\\Display\\\\Results\\:\\:handleNonPrintableContents\\(\\) expects string, array given\\.$#"
 			count: 2
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#5 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:_handleNonPrintableContents\\(\\) expects string, array\\<int, string\\> given\\.$#"
+			message: "#^Parameter \\#5 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:handleNonPrintableContents\\(\\) expects string, array\\<int, string\\> given\\.$#"
 			count: 2
 			path: libraries/classes/Display/Results.php
 
