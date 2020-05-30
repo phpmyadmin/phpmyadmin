@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-05-15 22:48+0200\n"
-"PO-Revision-Date: 2020-05-29 20:41+0000\n"
+"PO-Revision-Date: 2020-05-31 19:16+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "cs/>\n"
@@ -838,16 +838,12 @@ msgid "Please select the file you want to import."
 msgstr "Prosím zvolte soubor, který chcete nahrát."
 
 #: js/messages.php:322
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
-msgstr "Prosím zadejte platný název stránky"
+msgstr "Zadejte platný název tabulky."
 
 #: js/messages.php:323
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
-msgstr "Prosím zadejte platný název stránky"
+msgstr "Zadejte platný název databáze."
 
 #: js/messages.php:324
 msgid "No files available on server for import!"
@@ -1223,12 +1219,16 @@ msgstr "Projít hodnoty cizích klíčů"
 #: js/messages.php:403
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr ""
+"Není k dispozici žádný předchozí automaticky uložený dotaz. Načítání "
+"výchozího dotazu."
 
 #: js/messages.php:404
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
+"Máte k dispozici dříve uložený dotaz. Chcete-li ho načíst, klikněte na "
+"tlačítko Načíst automaticky uložený dotaz."
 
 #: js/messages.php:405
 #, php-format
@@ -1265,16 +1265,11 @@ msgid "Are you sure?"
 msgstr "Jste si jistý?"
 
 #: js/messages.php:418
-#, fuzzy
-#| msgid ""
-#| "This action may change some of the columns definition.<br/>Are you sure "
-#| "you want to continue?"
 msgid ""
 "This action may change some of the columns definition.<br>Are you sure you "
 "want to continue?"
 msgstr ""
-"Tato akce může změnit některé definice sloupců.<br/>Jste si jisti, že chcete "
-"pokračovat?"
+"Tato akce může změnit některé definice sloupců.<br>Opravdu chcete pokračovat?"
 
 #: js/messages.php:421
 msgid "Continue"
@@ -1759,10 +1754,8 @@ msgid "Double-click to copy column name."
 msgstr "Poklepejte pro zkopírování jména pole."
 
 #: js/messages.php:578
-#, fuzzy
-#| msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
-msgstr "Klikněte na šipku<br />pro vybrání sloupců."
+msgstr "Klikněte na šipku<br>pro vybrání sloupců."
 
 #: js/messages.php:580 libraries/classes/BrowseForeigners.php:344
 #: templates/display/results/table.twig:24
@@ -1834,17 +1827,12 @@ msgid "Print"
 msgstr "Vytisknout"
 
 #: js/messages.php:607
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br />by double-clicking directly on them."
 msgid "You can also edit most values<br>by double-clicking directly on them."
-msgstr "Většinu polí můžete přímo upravit<br />dvojklikem na jejich obsah."
+msgstr "Většinu polí můžete upravit také přímo<br>dvojklikem na jejich obsah."
 
 #: js/messages.php:609
-#, fuzzy
-#| msgid "You can also edit most values<br />by clicking directly on them."
 msgid "You can also edit most values<br>by clicking directly on them."
-msgstr "Většinu polí můžete přímo upravit<br />kliknutím na jejich obsah."
+msgstr "Většinu polí můžete upravit také přímo<br>kliknutím na jejich obsah."
 
 #: js/messages.php:612
 msgid "Go to link:"
@@ -1983,16 +1971,12 @@ msgid ""
 msgstr "Podle vašeho nastavení jsou právě odesílány, prosím buďte trpěliví."
 
 #: js/messages.php:688
-#, fuzzy
-#| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
-msgstr "Stránka byla odstraněna"
+msgstr "Úspěšně zkopírováno!"
 
 #: js/messages.php:689
-#, fuzzy
-#| msgid "Copying database"
 msgid "Copying failed!"
-msgstr "Kopíruji databázi"
+msgstr "Kopírování se nezdařilo!"
 
 #: js/messages.php:692
 msgid "Execute this query again?"
@@ -2029,7 +2013,6 @@ msgid "Time taken:"
 msgstr "Doba běhu:"
 
 #: js/messages.php:701
-#, fuzzy
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -2037,12 +2020,12 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
-"Při přístupu do úložiště webového prohlížeče došlo k potížím, takže některé "
-"funkce vám nemusí pracovat správně. Je to pravděpodobně způsobeno tím, že "
+"Při přístupu do úložiště webového prohlížeče došlo k potížím, některé funkce "
+"vám proto nemusí pracovat správně. Je to pravděpodobně způsobeno tím, že "
 "prohlížeč nemá úložiště nebo bylo dosaženo limitu velikosti dat v tomto "
-"úložišti. V prohlížeči Mozilla Firefox tento problém může způsobit poškození "
-"tohoto úložiště. Toto poškození je možno opravit vymazáním offline dat v "
-"nastaveních. V Safari to bývá způsobeno Anonymním prohlížením."
+"úložišti. V prohlížeči Mozilla Firefox může být tento problém způsoben také "
+"poškozením úložiště, které lze opravit vymazáním offline webových dat v "
+"nastavení. V prohlížeči Safari bývá problém způsoben Anonymním prohlížením."
 
 #: js/messages.php:708
 msgid "Copy tables to"
@@ -2426,8 +2409,6 @@ msgstr "Binární"
 
 #: libraries/classes/Charsets/Collation.php:193
 #: libraries/classes/Charsets/Collation.php:432
-#, fuzzy
-#| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicode"
@@ -2450,8 +2431,6 @@ msgid "Russian"
 msgstr "Ruština"
 
 #: libraries/classes/Charsets/Collation.php:220
-#, fuzzy
-#| msgid "Simplified Chinese"
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Zjednodušená čínština"
@@ -3302,14 +3281,13 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:290
 #: libraries/classes/Plugins/Export/ExportSql.php:342
 msgid "Exclude definition of current user"
-msgstr ""
+msgstr "Vynechat definici současného uživatele"
 
 #: libraries/classes/Config/Descriptions.php:291
 #: libraries/classes/Plugins/Export/ExportSql.php:348
-#, fuzzy, php-format
-#| msgid "Session value"
+#, php-format
 msgid "%s view"
-msgstr "Hodnota sezení"
+msgstr "Pohled %s"
 
 #: libraries/classes/Config/Descriptions.php:292
 msgid "Use ignore inserts"
@@ -3736,11 +3714,11 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:426
 msgid "Enable drag and drop import"
-msgstr ""
+msgstr "Povolit import přetažením"
 
 #: libraries/classes/Config/Descriptions.php:427
 msgid "Uncheck the checkbox to disable drag and drop import"
-msgstr ""
+msgstr "Zrušením zaškrtnutí tohoto políčka zakážete import přetažením"
 
 #: libraries/classes/Config/Descriptions.php:428
 msgid "Partial import: allow interrupt"
@@ -4013,16 +3991,12 @@ msgid "Logo link URL"
 msgstr "URL odkazu loga"
 
 #: libraries/classes/Config/Descriptions.php:530
-#, fuzzy
-#| msgid ""
-#| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
-#| "([kbd]new[/kbd])."
 msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
 msgstr ""
-"Zda se má odkazovaná stránka otevřít v hlavním okně ([kbd]hlavní[/kbd]) nebo "
-"v novém ([kbd]nové[/kbd])."
+"Zda se má odkazovaná stránka otevřít v hlavním okně ([code]hlavní[/code]) "
+"nebo v novém okně ([code]nové[/code])."
 
 #: libraries/classes/Config/Descriptions.php:533
 msgid "Logo link target"
@@ -4150,16 +4124,12 @@ msgid "Whether to show events under database in the navigation tree"
 msgstr "Zobrazit v navigačním stromu události pod databází"
 
 #: libraries/classes/Config/Descriptions.php:574
-#, fuzzy
-#| msgid "Copying database"
 msgid "Expand single database"
-msgstr "Kopíruji databázi"
+msgstr "Rozbalit jedinou databázi"
 
 #: libraries/classes/Config/Descriptions.php:576
-#, fuzzy
-#| msgid "Show databases navigation as tree"
 msgid "Whether to expand single database in the navigation tree automatically."
-msgstr "Zobrazit databázovou navigaci jako strom"
+msgstr "Automaticky rozbalit jedinou databázi v navigačním stromu."
 
 #: libraries/classes/Config/Descriptions.php:578
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -6586,10 +6556,8 @@ msgid "No Privileges"
 msgstr "Nemáte oprávnění"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:219
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a trigger"
 msgid "You do not have the privileges to administrate the users!"
-msgstr "Nemáte dostatečná práva pro vytvoření spouště"
+msgstr "Nemáte oprávnění ke správě uživatelů!"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:233
 msgid ""
@@ -7466,10 +7434,8 @@ msgstr "Chybné jméno tabulky"
 
 #. l10n: In case a SQL query did not pass a security check
 #: libraries/classes/Controllers/Table/GetFieldController.php:51
-#, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
-msgstr "Probíhá příliš mnoho spojení tabulek bez využití klíčů."
+msgstr "Na vašem požadavku došlo k problému."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:64
 #: libraries/classes/Database/Routines.php:1542
@@ -7678,6 +7644,8 @@ msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
+"V souboru php.ini je zakázaná funkce ini_get nebo ini_set. phpMyAdmin však "
+"tyto funkce vyžaduje!"
 
 #: libraries/classes/Core.php:1232
 msgid "GLOBALS overwrite attempt"
@@ -7865,11 +7833,12 @@ msgid "Export of event %s"
 msgstr "Exportovat událost %s"
 
 #: libraries/classes/Database/Events.php:616
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s"
+#, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
-msgstr "V databázi %2$s nebyla nalezen událost se jménem %1$s"
+msgstr ""
+"Chyba při zpracování požadavku: V databázi %2$s nebyla nalezena žádná "
+"událost s názvem %1$s."
 
 #: libraries/classes/DatabaseInterface.php:1575
 #, php-format
@@ -8341,12 +8310,13 @@ msgid "Export of trigger %s"
 msgstr "Exportovat spoušť %s"
 
 #: libraries/classes/Database/Triggers.php:629
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s"
+#, php-format
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
 "%2$s."
-msgstr "V databázi %2$s není žádná spoušť se jménem %1$s"
+msgstr ""
+"Chyba při zpracování požadavku: V databázi %2$s nebyla nalezena žádná spoušť "
+"s názvem %1$s."
 
 #: libraries/classes/Dbal/DbiMysqli.php:185
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -9142,10 +9112,8 @@ msgid "Binary"
 msgstr "Binární"
 
 #: libraries/classes/InsertEdit.php:795
-#, fuzzy
-#| msgid "Because of its length,<br /> this column might not be editable."
 msgid "Because of its length,<br> this column might not be editable."
-msgstr "Toto pole možná nepůjde <br />kvůli délce upravit."
+msgstr "Toto pole možná nepůjde<br> kvůli délce upravit."
 
 #: libraries/classes/InsertEdit.php:1421
 msgid "Binary - do not edit"
@@ -9472,10 +9440,8 @@ msgstr ""
 "ovlivnit výkon. Zvažte deaktivování seskupování položek v navigačním panelu."
 
 #: libraries/classes/Navigation/NavigationTree.php:808
-#, fuzzy
-#| msgid "Groups:"
 msgid "Groups"
-msgstr "Skupiny:"
+msgstr "Skupiny"
 
 #: libraries/classes/Navigation/NavigationTree.php:974
 #, php-format
@@ -9649,17 +9615,12 @@ msgid "Primary key already exists."
 msgstr "Primární klíč již existuje."
 
 #: libraries/classes/Normalization.php:288
-#, fuzzy
-#| msgid ""
-#| "There is no primary key; please add one.<br/>Hint: A primary key is a "
-#| "column (or combination of columns) that uniquely identify all rows."
 msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
-"Nenalezen primární klíč; prosím přidejte jeden.<br/>Nápověda: Primární klíč "
-"je sloupec (nebo kombinace sloupců) která unikátně identifikuje všechny "
-"řádky."
+"Nenalezen primární klíč, přidejte ho prosím.<br>Nápověda: Primární klíč je "
+"sloupec (nebo kombinace sloupců), který unikátně identifikuje všechny řádky."
 
 #: libraries/classes/Normalization.php:296
 msgid "Add a primary key on existing column(s)"
@@ -9859,6 +9820,10 @@ msgid ""
 "value of the column.<br>Note: A column may have no transitive dependency, in "
 "that case you don't have to select any."
 msgstr ""
+"Pro každý z níže uvedených sloupců vyberte <b>minimální množinu</b> sloupců "
+"z dané množiny, jejichž kombinované hodnoty jsou dostačující k určení "
+"hodnoty tohoto sloupce.<br>Poznámka: Sloupec nemusí mít žádnou tranzitivní "
+"závislost, v tom případě nemusíte vybírat žádné sloupce."
 
 #: libraries/classes/Normalization.php:905
 msgid ""
@@ -10476,58 +10441,40 @@ msgid "Syntax to use when inserting data:"
 msgstr "Jakou syntaxi použít pro vkládání dat:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:459
-#, fuzzy
-#| msgid ""
-#| "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) "
-#| "VALUES (1,2,3)</code>"
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
-"přidat názvy sloupců v každém příkazu <code>INSERT</code> <br /> &nbsp; "
-"&nbsp; &nbsp; Příklad: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
+"přidat názvy sloupců v každém příkazu <code>INSERT</code> <br> &nbsp; &nbsp; "
+"&nbsp; Příklad: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:464
-#, fuzzy
-#| msgid ""
-#| "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), "
-#| "(4,5,6), (7,8,9)</code>"
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
-"vložit více záznamů každým příkazem <code>INSERT</code><br /> &nbsp; &nbsp; "
-"&nbsp; Příklad: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</"
-"code>"
+"vložit více záznamů každým příkazem <code>INSERT</code><br> &nbsp; &nbsp; "
+"&nbsp; Příklad: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
+"(7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:469
-#, fuzzy
-#| msgid ""
-#| "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
-#| "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
-"obě výše uvedené možnosti<br /> &nbsp; &nbsp; &nbsp; Příklad: <code>INSERT "
+"obě výše uvedené možnosti<br> &nbsp; &nbsp; &nbsp; Příklad: <code>INSERT "
 "INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:474
-#, fuzzy
-#| msgid ""
-#| "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT "
-#| "INTO tbl_name VALUES (1,2,3)</code>"
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
-"ani jedno z výše uvedených<br /> &nbsp; &nbsp; &nbsp; Příklad: <code>INSERT "
-"INTO tbl_name VALUES (1,2,3)</code>"
+"ani jedna z výše uvedených možností<br> &nbsp; &nbsp; &nbsp; Příklad: "
+"<code>INSERT INTO tbl_name VALUES (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:493
 msgid ""
@@ -10618,10 +10565,8 @@ msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT pro tabulku"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1954
-#, fuzzy
-#| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
-msgstr "MIME TYPY PRO TABULKU"
+msgstr "TYPY MÉDIÍ PRO TABULKU"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1977
 msgid "RELATIONSHIPS FOR TABLE"
@@ -10671,16 +10616,16 @@ msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:73
 msgid "Name of the new table (optional):"
-msgstr ""
+msgstr "Název nové tabulky (nepovinné):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:82
 msgid "Name of the new database (optional):"
-msgstr ""
+msgstr "Název nové databáze (nepovinné):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:91
 #: libraries/classes/Plugins/Import/ImportCsv.php:109
 msgid "Import these many number of rows (optional):"
-msgstr ""
+msgstr "Importovat tento počet záznamů (nepovinné):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:99
 #: libraries/classes/Plugins/Import/ImportOds.php:66
@@ -10702,10 +10647,8 @@ msgstr ""
 "uzavřena do uvozovek."
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:124
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column names:"
-msgstr "Názvy polí: "
+msgstr "Názvy sloupců:"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:168
 #: libraries/classes/Plugins/Import/ImportCsv.php:183
@@ -10748,10 +10691,9 @@ msgid "MediaWiki Table"
 msgstr "Tabulka MediaWiki"
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:283
-#, fuzzy, php-format
-#| msgid "Invalid format of mediawiki input on line: <br />%s."
+#, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
-msgstr "Chybný formát mediawiki dat na řádku: <br />%s."
+msgstr "Chybný formát mediawiki dat na řádku: <br>%s."
 
 #: libraries/classes/Plugins/Import/ImportOds.php:80
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -10959,18 +10901,6 @@ msgstr ""
 "musí být prázdný."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:38
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/plugins/transformations/output/"
-#| "Text_Plain_External.class.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -10984,15 +10914,15 @@ msgid ""
 "ensure that the output appears all on one line (Default 1)."
 msgstr ""
 "JEN PRO LINUX: Spustí externí program, na jeho standardní vstup pošle obsah "
-"pole a zobrazí výstup programu. Výchozí je program Tidy, který pěkně "
-"zformátuje HTML. Z bezpečnostních důvodů musíte jména povolených programů "
-"zapsat do souboru libraries/plugins/transformations/output/"
-"Text_Plain_External.class.php. První parametr je číslo programu, který má "
-"být spuštěn a druhý parametr udává parametry tohoto programu. Třetí parametr "
-"určuje, zda mají být ve výstupu nahrazeny HTML entity (např. pro zobrazení "
-"zdrojového kódu HTML) (výchozí je 1, tedy převádět na entity), čtvrtý (při "
-"nastavení na 1) zajistí přidání parametru NOWRAP k vypisovanému textu, čímž "
-"se zachová formátování (výchozí je 1)."
+"pole a zobrazí výstup programu. Výchozí je program Tidy, který zformátuje "
+"kód HTML. Z bezpečnostních důvodů musíte jména povolených programů zapsat do "
+"souboru libraries/classes/Plugins/Transformations/Abs/"
+"ExternalTransformationsPlugin.php. První parametr je číslo programu, který "
+"má být spuštěn. Druhý parametr ponechte z historických důvodů prázdný. Třetí "
+"parametr určuje, zda mají být ve výstupu nahrazeny HTML entity (např. pro "
+"zobrazení zdrojového kódu HTML) (výchozí je 1, tedy převádět na entity), "
+"čtvrtý (při nastavení na 1) zajistí přidání parametru NOWRAP k vypisovanému "
+"textu, čímž se zachová formátování (výchozí je 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:123
 #, php-format
@@ -11191,10 +11121,8 @@ msgid "Two-factor authentication failed."
 msgstr "Dvoufaktorová autentizace se nezdařila."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:127
-#, fuzzy
-#| msgid "Config authentication"
 msgid "No Two-Factor Authentication"
-msgstr "Přihlašování config"
+msgstr "Nepoužívat dvoufaktorovou autentizaci"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:137
 msgid "Login using password only."
@@ -11459,14 +11387,13 @@ msgid "Master server changed successfully to %s."
 msgstr "Nadřízený server bych úspěšně změněn na %s."
 
 #: libraries/classes/Routing.php:68
-#, fuzzy, php-format
-#| msgid "Source database `%s` was not found!"
+#, php-format
 msgid "Error 404! The page %s was not found."
-msgstr "Zdrojová databáze „%s“ nebyla nalezena!"
+msgstr "Chyba 404! Stránka %s nebyla nalezena."
 
 #: libraries/classes/Routing.php:75
 msgid "Error 405! Request method not allowed."
-msgstr ""
+msgstr "Chyba 405! Nepovolená metoda požadavku."
 
 #: libraries/classes/SavedSearches.php:277
 msgid "Please provide a name for this bookmarked search."
@@ -12745,8 +12672,6 @@ msgstr "Připojení:"
 #: templates/columns_definitions/column_definitions_form.twig:113
 #: templates/columns_definitions/partitions.twig:137
 #: templates/table/operations/index.twig:128
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Storage engine"
 msgstr "Úložiště"
 
@@ -12857,12 +12782,6 @@ msgid "Node group"
 msgstr "Skupina uzlů"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
-#| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br>If you ever need to put a backslash (\"\") or a "
@@ -12870,9 +12789,9 @@ msgid ""
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Pokud je pole typu „enum“ nebo „set“, zadávejte hodnoty v následujícím "
-"formátu: 'a','b','c'…<br />Pokud potřebujete zadat zpětné lomítko („\\“) "
-"nebo jednoduché uvozovky („'“) mezi těmito hodnotami, napište před ně zpětné "
-"lomítko (příklad: '\\\\xyz' nebo 'a\\'b')."
+"formátu: 'a','b','c'…<br>Pokud potřebujete mezi těmito hodnotami zadat "
+"zpětné lomítko („\\“) nebo jednoduché uvozovky („'“), napište před ně zpětné "
+"lomítko (například '\\\\xyz' nebo 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
 msgid ""
@@ -12906,21 +12825,15 @@ msgstr "Možnosti transformace při zobrazení"
 
 #: templates/columns_definitions/table_fields_definitions.twig:82
 #: templates/columns_definitions/table_fields_definitions.twig:93
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br>If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Zadejte parametry transformací v následujícím tvaru: 'a', 100, b,'c'…<br /"
-">Pokud potřebujete použít zpětné lomítko („\\“) nebo jednoduché uvozovky "
-"(„'“) mezi těmito hodnotami, vložte před ně zpětné lomítko (například '\\"
+"Zadejte parametry transformací v následujícím tvaru: 'a', 100, b,'c'…"
+"<br>Pokud potřebujete mezi těmito hodnotami použít zpětné lomítko („\\“) "
+"nebo jednoduché uvozovky („'“), vložte před ně zpětné lomítko (například '\\"
 "\\xyz' nebo 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:88
@@ -13085,10 +12998,8 @@ msgstr "Přidat nový sloupec"
 
 #: templates/database/central_columns/main.twig:25
 #: templates/database/central_columns/main.twig:244
-#, fuzzy
-#| msgid "Length/Values"
 msgid "Length/Value"
-msgstr "Délka/Množina"
+msgstr "Délka/Hodnota"
 
 #: templates/database/central_columns/main.twig:37
 #: templates/database/central_columns/main.twig:256
@@ -13096,10 +13007,8 @@ msgid "Attribute"
 msgstr "Vlastnost"
 
 #: templates/database/central_columns/main.twig:145
-#, fuzzy
-#| msgid "The central list of columns for the current database is empty."
 msgid "The central list of columns for the current database is empty"
-msgstr "Centrální seznam sloupců pro aktuální databázi je prázdný."
+msgstr "Centrální seznam sloupců pro aktuální databázi je prázdný"
 
 #: templates/database/central_columns/main.twig:182
 #: templates/display/results/table.twig:62
@@ -13164,10 +13073,8 @@ msgid "Number of columns"
 msgstr "Počet polí"
 
 #: templates/database/data_dictionary/index.twig:3
-#, fuzzy
-#| msgid "Database comment"
 msgid "Database comment:"
-msgstr "Komentář k databázi"
+msgstr "Komentář k databázi:"
 
 #: templates/database/data_dictionary/index.twig:68 templates/indexes.twig:18
 #: templates/table/relation/common_form.twig:238
@@ -13539,16 +13446,12 @@ msgstr "Nové jméno databáze"
 #: templates/table/operations/index.twig:79
 #: templates/table/operations/index.twig:113
 #: templates/table/operations/index.twig:291
-#, fuzzy
-#| msgid ""
-#| "You don't have sufficient privileges to perform this operation; Please "
-#| "refer to the documentation for more details"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details."
 msgstr ""
-"Nemáte dostatečná práva k provedení této akce; Prohlédněte si dokumentaci "
-"pro více detailů"
+"Nemáte dostatečná oprávnění  k provedení této operace. Další podrobnosti "
+"naleznete v dokumentaci."
 
 #: templates/database/operations/index.twig:89
 msgid "Remove database"
@@ -13732,8 +13635,6 @@ msgstr "Přidat nebo odebrat pole"
 
 #: templates/database/qbe/selection_form.twig:86
 #: templates/database/qbe/selection_form.twig:88
-#, fuzzy
-#| msgid "Use Tables"
 msgid "Use tables"
 msgstr "Použít tabulky"
 
@@ -14229,10 +14130,8 @@ msgid "Select from the web server upload directory [strong]%s[/strong]:"
 msgstr "Zvolte soubor z adresáře pro upload na serveru <b>%s</b>:"
 
 #: templates/display/import/import.twig:91
-#, fuzzy
-#| msgid "File to import:"
 msgid "Select file to import"
-msgstr "Soubor pro importování:"
+msgstr "Vyberte soubor k importování"
 
 #: templates/display/import/import.twig:96
 #: templates/display/import/import.twig:126
@@ -14318,10 +14217,8 @@ msgstr ""
 "dostupné."
 
 #: templates/display/results/sort_by_key.twig:3
-#, fuzzy
-#| msgid "Sort by key"
 msgid "Sort by key:"
-msgstr "Seřadit podle klíče"
+msgstr "Seřadit podle klíče:"
 
 #: templates/display/results/table.twig:32
 msgid "Save edited data"
@@ -14454,8 +14351,6 @@ msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Použít OpenStreetMap jako základní vrstvu"
 
 #: templates/gis_data_editor_form.twig:38
-#, fuzzy
-#| msgid "SRID:"
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
 msgstr "SRID:"
@@ -14472,10 +14367,9 @@ msgstr "Bod:"
 #: templates/gis_data_editor_form.twig:93
 #: templates/gis_data_editor_form.twig:134
 #: templates/gis_data_editor_form.twig:186
-#, fuzzy, php-format
-#| msgid "Point %d"
+#, php-format
 msgid "Point %d:"
-msgstr "Bod %d"
+msgstr "Bod %d:"
 
 #: templates/gis_data_editor_form.twig:113
 #, php-format
@@ -14544,10 +14438,8 @@ msgid "General settings"
 msgstr "Obecná nastavení"
 
 #: templates/home/index.twig:50
-#, fuzzy
-#| msgid "Server connection collation"
 msgid "Server connection collation:"
-msgstr "Porovnávání pro toto připojení k serveru"
+msgstr "Porovnávání pro toto připojení k serveru:"
 
 #: templates/home/index.twig:78
 msgid "Appearance settings"
@@ -14648,9 +14540,6 @@ msgstr "none"
 
 #. l10n: Previous month. Display text for previous month link in calendar
 #: templates/javascript/variables.twig:16
-#, fuzzy
-#| msgctxt "Previous month"
-#| msgid "Prev"
 msgid "Prev"
 msgstr "Předchozí"
 
@@ -14856,8 +14745,6 @@ msgid "Username:"
 msgstr "Jméno:"
 
 #: templates/login/form.twig:67
-#, fuzzy
-#| msgid "Server Choice:"
 msgid "Server choice:"
 msgstr "Volba serveru:"
 
@@ -14867,6 +14754,9 @@ msgid ""
 "can lead to a non working phpMyAdmin or a security risk. Please fix your "
 "server configuration to indicate HTTPS properly."
 msgstr ""
+"Nesoulad protokolu HTTPS na serveru a na klientovi. Může vést k chybám "
+"funkčnosti phpMyAdmina nebo bezpečnostnímu riziku. Opravte prosím nastavení "
+"serveru tak, aby byl správně určen protokol HTTPS."
 
 #: templates/login/twofactor/application_configure.twig:3
 msgid ""
@@ -14930,10 +14820,8 @@ msgid "Verify"
 msgstr "Ověřit"
 
 #: templates/menu/breadcrumbs.twig:27
-#, fuzzy
-#| msgid "Views:"
 msgid "View:"
-msgstr "Pohledy:"
+msgstr "Pohled:"
 
 #: templates/mult_submits/add_prefix_table.twig:7
 #: templates/mult_submits/add_prefix_table.twig:9
@@ -14986,16 +14874,12 @@ msgid "phpMyAdmin documentation"
 msgstr "Dokumentace phpMyAdmina"
 
 #: templates/navigation/main.twig:40 templates/navigation/main.twig:41
-#, fuzzy
-#| msgid "Documentation"
 msgid "MariaDB Documentation"
-msgstr "Dokumentace"
+msgstr "Dokumentace MariaDB"
 
 #: templates/navigation/main.twig:40 templates/navigation/main.twig:41
-#, fuzzy
-#| msgid "Documentation"
 msgid "MySQL Documentation"
-msgstr "Dokumentace"
+msgstr "Dokumentace MySQL"
 
 #: templates/navigation/main.twig:44 templates/navigation/main.twig:45
 msgid "Navigation panel settings"
@@ -15010,10 +14894,8 @@ msgid "An error has occurred while loading the navigation display"
 msgstr "Došlo k chybě při nahrávání zobrazení navigace"
 
 #: templates/navigation/main.twig:89
-#, fuzzy
-#| msgid "SQL dump"
 msgid "SQL upload"
-msgstr "Výpis SQL"
+msgstr "Nahrání SQL"
 
 #: templates/preferences/autoload.twig:7
 msgid ""
@@ -15194,15 +15076,11 @@ msgstr "Zvolte binární log pro zobrazení"
 
 #: templates/server/binlog/index.twig:59 templates/server/binlog/index.twig:60
 #: templates/server/status/processes/list.twig:20
-#, fuzzy
-#| msgid "Truncate Shown Queries"
 msgid "Truncate shown queries"
 msgstr "Zobrazit zkrácené dotazy"
 
 #: templates/server/binlog/index.twig:63 templates/server/binlog/index.twig:64
 #: templates/server/status/processes/list.twig:26
-#, fuzzy
-#| msgid "Show Full Queries"
 msgid "Show full queries"
 msgstr "Zobrazit celé dotazy"
 
@@ -15242,10 +15120,8 @@ msgid "Create database"
 msgstr "Vytvořit databázi"
 
 #: templates/server/databases/index.twig:72
-#, fuzzy
-#| msgid "Check privileges for database \"%s\"."
 msgid "No privileges to create databases"
-msgstr "Zkontrolovat oprávnění pro databázi „%s“."
+msgstr "Žádná oprávnění k vytváření databází"
 
 #: templates/server/databases/index.twig:159
 #: templates/server/replication/index.twig:19
@@ -15298,10 +15174,8 @@ msgid "Storage Engine"
 msgstr "Úložiště"
 
 #: templates/server/engines/show.twig:45
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Unknown storage engine."
-msgstr "Úložiště"
+msgstr "Neznámé úložiště."
 
 #: templates/server/plugins/index.twig:26
 msgid "Plugin"
@@ -15316,26 +15190,20 @@ msgid "Author"
 msgstr "Autor"
 
 #: templates/server/plugins/index.twig:41
-#, fuzzy
-#| msgid "active"
 msgid "inactive"
-msgstr "zapnuté"
+msgstr "neaktivní"
 
 #: templates/server/plugins/index.twig:43
 msgid "disabled"
 msgstr "vypnuto"
 
 #: templates/server/plugins/index.twig:45
-#, fuzzy
-#| msgid "Deleting"
 msgid "deleting"
-msgstr "Odstraňuji"
+msgstr "probíhá odstranění"
 
 #: templates/server/plugins/index.twig:47
-#, fuzzy
-#| msgid "Delete"
 msgid "deleted"
-msgstr "Odstranit"
+msgstr "odstraněno"
 
 #: templates/server/privileges/add_user.twig:12
 msgid "Database for user account"
@@ -15360,10 +15228,8 @@ msgid "User group"
 msgstr "Skupina uživatele"
 
 #: templates/server/privileges/choose_user_group.twig:6
-#, fuzzy
-#| msgid "User group"
 msgid "User group:"
-msgstr "Skupina uživatele"
+msgstr "Skupina uživatele:"
 
 #: templates/server/privileges/edit_routine_privileges.twig:4
 #: templates/server/privileges/user_properties.twig:4
@@ -15455,15 +15321,11 @@ msgstr "Lokální"
 
 #: templates/server/privileges/login_information_fields.twig:30
 #: templates/server/replication/master_add_slave_user.twig:37
-#, fuzzy
-#| msgid "This Host"
 msgid "This host"
 msgstr "Tento počítač"
 
 #: templates/server/privileges/login_information_fields.twig:32
 #: templates/server/replication/master_add_slave_user.twig:39
-#, fuzzy
-#| msgid "Use Host Table"
 msgid "Use host table"
 msgstr "Použít tabulku Host"
 
@@ -15491,17 +15353,13 @@ msgstr "Neměnit heslo"
 
 #: templates/server/privileges/login_information_fields.twig:49
 #: templates/server/replication/master_add_slave_user.twig:53
-#, fuzzy
-#| msgid "No Password"
 msgid "No password"
 msgstr "Žádné heslo"
 
 #: templates/server/privileges/login_information_fields.twig:54
-#, fuzzy
-#| msgid "Data length"
 msgctxt "Password strength"
 msgid "Strength:"
-msgstr "Délka řádku"
+msgstr "Síla:"
 
 #: templates/server/privileges/login_information_fields.twig:62
 #: templates/server/replication/master_add_slave_user.twig:65
@@ -15515,10 +15373,8 @@ msgid "Authentication plugin"
 msgstr "Rozšíření pro přihlašování"
 
 #: templates/server/privileges/login_information_fields.twig:70
-#, fuzzy
-#| msgid "Password Hashing:"
 msgid "Password hashing method"
-msgstr "Hašovací funkce pro heslo:"
+msgstr "Metoda hašování hesla"
 
 #: templates/server/privileges/login_information_fields.twig:83
 #, fuzzy
@@ -15714,10 +15570,8 @@ msgstr ""
 "ho %snastavit%s?"
 
 #: templates/server/replication/index.twig:43
-#, fuzzy
-#| msgid "No privileges."
 msgid "No privileges"
-msgstr "Žádná oprávnění."
+msgstr "Žádná oprávnění"
 
 #: templates/server/replication/master_add_slave_user.twig:6
 #: templates/server/replication/master_replication.twig:43
@@ -15772,18 +15626,14 @@ msgstr ""
 "souboru my.cnf a poté restartutje MySQL server."
 
 #: templates/server/replication/master_configuration.twig:21
-#, fuzzy
-#| msgid ""
-#| "Once you restarted MySQL server, please click on Go button. Afterwards, "
-#| "you should see a message informing you, that this server <b>is</b> "
-#| "configured as master."
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as master."
 msgstr ""
-"Prosím klikněte na tlačítko po restartování MySQL serveru. Poté byste měli "
-"vidět zprávu informující vás že server <b>je</b> nastaven jako nadřízený."
+"Po restartování MySQL serveru klikněte na tlačítko Proveď. Poté by se měla "
+"zobrazit zpráva s informací, že tento server <strong>je</strong> nastaven "
+"jako nadřízený."
 
 #: templates/server/replication/master_replication.twig:4
 msgid "This server is configured as master in a replication process."
@@ -15955,28 +15805,20 @@ msgid "Possible performance issues"
 msgstr "Možné výkonostní problémy"
 
 #: templates/server/status/advisor/index.twig:89
-#, fuzzy
-#| msgid "Issue"
 msgid "Issue:"
-msgstr "Problém"
+msgstr "Problém:"
 
 #: templates/server/status/advisor/index.twig:92
-#, fuzzy
-#| msgid "Recommendation"
 msgid "Recommendation:"
-msgstr "Doporučení"
+msgstr "Doporučení:"
 
 #: templates/server/status/advisor/index.twig:95
-#, fuzzy
-#| msgid "Justification"
 msgid "Justification:"
-msgstr "Zdůvodnění"
+msgstr "Zdůvodnění:"
 
 #: templates/server/status/advisor/index.twig:98
-#, fuzzy
-#| msgid "Used variable / formula"
 msgid "Used variable / formula:"
-msgstr "Použitá proměnná / vzorec"
+msgstr "Použitá proměnná / vzorec:"
 
 #: templates/server/status/advisor/index.twig:101
 #, fuzzy
@@ -16028,33 +15870,27 @@ msgstr "Obnovovací frekvence"
 
 #: templates/server/status/monitor/index.twig:43
 #: templates/server/status/processes/index.twig:36
-#, fuzzy, php-format
-#| msgid "%d second"
-#| msgid_plural "%d seconds"
+#, php-format
 msgid "%d second"
 msgstr "%d sekunda"
 
 #: templates/server/status/monitor/index.twig:45
 #: templates/server/status/processes/index.twig:38
-#, fuzzy, php-format
-#| msgid "%d second"
-#| msgid_plural "%d seconds"
+#, php-format
 msgid "%d seconds"
-msgstr "%d sekunda"
+msgstr "%d sekund(y)"
 
 #: templates/server/status/monitor/index.twig:49
 #: templates/server/status/processes/index.twig:42
-#, fuzzy, php-format
-#| msgid "per minute"
+#, php-format
 msgid "%d minute"
-msgstr "za minutu"
+msgstr "%d minuta"
 
 #: templates/server/status/monitor/index.twig:51
 #: templates/server/status/processes/index.twig:44
-#, fuzzy, php-format
-#| msgid "per minute"
+#, php-format
 msgid "%d minutes"
-msgstr "za minutu"
+msgstr "%d minut(y)"
 
 #: templates/server/status/monitor/index.twig:61
 msgid "Chart columns"
@@ -16225,10 +16061,8 @@ msgstr ""
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: templates/server/status/queries/index.twig:8
-#, fuzzy
-#| msgid "Questions since startup: %s"
 msgid "Questions since startup:"
-msgstr "Dotazů od spuštění: %s"
+msgstr "Dotazů od spuštění:"
 
 #: templates/server/status/queries/index.twig:20
 msgid "per hour:"
@@ -16408,10 +16242,8 @@ msgid "Show form"
 msgstr "Zobrazit formulář"
 
 #: templates/setup/home/index.twig:23
-#, fuzzy
-#| msgid "Show hidden items"
 msgid "Show hidden messages"
-msgstr "Zobrazit skryté položky"
+msgstr "Zobrazit skryté zprávy"
 
 #: templates/setup/home/index.twig:73
 msgid "There are no configured servers"
@@ -16515,10 +16347,8 @@ msgid "Rollback when finished"
 msgstr "Po dokončení vrátit zpět"
 
 #: templates/sql/query.twig:149
-#, fuzzy
-#| msgid "Bookmark"
 msgid "Bookmark:"
-msgstr "Záložka"
+msgstr "Záložka:"
 
 #: templates/sql/query.twig:156
 msgid "shared"
@@ -16738,10 +16568,8 @@ msgid "(singly)"
 msgstr "(po jednom)"
 
 #: templates/table/operations/index.twig:50
-#, fuzzy
-#| msgid "Move table to (database<b>.</b>table)"
 msgid "Move table to (database.table)"
-msgstr "Přesunout tabulku do (databáze<b>.</b>tabulka)"
+msgstr "Přesunout tabulku do (databáze.tabulka)"
 
 #: templates/table/operations/index.twig:103
 msgid "Table options"
@@ -16760,10 +16588,8 @@ msgid "Change all column collations"
 msgstr "Změnit kódování všech sloupců"
 
 #: templates/table/operations/index.twig:227
-#, fuzzy
-#| msgid "Copy table to (database<b>.</b>table)"
 msgid "Copy table to (database.table)"
-msgstr "Kopírovat tabulku do (databáze<b>.</b>tabulka)"
+msgstr "Kopírovat tabulku do (databáze.tabulka)"
 
 #: templates/table/operations/index.twig:300
 msgid "Switch to copied table"
@@ -16787,10 +16613,8 @@ msgid "Remove partitioning"
 msgstr "Zrušit dělení"
 
 #: templates/table/operations/index.twig:417
-#, fuzzy
-#| msgid "Check referential integrity:"
 msgid "Check referential integrity"
-msgstr "Zkontrolovat integritu odkazů:"
+msgstr "Zkontrolovat integritu odkazů"
 
 #: templates/table/operations/view.twig:11
 msgid "Rename view to"
@@ -16935,10 +16759,8 @@ msgid "Edit partitioning"
 msgstr "Upravit rozdělení"
 
 #: templates/table/structure/display_structure.twig:71
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media type:"
-msgstr "MIME typ"
+msgstr "Typ média:"
 
 #: templates/table/structure/display_structure.twig:92
 #: templates/table/tracking/structure_snapshot_columns.twig:47
@@ -17136,13 +16958,11 @@ msgstr "Lišta při procházení tabulky"
 #. l10n: Current page
 #: templates/top_menu.twig:14
 msgid "(current)"
-msgstr ""
+msgstr "(aktuální)"
 
 #: templates/transformation_overview.twig:1
-#, fuzzy
-#| msgid "Available MIME types"
 msgid "Available media types"
-msgstr "Dostupné MIME typy"
+msgstr "Dostupné typy médií"
 
 #: templates/transformation_overview.twig:13
 msgid "Available browser display transformations"
@@ -17150,8 +16970,6 @@ msgstr "Dostupné transformace pro zobrazení"
 
 #: templates/transformation_overview.twig:19
 #: templates/transformation_overview.twig:38
-#, fuzzy
-#| msgid "Description"
 msgctxt "for media type transformation"
 msgid "Description"
 msgstr "Popis"
