@@ -2828,7 +2828,7 @@ class Util
                 $groupTable,
                 $GLOBALS['dbi']->getTablesFull(
                     $db,
-                    $groupWithSeparator,
+                    $groupWithSeparator !== false ? $groupWithSeparator : '',
                     $groupWithSeparator !== false,
                     $limit_offset,
                     $limit_count,
