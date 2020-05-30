@@ -14,6 +14,7 @@ use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\Dbal\DbiMysqli;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Query\Cache;
+use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\SqlParser\Context;
 use const E_USER_WARNING;
@@ -580,77 +581,7 @@ class DatabaseInterface implements DbalInterface
                     );
                 }
 
-                foreach ($each_tables as $table_name => $each_table) {
-                    if (! isset($each_tables[$table_name]['Type'])
-                        && isset($each_tables[$table_name]['Engine'])
-                    ) {
-                        // pma BC, same parts of PMA still uses 'Type'
-                        $each_tables[$table_name]['Type']
-                            =& $each_tables[$table_name]['Engine'];
-                    } elseif (! isset($each_tables[$table_name]['Engine'])
-                        && isset($each_tables[$table_name]['Type'])
-                    ) {
-                        // old MySQL reports Type, newer MySQL reports Engine
-                        $each_tables[$table_name]['Engine']
-                            =& $each_tables[$table_name]['Type'];
-                    }
-
-                    // Compatibility with INFORMATION_SCHEMA output
-                    $each_tables[$table_name]['TABLE_SCHEMA']
-                        = $each_database;
-                    $each_tables[$table_name]['TABLE_NAME']
-                        =& $each_tables[$table_name]['Name'];
-                    $each_tables[$table_name]['ENGINE']
-                        =& $each_tables[$table_name]['Engine'];
-                    $each_tables[$table_name]['VERSION']
-                        =& $each_tables[$table_name]['Version'];
-                    $each_tables[$table_name]['ROW_FORMAT']
-                        =& $each_tables[$table_name]['Row_format'];
-                    $each_tables[$table_name]['TABLE_ROWS']
-                        =& $each_tables[$table_name]['Rows'];
-                    $each_tables[$table_name]['AVG_ROW_LENGTH']
-                        =& $each_tables[$table_name]['Avg_row_length'];
-                    $each_tables[$table_name]['DATA_LENGTH']
-                        =& $each_tables[$table_name]['Data_length'];
-                    $each_tables[$table_name]['MAX_DATA_LENGTH']
-                        =& $each_tables[$table_name]['Max_data_length'];
-                    $each_tables[$table_name]['INDEX_LENGTH']
-                        =& $each_tables[$table_name]['Index_length'];
-                    $each_tables[$table_name]['DATA_FREE']
-                        =& $each_tables[$table_name]['Data_free'];
-                    $each_tables[$table_name]['AUTO_INCREMENT']
-                        =& $each_tables[$table_name]['Auto_increment'];
-                    $each_tables[$table_name]['CREATE_TIME']
-                        =& $each_tables[$table_name]['Create_time'];
-                    $each_tables[$table_name]['UPDATE_TIME']
-                        =& $each_tables[$table_name]['Update_time'];
-                    $each_tables[$table_name]['CHECK_TIME']
-                        =& $each_tables[$table_name]['Check_time'];
-                    $each_tables[$table_name]['TABLE_COLLATION']
-                        =& $each_tables[$table_name]['Collation'];
-                    $each_tables[$table_name]['CHECKSUM']
-                        =& $each_tables[$table_name]['Checksum'];
-                    $each_tables[$table_name]['CREATE_OPTIONS']
-                        =& $each_tables[$table_name]['Create_options'];
-                    $each_tables[$table_name]['TABLE_COMMENT']
-                        =& $each_tables[$table_name]['Comment'];
-
-                    if (strtoupper($each_tables[$table_name]['Comment'] ?? '') === 'VIEW'
-                        && $each_tables[$table_name]['Engine'] == null
-                    ) {
-                        $each_tables[$table_name]['TABLE_TYPE'] = 'VIEW';
-                    } elseif ($each_database == 'information_schema') {
-                        $each_tables[$table_name]['TABLE_TYPE'] = 'SYSTEM VIEW';
-                    } else {
-                        /**
-                         * @todo difference between 'TEMPORARY' and 'BASE TABLE'
-                         * but how to detect?
-                         */
-                        $each_tables[$table_name]['TABLE_TYPE'] = 'BASE TABLE';
-                    }
-                }
-
-                $tables[$each_database] = $each_tables;
+                $tables[$each_database] = Compatibility::getISCompatForGetTablesFull($each_tables, $each_database);
             }
         }
 
@@ -1058,67 +989,8 @@ class DatabaseInterface implements DbalInterface
         }
 
         $columns = $this->fetchResult($sql, 'Field', null, $link);
-        $ordinal_position = 1;
-        foreach ($columns as $column_name => $each_column) {
-            // Compatibility with INFORMATION_SCHEMA output
-            $columns[$column_name]['COLUMN_NAME']
-                =& $columns[$column_name]['Field'];
-            $columns[$column_name]['COLUMN_TYPE']
-                =& $columns[$column_name]['Type'];
-            $columns[$column_name]['COLLATION_NAME']
-                =& $columns[$column_name]['Collation'];
-            $columns[$column_name]['IS_NULLABLE']
-                =& $columns[$column_name]['Null'];
-            $columns[$column_name]['COLUMN_KEY']
-                =& $columns[$column_name]['Key'];
-            $columns[$column_name]['COLUMN_DEFAULT']
-                =& $columns[$column_name]['Default'];
-            $columns[$column_name]['EXTRA']
-                =& $columns[$column_name]['Extra'];
-            $columns[$column_name]['PRIVILEGES']
-                =& $columns[$column_name]['Privileges'];
-            $columns[$column_name]['COLUMN_COMMENT']
-                =& $columns[$column_name]['Comment'];
 
-            $columns[$column_name]['TABLE_CATALOG'] = null;
-            $columns[$column_name]['TABLE_SCHEMA'] = $database;
-            $columns[$column_name]['TABLE_NAME'] = $table;
-            $columns[$column_name]['ORDINAL_POSITION'] = $ordinal_position;
-            $colType = $columns[$column_name]['COLUMN_TYPE'];
-            $colType = is_string($colType) ? $colType : '';
-            $colTypePosComa = strpos($colType, '(');
-            $colTypePosComa = $colTypePosComa !== false ? $colTypePosComa : strlen($colType);
-            $columns[$column_name]['DATA_TYPE']
-                = substr(
-                    $colType,
-                    0,
-                    $colTypePosComa
-                );
-            /**
-             * @todo guess CHARACTER_MAXIMUM_LENGTH from COLUMN_TYPE
-            */
-            $columns[$column_name]['CHARACTER_MAXIMUM_LENGTH'] = null;
-            /**
-             * @todo guess CHARACTER_OCTET_LENGTH from CHARACTER_MAXIMUM_LENGTH
-             */
-            $columns[$column_name]['CHARACTER_OCTET_LENGTH'] = null;
-            $columns[$column_name]['NUMERIC_PRECISION'] = null;
-            $columns[$column_name]['NUMERIC_SCALE'] = null;
-            $colCollation = $columns[$column_name]['COLLATION_NAME'];
-            $colCollation = is_string($colCollation) ? $colCollation : '';
-            $colCollationPosUnderscore = strpos($colCollation, '_');
-            $colCollationPosUnderscore = $colCollationPosUnderscore !== false
-                ? $colCollationPosUnderscore
-                : strlen($colCollation);
-            $columns[$column_name]['CHARACTER_SET_NAME']
-                = substr(
-                    $colCollation,
-                    0,
-                    $colCollationPosUnderscore
-                );
-
-            $ordinal_position++;
-        }
+        $columns = Compatibility::getISCompatForGetColumnsFull($columns, $database, $table);
 
         if ($column !== null) {
             return reset($columns);
