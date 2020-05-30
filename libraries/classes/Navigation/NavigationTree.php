@@ -1128,15 +1128,12 @@ class NavigationTree
 
                 $retval .= '<a class="' . $node->getCssClasses($match) . '"';
                 $retval .= " href='#'>";
-                $retval .= "<span class='hide aPath'>";
-                $retval .= $paths['aPath'];
-                $retval .= '</span>';
-                $retval .= "<span class='hide vPath'>";
-                $retval .= $paths['vPath'];
-                $retval .= '</span>';
-                $retval .= "<span class='hide pos'>";
-                $retval .= $this->pos;
-                $retval .= '</span>';
+
+                $retval .= '<span class="hide paths_nav"';
+                $retval .= ' data-apath="' . $paths['aPath'] . '"';
+                $retval .= ' data-vpath="' . $paths['vPath'] . '"';
+                $retval .= ' data-pos="' . $this->pos . '"';
+                $retval .= '"></span>';
                 $retval .= $this->getPaginationParamsHtml($node);
                 if ($GLOBALS['cfg']['ShowDatabasesNavigationAsTree']
                     || $parentName != 'root'
@@ -1333,9 +1330,9 @@ class NavigationTree
             $options .= '<option value="'
                 . htmlspecialchars($node->realName) . '"'
                 . ' title="' . htmlspecialchars($title) . '"'
-                . ' apath="' . $paths['aPath'] . '"'
-                . ' vpath="' . $paths['vPath'] . '"'
-                . ' pos="' . $this->pos . '"';
+                . ' data-apath="' . $paths['aPath'] . '"'
+                . ' data-vpath="' . $paths['vPath'] . '"'
+                . ' data-pos="' . $this->pos . '"';
             if ($node->realName == $selected) {
                 $options .= ' selected';
             }

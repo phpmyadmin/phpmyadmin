@@ -134,10 +134,11 @@ Navigation.loadChildNodes = function (isNode, $expandElem, callback) {
         }
         $destination = $expandElem.closest('li');
         var pos2Name = $expandElem.find('span.pos2_nav');
+        var pathsNav = $expandElem.find('span.paths_nav');
         params = {
-            'aPath': $expandElem.find('span.aPath').text(),
-            'vPath': $expandElem.find('span.vPath').text(),
-            'pos': $expandElem.find('span.pos').text(),
+            'aPath': pathsNav.attr('data-apath'),
+            'vPath': pathsNav.attr('data-vpath'),
+            'pos': pathsNav.attr('data-pos'),
             'pos2_name': pos2Name.attr('data-name'),
             'pos2_value': pos2Name.attr('data-value'),
             'searchClause': '',
@@ -150,9 +151,9 @@ Navigation.loadChildNodes = function (isNode, $expandElem, callback) {
     } else {
         $destination = $('#pma_navigation_tree_content');
         params = {
-            'aPath': $expandElem.attr('aPath'),
-            'vPath': $expandElem.attr('vPath'),
-            'pos': $expandElem.attr('pos'),
+            'aPath': $expandElem.attr('data-apath'),
+            'vPath': $expandElem.attr('data-vpath'),
+            'pos': $expandElem.attr('data-pos'),
             'pos2_name': '',
             'pos2_value': '',
             'searchClause': '',
@@ -243,8 +244,9 @@ Navigation.traverseForPaths = function () {
         if ($(this).find('img').is('.ic_b_minus') &&
             $(this).closest('li').find('div.list_container .ic_b_minus').length === 0
         ) {
-            params['n' + count + '_aPath'] = $(this).find('span.aPath').text();
-            params['n' + count + '_vPath'] = $(this).find('span.vPath').text();
+            var pathsNav = $(this).find('span.paths_nav');
+            params['n' + count + '_aPath'] = pathsNav.attr('data-apath');
+            params['n' + count + '_vPath'] = pathsNav.attr('data-vpath');
 
             var pos2Nav = $(this).find('span.pos2_nav');
 
