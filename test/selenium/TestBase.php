@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
+use Closure;
 use Exception;
 use Facebook\WebDriver\Chrome\ChromeOptions;
 use Facebook\WebDriver\Exception\InvalidSelectorException;
@@ -22,7 +23,6 @@ use Facebook\WebDriver\WebDriverSelect;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use Throwable;
-use \Closure;
 use const CURLOPT_CUSTOMREQUEST;
 use const CURLOPT_HTTPHEADER;
 use const CURLOPT_POSTFIELDS;
@@ -36,6 +36,8 @@ use function curl_error;
 use function curl_exec;
 use function curl_init;
 use function curl_setopt;
+use function current;
+use function end;
 use function getenv;
 use function is_bool;
 use function is_string;
@@ -45,6 +47,7 @@ use function mb_strtolower;
 use function mb_substr;
 use function preg_match;
 use function rand;
+use function reset;
 use function sha1;
 use function sprintf;
 use function strlen;
@@ -79,6 +82,7 @@ abstract class TestBase extends TestCase
 
     /**
      * The window handle for the SQL tab
+     *
      * @var string|null
      */
     private $sqlWindowHandle = null;
@@ -102,6 +106,17 @@ abstract class TestBase extends TestCase
 
         if ($this->getHubUrl() === '') {
             $this->markTestSkipped('Selenium testing is not configured.');
+        }
+
+        if ($this->getTestSuiteUrl() === '') {
+            $this->markTestSkipped('The ENV "TESTSUITE_URL" is not defined.');
+        }
+
+        if ($this->getTestSuiteUserLogin() === '') {
+            //TODO: handle config mode
+            $this->markTestSkipped(
+                'The ENV "TESTSUITE_USER" is not defined, you may also want to define "TESTSUITE_PASSWORD".'
+            );
         }
 
         $capabilities = $this->getCapabilities();
@@ -130,6 +145,7 @@ abstract class TestBase extends TestCase
         if ($envVar) {
             return $envVar;
         }
+
         return '';
     }
 
@@ -148,6 +164,13 @@ abstract class TestBase extends TestCase
     protected function getTestSuiteUserPassword(): string
     {
         $user = getenv('TESTSUITE_PASSWORD');
+
+        return $user === false ? '' : $user;
+    }
+
+    protected function getTestSuiteUrl(): string
+    {
+        $user = getenv('TESTSUITE_URL');
 
         return $user === false ? '' : $user;
     }
@@ -609,6 +632,7 @@ abstract class TestBase extends TestCase
         reset($handles);
         $lastWindow = current($handles);
         $this->webDriver->switchTo()->window($lastWindow);
+
         return $didSucceed;
     }
 

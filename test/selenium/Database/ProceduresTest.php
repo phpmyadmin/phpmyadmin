@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Selenium\Database;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
+use function sleep;
 use function str_replace;
 
 /**
@@ -79,6 +80,7 @@ class ProceduresTest extends TestBase
                 $this->assertNotEmpty($sqlMode);
             }
         );
+
         return $sqlMode;
     }
 
