@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Database\DatabaseList;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Util;
@@ -408,7 +409,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
     {
         $this->assertStringContainsString(
             $match,
-            DatabaseInterface::formatError($error_number, $error_message)
+            Utilities::formatError($error_number, $error_message)
         );
     }
 

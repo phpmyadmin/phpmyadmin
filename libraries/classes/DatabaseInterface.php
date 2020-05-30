@@ -1947,62 +1947,6 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * Formats database error message in a friendly way.
-     * This is needed because some errors messages cannot
-     * be obtained by mysql_error().
-     *
-     * @param int    $error_number  Error code
-     * @param string $error_message Error message as returned by server
-     *
-     * @return string HML text with error details
-     */
-    public static function formatError(int $error_number, string $error_message): string
-    {
-        $error_message = htmlspecialchars($error_message);
-
-        $error = '#' . ((string) $error_number);
-        $separator = ' &mdash; ';
-
-        if ($error_number == 2002) {
-            $error .= ' - ' . $error_message;
-            $error .= $separator;
-            $error .= __(
-                'The server is not responding (or the local server\'s socket'
-                . ' is not correctly configured).'
-            );
-        } elseif ($error_number == 2003) {
-            $error .= ' - ' . $error_message;
-            $error .= $separator . __('The server is not responding.');
-        } elseif ($error_number == 1698) {
-            $error .= ' - ' . $error_message;
-            $error .= $separator . '<a href="' . Url::getFromRoute('/logout') . '" class="disableAjax">';
-            $error .= __('Logout and try as another user.') . '</a>';
-        } elseif ($error_number == 1005) {
-            if (strpos($error_message, 'errno: 13') !== false) {
-                $error .= ' - ' . $error_message;
-                $error .= $separator
-                    . __(
-                        'Please check privileges of directory containing database.'
-                    );
-            } else {
-                /**
-                 * InnoDB constraints, see
-                 * https://dev.mysql.com/doc/refman/5.0/en/
-                 * innodb-foreign-key-constraints.html
-                 */
-                $error .= ' - ' . $error_message .
-                    ' (<a href="' .
-                    Url::getFromRoute('/server/engines/InnoDB/Status') .
-                    '">' . __('Details…') . '</a>)';
-            }
-        } else {
-            $error .= ' - ' . $error_message;
-        }
-
-        return $error;
-    }
-
-    /**
      * gets the current user with host
      *
      * @return string the current user i.e. user@host

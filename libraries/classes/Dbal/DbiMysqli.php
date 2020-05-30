@@ -11,6 +11,7 @@ use mysqli;
 use mysqli_result;
 use mysqli_stmt;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Query\Utilities;
 use stdClass;
 use const E_USER_WARNING;
 use const MYSQLI_ASSOC;
@@ -426,7 +427,7 @@ class DbiMysqli implements DbiExtension
         // the call to getError()
         $GLOBALS['errno'] = $error_number;
 
-        return $GLOBALS['dbi']->formatError($error_number, $error_message);
+        return Utilities::formatError($error_number, $error_message);
     }
 
     /**

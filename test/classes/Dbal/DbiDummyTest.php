@@ -97,7 +97,7 @@ class DbiDummyTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $this->assertEquals(
             $expected,
-            $GLOBALS['dbi']->formatError($number, $message)
+            Utilities::formatError($number, $message)
         );
     }
 
