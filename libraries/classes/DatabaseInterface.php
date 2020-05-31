@@ -817,48 +817,13 @@ class DatabaseInterface implements DbalInterface
         $link = self::CONNECT_USER
     ): array {
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            $sql_wheres = [];
-            $array_keys = [];
+            [$sql, $arrayKeys] = QueryGenerator::getInformationSchemaColumnsFullRequest(
+                $database !== null ? $this->escapeString($database, $link) : null,
+                $table !== null ? $this->escapeString($table, $link) : null,
+                $column !== null ? $this->escapeString($column, $link) : null
+            );
 
-            // get columns information from information_schema
-            if ($database !== null) {
-                $sql_wheres[] = '`TABLE_SCHEMA` = \''
-                    . $this->escapeString($database, $link) . '\' ';
-            } else {
-                $array_keys[] = 'TABLE_SCHEMA';
-            }
-            if ($table !== null) {
-                $sql_wheres[] = '`TABLE_NAME` = \''
-                    . $this->escapeString($table, $link) . '\' ';
-            } else {
-                $array_keys[] = 'TABLE_NAME';
-            }
-            if ($column !== null) {
-                $sql_wheres[] = '`COLUMN_NAME` = \''
-                    . $this->escapeString($column, $link) . '\' ';
-            } else {
-                $array_keys[] = 'COLUMN_NAME';
-            }
-
-            // for PMA bc:
-            // `[SCHEMA_FIELD_NAME]` AS `[SHOW_FULL_COLUMNS_FIELD_NAME]`
-            $sql = 'SELECT *,'
-                        . ' `COLUMN_NAME`       AS `Field`,'
-                        . ' `COLUMN_TYPE`       AS `Type`,'
-                        . ' `COLLATION_NAME`    AS `Collation`,'
-                        . ' `IS_NULLABLE`       AS `Null`,'
-                        . ' `COLUMN_KEY`        AS `Key`,'
-                        . ' `COLUMN_DEFAULT`    AS `Default`,'
-                        . ' `EXTRA`             AS `Extra`,'
-                        . ' `PRIVILEGES`        AS `Privileges`,'
-                        . ' `COLUMN_COMMENT`    AS `Comment`'
-                   . ' FROM `information_schema`.`COLUMNS`';
-
-            if (count($sql_wheres)) {
-                $sql .= "\n" . ' WHERE ' . implode(' AND ', $sql_wheres);
-            }
-
-            return $this->fetchResult($sql, $array_keys, null, $link);
+            return $this->fetchResult($sql, $arrayKeys, null, $link);
         }
 
         $columns = [];

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Query;
 
 use PhpMyAdmin\Util;
+use function count;
 use function implode;
 use function is_array;
 
@@ -305,5 +306,54 @@ class Generator
         $sql .= ') a';
 
         return $sql;
+    }
+
+    public static function getInformationSchemaColumnsFullRequest(
+        ?string $escapedDatabase,
+        ?string $escapedTable,
+        ?string $escapedColumn
+    ): array {
+        $sqlWheres = [];
+        $arrayKeys = [];
+
+        // get columns information from information_schema
+        if ($escapedDatabase !== null) {
+            $sqlWheres[] = '`TABLE_SCHEMA` = \''
+                . $escapedDatabase . '\' ';
+        } else {
+            $arrayKeys[] = 'TABLE_SCHEMA';
+        }
+        if ($escapedTable !== null) {
+            $sqlWheres[] = '`TABLE_NAME` = \''
+                . $escapedTable . '\' ';
+        } else {
+            $arrayKeys[] = 'TABLE_NAME';
+        }
+        if ($escapedColumn !== null) {
+            $sqlWheres[] = '`COLUMN_NAME` = \''
+                . $escapedColumn . '\' ';
+        } else {
+            $arrayKeys[] = 'COLUMN_NAME';
+        }
+
+        // for PMA bc:
+        // `[SCHEMA_FIELD_NAME]` AS `[SHOW_FULL_COLUMNS_FIELD_NAME]`
+        $sql = 'SELECT *,'
+                    . ' `COLUMN_NAME`       AS `Field`,'
+                    . ' `COLUMN_TYPE`       AS `Type`,'
+                    . ' `COLLATION_NAME`    AS `Collation`,'
+                    . ' `IS_NULLABLE`       AS `Null`,'
+                    . ' `COLUMN_KEY`        AS `Key`,'
+                    . ' `COLUMN_DEFAULT`    AS `Default`,'
+                    . ' `EXTRA`             AS `Extra`,'
+                    . ' `PRIVILEGES`        AS `Privileges`,'
+                    . ' `COLUMN_COMMENT`    AS `Comment`'
+               . ' FROM `information_schema`.`COLUMNS`';
+
+        if (count($sqlWheres)) {
+            $sql .= "\n" . ' WHERE ' . implode(' AND ', $sqlWheres);
+        }
+
+        return [$sql, $arrayKeys];
     }
 }
