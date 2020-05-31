@@ -714,8 +714,10 @@ class ImportCsv extends AbstractImportCsv
             }
             // check if {filename}_ as table exist
             $nameArray = preg_grep('/' . $importFileName . '_/isU', $result);
+
             return $importFileName . '_' . (count($nameArray) + 1);
         }
+
         return $importFileName;
     }
 
@@ -738,6 +740,7 @@ class ImportCsv extends AbstractImportCsv
                 $columnNames[] = 'COL ' . ($i + 1);
             }
         }
+
         return $columnNames;
     }
 

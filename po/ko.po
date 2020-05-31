@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-05-31 21:14+0200\n"
+"POT-Creation-Date: 2020-05-31 21:18+0200\n"
 "PO-Revision-Date: 2017-10-03 18:16+0000\n"
 "Last-Translator: urty5656 <urty5656@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -10533,7 +10533,7 @@ msgstr "%d 행에 잘못된 형식."
 msgid "Invalid column count in CSV input on line %d."
 msgstr "%d 행에 잘못된 컬럼 수."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:783
+#: libraries/classes/Plugins/Import/ImportCsv.php:786
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "

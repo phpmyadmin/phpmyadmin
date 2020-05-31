@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-05-31 21:14+0200\n"
+"POT-Creation-Date: 2020-05-31 21:18+0200\n"
 "PO-Revision-Date: 2018-05-10 20:57+0000\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -10738,7 +10738,7 @@ msgstr "Chybný formát v CSV vstupe na riadku %d."
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Chybný počet položiek v CSV vstupe na riadku %d."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:783
+#: libraries/classes/Plugins/Import/ImportCsv.php:786
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "

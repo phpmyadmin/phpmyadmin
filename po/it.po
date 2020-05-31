@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-05-31 21:14+0200\n"
+"POT-Creation-Date: 2020-05-31 21:18+0200\n"
 "PO-Revision-Date: 2020-02-08 14:50+0000\n"
 "Last-Translator: Daimona <daimona.wiki@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -10907,7 +10907,7 @@ msgstr "Formato non valido per l'input CSV alla linea %d."
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Il numero dei campi non é valido nell'input CSV alla linea %d."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:783
+#: libraries/classes/Plugins/Import/ImportCsv.php:786
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "

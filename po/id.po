@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-05-31 21:14+0200\n"
+"POT-Creation-Date: 2020-05-31 21:18+0200\n"
 "PO-Revision-Date: 2018-05-19 17:38+0000\n"
 "Last-Translator: Muhammad Rifqi Priyo Susanto "
 "<muhammadrifqipriyosusanto@gmail.com>\n"
@@ -11134,7 +11134,7 @@ msgstr "Format masukan CSV tidak valid pada baris %d."
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Perhitungan CSV tidak valid pada baris %d."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:783
+#: libraries/classes/Plugins/Import/ImportCsv.php:786
 #, fuzzy, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
