@@ -146,7 +146,7 @@ class Generator
         return 'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS FROM '
             . Util::backquote($database) . '.' . Util::backquote($table)
             . ($escapedColumn !== null ? "LIKE '"
-            . $escapedColumn . "'" : '');
+                . $escapedColumn . "'" : '');
     }
 
     public static function getInformationSchemaRoutinesRequest(
@@ -155,21 +155,21 @@ class Generator
         ?string $escapedRoutineName
     ): string {
         $query = 'SELECT'
-                 . ' `ROUTINE_SCHEMA` AS `Db`,'
-                 . ' `SPECIFIC_NAME` AS `Name`,'
-                 . ' `ROUTINE_TYPE` AS `Type`,'
-                 . ' `DEFINER` AS `Definer`,'
-                 . ' `LAST_ALTERED` AS `Modified`,'
-                 . ' `CREATED` AS `Created`,'
-                 . ' `SECURITY_TYPE` AS `Security_type`,'
-                 . ' `ROUTINE_COMMENT` AS `Comment`,'
-                 . ' `CHARACTER_SET_CLIENT` AS `character_set_client`,'
-                 . ' `COLLATION_CONNECTION` AS `collation_connection`,'
-                 . ' `DATABASE_COLLATION` AS `Database Collation`,'
-                 . ' `DTD_IDENTIFIER`'
-                 . ' FROM `information_schema`.`ROUTINES`'
-                 . ' WHERE `ROUTINE_SCHEMA` ' . Util::getCollateForIS()
-                 . " = '" . $escapedDb . "'";
+            . ' `ROUTINE_SCHEMA` AS `Db`,'
+            . ' `SPECIFIC_NAME` AS `Name`,'
+            . ' `ROUTINE_TYPE` AS `Type`,'
+            . ' `DEFINER` AS `Definer`,'
+            . ' `LAST_ALTERED` AS `Modified`,'
+            . ' `CREATED` AS `Created`,'
+            . ' `SECURITY_TYPE` AS `Security_type`,'
+            . ' `ROUTINE_COMMENT` AS `Comment`,'
+            . ' `CHARACTER_SET_CLIENT` AS `character_set_client`,'
+            . ' `COLLATION_CONNECTION` AS `collation_connection`,'
+            . ' `DATABASE_COLLATION` AS `Database Collation`,'
+            . ' `DTD_IDENTIFIER`'
+            . ' FROM `information_schema`.`ROUTINES`'
+            . ' WHERE `ROUTINE_SCHEMA` ' . Util::getCollateForIS()
+            . " = '" . $escapedDb . "'";
         if ($routineType !== null) {
             $query .= " AND `ROUTINE_TYPE` = '" . $routineType . "'";
         }
@@ -184,24 +184,24 @@ class Generator
     public static function getInformationSchemaEventsRequest(string $escapedDb, ?string $escapedEventName): string
     {
         $query = 'SELECT'
-                 . ' `EVENT_SCHEMA` AS `Db`,'
-                 . ' `EVENT_NAME` AS `Name`,'
-                 . ' `DEFINER` AS `Definer`,'
-                 . ' `TIME_ZONE` AS `Time zone`,'
-                 . ' `EVENT_TYPE` AS `Type`,'
-                 . ' `EXECUTE_AT` AS `Execute at`,'
-                 . ' `INTERVAL_VALUE` AS `Interval value`,'
-                 . ' `INTERVAL_FIELD` AS `Interval field`,'
-                 . ' `STARTS` AS `Starts`,'
-                 . ' `ENDS` AS `Ends`,'
-                 . ' `STATUS` AS `Status`,'
-                 . ' `ORIGINATOR` AS `Originator`,'
-                 . ' `CHARACTER_SET_CLIENT` AS `character_set_client`,'
-                 . ' `COLLATION_CONNECTION` AS `collation_connection`, '
-                 . '`DATABASE_COLLATION` AS `Database Collation`'
-                 . ' FROM `information_schema`.`EVENTS`'
-                 . ' WHERE `EVENT_SCHEMA` ' . Util::getCollateForIS()
-                 . " = '" . $escapedDb . "'";
+            . ' `EVENT_SCHEMA` AS `Db`,'
+            . ' `EVENT_NAME` AS `Name`,'
+            . ' `DEFINER` AS `Definer`,'
+            . ' `TIME_ZONE` AS `Time zone`,'
+            . ' `EVENT_TYPE` AS `Type`,'
+            . ' `EXECUTE_AT` AS `Execute at`,'
+            . ' `INTERVAL_VALUE` AS `Interval value`,'
+            . ' `INTERVAL_FIELD` AS `Interval field`,'
+            . ' `STARTS` AS `Starts`,'
+            . ' `ENDS` AS `Ends`,'
+            . ' `STATUS` AS `Status`,'
+            . ' `ORIGINATOR` AS `Originator`,'
+            . ' `CHARACTER_SET_CLIENT` AS `character_set_client`,'
+            . ' `COLLATION_CONNECTION` AS `collation_connection`, '
+            . '`DATABASE_COLLATION` AS `Database Collation`'
+            . ' FROM `information_schema`.`EVENTS`'
+            . ' WHERE `EVENT_SCHEMA` ' . Util::getCollateForIS()
+            . " = '" . $escapedDb . "'";
         if ($escapedEventName !== null) {
             $query .= ' AND `EVENT_NAME`'
                 . " = '" . $escapedEventName . "'";
@@ -213,15 +213,15 @@ class Generator
     public static function getInformationSchemaTriggersRequest(string $escapedDb, ?string $escapedTable): string
     {
         $query = 'SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION'
-                  . ', EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT'
-                  . ', EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER'
-                  . ' FROM information_schema.TRIGGERS'
-                  . ' WHERE EVENT_OBJECT_SCHEMA ' . Util::getCollateForIS() . '='
-                  . ' \'' . $escapedDb . '\'';
+            . ', EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT'
+            . ', EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER'
+            . ' FROM information_schema.TRIGGERS'
+            . ' WHERE EVENT_OBJECT_SCHEMA ' . Util::getCollateForIS() . '='
+            . ' \'' . $escapedDb . '\'';
 
         if ($escapedTable !== null) {
             $query .= ' AND EVENT_OBJECT_TABLE ' . Util::getCollateForIS()
-                      . " = '" . $escapedTable . "';";
+                . " = '" . $escapedTable . "';";
         }
 
         return $query;
@@ -230,23 +230,23 @@ class Generator
     public static function getInformationSchemaDataForCreateRequest(string $user, string $host): string
     {
         return 'SELECT 1 FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` '
-                . "WHERE `PRIVILEGE_TYPE` = 'CREATE USER' AND "
-                . "'''" . $user . "''@''" . $host . "''' LIKE `GRANTEE` LIMIT 1";
+            . "WHERE `PRIVILEGE_TYPE` = 'CREATE USER' AND "
+            . "'''" . $user . "''@''" . $host . "''' LIKE `GRANTEE` LIMIT 1";
     }
 
     public static function getInformationSchemaDataForGranteeRequest(string $user, string $host): string
     {
         return 'SELECT 1 FROM ('
-        . 'SELECT `GRANTEE`, `IS_GRANTABLE` FROM '
-        . '`INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION '
-        . 'SELECT `GRANTEE`, `IS_GRANTABLE` FROM '
-        . '`INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION '
-        . 'SELECT `GRANTEE`, `IS_GRANTABLE` FROM '
-        . '`INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION '
-        . 'SELECT `GRANTEE`, `IS_GRANTABLE` FROM '
-        . '`INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t '
-        . "WHERE `IS_GRANTABLE` = 'YES' AND "
-        . "'''" . $user . "''@''" . $host . "''' LIKE `GRANTEE` LIMIT 1";
+            . 'SELECT `GRANTEE`, `IS_GRANTABLE` FROM '
+            . '`INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION '
+            . 'SELECT `GRANTEE`, `IS_GRANTABLE` FROM '
+            . '`INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION '
+            . 'SELECT `GRANTEE`, `IS_GRANTABLE` FROM '
+            . '`INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION '
+            . 'SELECT `GRANTEE`, `IS_GRANTABLE` FROM '
+            . '`INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t '
+            . "WHERE `IS_GRANTABLE` = 'YES' AND "
+            . "'''" . $user . "''@''" . $host . "''' LIKE `GRANTEE` LIMIT 1";
     }
 
     public static function getInformationSchemaForeignKeyConstraintsRequest(
@@ -254,14 +254,56 @@ class Generator
         string $tablesListForQueryCsv
     ): string {
         return 'SELECT'
-                    . ' TABLE_NAME,'
-                    . ' COLUMN_NAME,'
-                    . ' REFERENCED_TABLE_NAME,'
-                    . ' REFERENCED_COLUMN_NAME'
-                . ' FROM information_schema.key_column_usage'
-                . ' WHERE referenced_table_name IS NOT NULL'
-                    . " AND TABLE_SCHEMA = '" . $escapedDatabase . "'"
-                    . ' AND TABLE_NAME IN (' . $tablesListForQueryCsv . ')'
-                    . ' AND REFERENCED_TABLE_NAME IN (' . $tablesListForQueryCsv . ');';
+            . ' TABLE_NAME,'
+            . ' COLUMN_NAME,'
+            . ' REFERENCED_TABLE_NAME,'
+            . ' REFERENCED_COLUMN_NAME'
+            . ' FROM information_schema.key_column_usage'
+            . ' WHERE referenced_table_name IS NOT NULL'
+            . " AND TABLE_SCHEMA = '" . $escapedDatabase . "'"
+            . ' AND TABLE_NAME IN (' . $tablesListForQueryCsv . ')'
+            . ' AND REFERENCED_TABLE_NAME IN (' . $tablesListForQueryCsv . ');';
+    }
+
+    public static function getInformationSchemaDatabasesFullRequest(
+        bool $forceStats,
+        string $sqlWhereSchema,
+        string $sortBy,
+        string $sortOrder,
+        string $limit
+    ): string {
+        $sql  = 'SELECT *, '
+                . 'CAST(BIN_NAME AS CHAR CHARACTER SET utf8) AS SCHEMA_NAME'
+                . ' FROM (';
+        $sql .= 'SELECT'
+                . ' BINARY s.SCHEMA_NAME AS BIN_NAME,'
+                . ' s.DEFAULT_COLLATION_NAME';
+        if ($forceStats) {
+            $sql .= ','
+                . ' COUNT(t.TABLE_SCHEMA)  AS SCHEMA_TABLES,'
+                . ' SUM(t.TABLE_ROWS)      AS SCHEMA_TABLE_ROWS,'
+                . ' SUM(t.DATA_LENGTH)     AS SCHEMA_DATA_LENGTH,'
+                . ' SUM(t.MAX_DATA_LENGTH) AS SCHEMA_MAX_DATA_LENGTH,'
+                . ' SUM(t.INDEX_LENGTH)    AS SCHEMA_INDEX_LENGTH,'
+                . ' SUM(t.DATA_LENGTH + t.INDEX_LENGTH) AS SCHEMA_LENGTH,'
+                . ' SUM(IF(t.ENGINE <> \'InnoDB\', t.DATA_FREE, 0)) AS SCHEMA_DATA_FREE';
+        }
+        $sql .= ' FROM `information_schema`.SCHEMATA s ';
+        if ($forceStats) {
+            $sql .= ' LEFT JOIN `information_schema`.TABLES t'
+                    . ' ON BINARY t.TABLE_SCHEMA = BINARY s.SCHEMA_NAME';
+        }
+        $sql .= $sqlWhereSchema
+                . ' GROUP BY BINARY s.SCHEMA_NAME, s.DEFAULT_COLLATION_NAME'
+                . ' ORDER BY ';
+        if ($sortBy === 'SCHEMA_NAME' || $sortBy === 'DEFAULT_COLLATION_NAME') {
+            $sql .= 'BINARY ';
+        }
+        $sql .= Util::backquote($sortBy)
+            . ' ' . $sortOrder
+            . $limit;
+        $sql .= ') a';
+
+        return $sql;
     }
 }
