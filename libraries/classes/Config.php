@@ -1380,4 +1380,108 @@ class Config
             $this->settings['Servers'] = $new_servers;
         }
     }
+
+    /**
+     * Return connection parameters for the database server
+     *
+     * @param int        $mode   Connection mode on of CONNECT_USER, CONNECT_CONTROL
+     *                           or CONNECT_AUXILIARY.
+     * @param array|null $server Server information like host/port/socket/persistent
+     *
+     * @return array user, host and server settings array
+     */
+    public static function getConnectionParams(int $mode, ?array $server = null): array
+    {
+        global $cfg;
+
+        $user = null;
+        $password = null;
+
+        if ($mode == DatabaseInterface::CONNECT_USER) {
+            $user = $cfg['Server']['user'];
+            $password = $cfg['Server']['password'];
+            $server = $cfg['Server'];
+        } elseif ($mode == DatabaseInterface::CONNECT_CONTROL) {
+            $user = $cfg['Server']['controluser'];
+            $password = $cfg['Server']['controlpass'];
+
+            $server = [];
+
+            if (! empty($cfg['Server']['controlhost'])) {
+                $server['host'] = $cfg['Server']['controlhost'];
+            } else {
+                $server['host'] = $cfg['Server']['host'];
+            }
+            // Share the settings if the host is same
+            if ($server['host'] == $cfg['Server']['host']) {
+                $shared = [
+                    'port',
+                    'socket',
+                    'compress',
+                    'ssl',
+                    'ssl_key',
+                    'ssl_cert',
+                    'ssl_ca',
+                    'ssl_ca_path',
+                    'ssl_ciphers',
+                    'ssl_verify',
+                ];
+                foreach ($shared as $item) {
+                    if (! isset($cfg['Server'][$item])) {
+                        continue;
+                    }
+
+                    $server[$item] = $cfg['Server'][$item];
+                }
+            }
+            // Set configured port
+            if (! empty($cfg['Server']['controlport'])) {
+                $server['port'] = $cfg['Server']['controlport'];
+            }
+            // Set any configuration with control_ prefix
+            foreach ($cfg['Server'] as $key => $val) {
+                if (substr($key, 0, 8) !== 'control_') {
+                    continue;
+                }
+
+                $server[substr($key, 8)] = $val;
+            }
+        } else {
+            if ($server === null) {
+                return [
+                    null,
+                    null,
+                    null,
+                ];
+            }
+            if (isset($server['user'])) {
+                $user = $server['user'];
+            }
+            if (isset($server['password'])) {
+                $password = $server['password'];
+            }
+        }
+
+        // Perform sanity checks on some variables
+        $server['port'] = empty($server['port']) ? 0 : (int) $server['port'];
+
+        if (empty($server['socket'])) {
+            $server['socket'] = null;
+        }
+        if (empty($server['host'])) {
+            $server['host'] = 'localhost';
+        }
+        if (! isset($server['ssl'])) {
+            $server['ssl'] = false;
+        }
+        if (! isset($server['compress'])) {
+            $server['compress'] = false;
+        }
+
+        return [
+            $user,
+            $password,
+            $server,
+        ];
+    }
 }

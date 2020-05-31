@@ -525,17 +525,6 @@ interface DbalInterface
     public function getLowerCaseNames();
 
     /**
-     * Return connection parameters for the database server
-     *
-     * @param int        $mode   Connection mode on of CONNECT_USER, CONNECT_CONTROL
-     *                           or CONNECT_AUXILIARY.
-     * @param array|null $server Server information like host/port/socket/persistent
-     *
-     * @return array user, host and server settings array
-     */
-    public function getConnectionParams(int $mode, ?array $server = null): array;
-
-    /**
      * connects to the database server
      *
      * @param int        $mode   Connection mode on of CONNECT_USER, CONNECT_CONTROL

@@ -39,7 +39,6 @@ use function count;
 use function defined;
 use function explode;
 use function implode;
-use function intval;
 use function is_array;
 use function is_int;
 use function is_string;
@@ -1878,113 +1877,6 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * Return connection parameters for the database server
-     *
-     * @param int        $mode   Connection mode on of CONNECT_USER, CONNECT_CONTROL
-     *                           or CONNECT_AUXILIARY.
-     * @param array|null $server Server information like host/port/socket/persistent
-     *
-     * @return array user, host and server settings array
-     */
-    public function getConnectionParams(int $mode, ?array $server = null): array
-    {
-        global $cfg;
-
-        $user = null;
-        $password = null;
-
-        if ($mode == self::CONNECT_USER) {
-            $user = $cfg['Server']['user'];
-            $password = $cfg['Server']['password'];
-            $server = $cfg['Server'];
-        } elseif ($mode == self::CONNECT_CONTROL) {
-            $user = $cfg['Server']['controluser'];
-            $password = $cfg['Server']['controlpass'];
-
-            $server = [];
-
-            if (! empty($cfg['Server']['controlhost'])) {
-                $server['host'] = $cfg['Server']['controlhost'];
-            } else {
-                $server['host'] = $cfg['Server']['host'];
-            }
-            // Share the settings if the host is same
-            if ($server['host'] == $cfg['Server']['host']) {
-                $shared = [
-                    'port',
-                    'socket',
-                    'compress',
-                    'ssl',
-                    'ssl_key',
-                    'ssl_cert',
-                    'ssl_ca',
-                    'ssl_ca_path',
-                    'ssl_ciphers',
-                    'ssl_verify',
-                ];
-                foreach ($shared as $item) {
-                    if (! isset($cfg['Server'][$item])) {
-                        continue;
-                    }
-
-                    $server[$item] = $cfg['Server'][$item];
-                }
-            }
-            // Set configured port
-            if (! empty($cfg['Server']['controlport'])) {
-                $server['port'] = $cfg['Server']['controlport'];
-            }
-            // Set any configuration with control_ prefix
-            foreach ($cfg['Server'] as $key => $val) {
-                if (substr($key, 0, 8) !== 'control_') {
-                    continue;
-                }
-
-                $server[substr($key, 8)] = $val;
-            }
-        } else {
-            if ($server === null) {
-                return [
-                    null,
-                    null,
-                    null,
-                ];
-            }
-            if (isset($server['user'])) {
-                $user = $server['user'];
-            }
-            if (isset($server['password'])) {
-                $password = $server['password'];
-            }
-        }
-
-        // Perform sanity checks on some variables
-        if (empty($server['port'])) {
-            $server['port'] = 0;
-        } else {
-            $server['port'] = intval($server['port']);
-        }
-        if (empty($server['socket'])) {
-            $server['socket'] = null;
-        }
-        if (empty($server['host'])) {
-            $server['host'] = 'localhost';
-        }
-        if (! isset($server['ssl'])) {
-            $server['ssl'] = false;
-        }
-        if (! isset($server['compress'])) {
-            $server['compress'] = false;
-        }
-
-        return [
-            $user,
-            $password,
-            $server,
-        ];
-    }
-
-    /**
      * connects to the database server
      *
      * @param int        $mode   Connection mode on of CONNECT_USER, CONNECT_CONTROL
@@ -1996,7 +1888,7 @@ class DatabaseInterface implements DbalInterface
      */
     public function connect(int $mode, ?array $server = null, ?int $target = null)
     {
-        [$user, $password, $server] = $this->getConnectionParams($mode, $server);
+        [$user, $password, $server] = Config::getConnectionParams($mode, $server);
 
         if ($target === null) {
             $target = $mode;

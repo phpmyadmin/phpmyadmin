@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\DatabaseInterface;
 use PHPUnit\Framework\Exception;
 use const DIRECTORY_SEPARATOR;
 use const INFO_MODULES;
@@ -1210,6 +1211,167 @@ class ConfigTest extends AbstractTestCase
                 [1 => []],
                 '100',
                 1,
+            ],
+        ];
+    }
+
+    /**
+     * Test for getConnectionParams
+     *
+     * @param array      $server_cfg Server configuration
+     * @param int        $mode       Mode to test
+     * @param array|null $server     Server array to test
+     * @param array      $expected   Expected result
+     *
+     * @dataProvider connectionParams
+     */
+    public function testGetConnectionParams($server_cfg, $mode, $server, $expected): void
+    {
+        $GLOBALS['cfg']['Server'] = $server_cfg;
+        $result = Config::getConnectionParams($mode, $server);
+        $this->assertEquals($expected, $result);
+    }
+
+    /**
+     * Data provider for getConnectionParams test
+     *
+     * @return array
+     */
+    public function connectionParams()
+    {
+        $cfg_basic = [
+            'user' => 'u',
+            'password' => 'pass',
+            'host' => '',
+            'controluser' => 'u2',
+            'controlpass' => 'p2',
+        ];
+        $cfg_ssl = [
+            'user' => 'u',
+            'password' => 'pass',
+            'host' => '',
+            'ssl' => true,
+            'controluser' => 'u2',
+            'controlpass' => 'p2',
+        ];
+        $cfg_control_ssl = [
+            'user' => 'u',
+            'password' => 'pass',
+            'host' => '',
+            'control_ssl' => true,
+            'controluser' => 'u2',
+            'controlpass' => 'p2',
+        ];
+
+        return [
+            [
+                $cfg_basic,
+                DatabaseInterface::CONNECT_USER,
+                null,
+                [
+                    'u',
+                    'pass',
+                    [
+                        'user' => 'u',
+                        'password' => 'pass',
+                        'host' => 'localhost',
+                        'socket' => null,
+                        'port' => 0,
+                        'ssl' => false,
+                        'compress' => false,
+                        'controluser' => 'u2',
+                        'controlpass' => 'p2',
+                    ],
+                ],
+            ],
+            [
+                $cfg_basic,
+                DatabaseInterface::CONNECT_CONTROL,
+                null,
+                [
+                    'u2',
+                    'p2',
+                    [
+                        'host' => 'localhost',
+                        'socket' => null,
+                        'port' => 0,
+                        'ssl' => false,
+                        'compress' => false,
+                    ],
+                ],
+            ],
+            [
+                $cfg_ssl,
+                DatabaseInterface::CONNECT_USER,
+                null,
+                [
+                    'u',
+                    'pass',
+                    [
+                        'user' => 'u',
+                        'password' => 'pass',
+                        'host' => 'localhost',
+                        'socket' => null,
+                        'port' => 0,
+                        'ssl' => true,
+                        'compress' => false,
+                        'controluser' => 'u2',
+                        'controlpass' => 'p2',
+                    ],
+                ],
+            ],
+            [
+                $cfg_ssl,
+                DatabaseInterface::CONNECT_CONTROL,
+                null,
+                [
+                    'u2',
+                    'p2',
+                    [
+                        'host' => 'localhost',
+                        'socket' => null,
+                        'port' => 0,
+                        'ssl' => true,
+                        'compress' => false,
+                    ],
+                ],
+            ],
+            [
+                $cfg_control_ssl,
+                DatabaseInterface::CONNECT_USER,
+                null,
+                [
+                    'u',
+                    'pass',
+                    [
+                        'user' => 'u',
+                        'password' => 'pass',
+                        'host' => 'localhost',
+                        'socket' => null,
+                        'port' => 0,
+                        'ssl' => false,
+                        'compress' => false,
+                        'controluser' => 'u2',
+                        'controlpass' => 'p2',
+                        'control_ssl' => true,
+                    ],
+                ],
+            ],
+            [
+                $cfg_control_ssl,
+                DatabaseInterface::CONNECT_CONTROL,
+                null,
+                [
+                    'u2',
+                    'p2',
+                    [
+                        'host' => 'localhost',
+                        'socket' => null,
+                        'port' => 0,
+                        'ssl' => true,
+                        'compress' => false,
+                    ],
+                ],
             ],
         ];
     }
