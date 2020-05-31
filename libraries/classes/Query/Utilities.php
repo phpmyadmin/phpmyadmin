@@ -4,8 +4,15 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Query;
 
+use PhpMyAdmin\Error;
 use PhpMyAdmin\Url;
+use function array_slice;
+use function debug_backtrace;
+use function explode;
 use function htmlspecialchars;
+use function intval;
+use function md5;
+use function sprintf;
 use function strcasecmp;
 use function strnatcasecmp;
 use function strpos;
@@ -162,5 +169,35 @@ class Utilities
         $match = explode('.', $version);
 
         return (int) sprintf('%d%02d%02d', $match[0], $match[1], intval($match[2]));
+    }
+
+    /**
+     * Stores query data into session data for debugging purposes
+     *
+     * @param string      $query        Query text
+     * @param string|null $errorMessage Error message from getError()
+     * @param object|bool $result       Query result
+     * @param int|float   $time         Time to execute query
+     */
+    public static function debugLogQueryIntoSession(string $query, ?string $errorMessage, $result, $time): void
+    {
+        $dbgInfo = [];
+
+        if ($result === false && $errorMessage !== null) {
+            $dbgInfo['error']
+                = '<span class="color_red">'
+                . htmlspecialchars($errorMessage) . '</span>';
+        }
+        $dbgInfo['query'] = htmlspecialchars($query);
+        $dbgInfo['time'] = $time;
+        // Get and slightly format backtrace, this is used
+        // in the javascript console.
+        // Strip call to debugLogQueryIntoSession
+        $dbgInfo['trace'] = Error::processBacktrace(
+            array_slice(debug_backtrace(), 1)
+        );
+        $dbgInfo['hash'] = md5($query);
+
+        $_SESSION['debug']['queries'][] = $dbgInfo;
     }
 }

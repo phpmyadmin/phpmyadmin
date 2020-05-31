@@ -36,17 +36,14 @@ use function array_slice;
 use function basename;
 use function closelog;
 use function count;
-use function debug_backtrace;
 use function defined;
 use function explode;
-use function htmlspecialchars;
 use function implode;
 use function intval;
 use function is_array;
 use function is_int;
 use function is_string;
 use function mb_strtolower;
-use function md5;
 use function microtime;
 use function openlog;
 use function reset;
@@ -188,36 +185,6 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * Stores query data into session data for debugging purposes
-     *
-     * @param string      $query  Query text
-     * @param mixed       $link   link type
-     * @param object|bool $result Query result
-     * @param int|float   $time   Time to execute query
-     */
-    private function _dbgQuery(string $query, $link, $result, $time): void
-    {
-        $dbgInfo = [];
-        $error_message = $this->getError($link);
-        if ($result == false && is_string($error_message)) {
-            $dbgInfo['error']
-                = '<span class="color_red">'
-                . htmlspecialchars($error_message) . '</span>';
-        }
-        $dbgInfo['query'] = htmlspecialchars($query);
-        $dbgInfo['time'] = $time;
-        // Get and slightly format backtrace, this is used
-        // in the javascript console.
-        // Strip call to _dbgQuery
-        $dbgInfo['trace'] = Error::processBacktrace(
-            array_slice(debug_backtrace(), 1)
-        );
-        $dbgInfo['hash'] = md5($query);
-
-        $_SESSION['debug']['queries'][] = $dbgInfo;
-    }
-
-    /**
      * runs a query and returns the result
      *
      * @param string $query               query to run
@@ -251,7 +218,13 @@ class DatabaseInterface implements DbalInterface
 
         if ($debug) {
             $time = microtime(true) - $time;
-            $this->_dbgQuery($query, $link, $result, $time);
+            $errorMessage = $this->getError($link);
+            Utilities::debugLogQueryIntoSession(
+                $query,
+                is_string($errorMessage) ? $errorMessage : null,
+                $result,
+                $time
+            );
             if ($GLOBALS['cfg']['DBG']['sqllog']) {
                 $warningsCount = '';
                 if (($options & self::QUERY_STORE) == self::QUERY_STORE) {
