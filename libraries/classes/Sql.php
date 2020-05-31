@@ -10,6 +10,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Display\Results as DisplayResults;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SqlParser\Statements\AlterStatement;
 use PhpMyAdmin\SqlParser\Statements\DropStatement;
@@ -439,7 +440,7 @@ class Sql
      */
     public function getValuesForColumn($db, $table, $column)
     {
-        $field_info_query = $GLOBALS['dbi']->getColumnsSql($db, $table, $column);
+        $field_info_query = QueryGenerator::getColumnsSql($db, $table, $GLOBALS['dbi']->escapeString($column));
 
         $field_info_result = $GLOBALS['dbi']->fetchResult(
             $field_info_query,

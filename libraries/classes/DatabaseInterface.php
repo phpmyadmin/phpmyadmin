@@ -339,16 +339,10 @@ class DatabaseInterface implements DbalInterface
         $tablesListForQuery = rtrim($tablesListForQuery, ',');
 
         return $this->fetchResult(
-            'SELECT'
-                    . ' TABLE_NAME,'
-                    . ' COLUMN_NAME,'
-                    . ' REFERENCED_TABLE_NAME,'
-                    . ' REFERENCED_COLUMN_NAME'
-                . ' FROM information_schema.key_column_usage'
-                . ' WHERE referenced_table_name IS NOT NULL'
-                    . " AND TABLE_SCHEMA = '" . $this->escapeString($database) . "'"
-                    . ' AND TABLE_NAME IN (' . $tablesListForQuery . ')'
-                    . ' AND REFERENCED_TABLE_NAME IN (' . $tablesListForQuery . ');',
+            QueryGenerator::getInformationSchemaForeignKeyConstraintsRequest(
+                $this->escapeString($database),
+                $tablesListForQuery
+            ),
             null,
             null,
             $link,
@@ -1001,31 +995,6 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * Returns SQL query for fetching columns for a table
-     *
-     * The 'Key' column is not calculated properly, use $dbi->getColumns()
-     * to get correct values.
-     *
-     * @see getColumns()
-     *
-     * @param string $database name of database
-     * @param string $table    name of table to retrieve columns from
-     * @param string $column   name of column, null to show all columns
-     * @param bool   $full     whether to return full info or only column names
-     */
-    public function getColumnsSql(
-        string $database,
-        string $table,
-        ?string $column = null,
-        bool $full = false
-    ): string {
-        return 'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS FROM '
-            . Util::backquote($database) . '.' . Util::backquote($table)
-            . ($column !== null ? "LIKE '"
-            . $this->escapeString($column) . "'" : '');
-    }
-
-    /**
      * Returns descriptions of columns in given table (all or given by $column)
      *
      * @param string $database name of database
@@ -1044,7 +1013,12 @@ class DatabaseInterface implements DbalInterface
         bool $full = false,
         $link = self::CONNECT_USER
     ): array {
-        $sql = $this->getColumnsSql($database, $table, $column, $full);
+        $sql = QueryGenerator::getColumnsSql(
+            $database,
+            $table,
+            $column === null ? null : $this->escapeString($column),
+            $full
+        );
         $fields = $this->fetchResult($sql, 'Field', null, $link);
         if (! is_array($fields) || count($fields) === 0) {
             return [];
@@ -1092,7 +1066,7 @@ class DatabaseInterface implements DbalInterface
         string $table,
         $link = self::CONNECT_USER
     ): ?array {
-        $sql = $this->getColumnsSql($database, $table);
+        $sql = QueryGenerator::getColumnsSql($database, $table);
         // We only need the 'Field' column which contains the table's column names
         $fields = array_keys($this->fetchResult($sql, 'Field', null, $link));
 
@@ -1730,29 +1704,11 @@ class DatabaseInterface implements DbalInterface
     ): array {
         $routines = [];
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            $query = 'SELECT'
-                . ' `ROUTINE_SCHEMA` AS `Db`,'
-                . ' `SPECIFIC_NAME` AS `Name`,'
-                . ' `ROUTINE_TYPE` AS `Type`,'
-                . ' `DEFINER` AS `Definer`,'
-                . ' `LAST_ALTERED` AS `Modified`,'
-                . ' `CREATED` AS `Created`,'
-                . ' `SECURITY_TYPE` AS `Security_type`,'
-                . ' `ROUTINE_COMMENT` AS `Comment`,'
-                . ' `CHARACTER_SET_CLIENT` AS `character_set_client`,'
-                . ' `COLLATION_CONNECTION` AS `collation_connection`,'
-                . ' `DATABASE_COLLATION` AS `Database Collation`,'
-                . ' `DTD_IDENTIFIER`'
-                . ' FROM `information_schema`.`ROUTINES`'
-                . ' WHERE `ROUTINE_SCHEMA` ' . Util::getCollateForIS()
-                . " = '" . $this->escapeString($db) . "'";
-            if (Core::isValid($which, ['FUNCTION', 'PROCEDURE'])) {
-                $query .= " AND `ROUTINE_TYPE` = '" . $which . "'";
-            }
-            if (! empty($name)) {
-                $query .= ' AND `SPECIFIC_NAME`'
-                    . " = '" . $this->escapeString($name) . "'";
-            }
+            $query = QueryGenerator::getInformationSchemaRoutinesRequest(
+                $this->escapeString($db),
+                Core::isValid($which, ['FUNCTION', 'PROCEDURE']) ? $which : null,
+                empty($name) ? null : $this->escapeString($name)
+            );
             $result = $this->fetchResult($query);
             if (! empty($result)) {
                 $routines = $result;
@@ -1816,29 +1772,10 @@ class DatabaseInterface implements DbalInterface
     public function getEvents(string $db, string $name = ''): array
     {
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            $query = 'SELECT'
-                . ' `EVENT_SCHEMA` AS `Db`,'
-                . ' `EVENT_NAME` AS `Name`,'
-                . ' `DEFINER` AS `Definer`,'
-                . ' `TIME_ZONE` AS `Time zone`,'
-                . ' `EVENT_TYPE` AS `Type`,'
-                . ' `EXECUTE_AT` AS `Execute at`,'
-                . ' `INTERVAL_VALUE` AS `Interval value`,'
-                . ' `INTERVAL_FIELD` AS `Interval field`,'
-                . ' `STARTS` AS `Starts`,'
-                . ' `ENDS` AS `Ends`,'
-                . ' `STATUS` AS `Status`,'
-                . ' `ORIGINATOR` AS `Originator`,'
-                . ' `CHARACTER_SET_CLIENT` AS `character_set_client`,'
-                . ' `COLLATION_CONNECTION` AS `collation_connection`, '
-                . '`DATABASE_COLLATION` AS `Database Collation`'
-                . ' FROM `information_schema`.`EVENTS`'
-                . ' WHERE `EVENT_SCHEMA` ' . Util::getCollateForIS()
-                . " = '" . $this->escapeString($db) . "'";
-            if (! empty($name)) {
-                $query .= ' AND `EVENT_NAME`'
-                    . " = '" . $this->escapeString($name) . "'";
-            }
+            $query = QueryGenerator::getInformationSchemaEventsRequest(
+                $this->escapeString($db),
+                empty($name) ? null : $this->escapeString($name)
+            );
         } else {
             $query = 'SHOW EVENTS FROM ' . Util::backquote($db);
             if (! empty($name)) {
@@ -1881,17 +1818,10 @@ class DatabaseInterface implements DbalInterface
     {
         $result = [];
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            $query = 'SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION'
-                . ', EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT'
-                . ', EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER'
-                . ' FROM information_schema.TRIGGERS'
-                . ' WHERE EVENT_OBJECT_SCHEMA ' . Util::getCollateForIS() . '='
-                . ' \'' . $this->escapeString($db) . '\'';
-
-            if (! empty($table)) {
-                $query .= ' AND EVENT_OBJECT_TABLE ' . Util::getCollateForIS()
-                    . " = '" . $this->escapeString($table) . "';";
-            }
+            $query = QueryGenerator::getInformationSchemaTriggersRequest(
+                $this->escapeString($db),
+                empty($table) ? null : $this->escapeString($table)
+            );
         } else {
             $query = 'SHOW TRIGGERS FROM ' . Util::backquote($db);
             if (! empty($table)) {
@@ -2009,22 +1939,10 @@ class DatabaseInterface implements DbalInterface
                 $query = 'SELECT 1 FROM mysql.user LIMIT 1';
             } elseif ($type === 'create') {
                 [$user, $host] = $this->getCurrentUserAndHost();
-                $query = 'SELECT 1 FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` '
-                    . "WHERE `PRIVILEGE_TYPE` = 'CREATE USER' AND "
-                    . "'''" . $user . "''@''" . $host . "''' LIKE `GRANTEE` LIMIT 1";
+                $query = QueryGenerator::getInformationSchemaDataForCreateRequest($user, $host);
             } elseif ($type === 'grant') {
                 [$user, $host] = $this->getCurrentUserAndHost();
-                $query = 'SELECT 1 FROM ('
-                    . 'SELECT `GRANTEE`, `IS_GRANTABLE` FROM '
-                    . '`INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION '
-                    . 'SELECT `GRANTEE`, `IS_GRANTABLE` FROM '
-                    . '`INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION '
-                    . 'SELECT `GRANTEE`, `IS_GRANTABLE` FROM '
-                    . '`INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION '
-                    . 'SELECT `GRANTEE`, `IS_GRANTABLE` FROM '
-                    . '`INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t '
-                    . "WHERE `IS_GRANTABLE` = 'YES' AND "
-                    . "'''" . $user . "''@''" . $host . "''' LIKE `GRANTEE` LIMIT 1";
+                $query = QueryGenerator::getInformationSchemaDataForGranteeRequest($user, $host);
             }
 
             $is = false;

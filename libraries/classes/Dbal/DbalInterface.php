@@ -188,26 +188,6 @@ interface DbalInterface
     ): array;
 
     /**
-     * Returns SQL query for fetching columns for a table
-     *
-     * The 'Key' column is not calculated properly, use $dbi->getColumns()
-     * to get correct values.
-     *
-     * @see getColumns()
-     *
-     * @param string $database name of database
-     * @param string $table    name of table to retrieve columns from
-     * @param string $column   name of column, null to show all columns
-     * @param bool   $full     whether to return full info or only column names
-     */
-    public function getColumnsSql(
-        string $database,
-        string $table,
-        ?string $column = null,
-        bool $full = false
-    ): string;
-
-    /**
      * Returns descriptions of columns in given table (all or given by $column)
      *
      * @param string $database name of database

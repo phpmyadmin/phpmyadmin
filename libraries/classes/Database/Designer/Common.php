@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Database\Designer;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
+use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Util;
@@ -93,11 +94,9 @@ class Common
 
         foreach ($designerTables as $designerTable) {
             $fieldsRs = $this->dbi->query(
-                $this->dbi->getColumnsSql(
+                QueryGenerator::getColumnsSql(
                     $designerTable->getDatabaseName(),
-                    $designerTable->getTableName(),
-                    null,
-                    true
+                    $designerTable->getTableName()
                 ),
                 DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_STORE
