@@ -991,6 +991,11 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
+			message: "#^Cannot access offset int\\|string on array\\|bool\\.$#"
+			count: 1
+			path: libraries/classes/DatabaseInterface.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getProtoInfo\\(\\) should return bool\\|int but returns int\\|string\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
