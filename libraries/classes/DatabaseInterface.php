@@ -1392,11 +1392,7 @@ class DatabaseInterface implements DbalInterface
      */
     private function _fetchValue(array $row, $value)
     {
-        if ($value === null) {
-            return $row;
-        }
-
-        return $row[$value];
+        return $value === null ? $row : $row[$value];
     }
 
     /**
