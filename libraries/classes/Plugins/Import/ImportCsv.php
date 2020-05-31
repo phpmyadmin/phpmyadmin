@@ -144,14 +144,10 @@ class ImportCsv extends AbstractImportCsv
     public function doImport(array &$sql_data = [])
     {
         global $db, $table, $csv_terminated, $csv_enclosed, $csv_escaped,
-               $csv_new_line, $csv_columns, $err_url, $import_file_name;
+               $csv_new_line, $csv_columns, $err_url;
         // $csv_replace and $csv_ignore should have been here,
         // but we use directly from $_POST
         global $error, $timeout_passed, $finished, $message;
-
-        $import_file_name = basename($import_file_name, '.csv');
-        $import_file_name = mb_strtolower($import_file_name);
-        $import_file_name = preg_replace('/[^a-zA-Z0-9_]/', '_', $import_file_name);
 
         $replacements = [
             '\\n' => "\n",
@@ -220,61 +216,7 @@ class ImportCsv extends AbstractImportCsv
         }
 
         $buffer = '';
-        $required_fields = 0;
-        $sql_template = '';
-        $fields = [];
-        if (! $this->_getAnalyze()) {
-            $sql_template = 'INSERT';
-            if (isset($_POST['csv_ignore'])) {
-                $sql_template .= ' IGNORE';
-            }
-            $sql_template .= ' INTO ' . Util::backquote($table);
-
-            $tmp_fields = $GLOBALS['dbi']->getColumns($db, $table);
-
-            if (empty($csv_columns)) {
-                $fields = $tmp_fields;
-            } else {
-                $sql_template .= ' (';
-                $fields = [];
-                $tmp = preg_split('/,( ?)/', $csv_columns);
-                foreach ($tmp as $key => $val) {
-                    if (count($fields) > 0) {
-                        $sql_template .= ', ';
-                    }
-                    /* Trim also `, if user already included backquoted fields */
-                    $val = trim($val, " \t\r\n\0\x0B`");
-                    $found = false;
-                    foreach ($tmp_fields as $field) {
-                        if ($field['Field'] == $val) {
-                            $found = true;
-                            break;
-                        }
-                    }
-                    if (! $found) {
-                        $message = Message::error(
-                            __(
-                                'Invalid column (%s) specified! Ensure that columns'
-                                . ' names are spelled correctly, separated by commas'
-                                . ', and not enclosed in quotes.'
-                            )
-                        );
-                        $message->addParam($val);
-                        $error = true;
-                        break;
-                    }
-                    if (isset($field)) {
-                        $fields[] = $field;
-                    }
-                    $sql_template .= Util::backquote($val);
-                }
-                $sql_template .= ') ';
-            }
-
-            $required_fields = count($fields);
-
-            $sql_template .= ' VALUES (';
-        }
+        [$sql_template, $required_fields, $fields] = $this->getSqlTemplateAndRequiredFields($db, $table, $csv_columns);
 
         // Defaults for parser
         $i = 0;
@@ -675,51 +617,8 @@ class ImportCsv extends AbstractImportCsv
                 }
             }
 
-            if (isset($_REQUEST['csv_col_names'])) {
-                $col_names = array_splice($rows, 0, 1);
-                $col_names = $col_names[0];
-                // MySQL column names can't end with a space character.
-                foreach ($col_names as $key => $col_name) {
-                    $col_names[$key] = rtrim($col_name);
-                }
-            }
-
-            if ((isset($col_names) && count($col_names) != $max_cols)
-                || ! isset($col_names)
-            ) {
-                // Fill out column names
-                for ($i = 0; $i < $max_cols; ++$i) {
-                    $col_names[] = 'COL ' . ($i + 1);
-                }
-            }
-
-            // get new table name, if user didn't provide one, set the default name
-            if (isset($_REQUEST['csv_new_tbl_name'])
-                && strlen($_REQUEST['csv_new_tbl_name']) > 0
-            ) {
-                $tbl_name = $_REQUEST['csv_new_tbl_name'];
-            } elseif (mb_strlen((string) $db)) {
-                $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
-
-                // logic to get table name from filename
-                // if no table then use filename as table name
-                if (count($result) === 0) {
-                    $tbl_name = $import_file_name;
-                } else {
-                    // check to see if {filename} as table exist
-                    $name_array = preg_grep('/' . $import_file_name . '/isU', $result);
-                    // if no use filename as table name
-                    if (count($name_array) === 0) {
-                        $tbl_name = $import_file_name;
-                    } else {
-                        // check if {filename}_ as table exist
-                        $name_array = preg_grep('/' . $import_file_name . '_/isU', $result);
-                        $tbl_name = $import_file_name . '_' . (count($name_array) + 1);
-                    }
-                }
-            } else {
-                $tbl_name = $import_file_name;
-            }
+            $col_names = $this->getColumnNames($col_names, $max_cols, $rows);
+            $tbl_name = $this->getTableNameFromImport((string) $db);
 
             $tables[] = [
                 $tbl_name,
@@ -783,6 +682,127 @@ class ImportCsv extends AbstractImportCsv
         );
         $message->addParam($line);
         $error = true;
+    }
+
+    private function getTableNameFromImport(string $databaseName): string
+    {
+        global $import_file_name;
+
+        $importFileName = basename($import_file_name, '.csv');
+        $importFileName = mb_strtolower($importFileName);
+        $importFileName = (string) preg_replace('/[^a-zA-Z0-9_]/', '_', $importFileName);
+
+        // get new table name, if user didn't provide one, set the default name
+        if (isset($_REQUEST['csv_new_tbl_name'])
+            && strlen($_REQUEST['csv_new_tbl_name']) > 0
+        ) {
+            return $_REQUEST['csv_new_tbl_name'];
+        }
+        if (mb_strlen($databaseName)) {
+            $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
+
+            // logic to get table name from filename
+            // if no table then use filename as table name
+            if (count($result) === 0) {
+                return $importFileName;
+            }
+            // check to see if {filename} as table exist
+            $nameArray = preg_grep('/' . $importFileName . '/isU', $result);
+            // if no use filename as table name
+            if (count($nameArray) === 0) {
+                return $importFileName;
+            }
+            // check if {filename}_ as table exist
+            $nameArray = preg_grep('/' . $importFileName . '_/isU', $result);
+            return $importFileName . '_' . (count($nameArray) + 1);
+        }
+        return $importFileName;
+    }
+
+    private function getColumnNames(array $columnNames, int $maxCols, array $rows): array
+    {
+        if (isset($_REQUEST['csv_col_names'])) {
+            $columnNames = array_splice($rows, 0, 1);
+            $columnNames = $columnNames[0];
+            // MySQL column names can't end with a space character.
+            foreach ($columnNames as $key => $col_name) {
+                $columnNames[$key] = rtrim($col_name);
+            }
+        }
+
+        if ((isset($columnNames) && count($columnNames) != $maxCols)
+            || ! isset($columnNames)
+        ) {
+            // Fill out column names
+            for ($i = 0; $i < $maxCols; ++$i) {
+                $columnNames[] = 'COL ' . ($i + 1);
+            }
+        }
+        return $columnNames;
+    }
+
+    private function getSqlTemplateAndRequiredFields(
+        ?string $db,
+        ?string $table,
+        ?string $csvColumns
+    ): array {
+        $requiredFields = 0;
+        $sqlTemplate = '';
+        $fields = [];
+        if (! $this->_getAnalyze() && $db !== null && $table !== null) {
+            $sqlTemplate = 'INSERT';
+            if (isset($_POST['csv_ignore'])) {
+                $sqlTemplate .= ' IGNORE';
+            }
+            $sqlTemplate .= ' INTO ' . Util::backquote($table);
+
+            $tmp_fields = $GLOBALS['dbi']->getColumns($db, $table);
+
+            if (empty($csvColumns)) {
+                $fields = $tmp_fields;
+            } else {
+                $sqlTemplate .= ' (';
+                $fields = [];
+                $tmp = preg_split('/,( ?)/', $csvColumns);
+                foreach ($tmp as $key => $val) {
+                    if (count($fields) > 0) {
+                        $sqlTemplate .= ', ';
+                    }
+                    /* Trim also `, if user already included backquoted fields */
+                    $val = trim($val, " \t\r\n\0\x0B`");
+                    $found = false;
+                    foreach ($tmp_fields as $field) {
+                        if ($field['Field'] == $val) {
+                            $found = true;
+                            break;
+                        }
+                    }
+                    if (! $found) {
+                        $message = Message::error(
+                            __(
+                                'Invalid column (%s) specified! Ensure that columns'
+                                . ' names are spelled correctly, separated by commas'
+                                . ', and not enclosed in quotes.'
+                            )
+                        );
+                        $message->addParam($val);
+                        $error = true;
+                        break;
+                    }
+                    if (isset($field)) {
+                        $fields[] = $field;
+                    }
+                    $sqlTemplate .= Util::backquote($val);
+                }
+                $sqlTemplate .= ') ';
+            }
+
+            $requiredFields = count($fields);
+
+            $sqlTemplate .= ' VALUES (';
+        }
+
+        return [$sqlTemplate, $requiredFields, $fields];
     }
 
     /**

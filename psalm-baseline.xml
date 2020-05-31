@@ -74,6 +74,11 @@
       <code>$pieces === false</code>
     </TypeDoesNotContainType>
   </file>
+  <file src="libraries/classes/Charsets/Collation.php">
+    <PossiblyNullArgument occurrences="1">
+      <code>$name</code>
+    </PossiblyNullArgument>
+  </file>
   <file src="libraries/classes/CheckUserPrivileges.php">
     <PossiblyFalseOperand occurrences="6">
       <code>mb_strpos($row, ' ON ')</code>
