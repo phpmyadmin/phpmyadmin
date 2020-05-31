@@ -468,21 +468,11 @@ final class Collation
                 $level = 5;
                 /* Variant */
                 $found = true;
-                switch ($part) {
-                    case '0900':
-                        $variant = 'UCA 9.0.0';
-                        break;
-                    case '520':
-                        $variant = 'UCA 5.2.0';
-                        break;
-                    case 'mysql561':
-                        $variant = 'MySQL 5.6.1';
-                        break;
-                    case 'mysql500':
-                        $variant = 'MySQL 5.0.0';
-                        break;
-                    default:
-                        $found = false;
+                $variantFound = $this->getVariant($part);
+                if ($variantFound === null) {
+                    $found = false;
+                } else {
+                    $variant = $variantFound;
                 }
                 if ($found) {
                     continue;
@@ -494,36 +484,14 @@ final class Collation
             }
 
             /* Suffixes */
-            switch ($part) {
-                case 'ci':
-                    $suffixes[] = _pgettext('Collation variant', 'case-insensitive');
-                    break;
-                case 'cs':
-                    $suffixes[] = _pgettext('Collation variant', 'case-sensitive');
-                    break;
-                case 'ai':
-                    $suffixes[] = _pgettext('Collation variant', 'accent-insensitive');
-                    break;
-                case 'as':
-                    $suffixes[] = _pgettext('Collation variant', 'accent-sensitive');
-                    break;
-                case 'ks':
-                    $suffixes[] = _pgettext('Collation variant', 'kana-sensitive');
-                    break;
-                case 'w2':
-                case 'l2':
-                    $suffixes[] = _pgettext('Collation variant', 'multi-level');
-                    break;
-                case 'bin':
-                    $suffixes[] = _pgettext('Collation variant', 'binary');
-                    break;
-                case 'nopad':
-                    $suffixes[] = _pgettext('Collation variant', 'no-pad');
-                    break;
-            }
+            $suffixes = $this->addSuffixes($suffixes, $part);
         }
 
-        $result = $name;
+        return $this->buildName($name, $variant, $suffixes);
+    }
+
+    private function buildName(string $result, ?string $variant, array $suffixes): string
+    {
         if ($variant !== null) {
             $result .= ' (' . $variant . ')';
         }
@@ -532,5 +500,54 @@ final class Collation
         }
 
         return $result;
+    }
+
+    private function getVariant(string $part): ?string
+    {
+        switch ($part) {
+            case '0900':
+                return 'UCA 9.0.0';
+            case '520':
+                return 'UCA 5.2.0';
+            case 'mysql561':
+                return 'MySQL 5.6.1';
+            case 'mysql500':
+                return 'MySQL 5.0.0';
+            default:
+                return null;
+        }
+    }
+
+    private function addSuffixes(array $suffixes, string $part): array
+    {
+        switch ($part) {
+            case 'ci':
+                $suffixes[] = _pgettext('Collation variant', 'case-insensitive');
+                break;
+            case 'cs':
+                $suffixes[] = _pgettext('Collation variant', 'case-sensitive');
+                break;
+            case 'ai':
+                $suffixes[] = _pgettext('Collation variant', 'accent-insensitive');
+                break;
+            case 'as':
+                $suffixes[] = _pgettext('Collation variant', 'accent-sensitive');
+                break;
+            case 'ks':
+                $suffixes[] = _pgettext('Collation variant', 'kana-sensitive');
+                break;
+            case 'w2':
+            case 'l2':
+                $suffixes[] = _pgettext('Collation variant', 'multi-level');
+                break;
+            case 'bin':
+                $suffixes[] = _pgettext('Collation variant', 'binary');
+                break;
+            case 'nopad':
+                $suffixes[] = _pgettext('Collation variant', 'no-pad');
+                break;
+        }
+
+        return $suffixes;
     }
 }
