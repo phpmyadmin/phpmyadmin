@@ -6,6 +6,8 @@ namespace PhpMyAdmin\Query;
 
 use PhpMyAdmin\Url;
 use function htmlspecialchars;
+use function strcasecmp;
+use function strnatcasecmp;
 use function strpos;
 use function strtolower;
 
@@ -114,5 +116,39 @@ class Utilities
         }
 
         return $error;
+    }
+
+    /**
+     * usort comparison callback
+     *
+     * @param array  $a         first argument to sort
+     * @param array  $b         second argument to sort
+     * @param string $sortBy    Key to sort by
+     * @param string $sortOrder The order (ASC/DESC)
+     *
+     * @return int  a value representing whether $a should be before $b in the
+     *              sorted array or not
+     */
+    public static function usortComparisonCallback(array $a, array $b, string $sortBy, string $sortOrder): int
+    {
+        global $cfg;
+
+        /* No sorting when key is not present */
+        if (! isset($a[$sortBy], $b[$sortBy])
+        ) {
+            return 0;
+        }
+
+        // produces f.e.:
+        // return -1 * strnatcasecmp($a['SCHEMA_TABLES'], $b['SCHEMA_TABLES'])
+        $compare = $cfg['NaturalOrder'] ? strnatcasecmp(
+            $a[$sortBy],
+            $b[$sortBy]
+        ) : strcasecmp(
+            $a[$sortBy],
+            $b[$sortBy]
+        );
+
+        return ($sortOrder === 'ASC' ? 1 : -1) * $compare;
     }
 }

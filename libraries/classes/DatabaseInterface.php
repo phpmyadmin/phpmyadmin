@@ -792,15 +792,12 @@ class DatabaseInterface implements DbalInterface
          * (caused by older MySQL < 5 or $GLOBALS['cfg']['NaturalOrder'])
          */
         if ($apply_limit_and_order_manual) {
-            $GLOBALS['callback_sort_order'] = $sort_order;
-            $GLOBALS['callback_sort_by'] = $sort_by;
             usort(
                 $databases,
-                static function ($a, $b) {
-                    return self::usortComparisonCallback($a, $b);
+                static function ($a, $b) use ($sort_by, $sort_order) {
+                    return Utilities::usortComparisonCallback($a, $b, $sort_by, $sort_order);
                 }
             );
-            unset($GLOBALS['callback_sort_order'], $GLOBALS['callback_sort_by']);
 
             /**
              * now apply limit
@@ -811,38 +808,6 @@ class DatabaseInterface implements DbalInterface
         }
 
         return $databases;
-    }
-
-    /**
-     * usort comparison callback
-     *
-     * @param array $a first argument to sort
-     * @param array $b second argument to sort
-     *
-     * @return int  a value representing whether $a should be before $b in the
-     *              sorted array or not
-     *
-     * @access private
-     */
-    private static function usortComparisonCallback($a, $b): int
-    {
-        if ($GLOBALS['cfg']['NaturalOrder']) {
-            $sorter = 'strnatcasecmp';
-        } else {
-            $sorter = 'strcasecmp';
-        }
-        /* No sorting when key is not present */
-        if (! isset($a[$GLOBALS['callback_sort_by']], $b[$GLOBALS['callback_sort_by']])
-        ) {
-            return 0;
-        }
-
-        // produces f.e.:
-        // return -1 * strnatcasecmp($a["SCHEMA_TABLES"], $b["SCHEMA_TABLES"])
-        return ($GLOBALS['callback_sort_order'] == 'ASC' ? 1 : -1) * $sorter(
-            $a[$GLOBALS['callback_sort_by']],
-            $b[$GLOBALS['callback_sort_by']]
-        );
     }
 
     /**
