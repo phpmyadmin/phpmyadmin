@@ -153,7 +153,7 @@ class Sanitize
                 $page = 'setup';
             }
         }
-        $link = MySQLDocumentation::getDocumentationLink($page, $anchor, self::isSetup() ? '../' : '');
+        $link = MySQLDocumentation::getDocumentationLink($page, $anchor, self::isSetup() ? '../' : './');
 
         return '<a href="' . $link . '" target="documentation">';
     }

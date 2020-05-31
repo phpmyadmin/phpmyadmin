@@ -824,7 +824,7 @@ class FormDisplay
         return MySQLDocumentation::getDocumentationLink(
             'config',
             'cfg_' . $this->_getOptName($path),
-            Sanitize::isSetup() ? '../' : ''
+            Sanitize::isSetup() ? '../' : './'
         );
     }
 
