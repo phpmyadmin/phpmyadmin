@@ -177,111 +177,13 @@ final class Collation
                 /* Next will be language */
                 $level = 1;
                 /* First should be charset */
-                switch ($part) {
-                    case 'binary':
-                        $name = _pgettext('Collation', 'Binary');
-                        break;
-                    // Unicode charsets
-                    case 'utf8mb4':
-                        $variant = 'UCA 4.0.0';
-                    // Fall through to other unicode
-                    case 'ucs2':
-                    case 'utf8':
-                    case 'utf16':
-                    case 'utf16le':
-                    case 'utf16be':
-                    case 'utf32':
-                        $name = _pgettext('Collation', 'Unicode');
-                        $unicode = true;
-                        break;
-                    // West European charsets
-                    case 'ascii':
-                    case 'cp850':
-                    case 'dec8':
-                    case 'hp8':
-                    case 'latin1':
-                    case 'macroman':
-                        $name = _pgettext('Collation', 'West European');
-                        break;
-                    // Central European charsets
-                    case 'cp1250':
-                    case 'cp852':
-                    case 'latin2':
-                    case 'macce':
-                        $name = _pgettext('Collation', 'Central European');
-                        break;
-                    // Russian charsets
-                    case 'cp866':
-                    case 'koi8r':
-                        $name = _pgettext('Collation', 'Russian');
-                        break;
-                    // Chinese charsets
-                    case 'gb2312':
-                    case 'gbk':
-                        $name = _pgettext('Collation', 'Simplified Chinese');
-                        break;
-                    case 'big5':
-                        $name = _pgettext('Collation', 'Traditional Chinese');
-                        break;
-                    case 'gb18030':
-                        $name = _pgettext('Collation', 'Chinese');
-                        $unicode = true;
-                        break;
-                    // Japanese charsets
-                    case 'sjis':
-                    case 'ujis':
-                    case 'cp932':
-                    case 'eucjpms':
-                        $name = _pgettext('Collation', 'Japanese');
-                        break;
-                    // Baltic charsets
-                    case 'cp1257':
-                    case 'latin7':
-                        $name = _pgettext('Collation', 'Baltic');
-                        break;
-                    // Other
-                    case 'armscii8':
-                    case 'armscii':
-                        $name = _pgettext('Collation', 'Armenian');
-                        break;
-                    case 'cp1251':
-                        $name = _pgettext('Collation', 'Cyrillic');
-                        break;
-                    case 'cp1256':
-                        $name = _pgettext('Collation', 'Arabic');
-                        break;
-                    case 'euckr':
-                        $name = _pgettext('Collation', 'Korean');
-                        break;
-                    case 'hebrew':
-                        $name = _pgettext('Collation', 'Hebrew');
-                        break;
-                    case 'geostd8':
-                        $name = _pgettext('Collation', 'Georgian');
-                        break;
-                    case 'greek':
-                        $name = _pgettext('Collation', 'Greek');
-                        break;
-                    case 'keybcs2':
-                        $name = _pgettext('Collation', 'Czech-Slovak');
-                        break;
-                    case 'koi8u':
-                        $name = _pgettext('Collation', 'Ukrainian');
-                        break;
-                    case 'latin5':
-                        $name = _pgettext('Collation', 'Turkish');
-                        break;
-                    case 'swe7':
-                        $name = _pgettext('Collation', 'Swedish');
-                        break;
-                    case 'tis620':
-                        $name = _pgettext('Collation', 'Thai');
-                        break;
-                    default:
-                        $name = _pgettext('Collation', 'Unknown');
-                        $unknown = true;
-                        break;
-                }
+                $this->getNameForLevel0(
+                    $unicode, // By reference
+                    $unknown, // Same
+                    $part,
+                    $name, // By reference
+                    $variant// Same
+                );
                 continue;
             }
             if ($level === 1) {
@@ -410,6 +312,120 @@ final class Collation
         }
 
         return $suffixes;
+    }
+
+    private function getNameForLevel0(
+        bool &$unicode,
+        bool &$unknown,
+        string $part,
+        ?string &$name,
+        ?string &$variant
+    ): void {
+        switch ($part) {
+            case 'binary':
+                $name = _pgettext('Collation', 'Binary');
+                break;
+            // Unicode charsets
+            case 'utf8mb4':
+                $variant = 'UCA 4.0.0';
+            // Fall through to other unicode
+            case 'ucs2':
+            case 'utf8':
+            case 'utf16':
+            case 'utf16le':
+            case 'utf16be':
+            case 'utf32':
+                $name = _pgettext('Collation', 'Unicode');
+                $unicode = true;
+                break;
+            // West European charsets
+            case 'ascii':
+            case 'cp850':
+            case 'dec8':
+            case 'hp8':
+            case 'latin1':
+            case 'macroman':
+                $name = _pgettext('Collation', 'West European');
+                break;
+            // Central European charsets
+            case 'cp1250':
+            case 'cp852':
+            case 'latin2':
+            case 'macce':
+                $name = _pgettext('Collation', 'Central European');
+                break;
+            // Russian charsets
+            case 'cp866':
+            case 'koi8r':
+                $name = _pgettext('Collation', 'Russian');
+                break;
+            // Chinese charsets
+            case 'gb2312':
+            case 'gbk':
+                $name = _pgettext('Collation', 'Simplified Chinese');
+                break;
+            case 'big5':
+                $name = _pgettext('Collation', 'Traditional Chinese');
+                break;
+            case 'gb18030':
+                $name = _pgettext('Collation', 'Chinese');
+                $unicode = true;
+                break;
+            // Japanese charsets
+            case 'sjis':
+            case 'ujis':
+            case 'cp932':
+            case 'eucjpms':
+                $name = _pgettext('Collation', 'Japanese');
+                break;
+            // Baltic charsets
+            case 'cp1257':
+            case 'latin7':
+                $name = _pgettext('Collation', 'Baltic');
+                break;
+            // Other
+            case 'armscii8':
+            case 'armscii':
+                $name = _pgettext('Collation', 'Armenian');
+                break;
+            case 'cp1251':
+                $name = _pgettext('Collation', 'Cyrillic');
+                break;
+            case 'cp1256':
+                $name = _pgettext('Collation', 'Arabic');
+                break;
+            case 'euckr':
+                $name = _pgettext('Collation', 'Korean');
+                break;
+            case 'hebrew':
+                $name = _pgettext('Collation', 'Hebrew');
+                break;
+            case 'geostd8':
+                $name = _pgettext('Collation', 'Georgian');
+                break;
+            case 'greek':
+                $name = _pgettext('Collation', 'Greek');
+                break;
+            case 'keybcs2':
+                $name = _pgettext('Collation', 'Czech-Slovak');
+                break;
+            case 'koi8u':
+                $name = _pgettext('Collation', 'Ukrainian');
+                break;
+            case 'latin5':
+                $name = _pgettext('Collation', 'Turkish');
+                break;
+            case 'swe7':
+                $name = _pgettext('Collation', 'Swedish');
+                break;
+            case 'tis620':
+                $name = _pgettext('Collation', 'Thai');
+                break;
+            default:
+                $name = _pgettext('Collation', 'Unknown');
+                $unknown = true;
+                break;
+        }
     }
 
     private function getNameForLevel1(
