@@ -151,4 +151,16 @@ class Utilities
 
         return ($sortOrder === 'ASC' ? 1 : -1) * $compare;
     }
+
+    /**
+     * Convert version string to integer.
+     *
+     * @param string $version MySQL server version
+     */
+    public static function versionToInt(string $version): int
+    {
+        $match = explode('.', $version);
+
+        return (int) sprintf('%d%02d%02d', $match[0], $match[1], intval($match[2]));
+    }
 }

@@ -1127,18 +1127,6 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * Convert version string to integer.
-     *
-     * @param string $version MySQL server version
-     */
-    public static function versionToInt(string $version): int
-    {
-        $match = explode('.', $version);
-
-        return (int) sprintf('%d%02d%02d', $match[0], $match[1], intval($match[2]));
-    }
-
-    /**
      * Function called just after a connection to the MySQL database server has
      * been established. It sets the connection collation, and determines the
      * version of MySQL which is running.
@@ -1153,7 +1141,7 @@ class DatabaseInterface implements DbalInterface
 
         if (is_array($version)) {
             $this->_version_str = $version['@@version'] ?? '';
-            $this->_version_int = self::versionToInt($this->_version_str);
+            $this->_version_int = Utilities::versionToInt($this->_version_str);
             $this->_version_comment = $version['@@version_comment'] ?? '';
             if (stripos($this->_version_str, 'mariadb') !== false) {
                 $this->_is_mariadb = true;
