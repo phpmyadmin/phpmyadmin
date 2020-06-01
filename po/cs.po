@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-04-25 13:24+0200\n"
-"PO-Revision-Date: 2020-05-31 21:41+0000\n"
+"PO-Revision-Date: 2020-06-02 16:41+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/5-0/cs/>"
 "\n"
@@ -1961,19 +1961,14 @@ msgid "Click to sort results by this column."
 msgstr "Klikněte pro seřazení výsledků podle tohoto sloupce."
 
 #: js/messages.php:603
-#, fuzzy
-#| msgid ""
-#| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
-#| "<br />- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove "
-#| "column from ORDER BY clause"
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
-"Shift+Kliknutí přidá tento sloupec do ORDER BY podmínky nebo přepne ASC/DESC."
-"<br />- Control+Kliknutí nebo Alt+Kliknutí(MAC: Shift+Option+Kliknutí) "
-"sloupec odstraní z ORDER BY podmínky"
+"Shift+Kliknutí přidá tento sloupec do podmínky ORDER BY nebo přepne ASC/"
+"DESC.<br>- Control+Kliknutí nebo Alt+Kliknutí(MAC: Shift+Option+Kliknutí) "
+"odstraní sloupec z podmínky ORDER BY"
 
 #: js/messages.php:607
 msgid "Click to mark/unmark."
@@ -4891,16 +4886,12 @@ msgid "Bookmark table"
 msgstr "Tabulka záložek"
 
 #: libraries/classes/Config/Descriptions.php:616
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: "
-#| "[kbd]pma__column_info[/kbd]."
 msgid ""
 "Leave blank for no column comments/media (MIME) types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Nechte prázdné pro žádné komentáře či mime typy polí, výchozí nastavení: "
-"[kbd]pma__column_info[/kbd]."
+"Nechte prázdné pro vypnutí komentářů/typů médií (MIME) u sloupců, doporučené "
+"nastavení: [kbd]pma__column_info[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:619
 msgid "Column information table"
@@ -6340,6 +6331,9 @@ msgid ""
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
+"Váš server běží s výchozími hodnotami pro správce a heslo (controlpass) a je "
+"snadno napadnutelný; tuto slabinu zabezpečení byste měli skutečně napravit "
+"změnou hesla pro správce 'pma'."
 
 #: libraries/classes/Controllers/HomeController.php:427
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -10561,6 +10555,9 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"Používáte pole voleb příkazového řádku externí transformace, jehož použití "
+"je z bezpečnostních důvodů zastaralé. Přidejte všechny volby příkazového "
+"řádku přímo do definice v %s."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:31
 msgid ""
@@ -14803,7 +14800,7 @@ msgstr "Ověřit"
 
 #: templates/navigation/item_unhide_dialog.twig:20
 msgid "Unhide"
-msgstr ""
+msgstr "Zrušit skrytí"
 
 #: templates/navigation/main.twig:26 templates/navigation/main.twig:27
 msgid "Home"
