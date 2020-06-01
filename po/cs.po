@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-05-31 21:18+0200\n"
-"PO-Revision-Date: 2020-05-31 19:16+0000\n"
+"PO-Revision-Date: 2020-06-03 13:41+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "cs/>\n"
@@ -1731,19 +1731,14 @@ msgid "Click to sort results by this column."
 msgstr "Klikněte pro seřazení výsledků podle tohoto sloupce."
 
 #: js/messages.php:572
-#, fuzzy
-#| msgid ""
-#| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
-#| "<br />- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove "
-#| "column from ORDER BY clause"
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
-"Shift+Kliknutí přidá tento sloupec do ORDER BY podmínky nebo přepne ASC/DESC."
-"<br />- Control+Kliknutí nebo Alt+Kliknutí(MAC: Shift+Option+Kliknutí) "
-"sloupec odstraní z ORDER BY podmínky"
+"Shift+Kliknutí přidá tento sloupec do podmínky ORDER BY nebo přepne ASC/"
+"DESC.<br>- Control+Kliknutí nebo Alt+Kliknutí(MAC: Shift+Option+Kliknutí) "
+"odstraní sloupec z podmínky ORDER BY"
 
 #: js/messages.php:576
 msgid "Click to mark/unmark."
@@ -3180,10 +3175,8 @@ msgstr "Návěstí"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:557
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #: templates/database/data_dictionary/index.twig:25
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media type"
-msgstr "MIME typ"
+msgstr "Typ média"
 
 #: libraries/classes/Config/Descriptions.php:249
 #: libraries/classes/Config/Descriptions.php:261
@@ -3937,16 +3930,12 @@ msgid "Maximum tables"
 msgstr "Nejvyšší počet zobrazených tabulek"
 
 #: libraries/classes/Config/Descriptions.php:512
-#, fuzzy
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"Počet bytů, které si může skript alokovat, např. [kbd]32M[/kbd] ([kbd]-1[/"
-"kbd] pro neomezené a [kbd]0[/kbd] pro žádnou změnu)."
+"Počet bajtů, které si může skript alokovat, např. [kbd]32M[/kbd] "
+"([kbd]-1[/kbd] pro neomezené a [kbd]0[/kbd] pro žádnou změnu)."
 
 #: libraries/classes/Config/Descriptions.php:515
 msgid "Memory limit"
@@ -4404,16 +4393,12 @@ msgid "Bookmark table"
 msgstr "Tabulka záložek"
 
 #: libraries/classes/Config/Descriptions.php:663
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: "
-#| "[kbd]pma__column_info[/kbd]."
 msgid ""
 "Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Nechte prázdné pro žádné komentáře či mime typy polí, výchozí nastavení: "
-"[kbd]pma__column_info[/kbd]."
+"Nechte prázdné pro vypnutí komentářů/typů médií u sloupců, doporučené "
+"nastavení: [kbd]pma__column_info[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:666
 msgid "Column information table"
@@ -4996,8 +4981,6 @@ msgid "Retain query box"
 msgstr "Zachovat pole pro dotaz"
 
 #: libraries/classes/Config/Descriptions.php:883
-#, fuzzy
-#| msgid "Allow to display database and table statistics (eg. space usage)."
 msgid "Allow to display database and table statistics (e.g. space usage)."
 msgstr ""
 "Povolí zobrazení statistik (např. použití místa) pro databáze a tabulky."
@@ -6043,6 +6026,9 @@ msgid ""
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
+"Váš server běží s výchozími hodnotami pro správce a heslo (controlpass) a je "
+"snadno napadnutelný; tuto slabinu zabezpečení byste měli skutečně napravit "
+"změnou hesla pro správce 'pma'."
 
 #: libraries/classes/Controllers/HomeController.php:446
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -8971,11 +8957,11 @@ msgstr "SSL se používá"
 
 #: libraries/classes/Html/Generator.php:454
 msgid "The PHP function password_hash() with default options."
-msgstr ""
+msgstr "PHP funkce password_hash() s výchozími volbami."
 
 #: libraries/classes/Html/Generator.php:455
 msgid "password_hash() PHP function"
-msgstr ""
+msgstr "PHP funkce password_hash()"
 
 #: libraries/classes/Html/Generator.php:757
 msgid "Skip Explain SQL"
@@ -10228,10 +10214,8 @@ msgstr "Zobrazit komentáře"
 #: libraries/classes/Plugins/Export/ExportLatex.php:151
 #: libraries/classes/Plugins/Export/ExportOdt.php:110
 #: libraries/classes/Plugins/Export/ExportSql.php:157
-#, fuzzy
-#| msgid "Display MIME types"
 msgid "Display media types"
-msgstr "Zobrazit MIME typy"
+msgstr "Zobrazit typy médií"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:168
 msgid "Put columns names in the first row:"
@@ -10907,6 +10891,9 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"Používáte pole voleb příkazového řádku externí transformace, jehož použití "
+"je z bezpečnostních důvodů zastaralé. Přidejte všechny volby příkazového "
+"řádku přímo do definice v %s."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:27
 msgid ""
@@ -14855,7 +14842,7 @@ msgstr "Na"
 
 #: templates/navigation/item_unhide_dialog.twig:20
 msgid "Unhide"
-msgstr ""
+msgstr "Zrušit skrytí"
 
 #: templates/navigation/main.twig:26 templates/navigation/main.twig:27
 msgid "Home"
