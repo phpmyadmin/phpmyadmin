@@ -278,7 +278,7 @@ class Util
      *
      * @return int the possibly modified row count
      */
-    private static function _checkRowCount($db, array $table)
+    private static function checkRowCount($db, array $table)
     {
         $rowCount = 0;
 
@@ -349,7 +349,7 @@ class Util
         $table_groups = [];
 
         foreach ($tables as $table_name => $table) {
-            $table['Rows'] = self::_checkRowCount($db, $table);
+            $table['Rows'] = self::checkRowCount($db, $table);
 
             // in $group we save the reference to the place in $table_groups
             // where to store the table info

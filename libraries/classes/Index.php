@@ -118,7 +118,7 @@ class Index
      */
     public static function singleton($schema, $table, $index_name = '')
     {
-        self::_loadIndexes($table, $schema);
+        self::loadIndexes($table, $schema);
         if (! isset(self::$_registry[$schema][$table][$index_name])) {
             $index = new Index();
             if (strlen($index_name) > 0) {
@@ -142,7 +142,7 @@ class Index
      */
     public static function getFromTable($table, $schema)
     {
-        self::_loadIndexes($table, $schema);
+        self::loadIndexes($table, $schema);
 
         if (isset(self::$_registry[$schema][$table])) {
             return self::$_registry[$schema][$table];
@@ -206,7 +206,7 @@ class Index
      */
     public static function getPrimary($table, $schema)
     {
-        self::_loadIndexes($table, $schema);
+        self::loadIndexes($table, $schema);
 
         if (isset(self::$_registry[$schema][$table]['PRIMARY'])) {
             return self::$_registry[$schema][$table]['PRIMARY'];
@@ -223,7 +223,7 @@ class Index
      *
      * @return bool whether loading was successful
      */
-    private static function _loadIndexes($table, $schema)
+    private static function loadIndexes($table, $schema)
     {
         if (isset(self::$_registry[$schema][$table])) {
             return true;

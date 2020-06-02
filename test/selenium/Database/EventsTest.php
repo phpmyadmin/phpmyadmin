@@ -63,7 +63,7 @@ class EventsTest extends TestBase
      *
      * @return void
      */
-    private function _eventSQL()
+    private function eventSQL()
     {
         $start = date('Y-m-d H:i:s', strtotime('-1 day'));
         $end = date('Y-m-d H:i:s', strtotime('+1 day'));
@@ -164,7 +164,7 @@ class EventsTest extends TestBase
      */
     public function testEditEvents()
     {
-        $this->_eventSQL();
+        $this->eventSQL();
         $this->waitForElement('partialLinkText', 'Events')->click();
         $this->waitAjax();
 
@@ -205,7 +205,7 @@ class EventsTest extends TestBase
      */
     public function testDropEvent()
     {
-        $this->_eventSQL();
+        $this->eventSQL();
         $this->waitForElement('partialLinkText', 'Events')->click();
         $this->waitAjax();
 

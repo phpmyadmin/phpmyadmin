@@ -64,9 +64,9 @@ class ExportPdf extends ExportPlugin
     protected function initSpecificVariables()
     {
         if (! empty($_POST['pdf_report_title'])) {
-            $this->_setPdfReportTitle($_POST['pdf_report_title']);
+            $this->setPdfReportTitle($_POST['pdf_report_title']);
         }
-        $this->_setPdf(new Pdf('L', 'pt', 'A3'));
+        $this->setPdf(new Pdf('L', 'pt', 'A3'));
     }
 
     /**
@@ -130,8 +130,8 @@ class ExportPdf extends ExportPlugin
      */
     public function exportHeader()
     {
-        $pdf_report_title = $this->_getPdfReportTitle();
-        $pdf = $this->_getPdf();
+        $pdf_report_title = $this->getPdfReportTitle();
+        $pdf = $this->getPdf();
         $pdf->Open();
 
         $attr = [
@@ -151,7 +151,7 @@ class ExportPdf extends ExportPlugin
      */
     public function exportFooter()
     {
-        $pdf = $this->_getPdf();
+        $pdf = $this->getPdf();
 
         // instead of $pdf->Output():
         return $this->export->outputHandler($pdf->getPDFData());
@@ -219,7 +219,7 @@ class ExportPdf extends ExportPlugin
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
-        $pdf = $this->_getPdf();
+        $pdf = $this->getPdf();
         $attr = [
             'currentDb'    => $db,
             'currentTable' => $table,
@@ -245,7 +245,7 @@ class ExportPdf extends ExportPlugin
      */
     public function exportRawQuery(string $err_url, string $sql_query, string $crlf): bool
     {
-        $pdf = $this->_getPdf();
+        $pdf = $this->getPdf();
         $attr = [
             'dbAlias'      => '----',
             'tableAlias'   => '----',
@@ -297,7 +297,7 @@ class ExportPdf extends ExportPlugin
         $table_alias = $table;
         $purpose = null;
         $this->initAlias($aliases, $db_alias, $table_alias);
-        $pdf = $this->_getPdf();
+        $pdf = $this->getPdf();
         // getting purpose to show at top
         switch ($export_mode) {
             case 'create_table':
@@ -370,7 +370,7 @@ class ExportPdf extends ExportPlugin
      *
      * @return Pdf
      */
-    private function _getPdf()
+    private function getPdf()
     {
         return $this->_pdf;
     }
@@ -382,7 +382,7 @@ class ExportPdf extends ExportPlugin
      *
      * @return void
      */
-    private function _setPdf($pdf)
+    private function setPdf($pdf)
     {
         $this->_pdf = $pdf;
     }
@@ -392,7 +392,7 @@ class ExportPdf extends ExportPlugin
      *
      * @return string
      */
-    private function _getPdfReportTitle()
+    private function getPdfReportTitle()
     {
         return $this->_pdfReportTitle;
     }
@@ -404,7 +404,7 @@ class ExportPdf extends ExportPlugin
      *
      * @return void
      */
-    private function _setPdfReportTitle($pdfReportTitle)
+    private function setPdfReportTitle($pdfReportTitle)
     {
         $this->_pdfReportTitle = $pdfReportTitle;
     }

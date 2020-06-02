@@ -196,7 +196,7 @@ parameters:
 			path: libraries/classes/Config/FormDisplay.php
 
 		-
-			message: "#^Parameter \\#4 \\$workPath of method PhpMyAdmin\\\\Config\\\\FormDisplay\\:\\:_displayFieldInput\\(\\) expects string, int\\|string\\|false given\\.$#"
+			message: "#^Parameter \\#4 \\$workPath of method PhpMyAdmin\\\\Config\\\\FormDisplay\\:\\:displayFieldInput\\(\\) expects string, int\\|string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Config/FormDisplay.php
 
@@ -861,12 +861,12 @@ parameters:
 			path: libraries/classes/Database/Qbe.php
 
 		-
-			message: "#^Parameter \\#2 \\$sortOrder of method PhpMyAdmin\\\\Database\\\\Qbe\\:\\:_getSortOrderSelectCell\\(\\) expects int, null given\\.$#"
+			message: "#^Parameter \\#2 \\$sortOrder of method PhpMyAdmin\\\\Database\\\\Qbe\\:\\:getSortOrderSelectCell\\(\\) expects int, null given\\.$#"
 			count: 1
 			path: libraries/classes/Database/Qbe.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Database\\\\Qbe\\:\\:_getMasterTable\\(\\) should return string but returns int\\|string\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Database\\\\Qbe\\:\\:getMasterTable\\(\\) should return string but returns int\\|string\\.$#"
 			count: 1
 			path: libraries/classes/Database/Qbe.php
 
@@ -1481,7 +1481,7 @@ parameters:
 			path: libraries/classes/Footer.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Footer\\:\\:_removeRecursion\\(\\) should return object but returns array\\|object\\|string\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Footer\\:\\:removeRecursion\\(\\) should return object but returns array\\|object\\|string\\.$#"
 			count: 1
 			path: libraries/classes/Footer.php
 
@@ -1916,7 +1916,7 @@ parameters:
 			path: libraries/classes/Linter.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Menu\\:\\:_getAllowedTabs\\(\\) should return array but returns array\\|null\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Menu\\:\\:getAllowedTabs\\(\\) should return array but returns array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Menu.php
 
@@ -2146,7 +2146,7 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Parameter \\#1 \\$create_query of method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql\\:\\:_makeCreateTableMSSQLCompatible\\(\\) expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$create_query of method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql\\:\\:makeCreateTableMSSQLCompatible\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
@@ -2186,7 +2186,7 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql\\:\\:_makeCreateTableMSSQLCompatible\\(\\) should return string but returns string\\|null\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql\\:\\:makeCreateTableMSSQLCompatible\\(\\) should return string but returns string\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
@@ -2521,7 +2521,7 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php
 
 		-
-			message: "#^Parameter \\#2 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\DiaRelationSchema\\:\\:_addRelation\\(\\) expects string, int\\|string given\\.$#"
+			message: "#^Parameter \\#2 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\DiaRelationSchema\\:\\:addRelation\\(\\) expects string, int\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php
 
@@ -2621,7 +2621,7 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
 
 		-
-			message: "#^Parameter \\#4 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\EpsRelationSchema\\:\\:_addRelation\\(\\) expects string, int\\|string given\\.$#"
+			message: "#^Parameter \\#4 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\EpsRelationSchema\\:\\:addRelation\\(\\) expects string, int\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
 
@@ -2831,7 +2831,7 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Parameter \\#2 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:_addRelation\\(\\) expects string, int\\|string given\\.$#"
+			message: "#^Parameter \\#2 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:addRelation\\(\\) expects string, int\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
@@ -2936,7 +2936,7 @@ parameters:
 			path: libraries/classes/Plugins/Schema/RelationStats.php
 
 		-
-			message: "#^Parameter \\#1 \\$table of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\RelationStats\\:\\:_getXy\\(\\) expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats, string given\\.$#"
+			message: "#^Parameter \\#1 \\$table of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\RelationStats\\:\\:getXy\\(\\) expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats, string given\\.$#"
 			count: 2
 			path: libraries/classes/Plugins/Schema/RelationStats.php
 
@@ -2991,12 +2991,12 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
 
 		-
-			message: "#^Parameter \\#1 \\$table of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:_setMinMax\\(\\) expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\TableStatsSvg, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\TableStatsDia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\TableStatsEps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\TableStatsPdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\TableStatsSvg given\\.$#"
+			message: "#^Parameter \\#1 \\$table of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:setMinMax\\(\\) expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\TableStatsSvg, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\TableStatsDia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\TableStatsEps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\TableStatsPdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\TableStatsSvg given\\.$#"
 			count: 3
 			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
 
 		-
-			message: "#^Parameter \\#4 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:_addRelation\\(\\) expects string, int\\|string given\\.$#"
+			message: "#^Parameter \\#4 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:addRelation\\(\\) expects string, int\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
 
@@ -3686,7 +3686,7 @@ parameters:
 			path: libraries/classes/Server/UserGroups.php
 
 		-
-			message: "#^Parameter \\#1 \\$var_name of static method PhpMyAdmin\\\\Setup\\\\ConfigGenerator\\:\\:_getVarExport\\(\\) expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$var_name of static method PhpMyAdmin\\\\Setup\\\\ConfigGenerator\\:\\:getVarExport\\(\\) expects string, string\\|null given\\.$#"
 			count: 2
 			path: libraries/classes/Setup/ConfigGenerator.php
 
@@ -4021,7 +4021,7 @@ parameters:
 			path: libraries/classes/Tracker.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tracker\\:\\:_changeTracking\\(\\) should return int but returns bool\\|resource\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tracker\\:\\:changeTracking\\(\\) should return int but returns bool\\|resource\\.$#"
 			count: 1
 			path: libraries/classes/Tracker.php
 

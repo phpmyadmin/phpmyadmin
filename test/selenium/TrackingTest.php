@@ -65,7 +65,7 @@ class TrackingTest extends TestBase
      */
     public function testTrackingData()
     {
-        $this->_executeSqlAndReturnToTableTracking();
+        $this->executeSqlAndReturnToTableTracking();
 
         $this->byPartialLinkText('Tracking report')->click();
         $this->waitForElement(
@@ -156,7 +156,7 @@ class TrackingTest extends TestBase
             'cssSelector',
             "input[value='Activate now']"
         );
-        $this->_executeSqlAndReturnToTableTracking();
+        $this->executeSqlAndReturnToTableTracking();
         $this->assertFalse(
             $this->isElementPresent('id', 'dml_versions')
         );
@@ -254,7 +254,7 @@ class TrackingTest extends TestBase
      *
      * @return void
      */
-    private function _executeSqlAndReturnToTableTracking()
+    private function executeSqlAndReturnToTableTracking()
     {
         $this->byPartialLinkText('SQL')->click();
         $this->waitAjax();

@@ -134,7 +134,7 @@ class ThemeManager
      */
     public function setThemesPath($path)
     {
-        if (! $this->_checkThemeFolder($path)) {
+        if (! $this->checkThemeFolder($path)) {
             return false;
         }
 
@@ -255,7 +255,7 @@ class ThemeManager
      *
      * @access private
      */
-    private function _checkThemeFolder($folder)
+    private function checkThemeFolder($folder)
     {
         if (! is_dir($folder)) {
             trigger_error(

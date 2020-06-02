@@ -72,7 +72,7 @@ class QbeTest extends AbstractTestCase
     }
 
     /**
-     * Test for _getSortSelectCell
+     * Test for getSortSelectCell
      *
      * @return void
      */
@@ -83,7 +83,7 @@ class QbeTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 Qbe::class,
-                '_getSortSelectCell',
+                'getSortSelectCell',
                 [1]
             )
         );
@@ -92,7 +92,7 @@ class QbeTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 Qbe::class,
-                '_getSortSelectCell',
+                'getSortSelectCell',
                 [1]
             )
         );
@@ -101,7 +101,7 @@ class QbeTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 Qbe::class,
-                '_getSortSelectCell',
+                'getSortSelectCell',
                 [
                     1,
                     'ASC',
@@ -111,7 +111,7 @@ class QbeTest extends AbstractTestCase
     }
 
     /**
-     * Test for _getSortRow
+     * Test for getSortRow
      *
      * @return void
      */
@@ -122,7 +122,7 @@ class QbeTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 Qbe::class,
-                '_getSortRow',
+                'getSortRow',
                 []
             )
         );
@@ -131,7 +131,7 @@ class QbeTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 Qbe::class,
-                '_getSortRow',
+                'getSortRow',
                 []
             )
         );
@@ -140,14 +140,14 @@ class QbeTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 Qbe::class,
-                '_getSortRow',
+                'getSortRow',
                 []
             )
         );
     }
 
     /**
-     * Test for _getShowRow
+     * Test for getShowRow
      *
      * @return void
      */
@@ -162,14 +162,14 @@ class QbeTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 Qbe::class,
-                '_getShowRow',
+                'getShowRow',
                 []
             )
         );
     }
 
     /**
-     * Test for _getCriteriaInputboxRow
+     * Test for getCriteriaInputboxRow
      *
      * @return void
      */
@@ -189,14 +189,14 @@ class QbeTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 Qbe::class,
-                '_getCriteriaInputboxRow',
+                'getCriteriaInputboxRow',
                 []
             )
         );
     }
 
     /**
-     * Test for _getAndOrColCell
+     * Test for getAndOrColCell
      *
      * @return void
      */
@@ -212,14 +212,14 @@ class QbeTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 Qbe::class,
-                '_getAndOrColCell',
+                'getAndOrColCell',
                 [1]
             )
         );
     }
 
     /**
-     * Test for _getModifyColumnsRow
+     * Test for getModifyColumnsRow
      *
      * @return void
      */
@@ -243,14 +243,14 @@ class QbeTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 Qbe::class,
-                '_getModifyColumnsRow',
+                'getModifyColumnsRow',
                 []
             )
         );
     }
 
     /**
-     * Test for _getInputboxRow
+     * Test for getInputboxRow
      *
      * @return void
      */
@@ -266,14 +266,14 @@ class QbeTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 Qbe::class,
-                '_getInputboxRow',
+                'getInputboxRow',
                 [2]
             )
         );
     }
 
     /**
-     * Test for _getInsDelAndOrCriteriaRows
+     * Test for getInsDelAndOrCriteriaRows
      *
      * @return void
      */
@@ -282,7 +282,7 @@ class QbeTest extends AbstractTestCase
         $actual = $this->callFunction(
             $this->object,
             Qbe::class,
-            '_getInsDelAndOrCriteriaRows',
+            'getInsDelAndOrCriteriaRows',
             [
                 2,
                 3,
@@ -302,7 +302,7 @@ class QbeTest extends AbstractTestCase
     }
 
     /**
-     * Test for _getSelectClause
+     * Test for getSelectClause
      *
      * @return void
      */
@@ -313,14 +313,14 @@ class QbeTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 Qbe::class,
-                '_getSelectClause',
+                'getSelectClause',
                 []
             )
         );
     }
 
     /**
-     * Test for _getWhereClause
+     * Test for getWhereClause
      *
      * @return void
      */
@@ -331,14 +331,14 @@ class QbeTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 Qbe::class,
-                '_getWhereClause',
+                'getWhereClause',
                 []
             )
         );
     }
 
     /**
-     * Test for _getOrderByClause
+     * Test for getOrderByClause
      *
      * @return void
      */
@@ -349,14 +349,14 @@ class QbeTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 Qbe::class,
-                '_getOrderByClause',
+                'getOrderByClause',
                 []
             )
         );
     }
 
     /**
-     * Test for _getIndexes
+     * Test for getIndexes
      *
      * @return void
      */
@@ -370,7 +370,7 @@ class QbeTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 Qbe::class,
-                '_getIndexes',
+                'getIndexes',
                 [
                     [
                         '`table1`',
@@ -388,7 +388,7 @@ class QbeTest extends AbstractTestCase
     }
 
     /**
-     * Test for _getLeftJoinColumnCandidates
+     * Test for getLeftJoinColumnCandidates
      *
      * @return void
      */
@@ -399,7 +399,7 @@ class QbeTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 Qbe::class,
-                '_getLeftJoinColumnCandidates',
+                'getLeftJoinColumnCandidates',
                 [
                     [
                         '`table1`',
@@ -417,7 +417,7 @@ class QbeTest extends AbstractTestCase
     }
 
     /**
-     * Test for _getMasterTable
+     * Test for getMasterTable
      *
      * @return void
      */
@@ -428,7 +428,7 @@ class QbeTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 Qbe::class,
-                '_getMasterTable',
+                'getMasterTable',
                 [
                     [
                         'table1',
@@ -447,7 +447,7 @@ class QbeTest extends AbstractTestCase
     }
 
     /**
-     * Test for _getWhereClauseTablesAndColumns
+     * Test for getWhereClauseTablesAndColumns
      *
      * @return void
      */
@@ -467,14 +467,14 @@ class QbeTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 Qbe::class,
-                '_getWhereClauseTablesAndColumns',
+                'getWhereClauseTablesAndColumns',
                 []
             )
         );
     }
 
     /**
-     * Test for _getFromClause
+     * Test for getFromClause
      *
      * @return void
      */
@@ -491,14 +491,14 @@ class QbeTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 Qbe::class,
-                '_getFromClause',
+                'getFromClause',
                 [['`table1`.`id`']]
             )
         );
     }
 
     /**
-     * Test for _getSQLQuery
+     * Test for getSQLQuery
      *
      * @return void
      */
@@ -515,7 +515,7 @@ class QbeTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 Qbe::class,
-                '_getSQLQuery',
+                'getSQLQuery',
                 [['`table1`.`id`']]
             )
         );

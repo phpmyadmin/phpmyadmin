@@ -254,7 +254,7 @@ class FormDisplayTest extends AbstractTestCase
     }
 
     /**
-     * Test for FormDisplay::_validateSelect
+     * Test for FormDisplay::validateSelect
      *
      * @return void
      */
@@ -262,7 +262,7 @@ class FormDisplayTest extends AbstractTestCase
     {
         $attrValidateSelect = new ReflectionMethod(
             FormDisplay::class,
-            '_validateSelect'
+            'validateSelect'
         );
         $attrValidateSelect->setAccessible(true);
 
@@ -371,13 +371,13 @@ class FormDisplayTest extends AbstractTestCase
     }
 
     /**
-     * Test for FormDisplay::_getOptName
+     * Test for FormDisplay::getOptName
      *
      * @return void
      */
     public function testGetOptName()
     {
-        $method = new ReflectionMethod(FormDisplay::class, '_getOptName');
+        $method = new ReflectionMethod(FormDisplay::class, 'getOptName');
         $method->setAccessible(true);
 
         $this->assertEquals(
@@ -392,13 +392,13 @@ class FormDisplayTest extends AbstractTestCase
     }
 
     /**
-     * Test for FormDisplay::_loadUserprefsInfo
+     * Test for FormDisplay::loadUserprefsInfo
      *
      * @return void
      */
     public function testLoadUserprefsInfo()
     {
-        $method = new ReflectionMethod(FormDisplay::class, '_loadUserprefsInfo');
+        $method = new ReflectionMethod(FormDisplay::class, 'loadUserprefsInfo');
         $method->setAccessible(true);
 
         $attrUserprefs = new ReflectionProperty(
@@ -415,13 +415,13 @@ class FormDisplayTest extends AbstractTestCase
     }
 
     /**
-     * Test for FormDisplay::_setComments
+     * Test for FormDisplay::setComments
      *
      * @return void
      */
     public function testSetComments()
     {
-        $method = new ReflectionMethod(FormDisplay::class, '_setComments');
+        $method = new ReflectionMethod(FormDisplay::class, 'setComments');
         $method->setAccessible(true);
 
         // recoding

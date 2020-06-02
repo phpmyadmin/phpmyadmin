@@ -51,7 +51,7 @@ class ExportCodegen extends ExportPlugin
      */
     protected function initSpecificVariables()
     {
-        $this->_setCgFormats([
+        $this->setCgFormats([
             self::HANDLER_NHIBERNATE_CS => 'NHibernate C# DO',
             self::HANDLER_NHIBERNATE_XML => 'NHibernate XML',
         ]);
@@ -86,7 +86,7 @@ class ExportCodegen extends ExportPlugin
             'format',
             __('Format:')
         );
-        $leaf->setValues($this->_getCgFormats());
+        $leaf->setValues($this->getCgFormats());
         $generalOptions->addProperty($leaf);
         // add the main group to the root group
         $exportSpecificOptions->addProperty($generalOptions);
@@ -388,7 +388,7 @@ class ExportCodegen extends ExportPlugin
      *
      * @return array
      */
-    private function _getCgFormats()
+    private function getCgFormats()
     {
         return $this->_cgFormats;
     }
@@ -400,7 +400,7 @@ class ExportCodegen extends ExportPlugin
      *
      * @return void
      */
-    private function _setCgFormats(array $CG_FORMATS)
+    private function setCgFormats(array $CG_FORMATS)
     {
         $this->_cgFormats = $CG_FORMATS;
     }

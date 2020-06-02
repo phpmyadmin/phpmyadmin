@@ -87,14 +87,14 @@ class ConfigGeneratorTest extends AbstractTestCase
     }
 
     /**
-     * Test for ConfigGenerator::_getVarExport
+     * Test for ConfigGenerator::getVarExport
      *
      * @return void
      */
     public function testGetVarExport()
     {
         $reflection = new ReflectionClass(ConfigGenerator::class);
-        $method = $reflection->getMethod('_getVarExport');
+        $method = $reflection->getMethod('getVarExport');
         $method->setAccessible(true);
 
         $this->assertEquals(
@@ -138,14 +138,14 @@ class ConfigGeneratorTest extends AbstractTestCase
     }
 
     /**
-     * Test for ConfigGenerator::_isZeroBasedArray
+     * Test for ConfigGenerator::isZeroBasedArray
      *
      * @return void
      */
     public function testIsZeroBasedArray()
     {
         $reflection = new ReflectionClass(ConfigGenerator::class);
-        $method = $reflection->getMethod('_isZeroBasedArray');
+        $method = $reflection->getMethod('isZeroBasedArray');
         $method->setAccessible(true);
 
         $this->assertFalse(
@@ -189,14 +189,14 @@ class ConfigGeneratorTest extends AbstractTestCase
     }
 
     /**
-     * Test for ConfigGenerator::_exportZeroBasedArray
+     * Test for ConfigGenerator::exportZeroBasedArray
      *
      * @return void
      */
     public function testExportZeroBasedArray()
     {
         $reflection = new ReflectionClass(ConfigGenerator::class);
-        $method = $reflection->getMethod('_exportZeroBasedArray');
+        $method = $reflection->getMethod('exportZeroBasedArray');
         $method->setAccessible(true);
 
         $arr = [

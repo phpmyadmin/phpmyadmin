@@ -98,7 +98,7 @@ class DiaRelationSchema extends ExportRelationSchema
                  */
                 if ($master_field != 'foreign_keys_data') {
                     if (in_array($rel['foreign_table'], $alltables)) {
-                        $this->_addRelation(
+                        $this->addRelation(
                             $one_table,
                             $master_field,
                             $rel['foreign_table'],
@@ -115,7 +115,7 @@ class DiaRelationSchema extends ExportRelationSchema
                     }
 
                     foreach ($one_key['index_list'] as $index => $one_field) {
-                        $this->_addRelation(
+                        $this->addRelation(
                             $one_table,
                             $one_field,
                             $one_key['ref_table_name'],
@@ -126,10 +126,10 @@ class DiaRelationSchema extends ExportRelationSchema
                 }
             }
         }
-        $this->_drawTables();
+        $this->drawTables();
 
         if ($seen_a_relation) {
-            $this->_drawRelations();
+            $this->drawRelations();
         }
         $this->diagram->endDiaDoc();
     }
@@ -161,7 +161,7 @@ class DiaRelationSchema extends ExportRelationSchema
      *
      * @access private
      */
-    private function _addRelation(
+    private function addRelation(
         $masterTable,
         $masterField,
         $foreignTable,
@@ -208,7 +208,7 @@ class DiaRelationSchema extends ExportRelationSchema
      *
      * @access private
      */
-    private function _drawRelations()
+    private function drawRelations()
     {
         foreach ($this->_relations as $relation) {
             $relation->relationDraw($this->showColor);
@@ -227,7 +227,7 @@ class DiaRelationSchema extends ExportRelationSchema
      *
      * @access private
      */
-    private function _drawTables()
+    private function drawTables()
     {
         foreach ($this->_tables as $table) {
             $table->tableDraw($this->showColor);

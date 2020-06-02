@@ -344,7 +344,7 @@ class Response
      *
      * @return string
      */
-    private function _getDisplay()
+    private function getDisplay()
     {
         // The header may contain nothing at all,
         // if its content was already rendered
@@ -362,9 +362,9 @@ class Response
      *
      * @return void
      */
-    private function _htmlResponse()
+    private function htmlResponse()
     {
-        echo $this->_getDisplay();
+        echo $this->getDisplay();
     }
 
     /**
@@ -372,17 +372,17 @@ class Response
      *
      * @return void
      */
-    private function _ajaxResponse()
+    private function ajaxResponse()
     {
         /* Avoid wrapping in case we're disabled */
         if ($this->_isDisabled) {
-            echo $this->_getDisplay();
+            echo $this->getDisplay();
 
             return;
         }
 
         if (! isset($this->_JSON['message'])) {
-            $this->_JSON['message'] = $this->_getDisplay();
+            $this->_JSON['message'] = $this->getDisplay();
         } elseif ($this->_JSON['message'] instanceof Message) {
             $this->_JSON['message'] = $this->_JSON['message']->getDisplay();
         }
@@ -521,9 +521,9 @@ class Response
             $this->_HTML = $buffer->getContents();
         }
         if ($this->isAjax()) {
-            $this->_ajaxResponse();
+            $this->ajaxResponse();
         } else {
-            $this->_htmlResponse();
+            $this->htmlResponse();
         }
         $buffer->flush();
         exit;

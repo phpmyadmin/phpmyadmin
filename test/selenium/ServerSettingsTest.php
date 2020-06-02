@@ -36,7 +36,7 @@ class ServerSettingsTest extends TestBase
      *
      * @return void
      */
-    private function _saveConfig()
+    private function saveConfig()
     {
         // Submit the form
         $ele = $this->waitForElement(
@@ -73,13 +73,13 @@ class ServerSettingsTest extends TestBase
         $ele->clear();
         $ele->sendKeys($this->database_name);
 
-        $this->_saveConfig();
+        $this->saveConfig();
         $this->assertFalse(
             $this->isElementPresent('partialLinkText', $this->database_name)
         );
 
         $this->waitForElement('name', 'Servers-1-hide_db')->clear();
-        $this->_saveConfig();
+        $this->saveConfig();
         $this->assertTrue(
             $this->isElementPresent('partialLinkText', $this->database_name)
         );
@@ -130,13 +130,13 @@ class ServerSettingsTest extends TestBase
 
         $this->waitForElement('name', 'NavigationDisplayLogo')
             ->click();
-        $this->_saveConfig();
+        $this->saveConfig();
         $this->assertFalse(
             $this->isElementPresent('id', 'imgpmalogo')
         );
 
         $this->byCssSelector("a[href='#NavigationDisplayLogo']")->click();
-        $this->_saveConfig();
+        $this->saveConfig();
         $this->assertTrue(
             $this->isElementPresent('id', 'imgpmalogo')
         );

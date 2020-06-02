@@ -81,11 +81,11 @@ class PageSettings
         if (isset($_POST['submit_save'])
             && $_POST['submit_save'] == $formGroupName
         ) {
-            $this->_processPageSettings($formDisplay, $cf, $error);
+            $this->processPageSettings($formDisplay, $cf, $error);
         }
 
         // Display forms
-        $this->_HTML = $this->_getPageSettingsDisplay($formDisplay, $error);
+        $this->_HTML = $this->getPageSettingsDisplay($formDisplay, $error);
     }
 
     /**
@@ -97,7 +97,7 @@ class PageSettings
      *
      * @return void
      */
-    private function _processPageSettings(&$formDisplay, &$cf, &$error)
+    private function processPageSettings(&$formDisplay, &$cf, &$error)
     {
         if (! $formDisplay->process(false) || $formDisplay->hasErrors()) {
             return;
@@ -125,7 +125,7 @@ class PageSettings
      *
      * @return void
      */
-    private function _storeError(&$formDisplay, &$error)
+    private function storeError(&$formDisplay, &$error)
     {
         $retval = '';
         if ($error) {
@@ -152,13 +152,13 @@ class PageSettings
      *
      * @return string
      */
-    private function _getPageSettingsDisplay(&$formDisplay, &$error)
+    private function getPageSettingsDisplay(&$formDisplay, &$error)
     {
         $response = Response::getInstance();
 
         $retval = '';
 
-        $this->_storeError($formDisplay, $error);
+        $this->storeError($formDisplay, $error);
 
         $retval .= '<div id="' . $this->_elemId . '">';
         $retval .= '<div class="page_settings">';

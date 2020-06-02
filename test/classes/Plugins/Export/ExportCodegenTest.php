@@ -435,8 +435,8 @@ class ExportCodegenTest extends AbstractTestCase
 
     /**
      * Test for
-     *     - PhpMyAdmin\Plugins\Export\ExportCodegen::_getCgFormats
-     *     - PhpMyAdmin\Plugins\Export\ExportCodegen::_setCgFormats
+     *     - PhpMyAdmin\Plugins\Export\ExportCodegen::getCgFormats
+     *     - PhpMyAdmin\Plugins\Export\ExportCodegen::setCgFormats
      *
      * @return void
      */
@@ -444,8 +444,8 @@ class ExportCodegenTest extends AbstractTestCase
     {
         $reflection = new ReflectionClass(ExportCodegen::class);
 
-        $getter = $reflection->getMethod('_getCgFormats');
-        $setter = $reflection->getMethod('_setCgFormats');
+        $getter = $reflection->getMethod('getCgFormats');
+        $setter = $reflection->getMethod('setCgFormats');
 
         $getter->setAccessible(true);
         $setter->setAccessible(true);

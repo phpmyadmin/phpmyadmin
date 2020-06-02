@@ -38,7 +38,7 @@ class OutputBuffering
      */
     private function __construct()
     {
-        $this->_mode = $this->_getMode();
+        $this->_mode = $this->getMode();
         $this->_on = false;
     }
 
@@ -47,7 +47,7 @@ class OutputBuffering
      *
      * @return int the output buffer mode
      */
-    private function _getMode()
+    private function getMode()
     {
         $mode = 0;
         if ($GLOBALS['cfg']['OBGzip'] && function_exists('ob_start')) {

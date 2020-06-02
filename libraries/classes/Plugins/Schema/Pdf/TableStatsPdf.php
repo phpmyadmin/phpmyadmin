@@ -72,12 +72,12 @@ class TableStatsPdf extends TableStats
         );
 
         $this->heightCell = 6;
-        $this->_setHeight();
+        $this->setHeight();
         /*
          * setWidth must me after setHeight, because title
         * can include table height which changes table width
         */
-        $this->_setWidth($fontSize);
+        $this->setWidth($fontSize);
         if ($sameWideWidth >= $this->width) {
             return;
         }
@@ -126,7 +126,7 @@ class TableStatsPdf extends TableStats
      *
      * @access private
      */
-    private function _setWidth($fontSize)
+    private function setWidth($fontSize)
     {
         foreach ($this->fields as $field) {
             $this->width = max($this->width, $this->diagram->GetStringWidth($field));
@@ -150,7 +150,7 @@ class TableStatsPdf extends TableStats
      *
      * @access private
      */
-    private function _setHeight()
+    private function setHeight()
     {
         $this->height = (count($this->fields) + 1) * $this->heightCell;
     }

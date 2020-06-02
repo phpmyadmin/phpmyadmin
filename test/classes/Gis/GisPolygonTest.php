@@ -53,7 +53,7 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array common data for data providers
      */
-    private function _getData()
+    private function getData()
     {
         return [
             'POLYGON' => [
@@ -112,7 +112,7 @@ class GisPolygonTest extends GisGeomTestCase
     public function providerForTestGenerateWkt()
     {
         $temp = [
-            0 => $this->_getData(),
+            0 => $this->getData(),
         ];
 
         $temp1 = $temp;
@@ -176,7 +176,7 @@ class GisPolygonTest extends GisGeomTestCase
      */
     public function providerForTestGenerateParams()
     {
-        $temp = $this->_getData();
+        $temp = $this->getData();
 
         $temp1 = $temp;
         $temp1['gis_type'] = 'POLYGON';
@@ -388,7 +388,7 @@ class GisPolygonTest extends GisGeomTestCase
      */
     public function providerForTestGetPointOnSurface()
     {
-        $temp = $this->_getData();
+        $temp = $this->getData();
         unset($temp['POLYGON'][0]['no_of_points']);
         unset($temp['POLYGON'][1]['no_of_points']);
 

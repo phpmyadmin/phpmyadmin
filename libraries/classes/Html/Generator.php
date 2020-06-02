@@ -571,7 +571,7 @@ class Generator
      *
      * @return string query resuls
      */
-    private static function _generateRowQueryOutput($sqlQuery): string
+    private static function generateRowQueryOutput($sqlQuery): string
     {
         $ret = '';
         $result = $GLOBALS['dbi']->query($sqlQuery);
@@ -758,7 +758,7 @@ class Generator
                         ) . ']';
                     $url = 'https://mariadb.org/explain_analyzer/analyze/'
                         . '?client=phpMyAdmin&raw_explain='
-                        . urlencode(self::_generateRowQueryOutput($sql_query));
+                        . urlencode(self::generateRowQueryOutput($sql_query));
                     $explain_link .= ' ['
                         . self::linkOrButton(
                             htmlspecialchars('url.php?url=' . urlencode($url)),

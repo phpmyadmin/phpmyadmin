@@ -53,7 +53,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
      *
      * @return array common data for data providers
      */
-    private function _getData()
+    private function getData()
     {
         return [
             'MULTIPOLYGON' => [
@@ -137,7 +137,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
     public function providerForTestGenerateWkt()
     {
         $temp = [
-            0 => $this->_getData(),
+            0 => $this->getData(),
         ];
 
         $temp1 = $temp;
@@ -191,9 +191,9 @@ class GisMultiPolygonTest extends GisGeomTestCase
      */
     public function providerForTestGenerateParams()
     {
-        $temp = $this->_getData();
+        $temp = $this->getData();
 
-        $temp1 = $this->_getData();
+        $temp1 = $this->getData();
         $temp1['gis_type'] = 'MULTIPOLYGON';
 
         return [

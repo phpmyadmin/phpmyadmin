@@ -55,7 +55,7 @@ class Data
      *
      * @return array
      */
-    private function _getAllocations()
+    private function getAllocations()
     {
         return [
             // variable name => section
@@ -109,7 +109,7 @@ class Data
      *
      * @return array
      */
-    private function _getSections()
+    private function getSections()
     {
         return [
             // section => section name (description)
@@ -140,7 +140,7 @@ class Data
      *
      * @return array
      */
-    private function _getLinks()
+    private function getLinks()
     {
         $links = [];
         // variable or section name => (name => url)
@@ -214,7 +214,7 @@ class Data
      *
      * @return array
      */
-    private function _calculateValues(array $server_status, array $server_variables)
+    private function calculateValues(array $server_status, array $server_variables)
     {
         // Key_buffer_fraction
         if (isset($server_status['Key_blocks_unused'], $server_variables['key_cache_block_size'])
@@ -278,7 +278,7 @@ class Data
      *
      * @return array ($allocationMap, $sectionUsed, $used_queries)
      */
-    private function _sortVariables(
+    private function sortVariables(
         array $server_status,
         array $allocations,
         array $allocationMap,
@@ -349,18 +349,18 @@ class Data
         $server_status = self::cleanDeprecated($server_status);
 
         // calculate some values
-        $server_status = $this->_calculateValues(
+        $server_status = $this->calculateValues(
             $server_status,
             $server_variables
         );
 
         // split variables in sections
-        $allocations = $this->_getAllocations();
+        $allocations = $this->getAllocations();
 
-        $sections = $this->_getSections();
+        $sections = $this->getSections();
 
         // define some needful links/commands
-        $links = $this->_getLinks();
+        $links = $this->getLinks();
 
         // Variable to contain all com_ variables (query statistics)
         $used_queries = [];
@@ -377,7 +377,7 @@ class Data
             $allocationMap,
             $sectionUsed,
             $used_queries,
-        ] = $this->_sortVariables(
+        ] = $this->sortVariables(
             $server_status,
             $allocations,
             $allocationMap,

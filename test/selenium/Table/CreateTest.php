@@ -98,7 +98,7 @@ class CreateTest extends TestBase
 
         $this->waitForElement('partialLinkText', 'test_table');
 
-        $this->_tableStructureAssertions();
+        $this->tableStructureAssertions();
     }
 
     /**
@@ -106,7 +106,7 @@ class CreateTest extends TestBase
      *
      * @return void
      */
-    private function _tableStructureAssertions()
+    private function tableStructureAssertions()
     {
         $this->gotoHomepage();
         $this->waitAjax();

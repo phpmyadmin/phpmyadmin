@@ -444,7 +444,7 @@ class TrackerTest extends AbstractTestCase
         $result = null;
 
         if ($type === null) {
-            $method = new ReflectionMethod(Tracker::class, '_changeTracking');
+            $method = new ReflectionMethod(Tracker::class, 'changeTracking');
             $method->setAccessible(true);
             $result = $method->invoke(
                 null,

@@ -295,17 +295,17 @@ class GisMultiPolygon extends GisGeometry
 
             // If the polygon doesn't have an inner polygon
             if (mb_strpos($polygon, '),(') === false) {
-                $row .= $this->_drawPath($polygon, $scale_data);
+                $row .= $this->drawPath($polygon, $scale_data);
             } else {
                 // Separate outer and inner polygons
                 $parts = explode('),(', $polygon);
                 $outer = $parts[0];
                 $inner = array_slice($parts, 1);
 
-                $row .= $this->_drawPath($outer, $scale_data);
+                $row .= $this->drawPath($outer, $scale_data);
 
                 foreach ($inner as $inner_poly) {
-                    $row .= $this->_drawPath($inner_poly, $scale_data);
+                    $row .= $this->drawPath($inner_poly, $scale_data);
                 }
             }
             $polygon_options['id'] = $label . $this->getRandomId();
@@ -374,7 +374,7 @@ class GisMultiPolygon extends GisGeometry
      *
      * @access private
      */
-    private function _drawPath($polygon, array $scale_data)
+    private function drawPath($polygon, array $scale_data)
     {
         $points_arr = $this->extractPoints($polygon, $scale_data);
 

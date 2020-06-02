@@ -54,7 +54,7 @@ class CreateDropDatabaseTest extends TestBase
         );
         $this->assertEquals(1, $result->num_rows);
 
-        $this->_dropDatabase();
+        $this->dropDatabase();
     }
 
     /**
@@ -62,7 +62,7 @@ class CreateDropDatabaseTest extends TestBase
      *
      * @return void
      */
-    private function _dropDatabase()
+    private function dropDatabase()
     {
         $this->gotoHomepage();
 

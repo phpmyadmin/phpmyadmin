@@ -75,7 +75,7 @@ class Footer
     /**
      * Returns the message for demo server to error messages
      */
-    private function _getDemoMessage(): string
+    private function getDemoMessage(): string
     {
         $message = '<a href="/">' . __('phpMyAdmin Demo Server') . '</a>: ';
         if (@file_exists(ROOT_PATH . 'revision-info.php')) {
@@ -110,7 +110,7 @@ class Footer
      *
      * @return object Reference passed object
      */
-    private static function _removeRecursion(&$object, array $stack = [])
+    private static function removeRecursion(&$object, array $stack = [])
     {
         if ((is_object($object) || is_array($object)) && $object) {
             if ($object instanceof Traversable) {
@@ -118,7 +118,7 @@ class Footer
             } elseif (! in_array($object, $stack, true)) {
                 $stack[] = $object;
                 foreach ($object as &$subobject) {
-                    self::_removeRecursion($subobject, $stack);
+                    self::removeRecursion($subobject, $stack);
                 }
             } else {
                 $object = '***RECURSION***';
@@ -139,7 +139,7 @@ class Footer
             && ! empty($_SESSION['debug'])
         ) {
             // Remove recursions and iterators from $_SESSION['debug']
-            self::_removeRecursion($_SESSION['debug']);
+            self::removeRecursion($_SESSION['debug']);
 
             $retval = json_encode($_SESSION['debug']);
             $_SESSION['debug'] = [];
@@ -208,7 +208,7 @@ class Footer
      *
      * @param string $url The url of the page
      */
-    private function _getSelfLink(string $url): string
+    private function getSelfLink(string $url): string
     {
         $retval  = '';
         $retval .= '<div id="selflink" class="print_ignore">';
@@ -249,7 +249,7 @@ class Footer
     /**
      * Saves query in history
      */
-    private function _setHistory(): void
+    private function setHistory(): void
     {
         if (Core::isValid($_REQUEST['no_history'])
             || ! empty($GLOBALS['error_message'])
@@ -310,7 +310,7 @@ class Footer
      */
     public function getDisplay(): string
     {
-        $this->_setHistory();
+        $this->setHistory();
         if ($this->_isEnabled) {
             if (! $this->_isAjax && ! $this->_isMinimal) {
                 if (Core::getenv('SCRIPT_NAME')
@@ -340,7 +340,7 @@ class Footer
                     && ! $this->_isAjax
                 ) {
                     $url = $this->getSelfUrl();
-                    $selfLink = $this->_getSelfLink($url);
+                    $selfLink = $this->getSelfLink($url);
                 }
                 $this->_scripts->addCode(
                     'var debugSQLInfo = ' . $this->getDebugMessage() . ';'
@@ -350,7 +350,7 @@ class Footer
                 $scripts = $this->_scripts->getDisplay();
 
                 if ($GLOBALS['cfg']['DBG']['demo']) {
-                    $demoMessage = $this->_getDemoMessage();
+                    $demoMessage = $this->getDemoMessage();
                 }
 
                 $footer = Config::renderFooter();

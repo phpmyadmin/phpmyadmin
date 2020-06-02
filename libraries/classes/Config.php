@@ -171,7 +171,7 @@ class Config
      *
      * @param string $user_agent the user agent
      */
-    private function _setClientPlatform(string $user_agent): void
+    private function setClientPlatform(string $user_agent): void
     {
         if (mb_strstr($user_agent, 'Win')) {
             $this->set('PMA_USR_OS', 'Win');
@@ -203,7 +203,7 @@ class Config
         }
 
         // 1. Platform
-        $this->_setClientPlatform($HTTP_USER_AGENT);
+        $this->setClientPlatform($HTTP_USER_AGENT);
 
         // 2. browser and version
         // (must check everything else before Mozilla)
@@ -500,7 +500,7 @@ class Config
     /**
      * Sets the connection collation
      */
-    private function _setConnectionCollation(): void
+    private function setConnectionCollation(): void
     {
         $collation_connection = $this->get('DefaultConnectionCollation');
         if (empty($collation_connection)
@@ -617,7 +617,7 @@ class Config
         }
 
         // set connection collation
-        $this->_setConnectionCollation();
+        $this->setConnectionCollation();
     }
 
     /**
@@ -1205,7 +1205,7 @@ class Config
      * @param string $filename File to check and render
      * @param string $id       Div ID
      */
-    private static function _renderCustom(string $filename, string $id): string
+    private static function renderCustom(string $filename, string $id): string
     {
         $retval = '';
         if (@file_exists($filename)) {
@@ -1224,7 +1224,7 @@ class Config
      */
     public static function renderFooter(): string
     {
-        return self::_renderCustom(CUSTOM_FOOTER_FILE, 'pma_footer');
+        return self::renderCustom(CUSTOM_FOOTER_FILE, 'pma_footer');
     }
 
     /**
@@ -1232,7 +1232,7 @@ class Config
      */
     public static function renderHeader(): string
     {
-        return self::_renderCustom(CUSTOM_HEADER_FILE, 'pma_header');
+        return self::renderCustom(CUSTOM_HEADER_FILE, 'pma_header');
     }
 
     /**
