@@ -134,7 +134,7 @@ class SearchTest extends AbstractTestCase
     }
 
     /**
-     * Test for _getSearchSqls
+     * Test for getSearchSqls
      *
      * @return void
      */

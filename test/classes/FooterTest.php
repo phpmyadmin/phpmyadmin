@@ -120,7 +120,7 @@ class FooterTest extends AbstractTestCase
     }
 
     /**
-     * Test for _getSelfLink
+     * Test for getSelfLink
      *
      * @return void
      */
