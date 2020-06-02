@@ -142,7 +142,11 @@ var processList = {
      * @return urlParams - url parameters with autoRefresh request
      */
     getUrlParams: function () {
-        var urlParams = { 'ajax_request': true, 'refresh': true };
+        var urlParams = {
+            'ajax_request': true,
+            'refresh': true,
+            'full': $('input[name="full"]').val()
+        };
         if ($('#showExecuting').is(':checked')) {
             urlParams.showExecuting = true;
             return urlParams;
