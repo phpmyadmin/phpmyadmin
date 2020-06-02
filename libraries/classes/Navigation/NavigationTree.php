@@ -1021,7 +1021,7 @@ class NavigationTree
      *
      * @return string
      */
-    private function getPaginationParamsHtml($node)
+    private function getPaginationParamsHtml(Node $node): string
     {
         $retval = '';
         $paths = $node->getPaths();
@@ -1374,7 +1374,7 @@ class NavigationTree
      *
      * @return void
      */
-    private function setVisibility()
+    private function setVisibility(): void
     {
         foreach ($this->vPath as $path) {
             $node = $this->tree;
@@ -1397,7 +1397,7 @@ class NavigationTree
      *
      * @return string LI element used for the fast filter
      */
-    private function fastFilterHtml($node)
+    private function fastFilterHtml($node): string
     {
         $retval = '';
         $filterDbMin
@@ -1461,7 +1461,7 @@ class NavigationTree
      *
      * @return string HTML code for the controls
      */
-    private function controls()
+    private function controls(): string
     {
         // always iconic
         $showIcon = true;
@@ -1507,7 +1507,7 @@ class NavigationTree
      *
      * @return string
      */
-    private function getPageSelector($node)
+    private function getPageSelector(Node $node): string
     {
         $retval = '';
         if ($node === $this->tree) {
@@ -1568,7 +1568,7 @@ class NavigationTree
      *
      * @return int See strnatcmp() and strcmp()
      */
-    public static function sortNode($a, $b)
+    public static function sortNode(Node $a, Node $b): int
     {
         if ($a->isNew) {
             return -1;
