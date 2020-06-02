@@ -22,6 +22,7 @@ phpMyAdmin - ChangeLog
 - issue        Fix some twig code deprecations for php 8
 - issue        Fix ENUM and SET display when editing procedures and functions
 - issue        Keep full query state on "auto refresh" process list
+- issue        Keep columns order on "auto refresh" process list
 
 5.0.2 (2020-03-20)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page
