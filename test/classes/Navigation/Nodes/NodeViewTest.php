@@ -9,7 +9,6 @@ namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use function is_string;
 
 /**
  * Tests for PhpMyAdmin\Navigation\Nodes\NodeView class
@@ -28,10 +27,8 @@ class NodeViewTest extends AbstractTestCase
 
     /**
      * Test for __construct
-     *
-     * @return void
      */
-    public function testConstructor()
+    public function testConstructor(): void
     {
         $parent = NodeFactory::getInstance('NodeView');
         $this->assertArrayHasKey(
@@ -42,9 +39,7 @@ class NodeViewTest extends AbstractTestCase
             'index.php?route=/sql',
             $parent->links['text']
         );
-        if (is_string($parent->icon)) {
-            $this->assertStringContainsString('b_props', $parent->icon);
-        }
+        $this->assertStringContainsString('b_props', $parent->icon);
         $this->assertStringContainsString('view', $parent->classes);
     }
 }
