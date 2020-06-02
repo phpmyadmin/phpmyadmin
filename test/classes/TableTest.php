@@ -1173,7 +1173,7 @@ class TableTest extends AbstractTestCase
     }
 
     /**
-     * Tests for _getSQLToCreateForeignKey() method.
+     * Tests for getSQLToCreateForeignKey() method.
      *
      * @return void
      *
@@ -1198,7 +1198,7 @@ class TableTest extends AbstractTestCase
         $sql = $this->callFunction(
             $tableObj,
             Table::class,
-            '_getSQLToCreateForeignKey',
+            'getSQLToCreateForeignKey',
             [
                 $table,
                 $field,
@@ -1219,7 +1219,7 @@ class TableTest extends AbstractTestCase
         $sql = $this->callFunction(
             $tableObj,
             Table::class,
-            '_getSQLToCreateForeignKey',
+            'getSQLToCreateForeignKey',
             [
                 $table,
                 $field,

@@ -94,7 +94,7 @@ class FooterTest extends AbstractTestCase
     }
 
     /**
-     * Test for _removeRecursion
+     * Test for removeRecursion
      *
      * @return void
      */
@@ -107,7 +107,7 @@ class FooterTest extends AbstractTestCase
         $this->callFunction(
             $this->object,
             Footer::class,
-            '_removeRecursion',
+            'removeRecursion',
             [
                 &$object,
             ]
@@ -139,7 +139,7 @@ class FooterTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 Footer::class,
-                '_getSelfLink',
+                'getSelfLink',
                 [
                     $this->object->getSelfUrl(),
                 ]
@@ -148,7 +148,7 @@ class FooterTest extends AbstractTestCase
     }
 
     /**
-     * Test for _getSelfLink
+     * Test for getSelfLink
      *
      * @return void
      */
@@ -166,7 +166,7 @@ class FooterTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 Footer::class,
-                '_getSelfLink',
+                'getSelfLink',
                 [
                     $this->object->getSelfUrl(),
                 ]
@@ -175,7 +175,7 @@ class FooterTest extends AbstractTestCase
     }
 
     /**
-     * Test for _getSelfLink
+     * Test for getSelfLink
      *
      * @return void
      */
@@ -193,7 +193,7 @@ class FooterTest extends AbstractTestCase
             $this->callFunction(
                 $this->object,
                 Footer::class,
-                '_getSelfLink',
+                'getSelfLink',
                 [
                     $this->object->getSelfUrl(),
                 ]

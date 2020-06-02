@@ -20,7 +20,7 @@ class GisVisualizationTest extends AbstractTestCase
                 'spatialColumn' => 'abc',
             ]),
             GisVisualization::class,
-            '_modifySqlQuery',
+            'modifySqlQuery',
             [
                 '',
                 0,
@@ -45,7 +45,7 @@ class GisVisualizationTest extends AbstractTestCase
                 'spatialColumn' => 'abc',
             ]),
             GisVisualization::class,
-            '_modifySqlQuery',
+            'modifySqlQuery',
             [
                 '',
                 0,
@@ -70,7 +70,7 @@ class GisVisualizationTest extends AbstractTestCase
                 'spatialColumn' => 'abc',
             ]),
             GisVisualization::class,
-            '_modifySqlQuery',
+            'modifySqlQuery',
             [
                 '',
                 0,

@@ -390,13 +390,13 @@ class ExportSqlTest extends AbstractTestCase
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::_exportComment
+     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportComment
      *
      * @return void
      */
     public function testExportComment()
     {
-        $method = new ReflectionMethod(ExportSql::class, '_exportComment');
+        $method = new ReflectionMethod(ExportSql::class, 'exportComment');
         $method->setAccessible(true);
 
         $GLOBALS['crlf'] = '##';
@@ -428,13 +428,13 @@ class ExportSqlTest extends AbstractTestCase
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::_possibleCRLF
+     * Test for PhpMyAdmin\Plugins\Export\ExportSql::possibleCRLF
      *
      * @return void
      */
     public function testPossibleCRLF()
     {
-        $method = new ReflectionMethod(ExportSql::class, '_possibleCRLF');
+        $method = new ReflectionMethod(ExportSql::class, 'possibleCRLF');
         $method->setAccessible(true);
 
         $GLOBALS['crlf'] = '##';
@@ -855,7 +855,7 @@ class ExportSqlTest extends AbstractTestCase
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::_getTableDefForView
+     * Test for PhpMyAdmin\Plugins\Export\ExportSql::getTableDefForView
      *
      * @return void
      */
@@ -891,7 +891,7 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['sql_compatibility'] = 'MSSQL';
 
-        $method = new ReflectionMethod(ExportSql::class, '_getTableDefForView');
+        $method = new ReflectionMethod(ExportSql::class, 'getTableDefForView');
         $method->setAccessible(true);
         $result = $method->invoke(
             $this->object,
@@ -1238,7 +1238,7 @@ class ExportSqlTest extends AbstractTestCase
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::_getTableComments
+     * Test for PhpMyAdmin\Plugins\Export\ExportSql::getTableComments
      *
      * @return void
      */
@@ -1284,7 +1284,7 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
         $this->object->relation = new Relation($dbi);
 
-        $method = new ReflectionMethod(ExportSql::class, '_getTableComments');
+        $method = new ReflectionMethod(ExportSql::class, 'getTableComments');
         $method->setAccessible(true);
         $result = $method->invoke(
             $this->object,
@@ -1894,7 +1894,7 @@ class ExportSqlTest extends AbstractTestCase
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::_makeCreateTableMSSQLCompatible
+     * Test for PhpMyAdmin\Plugins\Export\ExportSql::makeCreateTableMSSQLCompatible
      *
      * @return void
      */
@@ -1919,7 +1919,7 @@ class ExportSqlTest extends AbstractTestCase
 
         $method = new ReflectionMethod(
             ExportSql::class,
-            '_makeCreateTableMSSQLCompatible'
+            'makeCreateTableMSSQLCompatible'
         );
         $method->setAccessible(true);
         $result = $method->invoke(

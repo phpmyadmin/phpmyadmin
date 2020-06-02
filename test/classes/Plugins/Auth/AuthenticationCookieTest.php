@@ -914,7 +914,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     {
         $method = new ReflectionMethod(
             AuthenticationCookie::class,
-            '_getEncryptionSecret'
+            'getEncryptionSecret'
         );
         $method->setAccessible(true);
 
@@ -943,7 +943,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     {
         $method = new ReflectionMethod(
             AuthenticationCookie::class,
-            '_getEncryptionSecret'
+            'getEncryptionSecret'
         );
         $method->setAccessible(true);
 
@@ -1128,7 +1128,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         ];
         $method = new ReflectionMethod(
             AuthenticationCookie::class,
-            '_getSessionEncryptionSecret'
+            'getSessionEncryptionSecret'
         );
         $method->setAccessible(true);
 
