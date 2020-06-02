@@ -906,7 +906,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::_getEncryptionSecret
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::getEncryptionSecret
      *
      * @return void
      */
@@ -935,7 +935,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::_getEncryptionSecret
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::getEncryptionSecret
      *
      * @return void
      */

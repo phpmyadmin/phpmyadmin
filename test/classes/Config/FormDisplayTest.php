@@ -254,7 +254,7 @@ class FormDisplayTest extends AbstractTestCase
     }
 
     /**
-     * Test for FormDisplay::_validateSelect
+     * Test for FormDisplay::validateSelect
      *
      * @return void
      */
@@ -371,7 +371,7 @@ class FormDisplayTest extends AbstractTestCase
     }
 
     /**
-     * Test for FormDisplay::_getOptName
+     * Test for FormDisplay::getOptName
      *
      * @return void
      */
@@ -392,7 +392,7 @@ class FormDisplayTest extends AbstractTestCase
     }
 
     /**
-     * Test for FormDisplay::_loadUserprefsInfo
+     * Test for FormDisplay::loadUserprefsInfo
      *
      * @return void
      */
@@ -415,7 +415,7 @@ class FormDisplayTest extends AbstractTestCase
     }
 
     /**
-     * Test for FormDisplay::_setComments
+     * Test for FormDisplay::setComments
      *
      * @return void
      */

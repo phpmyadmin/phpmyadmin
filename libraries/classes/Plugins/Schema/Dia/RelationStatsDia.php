@@ -39,7 +39,7 @@ class RelationStatsDia
     public $referenceColor;
 
     /**
-     * @see Relation_Stats_Dia::_getXy
+     * @see Relation_Stats_Dia::getXy
      *
      * @param Dia           $diagram       The DIA diagram
      * @param TableStatsDia $master_table  The master table name
