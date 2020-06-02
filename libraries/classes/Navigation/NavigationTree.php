@@ -385,11 +385,11 @@ class NavigationTree
         }
 
         array_shift($path); // remove 'root'
-        /** @var NodeDatabase $db */
+        /** @var NodeDatabase|null $db */
         $db = $this->tree->getChild($path[0]);
         $retval = $db;
 
-        if ($db === false) {
+        if ($db === null) {
             return false;
         }
 
@@ -407,7 +407,7 @@ class NavigationTree
             $container = array_shift($containers);
         } else {
             $container = $db->getChild($path[0], true);
-            if ($container === false) {
+            if ($container === null) {
                 return false;
             }
         }
@@ -475,7 +475,7 @@ class NavigationTree
 
         /** @var NodeTable $table */
         $table = $container->getChild($path[0], true);
-        if ($table === false) {
+        if ($table === null) {
             if (! $db->getPresence('tables', $path[0])) {
                 return false;
             }
@@ -490,7 +490,7 @@ class NavigationTree
             $container->addChild($node);
             $table = $container->getChild($path[0], true);
         }
-        $retval = $table;
+        $retval = $table === null ? false : $table;
         $containers = $this->addTableContainers(
             $table,
             $pos2,
@@ -505,7 +505,7 @@ class NavigationTree
         }
 
         $container = $table->getChild($path[0], true);
-        $retval = $container;
+        $retval = $container === null ? false : $container;
         $tableData = $table->getData(
             $container->realName,
             $pos3
@@ -1380,7 +1380,7 @@ class NavigationTree
             $node = $this->tree;
             foreach ($path as $value) {
                 $child = $node->getChild($value);
-                if ($child === false) {
+                if ($child === null) {
                     continue;
                 }
 

@@ -143,10 +143,10 @@ class Node
      * @param bool   $realName Whether to use the "realName"
      *                         instead of "name" in comparisons
      *
-     * @return false|Node The requested child node or false,
-     *                    if the requested node cannot be found
+     * @return Node|null The requested child node or null,
+     *                   if the requested node cannot be found
      */
-    public function getChild($name, $realName = false)
+    public function getChild($name, $realName = false): ?Node
     {
         if ($realName) {
             foreach ($this->children as $child) {
@@ -162,7 +162,7 @@ class Node
             }
         }
 
-        return false;
+        return null;
     }
 
     /**

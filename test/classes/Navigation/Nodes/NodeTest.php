@@ -57,13 +57,11 @@ class NodeTest extends AbstractTestCase
     public function testGetChildError()
     {
         $parent = NodeFactory::getInstance('Node', 'parent');
-        $this->assertEquals(
-            $parent->getChild('foo'),
-            false
+        $this->assertNull(
+            $parent->getChild('foo')
         );
-        $this->assertEquals(
-            $parent->getChild('foo', true),
-            false
+        $this->assertNull(
+            $parent->getChild('foo', true)
         );
     }
 
@@ -82,9 +80,8 @@ class NodeTest extends AbstractTestCase
             $child
         );
         $parent->removeChild($child->name);
-        $this->assertEquals(
-            $parent->getChild($child->name),
-            false
+        $this->assertNull(
+            $parent->getChild($child->name)
         );
     }
 
