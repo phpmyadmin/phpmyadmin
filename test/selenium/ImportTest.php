@@ -32,7 +32,7 @@ class ImportTest extends TestBase
      */
     public function testServerImport()
     {
-        $this->_doImport('server');
+        $this->doImport('server');
         $result = $this->dbQuery("SHOW DATABASES LIKE 'test_import%'");
         $this->assertGreaterThanOrEqual(2, $result->num_rows);
 
@@ -53,7 +53,7 @@ class ImportTest extends TestBase
         $this->dbQuery('CREATE DATABASE ' . $this->database_name);
         $this->navigateDatabase($this->database_name);
 
-        $this->_doImport('db');
+        $this->doImport('db');
 
         $this->dbQuery('USE ' . $this->database_name);
         $result = $this->dbQuery('SHOW TABLES');
@@ -78,7 +78,7 @@ class ImportTest extends TestBase
 
         $this->navigateTable('test_table');
 
-        $this->_doImport('table');
+        $this->doImport('table');
 
         $result = $this->dbQuery('SELECT * FROM test_table');
         $this->assertEquals(2, $result->num_rows);
@@ -91,7 +91,7 @@ class ImportTest extends TestBase
      *
      * @return void
      */
-    private function _doImport($type)
+    private function doImport($type)
     {
         $this->waitForElement('partialLinkText', 'Import')->click();
         $this->waitAjax();

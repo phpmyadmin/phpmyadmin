@@ -70,7 +70,7 @@ class GisGeometryCollection extends GisGeometry
             );
 
         // Split the geometry collection object to get its constituents.
-        $sub_parts = $this->_explodeGeomCol($goem_col);
+        $sub_parts = $this->explodeGeomCol($goem_col);
 
         foreach ($sub_parts as $sub_part) {
             $type_pos = mb_strpos($sub_part, '(');
@@ -135,7 +135,7 @@ class GisGeometryCollection extends GisGeometry
                 mb_strlen($spatial) - 20
             );
         // Split the geometry collection object to get its constituents.
-        $sub_parts = $this->_explodeGeomCol($goem_col);
+        $sub_parts = $this->explodeGeomCol($goem_col);
 
         foreach ($sub_parts as $sub_part) {
             $type_pos = mb_strpos($sub_part, '(');
@@ -183,7 +183,7 @@ class GisGeometryCollection extends GisGeometry
                 mb_strlen($spatial) - 20
             );
         // Split the geometry collection object to get its constituents.
-        $sub_parts = $this->_explodeGeomCol($goem_col);
+        $sub_parts = $this->explodeGeomCol($goem_col);
 
         foreach ($sub_parts as $sub_part) {
             $type_pos = mb_strpos($sub_part, '(');
@@ -232,7 +232,7 @@ class GisGeometryCollection extends GisGeometry
                 mb_strlen($spatial) - 20
             );
         // Split the geometry collection object to get its constituents.
-        $sub_parts = $this->_explodeGeomCol($goem_col);
+        $sub_parts = $this->explodeGeomCol($goem_col);
 
         foreach ($sub_parts as $sub_part) {
             $type_pos = mb_strpos($sub_part, '(');
@@ -282,7 +282,7 @@ class GisGeometryCollection extends GisGeometry
                 mb_strlen($spatial) - 20
             );
         // Split the geometry collection object to get its constituents.
-        $sub_parts = $this->_explodeGeomCol($goem_col);
+        $sub_parts = $this->explodeGeomCol($goem_col);
 
         foreach ($sub_parts as $sub_part) {
             $type_pos = mb_strpos($sub_part, '(');
@@ -316,7 +316,7 @@ class GisGeometryCollection extends GisGeometry
      *
      * @access private
      */
-    private function _explodeGeomCol($geom_col)
+    private function explodeGeomCol($geom_col)
     {
         $sub_parts = [];
         $br_count = 0;
@@ -406,7 +406,7 @@ class GisGeometryCollection extends GisGeometry
                 mb_strlen($wkt) - 20
             );
         // Split the geometry collection object to get its constituents.
-        $sub_parts = $this->_explodeGeomCol($goem_col);
+        $sub_parts = $this->explodeGeomCol($goem_col);
         $params['GEOMETRYCOLLECTION']['geom_count'] = count($sub_parts);
 
         $i = 0;

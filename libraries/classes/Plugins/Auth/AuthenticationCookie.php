@@ -370,7 +370,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $value = $this->cookieDecrypt(
             $serverCookie,
-            $this->_getEncryptionSecret()
+            $this->getEncryptionSecret()
         );
 
         if ($value === false) {
@@ -420,7 +420,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
         $value = $this->cookieDecrypt(
             $serverCookie,
-            $this->_getSessionEncryptionSecret()
+            $this->getSessionEncryptionSecret()
         );
         if ($value === false) {
             return false;
@@ -569,7 +569,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             'pmaUser-' . $GLOBALS['server'],
             $this->cookieEncrypt(
                 $username,
-                $this->_getEncryptionSecret()
+                $this->getEncryptionSecret()
             )
         );
     }
@@ -592,7 +592,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             'pmaAuth-' . $GLOBALS['server'],
             $this->cookieEncrypt(
                 json_encode($payload),
-                $this->_getSessionEncryptionSecret()
+                $this->getSessionEncryptionSecret()
             ),
             null,
             (int) $GLOBALS['cfg']['LoginCookieStore']
@@ -637,10 +637,10 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * @return string
      */
-    private function _getEncryptionSecret()
+    private function getEncryptionSecret()
     {
         if (empty($GLOBALS['cfg']['blowfish_secret'])) {
-            return $this->_getSessionEncryptionSecret();
+            return $this->getSessionEncryptionSecret();
         }
 
         return $GLOBALS['cfg']['blowfish_secret'];
@@ -651,7 +651,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * @return string
      */
-    private function _getSessionEncryptionSecret()
+    private function getSessionEncryptionSecret()
     {
         if (empty($_SESSION['encryption_key'])) {
             if ($this->_use_openssl) {

@@ -364,7 +364,7 @@ class Response
      */
     private function _htmlResponse()
     {
-        echo $this->_getDisplay();
+        echo $this->getDisplay();
     }
 
     /**
@@ -376,13 +376,13 @@ class Response
     {
         /* Avoid wrapping in case we're disabled */
         if ($this->_isDisabled) {
-            echo $this->_getDisplay();
+            echo $this->getDisplay();
 
             return;
         }
 
         if (! isset($this->_JSON['message'])) {
-            $this->_JSON['message'] = $this->_getDisplay();
+            $this->_JSON['message'] = $this->getDisplay();
         } elseif ($this->_JSON['message'] instanceof Message) {
             $this->_JSON['message'] = $this->_JSON['message']->getDisplay();
         }
@@ -521,9 +521,9 @@ class Response
             $this->_HTML = $buffer->getContents();
         }
         if ($this->isAjax()) {
-            $this->_ajaxResponse();
+            $this->ajaxResponse();
         } else {
-            $this->_htmlResponse();
+            $this->htmlResponse();
         }
         $buffer->flush();
         exit;

@@ -144,8 +144,8 @@ class GisVisualization
         if (isset($data)) {
             $this->_data = $data;
         } else {
-            $this->_modified_sql = $this->_modifySqlQuery($sql_query, $row, $pos);
-            $this->_data = $this->_fetchRawData();
+            $this->_modified_sql = $this->modifySqlQuery($sql_query, $row, $pos);
+            $this->_data = $this->fetchRawData();
         }
     }
 
@@ -158,7 +158,7 @@ class GisVisualization
      */
     protected function init()
     {
-        $this->_handleOptions();
+        $this->handleOptions();
     }
 
     /**
@@ -170,7 +170,7 @@ class GisVisualization
      *
      * @return string the modified sql query.
      */
-    private function _modifySqlQuery($sql_query, $rows, $pos)
+    private function modifySqlQuery($sql_query, $rows, $pos)
     {
         $modified_query = 'SELECT ';
         $spatialAsText = 'ASTEXT';
@@ -229,7 +229,7 @@ class GisVisualization
      *
      * @return array the raw data.
      */
-    private function _fetchRawData()
+    private function fetchRawData()
     {
         $modified_result = $GLOBALS['dbi']->tryQuery($this->_modified_sql);
 
@@ -253,7 +253,7 @@ class GisVisualization
      *
      * @access private
      */
-    private function _handleOptions()
+    private function handleOptions()
     {
         if ($this->_userSpecifiedSettings === null) {
             return;
@@ -275,7 +275,7 @@ class GisVisualization
      *
      * @access private
      */
-    private function _sanitizeName($file_name, $ext)
+    private function sanitizeName($file_name, $ext)
     {
         $file_name = Sanitize::sanitizeFilename($file_name);
 
@@ -307,9 +307,9 @@ class GisVisualization
      *
      * @access private
      */
-    private function _toFile($file_name, $type, $ext)
+    private function writeToFile($file_name, $type, $ext)
     {
-        $file_name = $this->_sanitizeName($file_name, $ext);
+        $file_name = $this->sanitizeName($file_name, $ext);
         Core::downloadHeader($file_name, $type);
     }
 
@@ -320,7 +320,7 @@ class GisVisualization
      *
      * @access private
      */
-    private function _svg()
+    private function svg()
     {
         $this->init();
 
@@ -332,8 +332,8 @@ class GisVisualization
             . ' height="' . intval($this->_settings['height']) . '">'
             . '<g id="groupPanel">';
 
-        $scale_data = $this->_scaleDataSet($this->_data);
-        $output .= $this->_prepareDataSet($this->_data, $scale_data, 'svg', '');
+        $scale_data = $this->scaleDataSet($this->_data);
+        $output .= $this->prepareDataSet($this->_data, $scale_data, 'svg', '');
 
         $output .= '</g></svg>';
 
@@ -349,7 +349,7 @@ class GisVisualization
      */
     public function asSVG()
     {
-        return $this->_svg();
+        return $this->svg();
     }
 
     /**
@@ -363,8 +363,8 @@ class GisVisualization
      */
     public function toFileAsSvg($file_name)
     {
-        $img = $this->_svg();
-        $this->_toFile($file_name, 'image/svg+xml', 'svg');
+        $img = $this->svg();
+        $this->writeToFile($file_name, 'image/svg+xml', 'svg');
         echo $img;
     }
 
@@ -375,7 +375,7 @@ class GisVisualization
      *
      * @access private
      */
-    private function _png()
+    private function png()
     {
         $this->init();
 
@@ -396,8 +396,8 @@ class GisVisualization
             $bg
         );
 
-        $scale_data = $this->_scaleDataSet($this->_data);
-        $image = $this->_prepareDataSet($this->_data, $scale_data, 'png', $image);
+        $scale_data = $this->scaleDataSet($this->_data);
+        $image = $this->prepareDataSet($this->_data, $scale_data, 'png', $image);
 
         return $image;
     }
@@ -411,7 +411,7 @@ class GisVisualization
      */
     public function asPng()
     {
-        $img = $this->_png();
+        $img = $this->png();
 
         // render and save it to variable
         ob_start();
@@ -436,8 +436,8 @@ class GisVisualization
      */
     public function toFileAsPng($file_name)
     {
-        $img = $this->_png();
-        $this->_toFile($file_name, 'image/png', 'png');
+        $img = $this->png();
+        $this->writeToFile($file_name, 'image/png', 'png');
         imagepng($img, null, 9, PNG_ALL_FILTERS);
         imagedestroy($img);
     }
@@ -453,7 +453,7 @@ class GisVisualization
     public function asOl()
     {
         $this->init();
-        $scale_data = $this->_scaleDataSet($this->_data);
+        $scale_data = $this->scaleDataSet($this->_data);
         $output
             = 'if (typeof OpenLayers !== "undefined") {'
             . 'var options = {'
@@ -479,7 +479,7 @@ class GisVisualization
             . 'map.addLayers([layerOSM,layerNone]);'
             . 'var vectorLayer = new OpenLayers.Layer.Vector("Data");'
             . 'var bound;';
-        $output .= $this->_prepareDataSet($this->_data, $scale_data, 'ol', '');
+        $output .= $this->prepareDataSet($this->_data, $scale_data, 'ol', '');
         $output .= 'map.addLayer(vectorLayer);'
             . 'map.zoomToExtent(bound);'
             . 'if (map.getZoom() < 2) {'
@@ -525,11 +525,11 @@ class GisVisualization
         // add a page
         $pdf->AddPage();
 
-        $scale_data = $this->_scaleDataSet($this->_data);
-        $pdf = $this->_prepareDataSet($this->_data, $scale_data, 'pdf', $pdf);
+        $scale_data = $this->scaleDataSet($this->_data);
+        $pdf = $this->prepareDataSet($this->_data, $scale_data, 'pdf', $pdf);
 
         // sanitize file name
-        $file_name = $this->_sanitizeName($file_name, 'pdf');
+        $file_name = $this->sanitizeName($file_name, 'pdf');
         $pdf->Output($file_name, 'D');
     }
 
@@ -585,7 +585,7 @@ class GisVisualization
      *
      * @access private
      */
-    private function _scaleDataSet(array $data)
+    private function scaleDataSet(array $data)
     {
         $min_max = [
             'maxX' => 0.0,
@@ -683,7 +683,7 @@ class GisVisualization
      *
      * @access private
      */
-    private function _prepareDataSet(array $data, array $scale_data, $format, $results)
+    private function prepareDataSet(array $data, array $scale_data, $format, $results)
     {
         $color_number = 0;
 

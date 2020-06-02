@@ -60,7 +60,7 @@ class DesignerTest extends AbstractTestCase
      *
      * @return void
      */
-    private function _mockDatabaseInteraction($db)
+    private function mockDatabaseInteraction($db)
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -106,7 +106,7 @@ class DesignerTest extends AbstractTestCase
     public function testGetPageIdsAndNames()
     {
         $db = 'db';
-        $this->_mockDatabaseInteraction($db);
+        $this->mockDatabaseInteraction($db);
 
         $template = new Template();
         $this->designer = new Designer($GLOBALS['dbi'], new Relation($GLOBALS['dbi'], $template), $template);
@@ -133,7 +133,7 @@ class DesignerTest extends AbstractTestCase
     {
         $db = 'db';
         $operation = 'edit';
-        $this->_mockDatabaseInteraction($db);
+        $this->mockDatabaseInteraction($db);
 
         $template = new Template();
         $this->designer = new Designer($GLOBALS['dbi'], new Relation($GLOBALS['dbi'], $template), $template);
@@ -162,7 +162,7 @@ class DesignerTest extends AbstractTestCase
     public function testGetHtmlForPageSaveAs()
     {
         $db = 'db';
-        $this->_mockDatabaseInteraction($db);
+        $this->mockDatabaseInteraction($db);
 
         $template = new Template();
         $this->designer = new Designer($GLOBALS['dbi'], new Relation($GLOBALS['dbi'], $template), $template);

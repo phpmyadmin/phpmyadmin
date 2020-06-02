@@ -107,7 +107,7 @@ class ImportSql extends ImportPlugin
         global $error, $timeout_passed;
 
         // Handle compatibility options.
-        $this->_setSQLMode($GLOBALS['dbi'], $_REQUEST);
+        $this->setSQLMode($GLOBALS['dbi'], $_REQUEST);
 
         $bq = new BufferedQuery();
         if (isset($_POST['sql_delimiter'])) {
@@ -176,7 +176,7 @@ class ImportSql extends ImportPlugin
      *
      * @return void
      */
-    private function _setSQLMode($dbi, array $request)
+    private function setSQLMode($dbi, array $request)
     {
         $sql_modes = [];
         if (isset($request['sql_compatibility'])

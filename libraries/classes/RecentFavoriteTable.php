@@ -72,7 +72,7 @@ class RecentFavoriteTable
         if (! isset($_SESSION['tmpval'][$this->_tableType . 'Tables'][$server_id])
         ) {
             $_SESSION['tmpval'][$this->_tableType . 'Tables'][$server_id]
-                = $this->_getPmaTable() ? $this->getFromDb() : [];
+                = $this->getPmaTable() ? $this->getFromDb() : [];
         }
         $this->_tables
             =& $_SESSION['tmpval'][$this->_tableType . 'Tables'][$server_id];
@@ -113,7 +113,7 @@ class RecentFavoriteTable
     {
         // Read from phpMyAdmin database, if recent tables is not in session
         $sql_query
-            = ' SELECT `tables` FROM ' . $this->_getPmaTable() .
+            = ' SELECT `tables` FROM ' . $this->getPmaTable() .
             " WHERE `username` = '" . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']) . "'";
 
         $return = [];
@@ -137,7 +137,7 @@ class RecentFavoriteTable
     {
         $username = $GLOBALS['cfg']['Server']['user'];
         $sql_query
-            = ' REPLACE INTO ' . $this->_getPmaTable() . ' (`username`, `tables`)' .
+            = ' REPLACE INTO ' . $this->getPmaTable() . ' (`username`, `tables`)' .
                 " VALUES ('" . $GLOBALS['dbi']->escapeString($username) . "', '"
                 . $GLOBALS['dbi']->escapeString(
                     json_encode($this->_tables)
@@ -298,7 +298,7 @@ class RecentFavoriteTable
             array_unshift($this->_tables, $table_arr);
             $this->_tables = array_merge(array_unique($this->_tables, SORT_REGULAR));
             $this->trim();
-            if ($this->_getPmaTable()) {
+            if ($this->getPmaTable()) {
                 return $this->saveToDb();
             }
         }
@@ -348,7 +348,7 @@ class RecentFavoriteTable
 
             unset($this->_tables[$key]);
         }
-        if ($this->_getPmaTable()) {
+        if ($this->getPmaTable()) {
             return $this->saveToDb();
         }
 
@@ -404,7 +404,7 @@ class RecentFavoriteTable
      *
      * @return string|null pma table name
      */
-    private function _getPmaTable(): ?string
+    private function getPmaTable(): ?string
     {
         $cfgRelation = $this->relation->getRelationsParam();
         if (! $cfgRelation['recentwork']) {

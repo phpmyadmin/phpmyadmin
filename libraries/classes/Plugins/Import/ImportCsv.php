@@ -57,10 +57,10 @@ class ImportCsv extends AbstractImportCsv
      */
     protected function setProperties()
     {
-        $this->_setAnalyze(false);
+        $this->setAnalyze(false);
 
         if ($GLOBALS['plugin_param'] !== 'table') {
-            $this->_setAnalyze(true);
+            $this->setAnalyze(true);
         }
 
         $generalOptions = parent::setProperties();
@@ -521,7 +521,7 @@ class ImportCsv extends AbstractImportCsv
                     $values[] = '';
                 }
 
-                if ($this->_getAnalyze()) {
+                if ($this->getAnalyze()) {
                     foreach ($values as $val) {
                         $tempRow[] = $val;
                         ++$col_count;
@@ -608,7 +608,7 @@ class ImportCsv extends AbstractImportCsv
             }
         } // End of import loop
 
-        if ($this->_getAnalyze()) {
+        if ($this->getAnalyze()) {
             /* Fill out all rows */
             $num_rows = count($rows);
             for ($i = 0; $i < $num_rows; ++$i) {
@@ -752,7 +752,7 @@ class ImportCsv extends AbstractImportCsv
         $requiredFields = 0;
         $sqlTemplate = '';
         $fields = [];
-        if (! $this->_getAnalyze() && $db !== null && $table !== null) {
+        if (! $this->getAnalyze() && $db !== null && $table !== null) {
             $sqlTemplate = 'INSERT';
             if (isset($_POST['csv_ignore'])) {
                 $sqlTemplate .= ' IGNORE';
@@ -841,7 +841,7 @@ class ImportCsv extends AbstractImportCsv
      *
      * @return bool
      */
-    private function _getAnalyze()
+    private function getAnalyze()
     {
         return $this->_analyze;
     }
@@ -853,7 +853,7 @@ class ImportCsv extends AbstractImportCsv
      *
      * @return void
      */
-    private function _setAnalyze($analyze)
+    private function setAnalyze($analyze)
     {
         $this->_analyze = $analyze;
     }

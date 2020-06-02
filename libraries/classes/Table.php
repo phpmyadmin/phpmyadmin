@@ -1745,7 +1745,7 @@ class Table
      *
      * @return array
      */
-    private function _formatColumns(array $indexed, $backquoted, $fullName)
+    private function formatColumns(array $indexed, $backquoted, $fullName)
     {
         $return = [];
         foreach ($indexed as $column) {
@@ -1777,7 +1777,7 @@ class Table
         );
         $indexed = $this->_dbi->fetchResult($sql, 'Column_name', 'Column_name');
 
-        return $this->_formatColumns($indexed, $backquoted, $fullName);
+        return $this->formatColumns($indexed, $backquoted, $fullName);
     }
 
     /**
@@ -1795,7 +1795,7 @@ class Table
         $sql = 'SHOW COLUMNS FROM ' . $this->getFullName(true);
         $indexed = $this->_dbi->fetchResult($sql, 'Field', 'Field');
 
-        return $this->_formatColumns($indexed, $backquoted, $fullName);
+        return $this->formatColumns($indexed, $backquoted, $fullName);
     }
 
     /**
@@ -2581,7 +2581,7 @@ class Table
                 continue;
             }
 
-            $create_query = $this->_getSQLToCreateForeignKey(
+            $create_query = $this->getSQLToCreateForeignKey(
                 $table,
                 $master_field,
                 $foreign_db,
@@ -2635,7 +2635,7 @@ class Table
 
             // a rollback may be better here
             $sql_query_recreate = '# Restoring the dropped constraint...' . "\n";
-            $sql_query_recreate .= $this->_getSQLToCreateForeignKey(
+            $sql_query_recreate .= $this->getSQLToCreateForeignKey(
                 $table,
                 $master_field,
                 $existrel_foreign[$master_field_md5]['ref_db_name'],
@@ -2675,7 +2675,7 @@ class Table
      *
      * @return string SQL query for foreign key constraint creation
      */
-    private function _getSQLToCreateForeignKey(
+    private function getSQLToCreateForeignKey(
         $table,
         array $field,
         $foreignDb,

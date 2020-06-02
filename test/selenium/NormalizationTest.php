@@ -67,7 +67,7 @@ class NormalizationTest extends TestBase
         );
         $this->byCssSelector('input[name=submit_normalize]')->click();
         $this->waitForElement('id', 'mainContent');
-        $this->_test1NFSteps();
+        $this->test1NFSteps();
     }
 
     /**
@@ -75,7 +75,7 @@ class NormalizationTest extends TestBase
      *
      * @return void
      */
-    private function _test1NFSteps()
+    private function test1NFSteps()
     {
         $this->assertEquals(
             'First step of normalization (1NF)',

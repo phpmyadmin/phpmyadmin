@@ -48,7 +48,7 @@ class WindowsNt extends Base
     public function loadavg()
     {
         $sum = 0;
-        $buffer = $this->_getWMI('Win32_Processor', ['LoadPercentage']);
+        $buffer = $this->getWMI('Win32_Processor', ['LoadPercentage']);
 
         foreach ($buffer as $load) {
             $value = $load['LoadPercentage'];
@@ -76,7 +76,7 @@ class WindowsNt extends Base
      *
      * @return array with results
      */
-    private function _getWMI($strClass, array $strValue = [])
+    private function getWMI($strClass, array $strValue = [])
     {
         $arrData = [];
 
@@ -111,7 +111,7 @@ class WindowsNt extends Base
      */
     public function memory()
     {
-        $buffer = $this->_getWMI(
+        $buffer = $this->getWMI(
             'Win32_OperatingSystem',
             [
                 'TotalVisibleMemorySize',
@@ -123,7 +123,7 @@ class WindowsNt extends Base
         $mem['MemFree'] = $buffer[0]['FreePhysicalMemory'];
         $mem['MemUsed'] = $mem['MemTotal'] - $mem['MemFree'];
 
-        $buffer = $this->_getWMI('Win32_PageFileUsage');
+        $buffer = $this->getWMI('Win32_PageFileUsage');
 
         $mem['SwapTotal'] = 0;
         $mem['SwapUsed'] = 0;

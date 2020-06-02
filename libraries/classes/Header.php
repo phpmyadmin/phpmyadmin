@@ -139,7 +139,7 @@ class Header
         $this->_warningsEnabled = true;
         $this->_isPrintView = false;
         $this->_scripts = new Scripts();
-        $this->_addDefaultScripts();
+        $this->addDefaultScripts();
         $this->_headerIsSent = false;
         // if database storage for user preferences is transient,
         // offer to load exported settings from localStorage
@@ -157,7 +157,7 @@ class Header
     /**
      * Loads common scripts
      */
-    private function _addDefaultScripts(): void
+    private function addDefaultScripts(): void
     {
         // Localised strings
         $this->_scripts->addFile('vendor/jquery/jquery.min.js');
@@ -384,7 +384,7 @@ class Header
 
         $recentTable = '';
         if (empty($_REQUEST['recent_table'])) {
-            $recentTable = $this->_addRecentTable($db, $table);
+            $recentTable = $this->addRecentTable($db, $table);
         }
 
         if ($this->_isAjax) {
@@ -649,7 +649,7 @@ class Header
      * @param string $db    Database name where the table is located.
      * @param string $table The table name
      */
-    private function _addRecentTable(string $db, string $table): string
+    private function addRecentTable(string $db, string $table): string
     {
         $retval = '';
         if ($this->_menuEnabled

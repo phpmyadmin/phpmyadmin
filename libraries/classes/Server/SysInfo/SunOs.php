@@ -28,7 +28,7 @@ class SunOs extends Base
      *
      * @return string with value
      */
-    private function _kstat($key)
+    private function kstat($key)
     {
         $m = shell_exec('kstat -p d ' . $key);
 
@@ -48,7 +48,7 @@ class SunOs extends Base
      */
     public function loadavg()
     {
-        $load1 = $this->_kstat('unix:0:system_misc:avenrun_1min');
+        $load1 = $this->kstat('unix:0:system_misc:avenrun_1min');
 
         return ['loadavg' => $load1];
     }
@@ -70,14 +70,14 @@ class SunOs extends Base
      */
     public function memory()
     {
-        $pagesize = (int) $this->_kstat('unix:0:seg_cache:slab_size');
+        $pagesize = (int) $this->kstat('unix:0:seg_cache:slab_size');
         $mem = [];
-        $mem['MemTotal'] = (int) $this->_kstat('unix:0:system_pages:pagestotal') * $pagesize;
-        $mem['MemUsed'] = (int) $this->_kstat('unix:0:system_pages:pageslocked') * $pagesize;
-        $mem['MemFree'] = (int) $this->_kstat('unix:0:system_pages:pagesfree') * $pagesize;
-        $mem['SwapTotal'] = (int) $this->_kstat('unix:0:vminfo:swap_avail') / 1024;
-        $mem['SwapUsed'] = (int) $this->_kstat('unix:0:vminfo:swap_alloc') / 1024;
-        $mem['SwapFree'] = (int) $this->_kstat('unix:0:vminfo:swap_free') / 1024;
+        $mem['MemTotal'] = (int) $this->kstat('unix:0:system_pages:pagestotal') * $pagesize;
+        $mem['MemUsed'] = (int) $this->kstat('unix:0:system_pages:pageslocked') * $pagesize;
+        $mem['MemFree'] = (int) $this->kstat('unix:0:system_pages:pagesfree') * $pagesize;
+        $mem['SwapTotal'] = (int) $this->kstat('unix:0:vminfo:swap_avail') / 1024;
+        $mem['SwapUsed'] = (int) $this->kstat('unix:0:vminfo:swap_alloc') / 1024;
+        $mem['SwapFree'] = (int) $this->kstat('unix:0:vminfo:swap_free') / 1024;
 
         return $mem;
     }

@@ -66,12 +66,12 @@ class ExportXml extends ExportPlugin
     protected function initSpecificVariables()
     {
         global $table, $tables;
-        $this->_setTable($table);
+        $this->setTable($table);
         if (! is_array($tables)) {
             return;
         }
 
-        $this->_setTables($tables);
+        $this->setTables($tables);
     }
 
     /**
@@ -177,7 +177,7 @@ class ExportXml extends ExportPlugin
             $dbitype
         );
 
-        return $this->_exportDefinitions($db, $type, $dbitype, $routines);
+        return $this->exportDefinitions($db, $type, $dbitype, $routines);
     }
 
     /**
@@ -190,7 +190,7 @@ class ExportXml extends ExportPlugin
      *
      * @return string XML with definitions
      */
-    private function _exportDefinitions($db, $type, $dbitype, array $names)
+    private function exportDefinitions($db, $type, $dbitype, array $names)
     {
         global $crlf;
 
@@ -224,8 +224,8 @@ class ExportXml extends ExportPlugin
     {
         $this->initSpecificVariables();
         global $crlf, $cfg, $db;
-        $table = $this->_getTable();
-        $tables = $this->_getTables();
+        $table = $this->getTable();
+        $tables = $this->getTables();
 
         $export_struct = isset($GLOBALS['xml_export_functions'])
             || isset($GLOBALS['xml_export_procedures'])
@@ -373,7 +373,7 @@ class ExportXml extends ExportPlugin
                     . "WHERE EVENT_SCHEMA='" . $GLOBALS['dbi']->escapeString($db)
                     . "'"
                 );
-                $head .= $this->_exportDefinitions(
+                $head .= $this->exportDefinitions(
                     $db,
                     'event',
                     'EVENT',
@@ -559,7 +559,7 @@ class ExportXml extends ExportPlugin
      *
      * @return string
      */
-    private function _getTable()
+    private function getTable()
     {
         return $this->_table;
     }
@@ -571,7 +571,7 @@ class ExportXml extends ExportPlugin
      *
      * @return void
      */
-    private function _setTable($table)
+    private function setTable($table)
     {
         $this->_table = $table;
     }
@@ -581,7 +581,7 @@ class ExportXml extends ExportPlugin
      *
      * @return array
      */
-    private function _getTables()
+    private function getTables()
     {
         return $this->_tables;
     }
@@ -593,7 +593,7 @@ class ExportXml extends ExportPlugin
      *
      * @return void
      */
-    private function _setTables(array $tables)
+    private function setTables(array $tables)
     {
         $this->_tables = $tables;
     }

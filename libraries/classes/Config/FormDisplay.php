@@ -196,7 +196,7 @@ class FormDisplay
      *
      * @return void
      */
-    private function _validate()
+    private function validate()
     {
         if ($this->_isValidated) {
             return;
@@ -251,7 +251,7 @@ class FormDisplay
      *
      * @return string
      */
-    private function _displayForms(
+    private function displayForms(
         $showRestoreDefault,
         array &$jsDefault,
         array &$js,
@@ -279,7 +279,7 @@ class FormDisplay
                     ? ! isset($this->_userprefsDisallow[$path])
                     : null;
                 // display input
-                $htmlOutput .= $this->_displayFieldInput(
+                $htmlOutput .= $this->displayFieldInput(
                     $form,
                     $field,
                     $path,
@@ -349,14 +349,14 @@ class FormDisplay
             }
         }
         if (! $isNewServer) {
-            $this->_validate();
+            $this->validate();
         }
 
         // user preferences
-        $this->_loadUserprefsInfo();
+        $this->loadUserprefsInfo();
 
         // display forms
-        $htmlOutput .= $this->_displayForms(
+        $htmlOutput .= $this->displayForms(
             $showRestoreDefault,
             $jsDefault,
             $js,
@@ -404,7 +404,7 @@ class FormDisplay
      *
      * @return string|null HTML for input field
      */
-    private function _displayFieldInput(
+    private function displayFieldInput(
         Form $form,
         $field,
         $systemPath,
@@ -500,7 +500,7 @@ class FormDisplay
                 $v = $ip . ': ' . $v;
             }
         }
-        $this->_setComments($systemPath, $opts);
+        $this->setComments($systemPath, $opts);
 
         // send default value to form's JS
         $jsLine = '\'' . $translatedPath . '\': ';
@@ -549,7 +549,7 @@ class FormDisplay
      */
     public function displayErrors()
     {
-        $this->_validate();
+        $this->validate();
         if (count($this->_errors) === 0) {
             return null;
         }
@@ -575,7 +575,7 @@ class FormDisplay
      */
     public function fixErrors()
     {
-        $this->_validate();
+        $this->validate();
         if (count($this->_errors) === 0) {
             return;
         }
@@ -598,7 +598,7 @@ class FormDisplay
      *
      * @return bool
      */
-    private function _validateSelect(&$value, array $allowed): bool
+    private function validateSelect(&$value, array $allowed): bool
     {
         $valueCmp = is_bool($value)
             ? (int) $value
@@ -643,7 +643,7 @@ class FormDisplay
         $toSave = [];
         $isSetupScript = $GLOBALS['PMA_Config']->get('is_setup');
         if ($isSetupScript) {
-            $this->_loadUserprefsInfo();
+            $this->loadUserprefsInfo();
         }
 
         $this->_errors = [];
@@ -712,7 +712,7 @@ class FormDisplay
                         }
                         break;
                     case 'select':
-                        $successfullyValidated = $this->_validateSelect(
+                        $successfullyValidated = $this->validateSelect(
                             $_POST[$key],
                             $form->getOptionValueList($systemPath)
                         );
@@ -733,7 +733,7 @@ class FormDisplay
                         ? $_POST[$key]
                         : explode("\n", $_POST[$key]);
                         $_POST[$key] = [];
-                        $this->_fillPostArrayParameters($postValues, $key);
+                        $this->fillPostArrayParameters($postValues, $key);
                         break;
                 }
 
@@ -753,7 +753,7 @@ class FormDisplay
         // save forms
         if (! $allowPartialSave && ! empty($this->_errors)) {
             // don't look for non-critical errors
-            $this->_validate();
+            $this->validate();
 
             return $result;
         }
@@ -792,7 +792,7 @@ class FormDisplay
         }
 
         // don't look for non-critical errors
-        $this->_validate();
+        $this->validate();
 
         return $result;
     }
@@ -823,7 +823,7 @@ class FormDisplay
 
         return MySQLDocumentation::getDocumentationLink(
             'config',
-            'cfg_' . $this->_getOptName($path),
+            'cfg_' . $this->getOptName($path),
             Sanitize::isSetup() ? '../' : './'
         );
     }
@@ -835,7 +835,7 @@ class FormDisplay
      *
      * @return string
      */
-    private function _getOptName($path)
+    private function getOptName($path)
     {
         return str_replace(['Servers/1/', '/'], ['Servers/', '_'], $path);
     }
@@ -845,7 +845,7 @@ class FormDisplay
      *
      * @return void
      */
-    private function _loadUserprefsInfo()
+    private function loadUserprefsInfo()
     {
         if ($this->_userprefsKeys !== null) {
             return;
@@ -867,7 +867,7 @@ class FormDisplay
      *
      * @return void
      */
-    private function _setComments($systemPath, array &$opts)
+    private function setComments($systemPath, array &$opts)
     {
         // RecodingEngine - mark unavailable types
         if ($systemPath == 'RecodingEngine') {
@@ -955,7 +955,7 @@ class FormDisplay
      *
      * @return void
      */
-    private function _fillPostArrayParameters(array $postValues, $key)
+    private function fillPostArrayParameters(array $postValues, $key)
     {
         foreach ($postValues as $v) {
             $v = Util::requestString($v);

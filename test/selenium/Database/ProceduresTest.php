@@ -80,7 +80,7 @@ class ProceduresTest extends TestBase
      *
      * @return void
      */
-    private function _procedureSQL()
+    private function procedureSQL()
     {
         $this->dbQuery(
             'CREATE PROCEDURE `test_procedure`(IN `inp` VARCHAR(20), OUT `outp` INT)'
@@ -144,7 +144,7 @@ class ProceduresTest extends TestBase
         );
 
         $this->assertEquals(1, $result->num_rows);
-        $this->_executeProcedure('test_procedure', 14);
+        $this->executeProcedure('test_procedure', 14);
     }
 
     /**
@@ -156,7 +156,7 @@ class ProceduresTest extends TestBase
      */
     public function testEditProcedure()
     {
-        $this->_procedureSQL();
+        $this->procedureSQL();
         $this->waitForElement('partialLinkText', 'Routines')->click();
         $this->waitAjax();
 
@@ -178,7 +178,7 @@ class ProceduresTest extends TestBase
             . "'Routine `test_procedure` has been modified')]"
         );
 
-        $this->_executeProcedure('test_procedure', 14);
+        $this->executeProcedure('test_procedure', 14);
     }
 
     /**
@@ -190,7 +190,7 @@ class ProceduresTest extends TestBase
      */
     public function testDropProcedure()
     {
-        $this->_procedureSQL();
+        $this->procedureSQL();
         $this->waitForElement('partialLinkText', 'Routines')->click();
         $this->waitAjax();
 
@@ -221,7 +221,7 @@ class ProceduresTest extends TestBase
      *
      * @return void
      */
-    private function _executeProcedure($text, $length)
+    private function executeProcedure($text, $length)
     {
         $this->waitAjax();
         $this->waitUntilElementIsVisible('partialLinkText', 'Execute', 30)->click();

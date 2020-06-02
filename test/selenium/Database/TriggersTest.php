@@ -51,7 +51,7 @@ class TriggersTest extends TestBase
      *
      * @return void
      */
-    private function _triggerSQL()
+    private function triggerSQL()
     {
         $this->dbQuery(
             'CREATE TRIGGER `test_trigger` '
@@ -137,7 +137,7 @@ class TriggersTest extends TestBase
     {
         $this->expandMore();
 
-        $this->_triggerSQL();
+        $this->triggerSQL();
         $this->waitForElement('partialLinkText', 'Triggers')->click();
         $this->waitAjax();
 
@@ -178,7 +178,7 @@ class TriggersTest extends TestBase
     {
         $this->expandMore();
 
-        $this->_triggerSQL();
+        $this->triggerSQL();
         $ele = $this->waitForElement('partialLinkText', 'Triggers');
         $ele->click();
 

@@ -101,7 +101,7 @@ class InsertTest extends TestBase
         );
         $this->assertStringContainsString('1 row inserted', $ele->getText());
 
-        $this->_assertDataPresent();
+        $this->assertDataPresent();
     }
 
     /**
@@ -109,7 +109,7 @@ class InsertTest extends TestBase
      *
      * @return void
      */
-    private function _assertDataPresent()
+    private function assertDataPresent()
     {
         $this->byPartialLinkText('Browse')->click();
 
