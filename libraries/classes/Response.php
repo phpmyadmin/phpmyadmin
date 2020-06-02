@@ -344,7 +344,7 @@ class Response
      *
      * @return string
      */
-    private function _getDisplay()
+    private function getDisplay()
     {
         // The header may contain nothing at all,
         // if its content was already rendered
@@ -362,7 +362,7 @@ class Response
      *
      * @return void
      */
-    private function _htmlResponse()
+    private function htmlResponse()
     {
         echo $this->getDisplay();
     }
@@ -372,7 +372,7 @@ class Response
      *
      * @return void
      */
-    private function _ajaxResponse()
+    private function ajaxResponse()
     {
         /* Avoid wrapping in case we're disabled */
         if ($this->_isDisabled) {
