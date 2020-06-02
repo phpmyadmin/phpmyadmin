@@ -27,8 +27,9 @@ class NavigationTreeTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $GLOBALS['server'] = 1;
+        parent::setLanguage();
         parent::setGlobalConfig();
+        $GLOBALS['server'] = 1;
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['user'] = 'user';
@@ -42,6 +43,7 @@ class NavigationTreeTest extends AbstractTestCase
         $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = '';
+        $GLOBALS['PMA_PHP_SELF'] = '';
 
         $this->object = new NavigationTree(new Template(), $GLOBALS['dbi']);
     }
