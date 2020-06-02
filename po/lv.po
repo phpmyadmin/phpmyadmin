@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-05-31 21:18+0200\n"
-"PO-Revision-Date: 2018-01-26 23:38+0000\n"
-"Last-Translator: Edgars Sūnākslis <edgars.sunakslis@gmail.com>\n"
+"PO-Revision-Date: 2020-06-03 13:41+0000\n"
+"Last-Translator: Uko Koknevics <TheZeus121@gmail.com>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/lv/>\n"
 "Language: lv\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
-"X-Generator: Weblate 2.19-dev\n"
+"X-Generator: Weblate 4.1-dev\n"
 
 #: js/messages.php:52
 msgid "Confirm"
@@ -31,6 +31,8 @@ msgstr "Jūs taisaties LIKVIDĒT veselu datubāzi!"
 #: js/messages.php:55
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
+"Nevar pārsaukt datubāzi uz to pašu nosaukumu. Nomainiet nosaukumu un "
+"mēģiniet vēlreiz"
 
 #: js/messages.php:56
 msgid "You are about to DESTROY a complete table!"
@@ -41,34 +43,24 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "Jūs taisaties LIKVIDĒT veselu tabulu!"
 
 #: js/messages.php:58
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Delete tracking data for this table?"
-msgstr "Dati tabulai"
+msgstr "Vai izdzēst izsekošanas datus šai tabulai?"
 
 #: js/messages.php:59
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Delete tracking data for these tables?"
-msgstr "Dati tabulai"
+msgstr "Vai izdzēst izsekošanas datus šīm tabulām?"
 
 #: js/messages.php:60
-#, fuzzy
-#| msgid "Allows inserting and replacing data."
 msgid "Delete tracking data for this version?"
-msgstr "Ļauj ievietot un mainīt datus."
+msgstr "Vai izdzēst izsekošanas datus no šīs versijas?"
 
 #: js/messages.php:61
-#, fuzzy
-#| msgid "Allows inserting and replacing data."
 msgid "Delete tracking data for these versions?"
-msgstr "Ļauj ievietot un mainīt datus."
+msgstr "Vai izdzēst izsekošanas datus no šīm versijām?"
 
 #: js/messages.php:62
-#, fuzzy
-#| msgid "Allows inserting and replacing data."
 msgid "Delete entry from tracking report?"
-msgstr "Ļauj ievietot un mainīt datus."
+msgstr "Vai izdzēst ierakstu no izsekošanas ziņojuma?"
 
 #: js/messages.php:63
 msgid "Deleting tracking data"
@@ -79,10 +71,8 @@ msgid "Dropping Primary Key/Index"
 msgstr "Noņem primāro Atslēgu/Indeksu"
 
 #: js/messages.php:65
-#, fuzzy
-#| msgid "Disable foreign key checks"
 msgid "Dropping Foreign key."
-msgstr "Nepārbaudīt ārējās atslēgas"
+msgstr "Noņemu ārējo atslēgu."
 
 #: js/messages.php:66
 msgid "This operation could take a long time. Proceed anyway?"
@@ -94,62 +84,55 @@ msgid "Do you really want to delete user group \"%s\"?"
 msgstr "Vai Jūs tiešām vēlaties dzēst lietotāju grupu \"%s\"?"
 
 #: js/messages.php:68
-#, fuzzy, php-format
-#| msgid "Do you really want to delete user group \"%s\"?"
+#, php-format
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr "Vai Jūs tiešām vēlaties dzēst lietotāju grupu \"%s\"?"
+msgstr "Vai Jūs tiešām vēlaties dzēst meklējumu \"%s\"?"
 
 #: js/messages.php:69
 msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr ""
+"Jums ir nesaglabātas izmaiņas; vai Jūs esat pārliecināts, ka vēlaties pamest "
+"šo lapu?"
 
 #: js/messages.php:71
 msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
+"Jūs mēģinat samazināt ierakstu skaitu, bet jau esat ievadījis datus šajos "
+"ierakstos, kas tiks zaudēti. Vai vēlaties turpināt?"
 
 #: js/messages.php:74
-#, fuzzy
-#| msgid "Do you really want to delete user group \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Vai Jūs tiešām vēlaties dzēst lietotāju grupu \"%s\"?"
+msgstr "Vai Jūs tiešām vēlaties atsaukt izvēlēto(s) lietotāju(s)?"
 
 #: js/messages.php:75
-#, fuzzy
-#| msgid "Do you really want to delete user group \"%s\"?"
 msgid "Do you really want to delete this central column?"
-msgstr "Vai Jūs tiešām vēlaties dzēst lietotāju grupu \"%s\"?"
+msgstr "Vai Jūs tiešām vēlaties dzēst šo centrālo kolonnu?"
 
 #: js/messages.php:76
-#, fuzzy
-#| msgid "Do you really want to delete user group \"%s\"?"
 msgid "Do you really want to delete the selected items?"
-msgstr "Vai Jūs tiešām vēlaties dzēst lietotāju grupu \"%s\"?"
+msgstr "Vai Jūs tiešām vēlaties dzēst izvēlētos elementus?"
 
 #: js/messages.php:78
 msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr ""
+"Vai jūs patiešām vēlaties NOMEST izvēlēto(ās) sadaļu(as)? Tas arī IZDZĒSĪS "
+"datus, kas attiecas ar izvēlēto(ajām) sadaļu(ām)!"
 
 #: js/messages.php:81
-#, fuzzy
-#| msgid "Do you really want to delete user group \"%s\"?"
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "Vai Jūs tiešām vēlaties dzēst lietotāju grupu \"%s\"?"
+msgstr "Vai Jūs tiešām vēlaties APGRIEZT izvēlēto(ās) sadaļu(as)?"
 
 #: js/messages.php:82
-#, fuzzy
-#| msgid "Do you really want to delete user group \"%s\"?"
 msgid "Do you really want to remove partitioning?"
-msgstr "Vai Jūs tiešām vēlaties dzēst lietotāju grupu \"%s\"?"
+msgstr "Vai Jūs tiešām vēlaties dzēst izvēlēto(ās) sadaļu(as)?"
 
 #: js/messages.php:83
-#, fuzzy
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Vai Jūs tiešām gribat izpildīt \"%s\"?"
+msgstr "Vai Jūs tiešām gribat ATIESTATĪT SEKOTĀJSERVERI?"
 
 #: js/messages.php:85
 msgid ""
@@ -159,10 +142,15 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
+"Šī darbība mēģinās pārvērst Jūsu datus uz jauno sakārtojuma sistēmu. Retos "
+"gadījumos, parasti, kad simbols neeksistē jaunajā sistēmā, šis process var "
+"likt datiem tikt attēlotiem nepareizi jaunajā sistēmā; šajā gadījumā mēs "
+"iesakām atgriezties uz veco sakārtojuma sistēmu un atsaukties uz padomiem, "
+"kas ir atrodami "
 
 #: js/messages.php:91
 msgid "Garbled Data"
-msgstr ""
+msgstr "Sakropļoti Dati"
 
 #: js/messages.php:93
 msgid "Are you sure you wish to change the collation and convert the data?"
@@ -6214,16 +6202,13 @@ msgid "Show PHP information"
 msgstr "Parādīt PHP informāciju"
 
 #: libraries/classes/Controllers/HomeController.php:242
-#, fuzzy, php-format
-#| msgid ""
-#| "The phpMyAdmin configuration storage is not completely configured, some "
-#| "extended features have been deactivated. To find out why click %shere%s."
+#, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"Papildiespējas darbam ar saistītām tabulām tika izslēgtas. Lai uzzinātu "
-"kāpēc, klikškiniet %sšeit%s."
+"phpMyAdmin iestatījumu glabātuve nav pilnīgi iestatīta, dažas papildiespējas "
+"ir izslēgtas. %sUzziniet kāpēc%s. "
 
 #: libraries/classes/Controllers/HomeController.php:249
 msgid ""
@@ -6263,6 +6248,9 @@ msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
+"Pieteikšanās sīkdatņu uzglabāšanas ilgums ir mazāks nekā konfigurēts "
+"phpMyAdmin. Tā dēļ, Jūsu pieteikšanās beigsies ātrāk nekā konfigurēts caur "
+"phpMyAdmin."
 
 #: libraries/classes/Controllers/HomeController.php:430
 msgid ""
@@ -6286,6 +6274,10 @@ msgid ""
 "once phpMyAdmin has been configured. Otherwise the security of your server "
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
+"Mape [code]config[/code], ko izmanto iestatnes skripts, vēl joprojām atrodas "
+"Jūsu phpMyAdmin mapē. Ir stingri ieteicams to izdzēst kolīdz phpMyAdmin ir "
+"ticis konfigurēts. Citādāk, Jūsu servera drošība var būt kompromitēta ar "
+"brīvu pieeju Jūsu konfigurācijas faila lejupielādei."
 
 #: libraries/classes/Controllers/HomeController.php:487
 #, php-format
@@ -7787,6 +7779,8 @@ msgid ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
+"Jūs esat iespējojis mbstring.func_overload parametru savā PHP konfigurācijā. "
+"Šis parametrs nav savietojams ar phpMyAdmin un var izraisīt datu korupciju!"
 
 #: libraries/classes/Core.php:1229
 msgid ""
@@ -14489,7 +14483,6 @@ msgid "Versions"
 msgstr "Versijas"
 
 #: templates/database/tracking/tables.twig:112
-#, fuzzy
 msgid "Untracked tables"
 msgstr "Tabulas, kas netiek izsekotas"
 
