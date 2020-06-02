@@ -147,7 +147,7 @@ class ImportCsv extends AbstractImportCsv
                $csv_new_line, $csv_columns, $err_url;
         // $csv_replace and $csv_ignore should have been here,
         // but we use directly from $_POST
-        global $error, $timeout_passed, $finished, $message;
+        global $timeout_passed, $finished;
 
         $replacements = [
             '\\n' => "\n",
@@ -159,63 +159,14 @@ class ImportCsv extends AbstractImportCsv
         $csv_escaped = strtr($csv_escaped, $replacements);
         $csv_new_line = strtr($csv_new_line, $replacements);
 
-        $param_error = false;
-        if (strlen($csv_terminated) === 0) {
-            $message = Message::error(
-                __('Invalid parameter for CSV import: %s')
-            );
-            $message->addParam(__('Columns terminated with'));
-            $error = true;
-            $param_error = true;
-            // The default dialog of MS Excel when generating a CSV produces a
-            // semi-colon-separated file with no chance of specifying the
-            // enclosing character. Thus, users who want to import this file
-            // tend to remove the enclosing character on the Import dialog.
-            // I could not find a test case where having no enclosing characters
-            // confuses this script.
-            // But the parser won't work correctly with strings so we allow just
-            // one character.
-        } elseif (mb_strlen($csv_enclosed) > 1) {
-            $message = Message::error(
-                __('Invalid parameter for CSV import: %s')
-            );
-            $message->addParam(__('Columns enclosed with'));
-            $error = true;
-            $param_error = true;
-            // I could not find a test case where having no escaping characters
-            // confuses this script.
-            // But the parser won't work correctly with strings so we allow just
-            // one character.
-        } elseif (mb_strlen($csv_escaped) > 1) {
-            $message = Message::error(
-                __('Invalid parameter for CSV import: %s')
-            );
-            $message->addParam(__('Columns escaped with'));
-            $error = true;
-            $param_error = true;
-        } elseif (mb_strlen($csv_new_line) != 1
-            && $csv_new_line != 'auto'
-        ) {
-            $message = Message::error(
-                __('Invalid parameter for CSV import: %s')
-            );
-            $message->addParam(__('Lines terminated with'));
-            $error = true;
-            $param_error = true;
-        }
+        [$error, $message] = $this->buildErrorsForParams(
+            $csv_terminated,
+            $csv_enclosed,
+            $csv_escaped,
+            $csv_new_line,
+            (string) $err_url
+        );
 
-        // If there is an error in the parameters entered,
-        // indicate that immediately.
-        if ($param_error) {
-            Generator::mysqlDie(
-                $message->getMessage(),
-                '',
-                false,
-                $err_url
-            );
-        }
-
-        $buffer = '';
         [$sql_template, $required_fields, $fields] = $this->getSqlTemplateAndRequiredFields($db, $table, $csv_columns);
 
         // Defaults for parser
@@ -247,6 +198,7 @@ class ImportCsv extends AbstractImportCsv
         $col_names = [];
         $tables = [];
 
+        $buffer = '';
         $col_count = 0;
         $max_cols = 0;
         $csv_terminated_len = mb_strlen($csv_terminated);
@@ -682,6 +634,73 @@ class ImportCsv extends AbstractImportCsv
         );
         $message->addParam($line);
         $error = true;
+    }
+
+    private function buildErrorsForParams(
+        string $csvTerminated,
+        string $csvEnclosed,
+        string $csvEscaped,
+        string $csvNewLine,
+        string $errUrl
+    ): array {
+        global $error, $message;
+
+        $param_error = false;
+        if (strlen($csvTerminated) === 0) {
+            $message = Message::error(
+                __('Invalid parameter for CSV import: %s')
+            );
+            $message->addParam(__('Columns terminated with'));
+            $error = true;
+            $param_error = true;
+            // The default dialog of MS Excel when generating a CSV produces a
+            // semi-colon-separated file with no chance of specifying the
+            // enclosing character. Thus, users who want to import this file
+            // tend to remove the enclosing character on the Import dialog.
+            // I could not find a test case where having no enclosing characters
+            // confuses this script.
+            // But the parser won't work correctly with strings so we allow just
+            // one character.
+        } elseif (mb_strlen($csvEnclosed) > 1) {
+            $message = Message::error(
+                __('Invalid parameter for CSV import: %s')
+            );
+            $message->addParam(__('Columns enclosed with'));
+            $error = true;
+            $param_error = true;
+            // I could not find a test case where having no escaping characters
+            // confuses this script.
+            // But the parser won't work correctly with strings so we allow just
+            // one character.
+        } elseif (mb_strlen($csvEscaped) > 1) {
+            $message = Message::error(
+                __('Invalid parameter for CSV import: %s')
+            );
+            $message->addParam(__('Columns escaped with'));
+            $error = true;
+            $param_error = true;
+        } elseif (mb_strlen($csvNewLine) != 1
+            && $csvNewLine != 'auto'
+        ) {
+            $message = Message::error(
+                __('Invalid parameter for CSV import: %s')
+            );
+            $message->addParam(__('Lines terminated with'));
+            $error = true;
+            $param_error = true;
+        }
+
+        // If there is an error in the parameters entered,
+        // indicate that immediately.
+        if ($param_error) {
+            Generator::mysqlDie(
+                $message->getMessage(),
+                '',
+                false,
+                $errUrl
+            );
+        }
+        return [$error, $message];
     }
 
     private function getTableNameFromImport(string $databaseName): string
