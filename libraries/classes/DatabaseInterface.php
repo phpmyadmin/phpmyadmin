@@ -1327,7 +1327,7 @@ class DatabaseInterface implements DbalInterface
      *
      * @return mixed
      */
-    private function _fetchValue($row, $value)
+    private function fetchValueOrValueByIndex($row, $value)
     {
         return $value === null ? $row : $row[$value];
     }
@@ -1416,7 +1416,7 @@ class DatabaseInterface implements DbalInterface
 
         if ($key === null) {
             while ($row = $this->$fetch_function($result)) {
-                $resultrows[] = $this->_fetchValue($row, $value);
+                $resultrows[] = $this->fetchValueOrValueByIndex($row, $value);
             }
         } else {
             if (is_array($key)) {
@@ -1433,11 +1433,11 @@ class DatabaseInterface implements DbalInterface
                         }
                         $result_target =& $result_target[$row[$key_index]];
                     }
-                    $result_target = $this->_fetchValue($row, $value);
+                    $result_target = $this->fetchValueOrValueByIndex($row, $value);
                 }
             } else {
                 while ($row = $this->$fetch_function($result)) {
-                    $resultrows[$row[$key]] = $this->_fetchValue($row, $value);
+                    $resultrows[$row[$key]] = $this->fetchValueOrValueByIndex($row, $value);
                 }
             }
         }

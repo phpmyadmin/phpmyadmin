@@ -18,7 +18,6 @@
 
     <rule ref="PhpMyAdmin">
         <!-- Rules that should be followed, but are not required -->
-        <exclude name="PSR2.Methods.MethodDeclaration.Underscore"/>
         <exclude name="PSR2.Classes.PropertyDeclaration.Underscore"/>
         <exclude name="SlevomatCodingStandard.Operators.DisallowEqualOperators"/>
         <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration"/>

@@ -169,7 +169,7 @@ class ExportXml extends ExportPlugin
      *
      * @return string XML with definitions
      */
-    private function _exportRoutines($db, $type, $dbitype)
+    private function exportRoutinesDefinition($db, $type, $dbitype)
     {
         // Export routines
         $routines = $GLOBALS['dbi']->getProceduresOrFunctions(
@@ -355,13 +355,13 @@ class ExportXml extends ExportPlugin
             if (isset($GLOBALS['xml_export_functions'])
                 && $GLOBALS['xml_export_functions']
             ) {
-                $head .= $this->_exportRoutines($db, 'function', 'FUNCTION');
+                $head .= $this->exportRoutinesDefinition($db, 'function', 'FUNCTION');
             }
 
             if (isset($GLOBALS['xml_export_procedures'])
                 && $GLOBALS['xml_export_procedures']
             ) {
-                $head .= $this->_exportRoutines($db, 'procedure', 'PROCEDURE');
+                $head .= $this->exportRoutinesDefinition($db, 'procedure', 'PROCEDURE');
             }
 
             if (isset($GLOBALS['xml_export_events'])

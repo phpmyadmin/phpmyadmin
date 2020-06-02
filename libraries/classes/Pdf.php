@@ -123,6 +123,8 @@ class Pdf extends TCPDF
         );
     }
 
+    // phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
+
     /**
      * Improved with alias expanding.
      *
@@ -137,6 +139,7 @@ class Pdf extends TCPDF
             }
         }
         parent::_putpages();
+        // phpcs:enable
     }
 
     /**

@@ -1077,13 +1077,13 @@ class ExportSql extends ExportPlugin
         if (is_array($tables)) {
             // export metadata for each table
             foreach ($tables as $table) {
-                $r &= $this->_exportMetadata($db, $table, $metadataTypes);
+                $r &= $this->exportConfigurationMetadata($db, $table, $metadataTypes);
             }
             // export metadata for the database
-            $r &= $this->_exportMetadata($db, null, $metadataTypes);
+            $r &= $this->exportConfigurationMetadata($db, null, $metadataTypes);
         } else {
             // export metadata for single table
-            $r &= $this->_exportMetadata($db, $tables, $metadataTypes);
+            $r &= $this->exportConfigurationMetadata($db, $tables, $metadataTypes);
         }
 
         return (bool) $r;
@@ -1098,7 +1098,7 @@ class ExportSql extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    private function _exportMetadata(
+    private function exportConfigurationMetadata(
         $db,
         $table,
         array $metadataTypes
