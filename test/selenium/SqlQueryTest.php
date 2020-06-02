@@ -74,7 +74,7 @@ class SqlQueryTest extends TestBase
         );
 
         // test inline edit button
-        $this->testInlineEdit();
+        $this->assertInlineEdit();
     }
 
     /**
@@ -108,7 +108,7 @@ class SqlQueryTest extends TestBase
         );
 
         // test inline edit button
-        $this->testInlineEdit();
+        $this->assertInlineEdit();
     }
 
     /**
