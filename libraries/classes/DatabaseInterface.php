@@ -1322,12 +1322,12 @@ class DatabaseInterface implements DbalInterface
     /**
      * Returns row or element of a row
      *
-     * @param array           $row   Row to process
+     * @param array|string    $row   Row to process
      * @param string|int|null $value Which column to return
      *
      * @return mixed
      */
-    private function _fetchValue(array $row, $value)
+    private function _fetchValue($row, $value)
     {
         return $value === null ? $row : $row[$value];
     }
