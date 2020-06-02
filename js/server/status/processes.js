@@ -145,7 +145,10 @@ var processList = {
         var urlParams = {
             'ajax_request': true,
             'refresh': true,
-            'full': $('input[name="full"]').val()
+            'full': $('input[name="full"]').val(),
+            'order_by_field': $('input[name="order_by_field"]').val(),
+            'column_name': $('input[name="column_name"]').val(),
+            'sort_order': $('input[name="sort_order"]').val()
         };
         if ($('#showExecuting').is(':checked')) {
             urlParams.showExecuting = true;
