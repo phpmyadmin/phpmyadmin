@@ -1931,66 +1931,6 @@ parameters:
 			path: libraries/classes/Navigation/Navigation.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Navigation\\\\NavigationTree\\:\\:buildPath\\(\\) should return PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\|false but returns bool\\|PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeDatabase and false will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeTable and false will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Cannot access property \\$realName on PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\|false\\.$#"
-			count: 4
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Cannot access property \\$parent on PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Cannot call method addChild\\(\\) on PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Cannot call method realParent\\(\\) on PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\|false\\.$#"
-			count: 2
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, array\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Argument of an invalid type array\\|string supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Binary operation \"\\.\" between '\\<u\\>' and array\\|string results in an error\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Parameter \\#1 \\$object of function method_exists expects object\\|string, PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Cannot call method getPresence\\(\\) on PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Navigation\\\\NodeFactory\\:\\:\\$namespace has no typehint specified\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/NodeFactory.php
@@ -2006,18 +1946,8 @@ parameters:
 			path: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\:\\:\\$title \\(string\\) does not accept bool\\|string\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/Nodes/NodeTable.php
-
-		-
 			message: "#^Cannot access property \\$realName on PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\|false\\.$#"
 			count: 2
-			path: libraries/classes/Navigation/Nodes/NodeTable.php
-
-		-
-			message: "#^Cannot assign new offset to array\\|string\\.$#"
-			count: 5
 			path: libraries/classes/Navigation/Nodes/NodeTable.php
 
 		-

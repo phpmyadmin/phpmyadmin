@@ -19,6 +19,9 @@ use function strpos;
  */
 class NodeTable extends NodeDatabaseChild
 {
+    /** @var array IMG tags, used when rendering the node */
+    public $icon;
+
     /**
      * Initialises the class
      *
@@ -43,7 +46,7 @@ class NodeTable extends NodeDatabaseChild
                 'table'
             )
         );
-        $title = Util::getTitleForTarget(
+        $title = (string) Util::getTitleForTarget(
             $GLOBALS['cfg']['DefaultTabTable']
         );
         $this->title = $title;

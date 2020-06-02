@@ -808,6 +808,9 @@
       <code>$row['Engine']</code>
       <code>$row['Data_free']</code>
     </PossiblyInvalidArrayAccess>
+    <PossiblyInvalidArrayOffset occurrences="1">
+      <code>$row[$value]</code>
+    </PossiblyInvalidArrayOffset>
   </file>
   <file src="libraries/classes/Dbal/DbiMysqli.php">
     <ImplementedReturnTypeMismatch occurrences="5">
@@ -1450,29 +1453,10 @@
     </InvalidArgument>
   </file>
   <file src="libraries/classes/Navigation/NavigationTree.php">
-    <InvalidReturnStatement occurrences="1">
-      <code>$retval</code>
-    </InvalidReturnStatement>
-    <InvalidReturnType occurrences="1">
-      <code>Node|false</code>
-    </InvalidReturnType>
-    <InvalidScalarArgument occurrences="1">
-      <code>$this-&gt;pos3Value[$key] ?? ''</code>
-    </InvalidScalarArgument>
-    <PossiblyFalseArgument occurrences="2">
-      <code>$table</code>
-      <code>$node-&gt;realParent()</code>
-    </PossiblyFalseArgument>
     <PossiblyFalseOperand occurrences="1">
       <code>strrpos($class, '\\')</code>
     </PossiblyFalseOperand>
-    <PossiblyFalseReference occurrences="7">
-      <code>getChild</code>
-      <code>getData</code>
-      <code>addChild</code>
-      <code>realParent</code>
-      <code>getPresence</code>
-      <code>getPresence</code>
+    <PossiblyFalseReference occurrences="1">
       <code>getPresence</code>
     </PossiblyFalseReference>
     <PossiblyInvalidArgument occurrences="1">
@@ -1481,16 +1465,18 @@
     <PossiblyInvalidIterator occurrences="1">
       <code>$icons</code>
     </PossiblyInvalidIterator>
-    <PossiblyInvalidOperand occurrences="1">
-      <code>$node-&gt;icon</code>
-    </PossiblyInvalidOperand>
-    <PossiblyInvalidPropertyFetch occurrences="2">
+    <PossiblyNullArgument occurrences="3">
+      <code>$table</code>
       <code>$container-&gt;realName</code>
-      <code>$container-&gt;parent</code>
-    </PossiblyInvalidPropertyFetch>
-    <PossiblyNullArgument occurrences="1">
       <code>$title</code>
     </PossiblyNullArgument>
+    <PossiblyNullPropertyFetch occurrences="2">
+      <code>$container-&gt;realName</code>
+      <code>$container-&gt;parent</code>
+    </PossiblyNullPropertyFetch>
+    <PossiblyNullReference occurrences="1">
+      <code>addChild</code>
+    </PossiblyNullReference>
     <TypeDoesNotContainType occurrences="2">
       <code>(int) $_REQUEST['pos2_value']</code>
       <code>(int) $_REQUEST['pos3_value']</code>
@@ -1510,9 +1496,6 @@
     </PossiblyInvalidPropertyFetch>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeTable.php">
-    <PossiblyInvalidPropertyAssignmentValue occurrences="1">
-      <code>$title</code>
-    </PossiblyInvalidPropertyAssignmentValue>
     <PossiblyInvalidPropertyFetch occurrences="2">
       <code>$this-&gt;realParent()-&gt;realName</code>
       <code>$this-&gt;realParent()-&gt;realName</code>
