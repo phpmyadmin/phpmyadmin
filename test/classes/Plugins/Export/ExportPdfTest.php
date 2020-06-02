@@ -311,18 +311,18 @@ class ExportPdfTest extends AbstractTestCase
 
     /**
      * Test for
-     *     - PhpMyAdmin\Plugins\Export\ExportPdf::_setPdf
-     *     - PhpMyAdmin\Plugins\Export\ExportPdf::_getPdf
+     *     - PhpMyAdmin\Plugins\Export\ExportPdf::setPdf
+     *     - PhpMyAdmin\Plugins\Export\ExportPdf::getPdf
      *
      * @return void
      */
     public function testSetGetPdf()
     {
-        $setter = new ReflectionMethod(ExportPdf::class, '_setPdf');
+        $setter = new ReflectionMethod(ExportPdf::class, 'setPdf');
         $setter->setAccessible(true);
         $setter->invoke($this->object, new Pdf());
 
-        $getter = new ReflectionMethod(ExportPdf::class, '_getPdf');
+        $getter = new ReflectionMethod(ExportPdf::class, 'getPdf');
         $getter->setAccessible(true);
         $this->assertInstanceOf(
             Pdf::class,
@@ -332,18 +332,18 @@ class ExportPdfTest extends AbstractTestCase
 
     /**
      * Test for
-     *     - PhpMyAdmin\Plugins\Export\ExportPdf::_setPdfReportTitle
-     *     - PhpMyAdmin\Plugins\Export\ExportPdf::_getPdfReportTitle
+     *     - PhpMyAdmin\Plugins\Export\ExportPdf::setPdfReportTitle
+     *     - PhpMyAdmin\Plugins\Export\ExportPdf::getPdfReportTitle
      *
      * @return void
      */
     public function testSetGetPdfTitle()
     {
-        $setter = new ReflectionMethod(ExportPdf::class, '_setPdfReportTitle');
+        $setter = new ReflectionMethod(ExportPdf::class, 'setPdfReportTitle');
         $setter->setAccessible(true);
         $setter->invoke($this->object, 'title');
 
-        $getter = new ReflectionMethod(ExportPdf::class, '_getPdfReportTitle');
+        $getter = new ReflectionMethod(ExportPdf::class, 'getPdfReportTitle');
         $getter->setAccessible(true);
         $this->assertEquals(
             'title',
