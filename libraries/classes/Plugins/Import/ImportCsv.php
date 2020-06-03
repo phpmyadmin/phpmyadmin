@@ -143,6 +143,7 @@ class ImportCsv extends AbstractImportCsv
      */
     public function doImport(array &$sql_data = [])
     {
+        global $error, $message;
         global $db, $table, $csv_terminated, $csv_enclosed, $csv_escaped,
                $csv_new_line, $csv_columns, $err_url;
         // $csv_replace and $csv_ignore should have been here,
@@ -700,6 +701,7 @@ class ImportCsv extends AbstractImportCsv
                 $errUrl
             );
         }
+
         return [$error, $message];
     }
 
