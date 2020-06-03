@@ -34,7 +34,7 @@ Code status
 Download
 --------
 
-You can get the newest release at https://www.phpmyadmin.net/.
+You can get the newest release at https://www.phpmyadmin.net/downloads/.
 
 If you prefer to follow the git repository, the following branch and tag names may be of interest:
 
@@ -44,12 +44,43 @@ If you prefer to follow the git repository, the following branch and tag names m
 
 Note that phpMyAdmin uses Composer to manage library dependencies, when using git
 development versions you must manually run Composer.
-Please see `the documentation <https://docs.phpmyadmin.net/en/latest/setup.html#installing-from-git>`_ for details.
+Please see `the documentation-installing from git <https://docs.phpmyadmin.net/en/latest/setup.html#installing-from-git>`_ for details.
 
-More Information
-----------------
+List of requirements
+--------------------
 
-Please see the documentation in the doc folder or at https://docs.phpmyadmin.net/.
+https://docs.phpmyadmin.net/en/latest/require.html
 
-For support or to learn how to contribute code or by translating to your language,
-visit https://www.phpmyadmin.net/
+Installation Instructions
+-------------------------
+
+https://docs.phpmyadmin.net/en/latest/setup.html
+
+Documentation
+-------------
+
+https://docs.phpmyadmin.net/en/latest/ or https://github.com/phpmyadmin/phpmyadmin/tree/master/doc
+
+Support
+-------
+
+https://www.phpmyadmin.net/support/
+
+Contributions
+-------------
+
+* https://github.com/phpmyadmin/phpmyadmin/blob/master/CONTRIBUTING.md
+* https://www.phpmyadmin.net/contribute/
+* https://www.phpmyadmin.net/develop/
+* https://github.com/phpmyadmin/phpmyadmin/wiki/Developer_guidelines
+* https://github.com/phpmyadmin/phpmyadmin/wiki/Development
+
+Code of Conduct 
+---------------
+
+https://github.com/phpmyadmin/phpmyadmin/blob/master/CODE_OF_CONDUCT.md
+
+Sponsors
+--------
+
+https://www.phpmyadmin.net/sponsors/ 
