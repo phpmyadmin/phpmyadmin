@@ -59,7 +59,7 @@ class Common
         $db = $db ?? $GLOBALS['db'];
         // seems to be needed later
         $this->dbi->selectDb($db);
-        if ($db === null && $table === null) {
+        if ($table === null) {
             $tables = $this->dbi->getTablesFull($db);
         } else {
             $tables = $this->dbi->getTablesFull($db, $table);
