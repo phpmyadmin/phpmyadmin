@@ -681,9 +681,6 @@
     <InvalidArgument occurrences="1">
       <code>$pg</code>
     </InvalidArgument>
-    <NullArgument occurrences="1">
-      <code>$db</code>
-    </NullArgument>
     <PossiblyInvalidArrayAccess occurrences="7">
       <code>$row['Field']</code>
       <code>$row['Type']</code>
@@ -693,18 +690,12 @@
       <code>$row['Column_name']</code>
       <code>$orig_data['settings_data']</code>
     </PossiblyInvalidArrayAccess>
-    <PossiblyNullArgument occurrences="1">
-      <code>$table</code>
-    </PossiblyNullArgument>
     <PossiblyUndefinedArrayOffset occurrences="4">
       <code>$con['DTN']</code>
       <code>$con['STN']</code>
       <code>$con['SCN']</code>
       <code>$con['DCN']</code>
     </PossiblyUndefinedArrayOffset>
-    <TypeDoesNotContainNull occurrences="1">
-      <code>$db === null</code>
-    </TypeDoesNotContainNull>
   </file>
   <file src="libraries/classes/Database/Events.php">
     <PossiblyInvalidArrayAccess occurrences="12">

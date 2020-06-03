@@ -711,16 +711,6 @@ parameters:
 			path: libraries/classes/Database/Designer.php
 
 		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTablesFull\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer/Common.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTablesFull\\(\\) expects array\\|string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer/Common.php
-
-		-
 			message: "#^Cannot access offset 'Field' on \\(array\\)\\|true\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer/Common.php
