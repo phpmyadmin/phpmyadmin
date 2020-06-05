@@ -2496,6 +2496,14 @@ class Results
             if (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
                 || ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)
             ) {
+                $expressions = [];
+
+                if (isset($analyzed_sql_results['statement'])
+                    && $analyzed_sql_results['statement'] instanceof SelectStatement
+                ) {
+                    $expressions = $analyzed_sql_results['statement']->expr;
+                }
+
                 // Results from a "SELECT" statement -> builds the
                 // WHERE clause to use in links (a unique key if possible)
                 /**
@@ -2510,7 +2518,7 @@ class Results
                     $row,
                     false,
                     $this->__get('table'),
-                    $analyzed_sql_results['statement'] ?? null
+                    $expressions
                 );
                 $whereClauseMap[$row_no][$this->__get('table')] = $where_clause;
                 $this->__set('whereClauseMap', $whereClauseMap);
@@ -2867,7 +2875,15 @@ class Results
                 );
             }
 
-            /*
+            $expressions = [];
+
+            if (isset($analyzed_sql_results['statement'])
+                && $analyzed_sql_results['statement'] instanceof SelectStatement
+            ) {
+                $expressions = $analyzed_sql_results['statement']->expr;
+            }
+
+            /**
              * The result set can have columns from more than one table,
              * this is why we have to check for the unique conditions
              * related to this table; however getUniqueCondition() is
@@ -2882,7 +2898,7 @@ class Results
                     $row,
                     false,
                     $meta->orgtable,
-                    $analyzed_sql_results['statement'] ?? null
+                    $expressions
                 );
                 $whereClauseMap[$row_no][$meta->orgtable] = $unique_conditions[0];
             }
@@ -4575,6 +4591,14 @@ class Results
             $row = [];
         }
 
+        $expressions = [];
+
+        if (isset($analyzed_sql_results['statement'])
+            && $analyzed_sql_results['statement'] instanceof SelectStatement
+        ) {
+            $expressions = $analyzed_sql_results['statement']->expr;
+        }
+
         /**
          * $clause_is_unique is needed by getTable() to generate the proper param
          * in the multi-edit and multi-delete form
@@ -4586,7 +4610,7 @@ class Results
             $row,
             false,
             false,
-            $analyzed_sql_results['statement'] ?? null
+            $expressions
         );
 
         // reset to first row for the loop in getTableBody()
