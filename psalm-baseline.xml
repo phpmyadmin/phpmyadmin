@@ -1468,10 +1468,6 @@
     <PossiblyNullReference occurrences="1">
       <code>addChild</code>
     </PossiblyNullReference>
-    <TypeDoesNotContainType occurrences="2">
-      <code>(int) $_REQUEST['pos2_value']</code>
-      <code>(int) $_REQUEST['pos3_value']</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Navigation/NodeFactory.php">
     <LessSpecificReturnStatement occurrences="1">
