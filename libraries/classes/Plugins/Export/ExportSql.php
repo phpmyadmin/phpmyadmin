@@ -2559,16 +2559,12 @@ class ExportSql extends ExportPlugin
                     $insert_line .= $field_set[$i] . ' = ' . $values[$i];
                 }
 
-                [$tmp_unique_condition, $tmp_clause_is_unique]
-                    = Util::getUniqueCondition(
-                        $result, // handle
-                        $fields_cnt, // fields_cnt
-                        $fields_meta, // fields_meta
-                        $row, // row
-                        false, // force_unique
-                        false, // restrict_to_table
-                        null // analyzed_sql_results
-                    );
+                [$tmp_unique_condition, $tmp_clause_is_unique] = Util::getUniqueCondition(
+                    $result,
+                    $fields_cnt,
+                    $fields_meta,
+                    $row
+                );
                 $insert_line .= ' WHERE ' . $tmp_unique_condition;
                 unset($tmp_unique_condition, $tmp_clause_is_unique);
             } else {

@@ -12,6 +12,7 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\Token;
 use phpseclib\Crypt\Random;
 use stdClass;
@@ -1024,20 +1025,15 @@ class Util
     /**
      * Function to generate unique condition for specified row.
      *
-     * @param resource    $handle               current query result
-     * @param int         $fields_cnt           number of fields
-     * @param stdClass[]  $fields_meta          meta information about fields
-     * @param array       $row                  current row
-     * @param bool        $force_unique         generate condition only on pk
-     *                                          or unique
-     * @param string|bool $restrict_to_table    restrict the unique condition
-     *                                          to this table or false if
-     *                                          none
-     * @param array|null  $analyzed_sql_results the analyzed query
+     * @param resource|int   $handle            current query result
+     * @param int            $fields_cnt        number of fields
+     * @param stdClass[]     $fields_meta       meta information about fields
+     * @param array          $row               current row
+     * @param bool           $force_unique      generate condition only on pk or unique
+     * @param string|bool    $restrict_to_table restrict the unique condition to this table or false if none
+     * @param Statement|null $statement         A Statement instance.
      *
      * @return array the calculated condition and whether condition is unique
-     *
-     * @access public
      */
     public static function getUniqueCondition(
         $handle,
@@ -1046,7 +1042,7 @@ class Util
         array $row,
         $force_unique = false,
         $restrict_to_table = false,
-        $analyzed_sql_results = null
+        ?Statement $statement = null
     ): array {
         $primary_key          = '';
         $unique_key           = '';
@@ -1064,8 +1060,8 @@ class Util
             if (! isset($meta->orgname) || strlen($meta->orgname) === 0) {
                 $meta->orgname = $meta->name;
 
-                if (! empty($analyzed_sql_results['statement']->expr)) {
-                    foreach ($analyzed_sql_results['statement']->expr as $expr) {
+                if (! empty($statement->expr)) {
+                    foreach ($statement->expr as $expr) {
                         if (empty($expr->alias) || empty($expr->column)) {
                             continue;
                         }

@@ -356,13 +356,11 @@ class ZoomSearchController extends AbstractController
             }
             //Get unique condition on each row (will be needed for row update)
             $uniqueCondition = Util::getUniqueCondition(
-                $result, // handle
-                count($this->_columnNames), // fields_cnt
-                $fields_meta, // fields_meta
-                $tmpRow, // row
-                true, // force_unique
-                false, // restrict_to_table
-                null // analyzed_sql_results
+                $result,
+                count($this->_columnNames),
+                $fields_meta,
+                $tmpRow,
+                true
             );
             //Append it to row array as where_clause
             $row['where_clause'] = $uniqueCondition[0];

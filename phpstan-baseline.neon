@@ -1126,11 +1126,6 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#1 \\$handle of static method PhpMyAdmin\\\\Util\\:\\:getUniqueCondition\\(\\) expects resource, int given\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Offset 0 does not exist on array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
@@ -4142,11 +4137,6 @@ parameters:
 
 		-
 			message: "#^Offset 'query' does not exist on array\\(\\?'scheme' \\=\\> string, \\?'host' \\=\\> string, \\?'port' \\=\\> int, \\?'user' \\=\\> string, \\?'pass' \\=\\> string, \\?'path' \\=\\> string, \\?'query' \\=\\> string, \\?'fragment' \\=\\> string\\)\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Offset 'statement' does not exist on array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Util.php
 

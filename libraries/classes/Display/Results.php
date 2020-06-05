@@ -2503,16 +2503,15 @@ class Results
                  *       with only one field and it's a BLOB; in this case,
                  *       avoid to display the delete and edit links
                  */
-                [$where_clause, $clause_is_unique, $condition_array]
-                    = Util::getUniqueCondition(
-                        $dt_result, // handle
-                        $this->__get('fields_cnt'), // fields_cnt
-                        $this->__get('fields_meta'), // fields_meta
-                        $row, // row
-                        false, // force_unique
-                        $this->__get('table'), // restrict_to_table
-                        $analyzed_sql_results // analyzed_sql_results
-                    );
+                [$where_clause, $clause_is_unique, $condition_array] = Util::getUniqueCondition(
+                    $dt_result,
+                    $this->__get('fields_cnt'),
+                    $this->__get('fields_meta'),
+                    $row,
+                    false,
+                    $this->__get('table'),
+                    $analyzed_sql_results['statement'] ?? null
+                );
                 $whereClauseMap[$row_no][$this->__get('table')] = $where_clause;
                 $this->__set('whereClauseMap', $whereClauseMap);
 
@@ -2877,13 +2876,13 @@ class Results
              */
             if (! isset($whereClauseMap[$row_no][$meta->orgtable])) {
                 $unique_conditions = Util::getUniqueCondition(
-                    $dt_result, // handle
-                    $this->__get('fields_cnt'), // fields_cnt
-                    $this->__get('fields_meta'), // fields_meta
-                    $row, // row
-                    false, // force_unique
-                    $meta->orgtable, // restrict_to_table
-                    $analyzed_sql_results // analyzed_sql_results
+                    $dt_result,
+                    $this->__get('fields_cnt'),
+                    $this->__get('fields_meta'),
+                    $row,
+                    false,
+                    $meta->orgtable,
+                    $analyzed_sql_results['statement'] ?? null
                 );
                 $whereClauseMap[$row_no][$meta->orgtable] = $unique_conditions[0];
             }
@@ -4587,7 +4586,7 @@ class Results
             $row,
             false,
             false,
-            $analyzed_sql_results
+            $analyzed_sql_results['statement'] ?? null
         );
 
         // reset to first row for the loop in getTableBody()

@@ -233,16 +233,13 @@ class InsertEdit
         } else {// end if (no row returned)
             $meta = $this->dbi->getFieldsMeta($result[$key_id]);
 
-            [$unique_condition, $tmp_clause_is_unique]
-                = Util::getUniqueCondition(
-                    $result[$key_id], // handle
-                    count($meta), // fields_cnt
-                    $meta, // fields_meta
-                    $rows[$key_id], // row
-                    true, // force_unique
-                    false, // restrict_to_table
-                    null // analyzed_sql_results
-                );
+            [$unique_condition, $tmp_clause_is_unique] = Util::getUniqueCondition(
+                $result[$key_id],
+                count($meta),
+                $meta,
+                $rows[$key_id],
+                true
+            );
 
             if (! empty($unique_condition)) {
                 $has_unique_condition = true;
@@ -2278,16 +2275,13 @@ class InsertEdit
         $meta = $this->dbi->getFieldsMeta($res);
         // must find a unique condition based on unique key,
         // not a combination of all fields
-        [$unique_condition, $clause_is_unique]
-            = Util::getUniqueCondition(
-                $res, // handle
-                count($meta), // fields_cnt
-                $meta, // fields_meta
-                $row, // row
-                true, // force_unique
-                false, // restrict_to_table
-                null // analyzed_sql_results
-            );
+        [$unique_condition, $clause_is_unique] = Util::getUniqueCondition(
+            $res,
+            count($meta),
+            $meta,
+            $row,
+            true
+        );
         if (! empty($unique_condition)) {
             $_SESSION['edit_next'] = $unique_condition;
         }
