@@ -220,8 +220,8 @@
                                 or tbl_storage_engine == 'MARIA'
                                 or (tbl_storage_engine == 'INNODB' and mysql_int_version >= 50604)
                             ) and ('text' in type or 'char' in type) %}
-                            <a rel="samepage" class="ajax add_key add_fulltext_anchor" href="{{ url('/table/structure') }}"
-                                data-post="{{- url_query|raw }}&amp;add_key=1&amp;sql_query=
+                            <a rel="samepage" class="ajax add_key add_fulltext_anchor" href="{{ url('/table/structure/add-key') }}"
+                                data-post="{{- url_query|raw }}&amp;sql_query=
                                 {{- ('ALTER TABLE ' ~ backquote(table)
                                     ~ ' ADD FULLTEXT(' ~ backquote(row['Field'])
                                     ~ ');')|url_encode }}&amp;message_to_show=

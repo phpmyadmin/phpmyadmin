@@ -111,7 +111,7 @@ class StructureController extends AbstractController
 
     public function index(): void
     {
-        global $containerBuilder, $reread_info, $showtable, $url_params;
+        global $reread_info, $showtable, $url_params;
         global $tbl_is_view, $tbl_storage_engine, $tbl_collation, $table_info_num_rows;
 
         $this->dbi->selectDb($this->db);
@@ -165,17 +165,6 @@ class StructureController extends AbstractController
             }
         }
 
-        /**
-         * Adding indexes
-         */
-        if (isset($_POST['add_key'])) {
-            /** @var SqlController $controller */
-            $controller = $containerBuilder->get(SqlController::class);
-            $controller->index();
-
-            $GLOBALS['reload'] = true;
-        }
-
         $cfgRelation = $this->relation->getRelationsParam();
 
         $url_params = [];
@@ -213,6 +202,19 @@ class StructureController extends AbstractController
             $fields,
             $columns_with_index
         ));
+    }
+
+    public function addKey(): void
+    {
+        global $containerBuilder, $reload;
+
+        /** @var SqlController $controller */
+        $controller = $containerBuilder->get(SqlController::class);
+        $controller->index();
+
+        $reload = true;
+
+        $this->index();
     }
 
     public function browse(): void
