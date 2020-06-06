@@ -763,7 +763,7 @@ class Config
 
         // This check is normally done after loading configuration
         $this->checkWebServerOs();
-        if ($this->get('PMA_IS_WINDOWS') !== true) {
+        if ($this->get('PMA_IS_WINDOWS') === true) {
             return;
         }
 
