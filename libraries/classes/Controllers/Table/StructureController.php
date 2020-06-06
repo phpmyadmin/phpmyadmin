@@ -155,17 +155,6 @@ class StructureController extends AbstractController
         }
 
         /**
-         * Adding or editing partitioning of the table
-         */
-        if (isset($_POST['edit_partitioning'])
-            && ! isset($_POST['save_partitioning'])
-        ) {
-            $this->displayHtmlForPartitionChange();
-
-            return;
-        }
-
-        /**
          * Modifications have been submitted -> updates the table
          */
         if (isset($_POST['do_save_data'])) {
@@ -177,18 +166,9 @@ class StructureController extends AbstractController
         }
 
         /**
-         * Modifications to the partitioning have been submitted -> updates the table
-         */
-        if (isset($_POST['save_partitioning'])) {
-            $this->updatePartitioning();
-        }
-
-        /**
          * Adding indexes
          */
-        if (isset($_POST['add_key'])
-            || isset($_POST['partition_maintenance'])
-        ) {
+        if (isset($_POST['add_key'])) {
             /** @var SqlController $controller */
             $controller = $containerBuilder->get(SqlController::class);
             $controller->index();
@@ -815,13 +795,36 @@ class StructureController extends AbstractController
         );
     }
 
-    /**
-     * Displays HTML for partition change
-     *
-     * @return void
-     */
-    protected function displayHtmlForPartitionChange()
+    public function partitioning(): void
     {
+        global $containerBuilder, $reload;
+
+        if (isset($_POST['partition_maintenance'])) {
+            /** @var SqlController $controller */
+            $controller = $containerBuilder->get(SqlController::class);
+            $controller->index();
+
+            $reload = true;
+            $this->index();
+
+            return;
+        }
+
+        if (isset($_POST['save_partitioning'])) {
+            $this->dbi->selectDb($this->db);
+            $this->updatePartitioning();
+            $this->index();
+
+            return;
+        }
+
+        PageSettings::showGroup('TableStructure');
+
+        $this->response->getHeader()->getScripts()->addFiles([
+            'table/structure.js',
+            'indexes.js',
+        ]);
+
         $partitionDetails = null;
         if (! isset($_POST['partition_by'])) {
             $partitionDetails = $this->extractPartitionDetails();
@@ -1000,12 +1003,7 @@ class StructureController extends AbstractController
         return $partitionDetails;
     }
 
-    /**
-     * Update the table's partitioning based on $_REQUEST
-     *
-     * @return void
-     */
-    protected function updatePartitioning()
+    private function updatePartitioning(): void
     {
         $sql_query = 'ALTER TABLE ' . Util::backquote($this->table) . ' '
             . $this->createAddField->getPartitionsDefinition();
@@ -1013,15 +1011,7 @@ class StructureController extends AbstractController
         // Execute alter query
         $result = $this->dbi->tryQuery($sql_query);
 
-        if ($result !== false) {
-            $message = Message::success(
-                __('Table %1$s has been altered successfully.')
-            );
-            $message->addParam($this->table);
-            $this->response->addHTML(
-                Generator::getMessage($message, $sql_query, 'success')
-            );
-        } else {
+        if ($result === false) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON(
                 'message',
@@ -1029,7 +1019,17 @@ class StructureController extends AbstractController
                     __('Query error') . ':<br>' . $this->dbi->getError()
                 )
             );
+
+            return;
         }
+
+        $message = Message::success(
+            __('Table %1$s has been altered successfully.')
+        );
+        $message->addParam($this->table);
+        $this->response->addHTML(
+            Generator::getMessage($message, $sql_query, 'success')
+        );
     }
 
     /**

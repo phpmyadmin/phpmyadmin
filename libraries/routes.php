@@ -262,6 +262,7 @@ return static function (RouteCollector $routes) {
             $routes->post('/fulltext', [TableStructureController::class, 'fulltext']);
             $routes->post('/index', [TableStructureController::class, 'addIndex']);
             $routes->post('/move-columns', [TableStructureController::class, 'moveColumns']);
+            $routes->post('/partitioning', [TableStructureController::class, 'partitioning']);
             $routes->post('/primary', [TableStructureController::class, 'primary']);
             $routes->post('/reserved-word-check', [TableStructureController::class, 'reservedWordCheck']);
             $routes->post('/spatial', [TableStructureController::class, 'spatial']);
