@@ -30,7 +30,7 @@ AJAX.registerOnload('table/operations.js', function () {
                 if ($form.find('input[name=\'switch_to_new\']').prop('checked')) {
                     CommonParams.set(
                         'db',
-                        $form.find('select[name=\'target_db\']').val()
+                        $form.find('select[name=\'target_db\'],input[name=\'target_db\']').val()
                     );
                     CommonParams.set(
                         'table',

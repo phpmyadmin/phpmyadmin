@@ -173,7 +173,7 @@ class Common
 
         $tableDbNames = [];
         foreach ($designerTables as $designerTable) {
-            $tableDbNames[] = $designerTable->getDbTableString();
+            $tableDbNames[] = rawurlencode($designerTable->getDbTableString());
         }
 
         $ti = 0;

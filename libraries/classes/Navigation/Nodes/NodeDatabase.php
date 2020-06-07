@@ -368,6 +368,7 @@ class NodeDatabase extends Node
      */
     public function getData($type, $pos, $searchClause = '')
     {
+        $pos = (int) $pos;
         $retval = [];
         switch ($type) {
             case 'tables':
@@ -448,7 +449,7 @@ class NodeDatabase extends Node
      *
      * @return array
      */
-    private function getTablesOrViews($which, $pos, $searchClause)
+    private function getTablesOrViews($which, int $pos, $searchClause)
     {
         if ($which == 'tables') {
             $condition = 'IN';
@@ -470,7 +471,7 @@ class NodeDatabase extends Node
                 $query .= "%'";
             }
             $query .= 'ORDER BY `TABLE_NAME` ASC ';
-            $query .= 'LIMIT ' . intval($pos) . ', ' . $maxItems;
+            $query .= 'LIMIT ' . $pos . ', ' . $maxItems;
             $retval = $GLOBALS['dbi']->fetchResult($query);
         } else {
             $query = ' SHOW FULL TABLES FROM ';
@@ -512,7 +513,7 @@ class NodeDatabase extends Node
      *
      * @return array
      */
-    private function getTables($pos, $searchClause)
+    private function getTables(int $pos, $searchClause)
     {
         return $this->getTablesOrViews('tables', $pos, $searchClause);
     }
@@ -525,7 +526,7 @@ class NodeDatabase extends Node
      *
      * @return array
      */
-    private function getViews($pos, $searchClause)
+    private function getViews(int $pos, $searchClause)
     {
         return $this->getTablesOrViews('views', $pos, $searchClause);
     }
