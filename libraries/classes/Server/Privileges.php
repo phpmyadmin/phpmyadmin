@@ -120,22 +120,18 @@ class Privileges
      *
      * @return string the escaped (if necessary) database.table
      */
-    public function wildcardEscapeForGrant($dbname, $tablename)
+    public function wildcardEscapeForGrant(string $dbname, string $tablename): string
     {
         if (strlen($dbname) === 0) {
-            $db_and_table = '*.*';
-        } else {
-            if (strlen($tablename) > 0) {
-                $db_and_table = Util::backquote(
-                    Util::unescapeMysqlWildcards($dbname)
-                )
-                . '.' . Util::backquote($tablename);
-            } else {
-                $db_and_table = Util::backquote($dbname) . '.*';
-            }
+            return '*.*';
         }
-
-        return $db_and_table;
+        if (strlen($tablename) > 0) {
+            return Util::backquote(
+                Util::unescapeMysqlWildcards($dbname)
+            )
+            . '.' . Util::backquote($tablename);
+        }
+        return Util::backquote($dbname) . '.*';
     }
 
     /**
@@ -1202,8 +1198,8 @@ class Privileges
      * @return array ($message, $sql_query)
      */
     public function getMessageAndSqlQueryForPrivilegesRevoke(
-        $dbname,
-        $tablename,
+        string $dbname,
+        string $tablename,
         $username,
         $hostname,
         $itemType
@@ -2371,7 +2367,7 @@ class Privileges
      *
      * @return array success message or error message for update
      */
-    public function updatePrivileges($username, $hostname, $tablename, $dbname, $itemType)
+    public function updatePrivileges($username, $hostname, string $tablename, string $dbname, $itemType)
     {
         $db_and_table = $this->wildcardEscapeForGrant($dbname, $tablename);
 
