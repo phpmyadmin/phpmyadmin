@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Server;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Server\Privileges;
@@ -1042,7 +1043,109 @@ class PrivilegesTest extends TestCase
         );
         $this->assertEquals(
             "REVOKE ALL PRIVILEGES ON  `pma_dbname`.`pma_tablename` "
-            . "FROM 'pma_username'@'pma_hostname';  ",
+            . "FROM 'pma_username'@'pma_hostname';   ",
+            $sql_query
+        );
+    }
+
+    /**
+     * Test for updatePrivileges
+     *
+     * @return void
+     */
+    public function testUpdatePrivilegesBeforeMySql8Dot11()
+    {
+        $dbname = '';
+        $username = 'pma_username';
+        $hostname = 'pma_hostname';
+        $tablename = '';
+        $_POST['adduser_submit'] = true;
+        $_POST['pred_username'] = 'any';
+        $_POST['pred_hostname'] = 'localhost';
+        $_POST['Grant_priv'] = 'Y';
+        $_POST['max_questions'] = 1000;
+        $_POST['max_connections'] = 20;
+        $_POST['max_updates'] = 30;
+        $_POST['max_user_connections'] = 40;
+
+        //Mock DBI
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $dbi->expects($this->any())->method('getVersion')
+            ->will($this->returnValue(8003));
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will($this->returnArgument(0));
+
+        $this->serverPrivileges->dbi = $dbi;
+
+        list($sql_query, $message) = $this->serverPrivileges->updatePrivileges(
+            $username,
+            $hostname,
+            $tablename,
+            $dbname,
+            ''
+        );
+
+        $this->assertEquals(
+            "You have updated the privileges for 'pma_username'@'pma_hostname'.",
+            $message->getMessage()
+        );
+        $this->assertEquals(
+            '  GRANT USAGE ON  *.* TO \'pma_username\'@\'pma_hostname\' REQUIRE NONE WITH GRANT OPTION MAX_QUERIES_PER_HOUR 1000 MAX_CONNECTIONS_PER_HOUR 20 MAX_UPDATES_PER_HOUR 30 MAX_USER_CONNECTIONS 40; ',
+            $sql_query
+        );
+    }
+
+    /**
+     * Test for updatePrivileges
+     *
+     * @return void
+     */
+    public function testUpdatePrivilegesAfterMySql8Dot11()
+    {
+        $dbname = '';
+        $username = 'pma_username';
+        $hostname = 'pma_hostname';
+        $tablename = '';
+        $_POST['adduser_submit'] = true;
+        $_POST['pred_username'] = 'any';
+        $_POST['pred_hostname'] = 'localhost';
+        $_POST['Grant_priv'] = 'Y';
+        $_POST['max_questions'] = 1000;
+        $_POST['max_connections'] = 20;
+        $_POST['max_updates'] = 30;
+        $_POST['max_user_connections'] = 40;
+
+        //Mock DBI
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $dbi->expects($this->any())->method('getVersion')
+            ->will($this->returnValue(80011));
+        $dbi->expects($this->any())
+            ->method('escapeString')
+            ->will($this->returnArgument(0));
+
+        $this->serverPrivileges->dbi = $dbi;
+
+        list($sql_query, $message) = $this->serverPrivileges->updatePrivileges(
+            $username,
+            $hostname,
+            $tablename,
+            $dbname,
+            ''
+        );
+
+        $this->assertEquals(
+            "You have updated the privileges for 'pma_username'@'pma_hostname'.",
+            $message->getMessage()
+        );
+        $this->assertEquals(
+            '  GRANT USAGE ON  *.* TO \'pma_username\'@\'pma_hostname\'; ALTER USER \'pma_username\'@\'pma_hostname\'  REQUIRE NONE WITH MAX_QUERIES_PER_HOUR 1000 MAX_CONNECTIONS_PER_HOUR 20 MAX_UPDATES_PER_HOUR 30 MAX_USER_CONNECTIONS 40;',
             $sql_query
         );
     }

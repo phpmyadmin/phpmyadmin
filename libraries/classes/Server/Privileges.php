@@ -2216,7 +2216,7 @@ class Privileges
     }
 
     /**
-     * Get REQUIRE cluase
+     * Get REQUIRE clause
      *
      * @return string REQUIRE clause
      */
@@ -4074,6 +4074,8 @@ class Privileges
             $sql_query1 = '';
         }
 
+        $alterUserQuery = null;
+
         // Should not do a GRANT USAGE for a table-specific privilege, it
         // causes problems later (cannot revoke it)
         if (! (strlen($tablename) > 0
@@ -4084,9 +4086,21 @@ class Privileges
                 . ' TO \'' . $this->dbi->escapeString($username) . '\'@\''
                 . $this->dbi->escapeString($hostname) . '\'';
 
+            $isMySqlOrPercona = Util::getServerType() == 'MySQL' || Util::getServerType() == 'Percona Server';
+            $needsToUseAlter = $isMySqlOrPercona && $this->dbi->getVersion() >= 80011;
+
+            if ($needsToUseAlter) {
+                $alterUserQuery = 'ALTER USER \'' . $this->dbi->escapeString($username) . '\'@\''
+                . $this->dbi->escapeString($hostname) . '\' ';
+            }
+
             if (strlen($dbname) === 0) {
                 // add REQUIRE clause
-                $sql_query2 .= $this->getRequireClause();
+                if ($needsToUseAlter) {
+                    $alterUserQuery .= $this->getRequireClause();
+                } else {
+                    $sql_query2 .= $this->getRequireClause();
+                }
             }
 
             if ((isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y')
@@ -4095,9 +4109,17 @@ class Privileges
                 || isset($_POST['max_updates'])
                 || isset($_POST['max_user_connections'])))
             ) {
-                $sql_query2 .= $this->getWithClauseForAddUserAndUpdatePrivs();
+                if ($needsToUseAlter) {
+                    $alterUserQuery .= $this->getWithClauseForAddUserAndUpdatePrivs();
+                } else {
+                    $sql_query2 .= $this->getWithClauseForAddUserAndUpdatePrivs();
+                }
             }
             $sql_query2 .= ';';
+
+            if ($needsToUseAlter) {
+                $alterUserQuery .= ';';
+            }
         }
         if (! $this->dbi->tryQuery($sql_query0)) {
             // This might fail when the executing user does not have
@@ -4114,7 +4136,14 @@ class Privileges
         } else {
             $sql_query2 = '';
         }
-        $sql_query = $sql_query0 . ' ' . $sql_query1 . ' ' . $sql_query2;
+
+        if ($alterUserQuery !== null) {
+            $this->dbi->query($alterUserQuery);
+        } else {
+            $alterUserQuery = '';
+        }
+
+        $sql_query = $sql_query0 . ' ' . $sql_query1 . ' ' . $sql_query2 . ' ' . $alterUserQuery;
         $message = Message::success(__('You have updated the privileges for %s.'));
         $message->addParam('\'' . $username . '\'@\'' . $hostname . '\'');
 
