@@ -64,6 +64,8 @@ phpMyAdmin - ChangeLog
 - issue        Fix ENUM and SET display when editing procedures and functions
 - issue        Keep full query state on "auto refresh" process list
 - issue        Keep columns order on "auto refresh" process list
+- issue        Fixed editing a failed query from the error message
+- issue #16166 Fix the alter user privileges query to make it MySQL 8.0.11+ compatible
 
 5.0.2 (2020-03-20)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page
