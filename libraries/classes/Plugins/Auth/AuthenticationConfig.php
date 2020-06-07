@@ -152,7 +152,7 @@ class AuthenticationConfig extends AuthenticationPlugin
                 $GLOBALS['cfg']['DefaultTabServer'],
                 'server'
             )
-            , '" class="button disableAjax">'
+            , '" class="btn button mt-1 disableAjax">'
             , __('Retry to connect')
             , '</a>' , "\n";
         echo '</td>
