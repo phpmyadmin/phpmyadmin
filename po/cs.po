@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-05-31 21:18+0200\n"
-"PO-Revision-Date: 2020-06-03 13:41+0000\n"
+"PO-Revision-Date: 2020-06-08 11:46+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "cs/>\n"
@@ -1589,6 +1589,8 @@ msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr ""
+"Funkce HEX bude při výpočtu hexadecimální hodnoty považovat celé číslo za "
+"řetězec"
 
 #: js/messages.php:518
 msgid ""
@@ -3339,7 +3341,7 @@ msgstr "Kontrola cizích klíčů"
 
 #: libraries/classes/Config/Descriptions.php:316
 msgid "First day of calendar"
-msgstr ""
+msgstr "První den kalendáře"
 
 #: libraries/classes/Config/Descriptions.php:317
 msgid "Browse mode"
@@ -8173,6 +8175,9 @@ msgid ""
 "%2$s. You might be lacking the necessary privileges to view/export this "
 "routine."
 msgstr ""
+"Chyba při zpracování požadavku: V databázi %2$s nebyla nalezena žádná rutina "
+"s názvem %1$s. Je možné, že nemáte potřebná oprávnění k zobrazení/exportu "
+"této rutiny."
 
 #: libraries/classes/Database/Search.php:109
 #: templates/database/search/main.twig:19
@@ -10016,6 +10021,9 @@ msgid ""
 "You have been automatically logged out due to inactivity of %s seconds. Once "
 "you log in again, you should be able to resume the work where you left off."
 msgstr ""
+"Z důvodu nečinnosti po dobu %s sekund jste byli automaticky odhlášeni. "
+"Jakmile se znovu přihlásíte, měli byste mít možnost pokračovat v práci tam, "
+"kde jste skončili."
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:213
 #: libraries/classes/Plugins/AuthenticationPlugin.php:216
@@ -10276,10 +10284,8 @@ msgstr "Exportovat hlavičky tabulek"
 
 #: libraries/classes/Plugins/Export/ExportOdt.php:267
 #: libraries/classes/Plugins/Export/ExportTexytext.php:192
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Dumping data for query result"
-msgstr "Vypisuji data pro tabulku"
+msgstr "Vypisuji data pro výsledek dotazu"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:98
 msgid "Report title:"
@@ -10290,10 +10296,8 @@ msgid "Dumping data"
 msgstr "Vypisuji data"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:252
-#, fuzzy
-#| msgid "Query results"
 msgid "Query result data"
-msgstr "Výsledky dotazu"
+msgstr "Data výsledku dotazu"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:310
 msgid "View structure"
@@ -12357,8 +12361,6 @@ msgstr "pro"
 
 #. l10n: Short week day name for Sunday
 #: libraries/classes/Util.php:793
-#, fuzzy
-#| msgid "Sun"
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "Ned"
@@ -12667,11 +12669,9 @@ msgid "PARTITION definition:"
 msgstr "Definice PARTITION:"
 
 #: templates/columns_definitions/column_definitions_form.twig:154
-#, fuzzy
-#| msgid "Enclose export in a transaction"
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
-msgstr "Uzavřít příkazy v transakci"
+msgstr "Online transakce"
 
 #: templates/columns_definitions/column_length.twig:9
 msgid "Edit ENUM/SET values"
@@ -13437,7 +13437,7 @@ msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details."
 msgstr ""
-"Nemáte dostatečná oprávnění  k provedení této operace. Další podrobnosti "
+"Nemáte dostatečná oprávnění k provedení této operace. Další podrobnosti "
 "naleznete v dokumentaci."
 
 #: templates/database/operations/index.twig:89
@@ -13615,10 +13615,8 @@ msgid "Add/Delete criteria rows:"
 msgstr "Přidat nebo odebrat řádek"
 
 #: templates/database/qbe/selection_form.twig:67
-#, fuzzy
-#| msgid "Add/Delete columns"
 msgid "Add/Delete columns:"
-msgstr "Přidat nebo odebrat pole"
+msgstr "Přidat nebo odebrat sloupce:"
 
 #: templates/database/qbe/selection_form.twig:86
 #: templates/database/qbe/selection_form.twig:88
@@ -14099,10 +14097,8 @@ msgid "Browse your computer:"
 msgstr "Procházet váš počítač:"
 
 #: templates/display/import/import.twig:73
-#, fuzzy
-#| msgid "Browse your computer:"
 msgid "Browse your computer"
-msgstr "Procházet váš počítač:"
+msgstr "Procházet váš počítač"
 
 #: templates/display/import/import.twig:79
 #: templates/display/import/import.twig:112
@@ -14111,10 +14107,9 @@ msgstr "Můžete také přetáhnout a pustit soubor na libovolné stránce."
 
 #: templates/display/import/import.twig:85
 #: templates/display/import/import.twig:115
-#, fuzzy, php-format
-#| msgid "Select from the web server upload directory <b>%s</b>:"
+#, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "Zvolte soubor z adresáře pro upload na serveru <b>%s</b>:"
+msgstr "Zvolte soubor z adresáře pro upload na serveru [strong]%s[/strong]:"
 
 #: templates/display/import/import.twig:91
 msgid "Select file to import"
@@ -14816,10 +14811,8 @@ msgid "Add prefix"
 msgstr "Přidat předponu"
 
 #: templates/mult_submits/copy_multiple_tables.twig:14
-#, fuzzy
-#| msgid "Options"
 msgid "Options:"
-msgstr "Nastavení"
+msgstr "Nastavení:"
 
 #: templates/mult_submits/copy_multiple_tables.twig:39
 msgid "Add AUTO INCREMENT value"
