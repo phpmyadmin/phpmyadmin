@@ -508,21 +508,12 @@ class Header
         if (defined('TESTSUITE')) {
             return;
         }
-        $map_tile_urls = ' *.tile.openstreetmap.org';
 
         /**
          * Sends http headers
          */
         $GLOBALS['now'] = gmdate('D, d M Y H:i:s') . ' GMT';
-        if (! empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
-            && ! empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
-        ) {
-            $captcha_url
-                = ' https://apis.google.com https://www.google.com/recaptcha/'
-                . ' https://www.gstatic.com/recaptcha/ https://ssl.gstatic.com/ ';
-        } else {
-            $captcha_url = '';
-        }
+
         /* Prevent against ClickJacking by disabling framing */
         if (strtolower((string) $GLOBALS['cfg']['AllowThirdPartyFraming']) === 'sameorigin') {
             header(
@@ -536,56 +527,12 @@ class Header
         header(
             'Referrer-Policy: no-referrer'
         );
-        header(
-            "Content-Security-Policy: default-src 'self' "
-            . $captcha_url
-            . $GLOBALS['cfg']['CSPAllow'] . ';'
-            . "script-src 'self' 'unsafe-inline' 'unsafe-eval' "
-            . $captcha_url
-            . $GLOBALS['cfg']['CSPAllow'] . ';'
-            . "style-src 'self' 'unsafe-inline' "
-            . $captcha_url
-            . $GLOBALS['cfg']['CSPAllow']
-            . ';'
-            . "img-src 'self' data: "
-            . $GLOBALS['cfg']['CSPAllow']
-            . $map_tile_urls
-            . $captcha_url
-            . ';'
-            . "object-src 'none';"
-        );
-        header(
-            "X-Content-Security-Policy: default-src 'self' "
-            . $captcha_url
-            . $GLOBALS['cfg']['CSPAllow'] . ';'
-            . 'options inline-script eval-script;'
-            . 'referrer no-referrer;'
-            . "img-src 'self' data: "
-            . $GLOBALS['cfg']['CSPAllow']
-            . $map_tile_urls
-            . $captcha_url
-            . ';'
-            . "object-src 'none';"
-        );
-        header(
-            "X-WebKit-CSP: default-src 'self' "
-            . $captcha_url
-            . $GLOBALS['cfg']['CSPAllow'] . ';'
-            . "script-src 'self' "
-            . $captcha_url
-            . $GLOBALS['cfg']['CSPAllow']
-            . " 'unsafe-inline' 'unsafe-eval';"
-            . 'referrer no-referrer;'
-            . "style-src 'self' 'unsafe-inline' "
-            . $captcha_url
-            . ';'
-            . "img-src 'self' data: "
-            . $GLOBALS['cfg']['CSPAllow']
-            . $map_tile_urls
-            . $captcha_url
-            . ';'
-            . "object-src 'none';"
-        );
+
+        $cspHeaders = $this->getCspHeaders();
+        foreach ($cspHeaders as $cspHeader) {
+            header($cspHeader);
+        }
+
         // Re-enable possible disabled XSS filters
         // see https://www.owasp.org/index.php/List_of_useful_HTTP_headers
         header(
@@ -641,6 +588,78 @@ class Header
         }
 
         return $this->_title;
+    }
+
+    /**
+     * Get all the CSP allow policy headers
+     *
+     * @return string[]
+     */
+    private function getCspHeaders(): array
+    {
+        global $cfg;
+
+        $mapTileUrls = ' *.tile.openstreetmap.org';
+        $captchaUrl = '';
+        $cspAllow = $cfg['CSPAllow'];
+
+        if (! empty($cfg['CaptchaLoginPrivateKey'])
+            && ! empty($cfg['CaptchaLoginPublicKey'])
+        ) {
+            $captchaUrl
+                = ' https://apis.google.com https://www.google.com/recaptcha/'
+                . ' https://www.gstatic.com/recaptcha/ https://ssl.gstatic.com/ ';
+        }
+
+        return [
+
+            "Content-Security-Policy: default-src 'self' "
+                . $captchaUrl
+                . $cspAllow . ';'
+                . "script-src 'self' 'unsafe-inline' 'unsafe-eval' "
+                . $captchaUrl
+                . $cspAllow . ';'
+                . "style-src 'self' 'unsafe-inline' "
+                . $captchaUrl
+                . $cspAllow
+                . ';'
+                . "img-src 'self' data: "
+                . $cspAllow
+                . $mapTileUrls
+                . $captchaUrl
+                . ';'
+                . "object-src 'none';",
+
+            "X-Content-Security-Policy: default-src 'self' "
+                . $captchaUrl
+                . $cspAllow . ';'
+                . 'options inline-script eval-script;'
+                . 'referrer no-referrer;'
+                . "img-src 'self' data: "
+                . $cspAllow
+                . $mapTileUrls
+                . $captchaUrl
+                . ';'
+                . "object-src 'none';",
+
+            "X-WebKit-CSP: default-src 'self' "
+                . $captchaUrl
+                . $cspAllow . ';'
+                . "script-src 'self' "
+                . $captchaUrl
+                . $cspAllow
+                . " 'unsafe-inline' 'unsafe-eval';"
+                . 'referrer no-referrer;'
+                . "style-src 'self' 'unsafe-inline' "
+                . $captchaUrl
+                . ';'
+                . "img-src 'self' data: "
+                . $cspAllow
+                . $mapTileUrls
+                . $captchaUrl
+                . ';'
+                . "object-src 'none';",
+        ];
     }
 
     /**
