@@ -884,10 +884,8 @@
     <ImplicitToStringCast occurrences="1">
       <code>$message</code>
     </ImplicitToStringCast>
-    <InvalidArgument occurrences="13">
-      <code>$dt_result</code>
+    <InvalidArgument occurrences="10">
       <code>$added[$orgFullTableName]</code>
-      <code>$dt_result</code>
       <code>$transformation_plugin</code>
       <code>$default_function</code>
       <code>$transformation_plugin</code>
@@ -897,7 +895,6 @@
       <code>$transform_options</code>
       <code>$transform_options</code>
       <code>$transform_options</code>
-      <code>$dt_result</code>
     </InvalidArgument>
     <InvalidOperand occurrences="1">
       <code>$index</code>
