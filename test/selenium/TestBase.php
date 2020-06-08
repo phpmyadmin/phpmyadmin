@@ -1093,6 +1093,7 @@ abstract class TestBase extends TestCase
         if (! $this->hasFailed()) {
             $this->markTestAs('passed', '');
         }
+        $this->sqlWindowHandle = null;
         $this->webDriver->quit();
     }
 
@@ -1195,6 +1196,7 @@ abstract class TestBase extends TestCase
         if ($this->webDriver !== null) {
             $this->webDriver->quit();
         }
+        $this->sqlWindowHandle = null;
 
         $this->getErrorVideoUrl();
 
