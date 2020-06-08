@@ -142,17 +142,6 @@ class StructureController extends AbstractController
             'indexes.js',
         ]);
 
-        /**
-         * Modifications have been submitted -> updates the table
-         */
-        if (isset($_POST['do_save_data'])) {
-            $regenerate = $this->updateColumns();
-            if (! $regenerate) {
-                // continue to show the table's structure
-                unset($_POST['selected']);
-            }
-        }
-
         $cfgRelation = $this->relation->getRelationsParam();
 
         $url_params = [];
@@ -192,6 +181,17 @@ class StructureController extends AbstractController
         ));
     }
 
+    public function save(): void
+    {
+        $regenerate = $this->updateColumns();
+        if (! $regenerate) {
+            // continue to show the table's structure
+            unset($_POST['selected']);
+        }
+
+        $this->index();
+    }
+
     public function addKey(): void
     {
         global $containerBuilder, $reload;
@@ -223,7 +223,7 @@ class StructureController extends AbstractController
     public function change(): void
     {
         if (isset($_GET['change_column'])) {
-            $this->displayHtmlForColumnChange(null, Url::getFromRoute('/table/structure'));
+            $this->displayHtmlForColumnChange(null);
 
             return;
         }
@@ -237,7 +237,7 @@ class StructureController extends AbstractController
             return;
         }
 
-        $this->displayHtmlForColumnChange($selected, Url::getFromRoute('/table/structure'));
+        $this->displayHtmlForColumnChange($selected);
     }
 
     public function addToCentralColumns(): void
@@ -731,13 +731,14 @@ class StructureController extends AbstractController
     /**
      * Displays HTML for changing one or more columns
      *
-     * @param array  $selected the selected columns
-     * @param string $action   target script to call
+     * @param array $selected the selected columns
      *
      * @return void
      */
-    protected function displayHtmlForColumnChange($selected, $action)
+    protected function displayHtmlForColumnChange($selected)
     {
+        global $action, $num_fields;
+
         if (empty($selected)) {
             $selected[] = $_REQUEST['field'];
             $selected_cnt = 1;
@@ -768,8 +769,7 @@ class StructureController extends AbstractController
         }
         $num_fields = count($fields_meta);
 
-        $GLOBALS['action'] = $action;
-        $GLOBALS['num_fields'] = $num_fields;
+        $action = Url::getFromRoute('/table/structure/save');
 
         /**
          * Form for changing properties.

@@ -266,6 +266,7 @@ return static function (RouteCollector $routes) {
             $routes->post('/partitioning', [TableStructureController::class, 'partitioning']);
             $routes->post('/primary', [TableStructureController::class, 'primary']);
             $routes->post('/reserved-word-check', [TableStructureController::class, 'reservedWordCheck']);
+            $routes->post('/save', [TableStructureController::class, 'save']);
             $routes->post('/spatial', [TableStructureController::class, 'spatial']);
             $routes->post('/unique', [TableStructureController::class, 'unique']);
         });
