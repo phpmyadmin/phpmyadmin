@@ -196,7 +196,7 @@ class Normalization
             'fields_meta' => null,
             'mimework' => $cfgRelation['mimework'],
             'content_cells' => $contentCells,
-            'change_column' => $_POST['change_column'],
+            'change_column' => $_POST['change_column'] ?? $_GET['change_column'] ?? null,
             'is_virtual_columns_supported' => Util::isVirtualColumnsSupported(),
             'browse_mime' => $GLOBALS['cfg']['BrowseMIME'],
             'server_type' => Util::getServerType(),

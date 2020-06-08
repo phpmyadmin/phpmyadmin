@@ -257,7 +257,7 @@ return static function (RouteCollector $routes) {
             $routes->post('/browse', [TableStructureController::class, 'browse']);
             $routes->post('/central-columns-add', [TableStructureController::class, 'addToCentralColumns']);
             $routes->post('/central-columns-remove', [TableStructureController::class, 'removeFromCentralColumns']);
-            $routes->post('/change', [TableStructureController::class, 'change']);
+            $routes->addRoute(['GET', 'POST'], '/change', [TableStructureController::class, 'change']);
             $routes->post('/drop', [TableStructureController::class, 'drop']);
             $routes->post('/drop-confirm', [TableStructureController::class, 'dropConfirm']);
             $routes->post('/fulltext', [TableStructureController::class, 'fulltext']);

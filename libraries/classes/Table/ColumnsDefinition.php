@@ -540,7 +540,7 @@ final class ColumnsDefinition
             'tbl_storage_engine' => $_POST['tbl_storage_engine'] ?? null,
             'storage_engines' => $storageEngines,
             'connection' => $_POST['connection'] ?? null,
-            'change_column' => $_POST['change_column'] ?? null,
+            'change_column' => $_POST['change_column'] ?? $_GET['change_column'] ?? null,
             'is_virtual_columns_supported' => Util::isVirtualColumnsSupported(),
             'browse_mime' => $cfg['BrowseMIME'] ?? null,
             'server_type' => Util::getServerType(),

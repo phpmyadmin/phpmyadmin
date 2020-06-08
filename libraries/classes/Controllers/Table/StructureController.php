@@ -143,18 +143,6 @@ class StructureController extends AbstractController
         ]);
 
         /**
-         * A click on Change has been made for one column
-         */
-        if (isset($_GET['change_column'])) {
-            $this->displayHtmlForColumnChange(
-                null,
-                Url::getFromRoute('/table/structure')
-            );
-
-            return;
-        }
-
-        /**
          * Modifications have been submitted -> updates the table
          */
         if (isset($_POST['do_save_data'])) {
@@ -234,6 +222,12 @@ class StructureController extends AbstractController
 
     public function change(): void
     {
+        if (isset($_GET['change_column'])) {
+            $this->displayHtmlForColumnChange(null, Url::getFromRoute('/table/structure'));
+
+            return;
+        }
+
         $selected = $_POST['selected_fld'] ?? [];
 
         if (empty($selected)) {

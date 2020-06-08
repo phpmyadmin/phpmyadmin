@@ -32,11 +32,11 @@ class NodeColumn extends Node
         parent::__construct($item['name'], $type, $isGroup);
         $this->icon = Generator::getImage($this->getColumnIcon($item['key']), __('Column'));
         $this->links = [
-            'text' => Url::getFromRoute('/table/structure', [
+            'text' => Url::getFromRoute('/table/structure/change', [
                 'server' => $GLOBALS['server'],
                 'change_column' => 1,
             ]) . '&amp;db=%3$s&amp;table=%2$s&amp;field=%1$s',
-            'icon' => Url::getFromRoute('/table/structure', [
+            'icon' => Url::getFromRoute('/table/structure/change', [
                 'server' => $GLOBALS['server'],
                 'change_column' => 1,
             ]) . '&amp;db=%3$s&amp;table=%2$s&amp;field=%1$s',
