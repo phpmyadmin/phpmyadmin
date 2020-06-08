@@ -115,10 +115,13 @@ class EventsTest extends TestBase
         $element = $this->byXPath('//*[@class="ui-resizable-handle ui-resizable-s"]');
         $action->moveToElement($element)
                 ->clickAndHold()
-                ->moveByOffset(0, -100)
+                ->moveByOffset(0, -120)// Resize
+                ->click()// Click to free the mouse
                 ->perform();
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
+
+        sleep(1);
 
         $this->waitForElement(
             'xpath',
@@ -200,8 +203,8 @@ class EventsTest extends TestBase
             'SELECT val FROM `' . $this->database_name . '`.`test_table`',
             function () {
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
-                // [ ] | Edit | Copy | Delete | 5
-                $this->assertEquals('5', $this->getCellByTableClass('table_results', 1, 5));
+                // [ ] | Edit | Copy | Delete | 4
+                $this->assertGreaterThan(3, (int) $this->getCellByTableClass('table_results', 1, 5));
             }
         );
     }
