@@ -4,7 +4,11 @@ parameters:
     level: max
     paths:
         - .
-    bootstrap: test/bootstrap-static.php
+    scanFiles:
+        - libraries/vendor_config.php
+        - vendor/phpmyadmin/motranslator/src/functions.php
+    bootstrapFiles:
+        - test/phpstan-constants.php
     reportUnmatchedIgnoredErrors: true
     inferPrivatePropertyTypeFromConstructor: true
     checkMissingIterableValueType: false
