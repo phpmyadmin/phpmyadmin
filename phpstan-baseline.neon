@@ -2346,36 +2346,6 @@ parameters:
 			path: libraries/classes/Plugins/Export/Helpers/TableProperty.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\ExportPlugin\\:\\:exportRoutines\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/ExportPlugin.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\ExportPlugin\\:\\:exportRoutines\\(\\) has parameter \\$db with no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/ExportPlugin.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\ExportPlugin\\:\\:initAlias\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/ExportPlugin.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\ExportPlugin\\:\\:initAlias\\(\\) has parameter \\$aliases with no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/ExportPlugin.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\ExportPlugin\\:\\:initAlias\\(\\) has parameter \\$db with no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/ExportPlugin.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\ExportPlugin\\:\\:initAlias\\(\\) has parameter \\$table with no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/ExportPlugin.php
-
-		-
 			message: "#^Cannot access offset 'foreign_table' on \\(array\\)\\|true\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/ExportPlugin.php
@@ -4127,26 +4097,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Transformations\\:\\:setMime\\(\\) should return bool but returns bool\\|resource\\.$#"
-			count: 1
-			path: libraries/classes/Transformations.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Transformations\\:\\:clear\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Transformations.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Transformations\\:\\:clear\\(\\) has parameter \\$column with no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Transformations.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Transformations\\:\\:clear\\(\\) has parameter \\$db with no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Transformations.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Transformations\\:\\:clear\\(\\) has parameter \\$table with no typehint specified\\.$#"
 			count: 1
 			path: libraries/classes/Transformations.php
 

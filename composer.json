@@ -84,7 +84,7 @@
         "php-webdriver/webdriver": "^1.8",
         "phpmyadmin/coding-standard": "^2.0",
         "phpstan/extension-installer": "^1.0",
-        "phpstan/phpstan": "^0.12.26",
+        "phpstan/phpstan": "^0.12.27",
         "phpstan/phpstan-phpunit": "^0.12.11",
         "phpunit/phpunit": "^7.5 || ^8.0 || ^9.0",
         "pragmarx/google2fa-qrcode": "^1.0.1",
