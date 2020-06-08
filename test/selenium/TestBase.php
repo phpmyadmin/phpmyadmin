@@ -90,6 +90,13 @@ abstract class TestBase extends TestCase
     private const SESSION_REST_URL = 'https://api.browserstack.com/automate/sessions/';
 
     /**
+     * Create a test database for this test class
+     *
+     * @var bool
+     */
+    protected static $createDatabase = true;
+
+    /**
      * Configures the selenium and database link.
      *
      * @throws Exception
@@ -130,10 +137,14 @@ abstract class TestBase extends TestCase
 
         $this->sessionId = $this->webDriver->getSessionId();
 
-        $this->database_name = $this->getDbPrefix() . mb_substr(sha1((string) rand()), 0, 7);
-
         $this->navigateTo('');
         $this->webDriver->manage()->window()->maximize();
+
+        if (! static::$createDatabase) {
+            return;
+        }
+
+        $this->database_name = $this->getDbPrefix() . mb_substr(sha1((string) rand()), 0, 7);
         $this->dbQuery(
             'CREATE DATABASE IF NOT EXISTS `' . $this->database_name . '`; USE `' . $this->database_name . '`;'
         );
@@ -1089,7 +1100,9 @@ abstract class TestBase extends TestCase
      */
     protected function tearDown(): void
     {
-        $this->dbQuery('DROP DATABASE IF EXISTS `' . $this->database_name . '`;');
+        if (static::$createDatabase) {
+            $this->dbQuery('DROP DATABASE IF EXISTS `' . $this->database_name . '`;');
+        }
         if (! $this->hasFailed()) {
             $this->markTestAs('passed', '');
         }
