@@ -141,13 +141,23 @@ abstract class TestBase extends TestCase
         $this->webDriver->manage()->window()->maximize();
 
         if (! static::$createDatabase) {
+            // Stop here, we where not asked to create a database
             return;
         }
 
+        $this->createDatabase();
+    }
+
+    /**
+     * Create a test database
+     */
+    protected function createDatabase(): void
+    {
         $this->database_name = $this->getDbPrefix() . mb_substr(sha1((string) rand()), 0, 7);
         $this->dbQuery(
             'CREATE DATABASE IF NOT EXISTS `' . $this->database_name . '`; USE `' . $this->database_name . '`;'
         );
+        static::$createDatabase = true;
     }
 
     public function getDbPrefix(): string

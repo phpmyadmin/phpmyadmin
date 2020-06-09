@@ -70,6 +70,7 @@ class ServerSettingsTest extends TestBase
      */
     public function testHideDatabase()
     {
+        $this->createDatabase();
         $this->byPartialLinkText('Features')->click();
         $this->waitAjax();
 
