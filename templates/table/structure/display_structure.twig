@@ -277,90 +277,44 @@
             'form_name': 'fieldsForm'
         } only %}
 
-        {{ get_button_or_image(
-            'submit_mult',
-            'mult_submit',
-            'Browse'|trans,
-            'b_browse',
-            'browse'
-        ) }}
+        <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/browse') }}">
+          {{ get_icon('b_browse', 'Browse'|trans) }}
+        </button>
 
         {% if not tbl_is_view and not db_is_system_schema %}
-            {{ get_button_or_image(
-                'submit_mult',
-                'mult_submit change_columns_anchor ajax',
-                'Change'|trans,
-                'b_edit',
-                'change'
-            ) }}
-            {{ get_button_or_image(
-                'submit_mult',
-                'mult_submit',
-                'Drop'|trans,
-                'b_drop',
-                'drop'
-            ) }}
+          <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/change') }}">
+            {{ get_icon('b_edit', 'Change'|trans) }}
+          </button>
+          <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/drop-confirm') }}">
+            {{ get_icon('b_drop', 'Drop'|trans) }}
+          </button>
 
-            {% if tbl_storage_engine != 'ARCHIVE' %}
-                {{ get_button_or_image(
-                    'submit_mult',
-                    'mult_submit',
-                    'Primary'|trans,
-                    'b_primary',
-                    'primary'
-                ) }}
-                {{ get_button_or_image(
-                    'submit_mult',
-                    'mult_submit',
-                    'Unique'|trans,
-                    'b_unique',
-                    'unique'
-                ) }}
-                {{ get_button_or_image(
-                    'submit_mult',
-                    'mult_submit',
-                    'Index'|trans,
-                    'b_index',
-                    'index'
-                ) }}
-                {{ get_button_or_image(
-                    'submit_mult',
-                    'mult_submit',
-                    'Fulltext'|trans,
-                    'b_ftext',
-                    'ftext'
-                ) }}
+          {% if tbl_storage_engine != 'ARCHIVE' %}
+            <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/primary') }}">
+              {{ get_icon('b_primary', 'Primary'|trans) }}
+            </button>
+            <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/unique') }}">
+              {{ get_icon('b_unique', 'Unique'|trans) }}
+            </button>
+            <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/index') }}">
+              {{ get_icon('b_index', 'Index'|trans) }}
+            </button>
+            <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/spatial') }}">
+              {{ get_icon('b_spatial', 'Spatial'|trans) }}
+            </button>
+            <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/fulltext') }}">
+              {{ get_icon('b_ftext', 'Fulltext'|trans) }}
+            </button>
 
-                {% if tbl_storage_engine is not empty and (
-                    tbl_storage_engine == 'MYISAM'
-                    or tbl_storage_engine == 'ARIA'
-                    or tbl_storage_engine == 'MARIA') %}
-                    {{ get_button_or_image(
-                        'submit_mult',
-                        'mult_submit',
-                        'Fulltext'|trans,
-                        'b_ftext',
-                        'ftext'
-                    ) }}
-                {% endif %}
-
-                {% if central_columns_work %}
-                    {{ get_button_or_image(
-                        'submit_mult',
-                        'mult_submit',
-                        'Add to central columns'|trans,
-                        'centralColumns_add',
-                        'add_to_central_columns'
-                    ) }}
-                    {{ get_button_or_image(
-                        'submit_mult',
-                        'mult_submit',
-                        'Remove from central columns'|trans,
-                        'centralColumns_delete',
-                        'remove_from_central_columns'
-                    ) }}
-                {% endif %}
+            {% if central_columns_work %}
+              <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/central-columns-add') }}">
+                {{ get_icon('centralColumns_add', 'Add to central columns'|trans) }}
+              </button>
+              <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/central-columns-remove') }}">
+                {{ get_icon('centralColumns_delete', 'Remove from central columns'|trans) }}
+              </button>
             {% endif %}
+          {% endif %}
         {% endif %}
     </div>
 </form>
