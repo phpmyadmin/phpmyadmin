@@ -935,13 +935,12 @@ abstract class TestBase extends TestCase
     /**
      * Navigates browser to a table page.
      *
-     * @param string $table Name of table
-     *
-     * @return void
+     * @param string $table                Name of table
+     * @param bool   $gotoHomepageRequired Go to homepage required
      */
-    public function navigateTable($table)
+    public function navigateTable(string $table, bool $gotoHomepageRequired = false): void
     {
-        $this->navigateDatabase($this->database_name);
+        $this->navigateDatabase($this->database_name, $gotoHomepageRequired);
 
         // go to table page
         $this->waitForElement(
@@ -961,10 +960,8 @@ abstract class TestBase extends TestCase
      *
      * @param string $database             Name of database
      * @param bool   $gotoHomepageRequired Go to homepage required
-     *
-     * @return void
      */
-    public function navigateDatabase($database, $gotoHomepageRequired = false)
+    public function navigateDatabase(string $database, bool $gotoHomepageRequired = false): void
     {
         if ($gotoHomepageRequired) {
             $this->gotoHomepage();
@@ -977,7 +974,7 @@ abstract class TestBase extends TestCase
         // go to specific database page
         $this->waitForElement(
             'xpath',
-            '//tr[(contains(@class, "db-row"))]//a[contains(., "' . $this->database_name . '")]'
+            '//tr[(contains(@class, "db-row"))]//a[contains(., "' . $database . '")]'
         )->click();
         $this->waitAjax();
 
