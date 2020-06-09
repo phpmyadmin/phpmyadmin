@@ -250,10 +250,8 @@ class ProceduresTest extends TestBase
      *
      * @param string $text   String to pass as inp param
      * @param int    $length Expected output length
-     *
-     * @return void
      */
-    private function executeProcedure($text, $length)
+    private function executeProcedure(string $text, int $length): void
     {
         $this->waitAjax();
         $this->waitUntilElementIsVisible('partialLinkText', 'Execute', 30)->click();

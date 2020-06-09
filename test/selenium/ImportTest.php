@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
+use function sleep;
+
 /**
  * ImportTest class
  *
@@ -134,6 +136,7 @@ class ImportTest extends TestBase
         $this->waitUntilElementIsVisible('id', 'buttonGo', 30);
 
         $this->byId('buttonGo')->click();
+        sleep(2);
         $this->waitUntilElementIsVisible(
             'xpath',
             "//div[@class='alert alert-success' and contains(., 'Import has been successfully')]",

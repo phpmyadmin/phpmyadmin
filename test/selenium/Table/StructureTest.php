@@ -124,8 +124,10 @@ class StructureTest extends TestBase
     {
         $this->waitForElement('cssSelector', 'label[for=checkbox_row_2]')->click();
         $this->waitForElement('cssSelector', 'label[for=checkbox_row_3]')->click();
-        $this->byXPath(
-            "//button[@name='submit_mult' and contains(., 'Drop')]"
+        $this->waitUntilElementIsPresent(
+            'xpath',
+            '//button[contains(., "Drop")]',
+            30
         )->click();
 
         $this->waitForElement(
