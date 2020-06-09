@@ -14,6 +14,13 @@ namespace PhpMyAdmin\Tests\Selenium;
  */
 class XssTest extends TestBase
 {
+    /**
+     * Create a test database for this test class
+     *
+     * @var bool
+     */
+    protected static $createDatabase = false;
+
     protected function setUp(): void
     {
         parent::setUp();

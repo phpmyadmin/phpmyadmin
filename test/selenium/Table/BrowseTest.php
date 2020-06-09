@@ -24,18 +24,17 @@ class BrowseTest extends TestBase
     {
         parent::setUp();
         $this->dbQuery(
-            'CREATE TABLE `test_table` ('
+            'USE `' . $this->database_name . '`;'
+            . 'CREATE TABLE `test_table` ('
             . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
             . ' `name` varchar(20) NOT NULL,'
             . ' `datetimefield` datetime NOT NULL,'
             . ' PRIMARY KEY (`id`)'
-            . ')'
-        );
-        $this->dbQuery(
-            'INSERT INTO `test_table` (`id`, `name`, `datetimefield`) VALUES'
+            . ');'
+            . 'INSERT INTO `test_table` (`id`, `name`, `datetimefield`) VALUES'
             . " (1, 'abcd', '2011-01-20 02:00:02'),"
             . " (2, 'foo', '2010-01-20 02:00:02'),"
-            . " (3, 'Abcd', '2012-01-20 02:00:02')"
+            . " (3, 'Abcd', '2012-01-20 02:00:02');"
         );
 
         $this->login();

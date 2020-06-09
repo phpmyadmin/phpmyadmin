@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Selenium\Table;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
+use function sleep;
 
 /**
  * CreateTest class
@@ -97,7 +98,7 @@ class CreateTest extends TestBase
         $this->waitAjax();
 
         $this->waitForElement('partialLinkText', 'test_table');
-
+        sleep(1);
         $this->tableStructureAssertions();
     }
 
@@ -108,10 +109,7 @@ class CreateTest extends TestBase
      */
     private function tableStructureAssertions()
     {
-        $this->gotoHomepage();
-        $this->waitAjax();
-
-        $this->navigateTable('test_table');
+        $this->navigateTable('test_table', true);
 
         $this->waitAjax();
 

@@ -95,15 +95,20 @@ class OperationsTest extends TestBase
             "//a[contains(text(),'Database: ') and contains(text(),'" . $new_db_name . "')]"
         );
 
-        $result = $this->dbQuery(
-            "SHOW DATABASES LIKE '" . $new_db_name . "';"
+        $this->dbQuery(
+            'SHOW DATABASES LIKE \'' . $new_db_name . '\'',
+            function () use ($new_db_name) {
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->assertEquals($new_db_name, $this->getCellByTableClass('table_results', 1, 1));
+            }
         );
-        $this->assertEquals(1, $result->num_rows);
 
-        $result = $this->dbQuery(
-            "SHOW DATABASES LIKE '" . $this->database_name . "';"
+        $this->dbQuery(
+            'SHOW DATABASES LIKE \'' . $this->database_name . '\'',
+            function () {
+                $this->assertFalse($this->isElementPresent('className', 'table_results'));
+            }
         );
-        $this->assertEquals(0, $result->num_rows);
 
         $this->database_name = $new_db_name;
     }
@@ -134,10 +139,13 @@ class OperationsTest extends TestBase
             . ' has been copied to ' . $new_db_name . "')]"
         );
 
-        $result = $this->dbQuery(
-            "SHOW DATABASES LIKE '" . $new_db_name . "';"
+        $this->dbQuery(
+            'SHOW DATABASES LIKE \'' . $new_db_name . '\'',
+            function () use ($new_db_name) {
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->assertEquals($new_db_name, $this->getCellByTableClass('table_results', 1, 1));
+            }
         );
-        $this->assertEquals(1, $result->num_rows);
 
         $this->dbQuery('DROP DATABASE `' . $new_db_name . '`;');
     }

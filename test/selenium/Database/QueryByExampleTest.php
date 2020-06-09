@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Selenium\Database;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
+use function sleep;
 use function trim;
 
 /**
@@ -25,14 +26,13 @@ class QueryByExampleTest extends TestBase
         parent::setUp();
 
         $this->dbQuery(
-            'CREATE TABLE `test_table` ('
+            'USE `' . $this->database_name . '`;'
+            . 'CREATE TABLE `test_table` ('
             . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
             . ' `val` int(11) NOT NULL,'
             . ' PRIMARY KEY (`id`)'
-            . ')'
-        );
-        $this->dbQuery(
-            'INSERT INTO `test_table` (val) VALUES (2), (6), (5), (3), (4), (4), (5);'
+            . ');'
+            . 'INSERT INTO `test_table` (val) VALUES (2), (6), (5), (3), (4), (4), (5);'
         );
 
         $this->login();
@@ -105,13 +105,11 @@ class QueryByExampleTest extends TestBase
         }
         */
 
-        $this->scrollToBottom();
-
         /* Update Query in the editor */
-        $this->byCssSelector('input[name=modify]')->click();
+        $updateQueryButton = $this->byCssSelector('.tblFooters > input[name=modify]');
+        $this->scrollToElement($updateQueryButton);
+        $updateQueryButton->click();
         $this->waitAjax();
-
-        $this->scrollToBottom();
 
         $expected = 'SELECT `test_table`.`id` AS `ID`, `test_table`.`val` AS `VAL`'
             . "\nFROM `test_table`"
@@ -125,10 +123,12 @@ class QueryByExampleTest extends TestBase
             $actual
         );
 
-        $this->scrollToBottom();
-
         /* Submit the query */
-        $this->waitForElement('cssSelector', 'input[value="Submit query"]')->click();
+        $submitButton = $this->waitForElement('cssSelector', '#tblQbeFooters > input[type=submit]');
+        sleep(1);
+        $this->scrollToElement($submitButton);
+        sleep(1);
+        $submitButton->click();
         $this->waitAjax();
 
         $this->waitForElement('cssSelector', 'table.table_results');

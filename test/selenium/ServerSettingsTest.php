@@ -15,6 +15,13 @@ namespace PhpMyAdmin\Tests\Selenium;
 class ServerSettingsTest extends TestBase
 {
     /**
+     * Create a test database for this test class
+     *
+     * @var bool
+     */
+    protected static $createDatabase = false;
+
+    /**
      * setUp function
      */
     protected function setUp(): void
@@ -63,6 +70,7 @@ class ServerSettingsTest extends TestBase
      */
     public function testHideDatabase()
     {
+        $this->createDatabase();
         $this->byPartialLinkText('Features')->click();
         $this->waitAjax();
 

@@ -26,15 +26,16 @@ class OperationsTest extends TestBase
         // MYISAM ENGINE to allow for column-based order selection
         // while table also has a PRIMARY key
         $this->dbQuery(
-            'CREATE TABLE `test_table` ('
+            'USE `' . $this->database_name . '`;'
+            . 'CREATE TABLE `test_table` ('
             . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
             . ' `val` int(11) NOT NULL,'
             . ' `val2` int(11) NOT NULL,'
             . ' PRIMARY KEY (`id`)'
-            . ') ENGINE=MYISAM'
+            . ') ENGINE=MYISAM;'
+            . 'INSERT INTO test_table (val, val2) VALUES (22, 33);'
+            . 'INSERT INTO test_table (val, val2) VALUES (33, 44);'
         );
-        $this->dbQuery('INSERT INTO test_table (val, val2) VALUES (22, 33)');
-        $this->dbQuery('INSERT INTO test_table (val, val2) VALUES (33, 44)');
 
         $this->login();
         $this->navigateTable('test_table');
@@ -45,6 +46,11 @@ class OperationsTest extends TestBase
         $this->byXPath("//a[contains(., 'Operations')]")->click();
 
         $this->waitAjax();
+        $this->waitForElement(
+            'xpath',
+            "//div[contains(., 'Table maintenance')]"
+        );
+        $this->reloadPage();
         $this->waitForElement(
             'xpath',
             "//div[contains(., 'Table maintenance')]"
@@ -112,11 +118,13 @@ class OperationsTest extends TestBase
             . 'moved to `' . $this->database_name . "`.`test_table2`.')]"
         );
 
-        $result = $this->dbQuery('SHOW TABLES');
-        $row = $result->fetch_assoc();
-        $this->assertEquals(
-            'test_table2',
-            $row['Tables_in_' . $this->database_name]
+        $this->dbQuery(
+            'USE `' . $this->database_name . '`;'
+            . 'SHOW TABLES LIKE \'test_table2\'',
+            function () {
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->assertEquals('test_table2', $this->getCellByTableClass('table_results', 1, 1));
+            }
         );
     }
 
@@ -145,11 +153,13 @@ class OperationsTest extends TestBase
             . "contains(., 'Table test_table has been renamed to test_table2')]"
         );
 
-        $result = $this->dbQuery('SHOW TABLES');
-        $row = $result->fetch_assoc();
-        $this->assertEquals(
-            'test_table2',
-            $row['Tables_in_' . $this->database_name]
+        $this->dbQuery(
+            'USE `' . $this->database_name . '`;'
+            . 'SHOW TABLES LIKE \'test_table2\'',
+            function () {
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->assertEquals('test_table2', $this->getCellByTableClass('table_results', 1, 1));
+            }
         );
     }
 
@@ -177,11 +187,12 @@ class OperationsTest extends TestBase
             . 'copied to `' . $this->database_name . "`.`test_table2`.')]"
         );
 
-        $result = $this->dbQuery('SELECT COUNT(*) as c FROM test_table2');
-        $row = $result->fetch_assoc();
-        $this->assertEquals(
-            2,
-            $row['c']
+        $this->dbQuery(
+            'SELECT COUNT(*) as c FROM `' . $this->database_name . '`.test_table2',
+            function () {
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->assertEquals('2', $this->getCellByTableClass('table_results', 1, 1));
+            }
         );
     }
 
@@ -206,11 +217,12 @@ class OperationsTest extends TestBase
             . "contains(., 'MySQL returned an empty result set')]"
         );
 
-        $result = $this->dbQuery('SELECT COUNT(*) as c FROM test_table');
-        $row = $result->fetch_assoc();
-        $this->assertEquals(
-            0,
-            $row['c']
+        $this->dbQuery(
+            'SELECT CONCAT("Count: ", COUNT(*)) as c FROM `' . $this->database_name . '`.test_table',
+            function () {
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->assertEquals('Count: 0', $this->getCellByTableClass('table_results', 1, 1));
+            }
         );
     }
 
@@ -223,7 +235,6 @@ class OperationsTest extends TestBase
      */
     public function testDropTable()
     {
-        $this->reloadPage();
         $dropLink = $this->waitUntilElementIsVisible('partialLinkText', 'Delete the table (DROP)', 30);
         $this->scrollToElement($this->byId('selflink'));
         $dropLink->click();
@@ -241,10 +252,12 @@ class OperationsTest extends TestBase
             "//a[@class='nav-link text-nowrap' and contains(., 'Structure')]"
         );
 
-        $result = $this->dbQuery('SHOW TABLES');
-        $this->assertEquals(
-            0,
-            $result->num_rows
+        $this->dbQuery(
+            'USE `' . $this->database_name . '`;'
+            . 'SHOW TABLES',
+            function () {
+                $this->assertFalse($this->isElementPresent('className', 'table_results'));
+            }
         );
     }
 }

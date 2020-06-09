@@ -49,10 +49,13 @@ class CreateDropDatabaseTest extends TestBase
 
         $this->waitForElement('linkText', 'Database: ' . $this->database_name);
 
-        $result = $this->dbQuery(
-            'SHOW DATABASES LIKE \'' . $this->database_name . '\';'
+        $this->dbQuery(
+            'SHOW DATABASES LIKE \'' . $this->database_name . '\';',
+            function () {
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->assertEquals($this->database_name, $this->getCellByTableClass('table_results', 1, 1));
+            }
         );
-        $this->assertEquals(1, $result->num_rows);
 
         $this->dropDatabase();
     }
@@ -92,9 +95,11 @@ class CreateDropDatabaseTest extends TestBase
             'span.ajax_notification .alert-success'
         );
 
-        $result = $this->dbQuery(
-            'SHOW DATABASES LIKE \'' . $this->database_name . '\';'
+        $this->dbQuery(
+            'SHOW DATABASES LIKE \'' . $this->database_name . '\';',
+            function () {
+                $this->assertFalse($this->isElementPresent('className', 'table_results'));
+            }
         );
-        $this->assertEquals(0, $result->num_rows);
     }
 }

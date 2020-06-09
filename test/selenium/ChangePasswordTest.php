@@ -19,6 +19,13 @@ use function trim;
 class ChangePasswordTest extends TestBase
 {
     /**
+     * Create a test database for this test class
+     *
+     * @var bool
+     */
+    protected static $createDatabase = false;
+
+    /**
      * Array of AssertionFailedError->toString
      *
      * @var string[]
