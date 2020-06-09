@@ -1,7 +1,8 @@
 {
     "extends": [
         "eslint:recommended",
-        "plugin:no-jquery/deprecated"
+        "plugin:no-jquery/deprecated",
+        "plugin:compat/recommended"
     ],
     "plugins": ["no-jquery"],
     "env": {
