@@ -50,6 +50,11 @@ class OperationsTest extends TestBase
             'xpath',
             "//div[contains(., 'Table maintenance')]"
         );
+        $this->reloadPage();
+        $this->waitForElement(
+            'xpath',
+            "//div[contains(., 'Table maintenance')]"
+        );
     }
 
     /**
@@ -183,7 +188,7 @@ class OperationsTest extends TestBase
         );
 
         $this->dbQuery(
-            'SELECT COUNT(*) as c FROM test_table2',
+            'SELECT COUNT(*) as c FROM `' . $this->database_name . '`.test_table2',
             function () {
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
                 $this->assertEquals('2', $this->getCellByTableClass('table_results', 1, 1));
@@ -213,10 +218,10 @@ class OperationsTest extends TestBase
         );
 
         $this->dbQuery(
-            'SELECT COUNT(*) as c FROM test_table',
+            'SELECT CONCAT("Count: ", COUNT(*)) as c FROM `' . $this->database_name . '`.test_table',
             function () {
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
-                $this->assertEquals('0', $this->getCellByTableClass('table_results', 1, 1));
+                $this->assertEquals('Count: 0', $this->getCellByTableClass('table_results', 1, 1));
             }
         );
     }
@@ -230,7 +235,6 @@ class OperationsTest extends TestBase
      */
     public function testDropTable()
     {
-        $this->reloadPage();
         $dropLink = $this->waitUntilElementIsVisible('partialLinkText', 'Delete the table (DROP)', 30);
         $this->scrollToElement($this->byId('selflink'));
         $dropLink->click();
@@ -249,7 +253,8 @@ class OperationsTest extends TestBase
         );
 
         $this->dbQuery(
-            'SHOW TABLES',
+            'USE `' . $this->database_name . '`;'
+            . 'SHOW TABLES',
             function () {
                 $this->assertFalse($this->isElementPresent('className', 'table_results'));
             }
