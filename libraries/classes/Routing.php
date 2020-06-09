@@ -6,6 +6,7 @@ namespace PhpMyAdmin;
 
 use FastRoute\Dispatcher;
 use function FastRoute\cachedDispatcher;
+use function htmlspecialchars;
 use function mb_strlen;
 use function rawurldecode;
 use function sprintf;
