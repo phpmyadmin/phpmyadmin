@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-05-31 21:18+0200\n"
-"PO-Revision-Date: 2020-06-08 11:46+0000\n"
+"PO-Revision-Date: 2020-06-11 11:49+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "cs/>\n"
@@ -5258,14 +5258,12 @@ msgid "Private key for reCaptcha"
 msgstr "Soukromý klíč reCaptcha"
 
 #: libraries/classes/Config/Descriptions.php:963
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter your siteverify URL for your reCaptcha service."
-msgstr "Zadejte soukromý klíč pro službu reCaptcha."
+msgstr "Zadejte URL pro ověření služby reCaptcha."
 
 #: libraries/classes/Config/Descriptions.php:964
 msgid "URL for reCaptcha siteverify"
-msgstr ""
+msgstr "URL pro ověření reCaptcha"
 
 #: libraries/classes/Config/Descriptions.php:966
 msgid "Choose the default action when sending error reports."
@@ -8842,7 +8840,7 @@ msgstr "Výpis byl uložen do souboru %s."
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
 #: libraries/classes/Export.php:991
 msgid "Exporting a raw query is not supported for this export method."
-msgstr ""
+msgstr "Tento způsob exportu neumožňuje exportovat surové dotazy."
 
 #: libraries/classes/File.php:285
 msgid "File was not an uploaded file."
@@ -9421,7 +9419,7 @@ msgstr[2] "nalezeno %s výsledků"
 #: libraries/classes/Navigation/NavigationTree.php:1417
 #: libraries/classes/Navigation/NavigationTree.php:1449
 msgid "Type to filter these, Enter to search all"
-msgstr "Při psaní se filtrují zobrazené, Enter prohledá vše"
+msgstr "Psaní filtruje zobrazené, Enter prohledá vše"
 
 #: libraries/classes/Navigation/NavigationTree.php:1419
 #: libraries/classes/Navigation/NavigationTree.php:1450
@@ -10364,7 +10362,7 @@ msgstr "Hodnota %s"
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
 #: libraries/classes/Plugins/Export/ExportSql.php:342
 msgid "Use simple view export"
-msgstr ""
+msgstr "Použít jednoduchý export pohledu"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:381
 msgid ""
@@ -11018,14 +11016,8 @@ msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgstr "Převede IP adresu (IPv4/IPv6) do binárního formátu"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptolong.php:29
-#, fuzzy
-#| msgid ""
-#| "Converts an Internet network address stored as a binary string into a "
-#| "string in Internet standard (IPv4/IPv6) format."
 msgid "Converts an Internet network address in (IPv4/IPv6) format to long."
-msgstr ""
-"Převede internetovou síťovou adresu (IPv4/IPv6) uloženou jako binární "
-"řetězec na text ve standardním formátu."
+msgstr "Převede IP adresu (IPv4/IPv6) do celočíselného formátu."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:26
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -13570,10 +13562,8 @@ msgid "Ins:"
 msgstr "Přidat:"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:12
-#, fuzzy
-#| msgid "And:"
 msgid "And"
-msgstr "A:"
+msgstr "A"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:17
 msgid "Del:"
@@ -13609,10 +13599,8 @@ msgid "Modify:"
 msgstr "Možnosti:"
 
 #: templates/database/qbe/selection_form.twig:54
-#, fuzzy
-#| msgid "Add/Delete criteria rows"
 msgid "Add/Delete criteria rows:"
-msgstr "Přidat nebo odebrat řádek"
+msgstr "Přidat nebo odebrat řádky kritérií:"
 
 #: templates/database/qbe/selection_form.twig:67
 msgid "Add/Delete columns:"
@@ -13629,11 +13617,9 @@ msgid "SQL query on database <b>%s</b>:"
 msgstr "SQL dotaz na databázi <b>%s</b>:"
 
 #: templates/database/routines/footer.twig:2
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new routine"
 msgid "New"
-msgstr "Nové"
+msgstr "Nová"
 
 #: templates/database/routines/list.twig:11
 msgid "There are no routines to display."
@@ -13914,10 +13900,8 @@ msgstr "Exportuji tabulky z databáze „%s“"
 
 #. l10n: A query that the user has written freely
 #: templates/display/export/option_header.twig:9
-#, fuzzy
-#| msgid "Showing SQL query"
 msgid "Exporting a raw query"
-msgstr "Zobrazuji SQL dotaz"
+msgstr "Exportuji surový dotaz"
 
 #: templates/display/export/option_header.twig:11
 #, php-format
@@ -14514,11 +14498,8 @@ msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: templates/javascript/variables.twig:11
-#, fuzzy
-#| msgctxt "Year suffix"
-#| msgid "none"
 msgid "none"
-msgstr "none"
+msgstr "žádný"
 
 #. l10n: Previous month. Display text for previous month link in calendar
 #: templates/javascript/variables.twig:16
@@ -15347,8 +15328,6 @@ msgid "Re-type"
 msgstr "Heslo znovu"
 
 #: templates/server/privileges/login_information_fields.twig:68
-#, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication plugin"
 msgstr "Rozšíření pro přihlašování"
 
@@ -15357,18 +15336,13 @@ msgid "Password hashing method"
 msgstr "Metoda hašování hesla"
 
 #: templates/server/privileges/login_information_fields.twig:83
-#, fuzzy
-#| msgid ""
-#| "This method requires using an '<i>SSL connection</i>' or an "
-#| "'<i>unencrypted connection that encrypts the password using RSA</i>'; "
-#| "while connecting to the server."
 msgid ""
 "This method requires using an '<em>SSL connection</em>' or an "
 "'<em>unencrypted connection that encrypts the password using RSA</em>'; "
 "while connecting to the server."
 msgstr ""
-"Tato metoda připojení k serveru vyžaduje použití '<i>SSL spojení</i>' nebo "
-"'<i>nešifrovaného spojení s podporou šifrování hesla pomocí RSA</i>'."
+"Tato metoda připojení k serveru vyžaduje použití '<em>SSL spojení</em>' nebo "
+"'<em>nešifrovaného spojení s podporou šifrování hesla pomocí RSA</em>'."
 
 #: templates/server/privileges/new_user_ajax.twig:52
 #: templates/server/privileges/users_overview.twig:80
@@ -15772,17 +15746,15 @@ msgstr ""
 #. l10n: Advisor rules file
 #: templates/server/status/advisor/index.twig:55
 msgid "Rules file is not well formed, the following errors were found:"
-msgstr ""
+msgstr "Soubor pravidel není vytvořen správně, byly nalezeny následující chyby:"
 
 #: templates/server/status/advisor/index.twig:66
-#, fuzzy
-#| msgid "Some error occurred while getting SQL debug info."
 msgid "Errors occurred while executing rule expressions:"
-msgstr "Při získávání ladících informací došlo k neznámé chybě."
+msgstr "Při provádění výrazů pravidel došlo k chybám:"
 
 #: templates/server/status/advisor/index.twig:76
 msgid "Possible performance issues"
-msgstr "Možné výkonostní problémy"
+msgstr "Možné problémy s výkonem"
 
 #: templates/server/status/advisor/index.twig:89
 msgid "Issue:"
@@ -15801,10 +15773,8 @@ msgid "Used variable / formula:"
 msgstr "Použitá proměnná / vzorec:"
 
 #: templates/server/status/advisor/index.twig:101
-#, fuzzy
-#| msgid "Test"
 msgid "Test:"
-msgstr "Kontrola"
+msgstr "Test:"
 
 #: templates/server/status/base.twig:16
 msgid "Query statistics"
@@ -16506,10 +16476,8 @@ msgid "Index choice:"
 msgstr "Výběr indexu:"
 
 #: templates/table/index_form.twig:52
-#, fuzzy
-#| msgid "Active options"
 msgid "Advanced options"
-msgstr "Zapnuté parametry"
+msgstr "Rozšířené možnosti"
 
 #: templates/table/index_form.twig:59
 msgid "Key block size:"
@@ -16541,8 +16509,6 @@ msgid "Alter table order by"
 msgstr "Změnit pořadí tabulky podle"
 
 #: templates/table/operations/index.twig:20
-#, fuzzy
-#| msgid "(singly)"
 msgctxt "Alter table order by a single field."
 msgid "(singly)"
 msgstr "(po jednom)"
@@ -16670,10 +16636,9 @@ msgstr "Zvolte která pole zobrazit:"
 
 #: templates/table/relation/common_form.twig:315
 #: templates/table/structure/display_structure.twig:543
-#, fuzzy, php-format
-#| msgid "Create an index on &nbsp;%s&nbsp;columns"
+#, php-format
 msgid "Create an index on %s columns"
-msgstr "Vytvořit klíč na &nbsp;%s&nbsp;polích"
+msgstr "Vytvořit index na %s sloupcích"
 
 #: templates/table/relation/foreign_key_row.twig:15
 #, php-format
@@ -16930,10 +16895,8 @@ msgstr "Klikněte pro přepnutí"
 
 #. l10n: Show or hide the menu using the hamburger style button
 #: templates/top_menu.twig:4
-#, fuzzy
-#| msgid "Table navigation bar"
 msgid "Toggle navigation"
-msgstr "Lišta při procházení tabulky"
+msgstr "Přepnout navigaci"
 
 #. l10n: Current page
 #: templates/top_menu.twig:14
@@ -17234,12 +17197,6 @@ msgid "Suboptimal caching method."
 msgstr "Neoptimální metoda vyrovnávací paměti."
 
 #: libraries/advisory_rules_generic.txt:149
-#, fuzzy
-#| msgid ""
-#| "You are using the MySQL Query cache with a fairly high traffic database. "
-#| "It might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-#| "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL "
-#| "Query cache, especially if you have multiple slaves."
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
@@ -17247,8 +17204,9 @@ msgid ""
 "cache, especially if you have multiple slaves."
 msgstr ""
 "Používáte mezipaměť dotazů MySQL na poměrně zatížené databázi. Mohlo by být "
-"výhodnější použít <a href=\"https://dev.mysql.com/doc/refman/5.5/en/ha-"
-"memcached.html\">memcached</a>, obzvlášť pokud máte více podřízených serverů."
+"výhodnější použít místo ní <a href=\"https://dev.mysql.com/doc/refman/5.6/en/"
+"ha-memcached.html\">memcached</a>, obzvlášť pokud máte více podřízených "
+"serverů."
 
 #: libraries/advisory_rules_generic.txt:150
 #, php-format
@@ -17492,15 +17450,6 @@ msgid "Temp disk rate"
 msgstr "Četnost dočasného ukládání na disk"
 
 #: libraries/advisory_rules_generic.txt:223
-#, fuzzy
-#| msgid ""
-#| "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
-#| "some temporary tables are always being written to disk, independent of "
-#| "the value of these variables. To eliminate these you will have to rewrite "
-#| "your queries to avoid those conditions (Within a temporary table: "
-#| "Presence of a BLOB or TEXT column or presence of a column bigger than 512 "
-#| "bytes) as mentioned in the <a href=\"https://dev.mysql.com/doc/refman/5.5/"
-#| "en/internal-temporary-tables.html\">MySQL Documentation</a>"
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -17511,11 +17460,11 @@ msgid ""
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
 "Může pomoci zvětšení {max_heap_table_size} a {tmp_table_size}. Některé "
-"dočasné tabulky jsou však zapisovány na disk bez ohledu na tato nastavení. "
-"Jich se můžete zbavit jen přepsáním dotazů a obejitím těchto podmínek "
-"(přítomnost polí BLOB, TEXT nebo jiných větších než 512 bajtů). Více se "
-"můžete dozvědět v <a href=\"https://dev.mysql.com/doc/refman/5.5/en/internal-"
-"temporary-tables.html\">dokumentaci MySQL</a>"
+"dočasné tabulky se však zapisují na disk bez ohledu na tato nastavení. Jich "
+"se můžete zbavit jen přepsáním dotazů a obejitím těchto podmínek (přítomnost "
+"polí BLOB, TEXT nebo jiných větších než 512 bajtů). Podrobněji je tato "
+"problematika popsána v <a href=\"https://dev.mysql.com/doc/refman/8.0/en/"
+"internal-temporary-tables.html\">dokumentaci MySQL</a>"
 
 #: libraries/advisory_rules_generic.txt:224
 #, php-format
