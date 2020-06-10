@@ -58,6 +58,7 @@ class SystemDatabaseTest extends PmaTestCase
             'relwork' => 'relwork',
             'commwork' => 'commwork',
             'pdfwork' => 'pdfwork',
+            'mimework' => 'mimework',
             'column_info' => 'column_info',
             'relation' => 'relation',
         ];
