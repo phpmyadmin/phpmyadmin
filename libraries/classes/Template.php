@@ -52,7 +52,7 @@ class Template
     /**
      * @var string
      */
-    public const BASE_PATH = 'templates/';
+    public const BASE_PATH = ROOT_PATH . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR;
 
     /**
      * Template constructor
