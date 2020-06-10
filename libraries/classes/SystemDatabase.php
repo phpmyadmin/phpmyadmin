@@ -49,11 +49,15 @@ class SystemDatabase
      *
      * @param string $db Database name looking for
      *
-     * @return mysqli_result Result of executed SQL query
+     * @return mysqli_result|false Result of executed SQL query
      */
     public function getExistingTransformationData($db)
     {
         $cfgRelation = $this->relation->getRelationsParam();
+
+        if (! $cfgRelation['mimework']) {
+            return false;
+        }
 
         // Get the existing transformation details of the same database
         // from pma__column_info table
