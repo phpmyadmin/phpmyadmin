@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Response;
+use PHPUnit\Framework\Constraint\StringContains;
 use PHPUnit\Framework\MockObject\MockObject;
 use ReflectionProperty;
 use function array_slice;
@@ -35,7 +36,7 @@ abstract class AbstractNetworkTestCase extends AbstractTestCase
     /**
      * Creates mock of Response object for header testing
      *
-     * @param mixed[] ...$param parameter for header method
+     * @param mixed[]|string|StringContains ...$param parameter for header method
      *
      * @return MockObject
      */
