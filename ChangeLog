@@ -30,6 +30,7 @@ phpMyAdmin - ChangeLog
 - issue #16052 Fix a very rare JS error occuring on mousemove event
 - issue #16162 Make a foreign key link clickable in a new tab after the value was saved and replaced
 - issue #16163 Fixed a PHP notice "Undefined index: column_info" on views
+- issue #14478 Fix the data stream when exporting data in file mode
 
 5.0.2 (2020-03-20)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page
