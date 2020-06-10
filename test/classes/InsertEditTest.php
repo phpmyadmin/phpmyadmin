@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\InsertEdit;
@@ -3313,8 +3314,13 @@ class InsertEditTest extends AbstractTestCase
 
         $result = $this->insertEdit->getLinkForRelationalDisplayField($map, 'f', '=1', 'a>', 'b<');
 
+        $sqlSignature = Core::signSqlQuery(
+            'SELECT * FROM `information_schema`.`TABLES` WHERE `f`=1'
+        );
+
         $this->assertEquals(
             '<a href="index.php?route=/sql&amp;db=information_schema&amp;table=TABLES&amp;pos=0&amp;'
+            . 'sql_signature=' . $sqlSignature . '&amp;'
             . 'sql_query=SELECT+%2A+FROM+%60information_schema%60.%60TABLES%60+WHERE'
             . '+%60f%60%3D1&amp;lang=en" title="a&gt;">b&lt;</a>',
             $result
@@ -3325,6 +3331,7 @@ class InsertEditTest extends AbstractTestCase
 
         $this->assertEquals(
             '<a href="index.php?route=/sql&amp;db=information_schema&amp;table=TABLES&amp;pos=0&amp;'
+            . 'sql_signature=' . $sqlSignature . '&amp;'
             . 'sql_query=SELECT+%2A+FROM+%60information_schema%60.%60TABLES%60+WHERE'
             . '+%60f%60%3D1&amp;lang=en" title="b&lt;">a&gt;</a>',
             $result

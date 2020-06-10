@@ -68,6 +68,10 @@ phpMyAdmin - ChangeLog
 - issue #16166 Fix the alter user privileges query to make it MySQL 8.0.11+ compatible
 - issue        Fix copy table to another database when the nbr of DBs is > $cfg['MaxDbList']
 - issue #16157 Fix relations of tables having spaces or special chars not showing in the Designer
+- issue #16052 Fix a very rare JS error occuring on mousemove event
+- issue #16162 Make a foreign key link clickable in a new tab after the value was saved and replaced
+- issue #16163 Fixed a PHP notice "Undefined index: column_info" on views
+- issue #14478 Fix the data stream when exporting data in file mode
 
 5.0.2 (2020-03-20)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page

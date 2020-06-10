@@ -2543,15 +2543,17 @@ class InsertEdit
         } else {
             $title = ' title="' . htmlspecialchars($relation_field_value) . '"';
         }
+        $sqlQuery = 'SELECT * FROM '
+            . Util::backquote($foreigner['foreign_db'])
+            . '.' . Util::backquote($foreigner['foreign_table'])
+            . ' WHERE ' . Util::backquote($foreigner['foreign_field'])
+            . $where_comparison;
         $_url_params = [
             'db'    => $foreigner['foreign_db'],
             'table' => $foreigner['foreign_table'],
             'pos'   => '0',
-            'sql_query' => 'SELECT * FROM '
-                . Util::backquote($foreigner['foreign_db'])
-                . '.' . Util::backquote($foreigner['foreign_table'])
-                . ' WHERE ' . Util::backquote($foreigner['foreign_field'])
-                . $where_comparison,
+            'sql_signature' => Core::signSqlQuery($sqlQuery),
+            'sql_query' => $sqlQuery,
         ];
         $output = '<a href="' . Url::getFromRoute('/sql', $_url_params) . '"' . $title . '>';
 
