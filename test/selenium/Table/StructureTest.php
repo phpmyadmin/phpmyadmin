@@ -95,7 +95,7 @@ class StructureTest extends TestBase
         )->click();
         $this->waitAjax();
 
-        $this->waitForElement('className', 'append_fields_form');
+        $this->waitUntilElementIsPresent('className', 'append_fields_form', 30);
 
         $this->assertEquals('val', $this->byId('field_0_1')->getAttribute('value'));
         $this->byId('field_0_1')->clear();
