@@ -285,7 +285,7 @@ if (isset($_POST['output_format']) && $_POST['output_format'] == 'sendit' && ! $
     $response->disable();
     //Disable all active buffers (see: ob_get_status(true) at this point)
     do {
-        if (ob_get_length() > 0) {
+        if (ob_get_length() > 0 || ob_get_level() > 0) {
             $hasBuffer = ob_end_clean();
         } else {
             $hasBuffer = false;
