@@ -81,13 +81,6 @@ class Response
      * @var bool
      */
     private $_isSuccess;
-    /**
-     * Workaround for PHP bug
-     *
-     * @access private
-     * @var string|bool
-     */
-    private $_CWD;
 
     /**
      * @var array<int, string>
@@ -183,7 +176,6 @@ class Response
         $this->_isSuccess  = true;
         $this->_isDisabled = false;
         $this->setAjax(! empty($_REQUEST['ajax_request']));
-        $this->_CWD = getcwd();
     }
 
     /**
@@ -236,18 +228,6 @@ class Response
     public function isAjax(): bool
     {
         return $this->_isAjax;
-    }
-
-    /**
-     * Returns the path to the current working directory
-     * Necessary to work around a PHP bug where the CWD is
-     * reset after the initial script exits
-     *
-     * @return string
-     */
-    public function getCWD()
-    {
-        return $this->_CWD;
     }
 
     /**
@@ -503,7 +483,6 @@ class Response
      */
     public function response()
     {
-        chdir($this->getCWD());
         $buffer = OutputBuffering::getInstance();
         if (empty($this->_HTML)) {
             $this->_HTML = $buffer->getContents();
