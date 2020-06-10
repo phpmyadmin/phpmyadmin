@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2020-05-31 20:41+0000\n"
+"PO-Revision-Date: 2020-06-11 11:49+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-9/cs/>"
 "\n"
@@ -1689,7 +1689,7 @@ msgstr "Poradce"
 
 #: js/messages.php:341
 msgid "Possible performance issues"
-msgstr "Možné výkonostní problémy"
+msgstr "Možné problémy s výkonem"
 
 #: js/messages.php:342
 msgid "Issue"
@@ -8364,7 +8364,7 @@ msgstr[2] "nalezeno %s výsledků"
 #: libraries/classes/Navigation/NavigationTree.php:1368
 #: libraries/classes/Navigation/NavigationTree.php:1400
 msgid "Type to filter these, Enter to search all"
-msgstr "Při psaní se filtrují zobrazené, Enter prohledá vše"
+msgstr "Psaní filtruje zobrazené, Enter prohledá vše"
 
 #: libraries/classes/Navigation/NavigationTree.php:1370
 #: libraries/classes/Navigation/NavigationTree.php:1401
