@@ -46,7 +46,10 @@ class Template
      */
     protected static $twig;
 
-    public const BASE_PATH = 'templates/';
+    /**
+     * @var string
+     */
+    public const BASE_PATH = ROOT_PATH . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR;
 
     public function __construct()
     {
