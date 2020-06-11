@@ -59,7 +59,7 @@ class StructureTest extends TestBase
         )->click();
         $this->waitAjax();
 
-        $this->waitForElement('className', 'append_fields_form');
+        $this->waitUntilElementIsPresent('className', 'append_fields_form', 30);
 
         $this->byId('field_0_1')->sendKeys('val3');
         $this->byCssSelector("input[name='do_save_data']")->click();
