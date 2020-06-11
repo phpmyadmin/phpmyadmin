@@ -2153,14 +2153,6 @@
       <code>$messageError</code>
     </PossiblyNullArgument>
   </file>
-  <file src="libraries/classes/Response.php">
-    <InvalidReturnStatement occurrences="1">
-      <code>$this-&gt;_CWD</code>
-    </InvalidReturnStatement>
-    <InvalidReturnType occurrences="1">
-      <code>string</code>
-    </InvalidReturnType>
-  </file>
   <file src="libraries/classes/SavedSearches.php">
     <PossiblyInvalidArrayOffset occurrences="2">
       <code>$criterias['criteriaColumn']</code>

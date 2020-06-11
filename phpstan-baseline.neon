@@ -3276,11 +3276,6 @@ parameters:
 			path: libraries/classes/ReplicationGui.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Response\\:\\:getCWD\\(\\) should return string but returns bool\\|string\\.$#"
-			count: 1
-			path: libraries/classes/Response.php
-
-		-
 			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Response.php

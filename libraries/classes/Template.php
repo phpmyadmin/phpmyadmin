@@ -30,6 +30,7 @@ use Twig\TemplateWrapper;
 use Twig_Error_Loader;
 use Twig_Error_Runtime;
 use Twig_Error_Syntax;
+use const DIRECTORY_SEPARATOR;
 use const E_USER_WARNING;
 use function sprintf;
 use function trigger_error;
@@ -46,9 +47,6 @@ class Template
      */
     protected static $twig;
 
-    /**
-     * @var string
-     */
     public const BASE_PATH = ROOT_PATH . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR;
 
     public function __construct()
