@@ -76,12 +76,6 @@ define('VERSION_CHECK_DEFAULT', true);
 define('LOCALE_PATH', ROOT_PATH . 'locale/');
 
 /**
- * Avoid referring to nonexistent files (causes warnings when open_basedir
- * is used)
- */
-define('K_PATH_IMAGES', ROOT_PATH);
-
-/**
  * Define the cache directory for routing cache an other cache files
  */
 define('CACHE_DIR', ROOT_PATH . 'libraries/cache/');
