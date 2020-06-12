@@ -282,7 +282,9 @@ AJAX.registerOnload('database/structure.js', function () {
             return;
         }
 
-        if (action === 'export') {
+        if (action === 'sync_unique_columns_central_list') {
+            url = 'index.php?route=/database/structure/central-columns-add';
+        } else if (action === 'export') {
             url = 'index.php?route=/database/structure/export';
         } else if (action === 'show_create') {
             url = 'index.php?route=/database/structure/show-create';
