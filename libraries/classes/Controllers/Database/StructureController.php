@@ -420,12 +420,6 @@ class StructureController extends AbstractController
                         unset($submit_mult);
                         $mult_btn   = __('Yes');
                         break;
-                    case 'export':
-                        unset($submit_mult);
-                        /** @var ExportController $controller */
-                        $controller = $containerBuilder->get(ExportController::class);
-                        $controller->index();
-                        exit;
                     case 'copy_tbl':
                         $_url_params = [
                             'query_type' => 'copy_tbl',
@@ -1612,5 +1606,21 @@ class StructureController extends AbstractController
             $unit,
             $sum_size,
         ];
+    }
+
+    public function export(): void
+    {
+        global $containerBuilder;
+
+        if (empty($_POST['selected_tbl'])) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No table selected.'));
+
+            return;
+        }
+
+        /** @var ExportController $controller */
+        $controller = $containerBuilder->get(ExportController::class);
+        $controller->index();
     }
 }
