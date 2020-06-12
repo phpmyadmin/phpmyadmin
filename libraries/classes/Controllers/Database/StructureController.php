@@ -1617,8 +1617,6 @@ class StructureController extends AbstractController
 
     public function showCreate(): void
     {
-        global $db;
-
         $selected = $_POST['selected_tbl'] ?? [];
 
         if (empty($selected)) {
@@ -1628,12 +1626,31 @@ class StructureController extends AbstractController
             return;
         }
 
-        $showCreate = $this->template->render('database/structure/show_create', [
-            'db' => $db,
-            'db_objects' => $selected,
-            'dbi' => $this->dbi,
-        ]);
+        $tables = $this->getShowCreateTables($selected);
+
+        $showCreate = $this->template->render('database/structure/show_create', ['tables' => $tables]);
 
         $this->response->addJSON('message', $showCreate);
+    }
+
+    /**
+     * @param string[] $selected Selected tables.
+     *
+     * @return array<string, array<int, array<string, string>>>
+     */
+    private function getShowCreateTables(array $selected): array
+    {
+        $tables = ['tables' => [], 'views' => []];
+
+        foreach ($selected as $table) {
+            $object = $this->dbi->getTable($this->db, $table);
+
+            $tables[$object->isView() ? 'views' : 'tables'][] = [
+                'name' => Core::mimeDefaultFunction($table),
+                'show_create' => Core::mimeDefaultFunction($object->showCreate()),
+            ];
+        }
+
+        return $tables;
     }
 }
