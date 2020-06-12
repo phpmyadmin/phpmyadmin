@@ -365,7 +365,7 @@ class StructureController extends AbstractController
     public function multiSubmitAction(): void
     {
         global $db, $table, $from_prefix, $goto, $message, $err_url;
-        global $mult_btn, $query_type, $reload, $dblist, $selected, $sql_query;
+        global $mult_btn, $query_type, $reload, $selected, $sql_query;
         global $submit_mult, $table_type, $to_prefix, $url_query, $pmaThemeImage;
 
         if (isset($_POST['error']) && $_POST['error'] !== false) {
@@ -420,30 +420,6 @@ class StructureController extends AbstractController
                         unset($submit_mult);
                         $mult_btn   = __('Yes');
                         break;
-                    case 'copy_tbl':
-                        $_url_params = [
-                            'query_type' => 'copy_tbl',
-                            'db' => $db,
-                        ];
-                        foreach ($selected as $selectedValue) {
-                            $_url_params['selected'][] = $selectedValue;
-                        }
-
-                        $databasesList = $dblist->databases;
-                        foreach ($databasesList as $key => $databaseName) {
-                            if ($databaseName == $db) {
-                                $databasesList->offsetUnset($key);
-                                break;
-                            }
-                        }
-
-                        $this->response->disable();
-                        $this->render('mult_submits/copy_multiple_tables', [
-                            'action' => $action,
-                            'url_params' => $_url_params,
-                            'options' => $databasesList->getList(),
-                        ]);
-                        exit;
                     case 'sync_unique_columns_central_list':
                         $centralColsError = $centralColumns->syncUniqueColumns(
                             $selected
@@ -1652,5 +1628,41 @@ class StructureController extends AbstractController
         }
 
         return $tables;
+    }
+
+    public function copyForm(): void
+    {
+        global $db, $dblist;
+
+        $selected = $_POST['selected_tbl'] ?? [];
+
+        if (empty($selected)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No table selected.'));
+
+            return;
+        }
+
+        $urlParams = [
+            'query_type' => 'copy_tbl',
+            'db' => $db,
+        ];
+        foreach ($selected as $selectedValue) {
+            $urlParams['selected'][] = $selectedValue;
+        }
+
+        $databasesList = $dblist->databases;
+        foreach ($databasesList as $key => $databaseName) {
+            if ($databaseName == $db) {
+                $databasesList->offsetUnset($key);
+                break;
+            }
+        }
+
+        $this->response->disable();
+        $this->render('database/structure/copy_form', [
+            'url_params' => $urlParams,
+            'options' => $databasesList->getList(),
+        ]);
     }
 }

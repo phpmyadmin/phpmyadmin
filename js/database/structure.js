@@ -216,6 +216,7 @@ AJAX.registerOnload('database/structure.js', function () {
  *  Event handler on select of "Make consistent with central list"
  */
     $('select[name=submit_mult]').on('change', function (event) {
+        var url = 'index.php?route=/database/structure';
         var action = $(this).val();
 
         if (action === 'make_consistent_with_central_list') {
@@ -242,6 +243,7 @@ AJAX.registerOnload('database/structure.js', function () {
             var formData = $('#tablesForm').serialize();
             var modalTitle = '';
             if (action === 'copy_tbl') {
+                url = 'index.php?route=/database/structure/copy-form';
                 modalTitle = Messages.strCopyTablesTo;
             } else if (action === 'add_prefix_tbl') {
                 modalTitle = Messages.strAddPrefix;
@@ -252,7 +254,7 @@ AJAX.registerOnload('database/structure.js', function () {
             }
             $.ajax({
                 type: 'POST',
-                url: 'index.php?route=/database/structure',
+                url: url,
                 dataType: 'html',
                 data: formData
 
@@ -279,8 +281,6 @@ AJAX.registerOnload('database/structure.js', function () {
 
             return;
         }
-
-        var url = '';
 
         if (action === 'export') {
             url = 'index.php?route=/database/structure/export';

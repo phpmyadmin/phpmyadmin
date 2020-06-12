@@ -138,6 +138,7 @@ return static function (RouteCollector $routes) {
         });
         $routes->addGroup('/structure', static function (RouteCollector $routes) {
             $routes->addRoute(['GET', 'POST'], '', [StructureController::class, 'index']);
+            $routes->post('/copy-form', [StructureController::class, 'copyForm']);
             $routes->post('/export', [StructureController::class, 'export']);
             $routes->addRoute(['GET', 'POST'], '/favorite-table', [
                 StructureController::class,
