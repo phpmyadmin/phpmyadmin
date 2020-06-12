@@ -21,11 +21,6 @@ class CoreExtension extends AbstractExtension
     {
         return [
             new TwigFilter(
-                'mime_default_function',
-                'PhpMyAdmin\Core::mimeDefaultFunction',
-                ['is_safe' => ['html']]
-            ),
-            new TwigFilter(
                 'link',
                 'PhpMyAdmin\Core::linkURL'
             ),
