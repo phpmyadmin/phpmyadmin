@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-04-25 13:24+0200\n"
-"PO-Revision-Date: 2020-04-09 07:25+0000\n"
+"PO-Revision-Date: 2020-06-12 17:26+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-0/pt_BR/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.0-dev\n"
+"X-Generator: Weblate 4.1-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -10330,7 +10330,7 @@ msgstr "Parece que seu banco de dados utiliza visões;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1769
 msgid "Constraints for dumped tables"
-msgstr "Restrições para dumps de tabelas"
+msgstr "Restrições para tabelas despejadas"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1770
 msgid "Constraints for table"
@@ -10338,7 +10338,7 @@ msgstr "Restrições para tabelas"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1800
 msgid "Indexes for dumped tables"
-msgstr "Índices de tabelas apagadas"
+msgstr "Índices para tabelas despejadas"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1801
 msgid "Indexes for table"
@@ -10346,7 +10346,7 @@ msgstr "Índices de tabela"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1834
 msgid "AUTO_INCREMENT for dumped tables"
-msgstr "AUTO_INCREMENT de tabelas apagadas"
+msgstr "AUTO_INCREMENT para tabelas despejadas"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1835
 msgid "AUTO_INCREMENT for table"
