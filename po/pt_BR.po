@@ -4,9 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-06-11 13:50+0200\n"
-"PO-Revision-Date: 2020-05-05 20:11+0000\n"
-"Last-Translator: André Victor Fochesatto Cordeiro <andrefochesatto@hotmail."
-"com>\n"
+"PO-Revision-Date: 2020-06-12 17:26+0000\n"
+"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -10669,7 +10668,7 @@ msgstr "Parece que seu banco de dados utiliza visões;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1823
 msgid "Constraints for dumped tables"
-msgstr "Restrições para dumps de tabelas"
+msgstr "Restrições para tabelas despejadas"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1824
 msgid "Constraints for table"
@@ -10677,7 +10676,7 @@ msgstr "Restrições para tabelas"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1854
 msgid "Indexes for dumped tables"
-msgstr "Índices de tabelas apagadas"
+msgstr "Índices para tabelas despejadas"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1855
 msgid "Indexes for table"
@@ -10685,7 +10684,7 @@ msgstr "Índices de tabela"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1888
 msgid "AUTO_INCREMENT for dumped tables"
-msgstr "AUTO_INCREMENT de tabelas apagadas"
+msgstr "AUTO_INCREMENT para tabelas despejadas"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1889
 msgid "AUTO_INCREMENT for table"
