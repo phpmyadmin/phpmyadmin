@@ -147,6 +147,7 @@ return static function (RouteCollector $routes) {
                 StructureController::class,
                 'handleRealRowCountRequestAction',
             ]);
+            $routes->post('/show-create', [StructureController::class, 'showCreate']);
         });
         $routes->addRoute(['GET', 'POST'], '/tracking', [TrackingController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/triggers', [TriggersController::class, 'index']);

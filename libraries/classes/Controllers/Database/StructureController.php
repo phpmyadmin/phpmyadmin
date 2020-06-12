@@ -364,7 +364,7 @@ class StructureController extends AbstractController
      */
     public function multiSubmitAction(): void
     {
-        global $containerBuilder, $db, $table, $from_prefix, $goto, $message, $err_url;
+        global $db, $table, $from_prefix, $goto, $message, $err_url;
         global $mult_btn, $query_type, $reload, $dblist, $selected, $sql_query;
         global $submit_mult, $table_type, $to_prefix, $url_query, $pmaThemeImage;
 
@@ -443,15 +443,6 @@ class StructureController extends AbstractController
                             'url_params' => $_url_params,
                             'options' => $databasesList->getList(),
                         ]);
-                        exit;
-                    case 'show_create':
-                        $show_create = $this->template->render('database/structure/show_create', [
-                            'db' => $db,
-                            'db_objects' => $selected,
-                            'dbi' => $this->dbi,
-                        ]);
-                        // Send response to client.
-                        $this->response->addJSON('message', $show_create);
                         exit;
                     case 'sync_unique_columns_central_list':
                         $centralColsError = $centralColumns->syncUniqueColumns(
@@ -1622,5 +1613,27 @@ class StructureController extends AbstractController
         /** @var ExportController $controller */
         $controller = $containerBuilder->get(ExportController::class);
         $controller->index();
+    }
+
+    public function showCreate(): void
+    {
+        global $db;
+
+        $selected = $_POST['selected_tbl'] ?? [];
+
+        if (empty($selected)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No table selected.'));
+
+            return;
+        }
+
+        $showCreate = $this->template->render('database/structure/show_create', [
+            'db' => $db,
+            'db_objects' => $selected,
+            'dbi' => $this->dbi,
+        ]);
+
+        $this->response->addJSON('message', $showCreate);
     }
 }

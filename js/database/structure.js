@@ -284,6 +284,8 @@ AJAX.registerOnload('database/structure.js', function () {
 
         if (action === 'export') {
             url = 'index.php?route=/database/structure/export';
+        } else if (action === 'show_create') {
+            url = 'index.php?route=/database/structure/show-create';
         } else {
             $('#tablesForm').trigger('submit');
 
