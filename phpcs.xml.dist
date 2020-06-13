@@ -3,7 +3,7 @@
     <!-- Show progress and sniff codes -->
     <arg value="ps"/>
 
-    <arg name="cache"/>
+    <arg name="cache" value=".phpcs-cache"/>
     <arg name="colors"/>
     <arg name="extensions" value="php"/>
 
