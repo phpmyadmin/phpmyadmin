@@ -420,12 +420,6 @@ class StructureController extends AbstractController
                         unset($submit_mult);
                         $mult_btn   = __('Yes');
                         break;
-                    case 'delete_unique_columns_central_list':
-                        $centralColsError = $centralColumns->deleteColumnsFromList(
-                            $_POST['db'],
-                            $selected
-                        );
-                        break;
                     case 'make_consistent_with_central_list':
                         $centralColsError = $centralColumns->makeConsistentWithList(
                             $db,
@@ -784,12 +778,7 @@ class StructureController extends AbstractController
             if ($query_type == 'drop_tbl' || $query_type == 'empty_tbl') {
                 Util::handleDisableFKCheckCleanup($default_fk_check_value);
             }
-        } elseif (isset($submit_mult)
-            && ($submit_mult == 'delete_unique_columns_central_list'
-                || $submit_mult == 'add_to_central_columns'
-                || $submit_mult == 'remove_from_central_columns'
-                || $submit_mult == 'make_consistent_with_central_list')
-        ) {
+        } elseif (isset($submit_mult) && $submit_mult === 'make_consistent_with_central_list') {
             if (isset($centralColsError) && $centralColsError !== true) {
                 $message = $centralColsError;
             } else {
@@ -1675,6 +1664,29 @@ class StructureController extends AbstractController
 
         $centralColumns = new CentralColumns($this->dbi);
         $error = $centralColumns->syncUniqueColumns($selected);
+
+        $message = $error instanceof Message ? $error : Message::success(__('Success!'));
+
+        unset($_POST['submit_mult']);
+
+        $this->index();
+    }
+
+    public function centralColumnsRemove(): void
+    {
+        global $message;
+
+        $selected = $_POST['selected_tbl'] ?? [];
+
+        if (empty($selected)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No table selected.'));
+
+            return;
+        }
+
+        $centralColumns = new CentralColumns($this->dbi);
+        $error = $centralColumns->deleteColumnsFromList($_POST['db'], $selected);
 
         $message = $error instanceof Message ? $error : Message::success(__('Success!'));
 

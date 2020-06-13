@@ -284,6 +284,8 @@ AJAX.registerOnload('database/structure.js', function () {
 
         if (action === 'sync_unique_columns_central_list') {
             url = 'index.php?route=/database/structure/central-columns-add';
+        } else if (action === 'delete_unique_columns_central_list') {
+            url = 'index.php?route=/database/structure/central-columns-remove';
         } else if (action === 'export') {
             url = 'index.php?route=/database/structure/export';
         } else if (action === 'show_create') {
