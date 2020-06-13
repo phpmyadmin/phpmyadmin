@@ -525,7 +525,7 @@ Or, if you prefer to not be prompted every time you log in:
     $i=0;
     $i++;
     $cfg['Servers'][$i]['user']          = 'root';
-    $cfg['Servers'][$i]['password']      = 'cbb74bc'; // use here your password
+    $cfg['Servers'][$i]['password']      = 'change_password'; // use here your password
     $cfg['Servers'][$i]['auth_type']     = 'config';
 
 .. warning::
