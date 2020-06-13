@@ -2660,6 +2660,11 @@ class InsertEdit
         }
 
         if ($multi_edit_funcs[$key] === 'PHP_PASSWORD_HASH') {
+            /**
+             * @see https://github.com/vimeo/psalm/issues/3350
+             *
+             * @psalm-suppress InvalidArgument
+             */
             $hash = password_hash($current_value, PASSWORD_DEFAULT);
 
             return "'" . $hash . "'";
