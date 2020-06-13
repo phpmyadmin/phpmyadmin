@@ -139,6 +139,10 @@ return static function (RouteCollector $routes) {
         $routes->addGroup('/structure', static function (RouteCollector $routes) {
             $routes->addRoute(['GET', 'POST'], '', [StructureController::class, 'index']);
             $routes->post('/central-columns-add', [StructureController::class, 'centralColumnsAdd']);
+            $routes->post('/central-columns-make-consistent', [
+                StructureController::class,
+                'centralColumnsMakeConsistent',
+            ]);
             $routes->post('/central-columns-remove', [StructureController::class, 'centralColumnsRemove']);
             $routes->post('/copy-form', [StructureController::class, 'copyForm']);
             $routes->post('/export', [StructureController::class, 'export']);

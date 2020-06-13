@@ -402,7 +402,6 @@ class StructureController extends AbstractController
                 // coming from database structure view - do something with
                 // selected tables
                 $selected = $_POST['selected_tbl'];
-                $centralColumns = new CentralColumns($this->dbi);
                 switch ($submit_mult) {
                     case 'add_prefix_tbl':
                     case 'replace_prefix_tbl':
@@ -419,12 +418,6 @@ class StructureController extends AbstractController
                         $query_type = $submit_mult;
                         unset($submit_mult);
                         $mult_btn   = __('Yes');
-                        break;
-                    case 'make_consistent_with_central_list':
-                        $centralColsError = $centralColumns->makeConsistentWithList(
-                            $db,
-                            $selected
-                        );
                         break;
                 } // end switch
             }
@@ -777,12 +770,6 @@ class StructureController extends AbstractController
             }
             if ($query_type == 'drop_tbl' || $query_type == 'empty_tbl') {
                 Util::handleDisableFKCheckCleanup($default_fk_check_value);
-            }
-        } elseif (isset($submit_mult) && $submit_mult === 'make_consistent_with_central_list') {
-            if (isset($centralColsError) && $centralColsError !== true) {
-                $message = $centralColsError;
-            } else {
-                $message = Message::success(__('Success!'));
             }
         } else {
             $message = Message::success(__('No change'));
@@ -1664,6 +1651,29 @@ class StructureController extends AbstractController
 
         $centralColumns = new CentralColumns($this->dbi);
         $error = $centralColumns->syncUniqueColumns($selected);
+
+        $message = $error instanceof Message ? $error : Message::success(__('Success!'));
+
+        unset($_POST['submit_mult']);
+
+        $this->index();
+    }
+
+    public function centralColumnsMakeConsistent(): void
+    {
+        global $db, $message;
+
+        $selected = $_POST['selected_tbl'] ?? [];
+
+        if (empty($selected)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No table selected.'));
+
+            return;
+        }
+
+        $centralColumns = new CentralColumns($this->dbi);
+        $error = $centralColumns->makeConsistentWithList($db, $selected);
 
         $message = $error instanceof Message ? $error : Message::success(__('Success!'));
 
