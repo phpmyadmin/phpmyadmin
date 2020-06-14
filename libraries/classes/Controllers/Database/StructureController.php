@@ -403,7 +403,6 @@ class StructureController extends AbstractController
                 // selected tables
                 $selected = $_POST['selected_tbl'];
                 switch ($submit_mult) {
-                    case 'add_prefix_tbl':
                     case 'replace_prefix_tbl':
                     case 'copy_tbl_change_prefix':
                     case 'drop_tbl':
@@ -515,12 +514,6 @@ class StructureController extends AbstractController
             if ($what == 'replace_prefix_tbl' || $what == 'copy_tbl_change_prefix') {
                 $this->response->disable();
                 $this->render('mult_submits/replace_prefix_table', [
-                    'action' => $action,
-                    'url_params' => $_url_params,
-                ]);
-            } elseif ($what == 'add_prefix_tbl') {
-                $this->response->disable();
-                $this->render('mult_submits/add_prefix_table', [
                     'action' => $action,
                     'url_params' => $_url_params,
                 ]);
@@ -1703,5 +1696,30 @@ class StructureController extends AbstractController
         unset($_POST['submit_mult']);
 
         $this->index();
+    }
+
+    public function addPrefix(): void
+    {
+        global $db;
+
+        $selected = $_POST['selected_tbl'] ?? [];
+
+        if (empty($selected)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No table selected.'));
+
+            return;
+        }
+
+        $params = [
+            'query_type' => 'add_prefix_tbl',
+            'db' => $db,
+        ];
+        foreach ($selected as $selectedValue) {
+            $params['selected'][] = $selectedValue;
+        }
+
+        $this->response->disable();
+        $this->render('database/structure/add_prefix', ['url_params' => $params]);
     }
 }

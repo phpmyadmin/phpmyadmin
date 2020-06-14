@@ -258,6 +258,7 @@ AJAX.registerOnload('database/structure.js', function () {
                 url = 'index.php?route=/database/structure/copy-form';
                 modalTitle = Messages.strCopyTablesTo;
             } else if (action === 'add_prefix_tbl') {
+                url = 'index.php?route=/database/structure/add-prefix';
                 modalTitle = Messages.strAddPrefix;
             } else if (action === 'replace_prefix_tbl') {
                 modalTitle = Messages.strReplacePrefix;

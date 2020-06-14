@@ -138,6 +138,7 @@ return static function (RouteCollector $routes) {
         });
         $routes->addGroup('/structure', static function (RouteCollector $routes) {
             $routes->addRoute(['GET', 'POST'], '', [StructureController::class, 'index']);
+            $routes->post('/add-prefix', [StructureController::class, 'addPrefix']);
             $routes->post('/central-columns-add', [StructureController::class, 'centralColumnsAdd']);
             $routes->post('/central-columns-make-consistent', [
                 StructureController::class,
