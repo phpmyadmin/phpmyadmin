@@ -25,14 +25,8 @@ use PhpMyAdmin\Twig\UtilExtension;
 use RuntimeException;
 use Throwable;
 use Twig\Environment;
-use Twig\Error\LoaderError;
-use Twig\Error\RuntimeError;
-use Twig\Error\SyntaxError;
 use Twig\Loader\FilesystemLoader;
-use Twig_Error_Loader;
-use Twig_Error_Runtime;
-use Twig_Error_Syntax;
-use Twig_TemplateWrapper;
+use Twig\TemplateWrapper;
 
 /**
  * Class Template
@@ -95,12 +89,12 @@ class Template
      *
      * @param string $templateName Template path name
      *
-     * @return Twig_TemplateWrapper
-     * @throws LoaderError
-     * @throws RuntimeError
-     * @throws SyntaxError
+     * @return TemplateWrapper
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
-    public function load(string $templateName): Twig_TemplateWrapper
+    public function load(string $templateName): TemplateWrapper
     {
         try {
             $template = static::$twig->load($templateName . '.twig');
@@ -131,9 +125,9 @@ class Template
      *
      * @return string
      * @throws Throwable
-     * @throws Twig_Error_Loader
-     * @throws Twig_Error_Runtime
-     * @throws Twig_Error_Syntax
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function render(string $template, array $data = []): string
     {
