@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2020-06-11 11:49+0000\n"
+"PO-Revision-Date: 2020-06-16 13:41+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-9/cs/>"
 "\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.1-dev\n"
+"X-Generator: Weblate 4.1.1-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -792,9 +792,10 @@ msgid ""
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
 "Nastavení PHP parametru ([a@https://secure.php.net/manual/en/session."
-"configuration.php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/"
-"a]) je menší než platnost cookie nastavená v phpMyAdminovi. Z tohoto důvodu "
-"bude vaše přilášení neplatné dříve, než jak je nastaveno v phpMyAdminovi."
+"configuration.php#ini.session.gc-maxlifetime@_blank]session."
+"gc_maxlifetime[/a]) je menší než platnost cookie nastavená v phpMyAdminovi. "
+"Z tohoto důvodu bude vaše přihlášení neplatné dříve, než jak je nastaveno v "
+"phpMyAdminovi."
 
 #: index.php:562
 msgid ""
@@ -956,7 +957,7 @@ msgstr "Opravdu chcete odstranit tento centrální sloupec?"
 
 #: js/messages.php:78
 msgid "Do you really want to delete the selected items?"
-msgstr "Opravdu si přejete odstranit vybranné položky?"
+msgstr "Opravdu si přejete odstranit vybrané položky?"
 
 #: js/messages.php:80
 msgid ""
@@ -2618,7 +2619,7 @@ msgstr "Při získávání ladících informací došlo k neznámé chybě."
 #: js/messages.php:731
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
-msgstr "%s dotazů bylo provedno %s krát během %s sekund."
+msgstr "%s dotazů bylo provedeno %s krát během %s sekund."
 
 #: js/messages.php:732
 #, php-format
@@ -3031,7 +3032,7 @@ msgstr "Prosím zadejte platné datum nebo čas"
 
 #: js/messages.php:984
 msgid "Please enter a valid HEX input"
-msgstr "Prosím zadejte platné hexadecimalní číslo"
+msgstr "Prosím zadejte platné hexadecimální číslo"
 
 #: js/messages.php:989 libraries/classes/Core.php:297
 #: libraries/classes/Import.php:112 libraries/classes/InsertEdit.php:1495
@@ -3896,8 +3897,8 @@ msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
 msgstr ""
-"Vypne hromadné operace pro údržbu tabulke jako optimalizaci nebo opravu "
-"vybraných tabulek z databáze."
+"Vypne hromadné operace pro údržbu tabulek, jako např. optimalizaci nebo "
+"opravu vybraných tabulek z databáze."
 
 #: libraries/classes/Config/Descriptions.php:241
 msgid "Disable multi table maintenance"
@@ -3919,7 +3920,7 @@ msgstr "Časový limit běhu skriptu"
 #: templates/display/export/options_output.twig:17
 #, php-format
 msgid "Use %s statement"
-msgstr "Použi %s příkaz"
+msgstr "Použít příkaz %s"
 
 #: libraries/classes/Config/Descriptions.php:254
 msgid "Save as file"
@@ -4414,7 +4415,7 @@ msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
-"Sledování změn provedených v databazí. Vyžaduje nastavené úložiště nastavení "
+"Sledování změn provedených v databázi. Vyžaduje úložiště nastavení "
 "phpMyAdmina."
 
 #: libraries/classes/Config/Descriptions.php:553 libraries/classes/Menu.php:364
@@ -4557,7 +4558,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:627
 msgid "Partial import: allow interrupt"
-msgstr "Častečný import: povolit přerušení"
+msgstr "Částečný import: povolit přerušení"
 
 #: libraries/classes/Config/Descriptions.php:637
 #: libraries/classes/Config/Descriptions.php:656
@@ -4932,7 +4933,7 @@ msgstr "Zobrazit v navigačním stromu pohledy pod databází"
 
 #: libraries/classes/Config/Descriptions.php:845
 msgid "Show functions in tree"
-msgstr "Zobrazit ve stromu fuknce"
+msgstr "Zobrazit ve stromu funkce"
 
 #: libraries/classes/Config/Descriptions.php:847
 msgid "Whether to show functions under database in the navigation tree"
@@ -5118,7 +5119,7 @@ msgstr "Při procházení tabulek se pro každou uloží nastavené řazení."
 
 #: libraries/classes/Config/Descriptions.php:947
 msgid "Remember table's sorting"
-msgstr "Pamatovat si řazení u tabulkek"
+msgstr "Pamatovat si řazení u tabulek"
 
 #: libraries/classes/Config/Descriptions.php:949
 msgid "Default sort order for tables with a primary key."
@@ -5203,7 +5204,7 @@ msgstr "Název pro zobrazení při HTTP přihlašování."
 
 #: libraries/classes/Config/Descriptions.php:990
 msgid "HTTP Realm"
-msgstr "HTTP doméma"
+msgstr "HTTP doména"
 
 #: libraries/classes/Config/Descriptions.php:992
 msgid "Authentication method to use."
@@ -5767,7 +5768,7 @@ msgstr "Zobrazí seznam funkcí v editačním režimu."
 
 #: libraries/classes/Config/Descriptions.php:1298
 msgid "Show function fields"
-msgstr "Zobrazit seznam fukncí"
+msgstr "Zobrazit seznam funkcí"
 
 #: libraries/classes/Config/Descriptions.php:1300
 msgid "Whether to show hint or not."
@@ -7562,7 +7563,7 @@ msgid ""
 "default value is 16MB."
 msgstr ""
 "Velikost, jaké musí transakční log dosáhnout předtím, než je vytvořen nový "
-"soubor. Východzí velikost je 16MB."
+"soubor. Výchozí velikost je 16MB."
 
 #: libraries/classes/Engines/Pbxt.php:66
 msgid "Transaction buffer size"
@@ -7573,7 +7574,7 @@ msgid ""
 "The size of the global transaction log buffer (the engine allocates 2 "
 "buffers of this size). The default is 1MB."
 msgstr ""
-"Velikost vyrovnávací paměti logu souhrných transakcí (vytváří se 2 "
+"Velikost vyrovnávací paměti logu globálních transakcí (vytváří se 2 "
 "vyrovnávací paměti). Výchozí velikost je 1MB."
 
 #: libraries/classes/Engines/Pbxt.php:75
@@ -9417,7 +9418,8 @@ msgstr "Exportovat metadata"
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
-"Datázový systém nebo starší verze MySQL se kterým má být výstup kompatibilní:"
+"Databázový systém nebo starší verze MySQL, se kterým má být výstup "
+"kompatibilní:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:236
 msgid "Add statements:"
@@ -12237,8 +12239,8 @@ msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
 msgstr ""
-"Počet vláken používaných pro INSERT DELAYED. Každá tabulka na které je "
-"použit INSERT DEKAYED má přiděleno jedno vlákno."
+"Počet vláken používaných pro INSERT DELAYED. Každá tabulka, na které je "
+"použitý INSERT DELAYED, má přiděleno jedno vlákno."
 
 #: libraries/classes/Server/Status/Variables.php:383
 msgid "The number of INSERT DELAYED rows written."
@@ -13134,7 +13136,7 @@ msgstr "Nebyla zadána žádná část klíče!"
 #: libraries/classes/Table.php:2427
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
-msgstr "Chyba při vytváření cizího klíče na %1$s (zkotrolujte typ pole)"
+msgstr "Chyba při vytváření cizího klíče na %1$s (zkontrolujte datové typy)"
 
 #: libraries/classes/Template.php:127
 #, php-format
@@ -15315,7 +15317,7 @@ msgstr "Vybrat \"%s\""
 #: templates/database/designer/database_tables.twig:126
 #, php-format
 msgid "Add an option for column \"%s\"."
-msgstr "Přidat paramer pro sloupec „%s“."
+msgstr "Přidat parametr pro sloupec „%s“."
 
 #: templates/database/designer/aggregate_query_panel.twig:22
 #: templates/database/designer/options_panel.twig:99
