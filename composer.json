@@ -50,7 +50,7 @@
         "phpmyadmin/motranslator": "^4.0",
         "phpmyadmin/shapefile": "^2.0",
         "phpmyadmin/sql-parser": "^5.0",
-        "phpmyadmin/twig-i18n-extension": "^2.0",
+        "phpmyadmin/twig-i18n-extension": "^3.0",
         "phpseclib/phpseclib": "^2.0",
         "symfony/config": "^4.2.8",
         "symfony/dependency-injection": "^4.2.8",
