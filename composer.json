@@ -81,7 +81,6 @@
         "samyoul/u2f-php-server": "For FIDO U2F authentication"
     },
     "require-dev": {
-        "codacy/coverage": "^1.3.0",
         "php-webdriver/webdriver": "^1.7.1",
         "phpmyadmin/coding-standard": "^1.0",
         "phpstan/phpstan": "^0.11.5",
