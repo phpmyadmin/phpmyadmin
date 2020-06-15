@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-06-15 13:18+0200\n"
-"PO-Revision-Date: 2020-05-13 11:44+0000\n"
+"PO-Revision-Date: 2020-06-16 13:41+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.1-dev\n"
+"X-Generator: Weblate 4.1.1-dev\n"
 
 #: js/messages.php:52
 msgid "Confirm"
@@ -1613,6 +1613,8 @@ msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr ""
+"De HEX functie behandeld de integer als tekst bij het berekenen van de "
+"hexadecimale waarde"
 
 #: js/messages.php:518
 msgid ""
@@ -3983,10 +3985,6 @@ msgid "Maximum tables"
 msgstr "Maximum aantal tabellen"
 
 #: libraries/classes/Config/Descriptions.php:512
-#, fuzzy
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
@@ -5065,12 +5063,10 @@ msgid "Retain query box"
 msgstr "Queryveld behouden"
 
 #: libraries/classes/Config/Descriptions.php:883
-#, fuzzy
-#| msgid "Allow to display database and table statistics (eg. space usage)."
 msgid "Allow to display database and table statistics (e.g. space usage)."
 msgstr ""
-"Maakt het mogelijk om statistieken van databases en tabellen te tonen (over "
-"o.a. het schijfgebruik)."
+"Sta toe om statistieken van databases en tabellen te tonen (over o.a. het "
+"schijfgebruik)."
 
 #: libraries/classes/Config/Descriptions.php:884
 msgid "Show statistics"
@@ -5993,10 +5989,8 @@ msgstr "onbekend"
 #: libraries/classes/Controllers/Database/StructureController.php:1663
 #: libraries/classes/Controllers/Database/StructureController.php:1686
 #: libraries/classes/Controllers/Database/StructureController.php:1709
-#, fuzzy
-#| msgid "No tables selected."
 msgid "No table selected."
-msgstr "Geen tabellen geselecteerd."
+msgstr "Geen tabel geselecteerd."
 
 #: libraries/classes/Controllers/Database/StructureController.php:1648
 #: libraries/classes/Controllers/Database/StructureController.php:1671
@@ -14403,8 +14397,8 @@ msgid ""
 "browsers."
 msgstr ""
 "Het geüploade bestand is mogelijk groter dan de limiet toestaat, of u heeft "
-"last van een een bekende bug in op webkit gebaseerde browsers (Safari, "
-"Google Chrome, Arora, enz.)."
+"last van een bekende bug in op webkit gebaseerde browsers (Safari, Google "
+"Chrome, Arora, enz.)."
 
 #: templates/display/import/javascript.twig:13
 #, php-format
