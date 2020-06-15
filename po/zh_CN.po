@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-06-11 13:50+0200\n"
+"POT-Creation-Date: 2020-06-15 13:18+0200\n"
 "PO-Revision-Date: 2020-02-13 17:50+0000\n"
 "Last-Translator: popcorner <memoword@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -243,7 +243,7 @@ msgstr "模拟查询"
 msgid "Matched rows:"
 msgstr "受影响的行数："
 
-#: js/messages.php:132 libraries/classes/Html/Generator.php:1016
+#: js/messages.php:132 libraries/classes/Html/Generator.php:1013
 msgid "SQL query:"
 msgstr "SQL 查询："
 
@@ -489,7 +489,7 @@ msgstr "请至少添加一个数据！"
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:96
 #: libraries/config.values.php:111
 #: templates/columns_definitions/transformation.twig:4
-#: templates/database/designer/main.twig:592
+#: templates/database/designer/main.twig:590
 #: templates/display/export/options_output_compression.twig:7
 #: templates/server/privileges/privileges_summary.twig:30
 #: templates/server/status/monitor/index.twig:204
@@ -721,17 +721,17 @@ msgstr "表格"
 msgid "Chart"
 msgstr "图表"
 
-#: js/messages.php:290 libraries/classes/Display/Export.php:588
+#: js/messages.php:290 libraries/classes/Display/Export.php:585
 msgctxt "Alias"
 msgid "Database"
 msgstr "数据库"
 
-#: js/messages.php:291 libraries/classes/Display/Export.php:600
+#: js/messages.php:291 libraries/classes/Display/Export.php:597
 msgctxt "Alias"
 msgid "Table"
 msgstr "表"
 
-#: js/messages.php:292 libraries/classes/Display/Export.php:611
+#: js/messages.php:292 libraries/classes/Display/Export.php:608
 msgctxt "Alias"
 msgid "Column"
 msgstr "字段"
@@ -894,13 +894,13 @@ msgstr "未找到参数！"
 msgid "Go"
 msgstr "执行"
 
-#: js/messages.php:335 templates/database/designer/main.twig:343
-#: templates/database/designer/main.twig:394
-#: templates/database/designer/main.twig:672
-#: templates/database/designer/main.twig:738
-#: templates/database/designer/main.twig:877
-#: templates/database/designer/main.twig:962
-#: templates/database/designer/main.twig:1067
+#: js/messages.php:335 templates/database/designer/main.twig:341
+#: templates/database/designer/main.twig:392
+#: templates/database/designer/main.twig:670
+#: templates/database/designer/main.twig:736
+#: templates/database/designer/main.twig:875
+#: templates/database/designer/main.twig:960
+#: templates/database/designer/main.twig:1065
 #: templates/server/variables/index.twig:15
 msgid "Cancel"
 msgstr "取消"
@@ -969,12 +969,12 @@ msgid "Adding primary key"
 msgstr "正在添加主键"
 
 #: js/messages.php:357 templates/console/display.twig:129
-#: templates/database/designer/main.twig:341
-#: templates/database/designer/main.twig:670
-#: templates/database/designer/main.twig:734
-#: templates/database/designer/main.twig:873
-#: templates/database/designer/main.twig:958
-#: templates/database/designer/main.twig:1065
+#: templates/database/designer/main.twig:339
+#: templates/database/designer/main.twig:668
+#: templates/database/designer/main.twig:732
+#: templates/database/designer/main.twig:871
+#: templates/database/designer/main.twig:956
+#: templates/database/designer/main.twig:1063
 msgid "OK"
 msgstr "确定"
 
@@ -1140,8 +1140,8 @@ msgstr "显示查询框"
 #: js/messages.php:400 libraries/classes/CentralColumns.php:953
 #: libraries/classes/Config/Descriptions.php:889
 #: libraries/classes/Display/Results.php:3240
-#: libraries/classes/Html/Generator.php:782
-#: libraries/classes/Html/Generator.php:1044
+#: libraries/classes/Html/Generator.php:779
+#: libraries/classes/Html/Generator.php:1041
 #: libraries/classes/Server/UserGroups.php:125 libraries/classes/Util.php:3208
 #: libraries/classes/Util.php:3209 templates/console/bookmark_content.twig:7
 #: templates/console/display.twig:31 templates/console/display.twig:175
@@ -1168,7 +1168,7 @@ msgstr "编辑"
 #: libraries/classes/Tracking.php:275 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:284
 #: templates/database/central_columns/main.twig:409
-#: templates/database/designer/main.twig:392
+#: templates/database/designer/main.twig:390
 #: templates/database/qbe/ins_del_and_or_cell.twig:18
 #: templates/database/search/results.twig:43
 #: templates/display/export/template_loading.twig:22
@@ -1297,7 +1297,7 @@ msgid "No partial dependencies selected!"
 msgstr "没有已选择的局部依赖！"
 
 #: js/messages.php:439 js/messages.php:604 libraries/classes/Export.php:598
-#: libraries/classes/Html/Generator.php:1120
+#: libraries/classes/Html/Generator.php:1117
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:304
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -1433,13 +1433,13 @@ msgid "Data point content"
 msgstr "数据点内容"
 
 #: js/messages.php:495 js/messages.php:670
-#: libraries/classes/ErrorHandler.php:400 libraries/classes/InsertEdit.php:3123
+#: libraries/classes/ErrorHandler.php:400 libraries/classes/InsertEdit.php:3128
 #: templates/table/index_form.twig:157 templates/table/index_form.twig:193
 msgid "Ignore"
 msgstr "忽略"
 
 #: js/messages.php:496 libraries/classes/Display/Results.php:3244
-#: libraries/classes/Html/Generator.php:71
+#: libraries/classes/Html/Generator.php:68
 #: templates/display/results/table.twig:212
 msgid "Copy"
 msgstr "复制"
@@ -1499,8 +1499,8 @@ msgid "Add an inner ring"
 msgstr "添加内环"
 
 #: js/messages.php:508 libraries/classes/Config/FormDisplayTemplate.php:319
-#: libraries/classes/Controllers/Database/StructureController.php:421
-#: libraries/classes/Controllers/Database/StructureController.php:596
+#: libraries/classes/Controllers/Database/StructureController.php:419
+#: libraries/classes/Controllers/Database/StructureController.php:532
 #: libraries/classes/Controllers/Table/DeleteController.php:27
 #: libraries/classes/Controllers/Table/StructureController.php:483
 #: libraries/classes/Controllers/Table/StructureController.php:501
@@ -1514,9 +1514,9 @@ msgstr "添加内环"
 #: templates/database/central_columns/main.twig:370
 #: templates/database/data_dictionary/index.twig:39
 #: templates/database/data_dictionary/index.twig:83
-#: templates/database/privileges/index.twig:69 templates/indexes.twig:58
-#: templates/mult_submits/add_prefix_table.twig:15
-#: templates/mult_submits/copy_multiple_tables.twig:55
+#: templates/database/privileges/index.twig:69
+#: templates/database/structure/add_prefix.twig:15
+#: templates/database/structure/copy_form.twig:55 templates/indexes.twig:58
 #: templates/mult_submits/other_actions.twig:21
 #: templates/mult_submits/replace_prefix_table.twig:20
 #: templates/preferences/autoload.twig:11
@@ -1585,8 +1585,8 @@ msgstr "选择外键"
 msgid "Please select the primary key or a unique key!"
 msgstr "请选择主键或唯一键！"
 
-#: js/messages.php:538 templates/database/designer/main.twig:100
-#: templates/database/designer/main.twig:103
+#: js/messages.php:538 templates/database/designer/main.twig:98
+#: templates/database/designer/main.twig:101
 msgid "Choose column to display"
 msgstr "选择要显示的字段"
 
@@ -1600,8 +1600,8 @@ msgstr "尚未保存当前布局。如果继续将会丢失本次的修改。是
 msgid "value/subQuery is empty"
 msgstr "值/子查询为空"
 
-#: js/messages.php:544 templates/database/designer/main.twig:42
-#: templates/database/designer/main.twig:45
+#: js/messages.php:544 templates/database/designer/main.twig:40
+#: templates/database/designer/main.twig:43
 msgid "Add tables from other databases"
 msgstr "从其他数据库中添加表"
 
@@ -1609,18 +1609,18 @@ msgstr "从其他数据库中添加表"
 msgid "Page name"
 msgstr "页面名称"
 
-#: js/messages.php:546 templates/database/designer/main.twig:65
-#: templates/database/designer/main.twig:68
+#: js/messages.php:546 templates/database/designer/main.twig:63
+#: templates/database/designer/main.twig:66
 msgid "Save page"
 msgstr "保存页面"
 
-#: js/messages.php:547 templates/database/designer/main.twig:72
-#: templates/database/designer/main.twig:75
+#: js/messages.php:547 templates/database/designer/main.twig:70
+#: templates/database/designer/main.twig:73
 msgid "Save page as"
 msgstr "保存页面为"
 
-#: js/messages.php:548 templates/database/designer/main.twig:58
-#: templates/database/designer/main.twig:61
+#: js/messages.php:548 templates/database/designer/main.twig:56
+#: templates/database/designer/main.twig:59
 msgid "Open page"
 msgstr "打开页面"
 
@@ -1628,7 +1628,7 @@ msgstr "打开页面"
 msgid "Delete page"
 msgstr "删除页面"
 
-#: js/messages.php:550 templates/database/designer/main.twig:12
+#: js/messages.php:550 templates/database/designer/main.twig:10
 msgid "Untitled"
 msgstr "未命名"
 
@@ -1855,6 +1855,7 @@ msgid "up to date"
 msgstr "已更新"
 
 #: js/messages.php:644 libraries/classes/Display/Results.php:4650
+#: templates/database/structure/show_create.twig:33
 #: templates/display/results/table.twig:276 templates/view_create.twig:11
 msgid "Create view"
 msgstr "新建视图"
@@ -2147,7 +2148,7 @@ msgid "Description"
 msgstr "说明"
 
 #: libraries/classes/BrowseForeigners.php:331
-#: libraries/classes/Html/Generator.php:1308 libraries/classes/Language.php:203
+#: libraries/classes/Html/Generator.php:1305 libraries/classes/Language.php:203
 #: libraries/classes/Pdf.php:89
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:508
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:545
@@ -3379,7 +3380,7 @@ msgstr "服务器显示选项。"
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Plugins/Export/ExportXml.php:130
 #: libraries/classes/Server/Status/Data.php:130
-#: templates/database/structure/show_create.twig:14
+#: templates/database/structure/show_create.twig:6
 msgid "Tables"
 msgstr "表"
 
@@ -4582,7 +4583,7 @@ msgid ""
 msgstr "设置当记录数据表创建时，是否在前面加上 DROP TABLE IF EXISTS 命令。"
 
 #: libraries/classes/Config/Descriptions.php:790
-#: templates/mult_submits/copy_multiple_tables.twig:34
+#: templates/database/structure/copy_form.twig:34
 msgid "Add DROP TABLE"
 msgstr "添加 DROP TABLE"
 
@@ -4832,12 +4833,12 @@ msgid "Skip locked tables"
 msgstr "跳过锁定的表"
 
 #: libraries/classes/Config/Descriptions.php:890
-#: libraries/classes/Html/Generator.php:746
+#: libraries/classes/Html/Generator.php:743
 msgid "Explain SQL"
 msgstr "解析 SQL"
 
 #: libraries/classes/Config/Descriptions.php:891
-#: libraries/classes/Export.php:603 libraries/classes/Html/Generator.php:826
+#: libraries/classes/Export.php:603 libraries/classes/Html/Generator.php:823
 #: templates/console/display.twig:99
 #: templates/server/status/processes/index.twig:10
 #: templates/server/status/variables/index.twig:12
@@ -4845,7 +4846,7 @@ msgid "Refresh"
 msgstr "刷新"
 
 #: libraries/classes/Config/Descriptions.php:892
-#: libraries/classes/Html/Generator.php:811
+#: libraries/classes/Html/Generator.php:808
 msgid "Create PHP code"
 msgstr "创建 PHP 代码"
 
@@ -4945,6 +4946,7 @@ msgstr "选中一张数据表时浏览器窗口的标题。"
 #: libraries/classes/Plugins/Export/ExportXml.php:517
 #: libraries/classes/Server/Privileges.php:1968
 #: libraries/classes/Server/Privileges.php:1970
+#: templates/database/structure/show_create.twig:10
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
 #: templates/database/tracking/tables.twig:120
@@ -5219,9 +5221,9 @@ msgid "maximum %s"
 msgstr "最大 %s"
 
 #: libraries/classes/Config/FormDisplayTemplate.php:194
-#: libraries/classes/Display/Export.php:353
+#: libraries/classes/Display/Export.php:350
 #: libraries/classes/Engines/Pbxt.php:168
-#: libraries/classes/Html/Generator.php:910
+#: libraries/classes/Html/Generator.php:907
 #: libraries/classes/Html/MySQLDocumentation.php:49
 #: libraries/classes/Sanitize.php:204 templates/home/index.twig:183
 #: templates/server/variables/index.twig:17
@@ -5624,37 +5626,33 @@ msgstr "收藏夹数量已达上限！"
 msgid "With selected:"
 msgstr "选中项："
 
-#: libraries/classes/Controllers/Database/StructureController.php:841
-msgid "Success!"
-msgstr "成功！"
-
-#: libraries/classes/Controllers/Database/StructureController.php:844
+#: libraries/classes/Controllers/Database/StructureController.php:768
 #: libraries/classes/Controllers/Table/OperationsController.php:314
 #: libraries/classes/Controllers/Table/ReplaceController.php:397
 #: libraries/classes/Core.php:843 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "无更改"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1016
+#: libraries/classes/Controllers/Database/StructureController.php:940
 #: templates/table/operations/index.twig:356
 #: templates/table/operations/view.twig:27
 #, php-format
 msgid "View %s has been dropped."
 msgstr "已删除视图 %s。"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1017
+#: libraries/classes/Controllers/Database/StructureController.php:941
 #: templates/table/operations/index.twig:356
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "已删除表 %s。"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1073
+#: libraries/classes/Controllers/Database/StructureController.php:997
 #: templates/table/operations/index.twig:335
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "已清空表 %s。"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1245
+#: libraries/classes/Controllers/Database/StructureController.php:1169
 #: libraries/classes/Display/Results.php:4446
 #, php-format
 msgid ""
@@ -5662,9 +5660,27 @@ msgid ""
 "%s."
 msgstr "此视图的行数最少有这么多。请参阅%s档案%s。"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1482
+#: libraries/classes/Controllers/Database/StructureController.php:1406
 msgid "unknown"
 msgstr "未知"
+
+#: libraries/classes/Controllers/Database/StructureController.php:1547
+#: libraries/classes/Controllers/Database/StructureController.php:1563
+#: libraries/classes/Controllers/Database/StructureController.php:1604
+#: libraries/classes/Controllers/Database/StructureController.php:1640
+#: libraries/classes/Controllers/Database/StructureController.php:1663
+#: libraries/classes/Controllers/Database/StructureController.php:1686
+#: libraries/classes/Controllers/Database/StructureController.php:1709
+#, fuzzy
+#| msgid "No tables selected."
+msgid "No table selected."
+msgstr "没有已选择的表。"
+
+#: libraries/classes/Controllers/Database/StructureController.php:1648
+#: libraries/classes/Controllers/Database/StructureController.php:1671
+#: libraries/classes/Controllers/Database/StructureController.php:1694
+msgid "Success!"
+msgstr "成功！"
 
 #: libraries/classes/Controllers/Database/TrackingController.php:82
 #: libraries/classes/Controllers/Database/TrackingController.php:102
@@ -7122,6 +7138,7 @@ msgstr "MySQL 返回的查询结果为空 (即零行)。"
 #: libraries/classes/Controllers/Table/OperationsController.php:296
 #: libraries/classes/Controllers/Table/StructureController.php:126
 #: libraries/classes/Navigation/Nodes/NodeView.php:29
+#: templates/database/structure/show_create.twig:32
 #: templates/database/structure/structure_table_row.twig:124
 #: templates/database/structure/structure_table_row.twig:188
 msgid "View"
@@ -7291,7 +7308,7 @@ msgid "View name can not be empty!"
 msgstr "视图名不可为空！"
 
 #: libraries/classes/Controllers/ViewOperationsController.php:80
-#: libraries/classes/Core.php:292 libraries/classes/Html/Generator.php:992
+#: libraries/classes/Core.php:292 libraries/classes/Html/Generator.php:989
 #: libraries/classes/Import.php:140 libraries/classes/InsertEdit.php:1581
 #: libraries/classes/Message.php:197 templates/javascript/variables.twig:108
 msgid "Error"
@@ -7408,7 +7425,7 @@ msgstr "下列查询失败了: \"%s\""
 #: libraries/classes/Database/Triggers.php:144
 #: libraries/classes/Database/Triggers.php:169
 #: libraries/classes/Database/Triggers.php:550
-#: libraries/classes/Html/Generator.php:1064
+#: libraries/classes/Html/Generator.php:1061
 msgid "MySQL said: "
 msgstr "MySQL 返回： "
 
@@ -7710,7 +7727,7 @@ msgstr "是否固定"
 #: templates/columns_definitions/table_fields_definitions.twig:36
 #: templates/database/operations/index.twig:74
 #: templates/database/operations/index.twig:178
-#: templates/mult_submits/copy_multiple_tables.twig:50
+#: templates/database/structure/copy_form.twig:50
 #: templates/table/operations/index.twig:81
 #: templates/table/operations/index.twig:115
 #: templates/table/operations/index.twig:293
@@ -7815,10 +7832,10 @@ msgstr "函数"
 
 #: libraries/classes/Database/Routines.php:1714
 #: libraries/classes/InsertEdit.php:2013
-#: templates/database/designer/main.twig:488
-#: templates/database/designer/main.twig:653
-#: templates/database/designer/main.twig:859
-#: templates/database/designer/main.twig:1052
+#: templates/database/designer/main.twig:486
+#: templates/database/designer/main.twig:651
+#: templates/database/designer/main.twig:857
+#: templates/database/designer/main.twig:1050
 #: templates/server/replication/status_table.twig:17
 #: templates/server/status/variables/index.twig:73
 #: templates/server/variables/index.twig:33
@@ -7964,19 +7981,19 @@ msgstr "服务器要求 SSL 连接，已自动启用 SSL。"
 msgid "Native MySQL authentication"
 msgstr "MySQL自带身份验证"
 
-#: libraries/classes/Display/Export.php:335
+#: libraries/classes/Display/Export.php:332
 msgid "@SERVER@ will become the server name"
 msgstr "@SERVER@ 将变成服务器名称"
 
-#: libraries/classes/Display/Export.php:337
+#: libraries/classes/Display/Export.php:334
 msgid ", @DATABASE@ will become the database name"
 msgstr "，@DATABASE@ 将变成数据库名"
 
-#: libraries/classes/Display/Export.php:339
+#: libraries/classes/Display/Export.php:336
 msgid ", @TABLE@ will become the table name"
 msgstr "，@TABLE@ 将变成数据表名"
 
-#: libraries/classes/Display/Export.php:345
+#: libraries/classes/Display/Export.php:342
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
@@ -7986,16 +8003,16 @@ msgstr ""
 "这个值是使用 %1$sstrftime%2$s 来解析的，所以你能用时间格式的字符串。另外，下"
 "列内容也将被转换：%3$s。其他文本将保持原样。参见%4$s常见问题 (FAQ)%5$s。"
 
-#: libraries/classes/Display/Export.php:580
+#: libraries/classes/Display/Export.php:577
 msgid "Defined aliases"
 msgstr "已定义的别名"
 
-#: libraries/classes/Display/Export.php:639
+#: libraries/classes/Display/Export.php:636
 #: templates/display/export/options_output.twig:7
 msgid "Rename exported databases/tables/columns"
 msgstr "重命名导出的数据库/表/列"
 
-#: libraries/classes/Display/Export.php:697
+#: libraries/classes/Display/Export.php:694
 msgid "Could not load export plugins, please check your installation!"
 msgstr "无法加载导出插件，请检查安装！"
 
@@ -8023,31 +8040,31 @@ msgid "authored on %1$s by %2$s"
 msgstr "%2$s 基于版本 %1$s 进行修改创作"
 
 #: libraries/classes/Display/Results.php:940
+#: libraries/classes/Html/Generator.php:1317
 #: libraries/classes/Html/Generator.php:1320
-#: libraries/classes/Html/Generator.php:1323
 msgctxt "First page"
 msgid "Begin"
 msgstr "首页"
 
 #: libraries/classes/Display/Results.php:947
+#: libraries/classes/Html/Generator.php:1318
 #: libraries/classes/Html/Generator.php:1321
-#: libraries/classes/Html/Generator.php:1324
 #: templates/server/binlog/index.twig:47 templates/server/binlog/index.twig:52
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "上一页"
 
 #: libraries/classes/Display/Results.php:975
-#: libraries/classes/Html/Generator.php:1353
-#: libraries/classes/Html/Generator.php:1360
+#: libraries/classes/Html/Generator.php:1350
+#: libraries/classes/Html/Generator.php:1357
 #: templates/server/binlog/index.twig:72 templates/server/binlog/index.twig:77
 msgctxt "Next page"
 msgid "Next"
 msgstr "下一页"
 
 #: libraries/classes/Display/Results.php:1005
-#: libraries/classes/Html/Generator.php:1354
-#: libraries/classes/Html/Generator.php:1361
+#: libraries/classes/Html/Generator.php:1351
+#: libraries/classes/Html/Generator.php:1358
 msgctxt "Last page"
 msgid "End"
 msgstr "尾页"
@@ -8573,74 +8590,74 @@ msgstr "打开新的 phpMyAdmin 窗口"
 msgid "Print view"
 msgstr "打印预览"
 
-#: libraries/classes/Html/Generator.php:182
+#: libraries/classes/Html/Generator.php:179
 #, php-format
 msgid "Jump to database “%s”."
 msgstr "转到数据库 “%s”。"
 
-#: libraries/classes/Html/Generator.php:208
+#: libraries/classes/Html/Generator.php:205
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "功能 %s 受到一个已知缺陷的影响，参见 %s"
 
-#: libraries/classes/Html/Generator.php:321
+#: libraries/classes/Html/Generator.php:318
 msgid "SSL is not being used"
 msgstr "SSL未被使用"
 
-#: libraries/classes/Html/Generator.php:326
+#: libraries/classes/Html/Generator.php:323
 msgid "SSL is used with disabled verification"
 msgstr "SSL在禁用验证的状态下使用"
 
-#: libraries/classes/Html/Generator.php:328
+#: libraries/classes/Html/Generator.php:325
 msgid "SSL is used without certification authority"
 msgstr "SSL在没有证书颁发机构的情况下使用"
 
-#: libraries/classes/Html/Generator.php:331
+#: libraries/classes/Html/Generator.php:328
 msgid "SSL is used"
 msgstr "已使用SSL"
 
-#: libraries/classes/Html/Generator.php:454
+#: libraries/classes/Html/Generator.php:451
 msgid "The PHP function password_hash() with default options."
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:455
+#: libraries/classes/Html/Generator.php:452
 msgid "password_hash() PHP function"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:757
+#: libraries/classes/Html/Generator.php:754
 msgid "Skip Explain SQL"
 msgstr "略过解析 SQL"
 
-#: libraries/classes/Html/Generator.php:765
+#: libraries/classes/Html/Generator.php:762
 #, php-format
 msgid "Analyze Explain at %s"
 msgstr "分析解释了%s"
 
-#: libraries/classes/Html/Generator.php:795
+#: libraries/classes/Html/Generator.php:792
 msgid "Without PHP code"
 msgstr "无 PHP 代码"
 
-#: libraries/classes/Html/Generator.php:802
-#: templates/database/multi_table_query/form.twig:172
+#: libraries/classes/Html/Generator.php:799
+#: templates/database/multi_table_query/form.twig:170
 #: templates/database/qbe/selection_form.twig:115
 msgid "Submit query"
 msgstr "提交查询"
 
-#: libraries/classes/Html/Generator.php:847 templates/console/display.twig:31
+#: libraries/classes/Html/Generator.php:844 templates/console/display.twig:31
 #: templates/console/display.twig:175 templates/sql/profiling_chart.twig:2
 msgid "Profiling"
 msgstr "性能分析"
 
-#: libraries/classes/Html/Generator.php:861
+#: libraries/classes/Html/Generator.php:858
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "编辑内嵌"
 
-#: libraries/classes/Html/Generator.php:999
+#: libraries/classes/Html/Generator.php:996
 msgid "Static analysis:"
 msgstr "静态分析："
 
-#: libraries/classes/Html/Generator.php:1002
+#: libraries/classes/Html/Generator.php:999
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "分析时发现%d个错误。"
@@ -9147,7 +9164,7 @@ msgstr "新建"
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:24
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:25
 #: libraries/classes/Plugins/Export/ExportXml.php:140
-#: templates/database/structure/show_create.twig:24
+#: templates/database/structure/show_create.twig:28
 msgid "Views"
 msgstr "视图"
 
@@ -9847,8 +9864,8 @@ msgstr "PHP 版本："
 #: libraries/classes/Plugins/Export/ExportSql.php:948
 #: libraries/classes/Plugins/Export/ExportXml.php:428
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:175
+#: templates/database/structure/copy_form.twig:5
 #: templates/menu/breadcrumbs.twig:16
-#: templates/mult_submits/copy_multiple_tables.twig:5
 msgid "Database:"
 msgstr "数据库："
 
@@ -10627,11 +10644,11 @@ msgid ""
 msgstr ""
 "使用HOTP和TOTP应用程序（如FreeOTP，Google身份验证器或Authy）提供身份验证。"
 
-#: libraries/classes/Plugins/TwoFactor/Key.php:206
+#: libraries/classes/Plugins/TwoFactor/Key.php:203
 msgid "Hardware Security Key (FIDO U2F)"
 msgstr "硬件安全密钥（FIDO U2F）"
 
-#: libraries/classes/Plugins/TwoFactor/Key.php:216
+#: libraries/classes/Plugins/TwoFactor/Key.php:213
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F."
 msgstr "使用支持FIDO U2F的硬件安全令牌提供身份验证。"
@@ -11354,7 +11371,7 @@ msgstr "没有定义的索引部分！"
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "在 %1$s 创建外键时发生错误 (检查数据类型)"
 
-#: libraries/classes/Template.php:113
+#: libraries/classes/Template.php:111
 #, php-format
 msgid "Error while working with template cache: %s"
 msgstr "使用模板缓存时出错：%s"
@@ -11403,21 +11420,21 @@ msgstr "无数据"
 
 #: libraries/classes/Tracking.php:334
 #: templates/database/operations/index.twig:136
-#: templates/mult_submits/copy_multiple_tables.twig:19
+#: templates/database/structure/copy_form.twig:19
 #: templates/table/operations/index.twig:253
 msgid "Structure only"
 msgstr "仅结构"
 
 #: libraries/classes/Tracking.php:337
 #: templates/database/operations/index.twig:148
-#: templates/mult_submits/copy_multiple_tables.twig:29
+#: templates/database/structure/copy_form.twig:29
 #: templates/table/operations/index.twig:265
 msgid "Data only"
 msgstr "仅数据"
 
 #: libraries/classes/Tracking.php:340
 #: templates/database/operations/index.twig:142
-#: templates/mult_submits/copy_multiple_tables.twig:24
+#: templates/database/structure/copy_form.twig:24
 #: templates/table/operations/index.twig:259
 msgid "Structure and data"
 msgstr "结构和数据"
@@ -12210,7 +12227,7 @@ msgstr "是外键。"
 msgid "Pick from Central Columns"
 msgstr "从中央列中挑选"
 
-#: templates/columns_definitions/column_virtuality.twig:30
+#: templates/columns_definitions/column_virtuality.twig:28
 #: templates/table/structure/display_partitions.twig:26
 msgid "Expression"
 msgstr "表达式"
@@ -12560,9 +12577,10 @@ msgid "Action"
 msgstr "操作"
 
 #: templates/database/create_table.twig:7
-#: templates/database/designer/main.twig:86
-#: templates/database/designer/main.twig:89
+#: templates/database/designer/main.twig:84
+#: templates/database/designer/main.twig:87
 #: templates/database/operations/index.twig:29
+#: templates/database/structure/show_create.twig:11
 msgid "Create table"
 msgstr "新建数据表"
 
@@ -12621,159 +12639,159 @@ msgstr "要打开的页面"
 msgid "Page to delete"
 msgstr "要删除的页面"
 
-#: templates/database/designer/main.twig:21
-#: templates/database/designer/main.twig:27
+#: templates/database/designer/main.twig:19
+#: templates/database/designer/main.twig:25
 msgid "Show/Hide tables list"
 msgstr "显示/隐藏表格列表"
 
-#: templates/database/designer/main.twig:31
-#: templates/database/designer/main.twig:37
-#: templates/database/designer/main.twig:38
+#: templates/database/designer/main.twig:29
+#: templates/database/designer/main.twig:35
+#: templates/database/designer/main.twig:36
 msgid "View in fullscreen"
 msgstr "全屏查看"
 
-#: templates/database/designer/main.twig:36
+#: templates/database/designer/main.twig:34
 msgid "Exit fullscreen"
 msgstr "退出全屏"
 
-#: templates/database/designer/main.twig:50
-#: templates/database/designer/main.twig:54
+#: templates/database/designer/main.twig:48
+#: templates/database/designer/main.twig:52
 msgid "New page"
 msgstr "新页面"
 
-#: templates/database/designer/main.twig:79
-#: templates/database/designer/main.twig:82
+#: templates/database/designer/main.twig:77
+#: templates/database/designer/main.twig:80
 msgid "Delete pages"
 msgstr "删除页"
 
-#: templates/database/designer/main.twig:93
-#: templates/database/designer/main.twig:96
-#: templates/database/designer/main.twig:275
+#: templates/database/designer/main.twig:91
+#: templates/database/designer/main.twig:94
+#: templates/database/designer/main.twig:273
 msgid "Create relationship"
 msgstr "创建关系"
 
-#: templates/database/designer/main.twig:107
-#: templates/database/designer/main.twig:110
+#: templates/database/designer/main.twig:105
+#: templates/database/designer/main.twig:108
 msgid "Reload"
 msgstr "重新载入"
 
-#: templates/database/designer/main.twig:116
-#: templates/database/designer/main.twig:119
+#: templates/database/designer/main.twig:114
+#: templates/database/designer/main.twig:117
 msgid "Help"
 msgstr "帮助"
 
-#: templates/database/designer/main.twig:124
-#: templates/database/designer/main.twig:127
+#: templates/database/designer/main.twig:122
+#: templates/database/designer/main.twig:125
 msgid "Angular links"
 msgstr "折角连接"
 
-#: templates/database/designer/main.twig:124
-#: templates/database/designer/main.twig:127
+#: templates/database/designer/main.twig:122
+#: templates/database/designer/main.twig:125
 msgid "Direct links"
 msgstr "直接连接"
 
+#: templates/database/designer/main.twig:129
 #: templates/database/designer/main.twig:131
-#: templates/database/designer/main.twig:133
 msgid "Snap to grid"
 msgstr "对齐网格"
 
-#: templates/database/designer/main.twig:137
-#: templates/database/designer/main.twig:143
+#: templates/database/designer/main.twig:135
+#: templates/database/designer/main.twig:141
 msgid "Small/Big All"
 msgstr "全部收缩/展开"
 
-#: templates/database/designer/main.twig:147
-#: templates/database/designer/main.twig:150
+#: templates/database/designer/main.twig:145
+#: templates/database/designer/main.twig:148
 msgid "Toggle small/big"
 msgstr "反向收缩/展开"
 
-#: templates/database/designer/main.twig:154
-#: templates/database/designer/main.twig:157
+#: templates/database/designer/main.twig:152
+#: templates/database/designer/main.twig:155
 msgid "Toggle relationship lines"
 msgstr "显示/隐藏关系线"
 
-#: templates/database/designer/main.twig:162
-#: templates/database/designer/main.twig:165
+#: templates/database/designer/main.twig:160
+#: templates/database/designer/main.twig:163
 msgid "Export schema"
 msgstr "导出架构"
 
-#: templates/database/designer/main.twig:173
-#: templates/database/designer/main.twig:176
+#: templates/database/designer/main.twig:171
+#: templates/database/designer/main.twig:174
 msgid "Build Query"
 msgstr "生成查询"
 
-#: templates/database/designer/main.twig:181
-#: templates/database/designer/main.twig:185
+#: templates/database/designer/main.twig:179
+#: templates/database/designer/main.twig:183
 msgid "Move Menu"
 msgstr "移动菜单"
 
-#: templates/database/designer/main.twig:189
-#: templates/database/designer/main.twig:194
+#: templates/database/designer/main.twig:187
+#: templates/database/designer/main.twig:192
 msgid "Pin text"
 msgstr "固定文字"
 
-#: templates/database/designer/main.twig:206
+#: templates/database/designer/main.twig:204
 msgid "Hide/Show all"
 msgstr "全部隐藏/显示"
 
-#: templates/database/designer/main.twig:216
+#: templates/database/designer/main.twig:214
 msgid "Hide/Show tables with no relationship"
 msgstr "隐藏/显示没有关联的表"
 
-#: templates/database/designer/main.twig:227
+#: templates/database/designer/main.twig:225
 msgid "Number of tables:"
 msgstr "数据表数量："
 
-#: templates/database/designer/main.twig:385
+#: templates/database/designer/main.twig:383
 msgid "Delete relationship"
 msgstr "删除关系"
 
-#: templates/database/designer/main.twig:449
-#: templates/database/designer/main.twig:614
+#: templates/database/designer/main.twig:447
+#: templates/database/designer/main.twig:612
 msgid "Relationship operator"
 msgstr "关系运算符"
 
-#: templates/database/designer/main.twig:478
-#: templates/database/designer/main.twig:643
-#: templates/database/designer/main.twig:849
-#: templates/database/designer/main.twig:1042
+#: templates/database/designer/main.twig:476
+#: templates/database/designer/main.twig:641
+#: templates/database/designer/main.twig:847
+#: templates/database/designer/main.twig:1040
 msgid "Except"
 msgstr "EXCEPT"
 
-#: templates/database/designer/main.twig:490
-#: templates/database/designer/main.twig:655
-#: templates/database/designer/main.twig:861
-#: templates/database/designer/main.twig:1054
+#: templates/database/designer/main.twig:488
+#: templates/database/designer/main.twig:653
+#: templates/database/designer/main.twig:859
+#: templates/database/designer/main.twig:1052
 msgid "subquery"
 msgstr "子查询"
 
-#: templates/database/designer/main.twig:499
-#: templates/database/designer/main.twig:715
+#: templates/database/designer/main.twig:497
+#: templates/database/designer/main.twig:713
 msgid "Rename to"
 msgstr "改名为"
 
-#: templates/database/designer/main.twig:505
-#: templates/database/designer/main.twig:723
+#: templates/database/designer/main.twig:503
+#: templates/database/designer/main.twig:721
 msgid "New name"
 msgstr "新名称"
 
-#: templates/database/designer/main.twig:514
-#: templates/database/designer/main.twig:920
+#: templates/database/designer/main.twig:512
+#: templates/database/designer/main.twig:918
 msgid "Aggregate"
 msgstr "聚合"
 
-#: templates/database/designer/main.twig:520
-#: templates/database/designer/main.twig:584
-#: templates/database/designer/main.twig:789
-#: templates/database/designer/main.twig:820
-#: templates/database/designer/main.twig:928
-#: templates/database/designer/main.twig:1013
+#: templates/database/designer/main.twig:518
+#: templates/database/designer/main.twig:582
+#: templates/database/designer/main.twig:787
+#: templates/database/designer/main.twig:818
+#: templates/database/designer/main.twig:926
+#: templates/database/designer/main.twig:1011
 #: templates/table/search/index.twig:41
 #: templates/table/zoom_search/index.twig:41
 msgid "Operator"
 msgstr "运算符"
 
-#: templates/database/designer/main.twig:1094
+#: templates/database/designer/main.twig:1092
 msgid "Active options"
 msgstr "当前选项"
 
@@ -12920,7 +12938,7 @@ msgstr "删除此列"
 msgid "+ Add column"
 msgstr "+ 添加字段"
 
-#: templates/database/multi_table_query/form.twig:171
+#: templates/database/multi_table_query/form.twig:169
 #: templates/database/qbe/selection_form.twig:80
 #: templates/database/qbe/selection_form.twig:96
 msgid "Update query"
@@ -12976,7 +12994,7 @@ msgid "CREATE DATABASE before copying"
 msgstr "复制前创建数据库 (CREATE DATABASE)"
 
 #: templates/database/operations/index.twig:170
-#: templates/mult_submits/copy_multiple_tables.twig:44
+#: templates/database/structure/copy_form.twig:44
 #: templates/table/operations/index.twig:284
 msgid "Add constraints"
 msgstr "添加约束"
@@ -13205,6 +13223,11 @@ msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
 msgstr[0] "<strong>总计：</strong> <em>%s</em> 个匹配"
 
+#: templates/database/structure/add_prefix.twig:7
+#: templates/database/structure/add_prefix.twig:9
+msgid "Add prefix"
+msgstr "添加前缀"
+
 #: templates/database/structure/body_for_table_summary.twig:6
 #, php-format
 msgid "%s table"
@@ -13262,14 +13285,19 @@ msgstr "从中央列表中删除列"
 msgid "Make consistent with central list"
 msgstr "与中央列表保持一致"
 
+#: templates/database/structure/copy_form.twig:14
+#, fuzzy
+#| msgid "Options"
+msgid "Options:"
+msgstr "选项"
+
+#: templates/database/structure/copy_form.twig:39
+msgid "Add AUTO INCREMENT value"
+msgstr "添加自增值"
+
 #: templates/database/structure/favorite_anchor.twig:4
 msgid "Add to Favorites"
 msgstr "添加到收藏"
-
-#: templates/database/structure/show_create_row.twig:7
-#, php-format
-msgid "Create %s"
-msgstr "新建%s"
 
 #: templates/database/structure/show_create.twig:2
 msgid "Showing create queries"
@@ -13525,11 +13553,11 @@ msgstr "转储部分记录"
 msgid "Number of rows:"
 msgstr "行数："
 
-#: templates/display/export/options_rows.twig:23
+#: templates/display/export/options_rows.twig:22
 msgid "Row to begin at:"
 msgstr "起始行数："
 
-#: templates/display/export/options_rows.twig:32
+#: templates/display/export/options_rows.twig:31
 msgid "Dump all rows"
 msgstr "转储所有行"
 
@@ -13698,11 +13726,11 @@ msgstr "约还需 %SEC 秒。"
 msgid "The file is being processed, please be patient."
 msgstr "正在处理，请稍候。"
 
-#: templates/display/import/javascript.twig:30
+#: templates/display/import/javascript.twig:29
 msgid "Uploading your import file…"
 msgstr "正在上传您的导入文件…"
 
-#: templates/display/import/javascript.twig:155
+#: templates/display/import/javascript.twig:153
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
@@ -14299,21 +14327,6 @@ msgstr "验证"
 #: templates/menu/breadcrumbs.twig:27
 msgid "View:"
 msgstr "视图："
-
-#: templates/mult_submits/add_prefix_table.twig:7
-#: templates/mult_submits/add_prefix_table.twig:9
-msgid "Add prefix"
-msgstr "添加前缀"
-
-#: templates/mult_submits/copy_multiple_tables.twig:14
-#, fuzzy
-#| msgid "Options"
-msgid "Options:"
-msgstr "选项"
-
-#: templates/mult_submits/copy_multiple_tables.twig:39
-msgid "Add AUTO INCREMENT value"
-msgstr "添加自增值"
 
 #: templates/mult_submits/other_actions.twig:6
 #: templates/table/delete/confirm.twig:12
@@ -17585,6 +17598,9 @@ msgstr ""
 #: libraries/advisory_rules_mysql_before80003.txt:57
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit 已被设为 1 MB"
+
+#~ msgid "Create %s"
+#~ msgstr "新建%s"
 
 #~ msgid ""
 #~ "You are using PHP's deprecated 'mysql' extension, which is not capable of "
