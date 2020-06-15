@@ -29,6 +29,7 @@
     </rule>
 
     <arg value="sp"/>
+    <arg name="cache" value=".phpcs-cache"/>
     <arg name="colors"/>
     <arg name="extensions" value="php"/>
 

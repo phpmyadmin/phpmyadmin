@@ -39,6 +39,7 @@ web.config
 revision-info.php
 # PHP_CodeSniffer
 phpcs.xml
+.phpcs-cache
 # PHPUnit
 phpunit.xml
 /test/bootstrap.php
