@@ -147,8 +147,8 @@ final class CacheWarmupCommand extends Command
             $output->writeln('Loading: ' . $name, OutputInterface::VERBOSITY_DEBUG);
             if (Environment::MAJOR_VERSION === 3) {
                 $template = $twig->loadTemplate($twig->getTemplateClass($name), $name);
-            } else {
-                $template = $twig->loadTemplate($name);
+            } else {// @phpstan-ignore-line Twig 2
+                $template = $twig->loadTemplate($name);// @phpstan-ignore-line Twig 2
             }
 
             // Generate line map

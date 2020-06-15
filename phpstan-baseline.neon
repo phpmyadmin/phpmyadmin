@@ -4097,7 +4097,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$node of method Twig\\\\Compiler\\:\\:subcompile\\(\\) expects Twig\\\\Node\\\\Node, Twig\\\\Node\\\\Node\\|null given\\.$#"
-			count: 1
+			count: 3
 			path: libraries/classes/Twig/I18n/NodeTrans.php
 
 		-

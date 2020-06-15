@@ -95,6 +95,11 @@
       <code>$row[0]</code>
     </PossiblyInvalidArrayAccess>
   </file>
+  <file src="libraries/classes/Command/CacheWarmupCommand.php">
+    <TooFewArguments occurrences="1">
+      <code>loadTemplate</code>
+    </TooFewArguments>
+  </file>
   <file src="libraries/classes/Config.php">
     <NullableReturnStatement occurrences="1">
       <code>$this-&gt;get('is_https')</code>
@@ -2578,10 +2583,12 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Twig/I18n/NodeTrans.php">
-    <PossiblyNullArgument occurrences="3">
+    <PossiblyNullArgument occurrences="5">
       <code>$msg1</code>
       <code>$this-&gt;hasNode('count') ? $this-&gt;getNode('count') : null</code>
+      <code>$this-&gt;hasNode('count') ? $this-&gt;getNode('count') : null</code>
       <code>$msg1</code>
+      <code>$this-&gt;hasNode('count') ? $this-&gt;getNode('count') : null</code>
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/TwoFactor.php">
