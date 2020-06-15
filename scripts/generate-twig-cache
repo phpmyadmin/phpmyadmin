@@ -72,7 +72,11 @@ foreach (new \RecursiveIteratorIterator(
     // force compilation
     if ($file->isFile() && $file->getExtension() === 'twig') {
         $name = str_replace($tplDir . '/', '', $file->getPathname());
-        $template = $twig->loadTemplate($name);
+        if (Environment::MAJOR_VERSION === 3) {
+            $template = $twig->loadTemplate($twig->getTemplateClass($name), $name);
+        } else {
+            $template = $twig->loadTemplate($name);
+        }
 
         // Generate line map
         $cacheFilename = $twigCache->generateKey($name, $twig->getTemplateClass($name));

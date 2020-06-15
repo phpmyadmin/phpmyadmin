@@ -13,9 +13,6 @@ use PhpMyAdmin\Display\Error;
 use PhpMyAdmin\Template;
 use PHPUnit\Framework\TestCase;
 use Throwable;
-use Twig_Error_Loader;
-use Twig_Error_Runtime;
-use Twig_Error_Syntax;
 
 require_once ROOT_PATH . 'libraries/config.default.php';
 
@@ -33,9 +30,9 @@ class ErrorTest extends TestCase
      *
      * @return void
      * @throws Throwable
-     * @throws Twig_Error_Loader
-     * @throws Twig_Error_Runtime
-     * @throws Twig_Error_Syntax
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function testDisplaySimple(): void
     {
@@ -61,9 +58,9 @@ class ErrorTest extends TestCase
      *
      * @return void
      * @throws Throwable
-     * @throws Twig_Error_Loader
-     * @throws Twig_Error_Runtime
-     * @throws Twig_Error_Syntax
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function testDisplayToSanitize(): void
     {
