@@ -370,13 +370,13 @@ class Sanitize
     }
 
     /**
-     * Removes all variables from request except whitelisted ones.
+     * Removes all variables from request except allowed ones.
      *
-     * @param string[] $whitelist list of variables to allow
+     * @param string[] $allowList list of variables to allow
      *
      * @access public
      */
-    public static function removeRequestVars(&$whitelist): void
+    public static function removeRequestVars(&$allowList): void
     {
         // do not check only $_REQUEST because it could have been overwritten
         // and use type casting because the variables could have become
@@ -386,7 +386,7 @@ class Sanitize
         );
 
         foreach ($keys as $key) {
-            if (! in_array($key, $whitelist)) {
+            if (! in_array($key, $allowList)) {
                 unset($_REQUEST[$key], $_GET[$key], $_POST[$key]);
                 continue;
             }

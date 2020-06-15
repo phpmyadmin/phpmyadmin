@@ -439,25 +439,25 @@ class Core
     } // end getRealSize()
 
     /**
-     * Checks given $page against given $whitelist and returns true if valid
+     * Checks given $page against given $allowList and returns true if valid
      * it optionally ignores query parameters in $page (script.php?ignored)
      *
      * @param string $page      page to check
-     * @param array  $whitelist whitelist to check page against
+     * @param array  $allowList allow list to check page against
      * @param bool   $include   whether the page is going to be included
      *
-     * @return bool whether $page is valid or not (in $whitelist or not)
+     * @return bool whether $page is valid or not (in $allowList or not)
      */
-    public static function checkPageValidity(&$page, array $whitelist = [], $include = false): bool
+    public static function checkPageValidity(&$page, array $allowList = [], $include = false): bool
     {
-        if (empty($whitelist)) {
-            $whitelist = ['index.php'];
+        if (empty($allowList)) {
+            $allowList = ['index.php'];
         }
         if (empty($page)) {
             return false;
         }
 
-        if (in_array($page, $whitelist)) {
+        if (in_array($page, $allowList)) {
             return true;
         }
         if ($include) {
@@ -469,7 +469,7 @@ class Core
             0,
             mb_strpos($page . '?', '?')
         );
-        if (in_array($_page, $whitelist)) {
+        if (in_array($_page, $allowList)) {
             return true;
         }
 
@@ -480,7 +480,7 @@ class Core
             mb_strpos($_page . '?', '?')
         );
 
-        return in_array($_page, $whitelist);
+        return in_array($_page, $allowList);
     }
 
     /**
@@ -759,7 +759,7 @@ class Core
     }
 
     /**
-     * Checks whether domain of URL is whitelisted domain or not.
+     * Checks whether domain of URL is an allowed domain or not.
      * Use only for URLs of external sites.
      *
      * @param string $url URL of external site.
@@ -786,7 +786,7 @@ class Core
             }
         }
         $domain = $arr['host'];
-        $domainWhiteList = [
+        $domainAllowList = [
             /* Include current domain */
             $_SERVER['SERVER_NAME'],
             /* phpMyAdmin domains */
@@ -813,7 +813,7 @@ class Core
             'mysqldatabaseadministration.blogspot.com',
         ];
 
-        return in_array($domain, $domainWhiteList);
+        return in_array($domain, $domainAllowList);
     }
 
     /**

@@ -296,16 +296,16 @@ class CoreTest extends AbstractNetworkTestCase
     /**
      * Test for Core::checkPageValidity
      *
-     * @param string     $page      Page
-     * @param array|null $whiteList White list
-     * @param bool       $include   whether the page is going to be included
-     * @param int        $expected  Expected value
+     * @param string $page      Page
+     * @param array  $allowList Allow list
+     * @param bool   $include   whether the page is going to be included
+     * @param int    $expected  Expected value
      *
      * @dataProvider providerTestGotoNowhere
      */
-    public function testGotoNowhere($page, $whiteList, $include, $expected): void
+    public function testGotoNowhere($page, $allowList, $include, $expected): void
     {
-        $this->assertSame($expected, Core::checkPageValidity($page, $whiteList, $include));
+        $this->assertSame($expected, Core::checkPageValidity($page, $allowList, $include));
     }
 
     /**

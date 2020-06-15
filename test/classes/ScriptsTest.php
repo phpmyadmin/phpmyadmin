@@ -98,7 +98,7 @@ class ScriptsTest extends AbstractTestCase
      */
     public function testGetFiles()
     {
-        // codemirror's onload event is blacklisted
+        // codemirror's onload event is excluded
         $this->object->addFile('vendor/codemirror/lib/codemirror.js');
 
         $this->object->addFile('common.js');

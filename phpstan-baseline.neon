@@ -4331,11 +4331,6 @@ parameters:
 			path: test/classes/CoreTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$whitelist of static method PhpMyAdmin\\\\Core\\:\\:checkPageValidity\\(\\) expects array, array\\|null given\\.$#"
-			count: 1
-			path: test/classes/CoreTest.php
-
-		-
 			message: "#^Offset 'x' does not exist on array\\(\\)\\.$#"
 			count: 1
 			path: test/classes/CoreTest.php

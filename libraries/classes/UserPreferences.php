@@ -178,7 +178,7 @@ class UserPreferences
 
     /**
      * Returns a user preferences array filtered by $cfg['UserprefsDisallow']
-     * (blacklist) and keys from user preferences form (whitelist)
+     * (exclude list) and keys from user preferences form (allow list)
      *
      * @param array $config_data path => value pairs
      *
@@ -187,16 +187,16 @@ class UserPreferences
     public function apply(array $config_data)
     {
         $cfg = [];
-        $blacklist = array_flip($GLOBALS['cfg']['UserprefsDisallow']);
-        $whitelist = array_flip(UserFormList::getFields());
-        // whitelist some additional fields which are custom handled
-        $whitelist['ThemeDefault'] = true;
-        $whitelist['lang'] = true;
-        $whitelist['Server/hide_db'] = true;
-        $whitelist['Server/only_db'] = true;
-        $whitelist['2fa'] = true;
+        $excludeList = array_flip($GLOBALS['cfg']['UserprefsDisallow']);
+        $allowList = array_flip(UserFormList::getFields());
+        // allow some additional fields which are custom handled
+        $allowList['ThemeDefault'] = true;
+        $allowList['lang'] = true;
+        $allowList['Server/hide_db'] = true;
+        $allowList['Server/only_db'] = true;
+        $allowList['2fa'] = true;
         foreach ($config_data as $path => $value) {
-            if (! isset($whitelist[$path]) || isset($blacklist[$path])) {
+            if (! isset($allowList[$path]) || isset($excludeList[$path])) {
                 continue;
             }
             Core::arrayWrite($path, $cfg, $value);

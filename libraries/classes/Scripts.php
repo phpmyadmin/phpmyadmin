@@ -63,7 +63,7 @@ class Scripts
             return;
         }
 
-        $has_onload = $this->eventBlacklist($filename);
+        $has_onload = $this->hasOnloadEvent($filename);
         $this->_files[$hash] = [
             'has_onload' => $has_onload,
             'filename' => $filename,
@@ -89,11 +89,11 @@ class Scripts
      * Determines whether to fire up an onload event for a file
      *
      * @param string $filename The name of the file to be checked
-     *                         against the blacklist
+     *                         against the exclude list.
      *
      * @return int 1 to fire up the event, 0 not to
      */
-    private function eventBlacklist($filename)
+    private function hasOnloadEvent($filename)
     {
         if (strpos($filename, 'jquery') !== false
             || strpos($filename, 'codemirror') !== false

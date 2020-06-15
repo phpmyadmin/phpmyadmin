@@ -347,7 +347,7 @@ class DatabasesController extends AbstractController
         if (empty($sortBy)) {
             $this->sortBy = 'SCHEMA_NAME';
         } else {
-            $sortByWhitelist = [
+            $sortByAllowList = [
                 'SCHEMA_NAME',
                 'DEFAULT_COLLATION_NAME',
                 'SCHEMA_TABLES',
@@ -358,7 +358,7 @@ class DatabasesController extends AbstractController
                 'SCHEMA_DATA_FREE',
             ];
             $this->sortBy = 'SCHEMA_NAME';
-            if (in_array($sortBy, $sortByWhitelist)) {
+            if (in_array($sortBy, $sortByAllowList)) {
                 $this->sortBy = $sortBy;
             }
         }
