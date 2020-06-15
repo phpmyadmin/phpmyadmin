@@ -11,6 +11,9 @@ use PhpMyAdmin\Display\Error;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use Throwable;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 
 /**
  * ErrorTest class
@@ -23,9 +26,9 @@ class ErrorTest extends AbstractTestCase
      * Test for Error::display
      *
      * @throws Throwable
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
      */
     public function testDisplaySimple(): void
     {
@@ -50,9 +53,9 @@ class ErrorTest extends AbstractTestCase
      * Test for Error::display
      *
      * @throws Throwable
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
      */
     public function testDisplayToSanitize(): void
     {
