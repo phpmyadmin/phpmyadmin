@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-06-15 13:18+0200\n"
-"PO-Revision-Date: 2020-05-26 07:41+0000\n"
+"PO-Revision-Date: 2020-06-16 13:41+0000\n"
 "Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.1-dev\n"
+"X-Generator: Weblate 4.1.1-dev\n"
 
 #: js/messages.php:52
 msgid "Confirm"
@@ -6016,8 +6016,6 @@ msgstr "inconnu"
 #: libraries/classes/Controllers/Database/StructureController.php:1663
 #: libraries/classes/Controllers/Database/StructureController.php:1686
 #: libraries/classes/Controllers/Database/StructureController.php:1709
-#, fuzzy
-#| msgid "No tables selected."
 msgid "No table selected."
 msgstr "Aucune table n'a été sélectionnée."
 
