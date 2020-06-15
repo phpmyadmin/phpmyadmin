@@ -9,7 +9,6 @@ namespace PhpMyAdmin\Twig\I18n;
 
 use PhpMyAdmin\Twig\Extensions\TokenParser\TransTokenParser;
 use Twig\Token;
-use Twig_Error_Syntax;
 
 class TokenParserTrans extends TransTokenParser
 {
@@ -20,7 +19,7 @@ class TokenParserTrans extends TransTokenParser
      *
      * @return NodeTrans
      *
-     * @throws Twig_Error_Syntax
+     * @throws \Twig\Error\SyntaxError
      */
     public function parse(Token $token)
     {

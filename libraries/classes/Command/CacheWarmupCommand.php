@@ -145,7 +145,11 @@ final class CacheWarmupCommand extends Command
 
             $name = str_replace($tplDir . '/', '', $file->getPathname());
             $output->writeln('Loading: ' . $name, OutputInterface::VERBOSITY_DEBUG);
-            $template = $twig->loadTemplate($name);
+            if (Environment::MAJOR_VERSION === 3) {
+                $template = $twig->loadTemplate($twig->getTemplateClass($name), $name);
+            } else {
+                $template = $twig->loadTemplate($name);
+            }
 
             // Generate line map
             $cacheFilename = $twigCache->generateKey($name, $twig->getTemplateClass($name));

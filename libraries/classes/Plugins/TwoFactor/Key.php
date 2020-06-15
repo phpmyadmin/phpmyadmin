@@ -14,9 +14,6 @@ use Samyoul\U2F\U2FServer\U2FException;
 use Samyoul\U2F\U2FServer\U2FServer;
 use stdClass;
 use Throwable;
-use Twig_Error_Loader;
-use Twig_Error_Runtime;
-use Twig_Error_Syntax;
 use function json_decode;
 use function json_encode;
 
@@ -139,9 +136,9 @@ class Key extends TwoFactorPlugin
      *
      * @throws U2FException
      * @throws Throwable
-     * @throws Twig_Error_Loader
-     * @throws Twig_Error_Runtime
-     * @throws Twig_Error_Syntax
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function setup()
     {

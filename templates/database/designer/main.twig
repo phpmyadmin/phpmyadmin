@@ -1,9 +1,7 @@
 {# Invisible characters will make javascript crash #}
-{% apply spaceless %}
 <script type="text/javascript">
 var designerConfig = {{ designer_config|raw }};
 </script>
-{% endapply %}
 
 {# side menu #}
 {% if not has_query %}
