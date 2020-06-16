@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-06-15 13:18+0200\n"
-"PO-Revision-Date: 2020-05-15 20:51+0000\n"
+"PO-Revision-Date: 2020-06-17 21:41+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 4.1-dev\n"
+"X-Generator: Weblate 4.1.1-dev\n"
 
 #: js/messages.php:52
 msgid "Confirm"
@@ -5932,10 +5932,8 @@ msgstr "neznano"
 #: libraries/classes/Controllers/Database/StructureController.php:1663
 #: libraries/classes/Controllers/Database/StructureController.php:1686
 #: libraries/classes/Controllers/Database/StructureController.php:1709
-#, fuzzy
-#| msgid "No tables selected."
 msgid "No table selected."
-msgstr "Ni izbranih tabel."
+msgstr "Izbrana ni nobena tabela."
 
 #: libraries/classes/Controllers/Database/StructureController.php:1648
 #: libraries/classes/Controllers/Database/StructureController.php:1671
