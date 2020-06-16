@@ -122,8 +122,9 @@ Finally, you'll need to use `Yarn`_ to install some JavaScript dependencies:
 
 .. code-block:: sh
 
-    yarn install
+    yarn install --production
 
+The --production flag is used to ignore the develop dependencies in `Yarn`_.
 .. _composer:
 
 Installing using Composer
