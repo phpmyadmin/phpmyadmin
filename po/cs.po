@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2020-06-16 13:41+0000\n"
+"PO-Revision-Date: 2020-06-17 21:41+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-9/cs/>"
 "\n"
@@ -2619,7 +2619,7 @@ msgstr "Při získávání ladících informací došlo k neznámé chybě."
 #: js/messages.php:731
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
-msgstr "%s dotazů bylo provedeno %s krát během %s sekund."
+msgstr "%s dotazů bylo provedeno %skrát během %s sekund."
 
 #: js/messages.php:732
 #, php-format
@@ -4816,7 +4816,7 @@ msgstr "Zobrazit logo"
 
 #: libraries/classes/Config/Descriptions.php:784
 msgid "URL where logo in the navigation panel will point to."
-msgstr "URL na které bude odkazovat logo v navigačním panelu."
+msgstr "Adresa URL, na kterou bude odkazovat logo v navigačním panelu."
 
 #: libraries/classes/Config/Descriptions.php:786
 msgid "Logo link URL"
@@ -5579,7 +5579,7 @@ msgstr "Přidat DROP VIEW"
 #: libraries/classes/Config/Descriptions.php:1196
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
-"Určuje seznam příkazů které se automaticky používají pro vytvoření nových "
+"Určuje seznam příkazů, které se automaticky používají pro vytvoření nových "
 "verzí."
 
 #: libraries/classes/Config/Descriptions.php:1198
@@ -5783,7 +5783,7 @@ msgid ""
 "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Zobrazí link na výstup funkce [a@https://php.net/manual/function.phpinfo."
+"Zobrazí odkaz na výstup funkce [a@https://php.net/manual/function.phpinfo."
 "php]phpinfo()[/a]."
 
 #: libraries/classes/Config/Descriptions.php:1309
@@ -6363,7 +6363,7 @@ msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
-"%sZip dekomprese%s vyžaduje funkce (%s) které nejsou dostupné na tomto "
+"%sZip dekomprese%s vyžaduje funkce (%s), které nejsou dostupné na tomto "
 "systému."
 
 #: libraries/classes/Config/ServerConfigChecks.php:324
@@ -6372,7 +6372,8 @@ msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
-"%sZip komprese%s vyžaduje funkce (%s) které nejsou dostupné na tomto systému."
+"%sZip komprese%s vyžaduje funkce (%s), které nejsou dostupné na tomto "
+"systému."
 
 #: libraries/classes/Config/ServerConfigChecks.php:360
 msgid ""
@@ -6420,8 +6421,8 @@ msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Při použití přihlašování přes [kbd]cookie[/kbd] a při %sUkládádání "
-"přihlašovaci cookie%s vyšší než 0 musí být %sPlatnost přihlašovací cookie%s "
+"Při použití přihlašování přes [kbd]cookie[/kbd] a při %sUkládání "
+"přihlašovací cookie%s vyšší než 0 musí být %sPlatnost přihlašovací cookie%s "
 "nastavena na vyšší hodnotu než je tato."
 
 #: libraries/classes/Config/ServerConfigChecks.php:506
@@ -7550,7 +7551,7 @@ msgid ""
 "The amount of memory allocated to the transaction log cache used to cache on "
 "transaction log data. The default is 16MB."
 msgstr ""
-"Množství paměti alokované pro mezipamět transakčního logu, která se využívá "
+"Množství paměti alokované pro mezipaměť transakčního logu, která se využívá "
 "pro dočasné ukládání dat transakčního logu. Výchozí velikost je 16MB."
 
 #: libraries/classes/Engines/Pbxt.php:58
@@ -8581,7 +8582,7 @@ msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
-"Zkontrolujte které sloupce jsou nadbytečné a smažte je kliknutím na "
+"Zkontrolujte, které sloupce jsou nadbytečné, a smažte je kliknutím na "
 "'Odstranit nadbytečné sloupce'. Když nenaleznete žádné nadbytečné sloupce, "
 "klikněte na 'Žádný nadbytečný sloupec'"
 
@@ -8616,7 +8617,7 @@ msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
 msgstr ""
-"Zkontrolujte sloupce které vytvářejí opakující se skupiny. Pokud žádnou "
+"Zkontrolujte sloupce, které vytvářejí opakující se skupiny. Pokud žádnou "
 "opakující se skupinu nenaleznete, klikněte na 'Žádná opakující se skupina'"
 
 #: libraries/classes/Normalization.php:341
@@ -9881,8 +9882,8 @@ msgid ""
 "Converts Boolean values to text (default 'T' and 'F'). First option is for "
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
-"Převede booleovské hodnoty na text (výchozí 'T' a 'F'). Prvním parameterem "
-"je text pro TRUE, druhým pro FALSE. Nenulová hodnota odpovídá TRUE."
+"Převede logické hodnoty na text (výchozí 'T' a 'F'). První parametr je text "
+"pro TRUE, druhý pro FALSE. Nenulová hodnota odpovídá TRUE."
 
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:30
 msgid ""
@@ -14101,7 +14102,7 @@ msgstr "Přehled"
 
 #: setup/frames/index.inc.php:119
 msgid "Show hidden messages (#MSG_COUNT)"
-msgstr "Zobrazit skyté zprávy (#MSG_COUNT)"
+msgstr "Zobrazit skryté zprávy (#MSG_COUNT)"
 
 #: setup/frames/index.inc.php:171
 msgid "There are no configured servers"
@@ -16292,7 +16293,7 @@ msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
-"Můžete chtít zvýšit {long_query_time} nebo optimalizovat dotazy které jsou "
+"Můžete zvýšit {long_query_time} nebo optimalizovat dotazy, které jsou "
 "zapsány v záznamu pomalých dotazů"
 
 #: libraries/advisory_rules_generic.txt:68
@@ -16546,7 +16547,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.txt:161
 msgid "Rate of sorts that cause temporary tables"
-msgstr "Četnost řazení které vynutily dočasné tabulky"
+msgstr "Četnost řazení, která způsobují použití dočasných tabulek"
 
 #: libraries/advisory_rules_generic.txt:166
 #, php-format
