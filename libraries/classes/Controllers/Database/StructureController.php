@@ -403,7 +403,6 @@ class StructureController extends AbstractController
                 // selected tables
                 $selected = $_POST['selected_tbl'];
                 switch ($submit_mult) {
-                    case 'drop_tbl':
                     case 'empty_tbl':
                         $what = $submit_mult;
                         break;
@@ -458,26 +457,10 @@ class StructureController extends AbstractController
                 Common::server();
             }
 
-            $full_query_views = null;
             $full_query = '';
-
-            if ($what == 'drop_tbl') {
-                $full_query_views = '';
-            }
 
             foreach ($selected as $selectedValue) {
                 switch ($what) {
-                    case 'drop_tbl':
-                        $current = $selectedValue;
-                        if (! empty($views) && in_array($current, $views)) {
-                            $full_query_views .= (empty($full_query_views) ? 'DROP VIEW ' : ', ')
-                                . Util::backquote(htmlspecialchars($current));
-                        } else {
-                            $full_query .= (empty($full_query) ? 'DROP TABLE ' : ', ')
-                                . Util::backquote(htmlspecialchars($current));
-                        }
-                        break;
-
                     case 'empty_tbl':
                         $full_query .= 'TRUNCATE ';
                         $full_query .= Util::backquote(htmlspecialchars($selectedValue))
@@ -486,27 +469,12 @@ class StructureController extends AbstractController
                 }
             }
 
-            if ($what == 'drop_tbl') {
-                if (! empty($full_query)) {
-                    $full_query .= ';<br>' . "\n";
-                }
-                if (! empty($full_query_views)) {
-                    $full_query .= $full_query_views . ';<br>' . "\n";
-                }
-                unset($full_query_views);
-            }
-
             $_url_params = [
                 'query_type' => $what,
                 'db' => $db,
             ];
             foreach ($selected as $selectedValue) {
                 $_url_params['selected'][] = $selectedValue;
-            }
-            if ($what == 'drop_tbl' && ! empty($views)) {
-                foreach ($views as $current) {
-                    $_url_params['views'][] = $current;
-                }
             }
 
             $this->render('mult_submits/other_actions', [
@@ -1745,6 +1713,60 @@ class StructureController extends AbstractController
         $this->render('database/structure/change_prefix_form', [
             'route' => $route,
             'url_params' => $urlParams,
+        ]);
+    }
+
+    public function dropForm(): void
+    {
+        global $db;
+
+        $selected = $_POST['selected_tbl'] ?? [];
+
+        if (empty($selected)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No table selected.'));
+
+            return;
+        }
+
+        $views = $this->dbi->getVirtualTables($db);
+
+        $full_query_views = '';
+        $full_query = '';
+
+        foreach ($selected as $selectedValue) {
+            $current = $selectedValue;
+            if (! empty($views) && in_array($current, $views)) {
+                $full_query_views .= (empty($full_query_views) ? 'DROP VIEW ' : ', ')
+                    . Util::backquote(htmlspecialchars($current));
+            } else {
+                $full_query .= (empty($full_query) ? 'DROP TABLE ' : ', ')
+                    . Util::backquote(htmlspecialchars($current));
+            }
+        }
+
+        if (! empty($full_query)) {
+            $full_query .= ';<br>' . "\n";
+        }
+        if (! empty($full_query_views)) {
+            $full_query .= $full_query_views . ';<br>' . "\n";
+        }
+
+        $_url_params = [
+            'query_type' => 'drop_tbl',
+            'db' => $db,
+        ];
+        foreach ($selected as $selectedValue) {
+            $_url_params['selected'][] = $selectedValue;
+        }
+        foreach ($views as $current) {
+            $_url_params['views'][] = $current;
+        }
+
+        $this->render('database/structure/drop_form', [
+            'url_params' => $_url_params,
+            'full_query' => $full_query,
+            'is_foreign_key_check' => Util::isForeignKeyCheck(),
         ]);
     }
 }
