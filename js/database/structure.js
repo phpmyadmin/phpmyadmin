@@ -261,8 +261,10 @@ AJAX.registerOnload('database/structure.js', function () {
                 url = 'index.php?route=/database/structure/add-prefix';
                 modalTitle = Messages.strAddPrefix;
             } else if (action === 'replace_prefix_tbl') {
+                url = 'index.php?route=/database/structure/change-prefix-form';
                 modalTitle = Messages.strReplacePrefix;
             } else if (action === 'copy_tbl_change_prefix') {
+                url = 'index.php?route=/database/structure/change-prefix-form';
                 modalTitle = Messages.strCopyPrefix;
             }
             $.ajax({

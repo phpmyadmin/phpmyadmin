@@ -145,6 +145,7 @@ return static function (RouteCollector $routes) {
                 'centralColumnsMakeConsistent',
             ]);
             $routes->post('/central-columns-remove', [StructureController::class, 'centralColumnsRemove']);
+            $routes->post('/change-prefix-form', [StructureController::class, 'changePrefixForm']);
             $routes->post('/copy-form', [StructureController::class, 'copyForm']);
             $routes->post('/export', [StructureController::class, 'export']);
             $routes->addRoute(['GET', 'POST'], '/favorite-table', [

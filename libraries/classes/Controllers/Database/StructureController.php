@@ -403,8 +403,6 @@ class StructureController extends AbstractController
                 // selected tables
                 $selected = $_POST['selected_tbl'];
                 switch ($submit_mult) {
-                    case 'replace_prefix_tbl':
-                    case 'copy_tbl_change_prefix':
                     case 'drop_tbl':
                     case 'empty_tbl':
                         $what = $submit_mult;
@@ -511,21 +509,13 @@ class StructureController extends AbstractController
                 }
             }
 
-            if ($what == 'replace_prefix_tbl' || $what == 'copy_tbl_change_prefix') {
-                $this->response->disable();
-                $this->render('mult_submits/replace_prefix_table', [
-                    'action' => $action,
-                    'url_params' => $_url_params,
-                ]);
-            } else {
-                $this->render('mult_submits/other_actions', [
-                    'action' => $action,
-                    'url_params' => $_url_params,
-                    'what' => $what,
-                    'full_query' => $full_query,
-                    'is_foreign_key_check' => Util::isForeignKeyCheck(),
-                ]);
-            }
+            $this->render('mult_submits/other_actions', [
+                'action' => $action,
+                'url_params' => $_url_params,
+                'what' => $what,
+                'full_query' => $full_query,
+                'is_foreign_key_check' => Util::isForeignKeyCheck(),
+            ]);
             exit;
         }
 
@@ -1721,5 +1711,40 @@ class StructureController extends AbstractController
 
         $this->response->disable();
         $this->render('database/structure/add_prefix', ['url_params' => $params]);
+    }
+
+    public function changePrefixForm(): void
+    {
+        global $db;
+
+        $selected = $_POST['selected_tbl'] ?? [];
+        $submit_mult = $_POST['submit_mult'] ?? '';
+
+        if (empty($selected)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No table selected.'));
+
+            return;
+        }
+
+        $route = '/database/structure';
+        $queryType = 'replace_prefix_tbl';
+        if ($submit_mult === 'copy_tbl_change_prefix') {
+            $queryType = 'copy_tbl_change_prefix';
+        }
+
+        $urlParams = [
+            'query_type' => $queryType,
+            'db' => $db,
+        ];
+        foreach ($selected as $selectedValue) {
+            $urlParams['selected'][] = $selectedValue;
+        }
+
+        $this->response->disable();
+        $this->render('database/structure/change_prefix_form', [
+            'route' => $route,
+            'url_params' => $urlParams,
+        ]);
     }
 }

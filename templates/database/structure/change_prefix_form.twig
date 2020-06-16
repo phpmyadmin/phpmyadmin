@@ -1,4 +1,4 @@
-<form id="ajax_form" action="{{ action|raw }}" method="post">
+<form id="ajax_form" action="{{ url(route) }}" method="post">
   {{ get_hidden_inputs(url_params) }}
 
   <fieldset class="input">
