@@ -1,0 +1,80 @@
+<!-- START ROUTINE EXECUTE FORM -->
+{# {{ dump(getHiddenInputs) }} #}
+<form action="{{fromRoute}}" method="post" class="rte_form ajax" onsubmit="return false">
+	
+<input type='hidden' name='item_name' value='{{routine['item_name']}}'>
+<input type='hidden' name='item_type' value='{{routine['item_type']}}'>
+{{getHiddenInputs|raw}}
+<fieldset>
+
+    {% if not ajax %}
+        <legend> {{routine['item_name']}} </legend>
+        <table class='rte_table'>
+        <caption class='tblHeaders'>
+            Routine parameters
+        </caption>
+    {% else %}
+        <legend> Routine parameters </legend>
+        <table class='rte_table'>
+    {% endif %} 
+        <tr>
+        <th> Name </th>
+        <th> Type </th>
+    {% if cfg['ShowFunctionFields'] %}
+        <th>  Function </th>
+    {% endif %}
+        <th>Value</th>
+        </tr>
+
+    {% for i in 0..routine['item_num_params']  %}
+        <tr>
+        <td>{{routine['item_param_name'][loop.index0]}}</td>
+        <td>{{routine['item_param_type'][loop.index0]}}</td>
+
+        {% if cfg['ShowFunctionFields'] %}
+            <td>
+            {% if params[loop.index0]['generator'] is not null %}
+             <select name='funcs[{{routine['item_param_name'][loop.index0]}}]'>
+                {{ params[loop.index0]['generator']|raw }}
+            </select>
+            {% else %}
+                --
+            {% endif %}
+            
+            </td>
+        {% endif %}
+
+        <td class='nowrap'>
+
+        {% if routine['item_param_type'][loop.index0] in ['ENUM', 'SET'] %} 
+
+            {% for value in routine['item_param_length_arr'][loop.index0] %}
+
+                <input name= 'params[{{routine['item_param_name'][loop.parent.loop.index0]}}][]' value='{{params[loop.parent.loop.index0]['htmlentities'][loop.index0]}}' type="{{params[loop.parent.loop.index0]['input_type']}}">
+                    {{params[loop.parent.loop.index0]['htmlentities'][loop.index0]}}
+                    <br>
+            {% endfor %}
+        {% elseif routine['item_param_type'][loop.index0] in params['no_support_types'] %}
+            
+        {% else %}
+            <input class ="{{  params[loop.index0]['class']  }}" type="text" name='params[{{  routine['item_param_name'][loop.index0]  }}]'>
+        {% endif %}
+
+        </td>
+        </tr>
+
+    {% endfor %}
+
+    {% if not ajax %}
+        </fieldset>
+        <fieldset class='tblFooters'>
+            <input type='submit' name='execute_routine' value='Go'>
+        </fieldset>
+    {% else %}
+        <input type='hidden' name='execute_routine' value='true'>
+        <input type='hidden' name='ajax_request' value='true'>
+    {% endif %}
+
+    </form>
+    <!-- END ROUTINE EXECUTE FORM -->
+
