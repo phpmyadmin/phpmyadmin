@@ -1724,7 +1724,6 @@ class Routines
                     $params[$i]['generator'] = $generator;
                   
                 }
-
             }
 
             if ($routine['item_param_type'][$i] == 'DATETIME'
