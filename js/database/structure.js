@@ -303,6 +303,8 @@ AJAX.registerOnload('database/structure.js', function () {
             url = 'index.php?route=/database/structure/central-columns-remove';
         } else if (action === 'drop_tbl') {
             url = 'index.php?route=/database/structure/drop-form';
+        } else if (action === 'empty_tbl') {
+            url = 'index.php?route=/database/structure/empty-form';
         } else if (action === 'export') {
             url = 'index.php?route=/database/structure/export';
         } else if (action === 'show_create') {

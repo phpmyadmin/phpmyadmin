@@ -372,15 +372,14 @@ class StructureController extends AbstractController
             return;
         }
 
-        $action = Url::getFromRoute('/database/structure');
         $err_url = Url::getFromRoute('/database/structure', ['db' => $this->db]);
 
         $from_prefix = $_POST['from_prefix'] ?? $from_prefix ?? null;
-        $goto = $_POST['goto'] ?? $goto ?? null;
+        $goto = $_POST['goto'] ?? $goto ?? '';
         $mult_btn = $_POST['mult_btn'] ?? $mult_btn ?? null;
         $query_type = $_POST['query_type'] ?? $query_type ?? null;
         $reload = $_POST['reload'] ?? $reload ?? null;
-        $selected = $_POST['selected'] ?? $selected ?? null;
+        $selected = $_POST['selected'] ?? $selected ?? [];
         $sql_query = $_POST['sql_query'] ?? $sql_query ?? null;
         $submit_mult = $_POST['submit_mult'] ?? $submit_mult ?? null;
         $table_type = $_POST['table_type'] ?? $table_type ?? null;
@@ -403,9 +402,6 @@ class StructureController extends AbstractController
                 // selected tables
                 $selected = $_POST['selected_tbl'];
                 switch ($submit_mult) {
-                    case 'empty_tbl':
-                        $what = $submit_mult;
-                        break;
                     case 'check_tbl':
                     case 'optimize_tbl':
                     case 'repair_tbl':
@@ -426,66 +422,6 @@ class StructureController extends AbstractController
             $table = '';
         }
         $views = $this->dbi->getVirtualTables($db);
-
-        /**
-         * Displays the confirmation form if required
-         */
-        if (! empty($submit_mult) && ! empty($what)) {
-            unset($message);
-
-            if (strlen($table) > 0) {
-                Common::table();
-                $url_query .= Url::getCommon([
-                    'goto' => Url::getFromRoute('/table/sql'),
-                    'back' => Url::getFromRoute('/table/sql'),
-                ], '&');
-            } elseif (strlen($db) > 0) {
-                Common::database();
-
-                [
-                    $tables,
-                    $num_tables,
-                    $total_num_tables,
-                    $sub_part,
-                    $is_show_stats,
-                    $db_is_system_schema,
-                    $tooltip_truename,
-                    $tooltip_aliasname,
-                    $pos,
-                ] = Util::getDbInfo($db, $sub_part ?? '');
-            } else {
-                Common::server();
-            }
-
-            $full_query = '';
-
-            foreach ($selected as $selectedValue) {
-                switch ($what) {
-                    case 'empty_tbl':
-                        $full_query .= 'TRUNCATE ';
-                        $full_query .= Util::backquote(htmlspecialchars($selectedValue))
-                            . ';<br>';
-                        break;
-                }
-            }
-
-            $_url_params = [
-                'query_type' => $what,
-                'db' => $db,
-            ];
-            foreach ($selected as $selectedValue) {
-                $_url_params['selected'][] = $selectedValue;
-            }
-
-            $this->render('mult_submits/other_actions', [
-                'action' => $action,
-                'url_params' => $_url_params,
-                'what' => $what,
-                'full_query' => $full_query,
-                'is_foreign_key_check' => Util::isForeignKeyCheck(),
-            ]);
-            exit;
-        }
 
         if (! empty($mult_btn) && $mult_btn == __('Yes')) {
             $default_fk_check_value = false;
@@ -1766,6 +1702,38 @@ class StructureController extends AbstractController
         $this->render('database/structure/drop_form', [
             'url_params' => $_url_params,
             'full_query' => $full_query,
+            'is_foreign_key_check' => Util::isForeignKeyCheck(),
+        ]);
+    }
+
+    public function emptyForm(): void
+    {
+        global $db;
+
+        $selected = $_POST['selected_tbl'] ?? [];
+
+        if (empty($selected)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No table selected.'));
+
+            return;
+        }
+
+        $fullQuery = '';
+        $urlParams = [
+            'query_type' => 'empty_tbl',
+            'db' => $db,
+        ];
+
+        foreach ($selected as $selectedValue) {
+            $fullQuery .= 'TRUNCATE ';
+            $fullQuery .= Util::backquote(htmlspecialchars($selectedValue)) . ';<br>';
+            $urlParams['selected'][] = $selectedValue;
+        }
+
+        $this->render('database/structure/empty_form', [
+            'url_params' => $urlParams,
+            'full_query' => $fullQuery,
             'is_foreign_key_check' => Util::isForeignKeyCheck(),
         ]);
     }
