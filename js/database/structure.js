@@ -301,6 +301,8 @@ AJAX.registerOnload('database/structure.js', function () {
             url = 'index.php?route=/database/structure/central-columns-add';
         } else if (action === 'delete_unique_columns_central_list') {
             url = 'index.php?route=/database/structure/central-columns-remove';
+        } else if (action === 'check_tbl') {
+            url = 'index.php?route=/database/structure/check-table';
         } else if (action === 'drop_tbl') {
             url = 'index.php?route=/database/structure/drop-form';
         } else if (action === 'empty_tbl') {
