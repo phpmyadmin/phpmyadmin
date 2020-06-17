@@ -404,7 +404,6 @@ class StructureController extends AbstractController
                 switch ($submit_mult) {
                     case 'optimize_tbl':
                     case 'repair_tbl':
-                    case 'analyze_tbl':
                     case 'checksum_tbl':
                         $query_type = $submit_mult;
                         unset($submit_mult);
@@ -472,12 +471,6 @@ class StructureController extends AbstractController
 
                 case 'optimize_tbl':
                     $sql_query .= (empty($sql_query) ? 'OPTIMIZE TABLE ' : ', ')
-                        . Util::backquote($selected[$i]);
-                    $execute_query_later = true;
-                    break;
-
-                case 'analyze_tbl':
-                    $sql_query .= (empty($sql_query) ? 'ANALYZE TABLE ' : ', ')
                         . Util::backquote($selected[$i]);
                     $execute_query_later = true;
                     break;
@@ -1778,6 +1771,57 @@ class StructureController extends AbstractController
             null,
             'check_tbl',
             $sql_query,
+            $selected,
+            null
+        );
+
+        if (empty($_POST['message'])) {
+            $_POST['message'] = Message::success();
+        }
+
+        unset($_POST['submit_mult']);
+
+        $this->index();
+    }
+
+    public function analyzeTable(): void
+    {
+        global $db, $goto, $pmaThemeImage;
+
+        $selected = $_POST['selected_tbl'] ?? [];
+
+        if (empty($selected)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No table selected.'));
+
+            return;
+        }
+
+        $sqlQuery = '';
+        $selectedCount = count($selected);
+
+        for ($i = 0; $i < $selectedCount; $i++) {
+            $sqlQuery .= (empty($sqlQuery) ? 'ANALYZE TABLE ' : ', ') . Util::backquote($selected[$i]);
+        }
+
+        $sql = new Sql();
+        $sql->executeQueryAndSendQueryResponse(
+            null,
+            false,
+            $db,
+            '',
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            $goto,
+            $pmaThemeImage,
+            null,
+            null,
+            'analyze_tbl',
+            $sqlQuery,
             $selected,
             null
         );

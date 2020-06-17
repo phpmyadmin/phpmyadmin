@@ -297,7 +297,9 @@ AJAX.registerOnload('database/structure.js', function () {
             return;
         }
 
-        if (action === 'sync_unique_columns_central_list') {
+        if (action === 'analyze_tbl') {
+            url = 'index.php?route=/database/structure/analyze-table';
+        } else if (action === 'sync_unique_columns_central_list') {
             url = 'index.php?route=/database/structure/central-columns-add';
         } else if (action === 'delete_unique_columns_central_list') {
             url = 'index.php?route=/database/structure/central-columns-remove';
