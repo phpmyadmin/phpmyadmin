@@ -8,26 +8,28 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-06-14 22:54+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2020-06-20 05:33+0000\n"
+"Last-Translator: Ayoub Rejal <ayoubrejal@gmail.com>\n"
+"Language-Team: Arabic (Libya) <https://hosted.weblate.org/projects/"
+"phpmyadmin/5-0/ar_LY/>\n"
 "Language: ar_LY\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Weblate 4.1.1\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
-msgstr ""
+msgstr "نوع سيء!"
 
 #: changelog.php:48 license.php:40
 #, possible-php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
-msgstr ""
+msgstr "لا يتوفر الملف %s على هذا النظام، الرجاء زيارة %s لمزيد من المعلومات."
 
 #: db_central_columns.php:134
 #, possible-php-format
@@ -36,14 +38,14 @@ msgstr ""
 
 #: db_export.php:62
 msgid "View dump (schema) of database"
-msgstr ""
+msgstr "عرض تفريغ (مخطط) من قاعدة البيانات"
 
 #: db_export.php:67 db_tracking.php:105 export.php:420
 #: libraries/classes/Database/Qbe.php:363
 #: templates/database/structure/index.twig:19
 #: templates/navigation/tree/path.twig:9
 msgid "No tables found in database."
-msgstr ""
+msgstr "مافيش جداول في قاعدة البيانات."
 
 #: db_export.php:82 libraries/classes/Config/Descriptions.php:314
 #: libraries/classes/Controllers/Server/DatabasesController.php:393
@@ -53,7 +55,7 @@ msgstr ""
 #: libraries/classes/Server/Status/Data.php:130
 #: templates/database/structure/show_create.twig:14
 msgid "Tables"
-msgstr ""
+msgstr "الجداول"
 
 #: db_export.php:83 js/messages.php:769
 #: libraries/classes/Config/Forms/User/ExportForm.php:59
@@ -73,8 +75,9 @@ msgstr ""
 #: templates/columns_definitions/table_fields_definitions.twig:4
 #: templates/database/central_columns/edit_table_header.twig:2
 #: templates/table/tracking/structure_snapshot_columns.twig:1
+#, fuzzy
 msgid "Structure"
-msgstr ""
+msgstr "هيكل"
 
 #: db_export.php:84 libraries/classes/Config/Forms/User/ExportForm.php:75
 #: libraries/classes/Config/Forms/User/ExportForm.php:114
@@ -84,7 +87,7 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:1237
 #: templates/table/structure/display_table_stats.twig:17
 msgid "Data"
-msgstr ""
+msgstr "البيانات"
 
 #: db_export.php:87
 #: templates/database/designer/database_tables.twig:31
@@ -92,15 +95,15 @@ msgstr ""
 #: templates/display/export/select_options.twig:4
 #: templates/server/replication/database_multibox.twig:7
 msgid "Select all"
-msgstr ""
+msgstr "اختر الكل"
 
 #: db_operations.php:69 tbl_create.php:50
 msgid "The database name is empty!"
-msgstr ""
+msgstr "اسم قاعدة البيانات فاضي!"
 
 #: db_operations.php:80
 msgid "Cannot copy database to the same name. Change the name and try again."
-msgstr ""
+msgstr "ماتقدرش تنسخ قاعدة البيانات إلى نفس الاسم. غير الاسم وحاول مرة تانية ."
 
 #: db_operations.php:171
 #, possible-php-format
