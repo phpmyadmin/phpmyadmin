@@ -122,7 +122,7 @@ Finally, you'll need to use `Yarn`_ to install some JavaScript dependencies:
 
 .. code-block:: sh
 
-    yarn install
+    yarn install --production
 
 .. _composer:
 
