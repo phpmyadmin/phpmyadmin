@@ -124,7 +124,6 @@ Finally, you'll need to use `Yarn`_ to install some JavaScript dependencies:
 
     yarn install --production
 
-The --production flag is used to ignore the develop dependencies in `Yarn`_.
 .. _composer:
 
 Installing using Composer
