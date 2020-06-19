@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-06-15 13:18+0200\n"
+"POT-Creation-Date: 2020-06-19 09:17+0200\n"
 "PO-Revision-Date: 2020-01-05 09:21+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -249,7 +249,7 @@ msgstr "クエリをシミュレート"
 msgid "Matched rows:"
 msgstr "一致した行:"
 
-#: js/messages.php:132 libraries/classes/Html/Generator.php:1013
+#: js/messages.php:132 libraries/classes/Html/Generator.php:1016
 msgid "SQL query:"
 msgstr "SQL クエリ:"
 
@@ -737,17 +737,17 @@ msgstr "表"
 msgid "Chart"
 msgstr "グラフ"
 
-#: js/messages.php:290 libraries/classes/Display/Export.php:585
+#: js/messages.php:290 libraries/classes/Display/Export.php:588
 msgctxt "Alias"
 msgid "Database"
 msgstr "データベース"
 
-#: js/messages.php:291 libraries/classes/Display/Export.php:597
+#: js/messages.php:291 libraries/classes/Display/Export.php:600
 msgctxt "Alias"
 msgid "Table"
 msgstr "テーブル"
 
-#: js/messages.php:292 libraries/classes/Display/Export.php:608
+#: js/messages.php:292 libraries/classes/Display/Export.php:611
 msgctxt "Alias"
 msgid "Column"
 msgstr "カラム"
@@ -1027,8 +1027,9 @@ msgstr "文字セットを変更しています"
 #: templates/database/central_columns/main.twig:370
 #: templates/database/data_dictionary/index.twig:39
 #: templates/database/data_dictionary/index.twig:83
-#: templates/database/privileges/index.twig:69 templates/indexes.twig:58
-#: templates/mult_submits/other_actions.twig:22
+#: templates/database/privileges/index.twig:69
+#: templates/database/structure/drop_form.twig:20
+#: templates/database/structure/empty_form.twig:20 templates/indexes.twig:58
 #: templates/preferences/autoload.twig:12
 #: templates/preferences/manage/error.twig:19
 #: templates/server/privileges/new_user_ajax.twig:22
@@ -1051,8 +1052,9 @@ msgstr "文字セットを変更しています"
 msgid "No"
 msgstr "いいえ"
 
-#: js/messages.php:367 templates/display/import/import.twig:204
-#: templates/mult_submits/other_actions.twig:17 templates/sql/query.twig:131
+#: js/messages.php:367 templates/database/structure/drop_form.twig:16
+#: templates/database/structure/empty_form.twig:16
+#: templates/display/import/import.twig:204 templates/sql/query.twig:131
 #: templates/table/delete/confirm.twig:25
 msgid "Enable foreign key checks"
 msgstr "外部キーのチェックを有効にする"
@@ -1166,8 +1168,8 @@ msgstr "クエリボックスを表示"
 #: js/messages.php:400 libraries/classes/CentralColumns.php:953
 #: libraries/classes/Config/Descriptions.php:889
 #: libraries/classes/Display/Results.php:3240
-#: libraries/classes/Html/Generator.php:779
-#: libraries/classes/Html/Generator.php:1041
+#: libraries/classes/Html/Generator.php:782
+#: libraries/classes/Html/Generator.php:1044
 #: libraries/classes/Server/UserGroups.php:125 libraries/classes/Util.php:3208
 #: libraries/classes/Util.php:3209 templates/console/bookmark_content.twig:7
 #: templates/console/display.twig:31 templates/console/display.twig:175
@@ -1328,7 +1330,7 @@ msgid "No partial dependencies selected!"
 msgstr "部分的な依存が選択されていません!"
 
 #: js/messages.php:439 js/messages.php:604 libraries/classes/Export.php:598
-#: libraries/classes/Html/Generator.php:1117
+#: libraries/classes/Html/Generator.php:1120
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:304
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -1472,7 +1474,7 @@ msgid "Ignore"
 msgstr "無視"
 
 #: js/messages.php:496 libraries/classes/Display/Results.php:3244
-#: libraries/classes/Html/Generator.php:68
+#: libraries/classes/Html/Generator.php:71
 #: templates/display/results/table.twig:212
 msgid "Copy"
 msgstr "コピー"
@@ -1532,8 +1534,8 @@ msgid "Add an inner ring"
 msgstr "内輪を追加する"
 
 #: js/messages.php:508 libraries/classes/Config/FormDisplayTemplate.php:319
-#: libraries/classes/Controllers/Database/StructureController.php:419
-#: libraries/classes/Controllers/Database/StructureController.php:532
+#: libraries/classes/Controllers/Database/StructureController.php:410
+#: libraries/classes/Controllers/Database/StructureController.php:424
 #: libraries/classes/Controllers/Table/DeleteController.php:27
 #: libraries/classes/Controllers/Table/StructureController.php:483
 #: libraries/classes/Controllers/Table/StructureController.php:501
@@ -1549,9 +1551,10 @@ msgstr "内輪を追加する"
 #: templates/database/data_dictionary/index.twig:83
 #: templates/database/privileges/index.twig:69
 #: templates/database/structure/add_prefix.twig:15
-#: templates/database/structure/copy_form.twig:55 templates/indexes.twig:58
-#: templates/mult_submits/other_actions.twig:21
-#: templates/mult_submits/replace_prefix_table.twig:20
+#: templates/database/structure/change_prefix_form.twig:20
+#: templates/database/structure/copy_form.twig:55
+#: templates/database/structure/drop_form.twig:19
+#: templates/database/structure/empty_form.twig:19 templates/indexes.twig:58
 #: templates/preferences/autoload.twig:11
 #: templates/preferences/manage/error.twig:18
 #: templates/server/privileges/new_user_ajax.twig:20
@@ -2197,7 +2200,7 @@ msgid "Description"
 msgstr "説明"
 
 #: libraries/classes/BrowseForeigners.php:331
-#: libraries/classes/Html/Generator.php:1305 libraries/classes/Language.php:203
+#: libraries/classes/Html/Generator.php:1308 libraries/classes/Language.php:203
 #: libraries/classes/Pdf.php:89
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:508
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:545
@@ -4990,12 +4993,12 @@ msgid "Skip locked tables"
 msgstr "ロックされているテーブルをスキップする"
 
 #: libraries/classes/Config/Descriptions.php:890
-#: libraries/classes/Html/Generator.php:743
+#: libraries/classes/Html/Generator.php:746
 msgid "Explain SQL"
 msgstr "EXPLAIN で確認"
 
 #: libraries/classes/Config/Descriptions.php:891
-#: libraries/classes/Export.php:603 libraries/classes/Html/Generator.php:823
+#: libraries/classes/Export.php:603 libraries/classes/Html/Generator.php:826
 #: templates/console/display.twig:99
 #: templates/server/status/processes/index.twig:10
 #: templates/server/status/variables/index.twig:12
@@ -5003,7 +5006,7 @@ msgid "Refresh"
 msgstr "再描画"
 
 #: libraries/classes/Config/Descriptions.php:892
-#: libraries/classes/Html/Generator.php:808
+#: libraries/classes/Html/Generator.php:811
 msgid "Create PHP code"
 msgstr "PHP コードの作成"
 
@@ -5390,9 +5393,9 @@ msgid "maximum %s"
 msgstr "最大 %s"
 
 #: libraries/classes/Config/FormDisplayTemplate.php:194
-#: libraries/classes/Display/Export.php:350
+#: libraries/classes/Display/Export.php:353
 #: libraries/classes/Engines/Pbxt.php:168
-#: libraries/classes/Html/Generator.php:907
+#: libraries/classes/Html/Generator.php:910
 #: libraries/classes/Html/MySQLDocumentation.php:49
 #: libraries/classes/Sanitize.php:204 templates/home/index.twig:183
 #: templates/server/variables/index.twig:17
@@ -5803,7 +5806,7 @@ msgstr "アクセスが拒否されました!"
 msgid "Favorite List is full!"
 msgstr "お気に入りリストが一杯です！"
 
-#: libraries/classes/Controllers/Database/StructureController.php:394
+#: libraries/classes/Controllers/Database/StructureController.php:393
 #: templates/database/events/index.twig:82
 #: templates/database/events/index.twig:85
 #: templates/database/privileges/index.twig:112
@@ -5824,33 +5827,33 @@ msgstr "お気に入りリストが一杯です！"
 msgid "With selected:"
 msgstr "チェックしたものを:"
 
-#: libraries/classes/Controllers/Database/StructureController.php:768
+#: libraries/classes/Controllers/Database/StructureController.php:425
 #: libraries/classes/Controllers/Table/OperationsController.php:314
 #: libraries/classes/Controllers/Table/ReplaceController.php:397
 #: libraries/classes/Core.php:843 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "変更なし"
 
-#: libraries/classes/Controllers/Database/StructureController.php:940
+#: libraries/classes/Controllers/Database/StructureController.php:828
 #: templates/table/operations/index.twig:356
 #: templates/table/operations/view.twig:27
 #, php-format
 msgid "View %s has been dropped."
 msgstr "ビュー %s を破棄しました。"
 
-#: libraries/classes/Controllers/Database/StructureController.php:941
+#: libraries/classes/Controllers/Database/StructureController.php:829
 #: templates/table/operations/index.twig:356
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "テーブル %s を削除しました。"
 
-#: libraries/classes/Controllers/Database/StructureController.php:997
+#: libraries/classes/Controllers/Database/StructureController.php:885
 #: templates/table/operations/index.twig:335
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "テーブル %s を空にしました。"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1169
+#: libraries/classes/Controllers/Database/StructureController.php:1057
 #: libraries/classes/Display/Results.php:4446
 #, php-format
 msgid ""
@@ -5858,25 +5861,30 @@ msgid ""
 "%s."
 msgstr "このビューの最低行数。詳しくは%sドキュメント%sをご覧ください。"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1406
+#: libraries/classes/Controllers/Database/StructureController.php:1294
 msgid "unknown"
 msgstr "不明"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1547
-#: libraries/classes/Controllers/Database/StructureController.php:1563
-#: libraries/classes/Controllers/Database/StructureController.php:1604
-#: libraries/classes/Controllers/Database/StructureController.php:1640
-#: libraries/classes/Controllers/Database/StructureController.php:1663
-#: libraries/classes/Controllers/Database/StructureController.php:1686
-#: libraries/classes/Controllers/Database/StructureController.php:1709
+#: libraries/classes/Controllers/Database/StructureController.php:1435
+#: libraries/classes/Controllers/Database/StructureController.php:1451
+#: libraries/classes/Controllers/Database/StructureController.php:1492
+#: libraries/classes/Controllers/Database/StructureController.php:1528
+#: libraries/classes/Controllers/Database/StructureController.php:1551
+#: libraries/classes/Controllers/Database/StructureController.php:1574
+#: libraries/classes/Controllers/Database/StructureController.php:1597
+#: libraries/classes/Controllers/Database/StructureController.php:1623
+#: libraries/classes/Controllers/Database/StructureController.php:1657
+#: libraries/classes/Controllers/Database/StructureController.php:1711
+#: libraries/classes/Controllers/Database/StructureController.php:1743
+#: libraries/classes/Controllers/Database/StructureController.php:1795
 #, fuzzy
 #| msgid "No tables selected."
 msgid "No table selected."
 msgstr "テーブルが選択されていません。"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1648
-#: libraries/classes/Controllers/Database/StructureController.php:1671
-#: libraries/classes/Controllers/Database/StructureController.php:1694
+#: libraries/classes/Controllers/Database/StructureController.php:1536
+#: libraries/classes/Controllers/Database/StructureController.php:1559
+#: libraries/classes/Controllers/Database/StructureController.php:1582
 msgid "Success!"
 msgstr "成功！"
 
@@ -7579,7 +7587,7 @@ msgid "View name can not be empty!"
 msgstr "ビュー名を空にすることはできません!"
 
 #: libraries/classes/Controllers/ViewOperationsController.php:80
-#: libraries/classes/Core.php:292 libraries/classes/Html/Generator.php:989
+#: libraries/classes/Core.php:292 libraries/classes/Html/Generator.php:992
 #: libraries/classes/Import.php:140 libraries/classes/InsertEdit.php:1581
 #: libraries/classes/Message.php:197 templates/javascript/variables.twig:108
 msgid "Error"
@@ -7700,7 +7708,7 @@ msgstr "クエリの実行に失敗しました：『%s』"
 #: libraries/classes/Database/Triggers.php:144
 #: libraries/classes/Database/Triggers.php:169
 #: libraries/classes/Database/Triggers.php:550
-#: libraries/classes/Html/Generator.php:1061
+#: libraries/classes/Html/Generator.php:1064
 msgid "MySQL said: "
 msgstr "MySQL のメッセージ: "
 
@@ -8265,19 +8273,19 @@ msgstr "サーバーによりSSL接続が自動的に有効に（強制）され
 msgid "Native MySQL authentication"
 msgstr "ネイティブMySQL認証"
 
-#: libraries/classes/Display/Export.php:332
+#: libraries/classes/Display/Export.php:335
 msgid "@SERVER@ will become the server name"
 msgstr "@SERVER@ はサーバ名に"
 
-#: libraries/classes/Display/Export.php:334
+#: libraries/classes/Display/Export.php:337
 msgid ", @DATABASE@ will become the database name"
 msgstr "、@DATABASE@ はデータベース名に"
 
-#: libraries/classes/Display/Export.php:336
+#: libraries/classes/Display/Export.php:339
 msgid ", @TABLE@ will become the table name"
 msgstr "、@TABLE@ はテーブル名に"
 
-#: libraries/classes/Display/Export.php:342
+#: libraries/classes/Display/Export.php:345
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
@@ -8289,16 +8297,16 @@ msgstr ""
 "す。）。その他のテキストはそのまま使われます。詳細については、%4$sFAQ%5$s を"
 "参照してください。"
 
-#: libraries/classes/Display/Export.php:577
+#: libraries/classes/Display/Export.php:580
 msgid "Defined aliases"
 msgstr "定義されたエイリアス"
 
-#: libraries/classes/Display/Export.php:636
+#: libraries/classes/Display/Export.php:639
 #: templates/display/export/options_output.twig:7
 msgid "Rename exported databases/tables/columns"
 msgstr "エクスポートされた データベース・テーブル・カラムの名前を変更"
 
-#: libraries/classes/Display/Export.php:694
+#: libraries/classes/Display/Export.php:697
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 "エクスポートプラグインをロードできません。正しくインストールされているか確認"
@@ -8328,31 +8336,31 @@ msgid "authored on %1$s by %2$s"
 msgstr "パッチ作成: %1$s、%2$s により"
 
 #: libraries/classes/Display/Results.php:940
-#: libraries/classes/Html/Generator.php:1317
 #: libraries/classes/Html/Generator.php:1320
+#: libraries/classes/Html/Generator.php:1323
 msgctxt "First page"
 msgid "Begin"
 msgstr "先頭"
 
 #: libraries/classes/Display/Results.php:947
-#: libraries/classes/Html/Generator.php:1318
 #: libraries/classes/Html/Generator.php:1321
+#: libraries/classes/Html/Generator.php:1324
 #: templates/server/binlog/index.twig:47 templates/server/binlog/index.twig:52
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "前へ"
 
 #: libraries/classes/Display/Results.php:975
-#: libraries/classes/Html/Generator.php:1350
-#: libraries/classes/Html/Generator.php:1357
+#: libraries/classes/Html/Generator.php:1353
+#: libraries/classes/Html/Generator.php:1360
 #: templates/server/binlog/index.twig:72 templates/server/binlog/index.twig:77
 msgctxt "Next page"
 msgid "Next"
 msgstr "次へ"
 
 #: libraries/classes/Display/Results.php:1005
-#: libraries/classes/Html/Generator.php:1351
-#: libraries/classes/Html/Generator.php:1358
+#: libraries/classes/Html/Generator.php:1354
+#: libraries/classes/Html/Generator.php:1361
 msgctxt "Last page"
 msgid "End"
 msgstr "最後"
@@ -8911,74 +8919,74 @@ msgstr "別ウィンドウで開く"
 msgid "Print view"
 msgstr "印刷用画面"
 
-#: libraries/classes/Html/Generator.php:179
+#: libraries/classes/Html/Generator.php:182
 #, php-format
 msgid "Jump to database “%s”."
 msgstr "データベース「%s」に移動します。"
 
-#: libraries/classes/Html/Generator.php:205
+#: libraries/classes/Html/Generator.php:208
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s の機能には既知のバグがあります。%s をご覧ください"
 
-#: libraries/classes/Html/Generator.php:318
+#: libraries/classes/Html/Generator.php:321
 msgid "SSL is not being used"
 msgstr "SSLは使用されていません"
 
-#: libraries/classes/Html/Generator.php:323
+#: libraries/classes/Html/Generator.php:326
 msgid "SSL is used with disabled verification"
 msgstr "SSLは無効な検証で使用されます"
 
-#: libraries/classes/Html/Generator.php:325
+#: libraries/classes/Html/Generator.php:328
 msgid "SSL is used without certification authority"
 msgstr "SSLはCAなしで使用されます"
 
-#: libraries/classes/Html/Generator.php:328
+#: libraries/classes/Html/Generator.php:331
 msgid "SSL is used"
 msgstr "SSLを使用されています"
 
-#: libraries/classes/Html/Generator.php:451
+#: libraries/classes/Html/Generator.php:454
 msgid "The PHP function password_hash() with default options."
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:452
+#: libraries/classes/Html/Generator.php:455
 msgid "password_hash() PHP function"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:754
+#: libraries/classes/Html/Generator.php:757
 msgid "Skip Explain SQL"
 msgstr "SQL の EXPLAIN 解析をスキップ"
 
-#: libraries/classes/Html/Generator.php:762
+#: libraries/classes/Html/Generator.php:765
 #, php-format
 msgid "Analyze Explain at %s"
 msgstr "「%s」のEXPLAINを分析"
 
-#: libraries/classes/Html/Generator.php:792
+#: libraries/classes/Html/Generator.php:795
 msgid "Without PHP code"
 msgstr "PHP コードを省略"
 
-#: libraries/classes/Html/Generator.php:799
+#: libraries/classes/Html/Generator.php:802
 #: templates/database/multi_table_query/form.twig:170
 #: templates/database/qbe/selection_form.twig:115
 msgid "Submit query"
 msgstr "クエリを実行する"
 
-#: libraries/classes/Html/Generator.php:844 templates/console/display.twig:31
+#: libraries/classes/Html/Generator.php:847 templates/console/display.twig:31
 #: templates/console/display.twig:175 templates/sql/profiling_chart.twig:2
 msgid "Profiling"
 msgstr "プロファイリング"
 
-#: libraries/classes/Html/Generator.php:858
+#: libraries/classes/Html/Generator.php:861
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "インラインを編集する"
 
-#: libraries/classes/Html/Generator.php:996
+#: libraries/classes/Html/Generator.php:999
 msgid "Static analysis:"
 msgstr "静的解析:"
 
-#: libraries/classes/Html/Generator.php:999
+#: libraries/classes/Html/Generator.php:1002
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "解析中に %d 個のエラーが見つかりました。"
@@ -11029,11 +11037,11 @@ msgstr ""
 "FreeOTP、Google Authenticator、AuthyなどのHOTPおよびTOTPアプリケーションを使"
 "用した認証を提供します。"
 
-#: libraries/classes/Plugins/TwoFactor/Key.php:203
+#: libraries/classes/Plugins/TwoFactor/Key.php:206
 msgid "Hardware Security Key (FIDO U2F)"
 msgstr "ハードウェアセキュリティキー(FIDO U2F)"
 
-#: libraries/classes/Plugins/TwoFactor/Key.php:213
+#: libraries/classes/Plugins/TwoFactor/Key.php:216
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F."
 msgstr ""
@@ -13678,6 +13686,14 @@ msgstr[0] "%s テーブル"
 msgid "Sum"
 msgstr "合計"
 
+#: templates/database/structure/change_prefix_form.twig:7
+msgid "From"
+msgstr "付け替え元"
+
+#: templates/database/structure/change_prefix_form.twig:13
+msgid "To"
+msgstr "付け替え先"
+
 #: templates/database/structure/check_all_tables.twig:6
 msgid "Check tables having overhead"
 msgstr "オーバーヘッドのあるテーブルを確認する"
@@ -13734,6 +13750,14 @@ msgstr "オプション"
 #: templates/database/structure/copy_form.twig:39
 msgid "Add AUTO INCREMENT value"
 msgstr "AUTO INCREMENT 値を追加する"
+
+#: templates/database/structure/drop_form.twig:6
+#: templates/database/structure/empty_form.twig:6
+#: templates/table/delete/confirm.twig:12
+#: templates/table/structure/drop_confirm.twig:6
+#: templates/table/structure/primary.twig:6
+msgid "Do you really want to execute the following query?"
+msgstr "以下のクエリを本当に実行しますか?"
 
 #: templates/database/structure/favorite_anchor.twig:4
 msgid "Add to Favorites"
@@ -14788,21 +14812,6 @@ msgstr "検証"
 #: templates/menu/breadcrumbs.twig:27
 msgid "View:"
 msgstr "ビュー："
-
-#: templates/mult_submits/other_actions.twig:6
-#: templates/table/delete/confirm.twig:12
-#: templates/table/structure/drop_confirm.twig:6
-#: templates/table/structure/primary.twig:6
-msgid "Do you really want to execute the following query?"
-msgstr "以下のクエリを本当に実行しますか?"
-
-#: templates/mult_submits/replace_prefix_table.twig:7
-msgid "From"
-msgstr "付け替え元"
-
-#: templates/mult_submits/replace_prefix_table.twig:13
-msgid "To"
-msgstr "付け替え先"
 
 #: templates/navigation/item_unhide_dialog.twig:20
 msgid "Unhide"
