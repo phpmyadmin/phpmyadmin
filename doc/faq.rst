@@ -1414,7 +1414,7 @@ This is usually caused by web application firewall doing requests filtering. It
 tries to prevent SQL injection, however phpMyAdmin is tool designed to execute
 SQL queries, thus it makes it unusable.
 
-Please whitelist phpMyAdmin scripts from the web application firewall settings
+Please allow phpMyAdmin scripts from the web application firewall settings
 or disable it completely for phpMyAdmin path.
 
 Programs known to cause these kind of errors:

@@ -204,7 +204,7 @@ class Monitor
         /* We only collect the status and server variables here to
          * read them all in one query,
          * and only afterwards assign them.
-         * Also do some white list filtering on the names
+         * Also do some allow list filtering on the names
         */
             case 'servervar':
                 if (! preg_match('/[^a-zA-Z_]+/', $pName)) {

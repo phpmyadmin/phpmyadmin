@@ -32,12 +32,12 @@ Export.enableDumpSomeRowsSubOptions = function () {
  */
 Export.getTemplateData = function () {
     var $form = $('form[name="dump"]');
-    var blacklist = ['token', 'server', 'db', 'table', 'single_table',
+    var excludeList = ['token', 'server', 'db', 'table', 'single_table',
         'export_type', 'export_method', 'sql_query', 'template_id'];
     var obj = {};
     var arr = $form.serializeArray();
     $.each(arr, function () {
-        if ($.inArray(this.name, blacklist) < 0) {
+        if ($.inArray(this.name, excludeList) < 0) {
             if (obj[this.name] !== undefined) {
                 if (! obj[this.name].push) {
                     obj[this.name] = [obj[this.name]];

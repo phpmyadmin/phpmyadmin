@@ -214,7 +214,7 @@ class ConfigFile
         if ($canonicalPath === null) {
             $canonicalPath = $this->getCanonicalPath($path);
         }
-        // apply key whitelist
+
         if ($this->_setFilter !== null
             && ! isset($this->_setFilter[$canonicalPath])
         ) {
