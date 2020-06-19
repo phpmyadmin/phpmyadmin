@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.11.5@3c60609c218d4d4b3b257728b8089094e5c6c6c2">
+<files psalm-version="3.11.6@7fc1f50f54bd6b174b1c43a37c1b0b151915d55c">
   <file src="libraries/classes/Advisor.php">
     <PossiblyNullArgument occurrences="1">
       <code>Util::formatByteDown($value, $limes, $comma)</code>
@@ -113,6 +113,9 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Config/ConfigFile.php">
+    <InvalidIterator occurrences="1">
+      <code>$this-&gt;_cfgDb['_overrides']</code>
+    </InvalidIterator>
     <MissingClosureParamType occurrences="12">
       <code>$value</code>
       <code>$key</code>
@@ -131,6 +134,9 @@
       <code>$this-&gt;_baseCfg</code>
       <code>$cfg</code>
     </PossiblyNullArgument>
+    <TypeDoesNotContainType occurrences="1">
+      <code>count($this-&gt;_cfgDb['_overrides'])</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Config/Form.php">
     <MissingClosureParamType occurrences="6">
@@ -282,12 +288,6 @@
       <code>$formatted_size</code>
       <code>$unit</code>
     </PossiblyNullArrayAccess>
-    <PossiblyNullIterator occurrences="1">
-      <code>$selected</code>
-    </PossiblyNullIterator>
-    <UndefinedVariable occurrences="1">
-      <code>$sub_part</code>
-    </UndefinedVariable>
   </file>
   <file src="libraries/classes/Controllers/Database/TrackingController.php">
     <TypeDoesNotContainType occurrences="1">
@@ -2592,6 +2592,9 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/TwoFactor.php">
+    <InvalidPropertyFetch occurrences="1">
+      <code>$cls::$id</code>
+    </InvalidPropertyFetch>
     <LessSpecificReturnStatement occurrences="1">
       <code>new $name($this)</code>
     </LessSpecificReturnStatement>
