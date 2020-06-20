@@ -31,7 +31,6 @@ use PhpMyAdmin\Util;
 use function array_search;
 use function ceil;
 use function count;
-use function define;
 use function htmlspecialchars;
 use function implode;
 use function in_array;
@@ -386,31 +385,6 @@ class StructureController extends AbstractController
         $to_prefix = $_POST['to_prefix'] ?? $to_prefix ?? null;
         $url_query = $_POST['url_query'] ?? $url_query ?? null;
 
-        /**
-         * Prepares the work and runs some other scripts if required
-         */
-        if (! empty($submit_mult)
-            && $submit_mult != __('With selected:')
-            && ! empty($_POST['selected_tbl'])
-        ) {
-            // phpcs:disable PSR1.Files.SideEffects
-            define('PMA_SUBMIT_MULT', 1);
-            // phpcs:enable
-
-            if (! empty($_POST['selected_tbl'])) {
-                // coming from database structure view - do something with
-                // selected tables
-                $selected = $_POST['selected_tbl'];
-                switch ($submit_mult) {
-                    case 'repair_tbl':
-                        $query_type = $submit_mult;
-                        unset($submit_mult);
-                        $mult_btn   = __('Yes');
-                        break;
-                } // end switch
-            }
-        }
-
         if (empty($db)) {
             $db = '';
         }
@@ -441,8 +415,6 @@ class StructureController extends AbstractController
         $sql_query_views = null;
         // whether to run query after each pass
         $run_parts = false;
-        // whether to execute the query at the end (to display results)
-        $execute_query_later = false;
 
         if ($query_type == 'drop_tbl') {
             $sql_query_views = '';
@@ -465,12 +437,6 @@ class StructureController extends AbstractController
                             . Util::backquote($current);
                     }
                     $reload    = 1;
-                    break;
-
-                case 'repair_tbl':
-                    $sql_query .= (empty($sql_query) ? 'REPAIR TABLE ' : ', ')
-                        . Util::backquote($selected[$i]);
-                    $execute_query_later = true;
                     break;
 
                 case 'empty_tbl':
@@ -603,29 +569,7 @@ class StructureController extends AbstractController
             }
         }
 
-        if ($execute_query_later) {
-            $sql = new Sql();
-            $sql->executeQueryAndSendQueryResponse(
-                null, // analyzed_sql_results
-                false, // is_gotofile
-                $db, // db
-                $table, // table
-                null, // find_real_end
-                null, // sql_query_for_bookmark
-                null, // extra_data
-                null, // message_to_show
-                null, // message
-                null, // sql_data
-                $goto, // goto
-                $pmaThemeImage, // pmaThemeImage
-                null, // disp_query
-                null, // disp_message
-                $query_type, // query_type
-                $sql_query, // sql_query
-                $selected, // selectedTables
-                null // complete_query
-            );
-        } elseif (! $run_parts) {
+        if (! $run_parts) {
             $this->dbi->selectDb($db);
             $result = $this->dbi->tryQuery($sql_query);
             if ($result && ! empty($sql_query_views)) {
@@ -1909,6 +1853,57 @@ class StructureController extends AbstractController
             null,
             null,
             'optimize_tbl',
+            $sql_query,
+            $selected,
+            null
+        );
+
+        if (empty($_POST['message'])) {
+            $_POST['message'] = Message::success();
+        }
+
+        unset($_POST['submit_mult']);
+
+        $this->index();
+    }
+
+    public function repairTable(): void
+    {
+        global $db, $goto, $pmaThemeImage;
+
+        $selected = $_POST['selected_tbl'] ?? [];
+
+        if (empty($selected)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No table selected.'));
+
+            return;
+        }
+
+        $sql_query = '';
+        $selectedCount = count($selected);
+
+        for ($i = 0; $i < $selectedCount; $i++) {
+            $sql_query .= (empty($sql_query) ? 'REPAIR TABLE ' : ', ') . Util::backquote($selected[$i]);
+        }
+
+        $sql = new Sql();
+        $sql->executeQueryAndSendQueryResponse(
+            null,
+            false,
+            $db,
+            '',
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            $goto,
+            $pmaThemeImage,
+            null,
+            null,
+            'repair_tbl',
             $sql_query,
             $selected,
             null
