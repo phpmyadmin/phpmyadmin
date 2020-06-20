@@ -148,6 +148,7 @@ return static function (RouteCollector $routes) {
             $routes->post('/central-columns-remove', [StructureController::class, 'centralColumnsRemove']);
             $routes->post('/change-prefix-form', [StructureController::class, 'changePrefixForm']);
             $routes->post('/check-table', [StructureController::class, 'checkTable']);
+            $routes->post('/checksum-table', [StructureController::class, 'checksumTable']);
             $routes->post('/copy-form', [StructureController::class, 'copyForm']);
             $routes->post('/drop-form', [StructureController::class, 'dropForm']);
             $routes->post('/empty-form', [StructureController::class, 'emptyForm']);
