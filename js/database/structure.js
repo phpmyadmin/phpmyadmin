@@ -313,6 +313,8 @@ AJAX.registerOnload('database/structure.js', function () {
             url = 'index.php?route=/database/structure/empty-form';
         } else if (action === 'export') {
             url = 'index.php?route=/database/structure/export';
+        } else if (action === 'optimize_tbl') {
+            url = 'index.php?route=/database/structure/optimize-table';
         } else if (action === 'show_create') {
             url = 'index.php?route=/database/structure/show-create';
         } else {

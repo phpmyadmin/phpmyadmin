@@ -157,6 +157,7 @@ return static function (RouteCollector $routes) {
                 StructureController::class,
                 'addRemoveFavoriteTablesAction',
             ]);
+            $routes->post('/optimize-table', [StructureController::class, 'optimizeTable']);
             $routes->addRoute(['GET', 'POST'], '/real-row-count', [
                 StructureController::class,
                 'handleRealRowCountRequestAction',

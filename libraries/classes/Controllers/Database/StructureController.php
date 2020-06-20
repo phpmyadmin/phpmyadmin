@@ -402,7 +402,6 @@ class StructureController extends AbstractController
                 // selected tables
                 $selected = $_POST['selected_tbl'];
                 switch ($submit_mult) {
-                    case 'optimize_tbl':
                     case 'repair_tbl':
                         $query_type = $submit_mult;
                         unset($submit_mult);
@@ -466,12 +465,6 @@ class StructureController extends AbstractController
                             . Util::backquote($current);
                     }
                     $reload    = 1;
-                    break;
-
-                case 'optimize_tbl':
-                    $sql_query .= (empty($sql_query) ? 'OPTIMIZE TABLE ' : ', ')
-                        . Util::backquote($selected[$i]);
-                    $execute_query_later = true;
                     break;
 
                 case 'repair_tbl':
@@ -1865,6 +1858,57 @@ class StructureController extends AbstractController
             null,
             null,
             'checksum_tbl',
+            $sql_query,
+            $selected,
+            null
+        );
+
+        if (empty($_POST['message'])) {
+            $_POST['message'] = Message::success();
+        }
+
+        unset($_POST['submit_mult']);
+
+        $this->index();
+    }
+
+    public function optimizeTable(): void
+    {
+        global $db, $goto, $pmaThemeImage;
+
+        $selected = $_POST['selected_tbl'] ?? [];
+
+        if (empty($selected)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No table selected.'));
+
+            return;
+        }
+
+        $sql_query = '';
+        $selectedCount = count($selected);
+
+        for ($i = 0; $i < $selectedCount; $i++) {
+            $sql_query .= (empty($sql_query) ? 'OPTIMIZE TABLE ' : ', ') . Util::backquote($selected[$i]);
+        }
+
+        $sql = new Sql();
+        $sql->executeQueryAndSendQueryResponse(
+            null,
+            false,
+            $db,
+            '',
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            $goto,
+            $pmaThemeImage,
+            null,
+            null,
+            'optimize_tbl',
             $sql_query,
             $selected,
             null
