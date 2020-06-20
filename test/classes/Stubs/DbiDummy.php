@@ -1242,7 +1242,7 @@ class DbiDummy implements DbiExtension
                 'result' => [
                     [
                         'Slave_IO_State'              => 'running',
-                        'Master_Host'                 => 'locahost',
+                        'Master_Host'                 => 'localhost',
                         'Master_User'                 => 'Master_User',
                         'Master_Port'                 => '1002',
                         'Connect_Retry'               => 'Connect_Retry',
