@@ -166,6 +166,7 @@ return static function (RouteCollector $routes) {
                 'handleRealRowCountRequestAction',
             ]);
             $routes->post('/repair-table', [StructureController::class, 'repairTable']);
+            $routes->post('/replace-prefix', [StructureController::class, 'replacePrefix']);
             $routes->post('/show-create', [StructureController::class, 'showCreate']);
         });
         $routes->addRoute(['GET', 'POST'], '/tracking', [TrackingController::class, 'index']);

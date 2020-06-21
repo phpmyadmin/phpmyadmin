@@ -387,39 +387,12 @@ class StructureController extends AbstractController
             return;
         }
 
-        $aQuery = '';
         $sql_query = '';
         $selectedCount = count($selected);
-        $copyTable = false;
 
         for ($i = 0; $i < $selectedCount; $i++) {
             switch ($query_type) {
-                case 'replace_prefix_tbl':
-                    $current = $selected[$i];
-                    $subFromPrefix = mb_substr(
-                        $current,
-                        0,
-                        mb_strlen((string) $from_prefix)
-                    );
-                    if ($subFromPrefix == $from_prefix) {
-                        $newTableName = $to_prefix
-                            . mb_substr(
-                                $current,
-                                mb_strlen((string) $from_prefix)
-                            );
-                    } else {
-                        $newTableName = $current;
-                    }
-                    // CHANGE PREFIX PATTERN
-                    $aQuery = 'ALTER TABLE '
-                        . Util::backquote($selected[$i])
-                        . ' RENAME '
-                        . Util::backquote($newTableName);
-                    break;
-
                 case 'copy_tbl_change_prefix':
-                    $copyTable = true;
-
                     $current = $selected[$i];
                     $newTableName = $to_prefix .
                         mb_substr($current, mb_strlen((string) $from_prefix));
@@ -437,7 +410,6 @@ class StructureController extends AbstractController
                     break;
 
                 case 'copy_tbl':
-                    $copyTable = true;
                     Table::moveCopy(
                         $db,
                         $selected[$i],
@@ -457,14 +429,6 @@ class StructureController extends AbstractController
                     }
                     break;
             }
-
-            if ($copyTable) {
-                continue;
-            }
-
-            $sql_query .= $aQuery . ';' . "\n";
-            $this->dbi->selectDb($db);
-            $this->dbi->query($aQuery);
         }
 
         $message = Message::success();
@@ -1435,9 +1399,10 @@ class StructureController extends AbstractController
             return;
         }
 
-        $route = '/database/structure';
+        $route = '/database/structure/replace-prefix';
         $queryType = 'replace_prefix_tbl';
         if ($submit_mult === 'copy_tbl_change_prefix') {
+            $route = '/database/structure';
             $queryType = 'copy_tbl_change_prefix';
         }
 
@@ -1952,9 +1917,52 @@ class StructureController extends AbstractController
 
         $message = Message::success();
 
-        if (! empty($_POST['message'])) {
+        if (empty($_POST['message'])) {
             $_POST['message'] = $message;
         }
+
+        $this->index();
+    }
+
+    public function replacePrefix(): void
+    {
+        global $db, $message, $sql_query;
+
+        $selected = $_POST['selected'] ?? [];
+        $from_prefix = $_POST['from_prefix'] ?? '';
+        $to_prefix = $_POST['to_prefix'] ?? '';
+
+        $sql_query = '';
+        $selectedCount = count($selected);
+
+        for ($i = 0; $i < $selectedCount; $i++) {
+            $current = $selected[$i];
+            $subFromPrefix = mb_substr($current, 0, mb_strlen((string) $from_prefix));
+
+            if ($subFromPrefix === $from_prefix) {
+                $newTableName = $to_prefix . mb_substr(
+                    $current,
+                    mb_strlen((string) $from_prefix)
+                );
+            } else {
+                $newTableName = $current;
+            }
+
+            $aQuery = 'ALTER TABLE ' . Util::backquote($selected[$i])
+                . ' RENAME ' . Util::backquote($newTableName);
+
+            $sql_query .= $aQuery . ';' . "\n";
+            $this->dbi->selectDb($db);
+            $this->dbi->query($aQuery);
+        }
+
+        $message = Message::success();
+
+        if (empty($_POST['message'])) {
+            $_POST['message'] = $message;
+        }
+
+        unset($_POST['mult_btn']);
 
         $this->index();
     }
