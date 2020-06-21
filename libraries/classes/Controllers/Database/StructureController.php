@@ -394,15 +394,6 @@ class StructureController extends AbstractController
 
         for ($i = 0; $i < $selectedCount; $i++) {
             switch ($query_type) {
-                case 'add_prefix_tbl':
-                    $newTableName = $_POST['add_prefix'] . $selected[$i];
-                    // ADD PREFIX TO TABLE NAME
-                    $aQuery = 'ALTER TABLE '
-                        . Util::backquote($selected[$i])
-                        . ' RENAME '
-                        . Util::backquote($newTableName);
-                    break;
-
                 case 'replace_prefix_tbl':
                     $current = $selected[$i];
                     $subFromPrefix = mb_substr(
@@ -1421,10 +1412,7 @@ class StructureController extends AbstractController
             return;
         }
 
-        $params = [
-            'query_type' => 'add_prefix_tbl',
-            'db' => $db,
-        ];
+        $params = ['db' => $db];
         foreach ($selected as $selectedValue) {
             $params['selected'][] = $selectedValue;
         }
@@ -1939,6 +1927,34 @@ class StructureController extends AbstractController
         }
 
         unset($_POST['mult_btn']);
+
+        $this->index();
+    }
+
+    public function addPrefixTable(): void
+    {
+        global $db, $message, $sql_query;
+
+        $selected = $_POST['selected'] ?? [];
+
+        $sql_query = '';
+        $selectedCount = count($selected);
+
+        for ($i = 0; $i < $selectedCount; $i++) {
+            $newTableName = $_POST['add_prefix'] . $selected[$i];
+            $aQuery = 'ALTER TABLE ' . Util::backquote($selected[$i])
+                . ' RENAME ' . Util::backquote($newTableName);
+
+            $sql_query .= $aQuery . ';' . "\n";
+            $this->dbi->selectDb($db);
+            $this->dbi->query($aQuery);
+        }
+
+        $message = Message::success();
+
+        if (! empty($_POST['message'])) {
+            $_POST['message'] = $message;
+        }
 
         $this->index();
     }

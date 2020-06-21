@@ -1,4 +1,4 @@
-<form id="ajax_form" action="{{ url('/database/structure') }}" method="post">
+<form id="ajax_form" action="{{ url('/database/structure/add-prefix-table') }}" method="post">
   {{ get_hidden_inputs(url_params) }}
 
   <fieldset class = "input">
@@ -12,5 +12,4 @@
       <tr>
     </table>
   </fieldset>
-  <input type="hidden" name="mult_btn" value="{% trans 'Yes' %}">
 </form>
