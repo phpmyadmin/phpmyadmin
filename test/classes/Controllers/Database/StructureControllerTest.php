@@ -20,7 +20,6 @@ use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
-use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\MockObject\MockObject;
 use ReflectionClass;
 use ReflectionException;
@@ -46,9 +45,6 @@ class StructureControllerTest extends AbstractTestCase
 
     /** @var Template */
     private $template;
-
-    /** @var Transformations */
-    private $transformations;
 
     /** @var RelationCleanup */
     private $relationCleanup;
@@ -98,7 +94,6 @@ class StructureControllerTest extends AbstractTestCase
         $this->response = new ResponseStub();
         $this->relation = new Relation($dbi);
         $this->replication = new Replication();
-        $this->transformations = new Transformations();
         $this->relationCleanup = new RelationCleanup($dbi, $this->relation);
         $this->operations = new Operations($dbi, $this->relation);
     }
@@ -122,7 +117,6 @@ class StructureControllerTest extends AbstractTestCase
             $GLOBALS['db'],
             $this->relation,
             $this->replication,
-            $this->transformations,
             $this->relationCleanup,
             $this->operations
         );
@@ -184,7 +178,6 @@ class StructureControllerTest extends AbstractTestCase
             $GLOBALS['db'],
             $this->relation,
             $this->replication,
-            $this->transformations,
             $this->relationCleanup,
             $this->operations
         );
@@ -232,7 +225,6 @@ class StructureControllerTest extends AbstractTestCase
             $GLOBALS['db'],
             $this->relation,
             $this->replication,
-            $this->transformations,
             $this->relationCleanup,
             $this->operations
         );
@@ -297,7 +289,6 @@ class StructureControllerTest extends AbstractTestCase
             $GLOBALS['db'],
             $this->relation,
             $this->replication,
-            $this->transformations,
             $this->relationCleanup,
             $this->operations
         );
@@ -322,7 +313,6 @@ class StructureControllerTest extends AbstractTestCase
             $GLOBALS['db'],
             $this->relation,
             $this->replication,
-            $this->transformations,
             $this->relationCleanup,
             $this->operations
         );
@@ -361,7 +351,6 @@ class StructureControllerTest extends AbstractTestCase
             $GLOBALS['db'],
             $this->relation,
             $this->replication,
-            $this->transformations,
             $this->relationCleanup,
             $this->operations
         );
@@ -404,7 +393,6 @@ class StructureControllerTest extends AbstractTestCase
             $GLOBALS['db'],
             $this->relation,
             $this->replication,
-            $this->transformations,
             $this->relationCleanup,
             $this->operations
         );
@@ -447,7 +435,6 @@ class StructureControllerTest extends AbstractTestCase
             $GLOBALS['db'],
             $this->relation,
             $this->replication,
-            $this->transformations,
             $this->relationCleanup,
             $this->operations
         );
@@ -512,7 +499,6 @@ class StructureControllerTest extends AbstractTestCase
             $GLOBALS['db'],
             $this->relation,
             $this->replication,
-            $this->transformations,
             $this->relationCleanup,
             $this->operations
         );
@@ -565,7 +551,6 @@ class StructureControllerTest extends AbstractTestCase
             $GLOBALS['db'],
             $this->relation,
             $this->replication,
-            $this->transformations,
             $this->relationCleanup,
             $this->operations
         );

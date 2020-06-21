@@ -240,7 +240,6 @@ return [
                 'db' => '%db%',
                 'relation' => '@relation',
                 'replication' => '@replication',
-                'transformations' => '@transformations',
                 'relationCleanup' => '@relation_cleanup',
                 'operations' => '@operations',
             ],

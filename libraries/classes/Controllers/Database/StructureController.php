@@ -25,7 +25,6 @@ use PhpMyAdmin\Sql;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracker;
-use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function array_search;
@@ -79,9 +78,6 @@ class StructureController extends AbstractController
     /** @var Replication */
     private $replication;
 
-    /** @var Transformations */
-    private $transformations;
-
     /** @var RelationCleanup */
     private $relationCleanup;
 
@@ -95,7 +91,6 @@ class StructureController extends AbstractController
      * @param string            $db              Database name
      * @param Relation          $relation        Relation instance
      * @param Replication       $replication     Replication instance
-     * @param Transformations   $transformations Transformations instance.
      * @param RelationCleanup   $relationCleanup RelationCleanup instance.
      * @param Operations        $operations      Operations instance.
      */
@@ -106,14 +101,12 @@ class StructureController extends AbstractController
         $db,
         $relation,
         $replication,
-        Transformations $transformations,
         RelationCleanup $relationCleanup,
         Operations $operations
     ) {
         parent::__construct($response, $dbi, $template, $db);
         $this->relation = $relation;
         $this->replication = $replication;
-        $this->transformations = $transformations;
         $this->relationCleanup = $relationCleanup;
         $this->operations = $operations;
     }
@@ -363,27 +356,17 @@ class StructureController extends AbstractController
      */
     public function multiSubmitAction(): void
     {
-        global $db, $table, $from_prefix, $goto, $message, $err_url;
-        global $mult_btn, $query_type, $reload, $selected, $sql_query;
-        global $submit_mult, $table_type, $to_prefix, $url_query, $pmaThemeImage;
+        global $db, $table, $message, $sql_query;
 
         if (isset($_POST['error']) && $_POST['error'] !== false) {
             return;
         }
 
-        $err_url = Url::getFromRoute('/database/structure', ['db' => $this->db]);
-
-        $from_prefix = $_POST['from_prefix'] ?? $from_prefix ?? null;
-        $goto = $_POST['goto'] ?? $goto ?? '';
-        $mult_btn = $_POST['mult_btn'] ?? $mult_btn ?? null;
-        $query_type = $_POST['query_type'] ?? $query_type ?? null;
-        $reload = $_POST['reload'] ?? $reload ?? null;
-        $selected = $_POST['selected'] ?? $selected ?? [];
-        $sql_query = $_POST['sql_query'] ?? $sql_query ?? null;
-        $submit_mult = $_POST['submit_mult'] ?? $submit_mult ?? null;
-        $table_type = $_POST['table_type'] ?? $table_type ?? null;
-        $to_prefix = $_POST['to_prefix'] ?? $to_prefix ?? null;
-        $url_query = $_POST['url_query'] ?? $url_query ?? null;
+        $from_prefix = $_POST['from_prefix'] ?? null;
+        $mult_btn = $_POST['mult_btn'] ?? null;
+        $query_type = $_POST['query_type'] ?? null;
+        $selected = $_POST['selected'] ?? [];
+        $to_prefix = $_POST['to_prefix'] ?? null;
 
         if (empty($db)) {
             $db = '';
@@ -391,7 +374,6 @@ class StructureController extends AbstractController
         if (empty($table)) {
             $table = '';
         }
-        $views = $this->dbi->getVirtualTables($db);
 
         if (empty($mult_btn) || $mult_btn !== __('Yes')) {
             $message = Message::success(__('No change'));
@@ -406,39 +388,20 @@ class StructureController extends AbstractController
         }
 
         $default_fk_check_value = false;
-        if ($query_type == 'drop_tbl' || $query_type == 'empty_tbl') {
+        if ($query_type == 'empty_tbl') {
             $default_fk_check_value = Util::handleDisableFKCheckInit();
         }
 
         $aQuery = '';
         $sql_query = '';
-        $sql_query_views = null;
         // whether to run query after each pass
         $run_parts = false;
-
-        if ($query_type == 'drop_tbl') {
-            $sql_query_views = '';
-        }
-
         $selectedCount = count($selected);
         $deletes = false;
         $copyTable = false;
 
         for ($i = 0; $i < $selectedCount; $i++) {
             switch ($query_type) {
-                case 'drop_tbl':
-                    $this->relationCleanup->table($db, $selected[$i]);
-                    $current = $selected[$i];
-                    if (! empty($views) && in_array($current, $views)) {
-                        $sql_query_views .= (empty($sql_query_views) ? 'DROP VIEW ' : ', ')
-                            . Util::backquote($current);
-                    } else {
-                        $sql_query .= (empty($sql_query) ? 'DROP TABLE ' : ', ')
-                            . Util::backquote($current);
-                    }
-                    $reload    = 1;
-                    break;
-
                 case 'empty_tbl':
                     $deletes = true;
                     $aQuery = 'TRUNCATE ';
@@ -523,7 +486,7 @@ class StructureController extends AbstractController
                     break;
             }
 
-            // All "DROP TABLE", "DROP FIELD", "OPTIMIZE TABLE" and "REPAIR TABLE"
+            // All "DROP FIELD", "OPTIMIZE TABLE" and "REPAIR TABLE"
             // statements will be run at once below
             if (! $run_parts || $copyTable) {
                 continue;
@@ -532,12 +495,6 @@ class StructureController extends AbstractController
             $sql_query .= $aQuery . ';' . "\n";
             $this->dbi->selectDb($db);
             $this->dbi->query($aQuery);
-
-            if ($query_type != 'drop_tbl') {
-                continue;
-            }
-
-            $this->transformations->clear($db, $selected[$i]);
         }
 
         if ($deletes && ! empty($_REQUEST['pos'])) {
@@ -549,40 +506,15 @@ class StructureController extends AbstractController
             );
         }
 
-        if ($query_type == 'drop_tbl') {
-            if (! empty($sql_query)) {
-                $sql_query .= ';';
-            } elseif (! empty($sql_query_views)) {
-                $sql_query = $sql_query_views . ';';
-                unset($sql_query_views);
-            }
-        }
-
-        // Unset cache values for tables count, issue #14205
-        if ($query_type === 'drop_tbl' && isset($_SESSION['tmpval'])) {
-            if (isset($_SESSION['tmpval']['table_limit_offset'])) {
-                unset($_SESSION['tmpval']['table_limit_offset']);
-            }
-
-            if (isset($_SESSION['tmpval']['table_limit_offset_db'])) {
-                unset($_SESSION['tmpval']['table_limit_offset_db']);
-            }
-        }
-
         if (! $run_parts) {
             $this->dbi->selectDb($db);
             $result = $this->dbi->tryQuery($sql_query);
-            if ($result && ! empty($sql_query_views)) {
-                $sql_query .= ' ' . $sql_query_views . ';';
-                $result = $this->dbi->tryQuery($sql_query_views);
-                unset($sql_query_views);
-            }
 
             if (! $result) {
                 $message = Message::error((string) $this->dbi->getError());
             }
         }
-        if ($query_type == 'drop_tbl' || $query_type == 'empty_tbl') {
+        if ($query_type == 'empty_tbl') {
             Util::handleDisableFKCheckCleanup($default_fk_check_value);
         }
 
@@ -1612,10 +1544,7 @@ class StructureController extends AbstractController
             $full_query .= $full_query_views . ';<br>' . "\n";
         }
 
-        $_url_params = [
-            'query_type' => 'drop_tbl',
-            'db' => $db,
-        ];
+        $_url_params = ['db' => $db];
         foreach ($selected as $selectedValue) {
             $_url_params['selected'][] = $selectedValue;
         }
@@ -1914,6 +1843,90 @@ class StructureController extends AbstractController
         }
 
         unset($_POST['submit_mult']);
+
+        $this->index();
+    }
+
+    public function dropTable(): void
+    {
+        global $db, $message, $reload, $sql_query;
+
+        $reload = $_POST['reload'] ?? $reload ?? null;
+        $mult_btn = $_POST['mult_btn'] ?? '';
+        $selected = $_POST['selected'] ?? [];
+
+        $views = $this->dbi->getVirtualTables($db);
+
+        if ($mult_btn !== __('Yes')) {
+            $message = Message::success(__('No change'));
+
+            if (empty($_POST['message'])) {
+                $_POST['message'] = Message::success();
+            }
+
+            unset($_POST['mult_btn']);
+
+            $this->index();
+
+            return;
+        }
+
+        $default_fk_check_value = Util::handleDisableFKCheckInit();
+        $sql_query = '';
+        $sql_query_views = '';
+        $selectedCount = count($selected);
+
+        for ($i = 0; $i < $selectedCount; $i++) {
+            $this->relationCleanup->table($db, $selected[$i]);
+            $current = $selected[$i];
+
+            if (! empty($views) && in_array($current, $views)) {
+                $sql_query_views .= (empty($sql_query_views) ? 'DROP VIEW ' : ', ') . Util::backquote($current);
+            } else {
+                $sql_query .= (empty($sql_query) ? 'DROP TABLE ' : ', ') . Util::backquote($current);
+            }
+
+            $reload = 1;
+        }
+
+        if (! empty($sql_query)) {
+            $sql_query .= ';';
+        } elseif (! empty($sql_query_views)) {
+            $sql_query = $sql_query_views . ';';
+            unset($sql_query_views);
+        }
+
+        // Unset cache values for tables count, issue #14205
+        if (isset($_SESSION['tmpval'])) {
+            if (isset($_SESSION['tmpval']['table_limit_offset'])) {
+                unset($_SESSION['tmpval']['table_limit_offset']);
+            }
+
+            if (isset($_SESSION['tmpval']['table_limit_offset_db'])) {
+                unset($_SESSION['tmpval']['table_limit_offset_db']);
+            }
+        }
+
+        $this->dbi->selectDb($db);
+        $result = $this->dbi->tryQuery($sql_query);
+
+        if ($result && ! empty($sql_query_views)) {
+            $sql_query .= ' ' . $sql_query_views . ';';
+            $result = $this->dbi->tryQuery($sql_query_views);
+            unset($sql_query_views);
+        }
+
+        if (! $result) {
+            $message = Message::error((string) $this->dbi->getError());
+        }
+
+        Util::handleDisableFKCheckCleanup($default_fk_check_value);
+
+        if (empty($_POST['message'])) {
+            $_POST['message'] = Message::success();
+        }
+
+        unset($_POST['mult_btn']);
 
         $this->index();
     }
