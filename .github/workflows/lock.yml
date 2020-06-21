@@ -12,8 +12,4 @@ jobs:
         with:
           github-token: ${{ github.token }}
           issue-exclude-created-before: '2018-01-01T00:00:00Z'
-          issue-lock-comment: >
-            This issue has been automatically locked since there
-            has not been any recent activity after it was closed.
-            Please open a new issue for related bugs.
           process-only: 'issues'
