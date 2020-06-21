@@ -1,11 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Parameter \\#1 \\$function of function register_shutdown_function expects callable\\(\\)\\: void, Closure\\(\\)\\: mixed given\\.$#"
-			count: 1
-			path: js/messages.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Advisor\\:\\:escapePercent\\(\\) should return string but returns string\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Advisor.php
