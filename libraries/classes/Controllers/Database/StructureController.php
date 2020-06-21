@@ -1879,8 +1879,10 @@ class StructureController extends AbstractController
 
         Util::handleDisableFKCheckCleanup($default_fk_check_value);
 
+        $message = Message::success();
+
         if (empty($_POST['message'])) {
-            $_POST['message'] = Message::success();
+            $_POST['message'] = $message;
         }
 
         unset($_POST['mult_btn']);
