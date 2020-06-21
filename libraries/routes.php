@@ -153,6 +153,7 @@ return static function (RouteCollector $routes) {
             $routes->post('/drop-form', [StructureController::class, 'dropForm']);
             $routes->post('/drop-table', [StructureController::class, 'dropTable']);
             $routes->post('/empty-form', [StructureController::class, 'emptyForm']);
+            $routes->post('/empty-table', [StructureController::class, 'emptyTable']);
             $routes->post('/export', [StructureController::class, 'export']);
             $routes->addRoute(['GET', 'POST'], '/favorite-table', [
                 StructureController::class,

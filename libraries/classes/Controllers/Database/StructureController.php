@@ -387,28 +387,13 @@ class StructureController extends AbstractController
             return;
         }
 
-        $default_fk_check_value = false;
-        if ($query_type == 'empty_tbl') {
-            $default_fk_check_value = Util::handleDisableFKCheckInit();
-        }
-
         $aQuery = '';
         $sql_query = '';
-        // whether to run query after each pass
-        $run_parts = false;
         $selectedCount = count($selected);
-        $deletes = false;
         $copyTable = false;
 
         for ($i = 0; $i < $selectedCount; $i++) {
             switch ($query_type) {
-                case 'empty_tbl':
-                    $deletes = true;
-                    $aQuery = 'TRUNCATE ';
-                    $aQuery .= Util::backquote($selected[$i]);
-                    $run_parts = true;
-                    break;
-
                 case 'add_prefix_tbl':
                     $newTableName = $_POST['add_prefix'] . $selected[$i];
                     // ADD PREFIX TO TABLE NAME
@@ -416,7 +401,6 @@ class StructureController extends AbstractController
                         . Util::backquote($selected[$i])
                         . ' RENAME '
                         . Util::backquote($newTableName);
-                    $run_parts = true;
                     break;
 
                 case 'replace_prefix_tbl':
@@ -440,11 +424,9 @@ class StructureController extends AbstractController
                         . Util::backquote($selected[$i])
                         . ' RENAME '
                         . Util::backquote($newTableName);
-                    $run_parts = true;
                     break;
 
                 case 'copy_tbl_change_prefix':
-                    $run_parts = true;
                     $copyTable = true;
 
                     $current = $selected[$i];
@@ -464,7 +446,6 @@ class StructureController extends AbstractController
                     break;
 
                 case 'copy_tbl':
-                    $run_parts = true;
                     $copyTable = true;
                     Table::moveCopy(
                         $db,
@@ -486,9 +467,7 @@ class StructureController extends AbstractController
                     break;
             }
 
-            // All "DROP FIELD", "OPTIMIZE TABLE" and "REPAIR TABLE"
-            // statements will be run at once below
-            if (! $run_parts || $copyTable) {
+            if ($copyTable) {
                 continue;
             }
 
@@ -497,32 +476,13 @@ class StructureController extends AbstractController
             $this->dbi->query($aQuery);
         }
 
-        if ($deletes && ! empty($_REQUEST['pos'])) {
-            $sql = new Sql();
-            $_REQUEST['pos'] = $sql->calculatePosForLastPage(
-                $db,
-                $table,
-                $_REQUEST['pos'] ?? null
-            );
-        }
-
-        if (! $run_parts) {
-            $this->dbi->selectDb($db);
-            $result = $this->dbi->tryQuery($sql_query);
-
-            if (! $result) {
-                $message = Message::error((string) $this->dbi->getError());
-            }
-        }
-        if ($query_type == 'empty_tbl') {
-            Util::handleDisableFKCheckCleanup($default_fk_check_value);
-        }
+        $message = Message::success();
 
         if (! empty($_POST['message'])) {
             return;
         }
 
-        $_POST['message'] = Message::success();
+        $_POST['message'] = $message;
     }
 
     /**
@@ -1573,10 +1533,7 @@ class StructureController extends AbstractController
         }
 
         $fullQuery = '';
-        $urlParams = [
-            'query_type' => 'empty_tbl',
-            'db' => $db,
-        ];
+        $urlParams = ['db' => $db];
 
         foreach ($selected as $selectedValue) {
             $fullQuery .= 'TRUNCATE ';
@@ -1924,6 +1881,59 @@ class StructureController extends AbstractController
 
         if (empty($_POST['message'])) {
             $_POST['message'] = Message::success();
+        }
+
+        unset($_POST['mult_btn']);
+
+        $this->index();
+    }
+
+    public function emptyTable(): void
+    {
+        global $db, $table, $message, $sql_query;
+
+        $mult_btn = $_POST['mult_btn'] ?? '';
+        $selected = $_POST['selected'] ?? [];
+
+        if ($mult_btn !== __('Yes')) {
+            $message = Message::success(__('No change'));
+
+            if (empty($_POST['message'])) {
+                $_POST['message'] = Message::success();
+            }
+
+            unset($_POST['mult_btn']);
+
+            $this->index();
+
+            return;
+        }
+
+        $default_fk_check_value = Util::handleDisableFKCheckInit();
+
+        $sql_query = '';
+        $selectedCount = count($selected);
+
+        for ($i = 0; $i < $selectedCount; $i++) {
+            $aQuery = 'TRUNCATE ';
+            $aQuery .= Util::backquote($selected[$i]);
+
+            $sql_query .= $aQuery . ';' . "\n";
+            $this->dbi->selectDb($db);
+            $this->dbi->query($aQuery);
+        }
+
+        if (! empty($_REQUEST['pos'])) {
+            $sql = new Sql();
+            $_REQUEST['pos'] = $sql->calculatePosForLastPage($db, $table, $_REQUEST['pos']);
+        }
+
+        Util::handleDisableFKCheckCleanup($default_fk_check_value);
+
+        $message = Message::success();
+
+        if (empty($_POST['message'])) {
+            $_POST['message'] = $message;
         }
 
         unset($_POST['mult_btn']);
