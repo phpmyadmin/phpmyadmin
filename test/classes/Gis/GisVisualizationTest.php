@@ -51,6 +51,7 @@ class GisVisualizationTest extends TestCase
             GisVisualization::getByData([], [
                 'mysqlVersion' => 50500,
                 'spatialColumn' => 'abc',
+                'isMariaDB' => false,
             ])
         );
 
@@ -61,7 +62,7 @@ class GisVisualizationTest extends TestCase
     }
 
     /**
-     * Modify the query for an MySQL 8.0 version
+     * Modify the query for a MySQL 8.0 version
      * @return void
      */
     public function testModifyQuery(): void
@@ -76,6 +77,7 @@ class GisVisualizationTest extends TestCase
             GisVisualization::getByData([], [
                 'mysqlVersion' => 80000,
                 'spatialColumn' => 'abc',
+                'isMariaDB' => false,
             ])
         );
 
@@ -86,7 +88,7 @@ class GisVisualizationTest extends TestCase
     }
 
     /**
-     * Modify the query for an MySQL 8.1 version
+     * Modify the query for a MySQL 8.1 version
      * @return void
      */
     public function testModifyQueryVersion8(): void
@@ -101,11 +103,38 @@ class GisVisualizationTest extends TestCase
             GisVisualization::getByData([], [
                 'mysqlVersion' => 80010,
                 'spatialColumn' => 'abc',
+                'isMariaDB' => false,
             ])
         );
 
         $this->assertEquals(
             'SELECT ST_ASTEXT(`abc`, \'axis-order=long-lat\') AS `abc`, ST_SRID(`abc`) AS `srid` FROM () AS `temp_gis`',
+            $queryString
+        );
+    }
+
+    /**
+     * Modify the query for a MariaDB 10.4 version
+     * @return void
+     */
+    public function testModifyQueryMariaDB(): void
+    {
+        $queryString = $this->_callPrivateFunction(
+            '_modifySqlQuery',
+            [
+                '',
+                0,
+                0,
+            ],
+            GisVisualization::getByData([], [
+                'mysqlVersion' => 100400,
+                'spatialColumn' => 'abc',
+                'isMariaDB' => true,
+            ])
+        );
+
+        $this->assertEquals(
+            'SELECT ST_ASTEXT(`abc`) AS `abc`, ST_SRID(`abc`) AS `srid` FROM () AS `temp_gis`',
             $queryString
         );
     }
