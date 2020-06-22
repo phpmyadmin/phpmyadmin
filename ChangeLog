@@ -35,6 +35,7 @@ phpMyAdmin - ChangeLog
 - issue #16184 Remove chdir logic to fix PHP fatal error "Uncaught TypeError: chdir()"
 - issue        Support for Twig 3
 - issue        Allow phpmyadmin/twig-i18n-extension ^3.0
+- issue #16201 Trim spaces for integer values in table search
 
 5.0.2 (2020-03-20)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page
