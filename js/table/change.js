@@ -154,6 +154,9 @@ function verifyAfterSearchFieldChange (index) {
     var $thisInput = $('input[name=\'criteriaValues[' + index + ']\']');
     // validation for integer type
     if ($thisInput.data('type') === 'INT') {
+        // Trim spaces if it's an integer
+        $thisInput.val($thisInput.val().trim());
+
         var hasMultiple = $thisInput.prop('multiple');
         if (hasMultiple) {
             $('#tbl_search_form').validate();
