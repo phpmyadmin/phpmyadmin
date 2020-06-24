@@ -77,6 +77,7 @@ phpMyAdmin - ChangeLog
 - issue        Support for Twig 3
 - issue        Allow phpmyadmin/twig-i18n-extension ^3.0
 - issue #16201 Trim spaces for integer values in table search
+- issue #16076 Fixed cannot edit or export TIMESTAMP column with default CURRENT_TIMESTAMP in MySQL >= 8.0.13
 
 5.0.2 (2020-03-20)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page

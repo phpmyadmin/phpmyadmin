@@ -96,6 +96,7 @@ class GisDataEditorController extends AbstractController
             'height' => 300,
             'spatialColumn' => 'wkt',
             'mysqlVersion' => $GLOBALS['dbi']->getVersion(),
+            'isMariaDB' => $GLOBALS['dbi']->isMariaDB(),
         ];
         $data = [
             [

@@ -1718,7 +1718,7 @@ class InsertEdit
             );
 
             if (preg_match('/(VIRTUAL|PERSISTENT|GENERATED)/', $column['Extra'])
-                && $column['Extra'] !== 'DEFAULT_GENERATED'
+                && strpos($column['Extra'], 'DEFAULT_GENERATED') === false
             ) {
                 $html_output .= '<input type="hidden" name="virtual'
                     . $column_name_appendix . '" value="1">';

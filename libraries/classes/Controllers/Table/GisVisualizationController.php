@@ -70,6 +70,7 @@ final class GisVisualizationController extends AbstractController
 
         // Check mysql version
         $visualizationSettings['mysqlVersion'] = $this->dbi->getVersion();
+        $visualizationSettings['isMariaDB'] = $this->dbi->isMariaDB();
 
         if (! isset($visualizationSettings['labelColumn'])
             && isset($labelCandidates[0])

@@ -1844,10 +1844,11 @@ class Table
                     $value = Util::backquote($value);
                 }
 
+                // If contains GENERATED or VIRTUAL and does not contain DEFAULT_GENERATED
                 if ((
                     strpos($column['Extra'], 'GENERATED') !== false
                     || strpos($column['Extra'], 'VIRTUAL') !== false
-                    ) && $column['Extra'] !== 'DEFAULT_GENERATED') {
+                    ) && strpos($column['Extra'], 'DEFAULT_GENERATED') === false) {
                     continue;
                 }
 

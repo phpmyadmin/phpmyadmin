@@ -18,6 +18,7 @@ class GisVisualizationTest extends AbstractTestCase
             GisVisualization::getByData([], [
                 'mysqlVersion' => 50500,
                 'spatialColumn' => 'abc',
+                'isMariaDB' => false,
             ]),
             GisVisualization::class,
             'modifySqlQuery',
@@ -43,6 +44,7 @@ class GisVisualizationTest extends AbstractTestCase
             GisVisualization::getByData([], [
                 'mysqlVersion' => 80000,
                 'spatialColumn' => 'abc',
+                'isMariaDB' => false,
             ]),
             GisVisualization::class,
             'modifySqlQuery',
@@ -68,6 +70,7 @@ class GisVisualizationTest extends AbstractTestCase
             GisVisualization::getByData([], [
                 'mysqlVersion' => 80010,
                 'spatialColumn' => 'abc',
+                'isMariaDB' => false,
             ]),
             GisVisualization::class,
             'modifySqlQuery',
@@ -80,6 +83,32 @@ class GisVisualizationTest extends AbstractTestCase
 
         $this->assertEquals(
             'SELECT ST_ASTEXT(`abc`, \'axis-order=long-lat\') AS `abc`, ST_SRID(`abc`) AS `srid` FROM () AS `temp_gis`',
+            $queryString
+        );
+    }
+
+    /**
+     * Modify the query for a MariaDB 10.4 version
+     */
+    public function testModifyQueryMariaDB(): void
+    {
+        $queryString = $this->callFunction(
+            GisVisualization::getByData([], [
+                'mysqlVersion' => 100400,
+                'spatialColumn' => 'abc',
+                'isMariaDB' => true,
+            ]),
+            GisVisualization::class,
+            'modifySqlQuery',
+            [
+                '',
+                0,
+                0,
+            ]
+        );
+
+        $this->assertEquals(
+            'SELECT ST_ASTEXT(`abc`) AS `abc`, ST_SRID(`abc`) AS `srid` FROM () AS `temp_gis`',
             $queryString
         );
     }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.11.6@7fc1f50f54bd6b174b1c43a37c1b0b151915d55c">
+<files psalm-version="3.12.1@9b860214d58c48b5cbe99bdb17914d0eb723c9cd">
   <file src="libraries/classes/Advisor.php">
     <PossiblyNullArgument occurrences="1">
       <code>Util::formatByteDown($value, $limes, $comma)</code>
