@@ -362,11 +362,9 @@ class StructureController extends AbstractController
             return;
         }
 
-        $from_prefix = $_POST['from_prefix'] ?? null;
         $mult_btn = $_POST['mult_btn'] ?? null;
         $query_type = $_POST['query_type'] ?? null;
         $selected = $_POST['selected'] ?? [];
-        $to_prefix = $_POST['to_prefix'] ?? null;
 
         if (empty($db)) {
             $db = '';
@@ -392,23 +390,6 @@ class StructureController extends AbstractController
 
         for ($i = 0; $i < $selectedCount; $i++) {
             switch ($query_type) {
-                case 'copy_tbl_change_prefix':
-                    $current = $selected[$i];
-                    $newTableName = $to_prefix .
-                        mb_substr($current, mb_strlen((string) $from_prefix));
-
-                    // COPY TABLE AND CHANGE PREFIX PATTERN
-                    Table::moveCopy(
-                        $db,
-                        $current,
-                        $db,
-                        $newTableName,
-                        'data',
-                        false,
-                        'one_table'
-                    );
-                    break;
-
                 case 'copy_tbl':
                     Table::moveCopy(
                         $db,
@@ -1400,16 +1381,11 @@ class StructureController extends AbstractController
         }
 
         $route = '/database/structure/replace-prefix';
-        $queryType = 'replace_prefix_tbl';
         if ($submit_mult === 'copy_tbl_change_prefix') {
-            $route = '/database/structure';
-            $queryType = 'copy_tbl_change_prefix';
+            $route = '/database/structure/copy-table-with-prefix';
         }
 
-        $urlParams = [
-            'query_type' => $queryType,
-            'db' => $db,
-        ];
+        $urlParams = ['db' => $db];
         foreach ($selected as $selectedValue) {
             $urlParams['selected'][] = $selectedValue;
         }
@@ -1962,7 +1938,39 @@ class StructureController extends AbstractController
             $_POST['message'] = $message;
         }
 
-        unset($_POST['mult_btn']);
+        $this->index();
+    }
+
+    public function copyTableWithPrefix(): void
+    {
+        global $db, $message;
+
+        $selected = $_POST['selected'] ?? [];
+        $from_prefix = $_POST['from_prefix'] ?? null;
+        $to_prefix = $_POST['to_prefix'] ?? null;
+
+        $selectedCount = count($selected);
+
+        for ($i = 0; $i < $selectedCount; $i++) {
+            $current = $selected[$i];
+            $newTableName = $to_prefix . mb_substr($current, mb_strlen((string) $from_prefix));
+
+            Table::moveCopy(
+                $db,
+                $current,
+                $db,
+                $newTableName,
+                'data',
+                false,
+                'one_table'
+            );
+        }
+
+        $message = Message::success();
+
+        if (empty($_POST['message'])) {
+            $_POST['message'] = $message;
+        }
 
         $this->index();
     }
