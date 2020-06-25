@@ -151,6 +151,7 @@ return static function (RouteCollector $routes) {
             $routes->post('/check-table', [StructureController::class, 'checkTable']);
             $routes->post('/checksum-table', [StructureController::class, 'checksumTable']);
             $routes->post('/copy-form', [StructureController::class, 'copyForm']);
+            $routes->post('/copy-table', [StructureController::class, 'copyTable']);
             $routes->post('/copy-table-with-prefix', [StructureController::class, 'copyTableWithPrefix']);
             $routes->post('/drop-form', [StructureController::class, 'dropForm']);
             $routes->post('/drop-table', [StructureController::class, 'dropTable']);

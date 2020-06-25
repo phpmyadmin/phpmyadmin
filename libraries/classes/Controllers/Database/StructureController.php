@@ -145,13 +145,6 @@ class StructureController extends AbstractController
             'table/change.js',
         ]);
 
-        // Drops/deletes/etc. multiple tables if required
-        if ((! empty($_POST['submit_mult']) && isset($_POST['selected_tbl']))
-            || isset($_POST['mult_btn'])
-        ) {
-            $this->multiSubmitAction();
-        }
-
         // Gets the database structure
         $this->getDatabaseInfo('_structure');
 
@@ -351,74 +344,43 @@ class StructureController extends AbstractController
         $this->response->addJSON(['real_row_count_all' => json_encode($realRowCountAll)]);
     }
 
-    /**
-     * Handles actions related to multiple tables
-     */
-    public function multiSubmitAction(): void
+    public function copyTable(): void
     {
-        global $db, $table, $message, $sql_query;
+        global $db, $message;
 
-        if (isset($_POST['error']) && $_POST['error'] !== false) {
-            return;
-        }
-
-        $mult_btn = $_POST['mult_btn'] ?? null;
-        $query_type = $_POST['query_type'] ?? null;
         $selected = $_POST['selected'] ?? [];
-
-        if (empty($db)) {
-            $db = '';
-        }
-        if (empty($table)) {
-            $table = '';
-        }
-
-        if (empty($mult_btn) || $mult_btn !== __('Yes')) {
-            $message = Message::success(__('No change'));
-
-            if (! empty($_POST['message'])) {
-                return;
-            }
-
-            $_POST['message'] = Message::success();
-
-            return;
-        }
-
-        $sql_query = '';
         $selectedCount = count($selected);
 
         for ($i = 0; $i < $selectedCount; $i++) {
-            switch ($query_type) {
-                case 'copy_tbl':
-                    Table::moveCopy(
-                        $db,
-                        $selected[$i],
-                        $_POST['target_db'],
-                        $selected[$i],
-                        $_POST['what'],
-                        false,
-                        'one_table'
-                    );
-                    if (isset($_POST['adjust_privileges']) && ! empty($_POST['adjust_privileges'])) {
-                        $this->operations->adjustPrivilegesCopyTable(
-                            $db,
-                            $selected[$i],
-                            $_POST['target_db'],
-                            $selected[$i]
-                        );
-                    }
-                    break;
+            Table::moveCopy(
+                $db,
+                $selected[$i],
+                $_POST['target_db'],
+                $selected[$i],
+                $_POST['what'],
+                false,
+                'one_table'
+            );
+
+            if (empty($_POST['adjust_privileges'])) {
+                continue;
             }
+
+            $this->operations->adjustPrivilegesCopyTable(
+                $db,
+                $selected[$i],
+                $_POST['target_db'],
+                $selected[$i]
+            );
         }
 
         $message = Message::success();
 
-        if (! empty($_POST['message'])) {
-            return;
+        if (empty($_POST['message'])) {
+            $_POST['message'] = $message;
         }
 
-        $_POST['message'] = $message;
+        $this->index();
     }
 
     /**
@@ -1252,10 +1214,7 @@ class StructureController extends AbstractController
             return;
         }
 
-        $urlParams = [
-            'query_type' => 'copy_tbl',
-            'db' => $db,
-        ];
+        $urlParams = ['db' => $db];
         foreach ($selected as $selectedValue) {
             $urlParams['selected'][] = $selectedValue;
         }
