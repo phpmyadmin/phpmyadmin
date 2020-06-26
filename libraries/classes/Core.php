@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Di\Migration;
 use PhpMyAdmin\Display\Error as DisplayError;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use const DATE_RFC1123;
@@ -889,13 +888,16 @@ class Core
      */
     public static function setPostAsGlobal(array $post_patterns): void
     {
+        global $containerBuilder;
+
         foreach (array_keys($_POST) as $post_key) {
             foreach ($post_patterns as $one_post_pattern) {
                 if (! preg_match($one_post_pattern, $post_key)) {
                     continue;
                 }
 
-                Migration::getInstance()->setGlobal($post_key, $_POST[$post_key]);
+                $GLOBALS[$post_key] = $_POST[$post_key];
+                $containerBuilder->setParameter($post_key, $GLOBALS[$post_key]);
             }
         }
     }

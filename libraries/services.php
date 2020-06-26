@@ -115,12 +115,6 @@ return [
             'arguments' =>
             ['@dbi'],
         ],
-        'di_migration' =>
-        [
-            'factory' => [PhpMyAdmin\Di\Migration::class, 'getInstance'],
-            'arguments' =>
-            ['@service_container'],
-        ],
         'navigation' =>
         [
             'class' => PhpMyAdmin\Navigation\Navigation::class,

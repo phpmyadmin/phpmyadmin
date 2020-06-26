@@ -33,7 +33,6 @@ declare(strict_types=1);
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Migration;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Logging;
@@ -54,6 +53,7 @@ use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
 
 global $containerBuilder, $error_handler, $PMA_Config, $server, $dbi;
 global $lang, $cfg, $isConfigLoading, $auth_plugin, $route;
+global $url_params, $goto, $back, $db, $table, $sql_query;
 
 /**
  * block attempts to directly run this script
@@ -109,8 +109,6 @@ if ($route === '/import-status') {
 $containerBuilder = new ContainerBuilder();
 $loader = new PhpFileLoader($containerBuilder, new FileLocator(__DIR__));
 $loader->load('services_loader.php');
-/** @var Migration $diMigration */
-$diMigration = $containerBuilder->get('di_migration');
 
 /**
  * Load gettext functions.
@@ -165,18 +163,22 @@ if (! defined('PMA_NO_SESSION')) {
  *
  * @global array $url_params
  */
-$diMigration->setGlobal('url_params', []);
+$url_params = [];
+$containerBuilder->setParameter('url_params', $url_params);
 
 /**
  * holds page that should be displayed
  *
  * @global string $goto
  */
-$diMigration->setGlobal('goto', '');
+$goto = '';
+$containerBuilder->setParameter('goto', $goto);
 // Security fix: disallow accessing serious server files via "?goto="
 if (isset($_REQUEST['goto']) && Core::checkPageValidity($_REQUEST['goto'])) {
-    $diMigration->setGlobal('goto', $_REQUEST['goto']);
-    $diMigration->setGlobal('url_params', ['goto' => $_REQUEST['goto']]);
+    $goto = $_REQUEST['goto'];
+    $url_params['goto'] = $goto;
+    $containerBuilder->setParameter('goto', $goto);
+    $containerBuilder->setParameter('url_params', $url_params);
 } else {
     $PMA_Config->removeCookie('goto');
     unset($_REQUEST['goto'], $_GET['goto'], $_POST['goto']);
@@ -188,7 +190,8 @@ if (isset($_REQUEST['goto']) && Core::checkPageValidity($_REQUEST['goto'])) {
  * @global string $back
  */
 if (isset($_REQUEST['back']) && Core::checkPageValidity($_REQUEST['back'])) {
-    $diMigration->setGlobal('back', $_REQUEST['back']);
+    $back = $_REQUEST['back'];
+    $containerBuilder->setParameter('back', $back);
 } else {
     $PMA_Config->removeCookie('back');
     unset($_REQUEST['back'], $_GET['back'], $_POST['back']);
@@ -248,23 +251,19 @@ Core::setDatabaseAndTableFromRequest($containerBuilder);
 if (isset($_REQUEST['selected_recent_table']) && Core::isValid($_REQUEST['selected_recent_table'])) {
     $recent_table = json_decode($_REQUEST['selected_recent_table'], true);
 
-    $diMigration->setGlobal(
-        'db',
-        array_key_exists('db', $recent_table) && is_string($recent_table['db']) ? $recent_table['db'] : ''
-    );
-    $diMigration->setGlobal(
-        'url_params',
-        ['db' => $containerBuilder->getParameter('db')] + $containerBuilder->getParameter('url_params')
-    );
+    $db = array_key_exists('db', $recent_table) && is_string($recent_table['db'])
+        ? $recent_table['db']
+        : '';
+    $table = array_key_exists('table', $recent_table) && is_string($recent_table['table'])
+        ? $recent_table['table']
+        : '';
 
-    $diMigration->setGlobal(
-        'table',
-        array_key_exists('table', $recent_table) && is_string($recent_table['table']) ? $recent_table['table'] : ''
-    );
-    $diMigration->setGlobal(
-        'url_params',
-        ['table' => $containerBuilder->getParameter('table')] + $containerBuilder->getParameter('url_params')
-    );
+    $url_params['db'] = $db;
+    $url_params['table'] = $table;
+
+    $containerBuilder->setParameter('db', $db);
+    $containerBuilder->setParameter('table', $table);
+    $containerBuilder->setParameter('url_params', $url_params);
 }
 
 /**
@@ -272,10 +271,11 @@ if (isset($_REQUEST['selected_recent_table']) && Core::isValid($_REQUEST['select
  *
  * @global string $sql_query
  */
-$diMigration->setGlobal('sql_query', '');
+$sql_query = '';
 if (Core::isValid($_POST['sql_query'])) {
-    $diMigration->setGlobal('sql_query', $_POST['sql_query']);
+    $sql_query = $_POST['sql_query'];
 }
+$containerBuilder->setParameter('sql_query', $sql_query);
 
 //$_REQUEST['set_theme'] // checked later in this file LABEL_theme_setup
 //$_REQUEST['server']; // checked later in this file
@@ -311,11 +311,10 @@ $PMA_Config->checkServers();
  *
  * @global integer $server
  */
-$diMigration->setGlobal('server', $PMA_Config->selectServer());
-$diMigration->setGlobal(
-    'url_params',
-    ['server' => $containerBuilder->getParameter('server')] + $containerBuilder->getParameter('url_params')
-);
+$server = $PMA_Config->selectServer();
+$url_params['server'] = $server;
+$containerBuilder->setParameter('server', $server);
+$containerBuilder->setParameter('url_params', $url_params);
 
 /**
  * BC - enable backward compatibility
@@ -495,9 +494,9 @@ $containerBuilder->set('theme_manager', ThemeManager::getInstance());
 Tracker::enable();
 
 if (! defined('PMA_MINIMUM_COMMON')
-    && ! empty($GLOBALS['server'])
-    && isset($GLOBALS['cfg']['ZeroConf'])
-    && $GLOBALS['cfg']['ZeroConf'] == true
+    && ! empty($server)
+    && isset($cfg['ZeroConf'])
+    && $cfg['ZeroConf'] == true
 ) {
-    $GLOBALS['dbi']->postConnectControl();
+    $dbi->postConnectControl();
 }
