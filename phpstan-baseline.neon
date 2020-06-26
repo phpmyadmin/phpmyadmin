@@ -1417,7 +1417,7 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\File\\:\\:\\$_handle \\(resource\\|null\\) does not accept resource\\|false\\.$#"
-			count: 3
+			count: 4
 			path: libraries/classes/File.php
 
 		-

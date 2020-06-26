@@ -239,20 +239,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-
-/**
- * current selected database
- *
- * @global string $db
- */
-Core::setGlobalDbOrTable('db');
-
-/**
- * current selected table
- *
- * @global string $table
- */
-Core::setGlobalDbOrTable('table');
+Core::setDatabaseAndTableFromRequest($containerBuilder);
 
 /**
  * Store currently selected recent table.
