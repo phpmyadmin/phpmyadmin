@@ -54,6 +54,13 @@ class LanguageManager
             'ar|arabic',
             'ar_AE',
         ],
+        'ar_ly' => [
+            'ar_LY',
+            'Arabic (Libya)',
+            'ليبي',
+            'ar[_-]ly|arabic (libya)|libian arabic',
+            'ar_LY',
+        ],
         'az' => [
             'az',
             'Azerbaijani',
