@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-06-14 22:54+0200\n"
-"PO-Revision-Date: 2020-04-05 18:26+0000\n"
+"PO-Revision-Date: 2020-06-29 10:06+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/"
-"phpmyadmin/5-0/pt/>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
+"5-0/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.0-dev\n"
+"X-Generator: Weblate 4.2-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -925,7 +925,7 @@ msgstr "A analisar os registos"
 
 #: js/messages.php:274
 msgid "Analysing & loading logs. This may take a while."
-msgstr "A analisar e a carregar registos. Isto pode demorar um um pouco."
+msgstr "A analisar e a carregar registos. Isto pode demorar um pouco."
 
 #: js/messages.php:275
 msgid "Cancel request"
@@ -17762,10 +17762,10 @@ msgid ""
 "and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
 "memcached, ignore this recommendation."
 msgstr ""
-"O cache de query é conhecido por melhorar significativamente o desempenho "
+"O cache da consulta é conhecido por melhorar significativamente o desempenho "
 "quando corretamente configurado. Ative-o ajustando {query_cache_size} para "
-"um valor em MB com 2 dígitos e ajustando {query_cache_type} para 'ON'.\n"
-"<b>Observação:</b>Se estiver usando memcache, ignore esta recomendação."
+"um valor em MB com 2 dígitos e ajustando {query_cache_type} para 'ON'. "
+"<b>Observação:</b> Se estiver a usar memcache, ignore esta recomendação."
 
 #: libraries/advisory_rules_mysql_before80003.txt:15
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
