@@ -138,6 +138,7 @@ Functions.addDatepicker = function ($thisElement, type, options) {
         showMicrosec: true,
         showTimepicker: showTimepicker,
         showButtonPanel: false,
+        changeYear: true,
         dateFormat: 'yy-mm-dd', // yy means year with four digits
         timeFormat: 'HH:mm:ss.lc',
         constrainInput: false,
