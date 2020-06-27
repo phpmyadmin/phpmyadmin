@@ -758,11 +758,9 @@ class InsertEdit
                 $foreignData,
                 $readOnly
             );
-        } elseif (
-            (
+        } elseif ((
                 $GLOBALS['cfg']['LongtextDoubleTextarea']
-                && mb_strstr($column['pma_type'], 'longtext')
-            )
+                && mb_strstr($column['pma_type'], 'longtext'))
             || mb_strstr($column['pma_type'], 'json')
         ) {
             $html_output .= $this->getTextarea(
