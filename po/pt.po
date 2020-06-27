@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-06-19 09:17+0200\n"
-"PO-Revision-Date: 2020-05-18 07:41+0000\n"
+"PO-Revision-Date: 2020-06-28 22:41+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.1-dev\n"
+"X-Generator: Weblate 4.2-dev\n"
 
 #: js/messages.php:52
 msgid "Confirm"
@@ -654,7 +654,7 @@ msgstr "A analisar os registos"
 
 #: js/messages.php:263
 msgid "Analysing & loading logs. This may take a while."
-msgstr "A analisar e a carregar registos. Isto pode demorar um um pouco."
+msgstr "A analisar e a carregar registos. Isto pode demorar um pouco."
 
 #: js/messages.php:264
 msgid "Cancel request"
@@ -5996,8 +5996,6 @@ msgstr "desconhecido"
 #: libraries/classes/Controllers/Database/StructureController.php:1711
 #: libraries/classes/Controllers/Database/StructureController.php:1743
 #: libraries/classes/Controllers/Database/StructureController.php:1795
-#, fuzzy
-#| msgid "No tables selected."
 msgid "No table selected."
 msgstr "Nenhuma tabela selecionada."
 
@@ -18309,10 +18307,10 @@ msgid ""
 "and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
 "memcached, ignore this recommendation."
 msgstr ""
-"O cache de query é conhecido por melhorar significativamente o desempenho "
+"O cache da consulta é conhecido por melhorar significativamente o desempenho "
 "quando corretamente configurado. Ative-o ajustando {query_cache_size} para "
-"um valor em MB com 2 dígitos e ajustando {query_cache_type} para 'ON'.\n"
-"<b>Observação:</b>Se estiver usando memcache, ignore esta recomendação."
+"um valor em MB com 2 dígitos e ajustando {query_cache_type} para 'ON'. "
+"<b>Observação:</b> Se estiver a usar memcache, ignore esta recomendação."
 
 #: libraries/advisory_rules_mysql_before80003.txt:15
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
