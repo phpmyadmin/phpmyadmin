@@ -358,22 +358,21 @@ class NavigationTree
     /**
      * Builds a branch of the tree
      *
-     * @param array    $path  A paths pointing to the branch
-     *                        of the tree that needs to be built
-     * @param string   $type2 The type of item being paginated on
-     *                        the second level of the tree
-     * @param int      $pos2  The position for the pagination of
-     *                        the branch at the second level of the tree
-     * @param string   $type3 The type of item being paginated on
-     *                        the third level of the tree
-     * @param int      $pos3  The position for the pagination of
-     *                        the branch at the third level of the tree
+     * @param array  $path  A paths pointing to the branch
+     *                      of the tree that needs to be built
+     * @param string $type2 The type of item being paginated on
+     *                      the second level of the tree
+     * @param int    $pos2  The position for the pagination of
+     *                      the branch at the second level of the tree
+     * @param string $type3 The type of item being paginated on
+     *                      the third level of the tree
+     * @param int    $pos3  The position for the pagination of
+     *                      the branch at the third level of the tree
      *
      * @return Node|bool    The active node or false in case of failure, true if the path contains <= 1 items
      */
     private function buildPathPart(array $path, string $type2, int $pos2, string $type3, int $pos3)
     {
-
         if (count($path) <= 1) {
             return true;
         }
