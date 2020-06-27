@@ -273,4 +273,43 @@ class Url
                 return $separator;
         }
     }
+
+    /**
+     * Override standard parse_str function to return the query parsed
+     *
+     * @param string      $encoded_string String to decode
+     * @param string|null $separator      Separator to use to implode parameters
+     *
+     * @return string Query parsed
+     */
+    public static function parseStr(string $encoded_string, ?string $separator = null): string
+    {
+        parse_str($encoded_string, $urlParameters);
+        return self::buildQuery($urlParameters, $separator);
+    }
+
+    /**
+     * Implode an array in a query string style
+     *
+     * @param array       $pieces    Items to implode
+     * @param string|null $separator Glue to use between items
+     *
+     * @return string
+     */
+    public static function buildQuery(array $pieces, ?string $separator = null): string
+    {
+        if ($separator === null) {
+            $separator = static::getArgSeparator();
+        }
+        return implode(
+            $separator,
+            array_map(
+                static function ($key, $value) {
+                    return $key . '=' . $value;
+                },
+                array_keys($pieces),
+                $pieces
+            )
+        );
+    }
 }

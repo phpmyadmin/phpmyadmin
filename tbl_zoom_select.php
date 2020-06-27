@@ -10,6 +10,7 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Table\SearchController;
+use PhpMyAdmin\Url;
 use Symfony\Component\DependencyInjection\Definition;
 
 if (! defined('ROOT_PATH')) {
@@ -24,7 +25,7 @@ require_once ROOT_PATH . 'libraries/tbl_common.inc.php';
 /* Define dependencies for the concerned controller */
 $dependency_definitions = [
     'searchType' => 'zoom',
-    'url_query' => &$url_query,
+    'url_query' => Url::parseStr($url_query),
 ];
 
 /** @var Definition $definition */

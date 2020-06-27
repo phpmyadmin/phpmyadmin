@@ -114,4 +114,116 @@ class UrlTest extends TestCase
         $expected = '?server=x' . htmlentities($separator) . 'lang=en' ;
         $this->assertEquals($expected, Url::getCommon());
     }
+
+    /**
+     * @dataProvider providerParseStr
+     *
+     * @param string      $expected  Expected result
+     * @param string      $input     Data to parse
+     * @param string|null $separator Separator to use to re-implode the parameters found
+     *
+     * @return void
+     */
+    public function testParseStr(string $expected, string $input, string $separator = null): void
+    {
+        $this->assertEquals($expected, Url::parseStr($input, $separator));
+    }
+
+    /**
+     * @return array[] Unit test sets
+     */
+    public function providerParseStr(): array
+    {
+        return [
+            [
+                'table=garcon',
+                'table=garcon',
+                null,
+            ],
+            [
+                'table=garcon',
+                'table=garcon',
+                '*',
+            ],
+            [
+                'table=garçon',
+                'table=gar%C3%A7on',
+                null,
+            ],
+            [
+                'table=garçon',
+                'table=gar%C3%A7on',
+                '*',
+            ],
+            [
+                '?db=gh16222&table=garcon',
+                '?db=gh16222&table=garcon',
+                null,
+            ],
+            [
+                '?db=gh16222*table=garcon',
+                '?db=gh16222&table=garcon',
+                '*',
+            ],
+            [
+                '?db=gh16222&table=garçon',
+                '?db=gh16222&table=gar%C3%A7on',
+                null,
+            ],
+            [
+                '?db=gh16222*table=garçon',
+                '?db=gh16222&table=gar%C3%A7on',
+                '*',
+            ],
+        ];
+    }
+
+    /**
+     * @dataProvider providerBuildQuery
+     *
+     * @param string      $expected  Expected result
+     * @param array       $params    Params to use to build the query
+     * @param string|null $separator Separator to use to re-implode the parameters found
+     *
+     * @return void
+     */
+    public function testBuildQuery(string $expected, array $params, ?string $separator): void
+    {
+        $this->assertEquals($expected, Url::buildQuery($params, $separator));
+    }
+
+    /**
+     * @return array[] Unit test sets
+     */
+    public function providerBuildQuery()
+    {
+        return [
+            [
+                'db=my_db',
+                ['db' => 'my_db'],
+                null,
+            ],
+            [
+                'db=my_db',
+                ['db' => 'my_db'],
+                '*',
+            ],
+            [
+                'db=my_db&table=my_table',
+                [
+                    'db' => 'my_db',
+                    'table' => 'my_table',
+                ],
+                null,
+            ],
+            [
+                'db=my_db*table=my_table',
+                [
+                    'db' => 'my_db',
+                    'table' => 'my_table',
+                ],
+                '*',
+            ],
+        ];
+    }
 }
