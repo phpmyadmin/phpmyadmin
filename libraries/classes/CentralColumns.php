@@ -947,20 +947,18 @@ class CentralColumns
             'text_dir' => $text_dir,
             'form_name' => 'tableslistcontainer',
         ]);
-        $html_output .= Generator::getButtonOrImage(
-            'edit_central_columns',
-            'mult_submit change_central_columns',
-            __('Edit'),
-            'b_edit',
-            'edit central columns'
-        );
-        $html_output .= Generator::getButtonOrImage(
-            'delete_central_columns',
-            'mult_submit',
-            __('Delete'),
-            'b_drop',
-            'remove_from_central_columns'
-        );
+
+        $html_output .= '<button class="btn btn-link mult_submit change_central_columns" type="submit"'
+            . ' name="edit_central_columns" value="edit central columns"'
+            . ' title="' . __('Edit') . '">' . "\n"
+            . Generator::getIcon('b_edit', __('Edit'))
+            . '</button>' . "\n";
+
+        $html_output .= '<button class="btn btn-link mult_submit" type="submit"'
+            . ' name="delete_central_columns" value="remove_from_central_columns"'
+            . ' title="' . __('Delete') . '">' . "\n"
+            . Generator::getIcon('b_drop', __('Delete'))
+            . '</button>' . "\n";
 
         return $html_output;
     }
