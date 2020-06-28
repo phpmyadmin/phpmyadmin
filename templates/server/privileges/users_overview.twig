@@ -105,7 +105,9 @@
     <label for="usersForm_checkall">{% trans 'Check all' %}</label>
     <em class="with-selected">{% trans 'With selected:' %}</em>
 
-    {{ get_button_or_image('submit_mult', 'mult_submit', 'Export'|trans, 'b_tblexport', 'export') }}
+    <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="export" title="{% trans 'Export' %}">
+      {{ get_icon('b_tblexport', 'Export'|trans) }}
+    </button>
 
     <input type="hidden" name="initial" value="{{ initial }}">
   </div>
