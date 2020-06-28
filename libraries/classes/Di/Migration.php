@@ -66,6 +66,6 @@ class Migration
     public function setGlobal(string $key, $value)
     {
         $GLOBALS[$key] = $value;
-        $this->containerBuilder->setParameter($key, $value);
+        $this->containerBuilder->setParameter($key, $this->containerBuilder->getParameterBag()->escapeValue($value));
     }
 }
