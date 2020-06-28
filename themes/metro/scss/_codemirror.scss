@@ -24,8 +24,8 @@ $textarea-rows: 15 !default;
 }
 
 .insertRowTable .CodeMirror {
-  height: ceil($textarea-rows * 0.6em);
-  width: ceil($textarea-cols * 0.6em);
+  min-height: ceil($textarea-rows * 0.6em);
+  min-width: ceil($textarea-cols * 0.6em);
 }
 
 #pma_console .CodeMirror-gutters {
