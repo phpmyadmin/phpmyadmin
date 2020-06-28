@@ -8,7 +8,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Html;
 
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Html\ActionLinksModes\Factory;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
@@ -124,30 +123,6 @@ class Generator
             . self::getImage('b_help')
             . '<span class="hide">' . $message . '</span>'
             . '</span>';
-    }
-
-    /**
-     * Generate a button or image tag
-     *
-     * @param string $button_name  name of button element
-     * @param string $button_class class of button or image element
-     * @param string $text         text to display
-     * @param string $image        image to display
-     * @param string $value        value
-     *
-     * @return string              html content
-     *
-     * @access public
-     */
-    public static function getButtonOrImage(
-        $button_name,
-        $button_class,
-        $text,
-        $image,
-        $value = ''
-    ): string {
-        return Factory::build($GLOBALS['cfg']['ActionLinksMode'])
-            ->generate($button_name, $button_class, $text, $image, $value);
     }
 
     /**
