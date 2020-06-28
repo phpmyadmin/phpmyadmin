@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-06-14 22:54+0200\n"
-"PO-Revision-Date: 2020-02-03 17:50+0000\n"
-"Last-Translator: Marcin Net <marcin.net@linux.pl>\n"
+"PO-Revision-Date: 2020-06-29 10:06+0000\n"
+"Last-Translator: Szylu <chipolade@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-0/pl/"
 ">\n"
 "Language: pl\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.11-dev\n"
+"X-Generator: Weblate 4.2-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -1616,7 +1616,7 @@ msgstr "Krok"
 
 #: js/messages.php:480
 msgid "The following actions will be performed:"
-msgstr "Zostaną wykonane następujące działania:"
+msgstr "Następujące działania zostaną wykonane:"
 
 #: js/messages.php:481
 #, php-format
@@ -3256,7 +3256,7 @@ msgstr "wielopoziomowy"
 #: libraries/classes/Charsets/Collation.php:531
 msgctxt "Collation variant"
 msgid "binary"
-msgstr "Binarne"
+msgstr "dwójkowy"
 
 #: libraries/classes/Charsets/Collation.php:534
 msgctxt "Collation variant"
@@ -5975,8 +5975,8 @@ msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
 msgstr ""
-"Włącz tryb zerowej konfiguracji, który pozwala automatycznie skonfigurować "
-"tabele konfiguracji konfiguracji phpMyAdmin."
+"Włącz Tryb Zerowej Konfiguracji, który pozwala automatycznie skonfigurować "
+"tabele konfiguracji phpMyAdmin."
 
 #: libraries/classes/Config/Descriptions.php:916
 msgid "Enable Zero Configuration mode"
@@ -6187,7 +6187,7 @@ msgstr "Sposób prezentacji danych"
 
 #: libraries/classes/Config/PageSettings.php:143
 msgid "Cannot save settings, submitted configuration form contains errors!"
-msgstr "Nie można zapisać ustawień, złożony formularz  zawiera błędy!"
+msgstr "Nie można zapisać ustawień, złożony formularz zawiera błędy!"
 
 #: libraries/classes/Config.php:1156
 #, php-format
@@ -9099,8 +9099,8 @@ msgstr "Wtyczki"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "Zmodyfikowanych rekordów: %1$d."
-msgstr[1] "Zmodyfikowanych rekordów: %1$d."
+msgstr[0] "Zmodyfikowany rekord: %1$d."
+msgstr[1] "Zmodyfikowane rekordy: %1$d."
 msgstr[2] "Zmodyfikowanych rekordów: %1$d."
 
 #: libraries/classes/Message.php:271
