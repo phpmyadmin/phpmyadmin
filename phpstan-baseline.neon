@@ -91,11 +91,6 @@ parameters:
 			path: libraries/classes/Charsets.php
 
 		-
-			message: "#^Cannot access offset 0 on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/CheckUserPrivileges.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of function mb_substr expects string, bool\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/CheckUserPrivileges.php
@@ -406,16 +401,6 @@ parameters:
 			path: libraries/classes/Controllers/Server/Status/StatusController.php
 
 		-
-			message: "#^Cannot access offset 0 on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/VariablesController.php
-
-		-
-			message: "#^Cannot access offset 1 on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/VariablesController.php
-
-		-
 			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\|null given\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/Server/VariablesController.php
@@ -651,11 +636,6 @@ parameters:
 			path: libraries/classes/Database/Designer.php
 
 		-
-			message: "#^Cannot access offset 0 on \\(array\\)\\|true\\.$#"
-			count: 4
-			path: libraries/classes/Database/Designer/Common.php
-
-		-
 			message: "#^Offset 'DTN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>, \\?'DTN' \\=\\> array\\<int, string\\>, \\?'SCN' \\=\\> array\\<int, string\\>, \\?'STN' \\=\\> array\\<int, string\\>\\)\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer/Common.php
@@ -862,11 +842,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$column of method PhpMyAdmin\\\\Index\\:\\:hasColumn\\(\\) expects string, int\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
-			message: "#^Cannot access offset int\\|string on array\\|bool\\|null\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
 
@@ -1676,7 +1651,7 @@ parameters:
 			path: libraries/classes/InsertEdit.php
 
 		-
-			message: "#^Parameter \\#4 \\$row of static method PhpMyAdmin\\\\Util\\:\\:getUniqueCondition\\(\\) expects array, array\\|bool given\\.$#"
+			message: "#^Parameter \\#4 \\$row of static method PhpMyAdmin\\\\Util\\:\\:getUniqueCondition\\(\\) expects array, array\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
@@ -1707,11 +1682,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Cannot access offset 0 on \\(array\\)\\|true\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
@@ -3036,11 +3006,6 @@ parameters:
 			path: libraries/classes/Relation.php
 
 		-
-			message: "#^Cannot access offset 0 on \\(array\\)\\|true\\.$#"
-			count: 38
-			path: libraries/classes/Relation.php
-
-		-
 			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, resource given\\.$#"
 			count: 1
 			path: libraries/classes/Relation.php
@@ -3117,11 +3082,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$str of function explode expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Cannot access offset 1 on \\(array\\)\\|true\\.$#"
 			count: 1
 			path: libraries/classes/Relation.php
 
@@ -3226,11 +3186,6 @@ parameters:
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^Cannot access offset 0 on \\(array\\)\\|true\\.$#"
-			count: 11
-			path: libraries/classes/Server/Privileges.php
-
-		-
 			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, bool\\|resource given\\.$#"
 			count: 2
 			path: libraries/classes/Server/Privileges.php
@@ -3238,11 +3193,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'Table_priv' on array\\|true\\.$#"
 			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Cannot access offset 1 on \\(array\\)\\|true\\.$#"
-			count: 2
 			path: libraries/classes/Server/Privileges.php
 
 		-

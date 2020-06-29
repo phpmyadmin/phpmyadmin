@@ -63,7 +63,7 @@ interface DbiExtension
      *
      * @param object $result result set identifier
      *
-     * @return array
+     * @return array|null
      */
     public function fetchArray($result);
 
@@ -81,7 +81,7 @@ interface DbiExtension
      *
      * @param object $result result set identifier
      *
-     * @return array
+     * @return array|null
      */
     public function fetchRow($result);
 

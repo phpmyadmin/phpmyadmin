@@ -82,9 +82,6 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>$this-&gt;dbi-&gt;getError()</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="1">
-      <code>$row[0]</code>
-    </PossiblyInvalidArrayAccess>
   </file>
   <file src="libraries/classes/Command/CacheWarmupCommand.php">
     <TooFewArguments occurrences="1">
@@ -413,9 +410,7 @@
     <PossiblyNullArgument occurrences="7"/>
   </file>
   <file src="libraries/classes/Controllers/Server/VariablesController.php">
-    <PossiblyInvalidArrayAccess occurrences="4">
-      <code>$arr[1]</code>
-      <code>$arr[0]</code>
+    <PossiblyInvalidArrayAccess occurrences="2">
       <code>$varValue[1]</code>
       <code>$varValue[1]</code>
     </PossiblyInvalidArrayAccess>
@@ -625,8 +620,7 @@
     <InvalidArgument occurrences="1">
       <code>$pg</code>
     </InvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="2">
-      <code>$val[0]</code>
+    <PossiblyInvalidArrayAccess occurrences="1">
       <code>$orig_data['settings_data']</code>
     </PossiblyInvalidArrayAccess>
     <PossiblyUndefinedArrayOffset occurrences="4">
@@ -659,12 +653,12 @@
     <NullArgument occurrences="1">
       <code>null</code>
     </NullArgument>
-    <PossiblyInvalidArrayAccess occurrences="1">
-      <code>$table</code>
-    </PossiblyInvalidArrayAccess>
     <PossiblyNullArgument occurrences="1">
       <code>$sortOrder</code>
     </PossiblyNullArgument>
+    <PossiblyNullArrayAccess occurrences="1">
+      <code>$table</code>
+    </PossiblyNullArrayAccess>
     <PossiblyNullPropertyAssignmentValue occurrences="3">
       <code>$currentSearch</code>
       <code>null</code>
@@ -716,7 +710,9 @@
     <EmptyArrayAccess occurrences="1">
       <code>$result_target[]</code>
     </EmptyArrayAccess>
-    <ImplementedReturnTypeMismatch occurrences="1">
+    <ImplementedReturnTypeMismatch occurrences="3">
+      <code>array|null</code>
+      <code>array|null</code>
       <code>array|null</code>
     </ImplementedReturnTypeMismatch>
     <InvalidReturnStatement occurrences="1">
@@ -737,9 +733,7 @@
     </PossiblyInvalidArrayOffset>
   </file>
   <file src="libraries/classes/Dbal/DbiMysqli.php">
-    <ImplementedReturnTypeMismatch occurrences="4">
-      <code>array|null</code>
-      <code>array|null</code>
+    <ImplementedReturnTypeMismatch occurrences="2">
       <code>array|bool</code>
       <code>string|false</code>
     </ImplementedReturnTypeMismatch>
@@ -1291,27 +1285,26 @@
     <InvalidArgument occurrences="1">
       <code>$current_result</code>
     </InvalidArgument>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$row</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="9">
+    <PossiblyInvalidArrayAccess occurrences="7">
       <code>$foreigner['foreign_db']</code>
       <code>$foreigner['foreign_table']</code>
       <code>$foreigner['foreign_field']</code>
-      <code>$dispval</code>
       <code>$foreigner['foreign_db']</code>
       <code>$foreigner['foreign_table']</code>
       <code>$foreigner['foreign_field']</code>
-      <code>$row[0]</code>
       <code>$mime_map[$table_column['Field']]</code>
     </PossiblyInvalidArrayAccess>
     <PossiblyInvalidOperand occurrences="2">
       <code>$tmp</code>
       <code>$insert_id</code>
     </PossiblyInvalidOperand>
-    <PossiblyNullArrayAccess occurrences="2">
+    <PossiblyNullArgument occurrences="1">
+      <code>$row</code>
+    </PossiblyNullArgument>
+    <PossiblyNullArrayAccess occurrences="3">
       <code>$data_size[0]</code>
       <code>$data_size[1]</code>
+      <code>$dispval</code>
     </PossiblyNullArrayAccess>
     <PossiblyUndefinedVariable occurrences="1">
       <code>$protected_row</code>
@@ -2017,45 +2010,7 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>$foreigners</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="41">
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
-      <code>$currTable[0]</code>
+    <PossiblyInvalidArrayAccess occurrences="3">
       <code>$foreigner['foreign_db']</code>
       <code>$foreigner['foreign_table']</code>
       <code>$foreigner['foreign_field']</code>
@@ -2141,28 +2096,14 @@
       <code>$this-&gt;dbi-&gt;getError()</code>
       <code>$this-&gt;dbi-&gt;getError()</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="18">
+    <PossiblyInvalidArrayAccess occurrences="5">
       <code>$row1['Type']</code>
-      <code>$row[0]</code>
-      <code>$row1[0]</code>
-      <code>$row1[0]</code>
-      <code>$row1[0]</code>
-      <code>$row1[0]</code>
-      <code>$row1[0]</code>
-      <code>$row1[0]</code>
-      <code>$row1[0]</code>
-      <code>$row1[1]</code>
-      <code>$row1[0]</code>
       <code>$row['@@old_passwords']</code>
-      <code>$row[0]</code>
-      <code>$row[0]</code>
-      <code>$tmp_initial</code>
       <code>$row['authentication_string']</code>
       <code>$row['password']</code>
       <code>$result['password']</code>
     </PossiblyInvalidArrayAccess>
-    <PossiblyInvalidArrayAssignment occurrences="2">
-      <code>$row1[1]</code>
+    <PossiblyInvalidArrayAssignment occurrences="1">
       <code>$row['password']</code>
     </PossiblyInvalidArrayAssignment>
     <PossiblyInvalidIterator occurrences="1">
@@ -2172,6 +2113,9 @@
       <code>$old_usergroup</code>
       <code>$dbname</code>
     </PossiblyNullArgument>
+    <PossiblyNullArrayAccess occurrences="1">
+      <code>$tmp_initial</code>
+    </PossiblyNullArrayAccess>
     <PossiblyUndefinedArrayOffset occurrences="1">
       <code>$_POST['pred_dbname']</code>
     </PossiblyUndefinedArrayOffset>
@@ -2207,9 +2151,6 @@
       <code>$result</code>
       <code>$result</code>
     </InvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="1">
-      <code>$row[0]</code>
-    </PossiblyInvalidArrayAccess>
     <PossiblyNullIterator occurrences="3">
       <code>$tabs</code>
       <code>$tabs</code>
