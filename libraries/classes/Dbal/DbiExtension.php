@@ -62,28 +62,22 @@ interface DbiExtension
      * returns array of rows with associative and numeric keys from $result
      *
      * @param object $result result set identifier
-     *
-     * @return array|null
      */
-    public function fetchArray($result);
+    public function fetchArray($result): ?array;
 
     /**
      * returns array of rows with associative keys from $result
      *
      * @param object $result result set identifier
-     *
-     * @return array|null
      */
-    public function fetchAssoc($result);
+    public function fetchAssoc($result): ?array;
 
     /**
      * returns array of rows with numeric keys from $result
      *
      * @param object $result result set identifier
-     *
-     * @return array|null
      */
-    public function fetchRow($result);
+    public function fetchRow($result): ?array;
 
     /**
      * Adjusts the result pointer to an arbitrary row in the result

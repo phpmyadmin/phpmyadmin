@@ -129,14 +129,12 @@ class DbiDummy implements DbiExtension
      * returns result data from $result
      *
      * @param object $result MySQL result
-     *
-     * @return array|bool
      */
-    public function fetchAny($result)
+    public function fetchAny($result): ?array
     {
         $query_data = &$this->getQueryData($result);
         if ($query_data['pos'] >= count((array) $query_data['result'])) {
-            return false;
+            return null;
         }
         $ret = $query_data['result'][$query_data['pos']];
         $query_data['pos'] += 1;
@@ -148,10 +146,8 @@ class DbiDummy implements DbiExtension
      * returns array of rows with associative and numeric keys from $result
      *
      * @param object $result result  MySQL result
-     *
-     * @return array
      */
-    public function fetchArray($result)
+    public function fetchArray($result): ?array
     {
         $query_data = &$this->getQueryData($result);
         $data = $this->fetchAny($result);
@@ -172,10 +168,8 @@ class DbiDummy implements DbiExtension
      * returns array of rows with associative keys from $result
      *
      * @param object $result MySQL result
-     *
-     * @return array
      */
-    public function fetchAssoc($result)
+    public function fetchAssoc($result): ?array
     {
         $data = $this->fetchAny($result);
         $query_data = &$this->getQueryData($result);
@@ -195,10 +189,8 @@ class DbiDummy implements DbiExtension
      * returns array of rows with numeric keys from $result
      *
      * @param object $result MySQL result
-     *
-     * @return array
      */
-    public function fetchRow($result)
+    public function fetchRow($result): ?array
     {
         return $this->fetchAny($result);
     }
@@ -1300,7 +1292,10 @@ class DbiDummy implements DbiExtension
                     . 'DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE('
                     . "CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) "
                     . 'ORDER BY SCHEMA_NAME ASC',
-                'result' => ['test'],
+                'columns' => ['SCHEMA_NAME'],
+                'result' => [
+                    ['test'],
+                ],
             ],
             [
                 'query'  => 'SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX('

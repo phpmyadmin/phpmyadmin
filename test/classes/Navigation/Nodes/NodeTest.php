@@ -462,7 +462,7 @@ class NodeTest extends AbstractTestCase
             ->willReturnOnConsecutiveCalls(
                 ['0' => 'db'],
                 ['0' => 'aa_db'],
-                false
+                null
             );
 
         $dbi->expects($this->once())

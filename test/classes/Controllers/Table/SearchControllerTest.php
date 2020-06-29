@@ -107,8 +107,14 @@ class SearchControllerTest extends AbstractTestCase
      */
     public function testGetColumnMinMax()
     {
-        $GLOBALS['dbi']->expects($this->any())->method('fetchSingleRow')
-            ->will($this->returnArgument(0));
+        $expected = 'SELECT MIN(`column`) AS `min`, '
+            . 'MAX(`column`) AS `max` '
+            . 'FROM `PMA`.`PMA_BookMark`';
+
+        $GLOBALS['dbi']->expects($this->any())
+            ->method('fetchSingleRow')
+            ->with($expected)
+            ->will($this->returnValue([$expected]));
 
         $ctrl = new SearchController(
             $this->_response,
@@ -121,13 +127,7 @@ class SearchControllerTest extends AbstractTestCase
         );
 
         $result = $ctrl->getColumnMinMax('column');
-        $expected = 'SELECT MIN(`column`) AS `min`, '
-            . 'MAX(`column`) AS `max` '
-            . 'FROM `PMA`.`PMA_BookMark`';
-        $this->assertEquals(
-            $expected,
-            $result
-        );
+        $this->assertEquals([$expected], $result);
     }
 
     /**

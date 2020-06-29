@@ -935,7 +935,7 @@ class PrivilegesTest extends AbstractTestCase
             ->will($this->returnValue($columns));
         $dbi->expects($this->at(1))
             ->method('fetchRow')
-            ->will($this->returnValue(false));
+            ->will($this->returnValue(null));
         $dbi->expects($this->any())
             ->method('escapeString')
             ->will($this->returnArgument(0));

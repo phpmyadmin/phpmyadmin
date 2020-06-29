@@ -88,7 +88,7 @@ class DesignerTest extends AbstractTestCase
                     'page_nr' => '2',
                     'page_descr' => 'page2',
                 ],
-                false
+                null
             );
 
         $dbi->expects($this->any())

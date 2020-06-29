@@ -112,7 +112,7 @@ class UserGroupsTest extends AbstractTestCase
         $dbi->expects($this->at(3))
             ->method('fetchAssoc')
             ->withAnyParameters()
-            ->will($this->returnValue(false));
+            ->will($this->returnValue(null));
         $dbi->expects($this->once())
             ->method('freeResult');
         $GLOBALS['dbi'] = $dbi;
@@ -225,7 +225,7 @@ class UserGroupsTest extends AbstractTestCase
                     'tab' => 'server_sql',
                     'allowed' => 'Y',
                 ],
-                false
+                null
             );
         $dbi->expects($this->once())
             ->method('freeResult');

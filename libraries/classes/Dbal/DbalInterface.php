@@ -317,7 +317,7 @@ interface DbalInterface
     );
 
     /**
-     * returns only the first row from the result
+     * Returns only the first row from the result or null if result is empty.
      *
      * <code>
      * $sql = 'SELECT * FROM `user` WHERE `id` = 123';
@@ -330,15 +330,12 @@ interface DbalInterface
      * @param string $type  NUM|ASSOC|BOTH returned array should either numeric
      *                      associative or both
      * @param int    $link  link type
-     *
-     * @return array|bool first row from result
-     * or false if result is empty
      */
     public function fetchSingleRow(
         string $query,
         string $type = 'ASSOC',
         $link = DatabaseInterface::CONNECT_USER
-    );
+    ): ?array;
 
     /**
      * returns all rows in the resultset in one array
@@ -548,28 +545,22 @@ interface DbalInterface
      * returns array of rows with associative and numeric keys from $result
      *
      * @param object $result result set identifier
-     *
-     * @return array
      */
-    public function fetchArray($result);
+    public function fetchArray($result): ?array;
 
     /**
      * returns array of rows with associative keys from $result
      *
      * @param object $result result set identifier
-     *
-     * @return array|bool
      */
-    public function fetchAssoc($result);
+    public function fetchAssoc($result): ?array;
 
     /**
      * returns array of rows with numeric keys from $result
      *
      * @param object $result result set identifier
-     *
-     * @return array|bool
      */
-    public function fetchRow($result);
+    public function fetchRow($result): ?array;
 
     /**
      * Adjusts the result pointer to an arbitrary row in the result

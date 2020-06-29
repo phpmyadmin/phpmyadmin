@@ -94,7 +94,7 @@ class BinlogControllerTest extends AbstractTestCase
         $dbi->expects($this->at(3))->method('fetchAssoc')
             ->will($this->returnValue($value));
         $dbi->expects($this->at(4))->method('fetchAssoc')
-            ->will($this->returnValue(false));
+            ->will($this->returnValue(null));
 
         $response = new Response();
 

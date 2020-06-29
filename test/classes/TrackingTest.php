@@ -185,7 +185,7 @@ class TrackingTest extends AbstractTestCase
         }
         $dbi->expects($this->at(6))
             ->method('fetchArray')
-            ->will($this->returnValue(false));
+            ->will($this->returnValue(null));
         // return fetchArray for Activate/Deactivate tracking
         for ($i = 7; $i < 13; $i++) {
             $dbi->expects($this->at($i))
@@ -194,7 +194,7 @@ class TrackingTest extends AbstractTestCase
         }
         $dbi->expects($this->at(13))
             ->method('fetchArray')
-            ->will($this->returnValue(false));
+            ->will($this->returnValue(null));
 
         $dbi->method('numRows')
             ->will($this->returnValue(1));

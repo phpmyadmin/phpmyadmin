@@ -107,7 +107,7 @@ class StatusControllerTest extends AbstractTestCase
             ->will($this->returnValue(['Com_empty_query', '0']));
         $dbi->expects($this->at(6))
             ->method('fetchRow')
-            ->will($this->returnValue(false));
+            ->will($this->returnValue(null));
 
         $dbi->expects($this->at(7))->method('freeResult');
 

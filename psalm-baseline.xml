@@ -6,9 +6,8 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Bookmark.php">
-    <PossiblyInvalidArgument occurrences="2">
+    <PossiblyInvalidArgument occurrences="1">
       <code>$db</code>
-      <code>$result</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidArrayAccess occurrences="10">
       <code>$cfgBookmark['db']</code>
@@ -410,16 +409,17 @@
     <PossiblyNullArgument occurrences="7"/>
   </file>
   <file src="libraries/classes/Controllers/Server/VariablesController.php">
-    <PossiblyInvalidArrayAccess occurrences="2">
-      <code>$varValue[1]</code>
-      <code>$varValue[1]</code>
-    </PossiblyInvalidArrayAccess>
-    <PossiblyNullArgument occurrences="4">
+    <PossiblyNullArgument occurrences="5">
       <code>Util::formatByteDown($varValue[1], 3, 3)</code>
       <code>$value</code>
       <code>$value</code>
+      <code>$varValue[1]</code>
       <code>Util::formatByteDown($value, 3, 3)</code>
     </PossiblyNullArgument>
+    <PossiblyNullArrayAccess occurrences="2">
+      <code>$varValue[1]</code>
+      <code>$varValue[1]</code>
+    </PossiblyNullArrayAccess>
   </file>
   <file src="libraries/classes/Controllers/Setup/FormController.php">
     <ArgumentTypeCoercion occurrences="1">
@@ -489,12 +489,12 @@
     </PossiblyUndefinedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/SearchController.php">
-    <InvalidReturnStatement occurrences="1">
-      <code>$this-&gt;dbi-&gt;fetchSingleRow($sql_query)</code>
-    </InvalidReturnStatement>
-    <InvalidReturnType occurrences="1">
+    <InvalidNullableReturnType occurrences="1">
       <code>array</code>
-    </InvalidReturnType>
+    </InvalidNullableReturnType>
+    <NullableReturnStatement occurrences="1">
+      <code>$this-&gt;dbi-&gt;fetchSingleRow($sql_query)</code>
+    </NullableReturnStatement>
   </file>
   <file src="libraries/classes/Controllers/Table/StructureController.php">
     <ImplicitToStringCast occurrences="1">
@@ -544,6 +544,9 @@
       <code>$avg_size</code>
       <code>$avg_unit</code>
     </PossiblyNullArrayAccess>
+    <TypeDoesNotContainType occurrences="1">
+      <code>is_array($row)</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Controllers/Table/ZoomSearchController.php">
     <PossiblyFalseArgument occurrences="3">
@@ -564,15 +567,6 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>$this-&gt;dbi-&gt;getError()</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="4">
-      <code>$item['DEFINER']</code>
-      <code>$item['SECURITY_TYPE']</code>
-      <code>$item['VIEW_DEFINITION']</code>
-      <code>$item['CHECK_OPTION']</code>
-    </PossiblyInvalidArrayAccess>
-    <PossiblyInvalidArrayAssignment occurrences="1">
-      <code>$item['ALGORITHM']</code>
-    </PossiblyInvalidArrayAssignment>
   </file>
   <file src="libraries/classes/Core.php">
     <FalsableReturnStatement occurrences="1">
@@ -620,9 +614,6 @@
     <InvalidArgument occurrences="1">
       <code>$pg</code>
     </InvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="1">
-      <code>$orig_data['settings_data']</code>
-    </PossiblyInvalidArrayAccess>
     <PossiblyUndefinedArrayOffset occurrences="4">
       <code>$con['DTN']</code>
       <code>$con['STN']</code>
@@ -631,20 +622,6 @@
     </PossiblyUndefinedArrayOffset>
   </file>
   <file src="libraries/classes/Database/Events.php">
-    <PossiblyInvalidArrayAccess occurrences="12">
-      <code>$item['EVENT_NAME']</code>
-      <code>$item['STATUS']</code>
-      <code>$item['EVENT_TYPE']</code>
-      <code>$item['EXECUTE_AT']</code>
-      <code>$item['INTERVAL_VALUE']</code>
-      <code>$item['INTERVAL_FIELD']</code>
-      <code>$item['STARTS']</code>
-      <code>$item['ENDS']</code>
-      <code>$item['ON_COMPLETION']</code>
-      <code>$item['EVENT_DEFINITION']</code>
-      <code>$item['DEFINER']</code>
-      <code>$item['EVENT_COMMENT']</code>
-    </PossiblyInvalidArrayAccess>
     <PossiblyNullArgument occurrences="1">
       <code>$create_item</code>
     </PossiblyNullArgument>
@@ -670,16 +647,6 @@
       <code>$routine['item_type_toggle']</code>
       <code>$routine['item_returntype']</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="8">
-      <code>$routine['SPECIFIC_NAME']</code>
-      <code>$routine['ROUTINE_TYPE']</code>
-      <code>$routine['ROUTINE_DEFINITION']</code>
-      <code>$routine['IS_DETERMINISTIC']</code>
-      <code>$routine['SECURITY_TYPE']</code>
-      <code>$routine['SECURITY_TYPE']</code>
-      <code>$routine['SQL_DATA_ACCESS']</code>
-      <code>$routine['ROUTINE_COMMENT']</code>
-    </PossiblyInvalidArrayAccess>
     <PossiblyNullArgument occurrences="5">
       <code>$mode</code>
       <code>$create_routine</code>
@@ -710,11 +677,6 @@
     <EmptyArrayAccess occurrences="1">
       <code>$result_target[]</code>
     </EmptyArrayAccess>
-    <ImplementedReturnTypeMismatch occurrences="3">
-      <code>array|null</code>
-      <code>array|null</code>
-      <code>array|null</code>
-    </ImplementedReturnTypeMismatch>
     <InvalidReturnStatement occurrences="1">
       <code>$this-&gt;_extension-&gt;getProtoInfo($this-&gt;_links[$link])</code>
     </InvalidReturnStatement>
@@ -2073,8 +2035,9 @@
       <code>null</code>
       <code>null</code>
     </NullArgument>
-    <NullableReturnStatement occurrences="1">
+    <NullableReturnStatement occurrences="2">
       <code>$authentication_plugin</code>
+      <code>$result['password']</code>
     </NullableReturnStatement>
     <PossiblyFalseArgument occurrences="1">
       <code>mb_strpos($export_user, '&amp;')</code>
@@ -2096,25 +2059,19 @@
       <code>$this-&gt;dbi-&gt;getError()</code>
       <code>$this-&gt;dbi-&gt;getError()</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="5">
+    <PossiblyNullArgument occurrences="6">
       <code>$row1['Type']</code>
-      <code>$row['@@old_passwords']</code>
-      <code>$row['authentication_string']</code>
-      <code>$row['password']</code>
-      <code>$result['password']</code>
-    </PossiblyInvalidArrayAccess>
-    <PossiblyInvalidArrayAssignment occurrences="1">
-      <code>$row['password']</code>
-    </PossiblyInvalidArrayAssignment>
-    <PossiblyInvalidIterator occurrences="1">
-      <code>$row</code>
-    </PossiblyInvalidIterator>
-    <PossiblyNullArgument occurrences="2">
+      <code>$row1['Type']</code>
+      <code>$row1['Type']</code>
+      <code>$row1['Type']</code>
       <code>$old_usergroup</code>
       <code>$dbname</code>
     </PossiblyNullArgument>
-    <PossiblyNullArrayAccess occurrences="1">
+    <PossiblyNullArrayAccess occurrences="4">
+      <code>$row1['Type']</code>
+      <code>$row['@@old_passwords']</code>
       <code>$tmp_initial</code>
+      <code>$result['password']</code>
     </PossiblyNullArrayAccess>
     <PossiblyUndefinedArrayOffset occurrences="1">
       <code>$_POST['pred_dbname']</code>
@@ -2247,14 +2204,14 @@
     <InvalidReturnStatement occurrences="1">
       <code>$table_auto_increment ?? ''</code>
     </InvalidReturnStatement>
+    <NullableReturnStatement occurrences="1">
+      <code>$result['row_count']</code>
+    </NullableReturnStatement>
     <PossiblyInvalidArgument occurrences="3">
       <code>$this-&gt;_dbi-&gt;getError(DatabaseInterface::CONNECT_CONTROL)</code>
       <code>$this-&gt;_dbi-&gt;getError(DatabaseInterface::CONNECT_CONTROL)</code>
       <code>$tmp_error_create</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="1">
-      <code>$result['row_count']</code>
-    </PossiblyInvalidArrayAccess>
     <PossiblyNullArgument occurrences="5">
       <code>$target_db</code>
       <code>$existrel_foreign[$master_field_md5]['constraint']</code>
@@ -2262,12 +2219,13 @@
       <code>$existrel_foreign[$master_field_md5]['ref_table_name']</code>
       <code>$existrel_foreign[$master_field_md5]['ref_index_list']</code>
     </PossiblyNullArgument>
-    <PossiblyNullArrayAccess occurrences="5">
+    <PossiblyNullArrayAccess occurrences="6">
       <code>$existrel_foreign[$master_field_md5]['constraint']</code>
       <code>$existrel_foreign[$master_field_md5]['ref_db_name']</code>
       <code>$existrel_foreign[$master_field_md5]['ref_table_name']</code>
       <code>$existrel_foreign[$master_field_md5]['ref_index_list']</code>
       <code>$existrel_foreign[$master_field_md5]['constraint']</code>
+      <code>$result['row_count']</code>
     </PossiblyNullArrayAccess>
     <PossiblyNullPropertyAssignmentValue occurrences="2">
       <code>null</code>

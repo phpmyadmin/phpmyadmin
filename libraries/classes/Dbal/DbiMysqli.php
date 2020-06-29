@@ -256,10 +256,8 @@ class DbiMysqli implements DbiExtension
      * returns array of rows with associative and numeric keys from $result
      *
      * @param mysqli_result $result result set identifier
-     *
-     * @return array|null
      */
-    public function fetchArray($result)
+    public function fetchArray($result): ?array
     {
         if (! $result instanceof mysqli_result) {
             return null;
@@ -272,10 +270,8 @@ class DbiMysqli implements DbiExtension
      * returns array of rows with associative keys from $result
      *
      * @param mysqli_result $result result set identifier
-     *
-     * @return array|null
      */
-    public function fetchAssoc($result)
+    public function fetchAssoc($result): ?array
     {
         if (! $result instanceof mysqli_result) {
             return null;
@@ -288,10 +284,8 @@ class DbiMysqli implements DbiExtension
      * returns array of rows with numeric keys from $result
      *
      * @param mysqli_result $result result set identifier
-     *
-     * @return array|null
      */
-    public function fetchRow($result)
+    public function fetchRow($result): ?array
     {
         if (! $result instanceof mysqli_result) {
             return null;

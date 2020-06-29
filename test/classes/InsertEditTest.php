@@ -3869,7 +3869,7 @@ class InsertEditTest extends AbstractTestCase
 
         $dbi->expects($this->at(2))
             ->method('fetchRow')
-            ->will($this->returnValue(false));
+            ->will($this->returnValue(null));
 
         $dbi->expects($this->at(3))
             ->method('freeResult');

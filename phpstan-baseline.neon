@@ -41,11 +41,6 @@ parameters:
 			path: libraries/classes/Bookmark.php
 
 		-
-			message: "#^Parameter \\#3 \\$row of static method PhpMyAdmin\\\\Bookmark\\:\\:createFromRow\\(\\) expects array, array\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/Bookmark.php
-
-		-
 			message: "#^Parameter \\#3 \\$pageNow of static method PhpMyAdmin\\\\Util\\:\\:pageselector\\(\\) expects int, float given\\.$#"
 			count: 1
 			path: libraries/classes/BrowseForeigners.php
@@ -406,7 +401,7 @@ parameters:
 			path: libraries/classes/Controllers/Server/VariablesController.php
 
 		-
-			message: "#^Cannot access offset 1 on array\\|bool\\.$#"
+			message: "#^Offset 1 does not exist on array\\|null\\.$#"
 			count: 3
 			path: libraries/classes/Controllers/Server/VariablesController.php
 
@@ -486,7 +481,7 @@ parameters:
 			path: libraries/classes/Controllers/Table/SearchController.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\SearchController\\:\\:getColumnMinMax\\(\\) should return array but returns array\\|bool\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\SearchController\\:\\:getColumnMinMax\\(\\) should return array but returns array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/SearchController.php
 
@@ -572,11 +567,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Message\\:\\:rawError\\(\\) expects string, bool\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/ViewCreateController.php
-
-		-
-			message: "#^Cannot access offset 'ALGORITHM' on array\\|bool\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/ViewCreateController.php
 
@@ -671,72 +661,7 @@ parameters:
 			path: libraries/classes/Database/Designer/Common.php
 
 		-
-			message: "#^Cannot access offset 'settings_data' on array\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer/Common.php
-
-		-
 			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:tryQuery\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Events.php
-
-		-
-			message: "#^Cannot access offset 'EVENT_NAME' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Database/Events.php
-
-		-
-			message: "#^Cannot access offset 'STATUS' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Database/Events.php
-
-		-
-			message: "#^Cannot access offset 'EVENT_TYPE' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Database/Events.php
-
-		-
-			message: "#^Cannot access offset 'EXECUTE_AT' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Database/Events.php
-
-		-
-			message: "#^Cannot access offset 'INTERVAL_VALUE' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Database/Events.php
-
-		-
-			message: "#^Cannot access offset 'INTERVAL_FIELD' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Database/Events.php
-
-		-
-			message: "#^Cannot access offset 'STARTS' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Database/Events.php
-
-		-
-			message: "#^Cannot access offset 'ENDS' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Database/Events.php
-
-		-
-			message: "#^Cannot access offset 'ON_COMPLETION' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Database/Events.php
-
-		-
-			message: "#^Cannot access offset 'EVENT_DEFINITION' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Database/Events.php
-
-		-
-			message: "#^Cannot access offset 'DEFINER' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Database/Events.php
-
-		-
-			message: "#^Cannot access offset 'EVENT_COMMENT' on \\(array\\)\\|true\\.$#"
 			count: 1
 			path: libraries/classes/Database/Events.php
 
@@ -767,46 +692,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$create_routine of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:create\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Routines.php
-
-		-
-			message: "#^Cannot access offset 'SPECIFIC_NAME' on \\(array\\)\\|true\\.$#"
-			count: 2
-			path: libraries/classes/Database/Routines.php
-
-		-
-			message: "#^Cannot access offset 'ROUTINE_TYPE' on \\(array\\)\\|true\\.$#"
-			count: 2
-			path: libraries/classes/Database/Routines.php
-
-		-
-			message: "#^Cannot access offset 'DTD_IDENTIFIER' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Database/Routines.php
-
-		-
-			message: "#^Cannot access offset 'ROUTINE_DEFINITION' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Database/Routines.php
-
-		-
-			message: "#^Cannot access offset 'IS_DETERMINISTIC' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Database/Routines.php
-
-		-
-			message: "#^Cannot access offset 'SECURITY_TYPE' on \\(array\\)\\|true\\.$#"
-			count: 2
-			path: libraries/classes/Database/Routines.php
-
-		-
-			message: "#^Cannot access offset 'SQL_DATA_ACCESS' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Database/Routines.php
-
-		-
-			message: "#^Cannot access offset 'ROUTINE_COMMENT' on \\(array\\)\\|true\\.$#"
 			count: 1
 			path: libraries/classes/Database/Routines.php
 
@@ -1671,22 +1556,17 @@ parameters:
 			path: libraries/classes/InsertEdit.php
 
 		-
-			message: "#^Cannot access offset mixed on array\\|bool\\.$#"
-			count: 2
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Cannot access offset mixed on array\\|true\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
 		-
 			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fieldLen\\(\\) expects object, array given\\.$#"
+			count: 1
+			path: libraries/classes/InsertEdit.php
+
+		-
+			message: "#^Cannot access offset mixed on array\\|bool\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
@@ -3031,11 +2911,6 @@ parameters:
 			path: libraries/classes/Relation.php
 
 		-
-			message: "#^Cannot access offset 'display_field' on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
 			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, resource\\|true given\\.$#"
 			count: 2
 			path: libraries/classes/Relation.php
@@ -3176,7 +3051,7 @@ parameters:
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^Cannot access offset 'Type' on array\\|bool\\.$#"
+			message: "#^Offset 'Type' does not exist on array\\|null\\.$#"
 			count: 4
 			path: libraries/classes/Server/Privileges.php
 
@@ -3191,12 +3066,7 @@ parameters:
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^Cannot access offset 'Table_priv' on array\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Cannot access offset '@@old_passwords' on array\\|bool\\.$#"
+			message: "#^Offset '@@old_passwords' does not exist on array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
 
@@ -3236,41 +3106,6 @@ parameters:
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^Cannot access offset 'authentication…' on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Cannot access offset 'Password' on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Argument of an invalid type \\(array\\)\\|true supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Cannot access offset 'Password' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Cannot access offset 'password' on \\(array\\)\\|true\\.$#"
-			count: 2
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Cannot access offset 'authentication…' on \\(array\\)\\|true\\.$#"
-			count: 3
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Cannot access offset 'plugin' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
 			message: "#^Parameter \\#6 \\$dbname of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:addUserAndCreateDatabase\\(\\) expects string, array\\|string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
@@ -3291,7 +3126,7 @@ parameters:
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^Cannot access offset 'password' on array\\|bool\\.$#"
+			message: "#^Offset 'password' does not exist on array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
 
@@ -3621,7 +3456,7 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
-			message: "#^Cannot access offset 'row_count' on array\\|bool\\.$#"
+			message: "#^Offset 'row_count' does not exist on array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
 
@@ -4482,21 +4317,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$str of function trim expects string, string\\|null given\\.$#"
-			count: 1
-			path: test/classes/Stubs/DbiDummy.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:fetchArray\\(\\) should return array but returns array\\|bool\\.$#"
-			count: 1
-			path: test/classes/Stubs/DbiDummy.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:fetchAssoc\\(\\) should return array but returns array\\|bool\\.$#"
-			count: 1
-			path: test/classes/Stubs/DbiDummy.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:fetchRow\\(\\) should return array but returns array\\|bool\\.$#"
 			count: 1
 			path: test/classes/Stubs/DbiDummy.php
 

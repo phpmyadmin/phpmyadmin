@@ -1263,7 +1263,7 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * returns only the first row from the result
+     * Returns only the first row from the result or null if result is empty.
      *
      * <code>
      * $sql = 'SELECT * FROM `user` WHERE `id` = 123';
@@ -1276,15 +1276,12 @@ class DatabaseInterface implements DbalInterface
      * @param string $type  NUM|ASSOC|BOTH returned array should either numeric
      *                      associative or both
      * @param int    $link  link type
-     *
-     * @return array|bool first row from result
-     * or false if result is empty
      */
     public function fetchSingleRow(
         string $query,
         string $type = 'ASSOC',
         $link = self::CONNECT_USER
-    ) {
+    ): ?array {
         $result = $this->tryQuery(
             $query,
             $link,
@@ -1292,28 +1289,26 @@ class DatabaseInterface implements DbalInterface
             false
         );
         if ($result === false) {
-            return false;
+            return null;
         }
 
-        // return false if result is empty or false
         if (! $this->numRows($result)) {
-            return false;
+            return null;
         }
 
         switch ($type) {
             case 'NUM':
-                $fetch_function = 'fetchRow';
+                $row = $this->fetchRow($result);
                 break;
             case 'ASSOC':
-                $fetch_function = 'fetchAssoc';
+                $row = $this->fetchAssoc($result);
                 break;
             case 'BOTH':
             default:
-                $fetch_function = 'fetchArray';
+                $row = $this->fetchArray($result);
                 break;
         }
 
-        $row = $this->$fetch_function($result);
         $this->freeResult($result);
 
         return $row;
@@ -1962,10 +1957,8 @@ class DatabaseInterface implements DbalInterface
      * returns array of rows with associative and numeric keys from $result
      *
      * @param object $result result set identifier
-     *
-     * @return array|null
      */
-    public function fetchArray($result)
+    public function fetchArray($result): ?array
     {
         return $this->_extension->fetchArray($result);
     }
@@ -1974,10 +1967,8 @@ class DatabaseInterface implements DbalInterface
      * returns array of rows with associative keys from $result
      *
      * @param object $result result set identifier
-     *
-     * @return array|null
      */
-    public function fetchAssoc($result)
+    public function fetchAssoc($result): ?array
     {
         return $this->_extension->fetchAssoc($result);
     }
@@ -1986,10 +1977,8 @@ class DatabaseInterface implements DbalInterface
      * returns array of rows with numeric keys from $result
      *
      * @param object $result result set identifier
-     *
-     * @return array|null
      */
-    public function fetchRow($result)
+    public function fetchRow($result): ?array
     {
         return $this->_extension->fetchRow($result);
     }
