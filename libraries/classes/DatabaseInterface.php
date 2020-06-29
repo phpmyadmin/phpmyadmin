@@ -1975,7 +1975,7 @@ class DatabaseInterface implements DbalInterface
      *
      * @param object $result result set identifier
      *
-     * @return array|bool
+     * @return array|null
      */
     public function fetchAssoc($result)
     {

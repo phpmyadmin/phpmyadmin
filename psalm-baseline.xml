@@ -61,15 +61,6 @@
     </PossiblyInvalidArrayAccess>
   </file>
   <file src="libraries/classes/Charsets.php">
-    <PossiblyInvalidArgument occurrences="2">
-      <code>$row</code>
-      <code>$row</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="3">
-      <code>$row['Charset']</code>
-      <code>$row['Charset']</code>
-      <code>$row['Collation']</code>
-    </PossiblyInvalidArrayAccess>
     <TypeDoesNotContainType occurrences="1">
       <code>$pieces === false</code>
     </TypeDoesNotContainType>
@@ -418,22 +409,6 @@
       <code>$sub_part</code>
     </TypeDoesNotContainType>
   </file>
-  <file src="libraries/classes/Controllers/Server/Status/ProcessesController.php">
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$process</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="6">
-      <code>$process[$key]</code>
-      <code>$process['Id']</code>
-      <code>$process['User']</code>
-      <code>$process['Host']</code>
-      <code>$process['Command']</code>
-      <code>$process['Time']</code>
-    </PossiblyInvalidArrayAccess>
-    <PossiblyInvalidArrayAssignment occurrences="1">
-      <code>$process[$newKey]</code>
-    </PossiblyInvalidArrayAssignment>
-  </file>
   <file src="libraries/classes/Controllers/Server/Status/StatusController.php">
     <PossiblyNullArgument occurrences="7"/>
   </file>
@@ -488,12 +463,6 @@
     <ImplicitToStringCast occurrences="1">
       <code>Message::error(__('No SQL query was set to fetch data.'))</code>
     </ImplicitToStringCast>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$data[0]</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidIterator occurrences="1">
-      <code>$data_row</code>
-    </PossiblyInvalidIterator>
   </file>
   <file src="libraries/classes/Controllers/Table/GisVisualizationController.php">
     <ImplicitToStringCast occurrences="1">
@@ -531,12 +500,6 @@
     <InvalidReturnType occurrences="1">
       <code>array</code>
     </InvalidReturnType>
-    <PossiblyInvalidArrayAssignment occurrences="1">
-      <code>$row[$col]</code>
-    </PossiblyInvalidArrayAssignment>
-    <PossiblyInvalidIterator occurrences="1">
-      <code>$row</code>
-    </PossiblyInvalidIterator>
   </file>
   <file src="libraries/classes/Controllers/Table/StructureController.php">
     <ImplicitToStringCast occurrences="1">
@@ -593,19 +556,6 @@
       <code>$dataLabel</code>
       <code>$key</code>
     </PossiblyFalseArgument>
-    <PossiblyInvalidArrayAccess occurrences="3">
-      <code>$row[$_POST['criteriaColumnNames'][0]]</code>
-      <code>$row[$_POST['criteriaColumnNames'][1]]</code>
-      <code>$row[$dataLabel]</code>
-    </PossiblyInvalidArrayAccess>
-    <PossiblyInvalidArrayAssignment occurrences="2">
-      <code>$row[$col]</code>
-      <code>$row['where_clause']</code>
-    </PossiblyInvalidArrayAssignment>
-    <PossiblyInvalidIterator occurrences="2">
-      <code>$row</code>
-      <code>$row</code>
-    </PossiblyInvalidIterator>
     <PossiblyNullArrayAccess occurrences="3">
       <code>$criteria_column_names[$i]</code>
       <code>$criteria_column_names[$i]</code>
@@ -614,13 +564,6 @@
     <PossiblyNullArrayOffset occurrences="1">
       <code>$keys</code>
     </PossiblyNullArrayOffset>
-  </file>
-  <file src="libraries/classes/Controllers/TransformationWrapperController.php">
-    <PossiblyInvalidArrayAccess occurrences="3">
-      <code>$row[$transform_key]</code>
-      <code>$row[$transform_key]</code>
-      <code>$row[$transform_key]</code>
-    </PossiblyInvalidArrayAccess>
   </file>
   <file src="libraries/classes/Controllers/ViewCreateController.php">
     <PossiblyInvalidArgument occurrences="1">
@@ -677,22 +620,13 @@
     <InvalidArgument occurrences="1">
       <code>$page_rs</code>
     </InvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="2">
-      <code>$curr_page['page_descr']</code>
-      <code>$curr_page['page_nr']</code>
-    </PossiblyInvalidArrayAccess>
   </file>
   <file src="libraries/classes/Database/Designer/Common.php">
     <InvalidArgument occurrences="1">
       <code>$pg</code>
     </InvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="7">
-      <code>$row['Field']</code>
-      <code>$row['Type']</code>
-      <code>$row['Null']</code>
+    <PossiblyInvalidArrayAccess occurrences="2">
       <code>$val[0]</code>
-      <code>$row['Column_name']</code>
-      <code>$row['Column_name']</code>
       <code>$orig_data['settings_data']</code>
     </PossiblyInvalidArrayAccess>
     <PossiblyUndefinedArrayOffset occurrences="4">
@@ -738,10 +672,9 @@
     </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="libraries/classes/Database/Routines.php">
-    <PossiblyInvalidArgument occurrences="3">
+    <PossiblyInvalidArgument occurrences="2">
       <code>$routine['item_type_toggle']</code>
       <code>$routine['item_returntype']</code>
-      <code>$row</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidArrayAccess occurrences="8">
       <code>$routine['SPECIFIC_NAME']</code>
@@ -783,6 +716,9 @@
     <EmptyArrayAccess occurrences="1">
       <code>$result_target[]</code>
     </EmptyArrayAccess>
+    <ImplementedReturnTypeMismatch occurrences="1">
+      <code>array|null</code>
+    </ImplementedReturnTypeMismatch>
     <InvalidReturnStatement occurrences="1">
       <code>$this-&gt;_extension-&gt;getProtoInfo($this-&gt;_links[$link])</code>
     </InvalidReturnStatement>
@@ -796,21 +732,12 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>$table</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="6">
-      <code>$row['Rows']</code>
-      <code>$row['Data_length']</code>
-      <code>$row['Max_data_length']</code>
-      <code>$row['Index_length']</code>
-      <code>$row['Engine']</code>
-      <code>$row['Data_free']</code>
-    </PossiblyInvalidArrayAccess>
     <PossiblyInvalidArrayOffset occurrences="1">
       <code>$row[$value]</code>
     </PossiblyInvalidArrayOffset>
   </file>
   <file src="libraries/classes/Dbal/DbiMysqli.php">
-    <ImplementedReturnTypeMismatch occurrences="5">
-      <code>array|null</code>
+    <ImplementedReturnTypeMismatch occurrences="4">
       <code>array|null</code>
       <code>array|null</code>
       <code>array|bool</code>
@@ -2084,10 +2011,13 @@
       <code>bool</code>
       <code>int</code>
     </InvalidReturnType>
+    <NullableReturnStatement occurrences="1">
+      <code>$comment</code>
+    </NullableReturnStatement>
     <PossiblyInvalidArgument occurrences="1">
       <code>$foreigners</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="44">
+    <PossiblyInvalidArrayAccess occurrences="41">
       <code>$currTable[0]</code>
       <code>$currTable[0]</code>
       <code>$currTable[0]</code>
@@ -2126,13 +2056,13 @@
       <code>$currTable[0]</code>
       <code>$currTable[0]</code>
       <code>$currTable[0]</code>
-      <code>$row['comment']</code>
-      <code>$row['comment']</code>
-      <code>$row['db_name']</code>
       <code>$foreigner['foreign_db']</code>
       <code>$foreigner['foreign_table']</code>
       <code>$foreigner['foreign_field']</code>
     </PossiblyInvalidArrayAccess>
+    <PossiblyNullArrayAccess occurrences="1">
+      <code>$row['comment']</code>
+    </PossiblyNullArrayAccess>
     <PossiblyNullPropertyAssignmentValue occurrences="1">
       <code>$dbi</code>
     </PossiblyNullPropertyAssignmentValue>
@@ -2168,20 +2098,22 @@
       <code>null</code>
     </PossiblyNullPropertyAssignmentValue>
   </file>
-  <file src="libraries/classes/Server/Plugins.php">
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$row</code>
-    </PossiblyInvalidArgument>
-  </file>
   <file src="libraries/classes/Server/Privileges.php">
-    <InvalidArgument occurrences="6">
+    <InvalidArgument occurrences="7">
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
+      <code>$db_rights</code>
     </InvalidArgument>
+    <InvalidReturnStatement occurrences="1">
+      <code>$db_rights</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>array</code>
+    </InvalidReturnType>
     <NullArgument occurrences="2">
       <code>null</code>
       <code>null</code>
@@ -2200,15 +2132,8 @@
       <code>mb_strrpos($_user_name, '@')</code>
       <code>mb_strrpos($export_user, ';')</code>
     </PossiblyFalseOperand>
-    <PossiblyInvalidArgument occurrences="14">
-      <code>$db_rights_row</code>
-      <code>$db_rights[$row[$dbOrTableName]]</code>
-      <code>$row</code>
-      <code>$row</code>
-      <code>$db_rights_row</code>
+    <PossiblyInvalidArgument occurrences="7">
       <code>$dbname</code>
-      <code>$row</code>
-      <code>$row</code>
       <code>$this-&gt;dbi-&gt;getError()</code>
       <code>$this-&gt;dbi-&gt;getError()</code>
       <code>$this-&gt;dbi-&gt;getError()</code>
@@ -2216,7 +2141,7 @@
       <code>$this-&gt;dbi-&gt;getError()</code>
       <code>$this-&gt;dbi-&gt;getError()</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="39">
+    <PossiblyInvalidArrayAccess occurrences="18">
       <code>$row1['Type']</code>
       <code>$row[0]</code>
       <code>$row1[0]</code>
@@ -2228,41 +2153,16 @@
       <code>$row1[0]</code>
       <code>$row1[1]</code>
       <code>$row1[0]</code>
-      <code>$row['PLUGIN_NAME']</code>
-      <code>$row['PLUGIN_NAME']</code>
-      <code>$row['PLUGIN_DESCRIPTION']</code>
       <code>$row['@@old_passwords']</code>
-      <code>$row[$dbOrTableName]</code>
-      <code>$row[$dbOrTableName]</code>
-      <code>$row['Db']</code>
       <code>$row[0]</code>
       <code>$row[0]</code>
-      <code>$row['User']</code>
-      <code>$row['Host']</code>
-      <code>$row['usergroup']</code>
-      <code>$row['username']</code>
       <code>$tmp_initial</code>
       <code>$row['authentication_string']</code>
       <code>$row['password']</code>
-      <code>$row['Db']</code>
-      <code>$row['Table_name']</code>
-      <code>$row2['Column_priv']</code>
-      <code>$row2['Column_name']</code>
-      <code>$row2['Column_name']</code>
-      <code>$row2['Column_name']</code>
-      <code>$row2['Column_name']</code>
-      <code>$row['Table_priv']</code>
-      <code>$row['Db']</code>
-      <code>$row['Grant_priv']</code>
       <code>$result['password']</code>
-      <code>$row['Status']</code>
     </PossiblyInvalidArrayAccess>
-    <PossiblyInvalidArrayAssignment occurrences="6">
+    <PossiblyInvalidArrayAssignment occurrences="2">
       <code>$row1[1]</code>
-      <code>$row['PLUGIN_DESCRIPTION']</code>
-      <code>$row['PLUGIN_DESCRIPTION']</code>
-      <code>$db_rights[$row['Db']]['can_delete']</code>
-      <code>$row['privs']</code>
       <code>$row['password']</code>
     </PossiblyInvalidArrayAssignment>
     <PossiblyInvalidIterator occurrences="1">
@@ -2280,22 +2180,6 @@
     <PossiblyFalseArgument occurrences="1">
       <code>mb_strpos($row['sql_text'], ' ')</code>
     </PossiblyFalseArgument>
-    <PossiblyInvalidArrayAccess occurrences="8">
-      <code>$row['sql_text']</code>
-      <code>$row['#']</code>
-      <code>$row['argument']</code>
-      <code>$row['#']</code>
-      <code>$row['argument']</code>
-      <code>$return['rows'][$insertTablesFirst]['argument']</code>
-      <code>$row['argument']</code>
-      <code>$row['argument']</code>
-    </PossiblyInvalidArrayAccess>
-    <PossiblyInvalidArrayAssignment occurrences="4">
-      <code>$row['sql_text']</code>
-      <code>$return['rows'][$insertTablesFirst]['#']</code>
-      <code>$return['rows'][$insertTablesFirst]['argument']</code>
-      <code>$row['argument']</code>
-    </PossiblyInvalidArrayAssignment>
     <PossiblyNullArgument occurrences="2"/>
   </file>
   <file src="libraries/classes/Server/SysInfo/SunOs.php">
@@ -2323,13 +2207,8 @@
       <code>$result</code>
       <code>$result</code>
     </InvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="6">
+    <PossiblyInvalidArrayAccess occurrences="1">
       <code>$row[0]</code>
-      <code>$row['usergroup']</code>
-      <code>$row['allowed']</code>
-      <code>$row['tab']</code>
-      <code>$row['tab']</code>
-      <code>$row['allowed']</code>
     </PossiblyInvalidArrayAccess>
     <PossiblyNullIterator occurrences="3">
       <code>$tabs</code>
@@ -2415,16 +2294,6 @@
       <code>Util::formatByteDown($value)</code>
     </NullableReturnStatement>
   </file>
-  <file src="libraries/classes/SystemDatabase.php">
-    <PossiblyInvalidArrayAccess occurrences="6">
-      <code>$data_row['table_name']</code>
-      <code>$data_row['column_name']</code>
-      <code>$data_row['comment']</code>
-      <code>$data_row['mimetype']</code>
-      <code>$data_row['transformation']</code>
-      <code>$data_row['transformation_options']</code>
-    </PossiblyInvalidArrayAccess>
-  </file>
   <file src="libraries/classes/Table.php">
     <InvalidArgument occurrences="6">
       <code>$table_copy_rs</code>
@@ -2442,17 +2311,9 @@
       <code>$this-&gt;_dbi-&gt;getError(DatabaseInterface::CONNECT_CONTROL)</code>
       <code>$tmp_error_create</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="6">
-      <code>$comments_copy_row['column_name']</code>
-      <code>$comments_copy_row['comment']</code>
-      <code>$comments_copy_row['mimetype']</code>
-      <code>$comments_copy_row['transformation']</code>
-      <code>$comments_copy_row['transformation_options']</code>
+    <PossiblyInvalidArrayAccess occurrences="1">
       <code>$result['row_count']</code>
     </PossiblyInvalidArrayAccess>
-    <PossiblyInvalidIterator occurrences="1">
-      <code>$table_copy_row</code>
-    </PossiblyInvalidIterator>
     <PossiblyNullArgument occurrences="5">
       <code>$target_db</code>
       <code>$existrel_foreign[$master_field_md5]['constraint']</code>
