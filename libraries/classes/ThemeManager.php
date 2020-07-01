@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use const DIRECTORY_SEPARATOR;
 use const E_USER_ERROR;
 use const E_USER_WARNING;
 use function array_key_exists;
@@ -434,6 +435,7 @@ class ThemeManager
 
     /**
      * Return the themes directory with a trailing slash
+     *
      * @return string
      */
     public static function getThemesFsDir(): string
@@ -443,10 +445,11 @@ class ThemeManager
 
     /**
      * Return the themes directory with a trailing slash as a relative public path
+     *
      * @return string
      */
     public static function getThemesDir(): string
     {
-        return  './themes' . DIRECTORY_SEPARATOR;
+        return './themes' . DIRECTORY_SEPARATOR;
     }
 }

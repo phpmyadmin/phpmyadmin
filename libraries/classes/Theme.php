@@ -55,9 +55,7 @@ class Theme
      */
     public $path = '';
 
-    /**
-     * @var string file system theme path
-     */
+    /** @var string file system theme path */
     private $fsPath = '';
 
     /**

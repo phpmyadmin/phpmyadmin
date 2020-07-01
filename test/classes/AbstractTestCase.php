@@ -95,7 +95,7 @@ abstract class AbstractTestCase extends TestCase
     protected function setTheme(): void
     {
         global $PMA_Theme;
-        $PMA_Theme = Theme::load(ROOT_PATH . 'themes/pmahomme');
+        $PMA_Theme = Theme::load('./themes/pmahomme', ROOT_PATH . 'themes/pmahomme/');
     }
 
     protected function setLanguage(string $code = 'en'): void
