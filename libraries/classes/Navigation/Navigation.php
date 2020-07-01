@@ -268,12 +268,14 @@ class Navigation
      */
     private function getLogoSource(): string
     {
-        global $pmaThemeImage;
-
-        if (isset($pmaThemeImage) && @file_exists($pmaThemeImage . 'logo_left.png')) {
-            return $pmaThemeImage . 'logo_left.png';
-        } elseif (isset($pmaThemeImage) && @file_exists($pmaThemeImage . 'pma_logo2.png')) {
-            return $pmaThemeImage . 'pma_logo2.png';
+        /** @var \PhpMyAdmin\Theme|null $PMA_Theme */
+        global $PMA_Theme;
+        if ($PMA_Theme !== null) {
+            if (@file_exists($PMA_Theme->getFsPath() . 'img/logo_left.png')) {
+                return $PMA_Theme->getPath() . '/img/logo_left.png';
+            } elseif (@file_exists($PMA_Theme->getFsPath() . 'img/pma_logo2.png')) {
+                return $PMA_Theme->getPath() . '/img/pma_logo2.png';
+            }
         }
         return '';
     }
