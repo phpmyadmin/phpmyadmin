@@ -56,6 +56,11 @@ class Theme
     public $path = '';
 
     /**
+     * @var string file system theme path
+     */
+    private $fsPath = '';
+
+    /**
      * @var string image path
      * @access protected
      */
@@ -110,7 +115,7 @@ class Theme
      */
     public function loadInfo()
     {
-        $infofile = $this->getPath() . '/theme.json';
+        $infofile = $this->getFsPath() . 'theme.json';
         if (! @file_exists($infofile)) {
             return false;
         }
@@ -162,17 +167,19 @@ class Theme
      * or false if theme is invalid
      *
      * @param string $folder path to theme
+     * @param string $fsPath file-system path to theme
      *
      * @return Theme|false
      *
      * @static
      * @access public
      */
-    public static function load($folder)
+    public static function load(string $folder, string $fsPath)
     {
         $theme = new Theme();
 
         $theme->setPath($folder);
+        $theme->setFsPath($fsPath);
 
         if (! $theme->loadInfo()) {
             return false;
@@ -193,15 +200,15 @@ class Theme
     public function checkImgPath()
     {
         // try current theme first
-        if (is_dir($this->getPath() . '/img/')) {
+        if (is_dir($this->getFsPath() . 'img/')) {
             $this->setImgPath($this->getPath() . '/img/');
 
             return true;
         }
 
         // try fallback theme
-        $fallback = './themes/' . ThemeManager::FALLBACK_THEME . '/img/';
-        if (is_dir($fallback)) {
+        $fallback = ThemeManager::getThemesDir() . ThemeManager::FALLBACK_THEME . '/img/';
+        if (is_dir(ThemeManager::getThemesFsDir() . ThemeManager::FALLBACK_THEME . '/img/')) {
             $this->setImgPath($fallback);
 
             return true;
@@ -232,6 +239,16 @@ class Theme
     }
 
     /**
+     * returns file system path to the theme
+     *
+     * @return string file system path to theme
+     */
+    public function getFsPath(): string
+    {
+        return $this->fsPath;
+    }
+
+    /**
      * set path to theme
      *
      * @param string $path path to theme
@@ -243,6 +260,18 @@ class Theme
     public function setPath($path)
     {
         $this->path = trim($path);
+    }
+
+    /**
+     * set file system path to the theme
+     *
+     * @param string $path path to theme
+     *
+     * @return void
+     */
+    public function setFsPath(string $path): void
+    {
+        $this->fsPath = trim($path);
     }
 
     /**
@@ -392,9 +421,8 @@ class Theme
     {
         $url_params = ['set_theme' => $this->getId()];
         $screen = null;
-        $path = $this->getPath() . '/screen.png';
-        if (@file_exists($path)) {
-            $screen = $path;
+        if (@file_exists($this->getFsPath() . 'screen.png')) {
+            $screen = $this->getPath() . '/screen.png';
         }
 
         return $this->template->render('theme_preview', [

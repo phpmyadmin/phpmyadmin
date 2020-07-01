@@ -307,7 +307,8 @@ class ThemeManager
                 continue;
             }
             $new_theme = Theme::load(
-                $this->_themes_path . $PMA_Theme
+                $this->_themes_path . $PMA_Theme,
+                ROOT_PATH . $this->_themes_path . $PMA_Theme . '/'
             );
             if (! $new_theme) {
                 continue;
@@ -429,5 +430,23 @@ class ThemeManager
          * @global string $GLOBALS['pmaThemeImage']
          */
         $GLOBALS['pmaThemeImage']   = $GLOBALS['PMA_Theme']->getImgPath();
+    }
+
+    /**
+     * Return the themes directory with a trailing slash
+     * @return string
+     */
+    public static function getThemesFsDir(): string
+    {
+        return ROOT_PATH . 'themes' . DIRECTORY_SEPARATOR;
+    }
+
+    /**
+     * Return the themes directory with a trailing slash as a relative public path
+     * @return string
+     */
+    public static function getThemesDir(): string
+    {
+        return  './themes' . DIRECTORY_SEPARATOR;
     }
 }
