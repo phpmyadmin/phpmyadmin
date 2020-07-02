@@ -276,7 +276,7 @@ class Transformations
      * @param bool   $strict   whether to include only results having a mimetype set
      * @param bool   $fullName whether to use full column names as the key
      *
-     * @return array|bool [field_name][field_key] = field_value
+     * @return array|null [field_name][field_key] = field_value
      *
      * @access public
      */
@@ -286,7 +286,7 @@ class Transformations
         $cfgRelation = $relation->getRelationsParam();
 
         if (! $cfgRelation['mimework']) {
-            return false;
+            return null;
         }
 
         $com_qry = '';

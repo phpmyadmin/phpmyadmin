@@ -14,6 +14,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
+use function is_array;
 use function str_replace;
 
 class DataDictionaryController extends AbstractController
@@ -83,7 +84,7 @@ class DataDictionaryController extends AbstractController
                         $foreigners,
                         $row['Field']
                     );
-                    if ($foreigner !== false && $foreigner !== []) {
+                    if (is_array($foreigner) && isset($foreigner['foreign_table'], $foreigner['foreign_field'])) {
                         $relation = $foreigner['foreign_table'];
                         $relation .= ' -> ';
                         $relation .= $foreigner['foreign_field'];
@@ -97,7 +98,7 @@ class DataDictionaryController extends AbstractController
                         $tableName,
                         true
                     );
-                    if (isset($mimeMap[$row['Field']])) {
+                    if (is_array($mimeMap) && isset($mimeMap[$row['Field']]['mimetype'])) {
                         $mime = str_replace(
                             '_',
                             '/',

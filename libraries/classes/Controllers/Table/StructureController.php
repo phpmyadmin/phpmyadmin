@@ -663,7 +663,7 @@ class StructureController extends AbstractController
             if (isset($data['Extra']) && in_array($data['Extra'], $virtual)) {
                 $data['Virtuality'] = str_replace(' GENERATED', '', $data['Extra']);
                 $expressions = $this->table_obj->getColumnGenerationExpression($column);
-                $data['Expression'] = $expressions[$column];
+                $data['Expression'] = is_array($expressions) ? $expressions[$column] : null;
             }
 
             $changes[] = 'CHANGE ' . Table::generateAlter(

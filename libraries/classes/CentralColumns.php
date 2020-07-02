@@ -17,6 +17,7 @@ use function explode;
 use function htmlspecialchars;
 use function implode;
 use function in_array;
+use function is_array;
 use function is_bool;
 use function mb_strtoupper;
 use function sprintf;
@@ -128,7 +129,7 @@ class CentralColumns
     public function getColumnsList(string $db, int $from = 0, int $num = 25): array
     {
         $cfgCentralColumns = $this->getParams();
-        if (empty($cfgCentralColumns)) {
+        if (! is_array($cfgCentralColumns)) {
             return [];
         }
         $pmadb = $cfgCentralColumns['db'];
@@ -164,7 +165,7 @@ class CentralColumns
     public function getCount(string $db): int
     {
         $cfgCentralColumns = $this->getParams();
-        if (empty($cfgCentralColumns)) {
+        if (! is_array($cfgCentralColumns)) {
             return 0;
         }
         $pmadb = $cfgCentralColumns['db'];
@@ -202,7 +203,7 @@ class CentralColumns
         bool $allFields = false
     ): array {
         $cfgCentralColumns = $this->getParams();
-        if (empty($cfgCentralColumns)) {
+        if (! is_array($cfgCentralColumns)) {
             return [];
         }
         $pmadb = $cfgCentralColumns['db'];
@@ -313,7 +314,7 @@ class CentralColumns
         ?string $table = null
     ) {
         $cfgCentralColumns = $this->getParams();
-        if (empty($cfgCentralColumns)) {
+        if (! is_array($cfgCentralColumns)) {
             return $this->configErrorMessage();
         }
         $db = $_POST['db'];
@@ -435,7 +436,7 @@ class CentralColumns
         bool $isTable = true
     ) {
         $cfgCentralColumns = $this->getParams();
-        if (empty($cfgCentralColumns)) {
+        if (! is_array($cfgCentralColumns)) {
             return $this->configErrorMessage();
         }
         $pmadb = $cfgCentralColumns['db'];
@@ -656,7 +657,7 @@ class CentralColumns
         string $col_default
     ) {
         $cfgCentralColumns = $this->getParams();
-        if (empty($cfgCentralColumns)) {
+        if (! is_array($cfgCentralColumns)) {
             return $this->configErrorMessage();
         }
         $centralTable = $cfgCentralColumns['table'];
@@ -897,7 +898,7 @@ class CentralColumns
     public function getListRaw(string $db, string $table): array
     {
         $cfgCentralColumns = $this->getParams();
-        if (empty($cfgCentralColumns)) {
+        if (! is_array($cfgCentralColumns)) {
             return [];
         }
         $centralTable = $cfgCentralColumns['table'];
@@ -1069,7 +1070,7 @@ class CentralColumns
     public function getColumnsCount(string $db, int $from = 0, int $num = 25): int
     {
         $cfgCentralColumns = $this->getParams();
-        if (empty($cfgCentralColumns)) {
+        if (! is_array($cfgCentralColumns)) {
             return 0;
         }
         $pmadb = $cfgCentralColumns['db'];

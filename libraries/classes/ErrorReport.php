@@ -14,6 +14,7 @@ use const JSON_UNESCAPED_SLASHES;
 use const PHP_VERSION;
 use function count;
 use function http_build_query;
+use function is_array;
 use function json_encode;
 use function mb_strlen;
 use function mb_substr;
@@ -192,16 +193,25 @@ class ErrorReport
     private function sanitizeUrl(string $url): array
     {
         $components = parse_url($url);
+
+        if (! is_array($components)) {
+            $components = [];
+        }
+
         if (isset($components['fragment'])
             && preg_match('<PMAURL-\d+:>', $components['fragment'], $matches)
         ) {
             $uri = str_replace($matches[0], '', $components['fragment']);
             $url = 'https://example.com/' . $uri;
             $components = parse_url($url);
+
+            if (! is_array($components)) {
+                $components = [];
+            }
         }
 
         // get script name
-        preg_match('<([a-zA-Z\-_\d\.]*\.php|js\/[a-zA-Z\-_\d\/\.]*\.js)$>', $components['path'], $matches);
+        preg_match('<([a-zA-Z\-_\d\.]*\.php|js\/[a-zA-Z\-_\d\/\.]*\.js)$>', $components['path'] ?? '', $matches);
         if (count($matches) < 2) {
             $scriptName = 'index.php';
         } else {

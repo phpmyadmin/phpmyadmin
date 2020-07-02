@@ -117,6 +117,11 @@ final class ImportController extends AbstractController
             }
 
             $cfgBookmark = Bookmark::getParams($cfg['Server']['user']);
+
+            if (! is_array($cfgBookmark)) {
+                $cfgBookmark = [];
+            }
+
             $bookmarkFields = [
                 'bkm_database' => $_POST['db'],
                 'bkm_user' => $cfgBookmark['user'],
@@ -795,6 +800,11 @@ final class ImportController extends AbstractController
             // the SQL tab
             if (! empty($_POST['bkm_label']) && ! empty($import_text)) {
                 $cfgBookmark = Bookmark::getParams($cfg['Server']['user']);
+
+                if (! is_array($cfgBookmark)) {
+                    $cfgBookmark = [];
+                }
+
                 $this->sql->storeTheQueryAsBookmark(
                     $db,
                     $cfgBookmark['user'],
@@ -814,6 +824,11 @@ final class ImportController extends AbstractController
             // Save a Bookmark with more than one queries (if Bookmark label given).
             if (! empty($_POST['bkm_label']) && ! empty($import_text)) {
                 $cfgBookmark = Bookmark::getParams($cfg['Server']['user']);
+
+                if (! is_array($cfgBookmark)) {
+                    $cfgBookmark = [];
+                }
+
                 $this->sql->storeTheQueryAsBookmark(
                     $db,
                     $cfgBookmark['user'],

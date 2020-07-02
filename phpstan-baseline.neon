@@ -11,16 +11,6 @@ parameters:
 			path: libraries/classes/Advisor.php
 
 		-
-			message: "#^Cannot access offset 'db' on array\\|true\\.$#"
-			count: 4
-			path: libraries/classes/Bookmark.php
-
-		-
-			message: "#^Cannot access offset 'table' on array\\|true\\.$#"
-			count: 4
-			path: libraries/classes/Bookmark.php
-
-		-
 			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Bookmark.php
@@ -28,11 +18,6 @@ parameters:
 		-
 			message: "#^Method PhpMyAdmin\\\\Bookmark\\:\\:applyVariables\\(\\) should return string but returns string\\|null\\.$#"
 			count: 1
-			path: libraries/classes/Bookmark.php
-
-		-
-			message: "#^Cannot access offset 'user' on array\\|true\\.$#"
-			count: 2
 			path: libraries/classes/Bookmark.php
 
 		-
@@ -49,16 +34,6 @@ parameters:
 			message: "#^Parameter \\#4 \\$nbTotalPage of static method PhpMyAdmin\\\\Util\\:\\:pageselector\\(\\) expects int, float\\|int given\\.$#"
 			count: 1
 			path: libraries/classes/BrowseForeigners.php
-
-		-
-			message: "#^Cannot access offset 'db' on array\\|true\\.$#"
-			count: 8
-			path: libraries/classes/CentralColumns.php
-
-		-
-			message: "#^Cannot access offset 'table' on array\\|true\\.$#"
-			count: 8
-			path: libraries/classes/CentralColumns.php
 
 		-
 			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Message\\:\\:rawError\\(\\) expects string, bool\\|string given\\.$#"
@@ -256,21 +231,6 @@ parameters:
 			path: libraries/classes/Controllers/ChangeLogController.php
 
 		-
-			message: "#^Cannot access offset 'foreign_table' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/DataDictionaryController.php
-
-		-
-			message: "#^Cannot access offset 'foreign_field' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/DataDictionaryController.php
-
-		-
-			message: "#^Cannot access offset mixed on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/DataDictionaryController.php
-
-		-
 			message: "#^Parameter \\#1 \\$state of method PhpMyAdmin\\\\Response\\:\\:setRequestStatus\\(\\) expects bool, bool\\|string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/DesignerController.php
@@ -301,6 +261,11 @@ parameters:
 			path: libraries/classes/Controllers/Database/StructureController.php
 
 		-
+			message: "#^Parameter \\#1 \\$value of static method PhpMyAdmin\\\\Util\\:\\:formatNumber\\(\\) expects float\\|int\\|string, int\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/StructureController.php
+
+		-
 			message: "#^Parameter \\#4 \\$formatted_size of method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:getValuesForAriaTable\\(\\) expects int, string given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/StructureController.php
@@ -324,11 +289,6 @@ parameters:
 			message: "#^Parameter \\#1 \\(array\\|bool\\|string\\) of echo cannot be converted to string\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/ExportController.php
-
-		-
-			message: "#^Cannot access offset 'user' on array\\|bool\\.$#"
-			count: 3
-			path: libraries/classes/Controllers/ImportController.php
 
 		-
 			message: "#^Parameter \\#1 \\$error_message of method PhpMyAdmin\\\\Import\\:\\:stop\\(\\) expects PhpMyAdmin\\\\Message, PhpMyAdmin\\\\Message\\|null given\\.$#"
@@ -461,17 +421,7 @@ parameters:
 			path: libraries/classes/Controllers/Table/GisVisualizationController.php
 
 		-
-			message: "#^Cannot access offset mixed on array\\|true\\.$#"
-			count: 4
-			path: libraries/classes/Controllers/Table/ReplaceController.php
-
-		-
 			message: "#^Parameter \\#1 \\$messages of method PhpMyAdmin\\\\Message\\:\\:addMessagesString\\(\\) expects array\\<string\\>, array\\<int, PhpMyAdmin\\\\Message\\|string\\|null\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ReplaceController.php
-
-		-
-			message: "#^Argument of an invalid type array\\|true supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ReplaceController.php
 
@@ -487,11 +437,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$selected of method PhpMyAdmin\\\\Controllers\\\\Table\\\\StructureController\\:\\:displayHtmlForColumnChange\\(\\) expects array, null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Cannot access offset mixed on array\\|bool\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/StructureController.php
 
@@ -524,11 +469,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$column_index of method PhpMyAdmin\\\\Controllers\\\\Table\\\\ZoomSearchController\\:\\:getColumnProperties\\(\\) expects int, int\\|string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: "#^Cannot access offset mixed on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/TransformationWrapperController.php
 
 		-
 			message: "#^Parameter \\#1 \\$im of function imagesx expects resource, resource\\|false given\\.$#"
@@ -596,16 +536,6 @@ parameters:
 			path: libraries/classes/Core.php
 
 		-
-			message: "#^Cannot access offset 'query' on array\\(\\?'scheme' \\=\\> string, \\?'host' \\=\\> string, \\?'port' \\=\\> int, \\?'user' \\=\\> string, \\?'pass' \\=\\> string, \\?'path' \\=\\> string, \\?'query' \\=\\> string, \\?'fragment' \\=\\> string\\)\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Core.php
-
-		-
-			message: "#^Cannot access offset 'host' on array\\(\\?'scheme' \\=\\> string, \\?'host' \\=\\> string, \\?'port' \\=\\> int, \\?'user' \\=\\> string, \\?'pass' \\=\\> string, \\?'path' \\=\\> string, \\?'query' \\=\\> string, \\?'fragment' \\=\\> string\\)\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Core.php
-
-		-
 			message: "#^Offset 'pass'\\|'port'\\|'user' does not exist on array\\(\\?'scheme' \\=\\> string, 'host' \\=\\> string, \\?'port' \\=\\> int, \\?'user' \\=\\> string, \\?'pass' \\=\\> string, \\?'path' \\=\\> string, \\?'query' \\=\\> string, \\?'fragment' \\=\\> string\\)\\.$#"
 			count: 1
 			path: libraries/classes/Core.php
@@ -647,16 +577,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, int given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer/Common.php
-
-		-
-			message: "#^Cannot access offset 'constraint' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer/Common.php
-
-		-
-			message: "#^Cannot access offset 'constraint' on array\\|bool\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer/Common.php
 
@@ -797,21 +717,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$sort_order of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getSortingUrlParams\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Parameter \\#2 \\.\\.\\.\\$args of function array_merge expects array, array\\|bool given\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Cannot access offset int on \\(array\\)\\|true\\.$#"
-			count: 2
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Cannot access offset int on \\(array\\)\\|string\\|true\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
@@ -987,21 +892,6 @@ parameters:
 
 		-
 			message: "#^Strict comparison using \\=\\=\\= between string and null will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/ErrorReport.php
-
-		-
-			message: "#^Cannot access offset 'fragment' on array\\(\\?'scheme' \\=\\> string, \\?'host' \\=\\> string, \\?'port' \\=\\> int, \\?'user' \\=\\> string, \\?'pass' \\=\\> string, \\?'path' \\=\\> string, \\?'query' \\=\\> string, \\?'fragment' \\=\\> string\\)\\|false\\.$#"
-			count: 1
-			path: libraries/classes/ErrorReport.php
-
-		-
-			message: "#^Cannot access offset 'path' on array\\(\\?'scheme' \\=\\> string, \\?'host' \\=\\> string, \\?'port' \\=\\> int, \\?'user' \\=\\> string, \\?'pass' \\=\\> string, \\?'path' \\=\\> string, \\?'query' \\=\\> string, \\?'fragment' \\=\\> string\\)\\|false\\.$#"
-			count: 1
-			path: libraries/classes/ErrorReport.php
-
-		-
-			message: "#^Cannot access offset 'query' on array\\(\\?'scheme' \\=\\> string, \\?'host' \\=\\> string, \\?'port' \\=\\> int, \\?'user' \\=\\> string, \\?'pass' \\=\\> string, \\?'path' \\=\\> string, \\?'query' \\=\\> string, \\?'fragment' \\=\\> string\\)\\|false\\.$#"
 			count: 1
 			path: libraries/classes/ErrorReport.php
 
@@ -1541,32 +1431,12 @@ parameters:
 			path: libraries/classes/InsertEdit.php
 
 		-
-			message: "#^Cannot access offset 'foreign_db' on array\\|bool\\.$#"
-			count: 4
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Cannot access offset 'foreign_table' on array\\|bool\\.$#"
-			count: 4
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Cannot access offset 'foreign_field' on array\\|bool\\.$#"
-			count: 2
-			path: libraries/classes/InsertEdit.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
 		-
 			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fieldLen\\(\\) expects object, array given\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Cannot access offset mixed on array\\|bool\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
@@ -1811,11 +1681,6 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportHtmlword.php
 
 		-
-			message: "#^Cannot access offset mixed on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportHtmlword.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportJson\\:\\:\\$first has no typehint specified\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportJson.php
@@ -1824,11 +1689,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportJson\\:\\:encode\\(\\) should return string but returns string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportJson.php
-
-		-
-			message: "#^Cannot access offset mixed on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportLatex.php
 
 		-
 			message: "#^Parameter \\#3 \\$length of function mb_substr expects int\\|null, int\\|false given\\.$#"
@@ -1847,21 +1707,6 @@ parameters:
 
 		-
 			message: "#^Strict comparison using \\=\\=\\= between mixed and null will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportOdt.php
-
-		-
-			message: "#^Cannot access offset 'foreign_table' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportOdt.php
-
-		-
-			message: "#^Cannot access offset 'foreign_field' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportOdt.php
-
-		-
-			message: "#^Cannot access offset mixed on array\\|bool\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportOdt.php
 
@@ -1901,16 +1746,6 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, \\(array\\)\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^Argument of an invalid type \\(array\\)\\|true supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportSql.php
-
-		-
 			message: "#^Strict comparison using \\=\\=\\= between mixed and null will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php
@@ -1937,11 +1772,6 @@ parameters:
 
 		-
 			message: "#^Strict comparison using \\=\\=\\= between mixed and null will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportTexytext.php
-
-		-
-			message: "#^Cannot access offset mixed on array\\|bool\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportTexytext.php
 
@@ -2066,24 +1896,9 @@ parameters:
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
 
 		-
-			message: "#^Cannot access offset mixed on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
 			message: "#^Parameter \\#3 \\$length of function mb_substr expects int\\|null, int\\<1, max\\>\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/Helpers/TableProperty.php
-
-		-
-			message: "#^Cannot access offset 'foreign_table' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/ExportPlugin.php
-
-		-
-			message: "#^Cannot access offset 'foreign_field' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/ExportPlugin.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Plugins\\\\IOTransformationsPlugin\\:\\:\\$success has no typehint specified\\.$#"
@@ -2113,16 +1928,6 @@ parameters:
 		-
 			message: "#^Cannot call method addProperty\\(\\) on PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertyMainGroup\\|void\\.$#"
 			count: 3
-			path: libraries/classes/Plugins/Import/ImportLdi.php
-
-		-
-			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, array\\<int, string\\>\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportLdi.php
-
-		-
-			message: "#^Cannot access offset int on array\\<int, string\\>\\|false\\.$#"
-			count: 1
 			path: libraries/classes/Plugins/Import/ImportLdi.php
 
 		-
@@ -2581,31 +2386,6 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Cannot access offset 'foreign_db' on \\(array\\)\\|true\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot access offset 'foreign_table' on \\(array\\)\\|true\\.$#"
-			count: 3
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot access offset 'foreign_field' on \\(array\\)\\|true\\.$#"
-			count: 3
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot access offset 'on_update' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot access offset mixed on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\TableStatsPdf\\:\\:\\$nb_fiels has no typehint specified\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
@@ -2861,11 +2641,6 @@ parameters:
 			path: libraries/classes/Plugins/TwoFactorPlugin.php
 
 		-
-			message: "#^Cannot access offset 'scheme' on array\\(\\)\\|array\\(\\?'scheme' \\=\\> string, \\?'host' \\=\\> string, \\?'port' \\=\\> int, \\?'user' \\=\\> string, \\?'pass' \\=\\> string, \\?'path' \\=\\> string, \\?'query' \\=\\> string, \\?'fragment' \\=\\> string\\)\\|false\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/TwoFactorPlugin.php
-
-		-
 			message: "#^Return type \\(bool\\) of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyOneItem\\:\\:getForce\\(\\) should be compatible with return type \\(string\\) of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem\\:\\:getForce\\(\\)$#"
 			count: 1
 			path: libraries/classes/Properties/Options/OptionsPropertyOneItem.php
@@ -2932,21 +2707,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$foreigners of method PhpMyAdmin\\\\Relation\\:\\:searchColumnInForeigners\\(\\) expects array, \\(array\\)\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Cannot access offset 'foreign_db' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Cannot access offset 'foreign_table' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Cannot access offset 'foreign_field' on \\(array\\)\\|true\\.$#"
 			count: 1
 			path: libraries/classes/Relation.php
 
@@ -3201,26 +2961,6 @@ parameters:
 			path: libraries/classes/Server/Status/Monitor.php
 
 		-
-			message: "#^Cannot access offset 1 on array\\<int, string\\>\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Server/SysInfo/Linux.php
-
-		-
-			message: "#^Cannot access offset 2 on array\\<int, string\\>\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Server/SysInfo/Linux.php
-
-		-
-			message: "#^Cannot access offset 3 on array\\<int, string\\>\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Server/SysInfo/Linux.php
-
-		-
-			message: "#^Cannot access offset 4 on array\\<int, string\\>\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Server/SysInfo/Linux.php
-
-		-
 			message: "#^Call to an undefined method COM\\:\\:ConnectServer\\(\\)\\.$#"
 			count: 1
 			path: libraries/classes/Server/SysInfo/WindowsNt.php
@@ -3276,11 +3016,6 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Cannot access offset 'user' on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
 			message: "#^Parameter \\#3 \\$db of method PhpMyAdmin\\\\Sql\\:\\:countQueryResults\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
@@ -3293,16 +3028,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$message_to_show of method PhpMyAdmin\\\\Sql\\:\\:getMessageForNoRowsReturned\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#2 \\$cfgBookmark of method PhpMyAdmin\\\\Sql\\:\\:getHtmlForBookmark\\(\\) expects array, \\(array\\)\\|true given\\.$#"
-			count: 2
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Cannot access offset 'user' on \\(array\\)\\|true\\.$#"
-			count: 2
 			path: libraries/classes/Sql.php
 
 		-
@@ -3456,16 +3181,6 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
-			message: "#^Offset 'row_count' does not exist on array\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Cannot access offset mixed on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Table/ColumnsDefinition.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Theme\\:\\:\\$mtime_info \\(int\\) does not accept int\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Theme.php
@@ -3606,21 +3321,6 @@ parameters:
 			path: libraries/classes/Types.php
 
 		-
-			message: "#^Parameter \\#1 \\$haystack of function mb_strpos expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Url.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Url.php
-
-		-
-			message: "#^Cannot access offset 0 on string\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Url.php
-
-		-
 			message: "#^Parameter \\#3 \\$subject of function preg_replace expects array\\|string, string\\|null given\\.$#"
 			count: 3
 			path: libraries/classes/Util.php
@@ -3632,11 +3332,6 @@ parameters:
 
 		-
 			message: "#^Strict comparison using \\=\\=\\= between string and false will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Cannot access offset 'query' on array\\(\\?'scheme' \\=\\> string, \\?'host' \\=\\> string, \\?'port' \\=\\> int, \\?'user' \\=\\> string, \\?'pass' \\=\\> string, \\?'path' \\=\\> string, \\?'query' \\=\\> string, \\?'fragment' \\=\\> string\\)\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Util.php
 
@@ -3662,26 +3357,6 @@ parameters:
 
 		-
 			message: "#^Trying to invoke array\\|string but it might not be a callable\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Cannot access offset 0 on string\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Cannot access offset 1 on string\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function substr expects string, string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Util.php
 

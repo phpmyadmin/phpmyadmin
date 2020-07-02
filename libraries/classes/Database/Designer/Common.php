@@ -755,7 +755,7 @@ class Common
             $existrel_foreign = $this->relation->getForeigners($DB2, $T2, '', 'foreign');
             $foreigner = $this->relation->searchColumnInForeigners($existrel_foreign, $F2);
 
-            if (isset($foreigner['constraint'])) {
+            if (is_array($foreigner) && isset($foreigner['constraint'])) {
                 $upd_query = 'ALTER TABLE ' . Util::backquote($DB2)
                     . '.' . Util::backquote($T2) . ' DROP FOREIGN KEY '
                     . Util::backquote($foreigner['constraint']) . ';';

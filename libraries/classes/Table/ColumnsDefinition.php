@@ -307,7 +307,7 @@ final class ColumnsDefinition
                     $expressions = $tableObj->getColumnGenerationExpression(
                         $columnMeta['Field']
                     );
-                    $columnMeta['Expression'] = $expressions[$columnMeta['Field']];
+                    $columnMeta['Expression'] = is_array($expressions) ? $expressions[$columnMeta['Field']] : null;
                 }
                 switch ($columnMeta['Default']) {
                     case null:

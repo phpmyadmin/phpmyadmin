@@ -189,7 +189,7 @@ final class ReplaceController extends AbstractController
         }
 
         $mime_map = $this->transformations->getMime($db, $table);
-        if ($mime_map === false) {
+        if ($mime_map === null) {
             $mime_map = [];
         }
 

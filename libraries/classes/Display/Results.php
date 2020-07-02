@@ -2656,7 +2656,7 @@ class Results
 
             $mimeMap = array_merge(
                 $mimeMap,
-                $this->transformations->getMime($this->__get('db'), $meta->orgtable, false, true)
+                $this->transformations->getMime($this->__get('db'), $meta->orgtable, false, true) ?? []
             );
             $added[$orgFullTableName] = true;
         }
@@ -2708,7 +2708,7 @@ class Results
      *                                                which results have to be displayed
      * @param array             $row                  current row data
      * @param int               $row_no               the index of current row
-     * @param array|bool        $col_order            the column order false when
+     * @param array|false       $col_order            the column order false when
      *                                                a property not found false
      *                                                when a property not found
      * @param array             $map                  the list of relations
@@ -2751,7 +2751,7 @@ class Results
         $columnCount = $this->__get('fields_cnt');
         for ($currentColumn = 0; $currentColumn < $columnCount; ++$currentColumn) {
             // assign $i with appropriate column order
-            $i = $col_order ? $col_order[$currentColumn] : $currentColumn;
+            $i = is_array($col_order) ? $col_order[$currentColumn] : $currentColumn;
 
             $meta    = $fields_meta[$i];
             $orgFullColName
@@ -2759,7 +2759,7 @@ class Results
 
             $not_null_class = $meta->not_null ? 'not_null' : '';
             $relation_class = isset($map[$meta->name]) ? 'relation' : '';
-            $hide_class = $col_visib && isset($col_visib[$currentColumn]) && ! $col_visib[$currentColumn]
+            $hide_class = is_array($col_visib) && isset($col_visib[$currentColumn]) && ! $col_visib[$currentColumn]
                 ? 'hide'
                 : '';
             $grid_edit = $meta->orgtable != '' ? $grid_edit_class : '';
@@ -3072,7 +3072,7 @@ class Results
         $fields_meta = $this->__get('fields_meta');
 
         for ($n = 0; $n < $this->__get('fields_cnt'); ++$n) {
-            $m = $col_order ? $col_order[$n] : $n;
+            $m = is_array($col_order) ? $col_order[$n] : $n;
             $row_info[mb_strtolower($fields_meta[$m]->orgname)]
                 = $row[$m];
         }

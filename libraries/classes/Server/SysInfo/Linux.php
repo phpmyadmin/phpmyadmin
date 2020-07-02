@@ -8,6 +8,7 @@ use function array_combine;
 use function array_merge;
 use function file_get_contents;
 use function intval;
+use function is_array;
 use function is_readable;
 use function mb_strpos;
 use function mb_substr;
@@ -29,7 +30,7 @@ class Linux extends Base
     /**
      * Gets load information
      *
-     * @return array with load data
+     * @return array<string, int> with load data
      */
     public function loadavg()
     {
@@ -49,6 +50,10 @@ class Linux extends Base
                 $pos
             )
         );
+
+        if (! is_array($nums)) {
+            return ['busy' => 0, 'idle' => 0];
+        }
 
         return [
             'busy' => (int) $nums[1] + (int) $nums[2] + (int) $nums[3],

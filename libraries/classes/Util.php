@@ -869,7 +869,7 @@ class Util
 
         $url_parts = parse_url($url);
 
-        if (! empty($url_parts['query'])) {
+        if (is_array($url_parts) && ! empty($url_parts['query'])) {
             return explode($separator, $url_parts['query']);
         }
 
@@ -2581,6 +2581,13 @@ class Util
     public static function getCompressionMimeType($file)
     {
         $test = fread($file, 4);
+
+        if ($test === false) {
+            fclose($file);
+
+            return 'none';
+        }
+
         $len = strlen($test);
         fclose($file);
         if ($len >= 2 && $test[0] == chr(31) && $test[1] == chr(139)) {

@@ -1077,7 +1077,7 @@ class Sql
                 $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
                 $this->storeTheQueryAsBookmark(
                     $db,
-                    $cfgBookmark['user'],
+                    is_array($cfgBookmark) ? $cfgBookmark['user'] : '',
                     $sql_query_for_bookmark,
                     $_POST['bkm_label'],
                     isset($_POST['bkm_replace'])
@@ -1378,7 +1378,7 @@ class Sql
                 );
 
                 $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
-                if ($cfgBookmark) {
+                if (is_array($cfgBookmark)) {
                     $html_output .= $this->getHtmlForBookmark(
                         $displayParts,
                         $cfgBookmark,
@@ -1896,7 +1896,7 @@ class Sql
 
         $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
         $bookmarkSupportHtml = '';
-        if ($cfgBookmark) {
+        if (is_array($cfgBookmark)) {
             $bookmarkSupportHtml = $this->getHtmlForBookmark(
                 $displayParts,
                 $cfgBookmark,

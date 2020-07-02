@@ -1953,7 +1953,7 @@ class ExportSql extends ExportPlugin
 
         if ($do_mime && $cfgRelation['mimework']) {
             $mime_map = $this->transformations->getMime($db, $table, true);
-            if (! $mime_map) {
+            if ($mime_map === null) {
                 unset($mime_map);
             }
         }

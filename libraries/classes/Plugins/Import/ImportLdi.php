@@ -13,6 +13,7 @@ use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Util;
 use const PHP_EOL;
 use function count;
+use function is_array;
 use function preg_split;
 use function strlen;
 use function trim;
@@ -152,6 +153,11 @@ class ImportLdi extends AbstractImportCsv
         if (strlen((string) $ldi_columns) > 0) {
             $sql .= ' (';
             $tmp = preg_split('/,( ?)/', $ldi_columns);
+
+            if (! is_array($tmp)) {
+                $tmp = [];
+            }
+
             $cnt_tmp = count($tmp);
             for ($i = 0; $i < $cnt_tmp; $i++) {
                 if ($i > 0) {

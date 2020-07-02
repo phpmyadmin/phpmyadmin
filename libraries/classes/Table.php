@@ -2794,10 +2794,8 @@ class Table
 
     /**
      * Returns the real row count for a table
-     *
-     * @return int
      */
-    public function getRealRowCountTable()
+    public function getRealRowCountTable(): ?int
     {
         // SQL query to get row count for a table.
         $result = $this->_dbi->fetchSingleRow(
@@ -2809,7 +2807,11 @@ class Table
             )
         );
 
-        return $result['row_count'];
+        if (! is_array($result)) {
+            return null;
+        }
+
+        return (int) $result['row_count'];
     }
 
     /**

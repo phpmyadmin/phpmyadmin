@@ -9,18 +9,6 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>$db</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="10">
-      <code>$cfgBookmark['db']</code>
-      <code>$cfgBookmark['table']</code>
-      <code>$cfgBookmark['db']</code>
-      <code>$cfgBookmark['table']</code>
-      <code>$cfgBookmark['db']</code>
-      <code>$cfgBookmark['table']</code>
-      <code>$cfgBookmark['user']</code>
-      <code>$cfgBookmark['db']</code>
-      <code>$cfgBookmark['table']</code>
-      <code>$cfgBookmark['user']</code>
-    </PossiblyInvalidArrayAccess>
   </file>
   <file src="libraries/classes/BrowseForeigners.php">
     <InvalidScalarArgument occurrences="2">
@@ -40,24 +28,6 @@
       <code>$this-&gt;dbi-&gt;getError()</code>
       <code>$this-&gt;dbi-&gt;getError(DatabaseInterface::CONNECT_CONTROL)</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="16">
-      <code>$cfgCentralColumns['db']</code>
-      <code>$cfgCentralColumns['table']</code>
-      <code>$cfgCentralColumns['db']</code>
-      <code>$cfgCentralColumns['table']</code>
-      <code>$cfgCentralColumns['db']</code>
-      <code>$cfgCentralColumns['table']</code>
-      <code>$cfgCentralColumns['db']</code>
-      <code>$cfgCentralColumns['table']</code>
-      <code>$cfgCentralColumns['db']</code>
-      <code>$cfgCentralColumns['table']</code>
-      <code>$cfgCentralColumns['table']</code>
-      <code>$cfgCentralColumns['db']</code>
-      <code>$cfgCentralColumns['table']</code>
-      <code>$cfgCentralColumns['db']</code>
-      <code>$cfgCentralColumns['db']</code>
-      <code>$cfgCentralColumns['table']</code>
-    </PossiblyInvalidArrayAccess>
   </file>
   <file src="libraries/classes/Charsets.php">
     <TypeDoesNotContainType occurrences="1">
@@ -210,13 +180,6 @@
       <code>$foreignLimit ?? null</code>
     </PossiblyNullArgument>
   </file>
-  <file src="libraries/classes/Controllers/Database/DataDictionaryController.php">
-    <PossiblyInvalidArrayAccess occurrences="3">
-      <code>$foreigner['foreign_table']</code>
-      <code>$foreigner['foreign_field']</code>
-      <code>$mimeMap[$row['Field']]</code>
-    </PossiblyInvalidArrayAccess>
-  </file>
   <file src="libraries/classes/Controllers/Database/DesignerController.php">
     <PossiblyInvalidArgument occurrences="2">
       <code>$success</code>
@@ -267,6 +230,9 @@
       <code>$formatted_size</code>
       <code>$formatted_overhead</code>
     </InvalidScalarArgument>
+    <PossiblyNullArgument occurrences="1">
+      <code>$realRowCount</code>
+    </PossiblyNullArgument>
     <PossiblyNullArrayAccess occurrences="6">
       <code>$formatted_size</code>
       <code>$unit</code>
@@ -308,11 +274,6 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>$skip &lt; $read_limit ? $skip : $read_limit</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="3">
-      <code>$cfgBookmark['user']</code>
-      <code>$cfgBookmark['user']</code>
-      <code>$cfgBookmark['user']</code>
-    </PossiblyInvalidArrayAccess>
     <PossiblyNullArgument occurrences="2">
       <code>$import_handle-&gt;getError()</code>
       <code>$import_handle-&gt;getError()</code>
@@ -474,9 +435,6 @@
     <InvalidArgument occurrences="1">
       <code>$insert_errors</code>
     </InvalidArgument>
-    <PossiblyInvalidIterator occurrences="1">
-      <code>$mime_map</code>
-    </PossiblyInvalidIterator>
     <PossiblyNullArgument occurrences="5">
       <code>$multi_edit_columns_null</code>
       <code>$multi_edit_columns_null_prev</code>
@@ -525,9 +483,6 @@
       <code>$tmp_error</code>
       <code>$analyzed_sql_results ?? ''</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="1">
-      <code>$expressions[$column]</code>
-    </PossiblyInvalidArrayAccess>
     <PossiblyNullArrayAccess occurrences="14">
       <code>$data_size</code>
       <code>$data_unit</code>
@@ -588,9 +543,6 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>$size</code>
     </PossiblyInvalidArgument>
-    <PossiblyUndefinedArrayOffset occurrences="1">
-      <code>$arr['query']</code>
-    </PossiblyUndefinedArrayOffset>
     <TypeDoesNotContainType occurrences="1">
       <code>is_string($data)</code>
     </TypeDoesNotContainType>
@@ -795,18 +747,13 @@
     <NullableReturnStatement occurrences="1">
       <code>$this-&gt;__get('sql_query')</code>
     </NullableReturnStatement>
-    <PossiblyInvalidArgument occurrences="6">
+    <PossiblyInvalidArgument occurrences="5">
       <code>$col_visib</code>
       <code>$col_visib</code>
       <code>$sortExpressionNoDirection</code>
-      <code>$this-&gt;transformations-&gt;getMime($this-&gt;__get('db'), $meta-&gt;orgtable, false, true)</code>
       <code>$transform_options</code>
       <code>$transform_options</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="2">
-      <code>$col_order[$currentColumn]</code>
-      <code>$col_order[$n]</code>
-    </PossiblyInvalidArrayAccess>
     <PossiblyNullArgument occurrences="57">
       <code>$this-&gt;__get('sql_query')</code>
       <code>$db</code>
@@ -1025,11 +972,6 @@
       <code>$errorNumber</code>
     </PossiblyNullArgument>
   </file>
-  <file src="libraries/classes/ErrorReport.php">
-    <PossiblyUndefinedArrayOffset occurrences="1">
-      <code>$components['path']</code>
-    </PossiblyUndefinedArrayOffset>
-  </file>
   <file src="libraries/classes/Export.php">
     <InvalidReturnStatement occurrences="1">
       <code>$memory_limit</code>
@@ -1247,15 +1189,6 @@
     <InvalidArgument occurrences="1">
       <code>$current_result</code>
     </InvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="7">
-      <code>$foreigner['foreign_db']</code>
-      <code>$foreigner['foreign_table']</code>
-      <code>$foreigner['foreign_field']</code>
-      <code>$foreigner['foreign_db']</code>
-      <code>$foreigner['foreign_table']</code>
-      <code>$foreigner['foreign_field']</code>
-      <code>$mime_map[$table_column['Field']]</code>
-    </PossiblyInvalidArrayAccess>
     <PossiblyInvalidOperand occurrences="2">
       <code>$tmp</code>
       <code>$insert_id</code>
@@ -1479,10 +1412,6 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportOdt.php">
-    <PossiblyInvalidArrayAccess occurrences="2">
-      <code>$foreigner['foreign_table']</code>
-      <code>$foreigner['foreign_field']</code>
-    </PossiblyInvalidArrayAccess>
     <PossiblyNullArgument occurrences="10">
       <code>$table_alias</code>
       <code>$table_alias</code>
@@ -1574,12 +1503,6 @@
     <PossiblyFalseArgument occurrences="1">
       <code>$pos</code>
     </PossiblyFalseArgument>
-  </file>
-  <file src="libraries/classes/Plugins/ExportPlugin.php">
-    <PossiblyInvalidArrayAccess occurrences="2">
-      <code>$foreigner['foreign_table']</code>
-      <code>$foreigner['foreign_field']</code>
-    </PossiblyInvalidArrayAccess>
   </file>
   <file src="libraries/classes/Plugins/Import/AbstractImportCsv.php">
     <ImplementedReturnTypeMismatch occurrences="1">
@@ -1765,14 +1688,6 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>$this-&gt;diagram</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="6">
-      <code>$foreigner['foreign_db']</code>
-      <code>$foreigner['foreign_db']</code>
-      <code>$foreigner['foreign_table']</code>
-      <code>$foreigner['foreign_field']</code>
-      <code>$foreigner['foreign_table']</code>
-      <code>$foreigner['foreign_field']</code>
-    </PossiblyInvalidArrayAccess>
     <PossiblyNullArgument occurrences="22">
       <code>$this-&gt;orientation</code>
       <code>$this-&gt;paper</code>
@@ -1972,11 +1887,6 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>$foreigners</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="3">
-      <code>$foreigner['foreign_db']</code>
-      <code>$foreigner['foreign_table']</code>
-      <code>$foreigner['foreign_field']</code>
-    </PossiblyInvalidArrayAccess>
     <PossiblyNullArrayAccess occurrences="1">
       <code>$row['comment']</code>
     </PossiblyNullArrayAccess>
@@ -2135,20 +2045,13 @@
       <code>save</code>
       <code>save</code>
     </PossiblyFalseReference>
-    <PossiblyInvalidArgument occurrences="7">
-      <code>$cfgBookmark</code>
+    <PossiblyInvalidArgument occurrences="5">
       <code>$result</code>
       <code>$fields_meta</code>
       <code>$result</code>
       <code>$result</code>
       <code>$fields_meta</code>
-      <code>$cfgBookmark</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayAccess occurrences="3">
-      <code>$cfgBookmark['user']</code>
-      <code>$cfgBookmark['user']</code>
-      <code>$cfgBookmark['user']</code>
-    </PossiblyInvalidArrayAccess>
     <PossiblyNullArgument occurrences="27">
       <code>$db</code>
       <code>$table</code>
@@ -2204,9 +2107,6 @@
     <InvalidReturnStatement occurrences="1">
       <code>$table_auto_increment ?? ''</code>
     </InvalidReturnStatement>
-    <NullableReturnStatement occurrences="1">
-      <code>$result['row_count']</code>
-    </NullableReturnStatement>
     <PossiblyInvalidArgument occurrences="3">
       <code>$this-&gt;_dbi-&gt;getError(DatabaseInterface::CONNECT_CONTROL)</code>
       <code>$this-&gt;_dbi-&gt;getError(DatabaseInterface::CONNECT_CONTROL)</code>
@@ -2219,13 +2119,12 @@
       <code>$existrel_foreign[$master_field_md5]['ref_table_name']</code>
       <code>$existrel_foreign[$master_field_md5]['ref_index_list']</code>
     </PossiblyNullArgument>
-    <PossiblyNullArrayAccess occurrences="6">
+    <PossiblyNullArrayAccess occurrences="5">
       <code>$existrel_foreign[$master_field_md5]['constraint']</code>
       <code>$existrel_foreign[$master_field_md5]['ref_db_name']</code>
       <code>$existrel_foreign[$master_field_md5]['ref_table_name']</code>
       <code>$existrel_foreign[$master_field_md5]['ref_index_list']</code>
       <code>$existrel_foreign[$master_field_md5]['constraint']</code>
-      <code>$result['row_count']</code>
     </PossiblyNullArrayAccess>
     <PossiblyNullPropertyAssignmentValue occurrences="2">
       <code>null</code>
@@ -2250,9 +2149,6 @@
       <code>$form_params['db']</code>
       <code>$form_params['table']</code>
     </PossiblyFalseArgument>
-    <PossiblyInvalidArrayAccess occurrences="1">
-      <code>$expressions[$columnMeta['Field']]</code>
-    </PossiblyInvalidArrayAccess>
     <PossiblyUndefinedVariable occurrences="1">
       <code>$submit_fulltext</code>
     </PossiblyUndefinedVariable>

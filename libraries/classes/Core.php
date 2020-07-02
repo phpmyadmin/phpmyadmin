@@ -746,7 +746,12 @@ class Core
         $url = Url::getCommon($params);
         //strip off token and such sensitive information. Just keep url.
         $arr = parse_url($url);
-        parse_str($arr['query'], $vars);
+
+        if (! is_array($arr)) {
+            $arr = [];
+        }
+
+        parse_str($arr['query'] ?? '', $vars);
         $query = http_build_query(['url' => $vars['url']]);
 
         if ($GLOBALS['PMA_Config'] !== null && $GLOBALS['PMA_Config']->get('is_setup')) {
@@ -770,6 +775,11 @@ class Core
     public static function isAllowedDomain(string $url): bool
     {
         $arr = parse_url($url);
+
+        if (! is_array($arr)) {
+            $arr = [];
+        }
+
         // We need host to be set
         if (! isset($arr['host']) || strlen($arr['host']) == 0) {
             return false;

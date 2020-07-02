@@ -1991,7 +1991,7 @@ class Relation
      * @param array  $foreigners Table Foreign data
      * @param string $column     Column name
      *
-     * @return bool|array
+     * @return array|false
      */
     public function searchColumnInForeigners(array $foreigners, $column)
     {

@@ -129,6 +129,11 @@ class TransformationWrapperController extends AbstractController
 
         if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
             $mime_map = $this->transformations->getMime($db, $table);
+
+            if ($mime_map === null) {
+                $mime_map = [];
+            }
+
             $mime_options = $this->transformations->getOptions(
                 $mime_map[$transform_key]['transformation_options'] ?? ''
             );

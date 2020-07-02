@@ -9,6 +9,7 @@ namespace PhpMyAdmin;
 
 use const PREG_SET_ORDER;
 use function count;
+use function is_array;
 use function preg_match_all;
 use function preg_replace;
 use function str_replace;
@@ -120,7 +121,7 @@ class Bookmark
     public function save(): bool
     {
         $cfgBookmark = self::getParams($this->user);
-        if (empty($cfgBookmark)) {
+        if (! is_array($cfgBookmark)) {
             return false;
         }
 
@@ -145,7 +146,7 @@ class Bookmark
     public function delete(): bool
     {
         $cfgBookmark = self::getParams($this->user);
-        if (empty($cfgBookmark)) {
+        if (! is_array($cfgBookmark)) {
             return false;
         }
 
@@ -306,7 +307,7 @@ class Bookmark
         $db = false
     ): array {
         $cfgBookmark = self::getParams($user);
-        if (empty($cfgBookmark)) {
+        if (! is_array($cfgBookmark)) {
             return [];
         }
 
@@ -365,7 +366,7 @@ class Bookmark
         bool $exact_user_match = false
     ): ?self {
         $cfgBookmark = self::getParams($user);
-        if (empty($cfgBookmark)) {
+        if (! is_array($cfgBookmark)) {
             return null;
         }
 
