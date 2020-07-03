@@ -3321,52 +3321,7 @@ parameters:
 			path: libraries/classes/Types.php
 
 		-
-			message: "#^Parameter \\#3 \\$subject of function preg_replace expects array\\|string, string\\|null given\\.$#"
-			count: 3
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Parameter \\#1 \\$format of function strftime expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between string and false will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Util\\:\\:splitURLQuery\\(\\) should return array but returns array\\<int, string\\>\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Offset 'query' does not exist on array\\(\\?'scheme' \\=\\> string, \\?'host' \\=\\> string, \\?'port' \\=\\> int, \\?'user' \\=\\> string, \\?'pass' \\=\\> string, \\?'path' \\=\\> string, \\?'query' \\=\\> string, \\?'fragment' \\=\\> string\\)\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between mixed and null will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function trim expects string, string\\|null given\\.$#"
-			count: 2
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Trying to invoke array\\|string but it might not be a callable\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
 			message: "#^Parameter \\#1 \\$array_arg of function reset expects array, array\\|object given\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Parameter \\#1 \\$character of function ord expects string, string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Util.php
 

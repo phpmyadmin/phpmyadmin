@@ -50,6 +50,7 @@ use function htmlspecialchars_decode;
 use function implode;
 use function in_array;
 use function is_array;
+use function is_callable;
 use function is_object;
 use function is_string;
 use function log10;
@@ -815,12 +816,12 @@ class Util
             $timestamp = time();
         }
 
-        $date = preg_replace(
+        $date = (string) preg_replace(
             '@%[aA]@',
             $day_of_week[(int) strftime('%w', (int) $timestamp)],
             $format
         );
-        $date = preg_replace(
+        $date = (string) preg_replace(
             '@%[bB]@',
             $month[(int) strftime('%m', (int) $timestamp) - 1],
             $date
@@ -833,14 +834,17 @@ class Util
         } else {
             $am_pm = _pgettext('AM/PM indication in time', 'AM');
         }
-        $date = preg_replace('@%[pP]@', $am_pm, $date);
+        $date = (string) preg_replace('@%[pP]@', $am_pm, $date);
 
         // Can return false on windows for Japanese language
         // See https://github.com/phpmyadmin/phpmyadmin/issues/15830
         $ret = strftime($date, (int) $timestamp);
         // Some OSes such as Win8.1 Traditional Chinese version did not produce UTF-8
         // output here. See https://github.com/phpmyadmin/phpmyadmin/issues/10598
-        if ($ret === false || mb_detect_encoding($ret, 'UTF-8', true) != 'UTF-8') {
+        /** @phpstan-ignore-next-line */
+        if ($ret === false
+            || mb_detect_encoding($ret, 'UTF-8', true) !== 'UTF-8'
+        ) {
             $ret = date('Y-m-d H:i:s', (int) $timestamp);
         }
 
@@ -852,9 +856,9 @@ class Util
      *
      * @param string $url the URL
      *
-     * @return array  the parameter/value pairs, for example [0] db=sakila
+     * @return array<int, string> the parameter/value pairs, for example [0] db=sakila
      */
-    public static function splitURLQuery($url)
+    public static function splitURLQuery($url): array
     {
         // decode encoded url separators
         $separator = Url::getArgSeparator();
@@ -869,8 +873,10 @@ class Util
 
         $url_parts = parse_url($url);
 
-        if (is_array($url_parts) && ! empty($url_parts['query'])) {
-            return explode($separator, $url_parts['query']);
+        if (is_array($url_parts) && isset($url_parts['query'])) {
+            $array = explode($separator, $url_parts['query']);
+
+            return is_array($array) ? $array : [];
         }
 
         return [];
@@ -1110,7 +1116,7 @@ class Util
             $condition = ' ' . $con_key . ' ';
 
             [$con_val, $condition] = self::getConditionValue(
-                ! isset($row[$i]) || $row[$i] === null ? null : $row[$i],
+                $row[$i] ?? null,
                 $meta,
                 $GLOBALS['dbi']->fieldFlags($handle, $i),
                 $fields_cnt,
@@ -1153,7 +1159,7 @@ class Util
             $clause_is_unique = false;
         }
 
-        $where_clause = trim(preg_replace('|\s?AND$|', '', $preferred_condition));
+        $where_clause = trim((string) preg_replace('|\s?AND$|', '', $preferred_condition));
 
         return [
             $where_clause,
@@ -1562,7 +1568,7 @@ class Util
                 $binary = false;
             }
 
-            $printtype = preg_replace(
+            $printtype = (string) preg_replace(
                 '@zerofill@',
                 '',
                 $printtype,
@@ -1570,7 +1576,7 @@ class Util
                 $zerofill_cnt
             );
             $zerofill = ($zerofill_cnt > 0);
-            $printtype = preg_replace(
+            $printtype = (string) preg_replace(
                 '@unsigned@',
                 '',
                 $printtype,
@@ -1916,10 +1922,10 @@ class Util
             foreach ($replace as $key => $val) {
                 if (isset($escape_class, $escape_method)) {
                     $replace[$key] = $escape_class->$escape_method($val);
-                } else {
-                    $replace[$key] = $escape == 'backquote'
-                        ? self::$escape($val)
-                        : $escape($val);
+                } elseif ($escape === 'backquote') {
+                    $replace[$key] = self::backquote($val);
+                } elseif (is_callable($escape)) {
+                    $replace[$key] = $escape($val);
                 }
             }
         }
@@ -3022,7 +3028,7 @@ class Util
         while (strlen($result) < $length) {
             // Get random byte and strip highest bit
             // to get ASCII only range
-            $byte = ord($random_func(1)) & 0x7f;
+            $byte = ord((string) $random_func(1)) & 0x7f;
             // We want only ASCII chars
             if ($byte <= 32) {
                 continue;
