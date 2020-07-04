@@ -54,6 +54,7 @@ use function parse_str;
 use function parse_url;
 use function preg_match;
 use function preg_replace;
+use function session_id;
 use function session_write_close;
 use function sprintf;
 use function str_replace;
@@ -1298,5 +1299,52 @@ class Core
         $hmac = hash_hmac('sha256', $sqlQuery, $secret . $cfg['blowfish_secret']);
 
         return hash_equals($hmac, $signature);
+    }
+
+    /**
+     * Check whether user supplied token is valid, if not remove any possibly
+     * dangerous stuff from request.
+     *
+     * Check for token mismatch only if the Request method is POST.
+     * GET Requests would never have token and therefore checking
+     * mis-match does not make sense.
+     */
+    public static function checkTokenRequestParam(): void
+    {
+        global $token_mismatch, $token_provided;
+
+        $token_mismatch = true;
+        $token_provided = false;
+
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            return;
+        }
+
+        if (self::isValid($_POST['token'])) {
+            $token_provided = true;
+            $token_mismatch = ! @hash_equals($_SESSION[' PMA_token '], $_POST['token']);
+        }
+
+        if (! $token_mismatch) {
+            return;
+        }
+
+        // Warn in case the mismatch is result of failed setting of session cookie
+        if (isset($_POST['set_session']) && $_POST['set_session'] !== session_id()) {
+            trigger_error(
+                __(
+                    'Failed to set session cookie. Maybe you are using '
+                    . 'HTTP instead of HTTPS to access phpMyAdmin.'
+                ),
+                E_USER_ERROR
+            );
+        }
+
+        /**
+         * We don't allow any POST operation parameters if the token is mismatched
+         * or is not provided.
+         */
+        $allowList = ['ajax_request'];
+        Sanitize::removeRequestVars($allowList);
     }
 }

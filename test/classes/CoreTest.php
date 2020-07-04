@@ -1477,4 +1477,40 @@ class CoreTest extends AbstractNetworkTestCase
         // Must work now, (good secret and blowfish_secret)
         $this->assertTrue(Core::checkSqlQuerySignature($sqlQuery, $hmac));
     }
+
+    public function testCheckTokenRequestParam(): void
+    {
+        global $token_mismatch, $token_provided;
+
+        $_SERVER['REQUEST_METHOD'] = 'GET';
+        Core::checkTokenRequestParam();
+        $this->assertTrue($token_mismatch);
+        $this->assertFalse($token_provided);
+
+        $_SERVER['REQUEST_METHOD'] = 'POST';
+        $_POST['test'] = 'test';
+        Core::checkTokenRequestParam();
+        $this->assertTrue($token_mismatch);
+        $this->assertFalse($token_provided);
+        $this->assertArrayNotHasKey('test', $_POST);
+
+        $_SERVER['REQUEST_METHOD'] = 'POST';
+        $_POST['token'] = 'token';
+        $_POST['test'] = 'test';
+        $_SESSION[' PMA_token '] = 'mismatch';
+        Core::checkTokenRequestParam();
+        $this->assertTrue($token_mismatch);
+        $this->assertTrue($token_provided);
+        $this->assertArrayNotHasKey('test', $_POST);
+
+        $_SERVER['REQUEST_METHOD'] = 'POST';
+        $_POST['token'] = 'token';
+        $_POST['test'] = 'test';
+        $_SESSION[' PMA_token '] = 'token';
+        Core::checkTokenRequestParam();
+        $this->assertFalse($token_mismatch);
+        $this->assertTrue($token_provided);
+        $this->assertArrayHasKey('test', $_POST);
+        $this->assertEquals('test', $_POST['test']);
+    }
 }

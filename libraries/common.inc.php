@@ -41,7 +41,6 @@ use PhpMyAdmin\MoTranslator\Loader;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Routing;
-use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Session;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\ThemeManager;
@@ -53,7 +52,7 @@ use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
 
 global $containerBuilder, $error_handler, $PMA_Config, $server, $dbi;
 global $lang, $cfg, $isConfigLoading, $auth_plugin, $route;
-global $url_params, $goto, $back, $db, $table, $sql_query;
+global $url_params, $goto, $back, $db, $table, $sql_query, $token_mismatch;
 
 /**
  * block attempts to directly run this script
@@ -197,50 +196,7 @@ if (isset($_REQUEST['back']) && Core::checkPageValidity($_REQUEST['back'])) {
     unset($_REQUEST['back'], $_GET['back'], $_POST['back']);
 }
 
-/**
- * Check whether user supplied token is valid, if not remove any possibly
- * dangerous stuff from request.
- *
- * remember that some objects in the session with session_start and __wakeup()
- * could access this variables before we reach this point
- * f.e. PhpMyAdmin\Config: fontsize
- *
- * Check for token mismatch only if the Request method is POST
- * GET Requests would never have token and therefore checking
- * mis-match does not make sense
- *
- * @todo variables should be handled by their respective owners (objects)
- * f.e. lang, server in PhpMyAdmin\Config
- */
-
-$token_mismatch = true;
-$token_provided = false;
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (Core::isValid($_POST['token'])) {
-        $token_provided = true;
-        $token_mismatch = ! @hash_equals($_SESSION[' PMA_token '], $_POST['token']);
-    }
-
-    if ($token_mismatch) {
-        /* Warn in case the mismatch is result of failed setting of session cookie */
-        if (isset($_POST['set_session']) && $_POST['set_session'] != session_id()) {
-            trigger_error(
-                __(
-                    'Failed to set session cookie. Maybe you are using '
-                    . 'HTTP instead of HTTPS to access phpMyAdmin.'
-                ),
-                E_USER_ERROR
-            );
-        }
-        /**
-         * We don't allow any POST operation parameters if the token is mismatched
-         * or is not provided
-         */
-        $allowList = ['ajax_request'];
-        Sanitize::removeRequestVars($allowList);
-    }
-}
+Core::checkTokenRequestParam();
 
 Core::setDatabaseAndTableFromRequest($containerBuilder);
 
