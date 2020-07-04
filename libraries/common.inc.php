@@ -165,36 +165,7 @@ if (! defined('PMA_NO_SESSION')) {
 $url_params = [];
 $containerBuilder->setParameter('url_params', $url_params);
 
-/**
- * holds page that should be displayed
- *
- * @global string $goto
- */
-$goto = '';
-$containerBuilder->setParameter('goto', $goto);
-// Security fix: disallow accessing serious server files via "?goto="
-if (isset($_REQUEST['goto']) && Core::checkPageValidity($_REQUEST['goto'])) {
-    $goto = $_REQUEST['goto'];
-    $url_params['goto'] = $goto;
-    $containerBuilder->setParameter('goto', $goto);
-    $containerBuilder->setParameter('url_params', $url_params);
-} else {
-    $PMA_Config->removeCookie('goto');
-    unset($_REQUEST['goto'], $_GET['goto'], $_POST['goto']);
-}
-
-/**
- * returning page
- *
- * @global string $back
- */
-if (isset($_REQUEST['back']) && Core::checkPageValidity($_REQUEST['back'])) {
-    $back = $_REQUEST['back'];
-    $containerBuilder->setParameter('back', $back);
-} else {
-    $PMA_Config->removeCookie('back');
-    unset($_REQUEST['back'], $_GET['back'], $_POST['back']);
-}
+Core::setGotoAndBackGlobals($containerBuilder, $PMA_Config);
 
 Core::checkTokenRequestParam();
 

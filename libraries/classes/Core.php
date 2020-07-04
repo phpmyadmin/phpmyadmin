@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Display\Error as DisplayError;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use const DATE_RFC1123;
 use const E_USER_ERROR;
 use const E_USER_WARNING;
@@ -913,7 +913,7 @@ class Core
         }
     }
 
-    public static function setDatabaseAndTableFromRequest(ContainerBuilder $containerBuilder): void
+    public static function setDatabaseAndTableFromRequest(ContainerInterface $containerBuilder): void
     {
         global $db, $table, $url_params;
 
@@ -1346,5 +1346,33 @@ class Core
          */
         $allowList = ['ajax_request'];
         Sanitize::removeRequestVars($allowList);
+    }
+
+    public static function setGotoAndBackGlobals(ContainerInterface $container, Config $config): void
+    {
+        global $goto, $back, $url_params;
+
+        // Holds page that should be displayed.
+        $goto = '';
+        $container->setParameter('goto', $goto);
+
+        if (isset($_REQUEST['goto']) && self::checkPageValidity($_REQUEST['goto'])) {
+            $goto = $_REQUEST['goto'];
+            $url_params['goto'] = $goto;
+            $container->setParameter('goto', $goto);
+            $container->setParameter('url_params', $url_params);
+        } else {
+            $config->removeCookie('goto');
+            unset($_REQUEST['goto'], $_GET['goto'], $_POST['goto']);
+        }
+
+        if (isset($_REQUEST['back']) && self::checkPageValidity($_REQUEST['back'])) {
+            // Returning page.
+            $back = $_REQUEST['back'];
+            $container->setParameter('back', $back);
+        } else {
+            $config->removeCookie('back');
+            unset($_REQUEST['back'], $_GET['back'], $_POST['back']);
+        }
     }
 }
