@@ -172,28 +172,6 @@ Core::checkTokenRequestParam();
 Core::setDatabaseAndTableFromRequest($containerBuilder);
 
 /**
- * Store currently selected recent table.
- * Affect $db and $table globals
- */
-if (isset($_REQUEST['selected_recent_table']) && Core::isValid($_REQUEST['selected_recent_table'])) {
-    $recent_table = json_decode($_REQUEST['selected_recent_table'], true);
-
-    $db = array_key_exists('db', $recent_table) && is_string($recent_table['db'])
-        ? $recent_table['db']
-        : '';
-    $table = array_key_exists('table', $recent_table) && is_string($recent_table['table'])
-        ? $recent_table['table']
-        : '';
-
-    $url_params['db'] = $db;
-    $url_params['table'] = $table;
-
-    $containerBuilder->setParameter('db', $db);
-    $containerBuilder->setParameter('table', $table);
-    $containerBuilder->setParameter('url_params', $url_params);
-}
-
-/**
  * SQL query to be executed
  *
  * @global string $sql_query
