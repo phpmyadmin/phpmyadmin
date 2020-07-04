@@ -2281,7 +2281,7 @@ class InsertEdit
             $res,
             count($meta),
             $meta,
-            $row,
+            $row ?? [],
             true
         );
         if (! empty($unique_condition)) {

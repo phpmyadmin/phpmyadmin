@@ -801,12 +801,12 @@ class Results
      */
     private function getHtmlPageSelector(): array
     {
-        $pageNow = @floor(
+        $pageNow = (int) floor(
             $_SESSION['tmpval']['pos']
             / $_SESSION['tmpval']['max_rows']
         ) + 1;
 
-        $nbTotalPage = @ceil(
+        $nbTotalPage = (int) ceil(
             $this->__get('unlim_num_rows')
             / $_SESSION['tmpval']['max_rows']
         );

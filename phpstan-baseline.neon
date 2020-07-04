@@ -26,16 +26,6 @@ parameters:
 			path: libraries/classes/Bookmark.php
 
 		-
-			message: "#^Parameter \\#3 \\$pageNow of static method PhpMyAdmin\\\\Util\\:\\:pageselector\\(\\) expects int, float given\\.$#"
-			count: 1
-			path: libraries/classes/BrowseForeigners.php
-
-		-
-			message: "#^Parameter \\#4 \\$nbTotalPage of static method PhpMyAdmin\\\\Util\\:\\:pageselector\\(\\) expects int, float\\|int given\\.$#"
-			count: 1
-			path: libraries/classes/BrowseForeigners.php
-
-		-
 			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Message\\:\\:rawError\\(\\) expects string, bool\\|string given\\.$#"
 			count: 2
 			path: libraries/classes/CentralColumns.php
@@ -47,11 +37,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$message of method PhpMyAdmin\\\\Message\\:\\:addText\\(\\) expects string, bool\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/CentralColumns.php
-
-		-
-			message: "#^Parameter \\#4 \\$nbTotalPage of static method PhpMyAdmin\\\\Util\\:\\:pageselector\\(\\) expects int, float\\|int\\<2, max\\> given\\.$#"
 			count: 1
 			path: libraries/classes/CentralColumns.php
 
@@ -257,11 +242,6 @@ parameters:
 
 		-
 			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of static method PhpMyAdmin\\\\Util\\:\\:formatNumber\\(\\) expects float\\|int\\|string, int\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/StructureController.php
 
@@ -701,16 +681,6 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#3 \\$pageNow of static method PhpMyAdmin\\\\Util\\:\\:pageselector\\(\\) expects int, float given\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Parameter \\#4 \\$nbTotalPage of static method PhpMyAdmin\\\\Util\\:\\:pageselector\\(\\) expects int, float\\|int\\<2, max\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Parameter \\#4 \\$sort_expression_nodirection of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTableHeadersForColumns\\(\\) expects array, array\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
@@ -847,11 +817,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, int\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Engines/Pbxt.php
-
-		-
-			message: "#^Parameter \\#1 \\$formatted_size of static method PhpMyAdmin\\\\Util\\:\\:extractValueFromFormattedSize\\(\\) expects string, int\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Engines/Pbxt.php
 
@@ -1371,11 +1336,6 @@ parameters:
 			path: libraries/classes/Html/Generator.php
 
 		-
-			message: "#^Parameter \\#4 \\$nbTotalPage of static method PhpMyAdmin\\\\Util\\:\\:pageselector\\(\\) expects int, float\\|int given\\.$#"
-			count: 1
-			path: libraries/classes/Html/Generator.php
-
-		-
 			message: "#^Parameter \\#3 \\$length of function substr expects int, int\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Import.php
@@ -1422,11 +1382,6 @@ parameters:
 
 		-
 			message: "#^Else branch is unreachable because ternary operator condition is always true\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Parameter \\#4 \\$row of static method PhpMyAdmin\\\\Util\\:\\:getUniqueCondition\\(\\) expects array, array\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
@@ -3121,11 +3076,6 @@ parameters:
 			path: libraries/classes/StorageEngine.php
 
 		-
-			message: "#^Parameter \\#1 \\$collation of static method PhpMyAdmin\\\\Util\\:\\:getCharsetQueryPart\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of function trim expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
@@ -3427,11 +3377,6 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Tests\\\\CentralColumnsTest\\:\\:\\$modifiedColumnData has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/CentralColumnsTest.php
-
-		-
-			message: "#^Parameter \\#4 \\$nbTotalPage of static method PhpMyAdmin\\\\Util\\:\\:pageselector\\(\\) expects int, float\\|int given\\.$#"
 			count: 1
 			path: test/classes/CentralColumnsTest.php
 
@@ -4054,11 +3999,6 @@ parameters:
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Message' and true will always evaluate to false\\.$#"
 			count: 1
 			path: test/classes/UserPreferencesTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$formatted_size of static method PhpMyAdmin\\\\Util\\:\\:extractValueFromFormattedSize\\(\\) expects string, int\\|string given\\.$#"
-			count: 1
-			path: test/classes/UtilTest.php
 
 		-
 			message: "#^Offset 0 does not exist on array\\|null\\.$#"

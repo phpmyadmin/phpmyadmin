@@ -662,7 +662,7 @@ class CentralColumnsTest extends AbstractTestCase
                 'pos',
                 $max_rows,
                 ($pos / $max_rows) + 1,
-                ceil($total_rows / $max_rows)
+                (int) ceil($total_rows / $max_rows)
             ),
             $result
         );

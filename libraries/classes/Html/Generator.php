@@ -1342,7 +1342,7 @@ class Generator
                 $name,
                 $max_count,
                 Util::getPageFromPosition($pos, $max_count),
-                ceil($count / $max_count)
+                (int) ceil($count / $max_count)
             );
             $list_navigator_html .= '</form>';
 

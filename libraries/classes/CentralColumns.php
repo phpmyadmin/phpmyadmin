@@ -1148,7 +1148,7 @@ class CentralColumns
         $attribute_types = $this->dbi->types->getAttributes();
 
         $tn_pageNow = ($pos / $this->maxRows) + 1;
-        $tn_nbTotalPage = ceil($total_rows / $this->maxRows);
+        $tn_nbTotalPage = (int) ceil($total_rows / $this->maxRows);
         $tn_page_selector = $tn_nbTotalPage > 1 ? Util::pageselector(
             'pos',
             $this->maxRows,

@@ -719,7 +719,7 @@ class Util
     /**
      * Returns the number of bytes when a formatted size is given
      *
-     * @param string $formatted_size the size expression (for example 8MB)
+     * @param string|int $formatted_size the size expression (for example 8MB)
      *
      * @return int The numerical part of the expression (for example 8)
      */

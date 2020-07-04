@@ -10,16 +10,9 @@
       <code>$db</code>
     </PossiblyInvalidArgument>
   </file>
-  <file src="libraries/classes/BrowseForeigners.php">
-    <InvalidScalarArgument occurrences="2">
-      <code>$pageNow</code>
-      <code>$nbTotalPage</code>
-    </InvalidScalarArgument>
-  </file>
   <file src="libraries/classes/CentralColumns.php">
-    <InvalidScalarArgument occurrences="2">
+    <InvalidScalarArgument occurrences="1">
       <code>$tn_pageNow</code>
-      <code>$tn_nbTotalPage</code>
     </InvalidScalarArgument>
     <PossiblyInvalidArgument occurrences="5">
       <code>$this-&gt;dbi-&gt;getError(DatabaseInterface::CONNECT_CONTROL)</code>
@@ -230,9 +223,6 @@
       <code>$formatted_size</code>
       <code>$formatted_overhead</code>
     </InvalidScalarArgument>
-    <PossiblyNullArgument occurrences="1">
-      <code>$realRowCount</code>
-    </PossiblyNullArgument>
     <PossiblyNullArrayAccess occurrences="6">
       <code>$formatted_size</code>
       <code>$unit</code>
@@ -741,9 +731,7 @@
     <InvalidOperand occurrences="1">
       <code>$index</code>
     </InvalidOperand>
-    <InvalidScalarArgument occurrences="3">
-      <code>$pageNow</code>
-      <code>$nbTotalPage</code>
+    <InvalidScalarArgument occurrences="1">
       <code>$original_length</code>
     </InvalidScalarArgument>
     <NullableReturnStatement occurrences="1">
@@ -941,9 +929,6 @@
     <InvalidNullableReturnType occurrences="1">
       <code>array</code>
     </InvalidNullableReturnType>
-    <InvalidScalarArgument occurrences="1">
-      <code>$formatted_size</code>
-    </InvalidScalarArgument>
     <LessSpecificImplementedReturnType occurrences="1">
       <code>array</code>
     </LessSpecificImplementedReturnType>
@@ -1135,9 +1120,8 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Html/Generator.php">
-    <InvalidScalarArgument occurrences="2">
+    <InvalidScalarArgument occurrences="1">
       <code>$server_msg</code>
-      <code>ceil($count / $max_count)</code>
     </InvalidScalarArgument>
   </file>
   <file src="libraries/classes/Import.php">
@@ -1194,9 +1178,6 @@
       <code>$tmp</code>
       <code>$insert_id</code>
     </PossiblyInvalidOperand>
-    <PossiblyNullArgument occurrences="1">
-      <code>$row</code>
-    </PossiblyNullArgument>
     <PossiblyNullArrayAccess occurrences="3">
       <code>$data_size[0]</code>
       <code>$data_size[1]</code>

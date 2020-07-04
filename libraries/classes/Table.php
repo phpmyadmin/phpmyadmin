@@ -568,7 +568,7 @@ class Table
         );
         if (! empty($collation) && $collation != 'NULL' && $matches) {
             $query .= Util::getCharsetQueryPart(
-                $isVirtualColMariaDB ? preg_replace('~_.+~s', '', $collation) : $collation,
+                $isVirtualColMariaDB ? (string) preg_replace('~_.+~s', '', $collation) : $collation,
                 true
             );
         }

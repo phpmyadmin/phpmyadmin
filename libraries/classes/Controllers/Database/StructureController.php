@@ -317,7 +317,7 @@ class StructureController extends AbstractController
         // If there is a request to update all table's row count.
         if (! isset($parameters['real_row_count_all'])) {
             // Get the real row count for the table.
-            $realRowCount = $this->dbi
+            $realRowCount = (int) $this->dbi
                 ->getTable($this->db, (string) $parameters['table'])
                 ->getRealRowCountTable();
             // Format the number.

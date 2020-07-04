@@ -314,8 +314,8 @@ class BrowseForeigners
             return $gotopage;
         }
 
-        $pageNow = @floor($pos / $this->maxRows) + 1;
-        $nbTotalPage = @ceil($foreignData['the_total'] / $this->maxRows);
+        $pageNow = (int) floor($pos / $this->maxRows) + 1;
+        $nbTotalPage = (int) ceil($foreignData['the_total'] / $this->maxRows);
 
         if ($foreignData['the_total'] > $this->maxRows) {
             $gotopage = Util::pageselector(
