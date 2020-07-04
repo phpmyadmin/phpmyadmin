@@ -42,6 +42,7 @@ phpMyAdmin - ChangeLog
 - issue #14772 Add the password_hash PHP function as an option when inserting data
 - issue #15136 Add a notice for Hex converter giving invalid results
 - issue #16139 Use a textarea for JSON columns
+- issue #16223 Make JSON input transformation editor less narrow
 
 5.0.3 (not yet released)
 - issue #15983 Require twig ^2.9
