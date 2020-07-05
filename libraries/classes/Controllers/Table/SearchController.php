@@ -979,7 +979,9 @@ class SearchController extends AbstractController
             $type = 'INT';
         }
 
-        $html_attributes .= " onchange= 'return verifyAfterSearchFieldChange(" . $column_index . ")'";
+        $searchFormId = $this->_searchType === 'zoom' ? '#zoom_search_form' : '#tbl_search_form';
+
+        $html_attributes .= ' onchange="return verifyAfterSearchFieldChange(' . $column_index . ', \'' . $searchFormId . '\')"';
 
         $value = $this->template->render('table/search/input_box', [
             'str' => '',

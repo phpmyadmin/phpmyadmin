@@ -151,7 +151,7 @@ function checkForCheckbox (multiEdit) {
 
 // used in Search page mostly for INT fields
 // eslint-disable-next-line no-unused-vars
-function verifyAfterSearchFieldChange (index) {
+function verifyAfterSearchFieldChange (index, searchFormId) {
     var $thisInput = $('input[name=\'criteriaValues[' + index + ']\']');
     // validation for integer type
     if ($thisInput.data('type') === 'INT') {
@@ -159,8 +159,9 @@ function verifyAfterSearchFieldChange (index) {
         $thisInput.val($thisInput.val().trim());
 
         var hasMultiple = $thisInput.prop('multiple');
+
         if (hasMultiple) {
-            $('#tbl_search_form').validate();
+            $(searchFormId).validate();
             // validator method for IN(...), NOT IN(...)
             // BETWEEN and NOT BETWEEN
             jQuery.validator.addMethod('validationFunctionForMultipleInt', function (value) {
@@ -170,7 +171,7 @@ function verifyAfterSearchFieldChange (index) {
             );
             validateMultipleIntField($thisInput, true);
         } else {
-            $('#tbl_search_form').validate();
+            $(searchFormId).validate();
             validateIntField($thisInput, true);
         }
     }
