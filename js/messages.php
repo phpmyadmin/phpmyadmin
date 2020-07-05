@@ -6,7 +6,6 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\OutputBuffering;
-use PhpMyAdmin\Sanitize;
 
 global $cfg, $PMA_Theme;
 
@@ -732,7 +731,4 @@ $javascriptMessages = [
     'strStructure' => __('Structure'),
 ];
 
-echo 'var Messages = [];' . "\n";
-foreach ($javascriptMessages as $name => $message) {
-    echo Sanitize::getJsValue('Messages.' . $name, $message);
-}
+echo 'var Messages = ' . json_encode($javascriptMessages) . ';';
