@@ -207,14 +207,22 @@
       <label for="resultsForm_{{ unique_id }}_checkall">{% trans 'Check all' %}</label>
       <em class="with-selected">{% trans 'With selected:' %}</em>
 
-      {{ get_button_or_image('submit_mult', 'mult_submit', 'Edit'|trans, 'b_edit', 'edit') }}
+      <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="edit" title="{% trans 'Edit' %}">
+        {{ get_icon('b_edit', 'Edit'|trans) }}
+      </button>
 
-      {{ get_button_or_image('submit_mult', 'mult_submit', 'Copy'|trans, 'b_insrow', 'copy') }}
+      <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="copy" title="{% trans 'Copy' %}">
+        {{ get_icon('b_insrow', 'Copy'|trans) }}
+      </button>
 
-      {{ get_button_or_image('submit_mult', 'mult_submit', 'Delete'|trans, 'b_drop', 'delete') }}
+      <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="delete" title="{% trans 'Delete' %}">
+        {{ get_icon('b_drop', 'Delete'|trans) }}
+      </button>
 
       {% if bulk_links.has_export_button %}
-        {{ get_button_or_image('submit_mult', 'mult_submit', 'Export'|trans, 'b_tblexport', 'export') }}
+        <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="export" title="{% trans 'Export' %}">
+          {{ get_icon('b_tblexport', 'Export'|trans) }}
+        </button>
       {% endif %}
     </div>
 

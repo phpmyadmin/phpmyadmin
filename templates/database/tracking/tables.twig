@@ -98,13 +98,10 @@
                 'text_dir': text_dir,
                 'form_name': 'trackedForm'
             } only %}
-            {{ get_button_or_image(
-                'submit_mult',
-                'mult_submit',
-                'Delete tracking'|trans,
-                'b_drop',
-                'delete_tracking'
-            ) }}
+            <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="delete_tracking"
+                    title="{% trans 'Delete tracking' %}">
+                {{ get_icon('b_drop', 'Delete tracking'|trans) }}
+            </button>
         </form>
     </div>
 {% endif %}
@@ -153,12 +150,8 @@
             'text_dir': text_dir,
             'form_name': 'untrackedForm'
         } only %}
-        {{ get_button_or_image(
-            'submit_mult',
-            'mult_submit',
-            'Track table'|trans,
-            'eye',
-            'track'
-        ) }}
+        <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="track" title="{% trans 'Track table' %}">
+            {{ get_icon('eye', 'Track table'|trans) }}
+        </button>
     </form>
 {% endif %}

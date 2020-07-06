@@ -89,13 +89,9 @@
             'text_dir': text_dir,
             'form_name': 'versionsForm',
         } only %}
-        {{ get_button_or_image(
-            'submit_mult',
-            'mult_submit',
-            'Delete version'|trans,
-            'b_drop',
-            'delete_version'
-        ) }}
+        <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="delete_version" title="{% trans 'Delete version' %}">
+            {{ get_icon('b_drop', 'Delete version'|trans) }}
+        </button>
     </form>
     {% set last_version_element = versions|first %}
     <div>

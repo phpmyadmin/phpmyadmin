@@ -47,11 +47,6 @@ class UtilExtension extends AbstractExtension
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
-                'get_button_or_image',
-                '\PhpMyAdmin\Html\Generator::getButtonOrImage',
-                ['is_safe' => ['html']]
-            ),
-            new TwigFunction(
                 'get_docu_link',
                 '\PhpMyAdmin\Html\MySQLDocumentation::getDocumentationLink',
                 ['is_safe' => ['html']]

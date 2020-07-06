@@ -34,8 +34,12 @@
         <label for="rteListForm_checkall">{% trans 'Check all' %}</label>
         <em class="with-selected">{% trans 'With selected:' %}</em>
 
-        {{ get_button_or_image('submit_mult', 'mult_submit', 'Export'|trans, 'b_export', 'export') }}
-        {{ get_button_or_image('submit_mult', 'mult_submit', 'Drop'|trans, 'b_drop', 'drop') }}
+        <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="export" title="{% trans 'Export' %}">
+          {{ get_icon('b_export', 'Export'|trans) }}
+        </button>
+        <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="drop" title="{% trans 'Drop' %}">
+          {{ get_icon('b_drop', 'Drop'|trans) }}
+        </button>
       </div>
     {% endif %}
   </fieldset>
