@@ -331,6 +331,10 @@ return [
             'arguments' =>
             ['template' => '@template'],
         ],
+        PhpMyAdmin\Controllers\JavaScriptMessagesController::class =>
+        [
+            'class' => PhpMyAdmin\Controllers\JavaScriptMessagesController::class,
+        ],
         PhpMyAdmin\Controllers\LicenseController::class =>
         [
             'class' => PhpMyAdmin\Controllers\LicenseController::class,
