@@ -63,11 +63,9 @@ class ExportXmlTest extends AbstractTestCase
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportXml::setProperties
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testSetProperties()
+    public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportXml::class, 'setProperties');
         $method->setAccessible(true);
@@ -206,11 +204,9 @@ class ExportXmlTest extends AbstractTestCase
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportXml::exportHeader
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testExportHeader()
+    public function testExportHeader(): void
     {
         $GLOBALS['xml_export_functions'] = 1;
         $GLOBALS['xml_export_contents'] = 1;
@@ -395,10 +391,8 @@ class ExportXmlTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportXml::exportFooter
-     *
-     * @return void
      */
-    public function testExportFooter()
+    public function testExportFooter(): void
     {
         $this->expectOutputString(
             '&lt;/pma_xml_export&gt;'
@@ -410,10 +404,8 @@ class ExportXmlTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportXml::exportDBHeader
-     *
-     * @return void
      */
-    public function testExportDBHeader()
+    public function testExportDBHeader(): void
     {
         $GLOBALS['xml_export_contents'] = true;
 
@@ -437,10 +429,8 @@ class ExportXmlTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportXml::exportDBFooter
-     *
-     * @return void
      */
-    public function testExportDBFooter()
+    public function testExportDBFooter(): void
     {
         $GLOBALS['xml_export_contents'] = true;
 
@@ -464,10 +454,8 @@ class ExportXmlTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportXml::exportDBCreate
-     *
-     * @return void
      */
-    public function testExportDBCreate()
+    public function testExportDBCreate(): void
     {
         $this->assertTrue(
             $this->object->exportDBCreate('testDB', 'database')
@@ -476,10 +464,8 @@ class ExportXmlTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportXml::exportData
-     *
-     * @return void
      */
-    public function testExportData()
+    public function testExportData(): void
     {
         $GLOBALS['xml_export_contents'] = true;
         $GLOBALS['asfile'] = true;

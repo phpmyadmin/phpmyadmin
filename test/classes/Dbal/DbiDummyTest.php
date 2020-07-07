@@ -30,10 +30,8 @@ class DbiDummyTest extends AbstractTestCase
      * Simple test for basic query
      *
      * This relies on dummy driver internals
-     *
-     * @return void
      */
-    public function testQuery()
+    public function testQuery(): void
     {
         $this->assertEquals(1000, $GLOBALS['dbi']->tryQuery('SELECT 1'));
     }
@@ -42,10 +40,8 @@ class DbiDummyTest extends AbstractTestCase
      * Simple test for fetching results of query
      *
      * This relies on dummy driver internals
-     *
-     * @return void
      */
-    public function testFetch()
+    public function testFetch(): void
     {
         $result = $GLOBALS['dbi']->tryQuery('SELECT 1');
         $this->assertEquals(['1'], $GLOBALS['dbi']->fetchArray($result));
@@ -69,7 +65,7 @@ class DbiDummyTest extends AbstractTestCase
      *
      * @return array with test data
      */
-    public function schemaData()
+    public function schemaData(): array
     {
         return [
             [
@@ -106,7 +102,7 @@ class DbiDummyTest extends AbstractTestCase
      *
      * @return array with test data
      */
-    public function errorData()
+    public function errorData(): array
     {
         return [
             [

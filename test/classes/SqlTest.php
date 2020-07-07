@@ -49,10 +49,8 @@ class SqlTest extends AbstractTestCase
 
     /**
      * Test for getSqlWithLimitClause
-     *
-     * @return void
      */
-    public function testGetSqlWithLimitClause()
+    public function testGetSqlWithLimitClause(): void
     {
         // Test environment.
         $GLOBALS['_SESSION']['tmpval']['pos'] = 1;
@@ -69,10 +67,8 @@ class SqlTest extends AbstractTestCase
 
     /**
      * Test for isRememberSortingOrder
-     *
-     * @return void
      */
-    public function testIsRememberSortingOrder()
+    public function testIsRememberSortingOrder(): void
     {
         // Test environment.
         $GLOBALS['cfg']['RememberSorting'] = true;
@@ -110,10 +106,8 @@ class SqlTest extends AbstractTestCase
 
     /**
      * Test for isAppendLimitClause
-     *
-     * @return void
      */
-    public function testIsAppendLimitClause()
+    public function testIsAppendLimitClause(): void
     {
         // Test environment.
         $GLOBALS['_SESSION']['tmpval']['max_rows'] = 10;
@@ -133,10 +127,8 @@ class SqlTest extends AbstractTestCase
 
     /**
      * Test for isJustBrowsing
-     *
-     * @return void
      */
-    public function testIsJustBrowsing()
+    public function testIsJustBrowsing(): void
     {
         // Test environment.
         $GLOBALS['_SESSION']['tmpval']['max_rows'] = 10;
@@ -165,10 +157,8 @@ class SqlTest extends AbstractTestCase
 
     /**
      * Test for isDeleteTransformationInfo
-     *
-     * @return void
      */
-    public function testIsDeleteTransformationInfo()
+    public function testIsDeleteTransformationInfo(): void
     {
         $this->assertTrue(
             $this->callFunction($this->sql, Sql::class, 'isDeleteTransformationInfo', [
@@ -191,10 +181,8 @@ class SqlTest extends AbstractTestCase
 
     /**
      * Test for hasNoRightsToDropDatabase
-     *
-     * @return void
      */
-    public function testHasNoRightsToDropDatabase()
+    public function testHasNoRightsToDropDatabase(): void
     {
         $this->assertTrue(
             $this->sql->hasNoRightsToDropDatabase(
@@ -223,10 +211,8 @@ class SqlTest extends AbstractTestCase
 
     /**
      * Should return false if all columns are not from the same table
-     *
-     * @return void
      */
-    public function testWithMultipleTables()
+    public function testWithMultipleTables(): void
     {
         $col1 = new stdClass();
         $col1->table = 'table1';
@@ -266,10 +252,8 @@ class SqlTest extends AbstractTestCase
 
     /**
      * Should return true if all the columns are from the same table
-     *
-     * @return void
      */
-    public function testWithSameTable()
+    public function testWithSameTable(): void
     {
         $col1 = new stdClass();
         $col1->table = 'table1';
@@ -291,10 +275,8 @@ class SqlTest extends AbstractTestCase
     /**
      * Should return true even if function columns (table is '') occur when others
      * are from the same table.
-     *
-     * @return void
      */
-    public function testWithFunctionColumns()
+    public function testWithFunctionColumns(): void
     {
         $col1 = new stdClass();
         $col1->table = 'table1';
@@ -335,10 +317,8 @@ class SqlTest extends AbstractTestCase
     /**
      * We can not say all the columns are from the same table if all the columns
      * are funtion columns (table is '')
-     *
-     * @return void
      */
-    public function testWithOnlyFunctionColumns()
+    public function testWithOnlyFunctionColumns(): void
     {
         $col1 = new stdClass();
         $col1->table = '';

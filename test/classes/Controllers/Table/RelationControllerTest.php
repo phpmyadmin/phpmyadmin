@@ -52,10 +52,8 @@ class RelationControllerTest extends AbstractTestCase
         {
             /**
              * @param mixed $name name
-             *
-             * @return bool
              */
-            public function exists($name)
+            public function exists($name): bool
             {
                 return true;
             }
@@ -96,11 +94,9 @@ class RelationControllerTest extends AbstractTestCase
      * Case one: this case is for the situation when the target
      *           table is a view.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetDropdownValueForTableActionIsView()
+    public function testGetDropdownValueForTableActionIsView(): void
     {
         $viewColumns = [
             'viewCol',
@@ -142,11 +138,9 @@ class RelationControllerTest extends AbstractTestCase
      * Case one: this case is for the situation when the target
      *           table is not a view (real tabletable).
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetDropdownValueForTableActionNotView()
+    public function testGetDropdownValueForTableActionNotView(): void
     {
         $indexedColumns = ['primaryTableCol'];
         $tableMock = $this->getMockBuilder(Table::class)
@@ -183,11 +177,9 @@ class RelationControllerTest extends AbstractTestCase
      *
      * Case one: foreign
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetDropdownValueForDbActionOne()
+    public function testGetDropdownValueForDbActionOne(): void
     {
         $GLOBALS['dbi']->expects($this->any())
             ->method('fetchArray')
@@ -232,11 +224,9 @@ class RelationControllerTest extends AbstractTestCase
      *
      * Case two: not foreign
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetDropdownValueForDbActionTwo()
+    public function testGetDropdownValueForDbActionTwo(): void
     {
         $GLOBALS['dbi']->expects($this->any())
             ->method('fetchArray')

@@ -31,10 +31,8 @@ class NodeTest extends AbstractTestCase
 
     /**
      * SetUp for AddNode
-     *
-     * @return void
      */
-    public function testAddNode()
+    public function testAddNode(): void
     {
         $parent = NodeFactory::getInstance('Node', 'parent');
         $child = NodeFactory::getInstance('Node', 'child');
@@ -51,10 +49,8 @@ class NodeTest extends AbstractTestCase
 
     /**
      * SetUp for getChild
-     *
-     * @return void
      */
-    public function testGetChildError()
+    public function testGetChildError(): void
     {
         $parent = NodeFactory::getInstance('Node', 'parent');
         $this->assertNull(
@@ -67,10 +63,8 @@ class NodeTest extends AbstractTestCase
 
     /**
      * SetUp for getChild
-     *
-     * @return void
      */
-    public function testRemoveNode()
+    public function testRemoveNode(): void
     {
         $parent = NodeFactory::getInstance('Node', 'parent');
         $child = NodeFactory::getInstance('Node', 'child');
@@ -87,10 +81,8 @@ class NodeTest extends AbstractTestCase
 
     /**
      * SetUp for hasChildren
-     *
-     * @return void
      */
-    public function testNodeHasChildren()
+    public function testNodeHasChildren(): void
     {
         $parent = NodeFactory::getInstance();
         $emptyContainer = NodeFactory::getInstance(
@@ -132,10 +124,8 @@ class NodeTest extends AbstractTestCase
 
     /**
      * SetUp for numChildren
-     *
-     * @return void
      */
-    public function testNumChildren()
+    public function testNumChildren(): void
     {
         // start with root node only
         $parent = NodeFactory::getInstance();
@@ -166,10 +156,8 @@ class NodeTest extends AbstractTestCase
 
     /**
      * SetUp for parents
-     *
-     * @return void
      */
-    public function testParents()
+    public function testParents(): void
     {
         $parent = NodeFactory::getInstance();
         $this->assertEquals($parent->parents(), []); // exclude self
@@ -190,10 +178,8 @@ class NodeTest extends AbstractTestCase
 
     /**
      * SetUp for realParent
-     *
-     * @return void
      */
-    public function testRealParent()
+    public function testRealParent(): void
     {
         $parent = NodeFactory::getInstance();
         $this->assertFalse($parent->realParent());
@@ -207,11 +193,9 @@ class NodeTest extends AbstractTestCase
      * Tests whether Node->hasSiblings() method returns false
      * when the node does not have any siblings.
      *
-     * @return void
-     *
      * @test
      */
-    public function testHasSiblingsWithNoSiblings()
+    public function testHasSiblingsWithNoSiblings(): void
     {
         $parent = NodeFactory::getInstance();
         $child = NodeFactory::getInstance();
@@ -223,11 +207,9 @@ class NodeTest extends AbstractTestCase
      * Tests whether Node->hasSiblings() method returns true
      * when it actually has siblings.
      *
-     * @return void
-     *
      * @test
      */
-    public function testHasSiblingsWithSiblings()
+    public function testHasSiblingsWithSiblings(): void
     {
         $parent = NodeFactory::getInstance();
         $firstChild = NodeFactory::getInstance();
@@ -259,11 +241,9 @@ class NodeTest extends AbstractTestCase
      * It is expected that Node->hasSiblings() method always return true
      * for Nodes that are 3 levels deep (columns and indexes).
      *
-     * @return void
-     *
      * @test
      */
-    public function testHasSiblingsForNodesAtLevelThree()
+    public function testHasSiblingsForNodesAtLevelThree(): void
     {
         $parent = NodeFactory::getInstance();
         $child = NodeFactory::getInstance();
@@ -282,11 +262,9 @@ class NodeTest extends AbstractTestCase
     /**
      * Tests private method _getWhereClause()
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetWhereClause()
+    public function testGetWhereClause(): void
     {
         $method = new ReflectionMethod(
             Node::class,
@@ -344,11 +322,9 @@ class NodeTest extends AbstractTestCase
      * Tests getData() method when DisableIS is false and navigation tree
      * grouping enabled.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetDataWithEnabledISAndGroupingEnabled()
+    public function testGetDataWithEnabledISAndGroupingEnabled(): void
     {
         $pos = 10;
         $limit = 20;
@@ -395,11 +371,9 @@ class NodeTest extends AbstractTestCase
      * Tests getData() method when DisableIS is false and navigation tree
      * grouping disabled.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetDataWithEnabledISAndGroupingDisabled()
+    public function testGetDataWithEnabledISAndGroupingDisabled(): void
     {
         $pos = 10;
         $limit = 20;
@@ -434,11 +408,9 @@ class NodeTest extends AbstractTestCase
      * Tests getData() method when DisableIS is true and navigation tree
      * grouping enabled.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetDataWithDisabledISAndGroupingEnabled()
+    public function testGetDataWithDisabledISAndGroupingEnabled(): void
     {
         $pos = 0;
         $limit = 10;
@@ -483,11 +455,9 @@ class NodeTest extends AbstractTestCase
      * Tests the getPresence method when DisableIS is false and navigation tree
      * grouping enabled.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetPresenceWithEnabledISAndGroupingEnabled()
+    public function testGetPresenceWithEnabledISAndGroupingEnabled(): void
     {
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
@@ -519,11 +489,9 @@ class NodeTest extends AbstractTestCase
      * Tests the getPresence method when DisableIS is false and navigation tree
      * grouping disabled.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetPresenceWithEnabledISAndGroupingDisabled()
+    public function testGetPresenceWithEnabledISAndGroupingDisabled(): void
     {
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = false;
@@ -546,11 +514,9 @@ class NodeTest extends AbstractTestCase
     /**
      * Tests the getPresence method when DisableIS is true
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetPresenceWithDisabledIS()
+    public function testGetPresenceWithDisabledIS(): void
     {
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $GLOBALS['dbs_to_test'] = false;

@@ -53,12 +53,10 @@ class VersionInformationTest extends AbstractTestCase
     /**
      * Test version checking
      *
-     * @return void
-     *
      * @group large
      * @group network
      */
-    public function testGetLatestVersion()
+    public function testGetLatestVersion(): void
     {
         $GLOBALS['cfg']['ProxyUrl'] = PROXY_URL;
         $GLOBALS['cfg']['ProxyUser'] = PROXY_USER;
@@ -92,7 +90,7 @@ class VersionInformationTest extends AbstractTestCase
      *
      * @return array with test data
      */
-    public function dataVersions()
+    public function dataVersions(): array
     {
         return [
             [
@@ -176,10 +174,8 @@ class VersionInformationTest extends AbstractTestCase
 
     /**
      * Tests getLatestCompatibleVersion() when there is only one server confgiured
-     *
-     * @return void
      */
-    public function testGetLatestCompatibleVersionWithSingleServer()
+    public function testGetLatestCompatibleVersionWithSingleServer(): void
     {
         $GLOBALS['cfg']['Servers'] = [
             [],
@@ -211,10 +207,8 @@ class VersionInformationTest extends AbstractTestCase
 
     /**
      * Tests getLatestCompatibleVersion() when there are multiple servers configured
-     *
-     * @return void
      */
-    public function testGetLatestCompatibleVersionWithMultipleServers()
+    public function testGetLatestCompatibleVersionWithMultipleServers(): void
     {
         $GLOBALS['cfg']['Servers'] = [
             [],
@@ -242,10 +236,8 @@ class VersionInformationTest extends AbstractTestCase
 
     /**
      * Tests getLatestCompatibleVersion() with an old PHP version
-     *
-     * @return void
      */
-    public function testGetLatestCompatibleVersionWithOldPHPVersion()
+    public function testGetLatestCompatibleVersionWithOldPHPVersion(): void
     {
         $GLOBALS['cfg']['Servers'] = [
             [],
@@ -561,10 +553,8 @@ class VersionInformationTest extends AbstractTestCase
 
     /**
      * Tests evaluateVersionCondition() method
-     *
-     * @return void
      */
-    public function testEvaluateVersionCondition()
+    public function testEvaluateVersionCondition(): void
     {
         $mockVersionInfo = $this->getMockBuilder(VersionInformation::class)
             ->setMethods(['getPHPVersion'])

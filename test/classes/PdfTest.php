@@ -27,11 +27,9 @@ class PdfTest extends AbstractTestCase
     /**
      * Test for Pdf::getPDFData
      *
-     * @return void
-     *
      * @group large
      */
-    public function testBasic()
+    public function testBasic(): void
     {
         $arr = new Pdf();
         $this->assertStringContainsString('PDF', $arr->getPDFData());
@@ -40,11 +38,9 @@ class PdfTest extends AbstractTestCase
     /**
      * Test for Pdf::getPDFData
      *
-     * @return void
-     *
      * @group large
      */
-    public function testAlias()
+    public function testAlias(): void
     {
         $arr = new Pdf();
         $arr->setAlias('{00}', '32');
@@ -54,11 +50,9 @@ class PdfTest extends AbstractTestCase
     /**
      * Test for Pdf::getPDFData
      *
-     * @return void
-     *
      * @group large
      */
-    public function testDocument()
+    public function testDocument(): void
     {
         $pdf = new Pdf();
         $pdf->SetTitle('Title');

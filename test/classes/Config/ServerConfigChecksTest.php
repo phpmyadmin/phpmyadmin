@@ -44,10 +44,7 @@ class ServerConfigChecksTest extends AbstractTestCase
         unset($_SESSION[$this->sessionID]);
     }
 
-    /**
-     * @return void
-     */
-    public function testManyErrors()
+    public function testManyErrors(): void
     {
         $_SESSION[$this->sessionID]['Servers'] = [
             '1' => [
@@ -105,10 +102,7 @@ class ServerConfigChecksTest extends AbstractTestCase
         );
     }
 
-    /**
-     * @return void
-     */
-    public function testBlowfishCreate()
+    public function testBlowfishCreate(): void
     {
         $_SESSION[$this->sessionID]['Servers'] = [
             '1' => [
@@ -142,10 +136,7 @@ class ServerConfigChecksTest extends AbstractTestCase
         );
     }
 
-    /**
-     * @return void
-     */
-    public function testBlowfish()
+    public function testBlowfish(): void
     {
         $_SESSION[$this->sessionID]['blowfish_secret'] = 'sec';
 

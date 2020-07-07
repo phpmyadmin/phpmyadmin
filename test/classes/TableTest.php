@@ -49,10 +49,8 @@ class TableTest extends AbstractTestCase
         {
             /**
              * @param mixed $name name
-             *
-             * @return bool
              */
-            public function exists($name)
+            public function exists($name): bool
             {
                 return $name === $name;// unused $name hack
             }
@@ -302,10 +300,8 @@ class TableTest extends AbstractTestCase
 
     /**
      * Test object creating
-     *
-     * @return void
      */
-    public function testCreate()
+    public function testCreate(): void
     {
         $table = new Table('table1', 'pma_test');
         $this->assertInstanceOf(Table::class, $table);
@@ -313,10 +309,8 @@ class TableTest extends AbstractTestCase
 
     /**
      * Test for constructor
-     *
-     * @return void
      */
-    public function testConstruct()
+    public function testConstruct(): void
     {
         $table = new Table('PMA_BookMark', 'PMA');
         $this->assertEquals(
@@ -339,10 +333,8 @@ class TableTest extends AbstractTestCase
 
     /**
      * Test getName & getDbName
-     *
-     * @return void
      */
-    public function testGetName()
+    public function testGetName(): void
     {
         $table = new Table('table1', 'pma_test');
         $this->assertEquals(
@@ -365,10 +357,8 @@ class TableTest extends AbstractTestCase
 
     /**
      * Test getLastError & getLastMessage
-     *
-     * @return void
      */
-    public function testGetLastErrorAndMessage()
+    public function testGetLastErrorAndMessage(): void
     {
         $table = new Table('table1', 'pma_test');
         $table->errors[] = 'error1';
@@ -411,7 +401,7 @@ class TableTest extends AbstractTestCase
      *
      * @return array with test data
      */
-    public function dataValidateName()
+    public function dataValidateName(): array
     {
         return [
             [
@@ -462,10 +452,8 @@ class TableTest extends AbstractTestCase
 
     /**
      * Test for isView
-     *
-     * @return void
      */
-    public function testIsView()
+    public function testIsView(): void
     {
         $table = new Table(null, null);
         $this->assertFalse(
@@ -486,10 +474,8 @@ class TableTest extends AbstractTestCase
 
     /**
      * Test for generateFieldSpec
-     *
-     * @return void
      */
-    public function testGenerateFieldSpec()
+    public function testGenerateFieldSpec(): void
     {
         //type is BIT
         $name = 'PMA_name';
@@ -852,10 +838,8 @@ class TableTest extends AbstractTestCase
 
     /**
      * Test for duplicateInfo
-     *
-     * @return void
      */
-    public function testDuplicateInfo()
+    public function testDuplicateInfo(): void
     {
         $work = 'PMA_work';
         $pma_table = 'pma_table';
@@ -890,10 +874,8 @@ class TableTest extends AbstractTestCase
 
     /**
      * Test for isUpdatableView
-     *
-     * @return void
      */
-    public function testIsUpdatableView()
+    public function testIsUpdatableView(): void
     {
         $table = new Table(null, null);
         $this->assertFalse(
@@ -914,10 +896,8 @@ class TableTest extends AbstractTestCase
 
     /**
      * Test for isMerge -- when there's no ENGINE info cached
-     *
-     * @return void
      */
-    public function testIsMergeCase1()
+    public function testIsMergeCase1(): void
     {
         $tableObj = new Table('PMA_BookMark', 'PMA');
         $this->assertEquals(
@@ -933,10 +913,8 @@ class TableTest extends AbstractTestCase
 
     /**
      * Test for isMerge -- when ENGINE info is MERGE
-     *
-     * @return void
      */
-    public function testIsMergeCase2()
+    public function testIsMergeCase2(): void
     {
         /** @var DatabaseInterface $dbi */
         global $dbi;
@@ -954,10 +932,8 @@ class TableTest extends AbstractTestCase
 
     /**
      * Test for isMerge -- when ENGINE info is MRG_MYISAM
-     *
-     * @return void
      */
-    public function testIsMergeCase3()
+    public function testIsMergeCase3(): void
     {
         /** @var DatabaseInterface $dbi */
         global $dbi;
@@ -986,10 +962,8 @@ class TableTest extends AbstractTestCase
 
     /**
      * Test for generateAlter
-     *
-     * @return void
      */
-    public function testGenerateAlter()
+    public function testGenerateAlter(): void
     {
         //parameter
         $oldcol = 'name';
@@ -1036,10 +1010,8 @@ class TableTest extends AbstractTestCase
 
     /**
      * Test for rename
-     *
-     * @return void
      */
-    public function testRename()
+    public function testRename(): void
     {
         $table = 'PMA_BookMark';
         $db = 'PMA';
@@ -1094,10 +1066,8 @@ class TableTest extends AbstractTestCase
 
     /**
      * Test for getUniqueColumns
-     *
-     * @return void
      */
-    public function testGetUniqueColumns()
+    public function testGetUniqueColumns(): void
     {
         $table = 'PMA_BookMark';
         $db = 'PMA';
@@ -1117,10 +1087,8 @@ class TableTest extends AbstractTestCase
 
     /**
      * Test for getIndexedColumns
-     *
-     * @return void
      */
-    public function testGetIndexedColumns()
+    public function testGetIndexedColumns(): void
     {
         $table = 'PMA_BookMark';
         $db = 'PMA';
@@ -1143,10 +1111,8 @@ class TableTest extends AbstractTestCase
 
     /**
      * Test for getColumnsMeta
-     *
-     * @return void
      */
-    public function testGetColumnsMeta()
+    public function testGetColumnsMeta(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -1175,11 +1141,9 @@ class TableTest extends AbstractTestCase
     /**
      * Tests for getSQLToCreateForeignKey() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetSQLToCreateForeignKey()
+    public function testGetSQLToCreateForeignKey(): void
     {
         $table = 'PMA_table';
         $field = [
@@ -1240,11 +1204,9 @@ class TableTest extends AbstractTestCase
     /**
      * Tests for getSqlQueryForIndexCreateOrEdit() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetSqlQueryForIndexCreateOrEdit()
+    public function testGetSqlQueryForIndexCreateOrEdit(): void
     {
         $db = 'pma_db';
         $table = 'pma_table';
@@ -1264,10 +1226,8 @@ class TableTest extends AbstractTestCase
 
     /**
      * Test for getColumns
-     *
-     * @return void
      */
-    public function testGetColumns()
+    public function testGetColumns(): void
     {
         $table = 'PMA_BookMark';
         $db = 'PMA';
@@ -1301,10 +1261,8 @@ class TableTest extends AbstractTestCase
 
     /**
      * Test for checkIfMinRecordsExist
-     *
-     * @return void
      */
-    public function testCheckIfMinRecordsExist()
+    public function testCheckIfMinRecordsExist(): void
     {
         $old_dbi = $GLOBALS['dbi'];
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -1383,10 +1341,8 @@ class TableTest extends AbstractTestCase
 
     /**
      * Test for setUiProp
-     *
-     * @return void
      */
-    public function testSetUiProp()
+    public function testSetUiProp(): void
     {
         $table_name = 'PMA_BookMark';
         $db = 'PMA';
@@ -1420,10 +1376,8 @@ class TableTest extends AbstractTestCase
 
     /**
      * Test for moveCopy
-     *
-     * @return void
      */
-    public function testMoveCopy()
+    public function testMoveCopy(): void
     {
         $source_table = 'PMA_BookMark';
         $source_db = 'PMA';
@@ -1499,10 +1453,8 @@ class TableTest extends AbstractTestCase
 
     /**
      * Test for getStorageEngine
-     *
-     * @return void
      */
-    public function testGetStorageEngine()
+    public function testGetStorageEngine(): void
     {
         $target_table = 'table1';
         $target_db = 'pma_test';
@@ -1523,10 +1475,8 @@ class TableTest extends AbstractTestCase
 
     /**
      * Test for getComment
-     *
-     * @return void
      */
-    public function testGetComment()
+    public function testGetComment(): void
     {
         $target_table = 'table1';
         $target_db = 'pma_test';
@@ -1547,10 +1497,8 @@ class TableTest extends AbstractTestCase
 
     /**
      * Test for getCollation
-     *
-     * @return void
      */
-    public function testGetCollation()
+    public function testGetCollation(): void
     {
         $target_table = 'table1';
         $target_db = 'pma_test';
@@ -1571,10 +1519,8 @@ class TableTest extends AbstractTestCase
 
     /**
      * Test for getRowFormat
-     *
-     * @return void
      */
-    public function testGetRowFormat()
+    public function testGetRowFormat(): void
     {
         $target_table = 'table1';
         $target_db = 'pma_test';
@@ -1595,10 +1541,8 @@ class TableTest extends AbstractTestCase
 
     /**
      * Test for getAutoIncrement
-     *
-     * @return void
      */
-    public function testGetAutoIncrement()
+    public function testGetAutoIncrement(): void
     {
         $target_table = 'table1';
         $target_db = 'pma_test';
@@ -1619,10 +1563,8 @@ class TableTest extends AbstractTestCase
 
     /**
      * Test for getCreateOptions
-     *
-     * @return void
      */
-    public function testGetCreateOptions()
+    public function testGetCreateOptions(): void
     {
         $target_table = 'table1';
         $target_db = 'pma_test';

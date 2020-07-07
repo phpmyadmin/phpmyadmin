@@ -49,10 +49,8 @@ class HeaderTest extends AbstractTestCase
 
     /**
      * Test for disable
-     *
-     * @return void
      */
-    public function testDisable()
+    public function testDisable(): void
     {
         $header = new Header();
         $header->disable();
@@ -64,10 +62,8 @@ class HeaderTest extends AbstractTestCase
 
     /**
      * Test for enable
-     *
-     * @return void
      */
-    public function testEnable()
+    public function testEnable(): void
     {
         $header = new Header();
         $this->assertStringContainsString(
@@ -78,10 +74,8 @@ class HeaderTest extends AbstractTestCase
 
     /**
      * Test for Set BodyId
-     *
-     * @return void
      */
-    public function testSetBodyId()
+    public function testSetBodyId(): void
     {
         $header = new Header();
         $header->setBodyId('PMA_header_id');
@@ -93,10 +87,8 @@ class HeaderTest extends AbstractTestCase
 
     /**
      * Test for print view
-     *
-     * @return void
      */
-    public function testPrintView()
+    public function testPrintView(): void
     {
         $header = new Header();
         $header->enablePrintView();
@@ -108,10 +100,8 @@ class HeaderTest extends AbstractTestCase
 
     /**
      * Test for Get JsParams
-     *
-     * @return void
      */
-    public function testGetJsParams()
+    public function testGetJsParams(): void
     {
         $header = new Header();
         $this->assertArrayHasKey(
@@ -122,10 +112,8 @@ class HeaderTest extends AbstractTestCase
 
     /**
      * Test for Get JsParamsCode
-     *
-     * @return void
      */
-    public function testGetJsParamsCode()
+    public function testGetJsParamsCode(): void
     {
         $header = new Header();
         $this->assertStringContainsString(
@@ -136,10 +124,8 @@ class HeaderTest extends AbstractTestCase
 
     /**
      * Test for Get Message
-     *
-     * @return void
      */
-    public function testGetMessage()
+    public function testGetMessage(): void
     {
         $header = new Header();
         $this->assertStringContainsString(
@@ -151,11 +137,9 @@ class HeaderTest extends AbstractTestCase
     /**
      * Test for Disable Warnings
      *
-     * @return void
-     *
      * @test
      */
-    public function testDisableWarnings()
+    public function testDisableWarnings(): void
     {
         $reflection = new ReflectionProperty(Header::class, '_warningsEnabled');
         $reflection->setAccessible(true);

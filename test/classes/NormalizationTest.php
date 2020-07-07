@@ -119,10 +119,8 @@ class NormalizationTest extends AbstractTestCase
 
     /**
      * Test for getHtmlForColumnsList
-     *
-     * @return void
      */
-    public function testGetHtmlForColumnsList()
+    public function testGetHtmlForColumnsList(): void
     {
         $db = 'PMA_db';
         $table = 'PMA_table';
@@ -138,10 +136,8 @@ class NormalizationTest extends AbstractTestCase
 
     /**
      * Test for getHtmlForCreateNewColumn
-     *
-     * @return void
      */
-    public function testGetHtmlForCreateNewColumn()
+    public function testGetHtmlForCreateNewColumn(): void
     {
         $GLOBALS['cfg']['BrowseMIME'] = true;
         $GLOBALS['cfg']['MaxRows'] = 25;
@@ -158,10 +154,8 @@ class NormalizationTest extends AbstractTestCase
 
     /**
      * Test for getHtmlFor1NFStep1
-     *
-     * @return void
      */
-    public function testGetHtmlFor1NFStep1()
+    public function testGetHtmlFor1NFStep1(): void
     {
         $db = 'PMA_db';
         $table = 'PMA_table';
@@ -205,10 +199,8 @@ class NormalizationTest extends AbstractTestCase
 
     /**
      * Test for getHtmlContentsFor1NFStep2
-     *
-     * @return void
      */
-    public function testGetHtmlContentsFor1NFStep2()
+    public function testGetHtmlContentsFor1NFStep2(): void
     {
         $db = 'PMA_db';
         $table = 'PMA_table1';
@@ -235,10 +227,8 @@ class NormalizationTest extends AbstractTestCase
 
     /**
      * Test for getHtmlContentsFor1NFStep4
-     *
-     * @return void
      */
-    public function testGetHtmlContentsFor1NFStep4()
+    public function testGetHtmlContentsFor1NFStep4(): void
     {
         $db = 'PMA_db';
         $table = 'PMA_table';
@@ -261,10 +251,8 @@ class NormalizationTest extends AbstractTestCase
 
     /**
      * Test for getHtmlContentsFor1NFStep3
-     *
-     * @return void
      */
-    public function testGetHtmlContentsFor1NFStep3()
+    public function testGetHtmlContentsFor1NFStep3(): void
     {
         $db = 'PMA_db';
         $table = 'PMA_table';
@@ -289,10 +277,8 @@ class NormalizationTest extends AbstractTestCase
 
     /**
      * Test for getHtmlFor2NFstep1
-     *
-     * @return void
      */
-    public function testGetHtmlFor2NFstep1()
+    public function testGetHtmlFor2NFstep1(): void
     {
         $db = 'PMA_db';
         $table = 'PMA_table';
@@ -319,10 +305,8 @@ class NormalizationTest extends AbstractTestCase
 
     /**
      * Test for getHtmlForNewTables2NF
-     *
-     * @return void
      */
-    public function testGetHtmlForNewTables2NF()
+    public function testGetHtmlForNewTables2NF(): void
     {
         $table = 'PMA_table';
         $partialDependencies = ['col1' => ['col2']];
@@ -335,10 +319,8 @@ class NormalizationTest extends AbstractTestCase
 
     /**
      * Test for createNewTablesFor2NF
-     *
-     * @return void
      */
-    public function testCreateNewTablesFor2NF()
+    public function testCreateNewTablesFor2NF(): void
     {
         $table = 'PMA_table';
         $db = 'PMA_db';
@@ -373,10 +355,8 @@ class NormalizationTest extends AbstractTestCase
 
     /**
      * Test for getHtmlForNewTables3NF
-     *
-     * @return void
      */
-    public function testGetHtmlForNewTables3NF()
+    public function testGetHtmlForNewTables3NF(): void
     {
         $tables = ['PMA_table' => ['col1']];
         $db = 'PMA_db';
@@ -426,10 +406,8 @@ class NormalizationTest extends AbstractTestCase
 
     /**
      * Test for createNewTablesFor3NF
-     *
-     * @return void
      */
-    public function testCreateNewTablesFor3NF()
+    public function testCreateNewTablesFor3NF(): void
     {
         $db = 'PMA_db';
         $cols = new stdClass();
@@ -464,10 +442,8 @@ class NormalizationTest extends AbstractTestCase
 
     /**
      * Test for moveRepeatingGroup
-     *
-     * @return void
      */
-    public function testMoveRepeatingGroup()
+    public function testMoveRepeatingGroup(): void
     {
         $repeatingColumns = 'col1, col2';
         $primaryColumns = 'id,col1';
@@ -494,10 +470,8 @@ class NormalizationTest extends AbstractTestCase
 
     /**
      * Test for getHtmlFor3NFstep1
-     *
-     * @return void
      */
-    public function testGetHtmlFor3NFstep1()
+    public function testGetHtmlFor3NFstep1(): void
     {
         $db = 'PMA_db';
         $tables = ['PMA_table'];
@@ -525,10 +499,8 @@ class NormalizationTest extends AbstractTestCase
 
     /**
      * Test for getHtmlForNormalizeTable
-     *
-     * @return void
      */
-    public function testgetHtmlForNormalizeTable()
+    public function testgetHtmlForNormalizeTable(): void
     {
         $result = $this->normalization->getHtmlForNormalizeTable();
         $this->assertStringContainsString(
@@ -549,10 +521,8 @@ class NormalizationTest extends AbstractTestCase
 
     /**
      * Test for findPartialDependencies
-     *
-     * @return void
      */
-    public function testFindPartialDependencies()
+    public function testFindPartialDependencies(): void
     {
         $table = 'PMA_table2';
         $db = 'PMA_db';
@@ -566,10 +536,8 @@ class NormalizationTest extends AbstractTestCase
 
     /**
      * Test for getAllCombinationPartialKeys
-     *
-     * @return void
      */
-    public function testGetAllCombinationPartialKeys()
+    public function testGetAllCombinationPartialKeys(): void
     {
         $primaryKey = [
             'id',

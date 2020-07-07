@@ -98,7 +98,7 @@ class SearchTest extends AbstractTestCase
      *
      * @return array
      */
-    public function searchTypes()
+    public function searchTypes(): array
     {
         return [
             [
@@ -135,10 +135,8 @@ class SearchTest extends AbstractTestCase
 
     /**
      * Test for getSearchSqls
-     *
-     * @return void
      */
-    public function testGetSearchSqls()
+    public function testGetSearchSqls(): void
     {
         $this->assertEquals(
             [
@@ -158,10 +156,8 @@ class SearchTest extends AbstractTestCase
 
     /**
      * Test for getSearchResults
-     *
-     * @return void
      */
-    public function testGetSearchResults()
+    public function testGetSearchResults(): void
     {
         $this->assertStringContainsString(
             'Search results for "<em></em>" :',
@@ -171,10 +167,8 @@ class SearchTest extends AbstractTestCase
 
     /**
      * Test for getSelectionForm
-     *
-     * @return void
      */
-    public function testGetMainHtml()
+    public function testGetMainHtml(): void
     {
         $main = $this->object->getMainHtml();
 

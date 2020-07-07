@@ -43,10 +43,8 @@ class CommonTest extends AbstractTestCase
 
     /**
      * Test for getTablePositions()
-     *
-     * @return void
      */
-    public function testGetTablePositions()
+    public function testGetTablePositions(): void
     {
         $pg = 1;
 
@@ -82,10 +80,8 @@ class CommonTest extends AbstractTestCase
 
     /**
      * Test for getPageName()
-     *
-     * @return void
      */
-    public function testGetPageName()
+    public function testGetPageName(): void
     {
         $pg = 1;
         $pageName = 'pageName';
@@ -118,10 +114,8 @@ class CommonTest extends AbstractTestCase
 
     /**
      * Test for deletePage()
-     *
-     * @return void
      */
-    public function testDeletePage()
+    public function testDeletePage(): void
     {
         $pg = 1;
 
@@ -148,10 +142,8 @@ class CommonTest extends AbstractTestCase
     /**
      * Test for testGetDefaultPage() when there is a default page
      * (a page having the same name as database)
-     *
-     * @return void
      */
-    public function testGetDefaultPage()
+    public function testGetDefaultPage(): void
     {
         $db = 'db';
         $default_pg = '2';
@@ -184,10 +176,8 @@ class CommonTest extends AbstractTestCase
 
     /**
      * Test for testGetDefaultPage() when there is no default page
-     *
-     * @return void
      */
-    public function testGetDefaultPageWithNoDefaultPage()
+    public function testGetDefaultPageWithNoDefaultPage(): void
     {
         $db = 'db';
 
@@ -219,10 +209,8 @@ class CommonTest extends AbstractTestCase
 
     /**
      * Test for testGetLoadingPage() when there is a default page
-     *
-     * @return void
      */
-    public function testGetLoadingPageWithDefaultPage()
+    public function testGetLoadingPageWithDefaultPage(): void
     {
         $db = 'db';
         $default_pg = '2';
@@ -255,10 +243,8 @@ class CommonTest extends AbstractTestCase
 
     /**
      * Test for testGetLoadingPage() when there is no default page
-     *
-     * @return void
      */
-    public function testGetLoadingPageWithNoDefaultPage()
+    public function testGetLoadingPageWithNoDefaultPage(): void
     {
         $db = 'db';
         $first_pg = '1';

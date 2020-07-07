@@ -61,10 +61,8 @@ class ExportHtmlwordTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::setProperties
-     *
-     * @return void
      */
-    public function testSetProperties()
+    public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportHtmlword::class, 'setProperties');
         $method->setAccessible(true);
@@ -217,10 +215,8 @@ class ExportHtmlwordTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::exportHeader
-     *
-     * @return void
      */
-    public function testExportHeader()
+    public function testExportHeader(): void
     {
         ob_start();
         $this->object->exportHeader();
@@ -274,10 +270,8 @@ class ExportHtmlwordTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::exportFooter
-     *
-     * @return void
      */
-    public function testExportFooter()
+    public function testExportFooter(): void
     {
         ob_start();
         $this->assertTrue(
@@ -293,10 +287,8 @@ class ExportHtmlwordTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::exportDBHeader
-     *
-     * @return void
      */
-    public function testExportDBHeader()
+    public function testExportDBHeader(): void
     {
         ob_start();
         $this->assertTrue(
@@ -312,10 +304,8 @@ class ExportHtmlwordTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::exportDBFooter
-     *
-     * @return void
      */
-    public function testExportDBFooter()
+    public function testExportDBFooter(): void
     {
         $this->assertTrue(
             $this->object->exportDBFooter('testDB')
@@ -324,10 +314,8 @@ class ExportHtmlwordTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::exportDBCreate
-     *
-     * @return void
      */
-    public function testExportDBCreate()
+    public function testExportDBCreate(): void
     {
         $this->assertTrue(
             $this->object->exportDBCreate('testDB', 'database')
@@ -336,10 +324,8 @@ class ExportHtmlwordTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::exportData
-     *
-     * @return void
      */
-    public function testExportData()
+    public function testExportData(): void
     {
         // case 1
 
@@ -410,10 +396,8 @@ class ExportHtmlwordTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::getTableDefStandIn
-     *
-     * @return void
      */
-    public function testGetTableDefStandIn()
+    public function testGetTableDefStandIn(): void
     {
         $this->object = $this->getMockBuilder(ExportHtmlword::class)
             ->setMethods(['formatOneColumnDefinition'])
@@ -466,10 +450,8 @@ class ExportHtmlwordTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::getTableDef
-     *
-     * @return void
      */
-    public function testGetTableDef()
+    public function testGetTableDef(): void
     {
         $this->object = $this->getMockBuilder(ExportHtmlword::class)
             ->setMethods(['formatOneColumnDefinition'])
@@ -734,10 +716,8 @@ class ExportHtmlwordTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::getTriggers
-     *
-     * @return void
      */
-    public function testGetTriggers()
+    public function testGetTriggers(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -774,10 +754,8 @@ class ExportHtmlwordTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::exportStructure
-     *
-     * @return void
      */
-    public function testExportStructure()
+    public function testExportStructure(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -889,10 +867,8 @@ class ExportHtmlwordTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::formatOneColumnDefinition
-     *
-     * @return void
      */
-    public function testFormatOneColumnDefinition()
+    public function testFormatOneColumnDefinition(): void
     {
         $method = new ReflectionMethod(
             ExportHtmlword::class,

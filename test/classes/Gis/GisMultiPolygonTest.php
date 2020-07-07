@@ -53,7 +53,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
      *
      * @return array common data for data providers
      */
-    private function getData()
+    private function getData(): array
     {
         return [
             'MULTIPOLYGON' => [
@@ -134,7 +134,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
      *
      * @return array data for testGenerateWkt
      */
-    public function providerForTestGenerateWkt()
+    public function providerForTestGenerateWkt(): array
     {
         $temp = [
             0 => $this->getData(),
@@ -189,7 +189,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
      *
      * @return array data for testGenerateParams
      */
-    public function providerForTestGenerateParams()
+    public function providerForTestGenerateParams(): array
     {
         $temp = $this->getData();
 
@@ -233,7 +233,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
      *
      * @return array data for testGetShape
      */
-    public function providerForTestGetShape()
+    public function providerForTestGetShape(): array
     {
         return [
             [
@@ -316,7 +316,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
      *
      * @return array data for testScaleRow
      */
-    public function providerForTestScaleRow()
+    public function providerForTestScaleRow(): array
     {
         return [
             [
@@ -351,8 +351,6 @@ class GisMultiPolygonTest extends GisGeomTestCase
      * @param array    $scale_data array containing data related to scaling
      * @param resource $image      image object
      *
-     * @return void
-     *
      * @dataProvider providerForPrepareRowAsPng
      */
     public function testPrepareRowAsPng(
@@ -361,7 +359,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
         $fill_color,
         $scale_data,
         $image
-    ) {
+    ): void {
         $return = $this->object->prepareRowAsPng(
             $spatial,
             $label,
@@ -377,7 +375,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsPng() test case
      */
-    public function providerForPrepareRowAsPng()
+    public function providerForPrepareRowAsPng(): array
     {
         if (! function_exists('imagecreatetruecolor')) {
             $this->markTestSkipped('GD extension missing!');
@@ -410,8 +408,6 @@ class GisMultiPolygonTest extends GisGeomTestCase
      * @param array  $scale_data array containing data related to scaling
      * @param TCPDF  $pdf        TCPDF instance
      *
-     * @return void
-     *
      * @dataProvider providerForPrepareRowAsPdf
      */
     public function testPrepareRowAsPdf(
@@ -420,7 +416,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
         $fill_color,
         $scale_data,
         $pdf
-    ) {
+    ): void {
         $return = $this->object->prepareRowAsPdf(
             $spatial,
             $label,
@@ -436,7 +432,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsPdf() test case
      */
-    public function providerForPrepareRowAsPdf()
+    public function providerForPrepareRowAsPdf(): array
     {
         return [
             [
@@ -464,8 +460,6 @@ class GisMultiPolygonTest extends GisGeomTestCase
      * @param array  $scaleData array containing data related to scaling
      * @param string $output    expected output
      *
-     * @return void
-     *
      * @dataProvider providerForPrepareRowAsSvg
      */
     public function testPrepareRowAsSvg(
@@ -474,7 +468,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
         $fillColor,
         $scaleData,
         $output
-    ) {
+    ): void {
         $string = $this->object->prepareRowAsSvg(
             $spatial,
             $label,
@@ -489,7 +483,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsSvg() test case
      */
-    public function providerForPrepareRowAsSvg()
+    public function providerForPrepareRowAsSvg(): array
     {
         return [
             [
@@ -524,8 +518,6 @@ class GisMultiPolygonTest extends GisGeomTestCase
      * @param array  $scale_data array containing data related to scaling
      * @param string $output     expected output
      *
-     * @return void
-     *
      * @dataProvider providerForPrepareRowAsOl
      */
     public function testPrepareRowAsOl(
@@ -535,7 +527,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
         $fill_color,
         $scale_data,
         $output
-    ) {
+    ): void {
         $this->assertEquals(
             $output,
             $this->object->prepareRowAsOl(
@@ -553,7 +545,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsOl() test case
      */
-    public function providerForPrepareRowAsOl()
+    public function providerForPrepareRowAsOl(): array
     {
         return [
             [

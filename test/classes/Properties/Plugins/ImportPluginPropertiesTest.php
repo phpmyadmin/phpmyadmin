@@ -37,10 +37,8 @@ class ImportPluginPropertiesTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Properties\Plugins\ImportPluginProperties::getItemType
-     *
-     * @return void
      */
-    public function testGetItemType()
+    public function testGetItemType(): void
     {
         $this->assertEquals(
             'import',
@@ -52,10 +50,8 @@ class ImportPluginPropertiesTest extends AbstractTestCase
      * Test for
      *     - PhpMyAdmin\Properties\Plugins\ImportPluginProperties::getOptionsText
      *     - PhpMyAdmin\Properties\Plugins\ImportPluginProperties::setOptionsText
-     *
-     * @return void
      */
-    public function testSetGetOptionsText()
+    public function testSetGetOptionsText(): void
     {
         $this->object->setOptionsText('options123');
 
@@ -69,10 +65,8 @@ class ImportPluginPropertiesTest extends AbstractTestCase
      * Test for
      *     - PhpMyAdmin\Properties\Plugins\ImportPluginProperties::setMimeType
      *     - PhpMyAdmin\Properties\Plugins\ImportPluginProperties::getMimeType
-     *
-     * @return void
      */
-    public function testSetGetMimeType()
+    public function testSetGetMimeType(): void
     {
         $this->object->setMimeType('mime123');
 

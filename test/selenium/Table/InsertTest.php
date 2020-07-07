@@ -40,11 +40,9 @@ class InsertTest extends TestBase
     /**
      * Insert data into table
      *
-     * @return void
-     *
      * @group large
      */
-    public function testAddData()
+    public function testAddData(): void
     {
         if ($this->isSafari()) {
             /* TODO: this should be fixed, but the cause is unclear to me */
@@ -107,10 +105,8 @@ class InsertTest extends TestBase
 
     /**
      * Assert various data present in results table
-     *
-     * @return void
      */
-    private function assertDataPresent()
+    private function assertDataPresent(): void
     {
         $this->byPartialLinkText('Browse')->click();
 

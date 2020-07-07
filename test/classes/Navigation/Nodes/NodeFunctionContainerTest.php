@@ -27,10 +27,8 @@ class NodeFunctionContainerTest extends AbstractTestCase
 
     /**
      * Test for __construct
-     *
-     * @return void
      */
-    public function testConstructor()
+    public function testConstructor(): void
     {
         $parent = NodeFactory::getInstance('NodeFunctionContainer');
         $this->assertArrayHasKey(

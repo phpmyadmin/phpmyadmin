@@ -32,10 +32,8 @@ class BookmarkTest extends AbstractTestCase
 
     /**
      * Tests for Bookmark:getParams()
-     *
-     * @return void
      */
-    public function testGetParams()
+    public function testGetParams(): void
     {
         $this->assertFalse(
             Bookmark::getParams($GLOBALS['cfg']['Server']['user'])
@@ -44,10 +42,8 @@ class BookmarkTest extends AbstractTestCase
 
     /**
      * Tests for Bookmark::getList()
-     *
-     * @return void
      */
-    public function testGetList()
+    public function testGetList(): void
     {
         $this->assertEquals(
             [],
@@ -61,10 +57,8 @@ class BookmarkTest extends AbstractTestCase
 
     /**
      * Tests for Bookmark::get()
-     *
-     * @return void
      */
-    public function testGet()
+    public function testGet(): void
     {
         $this->assertNull(
             Bookmark::get(
@@ -78,10 +72,8 @@ class BookmarkTest extends AbstractTestCase
 
     /**
      * Tests for Bookmark::save()
-     *
-     * @return void
      */
-    public function testSave()
+    public function testSave(): void
     {
         $bookmarkData = [
             'bkm_database' => 'phpmyadmin',

@@ -58,10 +58,8 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
      * @param mixed   $body_id     body id
      * @param mixed   $set_title   set title
      * @param mixed[] ...$headers  headers
-     *
-     * @return void
      */
-    public function doMockResponse($set_minimal, $body_id, $set_title, ...$headers)
+    public function doMockResponse($set_minimal, $body_id, $set_title, ...$headers): void
     {
         // mock footer
         $mockFooter = $this->getMockBuilder(Footer::class)
@@ -127,10 +125,8 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationHttp::showLoginForm
-     *
-     * @return void
      */
-    public function testAuthLogoutUrl()
+    public function testAuthLogoutUrl(): void
     {
         $_REQUEST['old_usr'] = '1';
         $GLOBALS['cfg']['Server']['LogoutURL'] = 'https://example.com/logout';
@@ -143,10 +139,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * @return void
-     */
-    public function testAuthVerbose()
+    public function testAuthVerbose(): void
     {
         $_REQUEST['old_usr'] = '';
         $GLOBALS['cfg']['Server']['verbose'] = 'verboseMessagê';
@@ -161,10 +154,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * @return void
-     */
-    public function testAuthHost()
+    public function testAuthHost(): void
     {
         $GLOBALS['cfg']['Server']['verbose'] = '';
         $GLOBALS['cfg']['Server']['host'] = 'hòst';
@@ -179,10 +169,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * @return void
-     */
-    public function testAuthRealm()
+    public function testAuthRealm(): void
     {
         $GLOBALS['cfg']['Server']['host'] = '';
         $GLOBALS['cfg']['Server']['auth_http_realm'] = 'rêäealmmessage';
@@ -209,8 +196,6 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
      * @param string $expectedPass   expected password to be set
      * @param string $old_usr        value for $_REQUEST['old_usr']
      *
-     * @return void
-     *
      * @dataProvider readCredentialsProvider
      */
     public function testAuthCheck(
@@ -222,7 +207,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         $expectedUser,
         $expectedPass,
         $old_usr = ''
-    ) {
+    ): void {
         $_SERVER[$userIndex] = $user;
         $_SERVER[$passIndex] = $pass;
 
@@ -252,7 +237,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
      *
      * @return array Test data
      */
-    public function readCredentialsProvider()
+    public function readCredentialsProvider(): array
     {
         return [
             [
@@ -306,10 +291,8 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationHttp::storeCredentials
-     *
-     * @return void
      */
-    public function testAuthSetUser()
+    public function testAuthSetUser(): void
     {
         // case 1
 
@@ -411,11 +394,9 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationHttp::authSetFails
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testAuthFails()
+    public function testAuthFails(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()

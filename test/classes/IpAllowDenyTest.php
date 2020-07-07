@@ -87,7 +87,7 @@ class IpAllowDenyTest extends AbstractTestCase
      *
      * @return array
      */
-    public function proxyIPs()
+    public function proxyIPs(): array
     {
         return [
             // Nothing set
@@ -132,10 +132,8 @@ class IpAllowDenyTest extends AbstractTestCase
 
     /**
      * Test for ipMaskTest
-     *
-     * @return void
      */
-    public function testIpMaskTest()
+    public function testIpMaskTest(): void
     {
         //IPV4 testing
         $testRange = '255.255.0.0/8';
@@ -200,10 +198,8 @@ class IpAllowDenyTest extends AbstractTestCase
 
     /**
      * Test for allowDeny
-     *
-     * @return void
      */
-    public function testAllowDeny()
+    public function testAllowDeny(): void
     {
         $_SERVER['REMOTE_ADDR'] = '';
         $this->assertFalse(

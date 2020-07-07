@@ -32,11 +32,9 @@ class LoginTest extends TestBase
     /**
      * Test for successful login
      *
-     * @return void
-     *
      * @group large
      */
-    public function testSuccessfulLogin()
+    public function testSuccessfulLogin(): void
     {
         $this->login();
         $this->waitForElement('xpath', '//*[@id="server-breadcrumb"]');
@@ -47,11 +45,9 @@ class LoginTest extends TestBase
     /**
      * Test for unsuccessful login
      *
-     * @return void
-     *
      * @group large
      */
-    public function testLoginWithWrongPassword()
+    public function testLoginWithWrongPassword(): void
     {
         $this->login('Admin', 'Admin');
         sleep(1);

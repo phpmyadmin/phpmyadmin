@@ -33,10 +33,8 @@ class NodeDatabaseTest extends AbstractTestCase
 
     /**
      * Test for __construct
-     *
-     * @return void
      */
-    public function testConstructor()
+    public function testConstructor(): void
     {
         $parent = NodeFactory::getInstance('NodeDatabase');
         $this->assertArrayHasKey(
@@ -52,10 +50,8 @@ class NodeDatabaseTest extends AbstractTestCase
 
     /**
      * Test for getPresence
-     *
-     * @return void
      */
-    public function testGetPresence()
+    public function testGetPresence(): void
     {
         $parent = NodeFactory::getInstance('NodeDatabase');
         $this->assertEquals(
@@ -82,10 +78,8 @@ class NodeDatabaseTest extends AbstractTestCase
 
     /**
      * Test for getData
-     *
-     * @return void
      */
-    public function testGetData()
+    public function testGetData(): void
     {
         $parent = NodeFactory::getInstance('NodeDatabase');
 
@@ -115,10 +109,8 @@ class NodeDatabaseTest extends AbstractTestCase
 
     /**
      * Test for setHiddenCount and getHiddenCount
-     *
-     * @return void
      */
-    public function testHiddenCount()
+    public function testHiddenCount(): void
     {
         /** @var NodeDatabase $parent */
         $parent = NodeFactory::getInstance('NodeDatabase');

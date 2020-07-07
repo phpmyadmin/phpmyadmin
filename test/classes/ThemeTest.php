@@ -52,11 +52,9 @@ class ThemeTest extends AbstractTestCase
     /**
      * Test for Theme::loadInfo
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testCheckImgPathNotExisted()
+    public function testCheckImgPathNotExisted(): void
     {
         $this->object->setPath('path/to/nowhere');
         $this->assertFalse($this->object->loadInfo());
@@ -64,10 +62,8 @@ class ThemeTest extends AbstractTestCase
 
     /**
      * Test for Theme::loadInfo
-     *
-     * @return void
      */
-    public function testCheckImgPathIncorrect()
+    public function testCheckImgPathIncorrect(): void
     {
         $this->object->setPath(ROOT_PATH . 'test/classes/_data/incorrect_theme');
         $this->assertFalse(
@@ -78,10 +74,8 @@ class ThemeTest extends AbstractTestCase
 
     /**
      * Test for Theme::getName, getVersion
-     *
-     * @return void
      */
-    public function testCheckImgPathFull()
+    public function testCheckImgPathFull(): void
     {
         $this->object->setFsPath(ROOT_PATH . 'test/classes/_data/gen_version_info/');
         $this->assertTrue($this->object->loadInfo());
@@ -91,10 +85,8 @@ class ThemeTest extends AbstractTestCase
 
     /**
      * Test for Theme::loadInfo
-     *
-     * @return void
      */
-    public function testLoadInfo()
+    public function testLoadInfo(): void
     {
         $this->object->setFsPath(ROOT_PATH . 'themes/original/');
         $infofile = $this->object->getFsPath() . 'theme.json';
@@ -113,10 +105,8 @@ class ThemeTest extends AbstractTestCase
 
     /**
      * Test for Theme::load
-     *
-     * @return void
      */
-    public function testLoad()
+    public function testLoad(): void
     {
         $newTheme = Theme::load('./themes/original', ROOT_PATH . 'themes/original');
         $this->assertNotNull($newTheme);
@@ -124,20 +114,16 @@ class ThemeTest extends AbstractTestCase
 
     /**
      * Test for Theme::load
-     *
-     * @return void
      */
-    public function testLoadNotExisted()
+    public function testLoadNotExisted(): void
     {
         $this->assertFalse(Theme::load('/path/to/nowhere', '/path/to/nowhere'));
     }
 
     /**
      * Test fir Theme::checkImgPath
-     *
-     * @return void
      */
-    public function testCheckImgPathFallback()
+    public function testCheckImgPathFallback(): void
     {
         $this->object->setPath('path/to/nowhere');
         $this->assertTrue($this->object->checkImgPath());
@@ -145,10 +131,8 @@ class ThemeTest extends AbstractTestCase
 
     /**
      * Test for Theme::checkImgPath
-     *
-     * @return void
      */
-    public function testCheckImgPath()
+    public function testCheckImgPath(): void
     {
         $this->object->setPath(ROOT_PATH . 'themes/original');
         $this->assertTrue($this->object->checkImgPath());
@@ -156,10 +140,8 @@ class ThemeTest extends AbstractTestCase
 
     /**
      * Test for Theme::getPath
-     *
-     * @return void
      */
-    public function testGetSetPath()
+    public function testGetSetPath(): void
     {
         $this->assertEmpty($this->object->getPath());
         $this->object->setPath(ROOT_PATH . 'themes/original');
@@ -170,11 +152,9 @@ class ThemeTest extends AbstractTestCase
     /**
      * Test for Theme::checkVersion
      *
-     * @return void
-     *
      * @depends testLoadInfo
      */
-    public function testGetSetCheckVersion()
+    public function testGetSetCheckVersion(): void
     {
         $this->assertEquals(
             '0.0.0.0',
@@ -191,10 +171,8 @@ class ThemeTest extends AbstractTestCase
 
     /**
      * Test for Theme::getName
-     *
-     * @return void
      */
-    public function testGetSetName()
+    public function testGetSetName(): void
     {
         $this->assertEmpty($this->object->getName(), 'Name is empty by default');
         $this->object->setName('New Theme Name');
@@ -204,10 +182,8 @@ class ThemeTest extends AbstractTestCase
 
     /**
      * Test for Theme::getId
-     *
-     * @return void
      */
-    public function testGetSetId()
+    public function testGetSetId(): void
     {
         $this->assertEmpty($this->object->getId(), 'ID is empty by default');
         $this->object->setId('NewID');
@@ -217,10 +193,8 @@ class ThemeTest extends AbstractTestCase
 
     /**
      * Test for Theme::getImgPath
-     *
-     * @return void
      */
-    public function testGetSetImgPath()
+    public function testGetSetImgPath(): void
     {
         $this->assertEmpty(
             $this->object->getImgPath(),
@@ -233,10 +207,8 @@ class ThemeTest extends AbstractTestCase
 
     /**
      * Test for getPrintPreview().
-     *
-     * @return void
      */
-    public function testGetPrintPreview()
+    public function testGetPrintPreview(): void
     {
         parent::setLanguage();
         $this->assertStringContainsString(
@@ -275,7 +247,7 @@ class ThemeTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerForGetImgPath()
+    public function providerForGetImgPath(): array
     {
         return [
             [

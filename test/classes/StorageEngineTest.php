@@ -60,10 +60,8 @@ class StorageEngineTest extends AbstractTestCase
 
     /**
      * Test for getStorageEngines
-     *
-     * @return void
      */
-    public function testGetStorageEngines()
+    public function testGetStorageEngines(): void
     {
         $this->assertEquals(
             [
@@ -129,7 +127,7 @@ class StorageEngineTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetEngine()
+    public function providerGetEngine(): array
     {
         return [
             [
@@ -189,10 +187,8 @@ class StorageEngineTest extends AbstractTestCase
 
     /**
      * Test for isValid
-     *
-     * @return void
      */
-    public function testIsValid()
+    public function testIsValid(): void
     {
         $this->assertTrue(
             $this->object->isValid('PBMS')
@@ -210,10 +206,8 @@ class StorageEngineTest extends AbstractTestCase
 
     /**
      * Test for getPage
-     *
-     * @return void
      */
-    public function testGetPage()
+    public function testGetPage(): void
     {
         $this->assertEquals(
             '',
@@ -223,10 +217,8 @@ class StorageEngineTest extends AbstractTestCase
 
     /**
      * Test for getInfoPages
-     *
-     * @return void
      */
-    public function testGetInfoPages()
+    public function testGetInfoPages(): void
     {
         $this->assertEquals(
             [],
@@ -236,10 +228,8 @@ class StorageEngineTest extends AbstractTestCase
 
     /**
      * Test for getVariablesLikePattern
-     *
-     * @return void
      */
-    public function testGetVariablesLikePattern()
+    public function testGetVariablesLikePattern(): void
     {
         $this->assertEquals(
             '',
@@ -249,10 +239,8 @@ class StorageEngineTest extends AbstractTestCase
 
     /**
      * Test for getMysqlHelpPage
-     *
-     * @return void
      */
-    public function testGetMysqlHelpPage()
+    public function testGetMysqlHelpPage(): void
     {
         $this->assertEquals(
             'dummy-storage-engine',
@@ -262,10 +250,8 @@ class StorageEngineTest extends AbstractTestCase
 
     /**
      * Test for getVariables
-     *
-     * @return void
      */
-    public function testGetVariables()
+    public function testGetVariables(): void
     {
         $this->assertEquals(
             [],
@@ -275,10 +261,8 @@ class StorageEngineTest extends AbstractTestCase
 
     /**
      * Test for getSupportInformationMessage
-     *
-     * @return void
      */
-    public function testGetSupportInformationMessage()
+    public function testGetSupportInformationMessage(): void
     {
         $this->assertEquals(
             'dummy is available on this MySQL server.',
@@ -306,10 +290,8 @@ class StorageEngineTest extends AbstractTestCase
 
     /**
      * Test for getComment
-     *
-     * @return void
      */
-    public function testGetComment()
+    public function testGetComment(): void
     {
         $this->assertEquals(
             'dummy comment',
@@ -319,10 +301,8 @@ class StorageEngineTest extends AbstractTestCase
 
     /**
      * Test for getTitle
-     *
-     * @return void
      */
-    public function testGetTitle()
+    public function testGetTitle(): void
     {
         $this->assertEquals(
             'dummy',
@@ -332,10 +312,8 @@ class StorageEngineTest extends AbstractTestCase
 
     /**
      * Test for resolveTypeSize
-     *
-     * @return void
      */
-    public function testResolveTypeSize()
+    public function testResolveTypeSize(): void
     {
         $this->assertEquals(
             [

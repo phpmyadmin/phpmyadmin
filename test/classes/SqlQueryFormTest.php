@@ -104,10 +104,8 @@ class SqlQueryFormTest extends AbstractTestCase
 
     /**
      * Test for getHtmlForInsert
-     *
-     * @return void
      */
-    public function testPMAGetHtmlForSqlQueryFormInsert()
+    public function testPMAGetHtmlForSqlQueryFormInsert(): void
     {
         $GLOBALS['is_upload'] = true;
         //Call the test function
@@ -168,10 +166,8 @@ class SqlQueryFormTest extends AbstractTestCase
 
     /**
      * Test for getHtml
-     *
-     * @return void
      */
-    public function testPMAGetHtmlForSqlQueryForm()
+    public function testPMAGetHtmlForSqlQueryForm(): void
     {
         //Call the test function
         $GLOBALS['is_upload'] = true;

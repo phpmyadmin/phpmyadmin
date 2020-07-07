@@ -58,11 +58,9 @@ class FormTest extends AbstractTestCase
     /**
      * Test for Form::__constructor
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testContructor()
+    public function testContructor(): void
     {
         $this->assertEquals(
             1,
@@ -80,10 +78,8 @@ class FormTest extends AbstractTestCase
 
     /**
      * Test for Form::getOptionType
-     *
-     * @return void
      */
-    public function testGetOptionType()
+    public function testGetOptionType(): void
     {
         $attrFieldsTypes = new ReflectionProperty(Form::class, '_fieldsTypes');
         $attrFieldsTypes->setAccessible(true);
@@ -104,10 +100,8 @@ class FormTest extends AbstractTestCase
 
     /**
      * Test for Form::getOptionValueList
-     *
-     * @return void
      */
-    public function testGetOptionValueList()
+    public function testGetOptionValueList(): void
     {
         $this->assertEquals(
             [
@@ -139,10 +133,8 @@ class FormTest extends AbstractTestCase
 
     /**
      * Test for Form::readFormPathsCallback
-     *
-     * @return void
      */
-    public function testReadFormPathsCallBack()
+    public function testReadFormPathsCallBack(): void
     {
         $reflection = new ReflectionClass(Form::class);
         $method = $reflection->getMethod('readFormPathsCallback');
@@ -192,10 +184,8 @@ class FormTest extends AbstractTestCase
 
     /**
      * Test for Form::readFormPaths
-     *
-     * @return void
      */
-    public function testReadFormPaths()
+    public function testReadFormPaths(): void
     {
         $reflection = new ReflectionClass(Form::class);
         $method = $reflection->getMethod('readFormPaths');
@@ -248,10 +238,8 @@ class FormTest extends AbstractTestCase
 
     /**
      * Test for Form::readTypes
-     *
-     * @return void
      */
-    public function testReadTypes()
+    public function testReadTypes(): void
     {
         $reflection = new ReflectionClass(Form::class);
         $method = $reflection->getMethod('readTypes');
@@ -282,10 +270,8 @@ class FormTest extends AbstractTestCase
 
     /**
      * Test for Form::loadForm
-     *
-     * @return void
      */
-    public function testLoadForm()
+    public function testLoadForm(): void
     {
         $this->object = $this->getMockBuilder(Form::class)
             ->disableOriginalConstructor()

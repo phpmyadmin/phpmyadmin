@@ -63,10 +63,8 @@ class ExportTexytextTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::setProperties
-     *
-     * @return void
      */
-    public function testSetProperties()
+    public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportTexytext::class, 'setProperties');
         $method->setAccessible(true);
@@ -177,10 +175,8 @@ class ExportTexytextTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::exportHeader
-     *
-     * @return void
      */
-    public function testExportHeader()
+    public function testExportHeader(): void
     {
         $this->assertTrue(
             $this->object->exportHeader()
@@ -189,10 +185,8 @@ class ExportTexytextTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::exportFooter
-     *
-     * @return void
      */
-    public function testExportFooter()
+    public function testExportFooter(): void
     {
         $this->assertTrue(
             $this->object->exportFooter()
@@ -201,10 +195,8 @@ class ExportTexytextTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::exportDBHeader
-     *
-     * @return void
      */
-    public function testExportDBHeader()
+    public function testExportDBHeader(): void
     {
         $this->expectOutputString(
             "===Database testDb\n\n"
@@ -216,10 +208,8 @@ class ExportTexytextTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::exportDBFooter
-     *
-     * @return void
      */
-    public function testExportDBFooter()
+    public function testExportDBFooter(): void
     {
         $this->assertTrue(
             $this->object->exportDBFooter('testDB')
@@ -228,10 +218,8 @@ class ExportTexytextTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::exportDBCreate
-     *
-     * @return void
      */
-    public function testExportDBCreate()
+    public function testExportDBCreate(): void
     {
         $this->assertTrue(
             $this->object->exportDBCreate('testDB', 'database')
@@ -240,10 +228,8 @@ class ExportTexytextTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::exportData
-     *
-     * @return void
      */
-    public function testExportData()
+    public function testExportData(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -306,10 +292,8 @@ class ExportTexytextTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::getTableDefStandIn
-     *
-     * @return void
      */
-    public function testGetTableDefStandIn()
+    public function testGetTableDefStandIn(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -367,10 +351,8 @@ class ExportTexytextTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::getTableDef
-     *
-     * @return void
      */
-    public function testGetTableDef()
+    public function testGetTableDef(): void
     {
         $this->object = $this->getMockBuilder(ExportTexytext::class)
             ->setMethods(['formatOneColumnDefinition'])
@@ -471,10 +453,8 @@ class ExportTexytextTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::getTriggers
-     *
-     * @return void
      */
-    public function testGetTriggers()
+    public function testGetTriggers(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -511,10 +491,8 @@ class ExportTexytextTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::exportStructure
-     *
-     * @return void
      */
-    public function testExportStructure()
+    public function testExportStructure(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -641,10 +619,8 @@ class ExportTexytextTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::formatOneColumnDefinition
-     *
-     * @return void
      */
-    public function testFormatOneColumnDefinition()
+    public function testFormatOneColumnDefinition(): void
     {
         $cols = [
             'Null' => 'Yes',

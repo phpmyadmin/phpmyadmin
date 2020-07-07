@@ -67,7 +67,7 @@ class TransformationsTest extends AbstractTestCase
      *
      * @return array with test data
      */
-    public function getOptionsData()
+    public function getOptionsData(): array
     {
         return [
             [
@@ -108,10 +108,8 @@ class TransformationsTest extends AbstractTestCase
 
     /**
      * Test for getting available types.
-     *
-     * @return void
      */
-    public function testGetTypes()
+    public function testGetTypes(): void
     {
         $this->assertEquals(
             [
@@ -199,10 +197,8 @@ class TransformationsTest extends AbstractTestCase
 
     /**
      * Tests getting mime types for table
-     *
-     * @return void
      */
-    public function testGetMime()
+    public function testGetMime(): void
     {
         $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] = PMA_VERSION;
         $_SESSION['relation'][$GLOBALS['server']]['mimework'] = true;
@@ -234,10 +230,8 @@ class TransformationsTest extends AbstractTestCase
 
     /**
      * Test for clear
-     *
-     * @return void
      */
-    public function testClear()
+    public function testClear(): void
     {
         // Mock dbi
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -294,7 +288,7 @@ class TransformationsTest extends AbstractTestCase
     /**
      * @return array
      */
-    public function fixupData()
+    public function fixupData(): array
     {
         return [
             [
@@ -339,7 +333,7 @@ class TransformationsTest extends AbstractTestCase
     /**
      * @return array
      */
-    public function providerGetDescription()
+    public function providerGetDescription(): array
     {
         return [
             [
@@ -376,7 +370,7 @@ class TransformationsTest extends AbstractTestCase
     /**
      * @return array
      */
-    public function providerGetName()
+    public function providerGetName(): array
     {
         return [
             [

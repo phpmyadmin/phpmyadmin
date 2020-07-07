@@ -29,10 +29,8 @@ class TypesTest extends AbstractTestCase
 
     /**
      * Test for isUnaryOperator
-     *
-     * @return void
      */
-    public function testUnary()
+    public function testUnary(): void
     {
         $this->assertTrue($this->object->isUnaryOperator('IS NULL'));
         $this->assertFalse($this->object->isUnaryOperator('='));
@@ -40,10 +38,8 @@ class TypesTest extends AbstractTestCase
 
     /**
      * Test for getUnaryOperators
-     *
-     * @return void
      */
-    public function testGetUnaryOperators()
+    public function testGetUnaryOperators(): void
     {
         $this->assertEquals(
             [
@@ -58,10 +54,8 @@ class TypesTest extends AbstractTestCase
 
     /**
      * Test for getNullOperators
-     *
-     * @return void
      */
-    public function testGetNullOperators()
+    public function testGetNullOperators(): void
     {
         $this->assertEquals(
             [
@@ -74,10 +68,8 @@ class TypesTest extends AbstractTestCase
 
     /**
      * Test for getEnumOperators
-     *
-     * @return void
      */
-    public function testGetEnumOperators()
+    public function testGetEnumOperators(): void
     {
         $this->assertEquals(
             [
@@ -90,10 +82,8 @@ class TypesTest extends AbstractTestCase
 
     /**
      * Test for getTextOperators
-     *
-     * @return void
      */
-    public function testgetTextOperators()
+    public function testgetTextOperators(): void
     {
         $this->assertEquals(
             [
@@ -118,10 +108,8 @@ class TypesTest extends AbstractTestCase
 
     /**
      * Test for getNumberOperators
-     *
-     * @return void
      */
-    public function testGetNumberOperators()
+    public function testGetNumberOperators(): void
     {
         $this->assertEquals(
             [
@@ -165,7 +153,7 @@ class TypesTest extends AbstractTestCase
      *
      * @return array data for testGetTypeOperators
      */
-    public function providerForGetTypeOperators()
+    public function providerForGetTypeOperators(): array
     {
         return [
             [
@@ -217,8 +205,6 @@ class TypesTest extends AbstractTestCase
      * @param string $selectedOperator Option to be selected
      * @param string $output           Expected output
      *
-     * @return void
-     *
      * @dataProvider providerForTestGetTypeOperatorsHtml
      */
     public function testGetTypeOperatorsHtml(
@@ -226,7 +212,7 @@ class TypesTest extends AbstractTestCase
         $null,
         $selectedOperator,
         $output
-    ) {
+    ): void {
         $this->assertEquals(
             $output,
             $this->object->getTypeOperatorsHtml($type, $null, $selectedOperator)
@@ -238,7 +224,7 @@ class TypesTest extends AbstractTestCase
      *
      * @return array test data for getTypeOperatorsHtml
      */
-    public function providerForTestGetTypeOperatorsHtml()
+    public function providerForTestGetTypeOperatorsHtml(): array
     {
         return [
             [
@@ -268,10 +254,8 @@ class TypesTest extends AbstractTestCase
 
     /**
      * Test for getTypeDescription with unknown value
-     *
-     * @return void
      */
-    public function testGetUnknownTypeDescription()
+    public function testGetUnknownTypeDescription(): void
     {
         $this->assertEquals(
             '',
@@ -284,7 +268,7 @@ class TypesTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerForTestGetTypeDescription()
+    public function providerForTestGetTypeDescription(): array
     {
         return [
             ['TINYINT'],
@@ -350,7 +334,7 @@ class TypesTest extends AbstractTestCase
      *
      * @return array with test data
      */
-    public function providerFortTestGetFunctionsClass()
+    public function providerFortTestGetFunctionsClass(): array
     {
         return [
             [
@@ -501,10 +485,8 @@ class TypesTest extends AbstractTestCase
 
     /**
      * Test for getFunctions
-     *
-     * @return void
      */
-    public function testGetFunctions()
+    public function testGetFunctions(): void
     {
         $this->assertEquals(
             [
@@ -549,10 +531,8 @@ class TypesTest extends AbstractTestCase
 
     /**
      * Test for getAllFunctions
-     *
-     * @return void
      */
-    public function testGetAllFunctions()
+    public function testGetAllFunctions(): void
     {
         $this->assertEquals(
             [
@@ -664,10 +644,8 @@ class TypesTest extends AbstractTestCase
 
     /**
      * Test for getAttributes
-     *
-     * @return void
      */
-    public function testGetAttributes()
+    public function testGetAttributes(): void
     {
         $this->assertEquals(
             [
@@ -683,10 +661,8 @@ class TypesTest extends AbstractTestCase
 
     /**
      * Test for getColumns
-     *
-     * @return void
      */
-    public function testGetColumns()
+    public function testGetColumns(): void
     {
         $this->assertEquals(
             [
@@ -774,7 +750,7 @@ class TypesTest extends AbstractTestCase
      *
      * @return array for testing type detection
      */
-    public function providerFortTestGetTypeClass()
+    public function providerFortTestGetTypeClass(): array
     {
         return [
             [

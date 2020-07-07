@@ -27,10 +27,8 @@ class NodeEventTest extends AbstractTestCase
 
     /**
      * Test for __construct
-     *
-     * @return void
      */
-    public function testConstructor()
+    public function testConstructor(): void
     {
         $parent = NodeFactory::getInstance('NodeEvent');
         $this->assertArrayHasKey(

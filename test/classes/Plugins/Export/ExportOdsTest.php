@@ -58,10 +58,8 @@ class ExportOdsTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportOds::setProperties
-     *
-     * @return void
      */
-    public function testSetProperties()
+    public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportOds::class, 'setProperties');
         $method->setAccessible(true);
@@ -176,10 +174,8 @@ class ExportOdsTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportOds::exportHeader
-     *
-     * @return void
      */
-    public function testExportHeader()
+    public function testExportHeader(): void
     {
         $this->assertArrayHasKey(
             'ods_buffer',
@@ -193,10 +189,8 @@ class ExportOdsTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportOds::exportFooter
-     *
-     * @return void
      */
-    public function testExportFooter()
+    public function testExportFooter(): void
     {
         $GLOBALS['ods_buffer'] = 'header';
 
@@ -230,10 +224,8 @@ class ExportOdsTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportOds::exportDBHeader
-     *
-     * @return void
      */
-    public function testExportDBHeader()
+    public function testExportDBHeader(): void
     {
         $this->assertTrue(
             $this->object->exportDBHeader('testDB')
@@ -242,10 +234,8 @@ class ExportOdsTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportOds::exportDBFooter
-     *
-     * @return void
      */
-    public function testExportDBFooter()
+    public function testExportDBFooter(): void
     {
         $this->assertTrue(
             $this->object->exportDBFooter('testDB')
@@ -254,10 +244,8 @@ class ExportOdsTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportOds::exportDBCreate
-     *
-     * @return void
      */
-    public function testExportDBCreate()
+    public function testExportDBCreate(): void
     {
         $this->assertTrue(
             $this->object->exportDBCreate('testDB', 'database')
@@ -266,10 +254,8 @@ class ExportOdsTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportOds::exportData
-     *
-     * @return void
      */
-    public function testExportData()
+    public function testExportData(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -403,10 +389,8 @@ class ExportOdsTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportOds::exportData
-     *
-     * @return void
      */
-    public function testExportDataWithFieldNames()
+    public function testExportDataWithFieldNames(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()

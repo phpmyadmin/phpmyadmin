@@ -70,11 +70,9 @@ class ExportSqlTest extends AbstractTestCase
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::setProperties
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testSetProperties()
+    public function testSetProperties(): void
     {
         // test with hide structure and hide sql as true
         $GLOBALS['plugin_param']['export_type'] = 'table';
@@ -341,10 +339,8 @@ class ExportSqlTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportRoutines
-     *
-     * @return void
      */
-    public function testExportRoutines()
+    public function testExportRoutines(): void
     {
         $GLOBALS['crlf'] = '##';
         $GLOBALS['sql_drop_table'] = true;
@@ -391,10 +387,8 @@ class ExportSqlTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportComment
-     *
-     * @return void
      */
-    public function testExportComment()
+    public function testExportComment(): void
     {
         $method = new ReflectionMethod(ExportSql::class, 'exportComment');
         $method->setAccessible(true);
@@ -429,10 +423,8 @@ class ExportSqlTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::possibleCRLF
-     *
-     * @return void
      */
-    public function testPossibleCRLF()
+    public function testPossibleCRLF(): void
     {
         $method = new ReflectionMethod(ExportSql::class, 'possibleCRLF');
         $method->setAccessible(true);
@@ -467,10 +459,8 @@ class ExportSqlTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportFooter
-     *
-     * @return void
      */
-    public function testExportFooter()
+    public function testExportFooter(): void
     {
         $GLOBALS['crlf'] = '';
         $GLOBALS['sql_disable_fk'] = true;
@@ -502,10 +492,8 @@ class ExportSqlTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportHeader
-     *
-     * @return void
      */
-    public function testExportHeader()
+    public function testExportHeader(): void
     {
         $GLOBALS['crlf'] = "\n";
         $GLOBALS['sql_compatibility'] = 'NONE';
@@ -578,10 +566,8 @@ class ExportSqlTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportDBCreate
-     *
-     * @return void
      */
-    public function testExportDBCreate()
+    public function testExportDBCreate(): void
     {
         $GLOBALS['sql_compatibility'] = 'NONE';
         $GLOBALS['sql_drop_database'] = true;
@@ -668,10 +654,8 @@ class ExportSqlTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportDBHeader
-     *
-     * @return void
      */
-    public function testExportDBHeader()
+    public function testExportDBHeader(): void
     {
         $GLOBALS['sql_compatibility'] = 'MSSQL';
         $GLOBALS['sql_backquotes'] = true;
@@ -707,10 +691,8 @@ class ExportSqlTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportEvents
-     *
-     * @return void
      */
-    public function testExportEvents()
+    public function testExportEvents(): void
     {
         $GLOBALS['crlf'] = "\n";
         $GLOBALS['sql_structure_or_data'] = 'structure';
@@ -784,10 +766,8 @@ class ExportSqlTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportDBFooter
-     *
-     * @return void
      */
-    public function testExportDBFooter()
+    public function testExportDBFooter(): void
     {
         $GLOBALS['crlf'] = "\n";
         $GLOBALS['sql_constraints'] = 'SqlConstraints';
@@ -816,10 +796,8 @@ class ExportSqlTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::getTableDefStandIn
-     *
-     * @return void
      */
-    public function testGetTableDefStandIn()
+    public function testGetTableDefStandIn(): void
     {
         $GLOBALS['sql_drop_table'] = true;
         $GLOBALS['sql_if_not_exists'] = true;
@@ -856,10 +834,8 @@ class ExportSqlTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::getTableDefForView
-     *
-     * @return void
      */
-    public function testGetTableDefForView()
+    public function testGetTableDefForView(): void
     {
         $GLOBALS['sql_drop_table'] = true;
         $GLOBALS['sql_if_not_exists'] = true;
@@ -953,11 +929,9 @@ class ExportSqlTest extends AbstractTestCase
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::getTableDef
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testGetTableDef()
+    public function testGetTableDef(): void
     {
         $GLOBALS['sql_compatibility'] = 'MSSQL';
         $GLOBALS['sql_auto_increment'] = true;
@@ -1141,10 +1115,8 @@ class ExportSqlTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::getTableDef
-     *
-     * @return void
      */
-    public function testGetTableDefWithError()
+    public function testGetTableDefWithError(): void
     {
         $GLOBALS['sql_compatibility'] = '';
         $GLOBALS['sql_auto_increment'] = true;
@@ -1239,10 +1211,8 @@ class ExportSqlTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::getTableComments
-     *
-     * @return void
      */
-    public function testGetTableComments()
+    public function testGetTableComments(): void
     {
         $_SESSION['relation'][0] = [
             'PMA_VERSION' => PMA_VERSION,
@@ -1313,11 +1283,9 @@ class ExportSqlTest extends AbstractTestCase
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportStructure
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testExportStructure()
+    public function testExportStructure(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -1519,11 +1487,9 @@ class ExportSqlTest extends AbstractTestCase
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportData
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testExportData()
+    public function testExportData(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -1676,11 +1642,9 @@ class ExportSqlTest extends AbstractTestCase
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportData
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testExportDataWithUpdate()
+    public function testExportDataWithUpdate(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -1790,10 +1754,8 @@ class ExportSqlTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportData
-     *
-     * @return void
      */
-    public function testExportDataWithIsView()
+    public function testExportDataWithIsView(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -1846,10 +1808,8 @@ class ExportSqlTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportData
-     *
-     * @return void
      */
-    public function testExportDataWithError()
+    public function testExportDataWithError(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -1895,10 +1855,8 @@ class ExportSqlTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::makeCreateTableMSSQLCompatible
-     *
-     * @return void
      */
-    public function testMakeCreateTableMSSQLCompatible()
+    public function testMakeCreateTableMSSQLCompatible(): void
     {
         $query = "CREATE TABLE IF NOT EXISTS (\" date DEFAULT NULL,\n" .
             "\" date DEFAULT NULL\n\" date NOT NULL,\n\" date NOT NULL\n," .
@@ -1953,10 +1911,8 @@ class ExportSqlTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::initAlias
-     *
-     * @return void
      */
-    public function testInitAlias()
+    public function testInitAlias(): void
     {
         $aliases = [
             'a' => [
@@ -1991,10 +1947,8 @@ class ExportSqlTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::getAlias
-     *
-     * @return void
      */
-    public function testGetAlias()
+    public function testGetAlias(): void
     {
         $aliases = [
             'a' => [
@@ -2038,10 +1992,8 @@ class ExportSqlTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::replaceWithAlias
-     *
-     * @return void
      */
-    public function testReplaceWithAlias()
+    public function testReplaceWithAlias(): void
     {
         $aliases = [
             'a' => [

@@ -40,10 +40,8 @@ class QueryByExampleTest extends TestBase
 
     /**
      * Test typing a SQL query on Server SQL page and submitting it
-     *
-     * @return void
      */
-    public function testQueryByExample()
+    public function testQueryByExample(): void
     {
         $this->navigateDatabase($this->database_name);
 

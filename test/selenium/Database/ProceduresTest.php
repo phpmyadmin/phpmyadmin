@@ -64,7 +64,7 @@ class ProceduresTest extends TestBase
         $sqlMode = '';
         $this->dbQuery(
             'SELECT @@GLOBAL.SQL_MODE as globalsqm;',
-            function () use (&$sqlMode) {
+            function () use (&$sqlMode): void {
                 $optionsSelector = '//a[contains(., "+ Options")]';
                 $fullTextSelector = '//label[contains(., "Full texts")]';
                 $this->assertTrue($this->isElementPresent('xpath', $optionsSelector));
@@ -103,10 +103,8 @@ class ProceduresTest extends TestBase
 
     /**
      * Creates procedure for tests
-     *
-     * @return void
      */
-    private function procedureSQL()
+    private function procedureSQL(): void
     {
         $this->dbQuery(
             'USE `' . $this->database_name . '`;'
@@ -119,11 +117,9 @@ class ProceduresTest extends TestBase
     /**
      * Create a procedure
      *
-     * @return void
-     *
      * @group large
      */
-    public function testAddProcedure()
+    public function testAddProcedure(): void
     {
         $this->waitForElement('partialLinkText', 'Routines')->click();
         $this->waitAjax();
@@ -168,7 +164,7 @@ class ProceduresTest extends TestBase
 
         $this->dbQuery(
             "SHOW PROCEDURE STATUS WHERE Db='" . $this->database_name . "'",
-            function () {
+            function (): void {
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
                 $this->assertEquals($this->database_name, $this->getCellByTableClass('table_results', 1, 1));
             }
@@ -180,11 +176,9 @@ class ProceduresTest extends TestBase
     /**
      * Test for editing procedure
      *
-     * @return void
-     *
      * @group large
      */
-    public function testEditProcedure()
+    public function testEditProcedure(): void
     {
         $this->procedureSQL();
         $this->waitForElement('partialLinkText', 'Routines')->click();
@@ -214,11 +208,9 @@ class ProceduresTest extends TestBase
     /**
      * Test for dropping procedure
      *
-     * @return void
-     *
      * @group large
      */
-    public function testDropProcedure()
+    public function testDropProcedure(): void
     {
         $this->procedureSQL();
         $this->waitForElement('partialLinkText', 'Routines')->click();
@@ -239,7 +231,7 @@ class ProceduresTest extends TestBase
 
         $this->dbQuery(
             "SHOW PROCEDURE STATUS WHERE Db='" . $this->database_name . "'",
-            function () {
+            function (): void {
                 $this->assertFalse($this->isElementPresent('className', 'table_results'));
             }
         );

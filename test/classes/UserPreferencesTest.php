@@ -40,10 +40,8 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
     /**
      * Test for pageInit
-     *
-     * @return void
      */
-    public function testPageInit()
+    public function testPageInit(): void
     {
         $GLOBALS['cfg'] = [
             'Server/hide_db' => 'testval123',
@@ -66,10 +64,8 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
     /**
      * Test for load
-     *
-     * @return void
      */
-    public function testLoad()
+    public function testLoad(): void
     {
         $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] = PMA_VERSION;
 
@@ -147,10 +143,8 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
     /**
      * Test for save
-     *
-     * @return void
      */
-    public function testSave()
+    public function testSave(): void
     {
         $GLOBALS['server'] = 2;
         $_SESSION['relation'][2]['PMA_VERSION'] = PMA_VERSION;
@@ -269,10 +263,8 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
     /**
      * Test for apply
-     *
-     * @return void
      */
-    public function testApply()
+    public function testApply(): void
     {
         $GLOBALS['cfg']['UserprefsDisallow'] = [
             'test' => 'val',
@@ -299,10 +291,8 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
     /**
      * Test for apply
-     *
-     * @return void
      */
-    public function testApplyDevel()
+    public function testApplyDevel(): void
     {
         $GLOBALS['cfg']['UserprefsDeveloperTab'] = true;
         $result = $this->userPreferences->apply(
@@ -319,10 +309,8 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
     /**
      * Test for persistOption
-     *
-     * @return void
      */
-    public function testPersistOption()
+    public function testPersistOption(): void
     {
         $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] = PMA_VERSION;
         $_SESSION['relation'][$GLOBALS['server']]['userconfigwork'] = null;
@@ -351,10 +339,8 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
     /**
      * Test for redirect
-     *
-     * @return void
      */
-    public function testRedirect()
+    public function testRedirect(): void
     {
         $GLOBALS['lang'] = '';
         $GLOBALS['db'] = 'db';
@@ -374,10 +360,8 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
     /**
      * Test for autoloadGetHeader
-     *
-     * @return void
      */
-    public function testAutoloadGetHeader()
+    public function testAutoloadGetHeader(): void
     {
         $_SESSION['userprefs_autoload'] = false;
         $_REQUEST['prefs_autoload'] = 'hide';

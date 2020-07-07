@@ -51,10 +51,8 @@ class ScriptsTest extends AbstractTestCase
 
     /**
      * Test for getDisplay
-     *
-     * @return void
      */
-    public function testGetDisplay()
+    public function testGetDisplay(): void
     {
         $this->object->addFile('common.js');
 
@@ -76,10 +74,8 @@ class ScriptsTest extends AbstractTestCase
 
     /**
      * test for addCode
-     *
-     * @return void
      */
-    public function testAddCode()
+    public function testAddCode(): void
     {
         $this->object->addCode('alert(\'CodeAdded\');');
 
@@ -93,10 +89,8 @@ class ScriptsTest extends AbstractTestCase
 
     /**
      * test for getFiles
-     *
-     * @return void
      */
-    public function testGetFiles()
+    public function testGetFiles(): void
     {
         // codemirror's onload event is excluded
         $this->object->addFile('vendor/codemirror/lib/codemirror.js');
@@ -119,10 +113,8 @@ class ScriptsTest extends AbstractTestCase
 
     /**
      * test for addFile
-     *
-     * @return void
      */
-    public function testAddFile()
+    public function testAddFile(): void
     {
         $reflection = new ReflectionProperty(Scripts::class, '_files');
         $reflection->setAccessible(true);
@@ -147,10 +139,8 @@ class ScriptsTest extends AbstractTestCase
 
     /**
      * test for addFiles
-     *
-     * @return void
      */
-    public function testAddFiles()
+    public function testAddFiles(): void
     {
         $reflection = new ReflectionProperty(Scripts::class, '_files');
         $reflection->setAccessible(true);

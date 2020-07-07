@@ -37,7 +37,7 @@ class SysInfoTest extends AbstractTestCase
      *
      * @return array with test data
      */
-    public function sysInfoOsProvider()
+    public function sysInfoOsProvider(): array
     {
         return [
             [
@@ -61,20 +61,16 @@ class SysInfoTest extends AbstractTestCase
 
     /**
      * Test for getting sysinfo object.
-     *
-     * @return void
      */
-    public function testGetSysInfo()
+    public function testGetSysInfo(): void
     {
         $this->assertInstanceOf(Base::class, SysInfo::get());
     }
 
     /**
      * Test for getting supported sysinfo object.
-     *
-     * @return void
      */
-    public function testGetSysInfoSupported()
+    public function testGetSysInfoSupported(): void
     {
         $this->assertTrue(SysInfo::get()->supported());
     }

@@ -101,11 +101,9 @@ class StructureControllerTest extends AbstractTestCase
     /**
      * Tests for getValuesForInnodbTable()
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetValuesForInnodbTable()
+    public function testGetValuesForInnodbTable(): void
     {
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('getValuesForInnodbTable');
@@ -208,11 +206,9 @@ class StructureControllerTest extends AbstractTestCase
     /**
      * Tests for the getValuesForAriaTable()
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetValuesForAriaTable()
+    public function testGetValuesForAriaTable(): void
     {
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('getValuesForAriaTable');
@@ -334,11 +330,9 @@ class StructureControllerTest extends AbstractTestCase
     /**
      * Tests for hasTable()
      *
-     * @return void
-     *
      * @test
      */
-    public function testHasTable()
+    public function testHasTable(): void
     {
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('hasTable');
@@ -376,11 +370,9 @@ class StructureControllerTest extends AbstractTestCase
     /**
      * Tests for checkFavoriteTable()
      *
-     * @return void
-     *
      * @test
      */
-    public function testCheckFavoriteTable()
+    public function testCheckFavoriteTable(): void
     {
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('checkFavoriteTable');
@@ -416,11 +408,9 @@ class StructureControllerTest extends AbstractTestCase
     /**
      * Tests for synchronizeFavoriteTables()
      *
-     * @return void
-     *
      * @test
      */
-    public function testSynchronizeFavoriteTables()
+    public function testSynchronizeFavoriteTables(): void
     {
         $favoriteInstance = $this->getFavoriteTablesMock();
 
@@ -481,11 +471,9 @@ class StructureControllerTest extends AbstractTestCase
     /**
      * Tests for handleRealRowCountRequestAction()
      *
-     * @return void
-     *
      * @test
      */
-    public function testHandleRealRowCountRequestAction()
+    public function testHandleRealRowCountRequestAction(): void
     {
         global $is_db;
 
@@ -534,11 +522,9 @@ class StructureControllerTest extends AbstractTestCase
     }
 
     /**
-     * @return void
-     *
      * @throws ReflectionException
      */
-    public function testDisplayTableList()
+    public function testDisplayTableList(): void
     {
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('displayTableList');

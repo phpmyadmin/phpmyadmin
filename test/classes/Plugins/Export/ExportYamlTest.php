@@ -56,10 +56,8 @@ class ExportYamlTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportYaml::setProperties
-     *
-     * @return void
      */
-    public function testSetProperties()
+    public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportYaml::class, 'setProperties');
         $method->setAccessible(true);
@@ -127,10 +125,8 @@ class ExportYamlTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportYaml::exportHeader
-     *
-     * @return void
      */
-    public function testExportHeader()
+    public function testExportHeader(): void
     {
         ob_start();
         $this->assertTrue(
@@ -146,10 +142,8 @@ class ExportYamlTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportYaml::exportFooter
-     *
-     * @return void
      */
-    public function testExportFooter()
+    public function testExportFooter(): void
     {
         $this->expectOutputString(
             "...\n"
@@ -161,10 +155,8 @@ class ExportYamlTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportYaml::exportDBHeader
-     *
-     * @return void
      */
-    public function testExportDBHeader()
+    public function testExportDBHeader(): void
     {
         $this->assertTrue(
             $this->object->exportDBHeader('&db')
@@ -173,10 +165,8 @@ class ExportYamlTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportYaml::exportDBFooter
-     *
-     * @return void
      */
-    public function testExportDBFooter()
+    public function testExportDBFooter(): void
     {
         $this->assertTrue(
             $this->object->exportDBFooter('&db')
@@ -185,10 +175,8 @@ class ExportYamlTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportYaml::exportDBCreate
-     *
-     * @return void
      */
-    public function testExportDBCreate()
+    public function testExportDBCreate(): void
     {
         $this->assertTrue(
             $this->object->exportDBCreate('testDB', 'database')
@@ -197,10 +185,8 @@ class ExportYamlTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportYaml::exportData
-     *
-     * @return void
      */
-    public function testExportData()
+    public function testExportData(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()

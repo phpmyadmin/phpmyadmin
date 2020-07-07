@@ -29,10 +29,8 @@ class LinterTest extends AbstractTestCase
 
     /**
      * Test for Linter::getLines
-     *
-     * @return void
      */
-    public function testGetLines()
+    public function testGetLines(): void
     {
         $this->assertEquals([0], Linter::getLines(''));
         $this->assertEquals([0, 2], Linter::getLines("a\nb"));
@@ -41,10 +39,8 @@ class LinterTest extends AbstractTestCase
 
     /**
      * Test for Linter::findLineNumberAndColumn
-     *
-     * @return void
      */
-    public function testFindLineNumberAndColumn()
+    public function testFindLineNumberAndColumn(): void
     {
         // Let the analyzed string be:
         //      ^abc$
@@ -105,7 +101,7 @@ class LinterTest extends AbstractTestCase
      *
      * @return array
      */
-    public static function lintProvider()
+    public static function lintProvider(): array
     {
         return [
             [

@@ -26,10 +26,8 @@ class IndexTest extends AbstractTestCase
 
     /**
      * Test for SetupIndex::messagesBegin()
-     *
-     * @return void
      */
-    public function testPMAmessagesBegin()
+    public function testPMAmessagesBegin(): void
     {
         $_SESSION['messages'] = [
             [
@@ -73,10 +71,8 @@ class IndexTest extends AbstractTestCase
 
     /**
      * Test for SetupIndex::messagesSet
-     *
-     * @return void
      */
-    public function testPMAmessagesSet()
+    public function testPMAmessagesSet(): void
     {
         SetupIndex::messagesSet('type', '123', 'testTitle', 'msg');
 
@@ -93,10 +89,8 @@ class IndexTest extends AbstractTestCase
 
     /**
      * Test for SetupIndex::messagesEnd
-     *
-     * @return void
      */
-    public function testPMAmessagesEnd()
+    public function testPMAmessagesEnd(): void
     {
         $_SESSION['messages'] = [
             [
@@ -128,10 +122,8 @@ class IndexTest extends AbstractTestCase
 
     /**
      * Test for SetupIndex::messagesShowHtml
-     *
-     * @return void
      */
-    public function testPMAMessagesShowHTML()
+    public function testPMAMessagesShowHTML(): void
     {
         $_SESSION['messages'] = [
             'type' => [

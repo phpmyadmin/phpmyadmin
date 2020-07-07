@@ -53,11 +53,9 @@ class FormDisplayTest extends AbstractTestCase
     /**
      * Test for FormDisplay::__constructor
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testFormDisplayContructor()
+    public function testFormDisplayContructor(): void
     {
         $reflection = new ReflectionProperty(FormDisplay::class, '_jsLangStrings');
         $reflection->setAccessible(true);
@@ -71,11 +69,9 @@ class FormDisplayTest extends AbstractTestCase
     /**
      * Test for FormDisplay::registerForm
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testRegisterForm()
+    public function testRegisterForm(): void
     {
         $reflection = new ReflectionClass(FormDisplay::class);
 
@@ -124,11 +120,9 @@ class FormDisplayTest extends AbstractTestCase
     /**
      * Test for FormDisplay::process
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testProcess()
+    public function testProcess(): void
     {
         $this->assertFalse(
             $this->object->process(true, true)
@@ -161,10 +155,8 @@ class FormDisplayTest extends AbstractTestCase
 
     /**
      * Test for FormDisplay::displayErrors
-     *
-     * @return void
      */
-    public function testDisplayErrors()
+    public function testDisplayErrors(): void
     {
         $reflection = new ReflectionClass(FormDisplay::class);
 
@@ -207,10 +199,8 @@ class FormDisplayTest extends AbstractTestCase
 
     /**
      * Test for FormDisplay::fixErrors
-     *
-     * @return void
      */
-    public function testFixErrors()
+    public function testFixErrors(): void
     {
         $reflection = new ReflectionClass(FormDisplay::class);
 
@@ -255,10 +245,8 @@ class FormDisplayTest extends AbstractTestCase
 
     /**
      * Test for FormDisplay::validateSelect
-     *
-     * @return void
      */
-    public function testValidateSelect()
+    public function testValidateSelect(): void
     {
         $attrValidateSelect = new ReflectionMethod(
             FormDisplay::class,
@@ -321,10 +309,8 @@ class FormDisplayTest extends AbstractTestCase
 
     /**
      * Test for FormDisplay::hasErrors
-     *
-     * @return void
      */
-    public function testHasErrors()
+    public function testHasErrors(): void
     {
         $attrErrors = new ReflectionProperty(FormDisplay::class, '_errors');
         $attrErrors->setAccessible(true);
@@ -348,10 +334,8 @@ class FormDisplayTest extends AbstractTestCase
 
     /**
      * Test for FormDisplay::getDocLink
-     *
-     * @return void
      */
-    public function testGetDocLink()
+    public function testGetDocLink(): void
     {
         $this->assertEquals(
             './url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2F' .
@@ -372,10 +356,8 @@ class FormDisplayTest extends AbstractTestCase
 
     /**
      * Test for FormDisplay::getOptName
-     *
-     * @return void
      */
-    public function testGetOptName()
+    public function testGetOptName(): void
     {
         $method = new ReflectionMethod(FormDisplay::class, 'getOptName');
         $method->setAccessible(true);
@@ -393,10 +375,8 @@ class FormDisplayTest extends AbstractTestCase
 
     /**
      * Test for FormDisplay::loadUserprefsInfo
-     *
-     * @return void
      */
-    public function testLoadUserprefsInfo()
+    public function testLoadUserprefsInfo(): void
     {
         $method = new ReflectionMethod(FormDisplay::class, 'loadUserprefsInfo');
         $method->setAccessible(true);
@@ -416,10 +396,8 @@ class FormDisplayTest extends AbstractTestCase
 
     /**
      * Test for FormDisplay::setComments
-     *
-     * @return void
      */
-    public function testSetComments()
+    public function testSetComments(): void
     {
         $method = new ReflectionMethod(FormDisplay::class, 'setComments');
         $method->setAccessible(true);

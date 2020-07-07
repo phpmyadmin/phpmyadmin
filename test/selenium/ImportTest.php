@@ -28,16 +28,14 @@ class ImportTest extends TestBase
     /**
      * Test for server level import
      *
-     * @return void
-     *
      * @group large
      */
-    public function testServerImport()
+    public function testServerImport(): void
     {
         $this->doImport('server');
         $this->dbQuery(
             'SHOW DATABASES LIKE \'test_import%\'',
-            function () {
+            function (): void {
                 $this->assertEquals('test_import1', $this->getCellByTableClass('table_results', 1, 1));
                 $this->assertEquals('test_import2', $this->getCellByTableClass('table_results', 2, 1));
             }
@@ -53,11 +51,9 @@ class ImportTest extends TestBase
     /**
      * Test for db level import
      *
-     * @return void
-     *
      * @group large
      */
-    public function testDbImport()
+    public function testDbImport(): void
     {
         $this->dbQuery('CREATE DATABASE IF NOT EXISTS `' . $this->database_name . '`');
         $this->navigateDatabase($this->database_name);
@@ -67,7 +63,7 @@ class ImportTest extends TestBase
         $this->dbQuery(
             'USE `' . $this->database_name . '`;'
             . 'SHOW TABLES FROM `' . $this->database_name . '`',
-            function () {
+            function (): void {
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
                 $this->assertEquals('test_table', $this->getCellByTableClass('table_results', 1, 1));
             }
@@ -77,11 +73,9 @@ class ImportTest extends TestBase
     /**
      * Test for table level import
      *
-     * @return void
-     *
      * @group large
      */
-    public function testTableImport()
+    public function testTableImport(): void
     {
         // setup the db
         $this->dbQuery(
@@ -96,7 +90,7 @@ class ImportTest extends TestBase
 
         $this->dbQuery(
             'SELECT * FROM `' . $this->database_name . '`.test_table',
-            function () {
+            function (): void {
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
                 $this->assertEquals('8', $this->getCellByTableClass('table_results', 1, 1));
                 $this->assertEquals('9', $this->getCellByTableClass('table_results', 2, 1));
@@ -108,10 +102,8 @@ class ImportTest extends TestBase
      * Function that goes to the import page, uploads a file and submit form
      *
      * @param string $type level: server, db or import
-     *
-     * @return void
      */
-    private function doImport($type)
+    private function doImport($type): void
     {
         $this->waitForElement('partialLinkText', 'Import')->click();
         $this->waitAjax();

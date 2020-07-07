@@ -42,10 +42,8 @@ class LanguageTest extends AbstractTestCase
 
     /**
      * Test language filtering
-     *
-     * @return void
      */
-    public function testAvailable()
+    public function testAvailable(): void
     {
         $GLOBALS['PMA_Config']->set('FilterLanguages', 'cs|en$');
 
@@ -58,10 +56,8 @@ class LanguageTest extends AbstractTestCase
 
     /**
      * Test no language filtering
-     *
-     * @return void
      */
-    public function testAllAvailable()
+    public function testAllAvailable(): void
     {
         $GLOBALS['PMA_Config']->set('FilterLanguages', '');
 
@@ -73,10 +69,8 @@ class LanguageTest extends AbstractTestCase
 
     /**
      * Test whether listing locales works
-     *
-     * @return void
      */
-    public function testList()
+    public function testList(): void
     {
         $langs = $this->manager->listLocaleDir();
         $this->assertContains('cs', $langs);
@@ -85,10 +79,8 @@ class LanguageTest extends AbstractTestCase
 
     /**
      * Test for getting available languages
-     *
-     * @return void
      */
-    public function testLanguages()
+    public function testLanguages(): void
     {
         $langs = $this->manager->availableLanguages();
         $this->assertGreaterThan(1, count($langs));
@@ -101,10 +93,8 @@ class LanguageTest extends AbstractTestCase
 
     /**
      * Test for MySQL locales
-     *
-     * @return void
      */
-    public function testMySQLLocale()
+    public function testMySQLLocale(): void
     {
         $GLOBALS['PMA_Config']->set('FilterLanguages', '');
         $czech = $this->manager->getLanguage('cs');
@@ -118,10 +108,8 @@ class LanguageTest extends AbstractTestCase
 
     /**
      * Test for getting available sorted languages
-     *
-     * @return void
      */
-    public function testSortedLanguages()
+    public function testSortedLanguages(): void
     {
         $langs = $this->manager->sortedLanguages();
         $this->assertGreaterThan(1, count($langs));
@@ -129,10 +117,8 @@ class LanguageTest extends AbstractTestCase
 
     /**
      * Test getting language by code
-     *
-     * @return void
      */
-    public function testGet()
+    public function testGet(): void
     {
         $GLOBALS['PMA_Config']->set('FilterLanguages', '');
         $lang = $this->manager->getLanguage('cs');
@@ -187,7 +173,7 @@ class LanguageTest extends AbstractTestCase
      *
      * @return array Test parameters.
      */
-    public function selectDataProvider()
+    public function selectDataProvider(): array
     {
         return [
             [
@@ -312,7 +298,7 @@ class LanguageTest extends AbstractTestCase
      *
      * @return array with arrays of available locales
      */
-    public function listLocales()
+    public function listLocales(): array
     {
         $ret = [];
         foreach (LanguageManager::getInstance()->availableLanguages() as $language) {

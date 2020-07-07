@@ -45,10 +45,8 @@ class InnodbTest extends AbstractTestCase
 
     /**
      * Test for getVariables
-     *
-     * @return void
      */
-    public function testGetVariables()
+    public function testGetVariables(): void
     {
         $this->assertEquals(
             [
@@ -111,10 +109,8 @@ class InnodbTest extends AbstractTestCase
 
     /**
      * Test for getVariablesLikePattern
-     *
-     * @return void
      */
-    public function testGetVariablesLikePattern()
+    public function testGetVariablesLikePattern(): void
     {
         $this->assertEquals(
             'innodb\\_%',
@@ -124,10 +120,8 @@ class InnodbTest extends AbstractTestCase
 
     /**
      * Test for getInfoPages
-     *
-     * @return void
      */
-    public function testGetInfoPages()
+    public function testGetInfoPages(): void
     {
         $this->assertEquals(
             [],
@@ -145,10 +139,8 @@ class InnodbTest extends AbstractTestCase
 
     /**
      * Test for getPageBufferpool
-     *
-     * @return void
      */
-    public function testGetPageBufferpool()
+    public function testGetPageBufferpool(): void
     {
         $this->assertEquals(
             '<table class="data" id="table_innodb_bufferpool_usage">' . "\n" .
@@ -231,10 +223,8 @@ class InnodbTest extends AbstractTestCase
 
     /**
      * Test for getPageStatus
-     *
-     * @return void
      */
-    public function testGetPageStatus()
+    public function testGetPageStatus(): void
     {
         $this->assertEquals(
             '<pre id="pre_innodb_status">' . "\n\n" . '</pre>' . "\n",
@@ -244,10 +234,8 @@ class InnodbTest extends AbstractTestCase
 
     /**
      * Test for getPage
-     *
-     * @return void
      */
-    public function testGetPage()
+    public function testGetPage(): void
     {
         $this->assertEquals(
             '',
@@ -262,10 +250,8 @@ class InnodbTest extends AbstractTestCase
 
     /**
      * Test for getMysqlHelpPage
-     *
-     * @return void
      */
-    public function testGetMysqlHelpPage()
+    public function testGetMysqlHelpPage(): void
     {
         $this->assertEquals(
             'innodb-storage-engine',
@@ -275,10 +261,8 @@ class InnodbTest extends AbstractTestCase
 
     /**
      * Test for getInnodbPluginVersion
-     *
-     * @return void
      */
-    public function testGetInnodbPluginVersion()
+    public function testGetInnodbPluginVersion(): void
     {
         $this->assertEquals(
             '1.1.8',
@@ -288,10 +272,8 @@ class InnodbTest extends AbstractTestCase
 
     /**
      * Test for supportsFilePerTable
-     *
-     * @return void
      */
-    public function testSupportsFilePerTable()
+    public function testSupportsFilePerTable(): void
     {
         $this->assertFalse(
             $this->object->supportsFilePerTable()
@@ -300,10 +282,8 @@ class InnodbTest extends AbstractTestCase
 
     /**
      * Test for getInnodbFileFormat
-     *
-     * @return void
      */
-    public function testGetInnodbFileFormat()
+    public function testGetInnodbFileFormat(): void
     {
         $this->assertEquals(
             'Antelope',

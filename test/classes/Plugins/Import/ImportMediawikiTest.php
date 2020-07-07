@@ -63,11 +63,9 @@ class ImportMediawikiTest extends AbstractTestCase
     /**
      * Test for getProperties
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testGetProperties()
+    public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
         $this->assertEquals(
@@ -95,11 +93,9 @@ class ImportMediawikiTest extends AbstractTestCase
     /**
      * Test for doImport
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testDoImport()
+    public function testDoImport(): void
     {
         //$import_notice will show the import detail result
         global $import_notice;

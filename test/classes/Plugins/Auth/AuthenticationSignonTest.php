@@ -53,10 +53,8 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::showLoginForm
-     *
-     * @return void
      */
-    public function testAuth()
+    public function testAuth(): void
     {
         $GLOBALS['cfg']['Server']['SignonURL'] = '';
 
@@ -72,10 +70,8 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::showLoginForm
-     *
-     * @return void
      */
-    public function testAuthLogoutURL()
+    public function testAuthLogoutURL(): void
     {
         $this->mockResponse('Location: https://example.com/logoutURL');
 
@@ -87,10 +83,8 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::showLoginForm
-     *
-     * @return void
      */
-    public function testAuthLogout()
+    public function testAuthLogout(): void
     {
         $this->mockResponse('Location: https://example.com/SignonURL');
 
@@ -103,10 +97,8 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::readCredentials
-     *
-     * @return void
      */
-    public function testAuthCheckEmpty()
+    public function testAuthCheckEmpty(): void
     {
         $GLOBALS['cfg']['Server']['SignonURL'] = 'https://example.com/SignonURL';
         $_SESSION['LAST_SIGNON_URL'] = 'https://example.com/SignonDiffURL';
@@ -118,10 +110,8 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::readCredentials
-     *
-     * @return void
      */
-    public function testAuthCheckSession()
+    public function testAuthCheckSession(): void
     {
         $GLOBALS['cfg']['Server']['SignonURL'] = 'https://example.com/SignonURL';
         $_SESSION['LAST_SIGNON_URL'] = 'https://example.com/SignonURL';
@@ -154,10 +144,8 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::readCredentials
-     *
-     * @return void
      */
-    public function testAuthCheckToken()
+    public function testAuthCheckToken(): void
     {
         $_SESSION = [' PMA_token ' => 'eefefef'];
         $this->mockResponse('Location: https://example.com/SignonURL');
@@ -212,10 +200,8 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::readCredentials
-     *
-     * @return void
      */
-    public function testAuthCheckKeep()
+    public function testAuthCheckKeep(): void
     {
         $GLOBALS['cfg']['Server']['SignonURL'] = 'https://example.com/SignonURL';
         $GLOBALS['cfg']['Server']['SignonSession'] = 'session123';
@@ -250,10 +236,8 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::storeCredentials
-     *
-     * @return void
      */
-    public function testAuthSetUser()
+    public function testAuthSetUser(): void
     {
         $this->object->user = 'testUser123';
         $this->object->password = 'testPass123';
@@ -275,10 +259,8 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::showFailure
-     *
-     * @return void
      */
-    public function testAuthFailsForbidden()
+    public function testAuthFailsForbidden(): void
     {
         $GLOBALS['cfg']['Server']['SignonSession'] = 'newSession';
         $_COOKIE['newSession'] = '42';
@@ -302,10 +284,8 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::showFailure
-     *
-     * @return void
      */
-    public function testAuthFailsDeny()
+    public function testAuthFailsDeny(): void
     {
         $GLOBALS['cfg']['Server']['SignonSession'] = 'newSession';
         $_COOKIE['newSession'] = '42';
@@ -328,10 +308,8 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::showFailure
-     *
-     * @return void
      */
-    public function testAuthFailsTimeout()
+    public function testAuthFailsTimeout(): void
     {
         $GLOBALS['cfg']['Server']['SignonSession'] = 'newSession';
         $_COOKIE['newSession'] = '42';
@@ -358,10 +336,8 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::showFailure
-     *
-     * @return void
      */
-    public function testAuthFailsMySQLError()
+    public function testAuthFailsMySQLError(): void
     {
         $GLOBALS['cfg']['Server']['SignonSession'] = 'newSession';
         $_COOKIE['newSession'] = '42';
@@ -394,10 +370,8 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::showFailure
-     *
-     * @return void
      */
-    public function testAuthFailsConnect()
+    public function testAuthFailsConnect(): void
     {
         $GLOBALS['cfg']['Server']['SignonSession'] = 'newSession';
         $_COOKIE['newSession'] = '42';
@@ -431,10 +405,8 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::setCookieParams
-     *
-     * @return void
      */
-    public function testSetCookieParamsDefaults()
+    public function testSetCookieParamsDefaults(): void
     {
         $this->object = $this->getMockBuilder(AuthenticationSignon::class)
         ->disableOriginalConstructor()

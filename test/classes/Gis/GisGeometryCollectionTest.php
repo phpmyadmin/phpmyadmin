@@ -66,7 +66,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @return array test data for testScaleRow() test case
      */
-    public function providerForScaleRow()
+    public function providerForScaleRow(): array
     {
         return [
             [
@@ -105,7 +105,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @return array test data for testGenerateWkt() test case
      */
-    public function providerForGenerateWkt()
+    public function providerForGenerateWkt(): array
     {
         $temp1 = [
             0 => [
@@ -152,7 +152,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @return array test data for testGenerateParams() test case
      */
-    public function providerForGenerateParams()
+    public function providerForGenerateParams(): array
     {
         return [
             [
@@ -188,8 +188,6 @@ class GisGeometryCollectionTest extends AbstractTestCase
      * @param array    $scale_data scaling parameters
      * @param resource $image      initial image
      *
-     * @return void
-     *
      * @dataProvider providerForPrepareRowAsPng
      */
     public function testPrepareRowAsPng(
@@ -198,7 +196,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
         $line_color,
         $scale_data,
         $image
-    ) {
+    ): void {
         $return = $this->object->prepareRowAsPng(
             $spatial,
             $label,
@@ -215,7 +213,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @return array test data for testPrepareRowAsPng() test case
      */
-    public function providerForPrepareRowAsPng()
+    public function providerForPrepareRowAsPng(): array
     {
         if (! function_exists('imagecreatetruecolor')) {
             $this->markTestSkipped('GD extension missing!');
@@ -247,8 +245,6 @@ class GisGeometryCollectionTest extends AbstractTestCase
      * @param array  $scale_data scaling parameters
      * @param string $pdf        expected output
      *
-     * @return void
-     *
      * @dataProvider providerForPrepareRowAsPdf
      */
     public function testPrepareRowAsPdf(
@@ -257,7 +253,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
         $line_color,
         $scale_data,
         $pdf
-    ) {
+    ): void {
         $return = $this->object->prepareRowAsPdf(
             $spatial,
             $label,
@@ -273,7 +269,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @return array test data for testPrepareRowAsPdf() test case
      */
-    public function providerForPrepareRowAsPdf()
+    public function providerForPrepareRowAsPdf(): array
     {
         return [
             [
@@ -301,8 +297,6 @@ class GisGeometryCollectionTest extends AbstractTestCase
      * @param array  $scaleData scaling parameters
      * @param string $output    expected output
      *
-     * @return void
-     *
      * @dataProvider providerForPrepareRowAsSvg
      */
     public function testPrepareRowAsSvg(
@@ -311,7 +305,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
         $lineColor,
         $scaleData,
         $output
-    ) {
+    ): void {
         $string = $this->object->prepareRowAsSvg(
             $spatial,
             $label,
@@ -336,7 +330,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @return array test data for testPrepareRowAsSvg() test case
      */
-    public function providerForPrepareRowAsSvg()
+    public function providerForPrepareRowAsSvg(): array
     {
         return [
             [
@@ -368,8 +362,6 @@ class GisGeometryCollectionTest extends AbstractTestCase
      * @param array  $scale_data scaling parameters
      * @param string $output     expected output
      *
-     * @return void
-     *
      * @dataProvider providerForPrepareRowAsOl
      */
     public function testPrepareRowAsOl(
@@ -379,7 +371,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
         $line_color,
         $scale_data,
         $output
-    ) {
+    ): void {
         $this->assertEquals(
             $output,
             $this->object->prepareRowAsOl(
@@ -397,7 +389,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @return array test data for testPrepareRowAsOl() test case
      */
-    public function providerForPrepareRowAsOl()
+    public function providerForPrepareRowAsOl(): array
     {
         return [
             [

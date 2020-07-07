@@ -63,11 +63,9 @@ class NodeDatabaseChildTest extends AbstractTestCase
     /**
      * Tests getHtmlForControlButtons() method
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetHtmlForControlButtons()
+    public function testGetHtmlForControlButtons(): void
     {
         $parent = NodeFactory::getInstance('NodeDatabase', 'parent');
         $parent->addChild($this->object);

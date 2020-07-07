@@ -49,10 +49,8 @@ class PbxtTest extends AbstractTestCase
 
     /**
      * Test for getVariables
-     *
-     * @return void
      */
-    public function testGetVariables()
+    public function testGetVariables(): void
     {
         $this->assertEquals(
             $this->object->getVariables(),
@@ -187,7 +185,7 @@ class PbxtTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerFortTestResolveTypeSize()
+    public function providerFortTestResolveTypeSize(): array
     {
         return [
             [
@@ -216,10 +214,8 @@ class PbxtTest extends AbstractTestCase
 
     /**
      * Test for getInfoPages
-     *
-     * @return void
      */
-    public function testGetInfoPages()
+    public function testGetInfoPages(): void
     {
         $this->assertEquals(
             $this->object->getInfoPages(),
@@ -229,10 +225,8 @@ class PbxtTest extends AbstractTestCase
 
     /**
      * Test for getPage
-     *
-     * @return void
      */
-    public function testGetPage()
+    public function testGetPage(): void
     {
         $this->assertEquals(
             $this->object->getPage('Documentation'),

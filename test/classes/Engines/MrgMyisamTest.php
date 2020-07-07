@@ -45,10 +45,8 @@ class MrgMyisamTest extends AbstractTestCase
 
     /**
      * Test for getMysqlHelpPage
-     *
-     * @return void
      */
-    public function testGetMysqlHelpPage()
+    public function testGetMysqlHelpPage(): void
     {
         $this->assertEquals(
             $this->object->getMysqlHelpPage(),

@@ -35,10 +35,8 @@ class ListDatabaseTest extends AbstractTestCase
 
     /**
      * Test for ListDatabase::getEmpty
-     *
-     * @return void
      */
-    public function testEmpty()
+    public function testEmpty(): void
     {
         $arr = new ListDatabase();
         $this->assertEquals('', $arr->getEmpty());
@@ -46,10 +44,8 @@ class ListDatabaseTest extends AbstractTestCase
 
     /**
      * Test for ListDatabase::exists
-     *
-     * @return void
      */
-    public function testExists()
+    public function testExists(): void
     {
         $arr = new ListDatabase();
         $this->assertTrue($arr->exists('single_db'));
@@ -84,10 +80,8 @@ class ListDatabaseTest extends AbstractTestCase
 
     /**
      * Test for checkHideDatabase
-     *
-     * @return void
      */
-    public function testCheckHideDatabase()
+    public function testCheckHideDatabase(): void
     {
         $GLOBALS['cfg']['Server']['hide_db'] = 'single\\_db';
         $this->assertEquals(
@@ -103,10 +97,8 @@ class ListDatabaseTest extends AbstractTestCase
 
     /**
      * Test for getDefault
-     *
-     * @return void
      */
-    public function testGetDefault()
+    public function testGetDefault(): void
     {
         $GLOBALS['db'] = '';
         $this->assertEquals(

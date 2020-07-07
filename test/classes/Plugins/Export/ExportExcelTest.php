@@ -50,10 +50,8 @@ class ExportExcelTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportExcel::setProperties
-     *
-     * @return void
      */
-    public function testSetProperties()
+    public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportExcel::class, 'setProperties');
         $method->setAccessible(true);

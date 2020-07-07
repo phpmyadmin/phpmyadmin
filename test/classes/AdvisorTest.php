@@ -44,7 +44,7 @@ class AdvisorTest extends AbstractTestCase
      *
      * @return array
      */
-    public function escapeStrings()
+    public function escapeStrings(): array
     {
         return [
             [
@@ -68,10 +68,8 @@ class AdvisorTest extends AbstractTestCase
 
     /**
      * test for parseRulesFile
-     *
-     * @return void
      */
-    public function testParse()
+    public function testParse(): void
     {
         $advisor = new Advisor($GLOBALS['dbi'], new ExpressionLanguage());
         $parseResult = $advisor->parseRulesFile(Advisor::GENERIC_RULES_FILE);
@@ -95,7 +93,7 @@ class AdvisorTest extends AbstractTestCase
     /**
      * @return array
      */
-    public function advisorTimes()
+    public function advisorTimes(): array
     {
         return [
             [
@@ -123,10 +121,8 @@ class AdvisorTest extends AbstractTestCase
 
     /**
      * test for Advisor::timespanFormat
-     *
-     * @return void
      */
-    public function testAdvisorTimespanFormat()
+    public function testAdvisorTimespanFormat(): void
     {
         $result = Advisor::timespanFormat(1200);
         $this->assertEquals('0 days, 0 hours, 20 minutes and 0 seconds', $result);
@@ -170,7 +166,7 @@ class AdvisorTest extends AbstractTestCase
      *
      * @return array
      */
-    public function rulesProvider()
+    public function rulesProvider(): array
     {
         return [
             [

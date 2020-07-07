@@ -25,10 +25,7 @@ class OperationsTest extends TestBase
         $this->login();
     }
 
-    /**
-     * @return void
-     */
-    private function getToDBOperations()
+    private function getToDBOperations(): void
     {
         $this->gotoHomepage();
 
@@ -44,11 +41,9 @@ class OperationsTest extends TestBase
     /**
      * Test for adding database comment
      *
-     * @return void
-     *
      * @group large
      */
-    public function testDbComment()
+    public function testDbComment(): void
     {
         $this->skipIfNotPMADB();
 
@@ -69,11 +64,9 @@ class OperationsTest extends TestBase
     /**
      * Test for renaming database
      *
-     * @return void
-     *
      * @group large
      */
-    public function testRenameDB()
+    public function testRenameDB(): void
     {
         $this->getToDBOperations();
 
@@ -97,7 +90,7 @@ class OperationsTest extends TestBase
 
         $this->dbQuery(
             'SHOW DATABASES LIKE \'' . $new_db_name . '\'',
-            function () use ($new_db_name) {
+            function () use ($new_db_name): void {
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
                 $this->assertEquals($new_db_name, $this->getCellByTableClass('table_results', 1, 1));
             }
@@ -105,7 +98,7 @@ class OperationsTest extends TestBase
 
         $this->dbQuery(
             'SHOW DATABASES LIKE \'' . $this->database_name . '\'',
-            function () {
+            function (): void {
                 $this->assertFalse($this->isElementPresent('className', 'table_results'));
             }
         );
@@ -116,11 +109,9 @@ class OperationsTest extends TestBase
     /**
      * Test for copying database
      *
-     * @return void
-     *
      * @group large
      */
-    public function testCopyDb()
+    public function testCopyDb(): void
     {
         $this->getToDBOperations();
 
@@ -141,7 +132,7 @@ class OperationsTest extends TestBase
 
         $this->dbQuery(
             'SHOW DATABASES LIKE \'' . $new_db_name . '\'',
-            function () use ($new_db_name) {
+            function () use ($new_db_name): void {
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
                 $this->assertEquals($new_db_name, $this->getCellByTableClass('table_results', 1, 1));
             }

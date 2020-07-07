@@ -86,11 +86,9 @@ class ConfigTest extends AbstractTestCase
     /**
      * Test for CheckSystem
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testCheckSystem()
+    public function testCheckSystem(): void
     {
         $this->object->checkSystem();
 
@@ -100,10 +98,8 @@ class ConfigTest extends AbstractTestCase
 
     /**
      * Test for checkOutputCompression
-     *
-     * @return void
      */
-    public function testCheckOutputCompression()
+    public function testCheckOutputCompression(): void
     {
         $this->object->set('OBGzip', 'auto');
 
@@ -155,7 +151,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function userAgentProvider()
+    public function userAgentProvider(): array
     {
         return [
             [
@@ -259,10 +255,8 @@ class ConfigTest extends AbstractTestCase
 
     /**
      * test for CheckGd2
-     *
-     * @return void
      */
-    public function testCheckGd2()
+    public function testCheckGd2(): void
     {
         $prevIsGb2Val = $this->object->get('PMA_IS_GD2');
 
@@ -349,7 +343,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function serverNames()
+    public function serverNames(): array
     {
         return [
             [
@@ -365,10 +359,8 @@ class ConfigTest extends AbstractTestCase
 
     /**
      * test for CheckWebServerOs
-     *
-     * @return void
      */
-    public function testCheckWebServerOs()
+    public function testCheckWebServerOs(): void
     {
         $this->object->checkWebServerOs();
 
@@ -395,11 +387,9 @@ class ConfigTest extends AbstractTestCase
     /**
      * Tests loading of default values
      *
-     * @return void
-     *
      * @group large
      */
-    public function testLoadDefaults()
+    public function testLoadDefaults(): void
     {
         $prevDefaultSource = $this->object->default_source;
 
@@ -445,10 +435,8 @@ class ConfigTest extends AbstractTestCase
 
     /**
      * test for CheckConfigSource
-     *
-     * @return void
      */
-    public function testCheckConfigSource()
+    public function testCheckConfigSource(): void
     {
         $this->object->setSource('unexisted.config.php');
         $this->assertFalse($this->object->checkConfigSource());
@@ -462,10 +450,8 @@ class ConfigTest extends AbstractTestCase
 
     /**
      * Test getting and setting config values
-     *
-     * @return void
      */
-    public function testGetAndSet()
+    public function testGetAndSet(): void
     {
         $this->assertNull($this->object->get('unresisting_setting'));
 
@@ -476,10 +462,8 @@ class ConfigTest extends AbstractTestCase
 
     /**
      * Tests setting configuration source
-     *
-     * @return void
      */
-    public function testGetSetSource()
+    public function testGetSetSource(): void
     {
         echo $this->object->getSource();
 
@@ -544,7 +528,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function httpsParams()
+    public function httpsParams(): array
     {
         return [
             [
@@ -761,15 +745,12 @@ class ConfigTest extends AbstractTestCase
     /**
      * Test for backward compatibility globals
      *
-     * @return void
-     *
      * @depends testCheckSystem
      * @depends testCheckWebServer
      * @depends testLoadDefaults
-     *
      * @group large
      */
-    public function testEnableBc()
+    public function testEnableBc(): void
     {
         $this->object->enableBc();
 
@@ -810,7 +791,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array data for testGetRootPath
      */
-    public function rootUris()
+    public function rootUris(): array
     {
         return [
             [
@@ -918,7 +899,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function configPaths()
+    public function configPaths(): array
     {
         return [
             [
@@ -939,22 +920,18 @@ class ConfigTest extends AbstractTestCase
     /**
      * Test for loading user preferences
      *
-     * @return void
-     *
      * @todo Test actually preferences loading
      * @doesNotPerformAssertions
      */
-    public function testLoadUserPreferences()
+    public function testLoadUserPreferences(): void
     {
         $this->object->loadUserPreferences();
     }
 
     /**
      * Test for setting user config value
-     *
-     * @return void
      */
-    public function testSetUserValue()
+    public function testSetUserValue(): void
     {
         $this->object->setUserValue(null, 'lang', 'cs', 'en');
         $this->object->setUserValue('TEST_COOKIE_USER_VAL', '', 'cfg_val_1');
@@ -966,20 +943,16 @@ class ConfigTest extends AbstractTestCase
 
     /**
      * Test for getting user config value
-     *
-     * @return void
      */
-    public function testGetUserValue()
+    public function testGetUserValue(): void
     {
         $this->assertEquals($this->object->getUserValue('test_val', 'val'), 'val');
     }
 
     /**
      * Should test getting unique value for theme
-     *
-     * @return void
      */
-    public function testGetThemeUniqueValue()
+    public function testGetThemeUniqueValue(): void
     {
         $partial_sum = $this->object->source_mtime +
             $this->object->default_source_mtime +
@@ -992,10 +965,8 @@ class ConfigTest extends AbstractTestCase
 
     /**
      * Should test checking of config permissions
-     *
-     * @return void
      */
-    public function testCheckPermissions()
+    public function testCheckPermissions(): void
     {
         //load file permissions for the current permissions file
         $perms = @fileperms($this->object->getSource());
@@ -1014,10 +985,8 @@ class ConfigTest extends AbstractTestCase
 
     /**
      * Test for setting cookies
-     *
-     * @return void
      */
-    public function testSetCookie()
+    public function testSetCookie(): void
     {
         $this->object->set('is_https', false);
         $this->assertFalse(
@@ -1115,7 +1084,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function serverSettingsProvider()
+    public function serverSettingsProvider(): array
     {
         return [
             'empty' => [
@@ -1164,7 +1133,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function selectServerProvider()
+    public function selectServerProvider(): array
     {
         return [
             'zero' => [
@@ -1237,7 +1206,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function connectionParams()
+    public function connectionParams(): array
     {
         $cfg_basic = [
             'user' => 'u',

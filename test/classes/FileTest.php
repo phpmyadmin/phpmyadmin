@@ -77,7 +77,7 @@ class FileTest extends AbstractTestCase
      *
      * @return array Test data
      */
-    public function compressedFiles()
+    public function compressedFiles(): array
     {
         return [
             [

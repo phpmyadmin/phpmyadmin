@@ -369,10 +369,8 @@ class UtilTest extends AbstractTestCase
 
     /**
      * Test for Page Selector
-     *
-     * @return void
      */
-    public function testPageSelector()
+    public function testPageSelector(): void
     {
         $this->assertStringContainsString(
             '<select class="pageselector ajax" name="pma" >',
@@ -382,10 +380,8 @@ class UtilTest extends AbstractTestCase
 
     /**
      * Test for isForeignKeyCheck
-     *
-     * @return void
      */
-    public function testIsForeignKeyCheck()
+    public function testIsForeignKeyCheck(): void
     {
         $GLOBALS['server'] = 1;
 
@@ -427,7 +423,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array test data
      */
-    public function charsetQueryData()
+    public function charsetQueryData(): array
     {
         return [
             [
@@ -447,10 +443,8 @@ class UtilTest extends AbstractTestCase
 
     /**
      * Test for random generation
-     *
-     * @return void
      */
-    public function testGenerateRandom()
+    public function testGenerateRandom(): void
     {
         $this->assertEquals(32, strlen(Util::generateRandom(32)));
         $this->assertEquals(16, strlen(Util::generateRandom(16)));
@@ -459,11 +453,9 @@ class UtilTest extends AbstractTestCase
     /**
      * Test if cached data is available after set
      *
-     * @return void
-     *
      * @covers \PhpMyAdmin\Util::cacheExists
      */
-    public function testCacheExists()
+    public function testCacheExists(): void
     {
         $GLOBALS['server'] = 'server';
         Util::cacheSet('test_data', 5);
@@ -477,11 +469,9 @@ class UtilTest extends AbstractTestCase
     /**
      * Test if PhpMyAdmin\Util::cacheGet does not return data for non existing cache entries
      *
-     * @return void
-     *
      * @covers \PhpMyAdmin\Util::cacheGet
      */
-    public function testCacheGet()
+    public function testCacheGet(): void
     {
         $GLOBALS['server'] = 'server';
         Util::cacheSet('test_data', 5);
@@ -495,11 +485,9 @@ class UtilTest extends AbstractTestCase
     /**
      * Test retrieval of cached data
      *
-     * @return void
-     *
      * @covers \PhpMyAdmin\Util::cacheSet
      */
-    public function testCacheSetGet()
+    public function testCacheSetGet(): void
     {
         $GLOBALS['server'] = 'server';
         Util::cacheSet('test_data', 25);
@@ -513,11 +501,9 @@ class UtilTest extends AbstractTestCase
     /**
      * Test clearing cached values
      *
-     * @return void
-     *
      * @covers \PhpMyAdmin\Util::cacheUnset
      */
-    public function testCacheUnSet()
+    public function testCacheUnSet(): void
     {
         $GLOBALS['server'] = 'server';
         Util::cacheSet('test_data', 25);
@@ -538,11 +524,9 @@ class UtilTest extends AbstractTestCase
     /**
      * Test clearing user cache
      *
-     * @return void
-     *
      * @covers \PhpMyAdmin\Util::clearUserCache
      */
-    public function testClearUserCache()
+    public function testClearUserCache(): void
     {
         $GLOBALS['server'] = 'server';
         Util::cacheSet('is_superuser', 'yes');
@@ -561,11 +545,9 @@ class UtilTest extends AbstractTestCase
     /**
      * Test for Util::checkParameters
      *
-     * @return void
-     *
      * @covers \PhpMyAdmin\Util::checkParameters
      */
-    public function testCheckParameterMissing()
+    public function testCheckParameterMissing(): void
     {
         parent::setGlobalConfig();
         $GLOBALS['text_dir'] = 'ltr';
@@ -591,11 +573,9 @@ class UtilTest extends AbstractTestCase
     /**
      * Test for Util::checkParameters
      *
-     * @return void
-     *
      * @covers \PhpMyAdmin\Util::checkParameters
      */
-    public function testCheckParameter()
+    public function testCheckParameter(): void
     {
         parent::setGlobalConfig();
         $GLOBALS['cfg'] = ['ServerDefault' => 1];
@@ -640,7 +620,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerConvertBitDefaultValue()
+    public function providerConvertBitDefaultValue(): array
     {
         return [
             [
@@ -683,7 +663,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerUnEscapeMysqlWildcards()
+    public function providerUnEscapeMysqlWildcards(): array
     {
         return [
             [
@@ -798,7 +778,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerExpandUserString()
+    public function providerExpandUserString(): array
     {
         return [
             [
@@ -852,7 +832,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerExtractColumnSpec()
+    public function providerExtractColumnSpec(): array
     {
         return [
             [
@@ -998,7 +978,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerExtractValueFromFormattedSize()
+    public function providerExtractValueFromFormattedSize(): array
     {
         return [
             [
@@ -1044,7 +1024,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerIsForeignKeySupported()
+    public function providerIsForeignKeySupported(): array
     {
         return [
             [
@@ -1089,7 +1069,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerFormatByteDown()
+    public function providerFormatByteDown(): array
     {
         return [
             [
@@ -1183,10 +1163,8 @@ class UtilTest extends AbstractTestCase
      * @param int   $b Sensitiveness
      * @param int   $c Number of decimals to retain
      * @param array $d Expected value
-     *
-     * @return void
      */
-    private function assertFormatNumber($a, $b, $c, $d)
+    private function assertFormatNumber($a, $b, $c, $d): void
     {
         $this->assertEquals(
             $d,
@@ -1258,7 +1236,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerFormatNumber()
+    public function providerFormatNumber(): array
     {
         return [
             [
@@ -1377,7 +1355,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetFormattedMaximumUploadSize()
+    public function providerGetFormattedMaximumUploadSize(): array
     {
         return [
             [
@@ -1440,7 +1418,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetTitleForTarget()
+    public function providerGetTitleForTarget(): array
     {
         return [
             [
@@ -1504,7 +1482,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerLocalisedDate()
+    public function providerLocalisedDate(): array
     {
         $hasJaTranslations = file_exists(LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo');
 
@@ -1624,7 +1602,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerTimespanFormat()
+    public function providerTimespanFormat(): array
     {
         return [
             [
@@ -1661,7 +1639,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerPrintableBitValue()
+    public function providerPrintableBitValue(): array
     {
         return [
             [
@@ -1699,7 +1677,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerUnQuote()
+    public function providerUnQuote(): array
     {
         return [
             [
@@ -1743,7 +1721,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerUnQuoteSelectedChar()
+    public function providerUnQuoteSelectedChar(): array
     {
         return [
             [
@@ -1788,7 +1766,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerBackquote()
+    public function providerBackquote(): array
     {
         return [
             [
@@ -1851,7 +1829,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerBackquoteCompat()
+    public function providerBackquoteCompat(): array
     {
         return [
             [
@@ -1895,11 +1873,9 @@ class UtilTest extends AbstractTestCase
     /**
      * backquoteCompat test with forbidden words
      *
-     * @return void
-     *
      * @covers \PhpMyAdmin\Util::backquote
      */
-    public function testBackquoteForbidenWords()
+    public function testBackquoteForbidenWords(): void
     {
         foreach (Context::$KEYWORDS as $keyword => $type) {
             if ($type & Token::FLAG_KEYWORD_RESERVED) {
@@ -1937,7 +1913,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerUserDir()
+    public function providerUserDir(): array
     {
         return [
             [
@@ -1973,7 +1949,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerDuplicateFirstNewline()
+    public function providerDuplicateFirstNewline(): array
     {
         return [
             [
@@ -1998,11 +1974,9 @@ class UtilTest extends AbstractTestCase
     /**
      * Test for Util::unsupportedDatatypes
      *
-     * @return void
-     *
      * @covers \PhpMyAdmin\Util::unsupportedDatatypes
      */
-    public function testUnsupportedDatatypes()
+    public function testUnsupportedDatatypes(): void
     {
         $no_support_types = [];
         $this->assertEquals(
@@ -2014,11 +1988,9 @@ class UtilTest extends AbstractTestCase
     /**
      * Test for Util::getPageFromPosition
      *
-     * @return void
-     *
      * @covers \PhpMyAdmin\Util::getPageFromPosition
      */
-    public function testGetPageFromPosition()
+    public function testGetPageFromPosition(): void
     {
         $this->assertEquals(Util::getPageFromPosition(0, 1), 1);
         $this->assertEquals(Util::getPageFromPosition(1, 1), 2);

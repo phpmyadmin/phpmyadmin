@@ -65,11 +65,9 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::showLoginForm
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testAuthErrorAJAX()
+    public function testAuthErrorAJAX(): void
     {
         $mockResponse = $this->mockResponse();
 
@@ -95,10 +93,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * @return void
-     */
-    private function getAuthErrorMockResponse()
+    private function getAuthErrorMockResponse(): void
     {
         $mockResponse = $this->mockResponse();
 
@@ -183,11 +178,9 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::showLoginForm
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testAuthError()
+    public function testAuthError(): void
     {
         $_REQUEST['old_usr'] = '';
         $GLOBALS['cfg']['LoginCookieRecall'] = true;
@@ -266,11 +259,9 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::showLoginForm
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testAuthCaptcha()
+    public function testAuthCaptcha(): void
     {
         $mockResponse = $this->mockResponse();
 
@@ -346,10 +337,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::showLoginForm with headers
-     *
-     * @return void
      */
-    public function testAuthHeader()
+    public function testAuthHeader(): void
     {
         $GLOBALS['cfg']['LoginCookieDeleteAll'] = false;
         $GLOBALS['cfg']['Servers'] = [1];
@@ -364,10 +353,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::showLoginForm with headers
-     *
-     * @return void
      */
-    public function testAuthHeaderPartial()
+    public function testAuthHeaderPartial(): void
     {
         $GLOBALS['PMA_Config']->set('is_https', false);
         $GLOBALS['cfg']['LoginCookieDeleteAll'] = false;
@@ -388,10 +375,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::readCredentials
-     *
-     * @return void
      */
-    public function testAuthCheckCaptcha()
+    public function testAuthCheckCaptcha(): void
     {
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = 'testprivkey';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = 'testpubkey';
@@ -410,10 +395,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::readCredentials
-     *
-     * @return void
      */
-    public function testLogoutDelete()
+    public function testLogoutDelete(): void
     {
         $this->mockResponse('Location: /phpmyadmin/index.php?route=/');
 
@@ -436,10 +419,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::readCredentials
-     *
-     * @return void
      */
-    public function testLogout()
+    public function testLogout(): void
     {
         $this->mockResponse('Location: /phpmyadmin/index.php?route=/');
 
@@ -464,10 +445,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::readCredentials
-     *
-     * @return void
      */
-    public function testAuthCheckArbitrary()
+    public function testAuthCheckArbitrary(): void
     {
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
@@ -504,10 +483,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::readCredentials
-     *
-     * @return void
      */
-    public function testAuthCheckInvalidCookie()
+    public function testAuthCheckInvalidCookie(): void
     {
         $GLOBALS['cfg']['AllowArbitraryServer'] = true;
         $_REQUEST['pma_servername'] = 'testPMAServer';
@@ -524,10 +501,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::readCredentials
-     *
-     * @return void
      */
-    public function testAuthCheckExpires()
+    public function testAuthCheckExpires(): void
     {
         $GLOBALS['server'] = 1;
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
@@ -545,10 +520,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::readCredentials (mock blowfish functions reqd)
-     *
-     * @return void
      */
-    public function testAuthCheckDecryptUser()
+    public function testAuthCheckDecryptUser(): void
     {
         $GLOBALS['server'] = 1;
         $_REQUEST['old_usr'] = '';
@@ -584,10 +557,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::readCredentials (mocking blowfish functions)
-     *
-     * @return void
      */
-    public function testAuthCheckDecryptPassword()
+    public function testAuthCheckDecryptPassword(): void
     {
         $GLOBALS['server'] = 1;
         $_REQUEST['old_usr'] = '';
@@ -629,10 +600,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::readCredentials (mocking the object itself)
-     *
-     * @return void
      */
-    public function testAuthCheckAuthFails()
+    public function testAuthCheckAuthFails(): void
     {
         $GLOBALS['server'] = 1;
         $_REQUEST['old_usr'] = '';
@@ -668,10 +637,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::storeCredentials
-     *
-     * @return void
      */
-    public function testAuthSetUser()
+    public function testAuthSetUser(): void
     {
         $this->object->user = 'pmaUser2';
         $arr = [
@@ -718,10 +685,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::storeCredentials (check for headers redirect)
-     *
-     * @return void
      */
-    public function testAuthSetUserWithHeaders()
+    public function testAuthSetUserWithHeaders(): void
     {
         $this->object->user = 'pmaUser2';
         $arr = [
@@ -753,10 +718,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::showFailure
-     *
-     * @return void
      */
-    public function testAuthFailsNoPass()
+    public function testAuthFailsNoPass(): void
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
             ->disableOriginalConstructor()
@@ -779,10 +742,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * @return void
-     */
-    public function testAuthFailsDeny()
+    public function testAuthFailsDeny(): void
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
             ->disableOriginalConstructor()
@@ -804,10 +764,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * @return void
-     */
-    public function testAuthFailsActivity()
+    public function testAuthFailsActivity(): void
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
             ->disableOriginalConstructor()
@@ -833,10 +790,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * @return void
-     */
-    public function testAuthFailsDBI()
+    public function testAuthFailsDBI(): void
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
             ->disableOriginalConstructor()
@@ -869,10 +823,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * @return void
-     */
-    public function testAuthFailsErrno()
+    public function testAuthFailsErrno(): void
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
             ->disableOriginalConstructor()
@@ -907,10 +858,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::getEncryptionSecret
-     *
-     * @return void
      */
-    public function testGetEncryptionSecretEmpty()
+    public function testGetEncryptionSecretEmpty(): void
     {
         $method = new ReflectionMethod(
             AuthenticationCookie::class,
@@ -936,10 +885,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::getEncryptionSecret
-     *
-     * @return void
      */
-    public function testGetEncryptionSecretConfigured()
+    public function testGetEncryptionSecretConfigured(): void
     {
         $method = new ReflectionMethod(
             AuthenticationCookie::class,
@@ -959,10 +906,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::cookieEncrypt
-     *
-     * @return void
      */
-    public function testCookieEncrypt()
+    public function testCookieEncrypt(): void
     {
         $this->object->setIV('testiv09testiv09');
         // works with the openssl extension active or inactive
@@ -975,10 +920,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::cookieEncrypt
-     *
-     * @return void
      */
-    public function testCookieEncryptPHPSecLib()
+    public function testCookieEncryptPHPSecLib(): void
     {
         $this->object->setUseOpenSSL(false);
         $this->testCookieEncrypt();
@@ -986,10 +929,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::cookieEncrypt
-     *
-     * @return void
      */
-    public function testCookieEncryptOpenSSL()
+    public function testCookieEncryptOpenSSL(): void
     {
         if (! function_exists('openssl_encrypt')) {
             $this->markTestSkipped('openssl not available');
@@ -1000,10 +941,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::cookieDecrypt
-     *
-     * @return void
      */
-    public function testCookieDecrypt()
+    public function testCookieDecrypt(): void
     {
         // works with the openssl extension active or inactive
         $this->assertEquals(
@@ -1033,10 +972,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::cookieDecrypt
-     *
-     * @return void
      */
-    public function testCookieDecryptPHPSecLib()
+    public function testCookieDecryptPHPSecLib(): void
     {
         $this->object->setUseOpenSSL(false);
         $this->testCookieDecrypt();
@@ -1044,10 +981,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::cookieDecrypt
-     *
-     * @return void
      */
-    public function testCookieDecryptOpenSSL()
+    public function testCookieDecryptOpenSSL(): void
     {
         if (! function_exists('openssl_encrypt')) {
             $this->markTestSkipped('openssl not available');
@@ -1058,10 +993,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::cookieDecrypt
-     *
-     * @return void
      */
-    public function testCookieDecryptInvalid()
+    public function testCookieDecryptInvalid(): void
     {
         // works with the openssl extension active or inactive
         $this->assertFalse(
@@ -1107,11 +1040,9 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     }
 
     /**
-     * @return void
-     *
      * @throws ReflectionException
      */
-    public function testPasswordChange()
+    public function testPasswordChange(): void
     {
         $newPassword = 'PMAPASSWD2';
         $GLOBALS['PMA_Config']->set('is_https', false);
@@ -1147,7 +1078,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
      *
      * @return array
      */
-    public function secretsProvider()
+    public function secretsProvider(): array
     {
         return [
             // Optimal case
@@ -1185,10 +1116,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationCookie::authenticate
-     *
-     * @return void
      */
-    public function testAuthenticate()
+    public function testAuthenticate(): void
     {
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
@@ -1257,7 +1186,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     /**
      * @return array
      */
-    public function checkRulesProvider()
+    public function checkRulesProvider(): array
     {
         return [
             'nopass-ok' => [

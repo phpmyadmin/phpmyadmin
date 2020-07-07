@@ -77,11 +77,9 @@ class TrackingTest extends AbstractTestCase
     /**
      * Tests for filter() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testFilter()
+    public function testFilter(): void
     {
         $data = [
             [
@@ -119,11 +117,9 @@ class TrackingTest extends AbstractTestCase
     /**
      * Tests for extractTableNames() method from nested table_list.
      *
-     * @return void
-     *
      * @test
      */
-    public function testExtractTableNames()
+    public function testExtractTableNames(): void
     {
         $table_list = [
             'hello_' => [
@@ -152,11 +148,9 @@ class TrackingTest extends AbstractTestCase
     }
 
     /**
-     * @return void
-     *
      * @test
      */
-    public function testGetHtmlForMain()
+    public function testGetHtmlForMain(): void
     {
         $last_version = 3;
         $url_params = [];
@@ -298,11 +292,9 @@ class TrackingTest extends AbstractTestCase
     /**
      * Tests for getTableLastVersionNumber() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetTableLastVersionNumber()
+    public function testGetTableLastVersionNumber(): void
     {
         $sql_result = 'sql_result';
         $last_version = $this->tracking->getTableLastVersionNumber($sql_result);
@@ -316,11 +308,9 @@ class TrackingTest extends AbstractTestCase
     /**
      * Tests for getSqlResultForSelectableTables() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetSQLResultForSelectableTables()
+    public function testGetSQLResultForSelectableTables(): void
     {
         $ret = $this->tracking->getSqlResultForSelectableTables();
 
@@ -332,11 +322,9 @@ class TrackingTest extends AbstractTestCase
     /**
      * Tests for getHtmlForColumns() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetHtmlForColumns()
+    public function testGetHtmlForColumns(): void
     {
         $columns = [
             [
@@ -432,11 +420,9 @@ class TrackingTest extends AbstractTestCase
     /**
      * Tests for getListOfVersionsOfTable() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetListOfVersionsOfTable()
+    public function testGetListOfVersionsOfTable(): void
     {
         $ret = $this->tracking->getListOfVersionsOfTable();
 
@@ -448,11 +434,9 @@ class TrackingTest extends AbstractTestCase
     /**
      * Tests for getHtmlForTrackingReport() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetHtmlForTrackingReportr()
+    public function testGetHtmlForTrackingReportr(): void
     {
         $_POST['version'] = 10;
         $_POST['date_from'] = 'date_from';
@@ -547,11 +531,9 @@ class TrackingTest extends AbstractTestCase
     /**
      * Tests for getHtmlForDataManipulationStatements() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetHtmlForDataManipulationStatements()
+    public function testGetHtmlForDataManipulationStatements(): void
     {
         $_POST['version'] = '10';
         $data = [
@@ -611,11 +593,9 @@ class TrackingTest extends AbstractTestCase
     /**
      * Tests for getHtmlForDataDefinitionStatements() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetHtmlForDataDefinitionStatements()
+    public function testGetHtmlForDataDefinitionStatements(): void
     {
         $_POST['version'] = '10';
 
@@ -680,11 +660,9 @@ class TrackingTest extends AbstractTestCase
     /**
      * Tests for getHtmlForIndexes() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetHtmlForIndexes()
+    public function testGetHtmlForIndexes(): void
     {
         $indexs = [
             [
@@ -756,11 +734,9 @@ class TrackingTest extends AbstractTestCase
     /**
      * Tests for getTrackingSet() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetTrackingSet()
+    public function testGetTrackingSet(): void
     {
         $_POST['alter_table'] = false;
         $_POST['rename_table'] = true;
@@ -801,11 +777,9 @@ class TrackingTest extends AbstractTestCase
     /**
      * Tests for getEntries() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetEntries()
+    public function testGetEntries(): void
     {
         $_POST['logtype'] = 'schema';
         $data = [

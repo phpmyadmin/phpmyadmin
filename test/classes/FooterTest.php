@@ -66,11 +66,9 @@ class FooterTest extends AbstractTestCase
     /**
      * Test for getDebugMessage
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testGetDebugMessage()
+    public function testGetDebugMessage(): void
     {
         $GLOBALS['cfg']['DBG']['sql'] = true;
         $_SESSION['debug']['queries'] = [
@@ -95,10 +93,8 @@ class FooterTest extends AbstractTestCase
 
     /**
      * Test for removeRecursion
-     *
-     * @return void
      */
-    public function testRemoveRecursion()
+    public function testRemoveRecursion(): void
     {
         $object = (object) [];
         $object->child = (object) [];
@@ -121,10 +117,8 @@ class FooterTest extends AbstractTestCase
 
     /**
      * Test for getSelfLink
-     *
-     * @return void
      */
-    public function testGetSelfLink()
+    public function testGetSelfLink(): void
     {
         $GLOBALS['cfg']['TabsMode'] = 'text';
         $GLOBALS['cfg']['ServerDefault'] = 1;
@@ -149,10 +143,8 @@ class FooterTest extends AbstractTestCase
 
     /**
      * Test for getSelfLink
-     *
-     * @return void
      */
-    public function testGetSelfLinkWithImage()
+    public function testGetSelfLinkWithImage(): void
     {
         $GLOBALS['cfg']['TabsMode'] = 'icons';
         $GLOBALS['cfg']['ServerDefault'] = 1;
@@ -176,10 +168,8 @@ class FooterTest extends AbstractTestCase
 
     /**
      * Test for getSelfLink
-     *
-     * @return void
      */
-    public function testGetSelfLinkWithRoute()
+    public function testGetSelfLinkWithRoute(): void
     {
         $GLOBALS['route'] = '/test';
         $GLOBALS['cfg']['TabsMode'] = 'text';
@@ -203,10 +193,8 @@ class FooterTest extends AbstractTestCase
 
     /**
      * Test for disable
-     *
-     * @return void
      */
-    public function testDisable()
+    public function testDisable(): void
     {
         $footer = new Footer();
         $footer->disable();
@@ -218,10 +206,8 @@ class FooterTest extends AbstractTestCase
 
     /**
      * Test for footer when ajax enabled
-     *
-     * @return void
      */
-    public function testAjax()
+    public function testAjax(): void
     {
         $footer = new Footer();
         $footer->setAjax(true);
@@ -233,10 +219,8 @@ class FooterTest extends AbstractTestCase
 
     /**
      * Test for footer get Scripts
-     *
-     * @return void
      */
-    public function testGetScripts()
+    public function testGetScripts(): void
     {
         $footer = new Footer();
         $this->assertStringContainsString(
@@ -248,11 +232,9 @@ class FooterTest extends AbstractTestCase
     /**
      * Test for displaying footer
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testDisplay()
+    public function testDisplay(): void
     {
         $footer = new Footer();
         $this->assertStringContainsString(
@@ -263,10 +245,8 @@ class FooterTest extends AbstractTestCase
 
     /**
      * Test for minimal footer
-     *
-     * @return void
      */
-    public function testMinimal()
+    public function testMinimal(): void
     {
         $footer = new Footer();
         $footer->setMinimal();

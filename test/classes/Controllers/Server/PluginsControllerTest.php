@@ -38,10 +38,8 @@ class PluginsControllerTest extends AbstractTestCase
 
     /**
      * Test for index method
-     *
-     * @return void
      */
-    public function testIndex()
+    public function testIndex(): void
     {
         /**
          * Prepare plugin list

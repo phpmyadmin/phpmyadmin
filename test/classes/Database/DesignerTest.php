@@ -57,10 +57,8 @@ class DesignerTest extends AbstractTestCase
      * Mocks database interaction for tests.
      *
      * @param string $db database name
-     *
-     * @return void
      */
-    private function mockDatabaseInteraction($db)
+    private function mockDatabaseInteraction($db): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -100,10 +98,8 @@ class DesignerTest extends AbstractTestCase
 
     /**
      * Test for getPageIdsAndNames()
-     *
-     * @return void
      */
-    public function testGetPageIdsAndNames()
+    public function testGetPageIdsAndNames(): void
     {
         $db = 'db';
         $this->mockDatabaseInteraction($db);
@@ -126,10 +122,8 @@ class DesignerTest extends AbstractTestCase
 
     /**
      * Test for getHtmlForEditOrDeletePages()
-     *
-     * @return void
      */
-    public function testGetHtmlForEditOrDeletePages()
+    public function testGetHtmlForEditOrDeletePages(): void
     {
         $db = 'db';
         $operation = 'edit';
@@ -156,10 +150,8 @@ class DesignerTest extends AbstractTestCase
 
     /**
      * Test for getHtmlForPageSaveAs()
-     *
-     * @return void
      */
-    public function testGetHtmlForPageSaveAs()
+    public function testGetHtmlForPageSaveAs(): void
     {
         $db = 'db';
         $this->mockDatabaseInteraction($db);
@@ -198,10 +190,8 @@ class DesignerTest extends AbstractTestCase
 
     /**
      * Test for getHtmlForSchemaExport()
-     *
-     * @return void
      */
-    public function testGetHtmlForSchemaExport()
+    public function testGetHtmlForSchemaExport(): void
     {
         $db = 'db';
         $page = 2;

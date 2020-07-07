@@ -71,7 +71,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
      *
      * @return array
      */
-    public function currentUserData()
+    public function currentUserData(): array
     {
         return [
             [
@@ -104,11 +104,9 @@ class DatabaseInterfaceTest extends AbstractTestCase
     /**
      * Tests for DBI::getColumnMapFromSql() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testPMAGetColumnMap()
+    public function testPMAGetColumnMap(): void
     {
         $extension = $this->getMockBuilder(DbiDummy::class)
             ->disableOriginalConstructor()
@@ -171,11 +169,9 @@ class DatabaseInterfaceTest extends AbstractTestCase
     /**
      * Tests for DBI::getSystemDatabase() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetSystemDatabase()
+    public function testGetSystemDatabase(): void
     {
         $sd = $this->_dbi->getSystemDatabase();
         $this->assertInstanceOf(SystemDatabase::class, $sd);
@@ -184,11 +180,9 @@ class DatabaseInterfaceTest extends AbstractTestCase
     /**
      * Tests for DBI::postConnectControl() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testPostConnectControl()
+    public function testPostConnectControl(): void
     {
         $GLOBALS['db'] = '';
         $GLOBALS['cfg']['Server']['only_db'] = [];
@@ -199,11 +193,9 @@ class DatabaseInterfaceTest extends AbstractTestCase
     /**
      * Test for getDbCollation
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetDbCollation()
+    public function testGetDbCollation(): void
     {
         $GLOBALS['server'] = 1;
         // test case for system schema
@@ -224,11 +216,9 @@ class DatabaseInterfaceTest extends AbstractTestCase
     /**
      * Test for getServerCollation
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetServerCollation()
+    public function testGetServerCollation(): void
     {
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['DBG']['sql'] = true;
@@ -255,7 +245,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
     /**
      * @return array
      */
-    public function errorData()
+    public function errorData(): array
     {
         return [
             [
@@ -297,12 +287,10 @@ class DatabaseInterfaceTest extends AbstractTestCase
      * @param mixed $value    value
      * @param mixed $expected expected result
      *
-     * @return void
-     *
      * @test
      * @dataProvider isAmazonRdsData
      */
-    public function atestIsAmazonRdsData($value, $expected)
+    public function atestIsAmazonRdsData($value, $expected): void
     {
         Util::cacheUnset('is_amazon_rds');
 
@@ -322,7 +310,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
      *
      * @return array
      */
-    public function isAmazonRdsData()
+    public function isAmazonRdsData(): array
     {
         return [
             [
@@ -365,7 +353,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
     /**
      * @return array
      */
-    public function versionData()
+    public function versionData(): array
     {
         return [
             [
@@ -398,11 +386,9 @@ class DatabaseInterfaceTest extends AbstractTestCase
     /**
      * Tests for DBI::setCollationl() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testSetCollation()
+    public function testSetCollation(): void
     {
         $extension = $this->getMockBuilder(DbiDummy::class)
             ->disableOriginalConstructor()
@@ -438,11 +424,9 @@ class DatabaseInterfaceTest extends AbstractTestCase
     /**
      * Tests for DBI::getForeignKeyConstrains() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetForeignKeyConstrains()
+    public function testGetForeignKeyConstrains(): void
     {
         $this->assertEquals([
             [

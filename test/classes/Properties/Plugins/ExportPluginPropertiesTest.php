@@ -37,10 +37,8 @@ class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
 
     /**
      * Test for PhpMyAdmin\Properties\Plugins\ExportPluginProperties::getItemType
-     *
-     * @return void
      */
-    public function testGetItemType()
+    public function testGetItemType(): void
     {
         $this->assertEquals(
             'export',
@@ -52,10 +50,8 @@ class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
      * Test for
      *     - PhpMyAdmin\Properties\Plugins\ExportPluginProperties::getForceFile
      *     - PhpMyAdmin\Properties\Plugins\ExportPluginProperties::setForceFile
-     *
-     * @return void
      */
-    public function testSetGetForceFile()
+    public function testSetGetForceFile(): void
     {
         $this->object->setForceFile(true);
 

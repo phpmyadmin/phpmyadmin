@@ -46,10 +46,8 @@ class CreateTableTest extends AbstractTestCase
 
     /**
      * Test for CreateTable::getHtml
-     *
-     * @return void
      */
-    public function testPMAGetHtmlForCreateTable()
+    public function testPMAGetHtmlForCreateTable(): void
     {
         $db = 'pma_db';
 

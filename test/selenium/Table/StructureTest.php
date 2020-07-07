@@ -47,11 +47,9 @@ class StructureTest extends TestBase
     /**
      * Test for adding a new column
      *
-     * @return void
-     *
      * @group large
      */
-    public function testAddColumn()
+    public function testAddColumn(): void
     {
         $this->waitForElement(
             'cssSelector',
@@ -84,11 +82,9 @@ class StructureTest extends TestBase
     /**
      * Test for changing a column
      *
-     * @return void
-     *
      * @group large
      */
-    public function testChangeColumn()
+    public function testChangeColumn(): void
     {
         $this->byCssSelector(
             '#tablestructure tbody tr:nth-child(2) td:nth-child(11)'
@@ -116,11 +112,9 @@ class StructureTest extends TestBase
     /**
      * Test for dropping columns
      *
-     * @return void
-     *
      * @group large
      */
-    public function testDropColumns()
+    public function testDropColumns(): void
     {
         $this->waitForElement('cssSelector', 'label[for=checkbox_row_2]')->click();
         $this->waitForElement('cssSelector', 'label[for=checkbox_row_3]')->click();

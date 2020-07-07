@@ -26,10 +26,8 @@ class SanitizeTest extends AbstractTestCase
 
     /**
      * Tests for proper escaping of XSS.
-     *
-     * @return void
      */
-    public function testXssInHref()
+    public function testXssInHref(): void
     {
         $this->assertEquals(
             '[a@javascript:alert(\'XSS\');@target]link</a>',
@@ -39,10 +37,8 @@ class SanitizeTest extends AbstractTestCase
 
     /**
      * Tests correct generating of link redirector.
-     *
-     * @return void
      */
-    public function testLink()
+    public function testLink(): void
     {
         $lang = $GLOBALS['lang'];
 
@@ -78,7 +74,7 @@ class SanitizeTest extends AbstractTestCase
      *
      * @return array
      */
-    public function docLinks()
+    public function docLinks(): array
     {
         return [
             [
@@ -102,10 +98,8 @@ class SanitizeTest extends AbstractTestCase
 
     /**
      * Tests link target validation.
-     *
-     * @return void
      */
-    public function testInvalidTarget()
+    public function testInvalidTarget(): void
     {
         $this->assertEquals(
             '[a@./Documentation.html@INVALID9]doc</a>',
@@ -115,10 +109,8 @@ class SanitizeTest extends AbstractTestCase
 
     /**
      * Tests XSS escaping after valid link.
-     *
-     * @return void
      */
-    public function testLinkDocXss()
+    public function testLinkDocXss(): void
     {
         $this->assertEquals(
             '[a@./Documentation.html" onmouseover="alert(foo)"]doc</a>',
@@ -128,10 +120,8 @@ class SanitizeTest extends AbstractTestCase
 
     /**
      * Tests proper handling of multi link code.
-     *
-     * @return void
      */
-    public function testLinkAndXssInHref()
+    public function testLinkAndXssInHref(): void
     {
         $this->assertEquals(
             '<a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2F">doc</a>'
@@ -144,10 +134,8 @@ class SanitizeTest extends AbstractTestCase
 
     /**
      * Test escaping of HTML tags
-     *
-     * @return void
      */
-    public function testHtmlTags()
+    public function testHtmlTags(): void
     {
         $this->assertEquals(
             '&lt;div onclick=""&gt;',
@@ -157,10 +145,8 @@ class SanitizeTest extends AbstractTestCase
 
     /**
      * Tests basic BB code.
-     *
-     * @return void
      */
-    public function testBBCode()
+    public function testBBCode(): void
     {
         $this->assertEquals(
             '<strong>strong</strong>',
@@ -170,10 +156,8 @@ class SanitizeTest extends AbstractTestCase
 
     /**
      * Tests output escaping.
-     *
-     * @return void
      */
-    public function testEscape()
+    public function testEscape(): void
     {
         $this->assertEquals(
             '&lt;strong&gt;strong&lt;/strong&gt;',
@@ -183,10 +167,8 @@ class SanitizeTest extends AbstractTestCase
 
     /**
      * Test for Sanitize::sanitizeFilename
-     *
-     * @return void
      */
-    public function testSanitizeFilename()
+    public function testSanitizeFilename(): void
     {
         $this->assertEquals(
             'File_name_123',
@@ -224,10 +206,8 @@ class SanitizeTest extends AbstractTestCase
 
     /**
      * Test for Sanitize::jsFormat
-     *
-     * @return void
      */
-    public function testJsFormat()
+    public function testJsFormat(): void
     {
         $this->assertEquals('`foo`', Sanitize::jsFormat('foo'));
     }
@@ -237,7 +217,7 @@ class SanitizeTest extends AbstractTestCase
      *
      * @return array
      */
-    public function variables()
+    public function variables(): array
     {
         return [
             [
@@ -296,7 +276,7 @@ class SanitizeTest extends AbstractTestCase
      *
      * @return array data for testEscape test case
      */
-    public function escapeDataProvider()
+    public function escapeDataProvider(): array
     {
         return [
             [
@@ -328,10 +308,8 @@ class SanitizeTest extends AbstractTestCase
 
     /**
      * Test for removeRequestVars
-     *
-     * @return void
      */
-    public function testRemoveRequestVars()
+    public function testRemoveRequestVars(): void
     {
         $GLOBALS['_POST'] = [];
         $_REQUEST['foo'] = 'bar';

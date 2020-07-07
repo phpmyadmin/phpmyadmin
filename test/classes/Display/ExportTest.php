@@ -58,10 +58,8 @@ class ExportTest extends AbstractTestCase
 
     /**
      * Test for Export::getHtmlForHiddenInputs
-     *
-     * @return void
      */
-    public function testGetHtmlForHiddenInputs()
+    public function testGetHtmlForHiddenInputs(): void
     {
         $export_type = 'server';
         $db = 'PMA';
@@ -97,10 +95,8 @@ class ExportTest extends AbstractTestCase
 
     /**
      * Test for Export::getHtmlForOptions
-     *
-     * @return void
      */
-    public function testGetHtmlForOptions()
+    public function testGetHtmlForOptions(): void
     {
         global $cfg;
         $cfg['Export']['method'] = 'XML';
@@ -240,10 +236,8 @@ class ExportTest extends AbstractTestCase
 
     /**
      * Test for Export::getHtmlForAliasModalDialog
-     *
-     * @return void
      */
-    public function testGetHtmlForAliasModalDialog()
+    public function testGetHtmlForAliasModalDialog(): void
     {
         $columns_info = [
             'test\'_db' => [

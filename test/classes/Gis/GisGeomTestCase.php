@@ -61,10 +61,8 @@ abstract class GisGeomTestCase extends AbstractTestCase
      * Tests whether content is a valid image.
      *
      * @param resource $object Image
-     *
-     * @return void
      */
-    public function assertImage($object)
+    public function assertImage($object): void
     {
         $this->assertGreaterThan(0, imagesx($object));
     }

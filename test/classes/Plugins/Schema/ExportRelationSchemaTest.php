@@ -47,11 +47,9 @@ class ExportRelationSchemaTest extends AbstractTestCase
     /**
      * Test for setPageNumber
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testSetPageNumber()
+    public function testSetPageNumber(): void
     {
         $this->object->setPageNumber(33);
         $this->assertEquals(
@@ -63,11 +61,9 @@ class ExportRelationSchemaTest extends AbstractTestCase
     /**
      * Test for setShowColor
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testSetShowColor()
+    public function testSetShowColor(): void
     {
         $this->object->setShowColor(true);
         $this->assertTrue(
@@ -82,11 +78,9 @@ class ExportRelationSchemaTest extends AbstractTestCase
     /**
      * Test for setOrientation
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testSetOrientation()
+    public function testSetOrientation(): void
     {
         $this->object->setOrientation('P');
         $this->assertEquals(
@@ -103,11 +97,9 @@ class ExportRelationSchemaTest extends AbstractTestCase
     /**
      * Test for setTableDimension
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testSetTableDimension()
+    public function testSetTableDimension(): void
     {
         $this->object->setTableDimension(true);
         $this->assertTrue(
@@ -122,11 +114,9 @@ class ExportRelationSchemaTest extends AbstractTestCase
     /**
      * Test for setPaper
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testSetPaper()
+    public function testSetPaper(): void
     {
         $this->object->setPaper('A5');
         $this->assertEquals(
@@ -143,11 +133,9 @@ class ExportRelationSchemaTest extends AbstractTestCase
     /**
      * Test for setAllTablesSameWidth
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testSetAllTablesSameWidth()
+    public function testSetAllTablesSameWidth(): void
     {
         $this->object->setAllTablesSameWidth(true);
         $this->assertTrue(
@@ -162,11 +150,9 @@ class ExportRelationSchemaTest extends AbstractTestCase
     /**
      * Test for setShowKeys
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testSetShowKeys()
+    public function testSetShowKeys(): void
     {
         $this->object->setShowKeys(true);
         $this->assertTrue(

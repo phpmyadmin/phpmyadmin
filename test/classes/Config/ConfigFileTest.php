@@ -56,11 +56,9 @@ class ConfigFileTest extends AbstractTestCase
     /**
      * Test for new ConfigFile()
      *
-     * @return void
-     *
      * @test
      */
-    public function testNewObjectState()
+    public function testNewObjectState(): void
     {
         // Check default dynamic values
         $this->assertEquals(
@@ -84,11 +82,9 @@ class ConfigFileTest extends AbstractTestCase
     /**
      * Test for ConfigFile::setPersistKeys()
      *
-     * @return void
-     *
      * @test
      */
-    public function testPersistentKeys()
+    public function testPersistentKeys(): void
     {
         $default_simple_value = $this->object->getDefault(
             self::SIMPLE_KEY_WITH_DEFAULT_VALUE
@@ -137,11 +133,9 @@ class ConfigFileTest extends AbstractTestCase
     /**
      * Test for ConfigFile::setAllowedKeys
      *
-     * @return void
-     *
      * @test
      */
-    public function testAllowedKeys()
+    public function testAllowedKeys(): void
     {
         /**
          * Case 1: filter should not allow to set b
@@ -178,11 +172,9 @@ class ConfigFileTest extends AbstractTestCase
     /**
      * Test for ConfigFile::setCfgUpdateReadMapping
      *
-     * @return void
-     *
      * @test
      */
-    public function testConfigReadMapping()
+    public function testConfigReadMapping(): void
     {
         $this->object->setCfgUpdateReadMapping(
             [
@@ -215,11 +207,9 @@ class ConfigFileTest extends AbstractTestCase
     /**
      * Test for ConfigFile::resetConfigData
      *
-     * @return void
-     *
      * @test
      */
-    public function testResetConfigData()
+    public function testResetConfigData(): void
     {
         $this->object->set('key', 'value');
 
@@ -232,11 +222,9 @@ class ConfigFileTest extends AbstractTestCase
     /**
      * Test for ConfigFile::setConfigData
      *
-     * @return void
-     *
      * @test
      */
-    public function testSetConfigData()
+    public function testSetConfigData(): void
     {
         $this->object->set('abc', 'should be deleted by setConfigData');
         $this->object->setConfigData(['a' => 'b']);
@@ -254,11 +242,9 @@ class ConfigFileTest extends AbstractTestCase
     /**
      * Test for ConfigFile::set and ConfigFile::get
      *
-     * @return void
-     *
      * @test
      */
-    public function testBasicSetUsage()
+    public function testBasicSetUsage(): void
     {
         $default_host = $this->object->getDefault('Servers/1/host');
         $nondefault_host = $default_host . '.abc';
@@ -297,11 +283,9 @@ class ConfigFileTest extends AbstractTestCase
     /**
      * Test for ConfigFile::set - in PMA Setup
      *
-     * @return void
-     *
      * @test
      */
-    public function testConfigFileSetInSetup()
+    public function testConfigFileSetInSetup(): void
     {
         $default_value = $this->object->getDefault(
             self::SIMPLE_KEY_WITH_DEFAULT_VALUE
@@ -315,11 +299,9 @@ class ConfigFileTest extends AbstractTestCase
     /**
      * Test for ConfigFile::set - in user preferences
      *
-     * @return void
-     *
      * @test
      */
-    public function testConfigFileSetInUserPreferences()
+    public function testConfigFileSetInUserPreferences(): void
     {
         $default_value = $this->object->getDefault(
             self::SIMPLE_KEY_WITH_DEFAULT_VALUE
@@ -348,12 +330,10 @@ class ConfigFileTest extends AbstractTestCase
     /**
      * Test for ConfigFile::getFlatDefaultConfig
      *
-     * @return void
-     *
      * @test
      * @group medium
      */
-    public function testGetFlatDefaultConfig()
+    public function testGetFlatDefaultConfig(): void
     {
         $flat_default_config = $this->object->getFlatDefaultConfig();
 
@@ -381,11 +361,9 @@ class ConfigFileTest extends AbstractTestCase
     /**
      * Test for ConfigFile::updateWithGlobalConfig
      *
-     * @return void
-     *
      * @test
      */
-    public function testUpdateWithGlobalConfig()
+    public function testUpdateWithGlobalConfig(): void
     {
         $this->object->set('key', 'value');
         $this->object->set('key2', 'value');
@@ -403,11 +381,9 @@ class ConfigFileTest extends AbstractTestCase
     /**
      * Test for ConfigFile::getCanonicalPath
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetCanonicalPath()
+    public function testGetCanonicalPath(): void
     {
         $this->assertEquals(
             'Servers/1/abcd',
@@ -423,11 +399,9 @@ class ConfigFileTest extends AbstractTestCase
     /**
      * Test for ConfigFile::getDbEntry
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetDbEntry()
+    public function testGetDbEntry(): void
     {
         $cfg_db = include ROOT_PATH . 'libraries/config.values.php';
         // verify that $cfg_db read from config.values.php is valid
@@ -447,11 +421,9 @@ class ConfigFileTest extends AbstractTestCase
     /**
      * Test for ConfigFile::getServerCount
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetServerCount()
+    public function testGetServerCount(): void
     {
         $this->object->set('Servers/1/x', 1);
         $this->object->set('Servers/2/x', 2);
@@ -497,11 +469,9 @@ class ConfigFileTest extends AbstractTestCase
     /**
      * Test for ConfigFile::getServers
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetServers()
+    public function testGetServers(): void
     {
         $this->object->set('Servers/1/x', 'a');
         $this->object->set('Servers/2/x', 'b');
@@ -518,11 +488,9 @@ class ConfigFileTest extends AbstractTestCase
     /**
      * Test for ConfigFile::getServerDSN
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetServerDSN()
+    public function testGetServerDSN(): void
     {
         $this->assertEquals(
             '',
@@ -587,11 +555,9 @@ class ConfigFileTest extends AbstractTestCase
     /**
      * Test for ConfigFile::getServerName
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetServerName()
+    public function testGetServerName(): void
     {
         $this->assertEquals(
             '',
@@ -614,11 +580,9 @@ class ConfigFileTest extends AbstractTestCase
     /**
      * Test for ConfigFile::getConfigArray
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetConfigArray()
+    public function testGetConfigArray(): void
     {
         $this->object->setPersistKeys([self::SIMPLE_KEY_WITH_DEFAULT_VALUE]);
         $this->object->set('Array/test', ['x', 'y']);

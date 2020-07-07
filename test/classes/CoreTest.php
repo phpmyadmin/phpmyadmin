@@ -43,10 +43,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::arrayRead
-     *
-     * @return void
      */
-    public function testArrayRead()
+    public function testArrayRead(): void
     {
         $arr = [
             'int' => 1,
@@ -147,10 +145,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::arrayWrite
-     *
-     * @return void
      */
-    public function testArrayWrite()
+    public function testArrayWrite(): void
     {
         $arr = [
             'int' => 1,
@@ -217,10 +213,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::arrayRemove
-     *
-     * @return void
      */
-    public function testArrayRemove()
+    public function testArrayRemove(): void
     {
         $arr = [
             'int' => 1,
@@ -313,7 +307,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @return array
      */
-    public function providerTestGotoNowhere()
+    public function providerTestGotoNowhere(): array
     {
         return [
             [
@@ -394,7 +388,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @return array
      */
-    public function providerTestPathInfo()
+    public function providerTestPathInfo(): array
     {
         return [
             [
@@ -450,10 +444,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::fatalError
-     *
-     * @return void
      */
-    public function testFatalErrorMessage()
+    public function testFatalErrorMessage(): void
     {
         $this->expectOutputRegex('/FatalError!/');
         Core::fatalError('FatalError!');
@@ -461,10 +453,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::fatalError
-     *
-     * @return void
      */
-    public function testFatalErrorMessageWithArgs()
+    public function testFatalErrorMessageWithArgs(): void
     {
         $message = 'Fatal error #%d in file %s.';
         $params = [
@@ -500,7 +490,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @return array
      */
-    public function providerTestGetRealSize()
+    public function providerTestGetRealSize(): array
     {
         return [
             [
@@ -540,10 +530,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::getPHPDocLink
-     *
-     * @return void
      */
-    public function testGetPHPDocLink()
+    public function testGetPHPDocLink(): void
     {
         $lang = _pgettext('PHP documentation language', 'en');
         $this->assertEquals(
@@ -571,7 +559,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @return array
      */
-    public function providerTestLinkURL()
+    public function providerTestLinkURL(): array
     {
         return [
             [
@@ -595,10 +583,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::sendHeaderLocation
-     *
-     * @return void
      */
-    public function testSendHeaderLocationWithoutSidWithIis()
+    public function testSendHeaderLocationWithoutSidWithIis(): void
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['PMA_Config']->enableBc();
@@ -615,10 +601,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::sendHeaderLocation
-     *
-     * @return void
      */
-    public function testSendHeaderLocationWithoutSidWithoutIis()
+    public function testSendHeaderLocationWithoutSidWithoutIis(): void
     {
         $GLOBALS['server'] = 0;
         parent::setGlobalConfig();
@@ -633,10 +617,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::sendHeaderLocation
-     *
-     * @return void
      */
-    public function testSendHeaderLocationIisLongUri()
+    public function testSendHeaderLocationIisLongUri(): void
     {
         $GLOBALS['server'] = 0;
         parent::setGlobalConfig();
@@ -679,10 +661,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::ifSetOr
-     *
-     * @return void
      */
-    public function testVarSet()
+    public function testVarSet(): void
     {
         $default = 'foo';
         $in = 'bar';
@@ -692,10 +672,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::ifSetOr
-     *
-     * @return void
      */
-    public function testVarSetWrongType()
+    public function testVarSetWrongType(): void
     {
         $default = 'foo';
         $in = 'bar';
@@ -705,10 +683,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::ifSetOr
-     *
-     * @return void
      */
-    public function testVarNotSet()
+    public function testVarNotSet(): void
     {
         $default = 'foo';
         // $in is not set!
@@ -718,10 +694,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::ifSetOr
-     *
-     * @return void
      */
-    public function testVarNotSetNoDefault()
+    public function testVarNotSetNoDefault(): void
     {
         // $in is not set!
         $out = Core::ifSetOr($in);
@@ -750,7 +724,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @return array
      */
-    public function provideTestIsAllowedDomain()
+    public function provideTestIsAllowedDomain(): array
     {
         return [
             [
@@ -807,7 +781,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @return array
      */
-    public static function providerTestNoVarType()
+    public static function providerTestNoVarType(): array
     {
         return [
             [
@@ -879,10 +853,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::isValid
-     *
-     * @return void
      */
-    public function testVarNotSetAfterTest()
+    public function testVarNotSetAfterTest(): void
     {
         Core::isValid($var);
         $this->assertFalse(isset($var));
@@ -890,20 +862,16 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::isValid
-     *
-     * @return void
      */
-    public function testNotSet()
+    public function testNotSet(): void
     {
         $this->assertFalse(Core::isValid($var));
     }
 
     /**
      * Test for Core::isValid
-     *
-     * @return void
      */
-    public function testEmptyString()
+    public function testEmptyString(): void
     {
         $var = '';
         $this->assertFalse(Core::isValid($var));
@@ -911,10 +879,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::isValid
-     *
-     * @return void
      */
-    public function testNotEmptyString()
+    public function testNotEmptyString(): void
     {
         $var = '0';
         $this->assertTrue(Core::isValid($var));
@@ -922,10 +888,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::isValid
-     *
-     * @return void
      */
-    public function testZero()
+    public function testZero(): void
     {
         $var = 0;
         $this->assertTrue(Core::isValid($var));
@@ -934,10 +898,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::isValid
-     *
-     * @return void
      */
-    public function testNullFail()
+    public function testNullFail(): void
     {
         $var = null;
         $this->assertFalse(Core::isValid($var));
@@ -948,10 +910,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::isValid
-     *
-     * @return void
      */
-    public function testNotSetArray()
+    public function testNotSetArray(): void
     {
         $array = [];
         $this->assertFalse(Core::isValid($array['x']));
@@ -959,10 +919,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::isValid
-     *
-     * @return void
      */
-    public function testScalarString()
+    public function testScalarString(): void
     {
         $var = 'string';
         $this->assertTrue(Core::isValid($var, 'len'));
@@ -972,10 +930,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::isValid
-     *
-     * @return void
      */
-    public function testScalarInt()
+    public function testScalarInt(): void
     {
         $var = 1;
         $this->assertTrue(Core::isValid($var, 'int'));
@@ -984,10 +940,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::isValid
-     *
-     * @return void
      */
-    public function testScalarFloat()
+    public function testScalarFloat(): void
     {
         $var = 1.1;
         $this->assertTrue(Core::isValid($var, 'float'));
@@ -997,10 +951,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::isValid
-     *
-     * @return void
      */
-    public function testScalarBool()
+    public function testScalarBool(): void
     {
         $var = true;
         $this->assertTrue(Core::isValid($var, 'scalar'));
@@ -1010,10 +962,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::isValid
-     *
-     * @return void
      */
-    public function testNotScalarArray()
+    public function testNotScalarArray(): void
     {
         $var = ['test'];
         $this->assertFalse(Core::isValid($var, 'scalar'));
@@ -1021,10 +971,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::isValid
-     *
-     * @return void
      */
-    public function testNotScalarNull()
+    public function testNotScalarNull(): void
     {
         $var = null;
         $this->assertFalse(Core::isValid($var, 'scalar'));
@@ -1032,10 +980,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::isValid
-     *
-     * @return void
      */
-    public function testNumericInt()
+    public function testNumericInt(): void
     {
         $var = 1;
         $this->assertTrue(Core::isValid($var, 'numeric'));
@@ -1043,10 +989,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::isValid
-     *
-     * @return void
      */
-    public function testNumericFloat()
+    public function testNumericFloat(): void
     {
         $var = 1.1;
         $this->assertTrue(Core::isValid($var, 'numeric'));
@@ -1054,10 +998,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::isValid
-     *
-     * @return void
      */
-    public function testNumericZero()
+    public function testNumericZero(): void
     {
         $var = 0;
         $this->assertTrue(Core::isValid($var, 'numeric'));
@@ -1065,10 +1007,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::isValid
-     *
-     * @return void
      */
-    public function testNumericString()
+    public function testNumericString(): void
     {
         $var = '+0.1';
         $this->assertTrue(Core::isValid($var, 'numeric'));
@@ -1076,10 +1016,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::isValid
-     *
-     * @return void
      */
-    public function testValueInArray()
+    public function testValueInArray(): void
     {
         $var = 'a';
         $this->assertTrue(Core::isValid($var, ['a', 'b']));
@@ -1087,10 +1025,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::isValid
-     *
-     * @return void
      */
-    public function testValueNotInArray()
+    public function testValueNotInArray(): void
     {
         $var = 'c';
         $this->assertFalse(Core::isValid($var, ['a', 'b']));
@@ -1098,10 +1034,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::isValid
-     *
-     * @return void
      */
-    public function testNumericIdentical()
+    public function testNumericIdentical(): void
     {
         $var = 1;
         $compare = 1;
@@ -1137,7 +1071,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @return array
      */
-    public function provideTestSimilarType()
+    public function provideTestSimilarType(): array
     {
         return [
             [
@@ -1188,10 +1122,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::isValid
-     *
-     * @return void
      */
-    public function testOtherTypes()
+    public function testOtherTypes(): void
     {
         $var = new CoreTest();
         $this->assertFalse(Core::isValid($var, 'class'));
@@ -1218,7 +1150,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @return array
      */
-    public function provideTestSafeUnserialize()
+    public function provideTestSafeUnserialize(): array
     {
         return [
             [
@@ -1290,7 +1222,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @return array
      */
-    public function provideTestSanitizeMySQLHost()
+    public function provideTestSanitizeMySQLHost(): array
     {
         return [
             [
@@ -1314,10 +1246,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for replacing dots.
-     *
-     * @return void
      */
-    public function testReplaceDots()
+    public function testReplaceDots(): void
     {
         $this->assertEquals(
             Core::securePath('../../../etc/passwd'),
@@ -1335,10 +1265,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::warnMissingExtension
-     *
-     * @return void
      */
-    public function testMissingExtensionFatal()
+    public function testMissingExtensionFatal(): void
     {
         $ext = 'php_ext';
         $warn = 'The <a href="' . Core::getPHPDocLink('book.' . $ext . '.php')
@@ -1352,10 +1280,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::warnMissingExtension
-     *
-     * @return void
      */
-    public function testMissingExtensionFatalWithExtra()
+    public function testMissingExtensionFatalWithExtra(): void
     {
         $ext = 'php_ext';
         $extra = 'Appended Extra String';
@@ -1375,10 +1301,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::signSqlQuery
-     *
-     * @return void
      */
-    public function testSignSqlQuery()
+    public function testSignSqlQuery(): void
     {
         $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
         $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
@@ -1389,10 +1313,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::checkSqlQuerySignature
-     *
-     * @return void
      */
-    public function testCheckSqlQuerySignature()
+    public function testCheckSqlQuerySignature(): void
     {
         $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
         $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
@@ -1402,10 +1324,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::checkSqlQuerySignature
-     *
-     * @return void
      */
-    public function testCheckSqlQuerySignatureFails()
+    public function testCheckSqlQuerySignatureFails(): void
     {
         $_SESSION[' HMAC_secret '] = hash('sha1', '132654987gguieunofz');
         $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
@@ -1415,10 +1335,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::checkSqlQuerySignature
-     *
-     * @return void
      */
-    public function testCheckSqlQuerySignatureFailsBadHash()
+    public function testCheckSqlQuerySignatureFailsBadHash(): void
     {
         $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
         $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
@@ -1428,10 +1346,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::checkSqlQuerySignature
-     *
-     * @return void
      */
-    public function testCheckSqlQuerySignatureFailsNoSession()
+    public function testCheckSqlQuerySignatureFailsNoSession(): void
     {
         $_SESSION[' HMAC_secret '] = 'empty';
         $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
@@ -1441,10 +1357,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::checkSqlQuerySignature
-     *
-     * @return void
      */
-    public function testCheckSqlQuerySignatureFailsFromAnotherSession()
+    public function testCheckSqlQuerySignatureFailsFromAnotherSession(): void
     {
         $_SESSION[' HMAC_secret '] = hash('sha1', 'firstSession');
         $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
@@ -1457,10 +1371,8 @@ class CoreTest extends AbstractNetworkTestCase
 
     /**
      * Test for Core::checkSqlQuerySignature
-     *
-     * @return void
      */
-    public function testCheckSqlQuerySignatureFailsBlowfishSecretChanged()
+    public function testCheckSqlQuerySignatureFailsBlowfishSecretChanged(): void
     {
         $GLOBALS['cfg']['blowfish_secret'] = '';
         $_SESSION[' HMAC_secret '] = hash('sha1', 'firstSession');

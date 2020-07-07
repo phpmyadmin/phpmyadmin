@@ -49,7 +49,7 @@ class TemplateTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerTestSet()
+    public function providerTestSet(): array
     {
         return [
             ['test/add_data'],
@@ -78,7 +78,7 @@ class TemplateTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerTestDynamicRender()
+    public function providerTestDynamicRender(): array
     {
         return [
             [
@@ -91,10 +91,8 @@ class TemplateTest extends AbstractTestCase
 
     /**
      * Test for render
-     *
-     * @return void
      */
-    public function testRenderTemplateNotFound()
+    public function testRenderTemplateNotFound(): void
     {
         $this->expectException(LoaderError::class);
         $this->template->render('template not found');
@@ -121,7 +119,7 @@ class TemplateTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerTestRender()
+    public function providerTestRender(): array
     {
         return [
             [
@@ -153,7 +151,7 @@ class TemplateTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerTestRenderGettext()
+    public function providerTestRenderGettext(): array
     {
         return [
             [

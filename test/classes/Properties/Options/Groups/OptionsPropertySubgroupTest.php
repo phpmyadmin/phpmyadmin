@@ -37,10 +37,8 @@ class OptionsPropertySubgroupTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup::getItemType
-     *
-     * @return void
      */
-    public function testGetItemType()
+    public function testGetItemType(): void
     {
         $this->assertEquals(
             'subgroup',
@@ -52,10 +50,8 @@ class OptionsPropertySubgroupTest extends AbstractTestCase
      * Test for
      *     - PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup::getSubgroupHeader
      *     - PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup::setSubgroupHeader
-     *
-     * @return void
      */
-    public function testGetSetSubgroupHeader()
+    public function testGetSetSubgroupHeader(): void
     {
         $this->object->setSubgroupHeader('subGroupHeader123');
 

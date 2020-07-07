@@ -38,10 +38,8 @@ class OptionsPropertyGroupTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Properties\Options\OptionsPropertyGroup::addProperty
-     *
-     * @return void
      */
-    public function testAddProperty()
+    public function testAddProperty(): void
     {
         $properties = new ReflectionProperty(OptionsPropertyGroup::class, '_properties');
         $properties->setAccessible(true);
@@ -67,10 +65,8 @@ class OptionsPropertyGroupTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Properties\Options\OptionsPropertyGroup::removeProperty
-     *
-     * @return void
      */
-    public function testRemoveProperty()
+    public function testRemoveProperty(): void
     {
         $properties = new ReflectionProperty(OptionsPropertyGroup::class, '_properties');
         $properties->setAccessible(true);
@@ -90,10 +86,8 @@ class OptionsPropertyGroupTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Properties\Options\OptionsPropertyGroup::getGroup
-     *
-     * @return void
      */
-    public function testGetGroup()
+    public function testGetGroup(): void
     {
         $this->assertInstanceOf(
             OptionsPropertyGroup::class,
@@ -103,10 +97,8 @@ class OptionsPropertyGroupTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Properties\Options\OptionsPropertyGroup::getProperties
-     *
-     * @return void
      */
-    public function testGetProperties()
+    public function testGetProperties(): void
     {
         $properties = new ReflectionProperty(OptionsPropertyGroup::class, '_properties');
         $properties->setAccessible(true);
@@ -124,10 +116,8 @@ class OptionsPropertyGroupTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Properties\Options\OptionsPropertyGroup::getProperties
-     *
-     * @return void
      */
-    public function testGetNrOfProperties()
+    public function testGetNrOfProperties(): void
     {
         $properties = new ReflectionProperty(OptionsPropertyGroup::class, '_properties');
         $properties->setAccessible(true);

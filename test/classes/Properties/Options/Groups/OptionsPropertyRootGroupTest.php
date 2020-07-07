@@ -37,10 +37,8 @@ class OptionsPropertyRootGroupTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup::getItemType
-     *
-     * @return void
      */
-    public function testGetItemType()
+    public function testGetItemType(): void
     {
         $this->assertEquals(
             'root',
@@ -50,10 +48,8 @@ class OptionsPropertyRootGroupTest extends AbstractTestCase
 
     /**
      * Test for contable interface
-     *
-     * @return void
      */
-    public function testCountable()
+    public function testCountable(): void
     {
         $this->assertCount(
             0,

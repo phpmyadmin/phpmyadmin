@@ -67,10 +67,8 @@ class ImportShpTest extends AbstractTestCase
      * Executes import of given file
      *
      * @param string $filename Name of test file
-     *
-     * @return void
      */
-    protected function runImport($filename)
+    protected function runImport($filename): void
     {
         $GLOBALS['import_file'] = $filename;
         $GLOBALS['import_handle'] = new File($filename);
@@ -99,11 +97,9 @@ class ImportShpTest extends AbstractTestCase
     /**
      * Test for getProperties
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testGetProperties()
+    public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
         $this->assertEquals(
@@ -127,11 +123,9 @@ class ImportShpTest extends AbstractTestCase
     /**
      * Test for doImport with complex data
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testImportOsm()
+    public function testImportOsm(): void
     {
         //$sql_query_disabled will show the import SQL detail
         //$import_notice will show the import detail result
@@ -163,11 +157,9 @@ class ImportShpTest extends AbstractTestCase
     /**
      * Test for doImport
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testDoImport()
+    public function testDoImport(): void
     {
         //$sql_query_disabled will show the import SQL detail
         //$import_notice will show the import detail result
@@ -222,10 +214,8 @@ class ImportShpTest extends AbstractTestCase
      * Validates import messages
      *
      * @param string $import_notice Messages to check
-     *
-     * @return void
      */
-    protected function assertMessages($import_notice)
+    protected function assertMessages($import_notice): void
     {
         $this->assertStringContainsString(
             'The following structures have either been created or altered.',

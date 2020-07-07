@@ -61,10 +61,8 @@ class NavigationTreeTest extends AbstractTestCase
 
     /**
      * Very basic rendering test.
-     *
-     * @return void
      */
-    public function testRenderState()
+    public function testRenderState(): void
     {
         $result = $this->object->renderState();
         $this->assertStringContainsString('pma_quick_warp', $result);
@@ -72,10 +70,8 @@ class NavigationTreeTest extends AbstractTestCase
 
     /**
      * Very basic path rendering test.
-     *
-     * @return void
      */
-    public function testRenderPath()
+    public function testRenderPath(): void
     {
         $result = $this->object->renderPath();
         $this->assertStringContainsString('list_container', $result);
@@ -83,10 +79,8 @@ class NavigationTreeTest extends AbstractTestCase
 
     /**
      * Very basic select rendering test.
-     *
-     * @return void
      */
-    public function testRenderDbSelect()
+    public function testRenderDbSelect(): void
     {
         $result = $this->object->renderDbSelect();
         $this->assertStringContainsString('pma_navigation_select_database', $result);

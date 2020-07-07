@@ -37,10 +37,8 @@ class ThemeManagerTest extends AbstractTestCase
 
     /**
      * Test for ThemeManager::getThemeCookieName
-     *
-     * @return void
      */
-    public function testCookieName()
+    public function testCookieName(): void
     {
         $tm = new ThemeManager();
         $this->assertEquals('pma_theme', $tm->getThemeCookieName());
@@ -48,10 +46,8 @@ class ThemeManagerTest extends AbstractTestCase
 
     /**
      * Test for ThemeManager::getThemeCookieName
-     *
-     * @return void
      */
-    public function testPerServerCookieName()
+    public function testPerServerCookieName(): void
     {
         $tm = new ThemeManager();
         $tm->setThemePerServer(true);
@@ -60,10 +56,8 @@ class ThemeManagerTest extends AbstractTestCase
 
     /**
      * Test for ThemeManager::getHtmlSelectBox
-     *
-     * @return void
      */
-    public function testHtmlSelectBox()
+    public function testHtmlSelectBox(): void
     {
         $tm = new ThemeManager();
         $this->assertStringContainsString(
@@ -74,10 +68,8 @@ class ThemeManagerTest extends AbstractTestCase
 
     /**
      * Test for setThemeCookie
-     *
-     * @return void
      */
-    public function testSetThemeCookie()
+    public function testSetThemeCookie(): void
     {
         $tm = new ThemeManager();
         $this->assertTrue(
@@ -87,10 +79,8 @@ class ThemeManagerTest extends AbstractTestCase
 
     /**
      * Test for getPrintPreviews
-     *
-     * @return void
      */
-    public function testGetPrintPreviews()
+    public function testGetPrintPreviews(): void
     {
         $tm = new ThemeManager();
         $preview = $tm->getPrintPreviews();

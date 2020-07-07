@@ -36,10 +36,8 @@ class NodeTableTest extends AbstractTestCase
 
     /**
      * Test for __construct
-     *
-     * @return void
      */
-    public function testConstructor()
+    public function testConstructor(): void
     {
         $parent = NodeFactory::getInstance('NodeTable');
         $this->assertArrayHasKey(
@@ -73,7 +71,7 @@ class NodeTableTest extends AbstractTestCase
      *
      * @return array data for testIcon()
      */
-    public function providerForTestIcon()
+    public function providerForTestIcon(): array
     {
         return [
             [

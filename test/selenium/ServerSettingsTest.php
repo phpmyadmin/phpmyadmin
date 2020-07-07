@@ -40,10 +40,8 @@ class ServerSettingsTest extends TestBase
 
     /**
      * Saves config and asserts correct message.
-     *
-     * @return void
      */
-    private function saveConfig()
+    private function saveConfig(): void
     {
         // Submit the form
         $ele = $this->waitForElement(
@@ -64,11 +62,9 @@ class ServerSettingsTest extends TestBase
     /**
      * Tests whether hiding a database works or not
      *
-     * @return void
-     *
      * @group large
      */
-    public function testHideDatabase()
+    public function testHideDatabase(): void
     {
         $this->createDatabase();
         $this->byPartialLinkText('Features')->click();
@@ -96,11 +92,9 @@ class ServerSettingsTest extends TestBase
     /**
      * Tests whether the various settings tabs are displayed when clicked
      *
-     * @return void
-     *
      * @group large
      */
-    public function testSettingsTabsAreDisplayed()
+    public function testSettingsTabsAreDisplayed(): void
     {
         $this->byPartialLinkText('SQL queries')->click();
         $this->waitAjax();
@@ -127,11 +121,9 @@ class ServerSettingsTest extends TestBase
     /**
      * Tests if hiding the logo works or not
      *
-     * @return void
-     *
      * @group large
      */
-    public function testHideLogo()
+    public function testHideLogo(): void
     {
         $this->byPartialLinkText('Navigation panel')->click();
         $this->waitAjax();

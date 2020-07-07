@@ -60,11 +60,9 @@ class OperationsTest extends TestBase
     /**
      * Test for changing a table order
      *
-     * @return void
-     *
      * @group large
      */
-    public function testChangeTableOrder()
+    public function testChangeTableOrder(): void
     {
         $this->selectByLabel(
             $this->byName('order_field'),
@@ -98,11 +96,9 @@ class OperationsTest extends TestBase
     /**
      * Test for moving a table
      *
-     * @return void
-     *
      * @group large
      */
-    public function testMoveTable()
+    public function testMoveTable(): void
     {
         $this->byCssSelector("form#moveTableForm input[name='new_name']")
             ->sendKeys('2');
@@ -121,7 +117,7 @@ class OperationsTest extends TestBase
         $this->dbQuery(
             'USE `' . $this->database_name . '`;'
             . 'SHOW TABLES LIKE \'test_table2\'',
-            function () {
+            function (): void {
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
                 $this->assertEquals('test_table2', $this->getCellByTableClass('table_results', 1, 1));
             }
@@ -131,11 +127,9 @@ class OperationsTest extends TestBase
     /**
      * Test for renaming a table
      *
-     * @return void
-     *
      * @group large
      */
-    public function testRenameTable()
+    public function testRenameTable(): void
     {
         $this->byCssSelector("form#tableOptionsForm input[name='new_name']")
             ->sendKeys('2');
@@ -156,7 +150,7 @@ class OperationsTest extends TestBase
         $this->dbQuery(
             'USE `' . $this->database_name . '`;'
             . 'SHOW TABLES LIKE \'test_table2\'',
-            function () {
+            function (): void {
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
                 $this->assertEquals('test_table2', $this->getCellByTableClass('table_results', 1, 1));
             }
@@ -166,11 +160,9 @@ class OperationsTest extends TestBase
     /**
      * Test for copying a table
      *
-     * @return void
-     *
      * @group large
      */
-    public function testCopyTable()
+    public function testCopyTable(): void
     {
         $this->scrollIntoView('copyTable');
         $this->waitUntilElementIsVisible('cssSelector', 'form#copyTable', 30);
@@ -189,7 +181,7 @@ class OperationsTest extends TestBase
 
         $this->dbQuery(
             'SELECT COUNT(*) as c FROM `' . $this->database_name . '`.test_table2',
-            function () {
+            function (): void {
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
                 $this->assertEquals('2', $this->getCellByTableClass('table_results', 1, 1));
             }
@@ -199,11 +191,9 @@ class OperationsTest extends TestBase
     /**
      * Test for truncating a table
      *
-     * @return void
-     *
      * @group large
      */
-    public function testTruncateTable()
+    public function testTruncateTable(): void
     {
         $this->scrollToBottom();
         $this->waitUntilElementIsVisible('id', 'drop_tbl_anchor', 30);
@@ -219,7 +209,7 @@ class OperationsTest extends TestBase
 
         $this->dbQuery(
             'SELECT CONCAT("Count: ", COUNT(*)) as c FROM `' . $this->database_name . '`.test_table',
-            function () {
+            function (): void {
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
                 $this->assertEquals('Count: 0', $this->getCellByTableClass('table_results', 1, 1));
             }
@@ -229,11 +219,9 @@ class OperationsTest extends TestBase
     /**
      * Test for dropping a table
      *
-     * @return void
-     *
      * @group large
      */
-    public function testDropTable()
+    public function testDropTable(): void
     {
         $dropLink = $this->waitUntilElementIsVisible('partialLinkText', 'Delete the table (DROP)', 30);
         $this->scrollToElement($this->byId('selflink'));
@@ -255,7 +243,7 @@ class OperationsTest extends TestBase
         $this->dbQuery(
             'USE `' . $this->database_name . '`;'
             . 'SHOW TABLES',
-            function () {
+            function (): void {
                 $this->assertFalse($this->isElementPresent('className', 'table_results'));
             }
         );

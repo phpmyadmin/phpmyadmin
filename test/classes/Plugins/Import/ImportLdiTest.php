@@ -86,11 +86,9 @@ class ImportLdiTest extends AbstractTestCase
     /**
      * Test for getProperties
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testGetProperties()
+    public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
         $this->assertEquals(
@@ -106,11 +104,9 @@ class ImportLdiTest extends AbstractTestCase
     /**
      * Test for getProperties for ldi_local_option = auto
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testGetPropertiesAutoLdi()
+    public function testGetPropertiesAutoLdi(): void
     {
         /**
          * The \PhpMyAdmin\DatabaseInterface mocked object
@@ -148,11 +144,9 @@ class ImportLdiTest extends AbstractTestCase
     /**
      * Test for doImport
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testDoImport()
+    public function testDoImport(): void
     {
         //$sql_query_disabled will show the import SQL detail
         global $sql_query, $sql_query_disabled;
@@ -185,11 +179,9 @@ class ImportLdiTest extends AbstractTestCase
     /**
      * Test for doImport : invalid import file
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testDoImportInvalidFile()
+    public function testDoImportInvalidFile(): void
     {
         global $import_file;
         $import_file = 'none';
@@ -211,11 +203,9 @@ class ImportLdiTest extends AbstractTestCase
     /**
      * Test for doImport with LDI setting
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testDoImportLDISetting()
+    public function testDoImportLDISetting(): void
     {
         global $ldi_local_option, $ldi_replace, $ldi_ignore, $ldi_terminated,
         $ldi_enclosed, $ldi_new_line, $skip_queries;

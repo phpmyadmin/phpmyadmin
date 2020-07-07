@@ -98,7 +98,7 @@ class ExportTest extends TestBase
      *
      * @return array Test cases data
      */
-    public function exportDataProvider()
+    public function exportDataProvider(): array
     {
         return [
             [
@@ -128,7 +128,7 @@ class ExportTest extends TestBase
      *
      * @return string export string
      */
-    private function doExport($type, $plugin)
+    private function doExport($type, $plugin): string
     {
         $this->expandMore();
         $this->waitForElement('partialLinkText', 'Export')->click();

@@ -54,7 +54,7 @@ class ErrorHandlerTest extends AbstractTestCase
      *
      * @return array data for testHandleError
      */
-    public function providerForTestHandleError()
+    public function providerForTestHandleError(): array
     {
         return [
             [
@@ -88,8 +88,6 @@ class ErrorHandlerTest extends AbstractTestCase
      * @param string $output_hide expected output if showing of errors is
      *                            disabled and 'sendErrorReports' is set to 'never'
      *
-     * @return void
-     *
      * @dataProvider providerForTestHandleError
      */
     public function testGetDispErrorsForDisplayFalse(
@@ -99,7 +97,7 @@ class ErrorHandlerTest extends AbstractTestCase
         $errline,
         $output_show,
         $output_hide
-    ) {
+    ): void {
         // TODO: Add other test cases for all combination of 'sendErrorReports'
         $GLOBALS['cfg']['SendErrorReports'] = 'never';
 
@@ -126,8 +124,6 @@ class ErrorHandlerTest extends AbstractTestCase
      * @param string $output_hide expected output if showing of errors is
      *                            disabled
      *
-     * @return void
-     *
      * @dataProvider providerForTestHandleError
      */
     public function testGetDispErrorsForDisplayTrue(
@@ -137,7 +133,7 @@ class ErrorHandlerTest extends AbstractTestCase
         $errline,
         $output_show,
         $output_hide
-    ) {
+    ): void {
         $this->object->handleError($errno, $errstr, $errfile, $errline);
 
         $this->assertStringContainsString(
@@ -148,10 +144,8 @@ class ErrorHandlerTest extends AbstractTestCase
 
     /**
      * Test for checkSavedErrors
-     *
-     * @return void
      */
-    public function testCheckSavedErrors()
+    public function testCheckSavedErrors(): void
     {
         $this->callFunction(
             $this->object,
@@ -165,11 +159,9 @@ class ErrorHandlerTest extends AbstractTestCase
     /**
      * Test for countErrors
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testCountErrors()
+    public function testCountErrors(): void
     {
         $this->object->addError(
             'Compile Error',
@@ -186,11 +178,9 @@ class ErrorHandlerTest extends AbstractTestCase
     /**
      * Test for sliceErrors
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testSliceErrors()
+    public function testSliceErrors(): void
     {
         $this->object->addError(
             'Compile Error',
@@ -222,10 +212,8 @@ class ErrorHandlerTest extends AbstractTestCase
 
     /**
      * Test for countUserErrors
-     *
-     * @return void
      */
-    public function testCountUserErrors()
+    public function testCountUserErrors(): void
     {
         $this->object->addError(
             'Compile Error',
@@ -251,30 +239,24 @@ class ErrorHandlerTest extends AbstractTestCase
 
     /**
      * Test for hasUserErrors
-     *
-     * @return void
      */
-    public function testHasUserErrors()
+    public function testHasUserErrors(): void
     {
         $this->assertFalse($this->object->hasUserErrors());
     }
 
     /**
      * Test for hasErrors
-     *
-     * @return void
      */
-    public function testHasErrors()
+    public function testHasErrors(): void
     {
         $this->assertFalse($this->object->hasErrors());
     }
 
     /**
      * Test for countDisplayErrors
-     *
-     * @return void
      */
-    public function testCountDisplayErrorsForDisplayTrue()
+    public function testCountDisplayErrorsForDisplayTrue(): void
     {
         $this->assertEquals(
             0,
@@ -284,10 +266,8 @@ class ErrorHandlerTest extends AbstractTestCase
 
     /**
      * Test for countDisplayErrors
-     *
-     * @return void
      */
-    public function testCountDisplayErrorsForDisplayFalse()
+    public function testCountDisplayErrorsForDisplayFalse(): void
     {
         $this->assertEquals(
             0,
@@ -297,10 +277,8 @@ class ErrorHandlerTest extends AbstractTestCase
 
     /**
      * Test for hasDisplayErrors
-     *
-     * @return void
      */
-    public function testHasDisplayErrors()
+    public function testHasDisplayErrors(): void
     {
         $this->assertFalse($this->object->hasDisplayErrors());
     }

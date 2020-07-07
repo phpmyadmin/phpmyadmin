@@ -32,10 +32,8 @@ class HttpRequestTest extends AbstractTestCase
      * Skip test if CURL extension is not installed
      *
      * @param bool $ssl_flags Whether to check support for SSL flags
-     *
-     * @return void
      */
-    public function checkCurl($ssl_flags = false)
+    public function checkCurl($ssl_flags = false): void
     {
         if (! function_exists('curl_init')) {
             $this->markTestSkipped('curl not supported');
@@ -187,10 +185,8 @@ class HttpRequestTest extends AbstractTestCase
      *
      * @param mixed $result   Result of HTTP request
      * @param mixed $expected Expected match
-     *
-     * @return void
      */
-    private function validateHttp($result, $expected)
+    private function validateHttp($result, $expected): void
     {
         if ($expected === true) {
             $this->assertTrue($result);
@@ -208,7 +204,7 @@ class HttpRequestTest extends AbstractTestCase
      *
      * @return array
      */
-    public function httpRequests()
+    public function httpRequests(): array
     {
         return [
             [

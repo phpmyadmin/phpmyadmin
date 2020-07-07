@@ -54,11 +54,9 @@ class TrackerTest extends AbstractTestCase
     /**
      * Test for Tracker::enable
      *
-     * @return void
-     *
      * @test
      */
-    public function testEnabled()
+    public function testEnabled(): void
     {
         $reflection = new ReflectionProperty(Tracker::class, 'enabled');
         $reflection->setAccessible(true);
@@ -72,11 +70,9 @@ class TrackerTest extends AbstractTestCase
     /**
      * Test for Tracker::isActive()
      *
-     * @return void
-     *
      * @test
      */
-    public function testIsActive()
+    public function testIsActive(): void
     {
         $attr = new ReflectionProperty(Tracker::class, 'enabled');
         $attr->setAccessible(true);
@@ -131,7 +127,7 @@ class TrackerTest extends AbstractTestCase
      *
      * @return array Test data
      */
-    public function getTableNameData()
+    public function getTableNameData(): array
     {
         return [
             [
@@ -152,11 +148,9 @@ class TrackerTest extends AbstractTestCase
     /**
      * Test for Tracker::isTracked()
      *
-     * @return void
-     *
      * @test
      */
-    public function testIsTracked()
+    public function testIsTracked(): void
     {
         $attr = new ReflectionProperty(Tracker::class, 'enabled');
         $attr->setAccessible(true);
@@ -189,11 +183,9 @@ class TrackerTest extends AbstractTestCase
     /**
      * Test for Tracker::getLogComment()
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetLogComment()
+    public function testGetLogComment(): void
     {
         $date = Util::date('Y-m-d H:i:s');
         $GLOBALS['cfg']['Server']['user'] = 'pma_test_user';
@@ -207,11 +199,9 @@ class TrackerTest extends AbstractTestCase
     /**
      * Test for Tracker::createVersion()
      *
-     * @return void
-     *
      * @test
      */
-    public function testCreateVersion()
+    public function testCreateVersion(): void
     {
         $GLOBALS['cfg']['Server']['tracking_add_drop_table'] = true;
         $GLOBALS['cfg']['Server']['tracking_add_drop_view'] = true;
@@ -322,11 +312,9 @@ class TrackerTest extends AbstractTestCase
     /**
      * Test for Tracker::deleteTracking()
      *
-     * @return void
-     *
      * @test
      */
-    public function testDeleteTracking()
+    public function testDeleteTracking(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -354,11 +342,9 @@ class TrackerTest extends AbstractTestCase
     /**
      * Test for Tracker::createDatabaseVersion()
      *
-     * @return void
-     *
      * @test
      */
-    public function testCreateDatabaseVersion()
+    public function testCreateDatabaseVersion(): void
     {
         $GLOBALS['cfg']['Server']['tracking_add_drop_table'] = true;
         $GLOBALS['cfg']['Server']['tracking_add_drop_view'] = true;
@@ -410,8 +396,6 @@ class TrackerTest extends AbstractTestCase
      * @param string $new_state State to change to
      * @param string $type      Type of test
      *
-     * @return void
-     *
      * @test
      */
     public function testChangeTracking(
@@ -420,7 +404,7 @@ class TrackerTest extends AbstractTestCase
         $version = '0.1',
         $new_state = '1',
         $type = null
-    ) {
+    ): void {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -468,11 +452,9 @@ class TrackerTest extends AbstractTestCase
     /**
      * Test for Tracker::testChangeTrackingData()
      *
-     * @return void
-     *
      * @test
      */
-    public function testChangeTrackingData()
+    public function testChangeTrackingData(): void
     {
         $this->assertFalse(
             Tracker::changeTrackingData('', '', '', '', '')
@@ -559,11 +541,9 @@ class TrackerTest extends AbstractTestCase
     /**
      * Test for Tracker::activateTracking()
      *
-     * @return void
-     *
      * @test
      */
-    public function testActivateTracking()
+    public function testActivateTracking(): void
     {
         $this->testChangeTracking('pma_db', 'pma_tbl', '0.1', 1, 'activate');
     }
@@ -571,11 +551,9 @@ class TrackerTest extends AbstractTestCase
     /**
      * Test for Tracker::deactivateTracking()
      *
-     * @return void
-     *
      * @test
      */
-    public function testDeactivateTracking()
+    public function testDeactivateTracking(): void
     {
         $this->testChangeTracking('pma_db', 'pma_tbl', '0.1', '0', 'deactivate');
     }
@@ -639,7 +617,7 @@ class TrackerTest extends AbstractTestCase
      *
      * @return array Test data
      */
-    public function getTrackedDataProvider()
+    public function getTrackedDataProvider(): array
     {
         $fetchArrayReturn = [
             [
@@ -735,8 +713,6 @@ class TrackerTest extends AbstractTestCase
      * @param string $db                     Expected dbname
      * @param string $tablename_after_rename Expected name after rename
      *
-     * @return void
-     *
      * @test
      * @dataProvider parseQueryData
      */
@@ -747,7 +723,7 @@ class TrackerTest extends AbstractTestCase
         $tablename,
         $db = null,
         $tablename_after_rename = null
-    ) {
+    ): void {
         $result = Tracker::parseQuery($query);
 
         $this->assertEquals(
@@ -787,7 +763,7 @@ class TrackerTest extends AbstractTestCase
      *
      * @return array Test data
      */
-    public function parseQueryData()
+    public function parseQueryData(): array
     {
         $query = [];
         /** TODO: Should test fail when USE is in conjunction with * identifiers?

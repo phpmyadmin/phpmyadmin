@@ -47,10 +47,8 @@ class ChangePasswordTest extends AbstractTestCase
 
     /**
      * Test for ChangePassword::getHtml
-     *
-     * @return void
      */
-    public function testGetHtml()
+    public function testGetHtml(): void
     {
         $username = 'pma_username';
         $hostname = 'pma_hostname';

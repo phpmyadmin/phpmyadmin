@@ -32,11 +32,9 @@ class CreateTest extends TestBase
     /**
      * Creates a table
      *
-     * @return void
-     *
      * @group large
      */
-    public function testCreateTable()
+    public function testCreateTable(): void
     {
         $this->waitAjax();
         $this->waitAjax();
@@ -104,10 +102,8 @@ class CreateTest extends TestBase
 
     /**
      * Make assertions for table structure
-     *
-     * @return void
      */
-    private function tableStructureAssertions()
+    private function tableStructureAssertions(): void
     {
         $this->navigateTable('test_table', true);
 

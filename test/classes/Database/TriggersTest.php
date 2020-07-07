@@ -63,7 +63,7 @@ class TriggersTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetDataFromRequestEmpty()
+    public function providerGetDataFromRequestEmpty(): array
     {
         return [
             [
@@ -132,7 +132,7 @@ class TriggersTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetEditorFormAdd()
+    public function providerGetEditorFormAdd(): array
     {
         $data = [
             'item_name'               => '',
@@ -203,7 +203,7 @@ class TriggersTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetEditorFormEdit()
+    public function providerGetEditorFormEdit(): array
     {
         $data = [
             'item_name'               => 'foo',
@@ -275,7 +275,7 @@ class TriggersTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetEditorFormAjax()
+    public function providerGetEditorFormAjax(): array
     {
         $data = [
             'item_name'               => 'foo',
@@ -311,8 +311,6 @@ class TriggersTest extends AbstractTestCase
      * @param string $query      Query
      * @param string $num_err    Error number
      *
-     * @return void
-     *
      * @dataProvider providerGetQueryFromRequest
      */
     public function testGetQueryFromRequest(
@@ -324,7 +322,7 @@ class TriggersTest extends AbstractTestCase
         $definition,
         $query,
         $num_err
-    ) {
+    ): void {
         global $errors;
 
         $errors = [];
@@ -346,7 +344,7 @@ class TriggersTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetQueryFromRequest()
+    public function providerGetQueryFromRequest(): array
     {
         return [
             [

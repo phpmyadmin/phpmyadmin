@@ -17,10 +17,8 @@ class EnvironmentTest extends AbstractTestCase
 {
     /**
      * Tests PHP version
-     *
-     * @return void
      */
-    public function testPhpVersion()
+    public function testPhpVersion(): void
     {
         $this->assertTrue(
             version_compare('7.1.3', PHP_VERSION, '<='),

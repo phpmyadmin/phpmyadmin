@@ -53,7 +53,7 @@ class ZipExtensionTest extends AbstractTestCase
      *
      * @return array
      */
-    public function provideTestGetContents()
+    public function provideTestGetContents(): array
     {
         return [
             [
@@ -97,7 +97,7 @@ class ZipExtensionTest extends AbstractTestCase
      *
      * @return array Test data
      */
-    public function provideTestFindFile()
+    public function provideTestFindFile(): array
     {
         return [
             [
@@ -110,10 +110,8 @@ class ZipExtensionTest extends AbstractTestCase
 
     /**
      * Test for getNumberOfFiles
-     *
-     * @return void
      */
-    public function testGetNumberOfFiles()
+    public function testGetNumberOfFiles(): void
     {
         $this->assertEquals(
             $this->zipExtension->getNumberOfFiles('./test/test_data/test.zip'),
@@ -123,10 +121,8 @@ class ZipExtensionTest extends AbstractTestCase
 
     /**
      * Test for extract
-     *
-     * @return void
      */
-    public function testExtract()
+    public function testExtract(): void
     {
         $this->assertFalse(
             $this->zipExtension->extract(
@@ -145,10 +141,8 @@ class ZipExtensionTest extends AbstractTestCase
 
     /**
      * Test for createFile
-     *
-     * @return void
      */
-    public function testCreateSingleFile()
+    public function testCreateSingleFile(): void
     {
         $file = $this->zipExtension->createFile('Test content', 'test.txt');
         $this->assertNotEmpty($file);
@@ -171,10 +165,8 @@ class ZipExtensionTest extends AbstractTestCase
 
     /**
      * Test for createFile
-     *
-     * @return void
      */
-    public function testCreateFailure()
+    public function testCreateFailure(): void
     {
         $this->assertFalse(
             $this->zipExtension->createFile(
@@ -189,10 +181,8 @@ class ZipExtensionTest extends AbstractTestCase
 
     /**
      * Test for createFile
-     *
-     * @return void
      */
-    public function testCreateMultiFile()
+    public function testCreateMultiFile(): void
     {
         $file = $this->zipExtension->createFile(
             [

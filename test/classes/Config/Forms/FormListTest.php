@@ -62,7 +62,7 @@ class FormListTest extends AbstractTestCase
     /**
      * @return array
      */
-    public function formObjects()
+    public function formObjects(): array
     {
         return [
             [

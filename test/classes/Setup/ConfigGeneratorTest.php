@@ -30,11 +30,9 @@ class ConfigGeneratorTest extends AbstractTestCase
     /**
      * Test for ConfigGenerator::getConfigFile
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testGetConfigFile()
+    public function testGetConfigFile(): void
     {
         unset($_SESSION['eol']);
 
@@ -88,10 +86,8 @@ class ConfigGeneratorTest extends AbstractTestCase
 
     /**
      * Test for ConfigGenerator::getVarExport
-     *
-     * @return void
      */
-    public function testGetVarExport()
+    public function testGetVarExport(): void
     {
         $reflection = new ReflectionClass(ConfigGenerator::class);
         $method = $reflection->getMethod('getVarExport');
@@ -139,10 +135,8 @@ class ConfigGeneratorTest extends AbstractTestCase
 
     /**
      * Test for ConfigGenerator::isZeroBasedArray
-     *
-     * @return void
      */
-    public function testIsZeroBasedArray()
+    public function testIsZeroBasedArray(): void
     {
         $reflection = new ReflectionClass(ConfigGenerator::class);
         $method = $reflection->getMethod('isZeroBasedArray');
@@ -190,10 +184,8 @@ class ConfigGeneratorTest extends AbstractTestCase
 
     /**
      * Test for ConfigGenerator::exportZeroBasedArray
-     *
-     * @return void
      */
-    public function testExportZeroBasedArray()
+    public function testExportZeroBasedArray(): void
     {
         $reflection = new ReflectionClass(ConfigGenerator::class);
         $method = $reflection->getMethod('exportZeroBasedArray');

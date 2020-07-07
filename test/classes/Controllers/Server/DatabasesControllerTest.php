@@ -116,10 +116,7 @@ class DatabasesControllerTest extends AbstractTestCase
         $this->assertStringContainsString('name="db_collation"', $actual);
     }
 
-    /**
-     * @return void
-     */
-    public function testCreateDatabaseAction()
+    public function testCreateDatabaseAction(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -176,10 +173,7 @@ class DatabasesControllerTest extends AbstractTestCase
         );
     }
 
-    /**
-     * @return void
-     */
-    public function testDropDatabasesAction()
+    public function testDropDatabasesAction(): void
     {
         global $cfg;
 

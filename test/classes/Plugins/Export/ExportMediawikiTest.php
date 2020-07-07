@@ -57,10 +57,8 @@ class ExportMediawikiTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportMediawiki::setProperties
-     *
-     * @return void
      */
-    public function testSetProperties()
+    public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportMediawiki::class, 'setProperties');
         $method->setAccessible(true);
@@ -202,10 +200,8 @@ class ExportMediawikiTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportMediawiki::exportHeader
-     *
-     * @return void
      */
-    public function testExportHeader()
+    public function testExportHeader(): void
     {
         $this->assertTrue(
             $this->object->exportHeader()
@@ -214,10 +210,8 @@ class ExportMediawikiTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportMediawiki::exportFooter
-     *
-     * @return void
      */
-    public function testExportFooter()
+    public function testExportFooter(): void
     {
         $this->assertTrue(
             $this->object->exportFooter()
@@ -226,10 +220,8 @@ class ExportMediawikiTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportMediawiki::exportDBHeader
-     *
-     * @return void
      */
-    public function testExportDBHeader()
+    public function testExportDBHeader(): void
     {
         $this->assertTrue(
             $this->object->exportDBHeader('testDB')
@@ -238,10 +230,8 @@ class ExportMediawikiTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportMediawiki::exportDBFooter
-     *
-     * @return void
      */
-    public function testExportDBFooter()
+    public function testExportDBFooter(): void
     {
         $this->assertTrue(
             $this->object->exportDBFooter('testDB')
@@ -250,10 +240,8 @@ class ExportMediawikiTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportMediawiki::exportDBCreate
-     *
-     * @return void
      */
-    public function testExportDBCreate()
+    public function testExportDBCreate(): void
     {
         $this->assertTrue(
             $this->object->exportDBCreate('testDB', 'database')
@@ -262,10 +250,8 @@ class ExportMediawikiTest extends AbstractTestCase
 
     /**
      * Test for ExportMediaWiki::exportStructure
-     *
-     * @return void
      */
-    public function testExportStructure()
+    public function testExportStructure(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -346,10 +332,8 @@ class ExportMediawikiTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportMediawiki::exportData
-     *
-     * @return void
      */
-    public function testExportData()
+    public function testExportData(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()

@@ -66,10 +66,8 @@ class ExportLatexTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportLatex::setProperties
-     *
-     * @return void
      */
-    public function testSetProperties()
+    public function testSetProperties(): void
     {
         $GLOBALS['plugin_param']['export_type'] = '';
         $GLOBALS['plugin_param']['single_table'] = false;
@@ -477,10 +475,8 @@ class ExportLatexTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportLatex::exportHeader
-     *
-     * @return void
      */
-    public function testExportHeader()
+    public function testExportHeader(): void
     {
         $GLOBALS['crlf'] = "\n";
         $GLOBALS['cfg']['Server']['port'] = 80;
@@ -500,10 +496,8 @@ class ExportLatexTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportLatex::exportFooter
-     *
-     * @return void
      */
-    public function testExportFooter()
+    public function testExportFooter(): void
     {
         $this->assertTrue(
             $this->object->exportFooter()
@@ -512,10 +506,8 @@ class ExportLatexTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportLatex::exportDBHeader
-     *
-     * @return void
      */
-    public function testExportDBHeader()
+    public function testExportDBHeader(): void
     {
         $GLOBALS['crlf'] = "\n";
 
@@ -530,10 +522,8 @@ class ExportLatexTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportLatex::exportDBFooter
-     *
-     * @return void
      */
-    public function testExportDBFooter()
+    public function testExportDBFooter(): void
     {
         $this->assertTrue(
             $this->object->exportDBFooter('testDB')
@@ -542,10 +532,8 @@ class ExportLatexTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportLatex::exportDBCreate
-     *
-     * @return void
      */
-    public function testExportDBCreate()
+    public function testExportDBCreate(): void
     {
         $this->assertTrue(
             $this->object->exportDBCreate('testDB', 'database')
@@ -554,10 +542,8 @@ class ExportLatexTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportLatex::exportData
-     *
-     * @return void
      */
-    public function testExportData()
+    public function testExportData(): void
     {
         $GLOBALS['latex_caption'] = true;
         $GLOBALS['latex_data_caption'] = 'latex data caption';
@@ -668,10 +654,8 @@ class ExportLatexTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportLatex::exportStructure
-     *
-     * @return void
      */
-    public function testExportStructure()
+    public function testExportStructure(): void
     {
         // $this->object = $this->getMockBuilder(ExportHtmlword::class)
         //     ->setMethods(array('formatOneColumnDefinition'))
@@ -988,10 +972,8 @@ class ExportLatexTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportLatex::texEscape
-     *
-     * @return void
      */
-    public function testTexEscape()
+    public function testTexEscape(): void
     {
         $this->assertEquals(
             '\\$\\%\\{foo\\&bar\\}\\#\\_\\^',

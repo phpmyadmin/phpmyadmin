@@ -65,11 +65,9 @@ class NavigationTest extends AbstractTestCase
     /**
      * Tests hideNavigationItem() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testHideNavigationItem()
+    public function testHideNavigationItem(): void
     {
         $expectedQuery = 'INSERT INTO `pmadb`.`navigationhiding`'
             . '(`username`, `item_name`, `item_type`, `db_name`, `table_name`)'
@@ -91,11 +89,9 @@ class NavigationTest extends AbstractTestCase
     /**
      * Tests unhideNavigationItem() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testUnhideNavigationItem()
+    public function testUnhideNavigationItem(): void
     {
         $expectedQuery = 'DELETE FROM `pmadb`.`navigationhiding`'
             . " WHERE `username`='user' AND `item_name`='itemName'"
@@ -117,11 +113,9 @@ class NavigationTest extends AbstractTestCase
     /**
      * Tests getItemUnhideDialog() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetItemUnhideDialog()
+    public function testGetItemUnhideDialog(): void
     {
         $html = $this->object->getItemUnhideDialog('db');
         $this->assertStringContainsString(

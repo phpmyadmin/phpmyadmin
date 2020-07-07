@@ -105,11 +105,9 @@ class ReplicationGuiTest extends AbstractTestCase
     /**
      * Test for getHtmlForMasterReplication
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testGetHtmlForMasterReplication()
+    public function testGetHtmlForMasterReplication(): void
     {
         global $master_variables_alerts;
         global $master_variables_oks;
@@ -207,10 +205,8 @@ class ReplicationGuiTest extends AbstractTestCase
 
     /**
      * Test for getHtmlForSlaveConfiguration
-     *
-     * @return void
      */
-    public function testGetHtmlForSlaveConfiguration()
+    public function testGetHtmlForSlaveConfiguration(): void
     {
         global $server_slave_replication;
 
@@ -260,10 +256,8 @@ class ReplicationGuiTest extends AbstractTestCase
 
     /**
      * Test for getHtmlForReplicationChangeMaster
-     *
-     * @return void
      */
-    public function testGetHtmlForReplicationChangeMaster()
+    public function testGetHtmlForReplicationChangeMaster(): void
     {
         //Call the test function
         $html = $this->replicationGui->getHtmlForReplicationChangeMaster(

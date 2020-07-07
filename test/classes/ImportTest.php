@@ -38,10 +38,8 @@ class ImportTest extends AbstractTestCase
 
     /**
      * Test for checkTimeout
-     *
-     * @return void
      */
-    public function testCheckTimeout()
+    public function testCheckTimeout(): void
     {
         global $timestamp, $maximum_time, $timeout_passed;
 
@@ -83,10 +81,8 @@ class ImportTest extends AbstractTestCase
 
     /**
      * Test for lookForUse
-     *
-     * @return void
      */
-    public function testLookForUse()
+    public function testLookForUse(): void
     {
         $this->assertEquals(
             [
@@ -163,7 +159,7 @@ class ImportTest extends AbstractTestCase
      *
      * @return array
      */
-    public function provGetColumnAlphaName()
+    public function provGetColumnAlphaName(): array
     {
         return [
             [
@@ -211,7 +207,7 @@ class ImportTest extends AbstractTestCase
      *
      * @return array
      */
-    public function provGetColumnNumberFromName()
+    public function provGetColumnNumberFromName(): array
     {
         return [
             [
@@ -259,7 +255,7 @@ class ImportTest extends AbstractTestCase
      *
      * @return array
      */
-    public function provGetDecimalPrecision()
+    public function provGetDecimalPrecision(): array
     {
         return [
             [
@@ -299,7 +295,7 @@ class ImportTest extends AbstractTestCase
      *
      * @return array
      */
-    public function provGetDecimalScale()
+    public function provGetDecimalScale(): array
     {
         return [
             [
@@ -339,7 +335,7 @@ class ImportTest extends AbstractTestCase
      *
      * @return array
      */
-    public function provGetDecimalSize()
+    public function provGetDecimalSize(): array
     {
         return [
             [
@@ -398,7 +394,7 @@ class ImportTest extends AbstractTestCase
      *
      * @return array
      */
-    public function provDetectType()
+    public function provDetectType(): array
     {
         $data = [
             [
@@ -489,10 +485,8 @@ class ImportTest extends AbstractTestCase
 
     /**
      * Test for getMatchedRows.
-     *
-     * @return void
      */
-    public function testPMAGetMatchedRows()
+    public function testPMAGetMatchedRows(): void
     {
         $GLOBALS['db'] = 'PMA';
         //mock DBI
@@ -540,10 +534,8 @@ class ImportTest extends AbstractTestCase
      *
      * @param string $sqlQuery       SQL query
      * @param string $simulatedQuery Simulated query
-     *
-     * @return void
      */
-    public function simulatedQueryTest($sqlQuery, $simulatedQuery)
+    public function simulatedQueryTest($sqlQuery, $simulatedQuery): void
     {
         $parser = new Parser($sqlQuery);
         $analyzed_sql_results = [
@@ -575,10 +567,8 @@ class ImportTest extends AbstractTestCase
 
     /**
      * Test for checkIfRollbackPossible
-     *
-     * @return void
      */
-    public function testPMACheckIfRollbackPossible()
+    public function testPMACheckIfRollbackPossible(): void
     {
         $GLOBALS['db'] = 'PMA';
         //mock DBI

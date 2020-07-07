@@ -40,11 +40,9 @@ class UserGroupsTest extends AbstractTestCase
     /**
      * Tests UserGroups::getHtmlForUserGroupsTable() function when there are no user groups
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testGetHtmlForUserGroupsTableWithNoUserGroups()
+    public function testGetHtmlForUserGroupsTableWithNoUserGroups(): void
     {
         $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups`'
             . ' ORDER BY `usergroup` ASC';
@@ -78,10 +76,8 @@ class UserGroupsTest extends AbstractTestCase
 
     /**
      * Tests UserGroups::getHtmlForUserGroupsTable() function when there are user groups
-     *
-     * @return void
      */
-    public function testGetHtmlForUserGroupsTableWithUserGroups()
+    public function testGetHtmlForUserGroupsTableWithUserGroups(): void
     {
         $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups`'
             . ' ORDER BY `usergroup` ASC';
@@ -162,10 +158,8 @@ class UserGroupsTest extends AbstractTestCase
 
     /**
      * Tests UserGroups::delete() function
-     *
-     * @return void
      */
-    public function testDeleteUserGroup()
+    public function testDeleteUserGroup(): void
     {
         $userDelQuery = 'DELETE FROM `pmadb`.`users`'
             . " WHERE `usergroup`='ug'";
@@ -192,10 +186,8 @@ class UserGroupsTest extends AbstractTestCase
 
     /**
      * Tests UserGroups::getHtmlToEditUserGroup() function
-     *
-     * @return void
      */
-    public function testGetHtmlToEditUserGroup()
+    public function testGetHtmlToEditUserGroup(): void
     {
         // adding a user group
         $html = UserGroups::getHtmlToEditUserGroup();

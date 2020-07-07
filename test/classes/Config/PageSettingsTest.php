@@ -34,10 +34,8 @@ class PageSettingsTest extends AbstractTestCase
 
     /**
      * Test showGroup when group passed does not exist
-     *
-     * @return void
      */
-    public function testShowGroupNonExistent()
+    public function testShowGroupNonExistent(): void
     {
         $object = PageSettings::showGroup('NonExistent');
 
@@ -46,10 +44,8 @@ class PageSettingsTest extends AbstractTestCase
 
     /**
      * Test showGroup with a known group name
-     *
-     * @return void
      */
-    public function testShowGroupBrowse()
+    public function testShowGroupBrowse(): void
     {
         $object = PageSettings::showGroup('Browse');
 
@@ -80,10 +76,8 @@ class PageSettingsTest extends AbstractTestCase
 
     /**
      * Test getNaviSettings
-     *
-     * @return void
      */
-    public function testGetNaviSettings()
+    public function testGetNaviSettings(): void
     {
         $html = PageSettings::getNaviSettings();
 

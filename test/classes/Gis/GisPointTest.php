@@ -52,7 +52,7 @@ class GisPointTest extends GisGeomTestCase
      *
      * @return array data for testGenerateWkt
      */
-    public function providerForTestGenerateWkt()
+    public function providerForTestGenerateWkt(): array
     {
         return [
             [
@@ -120,7 +120,7 @@ class GisPointTest extends GisGeomTestCase
      *
      * @return array data for testGetShape
      */
-    public function providerForTestGetShape()
+    public function providerForTestGetShape(): array
     {
         return [
             [
@@ -138,7 +138,7 @@ class GisPointTest extends GisGeomTestCase
      *
      * @return array data for testGenerateParams
      */
-    public function providerForTestGenerateParams()
+    public function providerForTestGenerateParams(): array
     {
         return [
             [
@@ -175,7 +175,7 @@ class GisPointTest extends GisGeomTestCase
      *
      * @return array data for testScaleRow
      */
-    public function providerForTestScaleRow()
+    public function providerForTestScaleRow(): array
     {
         return [
             [
@@ -199,8 +199,6 @@ class GisPointTest extends GisGeomTestCase
      * @param array    $scale_data  array containing data related to scaling
      * @param resource $image       image object
      *
-     * @return void
-     *
      * @dataProvider providerForPrepareRowAsPng
      */
     public function testPrepareRowAsPng(
@@ -209,7 +207,7 @@ class GisPointTest extends GisGeomTestCase
         $point_color,
         $scale_data,
         $image
-    ) {
+    ): void {
         $return = $this->object->prepareRowAsPng(
             $spatial,
             $label,
@@ -225,7 +223,7 @@ class GisPointTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsPng() test case
      */
-    public function providerForPrepareRowAsPng()
+    public function providerForPrepareRowAsPng(): array
     {
         if (! function_exists('imagecreatetruecolor')) {
             $this->markTestSkipped('GD extension missing!');
@@ -256,8 +254,6 @@ class GisPointTest extends GisGeomTestCase
      * @param array  $scale_data  array containing data related to scaling
      * @param TCPDF  $pdf         TCPDF instance
      *
-     * @return void
-     *
      * @dataProvider providerForPrepareRowAsPdf
      */
     public function testPrepareRowAsPdf(
@@ -266,7 +262,7 @@ class GisPointTest extends GisGeomTestCase
         $point_color,
         $scale_data,
         $pdf
-    ) {
+    ): void {
         $return = $this->object->prepareRowAsPdf(
             $spatial,
             $label,
@@ -282,7 +278,7 @@ class GisPointTest extends GisGeomTestCase
      *
      * @return array test data for prepareRowAsPdf() test case
      */
-    public function providerForPrepareRowAsPdf()
+    public function providerForPrepareRowAsPdf(): array
     {
         return [
             [
@@ -309,8 +305,6 @@ class GisPointTest extends GisGeomTestCase
      * @param array  $scaleData  array containing data related to scaling
      * @param string $output     expected output
      *
-     * @return void
-     *
      * @dataProvider providerForPrepareRowAsSvg
      */
     public function testPrepareRowAsSvg(
@@ -319,7 +313,7 @@ class GisPointTest extends GisGeomTestCase
         $pointColor,
         $scaleData,
         $output
-    ) {
+    ): void {
         $this->assertEquals(
             $output,
             $this->object->prepareRowAsSvg(
@@ -336,7 +330,7 @@ class GisPointTest extends GisGeomTestCase
      *
      * @return array test data for prepareRowAsSvg() test case
      */
-    public function providerForPrepareRowAsSvg()
+    public function providerForPrepareRowAsSvg(): array
     {
         return [
             [
@@ -364,8 +358,6 @@ class GisPointTest extends GisGeomTestCase
      * @param array  $scale_data  array containing data related to scaling
      * @param string $output      expected output
      *
-     * @return void
-     *
      * @dataProvider providerForPrepareRowAsOl
      */
     public function testPrepareRowAsOl(
@@ -375,7 +367,7 @@ class GisPointTest extends GisGeomTestCase
         $point_color,
         $scale_data,
         $output
-    ) {
+    ): void {
         $this->assertEquals(
             $output,
             $this->object->prepareRowAsOl(
@@ -393,7 +385,7 @@ class GisPointTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsOl() test case
      */
-    public function providerForPrepareRowAsOl()
+    public function providerForPrepareRowAsOl(): array
     {
         return [
             [

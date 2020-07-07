@@ -47,11 +47,9 @@ class NormalizationTest extends TestBase
     /**
      * Test for normalization to 1NF
      *
-     * @return void
-     *
      * @group large
      */
-    public function testNormalizationTo1NF()
+    public function testNormalizationTo1NF(): void
     {
         $this->assertTrue(
             $this->isElementPresent('cssSelector', 'fieldset')

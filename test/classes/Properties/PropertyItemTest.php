@@ -37,10 +37,8 @@ class PropertyItemTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Properties\PropertyItem::getGroup
-     *
-     * @return void
      */
-    public function testGetGroup()
+    public function testGetGroup(): void
     {
         $this->assertEquals(
             null,

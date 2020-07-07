@@ -45,10 +45,8 @@ class MyisamTest extends AbstractTestCase
 
     /**
      * Test for getVariables
-     *
-     * @return void
      */
-    public function testGetVariables()
+    public function testGetVariables(): void
     {
         $this->assertEquals(
             $this->object->getVariables(),

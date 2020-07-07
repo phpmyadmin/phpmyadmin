@@ -138,11 +138,9 @@ class DiaRelationSchemaTest extends AbstractTestCase
     /**
      * Test for construct, the Property is set correctly
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testSetProperty()
+    public function testSetProperty(): void
     {
         $this->assertEquals(
             33,

@@ -138,11 +138,9 @@ class SvgRelationSchemaTest extends AbstractTestCase
     /**
      * Test for construct
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testConstructor()
+    public function testConstructor(): void
     {
         $this->assertEquals(
             33,

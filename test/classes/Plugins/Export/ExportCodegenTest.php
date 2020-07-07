@@ -52,10 +52,8 @@ class ExportCodegenTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportCodegen::initSpecificVariables
-     *
-     * @return void
      */
-    public function testInitSpecificVariables()
+    public function testInitSpecificVariables(): void
     {
         $method = new ReflectionMethod(ExportCodegen::class, 'initSpecificVariables');
         $method->setAccessible(true);
@@ -75,10 +73,8 @@ class ExportCodegenTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportCodegen::setProperties
-     *
-     * @return void
      */
-    public function testSetProperties()
+    public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportCodegen::class, 'setProperties');
         $method->setAccessible(true);
@@ -180,10 +176,8 @@ class ExportCodegenTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportCodegen::exportHeader
-     *
-     * @return void
      */
-    public function testExportHeader()
+    public function testExportHeader(): void
     {
         $this->assertTrue(
             $this->object->exportHeader()
@@ -192,10 +186,8 @@ class ExportCodegenTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportCodegen::exportFooter
-     *
-     * @return void
      */
-    public function testExportFooter()
+    public function testExportFooter(): void
     {
         $this->assertTrue(
             $this->object->exportFooter()
@@ -204,10 +196,8 @@ class ExportCodegenTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportCodegen::exportDBHeader
-     *
-     * @return void
      */
-    public function testExportDBHeader()
+    public function testExportDBHeader(): void
     {
         $this->assertTrue(
             $this->object->exportDBHeader('testDB')
@@ -216,10 +206,8 @@ class ExportCodegenTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportCodegen::exportDBFooter
-     *
-     * @return void
      */
-    public function testExportDBFooter()
+    public function testExportDBFooter(): void
     {
         $this->assertTrue(
             $this->object->exportDBFooter('testDB')
@@ -228,10 +216,8 @@ class ExportCodegenTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportCodegen::exportData
-     *
-     * @return void
      */
-    public function testExportData()
+    public function testExportData(): void
     {
         $GLOBALS['codegen_format'] = 1;
         $GLOBALS['output_kanji_conversion'] = false;
@@ -292,10 +278,8 @@ class ExportCodegenTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportCodegen::cgMakeIdentifier
-     *
-     * @return void
      */
-    public function testCgMakeIdentifier()
+    public function testCgMakeIdentifier(): void
     {
         $this->assertEquals(
             '_Ⅲfoo',
@@ -315,10 +299,8 @@ class ExportCodegenTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportCodegen::handleNHibernateCSBody
-     *
-     * @return void
      */
-    public function testHandleNHibernateCSBody()
+    public function testHandleNHibernateCSBody(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -380,10 +362,8 @@ class ExportCodegenTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportCodegen::handleNHibernateXMLBody
-     *
-     * @return void
      */
-    public function testHandleNHibernateXMLBody()
+    public function testHandleNHibernateXMLBody(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -437,10 +417,8 @@ class ExportCodegenTest extends AbstractTestCase
      * Test for
      *     - PhpMyAdmin\Plugins\Export\ExportCodegen::getCgFormats
      *     - PhpMyAdmin\Plugins\Export\ExportCodegen::setCgFormats
-     *
-     * @return void
      */
-    public function testSetGetCgFormats()
+    public function testSetGetCgFormats(): void
     {
         $reflection = new ReflectionClass(ExportCodegen::class);
 

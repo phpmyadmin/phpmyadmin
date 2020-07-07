@@ -52,11 +52,9 @@ class CreateRemoveUserTest extends TestBase
     /**
      * Creates and removes a user
      *
-     * @return void
-     *
      * @group large
      */
-    public function testCreateRemoveUser()
+    public function testCreateRemoveUser(): void
     {
         $this->waitForElement('partialLinkText', 'User accounts')->click();
 

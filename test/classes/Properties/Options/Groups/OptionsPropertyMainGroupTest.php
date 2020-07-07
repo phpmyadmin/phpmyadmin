@@ -37,10 +37,8 @@ class OptionsPropertyMainGroupTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup::getItemType
-     *
-     * @return void
      */
-    public function testGetItemType()
+    public function testGetItemType(): void
     {
         $this->assertEquals(
             'main',

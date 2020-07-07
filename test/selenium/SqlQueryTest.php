@@ -35,10 +35,8 @@ class SqlQueryTest extends TestBase
 
     /**
      * Test typing a SQL query on Server SQL page and submitting it
-     *
-     * @return void
      */
-    public function testServerSqlQuery()
+    public function testServerSqlQuery(): void
     {
         $this->waitForElement('partialLinkText', 'SQL')->click();
         $this->waitAjax();
@@ -78,10 +76,8 @@ class SqlQueryTest extends TestBase
 
     /**
      * Test typing a SQL query on Database SQL page and submitting it
-     *
-     * @return void
      */
-    public function testDatabaseSqlQuery()
+    public function testDatabaseSqlQuery(): void
     {
         $this->navigateDatabase($this->database_name);
 
@@ -112,10 +108,8 @@ class SqlQueryTest extends TestBase
 
     /**
      * Test typing a SQL query on Table SQL page and submitting it
-     *
-     * @return void
      */
-    public function testTableSqlQuery()
+    public function testTableSqlQuery(): void
     {
         $this->navigateTable('test_table');
 

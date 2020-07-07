@@ -50,10 +50,8 @@ class AuthenticationConfigTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::showLoginForm
-     *
-     * @return void
      */
-    public function testAuth()
+    public function testAuth(): void
     {
         $this->assertTrue(
             $this->object->showLoginForm()
@@ -62,10 +60,8 @@ class AuthenticationConfigTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::readCredentials
-     *
-     * @return void
      */
-    public function testAuthCheck()
+    public function testAuthCheck(): void
     {
         $GLOBALS['cfg']['Server'] = [
             'user' => 'username',
@@ -78,10 +74,8 @@ class AuthenticationConfigTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::storeCredentials
-     *
-     * @return void
      */
-    public function testAuthSetUser()
+    public function testAuthSetUser(): void
     {
         $this->assertTrue(
             $this->object->storeCredentials()
@@ -90,10 +84,8 @@ class AuthenticationConfigTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::showFailure
-     *
-     * @return void
      */
-    public function testAuthFails()
+    public function testAuthFails(): void
     {
         $GLOBALS['error_handler'] = new ErrorHandler();
         $GLOBALS['cfg']['Servers'] = [1];

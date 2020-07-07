@@ -27,10 +27,8 @@ class NodeColumnTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Navigation\NodeFactory::getInstance
-     *
-     * @return void
      */
-    public function testConstructor()
+    public function testConstructor(): void
     {
         $parent = NodeFactory::getInstance(
             'NodeColumn',

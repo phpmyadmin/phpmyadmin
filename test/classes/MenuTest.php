@@ -42,10 +42,8 @@ class MenuTest extends AbstractTestCase
 
     /**
      * Server menu test
-     *
-     * @return void
      */
-    public function testServer()
+    public function testServer(): void
     {
         $menu = new Menu('', '');
         $this->assertStringContainsString(
@@ -56,10 +54,8 @@ class MenuTest extends AbstractTestCase
 
     /**
      * Database menu test
-     *
-     * @return void
      */
-    public function testDatabase()
+    public function testDatabase(): void
     {
         $menu = new Menu('pma_test', '');
         $this->assertStringContainsString(
@@ -70,10 +66,8 @@ class MenuTest extends AbstractTestCase
 
     /**
      * Table menu test
-     *
-     * @return void
      */
-    public function testTable()
+    public function testTable(): void
     {
         $menu = new Menu('pma_test', 'table1');
         $this->assertStringContainsString(
@@ -84,10 +78,8 @@ class MenuTest extends AbstractTestCase
 
     /**
      * Table menu display test
-     *
-     * @return void
      */
-    public function testTableDisplay()
+    public function testTableDisplay(): void
     {
         $menu = new Menu('pma_test', '');
         $this->expectOutputString(
@@ -98,10 +90,8 @@ class MenuTest extends AbstractTestCase
 
     /**
      * Table menu setTable test
-     *
-     * @return void
      */
-    public function testSetTable()
+    public function testSetTable(): void
     {
         $menu = new Menu('pma_test', '');
         $menu->setTable('table1');

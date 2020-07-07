@@ -38,12 +38,10 @@ class EncodingTest extends AbstractTestCase
     /**
      * Test for Encoding::convertString
      *
-     * @return void
-     *
      * @test
      * @group medium
      */
-    public function testNoConversion()
+    public function testNoConversion(): void
     {
         $this->assertEquals(
             'test',
@@ -51,10 +49,7 @@ class EncodingTest extends AbstractTestCase
         );
     }
 
-    /**
-     * @return void
-     */
-    public function testInvalidConversion()
+    public function testInvalidConversion(): void
     {
         // Invalid value to use default case
         Encoding::setEngine(-1);
@@ -64,10 +59,7 @@ class EncodingTest extends AbstractTestCase
         );
     }
 
-    /**
-     * @return void
-     */
-    public function testRecode()
+    public function testRecode(): void
     {
         if (! function_exists('recode_string')) {
             $this->markTestSkipped('recode extension missing');
@@ -89,11 +81,9 @@ class EncodingTest extends AbstractTestCase
      *
      * @see https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=854821#27
      *
-     * @return void
-     *
      * @group extension-iconv
      */
-    public function testIconv()
+    public function testIconv(): void
     {
         if (! function_exists('iconv')) {
             $this->markTestSkipped('iconv extension missing');
@@ -126,10 +116,7 @@ class EncodingTest extends AbstractTestCase
         }
     }
 
-    /**
-     * @return void
-     */
-    public function testMbstring()
+    public function testMbstring(): void
     {
         Encoding::setEngine(Encoding::ENGINE_MB);
         $this->assertEquals(
@@ -145,11 +132,9 @@ class EncodingTest extends AbstractTestCase
     /**
      * Test for kanjiChangeOrder
      *
-     * @return void
-     *
      * @test
      */
-    public function testChangeOrder()
+    public function testChangeOrder(): void
     {
         $this->assertEquals('ASCII,SJIS,EUC-JP,JIS', Encoding::getKanjiEncodings());
         Encoding::kanjiChangeOrder();
@@ -161,11 +146,9 @@ class EncodingTest extends AbstractTestCase
     /**
      * Test for Encoding::kanjiStrConv
      *
-     * @return void
-     *
      * @test
      */
-    public function testKanjiStrConv()
+    public function testKanjiStrConv(): void
     {
         $this->assertEquals(
             'test',
@@ -193,11 +176,9 @@ class EncodingTest extends AbstractTestCase
     /**
      * Test for Encoding::kanjiFileConv
      *
-     * @return void
-     *
      * @test
      */
-    public function testFileConv()
+    public function testFileConv(): void
     {
         $file_str = '教育漢字常用漢字';
         $filename = 'test.kanji';
@@ -219,11 +200,9 @@ class EncodingTest extends AbstractTestCase
     /**
      * Test for Encoding::kanjiEncodingForm
      *
-     * @return void
-     *
      * @test
      */
-    public function testEncodingForm()
+    public function testEncodingForm(): void
     {
         $actual = Encoding::kanjiEncodingForm();
         $this->assertStringContainsString(
@@ -248,10 +227,7 @@ class EncodingTest extends AbstractTestCase
         );
     }
 
-    /**
-     * @return void
-     */
-    public function testListEncodings()
+    public function testListEncodings(): void
     {
         $GLOBALS['cfg']['AvailableCharsets'] = ['utf-8'];
         $result = Encoding::listEncodings();

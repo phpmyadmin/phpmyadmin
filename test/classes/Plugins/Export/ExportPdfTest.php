@@ -55,10 +55,8 @@ class ExportPdfTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportPdf::setProperties
-     *
-     * @return void
      */
-    public function testSetProperties()
+    public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportPdf::class, 'setProperties');
         $method->setAccessible(true);
@@ -180,10 +178,8 @@ class ExportPdfTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportPdf::exportHeader
-     *
-     * @return void
      */
-    public function testExportHeader()
+    public function testExportHeader(): void
     {
         $pdf = $this->getMockBuilder(Pdf::class)
             ->disableOriginalConstructor()
@@ -209,10 +205,8 @@ class ExportPdfTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportPdf::exportFooter
-     *
-     * @return void
      */
-    public function testExportFooter()
+    public function testExportFooter(): void
     {
         $pdf = $this->getMockBuilder(Pdf::class)
             ->disableOriginalConstructor()
@@ -232,10 +226,8 @@ class ExportPdfTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportPdf::exportDBHeader
-     *
-     * @return void
      */
-    public function testExportDBHeader()
+    public function testExportDBHeader(): void
     {
         $this->assertTrue(
             $this->object->exportDBHeader('testDB')
@@ -244,10 +236,8 @@ class ExportPdfTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportPdf::exportDBFooter
-     *
-     * @return void
      */
-    public function testExportDBFooter()
+    public function testExportDBFooter(): void
     {
         $this->assertTrue(
             $this->object->exportDBFooter('testDB')
@@ -256,10 +246,8 @@ class ExportPdfTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportPdf::exportDBCreate
-     *
-     * @return void
      */
-    public function testExportDBCreate()
+    public function testExportDBCreate(): void
     {
         $this->assertTrue(
             $this->object->exportDBCreate('testDB', 'database')
@@ -268,10 +256,8 @@ class ExportPdfTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportPdf::exportData
-     *
-     * @return void
      */
-    public function testExportData()
+    public function testExportData(): void
     {
         $pdf = $this->getMockBuilder(Pdf::class)
             ->disableOriginalConstructor()
@@ -313,10 +299,8 @@ class ExportPdfTest extends AbstractTestCase
      * Test for
      *     - PhpMyAdmin\Plugins\Export\ExportPdf::setPdf
      *     - PhpMyAdmin\Plugins\Export\ExportPdf::getPdf
-     *
-     * @return void
      */
-    public function testSetGetPdf()
+    public function testSetGetPdf(): void
     {
         $setter = new ReflectionMethod(ExportPdf::class, 'setPdf');
         $setter->setAccessible(true);
@@ -334,10 +318,8 @@ class ExportPdfTest extends AbstractTestCase
      * Test for
      *     - PhpMyAdmin\Plugins\Export\ExportPdf::setPdfReportTitle
      *     - PhpMyAdmin\Plugins\Export\ExportPdf::getPdfReportTitle
-     *
-     * @return void
      */
-    public function testSetGetPdfTitle()
+    public function testSetGetPdfTitle(): void
     {
         $setter = new ReflectionMethod(ExportPdf::class, 'setPdfReportTitle');
         $setter->setAccessible(true);

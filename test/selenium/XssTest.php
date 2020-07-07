@@ -30,11 +30,9 @@ class XssTest extends TestBase
     /**
      * Tests the SQL query tab with a null query
      *
-     * @return void
-     *
      * @group large
      */
-    public function testQueryTabWithNullValue()
+    public function testQueryTabWithNullValue(): void
     {
         if ($this->isSafari()) {
             $this->markTestSkipped('Alerts not supported on Safari browser.');

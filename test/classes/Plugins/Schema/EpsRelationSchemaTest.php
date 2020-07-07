@@ -137,11 +137,9 @@ class EpsRelationSchemaTest extends AbstractTestCase
     /**
      * Test for construct
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testConstructor()
+    public function testConstructor(): void
     {
         $this->assertEquals(
             33,
@@ -168,11 +166,9 @@ class EpsRelationSchemaTest extends AbstractTestCase
     /**
      * Test for setPageNumber
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testSetPageNumber()
+    public function testSetPageNumber(): void
     {
         $this->object->setPageNumber(33);
         $this->assertEquals(

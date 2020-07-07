@@ -410,10 +410,8 @@ abstract class TestBase extends TestCase
 
     /**
      * Skips test if test user is not a superuser.
-     *
-     * @return void
      */
-    protected function skipIfNotSuperUser()
+    protected function skipIfNotSuperUser(): void
     {
         if ($this->isSuperUser()) {
             return;
@@ -424,10 +422,8 @@ abstract class TestBase extends TestCase
 
     /**
      * Skips test if pmadb is not configured.
-     *
-     * @return void
      */
-    protected function skipIfNotPMADB()
+    protected function skipIfNotPMADB(): void
     {
         $this->navigateTo('index.php?route=/check-relations');
         $pageContent = $this->waitForElement('id', 'page_content');
@@ -568,30 +564,24 @@ abstract class TestBase extends TestCase
 
     /**
      * Checks whether the login is successful
-     *
-     * @return bool
      */
-    public function isSuccessLogin()
+    public function isSuccessLogin(): bool
     {
         return $this->isElementPresent('xpath', '//*[@id="server-breadcrumb"]');
     }
 
     /**
      * Checks whether the login is unsuccessful
-     *
-     * @return bool
      */
-    public function isUnsuccessLogin()
+    public function isUnsuccessLogin(): bool
     {
         return $this->isElementPresent('cssSelector', 'div #pma_errors');
     }
 
     /**
      * Used to go to the homepage
-     *
-     * @return void
      */
-    public function gotoHomepage()
+    public function gotoHomepage(): void
     {
         $e = $this->byPartialLinkText('Server: ');
         $e->click();
@@ -671,10 +661,8 @@ abstract class TestBase extends TestCase
 
     /**
      * Perform a logout, if logged in
-     *
-     * @return void
      */
-    public function logOutIfLoggedIn()
+    public function logOutIfLoggedIn(): void
     {
         if (! $this->isLoggedIn()) {
             return;
@@ -734,7 +722,7 @@ abstract class TestBase extends TestCase
      *
      * @return bool Whether or not the element disappeared
      */
-    public function waitForElementNotPresent($func, $arg)
+    public function waitForElementNotPresent($func, $arg): bool
     {
         while (true) {
             if (! $this->isElementPresent($func, $arg)) {
@@ -780,7 +768,7 @@ abstract class TestBase extends TestCase
      *
      * @return string text Data from the particular table cell
      */
-    public function getCellByTableId($tableID, $row, $column)
+    public function getCellByTableId($tableID, $row, $column): string
     {
         $sel = sprintf(
             'table#%s tbody tr:nth-child(%d) td:nth-child(%d)',
@@ -805,7 +793,7 @@ abstract class TestBase extends TestCase
      *
      * @return string text Data from the particular table cell
      */
-    public function getCellByTableClass($tableClass, $row, $column)
+    public function getCellByTableClass($tableClass, $row, $column): string
     {
         $sel = sprintf(
             'table.%s tbody tr:nth-child(%d) td:nth-child(%d)',
@@ -883,10 +871,8 @@ abstract class TestBase extends TestCase
      *
      * @param string $text  Text to type
      * @param int    $index Index of CodeMirror instance to write to
-     *
-     * @return void
      */
-    public function typeInTextArea($text, $index = 0)
+    public function typeInTextArea($text, $index = 0): void
     {
         $this->waitForElement('cssSelector', 'div.cm-s-default');
         $this->webDriver->executeScript(
@@ -1010,10 +996,8 @@ abstract class TestBase extends TestCase
      *
      * @param string $element_id Id of the element
      * @param int    $y_offset   Offset from Y-coordinate of element
-     *
-     * @return void
      */
-    public function scrollIntoView($element_id, $y_offset = 70)
+    public function scrollIntoView($element_id, $y_offset = 70): void
     {
         // 70pt offset by-default so that the topmenu does not cover the element
         $this->webDriver->executeScript(
@@ -1079,10 +1063,8 @@ abstract class TestBase extends TestCase
 
     /**
      * Wait for AJAX message disappear
-     *
-     * @return void
      */
-    public function waitAjaxMessage()
+    public function waitAjaxMessage(): void
     {
         /* Get current message count */
         $ajax_message_count = $this->webDriver->executeScript(

@@ -33,10 +33,8 @@ class BrowseForeignersTest extends AbstractTestCase
 
     /**
      * Test for BrowseForeigners::getForeignLimit
-     *
-     * @return void
      */
-    public function testGetForeignLimit()
+    public function testGetForeignLimit(): void
     {
         $this->assertNull(
             $this->browseForeigners->getForeignLimit('Show all')
@@ -70,10 +68,8 @@ class BrowseForeignersTest extends AbstractTestCase
 
     /**
      * Test for BrowseForeigners::getHtmlForGotoPage
-     *
-     * @return void
      */
-    public function testGetHtmlForGotoPage()
+    public function testGetHtmlForGotoPage(): void
     {
         $this->assertEquals(
             '',
@@ -137,10 +133,8 @@ class BrowseForeignersTest extends AbstractTestCase
 
     /**
      * Test for BrowseForeigners::getDescriptionAndTitle
-     *
-     * @return void
      */
-    public function testGetDescriptionAndTitle()
+    public function testGetDescriptionAndTitle(): void
     {
         $desc = 'foobar<baz';
 
@@ -176,10 +170,8 @@ class BrowseForeignersTest extends AbstractTestCase
 
     /**
      * Test for BrowseForeigners::getHtmlForRelationalFieldSelection
-     *
-     * @return void
      */
-    public function testGetHtmlForRelationalFieldSelection()
+    public function testGetHtmlForRelationalFieldSelection(): void
     {
         $db = '';
         $table = '';

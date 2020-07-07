@@ -73,10 +73,8 @@ class ResultsTest extends AbstractTestCase
 
     /**
      * Test for isSelect function
-     *
-     * @return void
      */
-    public function testisSelect()
+    public function testisSelect(): void
     {
         $parser = new Parser('SELECT * FROM pma');
         $this->assertTrue(
@@ -102,8 +100,6 @@ class ResultsTest extends AbstractTestCase
      * @param int    $pos            position for next query
      * @param string $html_sql_query query ready for display
      *
-     * @return void
-     *
      * @dataProvider providerForTestGetTableNavigationButton
      */
     public function testGetTableNavigationButton(
@@ -111,7 +107,7 @@ class ResultsTest extends AbstractTestCase
         $title,
         $pos,
         $html_sql_query
-    ) {
+    ): void {
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $_SESSION[' PMA_token '] = 'token';
 
@@ -155,7 +151,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @return array array data for testGetTableNavigationButton
      */
-    public function providerForTestGetTableNavigationButton()
+    public function providerForTestGetTableNavigationButton(): array
     {
         return [
             [
@@ -172,7 +168,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @return array data for testGetTableNavigation
      */
-    public function providerForTestGetTableNavigation()
+    public function providerForTestGetTableNavigation(): array
     {
         return [
             [
@@ -189,7 +185,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @return array parameters and output
      */
-    public function dataProviderForTestGetClassesForColumn()
+    public function dataProviderForTestGetClassesForColumn(): array
     {
         return [
             [
@@ -213,8 +209,6 @@ class ResultsTest extends AbstractTestCase
      * @param string $field_type_class the class related to type of the field
      * @param string $output           output of__getResettedClassForInlineEdit
      *
-     * @return void
-     *
      * @dataProvider dataProviderForTestGetClassesForColumn
      */
     public function testGetClassesForColumn(
@@ -224,7 +218,7 @@ class ResultsTest extends AbstractTestCase
         $hide_class,
         $field_type_class,
         $output
-    ) {
+    ): void {
         $GLOBALS['cfg']['BrowsePointerEnable'] = true;
         $GLOBALS['cfg']['BrowseMarkerEnable'] = true;
 
@@ -247,10 +241,8 @@ class ResultsTest extends AbstractTestCase
 
     /**
      * Test for getClassForDateTimeRelatedFields - case 1
-     *
-     * @return void
      */
-    public function testGetClassForDateTimeRelatedFieldsCase1()
+    public function testGetClassForDateTimeRelatedFieldsCase1(): void
     {
         $this->assertEquals(
             'datetimefield',
@@ -265,10 +257,8 @@ class ResultsTest extends AbstractTestCase
 
     /**
      * Test for getClassForDateTimeRelatedFields - case 2
-     *
-     * @return void
      */
-    public function testGetClassForDateTimeRelatedFieldsCase2()
+    public function testGetClassForDateTimeRelatedFieldsCase2(): void
     {
         $this->assertEquals(
             'datefield',
@@ -283,10 +273,8 @@ class ResultsTest extends AbstractTestCase
 
     /**
      * Test for getClassForDateTimeRelatedFields - case 3
-     *
-     * @return void
      */
-    public function testGetClassForDateTimeRelatedFieldsCase3()
+    public function testGetClassForDateTimeRelatedFieldsCase3(): void
     {
         $this->assertEquals(
             'text',
@@ -301,10 +289,8 @@ class ResultsTest extends AbstractTestCase
 
     /**
      * Test for getOffsets - case 1
-     *
-     * @return void
      */
-    public function testGetOffsetsCase1()
+    public function testGetOffsetsCase1(): void
     {
         $_SESSION['tmpval']['max_rows'] = DisplayResults::ALL_ROWS;
         $this->assertEquals(
@@ -323,10 +309,8 @@ class ResultsTest extends AbstractTestCase
 
     /**
      * Test for getOffsets - case 2
-     *
-     * @return void
      */
-    public function testGetOffsetsCase2()
+    public function testGetOffsetsCase2(): void
     {
         $_SESSION['tmpval']['max_rows'] = 5;
         $_SESSION['tmpval']['pos'] = 4;
@@ -349,7 +333,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @return array parameters and output
      */
-    public function dataProviderForTestGetSpecialLinkUrl()
+    public function dataProviderForTestGetSpecialLinkUrl(): array
     {
         return [
             [
@@ -404,8 +388,6 @@ class ResultsTest extends AbstractTestCase
      * @param string $field_name   column name
      * @param bool   $output       output of getSpecialLinkUrl
      *
-     * @return void
-     *
      * @dataProvider dataProviderForTestGetSpecialLinkUrl
      */
     public function testGetSpecialLinkUrl(
@@ -415,7 +397,7 @@ class ResultsTest extends AbstractTestCase
         $row_info,
         $field_name,
         $output
-    ) {
+    ): void {
         $specialSchemaLinks = [
             'information_schema' => [
                 'routines' => [
@@ -483,7 +465,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @return array parameters and output
      */
-    public function dataProviderForTestGetRowInfoForSpecialLinks()
+    public function dataProviderForTestGetRowInfoForSpecialLinks(): array
     {
         $column_names = [
             'host',
@@ -534,8 +516,6 @@ class ResultsTest extends AbstractTestCase
      * @param array $col_order    the column order
      * @param bool  $output       output of getRowInfoForSpecialLinks
      *
-     * @return void
-     *
      * @dataProvider dataProviderForTestGetRowInfoForSpecialLinks
      */
     public function testGetRowInfoForSpecialLinks(
@@ -544,7 +524,7 @@ class ResultsTest extends AbstractTestCase
         $row,
         $col_order,
         $output
-    ) {
+    ): void {
         $this->object->__set('fields_meta', $fields_meta);
         $this->object->__set('fields_cnt', $fields_count);
 
@@ -567,7 +547,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @return array parameters and output
      */
-    public function dataProviderForTestSetHighlightedColumnGlobalField()
+    public function dataProviderForTestSetHighlightedColumnGlobalField(): array
     {
         $parser = new Parser(
             'SELECT * FROM db_name WHERE `db_name`.`tbl`.id > 0 AND `id` < 10'
@@ -613,7 +593,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @return array parameters and output
      */
-    public function dataProviderForTestGetPartialText()
+    public function dataProviderForTestGetPartialText(): array
     {
         return [
             [
@@ -689,7 +669,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @return array parameters and output
      */
-    public function dataProviderForTestHandleNonPrintableContents()
+    public function dataProviderForTestHandleNonPrintableContents(): array
     {
         $transformation_plugin = new Text_Plain_Link();
         $meta = new stdClass();
@@ -812,8 +792,6 @@ class ResultsTest extends AbstractTestCase
      * @param bool   $is_truncated          the result is truncated or not
      * @param string $output                the output of this function
      *
-     * @return void
-     *
      * @dataProvider dataProviderForTestHandleNonPrintableContents
      */
     public function testHandleNonPrintableContents(
@@ -828,7 +806,7 @@ class ResultsTest extends AbstractTestCase
         $url_params,
         $is_truncated,
         $output
-    ) {
+    ): void {
         $_SESSION['tmpval']['display_binary'] = $display_binary;
         $_SESSION['tmpval']['display_blob'] = $display_blob;
         $GLOBALS['cfg']['LimitChars'] = 50;
@@ -857,7 +835,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @return array parameters and output
      */
-    public function dataProviderForTestGetDataCellForNonNumericColumns()
+    public function dataProviderForTestGetDataCellForNonNumericColumns(): array
     {
         $transformation_plugin = new Text_Plain_Link();
         $meta = new stdClass();
@@ -1005,8 +983,6 @@ class ResultsTest extends AbstractTestCase
      * @param int    $col_index             the column index
      * @param string $output                the output of this function
      *
-     * @return void
-     *
      * @dataProvider dataProviderForTestGetDataCellForNonNumericColumns
      */
     public function testGetDataCellForNonNumericColumns(
@@ -1025,7 +1001,7 @@ class ResultsTest extends AbstractTestCase
         $dt_result,
         $col_index,
         $output
-    ) {
+    ): void {
         $_SESSION['tmpval']['display_binary'] = true;
         $_SESSION['tmpval']['display_blob'] = false;
         $_SESSION['tmpval']['relational_display'] = false;
@@ -1061,10 +1037,8 @@ class ResultsTest extends AbstractTestCase
      *
      * It mocks data needed to display two transformations and asserts
      * they are rendered.
-     *
-     * @return void
      */
-    public function testOutputTransformations()
+    public function testOutputTransformations(): void
     {
         // Fake relation settings
         $_SESSION['tmpval']['relational_display'] = 'K';

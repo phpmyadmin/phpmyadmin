@@ -39,10 +39,8 @@ class OptionsPropertyOneItemTest extends AbstractTestCase
      * Test for
      *     - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem::getValues
      *     - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem::setValues
-     *
-     * @return void
      */
-    public function testGetSetValues()
+    public function testGetSetValues(): void
     {
         $this->stub->setValues([1, 2]);
 
@@ -59,10 +57,8 @@ class OptionsPropertyOneItemTest extends AbstractTestCase
      * Test for
      *     - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem::getLen
      *     - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem::setLen
-     *
-     * @return void
      */
-    public function testGetSetLen()
+    public function testGetSetLen(): void
     {
         $this->stub->setLen(12);
 
@@ -76,10 +72,8 @@ class OptionsPropertyOneItemTest extends AbstractTestCase
      * Test for
      *     - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem::getForce
      *     - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem::setForce
-     *
-     * @return void
      */
-    public function testGetSetForce()
+    public function testGetSetForce(): void
     {
         $this->stub->setForce('force123');
 
@@ -93,10 +87,8 @@ class OptionsPropertyOneItemTest extends AbstractTestCase
      * Test for
      *     - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem::getDoc
      *     - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem::setDoc
-     *
-     * @return void
      */
-    public function testGetSetDoc()
+    public function testGetSetDoc(): void
     {
         $this->stub->setDoc('doc123');
 
@@ -110,10 +102,8 @@ class OptionsPropertyOneItemTest extends AbstractTestCase
      * Test for
      *     - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem::getSize
      *     - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem::setSize
-     *
-     * @return void
      */
-    public function testGetSetSize()
+    public function testGetSetSize(): void
     {
         $this->stub->setSize(22);
 

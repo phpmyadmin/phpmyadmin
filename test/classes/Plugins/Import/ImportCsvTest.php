@@ -85,11 +85,9 @@ class ImportCsvTest extends AbstractTestCase
     /**
      * Test for getProperties
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testGetProperties()
+    public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
         $this->assertEquals(
@@ -105,11 +103,9 @@ class ImportCsvTest extends AbstractTestCase
     /**
      * Test for doImport
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testDoImport()
+    public function testDoImport(): void
     {
         //$sql_query_disabled will show the import SQL detail
         global $sql_query, $sql_query_disabled;
@@ -136,11 +132,9 @@ class ImportCsvTest extends AbstractTestCase
     /**
      * Test for partial import/setting table and database names in doImport
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testDoPartialImport()
+    public function testDoPartialImport(): void
     {
         //$sql_query_disabled will show the import SQL detail
         global $sql_query, $sql_query_disabled;
@@ -176,11 +170,9 @@ class ImportCsvTest extends AbstractTestCase
     /**
      * Test for getProperties for Table param
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testGetPropertiesForTable()
+    public function testGetPropertiesForTable(): void
     {
         $GLOBALS['plugin_param'] = 'table';
         $this->object = new ImportCsv();
@@ -198,11 +190,9 @@ class ImportCsvTest extends AbstractTestCase
     /**
      * Test for doImport for _getAnalyze = false, should be OK as well
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testDoImportNotAnalysis()
+    public function testDoImportNotAnalysis(): void
     {
         //$sql_query_disabled will show the import SQL detail
         global $sql_query, $sql_query_disabled;

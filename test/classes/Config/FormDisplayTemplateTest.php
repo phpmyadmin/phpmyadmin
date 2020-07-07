@@ -35,10 +35,8 @@ class FormDisplayTemplateTest extends AbstractTestCase
 
     /**
      * Test for displayFormTop()
-     *
-     * @return void
      */
-    public function testDisplayFormTop()
+    public function testDisplayFormTop(): void
     {
         $_SERVER['REQUEST_URI'] = 'https://www.phpmyadmin.net';
         $GLOBALS['cfg']['ServerDefault'] = '';
@@ -73,10 +71,8 @@ class FormDisplayTemplateTest extends AbstractTestCase
 
     /**
      * Test for displayTabsTop()
-     *
-     * @return void
      */
-    public function testDisplayTabsTop()
+    public function testDisplayTabsTop(): void
     {
         $result = $this->formDisplayTemplate->displayTabsTop(['one', 'two']);
 
@@ -103,10 +99,8 @@ class FormDisplayTemplateTest extends AbstractTestCase
 
     /**
      * Test for displayFieldsetTop()
-     *
-     * @return void
      */
-    public function testDisplayFieldsetTop()
+    public function testDisplayFieldsetTop(): void
     {
         $attributes = ['name' => 'attrname'];
         $errors = [
@@ -149,10 +143,8 @@ class FormDisplayTemplateTest extends AbstractTestCase
 
     /**
      * Test for displayInput()
-     *
-     * @return void
      */
-    public function testDisplayInput()
+    public function testDisplayInput(): void
     {
         $opts = [];
         $opts['errors'] = ['e1'];
@@ -399,10 +391,8 @@ class FormDisplayTemplateTest extends AbstractTestCase
 
     /**
      * Test for displayGroupHeader()
-     *
-     * @return void
      */
-    public function testDisplayGroupHeader()
+    public function testDisplayGroupHeader(): void
     {
         $this->assertEquals(
             '',
@@ -435,10 +425,8 @@ class FormDisplayTemplateTest extends AbstractTestCase
 
     /**
      * Test for displayGroupFooter()
-     *
-     * @return void
      */
-    public function testDisplayGroupFooter()
+    public function testDisplayGroupFooter(): void
     {
         $this->formDisplayTemplate->group = 3;
         $this->formDisplayTemplate->displayGroupFooter();
@@ -450,10 +438,8 @@ class FormDisplayTemplateTest extends AbstractTestCase
 
     /**
      * Test for displayFieldsetBottom()
-     *
-     * @return void
      */
-    public function testDisplayFieldsetBottom()
+    public function testDisplayFieldsetBottom(): void
     {
         // with PMA_SETUP
         $this->config->set('is_setup', true);
@@ -493,10 +479,8 @@ class FormDisplayTemplateTest extends AbstractTestCase
 
     /**
      * Test for displayTabsBottom()
-     *
-     * @return void
      */
-    public function testDisplayTabsBottom()
+    public function testDisplayTabsBottom(): void
     {
         $result = $this->formDisplayTemplate->displayTabsBottom();
         $this->assertEquals(
@@ -507,10 +491,8 @@ class FormDisplayTemplateTest extends AbstractTestCase
 
     /**
      * Test for displayFormBottom()
-     *
-     * @return void
      */
-    public function testDisplayFormBottom()
+    public function testDisplayFormBottom(): void
     {
         $result = $this->formDisplayTemplate->displayFormBottom();
         $this->assertEquals(
@@ -521,10 +503,8 @@ class FormDisplayTemplateTest extends AbstractTestCase
 
     /**
      * Test for addJsValidate()
-     *
-     * @return void
      */
-    public function testAddJsValidate()
+    public function testAddJsValidate(): void
     {
         $validators = [
             'one' => [
@@ -551,10 +531,8 @@ class FormDisplayTemplateTest extends AbstractTestCase
 
     /**
      * Test for displayJavascript()
-     *
-     * @return void
      */
-    public function testDisplayJavascript()
+    public function testDisplayJavascript(): void
     {
         $this->assertEquals(
             '',

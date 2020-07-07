@@ -56,11 +56,9 @@ class TrackingTest extends TestBase
     /**
      * Tests basic tracking functionality
      *
-     * @return void
-     *
      * @group large
      */
-    public function testTrackingData()
+    public function testTrackingData(): void
     {
         $this->executeSqlAndReturnToTableTracking();
 
@@ -142,11 +140,9 @@ class TrackingTest extends TestBase
     /**
      * Tests deactivation of tracking
      *
-     * @return void
-     *
      * @group large
      */
-    public function testDeactivateTracking()
+    public function testDeactivateTracking(): void
     {
         $this->byCssSelector("input[value='Deactivate now']")->click();
         $this->waitForElement(
@@ -162,11 +158,9 @@ class TrackingTest extends TestBase
     /**
      * Tests dropping a tracking
      *
-     * @return void
-     *
      * @group large
      */
-    public function testDropTracking()
+    public function testDropTracking(): void
     {
         $this->navigateDatabase($this->database_name, true);
         $this->expandMore();
@@ -216,11 +210,9 @@ class TrackingTest extends TestBase
     /**
      * Tests structure snapshot of a tracking
      *
-     * @return void
-     *
      * @group large
      */
-    public function testStructureSnapshot()
+    public function testStructureSnapshot(): void
     {
         $this->byPartialLinkText('Structure snapshot')->click();
         $this->waitForElement('id', 'tablestructure');
@@ -248,10 +240,8 @@ class TrackingTest extends TestBase
 
     /**
      * Goes to SQL tab, executes queries, returns to tracking page
-     *
-     * @return void
      */
-    private function executeSqlAndReturnToTableTracking()
+    private function executeSqlAndReturnToTableTracking(): void
     {
         $this->byPartialLinkText('SQL')->click();
         $this->waitAjax();

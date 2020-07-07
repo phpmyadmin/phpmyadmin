@@ -73,10 +73,8 @@ class QbeTest extends AbstractTestCase
 
     /**
      * Test for getSortSelectCell
-     *
-     * @return void
      */
-    public function testGetSortSelectCell()
+    public function testGetSortSelectCell(): void
     {
         $this->assertStringContainsString(
             'style="width:12ex" name="criteriaSort[1]"',
@@ -112,10 +110,8 @@ class QbeTest extends AbstractTestCase
 
     /**
      * Test for getSortRow
-     *
-     * @return void
      */
-    public function testGetSortRow()
+    public function testGetSortRow(): void
     {
         $this->assertStringContainsString(
             'name="criteriaSort[0]"',
@@ -148,10 +144,8 @@ class QbeTest extends AbstractTestCase
 
     /**
      * Test for getShowRow
-     *
-     * @return void
      */
-    public function testGetShowRow()
+    public function testGetShowRow(): void
     {
         $this->assertEquals(
             '<td class="text-center"><input type'
@@ -170,10 +164,8 @@ class QbeTest extends AbstractTestCase
 
     /**
      * Test for getCriteriaInputboxRow
-     *
-     * @return void
      */
-    public function testGetCriteriaInputboxRow()
+    public function testGetCriteriaInputboxRow(): void
     {
         $this->assertEquals(
             '<td class="text-center">'
@@ -197,10 +189,8 @@ class QbeTest extends AbstractTestCase
 
     /**
      * Test for getAndOrColCell
-     *
-     * @return void
      */
-    public function testGetAndOrColCell()
+    public function testGetAndOrColCell(): void
     {
         $this->assertEquals(
             '<td class="text-center"><strong>Or:</strong><input type="radio" '
@@ -220,10 +210,8 @@ class QbeTest extends AbstractTestCase
 
     /**
      * Test for getModifyColumnsRow
-     *
-     * @return void
      */
-    public function testGetModifyColumnsRow()
+    public function testGetModifyColumnsRow(): void
     {
         $this->assertEquals(
             '<td class="text-center"><strong>'
@@ -251,10 +239,8 @@ class QbeTest extends AbstractTestCase
 
     /**
      * Test for getInputboxRow
-     *
-     * @return void
      */
-    public function testGetInputboxRow()
+    public function testGetInputboxRow(): void
     {
         $this->assertEquals(
             '<td class="text-center"><input type="text" name="Or2[0]" value="" class='
@@ -274,10 +260,8 @@ class QbeTest extends AbstractTestCase
 
     /**
      * Test for getInsDelAndOrCriteriaRows
-     *
-     * @return void
      */
-    public function testGetInsDelAndOrCriteriaRows()
+    public function testGetInsDelAndOrCriteriaRows(): void
     {
         $actual = $this->callFunction(
             $this->object,
@@ -303,10 +287,8 @@ class QbeTest extends AbstractTestCase
 
     /**
      * Test for getSelectClause
-     *
-     * @return void
      */
-    public function testGetSelectClause()
+    public function testGetSelectClause(): void
     {
         $this->assertEquals(
             '',
@@ -321,10 +303,8 @@ class QbeTest extends AbstractTestCase
 
     /**
      * Test for getWhereClause
-     *
-     * @return void
      */
-    public function testGetWhereClause()
+    public function testGetWhereClause(): void
     {
         $this->assertEquals(
             '',
@@ -339,10 +319,8 @@ class QbeTest extends AbstractTestCase
 
     /**
      * Test for getOrderByClause
-     *
-     * @return void
      */
-    public function testGetOrderByClause()
+    public function testGetOrderByClause(): void
     {
         $this->assertEquals(
             '',
@@ -357,10 +335,8 @@ class QbeTest extends AbstractTestCase
 
     /**
      * Test for getIndexes
-     *
-     * @return void
      */
-    public function testGetIndexes()
+    public function testGetIndexes(): void
     {
         $this->assertEquals(
             [
@@ -389,10 +365,8 @@ class QbeTest extends AbstractTestCase
 
     /**
      * Test for getLeftJoinColumnCandidates
-     *
-     * @return void
      */
-    public function testGetLeftJoinColumnCandidates()
+    public function testGetLeftJoinColumnCandidates(): void
     {
         $this->assertEquals(
             [0 => 'column2'],
@@ -418,10 +392,8 @@ class QbeTest extends AbstractTestCase
 
     /**
      * Test for getMasterTable
-     *
-     * @return void
      */
-    public function testGetMasterTable()
+    public function testGetMasterTable(): void
     {
         $this->assertEquals(
             0,
@@ -448,10 +420,8 @@ class QbeTest extends AbstractTestCase
 
     /**
      * Test for getWhereClauseTablesAndColumns
-     *
-     * @return void
      */
-    public function testGetWhereClauseTablesAndColumns()
+    public function testGetWhereClauseTablesAndColumns(): void
     {
         $_POST['criteriaColumn'] = [
             'table1.id',
@@ -475,10 +445,8 @@ class QbeTest extends AbstractTestCase
 
     /**
      * Test for getFromClause
-     *
-     * @return void
      */
-    public function testGetFromClause()
+    public function testGetFromClause(): void
     {
         $_POST['criteriaColumn'] = [
             'table1.id',
@@ -499,10 +467,8 @@ class QbeTest extends AbstractTestCase
 
     /**
      * Test for getSQLQuery
-     *
-     * @return void
      */
-    public function testGetSQLQuery()
+    public function testGetSQLQuery(): void
     {
         $_POST['criteriaColumn'] = [
             'table1.id',

@@ -166,10 +166,8 @@ class CentralColumnsTest extends AbstractTestCase
 
     /**
      * Test for getParams
-     *
-     * @return void
      */
-    public function testGetParams()
+    public function testGetParams(): void
     {
         $this->assertSame(
             [
@@ -183,10 +181,8 @@ class CentralColumnsTest extends AbstractTestCase
 
     /**
      * Test for getColumnsList
-     *
-     * @return void
      */
-    public function testGetColumnsList()
+    public function testGetColumnsList(): void
     {
         $GLOBALS['dbi']->expects($this->exactly(2))
             ->method('fetchResult')
@@ -207,10 +203,8 @@ class CentralColumnsTest extends AbstractTestCase
 
     /**
      * Test for getCount
-     *
-     * @return void
      */
-    public function testGetCount()
+    public function testGetCount(): void
     {
         $GLOBALS['dbi']->expects($this->once())
             ->method('fetchResult')
@@ -233,10 +227,8 @@ class CentralColumnsTest extends AbstractTestCase
 
     /**
      * Test for syncUniqueColumns
-     *
-     * @return void
      */
-    public function testSyncUniqueColumns()
+    public function testSyncUniqueColumns(): void
     {
         $_POST['db'] = 'PMA_db';
         $_POST['table'] = 'PMA_table';
@@ -250,10 +242,8 @@ class CentralColumnsTest extends AbstractTestCase
 
     /**
      * Test for deleteColumnsFromList
-     *
-     * @return void
      */
-    public function testDeleteColumnsFromList()
+    public function testDeleteColumnsFromList(): void
     {
         $_POST['db'] = 'PMA_db';
         $_POST['table'] = 'PMA_table';
@@ -312,10 +302,8 @@ class CentralColumnsTest extends AbstractTestCase
 
     /**
      * Test for makeConsistentWithList
-     *
-     * @return void
      */
-    public function testMakeConsistentWithList()
+    public function testMakeConsistentWithList(): void
     {
         $GLOBALS['dbi']->expects($this->any())
             ->method('fetchResult')
@@ -337,10 +325,8 @@ class CentralColumnsTest extends AbstractTestCase
 
     /**
      * Test for getFromTable
-     *
-     * @return void
      */
-    public function testGetFromTable()
+    public function testGetFromTable(): void
     {
         $db = 'PMA_db';
         $table = 'PMA_table';
@@ -371,10 +357,8 @@ class CentralColumnsTest extends AbstractTestCase
 
     /**
      * Test for getFromTable with $allFields = true
-     *
-     * @return void
      */
-    public function testGetFromTableWithAllFields()
+    public function testGetFromTableWithAllFields(): void
     {
         $db = 'PMA_db';
         $table = 'PMA_table';
@@ -403,10 +387,8 @@ class CentralColumnsTest extends AbstractTestCase
 
     /**
      * Test for updateOneColumn
-     *
-     * @return void
      */
-    public function testUpdateOneColumn()
+    public function testUpdateOneColumn(): void
     {
         $this->assertTrue(
             $this->centralColumns->updateOneColumn(
@@ -440,10 +422,8 @@ class CentralColumnsTest extends AbstractTestCase
 
     /**
      * Test for updateMultipleColumn
-     *
-     * @return void
      */
-    public function testUpdateMultipleColumn()
+    public function testUpdateMultipleColumn(): void
     {
         $params = [];
         $params['db'] = 'phpmyadmin';
@@ -486,10 +466,8 @@ class CentralColumnsTest extends AbstractTestCase
 
     /**
      * Test for getHtmlForEditingPage
-     *
-     * @return void
      */
-    public function testGetHtmlForEditingPage()
+    public function testGetHtmlForEditingPage(): void
     {
         $GLOBALS['dbi']->expects($this->any())
             ->method('fetchResult')
@@ -563,10 +541,8 @@ class CentralColumnsTest extends AbstractTestCase
 
     /**
      * Test for getListRaw
-     *
-     * @return void
      */
-    public function testGetListRaw()
+    public function testGetListRaw(): void
     {
         $GLOBALS['dbi']->expects($this->once())
             ->method('fetchResult')
@@ -591,10 +567,8 @@ class CentralColumnsTest extends AbstractTestCase
 
     /**
      * Test for getListRaw with a table name
-     *
-     * @return void
      */
-    public function testGetListRawWithTable()
+    public function testGetListRawWithTable(): void
     {
         $GLOBALS['dbi']->expects($this->once())
             ->method('fetchResult')
@@ -620,10 +594,8 @@ class CentralColumnsTest extends AbstractTestCase
 
     /**
      * Test for getHtmlForMain
-     *
-     * @return void
      */
-    public function testGetHtmlForMain()
+    public function testGetHtmlForMain(): void
     {
         $db = 'phpmyadmin';
         $total_rows = 50;
@@ -705,10 +677,8 @@ class CentralColumnsTest extends AbstractTestCase
 
     /**
      * Test for configErrorMessage
-     *
-     * @return void
      */
-    public function testConfigErrorMessage()
+    public function testConfigErrorMessage(): void
     {
         $this->assertInstanceOf(
             Message::class,
@@ -718,10 +688,8 @@ class CentralColumnsTest extends AbstractTestCase
 
     /**
      * Test for findExistingColNames
-     *
-     * @return void
      */
-    public function testFindExistingColNames()
+    public function testFindExistingColNames(): void
     {
         $GLOBALS['dbi']->expects($this->once())
             ->method('fetchResult')
@@ -752,10 +720,8 @@ class CentralColumnsTest extends AbstractTestCase
 
     /**
      * Test for getTableFooter
-     *
-     * @return void
      */
-    public function testGetTableFooter()
+    public function testGetTableFooter(): void
     {
         $pmaThemeImage = 'pmaThemeImage';
         $text_dir = 'text_dir';
@@ -773,10 +739,8 @@ class CentralColumnsTest extends AbstractTestCase
 
     /**
      * Test for getHtmlForColumnDropdown
-     *
-     * @return void
      */
-    public function testGetHtmlForColumnDropdown()
+    public function testGetHtmlForColumnDropdown(): void
     {
         $db = 'PMA_db';
         $selected_tbl = 'PMA_table';

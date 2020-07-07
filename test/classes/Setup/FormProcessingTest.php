@@ -36,10 +36,8 @@ class FormProcessingTest extends AbstractNetworkTestCase
 
     /**
      * Test for process_formset()
-     *
-     * @return void
      */
-    public function testProcessFormSet()
+    public function testProcessFormSet(): void
     {
         $this->mockResponse(
             [

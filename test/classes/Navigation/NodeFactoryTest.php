@@ -28,10 +28,8 @@ class NodeFactoryTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Navigation\NodeFactory::getInstance
-     *
-     * @return void
      */
-    public function testDefaultNode()
+    public function testDefaultNode(): void
     {
         $node = NodeFactory::getInstance();
         $this->assertEquals('default', $node->name);
@@ -41,10 +39,8 @@ class NodeFactoryTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Navigation\NodeFactory::getInstance
-     *
-     * @return void
      */
-    public function testDefaultContainer()
+    public function testDefaultContainer(): void
     {
         $node = NodeFactory::getInstance(
             'Node',
@@ -58,10 +54,8 @@ class NodeFactoryTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Navigation\NodeFactory::getInstance
-     *
-     * @return void
      */
-    public function testGroupContainer()
+    public function testGroupContainer(): void
     {
         $node = NodeFactory::getInstance(
             'Node',
@@ -76,10 +70,8 @@ class NodeFactoryTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Navigation\NodeFactory::getInstance
-     *
-     * @return void
      */
-    public function testFileError()
+    public function testFileError(): void
     {
         $this->expectException(Exception::class);
         NodeFactory::getInstance('NodeDoesNotExist');
@@ -87,10 +79,8 @@ class NodeFactoryTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Navigation\NodeFactory::getInstance
-     *
-     * @return void
      */
-    public function testClassNameError()
+    public function testClassNameError(): void
     {
         $this->expectException(Exception::class);
         NodeFactory::getInstance('Invalid');

@@ -33,10 +33,8 @@ class ExportTest extends AbstractTestCase
 
     /**
      * Test for mergeAliases
-     *
-     * @return void
      */
-    public function testMergeAliases()
+    public function testMergeAliases(): void
     {
         $aliases1 = [
             'test_db' => [
@@ -102,10 +100,8 @@ class ExportTest extends AbstractTestCase
 
     /**
      * Test for getFinalFilenameAndMimetypeForFilename
-     *
-     * @return void
      */
-    public function testGetFinalFilenameAndMimetypeForFilename()
+    public function testGetFinalFilenameAndMimetypeForFilename(): void
     {
         $exportPlugin = new ExportPhparray();
         $finalFileName = $this->export->getFinalFilenameAndMimetypeForFilename(

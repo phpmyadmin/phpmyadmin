@@ -85,11 +85,9 @@ class IndexesControllerTest extends AbstractTestCase
     /**
      * Tests for doSaveDataAction() method
      *
-     * @return void
-     *
      * @test
      */
-    public function testDoSaveDataAction()
+    public function testDoSaveDataAction(): void
     {
         $sql_query = 'ALTER TABLE `db`.`table` DROP PRIMARY KEY, ADD UNIQUE ;';
 
@@ -137,11 +135,9 @@ class IndexesControllerTest extends AbstractTestCase
     /**
      * Tests for displayFormAction()
      *
-     * @return void
-     *
      * @test
      */
-    public function testDisplayFormAction()
+    public function testDisplayFormAction(): void
     {
         $table = $this->getMockBuilder(Table::class)
             ->disableOriginalConstructor()

@@ -36,10 +36,8 @@ class CheckUserPrivilegesTest extends AbstractTestCase
 
     /**
      * Test for getItemsFromShowGrantsRow
-     *
-     * @return void
      */
-    public function testGetItemsFromShowGrantsRow()
+    public function testGetItemsFromShowGrantsRow(): void
     {
         // TEST CASE 1
         $show_grants_full_row = 'GRANT ALL PRIVILEGES ON *.* '
@@ -158,10 +156,8 @@ class CheckUserPrivilegesTest extends AbstractTestCase
 
     /**
      * Test for checkRequiredPrivilegesForAdjust
-     *
-     * @return void
      */
-    public function testCheckRequiredPrivilegesForAdjust()
+    public function testCheckRequiredPrivilegesForAdjust(): void
     {
         // TEST CASE 1
         $show_grants_full_row = 'GRANT ALL PRIVILEGES ON *.* '

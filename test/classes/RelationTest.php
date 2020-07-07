@@ -48,10 +48,8 @@ class RelationTest extends AbstractTestCase
 
     /**
      * Test for queryAsControlUser
-     *
-     * @return void
      */
-    public function testPMAQueryAsControlUser()
+    public function testPMAQueryAsControlUser(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -81,10 +79,8 @@ class RelationTest extends AbstractTestCase
 
     /**
      * Test for getRelationsParam & getRelationsParamDiagnostic
-     *
-     * @return void
      */
-    public function testPMAGetRelationsParam()
+    public function testPMAGetRelationsParam(): void
     {
         $relationsPara = $this->relation->getRelationsParam();
         $this->assertFalse(
@@ -170,10 +166,8 @@ class RelationTest extends AbstractTestCase
 
     /**
      * Test for getDisplayField
-     *
-     * @return void
      */
-    public function testPMAGetDisplayField()
+    public function testPMAGetDisplayField(): void
     {
         $db = 'information_schema';
         $table = 'CHARACTER_SETS';
@@ -198,10 +192,8 @@ class RelationTest extends AbstractTestCase
 
     /**
      * Test for getComments
-     *
-     * @return void
      */
-    public function testPMAGetComments()
+    public function testPMAGetComments(): void
     {
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $_SESSION['relation'] = [];
@@ -247,10 +239,8 @@ class RelationTest extends AbstractTestCase
 
     /**
      * Test for tryUpgradeTransformations
-     *
-     * @return void
      */
-    public function testPMATryUpgradeTransformations()
+    public function testPMATryUpgradeTransformations(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -285,10 +275,8 @@ class RelationTest extends AbstractTestCase
 
     /**
      * Test for searchColumnInForeigners
-     *
-     * @return void
      */
-    public function testPMASearchColumnInForeigners()
+    public function testPMASearchColumnInForeigners(): void
     {
         $foreigners = [
             'value' => [

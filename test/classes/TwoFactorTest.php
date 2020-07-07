@@ -61,10 +61,7 @@ class TwoFactorTest extends AbstractTestCase
         return $result;
     }
 
-    /**
-     * @return void
-     */
-    public function testNone()
+    public function testNone(): void
     {
         $object = $this->getTwoFactorMock('user', ['type' => 'db']);
         $backend = $object->getBackend();
@@ -79,10 +76,7 @@ class TwoFactorTest extends AbstractTestCase
         $this->assertEquals('', $object->setup());
     }
 
-    /**
-     * @return void
-     */
-    public function testSimple()
+    public function testSimple(): void
     {
         $GLOBALS['cfg']['DBG']['simple2fa'] = true;
         $object = $this->getTwoFactorMock('user', ['type' => 'db', 'backend' => 'simple']);
@@ -102,20 +96,14 @@ class TwoFactorTest extends AbstractTestCase
         $this->assertEquals('', $object->setup());
     }
 
-    /**
-     * @return void
-     */
-    public function testLoad()
+    public function testLoad(): void
     {
         $object = new TwoFactor('user');
         $backend = $object->getBackend();
         $this->assertEquals('', $backend::$id);
     }
 
-    /**
-     * @return void
-     */
-    public function testConfigureSimple()
+    public function testConfigureSimple(): void
     {
         $GLOBALS['cfg']['DBG']['simple2fa'] = true;
         $object = new TwoFactor('user');
@@ -178,10 +166,7 @@ class TwoFactorTest extends AbstractTestCase
         $this->assertNotEquals('', $object->setup());
     }
 
-    /**
-     * @return void
-     */
-    public function testKey()
+    public function testKey(): void
     {
         parent::loadDefaultConfig();
         parent::setLanguage();
@@ -222,10 +207,8 @@ class TwoFactorTest extends AbstractTestCase
 
     /**
      * Test getting AppId
-     *
-     * @return void
      */
-    public function testKeyAppId()
+    public function testKeyAppId(): void
     {
         $object = new TwoFactor('user');
         $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', 'http://demo.example.com');
@@ -247,10 +230,8 @@ class TwoFactorTest extends AbstractTestCase
     /**
      * Test based on upstream test data:
      * https://github.com/Yubico/php-u2flib-server
-     *
-     * @return void
      */
-    public function testKeyAuthentication()
+    public function testKeyAuthentication(): void
     {
         $object = new TwoFactor('user');
         if (! in_array('key', $object->getAvailable())) {
@@ -312,10 +293,8 @@ class TwoFactorTest extends AbstractTestCase
 
     /**
      * Test listing of available backends.
-     *
-     * @return void
      */
-    public function testBackends()
+    public function testBackends(): void
     {
         $GLOBALS['cfg']['DBG']['simple2fa'] = true;
         $object = new TwoFactor('user');

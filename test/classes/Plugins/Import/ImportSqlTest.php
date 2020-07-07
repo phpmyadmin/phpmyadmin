@@ -63,11 +63,9 @@ class ImportSqlTest extends AbstractTestCase
     /**
      * Test for doImport
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testDoImport()
+    public function testDoImport(): void
     {
         //$sql_query_disabled will show the import SQL detail
         global $sql_query, $sql_query_disabled;

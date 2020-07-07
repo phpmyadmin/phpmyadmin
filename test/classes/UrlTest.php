@@ -30,10 +30,8 @@ class UrlTest extends AbstractTestCase
 
     /**
      * Test for Url::getCommon for DB only
-     *
-     * @return void
      */
-    public function testDbOnly()
+    public function testDbOnly(): void
     {
         $GLOBALS['server'] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
@@ -49,10 +47,8 @@ class UrlTest extends AbstractTestCase
 
     /**
      * Test for Url::getCommon with new style
-     *
-     * @return void
      */
-    public function testNewStyle()
+    public function testNewStyle(): void
     {
         $GLOBALS['server'] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
@@ -72,10 +68,8 @@ class UrlTest extends AbstractTestCase
 
     /**
      * Test for Url::getCommon with alternate divider
-     *
-     * @return void
      */
-    public function testWithAlternateDivider()
+    public function testWithAlternateDivider(): void
     {
         $GLOBALS['server'] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
@@ -99,10 +93,8 @@ class UrlTest extends AbstractTestCase
 
     /**
      * Test for Url::getCommon
-     *
-     * @return void
      */
-    public function testDefault()
+    public function testDefault(): void
     {
         $GLOBALS['server'] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';

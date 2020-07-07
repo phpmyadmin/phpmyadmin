@@ -48,10 +48,8 @@ class ErrorTest extends AbstractTestCase
 
     /**
      * Test for setBacktrace
-     *
-     * @return void
      */
-    public function testSetBacktrace()
+    public function testSetBacktrace(): void
     {
         $bt = [
             [
@@ -68,10 +66,8 @@ class ErrorTest extends AbstractTestCase
 
     /**
      * Test for setLine
-     *
-     * @return void
      */
-    public function testSetLine()
+    public function testSetLine(): void
     {
         $this->object->setLine(15);
         $this->assertEquals(15, $this->object->getLine());
@@ -96,7 +92,7 @@ class ErrorTest extends AbstractTestCase
      *
      * @return array
      */
-    public function filePathProvider()
+    public function filePathProvider(): array
     {
         return [
             [
@@ -117,10 +113,8 @@ class ErrorTest extends AbstractTestCase
 
     /**
      * Test for getHash
-     *
-     * @return void
      */
-    public function testGetHash()
+    public function testGetHash(): void
     {
         $this->assertEquals(
             1,
@@ -130,10 +124,8 @@ class ErrorTest extends AbstractTestCase
 
     /**
      * Test for getBacktraceDisplay
-     *
-     * @return void
      */
-    public function testGetBacktraceDisplay()
+    public function testGetBacktraceDisplay(): void
     {
         $this->assertStringContainsString(
             'PHPUnit\Framework\TestResult->run(<Class:PhpMyAdmin\Tests\ErrorTest>)<br>',
@@ -143,10 +135,8 @@ class ErrorTest extends AbstractTestCase
 
     /**
      * Test for getDisplay
-     *
-     * @return void
      */
-    public function testGetDisplay()
+    public function testGetDisplay(): void
     {
         $this->assertStringContainsString(
             '<div class="alert alert-danger" role="alert"><strong>Warning</strong>',
@@ -156,30 +146,24 @@ class ErrorTest extends AbstractTestCase
 
     /**
      * Test for getHtmlTitle
-     *
-     * @return void
      */
-    public function testGetHtmlTitle()
+    public function testGetHtmlTitle(): void
     {
         $this->assertEquals('Warning: Compile Error', $this->object->getHtmlTitle());
     }
 
     /**
      * Test for getTitle
-     *
-     * @return void
      */
-    public function testGetTitle()
+    public function testGetTitle(): void
     {
         $this->assertEquals('Warning: Compile Error', $this->object->getTitle());
     }
 
     /**
      * Test for getBacktrace
-     *
-     * @return void
      */
-    public function testGetBacktrace()
+    public function testGetBacktrace(): void
     {
         $bt = [
             [

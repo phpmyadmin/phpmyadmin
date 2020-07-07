@@ -57,10 +57,8 @@ class GitTest extends AbstractTestCase
 
     /**
      * Test for isGitRevision
-     *
-     * @return void
      */
-    public function testIsGitRevision()
+    public function testIsGitRevision(): void
     {
         $_SESSION['git_location'] = '.cachedgitlocation';
         $_SESSION['is_git_revision'] = true;
@@ -81,10 +79,8 @@ class GitTest extends AbstractTestCase
 
     /**
      * Test for isGitRevision
-     *
-     * @return void
      */
-    public function testIsGitRevisionSkipped()
+    public function testIsGitRevisionSkipped(): void
     {
         $this->config->set('ShowGitRevision', false);
         $this->assertFalse(
@@ -95,11 +91,9 @@ class GitTest extends AbstractTestCase
     /**
      * Test for isGitRevision
      *
-     * @return void
-     *
      * @group git-revision
      */
-    public function testIsGitRevisionLocalGitDir()
+    public function testIsGitRevisionLocalGitDir(): void
     {
         $cwd = getcwd();
         $test_dir = 'gittestdir';
@@ -157,11 +151,9 @@ class GitTest extends AbstractTestCase
     /**
      * Test for isGitRevision
      *
-     * @return void
-     *
      * @group git-revision
      */
-    public function testIsGitRevisionExternalGitDir()
+    public function testIsGitRevisionExternalGitDir(): void
     {
         $cwd = getcwd();
         $test_dir = 'gittestdir';
@@ -220,11 +212,9 @@ class GitTest extends AbstractTestCase
     /**
      * Test for checkGitRevision packs folder
      *
-     * @return void
-     *
      * @group git-revision
      */
-    public function testCheckGitRevisionPacksFolder()
+    public function testCheckGitRevisionPacksFolder(): void
     {
         $cwd = getcwd();
         $test_dir = 'gittestdir';
@@ -286,11 +276,9 @@ class GitTest extends AbstractTestCase
     /**
      * Test for checkGitRevision packs folder
      *
-     * @return void
-     *
      * @group git-revision
      */
-    public function testCheckGitRevisionRefFile()
+    public function testCheckGitRevisionRefFile(): void
     {
         $cwd = getcwd();
         $test_dir = 'gittestdir';
@@ -343,11 +331,9 @@ class GitTest extends AbstractTestCase
     /**
      * Test for checkGitRevision with packs as file
      *
-     * @return void
-     *
      * @group git-revision
      */
-    public function testCheckGitRevisionPacksFile()
+    public function testCheckGitRevisionPacksFile(): void
     {
         $cwd = getcwd();
         $test_dir = 'gittestdir';
@@ -418,10 +404,8 @@ class GitTest extends AbstractTestCase
 
     /**
      * Test for checkGitRevision
-     *
-     * @return void
      */
-    public function testCheckGitRevisionSkipped()
+    public function testCheckGitRevisionSkipped(): void
     {
         $this->config->set('ShowGitRevision', false);
         $this->object->checkGitRevision();
@@ -438,10 +422,8 @@ class GitTest extends AbstractTestCase
 
     /**
      * Test for git infos in session
-     *
-     * @return void
      */
-    public function testSessionCacheGitFolder()
+    public function testSessionCacheGitFolder(): void
     {
         $_SESSION['git_location'] = 'customdir/.git';
         $_SESSION['is_git_revision'] = true;
@@ -456,10 +438,8 @@ class GitTest extends AbstractTestCase
 
     /**
      * Test that git folder is not looked up if cached value is false
-     *
-     * @return void
      */
-    public function testSessionCacheGitFolderNotRevisionNull()
+    public function testSessionCacheGitFolderNotRevisionNull(): void
     {
         $_SESSION['is_git_revision'] = false;
         $_SESSION['git_location'] = null;
@@ -475,10 +455,8 @@ class GitTest extends AbstractTestCase
 
     /**
      * Test that git folder is not looked up if cached value is false
-     *
-     * @return void
      */
-    public function testSessionCacheGitFolderNotRevisionString()
+    public function testSessionCacheGitFolderNotRevisionString(): void
     {
         $_SESSION['is_git_revision'] = false;
         $_SESSION['git_location'] = 'randomdir/.git';

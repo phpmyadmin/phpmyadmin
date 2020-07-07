@@ -37,10 +37,8 @@ class PluginPropertyItemTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Properties\Plugins\PluginPropertyItem::getPropertyType
-     *
-     * @return void
      */
-    public function testGetPropertyType()
+    public function testGetPropertyType(): void
     {
         $this->assertEquals(
             'plugin',

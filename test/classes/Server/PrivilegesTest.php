@@ -125,10 +125,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Test for getDataForDBInfo
-     *
-     * @return void
      */
-    public function testGetDataForDBInfo()
+    public function testGetDataForDBInfo(): void
     {
         $_REQUEST['username'] = 'PMA_username';
         $_REQUEST['hostname'] = 'PMA_hostname';
@@ -196,10 +194,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Test for wildcardEscapeForGrant
-     *
-     * @return void
      */
-    public function testWildcardEscapeForGrant()
+    public function testWildcardEscapeForGrant(): void
     {
         $dbname = '';
         $tablename = '';
@@ -228,10 +224,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Test for rangeOfUsers
-     *
-     * @return void
      */
-    public function testRangeOfUsers()
+    public function testRangeOfUsers(): void
     {
         $ret = $this->serverPrivileges->rangeOfUsers('INIT');
         $this->assertEquals(
@@ -248,10 +242,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Test for getTableGrantsArray
-     *
-     * @return void
      */
-    public function testGetTableGrantsArray()
+    public function testGetTableGrantsArray(): void
     {
         $GLOBALS['strPrivDescDelete'] = 'strPrivDescDelete';
         $GLOBALS['strPrivDescCreateTbl'] = 'strPrivDescCreateTbl';
@@ -283,10 +275,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Test for getGrantsArray
-     *
-     * @return void
      */
-    public function testGetGrantsArray()
+    public function testGetGrantsArray(): void
     {
         $ret = $this->serverPrivileges->getGrantsArray();
         $this->assertEquals(
@@ -309,10 +299,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Test for getHtmlForUserGroupDialog
-     *
-     * @return void
      */
-    public function testGetHtmlForUserGroupDialog()
+    public function testGetHtmlForUserGroupDialog(): void
     {
         $username = 'pma_username';
         $is_menuswork = true;
@@ -396,10 +384,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Test for getHtmlToChooseUserGroup
-     *
-     * @return void
      */
-    public function testGetHtmlToChooseUserGroup()
+    public function testGetHtmlToChooseUserGroup(): void
     {
         $username = 'pma_username';
 
@@ -424,10 +410,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Test for getSqlQueryForDisplayPrivTable
-     *
-     * @return void
      */
-    public function testGetSqlQueryForDisplayPrivTable()
+    public function testGetSqlQueryForDisplayPrivTable(): void
     {
         $username = 'pma_username';
         $db = '*';
@@ -508,10 +492,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Test for getDataForChangeOrCopyUser
-     *
-     * @return void
      */
-    public function testGetDataForChangeOrCopyUser()
+    public function testGetDataForChangeOrCopyUser(): void
     {
         //$_POST['change_copy'] not set
         [$queries, $password] = $this->serverPrivileges->getDataForChangeOrCopyUser();
@@ -542,10 +524,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Test for getListForExportUserDefinition
-     *
-     * @return void
      */
-    public function testGetHtmlForExportUserDefinition()
+    public function testGetHtmlForExportUserDefinition(): void
     {
         $username = 'PMA_username';
         $hostname = 'PMA_hostname';
@@ -578,10 +558,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Test for addUser
-     *
-     * @return void
      */
-    public function testAddUser()
+    public function testAddUser(): void
     {
         // Case 1 : Test with Newer version
         $GLOBALS['dbi']->expects($this->any())->method('getVersion')
@@ -627,10 +605,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Test for addUser
-     *
-     * @return void
      */
-    public function testAddUserOld()
+    public function testAddUserOld(): void
     {
         $GLOBALS['dbi']->expects($this->any())->method('getVersion')
             ->will($this->returnValue(50506));
@@ -677,10 +653,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Test for updatePassword
-     *
-     * @return void
      */
-    public function testUpdatePassword()
+    public function testUpdatePassword(): void
     {
         $username = 'pma_username';
         $hostname = 'pma_hostname';
@@ -703,10 +677,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Test for getMessageAndSqlQueryForPrivilegesRevoke
-     *
-     * @return void
      */
-    public function testGetMessageAndSqlQueryForPrivilegesRevoke()
+    public function testGetMessageAndSqlQueryForPrivilegesRevoke(): void
     {
         $dbname = 'pma_dbname';
         $username = 'pma_username';
@@ -742,10 +714,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Test for updatePrivileges
-     *
-     * @return void
      */
-    public function testUpdatePrivileges()
+    public function testUpdatePrivileges(): void
     {
         $dbname = 'pma_dbname';
         $username = 'pma_username';
@@ -778,10 +748,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Test for updatePrivileges
-     *
-     * @return void
      */
-    public function testUpdatePrivilegesBeforeMySql8Dot11()
+    public function testUpdatePrivilegesBeforeMySql8Dot11(): void
     {
         $dbname = '';
         $username = 'pma_username';
@@ -831,10 +799,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Test for updatePrivileges
-     *
-     * @return void
      */
-    public function testUpdatePrivilegesAfterMySql8Dot11()
+    public function testUpdatePrivilegesAfterMySql8Dot11(): void
     {
         $dbname = '';
         $username = 'pma_username';
@@ -886,11 +852,9 @@ class PrivilegesTest extends AbstractTestCase
     /**
      * Test for getHtmlToDisplayPrivilegesTable
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testGetHtmlToDisplayPrivilegesTable()
+    public function testGetHtmlToDisplayPrivilegesTable(): void
     {
         $dbi_old = $GLOBALS['dbi'];
         $GLOBALS['hostname'] = 'hostname';
@@ -1147,10 +1111,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Test for getSqlQueriesForDisplayAndAddUser
-     *
-     * @return void
      */
-    public function testGetSqlQueriesForDisplayAndAddUser()
+    public function testGetSqlQueriesForDisplayAndAddUser(): void
     {
         $GLOBALS['dbi']->expects($this->any())->method('getVersion')
             ->will($this->returnValue(50706));
@@ -1316,10 +1278,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Test for getHtmlForLoginInformationFields
-     *
-     * @return void
      */
-    public function testGetHtmlForLoginInformationFields()
+    public function testGetHtmlForLoginInformationFields(): void
     {
         $GLOBALS['username'] = 'pma_username';
 
@@ -1383,10 +1343,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Test for getWithClauseForAddUserAndUpdatePrivs
-     *
-     * @return void
      */
-    public function testGetWithClauseForAddUserAndUpdatePrivs()
+    public function testGetWithClauseForAddUserAndUpdatePrivs(): void
     {
         $_POST['Grant_priv'] = 'Y';
         $_POST['max_questions'] = 10;
@@ -1407,11 +1365,9 @@ class PrivilegesTest extends AbstractTestCase
     /**
      * Test for getHtmlForAddUser
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testGetHtmlForAddUser()
+    public function testGetHtmlForAddUser(): void
     {
         $dbi_old = $GLOBALS['dbi'];
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -1485,10 +1441,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Test for getUserLink
-     *
-     * @return void
      */
-    public function testGetUserLink()
+    public function testGetUserLink(): void
     {
         $username = 'pma_username';
         $hostname = 'pma_hostname';
@@ -1569,10 +1523,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Test for getExtraDataForAjaxBehavior
-     *
-     * @return void
      */
-    public function testGetExtraDataForAjaxBehavior()
+    public function testGetExtraDataForAjaxBehavior(): void
     {
         $password = 'pma_password';
         $sql_query = 'pma_sql_query';
@@ -1639,10 +1591,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Test for getUserGroupForUser
-     *
-     * @return void
      */
-    public function testGetUserGroupForUser()
+    public function testGetUserGroupForUser(): void
     {
         $username = 'pma_username';
         $GLOBALS['cfgRelation']['menuswork'] = true;
@@ -1675,10 +1625,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Test for getUsersOverview
-     *
-     * @return void
      */
-    public function testGetUsersOverview()
+    public function testGetUsersOverview(): void
     {
         $result = [];
         $db_rights = [];
@@ -1777,10 +1725,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Test for getDataForDeleteUsers
-     *
-     * @return void
      */
-    public function testGetDataForDeleteUsers()
+    public function testGetDataForDeleteUsers(): void
     {
         $_POST['change_copy'] = 'change_copy';
         $_POST['old_hostname'] = 'old_hostname';
@@ -1815,10 +1761,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Test for getAddUserHtmlFieldset
-     *
-     * @return void
      */
-    public function testGetAddUserHtmlFieldset()
+    public function testGetAddUserHtmlFieldset(): void
     {
         $html = $this->serverPrivileges->getAddUserHtmlFieldset();
 
@@ -1838,10 +1782,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Test for getHtmlHeaderForUserProperties
-     *
-     * @return void
      */
-    public function testGetHtmlHeaderForUserProperties()
+    public function testGetHtmlHeaderForUserProperties(): void
     {
         $dbname_is_wildcard = true;
         $url_dbname = 'url_dbname';
@@ -1923,10 +1865,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Tests for getHtmlForViewUsersError
-     *
-     * @return void
      */
-    public function testGetHtmlForViewUsersError()
+    public function testGetHtmlForViewUsersError(): void
     {
         $this->assertStringContainsString(
             'Not enough privilege to view users.',
@@ -1936,10 +1876,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Tests for getHtmlForUserProperties
-     *
-     * @return void
      */
-    public function testGetHtmlForUserProperties()
+    public function testGetHtmlForUserProperties(): void
     {
         $actual = $this->serverPrivileges->getHtmlForUserProperties(
             false,
@@ -2042,10 +1980,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Tests for getHtmlForUserOverview
-     *
-     * @return void
      */
-    public function testGetHtmlForUserOverview()
+    public function testGetHtmlForUserOverview(): void
     {
         $actual = $this->serverPrivileges->getHtmlForUserOverview('theme', '');
         $this->assertStringContainsString(
@@ -2061,10 +1997,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Tests for getHtmlForAllTableSpecificRights
-     *
-     * @return void
      */
-    public function testGetHtmlForAllTableSpecificRights()
+    public function testGetHtmlForAllTableSpecificRights(): void
     {
         // Test case 1
         $actual = $this->serverPrivileges->getHtmlForAllTableSpecificRights('pma', 'host', 'table', 'pmadb');
@@ -2105,10 +2039,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Tests for getHtmlForInitials
-     *
-     * @return void
      */
-    public function testGetHtmlForInitials()
+    public function testGetHtmlForInitials(): void
     {
         // Setup for the test
         $GLOBALS['dbi']->expects($this->any())->method('fetchRow')
@@ -2132,10 +2064,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Tests for getDbRightsForUserOverview
-     *
-     * @return void
      */
-    public function testGetDbRightsForUserOverview()
+    public function testGetDbRightsForUserOverview(): void
     {
         //Mock DBI
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -2179,10 +2109,8 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Tests for deleteUser
-     *
-     * @return void
      */
-    public function testDeleteUser()
+    public function testDeleteUser(): void
     {
         //Mock DBI
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

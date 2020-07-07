@@ -68,7 +68,7 @@ class TransformationPluginsTest extends AbstractTestCase
      *
      * @return array with test data
      */
-    public function multiDataProvider()
+    public function multiDataProvider(): array
     {
         return [
             // Test data for PhpMyAdmin\Plugins\Transformations\Input\Image_JPEG_Upload plugin
@@ -728,7 +728,7 @@ class TransformationPluginsTest extends AbstractTestCase
      *
      * @return array with test data
      */
-    public function transformationDataProvider()
+    public function transformationDataProvider(): array
     {
         $result = [
             [
@@ -1122,8 +1122,6 @@ class TransformationPluginsTest extends AbstractTestCase
      * @param bool   $success     the expected output of isSuccess
      * @param string $error       the expected output of getError
      *
-     * @return void
-     *
      * @dataProvider transformationDataProvider
      * @group medium
      */
@@ -1133,7 +1131,7 @@ class TransformationPluginsTest extends AbstractTestCase
         $transformed,
         $success = true,
         $error = ''
-    ) {
+    ): void {
         $reflectionMethod = new ReflectionMethod($object, 'applyTransformation');
         $this->assertEquals(
             $transformed,

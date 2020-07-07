@@ -101,11 +101,9 @@ class SearchControllerTest extends AbstractTestCase
     /**
      * Tests for getColumnMinMax()
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetColumnMinMax()
+    public function testGetColumnMinMax(): void
     {
         $expected = 'SELECT MIN(`column`) AS `min`, '
             . 'MAX(`column`) AS `max` '
@@ -133,11 +131,9 @@ class SearchControllerTest extends AbstractTestCase
     /**
      * Tests for getDataRowAction()
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetDataRowAction()
+    public function testGetDataRowAction(): void
     {
         $meta_one = new stdClass();
         $meta_one->type = 'int';

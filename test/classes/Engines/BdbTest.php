@@ -45,10 +45,8 @@ class BdbTest extends AbstractTestCase
 
     /**
      * Test for getVariables
-     *
-     * @return void
      */
-    public function testGetVariables()
+    public function testGetVariables(): void
     {
         $this->assertEquals(
             $this->object->getVariables(),
@@ -76,10 +74,8 @@ class BdbTest extends AbstractTestCase
 
     /**
      * Test for getVariablesLikePattern
-     *
-     * @return void
      */
-    public function testGetVariablesLikePattern()
+    public function testGetVariablesLikePattern(): void
     {
         $this->assertEquals(
             $this->object->getVariablesLikePattern(),
@@ -89,10 +85,8 @@ class BdbTest extends AbstractTestCase
 
     /**
      * Test for getMysqlHelpPage
-     *
-     * @return void
      */
-    public function testGetMysqlHelpPage()
+    public function testGetMysqlHelpPage(): void
     {
         $this->assertEquals(
             $this->object->getMysqlHelpPage(),

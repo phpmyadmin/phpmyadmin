@@ -189,11 +189,9 @@ class PdfRelationSchemaTest extends AbstractTestCase
     /**
      * Test for construct
      *
-     * @return void
-     *
      * @group large
      */
-    public function testConstructor()
+    public function testConstructor(): void
     {
         $this->assertEquals(
             33,

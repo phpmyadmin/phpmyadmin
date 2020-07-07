@@ -40,7 +40,7 @@ class DescriptionTest extends AbstractTestCase
     /**
      * @return array
      */
-    public function getValues()
+    public function getValues(): array
     {
         return [
             [
@@ -65,10 +65,8 @@ class DescriptionTest extends AbstractTestCase
      * Assertion for getting description key
      *
      * @param string $key key
-     *
-     * @return void
      */
-    public function assertGet($key)
+    public function assertGet($key): void
     {
         $this->assertNotNull(Descriptions::get($key, 'name'));
         $this->assertNotNull(Descriptions::get($key, 'desc'));
@@ -77,10 +75,8 @@ class DescriptionTest extends AbstractTestCase
 
     /**
      * Test getting all names for configurations
-     *
-     * @return void
      */
-    public function testAll()
+    public function testAll(): void
     {
         $nested = [
             'Export',

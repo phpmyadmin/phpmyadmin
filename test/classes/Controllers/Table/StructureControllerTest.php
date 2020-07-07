@@ -71,11 +71,9 @@ class StructureControllerTest extends AbstractTestCase
      *
      * Case one: there are no primary key in the table
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetKeyForTablePrimaryOne()
+    public function testGetKeyForTablePrimaryOne(): void
     {
         $GLOBALS['dbi']->expects($this->any())->method('fetchAssoc')
             ->will($this->returnValue(null));
@@ -109,11 +107,9 @@ class StructureControllerTest extends AbstractTestCase
      *
      * Case two: there are a primary key in the table
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetKeyForTablePrimaryTwo()
+    public function testGetKeyForTablePrimaryTwo(): void
     {
         $GLOBALS['dbi']->expects($this->any())
             ->method('fetchAssoc')
@@ -162,11 +158,9 @@ class StructureControllerTest extends AbstractTestCase
     /**
      * Tests for adjustColumnPrivileges()
      *
-     * @return void
-     *
      * @test
      */
-    public function testAdjustColumnPrivileges()
+    public function testAdjustColumnPrivileges(): void
     {
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('adjustColumnPrivileges');

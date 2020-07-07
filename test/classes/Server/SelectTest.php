@@ -46,10 +46,8 @@ class SelectTest extends AbstractTestCase
 
     /**
      * Test for Select::render
-     *
-     * @return void
      */
-    public function testRender()
+    public function testRender(): void
     {
         $not_only_options = false;
         $omit_fieldset = false;

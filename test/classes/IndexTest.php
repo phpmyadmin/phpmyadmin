@@ -60,10 +60,8 @@ class IndexTest extends AbstractTestCase
 
     /**
      * Test for Constructor
-     *
-     * @return void
      */
-    public function testConstructor()
+    public function testConstructor(): void
     {
         $index = new Index($this->_params);
         $this->assertEquals(
@@ -102,10 +100,8 @@ class IndexTest extends AbstractTestCase
 
     /**
      * Test for isUnique
-     *
-     * @return void
      */
-    public function testIsUniquer()
+    public function testIsUniquer(): void
     {
         $this->_params['Non_unique'] = '0';
         $index = new Index($this->_params);
@@ -120,10 +116,8 @@ class IndexTest extends AbstractTestCase
 
     /**
      * Test for add Columns
-     *
-     * @return void
      */
-    public function testAddColumns()
+    public function testAddColumns(): void
     {
         $index = new Index();
         $index->addColumns($this->_params['columns']);
@@ -138,10 +132,8 @@ class IndexTest extends AbstractTestCase
 
     /**
      * Test for get Name & set Name
-     *
-     * @return void
      */
-    public function testName()
+    public function testName(): void
     {
         $index = new Index();
         $index->setName('PMA_name');
@@ -153,10 +145,8 @@ class IndexTest extends AbstractTestCase
 
     /**
      * Test for PhpMyAdmin\Index Column
-     *
-     * @return void
      */
-    public function testColumns()
+    public function testColumns(): void
     {
         $index = new Index();
         $index->addColumns($this->_params['columns']);
