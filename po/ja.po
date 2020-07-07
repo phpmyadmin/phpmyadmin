@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-06-14 22:54+0200\n"
-"PO-Revision-Date: 2019-11-26 09:04+0000\n"
-"Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
+"PO-Revision-Date: 2020-07-08 06:46+0000\n"
+"Last-Translator: Huang Zhiyi <hzy980512@126.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
 "ja/>\n"
 "Language: ja\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.10-dev\n"
+"X-Generator: Weblate 4.2-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -10459,18 +10459,6 @@ msgstr ""
 "ションを使う場合は 1 つ目のオプションは空文字列にする必要があります。"
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:31
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Output/Text_Plain_External.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -10483,15 +10471,13 @@ msgid ""
 "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
 "ensure that the output appears all on one line (Default 1)."
 msgstr ""
-"LINUX のみ: 外部アプリケーションを起動して標準入力経由でカラムデータを渡しま"
-"す。アプリケーションの標準出力が返ります。デフォルトは Tidy です (これは "
-"HTML コードを綺麗にするためのものです)。セキュリティ上の理由から libraries/"
-"classes/Plugins/Transformations/Output/Text_Plain_External.php を自分で編集し"
-"て利用したいツールを明記しておく必要があります。最初のオプションは利用したい"
-"プログラムの数で、2 つ目のオプションはプログラムのパラメータです。3 つ目のオ"
-"プションが 1 に設定されている場合は htmlspecialchars() を用いて出力を変換しま"
-"す (デフォルトは 1 です)。4 つ目のオプションが 1 に設定されている場合は禁則処"
-"理をせず出力全体が 1 行に収まるようにします (デフォルトは 1 です)。"
+"LINUX のみ: 外部アプリケーションを起動して標準入力経由でカラムデータを渡します。アプリケーションの標準出力が返ります。デフォルトは Tidy "
+"です (これは HTML コードを綺麗にするためのものです)。セキュリティ上の理由から libraries/classes/Plugins/"
+"Transformations/Abs/ExternalTransformationsPlugin.php "
+"を自分で編集して利用したいツールを明記しておく必要があります。最初のオプションは利用したいプログラムの数です。2 "
+"つ目のオプションは歴史的な理由のため、空白のままにしてください。3 つ目のオプションが 1 に設定されている場合は htmlspecialchars() "
+"を用いて出力を変換します (デフォルトは 1 です)。4 つ目のオプションが 1 に設定されている場合は禁則処理をせず出力全体が 1 "
+"行に収まるようにします (デフォルトは 1 です)。"
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:117
 #, php-format
@@ -10500,6 +10486,8 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"セキュリティ上の問題のため廃止した外部変換コマンドラインオプションフィールドを使用しようとしています。コマンドラインオプションを%sの中の定義に直接に追加"
+"してください。"
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:31
 msgid ""
@@ -13230,10 +13218,8 @@ msgstr "テーブル名が不正です"
 
 #. l10n: In case a SQL query did not pass a security check
 #: tbl_get_field.php:62
-#, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
-msgstr "インデックスを使用しない結合が多くあります。"
+msgstr "リクエストに問題があります。"
 
 #: tbl_replace.php:266
 #, php-format
