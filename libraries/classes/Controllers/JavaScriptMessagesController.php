@@ -11,7 +11,7 @@ use function json_encode;
  */
 final class JavaScriptMessagesController
 {
-    /** @var array<string, string|null> */
+    /** @var array<string, string> */
     private $messages = [];
 
     public function __construct()
@@ -593,7 +593,7 @@ final class JavaScriptMessagesController
                 ? __('You can also edit most values<br>by double-clicking directly on them.')
                 : ($cfg['GridEditing'] === 'click'
                     ? __('You can also edit most values<br>by clicking directly on them.')
-                    : null),
+                    : ''),
 
             'strGoToLink' => __('Go to link:'),
             'strColNameCopyTitle' => __('Copy column name.'),
