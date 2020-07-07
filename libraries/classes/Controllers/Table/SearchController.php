@@ -109,10 +109,10 @@ class SearchController extends AbstractController
         $this->search = $search;
         $this->relation = $relation;
         $this->_columnNames = [];
-        $this->_columnNullFlags = [];
         $this->_columnTypes = [];
         $this->_originalColumnTypes = [];
         $this->_columnCollations = [];
+        $this->_columnNullFlags = [];
         $this->_geomColumnFlag = false;
         $this->_foreigners = [];
         $this->loadTableInfo();
@@ -121,10 +121,8 @@ class SearchController extends AbstractController
     /**
      * Gets all the columns of a table along with their types, collations
      * and whether null or not.
-     *
-     * @return void
      */
-    private function loadTableInfo()
+    private function loadTableInfo(): void
     {
         // Gets the list and number of columns
         $columns = $this->dbi->getColumns(
@@ -396,7 +394,8 @@ class SearchController extends AbstractController
             $type = 'INT';
         }
 
-        $htmlAttributes .= " onchange= 'return verifyAfterSearchFieldChange(" . $column_index . ")'";
+        $htmlAttributes .= ' onchange="return '
+                        . 'verifyAfterSearchFieldChange(' . $column_index . ', \'#tbl_search_form\')"';
 
         $value = $this->template->render('table/search/input_box', [
             'str' => '',

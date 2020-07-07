@@ -47,6 +47,9 @@ class ZoomSearchController extends AbstractController
     private $_columnTypes;
 
     /** @var array */
+    private $_originalColumnTypes;
+
+    /** @var array */
     private $_columnCollations;
 
     /** @var array */
@@ -74,6 +77,7 @@ class ZoomSearchController extends AbstractController
         $this->relation = $relation;
         $this->_columnNames = [];
         $this->_columnTypes = [];
+        $this->_originalColumnTypes = [];
         $this->_columnCollations = [];
         $this->_columnNullFlags = [];
         $this->_geomColumnFlag = false;
@@ -177,6 +181,8 @@ class ZoomSearchController extends AbstractController
             $this->_columnNames[] = $row['Field'];
 
             $type = $row['Type'];
+            // before any replacement
+            $this->_originalColumnTypes[] = mb_strtolower($type);
             // check whether table contains geometric columns
             if (in_array($type, $geom_types)) {
                 $this->_geomColumnFlag = true;
@@ -269,8 +275,8 @@ class ZoomSearchController extends AbstractController
     public function getDataRowAction()
     {
         $extra_data = [];
-        $row_info_query = 'SELECT * FROM `' . $_POST['db'] . '`.`'
-            . $_POST['table'] . '` WHERE ' . $_POST['where_clause'];
+        $row_info_query = 'SELECT * FROM ' . Util::backquote($_POST['db']) . '.'
+            . Util::backquote($_POST['table']) . ' WHERE ' . $_POST['where_clause'];
         $result = $this->dbi->query(
             $row_info_query . ';',
             DatabaseInterface::CONNECT_USER,
@@ -429,9 +435,10 @@ class ZoomSearchController extends AbstractController
         //Gets column's type and collation
         $type = $this->_columnTypes[$column_index];
         $collation = $this->_columnCollations[$column_index];
+        $cleanType = preg_replace('@\(.*@s', '', $type);
         //Gets column's comparison operators depending on column type
         $typeOperators = $this->dbi->types->getTypeOperatorsHtml(
-            preg_replace('@\(.*@s', '', $this->_columnTypes[$column_index]),
+            $cleanType,
             $this->_columnNullFlags[$column_index],
             $selected_operator
         );
@@ -447,9 +454,28 @@ class ZoomSearchController extends AbstractController
             '',
             ''
         );
+        $htmlAttributes = '';
+        if (in_array($cleanType, $this->dbi->types->getIntegerTypes())) {
+            $extractedColumnspec = Util::extractColumnSpec(
+                $this->_originalColumnTypes[$column_index]
+            );
+            $is_unsigned = $extractedColumnspec['unsigned'];
+            $minMaxValues = $this->dbi->types->getIntegerRange(
+                $cleanType,
+                ! $is_unsigned
+            );
+            $htmlAttributes = 'data-min="' . $minMaxValues[0] . '" '
+                            . 'data-max="' . $minMaxValues[1] . '"';
+            $type = 'INT';
+        }
+
+        $htmlAttributes .= ' onchange="return '
+                        . 'verifyAfterSearchFieldChange(' . $column_index . ', \'#zoom_search_form\')"';
+
         $value = $this->template->render('table/search/input_box', [
             'str' => '',
             'column_type' => (string) $type,
+            'html_attributes' => $htmlAttributes,
             'column_id' => 'fieldID_',
             'in_zoom_search_edit' => false,
             'foreigners' => $this->_foreigners,

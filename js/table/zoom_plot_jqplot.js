@@ -128,6 +128,17 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
         searchedData = null;
     }
 
+    // adding event listener on select after AJAX request
+    var comparisonOperatorOnChange = function () {
+        var tableRows = $('#inputSection select.column-operator');
+        $.each(tableRows, function (index, item) {
+            $(item).on('change', function () {
+                // eslint-disable-next-line no-undef
+                changeValueFieldType(this, index);
+            });
+        });
+    };
+
     /**
      ** Input form submit on field change
      **/
@@ -152,6 +163,7 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
             $('#types_0').val(data.field_type);
             xType = data.field_type;
             $('#collations_0').val(data.field_collations);
+            comparisonOperatorOnChange();
             Functions.addDateTimePicker();
         });
     });
@@ -176,6 +188,7 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
             $('#types_1').val(data.field_type);
             yType = data.field_type;
             $('#collations_1').val(data.field_collations);
+            comparisonOperatorOnChange();
             Functions.addDateTimePicker();
         });
     });
@@ -197,6 +210,7 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
             $('#tableFieldsId').find('tr').eq(4).find('td').eq(3).html(data.field_value);
             $('#types_2').val(data.field_type);
             $('#collations_2').val(data.field_collations);
+            comparisonOperatorOnChange();
             Functions.addDateTimePicker();
         });
     });
@@ -218,6 +232,7 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
             $('#tableFieldsId').find('tr').eq(5).find('td').eq(3).html(data.field_value);
             $('#types_3').val(data.field_type);
             $('#collations_3').val(data.field_collations);
+            comparisonOperatorOnChange();
             Functions.addDateTimePicker();
         });
     });
