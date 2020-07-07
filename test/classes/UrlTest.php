@@ -114,8 +114,6 @@ class UrlTest extends AbstractTestCase
 
     /**
      * Test for Url::getFromRoute
-     *
-     * @return void
      */
     public function testGetFromRoute(): void
     {

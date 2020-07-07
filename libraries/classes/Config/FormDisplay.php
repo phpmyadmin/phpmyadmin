@@ -595,8 +595,6 @@ class FormDisplay
      *
      * @param string|bool $value   Current value
      * @param array       $allowed List of allowed values
-     *
-     * @return bool
      */
     private function validateSelect(&$value, array $allowed): bool
     {

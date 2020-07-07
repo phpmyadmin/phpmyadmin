@@ -147,8 +147,6 @@ class NodeTrans extends TransNode
     /**
      * @param bool $plural        Return plural or singular function to use
      * @param bool $hasMsgContext It has message context?
-     *
-     * @return string
      */
     protected function getTransFunction($plural, bool $hasMsgContext = false): string
     {

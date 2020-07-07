@@ -52,8 +52,6 @@ class ExportRelationSchema
      * Set Page Number
      *
      * @param int $value Page Number of the document to be created
-     *
-     * @return void
      */
     public function setPageNumber(int $value): void
     {
@@ -74,8 +72,6 @@ class ExportRelationSchema
      * Sets showColor
      *
      * @param bool $value whether to show colors
-     *
-     * @return void
      */
     public function setShowColor(bool $value): void
     {
@@ -96,8 +92,6 @@ class ExportRelationSchema
      * Set Table Dimension
      *
      * @param bool $value show table co-ordinates or not
-     *
-     * @return void
      */
     public function setTableDimension(bool $value): void
     {
@@ -118,8 +112,6 @@ class ExportRelationSchema
      * Set same width of All Tables
      *
      * @param bool $value set same width of all tables or not
-     *
-     * @return void
      */
     public function setAllTablesSameWidth(bool $value): void
     {
@@ -140,8 +132,6 @@ class ExportRelationSchema
      * Set Show only keys
      *
      * @param bool $value show only keys or not
-     *
-     * @return void
      *
      * @access public
      */
@@ -165,8 +155,6 @@ class ExportRelationSchema
      *
      * @param string $value Orientation will be portrait or landscape
      *
-     * @return void
-     *
      * @access public
      */
     public function setOrientation(string $value): void
@@ -189,8 +177,6 @@ class ExportRelationSchema
      *
      * @param string $value paper type can be A4 etc
      *
-     * @return void
-     *
      * @access public
      */
     public function setPaper(string $value): void
@@ -212,8 +198,6 @@ class ExportRelationSchema
      * Set whether the document is generated from client side DB
      *
      * @param bool $value offline or not
-     *
-     * @return void
      *
      * @access public
      */

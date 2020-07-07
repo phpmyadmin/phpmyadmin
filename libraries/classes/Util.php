@@ -2996,8 +2996,6 @@ class Util
      * Converts given (request) paramter to string
      *
      * @param mixed $value Value to convert
-     *
-     * @return string
      */
     public static function requestString($value): string
     {

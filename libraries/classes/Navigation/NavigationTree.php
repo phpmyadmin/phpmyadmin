@@ -205,8 +205,6 @@ class NavigationTree
 
     /**
      * Returns the database position for the page selector
-     *
-     * @return int
      */
     private function getNavigationDbPos(): int
     {
@@ -711,8 +709,6 @@ class NavigationTree
      * Recursively groups tree nodes given a separator
      *
      * @param Node $node The node to group
-     *
-     * @return void
      */
     public function groupNode($node): void
     {
@@ -1013,8 +1009,6 @@ class NavigationTree
      * side to know which page(s) we will be requesting data from
      *
      * @param Node $node The node to create the pagination parameters for
-     *
-     * @return string
      */
     private function getPaginationParamsHtml(Node $node): string
     {
@@ -1041,8 +1035,6 @@ class NavigationTree
      *
      * @param array $tree  Tree to check
      * @param array $paths Paths to check
-     *
-     * @return bool
      */
     private function findTreeMatch(array $tree, array $paths): bool
     {
@@ -1369,8 +1361,6 @@ class NavigationTree
 
     /**
      * Makes some nodes visible based on the which node is active
-     *
-     * @return void
      */
     private function setVisibility(): void
     {
@@ -1505,8 +1495,6 @@ class NavigationTree
      *
      * @param Node $node The node for whose children the page
      *                   selector will be created
-     *
-     * @return string
      */
     private function getPageSelector(Node $node): string
     {

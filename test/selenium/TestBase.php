@@ -402,8 +402,6 @@ abstract class TestBase extends TestCase
 
     /**
      * Checks whether the user is a superuser.
-     *
-     * @return bool
      */
     protected function isSuperUser(): bool
     {
@@ -606,8 +604,6 @@ abstract class TestBase extends TestCase
      * @param string       $query       SQL Query to be executed
      * @param Closure|null $onResults   The function to call when the results are displayed
      * @param Closure|null $afterSubmit The function to call after the submit button is clicked
-     *
-     * @return bool
      *
      * @throws Exception
      */
@@ -1033,8 +1029,6 @@ abstract class TestBase extends TestCase
      * @param WebDriverElement $element The element
      * @param int              $xOffset The x offset to apply (defaults to 0)
      * @param int              $yOffset The y offset to apply (defaults to 0)
-     *
-     * @return void
      */
     public function scrollToElement(WebDriverElement $element, int $xOffset = 0, int $yOffset = 0): void
     {
@@ -1046,8 +1040,6 @@ abstract class TestBase extends TestCase
 
     /**
      * Scroll to the bottom of page
-     *
-     * @return void
      */
     public function scrollToBottom(): void
     {
@@ -1058,8 +1050,6 @@ abstract class TestBase extends TestCase
 
     /**
      * Reload the page
-     *
-     * @return void
      */
     public function reloadPage(): void
     {
@@ -1125,8 +1115,6 @@ abstract class TestBase extends TestCase
      *
      * @param string $status  passed or failed
      * @param string $message a message
-     *
-     * @return void
      */
     private function markTestAs(string $status, string $message): void
     {
@@ -1208,8 +1196,6 @@ abstract class TestBase extends TestCase
      * Mark unsuccessful tests as 'Failures' on Browerstack
      *
      * @param Throwable $t Throwable
-     *
-     * @return void
      */
     public function onNotSuccessfulTest(Throwable $t): void
     {

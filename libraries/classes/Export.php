@@ -964,8 +964,6 @@ class Export
      * @param string       $err_url         the URL in case of error
      * @param string       $sql_query       the query to be executed
      * @param string       $export_type     the export type
-     *
-     * @return void
      */
     public static function exportRaw(
         string $whatStrucOrData,

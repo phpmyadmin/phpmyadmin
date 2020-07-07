@@ -264,8 +264,6 @@ class Theme
      * set file system path to the theme
      *
      * @param string $path path to theme
-     *
-     * @return void
      */
     public function setFsPath(string $path): void
     {

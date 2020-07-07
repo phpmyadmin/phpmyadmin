@@ -1070,8 +1070,6 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Test case for getSqlQueriesForDisplayAndAddUser
-     *
-     * @return void
      */
     public function testGetSqlQueriesForDisplayAndAddUserMySql8011(): void
     {
@@ -1111,8 +1109,6 @@ class PrivilegesTest extends AbstractTestCase
 
     /**
      * Test case for getSqlQueriesForDisplayAndAddUser
-     *
-     * @return void
      */
     public function testGetSqlQueriesForDisplayAndAddUserMySql8016(): void
     {

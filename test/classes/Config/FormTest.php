@@ -309,8 +309,6 @@ class FormTest extends AbstractTestCase
 
     /**
      * Test for Form::cleanGroupPaths
-     *
-     * @return void
      */
     public function testCleanGroupPaths(): void
     {

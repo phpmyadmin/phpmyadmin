@@ -2108,8 +2108,6 @@ class UtilTest extends AbstractTestCase
      * @param string $header The http Forwarded header
      * @param string $proto  The protocol http/https
      *
-     * @return void
-     *
      * @dataProvider providerForwardedHeaders
      */
     public function testGetProtoFromForwardedHeader(string $header, string $proto): void

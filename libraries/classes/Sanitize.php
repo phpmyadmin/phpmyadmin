@@ -83,8 +83,6 @@ class Sanitize
 
     /**
      * Check if we are currently on a setup folder page
-     *
-     * @return bool
      */
     public static function isSetup(): bool
     {

@@ -1645,8 +1645,6 @@ class Routines
      * Browse row array
      *
      * @param array $row Columns
-     *
-     * @return string|null
      */
     private function browseRow(array $row): ?string
     {

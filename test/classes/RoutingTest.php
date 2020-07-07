@@ -15,8 +15,6 @@ class RoutingTest extends AbstractTestCase
 {
     /**
      * Test for Routing::getDispatcher
-     *
-     * @return void
      */
     public function testGetDispatcher(): void
     {
@@ -34,8 +32,6 @@ class RoutingTest extends AbstractTestCase
 
     /**
      * Test for Routing::getCurrentRoute
-     *
-     * @return void
      */
     public function testGetCurrentRouteNoParams(): void
     {
@@ -44,8 +40,6 @@ class RoutingTest extends AbstractTestCase
 
     /**
      * Test for Routing::getCurrentRoute
-     *
-     * @return void
      */
     public function testGetCurrentRouteGet(): void
     {
@@ -55,8 +49,6 @@ class RoutingTest extends AbstractTestCase
 
     /**
      * Test for Routing::getCurrentRoute
-     *
-     * @return void
      */
     public function testGetCurrentRoutePost(): void
     {
@@ -67,8 +59,6 @@ class RoutingTest extends AbstractTestCase
 
     /**
      * Test for Routing::getCurrentRoute
-     *
-     * @return void
      */
     public function testGetCurrentRouteGetIsOverPost(): void
     {
@@ -79,8 +69,6 @@ class RoutingTest extends AbstractTestCase
 
     /**
      * Test for Routing::getCurrentRoute
-     *
-     * @return void
      */
     public function testGetCurrentRouteRedirectDbStructure(): void
     {
@@ -92,8 +80,6 @@ class RoutingTest extends AbstractTestCase
 
     /**
      * Test for Routing::getCurrentRoute
-     *
-     * @return void
      */
     public function testGetCurrentRouteRedirectSql(): void
     {

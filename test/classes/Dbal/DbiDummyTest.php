@@ -130,8 +130,6 @@ class DbiDummyTest extends AbstractTestCase
 
     /**
      * Test for string escaping
-     *
-     * @return void
      */
     public function testEscapeString(): void
     {

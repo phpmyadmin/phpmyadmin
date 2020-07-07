@@ -83,8 +83,6 @@ class TableStatsSvg extends TableStats
 
     /**
      * Displays an error when the table cannot be found.
-     *
-     * @return void
      */
     protected function showMissingTableError(): void
     {
@@ -102,8 +100,6 @@ class TableStatsSvg extends TableStats
      *
      * @param string $font     The font size
      * @param int    $fontSize The font size
-     *
-     * @return void
      *
      * @access private
      */
@@ -132,8 +128,6 @@ class TableStatsSvg extends TableStats
      * Sets the height of the table
      *
      * @param int $fontSize font size
-     *
-     * @return void
      */
     private function setHeightTable($fontSize): void
     {
@@ -147,8 +141,6 @@ class TableStatsSvg extends TableStats
      * @see    PMA_SVG,PMA_SVG::printElement
      *
      * @param bool $showColor Whether to display color
-     *
-     * @return void
      *
      * @access public
      */

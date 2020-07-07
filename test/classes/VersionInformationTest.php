@@ -288,8 +288,6 @@ class VersionInformationTest extends AbstractTestCase
      * @param array[]     $conditions         The conditions that will be executed
      * @param string|null $matchedLastVersion The version that will be matched
      *
-     * @return void
-     *
      * @dataProvider dataProviderVersionConditions
      */
     public function testGetLatestCompatibleVersionWithNewPHPVersion(

@@ -18,8 +18,6 @@ class FormatConverterTest extends AbstractTestCase
      * @param string $expected Expected result given an input
      * @param string $input    Input to convert
      *
-     * @return void
-     *
      * @dataProvider providerBinaryToIp
      */
     public function testBinaryToIp(string $expected, string $input): void
@@ -52,8 +50,6 @@ class FormatConverterTest extends AbstractTestCase
      *
      * @param string $expected Expected result given an input
      * @param string $input    Input to convert
-     *
-     * @return void
      *
      * @dataProvider providerIpToBinary
      */
@@ -88,8 +84,6 @@ class FormatConverterTest extends AbstractTestCase
      * @param string $expected Expected result given an input
      * @param string $input    Input to convert
      *
-     * @return void
-     *
      * @dataProvider providerIpToLong
      */
     public function testIpToLong(string $expected, string $input): void
@@ -122,8 +116,6 @@ class FormatConverterTest extends AbstractTestCase
      *
      * @param string $expected Expected result given an input
      * @param string $input    Input to convert
-     *
-     * @return void
      *
      * @dataProvider providerLongToIp
      */

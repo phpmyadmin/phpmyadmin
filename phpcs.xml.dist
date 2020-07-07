@@ -20,6 +20,11 @@
         <!-- Rules that should be followed, but are not required -->
         <exclude name="PSR2.Classes.PropertyDeclaration.Underscore"/>
         <exclude name="SlevomatCodingStandard.Operators.DisallowEqualOperators"/>
-        <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration"/>
+        <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint"/>
+        <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingPropertyTypeHint"/>
+        <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint"/>
+        <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversableParameterTypeHintSpecification"/>
+        <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversablePropertyTypeHintSpecification"/>
+        <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversableReturnTypeHintSpecification"/>
     </rule>
 </ruleset>
