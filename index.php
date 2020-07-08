@@ -1,7 +1,4 @@
 <?php
-/**
- * Main loader script
- */
 
 declare(strict_types=1);
 
@@ -13,9 +10,9 @@ if (! defined('ROOT_PATH')) {
     // phpcs:enable
 }
 
-global $route;
+global $route, $containerBuilder;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $dispatcher = Routing::getDispatcher();
-Routing::callControllerForRoute($route, $dispatcher);
+Routing::callControllerForRoute($route, $dispatcher, $containerBuilder);
