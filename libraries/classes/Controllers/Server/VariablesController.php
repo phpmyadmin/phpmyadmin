@@ -11,6 +11,8 @@ use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use Williamdes\MariaDBMySQLKBS\KBException;
 use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
 use function header;
@@ -30,7 +32,7 @@ use function trim;
  */
 class VariablesController extends AbstractController
 {
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         $params = ['filter' => $_GET['filter'] ?? null];
 
@@ -91,17 +93,19 @@ class VariablesController extends AbstractController
             'is_superuser' => $this->dbi->isSuperuser(),
             'is_mariadb' => $this->dbi->isMariaDB(),
         ]);
+
+        return $response;
     }
 
     /**
      * Handle the AJAX request for a single variable value
      *
-     * @param array $params Request parameters
+     * @param array $args Request parameters
      */
-    public function getValue(array $params): void
+    public function getValue(Request $request, Response $response, array $args): Response
     {
         if (! $this->response->isAjax()) {
-            return;
+            return $response;
         }
 
         // Send with correct charset
@@ -110,13 +114,13 @@ class VariablesController extends AbstractController
         // when server is running in ANSI_QUOTES sql_mode
         $varValue = $this->dbi->fetchSingleRow(
             'SHOW GLOBAL VARIABLES WHERE Variable_name=\''
-            . $this->dbi->escapeString($params['name']) . '\';',
+            . $this->dbi->escapeString($args['name']) . '\';',
             'NUM'
         );
 
         $json = [];
         try {
-            $type = KBSearch::getVariableType($params['name']);
+            $type = KBSearch::getVariableType($args['name']);
             if ($type !== 'byte') {
                 throw new KBException('Not a type=byte');
             }
@@ -130,22 +134,24 @@ class VariablesController extends AbstractController
         }
 
         $this->response->addJSON($json);
+
+        return $response;
     }
 
     /**
      * Handle the AJAX request for setting value for a single variable
      *
-     * @param array $vars Request parameters
+     * @param array $args Request parameters
      */
-    public function setValue(array $vars): void
+    public function setValue(Request $request, Response $response, array $args): Response
     {
         $params = [
-            'varName' => $vars['name'],
+            'varName' => $args['name'],
             'varValue' => $_POST['varValue'] ?? null,
         ];
 
         if (! $this->response->isAjax()) {
-            return;
+            return $response;
         }
 
         $value = $params['varValue'];
@@ -209,6 +215,8 @@ class VariablesController extends AbstractController
         }
 
         $this->response->addJSON($json);
+
+        return $response;
     }
 
     /**

@@ -7,11 +7,13 @@ namespace PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Tracking;
 use PhpMyAdmin\Url;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function array_map;
 use function define;
 use function explode;
@@ -25,7 +27,7 @@ final class TrackingController extends AbstractController
     private $tracking;
 
     /**
-     * @param Response          $response A Response instance.
+     * @param ResponseRenderer  $response A Response instance.
      * @param DatabaseInterface $dbi      A DatabaseInterface instance.
      * @param Template          $template A Template instance.
      * @param string            $db       Database name.
@@ -44,7 +46,7 @@ final class TrackingController extends AbstractController
         $this->tracking = $tracking;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $pmaThemeImage, $text_dir, $url_query, $url_params, $msg;
         global $data, $entries, $filter_ts_from, $filter_ts_to, $filter_users, $selection_schema;
@@ -235,5 +237,7 @@ final class TrackingController extends AbstractController
         $html .= '<br class="clearfloat">';
 
         $this->response->addHTML($html);
+
+        return $response;
     }
 }

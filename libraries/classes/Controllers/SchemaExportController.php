@@ -7,6 +7,8 @@ namespace PhpMyAdmin\Controllers;
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 /**
  * Schema export handler
@@ -29,7 +31,7 @@ class SchemaExportController
         $this->relation = $relation;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $cfgRelation;
 
@@ -48,5 +50,7 @@ class SchemaExportController
          * default is PDF
          */
         $this->export->processExportSchema($_POST['export_type']);
+
+        return $response;
     }
 }

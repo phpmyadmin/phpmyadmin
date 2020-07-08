@@ -11,12 +11,14 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function intval;
 use function is_array;
 use function min;
@@ -37,7 +39,7 @@ class AddFieldController extends AbstractController
     private $relation;
 
     /**
-     * @param Response          $response        A Response instance.
+     * @param ResponseRenderer  $response        A Response instance.
      * @param DatabaseInterface $dbi             A DatabaseInterface instance.
      * @param Template          $template        A Template instance.
      * @param string            $db              Database name.
@@ -62,7 +64,7 @@ class AddFieldController extends AbstractController
         $this->relation = $relation;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $err_url, $message, $action, $active_page, $sql_query;
         global $num_fields, $regenerate, $result, $db, $table;
@@ -123,7 +125,7 @@ class AddFieldController extends AbstractController
                 $this->response->addHTML($error_message_html ?? '');
                 $this->response->setRequestStatus(false);
 
-                return;
+                return $response;
             }
 
             // Update comment table for mime types [MIME]
@@ -161,7 +163,7 @@ class AddFieldController extends AbstractController
                 Generator::getMessage($message, $sql_query, 'success')
             );
 
-            return;
+            return $response;
         }
 
         /**
@@ -185,5 +187,7 @@ class AddFieldController extends AbstractController
             $num_fields,
             $regenerate
         );
+
+        return $response;
     }
 }

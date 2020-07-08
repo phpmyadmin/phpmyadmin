@@ -13,8 +13,10 @@ use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Template;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 /**
  * Handles viewing character sets and collations
@@ -28,7 +30,7 @@ class CollationsController extends AbstractController
     private $collations;
 
     /**
-     * @param Response          $response   Response object
+     * @param ResponseRenderer  $response   Response object
      * @param DatabaseInterface $dbi        DatabaseInterface object
      * @param Template          $template   Template object
      * @param array|null        $charsets   Array of charsets
@@ -55,7 +57,7 @@ class CollationsController extends AbstractController
         );
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         Common::server();
 
@@ -80,5 +82,7 @@ class CollationsController extends AbstractController
         }
 
         $this->render('server/collations/index', ['charsets' => $charsets]);
+
+        return $response;
     }
 }

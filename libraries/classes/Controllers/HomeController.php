@@ -21,13 +21,15 @@ use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use const E_USER_NOTICE;
 use const E_USER_WARNING;
 use const PHP_VERSION;
@@ -49,7 +51,7 @@ class HomeController extends AbstractController
     private $themeManager;
 
     /**
-     * @param Response          $response     Response instance
+     * @param ResponseRenderer  $response     Response instance
      * @param DatabaseInterface $dbi          DatabaseInterface instance
      * @param Template          $template     Template object
      * @param Config            $config       Config instance
@@ -62,12 +64,12 @@ class HomeController extends AbstractController
         $this->themeManager = $themeManager;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $cfg, $server, $collation_connection, $message, $show_query, $db, $table;
 
         if ($this->response->isAjax() && ! empty($_REQUEST['access_time'])) {
-            return;
+            return $response;
         }
 
         $db = '';
@@ -290,9 +292,11 @@ class HomeController extends AbstractController
             'phpmyadmin_version' => PMA_VERSION,
             'config_storage_message' => $configStorageMessage ?? '',
         ]);
+
+        return $response;
     }
 
-    public function setTheme(): void
+    public function setTheme(Request $request, Response $response): Response
     {
         $this->themeManager->setActiveTheme($_POST['set_theme']);
         $this->themeManager->setThemeCookie();
@@ -303,9 +307,11 @@ class HomeController extends AbstractController
         $userPreferences->save($preferences['config_data']);
 
         $this->response->header('Location: index.php?route=/' . Url::getCommonRaw([], '&'));
+
+        return $response;
     }
 
-    public function setCollationConnection(): void
+    public function setCollationConnection(Request $request, Response $response): Response
     {
         $this->config->setUserValue(
             null,
@@ -315,31 +321,35 @@ class HomeController extends AbstractController
         );
 
         $this->response->header('Location: index.php?route=/' . Url::getCommonRaw([], '&'));
+
+        return $response;
     }
 
-    public function reloadRecentTablesList(): void
+    public function reloadRecentTablesList(Request $request, Response $response): Response
     {
         if (! $this->response->isAjax()) {
-            return;
+            return $response;
         }
 
         $this->response->addJSON([
             'list' => RecentFavoriteTable::getInstance('recent')->getHtmlList(),
         ]);
+
+        return $response;
     }
 
-    public function gitRevision(): void
+    public function gitRevision(Request $request, Response $response): Response
     {
         global $PMA_Config;
 
         if (! $this->response->isAjax()) {
-            return;
+            return $response;
         }
 
         $git = new Git($PMA_Config);
 
         if (! $git->isGitRevision()) {
-            return;
+            return $response;
         }
 
         $this->response->addHTML((new GitRevision(
@@ -347,6 +357,8 @@ class HomeController extends AbstractController
             $this->config,
             $this->template
         ))->display());
+
+        return $response;
     }
 
     private function checkRequirements(): void

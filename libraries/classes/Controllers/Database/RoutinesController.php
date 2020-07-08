@@ -11,10 +11,12 @@ use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Common;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function in_array;
 use function strlen;
 
@@ -27,7 +29,7 @@ class RoutinesController extends AbstractController
     private $checkUserPrivileges;
 
     /**
-     * @param Response            $response            Response object
+     * @param ResponseRenderer    $response            Response object
      * @param DatabaseInterface   $dbi                 DatabaseInterface object
      * @param Template            $template            Template object
      * @param string              $db                  Database name
@@ -39,7 +41,7 @@ class RoutinesController extends AbstractController
         $this->checkUserPrivileges = $checkUserPrivileges;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $db, $table, $tables, $num_tables, $total_num_tables, $sub_part, $is_show_stats;
         global $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos, $url_query;
@@ -103,5 +105,7 @@ class RoutinesController extends AbstractController
 
         $routines = new Routines($this->dbi, $this->template, $this->response);
         $routines->main($params['type']);
+
+        return $response;
     }
 }

@@ -12,9 +12,11 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function array_key_exists;
 
 /**
@@ -32,7 +34,7 @@ class BinlogController extends AbstractController
     /**
      * Constructs BinlogController
      *
-     * @param Response          $response Response object
+     * @param ResponseRenderer  $response Response object
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param Template          $template Template object
      */
@@ -48,7 +50,7 @@ class BinlogController extends AbstractController
         );
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $cfg, $pmaThemeImage;
 
@@ -124,6 +126,8 @@ class BinlogController extends AbstractController
             'is_full_query' => $isFullQuery,
             'image_path' => $pmaThemeImage,
         ]);
+
+        return $response;
     }
 
     /**

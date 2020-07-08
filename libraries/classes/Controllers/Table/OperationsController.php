@@ -15,11 +15,13 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Partition;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function count;
 use function implode;
 use function mb_strstr;
@@ -40,7 +42,7 @@ class OperationsController extends AbstractController
     private $relation;
 
     /**
-     * @param Response            $response            A Response instance.
+     * @param ResponseRenderer    $response            A Response instance.
      * @param DatabaseInterface   $dbi                 A DatabaseInterface instance.
      * @param Template            $template            A Template instance.
      * @param string              $db                  Database name.
@@ -65,7 +67,7 @@ class OperationsController extends AbstractController
         $this->relation = $relation;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $containerBuilder, $url_query, $url_params, $reread_info, $tbl_is_view, $tbl_storage_engine;
         global $show_comment, $tbl_collation, $table_info_num_rows, $row_format, $auto_increment, $create_options;
@@ -150,7 +152,7 @@ class OperationsController extends AbstractController
             $this->operations->moveOrCopyTable($db, $table);
 
             // This was ended in an Ajax call
-            return;
+            return $response;
         }
         /**
          * If the table has to be maintained
@@ -158,7 +160,7 @@ class OperationsController extends AbstractController
         if (isset($_POST['table_maintenance'])) {
             /** @var SqlController $controller */
             $controller = $containerBuilder->get(SqlController::class);
-            $controller->index();
+            $controller->index($request, $response);
 
             unset($result);
         }
@@ -265,7 +267,7 @@ class OperationsController extends AbstractController
                         Message::error(__('No collation provided.'))
                     );
 
-                    return;
+                    return $response;
                 }
             }
         }
@@ -328,7 +330,7 @@ class OperationsController extends AbstractController
                         );
                     }
 
-                    return;
+                    return $response;
                 }
             } else {
                 $_message = $result
@@ -350,7 +352,7 @@ class OperationsController extends AbstractController
                         );
                     }
 
-                    return;
+                    return $response;
                 }
                 unset($warning_messages);
             }
@@ -491,5 +493,7 @@ class OperationsController extends AbstractController
             'partitions_choices' => $partitionsChoices,
             'foreigners' => $foreigners,
         ]);
+
+        return $response;
     }
 }

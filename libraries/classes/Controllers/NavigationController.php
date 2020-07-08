@@ -9,9 +9,11 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 /**
  * The navigation panel
@@ -27,7 +29,7 @@ class NavigationController extends AbstractController
     private $relation;
 
     /**
-     * @param Response          $response   A Response instance.
+     * @param ResponseRenderer  $response   A Response instance.
      * @param DatabaseInterface $dbi        A DatabaseInterface instance.
      * @param Template          $template   A Template instance.
      * @param Navigation        $navigation A Navigation instance.
@@ -45,7 +47,7 @@ class NavigationController extends AbstractController
         $this->relation = $relation;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         if (! $this->response->isAjax()) {
             $this->response->addHTML(
@@ -54,13 +56,13 @@ class NavigationController extends AbstractController
                 )->getDisplay()
             );
 
-            return;
+            return $response;
         }
 
         if (isset($_POST['getNaviSettings']) && $_POST['getNaviSettings']) {
             $this->response->addJSON('message', PageSettings::getNaviSettings());
 
-            return;
+            return $response;
         }
 
         if (isset($_POST['reload'])) {
@@ -82,7 +84,7 @@ class NavigationController extends AbstractController
                     );
                 }
 
-                return;
+                return $response;
             }
 
             if (isset($_POST['unhideNavItem'])) {
@@ -98,7 +100,7 @@ class NavigationController extends AbstractController
                     );
                 }
 
-                return;
+                return $response;
             }
 
             if (isset($_POST['showUnhideDialog'])) {
@@ -109,10 +111,12 @@ class NavigationController extends AbstractController
                     );
                 }
 
-                return;
+                return $response;
             }
         }
 
         $this->response->addJSON('message', $this->navigation->getDisplay());
+
+        return $response;
     }
 }

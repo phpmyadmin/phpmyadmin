@@ -10,10 +10,12 @@ namespace PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function is_array;
 use function str_replace;
 
@@ -26,7 +28,7 @@ class DataDictionaryController extends AbstractController
     private $transformations;
 
     /**
-     * @param Response          $response        Response instance
+     * @param ResponseRenderer  $response        Response instance
      * @param DatabaseInterface $dbi             DatabaseInterface instance
      * @param Template          $template        Template object
      * @param string            $db              Database name
@@ -40,7 +42,7 @@ class DataDictionaryController extends AbstractController
         $this->transformations = $transformations;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         Util::checkParameters(['db'], true);
 
@@ -135,5 +137,7 @@ class DataDictionaryController extends AbstractController
             'comment' => $comment,
             'tables' => $tables,
         ]);
+
+        return $response;
     }
 }

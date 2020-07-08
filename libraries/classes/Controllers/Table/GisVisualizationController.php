@@ -10,6 +10,8 @@ use PhpMyAdmin\Gis\GisVisualization;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function array_merge;
 
 /**
@@ -20,7 +22,7 @@ final class GisVisualizationController extends AbstractController
     /** @var GisVisualization */
     protected $visualization;
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $cfg, $url_params;
 
@@ -43,7 +45,7 @@ final class GisVisualizationController extends AbstractController
                 Message::error(__('No SQL query was set to fetch data.'))
             );
 
-            return;
+            return $response;
         }
 
         // Execute the query and return the result
@@ -104,7 +106,7 @@ final class GisVisualizationController extends AbstractController
         if (isset($_GET['saveToFile'])) {
             $this->saveToFile($visualizationSettings['spatialColumn'], $_GET['fileFormat']);
 
-            return;
+            return $response;
         }
 
         $this->response->getHeader()->getScripts()->addFiles(
@@ -165,6 +167,8 @@ final class GisVisualizationController extends AbstractController
         ]);
 
         $this->response->addHTML($html);
+
+        return $response;
     }
 
     /**

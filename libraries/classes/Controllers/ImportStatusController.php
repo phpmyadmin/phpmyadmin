@@ -8,6 +8,8 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Display\ImportAjax;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function header;
 use function ini_get;
 use function session_start;
@@ -31,7 +33,7 @@ class ImportStatusController
         $this->template = $template;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $SESSION_KEY, $upload_id, $plugins, $timestamp;
 
@@ -80,5 +82,7 @@ class ImportStatusController
         } else {
             ImportAjax::status($_GET['id']);
         }
+
+        return $response;
     }
 }

@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use FastRoute\Dispatcher;
+use Nyholm\Psr7\Factory\Psr17Factory;
+use Nyholm\Psr7Server\ServerRequestCreator;
 use Psr\Container\ContainerInterface;
 use function FastRoute\cachedDispatcher;
 use function htmlspecialchars;
@@ -58,7 +60,7 @@ class Routing
         ContainerInterface $container
     ): void {
         $routeInfo = $dispatcher->dispatch(
-            $_SERVER['REQUEST_METHOD'],
+            $_SERVER['REQUEST_METHOD'] ?? 'GET',
             rawurldecode($route)
         );
 
@@ -87,8 +89,14 @@ class Routing
             return;
         }
 
+        $psr17Factory = new Psr17Factory();
+        $creator = new ServerRequestCreator($psr17Factory, $psr17Factory, $psr17Factory, $psr17Factory);
+
+        $request = $creator->fromGlobals();
+        $response = $psr17Factory->createResponse();
+
         [$controllerName, $action] = $routeInfo[1];
         $controller = $container->get($controllerName);
-        $controller->$action($routeInfo[2]);
+        $controller->$action($request, $response, $routeInfo[2]);
     }
 }

@@ -8,7 +8,9 @@ use PhpMyAdmin\Common;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function count;
 use function is_array;
 use function json_decode;
@@ -18,7 +20,7 @@ use function json_decode;
  */
 class IndexesController extends AbstractController
 {
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         if (! isset($_POST['create_edit_table'])) {
             Common::table();
@@ -37,10 +39,12 @@ class IndexesController extends AbstractController
         if (isset($_POST['do_save_data'])) {
             $this->doSaveData($index);
 
-            return;
+            return $response;
         }
 
         $this->displayForm($index);
+
+        return $response;
     }
 
     /**
@@ -128,7 +132,7 @@ class IndexesController extends AbstractController
             );
         } elseif (! $error) {
             $this->dbi->query($sql_query);
-            $response = Response::getInstance();
+            $response = ResponseRenderer::getInstance();
             if ($response->isAjax()) {
                 $message = Message::success(
                     __('Table %1$s has been altered successfully.')

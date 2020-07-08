@@ -7,10 +7,12 @@ namespace PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\Common;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function htmlspecialchars;
 
 /**
@@ -22,7 +24,7 @@ class SqlController extends AbstractController
     private $sqlQueryForm;
 
     /**
-     * @param Response          $response     Response instance
+     * @param ResponseRenderer  $response     Response instance
      * @param DatabaseInterface $dbi          DatabaseInterface instance
      * @param Template          $template     Template instance
      * @param string            $db           Database name
@@ -34,7 +36,7 @@ class SqlController extends AbstractController
         $this->sqlQueryForm = $sqlQueryForm;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $goto, $back;
 
@@ -62,5 +64,7 @@ class SqlController extends AbstractController
                 ? htmlspecialchars($_POST['delimiter'])
                 : ';'
         ));
+
+        return $response;
     }
 }

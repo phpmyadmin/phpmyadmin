@@ -8,9 +8,11 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function count;
 
 class TwoFactorController extends AbstractController
@@ -19,7 +21,7 @@ class TwoFactorController extends AbstractController
     private $relation;
 
     /**
-     * @param Response          $response A Response instance.
+     * @param ResponseRenderer  $response A Response instance.
      * @param DatabaseInterface $dbi      A DatabaseInterface instance.
      * @param Template          $template A Template instance.
      * @param Relation          $relation A Relation instance.
@@ -30,7 +32,7 @@ class TwoFactorController extends AbstractController
         $this->relation = $relation;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $cfg, $route;
 
@@ -50,7 +52,7 @@ class TwoFactorController extends AbstractController
                     'form' => $twoFactor->render(),
                 ]);
 
-                return;
+                return $response;
             }
 
             $twoFactor->configure('');
@@ -62,7 +64,7 @@ class TwoFactorController extends AbstractController
                     'configure' => $_POST['2fa_configure'],
                 ]);
 
-                return;
+                return $response;
             }
 
             Message::rawNotice(__('Two-factor authentication has been configured.'))->display();
@@ -78,5 +80,7 @@ class TwoFactorController extends AbstractController
             'backends' => $twoFactor->getAllBackends(),
             'missing' => $twoFactor->getMissingDeps(),
         ]);
+
+        return $response;
     }
 }

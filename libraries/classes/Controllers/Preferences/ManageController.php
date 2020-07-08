@@ -12,11 +12,13 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use const JSON_PRETTY_PRINT;
 use const PHP_URL_PATH;
 use const UPLOAD_ERR_OK;
@@ -46,7 +48,7 @@ class ManageController extends AbstractController
     private $relation;
 
     /**
-     * @param Response          $response        A Response instance.
+     * @param ResponseRenderer  $response        A Response instance.
      * @param DatabaseInterface $dbi             A DatabaseInterface instance.
      * @param Template          $template        A Template instance.
      * @param UserPreferences   $userPreferences A UserPreferences instance.
@@ -64,7 +66,7 @@ class ManageController extends AbstractController
         $this->relation = $relation;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $cf, $error, $filename, $import_handle, $json, $PMA_Config, $lang, $max_upload_size;
         global $new_config, $config, $return_url, $form_display, $all_ok, $params, $query, $route;
@@ -81,7 +83,7 @@ class ManageController extends AbstractController
             $settings = $this->userPreferences->load();
             echo json_encode($settings['config_data'], JSON_PRETTY_PRINT);
 
-            return;
+            return $response;
         }
 
         if (isset($_POST['submit_export'], $_POST['export_type']) && $_POST['export_type'] == 'php_file') {
@@ -97,7 +99,7 @@ class ManageController extends AbstractController
                 echo var_export($val, true) . ";\n";
             }
 
-            return;
+            return $response;
         }
 
         if (isset($_POST['submit_get_json'])) {
@@ -105,7 +107,7 @@ class ManageController extends AbstractController
             $this->response->addJSON('prefs', json_encode($settings['config_data']));
             $this->response->addJSON('mtime', $settings['mtime']);
 
-            return;
+            return $response;
         }
 
         if (isset($_POST['submit_import'])) {
@@ -177,7 +179,7 @@ class ManageController extends AbstractController
                         'return_url' => $return_url,
                     ]);
 
-                    return;
+                    return $response;
                 }
 
                 // check for ThemeDefault
@@ -218,7 +220,7 @@ class ManageController extends AbstractController
                     $PMA_Config->loadUserPreferences();
                     $this->userPreferences->redirect($return_url ?? '', $params);
 
-                    return;
+                    return $response;
                 }
 
                 $error = $result;
@@ -231,12 +233,12 @@ class ManageController extends AbstractController
                 $PMA_Config->removeCookie('pma_lang');
                 $this->userPreferences->redirect('index.php?route=/preferences/manage', $params);
 
-                return;
+                return $response;
             } else {
                 $error = $result;
             }
 
-            return;
+            return $response;
         }
 
         $header = $this->response->getHeader();
@@ -270,5 +272,7 @@ class ManageController extends AbstractController
         } else {
             define('PMA_DISABLE_NAVI_SETTINGS', true);
         }
+
+        return $response;
     }
 }

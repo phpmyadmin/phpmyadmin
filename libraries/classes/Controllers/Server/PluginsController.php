@@ -11,9 +11,11 @@ namespace PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Server\Plugins;
 use PhpMyAdmin\Template;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function array_keys;
 use function ksort;
 use function mb_strtolower;
@@ -28,7 +30,7 @@ class PluginsController extends AbstractController
     private $plugins;
 
     /**
-     * @param Response          $response Response object
+     * @param ResponseRenderer  $response Response object
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param Template          $template Template object
      * @param Plugins           $plugins  Plugins object
@@ -39,7 +41,7 @@ class PluginsController extends AbstractController
         $this->plugins = $plugins;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         Common::server();
 
@@ -68,5 +70,7 @@ class PluginsController extends AbstractController
             'plugins' => $plugins,
             'clean_types' => $cleanTypes,
         ]);
+
+        return $response;
     }
 }

@@ -6,9 +6,11 @@ namespace PhpMyAdmin\Controllers\Server\Status;
 
 use PhpMyAdmin\Advisor;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 /**
  * Displays the advisor feature
@@ -19,7 +21,7 @@ class AdvisorController extends AbstractController
     private $advisor;
 
     /**
-     * @param Response          $response Response object
+     * @param ResponseRenderer  $response Response object
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param Template          $template Template object
      * @param Data              $data     Data object
@@ -31,7 +33,7 @@ class AdvisorController extends AbstractController
         $this->advisor = $advisor;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         $data = [];
         if ($this->data->dataLoaded) {
@@ -39,5 +41,7 @@ class AdvisorController extends AbstractController
         }
 
         $this->render('server/status/advisor/index', ['data' => $data]);
+
+        return $response;
     }
 }

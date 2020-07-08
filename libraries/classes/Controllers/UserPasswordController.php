@@ -7,9 +7,11 @@ namespace PhpMyAdmin\Controllers;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\ChangePassword;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\UserPassword;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 /**
  * Displays and handles the form where the user can change their password.
@@ -20,7 +22,7 @@ class UserPasswordController extends AbstractController
     private $userPassword;
 
     /**
-     * @param Response          $response     Response object
+     * @param ResponseRenderer  $response     Response object
      * @param DatabaseInterface $dbi          DatabaseInterface object
      * @param Template          $template     Template that should be used
      * @param UserPassword      $userPassword UserPassword object
@@ -31,7 +33,7 @@ class UserPasswordController extends AbstractController
         $this->userPassword = $userPassword;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $cfg, $hostname, $username, $password, $change_password_message, $msg;
 
@@ -52,7 +54,7 @@ class UserPasswordController extends AbstractController
                 __('You don\'t have sufficient privileges to be here right now!')
             )->display();
 
-            return;
+            return $response;
         }
 
         /**
@@ -86,5 +88,7 @@ class UserPasswordController extends AbstractController
         }
 
         echo ChangePassword::getHtml('change_pw', $username, $hostname);
+
+        return $response;
     }
 }

@@ -10,9 +10,11 @@ use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function array_fill;
 use function count;
 use function is_array;
@@ -31,7 +33,7 @@ class ChangeController extends AbstractController
     private $relation;
 
     /**
-     * @param Response          $response   A Response instance.
+     * @param ResponseRenderer  $response   A Response instance.
      * @param DatabaseInterface $dbi        A DatabaseInterface instance.
      * @param Template          $template   A Template instance.
      * @param string            $db         Database name.
@@ -53,7 +55,7 @@ class ChangeController extends AbstractController
         $this->relation = $relation;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $cfg, $is_upload, $db, $table, $text_dir, $disp_message, $url_params;
         global $err_url, $where_clause, $unsaved_values, $insert_mode, $where_clause_array, $where_clauses;
@@ -297,9 +299,11 @@ class ChangeController extends AbstractController
         }
 
         $this->response->addHTML($html_output);
+
+        return $response;
     }
 
-    public function rows(): void
+    public function rows(Request $request, Response $response): Response
     {
         global $active_page, $where_clause;
 
@@ -307,7 +311,7 @@ class ChangeController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No row selected.'));
 
-            return;
+            return $response;
         }
 
         // As we got the rows to be edited from the
@@ -323,6 +327,8 @@ class ChangeController extends AbstractController
 
         $active_page = Url::getFromRoute('/table/change');
 
-        $this->index();
+        $this->index($request, $response);
+
+        return $response;
     }
 }

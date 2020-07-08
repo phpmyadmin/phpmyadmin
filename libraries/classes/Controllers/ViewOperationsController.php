@@ -9,9 +9,11 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 /**
  * View manipulations
@@ -22,7 +24,7 @@ class ViewOperationsController extends AbstractController
     private $operations;
 
     /**
-     * @param Response          $response   Response object
+     * @param ResponseRenderer  $response   Response object
      * @param DatabaseInterface $dbi        DatabaseInterface object
      * @param Template          $template   Template object
      * @param Operations        $operations Operations object
@@ -33,7 +35,7 @@ class ViewOperationsController extends AbstractController
         $this->operations = $operations;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $sql_query, $url_params, $reload, $result, $warning_messages;
         global $db, $table;
@@ -98,5 +100,7 @@ class ViewOperationsController extends AbstractController
             'table' => $table,
             'url_params' => $url_params,
         ]);
+
+        return $response;
     }
 }

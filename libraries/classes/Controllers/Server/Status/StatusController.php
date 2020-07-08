@@ -10,10 +10,12 @@ namespace PhpMyAdmin\Controllers\Server\Status;
 use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ReplicationGui;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function implode;
 
 /**
@@ -25,7 +27,7 @@ class StatusController extends AbstractController
     private $replicationGui;
 
     /**
-     * @param Response          $response       Response object
+     * @param ResponseRenderer  $response       Response object
      * @param DatabaseInterface $dbi            DatabaseInterface object
      * @param Template          $template       Template object
      * @param Data              $data           Data object
@@ -37,7 +39,7 @@ class StatusController extends AbstractController
         $this->replicationGui = $replicationGui;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $replication_info;
 
@@ -81,6 +83,8 @@ class StatusController extends AbstractController
             'is_slave' => $replication_info['slave']['status'],
             'replication' => $replication,
         ]);
+
+        return $response;
     }
 
     private function getStartTime(): int

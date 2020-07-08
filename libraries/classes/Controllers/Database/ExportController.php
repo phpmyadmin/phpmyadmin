@@ -10,10 +10,12 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\Export as DisplayExport;
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function htmlspecialchars;
 use function is_array;
 use function str_replace;
@@ -24,7 +26,7 @@ final class ExportController extends AbstractController
     private $export;
 
     /**
-     * @param Response          $response A Response instance.
+     * @param ResponseRenderer  $response A Response instance.
      * @param DatabaseInterface $dbi      A DatabaseInterface instance.
      * @param Template          $template A Template instance.
      * @param string            $db       Database name.
@@ -36,7 +38,7 @@ final class ExportController extends AbstractController
         $this->export = $export;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $db, $table, $url_query, $sub_part, $url_params, $sql_query;
         global $tables, $num_tables, $total_num_tables, $is_show_stats, $db_is_system_schema, $tooltip_truename;
@@ -80,7 +82,7 @@ final class ExportController extends AbstractController
                 Message::error(__('No tables found in database.'))->getDisplay()
             );
 
-            return;
+            return $response;
         } // end if
 
         $multi_values  = '<div class="export_table_list_container">';
@@ -188,5 +190,7 @@ final class ExportController extends AbstractController
                 $multi_values
             )
         );
+
+        return $response;
     }
 }

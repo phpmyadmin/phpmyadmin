@@ -9,12 +9,14 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\CreateTable;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Tracking;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function count;
 use function htmlspecialchars;
 use function sprintf;
@@ -28,7 +30,7 @@ class TrackingController extends AbstractController
     private $tracking;
 
     /**
-     * @param Response          $response A Response instance.
+     * @param ResponseRenderer  $response A Response instance.
      * @param DatabaseInterface $dbi      A DatabaseInterface instance.
      * @param Template          $template A Template instance.
      * @param string            $db       Database name.
@@ -40,7 +42,7 @@ class TrackingController extends AbstractController
         $this->tracking = $tracking;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $db, $pmaThemeImage, $text_dir, $url_query, $url_params, $tables, $num_tables;
         global $total_num_tables, $sub_part, $is_show_stats, $pos, $data, $cfg;
@@ -112,7 +114,7 @@ class TrackingController extends AbstractController
                         'default_statements' => $cfg['Server']['tracking_default_statements'],
                     ]);
 
-                    return;
+                    return $response;
                 }
             } else {
                 Message::notice(
@@ -132,7 +134,7 @@ class TrackingController extends AbstractController
                 echo CreateTable::getHtml($db);
             }
 
-            return;
+            return $response;
         }
 
         echo $this->tracking->getHtmlForDbTrackingTables(
@@ -144,7 +146,7 @@ class TrackingController extends AbstractController
 
         // If available print out database log
         if (count($data['ddlog']) <= 0) {
-            return;
+            return $response;
         }
 
         $log = '';
@@ -153,5 +155,7 @@ class TrackingController extends AbstractController
                 . $entry['statement'] . "\n";
         }
         echo Generator::getMessage(__('Database Log'), $log);
+
+        return $response;
     }
 }

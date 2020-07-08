@@ -11,6 +11,8 @@ use PhpMyAdmin\Common;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function array_keys;
 use function count;
 use function mb_strtolower;
@@ -19,7 +21,7 @@ use function ucfirst;
 
 class ProcessesController extends AbstractController
 {
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         $params = [
             'showExecuting' => $_POST['showExecuting'] ?? null,
@@ -55,12 +57,14 @@ class ProcessesController extends AbstractController
             'is_checked' => $isChecked,
             'server_process_list' => $serverProcessList,
         ]);
+
+        return $response;
     }
 
     /**
      * Only sends the process list table
      */
-    public function refresh(): void
+    public function refresh(Request $request, Response $response): Response
     {
         $params = [
             'showExecuting' => $_POST['showExecuting'] ?? null,
@@ -71,22 +75,24 @@ class ProcessesController extends AbstractController
         ];
 
         if (! $this->response->isAjax()) {
-            return;
+            return $response;
         }
 
         $this->response->addHTML($this->getList($params));
+
+        return $response;
     }
 
     /**
-     * @param array $params Request parameters
+     * @param array $args Request parameters
      */
-    public function kill(array $params): void
+    public function kill(Request $request, Response $response, array $args): Response
     {
         if (! $this->response->isAjax()) {
-            return;
+            return $response;
         }
 
-        $kill = (int) $params['id'];
+        $kill = (int) $args['id'];
         $query = $this->dbi->getKillQuery($kill);
 
         if ($this->dbi->tryQuery($query)) {
@@ -106,6 +112,8 @@ class ProcessesController extends AbstractController
         $message->addParam($kill);
 
         $this->response->addJSON(['message' => $message]);
+
+        return $response;
     }
 
     /**

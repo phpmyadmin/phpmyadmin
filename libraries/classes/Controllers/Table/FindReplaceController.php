@@ -7,9 +7,11 @@ namespace PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function array_key_exists;
 use function count;
 use function is_array;
@@ -38,7 +40,7 @@ class FindReplaceController extends AbstractController
     private $_connectionCharSet;
 
     /**
-     * @param Response          $response Response object
+     * @param ResponseRenderer  $response Response object
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param Template          $template Template object
      * @param string            $db       Database name
@@ -55,14 +57,14 @@ class FindReplaceController extends AbstractController
         );
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         Common::table();
 
         if (isset($_POST['find'])) {
             $this->findAction();
 
-            return;
+            return $response;
         }
 
         $header = $this->response->getHeader();
@@ -75,6 +77,8 @@ class FindReplaceController extends AbstractController
 
         // Displays the find and replace form
         $this->displaySelectionFormAction();
+
+        return $response;
     }
 
     /**

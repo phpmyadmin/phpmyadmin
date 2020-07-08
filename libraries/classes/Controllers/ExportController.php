@@ -14,7 +14,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
@@ -22,6 +22,8 @@ use PhpMyAdmin\SqlParser\Utils\Misc;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use const PHP_EOL;
 use function count;
 use function in_array;
@@ -43,7 +45,7 @@ final class ExportController extends AbstractController
     private $relation;
 
     /**
-     * @param Response          $response A Response instance.
+     * @param ResponseRenderer  $response A Response instance.
      * @param DatabaseInterface $dbi      A DatabaseInterface instance.
      * @param Template          $template A Template instance.
      * @param Export            $export   An Export instance.
@@ -56,7 +58,7 @@ final class ExportController extends AbstractController
         $this->relation = $relation;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $containerBuilder, $db, $export_type, $filename_template, $sql_query, $err_url, $message;
         global $compression, $crlf, $asfile, $buffer_needed, $save_on_server, $file_handle, $separate_files;
@@ -459,7 +461,7 @@ final class ExportController extends AbstractController
                         $active_page = Url::getFromRoute('/database/export');
                         /** @var DatabaseExportController $controller */
                         $controller = $containerBuilder->get(DatabaseExportController::class);
-                        $controller->index();
+                        $controller->index($request, $response);
                         exit;
                     }
                 }
@@ -658,7 +660,7 @@ final class ExportController extends AbstractController
         if (empty($asfile)) {
             echo $this->export->getHtmlForDisplayedExportFooter($back_button, $refreshButton);
 
-            return;
+            return $response;
         } // end if
 
         // Convert the charset if required.
@@ -694,5 +696,7 @@ final class ExportController extends AbstractController
         } else {
             echo $dump_buffer;
         }
+
+        return $response;
     }
 }

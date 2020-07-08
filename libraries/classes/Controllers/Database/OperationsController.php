@@ -16,10 +16,12 @@ use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function count;
 use function mb_strtolower;
 use function strlen;
@@ -42,7 +44,7 @@ class OperationsController extends AbstractController
     private $relationCleanup;
 
     /**
-     * @param Response            $response            Response object
+     * @param ResponseRenderer    $response            Response object
      * @param DatabaseInterface   $dbi                 DatabaseInterface object
      * @param Template            $template            Template object
      * @param string              $db                  Database name
@@ -68,7 +70,7 @@ class OperationsController extends AbstractController
         $this->relationCleanup = $relationCleanup;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $cfg, $db, $server, $url_query, $sql_query, $move, $message, $tables_full;
         global $export_sql_plugin, $views, $sqlConstratints, $local_query, $reload, $url_params, $tables;
@@ -249,7 +251,7 @@ class OperationsController extends AbstractController
                 );
                 $this->response->addJSON('db', $db);
 
-                return;
+                return $response;
             }
         }
 
@@ -296,7 +298,7 @@ class OperationsController extends AbstractController
         $is_information_schema = Utilities::isSystemSchema($db);
 
         if ($is_information_schema) {
-            return;
+            return $response;
         }
 
         $databaseComment = '';
@@ -347,5 +349,7 @@ class OperationsController extends AbstractController
             'charsets' => $charsets,
             'collations' => $collations,
         ]);
+
+        return $response;
     }
 }

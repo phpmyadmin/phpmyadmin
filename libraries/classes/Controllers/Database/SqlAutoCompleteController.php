@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function json_encode;
 
 /**
@@ -11,7 +13,7 @@ use function json_encode;
  */
 class SqlAutoCompleteController extends AbstractController
 {
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $cfg, $db, $sql_autocomplete;
 
@@ -30,5 +32,7 @@ class SqlAutoCompleteController extends AbstractController
             }
         }
         $this->response->addJSON(['tables' => json_encode($sql_autocomplete)]);
+
+        return $response;
     }
 }

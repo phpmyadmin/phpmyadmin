@@ -7,10 +7,12 @@ namespace PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\Common;
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function strlen;
 
 final class EventsController extends AbstractController
@@ -19,7 +21,7 @@ final class EventsController extends AbstractController
     private $events;
 
     /**
-     * @param Response          $response Response instance.
+     * @param ResponseRenderer  $response Response instance.
      * @param DatabaseInterface $dbi      DatabaseInterface instance.
      * @param Template          $template Template instance.
      * @param string            $db       Database name.
@@ -31,7 +33,7 @@ final class EventsController extends AbstractController
         $this->events = $events;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $db, $tables, $num_tables, $total_num_tables, $sub_part, $errors, $pmaThemeImage, $text_dir;
         global $is_show_stats, $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos, $url_query;
@@ -74,5 +76,7 @@ final class EventsController extends AbstractController
             'toggle_button' => $this->events->getFooterToggleButton(),
             'is_ajax' => $this->response->isAjax() && empty($_REQUEST['ajax_page_request']),
         ]);
+
+        return $response;
     }
 }

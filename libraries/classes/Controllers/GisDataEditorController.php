@@ -10,6 +10,8 @@ namespace PhpMyAdmin\Controllers;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Gis\GisFactory;
 use PhpMyAdmin\Gis\GisVisualization;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function array_merge;
 use function in_array;
 use function intval;
@@ -24,13 +26,13 @@ use function trim;
  */
 class GisDataEditorController extends AbstractController
 {
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $gis_data, $gis_types, $start, $geom_type, $gis_obj, $srid, $wkt, $wkt_with_zero;
         global $result, $visualizationSettings, $data, $visualization, $open_layers, $geom_count;
 
         if (! isset($_POST['field'])) {
-            return;
+            return $response;
         }
 
         // Get data if any posted
@@ -74,7 +76,7 @@ class GisDataEditorController extends AbstractController
         // Generate parameters from value passed.
         $gis_obj = GisFactory::factory($geom_type);
         if ($gis_obj === false) {
-            return;
+            return $response;
         }
 
         if (isset($_POST['value'])) {
@@ -118,7 +120,7 @@ class GisDataEditorController extends AbstractController
                 'openLayers' => $open_layers,
             ]);
 
-            return;
+            return $response;
         }
 
         $geom_count = 1;
@@ -147,5 +149,7 @@ class GisDataEditorController extends AbstractController
         ]);
 
         $this->response->addJSON(['gis_editor' => $templateOutput]);
+
+        return $response;
     }
 }

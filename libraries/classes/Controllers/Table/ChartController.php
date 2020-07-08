@@ -11,6 +11,8 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function array_keys;
 use function htmlspecialchars;
 use function in_array;
@@ -26,7 +28,7 @@ class ChartController extends AbstractController
     /**
      * Execute the query and return the result
      */
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $db, $table, $cfg, $sql_query, $url_query;
 
@@ -34,7 +36,7 @@ class ChartController extends AbstractController
         ) {
             $this->ajax();
 
-            return;
+            return $response;
         }
 
         // Throw error if no sql query is set
@@ -44,7 +46,7 @@ class ChartController extends AbstractController
                 Message::error(__('No SQL query was set to fetch data.'))
             );
 
-            return;
+            return $response;
         }
 
         $this->response->getHeader()->getScripts()->addFiles(
@@ -123,7 +125,7 @@ class ChartController extends AbstractController
                 __('No numeric columns present in the table to plot.')
             );
 
-            return;
+            return $response;
         }
 
         $url_params['db'] = $db;
@@ -141,6 +143,8 @@ class ChartController extends AbstractController
             'numeric_column_count' => $numeric_column_count,
             'sql_query' => $sql_query,
         ]);
+
+        return $response;
     }
 
     /**

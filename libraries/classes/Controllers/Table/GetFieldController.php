@@ -8,6 +8,8 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Mime;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function htmlspecialchars;
 use function ini_set;
 use function sprintf;
@@ -18,7 +20,7 @@ use function strlen;
  */
 class GetFieldController extends AbstractController
 {
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $db, $table;
 
@@ -76,5 +78,7 @@ class GetFieldController extends AbstractController
             strlen($result)
         );
         echo $result;
+
+        return $response;
     }
 }

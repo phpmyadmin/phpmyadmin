@@ -9,8 +9,10 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\Export;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Template;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 final class ExportController extends AbstractController
 {
@@ -18,7 +20,7 @@ final class ExportController extends AbstractController
     private $export;
 
     /**
-     * @param Response          $response A Response instance.
+     * @param ResponseRenderer  $response A Response instance.
      * @param DatabaseInterface $dbi      A DatabaseInterface instance.
      * @param Template          $template A Template instance.
      * @param Export            $export   A Export instance.
@@ -29,7 +31,7 @@ final class ExportController extends AbstractController
         $this->export = $export;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $db, $table, $sql_query, $num_tables, $unlim_num_rows;
         global $tmp_select, $select_item, $multi_values, $export_page_title;
@@ -66,5 +68,7 @@ final class ExportController extends AbstractController
             $unlim_num_rows,
             $multi_values
         ));
+
+        return $response;
     }
 }

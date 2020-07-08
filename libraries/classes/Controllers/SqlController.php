@@ -11,11 +11,13 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ParseAnalyze;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function mb_strpos;
 use function strlen;
 use function strpos;
@@ -30,7 +32,7 @@ class SqlController extends AbstractController
     private $checkUserPrivileges;
 
     /**
-     * @param Response            $response            A Response instance.
+     * @param ResponseRenderer    $response            A Response instance.
      * @param DatabaseInterface   $dbi                 A DatabaseInterface instance.
      * @param Template            $template            A Template instance.
      * @param Sql                 $sql                 An Sql instance.
@@ -48,7 +50,7 @@ class SqlController extends AbstractController
         $this->checkUserPrivileges = $checkUserPrivileges;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $cfg, $db, $display_query, $pmaThemeImage, $sql_query, $table, $message;
         global $ajax_reload, $goto, $err_url, $find_real_end, $unlim_num_rows, $import_text, $disp_query;
@@ -179,7 +181,7 @@ class SqlController extends AbstractController
         if (isset($_POST['store_bkm'])) {
             $this->sql->addBookmark($goto);
 
-            return;
+            return $response;
         }
 
         /**
@@ -214,6 +216,8 @@ class SqlController extends AbstractController
             $selected ?? null,
             $complete_query ?? null
         );
+
+        return $response;
     }
 
     /**
@@ -221,7 +225,7 @@ class SqlController extends AbstractController
      *
      * During grid edit, if we have a relational field, show the dropdown for it.
      */
-    public function getRelationalValues(): void
+    public function getRelationalValues(Request $request, Response $response): Response
     {
         global $db, $table;
 
@@ -243,12 +247,14 @@ class SqlController extends AbstractController
             $curr_value
         );
         $this->response->addJSON('dropdown', $dropdown);
+
+        return $response;
     }
 
     /**
      * Get possible values for enum fields during grid edit.
      */
-    public function getEnumValues(): void
+    public function getEnumValues(Request $request, Response $response): Response
     {
         global $db, $table;
 
@@ -263,12 +269,14 @@ class SqlController extends AbstractController
         ]);
 
         $this->response->addJSON('dropdown', $dropdown);
+
+        return $response;
     }
 
     /**
      * Get possible values for SET fields during grid edit.
      */
-    public function getSetValues(): void
+    public function getSetValues(Request $request, Response $response): Response
     {
         global $db, $table;
 
@@ -284,9 +292,11 @@ class SqlController extends AbstractController
         );
 
         $this->response->addJSON('select', $select);
+
+        return $response;
     }
 
-    public function getDefaultForeignKeyCheckValue(): void
+    public function getDefaultForeignKeyCheckValue(Request $request, Response $response): Response
     {
         $this->checkUserPrivileges->getPrivileges();
 
@@ -294,9 +304,11 @@ class SqlController extends AbstractController
             'default_fk_check_value',
             Util::isForeignKeyCheck()
         );
+
+        return $response;
     }
 
-    public function setColumnOrderOrVisibility(): void
+    public function setColumnOrderOrVisibility(Request $request, Response $response): Response
     {
         global $db, $table;
 
@@ -319,9 +331,11 @@ class SqlController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $status->getString());
 
-            return;
+            return $response;
         }
 
         $this->response->setRequestStatus($status === true);
+
+        return $response;
     }
 }

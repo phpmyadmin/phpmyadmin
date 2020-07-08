@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\ThemeManager;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function preg_replace;
 
 /**
@@ -12,7 +14,7 @@ use function preg_replace;
  */
 class ThemesController extends AbstractController
 {
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         $this->response->getFooter()->setMinimal();
         $header = $this->response->getHeader();
@@ -28,5 +30,7 @@ class ThemesController extends AbstractController
             ),
             'previews' => ThemeManager::getInstance()->getPrintPreviews(),
         ]);
+
+        return $response;
     }
 }

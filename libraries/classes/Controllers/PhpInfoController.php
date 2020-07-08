@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use const INFO_CONFIGURATION;
 use const INFO_GENERAL;
 use const INFO_MODULES;
@@ -17,7 +19,7 @@ use function phpinfo;
  */
 class PhpInfoController extends AbstractController
 {
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $cfg;
 
@@ -25,9 +27,11 @@ class PhpInfoController extends AbstractController
         $this->response->getHeader()->sendHttpHeaders();
 
         if (! $cfg['ShowPhpInfo']) {
-            return;
+            return $response;
         }
 
         phpinfo(INFO_GENERAL | INFO_CONFIGURATION | INFO_MODULES);
+
+        return $response;
     }
 }

@@ -9,10 +9,12 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function array_key_exists;
 use function array_keys;
 use function array_values;
@@ -34,7 +36,7 @@ final class RelationController extends AbstractController
     private $relation;
 
     /**
-     * @param Response          $response Response object
+     * @param ResponseRenderer  $response Response object
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param Template          $template Template object
      * @param string            $db       Database name
@@ -56,7 +58,7 @@ final class RelationController extends AbstractController
     /**
      * Index
      */
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $route;
 
@@ -104,7 +106,7 @@ final class RelationController extends AbstractController
                 $this->getDropdownValueForDatabase($storageEngine);
             }
 
-            return;
+            return $response;
         }
 
         $this->response->getHeader()->getScripts()->addFiles(
@@ -201,6 +203,8 @@ final class RelationController extends AbstractController
             'indexes_duplicates' => $foreignKeySupported ? Index::findDuplicates($this->table, $this->db) : null,
             'route' => $route,
         ]);
+
+        return $response;
     }
 
     /**

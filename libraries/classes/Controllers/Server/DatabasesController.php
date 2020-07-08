@@ -19,11 +19,13 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\ReplicationInfo;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function array_key_exists;
 use function array_keys;
 use function array_search;
@@ -65,7 +67,7 @@ class DatabasesController extends AbstractController
     private $relationCleanup;
 
     /**
-     * @param Response          $response        Response object
+     * @param ResponseRenderer  $response        Response object
      * @param DatabaseInterface $dbi             DatabaseInterface object
      * @param Template          $template        Template that should be used (if provided, default one otherwise)
      * @param Transformations   $transformations Transformations instance.
@@ -86,7 +88,7 @@ class DatabasesController extends AbstractController
         $checkUserPrivileges->getPrivileges();
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $cfg, $server, $dblist, $is_create_db_priv;
         global $replication_info, $replication_types, $db_to_create, $pmaThemeImage, $text_dir;
@@ -179,9 +181,11 @@ class DatabasesController extends AbstractController
             'pma_theme_image' => $pmaThemeImage,
             'text_dir' => $text_dir,
         ]);
+
+        return $response;
     }
 
-    public function create(): void
+    public function create(Request $request, Response $response): Response
     {
         global $cfg, $db;
 
@@ -193,7 +197,7 @@ class DatabasesController extends AbstractController
         if (! isset($params['new_db']) || mb_strlen($params['new_db']) === 0 || ! $this->response->isAjax()) {
             $this->response->addJSON(['message' => Message::error()]);
 
-            return;
+            return $response;
         }
 
         // lower_case_table_names=1 `DB` becomes `db`
@@ -258,12 +262,14 @@ class DatabasesController extends AbstractController
         }
 
         $this->response->addJSON($json);
+
+        return $response;
     }
 
     /**
      * Handles dropping multiple databases
      */
-    public function destroy(): void
+    public function destroy(Request $request, Response $response): Response
     {
         global $selected, $err_url, $cfg, $dblist, $reload;
 
@@ -283,7 +289,7 @@ class DatabasesController extends AbstractController
             $this->response->setRequestStatus($message->isSuccess());
             $this->response->addJSON($json);
 
-            return;
+            return $response;
         }
 
         if (! isset($params['selected_dbs'])) {
@@ -292,7 +298,7 @@ class DatabasesController extends AbstractController
             $this->response->setRequestStatus($message->isSuccess());
             $this->response->addJSON($json);
 
-            return;
+            return $response;
         }
 
         $err_url = Url::getFromRoute('/server/databases');
@@ -334,6 +340,8 @@ class DatabasesController extends AbstractController
         }
 
         $this->response->addJSON($json);
+
+        return $response;
     }
 
     /**

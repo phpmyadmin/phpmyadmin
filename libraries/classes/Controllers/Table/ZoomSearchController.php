@@ -8,10 +8,12 @@ use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function array_search;
 use function count;
 use function htmlspecialchars;
@@ -62,7 +64,7 @@ class ZoomSearchController extends AbstractController
     private $_foreigners;
 
     /**
-     * @param Response          $response A Response instance.
+     * @param ResponseRenderer  $response A Response instance.
      * @param DatabaseInterface $dbi      A DatabaseInterface instance.
      * @param Template          $template A Template instance.
      * @param string            $db       Database name.
@@ -85,7 +87,7 @@ class ZoomSearchController extends AbstractController
         $this->loadTableInfo();
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $goto;
 
@@ -114,7 +116,7 @@ class ZoomSearchController extends AbstractController
         ) {
             $this->getDataRowAction();
 
-            return;
+            return $response;
         }
 
         /**
@@ -126,7 +128,7 @@ class ZoomSearchController extends AbstractController
         ) {
             $this->changeTableInfoAction();
 
-            return;
+            return $response;
         }
 
         //Set default datalabel if not selected
@@ -148,7 +150,7 @@ class ZoomSearchController extends AbstractController
             || $_POST['criteriaColumnNames'][1] == 'pma_null'
             || $_POST['criteriaColumnNames'][0] == $_POST['criteriaColumnNames'][1]
         ) {
-            return;
+            return $response;
         }
 
         if (! isset($goto)) {
@@ -158,6 +160,8 @@ class ZoomSearchController extends AbstractController
             );
         }
         $this->zoomSubmitAction($dataLabel, $goto);
+
+        return $response;
     }
 
     /**

@@ -15,11 +15,13 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function header;
 use function implode;
 use function is_array;
@@ -37,7 +39,7 @@ class PrivilegesController extends AbstractController
     private $relation;
 
     /**
-     * @param Response          $response A Response instance.
+     * @param ResponseRenderer  $response A Response instance.
      * @param DatabaseInterface $dbi      A DatabaseInterface instance.
      * @param Template          $template A Template instance.
      * @param Relation          $relation A Relation instance.
@@ -48,7 +50,7 @@ class PrivilegesController extends AbstractController
         $this->relation = $relation;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $db, $table, $err_url, $message, $pmaThemeImage, $text_dir, $url_query, $post_patterns;
         global $username, $hostname, $dbname, $tablename, $routinename, $db_and_table, $dbname_is_wildcard;
@@ -213,7 +215,7 @@ class PrivilegesController extends AbstractController
                     ->getDisplay()
             );
 
-            return;
+            return $response;
         }
         if (! $GLOBALS['is_grantuser'] && ! $GLOBALS['is_createuser']) {
             $this->response->addHTML(Message::notice(
@@ -239,7 +241,7 @@ class PrivilegesController extends AbstractController
             );
             $this->response->setRequestStatus(false);
 
-            return;
+            return $response;
         }
 
         /**
@@ -408,7 +410,7 @@ class PrivilegesController extends AbstractController
                 $this->response->addJSON('message', $message);
                 $this->response->addJSON($extra_data);
 
-                return;
+                return $response;
             }
         }
 
@@ -470,7 +472,7 @@ class PrivilegesController extends AbstractController
                 $this->response->addJSON('message', $export);
                 $this->response->addJSON('title', $title);
 
-                return;
+                return $response;
             }
 
             $this->response->addHTML('<h2>' . $title . '</h2>' . $export);
@@ -491,7 +493,7 @@ class PrivilegesController extends AbstractController
                 $message = Message::success(__('User has been added.'));
                 $this->response->addJSON('message', $message);
 
-                return;
+                return $response;
             } else {
                 $this->response->addHTML($databaseController->index([
                     'checkprivsdb' => $_GET['checkprivsdb'],
@@ -552,9 +554,11 @@ class PrivilegesController extends AbstractController
         if ((! isset($_GET['viewing_mode']) || $_GET['viewing_mode'] != 'server')
             || ! $cfgRelation['menuswork']
         ) {
-            return;
+            return $response;
         }
 
         $this->response->addHTML('</div>');
+
+        return $response;
     }
 }

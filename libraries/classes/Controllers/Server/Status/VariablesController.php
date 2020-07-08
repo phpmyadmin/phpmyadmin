@@ -9,13 +9,15 @@ namespace PhpMyAdmin\Controllers\Server\Status;
 
 use PhpMyAdmin\Common;
 use PhpMyAdmin\Html\Generator;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function in_array;
 use function is_numeric;
 use function mb_strpos;
 
 class VariablesController extends AbstractController
 {
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         $params = [
             'flush' => $_POST['flush'] ?? null,
@@ -121,6 +123,8 @@ class VariablesController extends AbstractController
             'links' => $links ?? [],
             'variables' => $variables ?? [],
         ]);
+
+        return $response;
     }
 
     /**

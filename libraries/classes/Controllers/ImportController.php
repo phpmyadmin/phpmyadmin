@@ -16,11 +16,13 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ImportPlugin;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use Throwable;
 use function define;
 use function htmlspecialchars;
@@ -52,7 +54,7 @@ final class ImportController extends AbstractController
     private $sql;
 
     /**
-     * @param Response          $response A Response instance.
+     * @param ResponseRenderer  $response A Response instance.
      * @param DatabaseInterface $dbi      A DatabaseInterface instance.
      * @param Template          $template A Template instance.
      * @param Import            $import   An Import instance.
@@ -65,7 +67,7 @@ final class ImportController extends AbstractController
         $this->sql = $sql;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $cfg, $collation_connection, $db, $import_type, $pmaThemeImage, $table, $goto, $display_query;
         global $format, $local_import_file, $ajax_reload, $import_text, $sql_query, $message, $err_url, $url_params;
@@ -96,7 +98,7 @@ final class ImportController extends AbstractController
         if (isset($_POST['simulate_dml'])) {
             $this->import->handleSimulateDmlRequest();
 
-            return;
+            return $response;
         }
 
         // If it's a refresh console bookmarks request
@@ -106,14 +108,14 @@ final class ImportController extends AbstractController
                 Console::getBookmarkContent()
             );
 
-            return;
+            return $response;
         }
         // If it's a console bookmark add request
         if (isset($_POST['console_bookmark_add'])) {
             if (! isset($_POST['label'], $_POST['db'], $_POST['bookmark_query'], $_POST['shared'])) {
                 $this->response->addJSON('message', __('Incomplete params'));
 
-                return;
+                return $response;
             }
 
             $cfgBookmark = Bookmark::getParams($cfg['Server']['user']);
@@ -143,7 +145,7 @@ final class ImportController extends AbstractController
                 $this->response->addJSON('message', __('Failed'));
             }
 
-            return;
+            return $response;
         }
 
         // reset import messages for ajax request
@@ -256,7 +258,7 @@ final class ImportController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $message);
 
-            return; // the footer is displayed automatically
+            return $response; // the footer is displayed automatically
         }
 
         // Add console message id to response output
@@ -428,7 +430,7 @@ final class ImportController extends AbstractController
                         $this->response->addJSON('sql_query', $import_text);
                         $this->response->addJSON('action_bookmark', $_POST['action_bookmark']);
 
-                        return;
+                        return $response;
                     } else {
                         $run_query = false;
                     }
@@ -453,7 +455,7 @@ final class ImportController extends AbstractController
                         $this->response->addJSON('action_bookmark', $_POST['action_bookmark']);
                         $this->response->addJSON('id_bookmark', $id_bookmark);
 
-                        return;
+                        return $response;
                     } else {
                         $run_query = false;
                         $error = true; // this is kind of hack to skip processing the query
@@ -766,7 +768,7 @@ final class ImportController extends AbstractController
                         $_SESSION['Import_message']['go_back_url']
                     );
 
-                    return;
+                    return $response;
                 } // end if
 
                 if ($table != $table_from_sql && ! empty($table_from_sql)) {
@@ -817,7 +819,7 @@ final class ImportController extends AbstractController
             $this->response->addJSON('ajax_reload', $ajax_reload);
             $this->response->addHTML($html_output);
 
-            return;
+            return $response;
         }
 
         if ($result) {
@@ -854,9 +856,11 @@ final class ImportController extends AbstractController
 
         // If there is request for ROLLBACK in the end.
         if (! isset($_POST['rollback_query'])) {
-            return;
+            return $response;
         }
 
         $this->dbi->query('ROLLBACK');
+
+        return $response;
     }
 }

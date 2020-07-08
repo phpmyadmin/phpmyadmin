@@ -21,7 +21,7 @@ use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Partition;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
@@ -35,6 +35,8 @@ use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use stdClass;
 use function array_keys;
 use function array_splice;
@@ -78,7 +80,7 @@ class StructureController extends AbstractController
     private $relationCleanup;
 
     /**
-     * @param Response          $response        Response object
+     * @param ResponseRenderer  $response        Response object
      * @param DatabaseInterface $dbi             DatabaseInterface object
      * @param Template          $template        Template object
      * @param string            $db              Database name
@@ -109,7 +111,7 @@ class StructureController extends AbstractController
         $this->table_obj = $this->dbi->getTable($this->db, $this->table);
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $reread_info, $showtable, $url_params;
         global $tbl_is_view, $tbl_storage_engine, $tbl_collation, $table_info_num_rows;
@@ -179,9 +181,11 @@ class StructureController extends AbstractController
             $fields,
             $columns_with_index
         ));
+
+        return $response;
     }
 
-    public function save(): void
+    public function save(Request $request, Response $response): Response
     {
         $regenerate = $this->updateColumns();
         if (! $regenerate) {
@@ -189,43 +193,49 @@ class StructureController extends AbstractController
             unset($_POST['selected']);
         }
 
-        $this->index();
+        $this->index($request, $response);
+
+        return $response;
     }
 
-    public function addKey(): void
+    public function addKey(Request $request, Response $response): Response
     {
         global $containerBuilder, $reload;
 
         /** @var SqlController $controller */
         $controller = $containerBuilder->get(SqlController::class);
-        $controller->index();
+        $controller->index($request, $response);
 
         $reload = true;
 
-        $this->index();
+        $this->index($request, $response);
+
+        return $response;
     }
 
-    public function browse(): void
+    public function browse(Request $request, Response $response): Response
     {
         if (empty($_POST['selected_fld'])) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
 
-            return;
+            return $response;
         }
 
         $this->displayTableBrowseForSelectedColumns(
             $GLOBALS['goto'],
             $GLOBALS['pmaThemeImage']
         );
+
+        return $response;
     }
 
-    public function change(): void
+    public function change(Request $request, Response $response): Response
     {
         if (isset($_GET['change_column'])) {
             $this->displayHtmlForColumnChange(null);
 
-            return;
+            return $response;
         }
 
         $selected = $_POST['selected_fld'] ?? [];
@@ -234,13 +244,15 @@ class StructureController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
 
-            return;
+            return $response;
         }
 
         $this->displayHtmlForColumnChange($selected);
+
+        return $response;
     }
 
-    public function addToCentralColumns(): void
+    public function addToCentralColumns(Request $request, Response $response): Response
     {
         global $sql_query, $message;
 
@@ -250,7 +262,7 @@ class StructureController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
 
-            return;
+            return $response;
         }
 
         $centralColumns = new CentralColumns($this->dbi);
@@ -270,10 +282,12 @@ class StructureController extends AbstractController
             Generator::getMessage($message, $sql_query)
         );
 
-        $this->index();
+        $this->index($request, $response);
+
+        return $response;
     }
 
-    public function removeFromCentralColumns(): void
+    public function removeFromCentralColumns(Request $request, Response $response): Response
     {
         global $sql_query, $db, $message;
 
@@ -283,7 +297,7 @@ class StructureController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
 
-            return;
+            return $response;
         }
 
         $centralColumns = new CentralColumns($this->dbi);
@@ -304,10 +318,12 @@ class StructureController extends AbstractController
             Generator::getMessage($message, $sql_query)
         );
 
-        $this->index();
+        $this->index($request, $response);
+
+        return $response;
     }
 
-    public function fulltext(): void
+    public function fulltext(Request $request, Response $response): Response
     {
         global $sql_query, $db, $table, $message;
 
@@ -317,7 +333,7 @@ class StructureController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
 
-            return;
+            return $response;
         }
 
         $i = 1;
@@ -343,10 +359,12 @@ class StructureController extends AbstractController
             Generator::getMessage($message, $sql_query)
         );
 
-        $this->index();
+        $this->index($request, $response);
+
+        return $response;
     }
 
-    public function spatial(): void
+    public function spatial(Request $request, Response $response): Response
     {
         global $sql_query, $db, $table, $message;
 
@@ -356,7 +374,7 @@ class StructureController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
 
-            return;
+            return $response;
         }
 
         $i = 1;
@@ -382,10 +400,12 @@ class StructureController extends AbstractController
             Generator::getMessage($message, $sql_query)
         );
 
-        $this->index();
+        $this->index($request, $response);
+
+        return $response;
     }
 
-    public function unique(): void
+    public function unique(Request $request, Response $response): Response
     {
         global $sql_query, $db, $table, $message;
 
@@ -395,7 +415,7 @@ class StructureController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
 
-            return;
+            return $response;
         }
 
         $i = 1;
@@ -421,10 +441,12 @@ class StructureController extends AbstractController
             Generator::getMessage($message, $sql_query)
         );
 
-        $this->index();
+        $this->index($request, $response);
+
+        return $response;
     }
 
-    public function addIndex(): void
+    public function addIndex(Request $request, Response $response): Response
     {
         global $sql_query, $db, $table, $message;
 
@@ -434,7 +456,7 @@ class StructureController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
 
-            return;
+            return $response;
         }
 
         $i = 1;
@@ -460,10 +482,12 @@ class StructureController extends AbstractController
             Generator::getMessage($message, $sql_query)
         );
 
-        $this->index();
+        $this->index($request, $response);
+
+        return $response;
     }
 
-    public function primary(): void
+    public function primary(Request $request, Response $response): Response
     {
         global $db, $table, $message, $sql_query;
 
@@ -474,7 +498,7 @@ class StructureController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
 
-            return;
+            return $response;
         }
 
         $primary = $this->getKeyForTablePrimary();
@@ -495,7 +519,7 @@ class StructureController extends AbstractController
                 'selected' => $selected_fld,
             ]);
 
-            return;
+            return $response;
         }
 
         if ($mult_btn === __('Yes')) {
@@ -527,10 +551,12 @@ class StructureController extends AbstractController
             Generator::getMessage($message, $sql_query)
         );
 
-        $this->index();
+        $this->index($request, $response);
+
+        return $response;
     }
 
-    public function drop(): void
+    public function drop(Request $request, Response $response): Response
     {
         global $db, $table, $message, $sql_query;
 
@@ -540,7 +566,7 @@ class StructureController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
 
-            return;
+            return $response;
         }
 
         $sql_query = '';
@@ -571,10 +597,12 @@ class StructureController extends AbstractController
             Generator::getMessage($message, $sql_query)
         );
 
-        $this->index();
+        $this->index($request, $response);
+
+        return $response;
     }
 
-    public function dropConfirm(): void
+    public function dropConfirm(Request $request, Response $response): Response
     {
         global $db, $table;
 
@@ -584,7 +612,7 @@ class StructureController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
 
-            return;
+            return $response;
         }
 
         Common::table();
@@ -594,18 +622,20 @@ class StructureController extends AbstractController
             'table' => $table,
             'fields' => $selected,
         ]);
+
+        return $response;
     }
 
     /**
      * Moves columns in the table's structure based on $_REQUEST
      */
-    public function moveColumns(): void
+    public function moveColumns(Request $request, Response $response): Response
     {
         if (! isset($_POST['move_columns'])
             || ! is_array($_POST['move_columns'])
             || ! $this->response->isAjax()
         ) {
-            return;
+            return $response;
         }
 
         $this->dbi->selectDb($this->db);
@@ -698,7 +728,7 @@ class StructureController extends AbstractController
         if (empty($changes) && ! isset($_REQUEST['preview_sql'])) { // should never happen
             $this->response->setRequestStatus(false);
 
-            return;
+            return $response;
         }
         // query for moving the columns
         $sql_query = sprintf(
@@ -726,6 +756,8 @@ class StructureController extends AbstractController
                 $this->response->addJSON('columns', $column_names);
             }
         }
+
+        return $response;
     }
 
     /**
@@ -791,27 +823,27 @@ class StructureController extends AbstractController
         );
     }
 
-    public function partitioning(): void
+    public function partitioning(Request $request, Response $response): Response
     {
         global $containerBuilder, $reload;
 
         if (isset($_POST['partition_maintenance'])) {
             /** @var SqlController $controller */
             $controller = $containerBuilder->get(SqlController::class);
-            $controller->index();
+            $controller->index($request, $response);
 
             $reload = true;
-            $this->index();
+            $this->index($request, $response);
 
-            return;
+            return $response;
         }
 
         if (isset($_POST['save_partitioning'])) {
             $this->dbi->selectDb($this->db);
             $this->updatePartitioning();
-            $this->index();
+            $this->index($request, $response);
 
-            return;
+            return $response;
         }
 
         PageSettings::showGroup('TableStructure');
@@ -835,6 +867,8 @@ class StructureController extends AbstractController
             'partition_details' => $partitionDetails,
             'storage_engines' => $storageEngines,
         ]);
+
+        return $response;
     }
 
     /**
@@ -1777,12 +1811,12 @@ class StructureController extends AbstractController
     /**
      * Handles MySQL reserved words columns check.
      */
-    public function reservedWordCheck(): void
+    public function reservedWordCheck(Request $request, Response $response): Response
     {
         if ($GLOBALS['cfg']['ReservedWordDisableWarning'] !== false) {
             $this->response->setRequestStatus(false);
 
-            return;
+            return $response;
         }
 
         $columns_names = $_POST['field_name'];
@@ -1811,5 +1845,7 @@ class StructureController extends AbstractController
                 implode(',', $reserved_keywords_names)
             )
         );
+
+        return $response;
     }
 }

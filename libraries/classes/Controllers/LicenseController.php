@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function is_readable;
 use function printf;
 use function readfile;
@@ -16,7 +18,7 @@ use function readfile;
  */
 class LicenseController extends AbstractController
 {
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         $this->response->disable();
         $this->response->header('Content-type: text/plain; charset=utf-8');
@@ -36,5 +38,7 @@ class LicenseController extends AbstractController
                 'https://www.phpmyadmin.net/'
             );
         }
+
+        return $response;
     }
 }

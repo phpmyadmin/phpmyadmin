@@ -9,8 +9,10 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Template;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 class CheckRelationsController extends AbstractController
 {
@@ -18,7 +20,7 @@ class CheckRelationsController extends AbstractController
     private $relation;
 
     /**
-     * @param Response          $response Response object
+     * @param ResponseRenderer  $response Response object
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param Template          $template Template that should be used
      * @param Relation          $relation Relation object
@@ -29,7 +31,7 @@ class CheckRelationsController extends AbstractController
         $this->relation = $relation;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $db;
 
@@ -56,5 +58,7 @@ class CheckRelationsController extends AbstractController
         }
 
         $this->response->addHTML($this->relation->getRelationsParamDiagnostic($cfgRelation));
+
+        return $response;
     }
 }

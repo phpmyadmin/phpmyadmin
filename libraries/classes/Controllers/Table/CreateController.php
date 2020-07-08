@@ -10,12 +10,14 @@ use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function htmlspecialchars;
 use function is_array;
 use function mb_strtolower;
@@ -37,7 +39,7 @@ class CreateController extends AbstractController
     private $relation;
 
     /**
-     * @param Response          $response        A Response instance.
+     * @param ResponseRenderer  $response        A Response instance.
      * @param DatabaseInterface $dbi             A DatabaseInterface instance.
      * @param Template          $template        A Template instance.
      * @param string            $db              Database name.
@@ -62,7 +64,7 @@ class CreateController extends AbstractController
         $this->relation = $relation;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $num_fields, $action, $sql_query, $result, $db, $table;
 
@@ -160,7 +162,7 @@ class CreateController extends AbstractController
                 $this->response->addJSON('message', $this->dbi->getError());
             }
 
-            return;
+            return $response;
         }
 
         // This global variable needs to be reset for the header class to function properly
@@ -175,5 +177,7 @@ class CreateController extends AbstractController
             $action,
             $num_fields
         );
+
+        return $response;
     }
 }

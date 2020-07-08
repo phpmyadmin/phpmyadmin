@@ -11,6 +11,8 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function array_merge;
 use function explode;
 use function htmlspecialchars;
@@ -24,7 +26,7 @@ use function substr;
  */
 class ViewCreateController extends AbstractController
 {
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $text_dir, $url_params, $view_algorithm_options, $view_with_options, $view_security_options;
         global $message, $sep, $sql_query, $arr, $view_columns, $column_map, $systemDb, $pma_transformation_data;
@@ -62,7 +64,7 @@ class ViewCreateController extends AbstractController
             );
             $this->response->setRequestStatus(false);
 
-            return;
+            return $response;
         }
 
         if (isset($_POST['createview']) || isset($_POST['alterview'])) {
@@ -122,7 +124,7 @@ class ViewCreateController extends AbstractController
                 if (! isset($_POST['ajax_dialog'])) {
                     $message = Message::rawError($this->dbi->getError());
 
-                    return;
+                    return $response;
                 }
 
                 $this->response->addJSON(
@@ -134,7 +136,7 @@ class ViewCreateController extends AbstractController
                 );
                 $this->response->setRequestStatus(false);
 
-                return;
+                return $response;
             }
 
             // If different column names defined for VIEW
@@ -173,7 +175,7 @@ class ViewCreateController extends AbstractController
                 $message = Message::success();
                 /** @var StructureController $controller */
                 $controller = $containerBuilder->get(StructureController::class);
-                $controller->index();
+                $controller->index($request, $response);
             } else {
                 $this->response->addJSON(
                     'message',
@@ -185,7 +187,7 @@ class ViewCreateController extends AbstractController
                 $this->response->setRequestStatus(true);
             }
 
-            return;
+            return $response;
         }
 
         $sql_query = ! empty($_POST['sql_query']) ? $_POST['sql_query'] : '';
@@ -248,5 +250,7 @@ class ViewCreateController extends AbstractController
             'view_with_options' => $view_with_options,
             'view_security_options' => $view_security_options,
         ]);
+
+        return $response;
     }
 }

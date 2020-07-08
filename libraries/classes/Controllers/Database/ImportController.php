@@ -8,10 +8,12 @@ use PhpMyAdmin\Common;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Display\Import;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 final class ImportController extends AbstractController
 {
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $db, $max_upload_size, $table, $tables, $num_tables, $total_num_tables, $is_show_stats;
         global $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos, $sub_part;
@@ -47,5 +49,7 @@ final class ImportController extends AbstractController
                 $max_upload_size
             )
         );
+
+        return $response;
     }
 }

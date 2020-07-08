@@ -8,6 +8,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server\Status;
 
 use PhpMyAdmin\Common;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function array_sum;
 use function arsort;
 use function count;
@@ -15,7 +17,7 @@ use function str_replace;
 
 class QueriesController extends AbstractController
 {
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         Common::server();
 
@@ -81,5 +83,7 @@ class QueriesController extends AbstractController
             'queries' => $queries ?? [],
             'chart' => $chart ?? [],
         ]);
+
+        return $response;
     }
 }

@@ -19,7 +19,7 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Replication;
 use PhpMyAdmin\ReplicationInfo;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Table;
@@ -27,6 +27,8 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function array_search;
 use function ceil;
 use function count;
@@ -85,7 +87,7 @@ class StructureController extends AbstractController
     private $operations;
 
     /**
-     * @param Response          $response        Response instance
+     * @param ResponseRenderer  $response        Response instance
      * @param DatabaseInterface $dbi             DatabaseInterface instance
      * @param Template          $template        Template object
      * @param string            $db              Database name
@@ -129,7 +131,7 @@ class StructureController extends AbstractController
         $this->isShowStats = $isShowStats;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $cfg;
 
@@ -200,9 +202,11 @@ class StructureController extends AbstractController
             'is_system_schema' => ! empty($this->dbIsSystemSchema),
             'create_table_html' => $createTable,
         ]);
+
+        return $response;
     }
 
-    public function addRemoveFavoriteTablesAction(): void
+    public function addRemoveFavoriteTablesAction(Request $request, Response $response): Response
     {
         global $cfg;
 
@@ -215,7 +219,7 @@ class StructureController extends AbstractController
         Common::database();
 
         if (! $this->response->isAjax()) {
-            return;
+            return $response;
         }
 
         $favoriteInstance = RecentFavoriteTable::getInstance('favorite');
@@ -238,7 +242,7 @@ class StructureController extends AbstractController
                 ));
             }
 
-            return;
+            return $response;
         }
         $changes = true;
         $titles = Util::buildActionTitles();
@@ -274,7 +278,7 @@ class StructureController extends AbstractController
             ]);
             $this->response->addJSON($json);
 
-            return;
+            return $response;
         }
         // Check if current table is already in favorite list.
         $favoriteParams = [
@@ -296,12 +300,14 @@ class StructureController extends AbstractController
         ]);
 
         $this->response->addJSON($json);
+
+        return $response;
     }
 
     /**
      * Handles request for real row count on database level view page.
      */
-    public function handleRealRowCountRequestAction(): void
+    public function handleRealRowCountRequestAction(Request $request, Response $response): Response
     {
         $parameters = [
             'real_row_count_all' => $_REQUEST['real_row_count_all'] ?? null,
@@ -311,7 +317,7 @@ class StructureController extends AbstractController
         Common::database();
 
         if (! $this->response->isAjax()) {
-            return;
+            return $response;
         }
 
         // If there is a request to update all table's row count.
@@ -325,7 +331,7 @@ class StructureController extends AbstractController
 
             $this->response->addJSON(['real_row_count' => $realRowCount]);
 
-            return;
+            return $response;
         }
 
         // Array to store the results.
@@ -342,9 +348,11 @@ class StructureController extends AbstractController
         }
 
         $this->response->addJSON(['real_row_count_all' => json_encode($realRowCountAll)]);
+
+        return $response;
     }
 
-    public function copyTable(): void
+    public function copyTable(Request $request, Response $response): Response
     {
         global $db, $message;
 
@@ -380,7 +388,9 @@ class StructureController extends AbstractController
             $_POST['message'] = $message;
         }
 
-        $this->index();
+        $this->index($request, $response);
+
+        return $response;
     }
 
     /**
@@ -1146,7 +1156,7 @@ class StructureController extends AbstractController
         ];
     }
 
-    public function export(): void
+    public function export(Request $request, Response $response): Response
     {
         global $containerBuilder;
 
@@ -1154,15 +1164,17 @@ class StructureController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 
-            return;
+            return $response;
         }
 
         /** @var ExportController $controller */
         $controller = $containerBuilder->get(ExportController::class);
-        $controller->index();
+        $controller->index($request, $response);
+
+        return $response;
     }
 
-    public function showCreate(): void
+    public function showCreate(Request $request, Response $response): Response
     {
         $selected = $_POST['selected_tbl'] ?? [];
 
@@ -1170,7 +1182,7 @@ class StructureController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 
-            return;
+            return $response;
         }
 
         $tables = $this->getShowCreateTables($selected);
@@ -1178,6 +1190,8 @@ class StructureController extends AbstractController
         $showCreate = $this->template->render('database/structure/show_create', ['tables' => $tables]);
 
         $this->response->addJSON('message', $showCreate);
+
+        return $response;
     }
 
     /**
@@ -1201,7 +1215,7 @@ class StructureController extends AbstractController
         return $tables;
     }
 
-    public function copyForm(): void
+    public function copyForm(Request $request, Response $response): Response
     {
         global $db, $dblist;
 
@@ -1211,7 +1225,7 @@ class StructureController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 
-            return;
+            return $response;
         }
 
         $urlParams = ['db' => $db];
@@ -1232,9 +1246,11 @@ class StructureController extends AbstractController
             'url_params' => $urlParams,
             'options' => $databasesList->getList(),
         ]);
+
+        return $response;
     }
 
-    public function centralColumnsAdd(): void
+    public function centralColumnsAdd(Request $request, Response $response): Response
     {
         global $message;
 
@@ -1244,7 +1260,7 @@ class StructureController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 
-            return;
+            return $response;
         }
 
         $centralColumns = new CentralColumns($this->dbi);
@@ -1254,10 +1270,12 @@ class StructureController extends AbstractController
 
         unset($_POST['submit_mult']);
 
-        $this->index();
+        $this->index($request, $response);
+
+        return $response;
     }
 
-    public function centralColumnsMakeConsistent(): void
+    public function centralColumnsMakeConsistent(Request $request, Response $response): Response
     {
         global $db, $message;
 
@@ -1267,7 +1285,7 @@ class StructureController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 
-            return;
+            return $response;
         }
 
         $centralColumns = new CentralColumns($this->dbi);
@@ -1277,10 +1295,12 @@ class StructureController extends AbstractController
 
         unset($_POST['submit_mult']);
 
-        $this->index();
+        $this->index($request, $response);
+
+        return $response;
     }
 
-    public function centralColumnsRemove(): void
+    public function centralColumnsRemove(Request $request, Response $response): Response
     {
         global $message;
 
@@ -1290,7 +1310,7 @@ class StructureController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 
-            return;
+            return $response;
         }
 
         $centralColumns = new CentralColumns($this->dbi);
@@ -1300,10 +1320,12 @@ class StructureController extends AbstractController
 
         unset($_POST['submit_mult']);
 
-        $this->index();
+        $this->index($request, $response);
+
+        return $response;
     }
 
-    public function addPrefix(): void
+    public function addPrefix(Request $request, Response $response): Response
     {
         global $db;
 
@@ -1313,7 +1335,7 @@ class StructureController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 
-            return;
+            return $response;
         }
 
         $params = ['db' => $db];
@@ -1323,9 +1345,11 @@ class StructureController extends AbstractController
 
         $this->response->disable();
         $this->render('database/structure/add_prefix', ['url_params' => $params]);
+
+        return $response;
     }
 
-    public function changePrefixForm(): void
+    public function changePrefixForm(Request $request, Response $response): Response
     {
         global $db;
 
@@ -1336,7 +1360,7 @@ class StructureController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 
-            return;
+            return $response;
         }
 
         $route = '/database/structure/replace-prefix';
@@ -1354,9 +1378,11 @@ class StructureController extends AbstractController
             'route' => $route,
             'url_params' => $urlParams,
         ]);
+
+        return $response;
     }
 
-    public function dropForm(): void
+    public function dropForm(Request $request, Response $response): Response
     {
         global $db;
 
@@ -1366,7 +1392,7 @@ class StructureController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 
-            return;
+            return $response;
         }
 
         $views = $this->dbi->getVirtualTables($db);
@@ -1405,9 +1431,11 @@ class StructureController extends AbstractController
             'full_query' => $full_query,
             'is_foreign_key_check' => Util::isForeignKeyCheck(),
         ]);
+
+        return $response;
     }
 
-    public function emptyForm(): void
+    public function emptyForm(Request $request, Response $response): Response
     {
         global $db;
 
@@ -1417,7 +1445,7 @@ class StructureController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 
-            return;
+            return $response;
         }
 
         $fullQuery = '';
@@ -1434,9 +1462,11 @@ class StructureController extends AbstractController
             'full_query' => $fullQuery,
             'is_foreign_key_check' => Util::isForeignKeyCheck(),
         ]);
+
+        return $response;
     }
 
-    public function checkTable(): void
+    public function checkTable(Request $request, Response $response): Response
     {
         global $db, $goto, $pmaThemeImage;
 
@@ -1446,7 +1476,7 @@ class StructureController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 
-            return;
+            return $response;
         }
 
         $sql_query = '';
@@ -1485,10 +1515,12 @@ class StructureController extends AbstractController
 
         unset($_POST['submit_mult']);
 
-        $this->index();
+        $this->index($request, $response);
+
+        return $response;
     }
 
-    public function analyzeTable(): void
+    public function analyzeTable(Request $request, Response $response): Response
     {
         global $db, $goto, $pmaThemeImage;
 
@@ -1498,7 +1530,7 @@ class StructureController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 
-            return;
+            return $response;
         }
 
         $sqlQuery = '';
@@ -1536,10 +1568,12 @@ class StructureController extends AbstractController
 
         unset($_POST['submit_mult']);
 
-        $this->index();
+        $this->index($request, $response);
+
+        return $response;
     }
 
-    public function checksumTable(): void
+    public function checksumTable(Request $request, Response $response): Response
     {
         global $db, $goto, $pmaThemeImage;
 
@@ -1549,7 +1583,7 @@ class StructureController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 
-            return;
+            return $response;
         }
 
         $sql_query = '';
@@ -1587,10 +1621,12 @@ class StructureController extends AbstractController
 
         unset($_POST['submit_mult']);
 
-        $this->index();
+        $this->index($request, $response);
+
+        return $response;
     }
 
-    public function optimizeTable(): void
+    public function optimizeTable(Request $request, Response $response): Response
     {
         global $db, $goto, $pmaThemeImage;
 
@@ -1600,7 +1636,7 @@ class StructureController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 
-            return;
+            return $response;
         }
 
         $sql_query = '';
@@ -1638,10 +1674,12 @@ class StructureController extends AbstractController
 
         unset($_POST['submit_mult']);
 
-        $this->index();
+        $this->index($request, $response);
+
+        return $response;
     }
 
-    public function repairTable(): void
+    public function repairTable(Request $request, Response $response): Response
     {
         global $db, $goto, $pmaThemeImage;
 
@@ -1651,7 +1689,7 @@ class StructureController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 
-            return;
+            return $response;
         }
 
         $sql_query = '';
@@ -1689,10 +1727,12 @@ class StructureController extends AbstractController
 
         unset($_POST['submit_mult']);
 
-        $this->index();
+        $this->index($request, $response);
+
+        return $response;
     }
 
-    public function dropTable(): void
+    public function dropTable(Request $request, Response $response): Response
     {
         global $db, $message, $reload, $sql_query;
 
@@ -1711,9 +1751,9 @@ class StructureController extends AbstractController
 
             unset($_POST['mult_btn']);
 
-            $this->index();
+            $this->index($request, $response);
 
-            return;
+            return $response;
         }
 
         $default_fk_check_value = Util::handleDisableFKCheckInit();
@@ -1775,10 +1815,12 @@ class StructureController extends AbstractController
 
         unset($_POST['mult_btn']);
 
-        $this->index();
+        $this->index($request, $response);
+
+        return $response;
     }
 
-    public function emptyTable(): void
+    public function emptyTable(Request $request, Response $response): Response
     {
         global $db, $table, $message, $sql_query;
 
@@ -1794,9 +1836,9 @@ class StructureController extends AbstractController
 
             unset($_POST['mult_btn']);
 
-            $this->index();
+            $this->index($request, $response);
 
-            return;
+            return $response;
         }
 
         $default_fk_check_value = Util::handleDisableFKCheckInit();
@@ -1828,10 +1870,12 @@ class StructureController extends AbstractController
 
         unset($_POST['mult_btn']);
 
-        $this->index();
+        $this->index($request, $response);
+
+        return $response;
     }
 
-    public function addPrefixTable(): void
+    public function addPrefixTable(Request $request, Response $response): Response
     {
         global $db, $message, $sql_query;
 
@@ -1856,10 +1900,12 @@ class StructureController extends AbstractController
             $_POST['message'] = $message;
         }
 
-        $this->index();
+        $this->index($request, $response);
+
+        return $response;
     }
 
-    public function replacePrefix(): void
+    public function replacePrefix(Request $request, Response $response): Response
     {
         global $db, $message, $sql_query;
 
@@ -1897,10 +1943,12 @@ class StructureController extends AbstractController
             $_POST['message'] = $message;
         }
 
-        $this->index();
+        $this->index($request, $response);
+
+        return $response;
     }
 
-    public function copyTableWithPrefix(): void
+    public function copyTableWithPrefix(Request $request, Response $response): Response
     {
         global $db, $message;
 
@@ -1931,6 +1979,8 @@ class StructureController extends AbstractController
             $_POST['message'] = $message;
         }
 
-        $this->index();
+        $this->index($request, $response);
+
+        return $response;
     }
 }

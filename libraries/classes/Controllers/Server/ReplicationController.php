@@ -12,8 +12,10 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\ReplicationInfo;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Template;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function is_array;
 
 /**
@@ -25,7 +27,7 @@ class ReplicationController extends AbstractController
     private $replicationGui;
 
     /**
-     * @param Response          $response       Response object
+     * @param ResponseRenderer  $response       Response object
      * @param DatabaseInterface $dbi            DatabaseInterface object
      * @param Template          $template       Template that should be used
      * @param ReplicationGui    $replicationGui ReplicationGui instance
@@ -36,7 +38,7 @@ class ReplicationController extends AbstractController
         $this->replicationGui = $replicationGui;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $replication_info, $server_slave_replication, $url_params;
 
@@ -97,5 +99,7 @@ class ReplicationController extends AbstractController
             'slave_configuration_html' => $slaveConfigurationHtml ?? '',
             'change_master_html' => $changeMasterHtml ?? '',
         ]);
+
+        return $response;
     }
 }

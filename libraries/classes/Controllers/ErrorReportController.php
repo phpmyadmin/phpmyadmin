@@ -11,9 +11,11 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\ErrorReport;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\UserPreferences;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function count;
 use function in_array;
 use function is_string;
@@ -32,7 +34,7 @@ class ErrorReportController extends AbstractController
     private $errorHandler;
 
     /**
-     * @param Response          $response     Response object
+     * @param ResponseRenderer  $response     Response object
      * @param DatabaseInterface $dbi          DatabaseInterface object
      * @param Template          $template     Template that should be used
      * @param ErrorReport       $errorReport  ErrorReport object
@@ -50,14 +52,14 @@ class ErrorReportController extends AbstractController
         $this->errorHandler = $errorHandler;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $cfg;
 
         if (! isset($_POST['exception_type'])
             || ! in_array($_POST['exception_type'], ['js', 'php'])
         ) {
-            return;
+            return $response;
         }
 
         if (isset($_POST['send_error_report'])
@@ -165,5 +167,7 @@ class ErrorReportController extends AbstractController
             // clear previous errors & save new ones.
             $this->errorHandler->savePreviousErrors();
         }
+
+        return $response;
     }
 }

@@ -8,9 +8,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function array_keys;
 
 /**
@@ -22,7 +24,7 @@ class TransformationOverviewController extends AbstractController
     private $transformations;
 
     /**
-     * @param Response          $response        Response object
+     * @param ResponseRenderer  $response        Response object
      * @param DatabaseInterface $dbi             DatabaseInterface object
      * @param Template          $template        Template object
      * @param Transformations   $transformations Transformations object
@@ -34,7 +36,7 @@ class TransformationOverviewController extends AbstractController
         $this->transformations = $transformations;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         $header = $this->response->getHeader();
         $header->disableMenuAndConsole();
@@ -69,5 +71,7 @@ class TransformationOverviewController extends AbstractController
             'mime_types' => $mimeTypes,
             'transformations' => $transformations,
         ]);
+
+        return $response;
     }
 }

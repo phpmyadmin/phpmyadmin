@@ -8,12 +8,14 @@ use PhpMyAdmin\Common;
 use PhpMyAdmin\Database\Qbe;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\SavedSearches;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function stripos;
 
 class QueryByExampleController extends AbstractController
@@ -22,7 +24,7 @@ class QueryByExampleController extends AbstractController
     private $relation;
 
     /**
-     * @param Response          $response Response object
+     * @param ResponseRenderer  $response Response object
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param Template          $template Template object
      * @param string            $db       Database name
@@ -34,7 +36,7 @@ class QueryByExampleController extends AbstractController
         $this->relation = $relation;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $db, $pmaThemeImage, $url_query, $savedSearchList, $savedSearch, $currentSearchId;
         global $sql_query, $goto, $sub_part, $tables, $num_tables, $total_num_tables;
@@ -153,5 +155,7 @@ class QueryByExampleController extends AbstractController
             'has_message_to_display' => $hasMessageToDisplay,
             'selection_form_html' => $databaseQbe->getSelectionForm(),
         ]);
+
+        return $response;
     }
 }

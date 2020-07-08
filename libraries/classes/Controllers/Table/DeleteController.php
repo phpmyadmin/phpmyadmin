@@ -8,12 +8,14 @@ use PhpMyAdmin\Common;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function is_array;
 use function sprintf;
 
 class DeleteController extends AbstractController
 {
-    public function rows(): void
+    public function rows(Request $request, Response $response): Response
     {
         global $db, $goto, $pmaThemeImage, $sql_query, $table, $disp_message, $disp_query;
         global $active_page, $url_query;
@@ -83,9 +85,11 @@ class DeleteController extends AbstractController
             null,
             null
         );
+
+        return $response;
     }
 
-    public function confirm(): void
+    public function confirm(Request $request, Response $response): Response
     {
         global $db, $table, $sql_query;
 
@@ -95,7 +99,7 @@ class DeleteController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No row selected.'));
 
-            return;
+            return $response;
         }
 
         Common::table();
@@ -107,5 +111,7 @@ class DeleteController extends AbstractController
             'sql_query' => $sql_query,
             'is_foreign_key_check' => Util::isForeignKeyCheck(),
         ]);
+
+        return $response;
     }
 }

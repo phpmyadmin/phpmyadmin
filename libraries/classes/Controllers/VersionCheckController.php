@@ -6,6 +6,8 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\VersionInformation;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function json_encode;
 
 /**
@@ -13,7 +15,7 @@ use function json_encode;
  */
 class VersionCheckController extends AbstractController
 {
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         $_GET['ajax_request'] = 'true';
 
@@ -29,7 +31,7 @@ class VersionCheckController extends AbstractController
         if (empty($versionDetails)) {
             echo json_encode([]);
 
-            return;
+            return $response;
         }
 
         $latestCompatible = $versionInformation->getLatestCompatibleVersion(
@@ -45,5 +47,7 @@ class VersionCheckController extends AbstractController
             'version' => ! empty($version) ? $version : '',
             'date' => ! empty($date) ? $date : '',
         ]);
+
+        return $response;
     }
 }

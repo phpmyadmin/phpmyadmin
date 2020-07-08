@@ -11,8 +11,10 @@ use PhpMyAdmin\CentralColumns;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Template;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function is_bool;
 use function parse_str;
 use function sprintf;
@@ -23,7 +25,7 @@ class CentralColumnsController extends AbstractController
     private $centralColumns;
 
     /**
-     * @param Response          $response       Response instance
+     * @param ResponseRenderer  $response       Response instance
      * @param DatabaseInterface $dbi            DatabaseInterface instance
      * @param Template          $template       Template object
      * @param string            $db             Database name
@@ -35,7 +37,7 @@ class CentralColumnsController extends AbstractController
         $this->centralColumns = $centralColumns;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $cfg, $db, $message, $pos, $num_cols;
 
@@ -53,7 +55,7 @@ class CentralColumnsController extends AbstractController
                 'collation' => $_POST['collation'] ?? null,
             ]);
 
-            return;
+            return $response;
         }
 
         if (isset($_POST['add_new_column'])) {
@@ -74,14 +76,14 @@ class CentralColumnsController extends AbstractController
                 'selectedTable' => $_POST['selectedTable'],
             ]));
 
-            return;
+            return $response;
         }
         if (isset($_POST['getColumnList'])) {
             $this->response->addJSON('message', $this->getColumnList([
                 'cur_table' => $_POST['cur_table'] ?? null,
             ]));
 
-            return;
+            return $response;
         }
         if (isset($_POST['add_column'])) {
             $tmp_msg = $this->addColumn([
@@ -102,7 +104,7 @@ class CentralColumnsController extends AbstractController
                 'db' => $_POST['db'] ?? null,
             ]));
 
-            return;
+            return $response;
         }
         if (isset($_POST['multi_edit_central_column_save'])) {
             $message = $this->updateMultipleColumn([
@@ -148,10 +150,12 @@ class CentralColumnsController extends AbstractController
             sprintf(__('Showing rows %1$s - %2$s.'), $pos + 1, $pos + $num_cols)
         );
         if (! isset($tmp_msg) || $tmp_msg === true) {
-            return;
+            return $response;
         }
 
         $message = $tmp_msg;
+
+        return $response;
     }
 
     /**

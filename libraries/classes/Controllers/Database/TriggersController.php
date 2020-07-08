@@ -11,6 +11,8 @@ use PhpMyAdmin\Common;
 use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function in_array;
 use function strlen;
 
@@ -19,7 +21,7 @@ use function strlen;
  */
 class TriggersController extends AbstractController
 {
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $db, $table, $tables, $num_tables, $total_num_tables, $sub_part, $is_show_stats;
         global $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos, $url_query;
@@ -79,5 +81,7 @@ class TriggersController extends AbstractController
 
         $triggers = new Triggers($this->dbi, $this->template, $this->response);
         $triggers->main();
+
+        return $response;
     }
 }

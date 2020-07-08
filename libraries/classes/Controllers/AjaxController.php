@@ -10,8 +10,10 @@ namespace PhpMyAdmin\Controllers;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Template;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function json_decode;
 
 /**
@@ -23,7 +25,7 @@ class AjaxController extends AbstractController
     private $config;
 
     /**
-     * @param Response          $response Response instance
+     * @param ResponseRenderer  $response Response instance
      * @param DatabaseInterface $dbi      DatabaseInterface instance
      * @param Template          $template Template object
      * @param Config            $config   Config instance
@@ -34,32 +36,36 @@ class AjaxController extends AbstractController
         $this->config = $config;
     }
 
-    public function databases(): void
+    public function databases(Request $request, Response $response): Response
     {
         global $dblist;
 
         $this->response->addJSON(['databases' => $dblist->databases]);
+
+        return $response;
     }
 
-    public function tables(): void
+    public function tables(Request $request, Response $response): Response
     {
         if (! isset($_POST['db'])) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON(['message' => Message::error()]);
 
-            return;
+            return $response;
         }
 
         $this->response->addJSON(['tables' => $this->dbi->getTables($_POST['db'])]);
+
+        return $response;
     }
 
-    public function columns(): void
+    public function columns(Request $request, Response $response): Response
     {
         if (! isset($_POST['db'], $_POST['table'])) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON(['message' => Message::error()]);
 
-            return;
+            return $response;
         }
 
         $this->response->addJSON([
@@ -68,27 +74,31 @@ class AjaxController extends AbstractController
                 $_POST['table']
             ),
         ]);
+
+        return $response;
     }
 
-    public function getConfig(): void
+    public function getConfig(Request $request, Response $response): Response
     {
         if (! isset($_POST['key'])) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON(['message' => Message::error()]);
 
-            return;
+            return $response;
         }
 
         $this->response->addJSON(['value' => $this->config->get($_POST['key'])]);
+
+        return $response;
     }
 
-    public function setConfig(): void
+    public function setConfig(Request $request, Response $response): Response
     {
         if (! isset($_POST['key'], $_POST['value'])) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON(['message' => Message::error()]);
 
-            return;
+            return $response;
         }
 
         $result = $this->config->setUserValue(
@@ -98,10 +108,12 @@ class AjaxController extends AbstractController
         );
 
         if ($result === true) {
-            return;
+            return $response;
         }
 
         $this->response->setRequestStatus(false);
         $this->response->addJSON(['message' => $result]);
+
+        return $response;
     }
 }

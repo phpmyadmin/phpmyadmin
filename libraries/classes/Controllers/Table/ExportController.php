@@ -11,12 +11,14 @@ use PhpMyAdmin\Display\Export;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function implode;
 use function is_array;
 
@@ -29,7 +31,7 @@ class ExportController extends AbstractController
     private $relation;
 
     /**
-     * @param Response          $response A Response instance.
+     * @param ResponseRenderer  $response A Response instance.
      * @param DatabaseInterface $dbi      A DatabaseInterface instance.
      * @param Template          $template A Template instance.
      * @param string            $db       Database name.
@@ -51,7 +53,7 @@ class ExportController extends AbstractController
         $this->relation = $relation;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $db, $url_query, $url_params, $table, $export_page_title, $replaces;
         global $sql_query, $where_clause, $num_tables, $unlim_num_rows, $multi_values;
@@ -68,7 +70,7 @@ class ExportController extends AbstractController
         if (isset($_POST['templateAction']) && $cfgRelation['exporttemplateswork']) {
             $this->export->handleTemplateActions($cfgRelation);
 
-            return;
+            return $response;
         }
 
         /**
@@ -140,9 +142,11 @@ class ExportController extends AbstractController
             $unlim_num_rows,
             $multi_values
         ));
+
+        return $response;
     }
 
-    public function rows(): void
+    public function rows(Request $request, Response $response): Response
     {
         global $active_page, $single_table, $where_clause;
 
@@ -150,7 +154,7 @@ class ExportController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No row selected.'));
 
-            return;
+            return $response;
         }
 
         // Needed to allow SQL export
@@ -169,6 +173,8 @@ class ExportController extends AbstractController
 
         $active_page = Url::getFromRoute('/table/export');
 
-        $this->index();
+        $this->index($request, $response);
+
+        return $response;
     }
 }

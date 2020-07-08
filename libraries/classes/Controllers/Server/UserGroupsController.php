@@ -8,9 +8,11 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Server\UserGroups;
 use PhpMyAdmin\Template;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 /**
  * Displays the 'User groups' sub page under 'Users' page.
@@ -21,7 +23,7 @@ class UserGroupsController extends AbstractController
     private $relation;
 
     /**
-     * @param Response          $response A Response instance.
+     * @param ResponseRenderer  $response A Response instance.
      * @param DatabaseInterface $dbi      A DatabaseInterface instance.
      * @param Template          $template A Template instance.
      * @param Relation          $relation A Relation instance.
@@ -32,11 +34,11 @@ class UserGroupsController extends AbstractController
         $this->relation = $relation;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         $cfgRelation = $this->relation->getRelationsParam();
         if (! $cfgRelation['menuswork']) {
-            return;
+            return $response;
         }
 
         $header = $this->response->getHeader();
@@ -51,7 +53,7 @@ class UserGroupsController extends AbstractController
                 Message::error(__('No Privileges'))->getDisplay()
             );
 
-            return;
+            return $response;
         }
 
         $this->response->addHTML('<div class="container-fluid">');
@@ -98,5 +100,7 @@ class UserGroupsController extends AbstractController
         }
 
         $this->response->addHTML('</div>');
+
+        return $response;
     }
 }

@@ -7,9 +7,11 @@ namespace PhpMyAdmin\Controllers;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Normalization;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function intval;
 use function json_decode;
 use function json_encode;
@@ -24,7 +26,7 @@ class NormalizationController extends AbstractController
     private $normalization;
 
     /**
-     * @param Response          $response      A Response instance.
+     * @param ResponseRenderer  $response      A Response instance.
      * @param DatabaseInterface $dbi           A DatabaseInterface instance.
      * @param Template          $template      A Template instance.
      * @param Normalization     $normalization A Normalization instance.
@@ -35,7 +37,7 @@ class NormalizationController extends AbstractController
         $this->normalization = $normalization;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $db, $table;
 
@@ -50,7 +52,7 @@ class NormalizationController extends AbstractController
             );
             echo $html;
 
-            return;
+            return $response;
         }
         if (isset($_POST['splitColumn'])) {
             $num_fields = min(4096, intval($_POST['numFields']));
@@ -58,7 +60,7 @@ class NormalizationController extends AbstractController
             $html .= Url::getHiddenInputs($db, $table);
             echo $html;
 
-            return;
+            return $response;
         }
         if (isset($_POST['addNewPrimary'])) {
             $num_fields = 1;
@@ -75,13 +77,13 @@ class NormalizationController extends AbstractController
             $html .= Url::getHiddenInputs($db, $table);
             echo $html;
 
-            return;
+            return $response;
         }
         if (isset($_POST['findPdl'])) {
             $html = $this->normalization->findPartialDependencies($table, $db);
             echo $html;
 
-            return;
+            return $response;
         }
 
         if (isset($_POST['getNewTables2NF'])) {
@@ -89,7 +91,7 @@ class NormalizationController extends AbstractController
             $html = $this->normalization->getHtmlForNewTables2NF($partialDependencies, $table);
             echo $html;
 
-            return;
+            return $response;
         }
 
         if (isset($_POST['getNewTables3NF'])) {
@@ -100,7 +102,7 @@ class NormalizationController extends AbstractController
             Core::headerJSON();
             echo json_encode($newTables);
 
-            return;
+            return $response;
         }
 
         $header = $this->response->getHeader();
@@ -117,14 +119,14 @@ class NormalizationController extends AbstractController
             $res = $this->normalization->createNewTablesFor2NF($partialDependencies, $tablesName, $table, $db);
             $this->response->addJSON($res);
 
-            return;
+            return $response;
         }
         if (isset($_POST['createNewTables3NF'])) {
             $newtables = json_decode($_POST['newTables']);
             $res = $this->normalization->createNewTablesFor3NF($newtables, $db);
             $this->response->addJSON($res);
 
-            return;
+            return $response;
         }
         if (isset($_POST['repeatingColumns'])) {
             $repeatingColumns = $_POST['repeatingColumns'];
@@ -141,7 +143,7 @@ class NormalizationController extends AbstractController
             );
             $this->response->addJSON($res);
 
-            return;
+            return $response;
         }
         if (isset($_POST['step1'])) {
             $html = $this->normalization->getHtmlFor1NFStep1($db, $table, $normalForm);
@@ -165,5 +167,7 @@ class NormalizationController extends AbstractController
         } else {
             $this->response->addHTML($this->normalization->getHtmlForNormalizeTable());
         }
+
+        return $response;
     }
 }

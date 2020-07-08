@@ -10,8 +10,10 @@ namespace PhpMyAdmin\Controllers;
 use PhpMyAdmin\BrowseForeigners;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Template;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 /**
  * Display selection for relational field values
@@ -25,7 +27,7 @@ class BrowseForeignersController extends AbstractController
     private $relation;
 
     /**
-     * @param Response          $response         Response instance
+     * @param ResponseRenderer  $response         Response instance
      * @param DatabaseInterface $dbi              DatabaseInterface instance
      * @param Template          $template         Template object
      * @param BrowseForeigners  $browseForeigners BrowseForeigners instance
@@ -38,7 +40,7 @@ class BrowseForeignersController extends AbstractController
         $this->relation = $relation;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         $params = [
             'db' => $_POST['db'] ?? null,
@@ -51,7 +53,7 @@ class BrowseForeignersController extends AbstractController
         ];
 
         if (! isset($params['db'], $params['table'], $params['field'])) {
-            return;
+            return $response;
         }
 
         $this->response->getFooter()->setMinimal();
@@ -83,5 +85,7 @@ class BrowseForeignersController extends AbstractController
             $params['fieldkey'] ?? '',
             $params['data'] ?? ''
         ));
+
+        return $response;
     }
 }

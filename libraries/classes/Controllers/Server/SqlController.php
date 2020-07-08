@@ -11,9 +11,11 @@ use PhpMyAdmin\Common;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 /**
  * Server SQL executor
@@ -24,7 +26,7 @@ class SqlController extends AbstractController
     private $sqlQueryForm;
 
     /**
-     * @param Response          $response     Response object
+     * @param ResponseRenderer  $response     Response object
      * @param DatabaseInterface $dbi          DatabaseInterface object
      * @param Template          $template     Template that should be used (if provided, default one otherwise)
      * @param SqlQueryForm      $sqlQueryForm SqlQueryForm instance
@@ -35,7 +37,7 @@ class SqlController extends AbstractController
         $this->sqlQueryForm = $sqlQueryForm;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         $header = $this->response->getHeader();
         $scripts = $header->getScripts();
@@ -48,5 +50,7 @@ class SqlController extends AbstractController
         Common::server();
 
         $this->response->addHTML($this->sqlQueryForm->getHtml());
+
+        return $response;
     }
 }

@@ -9,6 +9,8 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Linter;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function json_encode;
 
 /**
@@ -16,7 +18,7 @@ use function json_encode;
  */
 class LintController extends AbstractController
 {
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         $params = [
             'sql_query' => $_POST['sql_query'] ?? null,
@@ -56,5 +58,7 @@ class LintController extends AbstractController
         }
 
         echo json_encode(Linter::lint($sqlQuery));
+
+        return $response;
     }
 }

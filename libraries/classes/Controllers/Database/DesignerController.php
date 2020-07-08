@@ -8,9 +8,11 @@ use PhpMyAdmin\Common;
 use PhpMyAdmin\Database\Designer;
 use PhpMyAdmin\Database\Designer\Common as DesignerCommon;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function htmlspecialchars;
 use function in_array;
 use function sprintf;
@@ -24,7 +26,7 @@ class DesignerController extends AbstractController
     private $designerCommon;
 
     /**
-     * @param Response          $response         Response object
+     * @param ResponseRenderer  $response         Response object
      * @param DatabaseInterface $dbi              DatabaseInterface object
      * @param Template          $template         Template object
      * @param string            $db               Database name
@@ -44,7 +46,7 @@ class DesignerController extends AbstractController
         $this->designerCommon = $designerCommon;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $db, $script_display_field, $tab_column, $tables_all_keys, $tables_pk_or_unique_keys;
         global $success, $page, $message, $display_page, $selected_page, $tab_pos, $fullTableNames, $script_tables;
@@ -85,7 +87,7 @@ class DesignerController extends AbstractController
                 $this->response->addHTML($html);
             }
 
-            return;
+            return $response;
         }
 
         if (isset($_POST['operation'])) {
@@ -108,7 +110,7 @@ class DesignerController extends AbstractController
                     );
                     $this->response->setRequestStatus(false);
 
-                    return;
+                    return $response;
                 } else {
                     $page = $this->designerCommon->createNewPage($_POST['selected_value'], $_POST['db']);
                     $this->response->addJSON('id', $page);
@@ -154,7 +156,7 @@ class DesignerController extends AbstractController
                 $this->response->setRequestStatus($success);
             }
 
-            return;
+            return $response;
         }
 
         Common::database();
@@ -253,5 +255,7 @@ class DesignerController extends AbstractController
         );
 
         $this->response->addHTML('<div id="PMA_disable_floating_menubar"></div>');
+
+        return $response;
     }
 }

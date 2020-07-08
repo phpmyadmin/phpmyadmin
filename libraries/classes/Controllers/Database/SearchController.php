@@ -9,10 +9,12 @@ use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 class SearchController extends AbstractController
 {
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $cfg, $db, $err_url, $url_query, $url_params, $tables, $num_tables, $total_num_tables, $sub_part;
         global $is_show_stats, $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos;
@@ -62,10 +64,12 @@ class SearchController extends AbstractController
 
         // If we are in an Ajax request, we need to exit after displaying all the HTML
         if ($this->response->isAjax() && empty($_REQUEST['ajax_page_request'])) {
-            return;
+            return $response;
         }
 
         // Display the search form
         $this->response->addHTML($databaseSearch->getMainHtml());
+
+        return $response;
     }
 }

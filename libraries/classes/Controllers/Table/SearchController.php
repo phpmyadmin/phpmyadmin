@@ -8,11 +8,13 @@ use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function in_array;
 use function intval;
 use function mb_strtolower;
@@ -88,7 +90,7 @@ class SearchController extends AbstractController
     private $relation;
 
     /**
-     * @param Response          $response Response object
+     * @param ResponseRenderer  $response Response object
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param Template          $template Template object
      * @param string            $db       Database name
@@ -178,7 +180,7 @@ class SearchController extends AbstractController
     /**
      * Index action
      */
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         Common::table();
 
@@ -196,7 +198,7 @@ class SearchController extends AbstractController
         if (isset($_POST['range_search'])) {
             $this->rangeSearchAction();
 
-            return;
+            return $response;
         }
 
         /**
@@ -209,6 +211,8 @@ class SearchController extends AbstractController
         } else {
             $this->doSelectionAction();
         }
+
+        return $response;
     }
 
     /**

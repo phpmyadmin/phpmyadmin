@@ -47,6 +47,8 @@
         "ext-xml": "*",
         "google/recaptcha": "^1.1",
         "nikic/fast-route": "^1.3",
+        "nyholm/psr7": "^1.3",
+        "nyholm/psr7-server": "^1.0",
         "phpmyadmin/motranslator": "^5.0",
         "phpmyadmin/shapefile": "^2.0",
         "phpmyadmin/sql-parser": "^5.0",

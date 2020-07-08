@@ -9,11 +9,13 @@ namespace PhpMyAdmin\Controllers\Server\Status;
 
 use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Server\SysInfo\SysInfo;
 use PhpMyAdmin\Template;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function is_numeric;
 use function microtime;
 
@@ -23,7 +25,7 @@ class MonitorController extends AbstractController
     private $monitor;
 
     /**
-     * @param Response          $response Response object
+     * @param ResponseRenderer  $response Response object
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param Template          $template Template object
      * @param Data              $data     Data object
@@ -35,7 +37,7 @@ class MonitorController extends AbstractController
         $this->monitor = $monitor;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         Common::server();
 
@@ -76,16 +78,18 @@ class MonitorController extends AbstractController
             'javascript_variable_names' => $javascriptVariableNames,
             'form' => $form,
         ]);
+
+        return $response;
     }
 
-    public function chartingData(): void
+    public function chartingData(Request $request, Response $response): Response
     {
         $params = ['requiredData' => $_POST['requiredData'] ?? null];
 
         Common::server();
 
         if (! $this->response->isAjax()) {
-            return;
+            return $response;
         }
 
         $this->response->addJSON([
@@ -93,9 +97,11 @@ class MonitorController extends AbstractController
                 $params['requiredData'] ?? ''
             ),
         ]);
+
+        return $response;
     }
 
-    public function logDataTypeSlow(): void
+    public function logDataTypeSlow(Request $request, Response $response): Response
     {
         $params = [
             'time_start' => $_POST['time_start'] ?? null,
@@ -105,7 +111,7 @@ class MonitorController extends AbstractController
         Common::server();
 
         if (! $this->response->isAjax()) {
-            return;
+            return $response;
         }
 
         $this->response->addJSON([
@@ -114,9 +120,11 @@ class MonitorController extends AbstractController
                 (int) $params['time_end']
             ),
         ]);
+
+        return $response;
     }
 
-    public function logDataTypeGeneral(): void
+    public function logDataTypeGeneral(Request $request, Response $response): Response
     {
         $params = [
             'time_start' => $_POST['time_start'] ?? null,
@@ -128,7 +136,7 @@ class MonitorController extends AbstractController
         Common::server();
 
         if (! $this->response->isAjax()) {
-            return;
+            return $response;
         }
 
         $this->response->addJSON([
@@ -139,9 +147,11 @@ class MonitorController extends AbstractController
                 (bool) $params['removeVariables']
             ),
         ]);
+
+        return $response;
     }
 
-    public function loggingVars(): void
+    public function loggingVars(Request $request, Response $response): Response
     {
         $params = [
             'varName' => $_POST['varName'] ?? null,
@@ -151,7 +161,7 @@ class MonitorController extends AbstractController
         Common::server();
 
         if (! $this->response->isAjax()) {
-            return;
+            return $response;
         }
 
         $this->response->addJSON([
@@ -160,9 +170,11 @@ class MonitorController extends AbstractController
                 $params['varValue']
             ),
         ]);
+
+        return $response;
     }
 
-    public function queryAnalyzer(): void
+    public function queryAnalyzer(Request $request, Response $response): Response
     {
         $params = [
             'database' => $_POST['database'] ?? null,
@@ -172,7 +184,7 @@ class MonitorController extends AbstractController
         Common::server();
 
         if (! $this->response->isAjax()) {
-            return;
+            return $response;
         }
 
         $this->response->addJSON([
@@ -181,5 +193,7 @@ class MonitorController extends AbstractController
                 $params['query'] ?? ''
             ),
         ]);
+
+        return $response;
     }
 }

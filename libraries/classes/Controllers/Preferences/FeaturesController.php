@@ -10,11 +10,13 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function define;
 use function ltrim;
 
@@ -27,7 +29,7 @@ class FeaturesController extends AbstractController
     private $relation;
 
     /**
-     * @param Response          $response        A Response instance.
+     * @param ResponseRenderer  $response        A Response instance.
      * @param DatabaseInterface $dbi             A DatabaseInterface instance.
      * @param Template          $template        A Template instance.
      * @param UserPreferences   $userPreferences A UserPreferences instance.
@@ -45,7 +47,7 @@ class FeaturesController extends AbstractController
         $this->relation = $relation;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $cfg, $cf, $error, $tabHash, $hash;
         global $server, $PMA_Config, $route;
@@ -60,7 +62,7 @@ class FeaturesController extends AbstractController
             $formDisplay->fixErrors();
             Core::sendHeaderLocation('./index.php?route=/preferences/features');
 
-            return;
+            return $response;
         }
 
         $error = null;
@@ -82,7 +84,7 @@ class FeaturesController extends AbstractController
                     $hash
                 );
 
-                return;
+                return $response;
             }
 
             $error = $result;
@@ -123,5 +125,7 @@ class FeaturesController extends AbstractController
         } else {
             define('PMA_DISABLE_NAVI_SETTINGS', true);
         }
+
+        return $response;
     }
 }

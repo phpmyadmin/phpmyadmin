@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function array_keys;
 use function file_get_contents;
 use function htmlspecialchars;
@@ -20,7 +22,7 @@ use function substr;
 
 class ChangeLogController extends AbstractController
 {
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         $this->response->disable();
         $this->response->getHeader()->sendHttpHeaders();
@@ -41,7 +43,7 @@ class ChangeLogController extends AbstractController
                 '<a href="https://www.phpmyadmin.net/">phpmyadmin.net</a>'
             );
 
-            return;
+            return $response;
         }
 
         // Test if the if is in a compressed format
@@ -108,5 +110,7 @@ class ChangeLogController extends AbstractController
         echo $this->template->render('changelog', [
             'changelog' => preg_replace(array_keys($replaces), $replaces, $changelog),
         ]);
+
+        return $response;
     }
 }

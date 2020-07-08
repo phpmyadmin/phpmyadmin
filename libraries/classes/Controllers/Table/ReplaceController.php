@@ -15,11 +15,13 @@ use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function array_values;
 use function class_exists;
 use function count;
@@ -45,7 +47,7 @@ final class ReplaceController extends AbstractController
     private $relation;
 
     /**
-     * @param Response          $response        A Response instance.
+     * @param ResponseRenderer  $response        A Response instance.
      * @param DatabaseInterface $dbi             A DatabaseInterface instance.
      * @param Template          $template        A Template instance.
      * @param string            $db              Database name.
@@ -70,7 +72,7 @@ final class ReplaceController extends AbstractController
         $this->relation = $relation;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $containerBuilder, $db, $table, $url_params, $message;
         global $err_url, $mime_map, $unsaved_values, $active_page, $disp_query, $disp_message;
@@ -404,38 +406,38 @@ final class ReplaceController extends AbstractController
             if ($goto_include === '/sql') {
                 /** @var SqlController $controller */
                 $controller = $containerBuilder->get(SqlController::class);
-                $controller->index();
+                $controller->index($request, $response);
 
-                return;
+                return $response;
             }
 
             if ($goto_include === '/database/sql') {
                 /** @var DatabaseSqlController $controller */
                 $controller = $containerBuilder->get(DatabaseSqlController::class);
-                $controller->index();
+                $controller->index($request, $response);
 
-                return;
+                return $response;
             }
 
             if ($goto_include === '/table/change') {
                 /** @var ChangeController $controller */
                 $controller = $containerBuilder->get(ChangeController::class);
-                $controller->index();
+                $controller->index($request, $response);
 
-                return;
+                return $response;
             }
 
             if ($goto_include === '/table/sql') {
                 /** @var TableSqlController $controller */
                 $controller = $containerBuilder->get(TableSqlController::class);
-                $controller->index();
+                $controller->index($request, $response);
 
-                return;
+                return $response;
             }
 
             include ROOT_PATH . Core::securePath((string) $goto_include);
 
-            return;
+            return $response;
         }
         unset($multi_edit_columns, $is_insertignore);
 
@@ -586,7 +588,7 @@ final class ReplaceController extends AbstractController
             $this->response->addJSON('message', $message);
             $this->response->addJSON($extra_data);
 
-            return;
+            return $response;
         }
 
         if (! empty($return_to_sql_query)) {
@@ -613,38 +615,40 @@ final class ReplaceController extends AbstractController
         if ($goto_include === '/sql') {
             /** @var SqlController $controller */
             $controller = $containerBuilder->get(SqlController::class);
-            $controller->index();
+            $controller->index($request, $response);
 
-            return;
+            return $response;
         }
 
         if ($goto_include === '/database/sql') {
             /** @var DatabaseSqlController $controller */
             $controller = $containerBuilder->get(DatabaseSqlController::class);
-            $controller->index();
+            $controller->index($request, $response);
 
-            return;
+            return $response;
         }
 
         if ($goto_include === '/table/change') {
             /** @var ChangeController $controller */
             $controller = $containerBuilder->get(ChangeController::class);
-            $controller->index();
+            $controller->index($request, $response);
 
-            return;
+            return $response;
         }
 
         if ($goto_include === '/table/sql') {
             /** @var TableSqlController $controller */
             $controller = $containerBuilder->get(TableSqlController::class);
-            $controller->index();
+            $controller->index($request, $response);
 
-            return;
+            return $response;
         }
 
         /**
          * Load target page.
          */
         require ROOT_PATH . Core::securePath((string) $goto_include);
+
+        return $response;
     }
 }

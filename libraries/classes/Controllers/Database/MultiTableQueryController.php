@@ -8,13 +8,15 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Database\MultiTableQuery;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 /**
  * Handles database multi-table querying
  */
 class MultiTableQueryController extends AbstractController
 {
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         $header = $this->response->getHeader();
         $scripts = $header->getScripts();
@@ -25,9 +27,11 @@ class MultiTableQueryController extends AbstractController
         $queryInstance = new MultiTableQuery($this->dbi, $this->template, $this->db);
 
         $this->response->addHTML($queryInstance->getFormHtml());
+
+        return $response;
     }
 
-    public function displayResults(): void
+    public function displayResults(Request $request, Response $response): Response
     {
         global $pmaThemeImage;
 
@@ -41,9 +45,11 @@ class MultiTableQueryController extends AbstractController
             $params['db'],
             $pmaThemeImage
         );
+
+        return $response;
     }
 
-    public function table(): void
+    public function table(Request $request, Response $response): Response
     {
         $params = [
             'tables' => $_GET['tables'],
@@ -54,5 +60,7 @@ class MultiTableQueryController extends AbstractController
             $params['tables']
         );
         $this->response->addJSON(['foreignKeyConstrains' => $constrains]);
+
+        return $response;
     }
 }

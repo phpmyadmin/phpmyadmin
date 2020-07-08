@@ -8,10 +8,12 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Response as ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use function define;
 use function htmlspecialchars;
 use function imagecopyresampled;
@@ -40,7 +42,7 @@ class TransformationWrapperController extends AbstractController
     private $relation;
 
     /**
-     * @param Response          $response        Response object
+     * @param ResponseRenderer  $response        Response object
      * @param DatabaseInterface $dbi             DatabaseInterface object
      * @param Template          $template        Template object
      * @param Transformations   $transformations Transformations object
@@ -58,7 +60,7 @@ class TransformationWrapperController extends AbstractController
         $this->relation = $relation;
     }
 
-    public function index(): void
+    public function index(Request $request, Response $response): Response
     {
         global $cn, $db, $table, $transform_key, $request_params, $size_params, $where_clause, $row;
         global $default_ct, $mime_map, $mime_options, $ct, $mime_type, $srcImage, $srcWidth, $srcHeight;
@@ -122,7 +124,7 @@ class TransformationWrapperController extends AbstractController
 
         // No row returned
         if (! $row) {
-            return;
+            return $response;
         }
 
         $default_ct = 'application/octet-stream';
@@ -218,5 +220,7 @@ class TransformationWrapperController extends AbstractController
             }
             imagedestroy($srcImage);
         }
+
+        return $response;
     }
 }
