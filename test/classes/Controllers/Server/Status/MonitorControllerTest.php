@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 
+use Nyholm\Psr7\Factory\Psr17Factory;
+use Nyholm\Psr7Server\ServerRequestCreator;
 use PhpMyAdmin\Controllers\Server\Status\MonitorController;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
@@ -14,11 +16,19 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
 class MonitorControllerTest extends AbstractTestCase
 {
     /** @var Data */
     private $data;
+
+    /** @var ServerRequestInterface */
+    private $request;
+
+    /** @var ResponseInterface */
+    private $response;
 
     protected function setUp(): void
     {
@@ -39,6 +49,11 @@ class MonitorControllerTest extends AbstractTestCase
         $GLOBALS['pmaThemeImage'] = '';
 
         $this->data = new Data();
+
+        $psr17Factory = new Psr17Factory();
+        $creator = new ServerRequestCreator($psr17Factory, $psr17Factory, $psr17Factory, $psr17Factory);
+        $this->request = $creator->fromGlobals();
+        $this->response = $psr17Factory->createResponse();
     }
 
     public function testIndex(): void
@@ -53,7 +68,7 @@ class MonitorControllerTest extends AbstractTestCase
             new Monitor($GLOBALS['dbi'])
         );
 
-        $controller->index();
+        $controller->index($this->request, $this->response);
         $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(
@@ -155,7 +170,7 @@ class MonitorControllerTest extends AbstractTestCase
         $_POST['time_start'] = '0';
         $_POST['time_end'] = '10';
 
-        $controller->logDataTypeSlow();
+        $controller->logDataTypeSlow($this->request, $this->response);
         $ret = $response->getJSONResult();
 
         $resultRows = [
@@ -216,7 +231,7 @@ class MonitorControllerTest extends AbstractTestCase
         $_POST['time_end'] = '10';
         $_POST['limitTypes'] = '1';
 
-        $controller->logDataTypeGeneral();
+        $controller->logDataTypeGeneral($this->request, $this->response);
         $ret = $response->getJSONResult();
 
         $resultRows = [
@@ -265,7 +280,7 @@ class MonitorControllerTest extends AbstractTestCase
 
         $_POST['varName'] = 'varName';
 
-        $controller->loggingVars();
+        $controller->loggingVars($this->request, $this->response);
         $ret = $response->getJSONResult();
 
         $this->assertEquals(
@@ -301,7 +316,7 @@ class MonitorControllerTest extends AbstractTestCase
         $_POST['database'] = 'database';
         $_POST['query'] = 'query';
 
-        $controller->queryAnalyzer();
+        $controller->queryAnalyzer($this->request, $this->response);
         $ret = $response->getJSONResult();
 
         $this->assertEquals(

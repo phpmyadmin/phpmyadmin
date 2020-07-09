@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 
+use Nyholm\Psr7\Factory\Psr17Factory;
+use Nyholm\Psr7Server\ServerRequestCreator;
 use PhpMyAdmin\Controllers\Server\Status\QueriesController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Server\Status\Data;
@@ -106,17 +108,22 @@ class QueriesControllerTest extends AbstractTestCase
 
     public function testIndex(): void
     {
-        $response = new Response();
+        $responseRenderer = new Response();
+
+        $psr17Factory = new Psr17Factory();
+        $creator = new ServerRequestCreator($psr17Factory, $psr17Factory, $psr17Factory, $psr17Factory);
+        $request = $creator->fromGlobals();
+        $response = $psr17Factory->createResponse();
 
         $controller = new QueriesController(
-            $response,
+            $responseRenderer,
             $GLOBALS['dbi'],
             new Template(),
             $this->data
         );
 
-        $controller->index();
-        $html = $response->getHTMLResult();
+        $controller->index($request, $response);
+        $html = $responseRenderer->getHTMLResult();
 
         $hourFactor = 3600 / $this->data->status['Uptime'];
         $usedQueries = $this->data->used_queries;

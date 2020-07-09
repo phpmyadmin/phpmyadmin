@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Database;
 
+use Nyholm\Psr7\Factory\Psr17Factory;
+use Nyholm\Psr7Server\ServerRequestCreator;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Operations;
@@ -479,6 +481,11 @@ class StructureControllerTest extends AbstractTestCase
 
         $is_db = true;
 
+        $psr17Factory = new Psr17Factory();
+        $creator = new ServerRequestCreator($psr17Factory, $psr17Factory, $psr17Factory, $psr17Factory);
+        $request = $creator->fromGlobals();
+        $response = $psr17Factory->createResponse();
+
         $this->response->setAjax(true);
         $controller = new StructureController(
             $this->response,
@@ -496,7 +503,7 @@ class StructureControllerTest extends AbstractTestCase
         $property->setAccessible(true);
 
         $_REQUEST['table'] = 'table';
-        $controller->handleRealRowCountRequestAction();
+        $controller->handleRealRowCountRequestAction($request, $response);
         $json = $this->response->getJSONResult();
         $this->assertEquals(
             6,
@@ -506,7 +513,7 @@ class StructureControllerTest extends AbstractTestCase
         // Fall into another branch
         $property->setValue($controller, [['TABLE_NAME' => 'table']]);
         $_REQUEST['real_row_count_all'] = 'abc';
-        $controller->handleRealRowCountRequestAction();
+        $controller->handleRealRowCountRequestAction($request, $response);
         $json = $this->response->getJSONResult();
 
         $expectedResult = [

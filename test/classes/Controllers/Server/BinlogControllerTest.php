@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
+use Nyholm\Psr7\Factory\Psr17Factory;
+use Nyholm\Psr7Server\ServerRequestCreator;
 use PhpMyAdmin\Controllers\Server\BinlogController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Template;
@@ -96,18 +98,23 @@ class BinlogControllerTest extends AbstractTestCase
         $dbi->expects($this->at(4))->method('fetchAssoc')
             ->will($this->returnValue(null));
 
-        $response = new Response();
+        $responseRenderer = new Response();
+
+        $psr17Factory = new Psr17Factory();
+        $creator = new ServerRequestCreator($psr17Factory, $psr17Factory, $psr17Factory, $psr17Factory);
+        $request = $creator->fromGlobals();
+        $response = $psr17Factory->createResponse();
 
         $controller = new BinlogController(
-            $response,
+            $responseRenderer,
             $dbi,
             new Template()
         );
 
         $_POST['log'] = 'index1';
         $_POST['pos'] = '3';
-        $controller->index();
-        $actual = $response->getHTMLResult();
+        $controller->index($request, $response);
+        $actual = $responseRenderer->getHTMLResult();
 
         $this->assertStringContainsString(
             'Select binary log to view',

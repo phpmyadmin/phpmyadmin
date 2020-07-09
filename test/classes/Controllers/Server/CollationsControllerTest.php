@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
+use Nyholm\Psr7\Factory\Psr17Factory;
+use Nyholm\Psr7Server\ServerRequestCreator;
 use PhpMyAdmin\Controllers\Server\CollationsController;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -36,16 +38,21 @@ class CollationsControllerTest extends AbstractTestCase
 
     public function testIndexAction(): void
     {
-        $response = new Response();
+        $responseRenderer = new Response();
+
+        $psr17Factory = new Psr17Factory();
+        $creator = new ServerRequestCreator($psr17Factory, $psr17Factory, $psr17Factory, $psr17Factory);
+        $request = $creator->fromGlobals();
+        $response = $psr17Factory->createResponse();
 
         $controller = new CollationsController(
-            $response,
+            $responseRenderer,
             $GLOBALS['dbi'],
             new Template()
         );
 
-        $controller->index();
-        $actual = $response->getHTMLResult();
+        $controller->index($request, $response);
+        $actual = $responseRenderer->getHTMLResult();
 
         $this->assertStringContainsString(
             '<div id="div_mysql_charset_collations" class="row">',

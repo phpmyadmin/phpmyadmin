@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers;
 
+use Nyholm\Psr7\Factory\Psr17Factory;
+use Nyholm\Psr7Server\ServerRequestCreator;
 use PhpMyAdmin\Controllers\TransformationOverviewController;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -36,17 +38,22 @@ class TransformationOverviewControllerTest extends AbstractTestCase
 
     public function testIndexAction(): void
     {
-        $response = new Response();
+        $responseRenderer = new Response();
+
+        $psr17Factory = new Psr17Factory();
+        $creator = new ServerRequestCreator($psr17Factory, $psr17Factory, $psr17Factory, $psr17Factory);
+        $request = $creator->fromGlobals();
+        $response = $psr17Factory->createResponse();
 
         $controller = new TransformationOverviewController(
-            $response,
+            $responseRenderer,
             $GLOBALS['dbi'],
             new Template(),
             new Transformations()
         );
 
-        $controller->index();
-        $actual = $response->getHTMLResult();
+        $controller->index($request, $response);
+        $actual = $responseRenderer->getHTMLResult();
 
         $this->assertStringContainsString(
             __('Available media types'),

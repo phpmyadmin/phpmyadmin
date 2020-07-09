@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
+use Nyholm\Psr7\Factory\Psr17Factory;
+use Nyholm\Psr7Server\ServerRequestCreator;
 use PhpMyAdmin\Controllers\Server\DatabasesController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
@@ -15,6 +17,8 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Transformations;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 use stdClass;
 use function sprintf;
 
@@ -23,6 +27,12 @@ use function sprintf;
  */
 class DatabasesControllerTest extends AbstractTestCase
 {
+    /** @var ServerRequestInterface */
+    private $request;
+
+    /** @var ResponseInterface */
+    private $response;
+
     protected function setUp(): void
     {
         parent::setUp();
@@ -36,6 +46,11 @@ class DatabasesControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['text_dir'] = 'text_dir';
+
+        $psr17Factory = new Psr17Factory();
+        $creator = new ServerRequestCreator($psr17Factory, $psr17Factory, $psr17Factory, $psr17Factory);
+        $this->request = $creator->fromGlobals();
+        $this->response = $psr17Factory->createResponse();
     }
 
     public function testIndexAction(): void
@@ -65,7 +80,7 @@ class DatabasesControllerTest extends AbstractTestCase
             $relationCleanup
         );
 
-        $controller->index();
+        $controller->index($this->request, $this->response);
         $actual = $response->getHTMLResult();
 
         $this->assertStringContainsString('data-filter-row="SAKILA"', $actual);
@@ -100,7 +115,7 @@ class DatabasesControllerTest extends AbstractTestCase
         $_REQUEST['sort_by'] = 'SCHEMA_TABLES';
         $_REQUEST['sort_order'] = 'desc';
 
-        $controller->index();
+        $controller->index($this->request, $this->response);
         $actual = $response->getHTMLResult();
 
         $this->assertStringNotContainsString(__('Enable statistics'), $actual);
@@ -139,7 +154,7 @@ class DatabasesControllerTest extends AbstractTestCase
 
         $_POST['new_db'] = 'pma_test';
 
-        $controller->create();
+        $controller->create($this->request, $this->response);
         $actual = $response->getJSONResult();
 
         $this->assertArrayHasKey('message', $actual);
@@ -162,7 +177,7 @@ class DatabasesControllerTest extends AbstractTestCase
 
         $_POST['db_collation'] = 'utf8_general_ci';
 
-        $controller->create();
+        $controller->create($this->request, $this->response);
         $actual = $response->getJSONResult();
 
         $this->assertArrayHasKey('message', $actual);
@@ -197,7 +212,7 @@ class DatabasesControllerTest extends AbstractTestCase
 
         $_POST['drop_selected_dbs'] = '1';
 
-        $controller->destroy();
+        $controller->destroy($this->request, $this->response);
         $actual = $response->getJSONResult();
 
         $this->assertArrayHasKey('message', $actual);

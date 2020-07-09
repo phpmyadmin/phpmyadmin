@@ -7,12 +7,16 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
+use Nyholm\Psr7\Factory\Psr17Factory;
+use Nyholm\Psr7Server\ServerRequestCreator;
 use PhpMyAdmin\Controllers\Server\EnginesController;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 use function htmlspecialchars;
 
 /**
@@ -20,6 +24,12 @@ use function htmlspecialchars;
  */
 class EnginesControllerTest extends AbstractTestCase
 {
+    /** @var ServerRequestInterface */
+    private $request;
+
+    /** @var ResponseInterface */
+    private $response;
+
     /**
      * Prepares environment for the test.
      */
@@ -35,6 +45,11 @@ class EnginesControllerTest extends AbstractTestCase
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
+
+        $psr17Factory = new Psr17Factory();
+        $creator = new ServerRequestCreator($psr17Factory, $psr17Factory, $psr17Factory, $psr17Factory);
+        $this->request = $creator->fromGlobals();
+        $this->response = $psr17Factory->createResponse();
     }
 
     public function testIndex(): void
@@ -47,7 +62,7 @@ class EnginesControllerTest extends AbstractTestCase
             new Template()
         );
 
-        $controller->index();
+        $controller->index($this->request, $this->response);
         $actual = $response->getHTMLResult();
 
         $this->assertStringContainsString(
@@ -96,7 +111,7 @@ class EnginesControllerTest extends AbstractTestCase
             new Template()
         );
 
-        $controller->show([
+        $controller->show($this->request, $this->response, [
             'engine' => 'Pbxt',
             'page' => 'page',
         ]);

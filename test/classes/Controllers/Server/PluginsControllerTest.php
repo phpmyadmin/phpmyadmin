@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
+use Nyholm\Psr7\Factory\Psr17Factory;
+use Nyholm\Psr7Server\ServerRequestCreator;
 use PhpMyAdmin\Controllers\Server\PluginsController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Server\Plugins;
@@ -70,16 +72,21 @@ class PluginsControllerTest extends AbstractTestCase
             ->method('freeResult')
             ->will($this->returnValue(true));
 
-        $response = new Response();
+        $responseRenderer = new Response();
+
+        $psr17Factory = new Psr17Factory();
+        $creator = new ServerRequestCreator($psr17Factory, $psr17Factory, $psr17Factory, $psr17Factory);
+        $request = $creator->fromGlobals();
+        $response = $psr17Factory->createResponse();
 
         $controller = new PluginsController(
-            $response,
+            $responseRenderer,
             $dbi,
             new Template(),
             new Plugins($dbi)
         );
-        $controller->index();
-        $actual = $response->getHTMLResult();
+        $controller->index($request, $response);
+        $actual = $responseRenderer->getHTMLResult();
 
         //validate 1:Items
         $this->assertStringContainsString(

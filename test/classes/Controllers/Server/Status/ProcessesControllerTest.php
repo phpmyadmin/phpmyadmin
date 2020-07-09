@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 
+use Nyholm\Psr7\Factory\Psr17Factory;
+use Nyholm\Psr7Server\ServerRequestCreator;
 use PhpMyAdmin\Controllers\Server\Status\ProcessesController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Server\Status\Data;
@@ -14,12 +16,20 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Url;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 use function htmlspecialchars;
 
 class ProcessesControllerTest extends AbstractTestCase
 {
     /** @var Data */
     private $data;
+
+    /** @var ServerRequestInterface */
+    private $request;
+
+    /** @var ResponseInterface */
+    private $response;
 
     protected function setUp(): void
     {
@@ -92,6 +102,11 @@ class ProcessesControllerTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
 
         $this->data = new Data();
+
+        $psr17Factory = new Psr17Factory();
+        $creator = new ServerRequestCreator($psr17Factory, $psr17Factory, $psr17Factory, $psr17Factory);
+        $this->request = $creator->fromGlobals();
+        $this->response = $psr17Factory->createResponse();
     }
 
     public function testIndex(): void
@@ -105,7 +120,7 @@ class ProcessesControllerTest extends AbstractTestCase
             $this->data
         );
 
-        $controller->index();
+        $controller->index($this->request, $this->response);
         $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(
@@ -166,7 +181,7 @@ class ProcessesControllerTest extends AbstractTestCase
         $_POST['order_by_field'] = 'db';
         $_POST['sort_order'] = 'ASC';
 
-        $controller->index();
+        $controller->index($this->request, $this->response);
         $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(
@@ -186,7 +201,7 @@ class ProcessesControllerTest extends AbstractTestCase
         $_POST['order_by_field'] = 'Host';
         $_POST['sort_order'] = 'DESC';
 
-        $controller->index();
+        $controller->index($this->request, $this->response);
         $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(
@@ -229,7 +244,7 @@ class ProcessesControllerTest extends AbstractTestCase
         $_POST['order_by_field'] = 'process';
         $_POST['sort_order'] = 'DESC';
 
-        $controller->refresh();
+        $controller->refresh($this->request, $this->response);
         $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(

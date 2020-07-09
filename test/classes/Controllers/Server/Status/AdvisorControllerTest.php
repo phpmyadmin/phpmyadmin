@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 
+use Nyholm\Psr7\Factory\Psr17Factory;
+use Nyholm\Psr7Server\ServerRequestCreator;
 use PhpMyAdmin\Advisor;
 use PhpMyAdmin\Controllers\Server\Status\AdvisorController;
 use PhpMyAdmin\DatabaseInterface;
@@ -11,12 +13,14 @@ use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 class AdvisorControllerTest extends AbstractTestCase
 {
     /** @var Response */
-    private $response;
+    private $responseRenderer;
 
     /** @var DatabaseInterface */
     private $dbi;
@@ -26,6 +30,12 @@ class AdvisorControllerTest extends AbstractTestCase
 
     /** @var Data */
     private $data;
+
+    /** @var ServerRequestInterface */
+    private $request;
+
+    /** @var ResponseInterface */
+    private $response;
 
     protected function setUp(): void
     {
@@ -40,9 +50,14 @@ class AdvisorControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
 
         $this->dbi = $GLOBALS['dbi'];
-        $this->response = new Response();
+        $this->responseRenderer = new Response();
         $this->template = new Template();
         $this->data = new Data();
+
+        $psr17Factory = new Psr17Factory();
+        $creator = new ServerRequestCreator($psr17Factory, $psr17Factory, $psr17Factory, $psr17Factory);
+        $this->request = $creator->fromGlobals();
+        $this->response = $psr17Factory->createResponse();
     }
 
     public function testIndexWithoutData(): void
@@ -50,14 +65,14 @@ class AdvisorControllerTest extends AbstractTestCase
         $this->data->dataLoaded = false;
 
         $controller = new AdvisorController(
-            $this->response,
+            $this->responseRenderer,
             $this->dbi,
             $this->template,
             $this->data,
             new Advisor($GLOBALS['dbi'], new ExpressionLanguage())
         );
 
-        $controller->index();
+        $controller->index($this->request, $this->response);
 
         $expected = $this->template->render('server/status/advisor/index', [
             'data' => [],
@@ -65,7 +80,7 @@ class AdvisorControllerTest extends AbstractTestCase
 
         $this->assertSame(
             $expected,
-            $this->response->getHTMLResult()
+            $this->responseRenderer->getHTMLResult()
         );
     }
 
@@ -100,20 +115,20 @@ class AdvisorControllerTest extends AbstractTestCase
         $this->data->dataLoaded = true;
 
         $controller = new AdvisorController(
-            $this->response,
+            $this->responseRenderer,
             $this->dbi,
             $this->template,
             $this->data,
             $advisor
         );
 
-        $controller->index();
+        $controller->index($this->request, $this->response);
 
         $expected = $this->template->render('server/status/advisor/index', ['data' => $advisorData]);
 
         $this->assertSame(
             $expected,
-            $this->response->getHTMLResult()
+            $this->responseRenderer->getHTMLResult()
         );
     }
 }

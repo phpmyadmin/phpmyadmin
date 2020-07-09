@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 
+use Nyholm\Psr7\Factory\Psr17Factory;
+use Nyholm\Psr7Server\ServerRequestCreator;
 use PhpMyAdmin\Controllers\Server\Status\StatusController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Replication;
@@ -133,19 +135,24 @@ class StatusControllerTest extends AbstractTestCase
         $data->status['Aborted_connects'] = $abortedConnections;
         $data->status['Connections'] = $connections;
 
-        $response = new Response();
+        $responseRenderer = new Response();
         $template = new Template();
 
+        $psr17Factory = new Psr17Factory();
+        $creator = new ServerRequestCreator($psr17Factory, $psr17Factory, $psr17Factory, $psr17Factory);
+        $request = $creator->fromGlobals();
+        $response = $psr17Factory->createResponse();
+
         $controller = new StatusController(
-            $response,
+            $responseRenderer,
             $GLOBALS['dbi'],
             $template,
             $data,
             new ReplicationGui(new Replication(), $template)
         );
 
-        $controller->index();
-        $html = $response->getHTMLResult();
+        $controller->index($request, $response);
+        $html = $responseRenderer->getHTMLResult();
 
         $traffic = $bytesReceived + $bytesSent;
         $trafficHtml = 'Network traffic since startup: ' . $traffic . ' B';
