@@ -266,6 +266,8 @@ final class RelationController extends AbstractController
         // If there is a request for SQL previewing.
         if (isset($_POST['preview_sql'])) {
             Core::previewSQL($preview_sql_data);
+
+            exit;
         }
 
         if (empty($display_query) || $seen_error) {

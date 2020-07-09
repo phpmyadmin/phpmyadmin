@@ -442,6 +442,8 @@ final class ReplaceController extends AbstractController
         // If there is a request for SQL previewing.
         if (isset($_POST['preview_sql'])) {
             Core::previewSQL($query);
+
+            return;
         }
 
         /**

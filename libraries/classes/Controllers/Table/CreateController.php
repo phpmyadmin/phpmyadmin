@@ -126,6 +126,8 @@ class CreateController extends AbstractController
             // If there is a request for SQL previewing.
             if (isset($_POST['preview_sql'])) {
                 Core::previewSQL($sql_query);
+
+                return;
             }
             // Executes the query
             $result = $this->dbi->tryQuery($sql_query);

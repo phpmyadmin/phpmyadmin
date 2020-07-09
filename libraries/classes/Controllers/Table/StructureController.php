@@ -1181,6 +1181,8 @@ class StructureController extends AbstractController
             // If there is a request for SQL previewing.
             if (isset($_POST['preview_sql'])) {
                 Core::previewSQL(count($changes) > 0 ? $sql_query : '');
+
+                exit;
             }
 
             $columns_with_index = $this->dbi

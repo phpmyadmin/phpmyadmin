@@ -545,6 +545,8 @@ class CreateAddField
         // If there is a request for SQL previewing.
         if (isset($_POST['preview_sql'])) {
             Core::previewSQL($sqlQuery);
+
+            exit;
         }
 
         return [

@@ -862,7 +862,6 @@ class Core
         $retval .= '</div>';
         $response = Response::getInstance();
         $response->addJSON('sql_data', $retval);
-        exit;
     }
 
     /**
