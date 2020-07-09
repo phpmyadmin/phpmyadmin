@@ -433,7 +433,9 @@ final class ExportController extends AbstractController
 
             // problem opening export file on server?
             if (! empty($message)) {
-                $this->export->showPage($db, $table, $export_type);
+                $this->export->showPage($export_type);
+
+                return;
             }
         } else {
             /**
@@ -649,7 +651,9 @@ final class ExportController extends AbstractController
         }
 
         if ($save_on_server && ! empty($message)) {
-            $this->export->showPage($db, $table, $export_type);
+            $this->export->showPage($export_type);
+
+            return;
         }
 
         /**
@@ -690,9 +694,11 @@ final class ExportController extends AbstractController
                 $dump_buffer,
                 $save_filename
             );
-            $this->export->showPage($db, $table, $export_type);
-        } else {
-            echo $dump_buffer;
+            $this->export->showPage($export_type);
+
+            return;
         }
+
+        echo $dump_buffer;
     }
 }

@@ -1160,32 +1160,33 @@ class Export
 
     /**
      * Loads correct page after doing export
-     *
-     * @param string $db          the database name
-     * @param string $table       the table name
-     * @param string $export_type Export type
      */
-    public function showPage(string $db, string $table, string $export_type): void
+    public function showPage(string $exportType): void
     {
         global $active_page, $containerBuilder;
 
-        if ($export_type == 'server') {
+        if ($exportType === 'server') {
             $active_page = Url::getFromRoute('/server/export');
             /** @var ServerExportController $controller */
             $controller = $containerBuilder->get(ServerExportController::class);
             $controller->index();
-        } elseif ($export_type == 'database') {
+
+            return;
+        }
+
+        if ($exportType === 'database') {
             $active_page = Url::getFromRoute('/database/export');
             /** @var DatabaseExportController $controller */
             $controller = $containerBuilder->get(DatabaseExportController::class);
             $controller->index();
-        } else {
-            $active_page = Url::getFromRoute('/table/export');
-            /** @var TableExportController $controller */
-            $controller = $containerBuilder->get(TableExportController::class);
-            $controller->index();
+
+            return;
         }
-        exit;
+
+        $active_page = Url::getFromRoute('/table/export');
+        /** @var TableExportController $controller */
+        $controller = $containerBuilder->get(TableExportController::class);
+        $controller->index();
     }
 
     /**
