@@ -1453,8 +1453,6 @@ class Import
         $response = Response::getInstance();
         $response->setRequestStatus(false);
         $response->addJSON('message', Message::error($msg));
-
-        exit;
     }
 
     /**

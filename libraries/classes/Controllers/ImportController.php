@@ -529,11 +529,15 @@ final class ImportController extends AbstractController
             $import_handle->checkUploadedFile();
             if ($import_handle->isError()) {
                 $this->import->stop($import_handle->getError());
+
+                return;
             }
             $import_handle->setDecompressContent(true);
             $import_handle->open();
             if ($import_handle->isError()) {
                 $this->import->stop($import_handle->getError());
+
+                return;
             }
         } elseif (! $error) {
             if (! isset($import_text) || empty($import_text)) {
@@ -545,6 +549,8 @@ final class ImportController extends AbstractController
                     )
                 );
                 $this->import->stop($message);
+
+                return;
             }
         }
 
@@ -597,17 +603,19 @@ final class ImportController extends AbstractController
                     __('Could not load import plugins, please check your installation!')
                 );
                 $this->import->stop($message);
-            } else {
-                // Do the real import
-                $default_fk_check = Util::handleDisableFKCheckInit();
-                try {
-                    $import_plugin->doImport($sql_data);
-                    Util::handleDisableFKCheckCleanup($default_fk_check);
-                } catch (Throwable $e) {
-                    Util::handleDisableFKCheckCleanup($default_fk_check);
 
-                    throw $e;
-                }
+                return;
+            }
+
+            // Do the real import
+            $default_fk_check = Util::handleDisableFKCheckInit();
+            try {
+                $import_plugin->doImport($sql_data);
+                Util::handleDisableFKCheckCleanup($default_fk_check);
+            } catch (Throwable $e) {
+                Util::handleDisableFKCheckCleanup($default_fk_check);
+
+                throw $e;
             }
         }
 
