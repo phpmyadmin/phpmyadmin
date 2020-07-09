@@ -2,7 +2,7 @@ name: 'Lock threads'
 
 on:
   schedule:
-    - cron: '0 * * * *'
+    - cron: '0 0 * * *'
 
 jobs:
   lock:
@@ -12,3 +12,4 @@ jobs:
         with:
           github-token: ${{ github.token }}
           process-only: 'issues'
+          issue-lock-inactive-days: 365
