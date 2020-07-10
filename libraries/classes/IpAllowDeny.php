@@ -317,7 +317,7 @@ class IpAllowDeny
             }
 
             // check for username
-            if (($rule_data[1] != '%') //wildcarded first
+            if (($rule_data[1] !== '%') //wildcarded first
                 && (! hash_equals($rule_data[1], $username))
             ) {
                 continue;
@@ -325,7 +325,7 @@ class IpAllowDeny
 
             // check if the config file has the full string with an extra
             // 'from' in it and if it does, just discard it
-            if ($rule_data[2] == 'from') {
+            if ($rule_data[2] === 'from') {
                 $rule_data[2] = $rule_data[3];
             }
 

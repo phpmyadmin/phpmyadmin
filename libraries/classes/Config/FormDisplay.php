@@ -466,7 +466,7 @@ class FormDisplay
             case 'group':
                 // :group:end is changed to :group:end:{unique id} in Form class
                 $htmlOutput = '';
-                if (mb_substr($field, 7, 4) != 'end:') {
+                if (mb_substr($field, 7, 4) !== 'end:') {
                     $htmlOutput .= $this->formDisplayTemplate->displayGroupHeader(
                         mb_substr($field, 7)
                     );
@@ -491,7 +491,7 @@ class FormDisplay
         }
 
         // TrustedProxies requires changes before displaying
-        if ($systemPath == 'TrustedProxies') {
+        if ($systemPath === 'TrustedProxies') {
             foreach ($value as $ip => &$v) {
                 if (preg_match('/^-\d+$/', $ip)) {
                     continue;
@@ -663,14 +663,14 @@ class FormDisplay
                 $type = $form->getOptionType($field);
 
                 // skip groups
-                if ($type == 'group') {
+                if ($type === 'group') {
                     continue;
                 }
 
                 // ensure the value is set
                 if (! isset($_POST[$key])) {
                     // checkboxes aren't set by browsers if they're off
-                    if ($type != 'boolean') {
+                    if ($type !== 'boolean') {
                         $this->_errors[$form->name][] = sprintf(
                             __('Missing data for %s'),
                             '<i>' . Descriptions::get($systemPath) . '</i>'
@@ -758,7 +758,7 @@ class FormDisplay
 
         foreach ($toSave as $workPath => $path) {
             // TrustedProxies requires changes before saving
-            if ($path == 'TrustedProxies') {
+            if ($path === 'TrustedProxies') {
                 $proxies = [];
                 $i = 0;
                 foreach ($values[$path] as $value) {
@@ -815,7 +815,7 @@ class FormDisplay
     public function getDocLink($path)
     {
         $test = mb_substr($path, 0, 6);
-        if ($test == 'Import' || $test == 'Export') {
+        if ($test === 'Import' || $test === 'Export') {
             return '';
         }
 
@@ -868,7 +868,7 @@ class FormDisplay
     private function setComments($systemPath, array &$opts)
     {
         // RecodingEngine - mark unavailable types
-        if ($systemPath == 'RecodingEngine') {
+        if ($systemPath === 'RecodingEngine') {
             $comment = '';
             if (! function_exists('iconv')) {
                 $opts['values']['iconv'] .= ' (' . __('unavailable') . ')';
@@ -891,9 +891,9 @@ class FormDisplay
             $opts['comment_warning'] = true;
         }
         // ZipDump, GZipDump, BZipDump - check function availability
-        if ($systemPath == 'ZipDump'
-            || $systemPath == 'GZipDump'
-            || $systemPath == 'BZipDump'
+        if ($systemPath === 'ZipDump'
+            || $systemPath === 'GZipDump'
+            || $systemPath === 'BZipDump'
         ) {
             $comment = '';
             $funcs = [
@@ -933,8 +933,8 @@ class FormDisplay
             return;
         }
 
-        if ($systemPath != 'MaxDbList' && $systemPath != 'MaxTableList'
-            && $systemPath != 'QueryHistoryMax'
+        if ($systemPath !== 'MaxDbList' && $systemPath !== 'MaxTableList'
+            && $systemPath !== 'QueryHistoryMax'
         ) {
             return;
         }

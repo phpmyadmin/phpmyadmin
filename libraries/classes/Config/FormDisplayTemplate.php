@@ -233,7 +233,7 @@ class FormDisplayTemplate
             && ! $opts['userprefs_allow'];
         $nameId = 'name="' . htmlspecialchars($path) . '" id="'
             . htmlspecialchars($path) . '"';
-        $fieldClass = $type == 'checkbox' ? 'checkbox' : '';
+        $fieldClass = $type === 'checkbox' ? 'checkbox' : '';
         if (! $valueIsDefault) {
             $fieldClass .= ($fieldClass == '' ? '' : ' ')
                 . ($hasErrors ? 'custom field-error' : 'custom');
@@ -242,7 +242,7 @@ class FormDisplayTemplate
         $trClass = $this->group > 0
             ? 'group-field group-field-' . $this->group
             : '';
-        if (isset($opts['setvalue']) && $opts['setvalue'] == ':group') {
+        if (isset($opts['setvalue']) && $opts['setvalue'] === ':group') {
             unset($opts['setvalue']);
             $this->group++;
             $trClass = 'group-header-field group-header-' . $this->group;

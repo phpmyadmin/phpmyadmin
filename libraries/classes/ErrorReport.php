@@ -107,7 +107,7 @@ class ErrorReport
             'php_version' => PHP_VERSION,
         ];
 
-        if ($exceptionType == 'js') {
+        if ($exceptionType === 'js') {
             if (empty($_POST['exception'])) {
                 return [];
             }
@@ -137,7 +137,7 @@ class ErrorReport
             if (! empty($_POST['description'])) {
                 $report['steps'] = $_POST['description'];
             }
-        } elseif ($exceptionType == 'php') {
+        } elseif ($exceptionType === 'php') {
             $errors = [];
             // create php error report
             $i = 0;

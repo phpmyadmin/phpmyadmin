@@ -267,14 +267,14 @@ final class ExportController extends AbstractController
 
         // Is it a quick or custom export?
         if (isset($_POST['quick_or_custom'])
-            && $_POST['quick_or_custom'] == 'quick'
+            && $_POST['quick_or_custom'] === 'quick'
         ) {
             $quick_export = true;
         } else {
             $quick_export = false;
         }
 
-        if ($_POST['output_format'] == 'astext') {
+        if ($_POST['output_format'] === 'astext') {
             $asfile = false;
         } else {
             $asfile = true;
@@ -283,7 +283,7 @@ final class ExportController extends AbstractController
             ) {
                 if (isset($_POST['compression'])
                     && ! empty($_POST['compression'])
-                    && $_POST['compression'] == 'zip'
+                    && $_POST['compression'] === 'zip'
                 ) {
                     $separate_files = $_POST['as_separate_files'];
                 }
@@ -309,7 +309,7 @@ final class ExportController extends AbstractController
          * If we are sending the export file (as opposed to just displaying it
          * as text), we have to bypass the usual PhpMyAdmin\Response mechanism
          */
-        if (isset($_POST['output_format']) && $_POST['output_format'] == 'sendit' && ! $save_on_server) {
+        if (isset($_POST['output_format']) && $_POST['output_format'] === 'sendit' && ! $save_on_server) {
             $this->response->disable();
             //Disable all active buffers (see: ob_get_status(true) at this point)
             do {
@@ -323,9 +323,9 @@ final class ExportController extends AbstractController
 
         $tables = [];
         // Generate error url and check for needed variables
-        if ($export_type == 'server') {
+        if ($export_type === 'server') {
             $err_url = Url::getFromRoute('/server/export');
-        } elseif ($export_type == 'database' && strlen($db) > 0) {
+        } elseif ($export_type === 'database' && strlen($db) > 0) {
             $err_url = Url::getFromRoute('/database/export', ['db' => $db]);
             // Check if we have something to export
             if (isset($table_select)) {
@@ -333,7 +333,7 @@ final class ExportController extends AbstractController
             } else {
                 $tables = [];
             }
-        } elseif ($export_type == 'table' && strlen($db) > 0 && strlen($table) > 0) {
+        } elseif ($export_type === 'table' && strlen($db) > 0 && strlen($table) > 0) {
             $err_url = Url::getFromRoute('/table/export', [
                 'db' => $db,
                 'table' => $table,
@@ -379,7 +379,7 @@ final class ExportController extends AbstractController
 
         // Defines the default <CR><LF> format.
         // For SQL always use \n as MySQL wants this on all platforms.
-        if ($what == 'sql') {
+        if ($what === 'sql') {
             $crlf = "\n";
         } else {
             $crlf = PHP_EOL;
@@ -390,11 +390,11 @@ final class ExportController extends AbstractController
         // Do we need to convert charset?
         $output_charset_conversion = $asfile
             && Encoding::isSupported()
-            && isset($charset) && $charset != 'utf-8';
+            && isset($charset) && $charset !== 'utf-8';
 
         // Use on the fly compression?
         $GLOBALS['onfly_compression'] = $GLOBALS['cfg']['CompressOnFly']
-            && $compression == 'gzip';
+            && $compression === 'gzip';
         if ($GLOBALS['onfly_compression']) {
             $GLOBALS['memory_limit'] = $this->export->getMemoryLimit();
         }
@@ -452,7 +452,7 @@ final class ExportController extends AbstractController
                 Core::downloadHeader($filename, $mime_type);
             } else {
                 // HTML
-                if ($export_type == 'database') {
+                if ($export_type === 'database') {
                     $num_tables = count($tables);
                     if ($num_tables === 0) {
                         $message = Message::error(
@@ -506,7 +506,7 @@ final class ExportController extends AbstractController
             /**
              * Builds the dump
              */
-            if ($export_type == 'server') {
+            if ($export_type === 'server') {
                 if (! isset($db_select)) {
                     $db_select = '';
                 }
@@ -524,7 +524,7 @@ final class ExportController extends AbstractController
                     $aliases,
                     $separate_files
                 );
-            } elseif ($export_type == 'database') {
+            } elseif ($export_type === 'database') {
                 if (! isset($table_structure) || ! is_array($table_structure)) {
                     $table_structure = [];
                 }

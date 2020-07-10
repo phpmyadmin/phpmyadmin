@@ -149,7 +149,7 @@ class Types
 
         if (strncasecmp($type, 'enum', 4) == 0) {
             $ret = array_merge($ret, $this->getEnumOperators());
-        } elseif ($class == 'CHAR') {
+        } elseif ($class === 'CHAR') {
             $ret = array_merge($ret, $this->getTextOperators());
         } else {
             $ret = array_merge($ret, $this->getNumberOperators());

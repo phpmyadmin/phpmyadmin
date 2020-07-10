@@ -51,7 +51,7 @@ abstract class SubstringTransformationsPlugin extends TransformationsPlugin
         $cfg = $GLOBALS['cfg'];
         $options = $this->getOptions($options, $cfg['DefaultTransformations']['Substring']);
 
-        if ($options[1] != 'all') {
+        if ($options[1] !== 'all') {
             $newtext = mb_substr(
                 $buffer,
                 $options[0],

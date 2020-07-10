@@ -185,7 +185,7 @@ abstract class TableStats
         }
 
         while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
-            if ($row['Key_name'] != 'PRIMARY') {
+            if ($row['Key_name'] !== 'PRIMARY') {
                 continue;
             }
 

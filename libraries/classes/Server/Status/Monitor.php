@@ -231,7 +231,7 @@ class Monitor
                     $cpuload = $sysinfo->loadavg();
                 }
 
-                if (SysInfo::getOs() == 'Linux') {
+                if (SysInfo::getOs() === 'Linux') {
                     $ret['idle'] = $cpuload['idle'];
                     $ret['busy'] = $cpuload['busy'];
                 } else {
@@ -455,7 +455,7 @@ class Monitor
      */
     private function getSuspensionPoints(string $lastChar): string
     {
-        if ($lastChar != '.') {
+        if ($lastChar !== '.') {
             return '<br>...';
         }
 

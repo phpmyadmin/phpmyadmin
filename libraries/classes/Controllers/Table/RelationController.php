@@ -162,7 +162,7 @@ final class RelationController extends AbstractController
         $column_hash_array = [];
         $column_array[''] = '';
         foreach ($columns as $column) {
-            if (strtoupper($storageEngine) != 'INNODB'
+            if (strtoupper($storageEngine) !== 'INNODB'
                 && empty($column['Key'])
             ) {
                 continue;

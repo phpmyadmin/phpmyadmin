@@ -51,7 +51,7 @@ class OutputBuffering
     {
         $mode = 0;
         if ($GLOBALS['cfg']['OBGzip'] && function_exists('ob_start')) {
-            if (ini_get('output_handler') == 'ob_gzhandler') {
+            if (ini_get('output_handler') === 'ob_gzhandler') {
                 // If a user sets the output_handler in php.ini to ob_gzhandler, then
                 // any right frame file in phpMyAdmin will not be handled properly by
                 // the browser. My fix was to check the ini file within the

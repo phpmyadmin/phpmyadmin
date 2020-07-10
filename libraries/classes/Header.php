@@ -145,7 +145,7 @@ class Header
         // offer to load exported settings from localStorage
         // (detection will be done in JavaScript)
         $this->_userprefsOfferImport = false;
-        if ($GLOBALS['PMA_Config']->get('user_preferences') == 'session'
+        if ($GLOBALS['PMA_Config']->get('user_preferences') === 'session'
             && ! isset($_SESSION['userprefs_autoload'])
         ) {
             $this->_userprefsOfferImport = true;

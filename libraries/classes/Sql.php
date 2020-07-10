@@ -513,7 +513,7 @@ class Sql
             && $analyzed_sql_results['select_from']
             && (empty($analyzed_sql_results['select_expr'])
                 || ((count($analyzed_sql_results['select_expr']) === 1)
-                    && ($analyzed_sql_results['select_expr'][0] == '*')))
+                    && ($analyzed_sql_results['select_expr'][0] === '*')))
             && count($analyzed_sql_results['select_tables']) === 1;
     }
 
@@ -533,7 +533,7 @@ class Sql
 
         return (isset($analyzed_sql_results['parser'])
             && count($analyzed_sql_results['parser']->errors) === 0)
-            && ($_SESSION['tmpval']['max_rows'] != 'all')
+            && ($_SESSION['tmpval']['max_rows'] !== 'all')
             && ! ($analyzed_sql_results['is_export']
             || $analyzed_sql_results['is_analyse'])
             && ($analyzed_sql_results['select_from']
@@ -577,8 +577,8 @@ class Sql
     private function isDeleteTransformationInfo(array $analyzed_sql_results)
     {
         return ! empty($analyzed_sql_results['querytype'])
-            && (($analyzed_sql_results['querytype'] == 'ALTER')
-                || ($analyzed_sql_results['querytype'] == 'DROP'));
+            && (($analyzed_sql_results['querytype'] === 'ALTER')
+                || ($analyzed_sql_results['querytype'] === 'DROP'));
     }
 
     /**
@@ -645,7 +645,7 @@ class Sql
             $GLOBALS['cfg']['Server']['user'],
             $_POST['bkm_fields'],
             (isset($_POST['bkm_all_users'])
-                && $_POST['bkm_all_users'] == 'true')
+                && $_POST['bkm_all_users'] === 'true')
         );
         $result = $bookmark->save();
         $response = Response::getInstance();
@@ -954,7 +954,7 @@ class Sql
             // result are less than max_rows to display, there is no need
             // to count total rows for that query again
             $unlim_num_rows = $_SESSION['tmpval']['pos'] + $num_rows;
-        } elseif ($analyzed_sql_results['querytype'] == 'SELECT'
+        } elseif ($analyzed_sql_results['querytype'] === 'SELECT'
             || $analyzed_sql_results['is_subquery']
         ) {
             //    c o u n t    q u e r y
@@ -1192,10 +1192,10 @@ class Sql
         array $analyzed_sql_results,
         $num_rows
     ) {
-        if ($analyzed_sql_results['querytype'] == 'DELETE"') {
+        if ($analyzed_sql_results['querytype'] === 'DELETE"') {
             $message = Message::getMessageForDeletedRows($num_rows);
         } elseif ($analyzed_sql_results['is_insert']) {
-            if ($analyzed_sql_results['querytype'] == 'REPLACE') {
+            if ($analyzed_sql_results['querytype'] === 'REPLACE') {
                 // For REPLACE we get DELETED + INSERTED row count,
                 // so we have to call it affected
                 $message = Message::getMessageForAffectedRows($num_rows);
@@ -1225,7 +1225,7 @@ class Sql
             // The $message_to_show containing a success message and sent with
             // the form should not have priority over errors
         } elseif (! empty($message_to_show)
-            && $analyzed_sql_results['querytype'] != 'SELECT'
+            && $analyzed_sql_results['querytype'] !== 'SELECT'
         ) {
             $message = Message::rawSuccess(htmlspecialchars($message_to_show));
         } elseif (! empty($GLOBALS['show_as_php'])) {
@@ -1654,7 +1654,7 @@ class Sql
     {
         // BEGIN INDEX CHECK See if indexes should be checked.
         $output = '';
-        if (isset($queryType, $selectedTables) && $queryType == 'check_tbl' && is_array($selectedTables)) {
+        if (isset($queryType, $selectedTables) && $queryType === 'check_tbl' && is_array($selectedTables)) {
             foreach ($selectedTables as $table) {
                 $check = Index::findDuplicates($table, $database);
                 if (empty($check)) {

@@ -611,12 +611,12 @@ class Advisor
 
         for ($i = 0; $i < $numLines; $i++) {
             $line = $file[$i];
-            if ($line == '' || $line[0] == '#') {
+            if ($line == '' || $line[0] === '#') {
                 continue;
             }
 
             // Reading new rule
-            if (substr($line, 0, 4) == 'rule') {
+            if (substr($line, 0, 4) === 'rule') {
                 if ($ruleLine > 0) {
                     $errors[] = sprintf(
                         __(

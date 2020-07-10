@@ -100,7 +100,7 @@ class PrivilegesController extends AbstractController
         );
 
         if ((isset($_GET['viewing_mode'])
-                && $_GET['viewing_mode'] == 'server')
+                && $_GET['viewing_mode'] === 'server')
             && $GLOBALS['cfgRelation']['menuswork']
         ) {
             $this->response->addHTML('<div class="container-fluid">');
@@ -389,7 +389,7 @@ class PrivilegesController extends AbstractController
         if ($this->response->isAjax()
             && empty($_REQUEST['ajax_page_request'])
             && ! isset($_GET['export'])
-            && (! isset($_POST['submit_mult']) || $_POST['submit_mult'] != 'export')
+            && (! isset($_POST['submit_mult']) || $_POST['submit_mult'] !== 'export')
             && ((! isset($_GET['initial']) || $_GET['initial'] === null
                     || $_GET['initial'] === '')
                 || (isset($_POST['delete']) && $_POST['delete'] === __('Go')))
@@ -415,7 +415,7 @@ class PrivilegesController extends AbstractController
         /**
          * Displays the links
          */
-        if (isset($_GET['viewing_mode']) && $_GET['viewing_mode'] == 'db') {
+        if (isset($_GET['viewing_mode']) && $_GET['viewing_mode'] === 'db') {
             $db = $_REQUEST['db'] = $_GET['checkprivsdb'];
 
             $url_query .= Url::getCommon([
@@ -457,7 +457,7 @@ class PrivilegesController extends AbstractController
 
         // export user definition
         if (isset($_GET['export'])
-            || (isset($_POST['submit_mult']) && $_POST['submit_mult'] == 'export')
+            || (isset($_POST['submit_mult']) && $_POST['submit_mult'] === 'export')
         ) {
             [$title, $export] = $serverPrivileges->getListForExportUserDefinition(
                 $username ?? '',
@@ -549,7 +549,7 @@ class PrivilegesController extends AbstractController
             }
         }
 
-        if ((! isset($_GET['viewing_mode']) || $_GET['viewing_mode'] != 'server')
+        if ((! isset($_GET['viewing_mode']) || $_GET['viewing_mode'] !== 'server')
             || ! $cfgRelation['menuswork']
         ) {
             return;

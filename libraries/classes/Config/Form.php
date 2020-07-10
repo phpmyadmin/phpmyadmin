@@ -195,7 +195,7 @@ class Form
             $value = $key;
         }
         // add unique id to group ends
-        if ($value == ':group:end') {
+        if ($value === ':group:end') {
             $value .= ':' . self::$groupCounter++;
         }
         $this->fields[] = $prefix . $value;

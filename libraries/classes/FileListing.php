@@ -44,7 +44,7 @@ class FileListing
         }
 
         $result = [];
-        if (substr($dir, -1) != '/') {
+        if (substr($dir, -1) !== '/') {
             $dir .= '/';
         }
         while ($file = @readdir($handle)) {

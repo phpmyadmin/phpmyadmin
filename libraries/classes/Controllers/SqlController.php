@@ -228,7 +228,7 @@ class SqlController extends AbstractController
         $this->checkUserPrivileges->getPrivileges();
 
         $column = $_POST['column'];
-        if ($_SESSION['tmpval']['relational_display'] == 'D'
+        if ($_SESSION['tmpval']['relational_display'] === 'D'
             && isset($_POST['relation_key_or_display_column'])
             && $_POST['relation_key_or_display_column']
         ) {

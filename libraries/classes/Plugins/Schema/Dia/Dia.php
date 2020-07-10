@@ -74,7 +74,7 @@ class Dia extends XMLWriter
         $rightMargin,
         $orientation
     ) {
-        if ($orientation == 'P') {
+        if ($orientation === 'P') {
             $isPortrait = 'true';
         } else {
             $isPortrait = 'false';

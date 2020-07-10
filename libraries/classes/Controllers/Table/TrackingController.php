@@ -62,9 +62,9 @@ final class TrackingController extends AbstractController
         if (Tracker::isActive()
             && Tracker::isTracked($GLOBALS['db'], $GLOBALS['table'])
             && ! (isset($_POST['toggle_activation'])
-                && $_POST['toggle_activation'] == 'deactivate_now')
+                && $_POST['toggle_activation'] === 'deactivate_now')
             && ! (isset($_POST['report_export'])
-                && $_POST['export_type'] == 'sqldumpfile')
+                && $_POST['export_type'] === 'sqldumpfile')
         ) {
             $msg = Message::notice(
                 sprintf(
@@ -99,9 +99,9 @@ final class TrackingController extends AbstractController
             if (! isset($_POST['logtype'])) {
                 $_POST['logtype'] = 'schema_and_data';
             }
-            if ($_POST['logtype'] == 'schema') {
+            if ($_POST['logtype'] === 'schema') {
                 $selection_schema = true;
-            } elseif ($_POST['logtype'] == 'data') {
+            } elseif ($_POST['logtype'] === 'data') {
                 $selection_data   = true;
             } else {
                 $selection_both   = true;
@@ -132,7 +132,7 @@ final class TrackingController extends AbstractController
 
         // Export as file download
         if (isset($_POST['report_export'])
-            && $_POST['export_type'] == 'sqldumpfile'
+            && $_POST['export_type'] === 'sqldumpfile'
         ) {
             $this->tracking->exportAsFileDownload($entries);
         }
@@ -144,7 +144,7 @@ final class TrackingController extends AbstractController
          */
         if (isset($_POST['submit_mult'])) {
             if (! empty($_POST['selected_versions'])) {
-                if ($_POST['submit_mult'] == 'delete_version') {
+                if ($_POST['submit_mult'] === 'delete_version') {
                     foreach ($_POST['selected_versions'] as $version) {
                         $this->tracking->deleteTrackingVersion($version);
                     }
@@ -170,27 +170,27 @@ final class TrackingController extends AbstractController
 
         // Deactivate tracking
         if (isset($_POST['toggle_activation'])
-            && $_POST['toggle_activation'] == 'deactivate_now'
+            && $_POST['toggle_activation'] === 'deactivate_now'
         ) {
             $html .= $this->tracking->changeTracking('deactivate');
         }
 
         // Activate tracking
         if (isset($_POST['toggle_activation'])
-            && $_POST['toggle_activation'] == 'activate_now'
+            && $_POST['toggle_activation'] === 'activate_now'
         ) {
             $html .= $this->tracking->changeTracking('activate');
         }
 
         // Export as SQL execution
-        if (isset($_POST['report_export']) && $_POST['export_type'] == 'execution') {
+        if (isset($_POST['report_export']) && $_POST['export_type'] === 'execution') {
             $sql_result = $this->tracking->exportAsSqlExecution($entries);
             $msg = Message::success(__('SQL statements executed.'));
             $html .= $msg->getDisplay();
         }
 
         // Export as SQL dump
-        if (isset($_POST['report_export']) && $_POST['export_type'] == 'sqldump') {
+        if (isset($_POST['report_export']) && $_POST['export_type'] === 'sqldump') {
             $html .= $this->tracking->exportAsSqlDump($entries);
         }
 

@@ -109,7 +109,7 @@ class HomeController extends AbstractController
                 $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
                 $checkUserPrivileges->getPrivileges();
 
-                if (($cfg['Server']['auth_type'] != 'config') && $cfg['ShowChgPassword']) {
+                if (($cfg['Server']['auth_type'] !== 'config') && $cfg['ShowChgPassword']) {
                     $changePassword = $this->template->render('list/item', [
                         'content' => Generator::getImage('s_passwd') . ' ' . __(
                             'Change password'
@@ -422,8 +422,8 @@ class HomeController extends AbstractController
          */
         if (isset($cfg['Server']['controluser'], $cfg['Server']['controlpass'])
             && $server != 0
-            && $cfg['Server']['controluser'] == 'pma'
-            && $cfg['Server']['controlpass'] == 'pmapass'
+            && $cfg['Server']['controluser'] === 'pma'
+            && $cfg['Server']['controlpass'] === 'pmapass'
         ) {
             trigger_error(
                 __(

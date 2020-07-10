@@ -45,7 +45,7 @@ class ChangeLogController extends AbstractController
         }
 
         // Test if the if is in a compressed format
-        if (substr($filename, -3) == '.gz') {
+        if (substr($filename, -3) === '.gz') {
             ob_start();
             readgzfile($filename);
             $changelog = ob_get_clean();

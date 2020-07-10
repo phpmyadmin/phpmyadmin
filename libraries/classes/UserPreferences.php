@@ -267,7 +267,7 @@ class UserPreferences
     public function autoloadGetHeader()
     {
         if (isset($_REQUEST['prefs_autoload'])
-            && $_REQUEST['prefs_autoload'] == 'hide'
+            && $_REQUEST['prefs_autoload'] === 'hide'
         ) {
             $_SESSION['userprefs_autoload'] = true;
 

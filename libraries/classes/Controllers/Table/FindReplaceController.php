@@ -156,7 +156,7 @@ class FindReplaceController extends AbstractController
     public function findAction(): void
     {
         $useRegex = array_key_exists('useRegex', $_POST)
-            && $_POST['useRegex'] == 'on';
+            && $_POST['useRegex'] === 'on';
 
         $preview = $this->getReplacePreview(
             $_POST['columnIndex'],

@@ -372,7 +372,7 @@ class Qbe
             } //  end if
 
             // The fields list per selected tables
-            if ($this->_criteriaTables[$table] == ' selected="selected"') {
+            if ($this->_criteriaTables[$table] === ' selected="selected"') {
                 $each_table = Util::backquote($table);
                 $this->_columnNames[]  = $each_table . '.*';
                 foreach ($columns as $each_column) {
@@ -478,7 +478,7 @@ class Qbe
         $new_column_count = 0;
         for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
             if (isset($this->_criteriaColumnInsert[$column_index])
-                && $this->_criteriaColumnInsert[$column_index] == 'on'
+                && $this->_criteriaColumnInsert[$column_index] === 'on'
             ) {
                 $html_output .= $this->showColumnSelectCell(
                     $new_column_count
@@ -487,7 +487,7 @@ class Qbe
             }
             if (! empty($this->_criteriaColumnDelete)
                 && isset($this->_criteriaColumnDelete[$column_index])
-                && $this->_criteriaColumnDelete[$column_index] == 'on'
+                && $this->_criteriaColumnDelete[$column_index] === 'on'
             ) {
                 continue;
             }
@@ -522,7 +522,7 @@ class Qbe
         for ($colInd = 0; $colInd < $this->_criteria_column_count; $colInd++) {
             if (! empty($this->_criteriaColumnInsert)
                 && isset($this->_criteriaColumnInsert[$colInd])
-                && $this->_criteriaColumnInsert[$colInd] == 'on'
+                && $this->_criteriaColumnInsert[$colInd] === 'on'
             ) {
                 $html_output .= '<td class="text-center">';
                 $html_output .= '<input type="text"'
@@ -533,7 +533,7 @@ class Qbe
 
             if (! empty($this->_criteriaColumnDelete)
                 && isset($this->_criteriaColumnDelete[$colInd])
-                && $this->_criteriaColumnDelete[$colInd] == 'on'
+                && $this->_criteriaColumnDelete[$colInd] === 'on'
             ) {
                 continue;
             }
@@ -570,7 +570,7 @@ class Qbe
         for ($colInd = 0; $colInd < $this->_criteria_column_count; $colInd++) {
             if (! empty($this->_criteriaColumnInsert)
                 && isset($this->_criteriaColumnInsert[$colInd])
-                && $this->_criteriaColumnInsert[$colInd] == 'on'
+                && $this->_criteriaColumnInsert[$colInd] === 'on'
             ) {
                 $html_output .= $this->getSortSelectCell($new_column_count);
                 $new_column_count++;
@@ -578,14 +578,14 @@ class Qbe
 
             if (! empty($this->_criteriaColumnDelete)
                 && isset($this->_criteriaColumnDelete[$colInd])
-                && $this->_criteriaColumnDelete[$colInd] == 'on'
+                && $this->_criteriaColumnDelete[$colInd] === 'on'
             ) {
                 continue;
             }
             // If they have chosen all fields using the * selector,
             // then sorting is not available, Fix for Bug #570698
             if (isset($_POST['criteriaSort'][$colInd], $_POST['criteriaColumn'][$colInd])
-                && mb_substr($_POST['criteriaColumn'][$colInd], -2) == '.*'
+                && mb_substr($_POST['criteriaColumn'][$colInd], -2) === '.*'
             ) {
                 $_POST['criteriaSort'][$colInd] = '';
             } //end if
@@ -595,9 +595,9 @@ class Qbe
                 $this->_formSorts[$new_column_count]
                     = $_POST['criteriaSort'][$colInd];
 
-                if ($_POST['criteriaSort'][$colInd] == 'ASC') {
+                if ($_POST['criteriaSort'][$colInd] === 'ASC') {
                     $selected = 'ASC';
-                } elseif ($_POST['criteriaSort'][$colInd] == 'DESC') {
+                } elseif ($_POST['criteriaSort'][$colInd] === 'DESC') {
                     $selected = 'DESC';
                 }
             } else {
@@ -628,7 +628,7 @@ class Qbe
         for ($colInd = 0; $colInd < $this->_criteria_column_count; $colInd++) {
             if (! empty($this->_criteriaColumnInsert)
                 && isset($this->_criteriaColumnInsert[$colInd])
-                && $this->_criteriaColumnInsert[$colInd] == 'on'
+                && $this->_criteriaColumnInsert[$colInd] === 'on'
             ) {
                 $html_output .= $this->getSortOrderSelectCell(
                     $new_column_count,
@@ -639,7 +639,7 @@ class Qbe
 
             if (! empty($this->_criteriaColumnDelete)
                 && isset($this->_criteriaColumnDelete[$colInd])
-                && $this->_criteriaColumnDelete[$colInd] == 'on'
+                && $this->_criteriaColumnDelete[$colInd] === 'on'
             ) {
                 continue;
             }
@@ -674,7 +674,7 @@ class Qbe
         for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
             if (! empty($this->_criteriaColumnInsert)
                 && isset($this->_criteriaColumnInsert[$column_index])
-                && $this->_criteriaColumnInsert[$column_index] == 'on'
+                && $this->_criteriaColumnInsert[$column_index] === 'on'
             ) {
                 $html_output .= '<td class="text-center">';
                 $html_output .= '<input type="checkbox"'
@@ -684,7 +684,7 @@ class Qbe
             } // end if
             if (! empty($this->_criteriaColumnDelete)
                 && isset($this->_criteriaColumnDelete[$column_index])
-                && $this->_criteriaColumnDelete[$column_index] == 'on'
+                && $this->_criteriaColumnDelete[$column_index] === 'on'
             ) {
                 continue;
             }
@@ -719,7 +719,7 @@ class Qbe
         for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
             if (! empty($this->_criteriaColumnInsert)
                 && isset($this->_criteriaColumnInsert[$column_index])
-                && $this->_criteriaColumnInsert[$column_index] == 'on'
+                && $this->_criteriaColumnInsert[$column_index] === 'on'
             ) {
                 $html_output .= '<td class="text-center">';
                 $html_output .= '<input type="text"'
@@ -732,7 +732,7 @@ class Qbe
             } // end if
             if (! empty($this->_criteriaColumnDelete)
                 && isset($this->_criteriaColumnDelete[$column_index])
-                && $this->_criteriaColumnDelete[$column_index] == 'on'
+                && $this->_criteriaColumnDelete[$column_index] === 'on'
             ) {
                 continue;
             }
@@ -819,7 +819,7 @@ class Qbe
         for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
             if (! empty($this->_criteriaColumnInsert)
                 && isset($this->_criteriaColumnInsert[$column_index])
-                && $this->_criteriaColumnInsert[$column_index] == 'on'
+                && $this->_criteriaColumnInsert[$column_index] === 'on'
             ) {
                 $html_output .= $this->getAndOrColCell($new_column_count);
                 $new_column_count++;
@@ -827,7 +827,7 @@ class Qbe
 
             if (! empty($this->_criteriaColumnDelete)
                 && isset($this->_criteriaColumnDelete[$column_index])
-                && $this->_criteriaColumnDelete[$column_index] == 'on'
+                && $this->_criteriaColumnDelete[$column_index] === 'on'
             ) {
                 continue;
             }
@@ -838,7 +838,7 @@ class Qbe
             }
             $checked_options = [];
             if (isset($this->_criteriaAndOrColumn[$column_index])
-                && $this->_criteriaAndOrColumn[$column_index] == 'or'
+                && $this->_criteriaAndOrColumn[$column_index] === 'or'
             ) {
                 $checked_options['or']  = ' checked="checked"';
                 $checked_options['and'] = '';
@@ -872,7 +872,7 @@ class Qbe
         for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
             if (! empty($this->_criteriaColumnInsert)
                 && isset($this->_criteriaColumnInsert[$column_index])
-                && $this->_criteriaColumnInsert[$column_index] == 'on'
+                && $this->_criteriaColumnInsert[$column_index] === 'on'
             ) {
                 $orFieldName = 'Or' . $new_row_index . '[' . $new_column_count . ']';
                 $html_output .= '<td class="text-center">';
@@ -884,7 +884,7 @@ class Qbe
             } // end if
             if (! empty($this->_criteriaColumnDelete)
                 && isset($this->_criteriaColumnDelete[$column_index])
-                && $this->_criteriaColumnDelete[$column_index] == 'on'
+                && $this->_criteriaColumnDelete[$column_index] === 'on'
             ) {
                 continue;
             }
@@ -923,7 +923,7 @@ class Qbe
         $checked_options = [];
         for ($row_index = 0; $row_index <= $this->_criteria_row_count; $row_index++) {
             if (isset($this->_criteriaRowInsert[$row_index])
-                && $this->_criteriaRowInsert[$row_index] == 'on'
+                && $this->_criteriaRowInsert[$row_index] === 'on'
             ) {
                 $checked_options['or'] = true;
                 $checked_options['and'] = false;
@@ -939,7 +939,7 @@ class Qbe
                 $html_output .= '</tr>';
             } // end if
             if (isset($this->_criteriaRowDelete[$row_index])
-                && $this->_criteriaRowDelete[$row_index] == 'on'
+                && $this->_criteriaRowDelete[$row_index] === 'on'
             ) {
                 continue;
             }
@@ -948,7 +948,7 @@ class Qbe
                     = $this->_criteriaAndOrRow[$row_index];
             }
             if (isset($this->_criteriaAndOrRow[$row_index])
-                && $this->_criteriaAndOrRow[$row_index] == 'and'
+                && $this->_criteriaAndOrRow[$row_index] === 'and'
             ) {
                 $checked_options['and'] = true;
                 $checked_options['or'] = false;
@@ -984,7 +984,7 @@ class Qbe
         for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
             if (empty($this->_formColumns[$column_index])
                 || ! isset($this->_formShows[$column_index])
-                || $this->_formShows[$column_index] != 'on'
+                || $this->_formShows[$column_index] !== 'on'
             ) {
                 continue;
             }
@@ -1083,7 +1083,7 @@ class Qbe
             } // end if
         } // end for
 
-        if (! empty($where_clause) && $where_clause != '()') {
+        if (! empty($where_clause) && $where_clause !== '()') {
             $where_clause = 'WHERE ' . $where_clause . "\n";
         } // end if
 
@@ -1122,7 +1122,7 @@ class Qbe
                 continue;
             }
 
-            if (mb_substr($columns[$column_index], -2) == '.*') {
+            if (mb_substr($columns[$column_index], -2) === '.*') {
                 continue;
             }
 
@@ -1234,7 +1234,7 @@ class Qbe
         foreach ($candidate_columns as $column => $is_where) {
             $table = explode('.', $column);
             $table = $table[0];
-            if ($is_where == 'Y') {
+            if ($is_where === 'Y') {
                 $very_good[$column] = $table;
             } else {
                 $still_good[$column] = $table;
@@ -1290,7 +1290,7 @@ class Qbe
         foreach ($candidate_columns as $one_table) {
             $foreigners = $this->relation->getForeigners($this->_db, $one_table);
             foreach ($foreigners as $key => $foreigner) {
-                if ($key != 'foreign_keys_data') {
+                if ($key !== 'foreign_keys_data') {
                     if (in_array($foreigner['foreign_table'], $candidate_columns)) {
                         $foreign_tables[$foreigner['foreign_table']]
                             = $foreigner['foreign_table'];
@@ -1366,7 +1366,7 @@ class Qbe
             // Now we know that our array has the same numbers as $criteria
             // we can check which of our columns has a where clause
             if (! empty($this->_criteria[$column_index])) {
-                if (mb_substr($this->_criteria[$column_index], 0, 1) == '='
+                if (mb_substr($this->_criteria[$column_index], 0, 1) === '='
                     || stripos($this->_criteria[$column_index], 'is') !== false
                 ) {
                     $where_clause_columns[$column] = $column;
@@ -1574,7 +1574,7 @@ class Qbe
         $foreigners = $this->relation->getForeigners($GLOBALS['db'], $oneTable);
         foreach ($foreigners as $field => $foreigner) {
             // Foreign keys data
-            if ($field == 'foreign_keys_data') {
+            if ($field === 'foreign_keys_data') {
                 foreach ($foreigner as $oneKey) {
                     $clauses = [];
                     // There may be multiple column relations
@@ -1592,7 +1592,7 @@ class Qbe
             } else { // Internal relations
                 $relations[$oneTable][$foreigner['foreign_table']]
                     = Util::backquote($oneTable) . '.'
-                    . Util::backquote($field) . ' = '
+                    . Util::backquote((string) $field) . ' = '
                     . Util::backquote($foreigner['foreign_table']) . '.'
                     . Util::backquote($foreigner['foreign_field']);
             }

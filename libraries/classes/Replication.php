@@ -26,7 +26,7 @@ class Replication
     public function extractDbOrTable($string, $what = 'db')
     {
         $list = explode('.', $string);
-        if ($what == 'db') {
+        if ($what === 'db') {
             return $list[0];
         }
 
@@ -52,10 +52,10 @@ class Replication
         $action = mb_strtoupper($action);
         $control = mb_strtoupper($control);
 
-        if ($action != 'START' && $action != 'STOP') {
+        if ($action !== 'START' && $action !== 'STOP') {
             return -1;
         }
-        if ($control != 'SQL_THREAD' && $control != 'IO_THREAD' && $control != null) {
+        if ($control !== 'SQL_THREAD' && $control !== 'IO_THREAD' && $control != null) {
             return -1;
         }
 

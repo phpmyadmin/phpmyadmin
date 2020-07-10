@@ -52,18 +52,18 @@ class DesignerController extends AbstractController
         global $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos, $classes_side_menu;
 
         if (isset($_POST['dialog'])) {
-            if ($_POST['dialog'] == 'edit') {
+            if ($_POST['dialog'] === 'edit') {
                 $html = $this->databaseDesigner->getHtmlForEditOrDeletePages($_POST['db'], 'editPage');
-            } elseif ($_POST['dialog'] == 'delete') {
+            } elseif ($_POST['dialog'] === 'delete') {
                 $html = $this->databaseDesigner->getHtmlForEditOrDeletePages($_POST['db'], 'deletePage');
-            } elseif ($_POST['dialog'] == 'save_as') {
+            } elseif ($_POST['dialog'] === 'save_as') {
                 $html = $this->databaseDesigner->getHtmlForPageSaveAs($_POST['db']);
-            } elseif ($_POST['dialog'] == 'export') {
+            } elseif ($_POST['dialog'] === 'export') {
                 $html = $this->databaseDesigner->getHtmlForSchemaExport(
                     $_POST['db'],
                     $_POST['selected_page']
                 );
-            } elseif ($_POST['dialog'] == 'add_table') {
+            } elseif ($_POST['dialog'] === 'add_table') {
                 // Pass the db and table to the getTablesInfo so we only have the table we asked for
                 $script_display_field = $this->designerCommon->getTablesInfo($_POST['db'], $_POST['table']);
                 $tab_column = $this->designerCommon->getColumnsInfo($script_display_field);
@@ -89,11 +89,11 @@ class DesignerController extends AbstractController
         }
 
         if (isset($_POST['operation'])) {
-            if ($_POST['operation'] == 'deletePage') {
+            if ($_POST['operation'] === 'deletePage') {
                 $success = $this->designerCommon->deletePage($_POST['selected_page']);
                 $this->response->setRequestStatus($success);
-            } elseif ($_POST['operation'] == 'savePage') {
-                if ($_POST['save_page'] == 'same') {
+            } elseif ($_POST['operation'] === 'savePage') {
+                if ($_POST['save_page'] === 'same') {
                     $page = $_POST['selected_page'];
                 } elseif ($this->designerCommon->getPageExists($_POST['selected_value'])) {
                     $this->response->addJSON(
@@ -115,7 +115,7 @@ class DesignerController extends AbstractController
                 }
                 $success = $this->designerCommon->saveTablePositions($page);
                 $this->response->setRequestStatus($success);
-            } elseif ($_POST['operation'] == 'setDisplayField') {
+            } elseif ($_POST['operation'] === 'setDisplayField') {
                 [
                     $success,
                     $message,
@@ -126,7 +126,7 @@ class DesignerController extends AbstractController
                 );
                 $this->response->setRequestStatus($success);
                 $this->response->addJSON('message', $message);
-            } elseif ($_POST['operation'] == 'addNewRelation') {
+            } elseif ($_POST['operation'] === 'addNewRelation') {
                 [$success, $message] = $this->designerCommon->addNewRelation(
                     $_POST['db'],
                     $_POST['T1'],
@@ -140,7 +140,7 @@ class DesignerController extends AbstractController
                 );
                 $this->response->setRequestStatus($success);
                 $this->response->addJSON('message', $message);
-            } elseif ($_POST['operation'] == 'removeRelation') {
+            } elseif ($_POST['operation'] === 'removeRelation') {
                 [$success, $message] = $this->designerCommon->removeRelation(
                     $_POST['T1'],
                     $_POST['F1'],
@@ -149,7 +149,7 @@ class DesignerController extends AbstractController
                 );
                 $this->response->setRequestStatus($success);
                 $this->response->addJSON('message', $message);
-            } elseif ($_POST['operation'] == 'save_setting_value') {
+            } elseif ($_POST['operation'] === 'save_setting_value') {
                 $success = $this->designerCommon->saveSetting($_POST['index'], $_POST['value']);
                 $this->response->setRequestStatus($success);
             }

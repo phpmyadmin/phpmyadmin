@@ -137,7 +137,7 @@ class Transformations
             $filestack = [];
             while ($file = readdir($handle)) {
                 // Ignore hidden files
-                if ($file[0] == '.') {
+                if ($file[0] === '.') {
                     continue;
                 }
                 // Ignore old plugins (.class in filename)
@@ -167,7 +167,7 @@ class Transformations
                     // File is a plain mimetype, no functions.
                     $base = str_replace('.php', '', $file);
 
-                    if ($base != 'global') {
+                    if ($base !== 'global') {
                         $mimetype = str_replace('_', '/', $base);
                         $stack['mimetype'][$mimetype] = $mimetype;
                         $stack['empty_mimetype'][$mimetype] = $mimetype;

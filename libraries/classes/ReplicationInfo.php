@@ -136,7 +136,7 @@ final class ReplicationInfo
                 continue;
             }
 
-            if ($type == 'master') {
+            if ($type === 'master') {
                 self::fill(
                     $type,
                     'Do_DB',
@@ -150,7 +150,7 @@ final class ReplicationInfo
                     $server_master_replication[0],
                     'Binlog_Ignore_DB'
                 );
-            } elseif ($type == 'slave') {
+            } elseif ($type === 'slave') {
                 self::fill(
                     $type,
                     'Do_DB',

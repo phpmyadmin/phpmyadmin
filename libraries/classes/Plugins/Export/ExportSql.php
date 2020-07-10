@@ -86,7 +86,7 @@ class ExportSql extends ExportPlugin
 
         $hide_sql = false;
         $hide_structure = false;
-        if ($plugin_param['export_type'] == 'table'
+        if ($plugin_param['export_type'] === 'table'
             && ! $plugin_param['single_table']
         ) {
             $hide_structure = true;
@@ -265,7 +265,7 @@ class ExportSql extends ExportPlugin
             $subgroup->setSubgroupHeader($leaf);
 
             // server export options
-            if ($plugin_param['export_type'] == 'server') {
+            if ($plugin_param['export_type'] === 'server') {
                 $leaf = new BoolPropertyItem(
                     'drop_database',
                     sprintf(__('Add %s statement'), '<code>DROP DATABASE IF EXISTS</code>')
@@ -273,7 +273,7 @@ class ExportSql extends ExportPlugin
                 $subgroup->addProperty($leaf);
             }
 
-            if ($plugin_param['export_type'] == 'database') {
+            if ($plugin_param['export_type'] === 'database') {
                 $create_clause = '<code>CREATE DATABASE / USE</code>';
                 $leaf = new BoolPropertyItem(
                     'create_database',
@@ -282,7 +282,7 @@ class ExportSql extends ExportPlugin
                 $subgroup->addProperty($leaf);
             }
 
-            if ($plugin_param['export_type'] == 'table') {
+            if ($plugin_param['export_type'] === 'table') {
                 $drop_clause = $GLOBALS['dbi']->getTable(
                     $GLOBALS['db'],
                     $GLOBALS['table']
@@ -737,7 +737,7 @@ class ExportSql extends ExportPlugin
 
         if (isset($GLOBALS['sql_compatibility'])) {
             $tmp_compat = $GLOBALS['sql_compatibility'];
-            if ($tmp_compat == 'NONE') {
+            if ($tmp_compat === 'NONE') {
                 $tmp_compat = '';
             }
             $GLOBALS['dbi']->tryQuery('SET SQL_MODE="' . $tmp_compat . '"');
@@ -782,7 +782,7 @@ class ExportSql extends ExportPlugin
         // We want exported AUTO_INCREMENT columns to have still same value,
         // do this only for recent MySQL exports
         if (! isset($GLOBALS['sql_compatibility'])
-            || $GLOBALS['sql_compatibility'] == 'NONE'
+            || $GLOBALS['sql_compatibility'] === 'NONE'
         ) {
             $head .= 'SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";' . $crlf;
         }
@@ -812,7 +812,7 @@ class ExportSql extends ExportPlugin
                 // by default we use the connection charset
                 $set_names = Charsets::$mysqlCharsetMap['utf-8'];
             }
-            if ($set_names == 'utf8' && $GLOBALS['dbi']->getVersion() > 50503) {
+            if ($set_names === 'utf8' && $GLOBALS['dbi']->getVersion() > 50503) {
                 $set_names = 'utf8mb4';
             }
             $head .= $crlf
@@ -864,7 +864,7 @@ class ExportSql extends ExportPlugin
                 return false;
             }
         }
-        if ($export_type == 'database' && ! isset($GLOBALS['sql_create_database'])) {
+        if ($export_type === 'database' && ! isset($GLOBALS['sql_create_database'])) {
             return true;
         }
 
@@ -907,7 +907,7 @@ class ExportSql extends ExportPlugin
         global $crlf;
 
         if (isset($GLOBALS['sql_compatibility'])
-            && $GLOBALS['sql_compatibility'] == 'NONE'
+            && $GLOBALS['sql_compatibility'] === 'NONE'
         ) {
             $result = $this->export->outputHandler(
                 'USE '
@@ -1154,7 +1154,7 @@ class ExportSql extends ExportPlugin
             }
 
             // special case, designer pages and their coordinates
-            if ($type == 'pdf_pages') {
+            if ($type === 'pdf_pages') {
                 $sql_query = 'SELECT `page_nr`, `page_descr` FROM '
                     . Util::backquote($cfgRelation['db'])
                     . '.' . Util::backquote($cfgRelation[$type])
@@ -1227,14 +1227,14 @@ class ExportSql extends ExportPlugin
             }
 
             // remove auto_incrementing id field for some tables
-            if ($type == 'bookmark') {
+            if ($type === 'bookmark') {
                 $sql_query = 'SELECT `dbase`, `user`, `label`, `query` FROM ';
-            } elseif ($type == 'column_info') {
+            } elseif ($type === 'column_info') {
                 $sql_query = 'SELECT `db_name`, `table_name`, `column_name`,'
                     . ' `comment`, `mimetype`, `transformation`,'
                     . ' `transformation_options`, `input_transformation`,'
                     . ' `input_transformation_options` FROM';
-            } elseif ($type == 'savedsearches') {
+            } elseif ($type === 'savedsearches') {
                 $sql_query = 'SELECT `username`, `db_name`, `search_name`,'
                     . ' `search_data` FROM';
             } else {
@@ -1359,14 +1359,14 @@ class ExportSql extends ExportPlugin
             ) {
                 $create_query .= ' COLLATE ' . $column['Collation'];
             }
-            if ($column['Null'] == 'NO') {
+            if ($column['Null'] === 'NO') {
                 $create_query .= ' NOT NULL';
             }
             if (isset($column['Default'])) {
                 $create_query .= " DEFAULT '"
                     . $GLOBALS['dbi']->escapeString($column['Default']) . "'";
             } else {
-                if ($column['Null'] == 'YES') {
+                if ($column['Null'] === 'YES') {
                     $create_query .= ' DEFAULT NULL';
                 }
             }
@@ -1383,7 +1383,7 @@ class ExportSql extends ExportPlugin
         } else {
             $compat = 'NONE';
         }
-        if ($compat == 'MSSQL') {
+        if ($compat === 'MSSQL') {
             $create_query = $this->makeCreateTableMSSQLCompatible(
                 $create_query
             );
@@ -1658,7 +1658,7 @@ class ExportSql extends ExportPlugin
             }
 
             // Making the query MSSQL compatible.
-            if ($compat == 'MSSQL') {
+            if ($compat === 'MSSQL') {
                 $create_query = $this->makeCreateTableMSSQLCompatible(
                     $create_query
                 );
@@ -1700,7 +1700,7 @@ class ExportSql extends ExportPlugin
             }
 
             /* Avoid operation on ARCHIVE tables as those can not be altered */
-            if (! empty($statement->fields) && (empty($engine) || strtoupper($engine) != 'ARCHIVE')) {
+            if (! empty($statement->fields) && (empty($engine) || strtoupper($engine) !== 'ARCHIVE')) {
 
                 /**
                  * Fragments containining definition of each constraint.
@@ -1991,7 +1991,7 @@ class ExportSql extends ExportPlugin
                 );
 
             foreach ($res_rel as $rel_field => $rel) {
-                if ($rel_field != 'foreign_keys_data') {
+                if ($rel_field !== 'foreign_keys_data') {
                     $rel_field_alias = ! empty(
                         $aliases[$db]['tables'][$table]['columns'][$rel_field]
                     ) ? $aliases[$db]['tables'][$table]['columns'][$rel_field]
@@ -2199,7 +2199,7 @@ class ExportSql extends ExportPlugin
                     )
                     . $this->exportComment();
                     // delete the stand-in table previously created (if any)
-                    if ($export_type != 'table') {
+                    if ($export_type !== 'table') {
                         $dump .= 'DROP TABLE IF EXISTS '
                             . Util::backquote($table_alias) . ';' . $crlf;
                     }
@@ -2223,7 +2223,7 @@ class ExportSql extends ExportPlugin
                     )
                     . $this->exportComment();
                     // delete the stand-in table previously created (if any)
-                    if ($export_type != 'table') {
+                    if ($export_type !== 'table') {
                         $dump .= 'DROP TABLE IF EXISTS '
                         . Util::backquote($table_alias) . ';' . $crlf;
                     }
@@ -2361,7 +2361,7 @@ class ExportSql extends ExportPlugin
         }
 
         if (isset($GLOBALS['sql_type'])
-            && $GLOBALS['sql_type'] == 'UPDATE'
+            && $GLOBALS['sql_type'] === 'UPDATE'
         ) {
             // update
             $schema_insert = 'UPDATE ';
@@ -2377,7 +2377,7 @@ class ExportSql extends ExportPlugin
         } else {
             // insert or replace
             if (isset($GLOBALS['sql_type'])
-                && $GLOBALS['sql_type'] == 'REPLACE'
+                && $GLOBALS['sql_type'] === 'REPLACE'
             ) {
                 $sql_command = 'REPLACE';
             } else {
@@ -2392,13 +2392,13 @@ class ExportSql extends ExportPlugin
             }
 
             // insert ignore?
-            if (isset($GLOBALS['sql_type'], $GLOBALS['sql_ignore']) && $GLOBALS['sql_type'] == 'INSERT') {
+            if (isset($GLOBALS['sql_type'], $GLOBALS['sql_ignore']) && $GLOBALS['sql_type'] === 'INSERT') {
                 $insert_delayed .= ' IGNORE';
             }
             //truncate table before insert
             if (isset($GLOBALS['sql_truncate'])
                 && $GLOBALS['sql_truncate']
-                && $sql_command == 'INSERT'
+                && $sql_command === 'INSERT'
             ) {
                 $truncate = 'TRUNCATE TABLE '
                     . Util::backquoteCompat(
@@ -2419,8 +2419,8 @@ class ExportSql extends ExportPlugin
             }
 
             // scheme for inserting fields
-            if ($GLOBALS['sql_insert_syntax'] == 'complete'
-                || $GLOBALS['sql_insert_syntax'] == 'both'
+            if ($GLOBALS['sql_insert_syntax'] === 'complete'
+                || $GLOBALS['sql_insert_syntax'] === 'both'
             ) {
                 $fields = implode(', ', $field_set);
                 $schema_insert = $sql_command . $insert_delayed . ' INTO '
@@ -2445,10 +2445,10 @@ class ExportSql extends ExportPlugin
         //\x08\\x09, not required
         $current_row = 0;
         $query_size = 0;
-        if (($GLOBALS['sql_insert_syntax'] == 'extended'
-            || $GLOBALS['sql_insert_syntax'] == 'both')
+        if (($GLOBALS['sql_insert_syntax'] === 'extended'
+            || $GLOBALS['sql_insert_syntax'] === 'both')
             && (! isset($GLOBALS['sql_type'])
-            || $GLOBALS['sql_type'] != 'UPDATE')
+            || $GLOBALS['sql_type'] !== 'UPDATE')
         ) {
             $separator = ',';
             $schema_insert .= $crlf;
@@ -2472,7 +2472,7 @@ class ExportSql extends ExportPlugin
             }
             // We need to SET IDENTITY_INSERT ON for MSSQL
             if (isset($GLOBALS['sql_compatibility'])
-                && $GLOBALS['sql_compatibility'] == 'MSSQL'
+                && $GLOBALS['sql_compatibility'] === 'MSSQL'
                 && $current_row == 0
             ) {
                 if (! $this->export->outputHandler(
@@ -2495,7 +2495,7 @@ class ExportSql extends ExportPlugin
                 if (! isset($row[$j]) || $row[$j] === null) {
                     $values[] = 'NULL';
                 } elseif ($fields_meta[$j]->numeric
-                    && $fields_meta[$j]->type != 'timestamp'
+                    && $fields_meta[$j]->type !== 'timestamp'
                     && ! $fields_meta[$j]->blob
                 ) {
                     // a number
@@ -2519,7 +2519,7 @@ class ExportSql extends ExportPlugin
                     } else {
                         $values[] = '0x' . bin2hex($row[$j]);
                     }
-                } elseif ($fields_meta[$j]->type == 'bit') {
+                } elseif ($fields_meta[$j]->type === 'bit') {
                     // detection of 'bit' works only on mysqli extension
                     $values[] = "b'" . $GLOBALS['dbi']->escapeString(
                         Util::printableBitValue(
@@ -2532,7 +2532,7 @@ class ExportSql extends ExportPlugin
                     // export GIS types as hex
                     $values[] = '0x' . bin2hex($row[$j]);
                 } elseif (! empty($GLOBALS['exporting_metadata'])
-                    && $row[$j] == '@LAST_PAGE'
+                    && $row[$j] === '@LAST_PAGE'
                 ) {
                     $values[] = '@LAST_PAGE';
                 } else {
@@ -2545,7 +2545,7 @@ class ExportSql extends ExportPlugin
 
             // should we make update?
             if (isset($GLOBALS['sql_type'])
-                && $GLOBALS['sql_type'] == 'UPDATE'
+                && $GLOBALS['sql_type'] === 'UPDATE'
             ) {
                 $insert_line = $schema_insert;
                 for ($i = 0; $i < $fields_cnt; $i++) {
@@ -2569,8 +2569,8 @@ class ExportSql extends ExportPlugin
                 unset($tmp_unique_condition, $tmp_clause_is_unique);
             } else {
                 // Extended inserts case
-                if ($GLOBALS['sql_insert_syntax'] == 'extended'
-                    || $GLOBALS['sql_insert_syntax'] == 'both'
+                if ($GLOBALS['sql_insert_syntax'] === 'extended'
+                    || $GLOBALS['sql_insert_syntax'] === 'both'
                 ) {
                     if ($current_row == 1) {
                         $insert_line = $schema_insert . '('
@@ -2617,7 +2617,7 @@ class ExportSql extends ExportPlugin
 
         // We need to SET IDENTITY_INSERT OFF for MSSQL
         if (isset($GLOBALS['sql_compatibility'])
-            && $GLOBALS['sql_compatibility'] == 'MSSQL'
+            && $GLOBALS['sql_compatibility'] === 'MSSQL'
             && $current_row > 0
         ) {
             $outputSucceeded = $this->export->outputHandler(

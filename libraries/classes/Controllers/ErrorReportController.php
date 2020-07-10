@@ -64,7 +64,7 @@ class ErrorReportController extends AbstractController
             && ($_POST['send_error_report'] == true
                 || $_POST['send_error_report'] == '1')
         ) {
-            if ($_POST['exception_type'] == 'php') {
+            if ($_POST['exception_type'] === 'php') {
                 /**
                  * Prevent infinite error submission.
                  * Happens in case error submissions fails.
@@ -101,7 +101,7 @@ class ErrorReportController extends AbstractController
                 if ($success) {
                     if ((isset($_POST['automatic'])
                             && $_POST['automatic'] === 'true')
-                        || $cfg['SendErrorReports'] == 'always'
+                        || $cfg['SendErrorReports'] === 'always'
                     ) {
                         $msg = __(
                             'An error has been detected and an error report has been '
@@ -132,19 +132,19 @@ class ErrorReportController extends AbstractController
 
                 /* Add message to response */
                 if ($this->response->isAjax()) {
-                    if ($_POST['exception_type'] == 'js') {
+                    if ($_POST['exception_type'] === 'js') {
                         $this->response->addJSON('message', $msg);
                     } else {
                         $this->response->addJSON('errSubmitMsg', $msg);
                     }
-                } elseif ($_POST['exception_type'] == 'php') {
+                } elseif ($_POST['exception_type'] === 'php') {
                     $jsCode = 'Functions.ajaxShowMessage(\'<div class="alert alert-danger" role="alert">'
                         . $msg
                         . '</div>\', false);';
                     $this->response->getFooter()->getScripts()->addCode($jsCode);
                 }
 
-                if ($_POST['exception_type'] == 'php') {
+                if ($_POST['exception_type'] === 'php') {
                     // clear previous errors & save new ones.
                     $this->errorHandler->savePreviousErrors();
                 }
@@ -159,7 +159,7 @@ class ErrorReportController extends AbstractController
             }
         } elseif (! empty($_POST['get_settings'])) {
             $this->response->addJSON('report_setting', $cfg['SendErrorReports']);
-        } elseif ($_POST['exception_type'] == 'js') {
+        } elseif ($_POST['exception_type'] === 'js') {
             $this->response->addHTML($this->errorReport->getForm());
         } else {
             // clear previous errors & save new ones.

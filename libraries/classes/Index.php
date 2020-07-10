@@ -165,27 +165,27 @@ class Index
         $indexes = [];
         foreach (self::getFromTable($table, $schema) as $index) {
             if (($choices & self::PRIMARY)
-                && $index->getChoice() == 'PRIMARY'
+                && $index->getChoice() === 'PRIMARY'
             ) {
                 $indexes[] = $index;
             }
             if (($choices & self::UNIQUE)
-                && $index->getChoice() == 'UNIQUE'
+                && $index->getChoice() === 'UNIQUE'
             ) {
                 $indexes[] = $index;
             }
             if (($choices & self::INDEX)
-                && $index->getChoice() == 'INDEX'
+                && $index->getChoice() === 'INDEX'
             ) {
                 $indexes[] = $index;
             }
             if (($choices & self::SPATIAL)
-                && $index->getChoice() == 'SPATIAL'
+                && $index->getChoice() === 'SPATIAL'
             ) {
                 $indexes[] = $index;
             }
             if ((! ($choices & self::FULLTEXT))
-                || $index->getChoice() != 'FULLTEXT'
+                || $index->getChoice() !== 'FULLTEXT'
             ) {
                 continue;
             }
@@ -349,12 +349,12 @@ class Index
         }
         if (isset($params['Index_choice'])) {
             $this->_choice = $params['Index_choice'];
-        } elseif ($this->_name == 'PRIMARY') {
+        } elseif ($this->_name === 'PRIMARY') {
             $this->_choice = 'PRIMARY';
-        } elseif ($this->_type == 'FULLTEXT') {
+        } elseif ($this->_type === 'FULLTEXT') {
             $this->_choice = 'FULLTEXT';
             $this->_type = '';
-        } elseif ($this->_type == 'SPATIAL') {
+        } elseif ($this->_type === 'SPATIAL') {
             $this->_choice = 'SPATIAL';
             $this->_type = '';
         } elseif ($this->_non_unique == '0') {

@@ -219,12 +219,12 @@ class ImportCsv extends AbstractImportCsv
                 // Force a trailing new line at EOF to prevent parsing problems
                 if ($finished && $buffer) {
                     $finalch = mb_substr($buffer, -1);
-                    if ($csv_new_line == 'auto'
+                    if ($csv_new_line === 'auto'
                         && $finalch != "\r"
                         && $finalch != "\n"
                     ) {
                         $buffer .= "\n";
-                    } elseif ($csv_new_line != 'auto'
+                    } elseif ($csv_new_line !== 'auto'
                         && $finalch != $csv_new_line
                     ) {
                         $buffer .= $csv_new_line;
@@ -233,10 +233,10 @@ class ImportCsv extends AbstractImportCsv
 
                 // Do not parse string when we're not at the end
                 // and don't have new line inside
-                if (($csv_new_line == 'auto'
+                if (($csv_new_line === 'auto'
                     && mb_strpos($buffer, "\r") === false
                     && mb_strpos($buffer, "\n") === false)
-                    || ($csv_new_line != 'auto'
+                    || ($csv_new_line !== 'auto'
                     && mb_strpos($buffer, $csv_new_line) === false)
                 ) {
                     continue;
@@ -321,7 +321,7 @@ class ImportCsv extends AbstractImportCsv
                         || (! $need_end
                             && ! ($ch == $csv_terminated
                                 || $ch == $csv_new_line
-                                || ($csv_new_line == 'auto'
+                                || ($csv_new_line === 'auto'
                                     && ($ch == "\r" || $ch == "\n"))))
                     ) {
                         if ($ch == $csv_escaped) {
@@ -345,7 +345,7 @@ class ImportCsv extends AbstractImportCsv
                             if ($csv_enclosed == $csv_escaped
                                 && ($ch == $csv_terminated
                                 || $ch == $csv_new_line
-                                || ($csv_new_line == 'auto'
+                                || ($csv_new_line === 'auto'
                                 && ($ch == "\r" || $ch == "\n")))
                             ) {
                                 break;
@@ -417,7 +417,7 @@ class ImportCsv extends AbstractImportCsv
                     }
                     // Are we at the end?
                     if ($ch == $csv_new_line
-                        || ($csv_new_line == 'auto' && ($ch == "\r" || $ch == "\n"))
+                        || ($csv_new_line === 'auto' && ($ch == "\r" || $ch == "\n"))
                         || ($finished && $i == $len - 1)
                     ) {
                         $csv_finish = true;
@@ -455,12 +455,12 @@ class ImportCsv extends AbstractImportCsv
                 // End of line
                 if (! $csv_finish
                     && $ch != $csv_new_line
-                    && ($csv_new_line != 'auto' || ($ch != "\r" && $ch != "\n"))
+                    && ($csv_new_line !== 'auto' || ($ch != "\r" && $ch != "\n"))
                 ) {
                     continue;
                 }
 
-                if ($csv_new_line == 'auto' && $ch == "\r") { // Handle "\r\n"
+                if ($csv_new_line === 'auto' && $ch == "\r") { // Handle "\r\n"
                     if ($i >= ($len - 2) && ! $finished) {
                         break; // We need more data to decide new line
                     }
@@ -491,7 +491,7 @@ class ImportCsv extends AbstractImportCsv
                     // Do we have correct count of values?
                     if (count($values) != $required_fields) {
                         // Hack for excel
-                        if ($values[count($values) - 1] != ';') {
+                        if ($values[count($values) - 1] !== ';') {
                             $message = Message::error(
                                 __(
                                     'Invalid column count in CSV input'
@@ -681,7 +681,7 @@ class ImportCsv extends AbstractImportCsv
             $error = true;
             $param_error = true;
         } elseif (mb_strlen($csvNewLine) != 1
-            && $csvNewLine != 'auto'
+            && $csvNewLine !== 'auto'
         ) {
             $message = Message::error(
                 __('Invalid parameter for CSV import: %s')

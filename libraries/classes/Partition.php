@@ -262,7 +262,7 @@ class Partition extends SubPartition
                 // see https://dev.mysql.com/doc/refman/5.6/en/partitioning.html
                 $plugins = $GLOBALS['dbi']->fetchResult('SHOW PLUGINS');
                 foreach ($plugins as $value) {
-                    if ($value['Name'] == 'partition') {
+                    if ($value['Name'] === 'partition') {
                         $have_partitioning = true;
                         break;
                     }

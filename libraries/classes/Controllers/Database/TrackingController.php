@@ -94,14 +94,14 @@ class TrackingController extends AbstractController
             )->display();
         } elseif (isset($_POST['submit_mult'])) {
             if (! empty($_POST['selected_tbl'])) {
-                if ($_POST['submit_mult'] == 'delete_tracking') {
+                if ($_POST['submit_mult'] === 'delete_tracking') {
                     foreach ($_POST['selected_tbl'] as $table) {
                         Tracker::deleteTracking($db, $table);
                     }
                     Message::success(
                         __('Tracking data deleted successfully.')
                     )->display();
-                } elseif ($_POST['submit_mult'] == 'track') {
+                } elseif ($_POST['submit_mult'] === 'track') {
                     echo $this->template->render('create_tracking_version', [
                         'route' => '/database/tracking',
                         'url_params' => $url_params,

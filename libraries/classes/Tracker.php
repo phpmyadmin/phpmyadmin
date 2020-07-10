@@ -449,9 +449,9 @@ class Tracker
     ) {
         $relation = new Relation($GLOBALS['dbi']);
 
-        if ($type == 'DDL') {
+        if ($type === 'DDL') {
             $save_to = 'schema_sql';
-        } elseif ($type == 'DML') {
+        } elseif ($type === 'DML') {
             $save_to = 'data_sql';
         } else {
             return false;
@@ -695,7 +695,7 @@ class Tracker
         $tokens = $parser->list->tokens;
 
         // Parse USE statement, need it for SQL dump imports
-        if ($tokens[0]->value == 'USE') {
+        if ($tokens[0]->value === 'USE') {
             $GLOBALS['db'] = $tokens[2]->value;
         }
 
@@ -716,24 +716,24 @@ class Tracker
                     return $result;
                 }
 
-                if ($options[6] == 'VIEW' || $options[6] == 'TABLE') {
+                if ($options[6] === 'VIEW' || $options[6] === 'TABLE') {
                     $result['identifier'] = 'CREATE ' . $options[6];
                     $result['tablename']  = $statement->name->table;
-                } elseif ($options[6] == 'DATABASE') {
+                } elseif ($options[6] === 'DATABASE') {
                     $result['identifier'] = 'CREATE DATABASE';
                     $result['tablename']  = '';
 
                     // In case of CREATE DATABASE, database field of the CreateStatement is the name of the database
                     $GLOBALS['db']        = $statement->name->database;
-                } elseif ($options[6] == 'INDEX'
-                          || $options[6] == 'UNIQUE INDEX'
-                          || $options[6] == 'FULLTEXT INDEX'
-                          || $options[6] == 'SPATIAL INDEX'
+                } elseif ($options[6] === 'INDEX'
+                          || $options[6] === 'UNIQUE INDEX'
+                          || $options[6] === 'FULLTEXT INDEX'
+                          || $options[6] === 'SPATIAL INDEX'
                 ) {
                     $result['identifier'] = 'CREATE INDEX';
 
                     // In case of CREATE INDEX, we have to get the table name from body of the statement
-                    $result['tablename']  = $statement->body[3]->value == '.' ? $statement->body[4]->value
+                    $result['tablename']  = $statement->body[3]->value === '.' ? $statement->body[4]->value
                                                                               : $statement->body[2]->value;
                 }
             } elseif ($statement instanceof AlterStatement) { // Parse ALTER statement
@@ -741,10 +741,10 @@ class Tracker
                     return $result;
                 }
 
-                if ($options[3] == 'VIEW' || $options[3] == 'TABLE') {
+                if ($options[3] === 'VIEW' || $options[3] === 'TABLE') {
                     $result['identifier']   = 'ALTER ' . $options[3];
                     $result['tablename']    = $statement->table->table;
-                } elseif ($options[3] == 'DATABASE') {
+                } elseif ($options[3] === 'DATABASE') {
                     $result['identifier']   = 'ALTER DATABASE';
                     $result['tablename']    = '';
 
@@ -755,15 +755,15 @@ class Tracker
                     return $result;
                 }
 
-                if ($options[1] == 'VIEW' || $options[1] == 'TABLE') {
+                if ($options[1] === 'VIEW' || $options[1] === 'TABLE') {
                     $result['identifier'] = 'DROP ' . $options[1];
                     $result['tablename']  = $statement->fields[0]->table;
-                } elseif ($options[1] == 'DATABASE') {
+                } elseif ($options[1] === 'DATABASE') {
                     $result['identifier'] = 'DROP DATABASE';
                     $result['tablename']  = '';
 
                     $GLOBALS['db']        = $statement->fields[0]->table;
-                } elseif ($options[1] == 'INDEX') {
+                } elseif ($options[1] === 'INDEX') {
                     $result['identifier']   = 'DROP INDEX';
                     $result['tablename']    = $statement->table->table;
                 }
@@ -828,7 +828,7 @@ class Tracker
             return;
         }
 
-        if (! (substr($query, -1) == ';')) {
+        if (! (substr($query, -1) === ';')) {
             $query .= ";\n";
         }
         // Get some information about query
@@ -887,9 +887,9 @@ class Tracker
             return;
         }
 
-        if ($result['type'] == 'DDL') {
+        if ($result['type'] === 'DDL') {
             $save_to = 'schema_sql';
-        } elseif ($result['type'] == 'DML') {
+        } elseif ($result['type'] === 'DML') {
             $save_to = 'data_sql';
         } else {
             $save_to = '';
@@ -916,7 +916,7 @@ class Tracker
 
         // If table was renamed we have to change
         // the tablename attribute in pma_tracking too
-        if ($result['identifier'] == 'RENAME TABLE') {
+        if ($result['identifier'] === 'RENAME TABLE') {
             $sql_query .= ', `table_name` = \''
                 . $GLOBALS['dbi']->escapeString($result['tablename_after_rename'])
                 . '\' ';

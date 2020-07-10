@@ -71,7 +71,7 @@ class NodeColumn extends Node
     /**
      * Get displayable name for navigation tree (key_type, data_type, default)
      *
-     * @param array $item Item is array containing required info
+     * @param array<string, mixed> $item Item is array containing required info
      *
      * @return string Display name for navigation tree
      */
@@ -80,7 +80,7 @@ class NodeColumn extends Node
         $retval = $item['name'];
         $flag = 0;
         foreach ($item as $key => $value) {
-            if (empty($value) || $key == 'name') {
+            if (empty($value) || $key === 'name') {
                 continue;
             }
 

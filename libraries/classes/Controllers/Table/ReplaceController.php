@@ -110,9 +110,9 @@ final class ReplaceController extends AbstractController
             $url_params['after_insert'] = $_POST['after_insert'];
             if (isset($_POST['where_clause'])) {
                 foreach ($_POST['where_clause'] as $one_where_clause) {
-                    if ($_POST['after_insert'] == 'same_insert') {
+                    if ($_POST['after_insert'] === 'same_insert') {
                         $url_params['where_clause'][] = $one_where_clause;
-                    } elseif ($_POST['after_insert'] == 'edit_next') {
+                    } elseif ($_POST['after_insert'] === 'edit_next') {
                         $this->insertEdit->setSessionForEditNext($one_where_clause);
                     }
                 }
@@ -396,7 +396,7 @@ final class ReplaceController extends AbstractController
             // Note: logic passes here for inline edit
             $message = Message::success(__('No change'));
             // Avoid infinite recursion
-            if ($goto_include == '/table/replace') {
+            if ($goto_include === '/table/replace') {
                 $goto_include = '/table/change';
             }
             $active_page = $goto_include;
@@ -608,7 +608,7 @@ final class ReplaceController extends AbstractController
          * WHERE clause information so that /table/change does not go back
          * to the current record
          */
-        if (isset($_POST['after_insert']) && $_POST['after_insert'] == 'new_insert') {
+        if (isset($_POST['after_insert']) && $_POST['after_insert'] === 'new_insert') {
             unset($_POST['where_clause']);
         }
 

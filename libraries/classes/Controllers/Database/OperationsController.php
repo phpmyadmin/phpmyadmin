@@ -224,7 +224,7 @@ class OperationsController extends AbstractController
                         $db = $_POST['newname'];
                     } elseif (! $_error) {
                         if (isset($_POST['switch_to_new'])
-                            && $_POST['switch_to_new'] == 'true'
+                            && $_POST['switch_to_new'] === 'true'
                         ) {
                             $_SESSION['pma_switch_to_new'] = true;
                             $db = $_POST['newname'];

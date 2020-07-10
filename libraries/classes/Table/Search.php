@@ -43,7 +43,7 @@ final class Search
 
         // If only distinct values are needed
         $is_distinct = isset($_POST['distinct']) ? 'true' : 'false';
-        if ($is_distinct == 'true') {
+        if ($is_distinct === 'true') {
             $sql_query .= 'DISTINCT ';
         }
 
@@ -65,7 +65,7 @@ final class Search
         $sql_query .= $whereClause;
 
         // if the search results are to be ordered
-        if (isset($_POST['orderByColumn']) && $_POST['orderByColumn'] != '--nil--') {
+        if (isset($_POST['orderByColumn']) && $_POST['orderByColumn'] !== '--nil--') {
             $sql_query .= ' ORDER BY '
                 . Util::backquote($_POST['orderByColumn'])
                 . ' ' . $_POST['order'];
@@ -177,19 +177,19 @@ final class Search
             }
 
             // LIKE %...%
-            if ($func_type == 'LIKE %...%') {
+            if ($func_type === 'LIKE %...%') {
                 $func_type = 'LIKE';
                 $criteriaValues = '%' . $criteriaValues . '%';
             }
-            if ($func_type == 'REGEXP ^...$') {
+            if ($func_type === 'REGEXP ^...$') {
                 $func_type = 'REGEXP';
                 $criteriaValues = '^' . $criteriaValues . '$';
             }
 
-            if ($func_type != 'IN (...)'
-                && $func_type != 'NOT IN (...)'
-                && $func_type != 'BETWEEN'
-                && $func_type != 'NOT BETWEEN'
+            if ($func_type !== 'IN (...)'
+                && $func_type !== 'NOT IN (...)'
+                && $func_type !== 'BETWEEN'
+                && $func_type !== 'NOT BETWEEN'
             ) {
                 return $backquoted_name . ' ' . $func_type . ' ' . $quot
                     . $this->dbi->escapeString($criteriaValues) . $quot;
@@ -215,7 +215,7 @@ final class Search
                     . $quot;
             }
 
-            if ($func_type == 'BETWEEN' || $func_type == 'NOT BETWEEN') {
+            if ($func_type === 'BETWEEN' || $func_type === 'NOT BETWEEN') {
                 $where = $backquoted_name . ' ' . $func_type . ' '
                     . ($values[0] ?? '')
                     . ' AND ' . ($values[1] ?? '');
@@ -321,11 +321,11 @@ final class Search
             $criteriaValues = explode(',', $criteriaValues);
         }
         $enum_selected_count = count($criteriaValues);
-        if ($func_type == '=' && $enum_selected_count > 1) {
+        if ($func_type === '=' && $enum_selected_count > 1) {
             $func_type    = 'IN';
             $parens_open  = '(';
             $parens_close = ')';
-        } elseif ($func_type == '!=' && $enum_selected_count > 1) {
+        } elseif ($func_type === '!=' && $enum_selected_count > 1) {
             $func_type    = 'NOT IN';
             $parens_open  = '(';
             $parens_close = ')';

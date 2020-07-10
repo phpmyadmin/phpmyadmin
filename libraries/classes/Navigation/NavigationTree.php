@@ -456,7 +456,7 @@ class NavigationTree
                 $container->addChild($node);
             }
         }
-        if (count($path) > 1 && $path[0] != 'tables') {
+        if (count($path) > 1 && $path[0] !== 'tables') {
             return false;
         }
 
@@ -1102,7 +1102,7 @@ class NavigationTree
             ) {
                 $retval .= "<div class='block'>";
                 $iClass = '';
-                if ($class == 'first') {
+                if ($class === 'first') {
                     $iClass = " class='first'";
                 }
                 $retval .= '<i' . $iClass . '></i>';
@@ -1125,7 +1125,7 @@ class NavigationTree
                 $retval .= '"></span>';
                 $retval .= $this->getPaginationParamsHtml($node);
                 if ($GLOBALS['cfg']['ShowDatabasesNavigationAsTree']
-                    || $parentName != 'root'
+                    || $parentName !== 'root'
                 ) {
                     $retval .= $node->getIcon($match);
                 }
@@ -1135,7 +1135,7 @@ class NavigationTree
             } else {
                 $retval .= "<div class='block'>";
                 $iClass = '';
-                if ($class == 'first') {
+                if ($class === 'first') {
                     $iClass = " class='first'";
                 }
                 $retval .= '<i' . $iClass . '></i>';
@@ -1152,7 +1152,7 @@ class NavigationTree
                 'indexes',
             ];
             $parent = $node->parents(false, true);
-            $isNewView = $parent[0]->realName == 'views' && $node->isNew === true;
+            $isNewView = $parent[0]->realName === 'views' && $node->isNew === true;
             if ($parent[0]->type == Node::CONTAINER
                 && (in_array($parent[0]->realName, $haveAjax) || $isNewView)
             ) {

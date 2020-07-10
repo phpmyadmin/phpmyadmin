@@ -217,9 +217,9 @@ class VersionInformation
         }
 
         $myVersion = null;
-        if ($type == 'PHP') {
+        if ($type === 'PHP') {
             $myVersion = $this->getPHPVersion();
-        } elseif ($type == 'MySQL') {
+        } elseif ($type === 'MySQL') {
             $myVersion = $this->getMySQLVersion();
         }
 

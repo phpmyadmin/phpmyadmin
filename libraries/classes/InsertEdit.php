@@ -586,7 +586,7 @@ class InsertEdit
         array $foreignData,
         $readOnly
     ) {
-        if ($column['Null'] != 'YES' || $readOnly) {
+        if ($column['Null'] !== 'YES' || $readOnly) {
             return "<td></td>\n";
         }
         $html_output = '';
@@ -797,7 +797,7 @@ class InsertEdit
                     'Because of its length,<br> this column might not be editable.'
                 );
             }
-        } elseif ($column['pma_type'] == 'enum') {
+        } elseif ($column['pma_type'] === 'enum') {
             $html_output .= $this->getPmaTypeEnum(
                 $column,
                 $backup_field,
@@ -810,7 +810,7 @@ class InsertEdit
                 $data,
                 $readOnly
             );
-        } elseif ($column['pma_type'] == 'set') {
+        } elseif ($column['pma_type'] === 'set') {
             $html_output .= $this->getPmaTypeSet(
                 $column,
                 $extracted_columnspec,
@@ -1198,7 +1198,7 @@ class InsertEdit
             $html_output .= '<option value="' . $enum_value['html'] . '"';
             if ($data == $enum_value['plain']
                 || ($data == ''
-                && (! isset($_POST['where_clause']) || $column['Null'] != 'YES')
+                && (! isset($_POST['where_clause']) || $column['Null'] !== 'YES')
                 && isset($column['Default'])
                 && $enum_value['plain'] == $column['Default'])
             ) {
@@ -1255,7 +1255,7 @@ class InsertEdit
                 . ' ' . $onChangeClause;
             if ($data == $enum_value['plain']
                 || ($data == ''
-                && (! isset($_POST['where_clause']) || $column['Null'] != 'YES')
+                && (! isset($_POST['where_clause']) || $column['Null'] !== 'YES')
                 && isset($column['Default'])
                 && $enum_value['plain'] == $column['Default'])
             ) {
@@ -1687,7 +1687,7 @@ class InsertEdit
         $fieldsize = $this->getColumnSize($column, $extracted_columnspec);
         $html_output = $backup_field . "\n";
         if ($column['is_char']
-            && ($GLOBALS['cfg']['CharEditing'] == 'textarea'
+            && ($GLOBALS['cfg']['CharEditing'] === 'textarea'
             || mb_strpos($data, "\n") !== false)
         ) {
             $html_output .= "\n";
@@ -1725,19 +1725,19 @@ class InsertEdit
                 $html_output .= '<input type="hidden" name="virtual'
                     . $column_name_appendix . '" value="1">';
             }
-            if ($column['Extra'] == 'auto_increment') {
+            if ($column['Extra'] === 'auto_increment') {
                 $html_output .= '<input type="hidden" name="auto_increment'
                     . $column_name_appendix . '" value="1">';
             }
-            if (substr($column['pma_type'], 0, 9) == 'timestamp') {
+            if (substr($column['pma_type'], 0, 9) === 'timestamp') {
                 $html_output .= '<input type="hidden" name="fields_type'
                     . $column_name_appendix . '" value="timestamp">';
             }
-            if (substr($column['pma_type'], 0, 8) == 'datetime') {
+            if (substr($column['pma_type'], 0, 8) === 'datetime') {
                 $html_output .= '<input type="hidden" name="fields_type'
                     . $column_name_appendix . '" value="datetime">';
             }
-            if ($column['True_Type'] == 'bit') {
+            if ($column['True_Type'] === 'bit') {
                 $html_output .= '<input type="hidden" name="fields_type'
                     . $column_name_appendix . '" value="bit">';
             }
@@ -1922,15 +1922,15 @@ class InsertEdit
     {
         $html_output = '<select name="after_insert" class="control_at_footer">'
             . '<option value="back" '
-            . ($after_insert == 'back' ? 'selected="selected"' : '') . '>'
+            . ($after_insert === 'back' ? 'selected="selected"' : '') . '>'
             . __('Go back to previous page') . '</option>'
             . '<option value="new_insert" '
-            . ($after_insert == 'new_insert' ? 'selected="selected"' : '') . '>'
+            . ($after_insert === 'new_insert' ? 'selected="selected"' : '') . '>'
             . __('Insert another new row') . '</option>';
 
         if (isset($where_clause)) {
             $html_output .= '<option value="same_insert" '
-                . ($after_insert == 'same_insert' ? 'selected="selected"' : '') . '>'
+                . ($after_insert === 'same_insert' ? 'selected="selected"' : '') . '>'
                 . __('Go back to this page') . '</option>';
 
             // If we have just numeric primary key, we can also edit next
@@ -1953,7 +1953,7 @@ class InsertEdit
             }
             if ($found_unique_key && $is_numeric) {
                 $html_output .= '<option value="edit_next" '
-                    . ($after_insert == 'edit_next' ? 'selected="selected"' : '') . '>'
+                    . ($after_insert === 'edit_next' ? 'selected="selected"' : '') . '>'
                     . __('Edit next row') . '</option>';
             }
         }
@@ -2059,16 +2059,16 @@ class InsertEdit
             $current_row[$column['Field']] = '';
             $special_chars = '';
             $data = $current_row[$column['Field']];
-        } elseif ($column['True_Type'] == 'bit') {
+        } elseif ($column['True_Type'] === 'bit') {
             $special_chars = $as_is
                 ? $current_row[$column['Field']]
                 : Util::printableBitValue(
                     (int) $current_row[$column['Field']],
                     (int) $extracted_columnspec['spec_in_brackets']
                 );
-        } elseif ((substr($column['True_Type'], 0, 9) == 'timestamp'
-            || $column['True_Type'] == 'datetime'
-            || $column['True_Type'] == 'time')
+        } elseif ((substr($column['True_Type'], 0, 9) === 'timestamp'
+            || $column['True_Type'] === 'datetime'
+            || $column['True_Type'] === 'time')
             && (mb_strpos($current_row[$column['Field']], '.') !== false)
         ) {
             $current_row[$column['Field']] = $as_is
@@ -2158,16 +2158,16 @@ class InsertEdit
 
         $trueType = $column['True_Type'];
 
-        if ($trueType == 'bit') {
+        if ($trueType === 'bit') {
             $special_chars = Util::convertBitDefaultValue(
                 $column['Default']
             );
-        } elseif (substr($trueType, 0, 9) == 'timestamp'
-            || $trueType == 'datetime'
-            || $trueType == 'time'
+        } elseif (substr($trueType, 0, 9) === 'timestamp'
+            || $trueType === 'datetime'
+            || $trueType === 'time'
         ) {
             $special_chars = Util::addMicroseconds($column['Default']);
-        } elseif ($trueType == 'binary' || $trueType == 'varbinary') {
+        } elseif ($trueType === 'binary' || $trueType === 'varbinary') {
             $special_chars = bin2hex($column['Default']);
         } elseif (substr($trueType, -4) === 'text') {
             $textDefault = substr($column['Default'], 1, -1);
@@ -2203,9 +2203,9 @@ class InsertEdit
                 : [$_POST['where_clause']];
             $using_key  = true;
             $is_insert  = isset($_POST['submit_type'])
-                          && ($_POST['submit_type'] == 'insert'
-                          || $_POST['submit_type'] == 'showinsert'
-                          || $_POST['submit_type'] == 'insertignore');
+                          && ($_POST['submit_type'] === 'insert'
+                          || $_POST['submit_type'] === 'showinsert'
+                          || $_POST['submit_type'] === 'insertignore');
         } else {
             // new row => use indexes
             $loop_array = [];
@@ -2218,7 +2218,7 @@ class InsertEdit
             $is_insert  = true;
         }
         $is_insertignore  = isset($_POST['submit_type'])
-            && $_POST['submit_type'] == 'insertignore';
+            && $_POST['submit_type'] === 'insertignore';
 
         return [
             $loop_array,
@@ -2323,7 +2323,7 @@ class InsertEdit
             } else {
                 $goto_include = $GLOBALS['goto'];
             }
-            if ($GLOBALS['goto'] == 'index.php?route=/database/sql' && strlen($GLOBALS['table']) > 0) {
+            if ($GLOBALS['goto'] === 'index.php?route=/database/sql' && strlen($GLOBALS['table']) > 0) {
                 $GLOBALS['table'] = '';
             }
         }
@@ -2357,7 +2357,7 @@ class InsertEdit
     /**
      * Builds the sql query
      *
-     * @param bool  $is_insertignore $_POST['submit_type'] == 'insertignore'
+     * @param bool  $is_insertignore $_POST['submit_type'] === 'insertignore'
      * @param array $query_fields    column names array
      * @param array $value_sets      array of query values
      *
@@ -2406,7 +2406,7 @@ class InsertEdit
         $error_messages = [];
 
         foreach ($query as $single_query) {
-            if ($_POST['submit_type'] == 'showinsert') {
+            if ($_POST['submit_type'] === 'showinsert') {
                 $last_messages[] = Message::notice(__('Showing SQL query'));
                 continue;
             }
@@ -2546,7 +2546,7 @@ class InsertEdit
             return '';
         }
 
-        if ($_SESSION['tmpval']['relational_display'] == 'K') {
+        if ($_SESSION['tmpval']['relational_display'] === 'K') {
             // user chose "relational key" in the display options, so
             // the title contains the display field
             $title = ! empty($dispval)
@@ -2569,7 +2569,7 @@ class InsertEdit
         ];
         $output = '<a href="' . Url::getFromRoute('/sql', $_url_params) . '"' . $title . '>';
 
-        if ($_SESSION['tmpval']['relational_display'] == 'D') {
+        if ($_SESSION['tmpval']['relational_display'] === 'D') {
             // user chose "relational display field" in the
             // display options, so show display field in the cell
             $output .= ! empty($dispval) ? htmlspecialchars($dispval) : '';
@@ -2706,12 +2706,12 @@ class InsertEdit
             && in_array($multi_edit_funcs[$key], $func_optional_param))
         ) {
             if ((isset($multi_edit_salt[$key])
-                && ($multi_edit_funcs[$key] == 'AES_ENCRYPT'
-                || $multi_edit_funcs[$key] == 'AES_DECRYPT'))
+                && ($multi_edit_funcs[$key] === 'AES_ENCRYPT'
+                || $multi_edit_funcs[$key] === 'AES_DECRYPT'))
                 || (! empty($multi_edit_salt[$key])
-                && ($multi_edit_funcs[$key] == 'DES_ENCRYPT'
-                || $multi_edit_funcs[$key] == 'DES_DECRYPT'
-                || $multi_edit_funcs[$key] == 'ENCRYPT'))
+                && ($multi_edit_funcs[$key] === 'DES_ENCRYPT'
+                || $multi_edit_funcs[$key] === 'DES_DECRYPT'
+                || $multi_edit_funcs[$key] === 'ENCRYPT'))
             ) {
                 return $multi_edit_funcs[$key] . '(' . $current_value . ",'"
                     . $this->dbi->escapeString($multi_edit_salt[$key]) . "')";
@@ -2863,7 +2863,7 @@ class InsertEdit
                 $type = '';
             }
 
-            if ($type != 'protected' && $type != 'set' && strlen($current_value) === 0) {
+            if ($type !== 'protected' && $type !== 'set' && strlen($current_value) === 0) {
                 // best way to avoid problems in strict mode
                 // (works also in non-strict mode)
                 if (isset($multi_edit_auto_increment, $multi_edit_auto_increment[$key])) {
@@ -2871,7 +2871,7 @@ class InsertEdit
                 } else {
                     $current_value = "''";
                 }
-            } elseif ($type == 'set') {
+            } elseif ($type === 'set') {
                 if (! empty($_POST['fields']['multi_edit'][$rownumber][$key])) {
                     $current_value = implode(
                         ',',
@@ -2882,7 +2882,7 @@ class InsertEdit
                 } else {
                      $current_value = "''";
                 }
-            } elseif ($type == 'protected') {
+            } elseif ($type === 'protected') {
                 // here we are in protected mode (asked in the config)
                 // so tbl_change has put this special value in the
                 // columns array, so we do not change the column value
@@ -2901,13 +2901,13 @@ class InsertEdit
                 if (substr($current_value, 0, 2) != '0x') {
                     $current_value = '0x' . $current_value;
                 }
-            } elseif ($type == 'bit') {
+            } elseif ($type === 'bit') {
                 $current_value = preg_replace('/[^01]/', '0', $current_value);
                 $current_value = "b'" . $this->dbi->escapeString($current_value)
                     . "'";
-            } elseif (! ($type == 'datetime' || $type == 'timestamp')
-                || ($current_value != 'CURRENT_TIMESTAMP'
-                    && $current_value != 'current_timestamp()')
+            } elseif (! ($type === 'datetime' || $type === 'timestamp')
+                || ($current_value !== 'CURRENT_TIMESTAMP'
+                    && $current_value !== 'current_timestamp()')
             ) {
                 $current_value = "'" . $this->dbi->escapeString($current_value)
                     . "'";
@@ -2966,9 +2966,9 @@ class InsertEdit
 
         if ($row) {
             $new_value = $row[0];
-            if ((substr($meta->type, 0, 9) == 'timestamp')
-                || ($meta->type == 'datetime')
-                || ($meta->type == 'time')
+            if ((substr($meta->type, 0, 9) === 'timestamp')
+                || ($meta->type === 'datetime')
+                || ($meta->type === 'time')
             ) {
                 $new_value = Util::addMicroseconds($new_value);
             } elseif (mb_strpos($meta->flags, 'binary') !== false) {

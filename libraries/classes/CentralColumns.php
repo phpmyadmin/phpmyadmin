@@ -279,7 +279,7 @@ class CentralColumns
             $attribute = $def['Attribute'];
         }
         $collation = $def['Collation'] ?? '';
-        $isNull = $def['Null'] == 'NO' ? '0' : '1';
+        $isNull = $def['Null'] === 'NO' ? '0' : '1';
         $extra = $def['Extra'] ?? '';
         $default = $def['Default'] ?? '';
 
@@ -557,8 +557,8 @@ class CentralColumns
 
                 $query .= ' ' . $column['col_extra'];
                 if ($column['col_default']) {
-                    if ($column['col_default'] != 'CURRENT_TIMESTAMP'
-                        && $column['col_default'] != 'current_timestamp()') {
+                    if ($column['col_default'] !== 'CURRENT_TIMESTAMP'
+                        && $column['col_default'] !== 'current_timestamp()') {
                         $query .= ' DEFAULT \'' . $this->dbi->escapeString(
                             (string) $column['col_default']
                         ) . '\'';
@@ -802,11 +802,11 @@ class CentralColumns
         $meta = [];
         if (! isset($row['col_default']) || $row['col_default'] == '') {
             $meta['DefaultType'] = 'NONE';
-        } elseif ($row['col_default'] == 'CURRENT_TIMESTAMP'
-            || $row['col_default'] == 'current_timestamp()'
+        } elseif ($row['col_default'] === 'CURRENT_TIMESTAMP'
+            || $row['col_default'] === 'current_timestamp()'
         ) {
             $meta['DefaultType'] = 'CURRENT_TIMESTAMP';
-        } elseif ($row['col_default'] == 'NULL') {
+        } elseif ($row['col_default'] === 'NULL') {
             $meta['DefaultType'] = $row['col_default'];
         } else {
             $meta['DefaultType'] = 'USER_DEFINED';
@@ -1165,11 +1165,11 @@ class CentralColumns
             if (! isset($row['col_default']) || $row['col_default'] == '') {
                 $rows_meta[$row_num]['DefaultType'] = 'NONE';
             } else {
-                if ($row['col_default'] == 'CURRENT_TIMESTAMP'
-                    || $row['col_default'] == 'current_timestamp()'
+                if ($row['col_default'] === 'CURRENT_TIMESTAMP'
+                    || $row['col_default'] === 'current_timestamp()'
                 ) {
                     $rows_meta[$row_num]['DefaultType'] = 'CURRENT_TIMESTAMP';
-                } elseif ($row['col_default'] == 'NULL') {
+                } elseif ($row['col_default'] === 'NULL') {
                     $rows_meta[$row_num]['DefaultType'] = $row['col_default'];
                 } else {
                     $rows_meta[$row_num]['DefaultType'] = 'USER_DEFINED';

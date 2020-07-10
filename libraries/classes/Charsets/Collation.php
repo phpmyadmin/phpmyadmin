@@ -208,7 +208,7 @@ final class Collation
                 /* Next will be variant */
                 $level = 4;
                 /* Germal variant */
-                if ($part == 'pb') {
+                if ($part === 'pb') {
                     $name = _pgettext('Collation', 'German (phone book order)');
                     continue;
                 }
@@ -219,7 +219,7 @@ final class Collation
                 /* Next will be variant */
                 $level = 4;
                 /* Spanish variant */
-                if ($part == 'trad') {
+                if ($part === 'trad') {
                     $name = _pgettext('Collation', 'Spanish (traditional)');
                     continue;
                 }

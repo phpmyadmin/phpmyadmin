@@ -174,7 +174,7 @@ class CreateAddField
         $sqlQuery = $this->getStatementPrefix($isCreateTable)
             . ' ' . $indexChoice;
 
-        if (! empty($index['Key_name']) && $index['Key_name'] != 'PRIMARY') {
+        if (! empty($index['Key_name']) && $index['Key_name'] !== 'PRIMARY') {
             $sqlQuery .= ' ' . Util::backquote($index['Key_name']);
         }
 
@@ -200,15 +200,15 @@ class CreateAddField
 
         // specifying index type is allowed only for primary, unique and index only
         $type = $index['Index_type'];
-        if ($index['Index_choice'] != 'SPATIAL'
-            && $index['Index_choice'] != 'FULLTEXT'
+        if ($index['Index_choice'] !== 'SPATIAL'
+            && $index['Index_choice'] !== 'FULLTEXT'
             && in_array($type, Index::getIndexTypes())
         ) {
             $sqlQuery .= ' USING ' . $type;
         }
 
         $parser = $index['Parser'];
-        if ($index['Index_choice'] == 'FULLTEXT' && ! empty($parser)) {
+        if ($index['Index_choice'] === 'FULLTEXT' && ! empty($parser)) {
             $sqlQuery .= ' WITH PARSER ' . $this->dbi->escapeString($parser);
         }
 
@@ -399,7 +399,7 @@ class CreateAddField
         if (! empty($partition['value_type'])) {
             $sqlQuery .= ' VALUES ' . $partition['value_type'];
 
-            if ($partition['value_type'] != 'LESS THAN MAXVALUE') {
+            if ($partition['value_type'] !== 'LESS THAN MAXVALUE') {
                 $sqlQuery .= ' (' . $partition['value'] . ')';
             }
         }
@@ -460,7 +460,7 @@ class CreateAddField
 
         // Adds table type, character set, comments and partition definition
         if (! empty($_POST['tbl_storage_engine'])
-            && ($_POST['tbl_storage_engine'] != 'Default')
+            && ($_POST['tbl_storage_engine'] !== 'Default')
         ) {
             $sqlQuery .= ' ENGINE = ' . $this->dbi->escapeString($_POST['tbl_storage_engine']);
         }
@@ -469,7 +469,7 @@ class CreateAddField
         }
         if (! empty($_POST['connection'])
             && ! empty($_POST['tbl_storage_engine'])
-            && $_POST['tbl_storage_engine'] == 'FEDERATED'
+            && $_POST['tbl_storage_engine'] === 'FEDERATED'
         ) {
             $sqlQuery .= " CONNECTION = '"
                 . $this->dbi->escapeString($_POST['connection']) . "'";

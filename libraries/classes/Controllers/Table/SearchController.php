@@ -166,7 +166,7 @@ class SearchController extends AbstractController
             $this->_columnTypes[] = $type;
             $this->_columnNullFlags[] = $row['Null'];
             $this->_columnCollations[]
-                = ! empty($row['Collation']) && $row['Collation'] != 'NULL'
+                = ! empty($row['Collation']) && $row['Collation'] !== 'NULL'
                 ? $row['Collation']
                 : '';
         } // end for
@@ -231,7 +231,7 @@ class SearchController extends AbstractController
             // for bit fields we need to convert them to printable form
             $i = 0;
             foreach ($row as $col => $val) {
-                if ($fields_meta[$i]->type == 'bit') {
+                if ($fields_meta[$i]->type === 'bit') {
                     $row[$col] = Util::printableBitValue(
                         (int) $val,
                         (int) $fields_meta[$i]->length

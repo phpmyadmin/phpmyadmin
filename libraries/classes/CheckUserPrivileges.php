@@ -97,8 +97,8 @@ class CheckUserPrivileges
         // '... ALL PRIVILEGES ON *.* ...' OR '... ALL PRIVILEGES ON `mysql`.* ..'
         // OR
         // SELECT, INSERT, UPDATE, DELETE .... ON *.* OR `mysql`.*
-        if ($show_grants_str != 'ALL'
-            && $show_grants_str != 'ALL PRIVILEGES'
+        if ($show_grants_str !== 'ALL'
+            && $show_grants_str !== 'ALL PRIVILEGES'
             && (mb_strpos(
                 $show_grants_str,
                 'SELECT, INSERT, UPDATE, DELETE'
@@ -107,16 +107,16 @@ class CheckUserPrivileges
             return;
         }
 
-        if ($show_grants_dbname == '*'
-            && $show_grants_tblname == '*'
+        if ($show_grants_dbname === '*'
+            && $show_grants_tblname === '*'
         ) {
             $GLOBALS['col_priv'] = true;
             $GLOBALS['db_priv'] = true;
             $GLOBALS['proc_priv'] = true;
             $GLOBALS['table_priv'] = true;
 
-            if ($show_grants_str == 'ALL PRIVILEGES'
-                || $show_grants_str == 'ALL'
+            if ($show_grants_str === 'ALL PRIVILEGES'
+                || $show_grants_str === 'ALL'
             ) {
                 $GLOBALS['is_reload_priv'] = true;
             }
@@ -124,7 +124,7 @@ class CheckUserPrivileges
 
         // check for specific tables in `mysql` db
         // Ex. '... ALL PRIVILEGES on `mysql`.`columns_priv` .. '
-        if ($show_grants_dbname != 'mysql') {
+        if ($show_grants_dbname !== 'mysql') {
             return;
         }
 
@@ -229,8 +229,8 @@ class CheckUserPrivileges
                 $show_grants_tblname,
             ] = $this->getItemsFromShowGrantsRow($row[0]);
 
-            if ($show_grants_dbname == '*') {
-                if ($show_grants_str != 'USAGE') {
+            if ($show_grants_dbname === '*') {
+                if ($show_grants_str !== 'USAGE') {
                     $GLOBALS['dbs_to_test'] = false;
                 }
             } elseif ($GLOBALS['dbs_to_test'] !== false) {
@@ -252,12 +252,12 @@ class CheckUserPrivileges
              * @todo if we find CREATE VIEW but not CREATE, do not offer
              * the create database dialog box
              */
-            if ($show_grants_str == 'ALL'
-                || $show_grants_str == 'ALL PRIVILEGES'
-                || $show_grants_str == 'CREATE'
+            if ($show_grants_str === 'ALL'
+                || $show_grants_str === 'ALL PRIVILEGES'
+                || $show_grants_str === 'CREATE'
                 || strpos($show_grants_str, 'CREATE,') !== false
             ) {
-                if ($show_grants_dbname == '*') {
+                if ($show_grants_dbname === '*') {
                     // a global CREATE privilege
                     $GLOBALS['is_create_db_priv'] = true;
                     $GLOBALS['is_reload_priv'] = true;

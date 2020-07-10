@@ -27,7 +27,7 @@ class FormProcessing
      */
     public static function process(FormDisplay $form_display)
     {
-        if (isset($_GET['mode']) && $_GET['mode'] == 'revert') {
+        if (isset($_GET['mode']) && $_GET['mode'] === 'revert') {
             // revert erroneous fields to their default values
             $form_display->fixErrors();
             $response = Response::getInstance();
@@ -55,7 +55,7 @@ class FormProcessing
         $page = $_GET['page'] ?? '';
         $formset = $_GET['formset'] ?? '';
         $formId = Core::isValid($_GET['id'], 'numeric') ? $_GET['id'] : '';
-        if ($formId === null && $page == 'servers') {
+        if ($formId === null && $page === 'servers') {
             // we've just added a new server, get its id
             $formId = $form_display->getConfigFile()->getServerCount();
         }

@@ -294,7 +294,7 @@ class Git
                         continue;
                     }
                     // skip non pack lines
-                    if ($line[0] != 'P') {
+                    if ($line[0] !== 'P') {
                         continue;
                     }
                     // parse names
@@ -312,7 +312,7 @@ class Git
                 foreach ($dirIterator as $file_info) {
                     $file_name = $file_info->getFilename();
                     // if this is a .pack file
-                    if (! $file_info->isFile() || substr($file_name, -5) != '.pack'
+                    if (! $file_info->isFile() || substr($file_name, -5) !== '.pack'
                     ) {
                         continue;
                     }
@@ -471,7 +471,7 @@ class Git
         $refLines = explode(PHP_EOL, $packedRefs);
         foreach ($refLines as $line) {
             // skip comments
-            if ($line[0] == '#') {
+            if ($line[0] === '#') {
                 continue;
             }
             // parse line

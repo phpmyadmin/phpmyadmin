@@ -358,6 +358,6 @@ class Innodb extends StorageEngine
             "SHOW GLOBAL VARIABLES LIKE 'innodb_file_per_table';",
             0,
             1
-        ) == 'ON';
+        ) === 'ON';
     }
 }

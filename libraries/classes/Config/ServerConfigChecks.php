@@ -141,7 +141,7 @@ class ServerConfigChecks
         $serverCnt = $this->cfg->getServerCount();
         for ($i = 1; $i <= $serverCnt; $i++) {
             $cookieAuthServer
-                = ($this->cfg->getValue('Servers/' . $i . '/auth_type') == 'cookie');
+                = ($this->cfg->getValue('Servers/' . $i . '/auth_type') === 'cookie');
             $cookieAuthUsed |= $cookieAuthServer;
             $serverName = $this->performConfigChecksServersGetServerName(
                 $this->cfg->getServerName($i),
@@ -185,7 +185,7 @@ class ServerConfigChecks
 
             // $cfg['Servers'][$i]['auth_type']
             // warn about full user credentials if 'auth_type' is 'config'
-            if ($this->cfg->getValue('Servers/' . $i . '/auth_type') == 'config'
+            if ($this->cfg->getValue('Servers/' . $i . '/auth_type') === 'config'
                 && $this->cfg->getValue('Servers/' . $i . '/user') != ''
                 && $this->cfg->getValue('Servers/' . $i . '/password') != ''
             ) {
@@ -274,7 +274,7 @@ class ServerConfigChecks
         $serverName,
         $serverId
     ) {
-        if ($serverName == 'localhost') {
+        if ($serverName === 'localhost') {
             return $serverName . ' [' . $serverId . ']';
         }
 

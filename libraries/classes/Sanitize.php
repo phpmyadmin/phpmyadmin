@@ -111,13 +111,13 @@ class Sanitize
         $target = '';
         if (! empty($found[3])) {
             $target = ' target="' . $found[3] . '"';
-            if ($found[3] == '_blank') {
+            if ($found[3] === '_blank') {
                 $target .= ' rel="noopener noreferrer"';
             }
         }
 
         /* Construct url */
-        if (substr($found[1], 0, 4) == 'http') {
+        if (substr($found[1], 0, 4) === 'http') {
             $url = Core::linkURL($found[1]);
         } else {
             $url = $found[1];

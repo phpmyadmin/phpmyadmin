@@ -2923,7 +2923,7 @@ class Results
             // even for a string type
             // for decimal numeric is returning 1
             // have to improve logic
-            if (($meta->numeric == 1 && $meta->type != 'string') || $meta->type == 'real') {
+            if (($meta->numeric == 1 && $meta->type !== 'string') || $meta->type === 'real') {
                 // n u m e r i c
 
                 $display_params['data'][$row_no][$i]
@@ -3093,7 +3093,7 @@ class Results
      */
     private function getUrlSqlQuery(array $analyzed_sql_results)
     {
-        if (($analyzed_sql_results['querytype'] != 'SELECT')
+        if (($analyzed_sql_results['querytype'] !== 'SELECT')
             || (mb_strlen($this->__get('sql_query')) < 200)
         ) {
             return $this->__get('sql_query');
@@ -4118,7 +4118,7 @@ class Results
 
         // 2.3 Prepare the navigation bars
         if (strlen($this->__get('table')) === 0) {
-            if ($analyzed_sql_results['querytype'] == 'SELECT') {
+            if ($analyzed_sql_results['querytype'] === 'SELECT') {
                 // table does not always contain a real table name,
                 // for example in MySQL 5.0.x, the query SHOW STATUS
                 // returns STATUS as a table name
@@ -4528,7 +4528,7 @@ class Results
         }
 
         foreach ($exist_rel as $master_field => $rel) {
-            if ($master_field != 'foreign_keys_data') {
+            if ($master_field !== 'foreign_keys_data') {
                 $display_field = $this->relation->getDisplayField(
                     $rel['foreign_db'],
                     $rel['foreign_table']

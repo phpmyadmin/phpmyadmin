@@ -899,7 +899,7 @@ class Tracking
     public function changeTracking($action)
     {
         $html = '';
-        if ($action == 'activate') {
+        if ($action === 'activate') {
             $method = 'activateTracking';
             $message = __('Tracking for %1$s was activated at version %2$s.');
         } else {
@@ -1076,8 +1076,8 @@ class Tracking
     {
         $entries = [];
         // Filtering data definition statements
-        if ($_POST['logtype'] == 'schema'
-            || $_POST['logtype'] == 'schema_and_data'
+        if ($_POST['logtype'] === 'schema'
+            || $_POST['logtype'] === 'schema_and_data'
         ) {
             $entries = array_merge(
                 $entries,
@@ -1091,8 +1091,8 @@ class Tracking
         }
 
         // Filtering data manipulation statements
-        if ($_POST['logtype'] == 'data'
-            || $_POST['logtype'] == 'schema_and_data'
+        if ($_POST['logtype'] === 'data'
+            || $_POST['logtype'] === 'schema_and_data'
         ) {
             $entries = array_merge(
                 $entries,
@@ -1274,12 +1274,12 @@ class Tracking
             0 => [
                 'label' => __('not active'),
                 'value' => 'deactivate_now',
-                'selected' => $state != 'active',
+                'selected' => $state !== 'active',
             ],
             1 => [
                 'label' => __('active'),
                 'value' => 'activate_now',
-                'selected' => $state == 'active',
+                'selected' => $state === 'active',
             ],
         ];
         $link = Url::getFromRoute('/table/tracking', array_merge([

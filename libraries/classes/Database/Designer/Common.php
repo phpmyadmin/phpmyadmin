@@ -656,10 +656,10 @@ class Common
                     . Util::backquote($T1) . '('
                     . Util::backquote($F1) . ')';
 
-                if ($on_delete != 'nix') {
+                if ($on_delete !== 'nix') {
                     $upd_query   .= ' ON DELETE ' . $on_delete;
                 }
-                if ($on_update != 'nix') {
+                if ($on_update !== 'nix') {
                     $upd_query   .= ' ON UPDATE ' . $on_update;
                 }
                 $upd_query .= ';';

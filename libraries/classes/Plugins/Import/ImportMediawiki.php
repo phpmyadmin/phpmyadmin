@@ -445,7 +445,7 @@ class ImportMediawiki extends ImportPlugin
         for ($i = 0, $iMax = strlen($subject); $i < $iMax; $i++) {
             $cur_char = $subject[$i];
             // Check for separators
-            if ($cur_char == '|') {
+            if ($cur_char === '|') {
                 // If we're not inside a tag, then this is part of a real separator,
                 // so we append it to the current segment
                 if (! $inside_attribute) {
@@ -476,13 +476,13 @@ class ImportMediawiki extends ImportPlugin
                 // any other character should be appended to the current segment
                 $cleaned .= $cur_char;
 
-                if ($cur_char == '<' && ! $inside_attribute) {
+                if ($cur_char === '<' && ! $inside_attribute) {
                     // start of a tag
                     $inside_tag = true;
-                } elseif ($cur_char == '>' && ! $inside_attribute) {
+                } elseif ($cur_char === '>' && ! $inside_attribute) {
                     // end of a tag
                     $inside_tag = false;
-                } elseif (($cur_char == '"' || $cur_char == "'") && $inside_tag) {
+                } elseif (($cur_char === '"' || $cur_char == "'") && $inside_tag) {
                     // start or end of an attribute
                     if (! $inside_attribute) {
                         $inside_attribute = true;

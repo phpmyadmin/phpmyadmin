@@ -159,7 +159,7 @@ class Config
         }
 
         // enable output-buffering (if set to 'auto')
-        if (strtolower((string) $this->get('OBGzip')) != 'auto') {
+        if (strtolower((string) $this->get('OBGzip')) !== 'auto') {
             return;
         }
 
@@ -301,13 +301,13 @@ class Config
      */
     public function checkGd2(): void
     {
-        if ($this->get('GD2Available') == 'yes') {
+        if ($this->get('GD2Available') === 'yes') {
             $this->set('PMA_IS_GD2', 1);
 
             return;
         }
 
-        if ($this->get('GD2Available') == 'no') {
+        if ($this->get('GD2Available') === 'no') {
             $this->set('PMA_IS_GD2', 0);
 
             return;
@@ -572,7 +572,7 @@ class Config
         $tmanager = ThemeManager::getInstance();
         if ($tmanager->getThemeCookie() || isset($_REQUEST['set_theme'])) {
             if ((! isset($config_data['ThemeDefault'])
-                && $tmanager->theme->getId() != 'original')
+                && $tmanager->theme->getId() !== 'original')
                 || isset($config_data['ThemeDefault'])
                 && $config_data['ThemeDefault'] != $tmanager->theme->getId()
             ) {
@@ -597,7 +597,7 @@ class Config
         // save language
         if ($this->issetCookie('pma_lang') || isset($_POST['lang'])) {
             if ((! isset($config_data['lang'])
-                && $GLOBALS['lang'] != 'en')
+                && $GLOBALS['lang'] !== 'en')
                 || isset($config_data['lang'])
                 && $GLOBALS['lang'] != $config_data['lang']
             ) {
@@ -651,7 +651,7 @@ class Config
             }
             $result = $userPreferences->persistOption($cfg_path, $new_cfg_value, $default_value);
         }
-        if ($prefs_type != 'db' && $cookie_name) {
+        if ($prefs_type !== 'db' && $cookie_name) {
             // fall back to cookies
             if ($default_value === null) {
                 $default_value = Core::arrayRead($cfg_path, $this->settings);
@@ -676,7 +676,7 @@ class Config
     {
         $cookie_exists = ! empty($this->getCookie($cookie_name));
         $prefs_type = $this->get('user_preferences');
-        if ($prefs_type == 'db') {
+        if ($prefs_type === 'db') {
             // permanent user preferences value exists, remove cookie
             if ($cookie_exists) {
                 $this->removeCookie($cookie_name);
@@ -882,7 +882,7 @@ class Config
         $this->set('enable_upload', true);
         // if set "php_admin_value file_uploads Off" in httpd.conf
         // ini_get() also returns the string "Off" in this case:
-        if (strtolower(ini_get('file_uploads')) != 'off') {
+        if (strtolower(ini_get('file_uploads')) !== 'off') {
             return;
         }
 
@@ -929,18 +929,18 @@ class Config
         $is_https = false;
         if (! empty($url) && parse_url($url, PHP_URL_SCHEME) === 'https') {
             $is_https = true;
-        } elseif (strtolower(Core::getenv('HTTP_SCHEME')) == 'https') {
+        } elseif (strtolower(Core::getenv('HTTP_SCHEME')) === 'https') {
             $is_https = true;
-        } elseif (strtolower(Core::getenv('HTTPS')) == 'on') {
+        } elseif (strtolower(Core::getenv('HTTPS')) === 'on') {
             $is_https = true;
-        } elseif (strtolower(substr(Core::getenv('REQUEST_URI'), 0, 6)) == 'https:') {
+        } elseif (strtolower(substr(Core::getenv('REQUEST_URI'), 0, 6)) === 'https:') {
             $is_https = true;
-        } elseif (strtolower(Core::getenv('HTTP_HTTPS_FROM_LB')) == 'on') {
+        } elseif (strtolower(Core::getenv('HTTP_HTTPS_FROM_LB')) === 'on') {
             // A10 Networks load balancer
             $is_https = true;
-        } elseif (strtolower(Core::getenv('HTTP_FRONT_END_HTTPS')) == 'on') {
+        } elseif (strtolower(Core::getenv('HTTP_FRONT_END_HTTPS')) === 'on') {
             $is_https = true;
-        } elseif (strtolower(Core::getenv('HTTP_X_FORWARDED_PROTO')) == 'https') {
+        } elseif (strtolower(Core::getenv('HTTP_X_FORWARDED_PROTO')) === 'https') {
             $is_https = true;
         } elseif (strtolower(Core::getenv('HTTP_CLOUDFRONT_FORWARDED_PROTO')) === 'https') {
             // Amazon CloudFront, issue #15621
@@ -973,7 +973,7 @@ class Config
         if (! empty($url)) {
             $path = parse_url($url, PHP_URL_PATH);
             if (! empty($path)) {
-                if (substr($path, -1) != '/') {
+                if (substr($path, -1) !== '/') {
                     return $path . '/';
                 }
 
@@ -989,7 +989,7 @@ class Config
         );
 
         /* Remove filename */
-        if (substr($parts[count($parts) - 1], -4) == '.php') {
+        if (substr($parts[count($parts) - 1], -4) === '.php') {
             $parts = array_slice($parts, 0, count($parts) - 1);
         }
 

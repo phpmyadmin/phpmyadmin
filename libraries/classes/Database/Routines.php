@@ -521,13 +521,13 @@ class Routines
 
         $retval['item_type']         = 'PROCEDURE';
         $retval['item_type_toggle']  = 'FUNCTION';
-        if (isset($_REQUEST['item_type']) && $_REQUEST['item_type'] == 'FUNCTION') {
+        if (isset($_REQUEST['item_type']) && $_REQUEST['item_type'] === 'FUNCTION') {
             $retval['item_type']         = 'FUNCTION';
             $retval['item_type_toggle']  = 'PROCEDURE';
         }
         $retval['item_original_type'] = 'PROCEDURE';
         if (isset($_POST['item_original_type'])
-            && $_POST['item_original_type'] == 'FUNCTION'
+            && $_POST['item_original_type'] === 'FUNCTION'
         ) {
             $retval['item_original_type'] = 'FUNCTION';
         }
@@ -548,7 +548,7 @@ class Routines
             && is_array($_POST['item_param_opts_num'])
             && is_array($_POST['item_param_opts_text'])
         ) {
-            if ($_POST['item_type'] == 'PROCEDURE') {
+            if ($_POST['item_type'] === 'PROCEDURE') {
                 $retval['item_param_dir'] = $_POST['item_param_dir'];
                 foreach ($retval['item_param_dir'] as $key => $value) {
                     if (in_array($value, $this->directions, true)) {
@@ -587,7 +587,7 @@ class Routines
 
         $retval['item_isdeterministic'] = '';
         if (isset($_POST['item_isdeterministic'])
-            && mb_strtolower($_POST['item_isdeterministic']) == 'on'
+            && mb_strtolower($_POST['item_isdeterministic']) === 'on'
         ) {
             $retval['item_isdeterministic'] = " checked='checked'";
         }
@@ -679,7 +679,7 @@ class Routines
             return $retval;
         }
 
-        if ($retval['item_type'] == 'FUNCTION') {
+        if ($retval['item_type'] === 'FUNCTION') {
             $retval['item_type_toggle'] = 'PROCEDURE';
         } else {
             $retval['item_type_toggle'] = 'FUNCTION';
@@ -704,14 +704,14 @@ class Routines
         $retval['item_definer'] = $stmt->options->has('DEFINER');
         $retval['item_definition'] = $routine['ROUTINE_DEFINITION'];
         $retval['item_isdeterministic'] = '';
-        if ($routine['IS_DETERMINISTIC'] == 'YES') {
+        if ($routine['IS_DETERMINISTIC'] === 'YES') {
             $retval['item_isdeterministic'] = " checked='checked'";
         }
         $retval['item_securitytype_definer'] = '';
         $retval['item_securitytype_invoker'] = '';
-        if ($routine['SECURITY_TYPE'] == 'DEFINER') {
+        if ($routine['SECURITY_TYPE'] === 'DEFINER') {
             $retval['item_securitytype_definer'] = " selected='selected'";
-        } elseif ($routine['SECURITY_TYPE'] == 'INVOKER') {
+        } elseif ($routine['SECURITY_TYPE'] === 'INVOKER') {
             $retval['item_securitytype_invoker'] = " selected='selected'";
         }
         $retval['item_sqldataaccess'] = $routine['SQL_DATA_ACCESS'];
@@ -827,16 +827,16 @@ class Routines
         }
 
         // Handle some logic first
-        if ($operation == 'change') {
-            if ($routine['item_type'] == 'PROCEDURE') {
+        if ($operation === 'change') {
+            if ($routine['item_type'] === 'PROCEDURE') {
                 $routine['item_type']        = 'FUNCTION';
                 $routine['item_type_toggle'] = 'PROCEDURE';
             } else {
                 $routine['item_type']        = 'PROCEDURE';
                 $routine['item_type_toggle'] = 'FUNCTION';
             }
-        } elseif ($operation == 'add'
-            || ($routine['item_num_params'] == 0 && $mode == 'add' && ! $errors)
+        } elseif ($operation === 'add'
+            || ($routine['item_num_params'] == 0 && $mode === 'add' && ! $errors)
         ) {
             $routine['item_param_dir'][]       = '';
             $routine['item_param_name'][]      = '';
@@ -845,7 +845,7 @@ class Routines
             $routine['item_param_opts_num'][]  = '';
             $routine['item_param_opts_text'][] = '';
             $routine['item_num_params']++;
-        } elseif ($operation == 'remove') {
+        } elseif ($operation === 'remove') {
             unset(
                 $routine['item_param_dir'][$routine['item_num_params'] - 1],
                 $routine['item_param_name'][$routine['item_num_params'] - 1],
@@ -861,7 +861,7 @@ class Routines
             $disableRemoveParam = " class='isdisableremoveparam_class' disabled=disabled";
         }
         $original_routine = '';
-        if ($mode == 'edit') {
+        if ($mode === 'edit') {
             $original_routine = "<input name='item_original_name' "
                               . "type='hidden' "
                               . "value='" . $routine['item_original_name'] . "'>\n"
@@ -873,7 +873,7 @@ class Routines
         $isprocedure_class  = '';
         $isfunction_select  = '';
         $isprocedure_select = '';
-        if ($routine['item_type'] == 'PROCEDURE') {
+        if ($routine['item_type'] === 'PROCEDURE') {
             $isfunction_class   = ' hide';
             $isprocedure_select = " selected='selected'";
         } else {
@@ -1163,7 +1163,7 @@ class Routines
                 }
             }
             if (! empty($itemParamOpsText[$i])) {
-                if ($dbi->types->getTypeClass($itemParamType[$i]) == 'CHAR') {
+                if ($dbi->types->getTypeClass($itemParamType[$i]) === 'CHAR') {
                     if (! in_array($itemParamType[$i], ['VARBINARY', 'BINARY'])) {
                         $params .= ' CHARSET '
                             . mb_strtolower(
@@ -1173,7 +1173,7 @@ class Routines
                 }
             }
             if (! empty($itemParamOpsNum[$i])) {
-                if ($dbi->types->getTypeClass($itemParamType[$i]) == 'NUMBER') {
+                if ($dbi->types->getTypeClass($itemParamType[$i]) === 'NUMBER') {
                     $params .= ' '
                         . mb_strtoupper(
                             $itemParamOpsNum[$i]
@@ -1236,13 +1236,13 @@ class Routines
             }
         }
         if (! empty($_POST['item_returnopts_text'])) {
-            if ($dbi->types->getTypeClass($itemReturnType) == 'CHAR') {
+            if ($dbi->types->getTypeClass($itemReturnType) === 'CHAR') {
                 $query .= ' CHARSET '
                     . mb_strtolower($_POST['item_returnopts_text']);
             }
         }
         if (! empty($_POST['item_returnopts_num'])) {
-            if ($dbi->types->getTypeClass($itemReturnType) == 'NUMBER') {
+            if ($dbi->types->getTypeClass($itemReturnType) === 'NUMBER') {
                 $query .= ' '
                     . mb_strtoupper($_POST['item_returnopts_num']);
             }
@@ -1288,8 +1288,8 @@ class Routines
                 $errors[] = __('The definer must be in the "username@hostname" format!');
             }
         }
-        if ($itemType == 'FUNCTION'
-            || $itemType == 'PROCEDURE'
+        if ($itemType === 'FUNCTION'
+            || $itemType === 'PROCEDURE'
         ) {
             $query .= $itemType . ' ';
         } else {
@@ -1333,7 +1333,7 @@ class Routines
         }
 
         $query .= '(' . $params . ') ';
-        if ($itemType == 'FUNCTION') {
+        if ($itemType === 'FUNCTION') {
             $query = $this->processFunctionSpecificParameters($query, $warnedAboutLength);
         }
         if (! empty($_POST['item_comment'])) {
@@ -1408,12 +1408,12 @@ class Routines
             } else {
                 $args[] = '@p' . $i;
             }
-            if ($routine['item_type'] != 'PROCEDURE') {
+            if ($routine['item_type'] !== 'PROCEDURE') {
                 continue;
             }
 
-            if ($routine['item_param_dir'][$i] != 'OUT'
-                && $routine['item_param_dir'][$i] != 'INOUT'
+            if ($routine['item_param_dir'][$i] !== 'OUT'
+                && $routine['item_param_dir'][$i] !== 'INOUT'
             ) {
                 continue;
             }
@@ -1421,7 +1421,7 @@ class Routines
             $end_query[] = '@p' . $i . ' AS '
                 . Util::backquote($routine['item_param_name'][$i]);
         }
-        if ($routine['item_type'] == 'PROCEDURE') {
+        if ($routine['item_type'] === 'PROCEDURE') {
             $queries[] = 'CALL ' . Util::backquote($routine['item_name'])
                         . '(' . implode(', ', $args) . ");\n";
             if (count($end_query)) {
@@ -1532,7 +1532,7 @@ class Routines
             $output .= '</fieldset>';
 
             $message = __('Your SQL query has been executed successfully.');
-            if ($routine['item_type'] == 'PROCEDURE') {
+            if ($routine['item_type'] === 'PROCEDURE') {
                 $message .= '<br>';
 
                 // TODO : message need to be modified according to the
@@ -1714,8 +1714,8 @@ class Routines
         // Get a list of data types that are not yet supported.
         $no_support_types = Util::unsupportedDatatypes();
         for ($i = 0; $i < $routine['item_num_params']; $i++) { // Each parameter
-            if ($routine['item_type'] == 'PROCEDURE'
-                && $routine['item_param_dir'][$i] == 'OUT'
+            if ($routine['item_type'] === 'PROCEDURE'
+                && $routine['item_param_dir'][$i] === 'OUT'
             ) {
                 continue;
             }
@@ -1753,16 +1753,16 @@ class Routines
             // Append a class to date/time fields so that
             // jQuery can attach a datepicker to them
             $class = '';
-            if ($routine['item_param_type'][$i] == 'DATETIME'
-                || $routine['item_param_type'][$i] == 'TIMESTAMP'
+            if ($routine['item_param_type'][$i] === 'DATETIME'
+                || $routine['item_param_type'][$i] === 'TIMESTAMP'
             ) {
                 $class = 'datetimefield';
-            } elseif ($routine['item_param_type'][$i] == 'DATE') {
+            } elseif ($routine['item_param_type'][$i] === 'DATE') {
                 $class = 'datefield';
             }
             $retval .= "<td class='nowrap'>\n";
             if (in_array($routine['item_param_type'][$i], ['ENUM', 'SET'])) {
-                if ($routine['item_param_type'][$i] == 'ENUM') {
+                if ($routine['item_param_type'][$i] === 'ENUM') {
                     $input_type = 'radio';
                 } else {
                     $input_type = 'checkbox';
@@ -1870,8 +1870,8 @@ class Routines
             if ($hasExecutePrivilege) {
                 $executeAction = 'execute_routine';
                 for ($i = 0; $i < $params['num']; $i++) {
-                    if ($routine['type'] == 'PROCEDURE'
-                        && $params['dir'][$i] == 'OUT'
+                    if ($routine['type'] === 'PROCEDURE'
+                        && $params['dir'][$i] === 'OUT'
                     ) {
                         continue;
                     }

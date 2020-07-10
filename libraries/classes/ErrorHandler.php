@@ -356,7 +356,7 @@ class ErrorHandler
     {
         $retval = '';
         // display errors if SendErrorReports is set to 'ask'.
-        if ($GLOBALS['cfg']['SendErrorReports'] != 'never') {
+        if ($GLOBALS['cfg']['SendErrorReports'] !== 'never') {
             foreach ($this->getErrors() as $error) {
                 if ($error->isDisplayed()) {
                     continue;
@@ -369,13 +369,13 @@ class ErrorHandler
         }
         // if preference is not 'never' and
         // there are 'actual' errors to be reported
-        if ($GLOBALS['cfg']['SendErrorReports'] != 'never'
+        if ($GLOBALS['cfg']['SendErrorReports'] !== 'never'
             && $this->countErrors() !=  $this->countUserErrors()
         ) {
             // add report button.
             $retval .= '<form method="post" action="' . Url::getFromRoute('/error-report')
                     . '" id="pma_report_errors_form"';
-            if ($GLOBALS['cfg']['SendErrorReports'] == 'always') {
+            if ($GLOBALS['cfg']['SendErrorReports'] === 'always') {
                 // in case of 'always', generate 'invisible' form.
                 $retval .= ' class="hide"';
             }
@@ -394,7 +394,7 @@ class ErrorHandler
                     . __('Automatically send report next time')
                     . '</label>';
 
-            if ($GLOBALS['cfg']['SendErrorReports'] == 'ask') {
+            if ($GLOBALS['cfg']['SendErrorReports'] === 'ask') {
                 // add ignore buttons
                 $retval .= '<input type="submit" value="'
                         . __('Ignore')
@@ -488,7 +488,7 @@ class ErrorHandler
      */
     public function countDisplayErrors(): int
     {
-        if ($GLOBALS['cfg']['SendErrorReports'] != 'never') {
+        if ($GLOBALS['cfg']['SendErrorReports'] !== 'never') {
             return $this->countErrors();
         }
 
@@ -525,7 +525,7 @@ class ErrorHandler
      */
     public function hasErrorsForPrompt(): bool
     {
-        return $GLOBALS['cfg']['SendErrorReports'] != 'never'
+        return $GLOBALS['cfg']['SendErrorReports'] !== 'never'
             && $this->countErrors() !=  $this->countUserErrors();
     }
 
@@ -547,7 +547,7 @@ class ErrorHandler
         $this->savePreviousErrors();
         $response = Response::getInstance();
         $jsCode = '';
-        if ($GLOBALS['cfg']['SendErrorReports'] == 'always') {
+        if ($GLOBALS['cfg']['SendErrorReports'] === 'always') {
             if ($response->isAjax()) {
                 // set flag for automatic report submission.
                 $response->addJSON('sendErrorAlways', '1');
@@ -562,7 +562,7 @@ class ErrorHandler
                                 scrollTop:$(document).height()
                             }, "slow");';
             }
-        } elseif ($GLOBALS['cfg']['SendErrorReports'] == 'ask') {
+        } elseif ($GLOBALS['cfg']['SendErrorReports'] === 'ask') {
             //ask user whether to submit errors or not.
             if (! $response->isAjax()) {
                 // js code to show appropriate msgs, event binding & focusing.

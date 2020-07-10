@@ -204,7 +204,7 @@ class StorageEngine
      */
     public static function isValid($engine)
     {
-        if ($engine == 'PBMS') {
+        if ($engine === 'PBMS') {
             return true;
         }
         $storage_engines = self::getStorageEngines();

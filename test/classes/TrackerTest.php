@@ -437,9 +437,9 @@ class TrackerTest extends AbstractTestCase
                 $version,
                 $new_state
             );
-        } elseif ($type == 'activate') {
+        } elseif ($type === 'activate') {
             $result = Tracker::activateTracking($dbname, $tablename, $version);
-        } elseif ($type == 'deactivate') {
+        } elseif ($type === 'deactivate') {
             $result = Tracker::deactivateTracking($dbname, $tablename, $version);
         }
 

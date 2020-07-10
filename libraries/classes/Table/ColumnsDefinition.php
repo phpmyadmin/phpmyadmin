@@ -312,7 +312,7 @@ final class ColumnsDefinition
                 switch ($columnMeta['Default']) {
                     case null:
                         if ($columnMeta['Default'] === null) {
-                            if ($columnMeta['Null'] == 'YES') {
+                            if ($columnMeta['Null'] === 'YES') {
                                 $columnMeta['DefaultType'] = 'NULL';
                                 $columnMeta['DefaultValue'] = '';
                             } else {
@@ -346,7 +346,7 @@ final class ColumnsDefinition
                 $extracted_columnspec = Util::extractColumnSpec(
                     $columnMeta['Type']
                 );
-                if ($extracted_columnspec['type'] == 'bit') {
+                if ($extracted_columnspec['type'] === 'bit') {
                     $columnMeta['Default']
                         = Util::convertBitDefaultValue($columnMeta['Default']);
                 }
@@ -471,9 +471,9 @@ final class ColumnsDefinition
             if (isset($columnMeta['DefaultValue'])) {
                 $default_value = $columnMeta['DefaultValue'];
             }
-            if ($type_upper == 'BIN)') {
+            if ($type_upper === 'BIN)') {
                 $default_value = Util::convertBitDefaultValue($columnMeta['DefaultValue']);
-            } elseif ($type_upper == 'BINARY' || $type_upper == 'VARBINARY') {
+            } elseif ($type_upper === 'BINARY' || $type_upper === 'VARBINARY') {
                 $default_value = bin2hex($columnMeta['DefaultValue']);
             }
 

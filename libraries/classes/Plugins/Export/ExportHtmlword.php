@@ -634,7 +634,7 @@ class ExportHtmlword extends ExportPlugin
         }
 
         if (! isset($column['Default'])) {
-            if ($column['Null'] != 'NO') {
+            if ($column['Null'] !== 'NO') {
                 $column['Default'] = 'NULL';
             }
         }
@@ -645,7 +645,7 @@ class ExportHtmlword extends ExportPlugin
             $fmt_pre = '<strong>' . $fmt_pre;
             $fmt_post .= '</strong>';
         }
-        if ($column['Key'] == 'PRI') {
+        if ($column['Key'] === 'PRI') {
             $fmt_pre = '<em>' . $fmt_pre;
             $fmt_post .= '</em>';
         }
@@ -653,7 +653,7 @@ class ExportHtmlword extends ExportPlugin
             . htmlspecialchars($col_alias) . $fmt_post . '</td>';
         $definition .= '<td class="print">' . htmlspecialchars($type) . '</td>';
         $definition .= '<td class="print">'
-            . ($column['Null'] == '' || $column['Null'] == 'NO'
+            . ($column['Null'] == '' || $column['Null'] === 'NO'
                 ? __('No')
                 : __('Yes'))
             . '</td>';

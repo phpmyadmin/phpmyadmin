@@ -1016,8 +1016,8 @@ class StructureController extends AbstractController
                 }
         } // end switch
 
-        if ($current_table['TABLE_TYPE'] == 'VIEW'
-            || $current_table['TABLE_TYPE'] == 'SYSTEM VIEW'
+        if ($current_table['TABLE_TYPE'] === 'VIEW'
+            || $current_table['TABLE_TYPE'] === 'SYSTEM VIEW'
         ) {
             // countRecords() takes care of $cfg['MaxExactCountViews']
             $current_table['TABLE_ROWS'] = $this->dbi

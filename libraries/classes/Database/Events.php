@@ -281,7 +281,7 @@ class Events
         }
         $retval['item_type']        = 'ONE TIME';
         $retval['item_type_toggle'] = 'RECURRING';
-        if (isset($_POST['item_type']) && $_POST['item_type'] == 'RECURRING') {
+        if (isset($_POST['item_type']) && $_POST['item_type'] === 'RECURRING') {
             $retval['item_type']        = 'RECURRING';
             $retval['item_type_toggle'] = 'ONE TIME';
         }
@@ -316,7 +316,7 @@ class Events
         $retval['item_name']   = $item['EVENT_NAME'];
         $retval['item_status'] = $item['STATUS'];
         $retval['item_type']   = $item['EVENT_TYPE'];
-        if ($retval['item_type'] == 'RECURRING') {
+        if ($retval['item_type'] === 'RECURRING') {
             $retval['item_type_toggle'] = 'ONE TIME';
         } else {
             $retval['item_type_toggle'] = 'RECURRING';
@@ -327,7 +327,7 @@ class Events
         $retval['item_starts']         = $item['STARTS'];
         $retval['item_ends']           = $item['ENDS'];
         $retval['item_preserve']       = '';
-        if ($item['ON_COMPLETION'] == 'PRESERVE') {
+        if ($item['ON_COMPLETION'] === 'PRESERVE') {
             $retval['item_preserve']   = " checked='checked'";
         }
         $retval['item_definition'] = $item['EVENT_DEFINITION'];
@@ -354,8 +354,8 @@ class Events
     {
         global $db;
 
-        if ($operation == 'change') {
-            if ($item['item_type'] == 'RECURRING') {
+        if ($operation === 'change') {
+            if ($item['item_type'] === 'RECURRING') {
                 $item['item_type']         = 'ONE TIME';
                 $item['item_type_toggle']  = 'RECURRING';
             } else {
@@ -405,7 +405,7 @@ class Events
         if (! empty($_POST['item_type'])
             && in_array($_POST['item_type'], $this->type)
         ) {
-            if ($_POST['item_type'] == 'RECURRING') {
+            if ($_POST['item_type'] === 'RECURRING') {
                 if (! empty($_POST['item_interval_value'])
                     && ! empty($_POST['item_interval_field'])
                     && in_array($_POST['item_interval_field'], $this->interval)

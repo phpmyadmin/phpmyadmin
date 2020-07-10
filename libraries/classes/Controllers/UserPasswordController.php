@@ -47,7 +47,7 @@ class UserPasswordController extends AbstractController
         if (! $cfg['ShowChgPassword']) {
             $cfg['ShowChgPassword'] = $this->dbi->selectDb('mysql');
         }
-        if ($cfg['Server']['auth_type'] == 'config' || ! $cfg['ShowChgPassword']) {
+        if ($cfg['Server']['auth_type'] === 'config' || ! $cfg['ShowChgPassword']) {
             Message::error(
                 __('You don\'t have sufficient privileges to be here right now!')
             )->display();

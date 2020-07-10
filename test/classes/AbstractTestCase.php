@@ -114,7 +114,7 @@ abstract class AbstractTestCase extends TestCase
     {
         $httpProxy = getenv('http_proxy');
         $urlInfo = parse_url((string) $httpProxy);
-        if (PHP_SAPI == 'cli' && is_array($urlInfo)) {
+        if (PHP_SAPI === 'cli' && is_array($urlInfo)) {
             $proxyUrl = ($urlInfo['host'] ?? '')
                 . (isset($urlInfo['port']) ? ':' . $urlInfo['port'] : '');
             $proxyUser = $urlInfo['user'] ?? '';

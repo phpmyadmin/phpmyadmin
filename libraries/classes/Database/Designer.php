@@ -194,7 +194,7 @@ class Designer
         $params_array = $this->getSideMenuParamsArray();
 
         if (isset($params_array['angular_direct'])
-            && $params_array['angular_direct'] == 'angular'
+            && $params_array['angular_direct'] === 'angular'
         ) {
             $classes_array['angular_direct'] = 'M_butt_Selected_down';
         } else {
@@ -202,7 +202,7 @@ class Designer
         }
 
         if (isset($params_array['snap_to_grid'])
-            && $params_array['snap_to_grid'] == 'on'
+            && $params_array['snap_to_grid'] === 'on'
         ) {
             $classes_array['snap_to_grid'] = 'M_butt_Selected_down';
         } else {
@@ -210,7 +210,7 @@ class Designer
         }
 
         if (isset($params_array['pin_text'])
-            && $params_array['pin_text'] == 'true'
+            && $params_array['pin_text'] === 'true'
         ) {
             $classes_array['pin_text'] = 'M_butt_Selected_down';
         } else {
@@ -218,7 +218,7 @@ class Designer
         }
 
         if (isset($params_array['relation_lines'])
-            && $params_array['relation_lines'] == 'false'
+            && $params_array['relation_lines'] === 'false'
         ) {
             $classes_array['relation_lines'] = 'M_butt_Selected_down';
         } else {
@@ -226,7 +226,7 @@ class Designer
         }
 
         if (isset($params_array['small_big_all'])
-            && $params_array['small_big_all'] == 'v'
+            && $params_array['small_big_all'] === 'v'
         ) {
             $classes_array['small_big_all'] = 'M_butt_Selected_down';
         } else {
@@ -234,7 +234,7 @@ class Designer
         }
 
         if (isset($params_array['side_menu'])
-            && $params_array['side_menu'] == 'true'
+            && $params_array['side_menu'] === 'true'
         ) {
             $classes_array['side_menu'] = 'M_butt_Selected_down';
         } else {

@@ -538,7 +538,7 @@ class Core
          * Avoid relative path redirect problems in case user entered URL
          * like /phpmyadmin/index.php/ which some web servers happily accept.
          */
-        if ($uri[0] == '.') {
+        if ($uri[0] === '.') {
             $uri = $GLOBALS['PMA_Config']->getRootPath() . substr($uri, 2);
         }
 
@@ -1072,7 +1072,7 @@ class Core
      */
     public static function sanitizeMySQLHost(string $name): string
     {
-        while (strtolower(substr($name, 0, 2)) == 'p:') {
+        while (strtolower(substr($name, 0, 2)) === 'p:') {
             $name = substr($name, 2);
         }
 
@@ -1136,7 +1136,7 @@ class Core
                     }
                     // skip string, quotes and ;
                     $i += 2 + $strlen + 1;
-                    if ($data[$i] != ';') {
+                    if ($data[$i] !== ';') {
                         return null;
                     }
                     break;

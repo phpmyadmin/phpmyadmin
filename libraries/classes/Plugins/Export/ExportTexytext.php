@@ -605,7 +605,7 @@ class ExportTexytext extends ExportPlugin
         }
 
         if (! isset($column['Default'])) {
-            if ($column['Null'] != 'NO') {
+            if ($column['Null'] !== 'NO') {
                 $column['Default'] = 'NULL';
             }
         }
@@ -616,7 +616,7 @@ class ExportTexytext extends ExportPlugin
             $fmt_pre = '**' . $fmt_pre;
             $fmt_post .= '**';
         }
-        if ($column['Key'] == 'PRI') {
+        if ($column['Key'] === 'PRI') {
             $fmt_pre = '//' . $fmt_pre;
             $fmt_post .= '//';
         }
@@ -624,7 +624,7 @@ class ExportTexytext extends ExportPlugin
             . $fmt_pre . htmlspecialchars($col_alias) . $fmt_post;
         $definition .= '|' . htmlspecialchars($type);
         $definition .= '|'
-            . ($column['Null'] == '' || $column['Null'] == 'NO'
+            . ($column['Null'] == '' || $column['Null'] === 'NO'
                 ? __('No') : __('Yes'));
         $definition .= '|'
             . htmlspecialchars(

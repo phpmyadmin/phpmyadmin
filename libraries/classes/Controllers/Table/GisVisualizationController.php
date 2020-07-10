@@ -55,7 +55,7 @@ final class GisVisualizationController extends AbstractController
         $labelCandidates = [];
         $spatialCandidates = [];
         foreach ($meta as $column_meta) {
-            if ($column_meta->type == 'geometry') {
+            if ($column_meta->type === 'geometry') {
                 $spatialCandidates[] = $column_meta->name;
             } else {
                 $labelCandidates[] = $column_meta->name;
@@ -88,7 +88,7 @@ final class GisVisualizationController extends AbstractController
         if (isset($_GET['session_max_rows'])) {
             $rows = $_GET['session_max_rows'];
         } else {
-            if ($_SESSION['tmpval']['max_rows'] != 'all') {
+            if ($_SESSION['tmpval']['max_rows'] !== 'all') {
                 $rows = $_SESSION['tmpval']['max_rows'];
             } else {
                 $rows = $GLOBALS['cfg']['MaxRows'];

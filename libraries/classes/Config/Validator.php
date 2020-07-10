@@ -81,7 +81,7 @@ class Validator
                     continue;
                 }
                 for ($i = 1, $nb = count($uv); $i < $nb; $i++) {
-                    if (mb_substr($uv[$i], 0, 6) != 'value:') {
+                    if (mb_substr($uv[$i], 0, 6) !== 'value:') {
                         continue;
                     }
 
@@ -269,7 +269,7 @@ class Validator
             $result['Servers/1/auth_type'] = __('Invalid authentication type!');
             $error = true;
         }
-        if ($values['Servers/1/auth_type'] == 'config'
+        if ($values['Servers/1/auth_type'] === 'config'
             && empty($values['Servers/1/user'])
         ) {
             $result['Servers/1/user'] = __(
@@ -277,7 +277,7 @@ class Validator
             );
             $error = true;
         }
-        if ($values['Servers/1/auth_type'] == 'signon'
+        if ($values['Servers/1/auth_type'] === 'signon'
             && empty($values['Servers/1/SignonSession'])
         ) {
             $result['Servers/1/SignonSession'] = __(
@@ -286,7 +286,7 @@ class Validator
             );
             $error = true;
         }
-        if ($values['Servers/1/auth_type'] == 'signon'
+        if ($values['Servers/1/auth_type'] === 'signon'
             && empty($values['Servers/1/SignonURL'])
         ) {
             $result['Servers/1/SignonURL'] = __(
@@ -296,7 +296,7 @@ class Validator
             $error = true;
         }
 
-        if (! $error && $values['Servers/1/auth_type'] == 'config') {
+        if (! $error && $values['Servers/1/auth_type'] === 'config') {
             $password = '';
             if (! empty($values['Servers/1/password'])) {
                 $password = $values['Servers/1/password'];

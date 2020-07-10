@@ -107,7 +107,7 @@ class EpsRelationSchema extends ExportRelationSchema
                 * (do not use array_search() because we would have to
                 * to do a === false and this is not PHP3 compatible)
                 */
-                if ($master_field != 'foreign_keys_data') {
+                if ($master_field !== 'foreign_keys_data') {
                     if (in_array($rel['foreign_table'], $alltables)) {
                         $this->addRelation(
                             $one_table,

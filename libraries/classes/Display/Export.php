@@ -333,9 +333,9 @@ class Export
     {
         $trans = new Message();
         $trans->addText(__('@SERVER@ will become the server name'));
-        if ($exportType == 'database' || $exportType == 'table') {
+        if ($exportType === 'database' || $exportType === 'table') {
             $trans->addText(__(', @DATABASE@ will become the database name'));
-            if ($exportType == 'table') {
+            if ($exportType === 'table') {
                 $trans->addText(__(', @TABLE@ will become the table name'));
             }
         }
@@ -363,12 +363,12 @@ class Export
         if (isset($_POST['filename_template'])) {
             $filenameTemplate = $_POST['filename_template'];
         } else {
-            if ($exportType == 'database') {
+            if ($exportType === 'database') {
                 $filenameTemplate = $GLOBALS['PMA_Config']->getUserValue(
                     'pma_db_filename_template',
                     $GLOBALS['cfg']['Export']['file_template_database']
                 );
-            } elseif ($exportType == 'table') {
+            } elseif ($exportType === 'table') {
                 $filenameTemplate = $GLOBALS['PMA_Config']->getUserValue(
                     'pma_table_filename_template',
                     $GLOBALS['cfg']['Export']['file_template_table']
@@ -496,7 +496,7 @@ class Export
         }
         $optionsOutputCompression = $this->getHtmlForOptionsOutputCompression();
         $optionsOutputSeparateFiles = '';
-        if ($exportType == 'server' || $exportType == 'database') {
+        if ($exportType === 'server' || $exportType === 'database') {
             $optionsOutputSeparateFiles = $this->getHtmlForOptionsOutputSeparateFiles(
                 $exportType
             );
@@ -800,12 +800,12 @@ class Export
         }
 
         $response->setRequestStatus(true);
-        if ($_POST['templateAction'] == 'create') {
+        if ($_POST['templateAction'] === 'create') {
             $response->addJSON(
                 'data',
                 $this->getOptionsForTemplates($_POST['exportType'])
             );
-        } elseif ($_POST['templateAction'] == 'load') {
+        } elseif ($_POST['templateAction'] === 'load') {
             $data = null;
             while ($row = $GLOBALS['dbi']->fetchAssoc(
                 $result,

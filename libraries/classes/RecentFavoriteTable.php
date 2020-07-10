@@ -199,7 +199,7 @@ class RecentFavoriteTable
     {
         $html = '';
         if (count($this->_tables)) {
-            if ($this->_tableType == 'recent') {
+            if ($this->_tableType === 'recent') {
                 foreach ($this->_tables as $table) {
                     $html .= '<li class="warp_link">';
                     $recent_url = Url::getFromRoute('/table/recent-favorite', [
@@ -242,7 +242,7 @@ class RecentFavoriteTable
             }
         } else {
             $html .= '<li class="warp_link">'
-                  . ($this->_tableType == 'recent'
+                  . ($this->_tableType === 'recent'
                     ? __('There are no recent tables.')
                     : __('There are no favorite tables.'))
                   . '</li>';
@@ -259,7 +259,7 @@ class RecentFavoriteTable
     public function getHtml()
     {
         $html  = '<div class="drop_list">';
-        if ($this->_tableType == 'recent') {
+        if ($this->_tableType === 'recent') {
             $html .= '<button title="' . __('Recent tables')
                 . '" class="drop_button btn">'
                 . __('Recent') . '</button><ul id="pma_recent_list">';

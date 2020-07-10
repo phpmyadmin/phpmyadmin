@@ -216,7 +216,7 @@ class Encoding
      */
     public static function canConvertKanji(): bool
     {
-        return $GLOBALS['lang'] == 'ja';
+        return $GLOBALS['lang'] === 'ja';
     }
 
     /**
@@ -243,7 +243,7 @@ class Encoding
     public static function kanjiChangeOrder(): void
     {
         $parts = explode(',', self::$_kanji_encodings);
-        if ($parts[1] == 'EUC-JP') {
+        if ($parts[1] === 'EUC-JP') {
             self::$_kanji_encodings = 'ASCII,SJIS,EUC-JP,JIS';
         } else {
             self::$_kanji_encodings = 'ASCII,EUC-JP,SJIS,JIS';
@@ -270,7 +270,7 @@ class Encoding
             $string_encoding = 'utf-8';
         }
 
-        if ($kana == 'kana') {
+        if ($kana === 'kana') {
             $dist = mb_convert_kana($str, 'KV', $string_encoding);
             $str  = $dist;
         }

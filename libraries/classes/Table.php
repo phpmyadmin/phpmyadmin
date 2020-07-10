@@ -242,11 +242,11 @@ class Table
         ) {
             $type = $this->getStatusInfo('TABLE_TYPE');
 
-            return $type == 'VIEW' || $type == 'SYSTEM VIEW';
+            return $type === 'VIEW' || $type === 'SYSTEM VIEW';
         }
 
         // information_schema tables are 'SYSTEM VIEW's
-        if ($db == 'information_schema') {
+        if ($db === 'information_schema') {
             return true;
         }
 
@@ -335,7 +335,7 @@ class Table
         if ($cachedResult === null) {
             // happens when we enter the table creation dialog
             // or when we really did not get any status info, for example
-            // when $table == 'TABLE_NAMES' after the user tried SHOW TABLES
+            // when $table === 'TABLE_NAMES' after the user tried SHOW TABLES
             return '';
         }
 
@@ -566,7 +566,7 @@ class Table
             '@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR|CHAR|ENUM|SET)$@i',
             $type
         );
-        if (! empty($collation) && $collation != 'NULL' && $matches) {
+        if (! empty($collation) && $collation !== 'NULL' && $matches) {
             $query .= Util::getCharsetQueryPart(
                 $isVirtualColMariaDB ? (string) preg_replace('~_.+~s', '', $collation) : $collation,
                 true
@@ -579,7 +579,7 @@ class Table
 
         if (! $virtuality || $isVirtualColMysql) {
             if ($null !== false) {
-                if ($null == 'YES') {
+                if ($null === 'YES') {
                     $query .= ' NULL';
                 } else {
                     $query .= ' NOT NULL';
@@ -593,11 +593,11 @@ class Table
                             // a TIMESTAMP does not accept DEFAULT '0'
                             // but DEFAULT 0 works
                             $query .= ' DEFAULT 0';
-                        } elseif ($type == 'BIT') {
+                        } elseif ($type === 'BIT') {
                             $query .= ' DEFAULT b\''
                             . preg_replace('/[^01]/', '0', $default_value)
                             . '\'';
-                        } elseif ($type == 'BOOLEAN') {
+                        } elseif ($type === 'BOOLEAN') {
                             if (preg_match('/^1|T|TRUE|YES$/i', (string) $default_value)) {
                                 $query .= ' DEFAULT TRUE';
                             } elseif (preg_match('/^0|F|FALSE|NO$/i', $default_value)) {
@@ -607,7 +607,7 @@ class Table
                                 $query .= ' DEFAULT \''
                                 . $dbi->escapeString($default_value) . '\'';
                             }
-                        } elseif ($type == 'BINARY' || $type == 'VARBINARY') {
+                        } elseif ($type === 'BINARY' || $type === 'VARBINARY') {
                             $query .= ' DEFAULT 0x' . $default_value;
                         } else {
                             $query .= ' DEFAULT \''
@@ -654,7 +654,7 @@ class Table
         }
 
         // move column
-        if ($move_to == '-first') { // dash can't appear as part of column name
+        if ($move_to === '-first') { // dash can't appear as part of column name
             $query .= ' FIRST';
         } elseif ($move_to != '') {
             $query .= ' AFTER ' . Util::backquote($move_to);
@@ -1000,7 +1000,7 @@ class Table
         $relation = new Relation($dbi);
 
         // Try moving the tables directly, using native `RENAME` statement.
-        if ($move && $what == 'data') {
+        if ($move && $what === 'data') {
             $tbl = new Table($source_table, $source_db);
             if ($tbl->rename($target_table, $target_db)) {
                 $GLOBALS['message'] = $tbl->getLastMessage();
@@ -1062,7 +1062,7 @@ class Table
             . '.' . Util::backquote($target_table);
 
         // No table is created when this is a data-only operation.
-        if ($what != 'dataonly') {
+        if ($what !== 'dataonly') {
             /**
              * Instance used for exporting the current structure of the table.
              *
@@ -1127,7 +1127,7 @@ class Table
             // and required).
 
             if (isset($_POST['drop_if_exists'])
-                && $_POST['drop_if_exists'] == 'true'
+                && $_POST['drop_if_exists'] === 'true'
             ) {
 
                 /**
@@ -1223,11 +1223,11 @@ class Table
                 $GLOBALS['sql_constraints_query'] = $statement->build() . ';';
 
                 // Executing it.
-                if ($mode == 'one_table') {
+                if ($mode === 'one_table') {
                     $dbi->query($GLOBALS['sql_constraints_query']);
                 }
                 $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_constraints_query'];
-                if ($mode == 'one_table') {
+                if ($mode === 'one_table') {
                     unset($GLOBALS['sql_constraints_query']);
                 }
             }
@@ -1263,7 +1263,7 @@ class Table
                     $sql_index = $statement->build() . ';';
 
                     // Executing it.
-                    if ($mode == 'one_table' || $mode == 'db_copy') {
+                    if ($mode === 'one_table' || $mode === 'db_copy') {
                         $dbi->query($sql_index);
                     }
 
@@ -1271,7 +1271,7 @@ class Table
                 }
 
                 $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_indexes'];
-                if ($mode == 'one_table' || $mode == 'db_copy') {
+                if ($mode === 'one_table' || $mode === 'db_copy') {
                     unset($GLOBALS['sql_indexes']);
                 }
             }
@@ -1280,7 +1280,7 @@ class Table
             // Phase 5: Adding AUTO_INCREMENT.
 
             if (! empty($GLOBALS['sql_auto_increments'])) {
-                if ($mode == 'one_table' || $mode == 'db_copy') {
+                if ($mode === 'one_table' || $mode === 'db_copy') {
                     $parser =  new Parser($GLOBALS['sql_auto_increments']);
 
                     /**
@@ -1308,7 +1308,7 @@ class Table
 
         $_table = new Table($target_table, $target_db);
         // Copy the data unless this is a VIEW
-        if (($what == 'data' || $what == 'dataonly')
+        if (($what === 'data' || $what === 'dataonly')
             && ! $_table->isView()
         ) {
             $sql_set_mode = "SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO'";
@@ -1361,7 +1361,7 @@ class Table
 
         // we are copying
         // Create new entries as duplicates from old PMA DBs
-        if ($what == 'dataonly' || isset($maintain_relations)) {
+        if ($what === 'dataonly' || isset($maintain_relations)) {
             return true;
         }
 
@@ -2221,7 +2221,7 @@ class Table
 
         // Drops the old index
         if (! empty($_POST['old_index'])) {
-            if ($_POST['old_index'] == 'PRIMARY') {
+            if ($_POST['old_index'] === 'PRIMARY') {
                 $sql_query .= ' DROP PRIMARY KEY,';
             } else {
                 $sql_query .= sprintf(
@@ -2236,7 +2236,7 @@ class Table
             case 'PRIMARY':
                 if ($index->getName() == '') {
                     $index->setName('PRIMARY');
-                } elseif ($index->getName() != 'PRIMARY') {
+                } elseif ($index->getName() !== 'PRIMARY') {
                     $error = Message::error(
                         __('The name of the primary key must be "PRIMARY"!')
                     );
@@ -2247,7 +2247,7 @@ class Table
             case 'UNIQUE':
             case 'INDEX':
             case 'SPATIAL':
-                if ($index->getName() == 'PRIMARY') {
+                if ($index->getName() === 'PRIMARY') {
                     $error = Message::error(
                         __('Can\'t rename index to PRIMARY!')
                     );
@@ -2290,8 +2290,8 @@ class Table
         // TokuDB is using Fractal Tree, Using Type is not useless
         // Ref: https://mariadb.com/kb/en/mariadb/storage-engine-index-types/
         $type = $index->getType();
-        if ($index->getChoice() != 'SPATIAL'
-            && $index->getChoice() != 'FULLTEXT'
+        if ($index->getChoice() !== 'SPATIAL'
+            && $index->getChoice() !== 'FULLTEXT'
             && in_array($type, Index::getIndexTypes())
             && ! $this->isEngine(['TOKUDB'])
         ) {
@@ -2299,7 +2299,7 @@ class Table
         }
 
         $parser = $index->getParser();
-        if ($index->getChoice() == 'FULLTEXT' && ! empty($parser)) {
+        if ($index->getChoice() === 'FULLTEXT' && ! empty($parser)) {
             $sql_query .= ' WITH PARSER ' . $this->_dbi->escapeString($parser);
         }
 
@@ -2726,7 +2726,7 @@ class Table
     public function getColumnGenerationExpression($column = null)
     {
         $serverType = Util::getServerType();
-        if ($serverType == 'MySQL'
+        if ($serverType === 'MySQL'
             && $this->_dbi->getVersion() > 50705
             && ! $GLOBALS['cfg']['Server']['DisableIS']
         ) {

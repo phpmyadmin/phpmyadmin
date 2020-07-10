@@ -155,9 +155,9 @@ class Operations
             }
 
             // If view exists, and 'add drop view' is selected: Drop it!
-            if ($_POST['what'] != 'nocopy'
+            if ($_POST['what'] !== 'nocopy'
                 && isset($_POST['drop_if_exists'])
-                && $_POST['drop_if_exists'] == 'true'
+                && $_POST['drop_if_exists'] === 'true'
             ) {
                 $drop_query = 'DROP VIEW IF EXISTS '
                     . Util::backquote($_POST['newname']) . '.'
@@ -206,15 +206,15 @@ class Operations
             // do not copy the data from a Merge table
             // note: on the calling FORM, 'data' means 'structure and data'
             if ($this->dbi->getTable($db, (string) $each_table)->isMerge()) {
-                if ($this_what == 'data') {
+                if ($this_what === 'data') {
                     $this_what = 'structure';
                 }
-                if ($this_what == 'dataonly') {
+                if ($this_what === 'dataonly') {
                     $this_what = 'nocopy';
                 }
             }
 
-            if ($this_what == 'nocopy') {
+            if ($this_what === 'nocopy') {
                 continue;
             }
 
@@ -585,7 +585,7 @@ class Operations
          * old versions of MySQL/MariaDB must be returning something or not empty.
          * This patch is to support newer MySQL/MariaDB while also for backward compatibilities.
          */
-        if (($innodb_file_format == 'Barracuda') || ($innodb_file_format == '')
+        if (($innodb_file_format === 'Barracuda') || ($innodb_file_format == '')
             && $innodbEnginePlugin->supportsFilePerTable()
         ) {
             $possible_row_formats['INNODB']['DYNAMIC'] = 'DYNAMIC';
@@ -704,10 +704,10 @@ class Operations
         $partitionMethod = Partition::getPartitionMethod($db, $table);
 
         // add COALESCE or DROP option to choices array depending on Partition method
-        if ($partitionMethod == 'RANGE'
-            || $partitionMethod == 'RANGE COLUMNS'
-            || $partitionMethod == 'LIST'
-            || $partitionMethod == 'LIST COLUMNS'
+        if ($partitionMethod === 'RANGE'
+            || $partitionMethod === 'RANGE COLUMNS'
+            || $partitionMethod === 'LIST'
+            || $partitionMethod === 'LIST COLUMNS'
         ) {
             $choices['DROP'] = __('Drop');
         } else {
@@ -945,9 +945,9 @@ class Operations
             // I just ignore it. But there are other 1478 messages
             // that it's better to show.
             if (isset($_POST['new_tbl_storage_engine'])
-                && $_POST['new_tbl_storage_engine'] == 'MyISAM'
+                && $_POST['new_tbl_storage_engine'] === 'MyISAM'
                 && $warning['Code'] == '1478'
-                && $warning['Level'] == 'Error'
+                && $warning['Level'] === 'Error'
             ) {
                 continue;
             }
@@ -972,7 +972,7 @@ class Operations
             . $_POST['partition_operation']
             . ' PARTITION ';
 
-        if ($_POST['partition_operation'] == 'COALESCE') {
+        if ($_POST['partition_operation'] === 'COALESCE') {
             $sql_query .= count($_POST['partition_name']);
         } else {
             $sql_query .= implode(', ', $_POST['partition_name']) . ';';

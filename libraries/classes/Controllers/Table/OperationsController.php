@@ -375,10 +375,10 @@ class OperationsController extends AbstractController
         // `ALTER TABLE ORDER BY` does not make sense for InnoDB tables that contain
         // a user-defined clustered index (PRIMARY KEY or NOT NULL UNIQUE index).
         // InnoDB always orders table rows according to such an index if one is present.
-        if ($tbl_storage_engine == 'INNODB') {
+        if ($tbl_storage_engine === 'INNODB') {
             $indexes = Index::getFromTable($table, $db);
             foreach ($indexes as $name => $idx) {
-                if ($name == 'PRIMARY') {
+                if ($name === 'PRIMARY') {
                     $hideOrderTable = true;
                     break;
                 }

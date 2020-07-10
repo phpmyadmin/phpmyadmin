@@ -323,9 +323,9 @@ class GisGeometryCollection extends GisGeometry
         $start = 0;
         $count = 0;
         foreach (str_split($geom_col) as $char) {
-            if ($char == '(') {
+            if ($char === '(') {
                 $br_count++;
-            } elseif ($char == ')') {
+            } elseif ($char === ')') {
                 $br_count--;
                 if ($br_count == 0) {
                     $sub_parts[]

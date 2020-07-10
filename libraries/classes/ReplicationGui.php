@@ -50,11 +50,11 @@ class ReplicationGui
     {
         $html = '';
         if (isset($_SESSION['replication']['sr_action_status'], $_SESSION['replication']['sr_action_info'])) {
-            if ($_SESSION['replication']['sr_action_status'] == 'error') {
+            if ($_SESSION['replication']['sr_action_status'] === 'error') {
                 $error_message = $_SESSION['replication']['sr_action_info'];
                 $html .= Message::error($error_message)->getDisplay();
                 $_SESSION['replication']['sr_action_status'] = 'unknown';
-            } elseif ($_SESSION['replication']['sr_action_status'] == 'success') {
+            } elseif ($_SESSION['replication']['sr_action_status'] === 'success') {
                 $success_message = $_SESSION['replication']['sr_action_info'];
                 $html .= Message::success($success_message)->getDisplay();
                 $_SESSION['replication']['sr_action_status'] = 'unknown';
@@ -129,7 +129,7 @@ class ReplicationGui
             $urlParams['sr_take_action'] = true;
             $urlParams['sr_slave_server_control'] = true;
 
-            if ($serverSlaveReplication[0]['Slave_IO_Running'] == 'No') {
+            if ($serverSlaveReplication[0]['Slave_IO_Running'] === 'No') {
                 $urlParams['sr_slave_action'] = 'start';
             } else {
                 $urlParams['sr_slave_action'] = 'stop';
@@ -138,7 +138,7 @@ class ReplicationGui
             $urlParams['sr_slave_control_parm'] = 'IO_THREAD';
             $slaveControlIoLink = Url::getCommon($urlParams, '');
 
-            if ($serverSlaveReplication[0]['Slave_SQL_Running'] == 'No') {
+            if ($serverSlaveReplication[0]['Slave_SQL_Running'] === 'No') {
                 $urlParams['sr_slave_action'] = 'start';
             } else {
                 $urlParams['sr_slave_action'] = 'stop';
@@ -147,8 +147,8 @@ class ReplicationGui
             $urlParams['sr_slave_control_parm'] = 'SQL_THREAD';
             $slaveControlSqlLink = Url::getCommon($urlParams, '');
 
-            if ($serverSlaveReplication[0]['Slave_IO_Running'] == 'No'
-                || $serverSlaveReplication[0]['Slave_SQL_Running'] == 'No'
+            if ($serverSlaveReplication[0]['Slave_IO_Running'] === 'No'
+                || $serverSlaveReplication[0]['Slave_SQL_Running'] === 'No'
             ) {
                 $urlParams['sr_slave_action'] = 'start';
             } else {
@@ -328,13 +328,13 @@ class ReplicationGui
         $username_length = 16;
         $hostname_length = 41;
         foreach ($fields_info as $val) {
-            if ($val['Field'] == 'User') {
+            if ($val['Field'] === 'User') {
                 strtok($val['Type'], '()');
                 $v = strtok('()');
                 if (Util::isInteger($v)) {
                     $username_length = (int) $v;
                 }
-            } elseif ($val['Field'] == 'Host') {
+            } elseif ($val['Field'] === 'Host') {
                 strtok($val['Type'], '()');
                 $v = strtok('()');
                 if (Util::isInteger($v)) {
@@ -570,7 +570,7 @@ class ReplicationGui
         if (empty($_POST['sr_slave_control_parm'])) {
             $_POST['sr_slave_control_parm'] = null;
         }
-        if ($_POST['sr_slave_action'] == 'reset') {
+        if ($_POST['sr_slave_action'] === 'reset') {
             $qStop = $this->replication->slaveControl('STOP', null, DatabaseInterface::CONNECT_USER);
             $qReset = $GLOBALS['dbi']->tryQuery('RESET SLAVE;');
             $qStart = $this->replication->slaveControl('START', null, DatabaseInterface::CONNECT_USER);

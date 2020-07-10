@@ -89,7 +89,7 @@ class Select
                     $label .= ' - ' . implode(', ', $server['only_db']);
                 }
             }
-            if (! empty($server['user']) && $server['auth_type'] == 'config') {
+            if (! empty($server['user']) && $server['auth_type'] === 'config') {
                 $label .= '  (' . $server['user'] . ')';
             }
 

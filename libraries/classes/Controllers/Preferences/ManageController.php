@@ -73,7 +73,7 @@ class ManageController extends AbstractController
         $this->userPreferences->pageInit($cf);
 
         $error = '';
-        if (isset($_POST['submit_export'], $_POST['export_type']) && $_POST['export_type'] == 'text_file') {
+        if (isset($_POST['submit_export'], $_POST['export_type']) && $_POST['export_type'] === 'text_file') {
             // export to JSON file
             $this->response->disable();
             $filename = 'phpMyAdmin-config-' . urlencode(Core::getenv('HTTP_HOST')) . '.json';
@@ -84,7 +84,7 @@ class ManageController extends AbstractController
             return;
         }
 
-        if (isset($_POST['submit_export'], $_POST['export_type']) && $_POST['export_type'] == 'php_file') {
+        if (isset($_POST['submit_export'], $_POST['export_type']) && $_POST['export_type'] === 'php_file') {
             // export to JSON file
             $this->response->disable();
             $filename = 'phpMyAdmin-config-' . urlencode(Core::getenv('HTTP_HOST')) . '.php';
@@ -112,7 +112,7 @@ class ManageController extends AbstractController
             // load from JSON file
             $json = '';
             if (isset($_POST['import_type'], $_FILES['import_file'])
-                && $_POST['import_type'] == 'text_file'
+                && $_POST['import_type'] === 'text_file'
                 && $_FILES['import_file']['error'] == UPLOAD_ERR_OK
                 && is_uploaded_file($_FILES['import_file']['tmp_name'])
             ) {
@@ -206,7 +206,7 @@ class ManageController extends AbstractController
                         foreach ($query as $q) {
                             $pos = mb_strpos($q, '=');
                             $k = mb_substr($q, 0, (int) $pos);
-                            if ($k == 'token') {
+                            if ($k === 'token') {
                                 continue;
                             }
                             $params[$k] = mb_substr($q, $pos + 1);

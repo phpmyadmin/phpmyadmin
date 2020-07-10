@@ -604,13 +604,13 @@ class Pdf extends PdfLib
             }
 
             if (! isset($column['Default'])) {
-                if ($column['Null'] != 'NO') {
+                if ($column['Null'] !== 'NO') {
                     $column['Default'] = 'NULL';
                 }
             }
             $data[] = $column['Field'];
             $data[] = $type;
-            $data[] = $column['Null'] == '' || $column['Null'] == 'NO'
+            $data[] = $column['Null'] == '' || $column['Null'] === 'NO'
                 ? 'No'
                 : 'Yes';
             $data[] = $column['Default'] ?? '';

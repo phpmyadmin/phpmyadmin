@@ -136,7 +136,7 @@ abstract class AuthenticationPlugin
          */
         $server = 0;
         if ($GLOBALS['cfg']['LoginCookieDeleteAll'] === false
-            && $GLOBALS['cfg']['Server']['auth_type'] == 'cookie'
+            && $GLOBALS['cfg']['Server']['auth_type'] === 'cookie'
         ) {
             foreach ($GLOBALS['cfg']['Servers'] as $key => $val) {
                 if (! $PMA_Config->issetCookie('pmaAuth-' . $key)) {
@@ -184,18 +184,18 @@ abstract class AuthenticationPlugin
      */
     public function getErrorMessage($failure)
     {
-        if ($failure == 'empty-denied') {
+        if ($failure === 'empty-denied') {
             return __(
                 'Login without a password is forbidden by configuration'
                 . ' (see AllowNoPassword)'
             );
         }
 
-        if ($failure == 'root-denied' || $failure == 'allow-denied') {
+        if ($failure === 'root-denied' || $failure === 'allow-denied') {
             return __('Access denied!');
         }
 
-        if ($failure == 'no-activity') {
+        if ($failure === 'no-activity') {
             return sprintf(
                 __('You have been automatically logged out due to inactivity of %s seconds.'
                 . ' Once you log in again, you should be able to resume the work where you left off.'),
@@ -292,7 +292,7 @@ abstract class AuthenticationPlugin
         // user based on mod_access in Apache
         if (isset($cfg['Server']['AllowDeny']['order'])) {
             $allowDeny_forbidden         = false; // default
-            if ($cfg['Server']['AllowDeny']['order'] == 'allow,deny') {
+            if ($cfg['Server']['AllowDeny']['order'] === 'allow,deny') {
                 $allowDeny_forbidden     = true;
                 if ($this->ipAllowDeny->allow()) {
                     $allowDeny_forbidden = false;
@@ -300,14 +300,14 @@ abstract class AuthenticationPlugin
                 if ($this->ipAllowDeny->deny()) {
                     $allowDeny_forbidden = true;
                 }
-            } elseif ($cfg['Server']['AllowDeny']['order'] == 'deny,allow') {
+            } elseif ($cfg['Server']['AllowDeny']['order'] === 'deny,allow') {
                 if ($this->ipAllowDeny->deny()) {
                     $allowDeny_forbidden = true;
                 }
                 if ($this->ipAllowDeny->allow()) {
                     $allowDeny_forbidden = false;
                 }
-            } elseif ($cfg['Server']['AllowDeny']['order'] == 'explicit') {
+            } elseif ($cfg['Server']['AllowDeny']['order'] === 'explicit') {
                 if ($this->ipAllowDeny->allow() && ! $this->ipAllowDeny->deny()) {
                     $allowDeny_forbidden = false;
                 } else {
@@ -322,7 +322,7 @@ abstract class AuthenticationPlugin
         } // end if
 
         // is root allowed?
-        if (! $cfg['Server']['AllowRoot'] && $cfg['Server']['user'] == 'root') {
+        if (! $cfg['Server']['AllowRoot'] && $cfg['Server']['user'] === 'root') {
             $this->showFailure('root-denied');
         }
 

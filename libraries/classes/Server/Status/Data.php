@@ -295,7 +295,7 @@ class Data
                 $allocationMap[$name] = $section;
                 $sectionUsed[$section] = true;
                 $section_found = true;
-                if ($section == 'com' && $value > 0) {
+                if ($section === 'com' && $value > 0) {
                     $used_queries[$name] = $value;
                 }
                 break; // Only exits inner loop

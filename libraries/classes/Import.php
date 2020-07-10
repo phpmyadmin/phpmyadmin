@@ -417,7 +417,7 @@ class Import
             return true;
         }
 
-        if ($GLOBALS['import_file'] == 'none') {
+        if ($GLOBALS['import_file'] === 'none') {
             // Well this is not yet supported and tested,
             // but should return content of textarea
             if (mb_strlen($GLOBALS['import_text']) < $size) {
@@ -1583,7 +1583,7 @@ class Import
         foreach ($analyzed_sql_results['statement']->set as $set) {
             $columns[] = $set->column;
             $not_equal_operator = ' <> ';
-            if (strtoupper($set->value) == 'NULL') {
+            if (strtoupper($set->value) === 'NULL') {
                 $not_equal_operator = ' IS NOT ';
             }
             $diff[] = $set->column . $not_equal_operator . $set->value;

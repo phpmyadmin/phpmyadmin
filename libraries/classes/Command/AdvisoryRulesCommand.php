@@ -89,7 +89,7 @@ class AdvisoryRulesCommand extends Command
      */
     private function addMessage(string $file, array $rules, int $index, string $type): void
     {
-        if ($type == 'justification') {
+        if ($type === 'justification') {
             $messages = Advisor::splitJustification($rules['rules'][$index]);
             $message = $messages[0];
         } else {

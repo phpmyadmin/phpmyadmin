@@ -122,7 +122,7 @@ class GisDataEditorController extends AbstractController
         }
 
         $geom_count = 1;
-        if ($geom_type == 'GEOMETRYCOLLECTION') {
+        if ($geom_type === 'GEOMETRYCOLLECTION') {
             $geom_count = isset($gis_data[$geom_type]['geom_count'])
                 ? intval($gis_data[$geom_type]['geom_count']) : 1;
             if (isset($gis_data[$geom_type]['add_geom'])) {

@@ -180,7 +180,7 @@ class ImportSql extends ImportPlugin
     {
         $sql_modes = [];
         if (isset($request['sql_compatibility'])
-            && $request['sql_compatibility'] != 'NONE'
+            && $request['sql_compatibility'] !== 'NONE'
         ) {
             $sql_modes[] = $request['sql_compatibility'];
         }

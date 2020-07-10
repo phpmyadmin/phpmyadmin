@@ -113,7 +113,7 @@ class NodeDatabase extends Node
     private function getTableOrViewCount($which, $searchClause, $singleItem)
     {
         $db = $this->realName;
-        if ($which == 'tables') {
+        if ($which === 'tables') {
             $condition = 'IN';
         } else {
             $condition = 'NOT IN';
@@ -451,7 +451,7 @@ class NodeDatabase extends Node
      */
     private function getTablesOrViews($which, int $pos, $searchClause)
     {
-        if ($which == 'tables') {
+        if ($which === 'tables') {
             $condition = 'IN';
         } else {
             $condition = 'NOT IN';

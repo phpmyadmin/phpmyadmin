@@ -728,8 +728,8 @@ class LanguageManager
             $path = LOCALE_PATH
                 . '/' . $file
                 . '/LC_MESSAGES/phpmyadmin.mo';
-            if ($file == '.'
-                || $file == '..'
+            if ($file === '.'
+                || $file === '..'
                 || ! @file_exists($path)
             ) {
                 continue;
@@ -976,7 +976,7 @@ class LanguageManager
         // not a proper word in the current language; we show it to help
         // people recognize the dialog
         $language_title = __('Language')
-            . (__('Language') != 'Language' ? ' - <em>Language</em>' : '');
+            . (__('Language') !== 'Language' ? ' - <em>Language</em>' : '');
         if ($show_doc) {
             $language_title .= MySQLDocumentation::showDocumentation('faq', 'faq7-2');
         }

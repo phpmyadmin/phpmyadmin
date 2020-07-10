@@ -279,7 +279,7 @@ class ExportOds extends ExportPlugin
                         .= '<table:table-cell office:value-type="string">'
                         . '<text:p></text:p>'
                         . '</table:table-cell>';
-                } elseif ($fields_meta[$j]->type == 'date') {
+                } elseif ($fields_meta[$j]->type === 'date') {
                     $GLOBALS['ods_buffer']
                         .= '<table:table-cell office:value-type="date"'
                         . ' office:date-value="'
@@ -289,7 +289,7 @@ class ExportOds extends ExportPlugin
                         . htmlspecialchars($row[$j])
                         . '</text:p>'
                         . '</table:table-cell>';
-                } elseif ($fields_meta[$j]->type == 'time') {
+                } elseif ($fields_meta[$j]->type === 'time') {
                     $GLOBALS['ods_buffer']
                         .= '<table:table-cell office:value-type="time"'
                         . ' office:time-value="'
@@ -299,7 +299,7 @@ class ExportOds extends ExportPlugin
                         . htmlspecialchars($row[$j])
                         . '</text:p>'
                         . '</table:table-cell>';
-                } elseif ($fields_meta[$j]->type == 'datetime') {
+                } elseif ($fields_meta[$j]->type === 'datetime') {
                     $GLOBALS['ods_buffer']
                         .= '<table:table-cell office:value-type="date"'
                         . ' office:date-value="'
@@ -310,9 +310,9 @@ class ExportOds extends ExportPlugin
                         . '</text:p>'
                         . '</table:table-cell>';
                 } elseif (($fields_meta[$j]->numeric
-                    && $fields_meta[$j]->type != 'timestamp'
+                    && $fields_meta[$j]->type !== 'timestamp'
                     && ! $fields_meta[$j]->blob)
-                    || $fields_meta[$j]->type == 'real'
+                    || $fields_meta[$j]->type === 'real'
                 ) {
                     $GLOBALS['ods_buffer']
                         .= '<table:table-cell office:value-type="float"'

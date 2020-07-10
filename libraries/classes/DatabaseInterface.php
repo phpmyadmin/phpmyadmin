@@ -416,17 +416,17 @@ class DatabaseInterface implements DbalInterface
                 $link
             );
 
-            if ($sort_by == 'Name' && $GLOBALS['cfg']['NaturalOrder']) {
+            if ($sort_by === 'Name' && $GLOBALS['cfg']['NaturalOrder']) {
                 // here, the array's first key is by schema name
                 foreach ($tables as $one_database_name => $one_database_tables) {
                     uksort($one_database_tables, 'strnatcasecmp');
 
-                    if ($sort_order == 'DESC') {
+                    if ($sort_order === 'DESC') {
                         $one_database_tables = array_reverse($one_database_tables);
                     }
                     $tables[$one_database_name] = $one_database_tables;
                 }
-            } elseif ($sort_by == 'Data_length') {
+            } elseif ($sort_by === 'Data_length') {
                 // Size = Data_length + Index_length
                 foreach ($tables as $one_database_name => $one_database_tables) {
                     uasort(
@@ -443,7 +443,7 @@ class DatabaseInterface implements DbalInterface
                         }
                     );
 
-                    if ($sort_order == 'DESC') {
+                    if ($sort_order === 'DESC') {
                         $one_database_tables = array_reverse($one_database_tables);
                     }
                     $tables[$one_database_name] = $one_database_tables;
@@ -488,9 +488,9 @@ class DatabaseInterface implements DbalInterface
                         if ($needAnd) {
                             $sql .= ' AND';
                         }
-                        if ($table_type == 'view') {
+                        if ($table_type === 'view') {
                             $sql .= " `Comment` = 'VIEW'";
-                        } elseif ($table_type == 'table') {
+                        } elseif ($table_type === 'table') {
                             $sql .= " `Comment` != 'VIEW'";
                         }
                     }
@@ -503,10 +503,10 @@ class DatabaseInterface implements DbalInterface
 
                 // Sort naturally if the config allows it and we're sorting
                 // the Name column.
-                if ($sort_by == 'Name' && $GLOBALS['cfg']['NaturalOrder']) {
+                if ($sort_by === 'Name' && $GLOBALS['cfg']['NaturalOrder']) {
                     uksort($each_tables, 'strnatcasecmp');
 
-                    if ($sort_order == 'DESC') {
+                    if ($sort_order === 'DESC') {
                         $each_tables = array_reverse($each_tables);
                     }
                 } else {
@@ -514,7 +514,7 @@ class DatabaseInterface implements DbalInterface
                     // value to pass to array_multisort
 
                     // Size = Data_length + Index_length
-                    if ($sort_by == 'Data_length') {
+                    if ($sort_by === 'Data_length') {
                         foreach ($each_tables as $table_name => $table_data) {
                             ${$sort_by}[$table_name] = strtolower(
                                 (string) ($table_data['Data_length']
@@ -529,7 +529,7 @@ class DatabaseInterface implements DbalInterface
                     }
 
                     if (! empty($$sort_by)) {
-                        if ($sort_order == 'DESC') {
+                        if ($sort_order === 'DESC') {
                             array_multisort($$sort_by, SORT_DESC, $each_tables);
                         } else {
                             array_multisort($$sort_by, SORT_ASC, $each_tables);
@@ -720,7 +720,7 @@ class DatabaseInterface implements DbalInterface
 
                     // for InnoDB, this does not contain the number of
                     // overhead bytes but the total free space
-                    if ($row['Engine'] != 'InnoDB') {
+                    if ($row['Engine'] !== 'InnoDB') {
                         $databases[$database_name]['SCHEMA_DATA_FREE']
                             += $row['Data_free'];
                     }
@@ -1131,7 +1131,7 @@ class DatabaseInterface implements DbalInterface
     {
         $charset = $GLOBALS['charset_connection'];
         /* Automatically adjust collation if not supported by server */
-        if ($charset == 'utf8' && strncmp('utf8mb4_', $collation, 8) == 0) {
+        if ($charset === 'utf8' && strncmp('utf8mb4_', $collation, 8) == 0) {
             $collation = 'utf8_' . substr($collation, 8);
         }
         $result = $this->tryQuery(
@@ -1566,7 +1566,7 @@ class DatabaseInterface implements DbalInterface
                 $routines = $result;
             }
         } else {
-            if ($which == 'FUNCTION' || $which == null) {
+            if ($which === 'FUNCTION' || $which == null) {
                 $query = 'SHOW FUNCTION STATUS'
                     . " WHERE `Db` = '" . $this->escapeString($db) . "'";
                 if (! empty($name)) {
@@ -1578,7 +1578,7 @@ class DatabaseInterface implements DbalInterface
                     $routines = array_merge($routines, $result);
                 }
             }
-            if ($which == 'PROCEDURE' || $which == null) {
+            if ($which === 'PROCEDURE' || $which == null) {
                 $query = 'SHOW PROCEDURE STATUS'
                     . " WHERE `Db` = '" . $this->escapeString($db) . "'";
                 if (! empty($name)) {
@@ -2284,7 +2284,7 @@ class DatabaseInterface implements DbalInterface
         }
         $sql = 'SELECT @@basedir';
         $result = $this->fetchValue($sql);
-        $rds = (substr($result, 0, 10) == '/rdsdbbin/');
+        $rds = (substr($result, 0, 10) === '/rdsdbbin/');
         Util::cacheSet('is_amazon_rds', $rds);
 
         return $rds;

@@ -125,23 +125,23 @@ class UserPassword
         $sql_query = 'SET password = '
             . ($password == '' ? '\'\'' : $hashing_function . '(\'***\')');
 
-        if ($serverType == 'MySQL'
+        if ($serverType === 'MySQL'
             && $serverVersion >= 50706
         ) {
             $sql_query = 'ALTER USER \'' . $GLOBALS['dbi']->escapeString($username)
                 . '\'@\'' . $GLOBALS['dbi']->escapeString($hostname)
                 . '\' IDENTIFIED WITH ' . $orig_auth_plugin . ' BY '
                 . ($password == '' ? '\'\'' : '\'***\'');
-        } elseif (($serverType == 'MySQL'
+        } elseif (($serverType === 'MySQL'
             && $serverVersion >= 50507)
-            || ($serverType == 'MariaDB'
+            || ($serverType === 'MariaDB'
             && $serverVersion >= 50200)
         ) {
             // For MySQL versions 5.5.7+ and MariaDB versions 5.2+,
             // explicitly set value of `old_passwords` so that
             // it does not give an error while using
             // the PASSWORD() function
-            if ($orig_auth_plugin == 'sha256_password') {
+            if ($orig_auth_plugin === 'sha256_password') {
                 $value = 2;
             } else {
                 $value = 0;
@@ -208,23 +208,23 @@ class UserPassword
         $serverType = Util::getServerType();
         $serverVersion = $GLOBALS['dbi']->getVersion();
 
-        if ($serverType == 'MySQL' && $serverVersion >= 50706) {
+        if ($serverType === 'MySQL' && $serverVersion >= 50706) {
             $local_query = 'ALTER USER \'' . $GLOBALS['dbi']->escapeString($username)
                 . '\'@\'' . $GLOBALS['dbi']->escapeString($hostname) . '\''
                 . ' IDENTIFIED with ' . $orig_auth_plugin . ' BY '
                 . ($password == ''
                 ? '\'\''
                 : '\'' . $GLOBALS['dbi']->escapeString($password) . '\'');
-        } elseif ($serverType == 'MariaDB'
+        } elseif ($serverType === 'MariaDB'
             && $serverVersion >= 50200
             && $serverVersion < 100100
             && $orig_auth_plugin !== ''
         ) {
-            if ($orig_auth_plugin == 'mysql_native_password') {
+            if ($orig_auth_plugin === 'mysql_native_password') {
                 // Set the hashing method used by PASSWORD()
                 // to be 'mysql_native_password' type
                 $GLOBALS['dbi']->tryQuery('SET old_passwords = 0;');
-            } elseif ($orig_auth_plugin == 'sha256_password') {
+            } elseif ($orig_auth_plugin === 'sha256_password') {
                 // Set the hashing method used by PASSWORD()
                 // to be 'sha256_password' type
                 $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 2;');

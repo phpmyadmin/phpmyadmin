@@ -139,7 +139,7 @@ class TransformationWrapperController extends AbstractController
             );
 
             foreach ($mime_options as $key => $option) {
-                if (substr($option, 0, 10) != '; charset=') {
+                if (substr($option, 0, 10) !== '; charset=') {
                     continue;
                 }
 
@@ -208,10 +208,10 @@ class TransformationWrapperController extends AbstractController
                     $srcWidth,
                     $srcHeight
                 );
-                if ($_REQUEST['resize'] == 'jpeg') {
+                if ($_REQUEST['resize'] === 'jpeg') {
                     imagejpeg($destImage, null, 75);
                 }
-                if ($_REQUEST['resize'] == 'png') {
+                if ($_REQUEST['resize'] === 'png') {
                     imagepng($destImage);
                 }
                 imagedestroy($destImage);

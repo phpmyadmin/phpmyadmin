@@ -294,7 +294,7 @@ class Util
             // in this case.
 
             // set this because Table::countRecords() can use it
-            $tbl_is_view = $table['TABLE_TYPE'] == 'VIEW';
+            $tbl_is_view = $table['TABLE_TYPE'] === 'VIEW';
 
             if ($tbl_is_view || Utilities::isSystemSchema($db)) {
                 $rowCount = $GLOBALS['dbi']
@@ -1106,7 +1106,7 @@ class Util
             // floating comparison, use CONCAT
             // (also, the syntax "CONCAT(field) IS NULL"
             // that we need on the next "if" will work)
-            if ($meta->type == 'real') {
+            if ($meta->type === 'real') {
                 $con_key = 'CONCAT(' . self::backquote($meta->table) . '.'
                     . self::backquote($meta->orgname) . ')';
             } else {
@@ -1365,7 +1365,7 @@ class Util
     public static function userDir($dir): string
     {
         // add trailing slash
-        if (mb_substr($dir, -1) != '/') {
+        if (mb_substr($dir, -1) !== '/') {
             $dir .= '/';
         }
 
@@ -1541,7 +1541,7 @@ class Util
             $spec_in_brackets = '';
         }
 
-        if ($type == 'enum' || $type == 'set') {
+        if ($type === 'enum' || $type === 'set') {
             // Define our working vars
             $enum_set_values = self::parseEnumSetValues($columnspec, false);
             $printtype = $type
@@ -1686,7 +1686,7 @@ class Util
     public static function handleDisableFKCheckInit()
     {
         $default_fk_check_value
-            = $GLOBALS['dbi']->getVariable('FOREIGN_KEY_CHECKS') == 'ON';
+            = $GLOBALS['dbi']->getVariable('FOREIGN_KEY_CHECKS') === 'ON';
         if (isset($_REQUEST['fk_checks'])) {
             if (empty($_REQUEST['fk_checks'])) {
                 // Disable foreign key checks
@@ -1807,7 +1807,7 @@ class Util
      */
     public static function getScriptNameForOption($target, $location)
     {
-        if ($location == 'server') {
+        if ($location === 'server') {
             // Values for $cfg['DefaultTabServer']
             switch ($target) {
                 case 'welcome':
@@ -1821,7 +1821,7 @@ class Util
                 case 'privileges':
                     return Url::getFromRoute('/server/privileges');
             }
-        } elseif ($location == 'database') {
+        } elseif ($location === 'database') {
             // Values for $cfg['DefaultTabDatabase']
             switch ($target) {
                 case 'structure':
@@ -1833,7 +1833,7 @@ class Util
                 case 'operations':
                     return Url::getFromRoute('/database/operations');
             }
-        } elseif ($location == 'table') {
+        } elseif ($location === 'table') {
             // Values for $cfg['DefaultTabTable'],
             // $cfg['NavigationTreeDefaultTabTable'] and
             // $cfg['NavigationTreeDefaultTabTable2']
@@ -2112,12 +2112,12 @@ class Util
         ];
 
         $geom_type = mb_strtolower(trim((string) $geom_type));
-        if ($display && $geom_type != 'geometry' && $geom_type != 'multipoint') {
+        if ($display && $geom_type !== 'geometry' && $geom_type !== 'multipoint') {
             $funcs[] = ['display' => '--------'];
         }
 
         // Unary functions that are specific to each geometry type
-        if ($geom_type == 'point') {
+        if ($geom_type === 'point') {
             $funcs['X'] = [
                 'params' => 1,
                 'type' => 'float',
@@ -2126,7 +2126,7 @@ class Util
                 'params' => 1,
                 'type' => 'float',
             ];
-        } elseif ($geom_type == 'linestring') {
+        } elseif ($geom_type === 'linestring') {
             $funcs['EndPoint']   = [
                 'params' => 1,
                 'type' => 'point',
@@ -2147,7 +2147,7 @@ class Util
                 'params' => 1,
                 'type' => 'int',
             ];
-        } elseif ($geom_type == 'multilinestring') {
+        } elseif ($geom_type === 'multilinestring') {
             $funcs['GLength']  = [
                 'params' => 1,
                 'type' => 'float',
@@ -2156,7 +2156,7 @@ class Util
                 'params' => 1,
                 'type' => 'int',
             ];
-        } elseif ($geom_type == 'polygon') {
+        } elseif ($geom_type === 'polygon') {
             $funcs['Area']         = [
                 'params' => 1,
                 'type' => 'float',
@@ -2169,7 +2169,7 @@ class Util
                 'params' => 1,
                 'type' => 'int',
             ];
-        } elseif ($geom_type == 'multipolygon') {
+        } elseif ($geom_type === 'multipolygon') {
             $funcs['Area']     = [
                 'params' => 1,
                 'type' => 'float',
@@ -2180,7 +2180,7 @@ class Util
             ];
             // Not yet implemented in MySQL
             //$funcs['PointOnSurface'] = array('params' => 1, 'type' => 'point');
-        } elseif ($geom_type == 'geometrycollection') {
+        } elseif ($geom_type === 'geometrycollection') {
             $funcs['NumGeometries'] = [
                 'params' => 1,
                 'type' => 'int',
@@ -2418,11 +2418,11 @@ class Util
 
             if (! $in_string && $curr == "'") {
                 $in_string = true;
-            } elseif (($in_string && $curr == '\\') && $next == '\\') {
+            } elseif (($in_string && $curr === '\\') && $next === '\\') {
                 $buffer .= '&#92;';
                 $i++;
             } elseif (($in_string && $next == "'")
-                && ($curr == "'" || $curr == '\\')
+                && ($curr == "'" || $curr === '\\')
             ) {
                 $buffer .= '&#39;';
                 $i++;
@@ -2558,8 +2558,8 @@ class Util
      */
     public static function addMicroseconds($value)
     {
-        if (empty($value) || $value == 'CURRENT_TIMESTAMP'
-            || $value == 'current_timestamp()') {
+        if (empty($value) || $value === 'CURRENT_TIMESTAMP'
+            || $value === 'current_timestamp()') {
             return $value;
         }
 
@@ -2599,7 +2599,7 @@ class Util
         if ($len >= 2 && $test[0] == chr(31) && $test[1] == chr(139)) {
             return 'application/gzip';
         }
-        if ($len >= 3 && substr($test, 0, 3) == 'BZh') {
+        if ($len >= 3 && substr($test, 0, 3) === 'BZh') {
             return 'application/bzip2';
         }
         if ($len >= 4 && $test == "PK\003\004") {
@@ -2648,7 +2648,7 @@ class Util
         // view
         foreach ($indexes as $row) {
             // Backups the list of primary keys
-            if ($row['Key_name'] == 'PRIMARY') {
+            if ($row['Key_name'] === 'PRIMARY') {
                 $primary   .= $row['Column_name'] . ', ';
                 $pk_array[$row['Column_name']] = 1;
             }
@@ -2696,7 +2696,7 @@ class Util
         $serverVersion = $GLOBALS['dbi']->getVersion();
 
         return in_array($serverType, ['MySQL', 'Percona Server']) && $serverVersion >= 50705
-             || ($serverType == 'MariaDB' && $serverVersion >= 50200);
+             || ($serverType === 'MariaDB' && $serverVersion >= 50200);
     }
 
     /**
@@ -2785,7 +2785,7 @@ class Util
                 // Make sure the sort type is implemented
                 if (isset($sortable_name_mappings[$_REQUEST['sort']])) {
                     $sort = $sortable_name_mappings[$_REQUEST['sort']];
-                    if ($_REQUEST['sort_order'] == 'DESC') {
+                    if ($_REQUEST['sort_order'] === 'DESC') {
                         $sort_order = 'DESC';
                     }
                 }
@@ -2826,7 +2826,7 @@ class Util
                 //  (needed for proper working of the MaxTableList feature)
                 $tables = $GLOBALS['dbi']->getTables($db);
                 $total_num_tables = count($tables);
-                if (! (isset($sub_part) && $sub_part == '_export')) {
+                if (! (isset($sub_part) && $sub_part === '_export')) {
                     // fetch the details for a possible limited subset
                     $limit_offset = $pos;
                     $limit_count = true;
@@ -2913,7 +2913,7 @@ class Util
             }
             if (Core::isValid($_REQUEST['tbl_type'], ['table', 'view'])) {
                 $tblGroupSql .= $whereAdded ? ' AND' : ' WHERE';
-                if ($_REQUEST['tbl_type'] == 'view') {
+                if ($_REQUEST['tbl_type'] === 'view') {
                     $tblGroupSql .= " `Table_type` NOT IN ('BASE TABLE', 'SYSTEM VERSIONED')";
                 } else {
                     $tblGroupSql .= " `Table_type` IN ('BASE TABLE', 'SYSTEM VERSIONED')";
@@ -3119,7 +3119,7 @@ class Util
         $orderLinkParams['title'] = __('Sort');
         // If this column was requested to be sorted.
         if ($requestedSort == $sort) {
-            if ($requestedSortOrder == 'ASC') {
+            if ($requestedSortOrder === 'ASC') {
                 $futureSortOrder = 'DESC';
                 // current sort order is ASC
                 $orderImg = ' ' . Generator::getImage(

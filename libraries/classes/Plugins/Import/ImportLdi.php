@@ -46,7 +46,7 @@ class ImportLdi extends AbstractImportCsv
      */
     protected function setProperties()
     {
-        if ($GLOBALS['cfg']['Import']['ldi_local_option'] == 'auto') {
+        if ($GLOBALS['cfg']['Import']['ldi_local_option'] === 'auto') {
             $GLOBALS['cfg']['Import']['ldi_local_option'] = false;
 
             $result = $GLOBALS['dbi']->tryQuery(
@@ -54,7 +54,7 @@ class ImportLdi extends AbstractImportCsv
             );
             if ($result != false && $GLOBALS['dbi']->numRows($result) > 0) {
                 $tmp = $GLOBALS['dbi']->fetchRow($result);
-                if ($tmp[0] == 'ON') {
+                if ($tmp[0] === 'ON') {
                     $GLOBALS['cfg']['Import']['ldi_local_option'] = true;
                 }
             }
@@ -100,8 +100,8 @@ class ImportLdi extends AbstractImportCsv
 
         $compression = $GLOBALS['import_handle']->getCompression();
 
-        if ($import_file == 'none'
-            || $compression != 'none'
+        if ($import_file === 'none'
+            || $compression !== 'none'
             || $charset_conversion
         ) {
             // We handle only some kind of data!
@@ -138,7 +138,7 @@ class ImportLdi extends AbstractImportCsv
                 . $GLOBALS['dbi']->escapeString($ldi_escaped) . '\'';
         }
         if (strlen((string) $ldi_new_line) > 0) {
-            if ($ldi_new_line == 'auto') {
+            if ($ldi_new_line === 'auto') {
                 $ldi_new_line
                     = PHP_EOL == "\n"
                     ? '\n'

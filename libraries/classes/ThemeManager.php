@@ -298,8 +298,8 @@ class ThemeManager
         // check for themes directory
         while (($PMA_Theme = readdir($handleThemes)) !== false) {
             // Skip non dirs, . and ..
-            if ($PMA_Theme == '.'
-                || $PMA_Theme == '..'
+            if ($PMA_Theme === '.'
+                || $PMA_Theme === '..'
                 || ! @is_dir(ROOT_PATH . $this->_themes_path . $PMA_Theme)
             ) {
                 continue;

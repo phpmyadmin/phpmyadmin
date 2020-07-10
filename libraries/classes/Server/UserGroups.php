@@ -166,7 +166,7 @@ class UserGroups
         $tabs = Util::getMenuTabList($level);
         foreach ($tabs as $tab => $tabName) {
             if (isset($row[$level . '_' . $tab])
-                && $row[$level . '_' . $tab] != 'Y'
+                && $row[$level . '_' . $tab] !== 'Y'
             ) {
                 continue;
             }
@@ -243,12 +243,12 @@ class UserGroups
                 while ($row = $dbi->fetchAssoc($result)) {
                     $key = $row['tab'];
                     $value = $row['allowed'];
-                    if (substr($key, 0, 7) == 'server_' && $value == 'Y') {
+                    if (substr($key, 0, 7) === 'server_' && $value === 'Y') {
                         $allowedTabs['server'][] = mb_substr($key, 7);
-                    } elseif (substr($key, 0, 3) == 'db_' && $value == 'Y') {
+                    } elseif (substr($key, 0, 3) === 'db_' && $value === 'Y') {
                         $allowedTabs['db'][] = mb_substr($key, 3);
-                    } elseif (substr($key, 0, 6) == 'table_'
-                        && $value == 'Y'
+                    } elseif (substr($key, 0, 6) === 'table_'
+                        && $value === 'Y'
                     ) {
                         $allowedTabs['table'][] = mb_substr($key, 6);
                     }
@@ -346,7 +346,7 @@ class UserGroups
                     $sql_query .= ', ';
                 }
                 $tabName = $tabGroupName . '_' . $tab;
-                $allowed = isset($_POST[$tabName]) && $_POST[$tabName] == 'Y';
+                $allowed = isset($_POST[$tabName]) && $_POST[$tabName] === 'Y';
                 $sql_query .= "('" . $dbi->escapeString($userGroup) . "', '" . $tabName . "', '"
                     . ($allowed ? 'Y' : 'N') . "')";
                 $first = false;

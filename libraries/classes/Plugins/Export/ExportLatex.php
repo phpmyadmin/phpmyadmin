@@ -59,7 +59,7 @@ class ExportLatex extends ExportPlugin
     {
         global $plugin_param;
         $hide_structure = false;
-        if ($plugin_param['export_type'] == 'table'
+        if ($plugin_param['export_type'] === 'table'
             && ! $plugin_param['single_table']
         ) {
             $hide_structure = true;
@@ -497,7 +497,7 @@ class ExportLatex extends ExportPlugin
         global $cfgRelation;
 
         /* We do not export triggers */
-        if ($export_mode == 'triggers') {
+        if ($export_mode === 'triggers') {
             return true;
         }
 
@@ -621,7 +621,7 @@ class ExportLatex extends ExportPlugin
             }
 
             if (! isset($row['Default'])) {
-                if ($row['Null'] != 'NO') {
+                if ($row['Null'] !== 'NO') {
                     $row['Default'] = 'NULL';
                 }
             }
@@ -632,7 +632,7 @@ class ExportLatex extends ExportPlugin
             }
 
             $local_buffer = $col_as . "\000" . $type . "\000"
-                . ($row['Null'] == '' || $row['Null'] == 'NO'
+                . ($row['Null'] == '' || $row['Null'] === 'NO'
                     ? __('No') : __('Yes'))
                 . "\000" . ($row['Default'] ?? '');
 
@@ -662,7 +662,7 @@ class ExportLatex extends ExportPlugin
                 }
             }
             $local_buffer = self::texEscape($local_buffer);
-            if ($row['Key'] == 'PRI') {
+            if ($row['Key'] === 'PRI') {
                 $pos = mb_strpos($local_buffer, "\000");
                 $local_buffer = '\\textit{'
                     .

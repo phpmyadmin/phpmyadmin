@@ -128,7 +128,7 @@ final class ImportController extends AbstractController
                 'bkm_sql_query' => $_POST['bookmark_query'],
                 'bkm_label' => $_POST['label'],
             ];
-            $isShared = ($_POST['shared'] == 'true');
+            $isShared = ($_POST['shared'] === 'true');
             $bookmark = Bookmark::createBookmark(
                 $this->dbi,
                 $cfg['Server']['user'],
@@ -312,11 +312,11 @@ final class ImportController extends AbstractController
         }
 
         // Create error and goto url
-        if ($import_type == 'table') {
+        if ($import_type === 'table') {
             $goto = Url::getFromRoute('/table/import');
-        } elseif ($import_type == 'database') {
+        } elseif ($import_type === 'database') {
             $goto = Url::getFromRoute('/database/import');
-        } elseif ($import_type == 'server') {
+        } elseif ($import_type === 'server') {
             $goto = Url::getFromRoute('/server/import');
         } elseif (empty($goto) || ! preg_match('@^(server|db|tbl)(_[a-z]*)*\.php$@i', $goto)) {
             if (strlen($table) > 0 && strlen($db) > 0) {
@@ -482,11 +482,11 @@ final class ImportController extends AbstractController
 
         // Calculate value of the limit
         $memoryUnit = mb_strtolower(substr((string) $memory_limit, -1));
-        if ($memoryUnit == 'm') {
+        if ($memoryUnit === 'm') {
             $memory_limit = (int) substr((string) $memory_limit, 0, -1) * 1024 * 1024;
-        } elseif ($memoryUnit == 'k') {
+        } elseif ($memoryUnit === 'k') {
             $memory_limit = (int) substr((string) $memory_limit, 0, -1) * 1024;
-        } elseif ($memoryUnit == 'g') {
+        } elseif ($memoryUnit === 'g') {
             $memory_limit = (int) substr((string) $memory_limit, 0, -1) * 1024 * 1024 * 1024;
         } else {
             $memory_limit = (int) $memory_limit;
@@ -521,7 +521,7 @@ final class ImportController extends AbstractController
 
         // Do we have file to import?
 
-        if ($import_file != 'none' && ! $error) {
+        if ($import_file !== 'none' && ! $error) {
             /**
              *  Handle file compression
              */
@@ -559,10 +559,10 @@ final class ImportController extends AbstractController
 
         // Convert the file's charset if necessary
         if (Encoding::isSupported() && isset($charset_of_file)) {
-            if ($charset_of_file != 'utf-8') {
+            if ($charset_of_file !== 'utf-8') {
                 $charset_conversion = true;
             }
-        } elseif (isset($charset_of_file) && $charset_of_file != 'utf-8') {
+        } elseif (isset($charset_of_file) && $charset_of_file !== 'utf-8') {
             $this->dbi->query('SET NAMES \'' . $charset_of_file . '\'');
             // We can not show query in this case, it is in different charset
             $sql_query_disabled = true;
@@ -649,7 +649,7 @@ final class ImportController extends AbstractController
         } elseif ($finished && ! $error) {
             // Do not display the query with message, we do it separately
             $display_query = ';';
-            if ($import_type != 'query') {
+            if ($import_type !== 'query') {
                 $message = Message::success(
                     '<em>'
                     . _ngettext(

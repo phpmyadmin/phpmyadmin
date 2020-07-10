@@ -900,17 +900,17 @@ class StructureController extends AbstractController
         // Only LIST and RANGE type parameters allow subpartitioning
         $partitionDetails['can_have_subpartitions']
             = $partitionDetails['partition_count'] > 1
-                && ($partitionDetails['partition_by'] == 'RANGE'
-                || $partitionDetails['partition_by'] == 'RANGE COLUMNS'
-                || $partitionDetails['partition_by'] == 'LIST'
-                || $partitionDetails['partition_by'] == 'LIST COLUMNS');
+                && ($partitionDetails['partition_by'] === 'RANGE'
+                || $partitionDetails['partition_by'] === 'RANGE COLUMNS'
+                || $partitionDetails['partition_by'] === 'LIST'
+                || $partitionDetails['partition_by'] === 'LIST COLUMNS');
 
         // Values are specified only for LIST and RANGE type partitions
         $partitionDetails['value_enabled'] = isset($partitionDetails['partition_by'])
-            && ($partitionDetails['partition_by'] == 'RANGE'
-            || $partitionDetails['partition_by'] == 'RANGE COLUMNS'
-            || $partitionDetails['partition_by'] == 'LIST'
-            || $partitionDetails['partition_by'] == 'LIST COLUMNS');
+            && ($partitionDetails['partition_by'] === 'RANGE'
+            || $partitionDetails['partition_by'] === 'RANGE COLUMNS'
+            || $partitionDetails['partition_by'] === 'LIST'
+            || $partitionDetails['partition_by'] === 'LIST COLUMNS');
 
         $partitionDetails['partitions'] = [];
 
@@ -933,7 +933,7 @@ class StructureController extends AbstractController
                 $p = $stmt->partitions[$i];
                 $type = $p->type;
                 $expr = trim((string) $p->expr, '()');
-                if ($expr == 'MAXVALUE') {
+                if ($expr === 'MAXVALUE') {
                     $type .= ' MAXVALUE';
                     $expr = '';
                 }
@@ -1643,7 +1643,7 @@ class StructureController extends AbstractController
         }
 
         $is_innodb = (isset($showtable['Type'])
-            && $showtable['Type'] == 'InnoDB');
+            && $showtable['Type'] === 'InnoDB');
 
         $mergetable = $this->table_obj->isMerge();
 
@@ -1765,7 +1765,7 @@ class StructureController extends AbstractController
         $primary = '';
         while ($row = $this->dbi->fetchAssoc($result)) {
             // Backups the list of primary keys
-            if (! is_array($row) || $row['Key_name'] != 'PRIMARY') {
+            if (! is_array($row) || $row['Key_name'] !== 'PRIMARY') {
                 continue;
             }
 

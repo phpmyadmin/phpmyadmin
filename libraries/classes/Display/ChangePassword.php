@@ -62,15 +62,15 @@ class ChangePassword
             $hostname
         );
 
-        $isNew = ($serverType == 'MySQL' && $serverVersion >= 50507)
-            || ($serverType == 'MariaDB' && $serverVersion >= 50200);
+        $isNew = ($serverType === 'MySQL' && $serverVersion >= 50507)
+            || ($serverType === 'MariaDB' && $serverVersion >= 50200);
 
         if ($isNew) {
             // Provide this option only for 5.7.6+
             // OR for privileged users in 5.5.7+
-            if (($serverType == 'MySQL'
+            if (($serverType === 'MySQL'
                 && $serverVersion >= 50706)
-                || ($GLOBALS['dbi']->isSuperuser() && $mode == 'edit_other')
+                || ($GLOBALS['dbi']->isSuperuser() && $mode === 'edit_other')
             ) {
                 $active_auth_plugins = $serverPrivileges->getActiveAuthPlugins();
                 if (isset($active_auth_plugins['mysql_old_password'])) {

@@ -87,7 +87,7 @@ class ImportShp extends ImportPlugin
         $shp = new ShapeFileImport(1);
         // If the zip archive has more than one file,
         // get the correct content to the buffer from .shp file.
-        if ($compression == 'application/zip'
+        if ($compression === 'application/zip'
             && $this->zipExtension->getNumberOfFiles($import_file) > 1
         ) {
             if ($GLOBALS['import_handle']->openZip('/^.*\.shp$/i') === false) {
@@ -106,7 +106,7 @@ class ImportShp extends ImportPlugin
             $temp = $GLOBALS['PMA_Config']->getTempDir('shp');
             // If we can extract the zip archive to 'TempDir'
             // and use the files in it for import
-            if ($compression == 'application/zip' && $temp !== null) {
+            if ($compression === 'application/zip' && $temp !== null) {
                 $dbf_file_name = $this->zipExtension->findFile(
                     $import_file,
                     '/^.*\.dbf$/i'
@@ -142,7 +142,7 @@ class ImportShp extends ImportPlugin
                 }
             } elseif (! empty($local_import_file)
                 && ! empty($GLOBALS['cfg']['UploadDir'])
-                && $compression == 'none'
+                && $compression === 'none'
             ) {
                 // If file is in UploadDir, use .dbf file in the same UploadDir
                 // to load extra data.

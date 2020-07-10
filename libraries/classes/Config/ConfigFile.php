@@ -447,14 +447,14 @@ class ConfigFile
 
         $path = 'Servers/' . $server;
         $dsn = 'mysqli://';
-        if ($this->getValue($path . '/auth_type') == 'config') {
+        if ($this->getValue($path . '/auth_type') === 'config') {
             $dsn .= $this->getValue($path . '/user');
             if (! empty($this->getValue($path . '/password'))) {
                 $dsn .= ':***';
             }
             $dsn .= '@';
         }
-        if ($this->getValue($path . '/host') != 'localhost') {
+        if ($this->getValue($path . '/host') !== 'localhost') {
             $dsn .= $this->getValue($path . '/host');
             $port = $this->getValue($path . '/port');
             if ($port) {

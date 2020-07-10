@@ -84,7 +84,7 @@ class Normalization
         $listType = 'dropdown'
     ) {
         $columnTypeList = [];
-        if ($colTypeCategory != 'all') {
+        if ($colTypeCategory !== 'all') {
             $types = $this->dbi->types->getColumns();
             $columnTypeList = $types[$colTypeCategory];
         }
@@ -108,7 +108,7 @@ class Normalization
                 continue;
             }
 
-            if ($listType == 'checkbox') {
+            if ($listType === 'checkbox') {
                 $selectColHtml .= '<input type="checkbox" value="'
                     . htmlspecialchars($column) . '">'
                     . htmlspecialchars($column) . ' [ '

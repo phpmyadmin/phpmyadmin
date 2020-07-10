@@ -850,7 +850,7 @@ class Relation
         $cfgRelation = $this->getRelationsParam();
         $foreign = [];
 
-        if ($cfgRelation['relwork'] && ($source == 'both' || $source == 'internal')) {
+        if ($cfgRelation['relwork'] && ($source === 'both' || $source === 'internal')) {
             $rel_query = '
                 SELECT `master_field`,
                     `foreign_db`,
@@ -873,7 +873,7 @@ class Relation
             );
         }
 
-        if (($source == 'both' || $source == 'foreign') && strlen($table) > 0) {
+        if (($source === 'both' || $source === 'foreign') && strlen($table) > 0) {
             $tableObj = new Table($table, $db);
             $show_create_table = $tableObj->showCreate();
             if ($show_create_table) {
@@ -891,10 +891,10 @@ class Relation
         /**
          * Emulating relations for some information_schema tables
          */
-        $isInformationSchema = mb_strtolower($db) == 'information_schema';
-            $isMysql = mb_strtolower($db) == 'mysql';
+        $isInformationSchema = mb_strtolower($db) === 'information_schema';
+            $isMysql = mb_strtolower($db) === 'mysql';
         if (($isInformationSchema || $isMysql)
-            && ($source == 'internal' || $source == 'both')
+            && ($source === 'internal' || $source === 'both')
         ) {
             if ($isInformationSchema) {
                 $internalRelations = InternalRelations::getInformationSchema();
@@ -957,7 +957,7 @@ class Relation
         /**
          * Emulating the display field for some information_schema tables.
          */
-        if ($db == 'information_schema') {
+        if ($db === 'information_schema') {
             switch ($table) {
                 case 'CHARACTER_SETS':
                     return 'DESCRIPTION';
@@ -972,7 +972,7 @@ class Relation
         $columns = $this->dbi->getColumnsFull($db, $table);
         if ($columns) {
             foreach ($columns as $column) {
-                if ($this->dbi->types->getTypeClass($column['DATA_TYPE']) == 'CHAR') {
+                if ($this->dbi->types->getTypeClass($column['DATA_TYPE']) === 'CHAR') {
                     return $column['COLUMN_NAME'];
                 }
             }
@@ -1313,14 +1313,14 @@ class Relation
 
         // id-only is a special mode used when no foreign display column
         // is available
-        if ($mode == 'id-content' || $mode == 'id-only') {
+        if ($mode === 'id-content' || $mode === 'id-only') {
             // sort for id-content
             if ($GLOBALS['cfg']['NaturalOrder']) {
                 uksort($foreign, 'strnatcasecmp');
             } else {
                 ksort($foreign);
             }
-        } elseif ($mode == 'content-id') {
+        } elseif ($mode === 'content-id') {
             // sort for content-id
             if ($GLOBALS['cfg']['NaturalOrder']) {
                 natcasesort($foreign);
@@ -1381,13 +1381,13 @@ class Relation
                 $reloption .= ' selected="selected"';
             }
 
-            if ($mode == 'content-id') {
+            if ($mode === 'content-id') {
                 $reloptions[] = $reloption . '>'
                     . $value . '&nbsp;-&nbsp;' . $key . '</option>';
-            } elseif ($mode == 'id-content') {
+            } elseif ($mode === 'id-content') {
                 $reloptions[] = $reloption . '>'
                     . $key . '&nbsp;-&nbsp;' . $value . '</option>';
-            } elseif ($mode == 'id-only') {
+            } elseif ($mode === 'id-only') {
                 $reloptions[] = $reloption . '>'
                     . $key . '</option>';
             }
