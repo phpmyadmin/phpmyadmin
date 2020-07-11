@@ -441,8 +441,8 @@ class ResultsTest extends AbstractTestCase
             ],
         ];
 
-        $this->object->__set('db', $db);
-        $this->object->__set('table', $table);
+        $this->object->properties['db'] = $db;
+        $this->object->properties['table'] = $table;
 
         $this->assertEquals(
             $output,
@@ -525,8 +525,8 @@ class ResultsTest extends AbstractTestCase
         $col_order,
         $output
     ): void {
-        $this->object->__set('fields_meta', $fields_meta);
-        $this->object->__set('fields_cnt', $fields_count);
+        $this->object->properties['fields_meta'] = $fields_meta;
+        $this->object->properties['fields_cnt'] = $fields_count;
 
         $this->assertEquals(
             $output,
@@ -584,7 +584,7 @@ class ResultsTest extends AbstractTestCase
 
         $this->assertEquals(
             $output,
-            $this->object->__get('highlight_columns')
+            $this->object->properties['highlight_columns']
         );
     }
 
@@ -1050,8 +1050,8 @@ class ResultsTest extends AbstractTestCase
         // Basic data
         $result = 0;
         $query = 'SELECT 1';
-        $this->object->__set('db', 'db');
-        $this->object->__set('fields_cnt', 2);
+        $this->object->properties['db'] = 'db';
+        $this->object->properties['fields_cnt'] = 2;
 
         // Field meta information
         $meta = new stdClass();
@@ -1082,7 +1082,7 @@ class ResultsTest extends AbstractTestCase
             $meta,
             $meta2,
         ];
-        $this->object->__set('fields_meta', $fields_meta);
+        $this->object->properties['fields_meta'] = $fields_meta;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -1110,10 +1110,7 @@ class ResultsTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
 
         $transformations = new Transformations();
-        $this->object->__set(
-            'mime_map',
-            $transformations->getMime('db', 'table')
-        );
+        $this->object->properties['mime_map'] = $transformations->getMime('db', 'table');
 
         // Actually invoke tested method
         $output = $this->callFunction(

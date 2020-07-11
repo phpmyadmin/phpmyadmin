@@ -716,7 +716,7 @@
     <ImplicitToStringCast occurrences="1">
       <code>$message</code>
     </ImplicitToStringCast>
-    <InvalidArgument occurrences="10">
+    <InvalidArgument occurrences="14">
       <code>$added[$orgFullTableName]</code>
       <code>$transformation_plugin</code>
       <code>$default_function</code>
@@ -727,6 +727,10 @@
       <code>$transform_options</code>
       <code>$transform_options</code>
       <code>$transform_options</code>
+      <code>$transform_options</code>
+      <code>$default_function</code>
+      <code>$transform_options</code>
+      <code>$default_function</code>
     </InvalidArgument>
     <InvalidOperand occurrences="1">
       <code>$index</code>
@@ -734,132 +738,21 @@
     <InvalidScalarArgument occurrences="1">
       <code>$original_length</code>
     </InvalidScalarArgument>
-    <NullableReturnStatement occurrences="1">
-      <code>$this-&gt;__get('sql_query')</code>
-    </NullableReturnStatement>
     <PossiblyInvalidArgument occurrences="3">
       <code>$col_visib</code>
       <code>$col_visib</code>
       <code>$sortExpressionNoDirection</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="56">
-      <code>$this-&gt;__get('sql_query')</code>
-      <code>$db</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$db</code>
-      <code>$this-&gt;__get('sql_query')</code>
-      <code>$this-&gt;__get('sql_query')</code>
-      <code>$this-&gt;__get('sql_query')</code>
-      <code>$name</code>
-      <code>$fields_meta[$i]</code>
-      <code>$fields_meta[$i]</code>
+    <PossiblyNullArgument occurrences="4">
       <code>$col_visib_current</code>
-      <code>$fields_meta[$i]-&gt;name</code>
       <code>$col_visib_current</code>
-      <code>$fields_meta[$i]</code>
-      <code>$this-&gt;__get('table')</code>
-      <code>$this-&gt;__get('db')</code>
-      <code>empty($field-&gt;database) ? $this-&gt;__get('db') : $field-&gt;database</code>
-      <code>$this-&gt;__get('table')</code>
-      <code>$this-&gt;__get('db')</code>
-      <code>$this-&gt;__get('fields_cnt')</code>
-      <code>$this-&gt;__get('fields_meta')</code>
-      <code>$this-&gt;__get('table')</code>
-      <code>$this-&gt;__get('db')</code>
-      <code>$meta-&gt;orgtable</code>
-      <code>$this-&gt;__get('sql_query')</code>
-      <code>$this-&gt;__get('sql_query')</code>
-      <code>$meta-&gt;type</code>
-      <code>$this-&gt;__get('db')</code>
-      <code>$meta-&gt;orgtable</code>
-      <code>$meta-&gt;orgname</code>
-      <code>$this-&gt;__get('fields_cnt')</code>
-      <code>$this-&gt;__get('fields_meta')</code>
-      <code>$meta</code>
-      <code>$meta</code>
-      <code>$meta</code>
-      <code>$this-&gt;__get('db')</code>
-      <code>$this-&gt;__get('table')</code>
-      <code>$fields_meta[$m]-&gt;orgname</code>
-      <code>$this-&gt;__get('sql_query')</code>
-      <code>$this-&gt;__get('table')</code>
-      <code>$this-&gt;__get('db')</code>
-      <code>$this-&gt;__get('table')</code>
-      <code>$this-&gt;__get('table')</code>
       <code>$is_field_truncated</code>
       <code>$is_field_truncated</code>
-      <code>$this-&gt;__get('sql_query')</code>
-      <code>$this-&gt;__get('table')</code>
-      <code>$this-&gt;__get('table')</code>
-      <code>$sort_table</code>
-      <code>$this-&gt;__get('table')</code>
-      <code>$this-&gt;__get('db')</code>
-      <code>$this-&gt;__get('db')</code>
-      <code>$this-&gt;__get('table')</code>
-      <code>$this-&gt;__get('fields_cnt')</code>
-      <code>$this-&gt;__get('fields_meta')</code>
     </PossiblyNullArgument>
-    <PossiblyNullArrayAccess occurrences="27">
-      <code>$fields_meta[$i]</code>
-      <code>$fields_meta[$i]</code>
-      <code>$fields_meta[$i]</code>
-      <code>$fields_meta[$i]</code>
-      <code>$fields_meta[$i]</code>
-      <code>$fields_meta[$i]</code>
-      <code>$fields_meta[$i]</code>
-      <code>$fields_meta[$i]</code>
-      <code>$display_params['desc']</code>
-      <code>$fields_meta[$i]</code>
-      <code>$fields_meta[$i]</code>
-      <code>$fields_meta[$i]</code>
-      <code>$display_params['desc']</code>
-      <code>$whereClauseMap[$row_no]</code>
-      <code>$fields_meta[$currentColumn]</code>
-      <code>$fields_meta[$i]</code>
-      <code>$whereClauseMap[$row_no]</code>
-      <code>$whereClauseMap[$row_no]</code>
-      <code>$display_params['data']</code>
-      <code>$display_params['data']</code>
-      <code>$display_params['data']</code>
-      <code>$fields_meta[$m]</code>
-      <code>$fields_meta[0]</code>
-      <code>$fields_meta[1]</code>
-      <code>$fields_meta[1]</code>
+    <PossiblyNullArrayAccess occurrences="2">
       <code>$display_size[0]</code>
       <code>$display_size[1]</code>
     </PossiblyNullArrayAccess>
-    <PossiblyNullArrayAssignment occurrences="7">
-      <code>$display_params['desc']</code>
-      <code>$display_params['desc']</code>
-      <code>$whereClauseMap[$row_no]</code>
-      <code>$whereClauseMap[$row_no]</code>
-      <code>$display_params['data']</code>
-      <code>$display_params['data']</code>
-      <code>$display_params['data']</code>
-    </PossiblyNullArrayAssignment>
-    <PossiblyNullArrayOffset occurrences="2">
-      <code>$whereClauseMap[$row_no]</code>
-      <code>$map</code>
-    </PossiblyNullArrayOffset>
-    <PossiblyNullIterator occurrences="2">
-      <code>$fields_meta</code>
-      <code>$fields_meta</code>
-    </PossiblyNullIterator>
-    <PossiblyNullPropertyFetch occurrences="12">
-      <code>$fields_meta[$i]-&gt;table</code>
-      <code>$fields_meta[$i]-&gt;table</code>
-      <code>$fields_meta[$i]-&gt;name</code>
-      <code>$meta-&gt;orgtable</code>
-      <code>$meta-&gt;orgtable</code>
-      <code>$meta-&gt;orgname</code>
-      <code>$meta-&gt;not_null</code>
-      <code>$meta-&gt;type</code>
-      <code>$meta-&gt;numeric</code>
-      <code>$fields_meta[$m]-&gt;orgname</code>
-      <code>$fields_meta[0]-&gt;table</code>
-      <code>$fields_meta[1]-&gt;name</code>
-    </PossiblyNullPropertyFetch>
     <PossiblyUndefinedArrayOffset occurrences="1">
       <code>$analyzed_sql_results['statement']</code>
     </PossiblyUndefinedArrayOffset>

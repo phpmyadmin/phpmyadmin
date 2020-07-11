@@ -666,11 +666,6 @@ parameters:
 			path: libraries/classes/Display/Export.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Display\\\\Results\\:\\:\\$_property_array has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Display\\\\Results\\:\\:\\$transformation_info has no typehint specified\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php

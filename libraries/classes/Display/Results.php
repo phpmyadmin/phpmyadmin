@@ -32,7 +32,6 @@ use PhpMyAdmin\Util;
 use stdClass;
 use const MYSQLI_TYPE_BIT;
 use function array_filter;
-use function array_key_exists;
 use function array_keys;
 use function array_merge;
 use function array_shift;
@@ -128,9 +127,8 @@ class Results
 
     // Declare global fields
 
-    /** array with properties of the class */
-    private $_property_array = [
-
+    /** @var array<string, mixed> */
+    public $properties = [
         /** integer server id */
         'server' => null,
 
@@ -256,41 +254,12 @@ class Results
 
         $this->setDefaultTransformations();
 
-        $this->__set('db', $db);
-        $this->__set('table', $table);
-        $this->__set('server', $server);
-        $this->__set('goto', $goto);
-        $this->__set('sql_query', $sql_query);
-        $this->__set('unique_id', mt_rand());
-    }
-
-    /**
-     * Get any property of this class
-     *
-     * @param string $property name of the property
-     *
-     * @return mixed|null if property exist, value of the relevant property
-     */
-    public function __get($property)
-    {
-        return $this->_property_array[$property] ?? null;
-    }
-
-    /**
-     * Set values for any property of this class
-     *
-     * @param string $property name of the property
-     * @param mixed  $value    value to set
-     *
-     * @return void
-     */
-    public function __set($property, $value)
-    {
-        if (! array_key_exists($property, $this->_property_array)) {
-            return;
-        }
-
-        $this->_property_array[$property] = $value;
+        $this->properties['db'] = $db;
+        $this->properties['table'] = $table;
+        $this->properties['server'] = $server;
+        $this->properties['goto'] = $goto;
+        $this->properties['sql_query'] = $sql_query;
+        $this->properties['unique_id'] = mt_rand();
     }
 
     /**
@@ -441,25 +410,25 @@ class Results
         $editable,
         $is_browse_dist
     ) {
-        $this->__set('unlim_num_rows', $unlim_num_rows);
-        $this->__set('fields_meta', $fields_meta);
-        $this->__set('is_count', $is_count);
-        $this->__set('is_export', $is_export);
-        $this->__set('is_func', $is_func);
-        $this->__set('is_analyse', $is_analyse);
-        $this->__set('num_rows', $num_rows);
-        $this->__set('fields_cnt', $fields_cnt);
-        $this->__set('querytime', $querytime);
-        $this->__set('pma_theme_image', $pmaThemeImage);
-        $this->__set('text_dir', $text_dir);
-        $this->__set('is_maint', $is_maint);
-        $this->__set('is_explain', $is_explain);
-        $this->__set('is_show', $is_show);
-        $this->__set('showtable', $showtable);
-        $this->__set('printview', $printview);
-        $this->__set('url_query', $url_query);
-        $this->__set('editable', $editable);
-        $this->__set('is_browse_distinct', $is_browse_dist);
+        $this->properties['unlim_num_rows'] = $unlim_num_rows;
+        $this->properties['fields_meta'] = $fields_meta;
+        $this->properties['is_count'] = $is_count;
+        $this->properties['is_export'] = $is_export;
+        $this->properties['is_func'] = $is_func;
+        $this->properties['is_analyse'] = $is_analyse;
+        $this->properties['num_rows'] = $num_rows;
+        $this->properties['fields_cnt'] = $fields_cnt;
+        $this->properties['querytime'] = $querytime;
+        $this->properties['pma_theme_image'] = $pmaThemeImage;
+        $this->properties['text_dir'] = $text_dir;
+        $this->properties['is_maint'] = $is_maint;
+        $this->properties['is_explain'] = $is_explain;
+        $this->properties['is_show'] = $is_show;
+        $this->properties['showtable'] = $showtable;
+        $this->properties['printview'] = $printview;
+        $this->properties['url_query'] = $url_query;
+        $this->properties['editable'] = $editable;
+        $this->properties['is_browse_distinct'] = $is_browse_dist;
     }
 
     /**
@@ -500,7 +469,7 @@ class Results
             '@^SHOW[[:space:]]+(VARIABLES|(FULL[[:space:]]+)?'
             . 'PROCESSLIST|STATUS|TABLE|GRANTS|CREATE|LOGS|DATABASES|FIELDS'
             . ')@i',
-            $this->__get('sql_query'),
+            $this->properties['sql_query'],
             $which
         );
 
@@ -553,7 +522,7 @@ class Results
         $displayParts['nav_bar']   = (string) '0';
         $displayParts['bkm_form']  = (string) '1';
 
-        if ($this->__get('is_maint')) {
+        if ($this->properties['is_maint']) {
             $displayParts['text_btn']  = (string) '1';
         } else {
             $displayParts['text_btn']  = (string) '0';
@@ -578,10 +547,10 @@ class Results
         // $displayParts['edit_lnk'], $displayParts['del_lnk'] and
         // $displayParts['text_btn'] (keeps other default values)
 
-        $fields_meta = $this->__get('fields_meta');
+        $fields_meta = $this->properties['fields_meta'];
         $prev_table = '';
         $displayParts['text_btn']  = (string) '1';
-        $number_of_columns = $this->__get('fields_cnt');
+        $number_of_columns = $this->properties['fields_cnt'];
 
         for ($i = 0; $i < $number_of_columns; $i++) {
             $is_link = ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
@@ -649,20 +618,20 @@ class Results
 
         // 1. Following variables are needed for use in isset/empty or
         //    use with array indexes or safe use in foreach
-        $db = $this->__get('db');
-        $table = $this->__get('table');
-        $unlim_num_rows = $this->__get('unlim_num_rows');
-        $num_rows = $this->__get('num_rows');
-        $printview = $this->__get('printview');
+        $db = $this->properties['db'];
+        $table = $this->properties['table'];
+        $unlim_num_rows = $this->properties['unlim_num_rows'];
+        $num_rows = $this->properties['num_rows'];
+        $printview = $this->properties['printview'];
 
         // 2. Updates the display parts
         if ($printview == '1') {
             $displayParts = $this->setDisplayPartsForPrintView($displayParts);
-        } elseif ($this->__get('is_count') || $this->__get('is_analyse')
-            || $this->__get('is_maint') || $this->__get('is_explain')
+        } elseif ($this->properties['is_count'] || $this->properties['is_analyse']
+            || $this->properties['is_maint'] || $this->properties['is_explain']
         ) {
             $displayParts = $this->setDisplayPartsForNonData($displayParts);
-        } elseif ($this->__get('is_show')) {
+        } elseif ($this->properties['is_show']) {
             $displayParts = $this->setDisplayPartsForShow($displayParts);
         } else {
             $displayParts = $this->setDisplayPartsForSelect($displayParts);
@@ -680,7 +649,7 @@ class Results
 
         // if for COUNT query, number of rows returned more than 1
         // (may be being used GROUP BY)
-        if ($this->__get('is_count') && isset($num_rows) && $num_rows > 1) {
+        if ($this->properties['is_count'] && isset($num_rows) && $num_rows > 1) {
             $displayParts['nav_bar']   = (string) '1';
             $displayParts['sort_lnk']  = (string) '1';
         }
@@ -721,10 +690,10 @@ class Results
      */
     private function isSelect(array $analyzed_sql_results)
     {
-        return ! ($this->__get('is_count')
-                || $this->__get('is_export')
-                || $this->__get('is_func')
-                || $this->__get('is_analyse'))
+        return ! ($this->properties['is_count']
+                || $this->properties['is_export']
+                || $this->properties['is_func']
+                || $this->properties['is_analyse'])
             && ! empty($analyzed_sql_results['select_from'])
             && ! empty($analyzed_sql_results['statement']->from)
             && (count($analyzed_sql_results['statement']->from) === 1)
@@ -778,12 +747,12 @@ class Results
         }
 
         return $this->template->render('display/results/table_navigation_button', [
-            'db' => $this->__get('db'),
-            'table' => $this->__get('table'),
+            'db' => $this->properties['db'],
+            'table' => $this->properties['table'],
             'sql_query' => $html_sql_query,
             'pos' => $pos,
-            'is_browse_distinct' => $this->__get('is_browse_distinct'),
-            'goto' => $this->__get('goto'),
+            'is_browse_distinct' => $this->properties['is_browse_distinct'],
+            'goto' => $this->properties['goto'],
             'input_for_real_end' => $input_for_real_end,
             'caption_output' => $caption_output,
             'title' => $title,
@@ -807,18 +776,18 @@ class Results
         ) + 1;
 
         $nbTotalPage = (int) ceil(
-            $this->__get('unlim_num_rows')
+            $this->properties['unlim_num_rows']
             / $_SESSION['tmpval']['max_rows']
         );
 
         $output = '';
         if ($nbTotalPage > 1) {
             $_url_params = [
-                'db'                 => $this->__get('db'),
-                'table'              => $this->__get('table'),
-                'sql_query'          => $this->__get('sql_query'),
-                'goto'               => $this->__get('goto'),
-                'is_browse_distinct' => $this->__get('is_browse_distinct'),
+                'db'                 => $this->properties['db'],
+                'table'              => $this->properties['table'],
+                'sql_query'          => $this->properties['sql_query'],
+                'goto'               => $this->properties['goto'],
+                'is_browse_distinct' => $this->properties['is_browse_distinct'],
             ];
 
             $output = $this->template->render('display/results/page_selector', [
@@ -867,7 +836,7 @@ class Results
         $moveBackwardButtons = '';
         if ($_SESSION['tmpval']['pos'] && ! $isShowingAll) {
             $moveBackwardButtons = $this->getMoveBackwardButtonsForTableNavigation(
-                htmlspecialchars($this->__get('sql_query')),
+                htmlspecialchars($this->properties['sql_query']),
                 $posPrevious
             );
         }
@@ -883,25 +852,25 @@ class Results
 
         // Move to the next page or to the last one
         $moveForwardButtons = '';
-        if ($this->__get('unlim_num_rows') === false // view with unknown number of rows
+        if ($this->properties['unlim_num_rows'] === false // view with unknown number of rows
             || (! $isShowingAll
-            && $_SESSION['tmpval']['pos'] + $_SESSION['tmpval']['max_rows'] < $this->__get('unlim_num_rows')
-            && $this->__get('num_rows') >= $_SESSION['tmpval']['max_rows'])
+            && $_SESSION['tmpval']['pos'] + $_SESSION['tmpval']['max_rows'] < $this->properties['unlim_num_rows']
+            && $this->properties['num_rows'] >= $_SESSION['tmpval']['max_rows'])
         ) {
             $moveForwardButtons = $this->getMoveForwardButtonsForTableNavigation(
-                htmlspecialchars($this->__get('sql_query')),
+                htmlspecialchars($this->properties['sql_query']),
                 $posNext,
                 $isInnodb
             );
         }
 
         $hiddenFields = [
-            'db' => $this->__get('db'),
-            'table' => $this->__get('table'),
-            'server' => $this->__get('server'),
-            'sql_query' => $this->__get('sql_query'),
-            'is_browse_distinct' => $this->__get('is_browse_distinct'),
-            'goto' => $this->__get('goto'),
+            'db' => $this->properties['db'],
+            'table' => $this->properties['table'],
+            'server' => $this->properties['server'],
+            'sql_query' => $this->properties['sql_query'],
+            'is_browse_distinct' => $this->properties['is_browse_distinct'],
+            'goto' => $this->properties['goto'],
         ];
 
         return [
@@ -909,7 +878,7 @@ class Results
             'page_selector' => $pageSelector,
             'move_forward_buttons' => $moveForwardButtons,
             'number_total_page' => $numberTotalPage,
-            'has_show_all' => $GLOBALS['cfg']['ShowAll'] || ($this->__get('unlim_num_rows') <= 500),
+            'has_show_all' => $GLOBALS['cfg']['ShowAll'] || ($this->properties['unlim_num_rows'] <= 500),
             'hidden_fields' => $hiddenFields,
             'session_max_rows' => $isShowingAll ? $GLOBALS['cfg']['MaxRows'] : 'all',
             'is_showing_all' => $isShowingAll,
@@ -980,7 +949,7 @@ class Results
 
         // prepare some options for the End button
         if ($is_innodb
-            && $this->__get('unlim_num_rows') > $GLOBALS['cfg']['MaxExactCount']
+            && $this->properties['unlim_num_rows'] > $GLOBALS['cfg']['MaxExactCount']
         ) {
             $input_for_real_end = '<input id="real_end_input" type="hidden" '
                 . 'name="find_real_end" value="1">';
@@ -994,8 +963,8 @@ class Results
         $onsubmit = 'onsubmit="return '
             . ($_SESSION['tmpval']['pos']
                 + $maxRows
-                < $this->__get('unlim_num_rows')
-                && $this->__get('num_rows') >= $maxRows
+                < $this->properties['unlim_num_rows']
+                && $this->properties['num_rows'] >= $maxRows
             ? 'true'
             : 'false') . '"';
 
@@ -1004,7 +973,7 @@ class Results
             '&gt;&gt;',
             _pgettext('Last page', 'End'),
             @(ceil(
-                $this->__get('unlim_num_rows')
+                $this->properties['unlim_num_rows']
                 / $_SESSION['tmpval']['max_rows']
             ) - 1) * $maxRows,
             $html_sql_query,
@@ -1047,15 +1016,15 @@ class Results
 
         // required to generate sort links that will remember whether the
         // "Show all" button has been clicked
-        $sql_md5 = md5($this->__get('sql_query'));
+        $sql_md5 = md5($this->properties['sql_query']);
         $session_max_rows = $is_limited_display
             ? 0
             : $_SESSION['tmpval']['query'][$sql_md5]['max_rows'];
 
         // Following variable are needed for use in isset/empty or
         // use with array indexes/safe use in the for loop
-        $highlight_columns = $this->__get('highlight_columns');
-        $fields_meta = $this->__get('fields_meta');
+        $highlight_columns = $this->properties['highlight_columns'];
+        $fields_meta = $this->properties['fields_meta'];
 
         // Prepare Display column comments if enabled
         // ($GLOBALS['cfg']['ShowBrowseComments']).
@@ -1066,7 +1035,7 @@ class Results
         );
 
         // optimize: avoid calling a method on each iteration
-        $number_of_columns = $this->__get('fields_cnt');
+        $number_of_columns = $this->properties['fields_cnt'];
 
         for ($j = 0; $j < $number_of_columns; $j++) {
             // PHP 7.4 fix for accessing array offset on bool
@@ -1083,7 +1052,7 @@ class Results
 
             // Prepare comment-HTML-wrappers for each row, if defined/enabled.
             $comments = $this->getCommentForRow($comments_map, $fields_meta[$i]);
-            $display_params = $this->__get('display_params');
+            $display_params = $this->properties['display_params'];
 
             if (($displayParts['sort_lnk'] == '1') && ! $is_limited_display) {
                 [$order_link, $sorted_header_html]
@@ -1127,7 +1096,7 @@ class Results
                     . $comments . '    </th>';
             } // end else
 
-            $this->__set('display_params', $display_params);
+            $this->properties['display_params'] = $display_params;
         } // end for
 
         return $html;
@@ -1159,8 +1128,8 @@ class Results
     ): array {
         // Needed for use in isset/empty or
         // use with array indexes/safe use in foreach
-        $printView = $this->__get('printview');
-        $displayParams = $this->__get('display_params');
+        $printView = $this->properties['printview'];
+        $displayParams = $this->properties['display_params'];
 
         // Output data needed for column reordering and show/hide column
         $columnOrder = $this->getDataForResettingColumnOrder($analyzedSqlResults);
@@ -1170,7 +1139,7 @@ class Results
         $displayParams['textbtn'] = '';
         $fullOrPartialTextLink = '';
 
-        $this->__set('display_params', $displayParams);
+        $this->properties['display_params'] = $displayParams;
 
         // Display options (if we are not in print view)
         $optionsBlock = [];
@@ -1257,8 +1226,8 @@ class Results
         if ($this->isSelect($analyzed_sql_results)) {
             // grab indexes data:
             $indexes = Index::getFromTable(
-                $this->__get('table'),
-                $this->__get('db')
+                $this->properties['table'],
+                $this->properties['db']
             );
 
             // do we have any index?
@@ -1296,9 +1265,9 @@ class Results
         $unsortedSqlQuery
     ): string {
         $hiddenFields = [
-            'db' => $this->__get('db'),
-            'table' => $this->__get('table'),
-            'server' => $this->__get('server'),
+            'db' => $this->properties['db'],
+            'table' => $this->properties['table'],
+            'server' => $this->properties['server'],
             'sort_by_key' => '1',
         ];
 
@@ -1374,7 +1343,7 @@ class Results
         $full_or_partial_text_link
     ) {
         $button_html = '';
-        $display_params = $this->__get('display_params');
+        $display_params = $this->properties['display_params'];
 
         // 1. Displays the full/partial text button (part 1)...
         $button_html .= '<thead><tr>' . "\n";
@@ -1418,7 +1387,7 @@ class Results
             $button_html .= '<th class="column_action"></th>';
         }
 
-        $this->__set('display_params', $display_params);
+        $this->properties['display_params'] = $display_params;
 
         return [
             $colspan,
@@ -1451,7 +1420,7 @@ class Results
                 continue;
             }
             $ret[$field->table] = $this->relation->getComments(
-                empty($field->database) ? $this->__get('db') : $field->database,
+                empty($field->database) ? $this->properties['db'] : $field->database,
                 $field->table
             );
         }
@@ -1482,7 +1451,7 @@ class Results
             }
         }
 
-        $this->__set('highlight_columns', $highlight_columns);
+        $this->properties['highlight_columns'] = $highlight_columns;
     }
 
     /**
@@ -1505,11 +1474,11 @@ class Results
         );
 
         $tableCreateTime = '';
-        $table = new Table($this->__get('table'), $this->__get('db'));
+        $table = new Table($this->properties['table'], $this->properties['db']);
         if (! $table->isView()) {
             $tableCreateTime = $GLOBALS['dbi']->getTable(
-                $this->__get('db'),
-                $this->__get('table')
+                $this->properties['db'],
+                $this->properties['table']
             )->getStatusInfo('Create_time');
         }
 
@@ -1561,20 +1530,20 @@ class Results
     private function getFullOrPartialTextButtonOrLink()
     {
         $url_params_full_text = [
-            'db' => $this->__get('db'),
-            'table' => $this->__get('table'),
-            'sql_query' => $this->__get('sql_query'),
-            'goto' => $this->__get('goto'),
+            'db' => $this->properties['db'],
+            'table' => $this->properties['table'],
+            'sql_query' => $this->properties['sql_query'],
+            'goto' => $this->properties['goto'],
             'full_text_button' => 1,
         ];
 
         if ($_SESSION['tmpval']['pftext'] == self::DISPLAY_FULL_TEXT) {
             // currently in fulltext mode so show the opposite link
-            $tmp_image_file = $this->__get('pma_theme_image') . 's_partialtext.png';
+            $tmp_image_file = $this->properties['pma_theme_image'] . 's_partialtext.png';
             $tmp_txt = __('Partial texts');
             $url_params_full_text['pftext'] = self::DISPLAY_PARTIAL_TEXT;
         } else {
-            $tmp_image_file = $this->__get('pma_theme_image') . 's_fulltext.png';
+            $tmp_image_file = $this->properties['pma_theme_image'] . 's_fulltext.png';
             $tmp_txt = __('Full texts');
             $url_params_full_text['pftext'] = self::DISPLAY_FULL_TEXT;
         }
@@ -1683,21 +1652,21 @@ class Results
         }
 
         $_single_url_params = [
-            'db'                 => $this->__get('db'),
-            'table'              => $this->__get('table'),
+            'db'                 => $this->properties['db'],
+            'table'              => $this->properties['table'],
             'sql_query'          => $single_sorted_sql_query,
             'sql_signature'      => Core::signSqlQuery($single_sorted_sql_query),
             'session_max_rows'   => $session_max_rows,
-            'is_browse_distinct' => $this->__get('is_browse_distinct'),
+            'is_browse_distinct' => $this->properties['is_browse_distinct'],
         ];
 
         $_multi_url_params = [
-            'db'                 => $this->__get('db'),
-            'table'              => $this->__get('table'),
+            'db'                 => $this->properties['db'],
+            'table'              => $this->properties['table'],
             'sql_query'          => $multi_sorted_sql_query,
             'sql_signature'      => Core::signSqlQuery($multi_sorted_sql_query),
             'session_max_rows'   => $session_max_rows,
-            'is_browse_distinct' => $this->__get('is_browse_distinct'),
+            'is_browse_distinct' => $this->properties['is_browse_distinct'],
         ];
         $single_order_url = Url::getFromRoute('/sql', $_single_url_params);
         $multi_order_url = Url::getFromRoute('/sql', $_multi_url_params);
@@ -2178,7 +2147,7 @@ class Results
         $colspan
     ) {
         $right_column_html = '';
-        $display_params = $this->__get('display_params');
+        $display_params = $this->properties['display_params'];
 
         // Displays the needed checkboxes at the right
         // column of the result table header if possible and required...
@@ -2213,7 +2182,7 @@ class Results
                 . '></td>';
         }
 
-        $this->__set('display_params', $display_params);
+        $this->properties['display_params'] = $display_params;
 
         return $right_column_html;
     }
@@ -2341,8 +2310,8 @@ class Results
             $classes[] = 'truncated';
         }
 
-        $mime_map = $this->__get('mime_map');
-        $orgFullColName = $this->__get('db') . '.' . $meta->orgtable
+        $mime_map = $this->properties['mime_map'];
+        $orgFullColName = $this->properties['db'] . '.' . $meta->orgtable
             . '.' . $meta->orgname;
         if ($transformation_plugin != $default_function
             || ! empty($mime_map[$orgFullColName]['input_transformation'])
@@ -2405,7 +2374,7 @@ class Results
         // guess, it should depend on remaining URL length
         $url_sql_query = $this->getUrlSqlQuery($analyzed_sql_results);
 
-        $display_params = $this->__get('display_params');
+        $display_params = $this->properties['display_params'];
 
         if (! is_array($map)) {
             $map = [];
@@ -2417,12 +2386,12 @@ class Results
         $display_params['delete']     = [];
         $display_params['data']       = [];
         $display_params['row_delete'] = [];
-        $this->__set('display_params', $display_params);
+        $this->properties['display_params'] = $display_params;
 
         // name of the class added to all grid editable elements;
         // if we don't have all the columns of a unique key in the result set,
         //  do not permit grid editing
-        if ($is_limited_display || ! $this->__get('editable')) {
+        if ($is_limited_display || ! $this->properties['editable']) {
             $grid_edit_class = '';
         } else {
             switch ($GLOBALS['cfg']['GridEditing']) {
@@ -2457,7 +2426,7 @@ class Results
         // table being displayed has one or more keys; but to display
         // delete/edit options correctly for tables without keys.
 
-        $whereClauseMap = $this->__get('whereClauseMap');
+        $whereClauseMap = $this->properties['whereClauseMap'];
         while ($row = $GLOBALS['dbi']->fetchRow($dt_result)) {
             // add repeating headers
             if (($row_no != 0) && ($_SESSION['tmpval']['repeat_cells'] != 0)
@@ -2513,15 +2482,15 @@ class Results
                  */
                 [$where_clause, $clause_is_unique, $condition_array] = Util::getUniqueCondition(
                     $dt_result,
-                    $this->__get('fields_cnt'),
-                    $this->__get('fields_meta'),
+                    $this->properties['fields_cnt'],
+                    $this->properties['fields_meta'],
                     $row,
                     false,
-                    $this->__get('table'),
+                    $this->properties['table'],
                     $expressions
                 );
-                $whereClauseMap[$row_no][$this->__get('table')] = $where_clause;
-                $this->__set('whereClauseMap', $whereClauseMap);
+                $whereClauseMap[$row_no][$this->properties['table']] = $where_clause;
+                $this->properties['whereClauseMap'] = $whereClauseMap;
 
                 // 1.2.1 Modify link(s) - update row case
                 if ($displayParts['edit_lnk'] == self::UPDATE_ROW) {
@@ -2581,7 +2550,7 @@ class Results
             } // end if (1)
 
             // 2. Displays the rows' values
-            if ($this->__get('mime_map') === null) {
+            if ($this->properties['mime_map'] === null) {
                 $this->setMimeMap();
             }
             $table_body_html .= $this->getRowValues(
@@ -2637,13 +2606,13 @@ class Results
      */
     private function setMimeMap()
     {
-        $fields_meta = $this->__get('fields_meta');
+        $fields_meta = $this->properties['fields_meta'];
         $mimeMap = [];
         $added = [];
 
-        for ($currentColumn = 0; $currentColumn < $this->__get('fields_cnt'); ++$currentColumn) {
+        for ($currentColumn = 0; $currentColumn < $this->properties['fields_cnt']; ++$currentColumn) {
             $meta = $fields_meta[$currentColumn];
-            $orgFullTableName = $this->__get('db') . '.' . $meta->orgtable;
+            $orgFullTableName = $this->properties['db'] . '.' . $meta->orgtable;
 
             if (! $GLOBALS['cfgRelation']['commwork']
                 || ! $GLOBALS['cfgRelation']['mimework']
@@ -2656,20 +2625,20 @@ class Results
 
             $mimeMap = array_merge(
                 $mimeMap,
-                $this->transformations->getMime($this->__get('db'), $meta->orgtable, false, true) ?? []
+                $this->transformations->getMime($this->properties['db'], $meta->orgtable, false, true) ?? []
             );
             $added[$orgFullTableName] = true;
         }
 
         // special browser transformation for some SHOW statements
-        if ($this->__get('is_show')
+        if ($this->properties['is_show']
             && ! $_SESSION['tmpval']['hide_transformation']
         ) {
             preg_match(
                 '@^SHOW[[:space:]]+(VARIABLES|(FULL[[:space:]]+)?'
                 . 'PROCESSLIST|STATUS|TABLE|GRANTS|CREATE|LOGS|DATABASES|FIELDS'
                 . ')@i',
-                $this->__get('sql_query'),
+                $this->properties['sql_query'],
                 $which
             );
 
@@ -2685,7 +2654,7 @@ class Results
 
                 $isShowCreateTable = preg_match(
                     '@CREATE[[:space:]]+TABLE@i',
-                    $this->__get('sql_query')
+                    $this->properties['sql_query']
                 );
                 if ($isShowCreateTable) {
                     $mimeMap['..Create Table'] = [
@@ -2696,7 +2665,7 @@ class Results
             }
         }
 
-        $this->__set('mime_map', $mimeMap);
+        $this->properties['mime_map'] = $mimeMap;
     }
 
     /**
@@ -2739,23 +2708,23 @@ class Results
 
         // Following variable are needed for use in isset/empty or
         // use with array indexes/safe use in foreach
-        $sql_query = $this->__get('sql_query');
-        $fields_meta = $this->__get('fields_meta');
-        $highlight_columns = $this->__get('highlight_columns');
-        $mime_map = $this->__get('mime_map');
+        $sql_query = $this->properties['sql_query'];
+        $fields_meta = $this->properties['fields_meta'];
+        $highlight_columns = $this->properties['highlight_columns'];
+        $mime_map = $this->properties['mime_map'];
 
         $row_info = $this->getRowInfoForSpecialLinks($row, $col_order);
 
-        $whereClauseMap = $this->__get('whereClauseMap');
+        $whereClauseMap = $this->properties['whereClauseMap'];
 
-        $columnCount = $this->__get('fields_cnt');
+        $columnCount = $this->properties['fields_cnt'];
         for ($currentColumn = 0; $currentColumn < $columnCount; ++$currentColumn) {
             // assign $i with appropriate column order
             $i = is_array($col_order) ? $col_order[$currentColumn] : $currentColumn;
 
             $meta    = $fields_meta[$i];
             $orgFullColName
-                = $this->__get('db') . '.' . $meta->orgtable . '.' . $meta->orgname;
+                = $this->properties['db'] . '.' . $meta->orgtable . '.' . $meta->orgname;
 
             $not_null_class = $meta->not_null ? 'not_null' : '';
             $relation_class = isset($map[$meta->name]) ? 'relation' : '';
@@ -2826,7 +2795,7 @@ class Results
 
             // Check whether the field needs to display with syntax highlighting
 
-            $dbLower = mb_strtolower($this->__get('db'));
+            $dbLower = mb_strtolower($this->properties['db']);
             $tblLower = mb_strtolower($meta->orgtable);
             $nameLower = mb_strtolower($meta->orgname);
             if (! empty($this->transformation_info[$dbLower][$tblLower][$nameLower])
@@ -2893,8 +2862,8 @@ class Results
             if (! isset($whereClauseMap[$row_no][$meta->orgtable])) {
                 $unique_conditions = Util::getUniqueCondition(
                     $dt_result,
-                    $this->__get('fields_cnt'),
-                    $this->__get('fields_meta'),
+                    $this->properties['fields_cnt'],
+                    $this->properties['fields_meta'],
                     $row,
                     false,
                     $meta->orgtable,
@@ -2904,7 +2873,7 @@ class Results
             }
 
             $_url_params = [
-                'db'            => $this->__get('db'),
+                'db'            => $this->properties['db'],
                 'table'         => $meta->orgtable,
                 'where_clause'  => $whereClauseMap[$row_no][$meta->orgtable],
                 'transform_key' => $meta->orgname,
@@ -2917,7 +2886,7 @@ class Results
             $transform_options['wrapper_link'] = Url::getCommon($_url_params);
             $transform_options['wrapper_params'] = $_url_params;
 
-            $display_params = $this->__get('display_params');
+            $display_params = $this->properties['display_params'];
 
             // in some situations (issue 11406), numeric returns 1
             // even for a string type
@@ -2991,7 +2960,7 @@ class Results
                     = $display_params['data'][$row_no][$i];
             }
 
-            $this->__set('display_params', $display_params);
+            $this->properties['display_params'] = $display_params;
         } // end for
 
         return $row_values_html;
@@ -3014,8 +2983,8 @@ class Results
         $field_name
     ) {
         $linking_url_params = [];
-        $db = mb_strtolower($this->__get('db'));
-        $table = mb_strtolower($this->__get('table'));
+        $db = mb_strtolower($this->properties['db']);
+        $table = mb_strtolower($this->properties['table']);
         $link_relations = $specialSchemaLinks[$db][$table][$field_name];
 
         if (! is_array($link_relations['link_param'])) {
@@ -3069,9 +3038,9 @@ class Results
     private function getRowInfoForSpecialLinks(array $row, $col_order)
     {
         $row_info = [];
-        $fields_meta = $this->__get('fields_meta');
+        $fields_meta = $this->properties['fields_meta'];
 
-        for ($n = 0; $n < $this->__get('fields_cnt'); ++$n) {
+        for ($n = 0; $n < $this->properties['fields_cnt']; ++$n) {
             $m = is_array($col_order) ? $col_order[$n] : $n;
             $row_info[mb_strtolower($fields_meta[$m]->orgname)]
                 = $row[$m];
@@ -3094,9 +3063,9 @@ class Results
     private function getUrlSqlQuery(array $analyzed_sql_results)
     {
         if (($analyzed_sql_results['querytype'] !== 'SELECT')
-            || (mb_strlen($this->__get('sql_query')) < 200)
+            || (mb_strlen($this->properties['sql_query']) < 200)
         ) {
-            return $this->__get('sql_query');
+            return $this->properties['sql_query'];
         }
 
         $query = 'SELECT ' . Query::getClause(
@@ -3132,11 +3101,11 @@ class Results
     private function getColumnParams(array $analyzed_sql_results)
     {
         if ($this->isSelect($analyzed_sql_results)) {
-            $pmatable = new Table($this->__get('table'), $this->__get('db'));
+            $pmatable = new Table($this->properties['table'], $this->properties['db']);
             $col_order = $pmatable->getUiProp(Table::PROP_COLUMN_ORDER);
             /* Validate the value */
             if ($col_order !== false) {
-                $fields_cnt = $this->__get('fields_cnt');
+                $fields_cnt = $this->properties['fields_cnt'];
                 foreach ($col_order as $value) {
                     if ($value < $fields_cnt) {
                         continue;
@@ -3217,8 +3186,8 @@ class Results
         $url_sql_query
     ) {
         $_url_params = [
-            'db'               => $this->__get('db'),
-            'table'            => $this->__get('table'),
+            'db'               => $this->properties['db'],
+            'table'            => $this->properties['table'],
             'where_clause'     => $where_clause,
             'clause_is_unique' => $clause_is_unique,
             'sql_query'        => $url_sql_query,
@@ -3275,12 +3244,12 @@ class Results
         $del_lnk,
         array $row
     ) {
-        $goto = $this->__get('goto');
+        $goto = $this->properties['goto'];
 
         if ($del_lnk == self::DELETE_ROW) { // delete row case
             $_url_params = [
-                'db'        => $this->__get('db'),
-                'table'     => $this->__get('table'),
+                'db'        => $this->properties['db'],
+                'table'     => $this->properties['table'],
                 'sql_query' => $url_sql_query,
                 'message_to_show' => __('The row has been deleted.'),
                 'goto'      => empty($goto) ? Url::getFromRoute('/table/sql') : $goto,
@@ -3289,28 +3258,28 @@ class Results
             $lnk_goto = Url::getFromRoute('/sql', $_url_params);
 
             $del_query = 'DELETE FROM '
-                . Util::backquote($this->__get('table'))
+                . Util::backquote($this->properties['table'])
                 . ' WHERE ' . $where_clause .
                 ($clause_is_unique ? '' : ' LIMIT 1');
 
             $_url_params = [
-                'db'        => $this->__get('db'),
-                'table'     => $this->__get('table'),
+                'db'        => $this->properties['db'],
+                'table'     => $this->properties['table'],
                 'sql_query' => $del_query,
                 'message_to_show' => __('The row has been deleted.'),
                 'goto'      => $lnk_goto,
             ];
             $del_url  = Url::getFromRoute('/sql', $_url_params);
 
-            $js_conf  = 'DELETE FROM ' . Sanitize::jsFormat($this->__get('table'))
+            $js_conf  = 'DELETE FROM ' . Sanitize::jsFormat($this->properties['table'])
                 . ' WHERE ' . Sanitize::jsFormat($where_clause, false)
                 . ($clause_is_unique ? '' : ' LIMIT 1');
 
             $del_str = $this->getActionLinkContent('b_drop', __('Delete'));
         } elseif ($del_lnk == self::KILL_PROCESS) { // kill process case
             $_url_params = [
-                'db'        => $this->__get('db'),
-                'table'     => $this->__get('table'),
+                'db'        => $this->properties['db'],
+                'table'     => $this->properties['table'],
                 'sql_query' => $url_sql_query,
                 'goto'      => Url::getFromRoute('/'),
             ];
@@ -3700,7 +3669,7 @@ class Results
     ) {
         $original_length = 0;
 
-        $is_analyse = $this->__get('is_analyse');
+        $is_analyse = $this->properties['is_analyse'];
         $field_flags = $GLOBALS['dbi']->fieldFlags($dt_result, $col_index);
 
         $bIsText = is_object($transformation_plugin)
@@ -3847,13 +3816,13 @@ class Results
      */
     public function setConfigParamsForDisplayTable()
     {
-        $sql_md5 = md5($this->__get('sql_query'));
+        $sql_md5 = md5($this->properties['sql_query']);
         $query = [];
         if (isset($_SESSION['tmpval']['query'][$sql_md5])) {
             $query = $_SESSION['tmpval']['query'][$sql_md5];
         }
 
-        $query['sql'] = $this->__get('sql_query');
+        $query['sql'] = $this->properties['sql_query'];
 
         if (empty($query['repeat_cells'])) {
             $query['repeat_cells'] = $GLOBALS['cfg']['RepeatCells'];
@@ -4018,9 +3987,9 @@ class Results
 
         // Following variable are needed for use in isset/empty or
         // use with array indexes/safe use in foreach
-        $fields_meta = $this->__get('fields_meta');
-        $showtable = $this->__get('showtable');
-        $printview = $this->__get('printview');
+        $fields_meta = $this->properties['fields_meta'];
+        $showtable = $this->properties['showtable'];
+        $printview = $this->properties['printview'];
 
         /**
          * @todo move this to a central place
@@ -4104,26 +4073,26 @@ class Results
 
             $sqlQueryMessage = Generator::getMessage(
                 $message,
-                $this->__get('sql_query'),
+                $this->properties['sql_query'],
                 'success'
             );
         } elseif ((! isset($printview) || ($printview != '1')) && ! $is_limited_display) {
             $sqlQueryMessage = Generator::getMessage(
                 __('Your SQL query has been executed successfully.'),
-                $this->__get('sql_query'),
+                $this->properties['sql_query'],
                 'success'
             );
         }
 
         // 2.3 Prepare the navigation bars
-        if (strlen($this->__get('table')) === 0) {
+        if (strlen($this->properties['table']) === 0) {
             if ($analyzed_sql_results['querytype'] === 'SELECT') {
                 // table does not always contain a real table name,
                 // for example in MySQL 5.0.x, the query SHOW STATUS
                 // returns STATUS as a table name
-                $this->__set('table', $fields_meta[0]->table);
+                $this->properties['table'] = $fields_meta[0]->table;
             } else {
-                $this->__set('table', '');
+                $this->properties['table'] = '';
             }
         }
 
@@ -4155,18 +4124,18 @@ class Results
         // initialize map
         $map = [];
 
-        if (strlen($this->__get('table')) > 0) {
+        if (strlen($this->properties['table']) > 0) {
             // This method set the values for $map array
             $this->setParamForLinkForeignKeyRelatedTables($map);
 
             // Coming from 'Distinct values' action of structure page
             // We manipulate relations mechanism to show a link to related rows.
-            if ($this->__get('is_browse_distinct')) {
+            if ($this->properties['is_browse_distinct']) {
                 $map[$fields_meta[1]->name] = [
-                    $this->__get('table'),
+                    $this->properties['table'],
                     $fields_meta[1]->name,
                     '',
-                    $this->__get('db'),
+                    $this->properties['db'],
                 ];
             }
         } // end if
@@ -4191,7 +4160,7 @@ class Results
             $is_limited_display
         );
 
-        $this->__set('display_params', null);
+        $this->properties['display_params'] = null;
 
         // 4. ----- Prepares the link for multi-fields edit and delete
         $bulkLinks = $this->getBulkLinks(
@@ -4216,19 +4185,19 @@ class Results
             'body' => $body,
             'bulk_links' => $bulkLinks,
             'operations' => $operations,
-            'db' => $this->__get('db'),
-            'table' => $this->__get('table'),
-            'unique_id' => $this->__get('unique_id'),
-            'sql_query' => $this->__get('sql_query'),
-            'url_query' => $this->__get('url_query'),
-            'goto' => $this->__get('goto'),
-            'unlim_num_rows' => $this->__get('unlim_num_rows'),
+            'db' => $this->properties['db'],
+            'table' => $this->properties['table'],
+            'unique_id' => $this->properties['unique_id'],
+            'sql_query' => $this->properties['sql_query'],
+            'url_query' => $this->properties['url_query'],
+            'goto' => $this->properties['goto'],
+            'unlim_num_rows' => $this->properties['unlim_num_rows'],
             'displaywork' => $GLOBALS['cfgRelation']['displaywork'],
             'relwork' => $GLOBALS['cfgRelation']['relwork'],
             'save_cells_at_once' => $GLOBALS['cfg']['SaveCellsAtOnce'],
             'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
-            'select_all_arrow' => $this->__get('pma_theme_image') . 'arrow_'
-                . $this->__get('text_dir') . '.png',
+            'select_all_arrow' => $this->properties['pma_theme_image'] . 'arrow_'
+                . $this->properties['text_dir'] . '.png',
         ]);
     }
 
@@ -4282,14 +4251,14 @@ class Results
         &$dt_result,
         $sort_expression_nodirection
     ) {
-        $fields_meta = $this->__get('fields_meta'); // To use array indexes
+        $fields_meta = $this->properties['fields_meta']; // To use array indexes
 
         if (empty($sort_expression_nodirection)) {
             return null;
         }
 
         if (mb_strpos($sort_expression_nodirection, '.') === false) {
-            $sort_table = $this->__get('table');
+            $sort_table = $this->properties['table'];
             $sort_column = $sort_expression_nodirection;
         } else {
             [$sort_table, $sort_column]
@@ -4352,7 +4321,7 @@ class Results
         );
 
         // fetch last row of the result set
-        $GLOBALS['dbi']->dataSeek($dt_result, $this->__get('num_rows') - 1);
+        $GLOBALS['dbi']->dataSeek($dt_result, $this->properties['num_rows'] - 1);
         $row = $GLOBALS['dbi']->fetchRow($dt_result);
 
         // check for non printable sorted row data
@@ -4415,7 +4384,7 @@ class Results
         $pre_count,
         $after_count
     ) {
-        $unlim_num_rows = $this->__get('unlim_num_rows'); // To use in isset()
+        $unlim_num_rows = $this->properties['unlim_num_rows']; // To use in isset()
 
         if (! empty($analyzed_sql_results['statement']->limit)) {
             $first_shown_rec = $analyzed_sql_results['statement']->limit->offset;
@@ -4436,7 +4405,7 @@ class Results
             $last_shown_rec  = $pos_next - 1;
         }
 
-        $table = new Table($this->__get('table'), $this->__get('db'));
+        $table = new Table($this->properties['table'], $this->properties['db']);
         if ($table->isView()
             && ($total == $GLOBALS['cfg']['MaxExactCountViews'])
         ) {
@@ -4486,7 +4455,7 @@ class Results
         }
 
         $message_qt = Message::notice(__('Query took %01.4f seconds.') . ')');
-        $message_qt->addParam($this->__get('querytime'));
+        $message_qt->addParam($this->properties['querytime']);
 
         $message->addMessage($message_qt, '');
         if ($sorted_column_message !== null) {
@@ -4516,8 +4485,8 @@ class Results
         // to use the "column to display" notion (for example show
         // the name related to a numeric id).
         $exist_rel = $this->relation->getForeigners(
-            $this->__get('db'),
-            $this->__get('table'),
+            $this->properties['db'],
+            $this->properties['table'],
             '',
             self::POSITION_BOTH
         );
@@ -4582,7 +4551,7 @@ class Results
         }
 
         // fetch last row of the result set
-        $dbi->dataSeek($dt_result, $this->__get('num_rows') - 1);
+        $dbi->dataSeek($dt_result, $this->properties['num_rows'] - 1);
         $row = $dbi->fetchRow($dt_result);
 
         // @see DbiMysqi::fetchRow & DatabaseInterface::fetchRow
@@ -4604,8 +4573,8 @@ class Results
          */
         [, $clause_is_unique] = Util::getUniqueCondition(
             $dt_result,
-            $this->__get('fields_cnt'),
-            $this->__get('fields_meta'),
+            $this->properties['fields_cnt'],
+            $this->properties['fields_meta'],
             $row,
             false,
             false,
@@ -4639,10 +4608,10 @@ class Results
         $results_operations_html .= '<span>';
         $results_operations_html .= Generator::linkOrButton(
             Url::getFromRoute('/view/create', [
-                'db' => $this->__get('db'),
-                'table' => $this->__get('table'),
+                'db' => $this->properties['db'],
+                'table' => $this->properties['table'],
                 'printview' => '1',
-                'sql_query' => $this->__get('sql_query'),
+                'sql_query' => $this->properties['sql_query'],
             ]),
             Generator::getIcon(
                 'b_view_add',
@@ -4674,10 +4643,10 @@ class Results
         global $printview;
 
         $_url_params = [
-            'db'        => $this->__get('db'),
-            'table'     => $this->__get('table'),
+            'db'        => $this->properties['db'],
+            'table'     => $this->properties['table'],
             'printview' => '1',
-            'sql_query' => $this->__get('sql_query'),
+            'sql_query' => $this->properties['sql_query'],
         ];
 
         $geometry_found = false;
@@ -4703,7 +4672,7 @@ class Results
                 $_url_params['raw_query'] = 'true';
             }
 
-            $_url_params['unlim_num_rows'] = $this->__get('unlim_num_rows');
+            $_url_params['unlim_num_rows'] = $this->properties['unlim_num_rows'];
 
             /**
              * At this point we don't know the table name; this can happen
@@ -4721,7 +4690,7 @@ class Results
                 }
             }
 
-            $fields_meta = $this->__get('fields_meta');
+            $fields_meta = $this->properties['fields_meta'];
             foreach ($fields_meta as $meta) {
                 if ($meta->type == self::GEOMETRY_FIELD) {
                     $geometry_found = true;
@@ -4842,7 +4811,7 @@ class Results
         /* Create link to download */
 
         // in PHP < 5.5, empty() only checks variables
-        $tmpdb = $this->__get('db');
+        $tmpdb = $this->properties['db'];
         if (count($url_params) > 0
             && (! empty($tmpdb) && ! empty($meta->orgtable))
         ) {
@@ -4944,7 +4913,7 @@ class Results
         $original_length = ''
     ) {
         $relational_display = $_SESSION['tmpval']['relational_display'];
-        $printview = $this->__get('printview');
+        $printview = $this->properties['printview'];
         $decimals = $meta->decimals ?? '-1';
         $result = '<td data-decimals="' . $decimals . '"'
             . ' data-type="' . $meta->type . '"';
