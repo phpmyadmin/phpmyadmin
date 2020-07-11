@@ -544,11 +544,11 @@ class Sql
     /**
      * Function to check whether this query is for just browsing
      *
-     * @param array     $analyzed_sql_results the analyzed query and other variables set
-     *                                        after analyzing the query
-     * @param bool|null $find_real_end        whether the real end should be found
+     * @param array<string, mixed> $analyzed_sql_results the analyzed query and other variables set
+     *                                                   after analyzing the query
+     * @param bool|null            $find_real_end        whether the real end should be found
      */
-    public function isJustBrowsing(array $analyzed_sql_results, ?bool $find_real_end): bool
+    public static function isJustBrowsing(array $analyzed_sql_results, ?bool $find_real_end): bool
     {
         return ! $analyzed_sql_results['is_group']
             && ! $analyzed_sql_results['is_func']
@@ -1099,7 +1099,7 @@ class Sql
                 $profiling_results = $GLOBALS['dbi']->fetchResult('SHOW PROFILE;');
             }
 
-            $justBrowsing = $this->isJustBrowsing(
+            $justBrowsing = self::isJustBrowsing(
                 $analyzed_sql_results,
                 $find_real_end ?? null
             );

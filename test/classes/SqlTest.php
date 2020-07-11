@@ -125,34 +125,25 @@ class SqlTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for isJustBrowsing
-     */
     public function testIsJustBrowsing(): void
     {
         // Test environment.
         $GLOBALS['_SESSION']['tmpval']['max_rows'] = 10;
 
-        $this->assertTrue(
-            $this->sql->isJustBrowsing(
-                $this->sql->parseAndAnalyze('SELECT * FROM db.tbl'),
-                null
-            )
-        );
+        $this->assertTrue(Sql::isJustBrowsing(
+            $this->sql->parseAndAnalyze('SELECT * FROM db.tbl'),
+            null
+        ));
 
-        $this->assertTrue(
-            $this->sql->isJustBrowsing(
-                $this->sql->parseAndAnalyze('SELECT * FROM tbl WHERE 1'),
-                null
-            )
-        );
+        $this->assertTrue(Sql::isJustBrowsing(
+            $this->sql->parseAndAnalyze('SELECT * FROM tbl WHERE 1'),
+            null
+        ));
 
-        $this->assertFalse(
-            $this->sql->isJustBrowsing(
-                $this->sql->parseAndAnalyze('SELECT * from tbl1, tbl2 LIMIT 0, 10'),
-                null
-            )
-        );
+        $this->assertFalse(Sql::isJustBrowsing(
+            $this->sql->parseAndAnalyze('SELECT * from tbl1, tbl2 LIMIT 0, 10'),
+            null
+        ));
     }
 
     /**

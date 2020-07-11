@@ -4029,8 +4029,7 @@ class Results
         $is_innodb = (isset($showtable['Type'])
             && $showtable['Type'] == self::TABLE_TYPE_INNO_DB);
 
-        $sql = new Sql();
-        if ($is_innodb && $sql->isJustBrowsing($analyzed_sql_results, true)) {
+        if ($is_innodb && Sql::isJustBrowsing($analyzed_sql_results, true)) {
             $pre_count = '~';
             $after_count = Generator::showHint(
                 Sanitize::sanitizeMessage(
