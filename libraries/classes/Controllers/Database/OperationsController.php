@@ -77,9 +77,7 @@ class OperationsController extends AbstractController
 
         $this->checkUserPrivileges->getPrivileges();
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('database/operations.js');
+        $this->addScriptFiles(['database/operations.js']);
 
         $sql_query = '';
 

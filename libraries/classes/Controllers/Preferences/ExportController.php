@@ -88,10 +88,7 @@ class ExportController extends AbstractController
             $error = $result;
         }
 
-        // display forms
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('config.js');
+        $this->addScriptFiles(['config.js']);
 
         $cfgRelation = $this->relation->getRelationsParam();
 

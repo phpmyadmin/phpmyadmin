@@ -90,11 +90,11 @@ class CentralColumnsController extends AbstractController
             ]);
         }
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
-        $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
-        $scripts->addFile('database/central_columns.js');
+        $this->addScriptFiles([
+            'vendor/jquery/jquery.uitablefilter.js',
+            'vendor/jquery/jquery.tablesorter.js',
+            'database/central_columns.js',
+        ]);
 
         if (isset($_POST['edit_central_columns_page'])) {
             $this->response->addHTML($this->editPage([

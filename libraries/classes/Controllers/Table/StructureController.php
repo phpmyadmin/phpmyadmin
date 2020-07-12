@@ -139,10 +139,7 @@ class StructureController extends AbstractController
         $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
         $checkUserPrivileges->getPrivileges();
 
-        $this->response->getHeader()->getScripts()->addFiles([
-            'table/structure.js',
-            'indexes.js',
-        ]);
+        $this->addScriptFiles(['table/structure.js', 'indexes.js']);
 
         $cfgRelation = $this->relation->getRelationsParam();
 
@@ -820,10 +817,7 @@ class StructureController extends AbstractController
         $this->response->addHTML($pageSettings->getErrorHTML());
         $this->response->addHTML($pageSettings->getHTML());
 
-        $this->response->getHeader()->getScripts()->addFiles([
-            'table/structure.js',
-            'indexes.js',
-        ]);
+        $this->addScriptFiles(['table/structure.js', 'indexes.js']);
 
         $partitionDetails = null;
         if (! isset($_POST['partition_by'])) {

@@ -67,9 +67,7 @@ class AddFieldController extends AbstractController
         global $err_url, $message, $action, $active_page, $sql_query;
         global $num_fields, $regenerate, $result, $db, $table;
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('table/structure.js');
+        $this->addScriptFiles(['table/structure.js']);
 
         // Check parameters
         Util::checkParameters(['db', 'table']);

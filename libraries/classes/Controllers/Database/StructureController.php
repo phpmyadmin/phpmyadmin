@@ -140,10 +140,7 @@ class StructureController extends AbstractController
 
         Common::database();
 
-        $this->response->getHeader()->getScripts()->addFiles([
-            'database/structure.js',
-            'table/change.js',
-        ]);
+        $this->addScriptFiles(['database/structure.js', 'table/change.js']);
 
         // Gets the database structure
         $this->getDatabaseInfo('_structure');

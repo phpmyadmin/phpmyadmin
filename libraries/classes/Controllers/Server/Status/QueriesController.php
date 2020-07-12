@@ -19,16 +19,16 @@ class QueriesController extends AbstractController
     {
         Common::server();
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('chart.js');
-        $scripts->addFile('vendor/jqplot/jquery.jqplot.js');
-        $scripts->addFile('vendor/jqplot/plugins/jqplot.pieRenderer.js');
-        $scripts->addFile('vendor/jqplot/plugins/jqplot.highlighter.js');
-        $scripts->addFile('vendor/jqplot/plugins/jqplot.enhancedPieLegendRenderer.js');
-        $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
-        $scripts->addFile('server/status/sorter.js');
-        $scripts->addFile('server/status/queries.js');
+        $this->addScriptFiles([
+            'chart.js',
+            'vendor/jqplot/jquery.jqplot.js',
+            'vendor/jqplot/plugins/jqplot.pieRenderer.js',
+            'vendor/jqplot/plugins/jqplot.highlighter.js',
+            'vendor/jqplot/plugins/jqplot.enhancedPieLegendRenderer.js',
+            'vendor/jquery/jquery.tablesorter.js',
+            'server/status/sorter.js',
+            'server/status/queries.js',
+        ]);
 
         if ($this->data->dataLoaded) {
             $hourFactor = 3600 / $this->data->status['Uptime'];

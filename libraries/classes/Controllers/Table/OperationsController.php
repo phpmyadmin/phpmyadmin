@@ -85,9 +85,7 @@ class OperationsController extends AbstractController
 
         $pma_table = $this->dbi->getTable($db, $table);
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('table/operations.js');
+        $this->addScriptFiles(['table/operations.js']);
 
         /**
          * Runs common work

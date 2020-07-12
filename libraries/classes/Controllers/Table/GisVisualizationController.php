@@ -107,13 +107,11 @@ final class GisVisualizationController extends AbstractController
             return;
         }
 
-        $this->response->getHeader()->getScripts()->addFiles(
-            [
-                'vendor/openlayers/OpenLayers.js',
-                'vendor/jquery/jquery.svg.js',
-                'table/gis_visualization.js',
-            ]
-        );
+        $this->addScriptFiles([
+            'vendor/openlayers/OpenLayers.js',
+            'vendor/jquery/jquery.svg.js',
+            'table/gis_visualization.js',
+        ]);
 
         // If all the rows contain SRID, use OpenStreetMaps on the initial loading.
         if (! isset($_POST['displayVisualization'])) {

@@ -31,9 +31,7 @@ class ProcessesController extends AbstractController
 
         Common::server();
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('server/status/processes.js');
+        $this->addScriptFiles(['server/status/processes.js']);
 
         $isChecked = false;
         if (! empty($params['showExecuting'])) {

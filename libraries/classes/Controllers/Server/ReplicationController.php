@@ -50,11 +50,7 @@ class ReplicationController extends AbstractController
         Common::server();
         ReplicationInfo::load();
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('server/privileges.js');
-        $scripts->addFile('replication.js');
-        $scripts->addFile('vendor/zxcvbn.js');
+        $this->addScriptFiles(['server/privileges.js', 'replication.js', 'vendor/zxcvbn.js']);
 
         if (isset($params['url_params']) && is_array($params['url_params'])) {
             $url_params = $params['url_params'];

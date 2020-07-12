@@ -65,9 +65,7 @@ class FindReplaceController extends AbstractController
             return;
         }
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('table/find_replace.js');
+        $this->addScriptFiles(['table/find_replace.js']);
 
         if (isset($_POST['replace'])) {
             $this->replaceAction();

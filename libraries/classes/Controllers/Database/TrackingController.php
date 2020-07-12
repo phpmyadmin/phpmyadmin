@@ -46,11 +46,7 @@ class TrackingController extends AbstractController
         global $total_num_tables, $sub_part, $is_show_stats, $pos, $data, $cfg;
         global $db_is_system_schema, $tooltip_truename, $tooltip_aliasname;
 
-        //Get some js files needed for Ajax requests
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
-        $scripts->addFile('database/tracking.js');
+        $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'database/tracking.js']);
 
         /**
          * If we are not in an Ajax request, then do the common work and show the links etc.

@@ -27,11 +27,11 @@ class VariablesController extends AbstractController
 
         Common::server();
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('server/status/variables.js');
-        $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
-        $scripts->addFile('server/status/sorter.js');
+        $this->addScriptFiles([
+            'server/status/variables.js',
+            'vendor/jquery/jquery.tablesorter.js',
+            'server/status/sorter.js',
+        ]);
 
         if (isset($params['flush'])) {
             $this->flush($params['flush']);

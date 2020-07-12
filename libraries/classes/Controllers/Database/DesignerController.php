@@ -210,14 +210,15 @@ class DesignerController extends AbstractController
         $header = $this->response->getHeader();
         $header->setBodyId('designer_body');
 
-        $scripts = $header->getScripts();
-        $scripts->addFile('vendor/jquery/jquery.fullscreen.js');
-        $scripts->addFile('designer/database.js');
-        $scripts->addFile('designer/objects.js');
-        $scripts->addFile('designer/page.js');
-        $scripts->addFile('designer/history.js');
-        $scripts->addFile('designer/move.js');
-        $scripts->addFile('designer/init.js');
+        $this->addScriptFiles([
+            'vendor/jquery/jquery.fullscreen.js',
+            'designer/database.js',
+            'designer/objects.js',
+            'designer/page.js',
+            'designer/history.js',
+            'designer/move.js',
+            'designer/init.js',
+        ]);
 
         [
             $tables,

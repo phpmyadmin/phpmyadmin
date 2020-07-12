@@ -39,21 +39,21 @@ class MonitorController extends AbstractController
     {
         Common::server();
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
-        $scripts->addFile('vendor/jquery/jquery.sortableTable.js');
-        $scripts->addFile('vendor/jqplot/jquery.jqplot.js');
-        $scripts->addFile('vendor/jqplot/plugins/jqplot.pieRenderer.js');
-        $scripts->addFile('vendor/jqplot/plugins/jqplot.enhancedPieLegendRenderer.js');
-        $scripts->addFile('vendor/jqplot/plugins/jqplot.canvasTextRenderer.js');
-        $scripts->addFile('vendor/jqplot/plugins/jqplot.canvasAxisLabelRenderer.js');
-        $scripts->addFile('vendor/jqplot/plugins/jqplot.dateAxisRenderer.js');
-        $scripts->addFile('vendor/jqplot/plugins/jqplot.highlighter.js');
-        $scripts->addFile('vendor/jqplot/plugins/jqplot.cursor.js');
-        $scripts->addFile('jqplot/plugins/jqplot.byteFormatter.js');
-        $scripts->addFile('server/status/monitor.js');
-        $scripts->addFile('server/status/sorter.js');
+        $this->addScriptFiles([
+            'vendor/jquery/jquery.tablesorter.js',
+            'vendor/jquery/jquery.sortableTable.js',
+            'vendor/jqplot/jquery.jqplot.js',
+            'vendor/jqplot/plugins/jqplot.pieRenderer.js',
+            'vendor/jqplot/plugins/jqplot.enhancedPieLegendRenderer.js',
+            'vendor/jqplot/plugins/jqplot.canvasTextRenderer.js',
+            'vendor/jqplot/plugins/jqplot.canvasAxisLabelRenderer.js',
+            'vendor/jqplot/plugins/jqplot.dateAxisRenderer.js',
+            'vendor/jqplot/plugins/jqplot.highlighter.js',
+            'vendor/jqplot/plugins/jqplot.cursor.js',
+            'jqplot/plugins/jqplot.byteFormatter.js',
+            'server/status/monitor.js',
+            'server/status/sorter.js',
+        ]);
 
         $form = [
             'server_time' => (int) (microtime(true) * 1000),

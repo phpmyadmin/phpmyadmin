@@ -60,9 +60,7 @@ class ExportController extends AbstractController
         $this->response->addHTML($pageSettings->getErrorHTML());
         $this->response->addHTML($pageSettings->getHTML());
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('export.js');
+        $this->addScriptFiles(['export.js']);
 
         $cfgRelation = $this->relation->getRelationsParam();
 

@@ -88,13 +88,7 @@ final class ReplaceController extends AbstractController
          */
         $goto_include = false;
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('makegrid.js');
-        // Needed for generation of Inline Edit anchors
-        $scripts->addFile('sql.js');
-        $scripts->addFile('indexes.js');
-        $scripts->addFile('gis_data_editor.js');
+        $this->addScriptFiles(['makegrid.js', 'sql.js', 'indexes.js', 'gis_data_editor.js']);
 
         // check whether insert row mode, if so include /table/change
         $this->insertEdit->isInsertRow();
@@ -598,8 +592,7 @@ final class ReplaceController extends AbstractController
             $GLOBALS['sql_query'] = $return_to_sql_query;
         }
 
-        $scripts->addFile('vendor/jquery/additional-methods.js');
-        $scripts->addFile('table/change.js');
+        $this->addScriptFiles(['vendor/jquery/additional-methods.js', 'table/change.js']);
 
         $active_page = $goto_include;
 

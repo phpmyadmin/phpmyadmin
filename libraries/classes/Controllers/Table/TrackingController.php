@@ -50,11 +50,7 @@ final class TrackingController extends AbstractController
         global $data, $entries, $filter_ts_from, $filter_ts_to, $filter_users, $selection_schema;
         global $selection_data, $selection_both, $sql_result;
 
-        //Get some js files needed for Ajax requests
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
-        $scripts->addFile('table/tracking.js');
+        $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'table/tracking.js']);
 
         define('TABLE_MAY_BE_ABSENT', true);
         Common::table();

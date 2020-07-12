@@ -46,9 +46,7 @@ final class ExportController extends AbstractController
         $this->response->addHTML($pageSettings->getErrorHTML());
         $this->response->addHTML($pageSettings->getHTML());
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('export.js');
+        $this->addScriptFiles(['export.js']);
 
         // $sub_part is used in Util::getDbInfo() to see if we are coming from
         // /database/export, in which case we don't obey $cfg['MaxTableList']

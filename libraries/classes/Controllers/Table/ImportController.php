@@ -19,9 +19,7 @@ final class ImportController extends AbstractController
         $this->response->addHTML($pageSettings->getErrorHTML());
         $this->response->addHTML($pageSettings->getHTML());
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('import.js');
+        $this->addScriptFiles(['import.js']);
 
         /**
          * Gets tables information and displays top links

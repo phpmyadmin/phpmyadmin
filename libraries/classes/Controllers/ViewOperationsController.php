@@ -40,9 +40,7 @@ class ViewOperationsController extends AbstractController
 
         $tableObject = $this->dbi->getTable($db, $table);
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('table/operations.js');
+        $this->addScriptFiles(['table/operations.js']);
 
         Common::table();
 

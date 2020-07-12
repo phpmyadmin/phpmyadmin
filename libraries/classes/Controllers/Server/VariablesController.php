@@ -38,9 +38,7 @@ class VariablesController extends AbstractController
 
         $filterValue = ! empty($params['filter']) ? $params['filter'] : '';
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('server/variables.js');
+        $this->addScriptFiles(['server/variables.js']);
 
         $variables = [];
         $serverVarsResult = $this->dbi->tryQuery('SHOW SESSION VARIABLES;');

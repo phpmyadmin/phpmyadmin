@@ -67,9 +67,7 @@ final class ExportController extends AbstractController
         global $active_page, $do_relation, $do_comments, $do_mime, $do_dates, $whatStrucOrData, $db_select;
         global $table_structure, $table_data, $lock_tables, $allrows, $limit_to, $limit_from;
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('export_output.js');
+        $this->addScriptFiles(['export_output.js']);
 
         //check if it's the GET request to check export time out
         if (isset($_GET['check_time_out'])) {

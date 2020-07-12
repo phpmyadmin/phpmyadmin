@@ -98,9 +98,7 @@ class DatabasesController extends AbstractController
             'sort_order' => $_REQUEST['sort_order'] ?? null,
         ];
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('server/databases.js');
+        $this->addScriptFiles(['server/databases.js']);
 
         Common::server();
         ReplicationInfo::load();

@@ -92,7 +92,7 @@ class IndexesController extends AbstractController
             $form_params['old_index'] = $_POST['index'];
         }
 
-        $this->response->getHeader()->getScripts()->addFile('indexes.js');
+        $this->addScriptFiles(['indexes.js']);
 
         $this->render('table/index_form', [
             'fields' => $fields,

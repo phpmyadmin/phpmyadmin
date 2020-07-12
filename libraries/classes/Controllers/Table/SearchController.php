@@ -182,9 +182,7 @@ class SearchController extends AbstractController
     {
         Common::table();
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFiles([
+        $this->addScriptFiles([
             'makegrid.js',
             'sql.js',
             'table/select.js',

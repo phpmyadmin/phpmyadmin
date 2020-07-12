@@ -103,10 +103,8 @@ class NormalizationController extends AbstractController
             return;
         }
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('normalization.js');
-        $scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
+        $this->addScriptFiles(['normalization.js', 'vendor/jquery/jquery.uitablefilter.js']);
+
         $normalForm = '1nf';
         if (Core::isValid($_POST['normalizeTo'], ['1nf', '2nf', '3nf'])) {
             $normalForm = $_POST['normalizeTo'];

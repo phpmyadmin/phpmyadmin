@@ -45,4 +45,12 @@ abstract class AbstractController
     {
         $this->response->addHTML($this->template->render($template, $data));
     }
+
+    /** @param string[] $files */
+    protected function addScriptFiles(array $files): void
+    {
+        $header = $this->response->getHeader();
+        $scripts = $header->getScripts();
+        $scripts->addFiles($files);
+    }
 }

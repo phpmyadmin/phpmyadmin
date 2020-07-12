@@ -116,13 +116,13 @@ class ChangeController extends AbstractController
          * START REGULAR OUTPUT
          */
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('makegrid.js');
-        $scripts->addFile('sql.js');
-        $scripts->addFile('table/change.js');
-        $scripts->addFile('vendor/jquery/additional-methods.js');
-        $scripts->addFile('gis_data_editor.js');
+        $this->addScriptFiles([
+            'makegrid.js',
+            'sql.js',
+            'table/change.js',
+            'vendor/jquery/additional-methods.js',
+            'gis_data_editor.js',
+        ]);
 
         /**
          * Displays the query submitted and its result
@@ -264,7 +264,9 @@ class ChangeController extends AbstractController
                 $where_clause_array
             );
         } // end foreach on multi-edit
-        $scripts->addFiles($GLOBALS['plugin_scripts']);
+
+        $this->addScriptFiles($GLOBALS['plugin_scripts']);
+
         unset($unsaved_values, $checked, $repopulate, $GLOBALS['plugin_scripts']);
 
         if (! isset($after_insert)) {
