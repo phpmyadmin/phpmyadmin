@@ -63,7 +63,7 @@ class DeleteController extends AbstractController
 
         $active_page = Url::getFromRoute('/sql');
 
-        $sql->executeQueryAndSendQueryResponse(
+        $this->response->addHTML($sql->executeQueryAndSendQueryResponse(
             null,
             false,
             $db,
@@ -82,7 +82,7 @@ class DeleteController extends AbstractController
             $sql_query,
             null,
             null
-        );
+        ));
     }
 
     public function confirm(): void

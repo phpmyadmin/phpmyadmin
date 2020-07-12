@@ -1944,8 +1944,6 @@ class Sql
      *                                                    like check table, optimize table,
      *                                                    analyze table or repair table
      * @param string|null         $complete_query         complete query
-     *
-     * @return void
      */
     public function executeQueryAndSendQueryResponse(
         $analyzed_sql_results,
@@ -1966,7 +1964,7 @@ class Sql
         $sql_query,
         $selectedTables,
         $complete_query
-    ) {
+    ): string {
         if ($analyzed_sql_results == null) {
             // Parse and analyze the query
             [
@@ -1980,7 +1978,7 @@ class Sql
             }
         }
 
-        $html_output = $this->executeQueryAndGetQueryResponse(
+        return $this->executeQueryAndGetQueryResponse(
             $analyzed_sql_results, // analyzed_sql_results
             $is_gotofile, // is_gotofile
             $db, // db
@@ -2000,9 +1998,6 @@ class Sql
             $selectedTables, // selectedTables
             $complete_query // complete_query
         );
-
-        $response = Response::getInstance();
-        $response->addHTML($html_output);
     }
 
     /**

@@ -194,7 +194,7 @@ class SqlController extends AbstractController
             ]);
         }
 
-        $this->sql->executeQueryAndSendQueryResponse(
+        $this->response->addHTML($this->sql->executeQueryAndSendQueryResponse(
             $analyzed_sql_results,
             $is_gotofile,
             $db,
@@ -213,7 +213,7 @@ class SqlController extends AbstractController
             $sql_query,
             $selected ?? null,
             $complete_query ?? null
-        );
+        ));
     }
 
     /**

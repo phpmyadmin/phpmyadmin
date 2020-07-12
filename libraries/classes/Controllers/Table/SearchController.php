@@ -260,7 +260,7 @@ class SearchController extends AbstractController
          * Add this to ensure following procedures included running correctly.
          */
         $sql = new Sql();
-        $sql->executeQueryAndSendQueryResponse(
+        $this->response->addHTML($sql->executeQueryAndSendQueryResponse(
             null, // analyzed_sql_results
             false, // is_gotofile
             $this->db, // db
@@ -279,7 +279,7 @@ class SearchController extends AbstractController
             $sql_query, // sql_query
             null, // selectedTables
             null // complete_query
-        );
+        ));
     }
 
     /**

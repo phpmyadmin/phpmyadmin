@@ -36,11 +36,11 @@ class MultiTableQueryController extends AbstractController
             'db' => $_POST['db'] ?? $_GET['db'] ?? null,
         ];
 
-        MultiTableQuery::displayResults(
+        $this->response->addHTML(MultiTableQuery::displayResults(
             $params['sql_query'],
             $params['db'],
             $pmaThemeImage
-        );
+        ));
     }
 
     public function table(): void

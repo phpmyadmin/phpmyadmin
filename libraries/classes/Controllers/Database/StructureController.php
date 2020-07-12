@@ -1458,7 +1458,7 @@ class StructureController extends AbstractController
         }
 
         $sql = new Sql();
-        $sql->executeQueryAndSendQueryResponse(
+        $this->response->addHTML($sql->executeQueryAndSendQueryResponse(
             null,
             false,
             $db,
@@ -1477,7 +1477,7 @@ class StructureController extends AbstractController
             $sql_query,
             $selected,
             null
-        );
+        ));
 
         if (empty($_POST['message'])) {
             $_POST['message'] = Message::success();
@@ -1509,7 +1509,7 @@ class StructureController extends AbstractController
         }
 
         $sql = new Sql();
-        $sql->executeQueryAndSendQueryResponse(
+        $this->response->addHTML($sql->executeQueryAndSendQueryResponse(
             null,
             false,
             $db,
@@ -1528,7 +1528,7 @@ class StructureController extends AbstractController
             $sqlQuery,
             $selected,
             null
-        );
+        ));
 
         if (empty($_POST['message'])) {
             $_POST['message'] = Message::success();
@@ -1560,7 +1560,7 @@ class StructureController extends AbstractController
         }
 
         $sql = new Sql();
-        $sql->executeQueryAndSendQueryResponse(
+        $this->response->addHTML($sql->executeQueryAndSendQueryResponse(
             null,
             false,
             $db,
@@ -1579,7 +1579,7 @@ class StructureController extends AbstractController
             $sql_query,
             $selected,
             null
-        );
+        ));
 
         if (empty($_POST['message'])) {
             $_POST['message'] = Message::success();
@@ -1611,7 +1611,7 @@ class StructureController extends AbstractController
         }
 
         $sql = new Sql();
-        $sql->executeQueryAndSendQueryResponse(
+        $this->response->addHTML($sql->executeQueryAndSendQueryResponse(
             null,
             false,
             $db,
@@ -1630,7 +1630,7 @@ class StructureController extends AbstractController
             $sql_query,
             $selected,
             null
-        );
+        ));
 
         if (empty($_POST['message'])) {
             $_POST['message'] = Message::success();
@@ -1662,7 +1662,7 @@ class StructureController extends AbstractController
         }
 
         $sql = new Sql();
-        $sql->executeQueryAndSendQueryResponse(
+        $this->response->addHTML($sql->executeQueryAndSendQueryResponse(
             null,
             false,
             $db,
@@ -1681,7 +1681,7 @@ class StructureController extends AbstractController
             $sql_query,
             $selected,
             null
-        );
+        ));
 
         if (empty($_POST['message'])) {
             $_POST['message'] = Message::success();
