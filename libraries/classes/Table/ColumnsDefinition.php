@@ -10,11 +10,9 @@ use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Partition;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\TablePartitionDefinition;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -40,8 +38,6 @@ use function trim;
 final class ColumnsDefinition
 {
     /**
-     * @param Response          $response        Response object
-     * @param Template          $template        Template
      * @param Transformations   $transformations Transformations
      * @param Relation          $relation        Relation
      * @param DatabaseInterface $dbi             Database Interface instance
@@ -51,10 +47,10 @@ final class ColumnsDefinition
      * @param array|null        $selected        Selected
      * @param array|null        $fields_meta     Fields meta
      * @param array|null        $field_fulltext  Fields full text
+     *
+     * @return array<string, mixed>
      */
     public static function displayForm(
-        Response $response,
-        Template $template,
         Transformations $transformations,
         Relation $relation,
         DatabaseInterface $dbi,
@@ -64,7 +60,7 @@ final class ColumnsDefinition
         $selected = null,
         $fields_meta = null,
         $field_fulltext = null
-    ): void {
+    ): array {
         global $db, $table, $cfg, $col_priv, $is_reload_priv, $mime_map;
 
         Util::checkParameters([
@@ -520,7 +516,7 @@ final class ColumnsDefinition
 
         $storageEngines = StorageEngine::getArray();
 
-        $html = $template->render('columns_definitions/column_definitions_form', [
+        return [
             'is_backup' => $is_backup,
             'fields_meta' => $fields_meta ?? null,
             'mimework' => $cfgRelation['mimework'],
@@ -553,14 +549,6 @@ final class ColumnsDefinition
             'have_partitioning' => Partition::havePartitioning(),
             'dbi' => $dbi,
             'disable_is' => $cfg['Server']['DisableIS'],
-        ]);
-
-        $response->getHeader()->getScripts()->addFiles(
-            [
-                'vendor/jquery/jquery.uitablefilter.js',
-                'indexes.js',
-            ]
-        );
-        $response->addHTML($html);
+        ];
     }
 }

@@ -173,9 +173,9 @@ class AddFieldController extends AbstractController
          */
         $action = Url::getFromRoute('/table/add-field');
 
-        ColumnsDefinition::displayForm(
-            $this->response,
-            $this->template,
+        $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js', 'indexes.js']);
+
+        $templateData = ColumnsDefinition::displayForm(
             $this->transformations,
             $this->relation,
             $this->dbi,
@@ -183,5 +183,7 @@ class AddFieldController extends AbstractController
             $num_fields,
             $regenerate
         );
+
+        $this->render('columns_definitions/column_definitions_form', $templateData);
     }
 }

@@ -776,9 +776,9 @@ class StructureController extends AbstractController
         $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
         $checkUserPrivileges->getPrivileges();
 
-        ColumnsDefinition::displayForm(
-            $this->response,
-            $this->template,
+        $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js', 'indexes.js']);
+
+        $templateData = ColumnsDefinition::displayForm(
             $this->transformations,
             $this->relation,
             $this->dbi,
@@ -788,6 +788,8 @@ class StructureController extends AbstractController
             $selected,
             $fields_meta
         );
+
+        $this->render('columns_definitions/column_definitions_form', $templateData);
     }
 
     public function partitioning(): void
