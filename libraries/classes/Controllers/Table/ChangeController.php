@@ -62,7 +62,9 @@ class ChangeController extends AbstractController
         global $tabindex_for_null, $tabindex_for_value, $o_rows, $biggest_max_file_size, $has_blob_field;
         global $titles, $jsvkey, $vkey, $current_result, $repopulate, $checked;
 
-        PageSettings::showGroup('Edit');
+        $pageSettings = new PageSettings('Edit');
+        $this->response->addHTML($pageSettings->getErrorHTML());
+        $this->response->addHTML($pageSettings->getHTML());
 
         DbTableExists::check();
 

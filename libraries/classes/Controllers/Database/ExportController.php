@@ -42,7 +42,9 @@ final class ExportController extends AbstractController
         global $tables, $num_tables, $total_num_tables, $is_show_stats, $db_is_system_schema, $tooltip_truename;
         global $tooltip_aliasname, $pos, $export_page_title, $multi_values, $force_val, $table_select, $unlim_num_rows;
 
-        PageSettings::showGroup('Export');
+        $pageSettings = new PageSettings('Export');
+        $this->response->addHTML($pageSettings->getErrorHTML());
+        $this->response->addHTML($pageSettings->getHTML());
 
         $header = $this->response->getHeader();
         $scripts = $header->getScripts();

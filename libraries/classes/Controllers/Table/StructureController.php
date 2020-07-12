@@ -132,7 +132,9 @@ class StructureController extends AbstractController
         $tbl_collation = $this->table_obj->getCollation();
         $table_info_num_rows = $this->table_obj->getNumRows();
 
-        PageSettings::showGroup('TableStructure');
+        $pageSettings = new PageSettings('TableStructure');
+        $this->response->addHTML($pageSettings->getErrorHTML());
+        $this->response->addHTML($pageSettings->getHTML());
 
         $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
         $checkUserPrivileges->getPrivileges();
@@ -814,7 +816,9 @@ class StructureController extends AbstractController
             return;
         }
 
-        PageSettings::showGroup('TableStructure');
+        $pageSettings = new PageSettings('TableStructure');
+        $this->response->addHTML($pageSettings->getErrorHTML());
+        $this->response->addHTML($pageSettings->getHTML());
 
         $this->response->getHeader()->getScripts()->addFiles([
             'table/structure.js',

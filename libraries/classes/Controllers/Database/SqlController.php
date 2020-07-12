@@ -44,7 +44,9 @@ class SqlController extends AbstractController
         $scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
         $scripts->addFile('sql.js');
 
-        PageSettings::showGroup('Sql');
+        $pageSettings = new PageSettings('Sql');
+        $this->response->addHTML($pageSettings->getErrorHTML());
+        $this->response->addHTML($pageSettings->getHTML());
 
         Common::database();
 

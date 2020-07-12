@@ -36,7 +36,9 @@ final class ExportController extends AbstractController
 
         Common::server();
 
-        PageSettings::showGroup('Export');
+        $pageSettings = new PageSettings('Export');
+        $this->response->addHTML($pageSettings->getErrorHTML());
+        $this->response->addHTML($pageSettings->getHTML());
 
         $header = $this->response->getHeader();
         $scripts = $header->getScripts();

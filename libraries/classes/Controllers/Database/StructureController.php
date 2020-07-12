@@ -162,7 +162,9 @@ class StructureController extends AbstractController
 
         ReplicationInfo::load();
 
-        PageSettings::showGroup('DbStructure');
+        $pageSettings = new PageSettings('DbStructure');
+        $this->response->addHTML($pageSettings->getErrorHTML());
+        $this->response->addHTML($pageSettings->getHTML());
 
         if ($this->numTables > 0) {
             $urlParams = [
