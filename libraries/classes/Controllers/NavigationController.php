@@ -58,7 +58,9 @@ class NavigationController extends AbstractController
         }
 
         if (isset($_POST['getNaviSettings']) && $_POST['getNaviSettings']) {
-            $this->response->addJSON('message', PageSettings::getNaviSettings());
+            $pageSettings = new PageSettings('Navi', 'pma_navigation_settings');
+            $this->response->addHTML($pageSettings->getErrorHTML());
+            $this->response->addJSON('message', $pageSettings->getHTML());
 
             return;
         }

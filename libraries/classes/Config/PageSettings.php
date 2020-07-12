@@ -196,19 +196,4 @@ class PageSettings
     {
         return $this->_errorHTML;
     }
-
-    /**
-     * Get HTML for navigation settings
-     *
-     * @return string
-     */
-    public static function getNaviSettings()
-    {
-        $object = new PageSettings('Navi', 'pma_navigation_settings');
-
-        $response = Response::getInstance();
-        $response->addHTML($object->getErrorHTML());
-
-        return $object->getHTML();
-    }
 }

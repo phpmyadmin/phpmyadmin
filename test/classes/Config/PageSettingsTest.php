@@ -79,7 +79,9 @@ class PageSettingsTest extends AbstractTestCase
      */
     public function testGetNaviSettings(): void
     {
-        $html = PageSettings::getNaviSettings();
+        $pageSettings = new PageSettings('Navi', 'pma_navigation_settings');
+
+        $html = $pageSettings->getHTML();
 
         // Test some sample parts
         $this->assertStringContainsString(

@@ -98,7 +98,9 @@ class Navigation
             }
 
             if (! defined('PMA_DISABLE_NAVI_SETTINGS')) {
-                $navigationSettings = PageSettings::getNaviSettings();
+                $pageSettings = new PageSettings('Navi', 'pma_navigation_settings');
+                $response->addHTML($pageSettings->getErrorHTML());
+                $navigationSettings = $pageSettings->getHTML();
             }
         }
         if (! $response->isAjax()
