@@ -175,6 +175,7 @@ div.notice {
   border: 1px solid maroon !important;
   color: #000;
   background: pink;
+  padding: 0.27em;
 }
 
 h1.error,
