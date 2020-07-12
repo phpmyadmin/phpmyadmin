@@ -1111,7 +1111,7 @@ Sql.setStickyColumnsPosition = function ($stickyColumns, $tableResults, position
  * Initialize sticky columns
  */
 Sql.initStickyColumns = function ($tableResults) {
-    return $('<table class="sticky_columns"></table>')
+    return $('<table class="sticky_columns" style="table-layout: fixed;"></table>')
         .insertBefore($tableResults)
         .css('position', 'fixed')
         .css('z-index', '98')
