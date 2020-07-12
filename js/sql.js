@@ -1138,7 +1138,7 @@ Sql.rearrangeStickyColumns = function ($stickyColumns, $tableResults) {
         }
         $(this).width(width);
         if (isSafari) {
-            $(this).css('min-width', width).css('max-width', width);
+            $(this).css('min-width', width).css('max-width', width).css('box-sizing', 'content-box');
         }
     });
     $stickyColumns.empty().append($clonedHeader);
