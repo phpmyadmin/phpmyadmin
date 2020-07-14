@@ -1124,10 +1124,8 @@ class Operations
      *
      * @param string $db    current database name
      * @param string $table current table name
-     *
-     * @return void
      */
-    public function moveOrCopyTable($db, $table)
+    public function moveOrCopyTable($db, $table): Message
     {
         /**
          * Selects the database to work with
@@ -1231,17 +1229,6 @@ class Operations
             $message = Message::error(__('The table name is empty!'));
         }
 
-        $response = Response::getInstance();
-        if (! $response->isAjax()) {
-            return;
-        }
-
-        $response->addJSON('message', $message);
-        if ($message->isSuccess()) {
-            $response->addJSON('db', $GLOBALS['db']);
-        } else {
-            $response->setRequestStatus(false);
-        }
-        exit;
+        return $message;
     }
 }

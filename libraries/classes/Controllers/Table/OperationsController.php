@@ -144,12 +144,25 @@ class OperationsController extends AbstractController
          * If the table has to be moved to some other database
          */
         if (isset($_POST['submit_move']) || isset($_POST['submit_copy'])) {
-            //$_message = '';
-            $this->operations->moveOrCopyTable($db, $table);
+            $message = $this->operations->moveOrCopyTable($db, $table);
 
-            // This was ended in an Ajax call
+            if (! $this->response->isAjax()) {
+                return;
+            }
+
+            $this->response->addJSON('message', $message);
+
+            if ($message->isSuccess()) {
+                $this->response->addJSON('db', $db);
+
+                return;
+            }
+
+            $this->response->setRequestStatus(false);
+
             return;
         }
+
         /**
          * If the table has to be maintained
          */
