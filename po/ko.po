@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-06-19 09:17+0200\n"
-"PO-Revision-Date: 2017-10-03 18:16+0000\n"
-"Last-Translator: urty5656 <urty5656@gmail.com>\n"
+"PO-Revision-Date: 2020-07-16 11:41+0000\n"
+"Last-Translator: junseong kim <anima94@naver.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ko/>\n"
 "Language: ko\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.17-dev\n"
+"X-Generator: Weblate 4.2-dev\n"
 
 #: js/messages.php:52
 msgid "Confirm"
@@ -97,7 +97,7 @@ msgstr ""
 msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
-msgstr ""
+msgstr "행 수를 줄이려고 시도하였지만 손실될 행에 이미 데이터를 입력하셨습니다. 계속하시겠습니까?"
 
 #: js/messages.php:74
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -966,7 +966,7 @@ msgstr "에러 메시지: %s"
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
-msgstr ""
+msgstr "서버와의 연결이 끊긴 것 같다. 네트워크 연결 및 서버 상태를 확인하십시오."
 
 #: js/messages.php:353 libraries/classes/Common.php:110
 #: libraries/classes/Controllers/Server/DatabasesController.php:290
@@ -1213,13 +1213,13 @@ msgstr "외래값 탐색"
 
 #: js/messages.php:404
 msgid "No previously auto-saved query is available. Loading default query."
-msgstr ""
+msgstr "이전에 자동 저장된 쿼리를 사용할 수 없음. 기본 쿼리를 로딩중이다."
 
 #: js/messages.php:405
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
-msgstr ""
+msgstr "이전에 저장한 쿼리가 있는 경우. 쿼리를 로드하려면 자동 저장 쿼리 가져오기를 누르십시오."
 
 #: js/messages.php:406
 #, php-format
@@ -1584,7 +1584,7 @@ msgstr "암호화 키"
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
-msgstr ""
+msgstr "16진수 값을 계산하는 동안 HEX 함수가 정수를 문자열로 처리함"
 
 #: js/messages.php:518
 msgid ""
@@ -1637,7 +1637,7 @@ msgstr ""
 
 #: js/messages.php:543
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "값/서브쿼리가 비어있습니다."
 
 #: js/messages.php:544 templates/database/designer/main.twig:40
 #: templates/database/designer/main.twig:43
@@ -2073,12 +2073,12 @@ msgstr "강력함"
 
 #: js/messages.php:722
 msgid "Timed out waiting for security key activation."
-msgstr ""
+msgstr "보안 키 활성 시간이 초과되었습니다."
 
 #: js/messages.php:723
 #, php-format
 msgid "Failed security key activation (%s)."
-msgstr ""
+msgstr "보안 키를 활성화는데 실패였습니다(%s)."
 
 #: js/messages.php:728
 #, fuzzy, php-format
@@ -2471,7 +2471,7 @@ msgstr "바이너리"
 #: libraries/classes/Charsets/Collation.php:310
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "패드-없음"
 
 #: libraries/classes/Charsets/Collation.php:326
 msgctxt "Collation"
@@ -2701,7 +2701,7 @@ msgstr "베트남어"
 #: libraries/classes/Common.php:179
 #: libraries/classes/Controllers/Table/OperationsController.php:265
 msgid "No collation provided."
-msgstr ""
+msgstr "데이터 정렬이 제공되지 않음."
 
 #: libraries/classes/Config/Descriptions.php:69
 msgid ""
@@ -2720,6 +2720,8 @@ msgid ""
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
+"MySQL 서버의 IP 또는 호스트 이름을 지정된 정규식에 일치시켜 임의의 MySQL 서버에 로그인할 때 사용자가 입력할 수 있는 "
+"MySQL 서버 제한."
 
 #: libraries/classes/Config/Descriptions.php:77
 msgid "Restrict login to MySQL server"
@@ -2928,7 +2930,7 @@ msgstr "칼럼 설명 보이기"
 
 #: libraries/classes/Config/Descriptions.php:155
 msgid "Whether column comments should be shown in table structure view"
-msgstr ""
+msgstr "표 구조를 보는데 열에 대한 설명을 표시할지 여부"
 
 #: libraries/classes/Config/Descriptions.php:156
 msgid "Hide table structure actions"
@@ -2952,7 +2954,7 @@ msgstr "기본 정렬 순서"
 msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
-msgstr ""
+msgstr "기본 변환에 대한 옵션 목록 값. 테이블 구조 페이지에서 변환을 입력하면 덮어쓰게 된다."
 
 #: libraries/classes/Config/Descriptions.php:162
 #, fuzzy
@@ -3288,12 +3290,12 @@ msgstr "BINARY와 BLOB을 16진수로 표현"
 msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
-msgstr ""
+msgstr "존재하지 않는 경우 추가(테이블 생성 중에 인덱스가 생성되므로 효율성이 낮음)"
 
 #: libraries/classes/Config/Descriptions.php:291
 #: libraries/classes/Plugins/Export/ExportSql.php:348
 msgid "Exclude definition of current user"
-msgstr ""
+msgstr "현재 사용자의 정의 제외"
 
 #: libraries/classes/Config/Descriptions.php:292
 #: libraries/classes/Plugins/Export/ExportSql.php:354
@@ -3350,7 +3352,7 @@ msgstr "외래키 제한"
 
 #: libraries/classes/Config/Descriptions.php:314
 msgid "Default value for foreign key checks checkbox for some queries."
-msgstr ""
+msgstr "일부 쿼리의 외부 키 검사 기본값 확인란."
 
 #: libraries/classes/Config/Descriptions.php:315
 msgid "Foreign key checks"
@@ -3358,7 +3360,7 @@ msgstr "외래 키(foreign key) 확인"
 
 #: libraries/classes/Config/Descriptions.php:316
 msgid "First day of calendar"
-msgstr ""
+msgstr "달력의 첫번째 날"
 
 #: libraries/classes/Config/Descriptions.php:317
 msgid "Browse mode"
@@ -3719,11 +3721,11 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:427
 msgid "Enable drag and drop import"
-msgstr ""
+msgstr "끌어서 드롭 다운 사용"
 
 #: libraries/classes/Config/Descriptions.php:428
 msgid "Uncheck the checkbox to disable drag and drop import"
-msgstr ""
+msgstr "끌어서 드롭 다운을 사용하지 않으려면 체크를 해제"
 
 #: libraries/classes/Config/Descriptions.php:429
 msgid "Partial import: allow interrupt"
@@ -3972,7 +3974,7 @@ msgstr "탐색 패널에 로고를 보여줌."
 
 #: libraries/classes/Config/Descriptions.php:523
 msgid "Link with main panel by highlighting the current database or table."
-msgstr ""
+msgstr "현재 데이터베이스 또는 테이블을 강조 표시하여 기본 패널과 연결하십시오."
 
 #: libraries/classes/Config/Descriptions.php:526
 msgid "Show logo in navigation panel."
@@ -4117,7 +4119,7 @@ msgstr "트리에 프로시저 보이기"
 
 #: libraries/classes/Config/Descriptions.php:571
 msgid "Whether to show procedures under database in the navigation tree"
-msgstr ""
+msgstr "탐색 트리의 데이터베이스 아래에 프로시저를 표시할지 여부"
 
 #: libraries/classes/Config/Descriptions.php:573
 msgid "Show events in tree"
@@ -4166,7 +4168,7 @@ msgstr "테이블 열 링크를 표시할 위치"
 
 #: libraries/classes/Config/Descriptions.php:585
 msgid "Whether to show row links even in the absence of a unique key."
-msgstr ""
+msgstr "고유 키가 없는 경우에도 행 링크를 표시할지 여부."
 
 #: libraries/classes/Config/Descriptions.php:586
 msgid "Show row links anyway"
@@ -4778,7 +4780,7 @@ msgstr "DROP VIEW 추가"
 
 #: libraries/classes/Config/Descriptions.php:797
 msgid "Defines the list of statements the auto-creation uses for new versions."
-msgstr ""
+msgstr "자동 생성에서 새 버전에 사용하는 문맥 목록을 정의하십시오."
 
 #: libraries/classes/Config/Descriptions.php:799
 msgid "Statements to track"
@@ -5018,7 +5020,7 @@ msgstr "통계보기"
 #: libraries/classes/Config/Descriptions.php:886
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
-msgstr ""
+msgstr "사용된 테이블을 표시하고 잠긴 테이블로 데이터베이스를 표시할 수 있도록 하십시오."
 
 #: libraries/classes/Config/Descriptions.php:888
 msgid "Skip locked tables"
@@ -5074,7 +5076,7 @@ msgstr "로그인 쿠키 유효시간 경고"
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
-msgstr ""
+msgstr "편집 모드의 텍스트 영역 크기(색상) 이 값은 SQL 조회 텍스트 영역(*2)에 강조된다."
 
 #: libraries/classes/Config/Descriptions.php:908
 msgid "Textarea columns"
@@ -5084,7 +5086,7 @@ msgstr "텍스트 편집 필드 칸 수"
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
-msgstr ""
+msgstr "편집 모드의 텍스트 영역 크기(행) 이 값은 SQL 쿼리 텍스트 영역(*2)에서 강조된다."
 
 #: libraries/classes/Config/Descriptions.php:913
 msgid "Textarea rows"
@@ -5167,6 +5169,9 @@ msgid ""
 "For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]."
 msgstr ""
+"[kbd]로 프록시 입력IP: 신뢰할 수 있는 HTTP 헤더[/kbd]. 다음 예에서는 phpMyAdmin이 프록시 1.2.3."
+"4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FORD(X-Forwarded-For) 헤더를 신뢰해야 함을 명시한다."
+"FOR[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:928
 msgid "List of trusted proxies for IP allow/deny"
@@ -5233,6 +5238,8 @@ msgid ""
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
+"프록시로 인증하기 위한 사용자 이름. 기본적으로 인증은 수행되지 않는다. 사용자 이름이 제공되면 기본 인증이 수행된다. 현재 지원되는 "
+"다른 유형의 인증은 없다."
 
 #: libraries/classes/Config/Descriptions.php:953
 msgid "Proxy username"
@@ -5298,13 +5305,13 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:973
 msgid "Enter executes queries in console"
-msgstr ""
+msgstr "콘솔에 실행 쿼리 입력"
 
 #: libraries/classes/Config/Descriptions.php:976
 msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
-msgstr ""
+msgstr "phpMyAdmin 구성 저장소 테이블을 자동으로 설정할 수 있는 제로 구성 모드를 실행하십시오."
 
 #: libraries/classes/Config/Descriptions.php:979
 msgid "Enable Zero Configuration mode"
@@ -5479,7 +5486,7 @@ msgstr "Signon 인증"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:23
 msgid "Quick"
-msgstr ""
+msgstr "빠르게"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:27
 msgid "Custom"
@@ -6075,6 +6082,8 @@ msgid ""
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
+"서버가 제어 사용자 및 암호(컨트롤패스)의 기본값을 사용하여 실행 중이고 침입할 수 있으므로, 제어 사용자 'pma'의 암호를 변경하여 "
+"이러한 보안 취약점을 해결하십시오."
 
 #: libraries/classes/Controllers/HomeController.php:446
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -6110,6 +6119,7 @@ msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
+"$cfg[]TempDir''(%s)에 액세스할 수 없음. phpMyAdmin은 템플릿을 캐시할 수 없으며 이로 인해 속도가 느려질 것이다."
 
 #: libraries/classes/Controllers/ImportController.php:114
 msgid "Incomplete params"
@@ -6221,7 +6231,7 @@ msgstr "phpMyAdmin 설정 공간 테이블이 없습니다"
 
 #: libraries/classes/Controllers/Preferences/ManageController.php:94
 msgid "Paste it to your config.inc.php"
-msgstr ""
+msgstr "config.inc.php에 붙여넣으십시오."
 
 #: libraries/classes/Controllers/Preferences/ManageController.php:139
 msgid "Could not import configuration"
@@ -6407,7 +6417,7 @@ msgstr "현재 쓰레드에 대한 테이블 잠금(lock) 허용."
 #: templates/server/privileges/privileges_table.twig:456
 #: templates/server/privileges/privileges_table.twig:459
 msgid "Allows executing stored routines."
-msgstr ""
+msgstr "저장된 루틴 실행 허용"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:143
 #: libraries/classes/Server/Privileges.php:398
@@ -6424,7 +6434,7 @@ msgstr "데이터를 파일에서 가져오기 및 파일로 내보내기 허용
 msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
-msgstr ""
+msgstr "사용자가 다른 사용자에게 권한을 부여하거나 사용자가 소유한 권한을 다른 사용자로부터 제거할 수 있도록 허용"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:148
 #: libraries/classes/Server/Privileges.php:408
@@ -6454,7 +6464,7 @@ msgstr "현재 쓰레드에 대한 테이블 잠금(lock) 허용."
 #: templates/server/privileges/privileges_table.twig:730
 #: templates/server/privileges/privileges_table.twig:737
 msgid "Limits the number of new connections the user may open per hour."
-msgstr ""
+msgstr "사용자가 시간당 열 수 있는 새 연결 수를 제한하십시오."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:155
 #: templates/server/privileges/privileges_table.twig:704
@@ -6468,7 +6478,7 @@ msgstr "사용자가 서버에 시간당 보낼 수 있는 질의(쿼리)의 갯
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
-msgstr ""
+msgstr "사용자가 시간당 실행할 수 있는 테이블 또는 데이터베이스를 변경하는 명령 수를 제한한다."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:162
 #: templates/server/privileges/privileges_table.twig:743
@@ -6482,7 +6492,7 @@ msgstr "Limits the number of new connections the user may open per hour."
 #: templates/server/privileges/privileges_table.twig:562
 #: templates/server/privileges/privileges_table.twig:565
 msgid "Allows viewing processes of all users."
-msgstr ""
+msgstr "모든 사용자의 프로세스 보기 허용."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:165
 #: libraries/classes/Server/Privileges.php:403
@@ -6504,7 +6514,7 @@ msgstr "캐시를 비우고 서버를 재시동하는 것을 허용."
 #: templates/server/privileges/privileges_table.twig:656
 #: templates/server/privileges/privileges_table.twig:659
 msgid "Allows the user to ask where the slaves / masters are."
-msgstr ""
+msgstr "사용자가 슬레이브/마스터가 어디에 있는지 물을 수 있다"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:172
 #: libraries/classes/Server/Privileges.php:442
@@ -6536,7 +6546,7 @@ msgstr "전체 데이터베이스 목록 접근을 허용합니다."
 #: templates/server/privileges/privileges_table.twig:417
 #: templates/server/privileges/privileges_table.twig:420
 msgid "Allows performing SHOW CREATE VIEW queries."
-msgstr ""
+msgstr "SHOW CREATE VIEW 쿼리를 수행할 수 있다."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:176
 #: libraries/classes/Server/Privileges.php:388
@@ -6553,7 +6563,7 @@ msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
 "killing threads of other users."
-msgstr ""
+msgstr "최대 연결 수에 도달하더라도 연결을 허용. 전역 변수 설정 또는 다른 사용자의 스레드 제거와 같은 대부분의 관리 작업에 필요."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:182
 #: libraries/classes/Server/Privileges.php:462
@@ -6592,7 +6602,7 @@ msgstr "트리거를 생성하는데 필요한 권한을 가지고 있지 않습
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
-msgstr ""
+msgstr "사용자 이름과 호스트 이름이 변경되지 않음 암호만 변경하려면 '암호 변경' 탭을 사용해야 한다."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:491
 msgid "User has been added."
@@ -6634,7 +6644,7 @@ msgstr "커맨드"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:157
 msgid "Progress"
-msgstr ""
+msgstr "진행"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:161
 #: libraries/classes/Server/Status/Data.php:117
@@ -6718,22 +6728,23 @@ msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
 msgstr ""
+"사용 중인 INSERT 지연 처리기 스레드 수입니다. INSERT Delayed를 사용하는 모든 테이블에는 고유의 스레드가 있다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:263
 msgid "The number of INSERT DELAYED rows written."
-msgstr ""
+msgstr "작성된 INSERT 지연 행 수입니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:266
 msgid "The number of executed FLUSH statements."
-msgstr ""
+msgstr "실행된 FLASH 문 수입니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:269
 msgid "The number of internal COMMIT statements."
-msgstr ""
+msgstr "내부 COMPT 문맥 수입니다."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:272
 msgid "The number of times a row was deleted from a table."
-msgstr ""
+msgstr "테이블에서 행이 삭제된 횟수."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:275
 msgid ""
