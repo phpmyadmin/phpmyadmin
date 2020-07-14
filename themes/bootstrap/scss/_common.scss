@@ -761,6 +761,15 @@ div.tools a:hover,
   font-weight: bold;
 }
 
+.error {
+  border: 1px solid maroon !important;
+  margin-left: 2px;
+  padding: 1px 2px;
+  color: #000;
+  background: pink;
+} 
+
+
 // disabled text
 .disabled {
   color: #666;

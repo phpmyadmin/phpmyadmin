@@ -827,6 +827,13 @@ fieldset.confirmation legend {
   background-color: $browse-warning-color;
 }
 
+.error {
+  border: 1px solid $browse-warning-color !important;
+  padding: 5px;
+  color: $button-color;
+  background-color: $browse-warning-color;
+}
+
 /* end messageboxes */
 
 .column_name {

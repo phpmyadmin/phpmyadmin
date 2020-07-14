@@ -472,6 +472,16 @@ fieldset.confirmation {
   }
 }
 
+.error {
+  background-color: #ffc;
+  color: #f00;
+}
+
+label.error {
+  padding: 3px;
+  margin: 0px 4px;
+}
+
 /* end messageboxes */
 
 .new_central_col {
