@@ -2946,12 +2946,12 @@ parameters:
 			path: libraries/classes/Setup/ConfigGenerator.php
 
 		-
-			message: "#^Cannot call method save\\(\\) on PhpMyAdmin\\\\Bookmark\\|false\\.$#"
-			count: 2
+			message: "#^Parameter \\#3 \\$is_modify_link of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:mysqlDie\\(\\) expects bool, string given\\.$#"
+			count: 1
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#3 \\$is_modify_link of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:mysqlDie\\(\\) expects bool, string given\\.$#"
+			message: "#^Cannot call method save\\(\\) on PhpMyAdmin\\\\Bookmark\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 

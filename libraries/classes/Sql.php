@@ -632,47 +632,6 @@ class Sql
     }
 
     /**
-     * Function to add a bookmark
-     *
-     * @param string $goto goto page URL
-     *
-     * @return void
-     */
-    public function addBookmark($goto)
-    {
-        $bookmark = Bookmark::createBookmark(
-            $GLOBALS['dbi'],
-            $GLOBALS['cfg']['Server']['user'],
-            $_POST['bkm_fields'],
-            (isset($_POST['bkm_all_users'])
-                && $_POST['bkm_all_users'] === 'true')
-        );
-        $result = $bookmark->save();
-        $response = Response::getInstance();
-        if ($response->isAjax()) {
-            if ($result) {
-                $msg = Message::success(__('Bookmark %s has been created.'));
-                $msg->addParam($_POST['bkm_fields']['bkm_label']);
-                $response->addJSON('message', $msg);
-            } else {
-                $msg = Message::error(__('Bookmark not created!'));
-                $response->setRequestStatus(false);
-                $response->addJSON('message', $msg);
-            }
-            exit;
-        }
-
-        // go back to /sql to redisplay query; do not use &amp; in this case:
-        /**
-         * @todo In which scenario does this happen?
-         */
-        Core::sendHeaderLocation(
-            './' . $goto
-            . '&label=' . $_POST['bkm_fields']['bkm_label']
-        );
-    }
-
-    /**
      * Function to find the real end of rows
      *
      * @param string $db    the current database

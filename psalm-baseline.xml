@@ -1917,8 +1917,7 @@
       <code>$num_rows</code>
       <code>$num_rows</code>
     </InvalidScalarArgument>
-    <PossiblyFalseReference occurrences="2">
-      <code>save</code>
+    <PossiblyFalseReference occurrences="1">
       <code>save</code>
     </PossiblyFalseReference>
     <PossiblyInvalidArgument occurrences="5">

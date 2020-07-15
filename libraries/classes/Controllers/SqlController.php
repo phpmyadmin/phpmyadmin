@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use PhpMyAdmin\Bookmark;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Core;
@@ -179,7 +180,7 @@ class SqlController extends AbstractController
          * Bookmark add
          */
         if (isset($_POST['store_bkm'])) {
-            $this->sql->addBookmark($goto);
+            $this->addBookmark($goto);
 
             return;
         }
@@ -325,5 +326,40 @@ class SqlController extends AbstractController
         }
 
         $this->response->setRequestStatus($status === true);
+    }
+
+    private function addBookmark(string $goto): void
+    {
+        global $cfg;
+
+        $bookmark = Bookmark::createBookmark(
+            $this->dbi,
+            $cfg['Server']['user'],
+            $_POST['bkm_fields'],
+            isset($_POST['bkm_all_users']) && $_POST['bkm_all_users'] === 'true'
+        );
+
+        $result = null;
+        if ($bookmark instanceof Bookmark) {
+            $result = $bookmark->save();
+        }
+
+        if (! $this->response->isAjax()) {
+            Core::sendHeaderLocation('./' . $goto . '&label=' . $_POST['bkm_fields']['bkm_label']);
+
+            return;
+        }
+
+        if ($result) {
+            $msg = Message::success(__('Bookmark %s has been created.'));
+            $msg->addParam($_POST['bkm_fields']['bkm_label']);
+            $this->response->addJSON('message', $msg);
+
+            return;
+        }
+
+        $msg = Message::error(__('Bookmark not created!'));
+        $this->response->setRequestStatus(false);
+        $this->response->addJSON('message', $msg);
     }
 }
