@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-06-14 22:54+0200\n"
-"PO-Revision-Date: 2019-12-13 11:05+0000\n"
-"Last-Translator: popcorner <memoword@163.com>\n"
+"PO-Revision-Date: 2020-07-16 13:41+0000\n"
+"Last-Translator: Li Smith <jinrishouji@sina.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-0/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.10-dev\n"
+"X-Generator: Weblate 4.2-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -10136,7 +10136,7 @@ msgid ""
 "You are using the external transformation command line options field, which "
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
-msgstr ""
+msgstr "您正在使用外部转换命令行选项字段，出于安全原因，该字段已弃用。 将所有命令行选项直接添加到 %s中的定义中。"
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:31
 msgid ""
@@ -14359,7 +14359,7 @@ msgstr ""
 
 #: templates/preferences/manage/main.twig:70
 msgid "Save as JSON file"
-msgstr "保存为JSON文件"
+msgstr "另存为JSON文件"
 
 #: templates/preferences/manage/main.twig:74
 msgid "Save as PHP file"
