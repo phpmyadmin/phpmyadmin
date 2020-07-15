@@ -393,7 +393,7 @@ class SavedSearches
             . Util::backquote($this->_config['cfgRelation']['savedsearches']);
 
         $sqlQuery = 'DELETE FROM ' . $savedSearchesTbl
-            . "WHERE id = '" . $GLOBALS['dbi']->escapeString($this->getId()) . "'";
+            . "WHERE id = '" . $GLOBALS['dbi']->escapeString((string) $this->getId()) . "'";
 
         return (bool) $this->relation->queryAsControlUser($sqlQuery);
     }
@@ -421,7 +421,7 @@ class SavedSearches
             . Util::backquote($this->_config['cfgRelation']['savedsearches']);
         $sqlQuery = 'SELECT id, search_name, search_data '
             . 'FROM ' . $savedSearchesTbl . ' '
-            . "WHERE id = '" . $GLOBALS['dbi']->escapeString($this->getId()) . "' ";
+            . "WHERE id = '" . $GLOBALS['dbi']->escapeString((string) $this->getId()) . "' ";
 
         $resList = $this->relation->queryAsControlUser($sqlQuery);
         $oneResult = $GLOBALS['dbi']->fetchArray($resList);

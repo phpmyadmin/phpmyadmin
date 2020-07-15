@@ -1733,7 +1733,7 @@ class Qbe
         }
 
         foreach ($this->_savedSearchList as $id => $name) {
-            $html_output .= '<option value="' . htmlspecialchars($id)
+            $html_output .= '<option value="' . htmlspecialchars((string) $id)
                 . '" ' . (
                 $id == $currentSearchId
                     ? 'selected="selected" '

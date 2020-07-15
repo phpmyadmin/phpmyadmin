@@ -84,6 +84,7 @@ phpMyAdmin - ChangeLog
 - issue #16222 Fixed can't use the search page when the table name has special characters
 - issue #16248 Fix zoom search is not performing input validation on INT columns
 - issue #16248 Fix javascript error when typing in INT fields on zoom search page
+- issue        Fix type errors when using saved searches
 
 5.0.2 (2020-03-20)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page
