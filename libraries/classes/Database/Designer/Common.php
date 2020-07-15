@@ -553,7 +553,7 @@ class Common
      * @param string $table table name
      * @param string $field display field name
      *
-     * @return array<bool,string>
+     * @return array<int,bool|string|null>
      */
     public function saveDisplayField($db, $table, $field)
     {
