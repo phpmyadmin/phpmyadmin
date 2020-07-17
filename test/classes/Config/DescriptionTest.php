@@ -32,7 +32,7 @@ class DescriptionTest extends AbstractTestCase
      *
      * @dataProvider getValues
      */
-    public function testGet($item, $type, $expected): void
+    public function testGet(string $item, string $type, string $expected): void
     {
         $this->assertEquals($expected, Descriptions::get($item, $type));
     }
@@ -66,7 +66,7 @@ class DescriptionTest extends AbstractTestCase
      *
      * @param string $key key
      */
-    public function assertGet($key): void
+    public function assertGet(string $key): void
     {
         $this->assertNotNull(Descriptions::get($key, 'name'));
         $this->assertNotNull(Descriptions::get($key, 'desc'));

@@ -91,12 +91,12 @@ class ErrorHandlerTest extends AbstractTestCase
      * @dataProvider providerForTestHandleError
      */
     public function testGetDispErrorsForDisplayFalse(
-        $errno,
-        $errstr,
-        $errfile,
-        $errline,
-        $output_show,
-        $output_hide
+        int $errno,
+        string $errstr,
+        string $errfile,
+        int $errline,
+        string $output_show,
+        string $output_hide
     ): void {
         // TODO: Add other test cases for all combination of 'sendErrorReports'
         $GLOBALS['cfg']['SendErrorReports'] = 'never';
@@ -127,12 +127,12 @@ class ErrorHandlerTest extends AbstractTestCase
      * @dataProvider providerForTestHandleError
      */
     public function testGetDispErrorsForDisplayTrue(
-        $errno,
-        $errstr,
-        $errfile,
-        $errline,
-        $output_show,
-        $output_hide
+        int $errno,
+        string $errstr,
+        string $errfile,
+        int $errline,
+        string $output_show,
+        string $output_hide
     ): void {
         $this->object->handleError($errno, $errstr, $errfile, $errline);
 

@@ -388,7 +388,7 @@ class TableTest extends AbstractTestCase
      *
      * @dataProvider dataValidateName
      */
-    public function testValidateName($name, $result, $is_backquoted = false): void
+    public function testValidateName(string $name, bool $result, bool $is_backquoted = false): void
     {
         $this->assertEquals(
             $result,

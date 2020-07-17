@@ -34,7 +34,7 @@ class CreateAddFieldTest extends AbstractTestCase
      *
      * @dataProvider providerGetPartitionsDefinition
      */
-    public function testGetPartitionsDefinition($expected, $request): void
+    public function testGetPartitionsDefinition(string $expected, array $request): void
     {
         $_POST = $request;
         $actual = $this->createAddField->getPartitionsDefinition();
@@ -74,7 +74,7 @@ class CreateAddFieldTest extends AbstractTestCase
      *
      * @dataProvider providerGetTableCreationQuery
      */
-    public function testGetTableCreationQuery($expected, $db, $table, $request): void
+    public function testGetTableCreationQuery(string $expected, string $db, string $table, array $request): void
     {
         $_POST = $request;
         $actual = $this->createAddField->getTableCreationQuery($db, $table);
@@ -130,7 +130,7 @@ class CreateAddFieldTest extends AbstractTestCase
      *
      * @dataProvider providerGetNumberOfFieldsFromRequest
      */
-    public function testGetNumberOfFieldsFromRequest($expected, $request): void
+    public function testGetNumberOfFieldsFromRequest(string $expected, array $request): void
     {
         $_POST = $request;
         $actual = $this->createAddField->getNumberOfFieldsFromRequest();

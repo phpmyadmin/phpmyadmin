@@ -26,7 +26,7 @@ abstract class GisGeomTestCase extends AbstractTestCase
      *
      * @dataProvider providerForTestGenerateParams
      */
-    public function testGenerateParams($wkt, $index, $params): void
+    public function testGenerateParams(string $wkt, int $index, array $params): void
     {
         if ($index == null) {
             $this->assertEquals(
@@ -49,7 +49,7 @@ abstract class GisGeomTestCase extends AbstractTestCase
      *
      * @dataProvider providerForTestScaleRow
      */
-    public function testScaleRow($spatial, $min_max): void
+    public function testScaleRow(string $spatial, array $min_max): void
     {
         $this->assertEquals(
             $min_max,

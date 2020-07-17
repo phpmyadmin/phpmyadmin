@@ -42,7 +42,7 @@ class CollationTest extends AbstractTestCase
      *
      * @dataProvider providerTestBuildDescription
      */
-    public function testBuildDescription($collation, $description): void
+    public function testBuildDescription(string $collation, string $description): void
     {
         $actual = Collation::fromServer(['Collation' => $collation]);
         $this->assertEquals($description, $actual->getDescription());

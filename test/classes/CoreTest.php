@@ -297,7 +297,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @dataProvider providerTestGotoNowhere
      */
-    public function testGotoNowhere($page, $allowList, $include, $expected): void
+    public function testGotoNowhere(string $page, array $allowList, bool $include, int $expected): void
     {
         $this->assertSame($expected, Core::checkPageValidity($page, $allowList, $include));
     }
@@ -371,7 +371,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @dataProvider providerTestPathInfo
      */
-    public function testPathInfo($php_self, $request, $path_info, $expected): void
+    public function testPathInfo(string $php_self, string $request, string $path_info, string $expected): void
     {
         $_SERVER['PHP_SELF'] = $php_self;
         $_SERVER['REQUEST_URI'] = $request;
@@ -480,7 +480,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @dataProvider providerTestGetRealSize
      */
-    public function testGetRealSize($size, $expected): void
+    public function testGetRealSize(string $size, int $expected): void
     {
         $this->assertEquals($expected, Core::getRealSize($size));
     }
@@ -549,7 +549,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @dataProvider providerTestLinkURL
      */
-    public function testLinkURL($link, $url): void
+    public function testLinkURL(string $link, string $url): void
     {
         $this->assertEquals(Core::linkURL($link), $url);
     }
@@ -710,7 +710,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @dataProvider provideTestIsAllowedDomain
      */
-    public function testIsAllowedDomain($url, $expected): void
+    public function testIsAllowedDomain(string $url, $expected): void
     {
         $_SERVER['SERVER_NAME'] = 'server.local';
         $this->assertEquals(
@@ -1137,7 +1137,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @dataProvider provideTestSafeUnserialize
      */
-    public function testSafeUnserialize($data, $expected): void
+    public function testSafeUnserialize(string $data, $expected): void
     {
         $this->assertEquals(
             $expected,
@@ -1209,7 +1209,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @dataProvider provideTestSanitizeMySQLHost
      */
-    public function testSanitizeMySQLHost($host, $expected): void
+    public function testSanitizeMySQLHost(string $host, string $expected): void
     {
         $this->assertEquals(
             $expected,

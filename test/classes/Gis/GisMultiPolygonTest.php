@@ -223,7 +223,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
      *
      * @dataProvider providerForTestGetShape
      */
-    public function testGetShape($row_data, $shape): void
+    public function testGetShape(array $row_data, string $shape): void
     {
         $this->assertEquals($this->object->getShape($row_data), $shape);
     }
@@ -354,10 +354,10 @@ class GisMultiPolygonTest extends GisGeomTestCase
      * @dataProvider providerForPrepareRowAsPng
      */
     public function testPrepareRowAsPng(
-        $spatial,
-        $label,
-        $fill_color,
-        $scale_data,
+        string $spatial,
+        string $label,
+        string $fill_color,
+        array $scale_data,
         $image
     ): void {
         $return = $this->object->prepareRowAsPng(
@@ -411,11 +411,11 @@ class GisMultiPolygonTest extends GisGeomTestCase
      * @dataProvider providerForPrepareRowAsPdf
      */
     public function testPrepareRowAsPdf(
-        $spatial,
-        $label,
-        $fill_color,
-        $scale_data,
-        $pdf
+        string $spatial,
+        string $label,
+        string $fill_color,
+        array $scale_data,
+        TCPDF $pdf
     ): void {
         $return = $this->object->prepareRowAsPdf(
             $spatial,
@@ -463,11 +463,11 @@ class GisMultiPolygonTest extends GisGeomTestCase
      * @dataProvider providerForPrepareRowAsSvg
      */
     public function testPrepareRowAsSvg(
-        $spatial,
-        $label,
-        $fillColor,
-        $scaleData,
-        $output
+        string $spatial,
+        string $label,
+        string $fillColor,
+        array $scaleData,
+        string $output
     ): void {
         $string = $this->object->prepareRowAsSvg(
             $spatial,
@@ -521,12 +521,12 @@ class GisMultiPolygonTest extends GisGeomTestCase
      * @dataProvider providerForPrepareRowAsOl
      */
     public function testPrepareRowAsOl(
-        $spatial,
-        $srid,
-        $label,
-        $fill_color,
-        $scale_data,
-        $output
+        string $spatial,
+        int $srid,
+        string $label,
+        string $fill_color,
+        array $scale_data,
+        string $output
     ): void {
         $this->assertEquals(
             $output,

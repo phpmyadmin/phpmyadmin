@@ -45,7 +45,7 @@ class TriggersTest extends AbstractTestCase
      *
      * @dataProvider providerGetDataFromRequestEmpty
      */
-    public function testGetDataFromRequestEmpty($in, $out): void
+    public function testGetDataFromRequestEmpty(array $in, array $out): void
     {
         unset($_POST);
         foreach ($in as $key => $value) {
@@ -118,7 +118,7 @@ class TriggersTest extends AbstractTestCase
      * @dataProvider providerGetEditorFormAdd
      * @group medium
      */
-    public function testGetEditorFormAdd($data, $matcher): void
+    public function testGetEditorFormAdd(array $data, array $matcher): void
     {
         $GLOBALS['server'] = 1;
         $this->assertStringContainsString(
@@ -189,7 +189,7 @@ class TriggersTest extends AbstractTestCase
      * @dataProvider providerGetEditorFormEdit
      * @group medium
      */
-    public function testGetEditorFormEdit($data, $matcher): void
+    public function testGetEditorFormEdit(array $data, array $matcher): void
     {
         $GLOBALS['server'] = 1;
         $this->assertStringContainsString(
@@ -259,7 +259,7 @@ class TriggersTest extends AbstractTestCase
      *
      * @dataProvider providerGetEditorFormAjax
      */
-    public function testGetEditorFormAjax($data, $matcher): void
+    public function testGetEditorFormAjax(array $data, array $matcher): void
     {
         $GLOBALS['server'] = 1;
         Response::getInstance()->setAjax(true);
@@ -314,14 +314,14 @@ class TriggersTest extends AbstractTestCase
      * @dataProvider providerGetQueryFromRequest
      */
     public function testGetQueryFromRequest(
-        $definer,
-        $name,
-        $timing,
-        $event,
-        $table,
-        $definition,
-        $query,
-        $num_err
+        string $definer,
+        string $name,
+        string $timing,
+        string $event,
+        string $table,
+        string $definition,
+        string $query,
+        string $num_err
     ): void {
         global $errors;
 

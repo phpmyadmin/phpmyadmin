@@ -51,7 +51,7 @@ class GisGeometryTest extends AbstractTestCase
      *
      * @dataProvider providerForTestSetMinMax
      */
-    public function testSetMinMax($point_set, $min_max, $output): void
+    public function testSetMinMax(string $point_set, array $min_max, array $output): void
     {
         $this->assertEquals(
             $output,
@@ -111,7 +111,7 @@ class GisGeometryTest extends AbstractTestCase
      *
      * @dataProvider providerForTestGenerateParams
      */
-    public function testGenerateParams($value, $output): void
+    public function testGenerateParams(string $value, string $output): void
     {
         $this->assertEquals(
             $output,
@@ -166,7 +166,7 @@ class GisGeometryTest extends AbstractTestCase
      *
      * @dataProvider providerForTestExtractPoints
      */
-    public function testExtractPoints($point_set, $scale_data, $linear, $output): void
+    public function testExtractPoints(string $point_set, array $scale_data, bool $linear, array $output): void
     {
         $this->assertEquals(
             $output,
@@ -282,7 +282,7 @@ class GisGeometryTest extends AbstractTestCase
      *
      * @dataProvider providerForTestGetBoundsForOl
      */
-    public function testGetBoundsForOl($srid, $scale_data, $output): void
+    public function testGetBoundsForOl(string $srid, array $scale_data, string $output): void
     {
         $this->assertEquals(
             $output,
@@ -335,7 +335,7 @@ class GisGeometryTest extends AbstractTestCase
      *
      * @dataProvider providerForTestGetPolygonArrayForOpenLayers
      */
-    public function testGetPolygonArrayForOpenLayers($polygons, $srid, $output): void
+    public function testGetPolygonArrayForOpenLayers(array $polygons, string $srid, string $output): void
     {
         $this->assertEquals(
             $output,

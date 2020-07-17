@@ -58,7 +58,7 @@ class DesignerTest extends AbstractTestCase
      *
      * @param string $db database name
      */
-    private function mockDatabaseInteraction($db): void
+    private function mockDatabaseInteraction(string $db): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()

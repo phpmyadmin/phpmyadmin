@@ -110,7 +110,7 @@ class GisPointTest extends GisGeomTestCase
      *
      * @dataProvider providerForTestGetShape
      */
-    public function testGetShape($row_data, $shape): void
+    public function testGetShape(array $row_data, string $shape): void
     {
         $this->assertEquals($this->object->getShape($row_data), $shape);
     }
@@ -202,10 +202,10 @@ class GisPointTest extends GisGeomTestCase
      * @dataProvider providerForPrepareRowAsPng
      */
     public function testPrepareRowAsPng(
-        $spatial,
-        $label,
-        $point_color,
-        $scale_data,
+        string $spatial,
+        string $label,
+        string $point_color,
+        array $scale_data,
         $image
     ): void {
         $return = $this->object->prepareRowAsPng(
@@ -257,11 +257,11 @@ class GisPointTest extends GisGeomTestCase
      * @dataProvider providerForPrepareRowAsPdf
      */
     public function testPrepareRowAsPdf(
-        $spatial,
-        $label,
-        $point_color,
-        $scale_data,
-        $pdf
+        string $spatial,
+        string $label,
+        string $point_color,
+        array $scale_data,
+        TCPDF $pdf
     ): void {
         $return = $this->object->prepareRowAsPdf(
             $spatial,
@@ -308,11 +308,11 @@ class GisPointTest extends GisGeomTestCase
      * @dataProvider providerForPrepareRowAsSvg
      */
     public function testPrepareRowAsSvg(
-        $spatial,
-        $label,
-        $pointColor,
-        $scaleData,
-        $output
+        string $spatial,
+        string $label,
+        string $pointColor,
+        array $scaleData,
+        string $output
     ): void {
         $this->assertEquals(
             $output,
@@ -361,12 +361,12 @@ class GisPointTest extends GisGeomTestCase
      * @dataProvider providerForPrepareRowAsOl
      */
     public function testPrepareRowAsOl(
-        $spatial,
-        $srid,
-        $label,
-        $point_color,
-        $scale_data,
-        $output
+        string $spatial,
+        int $srid,
+        string $label,
+        string $point_color,
+        array $scale_data,
+        string $output
     ): void {
         $this->assertEquals(
             $output,

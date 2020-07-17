@@ -23,7 +23,7 @@ class MimeTest extends AbstractTestCase
      *
      * @dataProvider providerForTestDetect
      */
-    public function testDetect($test, $output): void
+    public function testDetect(string $test, string $output): void
     {
         $this->assertEquals(
             Mime::detect($test),

@@ -1014,7 +1014,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
      *
      * @dataProvider secretsProvider
      */
-    public function testMACSecretSplit($secret, $mac, $aes): void
+    public function testMACSecretSplit(string $secret, string $mac, string $aes): void
     {
         $this->assertEquals(
             $mac,
@@ -1031,7 +1031,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
      *
      * @dataProvider secretsProvider
      */
-    public function testAESSecretSplit($secret, $mac, $aes): void
+    public function testAESSecretSplit(string $secret, string $mac, string $aes): void
     {
         $this->assertEquals(
             $aes,
@@ -1156,7 +1156,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
      *
      * @dataProvider checkRulesProvider
      */
-    public function testCheckRules($user, $pass, $ip, $root, $nopass, $rules, $expected): void
+    public function testCheckRules(string $user, string $pass, string $ip, bool $root, bool $nopass, array $rules, string $expected): void
     {
         $this->object->user = $user;
         $this->object->password = $pass;

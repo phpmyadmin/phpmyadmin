@@ -143,7 +143,7 @@ class LanguageTest extends AbstractTestCase
      *
      * @dataProvider selectDataProvider
      */
-    public function testSelect($lang, $post, $get, $cookie, $accept, $agent, $default, $expect): void
+    public function testSelect(string $lang, string $post, string $get, string $cookie, string $accept, string $agent, string $default, string $expect): void
     {
         $GLOBALS['PMA_Config']->set('FilterLanguages', '');
         $GLOBALS['PMA_Config']->set('Lang', $lang);
@@ -277,7 +277,7 @@ class LanguageTest extends AbstractTestCase
      * @group large
      * @dataProvider listLocales
      */
-    public function testGettext($locale): void
+    public function testGettext(string $locale): void
     {
         $GLOBALS['PMA_Config']->set('FilterLanguages', '');
         /* We should be able to set the language */

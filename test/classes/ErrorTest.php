@@ -81,7 +81,7 @@ class ErrorTest extends AbstractTestCase
      *
      * @dataProvider filePathProvider
      */
-    public function testSetFile($file, $expected): void
+    public function testSetFile(string $file, string $expected): void
     {
         $this->object->setFile($file);
         $this->assertEquals($expected, $this->object->getFile());

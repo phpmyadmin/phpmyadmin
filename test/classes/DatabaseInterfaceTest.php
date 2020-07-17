@@ -46,7 +46,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
      * @test
      * @dataProvider currentUserData
      */
-    public function testGetCurrentUser($value, $string, $expected): void
+    public function testGetCurrentUser(array $value, string $string, array $expected): void
     {
         Util::cacheUnset('mysql_cur_user');
 
@@ -234,7 +234,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
      *
      * @dataProvider errorData
      */
-    public function testFormatError($error_number, $error_message, $match): void
+    public function testFormatError(int $error_number, string $error_message, string $match): void
     {
         $this->assertStringContainsString(
             $match,
@@ -342,7 +342,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
      *
      * @dataProvider versionData
      */
-    public function testVersion($version, $expected, $major, $upgrade): void
+    public function testVersion(string $version, int $expected, int $major, bool $upgrade): void
     {
         $ver_int = Utilities::versionToInt($version);
         $this->assertEquals($expected, $ver_int);

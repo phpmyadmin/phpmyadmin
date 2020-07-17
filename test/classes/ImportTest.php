@@ -149,7 +149,7 @@ class ImportTest extends AbstractTestCase
      *
      * @dataProvider provGetColumnAlphaName
      */
-    public function testGetColumnAlphaName($expected, $num): void
+    public function testGetColumnAlphaName(string $expected, int $num): void
     {
         $this->assertEquals($expected, $this->import->getColumnAlphaName($num));
     }
@@ -197,7 +197,7 @@ class ImportTest extends AbstractTestCase
      *
      * @dataProvider provGetColumnNumberFromName
      */
-    public function testGetColumnNumberFromName($expected, $name): void
+    public function testGetColumnNumberFromName(int $expected, ?string $name): void
     {
         $this->assertEquals($expected, $this->import->getColumnNumberFromName($name));
     }
@@ -245,7 +245,7 @@ class ImportTest extends AbstractTestCase
      *
      * @dataProvider provGetDecimalPrecision
      */
-    public function testGetDecimalPrecision($expected, $size): void
+    public function testGetDecimalPrecision(int $expected, ?string $size): void
     {
         $this->assertEquals($expected, $this->import->getDecimalPrecision($size));
     }
@@ -285,7 +285,7 @@ class ImportTest extends AbstractTestCase
      *
      * @dataProvider provGetDecimalScale
      */
-    public function testGetDecimalScale($expected, $size): void
+    public function testGetDecimalScale(int $expected, ?string $size): void
     {
         $this->assertEquals($expected, $this->import->getDecimalScale($size));
     }
@@ -325,7 +325,7 @@ class ImportTest extends AbstractTestCase
      *
      * @dataProvider provGetDecimalSize
      */
-    public function testGetDecimalSize($expected, $cell): void
+    public function testGetDecimalSize(array $expected, ?string $cell): void
     {
         $this->assertEquals($expected, $this->import->getDecimalSize($cell));
     }
@@ -384,7 +384,7 @@ class ImportTest extends AbstractTestCase
      *
      * @dataProvider provDetectType
      */
-    public function testDetectType($expected, $type, $cell): void
+    public function testDetectType(int $expected, ?int $type, ?string $cell): void
     {
         $this->assertEquals($expected, $this->import->detectType($type, $cell));
     }
@@ -535,7 +535,7 @@ class ImportTest extends AbstractTestCase
      * @param string $sqlQuery       SQL query
      * @param string $simulatedQuery Simulated query
      */
-    public function simulatedQueryTest($sqlQuery, $simulatedQuery): void
+    public function simulatedQueryTest(string $sqlQuery, string $simulatedQuery): void
     {
         $parser = new Parser($sqlQuery);
         $analyzed_sql_results = [

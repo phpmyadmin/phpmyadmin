@@ -48,7 +48,7 @@ class RoutinesTest extends AbstractTestCase
      *
      * @dataProvider providerGetDataFromRequest
      */
-    public function testGetDataFromRequest($in, $out): void
+    public function testGetDataFromRequest(array $in, array $out): void
     {
         unset($_POST);
         unset($_REQUEST);
@@ -311,7 +311,7 @@ class RoutinesTest extends AbstractTestCase
      * @depends testGetParameterRowEmpty
      * @dataProvider providerGetParameterRow
      */
-    public function testGetParameterRow($data, $index, $matcher): void
+    public function testGetParameterRow(array $data, $index, array $matcher): void
     {
         $this->assertStringContainsString(
             $matcher,
@@ -390,7 +390,7 @@ class RoutinesTest extends AbstractTestCase
      * @depends testGetParameterRow
      * @dataProvider providerGetParameterRowAjax
      */
-    public function testGetParameterRowAjax($data, $matcher): void
+    public function testGetParameterRowAjax(array $data, array $matcher): void
     {
         Response::getInstance()->setAjax(true);
         $this->assertStringContainsString(
@@ -466,7 +466,7 @@ class RoutinesTest extends AbstractTestCase
      * @depends testGetParameterRowAjax
      * @dataProvider providerGetEditorForm1
      */
-    public function testGetEditorForm1($data, $matcher): void
+    public function testGetEditorForm1(array $data, array $matcher): void
     {
         $this->assertStringContainsString(
             $matcher,
@@ -584,7 +584,7 @@ class RoutinesTest extends AbstractTestCase
      * @depends testGetParameterRowAjax
      * @dataProvider providerGetEditorForm2
      */
-    public function testGetEditorForm2($data, $matcher): void
+    public function testGetEditorForm2(array $data, array $matcher): void
     {
         $this->assertStringContainsString(
             $matcher,
@@ -702,7 +702,7 @@ class RoutinesTest extends AbstractTestCase
      * @depends testGetParameterRowAjax
      * @dataProvider providerGetEditorForm3
      */
-    public function testGetEditorForm3($data, $matcher): void
+    public function testGetEditorForm3(array $data, array $matcher): void
     {
         Response::getInstance()->setAjax(true);
         $this->assertStringContainsString(
@@ -822,7 +822,7 @@ class RoutinesTest extends AbstractTestCase
      * @depends testGetParameterRowAjax
      * @dataProvider providerGetEditorForm4
      */
-    public function testGetEditorForm4($data, $matcher): void
+    public function testGetEditorForm4(array $data, array $matcher): void
     {
         $this->assertStringContainsString(
             $matcher,
@@ -879,7 +879,7 @@ class RoutinesTest extends AbstractTestCase
      *
      * @dataProvider providerGetExecuteForm1
      */
-    public function testGetExecuteForm1($data, $matcher): void
+    public function testGetExecuteForm1(array $data, array $matcher): void
     {
         $GLOBALS['cfg']['ShowFunctionFields'] = true;
 
@@ -1019,7 +1019,7 @@ class RoutinesTest extends AbstractTestCase
      *
      * @dataProvider providerGetExecuteForm2
      */
-    public function testGetExecuteForm2($data, $matcher): void
+    public function testGetExecuteForm2(array $data, array $matcher): void
     {
         Response::getInstance()->setAjax(true);
         $this->assertStringContainsString(
@@ -1136,7 +1136,7 @@ class RoutinesTest extends AbstractTestCase
      *
      * @dataProvider providerGetQueryFromRequest
      */
-    public function testGetQueryFromRequest($request, $query, $num_err): void
+    public function testGetQueryFromRequest(array $request, string $query, int $num_err): void
     {
         global $errors, $cfg;
 

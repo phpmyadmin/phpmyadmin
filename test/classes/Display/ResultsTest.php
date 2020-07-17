@@ -103,10 +103,10 @@ class ResultsTest extends AbstractTestCase
      * @dataProvider providerForTestGetTableNavigationButton
      */
     public function testGetTableNavigationButton(
-        $caption,
-        $title,
-        $pos,
-        $html_sql_query
+        string $caption,
+        string $title,
+        int $pos,
+        string $html_sql_query
     ): void {
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $_SESSION[' PMA_token '] = 'token';
@@ -212,12 +212,12 @@ class ResultsTest extends AbstractTestCase
      * @dataProvider dataProviderForTestGetClassesForColumn
      */
     public function testGetClassesForColumn(
-        $grid_edit_class,
-        $not_null_class,
-        $relation_class,
-        $hide_class,
-        $field_type_class,
-        $output
+        string $grid_edit_class,
+        string $not_null_class,
+        string $relation_class,
+        string $hide_class,
+        string $field_type_class,
+        string $output
     ): void {
         $GLOBALS['cfg']['BrowsePointerEnable'] = true;
         $GLOBALS['cfg']['BrowseMarkerEnable'] = true;
@@ -391,12 +391,12 @@ class ResultsTest extends AbstractTestCase
      * @dataProvider dataProviderForTestGetSpecialLinkUrl
      */
     public function testGetSpecialLinkUrl(
-        $db,
-        $table,
-        $column_value,
-        $row_info,
-        $field_name,
-        $output
+        string $db,
+        string $table,
+        string $column_value,
+        array $row_info,
+        string $field_name,
+        bool $output
     ): void {
         $specialSchemaLinks = [
             'information_schema' => [
@@ -519,11 +519,11 @@ class ResultsTest extends AbstractTestCase
      * @dataProvider dataProviderForTestGetRowInfoForSpecialLinks
      */
     public function testGetRowInfoForSpecialLinks(
-        $fields_meta,
-        $fields_count,
-        $row,
-        $col_order,
-        $output
+        array $fields_meta,
+        int $fields_count,
+        array $row,
+        array $col_order,
+        bool $output
     ): void {
         $this->object->properties['fields_meta'] = $fields_meta;
         $this->object->properties['fields_cnt'] = $fields_count;
@@ -573,7 +573,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @dataProvider dataProviderForTestSetHighlightedColumnGlobalField
      */
-    public function testSetHighlightedColumnGlobalField($analyzed_sql, $output): void
+    public function testSetHighlightedColumnGlobalField(array $analyzed_sql, array $output): void
     {
         $this->callFunction(
             $this->object,
@@ -649,7 +649,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @dataProvider dataProviderForTestGetPartialText
      */
-    public function testGetPartialText($pftext, $limitChars, $str, $output): void
+    public function testGetPartialText(string $pftext, int $limitChars, string $str, bool $output): void
     {
         $_SESSION['tmpval']['pftext'] = $pftext;
         $GLOBALS['cfg']['LimitChars'] = $limitChars;
@@ -795,17 +795,17 @@ class ResultsTest extends AbstractTestCase
      * @dataProvider dataProviderForTestHandleNonPrintableContents
      */
     public function testHandleNonPrintableContents(
-        $display_binary,
-        $display_blob,
-        $category,
-        $content,
-        $transformation_plugin,
+        bool $display_binary,
+        bool $display_blob,
+        string $category,
+        string $content,
+        string $transformation_plugin,
         array $transform_options,
-        $default_function,
-        $meta,
-        $url_params,
-        $is_truncated,
-        $output
+        string $default_function,
+        object $meta,
+        array $url_params,
+        bool $is_truncated,
+        string $output
     ): void {
         $_SESSION['tmpval']['display_binary'] = $display_binary;
         $_SESSION['tmpval']['display_blob'] = $display_blob;
@@ -986,21 +986,21 @@ class ResultsTest extends AbstractTestCase
      * @dataProvider dataProviderForTestGetDataCellForNonNumericColumns
      */
     public function testGetDataCellForNonNumericColumns(
-        $protectBinary,
-        $column,
-        $class,
-        $meta,
-        $map,
-        $_url_params,
-        $condition_field,
-        $transformation_plugin,
-        $default_function,
+        bool $protectBinary,
+        string $column,
+        string $class,
+        object $meta,
+        array $map,
+        array $_url_params,
+        bool $condition_field,
+        string $transformation_plugin,
+        string $default_function,
         array $transform_options,
-        $is_field_truncated,
-        $analyzed_sql_results,
-        $dt_result,
-        $col_index,
-        $output
+        bool $is_field_truncated,
+        array $analyzed_sql_results,
+        int $dt_result,
+        int $col_index,
+        string $output
     ): void {
         $_SESSION['tmpval']['display_binary'] = true;
         $_SESSION['tmpval']['display_blob'] = false;

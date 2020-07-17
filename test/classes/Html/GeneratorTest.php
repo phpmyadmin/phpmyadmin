@@ -200,7 +200,7 @@ class GeneratorTest extends AbstractTestCase
      *
      * @dataProvider linksOrButtons
      */
-    public function testLinkOrButton(array $params, $limit, $match): void
+    public function testLinkOrButton(array $params, int $limit, string $match): void
     {
         $restore = $GLOBALS['cfg']['LinkLengthLimit'] ?? 1000;
         $GLOBALS['cfg']['LinkLengthLimit'] = $limit;

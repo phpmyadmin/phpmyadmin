@@ -54,7 +54,7 @@ class IpAllowDenyTest extends AbstractTestCase
      *
      * @dataProvider proxyIPs
      */
-    public function testGetIp($remote, $header, $expected, $proxyip = null): void
+    public function testGetIp(string $remote, string $header, string $expected, ?string $proxyip = null): void
     {
         unset($_SERVER['REMOTE_ADDR']);
         unset($_SERVER['TEST_FORWARDED_HEADER']);

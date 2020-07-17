@@ -34,7 +34,7 @@ class AdvisorTest extends AbstractTestCase
      *
      * @dataProvider escapeStrings
      */
-    public function testEscape($text, $expected): void
+    public function testEscape(string $text, string $expected): void
     {
         $this->assertEquals(Advisor::escapePercent($text), $expected);
     }
@@ -84,7 +84,7 @@ class AdvisorTest extends AbstractTestCase
      *
      * @dataProvider advisorTimes
      */
-    public function testAdvisorBytime($time, $expected): void
+    public function testAdvisorBytime(float $time, string $expected): void
     {
         $result = Advisor::byTime($time, 2);
         $this->assertEquals($expected, $result);
@@ -141,7 +141,7 @@ class AdvisorTest extends AbstractTestCase
      * @depends testParse
      * @dataProvider rulesProvider
      */
-    public function testAddRule($rule, $expected, $error): void
+    public function testAddRule(array $rule, array $expected, string $error): void
     {
         parent::loadDefaultConfig();
         parent::setLanguage();

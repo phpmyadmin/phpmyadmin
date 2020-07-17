@@ -710,7 +710,7 @@ class TransformationPluginsTest extends AbstractTestCase
      * @dataProvider multiDataProvider
      * @group medium
      */
-    public function testGetMulti($object, $method, $expected, $args = []): void
+    public function testGetMulti(object $object, string $method, $expected, array $args = []): void
     {
         if (! method_exists($object, $method)) {
             return;
@@ -1126,11 +1126,11 @@ class TransformationPluginsTest extends AbstractTestCase
      * @group medium
      */
     public function testTransformation(
-        $object,
-        $applyArgs,
-        $transformed,
-        $success = true,
-        $error = ''
+        object $object,
+        array $applyArgs,
+        string $transformed,
+        bool $success = true,
+        string $error = ''
     ): void {
         $reflectionMethod = new ReflectionMethod($object, 'applyTransformation');
         $this->assertEquals(

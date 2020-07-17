@@ -34,7 +34,7 @@ class TemplateTest extends AbstractTestCase
      *
      * @dataProvider providerTestSet
      */
-    public function testSet($data): void
+    public function testSet(string $data): void
     {
         $result = $this->template->render($data, [
             'variable1' => 'value1',
@@ -65,7 +65,7 @@ class TemplateTest extends AbstractTestCase
      *
      * @dataProvider providerTestDynamicRender
      */
-    public function testDynamicRender($templateFile, $key, $value): void
+    public function testDynamicRender(string $templateFile, string $key, string $value): void
     {
         $this->assertEquals(
             $value,
@@ -106,7 +106,7 @@ class TemplateTest extends AbstractTestCase
      *
      * @dataProvider providerTestRender
      */
-    public function testRender($templateFile, $expectedResult): void
+    public function testRender(string $templateFile, string $expectedResult): void
     {
         $this->assertEquals(
             $expectedResult,
@@ -138,7 +138,7 @@ class TemplateTest extends AbstractTestCase
      *
      * @dataProvider providerTestRenderGettext
      */
-    public function testRenderGettext($templateFile, $renderParams, $expectedResult): void
+    public function testRenderGettext(string $templateFile, array $renderParams, string $expectedResult): void
     {
         $this->assertEquals(
             $expectedResult,

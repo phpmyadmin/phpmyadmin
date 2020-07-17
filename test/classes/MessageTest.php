@@ -395,7 +395,7 @@ class MessageTest extends AbstractTestCase
      *
      * @dataProvider decodeBBDataProvider
      */
-    public function testDecodeBB($actual, $expected): void
+    public function testDecodeBB(string $actual, string $expected): void
     {
         unset($GLOBALS['server']);
         $this->assertEquals($expected, Message::decodeBB($actual));
@@ -569,7 +569,7 @@ class MessageTest extends AbstractTestCase
      *
      * @dataProvider providerAffectedRows
      */
-    public function testAffectedRows($rows, $output): void
+    public function testAffectedRows(int $rows, string $output): void
     {
         $this->object = new Message();
         $msg = $this->object->getMessageForAffectedRows($rows);
@@ -615,7 +615,7 @@ class MessageTest extends AbstractTestCase
      *
      * @dataProvider providerInsertedRows
      */
-    public function testInsertedRows($rows, $output): void
+    public function testInsertedRows(int $rows, string $output): void
     {
         $this->object = new Message();
         $msg = $this->object->getMessageForInsertedRows($rows);
@@ -661,7 +661,7 @@ class MessageTest extends AbstractTestCase
      *
      * @dataProvider providerDeletedRows
      */
-    public function testDeletedRows($rows, $output): void
+    public function testDeletedRows(int $rows, string $output): void
     {
         $this->object = new Message();
         $msg = $this->object->getMessageForDeletedRows($rows);

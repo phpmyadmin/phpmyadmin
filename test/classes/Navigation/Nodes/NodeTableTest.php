@@ -59,7 +59,7 @@ class NodeTableTest extends AbstractTestCase
      *
      * @dataProvider providerForTestIcon
      */
-    public function testIcon($target, $imageName): void
+    public function testIcon(string $target, string $imageName): void
     {
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = $target;
         $node = NodeFactory::getInstance('NodeTable');

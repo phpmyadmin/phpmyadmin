@@ -31,7 +31,7 @@ class FormListTest extends AbstractTestCase
      *
      * @dataProvider formObjects
      */
-    public function testForms($class, $prefix): void
+    public function testForms(string $class, string $prefix): void
     {
         $cf = new ConfigFile($GLOBALS['PMA_Config']->base_settings);
 

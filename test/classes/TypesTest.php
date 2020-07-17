@@ -140,7 +140,7 @@ class TypesTest extends AbstractTestCase
      *
      * @dataProvider providerForGetTypeOperators
      */
-    public function testGetTypeOperators($type, $null, $output): void
+    public function testGetTypeOperators(string $type, bool $null, string $output): void
     {
         $this->assertEquals(
             $output,
@@ -208,10 +208,10 @@ class TypesTest extends AbstractTestCase
      * @dataProvider providerForTestGetTypeOperatorsHtml
      */
     public function testGetTypeOperatorsHtml(
-        $type,
-        $null,
-        $selectedOperator,
-        $output
+        string $type,
+        bool $null,
+        string $selectedOperator,
+        string $output
     ): void {
         $this->assertEquals(
             $output,
@@ -244,7 +244,7 @@ class TypesTest extends AbstractTestCase
      *
      * @dataProvider providerForTestGetTypeDescription
      */
-    public function testGetTypeDescription($type): void
+    public function testGetTypeDescription(string $type): void
     {
         $this->assertNotEquals(
             '',
@@ -321,7 +321,7 @@ class TypesTest extends AbstractTestCase
      *
      * @dataProvider providerFortTestGetFunctionsClass
      */
-    public function testGetFunctionsClass($class, $output): void
+    public function testGetFunctionsClass(string $class, array $output): void
     {
         $this->assertEquals(
             $output,
@@ -737,7 +737,7 @@ class TypesTest extends AbstractTestCase
      *
      * @dataProvider providerFortTestGetTypeClass
      */
-    public function testGetTypeClass($type, $output): void
+    public function testGetTypeClass(string $type, string $output): void
     {
         $this->assertEquals(
             $output,

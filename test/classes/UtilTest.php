@@ -410,7 +410,7 @@ class UtilTest extends AbstractTestCase
      * @test
      * @dataProvider charsetQueryData
      */
-    public function testGenerateCharsetQueryPart($collation, $expected): void
+    public function testGenerateCharsetQueryPart(string $collation, string $expected): void
     {
         $this->assertEquals(
             $expected,
@@ -607,7 +607,7 @@ class UtilTest extends AbstractTestCase
      * @covers \PhpMyAdmin\Util::convertBitDefaultValue
      * @dataProvider providerConvertBitDefaultValue
      */
-    public function testConvertBitDefaultValue($bit, $val): void
+    public function testConvertBitDefaultValue(string $bit, string $val): void
     {
         $this->assertEquals(
             $val,
@@ -710,7 +710,7 @@ class UtilTest extends AbstractTestCase
      * @covers \PhpMyAdmin\Util::escapeMysqlWildcards
      * @dataProvider providerUnEscapeMysqlWildcards
      */
-    public function testEscapeMysqlWildcards($a, $b): void
+    public function testEscapeMysqlWildcards(string $a, string $b): void
     {
         $this->assertEquals(
             $a,
@@ -727,7 +727,7 @@ class UtilTest extends AbstractTestCase
      * @covers \PhpMyAdmin\Util::unescapeMysqlWildcards
      * @dataProvider providerUnEscapeMysqlWildcards
      */
-    public function testUnescapeMysqlWildcards($a, $b): void
+    public function testUnescapeMysqlWildcards(string $a, string $b): void
     {
         $this->assertEquals(
             $b,
@@ -744,7 +744,7 @@ class UtilTest extends AbstractTestCase
      * @covers \PhpMyAdmin\Util::expandUserString
      * @dataProvider providerExpandUserString
      */
-    public function testExpandUserString($in, $out): void
+    public function testExpandUserString(string $in, string $out): void
     {
         parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
@@ -817,7 +817,7 @@ class UtilTest extends AbstractTestCase
      * @covers \PhpMyAdmin\Util::extractColumnSpec
      * @dataProvider providerExtractColumnSpec
      */
-    public function testExtractColumnSpec($in, $out): void
+    public function testExtractColumnSpec(string $in, array $out): void
     {
         $GLOBALS['cfg']['LimitChars'] = 1000;
 
@@ -965,7 +965,7 @@ class UtilTest extends AbstractTestCase
      * @covers \PhpMyAdmin\Util::extractValueFromFormattedSize
      * @dataProvider providerExtractValueFromFormattedSize
      */
-    public function testExtractValueFromFormattedSize($size, $expected): void
+    public function testExtractValueFromFormattedSize($size, int $expected): void
     {
         $this->assertEquals(
             $expected,
@@ -1009,7 +1009,7 @@ class UtilTest extends AbstractTestCase
      * @covers \PhpMyAdmin\Util::isForeignKeySupported
      * @dataProvider providerIsForeignKeySupported
      */
-    public function testIsForeignKeySupported($a, $e): void
+    public function testIsForeignKeySupported(string $a, bool $e): void
     {
         $GLOBALS['server'] = 1;
 
@@ -1057,7 +1057,7 @@ class UtilTest extends AbstractTestCase
      * @covers \PhpMyAdmin\Util::formatByteDown
      * @dataProvider providerFormatByteDown
      */
-    public function testFormatByteDown($a, $b, $c, $e): void
+    public function testFormatByteDown(float $a, int $b, int $c, array $e): void
     {
         $result = Util::formatByteDown($a, $b, $c);
         $result[0] = trim($result[0]);
@@ -1164,7 +1164,7 @@ class UtilTest extends AbstractTestCase
      * @param int   $c Number of decimals to retain
      * @param array $d Expected value
      */
-    private function assertFormatNumber($a, $b, $c, $d): void
+    private function assertFormatNumber(float $a, int $b, int $c, array $d): void
     {
         $this->assertEquals(
             $d,
@@ -1188,7 +1188,7 @@ class UtilTest extends AbstractTestCase
      * @covers \PhpMyAdmin\Util::formatNumber
      * @dataProvider providerFormatNumber
      */
-    public function testFormatNumber($a, $b, $c, $d): void
+    public function testFormatNumber(float $a, int $b, int $c, array $d): void
     {
         $this->assertFormatNumber($a, $b, $c, $d);
 
@@ -1342,7 +1342,7 @@ class UtilTest extends AbstractTestCase
      * @covers \PhpMyAdmin\Util::getFormattedMaximumUploadSize
      * @dataProvider providerGetFormattedMaximumUploadSize
      */
-    public function testGetFormattedMaximumUploadSize($size, $unit, $res): void
+    public function testGetFormattedMaximumUploadSize(int $size, string $unit, string $res): void
     {
         $this->assertEquals(
             '(' . __('Max: ') . $res . $unit . ')',
@@ -1405,7 +1405,7 @@ class UtilTest extends AbstractTestCase
      * @covers \PhpMyAdmin\Util::getTitleForTarget
      * @dataProvider providerGetTitleForTarget
      */
-    public function testGetTitleForTarget($target, $result): void
+    public function testGetTitleForTarget(string $target, array $result): void
     {
         $this->assertEquals(
             $result,
@@ -1583,7 +1583,7 @@ class UtilTest extends AbstractTestCase
      * @covers \PhpMyAdmin\Util::timespanFormat
      * @dataProvider providerTimespanFormat
      */
-    public function testTimespanFormat($a, $e): void
+    public function testTimespanFormat(int $a, string $e): void
     {
         $GLOBALS['timespanfmt'] = '%s days, %s hours, %s minutes and %s seconds';
         $tmpTimezone = date_default_timezone_get();
@@ -1626,7 +1626,7 @@ class UtilTest extends AbstractTestCase
      * @covers \PhpMyAdmin\Util::printableBitValue
      * @dataProvider providerPrintableBitValue
      */
-    public function testPrintableBitValue($a, $b, $e): void
+    public function testPrintableBitValue(int $a, int $b, string $e): void
     {
         $this->assertEquals(
             $e,
@@ -1664,7 +1664,7 @@ class UtilTest extends AbstractTestCase
      * @covers \PhpMyAdmin\Util::unQuote
      * @dataProvider providerUnQuote
      */
-    public function testUnQuote($param, $expected): void
+    public function testUnQuote(string $param, string $expected): void
     {
         $this->assertEquals(
             $expected,
@@ -1708,7 +1708,7 @@ class UtilTest extends AbstractTestCase
      * @covers \PhpMyAdmin\Util::unQuote
      * @dataProvider providerUnQuoteSelectedChar
      */
-    public function testUnQuoteSelectedChar($param, $expected): void
+    public function testUnQuoteSelectedChar(string $param, string $expected): void
     {
         $this->assertEquals(
             $expected,
@@ -1752,7 +1752,7 @@ class UtilTest extends AbstractTestCase
      * @covers \PhpMyAdmin\Util::backquote
      * @dataProvider providerBackquote
      */
-    public function testBackquote($a, $b): void
+    public function testBackquote(string $a, string $b): void
     {
         // Test bypass quoting (used by dump functions)
         $this->assertEquals($a, Util::backquote($a, false));
@@ -1808,7 +1808,7 @@ class UtilTest extends AbstractTestCase
      * @covers \PhpMyAdmin\Util::backquoteCompat
      * @dataProvider providerBackquoteCompat
      */
-    public function testBackquoteCompat($entry, $expectedNoneOutput, $expectedMssqlOutput): void
+    public function testBackquoteCompat(string $entry, string $expectedNoneOutput, string $expectedMssqlOutput): void
     {
         // Test bypass quoting (used by dump functions)
         $this->assertEquals($entry, Util::backquoteCompat($entry, 'NONE', false));
@@ -1901,7 +1901,7 @@ class UtilTest extends AbstractTestCase
      * @covers \PhpMyAdmin\Util::userDir
      * @dataProvider providerUserDir
      */
-    public function testUserDir($a, $e): void
+    public function testUserDir(string $a, string $e): void
     {
         $GLOBALS['cfg']['Server']['user'] = 'root';
 
@@ -1936,7 +1936,7 @@ class UtilTest extends AbstractTestCase
      * @covers \PhpMyAdmin\Util::duplicateFirstNewline
      * @dataProvider providerDuplicateFirstNewline
      */
-    public function testDuplicateFirstNewline($a, $e): void
+    public function testDuplicateFirstNewline(string $a, string $e): void
     {
         $this->assertEquals(
             $e,

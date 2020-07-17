@@ -267,10 +267,10 @@ class GisMultiLineStringTest extends GisGeomTestCase
      * @dataProvider providerForPrepareRowAsPng
      */
     public function testPrepareRowAsPng(
-        $spatial,
-        $label,
-        $line_color,
-        $scale_data,
+        string $spatial,
+        string $label,
+        string $line_color,
+        array $scale_data,
         $image
     ): void {
         $this->object->prepareRowAsPng(
@@ -323,11 +323,11 @@ class GisMultiLineStringTest extends GisGeomTestCase
      * @dataProvider providerForPrepareRowAsPdf
      */
     public function testPrepareRowAsPdf(
-        $spatial,
-        $label,
-        $line_color,
-        $scale_data,
-        $pdf
+        string $spatial,
+        string $label,
+        string $line_color,
+        array $scale_data,
+        TCPDF $pdf
     ): void {
         $return = $this->object->prepareRowAsPdf(
             $spatial,
@@ -374,11 +374,11 @@ class GisMultiLineStringTest extends GisGeomTestCase
      * @dataProvider providerForPrepareRowAsSvg
      */
     public function testPrepareRowAsSvg(
-        $spatial,
-        $label,
-        $lineColor,
-        $scaleData,
-        $output
+        string $spatial,
+        string $label,
+        string $lineColor,
+        array $scaleData,
+        string $output
     ): void {
         $string = $this->object->prepareRowAsSvg(
             $spatial,
@@ -429,12 +429,12 @@ class GisMultiLineStringTest extends GisGeomTestCase
      * @dataProvider providerForPrepareRowAsOl
      */
     public function testPrepareRowAsOl(
-        $spatial,
-        $srid,
-        $label,
-        $line_color,
-        $scale_data,
-        $output
+        string $spatial,
+        int $srid,
+        string $label,
+        string $line_color,
+        array $scale_data,
+        string $output
     ): void {
         $this->assertEquals(
             $output,

@@ -114,7 +114,7 @@ class StorageEngineTest extends AbstractTestCase
      *
      * @dataProvider providerGetEngine
      */
-    public function testGetEngine($expectedClass, $engineName): void
+    public function testGetEngine(string $expectedClass, string $engineName): void
     {
         $this->assertInstanceOf(
             $expectedClass,

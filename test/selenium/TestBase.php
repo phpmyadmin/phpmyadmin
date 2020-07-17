@@ -597,7 +597,7 @@ abstract class TestBase extends TestCase
      *
      * @throws Exception
      */
-    public function dbQuery($query, ?Closure $onResults = null, ?Closure $afterSubmit = null): bool
+    public function dbQuery(string $query, ?Closure $onResults = null, ?Closure $afterSubmit = null): bool
     {
         $didSucceed = false;
         $handles = null;
@@ -679,7 +679,7 @@ abstract class TestBase extends TestCase
      *
      * @return WebDriverElement Element waited for
      */
-    public function waitForElement(string $func, $arg): WebDriverElement
+    public function waitForElement(string $func, string $arg): WebDriverElement
     {
         return $this->webDriver->wait(30, 500)->until(
             WebDriverExpectedCondition::presenceOfElementLocated(WebDriverBy::$func($arg))
@@ -693,7 +693,7 @@ abstract class TestBase extends TestCase
      * @param string $arg     Selector
      * @param int    $timeout Timeout in seconds
      */
-    public function waitUntilElementIsPresent(string $func, $arg, int $timeout): WebDriverElement
+    public function waitUntilElementIsPresent(string $func, string $arg, int $timeout): WebDriverElement
     {
         return $this->webDriver->wait($timeout, 500)->until(
             WebDriverExpectedCondition::presenceOfElementLocated(WebDriverBy::$func($arg))
@@ -707,7 +707,7 @@ abstract class TestBase extends TestCase
      * @param string $arg     Selector
      * @param int    $timeout Timeout in seconds
      */
-    public function waitUntilElementIsVisible(string $func, $arg, int $timeout): WebDriverElement
+    public function waitUntilElementIsVisible(string $func, string $arg, int $timeout): WebDriverElement
     {
         return $this->webDriver->wait($timeout, 500)->until(
             WebDriverExpectedCondition::visibilityOfElementLocated(WebDriverBy::$func($arg))
@@ -722,7 +722,7 @@ abstract class TestBase extends TestCase
      *
      * @return bool Whether or not the element disappeared
      */
-    public function waitForElementNotPresent($func, $arg): bool
+    public function waitForElementNotPresent(string $func, string $arg): bool
     {
         while (true) {
             if (! $this->isElementPresent($func, $arg)) {
@@ -740,7 +740,7 @@ abstract class TestBase extends TestCase
      *
      * @return bool Whether or not the element is present
      */
-    public function isElementPresent(string $func, $arg): bool
+    public function isElementPresent(string $func, string $arg): bool
     {
         try {
             $this->webDriver->findElement(WebDriverBy::$func($arg));
@@ -768,7 +768,7 @@ abstract class TestBase extends TestCase
      *
      * @return string text Data from the particular table cell
      */
-    public function getCellByTableId($tableID, $row, $column): string
+    public function getCellByTableId(string $tableID, int $row, int $column): string
     {
         $sel = sprintf(
             'table#%s tbody tr:nth-child(%d) td:nth-child(%d)',
@@ -793,7 +793,7 @@ abstract class TestBase extends TestCase
      *
      * @return string text Data from the particular table cell
      */
-    public function getCellByTableClass($tableClass, $row, $column): string
+    public function getCellByTableClass(string $tableClass, int $row, int $column): string
     {
         $sel = sprintf(
             'table.%s tbody tr:nth-child(%d) td:nth-child(%d)',
@@ -872,7 +872,7 @@ abstract class TestBase extends TestCase
      * @param string $text  Text to type
      * @param int    $index Index of CodeMirror instance to write to
      */
-    public function typeInTextArea($text, $index = 0): void
+    public function typeInTextArea(string $text, int $index = 0): void
     {
         $this->waitForElement('cssSelector', 'div.cm-s-default');
         $this->webDriver->executeScript(
@@ -997,7 +997,7 @@ abstract class TestBase extends TestCase
      * @param string $element_id Id of the element
      * @param int    $y_offset   Offset from Y-coordinate of element
      */
-    public function scrollIntoView($element_id, $y_offset = 70): void
+    public function scrollIntoView(string $element_id, int $y_offset = 70): void
     {
         // 70pt offset by-default so that the topmenu does not cover the element
         $this->webDriver->executeScript(

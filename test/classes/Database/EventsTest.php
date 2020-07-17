@@ -46,7 +46,7 @@ class EventsTest extends AbstractTestCase
      *
      * @dataProvider providerGetDataFromRequest
      */
-    public function testGetDataFromRequestEmpty($in, $out): void
+    public function testGetDataFromRequestEmpty(array $in, array $out): void
     {
         unset($_POST);
         foreach ($in as $key => $value) {
@@ -371,7 +371,7 @@ class EventsTest extends AbstractTestCase
      *
      * @dataProvider providerGetQueryFromRequest
      */
-    public function testGetQueryFromRequest($request, $query, $num_err): void
+    public function testGetQueryFromRequest(array $request, string $query, array $num_err): void
     {
         global $errors;
 

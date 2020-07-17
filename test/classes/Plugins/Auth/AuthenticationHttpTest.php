@@ -59,7 +59,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
      * @param mixed   $set_title   set title
      * @param mixed[] ...$headers  headers
      */
-    public function doMockResponse($set_minimal, $body_id, $set_title, ...$headers): void
+    public function doMockResponse($set_minimal, $body_id, $set_title, array ...$headers): void
     {
         // mock footer
         $mockFooter = $this->getMockBuilder(Footer::class)
@@ -199,14 +199,14 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
      * @dataProvider readCredentialsProvider
      */
     public function testAuthCheck(
-        $user,
-        $pass,
-        $userIndex,
-        $passIndex,
-        $expectedReturn,
-        $expectedUser,
-        $expectedPass,
-        $old_usr = ''
+        string $user,
+        string $pass,
+        string $userIndex,
+        string $passIndex,
+        string $expectedReturn,
+        string $expectedUser,
+        string $expectedPass,
+        string $old_usr = ''
     ): void {
         $_SERVER[$userIndex] = $user;
         $_SERVER[$passIndex] = $pass;

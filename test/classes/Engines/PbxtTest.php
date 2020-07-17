@@ -172,7 +172,7 @@ class PbxtTest extends AbstractTestCase
      *
      * @dataProvider providerFortTestResolveTypeSize
      */
-    public function testResolveTypeSize($formatted_size, $output): void
+    public function testResolveTypeSize(string $formatted_size, string $output): void
     {
         $this->assertEquals(
             $this->object->resolveTypeSize($formatted_size),

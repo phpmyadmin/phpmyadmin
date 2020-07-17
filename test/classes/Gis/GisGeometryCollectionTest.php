@@ -56,7 +56,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @dataProvider providerForScaleRow
      */
-    public function testScaleRow($spatial, $output): void
+    public function testScaleRow(string $spatial, array $output): void
     {
         $this->assertEquals($output, $this->object->scaleRow($spatial));
     }
@@ -92,7 +92,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @dataProvider providerForGenerateWkt
      */
-    public function testGenerateWkt($gis_data, $index, $empty, $output): void
+    public function testGenerateWkt(array $gis_data, int $index, string $empty, string $output): void
     {
         $this->assertEquals(
             $output,
@@ -142,7 +142,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @dataProvider providerForGenerateParams
      */
-    public function testGenerateParams($value, $output): void
+    public function testGenerateParams(string $value, array $output): void
     {
         $this->assertEquals($output, $this->object->generateParams($value));
     }
@@ -191,10 +191,10 @@ class GisGeometryCollectionTest extends AbstractTestCase
      * @dataProvider providerForPrepareRowAsPng
      */
     public function testPrepareRowAsPng(
-        $spatial,
-        $label,
-        $line_color,
-        $scale_data,
+        string $spatial,
+        string $label,
+        string $line_color,
+        array $scale_data,
         $image
     ): void {
         $return = $this->object->prepareRowAsPng(
@@ -248,11 +248,11 @@ class GisGeometryCollectionTest extends AbstractTestCase
      * @dataProvider providerForPrepareRowAsPdf
      */
     public function testPrepareRowAsPdf(
-        $spatial,
-        $label,
-        $line_color,
-        $scale_data,
-        $pdf
+        string $spatial,
+        string $label,
+        string $line_color,
+        array $scale_data,
+        string $pdf
     ): void {
         $return = $this->object->prepareRowAsPdf(
             $spatial,
@@ -300,11 +300,11 @@ class GisGeometryCollectionTest extends AbstractTestCase
      * @dataProvider providerForPrepareRowAsSvg
      */
     public function testPrepareRowAsSvg(
-        $spatial,
-        $label,
-        $lineColor,
-        $scaleData,
-        $output
+        string $spatial,
+        string $label,
+        string $lineColor,
+        array $scaleData,
+        string $output
     ): void {
         $string = $this->object->prepareRowAsSvg(
             $spatial,
@@ -365,12 +365,12 @@ class GisGeometryCollectionTest extends AbstractTestCase
      * @dataProvider providerForPrepareRowAsOl
      */
     public function testPrepareRowAsOl(
-        $spatial,
-        $srid,
-        $label,
-        $line_color,
-        $scale_data,
-        $output
+        string $spatial,
+        int $srid,
+        string $label,
+        string $line_color,
+        array $scale_data,
+        string $output
     ): void {
         $this->assertEquals(
             $output,

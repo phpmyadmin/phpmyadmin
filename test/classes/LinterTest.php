@@ -91,7 +91,7 @@ class LinterTest extends AbstractTestCase
      *
      * @dataProvider lintProvider
      */
-    public function testLint($expected, $query): void
+    public function testLint(array $expected, string $query): void
     {
         $this->assertEquals($expected, Linter::lint($query));
     }

@@ -54,7 +54,7 @@ class TransformationsTest extends AbstractTestCase
      *
      * @dataProvider getOptionsData
      */
-    public function testGetOptions($input, $expected): void
+    public function testGetOptions(string $input, array $expected): void
     {
         $this->assertEquals(
             $expected,
@@ -277,7 +277,7 @@ class TransformationsTest extends AbstractTestCase
      *
      * @dataProvider fixupData
      */
-    public function testFixup($value, $expected): void
+    public function testFixup(string $value, string $expected): void
     {
         $this->assertEquals(
             $expected,
@@ -322,7 +322,7 @@ class TransformationsTest extends AbstractTestCase
      *
      * @dataProvider providerGetDescription
      */
-    public function testGetDescription($file, $expectedDescription): void
+    public function testGetDescription(string $file, string $expectedDescription): void
     {
         $this->assertEquals(
             $expectedDescription,
@@ -359,7 +359,7 @@ class TransformationsTest extends AbstractTestCase
      *
      * @dataProvider providerGetName
      */
-    public function testGetName($file, $expectedName): void
+    public function testGetName(string $file, string $expectedName): void
     {
         $this->assertEquals(
             $expectedName,

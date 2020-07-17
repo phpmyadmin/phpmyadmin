@@ -103,7 +103,7 @@ class ImportTest extends TestBase
      *
      * @param string $type level: server, db or import
      */
-    private function doImport($type): void
+    private function doImport(string $type): void
     {
         $this->waitForElement('partialLinkText', 'Import')->click();
         $this->waitAjax();

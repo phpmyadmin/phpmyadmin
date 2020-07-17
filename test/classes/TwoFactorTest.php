@@ -43,7 +43,7 @@ class TwoFactorTest extends AbstractTestCase
      *
      * @return TwoFactor
      */
-    public function getTwoFactorMock($user, $config)
+    public function getTwoFactorMock(string $user, array $config): TwoFactor
     {
         if (! isset($config['backend'])) {
             $config['backend'] = '';

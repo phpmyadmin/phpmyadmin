@@ -125,7 +125,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @dataProvider userAgentProvider
      */
-    public function testCheckClient($agent, $os, $browser = null, $version = null): void
+    public function testCheckClient(string $agent, string $os, ?string $browser = null, ?string $version = null): void
     {
         $_SERVER['HTTP_USER_AGENT'] = $agent;
         $this->object->checkClient();
@@ -330,7 +330,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @dataProvider serverNames
      */
-    public function testCheckWebServer($server, $iis): void
+    public function testCheckWebServer(string $server, bool $iis): void
     {
         $_SERVER['SERVER_SOFTWARE'] = $server;
         $this->object->checkWebServer();
@@ -496,17 +496,17 @@ class ConfigTest extends AbstractTestCase
      * @dataProvider httpsParams
      */
     public function testIsHttps(
-        $scheme,
-        $https,
+        string $scheme,
+        string $https,
         string $forwarded,
-        $uri,
-        $lb,
-        $front,
-        $proto,
-        $protoCloudFront,
-        $pmaAbsoluteUri,
-        $port,
-        $expected
+        string $uri,
+        string $lb,
+        string $front,
+        string $proto,
+        string $protoCloudFront,
+        string $pmaAbsoluteUri,
+        int $port,
+        bool $expected
     ): void {
         $_SERVER['HTTP_SCHEME'] = $scheme;
         $_SERVER['HTTPS'] = $https;
@@ -779,7 +779,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @dataProvider rootUris
      */
-    public function testGetRootPath($request, $absolute, $expected): void
+    public function testGetRootPath(string $request, string $absolute, string $expected): void
     {
         $GLOBALS['PMA_PHP_SELF'] = $request;
         $this->object->set('PmaAbsoluteUri', $absolute);
@@ -885,7 +885,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @dataProvider configPaths
      */
-    public function testLoad($source, $result): void
+    public function testLoad(string $source, bool $result): void
     {
         if ($result) {
             $this->assertTrue($this->object->load($source));
@@ -1063,7 +1063,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @dataProvider serverSettingsProvider
      */
-    public function testCheckServers($settings, $expected, $error = false): void
+    public function testCheckServers(array $settings, array $expected, bool $error = false): void
     {
         if ($error) {
             $this->expectException(Exception::class);
@@ -1120,7 +1120,7 @@ class ConfigTest extends AbstractTestCase
      * @dataProvider selectServerProvider
      * @depends testCheckServers
      */
-    public function testSelectServer($settings, $request, $expected): void
+    public function testSelectServer(array $settings, string $request, int $expected): void
     {
         $this->object->settings['Servers'] = $settings;
         $this->object->checkServers();
@@ -1194,7 +1194,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @dataProvider connectionParams
      */
-    public function testGetConnectionParams($server_cfg, $mode, $server, $expected): void
+    public function testGetConnectionParams(array $server_cfg, int $mode, ?array $server, array $expected): void
     {
         $GLOBALS['cfg']['Server'] = $server_cfg;
         $result = Config::getConnectionParams($mode, $server);
