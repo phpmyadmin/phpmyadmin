@@ -288,6 +288,10 @@ fieldset.optbox {
   padding: 0;
 }
 
+.setup-page fieldset.optbox {
+  width: 100%;
+}
+
 fieldset fieldset {
   margin: 0.8em;
   border: 1px solid #aaa;
