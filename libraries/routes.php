@@ -26,6 +26,7 @@ use PhpMyAdmin\Controllers\Database\TrackingController;
 use PhpMyAdmin\Controllers\Database\TriggersController;
 use PhpMyAdmin\Controllers\ErrorReportController;
 use PhpMyAdmin\Controllers\ExportController;
+use PhpMyAdmin\Controllers\ExportTemplateController;
 use PhpMyAdmin\Controllers\GisDataEditorController;
 use PhpMyAdmin\Controllers\HomeController;
 use PhpMyAdmin\Controllers\ImportController;
@@ -175,7 +176,15 @@ return static function (RouteCollector $routes): void {
         $routes->addRoute(['GET', 'POST'], '/triggers', [TriggersController::class, 'index']);
     });
     $routes->addRoute(['GET', 'POST'], '/error-report', [ErrorReportController::class, 'index']);
-    $routes->addRoute(['GET', 'POST'], '/export', [ExportController::class, 'index']);
+    $routes->addGroup('/export', static function (RouteCollector $routes): void {
+        $routes->addRoute(['GET', 'POST'], '', [ExportController::class, 'index']);
+        $routes->addGroup('/template', static function (RouteCollector $routes): void {
+            $routes->post('/create', [ExportTemplateController::class, 'create']);
+            $routes->post('/delete', [ExportTemplateController::class, 'delete']);
+            $routes->post('/load', [ExportTemplateController::class, 'load']);
+            $routes->post('/update', [ExportTemplateController::class, 'update']);
+        });
+    });
     $routes->addRoute(['GET', 'POST'], '/gis-data-editor', [GisDataEditorController::class, 'index']);
     $routes->addRoute(['GET', 'POST'], '/import', [ImportController::class, 'index']);
     $routes->addRoute(['GET', 'POST'], '/import-status', [ImportStatusController::class, 'index']);

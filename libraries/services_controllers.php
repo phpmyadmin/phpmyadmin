@@ -291,6 +291,18 @@ return [
                 'relation' => '@relation',
             ],
         ],
+        PhpMyAdmin\Controllers\ExportTemplateController::class =>
+        [
+            'class' => PhpMyAdmin\Controllers\ExportTemplateController::class,
+            'arguments' =>
+                [
+                    'response' => '@response',
+                    'dbi' => '@dbi',
+                    'template' => '@template',
+                    'export' => '@display_export',
+                    'relation' => '@relation',
+                ],
+        ],
         PhpMyAdmin\Controllers\GisDataEditorController::class =>
         [
             'class' => PhpMyAdmin\Controllers\GisDataEditorController::class,
@@ -784,7 +796,6 @@ return [
                 'db' => '%db%',
                 'table' => '%table%',
                 'export' => '@display_export',
-                'relation' => '@relation',
             ],
         ],
         PhpMyAdmin\Controllers\Table\FindReplaceController::class =>

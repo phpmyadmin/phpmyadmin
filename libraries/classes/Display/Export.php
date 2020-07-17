@@ -16,7 +16,6 @@ use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -156,7 +155,7 @@ class Export
      *
      * @return string HTML for the options in teplate dropdown
      */
-    private function getOptionsForTemplates($exportType)
+    public function getOptionsForTemplates($exportType)
     {
         // Get the relation settings
         $cfgRelation = $this->relation->getRelationsParam();
@@ -738,83 +737,5 @@ class Export
         $html .= '</form>';
 
         return $html;
-    }
-
-    /**
-     * Handles export template actions
-     *
-     * @param array $cfgRelation Relation configuration
-     *
-     * @return void
-     */
-    public function handleTemplateActions(array $cfgRelation)
-    {
-        if (isset($_POST['templateId'])) {
-            $id = $GLOBALS['dbi']->escapeString($_POST['templateId']);
-        } else {
-            $id = '';
-        }
-
-        $templateTable = Util::backquote($cfgRelation['db']) . '.'
-           . Util::backquote($cfgRelation['export_templates']);
-        $user = $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']);
-
-        switch ($_POST['templateAction']) {
-            case 'create':
-                $query = 'INSERT INTO ' . $templateTable . '('
-                . ' `username`, `export_type`,'
-                . ' `template_name`, `template_data`'
-                . ') VALUES ('
-                . "'" . $user . "', "
-                . "'" . $GLOBALS['dbi']->escapeString($_POST['exportType'])
-                . "', '" . $GLOBALS['dbi']->escapeString($_POST['templateName'])
-                . "', '" . $GLOBALS['dbi']->escapeString($_POST['templateData'])
-                . "');";
-                break;
-            case 'load':
-                $query = 'SELECT `template_data` FROM ' . $templateTable
-                 . ' WHERE `id` = ' . $id . " AND `username` = '" . $user . "'";
-                break;
-            case 'update':
-                $query = 'UPDATE ' . $templateTable . ' SET `template_data` = '
-                  . "'" . $GLOBALS['dbi']->escapeString($_POST['templateData']) . "'"
-                  . ' WHERE `id` = ' . $id . " AND `username` = '" . $user . "'";
-                break;
-            case 'delete':
-                $query = 'DELETE FROM ' . $templateTable
-                   . ' WHERE `id` = ' . $id . " AND `username` = '" . $user . "'";
-                break;
-            default:
-                $query = '';
-                break;
-        }
-
-        $result = $this->relation->queryAsControlUser($query, false);
-
-        $response = Response::getInstance();
-        if (! $result) {
-            $error = $GLOBALS['dbi']->getError(DatabaseInterface::CONNECT_CONTROL);
-            $response->setRequestStatus(false);
-            $response->addJSON('message', $error);
-            exit;
-        }
-
-        $response->setRequestStatus(true);
-        if ($_POST['templateAction'] === 'create') {
-            $response->addJSON(
-                'data',
-                $this->getOptionsForTemplates($_POST['exportType'])
-            );
-        } elseif ($_POST['templateAction'] === 'load') {
-            $data = null;
-            while ($row = $GLOBALS['dbi']->fetchAssoc(
-                $result,
-                DatabaseInterface::CONNECT_CONTROL
-            )) {
-                $data = $row['template_data'];
-            }
-            $response->addJSON('data', $data);
-        }
-        $GLOBALS['dbi']->freeResult($result);
     }
 }

@@ -10,7 +10,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\Export;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
@@ -25,9 +24,6 @@ class ExportController extends AbstractController
     /** @var Export */
     private $export;
 
-    /** @var Relation */
-    private $relation;
-
     /**
      * @param Response          $response A Response instance.
      * @param DatabaseInterface $dbi      A DatabaseInterface instance.
@@ -35,7 +31,6 @@ class ExportController extends AbstractController
      * @param string            $db       Database name.
      * @param string            $table    Table name.
      * @param Export            $export   An Export instance.
-     * @param Relation          $relation A Relation instance.
      */
     public function __construct(
         $response,
@@ -43,12 +38,10 @@ class ExportController extends AbstractController
         Template $template,
         $db,
         $table,
-        Export $export,
-        Relation $relation
+        Export $export
     ) {
         parent::__construct($response, $dbi, $template, $db, $table);
         $this->export = $export;
-        $this->relation = $relation;
     }
 
     public function index(): void
@@ -61,15 +54,6 @@ class ExportController extends AbstractController
         $this->response->addHTML($pageSettings->getHTML());
 
         $this->addScriptFiles(['export.js']);
-
-        $cfgRelation = $this->relation->getRelationsParam();
-
-        // handling export template actions
-        if (isset($_POST['templateAction']) && $cfgRelation['exporttemplateswork']) {
-            $this->export->handleTemplateActions($cfgRelation);
-
-            return;
-        }
 
         /**
          * Gets tables information and displays top links

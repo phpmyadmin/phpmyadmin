@@ -78,13 +78,12 @@ Export.createTemplate = function (name) {
         'db': CommonParams.get('db'),
         'table': CommonParams.get('table'),
         'exportType': $('input[name="export_type"]').val(),
-        'templateAction': 'create',
         'templateName': name,
         'templateData': JSON.stringify(templateData)
     };
 
     Functions.ajaxShowMessage();
-    $.post('index.php?route=/table/export', params, function (response) {
+    $.post('index.php?route=/export/template/create', params, function (response) {
         if (response.success === true) {
             $('#templateName').val('');
             $('#template').html(response.data);
@@ -112,12 +111,11 @@ Export.loadTemplate = function (id) {
         'db': CommonParams.get('db'),
         'table': CommonParams.get('table'),
         'exportType': $('input[name="export_type"]').val(),
-        'templateAction': 'load',
         'templateId': id,
     };
 
     Functions.ajaxShowMessage();
-    $.post('index.php?route=/table/export', params, function (response) {
+    $.post('index.php?route=/export/template/load', params, function (response) {
         if (response.success === true) {
             var $form = $('form[name="dump"]');
             var options = JSON.parse(response.data);
@@ -162,13 +160,12 @@ Export.updateTemplate = function (id) {
         'db': CommonParams.get('db'),
         'table': CommonParams.get('table'),
         'exportType': $('input[name="export_type"]').val(),
-        'templateAction': 'update',
         'templateId': id,
         'templateData': JSON.stringify(templateData)
     };
 
     Functions.ajaxShowMessage();
-    $.post('index.php?route=/table/export', params, function (response) {
+    $.post('index.php?route=/export/template/update', params, function (response) {
         if (response.success === true) {
             Functions.ajaxShowMessage(Messages.strTemplateUpdated);
         } else {
@@ -189,12 +186,11 @@ Export.deleteTemplate = function (id) {
         'db': CommonParams.get('db'),
         'table': CommonParams.get('table'),
         'exportType': $('input[name="export_type"]').val(),
-        'templateAction': 'delete',
         'templateId': id,
     };
 
     Functions.ajaxShowMessage();
-    $.post('index.php?route=/table/export', params, function (response) {
+    $.post('index.php?route=/export/template/delete', params, function (response) {
         if (response.success === true) {
             $('#template').find('option[value="' + id + '"]').remove();
             Functions.ajaxShowMessage(Messages.strTemplateDeleted);

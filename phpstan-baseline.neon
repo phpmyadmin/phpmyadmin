@@ -271,6 +271,21 @@ parameters:
 			path: libraries/classes/Controllers/ExportController.php
 
 		-
+			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, resource\\|true given\\.$#"
+			count: 4
+			path: libraries/classes/Controllers/ExportTemplateController.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) invoked with 2 parameters, 1 required\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/ExportTemplateController.php
+
+		-
+			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, resource\\|true given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/ExportTemplateController.php
+
+		-
 			message: "#^Parameter \\#1 \\$error_message of method PhpMyAdmin\\\\Import\\:\\:stop\\(\\) expects PhpMyAdmin\\\\Message, PhpMyAdmin\\\\Message\\|null given\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/ImportController.php
