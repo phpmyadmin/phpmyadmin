@@ -802,7 +802,7 @@ class ResultsTest extends AbstractTestCase
         $transformation_plugin,
         $transform_options,
         array $default_function,
-        object $meta,
+        $meta,
         array $url_params,
         ?bool $is_truncated,
         string $output
@@ -989,7 +989,7 @@ class ResultsTest extends AbstractTestCase
         string $protectBinary,
         ?string $column,
         string $class,
-        object $meta,
+        $meta,
         array $map,
         array $_url_params,
         bool $condition_field,
