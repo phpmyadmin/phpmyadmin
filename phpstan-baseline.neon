@@ -3361,11 +3361,6 @@ parameters:
 			path: setup/index.php
 
 		-
-			message: "#^Result of \\|\\| is always true\\.$#"
-			count: 1
-			path: test/classes/AdvisorTest.php
-
-		-
 			message: "#^Cannot call method save\\(\\) on PhpMyAdmin\\\\Bookmark\\|false\\.$#"
 			count: 1
 			path: test/classes/BookmarkTest.php
@@ -3411,11 +3406,6 @@ parameters:
 			path: test/classes/ConfigTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with int and bool will always evaluate to false\\.$#"
-			count: 1
-			path: test/classes/CoreTest.php
-
-		-
 			message: "#^Offset 'x' does not exist on array\\(\\)\\.$#"
 			count: 1
 			path: test/classes/CoreTest.php
@@ -3426,34 +3416,14 @@ parameters:
 			path: test/classes/CoreTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$expectedCount of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\) expects int, array given\\.$#"
-			count: 1
-			path: test/classes/Database/EventsTest.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Tests\\\\Database\\\\QbeTest\\:\\:\\$object has no typehint specified\\.$#"
 			count: 1
 			path: test/classes/Database/QbeTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$needle of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, array given\\.$#"
-			count: 8
-			path: test/classes/Database/RoutinesTest.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Tests\\\\Database\\\\SearchTest\\:\\:\\$object has no typehint specified\\.$#"
 			count: 1
 			path: test/classes/Database/SearchTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$needle of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, array given\\.$#"
-			count: 3
-			path: test/classes/Database/TriggersTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$expectedCount of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\) expects int, string given\\.$#"
-			count: 1
-			path: test/classes/Database/TriggersTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:numRows\\(\\) expects mysqli_result, false given\\.$#"
@@ -3781,31 +3751,6 @@ parameters:
 			path: test/classes/Plugins/Export/Helpers/TablePropertyTest.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Import\\\\ImportLdiTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Import/ImportLdiTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Import\\\\ImportMediawikiTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Import/ImportMediawikiTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Import\\\\ImportOdsTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Import/ImportOdsTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Import\\\\ImportSqlTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Import/ImportSqlTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Import\\\\ImportXmlTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Import/ImportXmlTest.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Schema\\\\DiaRelationSchemaTest\\:\\:\\$object has no typehint specified\\.$#"
 			count: 1
 			path: test/classes/Plugins/Schema/DiaRelationSchemaTest.php
@@ -3859,21 +3804,6 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\Tests\\\\Properties\\\\Options\\\\OptionsPropertyOneItemTest\\:\\:\\$stub has no typehint specified\\.$#"
 			count: 1
 			path: test/classes/Properties/Options/OptionsPropertyOneItemTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Properties\\\\Plugins\\\\ExportPluginPropertiesTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Properties/Plugins/ExportPluginPropertiesTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Properties\\\\Plugins\\\\ImportPluginPropertiesTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Properties/Plugins/ImportPluginPropertiesTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Properties\\\\Plugins\\\\PluginPropertyItemTest\\:\\:\\$stub has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Properties/Plugins/PluginPropertyItemTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Tests\\\\Properties\\\\PropertyItemTest\\:\\:\\$stub has no typehint specified\\.$#"
@@ -3959,11 +3889,6 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\Theme\\:\\:\\$mtime_info \\(int\\) does not accept int\\|false\\.$#"
 			count: 1
 			path: test/classes/ThemeTest.php
-
-		-
-			message: "#^Parameter \\#4 \\$new_state of method PhpMyAdmin\\\\Tests\\\\TrackerTest\\:\\:testChangeTracking\\(\\) expects string, int given\\.$#"
-			count: 1
-			path: test/classes/TrackerTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$filter_ts_from of method PhpMyAdmin\\\\Tracking\\:\\:filter\\(\\) expects string, int given\\.$#"
