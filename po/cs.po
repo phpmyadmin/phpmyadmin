@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-06-19 09:17+0200\n"
-"PO-Revision-Date: 2020-06-17 21:41+0000\n"
+"PO-Revision-Date: 2020-07-18 20:41+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "cs/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.1.1-dev\n"
+"X-Generator: Weblate 4.2-dev\n"
 
 #: js/messages.php:52
 msgid "Confirm"
@@ -2714,8 +2714,8 @@ msgid ""
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
-"Umožní omezit použítý MySQL server pomocí regulárního výrazu i pokud je "
-"zapnuta možnost připojení k uživatelsky zadánému MySQL serveru."
+"Umožní omezit použitý MySQL server pomocí regulárního výrazu i pokud je "
+"zapnuta možnost připojení k uživatelsky zadanému MySQL serveru."
 
 #: libraries/classes/Config/Descriptions.php:77
 msgid "Restrict login to MySQL server"
@@ -4197,7 +4197,7 @@ msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise."
 msgstr ""
-"[kbd]SMART[/kbd] - t.j. řazení sestupně pro pole typu TIME, DATE, DATETIME a "
+"[kbd]SMART[/kbd] - tj. řazení sestupně pro pole typu TIME, DATE, DATETIME a "
 "TIMESTAMP, v ostatních případech se použije vzestupné řazení."
 
 #: libraries/classes/Config/Descriptions.php:599
@@ -4303,7 +4303,7 @@ msgstr "Výchozí způsob řazení primárního klíče"
 #: libraries/classes/Config/Descriptions.php:634
 msgid ""
 "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
-msgstr "Zopakovat záhlaví každých X buněk, [kbd]0[/kbd] vypne tuto funknci."
+msgstr "Zopakovat záhlaví každých X buněk, [kbd]0[/kbd] vypne tuto funkci."
 
 #: libraries/classes/Config/Descriptions.php:635
 msgid "Repeat headers"
@@ -5162,7 +5162,7 @@ msgstr "Seznam důvěryhodných proxy pro ověření IP adresy"
 
 #: libraries/classes/Config/Descriptions.php:929
 msgid "Directory on server where you can upload files for import."
-msgstr "Adresář na serveru, kam můžete nahrát souboru pro import."
+msgstr "Adresář na serveru, kam můžete nahrát soubory pro import."
 
 #: libraries/classes/Config/Descriptions.php:930
 msgid "Upload directory"
