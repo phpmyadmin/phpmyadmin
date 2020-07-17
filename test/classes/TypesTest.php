@@ -134,13 +134,13 @@ class TypesTest extends AbstractTestCase
     /**
      * Test for getting type operators
      *
-     * @param string $type   Type of field
-     * @param bool   $null   Whether field can be NULL
-     * @param string $output Expected output
+     * @param string       $type   Type of field
+     * @param bool         $null   Whether field can be NULL
+     * @param string|array $output Expected output
      *
      * @dataProvider providerForGetTypeOperators
      */
-    public function testGetTypeOperators(string $type, bool $null, string $output): void
+    public function testGetTypeOperators(string $type, bool $null, $output): void
     {
         $this->assertEquals(
             $output,

@@ -47,14 +47,14 @@ class IpAllowDenyTest extends AbstractTestCase
     /**
      * Test for Core::getIp
      *
-     * @param string $remote   remote
-     * @param string $header   header
-     * @param string $expected expected result
-     * @param string $proxyip  proxyip
+     * @param string|null $remote   remote
+     * @param string|null $header   header
+     * @param string|bool $expected expected result
+     * @param string      $proxyip  proxyip
      *
      * @dataProvider proxyIPs
      */
-    public function testGetIp(string $remote, string $header, string $expected, ?string $proxyip = null): void
+    public function testGetIp(?string $remote, ?string $header, $expected, ?string $proxyip = null): void
     {
         unset($_SERVER['REMOTE_ADDR']);
         unset($_SERVER['TEST_FORWARDED_HEADER']);

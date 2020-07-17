@@ -20,13 +20,13 @@ abstract class GisGeomTestCase extends AbstractTestCase
     /**
      * test generateParams method
      *
-     * @param string $wkt    point in WKT form
-     * @param int    $index  index
-     * @param array  $params expected output array
+     * @param string   $wkt    point in WKT form
+     * @param int|null $index  index
+     * @param array    $params expected output array
      *
      * @dataProvider providerForTestGenerateParams
      */
-    public function testGenerateParams(string $wkt, int $index, array $params): void
+    public function testGenerateParams(string $wkt, ?int $index, array $params): void
     {
         if ($index == null) {
             $this->assertEquals(

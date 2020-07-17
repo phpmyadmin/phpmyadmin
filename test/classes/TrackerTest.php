@@ -390,11 +390,11 @@ class TrackerTest extends AbstractTestCase
      * Test for Tracker::changeTracking(). This test is also invoked by two
      * other tests: testActivateTracking() and testDeactivateTracking()
      *
-     * @param string $dbname    Database name
-     * @param string $tablename Table name
-     * @param string $version   Version
-     * @param string $new_state State to change to
-     * @param string $type      Type of test
+     * @param string     $dbname    Database name
+     * @param string     $tablename Table name
+     * @param string     $version   Version
+     * @param string|int $new_state State to change to
+     * @param string     $type      Type of test
      *
      * @test
      */
@@ -402,7 +402,7 @@ class TrackerTest extends AbstractTestCase
         string $dbname = 'pma_db',
         string $tablename = 'pma_tbl',
         string $version = '0.1',
-        string $new_state = '1',
+        $new_state = '1',
         ?string $type = null
     ): void {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

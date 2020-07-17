@@ -85,14 +85,14 @@ class GisGeometryCollectionTest extends AbstractTestCase
     /**
      * Test for generateWkt
      *
-     * @param array  $gis_data array of GIS data
-     * @param int    $index    index in $gis_data
-     * @param string $empty    empty parameter
-     * @param string $output   expected output
+     * @param array       $gis_data array of GIS data
+     * @param int         $index    index in $gis_data
+     * @param string|null $empty    empty parameter
+     * @param string      $output   expected output
      *
      * @dataProvider providerForGenerateWkt
      */
-    public function testGenerateWkt(array $gis_data, int $index, string $empty, string $output): void
+    public function testGenerateWkt(array $gis_data, int $index, ?string $empty, string $output): void
     {
         $this->assertEquals(
             $output,
@@ -243,7 +243,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      * @param string $label      field label
      * @param string $line_color line color
      * @param array  $scale_data scaling parameters
-     * @param string $pdf        expected output
+     * @param TCPDF  $pdf        expected output
      *
      * @dataProvider providerForPrepareRowAsPdf
      */
@@ -252,7 +252,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
         string $label,
         string $line_color,
         array $scale_data,
-        string $pdf
+        TCPDF $pdf
     ): void {
         $return = $this->object->prepareRowAsPdf(
             $spatial,

@@ -125,12 +125,12 @@ class CreateAddFieldTest extends AbstractTestCase
     /**
      * Test for getNumberOfFieldsFromRequest
      *
-     * @param string $expected Expected result
-     * @param array  $request  $_REQUEST array
+     * @param int   $expected Expected result
+     * @param array $request  $_REQUEST array
      *
      * @dataProvider providerGetNumberOfFieldsFromRequest
      */
-    public function testGetNumberOfFieldsFromRequest(string $expected, array $request): void
+    public function testGetNumberOfFieldsFromRequest(int $expected, array $request): void
     {
         $_POST = $request;
         $actual = $this->createAddField->getNumberOfFieldsFromRequest();

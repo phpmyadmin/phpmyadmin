@@ -367,11 +367,11 @@ class EventsTest extends AbstractTestCase
      *
      * @param array  $request Request
      * @param string $query   Query
-     * @param array  $num_err Error number
+     * @param int    $num_err Error number
      *
      * @dataProvider providerGetQueryFromRequest
      */
-    public function testGetQueryFromRequest(array $request, string $query, array $num_err): void
+    public function testGetQueryFromRequest(array $request, string $query, int $num_err): void
     {
         global $errors;
 

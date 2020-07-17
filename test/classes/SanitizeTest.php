@@ -179,13 +179,13 @@ class SanitizeTest extends AbstractTestCase
     /**
      * Test for Sanitize::getJsValue
      *
-     * @param string $key      Key
-     * @param string $value    Value
-     * @param string $expected Expected output
+     * @param string          $key      Key
+     * @param string|bool|int $value    Value
+     * @param string          $expected Expected output
      *
      * @dataProvider variables
      */
-    public function testGetJsValue(string $key, string $value, string $expected): void
+    public function testGetJsValue(string $key, $value, string $expected): void
     {
         $this->assertEquals($expected, Sanitize::getJsValue($key, $value));
         $this->assertEquals('foo = 100', Sanitize::getJsValue('foo', '100', false));

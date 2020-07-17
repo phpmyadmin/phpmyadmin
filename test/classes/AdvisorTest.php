@@ -134,14 +134,14 @@ class AdvisorTest extends AbstractTestCase
     /**
      * Test for adding rule
      *
-     * @param array  $rule     Rule to test
-     * @param array  $expected Expected rendered rule in fired/errors list
-     * @param string $error    Expected error string (null if none error expected)
+     * @param array       $rule     Rule to test
+     * @param array       $expected Expected rendered rule in fired/errors list
+     * @param string|null $error    Expected error string (null if none error expected)
      *
      * @depends testParse
      * @dataProvider rulesProvider
      */
-    public function testAddRule(array $rule, array $expected, string $error): void
+    public function testAddRule(array $rule, array $expected, ?string $error): void
     {
         parent::loadDefaultConfig();
         parent::setLanguage();

@@ -326,11 +326,11 @@ class ConfigTest extends AbstractTestCase
      * Web server detection test
      *
      * @param string $server Server identification
-     * @param bool   $iis    Whether server should be detected as IIS
+     * @param int    $iis    Whether server should be detected as IIS
      *
      * @dataProvider serverNames
      */
-    public function testCheckWebServer(string $server, bool $iis): void
+    public function testCheckWebServer(string $server, int $iis): void
     {
         $_SERVER['SERVER_SOFTWARE'] = $server;
         $this->object->checkWebServer();

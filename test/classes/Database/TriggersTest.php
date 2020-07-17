@@ -112,13 +112,12 @@ class TriggersTest extends AbstractTestCase
     /**
      * Test for getEditorForm
      *
-     * @param array $data    Data for trigger
-     * @param array $matcher Matcher
+     * @param array $data Data for trigger
      *
      * @dataProvider providerGetEditorFormAdd
      * @group medium
      */
-    public function testGetEditorFormAdd(array $data, array $matcher): void
+    public function testGetEditorFormAdd(array $data, string $matcher): void
     {
         $GLOBALS['server'] = 1;
         $this->assertStringContainsString(
@@ -183,13 +182,12 @@ class TriggersTest extends AbstractTestCase
     /**
      * Test for getEditorForm
      *
-     * @param array $data    Data for trigger
-     * @param array $matcher Matcher
+     * @param array $data Data for trigger
      *
      * @dataProvider providerGetEditorFormEdit
      * @group medium
      */
-    public function testGetEditorFormEdit(array $data, array $matcher): void
+    public function testGetEditorFormEdit(array $data, string $matcher): void
     {
         $GLOBALS['server'] = 1;
         $this->assertStringContainsString(
@@ -254,12 +252,11 @@ class TriggersTest extends AbstractTestCase
     /**
      * Test for getEditorForm
      *
-     * @param array $data    Data for trigger
-     * @param array $matcher Matcher
+     * @param array $data Data for trigger
      *
      * @dataProvider providerGetEditorFormAjax
      */
-    public function testGetEditorFormAjax(array $data, array $matcher): void
+    public function testGetEditorFormAjax(array $data, string $matcher): void
     {
         $GLOBALS['server'] = 1;
         Response::getInstance()->setAjax(true);
@@ -309,7 +306,7 @@ class TriggersTest extends AbstractTestCase
      * @param string $table      Table
      * @param string $definition Definition
      * @param string $query      Query
-     * @param string $num_err    Error number
+     * @param int    $num_err    Error number
      *
      * @dataProvider providerGetQueryFromRequest
      */
@@ -321,7 +318,7 @@ class TriggersTest extends AbstractTestCase
         string $table,
         string $definition,
         string $query,
-        string $num_err
+        int $num_err
     ): void {
         global $errors;
 

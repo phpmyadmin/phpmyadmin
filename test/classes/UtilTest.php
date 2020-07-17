@@ -601,13 +601,13 @@ class UtilTest extends AbstractTestCase
     /**
      * Test for Util::convertBitDefaultValue
      *
-     * @param string $bit Value
-     * @param string $val Expected value
+     * @param string|null $bit Value
+     * @param string      $val Expected value
      *
      * @covers \PhpMyAdmin\Util::convertBitDefaultValue
      * @dataProvider providerConvertBitDefaultValue
      */
-    public function testConvertBitDefaultValue(string $bit, string $val): void
+    public function testConvertBitDefaultValue(?string $bit, string $val): void
     {
         $this->assertEquals(
             $val,
@@ -1159,12 +1159,12 @@ class UtilTest extends AbstractTestCase
     /**
      * Core test for formatNumber
      *
-     * @param float $a Value to format
-     * @param int   $b Sensitiveness
-     * @param int   $c Number of decimals to retain
-     * @param array $d Expected value
+     * @param float  $a Value to format
+     * @param int    $b Sensitiveness
+     * @param int    $c Number of decimals to retain
+     * @param string $d Expected value
      */
-    private function assertFormatNumber(float $a, int $b, int $c, array $d): void
+    private function assertFormatNumber(float $a, int $b, int $c, string $d): void
     {
         $this->assertEquals(
             $d,
@@ -1180,15 +1180,15 @@ class UtilTest extends AbstractTestCase
     /**
      * format number test, globals are defined
      *
-     * @param float $a Value to format
-     * @param int   $b Sensitiveness
-     * @param int   $c Number of decimals to retain
-     * @param array $d Expected value
+     * @param float  $a Value to format
+     * @param int    $b Sensitiveness
+     * @param int    $c Number of decimals to retain
+     * @param string $d Expected value
      *
      * @covers \PhpMyAdmin\Util::formatNumber
      * @dataProvider providerFormatNumber
      */
-    public function testFormatNumber(float $a, int $b, int $c, array $d): void
+    public function testFormatNumber(float $a, int $b, int $c, string $d): void
     {
         $this->assertFormatNumber($a, $b, $c, $d);
 
@@ -1400,12 +1400,12 @@ class UtilTest extends AbstractTestCase
      * Test for Util::getTitleForTarget
      *
      * @param string $target Target
-     * @param array  $result Expected value
+     * @param string $result Expected value
      *
      * @covers \PhpMyAdmin\Util::getTitleForTarget
      * @dataProvider providerGetTitleForTarget
      */
-    public function testGetTitleForTarget(string $target, array $result): void
+    public function testGetTitleForTarget(string $target, string $result): void
     {
         $this->assertEquals(
             $result,
@@ -1746,13 +1746,13 @@ class UtilTest extends AbstractTestCase
     /**
      * backquote test with different param $do_it (true, false)
      *
-     * @param string $a String
-     * @param string $b Expected output
+     * @param string|array $a String
+     * @param string|array $b Expected output
      *
      * @covers \PhpMyAdmin\Util::backquote
      * @dataProvider providerBackquote
      */
-    public function testBackquote(string $a, string $b): void
+    public function testBackquote($a, $b): void
     {
         // Test bypass quoting (used by dump functions)
         $this->assertEquals($a, Util::backquote($a, false));
@@ -1801,14 +1801,14 @@ class UtilTest extends AbstractTestCase
     /**
      * backquoteCompat test with different param $compatibility (NONE, MSSQL)
      *
-     * @param string $entry               String
-     * @param string $expectedNoneOutput  Expected none output
-     * @param string $expectedMssqlOutput Expected MSSQL output
+     * @param string|array $entry               String
+     * @param string|array $expectedNoneOutput  Expected none output
+     * @param string|array $expectedMssqlOutput Expected MSSQL output
      *
      * @covers \PhpMyAdmin\Util::backquoteCompat
      * @dataProvider providerBackquoteCompat
      */
-    public function testBackquoteCompat(string $entry, string $expectedNoneOutput, string $expectedMssqlOutput): void
+    public function testBackquoteCompat($entry, $expectedNoneOutput, $expectedMssqlOutput): void
     {
         // Test bypass quoting (used by dump functions)
         $this->assertEquals($entry, Util::backquoteCompat($entry, 'NONE', false));

@@ -60,16 +60,16 @@ class HttpRequestTest extends AbstractTestCase
     /**
      * Test for http request using Curl
      *
-     * @param string $url                url
-     * @param string $method             method
-     * @param bool   $return_only_status return only status
-     * @param bool   $expected           expected result
+     * @param string           $url                url
+     * @param string           $method             method
+     * @param bool             $return_only_status return only status
+     * @param bool|string|null $expected           expected result
      *
      * @group medium
      * @dataProvider httpRequests
      * @group network
      */
-    public function testCurl(string $url, string $method, bool $return_only_status, bool $expected): void
+    public function testCurl(string $url, string $method, bool $return_only_status, $expected): void
     {
         $this->checkCurl();
         $result = $this->callFunction(
@@ -93,7 +93,7 @@ class HttpRequestTest extends AbstractTestCase
      * @dataProvider httpRequests
      * @group network
      */
-    public function testCurlCAPath(string $url, string $method, bool $return_only_status, bool $expected): void
+    public function testCurlCAPath(string $url, string $method, bool $return_only_status, $expected): void
     {
         $this->checkCurl(true);
         $result = $this->callFunction($this->httpRequest, HttpRequest::class, 'curl', [
@@ -110,16 +110,16 @@ class HttpRequestTest extends AbstractTestCase
     /**
      * Test for http request using Curl with CURLOPT_CAINFO
      *
-     * @param string $url                url
-     * @param string $method             method
-     * @param bool   $return_only_status return only status
-     * @param bool   $expected           expected result
+     * @param string           $url                url
+     * @param string           $method             method
+     * @param bool             $return_only_status return only status
+     * @param bool|string|null $expected           expected result
      *
      * @group medium
      * @dataProvider httpRequests
      * @group network
      */
-    public function testCurlCAInfo(string $url, string $method, bool $return_only_status, bool $expected): void
+    public function testCurlCAInfo(string $url, string $method, bool $return_only_status, $expected): void
     {
         $this->checkCurl(true);
         $result = $this->callFunction($this->httpRequest, HttpRequest::class, 'curl', [
@@ -136,16 +136,16 @@ class HttpRequestTest extends AbstractTestCase
     /**
      * Test for http request using fopen
      *
-     * @param string $url                url
-     * @param string $method             method
-     * @param bool   $return_only_status return only status
-     * @param bool   $expected           expected result
+     * @param string           $url                url
+     * @param string           $method             method
+     * @param bool             $return_only_status return only status
+     * @param bool|string|null $expected           expected result
      *
      * @group medium
      * @dataProvider httpRequests
      * @group network
      */
-    public function testFopen(string $url, string $method, bool $return_only_status, bool $expected): void
+    public function testFopen(string $url, string $method, bool $return_only_status, $expected): void
     {
         if (! ini_get('allow_url_fopen')) {
             $this->markTestSkipped('allow_url_fopen not supported');
@@ -162,16 +162,16 @@ class HttpRequestTest extends AbstractTestCase
     /**
      * Test for http request using generic interface
      *
-     * @param string $url                url
-     * @param string $method             method
-     * @param bool   $return_only_status return only status
-     * @param bool   $expected           expected result
+     * @param string           $url                url
+     * @param string           $method             method
+     * @param bool             $return_only_status return only status
+     * @param bool|string|null $expected           expected result
      *
      * @group medium
      * @dataProvider httpRequests
      * @group network
      */
-    public function testCreate(string $url, string $method, bool $return_only_status, bool $expected): void
+    public function testCreate(string $url, string $method, bool $return_only_status, $expected): void
     {
         if (! function_exists('curl_init') && ! ini_get('allow_url_fopen')) {
             $this->markTestSkipped('neither curl nor allow_url_fopen are supported');

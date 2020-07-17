@@ -1116,11 +1116,11 @@ class TransformationPluginsTest extends AbstractTestCase
     /**
      * Tests for applyTransformation, isSuccess, getError
      *
-     * @param object $object      instance of the plugin
-     * @param array  $applyArgs   arguments for applyTransformation
-     * @param string $transformed the expected output of applyTransformation
-     * @param bool   $success     the expected output of isSuccess
-     * @param string $error       the expected output of getError
+     * @param object     $object      instance of the plugin
+     * @param array      $applyArgs   arguments for applyTransformation
+     * @param string|int $transformed the expected output of applyTransformation
+     * @param bool       $success     the expected output of isSuccess
+     * @param string     $error       the expected output of getError
      *
      * @dataProvider transformationDataProvider
      * @group medium
@@ -1128,7 +1128,7 @@ class TransformationPluginsTest extends AbstractTestCase
     public function testTransformation(
         object $object,
         array $applyArgs,
-        string $transformed,
+        $transformed,
         bool $success = true,
         string $error = ''
     ): void {

@@ -39,18 +39,19 @@ class DatabaseInterfaceTest extends AbstractTestCase
     /**
      * Tests for DBI::getCurrentUser() method.
      *
-     * @param array  $value    value
-     * @param string $string   string
-     * @param array  $expected expected result
+     * @param array|false $value    value
+     * @param string      $string   string
+     * @param array       $expected expected result
      *
      * @test
      * @dataProvider currentUserData
      */
-    public function testGetCurrentUser(array $value, string $string, array $expected): void
+    public function testGetCurrentUser($value, string $string, array $expected): void
     {
         Util::cacheUnset('mysql_cur_user');
 
         $extension = new DbiDummy();
+        /** @var array $value */
         $extension->setResult('SELECT CURRENT_USER();', $value);
 
         $dbi = new DatabaseInterface($extension);
@@ -284,13 +285,13 @@ class DatabaseInterfaceTest extends AbstractTestCase
     /**
      * Tests for DBI::isAmazonRds() method.
      *
-     * @param mixed $value    value
-     * @param mixed $expected expected result
+     * @param array $value    value
+     * @param bool $expected expected result
      *
      * @test
      * @dataProvider isAmazonRdsData
      */
-    public function atestIsAmazonRdsData($value, $expected): void
+    public function atestIsAmazonRdsData(array $value, bool $expected): void
     {
         Util::cacheUnset('is_amazon_rds');
 

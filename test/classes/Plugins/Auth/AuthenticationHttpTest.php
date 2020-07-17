@@ -59,7 +59,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
      * @param mixed   $set_title   set title
      * @param mixed[] ...$headers  headers
      */
-    public function doMockResponse($set_minimal, $body_id, $set_title, array ...$headers): void
+    public function doMockResponse($set_minimal, $body_id, $set_title, ...$headers): void
     {
         // mock footer
         $mockFooter = $this->getMockBuilder(Footer::class)
@@ -187,14 +187,14 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationHttp::readCredentials
      *
-     * @param string $user           test username
-     * @param string $pass           test password
-     * @param string $userIndex      index to test username against
-     * @param string $passIndex      index to test username against
-     * @param string $expectedReturn expected return value from test
-     * @param string $expectedUser   expected username to be set
-     * @param string $expectedPass   expected password to be set
-     * @param string $old_usr        value for $_REQUEST['old_usr']
+     * @param string      $user           test username
+     * @param string      $pass           test password
+     * @param string      $userIndex      index to test username against
+     * @param string      $passIndex      index to test username against
+     * @param string|bool $expectedReturn expected return value from test
+     * @param string      $expectedUser   expected username to be set
+     * @param string|bool $expectedPass   expected password to be set
+     * @param string|bool $old_usr        value for $_REQUEST['old_usr']
      *
      * @dataProvider readCredentialsProvider
      */
@@ -203,10 +203,10 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         string $pass,
         string $userIndex,
         string $passIndex,
-        string $expectedReturn,
+        $expectedReturn,
         string $expectedUser,
-        string $expectedPass,
-        string $old_usr = ''
+        $expectedPass,
+        $old_usr = ''
     ): void {
         $_SERVER[$userIndex] = $user;
         $_SERVER[$passIndex] = $pass;

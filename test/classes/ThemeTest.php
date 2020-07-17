@@ -228,13 +228,13 @@ class ThemeTest extends AbstractTestCase
     /**
      * Test for getImgPath
      *
-     * @param string $file     file name for image
-     * @param string $fallback fallback image
-     * @param string $output   expected output
+     * @param string|null $file     file name for image
+     * @param string|null $fallback fallback image
+     * @param string      $output   expected output
      *
      * @dataProvider providerForGetImgPath
      */
-    public function testGetImgPath(string $file, string $fallback, string $output): void
+    public function testGetImgPath(?string $file, ?string $fallback, string $output): void
     {
         $this->assertEquals(
             $this->object->getImgPath($file, $fallback),

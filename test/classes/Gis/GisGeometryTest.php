@@ -107,11 +107,11 @@ class GisGeometryTest extends AbstractTestCase
      * tests generateParams method
      *
      * @param string $value  Geometry data
-     * @param string $output Expected output
+     * @param array  $output Expected output
      *
      * @dataProvider providerForTestGenerateParams
      */
-    public function testGenerateParams(string $value, string $output): void
+    public function testGenerateParams(string $value, array $output): void
     {
         $this->assertEquals(
             $output,
@@ -159,14 +159,14 @@ class GisGeometryTest extends AbstractTestCase
     /**
      * tests extractPoints method
      *
-     * @param string $point_set  String of comma separated points
-     * @param array  $scale_data Data related to scaling
-     * @param bool   $linear     If true, as a 1D array, else as a 2D array
-     * @param array  $output     Expected output
+     * @param string     $point_set  String of comma separated points
+     * @param array|null $scale_data Data related to scaling
+     * @param bool       $linear     If true, as a 1D array, else as a 2D array
+     * @param array      $output     Expected output
      *
      * @dataProvider providerForTestExtractPoints
      */
-    public function testExtractPoints(string $point_set, array $scale_data, bool $linear, array $output): void
+    public function testExtractPoints(string $point_set, ?array $scale_data, bool $linear, array $output): void
     {
         $this->assertEquals(
             $output,
@@ -276,13 +276,13 @@ class GisGeometryTest extends AbstractTestCase
     /**
      * test case for getBoundsForOl() method
      *
-     * @param string $srid       spatial reference ID
+     * @param int    $srid       spatial reference ID
      * @param array  $scale_data data related to scaling
      * @param string $output     expected output
      *
      * @dataProvider providerForTestGetBoundsForOl
      */
-    public function testGetBoundsForOl(string $srid, array $scale_data, string $output): void
+    public function testGetBoundsForOl(int $srid, array $scale_data, string $output): void
     {
         $this->assertEquals(
             $output,
@@ -330,12 +330,12 @@ class GisGeometryTest extends AbstractTestCase
      * test case for getPolygonArrayForOpenLayers() method
      *
      * @param array  $polygons x and y coordinate pairs for each polygon
-     * @param string $srid     spatial reference id
+     * @param int    $srid     spatial reference id
      * @param string $output   expected output
      *
      * @dataProvider providerForTestGetPolygonArrayForOpenLayers
      */
-    public function testGetPolygonArrayForOpenLayers(array $polygons, string $srid, string $output): void
+    public function testGetPolygonArrayForOpenLayers(array $polygons, int $srid, string $output): void
     {
         $this->assertEquals(
             $output,
