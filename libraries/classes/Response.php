@@ -364,7 +364,9 @@ class Response
         }
 
         if ($this->_isSuccess) {
-            $this->addJSON('title', '<title>' . $this->getHeader()->getPageTitle() . '</title>');
+            if (! isset($this->_JSON['title'])) {
+                $this->addJSON('title', '<title>' . $this->getHeader()->getPageTitle() . '</title>');
+            }
 
             if (isset($GLOBALS['dbi'])) {
                 $menuHash = $this->getHeader()->getMenu()->getHash();
