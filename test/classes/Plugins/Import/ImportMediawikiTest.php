@@ -17,7 +17,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
  */
 class ImportMediawikiTest extends AbstractTestCase
 {
-    /** @access protected */
+    /** @var ImportMediawiki */
     protected $object;
 
     /**

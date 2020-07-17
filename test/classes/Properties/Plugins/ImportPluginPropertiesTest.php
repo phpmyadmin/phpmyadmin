@@ -15,6 +15,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
  */
 class ImportPluginPropertiesTest extends AbstractTestCase
 {
+    /** @var ImportPluginProperties */
     protected $object;
 
     /**

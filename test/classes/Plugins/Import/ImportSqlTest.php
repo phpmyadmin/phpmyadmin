@@ -17,7 +17,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
  */
 class ImportSqlTest extends AbstractTestCase
 {
-    /** @access protected */
+    /** @var ImportSql */
     protected $object;
 
     /**

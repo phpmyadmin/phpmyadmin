@@ -22,10 +22,7 @@ use function extension_loaded;
  */
 class ImportShpTest extends AbstractTestCase
 {
-    /**
-     * @var ImportShp
-     * @access protected
-     */
+    /** @var ImportShp */
     protected $object;
 
     /**

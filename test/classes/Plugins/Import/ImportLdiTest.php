@@ -18,7 +18,7 @@ use PHPUnit\Framework\MockObject\MockObject;
  */
 class ImportLdiTest extends AbstractTestCase
 {
-    /** @access protected */
+    /** @var ImportLdi */
     protected $object;
 
     /**

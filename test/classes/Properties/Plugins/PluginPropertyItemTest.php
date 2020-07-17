@@ -15,6 +15,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
  */
 class PluginPropertyItemTest extends AbstractTestCase
 {
+    /** @var PluginPropertyItem */
     protected $stub;
 
     /**

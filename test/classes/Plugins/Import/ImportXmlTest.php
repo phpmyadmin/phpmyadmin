@@ -20,7 +20,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
  */
 class ImportXmlTest extends AbstractTestCase
 {
-    /** @access protected */
+    /** @var ImportXml */
     protected $object;
 
     /**

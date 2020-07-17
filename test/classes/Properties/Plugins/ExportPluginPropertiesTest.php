@@ -15,6 +15,7 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
  */
 class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
 {
+    /** @var ExportPluginProperties */
     protected $object;
 
     /**

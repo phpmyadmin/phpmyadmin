@@ -19,7 +19,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
  */
 class ImportOdsTest extends AbstractTestCase
 {
-    /** @access protected */
+    /** @var ImportOds */
     protected $object;
 
     /**

@@ -18,10 +18,7 @@ use function basename;
  */
 class ImportCsvTest extends AbstractTestCase
 {
-    /**
-     * @var ImportCsv
-     * @access protected
-     */
+    /** @var ImportCsv */
     protected $object;
 
     /**
