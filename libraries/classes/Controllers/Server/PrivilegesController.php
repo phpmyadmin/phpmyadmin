@@ -439,15 +439,17 @@ class PrivilegesController extends AbstractController
             unset($GLOBALS['message']);
         }
 
-        /**
-         * Displays the page
-         */
-        $this->response->addHTML(
-            $serverPrivileges->getHtmlForUserGroupDialog(
-                $username ?? null,
-                (bool) $cfgRelation['menuswork']
-            )
-        );
+        if (! empty($_GET['edit_user_group_dialog']) && $cfgRelation['menuswork']) {
+            $dialog = $serverPrivileges->getHtmlToChooseUserGroup($username ?? null);
+
+            if ($this->response->isAjax()) {
+                $this->response->addJSON('message', $dialog);
+
+                return;
+            }
+
+            $this->response->addHTML($dialog);
+        }
 
         // export user definition
         if (isset($_GET['export'])

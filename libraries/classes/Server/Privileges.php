@@ -81,31 +81,6 @@ class Privileges
     }
 
     /**
-     * Get Html for User Group Dialog
-     *
-     * @param string $username     username
-     * @param bool   $is_menuswork Is menuswork set in configuration
-     *
-     * @return string html
-     */
-    public function getHtmlForUserGroupDialog($username, $is_menuswork)
-    {
-        $html = '';
-        if (! empty($_GET['edit_user_group_dialog']) && $is_menuswork) {
-            $dialog = $this->getHtmlToChooseUserGroup($username);
-            $response = Response::getInstance();
-            if ($response->isAjax()) {
-                $response->addJSON('message', $dialog);
-                exit;
-            }
-
-            $html .= $dialog;
-        }
-
-        return $html;
-    }
-
-    /**
      * Escapes wildcard in a database+table specification
      * before using it in a GRANT statement.
      *
