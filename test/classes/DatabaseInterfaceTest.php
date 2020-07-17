@@ -243,9 +243,6 @@ class DatabaseInterfaceTest extends AbstractTestCase
         );
     }
 
-    /**
-     * @return array
-     */
     public function errorData(): array
     {
         return [
@@ -286,7 +283,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
      * Tests for DBI::isAmazonRds() method.
      *
      * @param array $value    value
-     * @param bool $expected expected result
+     * @param bool  $expected expected result
      *
      * @test
      * @dataProvider isAmazonRdsData
@@ -351,9 +348,6 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $this->assertEquals($upgrade, $ver_int < $GLOBALS['cfg']['MysqlMinVersion']['internal']);
     }
 
-    /**
-     * @return array
-     */
     public function versionData(): array
     {
         return [

@@ -87,8 +87,6 @@ class VersionInformationTest extends AbstractTestCase
 
     /**
      * Data provider for version parsing
-     *
-     * @return array with test data
      */
     public function dataVersions(): array
     {

@@ -1156,8 +1156,15 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
      *
      * @dataProvider checkRulesProvider
      */
-    public function testCheckRules(string $user, string $pass, string $ip, bool $root, bool $nopass, array $rules, string $expected): void
-    {
+    public function testCheckRules(
+        string $user,
+        string $pass,
+        string $ip,
+        bool $root,
+        bool $nopass,
+        array $rules,
+        string $expected
+    ): void {
         $this->object->user = $user;
         $this->object->password = $pass;
         $this->object->storeCredentials();
@@ -1183,9 +1190,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         }
     }
 
-    /**
-     * @return array
-     */
     public function checkRulesProvider(): array
     {
         return [

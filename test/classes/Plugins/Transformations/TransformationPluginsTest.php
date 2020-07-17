@@ -65,8 +65,6 @@ class TransformationPluginsTest extends AbstractTestCase
 
     /**
      * Data provider for testGetMulti
-     *
-     * @return array with test data
      */
     public function multiDataProvider(): array
     {
@@ -725,8 +723,6 @@ class TransformationPluginsTest extends AbstractTestCase
 
     /**
      * Data provider for testTransformation
-     *
-     * @return array with test data
      */
     public function transformationDataProvider(): array
     {

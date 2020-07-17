@@ -331,8 +331,6 @@ class TypesTest extends AbstractTestCase
 
     /**
      * Data provider for testing function lists
-     *
-     * @return array with test data
      */
     public function providerFortTestGetFunctionsClass(): array
     {

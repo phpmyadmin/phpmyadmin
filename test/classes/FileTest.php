@@ -72,11 +72,6 @@ class FileTest extends AbstractTestCase
         $file->close();
     }
 
-    /**
-     * Data provider for tests
-     *
-     * @return array Test data
-     */
     public function compressedFiles(): array
     {
         return [

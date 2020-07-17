@@ -398,8 +398,6 @@ class TableTest extends AbstractTestCase
 
     /**
      * Data provider for name validation
-     *
-     * @return array with test data
      */
     public function dataValidateName(): array
     {

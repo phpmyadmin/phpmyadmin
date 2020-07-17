@@ -143,8 +143,16 @@ class LanguageTest extends AbstractTestCase
      *
      * @dataProvider selectDataProvider
      */
-    public function testSelect(string $lang, string $post, string $get, string $cookie, string $accept, string $agent, string $default, string $expect): void
-    {
+    public function testSelect(
+        string $lang,
+        string $post,
+        string $get,
+        string $cookie,
+        string $accept,
+        string $agent,
+        string $default,
+        string $expect
+    ): void {
         $GLOBALS['PMA_Config']->set('FilterLanguages', '');
         $GLOBALS['PMA_Config']->set('Lang', $lang);
         $GLOBALS['PMA_Config']->set('is_https', false);

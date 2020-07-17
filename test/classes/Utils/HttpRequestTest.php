@@ -201,8 +201,6 @@ class HttpRequestTest extends AbstractTestCase
 
     /**
      * Data provider for HTTP tests
-     *
-     * @return array
      */
     public function httpRequests(): array
     {

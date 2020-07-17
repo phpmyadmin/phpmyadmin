@@ -64,8 +64,6 @@ class TransformationsTest extends AbstractTestCase
 
     /**
      * Data provided for parsing options
-     *
-     * @return array with test data
      */
     public function getOptionsData(): array
     {
@@ -285,9 +283,6 @@ class TransformationsTest extends AbstractTestCase
         );
     }
 
-    /**
-     * @return array
-     */
     public function fixupData(): array
     {
         return [
@@ -330,9 +325,6 @@ class TransformationsTest extends AbstractTestCase
         );
     }
 
-    /**
-     * @return array
-     */
     public function providerGetDescription(): array
     {
         return [
@@ -367,9 +359,6 @@ class TransformationsTest extends AbstractTestCase
         );
     }
 
-    /**
-     * @return array
-     */
     public function providerGetName(): array
     {
         return [

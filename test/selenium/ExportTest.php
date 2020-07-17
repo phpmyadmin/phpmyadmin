@@ -95,8 +95,6 @@ class ExportTest extends TestBase
 
     /**
      * Data provider for testServerExport
-     *
-     * @return array Test cases data
      */
     public function exportDataProvider(): array
     {

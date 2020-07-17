@@ -39,11 +39,6 @@ class AdvisorTest extends AbstractTestCase
         $this->assertEquals(Advisor::escapePercent($text), $expected);
     }
 
-    /**
-     * return of escape Strings
-     *
-     * @return array
-     */
     public function escapeStrings(): array
     {
         return [
@@ -90,9 +85,6 @@ class AdvisorTest extends AbstractTestCase
         $this->assertEquals($expected, $result);
     }
 
-    /**
-     * @return array
-     */
     public function advisorTimes(): array
     {
         return [
@@ -161,11 +153,6 @@ class AdvisorTest extends AbstractTestCase
         $this->assertEquals([$expected], $runResult['fired']);
     }
 
-    /**
-     * rules Provider
-     *
-     * @return array
-     */
     public function rulesProvider(): array
     {
         return [
