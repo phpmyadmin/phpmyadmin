@@ -12,12 +12,16 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Git;
 use const CONFIG_FILE;
+use const DIRECTORY_SEPARATOR;
 use const PHP_EOL;
 use function chdir;
 use function file_put_contents;
 use function getcwd;
+use function is_string;
 use function mkdir;
+use function mt_rand;
 use function rmdir;
+use function sys_get_temp_dir;
 use function unlink;
 
 /**
@@ -33,6 +37,12 @@ class GitTest extends AbstractTestCase
     /** @var Config */
     protected $config;
 
+    /** @var string */
+    protected $testDir;
+
+    /** @var string */
+    protected $cwd;
+
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
@@ -42,7 +52,15 @@ class GitTest extends AbstractTestCase
         parent::setUp();
         parent::setProxySettings();
         $this->config = new Config(CONFIG_FILE);
+        $this->config->set('ShowGitRevision', true);
         $this->object = new Git($this->config);
+        $this->testDir = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'gittempdir_' . mt_rand();
+
+        unset($_SESSION['git_location']);
+        unset($_SESSION['is_git_revision']);
+        $this->cwd = is_string(getcwd()) ? getcwd() : './';
+        mkdir($this->testDir);
+        chdir((string) $this->testDir);
     }
 
     /**
@@ -51,6 +69,8 @@ class GitTest extends AbstractTestCase
      */
     protected function tearDown(): void
     {
+        chdir((string) $this->cwd);
+        rmdir($this->testDir);
         parent::tearDown();
         unset($this->object);
     }
@@ -95,15 +115,6 @@ class GitTest extends AbstractTestCase
      */
     public function testIsGitRevisionLocalGitDir(): void
     {
-        $cwd = getcwd();
-        $test_dir = 'gittestdir';
-
-        unset($_SESSION['git_location']);
-        unset($_SESSION['is_git_revision']);
-
-        mkdir($test_dir);
-        chdir((string) $test_dir);
-
         $this->assertFalse(
             $this->object->isGitRevision()
         );
@@ -143,9 +154,6 @@ class GitTest extends AbstractTestCase
 
         unlink('.git/config');
         rmdir('.git');
-
-        chdir((string) $cwd);
-        rmdir($test_dir);
     }
 
     /**
@@ -155,15 +163,6 @@ class GitTest extends AbstractTestCase
      */
     public function testIsGitRevisionExternalGitDir(): void
     {
-        $cwd = getcwd();
-        $test_dir = 'gittestdir';
-
-        unset($_SESSION['git_location']);
-        unset($_SESSION['is_git_revision']);
-
-        mkdir($test_dir);
-        chdir((string) $test_dir);
-
         file_put_contents('.git', 'gitdir: ./.customgitdir');
         $this->assertFalse(
             $this->object->isGitRevision()
@@ -204,9 +203,6 @@ class GitTest extends AbstractTestCase
 
         unlink('.git');
         rmdir('.customgitdir');
-
-        chdir((string) $cwd);
-        rmdir($test_dir);
     }
 
     /**
@@ -216,15 +212,6 @@ class GitTest extends AbstractTestCase
      */
     public function testCheckGitRevisionPacksFolder(): void
     {
-        $cwd = getcwd();
-        $test_dir = 'gittestdir';
-
-        unset($_SESSION['git_location']);
-        unset($_SESSION['is_git_revision']);
-
-        mkdir($test_dir);
-        chdir((string) $test_dir);
-
         mkdir('.git');
         file_put_contents('.git/config', '');
 
@@ -268,9 +255,6 @@ class GitTest extends AbstractTestCase
         unlink('.git/HEAD');
         unlink('.git/config');
         rmdir('.git');
-
-        chdir((string) $cwd);
-        rmdir($test_dir);
     }
 
     /**
@@ -280,15 +264,6 @@ class GitTest extends AbstractTestCase
      */
     public function testCheckGitRevisionRefFile(): void
     {
-        $cwd = getcwd();
-        $test_dir = 'gittestdir';
-
-        unset($_SESSION['git_location']);
-        unset($_SESSION['is_git_revision']);
-
-        mkdir($test_dir);
-        chdir((string) $test_dir);
-
         mkdir('.git');
         file_put_contents('.git/config', '');
 
@@ -323,9 +298,6 @@ class GitTest extends AbstractTestCase
         unlink('.git/HEAD');
         unlink('.git/config');
         rmdir('.git');
-
-        chdir((string) $cwd);
-        rmdir($test_dir);
     }
 
     /**
@@ -335,15 +307,6 @@ class GitTest extends AbstractTestCase
      */
     public function testCheckGitRevisionPacksFile(): void
     {
-        $cwd = getcwd();
-        $test_dir = 'gittestdir';
-
-        unset($_SESSION['git_location']);
-        unset($_SESSION['is_git_revision']);
-
-        mkdir($test_dir);
-        chdir((string) $test_dir);
-
         mkdir('.git');
         file_put_contents('.git/config', '');
 
@@ -397,9 +360,6 @@ class GitTest extends AbstractTestCase
         unlink('.git/HEAD');
         unlink('.git/config');
         rmdir('.git');
-
-        chdir((string) $cwd);
-        rmdir($test_dir);
     }
 
     /**

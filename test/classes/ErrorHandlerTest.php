@@ -137,7 +137,7 @@ class ErrorHandlerTest extends AbstractTestCase
     ): void {
         $this->object->handleError($errno, $errstr, $errfile, $errline);
 
-        $this->assertNotEmpty($output_hide);// Useless check
+        $this->assertIsString($output_hide);// Useless check
         $this->assertStringContainsString(
             $output_show,
             $this->object->getDispErrors()
