@@ -719,14 +719,12 @@ abstract class TestBase extends TestCase
      *
      * @param string $func Locate using - byCss, byXPath, etc
      * @param string $arg  Selector
-     *
-     * @return bool Whether or not the element disappeared
      */
-    public function waitForElementNotPresent(string $func, string $arg): bool
+    public function waitForElementNotPresent(string $func, string $arg): void
     {
         while (true) {
             if (! $this->isElementPresent($func, $arg)) {
-                return true;
+                return;
             }
             usleep(5000);
         }

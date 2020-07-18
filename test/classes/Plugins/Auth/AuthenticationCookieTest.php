@@ -1016,6 +1016,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
      */
     public function testMACSecretSplit(string $secret, string $mac, string $aes): void
     {
+        $this->assertNotEmpty($aes);// Useless check
         $this->assertEquals(
             $mac,
             $this->object->getMACSecret($secret)
@@ -1033,6 +1034,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
      */
     public function testAESSecretSplit(string $secret, string $mac, string $aes): void
     {
+        $this->assertNotEmpty($mac);// Useless check
         $this->assertEquals(
             $aes,
             $this->object->getAESSecret($secret)
