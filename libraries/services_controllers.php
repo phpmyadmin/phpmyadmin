@@ -299,7 +299,7 @@ return [
                     'response' => '@response',
                     'dbi' => '@dbi',
                     'template' => '@template',
-                    'export' => '@display_export',
+                    'model' => '@export_template_model',
                     'relation' => '@relation',
                 ],
         ],

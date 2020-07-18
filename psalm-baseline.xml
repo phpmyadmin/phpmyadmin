@@ -247,18 +247,6 @@
       <code>$dump_buffer</code>
     </PossiblyInvalidArgument>
   </file>
-  <file src="libraries/classes/Controllers/ExportTemplateController.php">
-    <InvalidArgument occurrences="5">
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-    </InvalidArgument>
-    <TooManyArguments occurrences="1">
-      <code>fetchAssoc</code>
-    </TooManyArguments>
-  </file>
   <file src="libraries/classes/Controllers/GisDataEditorController.php">
     <PossiblyFalseOperand occurrences="1">
       <code>mb_strpos($_POST['value'], '(')</code>

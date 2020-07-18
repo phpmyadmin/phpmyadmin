@@ -5,16 +5,18 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Display\Export;
+use PhpMyAdmin\Export\Template as ExportTemplate;
+use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Util;
+use function is_array;
+use function is_string;
 
 final class ExportTemplateController extends AbstractController
 {
-    /** @var Export */
-    private $export;
+    /** @var TemplateModel */
+    private $model;
 
     /** @var Relation */
     private $relation;
@@ -23,164 +25,139 @@ final class ExportTemplateController extends AbstractController
      * @param Response          $response
      * @param DatabaseInterface $dbi
      */
-    public function __construct($response, $dbi, Template $template, Export $export, Relation $relation)
-    {
+    public function __construct(
+        $response,
+        $dbi,
+        Template $template,
+        TemplateModel $model,
+        Relation $relation
+    ) {
         parent::__construct($response, $dbi, $template);
-        $this->export = $export;
+        $this->model = $model;
         $this->relation = $relation;
     }
 
     public function create(): void
     {
+        global $cfg;
+
         $cfgRelation = $this->relation->getRelationsParam();
 
         if (! $cfgRelation['exporttemplateswork']) {
             return;
         }
 
-        $templateTable = Util::backquote($cfgRelation['db']) . '.'
-            . Util::backquote($cfgRelation['export_templates']);
-        $user = $this->dbi->escapeString($GLOBALS['cfg']['Server']['user']);
+        $template = ExportTemplate::fromArray([
+            'username' => $cfg['Server']['user'],
+            'exportType' => $_POST['exportType'],
+            'name' => $_POST['templateName'],
+            'data' => $_POST['templateData'],
+        ]);
+        $result = $this->model->create($cfgRelation['db'], $cfgRelation['export_templates'], $template);
 
-        $query = 'INSERT INTO ' . $templateTable . '('
-            . ' `username`, `export_type`,'
-            . ' `template_name`, `template_data`'
-            . ') VALUES ('
-            . "'" . $user . "', "
-            . "'" . $this->dbi->escapeString($_POST['exportType'])
-            . "', '" . $this->dbi->escapeString($_POST['templateName'])
-            . "', '" . $this->dbi->escapeString($_POST['templateData'])
-            . "');";
-
-        $result = $this->relation->queryAsControlUser($query, false);
-
-        if (! $result) {
-            $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
+        if (is_string($result)) {
             $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', $error);
+            $this->response->addJSON('message', $result);
 
             return;
         }
 
-        $this->response->setRequestStatus(true);
-
-        $this->response->addJSON(
-            'data',
-            $this->export->getOptionsForTemplates($_POST['exportType'])
+        $templates = $this->model->getAll(
+            $cfgRelation['db'],
+            $cfgRelation['export_templates'],
+            $template->getUsername(),
+            $template->getExportType()
         );
 
-        $this->dbi->freeResult($result);
+        $this->response->setRequestStatus(true);
+        $this->response->addJSON(
+            'data',
+            $this->template->render('display/export/template_options', [
+                'templates' => is_array($templates) ? $templates : [],
+                'selected_template' => $_POST['template_id'] ?? null,
+            ])
+        );
     }
 
     public function delete(): void
     {
+        global $cfg;
+
         $cfgRelation = $this->relation->getRelationsParam();
 
         if (! $cfgRelation['exporttemplateswork']) {
             return;
         }
 
-        $id = '';
-        if (isset($_POST['templateId'])) {
-            $id = $this->dbi->escapeString($_POST['templateId']);
-        }
+        $result = $this->model->delete(
+            $cfgRelation['db'],
+            $cfgRelation['export_templates'],
+            $cfg['Server']['user'],
+            (int) $_POST['templateId']
+        );
 
-        $templateTable = Util::backquote($cfgRelation['db']) . '.'
-            . Util::backquote($cfgRelation['export_templates']);
-        $user = $this->dbi->escapeString($GLOBALS['cfg']['Server']['user']);
-
-        $query = 'DELETE FROM ' . $templateTable
-            . ' WHERE `id` = ' . $id . " AND `username` = '" . $user . "'";
-
-        $result = $this->relation->queryAsControlUser($query, false);
-
-        if (! $result) {
-            $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
+        if (is_string($result)) {
             $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', $error);
+            $this->response->addJSON('message', $result);
 
             return;
         }
 
         $this->response->setRequestStatus(true);
-
-        $this->dbi->freeResult($result);
     }
 
     public function load(): void
     {
+        global $cfg;
+
         $cfgRelation = $this->relation->getRelationsParam();
 
         if (! $cfgRelation['exporttemplateswork']) {
             return;
         }
 
-        $id = '';
-        if (isset($_POST['templateId'])) {
-            $id = $this->dbi->escapeString($_POST['templateId']);
-        }
+        $template = $this->model->load(
+            $cfgRelation['db'],
+            $cfgRelation['export_templates'],
+            $cfg['Server']['user'],
+            (int) $_POST['templateId']
+        );
 
-        $templateTable = Util::backquote($cfgRelation['db']) . '.'
-            . Util::backquote($cfgRelation['export_templates']);
-        $user = $this->dbi->escapeString($GLOBALS['cfg']['Server']['user']);
-
-        $query = 'SELECT `template_data` FROM ' . $templateTable
-            . ' WHERE `id` = ' . $id . " AND `username` = '" . $user . "'";
-
-        $result = $this->relation->queryAsControlUser($query, false);
-
-        if (! $result) {
-            $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
+        if (! $template instanceof ExportTemplate) {
             $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', $error);
+            $this->response->addJSON('message', $template);
 
             return;
         }
 
         $this->response->setRequestStatus(true);
-
-        $data = null;
-        while ($row = $this->dbi->fetchAssoc($result, DatabaseInterface::CONNECT_CONTROL)) {
-            $data = $row['template_data'];
-        }
-        $this->response->addJSON('data', $data);
-
-        $this->dbi->freeResult($result);
+        $this->response->addJSON('data', $template->getData());
     }
 
     public function update(): void
     {
+        global $cfg;
+
         $cfgRelation = $this->relation->getRelationsParam();
 
         if (! $cfgRelation['exporttemplateswork']) {
             return;
         }
 
-        $id = '';
-        if (isset($_POST['templateId'])) {
-            $id = $this->dbi->escapeString($_POST['templateId']);
-        }
+        $template = ExportTemplate::fromArray([
+            'id' => (int) $_POST['templateId'],
+            'username' => $cfg['Server']['user'],
+            'data' => $_POST['templateData'],
+        ]);
+        $result = $this->model->update($cfgRelation['db'], $cfgRelation['export_templates'], $template);
 
-        $templateTable = Util::backquote($cfgRelation['db']) . '.'
-            . Util::backquote($cfgRelation['export_templates']);
-        $user = $this->dbi->escapeString($GLOBALS['cfg']['Server']['user']);
-
-        $query = 'UPDATE ' . $templateTable . ' SET `template_data` = '
-            . "'" . $this->dbi->escapeString($_POST['templateData']) . "'"
-            . ' WHERE `id` = ' . $id . " AND `username` = '" . $user . "'";
-
-        $result = $this->relation->queryAsControlUser($query, false);
-
-        if (! $result) {
-            $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
+        if (is_string($result)) {
             $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', $error);
+            $this->response->addJSON('message', $result);
 
             return;
         }
 
         $this->response->setRequestStatus(true);
-
-        $this->dbi->freeResult($result);
     }
 }
