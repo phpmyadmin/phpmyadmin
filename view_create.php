@@ -225,6 +225,22 @@ if (isset($_GET['db']) && isset($_GET['table'])) {
     $view['as'] = $item['VIEW_DEFINITION'];
     $view['with'] = $item['CHECK_OPTION'];
     $view['algorithm'] = $item['ALGORITHM'];
+
+    // [user]@[host]
+    $definerParts = explode("@", $view['definer'], 2);
+
+    if (count($definerParts) == 2) {
+        // Get AS part from CREATE VIEW query
+        $asSelectPosition = strpos(strtolower($view['as']), "as select");
+
+        // +3 to skip AS<space> and start from select
+        $view['as'] = substr($view['as'], $asSelectPosition + 3);
+
+        // Remove CHECK OPTIONS at the end
+        $checkOptionsRegex = "/WITH (CASCADED|LOCAL) CHECK OPTION/";
+
+        $view['as'] = preg_replace($checkOptionsRegex, "", $view['as']);
+    }
 }
 
 if (Core::isValid($_POST['view'], 'array')) {
