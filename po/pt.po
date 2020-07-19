@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-06-19 09:17+0200\n"
-"PO-Revision-Date: 2020-06-28 22:41+0000\n"
+"PO-Revision-Date: 2020-07-20 20:41+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -3358,7 +3358,7 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
 msgstr ""
-"Ordem de classificação para itens em um caixa dropdown de chave estrangeira; "
+"Ordem de classificação para itens numa caixa dropdown de chave estrangeira; "
 "o [kbd]conteúdo[/kbd] é o dado referenciado, e o [kbd]id[/kbd] é o valor "
 "chave."
 
@@ -3756,12 +3756,11 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:427
 msgid "Enable drag and drop import"
-msgstr "Habilitar importação por arrastar a soltar"
+msgstr "Ativar importação por arrastar e soltar"
 
 #: libraries/classes/Config/Descriptions.php:428
 msgid "Uncheck the checkbox to disable drag and drop import"
-msgstr ""
-"Demarque o checkbox para desabilitar a importação por arrastar e soltar"
+msgstr "Demarque o checkbox para desativar a importação por arrastar e soltar"
 
 #: libraries/classes/Config/Descriptions.php:429
 msgid "Partial import: allow interrupt"
@@ -10012,7 +10011,7 @@ msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
 msgstr ""
-"Esta lista é baseada em um subconjunto dos dados da tabela e não é "
+"Esta lista é baseada num subconjunto dos dados da tabela e não é "
 "necessariamente exata. "
 
 #: libraries/classes/Normalization.php:1055
@@ -11071,16 +11070,16 @@ msgid ""
 "ensure that the output appears all on one line (Default 1)."
 msgstr ""
 "SOMENTE LINUX: executa uma aplicação externa e alimenta-a com dados da "
-"coluna através do input predefinido. Retorna o output predefinido do "
-"aplicativo. A predefinição é Limpo, para impressão bonita do código HTML. "
-"Por razões de segurança, você tem que editar o ficheiro libraries/classes/"
-"Plugins/Transformations/Abs/ExternalTransformationsPlugin.php manualmente e "
-"listar as ferramentas que queira tornar disponível. A primeira opção é então "
-"o número do programa que deseja usar. A segunda opção deve estar em branco "
-"por razões históricas. A terceira opção, se for configurada 1, irá converter "
-"a saída usando htmlspecialchars() (predefinição 1). A quarta opção, se for "
+"coluna através do input predefinido. Retorna o output predefinido da "
+"aplicação. A predefinição é Limpo, para impressão bonita do código HTML. Por "
+"razões de segurança, tem que editar o ficheiro libraries/classes/Plugins/"
+"Transformations/Abs/ExternalTransformationsPlugin.php manualmente e listar "
+"as ferramentas que queira tornar disponível. A primeira opção é então o "
+"número do programa que deseja usar. A segunda opção deve estar em branco por "
+"razões históricas. A terceira opção, se for configurada 1, irá converter a "
+"saída usando htmlspecialchars() (predefinição 1). A quarta opção, se for "
 "configurada 1, prevenirá a quebra de linha e garantirá que a saída apareça "
-"toda em uma linha (predefinição 1)."
+"toda numa linha (predefinição 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:124
 #, php-format
@@ -11249,7 +11248,7 @@ msgstr "Formata o texto como XML com sintaxe destacada."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:142
 msgid "Authentication Application (2FA)"
-msgstr "Aplicativo de Autenticação (2FA)"
+msgstr "Aplicação de Autenticação (2FA)"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:153
 msgid ""
@@ -14976,8 +14975,8 @@ msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
 "device and enter authentication code it generates."
 msgstr ""
-"Por favor, escaneie o QR Code no aplicativo de autenticação por dois fatores "
-"do seu dispositivo e informe o código gerado por ele."
+"Por favor, escaneie o código QR na aplicação de autenticação por dois "
+"fatores do seu aparelho e informe o código gerado por ele."
 
 #: templates/login/twofactor/application_configure.twig:13
 msgid "Secret/key:"
@@ -15253,8 +15252,8 @@ msgid ""
 "Two-factor authentication is not available, enable phpMyAdmin configuration "
 "storage to use it."
 msgstr ""
-"A autenticação por dois fatores não está disponível, habilite o "
-"armazenamento da configuração do phpMyAdmin para usá-la."
+"A autenticação por dois fatores não está disponível, ative o armazenamento "
+"da configuração do phpMyAdmin para usá-la."
 
 #: templates/preferences/two_factor/main.twig:41
 msgid "You have enabled two factor authentication."
