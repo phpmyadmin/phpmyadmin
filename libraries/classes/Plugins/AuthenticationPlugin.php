@@ -358,9 +358,9 @@ abstract class AuthenticationPlugin
             exit;
         }
         echo $this->template->render('login/header', ['theme' => $GLOBALS['PMA_Theme']]);
-        Message::rawNotice(
+        echo Message::rawNotice(
             __('You have enabled two factor authentication, please confirm your login.')
-        )->display();
+        )->getDisplay();
         echo $this->template->render('login/twofactor', [
             'form' => $twofactor->render(),
             'show_submit' => $twofactor->showSubmit(),

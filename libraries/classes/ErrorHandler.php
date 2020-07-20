@@ -294,7 +294,7 @@ class ErrorHandler
         if (! headers_sent()) {
             $this->dispPageStart($error);
         }
-        $error->display();
+        echo $error->getDisplay();
         $this->dispPageEnd();
         exit;
     }

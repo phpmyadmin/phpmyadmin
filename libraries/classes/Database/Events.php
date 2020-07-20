@@ -576,7 +576,7 @@ class Events
             exit;
         }
 
-        $message->display();
+        echo $message->getDisplay();
     }
 
     public function export(): void
@@ -628,6 +628,6 @@ class Events
             exit;
         }
 
-        $message->display();
+        echo $message->getDisplay();
     }
 }

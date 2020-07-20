@@ -60,16 +60,6 @@ class Menu
     }
 
     /**
-     * Prints the menu and the breadcrumbs
-     *
-     * @return void
-     */
-    public function display()
-    {
-        echo $this->getDisplay();
-    }
-
-    /**
      * Returns the menu and the breadcrumbs as a string
      *
      * @return string

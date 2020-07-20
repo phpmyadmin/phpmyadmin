@@ -66,10 +66,10 @@ class Routing
             /** @var Response $response */
             $response = $container->get(Response::class);
             $response->setHttpResponseCode(404);
-            Message::error(sprintf(
+            echo Message::error(sprintf(
                 __('Error 404! The page %s was not found.'),
                 '<code>' . htmlspecialchars($route) . '</code>'
-            ))->display();
+            ))->getDisplay();
 
             return;
         }
@@ -78,7 +78,7 @@ class Routing
             /** @var Response $response */
             $response = $container->get(Response::class);
             $response->setHttpResponseCode(405);
-            Message::error(__('Error 405! Request method not allowed.'))->display();
+            echo Message::error(__('Error 405! Request method not allowed.'))->getDisplay();
 
             return;
         }

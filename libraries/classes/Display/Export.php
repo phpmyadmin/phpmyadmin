@@ -659,9 +659,9 @@ class Export
 
         /* Fail if we didn't find any plugin */
         if (empty($exportList)) {
-            Message::error(
+            echo Message::error(
                 __('Could not load export plugins, please check your installation!')
-            )->display();
+            )->getDisplay();
             exit;
         }
 

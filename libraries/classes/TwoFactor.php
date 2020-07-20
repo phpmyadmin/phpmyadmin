@@ -269,7 +269,7 @@ class TwoFactor
         }
         $result = $this->save();
         if ($result !== true) {
-            $result->display();
+            echo $result->getDisplay();
         }
 
         return true;

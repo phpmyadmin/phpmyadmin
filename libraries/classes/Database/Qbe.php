@@ -356,7 +356,7 @@ class Qbe
         );
         $all_tables_count = $this->dbi->numRows($all_tables);
         if ($all_tables_count == 0) {
-            Message::error(__('No tables found in database.'))->display();
+            echo Message::error(__('No tables found in database.'))->getDisplay();
             exit;
         }
         // The tables list gets from MySQL

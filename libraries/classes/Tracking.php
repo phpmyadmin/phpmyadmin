@@ -280,7 +280,7 @@ class Tracking
          */
         if (count($data['ddlog']) == 0 && count($data['dmlog']) === 0) {
             $msg = Message::notice(__('No data'));
-            $msg->display();
+            echo $msg->getDisplay();
         }
 
         $html .= $this->getHtmlForTrackingReportExportForm1(

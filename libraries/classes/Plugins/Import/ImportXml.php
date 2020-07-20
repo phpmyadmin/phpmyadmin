@@ -108,13 +108,12 @@ class ImportXml extends ImportPlugin
          * The XML was malformed
          */
         if ($xml === false) {
-            Message::error(
+            echo Message::error(
                 __(
                     'The XML file specified was either malformed or incomplete.'
                     . ' Please correct the issue and try again.'
                 )
-            )
-                ->display();
+            )->getDisplay();
             unset($xml);
             $GLOBALS['finished'] = false;
 
@@ -173,13 +172,12 @@ class ImportXml extends ImportPlugin
          * The XML was malformed
          */
         if ($db_name === null) {
-            Message::error(
+            echo Message::error(
                 __(
                     'The XML file specified was either malformed or incomplete.'
                     . ' Please correct the issue and try again.'
                 )
-            )
-                ->display();
+            )->getDisplay();
             unset($xml);
             $GLOBALS['finished'] = false;
 

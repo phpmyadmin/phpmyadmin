@@ -152,9 +152,9 @@ class Pdf extends TCPDF
     // @codingStandardsIgnoreLine
     public function Error($error_message = '')
     {
-        Message::error(
+        echo Message::error(
             __('Error while creating PDF:') . ' ' . $error_message
-        )->display();
+        )->getDisplay();
         exit;
     }
 

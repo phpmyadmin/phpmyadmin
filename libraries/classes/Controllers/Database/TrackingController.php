@@ -74,12 +74,12 @@ class TrackingController extends AbstractController
 
         if (isset($_POST['delete_tracking'], $_POST['table'])) {
             Tracker::deleteTracking($db, $_POST['table']);
-            Message::success(
+            echo Message::success(
                 __('Tracking data deleted successfully.')
-            )->display();
+            )->getDisplay();
         } elseif (isset($_POST['submit_create_version'])) {
             $this->tracking->createTrackingForMultipleTables($_POST['selected']);
-            Message::success(
+            echo Message::success(
                 sprintf(
                     __(
                         'Version %1$s was created for selected tables,'
@@ -87,16 +87,16 @@ class TrackingController extends AbstractController
                     ),
                     htmlspecialchars($_POST['version'])
                 )
-            )->display();
+            )->getDisplay();
         } elseif (isset($_POST['submit_mult'])) {
             if (! empty($_POST['selected_tbl'])) {
                 if ($_POST['submit_mult'] === 'delete_tracking') {
                     foreach ($_POST['selected_tbl'] as $table) {
                         Tracker::deleteTracking($db, $table);
                     }
-                    Message::success(
+                    echo Message::success(
                         __('Tracking data deleted successfully.')
-                    )->display();
+                    )->getDisplay();
                 } elseif ($_POST['submit_mult'] === 'track') {
                     echo $this->template->render('create_tracking_version', [
                         'route' => '/database/tracking',
@@ -111,9 +111,9 @@ class TrackingController extends AbstractController
                     return;
                 }
             } else {
-                Message::notice(
+                echo Message::notice(
                     __('No tables selected.')
-                )->display();
+                )->getDisplay();
             }
         }
 

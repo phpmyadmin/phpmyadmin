@@ -220,7 +220,7 @@ class Routines
             exit;
         }
 
-        $message->display();
+        echo $message->getDisplay();
     }
 
     /**
@@ -1979,6 +1979,6 @@ class Routines
             exit;
         }
 
-        $message->display();
+        echo $message->getDisplay();
     }
 }
