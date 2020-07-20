@@ -1938,6 +1938,36 @@ class DbiDummy implements DbiExtension
                     ['slow_query_log', 'OFF'],
                 ],
             ],
+            [
+                'query' => 'INSERT INTO `db`.`table` (`username`, `export_type`, `template_name`, `template_data`)'
+                    . ' VALUES (\'user\', \'type\', \'name\', \'data\');',
+                'result' => [],
+            ],
+            [
+                'query' => 'SELECT * FROM `db`.`table` WHERE `username` = \'user\''
+                    . ' AND `export_type` = \'type\' ORDER BY `template_name`;',
+                'columns' => ['id', 'username', 'export_type', 'template_name', 'template_data'],
+                'result' => [
+                    ['1', 'user1', 'type1', 'name1', 'data1'],
+                    ['2', 'user2', 'type2', 'name2', 'data2'],
+                ],
+            ],
+            [
+                'query' => 'DELETE FROM `db`.`table` WHERE `id` = 1 AND `username` = \'user\';',
+                'result' => [],
+            ],
+            [
+                'query' => 'SELECT * FROM `db`.`table` WHERE `id` = 1 AND `username` = \'user\';',
+                'columns' => ['id', 'username', 'export_type', 'template_name', 'template_data'],
+                'result' => [
+                    ['1', 'user1', 'type1', 'name1', 'data1'],
+                ],
+            ],
+            [
+                'query' => 'UPDATE `db`.`table` SET `template_data` = \'data\''
+                    . ' WHERE `id` = 1 AND `username` = \'user\';',
+                'result' => [],
+            ],
         ];
         /**
          * Current database.

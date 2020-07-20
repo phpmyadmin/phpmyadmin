@@ -97,6 +97,12 @@ return [
             'arguments' =>
             ['@dbi'],
         ],
+        'export_template_model' =>
+        [
+            'class' => PhpMyAdmin\Export\TemplateModel::class,
+            'arguments' =>
+            ['@dbi'],
+        ],
         'expression_language' =>
         [
             'class' => Symfony\Component\ExpressionLanguage\ExpressionLanguage::class,

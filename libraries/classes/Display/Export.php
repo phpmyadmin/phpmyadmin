@@ -8,8 +8,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Display;
 
 use PhpMyAdmin\Core;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Encoding;
+use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
@@ -27,6 +27,7 @@ use Twig\Error\SyntaxError;
 use function explode;
 use function function_exists;
 use function in_array;
+use function is_array;
 use function mb_strpos;
 use function strlen;
 use function urldecode;
@@ -42,10 +43,14 @@ class Export
     /** @var Template */
     public $template;
 
+    /** @var TemplateModel */
+    private $templateModel;
+
     public function __construct()
     {
         $this->relation = new Relation($GLOBALS['dbi']);
         $this->template = new Template();
+        $this->templateModel = new TemplateModel($GLOBALS['dbi']);
     }
 
     /**
@@ -145,44 +150,6 @@ class Export
             'single_table' => $singleTable,
             'sql_query' => $sqlQuery,
             'template_id' => $_POST['template_id'] ?? '',
-        ]);
-    }
-
-    /**
-     * Returns HTML for the options in template dropdown
-     *
-     * @param string $exportType export type - server, database, or table
-     *
-     * @return string HTML for the options in teplate dropdown
-     */
-    public function getOptionsForTemplates($exportType)
-    {
-        // Get the relation settings
-        $cfgRelation = $this->relation->getRelationsParam();
-
-        $query = 'SELECT `id`, `template_name` FROM '
-           . Util::backquote($cfgRelation['db']) . '.'
-           . Util::backquote($cfgRelation['export_templates'])
-           . ' WHERE `username` = '
-           . "'" . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user'])
-            . "' AND `export_type` = '" . $GLOBALS['dbi']->escapeString($exportType) . "'"
-           . ' ORDER BY `template_name`;';
-
-        $result = $this->relation->queryAsControlUser($query);
-
-        $templates = [];
-        if ($result !== false) {
-            while ($row = $GLOBALS['dbi']->fetchAssoc($result, DatabaseInterface::CONNECT_CONTROL)) {
-                $templates[] = [
-                    'name' => $row['template_name'],
-                    'id' => $row['id'],
-                ];
-            }
-        }
-
-        return $this->template->render('display/export/template_options', [
-            'templates' => $templates,
-            'selected_template' => ! empty($_POST['template_id']) ? $_POST['template_id'] : null,
         ]);
     }
 
@@ -705,8 +672,18 @@ class Export
         ]);
 
         if ($cfgRelation['exporttemplateswork']) {
+            $templates = $this->templateModel->getAll(
+                $cfgRelation['db'],
+                $cfgRelation['export_templates'],
+                $GLOBALS['cfg']['Server']['user'],
+                $exportType
+            );
+
             $html .= $this->template->render('display/export/template_loading', [
-                'options' => $this->getOptionsForTemplates($exportType),
+                'options' => $this->template->render('display/export/template_options', [
+                    'templates' => is_array($templates) ? $templates : [],
+                    'selected_template' => $_POST['template_id'] ?? null,
+                ]),
             ]);
         }
 
