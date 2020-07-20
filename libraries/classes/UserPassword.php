@@ -28,38 +28,6 @@ class UserPassword
     }
 
     /**
-     * Send the message as an ajax request
-     *
-     * @param array  $change_password_message Message to display
-     * @param string $sql_query               SQL query executed
-     *
-     * @return void
-     */
-    public function getChangePassMessage(array $change_password_message, $sql_query = '')
-    {
-        $response = Response::getInstance();
-        if (! $response->isAjax()) {
-            return;
-        }
-
-        /**
-         * If in an Ajax request, we don't need to show the rest of the page
-         */
-        if ($change_password_message['error']) {
-            $response->addJSON('message', $change_password_message['msg']);
-            $response->setRequestStatus(false);
-        } else {
-            $sql_query = Generator::getMessage(
-                $change_password_message['msg'],
-                $sql_query,
-                'success'
-            );
-            $response->addJSON('message', $sql_query);
-        }
-        exit;
-    }
-
-    /**
      * Generate the message
      *
      * @return array   error value and message
@@ -93,13 +61,9 @@ class UserPassword
     /**
      * Change the password
      *
-     * @param string $password                New password
-     * @param string $message                 Message
-     * @param array  $change_password_message Message to show
-     *
-     * @return void
+     * @param string $password New password
      */
-    public function changePassword($password, $message, array $change_password_message)
+    public function changePassword($password): string
     {
         global $auth_plugin;
 
@@ -159,8 +123,8 @@ class UserPassword
         );
 
         $auth_plugin->handlePasswordChange($password);
-        $this->getChangePassMessage($change_password_message, $sql_query);
-        $this->changePassDisplayPage($message, $sql_query);
+
+        return $sql_query;
     }
 
     /**
@@ -255,26 +219,5 @@ class UserPassword
 
         // Flush privileges after successful password change
         $GLOBALS['dbi']->tryQuery('FLUSH PRIVILEGES;');
-    }
-
-    /**
-     * Display the page
-     *
-     * @param string $message   Message
-     * @param string $sql_query SQL query
-     *
-     * @return void
-     */
-    private function changePassDisplayPage($message, $sql_query)
-    {
-        echo '<h1>' , __('Change password') , '</h1>' , "\n\n";
-        echo Generator::getMessage(
-            $message,
-            $sql_query,
-            'success'
-        );
-        $template = new Template();
-        echo $template->render('user_password');
-        exit;
     }
 }
