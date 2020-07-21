@@ -3001,7 +3001,7 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\Sql\\:\\:sendResponseForGridEdit\\(\\) expects object, object\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\Sql\\:\\:getResponseForGridEdit\\(\\) expects object, object\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
