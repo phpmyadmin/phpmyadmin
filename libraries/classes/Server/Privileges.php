@@ -456,11 +456,13 @@ class Privileges
             [
                 'Delete_history_priv',
                 'DELETE HISTORY',
+                /* l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement" */
                 __('Allows deleting historical rows.'),
             ],
             [
                 'Delete versioning rows_priv',
                 'DELETE HISTORY',
+                /* l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement" */
                 __('Allows deleting historical rows.'),
             ],
             [
