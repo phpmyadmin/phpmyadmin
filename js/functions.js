@@ -19,7 +19,6 @@ var Functions = {};
 /**
  * @var sqlBoxLocked lock for the sqlbox textarea in the querybox
  */
-// eslint-disable-next-line no-unused-vars
 var sqlBoxLocked = false;
 
 /**
@@ -1359,6 +1358,8 @@ Functions.insertValueQuery = function () {
         } else {
             myQuery.value += columnsList;
         }
+
+        // eslint-disable-next-line no-unused-vars
         sqlBoxLocked = false;
     }
 };
