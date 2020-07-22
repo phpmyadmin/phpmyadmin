@@ -1279,10 +1279,10 @@ jquery-uitablefilter@^1.0.0:
   resolved "https://registry.yarnpkg.com/jquery-uitablefilter/-/jquery-uitablefilter-1.0.0.tgz#ba90c5345826b2fd1fe90ec127826f9e9e7bad39"
   integrity sha512-iH3k0iiNXKtf6z9qV5htz0iGhSb+Hs9Za6V9GIAOeHdij77U96S2UT7j7FwMEyNZQmgrsKKzjfnLJq7lMGaANw==
 
-jquery-validation@1.19.1:
-  version "1.19.1"
-  resolved "https://registry.yarnpkg.com/jquery-validation/-/jquery-validation-1.19.1.tgz#a85043467dc2b70d9fff05778646d150e747742f"
-  integrity sha512-QNnrZBqSltWUEJx+shOY5WtfrIb0gWmDjFfQP8rZKqMMSfpRSwEkSqhfHPvDfkObD8Hnv5KHSYI8yg73sVFdqA==
+jquery-validation@1.19.2:
+  version "1.19.2"
+  resolved "https://registry.yarnpkg.com/jquery-validation/-/jquery-validation-1.19.2.tgz#c602831b0d8c5881400af424e872757ce241eff9"
+  integrity sha512-yHaAqOGaAB7+p2u5lpzhhQVt3CBMUw3fHcuCJ7nXmXz0LWLHPN7yOhwnocp5nrn2SmnXR1jpV+whx2j1kLz1tQ==
 
 jquery.event.drag@2.2.2:
   version "2.2.2"
