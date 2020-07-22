@@ -93,7 +93,7 @@ AJAX.registerOnload('database/central_columns.js', function () {
     $(document).on('keyup', '.filter_rows', function () {
         // get the column names
         var cols = $('th.column_heading').map(function () {
-            return $.trim($(this).text());
+            return $(this).text().trim();
         }).get();
         $.uiTableFilter($('#table_columns'), $(this).val(), cols, null, 'td span');
     });

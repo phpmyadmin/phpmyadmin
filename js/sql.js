@@ -173,7 +173,7 @@ Sql.getFieldName = function ($tableResults, $thisField) {
         $heading.append($tempColComment);
     }
 
-    fieldName = $.trim(fieldName);
+    fieldName = fieldName.trim();
 
     return fieldName;
 };
@@ -719,7 +719,7 @@ AJAX.registerOnload('sql.js', function () {
             : '');
         // Selecting columns that will be considered for filtering and searching.
         $headerCells.each(function () {
-            targetColumns.push($.trim($(this).text()));
+            targetColumns.push($(this).text().trim());
         });
 
         var phrase = $(this).val();

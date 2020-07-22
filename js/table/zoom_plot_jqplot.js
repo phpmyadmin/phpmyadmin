@@ -365,7 +365,7 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
                     sqlQuery += 'NULL, ';
 
                 // empty
-                } else if ($.trim(value) === '') {
+                } else if (value.trim() === '') {
                     sqlQuery += '\'\', ';
 
                 // other

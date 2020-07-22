@@ -733,10 +733,10 @@ eslint-plugin-compat@^3.7.0:
     mdn-browser-compat-data "^1.0.21"
     semver "7.3.2"
 
-eslint-plugin-no-jquery@^2.3.2:
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-no-jquery/-/eslint-plugin-no-jquery-2.3.2.tgz#f2b007f24dbe2be0c0376323f8aac56b511ab24c"
-  integrity sha512-8M9GByb/JOO+dktgbFeC/YAMaqlscInO3fH3A9fLxZduH1NTXsIAUrimas6zDwOLBvEXpRaEZycc2QAl+W+Agw==
+eslint-plugin-no-jquery@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-no-jquery/-/eslint-plugin-no-jquery-2.5.0.tgz#6c12e3aae172bfd3363b7ac8c3f3e944704867f4"
+  integrity sha512-RrQ380mUJJKdjgpQ/tZAJ3B3W1n3LbVmULooS2Pv5pUDcc5uVHVSJMTdUlsbvQyfo6hWP2LJ4FbOoDzENWcF7A==
 
 eslint-scope@^5.0.0:
   version "5.0.0"
