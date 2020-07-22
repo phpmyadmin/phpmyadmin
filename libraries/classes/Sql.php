@@ -1358,8 +1358,6 @@ class Sql
      * Function to send response for ajax grid edit
      *
      * @param object $result result of the executed query
-     *
-     * @return void
      */
     private function getResponseForGridEdit($result): void
     {
