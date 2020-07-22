@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-07-22 21:45+0200\n"
-"PO-Revision-Date: 2020-06-16 13:41+0000\n"
+"POT-Creation-Date: 2020-07-22 17:53+0200\n"
+"PO-Revision-Date: 2020-07-22 19:48+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.1.1-dev\n"
+"X-Generator: Weblate 4.2-dev\n"
 
 #: libraries/classes/Advisor.php:319
 #, php-format
@@ -4943,10 +4943,8 @@ msgstr "Geen"
 
 #. l10n: SQL Query on modal to show exported query
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:199
-#, fuzzy
-#| msgid "SQL query"
 msgid "SQL Query"
-msgstr "SQL-query"
+msgstr "SQL Query"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:200
 msgid "Resume monitor"
@@ -14384,10 +14382,8 @@ msgid "Dump all rows"
 msgstr "Exporteer alle rijen"
 
 #: templates/display/export/query.twig:8
-#, fuzzy
-#| msgid "Showing SQL query"
 msgid "Show SQL query"
-msgstr "Toont SQL-query"
+msgstr "Toon SQL-query"
 
 #: templates/display/export/selection.twig:3
 msgid "Databases:"
