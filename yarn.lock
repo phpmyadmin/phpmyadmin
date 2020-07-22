@@ -1254,10 +1254,10 @@ jquery-hashchange@^2.0.0:
   resolved "https://registry.yarnpkg.com/jquery-hashchange/-/jquery-hashchange-2.0.0.tgz#905b801803b6928fa8b3655381badf42dc49ba82"
   integrity sha512-9/RrnnUKw7qLy5e4X8nCusAlvXZPpUuNZv9BnpSfSfIY/RJLyhd1N1YRvP03H3RwEdx4TKTWZ59AnBgcrdfC3A==
 
-jquery-migrate@3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/jquery-migrate/-/jquery-migrate-3.2.0.tgz#ddd4623f6295ab244cc3886a9cd58aad63b139c2"
-  integrity sha512-z5GCIYPLi/xrpFVeY2hN5cYm7xpkRlvjn3hkarekKtCHh+NgwZuxziT2t/LoXgnvOP+49GVf58lcYay9Tsucrw==
+jquery-migrate@3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/jquery-migrate/-/jquery-migrate-3.3.1.tgz#0f8e2b7531228fda5d88be58dc0e7d5848e52fd1"
+  integrity sha512-QAXfshB6xqaANDX8OPExKnnooLtX0cSDCKfRnqhdv+3CVEVD9L1v3zNAhZum/4AukKlWUWUoxM6ywJJcLMXLSA==
 
 jquery-mousewheel@3.1.13:
   version "3.1.13"

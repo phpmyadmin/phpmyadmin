@@ -1,12 +1,14 @@
 /*!
- * jQuery Migrate - v3.2.0 - 2020-04-10
+ * jQuery Migrate - v3.3.1 - 2020-06-25T01:07Z
  * Copyright OpenJS Foundation and other contributors
  */
-;( function( factory ) {
+( function( factory ) {
+	"use strict";
+
 	if ( typeof define === "function" && define.amd ) {
 
 		// AMD. Register as an anonymous module.
-		define( [ "jquery" ], function ( jQuery ) {
+		define( [ "jquery" ], function( jQuery ) {
 			return factory( jQuery, window );
 		} );
 	} else if ( typeof module === "object" && module.exports ) {
@@ -22,18 +24,16 @@
 } )( function( jQuery, window ) {
 "use strict";
 
-
-jQuery.migrateVersion = "3.2.0";
-
-/* exported jQueryVersionSince, compareVersions */
+jQuery.migrateVersion = "3.3.1";
 
 // Returns 0 if v1 == v2, -1 if v1 < v2, 1 if v1 > v2
 function compareVersions( v1, v2 ) {
-	var rVersionParts = /^(\d+)\.(\d+)\.(\d+)/,
+	var i,
+		rVersionParts = /^(\d+)\.(\d+)\.(\d+)/,
 		v1p = rVersionParts.exec( v1 ) || [ ],
 		v2p = rVersionParts.exec( v2 ) || [ ];
 
-	for ( var i = 1; i <= 3; i++ ) {
+	for ( i = 1; i <= 3; i++ ) {
 		if ( +v1p[ i ] > +v2p[ i ] ) {
 			return 1;
 		}
@@ -47,8 +47,6 @@ function compareVersions( v1, v2 ) {
 function jQueryVersionSince( version ) {
 	return compareVersions( jQuery.fn.jquery, version ) >= 0;
 }
-
-/* exported migrateWarn, migrateWarnFunc, migrateWarnProp */
 
 ( function() {
 
@@ -135,9 +133,11 @@ if ( window.document.compatMode === "BackCompat" ) {
 	migrateWarn( "jQuery is not compatible with Quirks Mode" );
 }
 
-
-var oldInit = jQuery.fn.init,
+var findProp,
+	class2type = {},
+	oldInit = jQuery.fn.init,
 	oldFind = jQuery.find,
+
 	rattrHashTest = /\[(\s*[-\w]+\s*)([~|^$*]?=)\s*([-\w#]*?#[-\w#]*)\s*\]/,
 	rattrHashGlob = /\[(\s*[-\w]+\s*)([~|^$*]?=)\s*([-\w#]*?#[-\w#]*)\s*\]/g,
 
@@ -193,7 +193,6 @@ jQuery.find = function( selector ) {
 };
 
 // Copy properties attached to original jQuery.find method (e.g. .attr, .isXML)
-var findProp;
 for ( findProp in oldFind ) {
 	if ( Object.prototype.hasOwnProperty.call( oldFind, findProp ) ) {
 		jQuery.find[ findProp ] = oldFind[ findProp ];
@@ -260,7 +259,6 @@ if ( jQueryVersionSince( "3.3.0" ) ) {
 	);
 
 	// Populate the class2type map
-	var class2type = {};
 	jQuery.each( "Boolean Number String Function Array Date RegExp Object Error Symbol".
 		split( " " ),
 	function( _, name ) {
@@ -297,6 +295,8 @@ if ( jQueryVersionSince( "3.3.0" ) ) {
 	);
 }
 
+// Support jQuery slim which excludes the ajax module
+if ( jQuery.ajax ) {
 
 var oldAjax = jQuery.ajax;
 
@@ -316,6 +316,7 @@ jQuery.ajax = function( ) {
 	return jQXHR;
 };
 
+}
 
 var oldRemoveAttr = jQuery.fn.removeAttr,
 	oldToggleClass = jQuery.fn.toggleClass,
@@ -365,8 +366,38 @@ jQuery.fn.toggleClass = function( state ) {
 	} );
 };
 
+function camelCase( string ) {
+	return string.replace( /-([a-z])/g, function( _, letter ) {
+		return letter.toUpperCase();
+	} );
+}
 
-var internalSwapCall = false;
+var oldFnCss,
+	internalSwapCall = false,
+	ralphaStart = /^[a-z]/,
+
+	// The regex visualized:
+	//
+	//                         /----------\
+	//                        |            |    /-------\
+	//                        |  / Top  \  |   |         |
+	//         /--- Border ---+-| Right  |-+---+- Width -+---\
+	//        |                 | Bottom |                    |
+	//        |                  \ Left /                     |
+	//        |                                               |
+	//        |                              /----------\     |
+	//        |          /-------------\    |            |    |- END
+	//        |         |               |   |  / Top  \  |    |
+	//        |         |  / Margin  \  |   | | Right  | |    |
+	//        |---------+-|           |-+---+-| Bottom |-+----|
+	//        |            \ Padding /         \ Left /       |
+	// BEGIN -|                                               |
+	//        |                /---------\                    |
+	//        |               |           |                   |
+	//        |               |  / Min \  |    / Width  \     |
+	//         \--------------+-|       |-+---|          |---/
+	//                           \ Max /       \ Height /
+	rautoPx = /^(?:Border(?:Top|Right|Bottom|Left)?(?:Width|)|(?:Margin|Padding)?(?:Top|Right|Bottom|Left)?|(?:Min|Max)?(?:Width|Height))$/;
 
 // If this version of jQuery has .swap(), don't false-alarm on internal uses
 if ( jQuery.swap ) {
@@ -420,22 +451,52 @@ if ( jQueryVersionSince( "3.4.0" ) && typeof Proxy !== "undefined" ) {
 	} );
 }
 
-var oldData = jQuery.data;
+// Create a dummy jQuery.cssNumber if missing. It won't be used by jQuery but
+// it will prevent code adding new keys to it unconditionally from crashing.
+if ( !jQuery.cssNumber ) {
+	jQuery.cssNumber = {};
+}
 
-var camelCase = function( string ) {
-	return string.replace( /-([a-z])/g, function( _, letter ) {
-		return letter.toUpperCase();
-	} );
+function isAutoPx( prop ) {
+
+	// The first test is used to ensure that:
+	// 1. The prop starts with a lowercase letter (as we uppercase it for the second regex).
+	// 2. The prop is not empty.
+	return ralphaStart.test( prop ) &&
+		rautoPx.test( prop[ 0 ].toUpperCase() + prop.slice( 1 ) );
+}
+
+oldFnCss = jQuery.fn.css;
+
+jQuery.fn.css = function( name, value ) {
+	var camelName,
+		origThis = this;
+	if ( name && typeof name === "object" && !Array.isArray( name ) ) {
+		jQuery.each( name, function( n, v ) {
+			jQuery.fn.css.call( origThis, n, v );
+		} );
+	}
+	if ( typeof value === "number" ) {
+		camelName = camelCase( name );
+		if ( !isAutoPx( camelName ) && !jQuery.cssNumber[ camelName ] ) {
+			migrateWarn( "Number-typed values are deprecated for jQuery.fn.css( \"" +
+				name + "\", value )" );
+		}
+	}
+
+	return oldFnCss.apply( this, arguments );
 };
 
+var oldData = jQuery.data;
+
 jQuery.data = function( elem, name, value ) {
-	var curData;
+	var curData, sameKeys, key;
 
 	// Name can be an object, and each entry in the object is meant to be set as data
 	if ( name && typeof name === "object" && arguments.length === 2 ) {
 		curData = jQuery.hasData( elem ) && oldData.call( this, elem );
-		var sameKeys = {};
-		for ( var key in name ) {
+		sameKeys = {};
+		for ( key in name ) {
 			if ( key !== camelCase( key ) ) {
 				migrateWarn( "jQuery.data() always sets/gets camelCased names: " + key );
 				curData[ key ] = name[ key ];
@@ -464,8 +525,12 @@ jQuery.data = function( elem, name, value ) {
 	return oldData.apply( this, arguments );
 };
 
-var oldTweenRun = jQuery.Tween.prototype.run;
-var linearEasing = function( pct ) {
+// Support jQuery slim which excludes the effects module
+if ( jQuery.fx ) {
+
+var intervalValue, intervalMsg,
+	oldTweenRun = jQuery.Tween.prototype.run,
+	linearEasing = function( pct ) {
 		return pct;
 	};
 
@@ -481,8 +546,8 @@ jQuery.Tween.prototype.run = function( ) {
 	oldTweenRun.apply( this, arguments );
 };
 
-var intervalValue = jQuery.fx.interval || 13,
-	intervalMsg = "jQuery.fx.interval is deprecated";
+intervalValue = jQuery.fx.interval || 13;
+intervalMsg = "jQuery.fx.interval is deprecated";
 
 // Support: IE9, Android <=4.4
 // Avoid false positives on browsers that lack rAF
@@ -502,6 +567,8 @@ if ( window.requestAnimationFrame ) {
 			intervalValue = newValue;
 		}
 	} );
+}
+
 }
 
 var oldLoad = jQuery.fn.load,
@@ -634,36 +701,49 @@ jQuery.fn.extend( {
 	}
 } );
 
-var rxhtmlTag = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([a-z][^\/\0>\x20\t\r\n\f]*)[^>]*)\/>/gi;
+var rxhtmlTag = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([a-z][^\/\0>\x20\t\r\n\f]*)[^>]*)\/>/gi,
+	origHtmlPrefilter = jQuery.htmlPrefilter,
+	makeMarkup = function( html ) {
+		var doc = window.document.implementation.createHTMLDocument( "" );
+		doc.body.innerHTML = html;
+		return doc.body && doc.body.innerHTML;
+	},
+	warnIfChanged = function( html ) {
+		var changed = html.replace( rxhtmlTag, "<$1></$2>" );
+		if ( changed !== html && makeMarkup( html ) !== makeMarkup( changed ) ) {
+			migrateWarn( "HTML tags must be properly nested and closed: " + html );
+		}
+	};
 
 jQuery.UNSAFE_restoreLegacyHtmlPrefilter = function() {
 	jQuery.htmlPrefilter = function( html ) {
+		warnIfChanged( html );
 		return html.replace( rxhtmlTag, "<$1></$2>" );
 	};
 };
 
+jQuery.htmlPrefilter = function( html ) {
+	warnIfChanged( html );
+	return origHtmlPrefilter( html );
+};
 
 var oldOffset = jQuery.fn.offset;
 
 jQuery.fn.offset = function() {
-	var docElem,
-		elem = this[ 0 ],
-		bogus = { top: 0, left: 0 };
+	var elem = this[ 0 ];
 
-	if ( !elem || !elem.nodeType ) {
+	if ( elem && ( !elem.nodeType || !elem.getBoundingClientRect ) ) {
 		migrateWarn( "jQuery.fn.offset() requires a valid DOM element" );
-		return undefined;
-	}
-
-	docElem = ( elem.ownerDocument || window.document ).documentElement;
-	if ( !jQuery.contains( docElem, elem ) ) {
-		migrateWarn( "jQuery.fn.offset() requires an element connected to a document" );
-		return bogus;
+		return arguments.length ? this : undefined;
 	}
 
 	return oldOffset.apply( this, arguments );
 };
 
+// Support jQuery slim which excludes the ajax module
+// The jQuery.param patch is about respecting `jQuery.ajaxSettings.traditional`
+// so it doesn't make sense for the slim build.
+if ( jQuery.ajax ) {
 
 var oldParam = jQuery.param;
 
@@ -679,6 +759,8 @@ jQuery.param = function( data, traditional ) {
 	return oldParam.call( this, data, traditional );
 };
 
+}
+
 var oldSelf = jQuery.fn.andSelf || jQuery.fn.addBack;
 
 jQuery.fn.andSelf = function() {
@@ -686,6 +768,8 @@ jQuery.fn.andSelf = function() {
 	return oldSelf.apply( this, arguments );
 };
 
+// Support jQuery slim which excludes the deferred module in jQuery 4.0+
+if ( jQuery.Deferred ) {
 
 var oldDeferred = jQuery.Deferred,
 	tuples = [
@@ -744,6 +828,8 @@ jQuery.Deferred = function( func ) {
 
 // Preserve handler of uncaught exceptions in promise chains
 jQuery.Deferred.exceptionHook = oldDeferred.exceptionHook;
+
+}
 
 return jQuery;
 } );
