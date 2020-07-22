@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-07-22 17:53+0200\n"
+"POT-Creation-Date: 2020-07-22 21:45+0200\n"
 "PO-Revision-Date: 2020-07-22 15:41+0000\n"
 "Last-Translator: Nguyễn Chí Thiện <nguyenchithien@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -3202,8 +3202,8 @@ msgstr "Đầu đề của cửa sổ trình duyệt khi một cơ sở dữ li�
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:149
 #: libraries/classes/Plugins/Export/ExportOdt.php:192
 #: libraries/classes/Plugins/Export/ExportTexytext.php:133
-#: libraries/classes/Server/Privileges.php:1937
 #: libraries/classes/Server/Privileges.php:1939
+#: libraries/classes/Server/Privileges.php:1941
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:109
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -3244,8 +3244,8 @@ msgstr "Đầu đề của cửa sổ trình duyệt khi một bảng được c
 #: libraries/classes/Config/Descriptions.php:921
 #: libraries/classes/Database/Triggers.php:397
 #: libraries/classes/Plugins/Export/ExportXml.php:517
-#: libraries/classes/Server/Privileges.php:1943
 #: libraries/classes/Server/Privileges.php:1945
+#: libraries/classes/Server/Privileges.php:1947
 #: templates/database/structure/show_create.twig:10
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
@@ -3716,7 +3716,7 @@ msgstr "Văn bản OpenDocument"
 #: libraries/classes/Config/Forms/User/ExportForm.php:151
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:367
 #: libraries/classes/Menu.php:307 libraries/classes/Menu.php:422
-#: libraries/classes/Menu.php:560 libraries/classes/Server/Privileges.php:1611
+#: libraries/classes/Menu.php:560 libraries/classes/Server/Privileges.php:1613
 #: libraries/classes/Util.php:2498 libraries/classes/Util.php:2513
 #: libraries/classes/Util.php:2530 libraries/classes/Util.php:3221
 #: libraries/classes/Util.php:3222 templates/database/events/index.twig:55
@@ -4670,13 +4670,13 @@ msgid "The user name is empty!"
 msgstr "Tên tài khoản còn để trống!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:127
-#: libraries/classes/Server/Privileges.php:1013
+#: libraries/classes/Server/Privileges.php:1015
 #: libraries/classes/UserPassword.php:42
 msgid "The password is empty!"
 msgstr "Mật khẩu còn để trống!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:128
-#: libraries/classes/Server/Privileges.php:1011
+#: libraries/classes/Server/Privileges.php:1013
 #: libraries/classes/UserPassword.php:46
 msgid "The passwords aren't the same!"
 msgstr "Mật khẩu không giống nhau!"
@@ -6439,7 +6439,7 @@ msgid "Allows altering the structure of existing tables."
 msgstr "Cho phép sửa đổi cấu trúc của bảng sẵn có."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:124
-#: libraries/classes/Server/Privileges.php:474
+#: libraries/classes/Server/Privileges.php:476
 #: templates/server/privileges/privileges_table.twig:443
 #: templates/server/privileges/privileges_table.twig:446
 msgid "Allows altering and dropping stored routines."
@@ -6453,7 +6453,7 @@ msgid "Allows creating new databases and tables."
 msgstr "Cho phép tạo cơ sở dữ liệu và bảng mới."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:126
-#: libraries/classes/Server/Privileges.php:469
+#: libraries/classes/Server/Privileges.php:471
 #: templates/server/privileges/privileges_table.twig:430
 #: templates/server/privileges/privileges_table.twig:433
 msgid "Allows creating stored routines."
@@ -6475,7 +6475,7 @@ msgid "Allows creating temporary tables."
 msgstr "Cho phép tại các bảng tạm."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:129
-#: libraries/classes/Server/Privileges.php:479
+#: libraries/classes/Server/Privileges.php:481
 #: templates/server/privileges/privileges_table.twig:682
 #: templates/server/privileges/privileges_table.twig:685
 msgid "Allows creating, dropping and renaming user accounts."
@@ -6502,9 +6502,10 @@ msgstr "Cho phép tạo view mới."
 msgid "Allows deleting data."
 msgstr "Cho phép xóa dữ liệu."
 
+#. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: libraries/classes/Controllers/Server/PrivilegesController.php:132
-#: libraries/classes/Server/Privileges.php:459
-#: libraries/classes/Server/Privileges.php:464
+#: libraries/classes/Server/Privileges.php:460
+#: libraries/classes/Server/Privileges.php:466
 #: templates/server/privileges/privileges_table.twig:210
 #: templates/server/privileges/privileges_table.twig:214
 #, fuzzy
@@ -6535,7 +6536,7 @@ msgid "Allows to set up events for the event scheduler."
 msgstr "Cho phép cài đặt các sự kiện cho lịch biểu sự kiện."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:136
-#: libraries/classes/Server/Privileges.php:484
+#: libraries/classes/Server/Privileges.php:486
 #: templates/server/privileges/privileges_table.twig:456
 #: templates/server/privileges/privileges_table.twig:459
 msgid "Allows executing stored routines."
@@ -6755,7 +6756,7 @@ msgid "ID"
 msgstr "MÃ SỐ"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:131
-#: libraries/classes/Server/Privileges.php:2987
+#: libraries/classes/Server/Privileges.php:2989
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Người dùng"
@@ -8410,8 +8411,8 @@ msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
 #: libraries/classes/Display/ChangePassword.php:88
-#: libraries/classes/Server/Privileges.php:786
-#: libraries/classes/Server/Privileges.php:860
+#: libraries/classes/Server/Privileges.php:788
+#: libraries/classes/Server/Privileges.php:862
 msgid "Native MySQL authentication"
 msgstr "Xác thực MySQL nguyên bản"
 
@@ -9334,7 +9335,7 @@ msgid "Insert"
 msgstr "Chèn"
 
 #: libraries/classes/Menu.php:327 libraries/classes/Menu.php:446
-#: libraries/classes/Server/Privileges.php:2961 libraries/classes/Util.php:2516
+#: libraries/classes/Server/Privileges.php:2963 libraries/classes/Util.php:2516
 #: libraries/classes/Util.php:2532 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
@@ -11395,27 +11396,27 @@ msgstr "Thiếu thông tin để tải tìm kiếm."
 msgid "Error while loading the search."
 msgstr "Gặp lỗi khi đang tải tìm kiếm."
 
-#: libraries/classes/Server/Privileges.php:788
+#: libraries/classes/Server/Privileges.php:790
 msgid "SHA256 password authentication"
 msgstr "Xác thực dùng mật khẩu SHA256"
 
-#: libraries/classes/Server/Privileges.php:1152
+#: libraries/classes/Server/Privileges.php:1154
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Mật khẩu của %s đã được thay đổi."
 
-#: libraries/classes/Server/Privileges.php:1201
+#: libraries/classes/Server/Privileges.php:1203
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Bạn đã thu hồi đặc quyền dành cho %s."
 
-#: libraries/classes/Server/Privileges.php:1538
+#: libraries/classes/Server/Privileges.php:1540
 #: templates/database/privileges/index.twig:124
 #: templates/table/privileges/index.twig:127
 msgid "Not enough privilege to view users."
 msgstr "Không đủ thẩm quyền để xem các tài khoản."
 
-#: libraries/classes/Server/Privileges.php:1605
+#: libraries/classes/Server/Privileges.php:1607
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:72
@@ -11423,78 +11424,78 @@ msgstr "Không đủ thẩm quyền để xem các tài khoản."
 msgid "Edit privileges"
 msgstr "Sửa đặc quyền"
 
-#: libraries/classes/Server/Privileges.php:1608
+#: libraries/classes/Server/Privileges.php:1610
 msgid "Revoke"
 msgstr "Thu hồi"
 
-#: libraries/classes/Server/Privileges.php:1938
+#: libraries/classes/Server/Privileges.php:1940
 #: templates/server/privileges/privileges_table.twig:240
 msgid "Database-specific privileges"
 msgstr "Đặt đặc quyền"
 
-#: libraries/classes/Server/Privileges.php:1944
+#: libraries/classes/Server/Privileges.php:1946
 #: templates/server/privileges/privileges_summary.twig:18
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:242
 msgid "Table-specific privileges"
 msgstr "Các đặc quyền dành-riêng-cho-thủ-tục"
 
-#: libraries/classes/Server/Privileges.php:1949
 #: libraries/classes/Server/Privileges.php:1951
+#: libraries/classes/Server/Privileges.php:1953
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:58
 msgid "Routine"
 msgstr "Thủ tục"
 
-#: libraries/classes/Server/Privileges.php:1950
+#: libraries/classes/Server/Privileges.php:1952
 #: templates/server/privileges/edit_routine_privileges.twig:47
 msgid "Routine-specific privileges"
 msgstr "Các đặc quyền dành-riêng-cho-thủ-tục"
 
-#: libraries/classes/Server/Privileges.php:2298
+#: libraries/classes/Server/Privileges.php:2300
 msgid "No users selected for deleting!"
 msgstr "Chưa chọn người dùng nào để xóa!"
 
-#: libraries/classes/Server/Privileges.php:2301
+#: libraries/classes/Server/Privileges.php:2303
 msgid "Reloading the privileges"
 msgstr "Tải lại đặc quyền"
 
-#: libraries/classes/Server/Privileges.php:2324
+#: libraries/classes/Server/Privileges.php:2326
 msgid "The selected users have been deleted successfully."
 msgstr "Những người dùng đã chọn đã được xóa thành công."
 
-#: libraries/classes/Server/Privileges.php:2401
+#: libraries/classes/Server/Privileges.php:2403
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Bạn phải cập nhật đặc quyền cho “%s”."
 
-#: libraries/classes/Server/Privileges.php:2488
+#: libraries/classes/Server/Privileges.php:2490
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr "Không tìm thấy người dùng."
 
-#: libraries/classes/Server/Privileges.php:2568
+#: libraries/classes/Server/Privileges.php:2570
 #, php-format
 msgid "Deleting %s"
 msgstr "Đang xóa %s"
 
-#: libraries/classes/Server/Privileges.php:2599
+#: libraries/classes/Server/Privileges.php:2601
 msgid "The privileges were reloaded successfully."
 msgstr "Các đặc quyền đã được tải lại thành công."
 
-#: libraries/classes/Server/Privileges.php:2697
+#: libraries/classes/Server/Privileges.php:2699
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Tài khoản %s đã sẵn có từ trước rồi!"
 
-#: libraries/classes/Server/Privileges.php:2978
+#: libraries/classes/Server/Privileges.php:2980
 #, php-format
 msgid "Privileges for %s"
 msgstr "Đặc quyền dành cho %s"
 
-#: libraries/classes/Server/Privileges.php:3119
+#: libraries/classes/Server/Privileges.php:3121
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -11504,7 +11505,7 @@ msgstr ""
 "hiện tại. Cái này ngăn ngừa những người khác từ các kết nối nếu bộ phận máy "
 "của tài khoản của họ cho kết nối từ bất kỳ (%s) máy nào."
 
-#: libraries/classes/Server/Privileges.php:3162
+#: libraries/classes/Server/Privileges.php:3164
 #, fuzzy, php-format
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -11522,7 +11523,7 @@ msgstr ""
 "những người dùng máy phục vụ, nếu chúng bị thay đổi bằng tay. Trong trường "
 "hợp này bạn nên %stải lại các đặc quyền%s trước khi tiếp tục."
 
-#: libraries/classes/Server/Privileges.php:3178
+#: libraries/classes/Server/Privileges.php:3180
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -11543,7 +11544,7 @@ msgstr ""
 "hợp này, đặc quyền phải được tại lại nhưng mà hiện tại bạn nên không có đặc "
 "quyền TẢI LẠI."
 
-#: libraries/classes/Server/Privileges.php:3518
+#: libraries/classes/Server/Privileges.php:3520
 msgid "You have added a new user."
 msgstr "Bạn đã thêm một người dùng mới."
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-07-22 17:53+0200\n"
+"POT-Creation-Date: 2020-07-22 21:45+0200\n"
 "PO-Revision-Date: 2020-07-16 11:41+0000\n"
 "Last-Translator: junseong kim <anima94@naver.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -3142,8 +3142,8 @@ msgstr "데이터베이스가 선택되었을 때 브라우저 창의 제목."
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:149
 #: libraries/classes/Plugins/Export/ExportOdt.php:192
 #: libraries/classes/Plugins/Export/ExportTexytext.php:133
-#: libraries/classes/Server/Privileges.php:1937
 #: libraries/classes/Server/Privileges.php:1939
+#: libraries/classes/Server/Privileges.php:1941
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:109
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -3184,8 +3184,8 @@ msgstr "테이블이 선택되었을 때 브라우저 윈도우의 제목."
 #: libraries/classes/Config/Descriptions.php:921
 #: libraries/classes/Database/Triggers.php:397
 #: libraries/classes/Plugins/Export/ExportXml.php:517
-#: libraries/classes/Server/Privileges.php:1943
 #: libraries/classes/Server/Privileges.php:1945
+#: libraries/classes/Server/Privileges.php:1947
 #: templates/database/structure/show_create.twig:10
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
@@ -3667,7 +3667,7 @@ msgstr "OpenDocument 형식"
 #: libraries/classes/Config/Forms/User/ExportForm.php:151
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:367
 #: libraries/classes/Menu.php:307 libraries/classes/Menu.php:422
-#: libraries/classes/Menu.php:560 libraries/classes/Server/Privileges.php:1611
+#: libraries/classes/Menu.php:560 libraries/classes/Server/Privileges.php:1613
 #: libraries/classes/Util.php:2498 libraries/classes/Util.php:2513
 #: libraries/classes/Util.php:2530 libraries/classes/Util.php:3221
 #: libraries/classes/Util.php:3222 templates/database/events/index.twig:55
@@ -4655,13 +4655,13 @@ msgid "The user name is empty!"
 msgstr "사용자명이 없습니다!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:127
-#: libraries/classes/Server/Privileges.php:1013
+#: libraries/classes/Server/Privileges.php:1015
 #: libraries/classes/UserPassword.php:42
 msgid "The password is empty!"
 msgstr "암호가 없습니다!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:128
-#: libraries/classes/Server/Privileges.php:1011
+#: libraries/classes/Server/Privileges.php:1013
 #: libraries/classes/UserPassword.php:46
 msgid "The passwords aren't the same!"
 msgstr "암호가 동일하지 않습니다!"
@@ -6406,7 +6406,7 @@ msgid "Allows altering the structure of existing tables."
 msgstr "테이블 구조 변경 허용."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:124
-#: libraries/classes/Server/Privileges.php:474
+#: libraries/classes/Server/Privileges.php:476
 #: templates/server/privileges/privileges_table.twig:443
 #: templates/server/privileges/privileges_table.twig:446
 #, fuzzy
@@ -6421,7 +6421,7 @@ msgid "Allows creating new databases and tables."
 msgstr "DB 및 테이블 생성 허용."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:126
-#: libraries/classes/Server/Privileges.php:469
+#: libraries/classes/Server/Privileges.php:471
 #: templates/server/privileges/privileges_table.twig:430
 #: templates/server/privileges/privileges_table.twig:433
 #, fuzzy
@@ -6444,7 +6444,7 @@ msgid "Allows creating temporary tables."
 msgstr "임시테이블 생성 허용."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:129
-#: libraries/classes/Server/Privileges.php:479
+#: libraries/classes/Server/Privileges.php:481
 #: templates/server/privileges/privileges_table.twig:682
 #: templates/server/privileges/privileges_table.twig:685
 msgid "Allows creating, dropping and renaming user accounts."
@@ -6472,9 +6472,10 @@ msgstr "테이블 생성 허용."
 msgid "Allows deleting data."
 msgstr "데이터 삭제 허용."
 
+#. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: libraries/classes/Controllers/Server/PrivilegesController.php:132
-#: libraries/classes/Server/Privileges.php:459
-#: libraries/classes/Server/Privileges.php:464
+#: libraries/classes/Server/Privileges.php:460
+#: libraries/classes/Server/Privileges.php:466
 #: templates/server/privileges/privileges_table.twig:210
 #: templates/server/privileges/privileges_table.twig:214
 #, fuzzy
@@ -6507,7 +6508,7 @@ msgid "Allows to set up events for the event scheduler."
 msgstr "현재 쓰레드에 대한 테이블 잠금(lock) 허용."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:136
-#: libraries/classes/Server/Privileges.php:484
+#: libraries/classes/Server/Privileges.php:486
 #: templates/server/privileges/privileges_table.twig:456
 #: templates/server/privileges/privileges_table.twig:459
 msgid "Allows executing stored routines."
@@ -6728,7 +6729,7 @@ msgid "ID"
 msgstr "아이디"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:131
-#: libraries/classes/Server/Privileges.php:2987
+#: libraries/classes/Server/Privileges.php:2989
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "사용자"
@@ -8394,8 +8395,8 @@ msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
 #: libraries/classes/Display/ChangePassword.php:88
-#: libraries/classes/Server/Privileges.php:786
-#: libraries/classes/Server/Privileges.php:860
+#: libraries/classes/Server/Privileges.php:788
+#: libraries/classes/Server/Privileges.php:862
 #, fuzzy
 #| msgid "Cookie authentication"
 msgid "Native MySQL authentication"
@@ -9335,7 +9336,7 @@ msgid "Insert"
 msgstr "삽입"
 
 #: libraries/classes/Menu.php:327 libraries/classes/Menu.php:446
-#: libraries/classes/Server/Privileges.php:2961 libraries/classes/Util.php:2516
+#: libraries/classes/Server/Privileges.php:2963 libraries/classes/Util.php:2516
 #: libraries/classes/Util.php:2532 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
@@ -11444,29 +11445,29 @@ msgstr "검색을 불러오기 위한 정보가 없습니다."
 msgid "Error while loading the search."
 msgstr "검색을 불러오는 중에 오류가 발생하였습니다."
 
-#: libraries/classes/Server/Privileges.php:788
+#: libraries/classes/Server/Privileges.php:790
 #, fuzzy
 #| msgid "Signon authentication"
 msgid "SHA256 password authentication"
 msgstr "Signon 인증"
 
-#: libraries/classes/Server/Privileges.php:1152
+#: libraries/classes/Server/Privileges.php:1154
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "%s 의 암호가 바뀌었습니다."
 
-#: libraries/classes/Server/Privileges.php:1201
+#: libraries/classes/Server/Privileges.php:1203
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "%s의 권한을 제거했습니다."
 
-#: libraries/classes/Server/Privileges.php:1538
+#: libraries/classes/Server/Privileges.php:1540
 #: templates/database/privileges/index.twig:124
 #: templates/table/privileges/index.twig:127
 msgid "Not enough privilege to view users."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1605
+#: libraries/classes/Server/Privileges.php:1607
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:72
@@ -11474,24 +11475,24 @@ msgstr ""
 msgid "Edit privileges"
 msgstr "권한 수정"
 
-#: libraries/classes/Server/Privileges.php:1608
+#: libraries/classes/Server/Privileges.php:1610
 msgid "Revoke"
 msgstr "제거"
 
-#: libraries/classes/Server/Privileges.php:1938
+#: libraries/classes/Server/Privileges.php:1940
 #: templates/server/privileges/privileges_table.twig:240
 msgid "Database-specific privileges"
 msgstr "데이터베이스에 관한 권한"
 
-#: libraries/classes/Server/Privileges.php:1944
+#: libraries/classes/Server/Privileges.php:1946
 #: templates/server/privileges/privileges_summary.twig:18
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:242
 msgid "Table-specific privileges"
 msgstr "테이블에 관한 권한"
 
-#: libraries/classes/Server/Privileges.php:1949
 #: libraries/classes/Server/Privileges.php:1951
+#: libraries/classes/Server/Privileges.php:1953
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:58
@@ -11500,63 +11501,63 @@ msgstr "테이블에 관한 권한"
 msgid "Routine"
 msgstr "루틴"
 
-#: libraries/classes/Server/Privileges.php:1950
+#: libraries/classes/Server/Privileges.php:1952
 #: templates/server/privileges/edit_routine_privileges.twig:47
 #, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
 msgstr "열(칼럼)에 관한 권한"
 
-#: libraries/classes/Server/Privileges.php:2298
+#: libraries/classes/Server/Privileges.php:2300
 msgid "No users selected for deleting!"
 msgstr "삭제할 사용자를 선택하세요!"
 
-#: libraries/classes/Server/Privileges.php:2301
+#: libraries/classes/Server/Privileges.php:2303
 msgid "Reloading the privileges"
 msgstr "사용권한을 갱신합니다(Reloading the privileges)"
 
-#: libraries/classes/Server/Privileges.php:2324
+#: libraries/classes/Server/Privileges.php:2326
 msgid "The selected users have been deleted successfully."
 msgstr "선택한 사용자들을 삭제했습니다."
 
-#: libraries/classes/Server/Privileges.php:2401
+#: libraries/classes/Server/Privileges.php:2403
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "%s 의 권한을 업데이트했습니다."
 
-#: libraries/classes/Server/Privileges.php:2488
+#: libraries/classes/Server/Privileges.php:2490
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr "사용자가 없습니다."
 
-#: libraries/classes/Server/Privileges.php:2568
+#: libraries/classes/Server/Privileges.php:2570
 #, php-format
 msgid "Deleting %s"
 msgstr "%s 을 삭제합니다"
 
-#: libraries/classes/Server/Privileges.php:2599
+#: libraries/classes/Server/Privileges.php:2601
 msgid "The privileges were reloaded successfully."
 msgstr "권한을 다시 로딩했습니다."
 
-#: libraries/classes/Server/Privileges.php:2697
+#: libraries/classes/Server/Privileges.php:2699
 #, php-format
 msgid "The user %s already exists!"
 msgstr "사용자 %s 가 이미 존재합니다!"
 
-#: libraries/classes/Server/Privileges.php:2978
+#: libraries/classes/Server/Privileges.php:2980
 #, php-format
 msgid "Privileges for %s"
 msgstr "%s에 대한 권한"
 
-#: libraries/classes/Server/Privileges.php:3119
+#: libraries/classes/Server/Privileges.php:3121
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:3162
+#: libraries/classes/Server/Privileges.php:3164
 #, fuzzy, php-format
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -11573,7 +11574,7 @@ msgstr ""
 "다. 만약 수동으로 서버의 권한 정보를 수정하였다면, 서버의 정보와 맞지 않을 "
 "수 있습니다. 이 경우, %sreload the privileges%s를 먼저 수행하세요."
 
-#: libraries/classes/Server/Privileges.php:3178
+#: libraries/classes/Server/Privileges.php:3180
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -11591,7 +11592,7 @@ msgstr ""
 "다. 만약 수동으로 서버의 권한 정보를 수정하였다면, 서버의 정보와 맞지 않을 "
 "수 있습니다. 이 경우, %sreload the privileges%s를 먼저 수행하세요."
 
-#: libraries/classes/Server/Privileges.php:3518
+#: libraries/classes/Server/Privileges.php:3520
 msgid "You have added a new user."
 msgstr "새 사용자를 추가했습니다."
 

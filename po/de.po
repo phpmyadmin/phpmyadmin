@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-07-22 17:53+0200\n"
+"POT-Creation-Date: 2020-07-22 21:45+0200\n"
 "PO-Revision-Date: 2020-04-09 07:26+0000\n"
 "Last-Translator: Predatorix Phoenix <predatorix@web.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -3185,8 +3185,8 @@ msgstr "Titelleiste des Browserfensters wenn eine Datenbank ausgewählt ist."
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:149
 #: libraries/classes/Plugins/Export/ExportOdt.php:192
 #: libraries/classes/Plugins/Export/ExportTexytext.php:133
-#: libraries/classes/Server/Privileges.php:1937
 #: libraries/classes/Server/Privileges.php:1939
+#: libraries/classes/Server/Privileges.php:1941
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:109
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -3227,8 +3227,8 @@ msgstr "Titelleiste des Browserfensters wenn eine Tabelle ausgewählt ist."
 #: libraries/classes/Config/Descriptions.php:921
 #: libraries/classes/Database/Triggers.php:397
 #: libraries/classes/Plugins/Export/ExportXml.php:517
-#: libraries/classes/Server/Privileges.php:1943
 #: libraries/classes/Server/Privileges.php:1945
+#: libraries/classes/Server/Privileges.php:1947
 #: templates/database/structure/show_create.twig:10
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
@@ -3706,7 +3706,7 @@ msgstr "OpenDocument Text"
 #: libraries/classes/Config/Forms/User/ExportForm.php:151
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:367
 #: libraries/classes/Menu.php:307 libraries/classes/Menu.php:422
-#: libraries/classes/Menu.php:560 libraries/classes/Server/Privileges.php:1611
+#: libraries/classes/Menu.php:560 libraries/classes/Server/Privileges.php:1613
 #: libraries/classes/Util.php:2498 libraries/classes/Util.php:2513
 #: libraries/classes/Util.php:2530 libraries/classes/Util.php:3221
 #: libraries/classes/Util.php:3222 templates/database/events/index.twig:55
@@ -4730,13 +4730,13 @@ msgid "The user name is empty!"
 msgstr "Es wurde kein Benutzername eingegeben!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:127
-#: libraries/classes/Server/Privileges.php:1013
+#: libraries/classes/Server/Privileges.php:1015
 #: libraries/classes/UserPassword.php:42
 msgid "The password is empty!"
 msgstr "Es wurde kein Passwort angegeben!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:128
-#: libraries/classes/Server/Privileges.php:1011
+#: libraries/classes/Server/Privileges.php:1013
 #: libraries/classes/UserPassword.php:46
 msgid "The passwords aren't the same!"
 msgstr "Die eingegebenen Passwörter sind nicht identisch!"
@@ -6503,7 +6503,7 @@ msgid "Allows altering the structure of existing tables."
 msgstr "Erlaubt das Verändern der Struktur bestehender Tabellen."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:124
-#: libraries/classes/Server/Privileges.php:474
+#: libraries/classes/Server/Privileges.php:476
 #: templates/server/privileges/privileges_table.twig:443
 #: templates/server/privileges/privileges_table.twig:446
 msgid "Allows altering and dropping stored routines."
@@ -6517,7 +6517,7 @@ msgid "Allows creating new databases and tables."
 msgstr "Erlaubt das Erstellen neuer Datenbanken und Tabellen."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:126
-#: libraries/classes/Server/Privileges.php:469
+#: libraries/classes/Server/Privileges.php:471
 #: templates/server/privileges/privileges_table.twig:430
 #: templates/server/privileges/privileges_table.twig:433
 msgid "Allows creating stored routines."
@@ -6539,7 +6539,7 @@ msgid "Allows creating temporary tables."
 msgstr "Erlaubt das Erstellen temporärer Tabellen."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:129
-#: libraries/classes/Server/Privileges.php:479
+#: libraries/classes/Server/Privileges.php:481
 #: templates/server/privileges/privileges_table.twig:682
 #: templates/server/privileges/privileges_table.twig:685
 msgid "Allows creating, dropping and renaming user accounts."
@@ -6566,9 +6566,10 @@ msgstr "Erlaubt das Erstellen von Views."
 msgid "Allows deleting data."
 msgstr "Erlaubt das Löschen von Daten."
 
+#. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: libraries/classes/Controllers/Server/PrivilegesController.php:132
-#: libraries/classes/Server/Privileges.php:459
-#: libraries/classes/Server/Privileges.php:464
+#: libraries/classes/Server/Privileges.php:460
+#: libraries/classes/Server/Privileges.php:466
 #: templates/server/privileges/privileges_table.twig:210
 #: templates/server/privileges/privileges_table.twig:214
 msgid "Allows deleting historical rows."
@@ -6597,7 +6598,7 @@ msgid "Allows to set up events for the event scheduler."
 msgstr "Erlaubt das Anlegen von Events für den Event-Scheduler."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:136
-#: libraries/classes/Server/Privileges.php:484
+#: libraries/classes/Server/Privileges.php:486
 #: templates/server/privileges/privileges_table.twig:456
 #: templates/server/privileges/privileges_table.twig:459
 msgid "Allows executing stored routines."
@@ -6825,7 +6826,7 @@ msgid "ID"
 msgstr "ID"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:131
-#: libraries/classes/Server/Privileges.php:2987
+#: libraries/classes/Server/Privileges.php:2989
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Benutzer"
@@ -8624,8 +8625,8 @@ msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "SSL-Verbindung vom Server erzwungen, aktiviere automatisch."
 
 #: libraries/classes/Display/ChangePassword.php:88
-#: libraries/classes/Server/Privileges.php:786
-#: libraries/classes/Server/Privileges.php:860
+#: libraries/classes/Server/Privileges.php:788
+#: libraries/classes/Server/Privileges.php:862
 msgid "Native MySQL authentication"
 msgstr "Native MySQL-Authentifizierung"
 
@@ -9605,7 +9606,7 @@ msgid "Insert"
 msgstr "Einfügen"
 
 #: libraries/classes/Menu.php:327 libraries/classes/Menu.php:446
-#: libraries/classes/Server/Privileges.php:2961 libraries/classes/Util.php:2516
+#: libraries/classes/Server/Privileges.php:2963 libraries/classes/Util.php:2516
 #: libraries/classes/Util.php:2532 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
@@ -11815,27 +11816,27 @@ msgstr "Fehlende Information, um die Suchanfrage zu laden."
 msgid "Error while loading the search."
 msgstr "Fehler beim Laden der Suchanfrage."
 
-#: libraries/classes/Server/Privileges.php:788
+#: libraries/classes/Server/Privileges.php:790
 msgid "SHA256 password authentication"
 msgstr "SHA256-Passwort-Authentifizierung"
 
-#: libraries/classes/Server/Privileges.php:1152
+#: libraries/classes/Server/Privileges.php:1154
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Das Passwort für %s wurde geändert."
 
-#: libraries/classes/Server/Privileges.php:1201
+#: libraries/classes/Server/Privileges.php:1203
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Sie haben die Rechte für %s widerrufen."
 
-#: libraries/classes/Server/Privileges.php:1538
+#: libraries/classes/Server/Privileges.php:1540
 #: templates/database/privileges/index.twig:124
 #: templates/table/privileges/index.twig:127
 msgid "Not enough privilege to view users."
 msgstr "Nicht genügend Berechtigungen um Benutzer anzuzeigen."
 
-#: libraries/classes/Server/Privileges.php:1605
+#: libraries/classes/Server/Privileges.php:1607
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:72
@@ -11843,78 +11844,78 @@ msgstr "Nicht genügend Berechtigungen um Benutzer anzuzeigen."
 msgid "Edit privileges"
 msgstr "Rechte ändern"
 
-#: libraries/classes/Server/Privileges.php:1608
+#: libraries/classes/Server/Privileges.php:1610
 msgid "Revoke"
 msgstr "Entfernen"
 
-#: libraries/classes/Server/Privileges.php:1938
+#: libraries/classes/Server/Privileges.php:1940
 #: templates/server/privileges/privileges_table.twig:240
 msgid "Database-specific privileges"
 msgstr "Datenbankspezifische Rechte"
 
-#: libraries/classes/Server/Privileges.php:1944
+#: libraries/classes/Server/Privileges.php:1946
 #: templates/server/privileges/privileges_summary.twig:18
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:242
 msgid "Table-specific privileges"
 msgstr "Tabellenspezifische Rechte"
 
-#: libraries/classes/Server/Privileges.php:1949
 #: libraries/classes/Server/Privileges.php:1951
+#: libraries/classes/Server/Privileges.php:1953
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:58
 msgid "Routine"
 msgstr "Routine"
 
-#: libraries/classes/Server/Privileges.php:1950
+#: libraries/classes/Server/Privileges.php:1952
 #: templates/server/privileges/edit_routine_privileges.twig:47
 msgid "Routine-specific privileges"
 msgstr "Routinenspezifische Rechte"
 
-#: libraries/classes/Server/Privileges.php:2298
+#: libraries/classes/Server/Privileges.php:2300
 msgid "No users selected for deleting!"
 msgstr "Es wurden keine Benutzer zum Löschen ausgewählt!"
 
-#: libraries/classes/Server/Privileges.php:2301
+#: libraries/classes/Server/Privileges.php:2303
 msgid "Reloading the privileges"
 msgstr "Lade die Benutzertabellen neu"
 
-#: libraries/classes/Server/Privileges.php:2324
+#: libraries/classes/Server/Privileges.php:2326
 msgid "The selected users have been deleted successfully."
 msgstr "Die gewählten Benutzer wurden gelöscht."
 
-#: libraries/classes/Server/Privileges.php:2401
+#: libraries/classes/Server/Privileges.php:2403
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Die Rechte für %s wurden geändert."
 
-#: libraries/classes/Server/Privileges.php:2488
+#: libraries/classes/Server/Privileges.php:2490
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr "Es wurde kein Benutzer gefunden."
 
-#: libraries/classes/Server/Privileges.php:2568
+#: libraries/classes/Server/Privileges.php:2570
 #, php-format
 msgid "Deleting %s"
 msgstr "Lösche %s"
 
-#: libraries/classes/Server/Privileges.php:2599
+#: libraries/classes/Server/Privileges.php:2601
 msgid "The privileges were reloaded successfully."
 msgstr "Die Benutzerprofile wurden neu geladen."
 
-#: libraries/classes/Server/Privileges.php:2697
+#: libraries/classes/Server/Privileges.php:2699
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Der Benutzer %s existiert bereits!"
 
-#: libraries/classes/Server/Privileges.php:2978
+#: libraries/classes/Server/Privileges.php:2980
 #, php-format
 msgid "Privileges for %s"
 msgstr "Rechte für %s"
 
-#: libraries/classes/Server/Privileges.php:3119
+#: libraries/classes/Server/Privileges.php:3121
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -11924,7 +11925,7 @@ msgstr ""
 "vorhanden. Dies wird Benutzer vom Verbinden abhalten, falls der Host-Teil "
 "ihres Kontos eine Verbindung von jedem Host (%) erlaubt."
 
-#: libraries/classes/Server/Privileges.php:3162
+#: libraries/classes/Server/Privileges.php:3164
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -11938,7 +11939,7 @@ msgstr ""
 "Änderungen vorgenommen wurden. In diesem Fall sollten Sie %sdie "
 "Benutzerprofile neu laden%s bevor Sie fortfahren."
 
-#: libraries/classes/Server/Privileges.php:3178
+#: libraries/classes/Server/Privileges.php:3180
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -11952,7 +11953,7 @@ msgstr ""
 "Änderungen vorgenommen wurden. In diesem Fall müssen die Berechtigungen neu "
 "geladen werden, doch im Moment haben Sie keine RELOAD-Berechtigung."
 
-#: libraries/classes/Server/Privileges.php:3518
+#: libraries/classes/Server/Privileges.php:3520
 msgid "You have added a new user."
 msgstr "Der Benutzer wurde hinzugefügt."
 

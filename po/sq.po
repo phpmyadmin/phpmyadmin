@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-07-22 17:53+0200\n"
+"POT-Creation-Date: 2020-07-22 21:45+0200\n"
 "PO-Revision-Date: 2018-03-19 23:34+0000\n"
 "Last-Translator: M. M. <m.mirena@gmail.com>\n"
 "Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -3191,8 +3191,8 @@ msgstr "Titulli i dritares së shfletuesit, kur është zgjedhur një databazë.
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:149
 #: libraries/classes/Plugins/Export/ExportOdt.php:192
 #: libraries/classes/Plugins/Export/ExportTexytext.php:133
-#: libraries/classes/Server/Privileges.php:1937
 #: libraries/classes/Server/Privileges.php:1939
+#: libraries/classes/Server/Privileges.php:1941
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:109
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -3233,8 +3233,8 @@ msgstr "Titulli i dritares së shfletuesit, kur është zgjedhur një tabelë."
 #: libraries/classes/Config/Descriptions.php:921
 #: libraries/classes/Database/Triggers.php:397
 #: libraries/classes/Plugins/Export/ExportXml.php:517
-#: libraries/classes/Server/Privileges.php:1943
 #: libraries/classes/Server/Privileges.php:1945
+#: libraries/classes/Server/Privileges.php:1947
 #: templates/database/structure/show_create.twig:10
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
@@ -3719,7 +3719,7 @@ msgstr "HapDokument Tekst"
 #: libraries/classes/Config/Forms/User/ExportForm.php:151
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:367
 #: libraries/classes/Menu.php:307 libraries/classes/Menu.php:422
-#: libraries/classes/Menu.php:560 libraries/classes/Server/Privileges.php:1611
+#: libraries/classes/Menu.php:560 libraries/classes/Server/Privileges.php:1613
 #: libraries/classes/Util.php:2498 libraries/classes/Util.php:2513
 #: libraries/classes/Util.php:2530 libraries/classes/Util.php:3221
 #: libraries/classes/Util.php:3222 templates/database/events/index.twig:55
@@ -4731,13 +4731,13 @@ msgid "The user name is empty!"
 msgstr "Emri i përdoruesit është i zbrazët!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:127
-#: libraries/classes/Server/Privileges.php:1013
+#: libraries/classes/Server/Privileges.php:1015
 #: libraries/classes/UserPassword.php:42
 msgid "The password is empty!"
 msgstr "Fjalëkalimi është i zbrazët!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:128
-#: libraries/classes/Server/Privileges.php:1011
+#: libraries/classes/Server/Privileges.php:1013
 #: libraries/classes/UserPassword.php:46
 msgid "The passwords aren't the same!"
 msgstr "Fjalëkalimet nuk janë të njëjtë!"
@@ -6520,7 +6520,7 @@ msgid "Allows altering the structure of existing tables."
 msgstr "Lejon ndryshimin e strukturës së tabelave ekzistuese."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:124
-#: libraries/classes/Server/Privileges.php:474
+#: libraries/classes/Server/Privileges.php:476
 #: templates/server/privileges/privileges_table.twig:443
 #: templates/server/privileges/privileges_table.twig:446
 msgid "Allows altering and dropping stored routines."
@@ -6534,7 +6534,7 @@ msgid "Allows creating new databases and tables."
 msgstr "Lejon krijimin e databazave dhe tabelave të reja."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:126
-#: libraries/classes/Server/Privileges.php:469
+#: libraries/classes/Server/Privileges.php:471
 #: templates/server/privileges/privileges_table.twig:430
 #: templates/server/privileges/privileges_table.twig:433
 msgid "Allows creating stored routines."
@@ -6556,7 +6556,7 @@ msgid "Allows creating temporary tables."
 msgstr "Lejon krijimin e tabelave të përkohëshme."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:129
-#: libraries/classes/Server/Privileges.php:479
+#: libraries/classes/Server/Privileges.php:481
 #: templates/server/privileges/privileges_table.twig:682
 #: templates/server/privileges/privileges_table.twig:685
 msgid "Allows creating, dropping and renaming user accounts."
@@ -6583,9 +6583,10 @@ msgstr "Lejon krijimin e pamjeve të reja."
 msgid "Allows deleting data."
 msgstr "Lejon fshirjen e të dhënave."
 
+#. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: libraries/classes/Controllers/Server/PrivilegesController.php:132
-#: libraries/classes/Server/Privileges.php:459
-#: libraries/classes/Server/Privileges.php:464
+#: libraries/classes/Server/Privileges.php:460
+#: libraries/classes/Server/Privileges.php:466
 #: templates/server/privileges/privileges_table.twig:210
 #: templates/server/privileges/privileges_table.twig:214
 #, fuzzy
@@ -6616,7 +6617,7 @@ msgid "Allows to set up events for the event scheduler."
 msgstr "Lejon për të ngritur ngjarjet për planifikimin e ngjarjeve."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:136
-#: libraries/classes/Server/Privileges.php:484
+#: libraries/classes/Server/Privileges.php:486
 #: templates/server/privileges/privileges_table.twig:456
 #: templates/server/privileges/privileges_table.twig:459
 msgid "Allows executing stored routines."
@@ -6841,7 +6842,7 @@ msgid "ID"
 msgstr "ID"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:131
-#: libraries/classes/Server/Privileges.php:2987
+#: libraries/classes/Server/Privileges.php:2989
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Përdoruesi"
@@ -8615,8 +8616,8 @@ msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "Lidhja SSL e imponuar nga serveri, duke mundësuar automatikisht atë."
 
 #: libraries/classes/Display/ChangePassword.php:88
-#: libraries/classes/Server/Privileges.php:786
-#: libraries/classes/Server/Privileges.php:860
+#: libraries/classes/Server/Privileges.php:788
+#: libraries/classes/Server/Privileges.php:862
 msgid "Native MySQL authentication"
 msgstr "Autentifikimi autokton MySQL"
 
@@ -9591,7 +9592,7 @@ msgid "Insert"
 msgstr "Fut"
 
 #: libraries/classes/Menu.php:327 libraries/classes/Menu.php:446
-#: libraries/classes/Server/Privileges.php:2961 libraries/classes/Util.php:2516
+#: libraries/classes/Server/Privileges.php:2963 libraries/classes/Util.php:2516
 #: libraries/classes/Util.php:2532 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
@@ -11822,27 +11823,27 @@ msgstr "Mungon informacioni për ngarkimin e kërkimit."
 msgid "Error while loading the search."
 msgstr "Gabim gjatë ngarkimit të kërkimit."
 
-#: libraries/classes/Server/Privileges.php:788
+#: libraries/classes/Server/Privileges.php:790
 msgid "SHA256 password authentication"
 msgstr "Autentifikimi i fjalëkalimit SHA256"
 
-#: libraries/classes/Server/Privileges.php:1152
+#: libraries/classes/Server/Privileges.php:1154
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Fjalëkalimi për %s u ndryshua me sukses."
 
-#: libraries/classes/Server/Privileges.php:1201
+#: libraries/classes/Server/Privileges.php:1203
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Keni anuluar privilegjet për %s."
 
-#: libraries/classes/Server/Privileges.php:1538
+#: libraries/classes/Server/Privileges.php:1540
 #: templates/database/privileges/index.twig:124
 #: templates/table/privileges/index.twig:127
 msgid "Not enough privilege to view users."
 msgstr "Nuk ka privilegje të mjaftueshme për të shfaqur përdoruesit."
 
-#: libraries/classes/Server/Privileges.php:1605
+#: libraries/classes/Server/Privileges.php:1607
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:72
@@ -11850,78 +11851,78 @@ msgstr "Nuk ka privilegje të mjaftueshme për të shfaqur përdoruesit."
 msgid "Edit privileges"
 msgstr "Redakto privilegjet"
 
-#: libraries/classes/Server/Privileges.php:1608
+#: libraries/classes/Server/Privileges.php:1610
 msgid "Revoke"
 msgstr "Tërhiq"
 
-#: libraries/classes/Server/Privileges.php:1938
+#: libraries/classes/Server/Privileges.php:1940
 #: templates/server/privileges/privileges_table.twig:240
 msgid "Database-specific privileges"
 msgstr "Privilegjet specifike të databazës"
 
-#: libraries/classes/Server/Privileges.php:1944
+#: libraries/classes/Server/Privileges.php:1946
 #: templates/server/privileges/privileges_summary.twig:18
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:242
 msgid "Table-specific privileges"
 msgstr "Privilegjet specifike të tabelës"
 
-#: libraries/classes/Server/Privileges.php:1949
 #: libraries/classes/Server/Privileges.php:1951
+#: libraries/classes/Server/Privileges.php:1953
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:58
 msgid "Routine"
 msgstr "Rutina"
 
-#: libraries/classes/Server/Privileges.php:1950
+#: libraries/classes/Server/Privileges.php:1952
 #: templates/server/privileges/edit_routine_privileges.twig:47
 msgid "Routine-specific privileges"
 msgstr "Privilegjet specifike të rutinës"
 
-#: libraries/classes/Server/Privileges.php:2298
+#: libraries/classes/Server/Privileges.php:2300
 msgid "No users selected for deleting!"
 msgstr "Nuk janë zgjedhur përdorues për fshirje!"
 
-#: libraries/classes/Server/Privileges.php:2301
+#: libraries/classes/Server/Privileges.php:2303
 msgid "Reloading the privileges"
 msgstr "Ringarkon privilegjet"
 
-#: libraries/classes/Server/Privileges.php:2324
+#: libraries/classes/Server/Privileges.php:2326
 msgid "The selected users have been deleted successfully."
 msgstr "Përdoruesit e zgjedhur u fshinë me sukses."
 
-#: libraries/classes/Server/Privileges.php:2401
+#: libraries/classes/Server/Privileges.php:2403
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Keni aktualizuar privilegjet për %s."
 
-#: libraries/classes/Server/Privileges.php:2488
+#: libraries/classes/Server/Privileges.php:2490
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr "Nuk gjendet asnjë përdorues."
 
-#: libraries/classes/Server/Privileges.php:2568
+#: libraries/classes/Server/Privileges.php:2570
 #, php-format
 msgid "Deleting %s"
 msgstr "Fshin %s"
 
-#: libraries/classes/Server/Privileges.php:2599
+#: libraries/classes/Server/Privileges.php:2601
 msgid "The privileges were reloaded successfully."
 msgstr "Privilegjet u ri-ngarkuan me sukses."
 
-#: libraries/classes/Server/Privileges.php:2697
+#: libraries/classes/Server/Privileges.php:2699
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Përdoruesi %s ekziston ndërkohë!"
 
-#: libraries/classes/Server/Privileges.php:2978
+#: libraries/classes/Server/Privileges.php:2980
 #, php-format
 msgid "Privileges for %s"
 msgstr "Privilegjet për %s"
 
-#: libraries/classes/Server/Privileges.php:3119
+#: libraries/classes/Server/Privileges.php:3121
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -11932,7 +11933,7 @@ msgstr ""
 "ndërlidhen nëse pjesa e pritësit (host) të llogarisë së tyre lejon një "
 "lidhje nga çdo pritës (%)."
 
-#: libraries/classes/Server/Privileges.php:3162
+#: libraries/classes/Server/Privileges.php:3164
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -11945,7 +11946,7 @@ msgstr ""
 "privilegjet që përdor serveri, nëse ato janë ndryshuar me dorë. Në këtë "
 "rast, duhet të %s reloader privilegjet %s para se të vazhdoni."
 
-#: libraries/classes/Server/Privileges.php:3178
+#: libraries/classes/Server/Privileges.php:3180
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -11959,7 +11960,7 @@ msgstr ""
 "rast, privilegjet duhet të rifreskohen, por aktualisht, ju nuk keni "
 "privilegj RELOAD."
 
-#: libraries/classes/Server/Privileges.php:3518
+#: libraries/classes/Server/Privileges.php:3520
 msgid "You have added a new user."
 msgstr "Keni shtuar një përdorues të ri."
 
