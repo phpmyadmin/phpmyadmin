@@ -228,6 +228,27 @@ AJAX.registerTeardown('export.js', function () {
 });
 
 AJAX.registerOnload('export.js', function () {
+    $('#showsqlquery').on('click', function () {
+        // Creating a dialog box similar to preview sql container to show sql query
+        var modalOptions = {};
+        modalOptions[Messages.strClose] = function () {
+            $(this).dialog('close');
+        };
+        $('#export_sql_modal_content').clone().dialog({
+            minWidth: 550,
+            maxHeight: 400,
+            modal: true,
+            buttons: modalOptions,
+            title: Messages.strQuery,
+            close: function () {
+                $(this).remove();
+            }, open: function () {
+                // Pretty SQL printing.
+                Functions.highlightSql($(this));
+            }
+        });
+    });
+
     /**
      * Export template handling code
      */
