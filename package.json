@@ -44,7 +44,8 @@
     "stylelint-scss": "^3.18.0"
   },
   "resolutions": {
-    "kind-of": "^6.0.3"
+    "kind-of": "^6.0.3",
+    "lodash": "^4.17.19"
   },
   "scripts": {
     "postinstall": "yarn run --silent css-compile --quiet --style=compressed",
