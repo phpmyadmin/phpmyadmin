@@ -2265,10 +2265,12 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 (function ($) {
     $.fn.noSelect = function (p) { // no select plugin by Paulo P.Marinas
         var prevent = (p === null) ? true : p;
+        /* eslint-disable compat/compat */
         var isMsie = navigator.userAgent.indexOf('MSIE') > -1 || !!window.navigator.userAgent.match(/Trident.*rv:11\./);
         var isFirefox = navigator.userAgent.indexOf('Firefox') > -1;
         var isSafari = navigator.userAgent.indexOf('Safari') > -1;
         var isOpera = navigator.userAgent.indexOf('Presto') > -1;
+        /* eslint-enable compat/compat */
         if (prevent) {
             return this.each(function () {
                 if (isMsie || isSafari) {
