@@ -1289,7 +1289,12 @@ jquery.event.drag@2.2.2:
   resolved "https://registry.yarnpkg.com/jquery.event.drag/-/jquery.event.drag-2.2.2.tgz#11bbbf83f4c6ef5f3b5065564663913c9f964be1"
   integrity sha1-Ebu/g/TG7187UGVWRmORPJ+WS+E=
 
-jquery@3.5.0, jquery@>=1.2.6, jquery@>=1.5, jquery@>=1.7:
+jquery@3.5.1:
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.5.1.tgz#d7b4d08e1bfdb86ad2f1a3d039ea17304717abb5"
+  integrity sha512-XwIBPqcMn57FxfT+Go5pzySnm4KWkT1Tv7gjrpT1srtf8Weynl6R273VJ5GjkRb51IzMp5nbaPjJXMWeju2MKg==
+
+jquery@>=1.2.6, jquery@>=1.5, jquery@>=1.7:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.5.0.tgz#9980b97d9e4194611c36530e7dc46a58d7340fc9"
   integrity sha512-Xb7SVYMvygPxbFMpTFQiHh1J7HClEaThguL15N/Gg37Lri/qKyhRGZYzHRyLH8Stq3Aow0LsHO2O2ci86fCrNQ==

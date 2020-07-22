@@ -14,7 +14,7 @@
     "bootstrap": "^4.4.1",
     "codemirror": "5.53.2",
     "jqplot": "^1.0.9",
-    "jquery": "3.5.0",
+    "jquery": "3.5.1",
     "jquery-debounce-throttle": "^1.0.6-rc.0",
     "jquery-fullscreen-plugin": "^1.1.5",
     "jquery-hashchange": "^2.0.0",
