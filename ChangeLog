@@ -87,6 +87,8 @@ phpMyAdmin - ChangeLog
 - issue #16248 Fix javascript error when typing in INT fields on zoom search page
 - issue        Fix type errors when using saved searches
 - issue #16261 Fix missing headings on modals of "User Accounts -> Export"
+- issue #16146 Fixed sorting did not keep the selector of number of rows
+- issue #16194 Fixed SQL query does not appear in case of editing view where definer is not you on MySQL 8
 
 5.0.2 (2020-03-20)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page
