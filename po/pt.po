@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-07-22 21:45+0200\n"
-"PO-Revision-Date: 2020-07-20 20:41+0000\n"
+"PO-Revision-Date: 2020-07-24 20:41+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -4950,10 +4950,8 @@ msgstr "Nenhum"
 
 #. l10n: SQL Query on modal to show exported query
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:199
-#, fuzzy
-#| msgid "SQL query"
 msgid "SQL Query"
-msgstr "Comando SQL"
+msgstr "Consulta SQL"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:200
 msgid "Resume monitor"
@@ -14354,10 +14352,8 @@ msgid "Dump all rows"
 msgstr "Eliminar todas as linhas"
 
 #: templates/display/export/query.twig:8
-#, fuzzy
-#| msgid "Showing SQL query"
 msgid "Show SQL query"
-msgstr "Exibindo consulta SQL"
+msgstr "Exibir consulta SQL"
 
 #: templates/display/export/selection.twig:3
 msgid "Databases:"
