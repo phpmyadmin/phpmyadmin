@@ -26,6 +26,7 @@ class Application extends TwoFactorPlugin
     /** @var string */
     public static $id = 'application';
 
+    /** @var Google2FA */
     protected $_google2fa;
 
     /**

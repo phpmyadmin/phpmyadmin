@@ -15,6 +15,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
  */
 class TablePropertyTest extends AbstractTestCase
 {
+    /** @var TableProperty */
     protected $object;
 
     /**

@@ -43,8 +43,13 @@ use function strlen;
  */
 class HttpRequest
 {
+    /** @var string */
     private $proxyUrl;
+
+    /** @var string */
     private $proxyUser;
+
+    /** @var string */
     private $proxyPass;
 
     public function __construct()

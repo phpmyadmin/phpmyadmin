@@ -15,7 +15,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
  */
 class MemoryTest extends AbstractTestCase
 {
-    /** @access protected */
+    /** @var Memory */
     protected $object;
 
     /**

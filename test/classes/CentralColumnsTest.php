@@ -22,8 +22,10 @@ use function ceil;
  */
 class CentralColumnsTest extends AbstractTestCase
 {
+    /** @var CentralColumns */
     private $centralColumns;
 
+    /** @var array<int, array<string, string|int>> */
     private $columnData = [
         [
             'col_name' => 'id',
@@ -54,6 +56,7 @@ class CentralColumnsTest extends AbstractTestCase
         ],
     ];
 
+    /** @var array<int, array<string, string|int>> */
     private $modifiedColumnData = [
         [
             'col_name' => 'id',

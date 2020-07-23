@@ -28,6 +28,7 @@ use function sprintf;
  */
 class InsertEditTest extends AbstractTestCase
 {
+    /** @var InsertEdit */
     private $insertEdit;
 
     /**

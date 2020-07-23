@@ -14,6 +14,7 @@ use PhpMyAdmin\Index;
  */
 class IndexTest extends AbstractTestCase
 {
+    /** @var array */
     private $_params = [];
 
     /**

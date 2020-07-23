@@ -15,7 +15,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
  */
 class BdbTest extends AbstractTestCase
 {
-    /** @access protected */
+    /** @var Bdb */
     protected $object;
 
     /**

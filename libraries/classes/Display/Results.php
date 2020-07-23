@@ -225,6 +225,8 @@ class Results
      * for some of the system databases.
      * One element of this array represent all relevant columns in all tables in
      * one specific database
+     *
+     * @var array
      */
     public $transformation_info;
 

@@ -36,7 +36,10 @@ class GisVisualization
 {
     /** @var array   Raw data for the visualization */
     private $_data;
+
+    /** @var string */
     private $_modified_sql;
+
     /** @var array   Set of default settings values are here. */
     private $_settings = [
         // Array of colors to be used for GIS visualizations.
@@ -64,6 +67,7 @@ class GisVisualization
         // The height of the GIS visualization.
         'height' => 450,
     ];
+
     /** @var array   Options that the user has specified. */
     private $_userSpecifiedSettings = null;
 

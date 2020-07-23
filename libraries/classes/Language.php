@@ -21,10 +21,19 @@ use function strpos;
  */
 class Language
 {
+    /** @var string */
     protected $code;
+
+    /** @var string */
     protected $name;
+
+    /** @var string */
     protected $native;
+
+    /** @var string */
     protected $regex;
+
+    /** @var string */
     protected $mysql;
 
     /**

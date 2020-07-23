@@ -51,18 +51,13 @@ parameters:
 			path: libraries/classes/CheckUserPrivileges.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$default_source_mtime has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Config.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$set_mtime has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Config.php
-
-		-
 			message: "#^Parameter \\#1 \\$new_error_level of function error_reporting expects int, int\\|null given\\.$#"
 			count: 2
+			path: libraries/classes/Config.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$default_source_mtime \\(int\\) does not accept int\\|false\\.$#"
+			count: 1
 			path: libraries/classes/Config.php
 
 		-
@@ -149,11 +144,6 @@ parameters:
 			message: "#^Offset 'errors' does not exist on array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Config/FormDisplayTemplate.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Config\\\\Forms\\\\BaseFormList\\:\\:\\$all has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Config/Forms/BaseFormList.php
 
 		-
 			message: "#^Cannot call static method getFields\\(\\) on string\\|null\\.$#"
@@ -324,11 +314,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$str of function mb_strtolower expects string, int\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/Status/ProcessesController.php
-
-		-
-			message: "#^Possibly invalid array key type \\(array\\|string\\)\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/Status/QueriesController.php
 
 		-
 			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\|null given\\.$#"
@@ -664,11 +649,6 @@ parameters:
 			message: "#^Parameter \\#7 \\$unlimNumRows of method PhpMyAdmin\\\\Display\\\\Export\\:\\:getHtmlForOptions\\(\\) expects string, int given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Export.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Display\\\\Results\\:\\:\\$transformation_info has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
 
 		-
 			message: "#^Left side of && is always true\\.$#"
@@ -1091,19 +1071,9 @@ parameters:
 			path: libraries/classes/Footer.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:\\$_instance has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisGeometryCollection.php
-
-		-
 			message: "#^Negated boolean expression is always false\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometryCollection.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Gis\\\\GisLineString\\:\\:\\$_instance has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisLineString.php
 
 		-
 			message: "#^Parameter \\#2 \\$red of function imagecolorallocate expects int, float\\|int given\\.$#"
@@ -1131,11 +1101,6 @@ parameters:
 			path: libraries/classes/Gis/GisLineString.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\:\\:\\$_instance has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiLineString.php
-
-		-
 			message: "#^Parameter \\#2 \\$red of function imagecolorallocate expects int, float\\|int given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiLineString.php
@@ -1161,11 +1126,6 @@ parameters:
 			path: libraries/classes/Gis/GisMultiLineString.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\:\\:\\$_instance has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiPoint.php
-
-		-
 			message: "#^Parameter \\#2 \\$red of function imagecolorallocate expects int, float\\|int given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPoint.php
@@ -1189,11 +1149,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\:\\:getPointsArrayForOpenLayers\\(\\) expects string, int given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPoint.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\:\\:\\$_instance has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
 			message: "#^Parameter \\#2 \\$red of function imagecolorallocate expects int, float\\|int given\\.$#"
@@ -1226,11 +1181,6 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Gis\\\\GisPoint\\:\\:\\$_instance has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisPoint.php
-
-		-
 			message: "#^Parameter \\#2 \\$red of function imagecolorallocate expects int, float\\|int given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPoint.php
@@ -1256,11 +1206,6 @@ parameters:
 			path: libraries/classes/Gis/GisPoint.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:\\$_instance has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisPolygon.php
-
-		-
 			message: "#^Parameter \\#2 \\$red of function imagecolorallocate expects int, float\\|int given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPolygon.php
@@ -1284,11 +1229,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getPolygonForOpenLayers\\(\\) expects string, int given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPolygon.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Gis\\\\GisVisualization\\:\\:\\$_modified_sql has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisVisualization.php
 
 		-
 			message: "#^Parameter \\#1 \\$sql_query of class PhpMyAdmin\\\\Gis\\\\GisVisualization constructor expects string, null given\\.$#"
@@ -1401,31 +1341,6 @@ parameters:
 			path: libraries/classes/IpAllowDeny.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Language\\:\\:\\$code has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Language.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Language\\:\\:\\$name has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Language.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Language\\:\\:\\$native has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Language.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Language\\:\\:\\$regex has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Language.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Language\\:\\:\\$mysql has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Language.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Language\\:\\:matchesAcceptLanguage\\(\\) should return bool but returns int\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Language.php
@@ -1434,31 +1349,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Language\\:\\:matchesUserAgent\\(\\) should return bool but returns int\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Language.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\LanguageManager\\:\\:\\$_available_locales has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/LanguageManager.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\LanguageManager\\:\\:\\$_available_languages has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/LanguageManager.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\LanguageManager\\:\\:\\$_lang_failed_cfg has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/LanguageManager.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\LanguageManager\\:\\:\\$_lang_failed_cookie has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/LanguageManager.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\LanguageManager\\:\\:\\$_lang_failed_request has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/LanguageManager.php
 
 		-
 			message: "#^Instanceof between string and PhpMyAdmin\\\\SqlParser\\\\UtfString will always evaluate to false\\.$#"
@@ -1484,11 +1374,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, bool\\|resource given\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/Navigation.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Navigation\\\\NodeFactory\\:\\:\\$namespace has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NodeFactory.php
 
 		-
 			message: "#^Unreachable statement \\- code above always terminates\\.$#"
@@ -1536,24 +1421,9 @@ parameters:
 			path: libraries/classes/Operations.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\OutputBuffering\\:\\:\\$_instance has no typehint specified\\.$#"
+			message: "#^Property PhpMyAdmin\\\\OutputBuffering\\:\\:\\$_content \\(string\\) does not accept string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/OutputBuffering.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\OutputBuffering\\:\\:\\$_content has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/OutputBuffering.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Pdf\\:\\:\\$footerset has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Pdf\\:\\:\\$Alias has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Pdf.php
 
 		-
 			message: "#^Parameter \\#1 \\$str of function mb_substr expects string, string\\|null given\\.$#"
@@ -1569,11 +1439,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Plugins\\:\\:getHtmlForProperty\\(\\) should return string but returns string\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Plugins.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Auth\\\\AuthenticationCookie\\:\\:\\$_cookie_iv has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
 
 		-
 			message: "#^Parameter \\#2 \\$remoteIp of method ReCaptcha\\\\ReCaptcha\\:\\:verify\\(\\) expects string\\|null, bool\\|string given\\.$#"
@@ -1629,11 +1494,6 @@ parameters:
 			message: "#^Strict comparison using \\=\\=\\= between mixed and null will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportHtmlword.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportJson\\:\\:\\$first has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportJson.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportJson\\:\\:encode\\(\\) should return string but returns string\\|false\\.$#"
@@ -1741,124 +1601,9 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportYaml.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$tablewidths has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$headerset has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$dataY has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$cellFontSize has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$titleFontSize has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$titleText has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$dbAlias has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$tableAlias has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$purpose has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$colTitles has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$results has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$colAlign has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$titleWidth has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$colFits has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$display_column has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$numFields has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$fields has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$sColWidth has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$currentDb has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$currentTable has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$aliases has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
 			message: "#^Parameter \\#3 \\$length of function mb_substr expects int\\|null, int\\<1, max\\>\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/Helpers/TableProperty.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\IOTransformationsPlugin\\:\\:\\$success has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/IOTransformationsPlugin.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\IOTransformationsPlugin\\:\\:\\$error has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/IOTransformationsPlugin.php
 
 		-
 			message: "#^Cannot call method addProperty\\(\\) on PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertyMainGroup\\|void\\.$#"
@@ -1986,32 +1731,32 @@ parameters:
 			path: libraries/classes/Plugins/Import/Upload/UploadSession.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\DiaRelationSchema\\:\\:\\$_topMargin has no typehint specified\\.$#"
+			message: "#^Cannot call method startDiaDoc\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\DiaRelationSchema\\:\\:\\$_bottomMargin has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\DiaRelationSchema\\:\\:\\$_leftMargin has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\DiaRelationSchema\\:\\:\\$_rightMargin has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\DiaRelationSchema\\:\\:\\$objectId has no typehint specified\\.$#"
-			count: 1
+			message: "#^Parameter \\#1 \\$diagram of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\TableStatsDia constructor expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null given\\.$#"
+			count: 3
 			path: libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php
 
 		-
 			message: "#^Parameter \\#2 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\DiaRelationSchema\\:\\:addRelation\\(\\) expects string, int\\|string given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php
+
+		-
+			message: "#^Cannot call method endDiaDoc\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php
+
+		-
+			message: "#^Cannot call method showOutput\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php
+
+		-
+			message: "#^Parameter \\#1 \\$diagram of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\RelationStatsDia constructor expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php
 
@@ -2026,87 +1771,102 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\RelationStatsDia\\:\\:\\$diagram has no typehint specified\\.$#"
-			count: 1
+			message: "#^Binary operation \"\\+\" between int\\|string\\|false and 12 results in an error\\.$#"
+			count: 4
 			path: libraries/classes/Plugins/Schema/Dia/RelationStatsDia.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\RelationStatsDia\\:\\:\\$srcConnPointsRight has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Dia/RelationStatsDia.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\RelationStatsDia\\:\\:\\$srcConnPointsLeft has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Dia/RelationStatsDia.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\RelationStatsDia\\:\\:\\$destConnPointsRight has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Dia/RelationStatsDia.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\RelationStatsDia\\:\\:\\$destConnPointsLeft has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Dia/RelationStatsDia.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\RelationStatsDia\\:\\:\\$masterTableId has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Dia/RelationStatsDia.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\RelationStatsDia\\:\\:\\$foreignTableId has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Dia/RelationStatsDia.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\RelationStatsDia\\:\\:\\$masterTablePos has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Dia/RelationStatsDia.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\RelationStatsDia\\:\\:\\$foreignTablePos has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Dia/RelationStatsDia.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\RelationStatsDia\\:\\:\\$referenceColor has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Dia/RelationStatsDia.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\TableStatsDia\\:\\:\\$tableId has no typehint specified\\.$#"
-			count: 1
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:startElement\\(\\)\\.$#"
+			count: 2
 			path: libraries/classes/Plugins/Schema/Dia/TableStatsDia.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\TableStatsDia\\:\\:\\$tableColor has no typehint specified\\.$#"
-			count: 1
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:writeAttribute\\(\\)\\.$#"
+			count: 4
 			path: libraries/classes/Plugins/Schema/Dia/TableStatsDia.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\:\\:\\$font has no typehint specified\\.$#"
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:writeRaw\\(\\)\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Schema/Dia/TableStatsDia.php
+
+		-
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:endElement\\(\\)\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Dia/TableStatsDia.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\:\\:getFontSize\\(\\) should return string but returns int\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Eps/Eps.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\:\\:\\$fontSize has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Eps/Eps.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\:\\:\\$stringCommands has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Eps/Eps.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\EpsRelationSchema\\:\\:\\$_tablewidth has no typehint specified\\.$#"
+			message: "#^Cannot call method setTitle\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
 
 		-
+			message: "#^Cannot call method setAuthor\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
+
+		-
+			message: "#^Cannot call method setDate\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
+
+		-
+			message: "#^Cannot call method setOrientation\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
+
+		-
+			message: "#^Cannot call method setFont\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
+
+		-
+			message: "#^Parameter \\#1 \\$diagram of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\TableStatsEps constructor expects object, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null given\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
+
+		-
+			message: "#^Parameter \\#5 \\$fontSize of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\TableStatsEps constructor expects int, current\\|int\\|string given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
+
+		-
+			message: "#^Cannot call method getFont\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
+
+		-
+			message: "#^Cannot call method getFontSize\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
+
+		-
+			message: "#^Parameter \\#3 \\$fontSize of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\EpsRelationSchema\\:\\:addRelation\\(\\) expects int, current\\|int\\|string given\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
+
+		-
 			message: "#^Parameter \\#4 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\EpsRelationSchema\\:\\:addRelation\\(\\) expects string, int\\|string given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
+
+		-
+			message: "#^Cannot call method endEpsDoc\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
+
+		-
+			message: "#^Cannot call method showOutput\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
+
+		-
+			message: "#^Parameter \\#1 \\$diagram of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\RelationStatsEps constructor expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
 
@@ -2121,14 +1881,9 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\TableStatsEps\\:\\:\\$height has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\TableStatsEps\\:\\:\\$currentCell has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php
+			message: "#^Call to an undefined method object\\:\\:line\\(\\)\\.$#"
+			count: 7
+			path: libraries/classes/Plugins/Schema/Eps/RelationStatsEps.php
 
 		-
 			message: "#^Parameter \\#1 \\$diagram of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:__construct\\(\\) expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg, object given\\.$#"
@@ -2136,178 +1891,73 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\ExportRelationSchema\\:\\:\\$db has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/ExportRelationSchema.php
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:rect\\(\\)\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\ExportRelationSchema\\:\\:\\$diagram has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/ExportRelationSchema.php
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:showXY\\(\\)\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\ExportRelationSchema\\:\\:\\$showColor has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/ExportRelationSchema.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\ExportRelationSchema\\:\\:\\$tableDimension has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/ExportRelationSchema.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\ExportRelationSchema\\:\\:\\$sameWide has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/ExportRelationSchema.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\ExportRelationSchema\\:\\:\\$showKeys has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/ExportRelationSchema.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\ExportRelationSchema\\:\\:\\$orientation has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/ExportRelationSchema.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\ExportRelationSchema\\:\\:\\$paper has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/ExportRelationSchema.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\ExportRelationSchema\\:\\:\\$pageNumber has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/ExportRelationSchema.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\ExportRelationSchema\\:\\:\\$offline has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/ExportRelationSchema.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:\\$_xMin has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:\\$_yMin has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:\\$leftMargin has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:\\$topMargin has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:\\$scale has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:\\$PMA_links has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:\\$Outlines has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:\\$def_outlines has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:\\$widths has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:\\$cMargin has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:\\$_ff has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:\\$_offline has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:\\$_showGrid has no typehint specified\\.$#"
+			message: "#^Cannot call method SetTitle\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:\\$_withDoc has no typehint specified\\.$#"
+			message: "#^Cannot call method setCMargin\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Cannot call method Open\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:\\$_tableOrder has no typehint specified\\.$#"
+			message: "#^Cannot call method SetAutoPageBreak\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 4
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Cannot call method setOffline\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:\\$_ff has no typehint specified\\.$#"
-			count: 1
+			message: "#^Cannot call method AddPage\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 3
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:\\$_xMax has no typehint specified\\.$#"
-			count: 1
+			message: "#^Cannot access property \\$PMA_links on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 15
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:\\$_yMax has no typehint specified\\.$#"
-			count: 1
+			message: "#^Cannot call method SetLink\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 3
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:\\$_xMin has no typehint specified\\.$#"
-			count: 1
+			message: "#^Cannot call method Bookmark\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 3
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:\\$_yMin has no typehint specified\\.$#"
-			count: 1
+			message: "#^Cannot call method PageNo\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 2
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:\\$_topMargin has no typehint specified\\.$#"
-			count: 1
+			message: "#^Cannot call method setAlias\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 2
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:\\$_bottomMargin has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:\\$_leftMargin has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:\\$_rightMargin has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:\\$_tablewidth has no typehint specified\\.$#"
-			count: 1
+			message: "#^Parameter \\#1 \\$diagram of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\TableStatsPdf constructor expects object, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null given\\.$#"
+			count: 3
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
@@ -2316,7 +1966,47 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
+			message: "#^Cannot call method getPageWidth\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Cannot call method getPageHeight\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Cannot call method setScale\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Cannot call method setLineWidthScale\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Cannot call method SetFontSize\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Cannot call method setFontSizeScale\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
 			message: "#^Parameter \\#2 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:addRelation\\(\\) expects string, int\\|string given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Cannot call method download\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Parameter \\#1 \\$diagram of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\RelationStatsPdf constructor expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
@@ -2331,24 +2021,79 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
+			message: "#^Cannot call method SetMargins\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Cannot call method SetDrawColor\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Cannot call method line\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Cannot call method SetXY\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Cannot call method Cell\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 31
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
 			message: "#^Parameter \\#1 \\$fontSize of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\TableStatsPdf\\:\\:tableDraw\\(\\) expects int, null given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\TableStatsPdf\\:\\:\\$nb_fiels has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
+			message: "#^Cannot call method Ln\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\TableStatsPdf\\:\\:\\$height has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
+			message: "#^Cannot call method AddLink\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 5
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\TableStatsPdf\\:\\:\\$_ff has no typehint specified\\.$#"
+			message: "#^Cannot call method SetX\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 5
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Cannot call method SetFont\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 5
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Cannot call method setWidths\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Cannot call method row\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
 			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:SetDrawColor\\(\\)\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Schema/Pdf/RelationStatsPdf.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:setLineWidthScale\\(\\)\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Pdf/RelationStatsPdf.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:lineScale\\(\\)\\.$#"
+			count: 7
+			path: libraries/classes/Plugins/Schema/Pdf/RelationStatsPdf.php
 
 		-
 			message: "#^Parameter \\#1 \\$diagram of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:__construct\\(\\) expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg, object given\\.$#"
@@ -2356,44 +2101,49 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\RelationStats\\:\\:\\$diagram has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/RelationStats.php
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:GetStringWidth\\(\\)\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\RelationStats\\:\\:\\$xSrc has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/RelationStats.php
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:SetFont\\(\\)\\.$#"
+			count: 4
+			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\RelationStats\\:\\:\\$ySrc has no typehint specified\\.$#"
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:setXyScale\\(\\)\\.$#"
 			count: 1
-			path: libraries/classes/Plugins/Schema/RelationStats.php
+			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\RelationStats\\:\\:\\$srcDir has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/RelationStats.php
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:SetTextColor\\(\\)\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\RelationStats\\:\\:\\$destDir has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/RelationStats.php
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:SetFillColor\\(\\)\\.$#"
+			count: 5
+			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\RelationStats\\:\\:\\$xDest has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/RelationStats.php
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:SetLink\\(\\)\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\RelationStats\\:\\:\\$yDest has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/RelationStats.php
+			message: "#^Access to an undefined property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:\\$PMA_links\\.$#"
+			count: 6
+			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\RelationStats\\:\\:\\$wTick has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/RelationStats.php
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:cellScale\\(\\)\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
+
+		-
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:setXScale\\(\\)\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
 
 		-
 			message: "#^Parameter \\#1 \\$table of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\RelationStats\\:\\:getXy\\(\\) expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats, string given\\.$#"
@@ -2401,24 +2151,9 @@ parameters:
 			path: libraries/classes/Plugins/Schema/RelationStats.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:\\$title has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Svg/Svg.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:\\$author has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Svg/Svg.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:\\$font has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Svg/Svg.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:\\$fontSize has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Svg/Svg.php
+			message: "#^Call to an undefined method object\\:\\:printElementLine\\(\\)\\.$#"
+			count: 7
+			path: libraries/classes/Plugins/Schema/Svg/RelationStatsSvg.php
 
 		-
 			message: "#^Parameter \\#2 \\$value of method XMLWriter\\:\\:writeAttribute\\(\\) expects string, int given\\.$#"
@@ -2426,28 +2161,43 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Svg/Svg.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:\\$_xMax has no typehint specified\\.$#"
+			message: "#^Cannot call method setTitle\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:\\$_yMax has no typehint specified\\.$#"
+			message: "#^Cannot call method SetAuthor\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:\\$_xMin has no typehint specified\\.$#"
+			message: "#^Cannot call method setFont\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:\\$_yMin has no typehint specified\\.$#"
+			message: "#^Cannot call method setFontSize\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:\\$_tablewidth has no typehint specified\\.$#"
+			message: "#^Parameter \\#1 \\$diagram of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\TableStatsSvg constructor expects object, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null given\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
+
+		-
+			message: "#^Parameter \\#5 \\$fontSize of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\TableStatsSvg constructor expects int, current\\|int\\|string given\\.$#"
 			count: 1
+			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
+
+		-
+			message: "#^Cannot call method getFont\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
+
+		-
+			message: "#^Cannot call method getFontSize\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 3
 			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
 
 		-
@@ -2456,7 +2206,32 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
 
 		-
+			message: "#^Cannot call method startSvgDoc\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
+
+		-
+			message: "#^Parameter \\#3 \\$fontSize of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:addRelation\\(\\) expects int, current\\|int\\|string given\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
+
+		-
 			message: "#^Parameter \\#4 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:addRelation\\(\\) expects string, int\\|string given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
+
+		-
+			message: "#^Cannot call method endSvgDoc\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
+
+		-
+			message: "#^Cannot call method showOutput\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
+
+		-
+			message: "#^Parameter \\#1 \\$diagram of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\RelationStatsSvg constructor expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
 
@@ -2471,87 +2246,22 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\TableStatsSvg\\:\\:\\$height has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Svg/TableStatsSvg.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\TableStatsSvg\\:\\:\\$currentCell has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Svg/TableStatsSvg.php
-
-		-
 			message: "#^Parameter \\#1 \\$diagram of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:__construct\\(\\) expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg, object given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Svg/TableStatsSvg.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$diagram has no typehint specified\\.$#"
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:printElement\\(\\)\\.$#"
+			count: 4
+			path: libraries/classes/Plugins/Schema/Svg/TableStatsSvg.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$x \\(int\\) does not accept float\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/TableStats.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$db has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/TableStats.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$pageNumber has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/TableStats.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$tableName has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/TableStats.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$showKeys has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/TableStats.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$tableDimension has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/TableStats.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$displayfield has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/TableStats.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$fields has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/TableStats.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$primary has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/TableStats.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$x has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/TableStats.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$y has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/TableStats.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$width has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/TableStats.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$heightCell has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/TableStats.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$offline has no typehint specified\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$y \\(int\\) does not accept float\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/TableStats.php
 
@@ -2576,19 +2286,9 @@ parameters:
 			path: libraries/classes/Plugins/Transformations/Output/Text_Plain_Binarytoip.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\TwoFactor\\\\Application\\:\\:\\$_google2fa has no typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Plugins\\\\TwoFactor\\\\Application\\:\\:check\\(\\) should return bool but returns bool\\|int\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/TwoFactor/Application.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\TwoFactor\\\\Invalid\\:\\:\\$showSubmit has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/TwoFactor/Invalid.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\TwoFactorPlugin\\:\\:\\$showSubmit has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/TwoFactorPlugin.php
 
 		-
 			message: "#^Return type \\(bool\\) of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyOneItem\\:\\:getForce\\(\\) should be compatible with return type \\(string\\) of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem\\:\\:getForce\\(\\)$#"
@@ -2839,61 +2539,6 @@ parameters:
 			message: "#^Offset 'password' does not exist on array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$status has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Server/Status/Data.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$sections has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Server/Status/Data.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$variables has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Server/Status/Data.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$used_queries has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Server/Status/Data.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$allocationMap has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Server/Status/Data.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$links has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Server/Status/Data.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$db_isLocal has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Server/Status/Data.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$section has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Server/Status/Data.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$sectionUsed has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Server/Status/Data.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$selfUrl has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Server/Status/Data.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$dataLoaded has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Server/Status/Data.php
 
 		-
 			message: "#^Parameter \\#3 \\$length of function mb_substr expects int\\|null, int\\|false given\\.$#"
@@ -3271,21 +2916,6 @@ parameters:
 			path: libraries/classes/Util.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Utils\\\\HttpRequest\\:\\:\\$proxyUrl has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Utils/HttpRequest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Utils\\\\HttpRequest\\:\\:\\$proxyUser has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Utils/HttpRequest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Utils\\\\HttpRequest\\:\\:\\$proxyPass has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Utils/HttpRequest.php
-
-		-
 			message: "#^Variable \\$http_response_header in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Utils/HttpRequest.php
@@ -3351,26 +2981,6 @@ parameters:
 			path: test/classes/BookmarkTest.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\BrowseForeignersTest\\:\\:\\$browseForeigners has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/BrowseForeignersTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\CentralColumnsTest\\:\\:\\$centralColumns has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/CentralColumnsTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\CentralColumnsTest\\:\\:\\$columnData has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/CentralColumnsTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\CentralColumnsTest\\:\\:\\$modifiedColumnData has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/CentralColumnsTest.php
-
-		-
 			message: "#^Empty array passed to foreach\\.$#"
 			count: 1
 			path: test/classes/Config/DescriptionTest.php
@@ -3401,29 +3011,9 @@ parameters:
 			path: test/classes/CoreTest.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Database\\\\QbeTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Database/QbeTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Database\\\\SearchTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Database/SearchTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:numRows\\(\\) expects mysqli_result, false given\\.$#"
 			count: 1
 			path: test/classes/Dbal/DbiMysqliTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Display\\\\ExportTest\\:\\:\\$export has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Display/ExportTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Display\\\\ResultsTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Display/ResultsTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$fp of function fwrite expects resource, resource\\|false given\\.$#"
@@ -3436,59 +3026,9 @@ parameters:
 			path: test/classes/EncodingTest.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Engines\\\\BdbTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Engines/BdbTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Engines\\\\BinlogTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Engines/BinlogTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Engines\\\\InnodbTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Engines/InnodbTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Engines\\\\MemoryTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Engines/MemoryTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Engines\\\\MrgMyisamTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Engines/MrgMyisamTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Engines\\\\MyisamTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Engines/MyisamTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Engines\\\\NdbclusterTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Engines/NdbclusterTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Engines\\\\PbxtTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Engines/PbxtTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\ErrorHandlerTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/ErrorHandlerTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$data of function bin2hex expects string, string\\|false given\\.$#"
 			count: 1
 			path: test/classes/FileTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\FooterTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/FooterTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$expected of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) expects class\\-string\\<object\\>, string given\\.$#"
@@ -3501,19 +3041,19 @@ parameters:
 			path: test/classes/Gis/GisFactoryTest.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeomTestCase\\:\\:\\$object has no typehint specified\\.$#"
+			message: "#^Call to an undefined method object\\:\\:generateParams\\(\\)\\.$#"
+			count: 2
+			path: test/classes/Gis/GisGeomTestCase.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:scaleRow\\(\\)\\.$#"
 			count: 1
 			path: test/classes/Gis/GisGeomTestCase.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryCollectionTest\\:\\:\\$object has no typehint specified\\.$#"
+			message: "#^Parameter \\#3 \\$empty of method PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:generateWkt\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: test/classes/Gis/GisGeometryCollectionTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Gis/GisGeometryTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$point of method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:isPointInsidePolygon\\(\\) expects array, array\\|false given\\.$#"
@@ -3541,12 +3081,12 @@ parameters:
 			path: test/classes/ImportTest.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\IndexTest\\:\\:\\$_params has no typehint specified\\.$#"
+			message: "#^Parameter \\#11 \\$key of method PhpMyAdmin\\\\InsertEdit\\:\\:getQueryValuesForInsertAndUpdateInMultipleEdit\\(\\) expects string, int given\\.$#"
 			count: 1
-			path: test/classes/IndexTest.php
+			path: test/classes/InsertEditTest.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\InsertEditTest\\:\\:\\$insertEdit has no typehint specified\\.$#"
+			message: "#^Parameter \\#1 \\$where_clause of method PhpMyAdmin\\\\InsertEdit\\:\\:determineInsertOrEdit\\(\\) expects string, null given\\.$#"
 			count: 1
 			path: test/classes/InsertEditTest.php
 
@@ -3576,16 +3116,6 @@ parameters:
 			path: test/classes/Navigation/Nodes/NodeColumnTest.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\NormalizationTest\\:\\:\\$normalization has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/NormalizationTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Auth\\\\AuthenticationConfigTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Auth/AuthenticationConfigTest.php
-
-		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
 			count: 4
 			path: test/classes/Plugins/Auth/AuthenticationConfigTest.php
@@ -3606,11 +3136,6 @@ parameters:
 			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Auth\\\\AuthenticationSignonTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
-
-		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
 			count: 1
 			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
@@ -3626,34 +3151,9 @@ parameters:
 			path: test/classes/Plugins/Export/ExportCodegenTest.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Export\\\\ExportCsvTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportCsvTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Export\\\\ExportExcelTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportExcelTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Export\\\\ExportHtmlwordTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportHtmlwordTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars_decode expects string, string\\|false given\\.$#"
 			count: 1
 			path: test/classes/Plugins/Export/ExportHtmlwordTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Export\\\\ExportJsonTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportJsonTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Export\\\\ExportLatexTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportLatexTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
@@ -3661,39 +3161,9 @@ parameters:
 			path: test/classes/Plugins/Export/ExportLatexTest.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Export\\\\ExportMediawikiTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportMediawikiTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Export\\\\ExportOdsTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportOdsTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Export\\\\ExportOdtTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportOdtTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Export\\\\ExportPdfTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportPdfTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Export\\\\ExportPhparrayTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportPhparrayTest.php
-
-		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
 			count: 3
 			path: test/classes/Plugins/Export/ExportPhparrayTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Export\\\\ExportSqlTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportSqlTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
@@ -3701,19 +3171,9 @@ parameters:
 			path: test/classes/Plugins/Export/ExportSqlTest.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Export\\\\ExportTexytextTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportTexytextTest.php
-
-		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
 			count: 3
 			path: test/classes/Plugins/Export/ExportTexytextTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Export\\\\ExportXmlTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportXmlTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
@@ -3721,79 +3181,44 @@ parameters:
 			path: test/classes/Plugins/Export/ExportXmlTest.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Export\\\\ExportYamlTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportYamlTest.php
-
-		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
 			count: 1
 			path: test/classes/Plugins/Export/ExportYamlTest.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Export\\\\Helpers\\\\TablePropertyTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/Helpers/TablePropertyTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Schema\\\\DiaRelationSchemaTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Schema/DiaRelationSchemaTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Schema\\\\EpsRelationSchemaTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Schema/EpsRelationSchemaTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Schema\\\\ExportRelationSchemaTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Schema/ExportRelationSchemaTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Schema\\\\PdfRelationSchemaTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Schema/PdfRelationSchemaTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Schema\\\\SvgRelationSchemaTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Schema/SvgRelationSchemaTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertyMainGroupTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Properties/Options/Groups/OptionsPropertyMainGroupTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertyRootGroupTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Properties/Options/Groups/OptionsPropertyRootGroupTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroupTest\\:\\:\\$object has no typehint specified\\.$#"
+			message: "#^Parameter \\#1 \\$subgroupHeader of method PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\:\\:setSubgroupHeader\\(\\) expects PhpMyAdmin\\\\Properties\\\\PropertyItem, string given\\.$#"
 			count: 1
 			path: test/classes/Properties/Options/Groups/OptionsPropertySubgroupTest.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Properties\\\\Options\\\\OptionsPropertyGroupTest\\:\\:\\$stub has no typehint specified\\.$#"
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNull\\(\\) with void will always evaluate to false\\.$#"
 			count: 1
 			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Properties\\\\Options\\\\OptionsPropertyItemTest\\:\\:\\$stub has no typehint specified\\.$#"
+			message: "#^Parameter \\#1 \\$property of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup\\:\\:addProperty\\(\\) expects PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem, int given\\.$#"
 			count: 1
-			path: test/classes/Properties/Options/OptionsPropertyItemTest.php
+			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Properties\\\\Options\\\\OptionsPropertyOneItemTest\\:\\:\\$stub has no typehint specified\\.$#"
+			message: "#^Result of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup\\:\\:addProperty\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$property of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup\\:\\:addProperty\\(\\) expects PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem, string given\\.$#"
+			count: 1
+			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$property of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup\\:\\:removeProperty\\(\\) expects PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem, string given\\.$#"
+			count: 1
+			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$force of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyOneItem\\:\\:setForce\\(\\) expects bool, string given\\.$#"
 			count: 1
 			path: test/classes/Properties/Options/OptionsPropertyOneItemTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Properties\\\\PropertyItemTest\\:\\:\\$stub has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Properties/PropertyItemTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$needle of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, bool\\|string given\\.$#"

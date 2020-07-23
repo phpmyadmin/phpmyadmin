@@ -9,12 +9,14 @@ namespace PhpMyAdmin\Tests\Properties\Options;
 
 use PhpMyAdmin\Properties\Options\OptionsPropertyOneItem;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * Tests for PhpMyAdmin\Properties\Options\OptionsPropertyOneItem class
  */
 class OptionsPropertyOneItemTest extends AbstractTestCase
 {
+    /** @var OptionsPropertyOneItem|MockObject  */
     protected $stub;
 
     /**

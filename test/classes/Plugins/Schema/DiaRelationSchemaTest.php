@@ -19,7 +19,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
  */
 class DiaRelationSchemaTest extends AbstractTestCase
 {
-    /** @access protected */
+    /** @var DiaRelationSchema */
     protected $object;
 
     /**

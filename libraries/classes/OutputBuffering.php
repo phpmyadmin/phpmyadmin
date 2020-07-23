@@ -26,8 +26,13 @@ use function register_shutdown_function;
  */
 class OutputBuffering
 {
+    /** @var self */
     private static $_instance;
+
+    /** @var int */
     private $_mode;
+
+    /** @var string */
     private $_content;
 
     /** @var bool */

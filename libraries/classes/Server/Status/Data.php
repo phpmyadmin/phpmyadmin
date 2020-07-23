@@ -25,16 +25,37 @@ use function mb_strtolower;
  */
 class Data
 {
+    /** @var array */
     public $status;
+
+    /** @var array */
     public $sections;
+
+    /** @var array */
     public $variables;
+
+    /** @var array */
     public $used_queries;
+
+    /** @var array */
     public $allocationMap;
+
+    /** @var array */
     public $links;
+
+    /** @var bool */
     public $db_isLocal;
+
+    /** @var mixed */
     public $section;
+
+    /** @var array */
     public $sectionUsed;
+
+    /** @var string */
     public $selfUrl;
+
+    /** @var bool */
     public $dataLoaded;
 
     /**

@@ -11,9 +11,16 @@ use PhpMyAdmin\Util;
  */
 class DesignerTable
 {
+    /** @var string */
     private $tableName;
+
+    /** @var string */
     private $databaseName;
+
+    /** @var string */
     private $tableEngine;
+
+    /** @var string|null */
     private $displayField;
 
     /**

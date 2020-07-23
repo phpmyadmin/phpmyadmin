@@ -34,12 +34,23 @@ class SvgRelationSchema extends ExportRelationSchema
 {
     /** @var TableStatsDia[]|TableStatsEps[]|TableStatsPdf[]|TableStatsSvg[] */
     private $_tables = [];
+
     /** @var RelationStatsSvg[] Relations */
     private $_relations = [];
+
+    /** @var int */
     private $_xMax = 0;
+
+    /** @var int */
     private $_yMax = 0;
+
+    /** @var int */
     private $_xMin = 100000;
+
+    /** @var int */
     private $_yMin = 100000;
+
+    /** @var int */
     private $_tablewidth;
 
     /**

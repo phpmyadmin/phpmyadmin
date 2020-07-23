@@ -31,12 +31,23 @@ class DiaRelationSchema extends ExportRelationSchema
 {
     /** @var TableStatsDia[]|TableStatsEps[]|TableStatsPdf[]|TableStatsSvg[] */
     private $_tables = [];
+
     /** @var RelationStatsDia[] Relations */
     private $_relations = [];
+
+    /** @var float */
     private $_topMargin = 2.8222000598907471;
+
+    /** @var float */
     private $_bottomMargin = 2.8222000598907471;
+
+    /** @var float */
     private $_leftMargin = 2.8222000598907471;
+
+    /** @var float */
     private $_rightMargin = 2.8222000598907471;
+
+    /** @var int */
     public static $objectId = 0;
 
     /**

@@ -30,6 +30,7 @@ use function ob_start;
  */
 class ExportTexytextTest extends AbstractTestCase
 {
+    /** @var ExportTexytext */
     protected $object;
 
     /**

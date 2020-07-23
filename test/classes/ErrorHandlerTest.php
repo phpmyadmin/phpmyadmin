@@ -18,7 +18,7 @@ use const E_WARNING;
  */
 class ErrorHandlerTest extends AbstractTestCase
 {
-    /** @access protected */
+    /** @var ErrorHandler */
     protected $object;
 
     /**

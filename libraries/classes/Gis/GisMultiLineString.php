@@ -24,7 +24,7 @@ use function trim;
  */
 class GisMultiLineString extends GisGeometry
 {
-    // Hold the singleton instance of the class
+    /** @var self */
     private static $_instance;
 
     /**

@@ -29,6 +29,7 @@ use function ob_start;
  */
 class ExportXmlTest extends AbstractTestCase
 {
+    /** @var ExportXml */
     protected $object;
 
     /**

@@ -13,9 +13,18 @@ namespace PhpMyAdmin\Plugins;
  */
 abstract class IOTransformationsPlugin extends TransformationsPlugin
 {
-    // specifies whether transformation was successful or not
+    /**
+     * Specifies whether transformation was successful or not.
+     *
+     * @var bool
+     */
     protected $success = true;
-    // to store the error message in case of failed transformations
+
+    /**
+     * To store the error message in case of failed transformations.
+     *
+     * @var string
+     */
     protected $error = '';
 
     /**

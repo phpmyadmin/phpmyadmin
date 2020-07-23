@@ -47,23 +47,49 @@ if (getcwd() == __DIR__) {
  */
 class Pdf extends PdfLib
 {
-    /**
-     * Defines properties
-     */
+    /** @var int|float */
     public $_xMin;
+
+    /** @var int|float */
     public $_yMin;
+
+    /** @var int|float */
     public $leftMargin = 10;
+
+    /** @var int|float */
     public $topMargin = 10;
+
+    /** @var int|float */
     public $scale;
+
+    /** @var array */
     public $PMA_links;
+
+    /** @var array */
     public $Outlines = [];
+
+    /** @var mixed */
     public $def_outlines;
+
+    /** @var array */
     public $widths;
+
+    /** @var float */
     public $cMargin;
+
+    /** @var string */
     private $_ff = PdfLib::PMA_PDF_FONT;
+
+    /** @var string */
     private $_offline;
+
+    /** @var int */
     private $_pageNumber;
+
+    /** @var bool */
     private $_withDoc;
+
+    /** @var string */
     private $_db;
 
     /** @var Relation */

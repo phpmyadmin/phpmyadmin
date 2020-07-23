@@ -27,6 +27,7 @@ use function ob_start;
  */
 class ExportYamlTest extends AbstractTestCase
 {
+    /** @var ExportYaml */
     protected $object;
 
     /**

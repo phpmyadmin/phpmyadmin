@@ -55,25 +55,49 @@ if (getcwd() == __DIR__) {
  */
 class PdfRelationSchema extends ExportRelationSchema
 {
-    /**
-     * Defines properties
-     */
+    /** @var bool */
     private $_showGrid;
+
+    /** @var bool */
     private $_withDoc;
+
+    /** @var string */
     private $_tableOrder;
 
     /** @var TableStatsPdf[] */
     private $_tables = [];
+
+    /** @var string */
     private $_ff = PdfLib::PMA_PDF_FONT;
+
+    /** @var int */
     private $_xMax = 0;
+
+    /** @var int */
     private $_yMax = 0;
+
+    /** @var float|int */
     private $_scale;
+
+    /** @var int */
     private $_xMin = 100000;
+
+    /** @var int */
     private $_yMin = 100000;
+
+    /** @var int */
     private $_topMargin = 10;
+
+    /** @var int */
     private $_bottomMargin = 10;
+
+    /** @var int */
     private $_leftMargin = 10;
+
+    /** @var int */
     private $_rightMargin = 10;
+
+    /** @var int */
     private $_tablewidth;
 
     /** @var RelationStatsPdf[] */

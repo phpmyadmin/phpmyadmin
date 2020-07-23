@@ -90,7 +90,11 @@ class Config
 
     /** @var int     source modification time */
     public $source_mtime = 0;
+
+    /** @var int */
     public $default_source_mtime = 0;
+
+    /** @var int */
     public $set_mtime = 0;
 
     /** @var bool */

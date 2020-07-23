@@ -30,6 +30,8 @@ class TwoFactorPlugin
 
     /**
      * Whether to show submit button in form
+     *
+     * @var bool
      */
     public static $showSubmit = true;
 

@@ -9,12 +9,14 @@ namespace PhpMyAdmin\Tests\Properties;
 
 use PhpMyAdmin\Properties\PropertyItem;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * Tests for PhpMyAdmin\Properties\PropertyItem class
  */
 class PropertyItemTest extends AbstractTestCase
 {
+    /** @var PropertyItem|MockObject */
     protected $stub;
 
     /**

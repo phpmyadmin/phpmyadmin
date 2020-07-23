@@ -26,6 +26,7 @@ use function array_shift;
  */
 class ExportJsonTest extends AbstractTestCase
 {
+    /** @var ExportJson */
     protected $object;
 
     /**

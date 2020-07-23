@@ -19,6 +19,7 @@ use function ob_start;
  */
 class AuthenticationConfigTest extends AbstractTestCase
 {
+    /** @var AuthenticationConfig */
     protected $object;
 
     /**

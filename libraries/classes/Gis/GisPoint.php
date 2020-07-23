@@ -22,7 +22,7 @@ use function trim;
  */
 class GisPoint extends GisGeometry
 {
-    // Hold the singleton instance of the class
+    /** @var self */
     private static $_instance;
 
     /**

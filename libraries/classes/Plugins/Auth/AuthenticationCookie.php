@@ -55,11 +55,15 @@ class AuthenticationCookie extends AuthenticationPlugin
 {
     /**
      * IV for encryption
+     *
+     * @var string|null
      */
     private $_cookie_iv = null;
 
     /**
      * Whether to use OpenSSL directly
+     *
+     * @var bool
      */
     private $_use_openssl;
 

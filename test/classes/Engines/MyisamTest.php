@@ -15,7 +15,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
  */
 class MyisamTest extends AbstractTestCase
 {
-    /** @access protected */
+    /** @var Myisam */
     protected $object;
 
     /**

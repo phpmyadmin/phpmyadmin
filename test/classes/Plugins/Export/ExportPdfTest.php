@@ -26,6 +26,7 @@ use function array_shift;
  */
 class ExportPdfTest extends AbstractTestCase
 {
+    /** @var ExportPdf */
     protected $object;
 
     /**

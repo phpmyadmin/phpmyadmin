@@ -28,7 +28,7 @@ use function ucfirst;
 class LanguageManager
 {
     /**
-     * @var array Definition data for languages
+     * Definition data for languages
      *
      * Each member contains:
      * - Language code
@@ -36,6 +36,8 @@ class LanguageManager
      * - Native language name
      * - Match regular expression
      * - MySQL locale
+     *
+     * @var array
      */
     private static $_language_data = [
         'af' => [
@@ -679,11 +681,20 @@ class LanguageManager
         ],
     ];
 
+    /** @var array */
     private $_available_locales;
+
+    /** @var array */
     private $_available_languages;
-    private $_lang_failed_cfg;
-    private $_lang_failed_cookie;
-    private $_lang_failed_request;
+
+    /** @var bool */
+    private $_lang_failed_cfg = false;
+
+    /** @var bool */
+    private $_lang_failed_cookie = false;
+
+    /** @var bool */
+    private $_lang_failed_request = false;
 
     /** @var LanguageManager */
     private static $instance;

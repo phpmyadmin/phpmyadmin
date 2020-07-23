@@ -23,6 +23,7 @@ use function json_encode;
  */
 class NormalizationTest extends AbstractTestCase
 {
+    /** @var Normalization */
     private $normalization;
 
     /**

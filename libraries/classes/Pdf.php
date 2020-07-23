@@ -19,7 +19,10 @@ use function strtr;
  */
 class Pdf extends TCPDF
 {
+    /** @var array */
     public $footerset;
+
+    /** @var array */
     public $Alias = [];
 
     /**

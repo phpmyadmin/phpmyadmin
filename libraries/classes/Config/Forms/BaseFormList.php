@@ -15,6 +15,8 @@ class BaseFormList
 {
     /**
      * List of all forms
+     *
+     * @var array
      */
     protected static $all = [];
 

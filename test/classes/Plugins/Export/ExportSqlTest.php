@@ -35,6 +35,7 @@ use function ob_start;
  */
 class ExportSqlTest extends AbstractTestCase
 {
+    /** @var ExportSql */
     protected $object;
 
     /**

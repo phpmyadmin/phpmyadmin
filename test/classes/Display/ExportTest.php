@@ -22,6 +22,7 @@ use function htmlspecialchars;
  */
 class ExportTest extends AbstractTestCase
 {
+    /** @var Export */
     private $export;
 
     /**

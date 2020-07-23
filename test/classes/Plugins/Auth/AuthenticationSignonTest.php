@@ -23,6 +23,7 @@ use function version_compare;
  */
 class AuthenticationSignonTest extends AbstractNetworkTestCase
 {
+    /** @var AuthenticationSignon */
     protected $object;
 
     /**

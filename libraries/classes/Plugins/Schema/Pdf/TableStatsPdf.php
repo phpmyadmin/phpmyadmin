@@ -27,11 +27,13 @@ use function sprintf;
  */
 class TableStatsPdf extends TableStats
 {
-    /**
-     * Defines properties
-     */
+    /** @var mixed */
     public $nb_fiels;
+
+    /** @var int */
     public $height;
+
+    /** @var string */
     private $_ff = PdfLib::PMA_PDF_FONT;
 
     /**

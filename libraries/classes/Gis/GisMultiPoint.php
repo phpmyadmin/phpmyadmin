@@ -23,7 +23,7 @@ use function trim;
  */
 class GisMultiPoint extends GisGeometry
 {
-    // Hold the singleton instance of the class
+    /** @var self */
     private static $_instance;
 
     /**
