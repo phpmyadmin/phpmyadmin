@@ -976,7 +976,6 @@ class SearchController extends AbstractController
             );
             $html_attributes = 'data-min="' . $min_max_values[0] . '" '
                             . 'data-max="' . $min_max_values[1] . '"';
-            $type = 'INT';
         }
 
         $searchFormId = $this->_searchType === 'zoom' ? '#zoom_search_form' : '#tbl_search_form';
@@ -986,6 +985,7 @@ class SearchController extends AbstractController
         $value = $this->template->render('table/search/input_box', [
             'str' => '',
             'column_type' => (string) $type,
+            'column_data_type' => strtoupper($cleanType),
             'html_attributes' => $html_attributes,
             'column_id' => 'fieldID_',
             'in_zoom_search_edit' => false,
