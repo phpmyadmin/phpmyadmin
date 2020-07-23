@@ -16,14 +16,35 @@
     <exclude-pattern>*/twig-templates/*</exclude-pattern>
     <exclude-pattern>*/vendor/*</exclude-pattern>
 
-    <rule ref="PhpMyAdmin">
-        <!-- Rules that should be followed, but are not required -->
-        <exclude name="PSR2.Classes.PropertyDeclaration.Underscore"/>
-        <exclude name="SlevomatCodingStandard.Operators.DisallowEqualOperators"/>
-        <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint"/>
-        <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint"/>
-        <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversableParameterTypeHintSpecification"/>
-        <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversablePropertyTypeHintSpecification"/>
-        <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversableReturnTypeHintSpecification"/>
+    <rule ref="PhpMyAdmin"/>
+
+    <rule ref="SlevomatCodingStandard.TypeHints.TypeHintDeclaration">
+        <properties>
+            <!-- Require PHP 7.2 -->
+            <property name="enableObjectTypeHint" value="false"/>
+        </properties>
+    </rule>
+
+    <!-- Rules that should be followed, but are not required -->
+    <rule ref="PSR2.Classes.PropertyDeclaration.Underscore">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Operators.DisallowEqualOperators">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversableParameterTypeHintSpecification">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversablePropertyTypeHintSpecification">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversableReturnTypeHintSpecification">
+        <severity>4</severity>
     </rule>
 </ruleset>
