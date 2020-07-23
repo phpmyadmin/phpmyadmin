@@ -13,6 +13,9 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statements\CreateStatement;
+use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
@@ -226,20 +229,13 @@ if (isset($_GET['db']) && isset($_GET['table'])) {
     $view['with'] = $item['CHECK_OPTION'];
     $view['algorithm'] = $item['ALGORITHM'];
 
-    // [user]@[host]
-    $definerParts = explode("@", $view['definer'], 2);
-
-    if (count($definerParts) == 2) {
-        // Get AS part from CREATE VIEW query
-        $asSelectPosition = strpos(strtolower($view['as']), "as select");
-
-        // +3 to skip AS<space> and start from select
-        $view['as'] = substr($view['as'], $asSelectPosition + 3);
-
-        // Remove CHECK OPTIONS at the end
-        $checkOptionsRegex = "/WITH (CASCADED|LOCAL) CHECK OPTION/";
-
-        $view['as'] = preg_replace($checkOptionsRegex, "", $view['as']);
+    if (empty($view['as']) && is_string($createView)) {
+        $parser = new Parser($createView);
+        /**
+         * @var CreateStatement $stmt
+         */
+        $stmt = $parser->statements[0];
+        $view['as'] = isset($stmt->body) ? TokensList::build($stmt->body) : $view['as'];
     }
 }
 
