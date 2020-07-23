@@ -3967,7 +3967,7 @@ class Results
         }
 
         // The value can also be from _GET as described on issue #16146 when sorting results
-        $sessionMaxRows = $_GET['session_max_rows'] ?? $_POST['session_max_rows'];
+        $sessionMaxRows = $_GET['session_max_rows'] ?? $_POST['session_max_rows'] ?? '';
 
         // as this is a form value, the type is always string so we cannot
         // use Core::isValid($_POST['session_max_rows'], 'integer')
