@@ -389,7 +389,6 @@ class SearchController extends AbstractController
             );
             $htmlAttributes = 'data-min="' . $minMaxValues[0] . '" '
                             . 'data-max="' . $minMaxValues[1] . '"';
-            $type = 'INT';
         }
 
         $htmlAttributes .= ' onchange="return '
@@ -398,6 +397,7 @@ class SearchController extends AbstractController
         $value = $this->template->render('table/search/input_box', [
             'str' => '',
             'column_type' => (string) $type,
+            'column_data_type' => strtoupper($cleanType),
             'html_attributes' => $htmlAttributes,
             'column_id' => 'fieldID_',
             'in_zoom_search_edit' => false,
