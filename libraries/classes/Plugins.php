@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\DocPropertyItem;
@@ -41,6 +42,8 @@ use function readdir;
 use function str_replace;
 use function strcasecmp;
 use function strcmp;
+use function strtolower;
+use function ucfirst;
 use function usort;
 
 /**
@@ -671,5 +674,24 @@ class Plugins
         }
 
         return $ret;
+    }
+
+    public static function getAuthPlugin(): AuthenticationPlugin
+    {
+        global $cfg;
+
+        $class = 'PhpMyAdmin\\Plugins\\Auth\\Authentication' . ucfirst(strtolower($cfg['Server']['auth_type']));
+
+        if (! class_exists($class)) {
+            Core::fatalError(
+                __('Invalid authentication method set in configuration:')
+                    . ' ' . $cfg['Server']['auth_type']
+            );
+        }
+
+        /** @var AuthenticationPlugin $plugin */
+        $plugin = new $class();
+
+        return $plugin;
     }
 }

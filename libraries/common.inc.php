@@ -38,7 +38,7 @@ use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Logging;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\MoTranslator\Loader;
-use PhpMyAdmin\Plugins\AuthenticationPlugin;
+use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Routing;
 use PhpMyAdmin\Session;
@@ -264,25 +264,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
         unset($cache_key);
 
-        // Gets the authentication library that fits the $cfg['Server'] settings
-        // and run authentication
-
-        /**
-         * the required auth type plugin
-         */
-        $auth_class = 'PhpMyAdmin\\Plugins\\Auth\\Authentication' . ucfirst(strtolower($cfg['Server']['auth_type']));
-        if (! @class_exists($auth_class)) {
-            Core::fatalError(
-                __('Invalid authentication method set in configuration:')
-                . ' ' . $cfg['Server']['auth_type']
-            );
-        }
         if (isset($_POST['pma_password']) && strlen($_POST['pma_password']) > 256) {
             $_POST['pma_password'] = substr($_POST['pma_password'], 0, 256);
         }
 
-        /** @var AuthenticationPlugin $auth_plugin */
-        $auth_plugin = new $auth_class();
+        $auth_plugin = Plugins::getAuthPlugin();
         $auth_plugin->authenticate();
 
         // Try to connect MySQL with the control user profile (will be used to
