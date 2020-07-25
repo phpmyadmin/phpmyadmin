@@ -25,13 +25,13 @@ class Bookmark
      *
      * @var int
      */
-    private $_id;
+    private $id;
     /**
      * Database the bookmark belongs to
      *
      * @var string
      */
-    private $_database;
+    private $database;
     /**
      * The user to whom the bookmark belongs, empty for public bookmarks
      *
@@ -43,13 +43,13 @@ class Bookmark
      *
      * @var string
      */
-    private $_label;
+    private $label;
     /**
      * SQL query that is bookmarked
      *
      * @var string
      */
-    private $_query;
+    private $query;
 
     /** @var DatabaseInterface */
     private $dbi;
