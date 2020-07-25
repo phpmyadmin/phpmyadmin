@@ -2966,11 +2966,6 @@ parameters:
 			path: libraries/classes/ZipExtension.php
 
 		-
-			message: "#^Strict comparison using \\=\\=\\= between PhpMyAdmin\\\\DatabaseInterface and false will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/common.inc.php
-
-		-
 			message: "#^Parameter \\#3 \\$subject of function preg_replace expects array\\|string, string\\|null given\\.$#"
 			count: 1
 			path: setup/index.php

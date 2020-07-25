@@ -254,38 +254,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $auth_plugin = Plugins::getAuthPlugin();
         $auth_plugin->authenticate();
 
-        // Try to connect MySQL with the control user profile (will be used to
-        // get the privileges list for the current user but the true user link
-        // must be open after this one so it would be default one for all the
-        // scripts)
-        $controllink = false;
-        if ($cfg['Server']['controluser'] != '') {
-            $controllink = $dbi->connect(
-                DatabaseInterface::CONNECT_CONTROL
-            );
-        }
-
-        // Connects to the server (validates user's login)
-        /** @var DatabaseInterface $userlink */
-        $userlink = $dbi->connect(DatabaseInterface::CONNECT_USER);
-
-        if ($userlink === false) {
-            $auth_plugin->showFailure('mysql-denied');
-        }
-
-        if (! $controllink) {
-            /*
-             * Open separate connection for control queries, this is needed
-             * to avoid problems with table locking used in main connection
-             * and phpMyAdmin issuing queries to configuration storage, which
-             * is not locked by that time.
-             */
-            $controllink = $dbi->connect(
-                DatabaseInterface::CONNECT_USER,
-                null,
-                DatabaseInterface::CONNECT_CONTROL
-            );
-        }
+        Core::connectToDatabaseServer($dbi, $auth_plugin);
 
         $auth_plugin->rememberCredentials();
 
