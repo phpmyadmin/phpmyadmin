@@ -264,10 +264,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
         unset($cache_key);
 
-        if (isset($_POST['pma_password']) && strlen($_POST['pma_password']) > 256) {
-            $_POST['pma_password'] = substr($_POST['pma_password'], 0, 256);
-        }
-
         $auth_plugin = Plugins::getAuthPlugin();
         $auth_plugin->authenticate();
 
