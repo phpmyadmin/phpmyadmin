@@ -249,20 +249,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     $containerBuilder->setAlias('dbi', DatabaseInterface::class);
 
     if (! empty($cfg['Server'])) {
-        // get LoginCookieValidity from preferences cache
-        // no generic solution for loading preferences from cache as some settings
-        // need to be kept for processing in
-        // PhpMyAdmin\Config::loadUserPreferences()
-        $cache_key = 'server_' . $server;
-        if (isset($_SESSION['cache'][$cache_key]['userprefs']['LoginCookieValidity'])
-        ) {
-            $value
-                = $_SESSION['cache'][$cache_key]['userprefs']['LoginCookieValidity'];
-            $PMA_Config->set('LoginCookieValidity', $value);
-            $cfg['LoginCookieValidity'] = $value;
-            unset($value);
-        }
-        unset($cache_key);
+        $PMA_Config->getLoginCookieValidityFromCache($server);
 
         $auth_plugin = Plugins::getAuthPlugin();
         $auth_plugin->authenticate();

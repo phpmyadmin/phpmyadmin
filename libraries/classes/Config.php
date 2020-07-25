@@ -1488,4 +1488,27 @@ class Config
             $server,
         ];
     }
+
+    /**
+     * Get LoginCookieValidity from preferences cache.
+     *
+     * No generic solution for loading preferences from cache as some settings
+     * need to be kept for processing in loadUserPreferences().
+     *
+     * @see loadUserPreferences()
+     */
+    public function getLoginCookieValidityFromCache(int $server): void
+    {
+        global $cfg;
+
+        $cacheKey = 'server_' . $server;
+
+        if (! isset($_SESSION['cache'][$cacheKey]['userprefs']['LoginCookieValidity'])) {
+            return;
+        }
+
+        $value = $_SESSION['cache'][$cacheKey]['userprefs']['LoginCookieValidity'];
+        $this->set('LoginCookieValidity', $value);
+        $cfg['LoginCookieValidity'] = $value;
+    }
 }
