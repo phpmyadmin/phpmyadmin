@@ -48,189 +48,189 @@ class Qbe
      * @access private
      * @var string
      */
-    private $_db;
+    private $db;
     /**
      * Table Names (selected/non-selected)
      *
      * @access private
      * @var array
      */
-    private $_criteriaTables;
+    private $criteriaTables;
     /**
      * Column Names
      *
      * @access private
      * @var array
      */
-    private $_columnNames;
+    private $columnNames;
     /**
      * Number of columns
      *
      * @access private
      * @var int
      */
-    private $_criteria_column_count;
+    private $criteria_column_count;
     /**
      * Number of Rows
      *
      * @access private
      * @var int
      */
-    private $_criteria_row_count;
+    private $criteria_row_count;
     /**
      * Whether to insert a new column
      *
      * @access private
      * @var array
      */
-    private $_criteriaColumnInsert;
+    private $criteriaColumnInsert;
     /**
      * Whether to delete a column
      *
      * @access private
      * @var array
      */
-    private $_criteriaColumnDelete;
+    private $criteriaColumnDelete;
     /**
      * Whether to insert a new row
      *
      * @access private
      * @var array
      */
-    private $_criteriaRowInsert;
+    private $criteriaRowInsert;
     /**
      * Whether to delete a row
      *
      * @access private
      * @var array
      */
-    private $_criteriaRowDelete;
+    private $criteriaRowDelete;
     /**
      * Already set criteria values
      *
      * @access private
      * @var array
      */
-    private $_criteria;
+    private $criteria;
     /**
      * Previously set criteria values
      *
      * @access private
      * @var array
      */
-    private $_prev_criteria;
+    private $prev_criteria;
     /**
      * AND/OR relation b/w criteria columns
      *
      * @access private
      * @var array
      */
-    private $_criteriaAndOrColumn;
+    private $criteriaAndOrColumn;
     /**
      * AND/OR relation b/w criteria rows
      *
      * @access private
      * @var array
      */
-    private $_criteriaAndOrRow;
+    private $criteriaAndOrRow;
     /**
      * Large width of a column
      *
      * @access private
      * @var string
      */
-    private $_realwidth;
+    private $realwidth;
     /**
      * Minimum width of a column
      *
      * @access private
      * @var int
      */
-    private $_form_column_width;
+    private $form_column_width;
     /**
      * Selected columns in the form
      *
      * @access private
      * @var array
      */
-    private $_formColumns;
+    private $formColumns;
     /**
      * Entered aliases in the form
      *
      * @access private
      * @var array
      */
-    private $_formAliases;
+    private $formAliases;
     /**
      * Chosen sort options in the form
      *
      * @access private
      * @var array
      */
-    private $_formSorts;
+    private $formSorts;
     /**
      * Chosen sort orders in the form
      *
      * @access private
      * @var array
      */
-    private $_formSortOrders;
+    private $formSortOrders;
     /**
      * Show checkboxes in the form
      *
      * @access private
      * @var array
      */
-    private $_formShows;
+    private $formShows;
     /**
      * Entered criteria values in the form
      *
      * @access private
      * @var array
      */
-    private $_formCriterions;
+    private $formCriterions;
     /**
      * AND/OR column radio buttons in the form
      *
      * @access private
      * @var array
      */
-    private $_formAndOrCols;
+    private $formAndOrCols;
     /**
      * AND/OR row radio buttons in the form
      *
      * @access private
      * @var array
      */
-    private $_formAndOrRows;
+    private $formAndOrRows;
     /**
      * New column count in case of add/delete
      *
      * @access private
      * @var int
      */
-    private $_new_column_count;
+    private $new_column_count;
     /**
      * New row count in case of add/delete
      *
      * @access private
      * @var int
      */
-    private $_new_row_count;
+    private $new_row_count;
     /**
      * List of saved searches
      *
      * @access private
      * @var array
      */
-    private $_savedSearchList = null;
+    private $savedSearchList = null;
     /**
      * Current search
      *
      * @access private
      * @var SavedSearches
      */
-    private $_currentSearch = null;
+    private $currentSearch = null;
 
     /** @var Relation */
     private $relation;
