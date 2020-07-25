@@ -45,7 +45,6 @@ use PhpMyAdmin\Session;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Tracker;
-use PhpMyAdmin\Util;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
@@ -285,32 +284,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $response->getFooter()->setMinimal();
     }
 
-    /**
-     * check if profiling was requested and remember it
-     * (note: when $cfg['ServerDefault'] = 0, constant is not defined)
-     */
-    if (isset($_REQUEST['profiling'])
-        && Util::profilingSupported()
-    ) {
-        $_SESSION['profiling'] = true;
-    } elseif (isset($_REQUEST['profiling_form'])) {
-        // the checkbox was unchecked
-        unset($_SESSION['profiling']);
-    }
-
-    /**
-     * Inclusion of profiling scripts is needed on various
-     * pages like sql, tbl_sql, db_sql, tbl_select
-     */
     $response = Response::getInstance();
-    if (isset($_SESSION['profiling'])) {
-        $scripts  = $response->getHeader()->getScripts();
-        $scripts->addFile('chart.js');
-        $scripts->addFile('vendor/jqplot/jquery.jqplot.js');
-        $scripts->addFile('vendor/jqplot/plugins/jqplot.pieRenderer.js');
-        $scripts->addFile('vendor/jqplot/plugins/jqplot.highlighter.js');
-        $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
-    }
+
+    Core::checkProfiling($response);
 
     /*
      * There is no point in even attempting to process
