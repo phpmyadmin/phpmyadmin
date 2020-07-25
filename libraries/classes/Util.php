@@ -4997,4 +4997,24 @@ class Util
         }
         return '';
     }
+
+    /**
+     * Check if error reporting is available
+     * @return bool
+     */
+    public static function isErrorReportingAvailable(): bool
+    {
+        // issue #16256 - PHP 7.x does not return false for a core function
+        if (PHP_MAJOR_VERSION < 8) {
+            $disabled = ini_get('disable_functions');
+            if (is_string($disabled)) {
+                $disabled = explode(',', $disabled);
+                $disabled = array_map(function (string $part) {
+                    return trim($part);
+                }, $disabled);
+                return ! in_array('error_reporting', $disabled);
+            }
+        }
+        return function_exists('error_reporting');
+    }
 }

@@ -52,7 +52,7 @@ class ErrorHandler
         if (! defined('TESTSUITE')) {
             set_error_handler([$this, 'handleError']);
         }
-        if (function_exists('error_reporting')) {
+        if (Util::isErrorReportingAvailable()) {
             $this->error_reporting = error_reporting();
         }
     }
@@ -165,7 +165,7 @@ class ErrorHandler
         string $errfile,
         int $errline
     ): void {
-        if (function_exists('error_reporting')) {
+        if (Util::isErrorReportingAvailable()) {
             /**
             * Check if Error Control Operator (@) was used, but still show
             * user errors even in this case.
