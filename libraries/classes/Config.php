@@ -389,7 +389,7 @@ class Config
 
             return false;
         }
-        $canUseErrorReporting = function_exists('error_reporting');
+        $canUseErrorReporting = Util::isErrorReportingAvailable();
         $oldErrorReporting = null;
         if ($canUseErrorReporting) {
             $oldErrorReporting = error_reporting(0);
@@ -450,7 +450,7 @@ class Config
          * Parses the configuration file, we throw away any errors or
          * output.
          */
-        $canUseErrorReporting = function_exists('error_reporting');
+        $canUseErrorReporting = Util::isErrorReportingAvailable();
         $oldErrorReporting = null;
         if ($canUseErrorReporting) {
             $oldErrorReporting = error_reporting(0);

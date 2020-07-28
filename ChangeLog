@@ -90,6 +90,7 @@ phpMyAdmin - ChangeLog
 - issue #16146 Fixed sorting did not keep the selector of number of rows
 - issue #16194 Fixed SQL query does not appear in case of editing view where definer is not you on MySQL 8
 - issue #16255 Fix tinyint(1) shown as INT on Search page
+- issue #16256 Fix "Warning: error_reporting() has been disabled for security reasons" on php 7.x
 
 5.0.2 (2020-03-20)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page

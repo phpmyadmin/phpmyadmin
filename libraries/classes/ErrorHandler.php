@@ -26,7 +26,6 @@ use function array_splice;
 use function count;
 use function defined;
 use function error_reporting;
-use function function_exists;
 use function headers_sent;
 use function htmlspecialchars;
 use function set_error_handler;
@@ -69,7 +68,7 @@ class ErrorHandler
         if (! defined('TESTSUITE')) {
             set_error_handler([$this, 'handleError']);
         }
-        if (! function_exists('error_reporting')) {
+        if (! Util::isErrorReportingAvailable()) {
             return;
         }
 
@@ -183,7 +182,7 @@ class ErrorHandler
         string $errfile,
         int $errline
     ): void {
-        if (function_exists('error_reporting')) {
+        if (Util::isErrorReportingAvailable()) {
             /**
             * Check if Error Control Operator (@) was used, but still show
             * user errors even in this case.
