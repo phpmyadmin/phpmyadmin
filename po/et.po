@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-07-22 21:45+0200\n"
-"PO-Revision-Date: 2020-04-04 17:01+0000\n"
+"PO-Revision-Date: 2020-07-29 09:41+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/et/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.0-dev\n"
+"X-Generator: Weblate 4.2-dev\n"
 
 #: libraries/classes/Advisor.php:319
 #, php-format
@@ -1534,9 +1534,9 @@ msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
-"Täpsusta veebilehitseja tiitliriba tekst. Vaata "
-"[doc@faq6-27]dokumentatsioonist[/doc], kuidas kasutada kasutada eriliste "
-"väärtuste kuvamiseks maagilisi sõnesid."
+"Täpsusta veebilehitseja tiitliriba tekst. Eriliste väärtuste kuvamiseks "
+"mõledud maagiliste sõnede kasutamist vaata "
+"[doc@faq6-27]dokumentatsioonist[/doc]."
 
 #: libraries/classes/Config/Descriptions.php:360
 msgid "Security"
@@ -1967,16 +1967,12 @@ msgid "Maximum tables"
 msgstr "Suurim hulk tabeleid"
 
 #: libraries/classes/Config/Descriptions.php:512
-#, fuzzy
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"Baitide hulk, mida skriptil on lubatud kasutada, nt [kbd]32M[/kbd] ([kbd]-1[/"
-"kbd] - piiramatu, [kbd]0[/kbd] ei muuda)."
+"Baitide hulk, mida skriptil on lubatud kasutada, nt [kbd]32M[/kbd] "
+"([kbd]-1[/kbd] - piiramatu, [kbd]0[/kbd] ei muuda)."
 
 #: libraries/classes/Config/Descriptions.php:515
 msgid "Memory limit"
@@ -3020,8 +3016,6 @@ msgid "Retain query box"
 msgstr "Säilita päringu kast"
 
 #: libraries/classes/Config/Descriptions.php:883
-#, fuzzy
-#| msgid "Allow to display database and table statistics (eg. space usage)."
 msgid "Allow to display database and table statistics (e.g. space usage)."
 msgstr "Luba näidata andmebaasi ja tabeli statistikat (nt ruumi kasutus)."
 
@@ -3294,14 +3288,12 @@ msgid "Private key for reCaptcha"
 msgstr "reCaptcha salajane võti"
 
 #: libraries/classes/Config/Descriptions.php:963
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter your siteverify URL for your reCaptcha service."
-msgstr "Sisesta oma domeeni reCaptcha teenusele oma salajane võti."
+msgstr "Sisesta siteverify URL reCaptcha teenusele."
 
 #: libraries/classes/Config/Descriptions.php:964
 msgid "URL for reCaptcha siteverify"
-msgstr ""
+msgstr "reCaptcha siteverify URL"
 
 #: libraries/classes/Config/Descriptions.php:966
 msgid "Choose the default action when sending error reports."
@@ -4057,8 +4049,6 @@ msgstr "tundmatu"
 #: libraries/classes/Controllers/Database/StructureController.php:1549
 #: libraries/classes/Controllers/Database/StructureController.php:1600
 #: libraries/classes/Controllers/Database/StructureController.php:1651
-#, fuzzy
-#| msgid "No tables selected."
 msgid "No table selected."
 msgstr "Ühtegi tabelit ei ole valitud."
 
@@ -4865,8 +4855,6 @@ msgstr "Puudub"
 
 #. l10n: SQL Query on modal to show exported query
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:199
-#, fuzzy
-#| msgid "SQL query"
 msgid "SQL Query"
 msgstr "SQL päring"
 
@@ -5746,6 +5734,8 @@ msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr ""
+"Funktsioon HEX käsitleb täisarvu tekstina ja leiab selle "
+"kuuetestkümnendväärtuse"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:505
 msgid ""
@@ -7935,11 +7925,11 @@ msgid "Export of event %s"
 msgstr "%s sündmuse eksport"
 
 #: libraries/classes/Database/Events.php:618
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s."
+#, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
-msgstr "Andmebaasist %2$s ei leitud sündmust nimega %1$s."
+msgstr ""
+"Päringu töötlemise viga: andmebaasist %2$s ei leitud sündmust nimega %1$s."
 
 #: libraries/classes/DatabaseInterface.php:1099
 #, php-format
@@ -8280,17 +8270,15 @@ msgid "Export of routine %s"
 msgstr "%s funktsiooni eksport"
 
 #: libraries/classes/Database/Routines.php:1967
-#, fuzzy, php-format
-#| msgid ""
-#| "No routine with name %1$s found in database %2$s. You might be lacking "
-#| "the necessary privileges to view/export this routine."
+#, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
 "%2$s. You might be lacking the necessary privileges to view/export this "
 "routine."
 msgstr ""
-"Andmebaasist %2$s ei leitud funktsiooni nimega %1$s. Sul võivad puududa "
-"selle funktsiooni vaatamiseks/eksportimiseks vajalikud õigused."
+"Päringu töötlemise viga: andmebaasist %2$s ei leitud funktsiooni nimega %1$"
+"s. Sul võivad puududa selle funktsiooni vaatamiseks/eksportimiseks vajalikud "
+"õigused."
 
 #: libraries/classes/Database/Search.php:109
 #: templates/database/search/main.twig:19
@@ -8390,12 +8378,12 @@ msgid "Export of trigger %s"
 msgstr "Eksportimine päästik %s"
 
 #: libraries/classes/Database/Triggers.php:635
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s."
+#, php-format
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
 "%2$s."
-msgstr "Andmebaasist %2$s ei leitud päästikut nimega %1$s."
+msgstr ""
+"Päringu töötlemise viga: andmebaasist %2$s ei leitud päästikut nimega %1$s."
 
 #: libraries/classes/Dbal/DbiMysqli.php:187
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -9073,11 +9061,11 @@ msgstr "SSL on kasutusel"
 
 #: libraries/classes/Html/Generator.php:429
 msgid "The PHP function password_hash() with default options."
-msgstr ""
+msgstr "PHP funktsioon password_hash() vaikesätetega."
 
 #: libraries/classes/Html/Generator.php:430
 msgid "password_hash() PHP function"
-msgstr ""
+msgstr "PHP funktsioon password_hash()"
 
 #: libraries/classes/Html/Generator.php:732
 msgid "Skip Explain SQL"
@@ -10133,6 +10121,9 @@ msgid ""
 "You have been automatically logged out due to inactivity of %s seconds. Once "
 "you log in again, you should be able to resume the work where you left off."
 msgstr ""
+"Sind logiti automaatselt välja, sest sa ei teinud mitte midagi %s sekundit. "
+"Kui sa logid uuesti sisse, peaksid saama jätkata sealt, kus su tegevus jäi "
+"pooleli."
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:213
 #: libraries/classes/Plugins/AuthenticationPlugin.php:216
@@ -10472,7 +10463,7 @@ msgstr "%s väärtus"
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
 #: libraries/classes/Plugins/Export/ExportSql.php:342
 msgid "Use simple view export"
-msgstr ""
+msgstr "Kasuta lihtsat vaadete eksportimist"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:381
 msgid ""
@@ -13744,9 +13735,6 @@ msgid "SQL query on database <b>%s</b>:"
 msgstr "SQL päring <b>%s</b> andmebaasis:"
 
 #: templates/database/routines/footer.twig:2
-#, fuzzy
-#| msgctxt "Create new column"
-#| msgid "New"
 msgctxt "Create new routine"
 msgid "New"
 msgstr "Uus"
@@ -14160,10 +14148,8 @@ msgid "Dump all rows"
 msgstr "Loo tõmmis kõikidest ridadest"
 
 #: templates/display/export/query.twig:8
-#, fuzzy
-#| msgid "Showing SQL query"
 msgid "Show SQL query"
-msgstr "Näitan SQL päringut"
+msgstr "Kuva SQL päring"
 
 #: templates/display/export/selection.twig:3
 msgid "Databases:"
@@ -15397,8 +15383,7 @@ msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
 msgstr ""
-"Sama nimega kasutaja konto on on juba olemas, kuid ilmselt teise hosti "
-"nimega."
+"Sama nimega kasutaja konto on juba olemas, kuid ilmselt teise hosti nimega."
 
 #: templates/server/privileges/login_information_fields.twig:22
 msgid "Host name:"
@@ -16609,8 +16594,6 @@ msgid "Index choice:"
 msgstr "Indeksi valik:"
 
 #: templates/table/index_form.twig:52
-#, fuzzy
-#| msgid "Advanced Options"
 msgid "Advanced options"
 msgstr "Täiendavad sätted"
 
