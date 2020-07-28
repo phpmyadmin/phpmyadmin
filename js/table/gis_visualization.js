@@ -148,16 +148,17 @@ function initGISVisualization () {
     selectVisualization();
     // Resizes the GIS visualization to fit into the space available
     resizeGISVisualization();
-    if (typeof OpenLayers !== 'undefined') {
-        // Configure OpenLayers
-        // eslint-disable-next-line no-underscore-dangle
-        OpenLayers._getScriptLocation = function () {
-            return './js/vendor/openlayers/';
-        };
-        // Adds necessary styles to the div that coontains the openStreetMap
+    // Loads a set of small JS file needed for the OpenLayers
+    var head = document.getElementsByTagName('head')[0];
+    var script= document.createElement('script');
+    script.type = 'text/javascript';
+
+    script.src = 'js/vendor/openlayers/OpenLayers.js';
+    head.appendChild(script);
+
+    if (typeof ol !== 'undefined') {
+        // Adds necessary styles to the div that contains the openStreetMap
         styleOSM();
-        // Draws openStreetMap with openLayers
-        drawOpenLayers();
     }
     // Loads the SVG element and make a reference to it
     loadSVG();
@@ -213,9 +214,12 @@ AJAX.registerOnload('table/gis_visualization.js', function () {
         initGISVisualization();
     }
 
-    if (typeof OpenLayers === 'undefined') {
+    if (typeof ol === 'undefined') {
         $('#choice, #labelChoice').hide();
     }
+
+    var openLayerCreate = 0;
+
     $(document).on('click', '#choice', function () {
         if ($(this).prop('checked') === false) {
             $('#placeholder').show();
@@ -223,6 +227,12 @@ AJAX.registerOnload('table/gis_visualization.js', function () {
         } else {
             $('#placeholder').hide();
             $('#openlayersmap').show();
+            // Function doesn't work properly if #openlayersmap is hidden
+            if (!openLayerCreate) {
+                // Draws openStreetMap with openLayers
+                drawOpenLayers();
+                openLayerCreate = 1;
+            }
         }
     });
 

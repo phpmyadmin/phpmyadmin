@@ -139,15 +139,20 @@ abstract class GisGeometry
      */
     protected function getBoundsForOl($srid, array $scale_data)
     {
-        return 'bound = new OpenLayers.Bounds(); '
-        . 'bound.extend(new OpenLayers.LonLat('
-        . $scale_data['minX'] . ', ' . $scale_data['minY']
-        . ').transform(new OpenLayers.Projection("EPSG:'
-        . intval($srid) . '"), map.getProjectionObject())); '
-        . 'bound.extend(new OpenLayers.LonLat('
-        . $scale_data['maxX'] . ', ' . $scale_data['maxY']
-        . ').transform(new OpenLayers.Projection("EPSG:'
-        . intval($srid) . '"), map.getProjectionObject()));';
+//        return 'bound = new OpenLayers.Bounds(); '
+//        . 'bound.extend(new OpenLayers.LonLat('
+//        . $scale_data['minX'] . ', ' . $scale_data['minY']
+//        . ').transform(new OpenLayers.Projection("EPSG:'
+//        . intval($srid) . '"), map.getProjectionObject())); '
+//        . 'bound.extend(new OpenLayers.LonLat('
+//        . $scale_data['maxX'] . ', ' . $scale_data['maxY']
+//        . ').transform(new OpenLayers.Projection("EPSG:'
+//        . intval($srid) . '"), map.getProjectionObject()));';
+        return 'var minLoc = [' . $scale_data['minX'].', '. $scale_data['minY']. ' ];'
+        . 'var maxLoc = [' . $scale_data['maxX'].', '. $scale_data['maxY']. ' ];'
+        . 'var ext = ol.extent.boundingExtent([minLoc, maxLoc]);'
+        . 'ext  = ol.proj.transformExtent(ext, ol.proj.get("EPSG:' . intval($srid) . '"), ol.proj.get(\'EPSG:3857\'));'
+        . 'map.getView().fit(ext, map.getSize());';
     }
 
     /**
