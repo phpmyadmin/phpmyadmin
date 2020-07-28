@@ -4,18 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-06-14 22:54+0200\n"
-"PO-Revision-Date: 2018-07-23 11:06+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2020-07-29 21:18+0000\n"
+"Last-Translator: Tautvydas Zukauskas <tautzuk@tutanota.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/lt/>\n"
+"5-0/lt/>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
-"19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
-"1 : 2);\n"
-"X-Generator: Weblate 3.1-dev\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
+"%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 4.2-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -315,34 +314,24 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "Jūs ruošiatės SUNAIKINTI visą lentelę!"
 
 #: js/messages.php:56
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
-msgstr "Ištrinti šios lentelės sekimo duomenis"
+msgstr "Ištrinti šios lentelės sekimo duomenis?"
 
 #: js/messages.php:58
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "Ištrinti šios lentelės sekimo duomenis"
+msgstr "Ištrinti ši7 lentelių sekimo duomenis?"
 
 #: js/messages.php:60
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this version?"
-msgstr "Ištrinti šios lentelės sekimo duomenis"
+msgstr "Ištrinti šios lentelės sekimo duomenis?"
 
 #: js/messages.php:62
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these versions?"
-msgstr "Ištrinti šios lentelės sekimo duomenis"
+msgstr "Ištrinti šios lentelės sekimo duomenis?"
 
 #: js/messages.php:63
-#, fuzzy
-#| msgid "Delete tracking data row from report"
 msgid "Delete entry from tracking report?"
-msgstr "Ištrinti sekimo duomenis iš ataskaitos"
+msgstr "Ištrinti sekimo duomenis iš ataskaitos?"
 
 #: js/messages.php:64
 msgid "Deleting tracking data"
@@ -1573,10 +1562,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:436
-#, fuzzy, php-format
-#| msgid "Variable"
+#, php-format
 msgid "Variable %d:"
-msgstr "Kintamasis"
+msgstr "Kintamasis %d:"
 
 #: js/messages.php:439 libraries/classes/Normalization.php:1004
 msgid "Pick"
@@ -1761,16 +1749,12 @@ msgid "Range search"
 msgstr "Paieška"
 
 #: js/messages.php:497
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column maximum:"
-msgstr "Stulpelių vardai: "
+msgstr "Stulpelių kamsimumas:"
 
 #: js/messages.php:498
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column minimum:"
-msgstr "Stulpelių vardai: "
+msgstr "Stulpelių minimumas:"
 
 #: js/messages.php:499
 #, fuzzy
@@ -2370,10 +2354,8 @@ msgid "Copying failed!"
 msgstr "Kopijuojama duomenų bazė"
 
 #: js/messages.php:736
-#, fuzzy
-#| msgid "Show this query here again"
 msgid "Execute this query again?"
-msgstr "Rodyti šią užklausą vėl"
+msgstr "Rodyti šią užklausą vėl?"
 
 #: js/messages.php:738
 #, fuzzy
@@ -7052,7 +7034,7 @@ msgid ""
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
 "phpMyAdmin nustatymų saugykla nėra visiškai sukonfigūruota, išplėstinės "
-"funkcijos išjungtos. %sIšsiaiškinkite kodėl%s."
+"funkcijos išjungtos. %sIšsiaiškinkite kodėl%s. "
 
 #: libraries/classes/Controllers/HomeController.php:239
 msgid ""
@@ -7142,13 +7124,12 @@ msgid "Database %1$s has been created."
 msgstr "Duomenų bazė %1$s sukurta."
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:246
-#, fuzzy, php-format
-#| msgid "%s databases have been dropped successfully."
+#, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "Sėkmingai pašalintos %s duomenų bazės."
+msgstr[0] "Sėkmingai pašalinta %s duomenų bazė."
 msgstr[1] "Sėkmingai pašalintos %s duomenų bazės."
-msgstr[2] "Sėkmingai pašalintos %s duomenų bazės."
+msgstr[2] "Sėkmingai pašalinta %s duomenų bazėių."
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:398
 #: libraries/classes/Import.php:128
@@ -9077,7 +9058,7 @@ msgstr "Spausdinti struktūrą"
 #: libraries/classes/Rte/Routines.php:1506 libraries/classes/Sql.php:1344
 #: tbl_get_field.php:75
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "MySQL gražino tuščią rezultatų rinkinį (nėra eilučių)."
+msgstr "MySQL grąžino tuščią rezultatų rinkinį (nėra eilučių)."
 
 #: libraries/classes/Import.php:296 libraries/classes/Sql.php:1358
 msgid "[ROLLBACK occurred.]"
@@ -9631,16 +9612,12 @@ msgid "Add prefix"
 msgstr "Pridėti priešdėlį"
 
 #: libraries/classes/MultSubmits.php:519
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
-msgstr "Ar tikrai norite "
+msgstr "Ar tikrai norite įvykdyti šią užklausą?"
 
 #: libraries/classes/Navigation/Navigation.php:218
-#, fuzzy
-#| msgid "Column names: "
 msgid "Groups:"
-msgstr "Stulpelių vardai: "
+msgstr "Grupės:"
 
 #: libraries/classes/Navigation/Navigation.php:219
 #, fuzzy
@@ -9680,10 +9657,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Navigation/NavigationTree.php:795
-#, fuzzy
-#| msgid "Column names: "
 msgid "Groups"
-msgstr "Stulpelių vardai: "
+msgstr "Grupės"
 
 #: libraries/classes/Navigation/NavigationTree.php:961
 #, php-format
@@ -10242,7 +10217,7 @@ msgstr "Defragmentuoti lentelę"
 #: libraries/classes/Operations.php:1533
 #, php-format
 msgid "Table %s has been flushed."
-msgstr "Lentelės buferis  %s išvalytas."
+msgstr "Lentelės buferis %s išvalytas."
 
 #: libraries/classes/Operations.php:1539
 msgid "Flush the table (FLUSH)"
@@ -11139,10 +11114,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:118
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column names:"
-msgstr "Stulpelių vardai: "
+msgstr "Stulpelių vardai:"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:162
 #: libraries/classes/Plugins/Import/ImportCsv.php:177
@@ -12185,7 +12158,7 @@ msgstr "Pašalinti paskutinį parametrą"
 
 #: libraries/classes/Rte/Routines.php:988
 msgid "Return type"
-msgstr "Gražinimo tipas"
+msgstr "Grąžinimo tipas"
 
 #: libraries/classes/Rte/Routines.php:994
 msgid "Return length/values"
@@ -13302,10 +13275,8 @@ msgid "User group menu assignments"
 msgstr "Be teisių."
 
 #: libraries/classes/Server/UserGroups.php:257
-#, fuzzy
-#| msgid "Column names: "
 msgid "Group name:"
-msgstr "Stulpelių vardai: "
+msgstr "Grupės vardas:"
 
 #: libraries/classes/Server/UserGroups.php:294
 #, fuzzy
@@ -13481,10 +13452,8 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Šis MySQL serveris nepalaiko %s saugojimo variklio."
 
 #: libraries/classes/Table.php:343
-#, fuzzy
-#| msgid "unknown table status: "
 msgid "Unknown table status:"
-msgstr "lentelės būsena nežinoma: "
+msgstr "Lentelės būsena nežinoma:"
 
 #: libraries/classes/Table.php:1004
 #, fuzzy, php-format
@@ -14973,10 +14942,9 @@ msgid "Select \"%s\""
 msgstr "Pažymėti visas(-us)"
 
 #: templates/database/designer/database_tables.twig:109
-#, fuzzy, php-format
-#| msgid "Add an option for column "
+#, php-format
 msgid "Add an option for column \"%s\"."
-msgstr "Pridėti parinktį stulpeliui/skilčiai "
+msgstr "Pridėti parinktį stulpeliui/skilčiai \"%s\"."
 
 #: templates/database/designer/edit_delete_pages.twig:6
 #, fuzzy
@@ -15183,10 +15151,8 @@ msgid "Create a page and save to it"
 msgstr "Sukurti puslapį ir eksportuoti į jį"
 
 #: templates/database/designer/page_save_as.twig:30
-#, fuzzy
-#| msgid "New page name: "
 msgid "New page name"
-msgstr "Naujas puslapio vardas: "
+msgstr "Naujas puslapio vardas"
 
 #: templates/database/designer/page_selector.twig:2
 msgid "Select page"
@@ -15307,23 +15273,19 @@ msgid "Inside column:"
 msgstr "Stulpelio viduje:"
 
 #: templates/database/search/results.twig:12
-#, fuzzy, php-format
-#| msgid "%s match inside table <i>%s</i>"
-#| msgid_plural "%s matches inside table <i>%s</i>"
+#, php-format
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%s atitikmuo lentelėje <i>%s</i>"
-msgstr[1] "%s atitikmenys lentelėse <i>%s</i>"
-msgstr[2] "%s atitikmenų lentelėse <i>%s</i>"
+msgstr[0] "%s atitikmuo lentelėje<strong>%2$s</strong>"
+msgstr[1] "%s atitikmenys lentelėse <strong>%2$s</strong>"
+msgstr[2] "%s atitikmenų lentelėse <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Iš viso:</b> <i>%s</i> atitikmuo"
-msgstr[1] "<b>Iš viso:</b> <i>%s</i> atitikmenys"
-msgstr[2] "<b>Iš viso:</b> <i>%s</i> atitikmenų"
-msgstr[3] ""
+msgstr[0] "<strong>Iš viso:</strong> <em>%count%</em> atitikmuo"
+msgstr[1] "<strong>Iš viso:</strong> <em>%count%</em> atitikmenys"
+msgstr[2] "<strong>Iš viso:</strong> <em>%count%</em> atitikmenų"
 
 #: templates/database/structure/body_for_table_summary.twig:6
 #, fuzzy, php-format
@@ -15569,10 +15531,9 @@ msgstr "Rodyti išvedimą kaip tekstą"
 
 #: templates/display/export/options_output_save_dir.twig:5
 #: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Išsaugoti serverio kataloge pavadinimu <b>%s</b>"
+msgstr "Išsaugoti serverio kataloge pavadinimu <strong>%s</strong>"
 
 #: templates/display/export/options_output_separate_files.twig:7
 #, fuzzy
@@ -15702,16 +15663,12 @@ msgid "File may be compressed (%s) or uncompressed."
 msgstr "Failas gali būti suglaudintas (%s) arba nesuglaudintas."
 
 #: templates/display/import/import.twig:58
-#, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
 msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"Suglaudinto failo vardas turi pasibaigti <b>.[formatas].[glaudinimas]</b>. "
-"Pavyzdžiui: <b>.sql.zip</b>"
+"Suglaudinto failo vardas turi pasibaigti <strong>.[formatas].[glaudinimas]</"
+"strong>. Pavyzdžiui: <strong>.sql.zip</strong>"
 
 #: templates/display/import/import.twig:69
 #: templates/display/import/import.twig:84
@@ -15737,19 +15694,14 @@ msgstr ""
 "tęsiama nuo %d pozicijos."
 
 #: templates/display/import/import.twig:138
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <i>(This might be good way to import "
-#| "large files, however it can break transactions.)</i>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <em>(This might be a good way to import large "
 "files, however it can break transactions.)</em>"
 msgstr ""
 "Leisti pertraukti importavimą jei skriptas nustato, kad priartėta prie PHP "
-"scenarijaus vykdymo laiko apribojimo. <i>Gali būti naudinga importuojant "
-"didelius failus, tačiau gali sugadinti transakcijas.</i>"
+"scenarijaus vykdymo laiko apribojimo. <em>Gali būti naudinga importuojant "
+"didelius failus, tačiau gali sugadinti transakcijas.</em>"
 
 #: templates/display/import/import.twig:145
 #, fuzzy
@@ -15910,10 +15862,8 @@ msgid "Select table:"
 msgstr "Pasirinkite lenteles"
 
 #: templates/export/alias_add.twig:29
-#, fuzzy
-#| msgid "New page name: "
 msgid "New table name"
-msgstr "Naujas puslapio vardas: "
+msgstr "Naujas lentelės vardas"
 
 #: templates/export/alias_add.twig:37
 #, fuzzy
@@ -16715,19 +16665,14 @@ msgstr ""
 "po to prašome iš naujo paleiskite MySQL serverį."
 
 #: templates/server/replication/master_configuration.twig:21
-#, fuzzy
-#| msgid ""
-#| "Once you restarted MySQL server, please click on Go button. Afterwards, "
-#| "you should see a message informing you, that this server <b>is</b> "
-#| "configured as master."
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as master."
 msgstr ""
 "Kai iš naujo paleisite MySQL serverį, prašome paspausti mygtuką Vykdyti. Po "
-"to turėtumėte pamatyti informacinę žinutę, kad šis serveris <b>yra</b> "
-"sukonfigūruotas kaip pagrindinis (master)."
+"to turėtumėte pamatyti informacinę žinutę, kad šis serveris <strong>yra</"
+"strong> sukonfigūruotas kaip pagrindinis (master)."
 
 #: templates/server/replication/master_replication.twig:4
 msgid "This server is configured as master in a replication process."
@@ -17493,7 +17438,8 @@ msgstr "Indekso vardas&nbsp;:"
 #: templates/table/index_form.twig:16
 msgid ""
 "\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr "\"PRIMARY\" <b>yra vienintelis</b> pirminio rakto tipas!"
+msgstr ""
+"\"PRIMARY\" <b>privalo</b> būti<b> vienintelis</b> pirminio rakto tipas!"
 
 #: templates/table/index_form.twig:34
 #, fuzzy
