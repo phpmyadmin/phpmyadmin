@@ -289,11 +289,12 @@ class GisPoint extends GisGeometry
             );
         $points_arr = $this->extractPoints($point, null);
 
-//        if ($points_arr[0][0] != '' && $points_arr[0][1] != '') {
-//            $result .= 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
-//                . $this->getPointForOpenLayers($points_arr[0], $srid) . ', null, '
-//                . json_encode($style_options) . '));';
-//        }
+        if ($points_arr[0][0] != '' && $points_arr[0][1] != '') {
+            $result .= 'var point = new ol.Feature({geometry: '
+                . $this->getPointForOpenLayers($points_arr[0], $srid) . '});'
+                . 'vectorLayer.addFeature(point);';
+//            point.setStyle(' . json_encode($style_options) . ')
+        }
 
         return $result;
     }

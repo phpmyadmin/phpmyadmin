@@ -492,11 +492,15 @@ class GisVisualization
 //        return $output;
         $output
             = 'if (typeof ol !== "undefined") {'
+            . 'var vectorLayer = new ol.source.Vector({});'
             . 'var map = new ol.Map({'
             . 'target: \'openlayersmap\','
             . 'layers: ['
             . 'new ol.layer.Tile({'
             . 'source: new ol.source.OSM()'
+            . '}),'
+            . 'new ol.layer.Vector({'
+            . 'source: vectorLayer'
             . '})'
             . '],'
             . 'view: new ol.View({'

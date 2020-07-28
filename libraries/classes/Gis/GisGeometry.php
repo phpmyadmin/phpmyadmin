@@ -423,9 +423,9 @@ abstract class GisGeometry
      */
     protected function getPointForOpenLayers(array $point, $srid)
     {
-        return '(new OpenLayers.Geometry.Point(' . $point[0] . ',' . $point[1] . '))'
-        . '.transform(new OpenLayers.Projection("EPSG:'
-        . intval($srid) . '"), map.getProjectionObject())';
+        return '(new ol.geom.Point([' . $point[0] . ',' . $point[1] . '])'
+        . '.transform(ol.proj.get("EPSG:' . intval($srid) . '")'
+        . ', ol.proj.get(\'EPSG:3857\')))';
     }
 
     protected function getRandomId(): int
