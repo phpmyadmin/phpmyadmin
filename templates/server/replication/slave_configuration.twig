@@ -38,17 +38,17 @@
           <div id="slave_control_gui" class="hide">
             <ul>
               <li>
-                <a href="server_replication.php" data-post="{{ slave_control_full_link }}">
+                <a href="server_replication.php" data-post="{{ slave_control_full_link|raw }}">
                   {{ not slave_io_running or not slave_sql_running ? 'Full start' : 'Full stop' }}
                 </a>
               </li>
               <li>
-                <a class="ajax" id="reset_slave" href="server_replication.php" data-post="{{ slave_control_reset_link }}">
+                <a class="ajax" id="reset_slave" href="server_replication.php" data-post="{{ slave_control_reset_link|raw }}">
                   {% trans 'Reset slave' %}
                 </a>
               </li>
               <li>
-                <a href="server_replication.php" data-post="{{ slave_control_sql_link }}">
+                <a href="server_replication.php" data-post="{{ slave_control_sql_link|raw }}">
                   {% if not slave_sql_running %}
                     {% trans 'Start SQL Thread only' %}
                   {% else %}
@@ -57,7 +57,7 @@
                 </a>
               </li>
               <li>
-                <a href="server_replication.php" data-post="{{ slave_control_io_link }}">
+                <a href="server_replication.php" data-post="{{ slave_control_io_link|raw }}">
                   {% if not slave_io_running %}
                     {% trans 'Start IO Thread only' %}
                   {% else %}
@@ -76,7 +76,7 @@
             {{ 'Skipping errors might lead into unsynchronized master and slave!'|trans|error }}
             <ul>
               <li>
-                <a href="server_replication.php" data-post="{{ slave_skip_error_link }}">
+                <a href="server_replication.php" data-post="{{ slave_skip_error_link|raw }}">
                   {% trans 'Skip current error' %}
                 </a>
               </li>
