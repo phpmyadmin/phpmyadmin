@@ -167,6 +167,7 @@ if (isset($_POST['start'])) {
     if (! empty($id) && isset($AUTH_MAP[$id])) {
         $_SESSION['PMA_single_signon_user'] = $AUTH_MAP[$id]['user'];
         $_SESSION['PMA_single_signon_password'] = $AUTH_MAP[$id]['password'];
+        $_SESSION['PMA_single_signon_HMAC_secret'] = hash('sha1', uniqid(strval(rand()), true));
         session_write_close();
         /* Redirect to phpMyAdmin (should use absolute URL here!) */
         header('Location: ../index.php');
