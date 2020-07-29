@@ -5,7 +5,6 @@
  <property name="source_comma_sep" value="."/>
  <property environment="env"/>
  <property name="env.PHPUNIT_XML" value="phpunit.xml.dist"/>
- <property name="env.PHPUNIT_XML_NOCOVERAGE" value="phpunit.xml.nocoverage"/>
  <property name="env.PHPUNIT_XML_HHVM" value="phpunit.xml.hhvm"/>
  <property name="env.PHPUNIT_ARGS" value="--exclude-group selenium"/>
 
@@ -31,7 +30,7 @@
 
  <target name="phpunit-nocoverage" description="Run unit tests using PHPUnit and generates junit.xml">
   <exec executable="${basedir}/vendor/bin/phpunit" failonerror="true">
-      <arg line="--configuration ${env.PHPUNIT_XML_NOCOVERAGE} ${env.PHPUNIT_ARGS}"/>
+      <arg line="--configuration --no-coverage ${env.PHPUNIT_ARGS}"/>
   </exec>
  </target>
 

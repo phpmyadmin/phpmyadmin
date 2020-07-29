@@ -213,7 +213,7 @@ jobs:
         - mysql -uroot < sql/create_tables.sql
         - mysql -uroot -e "SET PASSWORD = PASSWORD('$TESTSUITE_PASSWORD')"
         - ./test/start-local-server
-      script: ./vendor/bin/phpunit --configuration phpunit.xml.nocoverage --group selenium --verbose --debug
+      script: ./vendor/bin/phpunit --no-coverage --group selenium --verbose --debug
       after_script:
         - if [ -f php.log ] ; then cat php.log ; fi
         - if [ -f nginx-error.log ] ; then cat nginx-error.log ; fi
