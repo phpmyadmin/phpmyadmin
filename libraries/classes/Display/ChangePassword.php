@@ -1,7 +1,4 @@
 <?php
-/**
- * Displays form for password change
- */
 
 declare(strict_types=1);
 
@@ -30,33 +27,21 @@ class ChangePassword
      */
     public static function getHtml($mode, $username, $hostname)
     {
-        $relation = new Relation($GLOBALS['dbi']);
+        global $dbi, $route;
+
+        $relation = new Relation($dbi);
         $serverPrivileges = new Privileges(
             new Template(),
-            $GLOBALS['dbi'],
+            $dbi,
             $relation,
-            new RelationCleanup($GLOBALS['dbi'], $relation)
+            new RelationCleanup($dbi, $relation)
         );
 
-        /**
-         * autocomplete feature of IE kills the "onchange" event handler and it
-         * must be replaced by the "onpropertychange" one in this case
-         */
-        $chg_evt_handler = 'onchange';
-
-        $is_privileges = isset($_REQUEST['route']) && $_REQUEST['route'] === '/server/privileges';
-
-        $template = new Template();
-        $html = $template->render('display/change_password/file_a', [
-            'is_privileges' => $is_privileges,
-            'username' => $username,
-            'hostname' => $hostname,
-            'chg_evt_handler' => $chg_evt_handler,
-        ]);
+        $isPrivileges = $route === '/server/privileges';
 
         $serverType = Util::getServerType();
-        $serverVersion = $GLOBALS['dbi']->getVersion();
-        $orig_auth_plugin = $serverPrivileges->getCurrentAuthenticationPlugin(
+        $serverVersion = $dbi->getVersion();
+        $origAuthPlugin = $serverPrivileges->getCurrentAuthenticationPlugin(
             'change',
             $username,
             $hostname
@@ -64,37 +49,28 @@ class ChangePassword
 
         $isNew = ($serverType === 'MySQL' && $serverVersion >= 50507)
             || ($serverType === 'MariaDB' && $serverVersion >= 50200);
+        $hasMoreAuthPlugins = ($serverType === 'MySQL' && $serverVersion >= 50706)
+            || ($dbi->isSuperuser() && $mode === 'edit_other');
 
-        if ($isNew) {
-            // Provide this option only for 5.7.6+
-            // OR for privileged users in 5.5.7+
-            if (($serverType === 'MySQL'
-                && $serverVersion >= 50706)
-                || ($GLOBALS['dbi']->isSuperuser() && $mode === 'edit_other')
-            ) {
-                $active_auth_plugins = $serverPrivileges->getActiveAuthPlugins();
-                if (isset($active_auth_plugins['mysql_old_password'])) {
-                    unset($active_auth_plugins['mysql_old_password']);
-                }
+        $activeAuthPlugins = ['mysql_native_password' => __('Native MySQL authentication')];
 
-                $html .= $template->render('display/change_password/file_b', [
-                    'active_auth_plugins' => $active_auth_plugins,
-                    'orig_auth_plugin' => $orig_auth_plugin,
-                ]);
-            } else {
-                $html .= $template->render('display/change_password/file_c');
+        if ($isNew && $hasMoreAuthPlugins) {
+            $activeAuthPlugins = $serverPrivileges->getActiveAuthPlugins();
+            if (isset($activeAuthPlugins['mysql_old_password'])) {
+                unset($activeAuthPlugins['mysql_old_password']);
             }
-        } else {
-            $active_auth_plugins = ['mysql_native_password' => __('Native MySQL authentication')];
-
-            $html .= $template->render('display/change_password/file_d', [
-                'orig_auth_plugin' => $orig_auth_plugin,
-                'active_auth_plugins' => $active_auth_plugins,
-            ]);
         }
 
-        $html .= $template->render('display/change_password/file_e');
+        $template = new Template();
 
-        return $html;
+        return $template->render('display/change_password', [
+            'username' => $username,
+            'hostname' => $hostname,
+            'is_privileges' => $isPrivileges,
+            'is_new' => $isNew,
+            'has_more_auth_plugins' => $hasMoreAuthPlugins,
+            'active_auth_plugins' => $activeAuthPlugins,
+            'orig_auth_plugin' => $origAuthPlugin,
+        ]);
     }
 }

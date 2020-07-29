@@ -50,9 +50,11 @@ class ChangePasswordTest extends AbstractTestCase
      */
     public function testGetHtml(): void
     {
+        global $route;
+
         $username = 'pma_username';
         $hostname = 'pma_hostname';
-        $_REQUEST['route'] = '/server/privileges';
+        $route = '/server/privileges';
 
         //Call the test function
         $html = ChangePassword::getHtml('change_pw', $username, $hostname);
