@@ -12,3 +12,5 @@ codecov.yml export-ignore
 build.xml export-ignore
 phpcs.xml.dist export-ignore
 phpstan.neon.dist export-ignore
+DCO export-ignore
+.editorconfig export-ignore
