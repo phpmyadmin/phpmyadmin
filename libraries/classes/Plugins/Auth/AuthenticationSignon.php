@@ -195,6 +195,11 @@ class AuthenticationSignon extends AuthenticationPlugin
                 $pma_token = $_SESSION['PMA_single_signon_token'];
             }
 
+            $HMACSecret = Util::generateRandom(16);
+            if (isset($_SESSION['PMA_single_signon_HMAC_secret'])) {
+                $HMACSecret = $_SESSION['PMA_single_signon_HMAC_secret'];
+            }
+
             /* End single signon session */
             if (! defined('TESTSUITE')) {
                 session_write_close();
@@ -225,7 +230,7 @@ class AuthenticationSignon extends AuthenticationPlugin
             /* Restore our token */
             if (! empty($pma_token)) {
                 $_SESSION[' PMA_token '] = $pma_token;
-                $_SESSION[' HMAC_secret '] = Util::generateRandom(16);
+                $_SESSION[' HMAC_secret '] = $HMACSecret;
             }
 
             /**

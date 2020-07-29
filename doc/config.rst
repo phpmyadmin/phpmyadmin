@@ -3534,7 +3534,6 @@ This example uses :file:`examples/signon.php` to demonstrate usage of :ref:`auth
     <?php
     $i = 0;
     $i++;
-    $cfg['Servers'][$i]['extension']     = 'mysqli';
     $cfg['Servers'][$i]['auth_type']     = 'signon';
     $cfg['Servers'][$i]['SignonSession'] = 'SignonSession';
     $cfg['Servers'][$i]['SignonURL']     = 'examples/signon.php';
@@ -3577,7 +3576,6 @@ following example shows two of them:
     $cfg['Servers'][$i]['auth_type'] = 'cookie';
     $cfg['Servers'][$i]['verbose']   = 'no1';
     $cfg['Servers'][$i]['host']      = 'localhost';
-    $cfg['Servers'][$i]['extension'] = 'mysqli';
     // more options for #1 ...
 
     $i++; // server 2 :
@@ -3586,7 +3584,6 @@ following example shows two of them:
     $cfg['Servers'][$i]['host']      = 'remote.host.addr';//or ip:'10.9.8.1'
     // this server must allow remote clients, e.g., host 10.9.8.%
     // not only in mysql.host but also in the startup configuration
-    $cfg['Servers'][$i]['extension'] = 'mysqli';
     // more options for #2 ...
 
     // end of server sections

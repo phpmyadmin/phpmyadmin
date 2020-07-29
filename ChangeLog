@@ -91,6 +91,9 @@ phpMyAdmin - ChangeLog
 - issue #16194 Fixed SQL query does not appear in case of editing view where definer is not you on MySQL 8
 - issue #16255 Fix tinyint(1) shown as INT on Search page
 - issue #16256 Fix "Warning: error_reporting() has been disabled for security reasons" on php 7.x
+- issue #15367 Fix "Change or reconfigure primary server" link
+- issue #15367 Fix first replica links, start, stop, ignore links
+- issue #16058 Add "PMA_single_signon_HMAC_secret" for signon auths to make special links work and udate examples
 
 5.0.2 (2020-03-20)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page

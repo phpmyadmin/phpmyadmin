@@ -2116,8 +2116,7 @@
     </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Replication.php">
-    <PossiblyNullArgument occurrences="2">
-      <code>$control</code>
+    <PossiblyNullArgument occurrences="1">
       <code>$host</code>
     </PossiblyNullArgument>
   </file>

@@ -2371,11 +2371,6 @@ parameters:
 			path: libraries/classes/Relation.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of function mb_strtoupper expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Replication.php
-
-		-
 			message: "#^Parameter \\#1 \\$name of static method PhpMyAdmin\\\\Core\\:\\:sanitizeMySQLHost\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Replication.php

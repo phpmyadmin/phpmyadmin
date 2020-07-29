@@ -36,21 +36,21 @@ class Replication
     /**
      * Configures replication slave
      *
-     * @param string $action  possible values: START or STOP
-     * @param string $control default: null,
-     *                        possible values: SQL_THREAD or IO_THREAD or null.
-     *                        If it is set to null, it controls both
-     *                        SQL_THREAD and IO_THREAD
-     * @param int    $link    mysql link
+     * @param string      $action  possible values: START or STOP
+     * @param string|null $control default: null,
+     *                             possible values: SQL_THREAD or IO_THREAD or null.
+     *                             If it is set to null, it controls both
+     *                             SQL_THREAD and IO_THREAD
+     * @param int         $link    mysql link
      *
      * @return mixed|int output of DatabaseInterface::tryQuery
      */
-    public function slaveControl($action, $control = null, $link = null)
+    public function slaveControl(string $action, ?string $control, $link = null)
     {
         global $dbi;
 
         $action = mb_strtoupper($action);
-        $control = mb_strtoupper($control);
+        $control = $control !== null ? mb_strtoupper($control) : '';
 
         if ($action !== 'START' && $action !== 'STOP') {
             return -1;

@@ -22,6 +22,7 @@ phpmyadmin.wpj
 .cache
 .idea
 .netbeans
+.vscode
 *.sw[op]
 # Web server files
 web.config
