@@ -216,7 +216,7 @@ fi
 echo "* Removing unneeded files"
 
 # Remove developer information
-rm -rf .github
+rm -rf .github CODE_OF_CONDUCT.md DCO
 
 # Testsuite setup
 rm -f .travis.yml .scrutinizer.yml .jshintrc .weblate codecov.yml
