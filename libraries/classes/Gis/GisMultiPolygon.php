@@ -358,10 +358,12 @@ class GisMultiPolygon extends GisGeometry
         // Separate each polygon
         $polygons = explode(')),((', $multipolygon);
 
-        return $row . 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
-            . 'new OpenLayers.Geometry.MultiPolygon('
-            . $this->getPolygonArrayForOpenLayers($polygons, $srid)
-            . '), null, ' . json_encode($style_options) . '));';
+        return $row . $this->getPolygonArrayForOpenLayers($polygons, $srid)
+            . 'var multiPolygon = new ol.geom.MultiPolygon(polygonArray);'
+            . 'vectorLayer.addFeatures(multiPolygon);';
+//            multiPolygon.setStyle , null, ' . json_encode($style_options) . '));';
+
+        return $row;
     }
 
     /**

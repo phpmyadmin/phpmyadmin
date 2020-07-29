@@ -323,9 +323,11 @@ class GisPolygon extends GisGeometry
         // Separate outer and inner polygons
         $parts = explode('),(', $polygon);
 
-        return $row . 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
-            . $this->getPolygonForOpenLayers($parts, $srid)
-            . ', null, ' . json_encode($style_options) . '));';
+        $row .= $this->getPolygonForOpenLayers($parts, $srid)
+            . 'var feature = new ol.Feature({geometry: polygon});'
+            . 'vectorLayer.addFeature(feature);';
+
+        return $row;
     }
 
     /**

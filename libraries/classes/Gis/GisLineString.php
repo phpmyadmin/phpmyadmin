@@ -283,9 +283,13 @@ class GisLineString extends GisGeometry
             );
         $points_arr = $this->extractPoints($linesrting, null);
 
-        return $result . 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
-            . $this->getLineForOpenLayers($points_arr, $srid)
-            . ', null, ' . json_encode($style_options) . '));';
+        return $result . 'var point = new ol.Feature({geometry: '
+            . $this->getLineForOpenLayers($points_arr, $srid) . '});'
+            . 'vectorLayer.addFeature(point);';
+
+//        return $result . 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
+//            . $this->getLineForOpenLayers($points_arr, $srid)
+//            . ', null, ' . json_encode($style_options) . '));';
     }
 
     /**

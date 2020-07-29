@@ -289,10 +289,11 @@ class GisMultiPoint extends GisGeometry
             );
         $points_arr = $this->extractPoints($multipoint, null);
 
-        return $result . 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
-            . 'new OpenLayers.Geometry.MultiPoint('
-            . $this->getPointsArrayForOpenLayers($points_arr, $srid)
-            . '), null, ' . json_encode($style_options) . '));';
+        return $result . 'var multiPoint = new ol.geom.MultiPoint('
+            . $this->getPointsArrayForOpenLayers($points_arr, $srid) . ');'
+            . 'vectorLayer.addFeature(new ol.Feature({geometry: multiPoint}));';
+//           multiPoint.setStyle( json_encode($style_options) . '));';
+//        return '';
     }
 
     /**

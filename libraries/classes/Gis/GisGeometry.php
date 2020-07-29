@@ -139,15 +139,6 @@ abstract class GisGeometry
      */
     protected function getBoundsForOl($srid, array $scale_data)
     {
-//        return 'bound = new OpenLayers.Bounds(); '
-//        . 'bound.extend(new OpenLayers.LonLat('
-//        . $scale_data['minX'] . ', ' . $scale_data['minY']
-//        . ').transform(new OpenLayers.Projection("EPSG:'
-//        . intval($srid) . '"), map.getProjectionObject())); '
-//        . 'bound.extend(new OpenLayers.LonLat('
-//        . $scale_data['maxX'] . ', ' . $scale_data['maxY']
-//        . ').transform(new OpenLayers.Projection("EPSG:'
-//        . intval($srid) . '"), map.getProjectionObject()));';
         return 'var minLoc = [' . $scale_data['minX'].', '. $scale_data['minY']. ' ];'
         . 'var maxLoc = [' . $scale_data['maxX'].', '. $scale_data['maxY']. ' ];'
         . 'var ext = ol.extent.boundingExtent([minLoc, maxLoc]);'
@@ -290,20 +281,14 @@ abstract class GisGeometry
      */
     protected function getPolygonArrayForOpenLayers(array $polygons, $srid)
     {
-        $ol_array = 'new Array(';
+        $ol_array = 'var polygonArray = [];';
         foreach ($polygons as $polygon) {
             $rings = explode('),(', $polygon);
-            $ol_array .= $this->getPolygonForOpenLayers($rings, $srid) . ', ';
+            $ol_array .= $this->getPolygonForOpenLayers($rings, $srid);
+            $ol_array .= 'polygonArray.push(polygon);';
         }
 
-        $ol_array
-            = mb_substr(
-                $ol_array,
-                0,
-                mb_strlen($ol_array) - 2
-            );
-
-        return $ol_array . ')';
+        return $ol_array;
     }
 
     /**
@@ -318,9 +303,8 @@ abstract class GisGeometry
      */
     protected function getPolygonForOpenLayers(array $polygon, $srid)
     {
-        return 'new OpenLayers.Geometry.Polygon('
-        . $this->getLineArrayForOpenLayers($polygon, $srid, false)
-        . ')';
+        return $this->getLineArrayForOpenLayers($polygon, $srid, false)
+        .    'var polygon = new ol.geom.Polygon(arr);';
     }
 
     /**
@@ -341,25 +325,19 @@ abstract class GisGeometry
         $srid,
         $is_line_string = true
     ) {
-        $ol_array = 'new Array(';
+        $ol_array = 'var arr = [];';
         foreach ($lines as $line) {
             $points_arr = $this->extractPoints($line, null);
-            $ol_array .= $this->getLineForOpenLayers(
+            $ol_array .= 'var line = ' .$this->getLineForOpenLayers(
                 $points_arr,
                 $srid,
                 $is_line_string
-            );
-            $ol_array .= ', ';
+            ) . ';';
+            $ol_array .= 'var coord = line.getCoordinates();';
+            $ol_array .= 'coord.forEach(item => arr.push(item));';
         }
 
-        $ol_array
-            = mb_substr(
-                $ol_array,
-                0,
-                mb_strlen($ol_array) - 2
-            );
-
-        return $ol_array . ')';
+        return $ol_array ;
     }
 
     /**
@@ -378,7 +356,7 @@ abstract class GisGeometry
         $srid,
         $is_line_string = true
     ) {
-        return 'new OpenLayers.Geometry.'
+        return 'new ol.geom.'
         . ($is_line_string ? 'LineString' : 'LinearRing') . '('
         . $this->getPointsArrayForOpenLayers($points_arr, $srid)
         . ')';
@@ -398,7 +376,7 @@ abstract class GisGeometry
     {
         $ol_array = 'new Array(';
         foreach ($points_arr as $point) {
-            $ol_array .= $this->getPointForOpenLayers($point, $srid) . ', ';
+            $ol_array .= $this->getPointForOpenLayers($point, $srid) . '.getCoordinates(), ';
         }
 
         $ol_array

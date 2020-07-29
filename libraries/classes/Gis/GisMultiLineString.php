@@ -313,10 +313,10 @@ class GisMultiLineString extends GisGeometry
         // Separate each linestring
         $linestirngs = explode('),(', $multilinestirng);
 
-        return $row . 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
-            . 'new OpenLayers.Geometry.MultiLineString('
-            . $this->getLineArrayForOpenLayers($linestirngs, $srid)
-            . '), null, ' . json_encode($style_options) . '));';
+        return $row . $this->getLineArrayForOpenLayers($linestirngs, $srid)
+            . 'var multiLineString = new ol.geom.MultiLineString(arr);'
+            . 'vectorLayer.addFeature(new ol.Feature({geometry: multiLineString}));';
+//            multiLineString.setStyle '), null, ' . json_encode($style_options) . '));';
     }
 
     /**
