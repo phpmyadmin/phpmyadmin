@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Display\ChangePassword;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
@@ -101,6 +100,6 @@ class UserPasswordController extends AbstractController
             $this->response->addHTML($msg->getDisplay());
         }
 
-        $this->response->addHTML(ChangePassword::getHtml('change_pw', $username, $hostname));
+        $this->response->addHTML($this->userPassword->getFormForChangePassword($username, $hostname));
     }
 }

@@ -220,4 +220,9 @@ class UserPassword
         // Flush privileges after successful password change
         $GLOBALS['dbi']->tryQuery('FLUSH PRIVILEGES;');
     }
+
+    public function getFormForChangePassword(?string $username, ?string $hostname): string
+    {
+        return $this->serverPrivileges->getFormForChangePassword($username ?? '', $hostname ?? '', false);
+    }
 }

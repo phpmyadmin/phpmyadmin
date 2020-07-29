@@ -2082,4 +2082,54 @@ class PrivilegesTest extends AbstractTestCase
             $actual[1]->getMessage()
         );
     }
+
+    public function testGetFormForChangePassword(): void
+    {
+        global $route;
+
+        $username = 'pma_username';
+        $hostname = 'pma_hostname';
+        $route = '/server/privileges';
+
+        $html = $this->serverPrivileges->getFormForChangePassword($username, $hostname, false);
+
+        $this->assertStringContainsString(
+            Url::getFromRoute('/server/privileges'),
+            $html
+        );
+
+        //Url::getHiddenInputs
+        $this->assertStringContainsString(
+            Url::getHiddenInputs(),
+            $html
+        );
+
+        //$username & $hostname
+        $this->assertStringContainsString(
+            htmlspecialchars($username),
+            $html
+        );
+        $this->assertStringContainsString(
+            htmlspecialchars($hostname),
+            $html
+        );
+
+        //labels
+        $this->assertStringContainsString(
+            __('Change password'),
+            $html
+        );
+        $this->assertStringContainsString(
+            __('No Password'),
+            $html
+        );
+        $this->assertStringContainsString(
+            __('Password:'),
+            $html
+        );
+        $this->assertStringContainsString(
+            __('Password:'),
+            $html
+        );
+    }
 }
