@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Display\Error as DisplayError;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use const DATE_RFC1123;
@@ -291,11 +290,13 @@ class Core
             );
         } else {
             $error_message = strtr($error_message, ['<br>' => '[br]']);
-            $error_header = __('Error');
-            $lang = $GLOBALS['lang'] ?? 'en';
-            $dir = $GLOBALS['text_dir'] ?? 'ltr';
+            $template = new Template();
 
-            echo DisplayError::display(new Template(), $lang, $dir, $error_header, $error_message);
+            echo $template->render('error/generic', [
+                'lang' => $GLOBALS['lang'] ?? 'en',
+                'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+                'error_message' => Sanitize::sanitizeMessage($error_message),
+            ]);
         }
         if (! defined('TESTSUITE')) {
             exit;
