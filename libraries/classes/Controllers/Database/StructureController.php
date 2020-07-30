@@ -6,11 +6,11 @@ namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\CentralColumns;
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Common;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Display\CreateTable;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
@@ -188,7 +188,10 @@ class StructureController extends AbstractController
 
         $createTable = '';
         if (empty($this->dbIsSystemSchema)) {
-            $createTable = CreateTable::getHtml($this->db);
+            $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
+            $checkUserPrivileges->getPrivileges();
+
+            $createTable = $this->template->render('database/create_table', ['db' => $this->db]);
         }
 
         $this->render('database/structure/index', [
