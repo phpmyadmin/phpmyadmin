@@ -688,30 +688,6 @@
       <code>$unlimNumRows</code>
     </InvalidScalarArgument>
   </file>
-  <file src="libraries/classes/Display/GitRevision.php">
-    <PossiblyNullArgument occurrences="12">
-      <code>$this-&gt;config-&gt;get('PMA_VERSION_GIT_COMMITHASH')</code>
-      <code>$this-&gt;config-&gt;get('PMA_VERSION_GIT_MESSAGE')</code>
-      <code>$this-&gt;config-&gt;get('PMA_VERSION_GIT_COMMITHASH')</code>
-      <code>$branch</code>
-      <code>$branch</code>
-      <code>$isRemoteBranch ? $branch : htmlspecialchars($branch)</code>
-      <code>$committer['date']</code>
-      <code>$committer['email']</code>
-      <code>$committer['name']</code>
-      <code>$author['date']</code>
-      <code>$author['email']</code>
-      <code>$author['name']</code>
-    </PossiblyNullArgument>
-    <PossiblyNullArrayAccess occurrences="6">
-      <code>$committer['date']</code>
-      <code>$committer['email']</code>
-      <code>$committer['name']</code>
-      <code>$author['date']</code>
-      <code>$author['email']</code>
-      <code>$author['name']</code>
-    </PossiblyNullArrayAccess>
-  </file>
   <file src="libraries/classes/Display/Results.php">
     <ImplicitToStringCast occurrences="1">
       <code>$message</code>
@@ -1008,9 +984,28 @@
     <ParadoxicalCondition occurrences="1">
       <code>null</code>
     </ParadoxicalCondition>
-    <PossiblyNullArgument occurrences="1">
+    <PossiblyNullArgument occurrences="12">
       <code>$gitFolder</code>
+      <code>$this-&gt;config-&gt;get('PMA_VERSION_GIT_MESSAGE')</code>
+      <code>$this-&gt;config-&gt;get('PMA_VERSION_GIT_COMMITHASH')</code>
+      <code>$branch</code>
+      <code>$branch</code>
+      <code>$isRemoteBranch ? $branch : htmlspecialchars($branch)</code>
+      <code>$committer['date']</code>
+      <code>$committer['email']</code>
+      <code>$committer['name']</code>
+      <code>$author['date']</code>
+      <code>$author['email']</code>
+      <code>$author['name']</code>
     </PossiblyNullArgument>
+    <PossiblyNullArrayAccess occurrences="6">
+      <code>$committer['date']</code>
+      <code>$committer['email']</code>
+      <code>$committer['name']</code>
+      <code>$author['date']</code>
+      <code>$author['email']</code>
+      <code>$author['name']</code>
+    </PossiblyNullArrayAccess>
   </file>
   <file src="libraries/classes/Html/Generator.php">
     <InvalidScalarArgument occurrences="1">

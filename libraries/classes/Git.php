@@ -27,6 +27,7 @@ use function fread;
 use function fseek;
 use function function_exists;
 use function gzuncompress;
+use function htmlspecialchars;
 use function implode;
 use function in_array;
 use function intval;
@@ -35,10 +36,12 @@ use function is_file;
 use function json_decode;
 use function ord;
 use function preg_match;
+use function sprintf;
 use function str_replace;
 use function strlen;
 use function strpos;
 use function strtolower;
+use function strtotime;
 use function substr;
 use function trim;
 use function unpack;
@@ -55,9 +58,13 @@ class Git
      */
     private $config;
 
-    public function __construct(Config $config)
+    /** @var Template */
+    private $template;
+
+    public function __construct(Config $config, Template $template)
     {
         $this->config = $config;
+        $this->template = $template;
     }
 
     /**
@@ -601,5 +608,84 @@ class Git
         $this->config->set('PMA_VERSION_GIT_COMMITTER', $committer);
         $this->config->set('PMA_VERSION_GIT_ISREMOTECOMMIT', $is_remote_commit);
         $this->config->set('PMA_VERSION_GIT_ISREMOTEBRANCH', $is_remote_branch);
+    }
+
+    public function getHtml(): string
+    {
+        // if using a remote commit fast-forwarded, link to GitHub
+        $commitHash = substr(
+            (string) $this->config->get('PMA_VERSION_GIT_COMMITHASH'),
+            0,
+            7
+        );
+        $commitHash = '<strong title="'
+            . htmlspecialchars($this->config->get('PMA_VERSION_GIT_MESSAGE'))
+            . '">' . htmlspecialchars($commitHash) . '</strong>';
+        if ($this->config->get('PMA_VERSION_GIT_ISREMOTECOMMIT')) {
+            $commitHash = '<a href="'
+                . Core::linkURL(
+                    'https://github.com/phpmyadmin/phpmyadmin/commit/'
+                    . htmlspecialchars($this->config->get('PMA_VERSION_GIT_COMMITHASH'))
+                )
+                . '" rel="noopener noreferrer" target="_blank">' . $commitHash . '</a>';
+        }
+
+        $branch = $this->config->get('PMA_VERSION_GIT_BRANCH');
+        $isRemoteBranch = $this->config->get('PMA_VERSION_GIT_ISREMOTEBRANCH');
+        if ($isRemoteBranch) {
+            $branch = '<a href="'
+                . Core::linkURL(
+                    'https://github.com/phpmyadmin/phpmyadmin/tree/'
+                    . $this->config->get('PMA_VERSION_GIT_BRANCH')
+                )
+                . '" rel="noopener noreferrer" target="_blank">' . htmlspecialchars($branch) . '</a>';
+        }
+        if ($branch !== false) {
+            $branch = sprintf(
+                __('%1$s from %2$s branch'),
+                $commitHash,
+                $isRemoteBranch ? $branch : htmlspecialchars($branch)
+            );
+        } else {
+            $branch = $commitHash . ' (' . __('no branch') . ')';
+        }
+
+        $committer = $this->config->get('PMA_VERSION_GIT_COMMITTER');
+        $author = $this->config->get('PMA_VERSION_GIT_AUTHOR');
+
+        $name = __('Git revision:') . ' '
+            . $branch . ',<br> '
+            . sprintf(
+                __('committed on %1$s by %2$s'),
+                Util::localisedDate(strtotime($committer['date'])),
+                '<a href="' . Core::linkURL(
+                    'mailto:' . htmlspecialchars($committer['email'])
+                ) . '">'
+                . htmlspecialchars($committer['name']) . '</a>'
+            )
+            . ($author != $committer
+                ? ', <br>'
+                . sprintf(
+                    __('authored on %1$s by %2$s'),
+                    Util::localisedDate(strtotime($author['date'])),
+                    '<a href="' . Core::linkURL(
+                        'mailto:' . htmlspecialchars($author['email'])
+                    ) . '">'
+                    . htmlspecialchars($author['name']) . '</a>'
+                )
+                : '');
+
+        return $this->template->render('list/item', [
+            'content' => $name,
+            'id' => 'li_pma_version_git',
+            'class' => 'list-group-item',
+            'url' => [
+                'href' => null,
+                'target' => null,
+                'id' => null,
+                'class' => null,
+            ],
+            'mysql_help_page' => null,
+        ]);
     }
 }

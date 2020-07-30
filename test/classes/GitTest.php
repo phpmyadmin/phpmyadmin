@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Git;
+use PhpMyAdmin\Template;
 use const CONFIG_FILE;
 use const DIRECTORY_SEPARATOR;
 use const PHP_EOL;
@@ -53,7 +54,7 @@ class GitTest extends AbstractTestCase
         parent::setProxySettings();
         $this->config = new Config(CONFIG_FILE);
         $this->config->set('ShowGitRevision', true);
-        $this->object = new Git($this->config);
+        $this->object = new Git($this->config, new Template());
         $this->testDir = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'gittempdir_' . mt_rand();
 
         unset($_SESSION['git_location']);

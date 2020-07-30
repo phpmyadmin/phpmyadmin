@@ -14,7 +14,6 @@ use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Common;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Display\GitRevision;
 use PhpMyAdmin\Git;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\LanguageManager;
@@ -266,7 +265,7 @@ class HomeController extends AbstractController
 
         $this->checkRequirements();
 
-        $git = new Git($this->config);
+        $git = new Git($this->config, $this->template);
 
         $this->render('home/index', [
             'message' => $displayMessage ?? '',
@@ -330,23 +329,25 @@ class HomeController extends AbstractController
 
     public function gitRevision(): void
     {
-        global $PMA_Config;
-
         if (! $this->response->isAjax()) {
             return;
         }
 
-        $git = new Git($PMA_Config);
+        $git = new Git($this->config, $this->template);
 
         if (! $git->isGitRevision()) {
             return;
         }
 
-        $this->response->addHTML((new GitRevision(
-            $this->response,
-            $this->config,
-            $this->template
-        ))->display());
+        $git->checkGitRevision();
+
+        if (! $this->config->get('PMA_VERSION_GIT')) {
+            $this->response->setRequestStatus(false);
+
+            return;
+        }
+
+        $this->response->addHTML($git->getHtml());
     }
 
     private function checkRequirements(): void
