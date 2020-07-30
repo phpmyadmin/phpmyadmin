@@ -1,7 +1,7 @@
 <li id="li_pma_version_git" class="list-group-item">
   {% trans 'Git revision:' %}
 
-  {% if is_remote %}
+  {% if is_remote_commit %}
     <a href="{{ 'https://github.com/phpmyadmin/phpmyadmin/commit/%s'|format(hash|e)|link }}" rel="noopener noreferrer" target="_blank">
       <strong title="{{ message }}">{{ hash|slice(0, 7) }}</strong>
     </a>
@@ -11,7 +11,7 @@
 
   {% if branch is same as(false) %}
     ({% trans 'no branch' %})
-  {% elseif is_remote %}
+  {% elseif is_remote_branch %}
     {{ 'from %s branch'|trans|format(
       '<a href="%s" rel="noopener noreferrer" target="_blank">%s</a>'|format(
         'https://github.com/phpmyadmin/phpmyadmin/tree/%s'|format(branch|e)|link,

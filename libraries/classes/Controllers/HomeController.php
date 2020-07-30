@@ -340,33 +340,18 @@ class HomeController extends AbstractController
             return;
         }
 
-        $git->checkGitRevision();
+        $commit = $git->checkGitRevision();
 
-        if (! $this->config->get('PMA_VERSION_GIT')) {
+        if (! $this->config->get('PMA_VERSION_GIT') || $commit === null) {
             $this->response->setRequestStatus(false);
 
             return;
         }
 
-        $committer = $this->config->get('PMA_VERSION_GIT_COMMITTER');
-        $author = $this->config->get('PMA_VERSION_GIT_AUTHOR');
+        $commit['author']['date'] = Util::localisedDate(strtotime($commit['author']['date']));
+        $commit['committer']['date'] = Util::localisedDate(strtotime($commit['committer']['date']));
 
-        $this->render('home/git_info', [
-            'hash' => $this->config->get('PMA_VERSION_GIT_COMMITHASH'),
-            'message' => $this->config->get('PMA_VERSION_GIT_MESSAGE'),
-            'branch' => $this->config->get('PMA_VERSION_GIT_BRANCH'),
-            'is_remote' => $this->config->get('PMA_VERSION_GIT_ISREMOTECOMMIT'),
-            'committer' => [
-                'name' => $committer['name'] ?? '',
-                'email' => $committer['email'] ?? '',
-                'date' => Util::localisedDate(strtotime($committer['date'] ?? '')),
-            ],
-            'author' => [
-                'name' => $author['name'] ?? '',
-                'email' => $author['email'] ?? '',
-                'date' => Util::localisedDate(strtotime($author['date'] ?? '')),
-            ],
-        ]);
+        $this->render('home/git_info', $commit);
     }
 
     private function checkRequirements(): void

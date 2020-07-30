@@ -215,22 +215,19 @@ class GitTest extends AbstractTestCase
         mkdir('.git');
         file_put_contents('.git/config', '');
 
-        $this->object->checkGitRevision();
+        $commit = $this->object->checkGitRevision();
 
+        $this->assertNull($commit);
         $this->assertEquals(
             '0',
             $this->config->get('PMA_VERSION_GIT')
         );
 
-        $this->assertEmpty(
-            $this->config->get('PMA_VERSION_GIT_COMMITHASH')
-        );
-
         file_put_contents('.git/HEAD', 'ref: refs/remotes/origin/master');
-        $this->object->checkGitRevision();
-        $this->assertEmpty(
-            $this->config->get('PMA_VERSION_GIT_COMMITHASH')
-        );
+
+        $commit = $this->object->checkGitRevision();
+
+        $this->assertNull($commit);
 
         file_put_contents(
             '.git/packed-refs',
@@ -240,14 +237,42 @@ class GitTest extends AbstractTestCase
             '17bf8b7309919f8ac593d7c563b31472780ee83b refs/remotes/origin/master' . PHP_EOL
         );
         mkdir('.git/objects/pack', 0777, true);//default = 0777, recursive mode
-        $this->object->checkGitRevision();
 
-        $this->assertNotEmpty(
-            $this->config->get('PMA_VERSION_GIT_COMMITHASH')
-        );
-        $this->assertNotEmpty(
-            $this->config->get('PMA_VERSION_GIT_BRANCH')
-        );
+        $commit = $this->object->checkGitRevision();
+
+        $this->assertIsArray($commit);
+        $this->assertArrayHasKey('hash', $commit);
+        $this->assertEquals('17bf8b7309919f8ac593d7c563b31472780ee83b', $commit['hash']);
+
+        $this->assertArrayHasKey('branch', $commit);
+        $this->assertEquals('master', $commit['branch']);
+
+        $this->assertArrayHasKey('message', $commit);
+        $this->assertIsString($commit['message']);
+
+        $this->assertArrayHasKey('is_remote_commit', $commit);
+        $this->assertIsBool($commit['is_remote_commit']);
+
+        $this->assertArrayHasKey('is_remote_branch', $commit);
+        $this->assertIsBool($commit['is_remote_branch']);
+
+        $this->assertArrayHasKey('author', $commit);
+        $this->assertIsArray($commit['author']);
+        $this->assertArrayHasKey('name', $commit['author']);
+        $this->assertArrayHasKey('email', $commit['author']);
+        $this->assertArrayHasKey('date', $commit['author']);
+        $this->assertIsString($commit['author']['name']);
+        $this->assertIsString($commit['author']['email']);
+        $this->assertIsString($commit['author']['date']);
+
+        $this->assertArrayHasKey('committer', $commit);
+        $this->assertIsArray($commit['committer']);
+        $this->assertArrayHasKey('name', $commit['committer']);
+        $this->assertArrayHasKey('email', $commit['committer']);
+        $this->assertArrayHasKey('date', $commit['committer']);
+        $this->assertIsString($commit['committer']['name']);
+        $this->assertIsString($commit['committer']['email']);
+        $this->assertIsString($commit['committer']['date']);
 
         rmdir('.git/objects/pack');
         rmdir('.git/objects');
@@ -267,23 +292,21 @@ class GitTest extends AbstractTestCase
         mkdir('.git');
         file_put_contents('.git/config', '');
 
-        $this->object->checkGitRevision();
+        $commit = $this->object->checkGitRevision();
 
+        $this->assertNull($commit);
         $this->assertEquals(
             '0',
             $this->config->get('PMA_VERSION_GIT')
-        );
-
-        $this->assertEmpty(
-            $this->config->get('PMA_VERSION_GIT_COMMITHASH')
         );
 
         file_put_contents('.git/HEAD', 'ref: refs/remotes/origin/master');
         mkdir('.git/refs/remotes/origin', 0777, true);
         file_put_contents('.git/refs/remotes/origin/master', 'c1f2ff2eb0c3fda741f859913fd589379f4e4a8f');
         mkdir('.git/objects/pack', 0777, true);//default = 0777, recursive mode
-        $this->object->checkGitRevision();
+        $commit = $this->object->checkGitRevision();
 
+        $this->assertNull($commit);
         $this->assertEquals(
             0,
             $this->config->get('PMA_VERSION_GIT')
@@ -310,22 +333,19 @@ class GitTest extends AbstractTestCase
         mkdir('.git');
         file_put_contents('.git/config', '');
 
-        $this->object->checkGitRevision();
+        $commit = $this->object->checkGitRevision();
 
+        $this->assertNull($commit);
         $this->assertEquals(
             '0',
             $this->config->get('PMA_VERSION_GIT')
         );
 
-        $this->assertEmpty(
-            $this->config->get('PMA_VERSION_GIT_COMMITHASH')
-        );
-
         file_put_contents('.git/HEAD', 'ref: refs/remotes/origin/master');
-        $this->object->checkGitRevision();
-        $this->assertEmpty(
-            $this->config->get('PMA_VERSION_GIT_COMMITHASH')
-        );
+
+        $commit = $this->object->checkGitRevision();
+
+        $this->assertNull($commit);
 
         file_put_contents(
             '.git/packed-refs',
@@ -344,14 +364,41 @@ class GitTest extends AbstractTestCase
             PHP_EOL
         );
 
-        $this->object->checkGitRevision();
+        $commit = $this->object->checkGitRevision();
 
-        $this->assertNotEmpty(
-            $this->config->get('PMA_VERSION_GIT_COMMITHASH')
-        );
-        $this->assertNotEmpty(
-            $this->config->get('PMA_VERSION_GIT_BRANCH')
-        );
+        $this->assertIsArray($commit);
+        $this->assertArrayHasKey('hash', $commit);
+        $this->assertEquals('17bf8b7309919f8ac593d7c563b31472780ee83b', $commit['hash']);
+
+        $this->assertArrayHasKey('branch', $commit);
+        $this->assertEquals('master', $commit['branch']);
+
+        $this->assertArrayHasKey('message', $commit);
+        $this->assertIsString($commit['message']);
+
+        $this->assertArrayHasKey('is_remote_commit', $commit);
+        $this->assertIsBool($commit['is_remote_commit']);
+
+        $this->assertArrayHasKey('is_remote_branch', $commit);
+        $this->assertIsBool($commit['is_remote_branch']);
+
+        $this->assertArrayHasKey('author', $commit);
+        $this->assertIsArray($commit['author']);
+        $this->assertArrayHasKey('name', $commit['author']);
+        $this->assertArrayHasKey('email', $commit['author']);
+        $this->assertArrayHasKey('date', $commit['author']);
+        $this->assertIsString($commit['author']['name']);
+        $this->assertIsString($commit['author']['email']);
+        $this->assertIsString($commit['author']['date']);
+
+        $this->assertArrayHasKey('committer', $commit);
+        $this->assertIsArray($commit['committer']);
+        $this->assertArrayHasKey('name', $commit['committer']);
+        $this->assertArrayHasKey('email', $commit['committer']);
+        $this->assertArrayHasKey('date', $commit['committer']);
+        $this->assertIsString($commit['committer']['name']);
+        $this->assertIsString($commit['committer']['email']);
+        $this->assertIsString($commit['committer']['date']);
 
         unlink('.git/objects/info/packs');
         rmdir('.git/objects/info');
@@ -368,15 +415,13 @@ class GitTest extends AbstractTestCase
     public function testCheckGitRevisionSkipped(): void
     {
         $this->config->set('ShowGitRevision', false);
-        $this->object->checkGitRevision();
+        $commit = $this->object->checkGitRevision();
+
+        $this->assertNull($commit);
 
         $this->assertEquals(
             null,
             $this->config->get('PMA_VERSION_GIT')
-        );
-
-        $this->assertEmpty(
-            $this->config->get('PMA_VERSION_GIT_COMMITHASH')
         );
     }
 
