@@ -37,6 +37,7 @@ use function ini_get;
 use function preg_match;
 use function sprintf;
 use function strlen;
+use function strtotime;
 use function trigger_error;
 
 class HomeController extends AbstractController
@@ -265,7 +266,7 @@ class HomeController extends AbstractController
 
         $this->checkRequirements();
 
-        $git = new Git($this->config, $this->template);
+        $git = new Git($this->config);
 
         $this->render('home/index', [
             'message' => $displayMessage ?? '',
@@ -333,7 +334,7 @@ class HomeController extends AbstractController
             return;
         }
 
-        $git = new Git($this->config, $this->template);
+        $git = new Git($this->config);
 
         if (! $git->isGitRevision()) {
             return;
@@ -347,7 +348,25 @@ class HomeController extends AbstractController
             return;
         }
 
-        $this->response->addHTML($git->getHtml());
+        $committer = $this->config->get('PMA_VERSION_GIT_COMMITTER');
+        $author = $this->config->get('PMA_VERSION_GIT_AUTHOR');
+
+        $this->render('home/git_info', [
+            'hash' => $this->config->get('PMA_VERSION_GIT_COMMITHASH'),
+            'message' => $this->config->get('PMA_VERSION_GIT_MESSAGE'),
+            'branch' => $this->config->get('PMA_VERSION_GIT_BRANCH'),
+            'is_remote' => $this->config->get('PMA_VERSION_GIT_ISREMOTECOMMIT'),
+            'committer' => [
+                'name' => $committer['name'] ?? '',
+                'email' => $committer['email'] ?? '',
+                'date' => Util::localisedDate(strtotime($committer['date'] ?? '')),
+            ],
+            'author' => [
+                'name' => $author['name'] ?? '',
+                'email' => $author['email'] ?? '',
+                'date' => Util::localisedDate(strtotime($author['date'] ?? '')),
+            ],
+        ]);
     }
 
     private function checkRequirements(): void
