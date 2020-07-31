@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-07-30 23:36-0300\n"
-"PO-Revision-Date: 2020-07-22 20:57+0000\n"
+"PO-Revision-Date: 2020-07-31 10:32+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
@@ -14295,44 +14295,39 @@ msgid "File name template:"
 msgstr "Modèle de nom de fichier :"
 
 #: templates/display/export/options_output.twig:48
-#, fuzzy
-#| msgid ""
-#| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-#| "formatting strings. Additionally the following transformations will "
-#| "happen: %3$s. Other text will be kept as is. See the %4$sFAQ%5$s for "
-#| "details."
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
 "formatting strings. Additionally the following transformations will happen:"
 msgstr ""
-"Cette valeur est interprétée avec %1$sstrftime%2$s, il est donc possible "
+"Cette valeur est interprétée avec 'strftime', il est donc possible "
 "d'utiliser des chaînes de format d'heure. Ces transformations additionnelles "
-"vont se produire : %3$s. Tout autre texte sera conservé tel quel. Se référer "
-"au %4$sFAQ%5$s pour les détails."
+"vont se produire :"
 
 #: templates/display/export/options_output.twig:50
-#, fuzzy
-#| msgid "@SERVER@ will become the server name"
 msgid "@SERVER@ will become the server name."
-msgstr "@SERVER@ sera remplacé par le nom du serveur"
+msgstr "@SERVER@ sera remplacé par le nom du serveur."
 
 #: templates/display/export/options_output.twig:52
-#, fuzzy
-#| msgid ", @DATABASE@ will become the database name"
 msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name."
-msgstr ", @DATABASE@ sera remplacé par le nom de la base de données"
+msgstr ""
+"@SERVER@ deviendra le nom du serveur, @DATABASE@ sera remplacé par le nom de "
+"la base de données."
 
 #: templates/display/export/options_output.twig:54
 msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name, @TABLE@ will become the table name."
 msgstr ""
+"@SERVER@ deviendra le nom du serveur, @DATABASE@ deviendra le nom de la base "
+"de données, @TABLE@ deviendra le nom de la table."
 
 #: templates/display/export/options_output.twig:56
 msgid "Other text will be kept as is. See the FAQ 6.27 for details."
 msgstr ""
+"Tout autre texte sera conservé tel quel. Voir la FAQ 6.27 pour plus de "
+"détails."
 
 #: templates/display/export/options_output.twig:63
 msgid "use this for future exports"
@@ -14797,22 +14792,19 @@ msgid "no branch"
 msgstr "aucune branche"
 
 #: templates/home/git_info.twig:15 templates/home/git_info.twig:22
-#, fuzzy, php-format
-#| msgid "%1$s from %2$s branch"
+#, php-format
 msgid "from %s branch"
-msgstr "%1$s sous la branche %2$s"
+msgstr "de la branche %s"
 
 #: templates/home/git_info.twig:25
-#, fuzzy, php-format
-#| msgid "committed on %1$s by %2$s"
+#, php-format
 msgid "committed on %s by %s"
-msgstr "enregistrée le %1$s par %2$s"
+msgstr "enregistrée le %s par %s"
 
 #: templates/home/git_info.twig:32
-#, fuzzy, php-format
-#| msgid "authored on %1$s by %2$s"
+#, php-format
 msgid "authored on %s by %s"
-msgstr "l'auteur était %2$s en date du %1$s"
+msgstr "l'auteur était %s en date du %s"
 
 #: templates/home/index.twig:22 templates/login/form.twig:7
 #, php-format
