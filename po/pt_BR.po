@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-07-30 23:36-0300\n"
-"PO-Revision-Date: 2020-06-12 17:26+0000\n"
+"PO-Revision-Date: 2020-07-31 16:13+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/pt_BR/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.1-dev\n"
+"X-Generator: Weblate 4.2-dev\n"
 
 #: libraries/classes/Advisor.php:319
 #, php-format
@@ -1992,16 +1992,12 @@ msgid "Maximum tables"
 msgstr "Número máximo de tabelas"
 
 #: libraries/classes/Config/Descriptions.php:512
-#, fuzzy
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"O número de bytes permitidos que um script pode alocar, p. ex. [kbd]32M[/"
-"kbd] ([kbd]-1[/kbd] para não haver limite e [kbd]0[/kbd] para não mudar)."
+"O número de bytes permitidos que um script pode alocar, p. ex. [kbd]32M[/kbd]"
+" ([kbd]-1[/kbd] para não haver limite e [kbd]0[/kbd] para não mudar)."
 
 #: libraries/classes/Config/Descriptions.php:515
 msgid "Memory limit"
@@ -3076,12 +3072,10 @@ msgid "Retain query box"
 msgstr "Manter caixa de consulta"
 
 #: libraries/classes/Config/Descriptions.php:883
-#, fuzzy
-#| msgid "Allow to display database and table statistics (eg. space usage)."
 msgid "Allow to display database and table statistics (e.g. space usage)."
 msgstr ""
-"Permitir visualizar banco de dados e estatísticas da tabela (ex: uso de "
-"espaço)."
+"Permitir visualizar estatísticas do banco de dados e da tabela (p. ex. uso "
+"do espaço)."
 
 #: libraries/classes/Config/Descriptions.php:884
 msgid "Show statistics"
@@ -3358,14 +3352,12 @@ msgid "Private key for reCaptcha"
 msgstr "Chave privada do reCaptcha"
 
 #: libraries/classes/Config/Descriptions.php:963
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter your siteverify URL for your reCaptcha service."
-msgstr "Digite a sua chave privada para o seu domínio no serviço reCaptcha."
+msgstr "Digite a sua URL siteverify para o seu serviço reCaptcha."
 
 #: libraries/classes/Config/Descriptions.php:964
 msgid "URL for reCaptcha siteverify"
-msgstr ""
+msgstr "URL para o siteverify do reCaptcha"
 
 #: libraries/classes/Config/Descriptions.php:966
 msgid "Choose the default action when sending error reports."
@@ -4133,10 +4125,8 @@ msgstr "desconhecido"
 #: libraries/classes/Controllers/Database/StructureController.php:1552
 #: libraries/classes/Controllers/Database/StructureController.php:1603
 #: libraries/classes/Controllers/Database/StructureController.php:1654
-#, fuzzy
-#| msgid "No tables selected."
 msgid "No table selected."
-msgstr "Nenhum banco de dados selecionado."
+msgstr "Nenhuma tabela selecionada."
 
 #: libraries/classes/Controllers/Database/StructureController.php:1255
 #: libraries/classes/Controllers/Database/StructureController.php:1278
@@ -4954,8 +4944,6 @@ msgstr "Nenhum"
 
 #. l10n: SQL Query on modal to show exported query
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:199
-#, fuzzy
-#| msgid "SQL query"
 msgid "SQL Query"
 msgstr "Query SQL"
 
