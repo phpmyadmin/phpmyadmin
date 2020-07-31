@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-07-30 23:36-0300\n"
-"PO-Revision-Date: 2020-07-24 20:41+0000\n"
+"PO-Revision-Date: 2020-08-01 21:42+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -14103,44 +14103,37 @@ msgid "File name template:"
 msgstr "Predloga imena datoteke:"
 
 #: templates/display/export/options_output.twig:48
-#, fuzzy
-#| msgid ""
-#| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-#| "formatting strings. Additionally the following transformations will "
-#| "happen: %3$s. Other text will be kept as is. See the %4$sFAQ%5$s for "
-#| "details."
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
 "formatting strings. Additionally the following transformations will happen:"
 msgstr ""
-"Vrednost je prevedena z uporabo %1$sstrftime%2$s, tako da lahko uporabljate "
-"nize za zapis časa. Dodatno bo prišlo še do naslednjih pretvorb: %3$s. "
-"Ostalo besedilo bo ostalo takšno, kot je. Oglejte si %4$sFAQ%5$s za "
-"podrobnosti."
+"Vrednost je prevedena z uporabo funkcije 'strftime', tako da lahko "
+"uporabljate nize za zapis časa. Dodatno bo prišlo še do naslednjih pretvorb:"
 
 #: templates/display/export/options_output.twig:50
-#, fuzzy
-#| msgid "@SERVER@ will become the server name"
 msgid "@SERVER@ will become the server name."
-msgstr "@SERVER@ bo postalo ime strežnika"
+msgstr "@SERVER@ bo postalo ime strežnika."
 
 #: templates/display/export/options_output.twig:52
-#, fuzzy
-#| msgid ", @DATABASE@ will become the database name"
 msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name."
-msgstr ", @DATABASE@ bo postalo ime zbirke podatkov"
+msgstr ""
+"@SERVER@ bo postalo ime strežnika, @DATABASE@ bo postalo ime zbirke podatkov."
 
 #: templates/display/export/options_output.twig:54
 msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name, @TABLE@ will become the table name."
 msgstr ""
+"@SERVER@ bo postalo ime strežnika, @DATABASE@ bo postalo ime zbirke "
+"podatkov, @TABLE@ bo postalo ime tabele."
 
 #: templates/display/export/options_output.twig:56
 msgid "Other text will be kept as is. See the FAQ 6.27 for details."
 msgstr ""
+"Preostalo besedilo bomo ohranili takšno, kot je. Oglejte si FAQ 6.27 za "
+"podrobnosti."
 
 #: templates/display/export/options_output.twig:63
 msgid "use this for future exports"
@@ -14601,22 +14594,19 @@ msgid "no branch"
 msgstr "ni veje"
 
 #: templates/home/git_info.twig:15 templates/home/git_info.twig:22
-#, fuzzy, php-format
-#| msgid "%1$s from %2$s branch"
+#, php-format
 msgid "from %s branch"
-msgstr "%1$s z veje %2$s"
+msgstr "z veje %s"
 
 #: templates/home/git_info.twig:25
-#, fuzzy, php-format
-#| msgid "committed on %1$s by %2$s"
+#, php-format
 msgid "committed on %s by %s"
-msgstr "potrdil(-a) %2$s dne %1$s"
+msgstr "potrjeno dne %s s strani %s"
 
 #: templates/home/git_info.twig:32
-#, fuzzy, php-format
-#| msgid "authored on %1$s by %2$s"
+#, php-format
 msgid "authored on %s by %s"
-msgstr "spremenil(-a) %2$s dne %1$s"
+msgstr "spremenjeno dne %s s strani %s"
 
 #: templates/home/index.twig:22 templates/login/form.twig:7
 #, php-format
