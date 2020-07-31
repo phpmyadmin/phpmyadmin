@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-07-30 23:36-0300\n"
-"PO-Revision-Date: 2020-07-31 16:13+0000\n"
+"PO-Revision-Date: 2020-08-01 21:42+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/pt_BR/>\n"
@@ -14425,10 +14425,10 @@ msgstr "Você também pode arrastar um arquivo em qualquer página."
 
 #: templates/display/import/import.twig:85
 #: templates/display/import/import.twig:115
-#, fuzzy, php-format
-#| msgid "Select from the web server upload directory <b>%s</b>:"
+#, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "Selecionar a partir do diretório de upload do servidor <b>%s</b>:"
+msgstr ""
+"Selecionar a partir do diretório de upload do servidor [strong]%s[/strong]:"
 
 #: templates/display/import/import.twig:91
 #, fuzzy
@@ -14737,22 +14737,19 @@ msgid "no branch"
 msgstr "nenhum ramo"
 
 #: templates/home/git_info.twig:15 templates/home/git_info.twig:22
-#, fuzzy, php-format
-#| msgid "%1$s from %2$s branch"
+#, php-format
 msgid "from %s branch"
-msgstr "%1$s do ramo %2$s"
+msgstr "do ramo %s"
 
 #: templates/home/git_info.twig:25
-#, fuzzy, php-format
-#| msgid "committed on %1$s by %2$s"
+#, php-format
 msgid "committed on %s by %s"
-msgstr "modificado em %1$s por %2$s"
+msgstr "enviado em %s por %s"
 
 #: templates/home/git_info.twig:32
-#, fuzzy, php-format
-#| msgid "authored on %1$s by %2$s"
+#, php-format
 msgid "authored on %s by %s"
-msgstr "criado em %1$s por %2$s"
+msgstr "criado em %s por %s"
 
 #: templates/home/index.twig:22 templates/login/form.twig:7
 #, php-format
@@ -18513,7 +18510,7 @@ msgid ""
 msgstr ""
 "O cache de query é conhecido por melhorar significativamente o desempenho "
 "quando corretamente configurado. Ative-o ajustando {query_cache_size} para "
-"um valor em MB com 2 dígitos e ajustando {query_cache_type} para 'ON'.\n"
+"um valor em MB com 2 dígitos e ajustando {query_cache_type} para 'ON'. "
 "<b>Observação:</b>Se estiver usando memcache, ignore esta recomendação."
 
 #: libraries/advisory_rules_mysql_before80003.txt:15
