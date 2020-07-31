@@ -93,7 +93,7 @@ class Template
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function load(string $templateName): TemplateWrapper
+    private function load(string $templateName): TemplateWrapper
     {
         try {
             $template = static::$twig->load($templateName . '.twig');

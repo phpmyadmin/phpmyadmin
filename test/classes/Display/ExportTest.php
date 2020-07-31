@@ -214,6 +214,14 @@ class ExportTest extends AbstractTestCase
             $html
         );
 
+        $this->assertStringContainsString(
+            '<div id="alias_modal" class="hide" title="'
+            . 'Rename exported databases/tables/columns">',
+            $html
+        );
+
+        $this->assertStringContainsString('<button class="alias_remove', $html);
+
         //validate 6: Export::getHtmlForOptionsOutput
         $this->assertStringContainsString(
             '<div class="exportoptions" id="output">',
@@ -233,39 +241,5 @@ class ExportTest extends AbstractTestCase
             '<h3>' . __('Format:') . '</h3>',
             $html
         );
-    }
-
-    /**
-     * Test for Export::getHtmlForAliasModalDialog
-     */
-    public function testGetHtmlForAliasModalDialog(): void
-    {
-        $columns_info = [
-            'test\'_db' => [
-                'test_<b>table' => [
-                    'co"l1' => ['COLUMN_NAME' => 'co"l1'],
-                    'col<2' => ['COLUMN_NAME' => 'col<2'],
-                ],
-            ],
-        ];
-
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->any())->method('getColumnsFull')
-            ->will($this->returnValue($columns_info));
-
-        $GLOBALS['dbi'] = $dbi;
-
-        $html = $this->export->getHtmlForAliasModalDialog();
-
-        $this->assertStringContainsString(
-            '<div id="alias_modal" class="hide" title="'
-            . 'Rename exported databases/tables/columns">',
-            $html
-        );
-
-        $this->assertStringContainsString('<button class="alias_remove', $html);
     }
 }
