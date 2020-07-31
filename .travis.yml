@@ -50,6 +50,7 @@ jobs:
         - composer phpcs
         - yarn run js-lint --quiet
         - yarn run css-lint
+        - php scripts/console lint:twig templates --show-deprecations
 
     - stage: "Lint and analyse code"
       name: "Run phpstan"
