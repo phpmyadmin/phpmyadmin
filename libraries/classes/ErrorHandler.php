@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use Throwable;
 use const E_COMPILE_ERROR;
 use const E_COMPILE_WARNING;
 use const E_CORE_ERROR;
@@ -29,6 +30,7 @@ use function error_reporting;
 use function headers_sent;
 use function htmlspecialchars;
 use function set_error_handler;
+use function set_exception_handler;
 use function trigger_error;
 
 /**
@@ -67,6 +69,7 @@ class ErrorHandler
          */
         if (! defined('TESTSUITE')) {
             set_error_handler([$this, 'handleError']);
+            set_exception_handler([$this, 'handleException']);
         }
         if (! Util::isErrorReportingAvailable()) {
             return;
@@ -200,6 +203,17 @@ class ErrorHandler
         }
 
         $this->addError($errstr, $errno, $errfile, $errline, true);
+    }
+
+    public function handleException(Throwable $exception): void
+    {
+        $this->addError(
+            'Uncaught exception: ' . $exception->getMessage(),
+            E_USER_ERROR,
+            $exception->getFile(),
+            $exception->getLine(),
+            true
+        );
     }
 
     /**
