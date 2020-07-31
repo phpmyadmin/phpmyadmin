@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-07-30 23:36-0300\n"
-"PO-Revision-Date: 2020-07-22 19:48+0000\n"
-"Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
+"PO-Revision-Date: 2020-07-31 10:32+0000\n"
+"Last-Translator: Oğuz Ersen <oguzersen@protonmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
 "Language: tr\n"
@@ -14132,44 +14132,35 @@ msgid "File name template:"
 msgstr "Dosya adı şablonu:"
 
 #: templates/display/export/options_output.twig:48
-#, fuzzy
-#| msgid ""
-#| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-#| "formatting strings. Additionally the following transformations will "
-#| "happen: %3$s. Other text will be kept as is. See the %4$sFAQ%5$s for "
-#| "details."
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
 "formatting strings. Additionally the following transformations will happen:"
 msgstr ""
-"Bu değer %1$sstrftime%2$s kullanılarak yorumlanır, bu yüzden zaman "
+"Bu değer 'strftime' işlevi kullanılarak yorumlanır, bu yüzden zaman "
 "biçimlendirme dizgisi kullanabilirsiniz. İlave olarak aşağıdaki dönüşümler "
-"meydana gelecektir: %3$s. Diğer metin olduğu gibi tutulacak. Ayrıntılar için "
-"%4$sSSS%5$s'a bakın."
+"meydana gelecektir:"
 
 #: templates/display/export/options_output.twig:50
-#, fuzzy
-#| msgid "@SERVER@ will become the server name"
 msgid "@SERVER@ will become the server name."
-msgstr "@SERVER@ sunucu adı olacaktır"
+msgstr "@SERVER@ sunucu adı olacaktır."
 
 #: templates/display/export/options_output.twig:52
-#, fuzzy
-#| msgid ", @DATABASE@ will become the database name"
 msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name."
-msgstr ", @DATABASE@ veritabanı adı olacaktır"
+msgstr "@SERVER@ sunucu adı, @DATABASE@ veritabanı adı olacaktır."
 
 #: templates/display/export/options_output.twig:54
 msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name, @TABLE@ will become the table name."
 msgstr ""
+"@SERVER@ sunucu adı, @DATABASE@ veritabanı adı, @TABLE@ tablo adı olacaktır."
 
 #: templates/display/export/options_output.twig:56
 msgid "Other text will be kept as is. See the FAQ 6.27 for details."
 msgstr ""
+"Diğer metinler olduğu gibi kalacaktır. Ayrıntılar için SSS 6.27'ye bakın."
 
 #: templates/display/export/options_output.twig:63
 msgid "use this for future exports"
@@ -14630,22 +14621,19 @@ msgid "no branch"
 msgstr "dal yok"
 
 #: templates/home/git_info.twig:15 templates/home/git_info.twig:22
-#, fuzzy, php-format
-#| msgid "%1$s from %2$s branch"
+#, php-format
 msgid "from %s branch"
-msgstr "%2$s dalından %1$s"
+msgstr "%s dalından"
 
 #: templates/home/git_info.twig:25
-#, fuzzy, php-format
-#| msgid "committed on %1$s by %2$s"
+#, php-format
 msgid "committed on %s by %s"
-msgstr "%2$s tarafından %1$s tarihinde işlendi"
+msgstr "%s tarihinde %s tarafından işlendi"
 
 #: templates/home/git_info.twig:32
-#, fuzzy, php-format
-#| msgid "authored on %1$s by %2$s"
+#, php-format
 msgid "authored on %s by %s"
-msgstr "%2$s tarafından %1$s tarihinde hazırlandı"
+msgstr "%s tarihinde %s tarafından hazırlandı"
 
 #: templates/home/index.twig:22 templates/login/form.twig:7
 #, php-format
