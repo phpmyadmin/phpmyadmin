@@ -304,7 +304,7 @@ abstract class GisGeometry
     protected function getPolygonForOpenLayers(array $polygon, $srid)
     {
         return $this->getLineArrayForOpenLayers($polygon, $srid, false)
-        .    'var polygon = new ol.geom.Polygon(arr);';
+        .    'var polygon = new ol.geom.Polygon([arr]);';
     }
 
     /**

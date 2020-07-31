@@ -314,7 +314,7 @@ class GisMultiLineString extends GisGeometry
         $linestirngs = explode('),(', $multilinestirng);
 
         return $row . $this->getLineArrayForOpenLayers($linestirngs, $srid)
-            . 'var multiLineString = new ol.geom.MultiLineString(arr);'
+            . 'var multiLineString = new ol.geom.MultiLineString([arr]);'
             . 'vectorLayer.addFeature(new ol.Feature({geometry: multiLineString}));';
 //            multiLineString.setStyle '), null, ' . json_encode($style_options) . '));';
     }
