@@ -32,17 +32,15 @@ final class ExportController extends AbstractController
     public function index(): void
     {
         global $db, $table, $sql_query, $num_tables, $unlim_num_rows;
-        global $tmp_select, $select_item, $multi_values, $export_page_title;
+        global $tmp_select, $select_item;
 
         Common::server();
 
         $pageSettings = new PageSettings('Export');
-        $this->response->addHTML($pageSettings->getErrorHTML());
-        $this->response->addHTML($pageSettings->getHTML());
+        $pageSettingsErrorHtml = $pageSettings->getErrorHTML();
+        $pageSettingsHtml = $pageSettings->getHTML();
 
         $this->addScriptFiles(['export.js']);
-
-        $export_page_title = __('View dump (schema) of databases') . "\n";
 
         $select_item = $tmp_select ?? '';
         $multi_values = $this->export->getHtmlForSelectOptions($select_item);
@@ -57,7 +55,7 @@ final class ExportController extends AbstractController
             $unlim_num_rows = 0;
         }
 
-        $this->response->addHTML($this->export->getDisplay(
+        $display = $this->export->getDisplay(
             'server',
             $db,
             $table,
@@ -65,6 +63,12 @@ final class ExportController extends AbstractController
             $num_tables,
             $unlim_num_rows,
             $multi_values
-        ));
+        );
+
+        $this->render('server/export/index', [
+            'page_settings_error_html' => $pageSettingsErrorHtml,
+            'page_settings_html' => $pageSettingsHtml,
+            'display' => $display,
+        ]);
     }
 }

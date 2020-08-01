@@ -46,12 +46,12 @@ class ExportController extends AbstractController
 
     public function index(): void
     {
-        global $db, $url_query, $url_params, $table, $export_page_title, $replaces;
-        global $sql_query, $where_clause, $num_tables, $unlim_num_rows, $multi_values;
+        global $db, $url_query, $url_params, $table, $replaces;
+        global $sql_query, $where_clause, $num_tables, $unlim_num_rows;
 
         $pageSettings = new PageSettings('Export');
-        $this->response->addHTML($pageSettings->getErrorHTML());
-        $this->response->addHTML($pageSettings->getHTML());
+        $pageSettingsErrorHtml = $pageSettings->getErrorHTML();
+        $pageSettingsHtml = $pageSettings->getHTML();
 
         $this->addScriptFiles(['export.js']);
 
@@ -66,7 +66,7 @@ class ExportController extends AbstractController
         ];
         $url_query .= Url::getCommon($url_params, '&');
 
-        $export_page_title = __('View dump (schema) of table');
+        $message = '';
 
         // When we have some query, we need to remove LIMIT from that and possibly
         // generate WHERE clause (if we are asked to export specific rows)
@@ -99,7 +99,7 @@ class ExportController extends AbstractController
                 );
             }
 
-            echo Generator::getMessage(Message::success());
+            $message = Generator::getMessage(Message::success());
         }
 
         if (! isset($sql_query)) {
@@ -111,19 +111,23 @@ class ExportController extends AbstractController
         if (! isset($unlim_num_rows)) {
             $unlim_num_rows = 0;
         }
-        if (! isset($multi_values)) {
-            $multi_values = '';
-        }
 
-        $this->response->addHTML($this->export->getDisplay(
+        $display = $this->export->getDisplay(
             'table',
             $db,
             $table,
             $sql_query,
             $num_tables,
             $unlim_num_rows,
-            $multi_values
-        ));
+            ''
+        );
+
+        $this->render('table/export/index', [
+            'page_settings_error_html' => $pageSettingsErrorHtml,
+            'page_settings_html' => $pageSettingsHtml,
+            'message' => $message,
+            'display' => $display,
+        ]);
     }
 
     public function rows(): void
