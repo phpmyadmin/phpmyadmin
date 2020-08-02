@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-07-30 23:36-0300\n"
-"PO-Revision-Date: 2020-07-24 20:41+0000\n"
+"PO-Revision-Date: 2020-08-03 14:42+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -1004,7 +1004,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:162
 msgid "Default transformations for Substring"
-msgstr "Transformações predefinidas para Substrings"
+msgstr "Transformações predefinidas para Subcadeias"
 
 #: libraries/classes/Config/Descriptions.php:167
 msgid "Default transformations for Bool2Text"
@@ -1554,8 +1554,8 @@ msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
-"Especifica o texto da barra de título do browser. Veja a "
-"[doc@faq6-27]documentação[/doc] para strings mágicas que podem ser usadas "
+"Especifica o texto da barra de título do navegador. Veja a "
+"[doc@faq6-27]documentação[/doc] para cadeias mágicas que podem ser usadas "
 "para conseguir valores especiais."
 
 #: libraries/classes/Config/Descriptions.php:360
@@ -4258,8 +4258,8 @@ msgid ""
 "split strings correctly and it may result in unexpected results."
 msgstr ""
 "A extensão mbstring do PHP não foi encontrada e parece que está a utilizar "
-"um charset multibyte. Sem a extensão mbstring, o phpMyAdmin não é capaz de "
-"separar correctamente as strings e pode resultar em resultados inesperados."
+"um charset de multibyte. Sem a extensão mbstring, o phpMyAdmin não pode "
+"separar as cadeias corretamente e pode resultar em resultados inesperados."
 
 #: libraries/classes/Controllers/HomeController.php:383
 msgid ""
@@ -11072,10 +11072,10 @@ msgstr ""
 "formatada. A primeira opção é o deslocamento (em horas) que irá ser "
 "adicionado ao timestamp (predefinição: 0). Use a segunda opção para "
 "especificar uma cadeia de formatação date/time diferente. A terceira opção "
-"determina se você deseja ver a data local ou UTC (use a string \"local\" ou "
-"\"utc\" para isso). De acordo com isso, o formato de data terá valores "
-"diferentes - para \"local\" veja a documentação do PHP para função "
-"strftime() e para \"utc\" será feito pela função gmdate()."
+"determina se deseja ver a data local ou UTC (use a cadeia \"local\" ou \"utc"
+"\" para isso). De acordo com isso, o formato de data terá valores diferentes "
+"- para \"local\" veja a documentação do PHP para função strftime() e para "
+"\"utc\" será feito pela função gmdate()."
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:70
@@ -12370,8 +12370,8 @@ msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr ""
-"Uma variável de comprimento (%s) do tipo string, o comprimento máximo "
-"efectivo está sujeito ao tamanho máximo de linha"
+"Uma cadeia de comprimento variável (%s), o comprimento efetivo máximo está "
+"sujeito ao tamanho máximo de linha"
 
 #: libraries/classes/Types.php:310
 msgid ""
@@ -12414,16 +12414,16 @@ msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
-"Semelhante ao tipo CHAR, mas armazena strings de bytes binários em vez de "
-"strings de caracteres não-binários"
+"Semelhante ao tipo CHAR, mas armazena cadeias de bytes binários em vez de "
+"cadeias de caracteres não-binários"
 
 #: libraries/classes/Types.php:339
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
-"Semelhante ao tipo VARCHAR, mas armazena strings de bytes binários em vez de "
-"strings de caracteres não-binários"
+"Semelhante ao tipo VARCHAR, mas armazena cadeias de bytes binários em vez de "
+"cadeias de caracteres não-binários"
 
 #: libraries/classes/Types.php:344
 msgid ""
@@ -14207,44 +14207,36 @@ msgid "File name template:"
 msgstr "Nome do ficheiro modelo:"
 
 #: templates/display/export/options_output.twig:48
-#, fuzzy
-#| msgid ""
-#| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-#| "formatting strings. Additionally the following transformations will "
-#| "happen: %3$s. Other text will be kept as is. See the %4$sFAQ%5$s for "
-#| "details."
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
 "formatting strings. Additionally the following transformations will happen:"
 msgstr ""
-"Esse valor é interpretado usando %1$sstrftime%2$s, então você pode usar as "
-"strings de formatação de tempo. Adicionalmente a seguinte transformação "
-"ocorrerá: %3$s. Outros textos serão mantidos como estão. Veja a %4$sFAQ%5$s "
-"para detalhes."
+"Esse valor é interpretado pela função 'strftime', então pode usar as cadeias "
+"de formatação de tempo. Adicionalmente a seguinte transformação ocorrerá:"
 
 #: templates/display/export/options_output.twig:50
-#, fuzzy
-#| msgid "@SERVER@ will become the server name"
 msgid "@SERVER@ will become the server name."
-msgstr "@SERVER@ será o nome do servidor"
+msgstr "@SERVER@ será o nome do servidor."
 
 #: templates/display/export/options_output.twig:52
-#, fuzzy
-#| msgid ", @DATABASE@ will become the database name"
 msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name."
-msgstr ", @DATABASE@ será o nome da base de dados"
+msgstr ""
+"@SERVER@ será o nome do servidor, @DATABASE@ será o nome da base de dados."
 
 #: templates/display/export/options_output.twig:54
 msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name, @TABLE@ will become the table name."
 msgstr ""
+"@SERVER@ será o nome do servidor, @DATABASE@ será o nome da base de dados, "
+"@TABLE@ será o nome da tabela."
 
 #: templates/display/export/options_output.twig:56
 msgid "Other text will be kept as is. See the FAQ 6.27 for details."
 msgstr ""
+"Outros textos serão mantidos como estão. Veja a FAQ 6.27 para mais detalhes."
 
 #: templates/display/export/options_output.twig:63
 msgid "use this for future exports"
@@ -14703,22 +14695,19 @@ msgid "no branch"
 msgstr "sem ramos"
 
 #: templates/home/git_info.twig:15 templates/home/git_info.twig:22
-#, fuzzy, php-format
-#| msgid "%1$s from %2$s branch"
+#, php-format
 msgid "from %s branch"
-msgstr "%1$s do %2$s ramo"
+msgstr "do ramo %s"
 
 #: templates/home/git_info.twig:25
-#, fuzzy, php-format
-#| msgid "committed on %1$s by %2$s"
+#, php-format
 msgid "committed on %s by %s"
-msgstr "Submetido em %1$s por %2$s"
+msgstr "submetido em %s por %s"
 
 #: templates/home/git_info.twig:32
-#, fuzzy, php-format
-#| msgid "authored on %1$s by %2$s"
+#, php-format
 msgid "authored on %s by %s"
-msgstr "Autoria em %1$s por %2$s"
+msgstr "autoria em %s por %s"
 
 #: templates/home/index.twig:22 templates/login/form.twig:7
 #, php-format
