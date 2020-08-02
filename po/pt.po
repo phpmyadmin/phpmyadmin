@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-06-14 22:54+0200\n"
-"PO-Revision-Date: 2020-07-20 20:42+0000\n"
+"PO-Revision-Date: 2020-08-03 14:42+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-0/pt/>\n"
@@ -3509,7 +3509,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:156
 msgid "Default transformations for Substring"
-msgstr "Transformações predefinidas para Substrings"
+msgstr "Transformações predefinidas para Subcadeias"
 
 #: libraries/classes/Config/Descriptions.php:158
 msgid "Default transformations for Bool2Text"
@@ -4041,8 +4041,8 @@ msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
-"Especifica o texto da barra de título do browser. Veja a "
-"[doc@faq6-27]documentação[/doc] para strings mágicas que podem ser usadas "
+"Especifica o texto da barra de título do navegador. Veja a "
+"[doc@faq6-27]documentação[/doc] para cadeias mágicas que podem ser usadas "
 "para conseguir valores especiais."
 
 #: libraries/classes/Config/Descriptions.php:329
@@ -6390,8 +6390,8 @@ msgid ""
 "split strings correctly and it may result in unexpected results."
 msgstr ""
 "A extensão mbstring do PHP não foi encontrada e parece que está a utilizar "
-"um charset multibyte. Sem a extensão mbstring, o phpMyAdmin não é capaz de "
-"separar correctamente as strings e pode resultar em resultados inesperados."
+"um charset de multibyte. Sem a extensão mbstring, o phpMyAdmin não pode "
+"separar as cadeias corretamente e pode resultar em resultados inesperados."
 
 #: libraries/classes/Controllers/HomeController.php:360
 msgid ""
@@ -10672,10 +10672,10 @@ msgstr ""
 "formatada. A primeira opção é o deslocamento (em horas) que irá ser "
 "adicionado ao timestamp (predefinição: 0). Use a segunda opção para "
 "especificar uma cadeia de formatação date/time diferente. A terceira opção "
-"determina se você deseja ver a data local ou UTC (use a string \"local\" ou "
-"\"utc\" para isso). De acordo com isso, o formato de data terá valores "
-"diferentes - para \"local\" veja a documentação do PHP para função "
-"strftime() e para \"utc\" será feito pela função gmdate()."
+"determina se deseja ver a data local ou UTC (use a cadeia \"local\" ou \"utc"
+"\" para isso). De acordo com isso, o formato de data terá valores diferentes "
+"- para \"local\" veja a documentação do PHP para função strftime() e para "
+"\"utc\" será feito pela função gmdate()."
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:66
@@ -12950,8 +12950,8 @@ msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr ""
-"Uma variável de comprimento (%s) do tipo string, o comprimento máximo "
-"efectivo está sujeito ao tamanho máximo de linha"
+"Uma cadeia de comprimento variável (%s), o comprimento efetivo máximo está "
+"sujeito ao tamanho máximo de linha"
 
 #: libraries/classes/Types.php:312
 msgid ""
@@ -12994,16 +12994,16 @@ msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
-"Semelhante ao tipo CHAR, mas armazena strings de bytes binários em vez de "
-"strings de caracteres não-binários"
+"Semelhante ao tipo CHAR, mas armazena cadeias de bytes binários em vez de "
+"cadeias de caracteres não-binários"
 
 #: libraries/classes/Types.php:341
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
-"Semelhante ao tipo VARCHAR, mas armazena strings de bytes binários em vez de "
-"strings de caracteres não-binários"
+"Semelhante ao tipo VARCHAR, mas armazena cadeias de bytes binários em vez de "
+"cadeias de caracteres não-binários"
 
 #: libraries/classes/Types.php:346
 msgid ""
