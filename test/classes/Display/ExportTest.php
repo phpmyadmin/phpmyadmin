@@ -58,43 +58,6 @@ class ExportTest extends AbstractTestCase
     }
 
     /**
-     * Test for Export::getHtmlForHiddenInputs
-     */
-    public function testGetHtmlForHiddenInputs(): void
-    {
-        $export_type = 'server';
-        $db = 'PMA';
-        $table = 'PMA_test';
-        $single_table_str = 'PMA_single_str';
-        $sql_query_str = 'sql_query_str';
-
-        //Call the test function
-        $html = $this->export->getHtmlForHiddenInputs(
-            $export_type,
-            $db,
-            $table,
-            $single_table_str,
-            $sql_query_str
-        );
-
-        //validate 1: Url::getHiddenInputs
-        //$single_table
-        $this->assertStringContainsString(
-            '<input type="hidden" name="single_table" value="TRUE"',
-            $html
-        );
-        //$export_type
-        $this->assertStringContainsString(
-            '<input type="hidden" name="export_type" value="server"',
-            $html
-        );
-        $this->assertStringContainsString(
-            '<input type="hidden" name="export_method" value="quick"',
-            $html
-        );
-    }
-
-    /**
      * Test for Export::getHtmlForOptions
      */
     public function testGetHtmlForOptions(): void

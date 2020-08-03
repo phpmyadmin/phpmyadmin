@@ -1,0 +1,72 @@
+<div class="exportoptions row" id="header">
+  <h2>
+    {{ get_image('b_export', 'Export'|trans) }}
+    {% if export_type == 'server' %}
+      {% trans 'Exporting databases from the current server' %}
+    {% elseif export_type == 'database' %}
+      {{ 'Exporting tables from "%s" database'|trans|format(db) }}
+    {% elseif export_type == 'raw' %}
+      {% trans %}Exporting a raw query{% notes %}A query that the user has written freely{% endtrans %}
+    {% else %}
+      {{ 'Exporting rows from "%s" table'|trans|format(table) }}
+    {% endif %}
+  </h2>
+</div>
+
+{% if templates.is_enabled %}
+  <div class="exportoptions" id="export_templates">
+    <h3>{% trans 'Export templates:' %}</h3>
+
+    <div class="floatleft">
+      <form method="post" action="{{ url('/export/template/create') }}" id="newTemplateForm" class="ajax">
+        <h4>{% trans 'New template:' %}</h4>
+        <input type="text" name="templateName" id="templateName" maxlength="64" placeholder="{% trans 'Template name' %}" required>
+        <input class="btn btn-secondary" type="submit" name="createTemplate" id="createTemplate" value="{% trans 'Create' %}">
+      </form>
+    </div>
+
+    <div class="floatleft" style="margin-left: 50px;">
+      <form method="post" id="existingTemplatesForm" class="ajax">
+        <h4>{% trans 'Existing templates:' %}</h4>
+        <label for="template">{% trans 'Template:' %}</label>
+        <select name="template" id="template" required>
+          {% include 'display/export/template_options.twig' with {
+            'templates': templates.templates,
+            'selected_template': templates.selected
+          } only %}
+        </select>
+        <input class="btn btn-secondary" type="submit" formaction="{{ url('/export/template/update') }}" name="updateTemplate" id="updateTemplate" value="{% trans 'Update' %}">
+        <input class="btn btn-secondary" type="submit" formaction="{{ url('/export/template/delete') }}" name="deleteTemplate" id="deleteTemplate" value="{% trans 'Delete' %}">
+      </form>
+    </div>
+
+    <div class="clearfloat"></div>
+  </div>
+{% endif %}
+
+{% if sql_query is not empty %}
+  <div class="exportoptions">
+    {# l10n: Title of the option on the Export page #}
+    <h3>{% trans 'SQL query:' %}</h3>
+    <div class="floatleft">
+      <div id="sqlqueryform">
+        {# l10n: Button to show the SQL query on the export page #}
+        <input class="btn btn-secondary" type="submit" id="showsqlquery" value="{% trans 'Show SQL query' %}">
+      </div>
+      <div class="d-none">
+        <div id="export_sql_modal_content">
+          <code class="sql">
+            <pre id="sql_preview_query">{{ sql_query }}</pre>
+          </code>
+        </div>
+      </div>
+    </div>
+    <div class="clearfloat"></div>
+  </div>
+{% endif %}
+
+<form method="post" action="{{ url('/export') }}" name="dump" class="disableAjax">
+  {{ get_hidden_inputs(hidden_inputs) }}
+
+  {{ options|raw }}
+</form>
