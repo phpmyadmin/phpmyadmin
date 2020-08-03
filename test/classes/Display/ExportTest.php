@@ -10,7 +10,6 @@ namespace PhpMyAdmin\Tests\Display;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\Export;
-use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Util;
 use function htmlspecialchars;
@@ -90,25 +89,15 @@ class ExportTest extends AbstractTestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        /* Scan for plugins */
-        $export_list = Plugins::getPlugins(
-            'export',
-            'libraries/classes/Plugins/Export/',
-            [
-                'export_type' => $export_type,
-                'single_table' => true,// isset($single_table)
-            ]
-        );
-
         //Call the test function
-        $html = $this->export->getHtmlForOptions(
+        $html = $this->export->getDisplay(
             $export_type,
             $db,
             $table,
-            $multi_values_str,
+            '',
             $num_tables_str,
-            $export_list,
-            $unlim_num_rows_str
+            $unlim_num_rows_str,
+            $multi_values_str
         );
 
         //validate 2: Export::getHtmlForOptionsMethod

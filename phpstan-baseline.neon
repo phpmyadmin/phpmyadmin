@@ -641,16 +641,6 @@ parameters:
 			path: libraries/classes/Dbal/DbiMysqli.php
 
 		-
-			message: "#^Parameter \\#5 \\$numTables of method PhpMyAdmin\\\\Display\\\\Export\\:\\:getHtmlForOptions\\(\\) expects string, int given\\.$#"
-			count: 1
-			path: libraries/classes/Display/Export.php
-
-		-
-			message: "#^Parameter \\#7 \\$unlimNumRows of method PhpMyAdmin\\\\Display\\\\Export\\:\\:getHtmlForOptions\\(\\) expects string, int given\\.$#"
-			count: 1
-			path: libraries/classes/Display/Export.php
-
-		-
 			message: "#^Left side of && is always true\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
