@@ -21,7 +21,7 @@ class Console
      * @access private
      * @var bool
      */
-    private $_isEnabled;
+    private $isEnabled;
 
     /**
      * Whether we are servicing an ajax request.
@@ -29,7 +29,7 @@ class Console
      * @access private
      * @var bool
      */
-    private $_isAjax;
+    private $isAjax;
 
     /** @var Relation */
     private $relation;
@@ -42,7 +42,7 @@ class Console
      */
     public function __construct()
     {
-        $this->_isEnabled = true;
+        $this->isEnabled = true;
         $this->relation = new Relation($GLOBALS['dbi']);
         $this->template = new Template();
     }
@@ -55,7 +55,7 @@ class Console
      */
     public function setAjax(bool $isAjax): void
     {
-        $this->_isAjax = $isAjax;
+        $this-> = $isAjax;
     }
 
     /**
@@ -63,7 +63,7 @@ class Console
      */
     public function disable(): void
     {
-        $this->_isEnabled = false;
+        $this->isEnabled = false;
     }
 
     /**
@@ -120,13 +120,13 @@ class Console
      */
     public function getDisplay(): string
     {
-        if (! $this->_isAjax && $this->_isEnabled) {
+        if (! $this-> && $this->isEnabled) {
             $cfgBookmark = Bookmark::getParams(
                 $GLOBALS['cfg']['Server']['user']
             );
 
             $image = Html\Generator::getImage('console', __('SQL Query Console'));
-            $_sql_history = $this->relation->getHistory(
+            $sql_history = $this->relation->getHistory(
                 $GLOBALS['cfg']['Server']['user']
             );
             $bookmarkContent = static::getBookmarkContent();
@@ -134,7 +134,7 @@ class Console
             return $this->template->render('console/display', [
                 'cfg_bookmark' => $cfgBookmark,
                 'image' => $image,
-                'sql_history' => $_sql_history,
+                'sql_history' => $sql_history,
                 'bookmark_content' => $bookmarkContent,
             ]);
         }
