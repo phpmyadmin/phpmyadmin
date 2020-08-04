@@ -17,7 +17,7 @@ use function trim;
 class WindowsNt extends Base
 {
     /** @var COM|null */
-    private $_wmi;
+    private $wmi;
 
     /**
      * The OS name
@@ -32,11 +32,11 @@ class WindowsNt extends Base
     public function __construct()
     {
         if (! class_exists('COM')) {
-            $this->_wmi = null;
+            $this->wmi = null;
         } else {
             // initialize the wmi object
             $objLocator = new COM('WbemScripting.SWbemLocator');
-            $this->_wmi = $objLocator->ConnectServer();
+            $this->wmi = $objLocator->ConnectServer();
         }
     }
 
@@ -65,7 +65,7 @@ class WindowsNt extends Base
      */
     public function supported()
     {
-        return $this->_wmi !== null;
+        return $this->wmi !== null;
     }
 
     /**
@@ -80,7 +80,7 @@ class WindowsNt extends Base
     {
         $arrData = [];
 
-        $objWEBM = $this->_wmi->Get($strClass);
+        $objWEBM = $this->wmi->Get($strClass);
         $arrProp = $objWEBM->Properties_;
         $arrWEBMCol = $objWEBM->Instances_();
         foreach ($arrWEBMCol as $objItem) {

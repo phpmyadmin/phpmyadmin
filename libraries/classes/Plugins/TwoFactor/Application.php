@@ -27,7 +27,7 @@ class Application extends TwoFactorPlugin
     public static $id = 'application';
 
     /** @var Google2FA */
-    protected $_google2fa;
+    protected $google2fa;
 
     /**
      * Creates object
@@ -38,11 +38,11 @@ class Application extends TwoFactorPlugin
     {
         parent::__construct($twofactor);
         if (extension_loaded('imagick')) {
-            $this->_google2fa = new Google2FA();
+            $this->google2fa = new Google2FA();
         } else {
-            $this->_google2fa = new Google2FA(new SvgImageBackEnd());
+            $this->google2fa = new Google2FA(new SvgImageBackEnd());
         }
-        $this->_google2fa->setWindow(8);
+        $this->google2fa->setWindow(8);
         if (isset($this->_twofactor->config['settings']['secret'])) {
             return;
         }
@@ -52,7 +52,7 @@ class Application extends TwoFactorPlugin
 
     public function getGoogle2fa(): Google2FA
     {
-        return $this->_google2fa;
+        return $this->google2fa;
     }
 
     /**
@@ -72,7 +72,7 @@ class Application extends TwoFactorPlugin
         }
         $this->_provided = true;
 
-        return $this->_google2fa->verifyKey(
+        return $this->google2fa->verifyKey(
             $this->_twofactor->config['settings']['secret'],
             $_POST['2fa_code']
         );
@@ -96,7 +96,7 @@ class Application extends TwoFactorPlugin
     public function setup()
     {
         $secret = $this->_twofactor->config['settings']['secret'];
-        $inlineUrl = $this->_google2fa->getQRCodeInline(
+        $inlineUrl = $this->google2fa->getQRCodeInline(
             'phpMyAdmin (' . $this->getAppId(false) . ')',
             $this->_twofactor->user,
             $secret
@@ -121,7 +121,7 @@ class Application extends TwoFactorPlugin
     public function configure()
     {
         if (! isset($_SESSION['2fa_application_key'])) {
-            $_SESSION['2fa_application_key'] = $this->_google2fa->generateSecretKey();
+            $_SESSION['2fa_application_key'] = $this->google2fa->generateSecretKey();
         }
         $this->_twofactor->config['settings']['secret'] = $_SESSION['2fa_application_key'];
 

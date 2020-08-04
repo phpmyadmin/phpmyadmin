@@ -34,7 +34,7 @@ class TableStatsPdf extends TableStats
     public $height;
 
     /** @var string */
-    private $_ff = PdfLib::PMA_PDF_FONT;
+    private $ff = PdfLib::PMA_PDF_FONT;
 
     /**
      * @see PMA_Schema_PDF, Table_Stats_Pdf::Table_Stats_setWidth,
@@ -134,7 +134,7 @@ class TableStatsPdf extends TableStats
             $this->width = max($this->width, $this->diagram->GetStringWidth($field));
         }
         $this->width += $this->diagram->GetStringWidth('      ');
-        $this->diagram->SetFont($this->_ff, 'B', $fontSize);
+        $this->diagram->SetFont($this->ff, 'B', $fontSize);
         /*
          * it is unknown what value must be added, because
          * table title is affected by the table width value
@@ -142,7 +142,7 @@ class TableStatsPdf extends TableStats
         while ($this->width < $this->diagram->GetStringWidth($this->getTitle())) {
             $this->width += 5;
         }
-        $this->diagram->SetFont($this->_ff, '', $fontSize);
+        $this->diagram->SetFont($this->ff, '', $fontSize);
     }
 
     /**
@@ -173,7 +173,7 @@ class TableStatsPdf extends TableStats
     public function tableDraw($fontSize, $withDoc, $setColor = 0)
     {
         $this->diagram->setXyScale($this->x, $this->y);
-        $this->diagram->SetFont($this->_ff, 'B', $fontSize);
+        $this->diagram->SetFont($this->ff, 'B', $fontSize);
         if ($setColor) {
             $this->diagram->SetTextColor(200);
             $this->diagram->SetFillColor(0, 0, 128);
@@ -198,7 +198,7 @@ class TableStatsPdf extends TableStats
             $this->diagram->PMA_links['doc'][$this->tableName]['-']
         );
         $this->diagram->setXScale($this->x);
-        $this->diagram->SetFont($this->_ff, '', $fontSize);
+        $this->diagram->SetFont($this->ff, '', $fontSize);
         $this->diagram->SetTextColor(0);
         $this->diagram->SetFillColor(255);
 

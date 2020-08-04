@@ -18,31 +18,31 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
      *
      * @var bool
      */
-    private $_force_one;
+    private $force_one;
     /**
      * Values
      *
      * @var array
      */
-    private $_values;
+    private $values;
     /**
      * Doc
      *
      * @var string
      */
-    private $_doc;
+    private $doc;
     /**
      * Length
      *
      * @var int
      */
-    private $_len;
+    private $len;
     /**
      * Size
      *
      * @var int
      */
-    private $_size;
+    private $size;
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
     /**
@@ -52,7 +52,7 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
      */
     public function getForce()
     {
-        return $this->_force_one;
+        return $this->force_one;
     }
 
     /**
@@ -64,7 +64,7 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
      */
     public function setForce($force)
     {
-        $this->_force_one = $force;
+        $this->force_one = $force;
     }
 
     /**
@@ -74,7 +74,7 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
      */
     public function getValues()
     {
-        return $this->_values;
+        return $this->values;
     }
 
     /**
@@ -86,7 +86,7 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
      */
     public function setValues(array $values)
     {
-        $this->_values = $values;
+        $this->values = $values;
     }
 
     /**
@@ -96,7 +96,7 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
      */
     public function getDoc()
     {
-        return $this->_doc;
+        return $this->doc;
     }
 
     /**
@@ -108,7 +108,7 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
      */
     public function setDoc($doc)
     {
-        $this->_doc = $doc;
+        $this->doc = $doc;
     }
 
     /**
@@ -118,7 +118,7 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
      */
     public function getLen()
     {
-        return $this->_len;
+        return $this->len;
     }
 
     /**
@@ -130,7 +130,7 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
      */
     public function setLen($len)
     {
-        $this->_len = $len;
+        $this->len = $len;
     }
 
     /**
@@ -140,7 +140,7 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
      */
     public function getSize()
     {
-        return $this->_size;
+        return $this->size;
     }
 
     /**
@@ -152,6 +152,6 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
      */
     public function setSize($size)
     {
-        $this->_size = $size;
+        $this->size = $size;
     }
 }

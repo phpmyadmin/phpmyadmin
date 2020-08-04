@@ -19,7 +19,7 @@ class ExportPluginProperties extends PluginPropertyItem
      *
      * @var bool
      */
-    private $_forceFile;
+    private $forceFile;
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
     /**
@@ -44,7 +44,7 @@ class ExportPluginProperties extends PluginPropertyItem
      */
     public function getForceFile()
     {
-        return $this->_forceFile;
+        return $this->forceFile;
     }
 
     /**
@@ -56,6 +56,6 @@ class ExportPluginProperties extends PluginPropertyItem
      */
     public function setForceFile($forceFile)
     {
-        $this->_forceFile = $forceFile;
+        $this->forceFile = $forceFile;
     }
 }
