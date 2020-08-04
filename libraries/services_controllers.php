@@ -558,7 +558,7 @@ return [
                 'response' => '@response',
                 'dbi' => '@dbi',
                 'template' => '@template',
-                'export' => '@display_export',
+                'export' => '@export_options',
             ],
         ],
         PhpMyAdmin\Controllers\Server\ImportController::class =>
@@ -795,7 +795,7 @@ return [
                 'template' => '@template',
                 'db' => '%db%',
                 'table' => '%table%',
-                'export' => '@display_export',
+                'export' => '@export_options',
             ],
         ],
         PhpMyAdmin\Controllers\Table\FindReplaceController::class =>
