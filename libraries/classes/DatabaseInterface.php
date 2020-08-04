@@ -139,7 +139,7 @@ class DatabaseInterface implements DbalInterface
      */
     public function __construct(DbiExtension $ext)
     {
-        $this-> = $ext;
+        $this->$extension = $ext;
         $this->links = [];
         if (defined('TESTSUITE')) {
             $this->links[self::CONNECT_USER] = 1;
@@ -383,7 +383,7 @@ class DatabaseInterface implements DbalInterface
             );
 
             // for PMA bc:
-            // `SCHEMA_FIELD_NAME` AS `SHOWtable_STATUS_FIELD_NAME`
+            // `SCHEMA_FIELD_NAME` AS `SHOW_TABLE_STATUS_FIELD_NAME`
             //
             // on non-Windows servers,
             // added BINARY in the WHERE clause to force a case sensitive
@@ -418,19 +418,19 @@ class DatabaseInterface implements DbalInterface
 
             if ($sort_by === 'Name' && $GLOBALS['cfg']['NaturalOrder']) {
                 // here, the array's first key is by schema name
-                foreach ($tables as $one_database_name => $one_databasetables) {
-                    uksort($one_databasetables, 'strnatcasecmp');
+                foreach ($tables as $one_database_name => $one_database_tables) {
+                    uksort($one_database_tables, 'strnatcasecmp');
 
                     if ($sort_order === 'DESC') {
-                        $one_databasetables = array_reverse($one_databasetables);
+                        $one_database_tables = array_reverse($one_database_tables);
                     }
-                    $tables[$one_database_name] = $one_databasetables;
+                    $tables[$one_database_name] = $one_database_tables;
                 }
             } elseif ($sort_by === 'Data_length') {
                 // Size = Data_length + Index_length
-                foreach ($tables as $one_database_name => $one_databasetables) {
+                foreach ($tables as $one_database_name => $one_database_tables) {
                     uasort(
-                        $one_databasetables,
+                        $one_database_tables,
                         /**
                          * @param array $a
                          * @param array $b
@@ -444,9 +444,9 @@ class DatabaseInterface implements DbalInterface
                     );
 
                     if ($sort_order === 'DESC') {
-                        $one_databasetables = array_reverse($one_databasetables);
+                        $one_database_tables = array_reverse($one_database_tables);
                     }
-                    $tables[$one_database_name] = $one_databasetables;
+                    $tables[$one_database_name] = $one_database_tables;
                 }
             }
         } // end (get information from table schema)
@@ -499,15 +499,15 @@ class DatabaseInterface implements DbalInterface
                         . Util::backquote($each_database);
                 }
 
-                $eachtables = $this->fetchResult($sql, 'Name', null, $link);
+                $each_tables = $this->fetchResult($sql, 'Name', null, $link);
 
                 // Sort naturally if the config allows it and we're sorting
                 // the Name column.
                 if ($sort_by === 'Name' && $GLOBALS['cfg']['NaturalOrder']) {
-                    uksort($eachtables, 'strnatcasecmp');
+                    uksort($each_tables, 'strnatcasecmp');
 
                     if ($sort_order === 'DESC') {
-                        $eachtables = array_reverse($eachtables);
+                        $each_tables = array_reverse($each_tables);
                     }
                 } else {
                     // Prepare to sort by creating array of the selected sort
@@ -515,14 +515,14 @@ class DatabaseInterface implements DbalInterface
 
                     // Size = Data_length + Index_length
                     if ($sort_by === 'Data_length') {
-                        foreach ($eachtables as $table_name => $table_data) {
+                        foreach ($each_tables as $table_name => $table_data) {
                             ${$sort_by}[$table_name] = strtolower(
                                 (string) ($table_data['Data_length']
                                 + $table_data['Index_length'])
                             );
                         }
                     } else {
-                        foreach ($eachtables as $table_name => $table_data) {
+                        foreach ($each_tables as $table_name => $table_data) {
                             ${$sort_by}[$table_name]
                                 = strtolower($table_data[$sort_by] ?? '');
                         }
@@ -530,9 +530,9 @@ class DatabaseInterface implements DbalInterface
 
                     if (! empty($$sort_by)) {
                         if ($sort_order === 'DESC') {
-                            array_multisort($$sort_by, SORT_DESC, $eachtables);
+                            array_multisort($$sort_by, SORT_DESC, $each_tables);
                         } else {
-                            array_multisort($$sort_by, SORT_ASC, $eachtables);
+                            array_multisort($$sort_by, SORT_ASC, $each_tables);
                         }
                     }
 
@@ -542,7 +542,7 @@ class DatabaseInterface implements DbalInterface
 
                 if ($limit_count) {
                     $eachtables = array_slice(
-                        $eachtables,
+                        $each_tables,
                         $limit_offset,
                         $limit_count
                     );
@@ -708,8 +708,8 @@ class DatabaseInterface implements DbalInterface
                 }
 
                 while ($row = $this->fetchAssoc($res)) {
-                    $databases[$database_name]['SCHEMAtableS']++;
-                    $databases[$database_name]['SCHEMAtable_ROWS']
+                    $databases[$database_name]['SCHEMA_TABLE_ROWS']++;
+                    $databases[$database_name]['SCHEMA_TABLE_ROWS']
                         += $row['Rows'];
                     $databases[$database_name]['SCHEMA_DATA_LENGTH']
                         += $row['Data_length'];
