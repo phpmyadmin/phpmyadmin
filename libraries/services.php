@@ -96,6 +96,11 @@ return [
         'export_options' =>
         [
             'class' => PhpMyAdmin\Export\Options::class,
+            'arguments' =>
+            [
+                '@relation',
+                '@export_template_model',
+            ],
         ],
         'export_template_model' =>
         [

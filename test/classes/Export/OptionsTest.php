@@ -8,8 +8,10 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Export\Options;
+use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportPlugin;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Util;
 
@@ -44,7 +46,10 @@ class OptionsTest extends AbstractTestCase
 
         $GLOBALS['PMA_Config'] = $pmaconfig;
 
-        $this->export = new Options();
+        $this->export = new Options(
+            new Relation($GLOBALS['dbi']),
+            new TemplateModel($GLOBALS['dbi'])
+        );
     }
 
     public function testGetOptions(): void

@@ -28,10 +28,10 @@ final class Options
     /** @var TemplateModel */
     private $templateModel;
 
-    public function __construct()
+    public function __construct(Relation $relation, TemplateModel $templateModel)
     {
-        $this->relation = new Relation($GLOBALS['dbi']);
-        $this->templateModel = new TemplateModel($GLOBALS['dbi']);
+        $this->relation = $relation;
+        $this->templateModel = $templateModel;
     }
 
     /**

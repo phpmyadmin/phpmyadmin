@@ -109,6 +109,7 @@ return [
                 'template' => '@template',
                 'db' => '%db%',
                 'export' => '@export',
+                'exportOptions' => '@export_options',
             ],
         ],
         PhpMyAdmin\Controllers\Database\ImportController::class =>
