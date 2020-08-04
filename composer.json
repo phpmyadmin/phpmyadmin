@@ -112,7 +112,8 @@
             "@psalm",
             "@phpunit"
         ],
-        "update:baselines": "phpstan analyse --generate-baseline && psalm --set-baseline=psalm-baseline.xml"
+        "update:baselines": "phpstan analyse --generate-baseline && psalm --set-baseline=psalm-baseline.xml",
+        "twig-lint": "php scripts/console lint:twig templates --ansi --show-deprecations"
     },
     "config":{
         "sort-packages": true
