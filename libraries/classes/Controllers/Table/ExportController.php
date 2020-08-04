@@ -7,21 +7,24 @@ namespace PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Common;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Display\Export;
+use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Plugins;
+use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use function array_merge;
 use function implode;
 use function is_array;
 
 class ExportController extends AbstractController
 {
-    /** @var Export */
+    /** @var Options */
     private $export;
 
     /**
@@ -30,7 +33,7 @@ class ExportController extends AbstractController
      * @param Template          $template A Template instance.
      * @param string            $db       Database name.
      * @param string            $table    Table name.
-     * @param Export            $export   An Export instance.
+     * @param Options           $export   An Export instance.
      */
     public function __construct(
         $response,
@@ -38,7 +41,7 @@ class ExportController extends AbstractController
         Template $template,
         $db,
         $table,
-        Export $export
+        Options $export
     ) {
         parent::__construct($response, $dbi, $template, $db, $table);
         $this->export = $export;
@@ -112,22 +115,37 @@ class ExportController extends AbstractController
             $unlim_num_rows = 0;
         }
 
-        $display = $this->export->getDisplay(
+        $GLOBALS['single_table'] = $_POST['single_table'] ?? $_GET['single_table'] ?? null;
+
+        /** @var ExportPlugin[] $exportList */
+        $exportList = Plugins::getPlugins('export', 'libraries/classes/Plugins/Export/', [
+            'export_type' => 'table',
+            'single_table' => isset($GLOBALS['single_table']),
+        ]);
+
+        if (empty($exportList)) {
+            $this->response->addHTML(Message::error(
+                __('Could not load export plugins, please check your installation!')
+            )->getDisplay());
+
+            return;
+        }
+
+        $options = $this->export->getOptions(
             'table',
             $db,
             $table,
             $sql_query,
             $num_tables,
             $unlim_num_rows,
-            ''
+            $exportList
         );
 
-        $this->render('table/export/index', [
+        $this->render('table/export/index', array_merge($options, [
             'page_settings_error_html' => $pageSettingsErrorHtml,
             'page_settings_html' => $pageSettingsHtml,
             'message' => $message,
-            'display' => $display,
-        ]);
+        ]));
     }
 
     public function rows(): void

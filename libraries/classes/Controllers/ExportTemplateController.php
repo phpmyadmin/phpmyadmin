@@ -72,7 +72,7 @@ final class ExportTemplateController extends AbstractController
         $this->response->setRequestStatus(true);
         $this->response->addJSON(
             'data',
-            $this->template->render('display/export/template_options', [
+            $this->template->render('export/template_options', [
                 'templates' => is_array($templates) ? $templates : [],
                 'selected_template' => $_POST['template_id'] ?? null,
             ])

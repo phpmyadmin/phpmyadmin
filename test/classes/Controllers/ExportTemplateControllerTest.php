@@ -85,7 +85,7 @@ class ExportTemplateControllerTest extends AbstractTestCase
             ]),
         ];
 
-        $options = $this->template->render('display/export/template_options', [
+        $options = $this->template->render('export/template_options', [
             'templates' => $templates,
             'selected_template' => null,
         ]);

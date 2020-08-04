@@ -1,15 +1,12 @@
+{{ page_settings_error_html|raw }}
+{{ page_settings_html|raw }}
+
+{% block message %}{% endblock %}
+
 <div class="exportoptions row" id="header">
   <h2>
     {{ get_image('b_export', 'Export'|trans) }}
-    {% if export_type == 'server' %}
-      {% trans 'Exporting databases from the current server' %}
-    {% elseif export_type == 'database' %}
-      {{ 'Exporting tables from "%s" database'|trans|format(db) }}
-    {% elseif export_type == 'raw' %}
-      {% trans %}Exporting a raw query{% notes %}A query that the user has written freely{% endtrans %}
-    {% else %}
-      {{ 'Exporting rows from "%s" table'|trans|format(table) }}
-    {% endif %}
+    {% block title %}{% endblock %}
   </h2>
 </div>
 
@@ -30,10 +27,12 @@
         <h4>{% trans 'Existing templates:' %}</h4>
         <label for="template">{% trans 'Template:' %}</label>
         <select name="template" id="template" required>
-          {% include 'display/export/template_options.twig' with {
-            'templates': templates.templates,
-            'selected_template': templates.selected
-          } only %}
+          <option value="">-- {% trans 'Select a template' %} --</option>
+          {% for template in templates.templates %}
+            <option value="{{ template.getId() }}"{{ template.getId() == templates.selected ? ' selected' }}>
+              {{ template.getName() }}
+            </option>
+          {% endfor %}
         </select>
         <input class="btn btn-secondary" type="submit" formaction="{{ url('/export/template/update') }}" name="updateTemplate" id="updateTemplate" value="{% trans 'Update' %}">
         <input class="btn btn-secondary" type="submit" formaction="{{ url('/export/template/delete') }}" name="deleteTemplate" id="deleteTemplate" value="{% trans 'Delete' %}">
@@ -96,16 +95,7 @@
     {{ dropdown|raw }}
   </div>
 
-  <div class="exportoptions" id="databases_and_tables">
-    {% if export_type == 'server' %}
-      <h3>{% trans 'Databases:' %}</h3>
-    {% elseif export_type == 'database' %}
-      <h3>{% trans 'Tables:' %}</h3>
-    {% endif %}
-    {% if multi_values is not empty %}
-      {{ multi_values|raw }}
-    {% endif %}
-  </div>
+  {% block selection_options %}{% endblock %}
 
   {% if rows is not empty %}
     <div class="exportoptions" id="rows">
@@ -331,18 +321,7 @@
           <li>
             <label for="filename_template" class="desc">
               {% trans 'File name template:' %}
-              {% set filename_hint %}
-                {% trans 'This value is interpreted using the \'strftime\' function, so you can use time formatting strings. Additionally the following transformations will happen:' %}
-                {% if export_type == 'server' %}
-                  {% trans '@SERVER@ will become the server name.' %}
-                {% elseif export_type == 'database' %}
-                  {% trans '@SERVER@ will become the server name, @DATABASE@ will become the database name.' %}
-                {% elseif export_type == 'table' %}
-                  {% trans '@SERVER@ will become the server name, @DATABASE@ will become the database name, @TABLE@ will become the table name.' %}
-                {% endif %}
-                {% trans 'Other text will be kept as is. See the FAQ 6.27 for details.' %}
-              {% endset %}
-              {{ show_hint(filename_hint) }}
+              {{ show_hint('This value is interpreted using the \'strftime\' function, so you can use time formatting strings. Additionally the following transformations will happen: %s Other text will be kept as is. See the FAQ 6.27 for details.'|trans|format(filename_hint)) }}
             </label>
             <input type="text" name="filename_template" id="filename_template" value="{{ filename_template }}">
             <input type="checkbox" name="remember_template" id="checkbox_remember_template"{{ is_checked_remember_file_template ? ' checked' }}>

@@ -63,10 +63,6 @@ return [
                 'relation' => '@relation',
             ],
         ],
-        'display_export' =>
-        [
-            'class' => PhpMyAdmin\Display\Export::class,
-        ],
         'error_handler' =>
         [
             'class' => PhpMyAdmin\ErrorHandler::class,
@@ -96,6 +92,10 @@ return [
             'class' => PhpMyAdmin\Export::class,
             'arguments' =>
             ['@dbi'],
+        ],
+        'export_options' =>
+        [
+            'class' => PhpMyAdmin\Export\Options::class,
         ],
         'export_template_model' =>
         [
