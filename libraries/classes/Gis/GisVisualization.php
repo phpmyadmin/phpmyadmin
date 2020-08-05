@@ -59,6 +59,29 @@ class GisVisualization
             '#4C489B',
             '#87C9BF',
         ],
+
+
+        // Hex values for abovementioned colours
+        'colors_hex' => [
+            [176, 46, 224],
+            [224, 100, 46],
+            [224, 214, 46],
+            [46, 151, 224],
+            [188, 224, 46],
+            [224, 46, 117],
+            [92, 224, 46],
+            [224, 176, 46],
+            [0, 34, 224],
+            [114, 108, 177],
+            [72, 26, 54],
+            [186, 198, 88],
+            [18, 114, 36],
+            [130, 81, 25],
+            [35, 140, 116],
+            [76, 72, 155],
+            [135, 201, 191],
+        ],
+
         // The width of the GIS visualization.
         'width'  => 600,
         // The height of the GIS visualization.
@@ -757,7 +780,7 @@ class GisVisualization
                     $row[$this->_settings['spatialColumn']],
                     $row['srid'],
                     $label,
-                    $this->_settings['colors'][$index],
+                    $this->_settings['colors_hex'][$index],
                     $scale_data
                 );
             }

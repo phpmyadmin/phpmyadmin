@@ -335,18 +335,32 @@ class GisMultiPolygon extends GisGeometry
      */
     public function prepareRowAsOl($spatial, $srid, $label, $fill_color, array $scale_data)
     {
-        $style_options = [
-            'strokeColor' => '#000000',
-            'strokeWidth' => 0.5,
-            'fillColor'   => $fill_color,
-            'fillOpacity' => 0.8,
-            'label'       => $label,
-            'fontSize'    => 10,
-        ];
-        if ($srid == 0) {
+        $fill_opacity = 0.8;
+        array_push($fill_color,$fill_opacity);
+        $row =  'var style = new ol.style.Style({'
+            . 'fill: new ol.style.Fill({'
+            . 'color: ['. implode(",",$fill_color) .']'
+            . '}),'
+            . 'stroke: new ol.style.Stroke({'
+            . 'color: [0,0,0],'
+            . 'width: 0.5';
+
+            if($label) {
+                $row .= '}),'
+                    . 'text: new ol.style.Text({'
+                    . 'text: "'. $label .'",'
+                    . 'scale: 10'
+                    . '})';
+            } else{
+                $row .= '})';
+            }
+
+            $row.= '});';
+
+            if ($srid == 0) {
             $srid = 4326;
         }
-        $row = $this->getBoundsForOl($srid, $scale_data);
+        $row .= $this->getBoundsForOl($srid, $scale_data);
 
         // Trim to remove leading 'MULTIPOLYGON(((' and trailing ')))'
         $multipolygon
@@ -361,6 +375,7 @@ class GisMultiPolygon extends GisGeometry
         return $row . $this->getPolygonArrayForOpenLayers($polygons, $srid)
             . 'var multiPolygon = new ol.geom.MultiPolygon(polygonArray);'
             . 'var feature = new ol.Feature(multiPolygon);'
+            . 'feature.setStyle(style);'
             . 'vectorLayer.addFeature(feature);';
 //            multiPolygon.setStyle , null, ' . json_encode($style_options) . '));';
 
