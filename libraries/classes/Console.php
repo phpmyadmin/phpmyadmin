@@ -120,7 +120,7 @@ class Console
      */
     public function getDisplay(): string
     {
-        if (! $this-> && $this->isEnabled) {
+        if (! $this->isAjax && $this->isEnabled) {
             $cfgBookmark = Bookmark::getParams(
                 $GLOBALS['cfg']['Server']['user']
             );
