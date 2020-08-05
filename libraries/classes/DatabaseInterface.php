@@ -708,8 +708,8 @@ class DatabaseInterface implements DbalInterface
                 }
 
                 while ($row = $this->fetchAssoc($res)) {
-                    $databases[$database_name]['SCHEMAtableS']++;
-                    $databases[$database_name]['SCHEMAtable_ROWS']
+                    $databases[$database_name]['SCHEMA_TABLES']++;
+                    $databases[$database_name]['SCHEMA_TABLE_ROWS']
                         += $row['Rows'];
                     $databases[$database_name]['SCHEMA_DATA_LENGTH']
                         += $row['Data_length'];
