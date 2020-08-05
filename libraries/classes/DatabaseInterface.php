@@ -383,7 +383,7 @@ class DatabaseInterface implements DbalInterface
             );
 
             // for PMA bc:
-            // `SCHEMA_FIELD_NAME` AS `SHOWtable_STATUS_FIELD_NAME`
+            // `SCHEMA_FIELD_NAME` AS `SHOW_TABLE_STATUS_FIELD_NAME`
             //
             // on non-Windows servers,
             // added BINARY in the WHERE clause to force a case sensitive
