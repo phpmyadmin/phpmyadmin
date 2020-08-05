@@ -24,17 +24,19 @@ final class ExportController extends AbstractController
     /** @var Export */
     private $export;
 
+    /** @var Options */
+    private $exportOptions;
+
     /**
-     * @param Response          $response A Response instance.
-     * @param DatabaseInterface $dbi      A DatabaseInterface instance.
-     * @param Template          $template A Template instance.
+     * @param Response          $response
+     * @param DatabaseInterface $dbi
      * @param string            $db       Database name.
-     * @param Export            $export   An Export instance.
      */
-    public function __construct($response, $dbi, Template $template, $db, Export $export)
+    public function __construct($response, $dbi, Template $template, $db, Export $export, Options $exportOptions)
     {
         parent::__construct($response, $dbi, $template, $db);
         $this->export = $export;
+        $this->exportOptions = $exportOptions;
     }
 
     public function index(): void
@@ -157,8 +159,7 @@ final class ExportController extends AbstractController
             return;
         }
 
-        $displayExport = new Options();
-        $options = $displayExport->getOptions(
+        $options = $this->exportOptions->getOptions(
             $export_type,
             $db,
             $table,
