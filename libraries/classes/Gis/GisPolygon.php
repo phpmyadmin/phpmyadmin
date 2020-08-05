@@ -312,7 +312,6 @@ class GisPolygon extends GisGeometry
             $row .= '}),'
                 . 'text: new ol.style.Text({'
                 . 'text: "'. $label .'",'
-                . 'scale: 10'
                 . '})';
         } else{
             $row .= '})';
