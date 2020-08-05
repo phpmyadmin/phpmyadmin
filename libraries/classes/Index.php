@@ -28,44 +28,44 @@ class Index
      *
      * @var array
      */
-    private static $_registry = [];
+    private static $registry = [];
 
     /** @var string The name of the schema */
-    private $_schema = '';
+    private $schema = '';
 
     /** @var string The name of the table */
-    private $_table = '';
+    private $table = '';
 
     /** @var string The name of the index */
-    private $_name = '';
+    private $name = '';
 
     /**
      * Columns in index
      *
      * @var array
      */
-    private $_columns = [];
+    private $columns = [];
 
     /**
      * The index method used (BTREE, HASH, RTREE).
      *
      * @var string
      */
-    private $_type = '';
+    private $type = '';
 
     /**
      * The index choice (PRIMARY, UNIQUE, INDEX, SPATIAL, FULLTEXT)
      *
      * @var string
      */
-    private $_choice = '';
+    private $choice = '';
 
     /**
      * Various remarks.
      *
      * @var string
      */
-    private $_remarks = '';
+    private $remarks = '';
 
     /**
      * Any comment provided for the index with a COMMENT attribute when the
@@ -73,31 +73,31 @@ class Index
      *
      * @var string
      */
-    private $_comment = '';
+    private $comment = '';
 
     /** @var int 0 if the index cannot contain duplicates, 1 if it can. */
-    private $_non_unique = 0;
+    private $non_unique = 0;
 
     /**
      * Indicates how the key is packed. NULL if it is not.
      *
      * @var string
      */
-    private $_packed = null;
+    private $packed = null;
 
     /**
      * Block size for the index
      *
      * @var int
      */
-    private $_key_block_size = null;
+    private $key_block_size = null;
 
     /**
      * Parser option for the index
      *
      * @var string
      */
-    private $_parser = null;
+    private $parser = null;
 
     /**
      * @param array $params parameters
@@ -119,17 +119,17 @@ class Index
     public static function singleton($schema, $table, $index_name = '')
     {
         self::loadIndexes($table, $schema);
-        if (! isset(self::$_registry[$schema][$table][$index_name])) {
+        if (! isset(self::$registry[$schema][$table][$index_name])) {
             $index = new Index();
             if (strlen($index_name) > 0) {
                 $index->setName($index_name);
-                self::$_registry[$schema][$table][$index->getName()] = $index;
+                self::$registry[$schema][$table][$index->getName()] = $index;
             }
 
             return $index;
         }
 
-        return self::$_registry[$schema][$table][$index_name];
+        return self::$registry[$schema][$table][$index_name];
     }
 
     /**
@@ -144,8 +144,8 @@ class Index
     {
         self::loadIndexes($table, $schema);
 
-        if (isset(self::$_registry[$schema][$table])) {
-            return self::$_registry[$schema][$table];
+        if (isset(self::$registry[$schema][$table])) {
+            return self::$registry[$schema][$table];
         }
 
         return [];
@@ -208,8 +208,8 @@ class Index
     {
         self::loadIndexes($table, $schema);
 
-        if (isset(self::$_registry[$schema][$table]['PRIMARY'])) {
-            return self::$_registry[$schema][$table]['PRIMARY'];
+        if (isset(self::$registry[$schema][$table]['PRIMARY'])) {
+            return self::$registry[$schema][$table]['PRIMARY'];
         }
 
         return false;
@@ -225,22 +225,22 @@ class Index
      */
     private static function loadIndexes($table, $schema)
     {
-        if (isset(self::$_registry[$schema][$table])) {
+        if (isset(self::$registry[$schema][$table])) {
             return true;
         }
 
-        $_raw_indexes = $GLOBALS['dbi']->getTableIndexes($schema, $table);
-        foreach ($_raw_indexes as $_each_index) {
-            $_each_index['Schema'] = $schema;
-            $keyName = $_each_index['Key_name'];
-            if (! isset(self::$_registry[$schema][$table][$keyName])) {
-                $key = new Index($_each_index);
-                self::$_registry[$schema][$table][$keyName] = $key;
+        $raw_indexes = $GLOBALS['dbi']->getTableIndexes($schema, $table);
+        foreach ($raw_indexes as $each_index) {
+            $each_index['Schema'] = $schema;
+            $keyName = $each_index['Key_name'];
+            if (! isset(self::$registry[$schema][$table][$keyName])) {
+                $key = new Index($each_index);
+                self::$registry[$schema][$table][$keyName] = $key;
             } else {
-                $key = self::$_registry[$schema][$table][$keyName];
+                $key = self::$registry[$schema][$table][$keyName];
             }
 
-            $key->addColumn($_each_index);
+            $key->addColumn($each_index);
         }
 
         return true;
@@ -261,7 +261,7 @@ class Index
             return;
         }
 
-        $this->_columns[$params['Column_name']] = new IndexColumn($params);
+        $this->columns[$params['Column_name']] = new IndexColumn($params);
     }
 
     /**
@@ -273,7 +273,7 @@ class Index
      */
     public function addColumns(array $columns)
     {
-        $_columns = [];
+        $columns = [];
 
         if (isset($columns['names'])) {
             // coming from form
@@ -281,7 +281,7 @@ class Index
             // $columns[sub_parts][]
             foreach ($columns['names'] as $key => $name) {
                 $sub_part = $columns['sub_parts'][$key] ?? '';
-                $_columns[] = [
+                $columns[] = [
                     'Column_name'   => $name,
                     'Sub_part'      => $sub_part,
                 ];
@@ -291,10 +291,10 @@ class Index
             // $columns[][name]
             // $columns[][sub_part]
             // ...
-            $_columns = $columns;
+            $columns = $columns;
         }
 
-        foreach ($_columns as $column) {
+        foreach ($columns as $column) {
             $this->addColumn($column);
         }
     }
@@ -308,7 +308,7 @@ class Index
      */
     public function hasColumn($column)
     {
-        return isset($this->_columns[$column]);
+        return isset($this->columns[$column]);
     }
 
     /**
@@ -324,52 +324,52 @@ class Index
             $this->addColumns($params['columns']);
         }
         if (isset($params['Schema'])) {
-            $this->_schema = $params['Schema'];
+            $this->schema = $params['Schema'];
         }
         if (isset($params['Table'])) {
-            $this->_table = $params['Table'];
+            $this->table = $params['Table'];
         }
         if (isset($params['Key_name'])) {
-            $this->_name = $params['Key_name'];
+            $this->name = $params['Key_name'];
         }
         if (isset($params['Index_type'])) {
-            $this->_type = $params['Index_type'];
+            $this->type = $params['Index_type'];
         }
         if (isset($params['Comment'])) {
-            $this->_remarks = $params['Comment'];
+            $this->remarks = $params['Comment'];
         }
         if (isset($params['Index_comment'])) {
-            $this->_comment = $params['Index_comment'];
+            $this->comment = $params['Index_comment'];
         }
         if (isset($params['Non_unique'])) {
-            $this->_non_unique = $params['Non_unique'];
+            $this->non_unique = $params['Non_unique'];
         }
         if (isset($params['Packed'])) {
-            $this->_packed = $params['Packed'];
+            $this->packed = $params['Packed'];
         }
         if (isset($params['Index_choice'])) {
-            $this->_choice = $params['Index_choice'];
-        } elseif ($this->_name === 'PRIMARY') {
-            $this->_choice = 'PRIMARY';
-        } elseif ($this->_type === 'FULLTEXT') {
-            $this->_choice = 'FULLTEXT';
-            $this->_type = '';
-        } elseif ($this->_type === 'SPATIAL') {
-            $this->_choice = 'SPATIAL';
-            $this->_type = '';
-        } elseif ($this->_non_unique == '0') {
-            $this->_choice = 'UNIQUE';
+            $this->choice = $params['Index_choice'];
+        } elseif ($this->name === 'PRIMARY') {
+            $this->choice = 'PRIMARY';
+        } elseif ($this->type === 'FULLTEXT') {
+            $this->choice = 'FULLTEXT';
+            $this->type = '';
+        } elseif ($this->type === 'SPATIAL') {
+            $this->choice = 'SPATIAL';
+            $this->type = '';
+        } elseif ($this->non_unique == '0') {
+            $this->choice = 'UNIQUE';
         } else {
-            $this->_choice = 'INDEX';
+            $this->choice = 'INDEX';
         }
         if (isset($params['Key_block_size'])) {
-            $this->_key_block_size = $params['Key_block_size'];
+            $this->key_block_size = $params['Key_block_size'];
         }
         if (! isset($params['Parser'])) {
             return;
         }
 
-        $this->_parser = $params['Parser'];
+        $this->parser = $params['Parser'];
     }
 
     /**
@@ -379,7 +379,7 @@ class Index
      */
     public function getColumnCount()
     {
-        return count($this->_columns);
+        return count($this->columns);
     }
 
     /**
@@ -389,7 +389,7 @@ class Index
      */
     public function getComment()
     {
-        return $this->_comment;
+        return $this->comment;
     }
 
     /**
@@ -399,7 +399,7 @@ class Index
      */
     public function getRemarks()
     {
-        return $this->_remarks;
+        return $this->remarks;
     }
 
     /**
@@ -409,7 +409,7 @@ class Index
      */
     public function getKeyBlockSize()
     {
-        return $this->_key_block_size;
+        return $this->key_block_size;
     }
 
     /**
@@ -419,7 +419,7 @@ class Index
      */
     public function getParser()
     {
-        return $this->_parser;
+        return $this->parser;
     }
 
     /**
@@ -445,7 +445,7 @@ class Index
      */
     public function getType()
     {
-        return $this->_type;
+        return $this->type;
     }
 
     /**
@@ -455,7 +455,7 @@ class Index
      */
     public function getChoice()
     {
-        return $this->_choice;
+        return $this->choice;
     }
 
     /**
@@ -473,7 +473,7 @@ class Index
 
     public function hasPrimary(): bool
     {
-        return (bool) self::getPrimary($this->_table, $this->_schema);
+        return (bool) self::getPrimary($this->table, $this->schema);
     }
 
     /**
@@ -483,7 +483,7 @@ class Index
      */
     public function getPacked()
     {
-        return $this->_packed;
+        return $this->packed;
     }
 
     /**
@@ -494,11 +494,11 @@ class Index
      */
     public function isPacked()
     {
-        if ($this->_packed === null) {
+        if ($this->packed === null) {
             return __('No');
         }
 
-        return htmlspecialchars($this->_packed);
+        return htmlspecialchars($this->packed);
     }
 
     /**
@@ -508,7 +508,7 @@ class Index
      */
     public function getNonUnique()
     {
-        return $this->_non_unique;
+        return $this->non_unique;
     }
 
     /**
@@ -532,7 +532,7 @@ class Index
             ];
         }
 
-        return $r[$this->_non_unique];
+        return $r[$this->non_unique];
     }
 
     /**
@@ -542,7 +542,7 @@ class Index
      */
     public function getName()
     {
-        return $this->_name;
+        return $this->name;
     }
 
     /**
@@ -554,7 +554,7 @@ class Index
      */
     public function setName($name)
     {
-        $this->_name = (string) $name;
+        $this->name = (string) $name;
     }
 
     /**
@@ -564,7 +564,7 @@ class Index
      */
     public function getColumns()
     {
-        return $this->_columns;
+        return $this->columns;
     }
 
     /**
@@ -575,12 +575,12 @@ class Index
     public function getCompareData()
     {
         $data = [
-            // 'Non_unique'    => $this->_non_unique,
-            'Packed'        => $this->_packed,
-            'Index_choice'    => $this->_choice,
+            // 'Non_unique'    => $this->non_unique,
+            'Packed'        => $this->packed,
+            'Index_choice'    => $this->choice,
         ];
 
-        foreach ($this->_columns as $column) {
+        foreach ($this->columns as $column) {
             $data['columns'][] = $column->getCompareData();
         }
 

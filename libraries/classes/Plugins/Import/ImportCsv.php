@@ -41,7 +41,7 @@ class ImportCsv extends AbstractImportCsv
      *
      * @var bool
      */
-    private $_analyze;
+    private $analyze;
 
     public function __construct()
     {
@@ -864,7 +864,7 @@ class ImportCsv extends AbstractImportCsv
      */
     private function getAnalyze()
     {
-        return $this->_analyze;
+        return $this->analyze;
     }
 
     /**
@@ -876,6 +876,6 @@ class ImportCsv extends AbstractImportCsv
      */
     private function setAnalyze($analyze)
     {
-        $this->_analyze = $analyze;
+        $this->analyze = $analyze;
     }
 }
