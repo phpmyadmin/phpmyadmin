@@ -360,7 +360,8 @@ class GisMultiPolygon extends GisGeometry
 
         return $row . $this->getPolygonArrayForOpenLayers($polygons, $srid)
             . 'var multiPolygon = new ol.geom.MultiPolygon(polygonArray);'
-            . 'vectorLayer.addFeatures(new ol.Feature({geometry: multiPolygon}));';
+            . 'var feature = new ol.Feature(multiPolygon);'
+            . 'vectorLayer.addFeature(feature);';
 //            multiPolygon.setStyle , null, ' . json_encode($style_options) . '));';
 
         return $row;
