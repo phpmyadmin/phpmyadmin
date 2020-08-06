@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "blueimp-md5": "^2.15.0",
-    "bootstrap": "4.5.0",
+    "bootstrap": "4.5.2",
     "codemirror": "5.56.0",
     "jqplot": "^1.0.9",
     "jquery": "3.5.1",
