@@ -310,7 +310,7 @@
 
 <div class="card mb-2">
   <div class="card-header">{% trans 'Table maintenance' %}</div>
-  <ul class="list-group list-group-flush" id="tbl_maintenance">
+  <ul class="list-group-noborder list-group-flush" id="tbl_maintenance">
     {% for action in maintenance_actions %}
       <li class="list-group-item">
         {{ link_or_button(
@@ -327,7 +327,7 @@
 {% if not is_system_schema %}
   <div class="card mb-2">
     <div class="card-header">{% trans 'Delete data or table' %}</div>
-    <ul class="list-group list-group-flush">
+    <ul class="list-group-noborder list-group-flush">
       {% if not is_view %}
         <li class="list-group-item">
           {{ link_or_button(
@@ -415,7 +415,7 @@
 {% if foreigners is not empty %}
   <div class="card mb-2">
     <div class="card-header">{% trans 'Check referential integrity' %}</div>
-    <ul class="list-group list-group-flush">
+    <ul class="list-group-noborder list-group-flush">
       {% for foreign in foreigners %}
         <li class="list-group-item">
           <a class="text-nowrap" href="{{ url('/sql', foreign.params) }}">

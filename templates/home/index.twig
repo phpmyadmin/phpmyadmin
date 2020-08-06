@@ -31,7 +31,7 @@
               <div class="card-header">
                 {% trans 'General settings' %}
               </div>
-              <ul class="list-group list-group-flush">
+              <ul class="list-group-noborder list-group-flush">
                 {% if has_server_selection %}
                   <li id="li_select_server" class="list-group-item">
                     {{ get_image('s_host') }}
@@ -77,7 +77,7 @@
               <div class="card-header">
                 {% trans 'Appearance settings' %}
               </div>
-              <ul class="list-group list-group-flush">
+              <ul class="list-group-noborder list-group-flush">
                 {% if language_selector is not empty %}
                   <li id="li_select_lang" class="list-group-item">
                     {{ get_image('s_lang') }}
@@ -101,7 +101,7 @@
             <div class="card-header">
               {% trans 'Database server' %}
             </div>
-            <ul class="list-group list-group-flush">
+            <ul class="list-group-noborder list-group-flush">
               <li class="list-group-item">
                 {% trans 'Server:' %}
                 {{ database_server.host }}
@@ -141,7 +141,7 @@
             <div class="card-header">
               {% trans 'Web server' %}
             </div>
-            <ul class="list-group list-group-flush">
+            <ul class="list-group-noborder list-group-flush">
               {% if web_server is not empty %}
                 <li class="list-group-item">
                   {{ web_server.software }}
@@ -173,7 +173,7 @@
             <div class="card-header">
               phpMyAdmin
             </div>
-            <ul class="list-group list-group-flush">
+            <ul class="list-group-noborder list-group-flush">
               <li id="li_pma_version" class="list-group-item{{ is_version_checked ? ' jsversioncheck' }}">
                 {% trans 'Version information:' %}
                 <span class="version">{{ phpmyadmin_version }}</span>
