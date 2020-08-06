@@ -275,10 +275,38 @@ class GisPoint extends GisGeometry
             'labelYOffset' => -8,
             'fontSize'     => 10,
         ];
+
+        $result = 'var fill = new ol.style.Fill({'
+            . 'color: "white"'
+            . '});'
+            . 'var stroke = new ol.style.Stroke({'
+            . 'color: ['. implode(",",$point_color) .'],'
+            . 'width: 2'
+            . '});'
+            . 'var style = new ol.style.Style({'
+            . 'image: new ol.style.Circle({'
+            . 'fill: fill,'
+            . 'stroke: stroke,'
+            . 'radius: 5'
+            . '}),'
+            . 'fill: fill,';
+
+        if($label) {
+            $result .= 'stroke: stroke,'
+                . 'text: new ol.style.Text({'
+                . 'text: "'. $label .'",'
+                . 'offsetY: -9'
+                . '})';
+        } else{
+            $result .= 'stroke: stroke';
+        }
+
+        $result.= '});';
+
         if ($srid == 0) {
             $srid = 4326;
         }
-        $result = $this->getBoundsForOl($srid, $scale_data);
+        $result .= $this->getBoundsForOl($srid, $scale_data);
 
         // Trim to remove leading 'POINT(' and trailing ')'
         $point
@@ -292,8 +320,8 @@ class GisPoint extends GisGeometry
         if ($points_arr[0][0] != '' && $points_arr[0][1] != '') {
             $result .= 'var point = new ol.Feature({geometry: '
                 . $this->getPointForOpenLayers($points_arr[0], $srid) . '});'
+                . 'point.setStyle(style);'
                 . 'vectorLayer.addFeature(point);';
-//            point.setStyle(' . json_encode($style_options) . ')
         }
 
         return $result;
