@@ -26,9 +26,6 @@
     </rule>
 
     <!-- Rules that should be followed, but are not required -->
-    <rule ref="PSR2.Classes.PropertyDeclaration.Underscore">
-        <severity>4</severity>
-    </rule>
     <rule ref="SlevomatCodingStandard.Operators.DisallowEqualOperators">
         <severity>4</severity>
     </rule>
