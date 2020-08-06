@@ -763,12 +763,6 @@
       <code>$return_value === false || $return_value === null</code>
     </TypeDoesNotContainNull>
   </file>
-  <file src="libraries/classes/Display/Export.php">
-    <InvalidScalarArgument occurrences="2">
-      <code>$numTables</code>
-      <code>$unlimNumRows</code>
-    </InvalidScalarArgument>
-  </file>
   <file src="libraries/classes/Display/Results.php">
     <ImplicitToStringCast occurrences="1">
       <code>$message</code>
