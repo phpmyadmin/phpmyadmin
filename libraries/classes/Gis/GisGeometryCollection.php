@@ -21,7 +21,7 @@ use function str_split;
 class GisGeometryCollection extends GisGeometry
 {
     /** @var self */
-    private static $_instance;
+    private static $instance;
 
     /**
      * A private constructor; prevents direct creation of object.
@@ -41,11 +41,11 @@ class GisGeometryCollection extends GisGeometry
      */
     public static function singleton()
     {
-        if (! isset(self::$_instance)) {
-            self::$_instance = new GisGeometryCollection();
+        if (! isset(self::$instance)) {
+            self::$instance = new GisGeometryCollection();
         }
 
-        return self::$_instance;
+        return self::$instance;
     }
 
     /**

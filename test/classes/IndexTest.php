@@ -15,7 +15,7 @@ use PhpMyAdmin\Index;
 class IndexTest extends AbstractTestCase
 {
     /** @var array */
-    private $_params = [];
+    private $params = [];
 
     /**
      * Configures parameters.
@@ -23,14 +23,14 @@ class IndexTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->_params['Schema'] = 'PMA_Schema';
-        $this->_params['Table'] = 'PMA_Table';
-        $this->_params['Key_name'] = 'PMA_Key_name';
-        $this->_params['Index_choice'] = 'PMA_Index_choice';
-        $this->_params['Comment'] = 'PMA_Comment';
-        $this->_params['Index_comment'] = 'PMA_Index_comment';
-        $this->_params['Non_unique'] = 'PMA_Non_unique';
-        $this->_params['Packed'] = 'PMA_Packed';
+        $this->params['Schema'] = 'PMA_Schema';
+        $this->params['Table'] = 'PMA_Table';
+        $this->params['Key_name'] = 'PMA_Key_name';
+        $this->params['Index_choice'] = 'PMA_Index_choice';
+        $this->params['Comment'] = 'PMA_Comment';
+        $this->params['Index_comment'] = 'PMA_Index_comment';
+        $this->params['Non_unique'] = 'PMA_Non_unique';
+        $this->params['Packed'] = 'PMA_Packed';
 
         //test add columns
         $column1 = [
@@ -54,9 +54,9 @@ class IndexTest extends AbstractTestCase
             'Cardinality' => 'Cardinality3',
             'Null' => 'null3',
         ];
-        $this->_params['columns'][] = $column1;
-        $this->_params['columns'][] = $column2;
-        $this->_params['columns'][] = $column3;
+        $this->params['columns'][] = $column1;
+        $this->params['columns'][] = $column2;
+        $this->params['columns'][] = $column3;
     }
 
     /**
@@ -64,7 +64,7 @@ class IndexTest extends AbstractTestCase
      */
     public function testConstructor(): void
     {
-        $index = new Index($this->_params);
+        $index = new Index($this->params);
         $this->assertEquals(
             'PMA_Index_comment',
             $index->getComment()
@@ -104,8 +104,8 @@ class IndexTest extends AbstractTestCase
      */
     public function testIsUniquer(): void
     {
-        $this->_params['Non_unique'] = '0';
-        $index = new Index($this->_params);
+        $this->params['Non_unique'] = '0';
+        $index = new Index($this->params);
         $this->assertTrue(
             $index->isUnique()
         );
@@ -121,7 +121,7 @@ class IndexTest extends AbstractTestCase
     public function testAddColumns(): void
     {
         $index = new Index();
-        $index->addColumns($this->_params['columns']);
+        $index->addColumns($this->params['columns']);
         $this->assertTrue($index->hasColumn('column1'));
         $this->assertTrue($index->hasColumn('column2'));
         $this->assertTrue($index->hasColumn('column3'));
@@ -150,7 +150,7 @@ class IndexTest extends AbstractTestCase
     public function testColumns(): void
     {
         $index = new Index();
-        $index->addColumns($this->_params['columns']);
+        $index->addColumns($this->params['columns']);
 
         $index_columns = $index->getColumns();
         $index_column = $index_columns['column1'];

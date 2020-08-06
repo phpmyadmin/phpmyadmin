@@ -44,13 +44,13 @@ class ExportXml extends ExportPlugin
      *
      * @var string
      */
-    private $_table;
+    private $table;
     /**
      * Table names
      *
      * @var array
      */
-    private $_tables;
+    private $tables;
 
     public function __construct()
     {
@@ -561,7 +561,7 @@ class ExportXml extends ExportPlugin
      */
     private function getTable()
     {
-        return $this->_table;
+        return $this->table;
     }
 
     /**
@@ -573,7 +573,7 @@ class ExportXml extends ExportPlugin
      */
     private function setTable($table)
     {
-        $this->_table = $table;
+        $this->table = $table;
     }
 
     /**
@@ -583,7 +583,7 @@ class ExportXml extends ExportPlugin
      */
     private function getTables()
     {
-        return $this->_tables;
+        return $this->tables;
     }
 
     /**
@@ -595,6 +595,6 @@ class ExportXml extends ExportPlugin
      */
     private function setTables(array $tables)
     {
-        $this->_tables = $tables;
+        $this->tables = $tables;
     }
 }

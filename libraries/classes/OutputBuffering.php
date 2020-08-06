@@ -27,24 +27,24 @@ use function register_shutdown_function;
 class OutputBuffering
 {
     /** @var self */
-    private static $_instance;
+    private static $instance;
 
     /** @var int */
-    private $_mode;
+    private $mode;
 
     /** @var string */
-    private $_content;
+    private $content;
 
     /** @var bool */
-    private $_on;
+    private $on;
 
     /**
      * Initializes class
      */
     private function __construct()
     {
-        $this->_mode = $this->getMode();
-        $this->_on = false;
+        $this->mode = $this->getMode();
+        $this->on = false;
     }
 
     /**
@@ -85,11 +85,11 @@ class OutputBuffering
      */
     public static function getInstance()
     {
-        if (empty(self::$_instance)) {
-            self::$_instance = new OutputBuffering();
+        if (empty(self::$instance)) {
+            self::$instance = new OutputBuffering();
         }
 
-        return self::$_instance;
+        return self::$instance;
     }
 
     /**
@@ -101,16 +101,16 @@ class OutputBuffering
      */
     public function start()
     {
-        if ($this->_on) {
+        if ($this->on) {
             return;
         }
 
-        if ($this->_mode && function_exists('ob_gzhandler')) {
+        if ($this->mode && function_exists('ob_gzhandler')) {
             ob_start('ob_gzhandler');
         }
         ob_start();
         if (! defined('TESTSUITE')) {
-            header('X-ob_mode: ' . $this->_mode);
+            header('X-ob_mode: ' . $this->mode);
         }
         register_shutdown_function(
             [
@@ -118,7 +118,7 @@ class OutputBuffering
                 'stop',
             ]
         );
-        $this->_on = true;
+        $this->on = true;
     }
 
     /**
@@ -131,12 +131,12 @@ class OutputBuffering
     public static function stop()
     {
         $buffer = self::getInstance();
-        if (! $buffer->_on) {
+        if (! $buffer->on) {
             return;
         }
 
-        $buffer->_on = false;
-        $buffer->_content = ob_get_contents();
+        $buffer->on = false;
+        $buffer->content = ob_get_contents();
         if (ob_get_length() <= 0) {
             return;
         }
@@ -151,7 +151,7 @@ class OutputBuffering
      */
     public function getContents()
     {
-        return $this->_content;
+        return $this->content;
     }
 
     /**
@@ -161,7 +161,7 @@ class OutputBuffering
      */
     public function flush()
     {
-        if (ob_get_status() && $this->_mode) {
+        if (ob_get_status() && $this->mode) {
             ob_flush();
         } else {
             flush();

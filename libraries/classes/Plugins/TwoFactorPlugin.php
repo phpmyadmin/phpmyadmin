@@ -36,13 +36,13 @@ class TwoFactorPlugin
     public static $showSubmit = true;
 
     /** @var TwoFactor */
-    protected $_twofactor;
+    protected $twofactor;
 
     /** @var bool */
-    protected $_provided;
+    protected $provided;
 
     /** @var string */
-    protected $_message;
+    protected $message;
 
     /** @var Template */
     public $template;
@@ -54,9 +54,9 @@ class TwoFactorPlugin
      */
     public function __construct(TwoFactor $twofactor)
     {
-        $this->_twofactor = $twofactor;
-        $this->_provided = false;
-        $this->_message = '';
+        $this->twofactor = $twofactor;
+        $this->provided = false;
+        $this->message = '';
         $this->template = new Template();
     }
 
@@ -67,10 +67,10 @@ class TwoFactorPlugin
      */
     public function getError()
     {
-        if ($this->_provided) {
-            if (! empty($this->_message)) {
+        if ($this->provided) {
+            if (! empty($this->message)) {
                 return Message::rawError(
-                    sprintf(__('Two-factor authentication failed: %s'), $this->_message)
+                    sprintf(__('Two-factor authentication failed: %s'), $this->message)
                 )->getDisplay();
             }
 

@@ -21,7 +21,7 @@ use stdClass;
 class DatabaseInterfaceTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
-    private $_dbi;
+    private $dbi;
 
     /**
      * Configures test parameters.
@@ -33,7 +33,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         parent::defineVersionConstants();
         $GLOBALS['server'] = 0;
         $extension = new DbiDummy();
-        $this->_dbi = new DatabaseInterface($extension);
+        $this->dbi = new DatabaseInterface($extension);
     }
 
     /**
@@ -174,7 +174,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
      */
     public function testGetSystemDatabase(): void
     {
-        $sd = $this->_dbi->getSystemDatabase();
+        $sd = $this->dbi->getSystemDatabase();
         $this->assertInstanceOf(SystemDatabase::class, $sd);
     }
 
@@ -187,7 +187,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
     {
         $GLOBALS['db'] = '';
         $GLOBALS['cfg']['Server']['only_db'] = [];
-        $this->_dbi->postConnectControl();
+        $this->dbi->postConnectControl();
         $this->assertInstanceOf(DatabaseList::class, $GLOBALS['dblist']);
     }
 
@@ -202,7 +202,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         // test case for system schema
         $this->assertEquals(
             'utf8_general_ci',
-            $this->_dbi->getDbCollation('information_schema')
+            $this->dbi->getDbCollation('information_schema')
         );
 
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -210,7 +210,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
         $this->assertEquals(
             'utf8_general_ci',
-            $this->_dbi->getDbCollation('pma_test')
+            $this->dbi->getDbCollation('pma_test')
         );
     }
 
@@ -223,7 +223,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
     {
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['DBG']['sql'] = true;
-        $this->assertEquals('utf8_general_ci', $this->_dbi->getServerCollation());
+        $this->assertEquals('utf8_general_ci', $this->dbi->getServerCollation());
     }
 
     /**
@@ -430,6 +430,6 @@ class DatabaseInterfaceTest extends AbstractTestCase
                 'REFERENCED_TABLE_NAME' => 'table1',
                 'REFERENCED_COLUMN_NAME' => 'idtable1',
             ],
-        ], $this->_dbi->getForeignKeyConstrains('test', ['table1', 'table2']));
+        ], $this->dbi->getForeignKeyConstrains('test', ['table1', 'table2']));
     }
 }

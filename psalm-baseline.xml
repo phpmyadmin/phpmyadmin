@@ -133,7 +133,7 @@
   </file>
   <file src="libraries/classes/Config/ConfigFile.php">
     <InvalidIterator occurrences="1">
-      <code>$this-&gt;_cfgDb['_overrides']</code>
+      <code>$this-&gt;cfgDb['_overrides']</code>
     </InvalidIterator>
     <MissingClosureParamType occurrences="12">
       <code>$value</code>
@@ -150,11 +150,11 @@
       <code>$prefix</code>
     </MissingClosureParamType>
     <PossiblyNullArgument occurrences="2">
-      <code>$this-&gt;_baseCfg</code>
+      <code>$this-&gt;baseCfg</code>
       <code>$cfg</code>
     </PossiblyNullArgument>
     <TypeDoesNotContainType occurrences="1">
-      <code>count($this-&gt;_cfgDb['_overrides'])</code>
+      <code>count($this-&gt;cfgDb['_overrides'])</code>
     </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Config/Form.php">
@@ -943,7 +943,7 @@
       <code>string</code>
     </InvalidFalsableReturnType>
     <InvalidPropertyAssignmentValue occurrences="1">
-      <code>$this-&gt;_handle</code>
+      <code>$this-&gt;handle</code>
     </InvalidPropertyAssignmentValue>
     <PossiblyInvalidArgument occurrences="1">
       <code>$_FILES['fields_upload']</code>
@@ -964,9 +964,9 @@
       <code>$this-&gt;getName()</code>
       <code>$this-&gt;getName()</code>
       <code>$this-&gt;getName()</code>
-      <code>$this-&gt;_handle</code>
-      <code>$this-&gt;_handle</code>
-      <code>$this-&gt;_handle</code>
+      <code>$this-&gt;handle</code>
+      <code>$this-&gt;handle</code>
+      <code>$this-&gt;handle</code>
     </PossiblyNullArgument>
     <PossiblyNullPropertyAssignmentValue occurrences="4">
       <code>null</code>
@@ -1171,7 +1171,7 @@
   </file>
   <file src="libraries/classes/LanguageManager.php">
     <MissingConstructor occurrences="1">
-      <code>$_available_locales</code>
+      <code>$available_locales</code>
     </MissingConstructor>
   </file>
   <file src="libraries/classes/Menu.php">
@@ -1542,8 +1542,8 @@
       <code>$this-&gt;diagram</code>
       <code>$this-&gt;diagram</code>
       <code>$this-&gt;diagram</code>
-      <code>$this-&gt;_tables[$masterTable]</code>
-      <code>$this-&gt;_tables[$foreignTable]</code>
+      <code>$this-&gt;tables[$masterTable]</code>
+      <code>$this-&gt;tables[$foreignTable]</code>
     </PossiblyInvalidArgument>
     <PossiblyNullArgument occurrences="5">
       <code>$this-&gt;paper</code>
@@ -1605,8 +1605,8 @@
   </file>
   <file src="libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php">
     <InvalidArgument occurrences="2">
-      <code>$this-&gt;_tables[$masterTable]</code>
-      <code>$this-&gt;_tables[$foreignTable]</code>
+      <code>$this-&gt;tables[$masterTable]</code>
+      <code>$this-&gt;tables[$foreignTable]</code>
     </InvalidArgument>
     <InvalidScalarArgument occurrences="2">
       <code>'10'</code>
@@ -1622,19 +1622,19 @@
       <code>$this-&gt;pageNumber</code>
       <code>$this-&gt;orientation</code>
       <code>$this-&gt;pageNumber</code>
-      <code>$this-&gt;_tablewidth</code>
+      <code>$this-&gt;tablewidth</code>
       <code>$this-&gt;showKeys</code>
       <code>$this-&gt;tableDimension</code>
       <code>$this-&gt;offline</code>
       <code>$this-&gt;pageNumber</code>
-      <code>$this-&gt;_tablewidth</code>
+      <code>$this-&gt;tablewidth</code>
       <code>$this-&gt;pageNumber</code>
-      <code>$this-&gt;_tablewidth</code>
+      <code>$this-&gt;tablewidth</code>
       <code>$this-&gt;tableDimension</code>
       <code>$this-&gt;tableDimension</code>
     </PossiblyNullArgument>
     <PossiblyNullPropertyAssignmentValue occurrences="1">
-      <code>$this-&gt;_tablewidth</code>
+      <code>$this-&gt;tablewidth</code>
     </PossiblyNullPropertyAssignmentValue>
     <PossiblyNullReference occurrences="13">
       <code>setTitle</code>
@@ -1688,8 +1688,8 @@
   </file>
   <file src="libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php">
     <InvalidArgument occurrences="2">
-      <code>$this-&gt;_tables[$masterTable]</code>
-      <code>$this-&gt;_tables[$foreignTable]</code>
+      <code>$this-&gt;tables[$masterTable]</code>
+      <code>$this-&gt;tables[$foreignTable]</code>
     </InvalidArgument>
     <InvalidScalarArgument occurrences="6">
       <code>$this-&gt;offline</code>
@@ -1715,21 +1715,21 @@
       <code>$this-&gt;orientation</code>
       <code>$this-&gt;paper</code>
       <code>$this-&gt;pageNumber</code>
-      <code>$this-&gt;_withDoc</code>
+      <code>$this-&gt;withDoc</code>
       <code>$this-&gt;pageNumber</code>
-      <code>$this-&gt;_tablewidth</code>
+      <code>$this-&gt;tablewidth</code>
       <code>$this-&gt;showKeys</code>
       <code>$this-&gt;tableDimension</code>
       <code>$this-&gt;offline</code>
       <code>$this-&gt;pageNumber</code>
-      <code>$this-&gt;_tablewidth</code>
+      <code>$this-&gt;tablewidth</code>
       <code>$this-&gt;showKeys</code>
       <code>$this-&gt;tableDimension</code>
       <code>$this-&gt;pageNumber</code>
-      <code>$this-&gt;_tablewidth</code>
+      <code>$this-&gt;tablewidth</code>
       <code>$this-&gt;showKeys</code>
       <code>$this-&gt;tableDimension</code>
-      <code>$this-&gt;_withDoc</code>
+      <code>$this-&gt;withDoc</code>
     </PossiblyNullArgument>
     <PossiblyNullPropertyAssignment occurrences="5">
       <code>$this-&gt;diagram</code>
@@ -1739,7 +1739,7 @@
       <code>$this-&gt;diagram</code>
     </PossiblyNullPropertyAssignment>
     <PossiblyNullPropertyAssignmentValue occurrences="1">
-      <code>$this-&gt;_tablewidth</code>
+      <code>$this-&gt;tablewidth</code>
     </PossiblyNullPropertyAssignmentValue>
     <PossiblyNullPropertyFetch occurrences="3">
       <code>$this-&gt;diagram-&gt;PMA_links</code>
@@ -2012,14 +2012,14 @@
   </file>
   <file src="libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php">
     <InvalidArgument occurrences="2">
-      <code>$this-&gt;_tables[$masterTable]</code>
-      <code>$this-&gt;_tables[$foreignTable]</code>
+      <code>$this-&gt;tables[$masterTable]</code>
+      <code>$this-&gt;tables[$foreignTable]</code>
     </InvalidArgument>
     <InvalidScalarArgument occurrences="1">
       <code>$this-&gt;showColor</code>
     </InvalidScalarArgument>
     <PossiblyInvalidArgument occurrences="2">
-      <code>$this-&gt;_tables[$table]</code>
+      <code>$this-&gt;tables[$table]</code>
       <code>$this-&gt;diagram</code>
     </PossiblyInvalidArgument>
     <PossiblyNullArgument occurrences="15">
@@ -2028,19 +2028,19 @@
       <code>$this-&gt;diagram</code>
       <code>$this-&gt;pageNumber</code>
       <code>$this-&gt;pageNumber</code>
-      <code>$this-&gt;_tablewidth</code>
+      <code>$this-&gt;tablewidth</code>
       <code>$this-&gt;showKeys</code>
       <code>$this-&gt;tableDimension</code>
       <code>$this-&gt;offline</code>
       <code>$this-&gt;pageNumber</code>
-      <code>$this-&gt;_tablewidth</code>
+      <code>$this-&gt;tablewidth</code>
       <code>$this-&gt;pageNumber</code>
-      <code>$this-&gt;_tablewidth</code>
+      <code>$this-&gt;tablewidth</code>
       <code>$this-&gt;tableDimension</code>
       <code>$this-&gt;tableDimension</code>
     </PossiblyNullArgument>
     <PossiblyNullPropertyAssignmentValue occurrences="1">
-      <code>$this-&gt;_tablewidth</code>
+      <code>$this-&gt;tablewidth</code>
     </PossiblyNullPropertyAssignmentValue>
     <PossiblyNullReference occurrences="13">
       <code>setTitle</code>
@@ -2284,7 +2284,7 @@
     </PossiblyNullReference>
     <UndefinedDocblockClass occurrences="2">
       <code>COM|null</code>
-      <code>$this-&gt;_wmi</code>
+      <code>$this-&gt;wmi</code>
     </UndefinedDocblockClass>
   </file>
   <file src="libraries/classes/Server/UserGroups.php">
@@ -2387,8 +2387,8 @@
       <code>$table_auto_increment ?? ''</code>
     </InvalidReturnStatement>
     <PossiblyInvalidArgument occurrences="3">
-      <code>$this-&gt;_dbi-&gt;getError(DatabaseInterface::CONNECT_CONTROL)</code>
-      <code>$this-&gt;_dbi-&gt;getError(DatabaseInterface::CONNECT_CONTROL)</code>
+      <code>$this-&gt;dbi-&gt;getError(DatabaseInterface::CONNECT_CONTROL)</code>
+      <code>$this-&gt;dbi-&gt;getError(DatabaseInterface::CONNECT_CONTROL)</code>
       <code>$tmp_error_create</code>
     </PossiblyInvalidArgument>
     <PossiblyNullArgument occurrences="5">

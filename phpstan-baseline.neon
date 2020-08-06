@@ -926,7 +926,7 @@ parameters:
 			path: libraries/classes/File.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\File\\:\\:\\$_content \\(string\\) does not accept string\\|false\\.$#"
+			message: "#^Property PhpMyAdmin\\\\File\\:\\:\\$content \\(string\\) does not accept string\\|false\\.$#"
 			count: 2
 			path: libraries/classes/File.php
 
@@ -981,7 +981,7 @@ parameters:
 			path: libraries/classes/File.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\File\\:\\:\\$_handle \\(resource\\|null\\) does not accept resource\\|false\\.$#"
+			message: "#^Property PhpMyAdmin\\\\File\\:\\:\\$handle \\(resource\\|null\\) does not accept resource\\|false\\.$#"
 			count: 4
 			path: libraries/classes/File.php
 
@@ -1411,7 +1411,7 @@ parameters:
 			path: libraries/classes/Operations.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\OutputBuffering\\:\\:\\$_content \\(string\\) does not accept string\\|false\\.$#"
+			message: "#^Property PhpMyAdmin\\\\OutputBuffering\\:\\:\\$content \\(string\\) does not accept string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/OutputBuffering.php
 

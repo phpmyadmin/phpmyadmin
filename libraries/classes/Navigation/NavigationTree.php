@@ -339,7 +339,7 @@ class NavigationTree
         }
 
         // Whether build other parts of the tree depends
-        // on whether we have any paths in $this->_aPath
+        // on whether we have any paths in $this->aPath
         foreach ($this->aPath as $key => $path) {
             $retval = $this->buildPathPart(
                 $path,

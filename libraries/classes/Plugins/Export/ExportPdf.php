@@ -37,14 +37,14 @@ class ExportPdf extends ExportPlugin
      *
      * @var Pdf
      */
-    private $_pdf;
+    private $pdf;
 
     /**
      * PDF Report Title
      *
      * @var string
      */
-    private $_pdfReportTitle;
+    private $pdfReportTitle;
 
     public function __construct()
     {
@@ -372,7 +372,7 @@ class ExportPdf extends ExportPlugin
      */
     private function getPdf()
     {
-        return $this->_pdf;
+        return $this->pdf;
     }
 
     /**
@@ -384,7 +384,7 @@ class ExportPdf extends ExportPlugin
      */
     private function setPdf($pdf)
     {
-        $this->_pdf = $pdf;
+        $this->pdf = $pdf;
     }
 
     /**
@@ -394,7 +394,7 @@ class ExportPdf extends ExportPlugin
      */
     private function getPdfReportTitle()
     {
-        return $this->_pdfReportTitle;
+        return $this->pdfReportTitle;
     }
 
     /**
@@ -406,6 +406,6 @@ class ExportPdf extends ExportPlugin
      */
     private function setPdfReportTitle($pdfReportTitle)
     {
-        $this->_pdfReportTitle = $pdfReportTitle;
+        $this->pdfReportTitle = $pdfReportTitle;
     }
 }

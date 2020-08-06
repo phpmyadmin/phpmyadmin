@@ -32,7 +32,7 @@ use function trim;
 class GisPolygon extends GisGeometry
 {
     /** @var self */
-    private static $_instance;
+    private static $instance;
 
     /**
      * A private constructor; prevents direct creation of object.
@@ -52,11 +52,11 @@ class GisPolygon extends GisGeometry
      */
     public static function singleton()
     {
-        if (! isset(self::$_instance)) {
-            self::$_instance = new GisPolygon();
+        if (! isset(self::$instance)) {
+            self::$instance = new GisPolygon();
         }
 
-        return self::$_instance;
+        return self::$instance;
     }
 
     /**

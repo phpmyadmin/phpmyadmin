@@ -48,10 +48,10 @@ if (getcwd() == __DIR__) {
 class Pdf extends PdfLib
 {
     /** @var int|float */
-    public $_xMin;
+    public $xMin;
 
     /** @var int|float */
-    public $_yMin;
+    public $yMin;
 
     /** @var int|float */
     public $leftMargin = 10;
@@ -78,19 +78,19 @@ class Pdf extends PdfLib
     public $cMargin;
 
     /** @var string */
-    private $_ff = PdfLib::PMA_PDF_FONT;
+    private $ff = PdfLib::PMA_PDF_FONT;
 
     /** @var string */
-    private $_offline;
+    private $offline;
 
     /** @var int */
-    private $_pageNumber;
+    private $pageNumber;
 
     /** @var bool */
-    private $_withDoc;
+    private $withDoc;
 
     /** @var string */
-    private $_db;
+    private $db;
 
     /** @var Relation */
     private $relation;
@@ -116,9 +116,9 @@ class Pdf extends PdfLib
         $db
     ) {
         parent::__construct($orientation, $unit, $paper);
-        $this->_pageNumber = $pageNumber;
-        $this->_withDoc = $withDoc;
-        $this->_db = $db;
+        $this->pageNumber = $pageNumber;
+        $this->withDoc = $withDoc;
+        $this->db = $db;
         $this->relation = new Relation($GLOBALS['dbi']);
     }
 
@@ -153,8 +153,8 @@ class Pdf extends PdfLib
         $topMargin = -1
     ) {
         $this->scale = $scale;
-        $this->_xMin = $xMin;
-        $this->_yMin = $yMin;
+        $this->xMin = $xMin;
+        $this->yMin = $yMin;
         if ($this->leftMargin != -1) {
             $this->leftMargin = $leftMargin;
         }
@@ -210,10 +210,10 @@ class Pdf extends PdfLib
      */
     public function lineScale($x1, $y1, $x2, $y2)
     {
-        $x1 = ($x1 - $this->_xMin) / $this->scale + $this->leftMargin;
-        $y1 = ($y1 - $this->_yMin) / $this->scale + $this->topMargin;
-        $x2 = ($x2 - $this->_xMin) / $this->scale + $this->leftMargin;
-        $y2 = ($y2 - $this->_yMin) / $this->scale + $this->topMargin;
+        $x1 = ($x1 - $this->xMin) / $this->scale + $this->leftMargin;
+        $y1 = ($y1 - $this->yMin) / $this->scale + $this->topMargin;
+        $x2 = ($x2 - $this->xMin) / $this->scale + $this->leftMargin;
+        $y2 = ($y2 - $this->yMin) / $this->scale + $this->topMargin;
         $this->Line($x1, $y1, $x2, $y2);
     }
 
@@ -229,8 +229,8 @@ class Pdf extends PdfLib
      */
     public function setXyScale($x, $y)
     {
-        $x = ($x - $this->_xMin) / $this->scale + $this->leftMargin;
-        $y = ($y - $this->_yMin) / $this->scale + $this->topMargin;
+        $x = ($x - $this->xMin) / $this->scale + $this->leftMargin;
+        $y = ($y - $this->yMin) / $this->scale + $this->topMargin;
         $this->SetXY($x, $y);
     }
 
@@ -245,7 +245,7 @@ class Pdf extends PdfLib
      */
     public function setXScale($x)
     {
-        $x = ($x - $this->_xMin) / $this->scale + $this->leftMargin;
+        $x = ($x - $this->xMin) / $this->scale + $this->leftMargin;
         $this->SetX($x);
     }
 
@@ -293,26 +293,26 @@ class Pdf extends PdfLib
         // We only show this if we find something in the new pdf_pages table
 
         // This function must be named "Header" to work with the TCPDF library
-        if (! $this->_withDoc) {
+        if (! $this->withDoc) {
             return;
         }
 
-        if ($this->_offline || $this->_pageNumber == -1) {
+        if ($this->offline || $this->pageNumber == -1) {
             $pg_name = __('PDF export page');
         } else {
             $test_query = 'SELECT * FROM '
                 . Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
                 . Util::backquote($GLOBALS['cfgRelation']['pdf_pages'])
-                . ' WHERE db_name = \'' . $GLOBALS['dbi']->escapeString($this->_db)
-                . '\' AND page_nr = \'' . $this->_pageNumber . '\'';
+                . ' WHERE db_name = \'' . $GLOBALS['dbi']->escapeString($this->db)
+                . '\' AND page_nr = \'' . $this->pageNumber . '\'';
             $test_rs = $this->relation->queryAsControlUser($test_query);
             $pages = @$GLOBALS['dbi']->fetchAssoc($test_rs);
             $pg_name = ucfirst($pages['page_descr']);
         }
 
-        $this->SetFont($this->_ff, 'B', 14);
+        $this->SetFont($this->ff, 'B', 14);
         $this->Cell(0, 6, $pg_name, 'B', 1, 'C');
-        $this->SetFont($this->_ff, '');
+        $this->SetFont($this->ff, '');
         $this->Ln();
     }
 
@@ -326,7 +326,7 @@ class Pdf extends PdfLib
     // @codingStandardsIgnoreLine
     public function Footer()
     {
-        if (! $this->_withDoc) {
+        if (! $this->withDoc) {
             return;
         }
 
@@ -457,6 +457,6 @@ class Pdf extends PdfLib
      */
     public function setOffline($value)
     {
-        $this->_offline = $value;
+        $this->offline = $value;
     }
 }

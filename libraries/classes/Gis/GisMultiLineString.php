@@ -25,7 +25,7 @@ use function trim;
 class GisMultiLineString extends GisGeometry
 {
     /** @var self */
-    private static $_instance;
+    private static $instance;
 
     /**
      * A private constructor; prevents direct creation of object.
@@ -45,11 +45,11 @@ class GisMultiLineString extends GisGeometry
      */
     public static function singleton()
     {
-        if (! isset(self::$_instance)) {
-            self::$_instance = new GisMultiLineString();
+        if (! isset(self::$instance)) {
+            self::$instance = new GisMultiLineString();
         }
 
-        return self::$_instance;
+        return self::$instance;
     }
 
     /**

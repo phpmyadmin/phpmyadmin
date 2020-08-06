@@ -30,13 +30,13 @@ class TwoFactor
     public $config;
 
     /** @var bool */
-    protected $_writable;
+    protected $writable;
 
     /** @var TwoFactorPlugin */
-    protected $_backend;
+    protected $backend;
 
     /** @var array */
-    protected $_available;
+    protected $available;
 
     /** @var UserPreferences */
     private $userPreferences;
@@ -54,10 +54,10 @@ class TwoFactor
 
         $this->userPreferences = new UserPreferences();
         $this->user = $user;
-        $this->_available = $this->getAvailableBackends();
+        $this->available = $this->getAvailableBackends();
         $this->config = $this->readConfig();
-        $this->_writable = ($this->config['type'] === 'db');
-        $this->_backend = $this->getBackendForCurrentUser();
+        $this->writable = ($this->config['type'] === 'db');
+        $this->backend = $this->getBackendForCurrentUser();
     }
 
     /**
@@ -85,12 +85,12 @@ class TwoFactor
 
     public function isWritable(): bool
     {
-        return $this->_writable;
+        return $this->writable;
     }
 
     public function getBackend(): TwoFactorPlugin
     {
-        return $this->_backend;
+        return $this->backend;
     }
 
     /**
@@ -98,12 +98,12 @@ class TwoFactor
      */
     public function getAvailable(): array
     {
-        return $this->_available;
+        return $this->available;
     }
 
     public function showSubmit(): bool
     {
-        $backend = $this->_backend;
+        $backend = $this->backend;
 
         return $backend::$showSubmit;
     }
@@ -169,7 +169,7 @@ class TwoFactor
     public function getBackendClass($name)
     {
         $result = TwoFactorPlugin::class;
-        if (in_array($name, $this->_available)) {
+        if (in_array($name, $this->available)) {
             $result = 'PhpMyAdmin\\Plugins\\TwoFactor\\' . ucfirst($name);
         } elseif (! empty($name)) {
             $result = Invalid::class;
@@ -200,10 +200,10 @@ class TwoFactor
     public function check($skip_session = false)
     {
         if ($skip_session) {
-            return $this->_backend->check();
+            return $this->backend->check();
         }
         if (empty($_SESSION['two_factor_check'])) {
-            $_SESSION['two_factor_check'] = $this->_backend->check();
+            $_SESSION['two_factor_check'] = $this->backend->check();
         }
 
         return $_SESSION['two_factor_check'];
@@ -216,7 +216,7 @@ class TwoFactor
      */
     public function render()
     {
-        return $this->_backend->getError() . $this->_backend->render();
+        return $this->backend->getError() . $this->backend->render();
     }
 
     /**
@@ -226,7 +226,7 @@ class TwoFactor
      */
     public function setup()
     {
-        return $this->_backend->getError() . $this->_backend->setup();
+        return $this->backend->getError() . $this->backend->setup();
     }
 
     /**
@@ -255,15 +255,15 @@ class TwoFactor
         if ($name === '') {
             $cls = $this->getBackendClass($name);
             $this->config['settings'] = [];
-            $this->_backend = new $cls($this);
+            $this->backend = new $cls($this);
         } else {
-            if (! in_array($name, $this->_available)) {
+            if (! in_array($name, $this->available)) {
                 return false;
             }
             $cls = $this->getBackendClass($name);
             $this->config['settings'] = [];
-            $this->_backend = new $cls($this);
-            if (! $this->_backend->configure()) {
+            $this->backend = new $cls($this);
+            if (! $this->backend->configure()) {
                 return false;
             }
         }
@@ -282,7 +282,7 @@ class TwoFactor
      */
     public function getAllBackends()
     {
-        $all = array_merge([''], $this->_available);
+        $all = array_merge([''], $this->available);
         $backends = [];
         foreach ($all as $name) {
             $cls = $this->getBackendClass($name);

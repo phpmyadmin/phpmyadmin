@@ -16,7 +16,7 @@ use stdClass;
 class VersionInformationTest extends AbstractTestCase
 {
     /** @var stdClass[] */
-    private $_releases;
+    private $releases;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
@@ -26,28 +26,28 @@ class VersionInformationTest extends AbstractTestCase
     {
         parent::setUp();
         parent::setProxySettings();
-        $this->_releases = [];
+        $this->releases = [];
 
         $release = new stdClass();
         $release->date = '2015-09-08';
         $release->php_versions = '>=5.3,<7.1';
         $release->version = '4.4.14.1';
         $release->mysql_versions = '>=5.5';
-        $this->_releases[] = $release;
+        $this->releases[] = $release;
 
         $release = new stdClass();
         $release->date = '2015-09-09';
         $release->php_versions = '>=5.3,<7.0';
         $release->version = '4.4.13.3';
         $release->mysql_versions = '>=5.5';
-        $this->_releases[] = $release;
+        $this->releases[] = $release;
 
         $release = new stdClass();
         $release->date = '2015-05-13';
         $release->php_versions = '>=5.2,<5.3';
         $release->version = '4.0.10.10';
         $release->mysql_versions = '>=5.0';
-        $this->_releases[] = $release;
+        $this->releases[] = $release;
     }
 
     /**
@@ -199,7 +199,7 @@ class VersionInformationTest extends AbstractTestCase
             ->will($this->returnValue(true));
 
         $compatible = $mockVersionInfo
-            ->getLatestCompatibleVersion($this->_releases);
+            ->getLatestCompatibleVersion($this->releases);
         $this->assertEquals('4.4.14.1', $compatible['version']);
     }
 
@@ -228,7 +228,7 @@ class VersionInformationTest extends AbstractTestCase
             ->will($this->returnValue(true));
 
         $compatible = $mockVersionInfo
-            ->getLatestCompatibleVersion($this->_releases);
+            ->getLatestCompatibleVersion($this->releases);
         $this->assertEquals('4.4.14.1', $compatible['version']);
     }
 
@@ -267,7 +267,7 @@ class VersionInformationTest extends AbstractTestCase
             ->will($this->returnValue(true));
 
         $compatible = $mockVersionInfo
-            ->getLatestCompatibleVersion($this->_releases);
+            ->getLatestCompatibleVersion($this->releases);
         $this->assertEquals('4.0.10.10', $compatible['version']);
     }
 
