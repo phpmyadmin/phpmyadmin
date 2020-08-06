@@ -23,7 +23,7 @@ use stdClass;
 class SearchControllerTest extends AbstractTestCase
 {
     /** @var ResponseStub */
-    private $_response;
+    private $response;
 
     /** @var Template */
     private $template;
@@ -94,7 +94,7 @@ class SearchControllerTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
         $relation->dbi = $dbi;
 
-        $this->_response = new ResponseStub();
+        $this->response = new ResponseStub();
         $this->template = new Template();
     }
 
@@ -115,7 +115,7 @@ class SearchControllerTest extends AbstractTestCase
             ->will($this->returnValue([$expected]));
 
         $ctrl = new SearchController(
-            $this->_response,
+            $this->response,
             $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
@@ -168,7 +168,7 @@ class SearchControllerTest extends AbstractTestCase
             );
 
         $ctrl = new SearchController(
-            $this->_response,
+            $this->response,
             $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
@@ -186,7 +186,7 @@ class SearchControllerTest extends AbstractTestCase
         ];
         $ctrl->getDataRowAction();
 
-        $json = $this->_response->getJSONResult();
+        $json = $this->response->getJSONResult();
         $this->assertEquals(
             $expected,
             $json['row_info']

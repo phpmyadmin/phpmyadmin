@@ -29,13 +29,13 @@ use function strpos;
 class FindReplaceController extends AbstractController
 {
     /** @var array */
-    private $_columnNames;
+    private $columnNames;
 
     /** @var array */
-    private $_columnTypes;
+    private $columnTypes;
 
     /** @var string */
-    private $_connectionCharSet;
+    private $connectionCharSet;
 
     /**
      * @param Response          $response Response object
@@ -47,10 +47,10 @@ class FindReplaceController extends AbstractController
     public function __construct($response, $dbi, Template $template, $db, $table)
     {
         parent::__construct($response, $dbi, $template, $db, $table);
-        $this->_columnNames = [];
-        $this->_columnTypes = [];
+        $this->columnNames = [];
+        $this->columnTypes = [];
         $this->loadTableInfo();
-        $this->_connectionCharSet = $this->dbi->fetchValue(
+        $this->connectionCharSet = $this->dbi->fetchValue(
             'SELECT @@character_set_connection'
         );
     }
@@ -90,7 +90,7 @@ class FindReplaceController extends AbstractController
 
         foreach ($columns as $row) {
             // set column name
-            $this->_columnNames[] = $row['Field'];
+            $this->columnNames[] = $row['Field'];
 
             $type = $row['Type'];
             // reformat mysql query output
@@ -111,7 +111,7 @@ class FindReplaceController extends AbstractController
             if (empty($type)) {
                 $type = '&nbsp;';
             }
-            $this->_columnTypes[] = $type;
+            $this->columnTypes[] = $type;
         }
     }
 
@@ -129,8 +129,8 @@ class FindReplaceController extends AbstractController
             );
         }
 
-        $column_names = $this->_columnNames;
-        $column_types = $this->_columnTypes;
+        $column_names = $this->columnNames;
+        $column_types = $this->columnTypes;
         $types = [];
         $num_cols = count($column_names);
         for ($i = 0; $i < $num_cols; $i++) {
@@ -161,7 +161,7 @@ class FindReplaceController extends AbstractController
             $_POST['find'],
             $_POST['replaceWith'],
             $useRegex,
-            $this->_connectionCharSet
+            $this->connectionCharSet
         );
         $this->response->addJSON('preview', $preview);
     }
@@ -173,7 +173,7 @@ class FindReplaceController extends AbstractController
             $_POST['findString'],
             $_POST['replaceWith'],
             $_POST['useRegex'],
-            $this->_connectionCharSet
+            $this->connectionCharSet
         );
         $this->response->addHTML(
             Generator::getMessage(
@@ -202,7 +202,7 @@ class FindReplaceController extends AbstractController
         $useRegex,
         $charSet
     ) {
-        $column = $this->_columnNames[$columnIndex];
+        $column = $this->columnNames[$columnIndex];
         if ($useRegex) {
             $result = $this->getRegexReplaceRows(
                 $columnIndex,
@@ -258,7 +258,7 @@ class FindReplaceController extends AbstractController
         $replaceWith,
         $charSet
     ) {
-        $column = $this->_columnNames[$columnIndex];
+        $column = $this->columnNames[$columnIndex];
         $sql_query = 'SELECT '
             . Util::backquote($column) . ','
             . ' 1,' // to add an extra column that will have replaced value
@@ -330,7 +330,7 @@ class FindReplaceController extends AbstractController
         $useRegex,
         $charSet
     ) {
-        $column = $this->_columnNames[$columnIndex];
+        $column = $this->columnNames[$columnIndex];
         if ($useRegex) {
             $toReplace = $this->getRegexReplaceRows(
                 $columnIndex,

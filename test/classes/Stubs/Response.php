@@ -49,7 +49,7 @@ class Response extends \PhpMyAdmin\Response
      * @access private
      * @var bool
      */
-    protected $_isSuccess;
+    protected $isSuccess;
 
     /**
      * Whether we are servicing an ajax request.
@@ -57,17 +57,17 @@ class Response extends \PhpMyAdmin\Response
      * @access private
      * @var bool
      */
-    private $_isAjax;
+    private $isAjax;
 
     /**
      * Creates a new class instance
      */
     public function __construct()
     {
-        $this->_isSuccess = true;
+        $this->isSuccess = true;
         $this->htmlString = '';
         $this->json = [];
-        $this->_isAjax = false;
+        $this->isAjax = false;
 
         $GLOBALS['lang'] = 'en';
         $this->header = new Header();
@@ -158,7 +158,7 @@ class Response extends \PhpMyAdmin\Response
      */
     public function setRequestStatus(bool $state): void
     {
-        $this->_isSuccess = $state;
+        $this->isSuccess = $state;
     }
 
     /**
@@ -166,7 +166,7 @@ class Response extends \PhpMyAdmin\Response
      */
     public function hasSuccessState(): bool
     {
-        return $this->_isSuccess;
+        return $this->isSuccess;
     }
 
     /**
@@ -177,7 +177,7 @@ class Response extends \PhpMyAdmin\Response
      */
     public function clear()
     {
-        $this->_isSuccess = true;
+        $this->isSuccess = true;
         $this->json = [];
         $this->htmlString = '';
     }
@@ -190,7 +190,7 @@ class Response extends \PhpMyAdmin\Response
      */
     public function setAjax(bool $isAjax): void
     {
-        $this->_isAjax = (bool) $isAjax;
+        $this->isAjax = (bool) $isAjax;
     }
 
     /**
@@ -199,6 +199,6 @@ class Response extends \PhpMyAdmin\Response
      */
     public function isAjax(): bool
     {
-        return $this->_isAjax;
+        return $this->isAjax;
     }
 }

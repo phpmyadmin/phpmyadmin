@@ -63,7 +63,7 @@ class StructureController extends AbstractController
     protected $table_obj;
 
     /** @var string  The URL query string */
-    protected $_url_query;
+    protected $url_query;
 
     /** @var CreateAddField */
     private $createAddField;
@@ -105,7 +105,7 @@ class StructureController extends AbstractController
         $this->transformations = $transformations;
         $this->relationCleanup = $relationCleanup;
 
-        $this->_url_query = Url::getCommonRaw(['db' => $db, 'table' => $table]);
+        $this->url_query = Url::getCommonRaw(['db' => $db, 'table' => $table]);
         $this->table_obj = $this->dbi->getTable($this->db, $this->table);
     }
 
@@ -150,7 +150,7 @@ class StructureController extends AbstractController
         $url_params['goto'] = Url::getFromRoute('/table/structure');
         $url_params['back'] = Url::getFromRoute('/table/structure');
 
-        $this->_url_query = Url::getCommonRaw($url_params);
+        $this->url_query = Url::getCommonRaw($url_params);
 
         $primary = Index::getPrimary($this->table, $this->db);
         $columns_with_index = $this->dbi
@@ -1580,7 +1580,7 @@ class StructureController extends AbstractController
             'db_is_system_schema' => $db_is_system_schema,
             'tbl_is_view' => $tbl_is_view,
             'mime_map' => $mime_map,
-            'url_query' => $this->_url_query,
+            'url_query' => $this->url_query,
             'titles' => $titles,
             'tbl_storage_engine' => $tbl_storage_engine,
             'primary' => $primary_index,
@@ -1730,7 +1730,7 @@ class StructureController extends AbstractController
             'tbl_is_view' => $tbl_is_view,
             'db_is_system_schema' => $db_is_system_schema,
             'tbl_storage_engine' => $tbl_storage_engine,
-            'url_query' => $this->_url_query,
+            'url_query' => $this->url_query,
             'table_collation' => $tableCollation,
             'is_innodb' => $is_innodb,
             'mergetable' => $mergetable,
