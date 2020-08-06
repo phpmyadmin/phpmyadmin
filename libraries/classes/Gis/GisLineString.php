@@ -269,10 +269,27 @@ class GisLineString extends GisGeometry
             'label'       => $label,
             'fontSize'    => 10,
         ];
+
+        $result =  'var style = new ol.style.Style({'
+            . 'stroke: new ol.style.Stroke({'
+            . 'color: ['. implode(",",$line_color) .'],'
+            . 'width: 2';
+
+        if($label) {
+            $result .= '}),'
+                . 'text: new ol.style.Text({'
+                . 'text: "'. $label .'",'
+                . '})';
+        } else{
+            $result .= '})';
+        }
+
+        $result.= '});';
+
         if ($srid == 0) {
             $srid = 4326;
         }
-        $result = $this->getBoundsForOl($srid, $scale_data);
+        $result .= $this->getBoundsForOl($srid, $scale_data);
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $linesrting
@@ -283,13 +300,10 @@ class GisLineString extends GisGeometry
             );
         $points_arr = $this->extractPoints($linesrting, null);
 
-        return $result . 'var point = new ol.Feature({geometry: '
+        return $result . 'var line = new ol.Feature({geometry: '
             . $this->getLineForOpenLayers($points_arr, $srid) . '});'
-            . 'vectorLayer.addFeature(point);';
-
-//        return $result . 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
-//            . $this->getLineForOpenLayers($points_arr, $srid)
-//            . ', null, ' . json_encode($style_options) . '));';
+            . 'line.setStyle(style);'
+            . 'vectorLayer.addFeature(line);';
     }
 
     /**

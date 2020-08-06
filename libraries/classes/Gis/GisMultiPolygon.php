@@ -376,7 +376,6 @@ class GisMultiPolygon extends GisGeometry
             . 'var feature = new ol.Feature(multiPolygon);'
             . 'feature.setStyle(style);'
             . 'vectorLayer.addFeature(feature);';
-//            multiPolygon.setStyle , null, ' . json_encode($style_options) . '));';
 
         return $row;
     }
