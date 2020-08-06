@@ -77,7 +77,7 @@ class InsertEditTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
-        $response = new ReflectionProperty(Response::class, '_instance');
+        $response = new ReflectionProperty(Response::class, 'instance');
         $response->setAccessible(true);
         $response->setValue(null);
         $response->setAccessible(false);
@@ -275,7 +275,7 @@ class InsertEditTest extends AbstractTestCase
             ->getMock();
 
         $restoreInstance = Response::getInstance();
-        $response = new ReflectionProperty(Response::class, '_instance');
+        $response = new ReflectionProperty(Response::class, 'instance');
         $response->setAccessible(true);
         $response->setValue($responseMock);
 
@@ -2800,7 +2800,7 @@ class InsertEditTest extends AbstractTestCase
             ->will($this->returnValue($headerMock));
 
         $restoreInstance = Response::getInstance();
-        $response = new ReflectionProperty(Response::class, '_instance');
+        $response = new ReflectionProperty(Response::class, 'instance');
         $response->setAccessible(true);
         $response->setValue($responseMock);
 
@@ -3896,7 +3896,7 @@ class InsertEditTest extends AbstractTestCase
             ->getMock();
 
         $restoreInstance = Response::getInstance();
-        $response = new ReflectionProperty(Response::class, '_instance');
+        $response = new ReflectionProperty(Response::class, 'instance');
         $response->setAccessible(true);
         $response->setValue($responseMock);
 

@@ -36,7 +36,7 @@ class ServerConfigChecksTest extends AbstractTestCase
         $cf = new ConfigFile();
         $GLOBALS['ConfigFile'] = $cf;
 
-        $reflection = new ReflectionProperty(ConfigFile::class, '_id');
+        $reflection = new ReflectionProperty(ConfigFile::class, 'id');
         $reflection->setAccessible(true);
         $this->sessionID = $reflection->getValue($cf);
 
