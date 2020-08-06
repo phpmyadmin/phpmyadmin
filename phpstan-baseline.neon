@@ -551,7 +551,7 @@ parameters:
 			path: libraries/classes/Database/Events.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Database\\\\Qbe\\:\\:\\$_currentSearch \\(PhpMyAdmin\\\\SavedSearches\\) does not accept PhpMyAdmin\\\\SavedSearches\\|null\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Database\\\\Qbe\\:\\:\\$currentSearch \\(PhpMyAdmin\\\\SavedSearches\\) does not accept PhpMyAdmin\\\\SavedSearches\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Database/Qbe.php
 
