@@ -703,7 +703,7 @@
       <code>$result_target[]</code>
     </EmptyArrayAccess>
     <InvalidReturnStatement occurrences="1">
-      <code>$this-&gt;_extension-&gt;getProtoInfo($this-&gt;_links[$link])</code>
+      <code>$this-&gt;extension-&gt;getProtoInfo($this-&gt;links[$link])</code>
     </InvalidReturnStatement>
     <InvalidReturnType occurrences="1">
       <code>int|bool</code>
