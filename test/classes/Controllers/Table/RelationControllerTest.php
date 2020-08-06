@@ -22,7 +22,7 @@ use stdClass;
 class RelationControllerTest extends AbstractTestCase
 {
     /** @var ResponseStub */
-    private $_response;
+    private $response;
 
     /** @var Template */
     private $template;
@@ -84,7 +84,7 @@ class RelationControllerTest extends AbstractTestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $this->_response = new ResponseStub();
+        $this->response = new ResponseStub();
         $this->template = new Template();
     }
 
@@ -116,7 +116,7 @@ class RelationControllerTest extends AbstractTestCase
             ->will($this->returnValue($tableMock));
 
         $ctrl = new RelationController(
-            $this->_response,
+            $this->response,
             $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
@@ -125,7 +125,7 @@ class RelationControllerTest extends AbstractTestCase
         );
 
         $ctrl->getDropdownValueForTable();
-        $json = $this->_response->getJSONResult();
+        $json = $this->response->getJSONResult();
         $this->assertEquals(
             $viewColumns,
             $json['columns']
@@ -156,7 +156,7 @@ class RelationControllerTest extends AbstractTestCase
             ->will($this->returnValue($tableMock));
 
         $ctrl = new RelationController(
-            $this->_response,
+            $this->response,
             $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
@@ -165,7 +165,7 @@ class RelationControllerTest extends AbstractTestCase
         );
 
         $ctrl->getDropdownValueForTable();
-        $json = $this->_response->getJSONResult();
+        $json = $this->response->getJSONResult();
         $this->assertEquals(
             $indexedColumns,
             $json['columns']
@@ -202,7 +202,7 @@ class RelationControllerTest extends AbstractTestCase
             );
 
         $ctrl = new RelationController(
-            $this->_response,
+            $this->response,
             $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
@@ -212,7 +212,7 @@ class RelationControllerTest extends AbstractTestCase
 
         $_POST['foreign'] = 'true';
         $ctrl->getDropdownValueForDatabase('INNODB');
-        $json = $this->_response->getJSONResult();
+        $json = $this->response->getJSONResult();
         $this->assertEquals(
             ['table'],
             $json['tables']
@@ -246,7 +246,7 @@ class RelationControllerTest extends AbstractTestCase
             );
 
         $ctrl = new RelationController(
-            $this->_response,
+            $this->response,
             $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
@@ -256,7 +256,7 @@ class RelationControllerTest extends AbstractTestCase
 
         $_POST['foreign'] = 'false';
         $ctrl->getDropdownValueForDatabase('INNODB');
-        $json = $this->_response->getJSONResult();
+        $json = $this->response->getJSONResult();
         $this->assertEquals(
             ['table'],
             $json['tables']

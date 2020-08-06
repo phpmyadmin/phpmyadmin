@@ -29,7 +29,7 @@ use ReflectionClass;
 class StructureControllerTest extends AbstractTestCase
 {
     /** @var ResponseStub */
-    private $_response;
+    private $response;
 
     /** @var Template */
     private $template;
@@ -62,7 +62,7 @@ class StructureControllerTest extends AbstractTestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $this->_response = new ResponseStub();
+        $this->response = new ResponseStub();
         $this->template = new Template();
     }
 
@@ -84,7 +84,7 @@ class StructureControllerTest extends AbstractTestCase
 
         $relation = new Relation($GLOBALS['dbi'], $this->template);
         $ctrl = new StructureController(
-            $this->_response,
+            $this->response,
             $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
@@ -137,7 +137,7 @@ class StructureControllerTest extends AbstractTestCase
 
         $relation = new Relation($GLOBALS['dbi'], $this->template);
         $ctrl = new StructureController(
-            $this->_response,
+            $this->response,
             $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
@@ -168,7 +168,7 @@ class StructureControllerTest extends AbstractTestCase
 
         $relation = new Relation($GLOBALS['dbi'], $this->template);
         $ctrl = new StructureController(
-            $this->_response,
+            $this->response,
             $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
