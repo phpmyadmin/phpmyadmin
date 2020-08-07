@@ -1848,7 +1848,7 @@ Cookie authentication options
     to the given regular expression. The regular expression must be enclosed
     with a delimiter character.
 
-    It is recommended to include start and end symbols in the regullar
+    It is recommended to include start and end symbols in the regular
     expression, so that you can avoid partial matches on the string.
 
     **Examples:**
@@ -1869,7 +1869,7 @@ Cookie authentication options
         The whole server name is matched, it can include port as well. Due to
         way MySQL is permissive in connection parameters, it is possible to use
         connection strings as ```server:3306-mysql```. This can be used to
-        bypass regullar expression by the suffix, while connecting to another
+        bypass regular expression by the suffix, while connecting to another
         server.
 
 .. config:option:: $cfg['CaptchaLoginPublicKey']
@@ -1887,7 +1887,7 @@ Cookie authentication options
     :type: string
     :default: ``''``
 
-    The private key for the reCaptcha service that can be obtain from
+    The private key for the reCaptcha service that can be obtained from
     https://www.google.com/recaptcha/intro/v3.html.
 
     reCaptcha will be then used in :ref:`cookie`.
