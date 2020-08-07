@@ -1872,6 +1872,18 @@ Cookie authentication options
         bypass regular expression by the suffix, while connecting to another
         server.
 
+.. config:option:: $cfg['CaptchaMethod']
+
+    :type: string
+    :default: ``'invisible'``
+
+    Valid values are:
+
+    * ``'invisible'`` Use an invisible captcha checking method;
+    * ``'checkbox'`` Use a checkbox to confirm the user is not a robot.
+
+    .. versionadded:: 5.0.3
+
 .. config:option:: $cfg['CaptchaLoginPublicKey']
 
     :type: string
