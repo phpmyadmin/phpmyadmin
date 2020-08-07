@@ -250,9 +250,15 @@ class AuthenticationCookie extends AuthenticationPlugin
         } else {
             echo '<script src="https://www.google.com/recaptcha/api.js?hl='
             , $GLOBALS['lang'] , '" async defer></script>';
-            echo '<input class="btn btn-primary g-recaptcha" data-sitekey="'
-            , htmlspecialchars($GLOBALS['cfg']['CaptchaLoginPublicKey']),'"'
-                . ' data-callback="Functions_recaptchaCallback" value="' , __('Go') , '" type="submit" id="input_go">';
+            if (isset($GLOBALS['cfg']['CaptchaMethod']) && $GLOBALS['cfg']['CaptchaMethod'] === 'checkbox') {
+                echo '<div class="g-recaptcha" data-sitekey="'
+                    . htmlspecialchars($GLOBALS['cfg']['CaptchaLoginPublicKey']) . '"></div>';
+                echo '<input class="btn btn-primary" value="' , __('Go') , '" type="submit" id="input_go">';
+            } else {
+                echo '<input class="btn btn-primary g-recaptcha" data-sitekey="'
+                , htmlspecialchars($GLOBALS['cfg']['CaptchaLoginPublicKey']),'"'
+                    . ' data-callback="Functions_recaptchaCallback" value="' , __('Go') , '" type="submit" id="input_go">';
+            }
         }
         $_form_params = [];
         if (! empty($GLOBALS['target'])) {
