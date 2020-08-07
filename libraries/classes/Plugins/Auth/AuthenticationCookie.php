@@ -252,7 +252,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             , $GLOBALS['lang'] , '" async defer></script>';
             if (isset($GLOBALS['cfg']['CaptchaMethod']) && $GLOBALS['cfg']['CaptchaMethod'] === 'checkbox') {
                 echo '<div class="g-recaptcha" data-sitekey="'
-                    . htmlspecialchars($GLOBALS['cfg']['CaptchaLoginPublicKey']) .'"></div>';
+                    . htmlspecialchars($GLOBALS['cfg']['CaptchaLoginPublicKey']) . '"></div>';
                 echo '<input class="btn btn-primary" value="' , __('Go') , '" type="submit" id="input_go">';
             } else {
                 echo '<input class="btn btn-primary g-recaptcha" data-sitekey="'
