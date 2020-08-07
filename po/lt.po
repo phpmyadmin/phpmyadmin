@@ -4,18 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-07-30 23:36-0300\n"
-"PO-Revision-Date: 2018-07-23 11:06+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2020-08-07 16:00+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/lt/>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
-"19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
-"1 : 2);\n"
-"X-Generator: Weblate 3.1-dev\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
+"%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 4.2-dev\n"
 
 #: libraries/classes/Advisor.php:319
 #, fuzzy, php-format
@@ -7027,13 +7026,12 @@ msgid "Database %1$s has been created."
 msgstr "Duomenų bazė %1$s sukurta."
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:320
-#, fuzzy, php-format
-#| msgid "%s databases have been dropped successfully."
+#, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "Sėkmingai pašalintos %s duomenų bazės."
-msgstr[1] "Sėkmingai pašalintos %s duomenų bazės."
-msgstr[2] "Sėkmingai pašalintos %s duomenų bazės."
+msgstr[0] "Sėkmingai pašalinta %1$d duomenų bazė."
+msgstr[1] "Sėkmingai pašalintos %1$d duomenų bazės."
+msgstr[2] "Sėkmingai pašalinta %1$d duomenų bazėių."
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:482
 #: libraries/classes/Import.php:151
