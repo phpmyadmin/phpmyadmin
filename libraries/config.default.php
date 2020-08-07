@@ -836,6 +836,13 @@ $cfg['AllowArbitraryServer'] = false;
 $cfg['ArbitraryServerRegexp'] = '';
 
 /**
+ * To enable reCaptcha v2 checkbox mode if necessary
+ *
+ * @global string $cfg['CaptchaMethod']
+ */
+$cfg['CaptchaMethod'] = 'invisible';
+
+/**
  * if reCaptcha is enabled it needs public key to connect with the service
  *
  * @global string $cfg['CaptchaLoginPublicKey']

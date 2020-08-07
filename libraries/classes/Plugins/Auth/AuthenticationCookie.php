@@ -235,6 +235,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             'lang' => $GLOBALS['lang'],
             'has_captcha' => ! empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
                 && ! empty($GLOBALS['cfg']['CaptchaLoginPublicKey']),
+            'use_captcha_checkbox' => ($GLOBALS['cfg']['CaptchaMethod'] ?? '') === 'checkbox',
             'captcha_key' => $GLOBALS['cfg']['CaptchaLoginPublicKey'],
             'form_params' => $_form_params,
             'errors' => $errors,

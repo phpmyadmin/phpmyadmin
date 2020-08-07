@@ -94,6 +94,7 @@ phpMyAdmin - ChangeLog
 - issue #15367 Fix "Change or reconfigure primary server" link
 - issue #15367 Fix first replica links, start, stop, ignore links
 - issue #16058 Add "PMA_single_signon_HMAC_secret" for signon auths to make special links work and udate examples
+- issue #16269 Support ReCaptcha v2 checkbox width "$cfg['CaptchaMethod'] = 'checkbox';"
 
 5.0.2 (2020-03-20)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page
