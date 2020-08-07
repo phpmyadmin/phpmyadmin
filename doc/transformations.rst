@@ -104,7 +104,7 @@ There is a file called ':file:`libraries/classes/Plugins/Transformations.php`' t
 basic functions which can be included by any other transform function.
 
 The file name convention is ``[Mimetype]_[Subtype]_[Transformation
-Name].php``, while the abtract class that it extends has the
+Name].php``, while the abstract class that it extends has the
 name ``[Transformation Name]TransformationsPlugin``. All of the
 methods that have to be implemented by a transformations plug-in are:
 

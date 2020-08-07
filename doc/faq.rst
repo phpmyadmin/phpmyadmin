@@ -280,7 +280,7 @@ can tell it to use specific path for this file using ``PHPIniDir`` directive:
 
 In some rare cases this problem can be also caused by other extensions loaded
 in PHP which prevent MySQL extensions to be loaded. If anything else fails, you
-can try commenting out extensions for other databses from :file:`php.ini`.
+can try commenting out extensions for other databases from :file:`php.ini`.
 
 .. _faq1_21:
 
