@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-06-14 22:54+0200\n"
-"PO-Revision-Date: 2020-07-29 21:18+0000\n"
-"Last-Translator: Tautvydas Zukauskas <tautzuk@tutanota.com>\n"
+"PO-Revision-Date: 2020-08-07 16:00+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-0/lt/>\n"
 "Language: lt\n"
@@ -7127,9 +7127,9 @@ msgstr "Duomenų bazė %1$s sukurta."
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "Sėkmingai pašalinta %s duomenų bazė."
-msgstr[1] "Sėkmingai pašalintos %s duomenų bazės."
-msgstr[2] "Sėkmingai pašalinta %s duomenų bazėių."
+msgstr[0] "Sėkmingai pašalinta %1$d duomenų bazė."
+msgstr[1] "Sėkmingai pašalintos %1$d duomenų bazės."
+msgstr[2] "Sėkmingai pašalinta %1$d duomenų bazėių."
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:398
 #: libraries/classes/Import.php:128
