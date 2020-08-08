@@ -292,16 +292,27 @@ class GisMultiLineString extends GisGeometry
      */
     public function prepareRowAsOl($spatial, $srid, $label, $line_color, array $scale_data)
     {
-        $style_options = [
-            'strokeColor' => $line_color,
-            'strokeWidth' => 2,
-            'label'       => $label,
-            'fontSize'    => 10,
-        ];
+
+        $row =  'var style = new ol.style.Style({'
+            . 'stroke: new ol.style.Stroke({'
+            . 'color: ['. implode(",",$line_color) .'],'
+            . 'width: 2';
+
+        if($label) {
+            $row .= '}),'
+                . 'text: new ol.style.Text({'
+                . 'text: "'. $label .'",'
+                . '})';
+        } else{
+            $row .= '})';
+        }
+
+        $row .= '});';
+
         if ($srid == 0) {
             $srid = 4326;
         }
-        $row = $this->getBoundsForOl($srid, $scale_data);
+        $row .= $this->getBoundsForOl($srid, $scale_data);
 
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
         $multilinestirng
@@ -315,8 +326,9 @@ class GisMultiLineString extends GisGeometry
 
         return $row . $this->getLineArrayForOpenLayers($linestirngs, $srid)
             . 'var multiLineString = new ol.geom.MultiLineString([arr]);'
-            . 'vectorLayer.addFeature(new ol.Feature({geometry: multiLineString}));';
-//            multiLineString.setStyle '), null, ' . json_encode($style_options) . '));';
+            . 'var feature = new ol.Feature({geometry: multiLineString});'
+            . 'feature.setStyle(style);'
+            . 'vectorLayer.addFeature(feature);';
     }
 
     /**
