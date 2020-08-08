@@ -304,7 +304,7 @@ abstract class GisGeometry
     protected function getPolygonForOpenLayers(array $polygon, $srid)
     {
         return $this->getLineArrayForOpenLayers($polygon, $srid, false)
-        .    'var polygon = new ol.geom.Polygon([arr]);';
+        .    'var polygon = new ol.geom.Polygon(arr);';
     }
 
     /**
@@ -327,6 +327,7 @@ abstract class GisGeometry
     ) {
         $ol_array = 'var arr = [];';
         foreach ($lines as $line) {
+            $ol_array .= 'var lineArr = [];';
             $points_arr = $this->extractPoints($line, null);
             $ol_array .= 'var line = ' .$this->getLineForOpenLayers(
                 $points_arr,
@@ -334,7 +335,8 @@ abstract class GisGeometry
                 $is_line_string
             ) . ';';
             $ol_array .= 'var coord = line.getCoordinates();';
-            $ol_array .= 'coord.forEach(item => arr.push(item));';
+            $ol_array .= 'coord.forEach(item => lineArr.push(item));';
+            $ol_array .= 'arr.push(lineArr);';
         }
 
         return $ol_array ;
