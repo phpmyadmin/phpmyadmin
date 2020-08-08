@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-06-14 22:54+0200\n"
-"PO-Revision-Date: 2020-08-06 13:13+0000\n"
+"PO-Revision-Date: 2020-08-08 05:28+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Central Kurdish <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-0/ckb/>\n"
@@ -13266,7 +13266,7 @@ msgid "Add to Favorites"
 msgstr "زیادکردن بۆ دڵخوازەکان"
 
 #: templates/database/structure/show_create_row.twig:7
-#, php-format
+#, fuzzy, php-format
 msgid "Create %s"
 msgstr "دروستكردن"
 
