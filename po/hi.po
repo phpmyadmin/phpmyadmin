@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2020-07-08 12:40+0000\n"
-"Last-Translator: Abdul Khan <mdkadirkhan535@gmail.com>\n"
+"PO-Revision-Date: 2020-08-09 15:50+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/4-9/hi/>"
 "\n"
 "Language: hi\n"
@@ -15311,7 +15311,7 @@ msgstr "फ़ाइल नाम टेम्पलेट:"
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "Template:"
-msgstr " %s टेबलें"
+msgstr "%s टेबलें"
 
 #: templates/display/export/template_loading.twig:21
 #, fuzzy
@@ -18036,7 +18036,7 @@ msgstr ""
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "Temp disk rate"
-msgstr " %s टेबलें"
+msgstr "%s टेबलें"
 
 #: libraries/advisory_rules_generic.txt:223
 msgid ""
