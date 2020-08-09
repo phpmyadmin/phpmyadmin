@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-07-30 23:36-0300\n"
-"PO-Revision-Date: 2020-05-14 12:25+0000\n"
+"PO-Revision-Date: 2020-08-09 06:43+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/en_GB/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.1-dev\n"
+"X-Generator: Weblate 4.2-dev\n"
 
 #: libraries/classes/Advisor.php:319
 #, php-format
@@ -4056,10 +4056,8 @@ msgstr "unknown"
 #: libraries/classes/Controllers/Database/StructureController.php:1552
 #: libraries/classes/Controllers/Database/StructureController.php:1603
 #: libraries/classes/Controllers/Database/StructureController.php:1654
-#, fuzzy
-#| msgid "No tables selected."
 msgid "No table selected."
-msgstr "No tables selected."
+msgstr "No table selected."
 
 #: libraries/classes/Controllers/Database/StructureController.php:1255
 #: libraries/classes/Controllers/Database/StructureController.php:1278
@@ -4859,10 +4857,8 @@ msgstr "None"
 
 #. l10n: SQL Query on modal to show exported query
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:199
-#, fuzzy
-#| msgid "SQL query"
 msgid "SQL Query"
-msgstr "SQL query"
+msgstr "SQL Query"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:200
 msgid "Resume monitor"
@@ -14003,43 +13999,36 @@ msgid "File name template:"
 msgstr "File name template:"
 
 #: templates/display/export/options_output.twig:48
-#, fuzzy
-#| msgid ""
-#| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-#| "formatting strings. Additionally the following transformations will "
-#| "happen: %3$s. Other text will be kept as is. See the %4$sFAQ%5$s for "
-#| "details."
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
 "formatting strings. Additionally the following transformations will happen:"
 msgstr ""
-"This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"This value is interpreted using the 'strftime' function, so you can use time "
+"formatting strings. Additionally the following transformations will happen:"
 
 #: templates/display/export/options_output.twig:50
-#, fuzzy
-#| msgid "@SERVER@ will become the server name"
 msgid "@SERVER@ will become the server name."
-msgstr "@SERVER@ will become the server name"
+msgstr "@SERVER@ will become the server name."
 
 #: templates/display/export/options_output.twig:52
-#, fuzzy
-#| msgid ", @DATABASE@ will become the database name"
 msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name."
-msgstr ", @DATABASE@ will become the database name"
+msgstr ""
+"@SERVER@ will become the server name, @DATABASE@ will become the database "
+"name."
 
 #: templates/display/export/options_output.twig:54
 msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name, @TABLE@ will become the table name."
 msgstr ""
+"@SERVER@ will become the server name, @DATABASE@ will become the database "
+"name, @TABLE@ will become the table name."
 
 #: templates/display/export/options_output.twig:56
 msgid "Other text will be kept as is. See the FAQ 6.27 for details."
-msgstr ""
+msgstr "Other text will be kept as is. See the FAQ 6.27 for details."
 
 #: templates/display/export/options_output.twig:63
 msgid "use this for future exports"
@@ -14102,10 +14091,8 @@ msgid "Dump all rows"
 msgstr "Dump all rows"
 
 #: templates/display/export/query.twig:8
-#, fuzzy
-#| msgid "Showing SQL query"
 msgid "Show SQL query"
-msgstr "Showing SQL query"
+msgstr "Show SQL query"
 
 #: templates/display/export/selection.twig:3
 msgid "Databases:"
@@ -14500,22 +14487,19 @@ msgid "no branch"
 msgstr "no branch"
 
 #: templates/home/git_info.twig:15 templates/home/git_info.twig:22
-#, fuzzy, php-format
-#| msgid "%1$s from %2$s branch"
+#, php-format
 msgid "from %s branch"
-msgstr "%1$s from %2$s branch"
+msgstr "from %s branch"
 
 #: templates/home/git_info.twig:25
-#, fuzzy, php-format
-#| msgid "committed on %1$s by %2$s"
+#, php-format
 msgid "committed on %s by %s"
-msgstr "committed on %1$s by %2$s"
+msgstr "committed on %s by %s"
 
 #: templates/home/git_info.twig:32
-#, fuzzy, php-format
-#| msgid "authored on %1$s by %2$s"
+#, php-format
 msgid "authored on %s by %s"
-msgstr "authored on %1$s by %2$s"
+msgstr "authored on %s by %s"
 
 #: templates/home/index.twig:22 templates/login/form.twig:7
 #, php-format
