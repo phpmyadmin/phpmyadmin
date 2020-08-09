@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-06-14 22:54+0200\n"
-"PO-Revision-Date: 2020-05-15 12:41+0000\n"
+"PO-Revision-Date: 2020-08-09 06:43+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-0/en_GB/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.1-dev\n"
+"X-Generator: Weblate 4.2-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -3687,10 +3687,8 @@ msgstr "Label key"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:557
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #: templates/database/data_dictionary/index.twig:25
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media (MIME) type"
-msgstr "MIME type"
+msgstr "Media (MIME) type"
 
 #: libraries/classes/Config/Descriptions.php:219
 #: libraries/classes/Config/Descriptions.php:231
@@ -4886,15 +4884,11 @@ msgid "Bookmark table"
 msgstr "Bookmark table"
 
 #: libraries/classes/Config/Descriptions.php:616
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: "
-#| "[kbd]pma__column_info[/kbd]."
 msgid ""
 "Leave blank for no column comments/media (MIME) types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Leave blank for no column comments/mime types, suggested: "
+"Leave blank for no column comments/media (MIME) types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:619
@@ -9895,10 +9889,8 @@ msgstr "Display comments"
 #: libraries/classes/Plugins/Export/ExportLatex.php:156
 #: libraries/classes/Plugins/Export/ExportOdt.php:116
 #: libraries/classes/Plugins/Export/ExportSql.php:132
-#, fuzzy
-#| msgid "Display MIME types"
 msgid "Display media (MIME) types"
-msgstr "Display MIME types"
+msgstr "Display media (MIME) types"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
 msgid "Put columns names in the first row:"
@@ -10188,10 +10180,8 @@ msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT for table"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1910
-#, fuzzy
-#| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA (MIME) TYPES FOR TABLE"
-msgstr "MIME TYPES FOR TABLE"
+msgstr "MEDIA (MIME) TYPES FOR TABLE"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1933
 msgid "RELATIONSHIPS FOR TABLE"
@@ -16211,10 +16201,8 @@ msgid "Edit partitioning"
 msgstr "Edit partitioning"
 
 #: templates/table/structure/display_structure.twig:70
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media (MIME) type:"
-msgstr "MIME type"
+msgstr "Media (MIME) type:"
 
 #: templates/table/structure/display_structure.twig:91
 #: templates/table/tracking/structure_snapshot_columns.twig:47
@@ -16378,10 +16366,8 @@ msgid "Click to toggle"
 msgstr "Click to toggle"
 
 #: templates/transformation_overview.twig:1
-#, fuzzy
-#| msgid "Available MIME types"
 msgid "Available media (MIME) types"
-msgstr "Available MIME types"
+msgstr "Available media (MIME) types"
 
 #: templates/transformation_overview.twig:13
 msgid "Available browser display transformations"
@@ -16389,8 +16375,6 @@ msgstr "Available browser display transformations"
 
 #: templates/transformation_overview.twig:19
 #: templates/transformation_overview.twig:38
-#, fuzzy
-#| msgid "Description"
 msgctxt "for media (MIME) type transformation"
 msgid "Description"
 msgstr "Description"
