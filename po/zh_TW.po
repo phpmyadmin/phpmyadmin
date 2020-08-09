@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-07-30 23:36-0300\n"
-"PO-Revision-Date: 2020-06-20 05:33+0000\n"
+"PO-Revision-Date: 2020-08-09 15:50+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hant/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.1.1\n"
+"X-Generator: Weblate 4.2-dev\n"
 
 #: libraries/classes/Advisor.php:319
 #, php-format
@@ -1982,14 +1982,10 @@ msgid "Logo link URL"
 msgstr "標誌連結網址"
 
 #: libraries/classes/Config/Descriptions.php:531
-#, fuzzy
-#| msgid ""
-#| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
-#| "([kbd]new[/kbd])."
 msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
-msgstr "以主視窗 ([kbd]main[/kbd]) 還是新視窗 ([kbd]new[/kbd]) 開啟目標連結。"
+msgstr "以主視窗 ([code]main[/code]) 還是新視窗 ([code]new[/code]) 開啟目標連結。"
 
 #: libraries/classes/Config/Descriptions.php:534
 msgid "Logo link target"
@@ -14098,16 +14094,14 @@ msgid "from %s branch"
 msgstr "從 %2$s 分支的 %1$s"
 
 #: templates/home/git_info.twig:25
-#, fuzzy, php-format
-#| msgid "committed on %1$s by %2$s"
+#, php-format
 msgid "committed on %s by %s"
-msgstr "%2$s 提交了 %1$s"
+msgstr "%s 提交了 %s"
 
 #: templates/home/git_info.twig:32
-#, fuzzy, php-format
-#| msgid "authored on %1$s by %2$s"
+#, php-format
 msgid "authored on %s by %s"
-msgstr "%2$s 執筆於 %1$s"
+msgstr "%s 執筆於 %s"
 
 #: templates/home/index.twig:22 templates/login/form.twig:7
 #, php-format
