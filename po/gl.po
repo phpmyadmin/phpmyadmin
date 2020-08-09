@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-07-30 23:36-0300\n"
+"POT-Creation-Date: 2020-08-09 13:04-0300\n"
 "PO-Revision-Date: 2019-04-27 17:19+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -113,12 +113,11 @@ msgstr "Buscar:"
 #: templates/database/operations/index.twig:190
 #: templates/database/operations/index.twig:230
 #: templates/database/search/main.twig:74
-#: templates/display/export/options_format.twig:18
 #: templates/display/import/import.twig:232
-#: templates/display/results/table.twig:175
+#: templates/display/results/table.twig:175 templates/export.twig:422
 #: templates/gis_data_editor_form.twig:211 templates/header_location.twig:18
-#: templates/login/form.twig:83 templates/login/form.twig:85
-#: templates/preferences/manage/main.twig:46
+#: templates/login/form.twig:85 templates/login/form.twig:87
+#: templates/login/form.twig:90 templates/preferences/manage/main.twig:46
 #: templates/preferences/manage/main.twig:108
 #: templates/server/binlog/index.twig:34
 #: templates/server/privileges/add_user.twig:36
@@ -263,10 +262,9 @@ msgstr "Editar"
 #: templates/database/designer/main.twig:390
 #: templates/database/qbe/ins_del_and_or_cell.twig:18
 #: templates/database/search/results.twig:43
-#: templates/display/export/template_loading.twig:22
 #: templates/display/results/table.twig:218
-#: templates/display/results/table.twig:219 templates/setup/home/index.twig:62
-#: templates/sql/query.twig:173
+#: templates/display/results/table.twig:219 templates/export.twig:38
+#: templates/setup/home/index.twig:62 templates/sql/query.twig:173
 msgid "Delete"
 msgstr "Eliminar"
 
@@ -1201,8 +1199,7 @@ msgstr ""
 msgid "Maximum execution time"
 msgstr "Tempo máximo de execución"
 
-#: libraries/classes/Config/Descriptions.php:216
-#: templates/display/export/options_output.twig:16
+#: libraries/classes/Config/Descriptions.php:216 templates/export.twig:293
 #, php-format
 msgid "Use %s statement"
 msgstr "Usar unha instrución %s"
@@ -1384,9 +1381,8 @@ msgid "Save on server"
 msgstr "Gravar no servidor"
 
 #: libraries/classes/Config/Descriptions.php:264
-#: libraries/classes/Config/Descriptions.php:267
-#: templates/display/export/options_output.twig:39
-#: templates/display/export/options_quick_export.twig:16
+#: libraries/classes/Config/Descriptions.php:267 templates/export.twig:150
+#: templates/export.twig:316
 msgid "Overwrite existing file(s)"
 msgstr "Eliminar o(s) ficheiro(s) xa existente(s)"
 
@@ -1654,12 +1650,12 @@ msgid "Servers display options."
 msgstr "Opcións de exhibición dos servidores."
 
 #: libraries/classes/Config/Descriptions.php:345
-#: libraries/classes/Controllers/Database/ExportController.php:96
 #: libraries/classes/Controllers/Server/DatabasesController.php:477
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:24
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Plugins/Export/ExportXml.php:130
 #: libraries/classes/Server/Status/Data.php:151
+#: templates/database/export/index.twig:23
 #: templates/database/structure/show_create.twig:6
 msgid "Tables"
 msgstr "Táboas"
@@ -3922,7 +3918,6 @@ msgstr "Personalizada"
 #: libraries/classes/Config/Forms/User/ExportForm.php:53
 #: libraries/classes/Config/Forms/User/ExportForm.php:98
 #: libraries/classes/Config/Forms/User/ExportForm.php:126
-#: libraries/classes/Controllers/Database/ExportController.php:97
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:719
 #: libraries/classes/Import.php:1385 libraries/classes/Menu.php:277
 #: libraries/classes/Menu.php:397
@@ -3935,6 +3930,7 @@ msgstr "Personalizada"
 #: libraries/config.values.php:165 libraries/config.values.php:175
 #: templates/columns_definitions/table_fields_definitions.twig:4
 #: templates/database/central_columns/edit_table_header.twig:2
+#: templates/database/export/index.twig:24
 #: templates/server/privileges/privileges_table.twig:328
 #: templates/table/tracking/structure_snapshot_columns.twig:1
 msgid "Structure"
@@ -3944,8 +3940,8 @@ msgstr "Estrutura"
 #: libraries/classes/Config/Forms/User/ExportForm.php:106
 #: libraries/classes/Config/Forms/User/ExportForm.php:131
 #: libraries/classes/Config/Forms/User/ExportForm.php:137
-#: libraries/classes/Controllers/Database/ExportController.php:98
 #: libraries/classes/Controllers/Server/DatabasesController.php:487
+#: templates/database/export/index.twig:25
 #: templates/server/privileges/privileges_table.twig:254
 #: templates/table/structure/display_table_stats.twig:17
 msgid "Data"
@@ -3989,10 +3985,9 @@ msgstr "Texto de OpenDocument"
 #: templates/database/triggers/list.twig:37
 #: templates/database/triggers/list.twig:38
 #: templates/database/triggers/row.twig:35
-#: templates/display/export/option_header.twig:3
 #: templates/display/results/table.twig:223
 #: templates/display/results/table.twig:224
-#: templates/display/results/table.twig:262
+#: templates/display/results/table.twig:262 templates/export.twig:8
 #: templates/preferences/header.twig:42
 #: templates/preferences/manage/main.twig:68
 #: templates/server/privileges/new_user_ajax.twig:63
@@ -4331,11 +4326,7 @@ msgstr ""
 msgid "Showing rows %1$s - %2$s."
 msgstr "A mostrar as filas %1$s - %2$s."
 
-#: libraries/classes/Controllers/Database/ExportController.php:75
-msgid "View dump (schema) of database"
-msgstr "Ver o envorcado (esquema) da base de datos"
-
-#: libraries/classes/Controllers/Database/ExportController.php:80
+#: libraries/classes/Controllers/Database/ExportController.php:78
 #: libraries/classes/Controllers/Database/TrackingController.php:125
 #: libraries/classes/Controllers/ExportController.php:457
 #: libraries/classes/Database/Qbe.php:359
@@ -4344,13 +4335,12 @@ msgstr "Ver o envorcado (esquema) da base de datos"
 msgid "No tables found in database."
 msgstr "Non foi posíbel atopar ningunha táboa na base de datos."
 
-#: libraries/classes/Controllers/Database/ExportController.php:101
-#: templates/database/designer/database_tables.twig:31
-#: templates/database/search/main.twig:43
-#: templates/display/export/select_options.twig:4
-#: templates/server/replication/database_multibox.twig:7
-msgid "Select all"
-msgstr "Seleccionar todo"
+#: libraries/classes/Controllers/Database/ExportController.php:156
+#: libraries/classes/Controllers/Server/ExportController.php:72
+#: libraries/classes/Controllers/Table/ExportController.php:128
+msgid "Could not load export plugins, please check your installation!"
+msgstr ""
+"Non foi posíbel cargar os engadidos de exportación. Comprobe a instalación!"
 
 #: libraries/classes/Controllers/Database/OperationsController.php:97
 #: libraries/classes/Controllers/Table/CreateController.php:76
@@ -4972,8 +4962,7 @@ msgid "Matched rows:"
 msgstr "Filas coincidentes:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:115
-#: libraries/classes/Html/Generator.php:991
-#: templates/display/export/query.twig:4
+#: libraries/classes/Html/Generator.php:991 templates/export.twig:49
 msgid "SQL query:"
 msgstr "Consulta de SQL:"
 
@@ -5236,8 +5225,7 @@ msgstr "Engádalle ao menos unha variábel á serie!"
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:96
 #: libraries/config.values.php:111
 #: templates/columns_definitions/transformation.twig:4
-#: templates/database/designer/main.twig:590
-#: templates/display/export/options_output.twig:89
+#: templates/database/designer/main.twig:590 templates/export.twig:355
 #: templates/server/privileges/privileges_summary.twig:30
 #: templates/server/status/monitor/index.twig:204
 #: templates/server/status/processes/list.twig:54
@@ -5489,7 +5477,7 @@ msgid "Chart"
 msgstr "Gráfico"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:275
-#: libraries/classes/Display/Export.php:376
+#: templates/export.twig:171
 #, fuzzy
 #| msgid "Database"
 msgctxt "Alias"
@@ -5497,7 +5485,7 @@ msgid "Database"
 msgstr "Base de datos"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:276
-#: libraries/classes/Display/Export.php:388
+#: templates/export.twig:185
 #, fuzzy
 #| msgid "Table"
 msgctxt "Alias"
@@ -5505,7 +5493,7 @@ msgid "Table"
 msgstr "Táboa"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:277
-#: libraries/classes/Display/Export.php:399
+#: templates/export.twig:198
 #, fuzzy
 #| msgid "Column"
 msgctxt "Alias"
@@ -6765,10 +6753,6 @@ msgstr "Total"
 msgid "Overhead"
 msgstr "De máis (Overhead)"
 
-#: libraries/classes/Controllers/Server/ExportController.php:45
-msgid "View dump (schema) of databases"
-msgstr "Ver o  envorcado das bases de datos"
-
 #: libraries/classes/Controllers/Server/PrivilegesController.php:122
 #: libraries/classes/Server/Privileges.php:253
 msgid "Includes all privileges except GRANT."
@@ -7950,7 +7934,7 @@ msgstr "Alterouse a táboa %1$s sen problemas."
 
 #: libraries/classes/Controllers/Table/ChangeController.php:312
 #: libraries/classes/Controllers/Table/DeleteController.php:96
-#: libraries/classes/Controllers/Table/ExportController.php:135
+#: libraries/classes/Controllers/Table/ExportController.php:157
 #, fuzzy
 #| msgid "No rows selected"
 msgid "No row selected."
@@ -7989,10 +7973,6 @@ msgstr "Xa existe a táboa %s!!"
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "A consulta de SQL executouse sen problemas."
-
-#: libraries/classes/Controllers/Table/ExportController.php:69
-msgid "View dump (schema) of table"
-msgstr "Ver o esquema do envorcado da táboa"
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:44
 msgid "Invalid table name"
@@ -8935,20 +8915,6 @@ msgstr "Non se atopou ningún disparador co nome %1$s na base de datos %2$s"
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
-#: libraries/classes/Display/Export.php:368
-msgid "Defined aliases"
-msgstr ""
-
-#: libraries/classes/Display/Export.php:427
-#: templates/display/export/options_output.twig:7
-msgid "Rename exported databases/tables/columns"
-msgstr "Mudar o nome das bases de datos/táboas/columnas seleccionadas"
-
-#: libraries/classes/Display/Export.php:485
-msgid "Could not load export plugins, please check your installation!"
-msgstr ""
-"Non foi posíbel cargar os engadidos de exportación. Comprobe a instalación!"
-
 #: libraries/classes/Display/Results.php:911
 #: libraries/classes/Html/Generator.php:1295
 #: libraries/classes/Html/Generator.php:1298
@@ -9811,12 +9777,12 @@ msgstr "Mostrar a consulta de SQL"
 msgid "Inserted row id: %1$d"
 msgstr "Identificador da fileira inserida: %1$d"
 
-#: libraries/classes/LanguageManager.php:963
+#: libraries/classes/LanguageManager.php:970
 msgid "Ignoring unsupported language code."
 msgstr "Ignórase o código de idioma descoñecido."
 
-#: libraries/classes/LanguageManager.php:989
-#: libraries/classes/LanguageManager.php:990 templates/setup/home/index.twig:8
+#: libraries/classes/LanguageManager.php:996
+#: libraries/classes/LanguageManager.php:997 templates/setup/home/index.twig:8
 #: templates/setup/home/index.twig:9
 msgid "Language"
 msgstr "Lingua"
@@ -10012,7 +9978,7 @@ msgid "Procedures:"
 msgstr "Procedementos"
 
 #: libraries/classes/Navigation/Navigation.php:221
-#: templates/display/export/selection.twig:5
+#: templates/database/export/index.twig:14
 msgid "Tables:"
 msgstr "Táboas:"
 
@@ -10606,21 +10572,21 @@ msgstr "Ténteo de novo para conectar"
 msgid "Your session has expired. Please log in again."
 msgstr "A súa sesión xa expirou. Tenteo de novo."
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:288
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:289
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgstr ""
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:323
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:324
 #, fuzzy
 #| msgid "Could not connect to the database server!"
 msgid "Failed to connect to the reCAPTCHA service!"
 msgstr "Non foi posíbel conectar co servidor de bases de datos!"
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:325
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:326
 msgid "Entered captcha is wrong, try again!"
 msgstr "O captcha introducido é incorrecto; ténteo de novo!"
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:358
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:359
 #, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
@@ -10657,8 +10623,7 @@ msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:87
-#: templates/display/export/format_dropdown.twig:2
-#: templates/display/import/import.twig:209
+#: templates/display/import/import.twig:209 templates/export.twig:94
 msgid "Format:"
 msgstr "Formato:"
 
@@ -13444,9 +13409,8 @@ msgstr "Nome da táboa"
 
 #: templates/columns_definitions/column_definitions_form.twig:32
 #: templates/console/display.twig:99
-#: templates/database/central_columns/main.twig:212
-#: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
-#: templates/export/alias_add.twig:46
+#: templates/database/central_columns/main.twig:212 templates/export.twig:244
+#: templates/export.twig:258 templates/export.twig:272
 msgid "Add"
 msgstr "Engadir"
 
@@ -13970,6 +13934,13 @@ msgstr "Cardinalidade"
 msgid "No index defined!"
 msgstr "Non se definiu ningún índice!"
 
+#: templates/database/designer/database_tables.twig:31
+#: templates/database/export/index.twig:29
+#: templates/database/search/main.twig:43 templates/server/export/index.twig:12
+#: templates/server/replication/database_multibox.twig:7
+msgid "Select all"
+msgstr "Seleccionar todo"
+
 #: templates/database/designer/database_tables.twig:37
 #, fuzzy
 #| msgid "Move columns"
@@ -14289,6 +14260,26 @@ msgstr "Marcar todo"
 msgid "Event scheduler status"
 msgstr "Estado do planificador de acontecementos"
 
+#: templates/database/export/index.twig:62
+#, fuzzy
+#| msgid ", @DATABASE@ will become the database name"
+msgid ""
+"@SERVER@ will become the server name and @DATABASE@ will become the database "
+"name."
+msgstr ", @DATABASE@ será o nome da base de datos"
+
+#. l10n: A query that the user has written freely
+#: templates/database/export/index.twig:5
+#, fuzzy
+#| msgid "Showing SQL query"
+msgid "Exporting a raw query"
+msgstr "Mostrar a consulta de SQL"
+
+#: templates/database/export/index.twig:7
+#, php-format
+msgid "Exporting tables from \"%s\" database"
+msgstr "A exportar táboas desde a base de datos «%s»"
+
 #: templates/database/multi_table_query/form.twig:4
 #: templates/database/qbe/index.twig:4
 #, fuzzy
@@ -14391,8 +14382,7 @@ msgstr "Comentario da base de datos"
 msgid "Rename database to"
 msgstr "Renomear a base de datos como"
 
-#: templates/database/operations/index.twig:64
-#: templates/export/alias_add.twig:15
+#: templates/database/operations/index.twig:64 templates/export.twig:241
 #, fuzzy
 #| msgid "database name"
 msgid "New database name"
@@ -14646,8 +14636,7 @@ msgstr "As palabras divídense cun carácter de espazo (« »)."
 msgid "Inside tables:"
 msgstr "Dentro das táboas:"
 
-#: templates/database/search/main.twig:46
-#: templates/display/export/select_options.twig:8
+#: templates/database/search/main.twig:46 templates/server/export/index.twig:16
 #: templates/server/replication/database_multibox.twig:8
 msgid "Unselect all"
 msgstr "Anular toda a selección"
@@ -14883,226 +14872,6 @@ msgstr "Seguir a táboa"
 msgid "There are no triggers to display."
 msgstr "Non hai disparadores que mostrar."
 
-#: templates/display/export/method.twig:3
-msgid "Export method:"
-msgstr "Método de exportación:"
-
-#: templates/display/export/method.twig:9
-msgid "Quick - display only the minimal options"
-msgstr "Rápido - mostrar só as opcións mínimas"
-
-#: templates/display/export/method.twig:17
-msgid "Custom - display all possible options"
-msgstr "Personalizada - mostrar todas as opcións posíbeis"
-
-#: templates/display/export/option_header.twig:5
-msgid "Exporting databases from the current server"
-msgstr "A exportar bases de datos desde o servidor actual"
-
-#: templates/display/export/option_header.twig:7
-#, php-format
-msgid "Exporting tables from \"%s\" database"
-msgstr "A exportar táboas desde a base de datos «%s»"
-
-#. l10n: A query that the user has written freely
-#: templates/display/export/option_header.twig:9
-#, fuzzy
-#| msgid "Showing SQL query"
-msgid "Exporting a raw query"
-msgstr "Mostrar a consulta de SQL"
-
-#: templates/display/export/option_header.twig:11
-#, php-format
-msgid "Exporting rows from \"%s\" table"
-msgstr "A exportar filas desde a táboa «%s»"
-
-#: templates/display/export/options_format.twig:2
-#: templates/display/import/import.twig:215
-msgid "Format-specific options:"
-msgstr "Opcións específicas do formato:"
-
-#: templates/display/export/options_format.twig:4
-#: templates/display/import/import.twig:217
-msgid ""
-"Scroll down to fill in the options for the selected format and ignore the "
-"options for other formats."
-msgstr ""
-"Baixe para encher as opcións do formato escollido e ignore as opcións do "
-"resto dos formatos."
-
-#: templates/display/export/options_format.twig:12
-#: templates/display/import/import.twig:226
-msgid "Encoding Conversion:"
-msgstr "Conversión de codificación:"
-
-#: templates/display/export/options_output.twig:2
-#: templates/display/export/options_quick_export.twig:2
-msgid "Output:"
-msgstr "Saída:"
-
-#: templates/display/export/options_output.twig:25
-msgid "Save output to a file"
-msgstr "Gardar a saída nun ficheiro"
-
-#: templates/display/export/options_output.twig:32
-#: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
-msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Gardar no servidor no directorio  <b>%s</b>"
-
-#: templates/display/export/options_output.twig:46
-msgid "File name template:"
-msgstr "Modelo do nome de ficheiro:"
-
-#: templates/display/export/options_output.twig:48
-#, fuzzy
-#| msgid ""
-#| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-#| "formatting strings. Additionally the following transformations will "
-#| "happen: %3$s. Other text will be kept as is. See the %4$sFAQ%5$s for "
-#| "details."
-msgid ""
-"This value is interpreted using the 'strftime' function, so you can use time "
-"formatting strings. Additionally the following transformations will happen:"
-msgstr ""
-"Este valor interprétase utilizando %1$sstrftime%2$s, de maneira que pode "
-"empregar cadeas de formato de tempo. Produciranse transformacións en "
-"consecuencia: %3$s. O resto do texto ficará como está. Vexa as %4$sFAQ%5$s "
-"para máis detalles."
-
-#: templates/display/export/options_output.twig:50
-#, fuzzy
-#| msgid "@SERVER@ will become the server name"
-msgid "@SERVER@ will become the server name."
-msgstr "@SERVER@será o nome do servidor"
-
-#: templates/display/export/options_output.twig:52
-#, fuzzy
-#| msgid ", @DATABASE@ will become the database name"
-msgid ""
-"@SERVER@ will become the server name, @DATABASE@ will become the database "
-"name."
-msgstr ", @DATABASE@ será o nome da base de datos"
-
-#: templates/display/export/options_output.twig:54
-msgid ""
-"@SERVER@ will become the server name, @DATABASE@ will become the database "
-"name, @TABLE@ will become the table name."
-msgstr ""
-
-#: templates/display/export/options_output.twig:56
-msgid "Other text will be kept as is. See the FAQ 6.27 for details."
-msgstr ""
-
-#: templates/display/export/options_output.twig:63
-msgid "use this for future exports"
-msgstr "usar isto en futuras exportacións"
-
-#: templates/display/export/options_output.twig:70
-#: templates/display/import/import.twig:135
-msgid "Character set of the file:"
-msgstr "Conxunto de caracteres do ficheiro:"
-
-#: templates/display/export/options_output.twig:86
-msgid "Compression:"
-msgstr "Compresión:"
-
-#: templates/display/export/options_output.twig:93
-msgid "zipped"
-msgstr "comprimido no formato «zip»"
-
-#: templates/display/export/options_output.twig:99
-msgid "gzipped"
-msgstr "comprimido no formato «gzip»"
-
-#: templates/display/export/options_output.twig:114
-msgid "Export databases as separate files"
-msgstr "Exportar as bases de datos como ficheiros separados"
-
-#: templates/display/export/options_output.twig:116
-msgid "Export tables as separate files"
-msgstr "Exportar as táboas como ficheiros separados"
-
-#: templates/display/export/options_output.twig:128
-msgid "View output as text"
-msgstr "Ver a saída como texto"
-
-#: templates/display/export/options_output.twig:134
-#, fuzzy, php-format
-#| msgid "Skip tables larger than"
-msgid "Skip tables larger than %s MiB"
-msgstr "Omitir as táboas maiores de"
-
-#: templates/display/export/options_rows.twig:2
-msgid "Rows:"
-msgstr "Fila(s):"
-
-#: templates/display/export/options_rows.twig:7
-msgid "Dump some row(s)"
-msgstr "Envorcar algunha(s) fila(s)"
-
-#: templates/display/export/options_rows.twig:10
-#: templates/display/results/table.twig:49
-#: templates/start_and_number_of_rows_panel.twig:10
-msgid "Number of rows:"
-msgstr "Número de filas:"
-
-#: templates/display/export/options_rows.twig:22
-msgid "Row to begin at:"
-msgstr "Comezar na columna:"
-
-#: templates/display/export/options_rows.twig:31
-msgid "Dump all rows"
-msgstr "Envorcar todas as fileiras"
-
-#: templates/display/export/query.twig:8
-#, fuzzy
-#| msgid "Showing SQL query"
-msgid "Show SQL query"
-msgstr "Mostrar a consulta de SQL"
-
-#: templates/display/export/selection.twig:3
-msgid "Databases:"
-msgstr "Bases de datos:"
-
-#: templates/display/export/template_loading.twig:2
-#, fuzzy
-#| msgid "Export type"
-msgid "Export templates:"
-msgstr "Tipo de exportación"
-
-#: templates/display/export/template_loading.twig:6
-msgid "New template:"
-msgstr "Modelo novo:"
-
-#: templates/display/export/template_loading.twig:8
-msgid "Template name"
-msgstr "Nome do modelo"
-
-#: templates/display/export/template_loading.twig:10
-#: templates/server/databases/index.twig:55
-msgid "Create"
-msgstr "Crear"
-
-#: templates/display/export/template_loading.twig:16
-msgid "Existing templates:"
-msgstr "Modelos existentes:"
-
-#: templates/display/export/template_loading.twig:17
-msgid "Template:"
-msgstr "Modelo:"
-
-#: templates/display/export/template_loading.twig:21
-#, fuzzy
-#| msgid "Updated"
-msgid "Update"
-msgstr "Actualizada"
-
-#: templates/display/export/template_options.twig:1
-msgid "Select a template"
-msgstr "Seleccionar un modelo"
-
 #: templates/display/import/import.twig:40
 msgid "Importing into the current server"
 msgstr "A importar ao servidor actual"
@@ -15177,6 +14946,10 @@ msgstr "Non hai ficheiros para subir!"
 msgid "File uploads are not allowed on this server."
 msgstr "Este servidor non admite a recepción de ficheiros."
 
+#: templates/display/import/import.twig:135 templates/export.twig:336
+msgid "Character set of the file:"
+msgstr "Conxunto de caracteres do ficheiro:"
+
 #: templates/display/import/import.twig:163
 msgid "Partial import:"
 msgstr "Importación parcial:"
@@ -15211,6 +14984,22 @@ msgstr "Omitir este número de consultas (para SQL), comezando na primeira:"
 #: templates/display/import/import.twig:200
 msgid "Other options:"
 msgstr "Outras opcións:"
+
+#: templates/display/import/import.twig:215 templates/export.twig:406
+msgid "Format-specific options:"
+msgstr "Opcións específicas do formato:"
+
+#: templates/display/import/import.twig:217 templates/export.twig:408
+msgid ""
+"Scroll down to fill in the options for the selected format and ignore the "
+"options for other formats."
+msgstr ""
+"Baixe para encher as opcións do formato escollido e ignore as opcións do "
+"resto dos formatos."
+
+#: templates/display/import/import.twig:226 templates/export.twig:416
+msgid "Encoding Conversion:"
+msgstr "Conversión de codificación:"
 
 #: templates/display/import/javascript.twig:12
 msgid ""
@@ -15271,6 +15060,11 @@ msgstr "Gardar os datos editados"
 #: templates/display/results/table.twig:38
 msgid "Restore column order"
 msgstr "Restaurar orde das columnas"
+
+#: templates/display/results/table.twig:49 templates/export.twig:110
+#: templates/start_and_number_of_rows_panel.twig:10
+msgid "Number of rows:"
+msgstr "Número de filas:"
 
 #: templates/display/results/table.twig:52
 msgid "All"
@@ -15345,43 +15139,191 @@ msgstr ""
 msgid "You may examine the data in the error report:"
 msgstr ""
 
-#: templates/export/alias_add.twig:4
+#: templates/export/template_options.twig:1 templates/export.twig:30
+msgid "Select a template"
+msgstr "Seleccionar un modelo"
+
+#: templates/export.twig:15
+#, fuzzy
+#| msgid "Export type"
+msgid "Export templates:"
+msgstr "Tipo de exportación"
+
+#: templates/export.twig:19
+msgid "New template:"
+msgstr "Modelo novo:"
+
+#: templates/export.twig:20
+msgid "Template name"
+msgstr "Nome do modelo"
+
+#: templates/export.twig:21 templates/server/databases/index.twig:55
+msgid "Create"
+msgstr "Crear"
+
+#: templates/export.twig:27
+msgid "Existing templates:"
+msgstr "Modelos existentes:"
+
+#: templates/export.twig:28
+msgid "Template:"
+msgstr "Modelo:"
+
+#: templates/export.twig:37
+#, fuzzy
+#| msgid "Updated"
+msgid "Update"
+msgstr "Actualizada"
+
+#: templates/export.twig:53
+#, fuzzy
+#| msgid "Showing SQL query"
+msgid "Show SQL query"
+msgstr "Mostrar a consulta de SQL"
+
+#: templates/export.twig:72
+msgid "Export method:"
+msgstr "Método de exportación:"
+
+#: templates/export.twig:78
+msgid "Quick - display only the minimal options"
+msgstr "Rápido - mostrar só as opcións mínimas"
+
+#: templates/export.twig:86
+msgid "Custom - display all possible options"
+msgstr "Personalizada - mostrar todas as opcións posíbeis"
+
+#: templates/export.twig:102
+msgid "Rows:"
+msgstr "Fila(s):"
+
+#: templates/export.twig:107
+msgid "Dump some row(s)"
+msgstr "Envorcar algunha(s) fila(s)"
+
+#: templates/export.twig:121
+msgid "Row to begin at:"
+msgstr "Comezar na columna:"
+
+#: templates/export.twig:130
+msgid "Dump all rows"
+msgstr "Envorcar todas as fileiras"
+
+#: templates/export.twig:138 templates/export.twig:279
+msgid "Output:"
+msgstr "Saída:"
+
+#: templates/export.twig:143 templates/export.twig:309
+#, fuzzy, php-format
+#| msgid "Save on server in the directory <b>%s</b>"
+msgid "Save on server in the directory <strong>%s</strong>"
+msgstr "Gardar no servidor no directorio  <b>%s</b>"
+
+#: templates/export.twig:157 templates/export.twig:284
+msgid "Rename exported databases/tables/columns"
+msgstr "Mudar o nome das bases de datos/táboas/columnas seleccionadas"
+
+#: templates/export.twig:162
+msgid "Defined aliases"
+msgstr ""
+
+#: templates/export.twig:177 templates/export.twig:191
+#: templates/export.twig:204 templates/export.twig:221
+#, fuzzy
+#| msgid "Remote server"
+msgid "Remove"
+msgstr "Servidor remoto"
+
+#: templates/export.twig:230
 msgid "Define new aliases"
 msgstr ""
 
-#: templates/export/alias_add.twig:9
+#: templates/export.twig:235
 #, fuzzy
 #| msgid "Select database"
 msgid "Select database:"
 msgstr "Seleccionar base de datos"
 
-#: templates/export/alias_add.twig:23
+#: templates/export.twig:249
 #, fuzzy
 #| msgid "Select table"
 msgid "Select table:"
 msgstr "Seleccionar táboa"
 
-#: templates/export/alias_add.twig:29
+#: templates/export.twig:255
 msgid "New table name"
 msgstr "Nome novo da táboa"
 
-#: templates/export/alias_add.twig:37
+#: templates/export.twig:263
 #, fuzzy
 #| msgid "Select a column."
 msgid "Select column:"
 msgstr "Seleccionar unha columna."
 
-#: templates/export/alias_add.twig:43
+#: templates/export.twig:269
 #, fuzzy
 #| msgid "Copy column name"
 msgid "New column name"
 msgstr "Copiar nome da columna"
 
-#: templates/export/alias_item.twig:8
-#, fuzzy
-#| msgid "Remote server"
-msgid "Remove"
-msgstr "Servidor remoto"
+#: templates/export.twig:302
+msgid "Save output to a file"
+msgstr "Gardar a saída nun ficheiro"
+
+#: templates/export.twig:323
+msgid "File name template:"
+msgstr "Modelo do nome de ficheiro:"
+
+#: templates/export.twig:324
+#, fuzzy, php-format
+#| msgid ""
+#| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
+#| "formatting strings. Additionally the following transformations will "
+#| "happen: %3$s. Other text will be kept as is. See the %4$sFAQ%5$s for "
+#| "details."
+msgid ""
+"This value is interpreted using the 'strftime' function, so you can use time "
+"formatting strings. Additionally the following transformations will happen: "
+"%s Other text will be kept as is. See the FAQ 6.27 for details."
+msgstr ""
+"Este valor interprétase utilizando %1$sstrftime%2$s, de maneira que pode "
+"empregar cadeas de formato de tempo. Produciranse transformacións en "
+"consecuencia: %3$s. O resto do texto ficará como está. Vexa as %4$sFAQ%5$s "
+"para máis detalles."
+
+#: templates/export.twig:329
+msgid "use this for future exports"
+msgstr "usar isto en futuras exportacións"
+
+#: templates/export.twig:352
+msgid "Compression:"
+msgstr "Compresión:"
+
+#: templates/export.twig:359
+msgid "zipped"
+msgstr "comprimido no formato «zip»"
+
+#: templates/export.twig:365
+msgid "gzipped"
+msgstr "comprimido no formato «gzip»"
+
+#: templates/export.twig:380
+msgid "Export databases as separate files"
+msgstr "Exportar as bases de datos como ficheiros separados"
+
+#: templates/export.twig:382
+msgid "Export tables as separate files"
+msgstr "Exportar as táboas como ficheiros separados"
+
+#: templates/export.twig:394
+msgid "View output as text"
+msgstr "Ver a saída como texto"
+
+#: templates/export.twig:400
+#, fuzzy, php-format
+#| msgid "Skip tables larger than"
+msgid "Skip tables larger than %s MiB"
+msgstr "Omitir as táboas maiores de"
 
 #: templates/filter.twig:4 templates/server/status/processes/index.twig:7
 #: templates/server/status/variables/index.twig:8
@@ -16283,6 +16225,20 @@ msgstr "Motor de almacenamento"
 #| msgid "Storage Engines"
 msgid "Unknown storage engine."
 msgstr "Motores de almacenamento"
+
+#: templates/server/export/index.twig:32
+#, fuzzy
+#| msgid "@SERVER@ will become the server name"
+msgid "@SERVER@ will become the server name."
+msgstr "@SERVER@será o nome do servidor"
+
+#: templates/server/export/index.twig:3
+msgid "Exporting databases from the current server"
+msgstr "A exportar bases de datos desde o servidor actual"
+
+#: templates/server/export/index.twig:7
+msgid "Databases:"
+msgstr "Bases de datos:"
 
 #: templates/server/plugins/index.twig:26
 msgid "Plugin"
@@ -17726,6 +17682,19 @@ msgstr "Valores para a columna %s"
 #| msgid "Save as file"
 msgid "Save chart as image"
 msgstr "Enviar <i>(gravar nun ficheiro)</i><br />"
+
+#: templates/table/export/index.twig:8
+#, fuzzy
+#| msgid ", @DATABASE@ will become the database name"
+msgid ""
+"@SERVER@ will become the server name, @DATABASE@ will become the database "
+"name and @TABLE@ will become the table name."
+msgstr ", @DATABASE@ será o nome da base de datos"
+
+#: templates/table/export/index.twig:5
+#, php-format
+msgid "Exporting rows from \"%s\" table"
+msgstr "A exportar filas desde a táboa «%s»"
 
 #: templates/table/find_replace/index.twig:4
 #: templates/table/search/index.twig:4 templates/table/zoom_search/index.twig:4
@@ -19708,6 +19677,15 @@ msgstr ""
 #: libraries/advisory_rules_mysql_before80003.txt:57
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit está configurado como 1 MiB"
+
+#~ msgid "View dump (schema) of database"
+#~ msgstr "Ver o envorcado (esquema) da base de datos"
+
+#~ msgid "View dump (schema) of databases"
+#~ msgstr "Ver o  envorcado das bases de datos"
+
+#~ msgid "View dump (schema) of table"
+#~ msgstr "Ver o esquema do envorcado da táboa"
 
 #~ msgid ", @TABLE@ will become the table name"
 #~ msgstr ", @TABLE@ será o nome da táboa"

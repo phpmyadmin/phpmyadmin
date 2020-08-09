@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-07-30 23:36-0300\n"
+"POT-Creation-Date: 2020-08-09 13:04-0300\n"
 "PO-Revision-Date: 2020-07-04 07:35+0000\n"
 "Last-Translator: Artem <KovalevArtem.ru@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -114,12 +114,11 @@ msgstr "Поиск:"
 #: templates/database/operations/index.twig:190
 #: templates/database/operations/index.twig:230
 #: templates/database/search/main.twig:74
-#: templates/display/export/options_format.twig:18
 #: templates/display/import/import.twig:232
-#: templates/display/results/table.twig:175
+#: templates/display/results/table.twig:175 templates/export.twig:422
 #: templates/gis_data_editor_form.twig:211 templates/header_location.twig:18
-#: templates/login/form.twig:83 templates/login/form.twig:85
-#: templates/preferences/manage/main.twig:46
+#: templates/login/form.twig:85 templates/login/form.twig:87
+#: templates/login/form.twig:90 templates/preferences/manage/main.twig:46
 #: templates/preferences/manage/main.twig:108
 #: templates/server/binlog/index.twig:34
 #: templates/server/privileges/add_user.twig:36
@@ -263,10 +262,9 @@ msgstr "Изменить"
 #: templates/database/designer/main.twig:390
 #: templates/database/qbe/ins_del_and_or_cell.twig:18
 #: templates/database/search/results.twig:43
-#: templates/display/export/template_loading.twig:22
 #: templates/display/results/table.twig:218
-#: templates/display/results/table.twig:219 templates/setup/home/index.twig:62
-#: templates/sql/query.twig:173
+#: templates/display/results/table.twig:219 templates/export.twig:38
+#: templates/setup/home/index.twig:62 templates/sql/query.twig:173
 msgid "Delete"
 msgstr "Удалить"
 
@@ -1065,8 +1063,7 @@ msgstr ""
 msgid "Maximum execution time"
 msgstr "Максимальное время выполнения"
 
-#: libraries/classes/Config/Descriptions.php:216
-#: templates/display/export/options_output.twig:16
+#: libraries/classes/Config/Descriptions.php:216 templates/export.twig:293
 #, php-format
 msgid "Use %s statement"
 msgstr "Использовать выражение %s"
@@ -1244,9 +1241,8 @@ msgid "Save on server"
 msgstr "Сохранить на сервере"
 
 #: libraries/classes/Config/Descriptions.php:264
-#: libraries/classes/Config/Descriptions.php:267
-#: templates/display/export/options_output.twig:39
-#: templates/display/export/options_quick_export.twig:16
+#: libraries/classes/Config/Descriptions.php:267 templates/export.twig:150
+#: templates/export.twig:316
 msgid "Overwrite existing file(s)"
 msgstr "Перезаписать существующий(е) файл(ы)"
 
@@ -1509,12 +1505,12 @@ msgid "Servers display options."
 msgstr "Параметры отображения списка серверов."
 
 #: libraries/classes/Config/Descriptions.php:345
-#: libraries/classes/Controllers/Database/ExportController.php:96
 #: libraries/classes/Controllers/Server/DatabasesController.php:477
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:24
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Plugins/Export/ExportXml.php:130
 #: libraries/classes/Server/Status/Data.php:151
+#: templates/database/export/index.twig:23
 #: templates/database/structure/show_create.twig:6
 msgid "Tables"
 msgstr "Таблицы"
@@ -3617,7 +3613,6 @@ msgstr "Обычно"
 #: libraries/classes/Config/Forms/User/ExportForm.php:53
 #: libraries/classes/Config/Forms/User/ExportForm.php:98
 #: libraries/classes/Config/Forms/User/ExportForm.php:126
-#: libraries/classes/Controllers/Database/ExportController.php:97
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:719
 #: libraries/classes/Import.php:1385 libraries/classes/Menu.php:277
 #: libraries/classes/Menu.php:397
@@ -3630,6 +3625,7 @@ msgstr "Обычно"
 #: libraries/config.values.php:165 libraries/config.values.php:175
 #: templates/columns_definitions/table_fields_definitions.twig:4
 #: templates/database/central_columns/edit_table_header.twig:2
+#: templates/database/export/index.twig:24
 #: templates/server/privileges/privileges_table.twig:328
 #: templates/table/tracking/structure_snapshot_columns.twig:1
 msgid "Structure"
@@ -3639,8 +3635,8 @@ msgstr "Структура"
 #: libraries/classes/Config/Forms/User/ExportForm.php:106
 #: libraries/classes/Config/Forms/User/ExportForm.php:131
 #: libraries/classes/Config/Forms/User/ExportForm.php:137
-#: libraries/classes/Controllers/Database/ExportController.php:98
 #: libraries/classes/Controllers/Server/DatabasesController.php:487
+#: templates/database/export/index.twig:25
 #: templates/server/privileges/privileges_table.twig:254
 #: templates/table/structure/display_table_stats.twig:17
 msgid "Data"
@@ -3684,10 +3680,9 @@ msgstr "Текст OpenDocument"
 #: templates/database/triggers/list.twig:37
 #: templates/database/triggers/list.twig:38
 #: templates/database/triggers/row.twig:35
-#: templates/display/export/option_header.twig:3
 #: templates/display/results/table.twig:223
 #: templates/display/results/table.twig:224
-#: templates/display/results/table.twig:262
+#: templates/display/results/table.twig:262 templates/export.twig:8
 #: templates/preferences/header.twig:42
 #: templates/preferences/manage/main.twig:68
 #: templates/server/privileges/new_user_ajax.twig:63
@@ -3994,11 +3989,7 @@ msgstr ""
 msgid "Showing rows %1$s - %2$s."
 msgstr "Отображение строк %1$s - %2$s."
 
-#: libraries/classes/Controllers/Database/ExportController.php:75
-msgid "View dump (schema) of database"
-msgstr "Отобразить дамп (схему) базы данных"
-
-#: libraries/classes/Controllers/Database/ExportController.php:80
+#: libraries/classes/Controllers/Database/ExportController.php:78
 #: libraries/classes/Controllers/Database/TrackingController.php:125
 #: libraries/classes/Controllers/ExportController.php:457
 #: libraries/classes/Database/Qbe.php:359
@@ -4007,13 +3998,13 @@ msgstr "Отобразить дамп (схему) базы данных"
 msgid "No tables found in database."
 msgstr "Таблиц в базе данных не обнаружено."
 
-#: libraries/classes/Controllers/Database/ExportController.php:101
-#: templates/database/designer/database_tables.twig:31
-#: templates/database/search/main.twig:43
-#: templates/display/export/select_options.twig:4
-#: templates/server/replication/database_multibox.twig:7
-msgid "Select all"
-msgstr "Выбрать все"
+#: libraries/classes/Controllers/Database/ExportController.php:156
+#: libraries/classes/Controllers/Server/ExportController.php:72
+#: libraries/classes/Controllers/Table/ExportController.php:128
+msgid "Could not load export plugins, please check your installation!"
+msgstr ""
+"Отсутствуют плагины экспорта. Проверьте содержимое установленной копии "
+"phpMyAdmin!"
 
 #: libraries/classes/Controllers/Database/OperationsController.php:97
 #: libraries/classes/Controllers/Table/CreateController.php:76
@@ -4639,8 +4630,7 @@ msgid "Matched rows:"
 msgstr "Затронуто строк:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:115
-#: libraries/classes/Html/Generator.php:991
-#: templates/display/export/query.twig:4
+#: libraries/classes/Html/Generator.php:991 templates/export.twig:49
 msgid "SQL query:"
 msgstr "SQL запрос:"
 
@@ -4901,8 +4891,7 @@ msgstr "Пожалуйста, добавьте в серию хотя бы од�
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:96
 #: libraries/config.values.php:111
 #: templates/columns_definitions/transformation.twig:4
-#: templates/database/designer/main.twig:590
-#: templates/display/export/options_output.twig:89
+#: templates/database/designer/main.twig:590 templates/export.twig:355
 #: templates/server/privileges/privileges_summary.twig:30
 #: templates/server/status/monitor/index.twig:204
 #: templates/server/status/processes/list.twig:54
@@ -5153,19 +5142,19 @@ msgid "Chart"
 msgstr "График"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:275
-#: libraries/classes/Display/Export.php:376
+#: templates/export.twig:171
 msgctxt "Alias"
 msgid "Database"
 msgstr "База данных"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:276
-#: libraries/classes/Display/Export.php:388
+#: templates/export.twig:185
 msgctxt "Alias"
 msgid "Table"
 msgstr "Таблица"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:277
-#: libraries/classes/Display/Export.php:399
+#: templates/export.twig:198
 msgctxt "Alias"
 msgid "Column"
 msgstr "Столбец"
@@ -6395,10 +6384,6 @@ msgstr "Всего"
 msgid "Overhead"
 msgstr "Фрагментировано"
 
-#: libraries/classes/Controllers/Server/ExportController.php:45
-msgid "View dump (schema) of databases"
-msgstr "Отобразить дамп (схему) баз данных"
-
 #: libraries/classes/Controllers/Server/PrivilegesController.php:122
 #: libraries/classes/Server/Privileges.php:253
 msgid "Includes all privileges except GRANT."
@@ -7569,7 +7554,7 @@ msgstr "Таблица %1$s была успешно изменена."
 
 #: libraries/classes/Controllers/Table/ChangeController.php:312
 #: libraries/classes/Controllers/Table/DeleteController.php:96
-#: libraries/classes/Controllers/Table/ExportController.php:135
+#: libraries/classes/Controllers/Table/ExportController.php:157
 msgid "No row selected."
 msgstr "Строка не выбрана."
 
@@ -7606,10 +7591,6 @@ msgstr "Таблица %s уже существует!"
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL-запрос успешно выполнен."
-
-#: libraries/classes/Controllers/Table/ExportController.php:69
-msgid "View dump (schema) of table"
-msgstr "Отобразить дамп (схему) таблицы"
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:44
 msgid "Invalid table name"
@@ -8504,21 +8485,6 @@ msgstr "В базе данных %2$s триггер с именем %1$s не �
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "SSL-соединение, выполняемое сервером, автоматически включающее его."
 
-#: libraries/classes/Display/Export.php:368
-msgid "Defined aliases"
-msgstr "Определенные псевдонимы"
-
-#: libraries/classes/Display/Export.php:427
-#: templates/display/export/options_output.twig:7
-msgid "Rename exported databases/tables/columns"
-msgstr "Переименовать экспортируемые базы данных/таблицы/столбцы"
-
-#: libraries/classes/Display/Export.php:485
-msgid "Could not load export plugins, please check your installation!"
-msgstr ""
-"Отсутствуют плагины экспорта. Проверьте содержимое установленной копии "
-"phpMyAdmin!"
-
 #: libraries/classes/Display/Results.php:911
 #: libraries/classes/Html/Generator.php:1295
 #: libraries/classes/Html/Generator.php:1298
@@ -9369,12 +9335,12 @@ msgstr "Отображает SQL-запрос"
 msgid "Inserted row id: %1$d"
 msgstr "Идентификатор вставленной строки: %1$d"
 
-#: libraries/classes/LanguageManager.php:963
+#: libraries/classes/LanguageManager.php:970
 msgid "Ignoring unsupported language code."
 msgstr "Игнорировать неподдерживаемые коды языков."
 
-#: libraries/classes/LanguageManager.php:989
-#: libraries/classes/LanguageManager.php:990 templates/setup/home/index.twig:8
+#: libraries/classes/LanguageManager.php:996
+#: libraries/classes/LanguageManager.php:997 templates/setup/home/index.twig:8
 #: templates/setup/home/index.twig:9
 msgid "Language"
 msgstr "Язык"
@@ -9566,7 +9532,7 @@ msgid "Procedures:"
 msgstr "Процедуры:"
 
 #: libraries/classes/Navigation/Navigation.php:221
-#: templates/display/export/selection.twig:5
+#: templates/database/export/index.twig:14
 msgid "Tables:"
 msgstr "Таблицы:"
 
@@ -10168,19 +10134,19 @@ msgstr "Повторить попытку соединения"
 msgid "Your session has expired. Please log in again."
 msgstr "Время сессии истекло. Пожалуйста, войдите заново."
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:288
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:289
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgstr "Отсутствует проверка reCAPTCHA, возможно, она заблокирована adblock?"
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:323
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:324
 msgid "Failed to connect to the reCAPTCHA service!"
 msgstr "Не удалось соединиться с сервисом reCAPTCHA!"
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:325
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:326
 msgid "Entered captcha is wrong, try again!"
 msgstr "Ошибка при введении captcha, попробуйте ещё раз!"
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:358
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:359
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "У вас нет прав для подключения к серверу MySQL!"
 
@@ -10215,8 +10181,7 @@ msgstr ""
 "Вы включили двухфакторную аутентификацию, пожалуйста, подтвердите свой логин."
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:87
-#: templates/display/export/format_dropdown.twig:2
-#: templates/display/import/import.twig:209
+#: templates/display/import/import.twig:209 templates/export.twig:94
 msgid "Format:"
 msgstr "Формат:"
 
@@ -12849,9 +12814,8 @@ msgstr "Имя таблицы"
 
 #: templates/columns_definitions/column_definitions_form.twig:32
 #: templates/console/display.twig:99
-#: templates/database/central_columns/main.twig:212
-#: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
-#: templates/export/alias_add.twig:46
+#: templates/database/central_columns/main.twig:212 templates/export.twig:244
+#: templates/export.twig:258 templates/export.twig:272
 msgid "Add"
 msgstr "Добавить"
 
@@ -13301,6 +13265,13 @@ msgstr "Уникальных элементов"
 msgid "No index defined!"
 msgstr "Индекс не определен!"
 
+#: templates/database/designer/database_tables.twig:31
+#: templates/database/export/index.twig:29
+#: templates/database/search/main.twig:43 templates/server/export/index.twig:12
+#: templates/server/replication/database_multibox.twig:7
+msgid "Select all"
+msgstr "Выбрать все"
+
 #: templates/database/designer/database_tables.twig:37
 msgid "Show/hide columns"
 msgstr "Показать/скрыть столбцы"
@@ -13586,6 +13557,26 @@ msgstr "Отметить все"
 msgid "Event scheduler status"
 msgstr "Статус планировщика событий"
 
+#: templates/database/export/index.twig:62
+#, fuzzy
+#| msgid ", @DATABASE@ will become the database name"
+msgid ""
+"@SERVER@ will become the server name and @DATABASE@ will become the database "
+"name."
+msgstr ", @DATABASE@ будет замещено именем базы данных"
+
+#. l10n: A query that the user has written freely
+#: templates/database/export/index.twig:5
+#, fuzzy
+#| msgid "Showing SQL query"
+msgid "Exporting a raw query"
+msgstr "Отображает SQL-запрос"
+
+#: templates/database/export/index.twig:7
+#, php-format
+msgid "Exporting tables from \"%s\" database"
+msgstr "Экспорт таблиц из базы данных \"%s\""
+
 #: templates/database/multi_table_query/form.twig:4
 #: templates/database/qbe/index.twig:4
 msgid "Multi-table query"
@@ -13662,8 +13653,7 @@ msgstr "Комментарий к базе данных"
 msgid "Rename database to"
 msgstr "Переименовать базу данных в"
 
-#: templates/database/operations/index.twig:64
-#: templates/export/alias_add.twig:15
+#: templates/database/operations/index.twig:64 templates/export.twig:241
 msgid "New database name"
 msgstr "Имя новой базы данных"
 
@@ -13913,8 +13903,7 @@ msgstr "Слова разделяются пробелом (\" \")."
 msgid "Inside tables:"
 msgstr "В таблицах:"
 
-#: templates/database/search/main.twig:46
-#: templates/display/export/select_options.twig:8
+#: templates/database/search/main.twig:46 templates/server/export/index.twig:16
 #: templates/server/replication/database_multibox.twig:8
 msgid "Unselect all"
 msgstr "Снять выделение"
@@ -14131,220 +14120,6 @@ msgstr "Отслеживать таблицу"
 msgid "There are no triggers to display."
 msgstr "Отсутствуют триггеры для отображения."
 
-#: templates/display/export/method.twig:3
-msgid "Export method:"
-msgstr "Метод экспорта:"
-
-#: templates/display/export/method.twig:9
-msgid "Quick - display only the minimal options"
-msgstr "Быстрый - отображать минимум настроек"
-
-#: templates/display/export/method.twig:17
-msgid "Custom - display all possible options"
-msgstr "Обычный - отображать все возможные настройки"
-
-#: templates/display/export/option_header.twig:5
-msgid "Exporting databases from the current server"
-msgstr "Экспорт баз данных с текущего сервера"
-
-#: templates/display/export/option_header.twig:7
-#, php-format
-msgid "Exporting tables from \"%s\" database"
-msgstr "Экспорт таблиц из базы данных \"%s\""
-
-#. l10n: A query that the user has written freely
-#: templates/display/export/option_header.twig:9
-#, fuzzy
-#| msgid "Showing SQL query"
-msgid "Exporting a raw query"
-msgstr "Отображает SQL-запрос"
-
-#: templates/display/export/option_header.twig:11
-#, php-format
-msgid "Exporting rows from \"%s\" table"
-msgstr "Экспорт строк из таблицы \"%s\""
-
-#: templates/display/export/options_format.twig:2
-#: templates/display/import/import.twig:215
-msgid "Format-specific options:"
-msgstr "Параметры формата:"
-
-#: templates/display/export/options_format.twig:4
-#: templates/display/import/import.twig:217
-msgid ""
-"Scroll down to fill in the options for the selected format and ignore the "
-"options for other formats."
-msgstr ""
-"Заполните параметры для выбранного формата и игнорируйте параметры остальных "
-"форматов."
-
-#: templates/display/export/options_format.twig:12
-#: templates/display/import/import.twig:226
-msgid "Encoding Conversion:"
-msgstr "Изменение кодировки:"
-
-#: templates/display/export/options_output.twig:2
-#: templates/display/export/options_quick_export.twig:2
-msgid "Output:"
-msgstr "Вывод:"
-
-#: templates/display/export/options_output.twig:25
-msgid "Save output to a file"
-msgstr "Сохранить вывод в файл"
-
-#: templates/display/export/options_output.twig:32
-#: templates/display/export/options_quick_export.twig:8
-#, php-format
-msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Сохранить на сервере в каталоге <strong>%s</strong>"
-
-#: templates/display/export/options_output.twig:46
-msgid "File name template:"
-msgstr "Шаблон имени файла:"
-
-#: templates/display/export/options_output.twig:48
-#, fuzzy
-#| msgid ""
-#| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-#| "formatting strings. Additionally the following transformations will "
-#| "happen: %3$s. Other text will be kept as is. See the %4$sFAQ%5$s for "
-#| "details."
-msgid ""
-"This value is interpreted using the 'strftime' function, so you can use time "
-"formatting strings. Additionally the following transformations will happen:"
-msgstr ""
-"Значение обрабатывается функцией %1$sstrftime%2$s, благодаря чему возможна "
-"вставка текущей даты и времени. Дополнительно могут быть использованы "
-"следующие подстановки: %3$s. Остальной текст останется без изменений. "
-"Подробности смотрите в %4$sFAQ%5$s."
-
-#: templates/display/export/options_output.twig:50
-#, fuzzy
-#| msgid "@SERVER@ will become the server name"
-msgid "@SERVER@ will become the server name."
-msgstr "@SERVER@ будет замещено именем сервера"
-
-#: templates/display/export/options_output.twig:52
-#, fuzzy
-#| msgid ", @DATABASE@ will become the database name"
-msgid ""
-"@SERVER@ will become the server name, @DATABASE@ will become the database "
-"name."
-msgstr ", @DATABASE@ будет замещено именем базы данных"
-
-#: templates/display/export/options_output.twig:54
-msgid ""
-"@SERVER@ will become the server name, @DATABASE@ will become the database "
-"name, @TABLE@ will become the table name."
-msgstr ""
-
-#: templates/display/export/options_output.twig:56
-msgid "Other text will be kept as is. See the FAQ 6.27 for details."
-msgstr ""
-
-#: templates/display/export/options_output.twig:63
-msgid "use this for future exports"
-msgstr "использовать для будущего экспорта"
-
-#: templates/display/export/options_output.twig:70
-#: templates/display/import/import.twig:135
-msgid "Character set of the file:"
-msgstr "Кодировка файла:"
-
-#: templates/display/export/options_output.twig:86
-msgid "Compression:"
-msgstr "Компрессия:"
-
-#: templates/display/export/options_output.twig:93
-msgid "zipped"
-msgstr "zip"
-
-#: templates/display/export/options_output.twig:99
-msgid "gzipped"
-msgstr "gzip"
-
-#: templates/display/export/options_output.twig:114
-msgid "Export databases as separate files"
-msgstr "Экспортировать базы данных в виде отдельных файлов"
-
-#: templates/display/export/options_output.twig:116
-msgid "Export tables as separate files"
-msgstr "Экспортировать таблицы в виде отдельных файлов"
-
-#: templates/display/export/options_output.twig:128
-msgid "View output as text"
-msgstr "Отобразить вывод как текст"
-
-#: templates/display/export/options_output.twig:134
-#, php-format
-msgid "Skip tables larger than %s MiB"
-msgstr "Пропускать таблицы большие, чем %s MiB"
-
-#: templates/display/export/options_rows.twig:2
-msgid "Rows:"
-msgstr "Строки:"
-
-#: templates/display/export/options_rows.twig:7
-msgid "Dump some row(s)"
-msgstr "Выгрузить часть строк"
-
-#: templates/display/export/options_rows.twig:10
-#: templates/display/results/table.twig:49
-#: templates/start_and_number_of_rows_panel.twig:10
-msgid "Number of rows:"
-msgstr "Количество строк:"
-
-#: templates/display/export/options_rows.twig:22
-msgid "Row to begin at:"
-msgstr "Начать со строки:"
-
-#: templates/display/export/options_rows.twig:31
-msgid "Dump all rows"
-msgstr "Выгрузить все строки"
-
-#: templates/display/export/query.twig:8
-#, fuzzy
-#| msgid "Showing SQL query"
-msgid "Show SQL query"
-msgstr "Отображает SQL-запрос"
-
-#: templates/display/export/selection.twig:3
-msgid "Databases:"
-msgstr "Базы данных:"
-
-#: templates/display/export/template_loading.twig:2
-msgid "Export templates:"
-msgstr "Экспорт шаблонов:"
-
-#: templates/display/export/template_loading.twig:6
-msgid "New template:"
-msgstr "Новый шаблон:"
-
-#: templates/display/export/template_loading.twig:8
-msgid "Template name"
-msgstr "Имя шаблона"
-
-#: templates/display/export/template_loading.twig:10
-#: templates/server/databases/index.twig:55
-msgid "Create"
-msgstr "Создать"
-
-#: templates/display/export/template_loading.twig:16
-msgid "Existing templates:"
-msgstr "Имеющиеся шаблоны:"
-
-#: templates/display/export/template_loading.twig:17
-msgid "Template:"
-msgstr "Шаблон:"
-
-#: templates/display/export/template_loading.twig:21
-msgid "Update"
-msgstr "Обновление"
-
-#: templates/display/export/template_options.twig:1
-msgid "Select a template"
-msgstr "Выберите шаблон"
-
 #: templates/display/import/import.twig:40
 msgid "Importing into the current server"
 msgstr "Импорт на текущий сервер"
@@ -14414,6 +14189,10 @@ msgstr "Файлы для загрузки отсутствуют!"
 msgid "File uploads are not allowed on this server."
 msgstr "Загрузка файлов на сервер, невозможна."
 
+#: templates/display/import/import.twig:135 templates/export.twig:336
+msgid "Character set of the file:"
+msgstr "Кодировка файла:"
+
 #: templates/display/import/import.twig:163
 msgid "Partial import:"
 msgstr "Частичный импорт:"
@@ -14443,6 +14222,22 @@ msgstr "Пропустить указанное число запросов (д�
 #: templates/display/import/import.twig:200
 msgid "Other options:"
 msgstr "Прочие параметры:"
+
+#: templates/display/import/import.twig:215 templates/export.twig:406
+msgid "Format-specific options:"
+msgstr "Параметры формата:"
+
+#: templates/display/import/import.twig:217 templates/export.twig:408
+msgid ""
+"Scroll down to fill in the options for the selected format and ignore the "
+"options for other formats."
+msgstr ""
+"Заполните параметры для выбранного формата и игнорируйте параметры остальных "
+"форматов."
+
+#: templates/display/import/import.twig:226 templates/export.twig:416
+msgid "Encoding Conversion:"
+msgstr "Изменение кодировки:"
 
 #: templates/display/import/javascript.twig:12
 msgid ""
@@ -14497,6 +14292,11 @@ msgstr "Сохранить отредактированные данные"
 #: templates/display/results/table.twig:38
 msgid "Restore column order"
 msgstr "Восстановить порядок столбцов"
+
+#: templates/display/results/table.twig:49 templates/export.twig:110
+#: templates/start_and_number_of_rows_panel.twig:10
+msgid "Number of rows:"
+msgstr "Количество строк:"
 
 #: templates/display/results/table.twig:52
 msgid "All"
@@ -14574,33 +14374,175 @@ msgstr ""
 msgid "You may examine the data in the error report:"
 msgstr "Вы можете изучить данные в отчёте об ошибке:"
 
-#: templates/export/alias_add.twig:4
+#: templates/export/template_options.twig:1 templates/export.twig:30
+msgid "Select a template"
+msgstr "Выберите шаблон"
+
+#: templates/export.twig:15
+msgid "Export templates:"
+msgstr "Экспорт шаблонов:"
+
+#: templates/export.twig:19
+msgid "New template:"
+msgstr "Новый шаблон:"
+
+#: templates/export.twig:20
+msgid "Template name"
+msgstr "Имя шаблона"
+
+#: templates/export.twig:21 templates/server/databases/index.twig:55
+msgid "Create"
+msgstr "Создать"
+
+#: templates/export.twig:27
+msgid "Existing templates:"
+msgstr "Имеющиеся шаблоны:"
+
+#: templates/export.twig:28
+msgid "Template:"
+msgstr "Шаблон:"
+
+#: templates/export.twig:37
+msgid "Update"
+msgstr "Обновление"
+
+#: templates/export.twig:53
+#, fuzzy
+#| msgid "Showing SQL query"
+msgid "Show SQL query"
+msgstr "Отображает SQL-запрос"
+
+#: templates/export.twig:72
+msgid "Export method:"
+msgstr "Метод экспорта:"
+
+#: templates/export.twig:78
+msgid "Quick - display only the minimal options"
+msgstr "Быстрый - отображать минимум настроек"
+
+#: templates/export.twig:86
+msgid "Custom - display all possible options"
+msgstr "Обычный - отображать все возможные настройки"
+
+#: templates/export.twig:102
+msgid "Rows:"
+msgstr "Строки:"
+
+#: templates/export.twig:107
+msgid "Dump some row(s)"
+msgstr "Выгрузить часть строк"
+
+#: templates/export.twig:121
+msgid "Row to begin at:"
+msgstr "Начать со строки:"
+
+#: templates/export.twig:130
+msgid "Dump all rows"
+msgstr "Выгрузить все строки"
+
+#: templates/export.twig:138 templates/export.twig:279
+msgid "Output:"
+msgstr "Вывод:"
+
+#: templates/export.twig:143 templates/export.twig:309
+#, php-format
+msgid "Save on server in the directory <strong>%s</strong>"
+msgstr "Сохранить на сервере в каталоге <strong>%s</strong>"
+
+#: templates/export.twig:157 templates/export.twig:284
+msgid "Rename exported databases/tables/columns"
+msgstr "Переименовать экспортируемые базы данных/таблицы/столбцы"
+
+#: templates/export.twig:162
+msgid "Defined aliases"
+msgstr "Определенные псевдонимы"
+
+#: templates/export.twig:177 templates/export.twig:191
+#: templates/export.twig:204 templates/export.twig:221
+msgid "Remove"
+msgstr "Удалить"
+
+#: templates/export.twig:230
 msgid "Define new aliases"
 msgstr "Определение новых псевдонимов"
 
-#: templates/export/alias_add.twig:9
+#: templates/export.twig:235
 msgid "Select database:"
 msgstr "Выберите базу данных:"
 
-#: templates/export/alias_add.twig:23
+#: templates/export.twig:249
 msgid "Select table:"
 msgstr "Выберите таблицу:"
 
-#: templates/export/alias_add.twig:29
+#: templates/export.twig:255
 msgid "New table name"
 msgstr "Имя новой таблицы"
 
-#: templates/export/alias_add.twig:37
+#: templates/export.twig:263
 msgid "Select column:"
 msgstr "Выберите столбец:"
 
-#: templates/export/alias_add.twig:43
+#: templates/export.twig:269
 msgid "New column name"
 msgstr "Имя нового столбца"
 
-#: templates/export/alias_item.twig:8
-msgid "Remove"
-msgstr "Удалить"
+#: templates/export.twig:302
+msgid "Save output to a file"
+msgstr "Сохранить вывод в файл"
+
+#: templates/export.twig:323
+msgid "File name template:"
+msgstr "Шаблон имени файла:"
+
+#: templates/export.twig:324
+#, fuzzy, php-format
+#| msgid ""
+#| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
+#| "formatting strings. Additionally the following transformations will "
+#| "happen: %3$s. Other text will be kept as is. See the %4$sFAQ%5$s for "
+#| "details."
+msgid ""
+"This value is interpreted using the 'strftime' function, so you can use time "
+"formatting strings. Additionally the following transformations will happen: "
+"%s Other text will be kept as is. See the FAQ 6.27 for details."
+msgstr ""
+"Значение обрабатывается функцией %1$sstrftime%2$s, благодаря чему возможна "
+"вставка текущей даты и времени. Дополнительно могут быть использованы "
+"следующие подстановки: %3$s. Остальной текст останется без изменений. "
+"Подробности смотрите в %4$sFAQ%5$s."
+
+#: templates/export.twig:329
+msgid "use this for future exports"
+msgstr "использовать для будущего экспорта"
+
+#: templates/export.twig:352
+msgid "Compression:"
+msgstr "Компрессия:"
+
+#: templates/export.twig:359
+msgid "zipped"
+msgstr "zip"
+
+#: templates/export.twig:365
+msgid "gzipped"
+msgstr "gzip"
+
+#: templates/export.twig:380
+msgid "Export databases as separate files"
+msgstr "Экспортировать базы данных в виде отдельных файлов"
+
+#: templates/export.twig:382
+msgid "Export tables as separate files"
+msgstr "Экспортировать таблицы в виде отдельных файлов"
+
+#: templates/export.twig:394
+msgid "View output as text"
+msgstr "Отобразить вывод как текст"
+
+#: templates/export.twig:400
+#, php-format
+msgid "Skip tables larger than %s MiB"
+msgstr "Пропускать таблицы большие, чем %s MiB"
 
 #: templates/filter.twig:4 templates/server/status/processes/index.twig:7
 #: templates/server/status/variables/index.twig:8
@@ -15466,6 +15408,20 @@ msgstr "Тип таблиц"
 #: templates/server/engines/show.twig:45
 msgid "Unknown storage engine."
 msgstr "Неизвестный механизм хранилища."
+
+#: templates/server/export/index.twig:32
+#, fuzzy
+#| msgid "@SERVER@ will become the server name"
+msgid "@SERVER@ will become the server name."
+msgstr "@SERVER@ будет замещено именем сервера"
+
+#: templates/server/export/index.twig:3
+msgid "Exporting databases from the current server"
+msgstr "Экспорт баз данных с текущего сервера"
+
+#: templates/server/export/index.twig:7
+msgid "Databases:"
+msgstr "Базы данных:"
 
 #: templates/server/plugins/index.twig:26
 msgid "Plugin"
@@ -16794,6 +16750,19 @@ msgstr "Столбец значения:"
 #: templates/table/chart/tbl_chart.twig:151
 msgid "Save chart as image"
 msgstr "Сохранить диаграмму как изображение"
+
+#: templates/table/export/index.twig:8
+#, fuzzy
+#| msgid ", @DATABASE@ will become the database name"
+msgid ""
+"@SERVER@ will become the server name, @DATABASE@ will become the database "
+"name and @TABLE@ will become the table name."
+msgstr ", @DATABASE@ будет замещено именем базы данных"
+
+#: templates/table/export/index.twig:5
+#, php-format
+msgid "Exporting rows from \"%s\" table"
+msgstr "Экспорт строк из таблицы \"%s\""
 
 #: templates/table/find_replace/index.twig:4
 #: templates/table/search/index.twig:4 templates/table/zoom_search/index.twig:4
@@ -18670,6 +18639,15 @@ msgstr ""
 #: libraries/advisory_rules_mysql_before80003.txt:57
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit установлен на 1 MiB"
+
+#~ msgid "View dump (schema) of database"
+#~ msgstr "Отобразить дамп (схему) базы данных"
+
+#~ msgid "View dump (schema) of databases"
+#~ msgstr "Отобразить дамп (схему) баз данных"
+
+#~ msgid "View dump (schema) of table"
+#~ msgstr "Отобразить дамп (схему) таблицы"
 
 #~ msgid ", @TABLE@ will become the table name"
 #~ msgstr ", @TABLE@ будет замещено именем таблицы"

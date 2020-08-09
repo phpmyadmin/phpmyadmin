@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-07-30 23:36-0300\n"
+"POT-Creation-Date: 2020-08-09 13:04-0300\n"
 "PO-Revision-Date: 2019-04-27 17:19+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -116,12 +116,11 @@ msgstr "தேடுக:"
 #: templates/database/operations/index.twig:190
 #: templates/database/operations/index.twig:230
 #: templates/database/search/main.twig:74
-#: templates/display/export/options_format.twig:18
 #: templates/display/import/import.twig:232
-#: templates/display/results/table.twig:175
+#: templates/display/results/table.twig:175 templates/export.twig:422
 #: templates/gis_data_editor_form.twig:211 templates/header_location.twig:18
-#: templates/login/form.twig:83 templates/login/form.twig:85
-#: templates/preferences/manage/main.twig:46
+#: templates/login/form.twig:85 templates/login/form.twig:87
+#: templates/login/form.twig:90 templates/preferences/manage/main.twig:46
 #: templates/preferences/manage/main.twig:108
 #: templates/server/binlog/index.twig:34
 #: templates/server/privileges/add_user.twig:36
@@ -262,10 +261,9 @@ msgstr "தொகு"
 #: templates/database/designer/main.twig:390
 #: templates/database/qbe/ins_del_and_or_cell.twig:18
 #: templates/database/search/results.twig:43
-#: templates/display/export/template_loading.twig:22
 #: templates/display/results/table.twig:218
-#: templates/display/results/table.twig:219 templates/setup/home/index.twig:62
-#: templates/sql/query.twig:173
+#: templates/display/results/table.twig:219 templates/export.twig:38
+#: templates/setup/home/index.twig:62 templates/sql/query.twig:173
 msgid "Delete"
 msgstr "அழி"
 
@@ -1061,8 +1059,7 @@ msgstr ""
 msgid "Maximum execution time"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:216
-#: templates/display/export/options_output.twig:16
+#: libraries/classes/Config/Descriptions.php:216 templates/export.twig:293
 #, fuzzy, php-format
 #| msgid "Add statements:"
 msgid "Use %s statement"
@@ -1245,9 +1242,8 @@ msgid "Save on server"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:264
-#: libraries/classes/Config/Descriptions.php:267
-#: templates/display/export/options_output.twig:39
-#: templates/display/export/options_quick_export.twig:16
+#: libraries/classes/Config/Descriptions.php:267 templates/export.twig:150
+#: templates/export.twig:316
 msgid "Overwrite existing file(s)"
 msgstr ""
 
@@ -1512,12 +1508,12 @@ msgid "Servers display options."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:345
-#: libraries/classes/Controllers/Database/ExportController.php:96
 #: libraries/classes/Controllers/Server/DatabasesController.php:477
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:24
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Plugins/Export/ExportXml.php:130
 #: libraries/classes/Server/Status/Data.php:151
+#: templates/database/export/index.twig:23
 #: templates/database/structure/show_create.twig:6
 msgid "Tables"
 msgstr "அட்டவணைகள்"
@@ -3498,7 +3494,6 @@ msgstr ""
 #: libraries/classes/Config/Forms/User/ExportForm.php:53
 #: libraries/classes/Config/Forms/User/ExportForm.php:98
 #: libraries/classes/Config/Forms/User/ExportForm.php:126
-#: libraries/classes/Controllers/Database/ExportController.php:97
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:719
 #: libraries/classes/Import.php:1385 libraries/classes/Menu.php:277
 #: libraries/classes/Menu.php:397
@@ -3511,6 +3506,7 @@ msgstr ""
 #: libraries/config.values.php:165 libraries/config.values.php:175
 #: templates/columns_definitions/table_fields_definitions.twig:4
 #: templates/database/central_columns/edit_table_header.twig:2
+#: templates/database/export/index.twig:24
 #: templates/server/privileges/privileges_table.twig:328
 #: templates/table/tracking/structure_snapshot_columns.twig:1
 msgid "Structure"
@@ -3520,8 +3516,8 @@ msgstr "கட்டமைப்பு"
 #: libraries/classes/Config/Forms/User/ExportForm.php:106
 #: libraries/classes/Config/Forms/User/ExportForm.php:131
 #: libraries/classes/Config/Forms/User/ExportForm.php:137
-#: libraries/classes/Controllers/Database/ExportController.php:98
 #: libraries/classes/Controllers/Server/DatabasesController.php:487
+#: templates/database/export/index.twig:25
 #: templates/server/privileges/privileges_table.twig:254
 #: templates/table/structure/display_table_stats.twig:17
 msgid "Data"
@@ -3565,10 +3561,9 @@ msgstr "கட்டற்றஆவண உரை"
 #: templates/database/triggers/list.twig:37
 #: templates/database/triggers/list.twig:38
 #: templates/database/triggers/row.twig:35
-#: templates/display/export/option_header.twig:3
 #: templates/display/results/table.twig:223
 #: templates/display/results/table.twig:224
-#: templates/display/results/table.twig:262
+#: templates/display/results/table.twig:262 templates/export.twig:8
 #: templates/preferences/header.twig:42
 #: templates/preferences/manage/main.twig:68
 #: templates/server/privileges/new_user_ajax.twig:63
@@ -3828,11 +3823,7 @@ msgstr "இந்த %s கோப்பு அமைப்பில் இல்
 msgid "Showing rows %1$s - %2$s."
 msgstr "நிறைவரிசைகள் %1$s - %2$s காட்டப்படுகின்றன."
 
-#: libraries/classes/Controllers/Database/ExportController.php:75
-msgid "View dump (schema) of database"
-msgstr "தரவுத்தளத்தின் குவியலமைப்பை (திட்ட வடிவத்தைப்) பார்க்க"
-
-#: libraries/classes/Controllers/Database/ExportController.php:80
+#: libraries/classes/Controllers/Database/ExportController.php:78
 #: libraries/classes/Controllers/Database/TrackingController.php:125
 #: libraries/classes/Controllers/ExportController.php:457
 #: libraries/classes/Database/Qbe.php:359
@@ -3841,13 +3832,11 @@ msgstr "தரவுத்தளத்தின் குவியலமைப�
 msgid "No tables found in database."
 msgstr "அட்டவணைகள் எதுவும் இத்தரவுத்தளத்தில் காணப்படவில்லை."
 
-#: libraries/classes/Controllers/Database/ExportController.php:101
-#: templates/database/designer/database_tables.twig:31
-#: templates/database/search/main.twig:43
-#: templates/display/export/select_options.twig:4
-#: templates/server/replication/database_multibox.twig:7
-msgid "Select all"
-msgstr "அனைத்தையும் தெரிவுசெய்க"
+#: libraries/classes/Controllers/Database/ExportController.php:156
+#: libraries/classes/Controllers/Server/ExportController.php:72
+#: libraries/classes/Controllers/Table/ExportController.php:128
+msgid "Could not load export plugins, please check your installation!"
+msgstr ""
 
 #: libraries/classes/Controllers/Database/OperationsController.php:97
 #: libraries/classes/Controllers/Table/CreateController.php:76
@@ -4471,8 +4460,7 @@ msgid "Matched rows:"
 msgstr "பொருந்திய நிரல்வரிசைகள்:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:115
-#: libraries/classes/Html/Generator.php:991
-#: templates/display/export/query.twig:4
+#: libraries/classes/Html/Generator.php:991 templates/export.twig:49
 msgid "SQL query:"
 msgstr "SQL வினவல்:"
 
@@ -4745,8 +4733,7 @@ msgstr "தயவுசெய்து குறைந்தது ஒரு ம
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:96
 #: libraries/config.values.php:111
 #: templates/columns_definitions/transformation.twig:4
-#: templates/database/designer/main.twig:590
-#: templates/display/export/options_output.twig:89
+#: templates/database/designer/main.twig:590 templates/export.twig:355
 #: templates/server/privileges/privileges_summary.twig:30
 #: templates/server/status/monitor/index.twig:204
 #: templates/server/status/processes/list.twig:54
@@ -4992,7 +4979,7 @@ msgid "Chart"
 msgstr "விளக்கப்படம்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:275
-#: libraries/classes/Display/Export.php:376
+#: templates/export.twig:171
 #, fuzzy
 #| msgid "Database"
 msgctxt "Alias"
@@ -5000,7 +4987,7 @@ msgid "Database"
 msgstr "தரவுத்தளம்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:276
-#: libraries/classes/Display/Export.php:388
+#: templates/export.twig:185
 #, fuzzy
 #| msgid "Table"
 msgctxt "Alias"
@@ -5008,7 +4995,7 @@ msgid "Table"
 msgstr "அட்டவணை"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:277
-#: libraries/classes/Display/Export.php:399
+#: templates/export.twig:198
 #, fuzzy
 #| msgid "Column"
 msgctxt "Alias"
@@ -6292,10 +6279,6 @@ msgstr "மொத்தம்"
 msgid "Overhead"
 msgstr "பயனீட்டளவு"
 
-#: libraries/classes/Controllers/Server/ExportController.php:45
-msgid "View dump (schema) of databases"
-msgstr ""
-
 #: libraries/classes/Controllers/Server/PrivilegesController.php:122
 #: libraries/classes/Server/Privileges.php:253
 msgid "Includes all privileges except GRANT."
@@ -7310,7 +7293,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Table/ChangeController.php:312
 #: libraries/classes/Controllers/Table/DeleteController.php:96
-#: libraries/classes/Controllers/Table/ExportController.php:135
+#: libraries/classes/Controllers/Table/ExportController.php:157
 #, fuzzy
 #| msgid "No rows selected"
 msgid "No row selected."
@@ -7349,10 +7332,6 @@ msgstr "%s இந்த அட்டவணை ஏற்கனவே உள்ள
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "உங்கள் SQL வினவல் வெற்றிகரமாக நிறைவேற்றப்பட்டது."
-
-#: libraries/classes/Controllers/Table/ExportController.php:69
-msgid "View dump (schema) of table"
-msgstr ""
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:44
 msgid "Invalid table name"
@@ -8261,19 +8240,6 @@ msgstr "அட்டவணைகள் எதுவும் இத்தரவ�
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
-#: libraries/classes/Display/Export.php:368
-msgid "Defined aliases"
-msgstr ""
-
-#: libraries/classes/Display/Export.php:427
-#: templates/display/export/options_output.twig:7
-msgid "Rename exported databases/tables/columns"
-msgstr ""
-
-#: libraries/classes/Display/Export.php:485
-msgid "Could not load export plugins, please check your installation!"
-msgstr ""
-
 #: libraries/classes/Display/Results.php:911
 #: libraries/classes/Html/Generator.php:1295
 #: libraries/classes/Html/Generator.php:1298
@@ -9069,12 +9035,12 @@ msgstr ""
 msgid "Inserted row id: %1$d"
 msgstr ""
 
-#: libraries/classes/LanguageManager.php:963
+#: libraries/classes/LanguageManager.php:970
 msgid "Ignoring unsupported language code."
 msgstr ""
 
-#: libraries/classes/LanguageManager.php:989
-#: libraries/classes/LanguageManager.php:990 templates/setup/home/index.twig:8
+#: libraries/classes/LanguageManager.php:996
+#: libraries/classes/LanguageManager.php:997 templates/setup/home/index.twig:8
 #: templates/setup/home/index.twig:9
 msgid "Language"
 msgstr "மொழி"
@@ -9266,7 +9232,7 @@ msgid "Procedures:"
 msgstr "செயல்முறைகள்:"
 
 #: libraries/classes/Navigation/Navigation.php:221
-#: templates/display/export/selection.twig:5
+#: templates/database/export/index.twig:14
 msgid "Tables:"
 msgstr "அட்டவணைகள்:"
 
@@ -9822,19 +9788,19 @@ msgstr ""
 msgid "Your session has expired. Please log in again."
 msgstr "உங்கள் அமர்வு முடிவுற்றது.மீண்டும் புகுபதிவு செய்க."
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:288
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:289
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgstr ""
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:323
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:324
 msgid "Failed to connect to the reCAPTCHA service!"
 msgstr ""
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:325
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:326
 msgid "Entered captcha is wrong, try again!"
 msgstr ""
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:358
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:359
 #, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
@@ -9870,8 +9836,7 @@ msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:87
-#: templates/display/export/format_dropdown.twig:2
-#: templates/display/import/import.twig:209
+#: templates/display/import/import.twig:209 templates/export.twig:94
 msgid "Format:"
 msgstr ""
 
@@ -12356,9 +12321,8 @@ msgstr ""
 
 #: templates/columns_definitions/column_definitions_form.twig:32
 #: templates/console/display.twig:99
-#: templates/database/central_columns/main.twig:212
-#: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
-#: templates/export/alias_add.twig:46
+#: templates/database/central_columns/main.twig:212 templates/export.twig:244
+#: templates/export.twig:258 templates/export.twig:272
 msgid "Add"
 msgstr "சேர்க்க"
 
@@ -12857,6 +12821,13 @@ msgstr ""
 msgid "No index defined!"
 msgstr ""
 
+#: templates/database/designer/database_tables.twig:31
+#: templates/database/export/index.twig:29
+#: templates/database/search/main.twig:43 templates/server/export/index.twig:12
+#: templates/server/replication/database_multibox.twig:7
+msgid "Select all"
+msgstr "அனைத்தையும் தெரிவுசெய்க"
+
 #: templates/database/designer/database_tables.twig:37
 #, fuzzy
 #| msgid "Move columns"
@@ -13158,6 +13129,24 @@ msgstr "அனைத்தையும் தெரி"
 msgid "Event scheduler status"
 msgstr ""
 
+#: templates/database/export/index.twig:62
+#, fuzzy
+#| msgid "@SERVER@ will become the server name"
+msgid ""
+"@SERVER@ will become the server name and @DATABASE@ will become the database "
+"name."
+msgstr "@SERVER@ ஆனது வழங்கியின் பெயராக கொள்ளப்படும்"
+
+#. l10n: A query that the user has written freely
+#: templates/database/export/index.twig:5
+msgid "Exporting a raw query"
+msgstr ""
+
+#: templates/database/export/index.twig:7
+#, php-format
+msgid "Exporting tables from \"%s\" database"
+msgstr ""
+
 #: templates/database/multi_table_query/form.twig:4
 #: templates/database/qbe/index.twig:4
 #, fuzzy
@@ -13256,8 +13245,7 @@ msgstr "தரவுத்தள கருத்துரை"
 msgid "Rename database to"
 msgstr "தரவுத்தளத்தைப் இப்படி மறுபெயரிடுக"
 
-#: templates/database/operations/index.twig:64
-#: templates/export/alias_add.twig:15
+#: templates/database/operations/index.twig:64 templates/export.twig:241
 msgid "New database name"
 msgstr "தரவுத்தளத்தின் புதிய பெயர்"
 
@@ -13507,8 +13495,7 @@ msgstr "சொற்கள் ஓர் இடைவெளி எழுத்த
 msgid "Inside tables:"
 msgstr "அட்டவணைகளில்:"
 
-#: templates/database/search/main.twig:46
-#: templates/display/export/select_options.twig:8
+#: templates/database/search/main.twig:46 templates/server/export/index.twig:16
 #: templates/server/replication/database_multibox.twig:8
 #, fuzzy
 #| msgid "Unselect All"
@@ -13729,226 +13716,6 @@ msgstr "அட்டவணையை கண்காணி"
 msgid "There are no triggers to display."
 msgstr ""
 
-#: templates/display/export/method.twig:3
-#, fuzzy
-#| msgid "Export schema"
-msgid "Export method:"
-msgstr "ஒழுங்கமைவை தரவேற்றுக"
-
-#: templates/display/export/method.twig:9
-msgid "Quick - display only the minimal options"
-msgstr ""
-
-#: templates/display/export/method.twig:17
-msgid "Custom - display all possible options"
-msgstr ""
-
-#: templates/display/export/option_header.twig:5
-msgid "Exporting databases from the current server"
-msgstr ""
-
-#: templates/display/export/option_header.twig:7
-#, php-format
-msgid "Exporting tables from \"%s\" database"
-msgstr ""
-
-#. l10n: A query that the user has written freely
-#: templates/display/export/option_header.twig:9
-msgid "Exporting a raw query"
-msgstr ""
-
-#: templates/display/export/option_header.twig:11
-#, php-format
-msgid "Exporting rows from \"%s\" table"
-msgstr ""
-
-#: templates/display/export/options_format.twig:2
-#: templates/display/import/import.twig:215
-msgid "Format-specific options:"
-msgstr ""
-
-#: templates/display/export/options_format.twig:4
-#: templates/display/import/import.twig:217
-msgid ""
-"Scroll down to fill in the options for the selected format and ignore the "
-"options for other formats."
-msgstr ""
-
-#: templates/display/export/options_format.twig:12
-#: templates/display/import/import.twig:226
-msgid "Encoding Conversion:"
-msgstr ""
-
-#: templates/display/export/options_output.twig:2
-#: templates/display/export/options_quick_export.twig:2
-msgid "Output:"
-msgstr ""
-
-#: templates/display/export/options_output.twig:25
-msgid "Save output to a file"
-msgstr "வெளியீட்டை ஒரு கோப்பாக சேமிக்க"
-
-#: templates/display/export/options_output.twig:32
-#: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
-#| msgid "%1$s match in <strong>%2$s</strong>"
-#| msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "%1$s அட்டவணையில் பொருந்தியவை <strong>%2$s </strong>"
-
-#: templates/display/export/options_output.twig:46
-msgid "File name template:"
-msgstr ""
-
-#: templates/display/export/options_output.twig:48
-msgid ""
-"This value is interpreted using the 'strftime' function, so you can use time "
-"formatting strings. Additionally the following transformations will happen:"
-msgstr ""
-
-#: templates/display/export/options_output.twig:50
-#, fuzzy
-#| msgid "@SERVER@ will become the server name"
-msgid "@SERVER@ will become the server name."
-msgstr "@SERVER@ ஆனது வழங்கியின் பெயராக கொள்ளப்படும்"
-
-#: templates/display/export/options_output.twig:52
-#, fuzzy
-#| msgid "@SERVER@ will become the server name"
-msgid ""
-"@SERVER@ will become the server name, @DATABASE@ will become the database "
-"name."
-msgstr "@SERVER@ ஆனது வழங்கியின் பெயராக கொள்ளப்படும்"
-
-#: templates/display/export/options_output.twig:54
-msgid ""
-"@SERVER@ will become the server name, @DATABASE@ will become the database "
-"name, @TABLE@ will become the table name."
-msgstr ""
-
-#: templates/display/export/options_output.twig:56
-msgid "Other text will be kept as is. See the FAQ 6.27 for details."
-msgstr ""
-
-#: templates/display/export/options_output.twig:63
-msgid "use this for future exports"
-msgstr ""
-
-#: templates/display/export/options_output.twig:70
-#: templates/display/import/import.twig:135
-msgid "Character set of the file:"
-msgstr ""
-
-#: templates/display/export/options_output.twig:86
-msgid "Compression:"
-msgstr ""
-
-#: templates/display/export/options_output.twig:93
-msgid "zipped"
-msgstr ""
-
-#: templates/display/export/options_output.twig:99
-msgid "gzipped"
-msgstr ""
-
-#: templates/display/export/options_output.twig:114
-#, fuzzy
-#| msgid "Export views as tables"
-msgid "Export databases as separate files"
-msgstr "விவரபார்வையை அட்டவணையாக தரவாக்குக"
-
-#: templates/display/export/options_output.twig:116
-#, fuzzy
-#| msgid "Export table headers"
-msgid "Export tables as separate files"
-msgstr "அட்டவணை தலைப்புகளை தரவேற்றுக"
-
-#: templates/display/export/options_output.twig:128
-msgid "View output as text"
-msgstr ""
-
-#: templates/display/export/options_output.twig:134
-#, php-format
-msgid "Skip tables larger than %s MiB"
-msgstr ""
-
-#: templates/display/export/options_rows.twig:2
-msgid "Rows:"
-msgstr ""
-
-#: templates/display/export/options_rows.twig:7
-msgid "Dump some row(s)"
-msgstr ""
-
-#: templates/display/export/options_rows.twig:10
-#: templates/display/results/table.twig:49
-#: templates/start_and_number_of_rows_panel.twig:10
-msgid "Number of rows:"
-msgstr "நிரைவரிசைகளின் எண்ணிக்கை:"
-
-#: templates/display/export/options_rows.twig:22
-msgid "Row to begin at:"
-msgstr ""
-
-#: templates/display/export/options_rows.twig:31
-msgid "Dump all rows"
-msgstr ""
-
-#: templates/display/export/query.twig:8
-#, fuzzy
-#| msgid "Show SQL queries"
-msgid "Show SQL query"
-msgstr "SQL வினவல்களை காட்டுக"
-
-#: templates/display/export/selection.twig:3
-#, fuzzy
-#| msgid "Databases"
-msgid "Databases:"
-msgstr "தரவுத்தளங்கள்"
-
-#: templates/display/export/template_loading.twig:2
-#, fuzzy
-#| msgid "Export contents"
-msgid "Export templates:"
-msgstr "உள்ளடக்கத்தை தரவேற்றுக"
-
-#: templates/display/export/template_loading.twig:6
-#, fuzzy
-#| msgid "New page"
-msgid "New template:"
-msgstr "புது பக்கம்"
-
-#: templates/display/export/template_loading.twig:8
-#, fuzzy
-#| msgid "Page name"
-msgid "Template name"
-msgstr "பக்கத்தின் பெயர்"
-
-#: templates/display/export/template_loading.twig:10
-#: templates/server/databases/index.twig:55
-msgid "Create"
-msgstr ""
-
-#: templates/display/export/template_loading.twig:16
-msgid "Existing templates:"
-msgstr ""
-
-#: templates/display/export/template_loading.twig:17
-msgid "Template:"
-msgstr ""
-
-#: templates/display/export/template_loading.twig:21
-#, fuzzy
-#| msgid "Updated"
-msgid "Update"
-msgstr "புதுப்பிக்கப்பட்டது"
-
-#: templates/display/export/template_options.twig:1
-#, fuzzy
-#| msgid "Select a table"
-msgid "Select a template"
-msgstr "ஒரு அட்டவணையை தேர்வுசெய்க"
-
 #: templates/display/import/import.twig:40
 msgid "Importing into the current server"
 msgstr ""
@@ -14019,6 +13786,10 @@ msgstr "பதிவேற்றுவதற்கு எந்த கோப�
 msgid "File uploads are not allowed on this server."
 msgstr ""
 
+#: templates/display/import/import.twig:135 templates/export.twig:336
+msgid "Character set of the file:"
+msgstr ""
+
 #: templates/display/import/import.twig:163
 #, fuzzy
 #| msgid "Partial Import:"
@@ -14047,6 +13818,20 @@ msgstr ""
 #| msgid "Options"
 msgid "Other options:"
 msgstr "விருப்பத்தேர்வுகள்"
+
+#: templates/display/import/import.twig:215 templates/export.twig:406
+msgid "Format-specific options:"
+msgstr ""
+
+#: templates/display/import/import.twig:217 templates/export.twig:408
+msgid ""
+"Scroll down to fill in the options for the selected format and ignore the "
+"options for other formats."
+msgstr ""
+
+#: templates/display/import/import.twig:226 templates/export.twig:416
+msgid "Encoding Conversion:"
+msgstr ""
 
 #: templates/display/import/javascript.twig:12
 msgid ""
@@ -14100,6 +13885,11 @@ msgstr "தொகுத்தை சேமிக்க"
 #: templates/display/results/table.twig:38
 msgid "Restore column order"
 msgstr "நெடுவரிசையின் வரிசையை மீட்டமை"
+
+#: templates/display/results/table.twig:49 templates/export.twig:110
+#: templates/start_and_number_of_rows_panel.twig:10
+msgid "Number of rows:"
+msgstr "நிரைவரிசைகளின் எண்ணிக்கை:"
 
 #: templates/display/results/table.twig:52
 msgid "All"
@@ -14174,38 +13964,189 @@ msgstr ""
 msgid "You may examine the data in the error report:"
 msgstr ""
 
-#: templates/export/alias_add.twig:4
+#: templates/export/template_options.twig:1 templates/export.twig:30
+#, fuzzy
+#| msgid "Select a table"
+msgid "Select a template"
+msgstr "ஒரு அட்டவணையை தேர்வுசெய்க"
+
+#: templates/export.twig:15
+#, fuzzy
+#| msgid "Export contents"
+msgid "Export templates:"
+msgstr "உள்ளடக்கத்தை தரவேற்றுக"
+
+#: templates/export.twig:19
+#, fuzzy
+#| msgid "New page"
+msgid "New template:"
+msgstr "புது பக்கம்"
+
+#: templates/export.twig:20
+#, fuzzy
+#| msgid "Page name"
+msgid "Template name"
+msgstr "பக்கத்தின் பெயர்"
+
+#: templates/export.twig:21 templates/server/databases/index.twig:55
+msgid "Create"
+msgstr ""
+
+#: templates/export.twig:27
+msgid "Existing templates:"
+msgstr ""
+
+#: templates/export.twig:28
+msgid "Template:"
+msgstr ""
+
+#: templates/export.twig:37
+#, fuzzy
+#| msgid "Updated"
+msgid "Update"
+msgstr "புதுப்பிக்கப்பட்டது"
+
+#: templates/export.twig:53
+#, fuzzy
+#| msgid "Show SQL queries"
+msgid "Show SQL query"
+msgstr "SQL வினவல்களை காட்டுக"
+
+#: templates/export.twig:72
+#, fuzzy
+#| msgid "Export schema"
+msgid "Export method:"
+msgstr "ஒழுங்கமைவை தரவேற்றுக"
+
+#: templates/export.twig:78
+msgid "Quick - display only the minimal options"
+msgstr ""
+
+#: templates/export.twig:86
+msgid "Custom - display all possible options"
+msgstr ""
+
+#: templates/export.twig:102
+msgid "Rows:"
+msgstr ""
+
+#: templates/export.twig:107
+msgid "Dump some row(s)"
+msgstr ""
+
+#: templates/export.twig:121
+msgid "Row to begin at:"
+msgstr ""
+
+#: templates/export.twig:130
+msgid "Dump all rows"
+msgstr ""
+
+#: templates/export.twig:138 templates/export.twig:279
+msgid "Output:"
+msgstr ""
+
+#: templates/export.twig:143 templates/export.twig:309
+#, fuzzy, php-format
+#| msgid "%1$s match in <strong>%2$s</strong>"
+#| msgid_plural "%1$s matches in <strong>%2$s</strong>"
+msgid "Save on server in the directory <strong>%s</strong>"
+msgstr "%1$s அட்டவணையில் பொருந்தியவை <strong>%2$s </strong>"
+
+#: templates/export.twig:157 templates/export.twig:284
+msgid "Rename exported databases/tables/columns"
+msgstr ""
+
+#: templates/export.twig:162
+msgid "Defined aliases"
+msgstr ""
+
+#: templates/export.twig:177 templates/export.twig:191
+#: templates/export.twig:204 templates/export.twig:221
+msgid "Remove"
+msgstr ""
+
+#: templates/export.twig:230
 msgid "Define new aliases"
 msgstr ""
 
-#: templates/export/alias_add.twig:9
+#: templates/export.twig:235
 #, fuzzy
 #| msgid "Select database"
 msgid "Select database:"
 msgstr "ஒரு தரவுத்தளத்தை தேர்வுசெய்க"
 
-#: templates/export/alias_add.twig:23
+#: templates/export.twig:249
 #, fuzzy
 #| msgid "Select table"
 msgid "Select table:"
 msgstr "அட்டவணையை தேர்வுசெய்க"
 
-#: templates/export/alias_add.twig:29
+#: templates/export.twig:255
 msgid "New table name"
 msgstr "அட்டவணையின் புதிய பெயர்"
 
-#: templates/export/alias_add.twig:37
+#: templates/export.twig:263
 #, fuzzy
 #| msgid "Select a column."
 msgid "Select column:"
 msgstr "ஒரு நெடுவரிசையை தேர்ந்தெடுக்கவும்."
 
-#: templates/export/alias_add.twig:43
+#: templates/export.twig:269
 msgid "New column name"
 msgstr "புதிய நிரல்வரிசையின் பெயர்"
 
-#: templates/export/alias_item.twig:8
-msgid "Remove"
+#: templates/export.twig:302
+msgid "Save output to a file"
+msgstr "வெளியீட்டை ஒரு கோப்பாக சேமிக்க"
+
+#: templates/export.twig:323
+msgid "File name template:"
+msgstr ""
+
+#: templates/export.twig:324
+#, php-format
+msgid ""
+"This value is interpreted using the 'strftime' function, so you can use time "
+"formatting strings. Additionally the following transformations will happen: "
+"%s Other text will be kept as is. See the FAQ 6.27 for details."
+msgstr ""
+
+#: templates/export.twig:329
+msgid "use this for future exports"
+msgstr ""
+
+#: templates/export.twig:352
+msgid "Compression:"
+msgstr ""
+
+#: templates/export.twig:359
+msgid "zipped"
+msgstr ""
+
+#: templates/export.twig:365
+msgid "gzipped"
+msgstr ""
+
+#: templates/export.twig:380
+#, fuzzy
+#| msgid "Export views as tables"
+msgid "Export databases as separate files"
+msgstr "விவரபார்வையை அட்டவணையாக தரவாக்குக"
+
+#: templates/export.twig:382
+#, fuzzy
+#| msgid "Export table headers"
+msgid "Export tables as separate files"
+msgstr "அட்டவணை தலைப்புகளை தரவேற்றுக"
+
+#: templates/export.twig:394
+msgid "View output as text"
+msgstr ""
+
+#: templates/export.twig:400
+#, php-format
+msgid "Skip tables larger than %s MiB"
 msgstr ""
 
 #: templates/filter.twig:4 templates/server/status/processes/index.twig:7
@@ -15121,6 +15062,22 @@ msgstr ""
 #| msgid "Storage Engines"
 msgid "Unknown storage engine."
 msgstr "சேமிப்பக செயல்பொறிகள்"
+
+#: templates/server/export/index.twig:32
+#, fuzzy
+#| msgid "@SERVER@ will become the server name"
+msgid "@SERVER@ will become the server name."
+msgstr "@SERVER@ ஆனது வழங்கியின் பெயராக கொள்ளப்படும்"
+
+#: templates/server/export/index.twig:3
+msgid "Exporting databases from the current server"
+msgstr ""
+
+#: templates/server/export/index.twig:7
+#, fuzzy
+#| msgid "Databases"
+msgid "Databases:"
+msgstr "தரவுத்தளங்கள்"
 
 #: templates/server/plugins/index.twig:26
 msgid "Plugin"
@@ -16416,6 +16373,19 @@ msgstr "மதிப்பு நிரல்வரிசை:"
 
 #: templates/table/chart/tbl_chart.twig:151
 msgid "Save chart as image"
+msgstr ""
+
+#: templates/table/export/index.twig:8
+#, fuzzy
+#| msgid "@SERVER@ will become the server name"
+msgid ""
+"@SERVER@ will become the server name, @DATABASE@ will become the database "
+"name and @TABLE@ will become the table name."
+msgstr "@SERVER@ ஆனது வழங்கியின் பெயராக கொள்ளப்படும்"
+
+#: templates/table/export/index.twig:5
+#, php-format
+msgid "Exporting rows from \"%s\" table"
 msgstr ""
 
 #: templates/table/find_replace/index.twig:4
@@ -18045,6 +18015,9 @@ msgstr ""
 #: libraries/advisory_rules_mysql_before80003.txt:57
 msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
+
+#~ msgid "View dump (schema) of database"
+#~ msgstr "தரவுத்தளத்தின் குவியலமைப்பை (திட்ட வடிவத்தைப்) பார்க்க"
 
 #, fuzzy
 #~| msgid "Created"
