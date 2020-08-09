@@ -96,6 +96,13 @@ class LanguageManager
             'be[-_]lat|be@latin|belarusian latin',
             '',
         ],
+        'ber' => [
+            'ber',
+            'Berber',
+            'Tamaziɣt',
+            'ber|berber',
+            '',
+        ],
         'bg' => [
             'bg',
             'Bulgarian',
