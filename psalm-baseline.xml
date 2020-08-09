@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.13.1@afd8874a9e4562eac42a02de90e42e430c3a1db1">
+<files psalm-version="3.12.2@7c7ebd068f8acaba211d4a2c707c4ba90874fa26">
   <file src="libraries/classes/Advisor.php">
     <PossiblyNullArgument occurrences="1">
       <code>Util::formatByteDown($value, $limes, $comma)</code>
@@ -21,9 +21,6 @@
       <code>$this-&gt;dbi-&gt;getError()</code>
       <code>$this-&gt;dbi-&gt;getError(DatabaseInterface::CONNECT_CONTROL)</code>
     </PossiblyInvalidArgument>
-    <TypeDoesNotContainType occurrences="1">
-      <code>$table == ''</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Charsets.php">
     <TypeDoesNotContainType occurrences="1">
@@ -31,72 +28,6 @@
     </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Charsets/Collation.php">
-    <ImpureByReferenceAssignment occurrences="64">
-      <code>$name</code>
-      <code>$variant</code>
-      <code>$name</code>
-      <code>$unicode</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$unicode</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$unknown</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$level</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$level</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$found</code>
-    </ImpureByReferenceAssignment>
     <PossiblyNullArgument occurrences="1">
       <code>$name</code>
     </PossiblyNullArgument>
@@ -473,9 +404,6 @@
     <PossiblyNullArgument occurrences="1">
       <code>$where_clause ?? null</code>
     </PossiblyNullArgument>
-    <TypeDoesNotContainType occurrences="1">
-      <code>$biggest_max_file_size &gt; 0</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Controllers/Table/ChartController.php">
     <ImplicitToStringCast occurrences="1">
@@ -610,11 +538,6 @@
     <TypeDoesNotContainType occurrences="1">
       <code>is_string($data)</code>
     </TypeDoesNotContainType>
-    <UndefinedConstant occurrences="3">
-      <code>PMA_USR_BROWSER_AGENT</code>
-      <code>PMA_USR_BROWSER_AGENT</code>
-      <code>PMA_USR_BROWSER_VER</code>
-    </UndefinedConstant>
   </file>
   <file src="libraries/classes/CreateAddField.php">
     <PossiblyFalseArgument occurrences="1">
@@ -651,8 +574,7 @@
     <NullArgument occurrences="1">
       <code>null</code>
     </NullArgument>
-    <PossiblyNullArgument occurrences="2">
-      <code>$table</code>
+    <PossiblyNullArgument occurrences="1">
       <code>$sortOrder</code>
     </PossiblyNullArgument>
     <PossiblyNullArrayAccess occurrences="1">
@@ -665,9 +587,6 @@
     </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="libraries/classes/Database/Routines.php">
-    <InvalidScalarArgument occurrences="1">
-      <code>$affected</code>
-    </InvalidScalarArgument>
     <PossiblyInvalidArgument occurrences="2">
       <code>$routine['item_type_toggle']</code>
       <code>$routine['item_returntype']</code>
@@ -905,13 +824,6 @@
       <code>$errorNumber</code>
     </PossiblyNullArgument>
   </file>
-  <file src="libraries/classes/ErrorReport.php">
-    <UndefinedConstant occurrences="3">
-      <code>PMA_USR_BROWSER_AGENT</code>
-      <code>PMA_USR_BROWSER_VER</code>
-      <code>PMA_USR_OS</code>
-    </UndefinedConstant>
-  </file>
   <file src="libraries/classes/Export.php">
     <InvalidReturnStatement occurrences="1">
       <code>$memory_limit</code>
@@ -930,10 +842,6 @@
       <code>$line</code>
       <code>$line</code>
     </PossiblyNullArgument>
-    <UndefinedConstant occurrences="2">
-      <code>PMA_USR_BROWSER_AGENT</code>
-      <code>PMA_USR_BROWSER_VER</code>
-    </UndefinedConstant>
   </file>
   <file src="libraries/classes/File.php">
     <FalsableReturnStatement occurrences="1">
@@ -1129,9 +1037,6 @@
     <InvalidArgument occurrences="1">
       <code>$current_result</code>
     </InvalidArgument>
-    <NullableReturnStatement occurrences="1">
-      <code>$dispval</code>
-    </NullableReturnStatement>
     <PossiblyInvalidOperand occurrences="2">
       <code>$tmp</code>
       <code>$insert_id</code>
@@ -1209,6 +1114,12 @@
     <PossiblyFalseReference occurrences="1">
       <code>getPresence</code>
     </PossiblyFalseReference>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$icons</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidIterator occurrences="1">
+      <code>$icons</code>
+    </PossiblyInvalidIterator>
     <PossiblyNullArgument occurrences="3">
       <code>$table</code>
       <code>$container-&gt;realName</code>
@@ -1283,12 +1194,6 @@
       <code>$text</code>
       <code>$text</code>
     </PossiblyNullArgument>
-    <TypeDoesNotContainType occurrences="4">
-      <code>$property_class == BoolPropertyItem::class</code>
-      <code>$property_class == MessageOnlyPropertyItem::class</code>
-      <code>$property_class == SelectPropertyItem::class</code>
-      <code>$property_class == TextPropertyItem::class</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Plugins/Auth/AuthenticationCookie.php">
     <ImplementedReturnTypeMismatch occurrences="2">
@@ -1443,6 +1348,11 @@
       <code>$res_rel</code>
       <code>$mime_map</code>
     </PossiblyUndefinedVariable>
+  </file>
+  <file src="libraries/classes/Plugins/Export/Helpers/TableProperty.php">
+    <PossiblyFalseArgument occurrences="1">
+      <code>$pos</code>
+    </PossiblyFalseArgument>
   </file>
   <file src="libraries/classes/Plugins/Import/AbstractImportCsv.php">
     <ImplementedReturnTypeMismatch occurrences="1">
@@ -2260,9 +2170,6 @@
       <code>$tmp_initial</code>
       <code>$result['password']</code>
     </PossiblyNullArrayAccess>
-    <PossiblyNullArrayOffset occurrences="1">
-      <code>$array_initials</code>
-    </PossiblyNullArrayOffset>
     <PossiblyUndefinedArrayOffset occurrences="1">
       <code>$_POST['pred_dbname']</code>
     </PossiblyUndefinedArrayOffset>
@@ -2553,10 +2460,9 @@
     <EmptyArrayAccess occurrences="1">
       <code>$group[$group_name]['tab' . $sep . 'count']</code>
     </EmptyArrayAccess>
-    <InvalidArrayOffset occurrences="4">
+    <InvalidArrayOffset occurrences="3">
       <code>$group[$group_name]['is' . $sep . 'group']</code>
       <code>$group[$group_name]['tab' . $sep . 'count']</code>
-      <code>$byteUnits[$d]</code>
       <code>$units[$d]</code>
     </InvalidArrayOffset>
     <InvalidReturnStatement occurrences="1">
@@ -2599,10 +2505,6 @@
       <code>$value</code>
       <code>$value</code>
     </PossiblyInvalidOperand>
-    <PossiblyNullArgument occurrences="2">
-      <code>$max_size</code>
-      <code>$max_unit</code>
-    </PossiblyNullArgument>
     <PossiblyNullArrayAccess occurrences="2">
       <code>$max_size</code>
       <code>$max_unit</code>

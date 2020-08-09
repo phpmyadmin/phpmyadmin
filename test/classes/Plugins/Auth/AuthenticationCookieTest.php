@@ -202,7 +202,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $this->object->showLoginForm();
         $result = ob_get_clean();
 
-        // assertions
+        $this->assertIsString($result);
 
         $this->assertStringContainsString(
             ' id="imLogo"',
@@ -297,7 +297,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $this->object->showLoginForm();
         $result = ob_get_clean();
 
-        // assertions
+        $this->assertIsString($result);
 
         $this->assertStringContainsString('id="imLogo"', $result);
 
@@ -377,7 +377,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $this->object->showLoginForm();
         $result = ob_get_clean();
 
-        // assertions
+        $this->assertIsString($result);
 
         $this->assertStringContainsString('id="imLogo"', $result);
 
@@ -1150,7 +1150,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $method->setAccessible(true);
 
         $encryptedCookie = $this->object->cookieEncrypt(
-            json_encode($payload),
+            (string) json_encode($payload),
             $method->invoke($this->object, null)
         );
         $this->assertEquals(
@@ -1268,6 +1268,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         ob_start();
         $this->object->checkRules();
         $result = ob_get_clean();
+
+        $this->assertIsString($result);
 
         if (empty($expected)) {
             $this->assertEquals($expected, $result);

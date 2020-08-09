@@ -3102,16 +3102,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
-			count: 16
-			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$data of method PhpMyAdmin\\\\Plugins\\\\Auth\\\\AuthenticationCookie\\:\\:cookieEncrypt\\(\\) expects string, string\\|false given\\.$#"
-			count: 1
-			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
 			count: 1
 			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
 
