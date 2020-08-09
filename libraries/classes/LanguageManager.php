@@ -80,6 +80,13 @@ class LanguageManager
             'be[-_]lat|be@latin|belarusian latin',
             '',
         ),
+        'ber' => array(
+            'ber',
+            'Berber',
+            'Tamaziɣt',
+            'ber|berber',
+            '',
+        ),
         'bg' => array(
             'bg',
             'Bulgarian',
