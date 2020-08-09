@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2020-05-15 12:41+0000\n"
+"PO-Revision-Date: 2020-08-09 06:43+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-9/en_GB/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.1-dev\n"
+"X-Generator: Weblate 4.2-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -537,15 +537,11 @@ msgid "Output"
 msgstr "Output"
 
 #: gis_data_editor.php:423
-#, fuzzy
-#| msgid ""
-#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-#| "below into the \"Value\" field."
 msgid ""
 "Choose \"ST_GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+"Choose \"ST_GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 
 #: import.php:73
