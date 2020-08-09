@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-07-30 23:36-0300\n"
-"PO-Revision-Date: 2020-04-09 07:26+0000\n"
-"Last-Translator: Predatorix Phoenix <predatorix@web.de>\n"
+"PO-Revision-Date: 2020-08-09 06:43+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "de/>\n"
 "Language: de\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.0-dev\n"
+"X-Generator: Weblate 4.2-dev\n"
 
 #: libraries/classes/Advisor.php:319
 #, php-format
@@ -1995,10 +1995,6 @@ msgid "Maximum tables"
 msgstr "Tabellen Maximum"
 
 #: libraries/classes/Config/Descriptions.php:512
-#, fuzzy
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
@@ -3086,8 +3082,6 @@ msgid "Retain query box"
 msgstr "Abfragefeld weiterhin anzeigen"
 
 #: libraries/classes/Config/Descriptions.php:883
-#, fuzzy
-#| msgid "Allow to display database and table statistics (eg. space usage)."
 msgid "Allow to display database and table statistics (e.g. space usage)."
 msgstr ""
 "Erlaube die Anzeige von Datenbank- und Tabellen-Statistiken, ( z.B. "
@@ -4981,8 +4975,6 @@ msgstr "keine"
 
 #. l10n: SQL Query on modal to show exported query
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:199
-#, fuzzy
-#| msgid "SQL query"
 msgid "SQL Query"
 msgstr "SQL-Befehl"
 
@@ -14016,9 +14008,6 @@ msgid "SQL query on database <b>%s</b>:"
 msgstr "SQL-Befehl in der Datenbank <b>%s</b>:"
 
 #: templates/database/routines/footer.twig:2
-#, fuzzy
-#| msgctxt "Create new column"
-#| msgid "New"
 msgctxt "Create new routine"
 msgid "New"
 msgstr "Neu"
@@ -14353,10 +14342,8 @@ msgstr ""
 "Informationen lesen Sie die %4$sFAQ%5$s."
 
 #: templates/display/export/options_output.twig:50
-#, fuzzy
-#| msgid "@SERVER@ will become the server name"
 msgid "@SERVER@ will become the server name."
-msgstr "@SERVER@ wird durch den Servernamen ersetzt"
+msgstr "@SERVER@ wird durch den Servernamen ersetzt."
 
 #: templates/display/export/options_output.twig:52
 #, fuzzy
@@ -14841,22 +14828,19 @@ msgid "no branch"
 msgstr "kein Zweig"
 
 #: templates/home/git_info.twig:15 templates/home/git_info.twig:22
-#, fuzzy, php-format
-#| msgid "%1$s from %2$s branch"
+#, php-format
 msgid "from %s branch"
-msgstr "%1$s aus dem Zweig %2$s"
+msgstr "aus %s Zweig"
 
 #: templates/home/git_info.twig:25
-#, fuzzy, php-format
-#| msgid "committed on %1$s by %2$s"
+#, php-format
 msgid "committed on %s by %s"
-msgstr "eingetragen am %1$s von %2$s"
+msgstr "eingetragen am %s von %s"
 
 #: templates/home/git_info.twig:32
-#, fuzzy, php-format
-#| msgid "authored on %1$s by %2$s"
+#, php-format
 msgid "authored on %s by %s"
-msgstr "geschrieben am %1$s von %2$s"
+msgstr "geschrieben am %s von %s"
 
 #: templates/home/index.twig:22 templates/login/form.twig:7
 #, php-format
@@ -16995,8 +16979,6 @@ msgid "Index choice:"
 msgstr "Index Auswahl:"
 
 #: templates/table/index_form.twig:52
-#, fuzzy
-#| msgid "Advanced Options"
 msgid "Advanced options"
 msgstr "Zusätzliche Optionen"
 
