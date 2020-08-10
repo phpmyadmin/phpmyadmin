@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2019-11-13 09:04+0000\n"
+"PO-Revision-Date: 2020-08-11 19:44+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-9/nb_NO/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.10-dev\n"
+"X-Generator: Weblate 4.2-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -6941,8 +6941,8 @@ msgstr "Ugyldig IP-adresse: %s"
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Viser %1$d bokmerke (både private og delt)"
+msgstr[1] "Viser %1$d bokmerker (både private og delt)"
 
 #: libraries/classes/Console.php:100
 msgid "No bookmarks"
@@ -8251,8 +8251,9 @@ msgid "Unknown error in file upload."
 msgstr "Ukjent feil oppstod under filopplastingen."
 
 #: libraries/classes/File.php:461
+#, fuzzy
 msgid "File is a symbolic link"
-msgstr ""
+msgstr "Filen er en symbolsk lenke"
 
 #: libraries/classes/File.php:466 libraries/classes/File.php:558
 msgid "File could not be read!"
@@ -8969,12 +8970,12 @@ msgstr "Vis hint"
 #: libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php:36
 msgctxt "Create new database"
 msgid "New"
-msgstr ""
+msgstr "Ny"
 
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:37
 msgctxt "Create new event"
 msgid "New"
-msgstr ""
+msgstr "Ny"
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:26
@@ -8986,12 +8987,12 @@ msgstr "Funsjoner"
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:35
 msgctxt "Create new function"
 msgid "New"
-msgstr ""
+msgstr "Ny"
 
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:35
 msgctxt "Create new index"
 msgid "New"
-msgstr ""
+msgstr "Ny"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedure.php:30
 #, fuzzy
@@ -9010,17 +9011,17 @@ msgstr "Prosedyrer"
 #: libraries/classes/Rte/Footer.php:37
 msgctxt "Create new procedure"
 msgid "New"
-msgstr ""
+msgstr "Ny"
 
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:36
 msgctxt "Create new table"
 msgid "New"
-msgstr ""
+msgstr "Ny"
 
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:37
 msgctxt "Create new trigger"
 msgid "New"
-msgstr ""
+msgstr "Ny"
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:26
@@ -9032,7 +9033,7 @@ msgstr "Visning"
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:36
 msgctxt "Create new view"
 msgid "New"
-msgstr ""
+msgstr "Ny"
 
 #: libraries/classes/Normalization.php:182
 msgid "Make all columns atomic"
@@ -11610,7 +11611,7 @@ msgstr "Rutiner"
 
 #: libraries/classes/Rte/Routines.php:935
 msgid "Parameters"
-msgstr ""
+msgstr "Parameter"
 
 #: libraries/classes/Rte/Routines.php:943
 #, fuzzy
@@ -11648,7 +11649,7 @@ msgstr "Tabellinnstillinger"
 
 #: libraries/classes/Rte/Routines.php:1017
 msgid "Is deterministic"
-msgstr ""
+msgstr "Er deterministisk"
 
 #: libraries/classes/Rte/Routines.php:1036
 msgid ""
@@ -11664,7 +11665,7 @@ msgstr "Sikkerhet"
 
 #: libraries/classes/Rte/Routines.php:1060
 msgid "SQL data access"
-msgstr ""
+msgstr "SQL-datatilgang"
 
 #: libraries/classes/Rte/Routines.php:1143
 #, fuzzy
@@ -12983,7 +12984,7 @@ msgstr "Kommando"
 
 #: libraries/classes/Server/Status/Processes.php:93
 msgid "Progress"
-msgstr ""
+msgstr "Framdrift"
 
 #: libraries/classes/Server/Status/Processes.php:235
 #: libraries/classes/Server/Status/Variables.php:47 templates/filter.twig:2
@@ -13531,7 +13532,7 @@ msgstr ""
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
-msgstr ""
+msgstr "Maksimalt antall tilkoblinger i bruk samtidig siden tjeneren startet."
 
 #: libraries/classes/Server/Status/Variables.php:643
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
@@ -14596,7 +14597,7 @@ msgstr "Statistikkdata"
 #: libraries/classes/Util.php:552
 #, php-format
 msgid "%d errors were found during analysis."
-msgstr ""
+msgstr "%d feil ble funnet under analyse."
 
 #: libraries/classes/Util.php:1054
 msgid "Skip Explain SQL"
@@ -14685,19 +14686,19 @@ msgstr "Utfør"
 
 #: libraries/classes/Util.php:3861
 msgid "SSL is not being used"
-msgstr ""
+msgstr "SSL er ikke i bruk"
 
 #: libraries/classes/Util.php:3866
 msgid "SSL is used with disabled verification"
-msgstr ""
+msgstr "SSL er i bruk med avskrudd bekreftelse"
 
 #: libraries/classes/Util.php:3868
 msgid "SSL is used without certification authority"
-msgstr ""
+msgstr "SSl er i bruk uten sertifikatsmyndighet"
 
 #: libraries/classes/Util.php:3871
 msgid "SSL is used"
-msgstr ""
+msgstr "SSL er i bruk"
 
 #: libraries/classes/Util.php:3992
 msgid "Users"
@@ -14904,7 +14905,7 @@ msgstr "Mangler phpMyAdmin konfigurasjonslagertabeller"
 
 #: prefs_manage.php:53
 msgid "Paste it to your config.inc.php"
-msgstr ""
+msgstr "Lim det inn i din config.inc.php-fil"
 
 #: prefs_manage.php:93
 #, fuzzy
@@ -15271,7 +15272,7 @@ msgstr "Ugylding tabellnavn"
 #: tbl_replace.php:258
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
-msgstr ""
+msgstr "Rad: %1$s, Kolonne: %2$s, Feil: %3$s"
 
 #: tbl_row_action.php:73
 #, fuzzy
