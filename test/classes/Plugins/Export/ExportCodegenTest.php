@@ -241,6 +241,8 @@ class ExportCodegenTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
+        $this->assertIsString($result);
+
         $this->assertStringContainsString(
             '<?xml version="1.0" encoding="utf-8" ?>',
             $result

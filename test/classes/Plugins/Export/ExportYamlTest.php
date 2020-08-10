@@ -135,6 +135,8 @@ class ExportYamlTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
+        $this->assertIsString($result);
+
         $this->assertStringContainsString(
             "%YAML 1.1\n---\n",
             $result

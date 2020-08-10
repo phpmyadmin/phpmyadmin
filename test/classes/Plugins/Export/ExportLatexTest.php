@@ -489,6 +489,8 @@ class ExportLatexTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
+        $this->assertIsString($result);
+
         $this->assertStringContainsString(
             "\n% Host: localhost:80",
             $result
@@ -647,6 +649,8 @@ class ExportLatexTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
+        $this->assertIsString($result);
+
         $this->assertStringContainsString(
             '{datalabel} \\\\\\\\ \hlinefoo',
             $result
@@ -658,10 +662,6 @@ class ExportLatexTest extends AbstractTestCase
      */
     public function testExportStructure(): void
     {
-        // $this->object = $this->getMockBuilder(ExportHtmlword::class)
-        //     ->setMethods(array('formatOneColumnDefinition'))
-        //     ->getMock();
-
         $keys = [
             [
                 'Non_unique' => 0,
@@ -875,6 +875,8 @@ class ExportLatexTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
+        $this->assertIsString($result);
+
         $this->assertStringContainsString(
             '\\textbf{\\textit{name1}} & set(abc) & Yes & NULL & ' .
             'ftable (ffield) &  &  \\\\ \\hline',
@@ -947,6 +949,8 @@ class ExportLatexTest extends AbstractTestCase
             )
         );
         $result = ob_get_clean();
+
+        $this->assertIsString($result);
 
         $this->assertStringContainsString(
             '\\caption{latexstructure} \\label{latexlabel}',

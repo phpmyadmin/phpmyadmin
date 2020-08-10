@@ -280,6 +280,8 @@ class ExportTexytextTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
+        $this->assertIsString($result);
+
         $this->assertStringContainsString(
             '|fName1|fNa&amp;quot;me2|fName3',
             $result
@@ -554,6 +556,8 @@ class ExportTexytextTest extends AbstractTestCase
             )
         );
         $result = ob_get_clean();
+
+        $this->assertIsString($result);
 
         $this->assertStringContainsString(
             '== Table structure for table t&amp;bl' . "\n\ndumpText1",

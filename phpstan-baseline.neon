@@ -2966,11 +2966,6 @@ parameters:
 			path: test/classes/Config/DescriptionTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, null given\\.$#"
-			count: 5
-			path: test/classes/Config/FormDisplayTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of function strip_tags expects string, string\\|false given\\.$#"
 			count: 1
 			path: test/classes/ConfigTest.php
@@ -3009,16 +3004,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$data of function bin2hex expects string, string\\|false given\\.$#"
 			count: 1
 			path: test/classes/FileTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$expected of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) expects class\\-string\\<object\\>, string given\\.$#"
-			count: 1
-			path: test/classes/Gis/GisFactoryTest.php
-
-		-
-			message: "#^Unable to resolve the template type ExpectedType in call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\)$#"
-			count: 1
-			path: test/classes/Gis/GisFactoryTest.php
 
 		-
 			message: "#^Call to an undefined method object\\:\\:generateParams\\(\\)\\.$#"
@@ -3086,29 +3071,9 @@ parameters:
 			path: test/classes/LanguageTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
-			count: 1
-			path: test/classes/Navigation/NavigationTreeTest.php
-
-		-
 			message: "#^Parameter \\#2 \\$name of static method PhpMyAdmin\\\\Navigation\\\\NodeFactory\\:\\:getInstance\\(\\) expects string, array\\<string, string\\> given\\.$#"
 			count: 1
 			path: test/classes/Navigation/Nodes/NodeColumnTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
-			count: 4
-			path: test/classes/Plugins/Auth/AuthenticationConfigTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
-			count: 1
-			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
-			count: 1
-			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$version1 of function version_compare expects string, string\\|false given\\.$#"
@@ -3116,44 +3081,9 @@ parameters:
 			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
-			count: 4
-			path: test/classes/Plugins/Export/ExportCodegenTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars_decode expects string, string\\|false given\\.$#"
 			count: 1
 			path: test/classes/Plugins/Export/ExportHtmlwordTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
-			count: 5
-			path: test/classes/Plugins/Export/ExportLatexTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
-			count: 3
-			path: test/classes/Plugins/Export/ExportPhparrayTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
-			count: 35
-			path: test/classes/Plugins/Export/ExportSqlTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
-			count: 3
-			path: test/classes/Plugins/Export/ExportTexytextTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
-			count: 11
-			path: test/classes/Plugins/Export/ExportXmlTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportYamlTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$subgroupHeader of method PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\:\\:setSubgroupHeader\\(\\) expects PhpMyAdmin\\\\Properties\\\\PropertyItem, string given\\.$#"
@@ -3161,17 +3091,7 @@ parameters:
 			path: test/classes/Properties/Options/Groups/OptionsPropertySubgroupTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNull\\(\\) with void will always evaluate to false\\.$#"
-			count: 1
-			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$property of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup\\:\\:addProperty\\(\\) expects PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem, int given\\.$#"
-			count: 1
-			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
-
-		-
-			message: "#^Result of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup\\:\\:addProperty\\(\\) \\(void\\) is used\\.$#"
 			count: 1
 			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
 
@@ -3189,26 +3109,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$force of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyOneItem\\:\\:setForce\\(\\) expects bool, string given\\.$#"
 			count: 1
 			path: test/classes/Properties/Options/OptionsPropertyOneItemTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$needle of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, bool\\|string given\\.$#"
-			count: 1
-			path: test/classes/Server/PrivilegesTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
-			count: 4
-			path: test/classes/Setup/FormProcessingTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$expected of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) expects class\\-string\\<object\\>, string given\\.$#"
-			count: 1
-			path: test/classes/StorageEngineTest.php
-
-		-
-			message: "#^Unable to resolve the template type ExpectedType in call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\)$#"
-			count: 1
-			path: test/classes/StorageEngineTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$str of function trim expects string, string\\|null given\\.$#"
@@ -3309,11 +3209,6 @@ parameters:
 			message: "#^Parameter \\#7 \\$filter_ts_from of method PhpMyAdmin\\\\Tracking\\:\\:getHtmlForTrackingReport\\(\\) expects int, array given\\.$#"
 			count: 1
 			path: test/classes/TrackingTest.php
-
-		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Message' and true will always evaluate to false\\.$#"
-			count: 1
-			path: test/classes/UserPreferencesTest.php
 
 		-
 			message: "#^Offset 0 does not exist on array\\|null\\.$#"

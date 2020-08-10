@@ -101,6 +101,8 @@ class AuthenticationConfigTest extends AbstractTestCase
         $this->object->showFailure('');
         $html = ob_get_clean();
 
+        $this->assertIsString($html);
+
         $this->assertStringContainsString(
             'You probably did not create a configuration file. You might want ' .
             'to use the <a href="setup/">setup script</a> to create one.',

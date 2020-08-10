@@ -84,6 +84,8 @@ class FormProcessingTest extends AbstractNetworkTestCase
         FormProcessing::process($formDisplay);
         $result = ob_get_clean();
 
+        $this->assertIsString($result);
+
         $this->assertStringContainsString(
             '<div class="error">',
             $result

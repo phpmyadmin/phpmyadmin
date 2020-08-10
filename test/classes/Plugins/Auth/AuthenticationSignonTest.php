@@ -63,6 +63,8 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
         $this->object->showLoginForm();
         $result = ob_get_clean();
 
+        $this->assertIsString($result);
+
         $this->assertStringContainsString(
             'You must set SignonURL!',
             $result

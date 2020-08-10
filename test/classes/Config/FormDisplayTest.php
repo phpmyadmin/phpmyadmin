@@ -168,9 +168,9 @@ class FormDisplayTest extends AbstractTestCase
         $attrIsValidated->setAccessible(true);
         $attrIsValidated->setValue($this->object, []);
 
-        $this->assertNull(
-            $this->object->displayErrors()
-        );
+        $result = $this->object->displayErrors();
+
+        $this->assertNull($result);
 
         $arr = [
             'Servers/1/test' => ['e1'],
@@ -190,6 +190,7 @@ class FormDisplayTest extends AbstractTestCase
 
         $result = $this->object->displayErrors();
 
+        $this->assertIsString($result);
         $this->assertStringContainsString('<dt>Servers/1/test2</dt>', $result);
         $this->assertStringContainsString('<dd>e1</dd>', $result);
         $this->assertStringContainsString('<dt>Form_foobar</dt>', $result);

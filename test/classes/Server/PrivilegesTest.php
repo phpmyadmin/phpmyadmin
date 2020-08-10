@@ -1888,7 +1888,7 @@ class PrivilegesTest extends AbstractTestCase
             $GLOBALS['cfg']['DefaultTabTable']
         );
         $this->assertStringContainsString(
-            $item,
+            (string) $item,
             $actual
         );
     }

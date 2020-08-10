@@ -141,6 +141,8 @@ class ExportPhparrayTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
+        $this->assertIsString($result);
+
         $this->assertStringContainsString(
             '<?php ',
             $result
@@ -169,6 +171,8 @@ class ExportPhparrayTest extends AbstractTestCase
             $this->object->exportDBHeader('db')
         );
         $result = ob_get_clean();
+
+        $this->assertIsString($result);
 
         $this->assertStringContainsString(
             "/**\n * Database `db`\n */",
@@ -290,6 +294,8 @@ class ExportPhparrayTest extends AbstractTestCase
             )
         );
         $result = ob_get_clean();
+
+        $this->assertIsString($result);
 
         $this->assertStringContainsString(
             '$_0_932table',

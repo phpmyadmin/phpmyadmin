@@ -48,10 +48,7 @@ class OptionsPropertyGroupTest extends AbstractTestCase
 
         $properties->setValue($this->stub, [1, 2, 3]);
 
-        $this->assertNull(
-            $this->stub->addProperty(2)
-        );
-
+        $this->stub->addProperty(2);
         $this->stub->addProperty('2');
 
         $this->assertEquals(

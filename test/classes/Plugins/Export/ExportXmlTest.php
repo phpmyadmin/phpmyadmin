@@ -291,6 +291,8 @@ class ExportXmlTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
+        $this->assertIsString($result);
+
         $this->assertStringContainsString(
             '&lt;pma_xml_export version=&quot;1.0&quot; xmlns:pma=&quot;' .
             'https://www.phpmyadmin.net/some_doc_url/&quot;&gt;',
@@ -379,7 +381,8 @@ class ExportXmlTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
-        //echo $result; die;
+        $this->assertIsString($result);
+
         $this->assertStringContainsString(
             '&lt;pma:structure_schemas&gt;' . "\n" .
             '        &lt;pma:database name=&quot;d&amp;lt;&amp;quot;b&quot; collat' .
@@ -416,6 +419,8 @@ class ExportXmlTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
+        $this->assertIsString($result);
+
         $this->assertStringContainsString(
             '&lt;database name=&quot;&amp;amp;db&quot;&gt;',
             $result
@@ -440,6 +445,8 @@ class ExportXmlTest extends AbstractTestCase
             $this->object->exportDBFooter('&db')
         );
         $result = ob_get_clean();
+
+        $this->assertIsString($result);
 
         $this->assertStringContainsString(
             '&lt;/database&gt;',
@@ -531,6 +538,8 @@ class ExportXmlTest extends AbstractTestCase
             )
         );
         $result = ob_get_clean();
+
+        $this->assertIsString($result);
 
         $this->assertStringContainsString(
             '<!-- Table ta&lt;ble -->',

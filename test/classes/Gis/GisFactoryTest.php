@@ -28,6 +28,8 @@ class GisFactoryTest extends AbstractTestCase
      * @param string $type geometry type
      * @param string $geom geometry object
      *
+     * @psalm-param class-string $geom
+     *
      * @dataProvider providerForTestFactory
      */
     public function testFactory(string $type, string $geom): void
