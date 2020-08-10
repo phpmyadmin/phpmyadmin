@@ -479,7 +479,6 @@ class GisVisualization
         $this->init();
         $scale_data = $this->scaleDataSet($this->_data);
 //        $output
-//            = 'if (typeof OpenLayers !== "undefined") {'
 //            . 'var options = {'
 //            . 'projection: new OpenLayers.Projection("EPSG:900913"),'
 //            . 'displayProjection: new OpenLayers.Projection("EPSG:4326"),'

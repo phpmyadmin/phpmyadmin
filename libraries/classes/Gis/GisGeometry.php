@@ -139,11 +139,19 @@ abstract class GisGeometry
      */
     protected function getBoundsForOl($srid, array $scale_data)
     {
-        return 'var minLoc = [' . $scale_data['minX'].', '. $scale_data['minY']. ' ];'
-        . 'var maxLoc = [' . $scale_data['maxX'].', '. $scale_data['maxY']. ' ];'
-        . 'var ext = ol.extent.boundingExtent([minLoc, maxLoc]);'
-        . 'ext  = ol.proj.transformExtent(ext, ol.proj.get("EPSG:' . intval($srid) . '"), ol.proj.get(\'EPSG:3857\'));'
-        . 'map.getView().fit(ext, map.getSize());';
+
+        return sprintf(
+            'var minLoc = [%s, %s];'
+            . 'var maxLoc = [%s, %s];'
+            . 'var ext = ol.extent.boundingExtent([minLoc, maxLoc]);'
+            . 'ext = ol.proj.transformExtent(ext, ol.proj.get("EPSG:%s"), ol.proj.get(\'EPSG:3857\'));'
+            . 'map.getView().fit(ext, map.getSize());',
+            $scale_data['minX'],
+            $scale_data['minY'],
+            $scale_data['maxX'],
+            $scale_data['maxY'],
+            intval($srid)
+        );
     }
 
     /**
@@ -404,7 +412,7 @@ abstract class GisGeometry
     protected function getPointForOpenLayers(array $point, $srid)
     {
         return '(new ol.geom.Point([' . $point[0] . ',' . $point[1] . '])'
-        . '.transform(ol.proj.get("EPSG:' . intval($srid) . '")'
+        . '.transform(ol.proj.get("EPSG:' . ((int) $srid) . '")'
         . ', ol.proj.get(\'EPSG:3857\')))';
     }
 
