@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2019-11-08 14:26+0000\n"
+"PO-Revision-Date: 2020-08-11 19:44+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-9/ia/>\n"
+"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
+"4-9/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.10-dev\n"
+"X-Generator: Weblate 4.2-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -29,9 +29,8 @@ msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"Le %s file non es disponibile sur iste systema, tu visita %s pro ulterior "
-"information.\n"
-"."
+"Le file %s non es disponibile sur iste systema, tu visita %s pro ulterior "
+"information."
 
 #: db_central_columns.php:129
 msgid "The central list of columns for the current database is empty."
@@ -815,8 +814,8 @@ msgid ""
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
 "Immagazinage del cookie de authenticar se es inferior al validitate de "
-"cookie configurate in phpMyAdmin, pro iste ration, tu\n"
-"accesso expirara plus tosto que lo que es configurate in phpMyAdmin."
+"cookie configurate in phpMyAdmin, pro iste ration, tu accesso expirara plus "
+"tosto que lo que es configurate in phpMyAdmin."
 
 #: index.php:577
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -2394,10 +2393,8 @@ msgid "%d object(s) created."
 msgstr "%d objecto(s) create."
 
 #: js/messages.php:582
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column name"
-msgstr "Nomines de columna: "
+msgstr "Nomine de columna"
 
 #: js/messages.php:583 libraries/classes/SqlQueryForm.php:419
 msgid "Submit"
@@ -5336,7 +5333,7 @@ msgid ""
 "Leave blank for no column comments/mime types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Lassa vacue pro nulle commentos/typos mime de columna, proponite:  "
+"Lassa vacue pro nulle commentos/typos mime de columna, proponite: "
 "[kbd]pma__column_info[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1008
@@ -5741,9 +5738,9 @@ msgid ""
 "this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
 "Ambe iste tabella e le tabella del gruppo de usator es requirite per "
-"habilitar le characteristica del menu configurabile,\n"
-"si on lassa un de lor vacue on dishabilitara iste characteristica, "
-"suggerite: [kbd]pma__users[/kbd]."
+"habilitar le characteristica del menu configurabile, si on lassa un de lor "
+"vacue on dishabilitara iste characteristica, suggerite: "
+"[kbd]pma__users[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1227
 msgid "Users table"
@@ -5756,9 +5753,8 @@ msgid ""
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
 "Ambe iste tabella e le tabella de usatores es requirite per habilitar le "
-"characteristica del menu configurabile, si\n"
-"on lassa un de lor vacue on dishabilitara iste characteristica, suggerite: "
-"[kbd]pma__users[/kbd]."
+"characteristica del menu configurabile, si on lassa un de lor vacue on "
+"dishabilitara iste characteristica, suggerite: [kbd]pma__users[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1235
 msgid "User groups table"
@@ -5823,8 +5819,7 @@ msgstr "Monstra modulo pro crear base de datos"
 
 #: libraries/classes/Config/Descriptions.php:1269
 msgid "Show or hide a column displaying the comments for all tables."
-msgstr ""
-"Monstra o cela un columna monstrante le le commentos pro omne tabellas."
+msgstr "Monstra o cela un columna monstrante le commentos pro omne tabellas."
 
 #: libraries/classes/Config/Descriptions.php:1271
 msgid "Show table comments"
@@ -6986,18 +6981,14 @@ msgstr ""
 "installation!"
 
 #: libraries/classes/Database/Designer/Common.php:518
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr ""
-"Le immagazinage del configuration non es preste pro le lista central del "
-"characteristica de columnas."
+"Immagazinage del configuration de phpMyAdmin non es configurate per le "
+"\"characteristica de monstrator\"."
 
 #: libraries/classes/Database/Designer/Common.php:565
 msgid "Error: relationship already exists."
@@ -8527,12 +8518,8 @@ msgstr ""
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] ""
-"Uno\n"
-"%s resultato trovate"
-msgstr[1] ""
-"Altere\n"
-"%s resultatos trovate"
+msgstr[0] "%s resultato trovate"
+msgstr[1] "%s resultatos trovate"
 
 #: libraries/classes/Navigation/NavigationTree.php:1368
 #: libraries/classes/Navigation/NavigationTree.php:1400
@@ -9674,7 +9661,7 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
-"include nomines de columna in cata declaration <code>INSERT</code>  <br /> "
+"include nomines de columna in cata declaration <code>INSERT</code> <br /> "
 "&nbsp; &nbsp; &nbsp; Exemplo: <code>INSERT INTO tbl_name (col_A,col_B,col_C) "
 "VALUES (1,2,3)</code>"
 
@@ -15211,10 +15198,9 @@ msgid "See table structure"
 msgstr "Vide le structura de tabella"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "Selige toto"
+msgstr "Selige \"%s\""
 
 #: templates/database/designer/database_tables.twig:126
 #, php-format
