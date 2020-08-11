@@ -498,7 +498,9 @@ class GisVisualization
             . 'center: ol.proj.fromLonLat([37.41, 8.82]),'
             . 'zoom: 4'
             . '}),'
-            . 'controls: [new ol.control.MousePosition]'
+            . 'controls: [new ol.control.MousePosition({'
+            . 'coordinateFormat: ol.coordinate.createStringXY(4),'
+            . 'projection: \'EPSG:4326\'})]'
             . '});';
         $output .= $this->prepareDataSet($this->data, $scale_data, 'ol', '')
             . '}';
