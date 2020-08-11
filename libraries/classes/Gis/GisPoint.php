@@ -266,16 +266,6 @@ class GisPoint extends GisGeometry
         $point_color,
         array $scale_data
     ) {
-        $style_options = [
-            'pointRadius'  => 3,
-            'fillColor'    => '#ffffff',
-            'strokeColor'  => $point_color,
-            'strokeWidth'  => 2,
-            'label'        => $label,
-            'labelYOffset' => -8,
-            'fontSize'     => 10,
-        ];
-
         $result = 'var fill = new ol.style.Fill({'
             . 'color: "white"'
             . '});'

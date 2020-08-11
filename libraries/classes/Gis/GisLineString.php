@@ -263,13 +263,6 @@ class GisLineString extends GisGeometry
      */
     public function prepareRowAsOl($spatial, $srid, $label, $line_color, array $scale_data)
     {
-        $style_options = [
-            'strokeColor' => $line_color,
-            'strokeWidth' => 2,
-            'label'       => $label,
-            'fontSize'    => 10,
-        ];
-
         $result =  'var style = new ol.style.Style({'
             . 'stroke: new ol.style.Stroke({'
             . 'color: ['. implode(",",$line_color) .'],'

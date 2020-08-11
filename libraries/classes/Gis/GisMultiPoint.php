@@ -266,19 +266,37 @@ class GisMultiPoint extends GisGeometry
         $point_color,
         array $scale_data
     ) {
-        $style_options = [
-            'pointRadius'  => 3,
-            'fillColor'    => '#ffffff',
-            'strokeColor'  => $point_color,
-            'strokeWidth'  => 2,
-            'label'        => $label,
-            'labelYOffset' => -8,
-            'fontSize'     => 10,
-        ];
+        $result = 'var fill = new ol.style.Fill({'
+            . 'color: "white"'
+            . '});'
+            . 'var stroke = new ol.style.Stroke({'
+            . 'color: ['. implode(",",$point_color) .'],'
+            . 'width: 2'
+            . '});'
+            . 'var style = new ol.style.Style({'
+            . 'image: new ol.style.Circle({'
+            . 'fill: fill,'
+            . 'stroke: stroke,'
+            . 'radius: 3'
+            . '}),'
+            . 'fill: fill,';
+
+        if($label) {
+            $result .= 'stroke: stroke,'
+                . 'text: new ol.style.Text({'
+                . 'text: "'. $label .'",'
+                . 'offsetY: -9'
+                . '})';
+        } else{
+            $result .= 'stroke: stroke';
+        }
+
+        $result.= '});';
+
         if ($srid == 0) {
             $srid = 4326;
         }
-        $result = $this->getBoundsForOl($srid, $scale_data);
+        $result .= $this->getBoundsForOl($srid, $scale_data);
 
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
         $multipoint
@@ -291,9 +309,9 @@ class GisMultiPoint extends GisGeometry
 
         return $result . 'var multiPoint = new ol.geom.MultiPoint('
             . $this->getPointsArrayForOpenLayers($points_arr, $srid) . ');'
-            . 'vectorLayer.addFeature(new ol.Feature({geometry: multiPoint}));';
-//           multiPoint.setStyle( json_encode($style_options) . '));';
-//        return '';
+            . 'var feature = new ol.Feature({geometry: multiPoint});'
+            . 'feature.setStyle(style);'
+            . 'vectorLayer.addFeature(feature);';
     }
 
     /**
@@ -421,7 +439,7 @@ class GisMultiPoint extends GisGeometry
                 continue;
             }
 
-            $ol_array .= $this->getPointForOpenLayers($point, $srid) . ', ';
+            $ol_array .= $this->getPointForOpenLayers($point, $srid) . '.getCoordinates(), ';
         }
 
         $olArrayLength = mb_strlen($ol_array);

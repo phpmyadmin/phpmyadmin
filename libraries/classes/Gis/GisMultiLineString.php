@@ -292,7 +292,6 @@ class GisMultiLineString extends GisGeometry
      */
     public function prepareRowAsOl($spatial, $srid, $label, $line_color, array $scale_data)
     {
-
         $row =  'var style = new ol.style.Style({'
             . 'stroke: new ol.style.Stroke({'
             . 'color: ['. implode(",",$line_color) .'],'

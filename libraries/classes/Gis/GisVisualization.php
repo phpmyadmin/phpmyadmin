@@ -482,42 +482,7 @@ class GisVisualization
     {
         $this->init();
         $scale_data = $this->scaleDataSet($this->data);
-//        $output
-//            . 'var options = {'
-//            . 'projection: new OpenLayers.Projection("EPSG:900913"),'
-//            . 'displayProjection: new OpenLayers.Projection("EPSG:4326"),'
-//            . 'units: "m",'
-//            . 'numZoomLevels: 18,'
-//            . 'maxResolution: 156543.0339,'
-//            . 'maxExtent: new OpenLayers.Bounds('
-//            . '-20037508, -20037508, 20037508, 20037508),'
-//            . 'restrictedExtent: new OpenLayers.Bounds('
-//            . '-20037508, -20037508, 20037508, 20037508)'
-//            . '};'
-//            . 'var map = new OpenLayers.Map("openlayersmap", options);'
-//            . 'var layerNone = new OpenLayers.Layer.Boxes('
-//            . '"None", {isBaseLayer: true});'
-//            . 'var layerOSM = new OpenLayers.Layer.OSM("OSM",'
-//            . '['
-//            . '"https://a.tile.openstreetmap.org/${z}/${x}/${y}.png",'
-//            . '"https://b.tile.openstreetmap.org/${z}/${x}/${y}.png",'
-//            . '"https://c.tile.openstreetmap.org/${z}/${x}/${y}.png"'
-//            . ']);'
-//            . 'map.addLayers([layerOSM,layerNone]);'
-//            . 'var vectorLayer = new OpenLayers.Layer.Vector("Data");'
-//            . 'var bound;';
-//        $output .= 'map.addLayer(vectorLayer);'
-//            . 'map.zoomToExtent(bound);'
-//            . 'if (map.getZoom() < 2) {'
-//            . 'map.zoomTo(2);'
-//            . '}'
-//            . 'map.addControl(new OpenLayers.Control.LayerSwitcher());'
-//            . 'map.addControl(new OpenLayers.Control.MousePosition());'
-//            . '}';
-
-//        return $output;
-        $output
-            = 'if (typeof ol !== "undefined") {'
+        $output = 'if (typeof ol !== "undefined") {'
             . 'var vectorLayer = new ol.source.Vector({});'
             . 'var map = new ol.Map({'
             . 'target: \'openlayersmap\','
@@ -532,7 +497,8 @@ class GisVisualization
             . 'view: new ol.View({'
             . 'center: ol.proj.fromLonLat([37.41, 8.82]),'
             . 'zoom: 4'
-            . '})'
+            . '}),'
+            . 'controls: [new ol.control.MousePosition]'
             . '});';
         $output .= $this->prepareDataSet($this->data, $scale_data, 'ol', '')
             . '}';
