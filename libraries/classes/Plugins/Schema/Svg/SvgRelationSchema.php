@@ -38,16 +38,16 @@ class SvgRelationSchema extends ExportRelationSchema
     /** @var RelationStatsSvg[] Relations */
     private $relations = [];
 
-    /** @var int */
+    /** @var int|float */
     private $xMax = 0;
 
-    /** @var int */
+    /** @var int|float */
     private $yMax = 0;
 
-    /** @var int */
+    /** @var int|float */
     private $xMin = 100000;
 
-    /** @var int */
+    /** @var int|float */
     private $yMin = 100000;
 
     /** @var int */

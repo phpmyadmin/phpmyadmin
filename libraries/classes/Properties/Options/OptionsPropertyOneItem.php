@@ -16,7 +16,7 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
     /**
      * Whether to force or not
      *
-     * @var bool
+     * @var bool|string
      */
     private $force_one;
     /**
@@ -48,7 +48,7 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
     /**
      * Gets the force parameter
      *
-     * @return bool
+     * @return bool|string
      */
     public function getForce()
     {
@@ -58,7 +58,7 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
     /**
      * Sets the force parameter
      *
-     * @param bool $force force parameter
+     * @param bool|string $force force parameter
      *
      * @return void
      */

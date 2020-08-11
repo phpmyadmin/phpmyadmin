@@ -331,16 +331,6 @@ parameters:
 			path: libraries/classes/Controllers/Server/VariablesController.php
 
 		-
-			message: "#^Strict comparison using \\=\\=\\= between PhpMyAdmin\\\\Config\\\\Forms\\\\BaseForm and null will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Setup/FormController.php
-
-		-
-			message: "#^Instantiated class PhpMyAdmin\\\\Config\\\\Forms\\\\BaseForm is abstract\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Setup/FormController.php
-
-		-
 			message: "#^Argument of an invalid type array\\|null supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Setup/HomeController.php
@@ -514,11 +504,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\CreateAddField\\:\\:getColumnCreationStatements\\(\\) should return string but returns string\\|null\\.$#"
 			count: 1
 			path: libraries/classes/CreateAddField.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, bool\\|resource given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer.php
 
 		-
 			message: "#^Offset 'DTN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>, \\?'DTN' \\=\\> array\\<int, string\\>, \\?'SCN' \\=\\> array\\<int, string\\>, \\?'STN' \\=\\> array\\<int, string\\>\\)\\.$#"
@@ -1356,16 +1341,6 @@ parameters:
 			path: libraries/classes/Menu.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchArray\\(\\) expects object, resource\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/Navigation.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, bool\\|resource given\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/Navigation.php
-
-		-
 			message: "#^Unreachable statement \\- code above always terminates\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/Nodes/Node.php
@@ -1784,11 +1759,6 @@ parameters:
 			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:endElement\\(\\)\\.$#"
 			count: 2
 			path: libraries/classes/Plugins/Schema/Dia/TableStatsDia.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\:\\:getFontSize\\(\\) should return string but returns int\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Eps/Eps.php
 
 		-
 			message: "#^Cannot call method setTitle\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
@@ -2246,16 +2216,6 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Svg/TableStatsSvg.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$x \\(int\\) does not accept float\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/TableStats.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$y \\(int\\) does not accept float\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/TableStats.php
-
-		-
 			message: "#^Cannot access property \\$type on stdClass\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php
@@ -2281,27 +2241,7 @@ parameters:
 			path: libraries/classes/Plugins/TwoFactor/Application.php
 
 		-
-			message: "#^Return type \\(bool\\) of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyOneItem\\:\\:getForce\\(\\) should be compatible with return type \\(string\\) of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem\\:\\:getForce\\(\\)$#"
-			count: 1
-			path: libraries/classes/Properties/Options/OptionsPropertyOneItem.php
-
-		-
-			message: "#^Parameter \\#1 \\$force \\(bool\\) of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyOneItem\\:\\:setForce\\(\\) should be compatible with parameter \\$force \\(string\\) of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem\\:\\:setForce\\(\\)$#"
-			count: 1
-			path: libraries/classes/Properties/Options/OptionsPropertyOneItem.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Relation\\:\\:\\$dbi \\(PhpMyAdmin\\\\DatabaseInterface\\) does not accept PhpMyAdmin\\\\DatabaseInterface\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchRow\\(\\) expects object, resource given\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, resource given\\.$#"
 			count: 1
 			path: libraries/classes/Relation.php
 
@@ -2311,37 +2251,12 @@ parameters:
 			path: libraries/classes/Relation.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:numRows\\(\\) expects object, resource\\|true given\\.$#"
-			count: 3
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, resource\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
 			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Relation.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, resource\\|true given\\.$#"
-			count: 2
-			path: libraries/classes/Relation.php
-
-		-
 			message: "#^Offset 'comment' does not exist on array\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, bool\\|resource given\\.$#"
-			count: 2
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Relation\\:\\:setDbComment\\(\\) should return bool but returns bool\\|resource\\.$#"
 			count: 1
 			path: libraries/classes/Relation.php
 
@@ -2451,16 +2366,6 @@ parameters:
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchRow\\(\\) expects object, resource\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, bool\\|resource given\\.$#"
-			count: 2
-			path: libraries/classes/Server/Privileges.php
-
-		-
 			message: "#^Offset '@@old_passwords' does not exist on array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
@@ -2492,11 +2397,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, array given\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, resource\\|true given\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
 
@@ -2706,16 +2606,6 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, bool\\|resource given\\.$#"
-			count: 2
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, bool\\|resource given\\.$#"
-			count: 2
-			path: libraries/classes/Table.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
@@ -2723,11 +2613,6 @@ parameters:
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$field \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept null\\.$#"
 			count: 2
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchArray\\(\\) expects object, bool\\|resource given\\.$#"
-			count: 1
 			path: libraries/classes/Table.php
 
 		-
@@ -2791,26 +2676,6 @@ parameters:
 			path: libraries/classes/Tracker.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tracker\\:\\:createVersion\\(\\) should return int but returns bool\\|resource\\.$#"
-			count: 1
-			path: libraries/classes/Tracker.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tracker\\:\\:deleteTracking\\(\\) should return int but returns bool\\|resource\\.$#"
-			count: 1
-			path: libraries/classes/Tracker.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tracker\\:\\:createDatabaseVersion\\(\\) should return int but returns bool\\|resource\\.$#"
-			count: 1
-			path: libraries/classes/Tracker.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tracker\\:\\:changeTracking\\(\\) should return int but returns bool\\|resource\\.$#"
-			count: 1
-			path: libraries/classes/Tracker.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of function rtrim expects string, string\\|false given\\.$#"
 			count: 2
 			path: libraries/classes/Tracker.php
@@ -2826,16 +2691,6 @@ parameters:
 			path: libraries/classes/Tracker.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tracking\\:\\:getListOfVersionsOfTable\\(\\) should return array but returns bool\\|resource\\.$#"
-			count: 1
-			path: libraries/classes/Tracking.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tracking\\:\\:getSqlResultForSelectableTables\\(\\) should return array but returns bool\\|resource\\.$#"
-			count: 1
-			path: libraries/classes/Tracking.php
-
-		-
 			message: "#^Parameter \\#2 \\$filter_ts_from of method PhpMyAdmin\\\\Tracking\\:\\:filter\\(\\) expects string, int given\\.$#"
 			count: 2
 			path: libraries/classes/Tracking.php
@@ -2843,21 +2698,6 @@ parameters:
 		-
 			message: "#^Parameter \\#3 \\$filter_ts_to of method PhpMyAdmin\\\\Tracking\\:\\:filter\\(\\) expects string, int given\\.$#"
 			count: 2
-			path: libraries/classes/Tracking.php
-
-		-
-			message: "#^Call to function is_object\\(\\) with bool\\|resource will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Tracking.php
-
-		-
-			message: "#^Result of && is always false\\.$#"
-			count: 1
-			path: libraries/classes/Tracking.php
-
-		-
-			message: "#^If condition is always false\\.$#"
-			count: 1
 			path: libraries/classes/Tracking.php
 
 		-
@@ -2881,11 +2721,6 @@ parameters:
 			path: libraries/classes/Transformations.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Transformations\\:\\:setMime\\(\\) should return bool but returns bool\\|resource\\.$#"
-			count: 1
-			path: libraries/classes/Transformations.php
-
-		-
 			message: "#^Parameter \\#1 \\$node of method Twig\\\\Compiler\\:\\:subcompile\\(\\) expects Twig\\\\Node\\\\Node, Twig\\\\Node\\\\Node\\|null given\\.$#"
 			count: 3
 			path: libraries/classes/Twig/I18n/NodeTrans.php
@@ -2902,11 +2737,6 @@ parameters:
 
 		-
 			message: "#^Variable \\$http_response_header in isset\\(\\) always exists and is not nullable\\.$#"
-			count: 1
-			path: libraries/classes/Utils/HttpRequest.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
 			count: 1
 			path: libraries/classes/Utils/HttpRequest.php
 
@@ -2974,11 +2804,6 @@ parameters:
 			message: "#^Strict comparison using \\=\\=\\= between array and null will always evaluate to false\\.$#"
 			count: 1
 			path: test/classes/ConfigTest.php
-
-		-
-			message: "#^Offset 'x' does not exist on array\\(\\)\\.$#"
-			count: 1
-			path: test/classes/CoreTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$haystack of function mb_strpos expects string, string\\|false given\\.$#"
@@ -3104,11 +2929,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$property of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup\\:\\:removeProperty\\(\\) expects PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem, string given\\.$#"
 			count: 1
 			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$force of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyOneItem\\:\\:setForce\\(\\) expects bool, string given\\.$#"
-			count: 1
-			path: test/classes/Properties/Options/OptionsPropertyOneItemTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$str of function trim expects string, string\\|null given\\.$#"

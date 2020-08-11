@@ -259,14 +259,15 @@ class HttpRequest
             false,
             stream_context_create($context)
         );
-        if (isset($http_response_header)) {
-            preg_match('#HTTP/[0-9\.]+\s+([0-9]+)#', $http_response_header[0], $out);
-            $httpStatus = intval($out[1]);
 
-            return $this->response($response, $httpStatus, $returnOnlyStatus);
+        if (! isset($http_response_header)) {
+            return null;
         }
 
-        return null;
+        preg_match('#HTTP/[0-9\.]+\s+([0-9]+)#', $http_response_header[0], $out);
+        $httpStatus = intval($out[1]);
+
+        return $this->response($response, $httpStatus, $returnOnlyStatus);
     }
 
     /**

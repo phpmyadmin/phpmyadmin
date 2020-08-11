@@ -70,19 +70,19 @@ class PdfRelationSchema extends ExportRelationSchema
     /** @var string */
     private $ff = PdfLib::PMA_PDF_FONT;
 
-    /** @var int */
+    /** @var int|float */
     private $xMax = 0;
 
-    /** @var int */
+    /** @var int|float */
     private $yMax = 0;
 
     /** @var float|int */
     private $scale;
 
-    /** @var int */
+    /** @var int|float */
     private $xMin = 100000;
 
-    /** @var int */
+    /** @var int|float */
     private $yMin = 100000;
 
     /** @var int */

@@ -913,7 +913,7 @@ class CoreTest extends AbstractNetworkTestCase
      */
     public function testNotSetArray(): void
     {
-        $array = [];
+        $array = ['x' => null];
         $this->assertFalse(Core::isValid($array['x']));
     }
 

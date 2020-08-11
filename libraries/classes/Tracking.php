@@ -116,10 +116,8 @@ class Tracking
 
     /**
      * Function to get the list versions of the table
-     *
-     * @return array
      */
-    public function getListOfVersionsOfTable()
+    public function getListOfVersionsOfTable(): array
     {
         $relation = $this->relation;
         $cfgRelation = $relation->getRelationsParam();
@@ -132,7 +130,13 @@ class Tracking
             $GLOBALS['dbi']->escapeString($GLOBALS['table']) . "' " .
             ' ORDER BY version DESC ';
 
-        return $relation->queryAsControlUser($sql_query);
+        $result = $relation->queryAsControlUser($sql_query);
+
+        if (! is_array($result)) {
+            return [];
+        }
+
+        return $result;
     }
 
     /**

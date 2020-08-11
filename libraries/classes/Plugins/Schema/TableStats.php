@@ -55,10 +55,10 @@ abstract class TableStats
     /** @var array */
     public $primary = [];
 
-    /** @var int */
+    /** @var int|float */
     public $x;
 
-    /** @var int */
+    /** @var int|float */
     public $y;
 
     /** @var int */

@@ -373,9 +373,6 @@
     </PossiblyNullArrayAccess>
   </file>
   <file src="libraries/classes/Controllers/Setup/FormController.php">
-    <ArgumentTypeCoercion occurrences="1">
-      <code>new $formClass($this-&gt;config)</code>
-    </ArgumentTypeCoercion>
     <PossiblyNullArgument occurrences="1">
       <code>$formset</code>
     </PossiblyNullArgument>
@@ -548,11 +545,6 @@
     <PossiblyNullPropertyAssignmentValue occurrences="1">
       <code>null</code>
     </PossiblyNullPropertyAssignmentValue>
-  </file>
-  <file src="libraries/classes/Database/Designer.php">
-    <InvalidArgument occurrences="1">
-      <code>$page_rs</code>
-    </InvalidArgument>
   </file>
   <file src="libraries/classes/Database/Designer/Common.php">
     <InvalidArgument occurrences="1">
@@ -1101,12 +1093,6 @@
       <code>null</code>
     </PossiblyNullPropertyAssignmentValue>
   </file>
-  <file src="libraries/classes/Navigation/Navigation.php">
-    <InvalidArgument occurrences="2">
-      <code>$result</code>
-      <code>$result</code>
-    </InvalidArgument>
-  </file>
   <file src="libraries/classes/Navigation/NavigationTree.php">
     <PossiblyFalseOperand occurrences="1">
       <code>strrpos($class, '\\')</code>
@@ -1505,14 +1491,6 @@
       <code>endElement</code>
     </PossiblyUndefinedMethod>
   </file>
-  <file src="libraries/classes/Plugins/Schema/Eps/Eps.php">
-    <InvalidReturnStatement occurrences="1">
-      <code>$this-&gt;fontSize</code>
-    </InvalidReturnStatement>
-    <InvalidReturnType occurrences="1">
-      <code>string</code>
-    </InvalidReturnType>
-  </file>
   <file src="libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php">
     <InvalidArgument occurrences="2">
       <code>$this-&gt;tables[$masterTable]</code>
@@ -1589,6 +1567,16 @@
     <ArgumentTypeCoercion occurrences="1">
       <code>$diagram</code>
     </ArgumentTypeCoercion>
+    <InvalidScalarArgument occurrences="8">
+      <code>$this-&gt;x</code>
+      <code>$this-&gt;y + 12</code>
+      <code>$this-&gt;x + 5</code>
+      <code>$this-&gt;y + 14</code>
+      <code>$this-&gt;x</code>
+      <code>$this-&gt;y + 12 + $this-&gt;currentCell</code>
+      <code>$this-&gt;x + 5</code>
+      <code>$this-&gt;y + 14 + $this-&gt;currentCell</code>
+    </InvalidScalarArgument>
     <PossiblyUndefinedMethod occurrences="4">
       <code>rect</code>
       <code>showXY</code>
@@ -1925,7 +1913,11 @@
       <code>$this-&gt;tables[$masterTable]</code>
       <code>$this-&gt;tables[$foreignTable]</code>
     </InvalidArgument>
-    <InvalidScalarArgument occurrences="1">
+    <InvalidScalarArgument occurrences="5">
+      <code>$this-&gt;xMax + $border</code>
+      <code>$this-&gt;yMax + $border</code>
+      <code>$this-&gt;xMin - $border</code>
+      <code>$this-&gt;yMin - $border</code>
       <code>$this-&gt;showColor</code>
     </InvalidScalarArgument>
     <PossiblyInvalidArgument occurrences="2">
@@ -1995,18 +1987,22 @@
     <ArgumentTypeCoercion occurrences="1">
       <code>$diagram</code>
     </ArgumentTypeCoercion>
+    <InvalidScalarArgument occurrences="8">
+      <code>$this-&gt;x</code>
+      <code>$this-&gt;y</code>
+      <code>$this-&gt;x + 5</code>
+      <code>$this-&gt;y + 14</code>
+      <code>$this-&gt;x</code>
+      <code>$this-&gt;y + $this-&gt;currentCell</code>
+      <code>$this-&gt;x + 5</code>
+      <code>$this-&gt;y + 14 + $this-&gt;currentCell</code>
+    </InvalidScalarArgument>
     <PossiblyUndefinedMethod occurrences="4">
       <code>printElement</code>
       <code>printElement</code>
       <code>printElement</code>
       <code>printElement</code>
     </PossiblyUndefinedMethod>
-  </file>
-  <file src="libraries/classes/Plugins/Schema/TableStats.php">
-    <InvalidPropertyAssignmentValue occurrences="2">
-      <code>(float) $_POST['t_x'][$key]</code>
-      <code>(float) $_POST['t_y'][$key]</code>
-    </InvalidPropertyAssignmentValue>
   </file>
   <file src="libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php">
     <PossiblyInvalidOperand occurrences="1">
@@ -2040,33 +2036,16 @@
     </InvalidReturnType>
   </file>
   <file src="libraries/classes/Properties/Options/OptionsPropertyOneItem.php">
-    <ImplementedParamTypeMismatch occurrences="1">
-      <code>$force</code>
-    </ImplementedParamTypeMismatch>
     <ImplementedReturnTypeMismatch occurrences="1">
-      <code>bool</code>
+      <code>bool|string</code>
     </ImplementedReturnTypeMismatch>
   </file>
   <file src="libraries/classes/Relation.php">
-    <InvalidArgument occurrences="10">
-      <code>$tableRes</code>
-      <code>$tableRes</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$com_rs</code>
-      <code>$com_rs</code>
-      <code>$com_rs</code>
-      <code>$com_rs</code>
-      <code>$com_rs</code>
-      <code>$com_rs</code>
-    </InvalidArgument>
-    <InvalidReturnStatement occurrences="3">
+    <InvalidReturnStatement occurrences="2">
       <code>$cfgRelation</code>
-      <code>$this-&gt;queryAsControlUser($upd_query)</code>
       <code>$this-&gt;dbi-&gt;insertId(DatabaseInterface::CONNECT_CONTROL)</code>
     </InvalidReturnStatement>
-    <InvalidReturnType occurrences="2">
-      <code>bool</code>
+    <InvalidReturnType occurrences="1">
       <code>int</code>
     </InvalidReturnType>
     <NullableReturnStatement occurrences="1">
@@ -2113,11 +2092,7 @@
     </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="libraries/classes/Server/Privileges.php">
-    <InvalidArgument occurrences="7">
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
+    <InvalidArgument occurrences="3">
       <code>$result</code>
       <code>$result</code>
       <code>$db_rights</code>
@@ -2195,16 +2170,6 @@
     </UndefinedDocblockClass>
   </file>
   <file src="libraries/classes/Server/UserGroups.php">
-    <InvalidArgument occurrences="8">
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-    </InvalidArgument>
     <PossiblyNullIterator occurrences="3">
       <code>$tabs</code>
       <code>$tabs</code>
@@ -2282,12 +2247,7 @@
     </NullableReturnStatement>
   </file>
   <file src="libraries/classes/Table.php">
-    <InvalidArgument occurrences="6">
-      <code>$table_copy_rs</code>
-      <code>$table_copy_rs</code>
-      <code>$comments_copy_rs</code>
-      <code>$comments_copy_rs</code>
-      <code>$this-&gt;relation-&gt;queryAsControlUser($sql_query)</code>
+    <InvalidArgument occurrences="1">
       <code>$keyBlockSizes</code>
     </InvalidArgument>
     <InvalidReturnStatement occurrences="1">
@@ -2361,18 +2321,6 @@
     </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="libraries/classes/Tracker.php">
-    <InvalidReturnStatement occurrences="4">
-      <code>$result</code>
-      <code>$relation-&gt;queryAsControlUser($sql_query)</code>
-      <code>$relation-&gt;queryAsControlUser($sql_query)</code>
-      <code>$relation-&gt;queryAsControlUser($sql_query)</code>
-    </InvalidReturnStatement>
-    <InvalidReturnType occurrences="4">
-      <code>int</code>
-      <code>int</code>
-      <code>int</code>
-      <code>int</code>
-    </InvalidReturnType>
     <InvalidScalarArgument occurrences="1">
       <code>(int) $version - 1</code>
     </InvalidScalarArgument>
@@ -2391,14 +2339,6 @@
     </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Tracking.php">
-    <InvalidReturnStatement occurrences="2">
-      <code>$relation-&gt;queryAsControlUser($sql_query)</code>
-      <code>$relation-&gt;queryAsControlUser($sql_query)</code>
-    </InvalidReturnStatement>
-    <InvalidReturnType occurrences="2">
-      <code>array</code>
-      <code>array</code>
-    </InvalidReturnType>
     <InvalidScalarArgument occurrences="4">
       <code>$filter_ts_from</code>
       <code>$filter_ts_to</code>
@@ -2414,12 +2354,6 @@
       <code>$class_name</code>
       <code>$class_name</code>
     </InvalidArgument>
-    <InvalidReturnStatement occurrences="1">
-      <code>$relation-&gt;queryAsControlUser($upd_query)</code>
-    </InvalidReturnStatement>
-    <InvalidReturnType occurrences="1">
-      <code>bool</code>
-    </InvalidReturnType>
     <PossiblyNullArgument occurrences="1">
       <code>$rtrimmed</code>
     </PossiblyNullArgument>
@@ -2517,8 +2451,9 @@
     <InvalidArrayOffset occurrences="1">
       <code>$context['http']['header']</code>
     </InvalidArrayOffset>
-    <TypeDoesNotContainType occurrences="1">
+    <TypeDoesNotContainType occurrences="2">
       <code>$curlStatus</code>
+      <code>isset($http_response_header)</code>
     </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/VersionInformation.php">

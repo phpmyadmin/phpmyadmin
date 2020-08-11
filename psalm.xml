@@ -35,11 +35,11 @@
 
         <UnresolvableInclude>
             <errorLevel type="suppress">
+                <file name="libraries/classes/Config.php" />
+                <file name="libraries/classes/Controllers/ImportController.php" />
+                <file name="libraries/classes/Controllers/Table/ReplaceController.php" />
                 <file name="libraries/classes/Display/Results.php" />
                 <file name="libraries/classes/Plugins.php" />
-                <file name="libraries/classes/Controllers/Table/ReplaceController.php" />
-                <file name="libraries/classes/Controllers/ImportController.php" />
-                <file name="libraries/classes/Config.php" />
             </errorLevel>
         </UnresolvableInclude>
 
@@ -63,12 +63,13 @@
 
         <InvalidStringClass>
             <errorLevel type="suppress">
-                <file name="libraries/common.inc.php" />
-                <file name="libraries/classes/TwoFactor.php" />
-                <file name="libraries/classes/Plugins.php" />
-                <file name="libraries/classes/Navigation/NodeFactory.php" />
-                <file name="libraries/classes/Config/PageSettings.php" />
                 <file name="libraries/classes/Config/Forms/BaseFormList.php" />
+                <file name="libraries/classes/Config/PageSettings.php" />
+                <file name="libraries/classes/Controllers/Setup/FormController.php" />
+                <file name="libraries/classes/Navigation/NodeFactory.php" />
+                <file name="libraries/classes/Plugins.php" />
+                <file name="libraries/classes/TwoFactor.php" />
+                <file name="libraries/common.inc.php" />
             </errorLevel>
         </InvalidStringClass>
     </issueHandlers>
