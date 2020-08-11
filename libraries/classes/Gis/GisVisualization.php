@@ -500,7 +500,9 @@ class GisVisualization
             . '}),'
             . 'controls: [new ol.control.MousePosition({'
             . 'coordinateFormat: ol.coordinate.createStringXY(4),'
-            . 'projection: \'EPSG:4326\'})]'
+            . 'projection: \'EPSG:4326\'}),'
+            . 'new ol.control.Zoom,'
+            . 'new ol.control.Attribution]'
             . '});';
         $output .= $this->prepareDataSet($this->data, $scale_data, 'ol', '')
             . '}';
