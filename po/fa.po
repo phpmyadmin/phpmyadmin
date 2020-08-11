@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-06-14 22:54+0200\n"
-"PO-Revision-Date: 2020-08-11 12:45+0000\n"
+"PO-Revision-Date: 2020-08-11 17:41+0000\n"
 "Last-Translator: javad noori <cpuintelamd@yahoo.com>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
 "fa/>\n"
@@ -242,26 +242,24 @@ msgstr "خطا در بارگزاری افزونه ها, لطفا مراحل نص
 #: import.php:605 libraries/classes/Sql.php:707 libraries/classes/Sql.php:1534
 #, php-format
 msgid "Bookmark %s has been created."
-msgstr "نشانه گذاری %s ایجاد شده است."
+msgstr "نشانه گذاری %s ایجاد شده است"
 
 #: import.php:615
-#, fuzzy, php-format
+#, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "وارد کردن اطلاعات با موفقیت به پایان رسید، درخواست ها اجرا شد."
-msgstr[1] "وارد کردن اطلاعات با موفقیت به پایان رسید، درخواست ها اجرا شد."
+msgstr[0] "وارد کردن اطلاعات با موفقیت به پایان رسید،%dدرخواست ها اجرا شد."
+msgstr[1] "وارد کردن اطلاعات با موفقیت به پایان رسید، %d درخواست ها اجرا شد."
 
 #: import.php:646
-#, fuzzy, php-format
-#| msgid ""
-#| "Script timeout passed, if you want to finish import, please resubmit same "
-#| "file and import will resume."
+#, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
 "زمان انتظار اسکریپت به پایان رسیده، اگر مایلید عملیات را به پایان برسانید، "
-"همان فایل را دوباره ارسال کنید تا وارد کردن اطلاعات ادامه پیدا کند."
+"%sresubmit the same file%s  را دوباره ارسال کنید تا وارد کردن اطلاعات ادامه "
+"پیدا کند."
 
 #: import.php:656
 msgid ""
@@ -390,6 +388,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
+"شما باید تعداد ردیف ها را کاهش دهید‌ اما با این کار اطلاعات وارده شد در این "
+"ردیف ها حذف خواهد شد. آیا می خواهید این کار را ادامه دهید؟"
 
 #: js/messages.php:78
 #, fuzzy
@@ -414,6 +414,8 @@ msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr ""
+"آیا شما می خواهید که قسمت (های) انتخاب شده را به کلی حذف کنید؟ این کار باعث "
+"حذف کلی تمامی اطلاعات که بر روی قسمت (های) انتخاب شده است می شود!"
 
 #: js/messages.php:88
 #, fuzzy
@@ -441,14 +443,18 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
+"این عمل تلاش می کند تا داده های شما را به جمع بندی جدید تبدیل کند. در موارد "
+"نادر ، به ویژه در مواردی که یک کاراکتر در ترکیب جدید وجود ندارد ، این فرایند "
+"می تواند باعث شود داده ها به طور نادرست در زیر مجموعه جدید ظاهر شوند. در این "
+"حالت پیشنهاد می کنیم که به ترکیب اصلی برگردید و به نکاتی دیگر مراجعه کنید "
 
 #: js/messages.php:99
 msgid "Garbled Data"
-msgstr ""
+msgstr "اطلاعات آشفته ( درهم)"
 
 #: js/messages.php:101
 msgid "Are you sure you wish to change the collation and convert the data?"
-msgstr ""
+msgstr "آیا مطمئن هستید که می خواهید ترکیب را تغییر داده و داده را تبدیل کنید؟"
 
 #: js/messages.php:103
 msgid ""
@@ -459,12 +465,20 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
+"از طریق این عملیات ، MySQL تلاش می کند مقادیر داده را بین همبستگی ها نقشه "
+"بکشد. اگر مجموعه کاراکترها ناسازگار باشند ، ممکن است از بین رفتن داده ها "
+"وجود داشته باشد و ممکن است داده های از دست رفته<b>NOT</b> به سادگی با بازگشت "
+"به عقب ستون های ستون قابل بازیابی باشند. <b>برای تبدیل داده های موجود ، "
+"پیشنهاد می شود از ویژگی ویرایش ستون (ها) (پیوند \"تغییر\") در صفحه ساختار "
+"جدول استفاده کنید. </b>"
 
 #: js/messages.php:112
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
 msgstr ""
+"آیا مطمئن هستید که می خواهید همه داده های تبدیلی و مجموعه ستونها را تغییر "
+"دهید؟"
 
 #: js/messages.php:116
 msgid "Save & close"
@@ -615,7 +629,7 @@ msgstr "صفحه مورد نظر ایجاد گردید"
 
 #: js/messages.php:158
 msgid "Template was loaded."
-msgstr ""
+msgstr "قالب بارگیری شد."
 
 #: js/messages.php:159
 #, fuzzy
@@ -973,7 +987,7 @@ msgstr "از لاگ عمومی"
 
 #: js/messages.php:270
 msgid "The database name is not known for this query in the server's logs."
-msgstr ""
+msgstr "نام بانک اطلاعاتی برای این پرس و جو در لاگهای مربوط به سرور مشخص نیست."
 
 #: js/messages.php:272
 msgid "Analysing logs"
@@ -1185,7 +1199,7 @@ msgstr "شماره پورت معتبر نیست"
 
 #: js/messages.php:342
 msgid "No files available on server for import!"
-msgstr ""
+msgstr "هیچ فایلی بر روی سرور برای ورود موجود نیست!"
 
 #: js/messages.php:344
 #, fuzzy
@@ -1227,7 +1241,7 @@ msgstr "امتحان کردن"
 
 #: js/messages.php:358
 msgid "Formatting SQL…"
-msgstr ""
+msgstr "در حال فرمت کردن SQL …"
 
 #: js/messages.php:359
 #, fuzzy
@@ -1346,6 +1360,8 @@ msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
+"به نظر می رسد اتصال به سرور از بین رفته است. لطفاً اتصال شبکه و وضعیت سرور "
+"خود را بررسی کنید."
 
 #: js/messages.php:381
 #: libraries/classes/Controllers/Server/DatabasesController.php:232
@@ -1354,10 +1370,8 @@ msgid "No databases selected."
 msgstr "هیچ پایگاه داده ای انتخاب نشده است."
 
 #: js/messages.php:382
-#, fuzzy
-#| msgid "No rows selected"
 msgid "No accounts selected."
-msgstr "هیچ سطری انتخاب نشده است"
+msgstr "هیچ حساب ردیفی انتخاب نشده است."
 
 #: js/messages.php:383
 #, fuzzy
@@ -1491,7 +1505,7 @@ msgstr "صدور"
 
 #: js/messages.php:413
 msgid "No routine is exportable. Required privileges may be lacking."
-msgstr ""
+msgstr "هیچ روال صادراتی نیست. مجوز های لازم ممکن است وجود نداشته باشد."
 
 #: js/messages.php:416 templates/rte/routines/parameter_row.twig:24
 msgid "ENUM/SET editor"
@@ -1573,33 +1587,32 @@ msgstr "%d شماره ردیف معتبر نمی باشد."
 #: libraries/classes/Controllers/Table/SearchController.php:942
 #: tbl_change.php:165 templates/sql/relational_column_dropdown.twig:3
 msgid "Browse foreign values"
-msgstr ""
+msgstr "ارزشهای خارجی را مرور کنید"
 
 #: js/messages.php:434
 msgid "No previously auto-saved query is available. Loading default query."
-msgstr ""
+msgstr "هیچ پرس و جو ذخیره شده قبلی در دسترس نیست. بارگیری پرس و جو پیش فرض."
 
 #: js/messages.php:435
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
+"شما یک پرس و جو قبلاً ذخیره شده دارید. برای بارگیری پرس و جو ، روی جستجوی "
+"ذخیره شده خودکار کلیک کنید."
 
 #: js/messages.php:436
-#, fuzzy, php-format
-#| msgid "Variable"
+#, php-format
 msgid "Variable %d:"
-msgstr "متغییر"
+msgstr "متغییر%d:"
 
 #: js/messages.php:439 libraries/classes/Normalization.php:1004
 msgid "Pick"
-msgstr ""
+msgstr "انتخاب"
 
 #: js/messages.php:440
-#, fuzzy
-#| msgid "No rows selected"
 msgid "Column selector"
-msgstr "هیچ سطری انتخاب نشده است"
+msgstr "انتخاب ستون"
 
 #: js/messages.php:441
 #, fuzzy
@@ -1615,60 +1628,52 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:446
-#, fuzzy
-#| msgid "Free memory"
 msgid "See more"
-msgstr "حافظه آزاد"
+msgstr "موارد بیشتر ببینید"
 
 #: js/messages.php:447
 msgid "Are you sure?"
-msgstr ""
+msgstr "آیا شما مطمئن هستید؟"
 
 #: js/messages.php:449
 msgid ""
 "This action may change some of the columns definition.<br>Are you sure you "
 "want to continue?"
 msgstr ""
+"این عملکرد ممکن است برخی از ستون ها را تغییر دهد. <br>آیا مطمئن هستید که می "
+"خواهید ادامه دهید؟"
 
 #: js/messages.php:452
-#, fuzzy
-#| msgid "Contribute"
 msgid "Continue"
-msgstr "همکاری"
+msgstr "ادامه دهید"
 
 #: js/messages.php:455
 msgid "Add primary key"
-msgstr ""
+msgstr "کلید اصلی را اضافه کنید"
 
 #: js/messages.php:456
-#, fuzzy
-#| msgid "A primary key has been added on %s."
 msgid "Primary key added."
-msgstr "يك كليد اصلي در %s اضافه شد"
+msgstr "کلید اصلی اضافه شد."
 
 #: js/messages.php:457 libraries/classes/Normalization.php:274
-#, fuzzy
-#| msgid "Tracking report"
 msgid "Taking you to next step…"
-msgstr "گزارشات دنبال شده"
+msgstr "شما را به مرحله بعدی می برد …"
 
 #: js/messages.php:459
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr ""
+msgstr "مرحله اول عادی سازی برای جدول کامل است '%s'."
 
 #: js/messages.php:460 libraries/classes/Normalization.php:536
 #: libraries/classes/Normalization.php:584
 #: libraries/classes/Normalization.php:675
 #: libraries/classes/Normalization.php:740
-#, fuzzy
-#| msgid "At End of Table"
 msgid "End of step"
-msgstr "در انتهاي جدول"
+msgstr "پایان مرحله"
 
 #: js/messages.php:461
 msgid "Second step of normalization (2NF)"
-msgstr ""
+msgstr "مرحله دوم عادی سازی (2NF)"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:462 js/messages.php:790
@@ -1678,23 +1683,23 @@ msgstr "انجام شد"
 
 #: js/messages.php:463
 msgid "Confirm partial dependencies"
-msgstr ""
+msgstr "وابستگی های جزئی را تأیید کنید"
 
 #: js/messages.php:464
 msgid "Selected partial dependencies are as follows:"
-msgstr ""
+msgstr "وابستگیهای جزئی منتخب به شرح زیر است:"
 
 #: js/messages.php:466
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
+"توجه: a، b -> d، f حاکی از مقادیر ستونهای a و b است که در کنار هم می توانند "
+"مقادیر ستون d و ستون f را تعیین کنند."
 
 #: js/messages.php:469
-#, fuzzy
-#| msgid "No databases selected."
 msgid "No partial dependencies selected!"
-msgstr "هیچ پایگاه داده ای انتخاب نشده است."
+msgstr "هیچ وابستگی جزئی انتخاب نشده است!"
 
 #: js/messages.php:472
 msgid "Show me the possible partial dependencies based on data in the table"
