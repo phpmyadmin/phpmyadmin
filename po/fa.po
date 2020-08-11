@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-06-14 22:54+0200\n"
 "PO-Revision-Date: 2020-08-11 17:41+0000\n"
-"Last-Translator: javad noori <cpuintelamd@yahoo.com>\n"
+"Last-Translator: Mehrad Mahmoudian <m.mahmoudian@gmail.com>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
 "fa/>\n"
 "Language: fa\n"
@@ -128,7 +128,7 @@ msgstr "شما حذاقل بايد يك ستون را براي نمايش انت
 
 #: db_qbe.php:159 templates/database/multi_table_query/form.twig:3
 msgid "Multi-table query"
-msgstr "پرس و جو از چند جدول"
+msgstr "کوئری چند جدولی"
 
 #: db_qbe.php:163 templates/database/multi_table_query/form.twig:3
 msgid "Query by example"
