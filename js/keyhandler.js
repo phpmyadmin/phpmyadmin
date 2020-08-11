@@ -70,6 +70,7 @@ function onKeyDownArrowsHandler (event) {
         return;
     }
 
+    // eslint-disable-next-line compat/compat
     var isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox/') > -1;
 
     var id = 'field_' + y + '_' + x;

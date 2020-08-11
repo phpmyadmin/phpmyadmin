@@ -30,7 +30,7 @@ use function trim;
 class DbiDummy implements DbiExtension
 {
     /** @var array */
-    private $_queries = [];
+    private $queries = [];
 
     public const OFFSET_GLOBAL = 1000;
 
@@ -83,13 +83,13 @@ class DbiDummy implements DbiExtension
     public function realQuery($query, $link = null, $options = 0)
     {
         $query = trim(preg_replace('/  */', ' ', str_replace("\n", ' ', $query)));
-        for ($i = 0, $nb = count($this->_queries); $i < $nb; $i++) {
-            if ($this->_queries[$i]['query'] != $query) {
+        for ($i = 0, $nb = count($this->queries); $i < $nb; $i++) {
+            if ($this->queries[$i]['query'] != $query) {
                 continue;
             }
 
-            $this->_queries[$i]['pos'] = 0;
-            if (! is_array($this->_queries[$i]['result'])) {
+            $this->queries[$i]['pos'] = 0;
+            if (! is_array($this->queries[$i]['result'])) {
                 return false;
             }
 
@@ -433,7 +433,7 @@ class DbiDummy implements DbiExtension
      */
     public function setResult($query, $result)
     {
-        $this->_queries[] = [
+        $this->queries[] = [
             'query' => $query,
             'result' => $result,
         ];
@@ -463,7 +463,7 @@ class DbiDummy implements DbiExtension
             return $GLOBALS['dummy_queries'][$result - self::OFFSET_GLOBAL];
         }
 
-        return $this->_queries[$result];
+        return $this->queries[$result];
     }
 
     private function init(): void
@@ -1937,6 +1937,36 @@ class DbiDummy implements DbiExtension
                     ['long_query_time', '10.000000'],
                     ['slow_query_log', 'OFF'],
                 ],
+            ],
+            [
+                'query' => 'INSERT INTO `db`.`table` (`username`, `export_type`, `template_name`, `template_data`)'
+                    . ' VALUES (\'user\', \'type\', \'name\', \'data\');',
+                'result' => [],
+            ],
+            [
+                'query' => 'SELECT * FROM `db`.`table` WHERE `username` = \'user\''
+                    . ' AND `export_type` = \'type\' ORDER BY `template_name`;',
+                'columns' => ['id', 'username', 'export_type', 'template_name', 'template_data'],
+                'result' => [
+                    ['1', 'user1', 'type1', 'name1', 'data1'],
+                    ['2', 'user2', 'type2', 'name2', 'data2'],
+                ],
+            ],
+            [
+                'query' => 'DELETE FROM `db`.`table` WHERE `id` = 1 AND `username` = \'user\';',
+                'result' => [],
+            ],
+            [
+                'query' => 'SELECT * FROM `db`.`table` WHERE `id` = 1 AND `username` = \'user\';',
+                'columns' => ['id', 'username', 'export_type', 'template_name', 'template_data'],
+                'result' => [
+                    ['1', 'user1', 'type1', 'name1', 'data1'],
+                ],
+            ],
+            [
+                'query' => 'UPDATE `db`.`table` SET `template_data` = \'data\''
+                    . ' WHERE `id` = 1 AND `username` = \'user\';',
+                'result' => [],
             ],
         ];
         /**

@@ -30,6 +30,7 @@ use function array_shift;
  */
 class ExportOdtTest extends AbstractTestCase
 {
+    /** @var ExportOdt */
     protected $object;
 
     /**

@@ -589,7 +589,7 @@ class Triggers
             exit;
         }
 
-        $message->display();
+        echo $message->getDisplay();
     }
 
     private function export(): void
@@ -645,6 +645,6 @@ class Triggers
             exit;
         }
 
-        $message->display();
+        echo $message->getDisplay();
     }
 }

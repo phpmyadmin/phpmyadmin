@@ -38,11 +38,11 @@ class Key extends TwoFactorPlugin
     public function __construct(TwoFactor $twofactor)
     {
         parent::__construct($twofactor);
-        if (isset($this->_twofactor->config['settings']['registrations'])) {
+        if (isset($this->twofactor->config['settings']['registrations'])) {
             return;
         }
 
-        $this->_twofactor->config['settings']['registrations'] = [];
+        $this->twofactor->config['settings']['registrations'] = [];
     }
 
     /**
@@ -53,7 +53,7 @@ class Key extends TwoFactorPlugin
     public function getRegistrations()
     {
         $result = [];
-        foreach ($this->_twofactor->config['settings']['registrations'] as $index => $data) {
+        foreach ($this->twofactor->config['settings']['registrations'] as $index => $data) {
             $reg = new stdClass();
             $reg->keyHandle = $data['keyHandle'];
             $reg->publicKey = $data['publicKey'];
@@ -73,11 +73,11 @@ class Key extends TwoFactorPlugin
      */
     public function check()
     {
-        $this->_provided = false;
+        $this->provided = false;
         if (! isset($_POST['u2f_authentication_response'], $_SESSION['authenticationRequest'])) {
             return false;
         }
-        $this->_provided = true;
+        $this->provided = true;
         try {
             $response = json_decode($_POST['u2f_authentication_response']);
             if ($response === null) {
@@ -88,12 +88,12 @@ class Key extends TwoFactorPlugin
                 $this->getRegistrations(),
                 $response
             );
-            $this->_twofactor->config['settings']['registrations'][$auth->index]['counter'] = $auth->counter;
-            $this->_twofactor->save();
+            $this->twofactor->config['settings']['registrations'][$auth->index]['counter'] = $auth->counter;
+            $this->twofactor->save();
 
             return true;
         } catch (U2FException $e) {
-            $this->_message = $e->getMessage();
+            $this->message = $e->getMessage();
 
             return false;
         }
@@ -167,11 +167,11 @@ class Key extends TwoFactorPlugin
      */
     public function configure()
     {
-        $this->_provided = false;
+        $this->provided = false;
         if (! isset($_POST['u2f_registration_response'], $_SESSION['registrationRequest'])) {
             return false;
         }
-        $this->_provided = true;
+        $this->provided = true;
         try {
             $response = json_decode($_POST['u2f_registration_response']);
             if ($response === null) {
@@ -181,7 +181,7 @@ class Key extends TwoFactorPlugin
                 $_SESSION['registrationRequest'],
                 $response
             );
-            $this->_twofactor->config['settings']['registrations'][] = [
+            $this->twofactor->config['settings']['registrations'][] = [
                 'keyHandle' => $registration->getKeyHandle(),
                 'publicKey' => $registration->getPublicKey(),
                 'certificate' => $registration->getCertificate(),
@@ -190,7 +190,7 @@ class Key extends TwoFactorPlugin
 
             return true;
         } catch (U2FException $e) {
-            $this->_message = $e->getMessage();
+            $this->message = $e->getMessage();
 
             return false;
         }

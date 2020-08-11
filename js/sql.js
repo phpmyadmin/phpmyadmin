@@ -173,7 +173,7 @@ Sql.getFieldName = function ($tableResults, $thisField) {
         $heading.append($tempColComment);
     }
 
-    fieldName = $.trim(fieldName);
+    fieldName = fieldName.trim();
 
     return fieldName;
 };
@@ -719,7 +719,7 @@ AJAX.registerOnload('sql.js', function () {
             : '');
         // Selecting columns that will be considered for filtering and searching.
         $headerCells.each(function () {
-            targetColumns.push($.trim($(this).text()));
+            targetColumns.push($(this).text().trim());
         });
 
         var phrase = $(this).val();
@@ -1128,8 +1128,10 @@ Sql.rearrangeStickyColumns = function ($stickyColumns, $tableResults) {
     var $originalHeader = $tableResults.find('thead');
     var $originalColumns = $originalHeader.find('tr').first().children();
     var $clonedHeader = $originalHeader.clone();
+    /* eslint-disable compat/compat */
     var isFirefox = navigator.userAgent.indexOf('Firefox') > -1;
     var isSafari = navigator.userAgent.indexOf('Safari') > -1;
+    /* eslint-enable compat/compat */
     // clone width per cell
     $clonedHeader.find('tr').first().children().each(function (i) {
         var width = $originalColumns.eq(i).width();

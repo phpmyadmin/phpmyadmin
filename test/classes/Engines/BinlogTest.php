@@ -15,7 +15,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
  */
 class BinlogTest extends AbstractTestCase
 {
-    /** @access protected */
+    /** @var Binlog */
     protected $object;
 
     /**

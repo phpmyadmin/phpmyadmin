@@ -23,27 +23,67 @@ use function stripos;
  */
 class Pdf extends PdfLib
 {
+    /** @var array */
     public $tablewidths;
+
+    /** @var array */
     public $headerset;
 
+    /** @var int|float */
     private $dataY;
+
+    /** @var int|float */
     private $cellFontSize;
+
+    /** @var mixed */
     private $titleFontSize;
+
+    /** @var mixed */
     private $titleText;
+
+    /** @var mixed */
     private $dbAlias;
+
+    /** @var mixed */
     private $tableAlias;
+
+    /** @var mixed */
     private $purpose;
+
+    /** @var array */
     private $colTitles;
+
+    /** @var mixed */
     private $results;
+
+    /** @var array */
     private $colAlign;
+
+    /** @var mixed */
     private $titleWidth;
+
+    /** @var mixed */
     private $colFits;
+
+    /** @var array */
     private $display_column;
+
+    /** @var int */
     private $numFields;
+
+    /** @var array */
     private $fields;
+
+    /** @var int|float */
     private $sColWidth;
+
+    /** @var mixed */
     private $currentDb;
+
+    /** @var mixed */
     private $currentTable;
+
+    /** @var array */
     private $aliases;
 
     /** @var Relation */

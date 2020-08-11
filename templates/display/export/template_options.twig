@@ -1,7 +1,0 @@
-<option value="">-- {% trans 'Select a template' %} --</option>
-
-{% for template in templates %}
-    <option value="{{ template.id }}"{{ template.id == selected_template ? ' selected' }}>
-        {{ template.name }}
-    </option>
-{% endfor %}

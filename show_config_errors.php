@@ -38,6 +38,7 @@ define('PHPMYADMIN', true);
 
 require ROOT_PATH . 'libraries/vendor_config.php';
 
+// issue #16256 - This only works with php 8.0+
 if (function_exists('error_reporting')) {
     error_reporting(E_ALL);
 }

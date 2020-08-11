@@ -15,7 +15,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
  */
 class ExportRelationSchemaTest extends AbstractTestCase
 {
-    /** @access protected */
+    /** @var ExportRelationSchema */
     protected $object;
 
     /**

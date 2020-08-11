@@ -30,14 +30,14 @@ class Menu
      * @access private
      * @var string
      */
-    private $_db;
+    private $db;
     /**
      * Table name
      *
      * @access private
      * @var string
      */
-    private $_table;
+    private $table;
 
     /** @var Relation */
     private $relation;
@@ -53,20 +53,10 @@ class Menu
      */
     public function __construct($db, $table)
     {
-        $this->_db = $db;
-        $this->_table = $table;
+        $this->db = $db;
+        $this->table = $table;
         $this->relation = new Relation($GLOBALS['dbi']);
         $this->template = new Template();
-    }
-
-    /**
-     * Prints the menu and the breadcrumbs
-     *
-     * @return void
-     */
-    public function display()
-    {
-        echo $this->getDisplay();
     }
 
     /**
@@ -105,14 +95,14 @@ class Menu
     {
         $url_params = [];
 
-        if (strlen((string) $this->_table) > 0) {
+        if (strlen((string) $this->table) > 0) {
             $tabs = $this->getTableTabs();
-            $url_params['db'] = $this->_db;
-            $url_params['table'] = $this->_table;
+            $url_params['db'] = $this->db;
+            $url_params['table'] = $this->table;
             $level = 'table';
-        } elseif (strlen($this->_db) > 0) {
+        } elseif (strlen($this->db) > 0) {
             $tabs = $this->getDbTabs();
-            $url_params['db'] = $this->_db;
+            $url_params['db'] = $this->db;
             $level = 'db';
         } else {
             $tabs = $this->getServerTabs();
@@ -207,20 +197,20 @@ class Menu
             'server'
         );
 
-        if (strlen($this->_db) > 0) {
-            $database['name'] = $this->_db;
+        if (strlen($this->db) > 0) {
+            $database['name'] = $this->db;
             $database['url'] = Util::getScriptNameForOption(
                 $cfg['DefaultTabDatabase'],
                 'database'
             );
-            if (strlen((string) $this->_table) > 0) {
-                $table['name'] = $this->_table;
+            if (strlen((string) $this->table) > 0) {
+                $table['name'] = $this->table;
                 $table['url'] = Util::getScriptNameForOption(
                     $cfg['DefaultTabTable'],
                     'table'
                 );
                 /** @var Table $tableObj */
-                $tableObj = $dbi->getTable($this->_db, $this->_table);
+                $tableObj = $dbi->getTable($this->db, $this->table);
                 $table['is_view'] = $tableObj->isView();
                 $table['comment'] = '';
                 if (! $table['is_view']) {
@@ -240,7 +230,7 @@ class Menu
                 // Get additional information about tables for tooltip is done
                 // in Util::getDbInfo() only once
                 if ($cfgRelation['commwork']) {
-                    $database['comment'] = $this->relation->getDbComment($this->_db);
+                    $database['comment'] = $this->relation->getDbComment($this->db);
                 }
             }
         }
@@ -262,12 +252,12 @@ class Menu
         /** @var DatabaseInterface $dbi */
         global $route, $dbi;
 
-        $db_is_system_schema = Utilities::isSystemSchema($this->_db);
-        $tbl_is_view = $dbi->getTable($this->_db, $this->_table)
+        $db_is_system_schema = Utilities::isSystemSchema($this->db);
+        $tbl_is_view = $dbi->getTable($this->db, $this->table)
             ->isView();
         $updatable_view = false;
         if ($tbl_is_view) {
-            $updatable_view = $dbi->getTable($this->_db, $this->_table)
+            $updatable_view = $dbi->getTable($this->db, $this->table)
                 ->isUpdatableView();
         }
         $is_superuser = $dbi->isSuperuser();
@@ -330,8 +320,8 @@ class Menu
             && ! $db_is_system_schema
         ) {
             $tabs['privileges']['route'] = '/server/privileges';
-            $tabs['privileges']['args']['checkprivsdb'] = $this->_db;
-            $tabs['privileges']['args']['checkprivstable'] = $this->_table;
+            $tabs['privileges']['args']['checkprivsdb'] = $this->db;
+            $tabs['privileges']['args']['checkprivstable'] = $this->table;
             // stay on table view
             $tabs['privileges']['args']['viewing_mode'] = 'table';
             $tabs['privileges']['text'] = __('Privileges');
@@ -366,8 +356,8 @@ class Menu
         if (! $db_is_system_schema
             && Util::currentUserHasPrivilege(
                 'TRIGGER',
-                $this->_db,
-                $this->_table
+                $this->db,
+                $this->table
             )
             && ! $tbl_is_view
         ) {
@@ -390,8 +380,8 @@ class Menu
         /** @var DatabaseInterface $dbi */
         global $route, $dbi;
 
-        $db_is_system_schema = Utilities::isSystemSchema($this->_db);
-        $num_tables = count($dbi->getTables($this->_db));
+        $db_is_system_schema = Utilities::isSystemSchema($this->db);
+        $num_tables = count($dbi->getTables($this->db));
         $is_superuser = $dbi->isSuperuser();
         $isCreateOrGrantUser = $dbi->isUserType('grant')
             || $dbi->isUserType('create');
@@ -450,7 +440,7 @@ class Menu
 
             if ($is_superuser || $isCreateOrGrantUser) {
                 $tabs['privileges']['route'] = '/server/privileges';
-                $tabs['privileges']['args']['checkprivsdb'] = $this->_db;
+                $tabs['privileges']['args']['checkprivsdb'] = $this->db;
                 // stay on database view
                 $tabs['privileges']['args']['viewing_mode'] = 'db';
                 $tabs['privileges']['text'] = __('Privileges');
@@ -463,14 +453,14 @@ class Menu
             $tabs['routines']['icon'] = 'b_routines';
             $tabs['routines']['active'] = $route === '/database/routines';
 
-            if (Util::currentUserHasPrivilege('EVENT', $this->_db)) {
+            if (Util::currentUserHasPrivilege('EVENT', $this->db)) {
                 $tabs['events']['route'] = '/database/events';
                 $tabs['events']['text'] = __('Events');
                 $tabs['events']['icon'] = 'b_events';
                 $tabs['events']['active'] = $route === '/database/events';
             }
 
-            if (Util::currentUserHasPrivilege('TRIGGER', $this->_db)) {
+            if (Util::currentUserHasPrivilege('TRIGGER', $this->db)) {
                 $tabs['triggers']['route'] = '/database/triggers';
                 $tabs['triggers']['text'] = __('Triggers');
                 $tabs['triggers']['icon'] = 'b_triggers';
@@ -635,7 +625,7 @@ class Menu
      */
     public function setTable($table)
     {
-        $this->_table = $table;
+        $this->table = $table;
 
         return $this;
     }

@@ -57,11 +57,11 @@ class Import
 
         /* Fail if we didn't find any plugin */
         if (empty($importList)) {
-            Message::error(
+            echo Message::error(
                 __(
                     'Could not load import plugins, please check your installation!'
                 )
-            )->display();
+            )->getDisplay();
             exit;
         }
 

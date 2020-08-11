@@ -216,9 +216,10 @@ class UserPreferencesTest extends AbstractNetworkTestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
-        $this->assertTrue(
-            $this->userPreferences->save([1])
-        );
+
+        $result = $this->userPreferences->save([1]);
+
+        $this->assertTrue($result);
 
         // case 3
 

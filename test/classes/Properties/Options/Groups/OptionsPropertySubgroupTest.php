@@ -15,6 +15,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
  */
 class OptionsPropertySubgroupTest extends AbstractTestCase
 {
+    /** @var OptionsPropertySubgroup */
     protected $object;
 
     /**

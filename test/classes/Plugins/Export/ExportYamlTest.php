@@ -27,6 +27,7 @@ use function ob_start;
  */
 class ExportYamlTest extends AbstractTestCase
 {
+    /** @var ExportYaml */
     protected $object;
 
     /**
@@ -133,6 +134,8 @@ class ExportYamlTest extends AbstractTestCase
             $this->object->exportHeader()
         );
         $result = ob_get_clean();
+
+        $this->assertIsString($result);
 
         $this->assertStringContainsString(
             "%YAML 1.1\n---\n",

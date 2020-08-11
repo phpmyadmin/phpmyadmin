@@ -24,7 +24,7 @@ use function hex2bin;
  */
 class ResultsTest extends AbstractTestCase
 {
-    /** @access protected */
+    /** @var DisplayResults */
     protected $object;
 
     /**

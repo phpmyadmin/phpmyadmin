@@ -92,14 +92,14 @@ AJAX.registerOnload('import.js', function () {
             }
             if ($('#text_csv_new_tbl_name').length > 0) {
                 var newTblName = $('#text_csv_new_tbl_name').val();
-                if (newTblName.length > 0 && $.trim(newTblName).length === 0) {
+                if (newTblName.length > 0 && newTblName.trim().length === 0) {
                     Functions.ajaxShowMessage(wrongTblNameMsg, false);
                     return false;
                 }
             }
             if ($('#text_csv_new_db_name').length > 0) {
                 var newDBName = $('#text_csv_new_db_name').val();
-                if (newDBName.length > 0 && $.trim(newDBName).length === 0) {
+                if (newDBName.length > 0 && newDBName.trim().length === 0) {
                     Functions.ajaxShowMessage(wrongDBNameMsg, false);
                     return false;
                 }

@@ -19,7 +19,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
  */
 class SvgRelationSchemaTest extends AbstractTestCase
 {
-    /** @access protected */
+    /** @var SvgRelationSchema */
     protected $object;
 
     /**

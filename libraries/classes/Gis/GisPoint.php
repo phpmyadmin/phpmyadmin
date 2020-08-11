@@ -22,8 +22,8 @@ use function trim;
  */
 class GisPoint extends GisGeometry
 {
-    // Hold the singleton instance of the class
-    private static $_instance;
+    /** @var self */
+    private static $instance;
 
     /**
      * A private constructor; prevents direct creation of object.
@@ -43,11 +43,11 @@ class GisPoint extends GisGeometry
      */
     public static function singleton()
     {
-        if (! isset(self::$_instance)) {
-            self::$_instance = new GisPoint();
+        if (! isset(self::$instance)) {
+            self::$instance = new GisPoint();
         }
 
-        return self::$_instance;
+        return self::$instance;
     }
 
     /**
@@ -287,7 +287,7 @@ class GisPoint extends GisGeometry
             . 'image: new ol.style.Circle({'
             . 'fill: fill,'
             . 'stroke: stroke,'
-            . 'radius: 5'
+            . 'radius: 3'
             . '}),'
             . 'fill: fill,';
 

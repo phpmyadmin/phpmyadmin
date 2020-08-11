@@ -14,7 +14,6 @@ use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Common;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Display\GitRevision;
 use PhpMyAdmin\Git;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\LanguageManager;
@@ -38,6 +37,7 @@ use function ini_get;
 use function preg_match;
 use function sprintf;
 use function strlen;
+use function strtotime;
 use function trigger_error;
 
 class HomeController extends AbstractController
@@ -330,23 +330,28 @@ class HomeController extends AbstractController
 
     public function gitRevision(): void
     {
-        global $PMA_Config;
-
         if (! $this->response->isAjax()) {
             return;
         }
 
-        $git = new Git($PMA_Config);
+        $git = new Git($this->config);
 
         if (! $git->isGitRevision()) {
             return;
         }
 
-        $this->response->addHTML((new GitRevision(
-            $this->response,
-            $this->config,
-            $this->template
-        ))->display());
+        $commit = $git->checkGitRevision();
+
+        if (! $this->config->get('PMA_VERSION_GIT') || $commit === null) {
+            $this->response->setRequestStatus(false);
+
+            return;
+        }
+
+        $commit['author']['date'] = Util::localisedDate(strtotime($commit['author']['date']));
+        $commit['committer']['date'] = Util::localisedDate(strtotime($commit['committer']['date']));
+
+        $this->render('home/git_info', $commit);
     }
 
     private function checkRequirements(): void

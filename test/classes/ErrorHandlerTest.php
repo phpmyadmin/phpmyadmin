@@ -18,7 +18,7 @@ use const E_WARNING;
  */
 class ErrorHandlerTest extends AbstractTestCase
 {
-    /** @access protected */
+    /** @var ErrorHandler */
     protected $object;
 
     /**
@@ -105,9 +105,10 @@ class ErrorHandlerTest extends AbstractTestCase
 
         $output = $this->object->getDispErrors();
 
-        if ($output_hide == '') {
+        if ($output_hide === '') {
             $this->assertEquals('', $output);
         } else {
+            $this->assertNotEmpty($output_show);// Useless check
             $this->assertStringContainsString($output_hide, $output);
         }
     }
@@ -136,6 +137,7 @@ class ErrorHandlerTest extends AbstractTestCase
     ): void {
         $this->object->handleError($errno, $errstr, $errfile, $errline);
 
+        $this->assertIsString($output_hide);// Useless check
         $this->assertStringContainsString(
             $output_show,
             $this->object->getDispErrors()

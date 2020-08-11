@@ -80,7 +80,12 @@
   <fieldset class="tblFooters">
     {% if has_captcha %}
       <script src="https://www.google.com/recaptcha/api.js?hl={{ lang }}" async defer></script>
+      {% if use_captcha_checkbox %}
+      <div class="g-recaptcha" data-sitekey="{{ captcha_key }}"></div>
+      <input class="btn btn-primary" value="{% trans 'Go' %}" type="submit" id="input_go">
+      {% else %}
       <input class="btn btn-primary g-recaptcha" data-sitekey="{{ captcha_key }}" data-callback="Functions_recaptchaCallback" value="{% trans 'Go' %}" type="submit" id="input_go">
+      {% endif %}
     {% else %}
       <input class="btn btn-primary" value="{% trans 'Go' %}" type="submit" id="input_go">
     {% endif %}

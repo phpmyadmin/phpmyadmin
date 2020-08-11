@@ -27,6 +27,7 @@ use function array_shift;
  */
 class ExportExcelTest extends AbstractTestCase
 {
+    /** @var ExportExcel */
     protected $object;
 
     /**

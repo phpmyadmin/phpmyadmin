@@ -21,15 +21,34 @@ use function rawurldecode;
  */
 class ExportRelationSchema
 {
+    /** @var string */
     protected $db;
+
+    /** @var Dia\Dia|Eps\Eps|Pdf\Pdf|Svg\Svg|null */
     protected $diagram;
+
+    /** @var bool */
     protected $showColor;
+
+    /** @var bool */
     protected $tableDimension;
+
+    /** @var bool */
     protected $sameWide;
+
+    /** @var bool */
     protected $showKeys;
+
+    /** @var string */
     protected $orientation;
+
+    /** @var string */
     protected $paper;
+
+    /** @var int */
     protected $pageNumber;
+
+    /** @var bool */
     protected $offline;
 
     /** @var Relation */

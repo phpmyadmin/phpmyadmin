@@ -225,6 +225,8 @@ class Results
      * for some of the system databases.
      * One element of this array represent all relevant columns in all tables in
      * one specific database
+     *
+     * @var array
      */
     public $transformation_info;
 
@@ -1358,8 +1360,8 @@ class Results
                    || $GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH;
 
         //     ... before the result table
-        if (($displayParts['edit_lnk'] == self::NO_EDIT_OR_DELETE)
-            && ($displayParts['del_lnk'] == self::NO_EDIT_OR_DELETE)
+        if (($displayParts['edit_lnk'] === self::NO_EDIT_OR_DELETE)
+            && ($displayParts['del_lnk'] === self::NO_EDIT_OR_DELETE)
             && ($displayParts['text_btn'] == '1')
         ) {
             $display_params['emptypre'] = $emptyPreCondition ? 4 : 0;
@@ -1381,7 +1383,7 @@ class Results
             $display_params['emptypre'] = $emptyPreCondition ? 4 : 0;
 
             $button_html .= '<td ' . $colspan . '></td>';
-        } elseif ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_NONE) {
+        } elseif ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_NONE) {
             // ... elseif display an empty column if the actions links are
             //  disabled to match the rest of the table
             $button_html .= '<th class="column_action"></th>';
@@ -1502,7 +1504,7 @@ class Results
         if (isset($_SESSION['tmpval']['possible_as_geometry'])
             && $_SESSION['tmpval']['possible_as_geometry'] == false
         ) {
-            if ($_SESSION['tmpval']['geoOption'] == self::GEOMETRY_DISP_GEOM) {
+            if ($_SESSION['tmpval']['geoOption'] === self::GEOMETRY_DISP_GEOM) {
                 $_SESSION['tmpval']['geoOption'] = self::GEOMETRY_DISP_WKT;
             }
         }
@@ -1537,7 +1539,7 @@ class Results
             'full_text_button' => 1,
         ];
 
-        if ($_SESSION['tmpval']['pftext'] == self::DISPLAY_FULL_TEXT) {
+        if ($_SESSION['tmpval']['pftext'] === self::DISPLAY_FULL_TEXT) {
             // currently in fulltext mode so show the opposite link
             $tmp_image_file = $this->properties['pma_theme_image'] . 's_partialtext.png';
             $tmp_txt = __('Partial texts');
@@ -1933,7 +1935,7 @@ class Results
      */
     private function getSortingUrlParams(array $sort_direction, $sort_order, $index)
     {
-        if (strtoupper(trim($sort_direction[$index])) == self::DESCENDING_SORT_DIR) {
+        if (strtoupper(trim($sort_direction[$index])) === self::DESCENDING_SORT_DIR) {
             $sort_order .= ' ASC';
             $order_img   = ' ' . Generator::getImage(
                 's_desc',
@@ -2151,8 +2153,8 @@ class Results
 
         // Displays the needed checkboxes at the right
         // column of the result table header if possible and required...
-        if (($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_RIGHT)
-            || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH)
+        if (($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_RIGHT)
+            || ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH)
             && (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
             || ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE))
             && ($displayParts['text_btn'] == '1')
@@ -2165,10 +2167,10 @@ class Results
                 . '<th class="column_action print_ignore" ' . $colspan . '>'
                 . $full_or_partial_text_link
                 . '</th>';
-        } elseif (($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_LEFT)
-            || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH)
-            && (($displayParts['edit_lnk'] == self::NO_EDIT_OR_DELETE)
-            && ($displayParts['del_lnk'] == self::NO_EDIT_OR_DELETE))
+        } elseif (($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_LEFT)
+            || ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH)
+            && (($displayParts['edit_lnk'] === self::NO_EDIT_OR_DELETE)
+            && ($displayParts['del_lnk'] === self::NO_EDIT_OR_DELETE))
             && (! isset($GLOBALS['is_header_sent']) || ! $GLOBALS['is_header_sent'])
         ) {
             //     ... elseif no button, displays empty columns if required
@@ -2493,7 +2495,7 @@ class Results
                 $this->properties['whereClauseMap'] = $whereClauseMap;
 
                 // 1.2.1 Modify link(s) - update row case
-                if ($displayParts['edit_lnk'] == self::UPDATE_ROW) {
+                if ($displayParts['edit_lnk'] === self::UPDATE_ROW) {
                     [
                         $edit_url,
                         $copy_url,
@@ -2518,8 +2520,8 @@ class Results
                     );
 
                 // 1.3 Displays the links at left if required
-                if (($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_LEFT)
-                    || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH)
+                if (($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_LEFT)
+                    || ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH)
                 ) {
                     $table_body_html .= $this->template->render('display/results/checkbox_and_links', [
                         'position' => self::POSITION_LEFT,
@@ -2533,7 +2535,7 @@ class Results
                         'is_ajax' => Response::getInstance()->isAjax(),
                         'js_conf' => $js_conf ?? '',
                     ]);
-                } elseif ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_NONE) {
+                } elseif ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_NONE) {
                     $table_body_html .= $this->template->render('display/results/checkbox_and_links', [
                         'position' => self::POSITION_NONE,
                         'has_checkbox' => ! empty($del_url) && $displayParts['del_lnk'] !== self::KILL_PROCESS,
@@ -2569,8 +2571,8 @@ class Results
             if (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
                 || ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)
             ) {
-                if (($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_RIGHT)
-                    || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH)
+                if (($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_RIGHT)
+                    || ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH)
                 ) {
                     $table_body_html .= $this->template->render('display/results/checkbox_and_links', [
                         'position' => self::POSITION_RIGHT,
@@ -2908,7 +2910,7 @@ class Results
                         $default_function,
                         $transform_options
                     );
-            } elseif ($meta->type == self::GEOMETRY_FIELD) {
+            } elseif ($meta->type === self::GEOMETRY_FIELD) {
                 // g e o m e t r y
 
                 // Remove 'grid_edit' from $class as we do not allow to
@@ -3147,7 +3149,7 @@ class Results
             $header_html .= '    <th colspan="'
                 . $display_params['emptypre'] . '">'
                 . "\n" . '        &nbsp;</th>' . "\n";
-        } elseif ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_NONE) {
+        } elseif ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_NONE) {
             $header_html .= '    <th></th>' . "\n";
         }
 
@@ -3246,7 +3248,7 @@ class Results
     ) {
         $goto = $this->properties['goto'];
 
-        if ($del_lnk == self::DELETE_ROW) { // delete row case
+        if ($del_lnk === self::DELETE_ROW) { // delete row case
             $_url_params = [
                 'db'        => $this->properties['db'],
                 'table'     => $this->properties['table'],
@@ -3276,7 +3278,7 @@ class Results
                 . ($clause_is_unique ? '' : ' LIMIT 1');
 
             $del_str = $this->getActionLinkContent('b_drop', __('Delete'));
-        } elseif ($del_lnk == self::KILL_PROCESS) { // kill process case
+        } elseif ($del_lnk === self::KILL_PROCESS) { // kill process case
             $_url_params = [
                 'db'        => $this->properties['db'],
                 'table'     => $this->properties['table'],
@@ -3328,7 +3330,7 @@ class Results
         $linkContent = '';
 
         if (isset($GLOBALS['cfg']['RowActionType'])
-            && $GLOBALS['cfg']['RowActionType'] == self::ACTION_LINK_CONTENT_ICONS
+            && $GLOBALS['cfg']['RowActionType'] === self::ACTION_LINK_CONTENT_ICONS
         ) {
             $linkContent .= '<span class="nowrap">'
                 . Generator::getImage(
@@ -3337,7 +3339,7 @@ class Results
                 )
                 . '</span>';
         } elseif (isset($GLOBALS['cfg']['RowActionType'])
-            && $GLOBALS['cfg']['RowActionType'] == self::ACTION_LINK_CONTENT_TEXT
+            && $GLOBALS['cfg']['RowActionType'] === self::ACTION_LINK_CONTENT_TEXT
         ) {
             $linkContent .= '<span class="nowrap">' . $display_text . '</span>';
         } else {
@@ -3389,15 +3391,15 @@ class Results
      */
     private function getClassForDateTimeRelatedFields($type)
     {
-        if ((substr($type, 0, 9) == self::TIMESTAMP_FIELD)
-            || ($type == self::DATETIME_FIELD)
+        if ((substr($type, 0, 9) === self::TIMESTAMP_FIELD)
+            || ($type === self::DATETIME_FIELD)
         ) {
             $field_type_class = 'datetimefield';
-        } elseif ($type == self::DATE_FIELD) {
+        } elseif ($type === self::DATE_FIELD) {
             $field_type_class = 'datefield';
-        } elseif ($type == self::TIME_FIELD) {
+        } elseif ($type === self::TIME_FIELD) {
             $field_type_class = 'timefield';
-        } elseif ($type == self::STRING_FIELD) {
+        } elseif ($type === self::STRING_FIELD) {
             $field_type_class = 'text';
         } else {
             $field_type_class = '';
@@ -3526,7 +3528,7 @@ class Results
         }
 
         // Display as [GEOMETRY - (size)]
-        if ($_SESSION['tmpval']['geoOption'] == self::GEOMETRY_DISP_GEOM) {
+        if ($_SESSION['tmpval']['geoOption'] === self::GEOMETRY_DISP_GEOM) {
             $geometry_text = $this->handleNonPrintableContents(
                 strtoupper(self::GEOMETRY_FIELD),
                 $column,
@@ -3544,7 +3546,7 @@ class Results
             );
         }
 
-        if ($_SESSION['tmpval']['geoOption'] == self::GEOMETRY_DISP_WKT) {
+        if ($_SESSION['tmpval']['geoOption'] === self::GEOMETRY_DISP_WKT) {
             // Prepare in Well Known Text(WKT) format.
             $where_comparison = ' = ' . $column;
 
@@ -3828,14 +3830,17 @@ class Results
             $query['repeat_cells'] = $GLOBALS['cfg']['RepeatCells'];
         }
 
+        // The value can also be from _GET as described on issue #16146 when sorting results
+        $sessionMaxRows = $_GET['session_max_rows'] ?? $_POST['session_max_rows'] ?? '';
+
         // as this is a form value, the type is always string so we cannot
         // use Core::isValid($_POST['session_max_rows'], 'integer')
-        if (Core::isValid($_POST['session_max_rows'], 'numeric')) {
-            $query['max_rows'] = (int) $_POST['session_max_rows'];
-            unset($_POST['session_max_rows']);
-        } elseif ($_POST['session_max_rows'] == self::ALL_ROWS) {
+        if (Core::isValid($sessionMaxRows, 'numeric')) {
+            $query['max_rows'] = (int) $sessionMaxRows;
+            unset($_GET['session_max_rows'], $_POST['session_max_rows']);
+        } elseif ($sessionMaxRows === self::ALL_ROWS) {
             $query['max_rows'] = self::ALL_ROWS;
-            unset($_POST['session_max_rows']);
+            unset($_GET['session_max_rows'], $_POST['session_max_rows']);
         } elseif (empty($query['max_rows'])) {
             $query['max_rows'] = intval($GLOBALS['cfg']['MaxRows']);
         }
@@ -3996,7 +4001,7 @@ class Results
          * @todo for other future table types
          */
         $is_innodb = (isset($showtable['Type'])
-            && $showtable['Type'] == self::TABLE_TYPE_INNO_DB);
+            && $showtable['Type'] === self::TABLE_TYPE_INNO_DB);
 
         if ($is_innodb && Sql::isJustBrowsing($analyzed_sql_results, true)) {
             $pre_count = '~';
@@ -4212,7 +4217,7 @@ class Results
      */
     private function getOffsets()
     {
-        if ($_SESSION['tmpval']['max_rows'] == self::ALL_ROWS) {
+        if ($_SESSION['tmpval']['max_rows'] === self::ALL_ROWS) {
             $pos_next     = 0;
             $pos_prev     = 0;
         } else {
@@ -4298,7 +4303,7 @@ class Results
         $meta = $fields_meta[$sorted_column_index];
 
         if (stripos($meta->type, self::BLOB_FIELD) !== false
-            || ($meta->type == self::GEOMETRY_FIELD)
+            || ($meta->type === self::GEOMETRY_FIELD)
         ) {
             $column_for_first_row = $this->handleNonPrintableContents(
                 $meta->type,
@@ -4327,7 +4332,7 @@ class Results
         // check for non printable sorted row data
         $meta = $fields_meta[$sorted_column_index];
         if (stripos($meta->type, self::BLOB_FIELD) !== false
-            || ($meta->type == self::GEOMETRY_FIELD)
+            || ($meta->type === self::GEOMETRY_FIELD)
         ) {
             $column_for_last_row = $this->handleNonPrintableContents(
                 $meta->type,
@@ -4395,7 +4400,7 @@ class Results
             } else {
                 $last_shown_rec = $first_shown_rec + $total - 1;
             }
-        } elseif (($_SESSION['tmpval']['max_rows'] == self::ALL_ROWS)
+        } elseif (($_SESSION['tmpval']['max_rows'] === self::ALL_ROWS)
             || ($pos_next > $total)
         ) {
             $first_shown_rec = $_SESSION['tmpval']['pos'];
@@ -4658,7 +4663,7 @@ class Results
         // If the parser found a PROCEDURE clause
         // (most probably PROCEDURE ANALYSE()) it makes no sense to
         // display the Export link).
-        if (($analyzed_sql_results['querytype'] == self::QUERY_TYPE_SELECT)
+        if (($analyzed_sql_results['querytype'] === self::QUERY_TYPE_SELECT)
             && ! isset($printview)
             && empty($analyzed_sql_results['procedure'])
         ) {
@@ -4692,7 +4697,7 @@ class Results
 
             $fields_meta = $this->properties['fields_meta'];
             foreach ($fields_meta as $meta) {
-                if ($meta->type == self::GEOMETRY_FIELD) {
+                if ($meta->type === self::GEOMETRY_FIELD) {
                     $geometry_found = true;
                     break;
                 }
@@ -4973,7 +4978,7 @@ class Results
                 )
                 . ' <code>[-&gt;' . $dispval . ']</code>';
             } else {
-                if ($relational_display == self::RELATIONAL_KEY) {
+                if ($relational_display === self::RELATIONAL_KEY) {
                     // user chose "relational key" in the display options, so
                     // the title contains the display field
                     $title = ! empty($dispval)
@@ -5007,7 +5012,7 @@ class Results
                         $meta
                     );
                 } else {
-                    if ($relational_display == self::RELATIONAL_DISPLAY_COLUMN
+                    if ($relational_display === self::RELATIONAL_DISPLAY_COLUMN
                         && ! empty($map[$meta->name][2])
                     ) {
                         // user chose "relational display field" in the

@@ -9,13 +9,14 @@ namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisGeometry;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * Tests for PhpMyAdmin\Gis\GisGeometry class
  */
 class GisGeometryTest extends AbstractTestCase
 {
-    /** @access protected */
+    /** @var GisGeometry|MockObject */
     protected $object;
 
     /**

@@ -35,6 +35,7 @@ use function ob_start;
  */
 class ExportSqlTest extends AbstractTestCase
 {
+    /** @var ExportSql */
     protected $object;
 
     /**
@@ -535,6 +536,8 @@ class ExportSqlTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
+        $this->assertIsString($result);
+
         $this->assertStringContainsString(
             'h1C',
             $result
@@ -596,6 +599,8 @@ class ExportSqlTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
+        $this->assertIsString($result);
+
         $this->assertStringContainsString(
             "DROP DATABASE IF EXISTS `db`;\n",
             $result
@@ -636,6 +641,8 @@ class ExportSqlTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
+        $this->assertIsString($result);
+
         $this->assertStringContainsString(
             "DROP DATABASE IF EXISTS db;\n",
             $result
@@ -668,6 +675,8 @@ class ExportSqlTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
+        $this->assertIsString($result);
+
         $this->assertStringContainsString(
             '&quot;testDB&quot;',
             $result
@@ -682,6 +691,8 @@ class ExportSqlTest extends AbstractTestCase
             $this->object->exportDBHeader('testDB')
         );
         $result = ob_get_clean();
+
+        $this->assertIsString($result);
 
         $this->assertStringContainsString(
             'testDB',
@@ -742,6 +753,8 @@ class ExportSqlTest extends AbstractTestCase
             $this->object->exportEvents('db')
         );
         $result = ob_get_clean();
+
+        $this->assertIsString($result);
 
         $this->assertStringContainsString(
             "DELIMITER $$\n",
@@ -1352,6 +1365,8 @@ class ExportSqlTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
+        $this->assertIsString($result);
+
         $this->assertStringContainsString(
             '-- Table structure for table &quot;t&amp;bl&quot;',
             $result
@@ -1382,6 +1397,8 @@ class ExportSqlTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
+        $this->assertIsString($result);
+
         $this->assertStringContainsString(
             "-- Triggers t&amp;bl\n",
             $result
@@ -1410,6 +1427,8 @@ class ExportSqlTest extends AbstractTestCase
             )
         );
         $result = ob_get_clean();
+
+        $this->assertIsString($result);
 
         $this->assertStringContainsString(
             "-- Structure for view t&amp;bl\n",
@@ -1453,6 +1472,8 @@ class ExportSqlTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
+        $this->assertIsString($result);
+
         $this->assertStringContainsString(
             "CREATE TABLE`t&amp;bl`(\n\n);",
             $result
@@ -1477,6 +1498,8 @@ class ExportSqlTest extends AbstractTestCase
             )
         );
         $result = ob_get_clean();
+
+        $this->assertIsString($result);
 
         $this->assertStringContainsString(
             'dumpText4',
@@ -1610,6 +1633,8 @@ class ExportSqlTest extends AbstractTestCase
             'SELECT a FROM b WHERE 1'
         );
         $result = ob_get_clean();
+
+        $this->assertIsString($result);
 
         $this->assertStringContainsString(
             'TRUNCATE TABLE &quot;table&quot;;',
@@ -1745,6 +1770,8 @@ class ExportSqlTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
+        $this->assertIsString($result);
+
         $this->assertStringContainsString(
             'UPDATE IGNORE &quot;table&quot; SET &quot;name&quot; = NULL,' .
             '&quot;name&quot; = NULL WHERE CONCAT(`tbl`.`pma`) IS NULL;',
@@ -1791,6 +1818,8 @@ class ExportSqlTest extends AbstractTestCase
             $this->object->exportData('db', 'tbl', "\n", 'err.com', 'SELECT')
         );
         $result = ob_get_clean();
+
+        $this->assertIsString($result);
 
         $this->assertStringContainsString(
             "-- VIEW `tbl`\n",
@@ -1846,6 +1875,8 @@ class ExportSqlTest extends AbstractTestCase
             $this->object->exportData('db', 'table', "\n", 'err.com', 'SELECT')
         );
         $result = ob_get_clean();
+
+        $this->assertIsString($result);
 
         $this->assertStringContainsString(
             '-- Error reading data for table db.table: err',

@@ -17,7 +17,7 @@ use function sprintf;
  */
 class PbxtTest extends AbstractTestCase
 {
-    /** @access protected */
+    /** @var Pbxt */
     protected $object;
 
     /**

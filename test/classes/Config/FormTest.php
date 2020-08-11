@@ -81,7 +81,7 @@ class FormTest extends AbstractTestCase
      */
     public function testGetOptionType(): void
     {
-        $attrFieldsTypes = new ReflectionProperty(Form::class, '_fieldsTypes');
+        $attrFieldsTypes = new ReflectionProperty(Form::class, 'fieldsTypes');
         $attrFieldsTypes->setAccessible(true);
         $attrFieldsTypes->setValue(
             $this->object,
@@ -252,7 +252,7 @@ class FormTest extends AbstractTestCase
             '1' => 'preffoo/foo/bar/:group:end:0',
         ];
 
-        $attrFieldsTypes = $reflection->getProperty('_fieldsTypes');
+        $attrFieldsTypes = $reflection->getProperty('fieldsTypes');
         $attrFieldsTypes->setAccessible(true);
 
         $method->invoke($this->object, null);

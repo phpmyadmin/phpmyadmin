@@ -195,6 +195,8 @@ final class JavaScriptMessagesController
             'strAddChart' => __('Add chart to grid'),
             'strAddOneSeriesWarning' => __('Please add at least one variable to the series!'),
             'strNone' => __('None'),
+            /* l10n: SQL Query on modal to show exported query */
+            'strQuery' => __('SQL Query'),
             'strResumeMonitor' => __('Resume monitor'),
             'strPauseMonitor' => __('Pause monitor'),
             'strStartRefresh' => __('Start auto refresh'),

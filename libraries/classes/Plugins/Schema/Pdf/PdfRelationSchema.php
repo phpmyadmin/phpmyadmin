@@ -55,26 +55,50 @@ if (getcwd() == __DIR__) {
  */
 class PdfRelationSchema extends ExportRelationSchema
 {
-    /**
-     * Defines properties
-     */
-    private $_showGrid;
-    private $_withDoc;
-    private $_tableOrder;
+    /** @var bool */
+    private $showGrid;
+
+    /** @var bool */
+    private $withDoc;
+
+    /** @var string */
+    private $tableOrder;
 
     /** @var TableStatsPdf[] */
-    private $_tables = [];
-    private $_ff = PdfLib::PMA_PDF_FONT;
-    private $_xMax = 0;
-    private $_yMax = 0;
-    private $_scale;
-    private $_xMin = 100000;
-    private $_yMin = 100000;
-    private $_topMargin = 10;
-    private $_bottomMargin = 10;
-    private $_leftMargin = 10;
-    private $_rightMargin = 10;
-    private $_tablewidth;
+    private $tables = [];
+
+    /** @var string */
+    private $ff = PdfLib::PMA_PDF_FONT;
+
+    /** @var int|float */
+    private $xMax = 0;
+
+    /** @var int|float */
+    private $yMax = 0;
+
+    /** @var float|int */
+    private $scale;
+
+    /** @var int|float */
+    private $xMin = 100000;
+
+    /** @var int|float */
+    private $yMin = 100000;
+
+    /** @var int */
+    private $topMargin = 10;
+
+    /** @var int */
+    private $bottomMargin = 10;
+
+    /** @var int */
+    private $leftMargin = 10;
+
+    /** @var int */
+    private $rightMargin = 10;
+
+    /** @var int */
+    private $tablewidth;
 
     /** @var RelationStatsPdf[] */
     protected $relations = [];
@@ -109,7 +133,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 'mm',
                 $this->paper,
                 $this->pageNumber,
-                $this->_withDoc,
+                $this->withDoc,
                 $db
             )
         );
@@ -131,7 +155,7 @@ class PdfRelationSchema extends ExportRelationSchema
             rsort($alltables);
         }
 
-        if ($this->_withDoc) {
+        if ($this->withDoc) {
             $this->diagram->SetAutoPageBreak('auto', 15);
             $this->diagram->setCMargin(1);
             $this->dataDictionaryDoc($alltables);
@@ -141,58 +165,58 @@ class PdfRelationSchema extends ExportRelationSchema
 
         $this->diagram->AddPage();
 
-        if ($this->_withDoc) {
+        if ($this->withDoc) {
             $this->diagram->SetLink($this->diagram->PMA_links['RT']['-'], -1);
             $this->diagram->Bookmark(__('Relational schema'));
             $this->diagram->setAlias('{00}', $this->diagram->PageNo());
-            $this->_topMargin = 28;
-            $this->_bottomMargin = 28;
+            $this->topMargin = 28;
+            $this->bottomMargin = 28;
         }
 
         /* snip */
         foreach ($alltables as $table) {
-            if (! isset($this->_tables[$table])) {
-                $this->_tables[$table] = new TableStatsPdf(
+            if (! isset($this->tables[$table])) {
+                $this->tables[$table] = new TableStatsPdf(
                     $this->diagram,
                     $this->db,
                     $table,
                     null,
                     $this->pageNumber,
-                    $this->_tablewidth,
+                    $this->tablewidth,
                     $this->showKeys,
                     $this->tableDimension,
                     $this->offline
                 );
             }
             if ($this->sameWide) {
-                $this->_tables[$table]->width = $this->_tablewidth;
+                $this->tables[$table]->width = $this->tablewidth;
             }
-            $this->setMinMax($this->_tables[$table]);
+            $this->setMinMax($this->tables[$table]);
         }
 
         // Defines the scale factor
-        $innerWidth = $this->diagram->getPageWidth() - $this->_rightMargin
-            - $this->_leftMargin;
-        $innerHeight = $this->diagram->getPageHeight() - $this->_topMargin
-            - $this->_bottomMargin;
-        $this->_scale = ceil(
+        $innerWidth = $this->diagram->getPageWidth() - $this->rightMargin
+            - $this->leftMargin;
+        $innerHeight = $this->diagram->getPageHeight() - $this->topMargin
+            - $this->bottomMargin;
+        $this->scale = ceil(
             max(
-                ($this->_xMax - $this->_xMin) / $innerWidth,
-                ($this->_yMax - $this->_yMin) / $innerHeight
+                ($this->xMax - $this->xMin) / $innerWidth,
+                ($this->yMax - $this->yMin) / $innerHeight
             ) * 100
         ) / 100;
 
         $this->diagram->setScale(
-            $this->_scale,
-            $this->_xMin,
-            $this->_yMin,
-            $this->_leftMargin,
-            $this->_topMargin
+            $this->scale,
+            $this->xMin,
+            $this->yMin,
+            $this->leftMargin,
+            $this->topMargin
         );
         // Builds and save the PDF document
         $this->diagram->setLineWidthScale(0.1);
 
-        if ($this->_showGrid) {
+        if ($this->showGrid) {
             $this->diagram->SetFontSize(10);
             $this->strokeGrid();
         }
@@ -257,7 +281,7 @@ class PdfRelationSchema extends ExportRelationSchema
      */
     public function setShowGrid($value)
     {
-        $this->_showGrid = $value;
+        $this->showGrid = $value;
     }
 
     /**
@@ -267,7 +291,7 @@ class PdfRelationSchema extends ExportRelationSchema
      */
     public function isShowGrid()
     {
-        return $this->_showGrid;
+        return $this->showGrid;
     }
 
     /**
@@ -279,7 +303,7 @@ class PdfRelationSchema extends ExportRelationSchema
      */
     public function setWithDataDictionary($value)
     {
-        $this->_withDoc = $value;
+        $this->withDoc = $value;
     }
 
     /**
@@ -289,7 +313,7 @@ class PdfRelationSchema extends ExportRelationSchema
      */
     public function isWithDataDictionary()
     {
-        return $this->_withDoc;
+        return $this->withDoc;
     }
 
     /**
@@ -301,7 +325,7 @@ class PdfRelationSchema extends ExportRelationSchema
      */
     public function setTableOrder($value)
     {
-        $this->_tableOrder = $value;
+        $this->tableOrder = $value;
     }
 
     /**
@@ -311,7 +335,7 @@ class PdfRelationSchema extends ExportRelationSchema
      */
     public function getTableOrder()
     {
-        return $this->_tableOrder;
+        return $this->tableOrder;
     }
 
     /**
@@ -333,10 +357,10 @@ class PdfRelationSchema extends ExportRelationSchema
      */
     private function setMinMax($table)
     {
-        $this->_xMax = max($this->_xMax, $table->x + $table->width);
-        $this->_yMax = max($this->_yMax, $table->y + $table->height);
-        $this->_xMin = min($this->_xMin, $table->x);
-        $this->_yMin = min($this->_yMin, $table->y);
+        $this->xMax = max($this->xMax, $table->x + $table->width);
+        $this->yMax = max($this->yMax, $table->y + $table->height);
+        $this->xMin = min($this->xMin, $table->x);
+        $this->yMin = min($this->yMin, $table->y);
     }
 
     /**
@@ -357,37 +381,37 @@ class PdfRelationSchema extends ExportRelationSchema
         $foreignTable,
         $foreignField
     ) {
-        if (! isset($this->_tables[$masterTable])) {
-            $this->_tables[$masterTable] = new TableStatsPdf(
+        if (! isset($this->tables[$masterTable])) {
+            $this->tables[$masterTable] = new TableStatsPdf(
                 $this->diagram,
                 $this->db,
                 $masterTable,
                 null,
                 $this->pageNumber,
-                $this->_tablewidth,
+                $this->tablewidth,
                 $this->showKeys,
                 $this->tableDimension
             );
-            $this->setMinMax($this->_tables[$masterTable]);
+            $this->setMinMax($this->tables[$masterTable]);
         }
-        if (! isset($this->_tables[$foreignTable])) {
-            $this->_tables[$foreignTable] = new TableStatsPdf(
+        if (! isset($this->tables[$foreignTable])) {
+            $this->tables[$foreignTable] = new TableStatsPdf(
                 $this->diagram,
                 $this->db,
                 $foreignTable,
                 null,
                 $this->pageNumber,
-                $this->_tablewidth,
+                $this->tablewidth,
                 $this->showKeys,
                 $this->tableDimension
             );
-            $this->setMinMax($this->_tables[$foreignTable]);
+            $this->setMinMax($this->tables[$foreignTable]);
         }
         $this->relations[] = new RelationStatsPdf(
             $this->diagram,
-            $this->_tables[$masterTable],
+            $this->tables[$masterTable],
             $masterField,
-            $this->_tables[$foreignTable],
+            $this->tables[$foreignTable],
             $foreignField
         );
     }
@@ -404,7 +428,7 @@ class PdfRelationSchema extends ExportRelationSchema
         $gridSize = 10;
         $labelHeight = 4;
         $labelWidth = 5;
-        if ($this->_withDoc) {
+        if ($this->withDoc) {
             $topSpace = 6;
             $bottomSpace = 15;
         } else {
@@ -430,8 +454,8 @@ class PdfRelationSchema extends ExportRelationSchema
                 $this->diagram->SetXY(0, $l * $gridSize + $topSpace);
                 $label = (string) sprintf(
                     '%.0f',
-                    ($l * $gridSize + $topSpace - $this->_topMargin)
-                    * $this->_scale + $this->_yMin
+                    ($l * $gridSize + $topSpace - $this->topMargin)
+                    * $this->scale + $this->yMin
                 );
                 $this->diagram->Cell($labelWidth, $labelHeight, ' ' . $label);
             } // end if
@@ -447,7 +471,7 @@ class PdfRelationSchema extends ExportRelationSchema
             $this->diagram->SetXY($j * $gridSize, $topSpace);
             $label = (string) sprintf(
                 '%.0f',
-                ($j * $gridSize - $this->_leftMargin) * $this->_scale + $this->_xMin
+                ($j * $gridSize - $this->leftMargin) * $this->scale + $this->xMin
             );
             $this->diagram->Cell($labelWidth, $labelHeight, $label);
         }
@@ -478,8 +502,8 @@ class PdfRelationSchema extends ExportRelationSchema
      */
     private function drawTables()
     {
-        foreach ($this->_tables as $table) {
-            $table->tableDraw(null, $this->_withDoc, $this->showColor);
+        foreach ($this->tables as $table) {
+            $table->tableDraw(null, $this->withDoc, $this->showColor);
         }
     }
 
@@ -576,7 +600,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 $this->diagram->PMA_links['doc'][$table]['-'],
                 -1
             );
-            $this->diagram->SetFont($this->_ff, 'B', 18);
+            $this->diagram->SetFont($this->ff, 'B', 18);
             $this->diagram->Cell(
                 0,
                 8,
@@ -587,7 +611,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 0,
                 $this->diagram->PMA_links['RT'][$table]['-']
             );
-            $this->diagram->SetFont($this->_ff, '', 8);
+            $this->diagram->SetFont($this->ff, '', 8);
             $this->diagram->Ln();
 
             $cfgRelation = $this->relation->getRelationsParam();
@@ -681,7 +705,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 $this->diagram->Ln();
             }
 
-            $this->diagram->SetFont($this->_ff, 'B');
+            $this->diagram->SetFont($this->ff, 'B');
             if (isset($this->orientation) && $this->orientation === 'L') {
                 $this->diagram->Cell(25, 8, __('Column'), 1, 0, 'C');
                 $this->diagram->Cell(20, 8, __('Type'), 1, 0, 'C');
@@ -727,7 +751,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 $this->diagram->Cell(30, 8, 'MIME', 1, 1, 'C');
                 $this->diagram->setWidths([20, 20, 20, 10, 15, 15, 30, 30, 30]);
             }
-            $this->diagram->SetFont($this->_ff, '');
+            $this->diagram->SetFont($this->ff, '');
 
             foreach ($columns as $row) {
                 $extracted_columnspec
@@ -790,7 +814,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 }
                 $this->diagram->row($diagram_row, $links);
             } // end foreach
-            $this->diagram->SetFont($this->_ff, '', 14);
+            $this->diagram->SetFont($this->ff, '', 14);
         } //end each
     }
 }

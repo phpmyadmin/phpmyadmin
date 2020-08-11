@@ -31,6 +31,7 @@ use function ob_start;
  */
 class ExportHtmlwordTest extends AbstractTestCase
 {
+    /** @var ExportHtmlword */
     protected $object;
 
     /**

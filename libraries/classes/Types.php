@@ -22,14 +22,14 @@ use function strncasecmp;
 class Types
 {
     /** @var DatabaseInterface Database interface */
-    private $_dbi;
+    private $dbi;
 
     /**
      * @param DatabaseInterface $dbi Database interface instance
      */
     public function __construct($dbi)
     {
-        $this->_dbi = $dbi;
+        $this->dbi = $dbi;
     }
 
     /**
@@ -467,8 +467,8 @@ class Types
      */
     public function getFunctionsClass($class)
     {
-        $isMariaDB = $this->_dbi->isMariaDB();
-        $serverVersion = $this->_dbi->getVersion();
+        $isMariaDB = $this->dbi->isMariaDB();
+        $serverVersion = $this->dbi->getVersion();
 
         switch ($class) {
             case 'CHAR':
@@ -703,8 +703,8 @@ class Types
      */
     public function getColumns(): array
     {
-        $isMariaDB = $this->_dbi->isMariaDB();
-        $serverVersion = $this->_dbi->getVersion();
+        $isMariaDB = $this->dbi->isMariaDB();
+        $serverVersion = $this->dbi->getVersion();
 
         // most used types
         $ret = [

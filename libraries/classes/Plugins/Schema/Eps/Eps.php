@@ -21,8 +21,13 @@ use function strlen;
  */
 class Eps
 {
+    /** @var string */
     public $font;
+
+    /** @var int */
     public $fontSize;
+
+    /** @var string */
     public $stringCommands;
 
     /**
@@ -130,7 +135,7 @@ class Eps
     /**
      * Get the font Size
      *
-     * @return string return the size of the font e.g 10
+     * @return string|int return the size of the font e.g 10
      */
     public function getFontSize()
     {

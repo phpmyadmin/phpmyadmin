@@ -63,14 +63,14 @@ class Form
      *
      * @var array
      */
-    private $_fieldsTypes;
+    private $fieldsTypes;
 
     /**
      * ConfigFile instance
      *
      * @var ConfigFile
      */
-    private $_configFile;
+    private $configFile;
 
     /**
      * A counter for the number of groups
@@ -94,7 +94,7 @@ class Form
         $index = null
     ) {
         $this->index = $index;
-        $this->_configFile = $cf;
+        $this->configFile = $cf;
         $this->loadForm($formName, $form);
     }
 
@@ -115,7 +115,7 @@ class Form
             '/'
         );
 
-        return $this->_fieldsTypes[$key] ?? null;
+        return $this->fieldsTypes[$key] ?? null;
     }
 
     /**
@@ -127,7 +127,7 @@ class Form
      */
     public function getOptionValueList($optionPath)
     {
-        $value = $this->_configFile->getDbEntry($optionPath);
+        $value = $this->configFile->getDbEntry($optionPath);
         if ($value === null) {
             trigger_error($optionPath . ' - select options not defined', E_USER_ERROR);
 
@@ -243,16 +243,16 @@ class Form
     }
 
     /**
-     * Reads fields' types to $this->_fieldsTypes
+     * Reads fields' types to $this->fieldsTypes
      *
      * @return void
      */
     protected function readTypes()
     {
-        $cf = $this->_configFile;
+        $cf = $this->configFile;
         foreach ($this->fields as $name => $path) {
             if (mb_strpos((string) $name, ':group:') === 0) {
-                $this->_fieldsTypes[$name] = 'group';
+                $this->fieldsTypes[$name] = 'group';
                 continue;
             }
             $v = $cf->getDbEntry($path);
@@ -261,7 +261,7 @@ class Form
             } else {
                 $type = gettype($cf->getDefault($path));
             }
-            $this->_fieldsTypes[$name] = $type;
+            $this->fieldsTypes[$name] = $type;
         }
     }
 

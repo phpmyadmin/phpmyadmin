@@ -26,6 +26,7 @@ use function array_shift;
  */
 class ExportPdfTest extends AbstractTestCase
 {
+    /** @var ExportPdf */
     protected $object;
 
     /**
@@ -194,7 +195,7 @@ class ExportPdfTest extends AbstractTestCase
         $pdf->expects($this->once())
             ->method('setTopMargin');
 
-        $attrPdf = new ReflectionProperty(ExportPdf::class, '_pdf');
+        $attrPdf = new ReflectionProperty(ExportPdf::class, 'pdf');
         $attrPdf->setAccessible(true);
         $attrPdf->setValue($this->object, $pdf);
 
@@ -215,7 +216,7 @@ class ExportPdfTest extends AbstractTestCase
         $pdf->expects($this->once())
             ->method('getPDFData');
 
-        $attrPdf = new ReflectionProperty(ExportPdf::class, '_pdf');
+        $attrPdf = new ReflectionProperty(ExportPdf::class, 'pdf');
         $attrPdf->setAccessible(true);
         $attrPdf->setValue($this->object, $pdf);
 
@@ -280,7 +281,7 @@ class ExportPdfTest extends AbstractTestCase
             ->method('mysqlReport')
             ->with('SELECT');
 
-        $attrPdf = new ReflectionProperty(ExportPdf::class, '_pdf');
+        $attrPdf = new ReflectionProperty(ExportPdf::class, 'pdf');
         $attrPdf->setAccessible(true);
         $attrPdf->setValue($this->object, $pdf);
 

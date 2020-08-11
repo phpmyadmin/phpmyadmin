@@ -116,10 +116,8 @@ class Tracking
 
     /**
      * Function to get the list versions of the table
-     *
-     * @return array
      */
-    public function getListOfVersionsOfTable()
+    public function getListOfVersionsOfTable(): array
     {
         $relation = $this->relation;
         $cfgRelation = $relation->getRelationsParam();
@@ -132,7 +130,13 @@ class Tracking
             $GLOBALS['dbi']->escapeString($GLOBALS['table']) . "' " .
             ' ORDER BY version DESC ';
 
-        return $relation->queryAsControlUser($sql_query);
+        $result = $relation->queryAsControlUser($sql_query);
+
+        if (! is_array($result)) {
+            return [];
+        }
+
+        return $result;
     }
 
     /**
@@ -280,7 +284,7 @@ class Tracking
          */
         if (count($data['ddlog']) == 0 && count($data['dmlog']) === 0) {
             $msg = Message::notice(__('No data'));
-            $msg->display();
+            echo $msg->getDisplay();
         }
 
         $html .= $this->getHtmlForTrackingReportExportForm1(

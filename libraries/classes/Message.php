@@ -23,7 +23,7 @@ use function strlen;
  * simple usage examples:
  * <code>
  * // display simple error message 'Error'
- * Message::error()->display();
+ * echo Message::error()->getDisplay();
  *
  * // get simple success message 'Success'
  * $message = Message::success();
@@ -737,14 +737,6 @@ class Message
     public function getLevel(): string
     {
         return self::$level[$this->getNumber()];
-    }
-
-    /**
-     * Displays the message in HTML
-     */
-    public function display(): void
-    {
-        echo $this->getDisplay();
     }
 
     /**

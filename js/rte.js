@@ -264,8 +264,8 @@ RTE.COMMON = {
                                             .eq(0)
                                             .find('strong')
                                             .text()
-                                            .toUpperCase();
-                                        text = $.trim(text);
+                                            .toUpperCase()
+                                            .trim();
                                         if (text !== '' && text > data.name) {
                                             $(this).before(data.new_row);
                                             inserted = true;

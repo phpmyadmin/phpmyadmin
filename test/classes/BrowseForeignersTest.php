@@ -15,6 +15,7 @@ use PhpMyAdmin\Template;
  */
 class BrowseForeignersTest extends AbstractTestCase
 {
+    /** @var BrowseForeigners */
     private $browseForeigners;
 
     /**

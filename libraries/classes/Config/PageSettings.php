@@ -23,28 +23,28 @@ class PageSettings
      *
      * @var string
      */
-    private $_elemId = 'page_settings_modal';
+    private $elemId = 'page_settings_modal';
 
     /**
      * Name of the group to show
      *
      * @var string
      */
-    private $_groupName = '';
+    private $groupName = '';
 
     /**
      * Contains HTML of errors
      *
      * @var string
      */
-    private $_errorHTML = '';
+    private $errorHTML = '';
 
     /**
      * Contains HTML of settings
      *
      * @var string
      */
-    private $_HTML = '';
+    private $HTML = '';
 
     /** @var UserPreferences */
     private $userPreferences;
@@ -67,9 +67,9 @@ class PageSettings
         }
 
         if (! empty($elemId)) {
-            $this->_elemId = $elemId;
+            $this->elemId = $elemId;
         }
-        $this->_groupName = $formGroupName;
+        $this->groupName = $formGroupName;
 
         $cf = new ConfigFile($GLOBALS['PMA_Config']->base_settings);
         $this->userPreferences->pageInit($cf);
@@ -85,7 +85,7 @@ class PageSettings
         }
 
         // Display forms
-        $this->_HTML = $this->getPageSettingsDisplay($formDisplay, $error);
+        $this->HTML = $this->getPageSettingsDisplay($formDisplay, $error);
     }
 
     /**
@@ -141,7 +141,7 @@ class PageSettings
                 . $formDisplay->displayErrors()
                 . '</div>';
         }
-        $this->_errorHTML = $retval;
+        $this->errorHTML = $retval;
     }
 
     /**
@@ -160,7 +160,7 @@ class PageSettings
 
         $this->storeError($formDisplay, $error);
 
-        $retval .= '<div id="' . $this->_elemId . '">';
+        $retval .= '<div id="' . $this->elemId . '">';
         $retval .= '<div class="page_settings">';
         $retval .= $formDisplay->getDisplay(
             true,
@@ -168,7 +168,7 @@ class PageSettings
             false,
             $response->getFooter()->getSelfUrl(),
             [
-                'submit_save' => $this->_groupName,
+                'submit_save' => $this->groupName,
             ]
         );
         $retval .= '</div>';
@@ -184,7 +184,7 @@ class PageSettings
      */
     public function getHTML()
     {
-        return $this->_HTML;
+        return $this->HTML;
     }
 
     /**
@@ -194,6 +194,6 @@ class PageSettings
      */
     public function getErrorHTML()
     {
-        return $this->_errorHTML;
+        return $this->errorHTML;
     }
 }

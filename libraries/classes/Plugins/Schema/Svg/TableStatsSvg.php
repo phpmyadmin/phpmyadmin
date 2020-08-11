@@ -26,10 +26,10 @@ use function sprintf;
  */
 class TableStatsSvg extends TableStats
 {
-    /**
-     * Defines properties
-     */
+    /** @var int */
     public $height;
+
+    /** @var int */
     public $currentCell = 0;
 
     /**

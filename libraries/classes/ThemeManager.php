@@ -33,13 +33,13 @@ class ThemeManager
      * @static
      * @var ThemeManager
      */
-    private static $_instance;
+    private static $instance;
 
     /**
      * @var string path to theme folder
      * @access protected
      */
-    private $_themes_path = './themes/';
+    private $themes_path = './themes/';
 
     /** @var array available themes */
     public $themes = [];
@@ -117,11 +117,11 @@ class ThemeManager
      */
     public static function getInstance(): ThemeManager
     {
-        if (empty(self::$_instance)) {
-            self::$_instance = new ThemeManager();
+        if (empty(self::$instance)) {
+            self::$instance = new ThemeManager();
         }
 
-        return self::$_instance;
+        return self::$instance;
     }
 
     /**
@@ -139,7 +139,7 @@ class ThemeManager
             return false;
         }
 
-        $this->_themes_path = trim($path);
+        $this->themes_path = trim($path);
 
         return true;
     }
@@ -283,12 +283,12 @@ class ThemeManager
     public function loadThemes()
     {
         $this->themes = [];
-        $handleThemes = opendir($this->_themes_path);
+        $handleThemes = opendir($this->themes_path);
 
         if ($handleThemes === false) {
             trigger_error(
                 'phpMyAdmin-ERROR: cannot open themes folder: '
-                . $this->_themes_path,
+                . $this->themes_path,
                 E_USER_WARNING
             );
 
@@ -300,7 +300,7 @@ class ThemeManager
             // Skip non dirs, . and ..
             if ($PMA_Theme === '.'
                 || $PMA_Theme === '..'
-                || ! @is_dir(ROOT_PATH . $this->_themes_path . $PMA_Theme)
+                || ! @is_dir(ROOT_PATH . $this->themes_path . $PMA_Theme)
             ) {
                 continue;
             }
@@ -308,8 +308,8 @@ class ThemeManager
                 continue;
             }
             $new_theme = Theme::load(
-                $this->_themes_path . $PMA_Theme,
-                ROOT_PATH . $this->_themes_path . $PMA_Theme . '/'
+                $this->themes_path . $PMA_Theme,
+                ROOT_PATH . $this->themes_path . $PMA_Theme . '/'
             );
             if (! $new_theme) {
                 continue;

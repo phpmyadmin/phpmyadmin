@@ -15,7 +15,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
  */
 class InnodbTest extends AbstractTestCase
 {
-    /** @access protected */
+    /** @var Innodb */
     protected $object;
 
     /**

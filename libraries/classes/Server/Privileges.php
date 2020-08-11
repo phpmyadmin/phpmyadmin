@@ -9,7 +9,6 @@ namespace PhpMyAdmin\Server;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Display\ChangePassword;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Message;
@@ -456,11 +455,15 @@ class Privileges
             [
                 'Delete_history_priv',
                 'DELETE HISTORY',
+                // phpcs:ignore Generic.Files.LineLength.TooLong
+                /* l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement" */
                 __('Allows deleting historical rows.'),
             ],
             [
                 'Delete versioning rows_priv',
                 'DELETE HISTORY',
+                // phpcs:ignore Generic.Files.LineLength.TooLong
+                /* l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement" */
                 __('Allows deleting historical rows.'),
             ],
             [
@@ -3309,11 +3312,7 @@ class Privileges
         $changeLoginInfoFields = '';
         if (! is_array($dbname) && strlen($dbname) === 0 && ! $user_does_not_exists) {
             //change login information
-            $changePassword = ChangePassword::getHtml(
-                'edit_other',
-                $username,
-                $hostname
-            );
+            $changePassword = $this->getFormForChangePassword($username, $hostname, true);
             $userGroup = $this->getUserGroupForUser($username);
             $changeLoginInfoFields = $this->getHtmlForLoginInformationFields('change', $username, $hostname);
         }
@@ -3935,5 +3934,44 @@ class Privileges
         }
 
         return $this->parseProcPriv($privileges);
+    }
+
+    public function getFormForChangePassword(string $username, string $hostname, bool $editOthers): string
+    {
+        global $route;
+
+        $isPrivileges = $route === '/server/privileges';
+
+        $serverType = Util::getServerType();
+        $serverVersion = $this->dbi->getVersion();
+        $origAuthPlugin = $this->getCurrentAuthenticationPlugin(
+            'change',
+            $username,
+            $hostname
+        );
+
+        $isNew = ($serverType === 'MySQL' && $serverVersion >= 50507)
+            || ($serverType === 'MariaDB' && $serverVersion >= 50200);
+        $hasMoreAuthPlugins = ($serverType === 'MySQL' && $serverVersion >= 50706)
+            || ($this->dbi->isSuperuser() && $editOthers);
+
+        $activeAuthPlugins = ['mysql_native_password' => __('Native MySQL authentication')];
+
+        if ($isNew && $hasMoreAuthPlugins) {
+            $activeAuthPlugins = $this->getActiveAuthPlugins();
+            if (isset($activeAuthPlugins['mysql_old_password'])) {
+                unset($activeAuthPlugins['mysql_old_password']);
+            }
+        }
+
+        return $this->template->render('server/privileges/change_password', [
+            'username' => $username,
+            'hostname' => $hostname,
+            'is_privileges' => $isPrivileges,
+            'is_new' => $isNew,
+            'has_more_auth_plugins' => $hasMoreAuthPlugins,
+            'active_auth_plugins' => $activeAuthPlugins,
+            'orig_auth_plugin' => $origAuthPlugin,
+        ]);
     }
 }

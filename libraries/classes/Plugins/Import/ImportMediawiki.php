@@ -31,7 +31,7 @@ class ImportMediawiki extends ImportPlugin
      *
      * @var bool
      */
-    private $_analyze;
+    private $analyze;
 
     public function __construct()
     {
@@ -384,7 +384,7 @@ class ImportMediawiki extends ImportPlugin
 
     /**
      * Sets the database name and additional options and calls Import::buildSql()
-     * Used in PMA_importDataAllTables() and $this->_importDataOneTable()
+     * Used in PMA_importDataAllTables() and $this->importDataOneTable()
      *
      * @param array $tables   structure:
      *                        array(
@@ -541,7 +541,7 @@ class ImportMediawiki extends ImportPlugin
      */
     private function getAnalyze()
     {
-        return $this->_analyze;
+        return $this->analyze;
     }
 
     /**
@@ -553,7 +553,7 @@ class ImportMediawiki extends ImportPlugin
      */
     private function setAnalyze($analyze)
     {
-        $this->_analyze = $analyze;
+        $this->analyze = $analyze;
     }
 
     /**

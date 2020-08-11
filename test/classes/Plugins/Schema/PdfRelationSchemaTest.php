@@ -17,7 +17,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
  */
 class PdfRelationSchemaTest extends AbstractTestCase
 {
-    /** @access protected */
+    /** @var PdfRelationSchema */
     protected $object;
 
     /**

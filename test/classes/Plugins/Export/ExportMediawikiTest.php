@@ -29,6 +29,7 @@ use function ob_start;
  */
 class ExportMediawikiTest extends AbstractTestCase
 {
+    /** @var ExportMediawiki */
     protected $object;
 
     /**

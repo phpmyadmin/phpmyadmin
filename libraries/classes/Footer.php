@@ -30,14 +30,14 @@ class Footer
      * @access private
      * @var Scripts
      */
-    private $_scripts;
+    private $scripts;
     /**
      * Whether we are servicing an ajax request.
      *
      * @access private
      * @var bool
      */
-    private $_isAjax;
+    private $isAjax;
     /**
      * Whether to only close the BODY and HTML tags
      * or also include scripts, errors and links
@@ -45,14 +45,14 @@ class Footer
      * @access private
      * @var bool
      */
-    private $_isMinimal;
+    private $isMinimal;
     /**
      * Whether to display anything
      *
      * @access private
      * @var bool
      */
-    private $_isEnabled;
+    private $isEnabled;
 
     /** @var Relation */
     private $relation;
@@ -66,9 +66,9 @@ class Footer
     public function __construct()
     {
         $this->template = new Template();
-        $this->_isEnabled = true;
-        $this->_scripts = new Scripts();
-        $this->_isMinimal = false;
+        $this->isEnabled = true;
+        $this->scripts = new Scripts();
+        $this->isMinimal = false;
         $this->relation = new Relation($GLOBALS['dbi']);
     }
 
@@ -273,7 +273,7 @@ class Footer
      */
     public function disable(): void
     {
-        $this->_isEnabled = false;
+        $this->isEnabled = false;
     }
 
     /**
@@ -284,7 +284,7 @@ class Footer
      */
     public function setAjax(bool $isAjax): void
     {
-        $this->_isAjax = $isAjax;
+        $this->isAjax = $isAjax;
     }
 
     /**
@@ -292,7 +292,7 @@ class Footer
      */
     public function setMinimal(): void
     {
-        $this->_isMinimal = true;
+        $this->isMinimal = true;
     }
 
     /**
@@ -302,7 +302,7 @@ class Footer
      */
     public function getScripts(): Scripts
     {
-        return $this->_scripts;
+        return $this->scripts;
     }
 
     /**
@@ -311,18 +311,18 @@ class Footer
     public function getDisplay(): string
     {
         $this->setHistory();
-        if ($this->_isEnabled) {
-            if (! $this->_isAjax && ! $this->_isMinimal) {
+        if ($this->isEnabled) {
+            if (! $this->isAjax && ! $this->isMinimal) {
                 if (Core::getenv('SCRIPT_NAME')
                     && empty($_POST)
-                    && ! $this->_isAjax
+                    && ! $this->isAjax
                 ) {
                     $url = $this->getSelfUrl();
                     $header = Response::getInstance()->getHeader();
                     $scripts = $header->getScripts()->getFiles();
                     $menuHash = $header->getMenu()->getHash();
                     // prime the client-side cache
-                    $this->_scripts->addCode(
+                    $this->scripts->addCode(
                         sprintf(
                             'if (! (history && history.pushState)) '
                             . 'MicroHistory.primer = {'
@@ -337,17 +337,17 @@ class Footer
                     );
                 }
                 if (Core::getenv('SCRIPT_NAME')
-                    && ! $this->_isAjax
+                    && ! $this->isAjax
                 ) {
                     $url = $this->getSelfUrl();
                     $selfLink = $this->getSelfLink($url);
                 }
-                $this->_scripts->addCode(
+                $this->scripts->addCode(
                     'var debugSQLInfo = ' . $this->getDebugMessage() . ';'
                 );
 
                 $errorMessages = $this->getErrorMessages();
-                $scripts = $this->_scripts->getDisplay();
+                $scripts = $this->scripts->getDisplay();
 
                 if ($GLOBALS['cfg']['DBG']['demo']) {
                     $demoMessage = $this->getDemoMessage();
@@ -357,8 +357,8 @@ class Footer
             }
 
             return $this->template->render('footer', [
-                'is_ajax' => $this->_isAjax,
-                'is_minimal' => $this->_isMinimal,
+                'is_ajax' => $this->isAjax,
+                'is_minimal' => $this->isMinimal,
                 'self_link' => $selfLink ?? '',
                 'error_messages' => $errorMessages ?? '',
                 'scripts' => $scripts ?? '',

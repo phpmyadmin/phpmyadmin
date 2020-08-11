@@ -19,6 +19,7 @@ use function ob_start;
  */
 class AuthenticationConfigTest extends AbstractTestCase
 {
+    /** @var AuthenticationConfig */
     protected $object;
 
     /**
@@ -99,6 +100,8 @@ class AuthenticationConfigTest extends AbstractTestCase
         ob_start();
         $this->object->showFailure('');
         $html = ob_get_clean();
+
+        $this->assertIsString($html);
 
         $this->assertStringContainsString(
             'You probably did not create a configuration file. You might want ' .

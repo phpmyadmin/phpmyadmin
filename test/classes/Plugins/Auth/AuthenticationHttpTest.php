@@ -421,6 +421,8 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         $this->object->showFailure('');
         $result = ob_get_clean();
 
+        $this->assertIsString($result);
+
         $this->assertStringContainsString(
             '<p>error 123</p>',
             $result

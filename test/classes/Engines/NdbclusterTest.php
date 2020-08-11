@@ -15,7 +15,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
  */
 class NdbclusterTest extends AbstractTestCase
 {
-    /** @access protected */
+    /** @var Ndbcluster */
     protected $object;
 
     /**

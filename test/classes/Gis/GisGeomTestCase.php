@@ -15,6 +15,7 @@ use function imagesx;
  */
 abstract class GisGeomTestCase extends AbstractTestCase
 {
+    /** @var object */
     protected $object;
 
     /**
@@ -28,7 +29,7 @@ abstract class GisGeomTestCase extends AbstractTestCase
      */
     public function testGenerateParams(string $wkt, ?int $index, array $params): void
     {
-        if ($index == null) {
+        if ($index === null) {
             $this->assertEquals(
                 $params,
                 $this->object->generateParams($wkt)

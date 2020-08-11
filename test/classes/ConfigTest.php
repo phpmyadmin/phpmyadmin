@@ -42,6 +42,8 @@ class ConfigTest extends AbstractTestCase
 {
     /**
      * Turn off backup globals
+     *
+     * @var bool
      */
     protected $backupGlobals = false;
 

@@ -28,19 +28,46 @@ use function sprintf;
  */
 abstract class TableStats
 {
+    /** @var Dia\Dia|Eps\Eps|Pdf\Pdf|Svg\Svg */
     protected $diagram;
+
+    /** @var string */
     protected $db;
+
+    /** @var int */
     protected $pageNumber;
+
+    /** @var string */
     protected $tableName;
+
+    /** @var bool */
     protected $showKeys;
+
+    /** @var bool */
     protected $tableDimension;
+
+    /** @var mixed */
     public $displayfield;
+
+    /** @var array */
     public $fields = [];
+
+    /** @var array */
     public $primary = [];
+
+    /** @var int|float */
     public $x;
+
+    /** @var int|float */
     public $y;
+
+    /** @var int */
     public $width = 0;
+
+    /** @var int */
     public $heightCell = 0;
+
+    /** @var bool */
     protected $offline;
 
     /** @var Relation */

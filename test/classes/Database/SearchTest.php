@@ -17,7 +17,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
  */
 class SearchTest extends AbstractTestCase
 {
-    /** @access protected */
+    /** @var Search */
     protected $object;
 
     /**
