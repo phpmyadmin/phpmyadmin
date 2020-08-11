@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-06-14 22:54+0200\n"
-"PO-Revision-Date: 2020-05-20 08:29+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2020-08-11 12:45+0000\n"
+"Last-Translator: javad noori <cpuintelamd@yahoo.com>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
 "fa/>\n"
 "Language: fa\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.1-dev\n"
+"X-Generator: Weblate 4.2-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -127,16 +127,12 @@ msgid "You have to choose at least one column to display!"
 msgstr "شما حذاقل بايد يك ستون را براي نمايش انتخاب نماييد!"
 
 #: db_qbe.php:159 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "in query"
 msgid "Multi-table query"
-msgstr "داخل کوئری"
+msgstr "پرس و جو از چند جدول"
 
 #: db_qbe.php:163 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query"
 msgid "Query by example"
-msgstr "پرس و جو"
+msgstr "به عنوان مثال پرس و جو کنید"
 
 #: db_qbe.php:182
 #, php-format
@@ -209,8 +205,6 @@ msgid "Failed"
 msgstr "عملیات شکست خورد"
 
 #: import.php:94
-#, fuzzy
-#| msgid "complete inserts"
 msgid "Incomplete params"
 msgstr "پارامترهای ناقص"
 
@@ -220,8 +214,8 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"احتمالاً شما سعی کرده اید یک فایل حجیم را آپلود کنید. لطفاً برای یافتن راه حلی "
-"برای این محدودیت به  %sdocumentation%s مراجعه کنید."
+"احتمالاً شما سعی کرده اید یک فایل حجیم را آپلود کنید. لطفاً برای یافتن راه "
+"حلی برای این محدودیت به %sdocumentation%sمراجعه کنید."
 
 #: import.php:396 import.php:602
 msgid "Showing bookmark"
