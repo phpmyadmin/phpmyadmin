@@ -326,7 +326,7 @@ class GisMultiPolygon extends GisGeometry
      * @param string $spatial    GIS MULTIPOLYGON object
      * @param int    $srid       Spatial reference ID
      * @param string $label      Label for the GIS MULTIPOLYGON object
-     * @param string $fill_color Color for the GIS MULTIPOLYGON object
+     * @param array $fill_color Color for the GIS MULTIPOLYGON object
      * @param array  $scale_data Array containing data related to scaling
      *
      * @return string JavaScript related to a row in the GIS dataset
@@ -376,8 +376,6 @@ class GisMultiPolygon extends GisGeometry
             . 'var feature = new ol.Feature(multiPolygon);'
             . 'feature.setStyle(style);'
             . 'vectorLayer.addFeature(feature);';
-
-        return $row;
     }
 
     /**
