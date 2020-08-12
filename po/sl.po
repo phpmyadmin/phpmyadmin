@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-09 13:04-0300\n"
-"PO-Revision-Date: 2020-08-01 21:42+0000\n"
+"PO-Revision-Date: 2020-08-14 01:32+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -13474,15 +13474,12 @@ msgid "Event scheduler status"
 msgstr "Stanje razporejevalnika dogodkov"
 
 #: templates/database/export/index.twig:62
-#, fuzzy
-#| msgid ""
-#| "@SERVER@ will become the server name, @DATABASE@ will become the database "
-#| "name."
 msgid ""
 "@SERVER@ will become the server name and @DATABASE@ will become the database "
 "name."
 msgstr ""
-"@SERVER@ bo postalo ime strežnika, @DATABASE@ bo postalo ime zbirke podatkov."
+"@SERVER@ bo postalo ime strežnika in @DATABASE@ bo postalo ime zbirke "
+"podatkov."
 
 #. l10n: A query that the user has written freely
 #: templates/database/export/index.twig:5
@@ -14395,18 +14392,15 @@ msgid "File name template:"
 msgstr "Predloga imena datoteke:"
 
 #: templates/export.twig:324
-#, fuzzy, php-format
-#| msgid ""
-#| "This value is interpreted using the 'strftime' function, so you can use "
-#| "time formatting strings. Additionally the following transformations will "
-#| "happen:"
+#, php-format
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
 "formatting strings. Additionally the following transformations will happen: "
 "%s Other text will be kept as is. See the FAQ 6.27 for details."
 msgstr ""
 "Vrednost je prevedena z uporabo funkcije 'strftime', tako da lahko "
-"uporabljate nize za zapis časa. Dodatno bo prišlo še do naslednjih pretvorb:"
+"uporabljate nize za zapis časa. Dodatno bo prišlo še do naslednjih pretvorb: "
+"%s Ostalo besedilo ne bo spremenjeno. Za podrobnosti si oglejte PZV 6.27."
 
 #: templates/export.twig:329
 msgid "use this for future exports"
@@ -16610,16 +16604,12 @@ msgid "Save chart as image"
 msgstr "Shrani grafikon kot sliko"
 
 #: templates/table/export/index.twig:8
-#, fuzzy
-#| msgid ""
-#| "@SERVER@ will become the server name, @DATABASE@ will become the database "
-#| "name, @TABLE@ will become the table name."
 msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name and @TABLE@ will become the table name."
 msgstr ""
-"@SERVER@ bo postalo ime strežnika, @DATABASE@ bo postalo ime zbirke "
-"podatkov, @TABLE@ bo postalo ime tabele."
+"@SERVER@ bo postalo ime strežnika, @DATABASE@ bo postalo ime zbirke podatkov "
+"in @TABLE@ bo postalo ime tabele."
 
 #: templates/table/export/index.twig:5
 #, php-format
