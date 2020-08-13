@@ -9,16 +9,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-06-14 22:54+0200\n"
-"PO-Revision-Date: 2018-05-18 01:25+0000\n"
+"PO-Revision-Date: 2020-08-14 08:32+0000\n"
 "Last-Translator: Xuan Hung <mr.hungdx@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/vi/>\n"
+"5-0/vi/>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.0-dev\n"
+"X-Generator: Weblate 4.2-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -127,16 +127,12 @@ msgid "You have to choose at least one column to display!"
 msgstr "Bạn cần phải chỉ ra ít một cột cần hiển thị!"
 
 #: db_qbe.php:159 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Mô phỏng Truy vấn"
+msgstr "Truy vấn từ nhiều bảng"
 
 #: db_qbe.php:163 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "Truy vấn bị lỗi"
+msgstr "Truy vấn bằng ví dụ"
 
 #: db_qbe.php:182
 #, php-format
@@ -425,7 +421,7 @@ msgstr ""
 
 #: js/messages.php:99
 msgid "Garbled Data"
-msgstr "Garbled Data"
+msgstr "Dữ liệu bị cắt xén"
 
 #: js/messages.php:101
 msgid "Are you sure you wish to change the collation and convert the data?"
@@ -440,6 +436,11 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
+"Thông qua hoạt động này, MySQL sẽ cố gắng ánh xạ dữ liệu giữa các bảng mã. "
+"Nếu các bộ ký tự không tương thích, có thể sẽ gây mất dữ liệu và dữ liệu bị "
+"mất này <b> KHÔNG THỂ</b> khôi phục được kể cả khi đổi lại về bảng mã ban "
+"đầu.<b> Để chuyển đổi dữ liệu hiện có, bạn nên sử dụng tính năng chỉnh sửa "
+"(các) cột (Nhấn vào \"Thay đổi\") trên trang bảng cấu trúc. </b>"
 
 #: js/messages.php:112
 msgid ""
@@ -533,10 +534,8 @@ msgid "Y values"
 msgstr "Giá trị Y"
 
 #: js/messages.php:146
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "Vui lòng nhập lại giá trị đó một lần nữa"
+msgstr "Vui lòng nhập truy vấn SQL trước."
 
 #: js/messages.php:149
 msgid "The host name is empty!"
@@ -1112,16 +1111,12 @@ msgid "Please select the file you want to import."
 msgstr "Chọn những thể loại bạn muốn nhập vào."
 
 #: js/messages.php:339
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
-msgstr "Vui lòng nhập vào tên trang hợp lệ"
+msgstr "Vui lòng nhập vào một tên bảng hợp lệ"
 
 #: js/messages.php:341
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
-msgstr "Vui lòng nhập vào tên trang hợp lệ"
+msgstr "Vui lòng nhập tên cơ sở dữ liệu hợp lệ."
 
 #: js/messages.php:342
 msgid "No files available on server for import!"
@@ -1496,6 +1491,8 @@ msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
+"Bạn có một câu truy vấn được lưu lại trước đó. Nhấn vào tự động lưu câu truy "
+"vấn để tải câu truy vấn"
 
 #: js/messages.php:436
 #, php-format
@@ -1533,15 +1530,11 @@ msgid "Are you sure?"
 msgstr "Bạn có chắc không?"
 
 #: js/messages.php:449
-#, fuzzy
-#| msgid ""
-#| "This action may change some of the columns definition.<br/>Are you sure "
-#| "you want to continue?"
 msgid ""
 "This action may change some of the columns definition.<br>Are you sure you "
 "want to continue?"
 msgstr ""
-"Thao tác này có thể thay đổi một số định nghĩa các cột.<br/>Bạn có chắc muốn "
+"Thao tác này có thể thay đổi một số định nghĩa các cột.<br>Bạn có chắc muốn "
 "tiếp tục không?"
 
 #: js/messages.php:452
@@ -1894,7 +1887,7 @@ msgstr ""
 
 #: js/messages.php:573
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "Giá trị/câu truy vấn con đang rỗng"
 
 #: js/messages.php:574 templates/database/designer/main.twig:42
 #: templates/database/designer/main.twig:45
@@ -1958,10 +1951,8 @@ msgid "%d object(s) created."
 msgstr "%d đối tượng đã được tạo."
 
 #: js/messages.php:591
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
-msgstr "Các tên cột"
+msgstr "Tên cột"
 
 #: js/messages.php:592 libraries/classes/SqlQueryForm.php:433
 msgid "Submit"
