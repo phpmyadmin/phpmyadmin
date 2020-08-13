@@ -9,16 +9,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2018-05-18 08:42+0000\n"
+"PO-Revision-Date: 2020-08-14 08:32+0000\n"
 "Last-Translator: Xuan Hung <mr.hungdx@gmail.com>\n"
-"Language-Team: Vietnamese <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-8/vi/>\n"
+"Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
+"4-9/vi/>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.0-dev\n"
+"X-Generator: Weblate 4.2-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -339,21 +339,17 @@ msgid "You have to choose at least one column to display!"
 msgstr "Bạn cần phải chỉ ra ít một cột cần hiển thị!"
 
 #: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Mô phỏng Truy vấn"
+msgstr "Truy vấn từ nhiều bảng"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "Truy vấn bị lỗi"
+msgstr "Truy vấn bằng ví dụ"
 
 #: db_qbe.php:168
-#, php-format
+#, fuzzy, php-format
 msgid "Switch to %svisual builder%s"
-msgstr "Chuyển sang %sbộ xây dựng trực quan%s"
+msgstr "Chuyển sang %schế độ trực quan%s"
 
 #: db_search.php:32 libraries/classes/Plugins/Auth/AuthenticationConfig.php:84
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:99
@@ -1010,7 +1006,7 @@ msgstr ""
 
 #: js/messages.php:95
 msgid "Garbled Data"
-msgstr "Garbled Data"
+msgstr "Dữ liệu bị cắt xén"
 
 #: js/messages.php:97
 msgid "Are you sure you wish to change the collation and convert the data?"
@@ -1025,6 +1021,11 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
+"Thông qua hoạt động này, MySQL sẽ cố gắng ánh xạ dữ liệu giữa các bảng mã. "
+"Nếu các bộ ký tự không tương thích, có thể sẽ gây mất dữ liệu và dữ liệu bị "
+"mất này <b> KHÔNG THỂ</b> khôi phục được kể cả khi đổi lại về bảng mã ban "
+"đầu.<b> Để chuyển đổi dữ liệu hiện có, bạn nên sử dụng tính năng chỉnh sửa "
+"(các) cột (Nhấn vào \"Thay đổi\") trên trang bảng cấu trúc. </b>"
 
 #: js/messages.php:108
 msgid ""
@@ -1117,10 +1118,8 @@ msgid "Y values"
 msgstr "Giá trị Y"
 
 #: js/messages.php:142
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "Vui lòng nhập lại giá trị đó một lần nữa"
+msgstr "Vui lòng nhập truy vấn SQL trước."
 
 #: js/messages.php:145
 msgid "The host name is empty!"
@@ -2312,7 +2311,7 @@ msgstr ""
 
 #: js/messages.php:564
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "Giá trị/câu truy vấn con đang rỗng"
 
 #: js/messages.php:565 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
@@ -2376,10 +2375,8 @@ msgid "%d object(s) created."
 msgstr "%d đối tượng đã được tạo."
 
 #: js/messages.php:582
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
-msgstr "Các tên cột"
+msgstr "Tên cột"
 
 #: js/messages.php:583 libraries/classes/SqlQueryForm.php:419
 msgid "Submit"
@@ -5081,7 +5078,7 @@ msgstr "Thứ tự tự nhiên"
 #: libraries/classes/Config/Descriptions.php:915
 #: libraries/classes/Config/Descriptions.php:919
 msgid "Use only icons, only text or both."
-msgstr "Dùng biểu tượng, chỉ có chữ hay cả hai"
+msgstr "Chỉ sử dụng các biểu tượng hay văn bản hoặc cả hai."
 
 #: libraries/classes/Config/Descriptions.php:883
 msgid "Table navigation bar"
@@ -14347,16 +14344,12 @@ msgid "File may be compressed (%s) or uncompressed."
 msgstr "Tập tin có thể nén (%s) hoặc không."
 
 #: templates/display/import/import.twig:58
-#, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
 msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"Tên của tập tin nén phải kết thúc bằng <b>.[định dạng].[nén]</b>. Ví dụ: <b>."
-"sql.zip</b>"
+"Tên của tập tin nén phải kết thúc bằng <strong>.[định dạng].[kiểu nén]</"
+"strong>. Ví dụ: <strong>.sql.zip</strong>"
 
 #: templates/display/import/import.twig:69
 #: templates/display/import/import.twig:84
@@ -14384,19 +14377,15 @@ msgstr ""
 "Lần nhập trước gặp lỗi quá giờ, sau khi gửi lại sẽ tiếp tục tại vị trí %d."
 
 #: templates/display/import/import.twig:137
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <i>(This might be a good way to import "
-#| "large files, however it can break transactions.)</i>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <em>(This might be a good way to import large "
 "files, however it can break transactions.)</em>"
 msgstr ""
-"Cho phép ngắt của lần nhập vào trong trường hợp văn lệnh dò thấy nó bị đóng "
-"bởi giới hạn thời gian PHP. <i>(Việc này có lẽ tốt khi muốn nhập tập tin có "
-"kích thước lớn, tuy nhiên nó có thể làm gãy giao dịch.)</i>"
+"Cho phép ngắt quãng quá trình nhập dữ liệu trong trường hợp phát hiện thời "
+"gian thực hiện gần đạt tới giới hạn thời gian cho phép thực thi mã PHP. <em>("
+"Việc này sẽ hữu ích trong trường hợp nhập dữ liệu từ tệp tin có kích thước "
+"lớn, tuy nhiên nó có thể làm gián đoạn các transactions.)</em>"
 
 #: templates/display/import/import.twig:144
 msgid "Skip this number of queries (for SQL) starting from the first one:"
@@ -15115,10 +15104,9 @@ msgstr "Hiện tạo các truy vấn"
 
 #: templates/display/export/options_output_save_dir.twig:5
 #: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Lưu trên máy chủ phục vụ ở thư mục <b>%s</b>"
+msgstr "Lưu vào thư mục <strong>%s</strong> trên máy chủ"
 
 #: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:43
 #: templates/prefs_twofactor.twig:54
@@ -15489,12 +15477,9 @@ msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "%1$s khớp trong <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Tổng cộng:</b> <i>%s</i> khớp mẫu"
+msgstr[0] "<strong>Tổng:</strong> <em>%count%</em> mẫu phù hợp"
 
 #: templates/database/structure/table_header.twig:27
 msgid ""
