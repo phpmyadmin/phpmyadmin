@@ -16,6 +16,7 @@ use function mb_strripos;
 use function mb_substr;
 use function mt_rand;
 use function preg_match;
+use function sprintf;
 use function str_replace;
 use function trim;
 
@@ -139,7 +140,6 @@ abstract class GisGeometry
      */
     protected function getBoundsForOl($srid, array $scale_data)
     {
-
         return sprintf(
             'var minLoc = [%s, %s];'
             . 'var maxLoc = [%s, %s];'
@@ -312,7 +312,7 @@ abstract class GisGeometry
     protected function getPolygonForOpenLayers(array $polygon, $srid)
     {
         return $this->getLineArrayForOpenLayers($polygon, $srid, false)
-        .    'var polygon = new ol.geom.Polygon(arr);';
+        . 'var polygon = new ol.geom.Polygon(arr);';
     }
 
     /**
@@ -337,7 +337,7 @@ abstract class GisGeometry
         foreach ($lines as $line) {
             $ol_array .= 'var lineArr = [];';
             $points_arr = $this->extractPoints($line, null);
-            $ol_array .= 'var line = ' .$this->getLineForOpenLayers(
+            $ol_array .= 'var line = ' . $this->getLineForOpenLayers(
                 $points_arr,
                 $srid,
                 $is_line_string
@@ -347,7 +347,7 @@ abstract class GisGeometry
             $ol_array .= 'arr.push(lineArr);';
         }
 
-        return $ol_array ;
+        return $ol_array;
     }
 
     /**

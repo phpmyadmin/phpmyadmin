@@ -506,6 +506,7 @@ class GisVisualization
             . '});';
         $output .= $this->prepareDataSet($this->data, $scale_data, 'ol', '')
             . '}';
+
         return $output;
     }
 
