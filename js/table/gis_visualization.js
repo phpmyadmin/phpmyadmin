@@ -160,7 +160,7 @@ function initGISVisualization () {
     zoomAndPan();
 }
 
-function drawOpenLayerMap(openLayerCreate) {
+function drawOpenLayerMap (openLayerCreate) {
     $('#placeholder').hide();
     $('#openlayersmap').show();
     // Function doesn't work properly if #openlayersmap is hidden

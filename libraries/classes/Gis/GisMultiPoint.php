@@ -252,7 +252,7 @@ class GisMultiPoint extends GisGeometry
      * @param string $spatial     GIS MULTIPOINT object
      * @param int    $srid        Spatial reference ID
      * @param string $label       Label for the GIS MULTIPOINT object
-     * @param string $point_color Color for the GIS MULTIPOINT object
+     * @param array $point_color Color for the GIS MULTIPOINT object
      * @param array  $scale_data  Array containing data related to scaling
      *
      * @return string JavaScript related to a row in the GIS dataset

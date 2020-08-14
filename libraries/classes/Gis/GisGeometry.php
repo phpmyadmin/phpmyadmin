@@ -88,7 +88,7 @@ abstract class GisGeometry
      * @param string $spatial    GIS data object
      * @param int    $srid       spatial reference ID
      * @param string $label      label for the GIS data object
-     * @param string $color      color for the GIS data object
+     * @param array $color      color for the GIS data object
      * @param array  $scale_data array containing data related to scaling
      *
      * @return string the JavaScript related to a row in the GIS dataset
