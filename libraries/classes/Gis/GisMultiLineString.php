@@ -283,7 +283,7 @@ class GisMultiLineString extends GisGeometry
      * @param string $spatial    GIS MULTILINESTRING object
      * @param int    $srid       Spatial reference ID
      * @param string $label      Label for the GIS MULTILINESTRING object
-     * @param array $line_color Color for the GIS MULTILINESTRING object
+     * @param array  $line_color Color for the GIS MULTILINESTRING object
      * @param array  $scale_data Array containing data related to scaling
      *
      * @return string JavaScript related to a row in the GIS dataset

@@ -254,7 +254,7 @@ class GisLineString extends GisGeometry
      * @param string $spatial    GIS LINESTRING object
      * @param int    $srid       Spatial reference ID
      * @param string $label      Label for the GIS LINESTRING object
-     * @param array $line_color Color for the GIS LINESTRING object
+     * @param array  $line_color Color for the GIS LINESTRING object
      * @param array  $scale_data Array containing data related to scaling
      *
      * @return string JavaScript related to a row in the GIS dataset

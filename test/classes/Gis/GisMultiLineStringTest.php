@@ -419,12 +419,12 @@ class GisMultiLineStringTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsOl() method
      *
-     * @param string $spatial GIS MULTILINESTRING object
-     * @param int $srid spatial reference ID
-     * @param string $label label for the GIS MULTILINESTRING object
-     * @param array $line_color color for the GIS MULTILINESTRING object
-     * @param array $scale_data array containing data related to scaling
-     * @param string $output expected output
+     * @param string $spatial    GIS MULTILINESTRING object
+     * @param int    $srid       spatial reference ID
+     * @param string $label      label for the GIS MULTILINESTRING object
+     * @param array  $line_color color for the GIS MULTILINESTRING object
+     * @param array  $scale_data array containing data related to scaling
+     * @param string $output     expected output
      *
      * @dataProvider providerForPrepareRowAsOl
      */

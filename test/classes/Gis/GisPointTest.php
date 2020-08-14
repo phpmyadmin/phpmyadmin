@@ -351,12 +351,12 @@ class GisPointTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsOl() method
      *
-     * @param string $spatial GIS POINT object
-     * @param int $srid spatial reference ID
-     * @param string $label label for the GIS POINT object
-     * @param array $point_color color for the GIS POINT object
-     * @param array $scale_data array containing data related to scaling
-     * @param string $output expected output
+     * @param string $spatial     GIS POINT object
+     * @param int    $srid        spatial reference ID
+     * @param string $label       label for the GIS POINT object
+     * @param array  $point_color color for the GIS POINT object
+     * @param array  $scale_data  array containing data related to scaling
+     * @param string $output      expected output
      *
      * @dataProvider providerForPrepareRowAsOl
      */

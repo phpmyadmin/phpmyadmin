@@ -355,12 +355,12 @@ class GisGeometryCollectionTest extends AbstractTestCase
     /**
      * Test for prepareRowAsOl
      *
-     * @param string $spatial string to parse
-     * @param int $srid SRID
-     * @param string $label field label
-     * @param array $line_color line color
-     * @param array $scale_data scaling parameters
-     * @param string $output expected output
+     * @param string $spatial    string to parse
+     * @param int    $srid       SRID
+     * @param string $label      field label
+     * @param array  $line_color line color
+     * @param array  $scale_data scaling parameters
+     * @param string $output     expected output
      *
      * @dataProvider providerForPrepareRowAsOl
      */
