@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-09 13:04-0300\n"
-"PO-Revision-Date: 2020-08-11 17:32+0000\n"
+"PO-Revision-Date: 2020-07-31 10:32+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
@@ -13671,12 +13671,16 @@ msgid "Event scheduler status"
 msgstr "État du planificateur d'évènements"
 
 #: templates/database/export/index.twig:62
+#, fuzzy
+#| msgid ""
+#| "@SERVER@ will become the server name, @DATABASE@ will become the database "
+#| "name."
 msgid ""
 "@SERVER@ will become the server name and @DATABASE@ will become the database "
 "name."
 msgstr ""
-"@SERVER@ deviendra le nom du serveur et @DATABASE@ sera remplacé par le nom "
-"de la base de données."
+"@SERVER@ deviendra le nom du serveur, @DATABASE@ sera remplacé par le nom de "
+"la base de données."
 
 #. l10n: A query that the user has written freely
 #: templates/database/export/index.twig:5
@@ -14588,7 +14592,11 @@ msgid "File name template:"
 msgstr "Modèle de nom de fichier :"
 
 #: templates/export.twig:324
-#, php-format
+#, fuzzy, php-format
+#| msgid ""
+#| "This value is interpreted using the 'strftime' function, so you can use "
+#| "time formatting strings. Additionally the following transformations will "
+#| "happen:"
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
 "formatting strings. Additionally the following transformations will happen: "
@@ -14596,8 +14604,7 @@ msgid ""
 msgstr ""
 "Cette valeur est interprétée avec 'strftime', il est donc possible "
 "d'utiliser des chaînes de format d'heure. Ces transformations additionnelles "
-"vont se produire : %s Tout autre texte sera conservé tel quel. Se référer a "
-"la FAQ 6.27 pour les détails."
+"vont se produire :"
 
 #: templates/export.twig:329
 msgid "use this for future exports"
@@ -16829,12 +16836,16 @@ msgid "Save chart as image"
 msgstr "Enregistrer le graphique comme image"
 
 #: templates/table/export/index.twig:8
+#, fuzzy
+#| msgid ""
+#| "@SERVER@ will become the server name, @DATABASE@ will become the database "
+#| "name, @TABLE@ will become the table name."
 msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name and @TABLE@ will become the table name."
 msgstr ""
 "@SERVER@ deviendra le nom du serveur, @DATABASE@ deviendra le nom de la base "
-"de données et @TABLE@ deviendra le nom de la table."
+"de données, @TABLE@ deviendra le nom de la table."
 
 #: templates/table/export/index.twig:5
 #, php-format
