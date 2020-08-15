@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-09 13:04-0300\n"
-"PO-Revision-Date: 2020-08-11 17:32+0000\n"
+"PO-Revision-Date: 2020-08-01 21:42+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/pt_BR/>\n"
@@ -11217,9 +11217,10 @@ msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgstr "Converte um endereço de internet no formato (IPv4/IPv6) em binário"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptolong.php:29
+#, fuzzy
+#| msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgid "Converts an Internet network address in (IPv4/IPv6) format to long."
-msgstr ""
-"Converte um endereço de internet no formato (IPv4/IPv6) em um inteiro longo."
+msgstr "Converte um endereço de internet no formato (IPv4/IPv6) em binário"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:26
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -14527,16 +14528,21 @@ msgid "File name template:"
 msgstr "Nome do arquivo do modelo:"
 
 #: templates/export.twig:324
-#, php-format
+#, fuzzy, php-format
+#| msgid ""
+#| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
+#| "formatting strings. Additionally the following transformations will "
+#| "happen: %3$s. Other text will be kept as is. See the %4$sFAQ%5$s for "
+#| "details."
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
 "formatting strings. Additionally the following transformations will happen: "
 "%s Other text will be kept as is. See the FAQ 6.27 for details."
 msgstr ""
-"Esse valor é interpretado usando a função 'strftime', então você pode usar "
-"as strings de formatação de tempo. Adicionalmente a seguinte transformação "
-"ocorrerá: %s. Outros textos serão mantidos como estão. Veja a FAQ 6.27 para "
-"detalhes."
+"Esse valor é interpretado usando %1$sstrftime%2$s, então você pode usar as "
+"strings de formatação de tempo. Adicionalmente a seguinte transformação "
+"ocorrerá: %3$s. Outros textos serão mantidos como estão. Veja a %4$sFAQ%5$s "
+"para detalhes."
 
 #: templates/export.twig:329
 msgid "use this for future exports"
