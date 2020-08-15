@@ -176,8 +176,8 @@ jobs:
       before_script: skip
       after_script: skip
       after_success: skip
-      install: composer global require "sami/sami:^4.0"
-      script: $HOME/.composer/vendor/bin/sami.php --no-interaction update ./test/sami-config.php
+      install: composer global require "code-lts/doctum:^5.0"
+      script: $HOME/.composer/vendor/bin/doctum.php --no-interaction update ./test/doctum-config.php
 
     - stage: "Other tests"
       name: "Build release"
