@@ -13,7 +13,7 @@ use function hexdec;
 use function imagecolorallocate;
 use function imageline;
 use function imagestring;
-use function json_encode;
+use function implode;
 use function mb_strlen;
 use function mb_substr;
 use function trim;
@@ -254,7 +254,7 @@ class GisLineString extends GisGeometry
      * @param string $spatial    GIS LINESTRING object
      * @param int    $srid       Spatial reference ID
      * @param string $label      Label for the GIS LINESTRING object
-     * @param string $line_color Color for the GIS LINESTRING object
+     * @param array  $line_color Color for the GIS LINESTRING object
      * @param array  $scale_data Array containing data related to scaling
      *
      * @return string JavaScript related to a row in the GIS dataset
@@ -263,16 +263,26 @@ class GisLineString extends GisGeometry
      */
     public function prepareRowAsOl($spatial, $srid, $label, $line_color, array $scale_data)
     {
-        $style_options = [
-            'strokeColor' => $line_color,
-            'strokeWidth' => 2,
-            'label'       => $label,
-            'fontSize'    => 10,
-        ];
+        $result =  'var style = new ol.style.Style({'
+            . 'stroke: new ol.style.Stroke({'
+            . 'color: [' . implode(',', $line_color) . '],'
+            . 'width: 2';
+
+        if ($label) {
+            $result .= '}),'
+                . 'text: new ol.style.Text({'
+                . 'text: "' . $label . '",'
+                . '})';
+        } else {
+            $result .= '})';
+        }
+
+        $result.= '});';
+
         if ($srid == 0) {
             $srid = 4326;
         }
-        $result = $this->getBoundsForOl($srid, $scale_data);
+        $result .= $this->getBoundsForOl($srid, $scale_data);
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $linesrting
@@ -283,9 +293,10 @@ class GisLineString extends GisGeometry
             );
         $points_arr = $this->extractPoints($linesrting, null);
 
-        return $result . 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
-            . $this->getLineForOpenLayers($points_arr, $srid)
-            . ', null, ' . json_encode($style_options) . '));';
+        return $result . 'var line = new ol.Feature({geometry: '
+            . $this->getLineForOpenLayers($points_arr, $srid) . '});'
+            . 'line.setStyle(style);'
+            . 'vectorLayer.addFeature(line);';
     }
 
     /**
