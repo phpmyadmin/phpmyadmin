@@ -34,7 +34,7 @@
     <arg name="extensions" value="php"/>
 
     <exclude-pattern>*/node_modules/*</exclude-pattern>
-    <exclude-pattern>*/test/sami-config.php</exclude-pattern>
+    <exclude-pattern>*/test/doctum-config.php</exclude-pattern>
     <exclude-pattern>*/tmp/*</exclude-pattern>
     <exclude-pattern>*/vendor/*</exclude-pattern>
     <exclude-pattern>*/libraries/cache/*</exclude-pattern>
