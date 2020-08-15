@@ -263,7 +263,7 @@ class GisGeometryCollection extends GisGeometry
      * @param string $spatial    GIS GEOMETRYCOLLECTION object
      * @param int    $srid       spatial reference ID
      * @param string $label      label for the GIS GEOMETRYCOLLECTION object
-     * @param string $color      color for the GIS GEOMETRYCOLLECTION object
+     * @param array  $color      color for the GIS GEOMETRYCOLLECTION object
      * @param array  $scale_data array containing data related to scaling
      *
      * @return string JavaScript related to a row in the GIS dataset

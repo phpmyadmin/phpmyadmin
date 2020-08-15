@@ -358,7 +358,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      * @param string $spatial    string to parse
      * @param int    $srid       SRID
      * @param string $label      field label
-     * @param string $line_color line color
+     * @param array  $line_color line color
      * @param array  $scale_data scaling parameters
      * @param string $output     expected output
      *
@@ -368,7 +368,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
         string $spatial,
         int $srid,
         string $label,
-        string $line_color,
+        array $line_color,
         array $scale_data,
         string $output
     ): void {

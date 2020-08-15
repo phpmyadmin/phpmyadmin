@@ -338,7 +338,7 @@ class GisLineStringTest extends GisGeomTestCase
      * @param string $spatial    GIS LINESTRING object
      * @param int    $srid       spatial reference ID
      * @param string $label      label for the GIS LINESTRING object
-     * @param string $line_color color for the GIS LINESTRING object
+     * @param array  $line_color color for the GIS LINESTRING object
      * @param array  $scale_data array containing data related to scaling
      * @param string $output     expected output
      *
@@ -348,7 +348,7 @@ class GisLineStringTest extends GisGeomTestCase
         string $spatial,
         int $srid,
         string $label,
-        string $line_color,
+        array $line_color,
         array $scale_data,
         string $output
     ): void {

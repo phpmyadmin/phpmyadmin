@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-09 13:04-0300\n"
-"PO-Revision-Date: 2020-08-11 17:32+0000\n"
+"PO-Revision-Date: 2019-11-13 09:05+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/nb_NO/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 3.10-dev\n"
 
 #: libraries/classes/Advisor.php:319
 #, php-format
@@ -4362,8 +4362,8 @@ msgstr "Ugyldig IP-adresse: %s"
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] "Viser %1$d bokmerke (både private og delt)"
-msgstr[1] "Viser %1$d bokmerker (både private og delt)"
+msgstr[0] ""
+msgstr[1] ""
 
 #: libraries/classes/Console.php:94
 msgid "No bookmarks"
@@ -6736,7 +6736,7 @@ msgstr "Mangler phpMyAdmin konfigurasjonslagertabeller"
 
 #: libraries/classes/Controllers/Preferences/ManageController.php:94
 msgid "Paste it to your config.inc.php"
-msgstr "Lim det inn i din config.inc.php-fil"
+msgstr ""
 
 #: libraries/classes/Controllers/Preferences/ManageController.php:139
 #, fuzzy
@@ -7159,7 +7159,7 @@ msgstr "Kommando"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:155
 msgid "Progress"
-msgstr "Framdrift"
+msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:159
 #: libraries/classes/Server/Status/Data.php:138
@@ -7658,7 +7658,7 @@ msgstr ""
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
-msgstr "Maksimalt antall tilkoblinger i bruk samtidig siden tjeneren startet."
+msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:523
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
@@ -8059,7 +8059,7 @@ msgstr "Intern relasjon lagt til"
 #: libraries/classes/Controllers/Table/ReplaceController.php:277
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
-msgstr "Rad: %1$s, Kolonne: %2$s, Feil: %3$s"
+msgstr ""
 
 #: libraries/classes/Controllers/Table/StructureController.php:211
 #: libraries/classes/Controllers/Table/StructureController.php:234
@@ -8629,7 +8629,7 @@ msgstr "Endre"
 
 #: libraries/classes/Database/Routines.php:922
 msgid "Parameters"
-msgstr "Parameter"
+msgstr ""
 
 #: libraries/classes/Database/Routines.php:930
 #, fuzzy
@@ -8716,7 +8716,7 @@ msgstr "Beskrivelse"
 
 #: libraries/classes/Database/Routines.php:1011
 msgid "Is deterministic"
-msgstr "Er deterministisk"
+msgstr ""
 
 #: libraries/classes/Database/Routines.php:1019
 #: templates/columns_definitions/table_fields_definitions.twig:36
@@ -8751,7 +8751,7 @@ msgstr "Sikkerhet"
 
 #: libraries/classes/Database/Routines.php:1054
 msgid "SQL data access"
-msgstr "SQL-datatilgang"
+msgstr ""
 
 #: libraries/classes/Database/Routines.php:1066
 #: templates/columns_definitions/partitions.twig:85
@@ -9535,9 +9535,8 @@ msgid "Unknown error in file upload."
 msgstr "Ukjent feil oppstod under filopplastingen."
 
 #: libraries/classes/File.php:498
-#, fuzzy
 msgid "File is a symbolic link"
-msgstr "Filen er en symbolsk lenke"
+msgstr ""
 
 #: libraries/classes/File.php:504 libraries/classes/File.php:603
 msgid "File could not be read!"
@@ -9604,19 +9603,19 @@ msgstr "Funksjonaliteten %s er påvirket av en kjent feil, se %s"
 
 #: libraries/classes/Html/Generator.php:296
 msgid "SSL is not being used"
-msgstr "SSL er ikke i bruk"
+msgstr ""
 
 #: libraries/classes/Html/Generator.php:301
 msgid "SSL is used with disabled verification"
-msgstr "SSL er i bruk med avskrudd bekreftelse"
+msgstr ""
 
 #: libraries/classes/Html/Generator.php:303
 msgid "SSL is used without certification authority"
-msgstr "SSl er i bruk uten sertifikatsmyndighet"
+msgstr ""
 
 #: libraries/classes/Html/Generator.php:306
 msgid "SSL is used"
-msgstr "SSL er i bruk"
+msgstr ""
 
 #: libraries/classes/Html/Generator.php:429
 msgid "The PHP function password_hash() with default options."
@@ -9624,7 +9623,7 @@ msgstr ""
 
 #: libraries/classes/Html/Generator.php:430
 msgid "password_hash() PHP function"
-msgstr "password_hash()-PHP-funksjon"
+msgstr ""
 
 #: libraries/classes/Html/Generator.php:732
 msgid "Skip Explain SQL"
@@ -9668,7 +9667,7 @@ msgstr "Statistikkdata"
 #: libraries/classes/Html/Generator.php:977
 #, php-format
 msgid "%d errors were found during analysis."
-msgstr "%d feil ble funnet under analyse."
+msgstr ""
 
 #: libraries/classes/Import.php:325 libraries/classes/Sql.php:1211
 msgid "[ROLLBACK occurred.]"
@@ -10150,7 +10149,7 @@ msgstr ""
 #: libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php:38
 msgctxt "Create new database"
 msgid "New"
-msgstr "Ny"
+msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:43
 #, fuzzy
@@ -10168,7 +10167,7 @@ msgstr "Vis hint"
 #: templates/database/events/index.twig:100
 msgctxt "Create new event"
 msgid "New"
-msgstr "Ny"
+msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:24
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
@@ -10180,12 +10179,12 @@ msgstr "Funsjoner"
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:38
 msgctxt "Create new function"
 msgid "New"
-msgstr "Ny"
+msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:36
 msgctxt "Create new index"
 msgid "New"
-msgstr "Ny"
+msgstr ""
 
 #: libraries/classes/Navigation/Nodes/Node.php:800
 msgid "Expand/Collapse"
@@ -10201,7 +10200,7 @@ msgstr "Prosedyrer"
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:38
 msgctxt "Create new procedure"
 msgid "New"
-msgstr "Ny"
+msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeProcedure.php:29
 #, fuzzy
@@ -10212,13 +10211,13 @@ msgstr "Prosedyrer"
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:39
 msgctxt "Create new table"
 msgid "New"
-msgstr "Ny"
+msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:36
 #: templates/database/triggers/footer.twig:2
 msgctxt "Create new trigger"
 msgid "New"
-msgstr "Ny"
+msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:24
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:25
@@ -10230,7 +10229,7 @@ msgstr "Visning"
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:39
 msgctxt "Create new view"
 msgid "New"
-msgstr "Ny"
+msgstr ""
 
 #: libraries/classes/Normalization.php:226
 msgid "Make all columns atomic"
