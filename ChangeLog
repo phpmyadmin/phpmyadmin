@@ -44,6 +44,7 @@ phpMyAdmin - ChangeLog
 - issue #16139 Use a textarea for JSON columns
 - issue #16223 Make JSON input transformation editor less narrow
 - issue #14340 Add a button on Export Page to show the SQL Query
+- issue #16304 Add support for INET6 column type
 
 5.0.3 (not yet released)
 - issue #15983 Require twig ^2.9

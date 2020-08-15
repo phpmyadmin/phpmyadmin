@@ -9,6 +9,7 @@ namespace PhpMyAdmin;
 
 use function array_diff;
 use function array_merge;
+use function array_push;
 use function htmlspecialchars;
 use function in_array;
 use function mb_strtoupper;
@@ -394,8 +395,7 @@ class Types
             case 'INET6':
                 return __('Intended for storage of IPv6 addresses, as well as IPv4 '
                     . 'addresses assuming conventional mapping of IPv4 addresses '
-                    . 'into IPv6 addresses'
-                );
+                    . 'into IPv6 addresses');
         }
 
         return '';

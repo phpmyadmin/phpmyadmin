@@ -2726,6 +2726,11 @@ parameters:
 			path: libraries/classes/Twig/I18n/NodeTrans.php
 
 		-
+			message: "#^Parameter \\#1 \\$stack of function array_push expects array, array\\<int, string\\>\\|string given\\.$#"
+			count: 1
+			path: libraries/classes/Types.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Types\\:\\:getColumns\\(\\) should return array\\<string\\> but returns array\\<int\\|string, array\\<int, string\\>\\|string\\>\\.$#"
 			count: 1
 			path: libraries/classes/Types.php

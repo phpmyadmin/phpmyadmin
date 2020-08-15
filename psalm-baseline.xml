@@ -2389,6 +2389,9 @@
     <InvalidReturnType occurrences="1">
       <code>string[]</code>
     </InvalidReturnType>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$ret[_pgettext('string types', 'String')]</code>
+    </PossiblyInvalidArgument>
   </file>
   <file src="libraries/classes/Util.php">
     <EmptyArrayAccess occurrences="1">
