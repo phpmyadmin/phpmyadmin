@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:25-0300\n"
-"PO-Revision-Date: 2020-08-16 22:09+0000\n"
+"PO-Revision-Date: 2020-08-16 22:12+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Berber <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
 "ber/>\n"
@@ -2446,6 +2446,7 @@ msgstr ""
 #. * or "calendar-year-month".
 #.
 #: js/messages.php:907
+#, fuzzy
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
