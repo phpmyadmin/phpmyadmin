@@ -7,14 +7,13 @@
  *
  */
 
+/* global Stickyfill */
 /* global isStorageSupported */ // js/config.js
 /* global codeMirrorEditor */ // js/functions.js
 /* global MicroHistory */ // js/microhistory.js
 /* global makeGrid */ // js/makegrid.js
 
 var Sql = {};
-
-var prevScrollX = 0;
 
 /**
  * decode a string URL_encoded
@@ -1039,10 +1038,8 @@ AJAX.registerOnload('sql.js', function () {
     Sql.initProfilingTables();
 });
 
-
 /**
  * Polyfill to make table headers sticky.
  */
- 
 var elements = $('.sticky');
 Stickyfill.add(elements);
