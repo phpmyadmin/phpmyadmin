@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:48-0300\n"
-"PO-Revision-Date: 2020-08-16 22:09+0000\n"
+"PO-Revision-Date: 2020-08-16 22:12+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Berber <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ber/>\n"
@@ -13676,6 +13676,7 @@ msgstr ""
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: templates/javascript/variables.twig:8
+#, fuzzy
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
