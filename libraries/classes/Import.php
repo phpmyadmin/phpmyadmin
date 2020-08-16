@@ -1452,7 +1452,8 @@ class Import
 
         $response = Response::getInstance();
         $response->setRequestStatus(false);
-        $response->addJSON('message', Message::error($msg));
+        $response->addJSON('message', $msg);
+        $response->addHTML($msg);
     }
 
     /**
