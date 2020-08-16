@@ -66,6 +66,7 @@ class SqlController extends AbstractController
             'vendor/jquery/jquery.uitablefilter.js',
             'table/change.js',
             'indexes.js',
+            'vendor/stickyfill.min.js',
             'gis_data_editor.js',
             'multi_column_sort.js',
         ]);
