@@ -411,25 +411,6 @@ AJAX.registerOnload('sql.js', function () {
         });
     });
 
-    /*
-     * Attach a custom event for sticky column headings which will be
-     * triggered manually everytime the table of results is reloaded
-     * @memberOf    jQuery
-     */
-    $(document).on('stickycolumns', '.sqlqueryresults', function () {
-        $('.sticky_columns').remove();
-        $('.table_results').each(function () {
-            var $tableResults = $(this);
-            // add sticky columns div
-            var $stickColumns = Sql.initStickyColumns($tableResults);
-            Sql.rearrangeStickyColumns($stickColumns, $tableResults);
-            // adjust sticky columns on scroll
-            $(document).on('scroll', window, function () {
-                Sql.handleStickyColumns($stickColumns, $tableResults);
-            });
-        });
-    });
-
     /**
      * Append the "Show/Hide query box" message to the query input form
      *
@@ -657,7 +638,7 @@ AJAX.registerOnload('sql.js', function () {
                     });
                 }
 
-                $('.sqlqueryresults').trigger('makegrid').trigger('stickycolumns');
+                $('.sqlqueryresults').trigger('makegrid');
                 $('#togglequerybox').show();
                 Functions.initSlider();
 
@@ -696,8 +677,7 @@ AJAX.registerOnload('sql.js', function () {
             var $sqlqueryresults = $form.parents('.sqlqueryresults');
             $sqlqueryresults
                 .html(data.message)
-                .trigger('makegrid')
-                .trigger('stickycolumns');
+                .trigger('makegrid');
             Functions.initSlider();
             Functions.highlightSql($sqlqueryresults);
         }); // end $.post()
@@ -980,7 +960,7 @@ AJAX.registerOnload('sql.js', function () {
     /**
      * create resizable table
      */
-    $('.sqlqueryresults').trigger('makegrid').trigger('stickycolumns');
+    $('.sqlqueryresults').trigger('makegrid');
 
     /**
      * Check if there is any saved query
@@ -1054,88 +1034,15 @@ Sql.initProfilingTables = function () {
     });
 };
 
-/**
- * Set position, left, top, width of sticky_columns div
- */
-Sql.setStickyColumnsPosition = function ($stickyColumns, $tableResults, position, top, left, marginLeft) {
-    $stickyColumns
-        .css('position', position)
-        .css('top', top)
-        .css('left', left ? left : 'auto')
-        .css('margin-left', marginLeft ? marginLeft : '0px')
-        .css('width', $tableResults.width());
-};
-
-/**
- * Initialize sticky columns
- */
-Sql.initStickyColumns = function ($tableResults) {
-    return $('<table class="sticky_columns"></table>')
-        .insertBefore($tableResults)
-        .css('position', 'fixed')
-        .css('z-index', '98')
-        .css('width', $tableResults.width())
-        .css('margin-left', $('#page_content').css('margin-left'))
-        .css('top', $('#floating_menubar').height())
-        .css('display', 'none');
-};
-
-/**
- * Arrange/Rearrange columns in sticky header
- */
-Sql.rearrangeStickyColumns = function ($stickyColumns, $tableResults) {
-    var $originalHeader = $tableResults.find('thead');
-    var $originalColumns = $originalHeader.find('tr:first').children();
-    var $clonedHeader = $originalHeader.clone();
-    var isFirefox = navigator.userAgent.indexOf('Firefox') > -1;
-    var isSafari = navigator.userAgent.indexOf('Safari') > -1;
-    // clone width per cell
-    $clonedHeader.find('tr:first').children().each(function (i) {
-        var width = $originalColumns.eq(i).width();
-        if (! isFirefox && ! isSafari) {
-            width += 1;
-        }
-        $(this).width(width);
-        if (isSafari) {
-            $(this).css('min-width', width).css('max-width', width);
-        }
-    });
-    $stickyColumns.empty().append($clonedHeader);
-};
-
-/**
- * Adjust sticky columns on horizontal/vertical scroll for all tables
- */
-Sql.handleAllStickyColumns = function () {
-    $('.sticky_columns').each(function () {
-        Sql.handleStickyColumns($(this), $(this).next('.table_results'));
-    });
-};
-
-/**
- * Adjust sticky columns on horizontal/vertical scroll
- */
-Sql.handleStickyColumns = function ($stickyColumns, $tableResults) {
-    var currentScrollX = $(window).scrollLeft();
-    var windowOffset = $(window).scrollTop();
-    var tableStartOffset = $tableResults.offset().top;
-    var tableEndOffset = tableStartOffset + $tableResults.height();
-    if (windowOffset >= tableStartOffset && windowOffset <= tableEndOffset) {
-        // for horizontal scrolling
-        if (prevScrollX !== currentScrollX) {
-            prevScrollX = currentScrollX;
-            Sql.setStickyColumnsPosition($stickyColumns, $tableResults, 'absolute', $('#floating_menubar').height() + windowOffset - tableStartOffset);
-        // for vertical scrolling
-        } else {
-            Sql.setStickyColumnsPosition($stickyColumns, $tableResults, 'fixed', $('#floating_menubar').height(), $('#pma_navigation').width() - currentScrollX, $('#page_content').css('margin-left'));
-        }
-        $stickyColumns.show();
-    } else {
-        $stickyColumns.hide();
-    }
-};
-
 AJAX.registerOnload('sql.js', function () {
     Sql.makeProfilingChart();
     Sql.initProfilingTables();
 });
+
+
+/**
+ * Polyfill to make table headers sticky.
+ */
+ 
+var elements = $('.sticky');
+Stickyfill.add(elements);
