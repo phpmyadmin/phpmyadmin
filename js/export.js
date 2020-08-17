@@ -1028,4 +1028,18 @@ AJAX.registerOnload('export.js', function () {
         );
         $('#column_alias_name').val('');
     });
+
+    var setSelectOptions = function (doCheck) {
+        Functions.setSelectOptions('dump', 'db_select[]', doCheck);
+    };
+
+    $('#db_select_all').on('click', function (e) {
+        e.preventDefault();
+        setSelectOptions(true);
+    });
+
+    $('#db_unselect_all').on('click', function (e) {
+        e.preventDefault();
+        setSelectOptions(false);
+    });
 });

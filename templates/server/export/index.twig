@@ -8,11 +8,11 @@
 
     <div>
       <p>
-        <a href="#" onclick="Functions.setSelectOptions('dump', 'db_select[]', true); return false;">
+        <a href="#" id="db_select_all">
           {% trans 'Select all' %}
         </a>
         /
-        <a href="#" onclick="Functions.setSelectOptions('dump', 'db_select[]', false); return false;">
+        <a href="#" id="db_unselect_all">
           {% trans 'Unselect all' %}
         </a>
       </p>
