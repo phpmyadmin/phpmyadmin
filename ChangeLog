@@ -54,6 +54,7 @@ phpMyAdmin - ChangeLog
 - issue #14644 Use Doctum instead of Sami
 - issue #16086 Fix "Browse" headings shift when scrolling
 - issue #15328 Fix no message after import of zipped shapefile without php-zip
+- issue #14326 Fix PHP error when exporting without php-zip
 
 5.0.2 (2020-03-20)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page

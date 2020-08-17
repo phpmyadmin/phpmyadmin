@@ -19,16 +19,16 @@ use ZipArchive;
 class ZipExtension
 {
     /**
-     * @var ZipArchive
+     * @var ZipArchive|null
      */
     private $zip;
 
     /**
-     * Constructor
+     * @param ZipArchive|null $zip A ZipArchive instance.
      */
-    public function __construct()
+    public function __construct($zip = null)
     {
-        $this->zip = new ZipArchive();
+        $this->zip = $zip;
     }
 
     /**

@@ -29,7 +29,7 @@ class ZipExtensionTest extends PmaTestCase
      */
     protected function setUp(): void
     {
-        $this->zipExtension = new ZipExtension();
+        $this->zipExtension = new ZipExtension(new ZipArchive());
     }
 
     /**

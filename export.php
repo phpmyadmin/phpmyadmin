@@ -217,10 +217,13 @@ if (empty($export_plugin)) {
 /**
  * valid compression methods
  */
-$compression_methods = [
-    'zip',
-    'gzip',
-];
+$compression_methods = [];
+if ($GLOBALS['cfg']['ZipDump'] && function_exists('gzcompress')) {
+    $compression_methods[] = 'zip';
+}
+if ($GLOBALS['cfg']['GZipDump'] && function_exists('gzencode')) {
+    $compression_methods[] = 'gzip';
+}
 
 /**
  * init and variable checking
