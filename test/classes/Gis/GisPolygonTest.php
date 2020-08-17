@@ -635,30 +635,35 @@ class GisPolygonTest extends GisGeomTestCase
                 'POLYGON((123 0,23 30,17 63,123 0))',
                 4326,
                 'Ol',
-                '#B02EE0',
+                [176, 46, 224],
                 [
                     'minX' => '0',
                     'minY' => '0',
                     'maxX' => '1',
                     'maxY' => '1',
                 ],
-                'bound = new OpenLayers.Bounds(); bound.extend(new OpenLayers.Lon'
-                . 'Lat(0, 0).transform(new OpenLayers.Projection("EPSG:4326"), '
-                . 'map.getProjectionObject())); bound.extend(new OpenLayers.'
-                . 'LonLat(1, 1).transform(new OpenLayers.Projection("EPSG:4326"), '
-                . 'map.getProjectionObject()));vectorLayer.addFeatures(new Open'
-                . 'Layers.Feature.Vector(new OpenLayers.Geometry.Polygon(new Array'
-                . '(new OpenLayers.Geometry.LinearRing(new Array((new OpenLayers.'
-                . 'Geometry.Point(123,0)).transform(new OpenLayers.Projection'
-                . '("EPSG:4326"), map.getProjectionObject()), (new OpenLayers.'
-                . 'Geometry.Point(23,30)).transform(new OpenLayers.Projection'
-                . '("EPSG:4326"), map.getProjectionObject()), (new OpenLayers.'
-                . 'Geometry.Point(17,63)).transform(new OpenLayers.Projection'
-                . '("EPSG:4326"), map.getProjectionObject()), (new OpenLayers.'
-                . 'Geometry.Point(123,0)).transform(new OpenLayers.Projection'
-                . '("EPSG:4326"), map.getProjectionObject()))))), null, {"stroke'
-                . 'Color":"#000000","strokeWidth":0.5,"fillColor":"#B02EE0",'
-                . '"fillOpacity":0.8,"label":"Ol","fontSize":10}));',
+                'var style = new ol.style.Style({fill: new ol.style.Fill'
+                . '({color: [176,46,224,0.8]}),stroke: new ol.style.Strok'
+                . 'e({color: [0,0,0],width: 0.5}),text: new ol.style.Text'
+                . '({text: "Ol",})});var minLoc = [0, 0];var maxLoc = [1,'
+                . ' 1];var ext = ol.extent.boundingExtent([minLoc, maxLoc'
+                . ']);ext = ol.proj.transformExtent(ext, ol.proj.get("EPS'
+                . 'G:4326"), ol.proj.get(\'EPSG:3857\'));map.getView().fi'
+                . 't(ext, map.getSize());var arr = [];var lineArr = [];va'
+                . 'r line = new ol.geom.LinearRing(new Array((new ol.geom'
+                . '.Point([123,0]).transform(ol.proj.get("EPSG:4326"), ol'
+                . '.proj.get(\'EPSG:3857\'))).getCoordinates(), (new ol.g'
+                . 'eom.Point([23,30]).transform(ol.proj.get("EPSG:4326"),'
+                . ' ol.proj.get(\'EPSG:3857\'))).getCoordinates(), (new o'
+                . 'l.geom.Point([17,63]).transform(ol.proj.get("EPSG:4326'
+                . '"), ol.proj.get(\'EPSG:3857\'))).getCoordinates(), (ne'
+                . 'w ol.geom.Point([123,0]).transform(ol.proj.get("EPSG:4'
+                . '326"), ol.proj.get(\'EPSG:3857\'))).getCoordinates()))'
+                . ';var coord = line.getCoordinates();coord.forEach(item '
+                . '=> lineArr.push(item));arr.push(lineArr);var polygon ='
+                . ' new ol.geom.Polygon(arr);var feature = new ol.Feature'
+                . '({geometry: polygon});feature.setStyle(style);vectorLa'
+                . 'yer.addFeature(feature);',
             ],
         ];
     }

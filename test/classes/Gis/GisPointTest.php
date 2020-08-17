@@ -392,23 +392,26 @@ class GisPointTest extends GisGeomTestCase
                 'POINT(12 35)',
                 4326,
                 'Ol',
-                '#B02EE0',
+                [176, 46, 224],
                 [
                     'minX' => '0',
                     'minY' => '0',
                     'maxX' => '1',
                     'maxY' => '1',
                 ],
-                'bound = new OpenLayers.Bounds(); bound.extend(new OpenLayers.'
-                . 'LonLat(0, 0).transform(new OpenLayers.Projection("EPSG:4326"), '
-                . 'map.getProjectionObject())); bound.extend(new OpenLayers.LonLat'
-                . '(1, 1).transform(new OpenLayers.Projection("EPSG:4326"), '
-                . 'map.getProjectionObject()));vectorLayer.addFeatures(new Open'
-                . 'Layers.Feature.Vector((new OpenLayers.Geometry.Point(12,35)).'
-                . 'transform(new OpenLayers.Projection("EPSG:4326"), map.get'
-                . 'ProjectionObject()), null, {"pointRadius":3,"fillColor":"#ffffff"'
-                . ',"strokeColor":"#B02EE0","strokeWidth":2,"label":"Ol","labelY'
-                . 'Offset":-8,"fontSize":10}));',
+                'var fill = new ol.style.Fill({color: "white"});var stroke'
+                . ' = new ol.style.Stroke({color: [176,46,224],width: 2});'
+                . 'var style = new ol.style.Style({image: new ol.style.Cir'
+                . 'cle({fill: fill,stroke: stroke,radius: 3}),fill: fill,s'
+                . 'troke: stroke,text: new ol.style.Text({text: "Ol",offse'
+                . 'tY: -9})});var minLoc = [0, 0];var maxLoc = [1, 1];var '
+                . 'ext = ol.extent.boundingExtent([minLoc, maxLoc]);ext = '
+                . 'ol.proj.transformExtent(ext, ol.proj.get("EPSG:4326"), '
+                . 'ol.proj.get(\'EPSG:3857\'));map.getView().fit(ext, map.'
+                . 'getSize());var point = new ol.Feature({geometry: (new o'
+                . 'l.geom.Point([12,35]).transform(ol.proj.get("EPSG:4326"'
+                . '), ol.proj.get(\'EPSG:3857\')))});point.setStyle(style)'
+                . ';vectorLayer.addFeature(point);',
             ],
         ];
     }
