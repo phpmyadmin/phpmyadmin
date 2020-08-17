@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:21-0300\n"
-"PO-Revision-Date: 2020-05-26 07:41+0000\n"
+"PO-Revision-Date: 2020-08-18 22:32+0000\n"
 "Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/4-9/fr/"
 ">\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.1-dev\n"
+"X-Generator: Weblate 4.2-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -10106,18 +10106,6 @@ msgstr ""
 "utilisée, merci de laisser la première option vide."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:28
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Output/Text_Plain_External.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -10130,17 +10118,18 @@ msgid ""
 "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
 "ensure that the output appears all on one line (Default 1)."
 msgstr ""
-"(Linux seulement) Exécute un programme externe et lui envoie le contenu de "
+"LINUX UNIQUEMENT : Exécute un programme externe et lui envoie le contenu de "
 "la colonne via l'entrée standard. Puis capture la sortie standard de ce "
 "programme externe. Le programme par défaut est Tidy, pour un affichage "
-"embelli du code HTML. Pour des raisons de sécurité, il faut éditer le "
-"script /classes/Plugins/Transformations/Output/Text_Plain_External.php et y "
-"insérer les noms de programmes externes à rendre disponibles. La première "
-"option est le numéro du programme à utiliser, la seconde contient les "
-"paramètres pour ce programme. En 3ème option, une valeur de 1 va convertir "
-"le résultat avec la fonction htmlspecialchars() (par défaut, 1). En option "
-"4, une valeur de 1 va interdire tout retour à la ligne pour afficher sur une "
-"seule ligne (par défaut, 1)."
+"embelli du code HTML. Pour des raisons de sécurité, il faut éditer le script "
+"/libraries/classes/Plugins/Transformations/Abs/"
+"ExternalTransformationsPlugin.php et y insérer les noms de programmes "
+"externes à rendre disponibles. La première option est le numéro du programme "
+"à utiliser. La deuxième option devrait être vide pour des raisons "
+"historiques. En 3ème option, une valeur de 1 va convertir le résultat avec "
+"la fonction htmlspecialchars() (par défaut, 1). En option 4, une valeur de 1 "
+"va interdire tout retour à la ligne pour afficher sur une seule ligne (par "
+"défaut, 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:114
 #, php-format
@@ -10149,6 +10138,9 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"Vous utilisez le champ d'options de la ligne de commande de transformation "
+"externe, qui a été désactivé pour des raisons de sécurité. Ajoutez toutes "
+"les options de la ligne de commande directement à la définition dans %s."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:28
 msgid ""
@@ -14576,10 +14568,8 @@ msgstr "Nom de table invalide"
 
 #. l10n: In case a SQL query did not pass a security check
 #: tbl_get_field.php:46
-#, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
-msgstr "Il y a trop de jointures sans index."
+msgstr "Il y a un problème avec votre requête."
 
 #: tbl_replace.php:258
 #, php-format
