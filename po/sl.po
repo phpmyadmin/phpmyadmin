@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.5\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:21-0300\n"
-"PO-Revision-Date: 2020-01-29 20:50+0000\n"
+"PO-Revision-Date: 2020-08-18 22:32+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "sl/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 3.11-dev\n"
+"X-Generator: Weblate 4.2-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -9969,18 +9969,6 @@ msgstr ""
 "možnost prazna."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:28
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Output/Text_Plain_External.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -9993,16 +9981,16 @@ msgid ""
 "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
 "ensure that the output appears all on one line (Default 1)."
 msgstr ""
-"SAMO ZA LINUX: Zažene zunanjo aplikacijo in podaja podatke stopcev prek "
+"SAMO ZA LINUX: Zažene zunanjo aplikacijo in poda podatke stopcev prek "
 "standardnega vhoda. Vrne standardni izhod aplikacije. Privzeto je Tidy, za "
 "lep izpis kode HTML. Zaradi varnostnih razlogov morate ročno urediti "
-"datoteko libraries/classes/Plugins/Transformations/Output/"
-"Text_Plain_External.php in navesti orodja, ki jih želite omogočiti. Prva "
-"možnost je številka programa, ki ga želite uporabiti, druga možnost pa so "
-"parametri programa. Če tretji parameter nastavite na 1, bo s pomočjo "
-"htmlspecialchars() pretvoril izhod (Privzeto 1). Če nastavite četrti "
-"parameter na 1, bo preprečil prelamljanje in zagotovil, da se celotni izhod "
-"prikaže v eni vrstici (Privzeto 1)."
+"datoteko libraries/classes/Plugins/Transformations/Abs/"
+"ExternalTransformationsPlugin.php in navesti orodja, ki jih želite "
+"omogočiti. Prva možnost je številka programa, ki ga želite uporabiti. Druga "
+"možnost naj bo prazna, iz zgodovinskih razlogov. Če tretji parameter "
+"nastavite na 1, bo s pomočjo htmlspecialchars() pretvoril izhod (Privzeto 1)"
+". Če nastavite četrti parameter na 1, bo preprečil prelamljanje in "
+"zagotovil, da se celotni izhod prikaže v eni vrstici (Privzeto 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:114
 #, php-format
@@ -10011,6 +9999,9 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"Uporabljate polje za možnosti ukazne vrstice za zunanji ukaz za pretvorbo, "
+"ki je iz varnostih razlogov opuščen. Dodajte vse možnosti ukazne vrstice v "
+"opredelitev v %s."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:28
 msgid ""
@@ -14361,10 +14352,8 @@ msgstr "Neveljavno ime tabele"
 
 #. l10n: In case a SQL query did not pass a security check
 #: tbl_get_field.php:46
-#, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
-msgstr "Obstaja preveč stikov brez indeksov."
+msgstr "Prišlo je do težave z vašo zahtevo."
 
 #: tbl_replace.php:258
 #, php-format
