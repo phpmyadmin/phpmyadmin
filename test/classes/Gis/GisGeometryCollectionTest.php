@@ -314,7 +314,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
         );
         $this->assertEquals(1, preg_match($output, $string));
         // assertMatchesRegularExpression added in 9.1
-        $this->assertRegExp(
+        $this->assertMatchesRegularExpression(
             $output,
             $this->object->prepareRowAsSvg(
                 $spatial,
@@ -405,36 +405,36 @@ class GisGeometryCollectionTest extends AbstractTestCase
                     'maxY' => '1',
                 ],
                 'var style = new ol.style.Style({fill: new ol.style.'
-                . 'Fill({color: [176,46,224,0.8]}),stroke: new ol.style.'
-                . 'Stroke({color: [0,0,0],width: 0.5}),text: new ol.style.'
-                . 'Text({text: "Ol",})});var minLoc = [0, 0];var maxLoc = [1, 1];'
-                . 'var ext = ol.extent.boundingExtent([minLoc, maxLoc]);'
-                . 'ext = ol.proj.transformExtent(ext, ol.proj.get("EPSG:4326"),'
-                . ' ol.proj.get(\'EPSG:3857\'));map.getView().fit(ext, map.getSize());'
-                . 'var arr = [];var lineArr = [];var line = new ol.geom.'
-                . 'LinearRing(new Array((new ol.geom.Point([35,10]).'
-                . 'transform(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\')))'
-                . '.getCoordinates(), (new ol.geom.Point([10,20]).transform'
-                . '(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).'
-                . 'getCoordinates(), (new ol.geom.Point([15,40]).transform'
-                . '(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).'
-                . 'getCoordinates(), (new ol.geom.Point([45,45]).transform'
-                . '(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoordinates(),'
-                . ' (new ol.geom.Point([35,10]).transform(ol.proj.get("EPSG:4326"),'
-                . ' ol.proj.get(\'EPSG:3857\'))).getCoordinates()));var coord = line.getCoordinates();'
-                . 'coord.forEach(item => lineArr.push(item));arr.push(lineArr);'
-                . 'var lineArr = [];var line = new ol.geom.LinearRing(new Array'
-                . '((new ol.geom.Point([20,30]).transform(ol.proj.get("EPSG:4326"),'
-                . ' ol.proj.get(\'EPSG:3857\'))).getCoordinates(), (new ol.geom.'
-                . 'Point([35,32]).transform(ol.proj.get("EPSG:4326"), ol.proj.'
-                . 'get(\'EPSG:3857\'))).getCoordinates(), (new ol.geom.Point([30,20]).'
-                . 'transform(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoordinates(),'
-                . ' (new ol.geom.Point([20,30]).transform(ol.proj.get("EPSG:4326"),'
-                . ' ol.proj.get(\'EPSG:3857\'))).getCoordinates()));var coord = line.'
-                . 'getCoordinates();coord.forEach(item => lineArr.push(item));'
-                . 'arr.push(lineArr);var polygon = new ol.geom.Polygon(arr);'
-                . 'var feature = new ol.Feature({geometry: polygon});'
-                . 'feature.setStyle(style);vectorLayer.addFeature(feature);',
+                .   'Fill({color: [176,46,224,0.8]}),stroke: new ol.style.'
+                .   'Stroke({color: [0,0,0],width: 0.5}),text: new ol.style.'
+                .   'Text({text: "Ol",})});var minLoc = [0, 0];var maxLoc = [1, 1];'
+                .   'var ext = ol.extent.boundingExtent([minLoc, maxLoc]);'
+                .   'ext = ol.proj.transformExtent(ext, ol.proj.get("EPSG:4326"),'
+                .   ' ol.proj.get(\'EPSG:3857\'));map.getView().fit(ext, map.getSize());'
+                .   'var arr = [];var lineArr = [];var line = new ol.geom.'
+                .   'LinearRing(new Array((new ol.geom.Point([35,10]).'
+                .   'transform(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\')))'
+                .   '.getCoordinates(), (new ol.geom.Point([10,20]).transform'
+                .   '(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).'
+                .   'getCoordinates(), (new ol.geom.Point([15,40]).transform'
+                .   '(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).'
+                .   'getCoordinates(), (new ol.geom.Point([45,45]).transform'
+                .   '(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoordinates(),'
+                .   ' (new ol.geom.Point([35,10]).transform(ol.proj.get("EPSG:4326"),'
+                .   ' ol.proj.get(\'EPSG:3857\'))).getCoordinates()));var coord = line.getCoordinates();'
+                .   'coord.forEach(item => lineArr.push(item));arr.push(lineArr);'
+                .   'var lineArr = [];var line = new ol.geom.LinearRing(new Array'
+                .   '((new ol.geom.Point([20,30]).transform(ol.proj.get("EPSG:4326"),'
+                .   ' ol.proj.get(\'EPSG:3857\'))).getCoordinates(), (new ol.geom.'
+                .   'Point([35,32]).transform(ol.proj.get("EPSG:4326"), ol.proj.'
+                .   'get(\'EPSG:3857\'))).getCoordinates(), (new ol.geom.Point([30,20]).'
+                .   'transform(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoordinates(),'
+                .   ' (new ol.geom.Point([20,30]).transform(ol.proj.get("EPSG:4326"),'
+                .   ' ol.proj.get(\'EPSG:3857\'))).getCoordinates()));var coord = line.'
+                .   'getCoordinates();coord.forEach(item => lineArr.push(item));'
+                .   'arr.push(lineArr);var polygon = new ol.geom.Polygon(arr);'
+                .   'var feature = new ol.Feature({geometry: polygon});'
+                .   'feature.setStyle(style);vectorLayer.addFeature(feature);',
             ],
         ];
     }
