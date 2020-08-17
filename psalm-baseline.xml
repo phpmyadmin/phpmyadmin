@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.13.1@afd8874a9e4562eac42a02de90e42e430c3a1db1">
+<files psalm-version="3.14.1@9822043ca46d6682b76097bfa97d7c450eef9e90">
   <file src="libraries/classes/Advisor.php">
     <PossiblyNullArgument occurrences="1">
       <code>Util::formatByteDown($value, $limes, $comma)</code>
@@ -591,12 +591,6 @@
     <InvalidOperand occurrences="1">
       <code>$matches[1]</code>
     </InvalidOperand>
-    <LoopInvalidation occurrences="4">
-      <code>$i</code>
-      <code>$i</code>
-      <code>$i</code>
-      <code>$i</code>
-    </LoopInvalidation>
     <PossiblyFalseArgument occurrences="2">
       <code>mb_strpos($page . '?', '?')</code>
       <code>mb_strpos($_page . '?', '?')</code>
@@ -607,11 +601,6 @@
     <TypeDoesNotContainType occurrences="1">
       <code>is_string($data)</code>
     </TypeDoesNotContainType>
-    <UndefinedConstant occurrences="3">
-      <code>PMA_USR_BROWSER_AGENT</code>
-      <code>PMA_USR_BROWSER_AGENT</code>
-      <code>PMA_USR_BROWSER_VER</code>
-    </UndefinedConstant>
   </file>
   <file src="libraries/classes/CreateAddField.php">
     <PossiblyFalseArgument occurrences="1">
@@ -746,6 +735,15 @@
       <code>$mysqli</code>
       <code>$mysqli</code>
     </MoreSpecificImplementedParamType>
+    <ParamNameMismatch occurrences="7">
+      <code>$databaseName</code>
+      <code>$mysqli</code>
+      <code>$mysqli</code>
+      <code>$mysqli</code>
+      <code>$mysqli</code>
+      <code>$string</code>
+      <code>$mysqli</code>
+    </ParamNameMismatch>
     <PossiblyNullPropertyFetch occurrences="2">
       <code>$mysqli-&gt;connect_errno</code>
       <code>$mysqli-&gt;connect_error</code>
@@ -897,13 +895,6 @@
       <code>$errorNumber</code>
     </PossiblyNullArgument>
   </file>
-  <file src="libraries/classes/ErrorReport.php">
-    <UndefinedConstant occurrences="3">
-      <code>PMA_USR_BROWSER_AGENT</code>
-      <code>PMA_USR_BROWSER_VER</code>
-      <code>PMA_USR_OS</code>
-    </UndefinedConstant>
-  </file>
   <file src="libraries/classes/Export.php">
     <InvalidReturnStatement occurrences="1">
       <code>$memory_limit</code>
@@ -922,10 +913,6 @@
       <code>$line</code>
       <code>$line</code>
     </PossiblyNullArgument>
-    <UndefinedConstant occurrences="2">
-      <code>PMA_USR_BROWSER_AGENT</code>
-      <code>PMA_USR_BROWSER_VER</code>
-    </UndefinedConstant>
   </file>
   <file src="libraries/classes/File.php">
     <FalsableReturnStatement occurrences="1">
@@ -993,24 +980,48 @@
       <code>$srid</code>
       <code>$srid</code>
     </InvalidScalarArgument>
+    <ParamNameMismatch occurrences="4">
+      <code>$line_color</code>
+      <code>$line_color</code>
+      <code>$line_color</code>
+      <code>$line_color</code>
+    </ParamNameMismatch>
   </file>
   <file src="libraries/classes/Gis/GisMultiLineString.php">
     <InvalidScalarArgument occurrences="2">
       <code>$srid</code>
       <code>$srid</code>
     </InvalidScalarArgument>
+    <ParamNameMismatch occurrences="4">
+      <code>$line_color</code>
+      <code>$line_color</code>
+      <code>$line_color</code>
+      <code>$line_color</code>
+    </ParamNameMismatch>
   </file>
   <file src="libraries/classes/Gis/GisMultiPoint.php">
     <InvalidScalarArgument occurrences="2">
       <code>$srid</code>
       <code>$srid</code>
     </InvalidScalarArgument>
+    <ParamNameMismatch occurrences="4">
+      <code>$point_color</code>
+      <code>$point_color</code>
+      <code>$point_color</code>
+      <code>$point_color</code>
+    </ParamNameMismatch>
   </file>
   <file src="libraries/classes/Gis/GisMultiPolygon.php">
     <InvalidScalarArgument occurrences="2">
       <code>$srid</code>
       <code>$srid</code>
     </InvalidScalarArgument>
+    <ParamNameMismatch occurrences="4">
+      <code>$fill_color</code>
+      <code>$fill_color</code>
+      <code>$fill_color</code>
+      <code>$fill_color</code>
+    </ParamNameMismatch>
     <PossiblyInvalidArgument occurrences="1">
       <code>count($points_arr) / 2</code>
     </PossiblyInvalidArgument>
@@ -1024,6 +1035,12 @@
       <code>$srid</code>
       <code>$srid</code>
     </InvalidScalarArgument>
+    <ParamNameMismatch occurrences="4">
+      <code>$point_color</code>
+      <code>$point_color</code>
+      <code>$point_color</code>
+      <code>$point_color</code>
+    </ParamNameMismatch>
   </file>
   <file src="libraries/classes/Gis/GisPolygon.php">
     <InvalidNullableReturnType occurrences="1">
@@ -1033,6 +1050,12 @@
       <code>$srid</code>
       <code>$srid</code>
     </InvalidScalarArgument>
+    <ParamNameMismatch occurrences="4">
+      <code>$fill_color</code>
+      <code>$fill_color</code>
+      <code>$fill_color</code>
+      <code>$fill_color</code>
+    </ParamNameMismatch>
     <PossiblyInvalidArgument occurrences="1">
       <code>count($points_arr) / 2</code>
     </PossiblyInvalidArgument>
@@ -1311,6 +1334,11 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportHtmlword.php">
+    <ParamNameMismatch occurrences="3">
+      <code>$do_relation</code>
+      <code>$do_comments</code>
+      <code>$do_mime</code>
+    </ParamNameMismatch>
     <PossiblyNullArgument occurrences="5">
       <code>$table_alias</code>
       <code>$table_alias</code>
@@ -1324,6 +1352,11 @@
     </PossiblyUndefinedVariable>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportLatex.php">
+    <ParamNameMismatch occurrences="3">
+      <code>$do_relation</code>
+      <code>$do_comments</code>
+      <code>$do_mime</code>
+    </ParamNameMismatch>
     <PossiblyFalseArgument occurrences="4">
       <code>$pos</code>
       <code>$pos</code>
@@ -1332,6 +1365,11 @@
     </PossiblyFalseArgument>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportMediawiki.php">
+    <ParamNameMismatch occurrences="3">
+      <code>$do_relation</code>
+      <code>$do_comments</code>
+      <code>$do_mime</code>
+    </ParamNameMismatch>
     <PossiblyNullArgument occurrences="2">
       <code>$table_alias</code>
       <code>$table_alias</code>
@@ -1343,6 +1381,11 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportOdt.php">
+    <ParamNameMismatch occurrences="3">
+      <code>$do_relation</code>
+      <code>$do_comments</code>
+      <code>$do_mime</code>
+    </ParamNameMismatch>
     <PossiblyNullArgument occurrences="10">
       <code>$table_alias</code>
       <code>$table_alias</code>
@@ -1355,6 +1398,13 @@
       <code>$table_alias</code>
       <code>$table_alias</code>
     </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Plugins/Export/ExportPdf.php">
+    <ParamNameMismatch occurrences="3">
+      <code>$do_relation</code>
+      <code>$do_comments</code>
+      <code>$do_mime</code>
+    </ParamNameMismatch>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportPhparray.php">
     <PossiblyNullArgument occurrences="1">
@@ -1408,6 +1458,11 @@
     </UndefinedMethod>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportTexytext.php">
+    <ParamNameMismatch occurrences="3">
+      <code>$do_relation</code>
+      <code>$do_comments</code>
+      <code>$do_mime</code>
+    </ParamNameMismatch>
     <PossiblyNullArgument occurrences="1">
       <code>$col_as</code>
     </PossiblyNullArgument>
@@ -2524,7 +2579,8 @@
       <code>$group[$group_name]['tab' . $sep . 'count']</code>
       <code>$table['Name']</code>
     </PossiblyInvalidArrayAccess>
-    <PossiblyInvalidArrayAssignment occurrences="2">
+    <PossiblyInvalidArrayAssignment occurrences="3">
+      <code>$group[$group_name]['tab' . $sep . 'count']</code>
       <code>$table['disp_name']</code>
       <code>$group[$table_name]</code>
     </PossiblyInvalidArrayAssignment>

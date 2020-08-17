@@ -93,7 +93,7 @@
         "symfony/finder": "^4.4",
         "symfony/twig-bridge": "^4.4",
         "tecnickcom/tcpdf": "^6.3",
-        "vimeo/psalm": "^3.13"
+        "vimeo/psalm": "^3.14"
     },
     "extra": {
         "branch-alias": {
