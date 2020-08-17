@@ -1028,4 +1028,12 @@ AJAX.registerOnload('export.js', function () {
         );
         $('#column_alias_name').val('');
     });
+    $('#db_select_all').on('click', function (e) {
+        e.preventDefault();
+        Functions.setSelectOptions('dump', 'db_select[]', true);
+    });
+    $('#db_unselect_all').on('click', function (e) {
+        e.preventDefault();
+        Functions.setSelectOptions('dump', 'db_select[]', false);
+    });
 });
