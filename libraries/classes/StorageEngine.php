@@ -2,6 +2,7 @@
 /**
  * Library for extracting information about the available storage engines
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
@@ -64,24 +65,26 @@ class StorageEngine
     public function __construct($engine)
     {
         $storage_engines = self::getStorageEngines();
-        if (! empty($storage_engines[$engine])) {
-            $this->engine  = $engine;
-            $this->title   = $storage_engines[$engine]['Engine'];
-            $this->comment = ($storage_engines[$engine]['Comment'] ?? '');
-            switch ($storage_engines[$engine]['Support']) {
-                case 'DEFAULT':
-                    $this->support = PMA_ENGINE_SUPPORT_DEFAULT;
-                    break;
-                case 'YES':
-                    $this->support = PMA_ENGINE_SUPPORT_YES;
-                    break;
-                case 'DISABLED':
-                    $this->support = PMA_ENGINE_SUPPORT_DISABLED;
-                    break;
-                case 'NO':
-                default:
-                    $this->support = PMA_ENGINE_SUPPORT_NO;
-            }
+        if (empty($storage_engines[$engine])) {
+            return;
+        }
+
+        $this->engine  = $engine;
+        $this->title   = $storage_engines[$engine]['Engine'];
+        $this->comment = ($storage_engines[$engine]['Comment'] ?? '');
+        switch ($storage_engines[$engine]['Support']) {
+            case 'DEFAULT':
+                $this->support = PMA_ENGINE_SUPPORT_DEFAULT;
+                break;
+            case 'YES':
+                $this->support = PMA_ENGINE_SUPPORT_YES;
+                break;
+            case 'DISABLED':
+                $this->support = PMA_ENGINE_SUPPORT_DISABLED;
+                break;
+            case 'NO':
+            default:
+                $this->support = PMA_ENGINE_SUPPORT_NO;
         }
     }
 
@@ -104,16 +107,18 @@ class StorageEngine
             if ($GLOBALS['dbi']->getVersion() >= 50708) {
                 $disabled = (string) Util::cacheGet(
                     'disabled_storage_engines',
-                    function () {
+                    static function () {
                         return $GLOBALS['dbi']->fetchValue(
                             'SELECT @@disabled_storage_engines'
                         );
                     }
                 );
                 foreach (explode(',', $disabled) as $engine) {
-                    if (isset($storage_engines[$engine])) {
-                        $storage_engines[$engine]['Support'] = 'DISABLED';
+                    if (! isset($storage_engines[$engine])) {
+                        continue;
                     }
+
+                    $storage_engines[$engine]['Support'] = 'DISABLED';
                 }
             }
         }
@@ -199,10 +204,11 @@ class StorageEngine
      */
     public static function isValid($engine)
     {
-        if ($engine == 'PBMS') {
+        if ($engine === 'PBMS') {
             return true;
         }
         $storage_engines = self::getStorageEngines();
+
         return isset($storage_engines[$engine]);
     }
 
@@ -312,10 +318,12 @@ class StorageEngine
                 $mysql_vars[$row['Variable_name']]['title'] = $row['Variable_name'];
             }
 
-            if (! isset($mysql_vars[$row['Variable_name']]['type'])) {
-                $mysql_vars[$row['Variable_name']]['type']
-                    = PMA_ENGINE_DETAILS_TYPE_PLAINTEXT;
+            if (isset($mysql_vars[$row['Variable_name']]['type'])) {
+                continue;
             }
+
+            $mysql_vars[$row['Variable_name']]['type']
+                = PMA_ENGINE_DETAILS_TYPE_PLAINTEXT;
         }
         $GLOBALS['dbi']->freeResult($res);
 
@@ -365,6 +373,7 @@ class StorageEngine
                     'This MySQL server does not support the %s storage engine.'
                 );
         }
+
         return sprintf($message, htmlspecialchars($this->title));
     }
 

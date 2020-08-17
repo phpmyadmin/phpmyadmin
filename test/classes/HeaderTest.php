@@ -2,11 +2,11 @@
 /**
  * Test for PhpMyAdmin\Header class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Header;
 use ReflectionProperty;
@@ -18,13 +18,17 @@ use function defined;
  *
  * @group medium
  */
-class HeaderTest extends PmaTestCase
+class HeaderTest extends AbstractTestCase
 {
     /**
      * Configures global environment.
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
+        parent::setTheme();
+        parent::setLanguage();
         if (! defined('PMA_IS_WINDOWS')) {
             define('PMA_IS_WINDOWS', false);
         }
@@ -35,7 +39,7 @@ class HeaderTest extends PmaTestCase
         $GLOBALS['server'] = 'server';
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = '';
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
@@ -45,10 +49,8 @@ class HeaderTest extends PmaTestCase
 
     /**
      * Test for disable
-     *
-     * @return void
      */
-    public function testDisable()
+    public function testDisable(): void
     {
         $header = new Header();
         $header->disable();
@@ -60,10 +62,8 @@ class HeaderTest extends PmaTestCase
 
     /**
      * Test for enable
-     *
-     * @return void
      */
-    public function testEnable()
+    public function testEnable(): void
     {
         $header = new Header();
         $this->assertStringContainsString(
@@ -74,10 +74,8 @@ class HeaderTest extends PmaTestCase
 
     /**
      * Test for Set BodyId
-     *
-     * @return void
      */
-    public function testSetBodyId()
+    public function testSetBodyId(): void
     {
         $header = new Header();
         $header->setBodyId('PMA_header_id');
@@ -89,10 +87,8 @@ class HeaderTest extends PmaTestCase
 
     /**
      * Test for print view
-     *
-     * @return void
      */
-    public function testPrintView()
+    public function testPrintView(): void
     {
         $header = new Header();
         $header->enablePrintView();
@@ -104,10 +100,8 @@ class HeaderTest extends PmaTestCase
 
     /**
      * Test for Get JsParams
-     *
-     * @return void
      */
-    public function testGetJsParams()
+    public function testGetJsParams(): void
     {
         $header = new Header();
         $this->assertArrayHasKey(
@@ -118,10 +112,8 @@ class HeaderTest extends PmaTestCase
 
     /**
      * Test for Get JsParamsCode
-     *
-     * @return void
      */
-    public function testGetJsParamsCode()
+    public function testGetJsParamsCode(): void
     {
         $header = new Header();
         $this->assertStringContainsString(
@@ -132,10 +124,8 @@ class HeaderTest extends PmaTestCase
 
     /**
      * Test for Get Message
-     *
-     * @return void
      */
-    public function testGetMessage()
+    public function testGetMessage(): void
     {
         $header = new Header();
         $this->assertStringContainsString(
@@ -147,13 +137,11 @@ class HeaderTest extends PmaTestCase
     /**
      * Test for Disable Warnings
      *
-     * @return void
-     *
      * @test
      */
-    public function testDisableWarnings()
+    public function testDisableWarnings(): void
     {
-        $reflection = new ReflectionProperty(Header::class, '_warningsEnabled');
+        $reflection = new ReflectionProperty(Header::class, 'warningsEnabled');
         $reflection->setAccessible(true);
 
         $header = new Header();

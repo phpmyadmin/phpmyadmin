@@ -2,6 +2,7 @@
 /**
  * Holds the PhpMyAdmin\Controllers\Setup\ServersController
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Setup;
@@ -54,8 +55,10 @@ class ServersController extends AbstractController
 
         $hasServer = ! empty($id) && $this->config->get('Servers/' . $id) !== null;
 
-        if ($hasServer) {
-            $this->config->removeServer($id);
+        if (! $hasServer) {
+            return;
         }
+
+        $this->config->removeServer($id);
     }
 }

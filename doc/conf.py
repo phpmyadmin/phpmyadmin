@@ -44,7 +44,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'phpMyAdmin'
-copyright = u'2012 - 2018, The phpMyAdmin devel team'
+copyright = u'2012 - 2020, The phpMyAdmin devel team'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -317,4 +317,6 @@ linkcheck_ignore = [
     r'https://www.yubico.com/.*',
     # 500 Server Error: Internal Server Error
     r'http://www.scriptalicious.com/.*',
+    # Some timeouts and SSL issues: https://github.com/sektioneins/suhosin/issues/119
+    r'https://suhosin.org/.*',
 ]

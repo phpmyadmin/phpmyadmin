@@ -47,9 +47,7 @@ class QueryByExampleController extends AbstractController
         $savedSearch = null;
         $currentSearchId = null;
         if ($cfgRelation['savedsearcheswork']) {
-            $header = $this->response->getHeader();
-            $scripts = $header->getScripts();
-            $scripts->addFile('database/qbe.js');
+            $this->addScriptFiles(['database/qbe.js']);
 
             //Get saved search list.
             $savedSearch = new SavedSearches($GLOBALS, $this->relation);
@@ -105,7 +103,7 @@ class QueryByExampleController extends AbstractController
             } else {
                 $goto = Url::getFromRoute('/database/sql');
                 $sql = new Sql();
-                $sql->executeQueryAndSendQueryResponse(
+                $this->response->addHTML($sql->executeQueryAndSendQueryResponse(
                     null, // analyzed_sql_results
                     false, // is_gotofile
                     $_POST['db'], // db
@@ -124,7 +122,7 @@ class QueryByExampleController extends AbstractController
                     $sql_query, // sql_query
                     null, // selectedTables
                     null // complete_query
-                );
+                ));
             }
         }
 
@@ -134,7 +132,7 @@ class QueryByExampleController extends AbstractController
         $url_params['goto'] = Url::getFromRoute('/database/qbe');
         $url_query .= Url::getCommon($url_params, '&');
 
-        list(
+        [
             $tables,
             $num_tables,
             $total_num_tables,
@@ -143,15 +141,15 @@ class QueryByExampleController extends AbstractController
             $db_is_system_schema,
             $tooltip_truename,
             $tooltip_aliasname,
-            $pos
-        ) = Util::getDbInfo($db, $sub_part ?? '');
+            $pos,
+        ] = Util::getDbInfo($db, $sub_part ?? '');
 
         $databaseQbe = new Qbe($this->relation, $this->template, $this->dbi, $db, $savedSearchList, $savedSearch);
 
-        $this->response->addHTML($this->template->render('database/qbe/index', [
+        $this->render('database/qbe/index', [
             'url_params' => $url_params,
             'has_message_to_display' => $hasMessageToDisplay,
             'selection_form_html' => $databaseQbe->getSelectionForm(),
-        ]));
+        ]);
     }
 }

@@ -2,6 +2,7 @@
 /**
  * Library for extracting information about the partitions
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
@@ -33,9 +34,11 @@ class Partition extends SubPartition
         $this->expression = $row['PARTITION_EXPRESSION'];
         $this->description = $row['PARTITION_DESCRIPTION'];
         // no sub partitions, load all data to this object
-        if (empty($row['SUBPARTITION_NAME'])) {
-            $this->loadCommonData($row);
+        if (! empty($row['SUBPARTITION_NAME'])) {
+            return;
         }
+
+        $this->loadCommonData($row);
     }
 
     /**
@@ -85,6 +88,7 @@ class Partition extends SubPartition
         foreach ($this->subPartitions as $subPartition) {
             $rows += $subPartition->rows;
         }
+
         return $rows;
     }
 
@@ -103,6 +107,7 @@ class Partition extends SubPartition
         foreach ($this->subPartitions as $subPartition) {
             $dataLength += $subPartition->dataLength;
         }
+
         return $dataLength;
     }
 
@@ -121,6 +126,7 @@ class Partition extends SubPartition
         foreach ($this->subPartitions as $subPartition) {
             $indexLength += $subPartition->indexLength;
         }
+
         return $indexLength;
     }
 
@@ -162,14 +168,18 @@ class Partition extends SubPartition
                         $partitionMap[$row['PARTITION_NAME']] = $partition;
                     }
 
-                    if (! empty($row['SUBPARTITION_NAME'])) {
-                        $parentPartition = $partition;
-                        $partition = new SubPartition($row);
-                        $parentPartition->addSubPartition($partition);
+                    if (empty($row['SUBPARTITION_NAME'])) {
+                        continue;
                     }
+
+                    $parentPartition = $partition;
+                    $partition = new SubPartition($row);
+                    $parentPartition->addSubPartition($partition);
                 }
+
                 return array_values($partitionMap);
             }
+
             return [];
         }
 
@@ -220,6 +230,7 @@ class Partition extends SubPartition
                 return $partition_method[0];
             }
         }
+
         return null;
     }
 
@@ -251,7 +262,7 @@ class Partition extends SubPartition
                 // see https://dev.mysql.com/doc/refman/5.6/en/partitioning.html
                 $plugins = $GLOBALS['dbi']->fetchResult('SHOW PLUGINS');
                 foreach ($plugins as $value) {
-                    if ($value['Name'] == 'partition') {
+                    if ($value['Name'] === 'partition') {
                         $have_partitioning = true;
                         break;
                     }
@@ -259,6 +270,7 @@ class Partition extends SubPartition
             }
             $already_checked = true;
         }
+
         return $have_partitioning;
     }
 }

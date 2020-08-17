@@ -2,6 +2,7 @@
 /**
  * Holds the PhpMyAdmin\Controllers\Server\BinlogController
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
@@ -22,7 +23,9 @@ use function array_key_exists;
 class BinlogController extends AbstractController
 {
     /**
-     * array binary log files
+     * binary log files
+     *
+     * @var array
      */
     protected $binaryLogs;
 
@@ -106,7 +109,7 @@ class BinlogController extends AbstractController
             $values[] = $value;
         }
 
-        $this->response->addHTML($this->template->render('server/binlog/index', [
+        $this->render('server/binlog/index', [
             'url_params' => $urlParams,
             'binary_logs' => $this->binaryLogs,
             'log' => $params['log'],
@@ -120,7 +123,7 @@ class BinlogController extends AbstractController
             'has_icons' => Util::showIcons('TableNavigationLinksMode'),
             'is_full_query' => $isFullQuery,
             'image_path' => $pmaThemeImage,
-        ]));
+        ]);
     }
 
     /**

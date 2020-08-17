@@ -26,10 +26,6 @@ Code status
     :alt: CII Best Practices
     :target: https://bestpractices.coreinfrastructure.org/projects/213
 
-.. image:: https://www.browserstack.com/automate/badge.svg?badge_key=V1ppZHdzTThicjY4Ujk5akxYT2xYUT09LS1PVncrNCtkUW9BZXE1Q2xCQkdTMFZRPT0=--91913a0e155fda6f7c942e9dd2da64b3da571c30
-    :alt: BrowserStack
-    :target: https://www.browserstack.com/automate/public-build/V1ppZHdzTThicjY4Ujk5akxYT2xYUT09LS1PVncrNCtkUW9BZXE1Q2xCQkdTMFZRPT0=--91913a0e155fda6f7c942e9dd2da64b3da571c30
-
 
 Download
 --------
@@ -40,7 +36,7 @@ If you prefer to follow the git repository, the following branch and tag names m
 
 * ``STABLE`` is the current stable release.
 * ``master`` is the development branch.
-* Releases are tagged, for example version 4.0.1 was tagged as ``RELEASE_4_0_1``.
+* Releases are tagged, for example version 5.0.1 was tagged as ``RELEASE_5_0_1``.
 
 Note that phpMyAdmin uses Composer to manage library dependencies, when using git
 development versions you must manually run Composer.

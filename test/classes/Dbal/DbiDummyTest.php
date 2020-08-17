@@ -2,22 +2,25 @@
 /**
  * Test for faked database access
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Dbal;
 
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Query\Utilities;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests basic functionality of dummy dbi driver
  */
-class DbiDummyTest extends TestCase
+class DbiDummyTest extends AbstractTestCase
 {
     /**
      * Configures test parameters.
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['IconvExtraParams'] = '';
         $GLOBALS['server'] = 1;
@@ -27,10 +30,8 @@ class DbiDummyTest extends TestCase
      * Simple test for basic query
      *
      * This relies on dummy driver internals
-     *
-     * @return void
      */
-    public function testQuery()
+    public function testQuery(): void
     {
         $this->assertEquals(1000, $GLOBALS['dbi']->tryQuery('SELECT 1'));
     }
@@ -39,10 +40,8 @@ class DbiDummyTest extends TestCase
      * Simple test for fetching results of query
      *
      * This relies on dummy driver internals
-     *
-     * @return void
      */
-    public function testFetch()
+    public function testFetch(): void
     {
         $result = $GLOBALS['dbi']->tryQuery('SELECT 1');
         $this->assertEquals(['1'], $GLOBALS['dbi']->fetchArray($result));
@@ -56,17 +55,15 @@ class DbiDummyTest extends TestCase
      *
      * @dataProvider schemaData
      */
-    public function testSystemSchema($schema, $expected): void
+    public function testSystemSchema(string $schema, bool $expected): void
     {
-        $this->assertEquals($expected, $GLOBALS['dbi']->isSystemSchema($schema));
+        $this->assertEquals($expected, Utilities::isSystemSchema($schema));
     }
 
     /**
      * Data provider for schema test
-     *
-     * @return array with test data
      */
-    public function schemaData()
+    public function schemaData(): array
     {
         return [
             [
@@ -89,21 +86,19 @@ class DbiDummyTest extends TestCase
      *
      * @dataProvider errorData
      */
-    public function testFormatError($number, $message, $expected): void
+    public function testFormatError(int $number, string $message, string $expected): void
     {
         $GLOBALS['server'] = 1;
         $this->assertEquals(
             $expected,
-            $GLOBALS['dbi']->formatError($number, $message)
+            Utilities::formatError($number, $message)
         );
     }
 
     /**
      * Data provider for error formatting test
-     *
-     * @return array with test data
      */
-    public function errorData()
+    public function errorData(): array
     {
         return [
             [
@@ -127,8 +122,6 @@ class DbiDummyTest extends TestCase
 
     /**
      * Test for string escaping
-     *
-     * @return void
      */
     public function testEscapeString(): void
     {

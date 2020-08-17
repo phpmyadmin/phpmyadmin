@@ -2,13 +2,18 @@
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportPhparray class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Export\ExportPhparray;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
+use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
+use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
+use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
 use function array_shift;
@@ -20,8 +25,9 @@ use function ob_start;
  *
  * @group medium
  */
-class ExportPhparrayTest extends PmaTestCase
+class ExportPhparrayTest extends AbstractTestCase
 {
+    /** @var ExportPhparray */
     protected $object;
 
     /**
@@ -29,6 +35,8 @@ class ExportPhparrayTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['output_charset_conversion'] = false;
@@ -43,26 +51,25 @@ class ExportPhparrayTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportPhparray::setProperties
-     *
-     * @return void
      */
-    public function testSetProperties()
+    public function testSetProperties(): void
     {
-        $method = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportPhparray', 'setProperties');
+        $method = new ReflectionMethod(ExportPhparray::class, 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty('PhpMyAdmin\Plugins\Export\ExportPhparray', 'properties');
+        $attrProperties = new ReflectionProperty(ExportPhparray::class, 'properties');
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Plugins\ExportPluginProperties',
+            ExportPluginProperties::class,
             $properties
         );
 
@@ -89,7 +96,7 @@ class ExportPhparrayTest extends PmaTestCase
         $options = $properties->getOptions();
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup',
+            OptionsPropertyRootGroup::class,
             $options
         );
 
@@ -102,7 +109,7 @@ class ExportPhparrayTest extends PmaTestCase
         $generalOptions = $generalOptionsArray[0];
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup',
+            OptionsPropertyMainGroup::class,
             $generalOptions
         );
 
@@ -116,17 +123,15 @@ class ExportPhparrayTest extends PmaTestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem',
+            HiddenPropertyItem::class,
             $property
         );
     }
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportPhparray::exportHeader
-     *
-     * @return void
      */
-    public function testExportHeader()
+    public function testExportHeader(): void
     {
         $GLOBALS['crlf'] = ' ';
 
@@ -136,6 +141,8 @@ class ExportPhparrayTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
+        $this->assertIsString($result);
+
         $this->assertStringContainsString(
             '<?php ',
             $result
@@ -144,10 +151,8 @@ class ExportPhparrayTest extends PmaTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportPhparray::exportFooter
-     *
-     * @return void
      */
-    public function testExportFooter()
+    public function testExportFooter(): void
     {
         $this->assertTrue(
             $this->object->exportFooter()
@@ -156,10 +161,8 @@ class ExportPhparrayTest extends PmaTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportPhparray::exportDBHeader
-     *
-     * @return void
      */
-    public function testExportDBHeader()
+    public function testExportDBHeader(): void
     {
         $GLOBALS['crlf'] = "\n";
 
@@ -169,6 +172,8 @@ class ExportPhparrayTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
+        $this->assertIsString($result);
+
         $this->assertStringContainsString(
             "/**\n * Database `db`\n */",
             $result
@@ -177,10 +182,8 @@ class ExportPhparrayTest extends PmaTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportPhparray::exportDBFooter
-     *
-     * @return void
      */
-    public function testExportDBFooter()
+    public function testExportDBFooter(): void
     {
         $this->assertTrue(
             $this->object->exportDBFooter('testDB')
@@ -189,10 +192,8 @@ class ExportPhparrayTest extends PmaTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportPhparray::exportDBCreate
-     *
-     * @return void
      */
-    public function testExportDBCreate()
+    public function testExportDBCreate(): void
     {
         $this->assertTrue(
             $this->object->exportDBCreate('testDB', 'database')
@@ -201,12 +202,10 @@ class ExportPhparrayTest extends PmaTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportPhparray::exportData
-     *
-     * @return void
      */
-    public function testExportData()
+    public function testExportData(): void
     {
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -263,7 +262,7 @@ class ExportPhparrayTest extends PmaTestCase
         );
 
         // case 2: test invalid variable name fix
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -295,6 +294,8 @@ class ExportPhparrayTest extends PmaTestCase
             )
         );
         $result = ob_get_clean();
+
+        $this->assertIsString($result);
 
         $this->assertStringContainsString(
             '$_0_932table',

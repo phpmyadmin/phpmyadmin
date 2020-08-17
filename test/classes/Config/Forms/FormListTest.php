@@ -2,22 +2,24 @@
 /**
  * tests for FormList classes in config folder
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Config\Forms;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PMA_FormDisplay class
  */
-class FormListTest extends PmaTestCase
+class FormListTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setUp();
+        parent::loadDefaultConfig();
+        parent::setGlobalConfig();
         $GLOBALS['server'] = 1;
     }
 
@@ -29,7 +31,7 @@ class FormListTest extends PmaTestCase
      *
      * @dataProvider formObjects
      */
-    public function testForms($class, $prefix): void
+    public function testForms(string $class, string $prefix): void
     {
         $cf = new ConfigFile($GLOBALS['PMA_Config']->base_settings);
 
@@ -60,7 +62,7 @@ class FormListTest extends PmaTestCase
     /**
      * @return array
      */
-    public function formObjects()
+    public function formObjects(): array
     {
         return [
             [

@@ -2,12 +2,14 @@
 /**
  * Holds the PhpMyAdmin\Database\Designer\Common class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Database\Designer;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
+use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Util;
@@ -51,13 +53,13 @@ class Common
      *
      * @return DesignerTable[] with table info
      */
-    public function getTablesInfo(string $db = null, string $table = null): array
+    public function getTablesInfo(?string $db = null, ?string $table = null): array
     {
         $designerTables = [];
         $db = $db ?? $GLOBALS['db'];
         // seems to be needed later
         $this->dbi->selectDb($db);
-        if ($db === null && $table === null) {
+        if ($table === null) {
             $tables = $this->dbi->getTablesFull($db);
         } else {
             $tables = $this->dbi->getTablesFull($db, $table);
@@ -92,11 +94,9 @@ class Common
 
         foreach ($designerTables as $designerTable) {
             $fieldsRs = $this->dbi->query(
-                $this->dbi->getColumnsSql(
+                QueryGenerator::getColumnsSql(
                     $designerTable->getDatabaseName(),
-                    $designerTable->getTableName(),
-                    null,
-                    true
+                    $designerTable->getTableName()
                 ),
                 DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_STORE
@@ -138,41 +138,42 @@ class Common
         while ($val = @$this->dbi->fetchRow($alltab_rs)) {
             $row = $this->relation->getForeigners($GLOBALS['db'], $val[0], '', 'internal');
 
-            if ($row !== false) {
-                foreach ($row as $field => $value) {
-                    $con['C_NAME'][$i] = '';
-                    $con['DTN'][$i]    = rawurlencode($GLOBALS['db'] . '.' . $val[0]);
-                    $con['DCN'][$i]    = rawurlencode($field);
-                    $con['STN'][$i]    = rawurlencode(
-                        $value['foreign_db'] . '.' . $value['foreign_table']
-                    );
-                    $con['SCN'][$i]    = rawurlencode($value['foreign_field']);
-                    $i++;
-                }
+            foreach ($row as $field => $value) {
+                $con['C_NAME'][$i] = '';
+                $con['DTN'][$i]    = rawurlencode($GLOBALS['db'] . '.' . $val[0]);
+                $con['DCN'][$i]    = rawurlencode($field);
+                $con['STN'][$i]    = rawurlencode(
+                    $value['foreign_db'] . '.' . $value['foreign_table']
+                );
+                $con['SCN'][$i]    = rawurlencode($value['foreign_field']);
+                $i++;
             }
+
             $row = $this->relation->getForeigners($GLOBALS['db'], $val[0], '', 'foreign');
 
             // We do not have access to the foreign keys if the user has partial access to the columns
-            if ($row !== false && isset($row['foreign_keys_data'])) {
-                foreach ($row['foreign_keys_data'] as $one_key) {
-                    foreach ($one_key['index_list'] as $index => $one_field) {
-                        $con['C_NAME'][$i] = rawurlencode($one_key['constraint']);
-                        $con['DTN'][$i]    = rawurlencode($GLOBALS['db'] . '.' . $val[0]);
-                        $con['DCN'][$i]    = rawurlencode($one_field);
-                        $con['STN'][$i]    = rawurlencode(
-                            ($one_key['ref_db_name'] ?? $GLOBALS['db'])
-                            . '.' . $one_key['ref_table_name']
-                        );
-                        $con['SCN'][$i] = rawurlencode($one_key['ref_index_list'][$index]);
-                        $i++;
-                    }
+            if (! isset($row['foreign_keys_data'])) {
+                continue;
+            }
+
+            foreach ($row['foreign_keys_data'] as $one_key) {
+                foreach ($one_key['index_list'] as $index => $one_field) {
+                    $con['C_NAME'][$i] = rawurlencode($one_key['constraint']);
+                    $con['DTN'][$i]    = rawurlencode($GLOBALS['db'] . '.' . $val[0]);
+                    $con['DCN'][$i]    = rawurlencode($one_field);
+                    $con['STN'][$i]    = rawurlencode(
+                        ($one_key['ref_db_name'] ?? $GLOBALS['db'])
+                        . '.' . $one_key['ref_table_name']
+                    );
+                    $con['SCN'][$i] = rawurlencode($one_key['ref_index_list'][$index]);
+                    $i++;
                 }
             }
         }
 
         $tableDbNames = [];
         foreach ($designerTables as $designerTable) {
-            $tableDbNames[] = $designerTable->getDbTableString();
+            $tableDbNames[] = rawurlencode($designerTable->getDbTableString());
         }
 
         $ti = 0;
@@ -191,6 +192,7 @@ class Common
             }
             $ti++;
         }
+
         return $retval;
     }
 
@@ -231,6 +233,7 @@ class Common
                 }
             }
         }
+
         return $keys;
     }
 
@@ -316,6 +319,7 @@ class Common
             DatabaseInterface::CONNECT_CONTROL,
             DatabaseInterface::QUERY_STORE
         );
+
         return is_array($page_name) && isset($page_name[0]) ? $page_name[0] : null;
     }
 
@@ -388,6 +392,7 @@ class Common
         if (is_array($default_page_no) && isset($default_page_no[0])) {
             return intval($default_page_no[0]);
         }
+
         return -1;
     }
 
@@ -417,6 +422,7 @@ class Common
             DatabaseInterface::CONNECT_CONTROL,
             DatabaseInterface::QUERY_STORE
         );
+
         return is_array($pageNos) && count($pageNos) > 0;
     }
 
@@ -457,6 +463,7 @@ class Common
                 $page_no = $min_page_no[0];
             }
         }
+
         return intval($page_no);
     }
 
@@ -478,6 +485,7 @@ class Common
                 $db
             );
         }
+
         return null;
     }
 
@@ -549,7 +557,7 @@ class Common
      * @param string $table table name
      * @param string $field display field name
      *
-     * @return array<int,string|null|bool>
+     * @return array<int, (string|bool|null)>
      */
     public function saveDisplayField($db, $table, $field): array
     {
@@ -558,7 +566,8 @@ class Common
             return [
                 false,
                 _pgettext(
-                    'phpMyAdmin configuration storage is not configured for "Display Features" on designer when user tries to set a display field.',
+                    'phpMyAdmin configuration storage is not configured for'
+                        . ' "Display Features" on designer when user tries to set a display field.',
                     'phpMyAdmin configuration storage is not configured for "Display Features".'
                 ),
             ];
@@ -647,10 +656,10 @@ class Common
                     . Util::backquote($T1) . '('
                     . Util::backquote($F1) . ')';
 
-                if ($on_delete != 'nix') {
+                if ($on_delete !== 'nix') {
                     $upd_query   .= ' ON DELETE ' . $on_delete;
                 }
-                if ($on_update != 'nix') {
+                if ($on_update !== 'nix') {
                     $upd_query   .= ' ON UPDATE ' . $on_update;
                 }
                 $upd_query .= ';';
@@ -662,6 +671,7 @@ class Common
                 }
 
                 $error = $this->dbi->getError();
+
                 return [
                     false,
                     __('Error: FOREIGN KEY relationship could not be added!')
@@ -709,6 +719,7 @@ class Common
         }
 
         $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
+
         return [
             false,
             __('Error: Internal relationship could not be added!')
@@ -728,8 +739,8 @@ class Common
      */
     public function removeRelation($T1, $F1, $T2, $F2)
     {
-        list($DB1, $T1) = explode('.', $T1);
-        list($DB2, $T2) = explode('.', $T2);
+        [$DB1, $T1] = explode('.', $T1);
+        [$DB2, $T2] = explode('.', $T2);
 
         $tables = $this->dbi->getTablesFull($DB1, $T1);
         $type_T1 = mb_strtoupper($tables[$T1]['ENGINE']);
@@ -744,7 +755,7 @@ class Common
             $existrel_foreign = $this->relation->getForeigners($DB2, $T2, '', 'foreign');
             $foreigner = $this->relation->searchColumnInForeigners($existrel_foreign, $F2);
 
-            if (isset($foreigner['constraint'])) {
+            if (is_array($foreigner) && isset($foreigner['constraint'])) {
                 $upd_query = 'ALTER TABLE ' . Util::backquote($DB2)
                     . '.' . Util::backquote($T2) . ' DROP FOREIGN KEY '
                     . Util::backquote($foreigner['constraint']) . ';';
@@ -756,6 +767,7 @@ class Common
                 }
 
                 $error = $this->dbi->getError();
+
                 return [
                     false,
                     __('Error: FOREIGN KEY relationship could not be removed!')
@@ -783,6 +795,7 @@ class Common
 
         if (! $result) {
             $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
+
             return [
                 false,
                 __('Error: Internal relationship could not be removed!') . '<br>' . $error,

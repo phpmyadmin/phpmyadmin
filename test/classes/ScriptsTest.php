@@ -2,6 +2,7 @@
 /**
  * Tests for Script.php
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
@@ -14,7 +15,7 @@ use function defined;
 /**
  * Tests for Script.php
  */
-class ScriptsTest extends PmaTestCase
+class ScriptsTest extends AbstractTestCase
 {
     /** @var Scripts */
     protected $object;
@@ -27,10 +28,13 @@ class ScriptsTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->object = new Scripts();
-        if (! defined('PMA_USR_BROWSER_AGENT')) {
-            define('PMA_USR_BROWSER_AGENT', 'MOZILLA');
+        if (defined('PMA_USR_BROWSER_AGENT')) {
+            return;
         }
+
+        define('PMA_USR_BROWSER_AGENT', 'MOZILLA');
     }
 
     /**
@@ -41,15 +45,14 @@ class ScriptsTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 
     /**
      * Test for getDisplay
-     *
-     * @return void
      */
-    public function testGetDisplay()
+    public function testGetDisplay(): void
     {
         $this->object->addFile('common.js');
 
@@ -71,10 +74,8 @@ class ScriptsTest extends PmaTestCase
 
     /**
      * test for addCode
-     *
-     * @return void
      */
-    public function testAddCode()
+    public function testAddCode(): void
     {
         $this->object->addCode('alert(\'CodeAdded\');');
 
@@ -88,12 +89,10 @@ class ScriptsTest extends PmaTestCase
 
     /**
      * test for getFiles
-     *
-     * @return void
      */
-    public function testGetFiles()
+    public function testGetFiles(): void
     {
-        // codemirror's onload event is blacklisted
+        // codemirror's onload event is excluded
         $this->object->addFile('vendor/codemirror/lib/codemirror.js');
 
         $this->object->addFile('common.js');
@@ -114,12 +113,10 @@ class ScriptsTest extends PmaTestCase
 
     /**
      * test for addFile
-     *
-     * @return void
      */
-    public function testAddFile()
+    public function testAddFile(): void
     {
-        $reflection = new ReflectionProperty(Scripts::class, '_files');
+        $reflection = new ReflectionProperty(Scripts::class, 'files');
         $reflection->setAccessible(true);
 
         // Assert empty _files property of
@@ -142,12 +139,10 @@ class ScriptsTest extends PmaTestCase
 
     /**
      * test for addFiles
-     *
-     * @return void
      */
-    public function testAddFiles()
+    public function testAddFiles(): void
     {
-        $reflection = new ReflectionProperty(Scripts::class, '_files');
+        $reflection = new ReflectionProperty(Scripts::class, 'files');
         $reflection->setAccessible(true);
 
         $filenames = [

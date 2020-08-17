@@ -1,0 +1,15 @@
+<fieldset class="left">
+  <legend>{% trans %}New{% context %}Create new routine{% endtrans %}</legend>
+  <div class='wrap'>
+    {% if has_privilege %}
+      <a class="ajax add_anchor" href="{{ url('/database/routines', {'db': db, 'table': table, 'add_item': true}) }}" onclick="$.datepicker.initialized = false;">
+        {{ get_icon('b_routine_add') }}
+        {% trans 'Add routine' %}
+      </a>
+    {% else %}
+      {{ get_icon('bd_routine_add') }}
+      {% trans 'Add routine' %}
+    {% endif %}
+    {{ show_mysql_docu('CREATE_PROCEDURE') }}
+  </div>
+</fieldset>

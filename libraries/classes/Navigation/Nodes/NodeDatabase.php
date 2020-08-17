@@ -2,6 +2,7 @@
 /**
  * Functionality for the navigation tree
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
@@ -112,7 +113,7 @@ class NodeDatabase extends Node
     private function getTableOrViewCount($which, $searchClause, $singleItem)
     {
         $db = $this->realName;
-        if ($which == 'tables') {
+        if ($which === 'tables') {
             $condition = 'IN';
         } else {
             $condition = 'NOT IN';
@@ -367,6 +368,7 @@ class NodeDatabase extends Node
      */
     public function getData($type, $pos, $searchClause = '')
     {
+        $pos = (int) $pos;
         $retval = [];
         switch ($type) {
             case 'tables':
@@ -393,9 +395,11 @@ class NodeDatabase extends Node
         if ($cfgRelation['navwork']) {
             $hiddenItems = $this->getHiddenItems(substr($type, 0, -1));
             foreach ($retval as $key => $item) {
-                if (in_array($item, $hiddenItems)) {
-                    unset($retval[$key]);
+                if (! in_array($item, $hiddenItems)) {
+                    continue;
                 }
+
+                unset($retval[$key]);
             }
         }
 
@@ -445,9 +449,9 @@ class NodeDatabase extends Node
      *
      * @return array
      */
-    private function getTablesOrViews($which, $pos, $searchClause)
+    private function getTablesOrViews($which, int $pos, $searchClause)
     {
-        if ($which == 'tables') {
+        if ($which === 'tables') {
             $condition = 'IN';
         } else {
             $condition = 'NOT IN';
@@ -467,7 +471,7 @@ class NodeDatabase extends Node
                 $query .= "%'";
             }
             $query .= 'ORDER BY `TABLE_NAME` ASC ';
-            $query .= 'LIMIT ' . intval($pos) . ', ' . $maxItems;
+            $query .= 'LIMIT ' . $pos . ', ' . $maxItems;
             $retval = $GLOBALS['dbi']->fetchResult($query);
         } else {
             $query = ' SHOW FULL TABLES FROM ';
@@ -487,12 +491,12 @@ class NodeDatabase extends Node
                 $count = 0;
                 if ($GLOBALS['dbi']->dataSeek($handle, $pos)) {
                     while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                        if ($count < $maxItems) {
-                            $retval[] = $arr[0];
-                            $count++;
-                        } else {
+                        if ($count >= $maxItems) {
                             break;
                         }
+
+                        $retval[] = $arr[0];
+                        $count++;
                     }
                 }
             }
@@ -509,7 +513,7 @@ class NodeDatabase extends Node
      *
      * @return array
      */
-    private function getTables($pos, $searchClause)
+    private function getTables(int $pos, $searchClause)
     {
         return $this->getTablesOrViews('tables', $pos, $searchClause);
     }
@@ -522,7 +526,7 @@ class NodeDatabase extends Node
      *
      * @return array
      */
-    private function getViews($pos, $searchClause)
+    private function getViews(int $pos, $searchClause)
     {
         return $this->getTablesOrViews('views', $pos, $searchClause);
     }
@@ -569,12 +573,12 @@ class NodeDatabase extends Node
                 $count = 0;
                 if ($GLOBALS['dbi']->dataSeek($handle, $pos)) {
                     while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                        if ($count < $maxItems) {
-                            $retval[] = $arr['Name'];
-                            $count++;
-                        } else {
+                        if ($count >= $maxItems) {
                             break;
                         }
+
+                        $retval[] = $arr['Name'];
+                        $count++;
                     }
                 }
             }
@@ -649,12 +653,12 @@ class NodeDatabase extends Node
                 $count = 0;
                 if ($GLOBALS['dbi']->dataSeek($handle, $pos)) {
                     while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                        if ($count < $maxItems) {
-                            $retval[] = $arr['Name'];
-                            $count++;
-                        } else {
+                        if ($count >= $maxItems) {
                             break;
                         }
+
+                        $retval[] = $arr['Name'];
+                        $count++;
                     }
                 }
             }

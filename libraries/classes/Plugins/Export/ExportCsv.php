@@ -2,6 +2,7 @@
 /**
  * CSV export code
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
@@ -111,11 +112,11 @@ class ExportCsv extends ExportPlugin
     {
         global $what, $csv_terminated, $csv_separator, $csv_enclosed, $csv_escaped;
         //Enable columns names by default for CSV
-        if ($what == 'csv') {
+        if ($what === 'csv') {
             $GLOBALS['csv_columns'] = 'yes';
         }
         // Here we just prepare some values for export
-        if ($what == 'excel') {
+        if ($what === 'excel') {
             $csv_terminated = "\015\012";
             switch ($GLOBALS['excel_edition']) {
                 case 'win':
@@ -136,7 +137,7 @@ class ExportCsv extends ExportPlugin
             }
         } else {
             if (empty($csv_terminated)
-                || mb_strtolower($csv_terminated) == 'auto'
+                || mb_strtolower($csv_terminated) === 'auto'
             ) {
                 $csv_terminated = $GLOBALS['crlf'];
             } else {
@@ -279,7 +280,7 @@ class ExportCsv extends ExportPlugin
                     $schema_insert .= $GLOBALS[$what . '_null'];
                 } elseif ($row[$j] == '0' || $row[$j] != '') {
                     // always enclose fields
-                    if ($what == 'excel') {
+                    if ($what === 'excel') {
                         $row[$j] = preg_replace("/\015(\012)?/", "\012", $row[$j]);
                     }
                     // remove CRLF characters within field
@@ -325,9 +326,11 @@ class ExportCsv extends ExportPlugin
                 } else {
                     $schema_insert .= '';
                 }
-                if ($j < $fields_cnt - 1) {
-                    $schema_insert .= $csv_separator;
+                if ($j >= $fields_cnt - 1) {
+                    continue;
                 }
+
+                $schema_insert .= $csv_separator;
             } // end for
 
             if (! $this->export->outputHandler($schema_insert . $csv_terminated)) {

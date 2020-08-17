@@ -63,7 +63,7 @@ Please use instead the cookie authentication mode.
 
 This seems to be a PWS bug. Filippo Simoncini found a workaround (at
 this time there is no better fix): remove or comment the ``DOCTYPE``
-declarations (2 lines) from the scripts :file:`libraries/Header.class.php`
+declarations (2 lines) from the scripts :file:`libraries/classes/Header.php`
 and :file:`index.php`.
 
 .. _faq1_7:
@@ -280,7 +280,7 @@ can tell it to use specific path for this file using ``PHPIniDir`` directive:
 
 In some rare cases this problem can be also caused by other extensions loaded
 in PHP which prevent MySQL extensions to be loaded. If anything else fails, you
-can try commenting out extensions for other databses from :file:`php.ini`.
+can try commenting out extensions for other databases from :file:`php.ini`.
 
 .. _faq1_21:
 
@@ -525,8 +525,8 @@ error log file might give a clue.
 -----------------------------------------------------------------------------------------------------------
 
 If your cluster consist of different architectures, PHP code used for
-encryption/decryption won't work correct. This is caused by use of
-pack/unpack functions in code. Only solution is to use mcrypt
+encryption/decryption won't work correctly. This is caused by use of
+pack/unpack functions in code. Only solution is to use openssl
 extension which works fine in this case.
 
 .. _faq1_38:
@@ -1414,7 +1414,7 @@ This is usually caused by web application firewall doing requests filtering. It
 tries to prevent SQL injection, however phpMyAdmin is tool designed to execute
 SQL queries, thus it makes it unusable.
 
-Please whitelist phpMyAdmin scripts from the web application firewall settings
+Please allow phpMyAdmin scripts from the web application firewall settings
 or disable it completely for phpMyAdmin path.
 
 Programs known to cause these kind of errors:

@@ -2,19 +2,20 @@
 /**
  * Tests for PhpMyAdmin\Engines\Bdb
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Engines;
 
 use PhpMyAdmin\Engines\Bdb;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PhpMyAdmin\Engines\Bdb
  */
-class BdbTest extends PmaTestCase
+class BdbTest extends AbstractTestCase
 {
-    /** @access protected */
+    /** @var Bdb */
     protected $object;
 
     /**
@@ -25,6 +26,7 @@ class BdbTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $GLOBALS['server'] = 0;
         $this->object = new Bdb('bdb');
     }
@@ -37,15 +39,14 @@ class BdbTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 
     /**
      * Test for getVariables
-     *
-     * @return void
      */
-    public function testGetVariables()
+    public function testGetVariables(): void
     {
         $this->assertEquals(
             $this->object->getVariables(),
@@ -53,17 +54,11 @@ class BdbTest extends PmaTestCase
                 'version_bdb' => [
                     'title' => __('Version information'),
                 ],
-                'bdb_cache_size' => [
-                    'type'  => 1,
-                ],
+                'bdb_cache_size' => ['type' => 1],
                 'bdb_home' => [],
-                'bdb_log_buffer_size' => [
-                    'type'  => 1,
-                ],
+                'bdb_log_buffer_size' => ['type' => 1],
                 'bdb_logdir' => [],
-                'bdb_max_lock' => [
-                    'type'  => 2,
-                ],
+                'bdb_max_lock' => ['type' => 2],
                 'bdb_shared_data' => [],
                 'bdb_tmpdir' => [],
                 'bdb_data_direct' => [],
@@ -79,10 +74,8 @@ class BdbTest extends PmaTestCase
 
     /**
      * Test for getVariablesLikePattern
-     *
-     * @return void
      */
-    public function testGetVariablesLikePattern()
+    public function testGetVariablesLikePattern(): void
     {
         $this->assertEquals(
             $this->object->getVariablesLikePattern(),
@@ -92,10 +85,8 @@ class BdbTest extends PmaTestCase
 
     /**
      * Test for getMysqlHelpPage
-     *
-     * @return void
      */
-    public function testGetMysqlHelpPage()
+    public function testGetMysqlHelpPage(): void
     {
         $this->assertEquals(
             $this->object->getMysqlHelpPage(),

@@ -2,6 +2,7 @@
 /**
  * tests for PhpMyAdmin\ReplicationGui
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
@@ -11,14 +12,13 @@ use PhpMyAdmin\Replication;
 use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\Template;
-use PHPUnit\Framework\TestCase;
 
 /**
  * PhpMyAdmin\Tests\ReplicationGuiTest class
  *
  * this class is for testing PhpMyAdmin\ReplicationGui methods
  */
-class ReplicationGuiTest extends TestCase
+class ReplicationGuiTest extends AbstractTestCase
 {
     /**
      * ReplicationGui instance
@@ -32,6 +32,7 @@ class ReplicationGuiTest extends TestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         //$_POST
         $_POST['mr_adduser'] = 'mr_adduser';
 
@@ -48,6 +49,7 @@ class ReplicationGuiTest extends TestCase
         $GLOBALS['cfg']['ShowHint'] = true;
 
         $GLOBALS['table'] = 'table';
+        $GLOBALS['server'] = 0;
         $GLOBALS['url_params'] = [];
 
         ReplicationInfo::load();
@@ -80,7 +82,7 @@ class ReplicationGuiTest extends TestCase
             ],
         ];
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -103,11 +105,9 @@ class ReplicationGuiTest extends TestCase
     /**
      * Test for getHtmlForMasterReplication
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testGetHtmlForMasterReplication()
+    public function testGetHtmlForMasterReplication(): void
     {
         global $master_variables_alerts;
         global $master_variables_oks;
@@ -205,10 +205,8 @@ class ReplicationGuiTest extends TestCase
 
     /**
      * Test for getHtmlForSlaveConfiguration
-     *
-     * @return void
      */
-    public function testGetHtmlForSlaveConfiguration()
+    public function testGetHtmlForSlaveConfiguration(): void
     {
         global $server_slave_replication;
 
@@ -258,10 +256,8 @@ class ReplicationGuiTest extends TestCase
 
     /**
      * Test for getHtmlForReplicationChangeMaster
-     *
-     * @return void
      */
-    public function testGetHtmlForReplicationChangeMaster()
+    public function testGetHtmlForReplicationChangeMaster(): void
     {
         //Call the test function
         $html = $this->replicationGui->getHtmlForReplicationChangeMaster(

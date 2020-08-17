@@ -2,6 +2,7 @@
 /**
  * Abstract class for the image upload input transformations plugins
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
@@ -99,9 +100,7 @@ abstract class ImageUploadTransformationsPlugin extends IOTransformationsPlugin
      */
     public function getScripts()
     {
-        return [
-            'transformations/image_upload.js',
-        ];
+        return ['transformations/image_upload.js'];
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */

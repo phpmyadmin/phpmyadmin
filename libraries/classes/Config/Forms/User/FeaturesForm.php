@@ -2,6 +2,7 @@
 /**
  * User preferences form
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Config\Forms\User;
@@ -72,10 +73,9 @@ class FeaturesForm extends BaseForm
         ];
         // skip Developer form if no setting is available
         if ($GLOBALS['cfg']['UserprefsDeveloperTab']) {
-            $result['Developer'] = [
-                'DBG/sql',
-            ];
+            $result['Developer'] = ['DBG/sql'];
         }
+
         return $result;
     }
 

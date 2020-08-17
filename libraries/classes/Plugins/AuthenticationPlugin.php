@@ -2,6 +2,7 @@
 /**
  * Abstract class for the authentication plugins
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins;
@@ -135,12 +136,14 @@ abstract class AuthenticationPlugin
          */
         $server = 0;
         if ($GLOBALS['cfg']['LoginCookieDeleteAll'] === false
-            && $GLOBALS['cfg']['Server']['auth_type'] == 'cookie'
+            && $GLOBALS['cfg']['Server']['auth_type'] === 'cookie'
         ) {
             foreach ($GLOBALS['cfg']['Servers'] as $key => $val) {
-                if ($PMA_Config->issetCookie('pmaAuth-' . $key)) {
-                    $server = $key;
+                if (! $PMA_Config->issetCookie('pmaAuth-' . $key)) {
+                    continue;
                 }
+
+                $server = $key;
             }
         }
 
@@ -181,16 +184,21 @@ abstract class AuthenticationPlugin
      */
     public function getErrorMessage($failure)
     {
-        if ($failure == 'empty-denied') {
+        if ($failure === 'empty-denied') {
             return __(
                 'Login without a password is forbidden by configuration'
                 . ' (see AllowNoPassword)'
             );
-        } elseif ($failure == 'root-denied' || $failure == 'allow-denied') {
+        }
+
+        if ($failure === 'root-denied' || $failure === 'allow-denied') {
             return __('Access denied!');
-        } elseif ($failure == 'no-activity') {
+        }
+
+        if ($failure === 'no-activity') {
             return sprintf(
-                __('No activity within %s seconds; please log in again.'),
+                __('You have been automatically logged out due to inactivity of %s seconds.'
+                . ' Once you log in again, you should be able to resume the work where you left off.'),
                 intval($GLOBALS['cfg']['LoginCookieValidity'])
             );
         }
@@ -198,7 +206,9 @@ abstract class AuthenticationPlugin
         $dbi_error = $GLOBALS['dbi']->getError();
         if (! empty($dbi_error)) {
             return htmlspecialchars($dbi_error);
-        } elseif (isset($GLOBALS['errno'])) {
+        }
+
+        if (isset($GLOBALS['errno'])) {
             return '#' . $GLOBALS['errno'] . ' '
             . __('Cannot log in to the MySQL server');
         }
@@ -282,7 +292,7 @@ abstract class AuthenticationPlugin
         // user based on mod_access in Apache
         if (isset($cfg['Server']['AllowDeny']['order'])) {
             $allowDeny_forbidden         = false; // default
-            if ($cfg['Server']['AllowDeny']['order'] == 'allow,deny') {
+            if ($cfg['Server']['AllowDeny']['order'] === 'allow,deny') {
                 $allowDeny_forbidden     = true;
                 if ($this->ipAllowDeny->allow()) {
                     $allowDeny_forbidden = false;
@@ -290,14 +300,14 @@ abstract class AuthenticationPlugin
                 if ($this->ipAllowDeny->deny()) {
                     $allowDeny_forbidden = true;
                 }
-            } elseif ($cfg['Server']['AllowDeny']['order'] == 'deny,allow') {
+            } elseif ($cfg['Server']['AllowDeny']['order'] === 'deny,allow') {
                 if ($this->ipAllowDeny->deny()) {
                     $allowDeny_forbidden = true;
                 }
                 if ($this->ipAllowDeny->allow()) {
                     $allowDeny_forbidden = false;
                 }
-            } elseif ($cfg['Server']['AllowDeny']['order'] == 'explicit') {
+            } elseif ($cfg['Server']['AllowDeny']['order'] === 'explicit') {
                 if ($this->ipAllowDeny->allow() && ! $this->ipAllowDeny->deny()) {
                     $allowDeny_forbidden = false;
                 } else {
@@ -312,25 +322,25 @@ abstract class AuthenticationPlugin
         } // end if
 
         // is root allowed?
-        if (! $cfg['Server']['AllowRoot'] && $cfg['Server']['user'] == 'root') {
+        if (! $cfg['Server']['AllowRoot'] && $cfg['Server']['user'] === 'root') {
             $this->showFailure('root-denied');
         }
 
         // is a login without password allowed?
-        if (! $cfg['Server']['AllowNoPassword']
-            && $cfg['Server']['password'] === ''
+        if ($cfg['Server']['AllowNoPassword']
+            || $cfg['Server']['password'] !== ''
         ) {
-            $this->showFailure('empty-denied');
+            return;
         }
+
+        $this->showFailure('empty-denied');
     }
 
     /**
      * Checks whether two factor authentication is active
      * for given user and performs it.
-     *
-     * @return bool|void
      */
-    public function checkTwoFactor()
+    public function checkTwoFactor(): void
     {
         $twofactor = new TwoFactor($this->user);
 
@@ -343,14 +353,14 @@ abstract class AuthenticationPlugin
         if ($response->loginPage()) {
             if (defined('TESTSUITE')) {
                 return;
-            } else {
-                exit;
             }
+
+            exit;
         }
         echo $this->template->render('login/header', ['theme' => $GLOBALS['PMA_Theme']]);
-        Message::rawNotice(
+        echo Message::rawNotice(
             __('You have enabled two factor authentication, please confirm your login.')
-        )->display();
+        )->getDisplay();
         echo $this->template->render('login/twofactor', [
             'form' => $twofactor->render(),
             'show_submit' => $twofactor->showSubmit(),
@@ -360,6 +370,5 @@ abstract class AuthenticationPlugin
         if (! defined('TESTSUITE')) {
             exit;
         }
-        return;
     }
 }

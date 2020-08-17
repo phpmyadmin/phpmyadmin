@@ -150,13 +150,50 @@ function checkForCheckbox (multiEdit) {
 
 // used in Search page mostly for INT fields
 // eslint-disable-next-line no-unused-vars
-function verifyAfterSearchFieldChange (index) {
+function verifyAfterSearchFieldChange (index, searchFormId) {
     var $thisInput = $('input[name=\'criteriaValues[' + index + ']\']');
     // validation for integer type
     if ($thisInput.data('type') === 'INT') {
-        $('#tbl_search_form').validate();
-        validateIntField($thisInput, true);
+        // Trim spaces if it's an integer
+        $thisInput.val($thisInput.val().trim());
+
+        var hasMultiple = $thisInput.prop('multiple');
+
+        if (hasMultiple) {
+            $(searchFormId).validate();
+            // validator method for IN(...), NOT IN(...)
+            // BETWEEN and NOT BETWEEN
+            jQuery.validator.addMethod('validationFunctionForMultipleInt', function (value) {
+                return value.match(/^(?:(?:\d\s*)|\s*)+(?:,\s*\d+)*$/i) !== null;
+            },
+            Messages.strEnterValidNumber
+            );
+            validateMultipleIntField($thisInput, true);
+        } else {
+            $(searchFormId).validate();
+            validateIntField($thisInput, true);
+        }
     }
+}
+
+/**
+ * Validate the an input contains multiple int values
+ * @param {jQuery} jqueryInput the Jquery object
+ * @param {boolean} returnValueIfFine the value to return if the validator passes
+ * @returns {void}
+ */
+function validateMultipleIntField (jqueryInput, returnValueIfFine) {
+    // removing previous rules
+    jqueryInput.rules('remove');
+
+    jqueryInput.rules('add', {
+        validationFunctionForMultipleInt: {
+            param: jqueryInput.value,
+            depends: function () {
+                return returnValueIfFine;
+            }
+        }
+    });
 }
 
 /**
@@ -166,8 +203,8 @@ function verifyAfterSearchFieldChange (index) {
  * @returns {void}
  */
 function validateIntField (jqueryInput, returnValueIfIsNumber) {
-    var mini = parseInt(jqueryInput.attr('min'));
-    var maxi = parseInt(jqueryInput.attr('max'));
+    var mini = parseInt(jqueryInput.data('min'));
+    var maxi = parseInt(jqueryInput.data('max'));
     jqueryInput.rules('add', {
         number: {
             param: true,
@@ -246,6 +283,18 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
         });
     }
 
+    if (target.value === 'HEX' && theType.substring(0,3) === 'int') {
+        // Add note when HEX function is selected on a int
+        var newHexInfo = '<br><p id="note' +  target.id + '">' + Messages.HexConversionInfo + '</p>';
+        if (!$('#note' + target.id).length) {
+            $thisInput.after(newHexInfo);
+        }
+    } else {
+        $('#note' + target.id)
+            .prev('br')
+            .remove();
+        $('#note' + target.id).remove();
+    }
     // Unchecks the corresponding "NULL" control
     $('input[name=\'fields_null[multi_edit][' + multiEdit + '][' + urlField + ']\']').prop('checked', false);
 
@@ -744,7 +793,7 @@ function addNewContinueInsertionFiels (event) {
 
 // eslint-disable-next-line no-unused-vars
 function changeValueFieldType (elem, searchIndex) {
-    var fieldsValue = $('select#fieldID_' + searchIndex);
+    var fieldsValue = $('input#fieldID_' + searchIndex);
     if (0 === fieldsValue.size()) {
         return;
     }

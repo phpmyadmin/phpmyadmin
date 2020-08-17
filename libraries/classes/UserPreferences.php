@@ -2,6 +2,7 @@
 /**
  * Holds the PhpMyAdmin\UserPreferences class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
@@ -78,6 +79,7 @@ class UserPreferences
                     'ts' => time(),
                 ];
             }
+
             return [
                 'config_data' => $_SESSION['userconfig']['db'],
                 'mtime' => $_SESSION['userconfig']['ts'],
@@ -122,6 +124,7 @@ class UserPreferences
             if (isset($_SESSION['cache'][$cache_key]['userprefs'])) {
                 unset($_SESSION['cache'][$cache_key]['userprefs']);
             }
+
             return true;
         }
 
@@ -166,14 +169,16 @@ class UserPreferences
                 ),
                 '<br><br>'
             );
+
             return $message;
         }
+
         return true;
     }
 
     /**
      * Returns a user preferences array filtered by $cfg['UserprefsDisallow']
-     * (blacklist) and keys from user preferences form (whitelist)
+     * (exclude list) and keys from user preferences form (allow list)
      *
      * @param array $config_data path => value pairs
      *
@@ -182,20 +187,21 @@ class UserPreferences
     public function apply(array $config_data)
     {
         $cfg = [];
-        $blacklist = array_flip($GLOBALS['cfg']['UserprefsDisallow']);
-        $whitelist = array_flip(UserFormList::getFields());
-        // whitelist some additional fields which are custom handled
-        $whitelist['ThemeDefault'] = true;
-        $whitelist['lang'] = true;
-        $whitelist['Server/hide_db'] = true;
-        $whitelist['Server/only_db'] = true;
-        $whitelist['2fa'] = true;
+        $excludeList = array_flip($GLOBALS['cfg']['UserprefsDisallow']);
+        $allowList = array_flip(UserFormList::getFields());
+        // allow some additional fields which are custom handled
+        $allowList['ThemeDefault'] = true;
+        $allowList['lang'] = true;
+        $allowList['Server/hide_db'] = true;
+        $allowList['Server/only_db'] = true;
+        $allowList['2fa'] = true;
         foreach ($config_data as $path => $value) {
-            if (! isset($whitelist[$path]) || isset($blacklist[$path])) {
+            if (! isset($allowList[$path]) || isset($excludeList[$path])) {
                 continue;
             }
             Core::arrayWrite($path, $cfg, $value);
         }
+
         return $cfg;
     }
 
@@ -214,14 +220,15 @@ class UserPreferences
     {
         $prefs = $this->load();
         if ($value === $default_value) {
-            if (isset($prefs['config_data'][$path])) {
-                unset($prefs['config_data'][$path]);
-            } else {
+            if (! isset($prefs['config_data'][$path])) {
                 return true;
             }
+
+            unset($prefs['config_data'][$path]);
         } else {
             $prefs['config_data'][$path] = $value;
         }
+
         return $this->save($prefs['config_data']);
     }
 
@@ -260,9 +267,10 @@ class UserPreferences
     public function autoloadGetHeader()
     {
         if (isset($_REQUEST['prefs_autoload'])
-            && $_REQUEST['prefs_autoload'] == 'hide'
+            && $_REQUEST['prefs_autoload'] === 'hide'
         ) {
             $_SESSION['userprefs_autoload'] = true;
+
             return '';
         }
 

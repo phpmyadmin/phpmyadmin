@@ -2,20 +2,25 @@
 /**
  * Tests for PhpMyAdmin\Plugins\Import\ImportXml class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Import;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportXml;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PhpMyAdmin\Plugins\Import\ImportXml class
+ *
+ * @requires extension xml
+ * @requires extension xmlwriter
  */
-class ImportXmlTest extends PmaTestCase
+class ImportXmlTest extends AbstractTestCase
 {
-    /** @access protected */
+    /** @var ImportXml */
     protected $object;
 
     /**
@@ -26,6 +31,8 @@ class ImportXmlTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
 
         $this->object = new ImportXml();
@@ -54,17 +61,16 @@ class ImportXmlTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 
     /**
      * Test for getProperties
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testGetProperties()
+    public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
         $this->assertEquals(
@@ -92,17 +98,15 @@ class ImportXmlTest extends PmaTestCase
     /**
      * Test for doImport
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testDoImport()
+    public function testDoImport(): void
     {
         //$import_notice will show the import detail result
         global $import_notice;
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;
@@ -144,8 +148,7 @@ class ImportXmlTest extends PmaTestCase
             'Edit settings for `pma_bookmarktest`',
             $import_notice
         );
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['finished']
         );
     }

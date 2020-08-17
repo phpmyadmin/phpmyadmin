@@ -2,18 +2,20 @@
 /**
  * tests for PhpMyAdmin\Plugins\Export\Helpers\TableProperty class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export\Helpers;
 
 use PhpMyAdmin\Plugins\Export\Helpers\TableProperty;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * tests for PhpMyAdmin\Plugins\Export\Helpers\TableProperty class
  */
-class TablePropertyTest extends PmaTestCase
+class TablePropertyTest extends AbstractTestCase
 {
+    /** @var TableProperty */
     protected $object;
 
     /**
@@ -21,6 +23,7 @@ class TablePropertyTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $GLOBALS['server'] = 0;
         $row = [
             ' name ',
@@ -38,15 +41,14 @@ class TablePropertyTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::__construct
-     *
-     * @return void
      */
-    public function testConstructor()
+    public function testConstructor(): void
     {
         $this->assertEquals(
             'name',
@@ -81,10 +83,8 @@ class TablePropertyTest extends PmaTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::getPureType
-     *
-     * @return void
      */
-    public function testGetPureType()
+    public function testGetPureType(): void
     {
         $this->object->type = 'int(10)';
 
@@ -109,7 +109,7 @@ class TablePropertyTest extends PmaTestCase
      *
      * @dataProvider isNotNullProvider
      */
-    public function testIsNotNull($nullable, $expected): void
+    public function testIsNotNull(string $nullable, string $expected): void
     {
         $this->object->nullable = $nullable;
 
@@ -124,7 +124,7 @@ class TablePropertyTest extends PmaTestCase
      *
      * @return array Test Data
      */
-    public function isNotNullProvider()
+    public function isNotNullProvider(): array
     {
         return [
             [
@@ -150,7 +150,7 @@ class TablePropertyTest extends PmaTestCase
      *
      * @dataProvider isUniqueProvider
      */
-    public function testIsUnique($key, $expected): void
+    public function testIsUnique(string $key, string $expected): void
     {
         $this->object->key = $key;
 
@@ -165,7 +165,7 @@ class TablePropertyTest extends PmaTestCase
      *
      * @return array Test Data
      */
-    public function isUniqueProvider()
+    public function isUniqueProvider(): array
     {
         return [
             [
@@ -199,7 +199,7 @@ class TablePropertyTest extends PmaTestCase
      *
      * @dataProvider getDotNetPrimitiveTypeProvider
      */
-    public function testGetDotNetPrimitiveType($type, $expected): void
+    public function testGetDotNetPrimitiveType(string $type, string $expected): void
     {
         $this->object->type = $type;
 
@@ -214,7 +214,7 @@ class TablePropertyTest extends PmaTestCase
      *
      * @return array Test Data
      */
-    public function getDotNetPrimitiveTypeProvider()
+    public function getDotNetPrimitiveTypeProvider(): array
     {
         return [
             [
@@ -272,7 +272,7 @@ class TablePropertyTest extends PmaTestCase
      *
      * @dataProvider getDotNetObjectTypeProvider
      */
-    public function testGetDotNetObjectType($type, $expected): void
+    public function testGetDotNetObjectType(string $type, string $expected): void
     {
         $this->object->type = $type;
 
@@ -287,7 +287,7 @@ class TablePropertyTest extends PmaTestCase
      *
      * @return array Test Data
      */
-    public function getDotNetObjectTypeProvider()
+    public function getDotNetObjectTypeProvider(): array
     {
         return [
             [
@@ -339,10 +339,8 @@ class TablePropertyTest extends PmaTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::getIndexName
-     *
-     * @return void
      */
-    public function testGetIndexName()
+    public function testGetIndexName(): void
     {
         $this->object->name = "ä'7<ab>";
         $this->object->key = 'PRI';
@@ -362,10 +360,8 @@ class TablePropertyTest extends PmaTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::isPK
-     *
-     * @return void
      */
-    public function testIsPK()
+    public function testIsPK(): void
     {
         $this->object->key = 'PRI';
 
@@ -382,10 +378,8 @@ class TablePropertyTest extends PmaTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::formatCs
-     *
-     * @return void
      */
-    public function testFormatCs()
+    public function testFormatCs(): void
     {
         $this->object->name = 'Name#name#123';
 
@@ -397,10 +391,8 @@ class TablePropertyTest extends PmaTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::formatXml
-     *
-     * @return void
      */
-    public function testFormatXml()
+    public function testFormatXml(): void
     {
         $this->object->name = '"a\'';
 
@@ -412,10 +404,8 @@ class TablePropertyTest extends PmaTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::format
-     *
-     * @return void
      */
-    public function testFormat()
+    public function testFormat(): void
     {
         $this->assertEquals(
             'NameintInt32intfalsetrue',

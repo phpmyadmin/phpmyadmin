@@ -2,6 +2,7 @@
 /**
  * Internal relations for information schema and mysql databases.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;

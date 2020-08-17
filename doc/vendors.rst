@@ -24,8 +24,8 @@ one we ship.
 
 Currently known list of external libraries:
 
-js/jquery
-    jQuery js framework and various jQuery based libraries.
+js/vendor
+    jQuery js framework libraries and various js libraries.
 
 vendor/
     The download kit includes various Composer packages as

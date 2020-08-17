@@ -71,7 +71,7 @@ From Wikipedia, the free encyclopedia
       .. seealso:: <https://en.wikipedia.org/wiki/Database>
 
     Engine
-      look at :term:`storage engines`
+      look at :term:`Storage Engines`
 
     extension
       a PHP module that extends PHP with additional functionality.
@@ -102,9 +102,9 @@ From Wikipedia, the free encyclopedia
       .. seealso:: <https://en.wikipedia.org/wiki/GD_Graphics_Library>
 
     GD2
-      look at :term:`gd`
+      look at :term:`GD`
 
-    gzip
+    GZip
       gzip is short for GNU zip, a GNU free software file compression program.
 
       .. seealso:: <https://en.wikipedia.org/wiki/Gzip>
@@ -183,10 +183,10 @@ From Wikipedia, the free encyclopedia
       .. seealso:: <https://en.wikipedia.org/wiki/JPEG>
 
     JPG
-      look at :term:`jpeg`
+      look at :term:`JPEG`
 
     Key
-      look at :term:`index`
+      look at :term:`Index`
 
     LATEX
       a document preparation system for the TEX typesetting program.
@@ -196,7 +196,7 @@ From Wikipedia, the free encyclopedia
     Mac
        Apple Macintosh is a line of personal computers is designed, developed, manufactured, and marketed by Apple Computer.
 
-      .. seealso:: <https://en.wikipedia.org/wiki/Mac>
+       .. seealso:: <https://en.wikipedia.org/wiki/Mac>
 
     Mac OS X
       the operating system which is included with all currently shipping Apple Macintosh computers in the consumer and professional markets.
@@ -209,16 +209,6 @@ From Wikipedia, the free encyclopedia
        If you have troubles installing this extension, please follow :ref:`faqmysql`, it provides useful hints.
 
        .. seealso:: <https://www.php.net/manual/en/book.mbstring.php>
-
-    MCrypt
-      a cryptographic library.
-
-      .. seealso:: <https://en.wikipedia.org/wiki/MCrypt>
-
-    mcrypt
-      the MCrypt PHP extension.
-
-      .. seealso:: <https://www.php.net/mcrypt>
 
     Media type
       A media type (formerly known as MIME type) is a two-part identifier
@@ -426,7 +416,7 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <https://en.wikipedia.org/wiki/ZIP_(file_format)>
 
-    zlib
+    Zlib
       an open-source, cross-platform data compression library by Jean-loup Gailly and Mark Adler.
 
       .. seealso:: <https://en.wikipedia.org/wiki/Zlib>

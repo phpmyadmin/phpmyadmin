@@ -2,23 +2,11 @@
 /**
  * Manages the rendering of pages in PMA
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use function chdir;
-use function defined;
-use function explode;
-use function getcwd;
-use function headers_sent;
-use function http_response_code;
-use function in_array;
-use function is_array;
-use function json_encode;
-use function json_last_error;
-use function mb_strlen;
-use function register_shutdown_function;
-use function strlen;
 use const JSON_ERROR_CTRL_CHAR;
 use const JSON_ERROR_DEPTH;
 use const JSON_ERROR_INF_OR_NAN;
@@ -29,6 +17,17 @@ use const JSON_ERROR_SYNTAX;
 use const JSON_ERROR_UNSUPPORTED_TYPE;
 use const JSON_ERROR_UTF8;
 use const PHP_SAPI;
+use function defined;
+use function explode;
+use function headers_sent;
+use function http_response_code;
+use function in_array;
+use function is_array;
+use function json_encode;
+use function json_last_error;
+use function mb_strlen;
+use function register_shutdown_function;
+use function strlen;
 
 /**
  * Singleton class used to manage the rendering of pages in PMA
@@ -42,21 +41,21 @@ class Response
      * @static
      * @var Response
      */
-    private static $_instance;
+    private static $instance;
     /**
      * Header instance
      *
      * @access private
      * @var Header
      */
-    private $_header;
+    private $header;
     /**
      * HTML data to be used in the response
      *
      * @access private
      * @var string
      */
-    private $_HTML;
+    private $HTML;
     /**
      * An array of JSON key-value pairs
      * to be sent back for ajax requests
@@ -64,28 +63,28 @@ class Response
      * @access private
      * @var array
      */
-    private $_JSON;
+    private $JSON;
     /**
      * PhpMyAdmin\Footer instance
      *
      * @access private
      * @var Footer
      */
-    private $_footer;
+    private $footer;
     /**
      * Whether we are servicing an ajax request.
      *
      * @access private
      * @var bool
      */
-    private $_isAjax;
+    private $isAjax;
     /**
      * Whether response object is disabled
      *
      * @access private
      * @var bool
      */
-    private $_isDisabled;
+    private $isDisabled;
     /**
      * Whether there were any errors during the processing of the request
      * Only used for ajax responses
@@ -93,14 +92,7 @@ class Response
      * @access private
      * @var bool
      */
-    private $_isSuccess;
-    /**
-     * Workaround for PHP bug
-     *
-     * @access private
-     * @var string|bool
-     */
-    private $_CWD;
+    private $isSuccess;
 
     /**
      * @see http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
@@ -189,15 +181,14 @@ class Response
             $buffer->start();
             register_shutdown_function([$this, 'response']);
         }
-        $this->_header = new Header();
-        $this->_HTML   = '';
-        $this->_JSON   = [];
-        $this->_footer = new Footer();
+        $this->header = new Header();
+        $this->HTML   = '';
+        $this->JSON   = [];
+        $this->footer = new Footer();
 
-        $this->_isSuccess  = true;
-        $this->_isDisabled = false;
+        $this->isSuccess  = true;
+        $this->isDisabled = false;
         $this->setAjax(! empty($_REQUEST['ajax_request']));
-        $this->_CWD = getcwd();
     }
 
     /**
@@ -208,9 +199,9 @@ class Response
      */
     public function setAjax(bool $isAjax): void
     {
-        $this->_isAjax = $isAjax;
-        $this->_header->setAjax($this->_isAjax);
-        $this->_footer->setAjax($this->_isAjax);
+        $this->isAjax = $isAjax;
+        $this->header->setAjax($this->isAjax);
+        $this->footer->setAjax($this->isAjax);
     }
 
     /**
@@ -220,10 +211,11 @@ class Response
      */
     public static function getInstance()
     {
-        if (empty(self::$_instance)) {
-            self::$_instance = new Response();
+        if (empty(self::$instance)) {
+            self::$instance = new Response();
         }
-        return self::$_instance;
+
+        return self::$instance;
     }
 
     /**
@@ -234,7 +226,7 @@ class Response
      */
     public function setRequestStatus(bool $state): void
     {
-        $this->_isSuccess = ($state === true);
+        $this->isSuccess = ($state === true);
     }
 
     /**
@@ -243,19 +235,7 @@ class Response
      */
     public function isAjax(): bool
     {
-        return $this->_isAjax;
-    }
-
-    /**
-     * Returns the path to the current working directory
-     * Necessary to work around a PHP bug where the CWD is
-     * reset after the initial script exits
-     *
-     * @return string
-     */
-    public function getCWD()
-    {
-        return $this->_CWD;
+        return $this->isAjax;
     }
 
     /**
@@ -266,9 +246,9 @@ class Response
      */
     public function disable()
     {
-        $this->_header->disable();
-        $this->_footer->disable();
-        $this->_isDisabled = true;
+        $this->header->disable();
+        $this->footer->disable();
+        $this->isDisabled = true;
     }
 
     /**
@@ -278,7 +258,7 @@ class Response
      */
     public function getHeader()
     {
-        return $this->_header;
+        return $this->header;
     }
 
     /**
@@ -288,7 +268,7 @@ class Response
      */
     public function getFooter()
     {
-        return $this->_footer;
+        return $this->footer;
     }
 
     /**
@@ -306,9 +286,9 @@ class Response
                 $this->addHTML($msg);
             }
         } elseif ($content instanceof Message) {
-            $this->_HTML .= $content->getDisplay();
+            $this->HTML .= $content->getDisplay();
         } else {
-            $this->_HTML .= $content;
+            $this->HTML .= $content;
         }
     }
 
@@ -330,9 +310,9 @@ class Response
             }
         } else {
             if ($value instanceof Message) {
-                $this->_JSON[$json] = $value->getDisplay();
+                $this->JSON[$json] = $value->getDisplay();
             } else {
-                $this->_JSON[$json] = $value;
+                $this->JSON[$json] = $value;
             }
         }
     }
@@ -342,15 +322,16 @@ class Response
      *
      * @return string
      */
-    private function _getDisplay()
+    private function getDisplay()
     {
         // The header may contain nothing at all,
         // if its content was already rendered
         // and, in this case, the header will be
         // in the content part of the request
-        $retval  = $this->_header->getDisplay();
-        $retval .= $this->_HTML;
-        $retval .= $this->_footer->getDisplay();
+        $retval  = $this->header->getDisplay();
+        $retval .= $this->HTML;
+        $retval .= $this->footer->getDisplay();
+
         return $retval;
     }
 
@@ -359,9 +340,9 @@ class Response
      *
      * @return void
      */
-    private function _htmlResponse()
+    private function htmlResponse()
     {
-        echo $this->_getDisplay();
+        echo $this->getDisplay();
     }
 
     /**
@@ -369,30 +350,33 @@ class Response
      *
      * @return void
      */
-    private function _ajaxResponse()
+    private function ajaxResponse()
     {
         /* Avoid wrapping in case we're disabled */
-        if ($this->_isDisabled) {
-            echo $this->_getDisplay();
+        if ($this->isDisabled) {
+            echo $this->getDisplay();
+
             return;
         }
 
-        if (! isset($this->_JSON['message'])) {
-            $this->_JSON['message'] = $this->_getDisplay();
-        } elseif ($this->_JSON['message'] instanceof Message) {
-            $this->_JSON['message'] = $this->_JSON['message']->getDisplay();
+        if (! isset($this->JSON['message'])) {
+            $this->JSON['message'] = $this->getDisplay();
+        } elseif ($this->JSON['message'] instanceof Message) {
+            $this->JSON['message'] = $this->JSON['message']->getDisplay();
         }
 
-        if ($this->_isSuccess) {
-            $this->_JSON['success'] = true;
+        if ($this->isSuccess) {
+            $this->JSON['success'] = true;
         } else {
-            $this->_JSON['success'] = false;
-            $this->_JSON['error']   = $this->_JSON['message'];
-            unset($this->_JSON['message']);
+            $this->JSON['success'] = false;
+            $this->JSON['error']   = $this->JSON['message'];
+            unset($this->JSON['message']);
         }
 
-        if ($this->_isSuccess) {
-            $this->addJSON('title', '<title>' . $this->getHeader()->getPageTitle() . '</title>');
+        if ($this->isSuccess) {
+            if (! isset($this->JSON['title'])) {
+                $this->addJSON('title', '<title>' . $this->getHeader()->getPageTitle() . '</title>');
+            }
 
             if (isset($GLOBALS['dbi'])) {
                 $menuHash = $this->getHeader()->getMenu()->getHash();
@@ -415,14 +399,14 @@ class Response
             $this->addJSON('selflink', $this->getFooter()->getSelfUrl());
             $this->addJSON('displayMessage', $this->getHeader()->getMessage());
 
-            $debug = $this->_footer->getDebugMessage();
+            $debug = $this->footer->getDebugMessage();
             if (empty($_REQUEST['no_debug'])
                 && strlen($debug) > 0
             ) {
                 $this->addJSON('debug', $debug);
             }
 
-            $errors = $this->_footer->getErrorMessages();
+            $errors = $this->footer->getErrorMessages();
             if (strlen($errors) > 0) {
                 $this->addJSON('errors', $errors);
             }
@@ -461,7 +445,7 @@ class Response
         // response correctly.
         Core::headerJSON();
 
-        $result = json_encode($this->_JSON);
+        $result = json_encode($this->JSON);
         if ($result === false) {
             switch (json_last_error()) {
                 case JSON_ERROR_NONE:
@@ -511,15 +495,14 @@ class Response
      */
     public function response()
     {
-        chdir($this->getCWD());
         $buffer = OutputBuffering::getInstance();
-        if (empty($this->_HTML)) {
-            $this->_HTML = $buffer->getContents();
+        if (empty($this->HTML)) {
+            $this->HTML = $buffer->getContents();
         }
         if ($this->isAjax()) {
-            $this->_ajaxResponse();
+            $this->ajaxResponse();
         } else {
-            $this->_htmlResponse();
+            $this->htmlResponse();
         }
         $buffer->flush();
         exit;
@@ -534,6 +517,7 @@ class Response
      */
     public function header($text)
     {
+        // phpcs:ignore SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly
         header($text);
     }
 
@@ -573,9 +557,11 @@ class Response
         } else {
             $header .= 'Web server is down';
         }
-        if (PHP_SAPI !== 'cgi-fcgi') {
-            $this->header($header);
+        if (PHP_SAPI === 'cgi-fcgi') {
+            return;
         }
+
+        $this->header($header);
     }
 
     /**
@@ -606,6 +592,7 @@ class Response
             $this->setRequestStatus(false);
             // redirect_flag redirects to the login page
             $this->addJSON('redirect_flag', '1');
+
             return true;
         }
 
@@ -615,6 +602,7 @@ class Response
         $header->setTitle('phpMyAdmin');
         $header->disableMenuAndConsole();
         $header->disableWarnings();
+
         return false;
     }
 }

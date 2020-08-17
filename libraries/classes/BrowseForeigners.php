@@ -2,6 +2,7 @@
 /**
  * Contains functions used by browse foreigners
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
@@ -86,18 +87,18 @@ class BrowseForeigners
         // key names and descriptions for the left section,
         // sorted by key names
         $leftKeyname = $keys[$indexByKeyname];
-        list(
+        [
             $leftDescription,
-            $leftDescriptionTitle
-        ) = $this->getDescriptionAndTitle($descriptions[$indexByKeyname]);
+            $leftDescriptionTitle,
+        ] = $this->getDescriptionAndTitle($descriptions[$indexByKeyname]);
 
         // key names and descriptions for the right section,
         // sorted by descriptions
         $rightKeyname = $keys[$indexByDescription];
-        list(
+        [
             $rightDescription,
-            $rightDescriptionTitle
-        ) = $this->getDescriptionAndTitle($descriptions[$indexByDescription]);
+            $rightDescriptionTitle,
+        ] = $this->getDescriptionAndTitle($descriptions[$indexByDescription]);
 
         $indexByDescription++;
 
@@ -210,10 +211,8 @@ class BrowseForeigners
         $output .= '<table width="100%" id="browse_foreign_table">';
 
         if (! is_array($foreignData['disp_row'])) {
-            $output .= '</tbody>'
+            return $output . '</tbody>'
                 . '</table>';
-
-            return $output;
         }
 
         $header = '<tr>
@@ -246,11 +245,11 @@ class BrowseForeigners
         $indexByDescription = 0;
 
         foreach ($keys as $indexByKeyname => $value) {
-            list(
+            [
                 $html,
                 $horizontal_count,
-                $indexByDescription
-            ) = $this->getHtmlForOneKey(
+                $indexByDescription,
+            ] = $this->getHtmlForOneKey(
                 $horizontal_count,
                 $header,
                 $keys,
@@ -295,6 +294,7 @@ class BrowseForeigners
                 . '...'
             );
         }
+
         return [
             $description,
             $descriptionTitle,
@@ -314,8 +314,8 @@ class BrowseForeigners
             return $gotopage;
         }
 
-        $pageNow = @floor($pos / $this->maxRows) + 1;
-        $nbTotalPage = @ceil($foreignData['the_total'] / $this->maxRows);
+        $pageNow = (int) floor($pos / $this->maxRows) + 1;
+        $nbTotalPage = (int) ceil($foreignData['the_total'] / $this->maxRows);
 
         if ($foreignData['the_total'] > $this->maxRows) {
             $gotopage = Util::pageselector(
@@ -346,6 +346,7 @@ class BrowseForeigners
             return null;
         }
         isset($_POST['pos']) ? $pos = $_POST['pos'] : $pos = 0;
+
         return 'LIMIT ' . $pos . ', ' . $this->maxRows . ' ';
     }
 }

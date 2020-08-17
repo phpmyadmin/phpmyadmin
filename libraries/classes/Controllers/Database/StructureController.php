@@ -1,25 +1,28 @@
 <?php
-/**
- * Database structure manipulation
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\CentralColumns;
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Common;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Display\CreateTable;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Operations;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Replication;
 use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\Sql;
+use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Url;
@@ -34,6 +37,7 @@ use function is_string;
 use function json_decode;
 use function json_encode;
 use function max;
+use function mb_strlen;
 use function mb_substr;
 use function md5;
 use function preg_match;
@@ -74,19 +78,37 @@ class StructureController extends AbstractController
     /** @var Replication */
     private $replication;
 
+    /** @var RelationCleanup */
+    private $relationCleanup;
+
+    /** @var Operations */
+    private $operations;
+
     /**
-     * @param Response          $response    Response instance
-     * @param DatabaseInterface $dbi         DatabaseInterface instance
-     * @param Template          $template    Template object
-     * @param string            $db          Database name
-     * @param Relation          $relation    Relation instance
-     * @param Replication       $replication Replication instance
+     * @param Response          $response        Response instance
+     * @param DatabaseInterface $dbi             DatabaseInterface instance
+     * @param Template          $template        Template object
+     * @param string            $db              Database name
+     * @param Relation          $relation        Relation instance
+     * @param Replication       $replication     Replication instance
+     * @param RelationCleanup   $relationCleanup RelationCleanup instance.
+     * @param Operations        $operations      Operations instance.
      */
-    public function __construct($response, $dbi, Template $template, $db, $relation, $replication)
-    {
+    public function __construct(
+        $response,
+        $dbi,
+        Template $template,
+        $db,
+        $relation,
+        $replication,
+        RelationCleanup $relationCleanup,
+        Operations $operations
+    ) {
         parent::__construct($response, $dbi, $template, $db);
         $this->relation = $relation;
         $this->replication = $replication;
+        $this->relationCleanup = $relationCleanup;
+        $this->operations = $operations;
     }
 
     /**
@@ -118,17 +140,7 @@ class StructureController extends AbstractController
 
         Common::database();
 
-        $this->response->getHeader()->getScripts()->addFiles([
-            'database/structure.js',
-            'table/change.js',
-        ]);
-
-        // Drops/deletes/etc. multiple tables if required
-        if ((! empty($_POST['submit_mult']) && isset($_POST['selected_tbl']))
-            || isset($_POST['mult_btn'])
-        ) {
-            $this->multiSubmitAction();
-        }
+        $this->addScriptFiles(['database/structure.js', 'table/change.js']);
 
         // Gets the database structure
         $this->getDatabaseInfo('_structure');
@@ -147,7 +159,9 @@ class StructureController extends AbstractController
 
         ReplicationInfo::load();
 
-        PageSettings::showGroup('DbStructure');
+        $pageSettings = new PageSettings('DbStructure');
+        $this->response->addHTML($pageSettings->getErrorHTML());
+        $this->response->addHTML($pageSettings->getHTML());
 
         if ($this->numTables > 0) {
             $urlParams = [
@@ -174,17 +188,20 @@ class StructureController extends AbstractController
 
         $createTable = '';
         if (empty($this->dbIsSystemSchema)) {
-            $createTable = CreateTable::getHtml($this->db);
+            $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
+            $checkUserPrivileges->getPrivileges();
+
+            $createTable = $this->template->render('database/create_table', ['db' => $this->db]);
         }
 
-        $this->response->addHTML($this->template->render('database/structure/index', [
+        $this->render('database/structure/index', [
             'database' => $this->db,
             'has_tables' => $this->numTables > 0,
             'list_navigator_html' => $listNavigator ?? '',
             'table_list_html' => $tableList ?? '',
             'is_system_schema' => ! empty($this->dbIsSystemSchema),
             'create_table_html' => $createTable,
-        ]));
+        ]);
     }
 
     public function addRemoveFavoriteTablesAction(): void
@@ -222,6 +239,7 @@ class StructureController extends AbstractController
                     $favoriteTables
                 ));
             }
+
             return;
         }
         $changes = true;
@@ -257,6 +275,7 @@ class StructureController extends AbstractController
                 'msg' => __('Favorite List is full!'),
             ]);
             $this->response->addJSON($json);
+
             return;
         }
         // Check if current table is already in favorite list.
@@ -300,13 +319,14 @@ class StructureController extends AbstractController
         // If there is a request to update all table's row count.
         if (! isset($parameters['real_row_count_all'])) {
             // Get the real row count for the table.
-            $realRowCount = $this->dbi
+            $realRowCount = (int) $this->dbi
                 ->getTable($this->db, (string) $parameters['table'])
                 ->getRealRowCountTable();
             // Format the number.
             $realRowCount = Util::formatNumber($realRowCount, 0);
 
             $this->response->addJSON(['real_row_count' => $realRowCount]);
+
             return;
         }
 
@@ -326,25 +346,43 @@ class StructureController extends AbstractController
         $this->response->addJSON(['real_row_count_all' => json_encode($realRowCountAll)]);
     }
 
-    /**
-     * Handles actions related to multiple tables
-     */
-    public function multiSubmitAction(): void
+    public function copyTable(): void
     {
-        // for mult_submits.inc.php
-        $action = Url::getFromRoute('/database/structure');
-        $err_url = Url::getFromRoute('/database/structure', ['db' => $this->db]);
+        global $db, $message;
 
-        // see bug #2794840; in this case, code path is:
-        // /database/structure -> libraries/mult_submits.inc.php -> /sql
-        // -> /database/structure and if we got an error on the multi submit,
-        // we must display it here and not call again mult_submits.inc.php
-        if (! isset($_POST['error']) || $_POST['error'] === false) {
-            include ROOT_PATH . 'libraries/mult_submits.inc.php';
+        $selected = $_POST['selected'] ?? [];
+        $selectedCount = count($selected);
+
+        for ($i = 0; $i < $selectedCount; $i++) {
+            Table::moveCopy(
+                $db,
+                $selected[$i],
+                $_POST['target_db'],
+                $selected[$i],
+                $_POST['what'],
+                false,
+                'one_table'
+            );
+
+            if (empty($_POST['adjust_privileges'])) {
+                continue;
+            }
+
+            $this->operations->adjustPrivilegesCopyTable(
+                $db,
+                $selected[$i],
+                $_POST['target_db'],
+                $selected[$i]
+            );
         }
+
+        $message = Message::success();
+
         if (empty($_POST['message'])) {
-            $_POST['message'] = Message::success();
+            $_POST['message'] = $message;
         }
+
+        $this->index();
     }
 
     /**
@@ -399,10 +437,10 @@ class StructureController extends AbstractController
                 $table_is_view,
                 $sum_size,
             ] = $this->getStuffForEngineTypeTable(
-                    $current_table,
-                    $sum_size,
-                    $overhead_size
-                );
+                $current_table,
+                $sum_size,
+                $overhead_size
+            );
 
             $curTable = $this->dbi
                 ->getTable($this->db, $current_table['TABLE_NAME']);
@@ -627,8 +665,7 @@ class StructureController extends AbstractController
             $databaseCharset = $collation->getCharset();
         }
 
-        // table form
-        $html .= $this->template->render('database/structure/table_header', [
+        return $html . $this->template->render('database/structure/table_header', [
             'db' => $this->db,
             'db_is_system_schema' => $this->dbIsSystemSchema,
             'replication' => $GLOBALS['replication_info']['slave']['status'],
@@ -675,8 +712,6 @@ class StructureController extends AbstractController
                 'central_columns_work' => $GLOBALS['cfgRelation']['centralcolumnswork'] ?? null,
             ],
         ]);
-
-        return $html;
     }
 
     /**
@@ -701,6 +736,7 @@ class StructureController extends AbstractController
                 ]);
             }
         }
+
         return $tracking_icon;
     }
 
@@ -864,6 +900,7 @@ class StructureController extends AbstractController
                 return true;
             }
         }
+
         return false;
     }
 
@@ -888,6 +925,7 @@ class StructureController extends AbstractController
                 return true;
             }
         }
+
         return false;
     }
 
@@ -932,14 +970,14 @@ class StructureController extends AbstractController
                     $overhead_size,
                     $sum_size,
                 ] = $this->getValuesForAriaTable(
-                        $current_table,
-                        $sum_size,
-                        $overhead_size,
-                        $formatted_size,
-                        $unit,
-                        $formatted_overhead,
-                        $overhead_unit
-                    );
+                    $current_table,
+                    $sum_size,
+                    $overhead_size,
+                    $formatted_size,
+                    $unit,
+                    $formatted_overhead,
+                    $overhead_unit
+                );
                 break;
             case 'InnoDB':
             case 'PBMS':
@@ -980,8 +1018,8 @@ class StructureController extends AbstractController
                 }
         } // end switch
 
-        if ($current_table['TABLE_TYPE'] == 'VIEW'
-            || $current_table['TABLE_TYPE'] == 'SYSTEM VIEW'
+        if ($current_table['TABLE_TYPE'] === 'VIEW'
+            || $current_table['TABLE_TYPE'] === 'SYSTEM VIEW'
         ) {
             // countRecords() takes care of $cfg['MaxExactCountViews']
             $current_table['TABLE_ROWS'] = $this->dbi
@@ -1052,6 +1090,7 @@ class StructureController extends AbstractController
                 $overhead_size += $current_table['Data_free'];
             }
         }
+
         return [
             $current_table,
             $formatted_size,
@@ -1107,5 +1146,793 @@ class StructureController extends AbstractController
             $unit,
             $sum_size,
         ];
+    }
+
+    public function export(): void
+    {
+        global $containerBuilder;
+
+        if (empty($_POST['selected_tbl'])) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No table selected.'));
+
+            return;
+        }
+
+        /** @var ExportController $controller */
+        $controller = $containerBuilder->get(ExportController::class);
+        $controller->index();
+    }
+
+    public function showCreate(): void
+    {
+        $selected = $_POST['selected_tbl'] ?? [];
+
+        if (empty($selected)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No table selected.'));
+
+            return;
+        }
+
+        $tables = $this->getShowCreateTables($selected);
+
+        $showCreate = $this->template->render('database/structure/show_create', ['tables' => $tables]);
+
+        $this->response->addJSON('message', $showCreate);
+    }
+
+    /**
+     * @param string[] $selected Selected tables.
+     *
+     * @return array<string, array<int, array<string, string>>>
+     */
+    private function getShowCreateTables(array $selected): array
+    {
+        $tables = ['tables' => [], 'views' => []];
+
+        foreach ($selected as $table) {
+            $object = $this->dbi->getTable($this->db, $table);
+
+            $tables[$object->isView() ? 'views' : 'tables'][] = [
+                'name' => Core::mimeDefaultFunction($table),
+                'show_create' => Core::mimeDefaultFunction($object->showCreate()),
+            ];
+        }
+
+        return $tables;
+    }
+
+    public function copyForm(): void
+    {
+        global $db, $dblist;
+
+        $selected = $_POST['selected_tbl'] ?? [];
+
+        if (empty($selected)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No table selected.'));
+
+            return;
+        }
+
+        $urlParams = ['db' => $db];
+        foreach ($selected as $selectedValue) {
+            $urlParams['selected'][] = $selectedValue;
+        }
+
+        $databasesList = $dblist->databases;
+        foreach ($databasesList as $key => $databaseName) {
+            if ($databaseName == $db) {
+                $databasesList->offsetUnset($key);
+                break;
+            }
+        }
+
+        $this->response->disable();
+        $this->render('database/structure/copy_form', [
+            'url_params' => $urlParams,
+            'options' => $databasesList->getList(),
+        ]);
+    }
+
+    public function centralColumnsAdd(): void
+    {
+        global $message;
+
+        $selected = $_POST['selected_tbl'] ?? [];
+
+        if (empty($selected)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No table selected.'));
+
+            return;
+        }
+
+        $centralColumns = new CentralColumns($this->dbi);
+        $error = $centralColumns->syncUniqueColumns($selected);
+
+        $message = $error instanceof Message ? $error : Message::success(__('Success!'));
+
+        unset($_POST['submit_mult']);
+
+        $this->index();
+    }
+
+    public function centralColumnsMakeConsistent(): void
+    {
+        global $db, $message;
+
+        $selected = $_POST['selected_tbl'] ?? [];
+
+        if (empty($selected)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No table selected.'));
+
+            return;
+        }
+
+        $centralColumns = new CentralColumns($this->dbi);
+        $error = $centralColumns->makeConsistentWithList($db, $selected);
+
+        $message = $error instanceof Message ? $error : Message::success(__('Success!'));
+
+        unset($_POST['submit_mult']);
+
+        $this->index();
+    }
+
+    public function centralColumnsRemove(): void
+    {
+        global $message;
+
+        $selected = $_POST['selected_tbl'] ?? [];
+
+        if (empty($selected)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No table selected.'));
+
+            return;
+        }
+
+        $centralColumns = new CentralColumns($this->dbi);
+        $error = $centralColumns->deleteColumnsFromList($_POST['db'], $selected);
+
+        $message = $error instanceof Message ? $error : Message::success(__('Success!'));
+
+        unset($_POST['submit_mult']);
+
+        $this->index();
+    }
+
+    public function addPrefix(): void
+    {
+        global $db;
+
+        $selected = $_POST['selected_tbl'] ?? [];
+
+        if (empty($selected)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No table selected.'));
+
+            return;
+        }
+
+        $params = ['db' => $db];
+        foreach ($selected as $selectedValue) {
+            $params['selected'][] = $selectedValue;
+        }
+
+        $this->response->disable();
+        $this->render('database/structure/add_prefix', ['url_params' => $params]);
+    }
+
+    public function changePrefixForm(): void
+    {
+        global $db;
+
+        $selected = $_POST['selected_tbl'] ?? [];
+        $submit_mult = $_POST['submit_mult'] ?? '';
+
+        if (empty($selected)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No table selected.'));
+
+            return;
+        }
+
+        $route = '/database/structure/replace-prefix';
+        if ($submit_mult === 'copy_tbl_change_prefix') {
+            $route = '/database/structure/copy-table-with-prefix';
+        }
+
+        $urlParams = ['db' => $db];
+        foreach ($selected as $selectedValue) {
+            $urlParams['selected'][] = $selectedValue;
+        }
+
+        $this->response->disable();
+        $this->render('database/structure/change_prefix_form', [
+            'route' => $route,
+            'url_params' => $urlParams,
+        ]);
+    }
+
+    public function dropForm(): void
+    {
+        global $db;
+
+        $selected = $_POST['selected_tbl'] ?? [];
+
+        if (empty($selected)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No table selected.'));
+
+            return;
+        }
+
+        $views = $this->dbi->getVirtualTables($db);
+
+        $full_query_views = '';
+        $full_query = '';
+
+        foreach ($selected as $selectedValue) {
+            $current = $selectedValue;
+            if (! empty($views) && in_array($current, $views)) {
+                $full_query_views .= (empty($full_query_views) ? 'DROP VIEW ' : ', ')
+                    . Util::backquote(htmlspecialchars($current));
+            } else {
+                $full_query .= (empty($full_query) ? 'DROP TABLE ' : ', ')
+                    . Util::backquote(htmlspecialchars($current));
+            }
+        }
+
+        if (! empty($full_query)) {
+            $full_query .= ';<br>' . "\n";
+        }
+        if (! empty($full_query_views)) {
+            $full_query .= $full_query_views . ';<br>' . "\n";
+        }
+
+        $_url_params = ['db' => $db];
+        foreach ($selected as $selectedValue) {
+            $_url_params['selected'][] = $selectedValue;
+        }
+        foreach ($views as $current) {
+            $_url_params['views'][] = $current;
+        }
+
+        $this->render('database/structure/drop_form', [
+            'url_params' => $_url_params,
+            'full_query' => $full_query,
+            'is_foreign_key_check' => Util::isForeignKeyCheck(),
+        ]);
+    }
+
+    public function emptyForm(): void
+    {
+        global $db;
+
+        $selected = $_POST['selected_tbl'] ?? [];
+
+        if (empty($selected)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No table selected.'));
+
+            return;
+        }
+
+        $fullQuery = '';
+        $urlParams = ['db' => $db];
+
+        foreach ($selected as $selectedValue) {
+            $fullQuery .= 'TRUNCATE ';
+            $fullQuery .= Util::backquote(htmlspecialchars($selectedValue)) . ';<br>';
+            $urlParams['selected'][] = $selectedValue;
+        }
+
+        $this->render('database/structure/empty_form', [
+            'url_params' => $urlParams,
+            'full_query' => $fullQuery,
+            'is_foreign_key_check' => Util::isForeignKeyCheck(),
+        ]);
+    }
+
+    public function checkTable(): void
+    {
+        global $db, $goto, $pmaThemeImage;
+
+        $selected = $_POST['selected_tbl'] ?? [];
+
+        if (empty($selected)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No table selected.'));
+
+            return;
+        }
+
+        $sql_query = '';
+        $selectedCount = count($selected);
+
+        for ($i = 0; $i < $selectedCount; $i++) {
+            $sql_query .= (empty($sql_query) ? 'CHECK TABLE ' : ', ')
+                . Util::backquote($selected[$i]);
+        }
+
+        $sql = new Sql();
+        $this->response->addHTML($sql->executeQueryAndSendQueryResponse(
+            null,
+            false,
+            $db,
+            '',
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            $goto,
+            $pmaThemeImage,
+            null,
+            null,
+            'check_tbl',
+            $sql_query,
+            $selected,
+            null
+        ));
+
+        if (empty($_POST['message'])) {
+            $_POST['message'] = Message::success();
+        }
+
+        unset($_POST['submit_mult']);
+
+        $this->index();
+    }
+
+    public function analyzeTable(): void
+    {
+        global $db, $goto, $pmaThemeImage;
+
+        $selected = $_POST['selected_tbl'] ?? [];
+
+        if (empty($selected)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No table selected.'));
+
+            return;
+        }
+
+        $sqlQuery = '';
+        $selectedCount = count($selected);
+
+        for ($i = 0; $i < $selectedCount; $i++) {
+            $sqlQuery .= (empty($sqlQuery) ? 'ANALYZE TABLE ' : ', ') . Util::backquote($selected[$i]);
+        }
+
+        $sql = new Sql();
+        $this->response->addHTML($sql->executeQueryAndSendQueryResponse(
+            null,
+            false,
+            $db,
+            '',
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            $goto,
+            $pmaThemeImage,
+            null,
+            null,
+            'analyze_tbl',
+            $sqlQuery,
+            $selected,
+            null
+        ));
+
+        if (empty($_POST['message'])) {
+            $_POST['message'] = Message::success();
+        }
+
+        unset($_POST['submit_mult']);
+
+        $this->index();
+    }
+
+    public function checksumTable(): void
+    {
+        global $db, $goto, $pmaThemeImage;
+
+        $selected = $_POST['selected_tbl'] ?? [];
+
+        if (empty($selected)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No table selected.'));
+
+            return;
+        }
+
+        $sql_query = '';
+        $selectedCount = count($selected);
+
+        for ($i = 0; $i < $selectedCount; $i++) {
+            $sql_query .= (empty($sql_query) ? 'CHECKSUM TABLE ' : ', ') . Util::backquote($selected[$i]);
+        }
+
+        $sql = new Sql();
+        $this->response->addHTML($sql->executeQueryAndSendQueryResponse(
+            null,
+            false,
+            $db,
+            '',
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            $goto,
+            $pmaThemeImage,
+            null,
+            null,
+            'checksum_tbl',
+            $sql_query,
+            $selected,
+            null
+        ));
+
+        if (empty($_POST['message'])) {
+            $_POST['message'] = Message::success();
+        }
+
+        unset($_POST['submit_mult']);
+
+        $this->index();
+    }
+
+    public function optimizeTable(): void
+    {
+        global $db, $goto, $pmaThemeImage;
+
+        $selected = $_POST['selected_tbl'] ?? [];
+
+        if (empty($selected)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No table selected.'));
+
+            return;
+        }
+
+        $sql_query = '';
+        $selectedCount = count($selected);
+
+        for ($i = 0; $i < $selectedCount; $i++) {
+            $sql_query .= (empty($sql_query) ? 'OPTIMIZE TABLE ' : ', ') . Util::backquote($selected[$i]);
+        }
+
+        $sql = new Sql();
+        $this->response->addHTML($sql->executeQueryAndSendQueryResponse(
+            null,
+            false,
+            $db,
+            '',
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            $goto,
+            $pmaThemeImage,
+            null,
+            null,
+            'optimize_tbl',
+            $sql_query,
+            $selected,
+            null
+        ));
+
+        if (empty($_POST['message'])) {
+            $_POST['message'] = Message::success();
+        }
+
+        unset($_POST['submit_mult']);
+
+        $this->index();
+    }
+
+    public function repairTable(): void
+    {
+        global $db, $goto, $pmaThemeImage;
+
+        $selected = $_POST['selected_tbl'] ?? [];
+
+        if (empty($selected)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No table selected.'));
+
+            return;
+        }
+
+        $sql_query = '';
+        $selectedCount = count($selected);
+
+        for ($i = 0; $i < $selectedCount; $i++) {
+            $sql_query .= (empty($sql_query) ? 'REPAIR TABLE ' : ', ') . Util::backquote($selected[$i]);
+        }
+
+        $sql = new Sql();
+        $this->response->addHTML($sql->executeQueryAndSendQueryResponse(
+            null,
+            false,
+            $db,
+            '',
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            $goto,
+            $pmaThemeImage,
+            null,
+            null,
+            'repair_tbl',
+            $sql_query,
+            $selected,
+            null
+        ));
+
+        if (empty($_POST['message'])) {
+            $_POST['message'] = Message::success();
+        }
+
+        unset($_POST['submit_mult']);
+
+        $this->index();
+    }
+
+    public function dropTable(): void
+    {
+        global $db, $message, $reload, $sql_query;
+
+        $reload = $_POST['reload'] ?? $reload ?? null;
+        $mult_btn = $_POST['mult_btn'] ?? '';
+        $selected = $_POST['selected'] ?? [];
+
+        $views = $this->dbi->getVirtualTables($db);
+
+        if ($mult_btn !== __('Yes')) {
+            $message = Message::success(__('No change'));
+
+            if (empty($_POST['message'])) {
+                $_POST['message'] = Message::success();
+            }
+
+            unset($_POST['mult_btn']);
+
+            $this->index();
+
+            return;
+        }
+
+        $default_fk_check_value = Util::handleDisableFKCheckInit();
+        $sql_query = '';
+        $sql_query_views = '';
+        $selectedCount = count($selected);
+
+        for ($i = 0; $i < $selectedCount; $i++) {
+            $this->relationCleanup->table($db, $selected[$i]);
+            $current = $selected[$i];
+
+            if (! empty($views) && in_array($current, $views)) {
+                $sql_query_views .= (empty($sql_query_views) ? 'DROP VIEW ' : ', ') . Util::backquote($current);
+            } else {
+                $sql_query .= (empty($sql_query) ? 'DROP TABLE ' : ', ') . Util::backquote($current);
+            }
+
+            $reload = 1;
+        }
+
+        if (! empty($sql_query)) {
+            $sql_query .= ';';
+        } elseif (! empty($sql_query_views)) {
+            $sql_query = $sql_query_views . ';';
+            unset($sql_query_views);
+        }
+
+        // Unset cache values for tables count, issue #14205
+        if (isset($_SESSION['tmpval'])) {
+            if (isset($_SESSION['tmpval']['table_limit_offset'])) {
+                unset($_SESSION['tmpval']['table_limit_offset']);
+            }
+
+            if (isset($_SESSION['tmpval']['table_limit_offset_db'])) {
+                unset($_SESSION['tmpval']['table_limit_offset_db']);
+            }
+        }
+
+        $this->dbi->selectDb($db);
+        $result = $this->dbi->tryQuery($sql_query);
+
+        if ($result && ! empty($sql_query_views)) {
+            $sql_query .= ' ' . $sql_query_views . ';';
+            $result = $this->dbi->tryQuery($sql_query_views);
+            unset($sql_query_views);
+        }
+
+        if (! $result) {
+            $message = Message::error((string) $this->dbi->getError());
+        }
+
+        Util::handleDisableFKCheckCleanup($default_fk_check_value);
+
+        $message = Message::success();
+
+        if (empty($_POST['message'])) {
+            $_POST['message'] = $message;
+        }
+
+        unset($_POST['mult_btn']);
+
+        $this->index();
+    }
+
+    public function emptyTable(): void
+    {
+        global $db, $table, $message, $sql_query;
+
+        $mult_btn = $_POST['mult_btn'] ?? '';
+        $selected = $_POST['selected'] ?? [];
+
+        if ($mult_btn !== __('Yes')) {
+            $message = Message::success(__('No change'));
+
+            if (empty($_POST['message'])) {
+                $_POST['message'] = Message::success();
+            }
+
+            unset($_POST['mult_btn']);
+
+            $this->index();
+
+            return;
+        }
+
+        $default_fk_check_value = Util::handleDisableFKCheckInit();
+
+        $sql_query = '';
+        $selectedCount = count($selected);
+
+        for ($i = 0; $i < $selectedCount; $i++) {
+            $aQuery = 'TRUNCATE ';
+            $aQuery .= Util::backquote($selected[$i]);
+
+            $sql_query .= $aQuery . ';' . "\n";
+            $this->dbi->selectDb($db);
+            $this->dbi->query($aQuery);
+        }
+
+        if (! empty($_REQUEST['pos'])) {
+            $sql = new Sql();
+            $_REQUEST['pos'] = $sql->calculatePosForLastPage($db, $table, $_REQUEST['pos']);
+        }
+
+        Util::handleDisableFKCheckCleanup($default_fk_check_value);
+
+        $message = Message::success();
+
+        if (empty($_POST['message'])) {
+            $_POST['message'] = $message;
+        }
+
+        unset($_POST['mult_btn']);
+
+        $this->index();
+    }
+
+    public function addPrefixTable(): void
+    {
+        global $db, $message, $sql_query;
+
+        $selected = $_POST['selected'] ?? [];
+
+        $sql_query = '';
+        $selectedCount = count($selected);
+
+        for ($i = 0; $i < $selectedCount; $i++) {
+            $newTableName = $_POST['add_prefix'] . $selected[$i];
+            $aQuery = 'ALTER TABLE ' . Util::backquote($selected[$i])
+                . ' RENAME ' . Util::backquote($newTableName);
+
+            $sql_query .= $aQuery . ';' . "\n";
+            $this->dbi->selectDb($db);
+            $this->dbi->query($aQuery);
+        }
+
+        $message = Message::success();
+
+        if (empty($_POST['message'])) {
+            $_POST['message'] = $message;
+        }
+
+        $this->index();
+    }
+
+    public function replacePrefix(): void
+    {
+        global $db, $message, $sql_query;
+
+        $selected = $_POST['selected'] ?? [];
+        $from_prefix = $_POST['from_prefix'] ?? '';
+        $to_prefix = $_POST['to_prefix'] ?? '';
+
+        $sql_query = '';
+        $selectedCount = count($selected);
+
+        for ($i = 0; $i < $selectedCount; $i++) {
+            $current = $selected[$i];
+            $subFromPrefix = mb_substr($current, 0, mb_strlen((string) $from_prefix));
+
+            if ($subFromPrefix === $from_prefix) {
+                $newTableName = $to_prefix . mb_substr(
+                    $current,
+                    mb_strlen((string) $from_prefix)
+                );
+            } else {
+                $newTableName = $current;
+            }
+
+            $aQuery = 'ALTER TABLE ' . Util::backquote($selected[$i])
+                . ' RENAME ' . Util::backquote($newTableName);
+
+            $sql_query .= $aQuery . ';' . "\n";
+            $this->dbi->selectDb($db);
+            $this->dbi->query($aQuery);
+        }
+
+        $message = Message::success();
+
+        if (empty($_POST['message'])) {
+            $_POST['message'] = $message;
+        }
+
+        $this->index();
+    }
+
+    public function copyTableWithPrefix(): void
+    {
+        global $db, $message;
+
+        $selected = $_POST['selected'] ?? [];
+        $from_prefix = $_POST['from_prefix'] ?? null;
+        $to_prefix = $_POST['to_prefix'] ?? null;
+
+        $selectedCount = count($selected);
+
+        for ($i = 0; $i < $selectedCount; $i++) {
+            $current = $selected[$i];
+            $newTableName = $to_prefix . mb_substr($current, mb_strlen((string) $from_prefix));
+
+            Table::moveCopy(
+                $db,
+                $current,
+                $db,
+                $newTableName,
+                'data',
+                false,
+                'one_table'
+            );
+        }
+
+        $message = Message::success();
+
+        if (empty($_POST['message'])) {
+            $_POST['message'] = $message;
+        }
+
+        $this->index();
     }
 }

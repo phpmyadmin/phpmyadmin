@@ -2,6 +2,7 @@
 /**
  * Selenium TestCase for table related tests
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium\Database;
@@ -22,21 +23,18 @@ class StructureTest extends TestBase
     {
         parent::setUp();
         $this->dbQuery(
-            'CREATE TABLE `test_table` ('
+            'USE `' . $this->database_name . '`;'
+            . 'CREATE TABLE `test_table` ('
             . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
             . ' `val` int(11) NOT NULL,'
             . ' PRIMARY KEY (`id`)'
-            . ')'
-        );
-        $this->dbQuery(
-            'CREATE TABLE `test_table2` ('
+            . ');'
+            . 'CREATE TABLE `test_table2` ('
             . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
             . ' `val` int(11) NOT NULL,'
             . ' PRIMARY KEY (`id`)'
-            . ')'
-        );
-        $this->dbQuery(
-            'INSERT INTO `test_table` (val) VALUES (2);'
+            . ');'
+            . 'INSERT INTO `test_table` (val) VALUES (2);'
         );
 
         $this->login();
@@ -50,11 +48,9 @@ class StructureTest extends TestBase
     /**
      * Test for truncating a table
      *
-     * @return void
-     *
      * @group large
      */
-    public function testTruncateTable()
+    public function testTruncateTable(): void
     {
         $this->byXPath("(//a[contains(., 'Empty')])[1]")->click();
 
@@ -71,19 +67,22 @@ class StructureTest extends TestBase
             )
         );
 
-        $result = $this->dbQuery('SELECT count(*) as c FROM test_table');
-        $row = $result->fetch_assoc();
-        $this->assertEquals(0, $row['c']);
+        $this->dbQuery(
+            'SELECT CONCAT("Count: ", COUNT(*)) as c FROM `' . $this->database_name . '`.`test_table`',
+            function (): void {
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                // [ ] | Edit | Copy | Delete | 1 | 5
+                $this->assertEquals('Count: 0', $this->getCellByTableClass('table_results', 1, 1));
+            }
+        );
     }
 
     /**
      * Tests for dropping multiple tables
      *
-     * @return void
-     *
      * @group large
      */
-    public function testDropMultipleTables()
+    public function testDropMultipleTables(): void
     {
         $this->byCssSelector("label[for='tablesForm_checkall']")->click();
 
@@ -100,7 +99,11 @@ class StructureTest extends TestBase
             "//*[contains(., 'No tables found in database')]"
         );
 
-        $result = $this->dbQuery('SHOW TABLES;');
-        $this->assertEquals(0, $result->num_rows);
+        $this->dbQuery(
+            'SHOW TABLES FROM `' . $this->database_name . '`;',
+            function (): void {
+                $this->assertFalse($this->isElementPresent('className', 'table_results'));
+            }
+        );
     }
 }

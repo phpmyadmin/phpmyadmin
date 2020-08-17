@@ -2,22 +2,24 @@
 /**
  * tests for PhpMyAdmin\Plugins\Auth\AuthenticationConfig class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Auth;
 
-use PhpMyAdmin\Config;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Plugins\Auth\AuthenticationConfig;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use function ob_get_clean;
 use function ob_start;
 
 /**
  * tests for PhpMyAdmin\Plugins\Auth\AuthenticationConfig class
  */
-class AuthenticationConfigTest extends PmaTestCase
+class AuthenticationConfigTest extends AbstractTestCase
 {
+    /** @var AuthenticationConfig */
     protected $object;
 
     /**
@@ -25,7 +27,9 @@ class AuthenticationConfigTest extends PmaTestCase
      */
     protected function setUp(): void
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setUp();
+        parent::setLanguage();
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
@@ -41,15 +45,14 @@ class AuthenticationConfigTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::showLoginForm
-     *
-     * @return void
      */
-    public function testAuth()
+    public function testAuth(): void
     {
         $this->assertTrue(
             $this->object->showLoginForm()
@@ -58,10 +61,8 @@ class AuthenticationConfigTest extends PmaTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::readCredentials
-     *
-     * @return void
      */
-    public function testAuthCheck()
+    public function testAuthCheck(): void
     {
         $GLOBALS['cfg']['Server'] = [
             'user' => 'username',
@@ -74,10 +75,8 @@ class AuthenticationConfigTest extends PmaTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::storeCredentials
-     *
-     * @return void
      */
-    public function testAuthSetUser()
+    public function testAuthSetUser(): void
     {
         $this->assertTrue(
             $this->object->storeCredentials()
@@ -86,16 +85,14 @@ class AuthenticationConfigTest extends PmaTestCase
 
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::showFailure
-     *
-     * @return void
      */
-    public function testAuthFails()
+    public function testAuthFails(): void
     {
         $GLOBALS['error_handler'] = new ErrorHandler();
         $GLOBALS['cfg']['Servers'] = [1];
         $GLOBALS['allowDeny_forbidden'] = false;
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;
@@ -103,6 +100,8 @@ class AuthenticationConfigTest extends PmaTestCase
         ob_start();
         $this->object->showFailure('');
         $html = ob_get_clean();
+
+        $this->assertIsString($html);
 
         $this->assertStringContainsString(
             'You probably did not create a configuration file. You might want ' .
@@ -126,7 +125,7 @@ class AuthenticationConfigTest extends PmaTestCase
 
         $this->assertStringContainsString(
             '<a href="index.php?route=/&amp;server=0&amp;lang=en" '
-            . 'class="button disableAjax">Retry to connect</a>',
+            . 'class="btn button mt-1 disableAjax">Retry to connect</a>',
             $html
         );
     }

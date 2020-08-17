@@ -2,11 +2,13 @@
 /**
  * Generic plugin interface.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\DocPropertyItem;
@@ -40,6 +42,8 @@ use function readdir;
 use function str_replace;
 use function strcasecmp;
 use function strcmp;
+use function strtolower;
+use function ucfirst;
 use function usort;
 
 /**
@@ -94,12 +98,16 @@ class Plugins
      */
     public static function getPlugins($plugin_type, $plugins_dir, $plugin_param)
     {
+        global $skip_import;
+
         $GLOBALS['plugin_param'] = $plugin_param;
-        /* Scan for plugins */
-        $plugin_list = [];
-        if (! ($handle = @opendir($plugins_dir))) {
-            return $plugin_list;
+
+        $handle = @opendir($plugins_dir);
+        if (! $handle) {
+            return [];
         }
+
+        $plugin_list = [];
 
         $namespace = 'PhpMyAdmin\\' . str_replace('/', '\\', mb_substr($plugins_dir, 18));
         $class_type = mb_strtoupper($plugin_type[0], 'UTF-8')
@@ -112,31 +120,48 @@ class Plugins
             // (for example ._csv.php) so the following regexp
             // matches a file which does not start with a dot but ends
             // with ".php"
-            if (is_file($plugins_dir . $file)
-                && preg_match(
+            if (! is_file($plugins_dir . $file)
+                || ! preg_match(
                     '@^' . $class_type . '([^\.]+)\.php$@i',
                     $file,
                     $matches
                 )
             ) {
-                $GLOBALS['skip_import'] = false;
-                include_once $plugins_dir . $file;
-                if (! $GLOBALS['skip_import']) {
-                    $class_name = $prefix_class_name . $matches[1];
-                    $plugin = new $class_name();
-                    if ($plugin->getProperties() !== null) {
-                        $plugin_list[] = $plugin;
-                    }
-                }
+                continue;
             }
+
+            /** @var bool $skip_import */
+            $skip_import = false;
+
+            include_once $plugins_dir . $file;
+
+            if ($skip_import) {
+                continue;
+            }
+
+            $class_name = $prefix_class_name . $matches[1];
+            $plugin = new $class_name();
+            if ($plugin->getProperties() === null) {
+                continue;
+            }
+
+            $plugin_list[] = $plugin;
         }
 
-        usort($plugin_list, function ($cmp_name_1, $cmp_name_2) {
-            return strcasecmp(
-                $cmp_name_1->getProperties()->getText(),
-                $cmp_name_2->getProperties()->getText()
-            );
-        });
+        usort(
+            $plugin_list,
+            /**
+             * @param mixed $cmp_name_1
+             * @param mixed $cmp_name_2
+             */
+            static function ($cmp_name_1, $cmp_name_2) {
+                return strcasecmp(
+                    $cmp_name_1->getProperties()->getText(),
+                    $cmp_name_2->getProperties()->getText()
+                );
+            }
+        );
+
         return $plugin_list;
     }
 
@@ -172,6 +197,7 @@ class Plugins
         ) {
             return ' checked="checked"';
         }
+
         return '';
     }
 
@@ -211,10 +237,13 @@ class Plugins
 
         $val = $GLOBALS['cfg'][$section][$opt];
         foreach ($matches[0] as $match) {
-            if (isset($GLOBALS[$match])) {
-                $val = str_replace($match, $GLOBALS[$match], $val);
+            if (! isset($GLOBALS[$match])) {
+                continue;
             }
+
+            $val = str_replace($match, $GLOBALS[$match], $val);
         }
+
         return htmlspecialchars($val);
     }
 
@@ -334,6 +363,7 @@ class Plugins
             }
         }
 
+        $property_class = null;
         if (isset($properties)) {
             /** @var OptionsPropertySubgroup $propertyItem */
             foreach ($properties as $propertyItem) {
@@ -409,17 +439,17 @@ class Plugins
         }
 
         // Close the list element after $doc link is displayed
-        if (isset($property_class)) {
-            if ($property_class == 'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem'
-                || $property_class == 'PhpMyAdmin\Properties\Options\Items\MessageOnlyPropertyItem'
-                || $property_class == 'PhpMyAdmin\Properties\Options\Items\SelectPropertyItem'
-                || $property_class == 'PhpMyAdmin\Properties\Options\Items\TextPropertyItem'
+        if ($property_class !== null) {
+            if ($property_class == BoolPropertyItem::class
+                || $property_class == MessageOnlyPropertyItem::class
+                || $property_class == SelectPropertyItem::class
+                || $property_class == TextPropertyItem::class
             ) {
                 $ret .= '</li>';
             }
         }
-        $ret .= "\n";
-        return $ret;
+
+        return $ret . "\n";
     }
 
     /**
@@ -578,6 +608,7 @@ class Plugins
             default:
                 break;
         }
+
         return $ret;
     }
 
@@ -641,6 +672,26 @@ class Plugins
             }
             $ret .= '</div>';
         }
+
         return $ret;
+    }
+
+    public static function getAuthPlugin(): AuthenticationPlugin
+    {
+        global $cfg;
+
+        $class = 'PhpMyAdmin\\Plugins\\Auth\\Authentication' . ucfirst(strtolower($cfg['Server']['auth_type']));
+
+        if (! class_exists($class)) {
+            Core::fatalError(
+                __('Invalid authentication method set in configuration:')
+                    . ' ' . $cfg['Server']['auth_type']
+            );
+        }
+
+        /** @var AuthenticationPlugin $plugin */
+        $plugin = new $class();
+
+        return $plugin;
     }
 }

@@ -2,6 +2,7 @@
 /**
  * Functionality for the navigation tree
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
@@ -31,11 +32,11 @@ class NodeColumn extends Node
         parent::__construct($item['name'], $type, $isGroup);
         $this->icon = Generator::getImage($this->getColumnIcon($item['key']), __('Column'));
         $this->links = [
-            'text' => Url::getFromRoute('/table/structure', [
+            'text' => Url::getFromRoute('/table/structure/change', [
                 'server' => $GLOBALS['server'],
                 'change_column' => 1,
             ]) . '&amp;db=%3$s&amp;table=%2$s&amp;field=%1$s',
-            'icon' => Url::getFromRoute('/table/structure', [
+            'icon' => Url::getFromRoute('/table/structure/change', [
                 'server' => $GLOBALS['server'],
                 'change_column' => 1,
             ]) . '&amp;db=%3$s&amp;table=%2$s&amp;field=%1$s',
@@ -63,13 +64,14 @@ class NodeColumn extends Node
                 $retval = 'pause';
                 break;
         }
+
         return $retval;
     }
 
     /**
      * Get displayable name for navigation tree (key_type, data_type, default)
      *
-     * @param array $item Item is array containing required info
+     * @param array<string, mixed> $item Item is array containing required info
      *
      * @return string Display name for navigation tree
      */
@@ -78,14 +80,16 @@ class NodeColumn extends Node
         $retval = $item['name'];
         $flag = 0;
         foreach ($item as $key => $value) {
-            if (! empty($value) && $key != 'name') {
-                $flag == 0 ? $retval .= ' (' : $retval .= ', ';
-                $flag = 1;
-                $retval .= $this->getTruncateValue($key, $value);
+            if (empty($value) || $key === 'name') {
+                continue;
             }
+
+            $flag == 0 ? $retval .= ' (' : $retval .= ', ';
+            $flag = 1;
+            $retval .= $this->getTruncateValue($key, $value);
         }
-        $retval .= ')';
-        return $retval;
+
+        return $retval . ')';
     }
 
     /**

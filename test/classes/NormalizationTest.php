@@ -2,27 +2,28 @@
 /**
  * tests for PhpMyAdmin\Normalization
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Types;
 use PhpMyAdmin\Url;
-use PHPUnit\Framework\TestCase;
-use ReflectionClass;
 use stdClass;
 use function json_encode;
 
 /**
  * tests for PhpMyAdmin\Normalization
  */
-class NormalizationTest extends TestCase
+class NormalizationTest extends AbstractTestCase
 {
+    /** @var Normalization */
     private $normalization;
 
     /**
@@ -30,6 +31,8 @@ class NormalizationTest extends TestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
         $GLOBALS['cfg']['LimitChars'] = 50;
         $GLOBALS['cfg']['ServerDefault'] = 'PMA_server';
         $GLOBALS['cfg']['ShowHint'] = true;
@@ -44,7 +47,7 @@ class NormalizationTest extends TestCase
         //$_SESSION
 
         //mock DBI
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->types = new Types($dbi);
@@ -78,10 +81,11 @@ class NormalizationTest extends TestCase
                 'PMA_db',
                 'PMA_table',
                 DatabaseInterface::CONNECT_USER,
-                [[
-                    'Key_name' => 'PRIMARY',
-                    'Column_name' => 'id',
-                ],
+                [
+                    [
+                        'Key_name' => 'PRIMARY',
+                        'Column_name' => 'id',
+                    ],
                 ],
             ],
             [
@@ -116,10 +120,8 @@ class NormalizationTest extends TestCase
 
     /**
      * Test for getHtmlForColumnsList
-     *
-     * @return void
      */
-    public function testGetHtmlForColumnsList()
+    public function testGetHtmlForColumnsList(): void
     {
         $db = 'PMA_db';
         $table = 'PMA_table';
@@ -135,10 +137,8 @@ class NormalizationTest extends TestCase
 
     /**
      * Test for getHtmlForCreateNewColumn
-     *
-     * @return void
      */
-    public function testGetHtmlForCreateNewColumn()
+    public function testGetHtmlForCreateNewColumn(): void
     {
         $GLOBALS['cfg']['BrowseMIME'] = true;
         $GLOBALS['cfg']['MaxRows'] = 25;
@@ -155,10 +155,8 @@ class NormalizationTest extends TestCase
 
     /**
      * Test for getHtmlFor1NFStep1
-     *
-     * @return void
      */
-    public function testGetHtmlFor1NFStep1()
+    public function testGetHtmlFor1NFStep1(): void
     {
         $db = 'PMA_db';
         $table = 'PMA_table';
@@ -202,10 +200,8 @@ class NormalizationTest extends TestCase
 
     /**
      * Test for getHtmlContentsFor1NFStep2
-     *
-     * @return void
      */
-    public function testGetHtmlContentsFor1NFStep2()
+    public function testGetHtmlContentsFor1NFStep2(): void
     {
         $db = 'PMA_db';
         $table = 'PMA_table1';
@@ -232,10 +228,8 @@ class NormalizationTest extends TestCase
 
     /**
      * Test for getHtmlContentsFor1NFStep4
-     *
-     * @return void
      */
-    public function testGetHtmlContentsFor1NFStep4()
+    public function testGetHtmlContentsFor1NFStep4(): void
     {
         $db = 'PMA_db';
         $table = 'PMA_table';
@@ -258,10 +252,8 @@ class NormalizationTest extends TestCase
 
     /**
      * Test for getHtmlContentsFor1NFStep3
-     *
-     * @return void
      */
-    public function testGetHtmlContentsFor1NFStep3()
+    public function testGetHtmlContentsFor1NFStep3(): void
     {
         $db = 'PMA_db';
         $table = 'PMA_table';
@@ -286,10 +278,8 @@ class NormalizationTest extends TestCase
 
     /**
      * Test for getHtmlFor2NFstep1
-     *
-     * @return void
      */
-    public function testGetHtmlFor2NFstep1()
+    public function testGetHtmlFor2NFstep1(): void
     {
         $db = 'PMA_db';
         $table = 'PMA_table';
@@ -316,10 +306,8 @@ class NormalizationTest extends TestCase
 
     /**
      * Test for getHtmlForNewTables2NF
-     *
-     * @return void
      */
-    public function testGetHtmlForNewTables2NF()
+    public function testGetHtmlForNewTables2NF(): void
     {
         $table = 'PMA_table';
         $partialDependencies = ['col1' => ['col2']];
@@ -332,10 +320,8 @@ class NormalizationTest extends TestCase
 
     /**
      * Test for createNewTablesFor2NF
-     *
-     * @return void
      */
-    public function testCreateNewTablesFor2NF()
+    public function testCreateNewTablesFor2NF(): void
     {
         $table = 'PMA_table';
         $db = 'PMA_db';
@@ -370,10 +356,8 @@ class NormalizationTest extends TestCase
 
     /**
      * Test for getHtmlForNewTables3NF
-     *
-     * @return void
      */
-    public function testGetHtmlForNewTables3NF()
+    public function testGetHtmlForNewTables3NF(): void
     {
         $tables = ['PMA_table' => ['col1']];
         $db = 'PMA_db';
@@ -423,10 +407,8 @@ class NormalizationTest extends TestCase
 
     /**
      * Test for createNewTablesFor3NF
-     *
-     * @return void
      */
-    public function testCreateNewTablesFor3NF()
+    public function testCreateNewTablesFor3NF(): void
     {
         $db = 'PMA_db';
         $cols = new stdClass();
@@ -456,15 +438,13 @@ class NormalizationTest extends TestCase
         );
         $this->assertArrayHasKey('queryError', $result1);
         $this->assertEquals(__('End of step'), $result1['legendText']);
-        $this->assertEquals(false, $result1['queryError']);
+        $this->assertFalse($result1['queryError']);
     }
 
     /**
      * Test for moveRepeatingGroup
-     *
-     * @return void
      */
-    public function testMoveRepeatingGroup()
+    public function testMoveRepeatingGroup(): void
     {
         $repeatingColumns = 'col1, col2';
         $primaryColumns = 'id,col1';
@@ -484,17 +464,15 @@ class NormalizationTest extends TestCase
         $this->assertArrayHasKey('queryError', $result);
         $this->assertArrayHasKey('message', $result);
         $this->assertInstanceOf(
-            'PhpMyAdmin\Message',
+            Message::class,
             $result['message']
         );
     }
 
     /**
      * Test for getHtmlFor3NFstep1
-     *
-     * @return void
      */
-    public function testGetHtmlFor3NFstep1()
+    public function testGetHtmlFor3NFstep1(): void
     {
         $db = 'PMA_db';
         $tables = ['PMA_table'];
@@ -522,10 +500,8 @@ class NormalizationTest extends TestCase
 
     /**
      * Test for getHtmlForNormalizeTable
-     *
-     * @return void
      */
-    public function testgetHtmlForNormalizeTable()
+    public function testgetHtmlForNormalizeTable(): void
     {
         $result = $this->normalization->getHtmlForNormalizeTable();
         $this->assertStringContainsString(
@@ -546,10 +522,8 @@ class NormalizationTest extends TestCase
 
     /**
      * Test for findPartialDependencies
-     *
-     * @return void
      */
-    public function testFindPartialDependencies()
+    public function testFindPartialDependencies(): void
     {
         $table = 'PMA_table2';
         $db = 'PMA_db';
@@ -563,21 +537,21 @@ class NormalizationTest extends TestCase
 
     /**
      * Test for getAllCombinationPartialKeys
-     *
-     * @return void
      */
-    public function testGetAllCombinationPartialKeys()
+    public function testGetAllCombinationPartialKeys(): void
     {
-        $class = new ReflectionClass(Normalization::class);
-        $method = $class->getMethod('getAllCombinationPartialKeys');
-        $method->setAccessible(true);
-
         $primaryKey = [
             'id',
             'col1',
             'col2',
         ];
-        $result = $method->invokeArgs($this->normalization, [$primaryKey]);
+        $result = $this->callFunction(
+            $this->normalization,
+            Normalization::class,
+            'getAllCombinationPartialKeys',
+            [$primaryKey]
+        );
+
         $this->assertEquals(
             [
                 '',

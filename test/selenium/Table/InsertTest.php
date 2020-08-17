@@ -2,6 +2,7 @@
 /**
  * Selenium TestCase for table related tests
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium\Table;
@@ -23,12 +24,13 @@ class InsertTest extends TestBase
     {
         parent::setUp();
         $this->dbQuery(
-            'CREATE TABLE `test_table` ('
+            'USE `' . $this->database_name . '`;'
+            . 'CREATE TABLE `test_table` ('
             . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
             . ' `name` varchar(20) NOT NULL,'
             . ' `datetimefield` datetime NOT NULL,'
             . ' PRIMARY KEY (`id`)'
-            . ')'
+            . ');'
         );
 
         $this->login();
@@ -38,11 +40,9 @@ class InsertTest extends TestBase
     /**
      * Insert data into table
      *
-     * @return void
-     *
      * @group large
      */
-    public function testAddData()
+    public function testAddData(): void
     {
         if ($this->isSafari()) {
             /* TODO: this should be fixed, but the cause is unclear to me */
@@ -100,15 +100,13 @@ class InsertTest extends TestBase
         );
         $this->assertStringContainsString('1 row inserted', $ele->getText());
 
-        $this->_assertDataPresent();
+        $this->assertDataPresent();
     }
 
     /**
      * Assert various data present in results table
-     *
-     * @return void
      */
-    private function _assertDataPresent()
+    private function assertDataPresent(): void
     {
         $this->byPartialLinkText('Browse')->click();
 

@@ -3,6 +3,7 @@
  * This class is responsible for instantiating
  * the various components of the navigation panel
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation;
@@ -14,8 +15,10 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use const PHP_URL_HOST;
 use function count;
 use function defined;
 use function file_exists;
@@ -23,7 +26,6 @@ use function is_bool;
 use function parse_url;
 use function strpos;
 use function trim;
-use const PHP_URL_HOST;
 
 /**
  * The navigation panel - displays server, db and table selection tree
@@ -96,7 +98,9 @@ class Navigation
             }
 
             if (! defined('PMA_DISABLE_NAVI_SETTINGS')) {
-                $navigationSettings = PageSettings::getNaviSettings();
+                $pageSettings = new PageSettings('Navi', 'pma_navigation_settings');
+                $response->addHTML($pageSettings->getErrorHTML());
+                $navigationSettings = $pageSettings->getHTML();
             }
         }
         if (! $response->isAjax()
@@ -256,6 +260,7 @@ class Navigation
             }
         }
         $this->dbi->freeResult($result);
+
         return $hidden;
     }
 
@@ -264,13 +269,18 @@ class Navigation
      */
     private function getLogoSource(): string
     {
-        global $pmaThemeImage;
+        /** @var Theme|null $PMA_Theme */
+        global $PMA_Theme;
+        if ($PMA_Theme !== null) {
+            if (@file_exists($PMA_Theme->getFsPath() . 'img/logo_left.png')) {
+                return $PMA_Theme->getPath() . '/img/logo_left.png';
+            }
 
-        if (isset($pmaThemeImage) && @file_exists($pmaThemeImage . 'logo_left.png')) {
-            return $pmaThemeImage . 'logo_left.png';
-        } elseif (isset($pmaThemeImage) && @file_exists($pmaThemeImage . 'pma_logo2.png')) {
-            return $pmaThemeImage . 'pma_logo2.png';
+            if (@file_exists($PMA_Theme->getFsPath() . 'img/pma_logo2.png')) {
+                return $PMA_Theme->getPath() . '/img/pma_logo2.png';
+            }
         }
+
         return '';
     }
 }

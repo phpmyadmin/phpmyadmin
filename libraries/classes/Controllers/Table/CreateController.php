@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
@@ -125,6 +126,8 @@ class CreateController extends AbstractController
             // If there is a request for SQL previewing.
             if (isset($_POST['preview_sql'])) {
                 Core::previewSQL($sql_query);
+
+                return;
             }
             // Executes the query
             $result = $this->dbi->tryQuery($sql_query);
@@ -136,40 +139,45 @@ class CreateController extends AbstractController
                     && $cfg['BrowseMIME']
                 ) {
                     foreach ($_POST['field_mimetype'] as $fieldindex => $mimetype) {
-                        if (isset($_POST['field_name'][$fieldindex])
-                            && strlen($_POST['field_name'][$fieldindex]) > 0
+                        if (! isset($_POST['field_name'][$fieldindex])
+                            || strlen($_POST['field_name'][$fieldindex]) <= 0
                         ) {
-                            $this->transformations->setMime(
-                                $db,
-                                $table,
-                                $_POST['field_name'][$fieldindex],
-                                $mimetype,
-                                $_POST['field_transformation'][$fieldindex],
-                                $_POST['field_transformation_options'][$fieldindex],
-                                $_POST['field_input_transformation'][$fieldindex],
-                                $_POST['field_input_transformation_options'][$fieldindex]
-                            );
+                            continue;
                         }
+
+                        $this->transformations->setMime(
+                            $db,
+                            $table,
+                            $_POST['field_name'][$fieldindex],
+                            $mimetype,
+                            $_POST['field_transformation'][$fieldindex],
+                            $_POST['field_transformation_options'][$fieldindex],
+                            $_POST['field_input_transformation'][$fieldindex],
+                            $_POST['field_input_transformation_options'][$fieldindex]
+                        );
                     }
                 }
             } else {
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', $this->dbi->getError());
             }
+
             return;
         }
 
         // This global variable needs to be reset for the header class to function properly
         $table = '';
 
-        ColumnsDefinition::displayForm(
-            $this->response,
-            $this->template,
+        $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js', 'indexes.js']);
+
+        $templateData = ColumnsDefinition::displayForm(
             $this->transformations,
             $this->relation,
             $this->dbi,
             $action,
             $num_fields
         );
+
+        $this->render('columns_definitions/column_definitions_form', $templateData);
     }
 }

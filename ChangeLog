@@ -36,11 +36,70 @@ phpMyAdmin - ChangeLog
 - issue #16005 Add a new vendor constant "CACHE_DIR" that defaults to "libraries/cache/" and store routing cache into this folder
 - issue #16005 Warm-up the routing cache before building the release
 - issue #16005 Use --optimize-autoloader when installing composer vendors before building the release
+- issue #15992 Add back the table name to the printable version on "Structure" page
+- issue #14815 Allow simplifying exported view syntax to only "CREATE VIEW"
+- issue #15496 Add $cfg['CaptchaSiteVerifyURL'] for Google ReCaptcha siteVerifyUrl
+- issue #14772 Add the password_hash PHP function as an option when inserting data
+- issue #15136 Add a notice for Hex converter giving invalid results
+- issue #16139 Use a textarea for JSON columns
+- issue #16223 Make JSON input transformation editor less narrow
+- issue #14340 Add a button on Export Page to show the SQL Query
+- issue #16304 Add support for INET6 column type
 
 5.0.3 (not yet released)
 - issue #15983 Require twig ^2.9
 - issue        Fix option to import files locally appearing as not available
 - issue #16048 Fix to allow NULL as a default bit value
+- issue #16062 Fix "htmlspecialchars() expects parameter 1 to be string, null given" on Export xml
+- issue #16078 Fix no charts in monitor when using a decimal separator ","
+- issue #16041 Fix IN(...) clause doesn't permit multiple values on "Search" page
+- issue #14411 Support double tap to edit on mobile
+- issue #16043 Fix php error "Use of undefined constant MYSQLI_TYPE_JSON" when using the mysqlnd extension
+- issue #14611 Fix fatal JS error on index creation after using Enter key to submit the form
+- issue #16012 Set "axis-order" to swap lon and lat on MySQL >= 8.1
+- issue #16104 Fixed overwriting a bookmarked query causes a PHP fatal error
+- issue        Fix typo in a condition in the Sql class
+- issue #15996 Fix local setup doc links pointing to a wrong location
+- issue #16093 Fix error importing utf-8 with bom sql file
+- issue #16089 2FA UX enhancement: autofocus 2FA input
+- issue #16127 Fix table column description PHP error when ['DisableIS'] = true;
+- issue #16130 Fix local documentation links display when a PHP extension is missing
+- issue        Fix some twig code deprecations for php 8
+- issue        Fix ENUM and SET display when editing procedures and functions
+- issue        Keep full query state on "auto refresh" process list
+- issue        Keep columns order on "auto refresh" process list
+- issue        Fixed editing a failed query from the error message
+- issue #16166 Fix the alter user privileges query to make it MySQL 8.0.11+ compatible
+- issue        Fix copy table to another database when the nbr of DBs is > $cfg['MaxDbList']
+- issue #16157 Fix relations of tables having spaces or special chars not showing in the Designer
+- issue #16052 Fix a very rare JS error occuring on mousemove event
+- issue #16162 Make a foreign key link clickable in a new tab after the value was saved and replaced
+- issue #16163 Fixed a PHP notice "Undefined index: column_info" on views
+- issue #14478 Fix the data stream when exporting data in file mode
+- issue #16184 Fix templates/ directory not found error
+- issue #16184 Remove chdir logic to fix PHP fatal error "Uncaught TypeError: chdir()"
+- issue        Support for Twig 3
+- issue        Allow phpmyadmin/twig-i18n-extension ^3.0
+- issue #16201 Trim spaces for integer values in table search
+- issue #16076 Fixed cannot edit or export TIMESTAMP column with default CURRENT_TIMESTAMP in MySQL >= 8.0.13
+- issue #16226 Fix error 500 after copying a table
+- issue #16222 Fixed can't use the search page when the table name has special characters
+- issue #16248 Fix zoom search is not performing input validation on INT columns
+- issue #16248 Fix javascript error when typing in INT fields on zoom search page
+- issue        Fix type errors when using saved searches
+- issue #16261 Fix missing headings on modals of "User Accounts -> Export"
+- issue #16146 Fixed sorting did not keep the selector of number of rows
+- issue #16194 Fixed SQL query does not appear in case of editing view where definer is not you on MySQL 8
+- issue #16255 Fix tinyint(1) shown as INT on Search page
+- issue #16256 Fix "Warning: error_reporting() has been disabled for security reasons" on php 7.x
+- issue #15367 Fix "Change or reconfigure primary server" link
+- issue #15367 Fix first replica links, start, stop, ignore links
+- issue #16058 Add "PMA_single_signon_HMAC_secret" for signon auths to make special links work and udate examples
+- issue #16269 Support ReCaptcha v2 checkbox width "$cfg['CaptchaMethod'] = 'checkbox';"
+- issue #14644 Use Doctum instead of Sami
+- issue #16086 Fix "Browse" headings shift when scrolling
+- issue #15328 Fix no message after import of zipped shapefile without php-zip
+- issue #14326 Fix PHP error when exporting without php-zip
 
 5.0.2 (2020-03-20)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page

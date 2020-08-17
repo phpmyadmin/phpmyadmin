@@ -3,6 +3,7 @@
  * This library is used with the server IP allow/deny host authentication
  * feature
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
@@ -160,8 +161,8 @@ class IpAllowDeny
 
         if ($is_single) {
             $range_hex = bin2hex(inet_pton($test_range));
-            $result = hash_equals($ip_hex, $range_hex);
-            return $result;
+
+            return hash_equals($ip_hex, $range_hex);
         }
 
         if ($is_range) {
@@ -185,12 +186,13 @@ class IpAllowDeny
                 // check if the IP to test is within the range
                 $result = ($ip_hex >= $first_hex && $ip_hex <= $last_hex);
             }
+
             return $result;
         }
 
         if ($is_cidr) {
             // Split in address and prefix length
-            list($first_ip, $subnet) = explode('/', $test_range);
+            [$first_ip, $subnet] = explode('/', $test_range);
 
             // Parse the address into a binary string
             $first_bin = inet_pton($first_ip);
@@ -315,7 +317,7 @@ class IpAllowDeny
             }
 
             // check for username
-            if (($rule_data[1] != '%') //wildcarded first
+            if (($rule_data[1] !== '%') //wildcarded first
                 && (! hash_equals($rule_data[1], $username))
             ) {
                 continue;
@@ -323,7 +325,7 @@ class IpAllowDeny
 
             // check if the config file has the full string with an extra
             // 'from' in it and if it does, just discard it
-            if ($rule_data[2] == 'from') {
+            if ($rule_data[2] === 'from') {
                 $rule_data[2] = $rule_data[3];
             }
 

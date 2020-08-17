@@ -3,6 +3,7 @@
  * HTTP Authentication plugin for phpMyAdmin.
  * NOTE: Requires PHP loaded as a Apache module.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Auth;
@@ -40,9 +41,9 @@ class AuthenticationHttp extends AuthenticationPlugin
             $response->addJSON('reload_flag', '1');
             if (defined('TESTSUITE')) {
                 return true;
-            } else {
-                exit;
             }
+
+            exit;
         }
 
         return $this->authForm();
@@ -96,9 +97,9 @@ class AuthenticationHttp extends AuthenticationPlugin
 
         if (! defined('TESTSUITE')) {
             exit;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     /**

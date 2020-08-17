@@ -2,6 +2,7 @@
 /**
  * hold PhpMyAdmin\TablePartitionDefinition class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
@@ -89,6 +90,7 @@ class TablePartitionDefinition
         } else {
             $count = 0;
         }
+
         return $count;
     }
 
@@ -188,6 +190,7 @@ class TablePartitionDefinition
             }
         }
         $partitionDetails['partitions'] = $partitions;
+
         return $partitionDetails;
     }
 }

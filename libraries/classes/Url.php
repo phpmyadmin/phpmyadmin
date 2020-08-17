@@ -2,6 +2,7 @@
 /**
  * Static methods for URL/hidden inputs generating
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
@@ -70,9 +71,11 @@ class Url
             }
         } else {
             foreach ($skip as $skipping) {
-                if (isset($params[$skipping])) {
-                    unset($params[$skipping]);
+                if (! isset($params[$skipping])) {
+                    continue;
                 }
+
+                unset($params[$skipping]);
             }
         }
 
@@ -258,7 +261,7 @@ class Url
             // as recommended by W3C
             // (see https://www.w3.org/TR/1999/REC-html401-19991224/appendix
             // /notes.html#h-B.2.2)
-            $arg_separator = ini_get('arg_separator.input');
+            $arg_separator = (string) ini_get('arg_separator.input');
             if (mb_strpos($arg_separator, ';') !== false) {
                 $separator = ';';
             } elseif (strlen($arg_separator) > 0) {

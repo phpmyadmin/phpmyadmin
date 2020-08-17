@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
@@ -51,18 +52,18 @@ class DesignerController extends AbstractController
         global $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos, $classes_side_menu;
 
         if (isset($_POST['dialog'])) {
-            if ($_POST['dialog'] == 'edit') {
+            if ($_POST['dialog'] === 'edit') {
                 $html = $this->databaseDesigner->getHtmlForEditOrDeletePages($_POST['db'], 'editPage');
-            } elseif ($_POST['dialog'] == 'delete') {
+            } elseif ($_POST['dialog'] === 'delete') {
                 $html = $this->databaseDesigner->getHtmlForEditOrDeletePages($_POST['db'], 'deletePage');
-            } elseif ($_POST['dialog'] == 'save_as') {
+            } elseif ($_POST['dialog'] === 'save_as') {
                 $html = $this->databaseDesigner->getHtmlForPageSaveAs($_POST['db']);
-            } elseif ($_POST['dialog'] == 'export') {
+            } elseif ($_POST['dialog'] === 'export') {
                 $html = $this->databaseDesigner->getHtmlForSchemaExport(
                     $_POST['db'],
                     $_POST['selected_page']
                 );
-            } elseif ($_POST['dialog'] == 'add_table') {
+            } elseif ($_POST['dialog'] === 'add_table') {
                 // Pass the db and table to the getTablesInfo so we only have the table we asked for
                 $script_display_field = $this->designerCommon->getTablesInfo($_POST['db'], $_POST['table']);
                 $tab_column = $this->designerCommon->getColumnsInfo($script_display_field);
@@ -83,15 +84,16 @@ class DesignerController extends AbstractController
             if (! empty($html)) {
                 $this->response->addHTML($html);
             }
+
             return;
         }
 
         if (isset($_POST['operation'])) {
-            if ($_POST['operation'] == 'deletePage') {
+            if ($_POST['operation'] === 'deletePage') {
                 $success = $this->designerCommon->deletePage($_POST['selected_page']);
                 $this->response->setRequestStatus($success);
-            } elseif ($_POST['operation'] == 'savePage') {
-                if ($_POST['save_page'] == 'same') {
+            } elseif ($_POST['operation'] === 'savePage') {
+                if ($_POST['save_page'] === 'same') {
                     $page = $_POST['selected_page'];
                 } elseif ($this->designerCommon->getPageExists($_POST['selected_value'])) {
                     $this->response->addJSON(
@@ -105,6 +107,7 @@ class DesignerController extends AbstractController
                         )
                     );
                     $this->response->setRequestStatus(false);
+
                     return;
                 } else {
                     $page = $this->designerCommon->createNewPage($_POST['selected_value'], $_POST['db']);
@@ -112,7 +115,7 @@ class DesignerController extends AbstractController
                 }
                 $success = $this->designerCommon->saveTablePositions($page);
                 $this->response->setRequestStatus($success);
-            } elseif ($_POST['operation'] == 'setDisplayField') {
+            } elseif ($_POST['operation'] === 'setDisplayField') {
                 [
                     $success,
                     $message,
@@ -123,8 +126,8 @@ class DesignerController extends AbstractController
                 );
                 $this->response->setRequestStatus($success);
                 $this->response->addJSON('message', $message);
-            } elseif ($_POST['operation'] == 'addNewRelation') {
-                list($success, $message) = $this->designerCommon->addNewRelation(
+            } elseif ($_POST['operation'] === 'addNewRelation') {
+                [$success, $message] = $this->designerCommon->addNewRelation(
                     $_POST['db'],
                     $_POST['T1'],
                     $_POST['F1'],
@@ -137,8 +140,8 @@ class DesignerController extends AbstractController
                 );
                 $this->response->setRequestStatus($success);
                 $this->response->addJSON('message', $message);
-            } elseif ($_POST['operation'] == 'removeRelation') {
-                list($success, $message) = $this->designerCommon->removeRelation(
+            } elseif ($_POST['operation'] === 'removeRelation') {
+                [$success, $message] = $this->designerCommon->removeRelation(
                     $_POST['T1'],
                     $_POST['F1'],
                     $_POST['T2'],
@@ -146,7 +149,7 @@ class DesignerController extends AbstractController
                 );
                 $this->response->setRequestStatus($success);
                 $this->response->addJSON('message', $message);
-            } elseif ($_POST['operation'] == 'save_setting_value') {
+            } elseif ($_POST['operation'] === 'save_setting_value') {
                 $success = $this->designerCommon->saveSetting($_POST['index'], $_POST['value']);
                 $this->response->setRequestStatus($success);
             }
@@ -180,10 +183,13 @@ class DesignerController extends AbstractController
         }
 
         foreach ($tab_pos as $position) {
-            if (! in_array($position['dbName'] . '.' . $position['tableName'], $fullTableNames)) {
-                foreach ($this->designerCommon->getTablesInfo($position['dbName'], $position['tableName']) as $designerTable) {
-                    $script_display_field[] = $designerTable;
-                }
+            if (in_array($position['dbName'] . '.' . $position['tableName'], $fullTableNames)) {
+                continue;
+            }
+
+            $designerTables = $this->designerCommon->getTablesInfo($position['dbName'], $position['tableName']);
+            foreach ($designerTables as $designerTable) {
+                $script_display_field[] = $designerTable;
             }
         }
 
@@ -204,16 +210,17 @@ class DesignerController extends AbstractController
         $header = $this->response->getHeader();
         $header->setBodyId('designer_body');
 
-        $scripts = $header->getScripts();
-        $scripts->addFile('vendor/jquery/jquery.fullscreen.js');
-        $scripts->addFile('designer/database.js');
-        $scripts->addFile('designer/objects.js');
-        $scripts->addFile('designer/page.js');
-        $scripts->addFile('designer/history.js');
-        $scripts->addFile('designer/move.js');
-        $scripts->addFile('designer/init.js');
+        $this->addScriptFiles([
+            'vendor/jquery/jquery.fullscreen.js',
+            'designer/database.js',
+            'designer/objects.js',
+            'designer/page.js',
+            'designer/history.js',
+            'designer/move.js',
+            'designer/init.js',
+        ]);
 
-        list(
+        [
             $tables,
             $num_tables,
             $total_num_tables,
@@ -222,8 +229,8 @@ class DesignerController extends AbstractController
             $db_is_system_schema,
             $tooltip_truename,
             $tooltip_aliasname,
-            $pos
-            ) = Util::getDbInfo($db, $sub_part ?? '');
+            $pos,
+        ] = Util::getDbInfo($db, $sub_part ?? '');
 
         // Embed some data into HTML, later it will be read
         // by designer/init.js and converted to JS variables.

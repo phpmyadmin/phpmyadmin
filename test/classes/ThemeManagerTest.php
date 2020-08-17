@@ -2,44 +2,43 @@
 /**
  * tests for ThemeManager class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\Config;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ThemeManager;
 
 /**
  * tests for ThemeManager class
  */
-class ThemeManagerTest extends PmaTestCase
+class ThemeManagerTest extends AbstractTestCase
 {
     /**
      * SetUp for test cases
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
+        parent::setGlobalConfig();
         $GLOBALS['cfg']['ThemePerServer'] = false;
         $GLOBALS['cfg']['ThemeDefault'] = 'pmahomme';
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $GLOBALS['server'] = 99;
-        $GLOBALS['PMA_Config'] = new Config();
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
-
-        $cfg['dbi'] = $dbi;
     }
 
     /**
      * Test for ThemeManager::getThemeCookieName
-     *
-     * @return void
      */
-    public function testCookieName()
+    public function testCookieName(): void
     {
         $tm = new ThemeManager();
         $this->assertEquals('pma_theme', $tm->getThemeCookieName());
@@ -47,10 +46,8 @@ class ThemeManagerTest extends PmaTestCase
 
     /**
      * Test for ThemeManager::getThemeCookieName
-     *
-     * @return void
      */
-    public function testPerServerCookieName()
+    public function testPerServerCookieName(): void
     {
         $tm = new ThemeManager();
         $tm->setThemePerServer(true);
@@ -59,10 +56,8 @@ class ThemeManagerTest extends PmaTestCase
 
     /**
      * Test for ThemeManager::getHtmlSelectBox
-     *
-     * @return void
      */
-    public function testHtmlSelectBox()
+    public function testHtmlSelectBox(): void
     {
         $tm = new ThemeManager();
         $this->assertStringContainsString(
@@ -73,10 +68,8 @@ class ThemeManagerTest extends PmaTestCase
 
     /**
      * Test for setThemeCookie
-     *
-     * @return void
      */
-    public function testSetThemeCookie()
+    public function testSetThemeCookie(): void
     {
         $tm = new ThemeManager();
         $this->assertTrue(
@@ -86,10 +79,8 @@ class ThemeManagerTest extends PmaTestCase
 
     /**
      * Test for getPrintPreviews
-     *
-     * @return void
      */
-    public function testGetPrintPreviews()
+    public function testGetPrintPreviews(): void
     {
         $tm = new ThemeManager();
         $preview = $tm->getPrintPreviews();

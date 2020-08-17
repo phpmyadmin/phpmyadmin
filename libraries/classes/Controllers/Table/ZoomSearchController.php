@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
@@ -25,6 +26,7 @@ use function preg_replace;
 use function str_ireplace;
 use function str_replace;
 use function strncasecmp;
+use function strtoupper;
 
 /**
  * Handles table zoom search tab.
@@ -40,22 +42,25 @@ class ZoomSearchController extends AbstractController
     private $relation;
 
     /** @var array */
-    private $_columnNames;
+    private $columnNames;
 
     /** @var array */
-    private $_columnTypes;
+    private $columnTypes;
 
     /** @var array */
-    private $_columnCollations;
+    private $originalColumnTypes;
 
     /** @var array */
-    private $_columnNullFlags;
+    private $columnCollations;
+
+    /** @var array */
+    private $columnNullFlags;
 
     /** @var bool Whether a geometry column is present */
-    private $_geomColumnFlag;
+    private $geomColumnFlag;
 
     /** @var array Foreign keys */
-    private $_foreigners;
+    private $foreigners;
 
     /**
      * @param Response          $response A Response instance.
@@ -71,13 +76,14 @@ class ZoomSearchController extends AbstractController
         parent::__construct($response, $dbi, $template, $db, $table);
         $this->search = $search;
         $this->relation = $relation;
-        $this->_columnNames = [];
-        $this->_columnTypes = [];
-        $this->_columnCollations = [];
-        $this->_columnNullFlags = [];
-        $this->_geomColumnFlag = false;
-        $this->_foreigners = [];
-        $this->_loadTableInfo();
+        $this->columnNames = [];
+        $this->columnTypes = [];
+        $this->originalColumnTypes = [];
+        $this->columnCollations = [];
+        $this->columnNullFlags = [];
+        $this->geomColumnFlag = false;
+        $this->foreigners = [];
+        $this->loadTableInfo();
     }
 
     public function index(): void
@@ -86,9 +92,7 @@ class ZoomSearchController extends AbstractController
 
         Common::table();
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFiles([
+        $this->addScriptFiles([
             'makegrid.js',
             'sql.js',
             'vendor/jqplot/jquery.jqplot.js',
@@ -108,6 +112,7 @@ class ZoomSearchController extends AbstractController
             && $_POST['get_data_row'] == true
         ) {
             $this->getDataRowAction();
+
             return;
         }
 
@@ -119,6 +124,7 @@ class ZoomSearchController extends AbstractController
             && $_POST['change_tbl_info'] == true
         ) {
             $this->changeTableInfoAction();
+
             return;
         }
 
@@ -136,26 +142,28 @@ class ZoomSearchController extends AbstractController
          * Handle the input criteria and generate the query result
          * Form for displaying query results
          */
-        if (isset($_POST['zoom_submit'])
-            && $_POST['criteriaColumnNames'][0] != 'pma_null'
-            && $_POST['criteriaColumnNames'][1] != 'pma_null'
-            && $_POST['criteriaColumnNames'][0] != $_POST['criteriaColumnNames'][1]
+        if (! isset($_POST['zoom_submit'])
+            || $_POST['criteriaColumnNames'][0] === 'pma_null'
+            || $_POST['criteriaColumnNames'][1] === 'pma_null'
+            || $_POST['criteriaColumnNames'][0] == $_POST['criteriaColumnNames'][1]
         ) {
-            if (! isset($goto)) {
-                $goto = Util::getScriptNameForOption(
-                    $GLOBALS['cfg']['DefaultTabTable'],
-                    'table'
-                );
-            }
-            $this->zoomSubmitAction($dataLabel, $goto);
+            return;
         }
+
+        if (! isset($goto)) {
+            $goto = Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabTable'],
+                'table'
+            );
+        }
+        $this->zoomSubmitAction($dataLabel, $goto);
     }
 
     /**
      * Gets all the columns of a table along with their types, collations
      * and whether null or not.
      */
-    private function _loadTableInfo(): void
+    private function loadTableInfo(): void
     {
         // Gets the list and number of columns
         $columns = $this->dbi->getColumns(
@@ -169,12 +177,14 @@ class ZoomSearchController extends AbstractController
 
         foreach ($columns as $row) {
             // set column name
-            $this->_columnNames[] = $row['Field'];
+            $this->columnNames[] = $row['Field'];
 
             $type = $row['Type'];
+            // before any replacement
+            $this->originalColumnTypes[] = mb_strtolower($type);
             // check whether table contains geometric columns
             if (in_array($type, $geom_types)) {
-                $this->_geomColumnFlag = true;
+                $this->geomColumnFlag = true;
             }
             // reformat mysql query output
             if (strncasecmp($type, 'set', 3) == 0
@@ -194,16 +204,16 @@ class ZoomSearchController extends AbstractController
             if (empty($type)) {
                 $type = '&nbsp;';
             }
-            $this->_columnTypes[] = $type;
-            $this->_columnNullFlags[] = $row['Null'];
-            $this->_columnCollations[]
-                = ! empty($row['Collation']) && $row['Collation'] != 'NULL'
+            $this->columnTypes[] = $type;
+            $this->columnNullFlags[] = $row['Null'];
+            $this->columnCollations[]
+                = ! empty($row['Collation']) && $row['Collation'] !== 'NULL'
                 ? $row['Collation']
                 : '';
         } // end for
 
         // Retrieve foreign keys
-        $this->_foreigners = $this->relation->getForeigners($this->db, $this->table);
+        $this->foreigners = $this->relation->getForeigners($this->db, $this->table);
     }
 
     /**
@@ -224,34 +234,36 @@ class ZoomSearchController extends AbstractController
             );
         }
 
-        $column_names = $this->_columnNames;
+        $column_names = $this->columnNames;
         $criteria_column_names = $_POST['criteriaColumnNames'] ?? null;
         $keys = [];
         for ($i = 0; $i < 4; $i++) {
-            if (isset($criteria_column_names[$i])) {
-                if ($criteria_column_names[$i] != 'pma_null') {
-                    $keys[$criteria_column_names[$i]] = array_search($criteria_column_names[$i], $column_names);
-                }
+            if (! isset($criteria_column_names[$i])) {
+                continue;
             }
+
+            if ($criteria_column_names[$i] === 'pma_null') {
+                continue;
+            }
+
+            $keys[$criteria_column_names[$i]] = array_search($criteria_column_names[$i], $column_names);
         }
 
-        $this->response->addHTML(
-            $this->template->render('table/zoom_search/index', [
-                'db' => $this->db,
-                'table' => $this->table,
-                'goto' => $goto,
-                'self' => $this,
-                'geom_column_flag' => $this->_geomColumnFlag,
-                'column_names' => $column_names,
-                'data_label' => $dataLabel,
-                'keys' => $keys,
-                'criteria_column_names' => $criteria_column_names,
-                'criteria_column_types' => $_POST['criteriaColumnTypes'] ?? null,
-                'max_plot_limit' => ! empty($_POST['maxPlotLimit'])
-                    ? intval($_POST['maxPlotLimit'])
-                    : intval($GLOBALS['cfg']['maxRowPlotLimit']),
-            ])
-        );
+        $this->render('table/zoom_search/index', [
+            'db' => $this->db,
+            'table' => $this->table,
+            'goto' => $goto,
+            'self' => $this,
+            'geom_column_flag' => $this->geomColumnFlag,
+            'column_names' => $column_names,
+            'data_label' => $dataLabel,
+            'keys' => $keys,
+            'criteria_column_names' => $criteria_column_names,
+            'criteria_column_types' => $_POST['criteriaColumnTypes'] ?? null,
+            'max_plot_limit' => ! empty($_POST['maxPlotLimit'])
+                ? intval($_POST['maxPlotLimit'])
+                : intval($GLOBALS['cfg']['maxRowPlotLimit']),
+        ]);
     }
 
     /**
@@ -262,8 +274,8 @@ class ZoomSearchController extends AbstractController
     public function getDataRowAction()
     {
         $extra_data = [];
-        $row_info_query = 'SELECT * FROM `' . $_POST['db'] . '`.`'
-            . $_POST['table'] . '` WHERE ' . $_POST['where_clause'];
+        $row_info_query = 'SELECT * FROM ' . Util::backquote($_POST['db']) . '.'
+            . Util::backquote($_POST['table']) . ' WHERE ' . $_POST['where_clause'];
         $result = $this->dbi->query(
             $row_info_query . ';',
             DatabaseInterface::CONNECT_USER,
@@ -274,7 +286,7 @@ class ZoomSearchController extends AbstractController
             // for bit fields we need to convert them to printable form
             $i = 0;
             foreach ($row as $col => $val) {
-                if ($fields_meta[$i]->type == 'bit') {
+                if ($fields_meta[$i]->type === 'bit') {
                     $row[$col] = Util::printableBitValue(
                         (int) $val,
                         (int) $fields_meta[$i]->length
@@ -295,14 +307,15 @@ class ZoomSearchController extends AbstractController
     public function changeTableInfoAction()
     {
         $field = $_POST['field'];
-        if ($field == 'pma_null') {
+        if ($field === 'pma_null') {
             $this->response->addJSON('field_type', '');
             $this->response->addJSON('field_collation', '');
             $this->response->addJSON('field_operators', '');
             $this->response->addJSON('field_value', '');
+
             return;
         }
-        $key = array_search($field, $this->_columnNames);
+        $key = array_search($field, $this->columnNames);
         $search_index
             = (isset($_POST['it']) && is_numeric($_POST['it'])
             ? intval($_POST['it']) : 0);
@@ -348,13 +361,11 @@ class ZoomSearchController extends AbstractController
             }
             //Get unique condition on each row (will be needed for row update)
             $uniqueCondition = Util::getUniqueCondition(
-                $result, // handle
-                count($this->_columnNames), // fields_cnt
-                $fields_meta, // fields_meta
-                $tmpRow, // row
-                true, // force_unique
-                false, // restrict_to_table
-                null // analyzed_sql_results
+                $result,
+                count($this->columnNames),
+                $fields_meta,
+                $tmpRow,
+                true
             );
             //Append it to row array as where_clause
             $row['where_clause'] = $uniqueCondition[0];
@@ -380,27 +391,25 @@ class ZoomSearchController extends AbstractController
         ];
         $column_names_hashes = [];
 
-        foreach ($this->_columnNames as $columnName) {
+        foreach ($this->columnNames as $columnName) {
             $column_names_hashes[$columnName] = md5($columnName);
         }
 
-        $this->response->addHTML(
-            $this->template->render('table/zoom_search/result_form', [
-                'db' => $this->db,
-                'table' => $this->table,
-                'column_names' => $this->_columnNames,
-                'column_names_hashes' => $column_names_hashes,
-                'foreigners' => $this->_foreigners,
-                'column_null_flags' => $this->_columnNullFlags,
-                'column_types' => $this->_columnTypes,
-                'titles' => $titles,
-                'goto' => $goto,
-                'data' => $data,
-                'data_json' => json_encode($data),
-                'zoom_submit' => isset($_POST['zoom_submit']),
-                'foreign_max_limit' => $GLOBALS['cfg']['ForeignKeyMaxLimit'],
-            ])
-        );
+        $this->render('table/zoom_search/result_form', [
+            'db' => $this->db,
+            'table' => $this->table,
+            'column_names' => $this->columnNames,
+            'column_names_hashes' => $column_names_hashes,
+            'foreigners' => $this->foreigners,
+            'column_null_flags' => $this->columnNullFlags,
+            'column_types' => $this->columnTypes,
+            'titles' => $titles,
+            'goto' => $goto,
+            'data' => $data,
+            'data_json' => json_encode($data),
+            'zoom_submit' => isset($_POST['zoom_submit']),
+            'foreign_max_limit' => $GLOBALS['cfg']['ForeignKeyMaxLimit'],
+        ]);
     }
 
     /**
@@ -423,12 +432,13 @@ class ZoomSearchController extends AbstractController
             ),
         ];
         //Gets column's type and collation
-        $type = $this->_columnTypes[$column_index];
-        $collation = $this->_columnCollations[$column_index];
+        $type = $this->columnTypes[$column_index];
+        $collation = $this->columnCollations[$column_index];
+        $cleanType = preg_replace('@\(.*@s', '', $type);
         //Gets column's comparison operators depending on column type
         $typeOperators = $this->dbi->types->getTypeOperatorsHtml(
-            preg_replace('@\(.*@s', '', $this->_columnTypes[$column_index]),
-            $this->_columnNullFlags[$column_index],
+            $cleanType,
+            $this->columnNullFlags[$column_index],
             $selected_operator
         );
         $func = $this->template->render('table/search/column_comparison_operators', [
@@ -437,20 +447,39 @@ class ZoomSearchController extends AbstractController
         ]);
         //Gets link to browse foreign data(if any) and criteria inputbox
         $foreignData = $this->relation->getForeignData(
-            $this->_foreigners,
-            $this->_columnNames[$column_index],
+            $this->foreigners,
+            $this->columnNames[$column_index],
             false,
             '',
             ''
         );
+        $htmlAttributes = '';
+        if (in_array($cleanType, $this->dbi->types->getIntegerTypes())) {
+            $extractedColumnspec = Util::extractColumnSpec(
+                $this->originalColumnTypes[$column_index]
+            );
+            $is_unsigned = $extractedColumnspec['unsigned'];
+            $minMaxValues = $this->dbi->types->getIntegerRange(
+                $cleanType,
+                ! $is_unsigned
+            );
+            $htmlAttributes = 'data-min="' . $minMaxValues[0] . '" '
+                            . 'data-max="' . $minMaxValues[1] . '"';
+        }
+
+        $htmlAttributes .= ' onchange="return '
+                        . 'verifyAfterSearchFieldChange(' . $column_index . ', \'#zoom_search_form\')"';
+
         $value = $this->template->render('table/search/input_box', [
             'str' => '',
             'column_type' => (string) $type,
+            'column_data_type' => strtoupper($cleanType),
+            'html_attributes' => $htmlAttributes,
             'column_id' => 'fieldID_',
             'in_zoom_search_edit' => false,
-            'foreigners' => $this->_foreigners,
-            'column_name' => $this->_columnNames[$column_index],
-            'column_name_hash' => md5($this->_columnNames[$column_index]),
+            'foreigners' => $this->foreigners,
+            'column_name' => $this->columnNames[$column_index],
+            'column_name_hash' => md5($this->columnNames[$column_index]),
             'foreign_data' => $foreignData,
             'table' => $this->table,
             'column_index' => $search_index,
@@ -460,6 +489,7 @@ class ZoomSearchController extends AbstractController
             'titles' => $titles,
             'in_fbs' => true,
         ]);
+
         return [
             'type' => $type,
             'collation' => $collation,

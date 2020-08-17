@@ -2,6 +2,7 @@
 /**
  * Holds the PhpMyAdmin\Database\Designer class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Database;
@@ -17,6 +18,7 @@ use PhpMyAdmin\Util;
 use stdClass;
 use function count;
 use function intval;
+use function is_array;
 use function json_decode;
 use function json_encode;
 use function strpos;
@@ -58,6 +60,7 @@ class Designer
     public function getHtmlForEditOrDeletePages($db, $operation)
     {
         $cfgRelation = $this->relation->getRelationsParam();
+
         return $this->template->render('database/designer/edit_delete_pages', [
             'db' => $db,
             'operation' => $operation,
@@ -76,6 +79,7 @@ class Designer
     public function getHtmlForPageSaveAs($db)
     {
         $cfgRelation = $this->relation->getRelationsParam();
+
         return $this->template->render('database/designer/page_save_as', [
             'db' => $db,
             'pdfwork' => $cfgRelation['pdfwork'],
@@ -112,6 +116,7 @@ class Designer
         while ($curr_page = $this->dbi->fetchAssoc($page_rs)) {
             $result[intval($curr_page['page_nr'])] = $curr_page['page_descr'];
         }
+
         return $result;
     }
 
@@ -154,6 +159,9 @@ class Designer
      */
     private function getSideMenuParamsArray()
     {
+        /** @var DatabaseInterface $dbi */
+        global $dbi;
+
         $params = [];
 
         $cfgRelation = $this->relation->getRelationsParam();
@@ -163,7 +171,7 @@ class Designer
                 . Util::backquote($cfgRelation['db']) . '.'
                 . Util::backquote($cfgRelation['designer_settings'])
                 . ' WHERE ' . Util::backquote('username') . ' = "'
-                . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user'])
+                . $dbi->escapeString($GLOBALS['cfg']['Server']['user'])
                 . '";';
 
             $result = $this->dbi->fetchSingleRow($query);
@@ -186,7 +194,7 @@ class Designer
         $params_array = $this->getSideMenuParamsArray();
 
         if (isset($params_array['angular_direct'])
-            && $params_array['angular_direct'] == 'angular'
+            && $params_array['angular_direct'] === 'angular'
         ) {
             $classes_array['angular_direct'] = 'M_butt_Selected_down';
         } else {
@@ -194,7 +202,7 @@ class Designer
         }
 
         if (isset($params_array['snap_to_grid'])
-            && $params_array['snap_to_grid'] == 'on'
+            && $params_array['snap_to_grid'] === 'on'
         ) {
             $classes_array['snap_to_grid'] = 'M_butt_Selected_down';
         } else {
@@ -202,7 +210,7 @@ class Designer
         }
 
         if (isset($params_array['pin_text'])
-            && $params_array['pin_text'] == 'true'
+            && $params_array['pin_text'] === 'true'
         ) {
             $classes_array['pin_text'] = 'M_butt_Selected_down';
         } else {
@@ -210,7 +218,7 @@ class Designer
         }
 
         if (isset($params_array['relation_lines'])
-            && $params_array['relation_lines'] == 'false'
+            && $params_array['relation_lines'] === 'false'
         ) {
             $classes_array['relation_lines'] = 'M_butt_Selected_down';
         } else {
@@ -218,7 +226,7 @@ class Designer
         }
 
         if (isset($params_array['small_big_all'])
-            && $params_array['small_big_all'] == 'v'
+            && $params_array['small_big_all'] === 'v'
         ) {
             $classes_array['small_big_all'] = 'M_butt_Selected_down';
         } else {
@@ -226,7 +234,7 @@ class Designer
         }
 
         if (isset($params_array['side_menu'])
-            && $params_array['side_menu'] == 'true'
+            && $params_array['side_menu'] === 'true'
         ) {
             $classes_array['side_menu'] = 'M_butt_Selected_down';
         } else {
@@ -284,6 +292,7 @@ class Designer
                 }
             }
         }
+
         return $this->template->render('database/designer/database_tables', [
             'db' => $GLOBALS['db'],
             'get_db' => $db,
@@ -365,9 +374,11 @@ class Designer
 
         $displayedFields = [];
         foreach ($scriptDisplayField as $designerTable) {
-            if ($designerTable->getDisplayField() !== null) {
-                $displayedFields[$designerTable->getTableName()] = $designerTable->getDisplayField();
+            if ($designerTable->getDisplayField() === null) {
+                continue;
             }
+
+            $displayedFields[$designerTable->getTableName()] = $designerTable->getDisplayField();
         }
 
         $designerConfig = new stdClass();

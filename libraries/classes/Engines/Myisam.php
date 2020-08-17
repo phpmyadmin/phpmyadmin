@@ -2,6 +2,7 @@
 /**
  * The MyISAM storage engine
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Engines;
@@ -74,9 +75,7 @@ class Myisam extends StorageEngine
             ],
             'myisam_stats_method'             => [],
             'delay_key_write'                 => [],
-            'bulk_insert_buffer_size'         => [
-                'type' => PMA_ENGINE_DETAILS_TYPE_SIZE,
-            ],
+            'bulk_insert_buffer_size'         => ['type' => PMA_ENGINE_DETAILS_TYPE_SIZE],
             'skip_external_locking'           => [],
         ];
     }

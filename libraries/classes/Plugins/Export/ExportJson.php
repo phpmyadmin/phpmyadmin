@@ -2,6 +2,7 @@
 /**
  * Set of methods used to build dumps of tables as JSON
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
@@ -13,18 +14,19 @@ use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
+use const JSON_PRETTY_PRINT;
+use const JSON_UNESCAPED_UNICODE;
 use function bin2hex;
 use function explode;
 use function json_encode;
 use function stripslashes;
-use const JSON_PRETTY_PRINT;
-use const JSON_UNESCAPED_UNICODE;
 
 /**
  * Handles the export for the JSON format
  */
 class ExportJson extends ExportPlugin
 {
+    /** @var bool */
     private $first = true;
 
     public function __construct()
@@ -53,6 +55,7 @@ class ExportJson extends ExportPlugin
         ) {
             $options |= JSON_UNESCAPED_UNICODE;
         }
+
         return json_encode($data, $options);
     }
 
@@ -226,7 +229,7 @@ class ExportJson extends ExportPlugin
                 'data' => '@@DATA@@',
             ]
         );
-        list($header, $footer) = explode('"@@DATA@@"', $buffer);
+        [$header, $footer] = explode('"@@DATA@@"', $buffer);
 
         if (! $this->export->outputHandler($header . $crlf . '[' . $crlf)) {
             return false;
@@ -305,7 +308,7 @@ class ExportJson extends ExportPlugin
                 'data' => '@@DATA@@',
             ]
         );
-        list($header, $footer) = explode('"@@DATA@@"', $buffer);
+        [$header, $footer] = explode('"@@DATA@@"', $buffer);
 
         if (! $this->export->outputHandler($header . $crlf . '[' . $crlf)) {
             return false;

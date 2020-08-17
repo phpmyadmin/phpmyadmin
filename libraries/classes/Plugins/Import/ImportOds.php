@@ -5,6 +5,7 @@
  * @todo       Pretty much everything
  * @todo       Importing of accented characters seems to fail
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
@@ -17,6 +18,7 @@ use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use SimpleXMLElement;
+use const LIBXML_COMPACT;
 use function count;
 use function implode;
 use function libxml_disable_entity_loader;
@@ -24,7 +26,6 @@ use function rtrim;
 use function simplexml_load_string;
 use function strcmp;
 use function strlen;
-use const LIBXML_COMPACT;
 
 /**
  * Handles the import for the ODS format
@@ -120,14 +121,15 @@ class ImportOds extends ImportPlugin
                 /* subtract data we didn't handle yet and stop processing */
                 $GLOBALS['offset'] -= strlen($buffer);
                 break;
-            } elseif ($data !== true) {
-                /* Append new data to buffer */
-                $buffer .= $data;
-                unset($data);
             }
-        }
 
-        unset($data);
+            if ($data === true) {
+                continue;
+            }
+
+            /* Append new data to buffer */
+            $buffer .= $data;
+        }
 
         /**
          * Disable loading of external XML entities.
@@ -168,160 +170,7 @@ class ImportOds extends ImportPlugin
             }
         }
 
-        $tables = [];
-
-        $max_cols = 0;
-
-        $col_count = 0;
-        $col_names = [];
-
-        $tempRow = [];
-        $tempRows = [];
-        $rows = [];
-
-        /* Iterate over tables */
-        /** @var SimpleXMLElement $sheet */
-        foreach ($sheets as $sheet) {
-            $col_names_in_first_row = isset($_REQUEST['ods_col_names']);
-
-            /* Iterate over rows */
-            /** @var SimpleXMLElement $row */
-            foreach ($sheet as $row) {
-                $type = $row->getName();
-                if (strcmp('table-row', $type)) {
-                    continue;
-                }
-                /* Iterate over columns */
-                $cellCount = $row->count();
-                $a = 0;
-                /** @var SimpleXMLElement $cell */
-                foreach ($row as $cell) {
-                    $a++;
-                    $text = $cell->children('text', true);
-                    $cell_attrs = $cell->attributes('office', true);
-
-                    if ($text->count() != 0) {
-                        $attr = $cell->attributes('table', true);
-                        $num_repeat = (int) $attr['number-columns-repeated'];
-                        $num_iterations = $num_repeat ?: 1;
-
-                        for ($k = 0; $k < $num_iterations; $k++) {
-                            $value = $this->getValue($cell_attrs, $text);
-                            if (! $col_names_in_first_row) {
-                                $tempRow[] = $value;
-                            } else {
-                                // MySQL column names can't end with a space
-                                // character.
-                                $col_names[] = rtrim($value);
-                            }
-
-                            ++$col_count;
-                        }
-                        continue;
-                    }
-
-                    // skip empty repeats in the last row
-                    if ($a == $cellCount) {
-                        continue;
-                    }
-
-                    $attr = $cell->attributes('table', true);
-                    $num_null = (int) $attr['number-columns-repeated'];
-
-                    if ($num_null) {
-                        if (! $col_names_in_first_row) {
-                            for ($i = 0; $i < $num_null; ++$i) {
-                                $tempRow[] = 'NULL';
-                                ++$col_count;
-                            }
-                        } else {
-                            for ($i = 0; $i < $num_null; ++$i) {
-                                $col_names[] = $this->import->getColumnAlphaName(
-                                    $col_count + 1
-                                );
-                                ++$col_count;
-                            }
-                        }
-                    } else {
-                        if (! $col_names_in_first_row) {
-                            $tempRow[] = 'NULL';
-                        } else {
-                            $col_names[] = $this->import->getColumnAlphaName(
-                                $col_count + 1
-                            );
-                        }
-
-                        ++$col_count;
-                    }
-                } //Endforeach
-
-                /* Find the widest row */
-                if ($col_count > $max_cols) {
-                    $max_cols = $col_count;
-                }
-
-                /* Don't include a row that is full of NULL values */
-                if (! $col_names_in_first_row) {
-                    if ($_REQUEST['ods_empty_rows']) {
-                        foreach ($tempRow as $cell) {
-                            if (strcmp('NULL', $cell)) {
-                                $tempRows[] = $tempRow;
-                                break;
-                            }
-                        }
-                    } else {
-                        $tempRows[] = $tempRow;
-                    }
-                }
-
-                $col_count = 0;
-                $col_names_in_first_row = false;
-                $tempRow = [];
-            }
-
-            /* Skip over empty sheets */
-            if (count($tempRows) == 0 || count($tempRows[0]) === 0) {
-                $col_names = [];
-                $tempRow = [];
-                $tempRows = [];
-                continue;
-            }
-
-            /**
-             * Fill out each row as necessary to make
-             * every one exactly as wide as the widest
-             * row. This included column names.
-             */
-
-            /* Fill out column names */
-            for ($i = count($col_names); $i < $max_cols; ++$i) {
-                $col_names[] = $this->import->getColumnAlphaName($i + 1);
-            }
-
-            /* Fill out all rows */
-            $num_rows = count($tempRows);
-            for ($i = 0; $i < $num_rows; ++$i) {
-                for ($j = count($tempRows[$i]); $j < $max_cols; ++$j) {
-                    $tempRows[$i][] = 'NULL';
-                }
-            }
-
-            /* Store the table name so we know where to place the row set */
-            $tbl_attr = $sheet->attributes('table', true);
-            $tables[] = [(string) $tbl_attr['name']];
-
-            /* Store the current sheet in the accumulator */
-            $rows[] = [
-                (string) $tbl_attr['name'],
-                $col_names,
-                $tempRows,
-            ];
-            $tempRows = [];
-            $col_names = [];
-            $max_cols = 0;
-        }
-
-        unset($tempRow, $tempRows, $col_names, $sheets, $xml);
+        [$tables, $rows] = $this->iterateOverTables($sheets);
 
         /**
          * Bring accumulated rows into the corresponding table
@@ -368,7 +217,7 @@ class ImportOds extends ImportPlugin
          */
 
         /* Set database name to the currently selected one, if applicable */
-        list($db_name, $options) = $this->getDbnameAndOptions($db, 'ODS_DB');
+        [$db_name, $options] = $this->getDbnameAndOptions($db, 'ODS_DB');
 
         /* Non-applicable parameters */
         $create = null;
@@ -398,15 +247,13 @@ class ImportOds extends ImportPlugin
                 (string) $cell_attrs['value-type']
             )
         ) {
-            $value = (float) $cell_attrs['value'];
+            return (float) $cell_attrs['value'];
+        }
 
-            return $value;
-        } elseif ($_REQUEST['ods_recognize_currency']
+        if ($_REQUEST['ods_recognize_currency']
             && ! strcmp('currency', (string) $cell_attrs['value-type'])
         ) {
-            $value = (float) $cell_attrs['value'];
-
-            return $value;
+            return (float) $cell_attrs['value'];
         }
 
         /* We need to concatenate all paragraphs */
@@ -414,8 +261,205 @@ class ImportOds extends ImportPlugin
         foreach ($text as $paragraph) {
             $values[] = (string) $paragraph;
         }
-        $value = implode("\n", $values);
 
-        return $value;
+        return implode("\n", $values);
+    }
+
+    private function iterateOverColumns(
+        SimpleXMLElement $row,
+        bool $col_names_in_first_row,
+        array $tempRow,
+        array $col_names,
+        int $col_count
+    ): array {
+        $cellCount = $row->count();
+        $a = 0;
+        /** @var SimpleXMLElement $cell */
+        foreach ($row as $cell) {
+            $a++;
+            $text = $cell->children('text', true);
+            $cell_attrs = $cell->attributes('office', true);
+
+            if ($text->count() != 0) {
+                $attr = $cell->attributes('table', true);
+                $num_repeat = (int) $attr['number-columns-repeated'];
+                $num_iterations = $num_repeat ?: 1;
+
+                for ($k = 0; $k < $num_iterations; $k++) {
+                    $value = $this->getValue($cell_attrs, $text);
+                    if (! $col_names_in_first_row) {
+                        $tempRow[] = $value;
+                    } else {
+                        // MySQL column names can't end with a space
+                        // character.
+                        $col_names[] = rtrim($value);
+                    }
+
+                    ++$col_count;
+                }
+                continue;
+            }
+
+            // skip empty repeats in the last row
+            if ($a == $cellCount) {
+                continue;
+            }
+
+            $attr = $cell->attributes('table', true);
+            $num_null = (int) $attr['number-columns-repeated'];
+
+            if ($num_null) {
+                if (! $col_names_in_first_row) {
+                    for ($i = 0; $i < $num_null; ++$i) {
+                        $tempRow[] = 'NULL';
+                        ++$col_count;
+                    }
+                } else {
+                    for ($i = 0; $i < $num_null; ++$i) {
+                        $col_names[] = $this->import->getColumnAlphaName(
+                            $col_count + 1
+                        );
+                        ++$col_count;
+                    }
+                }
+            } else {
+                if (! $col_names_in_first_row) {
+                    $tempRow[] = 'NULL';
+                } else {
+                    $col_names[] = $this->import->getColumnAlphaName(
+                        $col_count + 1
+                    );
+                }
+
+                ++$col_count;
+            }
+        }
+
+        return [$tempRow, $col_names, $col_count];
+    }
+
+    private function iterateOverRows(
+        SimpleXMLElement $sheet,
+        bool $col_names_in_first_row,
+        array $tempRow,
+        array $col_names,
+        int $col_count,
+        int $max_cols,
+        array $tempRows
+    ): array {
+        /** @var SimpleXMLElement $row */
+        foreach ($sheet as $row) {
+            $type = $row->getName();
+            if (strcmp('table-row', $type)) {
+                continue;
+            }
+
+            [$tempRow, $col_names, $col_count] = $this->iterateOverColumns(
+                $row,
+                $col_names_in_first_row,
+                $tempRow,
+                $col_names,
+                $col_count
+            );
+
+            /* Find the widest row */
+            if ($col_count > $max_cols) {
+                $max_cols = $col_count;
+            }
+
+            /* Don't include a row that is full of NULL values */
+            if (! $col_names_in_first_row) {
+                if ($_REQUEST['ods_empty_rows']) {
+                    foreach ($tempRow as $cell) {
+                        if (strcmp('NULL', $cell)) {
+                            $tempRows[] = $tempRow;
+                            break;
+                        }
+                    }
+                } else {
+                    $tempRows[] = $tempRow;
+                }
+            }
+
+            $col_count = 0;
+            $col_names_in_first_row = false;
+            $tempRow = [];
+        }
+
+        return [$tempRow, $col_names, $max_cols, $tempRows];
+    }
+
+    /**
+     * @param array|SimpleXMLElement $sheets Sheets of the spreadsheet.
+     *
+     * @return array|array[]
+     */
+    private function iterateOverTables($sheets): array
+    {
+        $tables = [];
+        $max_cols = 0;
+        $col_count = 0;
+        $col_names = [];
+        $tempRow = [];
+        $tempRows = [];
+        $rows = [];
+
+        /** @var SimpleXMLElement $sheet */
+        foreach ($sheets as $sheet) {
+            $col_names_in_first_row = isset($_REQUEST['ods_col_names']);
+
+            [$tempRow, $col_names, $max_cols, $tempRows] = $this->iterateOverRows(
+                $sheet,
+                $col_names_in_first_row,
+                $tempRow,
+                $col_names,
+                $col_count,
+                $max_cols,
+                $tempRows
+            );
+
+            /* Skip over empty sheets */
+            if (count($tempRows) == 0 || count($tempRows[0]) === 0) {
+                $col_names = [];
+                $tempRow = [];
+                $tempRows = [];
+                continue;
+            }
+
+            /**
+             * Fill out each row as necessary to make
+             * every one exactly as wide as the widest
+             * row. This included column names.
+             */
+
+            /* Fill out column names */
+            for ($i = count($col_names); $i < $max_cols; ++$i) {
+                $col_names[] = $this->import->getColumnAlphaName($i + 1);
+            }
+
+            /* Fill out all rows */
+            $num_rows = count($tempRows);
+            for ($i = 0; $i < $num_rows; ++$i) {
+                for ($j = count($tempRows[$i]); $j < $max_cols; ++$j) {
+                    $tempRows[$i][] = 'NULL';
+                }
+            }
+
+            /* Store the table name so we know where to place the row set */
+            $tbl_attr = $sheet->attributes('table', true);
+            $tables[] = [(string) $tbl_attr['name']];
+
+            /* Store the current sheet in the accumulator */
+            $rows[] = [
+                (string) $tbl_attr['name'],
+                $col_names,
+                $tempRows,
+            ];
+            $tempRows = [];
+            $col_names = [];
+            $max_cols = 0;
+        }
+
+        return [$tables, $rows];
     }
 }

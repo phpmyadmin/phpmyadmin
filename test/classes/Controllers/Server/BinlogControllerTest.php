@@ -2,30 +2,32 @@
 /**
  * Holds BinlogControllerTest
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\BinlogController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for BinlogController class
  */
-class BinlogControllerTest extends TestCase
+class BinlogControllerTest extends AbstractTestCase
 {
     /**
      * Prepares environment for the test.
      */
     protected function setUp(): void
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setUp();
+        $GLOBALS['text_dir'] = 'ltr';
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
 
         $GLOBALS['cfg']['MaxRows'] = 10;
@@ -92,7 +94,7 @@ class BinlogControllerTest extends TestCase
         $dbi->expects($this->at(3))->method('fetchAssoc')
             ->will($this->returnValue($value));
         $dbi->expects($this->at(4))->method('fetchAssoc')
-            ->will($this->returnValue(false));
+            ->will($this->returnValue(null));
 
         $response = new Response();
 

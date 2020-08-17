@@ -1,41 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Parameter \\#1 \\$function of function register_shutdown_function expects callable\\(\\)\\: void, Closure\\(\\)\\: mixed given\\.$#"
-			count: 1
-			path: js/messages.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Advisor\\:\\:\\$dbi has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Advisor.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Advisor\\:\\:\\$variables has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Advisor.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Advisor\\:\\:\\$globals has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Advisor.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Advisor\\:\\:\\$parseResult has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Advisor.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Advisor\\:\\:\\$runResult has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Advisor.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Advisor\\:\\:\\$expression has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Advisor.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Advisor\\:\\:escapePercent\\(\\) should return string but returns string\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Advisor.php
@@ -44,16 +9,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Advisor.php
-
-		-
-			message: "#^Cannot access offset 'db' on array\\|true\\.$#"
-			count: 4
-			path: libraries/classes/Bookmark.php
-
-		-
-			message: "#^Cannot access offset 'table' on array\\|true\\.$#"
-			count: 4
-			path: libraries/classes/Bookmark.php
 
 		-
 			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, string\\|null given\\.$#"
@@ -66,39 +21,9 @@ parameters:
 			path: libraries/classes/Bookmark.php
 
 		-
-			message: "#^Cannot access offset 'user' on array\\|true\\.$#"
-			count: 2
-			path: libraries/classes/Bookmark.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, string\\|true given\\.$#"
 			count: 1
 			path: libraries/classes/Bookmark.php
-
-		-
-			message: "#^Parameter \\#3 \\$row of static method PhpMyAdmin\\\\Bookmark\\:\\:createFromRow\\(\\) expects array, array\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/Bookmark.php
-
-		-
-			message: "#^Parameter \\#3 \\$pageNow of static method PhpMyAdmin\\\\Util\\:\\:pageselector\\(\\) expects int, float given\\.$#"
-			count: 1
-			path: libraries/classes/BrowseForeigners.php
-
-		-
-			message: "#^Parameter \\#4 \\$nbTotalPage of static method PhpMyAdmin\\\\Util\\:\\:pageselector\\(\\) expects int, float\\|int given\\.$#"
-			count: 1
-			path: libraries/classes/BrowseForeigners.php
-
-		-
-			message: "#^Cannot access offset 'db' on array\\|true\\.$#"
-			count: 8
-			path: libraries/classes/CentralColumns.php
-
-		-
-			message: "#^Cannot access offset 'table' on array\\|true\\.$#"
-			count: 8
-			path: libraries/classes/CentralColumns.php
 
 		-
 			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Message\\:\\:rawError\\(\\) expects string, bool\\|string given\\.$#"
@@ -116,39 +41,9 @@ parameters:
 			path: libraries/classes/CentralColumns.php
 
 		-
-			message: "#^Parameter \\#4 \\$nbTotalPage of static method PhpMyAdmin\\\\Util\\:\\:pageselector\\(\\) expects int, float\\|int\\<2, max\\> given\\.$#"
-			count: 1
-			path: libraries/classes/CentralColumns.php
-
-		-
-			message: "#^Cannot access offset 'Charset' on \\(array\\)\\|true\\.$#"
-			count: 2
-			path: libraries/classes/Charsets.php
-
-		-
-			message: "#^Parameter \\#1 \\$state of static method PhpMyAdmin\\\\Charsets\\\\Charset\\:\\:fromServer\\(\\) expects array, \\(array\\)\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/Charsets.php
-
-		-
-			message: "#^Cannot access offset 'Collation' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Charsets.php
-
-		-
-			message: "#^Parameter \\#1 \\$state of static method PhpMyAdmin\\\\Charsets\\\\Collation\\:\\:fromServer\\(\\) expects array, \\(array\\)\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/Charsets.php
-
-		-
 			message: "#^Strict comparison using \\=\\=\\= between array\\<int, string\\> and false will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Charsets.php
-
-		-
-			message: "#^Cannot access offset 0 on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/CheckUserPrivileges.php
 
 		-
 			message: "#^Parameter \\#1 \\$str of function mb_substr expects string, bool\\|string given\\.$#"
@@ -156,43 +51,13 @@ parameters:
 			path: libraries/classes/CheckUserPrivileges.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$default_source_mtime has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Config.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$set_mtime has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Config.php
-
-		-
-			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Config.php
-
-		-
-			message: "#^Parameter \\#2 \\$str of function explode expects string, string\\|false given\\.$#"
-			count: 2
-			path: libraries/classes/Config.php
-
-		-
-			message: "#^Parameter \\#1 \\$character of function ord expects string, string\\|false given\\.$#"
-			count: 2
-			path: libraries/classes/Config.php
-
-		-
-			message: "#^Parameter \\#1 \\$data of function gzuncompress expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Config.php
-
-		-
-			message: "#^Parameter \\#1 \\$json of function json_decode expects string, string\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/Config.php
-
-		-
 			message: "#^Parameter \\#1 \\$new_error_level of function error_reporting expects int, int\\|null given\\.$#"
 			count: 2
+			path: libraries/classes/Config.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$default_source_mtime \\(int\\) does not accept int\\|false\\.$#"
+			count: 1
 			path: libraries/classes/Config.php
 
 		-
@@ -206,7 +71,7 @@ parameters:
 			path: libraries/classes/Config.php
 
 		-
-			message: "#^Cannot access offset 'path' on array\\(\\)\\|array\\('scheme' \\=\\> string, 'host' \\=\\> string, 'port' \\=\\> int, 'user' \\=\\> string, 'pass' \\=\\> string, 'path' \\=\\> string, 'query' \\=\\> string, 'fragment' \\=\\> string\\)\\|false\\.$#"
+			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, string\\|false\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Config.php
 
@@ -251,17 +116,12 @@ parameters:
 			path: libraries/classes/Config/FormDisplay.php
 
 		-
-			message: "#^Parameter \\#4 \\$workPath of method PhpMyAdmin\\\\Config\\\\FormDisplay\\:\\:_displayFieldInput\\(\\) expects string, int\\|string\\|false given\\.$#"
+			message: "#^Parameter \\#4 \\$workPath of method PhpMyAdmin\\\\Config\\\\FormDisplay\\:\\:displayFieldInput\\(\\) expects string, int\\|string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Config/FormDisplay.php
 
 		-
 			message: "#^Parameter \\#1 \\$path of method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:set\\(\\) expects string, int\\|string given\\.$#"
-			count: 2
-			path: libraries/classes/Config/FormDisplay.php
-
-		-
-			message: "#^Call to function is_bool\\(\\) with string will always evaluate to false\\.$#"
 			count: 2
 			path: libraries/classes/Config/FormDisplay.php
 
@@ -286,24 +146,9 @@ parameters:
 			path: libraries/classes/Config/FormDisplayTemplate.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Config\\\\Forms\\\\BaseFormList\\:\\:\\$all has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Config/Forms/BaseFormList.php
-
-		-
 			message: "#^Cannot call static method getFields\\(\\) on string\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Config/Forms/BaseFormList.php
-
-		-
-			message: "#^Result of && is always false\\.$#"
-			count: 1
-			path: libraries/classes/Config/ServerConfigChecks.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between string and null will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Config/ServerConfigChecks.php
 
 		-
 			message: "#^Parameter \\#1 \\$function of function call_user_func_array expects callable\\(\\)\\: mixed, string given\\.$#"
@@ -317,11 +162,6 @@ parameters:
 
 		-
 			message: "#^Else branch is unreachable because previous condition is always true\\.$#"
-			count: 1
-			path: libraries/classes/Config/Validator.php
-
-		-
-			message: "#^Parameter \\#3 \\$password of function mysql_connect expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Config/Validator.php
 
@@ -366,21 +206,6 @@ parameters:
 			path: libraries/classes/Controllers/ChangeLogController.php
 
 		-
-			message: "#^Cannot access offset 'foreign_table' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/DataDictionaryController.php
-
-		-
-			message: "#^Cannot access offset 'foreign_field' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/DataDictionaryController.php
-
-		-
-			message: "#^Cannot access offset mixed on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/DataDictionaryController.php
-
-		-
 			message: "#^Parameter \\#1 \\$state of method PhpMyAdmin\\\\Response\\:\\:setRequestStatus\\(\\) expects bool, bool\\|string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/DesignerController.php
@@ -403,11 +228,6 @@ parameters:
 		-
 			message: "#^Negated boolean expression is always true\\.$#"
 			count: 6
-			path: libraries/classes/Controllers/Database/OperationsController.php
-
-		-
-			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:getMessage\\(\\) expects PhpMyAdmin\\\\Message\\|string, null given\\.$#"
-			count: 1
 			path: libraries/classes/Controllers/Database/OperationsController.php
 
 		-
@@ -441,21 +261,6 @@ parameters:
 			path: libraries/classes/Controllers/ExportController.php
 
 		-
-			message: "#^Cannot call method generateParams\\(\\) on PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\|PhpMyAdmin\\\\Gis\\\\GisLineString\\|PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\|PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\|PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\|PhpMyAdmin\\\\Gis\\\\GisPoint\\|PhpMyAdmin\\\\Gis\\\\GisPolygon\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/GisDataEditorController.php
-
-		-
-			message: "#^Cannot call method generateWkt\\(\\) on PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\|PhpMyAdmin\\\\Gis\\\\GisLineString\\|PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\|PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\|PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\|PhpMyAdmin\\\\Gis\\\\GisPoint\\|PhpMyAdmin\\\\Gis\\\\GisPolygon\\|false\\.$#"
-			count: 2
-			path: libraries/classes/Controllers/GisDataEditorController.php
-
-		-
-			message: "#^Cannot access offset 'user' on array\\|bool\\.$#"
-			count: 3
-			path: libraries/classes/Controllers/ImportController.php
-
-		-
 			message: "#^Parameter \\#1 \\$error_message of method PhpMyAdmin\\\\Import\\:\\:stop\\(\\) expects PhpMyAdmin\\\\Message, PhpMyAdmin\\\\Message\\|null given\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/ImportController.php
@@ -467,7 +272,7 @@ parameters:
 
 		-
 			message: "#^Elseif condition is always false\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/Controllers/ImportController.php
 
 		-
@@ -481,19 +286,9 @@ parameters:
 			path: libraries/classes/Controllers/ImportController.php
 
 		-
-			message: "#^Else branch is unreachable because previous condition is always true\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/ImportController.php
-
-		-
 			message: "#^Parameter \\#1 \\$file_name of method PhpMyAdmin\\\\UserPreferences\\:\\:redirect\\(\\) expects string, string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Preferences/ManageController.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Server\\\\BinlogController\\:\\:\\$binaryLogs has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/BinlogController.php
 
 		-
 			message: "#^Argument of an invalid type array\\|null supplied for foreach, only iterables are supported\\.$#"
@@ -511,19 +306,9 @@ parameters:
 			path: libraries/classes/Controllers/Server/DatabasesController.php
 
 		-
-			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:getMessage\\(\\) expects PhpMyAdmin\\\\Message\\|string, null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/DatabasesController.php
-
-		-
 			message: "#^Strict comparison using \\=\\=\\= between mixed and null will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/PrivilegesController.php
-
-		-
-			message: "#^Parameter \\#1 \\$input of function array_keys expects array, \\(array\\)\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/Status/ProcessesController.php
 
 		-
 			message: "#^Parameter \\#1 \\$str of function mb_strtolower expects string, int\\|string given\\.$#"
@@ -531,24 +316,9 @@ parameters:
 			path: libraries/classes/Controllers/Server/Status/ProcessesController.php
 
 		-
-			message: "#^Possibly invalid array key type \\(array\\|string\\)\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/Status/QueriesController.php
-
-		-
 			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\|null given\\.$#"
 			count: 7
 			path: libraries/classes/Controllers/Server/Status/StatusController.php
-
-		-
-			message: "#^Cannot access offset 0 on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/VariablesController.php
-
-		-
-			message: "#^Cannot access offset 1 on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/VariablesController.php
 
 		-
 			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\|null given\\.$#"
@@ -556,19 +326,9 @@ parameters:
 			path: libraries/classes/Controllers/Server/VariablesController.php
 
 		-
-			message: "#^Cannot access offset 1 on array\\|bool\\.$#"
+			message: "#^Offset 1 does not exist on array\\|null\\.$#"
 			count: 3
 			path: libraries/classes/Controllers/Server/VariablesController.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between PhpMyAdmin\\\\Config\\\\Forms\\\\BaseForm and null will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Setup/FormController.php
-
-		-
-			message: "#^Instantiated class PhpMyAdmin\\\\Config\\\\Forms\\\\BaseForm is abstract\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Setup/FormController.php
 
 		-
 			message: "#^Argument of an invalid type array\\|null supplied for foreach, only iterables are supported\\.$#"
@@ -601,12 +361,7 @@ parameters:
 			path: libraries/classes/Controllers/Table/ChartController.php
 
 		-
-			message: "#^Parameter \\#1 \\$input of function array_keys expects array, \\(array\\)\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ChartController.php
-
-		-
-			message: "#^Argument of an invalid type \\(array\\)\\|true supplied for foreach, only iterables are supported\\.$#"
+			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, int\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ChartController.php
 
@@ -621,17 +376,7 @@ parameters:
 			path: libraries/classes/Controllers/Table/GisVisualizationController.php
 
 		-
-			message: "#^Cannot access offset mixed on array\\|true\\.$#"
-			count: 4
-			path: libraries/classes/Controllers/Table/ReplaceController.php
-
-		-
 			message: "#^Parameter \\#1 \\$messages of method PhpMyAdmin\\\\Message\\:\\:addMessagesString\\(\\) expects array\\<string\\>, array\\<int, PhpMyAdmin\\\\Message\\|string\\|null\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ReplaceController.php
-
-		-
-			message: "#^Argument of an invalid type array\\|true supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ReplaceController.php
 
@@ -641,22 +386,12 @@ parameters:
 			path: libraries/classes/Controllers/Table/SearchController.php
 
 		-
-			message: "#^Argument of an invalid type \\(array\\)\\|true supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/SearchController.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\SearchController\\:\\:getColumnMinMax\\(\\) should return array but returns array\\|bool\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\SearchController\\:\\:getColumnMinMax\\(\\) should return array but returns array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/SearchController.php
 
 		-
 			message: "#^Parameter \\#1 \\$selected of method PhpMyAdmin\\\\Controllers\\\\Table\\\\StructureController\\:\\:displayHtmlForColumnChange\\(\\) expects array, null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Cannot access offset mixed on array\\|bool\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/StructureController.php
 
@@ -681,44 +416,14 @@ parameters:
 			path: libraries/classes/Controllers/Table/StructureController.php
 
 		-
-			message: "#^Cannot access offset 'Key_name' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Cannot access offset 'Column_name' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/StructureController.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of function mb_strtolower expects string, array\\<string\\>\\|string given\\.$#"
 			count: 1
-			path: libraries/classes/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: "#^Argument of an invalid type \\(array\\)\\|true supplied for foreach, only iterables are supported\\.$#"
-			count: 2
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
 		-
 			message: "#^Parameter \\#2 \\$column_index of method PhpMyAdmin\\\\Controllers\\\\Table\\\\ZoomSearchController\\:\\:getColumnProperties\\(\\) expects int, int\\|string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: "#^Cannot access offset 'where_clause' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: "#^Cannot access offset mixed on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/TransformationWrapperController.php
-
-		-
-			message: "#^Cannot access offset mixed on \\(array\\)\\|true\\.$#"
-			count: 3
-			path: libraries/classes/Controllers/TransformationWrapperController.php
 
 		-
 			message: "#^Parameter \\#1 \\$im of function imagesx expects resource, resource\\|false given\\.$#"
@@ -761,11 +466,6 @@ parameters:
 			path: libraries/classes/Controllers/ViewCreateController.php
 
 		-
-			message: "#^Cannot access offset 'ALGORITHM' on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/ViewCreateController.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Core\\:\\:securePath\\(\\) should return string but returns string\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Core.php
@@ -786,12 +486,12 @@ parameters:
 			path: libraries/classes/Core.php
 
 		-
-			message: "#^Cannot access offset 'query' on array\\(\\)\\|array\\('scheme' \\=\\> string, 'host' \\=\\> string, 'port' \\=\\> int, 'user' \\=\\> string, 'pass' \\=\\> string, 'path' \\=\\> string, 'query' \\=\\> string, 'fragment' \\=\\> string\\)\\|false\\.$#"
+			message: "#^Comparison operation \"\\<\" between 1 and 43 is always true\\.$#"
 			count: 1
 			path: libraries/classes/Core.php
 
 		-
-			message: "#^Cannot access offset 'host' on array\\(\\)\\|array\\('scheme' \\=\\> string, 'host' \\=\\> string, 'port' \\=\\> int, 'user' \\=\\> string, 'pass' \\=\\> string, 'path' \\=\\> string, 'query' \\=\\> string, 'fragment' \\=\\> string\\)\\|false\\.$#"
+			message: "#^Offset 'pass'\\|'port'\\|'user' does not exist on array\\(\\?'scheme' \\=\\> string, 'host' \\=\\> string, \\?'port' \\=\\> int, \\?'user' \\=\\> string, \\?'pass' \\=\\> string, \\?'path' \\=\\> string, \\?'query' \\=\\> string, \\?'fragment' \\=\\> string\\)\\.$#"
 			count: 1
 			path: libraries/classes/Core.php
 
@@ -804,51 +504,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\CreateAddField\\:\\:getColumnCreationStatements\\(\\) should return string but returns string\\|null\\.$#"
 			count: 1
 			path: libraries/classes/CreateAddField.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, bool\\|resource given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer.php
-
-		-
-			message: "#^Cannot access offset 'page_descr' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer.php
-
-		-
-			message: "#^Cannot access offset 'page_nr' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer.php
-
-		-
-			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTablesFull\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer/Common.php
-
-		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTablesFull\\(\\) expects array\\|string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer/Common.php
-
-		-
-			message: "#^Cannot access offset 'Field' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer/Common.php
-
-		-
-			message: "#^Cannot access offset 'Type' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer/Common.php
-
-		-
-			message: "#^Cannot access offset 'Null' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer/Common.php
-
-		-
-			message: "#^Cannot access offset 0 on \\(array\\)\\|true\\.$#"
-			count: 4
-			path: libraries/classes/Database/Designer/Common.php
 
 		-
 			message: "#^Offset 'DTN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>, \\?'DTN' \\=\\> array\\<int, string\\>, \\?'SCN' \\=\\> array\\<int, string\\>, \\?'STN' \\=\\> array\\<int, string\\>\\)\\.$#"
@@ -876,32 +531,12 @@ parameters:
 			path: libraries/classes/Database/Designer/Common.php
 
 		-
-			message: "#^Cannot access offset 'constraint' on \\(array\\)\\|true\\.$#"
+			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:tryQuery\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
-			path: libraries/classes/Database/Designer/Common.php
+			path: libraries/classes/Database/Events.php
 
 		-
-			message: "#^Cannot access offset 'Column_name' on \\(array\\)\\|true\\.$#"
-			count: 2
-			path: libraries/classes/Database/Designer/Common.php
-
-		-
-			message: "#^Cannot access offset 'constraint' on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer/Common.php
-
-		-
-			message: "#^Cannot access offset 'settings_data' on array\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer/Common.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Database\\\\Designer\\\\DesignerTable\\:\\:getDisplayField\\(\\) should return string but returns string\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer/DesignerTable.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Database\\\\Qbe\\:\\:\\$_currentSearch \\(PhpMyAdmin\\\\SavedSearches\\) does not accept PhpMyAdmin\\\\SavedSearches\\|null\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Database\\\\Qbe\\:\\:\\$currentSearch \\(PhpMyAdmin\\\\SavedSearches\\) does not accept PhpMyAdmin\\\\SavedSearches\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Database/Qbe.php
 
@@ -911,47 +546,52 @@ parameters:
 			path: libraries/classes/Database/Qbe.php
 
 		-
-			message: "#^Parameter \\#2 \\$sortOrder of method PhpMyAdmin\\\\Database\\\\Qbe\\:\\:_getSortOrderSelectCell\\(\\) expects int, null given\\.$#"
+			message: "#^Parameter \\#2 \\$sortOrder of method PhpMyAdmin\\\\Database\\\\Qbe\\:\\:getSortOrderSelectCell\\(\\) expects int, null given\\.$#"
 			count: 1
 			path: libraries/classes/Database/Qbe.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Database\\\\Qbe\\:\\:_getMasterTable\\(\\) should return string but returns int\\|string\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Database\\\\Qbe\\:\\:getMasterTable\\(\\) should return string but returns int\\|string\\.$#"
 			count: 1
 			path: libraries/classes/Database/Qbe.php
 
 		-
-			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:_cacheTableData\\(\\) expects bool\\|string, array\\|string given\\.$#"
+			message: "#^Parameter \\#1 \\$mode of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getEditorForm\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
-			path: libraries/classes/DatabaseInterface.php
+			path: libraries/classes/Database/Routines.php
 
 		-
-			message: "#^Cannot access offset 'Rows' on \\(array\\)\\|true\\.$#"
+			message: "#^Parameter \\#2 \\$create_routine of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:create\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
-			path: libraries/classes/DatabaseInterface.php
+			path: libraries/classes/Database/Routines.php
 
 		-
-			message: "#^Cannot access offset 'Data_length' on \\(array\\)\\|true\\.$#"
-			count: 2
-			path: libraries/classes/DatabaseInterface.php
-
-		-
-			message: "#^Cannot access offset 'Max_data_length' on \\(array\\)\\|true\\.$#"
+			message: "#^Offset 'item_name' does not exist on array\\|null\\.$#"
 			count: 1
-			path: libraries/classes/DatabaseInterface.php
+			path: libraries/classes/Database/Routines.php
 
 		-
-			message: "#^Cannot access offset 'Index_length' on \\(array\\)\\|true\\.$#"
-			count: 2
-			path: libraries/classes/DatabaseInterface.php
-
-		-
-			message: "#^Cannot access offset 'Engine' on \\(array\\)\\|true\\.$#"
+			message: "#^Offset 'item_type' does not exist on array\\|null\\.$#"
 			count: 1
-			path: libraries/classes/DatabaseInterface.php
+			path: libraries/classes/Database/Routines.php
 
 		-
-			message: "#^Cannot access offset 'Data_free' on \\(array\\)\\|true\\.$#"
+			message: "#^Parameter \\#3 \\$number of function _ngettext expects int, int\\<0, max\\>\\|string given\\.$#"
+			count: 1
+			path: libraries/classes/Database/Routines.php
+
+		-
+			message: "#^Offset 'create' does not exist on array\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Database/Triggers.php
+
+		-
+			message: "#^Offset 'drop' does not exist on array\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Database/Triggers.php
+
+		-
+			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Query\\\\Cache\\:\\:cacheTableData\\(\\) expects bool\\|string, array\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
 
@@ -986,102 +626,42 @@ parameters:
 			path: libraries/classes/Dbal/DbiMysqli.php
 
 		-
-			message: "#^Else branch is unreachable because previous condition is always true\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Parameter \\#5 \\$numTables of method PhpMyAdmin\\\\Display\\\\Export\\:\\:getHtmlForOptions\\(\\) expects string, int given\\.$#"
-			count: 1
-			path: libraries/classes/Display/Export.php
-
-		-
-			message: "#^Parameter \\#7 \\$unlimNumRows of method PhpMyAdmin\\\\Display\\\\Export\\:\\:getHtmlForOptions\\(\\) expects string, int given\\.$#"
-			count: 1
-			path: libraries/classes/Display/Export.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\ImportAjax\\:\\:sessionCheck\\(\\) should return bool but returns string\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Display/ImportAjax.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Display\\\\Results\\:\\:\\$_property_array has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Display\\\\Results\\:\\:\\$transformation_info has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Left side of && is always true\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#3 \\$pageNow of static method PhpMyAdmin\\\\Util\\:\\:pageselector\\(\\) expects int, float given\\.$#"
+			message: "#^Parameter \\#4 \\$sort_expression_nodirection of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTableHeadersForColumns\\(\\) expects array, array\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#4 \\$nbTotalPage of static method PhpMyAdmin\\\\Util\\:\\:pageselector\\(\\) expects int, float\\|int\\<2, max\\> given\\.$#"
+			message: "#^Parameter \\#2 \\$sort_order of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getSortingUrlParams\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#4 \\$sort_expression_nodirection of method PhpMyAdmin\\\\Display\\\\Results\\:\\:_getTableHeadersForColumns\\(\\) expects array, array\\|string given\\.$#"
+			message: "#^Parameter \\#9 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForNumericColumns\\(\\) expects string, array\\<int, string\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#2 \\$sort_order of method PhpMyAdmin\\\\Display\\\\Results\\:\\:_getSortingUrlParams\\(\\) expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#8 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForGeometryColumns\\(\\) expects string, array\\<int, string\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#2 \\.\\.\\.\\$args of function array_merge expects array, array\\|bool given\\.$#"
+			message: "#^Parameter \\#9 \\$transform_options of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForGeometryColumns\\(\\) expects string, array given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Cannot access offset int on \\(array\\)\\|true\\.$#"
-			count: 2
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Cannot access offset int on \\(array\\)\\|string\\|true\\.$#"
+			message: "#^Parameter \\#8 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForNonNumericColumns\\(\\) expects string, array\\<int, string\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#9 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:_getDataCellForNumericColumns\\(\\) expects string, array\\<int, string\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Parameter \\#8 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:_getDataCellForGeometryColumns\\(\\) expects string, array\\<int, string\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Parameter \\#9 \\$transform_options of method PhpMyAdmin\\\\Display\\\\Results\\:\\:_getDataCellForGeometryColumns\\(\\) expects string, array given\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Parameter \\#8 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:_getDataCellForNonNumericColumns\\(\\) expects string, array\\<int, string\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Parameter \\#9 \\$transform_options of method PhpMyAdmin\\\\Display\\\\Results\\:\\:_getDataCellForNonNumericColumns\\(\\) expects string, array given\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Parameter \\#4 \\$row_no of method PhpMyAdmin\\\\Display\\\\Results\\:\\:_getCheckboxAndLinks\\(\\) expects string, int given\\.$#"
+			message: "#^Parameter \\#9 \\$transform_options of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForNonNumericColumns\\(\\) expects string, array given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
@@ -1091,48 +671,28 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#12 \\$transform_options of method PhpMyAdmin\\\\Display\\\\Results\\:\\:_getRowData\\(\\) expects array, string given\\.$#"
+			message: "#^Parameter \\#12 \\$transform_options of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getRowData\\(\\) expects array, string given\\.$#"
 			count: 3
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:_getOffsets\\(\\) should return array\\<int\\> but returns array\\<int, \\(array\\|float\\|int\\)\\>\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getOffsets\\(\\) should return array\\<int\\> but returns array\\<int, \\(array\\|float\\|int\\)\\>\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#4 \\$transform_options of method PhpMyAdmin\\\\Display\\\\Results\\:\\:_handleNonPrintableContents\\(\\) expects string, array given\\.$#"
+			message: "#^Parameter \\#4 \\$transform_options of method PhpMyAdmin\\\\Display\\\\Results\\:\\:handleNonPrintableContents\\(\\) expects string, array given\\.$#"
 			count: 2
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#5 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:_handleNonPrintableContents\\(\\) expects string, array\\<int, string\\> given\\.$#"
+			message: "#^Parameter \\#5 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:handleNonPrintableContents\\(\\) expects string, array\\<int, string\\> given\\.$#"
 			count: 2
 			path: libraries/classes/Display/Results.php
 
 		-
 			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:showHint\\(\\) expects string, PhpMyAdmin\\\\Message given\\.$#"
 			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Parameter \\#1 \\$handle of static method PhpMyAdmin\\\\Util\\:\\:getUniqueCondition\\(\\) expects resource, int given\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Negated boolean expression is always true\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^If condition is always true\\.$#"
-			count: 2
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Negated boolean expression is always false\\.$#"
-			count: 2
 			path: libraries/classes/Display/Results.php
 
 		-
@@ -1158,11 +718,6 @@ parameters:
 		-
 			message: "#^Trying to invoke string but it might not be a callable\\.$#"
 			count: 5
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, string\\|false given\\.$#"
-			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
@@ -1216,19 +771,9 @@ parameters:
 			path: libraries/classes/Engines/Pbxt.php
 
 		-
-			message: "#^Parameter \\#1 \\$formatted_size of static method PhpMyAdmin\\\\Util\\:\\:extractValueFromFormattedSize\\(\\) expects string, int\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Engines/Pbxt.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Engines\\\\Pbxt\\:\\:resolveTypeSize\\(\\) should return array but returns array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Engines/Pbxt.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Error\\:\\:\\$hide_location has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Error.php
 
 		-
 			message: "#^Elseif branch is unreachable because previous condition is always true\\.$#"
@@ -1244,16 +789,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$str of function explode expects string, string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Error.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\ErrorHandler\\:\\:\\$hide_location has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/ErrorHandler.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\ErrorHandler\\:\\:\\$error_reporting has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/ErrorHandler.php
 
 		-
 			message: "#^Parameter \\#1 \\$error_handler of function set_error_handler expects \\(callable\\(int, string, string, int, array\\)\\: bool\\)\\|null, array\\(\\$this\\(PhpMyAdmin\\\\ErrorHandler\\), 'handleError'\\) given\\.$#"
@@ -1276,22 +811,22 @@ parameters:
 			path: libraries/classes/ErrorReport.php
 
 		-
-			message: "#^Cannot access offset 'fragment' on array\\(\\)\\|array\\('scheme' \\=\\> string, 'host' \\=\\> string, 'port' \\=\\> int, 'user' \\=\\> string, 'pass' \\=\\> string, 'path' \\=\\> string, 'query' \\=\\> string, 'fragment' \\=\\> string\\)\\|false\\.$#"
-			count: 1
-			path: libraries/classes/ErrorReport.php
-
-		-
-			message: "#^Cannot access offset 'path' on array\\(\\)\\|array\\('scheme' \\=\\> string, 'host' \\=\\> string, 'port' \\=\\> int, 'user' \\=\\> string, 'pass' \\=\\> string, 'path' \\=\\> string, 'query' \\=\\> string, 'fragment' \\=\\> string\\)\\|false\\.$#"
-			count: 1
-			path: libraries/classes/ErrorReport.php
-
-		-
-			message: "#^Cannot access offset 'query' on array\\(\\)\\|array\\('scheme' \\=\\> string, 'host' \\=\\> string, 'port' \\=\\> int, 'user' \\=\\> string, 'pass' \\=\\> string, 'path' \\=\\> string, 'query' \\=\\> string, 'fragment' \\=\\> string\\)\\|false\\.$#"
-			count: 1
-			path: libraries/classes/ErrorReport.php
-
-		-
 			message: "#^Parameter \\#2 \\$haystack of function in_array expects array, array\\|false given\\.$#"
+			count: 1
+			path: libraries/classes/Export.php
+
+		-
+			message: "#^Result of && is always false\\.$#"
+			count: 1
+			path: libraries/classes/Export.php
+
+		-
+			message: "#^Comparison operation \"\\>\\=\" between 1 and 43 is always false\\.$#"
+			count: 1
+			path: libraries/classes/Export.php
+
+		-
+			message: "#^Right side of \\|\\| is always false\\.$#"
 			count: 1
 			path: libraries/classes/Export.php
 
@@ -1376,7 +911,7 @@ parameters:
 			path: libraries/classes/File.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\File\\:\\:\\$_content \\(string\\) does not accept string\\|false\\.$#"
+			message: "#^Property PhpMyAdmin\\\\File\\:\\:\\$content \\(string\\) does not accept string\\|false\\.$#"
 			count: 2
 			path: libraries/classes/File.php
 
@@ -1431,8 +966,8 @@ parameters:
 			path: libraries/classes/File.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\File\\:\\:\\$_handle \\(resource\\|null\\) does not accept resource\\|false\\.$#"
-			count: 3
+			message: "#^Property PhpMyAdmin\\\\File\\:\\:\\$handle \\(resource\\|null\\) does not accept resource\\|false\\.$#"
+			count: 4
 			path: libraries/classes/File.php
 
 		-
@@ -1496,7 +1031,7 @@ parameters:
 			path: libraries/classes/Footer.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Footer\\:\\:_removeRecursion\\(\\) should return object but returns array\\|object\\|string\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Footer\\:\\:removeRecursion\\(\\) should return object but returns array\\|object\\|string\\.$#"
 			count: 1
 			path: libraries/classes/Footer.php
 
@@ -1511,19 +1046,9 @@ parameters:
 			path: libraries/classes/Footer.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:\\$_instance has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisGeometryCollection.php
-
-		-
 			message: "#^Negated boolean expression is always false\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometryCollection.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Gis\\\\GisLineString\\:\\:\\$_instance has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisLineString.php
 
 		-
 			message: "#^Parameter \\#2 \\$red of function imagecolorallocate expects int, float\\|int given\\.$#"
@@ -1551,11 +1076,6 @@ parameters:
 			path: libraries/classes/Gis/GisLineString.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\:\\:\\$_instance has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiLineString.php
-
-		-
 			message: "#^Parameter \\#2 \\$red of function imagecolorallocate expects int, float\\|int given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiLineString.php
@@ -1581,11 +1101,6 @@ parameters:
 			path: libraries/classes/Gis/GisMultiLineString.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\:\\:\\$_instance has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiPoint.php
-
-		-
 			message: "#^Parameter \\#2 \\$red of function imagecolorallocate expects int, float\\|int given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPoint.php
@@ -1609,11 +1124,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\:\\:getPointsArrayForOpenLayers\\(\\) expects string, int given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPoint.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\:\\:\\$_instance has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
 			message: "#^Parameter \\#2 \\$red of function imagecolorallocate expects int, float\\|int given\\.$#"
@@ -1646,11 +1156,6 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Gis\\\\GisPoint\\:\\:\\$_instance has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisPoint.php
-
-		-
 			message: "#^Parameter \\#2 \\$red of function imagecolorallocate expects int, float\\|int given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPoint.php
@@ -1674,11 +1179,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getPointForOpenLayers\\(\\) expects string, int given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPoint.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:\\$_instance has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisPolygon.php
 
 		-
 			message: "#^Parameter \\#2 \\$red of function imagecolorallocate expects int, float\\|int given\\.$#"
@@ -1706,11 +1206,6 @@ parameters:
 			path: libraries/classes/Gis/GisPolygon.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Gis\\\\GisVisualization\\:\\:\\$_modified_sql has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisVisualization.php
-
-		-
 			message: "#^Parameter \\#1 \\$sql_query of class PhpMyAdmin\\\\Gis\\\\GisVisualization constructor expects string, null given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisVisualization.php
@@ -1726,11 +1221,6 @@ parameters:
 			path: libraries/classes/Gis/GisVisualization.php
 
 		-
-			message: "#^Parameter \\#4 \\$results of method PhpMyAdmin\\\\Gis\\\\GisVisualization\\:\\:_prepareDataSet\\(\\) expects object, string given\\.$#"
-			count: 2
-			path: libraries/classes/Gis/GisVisualization.php
-
-		-
 			message: "#^Parameter \\#1 \\$im of function imagecolorallocate expects resource, resource\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisVisualization.php
@@ -1741,32 +1231,17 @@ parameters:
 			path: libraries/classes/Gis/GisVisualization.php
 
 		-
-			message: "#^Parameter \\#4 \\$results of method PhpMyAdmin\\\\Gis\\\\GisVisualization\\:\\:_prepareDataSet\\(\\) expects object, resource\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisVisualization.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of function base64_encode expects string, string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisVisualization.php
 
 		-
-			message: "#^Parameter \\#5 \\$image of method PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:prepareRowAsPng\\(\\) expects resource, object\\|resource\\|string given\\.$#"
+			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, string\\|false given\\.$#"
 			count: 1
-			path: libraries/classes/Gis/GisVisualization.php
-
-		-
-			message: "#^Parameter \\#5 \\$pdf of method PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:prepareRowAsPdf\\(\\) expects TCPDF, object\\|resource\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisVisualization.php
+			path: libraries/classes/Git.php
 
 		-
 			message: "#^Parameter \\#1 \\$str of function nl2br expects string, array\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Html/Generator.php
-
-		-
-			message: "#^Parameter \\#4 \\$nbTotalPage of static method PhpMyAdmin\\\\Util\\:\\:pageselector\\(\\) expects int, float\\|int given\\.$#"
 			count: 1
 			path: libraries/classes/Html/Generator.php
 
@@ -1821,42 +1296,7 @@ parameters:
 			path: libraries/classes/InsertEdit.php
 
 		-
-			message: "#^Parameter \\#4 \\$row of static method PhpMyAdmin\\\\Util\\:\\:getUniqueCondition\\(\\) expects array, array\\|bool given\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Cannot access offset 'foreign_db' on array\\|bool\\.$#"
-			count: 4
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Cannot access offset 'foreign_table' on array\\|bool\\.$#"
-			count: 4
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Cannot access offset 'foreign_field' on array\\|bool\\.$#"
-			count: 2
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Cannot access offset mixed on array\\|bool\\.$#"
-			count: 2
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Cannot access offset mixed on array\\|true\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Cannot access offset 0 on \\(array\\)\\|true\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
@@ -1876,31 +1316,6 @@ parameters:
 			path: libraries/classes/IpAllowDeny.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Language\\:\\:\\$code has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Language.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Language\\:\\:\\$name has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Language.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Language\\:\\:\\$native has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Language.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Language\\:\\:\\$regex has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Language.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Language\\:\\:\\$mysql has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Language.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Language\\:\\:matchesAcceptLanguage\\(\\) should return bool but returns int\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Language.php
@@ -1909,31 +1324,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Language\\:\\:matchesUserAgent\\(\\) should return bool but returns int\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Language.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\LanguageManager\\:\\:\\$_available_locales has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/LanguageManager.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\LanguageManager\\:\\:\\$_available_languages has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/LanguageManager.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\LanguageManager\\:\\:\\$_lang_failed_cfg has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/LanguageManager.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\LanguageManager\\:\\:\\$_lang_failed_cookie has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/LanguageManager.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\LanguageManager\\:\\:\\$_lang_failed_request has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/LanguageManager.php
 
 		-
 			message: "#^Instanceof between string and PhpMyAdmin\\\\SqlParser\\\\UtfString will always evaluate to false\\.$#"
@@ -1946,84 +1336,9 @@ parameters:
 			path: libraries/classes/Linter.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Menu\\:\\:_getAllowedTabs\\(\\) should return array but returns array\\|null\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Menu\\:\\:getAllowedTabs\\(\\) should return array but returns array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Menu.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchArray\\(\\) expects object, resource\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/Navigation.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, bool\\|resource given\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/Navigation.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Navigation\\\\NavigationTree\\:\\:buildPath\\(\\) should return PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\|false but returns bool\\|PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeDatabase and false will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeTable and false will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Cannot access property \\$realName on PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\|false\\.$#"
-			count: 4
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Cannot access property \\$parent on PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Cannot call method addChild\\(\\) on PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Cannot call method realParent\\(\\) on PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\|false\\.$#"
-			count: 2
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, array\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Argument of an invalid type array\\|string supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Binary operation \"\\.\" between '\\<u\\>' and array\\|string results in an error\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Parameter \\#1 \\$object of function method_exists expects object\\|string, PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Cannot call method getPresence\\(\\) on PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Navigation\\\\NodeFactory\\:\\:\\$namespace has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NodeFactory.php
 
 		-
 			message: "#^Unreachable statement \\- code above always terminates\\.$#"
@@ -2036,18 +1351,8 @@ parameters:
 			path: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\:\\:\\$title \\(string\\) does not accept bool\\|string\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/Nodes/NodeTable.php
-
-		-
 			message: "#^Cannot access property \\$realName on PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\|false\\.$#"
 			count: 2
-			path: libraries/classes/Navigation/Nodes/NodeTable.php
-
-		-
-			message: "#^Cannot assign new offset to array\\|string\\.$#"
-			count: 5
 			path: libraries/classes/Navigation/Nodes/NodeTable.php
 
 		-
@@ -2081,39 +1386,9 @@ parameters:
 			path: libraries/classes/Operations.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\OutputBuffering\\:\\:\\$_instance has no typehint specified\\.$#"
+			message: "#^Property PhpMyAdmin\\\\OutputBuffering\\:\\:\\$content \\(string\\) does not accept string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/OutputBuffering.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\OutputBuffering\\:\\:\\$_content has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/OutputBuffering.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Pdf\\:\\:\\$footerset has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Pdf\\:\\:\\$Alias has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Pdf.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Pdf\\:\\:Footer\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Pdf.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Pdf\\:\\:Error\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Pdf.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Pdf\\:\\:Error\\(\\) has parameter \\$error_message with no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Pdf.php
 
 		-
 			message: "#^Parameter \\#1 \\$str of function mb_substr expects string, string\\|null given\\.$#"
@@ -2129,11 +1404,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Plugins\\:\\:getHtmlForProperty\\(\\) should return string but returns string\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Plugins.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Auth\\\\AuthenticationCookie\\:\\:\\$_cookie_iv has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
 
 		-
 			message: "#^Parameter \\#2 \\$remoteIp of method ReCaptcha\\\\ReCaptcha\\:\\:verify\\(\\) expects string\\|null, bool\\|string given\\.$#"
@@ -2166,11 +1436,6 @@ parameters:
 			path: libraries/classes/Plugins/Auth/AuthenticationHttp.php
 
 		-
-			message: "#^Parameter \\#1 \\$options of function session_set_cookie_params expects array\\(\\)\\|array\\('lifetime' \\=\\> int, 'path' \\=\\> string, 'domain' \\=\\> string\\|null, 'secure' \\=\\> bool, 'httponly' \\=\\> bool\\), array given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
-
-		-
 			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportCodegen.php
@@ -2196,24 +1461,9 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportHtmlword.php
 
 		-
-			message: "#^Cannot access offset mixed on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportHtmlword.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportJson\\:\\:\\$first has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportJson.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportJson\\:\\:encode\\(\\) should return string but returns string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportJson.php
-
-		-
-			message: "#^Cannot access offset mixed on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportLatex.php
 
 		-
 			message: "#^Parameter \\#3 \\$length of function mb_substr expects int\\|null, int\\|false given\\.$#"
@@ -2236,21 +1486,6 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportOdt.php
 
 		-
-			message: "#^Cannot access offset 'foreign_table' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportOdt.php
-
-		-
-			message: "#^Cannot access offset 'foreign_field' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportOdt.php
-
-		-
-			message: "#^Cannot access offset mixed on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportOdt.php
-
-		-
 			message: "#^Parameter \\#1 \\$doc of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyOneItem\\:\\:setDoc\\(\\) expects string, array\\<int, string\\> given\\.$#"
 			count: 5
 			path: libraries/classes/Plugins/Export/ExportSql.php
@@ -2266,7 +1501,7 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Parameter \\#1 \\$create_query of method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql\\:\\:_makeCreateTableMSSQLCompatible\\(\\) expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$create_query of method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql\\:\\:makeCreateTableMSSQLCompatible\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
@@ -2286,16 +1521,6 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, \\(array\\)\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^Argument of an invalid type \\(array\\)\\|true supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportSql.php
-
-		-
 			message: "#^Strict comparison using \\=\\=\\= between mixed and null will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php
@@ -2306,7 +1531,7 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql\\:\\:_makeCreateTableMSSQLCompatible\\(\\) should return string but returns string\\|null\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql\\:\\:makeCreateTableMSSQLCompatible\\(\\) should return string but returns string\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
@@ -2326,11 +1551,6 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportTexytext.php
 
 		-
-			message: "#^Cannot access offset mixed on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportTexytext.php
-
-		-
 			message: "#^Strict comparison using \\=\\=\\= between array and null will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportXml.php
@@ -2346,144 +1566,9 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportYaml.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$tablewidths has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$headerset has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$dataY has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$cellFontSize has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$titleFontSize has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$titleText has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$dbAlias has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$tableAlias has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$purpose has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$colTitles has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$results has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$colAlign has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$titleWidth has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$colFits has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$display_column has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$numFields has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$fields has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$sColWidth has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$currentDb has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$currentTable has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$aliases has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:Header\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Cannot access offset mixed on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
 			message: "#^Parameter \\#3 \\$length of function mb_substr expects int\\|null, int\\<1, max\\>\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/Helpers/TableProperty.php
-
-		-
-			message: "#^Cannot access offset 'foreign_table' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/ExportPlugin.php
-
-		-
-			message: "#^Cannot access offset 'foreign_field' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/ExportPlugin.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\IOTransformationsPlugin\\:\\:\\$success has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/IOTransformationsPlugin.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\IOTransformationsPlugin\\:\\:\\$error has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/IOTransformationsPlugin.php
 
 		-
 			message: "#^Cannot call method addProperty\\(\\) on PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertyMainGroup\\|void\\.$#"
@@ -2503,16 +1588,6 @@ parameters:
 		-
 			message: "#^Cannot call method addProperty\\(\\) on PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertyMainGroup\\|void\\.$#"
 			count: 3
-			path: libraries/classes/Plugins/Import/ImportLdi.php
-
-		-
-			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, array\\<int, string\\>\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportLdi.php
-
-		-
-			message: "#^Cannot access offset int on array\\<int, string\\>\\|false\\.$#"
-			count: 1
 			path: libraries/classes/Plugins/Import/ImportLdi.php
 
 		-
@@ -2546,18 +1621,8 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
 		-
-			message: "#^Parameter \\#2 \\$str2 of function strcmp expects string, float\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportOds.php
-
-		-
 			message: "#^Offset 'name' does not exist on SimpleXMLElement\\|null\\.$#"
 			count: 2
-			path: libraries/classes/Plugins/Import/ImportOds.php
-
-		-
-			message: "#^Parameter \\#1 \\$str1 of function strcmp expects string, array\\<int, array\\<int, float\\|string\\>\\|string\\>\\|string given\\.$#"
-			count: 1
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
 		-
@@ -2631,32 +1696,32 @@ parameters:
 			path: libraries/classes/Plugins/Import/Upload/UploadSession.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\DiaRelationSchema\\:\\:\\$_topMargin has no typehint specified\\.$#"
+			message: "#^Cannot call method startDiaDoc\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\DiaRelationSchema\\:\\:\\$_bottomMargin has no typehint specified\\.$#"
+			message: "#^Parameter \\#1 \\$diagram of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\TableStatsDia constructor expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null given\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php
+
+		-
+			message: "#^Parameter \\#2 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\DiaRelationSchema\\:\\:addRelation\\(\\) expects string, int\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\DiaRelationSchema\\:\\:\\$_leftMargin has no typehint specified\\.$#"
+			message: "#^Cannot call method endDiaDoc\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\DiaRelationSchema\\:\\:\\$_rightMargin has no typehint specified\\.$#"
+			message: "#^Cannot call method showOutput\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\DiaRelationSchema\\:\\:\\$objectId has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php
-
-		-
-			message: "#^Parameter \\#2 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\DiaRelationSchema\\:\\:_addRelation\\(\\) expects string, int\\|string given\\.$#"
+			message: "#^Parameter \\#1 \\$diagram of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\RelationStatsDia constructor expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php
 
@@ -2671,92 +1736,97 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\RelationStatsDia\\:\\:\\$diagram has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Dia/RelationStatsDia.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\RelationStatsDia\\:\\:\\$srcConnPointsRight has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Dia/RelationStatsDia.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\RelationStatsDia\\:\\:\\$srcConnPointsLeft has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Dia/RelationStatsDia.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\RelationStatsDia\\:\\:\\$destConnPointsRight has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Dia/RelationStatsDia.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\RelationStatsDia\\:\\:\\$destConnPointsLeft has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Dia/RelationStatsDia.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\RelationStatsDia\\:\\:\\$masterTableId has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Dia/RelationStatsDia.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\RelationStatsDia\\:\\:\\$foreignTableId has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Dia/RelationStatsDia.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\RelationStatsDia\\:\\:\\$masterTablePos has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Dia/RelationStatsDia.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\RelationStatsDia\\:\\:\\$foreignTablePos has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Dia/RelationStatsDia.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\RelationStatsDia\\:\\:\\$referenceColor has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Dia/RelationStatsDia.php
-
-		-
 			message: "#^Binary operation \"\\+\" between int\\|string\\|false and 12 results in an error\\.$#"
 			count: 4
 			path: libraries/classes/Plugins/Schema/Dia/RelationStatsDia.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\TableStatsDia\\:\\:\\$tableId has no typehint specified\\.$#"
-			count: 1
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:startElement\\(\\)\\.$#"
+			count: 2
 			path: libraries/classes/Plugins/Schema/Dia/TableStatsDia.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\TableStatsDia\\:\\:\\$tableColor has no typehint specified\\.$#"
-			count: 1
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:writeAttribute\\(\\)\\.$#"
+			count: 4
 			path: libraries/classes/Plugins/Schema/Dia/TableStatsDia.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\:\\:\\$font has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Eps/Eps.php
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:writeRaw\\(\\)\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Schema/Dia/TableStatsDia.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\:\\:\\$fontSize has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Eps/Eps.php
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:endElement\\(\\)\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Dia/TableStatsDia.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\:\\:\\$stringCommands has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Eps/Eps.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\EpsRelationSchema\\:\\:\\$_tablewidth has no typehint specified\\.$#"
+			message: "#^Cannot call method setTitle\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
 
 		-
-			message: "#^Parameter \\#4 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\EpsRelationSchema\\:\\:_addRelation\\(\\) expects string, int\\|string given\\.$#"
+			message: "#^Cannot call method setAuthor\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
+
+		-
+			message: "#^Cannot call method setDate\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
+
+		-
+			message: "#^Cannot call method setOrientation\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
+
+		-
+			message: "#^Cannot call method setFont\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
+
+		-
+			message: "#^Parameter \\#1 \\$diagram of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\TableStatsEps constructor expects object, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null given\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
+
+		-
+			message: "#^Parameter \\#5 \\$fontSize of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\TableStatsEps constructor expects int, current\\|int\\|string given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
+
+		-
+			message: "#^Cannot call method getFont\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
+
+		-
+			message: "#^Cannot call method getFontSize\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
+
+		-
+			message: "#^Parameter \\#3 \\$fontSize of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\EpsRelationSchema\\:\\:addRelation\\(\\) expects int, current\\|int\\|string given\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
+
+		-
+			message: "#^Parameter \\#4 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\EpsRelationSchema\\:\\:addRelation\\(\\) expects string, int\\|string given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
+
+		-
+			message: "#^Cannot call method endEpsDoc\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
+
+		-
+			message: "#^Cannot call method showOutput\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
+
+		-
+			message: "#^Parameter \\#1 \\$diagram of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\RelationStatsEps constructor expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
 
@@ -2771,14 +1841,9 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\TableStatsEps\\:\\:\\$height has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\TableStatsEps\\:\\:\\$currentCell has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php
+			message: "#^Call to an undefined method object\\:\\:line\\(\\)\\.$#"
+			count: 7
+			path: libraries/classes/Plugins/Schema/Eps/RelationStatsEps.php
 
 		-
 			message: "#^Parameter \\#1 \\$diagram of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:__construct\\(\\) expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg, object given\\.$#"
@@ -2786,188 +1851,73 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\ExportRelationSchema\\:\\:\\$db has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/ExportRelationSchema.php
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:rect\\(\\)\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\ExportRelationSchema\\:\\:\\$diagram has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/ExportRelationSchema.php
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:showXY\\(\\)\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\ExportRelationSchema\\:\\:\\$showColor has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/ExportRelationSchema.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\ExportRelationSchema\\:\\:\\$tableDimension has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/ExportRelationSchema.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\ExportRelationSchema\\:\\:\\$sameWide has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/ExportRelationSchema.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\ExportRelationSchema\\:\\:\\$showKeys has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/ExportRelationSchema.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\ExportRelationSchema\\:\\:\\$orientation has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/ExportRelationSchema.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\ExportRelationSchema\\:\\:\\$paper has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/ExportRelationSchema.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\ExportRelationSchema\\:\\:\\$pageNumber has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/ExportRelationSchema.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\ExportRelationSchema\\:\\:\\$offline has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/ExportRelationSchema.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:\\$_xMin has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:\\$_yMin has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:\\$leftMargin has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:\\$topMargin has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:\\$scale has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:\\$PMA_links has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:\\$Outlines has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:\\$def_outlines has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:\\$widths has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:\\$cMargin has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:\\$_ff has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:\\$_offline has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:Header\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:Footer\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:\\$_showGrid has no typehint specified\\.$#"
+			message: "#^Cannot call method SetTitle\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:\\$_withDoc has no typehint specified\\.$#"
+			message: "#^Cannot call method setCMargin\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Cannot call method Open\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:\\$_tableOrder has no typehint specified\\.$#"
+			message: "#^Cannot call method SetAutoPageBreak\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 4
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Cannot call method setOffline\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:\\$_ff has no typehint specified\\.$#"
-			count: 1
+			message: "#^Cannot call method AddPage\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 3
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:\\$_xMax has no typehint specified\\.$#"
-			count: 1
+			message: "#^Cannot access property \\$PMA_links on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 15
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:\\$_yMax has no typehint specified\\.$#"
-			count: 1
+			message: "#^Cannot call method SetLink\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 3
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:\\$_xMin has no typehint specified\\.$#"
-			count: 1
+			message: "#^Cannot call method Bookmark\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 3
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:\\$_yMin has no typehint specified\\.$#"
-			count: 1
+			message: "#^Cannot call method PageNo\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 2
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:\\$_topMargin has no typehint specified\\.$#"
-			count: 1
+			message: "#^Cannot call method setAlias\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 2
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:\\$_bottomMargin has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:\\$_leftMargin has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:\\$_rightMargin has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:\\$_tablewidth has no typehint specified\\.$#"
-			count: 1
+			message: "#^Parameter \\#1 \\$diagram of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\TableStatsPdf constructor expects object, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null given\\.$#"
+			count: 3
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
@@ -2976,7 +1926,47 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Parameter \\#2 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:_addRelation\\(\\) expects string, int\\|string given\\.$#"
+			message: "#^Cannot call method getPageWidth\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Cannot call method getPageHeight\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Cannot call method setScale\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Cannot call method setLineWidthScale\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Cannot call method SetFontSize\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Cannot call method setFontSizeScale\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Parameter \\#2 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:addRelation\\(\\) expects string, int\\|string given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Cannot call method download\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Parameter \\#1 \\$diagram of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\RelationStatsPdf constructor expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
@@ -2991,49 +1981,79 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
+			message: "#^Cannot call method SetMargins\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Cannot call method SetDrawColor\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Cannot call method line\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Cannot call method SetXY\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Cannot call method Cell\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 31
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
 			message: "#^Parameter \\#1 \\$fontSize of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\TableStatsPdf\\:\\:tableDraw\\(\\) expects int, null given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Cannot access offset 'foreign_db' on \\(array\\)\\|true\\.$#"
+			message: "#^Cannot call method Ln\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Cannot call method AddLink\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 5
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Cannot call method SetX\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 5
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Cannot call method SetFont\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 5
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Cannot call method setWidths\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
 			count: 2
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Cannot access offset 'foreign_table' on \\(array\\)\\|true\\.$#"
+			message: "#^Cannot call method row\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:SetDrawColor\\(\\)\\.$#"
 			count: 3
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+			path: libraries/classes/Plugins/Schema/Pdf/RelationStatsPdf.php
 
 		-
-			message: "#^Cannot access offset 'foreign_field' on \\(array\\)\\|true\\.$#"
-			count: 3
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+			message: "#^Call to an undefined method object\\:\\:setLineWidthScale\\(\\)\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Pdf/RelationStatsPdf.php
 
 		-
-			message: "#^Cannot access offset 'on_update' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot access offset mixed on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\TableStatsPdf\\:\\:\\$nb_fiels has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\TableStatsPdf\\:\\:\\$height has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\TableStatsPdf\\:\\:\\$_ff has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
+			message: "#^Call to an undefined method object\\:\\:lineScale\\(\\)\\.$#"
+			count: 7
+			path: libraries/classes/Plugins/Schema/Pdf/RelationStatsPdf.php
 
 		-
 			message: "#^Parameter \\#1 \\$diagram of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:__construct\\(\\) expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg, object given\\.$#"
@@ -3041,69 +2061,59 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\RelationStats\\:\\:\\$diagram has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/RelationStats.php
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:GetStringWidth\\(\\)\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\RelationStats\\:\\:\\$xSrc has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/RelationStats.php
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:SetFont\\(\\)\\.$#"
+			count: 4
+			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\RelationStats\\:\\:\\$ySrc has no typehint specified\\.$#"
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:setXyScale\\(\\)\\.$#"
 			count: 1
-			path: libraries/classes/Plugins/Schema/RelationStats.php
+			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\RelationStats\\:\\:\\$srcDir has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/RelationStats.php
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:SetTextColor\\(\\)\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\RelationStats\\:\\:\\$destDir has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/RelationStats.php
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:SetFillColor\\(\\)\\.$#"
+			count: 5
+			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\RelationStats\\:\\:\\$xDest has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/RelationStats.php
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:SetLink\\(\\)\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\RelationStats\\:\\:\\$yDest has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/RelationStats.php
+			message: "#^Access to an undefined property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:\\$PMA_links\\.$#"
+			count: 6
+			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\RelationStats\\:\\:\\$wTick has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/RelationStats.php
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:cellScale\\(\\)\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
 
 		-
-			message: "#^Parameter \\#1 \\$table of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\RelationStats\\:\\:_getXy\\(\\) expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats, string given\\.$#"
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:setXScale\\(\\)\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
+
+		-
+			message: "#^Parameter \\#1 \\$table of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\RelationStats\\:\\:getXy\\(\\) expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats, string given\\.$#"
 			count: 2
 			path: libraries/classes/Plugins/Schema/RelationStats.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:\\$title has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Svg/Svg.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:\\$author has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Svg/Svg.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:\\$font has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Svg/Svg.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:\\$fontSize has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Svg/Svg.php
+			message: "#^Call to an undefined method object\\:\\:printElementLine\\(\\)\\.$#"
+			count: 7
+			path: libraries/classes/Plugins/Schema/Svg/RelationStatsSvg.php
 
 		-
 			message: "#^Parameter \\#2 \\$value of method XMLWriter\\:\\:writeAttribute\\(\\) expects string, int given\\.$#"
@@ -3111,37 +2121,77 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Svg/Svg.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:\\$_xMax has no typehint specified\\.$#"
+			message: "#^Cannot call method setTitle\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:\\$_yMax has no typehint specified\\.$#"
+			message: "#^Cannot call method SetAuthor\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:\\$_xMin has no typehint specified\\.$#"
+			message: "#^Cannot call method setFont\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:\\$_yMin has no typehint specified\\.$#"
+			message: "#^Cannot call method setFontSize\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:\\$_tablewidth has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
-
-		-
-			message: "#^Parameter \\#1 \\$table of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:_setMinMax\\(\\) expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\TableStatsSvg, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\TableStatsDia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\TableStatsEps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\TableStatsPdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\TableStatsSvg given\\.$#"
+			message: "#^Parameter \\#1 \\$diagram of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\TableStatsSvg constructor expects object, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null given\\.$#"
 			count: 3
 			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
 
 		-
-			message: "#^Parameter \\#4 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:_addRelation\\(\\) expects string, int\\|string given\\.$#"
+			message: "#^Parameter \\#5 \\$fontSize of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\TableStatsSvg constructor expects int, current\\|int\\|string given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
+
+		-
+			message: "#^Cannot call method getFont\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
+
+		-
+			message: "#^Cannot call method getFontSize\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
+
+		-
+			message: "#^Parameter \\#1 \\$table of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:setMinMax\\(\\) expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\TableStatsSvg, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\TableStatsDia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\TableStatsEps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\TableStatsPdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\TableStatsSvg given\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
+
+		-
+			message: "#^Cannot call method startSvgDoc\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
+
+		-
+			message: "#^Parameter \\#3 \\$fontSize of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:addRelation\\(\\) expects int, current\\|int\\|string given\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
+
+		-
+			message: "#^Parameter \\#4 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:addRelation\\(\\) expects string, int\\|string given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
+
+		-
+			message: "#^Cannot call method endSvgDoc\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
+
+		-
+			message: "#^Cannot call method showOutput\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
+
+		-
+			message: "#^Parameter \\#1 \\$diagram of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\RelationStatsSvg constructor expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
 
@@ -3156,89 +2206,14 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\TableStatsSvg\\:\\:\\$height has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Svg/TableStatsSvg.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\TableStatsSvg\\:\\:\\$currentCell has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Svg/TableStatsSvg.php
-
-		-
 			message: "#^Parameter \\#1 \\$diagram of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:__construct\\(\\) expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg, object given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Svg/TableStatsSvg.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$diagram has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/TableStats.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$db has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/TableStats.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$pageNumber has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/TableStats.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$tableName has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/TableStats.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$showKeys has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/TableStats.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$tableDimension has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/TableStats.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$displayfield has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/TableStats.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$fields has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/TableStats.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$primary has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/TableStats.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$x has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/TableStats.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$y has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/TableStats.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$width has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/TableStats.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$heightCell has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/TableStats.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$offline has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/TableStats.php
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:printElement\\(\\)\\.$#"
+			count: 4
+			path: libraries/classes/Plugins/Schema/Svg/TableStatsSvg.php
 
 		-
 			message: "#^Cannot access property \\$type on stdClass\\|null\\.$#"
@@ -3256,44 +2231,14 @@ parameters:
 			path: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php
 
 		-
-			message: "#^If condition is always true\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Transformations/Abs/InlineTransformationsPlugin.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Transformations\\\\Output\\\\Text_Plain_Binarytoip\\:\\:applyTransformation\\(\\) should return string but returns string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Transformations/Output/Text_Plain_Binarytoip.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\TwoFactor\\\\Application\\:\\:\\$_google2fa has no typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Plugins\\\\TwoFactor\\\\Application\\:\\:check\\(\\) should return bool but returns bool\\|int\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/TwoFactor/Application.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\TwoFactor\\\\Invalid\\:\\:\\$showSubmit has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/TwoFactor/Invalid.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\TwoFactorPlugin\\:\\:\\$showSubmit has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/TwoFactorPlugin.php
-
-		-
-			message: "#^Cannot access offset 'scheme' on array\\(\\)\\|array\\('scheme' \\=\\> string, 'host' \\=\\> string, 'port' \\=\\> int, 'user' \\=\\> string, 'pass' \\=\\> string, 'path' \\=\\> string, 'query' \\=\\> string, 'fragment' \\=\\> string\\)\\|false\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/TwoFactorPlugin.php
-
-		-
-			message: "#^Return type \\(bool\\) of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyOneItem\\:\\:getForce\\(\\) should be compatible with return type \\(string\\) of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem\\:\\:getForce\\(\\)$#"
-			count: 1
-			path: libraries/classes/Properties/Options/OptionsPropertyOneItem.php
-
-		-
-			message: "#^Parameter \\#1 \\$force \\(bool\\) of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyOneItem\\:\\:setForce\\(\\) should be compatible with parameter \\$force \\(string\\) of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem\\:\\:setForce\\(\\)$#"
-			count: 1
-			path: libraries/classes/Properties/Options/OptionsPropertyOneItem.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Relation\\:\\:\\$dbi \\(PhpMyAdmin\\\\DatabaseInterface\\) does not accept PhpMyAdmin\\\\DatabaseInterface\\|null\\.$#"
@@ -3306,82 +2251,17 @@ parameters:
 			path: libraries/classes/Relation.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchRow\\(\\) expects object, resource\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Cannot access offset 0 on \\(array\\)\\|true\\.$#"
-			count: 38
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, resource\\|true given\\.$#"
-			count: 2
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:numRows\\(\\) expects object, resource\\|true given\\.$#"
-			count: 3
-			path: libraries/classes/Relation.php
-
-		-
 			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Relation.php
 
 		-
-			message: "#^Cannot access offset 'display_field' on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, resource\\|true given\\.$#"
-			count: 2
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Cannot access offset 'comment' on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, bool\\|resource given\\.$#"
-			count: 2
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Cannot access offset 'comment' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Cannot access offset 'db_name' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Relation\\:\\:setDbComment\\(\\) should return bool but returns bool\\|resource\\.$#"
+			message: "#^Offset 'comment' does not exist on array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Relation.php
 
 		-
 			message: "#^Parameter \\#1 \\$foreigners of method PhpMyAdmin\\\\Relation\\:\\:searchColumnInForeigners\\(\\) expects array, \\(array\\)\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Cannot access offset 'foreign_db' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Cannot access offset 'foreign_table' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Cannot access offset 'foreign_field' on \\(array\\)\\|true\\.$#"
 			count: 1
 			path: libraries/classes/Relation.php
 
@@ -3394,16 +2274,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$str of function explode expects string, string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Cannot access offset 1 on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function mb_strtoupper expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Replication.php
 
 		-
 			message: "#^Parameter \\#1 \\$name of static method PhpMyAdmin\\\\Core\\:\\:sanitizeMySQLHost\\(\\) expects string, string\\|null given\\.$#"
@@ -3421,11 +2291,6 @@ parameters:
 			path: libraries/classes/ReplicationGui.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Response\\:\\:getCWD\\(\\) should return string but returns bool\\|string\\.$#"
-			count: 1
-			path: libraries/classes/Response.php
-
-		-
 			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Response.php
@@ -3434,261 +2299,6 @@ parameters:
 			message: "#^Instanceof between string and PhpMyAdmin\\\\Message will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Response.php
-
-		-
-			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:tryQuery\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Parameter \\#3 \\$createStatement of method PhpMyAdmin\\\\Rte\\\\General\\:\\:checkResult\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Cannot access offset 'item_name' on array\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Cannot access offset 'item_original_name' on array\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Parameter \\#2 \\$mode of method PhpMyAdmin\\\\Rte\\\\General\\:\\:sendEditor\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Parameter \\#4 \\$title of method PhpMyAdmin\\\\Rte\\\\General\\:\\:sendEditor\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Cannot access offset 'EVENT_NAME' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Cannot access offset 'STATUS' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Cannot access offset 'EVENT_TYPE' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Cannot access offset 'EXECUTE_AT' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Cannot access offset 'INTERVAL_VALUE' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Cannot access offset 'INTERVAL_FIELD' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Cannot access offset 'STARTS' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Cannot access offset 'ENDS' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Cannot access offset 'ON_COMPLETION' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Cannot access offset 'EVENT_DEFINITION' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Cannot access offset 'DEFINER' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Cannot access offset 'EVENT_COMMENT' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Events.php
-
-		-
-			message: "#^Else branch is unreachable because previous condition is always true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Export.php
-
-		-
-			message: "#^Parameter \\#1 \\$export_data of method PhpMyAdmin\\\\Rte\\\\Export\\:\\:handle\\(\\) expects string, string\\|false given\\.$#"
-			count: 2
-			path: libraries/classes/Rte/Export.php
-
-		-
-			message: "#^Parameter \\#2 \\$operation of method PhpMyAdmin\\\\Rte\\\\Events\\:\\:getEditorForm\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Rte/General.php
-
-		-
-			message: "#^Else branch is unreachable because previous condition is always true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/General.php
-
-		-
-			message: "#^Cannot access offset 'item_name' on array\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Cannot access offset 'item_original_name' on array\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Parameter \\#1 \\$mode of method PhpMyAdmin\\\\Rte\\\\Routines\\:\\:getEditorForm\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Parameter \\#3 \\$routine of method PhpMyAdmin\\\\Rte\\\\Routines\\:\\:getEditorForm\\(\\) expects array, array\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Offset 'item_type' does not exist on array\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Parameter \\#2 \\$create_routine of method PhpMyAdmin\\\\Rte\\\\Routines\\:\\:create\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Cannot access offset 'SPECIFIC_NAME' on \\(array\\)\\|true\\.$#"
-			count: 2
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Cannot access offset 'ROUTINE_TYPE' on \\(array\\)\\|true\\.$#"
-			count: 2
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Cannot access offset 'DTD_IDENTIFIER' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Cannot access offset 'ROUTINE_DEFINITION' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Cannot access offset 'IS_DETERMINISTIC' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Cannot access offset 'SECURITY_TYPE' on \\(array\\)\\|true\\.$#"
-			count: 2
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Cannot access offset 'SQL_DATA_ACCESS' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Cannot access offset 'ROUTINE_COMMENT' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Cannot access offset 'item_num_params' on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Cannot access offset 'item_param_name' on array\\|bool\\.$#"
-			count: 6
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Cannot access offset 'item_type' on array\\|bool\\.$#"
-			count: 3
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Cannot access offset 'item_param_dir' on array\\|bool\\.$#"
-			count: 2
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Cannot access offset 'item_name' on array\\|bool\\.$#"
-			count: 4
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Parameter \\#1 \\$row of method PhpMyAdmin\\\\Rte\\\\Routines\\:\\:browseRow\\(\\) expects array, \\(array\\)\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Parameter \\#3 \\$number of function _ngettext expects int, int\\<0, max\\>\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Parameter \\#1 \\$routine of method PhpMyAdmin\\\\Rte\\\\Routines\\:\\:getExecuteForm\\(\\) expects array, array\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Rte\\\\Routines\\:\\:browseRow\\(\\) should return string but returns string\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Routines.php
-
-		-
-			message: "#^Cannot access offset 'create' on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'drop' on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'item_name' on array\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Triggers.php
-
-		-
-			message: "#^Cannot access offset 'item_original_name' on array\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Triggers.php
-
-		-
-			message: "#^Parameter \\#2 \\$mode of method PhpMyAdmin\\\\Rte\\\\General\\:\\:sendEditor\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Triggers.php
-
-		-
-			message: "#^Parameter \\#4 \\$title of method PhpMyAdmin\\\\Rte\\\\General\\:\\:sendEditor\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Rte/Triggers.php
 
 		-
 			message: "#^Parameter \\#3 \\$subject of function preg_replace_callback expects array\\|string, string\\|null given\\.$#"
@@ -3746,57 +2356,17 @@ parameters:
 			path: libraries/classes/SavedSearches.php
 
 		-
-			message: "#^Parameter \\#1 \\$row of method PhpMyAdmin\\\\Server\\\\Plugins\\:\\:mapRowToPlugin\\(\\) expects array, \\(array\\)\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/Server/Plugins.php
-
-		-
 			message: "#^Strict comparison using \\=\\=\\= between string and null will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^Cannot access offset 'Type' on array\\|bool\\.$#"
+			message: "#^Offset 'Type' does not exist on array\\|null\\.$#"
 			count: 4
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchRow\\(\\) expects object, resource\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Cannot access offset 0 on \\(array\\)\\|true\\.$#"
-			count: 11
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, bool\\|resource given\\.$#"
-			count: 2
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Cannot access offset 'Table_priv' on array\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Cannot access offset 1 on \\(array\\)\\|true\\.$#"
-			count: 2
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Cannot access offset 'PLUGIN_NAME' on \\(array\\)\\|true\\.$#"
-			count: 2
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Cannot access offset 'PLUGIN_DESCRIPTION' on \\(array\\)\\|true\\.$#"
-			count: 2
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Cannot access offset '@@old_passwords' on array\\|bool\\.$#"
+			message: "#^Offset '@@old_passwords' does not exist on array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
 
@@ -3821,92 +2391,12 @@ parameters:
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:getMessage\\(\\) expects PhpMyAdmin\\\\Message\\|string, null given\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Parameter \\#2 \\.\\.\\.\\$args of function array_merge expects array, \\(array\\)\\|true given\\.$#"
-			count: 3
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Cannot access offset 'Db'\\|'Routine_name'\\|'Table_name' on \\(array\\)\\|true\\.$#"
-			count: 4
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Cannot access offset 'Db' on \\(array\\)\\|true\\.$#"
-			count: 4
-			path: libraries/classes/Server/Privileges.php
-
-		-
 			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, array given\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^Cannot access offset 'privs' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Parameter \\#1 \\$row of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:extractPrivInfo\\(\\) expects array\\|null, \\(array\\)\\|true given\\.$#"
-			count: 3
-			path: libraries/classes/Server/Privileges.php
-
-		-
 			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, array given\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, resource\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Cannot access offset 'usergroup' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Cannot access offset 'username' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Cannot access offset 'authentication…' on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Cannot access offset 'Password' on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Argument of an invalid type \\(array\\)\\|true supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Cannot access offset 'Password' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Cannot access offset 'password' on \\(array\\)\\|true\\.$#"
-			count: 2
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Cannot access offset 'authentication…' on \\(array\\)\\|true\\.$#"
-			count: 3
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Cannot access offset 'plugin' on \\(array\\)\\|true\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
 
@@ -3926,99 +2416,14 @@ parameters:
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^Cannot access offset 'Table_name' on \\(array\\)\\|true\\.$#"
-			count: 2
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Cannot access offset 'Column_priv' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Cannot access offset 'Column_name' on \\(array\\)\\|true\\.$#"
-			count: 4
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Cannot access offset 'Table_priv' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Cannot access offset 'Grant_priv' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
 			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Message\\:\\:rawError\\(\\) expects string, bool\\|string given\\.$#"
 			count: 6
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^Cannot access offset 'password' on array\\|bool\\.$#"
+			message: "#^Offset 'password' does not exist on array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Cannot access offset 'Status' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$status has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Server/Status/Data.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$sections has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Server/Status/Data.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$variables has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Server/Status/Data.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$used_queries has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Server/Status/Data.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$allocationMap has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Server/Status/Data.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$links has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Server/Status/Data.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$db_isLocal has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Server/Status/Data.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$section has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Server/Status/Data.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$sectionUsed has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Server/Status/Data.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$selfUrl has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Server/Status/Data.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$dataLoaded has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Server/Status/Data.php
 
 		-
 			message: "#^Parameter \\#3 \\$length of function mb_substr expects int\\|null, int\\|false given\\.$#"
@@ -4026,22 +2431,7 @@ parameters:
 			path: libraries/classes/Server/Status/Monitor.php
 
 		-
-			message: "#^Cannot access offset 'sql_text' on \\(array\\)\\|true\\.$#"
-			count: 6
-			path: libraries/classes/Server/Status/Monitor.php
-
-		-
 			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\|null given\\.$#"
-			count: 2
-			path: libraries/classes/Server/Status/Monitor.php
-
-		-
-			message: "#^Cannot access offset 'argument' on \\(array\\)\\|true\\.$#"
-			count: 6
-			path: libraries/classes/Server/Status/Monitor.php
-
-		-
-			message: "#^Cannot access offset '\\#' on \\(array\\)\\|true\\.$#"
 			count: 2
 			path: libraries/classes/Server/Status/Monitor.php
 
@@ -4051,52 +2441,12 @@ parameters:
 			path: libraries/classes/Server/Status/Monitor.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\SysInfo\\\\Base\\:\\:\\$os has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Server/SysInfo/Base.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\SysInfo\\\\Linux\\:\\:\\$os has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Server/SysInfo/Linux.php
-
-		-
-			message: "#^Cannot access offset 1 on array\\<int, string\\>\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Server/SysInfo/Linux.php
-
-		-
-			message: "#^Cannot access offset 2 on array\\<int, string\\>\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Server/SysInfo/Linux.php
-
-		-
-			message: "#^Cannot access offset 3 on array\\<int, string\\>\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Server/SysInfo/Linux.php
-
-		-
-			message: "#^Cannot access offset 4 on array\\<int, string\\>\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Server/SysInfo/Linux.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\SysInfo\\\\SunOs\\:\\:\\$os has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Server/SysInfo/SunOs.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\SysInfo\\\\WindowsNt\\:\\:\\$_wmi has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Server/SysInfo/WindowsNt.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Server\\\\SysInfo\\\\WindowsNt\\:\\:\\$os has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Server/SysInfo/WindowsNt.php
-
-		-
 			message: "#^Call to an undefined method COM\\:\\:ConnectServer\\(\\)\\.$#"
+			count: 1
+			path: libraries/classes/Server/SysInfo/WindowsNt.php
+
+		-
+			message: "#^Cannot call method Get\\(\\) on COM\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Server/SysInfo/WindowsNt.php
 
@@ -4111,7 +2461,7 @@ parameters:
 			path: libraries/classes/Server/UserGroups.php
 
 		-
-			message: "#^Parameter \\#1 \\$var_name of static method PhpMyAdmin\\\\Setup\\\\ConfigGenerator\\:\\:_getVarExport\\(\\) expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$var_name of static method PhpMyAdmin\\\\Setup\\\\ConfigGenerator\\:\\:getVarExport\\(\\) expects string, string\\|null given\\.$#"
 			count: 2
 			path: libraries/classes/Setup/ConfigGenerator.php
 
@@ -4126,12 +2476,12 @@ parameters:
 			path: libraries/classes/Setup/ConfigGenerator.php
 
 		-
-			message: "#^Cannot call method save\\(\\) on PhpMyAdmin\\\\Bookmark\\|false\\.$#"
-			count: 2
+			message: "#^Parameter \\#3 \\$is_modify_link of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:mysqlDie\\(\\) expects bool, string given\\.$#"
+			count: 1
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#3 \\$is_modify_link of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:mysqlDie\\(\\) expects bool, string given\\.$#"
+			message: "#^Cannot call method save\\(\\) on PhpMyAdmin\\\\Bookmark\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
@@ -4142,11 +2492,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Sql\\:\\:storeTheQueryAsBookmark\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Cannot access offset 'user' on array\\|bool\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
@@ -4163,16 +2508,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$message_to_show of method PhpMyAdmin\\\\Sql\\:\\:getMessageForNoRowsReturned\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#2 \\$cfgBookmark of method PhpMyAdmin\\\\Sql\\:\\:getHtmlForBookmark\\(\\) expects array, \\(array\\)\\|true given\\.$#"
-			count: 2
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Cannot access offset 'user' on \\(array\\)\\|true\\.$#"
-			count: 2
 			path: libraries/classes/Sql.php
 
 		-
@@ -4196,27 +2531,12 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Call to function is_bool\\(\\) with object will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Call to function is_bool\\(\\) with object\\|null will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\Sql\\:\\:sendResponseForGridEdit\\(\\) expects object, object\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\Sql\\:\\:getResponseForGridEdit\\(\\) expects object, object\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
 		-
 			message: "#^Right side of && is always true\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Right side of \\|\\| is always true\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
@@ -4281,58 +2601,8 @@ parameters:
 			path: libraries/classes/StorageEngine.php
 
 		-
-			message: "#^Cannot access offset 'table_name' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/SystemDatabase.php
-
-		-
-			message: "#^Cannot access offset 'column_name' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/SystemDatabase.php
-
-		-
-			message: "#^Cannot access offset 'comment' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/SystemDatabase.php
-
-		-
-			message: "#^Cannot access offset 'mimetype' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/SystemDatabase.php
-
-		-
-			message: "#^Cannot access offset 'transformation' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/SystemDatabase.php
-
-		-
-			message: "#^Cannot access offset 'transformation…' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/SystemDatabase.php
-
-		-
-			message: "#^Parameter \\#1 \\$collation of static method PhpMyAdmin\\\\Util\\:\\:getCharsetQueryPart\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of function trim expects string, string\\|null given\\.$#"
 			count: 1
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, bool\\|resource given\\.$#"
-			count: 2
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Argument of an invalid type \\(array\\)\\|true supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, bool\\|resource given\\.$#"
-			count: 2
 			path: libraries/classes/Table.php
 
 		-
@@ -4343,36 +2613,6 @@ parameters:
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$field \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept null\\.$#"
 			count: 2
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Cannot access offset 'column_name' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Cannot access offset 'comment' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Cannot access offset 'mimetype' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Cannot access offset 'transformation' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Cannot access offset 'transformation…' on \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchArray\\(\\) expects object, bool\\|resource given\\.$#"
-			count: 1
 			path: libraries/classes/Table.php
 
 		-
@@ -4399,51 +2639,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$str of function substr expects string, string\\|true given\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
-
-		-
-			message: "#^Right side of && is always true\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Cannot access offset 'row_count' on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Table\\\\ColumnsDefinition\\:\\:displayForm\\(\\) has parameter \\$action with no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Table/ColumnsDefinition.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Table\\\\ColumnsDefinition\\:\\:displayForm\\(\\) has parameter \\$field_fulltext with no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Table/ColumnsDefinition.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Table\\\\ColumnsDefinition\\:\\:displayForm\\(\\) has parameter \\$fields_meta with no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Table/ColumnsDefinition.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Table\\\\ColumnsDefinition\\:\\:displayForm\\(\\) has parameter \\$num_fields with no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Table/ColumnsDefinition.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Table\\\\ColumnsDefinition\\:\\:displayForm\\(\\) has parameter \\$regenerate with no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Table/ColumnsDefinition.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Table\\\\ColumnsDefinition\\:\\:displayForm\\(\\) has parameter \\$selected with no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Table/ColumnsDefinition.php
-
-		-
-			message: "#^Cannot access offset mixed on array\\|bool\\.$#"
-			count: 1
-			path: libraries/classes/Table/ColumnsDefinition.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Theme\\:\\:\\$mtime_info \\(int\\) does not accept int\\|false\\.$#"
@@ -4476,37 +2671,7 @@ parameters:
 			path: libraries/classes/ThemeManager.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tracker\\:\\:\\$enabled has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Tracker.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tracker\\:\\:\\$_tracking_cache has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Tracker.php
-
-		-
 			message: "#^Parameter \\#3 \\$version of static method PhpMyAdmin\\\\Tracker\\:\\:deactivateTracking\\(\\) expects string, int given\\.$#"
-			count: 1
-			path: libraries/classes/Tracker.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tracker\\:\\:createVersion\\(\\) should return int but returns bool\\|resource\\.$#"
-			count: 1
-			path: libraries/classes/Tracker.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tracker\\:\\:deleteTracking\\(\\) should return int but returns bool\\|resource\\.$#"
-			count: 1
-			path: libraries/classes/Tracker.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tracker\\:\\:createDatabaseVersion\\(\\) should return int but returns bool\\|resource\\.$#"
-			count: 1
-			path: libraries/classes/Tracker.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tracker\\:\\:_changeTracking\\(\\) should return int but returns bool\\|resource\\.$#"
 			count: 1
 			path: libraries/classes/Tracker.php
 
@@ -4526,16 +2691,6 @@ parameters:
 			path: libraries/classes/Tracker.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tracking\\:\\:getListOfVersionsOfTable\\(\\) should return array but returns bool\\|resource\\.$#"
-			count: 1
-			path: libraries/classes/Tracking.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tracking\\:\\:getSqlResultForSelectableTables\\(\\) should return array but returns bool\\|resource\\.$#"
-			count: 1
-			path: libraries/classes/Tracking.php
-
-		-
 			message: "#^Parameter \\#2 \\$filter_ts_from of method PhpMyAdmin\\\\Tracking\\:\\:filter\\(\\) expects string, int given\\.$#"
 			count: 2
 			path: libraries/classes/Tracking.php
@@ -4543,21 +2698,6 @@ parameters:
 		-
 			message: "#^Parameter \\#3 \\$filter_ts_to of method PhpMyAdmin\\\\Tracking\\:\\:filter\\(\\) expects string, int given\\.$#"
 			count: 2
-			path: libraries/classes/Tracking.php
-
-		-
-			message: "#^Call to function is_object\\(\\) with bool\\|resource will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Tracking.php
-
-		-
-			message: "#^Result of && is always false\\.$#"
-			count: 1
-			path: libraries/classes/Tracking.php
-
-		-
-			message: "#^If condition is always false\\.$#"
-			count: 1
 			path: libraries/classes/Tracking.php
 
 		-
@@ -4581,14 +2721,14 @@ parameters:
 			path: libraries/classes/Transformations.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Transformations\\:\\:setMime\\(\\) should return bool but returns bool\\|resource\\.$#"
-			count: 1
-			path: libraries/classes/Transformations.php
+			message: "#^Parameter \\#1 \\$node of method Twig\\\\Compiler\\:\\:subcompile\\(\\) expects Twig\\\\Node\\\\Node, Twig\\\\Node\\\\Node\\|null given\\.$#"
+			count: 3
+			path: libraries/classes/Twig/I18n/NodeTrans.php
 
 		-
-			message: "#^Parameter \\#1 \\$node of method Twig\\\\Compiler\\:\\:subcompile\\(\\) expects Twig\\\\Node\\\\Node, Twig\\\\Node\\\\Node\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$stack of function array_push expects array, array\\<int, string\\>\\|string given\\.$#"
 			count: 1
-			path: libraries/classes/Twig/I18n/NodeTrans.php
+			path: libraries/classes/Types.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Types\\:\\:getColumns\\(\\) should return array\\<string\\> but returns array\\<int\\|string, array\\<int, string\\>\\|string\\>\\.$#"
@@ -4596,117 +2736,12 @@ parameters:
 			path: libraries/classes/Types.php
 
 		-
-			message: "#^Parameter \\#1 \\$haystack of function mb_strpos expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Url.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Url.php
-
-		-
-			message: "#^Cannot access offset 0 on string\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Url.php
-
-		-
-			message: "#^Parameter \\#3 \\$subject of function preg_replace expects array\\|string, string\\|null given\\.$#"
-			count: 3
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Parameter \\#1 \\$format of function strftime expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between string and false will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Cannot access offset 'query' on array\\(\\)\\|array\\('scheme' \\=\\> string, 'host' \\=\\> string, 'port' \\=\\> int, 'user' \\=\\> string, 'pass' \\=\\> string, 'path' \\=\\> string, 'query' \\=\\> string, 'fragment' \\=\\> string\\)\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Util\\:\\:splitURLQuery\\(\\) should return array but returns array\\<int, string\\>\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Offset 'statement' does not exist on array\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between mixed and null will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function trim expects string, string\\|null given\\.$#"
-			count: 2
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Trying to invoke array\\|string but it might not be a callable\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Cannot access offset 0 on string\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Cannot access offset 1 on string\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function substr expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
 			message: "#^Parameter \\#1 \\$array_arg of function reset expects array, array\\|object given\\.$#"
 			count: 1
 			path: libraries/classes/Util.php
 
 		-
-			message: "#^Parameter \\#1 \\$character of function ord expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Utils\\\\HttpRequest\\:\\:\\$proxyUrl has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Utils/HttpRequest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Utils\\\\HttpRequest\\:\\:\\$proxyUser has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Utils/HttpRequest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Utils\\\\HttpRequest\\:\\:\\$proxyPass has no typehint specified\\.$#"
-			count: 1
-			path: libraries/classes/Utils/HttpRequest.php
-
-		-
 			message: "#^Variable \\$http_response_header in isset\\(\\) always exists and is not nullable\\.$#"
-			count: 1
-			path: libraries/classes/Utils/HttpRequest.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
 			count: 1
 			path: libraries/classes/Utils/HttpRequest.php
 
@@ -4751,24 +2786,9 @@ parameters:
 			path: libraries/classes/ZipExtension.php
 
 		-
-			message: "#^Strict comparison using \\=\\=\\= between PhpMyAdmin\\\\DatabaseInterface and false will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/common.inc.php
-
-		-
 			message: "#^Parameter \\#3 \\$subject of function preg_replace expects array\\|string, string\\|null given\\.$#"
 			count: 1
 			path: setup/index.php
-
-		-
-			message: "#^Cannot call method activate\\(\\) on PhpMyAdmin\\\\Language\\|false\\.$#"
-			count: 1
-			path: test/bootstrap-dist.php
-
-		-
-			message: "#^Result of \\|\\| is always true\\.$#"
-			count: 1
-			path: test/classes/AdvisorTest.php
 
 		-
 			message: "#^Cannot call method save\\(\\) on PhpMyAdmin\\\\Bookmark\\|false\\.$#"
@@ -4776,53 +2796,13 @@ parameters:
 			path: test/classes/BookmarkTest.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\BrowseForeignersTest\\:\\:\\$browseForeigners has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/BrowseForeignersTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\CentralColumnsTest\\:\\:\\$centralColumns has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/CentralColumnsTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\CentralColumnsTest\\:\\:\\$columnData has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/CentralColumnsTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\CentralColumnsTest\\:\\:\\$modifiedColumnData has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/CentralColumnsTest.php
-
-		-
-			message: "#^Parameter \\#4 \\$nbTotalPage of static method PhpMyAdmin\\\\Util\\:\\:pageselector\\(\\) expects int, float\\|int given\\.$#"
-			count: 1
-			path: test/classes/CentralColumnsTest.php
-
-		-
 			message: "#^Empty array passed to foreach\\.$#"
 			count: 1
 			path: test/classes/Config/DescriptionTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, null given\\.$#"
-			count: 5
-			path: test/classes/Config/FormDisplayTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\ConfigTest\\:\\:\\$backupGlobals has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/ConfigTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of function strip_tags expects string, string\\|false given\\.$#"
 			count: 1
-			path: test/classes/ConfigTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$directory of function chdir expects string, string\\|false given\\.$#"
-			count: 5
 			path: test/classes/ConfigTest.php
 
 		-
@@ -4831,49 +2811,14 @@ parameters:
 			path: test/classes/ConfigTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with int and bool will always evaluate to false\\.$#"
-			count: 1
-			path: test/classes/CoreTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$whitelist of static method PhpMyAdmin\\\\Core\\:\\:checkPageValidity\\(\\) expects array, array\\|null given\\.$#"
-			count: 1
-			path: test/classes/CoreTest.php
-
-		-
-			message: "#^Offset 'x' does not exist on array\\(\\)\\.$#"
-			count: 1
-			path: test/classes/CoreTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$haystack of function mb_strpos expects string, string\\|false given\\.$#"
 			count: 1
 			path: test/classes/CoreTest.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Database\\\\QbeTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Database/QbeTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Database\\\\SearchTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Database/SearchTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:numRows\\(\\) expects mysqli_result, false given\\.$#"
 			count: 1
 			path: test/classes/Dbal/DbiMysqliTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Display\\\\ExportTest\\:\\:\\$export has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Display/ExportTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Display\\\\ResultsTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Display/ResultsTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$fp of function fwrite expects resource, resource\\|false given\\.$#"
@@ -4886,97 +2831,27 @@ parameters:
 			path: test/classes/EncodingTest.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Engines\\\\BdbTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Engines/BdbTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Engines\\\\BinlogTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Engines/BinlogTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Engines\\\\InnodbTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Engines/InnodbTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Engines\\\\MemoryTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Engines/MemoryTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Engines\\\\MrgMyisamTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Engines/MrgMyisamTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Engines\\\\MyisamTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Engines/MyisamTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Engines\\\\NdbclusterTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Engines/NdbclusterTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Engines\\\\PbxtTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Engines/PbxtTest.php
-
-		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNull\\(\\) with string and 'Error when trying…' will always evaluate to false\\.$#"
-			count: 1
-			path: test/classes/EnvironmentTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\ErrorHandlerTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/ErrorHandlerTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$input of function array_values expects array, array\\|bool given\\.$#"
-			count: 1
-			path: test/classes/FileListingTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$data of function bin2hex expects string, string\\|false given\\.$#"
 			count: 1
 			path: test/classes/FileTest.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\FooterTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/FooterTest.php
+			message: "#^Call to an undefined method object\\:\\:generateParams\\(\\)\\.$#"
+			count: 2
+			path: test/classes/Gis/GisGeomTestCase.php
 
 		-
-			message: "#^Parameter \\#1 \\$expected of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) expects class\\-string\\<object\\>, string given\\.$#"
-			count: 1
-			path: test/classes/Gis/GisFactoryTest.php
-
-		-
-			message: "#^Unable to resolve the template type ExpectedType in call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\)$#"
-			count: 1
-			path: test/classes/Gis/GisFactoryTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeomTestCase\\:\\:\\$object has no typehint specified\\.$#"
+			message: "#^Call to an undefined method object\\:\\:scaleRow\\(\\)\\.$#"
 			count: 1
 			path: test/classes/Gis/GisGeomTestCase.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryCollectionTest\\:\\:\\$object has no typehint specified\\.$#"
+			message: "#^Parameter \\#3 \\$empty of method PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:generateWkt\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: test/classes/Gis/GisGeometryCollectionTest.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Gis/GisGeometryTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$point of method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:isPointInsidePolygon\\(\\) expects array, array\\|bool given\\.$#"
+			message: "#^Parameter \\#1 \\$point of method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:isPointInsidePolygon\\(\\) expects array, array\\|false given\\.$#"
 			count: 1
 			path: test/classes/Gis/GisPolygonTest.php
 
@@ -5001,12 +2876,12 @@ parameters:
 			path: test/classes/ImportTest.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\IndexTest\\:\\:\\$_params has no typehint specified\\.$#"
+			message: "#^Parameter \\#11 \\$key of method PhpMyAdmin\\\\InsertEdit\\:\\:getQueryValuesForInsertAndUpdateInMultipleEdit\\(\\) expects string, int given\\.$#"
 			count: 1
-			path: test/classes/IndexTest.php
+			path: test/classes/InsertEditTest.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\InsertEditTest\\:\\:\\$insertEdit has no typehint specified\\.$#"
+			message: "#^Parameter \\#1 \\$where_clause of method PhpMyAdmin\\\\InsertEdit\\:\\:determineInsertOrEdit\\(\\) expects string, null given\\.$#"
 			count: 1
 			path: test/classes/InsertEditTest.php
 
@@ -5026,54 +2901,9 @@ parameters:
 			path: test/classes/LanguageTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
-			count: 1
-			path: test/classes/Navigation/NavigationTreeTest.php
-
-		-
 			message: "#^Parameter \\#2 \\$name of static method PhpMyAdmin\\\\Navigation\\\\NodeFactory\\:\\:getInstance\\(\\) expects string, array\\<string, string\\> given\\.$#"
 			count: 1
 			path: test/classes/Navigation/Nodes/NodeColumnTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\NormalizationTest\\:\\:\\$normalization has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/NormalizationTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Auth\\\\AuthenticationConfigTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Auth/AuthenticationConfigTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
-			count: 4
-			path: test/classes/Plugins/Auth/AuthenticationConfigTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
-			count: 16
-			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$data of method PhpMyAdmin\\\\Plugins\\\\Auth\\\\AuthenticationCookie\\:\\:cookieEncrypt\\(\\) expects string, string\\|false given\\.$#"
-			count: 1
-			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
-			count: 1
-			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Auth\\\\AuthenticationSignonTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
-			count: 1
-			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$version1 of function version_compare expects string, string\\|false given\\.$#"
@@ -5081,287 +2911,32 @@ parameters:
 			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
-			count: 4
-			path: test/classes/Plugins/Export/ExportCodegenTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Export\\\\ExportCsvTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportCsvTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Export\\\\ExportExcelTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportExcelTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Export\\\\ExportHtmlwordTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportHtmlwordTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars_decode expects string, string\\|false given\\.$#"
 			count: 1
 			path: test/classes/Plugins/Export/ExportHtmlwordTest.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Export\\\\ExportJsonTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportJsonTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Export\\\\ExportLatexTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportLatexTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
-			count: 5
-			path: test/classes/Plugins/Export/ExportLatexTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Export\\\\ExportMediawikiTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportMediawikiTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Export\\\\ExportOdsTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportOdsTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Export\\\\ExportOdtTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportOdtTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Export\\\\ExportPdfTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportPdfTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Export\\\\ExportPhparrayTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportPhparrayTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
-			count: 3
-			path: test/classes/Plugins/Export/ExportPhparrayTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Export\\\\ExportSqlTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportSqlTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
-			count: 35
-			path: test/classes/Plugins/Export/ExportSqlTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Export\\\\ExportTexytextTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportTexytextTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
-			count: 3
-			path: test/classes/Plugins/Export/ExportTexytextTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Export\\\\ExportXmlTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportXmlTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
-			count: 11
-			path: test/classes/Plugins/Export/ExportXmlTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Export\\\\ExportYamlTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportYamlTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportYamlTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Export\\\\Helpers\\\\TablePropertyTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/Helpers/TablePropertyTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Import\\\\ImportLdiTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Import/ImportLdiTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Import\\\\ImportMediawikiTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Import/ImportMediawikiTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Import\\\\ImportOdsTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Import/ImportOdsTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Import\\\\ImportSqlTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Import/ImportSqlTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Import\\\\ImportXmlTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Import/ImportXmlTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Schema\\\\DiaRelationSchemaTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Schema/DiaRelationSchemaTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Schema\\\\EpsRelationSchemaTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Schema/EpsRelationSchemaTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Schema\\\\ExportRelationSchemaTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Schema/ExportRelationSchemaTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Schema\\\\PdfRelationSchemaTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Schema/PdfRelationSchemaTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Plugins\\\\Schema\\\\SvgRelationSchemaTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Plugins/Schema/SvgRelationSchemaTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertyMainGroupTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Properties/Options/Groups/OptionsPropertyMainGroupTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertyRootGroupTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Properties/Options/Groups/OptionsPropertyRootGroupTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroupTest\\:\\:\\$object has no typehint specified\\.$#"
+			message: "#^Parameter \\#1 \\$subgroupHeader of method PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\:\\:setSubgroupHeader\\(\\) expects PhpMyAdmin\\\\Properties\\\\PropertyItem, string given\\.$#"
 			count: 1
 			path: test/classes/Properties/Options/Groups/OptionsPropertySubgroupTest.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Properties\\\\Options\\\\OptionsPropertyGroupTest\\:\\:\\$stub has no typehint specified\\.$#"
+			message: "#^Parameter \\#1 \\$property of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup\\:\\:addProperty\\(\\) expects PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem, int given\\.$#"
 			count: 1
 			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Properties\\\\Options\\\\OptionsPropertyItemTest\\:\\:\\$stub has no typehint specified\\.$#"
+			message: "#^Parameter \\#1 \\$property of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup\\:\\:addProperty\\(\\) expects PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem, string given\\.$#"
 			count: 1
-			path: test/classes/Properties/Options/OptionsPropertyItemTest.php
+			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Properties\\\\Options\\\\OptionsPropertyOneItemTest\\:\\:\\$stub has no typehint specified\\.$#"
+			message: "#^Parameter \\#1 \\$property of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup\\:\\:removeProperty\\(\\) expects PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem, string given\\.$#"
 			count: 1
-			path: test/classes/Properties/Options/OptionsPropertyOneItemTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Properties\\\\Plugins\\\\ExportPluginPropertiesTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Properties/Plugins/ExportPluginPropertiesTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Properties\\\\Plugins\\\\ImportPluginPropertiesTest\\:\\:\\$object has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Properties/Plugins/ImportPluginPropertiesTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Properties\\\\Plugins\\\\PluginPropertyItemTest\\:\\:\\$stub has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Properties/Plugins/PluginPropertyItemTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Properties\\\\PropertyItemTest\\:\\:\\$stub has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/Properties/PropertyItemTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$needle of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, array given\\.$#"
-			count: 2
-			path: test/classes/Rte/EventsTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$expectedCount of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\) expects int, array given\\.$#"
-			count: 1
-			path: test/classes/Rte/EventsTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$needle of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, array given\\.$#"
-			count: 8
-			path: test/classes/Rte/RoutinesTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$needle of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, array given\\.$#"
-			count: 3
-			path: test/classes/Rte/TriggersTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$expectedCount of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\) expects int, string given\\.$#"
-			count: 1
-			path: test/classes/Rte/TriggersTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:getMessage\\(\\) expects PhpMyAdmin\\\\Message\\|string, null given\\.$#"
-			count: 1
-			path: test/classes/Server/PrivilegesTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$needle of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, bool\\|string given\\.$#"
-			count: 1
-			path: test/classes/Server/PrivilegesTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, string\\|false given\\.$#"
-			count: 4
-			path: test/classes/Setup/FormProcessingTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$expected of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) expects class\\-string\\<object\\>, string given\\.$#"
-			count: 1
-			path: test/classes/StorageEngineTest.php
-
-		-
-			message: "#^Unable to resolve the template type ExpectedType in call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\)$#"
-			count: 1
-			path: test/classes/StorageEngineTest.php
+			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$str of function trim expects string, string\\|null given\\.$#"
-			count: 1
-			path: test/classes/Stubs/DbiDummy.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:fetchArray\\(\\) should return array but returns array\\|bool\\.$#"
-			count: 1
-			path: test/classes/Stubs/DbiDummy.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:fetchAssoc\\(\\) should return array but returns array\\|bool\\.$#"
-			count: 1
-			path: test/classes/Stubs/DbiDummy.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:fetchRow\\(\\) should return array but returns array\\|bool\\.$#"
 			count: 1
 			path: test/classes/Stubs/DbiDummy.php
 
@@ -5401,11 +2976,6 @@ parameters:
 			path: test/classes/SystemDatabaseTest.php
 
 		-
-			message: "#^Access to private property PhpMyAdmin\\\\DatabaseInterface&PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\:\\:\\$_table_cache\\.$#"
-			count: 1
-			path: test/classes/TableTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$table_name of class PhpMyAdmin\\\\Table constructor expects string, null given\\.$#"
 			count: 2
 			path: test/classes/TableTest.php
@@ -5424,11 +2994,6 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\Theme\\:\\:\\$mtime_info \\(int\\) does not accept int\\|false\\.$#"
 			count: 1
 			path: test/classes/ThemeTest.php
-
-		-
-			message: "#^Parameter \\#4 \\$new_state of method PhpMyAdmin\\\\Tests\\\\TrackerTest\\:\\:testChangeTracking\\(\\) expects string, int given\\.$#"
-			count: 1
-			path: test/classes/TrackerTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$filter_ts_from of method PhpMyAdmin\\\\Tracking\\:\\:filter\\(\\) expects string, int given\\.$#"
@@ -5471,16 +3036,6 @@ parameters:
 			path: test/classes/TrackingTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Message' and true will always evaluate to false\\.$#"
-			count: 1
-			path: test/classes/UserPreferencesTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$formatted_size of static method PhpMyAdmin\\\\Util\\:\\:extractValueFromFormattedSize\\(\\) expects string, int\\|string given\\.$#"
-			count: 1
-			path: test/classes/UtilTest.php
-
-		-
 			message: "#^Offset 0 does not exist on array\\|null\\.$#"
 			count: 1
 			path: test/classes/UtilTest.php
@@ -5489,11 +3044,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$newvalue of function ini_set expects string, string\\|false given\\.$#"
 			count: 1
 			path: test/classes/UtilTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\VersionInformationTest\\:\\:\\$_releases has no typehint specified\\.$#"
-			count: 1
-			path: test/classes/VersionInformationTest.php
 
 		-
 			message: "#^Cannot access property \\$version on stdClass\\|null\\.$#"
@@ -5541,84 +3091,14 @@ parameters:
 			path: test/classes/ZipExtensionTest.php
 
 		-
-			message: "#^Cannot access property \\$num_rows on bool\\|mysqli_result\\|void\\.$#"
-			count: 2
-			path: test/selenium/CreateDropDatabaseTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$element of method PhpMyAdmin\\\\Tests\\\\Selenium\\\\TestBase\\:\\:moveto\\(\\) expects Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebElement, Facebook\\\\WebDriver\\\\WebDriverElement given\\.$#"
 			count: 1
 			path: test/selenium/CreateRemoveUserTest.php
 
 		-
-			message: "#^Cannot access property \\$num_rows on bool\\|mysqli_result\\|void\\.$#"
-			count: 2
-			path: test/selenium/Database/EventsTest.php
-
-		-
-			message: "#^Cannot call method fetch_assoc\\(\\) on bool\\|mysqli_result\\|void\\.$#"
-			count: 2
-			path: test/selenium/Database/EventsTest.php
-
-		-
-			message: "#^Offset 'val' does not exist on array\\<string, string\\>\\|null\\.$#"
-			count: 2
-			path: test/selenium/Database/EventsTest.php
-
-		-
-			message: "#^Cannot access property \\$num_rows on bool\\|mysqli_result\\|void\\.$#"
-			count: 3
-			path: test/selenium/Database/OperationsTest.php
-
-		-
-			message: "#^Cannot call method fetch_all\\(\\) on bool\\|mysqli_result\\|void\\.$#"
-			count: 2
-			path: test/selenium/Database/ProceduresTest.php
-
-		-
-			message: "#^Cannot access property \\$num_rows on bool\\|mysqli_result\\|void\\.$#"
-			count: 2
-			path: test/selenium/Database/ProceduresTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of function trim expects string, string\\|null given\\.$#"
 			count: 1
 			path: test/selenium/Database/QueryByExampleTest.php
-
-		-
-			message: "#^Cannot call method fetch_assoc\\(\\) on bool\\|mysqli_result\\|void\\.$#"
-			count: 1
-			path: test/selenium/Database/StructureTest.php
-
-		-
-			message: "#^Offset 'c' does not exist on array\\<string, string\\>\\|null\\.$#"
-			count: 1
-			path: test/selenium/Database/StructureTest.php
-
-		-
-			message: "#^Cannot access property \\$num_rows on bool\\|mysqli_result\\|void\\.$#"
-			count: 1
-			path: test/selenium/Database/StructureTest.php
-
-		-
-			message: "#^Cannot access property \\$num_rows on bool\\|mysqli_result\\|void\\.$#"
-			count: 2
-			path: test/selenium/Database/TriggersTest.php
-
-		-
-			message: "#^Cannot call method fetch_assoc\\(\\) on bool\\|mysqli_result\\|void\\.$#"
-			count: 3
-			path: test/selenium/Database/TriggersTest.php
-
-		-
-			message: "#^Offset 'val' does not exist on array\\<string, string\\>\\|null\\.$#"
-			count: 3
-			path: test/selenium/Database/TriggersTest.php
-
-		-
-			message: "#^Cannot access property \\$num_rows on bool\\|mysqli_result\\|void\\.$#"
-			count: 3
-			path: test/selenium/ImportTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$element of method PhpMyAdmin\\\\Tests\\\\Selenium\\\\TestBase\\:\\:moveto\\(\\) expects Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebElement, Facebook\\\\WebDriver\\\\WebDriverElement given\\.$#"
@@ -5634,56 +3114,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$element of method PhpMyAdmin\\\\Tests\\\\Selenium\\\\TestBase\\:\\:moveto\\(\\) expects Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebElement, Facebook\\\\WebDriver\\\\WebDriverElement given\\.$#"
 			count: 1
 			path: test/selenium/Table/CreateTest.php
-
-		-
-			message: "#^Cannot call method fetch_assoc\\(\\) on bool\\|mysqli_result\\|void\\.$#"
-			count: 4
-			path: test/selenium/Table/OperationsTest.php
-
-		-
-			message: "#^Offset string does not exist on array\\<string, string\\>\\|null\\.$#"
-			count: 2
-			path: test/selenium/Table/OperationsTest.php
-
-		-
-			message: "#^Offset 'c' does not exist on array\\<string, string\\>\\|null\\.$#"
-			count: 2
-			path: test/selenium/Table/OperationsTest.php
-
-		-
-			message: "#^Cannot access property \\$num_rows on bool\\|mysqli_result\\|void\\.$#"
-			count: 1
-			path: test/selenium/Table/OperationsTest.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 4
-			path: test/selenium/TestBase.php
-
-		-
-			message: "#^Parameter \\#1 \\$selenium_server_url of static method Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebDriver\\:\\:create\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: test/selenium/TestBase.php
-
-		-
-			message: "#^Cannot call method free\\(\\) on mysqli_result\\|void\\|true\\.$#"
-			count: 1
-			path: test/selenium/TestBase.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Tests\\\\Selenium\\\\TestBase\\:\\:\\$_mysqli \\(mysqli\\) does not accept null\\.$#"
-			count: 1
-			path: test/selenium/TestBase.php
-
-		-
-			message: "#^Parameter \\#1 \\$json of function json_decode expects string, bool\\|string given\\.$#"
-			count: 1
-			path: test/selenium/TestBase.php
-
-		-
-			message: "#^Else branch is unreachable because previous condition is always true\\.$#"
-			count: 1
-			path: test/selenium/TestBase.php
 
 		-
 			message: "#^Parameter \\#1 \\$element of method PhpMyAdmin\\\\Tests\\\\Selenium\\\\TestBase\\:\\:moveto\\(\\) expects Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebElement, Facebook\\\\WebDriver\\\\WebDriverElement given\\.$#"

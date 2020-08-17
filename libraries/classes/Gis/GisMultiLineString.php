@@ -2,6 +2,7 @@
 /**
  * Handles actions related to GIS MULTILINESTRING objects
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
@@ -16,7 +17,6 @@ use function imagestring;
 use function json_encode;
 use function mb_strlen;
 use function mb_substr;
-use function mt_rand;
 use function trim;
 
 /**
@@ -24,8 +24,8 @@ use function trim;
  */
 class GisMultiLineString extends GisGeometry
 {
-    // Hold the singleton instance of the class
-    private static $_instance;
+    /** @var self */
+    private static $instance;
 
     /**
      * A private constructor; prevents direct creation of object.
@@ -45,11 +45,11 @@ class GisMultiLineString extends GisGeometry
      */
     public static function singleton()
     {
-        if (! isset(self::$_instance)) {
-            self::$_instance = new GisMultiLineString();
+        if (! isset(self::$instance)) {
+            self::$instance = new GisMultiLineString();
         }
 
-        return self::$_instance;
+        return self::$instance;
     }
 
     /**
@@ -266,7 +266,7 @@ class GisMultiLineString extends GisGeometry
                 $row .= $point[0] . ',' . $point[1] . ' ';
             }
             $row .= '"';
-            $line_options['id'] = $label . mt_rand();
+            $line_options['id'] = $label . $this->getRandomId();
             foreach ($line_options as $option => $val) {
                 $row .= ' ' . $option . '="' . trim((string) $val) . '"';
             }
@@ -313,12 +313,10 @@ class GisMultiLineString extends GisGeometry
         // Separate each linestring
         $linestirngs = explode('),(', $multilinestirng);
 
-        $row .= 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
+        return $row . 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
             . 'new OpenLayers.Geometry.MultiLineString('
             . $this->getLineArrayForOpenLayers($linestirngs, $srid)
             . '), null, ' . json_encode($style_options) . '));';
-
-        return $row;
     }
 
     /**
@@ -370,9 +368,8 @@ class GisMultiLineString extends GisGeometry
                 0,
                 mb_strlen($wkt) - 1
             );
-        $wkt .= ')';
 
-        return $wkt;
+        return $wkt . ')';
     }
 
     /**
@@ -406,9 +403,8 @@ class GisMultiLineString extends GisGeometry
                 0,
                 mb_strlen($wkt) - 1
             );
-        $wkt .= ')';
 
-        return $wkt;
+        return $wkt . ')';
     }
 
     /**

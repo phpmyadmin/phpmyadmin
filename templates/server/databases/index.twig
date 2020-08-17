@@ -301,12 +301,9 @@
           'form_name': 'dbStatsForm'
         } only %}
 
-        {{ get_button_or_image(
-          '',
-          'mult_submit ajax',
-          'Drop'|trans,
-          'b_deltbl'
-        ) }}
+          <button class="btn btn-link mult_submit ajax" type="submit" name="" value="Drop" title="{% trans 'Drop' %}">
+              {{ get_icon('b_deltbl', 'Drop'|trans) }}
+          </button>
       {% endif %}
 
       {# Enable statistics #}

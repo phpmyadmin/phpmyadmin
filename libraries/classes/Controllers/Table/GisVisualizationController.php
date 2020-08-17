@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
@@ -41,6 +42,7 @@ final class GisVisualizationController extends AbstractController
             $this->response->addHTML(
                 Message::error(__('No SQL query was set to fetch data.'))
             );
+
             return;
         }
 
@@ -53,7 +55,7 @@ final class GisVisualizationController extends AbstractController
         $labelCandidates = [];
         $spatialCandidates = [];
         foreach ($meta as $column_meta) {
-            if ($column_meta->type == 'geometry') {
+            if ($column_meta->type === 'geometry') {
                 $spatialCandidates[] = $column_meta->name;
             } else {
                 $labelCandidates[] = $column_meta->name;
@@ -68,6 +70,7 @@ final class GisVisualizationController extends AbstractController
 
         // Check mysql version
         $visualizationSettings['mysqlVersion'] = $this->dbi->getVersion();
+        $visualizationSettings['isMariaDB'] = $this->dbi->isMariaDB();
 
         if (! isset($visualizationSettings['labelColumn'])
             && isset($labelCandidates[0])
@@ -85,7 +88,7 @@ final class GisVisualizationController extends AbstractController
         if (isset($_GET['session_max_rows'])) {
             $rows = $_GET['session_max_rows'];
         } else {
-            if ($_SESSION['tmpval']['max_rows'] != 'all') {
+            if ($_SESSION['tmpval']['max_rows'] !== 'all') {
                 $rows = $_SESSION['tmpval']['max_rows'];
             } else {
                 $rows = $GLOBALS['cfg']['MaxRows'];
@@ -100,16 +103,15 @@ final class GisVisualizationController extends AbstractController
 
         if (isset($_GET['saveToFile'])) {
             $this->saveToFile($visualizationSettings['spatialColumn'], $_GET['fileFormat']);
+
             return;
         }
 
-        $this->response->getHeader()->getScripts()->addFiles(
-            [
-                'vendor/openlayers/OpenLayers.js',
-                'vendor/jquery/jquery.svg.js',
-                'table/gis_visualization.js',
-            ]
-        );
+        $this->addScriptFiles([
+            'vendor/openlayers/OpenLayers.js',
+            'vendor/jquery/jquery.svg.js',
+            'table/gis_visualization.js',
+        ]);
 
         // If all the rows contain SRID, use OpenStreetMaps on the initial loading.
         if (! isset($_POST['displayVisualization'])) {
@@ -123,9 +125,11 @@ final class GisVisualizationController extends AbstractController
         $this->visualization->setUserSpecifiedSettings($visualizationSettings);
         if ($visualizationSettings != null) {
             foreach ($this->visualization->getSettings() as $setting => $val) {
-                if (! isset($visualizationSettings[$setting])) {
-                    $visualizationSettings[$setting] = $val;
+                if (isset($visualizationSettings[$setting])) {
+                    continue;
                 }
+
+                $visualizationSettings[$setting] = $val;
             }
         }
 

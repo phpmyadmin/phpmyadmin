@@ -2,35 +2,37 @@
 /**
  * Tests for Node class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Navigation\Nodes\Node;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
 
 /**
  * Tests for Node class
  */
-class NodeTest extends PmaTestCase
+class NodeTest extends AbstractTestCase
 {
     /**
      * SetUp for test cases
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
     }
 
     /**
      * SetUp for AddNode
-     *
-     * @return void
      */
-    public function testAddNode()
+    public function testAddNode(): void
     {
         $parent = NodeFactory::getInstance('Node', 'parent');
         $child = NodeFactory::getInstance('Node', 'child');
@@ -47,28 +49,22 @@ class NodeTest extends PmaTestCase
 
     /**
      * SetUp for getChild
-     *
-     * @return void
      */
-    public function testGetChildError()
+    public function testGetChildError(): void
     {
         $parent = NodeFactory::getInstance('Node', 'parent');
-        $this->assertEquals(
-            $parent->getChild('foo'),
-            false
+        $this->assertNull(
+            $parent->getChild('foo')
         );
-        $this->assertEquals(
-            $parent->getChild('foo', true),
-            false
+        $this->assertNull(
+            $parent->getChild('foo', true)
         );
     }
 
     /**
      * SetUp for getChild
-     *
-     * @return void
      */
-    public function testRemoveNode()
+    public function testRemoveNode(): void
     {
         $parent = NodeFactory::getInstance('Node', 'parent');
         $child = NodeFactory::getInstance('Node', 'child');
@@ -78,18 +74,15 @@ class NodeTest extends PmaTestCase
             $child
         );
         $parent->removeChild($child->name);
-        $this->assertEquals(
-            $parent->getChild($child->name),
-            false
+        $this->assertNull(
+            $parent->getChild($child->name)
         );
     }
 
     /**
      * SetUp for hasChildren
-     *
-     * @return void
      */
-    public function testNodeHasChildren()
+    public function testNodeHasChildren(): void
     {
         $parent = NodeFactory::getInstance();
         $emptyContainer = NodeFactory::getInstance(
@@ -131,10 +124,8 @@ class NodeTest extends PmaTestCase
 
     /**
      * SetUp for numChildren
-     *
-     * @return void
      */
-    public function testNumChildren()
+    public function testNumChildren(): void
     {
         // start with root node only
         $parent = NodeFactory::getInstance();
@@ -165,10 +156,8 @@ class NodeTest extends PmaTestCase
 
     /**
      * SetUp for parents
-     *
-     * @return void
      */
-    public function testParents()
+    public function testParents(): void
     {
         $parent = NodeFactory::getInstance();
         $this->assertEquals($parent->parents(), []); // exclude self
@@ -189,10 +178,8 @@ class NodeTest extends PmaTestCase
 
     /**
      * SetUp for realParent
-     *
-     * @return void
      */
-    public function testRealParent()
+    public function testRealParent(): void
     {
         $parent = NodeFactory::getInstance();
         $this->assertFalse($parent->realParent());
@@ -206,27 +193,23 @@ class NodeTest extends PmaTestCase
      * Tests whether Node->hasSiblings() method returns false
      * when the node does not have any siblings.
      *
-     * @return void
-     *
      * @test
      */
-    public function testHasSiblingsWithNoSiblings()
+    public function testHasSiblingsWithNoSiblings(): void
     {
         $parent = NodeFactory::getInstance();
         $child = NodeFactory::getInstance();
         $parent->addChild($child);
-        $this->assertEquals(false, $child->hasSiblings());
+        $this->assertFalse($child->hasSiblings());
     }
 
     /**
      * Tests whether Node->hasSiblings() method returns true
      * when it actually has siblings.
      *
-     * @return void
-     *
      * @test
      */
-    public function testHasSiblingsWithSiblings()
+    public function testHasSiblingsWithSiblings(): void
     {
         $parent = NodeFactory::getInstance();
         $firstChild = NodeFactory::getInstance();
@@ -234,7 +217,7 @@ class NodeTest extends PmaTestCase
         $secondChild = NodeFactory::getInstance();
         $parent->addChild($secondChild);
         // Normal case; two Node:NODE type siblings
-        $this->assertEquals(true, $firstChild->hasSiblings());
+        $this->assertTrue($firstChild->hasSiblings());
 
         $parent = NodeFactory::getInstance();
         $firstChild = NodeFactory::getInstance();
@@ -246,23 +229,21 @@ class NodeTest extends PmaTestCase
         );
         $parent->addChild($secondChild);
         // Empty Node::CONTAINER type node should not be considered in hasSiblings()
-        $this->assertEquals(false, $firstChild->hasSiblings());
+        $this->assertFalse($firstChild->hasSiblings());
 
         $grandChild = NodeFactory::getInstance();
         $secondChild->addChild($grandChild);
         // Node::CONTAINER type nodes with children are counted for hasSiblings()
-        $this->assertEquals(true, $firstChild->hasSiblings());
+        $this->assertTrue($firstChild->hasSiblings());
     }
 
     /**
      * It is expected that Node->hasSiblings() method always return true
      * for Nodes that are 3 levels deep (columns and indexes).
      *
-     * @return void
-     *
      * @test
      */
-    public function testHasSiblingsForNodesAtLevelThree()
+    public function testHasSiblingsForNodesAtLevelThree(): void
     {
         $parent = NodeFactory::getInstance();
         $child = NodeFactory::getInstance();
@@ -273,22 +254,20 @@ class NodeTest extends PmaTestCase
         $grandChild->addChild($greatGrandChild);
 
         // Should return false for node that are two levels deeps
-        $this->assertEquals(false, $grandChild->hasSiblings());
+        $this->assertFalse($grandChild->hasSiblings());
         // Should return true for node that are three levels deeps
-        $this->assertEquals(true, $greatGrandChild->hasSiblings());
+        $this->assertTrue($greatGrandChild->hasSiblings());
     }
 
     /**
      * Tests private method _getWhereClause()
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetWhereClause()
+    public function testGetWhereClause(): void
     {
         $method = new ReflectionMethod(
-            'PhpMyAdmin\Navigation\Nodes\Node',
+            Node::class,
             'getWhereClause'
         );
         $method->setAccessible(true);
@@ -343,11 +322,9 @@ class NodeTest extends PmaTestCase
      * Tests getData() method when DisableIS is false and navigation tree
      * grouping enabled.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetDataWithEnabledISAndGroupingEnabled()
+    public function testGetDataWithEnabledISAndGroupingEnabled(): void
     {
         $pos = 10;
         $limit = 20;
@@ -378,7 +355,7 @@ class NodeTest extends PmaTestCase
         // but strangely, mocking private methods is not supported in PHPUnit
         $node = NodeFactory::getInstance();
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
@@ -394,11 +371,9 @@ class NodeTest extends PmaTestCase
      * Tests getData() method when DisableIS is false and navigation tree
      * grouping disabled.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetDataWithEnabledISAndGroupingDisabled()
+    public function testGetDataWithEnabledISAndGroupingDisabled(): void
     {
         $pos = 10;
         $limit = 20;
@@ -416,7 +391,7 @@ class NodeTest extends PmaTestCase
         // but strangely, mocking private methods is not supported in PHPUnit
         $node = NodeFactory::getInstance();
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
@@ -433,11 +408,9 @@ class NodeTest extends PmaTestCase
      * Tests getData() method when DisableIS is true and navigation tree
      * grouping enabled.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetDataWithDisabledISAndGroupingEnabled()
+    public function testGetDataWithDisabledISAndGroupingEnabled(): void
     {
         $pos = 0;
         $limit = 10;
@@ -449,7 +422,7 @@ class NodeTest extends PmaTestCase
 
         $node = NodeFactory::getInstance();
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
@@ -459,13 +432,9 @@ class NodeTest extends PmaTestCase
         $dbi->expects($this->exactly(3))
             ->method('fetchArray')
             ->willReturnOnConsecutiveCalls(
-                [
-                    '0' => 'db',
-                ],
-                [
-                    '0' => 'aa_db',
-                ],
-                false
+                ['0' => 'db'],
+                ['0' => 'aa_db'],
+                null
             );
 
         $dbi->expects($this->once())
@@ -486,11 +455,9 @@ class NodeTest extends PmaTestCase
      * Tests the getPresence method when DisableIS is false and navigation tree
      * grouping enabled.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetPresenceWithEnabledISAndGroupingEnabled()
+    public function testGetPresenceWithEnabledISAndGroupingEnabled(): void
     {
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
@@ -508,7 +475,7 @@ class NodeTest extends PmaTestCase
         // but strangely, mocking private methods is not supported in PHPUnit
         $node = NodeFactory::getInstance();
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
@@ -522,11 +489,9 @@ class NodeTest extends PmaTestCase
      * Tests the getPresence method when DisableIS is false and navigation tree
      * grouping disabled.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetPresenceWithEnabledISAndGroupingDisabled()
+    public function testGetPresenceWithEnabledISAndGroupingDisabled(): void
     {
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = false;
@@ -536,7 +501,7 @@ class NodeTest extends PmaTestCase
         $query .= 'WHERE TRUE ';
 
         $node = NodeFactory::getInstance();
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
@@ -549,11 +514,9 @@ class NodeTest extends PmaTestCase
     /**
      * Tests the getPresence method when DisableIS is true
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetPresenceWithDisabledIS()
+    public function testGetPresenceWithDisabledIS(): void
     {
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $GLOBALS['dbs_to_test'] = false;
@@ -562,7 +525,7 @@ class NodeTest extends PmaTestCase
         $node = NodeFactory::getInstance();
 
         // test with no search clause
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
@@ -575,7 +538,7 @@ class NodeTest extends PmaTestCase
         $node->getPresence();
 
         // test with a search clause
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())

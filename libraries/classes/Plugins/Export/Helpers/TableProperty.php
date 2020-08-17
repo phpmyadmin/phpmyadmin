@@ -2,18 +2,19 @@
 /**
  * Holds the PhpMyAdmin\Plugins\Export\Helpers\TableProperty class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export\Helpers;
 
 use PhpMyAdmin\Plugins\Export\ExportCodegen;
+use const ENT_COMPAT;
 use function htmlspecialchars;
 use function mb_strpos;
 use function mb_substr;
 use function str_replace;
 use function strlen;
 use function trim;
-use const ENT_COMPAT;
 
 /**
  * PhpMyAdmin\Plugins\Export\Helpers\TableProperty class
@@ -86,6 +87,7 @@ class TableProperty
         if ($pos > 0) {
             return mb_substr($this->type, 0, $pos);
         }
+
         return $this->type;
     }
 
@@ -140,6 +142,7 @@ class TableProperty
         if (mb_strpos($this->type, 'datetime') === 0) {
             return 'DateTime';
         }
+
         return 'unknown';
     }
 
@@ -174,6 +177,7 @@ class TableProperty
         if (mb_strpos($this->type, 'datetime') === 0) {
             return 'DateTime';
         }
+
         return 'Unknown';
     }
 
@@ -189,6 +193,7 @@ class TableProperty
                 . htmlspecialchars($this->name, ENT_COMPAT, 'UTF-8')
                 . '"';
         }
+
         return '';
     }
 
@@ -216,6 +221,7 @@ class TableProperty
             ExportCodegen::cgMakeIdentifier($this->name, false),
             $text
         );
+
         return $this->format($text);
     }
 
@@ -239,6 +245,7 @@ class TableProperty
             ],
             $text
         );
+
         return $this->format($text);
     }
 
@@ -270,6 +277,7 @@ class TableProperty
             ],
             $text
         );
+
         return $text;
     }
 }

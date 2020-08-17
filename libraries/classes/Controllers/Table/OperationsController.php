@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
@@ -25,6 +26,7 @@ use function mb_strstr;
 use function mb_strtolower;
 use function mb_strtoupper;
 use function preg_replace;
+use function strlen;
 
 class OperationsController extends AbstractController
 {
@@ -83,9 +85,7 @@ class OperationsController extends AbstractController
 
         $pma_table = $this->dbi->getTable($db, $table);
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('table/operations.js');
+        $this->addScriptFiles(['table/operations.js']);
 
         /**
          * Runs common work
@@ -127,7 +127,7 @@ class OperationsController extends AbstractController
             // or explicit (option found with a value of 0 or 1)
             // ($create_options['transactional'] may have been set by Table class,
             // from the $create_options)
-            $create_options['transactional'] = isset($create_options['transactional']) && $create_options['transactional'] == '0'
+            $create_options['transactional'] = ($create_options['transactional'] ?? '') == '0'
                 ? '0'
                 : '1';
             $create_options['page_checksum'] = $create_options['page_checksum'] ?? '';
@@ -144,11 +144,25 @@ class OperationsController extends AbstractController
          * If the table has to be moved to some other database
          */
         if (isset($_POST['submit_move']) || isset($_POST['submit_copy'])) {
-            //$_message = '';
-            $this->operations->moveOrCopyTable($db, $table);
-            // This was ended in an Ajax call
+            $message = $this->operations->moveOrCopyTable($db, $table);
+
+            if (! $this->response->isAjax()) {
+                return;
+            }
+
+            $this->response->addJSON('message', $message);
+
+            if ($message->isSuccess()) {
+                $this->response->addJSON('db', $db);
+
+                return;
+            }
+
+            $this->response->setRequestStatus(false);
+
             return;
         }
+
         /**
          * If the table has to be maintained
          */
@@ -209,7 +223,7 @@ class OperationsController extends AbstractController
                 $new_tbl_storage_engine = mb_strtoupper($_POST['new_tbl_storage_engine']);
 
                 if ($pma_table->isEngine('ARIA')) {
-                    $create_options['transactional'] = isset($create_options['transactional']) && $create_options['transactional'] == '0'
+                    $create_options['transactional'] = ($create_options['transactional'] ?? '') == '0'
                         ? '0'
                         : '1';
                     $create_options['page_checksum'] = $create_options['page_checksum'] ?? '';
@@ -261,6 +275,7 @@ class OperationsController extends AbstractController
                         'message',
                         Message::error(__('No collation provided.'))
                     );
+
                     return;
                 }
             }
@@ -284,7 +299,7 @@ class OperationsController extends AbstractController
         if ($reread_info) {
             // to avoid showing the old value (for example the AUTO_INCREMENT) after
             // a change, clear the cache
-            $this->dbi->clearTableCache();
+            $this->dbi->getCache()->clearTableCache();
             $this->dbi->selectDb($db);
             $GLOBALS['showtable'] = $pma_table->getStatusInfo(null, true);
             if ($pma_table->isView()) {
@@ -323,6 +338,7 @@ class OperationsController extends AbstractController
                             Generator::getMessage('', $sql_query)
                         );
                     }
+
                     return;
                 }
             } else {
@@ -344,6 +360,7 @@ class OperationsController extends AbstractController
                             Generator::getMessage('', $sql_query)
                         );
                     }
+
                     return;
                 }
                 unset($warning_messages);
@@ -369,24 +386,28 @@ class OperationsController extends AbstractController
         // `ALTER TABLE ORDER BY` does not make sense for InnoDB tables that contain
         // a user-defined clustered index (PRIMARY KEY or NOT NULL UNIQUE index).
         // InnoDB always orders table rows according to such an index if one is present.
-        if ($tbl_storage_engine == 'INNODB') {
+        if ($tbl_storage_engine === 'INNODB') {
             $indexes = Index::getFromTable($table, $db);
             foreach ($indexes as $name => $idx) {
-                if ($name == 'PRIMARY') {
+                if ($name === 'PRIMARY') {
                     $hideOrderTable = true;
                     break;
-                } elseif (! $idx->getNonUnique()) {
-                    $notNull = true;
-                    foreach ($idx->getColumns() as $column) {
-                        if ($column->getNull()) {
-                            $notNull = false;
-                            break;
-                        }
-                    }
-                    if ($notNull) {
-                        $hideOrderTable = true;
+                }
+
+                if ($idx->getNonUnique()) {
+                    continue;
+                }
+
+                $notNull = true;
+                foreach ($idx->getColumns() as $column) {
+                    if ($column->getNull()) {
+                        $notNull = false;
                         break;
                     }
+                }
+                if ($notNull) {
+                    $hideOrderTable = true;
+                    break;
                 }
             }
         }
@@ -446,7 +467,7 @@ class OperationsController extends AbstractController
             (bool) $cfgRelation['relwork']
         );
 
-        $this->response->addHTML($this->template->render('table/operations/index', [
+        $this->render('table/operations/index', [
             'db' => $db,
             'table' => $table,
             'url_params' => $url_params,
@@ -480,6 +501,6 @@ class OperationsController extends AbstractController
             'partitions' => $partitions,
             'partitions_choices' => $partitionsChoices,
             'foreigners' => $foreigners,
-        ]));
+        ]);
     }
 }

@@ -1,24 +1,24 @@
 <?php
 /**
  * Format converter
- *
- * @package PhpMyAdmin
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Utils;
 
 use PhpMyAdmin\Util;
-
+use function bin2hex;
 use function hex2bin;
 use function inet_ntop;
+use function inet_pton;
+use function ip2long;
+use function long2ip;
 use function strpos;
 use function substr;
 
 /**
  * Format converter
- *
- * @package PhpMyAdmin
  */
 class FormatConverter
 {
@@ -31,14 +31,14 @@ class FormatConverter
      */
     public static function binaryToIp($buffer)
     {
-        if (0 !== strpos($buffer, '0x')) {
+        if (strpos($buffer, '0x') !== 0) {
             return $buffer;
         }
 
         $ipHex = substr($buffer, 2);
         $ipBin = hex2bin($ipHex);
 
-        if (false === $ipBin) {
+        if ($ipBin === false) {
             return $buffer;
         }
 

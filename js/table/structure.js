@@ -51,7 +51,7 @@ AJAX.registerTeardown('table/structure.js', function () {
     $(document).off('click', '#move_columns_anchor');
     $(document).off('click', '#printView');
     $(document).off('submit', '.append_fields_form.ajax');
-    $('body').off('click', '#fieldsForm.ajax button[name="submit_mult"], #fieldsForm.ajax input[name="submit_mult"]');
+    $('body').off('click', '#fieldsForm.ajax button');
     $(document).off('click', 'a[name^=partition_action].ajax');
     $(document).off('click', '#remove_partitioning.ajax');
 });
@@ -409,15 +409,16 @@ AJAX.registerOnload('table/structure.js', function () {
     /**
      * Handles multi submits in table structure page such as change, browse, drop, primary etc.
      */
-    $('body').on('click', '#fieldsForm.ajax button[name="submit_mult"], #fieldsForm.ajax input[name="submit_mult"]', function (e) {
+    $('body').on('click', '#fieldsForm.ajax button', function (e) {
         e.preventDefault();
-        var $button = $(this);
-        var $form = $button.parents('form');
+        var $form = $(this).parents('form');
         var argsep = CommonParams.get('arg_separator');
-        var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'submit_mult=' + $button.val();
+        var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
+
         Functions.ajaxShowMessage();
         AJAX.source = $form;
-        $.post($form.attr('action'), submitData, AJAX.responseHandler);
+
+        $.post(this.formAction, submitData, AJAX.responseHandler);
     });
 
     /**

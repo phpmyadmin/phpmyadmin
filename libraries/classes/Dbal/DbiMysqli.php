@@ -2,6 +2,7 @@
 /**
  * Interface to the MySQL Improved extension (MySQLi)
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Dbal;
@@ -10,14 +11,8 @@ use mysqli;
 use mysqli_result;
 use mysqli_stmt;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Query\Utilities;
 use stdClass;
-use function defined;
-use function implode;
-use function is_array;
-use function is_bool;
-use function mysqli_init;
-use function stripos;
-use function trigger_error;
 use const E_USER_WARNING;
 use const MYSQLI_ASSOC;
 use const MYSQLI_AUTO_INCREMENT_FLAG;
@@ -69,6 +64,14 @@ use const MYSQLI_UNIQUE_KEY_FLAG;
 use const MYSQLI_UNSIGNED_FLAG;
 use const MYSQLI_USE_RESULT;
 use const MYSQLI_ZEROFILL_FLAG;
+use function define;
+use function defined;
+use function implode;
+use function is_array;
+use function is_bool;
+use function mysqli_init;
+use function stripos;
+use function trigger_error;
 
 /**
  * Interface to the MySQL Improved extension (MySQLi)
@@ -177,15 +180,18 @@ class DbiMysqli implements DbiExtension
             $error_number = $mysqli->connect_errno;
             $error_message = $mysqli->connect_error;
             if (! $server['ssl'] && ($error_number == 3159 ||
-                (($error_number == 2001 || $error_number == 9002) && stripos($error_message, 'SSL Connection is required') !== false))
+                (($error_number == 2001 || $error_number == 9002)
+                    && stripos($error_message, 'SSL Connection is required') !== false))
             ) {
                     trigger_error(
                         __('SSL connection enforced by server, automatically enabling it.'),
                         E_USER_WARNING
                     );
                     $server['ssl'] = true;
+
                     return self::connect($user, $password, $server);
             }
+
             return false;
         }
 
@@ -250,14 +256,13 @@ class DbiMysqli implements DbiExtension
      * returns array of rows with associative and numeric keys from $result
      *
      * @param mysqli_result $result result set identifier
-     *
-     * @return array|null
      */
-    public function fetchArray($result)
+    public function fetchArray($result): ?array
     {
         if (! $result instanceof mysqli_result) {
             return null;
         }
+
         return $result->fetch_array(MYSQLI_BOTH);
     }
 
@@ -265,14 +270,13 @@ class DbiMysqli implements DbiExtension
      * returns array of rows with associative keys from $result
      *
      * @param mysqli_result $result result set identifier
-     *
-     * @return array|null
      */
-    public function fetchAssoc($result)
+    public function fetchAssoc($result): ?array
     {
         if (! $result instanceof mysqli_result) {
             return null;
         }
+
         return $result->fetch_array(MYSQLI_ASSOC);
     }
 
@@ -280,14 +284,13 @@ class DbiMysqli implements DbiExtension
      * returns array of rows with numeric keys from $result
      *
      * @param mysqli_result $result result set identifier
-     *
-     * @return array|null
      */
-    public function fetchRow($result)
+    public function fetchRow($result): ?array
     {
         if (! $result instanceof mysqli_result) {
             return null;
         }
+
         return $result->fetch_array(MYSQLI_NUM);
     }
 
@@ -313,9 +316,11 @@ class DbiMysqli implements DbiExtension
      */
     public function freeResult($result)
     {
-        if ($result instanceof mysqli_result) {
-            $result->close();
+        if (! ($result instanceof mysqli_result)) {
+            return;
         }
+
+        $result->close();
     }
 
     /**
@@ -416,7 +421,7 @@ class DbiMysqli implements DbiExtension
         // the call to getError()
         $GLOBALS['errno'] = $error_number;
 
-        return $GLOBALS['dbi']->formatError($error_number, $error_message);
+        return Utilities::formatError($error_number, $error_message);
     }
 
     /**
@@ -459,6 +464,10 @@ class DbiMysqli implements DbiExtension
     {
         if (! $result instanceof mysqli_result) {
             return false;
+        }
+        // Issue #16043 - client API mysqlnd seem not to have MYSQLI_TYPE_JSON defined
+        if (! defined('MYSQLI_TYPE_JSON')) {
+            define('MYSQLI_TYPE_JSON', 245);
         }
         // Build an associative array for a type look up
         $typeAr = [];
@@ -528,6 +537,7 @@ class DbiMysqli implements DbiExtension
             $fields[$k]->blob
                 = (int) (bool) ($fields[$k]->_flags & MYSQLI_BLOB_FLAG);
         }
+
         return $fields;
     }
 
@@ -561,6 +571,7 @@ class DbiMysqli implements DbiExtension
         if ($fieldDefinition !== false) {
             return $fieldDefinition->length;
         }
+
         return false;
     }
 
@@ -582,6 +593,7 @@ class DbiMysqli implements DbiExtension
         if ($fieldDefinition !== false) {
             return $fieldDefinition->name;
         }
+
         return '';
     }
 
@@ -598,35 +610,38 @@ class DbiMysqli implements DbiExtension
         if ($i >= $this->numFields($result)) {
             return false;
         }
-        /** @var stdClass $fieldDefinition */
+        /** @var stdClass|false $fieldDefinition */
         $fieldDefinition = $result->fetch_field_direct($i);
-        if ($fieldDefinition !== false) {
-            $type = $fieldDefinition->type;
-            $charsetNumber = $fieldDefinition->charsetnr;
-            $fieldDefinitionFlags = $fieldDefinition->flags;
-            $flags = [];
-            foreach (self::$pma_mysqli_flag_names as $flag => $name) {
-                if ($fieldDefinitionFlags & $flag) {
-                    $flags[] = $name;
-                }
-            }
-            // See https://dev.mysql.com/doc/refman/6.0/en/c-api-datatypes.html:
-            // to determine if a string is binary, we should not use MYSQLI_BINARY_FLAG
-            // but instead the charsetnr member of the MYSQL_FIELD
-            // structure. Watch out: some types like DATE returns 63 in charsetnr
-            // so we have to check also the type.
-            // Unfortunately there is no equivalent in the mysql extension.
-            if (($type == MYSQLI_TYPE_TINY_BLOB || $type == MYSQLI_TYPE_BLOB
-                || $type == MYSQLI_TYPE_MEDIUM_BLOB || $type == MYSQLI_TYPE_LONG_BLOB
-                || $type == MYSQLI_TYPE_VAR_STRING || $type == MYSQLI_TYPE_STRING)
-                && $charsetNumber == 63
-            ) {
-                $flags[] = 'binary';
-            }
-            return implode(' ', $flags);
-        } else {
+        if ($fieldDefinition === false) {
             return '';
         }
+
+        $type = $fieldDefinition->type;
+        $charsetNumber = $fieldDefinition->charsetnr;
+        $fieldDefinitionFlags = $fieldDefinition->flags;
+        $flags = [];
+        foreach (self::$pma_mysqli_flag_names as $flag => $name) {
+            if (! ($fieldDefinitionFlags & $flag)) {
+                continue;
+            }
+
+            $flags[] = $name;
+        }
+        // See https://dev.mysql.com/doc/refman/6.0/en/c-api-datatypes.html:
+        // to determine if a string is binary, we should not use MYSQLI_BINARY_FLAG
+        // but instead the charsetnr member of the MYSQL_FIELD
+        // structure. Watch out: some types like DATE returns 63 in charsetnr
+        // so we have to check also the type.
+        // Unfortunately there is no equivalent in the mysql extension.
+        if (($type == MYSQLI_TYPE_TINY_BLOB || $type == MYSQLI_TYPE_BLOB
+            || $type == MYSQLI_TYPE_MEDIUM_BLOB || $type == MYSQLI_TYPE_LONG_BLOB
+            || $type == MYSQLI_TYPE_VAR_STRING || $type == MYSQLI_TYPE_STRING)
+            && $charsetNumber == 63
+        ) {
+            $flags[] = 'binary';
+        }
+
+        return implode(' ', $flags);
     }
 
     /**

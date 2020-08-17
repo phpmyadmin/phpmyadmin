@@ -2,17 +2,20 @@
 /**
  * tests for PhpMyAdmin\Properties\Plugins\PluginPropertyItem class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Properties\Plugins;
 
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PhpMyAdmin\Properties\Plugins\PluginPropertyItem class
  */
-class PluginPropertyItemTest extends TestCase
+class PluginPropertyItemTest extends AbstractTestCase
 {
+    /** @var PluginPropertyItem */
     protected $stub;
 
     /**
@@ -20,7 +23,8 @@ class PluginPropertyItemTest extends TestCase
      */
     protected function setUp(): void
     {
-        $this->stub = $this->getMockForAbstractClass('PhpMyAdmin\Properties\Plugins\PluginPropertyItem');
+        parent::setUp();
+        $this->stub = $this->getMockForAbstractClass(PluginPropertyItem::class);
     }
 
     /**
@@ -28,15 +32,14 @@ class PluginPropertyItemTest extends TestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->stub);
     }
 
     /**
      * Test for PhpMyAdmin\Properties\Plugins\PluginPropertyItem::getPropertyType
-     *
-     * @return void
      */
-    public function testGetPropertyType()
+    public function testGetPropertyType(): void
     {
         $this->assertEquals(
             'plugin',

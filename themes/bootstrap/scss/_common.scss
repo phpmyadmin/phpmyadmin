@@ -75,6 +75,10 @@ button.mult_submit {
   color: #235a81;
 }
 
+#navbarDropdown > img {
+  display: none;
+}
+
 #initials_table {
   background: #f3f3f3;
   border: 1px solid #aaa;
@@ -566,6 +570,7 @@ table tbody:first-of-type tr:not(.nopointer):hover th,
 // hovered table rows
 #table_index tbody:hover tr,
 #table_index tbody:hover th,
+#table_index tbody:hover td,
 table tr.hover:not(.nopointer) th {
   background: linear-gradient(#ced6df, #b6c6d7);
   color: $browse-pointer-color;
@@ -754,6 +759,14 @@ div.tools a:hover,
 .noPrivileges {
   color: #f00;
   font-weight: bold;
+}
+
+.error {
+  border: 1px solid maroon !important;
+  margin-left: 2px;
+  padding: 1px 2px;
+  color: #000;
+  background: pink;
 }
 
 // disabled text
@@ -1044,6 +1057,8 @@ div#tablestatistics table {
 // user privileges
 #fieldset_add_user_login {
   div.item {
+    display: flex;
+    align-items: center;
     border-bottom: 1px solid silver;
     padding-bottom: 0.3em;
     margin-bottom: 0.3em;
@@ -1056,6 +1071,7 @@ div#tablestatistics table {
     max-width: 100%;
     text-align: $right;
     padding-#{$right}: 0.5em;
+    margin-bottom: 0;
   }
 
   input {
@@ -1944,6 +1960,10 @@ input#input_import_file {
   }
 }
 
+#tablestructure tbody label {
+  margin: 0.3rem 0;
+}
+
 #structure-action-links a {
   margin-#{$right}: 1em;
 }
@@ -2480,12 +2500,17 @@ input#auto_increment_opt {
   border-#{$right}: 2px solid #a44;
 }
 
-.pma_table,
-.sticky_columns {
+.pma_table {
   th.draggable span {
     display: block;
     overflow: hidden;
   }
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 60px;
 }
 
 .pma_table {
@@ -3624,6 +3649,17 @@ body .ui-dialog {
   .ui-dialog-buttonpane .ui-dialog-buttonset {
     float: $right;
   }
+
+  .ui-dialog-buttonpane .ui-dialog-buttonset button {
+    color: #fff;
+    background: none;
+    background-color: #6c757d !important;
+    border-color: #6c757d;
+  }
+
+  .ui-dialog-buttonpane .ui-dialog-buttonset button:hover {
+    background-color: #5a6268 !important;
+  }
 }
 // end of styles for jQuery-ui to support rtl languages
 
@@ -3750,4 +3786,18 @@ body .ui-dialog {
 
 #filter_query_text {
   vertical-align: baseline;
+}
+
+.ui_tpicker_hour_slider,
+.ui_tpicker_minute_slider,
+.ui_tpicker_second_slider,
+.ui_tpicker_millisec_slider,
+.ui_tpicker_microsec_slider {
+  margin-left: 40px;
+  margin-top: 4px;
+  height: 0.75rem;
+}
+
+.ui-timepicker-div dl .ui_tpicker_timezone select {
+  margin-left: 50px;
 }

@@ -1,8 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use PhpMyAdmin\Bookmark;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Core;
@@ -56,15 +58,18 @@ class SqlController extends AbstractController
 
         $this->checkUserPrivileges->getPrivileges();
 
-        PageSettings::showGroup('Browse');
+        $pageSettings = new PageSettings('Browse');
+        $this->response->addHTML($pageSettings->getErrorHTML());
+        $this->response->addHTML($pageSettings->getHTML());
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
-        $scripts->addFile('table/change.js');
-        $scripts->addFile('indexes.js');
-        $scripts->addFile('gis_data_editor.js');
-        $scripts->addFile('multi_column_sort.js');
+        $this->addScriptFiles([
+            'vendor/jquery/jquery.uitablefilter.js',
+            'table/change.js',
+            'indexes.js',
+            'vendor/stickyfill.min.js',
+            'gis_data_editor.js',
+            'multi_column_sort.js',
+        ]);
 
         /**
          * Set ajax_reload in the response if it was already set
@@ -176,7 +181,8 @@ class SqlController extends AbstractController
          * Bookmark add
          */
         if (isset($_POST['store_bkm'])) {
-            $this->sql->addBookmark($goto);
+            $this->addBookmark($goto);
+
             return;
         }
 
@@ -192,7 +198,7 @@ class SqlController extends AbstractController
             ]);
         }
 
-        $this->sql->executeQueryAndSendQueryResponse(
+        $this->response->addHTML($this->sql->executeQueryAndSendQueryResponse(
             $analyzed_sql_results,
             $is_gotofile,
             $db,
@@ -211,7 +217,7 @@ class SqlController extends AbstractController
             $sql_query,
             $selected ?? null,
             $complete_query ?? null
-        );
+        ));
     }
 
     /**
@@ -226,7 +232,7 @@ class SqlController extends AbstractController
         $this->checkUserPrivileges->getPrivileges();
 
         $column = $_POST['column'];
-        if ($_SESSION['tmpval']['relational_display'] == 'D'
+        if ($_SESSION['tmpval']['relational_display'] === 'D'
             && isset($_POST['relation_key_or_display_column'])
             && $_POST['relation_key_or_display_column']
         ) {
@@ -316,9 +322,45 @@ class SqlController extends AbstractController
         if ($status instanceof Message) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $status->getString());
+
             return;
         }
 
         $this->response->setRequestStatus($status === true);
+    }
+
+    private function addBookmark(string $goto): void
+    {
+        global $cfg;
+
+        $bookmark = Bookmark::createBookmark(
+            $this->dbi,
+            $cfg['Server']['user'],
+            $_POST['bkm_fields'],
+            isset($_POST['bkm_all_users']) && $_POST['bkm_all_users'] === 'true'
+        );
+
+        $result = null;
+        if ($bookmark instanceof Bookmark) {
+            $result = $bookmark->save();
+        }
+
+        if (! $this->response->isAjax()) {
+            Core::sendHeaderLocation('./' . $goto . '&label=' . $_POST['bkm_fields']['bkm_label']);
+
+            return;
+        }
+
+        if ($result) {
+            $msg = Message::success(__('Bookmark %s has been created.'));
+            $msg->addParam($_POST['bkm_fields']['bkm_label']);
+            $this->response->addJSON('message', $msg);
+
+            return;
+        }
+
+        $msg = Message::error(__('Bookmark not created!'));
+        $this->response->setRequestStatus(false);
+        $this->response->addJSON('message', $msg);
     }
 }

@@ -2,18 +2,18 @@
 /**
  * tests for PhpMyAdmin\Mime
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Mime;
-use PHPUnit\Framework\TestCase;
 use function chr;
 
 /**
  * Test for mime detection.
  */
-class MimeTest extends TestCase
+class MimeTest extends AbstractTestCase
 {
     /**
      * Test for Mime::detect
@@ -23,7 +23,7 @@ class MimeTest extends TestCase
      *
      * @dataProvider providerForTestDetect
      */
-    public function testDetect($test, $output): void
+    public function testDetect(string $test, string $output): void
     {
         $this->assertEquals(
             Mime::detect($test),
@@ -36,7 +36,7 @@ class MimeTest extends TestCase
      *
      * @return array data for testDetect
      */
-    public function providerForTestDetect()
+    public function providerForTestDetect(): array
     {
         return [
             [

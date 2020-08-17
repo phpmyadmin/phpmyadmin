@@ -2,25 +2,29 @@
 /**
  * Tests for PhpMyAdmin\Server\UserGroups
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Server;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Server\UserGroups;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
-use PHPUnit\Framework\TestCase;
 use function htmlspecialchars;
 
 /**
  * Tests for PhpMyAdmin\Server\UserGroups
  */
-class UserGroupsTest extends TestCase
+class UserGroupsTest extends AbstractTestCase
 {
     /**
      * Prepares environment for the test.
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
 
@@ -36,16 +40,14 @@ class UserGroupsTest extends TestCase
     /**
      * Tests UserGroups::getHtmlForUserGroupsTable() function when there are no user groups
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testGetHtmlForUserGroupsTableWithNoUserGroups()
+    public function testGetHtmlForUserGroupsTableWithNoUserGroups(): void
     {
         $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups`'
             . ' ORDER BY `usergroup` ASC';
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
@@ -74,15 +76,13 @@ class UserGroupsTest extends TestCase
 
     /**
      * Tests UserGroups::getHtmlForUserGroupsTable() function when there are user groups
-     *
-     * @return void
      */
-    public function testGetHtmlForUserGroupsTableWithUserGroups()
+    public function testGetHtmlForUserGroupsTableWithUserGroups(): void
     {
         $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups`'
             . ' ORDER BY `usergroup` ASC';
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
@@ -108,7 +108,7 @@ class UserGroupsTest extends TestCase
         $dbi->expects($this->at(3))
             ->method('fetchAssoc')
             ->withAnyParameters()
-            ->will($this->returnValue(false));
+            ->will($this->returnValue(null));
         $dbi->expects($this->once())
             ->method('freeResult');
         $GLOBALS['dbi'] = $dbi;
@@ -158,17 +158,15 @@ class UserGroupsTest extends TestCase
 
     /**
      * Tests UserGroups::delete() function
-     *
-     * @return void
      */
-    public function testDeleteUserGroup()
+    public function testDeleteUserGroup(): void
     {
         $userDelQuery = 'DELETE FROM `pmadb`.`users`'
             . " WHERE `usergroup`='ug'";
         $userGrpDelQuery = 'DELETE FROM `pmadb`.`usergroups`'
             . " WHERE `usergroup`='ug'";
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->at(1))
@@ -188,10 +186,8 @@ class UserGroupsTest extends TestCase
 
     /**
      * Tests UserGroups::getHtmlToEditUserGroup() function
-     *
-     * @return void
      */
-    public function testGetHtmlToEditUserGroup()
+    public function testGetHtmlToEditUserGroup(): void
     {
         // adding a user group
         $html = UserGroups::getHtmlToEditUserGroup();
@@ -206,7 +202,7 @@ class UserGroupsTest extends TestCase
 
         $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups`'
             . " WHERE `usergroup`='ug'";
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
@@ -221,7 +217,7 @@ class UserGroupsTest extends TestCase
                     'tab' => 'server_sql',
                     'allowed' => 'Y',
                 ],
-                false
+                null
             );
         $dbi->expects($this->once())
             ->method('freeResult');

@@ -2,6 +2,7 @@
 /**
  * tests for PhpMyAdmin\Properties\Plugins\ExportPluginProperties class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Properties\Plugins;
@@ -14,6 +15,7 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
  */
 class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
 {
+    /** @var ExportPluginProperties */
     protected $object;
 
     /**
@@ -21,6 +23,7 @@ class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->object = new ExportPluginProperties();
     }
 
@@ -29,15 +32,14 @@ class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 
     /**
      * Test for PhpMyAdmin\Properties\Plugins\ExportPluginProperties::getItemType
-     *
-     * @return void
      */
-    public function testGetItemType()
+    public function testGetItemType(): void
     {
         $this->assertEquals(
             'export',
@@ -49,10 +51,8 @@ class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
      * Test for
      *     - PhpMyAdmin\Properties\Plugins\ExportPluginProperties::getForceFile
      *     - PhpMyAdmin\Properties\Plugins\ExportPluginProperties::setForceFile
-     *
-     * @return void
      */
-    public function testSetGetForceFile()
+    public function testSetGetForceFile(): void
     {
         $this->object->setForceFile(true);
 

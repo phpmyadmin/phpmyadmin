@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
@@ -69,11 +70,13 @@ class ImportStatusController
                 }
             }
 
-            echo $_SESSION['Import_message']['message'];
+            echo $_SESSION['Import_message']['message'] ?? '';
 
-            echo $this->template->render('import_status', [
-                'go_back_url' => $_SESSION['Import_message']['go_back_url'],
-            ]);
+            if (isset($_SESSION['Import_message']['go_back_url'])) {
+                echo $this->template->render('import_status', [
+                    'go_back_url' => $_SESSION['Import_message']['go_back_url'],
+                ]);
+            }
         } else {
             ImportAjax::status($_GET['id']);
         }

@@ -2,12 +2,13 @@
 /**
  * Holds the PhpMyAdmin\Controllers\Database\TriggersController
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Common;
-use PhpMyAdmin\Rte\Triggers;
+use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function in_array;
@@ -20,11 +21,9 @@ class TriggersController extends AbstractController
 {
     public function index(): void
     {
-        global $_PMA_RTE, $db, $table, $tables, $num_tables, $total_num_tables, $sub_part, $is_show_stats;
+        global $db, $table, $tables, $num_tables, $total_num_tables, $sub_part, $is_show_stats;
         global $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos, $url_query;
         global $errors, $titles;
-
-        $_PMA_RTE = 'TRI';
 
         if (! $this->response->isAjax()) {
             /**
@@ -36,7 +35,7 @@ class TriggersController extends AbstractController
                 $table = '';
                 Common::database();
 
-                list(
+                [
                     $tables,
                     $num_tables,
                     $total_num_tables,
@@ -45,8 +44,8 @@ class TriggersController extends AbstractController
                     $db_is_system_schema,
                     $tooltip_truename,
                     $tooltip_aliasname,
-                    $pos
-                ) = Util::getDbInfo($db, $sub_part ?? '');
+                    $pos,
+                ] = Util::getDbInfo($db, $sub_part ?? '');
             }
         } else {
             /**
@@ -78,7 +77,7 @@ class TriggersController extends AbstractController
          */
         $errors = [];
 
-        $triggers = new Triggers($this->dbi);
+        $triggers = new Triggers($this->dbi, $this->template, $this->response);
         $triggers->main();
     }
 }

@@ -2,6 +2,7 @@
 /**
  * Setup preferences form
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Config\Forms\Setup;

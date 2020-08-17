@@ -2,6 +2,7 @@
 /**
  * Test for Menu class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
@@ -14,13 +15,18 @@ use function defined;
 /**
  * Test for Menu class
  */
-class MenuTest extends PmaTestCase
+class MenuTest extends AbstractTestCase
 {
     /**
      * Configures global environment.
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
+        parent::setTheme();
+        parent::loadDefaultConfig();
+
         if (! defined('PMA_IS_WINDOWS')) {
             define('PMA_IS_WINDOWS', false);
         }
@@ -36,10 +42,8 @@ class MenuTest extends PmaTestCase
 
     /**
      * Server menu test
-     *
-     * @return void
      */
-    public function testServer()
+    public function testServer(): void
     {
         $menu = new Menu('', '');
         $this->assertStringContainsString(
@@ -50,10 +54,8 @@ class MenuTest extends PmaTestCase
 
     /**
      * Database menu test
-     *
-     * @return void
      */
-    public function testDatabase()
+    public function testDatabase(): void
     {
         $menu = new Menu('pma_test', '');
         $this->assertStringContainsString(
@@ -64,10 +66,8 @@ class MenuTest extends PmaTestCase
 
     /**
      * Table menu test
-     *
-     * @return void
      */
-    public function testTable()
+    public function testTable(): void
     {
         $menu = new Menu('pma_test', 'table1');
         $this->assertStringContainsString(
@@ -77,25 +77,9 @@ class MenuTest extends PmaTestCase
     }
 
     /**
-     * Table menu display test
-     *
-     * @return void
-     */
-    public function testTableDisplay()
-    {
-        $menu = new Menu('pma_test', '');
-        $this->expectOutputString(
-            $menu->getDisplay()
-        );
-        $menu->display();
-    }
-
-    /**
      * Table menu setTable test
-     *
-     * @return void
      */
-    public function testSetTable()
+    public function testSetTable(): void
     {
         $menu = new Menu('pma_test', '');
         $menu->setTable('table1');

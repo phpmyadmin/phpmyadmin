@@ -2,23 +2,26 @@
 /**
  * Tests for PhpMyAdmin\Navigation\Nodes\NodeTableContainer class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PhpMyAdmin\Navigation\Nodes\NodeTableContainer class
  */
-class NodeTableContainerTest extends PmaTestCase
+class NodeTableContainerTest extends AbstractTestCase
 {
     /**
      * SetUp for test cases
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
         $GLOBALS['cfg']['NavigationTreeDbSeparator'] = '_';
@@ -28,10 +31,8 @@ class NodeTableContainerTest extends PmaTestCase
 
     /**
      * Test for __construct
-     *
-     * @return void
      */
-    public function testConstructor()
+    public function testConstructor(): void
     {
         $parent = NodeFactory::getInstance('NodeTableContainer');
         $this->assertArrayHasKey(

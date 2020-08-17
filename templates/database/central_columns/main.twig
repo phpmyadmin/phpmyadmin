@@ -399,20 +399,14 @@
                 'text_dir'       : text_dir,
                 'form_name'      : 'tableslistcontainer',
             } only %}
-            {{ get_button_or_image(
-                'edit_central_columns',
-                'mult_submit change_central_columns',
-                'Edit' | trans,
-                'b_edit',
-                'edit central columns'
-            ) | raw }}
-            {{ get_button_or_image(
-            'delete_central_columns',
-            'mult_submit',
-            'Delete' | trans,
-            'b_drop',
-            'remove_from_central_columns'
-            ) | raw }}
+            <button class="btn btn-link mult_submit change_central_columns" type="submit" name="edit_central_columns"
+                    value="edit central columns" title="{% trans 'Edit' %}">
+                {{ get_icon('b_edit', 'Edit'|trans) }}
+            </button>
+            <button class="btn btn-link mult_submit" type="submit" name="delete_central_columns"
+                    value="remove_from_central_columns" title="{% trans 'Delete' %}">
+                {{ get_icon('b_drop', 'Delete'|trans) }}
+            </button>
         </form>
     </div>
 {% endif %}

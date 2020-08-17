@@ -1,12 +1,13 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Charsets;
 
 use PhpMyAdmin\Charsets\Charset;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
-class CharsetTest extends TestCase
+class CharsetTest extends AbstractTestCase
 {
     public function testFromServer(): void
     {

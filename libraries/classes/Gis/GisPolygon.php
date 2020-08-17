@@ -2,6 +2,7 @@
 /**
  * Handles actions related to GIS POLYGON objects
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
@@ -21,7 +22,6 @@ use function mb_strlen;
 use function mb_strpos;
 use function mb_substr;
 use function min;
-use function mt_rand;
 use function pow;
 use function sqrt;
 use function trim;
@@ -31,8 +31,8 @@ use function trim;
  */
 class GisPolygon extends GisGeometry
 {
-    // Hold the singleton instance of the class
-    private static $_instance;
+    /** @var self */
+    private static $instance;
 
     /**
      * A private constructor; prevents direct creation of object.
@@ -52,11 +52,11 @@ class GisPolygon extends GisGeometry
      */
     public static function singleton()
     {
-        if (! isset(self::$_instance)) {
-            self::$_instance = new GisPolygon();
+        if (! isset(self::$instance)) {
+            self::$instance = new GisPolygon();
         }
 
-        return self::$_instance;
+        return self::$instance;
     }
 
     /**
@@ -238,7 +238,7 @@ class GisPolygon extends GisGeometry
     {
         $polygon_options = [
             'name'         => $label,
-            'id'           => $label . mt_rand(),
+            'id'           => $label . $this->getRandomId(),
             'class'        => 'polygon vector',
             'stroke'       => 'black',
             'stroke-width' => 0.5,
@@ -259,17 +259,17 @@ class GisPolygon extends GisGeometry
 
         // If the polygon doesn't have an inner polygon
         if (mb_strpos($polygon, '),(') === false) {
-            $row .= $this->_drawPath($polygon, $scale_data);
+            $row .= $this->drawPath($polygon, $scale_data);
         } else {
             // Separate outer and inner polygons
             $parts = explode('),(', $polygon);
             $outer = $parts[0];
             $inner = array_slice($parts, 1);
 
-            $row .= $this->_drawPath($outer, $scale_data);
+            $row .= $this->drawPath($outer, $scale_data);
 
             foreach ($inner as $inner_poly) {
-                $row .= $this->_drawPath($inner_poly, $scale_data);
+                $row .= $this->drawPath($inner_poly, $scale_data);
             }
         }
 
@@ -322,11 +322,10 @@ class GisPolygon extends GisGeometry
 
         // Separate outer and inner polygons
         $parts = explode('),(', $polygon);
-        $row .= 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
+
+        return $row . 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
             . $this->getPolygonForOpenLayers($parts, $srid)
             . ', null, ' . json_encode($style_options) . '));';
-
-        return $row;
     }
 
     /**
@@ -339,7 +338,7 @@ class GisPolygon extends GisGeometry
      *
      * @access private
      */
-    private function _drawPath($polygon, array $scale_data)
+    private function drawPath($polygon, array $scale_data)
     {
         $points_arr = $this->extractPoints($polygon, $scale_data);
 
@@ -402,9 +401,8 @@ class GisPolygon extends GisGeometry
                 0,
                 mb_strlen($wkt) - 1
             );
-        $wkt .= ')';
 
-        return $wkt;
+        return $wkt . ')';
     }
 
     /**
@@ -526,7 +524,7 @@ class GisPolygon extends GisGeometry
      *
      * @param array $ring array of points forming the ring
      *
-     * @return array|bool a point on the surface of the ring
+     * @return array|false a point on the surface of the ring
      *
      * @access public
      * @static

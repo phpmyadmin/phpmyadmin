@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Table;
@@ -42,7 +43,7 @@ final class Search
 
         // If only distinct values are needed
         $is_distinct = isset($_POST['distinct']) ? 'true' : 'false';
-        if ($is_distinct == 'true') {
+        if ($is_distinct === 'true') {
             $sql_query .= 'DISTINCT ';
         }
 
@@ -64,11 +65,12 @@ final class Search
         $sql_query .= $whereClause;
 
         // if the search results are to be ordered
-        if (isset($_POST['orderByColumn']) && $_POST['orderByColumn'] != '--nil--') {
+        if (isset($_POST['orderByColumn']) && $_POST['orderByColumn'] !== '--nil--') {
             $sql_query .= ' ORDER BY '
                 . Util::backquote($_POST['orderByColumn'])
                 . ' ' . $_POST['order'];
         } // end if
+
         return $sql_query;
     }
 
@@ -109,14 +111,17 @@ final class Search
                 $tmp_geom_func
             );
 
-            if ($whereClause) {
-                $fullWhereClause[] = $whereClause;
+            if (! $whereClause) {
+                continue;
             }
+
+            $fullWhereClause[] = $whereClause;
         } // end foreach
 
         if (! empty($fullWhereClause)) {
             return ' WHERE ' . implode(' AND ', $fullWhereClause);
         }
+
         return '';
     }
 
@@ -172,19 +177,19 @@ final class Search
             }
 
             // LIKE %...%
-            if ($func_type == 'LIKE %...%') {
+            if ($func_type === 'LIKE %...%') {
                 $func_type = 'LIKE';
                 $criteriaValues = '%' . $criteriaValues . '%';
             }
-            if ($func_type == 'REGEXP ^...$') {
+            if ($func_type === 'REGEXP ^...$') {
                 $func_type = 'REGEXP';
                 $criteriaValues = '^' . $criteriaValues . '$';
             }
 
-            if ($func_type != 'IN (...)'
-                && $func_type != 'NOT IN (...)'
-                && $func_type != 'BETWEEN'
-                && $func_type != 'NOT BETWEEN'
+            if ($func_type !== 'IN (...)'
+                && $func_type !== 'NOT IN (...)'
+                && $func_type !== 'BETWEEN'
+                && $func_type !== 'NOT BETWEEN'
             ) {
                 return $backquoted_name . ' ' . $func_type . ' ' . $quot
                     . $this->dbi->escapeString($criteriaValues) . $quot;
@@ -210,7 +215,7 @@ final class Search
                     . $quot;
             }
 
-            if ($func_type == 'BETWEEN' || $func_type == 'NOT BETWEEN') {
+            if ($func_type === 'BETWEEN' || $func_type === 'NOT BETWEEN') {
                 $where = $backquoted_name . ' ' . $func_type . ' '
                     . ($values[0] ?? '')
                     . ' AND ' . ($values[1] ?? '');
@@ -268,9 +273,12 @@ final class Search
         // If the function takes multiple parameters
         if (strpos($func_type, 'IS NULL') !== false || strpos($func_type, 'IS NOT NULL') !== false) {
             return Util::backquote($names) . ' ' . $func_type;
-        } elseif ($geom_funcs[$geom_func]['params'] > 1) {
+        }
+
+        if ($geom_funcs[$geom_func]['params'] > 1) {
             // create gis data from the criteria input
             $gis_data = Util::createGISData($criteriaValues, $this->dbi->getVersion());
+
             return $geom_func . '(' . Util::backquote($names)
                 . ', ' . $gis_data . ')';
         }
@@ -295,6 +303,7 @@ final class Search
             $where = $geom_function_applied . ' '
                 . $func_type . " '" . $criteriaValues . "'";
         }
+
         return $where;
     }
 
@@ -312,11 +321,11 @@ final class Search
             $criteriaValues = explode(',', $criteriaValues);
         }
         $enum_selected_count = count($criteriaValues);
-        if ($func_type == '=' && $enum_selected_count > 1) {
+        if ($func_type === '=' && $enum_selected_count > 1) {
             $func_type    = 'IN';
             $parens_open  = '(';
             $parens_close = ')';
-        } elseif ($func_type == '!=' && $enum_selected_count > 1) {
+        } elseif ($func_type === '!=' && $enum_selected_count > 1) {
             $func_type    = 'NOT IN';
             $parens_open  = '(';
             $parens_close = ')';

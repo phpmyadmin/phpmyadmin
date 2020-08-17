@@ -1,11 +1,12 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Display\CreateTable;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
@@ -41,14 +42,11 @@ class TrackingController extends AbstractController
 
     public function index(): void
     {
-        global $db, $pmaThemeImage, $text_dir, $url_query, $url_params, $tables, $num_tables, $pos, $data, $cfg;
-        global $total_num_tables, $sub_part, $is_show_stats, $db_is_system_schema, $tooltip_truename, $tooltip_aliasname;
+        global $db, $pmaThemeImage, $text_dir, $url_query, $url_params, $tables, $num_tables;
+        global $total_num_tables, $sub_part, $is_show_stats, $pos, $data, $cfg;
+        global $db_is_system_schema, $tooltip_truename, $tooltip_aliasname;
 
-        //Get some js files needed for Ajax requests
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
-        $scripts->addFile('database/tracking.js');
+        $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'database/tracking.js']);
 
         /**
          * If we are not in an Ajax request, then do the common work and show the links etc.
@@ -76,12 +74,12 @@ class TrackingController extends AbstractController
 
         if (isset($_POST['delete_tracking'], $_POST['table'])) {
             Tracker::deleteTracking($db, $_POST['table']);
-            Message::success(
+            echo Message::success(
                 __('Tracking data deleted successfully.')
-            )->display();
+            )->getDisplay();
         } elseif (isset($_POST['submit_create_version'])) {
             $this->tracking->createTrackingForMultipleTables($_POST['selected']);
-            Message::success(
+            echo Message::success(
                 sprintf(
                     __(
                         'Version %1$s was created for selected tables,'
@@ -89,17 +87,17 @@ class TrackingController extends AbstractController
                     ),
                     htmlspecialchars($_POST['version'])
                 )
-            )->display();
+            )->getDisplay();
         } elseif (isset($_POST['submit_mult'])) {
             if (! empty($_POST['selected_tbl'])) {
-                if ($_POST['submit_mult'] == 'delete_tracking') {
+                if ($_POST['submit_mult'] === 'delete_tracking') {
                     foreach ($_POST['selected_tbl'] as $table) {
                         Tracker::deleteTracking($db, $table);
                     }
-                    Message::success(
+                    echo Message::success(
                         __('Tracking data deleted successfully.')
-                    )->display();
-                } elseif ($_POST['submit_mult'] == 'track') {
+                    )->getDisplay();
+                } elseif ($_POST['submit_mult'] === 'track') {
                     echo $this->template->render('create_tracking_version', [
                         'route' => '/database/tracking',
                         'url_params' => $url_params,
@@ -109,12 +107,13 @@ class TrackingController extends AbstractController
                         'type' => 'both',
                         'default_statements' => $cfg['Server']['tracking_default_statements'],
                     ]);
+
                     return;
                 }
             } else {
-                Message::notice(
+                echo Message::notice(
                     __('No tables selected.')
-                )->display();
+                )->getDisplay();
             }
         }
 
@@ -126,8 +125,12 @@ class TrackingController extends AbstractController
             echo '<p>' , __('No tables found in database.') , '</p>' , "\n";
 
             if (empty($db_is_system_schema)) {
-                echo CreateTable::getHtml($db);
+                $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
+                $checkUserPrivileges->getPrivileges();
+
+                echo $this->template->render('database/create_table', ['db' => $db]);
             }
+
             return;
         }
 
@@ -139,13 +142,15 @@ class TrackingController extends AbstractController
         );
 
         // If available print out database log
-        if (count($data['ddlog']) > 0) {
-            $log = '';
-            foreach ($data['ddlog'] as $entry) {
-                $log .= '# ' . $entry['date'] . ' ' . $entry['username'] . "\n"
-                    . $entry['statement'] . "\n";
-            }
-            echo Generator::getMessage(__('Database Log'), $log);
+        if (count($data['ddlog']) <= 0) {
+            return;
         }
+
+        $log = '';
+        foreach ($data['ddlog'] as $entry) {
+            $log .= '# ' . $entry['date'] . ' ' . $entry['username'] . "\n"
+                . $entry['statement'] . "\n";
+        }
+        echo Generator::getMessage(__('Database Log'), $log);
     }
 }

@@ -2,17 +2,17 @@
 /**
  * Tests for Bookmark class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Bookmark;
-use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for Bookmark class
  */
-class BookmarkTest extends TestCase
+class BookmarkTest extends AbstractTestCase
 {
     /**
      * Sets up the fixture, for example, opens a network connection.
@@ -22,6 +22,8 @@ class BookmarkTest extends TestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
         $GLOBALS['cfg']['Server']['user'] = 'root';
         $GLOBALS['cfg']['Server']['pmadb'] = 'phpmyadmin';
         $GLOBALS['cfg']['Server']['bookmarktable'] = 'pma_bookmark';
@@ -30,23 +32,18 @@ class BookmarkTest extends TestCase
 
     /**
      * Tests for Bookmark:getParams()
-     *
-     * @return void
      */
-    public function testGetParams()
+    public function testGetParams(): void
     {
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             Bookmark::getParams($GLOBALS['cfg']['Server']['user'])
         );
     }
 
     /**
      * Tests for Bookmark::getList()
-     *
-     * @return void
      */
-    public function testGetList()
+    public function testGetList(): void
     {
         $this->assertEquals(
             [],
@@ -60,10 +57,8 @@ class BookmarkTest extends TestCase
 
     /**
      * Tests for Bookmark::get()
-     *
-     * @return void
      */
-    public function testGet()
+    public function testGet(): void
     {
         $this->assertNull(
             Bookmark::get(
@@ -77,10 +72,8 @@ class BookmarkTest extends TestCase
 
     /**
      * Tests for Bookmark::save()
-     *
-     * @return void
      */
-    public function testSave()
+    public function testSave(): void
     {
         $bookmarkData = [
             'bkm_database' => 'phpmyadmin',

@@ -2,35 +2,34 @@
 /**
  * tests for Pdf class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Pdf;
 
 /**
  * tests for Pdf class
  */
-class PdfTest extends PmaTestCase
+class PdfTest extends AbstractTestCase
 {
     /**
      * SetUp for test cases
      */
     protected function setUp(): void
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setUp();
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
     }
 
     /**
      * Test for Pdf::getPDFData
      *
-     * @return void
-     *
      * @group large
      */
-    public function testBasic()
+    public function testBasic(): void
     {
         $arr = new Pdf();
         $this->assertStringContainsString('PDF', $arr->getPDFData());
@@ -39,11 +38,9 @@ class PdfTest extends PmaTestCase
     /**
      * Test for Pdf::getPDFData
      *
-     * @return void
-     *
      * @group large
      */
-    public function testAlias()
+    public function testAlias(): void
     {
         $arr = new Pdf();
         $arr->setAlias('{00}', '32');
@@ -53,11 +50,9 @@ class PdfTest extends PmaTestCase
     /**
      * Test for Pdf::getPDFData
      *
-     * @return void
-     *
      * @group large
      */
-    public function testDocument()
+    public function testDocument(): void
     {
         $pdf = new Pdf();
         $pdf->SetTitle('Title');

@@ -1,12 +1,13 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Charsets;
 
 use PhpMyAdmin\Charsets\Collation;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
-class CollationTest extends TestCase
+class CollationTest extends AbstractTestCase
 {
     public function testFromServer(): void
     {
@@ -41,7 +42,7 @@ class CollationTest extends TestCase
      *
      * @dataProvider providerTestBuildDescription
      */
-    public function testBuildDescription($collation, $description): void
+    public function testBuildDescription(string $collation, string $description): void
     {
         $actual = Collation::fromServer(['Collation' => $collation]);
         $this->assertEquals($description, $actual->getDescription());

@@ -2,16 +2,18 @@
 /**
  * Handles bookmarking SQL queries
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use const PREG_SET_ORDER;
 use function count;
+use function is_array;
 use function preg_match_all;
 use function preg_replace;
 use function str_replace;
 use function strlen;
-use const PREG_SET_ORDER;
 
 /**
  * Handles bookmarking SQL queries
@@ -23,31 +25,31 @@ class Bookmark
      *
      * @var int
      */
-    private $_id;
+    private $id;
     /**
      * Database the bookmark belongs to
      *
      * @var string
      */
-    private $_database;
+    private $database;
     /**
      * The user to whom the bookmark belongs, empty for public bookmarks
      *
      * @var string
      */
-    private $_user;
+    private $currentUser;
     /**
      * Label of the bookmark
      *
      * @var string
      */
-    private $_label;
+    private $label;
     /**
      * SQL query that is bookmarked
      *
      * @var string
      */
-    private $_query;
+    private $query;
 
     /** @var DatabaseInterface */
     private $dbi;
@@ -74,7 +76,7 @@ class Bookmark
      */
     public function getId(): int
     {
-        return (int) $this->_id;
+        return (int) $this->id;
     }
 
     /**
@@ -82,7 +84,7 @@ class Bookmark
      */
     public function getDatabase(): string
     {
-        return $this->_database;
+        return $this->database;
     }
 
     /**
@@ -90,7 +92,7 @@ class Bookmark
      */
     public function getUser(): string
     {
-        return $this->_user;
+        return $this->currentUser;
     }
 
     /**
@@ -98,7 +100,7 @@ class Bookmark
      */
     public function getLabel(): string
     {
-        return $this->_label;
+        return $this->label;
     }
 
     /**
@@ -106,7 +108,7 @@ class Bookmark
      */
     public function getQuery(): string
     {
-        return $this->_query;
+        return $this->query;
     }
 
     /**
@@ -119,17 +121,18 @@ class Bookmark
     public function save(): bool
     {
         $cfgBookmark = self::getParams($this->user);
-        if (empty($cfgBookmark)) {
+        if (! is_array($cfgBookmark)) {
             return false;
         }
 
         $query = 'INSERT INTO ' . Util::backquote($cfgBookmark['db'])
             . '.' . Util::backquote($cfgBookmark['table'])
             . ' (id, dbase, user, query, label) VALUES (NULL, '
-            . "'" . $this->dbi->escapeString($this->_database) . "', "
-            . "'" . $this->dbi->escapeString($this->_user) . "', "
-            . "'" . $this->dbi->escapeString($this->_query) . "', "
-            . "'" . $this->dbi->escapeString($this->_label) . "')";
+            . "'" . $this->dbi->escapeString($this->database) . "', "
+            . "'" . $this->dbi->escapeString($this->currentUser) . "', "
+            . "'" . $this->dbi->escapeString($this->query) . "', "
+            . "'" . $this->dbi->escapeString($this->label) . "')";
+
         return $this->dbi->query($query, DatabaseInterface::CONNECT_CONTROL);
     }
 
@@ -143,13 +146,14 @@ class Bookmark
     public function delete(): bool
     {
         $cfgBookmark = self::getParams($this->user);
-        if (empty($cfgBookmark)) {
+        if (! is_array($cfgBookmark)) {
             return false;
         }
 
         $query  = 'DELETE FROM ' . Util::backquote($cfgBookmark['db'])
             . '.' . Util::backquote($cfgBookmark['table'])
-            . ' WHERE id = ' . $this->_id;
+            . ' WHERE id = ' . $this->id;
+
         return $this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL);
     }
 
@@ -161,7 +165,8 @@ class Bookmark
     public function getVariableCount(): int
     {
         $matches = [];
-        preg_match_all('/\[VARIABLE[0-9]*\]/', $this->_query, $matches, PREG_SET_ORDER);
+        preg_match_all('/\[VARIABLE[0-9]*\]/', $this->query, $matches, PREG_SET_ORDER);
+
         return count($matches);
     }
 
@@ -178,7 +183,7 @@ class Bookmark
         $query = preg_replace(
             '|/\*(.*\[VARIABLE[0-9]*\].*)\*/|imsU',
             '${1}',
-            $this->_query
+            $this->query
         );
         // replace variable placeholders with values
         $number_of_variables = $this->getVariableCount();
@@ -189,10 +194,13 @@ class Bookmark
             }
             $query = str_replace('[VARIABLE' . $i . ']', $var, $query);
             // backward compatibility
-            if ($i == 1) {
-                $query = str_replace('[VARIABLE]', $var, $query);
+            if ($i != 1) {
+                continue;
             }
+
+            $query = str_replace('[VARIABLE]', $var, $query);
         }
+
         return $query;
     }
 
@@ -254,10 +262,10 @@ class Bookmark
         }
 
         $bookmark = new Bookmark($dbi, $user);
-        $bookmark->_database = $bkm_fields['bkm_database'];
-        $bookmark->_label = $bkm_fields['bkm_label'];
-        $bookmark->_query = $bkm_fields['bkm_sql_query'];
-        $bookmark->_user = $all_users ? '' : $bkm_fields['bkm_user'];
+        $bookmark->database = $bkm_fields['bkm_database'];
+        $bookmark->label = $bkm_fields['bkm_label'];
+        $bookmark->query = $bkm_fields['bkm_sql_query'];
+        $bookmark->currentUser = $all_users ? '' : $bkm_fields['bkm_user'];
 
         return $bookmark;
     }
@@ -273,11 +281,12 @@ class Bookmark
         $row
     ): Bookmark {
         $bookmark = new Bookmark($dbi, $user);
-        $bookmark->_id = $row['id'];
-        $bookmark->_database = $row['dbase'];
-        $bookmark->_user = $row['user'];
-        $bookmark->_label = $row['label'];
-        $bookmark->_query = $row['query'];
+        $bookmark->id = $row['id'];
+        $bookmark->database = $row['dbase'];
+        $bookmark->currentUser = $row['user'];
+        $bookmark->label = $row['label'];
+        $bookmark->query = $row['query'];
+
         return $bookmark;
     }
 
@@ -298,7 +307,7 @@ class Bookmark
         $db = false
     ): array {
         $cfgBookmark = self::getParams($user);
-        if (empty($cfgBookmark)) {
+        if (! is_array($cfgBookmark)) {
             return [];
         }
 
@@ -357,7 +366,7 @@ class Bookmark
         bool $exact_user_match = false
     ): ?self {
         $cfgBookmark = self::getParams($user);
-        if (empty($cfgBookmark)) {
+        if (! is_array($cfgBookmark)) {
             return null;
         }
 

@@ -358,7 +358,7 @@ Indexes.showAddIndexDialog = function (sourceArray, arrayIndex, targetColumns, c
             return false;
         }
 
-        $(this).dialog('close');
+        $(this).remove();
     };
     buttonOptions[Messages.strCancel] = function () {
         if (colIndex >= 0) {
@@ -393,6 +393,15 @@ Indexes.showAddIndexDialog = function (sourceArray, arrayIndex, targetColumns, c
                         title: Messages.strAddIndex,
                         width: 450,
                         minHeight: 250,
+                        create: function () {
+                            $(this).on('keypress', function (e) {
+                                if (e.which === 13 || e.keyCode === 13 || window.event.keyCode === 13) {
+                                    e.preventDefault();
+                                    buttonOptions[Messages.strGo]();
+                                    $(this).remove();
+                                }
+                            });
+                        },
                         open: function () {
                             Functions.checkIndexName('index_frm');
                             Functions.showHints($div);

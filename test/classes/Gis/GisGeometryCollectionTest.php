@@ -2,12 +2,13 @@
 /**
  * Test for PhpMyAdmin\Gis\GisGeometry
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisGeometryCollection;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use TCPDF;
 use function function_exists;
 use function imagecreatetruecolor;
@@ -18,9 +19,9 @@ use function preg_match;
 /**
  * Tests for PhpMyAdmin\Gis\GisGeometryCollection class
  */
-class GisGeometryCollectionTest extends TestCase
+class GisGeometryCollectionTest extends AbstractTestCase
 {
-    /** @access protected */
+    /** @var GisGeometryCollection */
     protected $object;
 
     /**
@@ -31,6 +32,7 @@ class GisGeometryCollectionTest extends TestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->object = GisGeometryCollection::singleton();
     }
 
@@ -42,6 +44,7 @@ class GisGeometryCollectionTest extends TestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 
@@ -53,7 +56,7 @@ class GisGeometryCollectionTest extends TestCase
      *
      * @dataProvider providerForScaleRow
      */
-    public function testScaleRow($spatial, $output): void
+    public function testScaleRow(string $spatial, array $output): void
     {
         $this->assertEquals($output, $this->object->scaleRow($spatial));
     }
@@ -63,7 +66,7 @@ class GisGeometryCollectionTest extends TestCase
      *
      * @return array test data for testScaleRow() test case
      */
-    public function providerForScaleRow()
+    public function providerForScaleRow(): array
     {
         return [
             [
@@ -82,14 +85,14 @@ class GisGeometryCollectionTest extends TestCase
     /**
      * Test for generateWkt
      *
-     * @param array  $gis_data array of GIS data
-     * @param int    $index    index in $gis_data
-     * @param string $empty    empty parameter
-     * @param string $output   expected output
+     * @param array       $gis_data array of GIS data
+     * @param int         $index    index in $gis_data
+     * @param string|null $empty    empty parameter
+     * @param string      $output   expected output
      *
      * @dataProvider providerForGenerateWkt
      */
-    public function testGenerateWkt($gis_data, $index, $empty, $output): void
+    public function testGenerateWkt(array $gis_data, int $index, ?string $empty, string $output): void
     {
         $this->assertEquals(
             $output,
@@ -102,7 +105,7 @@ class GisGeometryCollectionTest extends TestCase
      *
      * @return array test data for testGenerateWkt() test case
      */
-    public function providerForGenerateWkt()
+    public function providerForGenerateWkt(): array
     {
         $temp1 = [
             0 => [
@@ -139,7 +142,7 @@ class GisGeometryCollectionTest extends TestCase
      *
      * @dataProvider providerForGenerateParams
      */
-    public function testGenerateParams($value, $output): void
+    public function testGenerateParams(string $value, array $output): void
     {
         $this->assertEquals($output, $this->object->generateParams($value));
     }
@@ -149,7 +152,7 @@ class GisGeometryCollectionTest extends TestCase
      *
      * @return array test data for testGenerateParams() test case
      */
-    public function providerForGenerateParams()
+    public function providerForGenerateParams(): array
     {
         return [
             [
@@ -185,17 +188,15 @@ class GisGeometryCollectionTest extends TestCase
      * @param array    $scale_data scaling parameters
      * @param resource $image      initial image
      *
-     * @return void
-     *
      * @dataProvider providerForPrepareRowAsPng
      */
     public function testPrepareRowAsPng(
-        $spatial,
-        $label,
-        $line_color,
-        $scale_data,
+        string $spatial,
+        string $label,
+        string $line_color,
+        array $scale_data,
         $image
-    ) {
+    ): void {
         $return = $this->object->prepareRowAsPng(
             $spatial,
             $label,
@@ -212,11 +213,12 @@ class GisGeometryCollectionTest extends TestCase
      *
      * @return array test data for testPrepareRowAsPng() test case
      */
-    public function providerForPrepareRowAsPng()
+    public function providerForPrepareRowAsPng(): array
     {
         if (! function_exists('imagecreatetruecolor')) {
             $this->markTestSkipped('GD extension missing!');
         }
+
         return [
             [
                 'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),'
@@ -241,19 +243,17 @@ class GisGeometryCollectionTest extends TestCase
      * @param string $label      field label
      * @param string $line_color line color
      * @param array  $scale_data scaling parameters
-     * @param string $pdf        expected output
-     *
-     * @return void
+     * @param TCPDF  $pdf        expected output
      *
      * @dataProvider providerForPrepareRowAsPdf
      */
     public function testPrepareRowAsPdf(
-        $spatial,
-        $label,
-        $line_color,
-        $scale_data,
-        $pdf
-    ) {
+        string $spatial,
+        string $label,
+        string $line_color,
+        array $scale_data,
+        TCPDF $pdf
+    ): void {
         $return = $this->object->prepareRowAsPdf(
             $spatial,
             $label,
@@ -269,7 +269,7 @@ class GisGeometryCollectionTest extends TestCase
      *
      * @return array test data for testPrepareRowAsPdf() test case
      */
-    public function providerForPrepareRowAsPdf()
+    public function providerForPrepareRowAsPdf(): array
     {
         return [
             [
@@ -291,37 +291,36 @@ class GisGeometryCollectionTest extends TestCase
     /**
      * Test for prepareRowAsSvg
      *
-     * @param string $spatial    string to parse
-     * @param string $label      field label
-     * @param string $line_color line color
-     * @param array  $scale_data scaling parameters
-     * @param string $output     expected output
-     *
-     * @return void
+     * @param string $spatial   string to parse
+     * @param string $label     field label
+     * @param string $lineColor line color
+     * @param array  $scaleData scaling parameters
+     * @param string $output    expected output
      *
      * @dataProvider providerForPrepareRowAsSvg
      */
     public function testPrepareRowAsSvg(
-        $spatial,
-        $label,
-        $line_color,
-        $scale_data,
-        $output
-    ) {
+        string $spatial,
+        string $label,
+        string $lineColor,
+        array $scaleData,
+        string $output
+    ): void {
         $string = $this->object->prepareRowAsSvg(
             $spatial,
             $label,
-            $line_color,
-            $scale_data
+            $lineColor,
+            $scaleData
         );
         $this->assertEquals(1, preg_match($output, $string));
+        // assertMatchesRegularExpression added in 9.1
         $this->assertRegExp(
             $output,
             $this->object->prepareRowAsSvg(
                 $spatial,
                 $label,
-                $line_color,
-                $scale_data
+                $lineColor,
+                $scaleData
             )
         );
     }
@@ -331,7 +330,7 @@ class GisGeometryCollectionTest extends TestCase
      *
      * @return array test data for testPrepareRowAsSvg() test case
      */
-    public function providerForPrepareRowAsSvg()
+    public function providerForPrepareRowAsSvg(): array
     {
         return [
             [
@@ -363,18 +362,16 @@ class GisGeometryCollectionTest extends TestCase
      * @param array  $scale_data scaling parameters
      * @param string $output     expected output
      *
-     * @return void
-     *
      * @dataProvider providerForPrepareRowAsOl
      */
     public function testPrepareRowAsOl(
-        $spatial,
-        $srid,
-        $label,
-        $line_color,
-        $scale_data,
-        $output
-    ) {
+        string $spatial,
+        int $srid,
+        string $label,
+        string $line_color,
+        array $scale_data,
+        string $output
+    ): void {
         $this->assertEquals(
             $output,
             $this->object->prepareRowAsOl(
@@ -392,7 +389,7 @@ class GisGeometryCollectionTest extends TestCase
      *
      * @return array test data for testPrepareRowAsOl() test case
      */
-    public function providerForPrepareRowAsOl()
+    public function providerForPrepareRowAsOl(): array
     {
         return [
             [

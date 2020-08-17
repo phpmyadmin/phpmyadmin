@@ -2,6 +2,7 @@
 /**
  * Second authentication factor handling
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\TwoFactor;
@@ -16,6 +17,7 @@ class Invalid extends TwoFactorPlugin
     /** @var string */
     public static $id = 'invalid';
 
+    /** @var bool */
     public static $showSubmit = false;
 
     /**

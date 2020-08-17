@@ -2,6 +2,7 @@
 /**
  * This class includes various sanitization methods that can be called statically
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
@@ -49,13 +50,15 @@ class Sanitize
             './doc/html/',
             './index.php?',
         ];
-        $is_setup = $GLOBALS['PMA_Config'] !== null && $GLOBALS['PMA_Config']->get('is_setup');
+        $is_setup = self::isSetup();
         // Adjust path to setup script location
         if ($is_setup) {
             foreach ($valid_starts as $key => $value) {
-                if (substr($value, 0, 2) === './') {
-                    $valid_starts[$key] = '.' . $value;
+                if (substr($value, 0, 2) !== './') {
+                    continue;
                 }
+
+                $valid_starts[$key] = '.' . $value;
             }
         }
         if ($other) {
@@ -74,7 +77,16 @@ class Sanitize
                 return true;
             }
         }
+
         return false;
+    }
+
+    /**
+     * Check if we are currently on a setup folder page
+     */
+    public static function isSetup(): bool
+    {
+        return $GLOBALS['PMA_Config'] !== null && $GLOBALS['PMA_Config']->get('is_setup');
     }
 
     /**
@@ -99,13 +111,13 @@ class Sanitize
         $target = '';
         if (! empty($found[3])) {
             $target = ' target="' . $found[3] . '"';
-            if ($found[3] == '_blank') {
+            if ($found[3] === '_blank') {
                 $target .= ' rel="noopener noreferrer"';
             }
         }
 
         /* Construct url */
-        if (substr($found[1], 0, 4) == 'http') {
+        if (substr($found[1], 0, 4) === 'http') {
             $url = Core::linkURL($found[1]);
         } else {
             $url = $found[1];
@@ -124,9 +136,11 @@ class Sanitize
     public static function replaceDocLink(array $found)
     {
         if (count($found) >= 4) {
+            /* doc@page@anchor pattern */
             $page = $found[1];
             $anchor = $found[3];
         } else {
+            /* doc@anchor pattern */
             $anchor = $found[1];
             if (strncmp('faq', $anchor, 3) == 0) {
                 $page = 'faq';
@@ -137,7 +151,8 @@ class Sanitize
                 $page = 'setup';
             }
         }
-        $link = MySQLDocumentation::getDocumentationLink($page, $anchor);
+        $link = MySQLDocumentation::getDocumentationLink($page, $anchor, self::isSetup() ? '../' : './');
+
         return '<a href="' . $link . '" target="documentation">';
     }
 
@@ -159,10 +174,10 @@ class Sanitize
      *
      * @return string   the sanitized message
      */
-    public static function sanitizeMessage($message, $escape = false, $safe = false)
+    public static function sanitizeMessage(string $message, $escape = false, $safe = false)
     {
         if (! $safe) {
-            $message = strtr((string) $message, ['<' => '&lt;', '>' => '&gt;']);
+            $message = strtr($message, ['<' => '&lt;', '>' => '&gt;']);
         }
 
         /* Interpret bb code */
@@ -181,7 +196,8 @@ class Sanitize
             '[sup]'     => '<sup>',
             '[/sup]'    => '</sup>',
             // used in common.inc.php:
-            '[conferr]' => '<iframe src="show_config_errors.php"><a href="show_config_errors.php">show_config_errors.php</a></iframe>',
+            '[conferr]' => '<iframe src="show_config_errors.php"><a href='
+                . '"show_config_errors.php">show_config_errors.php</a></iframe>',
             // used in libraries/Util.php
             '[dochelpicon]' => Html\Generator::getImage('b_help', __('Documentation')),
         ];
@@ -192,14 +208,14 @@ class Sanitize
         $pattern = '/\[a@([^]"@]*)(@([^]"]*))?\]/';
 
         /* Find and replace all links */
-        $message = preg_replace_callback($pattern, function ($match) {
+        $message = preg_replace_callback($pattern, static function (array $match) {
             return self::replaceBBLink($match);
         }, $message);
 
         /* Replace documentation links */
         $message = preg_replace_callback(
             '/\[doc@([a-zA-Z0-9_-]+)(@([a-zA-Z0-9_-]*))?\]/',
-            function ($match) {
+            static function (array $match) {
                 return self::replaceDocLink($match);
             },
             $message
@@ -237,6 +253,7 @@ class Sanitize
         }
         $pattern .= '-]/';
         $filename = preg_replace($pattern, '_', $filename);
+
         return $filename;
     }
 
@@ -302,7 +319,7 @@ class Sanitize
      *
      * @param string $value String to be formatted.
      *
-     * @return string formatted value.
+     * @return int|string formatted value.
      */
     public static function formatJsVal($value)
     {
@@ -346,17 +363,18 @@ class Sanitize
         } else {
             $result .= self::formatJsVal($value) . ";\n";
         }
+
         return $result;
     }
 
     /**
-     * Removes all variables from request except whitelisted ones.
+     * Removes all variables from request except allowed ones.
      *
-     * @param string[] $whitelist list of variables to allow
+     * @param string[] $allowList list of variables to allow
      *
      * @access public
      */
-    public static function removeRequestVars(&$whitelist): void
+    public static function removeRequestVars(&$allowList): void
     {
         // do not check only $_REQUEST because it could have been overwritten
         // and use type casting because the variables could have become
@@ -366,7 +384,7 @@ class Sanitize
         );
 
         foreach ($keys as $key) {
-            if (! in_array($key, $whitelist)) {
+            if (! in_array($key, $allowList)) {
                 unset($_REQUEST[$key], $_GET[$key], $_POST[$key]);
                 continue;
             }
@@ -382,9 +400,11 @@ class Sanitize
             if (isset($_COOKIE[$key]) && ! is_string($_COOKIE[$key])) {
                 unset($_COOKIE[$key]);
             }
-            if (isset($_GET[$key]) && ! is_string($_GET[$key])) {
-                unset($_GET[$key]);
+            if (! isset($_GET[$key]) || is_string($_GET[$key])) {
+                continue;
             }
+
+            unset($_GET[$key]);
         }
     }
 }

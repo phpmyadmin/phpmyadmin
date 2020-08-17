@@ -2035,7 +2035,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                             }, 700);
                             $cell.data('clicks', clicks);
                             $cell.data('timer', timer);
-                        } else {
+                        } else {// When double clicking a link, switch to edit mode
                             // this is a double click, cancel the single click timer
                             // and make the click count 0
                             clearTimeout($cell.data('timer'));
@@ -2043,6 +2043,13 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                             // start grid-editing
                             startGridEditing(e, this);
                         }
+                    } else {// If it is not a link or it is a double tap then call startGridEditing
+                        // this is a double click, cancel the single click timer
+                        // and make the click count 0
+                        clearTimeout($cell.data('timer'));
+                        $cell.data('clicks', 0);
+                        // start grid-editing
+                        startGridEditing(e, this);
                     }
                 })
                 .on('dblclick', function (e) {
@@ -2258,10 +2265,12 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 (function ($) {
     $.fn.noSelect = function (p) { // no select plugin by Paulo P.Marinas
         var prevent = (p === null) ? true : p;
+        /* eslint-disable compat/compat */
         var isMsie = navigator.userAgent.indexOf('MSIE') > -1 || !!window.navigator.userAgent.match(/Trident.*rv:11\./);
         var isFirefox = navigator.userAgent.indexOf('Firefox') > -1;
         var isSafari = navigator.userAgent.indexOf('Safari') > -1;
         var isOpera = navigator.userAgent.indexOf('Presto') > -1;
+        /* eslint-enable compat/compat */
         if (prevent) {
             return this.each(function () {
                 if (isMsie || isSafari) {

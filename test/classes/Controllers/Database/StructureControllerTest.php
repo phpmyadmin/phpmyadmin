@@ -4,18 +4,21 @@
  *
  * this class is for testing StructureController class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Database;
 
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Operations;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Replication;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PHPUnit\Framework\MockObject\MockObject;
 use ReflectionClass;
@@ -29,7 +32,7 @@ use function json_encode;
  *
  * this class is for testing StructureController class
  */
-class StructureControllerTest extends PmaTestCase
+class StructureControllerTest extends AbstractTestCase
 {
     /** @var ResponseStub */
     private $response;
@@ -43,11 +46,21 @@ class StructureControllerTest extends PmaTestCase
     /** @var Template */
     private $template;
 
+    /** @var RelationCleanup */
+    private $relationCleanup;
+
+    /** @var Operations */
+    private $operations;
+
     /**
      * Prepares environment for the test.
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
+        parent::loadDefaultConfig();
+        $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['table'] = 'table';
@@ -81,16 +94,16 @@ class StructureControllerTest extends PmaTestCase
         $this->response = new ResponseStub();
         $this->relation = new Relation($dbi);
         $this->replication = new Replication();
+        $this->relationCleanup = new RelationCleanup($dbi, $this->relation);
+        $this->operations = new Operations($dbi, $this->relation);
     }
 
     /**
      * Tests for getValuesForInnodbTable()
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetValuesForInnodbTable()
+    public function testGetValuesForInnodbTable(): void
     {
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('getValuesForInnodbTable');
@@ -101,7 +114,9 @@ class StructureControllerTest extends PmaTestCase
             $this->template,
             $GLOBALS['db'],
             $this->relation,
-            $this->replication
+            $this->replication,
+            $this->relationCleanup,
+            $this->operations
         );
         // Showing statistics
         $property = $class->getProperty('isShowStats');
@@ -116,7 +131,7 @@ class StructureControllerTest extends PmaTestCase
             'Index_length' => 0,
             'TABLE_NAME' => 'table',
         ];
-        list($currentTable,,, $sumSize) = $method->invokeArgs(
+        [$currentTable, , , $sumSize] = $method->invokeArgs(
             $controller,
             [
                 $currentTable,
@@ -124,8 +139,7 @@ class StructureControllerTest extends PmaTestCase
             ]
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $currentTable['COUNTED']
         );
         $this->assertEquals(
@@ -138,7 +152,7 @@ class StructureControllerTest extends PmaTestCase
         );
 
         $currentTable['ENGINE'] = 'MYISAM';
-        list($currentTable,,, $sumSize) = $method->invokeArgs(
+        [$currentTable, , , $sumSize] = $method->invokeArgs(
             $controller,
             [
                 $currentTable,
@@ -146,8 +160,7 @@ class StructureControllerTest extends PmaTestCase
             ]
         );
 
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $currentTable['COUNTED']
         );
         $this->assertEquals(
@@ -162,14 +175,15 @@ class StructureControllerTest extends PmaTestCase
             $this->template,
             $GLOBALS['db'],
             $this->relation,
-            $this->replication
+            $this->replication,
+            $this->relationCleanup,
+            $this->operations
         );
 
         $currentTable['ENGINE'] = 'InnoDB';
-        list($currentTable,,, $sumSize)
+        [$currentTable, , , $sumSize]
             = $method->invokeArgs($controller, [$currentTable, 10]);
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $currentTable['COUNTED']
         );
         $this->assertEquals(
@@ -178,10 +192,9 @@ class StructureControllerTest extends PmaTestCase
         );
 
         $currentTable['ENGINE'] = 'MYISAM';
-        list($currentTable,,, $sumSize)
+        [$currentTable, , , $sumSize]
             = $method->invokeArgs($controller, [$currentTable, 10]);
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $currentTable['COUNTED']
         );
         $this->assertEquals(
@@ -193,11 +206,9 @@ class StructureControllerTest extends PmaTestCase
     /**
      * Tests for the getValuesForAriaTable()
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetValuesForAriaTable()
+    public function testGetValuesForAriaTable(): void
     {
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('getValuesForAriaTable');
@@ -209,7 +220,9 @@ class StructureControllerTest extends PmaTestCase
             $this->template,
             $GLOBALS['db'],
             $this->relation,
-            $this->replication
+            $this->replication,
+            $this->relationCleanup,
+            $this->operations
         );
         // Showing statistics
         $property = $class->getProperty('isShowStats');
@@ -225,7 +238,7 @@ class StructureControllerTest extends PmaTestCase
             'Name'         => 'table',
             'Data_free'    => 300,
         ];
-        list($currentTable,,,,, $overheadSize, $sumSize) = $method->invokeArgs(
+        [$currentTable, , , , , $overheadSize, $sumSize] = $method->invokeArgs(
             $controller,
             [
                 $currentTable,
@@ -251,7 +264,7 @@ class StructureControllerTest extends PmaTestCase
         );
 
         unset($currentTable['Data_free']);
-        list($currentTable,,,,, $overheadSize,)  = $method->invokeArgs(
+        [$currentTable, , , , , $overheadSize]  = $method->invokeArgs(
             $controller,
             [
                 $currentTable,
@@ -271,9 +284,11 @@ class StructureControllerTest extends PmaTestCase
             $this->template,
             $GLOBALS['db'],
             $this->relation,
-            $this->replication
+            $this->replication,
+            $this->relationCleanup,
+            $this->operations
         );
-        list($currentTable,,,,,, $sumSize) = $method->invokeArgs(
+        [$currentTable, , , , , , $sumSize] = $method->invokeArgs(
             $controller,
             [
                 $currentTable,
@@ -293,9 +308,11 @@ class StructureControllerTest extends PmaTestCase
             $this->template,
             $GLOBALS['db'],
             $this->relation,
-            $this->replication
+            $this->replication,
+            $this->relationCleanup,
+            $this->operations
         );
-        list($currentTable,,,,,,) = $method->invokeArgs(
+        [$currentTable] = $method->invokeArgs(
             $controller,
             [
                 $currentTable,
@@ -313,11 +330,9 @@ class StructureControllerTest extends PmaTestCase
     /**
      * Tests for hasTable()
      *
-     * @return void
-     *
      * @test
      */
-    public function testHasTable()
+    public function testHasTable(): void
     {
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('hasTable');
@@ -329,30 +344,25 @@ class StructureControllerTest extends PmaTestCase
             $this->template,
             $GLOBALS['db'],
             $this->relation,
-            $this->replication
+            $this->replication,
+            $this->relationCleanup,
+            $this->operations
         );
 
         // When parameter $db is empty
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $method->invokeArgs($controller, [[], 'table'])
         );
 
         // Correct parameter
-        $tables = [
-            'db.table',
-        ];
-        $this->assertEquals(
-            true,
+        $tables = ['db.table'];
+        $this->assertTrue(
             $method->invokeArgs($controller, [$tables, 'table'])
         );
 
         // Table not in database
-        $tables = [
-            'db.tab1e',
-        ];
-        $this->assertEquals(
-            false,
+        $tables = ['db.tab1e'];
+        $this->assertFalse(
             $method->invokeArgs($controller, [$tables, 'table'])
         );
     }
@@ -360,11 +370,9 @@ class StructureControllerTest extends PmaTestCase
     /**
      * Tests for checkFavoriteTable()
      *
-     * @return void
-     *
      * @test
      */
-    public function testCheckFavoriteTable()
+    public function testCheckFavoriteTable(): void
     {
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('checkFavoriteTable');
@@ -376,7 +384,9 @@ class StructureControllerTest extends PmaTestCase
             $this->template,
             $GLOBALS['db'],
             $this->relation,
-            $this->replication
+            $this->replication,
+            $this->relationCleanup,
+            $this->operations
         );
 
         $_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']] = [
@@ -386,13 +396,11 @@ class StructureControllerTest extends PmaTestCase
             ],
         ];
 
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $method->invokeArgs($controller, [''])
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $method->invokeArgs($controller, ['table'])
         );
     }
@@ -400,11 +408,9 @@ class StructureControllerTest extends PmaTestCase
     /**
      * Tests for synchronizeFavoriteTables()
      *
-     * @return void
-     *
      * @test
      */
-    public function testSynchronizeFavoriteTables()
+    public function testSynchronizeFavoriteTables(): void
     {
         $favoriteInstance = $this->getFavoriteTablesMock();
 
@@ -418,7 +424,9 @@ class StructureControllerTest extends PmaTestCase
             $this->template,
             $GLOBALS['db'],
             $this->relation,
-            $this->replication
+            $this->replication,
+            $this->relationCleanup,
+            $this->operations
         );
 
         // The user hash for test
@@ -434,7 +442,7 @@ class StructureControllerTest extends PmaTestCase
 
         $json = $method->invokeArgs($controller, [$favoriteInstance, $user, $favoriteTable]);
 
-        $this->assertEquals(json_encode($favoriteTable), $json['favoriteTables']??'');
+        $this->assertEquals(json_encode($favoriteTable), $json['favoriteTables'] ?? '');
         $this->assertArrayHasKey('list', $json);
     }
 
@@ -463,11 +471,9 @@ class StructureControllerTest extends PmaTestCase
     /**
      * Tests for handleRealRowCountRequestAction()
      *
-     * @return void
-     *
      * @test
      */
-    public function testHandleRealRowCountRequestAction()
+    public function testHandleRealRowCountRequestAction(): void
     {
         global $is_db;
 
@@ -480,7 +486,9 @@ class StructureControllerTest extends PmaTestCase
             $this->template,
             $GLOBALS['db'],
             $this->relation,
-            $this->replication
+            $this->replication,
+            $this->relationCleanup,
+            $this->operations
         );
         // Showing statistics
         $class = new ReflectionClass(StructureController::class);
@@ -501,10 +509,11 @@ class StructureControllerTest extends PmaTestCase
         $controller->handleRealRowCountRequestAction();
         $json = $this->response->getJSONResult();
 
-        $expectedResult = [[
-            'table' => 'table',
-            'row_count' => 6,
-        ],
+        $expectedResult = [
+            [
+                'table' => 'table',
+                'row_count' => 6,
+            ],
         ];
         $this->assertEquals(
             json_encode($expectedResult),
@@ -513,11 +522,9 @@ class StructureControllerTest extends PmaTestCase
     }
 
     /**
-     * @return void
-     *
      * @throws ReflectionException
      */
-    public function testDisplayTableList()
+    public function testDisplayTableList(): void
     {
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('displayTableList');
@@ -529,7 +536,9 @@ class StructureControllerTest extends PmaTestCase
             $this->template,
             $GLOBALS['db'],
             $this->relation,
-            $this->replication
+            $this->replication,
+            $this->relationCleanup,
+            $this->operations
         );
         // Showing statistics
         $class = new ReflectionClass(StructureController::class);

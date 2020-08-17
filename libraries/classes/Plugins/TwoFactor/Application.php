@@ -2,6 +2,7 @@
 /**
  * Second authentication factor handling
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\TwoFactor;
@@ -25,7 +26,8 @@ class Application extends TwoFactorPlugin
     /** @var string */
     public static $id = 'application';
 
-    protected $_google2fa;
+    /** @var Google2FA */
+    protected $google2fa;
 
     /**
      * Creates object
@@ -36,19 +38,21 @@ class Application extends TwoFactorPlugin
     {
         parent::__construct($twofactor);
         if (extension_loaded('imagick')) {
-            $this->_google2fa = new Google2FA();
+            $this->google2fa = new Google2FA();
         } else {
-            $this->_google2fa = new Google2FA(new SvgImageBackEnd());
+            $this->google2fa = new Google2FA(new SvgImageBackEnd());
         }
-        $this->_google2fa->setWindow(8);
-        if (! isset($this->_twofactor->config['settings']['secret'])) {
-            $this->_twofactor->config['settings']['secret'] = '';
+        $this->google2fa->setWindow(8);
+        if (isset($this->twofactor->config['settings']['secret'])) {
+            return;
         }
+
+        $this->twofactor->config['settings']['secret'] = '';
     }
 
     public function getGoogle2fa(): Google2FA
     {
-        return $this->_google2fa;
+        return $this->google2fa;
     }
 
     /**
@@ -62,13 +66,14 @@ class Application extends TwoFactorPlugin
      */
     public function check()
     {
-        $this->_provided = false;
+        $this->provided = false;
         if (! isset($_POST['2fa_code'])) {
             return false;
         }
-        $this->_provided = true;
-        return $this->_google2fa->verifyKey(
-            $this->_twofactor->config['settings']['secret'],
+        $this->provided = true;
+
+        return $this->google2fa->verifyKey(
+            $this->twofactor->config['settings']['secret'],
             $_POST['2fa_code']
         );
     }
@@ -90,12 +95,13 @@ class Application extends TwoFactorPlugin
      */
     public function setup()
     {
-        $secret = $this->_twofactor->config['settings']['secret'];
-        $inlineUrl = $this->_google2fa->getQRCodeInline(
+        $secret = $this->twofactor->config['settings']['secret'];
+        $inlineUrl = $this->google2fa->getQRCodeInline(
             'phpMyAdmin (' . $this->getAppId(false) . ')',
-            $this->_twofactor->user,
+            $this->twofactor->user,
             $secret
         );
+
         return $this->template->render('login/twofactor/application_configure', [
             'image' => $inlineUrl,
             'secret' => $secret,
@@ -115,14 +121,15 @@ class Application extends TwoFactorPlugin
     public function configure()
     {
         if (! isset($_SESSION['2fa_application_key'])) {
-            $_SESSION['2fa_application_key'] = $this->_google2fa->generateSecretKey();
+            $_SESSION['2fa_application_key'] = $this->google2fa->generateSecretKey();
         }
-        $this->_twofactor->config['settings']['secret'] = $_SESSION['2fa_application_key'];
+        $this->twofactor->config['settings']['secret'] = $_SESSION['2fa_application_key'];
 
         $result = $this->check();
         if ($result) {
             unset($_SESSION['2fa_application_key']);
         }
+
         return $result;
     }
 
@@ -143,6 +150,8 @@ class Application extends TwoFactorPlugin
      */
     public static function getDescription()
     {
-        return __('Provides authentication using HOTP and TOTP applications such as FreeOTP, Google Authenticator or Authy.');
+        return __(
+            'Provides authentication using HOTP and TOTP applications such as FreeOTP, Google Authenticator or Authy.'
+        );
     }
 }

@@ -2,6 +2,7 @@
 /**
  * Selenium TestCase for export related tests
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
@@ -20,14 +21,13 @@ class ExportTest extends TestBase
     {
         parent::setUp();
         $this->dbQuery(
-            'CREATE TABLE `test_table` ('
+            'USE `' . $this->database_name . '`;'
+            . 'CREATE TABLE `test_table` ('
             . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
             . ' `val` int(11) NOT NULL,'
             . ' PRIMARY KEY (`id`)'
-            . ')'
-        );
-        $this->dbQuery(
-            'INSERT INTO `test_table` (val) VALUES (2);'
+            . ');'
+            . 'INSERT INTO `test_table` (val) VALUES (2);'
         );
 
         $this->login();
@@ -42,9 +42,9 @@ class ExportTest extends TestBase
      * @dataProvider exportDataProvider
      * @group large
      */
-    public function testServerExport($plugin, $expected): void
+    public function testServerExport(string $plugin, array $expected): void
     {
-        $text = $this->_doExport('server', $plugin);
+        $text = $this->doExport('server', $plugin);
 
         foreach ($expected as $str) {
             $this->assertStringContainsString($str, $text);
@@ -60,11 +60,11 @@ class ExportTest extends TestBase
      * @dataProvider exportDataProvider
      * @group large
      */
-    public function testDbExport($plugin, $expected): void
+    public function testDbExport(string $plugin, array $expected): void
     {
         $this->navigateDatabase($this->database_name);
 
-        $text = $this->_doExport('db', $plugin);
+        $text = $this->doExport('db', $plugin);
 
         foreach ($expected as $str) {
             $this->assertStringContainsString($str, $text);
@@ -80,13 +80,13 @@ class ExportTest extends TestBase
      * @dataProvider exportDataProvider
      * @group large
      */
-    public function testTableExport($plugin, $expected): void
+    public function testTableExport(string $plugin, array $expected): void
     {
-        $this->dbQuery('INSERT INTO `test_table` (val) VALUES (3);');
+        $this->dbQuery('INSERT INTO `' . $this->database_name . '`.`test_table` (val) VALUES (3);');
 
         $this->navigateTable('test_table');
 
-        $text = $this->_doExport('table', $plugin);
+        $text = $this->doExport('table', $plugin);
 
         foreach ($expected as $str) {
             $this->assertStringContainsString($str, $text);
@@ -95,10 +95,8 @@ class ExportTest extends TestBase
 
     /**
      * Data provider for testServerExport
-     *
-     * @return array Test cases data
      */
-    public function exportDataProvider()
+    public function exportDataProvider(): array
     {
         return [
             [
@@ -128,7 +126,7 @@ class ExportTest extends TestBase
      *
      * @return string export string
      */
-    private function _doExport($type, $plugin)
+    private function doExport(string $type, string $plugin): string
     {
         $this->expandMore();
         $this->waitForElement('partialLinkText', 'Export')->click();
@@ -146,7 +144,7 @@ class ExportTest extends TestBase
             $this->scrollIntoView('databases_and_tables', 200);
             $this->byPartialLinkText('Unselect all')->click();
 
-            $this->byCssSelector('option[value=' . $this->database_name . ']')->click();
+            $this->byCssSelector('option[value="' . $this->database_name . '"]')->click();
         }
 
         if ($type === 'table') {
@@ -159,7 +157,7 @@ class ExportTest extends TestBase
         $this->scrollIntoView('radio_view_as_text');
         $this->byCssSelector('label[for=radio_view_as_text]')->click();
 
-        if ($plugin == 'SQL') {
+        if ($plugin === 'SQL') {
             if ($type !== 'db') {
                 $this->scrollIntoView('radio_sql_structure_or_data_structure_and_data');
                 $this->byCssSelector('label[for=radio_sql_structure_or_data_structure_and_data]')->click();
@@ -177,7 +175,6 @@ class ExportTest extends TestBase
         $this->byId('buttonGo')->click();
         $this->waitAjax();
 
-        $text = $this->waitForElement('id', 'textSQLDUMP')->getText();
-        return $text;
+        return $this->waitForElement('id', 'textSQLDUMP')->getText();
     }
 }

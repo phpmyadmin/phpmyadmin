@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
@@ -27,6 +28,7 @@ class VersionCheckController extends AbstractController
 
         if (empty($versionDetails)) {
             echo json_encode([]);
+
             return;
         }
 

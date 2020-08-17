@@ -2,24 +2,25 @@
 /**
  * Test for PhpMyAdmin\Import
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Import;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\Url;
-use PHPUnit\Framework\TestCase;
+use const PHP_INT_MAX;
 use function implode;
 use function sprintf;
 use function time;
-use const PHP_INT_MAX;
 
 /**
  * Tests for import functions
  */
-class ImportTest extends TestCase
+class ImportTest extends AbstractTestCase
 {
     /** @var Import $import */
     private $import;
@@ -29,6 +30,7 @@ class ImportTest extends TestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['ServerDefault'] = '';
         $this->import = new Import();
@@ -36,10 +38,8 @@ class ImportTest extends TestCase
 
     /**
      * Test for checkTimeout
-     *
-     * @return void
      */
-    public function testCheckTimeout()
+    public function testCheckTimeout(): void
     {
         global $timestamp, $maximum_time, $timeout_passed;
 
@@ -81,10 +81,8 @@ class ImportTest extends TestCase
 
     /**
      * Test for lookForUse
-     *
-     * @return void
      */
-    public function testLookForUse()
+    public function testLookForUse(): void
     {
         $this->assertEquals(
             [
@@ -151,7 +149,7 @@ class ImportTest extends TestCase
      *
      * @dataProvider provGetColumnAlphaName
      */
-    public function testGetColumnAlphaName($expected, $num): void
+    public function testGetColumnAlphaName(string $expected, int $num): void
     {
         $this->assertEquals($expected, $this->import->getColumnAlphaName($num));
     }
@@ -161,7 +159,7 @@ class ImportTest extends TestCase
      *
      * @return array
      */
-    public function provGetColumnAlphaName()
+    public function provGetColumnAlphaName(): array
     {
         return [
             [
@@ -199,7 +197,7 @@ class ImportTest extends TestCase
      *
      * @dataProvider provGetColumnNumberFromName
      */
-    public function testGetColumnNumberFromName($expected, $name): void
+    public function testGetColumnNumberFromName(int $expected, ?string $name): void
     {
         $this->assertEquals($expected, $this->import->getColumnNumberFromName($name));
     }
@@ -209,7 +207,7 @@ class ImportTest extends TestCase
      *
      * @return array
      */
-    public function provGetColumnNumberFromName()
+    public function provGetColumnNumberFromName(): array
     {
         return [
             [
@@ -247,7 +245,7 @@ class ImportTest extends TestCase
      *
      * @dataProvider provGetDecimalPrecision
      */
-    public function testGetDecimalPrecision($expected, $size): void
+    public function testGetDecimalPrecision(int $expected, ?string $size): void
     {
         $this->assertEquals($expected, $this->import->getDecimalPrecision($size));
     }
@@ -257,7 +255,7 @@ class ImportTest extends TestCase
      *
      * @return array
      */
-    public function provGetDecimalPrecision()
+    public function provGetDecimalPrecision(): array
     {
         return [
             [
@@ -287,7 +285,7 @@ class ImportTest extends TestCase
      *
      * @dataProvider provGetDecimalScale
      */
-    public function testGetDecimalScale($expected, $size): void
+    public function testGetDecimalScale(int $expected, ?string $size): void
     {
         $this->assertEquals($expected, $this->import->getDecimalScale($size));
     }
@@ -297,7 +295,7 @@ class ImportTest extends TestCase
      *
      * @return array
      */
-    public function provGetDecimalScale()
+    public function provGetDecimalScale(): array
     {
         return [
             [
@@ -327,7 +325,7 @@ class ImportTest extends TestCase
      *
      * @dataProvider provGetDecimalSize
      */
-    public function testGetDecimalSize($expected, $cell): void
+    public function testGetDecimalSize(array $expected, ?string $cell): void
     {
         $this->assertEquals($expected, $this->import->getDecimalSize($cell));
     }
@@ -337,7 +335,7 @@ class ImportTest extends TestCase
      *
      * @return array
      */
-    public function provGetDecimalSize()
+    public function provGetDecimalSize(): array
     {
         return [
             [
@@ -345,28 +343,32 @@ class ImportTest extends TestCase
                     2,
                     1,
                     '2,1',
-                ], '2.1',
+                ],
+                '2.1',
             ],
             [
                 [
                     2,
                     1,
                     '2,1',
-                ], '6.2',
+                ],
+                '6.2',
             ],
             [
                 [
                     3,
                     1,
                     '3,1',
-                ], '10.0',
+                ],
+                '10.0',
             ],
             [
                 [
                     4,
                     2,
                     '4,2',
-                ], '30.20',
+                ],
+                '30.20',
             ],
         ];
     }
@@ -382,7 +384,7 @@ class ImportTest extends TestCase
      *
      * @dataProvider provDetectType
      */
-    public function testDetectType($expected, $type, $cell): void
+    public function testDetectType(int $expected, ?int $type, ?string $cell): void
     {
         $this->assertEquals($expected, $this->import->detectType($type, $cell));
     }
@@ -392,7 +394,7 @@ class ImportTest extends TestCase
      *
      * @return array
      */
-    public function provDetectType()
+    public function provDetectType(): array
     {
         $data = [
             [
@@ -483,25 +485,23 @@ class ImportTest extends TestCase
 
     /**
      * Test for getMatchedRows.
-     *
-     * @return void
      */
-    public function testPMAGetMatchedRows()
+    public function testPMAGetMatchedRows(): void
     {
         $GLOBALS['db'] = 'PMA';
         //mock DBI
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
-        $update_query = 'UPDATE `table_1` '
+        $updateQuery = 'UPDATE `table_1` '
             . 'SET `id` = 20 '
             . 'WHERE `id` > 10';
-        $simulated_update_query = 'SELECT `id` FROM `table_1` WHERE `id` > 10 AND (`id` <> 20)';
+        $simulatedUpdateQuery = 'SELECT `id` FROM `table_1` WHERE `id` > 10 AND (`id` <> 20)';
 
-        $delete_query = 'DELETE FROM `table_1` '
+        $deleteQuery = 'DELETE FROM `table_1` '
             . 'WHERE `id` > 10';
-        $simulated_delete_query = 'SELECT * FROM `table_1` WHERE `id` > 10';
+        $simulatedDeleteQuery = 'SELECT * FROM `table_1` WHERE `id` > 10';
 
         $dbi->expects($this->any())
             ->method('numRows')
@@ -515,33 +515,31 @@ class ImportTest extends TestCase
 
         $dbi->expects($this->at(1))
             ->method('tryQuery')
-            ->with($simulated_update_query)
+            ->with($simulatedUpdateQuery)
             ->will($this->returnValue([]));
 
         $dbi->expects($this->at(4))
             ->method('tryQuery')
-            ->with($simulated_delete_query)
+            ->with($simulatedDeleteQuery)
             ->will($this->returnValue([]));
 
         $GLOBALS['dbi'] = $dbi;
 
-        $this->simulatedQueryTest($update_query, $simulated_update_query);
-        $this->simulatedQueryTest($delete_query, $simulated_delete_query);
+        $this->simulatedQueryTest($updateQuery, $simulatedUpdateQuery);
+        $this->simulatedQueryTest($deleteQuery, $simulatedDeleteQuery);
     }
 
     /**
      * Tests simulated UPDATE/DELETE query.
      *
-     * @param string $sql_query       SQL query
-     * @param string $simulated_query Simulated query
-     *
-     * @return void
+     * @param string $sqlQuery       SQL query
+     * @param string $simulatedQuery Simulated query
      */
-    public function simulatedQueryTest($sql_query, $simulated_query)
+    public function simulatedQueryTest(string $sqlQuery, string $simulatedQuery): void
     {
-        $parser = new Parser($sql_query);
+        $parser = new Parser($sqlQuery);
         $analyzed_sql_results = [
-            'query' => $sql_query,
+            'query' => $sqlQuery,
             'parser' => $parser,
             'statement' => $parser->statements[0],
         ];
@@ -551,7 +549,7 @@ class ImportTest extends TestCase
         // URL to matched rows.
         $_url_params = [
             'db'        => 'PMA',
-            'sql_query' => $simulated_query,
+            'sql_query' => $simulatedQuery,
         ];
         $matched_rows_url = Url::getFromRoute('/sql', $_url_params);
 
@@ -569,14 +567,12 @@ class ImportTest extends TestCase
 
     /**
      * Test for checkIfRollbackPossible
-     *
-     * @return void
      */
-    public function testPMACheckIfRollbackPossible()
+    public function testPMACheckIfRollbackPossible(): void
     {
         $GLOBALS['db'] = 'PMA';
         //mock DBI
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -632,10 +628,66 @@ class ImportTest extends TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $sql_query = 'UPDATE `table_1` AS t1, `table_2` t2 '
+        $sqlQuery = 'UPDATE `table_1` AS t1, `table_2` t2 '
             . 'SET `table_1`.`id` = `table_2`.`id` '
             . 'WHERE 1';
 
-        $this->assertEquals(true, $this->import->checkIfRollbackPossible($sql_query));
+        $this->assertTrue($this->import->checkIfRollbackPossible($sqlQuery));
+    }
+
+    /**
+     * Data provider for testSkipByteOrderMarksFromContents
+     *
+     * @return array[]
+     */
+    public function providerContentWithByteOrderMarks(): array
+    {
+        return [
+            [
+                "\xEF\xBB\xBF blabla上海",
+                ' blabla上海',
+            ],
+            [
+                "\xEF\xBB\xBF blabla",
+                ' blabla',
+            ],
+            [
+                "\xEF\xBB\xBF blabla\xEF\xBB\xBF",
+                " blabla\xEF\xBB\xBF",
+            ],
+            [
+                "\xFE\xFF blabla",
+                ' blabla',
+            ],
+            [
+                "\xFE\xFF blabla\xFE\xFF",
+                " blabla\xFE\xFF",
+            ],
+            [
+                "\xFF\xFE blabla",
+                ' blabla',
+            ],
+            [
+                "\xFF\xFE blabla\xFF\xFE",
+                " blabla\xFF\xFE",
+            ],
+            [
+                "\xEF\xBB\xBF\x44\x52\x4F\x50\x20\x54\x41\x42\x4C\x45\x20\x49\x46\x20\x45\x58\x49\x53\x54\x53",
+                'DROP TABLE IF EXISTS',
+            ],
+        ];
+    }
+
+    /**
+     * Test for skipByteOrderMarksFromContents
+     *
+     * @param string $input         The contents to strip BOM
+     * @param string $cleanContents The contents cleaned
+     *
+     * @dataProvider providerContentWithByteOrderMarks
+     */
+    public function testSkipByteOrderMarksFromContents(string $input, string $cleanContents): void
+    {
+        $this->assertEquals($cleanContents, $this->import->skipByteOrderMarksFromContents($input));
     }
 }

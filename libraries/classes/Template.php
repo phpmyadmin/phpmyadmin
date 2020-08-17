@@ -2,6 +2,7 @@
 /**
  * hold PhpMyAdmin\Template class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
@@ -25,13 +26,11 @@ use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 use Twig\Extension\DebugExtension;
 use Twig\Loader\FilesystemLoader;
-use Twig_Error_Loader;
-use Twig_Error_Runtime;
-use Twig_Error_Syntax;
-use Twig_TemplateWrapper;
+use Twig\TemplateWrapper;
+use const DIRECTORY_SEPARATOR;
+use const E_USER_WARNING;
 use function sprintf;
 use function trigger_error;
-use const E_USER_WARNING;
 
 /**
  * Handle front end templating
@@ -45,10 +44,7 @@ class Template
      */
     protected static $twig;
 
-    /**
-     * @var string
-     */
-    public const BASE_PATH = 'templates/';
+    public const BASE_PATH = ROOT_PATH . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR;
 
     public function __construct()
     {
@@ -56,34 +52,36 @@ class Template
 
         /** @var Config|null $config */
         $config = $GLOBALS['PMA_Config'];
-        if (static::$twig === null) {
-            $loader = new FilesystemLoader(self::BASE_PATH);
-            $cache_dir = $config !== null ? $config->getTempDir('twig') : null;
-            /* Twig expects false when cache is not configured */
-            if ($cache_dir === null) {
-                $cache_dir = false;
-            }
-            $twig = new Environment($loader, [
-                'auto_reload' => true,
-                'cache' => $cache_dir,
-            ]);
-            if ($cfg['environment'] === 'development') {
-                $twig->enableDebug();
-                $twig->addExtension(new DebugExtension());
-            }
-            $twig->addExtension(new CoreExtension());
-            $twig->addExtension(new I18nExtension());
-            $twig->addExtension(new MessageExtension());
-            $twig->addExtension(new PluginsExtension());
-            $twig->addExtension(new RelationExtension());
-            $twig->addExtension(new SanitizeExtension());
-            $twig->addExtension(new TableExtension());
-            $twig->addExtension(new TrackerExtension());
-            $twig->addExtension(new TransformationsExtension());
-            $twig->addExtension(new UrlExtension());
-            $twig->addExtension(new UtilExtension());
-            static::$twig = $twig;
+        if (static::$twig !== null) {
+            return;
         }
+
+        $loader = new FilesystemLoader(self::BASE_PATH);
+        $cache_dir = $config !== null ? $config->getTempDir('twig') : null;
+        /* Twig expects false when cache is not configured */
+        if ($cache_dir === null) {
+            $cache_dir = false;
+        }
+        $twig = new Environment($loader, [
+            'auto_reload' => true,
+            'cache' => $cache_dir,
+        ]);
+        if ($cfg['environment'] === 'development') {
+            $twig->enableDebug();
+            $twig->addExtension(new DebugExtension());
+        }
+        $twig->addExtension(new CoreExtension());
+        $twig->addExtension(new I18nExtension());
+        $twig->addExtension(new MessageExtension());
+        $twig->addExtension(new PluginsExtension());
+        $twig->addExtension(new RelationExtension());
+        $twig->addExtension(new SanitizeExtension());
+        $twig->addExtension(new TableExtension());
+        $twig->addExtension(new TrackerExtension());
+        $twig->addExtension(new TransformationsExtension());
+        $twig->addExtension(new UrlExtension());
+        $twig->addExtension(new UtilExtension());
+        static::$twig = $twig;
     }
 
     /**
@@ -95,7 +93,7 @@ class Template
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function load(string $templateName): Twig_TemplateWrapper
+    private function load(string $templateName): TemplateWrapper
     {
         try {
             $template = static::$twig->load($templateName . '.twig');
@@ -125,9 +123,9 @@ class Template
      * @param array  $data     Associative array of template variables
      *
      * @throws Throwable
-     * @throws Twig_Error_Loader
-     * @throws Twig_Error_Runtime
-     * @throws Twig_Error_Syntax
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
      */
     public function render(string $template, array $data = []): string
     {

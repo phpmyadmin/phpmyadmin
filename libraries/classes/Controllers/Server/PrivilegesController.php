@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
@@ -16,7 +17,6 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Privileges;
-use PhpMyAdmin\Server\Users;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -56,27 +56,22 @@ class PrivilegesController extends AbstractController
         global $itemType, $tables, $num_tables, $total_num_tables, $sub_part, $is_show_stats, $db_is_system_schema;
         global $tooltip_truename, $tooltip_aliasname, $pos, $title, $export, $grants, $one_grant, $url_dbname;
         global $strPrivDescAllPrivileges, $strPrivDescAlter, $strPrivDescAlterRoutine, $strPrivDescCreateDb,
-               $strPrivDescCreateRoutine, $strPrivDescCreateTbl, $strPrivDescCreateTmpTable, $strPrivDescCreateUser,
+               $strPrivDescCreateRoutine, $strPrivDescCreateTbl, $strPrivDescCreateTmpTable,
                $strPrivDescCreateView, $strPrivDescDelete, $strPrivDescDeleteHistoricalRows, $strPrivDescDropDb,
                $strPrivDescDropTbl, $strPrivDescEvent, $strPrivDescExecute, $strPrivDescFile,
                $strPrivDescGrantTbl, $strPrivDescIndex, $strPrivDescInsert, $strPrivDescLockTables,
-               $strPrivDescMaxConnections, $strPrivDescMaxQuestions, $strPrivDescMaxUpdates, $strPrivDescMaxUserConnections,
+               $strPrivDescMaxConnections, $strPrivDescMaxQuestions, $strPrivDescMaxUpdates,
                $strPrivDescProcess, $strPrivDescReferences, $strPrivDescReload, $strPrivDescReplClient,
                $strPrivDescReplSlave, $strPrivDescSelect, $strPrivDescShowDb, $strPrivDescShowView,
-               $strPrivDescShutdown, $strPrivDescSuper, $strPrivDescTrigger, $strPrivDescUpdate, $strPrivDescUsage;
+               $strPrivDescShutdown, $strPrivDescSuper, $strPrivDescTrigger, $strPrivDescUpdate,
+               $strPrivDescMaxUserConnections, $strPrivDescUsage, $strPrivDescCreateUser;
 
         $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
         $checkUserPrivileges->getPrivileges();
 
         $cfgRelation = $this->relation->getRelationsParam();
 
-        /**
-         * Does the common work
-         */
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('server/privileges.js');
-        $scripts->addFile('vendor/zxcvbn.js');
+        $this->addScriptFiles(['server/privileges.js', 'vendor/zxcvbn.js']);
 
         $relationCleanup = new RelationCleanup($this->dbi, $this->relation);
         $serverPrivileges = new Privileges($this->template, $this->dbi, $this->relation, $relationCleanup);
@@ -99,14 +94,14 @@ class PrivilegesController extends AbstractController
         );
 
         if ((isset($_GET['viewing_mode'])
-                && $_GET['viewing_mode'] == 'server')
+                && $_GET['viewing_mode'] === 'server')
             && $GLOBALS['cfgRelation']['menuswork']
         ) {
             $this->response->addHTML('<div class="container-fluid">');
-            $this->response->addHTML($this->template->render('server/privileges/subnav', [
+            $this->render('server/privileges/subnav', [
                 'active' => 'privileges',
                 'is_super_user' => $this->dbi->isSuperuser(),
-            ]));
+            ]);
         }
 
         /**
@@ -203,16 +198,15 @@ class PrivilegesController extends AbstractController
         if (! $this->dbi->isSuperuser() && ! $GLOBALS['is_grantuser']
             && ! $GLOBALS['is_createuser']
         ) {
-            $this->response->addHTML(
-                $this->template->render('server/sub_page_header', [
-                    'type' => 'privileges',
-                    'is_image' => false,
-                ])
-            );
+            $this->render('server/sub_page_header', [
+                'type' => 'privileges',
+                'is_image' => false,
+            ]);
             $this->response->addHTML(
                 Message::error(__('No Privileges'))
                     ->getDisplay()
             );
+
             return;
         }
         if (! $GLOBALS['is_grantuser'] && ! $GLOBALS['is_createuser']) {
@@ -238,6 +232,7 @@ class PrivilegesController extends AbstractController
                 )->getDisplay()
             );
             $this->response->setRequestStatus(false);
+
             return;
         }
 
@@ -250,8 +245,13 @@ class PrivilegesController extends AbstractController
          * Adds a user
          *   (Changes / copies a user, part II)
          */
-        [$ret_message, $ret_queries, $queries_for_display, $sql_query, $_add_user_error]
-            = $serverPrivileges->addUser(
+        [
+            $ret_message,
+            $ret_queries,
+            $queries_for_display,
+            $sql_query,
+            $_add_user_error,
+        ] = $serverPrivileges->addUser(
             $dbname ?? null,
             $username ?? null,
             $hostname ?? null,
@@ -383,7 +383,7 @@ class PrivilegesController extends AbstractController
         if ($this->response->isAjax()
             && empty($_REQUEST['ajax_page_request'])
             && ! isset($_GET['export'])
-            && (! isset($_POST['submit_mult']) || $_POST['submit_mult'] != 'export')
+            && (! isset($_POST['submit_mult']) || $_POST['submit_mult'] !== 'export')
             && ((! isset($_GET['initial']) || $_GET['initial'] === null
                     || $_GET['initial'] === '')
                 || (isset($_POST['delete']) && $_POST['delete'] === __('Go')))
@@ -401,6 +401,7 @@ class PrivilegesController extends AbstractController
                 $this->response->setRequestStatus($message->isSuccess());
                 $this->response->addJSON('message', $message);
                 $this->response->addJSON($extra_data);
+
                 return;
             }
         }
@@ -408,7 +409,7 @@ class PrivilegesController extends AbstractController
         /**
          * Displays the links
          */
-        if (isset($_GET['viewing_mode']) && $_GET['viewing_mode'] == 'db') {
+        if (isset($_GET['viewing_mode']) && $_GET['viewing_mode'] === 'db') {
             $db = $_REQUEST['db'] = $_GET['checkprivsdb'];
 
             $url_query .= Url::getCommon([
@@ -438,19 +439,21 @@ class PrivilegesController extends AbstractController
             unset($GLOBALS['message']);
         }
 
-        /**
-         * Displays the page
-         */
-        $this->response->addHTML(
-            $serverPrivileges->getHtmlForUserGroupDialog(
-                $username ?? null,
-                (bool) $cfgRelation['menuswork']
-            )
-        );
+        if (! empty($_GET['edit_user_group_dialog']) && $cfgRelation['menuswork']) {
+            $dialog = $serverPrivileges->getHtmlToChooseUserGroup($username ?? null);
+
+            if ($this->response->isAjax()) {
+                $this->response->addJSON('message', $dialog);
+
+                return;
+            }
+
+            $this->response->addHTML($dialog);
+        }
 
         // export user definition
         if (isset($_GET['export'])
-            || (isset($_POST['submit_mult']) && $_POST['submit_mult'] == 'export')
+            || (isset($_POST['submit_mult']) && $_POST['submit_mult'] === 'export')
         ) {
             [$title, $export] = $serverPrivileges->getListForExportUserDefinition(
                 $username ?? '',
@@ -462,10 +465,11 @@ class PrivilegesController extends AbstractController
             if ($this->response->isAjax()) {
                 $this->response->addJSON('message', $export);
                 $this->response->addJSON('title', $title);
+
                 return;
-            } else {
-                $this->response->addHTML('<h2>' . $title . '</h2>' . $export);
             }
+
+            $this->response->addHTML('<h2>' . $title . '</h2>' . $export);
         }
 
         if (isset($_GET['adduser'])) {
@@ -482,6 +486,7 @@ class PrivilegesController extends AbstractController
             } elseif ($this->response->isAjax() === true && empty($_REQUEST['ajax_page_request'])) {
                 $message = Message::success(__('User has been added.'));
                 $this->response->addJSON('message', $message);
+
                 return;
             } else {
                 $this->response->addHTML($databaseController->index([
@@ -540,10 +545,12 @@ class PrivilegesController extends AbstractController
             }
         }
 
-        if ((isset($_GET['viewing_mode']) && $_GET['viewing_mode'] == 'server')
-            && $cfgRelation['menuswork']
+        if ((! isset($_GET['viewing_mode']) || $_GET['viewing_mode'] !== 'server')
+            || ! $cfgRelation['menuswork']
         ) {
-            $this->response->addHTML('</div>');
+            return;
         }
+
+        $this->response->addHTML('</div>');
     }
 }

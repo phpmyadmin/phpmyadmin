@@ -2,18 +2,20 @@
 /**
  * tests for PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Properties\Options\Groups;
 
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * tests for PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup class
  */
-class OptionsPropertyRootGroupTest extends TestCase
+class OptionsPropertyRootGroupTest extends AbstractTestCase
 {
+    /** @var OptionsPropertyRootGroup */
     protected $object;
 
     /**
@@ -21,6 +23,7 @@ class OptionsPropertyRootGroupTest extends TestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->object = new OptionsPropertyRootGroup();
     }
 
@@ -29,15 +32,14 @@ class OptionsPropertyRootGroupTest extends TestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 
     /**
      * Test for PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup::getItemType
-     *
-     * @return void
      */
-    public function testGetItemType()
+    public function testGetItemType(): void
     {
         $this->assertEquals(
             'root',
@@ -47,10 +49,8 @@ class OptionsPropertyRootGroupTest extends TestCase
 
     /**
      * Test for contable interface
-     *
-     * @return void
      */
-    public function testCountable()
+    public function testCountable(): void
     {
         $this->assertCount(
             0,

@@ -2,16 +2,18 @@
 /**
  * Tests for libraries/SystemDatabase.php
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\SystemDatabase;
 
 /**
  * Tests for libraries/SystemDatabase.php
  */
-class SystemDatabaseTest extends PmaTestCase
+class SystemDatabaseTest extends AbstractTestCase
 {
     /**
      * SystemDatabase instance
@@ -27,13 +29,15 @@ class SystemDatabaseTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
         /**
          * SET these to avoid undefine d index error
          */
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['pmadb'] = '';
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -51,6 +55,7 @@ class SystemDatabaseTest extends PmaTestCase
             'relwork' => 'relwork',
             'commwork' => 'commwork',
             'pdfwork' => 'pdfwork',
+            'mimework' => 'mimework',
             'column_info' => 'column_info',
             'relation' => 'relation',
         ];
@@ -76,11 +81,9 @@ class SystemDatabaseTest extends PmaTestCase
     /**
      * Tests for PMA_getExistingTransformationData() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testPMAGetExistingTransformationData()
+    public function testPMAGetExistingTransformationData(): void
     {
         $db = 'PMA_db';
         $ret = $this->sysDb->getExistingTransformationData($db);
@@ -95,11 +98,9 @@ class SystemDatabaseTest extends PmaTestCase
     /**
      * Tests for PMA_getNewTransformationDataSql() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testPMAGetNewTransformationDataSql()
+    public function testPMAGetNewTransformationDataSql(): void
     {
         $db = 'PMA_db';
         $pma_transformation_data = [];

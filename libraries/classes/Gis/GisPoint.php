@@ -2,6 +2,7 @@
 /**
  * Handles actions related to GIS POINT objects
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
@@ -14,7 +15,6 @@ use function imagestring;
 use function json_encode;
 use function mb_strlen;
 use function mb_substr;
-use function mt_rand;
 use function trim;
 
 /**
@@ -22,8 +22,8 @@ use function trim;
  */
 class GisPoint extends GisGeometry
 {
-    // Hold the singleton instance of the class
-    private static $_instance;
+    /** @var self */
+    private static $instance;
 
     /**
      * A private constructor; prevents direct creation of object.
@@ -43,11 +43,11 @@ class GisPoint extends GisGeometry
      */
     public static function singleton()
     {
-        if (! isset(self::$_instance)) {
-            self::$_instance = new GisPoint();
+        if (! isset(self::$instance)) {
+            self::$instance = new GisPoint();
         }
 
-        return self::$_instance;
+        return self::$instance;
     }
 
     /**
@@ -216,7 +216,7 @@ class GisPoint extends GisGeometry
     {
         $point_options = [
             'name'         => $label,
-            'id'           => $label . mt_rand(),
+            'id'           => $label . $this->getRandomId(),
             'class'        => 'point vector',
             'fill'         => 'white',
             'stroke'       => $point_color,

@@ -2,6 +2,7 @@
 /**
  * Holds the PhpMyAdmin\FileListing class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
@@ -32,24 +33,33 @@ class FileListing
      */
     public function getDirContent(string $dir, string $expression = '')
     {
-        if (! @file_exists($dir) || ! ($handle = @opendir($dir))) {
+        if (! @file_exists($dir)) {
+            return false;
+        }
+
+        $handle = @opendir($dir);
+
+        if ($handle === false) {
             return false;
         }
 
         $result = [];
-        if (substr($dir, -1) != '/') {
+        if (substr($dir, -1) !== '/') {
             $dir .= '/';
         }
         while ($file = @readdir($handle)) {
-            if (@is_file($dir . $file)
-                && ! @is_link($dir . $file)
-                && ($expression == '' || preg_match($expression, $file))
+            if (! @is_file($dir . $file)
+                || @is_link($dir . $file)
+                || ($expression != '' && ! preg_match($expression, $file))
             ) {
-                $result[] = $file;
+                continue;
             }
+
+            $result[] = $file;
         }
         closedir($handle);
         asort($result);
+
         return $result;
     }
 

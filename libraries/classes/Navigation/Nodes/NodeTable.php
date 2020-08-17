@@ -2,6 +2,7 @@
 /**
  * Functionality for the navigation tree
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
@@ -18,6 +19,9 @@ use function strpos;
  */
 class NodeTable extends NodeDatabaseChild
 {
+    /** @var array IMG tags, used when rendering the node */
+    public $icon;
+
     /**
      * Initialises the class
      *
@@ -42,7 +46,7 @@ class NodeTable extends NodeDatabaseChild
                 'table'
             )
         );
-        $title = Util::getTitleForTarget(
+        $title = (string) Util::getTitleForTarget(
             $GLOBALS['cfg']['DefaultTabTable']
         );
         $this->title = $title;
@@ -195,12 +199,18 @@ class NodeTable extends NodeDatabaseChild
                 $count = 0;
                 if ($GLOBALS['dbi']->dataSeek($handle, $pos)) {
                     while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                        if ($count < $maxItems) {
-                            $retval[] = $arr['Field'];
-                            $count++;
-                        } else {
+                        if ($count >= $maxItems) {
                             break;
                         }
+
+                        $retval[] = [
+                            'name' => $arr['Field'],
+                            'key' => $arr['Key'],
+                            'type' => Util::extractColumnSpec($arr['Type'])['type'],
+                            'default' =>  $arr['Default'],
+                            'nullable' => ($arr['Null'] === 'NO' ? '' : 'nullable'),
+                        ];
+                        $count++;
                     }
                 }
                 break;
@@ -252,12 +262,12 @@ class NodeTable extends NodeDatabaseChild
                 $count = 0;
                 if ($GLOBALS['dbi']->dataSeek($handle, $pos)) {
                     while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                        if ($count < $maxItems) {
-                            $retval[] = $arr['Trigger'];
-                            $count++;
-                        } else {
+                        if ($count >= $maxItems) {
                             break;
                         }
+
+                        $retval[] = $arr['Trigger'];
+                        $count++;
                     }
                 }
                 break;

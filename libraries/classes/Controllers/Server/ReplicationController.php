@@ -2,6 +2,7 @@
 /**
  * Server replications
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
@@ -49,11 +50,7 @@ class ReplicationController extends AbstractController
         Common::server();
         ReplicationInfo::load();
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('server/privileges.js');
-        $scripts->addFile('replication.js');
-        $scripts->addFile('vendor/zxcvbn.js');
+        $this->addScriptFiles(['server/privileges.js', 'replication.js', 'vendor/zxcvbn.js']);
 
         if (isset($params['url_params']) && is_array($params['url_params'])) {
             $url_params = $params['url_params'];
@@ -83,7 +80,7 @@ class ReplicationController extends AbstractController
             }
         }
 
-        $this->response->addHTML($this->template->render('server/replication/index', [
+        $this->render('server/replication/index', [
             'url_params' => $url_params,
             'is_super_user' => $this->dbi->isSuperuser(),
             'error_messages' => $errorMessages,
@@ -95,6 +92,6 @@ class ReplicationController extends AbstractController
             'master_configuration_html' => $masterConfigurationHtml ?? '',
             'slave_configuration_html' => $slaveConfigurationHtml ?? '',
             'change_master_html' => $changeMasterHtml ?? '',
-        ]));
+        ]);
     }
 }

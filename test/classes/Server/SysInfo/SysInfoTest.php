@@ -2,18 +2,19 @@
 /**
  * tests for sysinfo library
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Server\SysInfo;
 
-use PhpMyAdmin\Server\SysInfo\SysInfo;
 use PhpMyAdmin\Server\SysInfo\Base;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Server\SysInfo\SysInfo;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * tests for sysinfo library
  */
-class SysInfoTest extends TestCase
+class SysInfoTest extends AbstractTestCase
 {
     /**
      * Test for OS detection
@@ -23,7 +24,7 @@ class SysInfoTest extends TestCase
      *
      * @dataProvider sysInfoOsProvider
      */
-    public function testGetSysInfoOs($os, $expected): void
+    public function testGetSysInfoOs(string $os, string $expected): void
     {
         $this->assertEquals(
             $expected,
@@ -33,10 +34,8 @@ class SysInfoTest extends TestCase
 
     /**
      * Data provider for OS detection tests.
-     *
-     * @return array with test data
      */
-    public function sysInfoOsProvider()
+    public function sysInfoOsProvider(): array
     {
         return [
             [
@@ -60,20 +59,16 @@ class SysInfoTest extends TestCase
 
     /**
      * Test for getting sysinfo object.
-     *
-     * @return void
      */
-    public function testGetSysInfo()
+    public function testGetSysInfo(): void
     {
         $this->assertInstanceOf(Base::class, SysInfo::get());
     }
 
     /**
      * Test for getting supported sysinfo object.
-     *
-     * @return void
      */
-    public function testGetSysInfoSupported()
+    public function testGetSysInfoSupported(): void
     {
         $this->assertTrue(SysInfo::get()->supported());
     }

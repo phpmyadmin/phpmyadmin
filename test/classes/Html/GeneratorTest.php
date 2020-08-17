@@ -2,17 +2,14 @@
 /**
  * Test for PhpMyAdmin\Util class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Html;
 
 use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Util;
-use Throwable;
-use Twig_Error_Loader;
-use Twig_Error_Runtime;
-use Twig_Error_Syntax;
 use function call_user_func_array;
 use function htmlspecialchars;
 use function urlencode;
@@ -20,8 +17,18 @@ use function urlencode;
 /**
  * Test for \PhpMyAdmin\Html\MySQLDocumentation class
  */
-class GeneratorTest extends PmaTestCase
+class GeneratorTest extends AbstractTestCase
 {
+    /**
+     * Set up the test.
+     */
+    protected function setUp(): void
+    {
+        parent::setUp();
+        parent::loadDefaultConfig();
+        parent::setLanguage();
+    }
+
     /**
      * Test for getDbLink
      *
@@ -100,74 +107,6 @@ class GeneratorTest extends PmaTestCase
             . htmlspecialchars($database) . '”.">'
             . htmlspecialchars($database) . '</a>',
             Generator::getDbLink($database)
-        );
-    }
-
-    /**
-     * Test for getDivForSliderEffect
-     *
-     * @throws Throwable
-     * @throws Twig_Error_Loader
-     * @throws Twig_Error_Runtime
-     * @throws Twig_Error_Syntax
-     */
-    public function testGetDivForSliderEffectTest(): void
-    {
-        global $cfg;
-        $cfg['InitialSlidersState'] = 'undefined';
-
-        $id = 'test_id';
-        $message = 'test_message';
-
-        $this->assertXmlStringEqualsXmlString(
-            '<root>' . Generator::getDivForSliderEffect($id, $message) . '</div></root>',
-            '<root><div id="' . $id . "\" class=\"pma_auto_slider\"\ntitle=\""
-            . htmlspecialchars($message) . "\" >\n</div></root>"
-        );
-    }
-
-    /**
-     * Test for getDivForSliderEffect
-     *
-     * @throws Throwable
-     * @throws Twig_Error_Loader
-     * @throws Twig_Error_Runtime
-     * @throws Twig_Error_Syntax
-     */
-    public function testGetDivForSliderEffectTestClosed(): void
-    {
-        global $cfg;
-        $cfg['InitialSlidersState'] = 'closed';
-
-        $id = 'test_id';
-        $message = 'test_message';
-
-        $this->assertXmlStringEqualsXmlString(
-            '<root>' . Generator::getDivForSliderEffect($id, $message) . '</div></root>',
-            '<root><div id="' . $id . "\" style=\"display: none; overflow:auto;\" class=\"pma_auto_slider\"\ntitle=\""
-            . htmlspecialchars($message) . "\" >\n</div></root>"
-        );
-    }
-
-    /**
-     * Test for getDivForSliderEffect
-     *
-     * @throws Throwable
-     * @throws Twig_Error_Loader
-     * @throws Twig_Error_Runtime
-     * @throws Twig_Error_Syntax
-     */
-    public function testGetDivForSliderEffectTestDisabled(): void
-    {
-        global $cfg;
-        $cfg['InitialSlidersState'] = 'disabled';
-
-        $id = 'test_id';
-        $message = 'test_message';
-
-        $this->assertXmlStringEqualsXmlString(
-            '<root>' . Generator::getDivForSliderEffect($id, $message) . '</div></root>',
-            '<root><div id="' . $id . "\">\n</div></root>"
         );
     }
 
@@ -261,7 +200,7 @@ class GeneratorTest extends PmaTestCase
      *
      * @dataProvider linksOrButtons
      */
-    public function testLinkOrButton(array $params, $limit, $match): void
+    public function testLinkOrButton(array $params, int $limit, string $match): void
     {
         $restore = $GLOBALS['cfg']['LinkLengthLimit'] ?? 1000;
         $GLOBALS['cfg']['LinkLengthLimit'] = $limit;

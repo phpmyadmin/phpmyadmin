@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
@@ -7,22 +8,26 @@ use PhpMyAdmin\Common;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Display\Export;
+use PhpMyAdmin\Export\Options;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Plugins;
+use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+use function array_merge;
 
 final class ExportController extends AbstractController
 {
-    /** @var Export */
+    /** @var Options */
     private $export;
 
     /**
      * @param Response          $response A Response instance.
      * @param DatabaseInterface $dbi      A DatabaseInterface instance.
      * @param Template          $template A Template instance.
-     * @param Export            $export   A Export instance.
+     * @param Options           $export   A Export instance.
      */
-    public function __construct($response, $dbi, Template $template, Export $export)
+    public function __construct($response, $dbi, Template $template, Options $export)
     {
         parent::__construct($response, $dbi, $template);
         $this->export = $export;
@@ -31,20 +36,18 @@ final class ExportController extends AbstractController
     public function index(): void
     {
         global $db, $table, $sql_query, $num_tables, $unlim_num_rows;
-        global $tmp_select, $select_item, $multi_values, $export_page_title;
+        global $tmp_select, $select_item;
 
         Common::server();
 
-        PageSettings::showGroup('Export');
+        $pageSettings = new PageSettings('Export');
+        $pageSettingsErrorHtml = $pageSettings->getErrorHTML();
+        $pageSettingsHtml = $pageSettings->getHTML();
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('export.js');
-
-        $export_page_title = __('View dump (schema) of databases') . "\n";
+        $this->addScriptFiles(['export.js']);
 
         $select_item = $tmp_select ?? '';
-        $multi_values = $this->export->getHtmlForSelectOptions($select_item);
+        $databases = $this->export->getDatabasesForSelectOptions($select_item);
 
         if (! isset($sql_query)) {
             $sql_query = '';
@@ -56,14 +59,36 @@ final class ExportController extends AbstractController
             $unlim_num_rows = 0;
         }
 
-        $this->response->addHTML($this->export->getDisplay(
+        $GLOBALS['single_table'] = $_POST['single_table'] ?? $_GET['single_table'] ?? null;
+
+        /** @var ExportPlugin[] $exportList */
+        $exportList = Plugins::getPlugins('export', 'libraries/classes/Plugins/Export/', [
+            'export_type' => 'server',
+            'single_table' => isset($GLOBALS['single_table']),
+        ]);
+
+        if (empty($exportList)) {
+            $this->response->addHTML(Message::error(
+                __('Could not load export plugins, please check your installation!')
+            )->getDisplay());
+
+            return;
+        }
+
+        $options = $this->export->getOptions(
             'server',
             $db,
             $table,
             $sql_query,
             $num_tables,
             $unlim_num_rows,
-            $multi_values
-        ));
+            $exportList
+        );
+
+        $this->render('server/export/index', array_merge($options, [
+            'page_settings_error_html' => $pageSettingsErrorHtml,
+            'page_settings_html' => $pageSettingsHtml,
+            'databases' => $databases,
+        ]));
     }
 }

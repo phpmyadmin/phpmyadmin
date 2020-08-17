@@ -2,6 +2,7 @@
 /**
  * Holds the PhpMyAdmin\Controllers\Server\Status\StatusController
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;
@@ -69,7 +70,7 @@ class StatusController extends AbstractController
             }
         }
 
-        $this->response->addHTML($this->template->render('server/status/status/index', [
+        $this->render('server/status/status/index', [
             'is_data_loaded' => $this->data->dataLoaded,
             'network_traffic' => $networkTraffic ?? null,
             'uptime' => $uptime ?? null,
@@ -79,7 +80,7 @@ class StatusController extends AbstractController
             'is_master' => $replication_info['master']['status'],
             'is_slave' => $replication_info['slave']['status'],
             'replication' => $replication,
-        ]));
+        ]);
     }
 
     private function getStartTime(): int
@@ -247,11 +248,13 @@ class StatusController extends AbstractController
 
         $output = '';
         foreach ($replication_types as $type) {
-            if (isset($replication_info[$type]['status'])
-                && $replication_info[$type]['status']
+            if (! isset($replication_info[$type]['status'])
+                || ! $replication_info[$type]['status']
             ) {
-                $output .= $this->replicationGui->getHtmlForReplicationStatusTable($type);
+                continue;
             }
+
+            $output .= $this->replicationGui->getHtmlForReplicationStatusTable($type);
         }
 
         return $output;

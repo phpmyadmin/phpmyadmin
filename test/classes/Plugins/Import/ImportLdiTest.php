@@ -2,6 +2,7 @@
 /**
  * Tests for PhpMyAdmin\Plugins\Import\ImportLdi class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Import;
@@ -9,15 +10,15 @@ namespace PhpMyAdmin\Tests\Plugins\Import;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportLdi;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * Tests for PhpMyAdmin\Plugins\Import\ImportLdi class
  */
-class ImportLdiTest extends PmaTestCase
+class ImportLdiTest extends AbstractTestCase
 {
-    /** @access protected */
+    /** @var ImportLdi */
     protected $object;
 
     /**
@@ -34,6 +35,7 @@ class ImportLdiTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         //setting
         $GLOBALS['server'] = 0;
         $GLOBALS['plugin_param'] = 'table';
@@ -61,7 +63,7 @@ class ImportLdiTest extends PmaTestCase
         $GLOBALS['table'] = 'phpmyadmintest';
 
         //Mock DBI
-        $this->dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $this->dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $this->dbi;
@@ -77,17 +79,16 @@ class ImportLdiTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 
     /**
      * Test for getProperties
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testGetProperties()
+    public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
         $this->assertEquals(
@@ -103,11 +104,9 @@ class ImportLdiTest extends PmaTestCase
     /**
      * Test for getProperties for ldi_local_option = auto
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testGetPropertiesAutoLdi()
+    public function testGetPropertiesAutoLdi(): void
     {
         /**
          * The \PhpMyAdmin\DatabaseInterface mocked object
@@ -129,8 +128,7 @@ class ImportLdiTest extends PmaTestCase
         $GLOBALS['cfg']['Import']['ldi_local_option'] = 'auto';
         $this->object = new ImportLdi();
         $properties = $this->object->getProperties();
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['cfg']['Import']['ldi_local_option']
         );
         $this->assertEquals(
@@ -146,11 +144,9 @@ class ImportLdiTest extends PmaTestCase
     /**
      * Test for doImport
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testDoImport()
+    public function testDoImport(): void
     {
         //$sql_query_disabled will show the import SQL detail
         global $sql_query, $sql_query_disabled;
@@ -175,8 +171,7 @@ class ImportLdiTest extends PmaTestCase
             $sql_query
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['finished']
         );
     }
@@ -184,11 +179,9 @@ class ImportLdiTest extends PmaTestCase
     /**
      * Test for doImport : invalid import file
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testDoImportInvalidFile()
+    public function testDoImportInvalidFile(): void
     {
         global $import_file;
         $import_file = 'none';
@@ -202,8 +195,7 @@ class ImportLdiTest extends PmaTestCase
             $GLOBALS['message']->__toString()
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['error']
         );
     }
@@ -211,11 +203,9 @@ class ImportLdiTest extends PmaTestCase
     /**
      * Test for doImport with LDI setting
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testDoImportLDISetting()
+    public function testDoImportLDISetting(): void
     {
         global $ldi_local_option, $ldi_replace, $ldi_ignore, $ldi_terminated,
         $ldi_enclosed, $ldi_new_line, $skip_queries;
@@ -270,8 +260,7 @@ class ImportLdiTest extends PmaTestCase
             $sql_query
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['finished']
         );
     }

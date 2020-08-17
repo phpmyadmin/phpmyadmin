@@ -2,6 +2,7 @@
 /**
  * Selenium TestCase for table related tests
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium\Table;
@@ -23,18 +24,17 @@ class BrowseTest extends TestBase
     {
         parent::setUp();
         $this->dbQuery(
-            'CREATE TABLE `test_table` ('
+            'USE `' . $this->database_name . '`;'
+            . 'CREATE TABLE `test_table` ('
             . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
             . ' `name` varchar(20) NOT NULL,'
             . ' `datetimefield` datetime NOT NULL,'
             . ' PRIMARY KEY (`id`)'
-            . ')'
-        );
-        $this->dbQuery(
-            'INSERT INTO `test_table` (`id`, `name`, `datetimefield`) VALUES'
+            . ');'
+            . 'INSERT INTO `test_table` (`id`, `name`, `datetimefield`) VALUES'
             . " (1, 'abcd', '2011-01-20 02:00:02'),"
             . " (2, 'foo', '2010-01-20 02:00:02'),"
-            . " (3, 'Abcd', '2012-01-20 02:00:02')"
+            . " (3, 'Abcd', '2012-01-20 02:00:02');"
         );
 
         $this->login();
@@ -46,11 +46,9 @@ class BrowseTest extends TestBase
     /**
      * Test sorting of records in browse table
      *
-     * @return void
-     *
      * @group large
      */
-    public function testSortRecords()
+    public function testSortRecords(): void
     {
         // case 1
         $this->byPartialLinkText('name')->click();
@@ -133,11 +131,9 @@ class BrowseTest extends TestBase
     /**
      * Test Edit Record
      *
-     * @return void
-     *
      * @group large
      */
-    public function testChangeRecords()
+    public function testChangeRecords(): void
     {
         $ele = $this->byCssSelector(
             'table.table_results tbody tr:nth-child(2) td:nth-child(2)'
@@ -193,11 +189,9 @@ class BrowseTest extends TestBase
     /**
      * Test edit record by double click
      *
-     * @return void
-     *
      * @group large
      */
-    public function testChangeRecordsByDoubleClick()
+    public function testChangeRecordsByDoubleClick(): void
     {
         $element = $this->byCssSelector(
             'table.table_results tbody tr:nth-child(1) td:nth-child(6)'
@@ -235,11 +229,9 @@ class BrowseTest extends TestBase
     /**
      * Test copy and insert record
      *
-     * @return void
-     *
      * @group large
      */
-    public function testCopyRecords()
+    public function testCopyRecords(): void
     {
         $ele = $this->byCssSelector(
             'table.table_results tbody tr:nth-child(3) td:nth-child(3)'
@@ -284,11 +276,9 @@ class BrowseTest extends TestBase
     /**
      * Test search table
      *
-     * @return void
-     *
      * @group large
      */
-    public function testSearchRecords()
+    public function testSearchRecords(): void
     {
         $this->expandMore();
 
@@ -324,11 +314,9 @@ class BrowseTest extends TestBase
     /**
      * Test delete multiple records
      *
-     * @return void
-     *
      * @group large
      */
-    public function testDeleteRecords()
+    public function testDeleteRecords(): void
     {
         $this->byId('id_rows_to_delete1_left')->click();
         $this->byId('id_rows_to_delete2_left')->click();

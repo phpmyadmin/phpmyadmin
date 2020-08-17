@@ -1,286 +1,199 @@
 <?php
 
+declare(strict_types=1);
+
 return [
-    'services' =>
-    [
-        'advisor' =>
-        [
+    'services' => [
+        'advisor' => [
             'class' => PhpMyAdmin\Advisor::class,
-            'arguments' =>
-            [
+            'arguments' => [
                 'dbi' => '@dbi',
                 'expression_language' => '@expression_language',
             ],
         ],
-        'browse_foreigners' =>
-        [
+        'browse_foreigners' => [
             'class' => PhpMyAdmin\BrowseForeigners::class,
-            'arguments' =>
-            [
-                '@template',
-            ],
+            'arguments' => ['@template'],
         ],
-        'config' =>
-        [
+        'config' => [
             'class' => PhpMyAdmin\Config::class,
-            'arguments' =>
-            [
-                CONFIG_FILE,
-            ],
+            'arguments' => [CONFIG_FILE],
         ],
-        'central_columns' =>
-        [
+        'central_columns' => [
             'class' => PhpMyAdmin\CentralColumns::class,
-            'arguments' =>
-            [
-                '@dbi',
-            ],
+            'arguments' => ['@dbi'],
         ],
-        'check_user_privileges' =>
-        [
+        'check_user_privileges' => [
             'class' => PhpMyAdmin\CheckUserPrivileges::class,
-            'arguments' =>
-            [
-                '@dbi',
-            ],
+            'arguments' => ['@dbi'],
         ],
-        'create_add_field' =>
-        [
+        'create_add_field' => [
             'class' => PhpMyAdmin\CreateAddField::class,
-            'arguments' =>
-            [
-                '@dbi',
-            ],
+            'arguments' => ['@dbi'],
         ],
-        'designer' =>
-        [
+        'designer' => [
             'class' => PhpMyAdmin\Database\Designer::class,
-            'arguments' =>
-            [
+            'arguments' => [
                 'dbi' => '@dbi',
                 'relation' => '@relation',
                 'template' => '@template',
             ],
         ],
-        'designer_common' =>
-        [
+        'designer_common' => [
             'class' => PhpMyAdmin\Database\Designer\Common::class,
-            'arguments' =>
-            [
+            'arguments' => [
                 'dbi' => '@dbi',
                 'relation' => '@relation',
             ],
         ],
-        'display_export' =>
-        [
-            'class' => PhpMyAdmin\Display\Export::class,
-        ],
-        'error_handler' =>
-        [
+        'error_handler' => [
             'class' => PhpMyAdmin\ErrorHandler::class,
         ],
-        'error_report' =>
-        [
+        'error_report' => [
             'class' => PhpMyAdmin\ErrorReport::class,
-            'arguments' =>
-            [
+            'arguments' => [
                 '@http_request',
                 '@relation',
                 '@template',
             ],
         ],
-        'export' =>
-        [
-            'class' => PhpMyAdmin\Export::class,
-            'arguments' =>
-            [
+        'events' => [
+            'class' => PhpMyAdmin\Database\Events::class,
+            'arguments' => [
                 '@dbi',
+                '@template',
+                '@response',
             ],
         ],
-        'expression_language' =>
-        [
+        'export' => [
+            'class' => PhpMyAdmin\Export::class,
+            'arguments' => ['@dbi'],
+        ],
+        'export_options' => [
+            'class' => PhpMyAdmin\Export\Options::class,
+            'arguments' => [
+                '@relation',
+                '@export_template_model',
+            ],
+        ],
+        'export_template_model' => [
+            'class' => PhpMyAdmin\Export\TemplateModel::class,
+            'arguments' => ['@dbi'],
+        ],
+        'expression_language' => [
             'class' => Symfony\Component\ExpressionLanguage\ExpressionLanguage::class,
         ],
-        'http_request' =>
-        [
+        'http_request' => [
             'class' => PhpMyAdmin\Utils\HttpRequest::class,
         ],
-        'import' =>
-        [
+        'import' => [
             'class' => PhpMyAdmin\Import::class,
         ],
-        'insert_edit' =>
-        [
+        'insert_edit' => [
             'class' => PhpMyAdmin\InsertEdit::class,
-            'arguments' =>
-            [
-                '@dbi',
-            ],
+            'arguments' => ['@dbi'],
         ],
-        'di_migration' =>
-        [
-            'factory' => [PhpMyAdmin\Di\Migration::class, 'getInstance'],
-            'arguments' =>
-            [
-                '@service_container',
-            ],
-        ],
-        'mult_submits' =>
-        [
-            'class' => PhpMyAdmin\MultSubmits::class,
-            'arguments' =>
-                [
-                    'dbi' => '@dbi',
-                    'template' => '@template',
-                    'transformations' => '@transformations',
-                    'relationCleanup' => '@relation_cleanup',
-                    'operations' => '@operations',
-                ],
-        ],
-        'navigation' =>
-        [
+        'navigation' => [
             'class' => PhpMyAdmin\Navigation\Navigation::class,
-            'arguments' =>
-            [
+            'arguments' => [
                 '@template',
                 '@relation',
                 '@dbi',
             ],
         ],
-        'normalization' =>
-        [
+        'normalization' => [
             'class' => PhpMyAdmin\Normalization::class,
-            'arguments' =>
-            [
+            'arguments' => [
                 'dbi' => '@dbi',
                 'relation' => '@relation',
                 'transformations' => '@transformations',
                 'template' => '@template',
             ],
         ],
-        'operations' =>
-        [
+        'operations' => [
             'class' => PhpMyAdmin\Operations::class,
-            'arguments' =>
-            [
+            'arguments' => [
                 'dbi' => '@dbi',
                 'relation' => '@relation',
             ],
         ],
-        'relation' =>
-        [
+        'relation' => [
             'class' => PhpMyAdmin\Relation::class,
-            'arguments' =>
-            [
+            'arguments' => [
                 '@dbi',
                 '@template',
             ],
         ],
-        'relation_cleanup' =>
-        [
+        'relation_cleanup' => [
             'class' => PhpMyAdmin\RelationCleanup::class,
-            'arguments' =>
-            [
+            'arguments' => [
                 '@dbi',
                 '@relation',
             ],
         ],
-        'replication' =>
-        [
+        'replication' => [
             'class' => PhpMyAdmin\Replication::class,
         ],
-        'replication_gui' =>
-        [
+        'replication_gui' => [
             'class' => PhpMyAdmin\ReplicationGui::class,
-            'arguments' =>
-            [
+            'arguments' => [
                 'replication' => '@replication',
                 'template' => '@template',
             ],
         ],
-        'response' =>
-        [
+        'response' => [
             'factory' => [PhpMyAdmin\Response::class, 'getInstance'],
         ],
-        'server_plugins' =>
-        [
+        'server_plugins' => [
             'class' => PhpMyAdmin\Server\Plugins::class,
-            'arguments' =>
-            [
-                '@dbi',
-            ],
+            'arguments' => ['@dbi'],
         ],
-        'server_privileges' =>
-        [
+        'server_privileges' => [
             'class' => PhpMyAdmin\Server\Privileges::class,
-            'arguments' =>
-            [
+            'arguments' => [
                 '@template',
                 '@dbi',
                 '@relation',
                 '@relation_cleanup',
             ],
         ],
-        'sql' =>
-        [
+        'sql' => [
             'class' => PhpMyAdmin\Sql::class,
         ],
-        'sql_query_form' =>
-        [
+        'sql_query_form' => [
             'class' => PhpMyAdmin\SqlQueryForm::class,
-            'arguments' =>
-            [
-                'template' => '@template',
-            ],
+            'arguments' => ['template' => '@template'],
         ],
-        'status_data' =>
-        [
+        'status_data' => [
             'class' => PhpMyAdmin\Server\Status\Data::class,
         ],
-        'status_monitor' =>
-        [
+        'status_monitor' => [
             'class' => PhpMyAdmin\Server\Status\Monitor::class,
-            'arguments' =>
-            [
-                '@dbi',
-            ],
+            'arguments' => ['@dbi'],
         ],
-        'table_search' =>
-        [
+        'table_search' => [
             'class' => PhpMyAdmin\Table\Search::class,
-            'arguments' =>
-            [
-                'dbi' => '@dbi',
-            ],
+            'arguments' => ['dbi' => '@dbi'],
         ],
-        'template' =>
-        [
+        'template' => [
             'class' => PhpMyAdmin\Template::class,
         ],
-        'tracking' =>
-        [
+        'tracking' => [
             'class' => PhpMyAdmin\Tracking::class,
-            'arguments' =>
-            [
+            'arguments' => [
                 'sql_query_form' => '@sql_query_form',
                 'template' => '@template',
                 'relation' => '@relation',
             ],
         ],
-        'transformations' =>
-        [
+        'transformations' => [
             'class' => PhpMyAdmin\Transformations::class,
         ],
-        'user_password' =>
-        [
+        'user_password' => [
             'class' => PhpMyAdmin\UserPassword::class,
-            'arguments' =>
-            [
-                '@server_privileges',
-            ],
+            'arguments' => ['@server_privileges'],
         ],
-        'user_preferences' =>
-        [
+        'user_preferences' => [
             'class' => PhpMyAdmin\UserPreferences::class,
         ],
         PhpMyAdmin\Response::class => 'response',

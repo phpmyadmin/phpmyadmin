@@ -2,30 +2,32 @@
 /**
  * Holds EnginesControllerTest class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\EnginesController;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
-use PHPStan\Testing\TestCase;
 use function htmlspecialchars;
 
 /**
  * Tests for EnginesController class
  */
-class EnginesControllerTest extends TestCase
+class EnginesControllerTest extends AbstractTestCase
 {
     /**
      * Prepares environment for the test.
      */
     protected function setUp(): void
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setUp();
+        $GLOBALS['text_dir'] = 'ltr';
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
 
         $GLOBALS['server'] = 1;

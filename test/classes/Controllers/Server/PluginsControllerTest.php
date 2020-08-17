@@ -2,29 +2,31 @@
 /**
  * Holds PluginsControllerTest class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\PluginsController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Server\Plugins;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
-use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for PluginsController class
  */
-class PluginsControllerTest extends TestCase
+class PluginsControllerTest extends AbstractTestCase
 {
     /**
      * Prepares environment for the test.
      */
     protected function setUp(): void
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setUp();
+        $GLOBALS['text_dir'] = 'ltr';
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
 
         $GLOBALS['server'] = 1;
@@ -36,10 +38,8 @@ class PluginsControllerTest extends TestCase
 
     /**
      * Test for index method
-     *
-     * @return void
      */
-    public function testIndex()
+    public function testIndex(): void
     {
         /**
          * Prepare plugin list
@@ -65,7 +65,7 @@ class PluginsControllerTest extends TestCase
             ->will($this->returnValue($row));
         $dbi->expects($this->at(2))
             ->method('fetchAssoc')
-            ->will($this->returnValue(false));
+            ->will($this->returnValue(null));
         $dbi->expects($this->once())
             ->method('freeResult')
             ->will($this->returnValue(true));

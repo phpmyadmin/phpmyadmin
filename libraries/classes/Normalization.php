@@ -2,6 +2,7 @@
 /**
  * Holds the PhpMyAdmin\Normalization class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
@@ -52,8 +53,12 @@ class Normalization
      * @param Transformations   $transformations Transformations instance
      * @param Template          $template        Template instance
      */
-    public function __construct(DatabaseInterface $dbi, Relation $relation, Transformations $transformations, Template $template)
-    {
+    public function __construct(
+        DatabaseInterface $dbi,
+        Relation $relation,
+        Transformations $transformations,
+        Template $template
+    ) {
         $this->dbi = $dbi;
         $this->relation = $relation;
         $this->transformations = $transformations;
@@ -79,7 +84,7 @@ class Normalization
         $listType = 'dropdown'
     ) {
         $columnTypeList = [];
-        if ($colTypeCategory != 'all') {
+        if ($colTypeCategory !== 'all') {
             $types = $this->dbi->types->getColumns();
             $columnTypeList = $types[$colTypeCategory];
         }
@@ -97,22 +102,25 @@ class Normalization
                 $extractedColumnSpec = Util::extractColumnSpec($def['Type']);
                 $type = $extractedColumnSpec['type'];
             }
-            if (empty($columnTypeList)
-                || in_array(mb_strtoupper($type), $columnTypeList)
+            if (! empty($columnTypeList)
+                && ! in_array(mb_strtoupper($type), $columnTypeList)
             ) {
-                if ($listType == 'checkbox') {
-                    $selectColHtml .= '<input type="checkbox" value="'
-                        . htmlspecialchars($column) . '">'
-                        . htmlspecialchars($column) . ' [ '
-                        . htmlspecialchars($def['Type']) . ' ]<br>';
-                } else {
-                    $selectColHtml .= '<option value="' . htmlspecialchars($column) . ''
-                    . '">' . htmlspecialchars($column)
-                    . ' [ ' . htmlspecialchars($def['Type']) . ' ]'
-                    . '</option>';
-                }
+                continue;
+            }
+
+            if ($listType === 'checkbox') {
+                $selectColHtml .= '<input type="checkbox" value="'
+                    . htmlspecialchars($column) . '">'
+                    . htmlspecialchars($column) . ' [ '
+                    . htmlspecialchars($def['Type']) . ' ]<br>';
+            } else {
+                $selectColHtml .= '<option value="' . htmlspecialchars($column) . ''
+                . '">' . htmlspecialchars($column)
+                . ' [ ' . htmlspecialchars($def['Type']) . ' ]'
+                . '</option>';
             }
         }
+
         return $selectColHtml;
     }
 
@@ -188,7 +196,7 @@ class Normalization
             'fields_meta' => null,
             'mimework' => $cfgRelation['mimework'],
             'content_cells' => $contentCells,
-            'change_column' => $_POST['change_column'],
+            'change_column' => $_POST['change_column'] ?? $_GET['change_column'] ?? null,
             'is_virtual_columns_supported' => Util::isVirtualColumnsSupported(),
             'browse_mime' => $GLOBALS['cfg']['BrowseMIME'],
             'server_type' => Util::getServerType(),
@@ -254,6 +262,7 @@ class Normalization
             . "</fieldset><fieldset class='tblFooters'>"
             . '</fieldset>'
             . '</div>';
+
         return $html;
     }
 
@@ -298,6 +307,7 @@ class Normalization
                 . '<a href="#" id="addNewPrimary">'
                 . __('+ Add a new primary key column') . '</a>';
         }
+
         return [
             'legendText' => $legendText,
             'headText' => $headText,
@@ -335,6 +345,7 @@ class Normalization
             . __('Remove selected') . '">'
             . '<input class="btn btn-secondary" type="submit" value="' . __('No redundant column')
             . '" onclick="goToFinish1NF();">';
+
         return [
             'legendText' => $legendText,
             'headText' => $headText,
@@ -379,6 +390,7 @@ class Normalization
         foreach ($primarycols as $col) {
             $pk[] = $col->getName();
         }
+
         return [
             'legendText' => $legendText,
             'headText' => $headText,
@@ -452,16 +464,18 @@ class Normalization
                 );
                 $cnt = 0;
                 foreach ($columns as $column) {
-                    if (! in_array($column, $pk)) {
-                        $cnt++;
-                        $extra .= '<b>' . sprintf(
-                            __('\'%1$s\' depends on:'),
-                            htmlspecialchars($column)
-                        ) . '</b><br>';
-                        $extra .= '<form id="pk_' . $cnt . '" data-colname="'
-                            . htmlspecialchars($column) . '" class="smallIndent">'
-                            . $selectPkForm . '</form><br><br>';
+                    if (in_array($column, $pk)) {
+                        continue;
                     }
+
+                    $cnt++;
+                    $extra .= '<b>' . sprintf(
+                        __('\'%1$s\' depends on:'),
+                        htmlspecialchars($column)
+                    ) . '</b><br>';
+                    $extra .= '<form id="pk_' . $cnt . '" data-colname="'
+                        . htmlspecialchars($column) . '" class="smallIndent">'
+                        . $selectPkForm . '</form><br><br>';
                 }
             }
         } else {
@@ -474,6 +488,7 @@ class Normalization
             ) . '<br>';
             $extra = '<h3>' . __('Table is already in second normal form.') . '</h3>';
         }
+
         return [
             'legendText' => $legendText,
             'headText' => $headText,
@@ -512,6 +527,7 @@ class Normalization
             $i++;
             $tableName = 'table' . $i;
         }
+
         return $html;
     }
 
@@ -584,6 +600,7 @@ class Normalization
                 break;
             }
         }
+
         return [
             'legendText' => __('End of step'),
             'headText' => $headText,
@@ -634,23 +651,26 @@ class Normalization
                 }
                 $tmpTableCols = array_merge(explode(', ', $key), $dependents);
                 sort($tmpTableCols);
-                if (! in_array($tmpTableCols, $columnList)) {
-                    $columnList[] = $tmpTableCols;
-                        $html .= '<p><input type="text" name="'
-                            . htmlspecialchars($tableName)
-                            . '" value="' . htmlspecialchars($tableName) . '">'
-                            . '( <u>' . htmlspecialchars($key) . '</u>'
-                            . (count($dependents) > 0 ? ', ' : '')
-                            . htmlspecialchars(implode(', ', $dependents)) . ' )';
-                        $newTables[$table][$tableName] = [
-                            'pk' => $key,
-                            'nonpk' => implode(', ', $dependents),
-                        ];
-                        $i++;
-                        $tableName = 'table' . $i;
+                if (in_array($tmpTableCols, $columnList)) {
+                    continue;
                 }
+
+                $columnList[] = $tmpTableCols;
+                    $html .= '<p><input type="text" name="'
+                        . htmlspecialchars($tableName)
+                        . '" value="' . htmlspecialchars($tableName) . '">'
+                        . '( <u>' . htmlspecialchars($key) . '</u>'
+                        . (count($dependents) > 0 ? ', ' : '')
+                        . htmlspecialchars(implode(', ', $dependents)) . ' )';
+                    $newTables[$table][$tableName] = [
+                        'pk' => $key,
+                        'nonpk' => implode(', ', $dependents),
+                    ];
+                    $i++;
+                    $tableName = 'table' . $i;
             }
         }
+
         return [
             'html' => $html,
             'newTables' => $newTables,
@@ -715,9 +735,11 @@ class Normalization
                 );
                 $query = 'ALTER TABLE ' . Util::backquote($originalTable);
                 foreach ($columns as $col) {
-                    if (! in_array($col, $colPresent)) {
-                        $query .= ' DROP ' . Util::backquote($col) . ',';
+                    if (in_array($col, $colPresent)) {
+                        continue;
                     }
+
+                    $query .= ' DROP ' . Util::backquote($col) . ',';
                 }
                 $query = trim($query, ', ');
                 $query .= ';';
@@ -740,6 +762,7 @@ class Normalization
                 break;
             }
         }
+
         return [
             'legendText' => __('End of step'),
             'headText' => $headText,
@@ -815,6 +838,7 @@ class Normalization
                 break;
             }
         }
+
         return [
             'queryError' => $error,
             'message' => $message,
@@ -863,26 +887,30 @@ class Normalization
                 continue;
             }
             foreach ($columns as $column) {
-                if (! in_array($column, $pk)) {
-                    $selectTdForm .= '<input type="checkbox" name="pd" value="'
-                    . htmlspecialchars($column) . '">'
-                    . '<span>' . htmlspecialchars($column) . '</span>';
+                if (in_array($column, $pk)) {
+                    continue;
                 }
+
+                $selectTdForm .= '<input type="checkbox" name="pd" value="'
+                . htmlspecialchars($column) . '">'
+                . '<span>' . htmlspecialchars($column) . '</span>';
             }
             foreach ($columns as $column) {
-                if (! in_array($column, $pk)) {
-                    $cnt++;
-                    $extra .= '<b>' . sprintf(
-                        __('\'%1$s\' depends on:'),
-                        htmlspecialchars($column)
-                    )
-                        . '</b><br>';
-                    $extra .= '<form id="td_' . $cnt . '" data-colname="'
-                        . htmlspecialchars($column) . '" data-tablename="'
-                        . htmlspecialchars($table) . '" class="smallIndent">'
-                        . $selectTdForm
-                        . '</form><br><br>';
+                if (in_array($column, $pk)) {
+                    continue;
                 }
+
+                $cnt++;
+                $extra .= '<b>' . sprintf(
+                    __('\'%1$s\' depends on:'),
+                    htmlspecialchars($column)
+                )
+                    . '</b><br>';
+                $extra .= '<form id="td_' . $cnt . '" data-colname="'
+                    . htmlspecialchars($column) . '" data-tablename="'
+                    . htmlspecialchars($table) . '" class="smallIndent">'
+                    . $selectTdForm
+                    . '</form><br><br>';
             }
         }
         if ($extra == '') {
@@ -893,6 +921,7 @@ class Normalization
             $subText = '';
             $extra = '<h3>' . __('Table is already in Third normal form!') . '</h3>';
         }
+
         return [
             'legendText' => $legendText,
             'headText' => $headText,
@@ -984,21 +1013,25 @@ class Normalization
             $table
         );
         foreach ($columns as $column) {
-            if (! in_array($column, $pk)) {
-                foreach ($partialKeys as $partialKey) {
-                    if ($partialKey
-                        && $this->checkPartialDependency(
-                            $partialKey,
-                            $column,
-                            $table,
-                            $distinctValCount[$partialKey],
-                            $distinctValCount[$column],
-                            $totalRows
-                        )
-                    ) {
-                        $dependencyList[$partialKey][] = $column;
-                    }
+            if (in_array($column, $pk)) {
+                continue;
+            }
+
+            foreach ($partialKeys as $partialKey) {
+                if (! $partialKey
+                    || ! $this->checkPartialDependency(
+                        $partialKey,
+                        $column,
+                        $table,
+                        $distinctValCount[$partialKey],
+                        $distinctValCount[$column],
+                        $totalRows
+                    )
+                ) {
+                    continue;
                 }
+
+                $dependencyList[$partialKey][] = $column;
             }
         }
 
@@ -1022,6 +1055,7 @@ class Normalization
                 . __('No partial dependencies found!') . '</p>';
         }
         $html .= '</div>';
+
         return $html;
     }
 
@@ -1055,6 +1089,7 @@ class Normalization
         if ($pkCnt && $pkCnt == $colCnt && $colCnt == $pkColCnt) {
             return true;
         }
+
         return $totalRows && $totalRows == $pkCnt;
     }
 
@@ -1072,20 +1107,25 @@ class Normalization
         $result = [];
         $query = 'SELECT ';
         foreach ($columns as $column) {
-            if ($column) { //each column is already backquoted
-                $query .= 'COUNT(DISTINCT ' . $column . ') as \''
-                    . $column . '_cnt\', ';
+            if (! $column) {
+                continue;
             }
+            //each column is already backquoted
+            $query .= 'COUNT(DISTINCT ' . $column . ') as \''
+                . $column . '_cnt\', ';
         }
         $query = trim($query, ', ');
         $query .= ' FROM (SELECT * FROM ' . Util::backquote($table)
             . ' LIMIT 500) as dt;';
         $res = $this->dbi->fetchResult($query, null, null);
         foreach ($columns as $column) {
-            if ($column) {
-                $result[$column] = $res[0][$column . '_cnt'] ?? null;
+            if (! $column) {
+                continue;
             }
+
+            $result[$column] = $res[0][$column . '_cnt'] ?? null;
         }
+
         return $result;
     }
 
@@ -1105,6 +1145,7 @@ class Normalization
             }
         }
         array_pop($results); //remove key which consist of all primary key columns
+
         return $results;
     }
 }

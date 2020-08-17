@@ -2,6 +2,7 @@
 /**
  * set of functions with the insert/edit features in pma
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
@@ -9,6 +10,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Controllers\Table\ChangeController;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
+use const PASSWORD_DEFAULT;
 use function array_fill;
 use function array_flip;
 use function array_merge;
@@ -36,6 +38,7 @@ use function mb_substr;
 use function md5;
 use function method_exists;
 use function min;
+use function password_hash;
 use function preg_match;
 use function preg_replace;
 use function sprintf;
@@ -117,6 +120,7 @@ class InsertEdit
         if (isset($_POST['clause_is_unique'])) {
             $_form_params['clause_is_unique'] = $_POST['clause_is_unique'];
         }
+
         return $_form_params;
     }
 
@@ -178,10 +182,13 @@ class InsertEdit
                 $local_query,
                 $result
             );
-            if ($has_unique_condition) {
-                $found_unique_key = true;
+            if (! $has_unique_condition) {
+                continue;
             }
+
+            $found_unique_key = true;
         }
+
         return [
             $where_clauses,
             $result,
@@ -226,22 +233,20 @@ class InsertEdit
         } else {// end if (no row returned)
             $meta = $this->dbi->getFieldsMeta($result[$key_id]);
 
-            [$unique_condition, $tmp_clause_is_unique]
-                = Util::getUniqueCondition(
-                    $result[$key_id], // handle
-                    count($meta), // fields_cnt
-                    $meta, // fields_meta
-                    $rows[$key_id], // row
-                    true, // force_unique
-                    false, // restrict_to_table
-                    null // analyzed_sql_results
-                );
+            [$unique_condition, $tmp_clause_is_unique] = Util::getUniqueCondition(
+                $result[$key_id],
+                count($meta),
+                $meta,
+                $rows[$key_id],
+                true
+            );
 
             if (! empty($unique_condition)) {
                 $has_unique_condition = true;
             }
             unset($unique_condition, $tmp_clause_is_unique);
         }
+
         return $has_unique_condition;
     }
 
@@ -262,6 +267,7 @@ class InsertEdit
             DatabaseInterface::QUERY_STORE
         );
         $rows = array_fill(0, $GLOBALS['cfg']['InsertRows'], false);
+
         return [
             $result,
             $rows,
@@ -286,6 +292,7 @@ class InsertEdit
         if (! empty($_POST['sql_query'])) {
             $url_params['sql_query'] = $_POST['sql_query'];
         }
+
         return $url_params;
     }
 
@@ -324,6 +331,7 @@ class InsertEdit
                 . $this->showTypeOrFunctionLabel($which)
                 . '</a>';
         }
+
         return '<th><a href="' . Url::getFromRoute('/table/change') . '" data-post="'
             . Url::getCommon($this_url_params, '')
             . '" title="' . __('Hide') . '">'
@@ -436,6 +444,7 @@ class InsertEdit
                 return true;
             }
         }
+
         return false;
     }
 
@@ -472,6 +481,7 @@ class InsertEdit
                 $column['wrap']  = ' nowrap';
                 break;
         }
+
         return [
             $column['pma_type'],
             $column['wrap'],
@@ -544,6 +554,7 @@ class InsertEdit
             $html_output .= '</select>' . "\n";
             $html_output .= '</td>' . "\n";
         }
+
         return $html_output;
     }
 
@@ -575,7 +586,7 @@ class InsertEdit
         array $foreignData,
         $readOnly
     ) {
-        if ($column['Null'] != 'YES' || $readOnly) {
+        if ($column['Null'] !== 'YES' || $readOnly) {
             return "<td></td>\n";
         }
         $html_output = '';
@@ -649,6 +660,7 @@ class InsertEdit
         } else {
             $nullify_code = '5';
         }
+
         return $nullify_code;
     }
 
@@ -746,8 +758,10 @@ class InsertEdit
                 $foreignData,
                 $readOnly
             );
-        } elseif ($GLOBALS['cfg']['LongtextDoubleTextarea']
-            && mb_strstr($column['pma_type'], 'longtext')
+        } elseif ((
+                $GLOBALS['cfg']['LongtextDoubleTextarea']
+                && mb_strstr($column['pma_type'], 'longtext'))
+            || mb_strstr($column['pma_type'], 'json')
         ) {
             $html_output .= $this->getTextarea(
                 $column,
@@ -783,7 +797,7 @@ class InsertEdit
                     'Because of its length,<br> this column might not be editable.'
                 );
             }
-        } elseif ($column['pma_type'] == 'enum') {
+        } elseif ($column['pma_type'] === 'enum') {
             $html_output .= $this->getPmaTypeEnum(
                 $column,
                 $backup_field,
@@ -796,7 +810,7 @@ class InsertEdit
                 $data,
                 $readOnly
             );
-        } elseif ($column['pma_type'] == 'set') {
+        } elseif ($column['pma_type'] === 'set') {
             $html_output .= $this->getPmaTypeSet(
                 $column,
                 $extracted_columnspec,
@@ -916,6 +930,7 @@ class InsertEdit
                 ''
             ) . '">'
             . str_replace("'", "\'", $titles['Browse']) . '</a>';
+
         return $html_output;
     }
 
@@ -1034,7 +1049,8 @@ class InsertEdit
             $textAreaRows = $GLOBALS['cfg']['TextareaRows'] * 2;
             $textareaCols = $GLOBALS['cfg']['TextareaCols'] * 2;
         }
-        $html_output = $backup_field . "\n"
+
+        return $backup_field . "\n"
             . '<textarea name="fields' . $column_name_appendix . '"'
             . ' class="' . $the_class . '"'
             . ($readOnly ? ' readonly="readonly"' : '')
@@ -1048,8 +1064,6 @@ class InsertEdit
             . ' data-type="' . $data_type . '">'
             . $special_chars_encoded
             . '</textarea>';
-
-        return $html_output;
     }
 
     /**
@@ -1118,6 +1132,7 @@ class InsertEdit
                 $readOnly
             );
         }
+
         return $html_output;
     }
 
@@ -1140,6 +1155,7 @@ class InsertEdit
                 'html'  => htmlspecialchars($val),
             ];
         }
+
         return $column['values'];
     }
 
@@ -1182,7 +1198,7 @@ class InsertEdit
             $html_output .= '<option value="' . $enum_value['html'] . '"';
             if ($data == $enum_value['plain']
                 || ($data == ''
-                && (! isset($_POST['where_clause']) || $column['Null'] != 'YES')
+                && (! isset($_POST['where_clause']) || $column['Null'] !== 'YES')
                 && isset($column['Default'])
                 && $enum_value['plain'] == $column['Default'])
             ) {
@@ -1198,6 +1214,7 @@ class InsertEdit
             $html_output .= '<input name="fields' . $column_name_appendix . '"'
                 . ' type="hidden" value="' . $selected_html . '">';
         }
+
         return $html_output;
     }
 
@@ -1238,7 +1255,7 @@ class InsertEdit
                 . ' ' . $onChangeClause;
             if ($data == $enum_value['plain']
                 || ($data == ''
-                && (! isset($_POST['where_clause']) || $column['Null'] != 'YES')
+                && (! isset($_POST['where_clause']) || $column['Null'] !== 'YES')
                 && isset($column['Default'])
                 && $enum_value['plain'] == $column['Default'])
             ) {
@@ -1251,6 +1268,7 @@ class InsertEdit
                 . $enum_value['html'] . '</label>' . "\n";
             $j++;
         }
+
         return $html_output;
     }
 
@@ -1317,6 +1335,7 @@ class InsertEdit
             $html_output .= '<input name="fields' . $column_name_appendix . '[]"'
                 . ' type="hidden" value="' . $selected_html . '">';
         }
+
         return $html_output;
     }
 
@@ -1344,6 +1363,7 @@ class InsertEdit
             }
             $column['select_size'] = min(4, count($column['values']));
         }
+
         return [
             $column['values'],
             $column['select_size'],
@@ -1456,9 +1476,7 @@ class InsertEdit
                 . ' name="fields_upload' . $vkey . '[' . $column['Field_md5'] . ']"'
                 . ' class="textfield noDragDrop" id="field_' . $idindex . '_3" size="10"'
                 . ' ' . $onChangeClause . '>&nbsp;';
-            [
-                $html_out,
-            ] = $this->getMaxUploadSize(
+            [$html_out] = $this->getMaxUploadSize(
                 $column,
                 $biggest_max_file_size
             );
@@ -1531,6 +1549,7 @@ class InsertEdit
                 . 'max="' . $min_max_values[1] . '"';
             $data_type = 'INT';
         }
+
         return '<input type="' . $input_type . '"'
             . ' name="fields' . $column_name_appendix . '"'
             . ' value="' . $special_chars . '" size="' . $fieldsize . '"'
@@ -1563,7 +1582,9 @@ class InsertEdit
         if ($files === false) {
             return '<span style="color:red">' . __('Error') . '</span><br>' . "\n"
                 . __('The directory you set for upload work cannot be reached.') . "\n";
-        } elseif (! empty($files)) {
+        }
+
+        if (! empty($files)) {
             return "<br>\n"
                 . '<i>' . __('Or') . '</i> '
                 . __('web server upload directory:') . '<br>' . "\n"
@@ -1613,6 +1634,7 @@ class InsertEdit
         if ($this_field_max_size > $biggest_max_file_size) {
             $biggest_max_file_size = $this_field_max_size;
         }
+
         return [
             $html_output,
             $biggest_max_file_size,
@@ -1665,7 +1687,7 @@ class InsertEdit
         $fieldsize = $this->getColumnSize($column, $extracted_columnspec);
         $html_output = $backup_field . "\n";
         if ($column['is_char']
-            && ($GLOBALS['cfg']['CharEditing'] == 'textarea'
+            && ($GLOBALS['cfg']['CharEditing'] === 'textarea'
             || mb_strpos($data, "\n") !== false)
         ) {
             $html_output .= "\n";
@@ -1697,27 +1719,30 @@ class InsertEdit
                 $readOnly
             );
 
-            if (preg_match('/(VIRTUAL|PERSISTENT|GENERATED)/', $column['Extra']) && $column['Extra'] !== 'DEFAULT_GENERATED') {
+            if (preg_match('/(VIRTUAL|PERSISTENT|GENERATED)/', $column['Extra'])
+                && strpos($column['Extra'], 'DEFAULT_GENERATED') === false
+            ) {
                 $html_output .= '<input type="hidden" name="virtual'
                     . $column_name_appendix . '" value="1">';
             }
-            if ($column['Extra'] == 'auto_increment') {
+            if ($column['Extra'] === 'auto_increment') {
                 $html_output .= '<input type="hidden" name="auto_increment'
                     . $column_name_appendix . '" value="1">';
             }
-            if (substr($column['pma_type'], 0, 9) == 'timestamp') {
+            if (substr($column['pma_type'], 0, 9) === 'timestamp') {
                 $html_output .= '<input type="hidden" name="fields_type'
                     . $column_name_appendix . '" value="timestamp">';
             }
-            if (substr($column['pma_type'], 0, 8) == 'datetime') {
+            if (substr($column['pma_type'], 0, 8) === 'datetime') {
                 $html_output .= '<input type="hidden" name="fields_type'
                     . $column_name_appendix . '" value="datetime">';
             }
-            if ($column['True_Type'] == 'bit') {
+            if ($column['True_Type'] === 'bit') {
                 $html_output .= '<input type="hidden" name="fields_type'
                     . $column_name_appendix . '" value="bit">';
             }
         }
+
         return $html_output;
     }
 
@@ -1750,6 +1775,7 @@ class InsertEdit
              */
             $fieldsize = $column['len'];
         }
+
         return min(
             max($fieldsize, $GLOBALS['cfg']['MinSizeForInputField']),
             $GLOBALS['cfg']['MaxSizeForInputField']
@@ -1764,6 +1790,7 @@ class InsertEdit
     private function getHtmlForGisDataTypes()
     {
         $edit_str = Generator::getIcon('b_edit', __('Edit/Insert'));
+
         return '<span class="open_gis_editor">'
             . Generator::linkOrButton(
                 '#',
@@ -1845,6 +1872,7 @@ class InsertEdit
             . '</tr>'
             . '</table>'
             . '</fieldset>';
+
         return $html_output;
     }
 
@@ -1877,6 +1905,7 @@ class InsertEdit
             . __('Show insert query')
             . '</option>'
             . '</select>';
+
         return $html_output;
     }
 
@@ -1893,15 +1922,15 @@ class InsertEdit
     {
         $html_output = '<select name="after_insert" class="control_at_footer">'
             . '<option value="back" '
-            . ($after_insert == 'back' ? 'selected="selected"' : '') . '>'
+            . ($after_insert === 'back' ? 'selected="selected"' : '') . '>'
             . __('Go back to previous page') . '</option>'
             . '<option value="new_insert" '
-            . ($after_insert == 'new_insert' ? 'selected="selected"' : '') . '>'
+            . ($after_insert === 'new_insert' ? 'selected="selected"' : '') . '>'
             . __('Insert another new row') . '</option>';
 
         if (isset($where_clause)) {
             $html_output .= '<option value="same_insert" '
-                . ($after_insert == 'same_insert' ? 'selected="selected"' : '') . '>'
+                . ($after_insert === 'same_insert' ? 'selected="selected"' : '') . '>'
                 . __('Go back to this page') . '</option>';
 
             // If we have just numeric primary key, we can also edit next
@@ -1924,12 +1953,12 @@ class InsertEdit
             }
             if ($found_unique_key && $is_numeric) {
                 $html_output .= '<option value="edit_next" '
-                    . ($after_insert == 'edit_next' ? 'selected="selected"' : '') . '>'
+                    . ($after_insert === 'edit_next' ? 'selected="selected"' : '') . '>'
                     . __('Edit next row') . '</option>';
             }
         }
-        $html_output .= '</select>';
-        return $html_output;
+
+        return $html_output . '</select>';
     }
 
     /**
@@ -1993,6 +2022,7 @@ class InsertEdit
             . '</th>'
             . '</tr>'
             . '</tfoot>';
+
         return $html_output;
     }
 
@@ -2029,16 +2059,16 @@ class InsertEdit
             $current_row[$column['Field']] = '';
             $special_chars = '';
             $data = $current_row[$column['Field']];
-        } elseif ($column['True_Type'] == 'bit') {
+        } elseif ($column['True_Type'] === 'bit') {
             $special_chars = $as_is
                 ? $current_row[$column['Field']]
                 : Util::printableBitValue(
                     (int) $current_row[$column['Field']],
                     (int) $extracted_columnspec['spec_in_brackets']
                 );
-        } elseif ((substr($column['True_Type'], 0, 9) == 'timestamp'
-            || $column['True_Type'] == 'datetime'
-            || $column['True_Type'] == 'time')
+        } elseif ((substr($column['True_Type'], 0, 9) === 'timestamp'
+            || $column['True_Type'] === 'datetime'
+            || $column['True_Type'] === 'time')
             && (mb_strpos($current_row[$column['Field']], '.') !== false)
         ) {
             $current_row[$column['Field']] = $as_is
@@ -2128,16 +2158,16 @@ class InsertEdit
 
         $trueType = $column['True_Type'];
 
-        if ($trueType == 'bit') {
+        if ($trueType === 'bit') {
             $special_chars = Util::convertBitDefaultValue(
                 $column['Default']
             );
-        } elseif (substr($trueType, 0, 9) == 'timestamp'
-            || $trueType == 'datetime'
-            || $trueType == 'time'
+        } elseif (substr($trueType, 0, 9) === 'timestamp'
+            || $trueType === 'datetime'
+            || $trueType === 'time'
         ) {
             $special_chars = Util::addMicroseconds($column['Default']);
-        } elseif ($trueType == 'binary' || $trueType == 'varbinary') {
+        } elseif ($trueType === 'binary' || $trueType === 'varbinary') {
             $special_chars = bin2hex($column['Default']);
         } elseif (substr($trueType, -4) === 'text') {
             $textDefault = substr($column['Default'], 1, -1);
@@ -2149,6 +2179,7 @@ class InsertEdit
         $special_chars_encoded = Util::duplicateFirstNewline(
             $special_chars
         );
+
         return [
             $real_null_value,
             $data,
@@ -2172,9 +2203,9 @@ class InsertEdit
                 : [$_POST['where_clause']];
             $using_key  = true;
             $is_insert  = isset($_POST['submit_type'])
-                          && ($_POST['submit_type'] == 'insert'
-                          || $_POST['submit_type'] == 'showinsert'
-                          || $_POST['submit_type'] == 'insertignore');
+                          && ($_POST['submit_type'] === 'insert'
+                          || $_POST['submit_type'] === 'showinsert'
+                          || $_POST['submit_type'] === 'insertignore');
         } else {
             // new row => use indexes
             $loop_array = [];
@@ -2187,7 +2218,8 @@ class InsertEdit
             $is_insert  = true;
         }
         $is_insertignore  = isset($_POST['submit_type'])
-            && $_POST['submit_type'] == 'insertignore';
+            && $_POST['submit_type'] === 'insertignore';
+
         return [
             $loop_array,
             $using_key,
@@ -2206,22 +2238,24 @@ class InsertEdit
     {
         global $containerBuilder;
 
-        if (isset($_POST['insert_rows'])
-            && is_numeric($_POST['insert_rows'])
-            && $_POST['insert_rows'] != $GLOBALS['cfg']['InsertRows']
+        if (! isset($_POST['insert_rows'])
+            || ! is_numeric($_POST['insert_rows'])
+            || $_POST['insert_rows'] == $GLOBALS['cfg']['InsertRows']
         ) {
-            $GLOBALS['cfg']['InsertRows'] = $_POST['insert_rows'];
-            $response = Response::getInstance();
-            $header = $response->getHeader();
-            $scripts = $header->getScripts();
-            $scripts->addFile('vendor/jquery/additional-methods.js');
-            $scripts->addFile('table/change.js');
-            if (! defined('TESTSUITE')) {
-                /** @var ChangeController $controller */
-                $controller = $containerBuilder->get(ChangeController::class);
-                $controller->index();
-                exit;
-            }
+            return;
+        }
+
+        $GLOBALS['cfg']['InsertRows'] = $_POST['insert_rows'];
+        $response = Response::getInstance();
+        $header = $response->getHeader();
+        $scripts = $header->getScripts();
+        $scripts->addFile('vendor/jquery/additional-methods.js');
+        $scripts->addFile('table/change.js');
+        if (! defined('TESTSUITE')) {
+            /** @var ChangeController $controller */
+            $controller = $containerBuilder->get(ChangeController::class);
+            $controller->index();
+            exit;
         }
     }
 
@@ -2243,16 +2277,13 @@ class InsertEdit
         $meta = $this->dbi->getFieldsMeta($res);
         // must find a unique condition based on unique key,
         // not a combination of all fields
-        [$unique_condition, $clause_is_unique]
-            = Util::getUniqueCondition(
-                $res, // handle
-                count($meta), // fields_cnt
-                $meta, // fields_meta
-                $row, // row
-                true, // force_unique
-                false, // restrict_to_table
-                null // analyzed_sql_results
-            );
+        [$unique_condition, $clause_is_unique] = Util::getUniqueCondition(
+            $res,
+            count($meta),
+            $meta,
+            $row ?? [],
+            true
+        );
         if (! empty($unique_condition)) {
             $_SESSION['edit_next'] = $unique_condition;
         }
@@ -2292,7 +2323,7 @@ class InsertEdit
             } else {
                 $goto_include = $GLOBALS['goto'];
             }
-            if ($GLOBALS['goto'] == 'index.php?route=/database/sql' && strlen($GLOBALS['table']) > 0) {
+            if ($GLOBALS['goto'] === 'index.php?route=/database/sql' && strlen($GLOBALS['table']) > 0) {
                 $GLOBALS['table'] = '';
             }
         }
@@ -2303,6 +2334,7 @@ class InsertEdit
                 $goto_include = '/table/sql';
             }
         }
+
         return $goto_include;
     }
 
@@ -2325,7 +2357,7 @@ class InsertEdit
     /**
      * Builds the sql query
      *
-     * @param bool  $is_insertignore $_POST['submit_type'] == 'insertignore'
+     * @param bool  $is_insertignore $_POST['submit_type'] === 'insertignore'
      * @param array $query_fields    column names array
      * @param array $value_sets      array of query values
      *
@@ -2338,13 +2370,13 @@ class InsertEdit
         } else {
             $insert_command = 'INSERT ';
         }
-        $query = [
+
+        return [
             $insert_command . 'INTO '
             . Util::backquote($GLOBALS['table'])
             . ' (' . implode(', ', $query_fields) . ') VALUES ('
             . implode('), (', $value_sets) . ')',
         ];
-        return $query;
     }
 
     /**
@@ -2374,7 +2406,7 @@ class InsertEdit
         $error_messages = [];
 
         foreach ($query as $single_query) {
-            if ($_POST['submit_type'] == 'showinsert') {
+            if ($_POST['submit_type'] === 'showinsert') {
                 $last_messages[] = Message::notice(__('Showing SQL query'));
                 continue;
             }
@@ -2386,8 +2418,9 @@ class InsertEdit
             if (! $result) {
                 $error_messages[] = $this->dbi->getError();
             } else {
-                // The next line contains a real assignment, it's not a typo
-                if ($tmp = @$this->dbi->affectedRows()) {
+                $tmp = @$this->dbi->affectedRows();
+
+                if ($tmp) {
                     $total_affected_rows += $tmp;
                 }
                 unset($tmp);
@@ -2408,6 +2441,7 @@ class InsertEdit
             }
             $warning_messages = $this->getWarningMessages();
         }
+
         return [
             $url_params,
             $total_affected_rows,
@@ -2431,6 +2465,7 @@ class InsertEdit
                 $warning['Level'] . ': #' . $warning['Code'] . ' ' . $warning['Message']
             );
         }
+
         return $warning_essages;
     }
 
@@ -2450,6 +2485,11 @@ class InsertEdit
         $relation_field
     ) {
         $foreigner = $this->relation->searchColumnInForeigners($map, $relation_field);
+
+        if (! is_array($foreigner)) {
+            return '';
+        }
+
         $display_field = $this->relation->getDisplayField(
             $foreigner['foreign_db'],
             $foreigner['foreign_table']
@@ -2474,8 +2514,10 @@ class InsertEdit
             if ($dispresult) {
                 $this->dbi->freeResult($dispresult);
             }
+
             return $dispval;
         }
+
         return '';
     }
 
@@ -2499,7 +2541,12 @@ class InsertEdit
         $relation_field_value
     ) {
         $foreigner = $this->relation->searchColumnInForeigners($map, $relation_field);
-        if ($_SESSION['tmpval']['relational_display'] == 'K') {
+
+        if (! is_array($foreigner)) {
+            return '';
+        }
+
+        if ($_SESSION['tmpval']['relational_display'] === 'K') {
             // user chose "relational key" in the display options, so
             // the title contains the display field
             $title = ! empty($dispval)
@@ -2508,19 +2555,21 @@ class InsertEdit
         } else {
             $title = ' title="' . htmlspecialchars($relation_field_value) . '"';
         }
+        $sqlQuery = 'SELECT * FROM '
+            . Util::backquote($foreigner['foreign_db'])
+            . '.' . Util::backquote($foreigner['foreign_table'])
+            . ' WHERE ' . Util::backquote($foreigner['foreign_field'])
+            . $where_comparison;
         $_url_params = [
             'db'    => $foreigner['foreign_db'],
             'table' => $foreigner['foreign_table'],
             'pos'   => '0',
-            'sql_query' => 'SELECT * FROM '
-                . Util::backquote($foreigner['foreign_db'])
-                . '.' . Util::backquote($foreigner['foreign_table'])
-                . ' WHERE ' . Util::backquote($foreigner['foreign_field'])
-                . $where_comparison,
+            'sql_signature' => Core::signSqlQuery($sqlQuery),
+            'sql_query' => $sqlQuery,
         ];
         $output = '<a href="' . Url::getFromRoute('/sql', $_url_params) . '"' . $title . '>';
 
-        if ($_SESSION['tmpval']['relational_display'] == 'D') {
+        if ($_SESSION['tmpval']['relational_display'] === 'D') {
             // user chose "relational display field" in the
             // display options, so show display field in the cell
             $output .= ! empty($dispval) ? htmlspecialchars($dispval) : '';
@@ -2529,6 +2578,7 @@ class InsertEdit
             $output .= htmlspecialchars($relation_field_value);
         }
         $output .= '</a>';
+
         return $output;
     }
 
@@ -2576,17 +2626,20 @@ class InsertEdit
                 $transformation_plugin = new $class_name();
 
                 foreach ($edited_values as $cell_index => $curr_cell_edited_values) {
-                    if (isset($curr_cell_edited_values[$column_name])) {
-                        $edited_values[$cell_index][$column_name]
-                            = $extra_data['transformations'][$cell_index]
-                                = $transformation_plugin->applyTransformation(
-                                    $curr_cell_edited_values[$column_name],
-                                    $transform_options
-                                );
+                    if (! isset($curr_cell_edited_values[$column_name])) {
+                        continue;
                     }
+
+                    $edited_values[$cell_index][$column_name]
+                        = $extra_data['transformations'][$cell_index]
+                            = $transformation_plugin->applyTransformation(
+                                $curr_cell_edited_values[$column_name],
+                                $transform_options
+                            );
                 }   // end of loop for each transformation cell
             }
         }
+
         return $extra_data;
     }
 
@@ -2616,11 +2669,27 @@ class InsertEdit
     ) {
         if (empty($multi_edit_funcs[$key])) {
             return $current_value;
-        } elseif ($multi_edit_funcs[$key] === 'UUID') {
+        }
+
+        if ($multi_edit_funcs[$key] === 'PHP_PASSWORD_HASH') {
+            /**
+             * @see https://github.com/vimeo/psalm/issues/3350
+             *
+             * @psalm-suppress InvalidArgument
+             */
+            $hash = password_hash($current_value, PASSWORD_DEFAULT);
+
+            return "'" . $hash . "'";
+        }
+
+        if ($multi_edit_funcs[$key] === 'UUID') {
             /* This way user will know what UUID new row has */
             $uuid = $this->dbi->fetchValue('SELECT UUID()');
+
             return "'" . $uuid . "'";
-        } elseif ((in_array($multi_edit_funcs[$key], $gis_from_text_functions)
+        }
+
+        if ((in_array($multi_edit_funcs[$key], $gis_from_text_functions)
             && substr($current_value, 0, 3) == "'''")
             || in_array($multi_edit_funcs[$key], $gis_from_wkb_functions)
         ) {
@@ -2628,18 +2697,21 @@ class InsertEdit
             $current_value = mb_substr($current_value, 1, -1);
             // Remove escaping apostrophes
             $current_value = str_replace("''", "'", $current_value);
+
             return $multi_edit_funcs[$key] . '(' . $current_value . ')';
-        } elseif (! in_array($multi_edit_funcs[$key], $func_no_param)
+        }
+
+        if (! in_array($multi_edit_funcs[$key], $func_no_param)
             || ($current_value != "''"
             && in_array($multi_edit_funcs[$key], $func_optional_param))
         ) {
             if ((isset($multi_edit_salt[$key])
-                && ($multi_edit_funcs[$key] == 'AES_ENCRYPT'
-                || $multi_edit_funcs[$key] == 'AES_DECRYPT'))
+                && ($multi_edit_funcs[$key] === 'AES_ENCRYPT'
+                || $multi_edit_funcs[$key] === 'AES_DECRYPT'))
                 || (! empty($multi_edit_salt[$key])
-                && ($multi_edit_funcs[$key] == 'DES_ENCRYPT'
-                || $multi_edit_funcs[$key] == 'DES_DECRYPT'
-                || $multi_edit_funcs[$key] == 'ENCRYPT'))
+                && ($multi_edit_funcs[$key] === 'DES_ENCRYPT'
+                || $multi_edit_funcs[$key] === 'DES_DECRYPT'
+                || $multi_edit_funcs[$key] === 'ENCRYPT'))
             ) {
                 return $multi_edit_funcs[$key] . '(' . $current_value . ",'"
                     . $this->dbi->escapeString($multi_edit_salt[$key]) . "')";
@@ -2724,6 +2796,7 @@ class InsertEdit
                     . ' = ' . $current_value_as_an_array;
             }
         }
+
         return [
             $query_values,
             $query_fields,
@@ -2790,7 +2863,7 @@ class InsertEdit
                 $type = '';
             }
 
-            if ($type != 'protected' && $type != 'set' && strlen($current_value) === 0) {
+            if ($type !== 'protected' && $type !== 'set' && strlen($current_value) === 0) {
                 // best way to avoid problems in strict mode
                 // (works also in non-strict mode)
                 if (isset($multi_edit_auto_increment, $multi_edit_auto_increment[$key])) {
@@ -2798,7 +2871,7 @@ class InsertEdit
                 } else {
                     $current_value = "''";
                 }
-            } elseif ($type == 'set') {
+            } elseif ($type === 'set') {
                 if (! empty($_POST['fields']['multi_edit'][$rownumber][$key])) {
                     $current_value = implode(
                         ',',
@@ -2809,7 +2882,7 @@ class InsertEdit
                 } else {
                      $current_value = "''";
                 }
-            } elseif ($type == 'protected') {
+            } elseif ($type === 'protected') {
                 // here we are in protected mode (asked in the config)
                 // so tbl_change has put this special value in the
                 // columns array, so we do not change the column value
@@ -2828,13 +2901,13 @@ class InsertEdit
                 if (substr($current_value, 0, 2) != '0x') {
                     $current_value = '0x' . $current_value;
                 }
-            } elseif ($type == 'bit') {
+            } elseif ($type === 'bit') {
                 $current_value = preg_replace('/[^01]/', '0', $current_value);
                 $current_value = "b'" . $this->dbi->escapeString($current_value)
                     . "'";
-            } elseif (! ($type == 'datetime' || $type == 'timestamp')
-                || ($current_value != 'CURRENT_TIMESTAMP'
-                    && $current_value != 'current_timestamp()')
+            } elseif (! ($type === 'datetime' || $type === 'timestamp')
+                || ($current_value !== 'CURRENT_TIMESTAMP'
+                    && $current_value !== 'current_timestamp()')
             ) {
                 $current_value = "'" . $this->dbi->escapeString($current_value)
                     . "'";
@@ -2857,6 +2930,7 @@ class InsertEdit
                 $current_value = "''";
             }
         }  // end else (column value in the form)
+
         return $current_value;
     }
 
@@ -2888,11 +2962,13 @@ class InsertEdit
         $result = $this->dbi->tryQuery($sql_for_real_value);
         $fields_meta = $this->dbi->getFieldsMeta($result);
         $meta = $fields_meta[0];
-        if ($row = $this->dbi->fetchRow($result)) {
+        $row = $this->dbi->fetchRow($result);
+
+        if ($row) {
             $new_value = $row[0];
-            if ((substr($meta->type, 0, 9) == 'timestamp')
-                || ($meta->type == 'datetime')
-                || ($meta->type == 'time')
+            if ((substr($meta->type, 0, 9) === 'timestamp')
+                || ($meta->type === 'datetime')
+                || ($meta->type === 'time')
             ) {
                 $new_value = Util::addMicroseconds($new_value);
             } elseif (mb_strpos($meta->flags, 'binary') !== false) {
@@ -2915,6 +2991,7 @@ class InsertEdit
     public function getTableColumns($db, $table)
     {
         $this->dbi->selectDb($db);
+
         return array_values($this->dbi->getColumns($db, $table, null, true));
     }
 
@@ -3428,6 +3505,7 @@ class InsertEdit
                 $readOnly
             );
         }
+
         return $html_output;
     }
 
@@ -3514,44 +3592,45 @@ class InsertEdit
                 'VIRTUAL GENERATED',
                 'STORED GENERATED',
             ];
-            if (! in_array($table_column['Extra'], $virtual)) {
-                $html_output .= $this->getHtmlForInsertEditFormColumn(
-                    $table_columns,
-                    $column_number,
-                    $comments_map,
-                    $timestamp_seen,
-                    $current_result,
-                    $chg_evt_handler,
-                    $jsvkey,
-                    $vkey,
-                    $insert_mode,
-                    $current_row,
-                    $o_rows,
-                    $tabindex,
-                    $columns_cnt,
-                    $is_upload,
-                    $tabindex_for_function,
-                    $foreigners,
-                    $tabindex_for_null,
-                    $tabindex_for_value,
-                    $table,
-                    $db,
-                    $row_id,
-                    $titles,
-                    $biggest_max_file_size,
-                    $default_char_editing,
-                    $text_dir,
-                    $repopulate,
-                    $column_mime,
-                    $where_clause
-                );
+            if (in_array($table_column['Extra'], $virtual)) {
+                continue;
             }
+
+            $html_output .= $this->getHtmlForInsertEditFormColumn(
+                $table_columns,
+                $column_number,
+                $comments_map,
+                $timestamp_seen,
+                $current_result,
+                $chg_evt_handler,
+                $jsvkey,
+                $vkey,
+                $insert_mode,
+                $current_row,
+                $o_rows,
+                $tabindex,
+                $columns_cnt,
+                $is_upload,
+                $tabindex_for_function,
+                $foreigners,
+                $tabindex_for_null,
+                $tabindex_for_value,
+                $table,
+                $db,
+                $row_id,
+                $titles,
+                $biggest_max_file_size,
+                $default_char_editing,
+                $text_dir,
+                $repopulate,
+                $column_mime,
+                $where_clause
+            );
         } // end for
         $o_rows++;
-        $html_output .= '  </tbody>'
+
+        return $html_output . '  </tbody>'
             . '</table></div><br>'
             . '<div class="clearfloat"></div>';
-
-        return $html_output;
     }
 }

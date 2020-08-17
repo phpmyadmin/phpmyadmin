@@ -2,6 +2,7 @@
 /**
  * Holds the PhpMyAdmin\Controllers\TransformationOverviewController
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
@@ -64,9 +65,9 @@ class TransformationOverviewController extends AbstractController
             }
         }
 
-        $this->response->addHTML($this->template->render('transformation_overview', [
+        $this->render('transformation_overview', [
             'mime_types' => $mimeTypes,
             'transformations' => $transformations,
-        ]));
+        ]);
     }
 }

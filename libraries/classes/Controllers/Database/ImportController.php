@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
@@ -15,18 +16,18 @@ final class ImportController extends AbstractController
         global $db, $max_upload_size, $table, $tables, $num_tables, $total_num_tables, $is_show_stats;
         global $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos, $sub_part;
 
-        PageSettings::showGroup('Import');
+        $pageSettings = new PageSettings('Import');
+        $this->response->addHTML($pageSettings->getErrorHTML());
+        $this->response->addHTML($pageSettings->getHTML());
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('import.js');
+        $this->addScriptFiles(['import.js']);
 
         /**
          * Gets tables information and displays top links
          */
         Common::database();
 
-        list(
+        [
             $tables,
             $num_tables,
             $total_num_tables,
@@ -35,8 +36,8 @@ final class ImportController extends AbstractController
             $db_is_system_schema,
             $tooltip_truename,
             $tooltip_aliasname,
-            $pos
-        ) = Util::getDbInfo($db, $sub_part ?? '');
+            $pos,
+        ] = Util::getDbInfo($db, $sub_part ?? '');
 
         $this->response->addHTML(
             Import::get(

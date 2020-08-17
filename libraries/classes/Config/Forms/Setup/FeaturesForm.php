@@ -2,6 +2,7 @@
 /**
  * User preferences form
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Config\Forms\Setup;
@@ -49,6 +50,7 @@ class FeaturesForm extends \PhpMyAdmin\Config\Forms\User\FeaturesForm
             'LoginCookieDeleteAll',
             'CaptchaLoginPublicKey',
             'CaptchaLoginPrivateKey',
+            'CaptchaSiteVerifyURL',
         ];
         $result['Developer'] = [
             'UserprefsDeveloperTab',
@@ -66,7 +68,9 @@ class FeaturesForm extends \PhpMyAdmin\Config\Forms\User\FeaturesForm
             'AllowThirdPartyFraming',
             'ZeroConf',
         ];
+
         return $result;
+
         // phpcs:enable
     }
 }

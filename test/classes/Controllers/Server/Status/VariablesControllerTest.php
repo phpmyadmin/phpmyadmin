@@ -2,28 +2,31 @@
 /**
  * Holds VariablesControllerTest
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\VariablesController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
-use PHPUnit\Framework\TestCase;
 
-class VariablesControllerTest extends TestCase
+class VariablesControllerTest extends AbstractTestCase
 {
     /** @var Data */
     private $data;
 
     protected function setUp(): void
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setUp();
+        parent::defineVersionConstants();
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
 
+        $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
@@ -104,7 +107,7 @@ class VariablesControllerTest extends TestCase
             ->will($this->returnValue(['Com_empty_query', '0']));
         $dbi->expects($this->at(6))
             ->method('fetchRow')
-            ->will($this->returnValue(false));
+            ->will($this->returnValue(null));
 
         $dbi->expects($this->at(7))->method('freeResult');
 

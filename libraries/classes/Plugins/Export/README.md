@@ -1,0 +1,258 @@
+# Export plugin creation
+
+This directory holds export plugins for phpMyAdmin. Any new plugin should
+basically follow the structure presented here. Official plugins need to
+have str* messages with their definition in language files, but if you build
+some plugins for your use, you can directly use texts in plugin.
+
+```php
+<?php
+/**
+ * [Name] export plugin for phpMyAdmin
+ *
+ * @package    PhpMyAdmin-Export
+ * @subpackage [Name]
+ */
+
+declare(strict_types=1);
+
+/**
+ * Handles the export for the [Name] format
+ *
+ * @package PhpMyAdmin-Export
+ */
+class Export[Name] extends PhpMyAdmin\Plugins\ExportPlugin
+{
+    /**
+     * optional - declare variables and descriptions
+     *
+     * @var type
+     */
+    private $myOptionalVariable;
+
+    /**
+     * optional - declare global variables and descriptions
+     *
+     * @var type
+     */
+    private $globalVariableName;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->setProperties();
+    }
+
+    // optional - declare global variables and use getters later
+    /**
+     * Initialize the local variables that are used specific for export SQL
+     *
+     * @global type $global_variable_name
+     * [..]
+     *
+     * @return void
+     */
+    protected function initSpecificVariables()
+    {
+        global $global_variable_name;
+        $this->setGlobalVariableName($global_variable_name);
+    }
+
+    /**
+     * Sets the export plugin properties.
+     * Called in the constructor.
+     *
+     * @return void
+     */
+    protected function setProperties()
+    {
+        $exportPluginProperties = new PhpMyAdmin\Properties\Plugins\ExportPluginProperties();
+        $exportPluginProperties->setText('[name]');             // the name of your plug-in
+        $exportPluginProperties->setExtension('[ext]');         // extension this plug-in can handle
+        $exportPluginProperties->setOptionsText(__('Options'));
+
+        // create the root group that will be the options field for
+        // $exportPluginProperties
+        // this will be shown as "Format specific options"
+        $exportSpecificOptions = new PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup(
+            "Format Specific Options"
+        );
+
+        // general options main group
+        $generalOptions = new PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup(
+            "general_opts"
+        );
+
+        // optional :
+        // create primary items and add them to the group
+        // type - one of the classes listed in libraries/properties/options/items/
+        // name - form element name
+        // text - description in GUI
+        // size - size of text element
+        // len  - maximal size of input
+        // values - possible values of the item
+        $leaf = new PhpMyAdmin\Properties\Options\Items\RadioPropertyItem(
+            "structure_or_data"
+        );
+        $leaf->setValues(
+            array(
+                'structure' => __('structure'),
+                'data' => __('data'),
+                'structure_and_data' => __('structure and data')
+            )
+        );
+        $generalOptions->addProperty($leaf);
+
+        // add the main group to the root group
+        $exportSpecificOptions->addProperty($generalOptions);
+
+        // set the options for the export plugin property item
+        $exportPluginProperties->setOptions($exportSpecificOptions);
+        $this->properties = $exportPluginProperties;
+    }
+
+    /**
+     * Outputs export header
+     *
+     * @return bool Whether it succeeded
+     */
+    public function exportHeader ()
+    {
+        // implementation
+        return true;
+    }
+
+    /**
+     * Outputs export footer
+     *
+     * @return bool Whether it succeeded
+     */
+    public function exportFooter ()
+    {
+        // implementation
+        return true;
+    }
+
+    /**
+     * Outputs database header
+     *
+     * @param string $db       Database name
+     * @param string $db_alias Aliases of db
+     *
+     * @return bool Whether it succeeded
+     */
+    public function exportDBHeader ($db, $db_alias = '')
+    {
+        // implementation
+        return true;
+    }
+
+    /**
+     * Outputs database footer
+     *
+     * @param string $db Database name
+     *
+     * @return bool Whether it succeeded
+     */
+    public function exportDBFooter ($db)
+    {
+        // implementation
+        return true;
+    }
+
+    /**
+     * Outputs CREATE DATABASE statement
+     *
+     * @param string $db       Database name
+     * @param string $db_alias Aliases of db
+     *
+     * @return bool Whether it succeeded
+     */
+    public function exportDBCreate($db, $db_alias = '')
+    {
+        // implementation
+        return true;
+    }
+
+    /**
+     * Outputs the content of a table in [Name] format
+     *
+     * @param string $db        database name
+     * @param string $table     table name
+     * @param string $crlf      the end of line sequence
+     * @param string $error_url the url to go back in case of error
+     * @param string $sql_query SQL query for obtaining data
+     * @param array  $aliases   Aliases of db/table/columns
+     *
+     * @return bool Whether it succeeded
+     */
+    public function exportData(
+        $db, $table, $crlf, $error_url, $sql_query, $aliases = array()
+    ) {
+        // implementation;
+        return true;
+    }
+
+    // optional - implement other methods defined in PhpMyAdmin\Plugins\ExportPlugin.php:
+    //  - exportRoutines()
+    //  - exportStructure()
+    //  - getTableDefStandIn()
+    //  - getTriggers()
+
+    // optional - implement other private methods in order to avoid
+    // having huge methods or avoid duplicate code. Make use of them
+    // as well as of the getters and setters declared both here
+    // and in the PhpMyAdmin\Plugins\ExportPlugin class
+
+
+    // optional:
+    /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
+
+
+    /**
+     * Getter description
+     *
+     * @return type
+     */
+    private function _getMyOptionalVariable()
+    {
+        return $this->myOptionalVariable;
+    }
+
+    /**
+     * Setter description
+     *
+     * @param type $my_optional_variable description
+     *
+     * @return void
+     */
+    private function _setMyOptionalVariable($my_optional_variable)
+    {
+        $this->myOptionalVariable = $my_optional_variable;
+    }
+
+    /**
+     * Getter description
+     *
+     * @return type
+     */
+    private function _getGlobalVariableName()
+    {
+        return $this->globalVariableName;
+    }
+
+    /**
+     * Setter description
+     *
+     * @param type $global_variable_name description
+     *
+     * @return void
+     */
+    private function _setGlobalVariableName($global_variable_name)
+    {
+        $this->globalVariableName = $global_variable_name;
+    }
+}
+```

@@ -2,6 +2,7 @@
 /**
  * Simple script to set correct charset for the license
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;

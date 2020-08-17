@@ -2,32 +2,32 @@
 /**
  * tests for methods under PhpMyAdmin\Setup\Index
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Setup;
 
 use PhpMyAdmin\Setup\Index as SetupIndex;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * tests for methods under PhpMyAdmin\Setup\Index
  */
-class IndexTest extends TestCase
+class IndexTest extends AbstractTestCase
 {
     /**
      * SetUp for test cases
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $GLOBALS['cfg']['ProxyUrl'] = '';
     }
 
     /**
      * Test for SetupIndex::messagesBegin()
-     *
-     * @return void
      */
-    public function testPMAmessagesBegin()
+    public function testPMAmessagesBegin(): void
     {
         $_SESSION['messages'] = [
             [
@@ -71,10 +71,8 @@ class IndexTest extends TestCase
 
     /**
      * Test for SetupIndex::messagesSet
-     *
-     * @return void
      */
-    public function testPMAmessagesSet()
+    public function testPMAmessagesSet(): void
     {
         SetupIndex::messagesSet('type', '123', 'testTitle', 'msg');
 
@@ -91,10 +89,8 @@ class IndexTest extends TestCase
 
     /**
      * Test for SetupIndex::messagesEnd
-     *
-     * @return void
      */
-    public function testPMAmessagesEnd()
+    public function testPMAmessagesEnd(): void
     {
         $_SESSION['messages'] = [
             [
@@ -126,10 +122,8 @@ class IndexTest extends TestCase
 
     /**
      * Test for SetupIndex::messagesShowHtml
-     *
-     * @return void
      */
-    public function testPMAMessagesShowHTML()
+    public function testPMAMessagesShowHTML(): void
     {
         $_SESSION['messages'] = [
             'type' => [

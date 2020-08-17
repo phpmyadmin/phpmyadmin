@@ -16,7 +16,14 @@ use function trim;
  */
 class WindowsNt extends Base
 {
-    private $_wmi;
+    /** @var COM|null */
+    private $wmi;
+
+    /**
+     * The OS name
+     *
+     * @var string
+     */
     public $os = 'WINNT';
 
     /**
@@ -25,11 +32,11 @@ class WindowsNt extends Base
     public function __construct()
     {
         if (! class_exists('COM')) {
-            $this->_wmi = null;
+            $this->wmi = null;
         } else {
             // initialize the wmi object
             $objLocator = new COM('WbemScripting.SWbemLocator');
-            $this->_wmi = $objLocator->ConnectServer();
+            $this->wmi = $objLocator->ConnectServer();
         }
     }
 
@@ -41,7 +48,7 @@ class WindowsNt extends Base
     public function loadavg()
     {
         $sum = 0;
-        $buffer = $this->_getWMI('Win32_Processor', ['LoadPercentage']);
+        $buffer = $this->getWMI('Win32_Processor', ['LoadPercentage']);
 
         foreach ($buffer as $load) {
             $value = $load['LoadPercentage'];
@@ -58,7 +65,7 @@ class WindowsNt extends Base
      */
     public function supported()
     {
-        return $this->_wmi !== null;
+        return $this->wmi !== null;
     }
 
     /**
@@ -69,24 +76,26 @@ class WindowsNt extends Base
      *
      * @return array with results
      */
-    private function _getWMI($strClass, array $strValue = [])
+    private function getWMI($strClass, array $strValue = [])
     {
         $arrData = [];
 
-        $objWEBM = $this->_wmi->Get($strClass);
+        $objWEBM = $this->wmi->Get($strClass);
         $arrProp = $objWEBM->Properties_;
         $arrWEBMCol = $objWEBM->Instances_();
         foreach ($arrWEBMCol as $objItem) {
             $arrInstance = [];
             foreach ($arrProp as $propItem) {
                 $name = $propItem->Name;
-                if (empty($strValue) || in_array($name, $strValue)) {
-                    $value = $objItem->$name;
-                    if (is_string($value)) {
-                        $arrInstance[$name] = trim($value);
-                    } else {
-                        $arrInstance[$name] = $value;
-                    }
+                if (! empty($strValue) && ! in_array($name, $strValue)) {
+                    continue;
+                }
+
+                $value = $objItem->$name;
+                if (is_string($value)) {
+                    $arrInstance[$name] = trim($value);
+                } else {
+                    $arrInstance[$name] = $value;
                 }
             }
             $arrData[] = $arrInstance;
@@ -102,7 +111,7 @@ class WindowsNt extends Base
      */
     public function memory()
     {
-        $buffer = $this->_getWMI(
+        $buffer = $this->getWMI(
             'Win32_OperatingSystem',
             [
                 'TotalVisibleMemorySize',
@@ -114,7 +123,7 @@ class WindowsNt extends Base
         $mem['MemFree'] = $buffer[0]['FreePhysicalMemory'];
         $mem['MemUsed'] = $mem['MemTotal'] - $mem['MemFree'];
 
-        $buffer = $this->_getWMI('Win32_PageFileUsage');
+        $buffer = $this->getWMI('Win32_PageFileUsage');
 
         $mem['SwapTotal'] = 0;
         $mem['SwapUsed'] = 0;

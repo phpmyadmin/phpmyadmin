@@ -4,19 +4,17 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\Routing;
 use FastRoute\Dispatcher;
 use PhpMyAdmin\Controllers\HomeController;
+use PhpMyAdmin\Routing;
 
 /**
  * Tests for PhpMyAdmin\Routing
  */
-class RoutingTest extends PmaTestCase
+class RoutingTest extends AbstractTestCase
 {
     /**
      * Test for Routing::getDispatcher
-     *
-     * @return void
      */
     public function testGetDispatcher(): void
     {
@@ -34,8 +32,6 @@ class RoutingTest extends PmaTestCase
 
     /**
      * Test for Routing::getCurrentRoute
-     *
-     * @return void
      */
     public function testGetCurrentRouteNoParams(): void
     {
@@ -44,8 +40,6 @@ class RoutingTest extends PmaTestCase
 
     /**
      * Test for Routing::getCurrentRoute
-     *
-     * @return void
      */
     public function testGetCurrentRouteGet(): void
     {
@@ -55,19 +49,16 @@ class RoutingTest extends PmaTestCase
 
     /**
      * Test for Routing::getCurrentRoute
-     *
-     * @return void
      */
     public function testGetCurrentRoutePost(): void
     {
+        unset($_GET['route']);
         $_POST['route'] = '/testpost';
         $this->assertSame('/testpost', Routing::getCurrentRoute());
     }
 
     /**
      * Test for Routing::getCurrentRoute
-     *
-     * @return void
      */
     public function testGetCurrentRouteGetIsOverPost(): void
     {
@@ -78,19 +69,17 @@ class RoutingTest extends PmaTestCase
 
     /**
      * Test for Routing::getCurrentRoute
-     *
-     * @return void
      */
     public function testGetCurrentRouteRedirectDbStructure(): void
     {
+        unset($_POST['route']);
+        unset($_GET['route']);
         $_GET['db'] = 'testDB';
         $this->assertSame('/database/structure', Routing::getCurrentRoute());
     }
 
     /**
      * Test for Routing::getCurrentRoute
-     *
-     * @return void
      */
     public function testGetCurrentRouteRedirectSql(): void
     {

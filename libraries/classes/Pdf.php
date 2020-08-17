@@ -2,6 +2,7 @@
 /**
  * TCPDF wrapper class.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
@@ -18,7 +19,10 @@ use function strtr;
  */
 class Pdf extends TCPDF
 {
+    /** @var array */
     public $footerset;
+
+    /** @var array */
     public $Alias = [];
 
     /**
@@ -76,24 +80,26 @@ class Pdf extends TCPDF
     public function Footer()
     {
         // Check if footer for this page already exists
-        if (! isset($this->footerset[$this->page])) {
-            $this->SetY(-15);
-            $this->SetFont(self::PMA_PDF_FONT, '', 14);
-            $this->Cell(
-                0,
-                6,
-                __('Page number:') . ' '
-                . $this->getAliasNumPage() . '/' . $this->getAliasNbPages(),
-                'T',
-                0,
-                'C'
-            );
-            $this->Cell(0, 6, Util::localisedDate(), 0, 1, 'R');
-            $this->SetY(20);
-
-            // set footerset
-            $this->footerset[$this->page] = 1;
+        if (isset($this->footerset[$this->page])) {
+            return;
         }
+
+        $this->SetY(-15);
+        $this->SetFont(self::PMA_PDF_FONT, '', 14);
+        $this->Cell(
+            0,
+            6,
+            __('Page number:') . ' '
+            . $this->getAliasNumPage() . '/' . $this->getAliasNbPages(),
+            'T',
+            0,
+            'C'
+        );
+        $this->Cell(0, 6, Util::localisedDate(), 0, 1, 'R');
+        $this->SetY(20);
+
+        // set footerset
+        $this->footerset[$this->page] = 1;
     }
 
     /**
@@ -120,6 +126,8 @@ class Pdf extends TCPDF
         );
     }
 
+    // phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
+
     /**
      * Improved with alias expanding.
      *
@@ -134,6 +142,7 @@ class Pdf extends TCPDF
             }
         }
         parent::_putpages();
+        // phpcs:enable
     }
 
     /**
@@ -146,9 +155,9 @@ class Pdf extends TCPDF
     // @codingStandardsIgnoreLine
     public function Error($error_message = '')
     {
-        Message::error(
+        echo Message::error(
             __('Error while creating PDF:') . ' ' . $error_message
-        )->display();
+        )->getDisplay();
         exit;
     }
 

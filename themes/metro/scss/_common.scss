@@ -388,6 +388,7 @@ table {
   td {
     padding: 0.6em;
     vertical-align: top;
+    touch-action: manipulation;
   }
 }
 
@@ -693,6 +694,14 @@ table tr.hover:not(.nopointer) th {
   color: $th-pointer-color;
 }
 
+/* hovered index table rows */
+#table_index tbody:hover tr,
+#table_index tbody:hover th,
+#table_index tbody:hover td {
+  background: $browse-marker-background;
+  color: $main-color;
+}
+
 /* marks table rows/cells if the db field is in a where condition */
 
 .condition {
@@ -815,6 +824,13 @@ td .icon {
 }
 
 fieldset.confirmation legend {
+  background-color: $browse-warning-color;
+}
+
+.error {
+  border: 1px solid $browse-warning-color !important;
+  padding: 5px;
+  color: $button-color;
   background-color: $browse-warning-color;
 }
 
@@ -1089,6 +1105,8 @@ div#tablestatistics table {
 
 #fieldset_add_user_login {
   div.item {
+    display: flex;
+    align-items: center;
     border-bottom: 1px solid #ddd;
     padding-bottom: 0.3em;
     margin-bottom: 0.3em;
@@ -1101,7 +1119,7 @@ div#tablestatistics table {
     max-width: 100%;
     text-align: $right;
     padding-#{$right}: 0.5em;
-    line-height: 35px;
+    margin-bottom: 0;
   }
 
   span.options {
@@ -1984,6 +2002,10 @@ input#input_import_file {
   }
 }
 
+#tablestructure tbody label {
+  margin: 0.3rem 0;
+}
+
 #structure-action-links a {
   margin-#{$right}: 1em;
 }
@@ -2557,12 +2579,17 @@ form.append_fields_form .tblFooters {
   border-#{$right}: 2px solid #a44;
 }
 
-.pma_table,
-.sticky_columns {
+.pma_table {
   th.draggable span {
     display: block;
     overflow: hidden;
   }
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 60px;
 }
 
 .pma_table {

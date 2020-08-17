@@ -140,6 +140,7 @@ table {
     padding: 0.1em 0.5em 0.1em 0.5em;
     margin: 0.1em;
     vertical-align: top;
+    touch-action: manipulation;
   }
 }
 
@@ -469,6 +470,16 @@ fieldset.confirmation {
       padding: 0.2em 0.2em 0.2em 25px;
     }
   }
+}
+
+.error {
+  background-color: #ffc;
+  color: #f00;
+}
+
+label.error {
+  padding: 3px;
+  margin-left: 4px;
 }
 
 /* end messageboxes */
@@ -1634,6 +1645,10 @@ input#input_import_file {
   }
 }
 
+#tablestructure tbody label {
+  margin: 0.3rem 0;
+}
+
 #structure-action-links a {
   margin-#{$right}: 1em;
 }
@@ -2164,12 +2179,17 @@ input#auto_increment_opt {
   border-#{$right}: 2px solid #a44;
 }
 
-.pma_table,
-.sticky_columns {
+.pma_table {
   th.draggable span {
     display: block;
     overflow: hidden;
   }
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 60px;
 }
 
 .pma_table {
@@ -3453,4 +3473,14 @@ body {
 
 #filter_query_text {
   vertical-align: baseline;
+}
+
+.ui_tpicker_hour_slider,
+.ui_tpicker_minute_slider,
+.ui_tpicker_second_slider,
+.ui_tpicker_millisec_slider,
+.ui_tpicker_microsec_slider {
+  margin-left: 20px;
+  margin-top: 4px;
+  height: 0.75rem;
 }

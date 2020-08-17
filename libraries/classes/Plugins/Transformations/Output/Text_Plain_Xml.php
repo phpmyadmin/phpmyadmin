@@ -2,6 +2,7 @@
 /**
  * Text Plain XML Transformations plugin for phpMyAdmin
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Output;
@@ -19,15 +20,17 @@ class Text_Plain_Xml extends TransformationsPlugin
 {
     public function __construct()
     {
-        if (! empty($GLOBALS['cfg']['CodemirrorEnable'])) {
-            $response = Response::getInstance();
-            $scripts = $response->getHeader()
-                ->getScripts();
-            $scripts->addFile('vendor/codemirror/lib/codemirror.js');
-            $scripts->addFile('vendor/codemirror/mode/xml/xml.js');
-            $scripts->addFile('vendor/codemirror/addon/runmode/runmode.js');
-            $scripts->addFile('transformations/xml.js');
+        if (empty($GLOBALS['cfg']['CodemirrorEnable'])) {
+            return;
         }
+
+        $response = Response::getInstance();
+        $scripts = $response->getHeader()
+            ->getScripts();
+        $scripts->addFile('vendor/codemirror/lib/codemirror.js');
+        $scripts->addFile('vendor/codemirror/mode/xml/xml.js');
+        $scripts->addFile('vendor/codemirror/addon/runmode/runmode.js');
+        $scripts->addFile('transformations/xml.js');
     }
 
     /**

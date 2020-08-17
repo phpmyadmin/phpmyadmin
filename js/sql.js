@@ -6,14 +6,13 @@
  *
  */
 
+/* global Stickyfill */
 /* global isStorageSupported */ // js/config.js
 /* global codeMirrorEditor */ // js/functions.js
 /* global MicroHistory */ // js/microhistory.js
 /* global makeGrid */ // js/makegrid.js
 
 var Sql = {};
-
-var prevScrollX = 0;
 
 /**
  * decode a string URL_encoded
@@ -173,7 +172,7 @@ Sql.getFieldName = function ($tableResults, $thisField) {
         $heading.append($tempColComment);
     }
 
-    fieldName = $.trim(fieldName);
+    fieldName = fieldName.trim();
 
     return fieldName;
 };
@@ -210,6 +209,7 @@ AJAX.registerTeardown('sql.js', function () {
     $('body').off('click', '#simulate_dml');
     $('body').off('keyup', '#sqlqueryform');
     $('body').off('click', 'form[name="resultsForm"].ajax button[name="submit_mult"], form[name="resultsForm"].ajax input[name="submit_mult"]');
+    $(document).off('submit', '#maxRowsForm');
 });
 
 /**
@@ -409,25 +409,6 @@ AJAX.registerOnload('sql.js', function () {
     $(document).on('makegrid', '.sqlqueryresults', function () {
         $('.table_results').each(function () {
             makeGrid(this);
-        });
-    });
-
-    /*
-     * Attach a custom event for sticky column headings which will be
-     * triggered manually everytime the table of results is reloaded
-     * @memberOf    jQuery
-     */
-    $(document).on('stickycolumns', '.sqlqueryresults', function () {
-        $('.sticky_columns').remove();
-        $('.table_results').each(function () {
-            var $tableResults = $(this);
-            // add sticky columns div
-            var $stickColumns = Sql.initStickyColumns($tableResults);
-            Sql.rearrangeStickyColumns($stickColumns, $tableResults);
-            // adjust sticky columns on scroll
-            $(document).on('scroll', window, function () {
-                Sql.handleStickyColumns($stickColumns, $tableResults);
-            });
         });
     });
 
@@ -660,7 +641,7 @@ AJAX.registerOnload('sql.js', function () {
                     });
                 }
 
-                $('.sqlqueryresults').trigger('makegrid').trigger('stickycolumns');
+                $('.sqlqueryresults').trigger('makegrid');
                 $('#togglequerybox').show();
                 Functions.initSlider();
 
@@ -699,8 +680,7 @@ AJAX.registerOnload('sql.js', function () {
             var $sqlqueryresults = $form.parents('.sqlqueryresults');
             $sqlqueryresults
                 .html(data.message)
-                .trigger('makegrid')
-                .trigger('stickycolumns');
+                .trigger('makegrid');
             Functions.initSlider();
             Functions.highlightSql($sqlqueryresults);
         }); // end $.post()
@@ -718,7 +698,7 @@ AJAX.registerOnload('sql.js', function () {
             : '');
         // Selecting columns that will be considered for filtering and searching.
         $headerCells.each(function () {
-            targetColumns.push($.trim($(this).text()));
+            targetColumns.push($(this).text().trim());
         });
 
         var phrase = $(this).val();
@@ -844,12 +824,49 @@ AJAX.registerOnload('sql.js', function () {
     $('body').on('click', 'form[name="resultsForm"].ajax button[name="submit_mult"], form[name="resultsForm"].ajax input[name="submit_mult"]', function (e) {
         e.preventDefault();
         var $button = $(this);
+        var action = $button.val();
         var $form = $button.closest('form');
         var argsep = CommonParams.get('arg_separator');
-        var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'submit_mult=' + $button.val();
+        var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep;
         Functions.ajaxShowMessage();
         AJAX.source = $form;
-        $.post($form.attr('action'), submitData, AJAX.responseHandler);
+
+        var url;
+        if (action === 'edit') {
+            submitData = submitData + argsep + 'default_action=update';
+            url = 'index.php?route=/table/change/rows';
+        } else if (action === 'copy') {
+            submitData = submitData + argsep + 'default_action=insert';
+            url = 'index.php?route=/table/change/rows';
+        } else if (action === 'export') {
+            url = 'index.php?route=/table/export/rows';
+        } else if (action === 'delete') {
+            url = 'index.php?route=/table/delete/confirm';
+        } else {
+            return;
+        }
+
+        $.post(url, submitData, AJAX.responseHandler);
+    });
+
+    $(document).on('submit', '#maxRowsForm', function () {
+        var unlimNumRows = $(this).find('input[name="unlim_num_rows"]').val();
+
+        var maxRowsCheck = Functions.checkFormElementInRange(
+            this,
+            'session_max_rows',
+            Messages.strNotValidRowNumber,
+            1
+        );
+        var posCheck = Functions.checkFormElementInRange(
+            this,
+            'pos',
+            Messages.strNotValidRowNumber,
+            0,
+            unlimNumRows > 0 ? unlimNumRows - 1 : null
+        );
+
+        return maxRowsCheck && posCheck;
     });
 }); // end $()
 
@@ -983,7 +1000,7 @@ AJAX.registerOnload('sql.js', function () {
     /**
      * create resizable table
      */
-    $('.sqlqueryresults').trigger('makegrid').trigger('stickycolumns');
+    $('.sqlqueryresults').trigger('makegrid');
 
     /**
      * Check if there is any saved query
@@ -1057,88 +1074,13 @@ Sql.initProfilingTables = function () {
     });
 };
 
-/**
- * Set position, left, top, width of sticky_columns div
- */
-Sql.setStickyColumnsPosition = function ($stickyColumns, $tableResults, position, top, left, marginLeft) {
-    $stickyColumns
-        .css('position', position)
-        .css('top', top)
-        .css('left', left ? left : 'auto')
-        .css('margin-left', marginLeft ? marginLeft : '0px')
-        .css('width', $tableResults.width());
-};
-
-/**
- * Initialize sticky columns
- */
-Sql.initStickyColumns = function ($tableResults) {
-    return $('<table class="sticky_columns"></table>')
-        .insertBefore($tableResults)
-        .css('position', 'fixed')
-        .css('z-index', '98')
-        .css('width', $tableResults.width())
-        .css('margin-left', $('#page_content').css('margin-left'))
-        .css('top', $('#floating_menubar').height())
-        .css('display', 'none');
-};
-
-/**
- * Arrange/Rearrange columns in sticky header
- */
-Sql.rearrangeStickyColumns = function ($stickyColumns, $tableResults) {
-    var $originalHeader = $tableResults.find('thead');
-    var $originalColumns = $originalHeader.find('tr').first().children();
-    var $clonedHeader = $originalHeader.clone();
-    var isFirefox = navigator.userAgent.indexOf('Firefox') > -1;
-    var isSafari = navigator.userAgent.indexOf('Safari') > -1;
-    // clone width per cell
-    $clonedHeader.find('tr').first().children().each(function (i) {
-        var width = $originalColumns.eq(i).width();
-        if (! isFirefox && ! isSafari) {
-            width += 1;
-        }
-        $(this).width(width);
-        if (isSafari) {
-            $(this).css('min-width', width).css('max-width', width);
-        }
-    });
-    $stickyColumns.empty().append($clonedHeader);
-};
-
-/**
- * Adjust sticky columns on horizontal/vertical scroll for all tables
- */
-Sql.handleAllStickyColumns = function () {
-    $('.sticky_columns').each(function () {
-        Sql.handleStickyColumns($(this), $(this).next('.table_results'));
-    });
-};
-
-/**
- * Adjust sticky columns on horizontal/vertical scroll
- */
-Sql.handleStickyColumns = function ($stickyColumns, $tableResults) {
-    var currentScrollX = $(window).scrollLeft();
-    var windowOffset = $(window).scrollTop();
-    var tableStartOffset = $tableResults.offset().top;
-    var tableEndOffset = tableStartOffset + $tableResults.height();
-    if (windowOffset >= tableStartOffset && windowOffset <= tableEndOffset) {
-        // for horizontal scrolling
-        if (prevScrollX !== currentScrollX) {
-            prevScrollX = currentScrollX;
-            Sql.setStickyColumnsPosition($stickyColumns, $tableResults, 'absolute', $('#floating_menubar').height() + windowOffset - tableStartOffset);
-        // for vertical scrolling
-        } else {
-            Sql.setStickyColumnsPosition($stickyColumns, $tableResults, 'fixed', $('#floating_menubar').height(), $('#pma_navigation').width() - currentScrollX, $('#page_content').css('margin-left'));
-        }
-        $stickyColumns.show();
-    } else {
-        $stickyColumns.hide();
-    }
-};
-
 AJAX.registerOnload('sql.js', function () {
     Sql.makeProfilingChart();
     Sql.initProfilingTables();
 });
+
+/**
+ * Polyfill to make table headers sticky.
+ */
+var elements = $('.sticky');
+Stickyfill.add(elements);

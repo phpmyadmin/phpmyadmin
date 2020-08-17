@@ -2,6 +2,7 @@
 /**
  * Contains PhpMyAdmin\Plugins\Schema\Dia\TableStatsDia class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Dia;
@@ -24,7 +25,10 @@ use function sprintf;
  */
 class TableStatsDia extends TableStats
 {
+    /** @var int */
     public $tableId;
+
+    /** @var string */
     public $tableColor;
 
     /**

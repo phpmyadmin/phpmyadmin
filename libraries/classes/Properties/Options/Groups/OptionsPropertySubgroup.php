@@ -2,6 +2,7 @@
 /**
  * Holds the PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Properties\Options\Groups;
@@ -19,7 +20,7 @@ class OptionsPropertySubgroup extends OptionsPropertyGroup
      *
      * @var PropertyItem
      */
-    private $_subgroupHeader;
+    private $subgroupHeader;
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
     /**
@@ -44,7 +45,7 @@ class OptionsPropertySubgroup extends OptionsPropertyGroup
      */
     public function getSubgroupHeader()
     {
-        return $this->_subgroupHeader;
+        return $this->subgroupHeader;
     }
 
     /**
@@ -56,6 +57,6 @@ class OptionsPropertySubgroup extends OptionsPropertyGroup
      */
     public function setSubgroupHeader($subgroupHeader)
     {
-        $this->_subgroupHeader = $subgroupHeader;
+        $this->subgroupHeader = $subgroupHeader;
     }
 }

@@ -1,0 +1,9 @@
+{% extends 'export.twig' %}
+
+{% block message %}{{ message|raw }}{% endblock %}
+
+{% block title %}{{ 'Exporting rows from "%s" table'|trans|format(table) }}{% endblock %}
+
+{% set filename_hint %}
+  {% trans '@SERVER@ will become the server name, @DATABASE@ will become the database name and @TABLE@ will become the table name.' %}
+{% endset %}

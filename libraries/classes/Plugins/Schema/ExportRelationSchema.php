@@ -3,6 +3,7 @@
  * Contains PhpMyAdmin\Plugins\Schema\ExportRelationSchema class which is
  * inherited by all schema classes.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema;
@@ -11,7 +12,6 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function htmlspecialchars;
-use function intval;
 use function rawurldecode;
 
 /**
@@ -21,15 +21,34 @@ use function rawurldecode;
  */
 class ExportRelationSchema
 {
+    /** @var string */
     protected $db;
+
+    /** @var Dia\Dia|Eps\Eps|Pdf\Pdf|Svg\Svg|null */
     protected $diagram;
+
+    /** @var bool */
     protected $showColor;
+
+    /** @var bool */
     protected $tableDimension;
+
+    /** @var bool */
     protected $sameWide;
+
+    /** @var bool */
     protected $showKeys;
+
+    /** @var string */
     protected $orientation;
+
+    /** @var string */
     protected $paper;
+
+    /** @var int */
     protected $pageNumber;
+
+    /** @var bool */
     protected $offline;
 
     /** @var Relation */
@@ -43,7 +62,7 @@ class ExportRelationSchema
     {
         $this->db = $db;
         $this->diagram = $diagram;
-        $this->setPageNumber($_REQUEST['page_number']);
+        $this->setPageNumber((int) $_REQUEST['page_number']);
         $this->setOffline(isset($_REQUEST['offline_export']));
         $this->relation = new Relation($GLOBALS['dbi']);
     }
@@ -52,12 +71,10 @@ class ExportRelationSchema
      * Set Page Number
      *
      * @param int $value Page Number of the document to be created
-     *
-     * @return void
      */
-    public function setPageNumber($value)
+    public function setPageNumber(int $value): void
     {
-        $this->pageNumber = intval($value);
+        $this->pageNumber = $value;
     }
 
     /**
@@ -74,10 +91,8 @@ class ExportRelationSchema
      * Sets showColor
      *
      * @param bool $value whether to show colors
-     *
-     * @return void
      */
-    public function setShowColor($value)
+    public function setShowColor(bool $value): void
     {
         $this->showColor = $value;
     }
@@ -96,10 +111,8 @@ class ExportRelationSchema
      * Set Table Dimension
      *
      * @param bool $value show table co-ordinates or not
-     *
-     * @return void
      */
-    public function setTableDimension($value)
+    public function setTableDimension(bool $value): void
     {
         $this->tableDimension = $value;
     }
@@ -118,10 +131,8 @@ class ExportRelationSchema
      * Set same width of All Tables
      *
      * @param bool $value set same width of all tables or not
-     *
-     * @return void
      */
-    public function setAllTablesSameWidth($value)
+    public function setAllTablesSameWidth(bool $value): void
     {
         $this->sameWide = $value;
     }
@@ -141,11 +152,9 @@ class ExportRelationSchema
      *
      * @param bool $value show only keys or not
      *
-     * @return void
-     *
      * @access public
      */
-    public function setShowKeys($value)
+    public function setShowKeys(bool $value): void
     {
         $this->showKeys = $value;
     }
@@ -165,13 +174,11 @@ class ExportRelationSchema
      *
      * @param string $value Orientation will be portrait or landscape
      *
-     * @return void
-     *
      * @access public
      */
-    public function setOrientation($value)
+    public function setOrientation(string $value): void
     {
-        $this->orientation = $value == 'P' ? 'P' : 'L';
+        $this->orientation = $value === 'P' ? 'P' : 'L';
     }
 
     /**
@@ -189,11 +196,9 @@ class ExportRelationSchema
      *
      * @param string $value paper type can be A4 etc
      *
-     * @return void
-     *
      * @access public
      */
-    public function setPaper($value)
+    public function setPaper(string $value): void
     {
         $this->paper = $value;
     }
@@ -213,11 +218,9 @@ class ExportRelationSchema
      *
      * @param bool $value offline or not
      *
-     * @return void
-     *
      * @access public
      */
-    public function setOffline($value)
+    public function setOffline(bool $value): void
     {
         $this->offline = $value;
     }
@@ -237,9 +240,9 @@ class ExportRelationSchema
     /**
      * Get the table names from the request
      *
-     * @return array an array of table names
+     * @return string[] an array of table names
      */
-    protected function getTablesFromRequest()
+    protected function getTablesFromRequest(): array
     {
         $tables = [];
         if (isset($_POST['t_tbl'])) {
@@ -247,6 +250,7 @@ class ExportRelationSchema
                 $tables[] = rawurldecode($table);
             }
         }
+
         return $tables;
     }
 

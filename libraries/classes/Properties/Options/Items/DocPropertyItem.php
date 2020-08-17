@@ -2,6 +2,7 @@
 /**
  * Holds the PhpMyAdmin\Properties\Options\Items\DocPropertyItem class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Properties\Options\Items;

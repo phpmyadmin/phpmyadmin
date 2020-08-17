@@ -2,6 +2,7 @@
 /**
  * Page-related settings
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Config;
@@ -22,28 +23,28 @@ class PageSettings
      *
      * @var string
      */
-    private $_elemId = 'page_settings_modal';
+    private $elemId = 'page_settings_modal';
 
     /**
      * Name of the group to show
      *
      * @var string
      */
-    private $_groupName = '';
+    private $groupName = '';
 
     /**
      * Contains HTML of errors
      *
      * @var string
      */
-    private $_errorHTML = '';
+    private $errorHTML = '';
 
     /**
      * Contains HTML of settings
      *
      * @var string
      */
-    private $_HTML = '';
+    private $HTML = '';
 
     /** @var UserPreferences */
     private $userPreferences;
@@ -66,9 +67,9 @@ class PageSettings
         }
 
         if (! empty($elemId)) {
-            $this->_elemId = $elemId;
+            $this->elemId = $elemId;
         }
-        $this->_groupName = $formGroupName;
+        $this->groupName = $formGroupName;
 
         $cf = new ConfigFile($GLOBALS['PMA_Config']->base_settings);
         $this->userPreferences->pageInit($cf);
@@ -80,11 +81,11 @@ class PageSettings
         if (isset($_POST['submit_save'])
             && $_POST['submit_save'] == $formGroupName
         ) {
-            $this->_processPageSettings($formDisplay, $cf, $error);
+            $this->processPageSettings($formDisplay, $cf, $error);
         }
 
         // Display forms
-        $this->_HTML = $this->_getPageSettingsDisplay($formDisplay, $error);
+        $this->HTML = $this->getPageSettingsDisplay($formDisplay, $error);
     }
 
     /**
@@ -96,22 +97,24 @@ class PageSettings
      *
      * @return void
      */
-    private function _processPageSettings(&$formDisplay, &$cf, &$error)
+    private function processPageSettings(&$formDisplay, &$cf, &$error)
     {
-        if ($formDisplay->process(false) && ! $formDisplay->hasErrors()) {
-            // save settings
-            $result = $this->userPreferences->save($cf->getConfigArray());
-            if ($result === true) {
-                // reload page
-                $response = Response::getInstance();
-                Core::sendHeaderLocation(
-                    $response->getFooter()->getSelfUrl()
-                );
-                exit;
-            } else {
-                $error = $result;
-            }
+        if (! $formDisplay->process(false) || $formDisplay->hasErrors()) {
+            return;
         }
+
+        // save settings
+        $result = $this->userPreferences->save($cf->getConfigArray());
+        if ($result === true) {
+            // reload page
+            $response = Response::getInstance();
+            Core::sendHeaderLocation(
+                $response->getFooter()->getSelfUrl()
+            );
+            exit;
+        }
+
+        $error = $result;
     }
 
     /**
@@ -122,7 +125,7 @@ class PageSettings
      *
      * @return void
      */
-    private function _storeError(&$formDisplay, &$error)
+    private function storeError(&$formDisplay, &$error)
     {
         $retval = '';
         if ($error) {
@@ -138,7 +141,7 @@ class PageSettings
                 . $formDisplay->displayErrors()
                 . '</div>';
         }
-        $this->_errorHTML = $retval;
+        $this->errorHTML = $retval;
     }
 
     /**
@@ -149,15 +152,15 @@ class PageSettings
      *
      * @return string
      */
-    private function _getPageSettingsDisplay(&$formDisplay, &$error)
+    private function getPageSettingsDisplay(&$formDisplay, &$error)
     {
         $response = Response::getInstance();
 
         $retval = '';
 
-        $this->_storeError($formDisplay, $error);
+        $this->storeError($formDisplay, $error);
 
-        $retval .= '<div id="' . $this->_elemId . '">';
+        $retval .= '<div id="' . $this->elemId . '">';
         $retval .= '<div class="page_settings">';
         $retval .= $formDisplay->getDisplay(
             true,
@@ -165,7 +168,7 @@ class PageSettings
             false,
             $response->getFooter()->getSelfUrl(),
             [
-                'submit_save' => $this->_groupName,
+                'submit_save' => $this->groupName,
             ]
         );
         $retval .= '</div>';
@@ -181,7 +184,7 @@ class PageSettings
      */
     public function getHTML()
     {
-        return $this->_HTML;
+        return $this->HTML;
     }
 
     /**
@@ -191,38 +194,6 @@ class PageSettings
      */
     public function getErrorHTML()
     {
-        return $this->_errorHTML;
-    }
-
-    /**
-     * Group to show for Page-related settings
-     *
-     * @param string $formGroupName The name of config form group to display
-     *
-     * @return PageSettings
-     */
-    public static function showGroup($formGroupName)
-    {
-        $object = new PageSettings($formGroupName);
-
-        $response = Response::getInstance();
-        $response->addHTML($object->getErrorHTML());
-        $response->addHTML($object->getHTML());
-
-        return $object;
-    }
-
-    /**
-     * Get HTML for navigation settings
-     *
-     * @return string
-     */
-    public static function getNaviSettings()
-    {
-        $object = new PageSettings('Navi', 'pma_navigation_settings');
-
-        $response = Response::getInstance();
-        $response->addHTML($object->getErrorHTML());
-        return $object->getHTML();
+        return $this->errorHTML;
     }
 }

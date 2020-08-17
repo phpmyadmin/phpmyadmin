@@ -2,10 +2,12 @@
 /**
  * Generates and renders the top menu
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Query\Utilities;
 use function array_key_exists;
 use function count;
 use function in_array;
@@ -28,14 +30,14 @@ class Menu
      * @access private
      * @var string
      */
-    private $_db;
+    private $db;
     /**
      * Table name
      *
      * @access private
      * @var string
      */
-    private $_table;
+    private $table;
 
     /** @var Relation */
     private $relation;
@@ -51,20 +53,10 @@ class Menu
      */
     public function __construct($db, $table)
     {
-        $this->_db = $db;
-        $this->_table = $table;
+        $this->db = $db;
+        $this->table = $table;
         $this->relation = new Relation($GLOBALS['dbi']);
         $this->template = new Template();
-    }
-
-    /**
-     * Prints the menu and the breadcrumbs
-     *
-     * @return void
-     */
-    public function display()
-    {
-        echo $this->getDisplay();
     }
 
     /**
@@ -74,8 +66,9 @@ class Menu
      */
     public function getDisplay()
     {
-        $retval  = $this->_getBreadcrumbs();
-        $retval .= $this->_getMenu();
+        $retval  = $this->getBreadcrumbs();
+        $retval .= $this->getMenu();
+
         return $retval;
     }
 
@@ -87,7 +80,7 @@ class Menu
     public function getHash()
     {
         return substr(
-            md5($this->_getMenu() . $this->_getBreadcrumbs()),
+            md5($this->getMenu() . $this->getBreadcrumbs()),
             0,
             8
         );
@@ -98,30 +91,33 @@ class Menu
      *
      * @return string HTML formatted menubar
      */
-    private function _getMenu(): string
+    private function getMenu(): string
     {
         $url_params = [];
 
-        if (strlen((string) $this->_table) > 0) {
-            $tabs = $this->_getTableTabs();
-            $url_params['db'] = $this->_db;
-            $url_params['table'] = $this->_table;
+        if (strlen((string) $this->table) > 0) {
+            $tabs = $this->getTableTabs();
+            $url_params['db'] = $this->db;
+            $url_params['table'] = $this->table;
             $level = 'table';
-        } elseif (strlen($this->_db) > 0) {
-            $tabs = $this->_getDbTabs();
-            $url_params['db'] = $this->_db;
+        } elseif (strlen($this->db) > 0) {
+            $tabs = $this->getDbTabs();
+            $url_params['db'] = $this->db;
             $level = 'db';
         } else {
-            $tabs = $this->_getServerTabs();
+            $tabs = $this->getServerTabs();
             $level = 'server';
         }
 
-        $allowedTabs = $this->_getAllowedTabs($level);
+        $allowedTabs = $this->getAllowedTabs($level);
         foreach ($tabs as $key => $value) {
-            if (! array_key_exists($key, $allowedTabs)) {
-                unset($tabs[$key]);
+            if (array_key_exists($key, $allowedTabs)) {
+                continue;
             }
+
+            unset($tabs[$key]);
         }
+
         return $this->template->render('top_menu', [
             'tabs' => $tabs,
             'url_params' => $url_params,
@@ -135,8 +131,11 @@ class Menu
      *
      * @return array list of allowed tabs
      */
-    private function _getAllowedTabs($level)
+    private function getAllowedTabs($level)
     {
+        /** @var DatabaseInterface $dbi */
+        global $dbi;
+
         $cache_key = 'menu-levels-' . $level;
         if (Util::cacheExists($cache_key)) {
             return Util::cacheGet($cache_key);
@@ -155,11 +154,11 @@ class Menu
                 . " AND `tab` LIKE '" . $level . "%'"
                 . ' AND `usergroup` = (SELECT usergroup FROM '
                 . $userTable . " WHERE `username` = '"
-                . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']) . "')";
+                . $dbi->escapeString($GLOBALS['cfg']['Server']['user']) . "')";
 
             $result = $this->relation->queryAsControlUser($sql_query, false);
             if ($result) {
-                while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
+                while ($row = $dbi->fetchAssoc($result)) {
                     $tabName = mb_substr(
                         $row['tab'],
                         mb_strpos($row['tab'], '_') + 1
@@ -169,6 +168,7 @@ class Menu
             }
         }
         Util::cacheSet($cache_key, $allowedTabs);
+
         return $allowedTabs;
     }
 
@@ -177,7 +177,7 @@ class Menu
      *
      * @return string HTML formatted breadcrumbs
      */
-    private function _getBreadcrumbs(): string
+    private function getBreadcrumbs(): string
     {
         global $cfg, $dbi;
 
@@ -197,20 +197,20 @@ class Menu
             'server'
         );
 
-        if (strlen($this->_db) > 0) {
-            $database['name'] = $this->_db;
+        if (strlen($this->db) > 0) {
+            $database['name'] = $this->db;
             $database['url'] = Util::getScriptNameForOption(
                 $cfg['DefaultTabDatabase'],
                 'database'
             );
-            if (strlen((string) $this->_table) > 0) {
-                $table['name'] = $this->_table;
+            if (strlen((string) $this->table) > 0) {
+                $table['name'] = $this->table;
                 $table['url'] = Util::getScriptNameForOption(
                     $cfg['DefaultTabTable'],
                     'table'
                 );
                 /** @var Table $tableObj */
-                $tableObj = $dbi->getTable($this->_db, $this->_table);
+                $tableObj = $dbi->getTable($this->db, $this->table);
                 $table['is_view'] = $tableObj->isView();
                 $table['comment'] = '';
                 if (! $table['is_view']) {
@@ -230,7 +230,7 @@ class Menu
                 // Get additional information about tables for tooltip is done
                 // in Util::getDbInfo() only once
                 if ($cfgRelation['commwork']) {
-                    $database['comment'] = $this->relation->getDbComment($this->_db);
+                    $database['comment'] = $this->relation->getDbComment($this->db);
                 }
             }
         }
@@ -247,21 +247,22 @@ class Menu
      *
      * @return array Data for generating table tabs
      */
-    private function _getTableTabs()
+    private function getTableTabs()
     {
-        global $route;
+        /** @var DatabaseInterface $dbi */
+        global $route, $dbi;
 
-        $db_is_system_schema = $GLOBALS['dbi']->isSystemSchema($this->_db);
-        $tbl_is_view = $GLOBALS['dbi']->getTable($this->_db, $this->_table)
+        $db_is_system_schema = Utilities::isSystemSchema($this->db);
+        $tbl_is_view = $dbi->getTable($this->db, $this->table)
             ->isView();
         $updatable_view = false;
         if ($tbl_is_view) {
-            $updatable_view = $GLOBALS['dbi']->getTable($this->_db, $this->_table)
+            $updatable_view = $dbi->getTable($this->db, $this->table)
                 ->isUpdatableView();
         }
-        $is_superuser = $GLOBALS['dbi']->isSuperuser();
-        $isCreateOrGrantUser = $GLOBALS['dbi']->isUserType('grant')
-            || $GLOBALS['dbi']->isUserType('create');
+        $is_superuser = $dbi->isSuperuser();
+        $isCreateOrGrantUser = $dbi->isUserType('grant')
+            || $dbi->isUserType('create');
 
         $tabs = [];
 
@@ -319,8 +320,8 @@ class Menu
             && ! $db_is_system_schema
         ) {
             $tabs['privileges']['route'] = '/server/privileges';
-            $tabs['privileges']['args']['checkprivsdb'] = $this->_db;
-            $tabs['privileges']['args']['checkprivstable'] = $this->_table;
+            $tabs['privileges']['args']['checkprivsdb'] = $this->db;
+            $tabs['privileges']['args']['checkprivstable'] = $this->table;
             // stay on table view
             $tabs['privileges']['args']['viewing_mode'] = 'table';
             $tabs['privileges']['text'] = __('Privileges');
@@ -355,8 +356,8 @@ class Menu
         if (! $db_is_system_schema
             && Util::currentUserHasPrivilege(
                 'TRIGGER',
-                $this->_db,
-                $this->_table
+                $this->db,
+                $this->table
             )
             && ! $tbl_is_view
         ) {
@@ -374,15 +375,16 @@ class Menu
      *
      * @return array Data for generating db tabs
      */
-    private function _getDbTabs()
+    private function getDbTabs()
     {
-        global $route;
+        /** @var DatabaseInterface $dbi */
+        global $route, $dbi;
 
-        $db_is_system_schema = $GLOBALS['dbi']->isSystemSchema($this->_db);
-        $num_tables = count($GLOBALS['dbi']->getTables($this->_db));
-        $is_superuser = $GLOBALS['dbi']->isSuperuser();
-        $isCreateOrGrantUser = $GLOBALS['dbi']->isUserType('grant')
-            || $GLOBALS['dbi']->isUserType('create');
+        $db_is_system_schema = Utilities::isSystemSchema($this->db);
+        $num_tables = count($dbi->getTables($this->db));
+        $is_superuser = $dbi->isSuperuser();
+        $isCreateOrGrantUser = $dbi->isUserType('grant')
+            || $dbi->isUserType('create');
 
         /**
          * Gets the relation settings
@@ -438,7 +440,7 @@ class Menu
 
             if ($is_superuser || $isCreateOrGrantUser) {
                 $tabs['privileges']['route'] = '/server/privileges';
-                $tabs['privileges']['args']['checkprivsdb'] = $this->_db;
+                $tabs['privileges']['args']['checkprivsdb'] = $this->db;
                 // stay on database view
                 $tabs['privileges']['args']['viewing_mode'] = 'db';
                 $tabs['privileges']['text'] = __('Privileges');
@@ -451,14 +453,14 @@ class Menu
             $tabs['routines']['icon'] = 'b_routines';
             $tabs['routines']['active'] = $route === '/database/routines';
 
-            if (Util::currentUserHasPrivilege('EVENT', $this->_db)) {
+            if (Util::currentUserHasPrivilege('EVENT', $this->db)) {
                 $tabs['events']['route'] = '/database/events';
                 $tabs['events']['text'] = __('Events');
                 $tabs['events']['icon'] = 'b_events';
                 $tabs['events']['active'] = $route === '/database/events';
             }
 
-            if (Util::currentUserHasPrivilege('TRIGGER', $this->_db)) {
+            if (Util::currentUserHasPrivilege('TRIGGER', $this->db)) {
                 $tabs['triggers']['route'] = '/database/triggers';
                 $tabs['triggers']['text'] = __('Triggers');
                 $tabs['triggers']['icon'] = 'b_triggers';
@@ -488,6 +490,7 @@ class Menu
             $tabs['central_columns']['route'] = '/database/central-columns';
             $tabs['central_columns']['active'] = $route === '/database/central-columns';
         }
+
         return $tabs;
     }
 
@@ -496,17 +499,18 @@ class Menu
      *
      * @return array Data for generating server tabs
      */
-    private function _getServerTabs()
+    private function getServerTabs()
     {
-        global $route;
+        /** @var DatabaseInterface $dbi */
+        global $route, $dbi;
 
-        $is_superuser = $GLOBALS['dbi']->isSuperuser();
-        $isCreateOrGrantUser = $GLOBALS['dbi']->isUserType('grant')
-            || $GLOBALS['dbi']->isUserType('create');
+        $is_superuser = $dbi->isSuperuser();
+        $isCreateOrGrantUser = $dbi->isUserType('grant')
+            || $dbi->isUserType('create');
         if (Util::cacheExists('binary_logs')) {
             $binary_logs = Util::cacheGet('binary_logs');
         } else {
-            $binary_logs = $GLOBALS['dbi']->fetchResult(
+            $binary_logs = $dbi->fetchResult(
                 'SHOW MASTER LOGS',
                 'Log_name',
                 null,
@@ -621,7 +625,8 @@ class Menu
      */
     public function setTable($table)
     {
-        $this->_table = $table;
+        $this->table = $table;
+
         return $this;
     }
 }

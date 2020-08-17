@@ -96,7 +96,7 @@ In order to install from Git, you'll need a few supporting applications:
 * `Git <https://git-scm.com/downloads>`_ to download the source, or you can download the most recent source directly from `Github <https://codeload.github.com/phpmyadmin/phpmyadmin/zip/master>`_
 * `Composer <https://getcomposer.org/download/>`__
 * `Node.js <https://nodejs.org/en/download/>`_ (version 10 or higher)
-* `Yarn <https://legacy.yarnpkg.com/en/docs/install>`_
+* `Yarn <https://classic.yarnpkg.com/en/docs/install>`_
 
 You can clone current phpMyAdmin source from
 ``https://github.com/phpmyadmin/phpmyadmin.git``:
@@ -122,7 +122,7 @@ Finally, you'll need to use `Yarn`_ to install some JavaScript dependencies:
 
 .. code-block:: sh
 
-    yarn install
+    yarn install --production
 
 .. _composer:
 
@@ -525,7 +525,7 @@ Or, if you prefer to not be prompted every time you log in:
     $i=0;
     $i++;
     $cfg['Servers'][$i]['user']          = 'root';
-    $cfg['Servers'][$i]['password']      = 'cbb74bc'; // use here your password
+    $cfg['Servers'][$i]['password']      = 'changeme'; // use here your password
     $cfg['Servers'][$i]['auth_type']     = 'config';
 
 .. warning::

@@ -2,6 +2,7 @@
 /**
  * The BerkeleyDB storage engine
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Engines;

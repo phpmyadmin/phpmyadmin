@@ -1,5 +1,6 @@
 {% extends 'table/page_with_secondary_tabs.twig' %}
 {% block content %}
+<h1 class="d-none d-print-block">{{table}}</h1>
 <form method="post" action="{{ url('/table/structure') }}" name="fieldsForm" id="fieldsForm"
     class="ajax{{ hide_structure_actions ? ' HideStructureActions' }}">
     {{ get_hidden_inputs(db, table) }}
@@ -99,7 +100,7 @@
             <td class="nowrap">{{ row['Extra']|upper }}</td>
             {% if not tbl_is_view and not db_is_system_schema %}
                 <td class="edit text-center print_ignore">
-                    <a class="change_column_anchor ajax" href="{{ url('/table/structure', url_params|merge({
+                    <a class="change_column_anchor ajax" href="{{ url('/table/structure/change', url_params|merge({
                       'db': db,
                       'table': table,
                       'field': row['Field'],
@@ -219,8 +220,8 @@
                                 or tbl_storage_engine == 'MARIA'
                                 or (tbl_storage_engine == 'INNODB' and mysql_int_version >= 50604)
                             ) and ('text' in type or 'char' in type) %}
-                            <a rel="samepage" class="ajax add_key add_fulltext_anchor" href="{{ url('/table/structure') }}"
-                                data-post="{{- url_query|raw }}&amp;add_key=1&amp;sql_query=
+                            <a rel="samepage" class="ajax add_key add_fulltext_anchor" href="{{ url('/table/structure/add-key') }}"
+                                data-post="{{- url_query|raw }}&amp;sql_query=
                                 {{- ('ALTER TABLE ' ~ backquote(table)
                                     ~ ' ADD FULLTEXT(' ~ backquote(row['Field'])
                                     ~ ');')|url_encode }}&amp;message_to_show=
@@ -276,97 +277,51 @@
             'form_name': 'fieldsForm'
         } only %}
 
-        {{ get_button_or_image(
-            'submit_mult',
-            'mult_submit',
-            'Browse'|trans,
-            'b_browse',
-            'browse'
-        ) }}
+        <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/browse') }}">
+          {{ get_icon('b_browse', 'Browse'|trans) }}
+        </button>
 
         {% if not tbl_is_view and not db_is_system_schema %}
-            {{ get_button_or_image(
-                'submit_mult',
-                'mult_submit change_columns_anchor ajax',
-                'Change'|trans,
-                'b_edit',
-                'change'
-            ) }}
-            {{ get_button_or_image(
-                'submit_mult',
-                'mult_submit',
-                'Drop'|trans,
-                'b_drop',
-                'drop'
-            ) }}
+          <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/change') }}">
+            {{ get_icon('b_edit', 'Change'|trans) }}
+          </button>
+          <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/drop-confirm') }}">
+            {{ get_icon('b_drop', 'Drop'|trans) }}
+          </button>
 
-            {% if tbl_storage_engine != 'ARCHIVE' %}
-                {{ get_button_or_image(
-                    'submit_mult',
-                    'mult_submit',
-                    'Primary'|trans,
-                    'b_primary',
-                    'primary'
-                ) }}
-                {{ get_button_or_image(
-                    'submit_mult',
-                    'mult_submit',
-                    'Unique'|trans,
-                    'b_unique',
-                    'unique'
-                ) }}
-                {{ get_button_or_image(
-                    'submit_mult',
-                    'mult_submit',
-                    'Index'|trans,
-                    'b_index',
-                    'index'
-                ) }}
-                {{ get_button_or_image(
-                    'submit_mult',
-                    'mult_submit',
-                    'Fulltext'|trans,
-                    'b_ftext',
-                    'ftext'
-                ) }}
+          {% if tbl_storage_engine != 'ARCHIVE' %}
+            <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/primary') }}">
+              {{ get_icon('b_primary', 'Primary'|trans) }}
+            </button>
+            <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/unique') }}">
+              {{ get_icon('b_unique', 'Unique'|trans) }}
+            </button>
+            <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/index') }}">
+              {{ get_icon('b_index', 'Index'|trans) }}
+            </button>
+            <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/spatial') }}">
+              {{ get_icon('b_spatial', 'Spatial'|trans) }}
+            </button>
+            <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/fulltext') }}">
+              {{ get_icon('b_ftext', 'Fulltext'|trans) }}
+            </button>
 
-                {% if tbl_storage_engine is not empty and (
-                    tbl_storage_engine == 'MYISAM'
-                    or tbl_storage_engine == 'ARIA'
-                    or tbl_storage_engine == 'MARIA') %}
-                    {{ get_button_or_image(
-                        'submit_mult',
-                        'mult_submit',
-                        'Fulltext'|trans,
-                        'b_ftext',
-                        'ftext'
-                    ) }}
-                {% endif %}
-
-                {% if central_columns_work %}
-                    {{ get_button_or_image(
-                        'submit_mult',
-                        'mult_submit',
-                        'Add to central columns'|trans,
-                        'centralColumns_add',
-                        'add_to_central_columns'
-                    ) }}
-                    {{ get_button_or_image(
-                        'submit_mult',
-                        'mult_submit',
-                        'Remove from central columns'|trans,
-                        'centralColumns_delete',
-                        'remove_from_central_columns'
-                    ) }}
-                {% endif %}
+            {% if central_columns_work %}
+              <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/central-columns-add') }}">
+                {{ get_icon('centralColumns_add', 'Add to central columns'|trans) }}
+              </button>
+              <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/central-columns-remove') }}">
+                {{ get_icon('centralColumns_delete', 'Remove from central columns'|trans) }}
+              </button>
             {% endif %}
+          {% endif %}
         {% endif %}
     </div>
 </form>
 <hr class="print_ignore">
 <div id="move_columns_dialog" class="hide" title="{% trans 'Move columns' %}">
     <p>{% trans 'Move the columns by dragging them up and down.' %}</p>
-    <form action="{{ url('/table/structure') }}" name="move_column_form" id="move_column_form">
+    <form action="{{ url('/table/structure/move-columns') }}" name="move_column_form" id="move_column_form">
         <div>
             {{ get_hidden_inputs(db, table) }}
             <ul></ul>
@@ -575,12 +530,9 @@
             {% set action_icons = action_icons|merge({'DROP': get_icon('b_drop', 'Drop'|trans)}) %}
         {% endif %}
 
-        {# open Slider Effect div #}
-        {% include 'div_for_slider_effect.twig' with {
-            'id': 'partitions-2',
-            'message': 'Partitions'|trans,
-            'initial_sliders_state': default_sliders_state
-        } only %}
+        <div id="partitions-2"{% if default_sliders_state != 'disabled' -%}
+            {{- default_sliders_state == 'closed' ? ' style="display: none; overflow:auto;"' }} class="pma_auto_slider" title="{% trans 'Partitions' %}"
+        {%- endif %}>
 
         {% set remove_sql = 'ALTER TABLE ' ~ backquote(table) ~ ' REMOVE PARTITIONING' %}
         {% set remove_url = url('/sql') ~ url_query ~ '&sql_query=' ~ remove_sql|url_encode %}
@@ -606,7 +558,6 @@
             'table': table
         } only %}
     {% endif %}
-    {# For closing Slider effect div #}
     </div>
 {% endif %}
 

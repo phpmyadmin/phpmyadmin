@@ -2,20 +2,21 @@
 /**
  * Test for PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * Tests for PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild class
  */
-class NodeDatabaseChildTest extends PmaTestCase
+class NodeDatabaseChildTest extends AbstractTestCase
 {
     /**
      * Mock of NodeDatabaseChild
@@ -31,6 +32,10 @@ class NodeDatabaseChildTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
+        parent::setTheme();
+        parent::setLanguage();
         $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
         $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
         $GLOBALS['server'] = 1;
@@ -51,17 +56,16 @@ class NodeDatabaseChildTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 
     /**
      * Tests getHtmlForControlButtons() method
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetHtmlForControlButtons()
+    public function testGetHtmlForControlButtons(): void
     {
         $parent = NodeFactory::getInstance('NodeDatabase', 'parent');
         $parent->addChild($this->object);

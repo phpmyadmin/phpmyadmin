@@ -2,28 +2,31 @@
 /**
  * Holds DatabasesControllerTest class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\DatabasesController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Message;
+use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Transformations;
 use stdClass;
 use function sprintf;
 
 /**
  * Tests for DatabasesController class
  */
-class DatabasesControllerTest extends TestCase
+class DatabasesControllerTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setUp();
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
 
         $GLOBALS['server'] = 1;
@@ -45,12 +48,21 @@ class DatabasesControllerTest extends TestCase
             'employees',
         ];
 
+        $template = new Template();
+        $transformations = new Transformations();
+        $relationCleanup = new RelationCleanup(
+            $GLOBALS['dbi'],
+            new Relation($GLOBALS['dbi'], $template)
+        );
+
         $response = new Response();
 
         $controller = new DatabasesController(
             $response,
             $GLOBALS['dbi'],
-            new Template()
+            $template,
+            $transformations,
+            $relationCleanup
         );
 
         $controller->index();
@@ -77,7 +89,9 @@ class DatabasesControllerTest extends TestCase
         $controller = new DatabasesController(
             $response,
             $GLOBALS['dbi'],
-            new Template()
+            $template,
+            $transformations,
+            $relationCleanup
         );
 
         $cfg['ShowCreateDb'] = true;
@@ -102,10 +116,7 @@ class DatabasesControllerTest extends TestCase
         $this->assertStringContainsString('name="db_collation"', $actual);
     }
 
-    /**
-     * @return void
-     */
-    public function testCreateDatabaseAction()
+    public function testCreateDatabaseAction(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -116,10 +127,14 @@ class DatabasesControllerTest extends TestCase
         $response = new Response();
         $response->setAjax(true);
 
+        $template = new Template();
+        $transformations = new Transformations();
         $controller = new DatabasesController(
             $response,
             $dbi,
-            new Template()
+            $template,
+            $transformations,
+            new RelationCleanup($dbi, new Relation($dbi, $template))
         );
 
         $_POST['new_db'] = 'pma_test';
@@ -140,7 +155,9 @@ class DatabasesControllerTest extends TestCase
         $controller = new DatabasesController(
             $response,
             $dbi,
-            new Template()
+            $template,
+            $transformations,
+            new RelationCleanup($dbi, new Relation($dbi, $template))
         );
 
         $_POST['db_collation'] = 'utf8_general_ci';
@@ -156,10 +173,7 @@ class DatabasesControllerTest extends TestCase
         );
     }
 
-    /**
-     * @return void
-     */
-    public function testDropDatabasesAction()
+    public function testDropDatabasesAction(): void
     {
         global $cfg;
 
@@ -172,10 +186,13 @@ class DatabasesControllerTest extends TestCase
 
         $cfg['AllowUserDropDatabase'] = true;
 
+        $template = new Template();
         $controller = new DatabasesController(
             $response,
             $dbi,
-            new Template()
+            $template,
+            new Transformations(),
+            new RelationCleanup($dbi, new Relation($dbi, $template))
         );
 
         $_POST['drop_selected_dbs'] = '1';

@@ -15,6 +15,7 @@
  *
  * All directives are explained in the documentation
  */
+
 declare(strict_types=1);
 
 /**
@@ -835,6 +836,13 @@ $cfg['AllowArbitraryServer'] = false;
 $cfg['ArbitraryServerRegexp'] = '';
 
 /**
+ * To enable reCaptcha v2 checkbox mode if necessary
+ *
+ * @global string $cfg['CaptchaMethod']
+ */
+$cfg['CaptchaMethod'] = 'invisible';
+
+/**
  * if reCaptcha is enabled it needs public key to connect with the service
  *
  * @global string $cfg['CaptchaLoginPublicKey']
@@ -847,6 +855,13 @@ $cfg['CaptchaLoginPublicKey'] = '';
  * @global string $cfg['CaptchaLoginPrivateKey']
  */
 $cfg['CaptchaLoginPrivateKey'] = '';
+
+/**
+ * if reCaptcha is enabled may need an URL for site verify
+ *
+ * @global string $cfg['CaptchaSiteVerifyURL']
+ */
+$cfg['CaptchaSiteVerifyURL'] = '';
 
 /**
  * Enable drag and drop import
@@ -2393,13 +2408,11 @@ $cfg['AvailableCharsets'] = [
 /*******************************************************************************
  * Customization & design
  *
- * The graphical settings are now located in themes/theme-name/layout.inc.php
+ * The graphical settings are now located in themes/theme-name/scss/_variables.scss
  */
 
 /**
  * enable the left panel pointer
- * see also LeftPointerColor
- * in layout.inc.php
  *
  * @global boolean $cfg['NavigationTreePointerEnable']
  */
@@ -2407,8 +2420,6 @@ $cfg['NavigationTreePointerEnable'] = true;
 
 /**
  * enable the browse pointer
- * see also BrowsePointerColor
- * in layout.inc.php
  *
  * @global boolean $cfg['BrowsePointerEnable']
  */
@@ -2416,8 +2427,6 @@ $cfg['BrowsePointerEnable'] = true;
 
 /**
  * enable the browse marker
- * see also BrowseMarkerColor
- * in layout.inc.php
  *
  * @global boolean $cfg['BrowseMarkerEnable']
  */

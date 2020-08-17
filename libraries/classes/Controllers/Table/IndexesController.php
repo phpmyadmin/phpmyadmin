@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
@@ -35,6 +36,7 @@ class IndexesController extends AbstractController
 
         if (isset($_POST['do_save_data'])) {
             $this->doSaveData($index);
+
             return;
         }
 
@@ -67,7 +69,7 @@ class IndexesController extends AbstractController
         if (isset($_POST['create_edit_table'])) {
             $fields = json_decode($_POST['columns'], true);
             $index_params = [
-                'Non_unique' => $_POST['index']['Index_choice'] == 'UNIQUE'
+                'Non_unique' => $_POST['index']['Index_choice'] === 'UNIQUE'
                     ? '0' : '1',
             ];
             $index->set($index_params);
@@ -90,18 +92,16 @@ class IndexesController extends AbstractController
             $form_params['old_index'] = $_POST['index'];
         }
 
-        $this->response->getHeader()->getScripts()->addFile('indexes.js');
+        $this->addScriptFiles(['indexes.js']);
 
-        $this->response->addHTML(
-            $this->template->render('table/index_form', [
-                'fields' => $fields,
-                'index' => $index,
-                'form_params' => $form_params,
-                'add_fields' => $add_fields,
-                'create_edit_table' => isset($_POST['create_edit_table']),
-                'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
-            ])
-        );
+        $this->render('table/index_form', [
+            'fields' => $fields,
+            'index' => $index,
+            'form_params' => $form_params,
+            'add_fields' => $add_fields,
+            'create_edit_table' => isset($_POST['create_edit_table']),
+            'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
+        ]);
     }
 
     /**

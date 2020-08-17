@@ -2,6 +2,7 @@
 /**
  * Tests for PhpMyAdmin\Database\Qbe
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Database;
@@ -10,15 +11,14 @@ use PhpMyAdmin\Database\Qbe;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Tests\PmaTestCase;
-use ReflectionClass;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PhpMyAdmin\Database\Qbe class
  */
-class QbeTest extends PmaTestCase
+class QbeTest extends AbstractTestCase
 {
-    /** @access protected */
+    /** @var Qbe */
     protected $object;
 
     /**
@@ -29,9 +29,11 @@ class QbeTest extends PmaTestCase
      */
     protected function setUp(): void
     {
-        $this->object = new Qbe(new Relation($GLOBALS['dbi']), new Template(), $GLOBALS['dbi'], 'pma_test');
+        parent::setUp();
+        parent::defineVersionConstants();
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'pma_test';
+        $this->object = new Qbe(new Relation($GLOBALS['dbi']), new Template(), $GLOBALS['dbi'], 'pma_test');
         //mock DBI
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -70,46 +72,34 @@ class QbeTest extends PmaTestCase
     }
 
     /**
-     * Call protected functions by setting visibility to public.
-     *
-     * @param string $name   method name
-     * @param array  $params parameters for the invocation
-     *
-     * @return mixed the output from the protected method.
+     * Test for getSortSelectCell
      */
-    private function _callProtectedFunction($name, $params)
-    {
-        $class = new ReflectionClass(Qbe::class);
-        $method = $class->getMethod($name);
-        $method->setAccessible(true);
-        return $method->invokeArgs($this->object, $params);
-    }
-
-    /**
-     * Test for _getSortSelectCell
-     *
-     * @return void
-     */
-    public function testGetSortSelectCell()
+    public function testGetSortSelectCell(): void
     {
         $this->assertStringContainsString(
             'style="width:12ex" name="criteriaSort[1]"',
-            $this->_callProtectedFunction(
-                '_getSortSelectCell',
+            $this->callFunction(
+                $this->object,
+                Qbe::class,
+                'getSortSelectCell',
                 [1]
             )
         );
         $this->assertStringNotContainsString(
             'selected="selected"',
-            $this->_callProtectedFunction(
-                '_getSortSelectCell',
+            $this->callFunction(
+                $this->object,
+                Qbe::class,
+                'getSortSelectCell',
                 [1]
             )
         );
         $this->assertStringContainsString(
             'value="ASC" selected="selected">',
-            $this->_callProtectedFunction(
-                '_getSortSelectCell',
+            $this->callFunction(
+                $this->object,
+                Qbe::class,
+                'getSortSelectCell',
                 [
                     1,
                     'ASC',
@@ -119,41 +109,43 @@ class QbeTest extends PmaTestCase
     }
 
     /**
-     * Test for _getSortRow
-     *
-     * @return void
+     * Test for getSortRow
      */
-    public function testGetSortRow()
+    public function testGetSortRow(): void
     {
         $this->assertStringContainsString(
             'name="criteriaSort[0]"',
-            $this->_callProtectedFunction(
-                '_getSortRow',
+            $this->callFunction(
+                $this->object,
+                Qbe::class,
+                'getSortRow',
                 []
             )
         );
         $this->assertStringContainsString(
             'name="criteriaSort[1]"',
-            $this->_callProtectedFunction(
-                '_getSortRow',
+            $this->callFunction(
+                $this->object,
+                Qbe::class,
+                'getSortRow',
                 []
             )
         );
         $this->assertStringContainsString(
             'name="criteriaSort[2]"',
-            $this->_callProtectedFunction(
-                '_getSortRow',
+            $this->callFunction(
+                $this->object,
+                Qbe::class,
+                'getSortRow',
                 []
             )
         );
     }
 
     /**
-     * Test for _getShowRow
-     *
-     * @return void
+     * Test for getShowRow
      */
-    public function testGetShowRow()
+    public function testGetShowRow(): void
     {
         $this->assertEquals(
             '<td class="text-center"><input type'
@@ -161,19 +153,19 @@ class QbeTest extends PmaTestCase
             . '<input type="checkbox" name="criteriaShow[1]"></td><td '
             . 'class="text-center"><input type="checkbox" name="criteriaShow[2]">'
             . '</td>',
-            $this->_callProtectedFunction(
-                '_getShowRow',
+            $this->callFunction(
+                $this->object,
+                Qbe::class,
+                'getShowRow',
                 []
             )
         );
     }
 
     /**
-     * Test for _getCriteriaInputboxRow
-     *
-     * @return void
+     * Test for getCriteriaInputboxRow
      */
-    public function testGetCriteriaInputboxRow()
+    public function testGetCriteriaInputboxRow(): void
     {
         $this->assertEquals(
             '<td class="text-center">'
@@ -186,19 +178,19 @@ class QbeTest extends PmaTestCase
             . '<input type="hidden" name="prev_criteria[2]" value="">'
             . '<input type="text" name="criteria[2]" value="" class="textfield" '
             . 'style="width: 12ex" size="20"></td>',
-            $this->_callProtectedFunction(
-                '_getCriteriaInputboxRow',
+            $this->callFunction(
+                $this->object,
+                Qbe::class,
+                'getCriteriaInputboxRow',
                 []
             )
         );
     }
 
     /**
-     * Test for _getAndOrColCell
-     *
-     * @return void
+     * Test for getAndOrColCell
      */
-    public function testGetAndOrColCell()
+    public function testGetAndOrColCell(): void
     {
         $this->assertEquals(
             '<td class="text-center"><strong>Or:</strong><input type="radio" '
@@ -207,19 +199,19 @@ class QbeTest extends PmaTestCase
             . '"and"><br>Ins<input type="checkbox" name="criteriaColumnInsert'
             . '[1]">&nbsp;&nbsp;Del<input type="checkbox" '
             . 'name="criteriaColumnDelete[1]"></td>',
-            $this->_callProtectedFunction(
-                '_getAndOrColCell',
+            $this->callFunction(
+                $this->object,
+                Qbe::class,
+                'getAndOrColCell',
                 [1]
             )
         );
     }
 
     /**
-     * Test for _getModifyColumnsRow
-     *
-     * @return void
+     * Test for getModifyColumnsRow
      */
-    public function testGetModifyColumnsRow()
+    public function testGetModifyColumnsRow(): void
     {
         $this->assertEquals(
             '<td class="text-center"><strong>'
@@ -236,19 +228,19 @@ class QbeTest extends PmaTestCase
             . 'name="criteriaColumnDelete[1]"></td><td class="text-center"><br>Ins'
             . '<input type="checkbox" name="criteriaColumnInsert[2]">&nbsp;&nbsp;'
             . 'Del<input type="checkbox" name="criteriaColumnDelete[2]"></td>',
-            $this->_callProtectedFunction(
-                '_getModifyColumnsRow',
+            $this->callFunction(
+                $this->object,
+                Qbe::class,
+                'getModifyColumnsRow',
                 []
             )
         );
     }
 
     /**
-     * Test for _getInputboxRow
-     *
-     * @return void
+     * Test for getInputboxRow
      */
-    public function testGetInputboxRow()
+    public function testGetInputboxRow(): void
     {
         $this->assertEquals(
             '<td class="text-center"><input type="text" name="Or2[0]" value="" class='
@@ -257,22 +249,24 @@ class QbeTest extends PmaTestCase
             . 'style="width: 12ex" size="20"></td><td class="text-center"><input '
             . 'type="text" name="Or2[2]" value="" class="textfield" style="width: '
             . '12ex" size="20"></td>',
-            $this->_callProtectedFunction(
-                '_getInputboxRow',
+            $this->callFunction(
+                $this->object,
+                Qbe::class,
+                'getInputboxRow',
                 [2]
             )
         );
     }
 
     /**
-     * Test for _getInsDelAndOrCriteriaRows
-     *
-     * @return void
+     * Test for getInsDelAndOrCriteriaRows
      */
-    public function testGetInsDelAndOrCriteriaRows()
+    public function testGetInsDelAndOrCriteriaRows(): void
     {
-        $actual = $this->_callProtectedFunction(
-            '_getInsDelAndOrCriteriaRows',
+        $actual = $this->callFunction(
+            $this->object,
+            Qbe::class,
+            'getInsDelAndOrCriteriaRows',
             [
                 2,
                 3,
@@ -292,67 +286,67 @@ class QbeTest extends PmaTestCase
     }
 
     /**
-     * Test for _getSelectClause
-     *
-     * @return void
+     * Test for getSelectClause
      */
-    public function testGetSelectClause()
+    public function testGetSelectClause(): void
     {
         $this->assertEquals(
             '',
-            $this->_callProtectedFunction(
-                '_getSelectClause',
+            $this->callFunction(
+                $this->object,
+                Qbe::class,
+                'getSelectClause',
                 []
             )
         );
     }
 
     /**
-     * Test for _getWhereClause
-     *
-     * @return void
+     * Test for getWhereClause
      */
-    public function testGetWhereClause()
+    public function testGetWhereClause(): void
     {
         $this->assertEquals(
             '',
-            $this->_callProtectedFunction(
-                '_getWhereClause',
+            $this->callFunction(
+                $this->object,
+                Qbe::class,
+                'getWhereClause',
                 []
             )
         );
     }
 
     /**
-     * Test for _getOrderByClause
-     *
-     * @return void
+     * Test for getOrderByClause
      */
-    public function testGetOrderByClause()
+    public function testGetOrderByClause(): void
     {
         $this->assertEquals(
             '',
-            $this->_callProtectedFunction(
-                '_getOrderByClause',
+            $this->callFunction(
+                $this->object,
+                Qbe::class,
+                'getOrderByClause',
                 []
             )
         );
     }
 
     /**
-     * Test for _getIndexes
-     *
-     * @return void
+     * Test for getIndexes
      */
-    public function testGetIndexes()
+    public function testGetIndexes(): void
     {
         $this->assertEquals(
             [
                 'unique' => [],
                 'index' => [],
             ],
-            $this->_callProtectedFunction(
-                '_getIndexes',
+            $this->callFunction(
+                $this->object,
+                Qbe::class,
+                'getIndexes',
                 [
                     [
                         '`table1`',
@@ -370,18 +364,16 @@ class QbeTest extends PmaTestCase
     }
 
     /**
-     * Test for _getLeftJoinColumnCandidates
-     *
-     * @return void
+     * Test for getLeftJoinColumnCandidates
      */
-    public function testGetLeftJoinColumnCandidates()
+    public function testGetLeftJoinColumnCandidates(): void
     {
         $this->assertEquals(
-            [
-                0 => 'column2',
-            ],
-            $this->_callProtectedFunction(
-                '_getLeftJoinColumnCandidates',
+            [0 => 'column2'],
+            $this->callFunction(
+                $this->object,
+                Qbe::class,
+                'getLeftJoinColumnCandidates',
                 [
                     [
                         '`table1`',
@@ -399,16 +391,16 @@ class QbeTest extends PmaTestCase
     }
 
     /**
-     * Test for _getMasterTable
-     *
-     * @return void
+     * Test for getMasterTable
      */
-    public function testGetMasterTable()
+    public function testGetMasterTable(): void
     {
         $this->assertEquals(
             0,
-            $this->_callProtectedFunction(
-                '_getMasterTable',
+            $this->callFunction(
+                $this->object,
+                Qbe::class,
+                'getMasterTable',
                 [
                     [
                         'table1',
@@ -427,11 +419,9 @@ class QbeTest extends PmaTestCase
     }
 
     /**
-     * Test for _getWhereClauseTablesAndColumns
-     *
-     * @return void
+     * Test for getWhereClauseTablesAndColumns
      */
-    public function testGetWhereClauseTablesAndColumns()
+    public function testGetWhereClauseTablesAndColumns(): void
     {
         $_POST['criteriaColumn'] = [
             'table1.id',
@@ -444,19 +434,19 @@ class QbeTest extends PmaTestCase
                 'where_clause_tables' => [],
                 'where_clause_columns' => [],
             ],
-            $this->_callProtectedFunction(
-                '_getWhereClauseTablesAndColumns',
+            $this->callFunction(
+                $this->object,
+                Qbe::class,
+                'getWhereClauseTablesAndColumns',
                 []
             )
         );
     }
 
     /**
-     * Test for _getFromClause
-     *
-     * @return void
+     * Test for getFromClause
      */
-    public function testGetFromClause()
+    public function testGetFromClause(): void
     {
         $_POST['criteriaColumn'] = [
             'table1.id',
@@ -466,19 +456,19 @@ class QbeTest extends PmaTestCase
         ];
         $this->assertEquals(
             '`table1`',
-            $this->_callProtectedFunction(
-                '_getFromClause',
+            $this->callFunction(
+                $this->object,
+                Qbe::class,
+                'getFromClause',
                 [['`table1`.`id`']]
             )
         );
     }
 
     /**
-     * Test for _getSQLQuery
-     *
-     * @return void
+     * Test for getSQLQuery
      */
-    public function testGetSQLQuery()
+    public function testGetSQLQuery(): void
     {
         $_POST['criteriaColumn'] = [
             'table1.id',
@@ -488,8 +478,10 @@ class QbeTest extends PmaTestCase
         ];
         $this->assertEquals(
             'FROM `table1`' . "\n",
-            $this->_callProtectedFunction(
-                '_getSQLQuery',
+            $this->callFunction(
+                $this->object,
+                Qbe::class,
+                'getSQLQuery',
                 [['`table1`.`id`']]
             )
         );

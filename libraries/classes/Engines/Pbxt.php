@@ -2,6 +2,7 @@
 /**
  * The PBXT storage engine
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Engines;
@@ -178,7 +179,7 @@ class Pbxt extends StorageEngine
      */
     public function getPageDocumentation()
     {
-        $output = '<p>' . sprintf(
+        return '<p>' . sprintf(
             __(
                 'Documentation and further information about PBXT'
                 . ' can be found on the %sPrimeBase XT Home Page%s.'
@@ -188,7 +189,5 @@ class Pbxt extends StorageEngine
             '</a>'
         )
         . '</p>' . "\n";
-
-        return $output;
     }
 }

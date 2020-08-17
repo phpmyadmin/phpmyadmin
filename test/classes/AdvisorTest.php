@@ -2,18 +2,18 @@
 /**
  * tests for Advisor class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Advisor;
-use PhpMyAdmin\Config;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 /**
  * Tests behaviour of PMA_Advisor class
  */
-class AdvisorTest extends PmaTestCase
+class AdvisorTest extends AbstractTestCase
 {
     /**
      * Sets up the fixture, for example, opens a network connection.
@@ -21,7 +21,8 @@ class AdvisorTest extends PmaTestCase
      */
     protected function setUp(): void
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setUp();
+        parent::setGlobalConfig();
         $GLOBALS['server'] = 1;
     }
 
@@ -33,17 +34,12 @@ class AdvisorTest extends PmaTestCase
      *
      * @dataProvider escapeStrings
      */
-    public function testEscape($text, $expected): void
+    public function testEscape(string $text, string $expected): void
     {
         $this->assertEquals(Advisor::escapePercent($text), $expected);
     }
 
-    /**
-     * return of escape Strings
-     *
-     * @return array
-     */
-    public function escapeStrings()
+    public function escapeStrings(): array
     {
         return [
             [
@@ -67,10 +63,8 @@ class AdvisorTest extends PmaTestCase
 
     /**
      * test for parseRulesFile
-     *
-     * @return void
      */
-    public function testParse()
+    public function testParse(): void
     {
         $advisor = new Advisor($GLOBALS['dbi'], new ExpressionLanguage());
         $parseResult = $advisor->parseRulesFile(Advisor::GENERIC_RULES_FILE);
@@ -85,16 +79,13 @@ class AdvisorTest extends PmaTestCase
      *
      * @dataProvider advisorTimes
      */
-    public function testAdvisorBytime($time, $expected): void
+    public function testAdvisorBytime(float $time, string $expected): void
     {
         $result = Advisor::byTime($time, 2);
         $this->assertEquals($expected, $result);
     }
 
-    /**
-     * @return array
-     */
-    public function advisorTimes()
+    public function advisorTimes(): array
     {
         return [
             [
@@ -122,10 +113,8 @@ class AdvisorTest extends PmaTestCase
 
     /**
      * test for Advisor::timespanFormat
-     *
-     * @return void
      */
-    public function testAdvisorTimespanFormat()
+    public function testAdvisorTimespanFormat(): void
     {
         $result = Advisor::timespanFormat(1200);
         $this->assertEquals('0 days, 0 hours, 20 minutes and 0 seconds', $result);
@@ -137,15 +126,17 @@ class AdvisorTest extends PmaTestCase
     /**
      * Test for adding rule
      *
-     * @param array  $rule     Rule to test
-     * @param array  $expected Expected rendered rule in fired/errors list
-     * @param string $error    Expected error string (null if none error expected)
+     * @param array       $rule     Rule to test
+     * @param array       $expected Expected rendered rule in fired/errors list
+     * @param string|null $error    Expected error string (null if none error expected)
      *
      * @depends testParse
      * @dataProvider rulesProvider
      */
-    public function testAddRule($rule, $expected, $error): void
+    public function testAddRule(array $rule, array $expected, ?string $error): void
     {
+        parent::loadDefaultConfig();
+        parent::setLanguage();
         $advisor = new Advisor($GLOBALS['dbi'], new ExpressionLanguage());
         $parseResult = $advisor->parseRulesFile(Advisor::GENERIC_RULES_FILE);
         $this->assertEquals($parseResult['errors'], []);
@@ -155,17 +146,14 @@ class AdvisorTest extends PmaTestCase
         if (isset($runResult['errors']) || $error !== null) {
             $this->assertEquals([$error], $runResult['errors']);
         }
-        if (isset($runResult['fired']) || $expected != []) {
-            $this->assertEquals([$expected], $runResult['fired']);
+        if (! isset($runResult['fired']) && $expected == []) {
+            return;
         }
+
+        $this->assertEquals([$expected], $runResult['fired']);
     }
 
-    /**
-     * rules Provider
-     *
-     * @return array
-     */
-    public function rulesProvider()
+    public function rulesProvider(): array
     {
         return [
             [

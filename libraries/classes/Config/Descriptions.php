@@ -2,6 +2,7 @@
 /**
  * Verbose descriptions for settings.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Config;
@@ -43,7 +44,7 @@ class Descriptions
 
         /* Fallback to path for name and empty string for description and comment */
         if ($value === null) {
-            if ($type == 'name') {
+            if ($type === 'name') {
                 $value = $path;
             } else {
                 $value = '';
@@ -64,7 +65,9 @@ class Descriptions
     public static function getString($path, $type = 'name')
     {
         $descriptions = [
-            'AllowArbitraryServer_desc' => __('If enabled, user can enter any MySQL server in login form for cookie auth.'),
+            'AllowArbitraryServer_desc' => __(
+                'If enabled, user can enter any MySQL server in login form for cookie auth.'
+            ),
             'AllowArbitraryServer_name' => __('Allow login to any MySQL server'),
             'ArbitraryServerRegexp_desc' => __(
                 'Restricts the MySQL servers the user can enter when a login to an arbitrary '
@@ -143,30 +146,59 @@ class Descriptions
             'DefaultTabServer_name' => __('Default server tab'),
             'DefaultTabTable_desc' => __('Tab that is displayed when entering a table.'),
             'DefaultTabTable_name' => __('Default table tab'),
-            'EnableAutocompleteForTablesAndColumns_desc' => __('Autocomplete of the table and column names in the SQL queries.'),
+            'EnableAutocompleteForTablesAndColumns_desc' => __(
+                'Autocomplete of the table and column names in the SQL queries.'
+            ),
             'EnableAutocompleteForTablesAndColumns_name' => __('Enable autocomplete for table and column names'),
             'HideStructureActions_desc' => __('Whether the table structure actions should be hidden.'),
             'ShowColumnComments_name' => __('Show column comments'),
             'ShowColumnComments_desc' => __('Whether column comments should be shown in table structure view'),
             'HideStructureActions_name' => __('Hide table structure actions'),
             'DefaultTransformations_Hex_name' => __('Default transformations for Hex'),
-            'DefaultTransformations_Hex_desc' => __('Values for options list for default transformations. These will be overwritten if transformation is filled in at table structure page.'),
+            'DefaultTransformations_Hex_desc' => __(
+                'Values for options list for default transformations. These will be overwritten if'
+                . ' transformation is filled in at table structure page.'
+            ),
             'DefaultTransformations_Substring_name' => __('Default transformations for Substring'),
-            'DefaultTransformations_Substring_desc' => __('Values for options list for default transformations. These will be overwritten if transformation is filled in at table structure page.'),
+            'DefaultTransformations_Substring_desc' => __(
+                'Values for options list for default transformations. These will be overwritten if'
+                . ' transformation is filled in at table structure page.'
+            ),
             'DefaultTransformations_Bool2Text_name' => __('Default transformations for Bool2Text'),
-            'DefaultTransformations_Bool2Text_desc' => __('Values for options list for default transformations. These will be overwritten if transformation is filled in at table structure page.'),
+            'DefaultTransformations_Bool2Text_desc' => __(
+                'Values for options list for default transformations. These will be overwritten if'
+                . ' transformation is filled in at table structure page.'
+            ),
             'DefaultTransformations_External_name' => __('Default transformations for External'),
-            'DefaultTransformations_External_desc' => __('Values for options list for default transformations. These will be overwritten if transformation is filled in at table structure page.'),
+            'DefaultTransformations_External_desc' => __(
+                'Values for options list for default transformations. These will be overwritten if'
+                . ' transformation is filled in at table structure page.'
+            ),
             'DefaultTransformations_PreApPend_name' => __('Default transformations for PreApPend'),
-            'DefaultTransformations_PreApPend_desc' => __('Values for options list for default transformations. These will be overwritten if transformation is filled in at table structure page.'),
+            'DefaultTransformations_PreApPend_desc' => __(
+                'Values for options list for default transformations. These will be overwritten if'
+                . ' transformation is filled in at table structure page.'
+            ),
             'DefaultTransformations_DateFormat_name' => __('Default transformations for DateFormat'),
-            'DefaultTransformations_DateFormat_desc' => __('Values for options list for default transformations. These will be overwritten if transformation is filled in at table structure page.'),
+            'DefaultTransformations_DateFormat_desc' => __(
+                'Values for options list for default transformations. These will be overwritten if'
+                . ' transformation is filled in at table structure page.'
+            ),
             'DefaultTransformations_Inline_name' => __('Default transformations for Inline'),
-            'DefaultTransformations_Inline_desc' => __('Values for options list for default transformations. These will be overwritten if transformation is filled in at table structure page.'),
+            'DefaultTransformations_Inline_desc' => __(
+                'Values for options list for default transformations. These will be overwritten if'
+                . ' transformation is filled in at table structure page.'
+            ),
             'DefaultTransformations_TextImageLink_name' => __('Default transformations for TextImageLink'),
-            'DefaultTransformations_TextImageLink_desc' => __('Values for options list for default transformations. These will be overwritten if transformation is filled in at table structure page.'),
+            'DefaultTransformations_TextImageLink_desc' => __(
+                'Values for options list for default transformations. These will be overwritten if'
+                . ' transformation is filled in at table structure page.'
+            ),
             'DefaultTransformations_TextLink_name' => __('Default transformations for TextLink'),
-            'DefaultTransformations_TextLink_desc' => __('Values for options list for default transformations. These will be overwritten if transformation is filled in at table structure page.'),
+            'DefaultTransformations_TextLink_desc' => __(
+                'Values for options list for default transformations. These will be overwritten if'
+                . ' transformation is filled in at table structure page.'
+            ),
 
             'DisplayServersList_desc' => __('Show server listing as a list instead of a drop down.'),
             'DisplayServersList_name' => __('Display servers as a list'),
@@ -451,7 +483,9 @@ class Descriptions
             'LoginCookieValidity_name' => __('Login cookie validity'),
             'LongtextDoubleTextarea_desc' => __('Double size of textarea for LONGTEXT columns.'),
             'LongtextDoubleTextarea_name' => __('Bigger textarea for LONGTEXT'),
-            'MaxCharactersInDisplayedSQL_desc' => __('Maximum number of characters used when a SQL query is displayed.'),
+            'MaxCharactersInDisplayedSQL_desc' => __(
+                'Maximum number of characters used when a SQL query is displayed.'
+            ),
             'MaxCharactersInDisplayedSQL_name' => __('Maximum displayed SQL length'),
             'MaxDbList_cmt' => __('Users cannot set a higher value'),
             'MaxDbList_desc' => __('Maximum number of databases displayed in database list.'),
@@ -461,7 +495,9 @@ class Descriptions
                 . ' of the navigation tree.'
             ),
             'FirstLevelNavigationItems_name' => __('Maximum items on first level'),
-            'MaxNavigationItems_desc' => __('The number of items that can be displayed on each page of the navigation tree.'),
+            'MaxNavigationItems_desc' => __(
+                'The number of items that can be displayed on each page of the navigation tree.'
+            ),
             'MaxNavigationItems_name' => __('Maximum items in branch'),
             'MaxRows_desc' => __(
                 'Number of rows displayed when browsing a result set. If the result set '
@@ -473,15 +509,19 @@ class Descriptions
             'MaxTableList_desc' => __('Maximum number of tables displayed in table list.'),
             'MaxTableList_name' => __('Maximum tables'),
             'MemoryLimit_desc' => __(
-                'The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] '
+                'The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] '
                 . '([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change).'
             ),
             'MemoryLimit_name' => __('Memory limit'),
-            'ShowDatabasesNavigationAsTree_desc' => __('In the navigation panel, replaces the database tree with a selector'),
+            'ShowDatabasesNavigationAsTree_desc' => __(
+                'In the navigation panel, replaces the database tree with a selector'
+            ),
             'ShowDatabasesNavigationAsTree_name' => __('Show databases navigation as tree'),
             'NavigationWidth_name' => __('Navigation panel width'),
             'NavigationWidth_desc' => __('Set to 0 to collapse navigation panel.'),
-            'NavigationLinkWithMainPanel_desc' => __('Link with main panel by highlighting the current database or table.'),
+            'NavigationLinkWithMainPanel_desc' => __(
+                'Link with main panel by highlighting the current database or table.'
+            ),
             'NavigationLinkWithMainPanel_name' => __('Link with main panel'),
             'NavigationDisplayLogo_desc' => __('Show logo in navigation panel.'),
             'NavigationDisplayLogo_name' => __('Display logo'),
@@ -501,7 +541,9 @@ class Descriptions
                 . 'display a filter box.'
             ),
             'NavigationTreeDisplayItemFilterMinimum_name' => __('Minimum number of items to display the filter box'),
-            'NavigationTreeDisplayDbFilterMinimum_name' => __('Minimum number of databases to display the database filter box'),
+            'NavigationTreeDisplayDbFilterMinimum_name' => __(
+                'Minimum number of databases to display the database filter box'
+            ),
             'NavigationTreeEnableGrouping_desc' => __(
                 'Group items in the navigation tree (determined by the separator defined in ' .
                 'the Databases and Tables tabs above).'
@@ -514,7 +556,9 @@ class Descriptions
             'NavigationTreeTableLevel_name' => __('Maximum table tree depth'),
             'NavigationTreePointerEnable_desc' => __('Highlight server under the mouse cursor.'),
             'NavigationTreePointerEnable_name' => __('Enable highlighting'),
-            'NavigationTreeEnableExpansion_desc' => __('Whether to offer the possibility of tree expansion in the navigation panel.'),
+            'NavigationTreeEnableExpansion_desc' => __(
+                'Whether to offer the possibility of tree expansion in the navigation panel.'
+            ),
             'NavigationTreeEnableExpansion_name' => __('Enable navigation tree expansion'),
             'NavigationTreeShowTables_name' => __('Show tables in tree'),
             'NavigationTreeShowTables_desc' => __('Whether to show tables under database in the navigation tree'),
@@ -523,11 +567,15 @@ class Descriptions
             'NavigationTreeShowFunctions_name' => __('Show functions in tree'),
             'NavigationTreeShowFunctions_desc' => __('Whether to show functions under database in the navigation tree'),
             'NavigationTreeShowProcedures_name' => __('Show procedures in tree'),
-            'NavigationTreeShowProcedures_desc' => __('Whether to show procedures under database in the navigation tree'),
+            'NavigationTreeShowProcedures_desc' => __(
+                'Whether to show procedures under database in the navigation tree'
+            ),
             'NavigationTreeShowEvents_name' => __('Show events in tree'),
             'NavigationTreeShowEvents_desc' => __('Whether to show events under database in the navigation tree'),
             'NavigationTreeAutoexpandSingleDb_name' => __('Expand single database'),
-            'NavigationTreeAutoexpandSingleDb_desc' => __('Whether to expand single database in the navigation tree automatically.'),
+            'NavigationTreeAutoexpandSingleDb_desc' => __(
+                'Whether to expand single database in the navigation tree automatically.'
+            ),
             'NumRecentTables_desc' => __('Maximum number of recently used tables; set 0 to disable.'),
             'NumFavoriteTables_desc' => __('Maximum number of favorite tables; set 0 to disable.'),
             'NumRecentTables_name' => __('Recently used tables'),
@@ -678,7 +726,9 @@ class Descriptions
             'Servers_only_db_name' => __('Show only listed databases'),
             'Servers_password_desc' => __('Leave empty if not using config auth.'),
             'Servers_password_name' => __('Password for config auth'),
-            'Servers_pdf_pages_desc' => __('Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd].'),
+            'Servers_pdf_pages_desc' => __(
+                'Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd].'
+            ),
             'Servers_pdf_pages_name' => __('PDF schema: pages table'),
             'Servers_pmadb_desc' => __(
                 'Database used for relations, bookmarks, and PDF features. See '
@@ -714,7 +764,9 @@ class Descriptions
             'Servers_socket_name' => __('Server socket'),
             'Servers_ssl_desc' => __('Enable SSL for connection to MySQL server.'),
             'Servers_ssl_name' => __('Use SSL'),
-            'Servers_table_coords_desc' => __('Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/kbd].'),
+            'Servers_table_coords_desc' => __(
+                'Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/kbd].'
+            ),
             'Servers_table_coords_name' => __('Designer and PDF schema: table coordinates'),
             'Servers_table_info_desc' => __(
                 'Table to describe the display columns, leave blank for no support; '
@@ -741,7 +793,9 @@ class Descriptions
                 . 'log when creating a view.'
             ),
             'Servers_tracking_add_drop_view_name' => __('Add DROP VIEW'),
-            'Servers_tracking_default_statements_desc' => __('Defines the list of statements the auto-creation uses for new versions.'),
+            'Servers_tracking_default_statements_desc' => __(
+                'Defines the list of statements the auto-creation uses for new versions.'
+            ),
             'Servers_tracking_default_statements_name' => __('Statements to track'),
             'Servers_tracking_desc' => __(
                 'Leave blank for no SQL query tracking support, suggested: '
@@ -793,11 +847,17 @@ class Descriptions
             'ShowCreateDb_name' => __('Show create database form'),
             'ShowDbStructureComment_desc' => __('Show or hide a column displaying the comments for all tables.'),
             'ShowDbStructureComment_name' => __('Show table comments'),
-            'ShowDbStructureCreation_desc' => __('Show or hide a column displaying the Creation timestamp for all tables.'),
+            'ShowDbStructureCreation_desc' => __(
+                'Show or hide a column displaying the Creation timestamp for all tables.'
+            ),
             'ShowDbStructureCreation_name' => __('Show creation timestamp'),
-            'ShowDbStructureLastUpdate_desc' => __('Show or hide a column displaying the Last update timestamp for all tables.'),
+            'ShowDbStructureLastUpdate_desc' => __(
+                'Show or hide a column displaying the Last update timestamp for all tables.'
+            ),
             'ShowDbStructureLastUpdate_name' => __('Show last update timestamp'),
-            'ShowDbStructureLastCheck_desc' => __('Show or hide a column displaying the Last check timestamp for all tables.'),
+            'ShowDbStructureLastCheck_desc' => __(
+                'Show or hide a column displaying the Last check timestamp for all tables.'
+            ),
             'ShowDbStructureLastCheck_name' => __('Show last check timestamp'),
             'ShowDbStructureCharset_desc' => __('Show or hide a column displaying the charset for all tables.'),
             'ShowDbStructureCharset_name' => __('Show table charset'),
@@ -820,9 +880,11 @@ class Descriptions
             'ShowSQL_name' => __('Show SQL queries'),
             'RetainQueryBox_desc' => __('Defines whether the query box should stay on-screen after its submission.'),
             'RetainQueryBox_name' => __('Retain query box'),
-            'ShowStats_desc' => __('Allow to display database and table statistics (eg. space usage).'),
+            'ShowStats_desc' => __('Allow to display database and table statistics (e.g. space usage).'),
             'ShowStats_name' => __('Show statistics'),
-            'SkipLockedTables_desc' => __('Mark used tables and make it possible to show databases with locked tables.'),
+            'SkipLockedTables_desc' => __(
+                'Mark used tables and make it possible to show databases with locked tables.'
+            ),
             'SkipLockedTables_name' => __('Skip locked tables'),
             'SQLQuery_Edit_name' => __('Edit'),
             'SQLQuery_Explain_name' => __('Explain SQL'),
@@ -898,6 +960,8 @@ class Descriptions
             'CaptchaLoginPublicKey_name' => __('Public key for reCaptcha'),
             'CaptchaLoginPrivateKey_desc' => __('Enter your private key for your domain reCaptcha service.'),
             'CaptchaLoginPrivateKey_name' => __('Private key for reCaptcha'),
+            'CaptchaSiteVerifyURL_desc' => __('Enter your siteverify URL for your reCaptcha service.'),
+            'CaptchaSiteVerifyURL_name' => __('URL for reCaptcha siteverify'),
 
             'SendErrorReports_desc' => __('Choose the default action when sending error reports.'),
             'SendErrorReports_name' => __('Send error reports'),

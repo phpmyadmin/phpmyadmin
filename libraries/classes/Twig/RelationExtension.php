@@ -2,6 +2,7 @@
 /**
  * hold PhpMyAdmin\Twig\RelationExtension class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Twig;
@@ -20,6 +21,7 @@ class RelationExtension extends AbstractExtension
     public function getFunctions()
     {
         $relation = new Relation($GLOBALS['dbi']);
+
         return [
             new TwigFunction(
                 'foreign_dropdown',

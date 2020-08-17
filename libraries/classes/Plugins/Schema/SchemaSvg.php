@@ -2,6 +2,7 @@
 /**
  * PDF schema export code
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema;
@@ -73,6 +74,7 @@ class SchemaSvg extends SchemaPlugin
     {
         $export = new SvgRelationSchema($db);
         $export->showOutput();
+
         return true;
     }
 }

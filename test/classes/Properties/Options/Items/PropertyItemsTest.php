@@ -2,6 +2,7 @@
 /**
  * tests for *PhpMyAdmin\Properties\PropertyItem class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Properties\Options\Items;
@@ -13,19 +14,17 @@ use PhpMyAdmin\Properties\Options\Items\MessageOnlyPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * tests for *PhpMyAdmin\Properties\PropertyItem class
  */
-class PropertyItemsTest extends TestCase
+class PropertyItemsTest extends AbstractTestCase
 {
     /**
      * Test for PhpMyAdmin\Properties\Options\Items\BoolPropertyItem::getText
-     *
-     * @return void
      */
-    public function testBoolText()
+    public function testBoolText(): void
     {
         $object = new BoolPropertyItem(null, 'Text');
 
@@ -44,10 +43,8 @@ class PropertyItemsTest extends TestCase
 
     /**
      * Test for PhpMyAdmin\Properties\Options\Items\BoolPropertyItem::getName
-     *
-     * @return void
      */
-    public function testBoolName()
+    public function testBoolName(): void
     {
         $object = new BoolPropertyItem('xname');
 
@@ -66,10 +63,8 @@ class PropertyItemsTest extends TestCase
 
     /**
      * Test for PhpMyAdmin\Properties\Options\Items\BoolPropertyItem::getItemType
-     *
-     * @return void
      */
-    public function testBoolGetItemType()
+    public function testBoolGetItemType(): void
     {
         $object = new BoolPropertyItem();
 
@@ -81,10 +76,8 @@ class PropertyItemsTest extends TestCase
 
     /**
      * Test for PhpMyAdmin\Properties\Options\Items\DocPropertyItem::getItemType
-     *
-     * @return void
      */
-    public function testGetItemTypeDoc()
+    public function testGetItemTypeDoc(): void
     {
         $object = new DocPropertyItem();
 
@@ -96,10 +89,8 @@ class PropertyItemsTest extends TestCase
 
     /**
      * Test for PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem::getItemType
-     *
-     * @return void
      */
-    public function testGetItemTypeHidden()
+    public function testGetItemTypeHidden(): void
     {
         $object = new HiddenPropertyItem();
 
@@ -111,10 +102,8 @@ class PropertyItemsTest extends TestCase
 
     /**
      * Test for PhpMyAdmin\Properties\Options\Items\MessageOnlyPropertyItem::getItemType
-     *
-     * @return void
      */
-    public function testGetItemTypeMessageOnly()
+    public function testGetItemTypeMessageOnly(): void
     {
         $object = new MessageOnlyPropertyItem();
 
@@ -126,10 +115,8 @@ class PropertyItemsTest extends TestCase
 
     /**
      * Test for PhpMyAdmin\Properties\Options\Items\RadioPropertyItem::getItemType
-     *
-     * @return void
      */
-    public function testGetItemTypeRadio()
+    public function testGetItemTypeRadio(): void
     {
         $object = new RadioPropertyItem();
 
@@ -141,10 +128,8 @@ class PropertyItemsTest extends TestCase
 
     /**
      * Test for PhpMyAdmin\Properties\Options\Items\SelectPropertyItem::getItemType
-     *
-     * @return void
      */
-    public function testGetItemTypeSelect()
+    public function testGetItemTypeSelect(): void
     {
         $object = new SelectPropertyItem();
 
@@ -156,10 +141,8 @@ class PropertyItemsTest extends TestCase
 
     /**
      * Test for PhpMyAdmin\Properties\Options\Items\TextPropertyItem::getItemType
-     *
-     * @return void
      */
-    public function testGetItemTypeText()
+    public function testGetItemTypeText(): void
     {
         $object = new TextPropertyItem();
 

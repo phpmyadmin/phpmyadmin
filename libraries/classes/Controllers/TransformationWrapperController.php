@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
@@ -84,15 +85,17 @@ class TransformationWrapperController extends AbstractController
             'newWidth',
         ];
         foreach ($request_params as $one_request_param) {
-            if (isset($_REQUEST[$one_request_param])) {
-                if (in_array($one_request_param, $size_params)) {
-                    $GLOBALS[$one_request_param] = intval($_REQUEST[$one_request_param]);
-                    if ($GLOBALS[$one_request_param] > 2000) {
-                        $GLOBALS[$one_request_param] = 2000;
-                    }
-                } else {
-                    $GLOBALS[$one_request_param] = $_REQUEST[$one_request_param];
+            if (! isset($_REQUEST[$one_request_param])) {
+                continue;
+            }
+
+            if (in_array($one_request_param, $size_params)) {
+                $GLOBALS[$one_request_param] = intval($_REQUEST[$one_request_param]);
+                if ($GLOBALS[$one_request_param] > 2000) {
+                    $GLOBALS[$one_request_param] = 2000;
                 }
+            } else {
+                $GLOBALS[$one_request_param] = $_REQUEST[$one_request_param];
             }
         }
 
@@ -126,14 +129,21 @@ class TransformationWrapperController extends AbstractController
 
         if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
             $mime_map = $this->transformations->getMime($db, $table);
+
+            if ($mime_map === null) {
+                $mime_map = [];
+            }
+
             $mime_options = $this->transformations->getOptions(
                 $mime_map[$transform_key]['transformation_options'] ?? ''
             );
 
             foreach ($mime_options as $key => $option) {
-                if (substr($option, 0, 10) == '; charset=') {
-                    $mime_options['charset'] = $option;
+                if (substr($option, 0, 10) !== '; charset=') {
+                    continue;
                 }
+
+                $mime_options['charset'] = $option;
             }
         }
 
@@ -198,10 +208,10 @@ class TransformationWrapperController extends AbstractController
                     $srcWidth,
                     $srcHeight
                 );
-                if ($_REQUEST['resize'] == 'jpeg') {
+                if ($_REQUEST['resize'] === 'jpeg') {
                     imagejpeg($destImage, null, 75);
                 }
-                if ($_REQUEST['resize'] == 'png') {
+                if ($_REQUEST['resize'] === 'png') {
                     imagepng($destImage);
                 }
                 imagedestroy($destImage);

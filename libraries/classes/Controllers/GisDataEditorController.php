@@ -2,6 +2,7 @@
 /**
  * Editor for Geometry data types.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
@@ -72,6 +73,10 @@ class GisDataEditorController extends AbstractController
 
         // Generate parameters from value passed.
         $gis_obj = GisFactory::factory($geom_type);
+        if ($gis_obj === false) {
+            return;
+        }
+
         if (isset($_POST['value'])) {
             $gis_data = array_merge(
                 $gis_data,
@@ -91,6 +96,7 @@ class GisDataEditorController extends AbstractController
             'height' => 300,
             'spatialColumn' => 'wkt',
             'mysqlVersion' => $GLOBALS['dbi']->getVersion(),
+            'isMariaDB' => $GLOBALS['dbi']->isMariaDB(),
         ];
         $data = [
             [
@@ -111,11 +117,12 @@ class GisDataEditorController extends AbstractController
                 'visualization' => $visualization,
                 'openLayers' => $open_layers,
             ]);
+
             return;
         }
 
         $geom_count = 1;
-        if ($geom_type == 'GEOMETRYCOLLECTION') {
+        if ($geom_type === 'GEOMETRYCOLLECTION') {
             $geom_count = isset($gis_data[$geom_type]['geom_count'])
                 ? intval($gis_data[$geom_type]['geom_count']) : 1;
             if (isset($gis_data[$geom_type]['add_geom'])) {

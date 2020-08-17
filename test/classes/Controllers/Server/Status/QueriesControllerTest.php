@@ -2,29 +2,31 @@
 /**
  * Holds QueriesControllerTest
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\QueriesController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Util;
-use PHPUnit\Framework\TestCase;
 use function array_sum;
 use function htmlspecialchars;
 
-class QueriesControllerTest extends TestCase
+class QueriesControllerTest extends AbstractTestCase
 {
     /** @var Data */
     private $data;
 
     protected function setUp(): void
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setUp();
+        $GLOBALS['text_dir'] = 'ltr';
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
 
         $GLOBALS['server'] = 1;

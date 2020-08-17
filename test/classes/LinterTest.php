@@ -2,6 +2,7 @@
 /**
  * Tests for Linter.php.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
@@ -12,14 +13,24 @@ use function str_repeat;
 /**
  * Tests for PhpMyAdmin\Linter
  */
-class LinterTest extends PmaTestCase
+class LinterTest extends AbstractTestCase
 {
     /**
-     * Test for Linter::getLines
+     * Sets up the fixture, for example, opens a network connection.
+     * This method is called before a test is executed.
      *
-     * @return void
+     * @access protected
      */
-    public function testGetLines()
+    protected function setUp(): void
+    {
+        parent::setUp();
+        parent::setLanguage();
+    }
+
+    /**
+     * Test for Linter::getLines
+     */
+    public function testGetLines(): void
     {
         $this->assertEquals([0], Linter::getLines(''));
         $this->assertEquals([0, 2], Linter::getLines("a\nb"));
@@ -28,10 +39,8 @@ class LinterTest extends PmaTestCase
 
     /**
      * Test for Linter::findLineNumberAndColumn
-     *
-     * @return void
      */
-    public function testFindLineNumberAndColumn()
+    public function testFindLineNumberAndColumn(): void
     {
         // Let the analyzed string be:
         //      ^abc$
@@ -82,7 +91,7 @@ class LinterTest extends PmaTestCase
      *
      * @dataProvider lintProvider
      */
-    public function testLint($expected, $query): void
+    public function testLint(array $expected, string $query): void
     {
         $this->assertEquals($expected, Linter::lint($query));
     }
@@ -92,7 +101,7 @@ class LinterTest extends PmaTestCase
      *
      * @return array
      */
-    public static function lintProvider()
+    public static function lintProvider(): array
     {
         return [
             [

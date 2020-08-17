@@ -2,6 +2,7 @@
 /**
  * hold PhpMyAdmin\Twig\TrackerExtension class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Twig;

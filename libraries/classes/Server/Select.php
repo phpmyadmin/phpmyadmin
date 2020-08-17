@@ -2,6 +2,7 @@
 /**
  * Code for displaying server selection
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Server;
@@ -88,7 +89,7 @@ class Select
                     $label .= ' - ' . implode(', ', $server['only_db']);
                 }
             }
-            if (! empty($server['user']) && $server['auth_type'] == 'config') {
+            if (! empty($server['user']) && $server['auth_type'] === 'config') {
                 $label .= '  (' . $server['user'] . ')';
             }
 

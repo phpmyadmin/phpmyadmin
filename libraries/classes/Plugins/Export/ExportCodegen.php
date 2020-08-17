@@ -2,6 +2,7 @@
 /**
  * Set of functions used to build NHibernate dumps of tables
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
@@ -30,13 +31,10 @@ class ExportCodegen extends ExportPlugin
      *
      * @var array
      */
-    private $_cgFormats;
-    /**
-     * CodeGen Handlers
-     *
-     * @var array
-     */
-    private $_cgHandlers;
+    private $cgFormats;
+
+    private const HANDLER_NHIBERNATE_CS = 0;
+    private const HANDLER_NHIBERNATE_XML = 1;
 
     public function __construct()
     {
@@ -53,19 +51,10 @@ class ExportCodegen extends ExportPlugin
      */
     protected function initSpecificVariables()
     {
-        $this->_setCgFormats(
-            [
-                'NHibernate C# DO',
-                'NHibernate XML',
-            ]
-        );
-
-        $this->_setCgHandlers(
-            [
-                '_handleNHibernateCSBody',
-                '_handleNHibernateXMLBody',
-            ]
-        );
+        $this->setCgFormats([
+            self::HANDLER_NHIBERNATE_CS => 'NHibernate C# DO',
+            self::HANDLER_NHIBERNATE_XML => 'NHibernate XML',
+        ]);
     }
 
     /**
@@ -97,7 +86,7 @@ class ExportCodegen extends ExportPlugin
             'format',
             __('Format:')
         );
-        $leaf->setValues($this->_getCgFormats());
+        $leaf->setValues($this->getCgFormats());
         $generalOptions->addProperty($leaf);
         // add the main group to the root group
         $exportSpecificOptions->addProperty($generalOptions);
@@ -186,16 +175,14 @@ class ExportCodegen extends ExportPlugin
         $sql_query,
         array $aliases = []
     ) {
-        $CG_FORMATS = $this->_getCgFormats();
-        $CG_HANDLERS = $this->_getCgHandlers();
+        $format = (int) $GLOBALS['codegen_format'];
 
-        $format = $GLOBALS['codegen_format'];
-        if (isset($CG_FORMATS[$format])) {
-            $method = $CG_HANDLERS[$format];
+        if ($format === self::HANDLER_NHIBERNATE_CS) {
+            return $this->export->outputHandler($this->handleNHibernateCSBody($db, $table, $crlf, $aliases));
+        }
 
-            return $this->export->outputHandler(
-                $this->$method($db, $table, $crlf, $aliases)
-            );
+        if ($format === self::HANDLER_NHIBERNATE_XML) {
+            return $this->export->outputHandler($this->handleNHibernateXMLBody($db, $table, $crlf, $aliases));
         }
 
         return $this->export->outputHandler(sprintf('%s is not supported.', $format));
@@ -234,7 +221,7 @@ class ExportCodegen extends ExportPlugin
      *
      * @return string containing C# code lines, separated by "\n"
      */
-    private function _handleNHibernateCSBody($db, $table, $crlf, array $aliases = [])
+    private function handleNHibernateCSBody($db, $table, $crlf, array $aliases = [])
     {
         $db_alias = $db;
         $table_alias = $table;
@@ -282,11 +269,13 @@ class ExportCodegen extends ExportPlugin
                 . self::cgMakeIdentifier($table_alias) . '() { }';
             $temp = [];
             foreach ($tableProperties as $tableProperty) {
-                if (! $tableProperty->isPK()) {
-                    $temp[] = $tableProperty->formatCs(
-                        '#dotNetPrimitiveType# #name#'
-                    );
+                if ($tableProperty->isPK()) {
+                    continue;
                 }
+
+                $temp[] = $tableProperty->formatCs(
+                    '#dotNetPrimitiveType# #name#'
+                );
             }
             $lines[] = '        public '
                 . self::cgMakeIdentifier($table_alias)
@@ -295,11 +284,13 @@ class ExportCodegen extends ExportPlugin
                 . ')';
             $lines[] = '        {';
             foreach ($tableProperties as $tableProperty) {
-                if (! $tableProperty->isPK()) {
-                    $lines[] = $tableProperty->formatCs(
-                        '            this._#name#=#name#;'
-                    );
+                if ($tableProperty->isPK()) {
+                    continue;
                 }
+
+                $lines[] = $tableProperty->formatCs(
+                    '            this._#name#=#name#;'
+                );
             }
             $lines[] = '        }';
             $lines[] = '        #endregion';
@@ -333,7 +324,7 @@ class ExportCodegen extends ExportPlugin
      *
      * @return string containing XML code lines, separated by "\n"
      */
-    private function _handleNHibernateXMLBody(
+    private function handleNHibernateXMLBody(
         $db,
         $table,
         $crlf,
@@ -392,16 +383,14 @@ class ExportCodegen extends ExportPlugin
         return implode($crlf, $lines);
     }
 
-    /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
-
     /**
      * Getter for CodeGen formats
      *
      * @return array
      */
-    private function _getCgFormats()
+    private function getCgFormats()
     {
-        return $this->_cgFormats;
+        return $this->cgFormats;
     }
 
     /**
@@ -411,30 +400,8 @@ class ExportCodegen extends ExportPlugin
      *
      * @return void
      */
-    private function _setCgFormats(array $CG_FORMATS)
+    private function setCgFormats(array $CG_FORMATS)
     {
-        $this->_cgFormats = $CG_FORMATS;
-    }
-
-    /**
-     * Getter for CodeGen handlers
-     *
-     * @return array
-     */
-    private function _getCgHandlers()
-    {
-        return $this->_cgHandlers;
-    }
-
-    /**
-     * Setter for CodeGen handlers
-     *
-     * @param array $CG_HANDLERS contains CodeGen handler methods
-     *
-     * @return void
-     */
-    private function _setCgHandlers(array $CG_HANDLERS)
-    {
-        $this->_cgHandlers = $CG_HANDLERS;
+        $this->cgFormats = $CG_FORMATS;
     }
 }

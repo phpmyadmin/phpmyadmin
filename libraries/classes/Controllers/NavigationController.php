@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
@@ -52,11 +53,15 @@ class NavigationController extends AbstractController
                     __('Fatal error: The navigation can only be accessed via AJAX')
                 )->getDisplay()
             );
+
             return;
         }
 
         if (isset($_POST['getNaviSettings']) && $_POST['getNaviSettings']) {
-            $this->response->addJSON('message', PageSettings::getNaviSettings());
+            $pageSettings = new PageSettings('Navi', 'pma_navigation_settings');
+            $this->response->addHTML($pageSettings->getErrorHTML());
+            $this->response->addJSON('message', $pageSettings->getHTML());
+
             return;
         }
 
@@ -78,6 +83,7 @@ class NavigationController extends AbstractController
                         (! empty($_POST['tableName']) ? $_POST['tableName'] : null)
                     );
                 }
+
                 return;
             }
 
@@ -93,6 +99,7 @@ class NavigationController extends AbstractController
                         (! empty($_POST['tableName']) ? $_POST['tableName'] : null)
                     );
                 }
+
                 return;
             }
 
@@ -103,6 +110,7 @@ class NavigationController extends AbstractController
                         $this->navigation->getItemUnhideDialog($_POST['dbName'])
                     );
                 }
+
                 return;
             }
         }

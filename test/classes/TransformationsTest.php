@@ -2,17 +2,18 @@
 /**
  * tests for transformation wrappers
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Transformations;
-use PHPUnit\Framework\TestCase;
 
 /**
  * tests for transformation wrappers
  */
-class TransformationsTest extends TestCase
+class TransformationsTest extends AbstractTestCase
 {
     /** @var Transformations */
     private $transformations;
@@ -22,6 +23,8 @@ class TransformationsTest extends TestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
         $GLOBALS['cfg'] = [
@@ -51,7 +54,7 @@ class TransformationsTest extends TestCase
      *
      * @dataProvider getOptionsData
      */
-    public function testGetOptions($input, $expected): void
+    public function testGetOptions(string $input, array $expected): void
     {
         $this->assertEquals(
             $expected,
@@ -61,10 +64,8 @@ class TransformationsTest extends TestCase
 
     /**
      * Data provided for parsing options
-     *
-     * @return array with test data
      */
-    public function getOptionsData()
+    public function getOptionsData(): array
     {
         return [
             [
@@ -105,10 +106,8 @@ class TransformationsTest extends TestCase
 
     /**
      * Test for getting available types.
-     *
-     * @return void
      */
-    public function testGetTypes()
+    public function testGetTypes(): void
     {
         $this->assertEquals(
             [
@@ -196,10 +195,8 @@ class TransformationsTest extends TestCase
 
     /**
      * Tests getting mime types for table
-     *
-     * @return void
      */
-    public function testGetMime()
+    public function testGetMime(): void
     {
         $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] = PMA_VERSION;
         $_SESSION['relation'][$GLOBALS['server']]['mimework'] = true;
@@ -231,13 +228,11 @@ class TransformationsTest extends TestCase
 
     /**
      * Test for clear
-     *
-     * @return void
      */
-    public function testClear()
+    public function testClear(): void
     {
         // Mock dbi
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())
@@ -247,8 +242,7 @@ class TransformationsTest extends TestCase
 
         // Case 1 : no configuration storage
         $actual = $this->transformations->clear('db');
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $actual
         );
 
@@ -258,22 +252,19 @@ class TransformationsTest extends TestCase
 
         // Case 2 : database delete
         $actual = $this->transformations->clear('db');
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $actual
         );
 
         // Case 3 : table delete
         $actual = $this->transformations->clear('db', 'table');
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $actual
         );
 
         // Case 4 : column delete
         $actual = $this->transformations->clear('db', 'table', 'col');
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $actual
         );
     }
@@ -284,7 +275,7 @@ class TransformationsTest extends TestCase
      *
      * @dataProvider fixupData
      */
-    public function testFixup($value, $expected): void
+    public function testFixup(string $value, string $expected): void
     {
         $this->assertEquals(
             $expected,
@@ -292,10 +283,7 @@ class TransformationsTest extends TestCase
         );
     }
 
-    /**
-     * @return array
-     */
-    public function fixupData()
+    public function fixupData(): array
     {
         return [
             [
@@ -329,7 +317,7 @@ class TransformationsTest extends TestCase
      *
      * @dataProvider providerGetDescription
      */
-    public function testGetDescription($file, $expectedDescription): void
+    public function testGetDescription(string $file, string $expectedDescription): void
     {
         $this->assertEquals(
             $expectedDescription,
@@ -337,10 +325,7 @@ class TransformationsTest extends TestCase
         );
     }
 
-    /**
-     * @return array
-     */
-    public function providerGetDescription()
+    public function providerGetDescription(): array
     {
         return [
             [
@@ -366,7 +351,7 @@ class TransformationsTest extends TestCase
      *
      * @dataProvider providerGetName
      */
-    public function testGetName($file, $expectedName): void
+    public function testGetName(string $file, string $expectedName): void
     {
         $this->assertEquals(
             $expectedName,
@@ -374,10 +359,7 @@ class TransformationsTest extends TestCase
         );
     }
 
-    /**
-     * @return array
-     */
-    public function providerGetName()
+    public function providerGetName(): array
     {
         return [
             [

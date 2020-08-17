@@ -2,6 +2,7 @@
 /**
  * Tests for PhpMyAdmin\Database\Designer
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Database;
@@ -10,13 +11,13 @@ use PhpMyAdmin\Database\Designer;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
 
 /**
  * Tests for PhpMyAdmin\Database\Designer
  */
-class DesignerTest extends TestCase
+class DesignerTest extends AbstractTestCase
 {
     /** @var Designer */
     private $designer;
@@ -26,6 +27,9 @@ class DesignerTest extends TestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
+
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['PDFPageSizes'] = [
@@ -53,12 +57,10 @@ class DesignerTest extends TestCase
      * Mocks database interaction for tests.
      *
      * @param string $db database name
-     *
-     * @return void
      */
-    private function _mockDatabaseInteraction($db)
+    private function mockDatabaseInteraction(string $db): void
     {
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -84,7 +86,7 @@ class DesignerTest extends TestCase
                     'page_nr' => '2',
                     'page_descr' => 'page2',
                 ],
-                false
+                null
             );
 
         $dbi->expects($this->any())
@@ -96,13 +98,11 @@ class DesignerTest extends TestCase
 
     /**
      * Test for getPageIdsAndNames()
-     *
-     * @return void
      */
-    public function testGetPageIdsAndNames()
+    public function testGetPageIdsAndNames(): void
     {
         $db = 'db';
-        $this->_mockDatabaseInteraction($db);
+        $this->mockDatabaseInteraction($db);
 
         $template = new Template();
         $this->designer = new Designer($GLOBALS['dbi'], new Relation($GLOBALS['dbi'], $template), $template);
@@ -122,14 +122,12 @@ class DesignerTest extends TestCase
 
     /**
      * Test for getHtmlForEditOrDeletePages()
-     *
-     * @return void
      */
-    public function testGetHtmlForEditOrDeletePages()
+    public function testGetHtmlForEditOrDeletePages(): void
     {
         $db = 'db';
         $operation = 'edit';
-        $this->_mockDatabaseInteraction($db);
+        $this->mockDatabaseInteraction($db);
 
         $template = new Template();
         $this->designer = new Designer($GLOBALS['dbi'], new Relation($GLOBALS['dbi'], $template), $template);
@@ -152,13 +150,11 @@ class DesignerTest extends TestCase
 
     /**
      * Test for getHtmlForPageSaveAs()
-     *
-     * @return void
      */
-    public function testGetHtmlForPageSaveAs()
+    public function testGetHtmlForPageSaveAs(): void
     {
         $db = 'db';
-        $this->_mockDatabaseInteraction($db);
+        $this->mockDatabaseInteraction($db);
 
         $template = new Template();
         $this->designer = new Designer($GLOBALS['dbi'], new Relation($GLOBALS['dbi'], $template), $template);
@@ -194,10 +190,8 @@ class DesignerTest extends TestCase
 
     /**
      * Test for getHtmlForSchemaExport()
-     *
-     * @return void
      */
-    public function testGetHtmlForSchemaExport()
+    public function testGetHtmlForSchemaExport(): void
     {
         $db = 'db';
         $page = 2;

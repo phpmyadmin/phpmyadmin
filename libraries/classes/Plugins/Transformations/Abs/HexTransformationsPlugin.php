@@ -2,6 +2,7 @@
 /**
  * Abstract class for the hex transformations plugins
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
@@ -49,9 +50,9 @@ abstract class HexTransformationsPlugin extends TransformationsPlugin
 
         if ($options[0] < 1) {
             return bin2hex($buffer);
-        } else {
-            return chunk_split(bin2hex($buffer), $options[0], ' ');
         }
+
+        return chunk_split(bin2hex($buffer), $options[0], ' ');
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */

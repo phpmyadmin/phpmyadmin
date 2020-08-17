@@ -3,6 +3,7 @@
  * A simple rules engine, that parses and executes the rules in advisory_rules.txt.
  * Adjusted to phpMyAdmin.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
@@ -11,6 +12,7 @@ use Exception;
 use PhpMyAdmin\Server\SysInfo\SysInfo;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 use Throwable;
+use const FILE_IGNORE_NEW_LINES;
 use function array_merge;
 use function array_merge_recursive;
 use function count;
@@ -29,7 +31,6 @@ use function sprintf;
 use function strpos;
 use function substr;
 use function vsprintf;
-use const FILE_IGNORE_NEW_LINES;
 
 /**
  * Advisor class
@@ -39,11 +40,22 @@ class Advisor
     public const GENERIC_RULES_FILE = 'libraries/advisory_rules_generic.txt';
     public const BEFORE_MYSQL80003_RULES_FILE = 'libraries/advisory_rules_mysql_before80003.txt';
 
+    /** @var DatabaseInterface */
     protected $dbi;
+
+    /** @var array */
     protected $variables;
+
+    /** @var array */
     protected $globals;
+
+    /** @var array */
     protected $parseResult;
+
+    /** @var array */
     protected $runResult;
+
+    /** @var ExpressionLanguage */
     protected $expression;
 
     /**
@@ -60,56 +72,90 @@ class Advisor
          */
         $this->expression->register(
             'round',
-            function () {
+            static function () {
             },
-            function ($arguments, $num) {
+            /**
+             * @param array $arguments
+             * @param float $num
+             */
+            static function ($arguments, $num) {
                 return round($num);
             }
         );
         $this->expression->register(
             'substr',
-            function () {
+            static function () {
             },
-            function ($arguments, $string, $start, $length) {
+            /**
+             * @param array $arguments
+             * @param string $string
+             * @param int $start
+             * @param int $length
+             */
+            static function ($arguments, $string, $start, $length) {
                 return substr($string, $start, $length);
             }
         );
         $this->expression->register(
             'preg_match',
-            function () {
+            static function () {
             },
-            function ($arguments, $pattern, $subject) {
+            /**
+             * @param array $arguments
+             * @param string $pattern
+             * @param string $subject
+             */
+            static function ($arguments, $pattern, $subject) {
                 return preg_match($pattern, $subject);
             }
         );
         $this->expression->register(
             'ADVISOR_bytime',
-            function () {
+            static function () {
             },
-            function ($arguments, $num, $precision) {
+            /**
+             * @param array $arguments
+             * @param float $num
+             * @param int $precision
+             */
+            static function ($arguments, $num, $precision) {
                 return self::byTime($num, $precision);
             }
         );
         $this->expression->register(
             'ADVISOR_timespanFormat',
-            function () {
+            static function () {
             },
-            function ($arguments, $seconds) {
+            /**
+             * @param array $arguments
+             * @param string $seconds
+             */
+            static function ($arguments, $seconds) {
                 return self::timespanFormat((int) $seconds);
             }
         );
         $this->expression->register(
             'ADVISOR_formatByteDown',
-            function () {
+            static function () {
             },
-            function ($arguments, $value, $limes = 6, $comma = 0) {
+            /**
+             * @param array $arguments
+             * @param int $value
+             * @param int $limes
+             * @param int $comma
+             */
+            static function ($arguments, $value, $limes = 6, $comma = 0) {
                 return self::formatByteDown($value, $limes, $comma);
             }
         );
         $this->expression->register(
             'fired',
-            function () {
+            static function () {
             },
+            /**
+             * @param array $arguments
+             * @param int $value
+             */
             function ($arguments, $value) {
                 if (! isset($this->runResult['fired'])) {
                     return 0;
@@ -373,6 +419,7 @@ class Advisor
         } else {
             $params = [];
         }
+
         return vsprintf($string, $params);
     }
 
@@ -392,6 +439,7 @@ class Advisor
                 $jst[1],
             ];
         }
+
         return [$rule['justification']];
     }
 
@@ -421,6 +469,7 @@ class Advisor
                             ),
                             $e
                         );
+
                         return;
                     }
 
@@ -436,20 +485,18 @@ class Advisor
                 // linking to /server/variables
                 $rule['recommendation'] = preg_replace_callback(
                     '/\{([a-z_0-9]+)\}/Ui',
-                    [
-                        $this,
-                        'replaceVariable',
-                    ],
+                    function (array $matches) {
+                        return $this->replaceVariable($matches);
+                    },
                     $this->translate($rule['recommendation'])
                 );
 
                 // Replaces external Links with Core::linkURL() generated links
                 $rule['recommendation'] = preg_replace_callback(
                     '#href=("|\')(https?://[^\1]+)\1#i',
-                    [
-                        $this,
-                        'replaceLinkURL',
-                    ],
+                    function (array $matches) {
+                        return $this->replaceLinkURL($matches);
+                    },
                     $rule['recommendation']
                 );
                 break;
@@ -471,6 +518,7 @@ class Advisor
         if ($isMariaDB || $this->globals['PMA_MYSQL_INT_VERSION'] < 80003) {
             $ruleFiles[] = self::BEFORE_MYSQL80003_RULES_FILE;
         }
+
         return $ruleFiles;
     }
 
@@ -513,12 +561,10 @@ class Advisor
     {
         // Actually evaluate the code
         // This can throw exception
-        $value = $this->expression->evaluate(
+        return $this->expression->evaluate(
             $expr,
             array_merge($this->variables, $this->globals)
         );
-
-        return $value;
     }
 
     /**
@@ -542,6 +588,7 @@ class Advisor
                 __('Error in reading file: The file \'%s\' does not exist or is not readable!'),
                 $filename
             );
+
             return [
                 'rules' => $rules,
                 'lines' => $lines,
@@ -564,12 +611,12 @@ class Advisor
 
         for ($i = 0; $i < $numLines; $i++) {
             $line = $file[$i];
-            if ($line == '' || $line[0] == '#') {
+            if ($line == '' || $line[0] === '#') {
                 continue;
             }
 
             // Reading new rule
-            if (substr($line, 0, 4) == 'rule') {
+            if (substr($line, 0, 4) === 'rule') {
                 if ($ruleLine > 0) {
                     $errors[] = sprintf(
                         __(
@@ -597,7 +644,9 @@ class Advisor
                     );
                 }
                 continue;
-            } elseif ($ruleLine == -1) {
+            }
+
+            if ($ruleLine == -1) {
                 $errors[] = sprintf(
                     __('Unexpected characters on line %s.'),
                     $i + 1
@@ -629,9 +678,11 @@ class Advisor
             }
 
             // Rule complete
-            if ($ruleLine == $numRules) {
-                $ruleLine = -1;
+            if ($ruleLine != $numRules) {
+                continue;
             }
+
+            $ruleLine = -1;
         }
 
         return [

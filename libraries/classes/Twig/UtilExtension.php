@@ -2,6 +2,7 @@
 /**
  * hold PhpMyAdmin\Twig\UtilExtension class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Twig;
@@ -43,11 +44,6 @@ class UtilExtension extends AbstractExtension
             new TwigFunction(
                 'format_sql',
                 '\PhpMyAdmin\Html\Generator::formatSql',
-                ['is_safe' => ['html']]
-            ),
-            new TwigFunction(
-                'get_button_or_image',
-                '\PhpMyAdmin\Html\Generator::getButtonOrImage',
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(

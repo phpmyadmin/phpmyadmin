@@ -2,6 +2,7 @@
 /**
  * Selenium TestCase for table related tests
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium\Table;
@@ -22,12 +23,13 @@ class StructureTest extends TestBase
     {
         parent::setUp();
         $this->dbQuery(
-            'CREATE TABLE `test_table` ('
+            'USE `' . $this->database_name . '`;'
+            . 'CREATE TABLE `test_table` ('
             . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
             . ' `val` int(11) NOT NULL,'
             . ' `val2` int(11) NOT NULL,'
             . ' PRIMARY KEY (`id`)'
-            . ')'
+            . ');'
         );
 
         $this->login();
@@ -45,11 +47,9 @@ class StructureTest extends TestBase
     /**
      * Test for adding a new column
      *
-     * @return void
-     *
      * @group large
      */
-    public function testAddColumn()
+    public function testAddColumn(): void
     {
         $this->waitForElement(
             'cssSelector',
@@ -57,17 +57,12 @@ class StructureTest extends TestBase
         )->click();
         $this->waitAjax();
 
-        $this->waitForElement('className', 'append_fields_form');
+        $this->waitUntilElementIsPresent('className', 'append_fields_form', 30);
 
         $this->byId('field_0_1')->sendKeys('val3');
         $this->byCssSelector("input[name='do_save_data']")->click();
 
         $this->waitAjax();
-        $this->waitForElement(
-            'xpath',
-            "//div[@class='alert alert-success' and contains(., "
-            . "'Table test_table has been altered successfully')]"
-        );
 
         $this->byPartialLinkText('Structure')->click();
         $this->waitAjax();
@@ -87,29 +82,21 @@ class StructureTest extends TestBase
     /**
      * Test for changing a column
      *
-     * @return void
-     *
      * @group large
      */
-    public function testChangeColumn()
+    public function testChangeColumn(): void
     {
         $this->byCssSelector(
             '#tablestructure tbody tr:nth-child(2) td:nth-child(11)'
         )->click();
         $this->waitAjax();
 
-        $this->waitForElement('className', 'append_fields_form');
+        $this->waitUntilElementIsPresent('className', 'append_fields_form', 30);
 
         $this->assertEquals('val', $this->byId('field_0_1')->getAttribute('value'));
         $this->byId('field_0_1')->clear();
         $this->byId('field_0_1')->sendKeys('val3');
         $this->byCssSelector("input[name='do_save_data']")->click();
-
-        $this->waitForElement(
-            'xpath',
-            "//div[@class='alert alert-success' and contains(., "
-            . "'Table test_table has been altered successfully')]"
-        );
 
         $this->byPartialLinkText('Structure')->click();
         $this->waitAjax();
@@ -125,16 +112,16 @@ class StructureTest extends TestBase
     /**
      * Test for dropping columns
      *
-     * @return void
-     *
      * @group large
      */
-    public function testDropColumns()
+    public function testDropColumns(): void
     {
         $this->waitForElement('cssSelector', 'label[for=checkbox_row_2]')->click();
         $this->waitForElement('cssSelector', 'label[for=checkbox_row_3]')->click();
-        $this->byXPath(
-            "//button[@name='submit_mult' and contains(., 'Drop')]"
+        $this->waitUntilElementIsPresent(
+            'xpath',
+            '//button[contains(., "Drop")]',
+            30
         )->click();
 
         $this->waitForElement(

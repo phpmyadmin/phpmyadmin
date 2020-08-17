@@ -2,6 +2,7 @@
 /**
  * Classes to create relation schema in EPS format.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Eps;
@@ -20,8 +21,13 @@ use function strlen;
  */
 class Eps
 {
+    /** @var string */
     public $font;
+
+    /** @var int */
     public $fontSize;
+
+    /** @var string */
     public $stringCommands;
 
     /**
@@ -83,7 +89,7 @@ class Eps
     public function setOrientation($orientation)
     {
         $this->stringCommands .= "%%PageOrder: Ascend \n";
-        if ($orientation == 'L') {
+        if ($orientation === 'L') {
             $orientation = 'Landscape';
             $this->stringCommands .= '%%Orientation: ' . $orientation . "\n";
         } else {
@@ -129,7 +135,7 @@ class Eps
     /**
      * Get the font Size
      *
-     * @return string return the size of the font e.g 10
+     * @return string|int return the size of the font e.g 10
      */
     public function getFontSize()
     {

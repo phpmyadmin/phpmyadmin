@@ -2,6 +2,7 @@
 /**
  * Tests for PhpMyAdmin\Dbi\DbiMysqli class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Dbal;
@@ -9,7 +10,7 @@ namespace PhpMyAdmin\Tests\Dbal;
 use mysqli;
 use mysqli_result;
 use PhpMyAdmin\Dbal\DbiMysqli;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use const MYSQLI_ASSOC;
 use const MYSQLI_BOTH;
 use const MYSQLI_NUM;
@@ -17,7 +18,7 @@ use const MYSQLI_NUM;
 /**
  * Tests for PhpMyAdmin\Dbi\DbiMysqli class
  */
-class DbiMysqliTest extends TestCase
+class DbiMysqliTest extends AbstractTestCase
 {
     /** @var DbiMysqli */
     protected $object;
@@ -30,6 +31,7 @@ class DbiMysqliTest extends TestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->object = new DbiMysqli();
     }
 

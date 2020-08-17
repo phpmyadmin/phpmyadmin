@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit bootstrap="test/bootstrap-dist.php"
-         backupGlobals="true"
-         backupStaticAttributes="false"
-         colors="true"
-         verbose="true">
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/7.5/phpunit.xsd"
+    bootstrap="test/bootstrap-dist.php"
+    backupGlobals="false"
+    backupStaticAttributes="false"
+    colors="true"
+    verbose="true">
 
     <testsuites>
         <testsuite name="Classes">

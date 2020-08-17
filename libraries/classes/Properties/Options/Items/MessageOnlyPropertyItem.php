@@ -2,6 +2,7 @@
 /**
  * Holds the PhpMyAdmin\Properties\Options\Items\MessageOnlyPropertyItem class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Properties\Options\Items;

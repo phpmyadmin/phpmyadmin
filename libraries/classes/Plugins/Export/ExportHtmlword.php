@@ -2,6 +2,7 @@
 /**
  * HTML-Word export code
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
@@ -302,9 +303,11 @@ class ExportHtmlword extends ExportPlugin
         $unique_keys = [];
         $keys = $GLOBALS['dbi']->getTableIndexes($db, $view);
         foreach ($keys as $key) {
-            if ($key['Non_unique'] == 0) {
-                $unique_keys[] = $key['Column_name'];
+            if ($key['Non_unique'] != 0) {
+                continue;
             }
+
+            $unique_keys[] = $key['Column_name'];
         }
 
         $columns = $GLOBALS['dbi']->getColumns($db, $view);
@@ -366,7 +369,7 @@ class ExportHtmlword extends ExportPlugin
         $GLOBALS['dbi']->selectDb($db);
 
         // Check if we can use Relations
-        list($res_rel, $have_rel) = $this->relation->getRelationsAndStatus(
+        [$res_rel, $have_rel] = $this->relation->getRelationsAndStatus(
             $do_relation && ! empty($cfgRelation['relation']),
             $db,
             $table
@@ -416,9 +419,11 @@ class ExportHtmlword extends ExportPlugin
         $unique_keys = [];
         $keys = $GLOBALS['dbi']->getTableIndexes($db, $table);
         foreach ($keys as $key) {
-            if ($key['Non_unique'] == 0) {
-                $unique_keys[] = $key['Column_name'];
+            if ($key['Non_unique'] != 0) {
+                continue;
             }
+
+            $unique_keys[] = $key['Column_name'];
         }
         foreach ($columns as $column) {
             $col_as = $column['Field'];
@@ -629,7 +634,7 @@ class ExportHtmlword extends ExportPlugin
         }
 
         if (! isset($column['Default'])) {
-            if ($column['Null'] != 'NO') {
+            if ($column['Null'] !== 'NO') {
                 $column['Default'] = 'NULL';
             }
         }
@@ -640,7 +645,7 @@ class ExportHtmlword extends ExportPlugin
             $fmt_pre = '<strong>' . $fmt_pre;
             $fmt_post .= '</strong>';
         }
-        if ($column['Key'] == 'PRI') {
+        if ($column['Key'] === 'PRI') {
             $fmt_pre = '<em>' . $fmt_pre;
             $fmt_post .= '</em>';
         }
@@ -648,7 +653,7 @@ class ExportHtmlword extends ExportPlugin
             . htmlspecialchars($col_alias) . $fmt_post . '</td>';
         $definition .= '<td class="print">' . htmlspecialchars($type) . '</td>';
         $definition .= '<td class="print">'
-            . ($column['Null'] == '' || $column['Null'] == 'NO'
+            . ($column['Null'] == '' || $column['Null'] === 'NO'
                 ? __('No')
                 : __('Yes'))
             . '</td>';

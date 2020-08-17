@@ -2,6 +2,7 @@
 /**
  * Interface for the zip extension
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
@@ -17,6 +18,7 @@ use function is_array;
 use function is_string;
 use function pack;
 use function preg_match;
+use function sprintf;
 use function str_replace;
 use function strcmp;
 use function strlen;
@@ -28,12 +30,12 @@ use function substr;
  */
 class ZipExtension
 {
-    /** @var ZipArchive */
+    /** @var ZipArchive|null */
     private $zip;
 
-    public function __construct()
+    public function __construct(?ZipArchive $zip = null)
     {
-        $this->zip = new ZipArchive();
+        $this->zip = $zip;
     }
 
     /**
@@ -53,64 +55,75 @@ class ZipExtension
         * It might also be an ODS file, look below
         */
 
+        if ($this->zip === null) {
+            return [
+                'error' => sprintf(__('The %s extension is missing. Please check your PHP configuration.'), 'zip'),
+                'data' => '',
+            ];
+        }
+
         $error_message = '';
         $file_data = '';
 
         $res = $this->zip->open($file);
 
-        if ($res === true) {
-            if ($this->zip->numFiles === 0) {
-                $error_message = __('No files found inside ZIP archive!');
-                $this->zip->close();
-                return [
-                    'error' => $error_message,
-                    'data' => $file_data,
-                ];
-            }
-
-            /* Is the the zip really an ODS file? */
-            $ods_mime = 'application/vnd.oasis.opendocument.spreadsheet';
-            $first_zip_entry = $this->zip->getFromIndex(0);
-            if (! strcmp($ods_mime, $first_zip_entry)) {
-                $specific_entry = '/^content\.xml$/';
-            }
-
-            if (! isset($specific_entry)) {
-                $file_data = $first_zip_entry;
-                $this->zip->close();
-                return [
-                    'error' => $error_message,
-                    'data' => $file_data,
-                ];
-            }
-
-            /* Return the correct contents, not just the first entry */
-            for ($i = 0; $i < $this->zip->numFiles; $i++) {
-                if (@preg_match($specific_entry, $this->zip->getNameIndex($i))) {
-                    $file_data = $this->zip->getFromIndex($i);
-                    break;
-                }
-            }
-
-            /* Couldn't find any files that matched $specific_entry */
-            if (empty($file_data)) {
-                $error_message = __('Error in ZIP archive:')
-                    . ' Could not find "' . $specific_entry . '"';
-            }
-
-            $this->zip->close();
-            return [
-                'error' => $error_message,
-                'data' => $file_data,
-            ];
-        } else {
+        if ($res !== true) {
             $error_message = __('Error in ZIP archive:') . ' ' . $this->zip->getStatusString();
             $this->zip->close();
+
             return [
                 'error' => $error_message,
                 'data' => $file_data,
             ];
         }
+
+        if ($this->zip->numFiles === 0) {
+            $error_message = __('No files found inside ZIP archive!');
+            $this->zip->close();
+
+            return [
+                'error' => $error_message,
+                'data' => $file_data,
+            ];
+        }
+
+        /* Is the the zip really an ODS file? */
+        $ods_mime = 'application/vnd.oasis.opendocument.spreadsheet';
+        $first_zip_entry = $this->zip->getFromIndex(0);
+        if (! strcmp($ods_mime, $first_zip_entry)) {
+            $specific_entry = '/^content\.xml$/';
+        }
+
+        if (! isset($specific_entry)) {
+            $file_data = $first_zip_entry;
+            $this->zip->close();
+
+            return [
+                'error' => $error_message,
+                'data' => $file_data,
+            ];
+        }
+
+        /* Return the correct contents, not just the first entry */
+        for ($i = 0; $i < $this->zip->numFiles; $i++) {
+            if (@preg_match($specific_entry, $this->zip->getNameIndex($i))) {
+                $file_data = $this->zip->getFromIndex($i);
+                break;
+            }
+        }
+
+        /* Couldn't find any files that matched $specific_entry */
+        if (empty($file_data)) {
+            $error_message = __('Error in ZIP archive:')
+                . ' Could not find "' . $specific_entry . '"';
+        }
+
+        $this->zip->close();
+
+        return [
+            'error' => $error_message,
+            'data' => $file_data,
+        ];
     }
 
     /**
@@ -123,6 +136,10 @@ class ZipExtension
      */
     public function findFile($file, $regex)
     {
+        if ($this->zip === null) {
+            return false;
+        }
+
         $res = $this->zip->open($file);
 
         if ($res === true) {
@@ -130,10 +147,12 @@ class ZipExtension
                 if (preg_match($regex, $this->zip->getNameIndex($i))) {
                     $filename = $this->zip->getNameIndex($i);
                     $this->zip->close();
+
                     return $filename;
                 }
             }
         }
+
         return false;
     }
 
@@ -146,12 +165,17 @@ class ZipExtension
      */
     public function getNumberOfFiles($file)
     {
+        if ($this->zip === null) {
+            return 0;
+        }
+
         $num = 0;
         $res = $this->zip->open($file);
 
         if ($res === true) {
             $num = $this->zip->numFiles;
         }
+
         return $num;
     }
 
@@ -165,11 +189,17 @@ class ZipExtension
      */
     public function extract($file, $entry)
     {
+        if ($this->zip === null) {
+            return false;
+        }
+
         if ($this->zip->open($file) === true) {
             $result = $this->zip->getFromName($entry);
             $this->zip->close();
+
             return $result;
         }
+
         return false;
     }
 

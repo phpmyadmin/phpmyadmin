@@ -2,6 +2,7 @@
 /**
  * Selenium TestCase for typing and executing SQL query tests
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
@@ -21,24 +22,21 @@ class SqlQueryTest extends TestBase
         parent::setUp();
 
         $this->dbQuery(
-            'CREATE TABLE `test_table` ('
+            'USE `' . $this->database_name . '`;'
+            . 'CREATE TABLE `test_table` ('
             . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
             . ' `val` int(11) NOT NULL,'
             . ' PRIMARY KEY (`id`)'
-            . ')'
-        );
-        $this->dbQuery(
-            'INSERT INTO `test_table` (val) VALUES (2), (3), (4), (5);'
+            . ');'
+            . 'INSERT INTO `test_table` (val) VALUES (2), (3), (4), (5);'
         );
         $this->login();
     }
 
     /**
      * Test typing a SQL query on Server SQL page and submitting it
-     *
-     * @return void
      */
-    public function testServerSqlQuery()
+    public function testServerSqlQuery(): void
     {
         $this->waitForElement('partialLinkText', 'SQL')->click();
         $this->waitAjax();
@@ -73,15 +71,13 @@ class SqlQueryTest extends TestBase
         );
 
         // test inline edit button
-        $this->_testInlineEdit();
+        $this->assertInlineEdit();
     }
 
     /**
      * Test typing a SQL query on Database SQL page and submitting it
-     *
-     * @return void
      */
-    public function testDatabaseSqlQuery()
+    public function testDatabaseSqlQuery(): void
     {
         $this->navigateDatabase($this->database_name);
 
@@ -107,15 +103,13 @@ class SqlQueryTest extends TestBase
         );
 
         // test inline edit button
-        $this->_testInlineEdit();
+        $this->assertInlineEdit();
     }
 
     /**
      * Test typing a SQL query on Table SQL page and submitting it
-     *
-     * @return void
      */
-    public function testTableSqlQuery()
+    public function testTableSqlQuery(): void
     {
         $this->navigateTable('test_table');
 
@@ -146,13 +140,10 @@ class SqlQueryTest extends TestBase
         );
 
         // test inline edit button
-        $this->_testInlineEdit();
+        $this->assertInlineEdit();
     }
 
-    /**
-     * @return void
-     */
-    private function _testInlineEdit()
+    private function assertInlineEdit(): void
     {
         $this->waitForElement('cssSelector', 'a.inline_edit_sql')->click();
         // empty current query

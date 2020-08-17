@@ -374,6 +374,7 @@ table {
     margin: 0.1em;
     vertical-align: middle;
     text-shadow: 0 1px 0 #fff;
+    touch-action: manipulation;
   }
 }
 
@@ -609,6 +610,7 @@ table tbody:first-of-type tr:not(.nopointer):hover th,
 // hovered table rows
 #table_index tbody:hover tr,
 #table_index tbody:hover th,
+#table_index tbody:hover td,
 table tr.hover:not(.nopointer) th {
   background: linear-gradient(#ced6df, #b6c6d7);
   color: $browse-pointer-color;
@@ -736,6 +738,13 @@ td .icon {
 .confirmation {
   color: #000;
   background-color: pink;
+}
+
+.error {
+  border: 1px solid maroon !important;
+  padding: 0.27em;
+  color: #000;
+  background: pink;
 }
 
 // end messageboxes
@@ -1103,6 +1112,8 @@ div#tablestatistics table {
 // user privileges
 #fieldset_add_user_login {
   div.item {
+    display: flex;
+    align-items: center;
     border-bottom: 1px solid silver;
     padding-bottom: 0.3em;
     margin-bottom: 0.3em;
@@ -1115,6 +1126,7 @@ div#tablestatistics table {
     max-width: 100%;
     text-align: $right;
     padding-#{$right}: 0.5em;
+    margin-bottom: 0;
   }
 
   input {
@@ -1965,6 +1977,10 @@ input#input_import_file {
   margin: 5px;
 }
 
+input#import_merge {
+  margin: 0;
+}
+
 .formelementrow {
   margin: 5px 0 5px 0;
 }
@@ -2008,6 +2024,10 @@ input#input_import_file {
       margin: 0.1em;
     }
   }
+}
+
+#tablestructure tbody label {
+  margin: 0.3rem 0;
 }
 
 #structure-action-links a {
@@ -2546,12 +2566,17 @@ input#auto_increment_opt {
   border-#{$right}: 2px solid #a44;
 }
 
-.pma_table,
-.sticky_columns {
+.pma_table {
   th.draggable span {
     display: block;
     overflow: hidden;
   }
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 60px;
 }
 
 .pma_table {
@@ -3820,4 +3845,14 @@ body .ui-dialog {
 
 #filter_query_text {
   vertical-align: baseline;
+}
+
+.ui_tpicker_hour_slider,
+.ui_tpicker_minute_slider,
+.ui_tpicker_second_slider,
+.ui_tpicker_millisec_slider,
+.ui_tpicker_microsec_slider {
+  margin-left: 20px;
+  margin-top: 4px;
+  height: 0.75rem;
 }

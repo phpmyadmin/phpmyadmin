@@ -2,26 +2,28 @@
 /**
  * tests for PhpMyAdmin\Server\Select
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Server;
 
 use PhpMyAdmin\Server\Select;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Util;
-use PHPUnit\Framework\TestCase;
 
 /**
  * PhpMyAdmin\Tests\Server\SelectTest class
  *
  * this class is for testing PhpMyAdmin\Server\Select methods
  */
-class SelectTest extends TestCase
+class SelectTest extends AbstractTestCase
 {
     /**
      * Prepares environment for the test.
      */
     protected function setUp(): void
     {
+        parent::setUp();
         //$_REQUEST
         $_REQUEST['log'] = 'index1';
         $_REQUEST['pos'] = 3;
@@ -44,10 +46,8 @@ class SelectTest extends TestCase
 
     /**
      * Test for Select::render
-     *
-     * @return void
      */
-    public function testRender()
+    public function testRender(): void
     {
         $not_only_options = false;
         $omit_fieldset = false;

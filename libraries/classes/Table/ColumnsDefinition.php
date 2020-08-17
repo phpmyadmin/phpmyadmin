@@ -10,33 +10,57 @@ use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Partition;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\TablePartitionDefinition;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function array_merge;
+use function bin2hex;
+use function count;
+use function explode;
+use function in_array;
+use function intval;
+use function is_array;
+use function is_iterable;
+use function mb_strtoupper;
+use function preg_quote;
+use function preg_replace;
+use function rtrim;
+use function stripcslashes;
+use function substr;
+use function trim;
 
 /**
  * Displays the form used to define the structure of the table
  */
 final class ColumnsDefinition
 {
+    /**
+     * @param Transformations   $transformations Transformations
+     * @param Relation          $relation        Relation
+     * @param DatabaseInterface $dbi             Database Interface instance
+     * @param string            $action          Action
+     * @param int               $num_fields      The number of fields
+     * @param string|null       $regenerate      Use regeneration
+     * @param array|null        $selected        Selected
+     * @param array|null        $fields_meta     Fields meta
+     * @param array|null        $field_fulltext  Fields full text
+     *
+     * @return array<string, mixed>
+     */
     public static function displayForm(
-        Response $response,
-        Template $template,
         Transformations $transformations,
         Relation $relation,
         DatabaseInterface $dbi,
-        $action,
+        string $action,
         $num_fields = 0,
         $regenerate = null,
         $selected = null,
         $fields_meta = null,
         $field_fulltext = null
-    ): void {
+    ): array {
         global $db, $table, $cfg, $col_priv, $is_reload_priv, $mime_map;
 
         Util::checkParameters([
@@ -49,9 +73,7 @@ final class ColumnsDefinition
 
         $length_values_input_size = 8;
         $content_cells = [];
-        $form_params = [
-            'db' => $db,
-        ];
+        $form_params = ['db' => $db];
 
         if ($action == Url::getFromRoute('/table/create')) {
             $form_params['reload'] = 1;
@@ -86,7 +108,8 @@ final class ColumnsDefinition
             }
         }
 
-        $is_backup = ($action != Url::getFromRoute('/table/create') && $action != Url::getFromRoute('/table/add-field'));
+        $is_backup = ($action != Url::getFromRoute('/table/create')
+            && $action != Url::getFromRoute('/table/add-field'));
 
         $cfgRelation = $relation->getRelationsParam();
 
@@ -109,13 +132,15 @@ final class ColumnsDefinition
             'transformation',
         ];
         foreach ($mime_types as $mime_type) {
-            if (isset($available_mime[$mime_type]) and is_iterable($available_mime[$mime_type])) {
-                foreach ($available_mime[$mime_type] as $mimekey => $transform) {
-                    $available_mime[$mime_type . '_file_quoted'][$mimekey] = preg_quote(
-                        $available_mime[$mime_type . '_file'][$mimekey],
-                        '@'
-                    );
-                }
+            if (! isset($available_mime[$mime_type]) || ! is_iterable($available_mime[$mime_type])) {
+                continue;
+            }
+
+            foreach ($available_mime[$mime_type] as $mimekey => $transform) {
+                $available_mime[$mime_type . '_file_quoted'][$mimekey] = preg_quote(
+                    $available_mime[$mime_type . '_file'][$mimekey],
+                    '@'
+                );
             }
         }
 
@@ -278,12 +303,12 @@ final class ColumnsDefinition
                     $expressions = $tableObj->getColumnGenerationExpression(
                         $columnMeta['Field']
                     );
-                    $columnMeta['Expression'] = $expressions[$columnMeta['Field']];
+                    $columnMeta['Expression'] = is_array($expressions) ? $expressions[$columnMeta['Field']] : null;
                 }
                 switch ($columnMeta['Default']) {
                     case null:
                         if ($columnMeta['Default'] === null) {
-                            if ($columnMeta['Null'] == 'YES') {
+                            if ($columnMeta['Null'] === 'YES') {
                                 $columnMeta['DefaultType'] = 'NULL';
                                 $columnMeta['DefaultValue'] = '';
                             } else {
@@ -317,7 +342,7 @@ final class ColumnsDefinition
                 $extracted_columnspec = Util::extractColumnSpec(
                     $columnMeta['Type']
                 );
-                if ($extracted_columnspec['type'] == 'bit') {
+                if ($extracted_columnspec['type'] === 'bit') {
                     $columnMeta['Default']
                         = Util::convertBitDefaultValue($columnMeta['Default']);
                 }
@@ -442,9 +467,9 @@ final class ColumnsDefinition
             if (isset($columnMeta['DefaultValue'])) {
                 $default_value = $columnMeta['DefaultValue'];
             }
-            if ($type_upper == 'BIN)') {
+            if ($type_upper === 'BIN)') {
                 $default_value = Util::convertBitDefaultValue($columnMeta['DefaultValue']);
-            } elseif ($type_upper == 'BINARY' || $type_upper == 'VARBINARY') {
+            } elseif ($type_upper === 'BINARY' || $type_upper === 'VARBINARY') {
                 $default_value = bin2hex($columnMeta['DefaultValue']);
             }
 
@@ -491,7 +516,7 @@ final class ColumnsDefinition
 
         $storageEngines = StorageEngine::getArray();
 
-        $html = $template->render('columns_definitions/column_definitions_form', [
+        return [
             'is_backup' => $is_backup,
             'fields_meta' => $fields_meta ?? null,
             'mimework' => $cfgRelation['mimework'],
@@ -511,7 +536,7 @@ final class ColumnsDefinition
             'tbl_storage_engine' => $_POST['tbl_storage_engine'] ?? null,
             'storage_engines' => $storageEngines,
             'connection' => $_POST['connection'] ?? null,
-            'change_column' => $_POST['change_column'] ?? null,
+            'change_column' => $_POST['change_column'] ?? $_GET['change_column'] ?? null,
             'is_virtual_columns_supported' => Util::isVirtualColumnsSupported(),
             'browse_mime' => $cfg['BrowseMIME'] ?? null,
             'server_type' => Util::getServerType(),
@@ -524,14 +549,6 @@ final class ColumnsDefinition
             'have_partitioning' => Partition::havePartitioning(),
             'dbi' => $dbi,
             'disable_is' => $cfg['Server']['DisableIS'],
-        ]);
-
-        $response->getHeader()->getScripts()->addFiles(
-            [
-                'vendor/jquery/jquery.uitablefilter.js',
-                'indexes.js',
-            ]
-        );
-        $response->addHTML($html);
+        ];
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Preferences;
@@ -15,8 +16,10 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\UserPreferences;
-use PhpMyAdmin\UserPreferencesHeader;
 use PhpMyAdmin\Util;
+use const JSON_PRETTY_PRINT;
+use const PHP_URL_PATH;
+use const UPLOAD_ERR_OK;
 use function array_merge;
 use function define;
 use function file_exists;
@@ -30,9 +33,6 @@ use function parse_url;
 use function str_replace;
 use function urlencode;
 use function var_export;
-use const JSON_PRETTY_PRINT;
-use const PHP_URL_PATH;
-use const UPLOAD_ERR_OK;
 
 /**
  * User preferences management page.
@@ -73,15 +73,18 @@ class ManageController extends AbstractController
         $this->userPreferences->pageInit($cf);
 
         $error = '';
-        if (isset($_POST['submit_export'], $_POST['export_type']) && $_POST['export_type'] == 'text_file') {
+        if (isset($_POST['submit_export'], $_POST['export_type']) && $_POST['export_type'] === 'text_file') {
             // export to JSON file
             $this->response->disable();
             $filename = 'phpMyAdmin-config-' . urlencode(Core::getenv('HTTP_HOST')) . '.json';
             Core::downloadHeader($filename, 'application/json');
             $settings = $this->userPreferences->load();
             echo json_encode($settings['config_data'], JSON_PRETTY_PRINT);
+
             return;
-        } elseif (isset($_POST['submit_export'], $_POST['export_type']) && $_POST['export_type'] == 'php_file') {
+        }
+
+        if (isset($_POST['submit_export'], $_POST['export_type']) && $_POST['export_type'] === 'php_file') {
             // export to JSON file
             $this->response->disable();
             $filename = 'phpMyAdmin-config-' . urlencode(Core::getenv('HTTP_HOST')) . '.php';
@@ -93,17 +96,23 @@ class ManageController extends AbstractController
                 echo '$cfg[\'' . str_replace('/', '\'][\'', $key) . '\'] = ';
                 echo var_export($val, true) . ";\n";
             }
+
             return;
-        } elseif (isset($_POST['submit_get_json'])) {
+        }
+
+        if (isset($_POST['submit_get_json'])) {
             $settings = $this->userPreferences->load();
             $this->response->addJSON('prefs', json_encode($settings['config_data']));
             $this->response->addJSON('mtime', $settings['mtime']);
+
             return;
-        } elseif (isset($_POST['submit_import'])) {
+        }
+
+        if (isset($_POST['submit_import'])) {
             // load from JSON file
             $json = '';
             if (isset($_POST['import_type'], $_FILES['import_file'])
-                && $_POST['import_type'] == 'text_file'
+                && $_POST['import_type'] === 'text_file'
                 && $_FILES['import_file']['error'] == UPLOAD_ERR_OK
                 && is_uploaded_file($_FILES['import_file']['tmp_name'])
             ) {
@@ -167,6 +176,7 @@ class ManageController extends AbstractController
                         'import_merge' => $_POST['import_merge'] ?? null,
                         'return_url' => $return_url,
                     ]);
+
                     return;
                 }
 
@@ -196,7 +206,7 @@ class ManageController extends AbstractController
                         foreach ($query as $q) {
                             $pos = mb_strpos($q, '=');
                             $k = mb_substr($q, 0, (int) $pos);
-                            if ($k == 'token') {
+                            if ($k === 'token') {
                                 continue;
                             }
                             $params[$k] = mb_substr($q, $pos + 1);
@@ -207,10 +217,11 @@ class ManageController extends AbstractController
                     // reload config
                     $PMA_Config->loadUserPreferences();
                     $this->userPreferences->redirect($return_url ?? '', $params);
+
                     return;
-                } else {
-                    $error = $result;
                 }
+
+                $error = $result;
             }
         } elseif (isset($_POST['submit_clear'])) {
             $result = $this->userPreferences->save([]);
@@ -219,16 +230,16 @@ class ManageController extends AbstractController
                 $PMA_Config->removeCookie('pma_collaction_connection');
                 $PMA_Config->removeCookie('pma_lang');
                 $this->userPreferences->redirect('index.php?route=/preferences/manage', $params);
+
                 return;
             } else {
                 $error = $result;
             }
+
             return;
         }
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('config.js');
+        $this->addScriptFiles(['config.js']);
 
         $cfgRelation = $this->relation->getRelationsParam();
 
@@ -248,7 +259,8 @@ class ManageController extends AbstractController
         echo $this->template->render('preferences/manage/main', [
             'error' => $error,
             'max_upload_size' => $max_upload_size,
-            'exists_setup_and_not_exists_config' => @file_exists(ROOT_PATH . 'setup/index.php') && ! @file_exists(CONFIG_FILE),
+            'exists_setup_and_not_exists_config' => @file_exists(ROOT_PATH . 'setup/index.php')
+                && ! @file_exists(CONFIG_FILE),
         ]);
 
         if ($this->response->isAjax()) {

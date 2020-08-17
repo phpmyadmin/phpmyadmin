@@ -2,15 +2,17 @@
 /**
  * Tests for PMA_TableSearch
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\SearchController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Types;
 use stdClass;
@@ -18,10 +20,10 @@ use stdClass;
 /**
  * Tests for PMA_TableSearch
  */
-class SearchControllerTest extends PmaTestCase
+class SearchControllerTest extends AbstractTestCase
 {
     /** @var ResponseStub */
-    private $_response;
+    private $response;
 
     /** @var Template */
     private $template;
@@ -33,6 +35,10 @@ class SearchControllerTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
+        parent::loadDefaultConfig();
+
         /**
          * SET these to avoid undefined index error
          */
@@ -41,12 +47,13 @@ class SearchControllerTest extends PmaTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'PMA';
         $GLOBALS['table'] = 'PMA_BookMark';
+        $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $relation = new Relation($GLOBALS['dbi']);
         $GLOBALS['cfgRelation'] = $relation->getRelationsParam();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->types = new Types($dbi);
@@ -87,24 +94,28 @@ class SearchControllerTest extends PmaTestCase
         $GLOBALS['dbi'] = $dbi;
         $relation->dbi = $dbi;
 
-        $this->_response = new ResponseStub();
+        $this->response = new ResponseStub();
         $this->template = new Template();
     }
 
     /**
      * Tests for getColumnMinMax()
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetColumnMinMax()
+    public function testGetColumnMinMax(): void
     {
-        $GLOBALS['dbi']->expects($this->any())->method('fetchSingleRow')
-            ->will($this->returnArgument(0));
+        $expected = 'SELECT MIN(`column`) AS `min`, '
+            . 'MAX(`column`) AS `max` '
+            . 'FROM `PMA`.`PMA_BookMark`';
+
+        $GLOBALS['dbi']->expects($this->any())
+            ->method('fetchSingleRow')
+            ->with($expected)
+            ->will($this->returnValue([$expected]));
 
         $ctrl = new SearchController(
-            $this->_response,
+            $this->response,
             $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
@@ -114,23 +125,15 @@ class SearchControllerTest extends PmaTestCase
         );
 
         $result = $ctrl->getColumnMinMax('column');
-        $expected = 'SELECT MIN(`column`) AS `min`, '
-            . 'MAX(`column`) AS `max` '
-            . 'FROM `PMA`.`PMA_BookMark`';
-        $this->assertEquals(
-            $expected,
-            $result
-        );
+        $this->assertEquals([$expected], $result);
     }
 
     /**
      * Tests for getDataRowAction()
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetDataRowAction()
+    public function testGetDataRowAction(): void
     {
         $meta_one = new stdClass();
         $meta_one->type = 'int';
@@ -148,7 +151,7 @@ class SearchControllerTest extends PmaTestCase
         $GLOBALS['dbi']->expects($this->any())->method('fetchAssoc')
             ->will(
                 $this->returnCallback(
-                    function () {
+                    static function () {
                         static $count = 0;
                         if ($count == 0) {
                             $count++;
@@ -157,15 +160,15 @@ class SearchControllerTest extends PmaTestCase
                                 'col1' => 1,
                                 'col2' => 2,
                             ];
-                        } else {
-                            return null;
                         }
+
+                        return null;
                     }
                 )
             );
 
         $ctrl = new SearchController(
-            $this->_response,
+            $this->response,
             $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
@@ -183,7 +186,7 @@ class SearchControllerTest extends PmaTestCase
         ];
         $ctrl->getDataRowAction();
 
-        $json = $this->_response->getJSONResult();
+        $json = $this->response->getJSONResult();
         $this->assertEquals(
             $expected,
             $json['row_info']

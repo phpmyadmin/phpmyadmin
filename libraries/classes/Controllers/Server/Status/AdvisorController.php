@@ -38,8 +38,6 @@ class AdvisorController extends AbstractController
             $data = $this->advisor->run();
         }
 
-        $this->response->addHTML($this->template->render('server/status/advisor/index', [
-            'data' => $data,
-        ]));
+        $this->render('server/status/advisor/index', ['data' => $data]);
     }
 }

@@ -2,6 +2,7 @@
 /**
  * Simple interface for creating OASIS OpenDocument files.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
@@ -168,6 +169,7 @@ EOT;
         ];
 
         $zipExtension = new ZipExtension();
+
         return $zipExtension->createFile($data, $name);
     }
 }

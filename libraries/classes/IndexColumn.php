@@ -2,6 +2,7 @@
 /**
  * holds the database index columns class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
@@ -12,16 +13,16 @@ namespace PhpMyAdmin;
 class IndexColumn
 {
     /** @var string The column name */
-    private $_name = '';
+    private $name = '';
 
     /** @var int The column sequence number in the index, starting with 1. */
-    private $_seq_in_index = 1;
+    private $seq_in_index = 1;
 
     /**
      * @var string How the column is sorted in the index. “A” (Ascending) or
      * NULL (Not sorted)
      */
-    private $_collation = null;
+    private $collation = null;
 
     /**
      * The number of indexed characters if the column is only partly indexed,
@@ -29,7 +30,7 @@ class IndexColumn
      *
      * @var int
      */
-    private $_sub_part = null;
+    private $sub_part = null;
 
     /**
      * Contains YES if the column may contain NULL.
@@ -37,7 +38,7 @@ class IndexColumn
      *
      * @var string
      */
-    private $_null = '';
+    private $null = '';
 
     /**
      * An estimate of the number of unique values in the index. This is updated
@@ -48,7 +49,7 @@ class IndexColumn
      *
      * @var int
      */
-    private $_cardinality = null;
+    private $cardinality = null;
 
     /**
      * @param array $params an array containing the parameters of the index column
@@ -68,23 +69,25 @@ class IndexColumn
     public function set(array $params)
     {
         if (isset($params['Column_name'])) {
-            $this->_name = $params['Column_name'];
+            $this->name = $params['Column_name'];
         }
         if (isset($params['Seq_in_index'])) {
-            $this->_seq_in_index = $params['Seq_in_index'];
+            $this->seq_in_index = $params['Seq_in_index'];
         }
         if (isset($params['Collation'])) {
-            $this->_collation = $params['Collation'];
+            $this->collation = $params['Collation'];
         }
         if (isset($params['Cardinality'])) {
-            $this->_cardinality = $params['Cardinality'];
+            $this->cardinality = $params['Cardinality'];
         }
         if (isset($params['Sub_part'])) {
-            $this->_sub_part = $params['Sub_part'];
+            $this->sub_part = $params['Sub_part'];
         }
-        if (isset($params['Null'])) {
-            $this->_null = $params['Null'];
+        if (! isset($params['Null'])) {
+            return;
         }
+
+        $this->null = $params['Null'];
     }
 
     /**
@@ -94,7 +97,7 @@ class IndexColumn
      */
     public function getName()
     {
-        return $this->_name;
+        return $this->name;
     }
 
     /**
@@ -104,7 +107,7 @@ class IndexColumn
      */
     public function getCollation()
     {
-        return $this->_collation;
+        return $this->collation;
     }
 
     /**
@@ -114,7 +117,7 @@ class IndexColumn
      */
     public function getCardinality()
     {
-        return $this->_cardinality;
+        return $this->cardinality;
     }
 
     /**
@@ -128,14 +131,14 @@ class IndexColumn
     public function getNull($as_text = false): string
     {
         if ($as_text) {
-            if (! $this->_null || $this->_null == 'NO') {
+            if (! $this->null || $this->null === 'NO') {
                 return __('No');
             }
 
             return __('Yes');
         }
 
-        return $this->_null;
+        return $this->null;
     }
 
     /**
@@ -145,7 +148,7 @@ class IndexColumn
      */
     public function getSeqInIndex()
     {
-        return $this->_seq_in_index;
+        return $this->seq_in_index;
     }
 
     /**
@@ -156,7 +159,7 @@ class IndexColumn
      */
     public function getSubPart()
     {
-        return $this->_sub_part;
+        return $this->sub_part;
     }
 
     /**
@@ -167,11 +170,11 @@ class IndexColumn
     public function getCompareData()
     {
         return [
-            'Column_name'   => $this->_name,
-            'Seq_in_index'  => $this->_seq_in_index,
-            'Collation'     => $this->_collation,
-            'Sub_part'      => $this->_sub_part,
-            'Null'          => $this->_null,
+            'Column_name'   => $this->name,
+            'Seq_in_index'  => $this->seq_in_index,
+            'Collation'     => $this->collation,
+            'Sub_part'      => $this->sub_part,
+            'Null'          => $this->null,
         ];
     }
 }

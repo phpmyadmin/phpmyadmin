@@ -2,6 +2,7 @@
 /**
  * Base class for preferences.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Config\Forms;
@@ -66,6 +67,7 @@ abstract class BaseForm extends FormDisplay
                 $names[] = is_int($k) ? $v : $k;
             }
         }
+
         return $names;
     }
 

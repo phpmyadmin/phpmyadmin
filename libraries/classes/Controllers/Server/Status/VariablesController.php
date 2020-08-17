@@ -2,6 +2,7 @@
 /**
  * Displays a list of server status variables
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;
@@ -26,11 +27,11 @@ class VariablesController extends AbstractController
 
         Common::server();
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('server/status/variables.js');
-        $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
-        $scripts->addFile('server/status/sorter.js');
+        $this->addScriptFiles([
+            'server/status/variables.js',
+            'vendor/jquery/jquery.tablesorter.js',
+            'server/status/sorter.js',
+        ]);
 
         if (isset($params['flush'])) {
             $this->flush($params['flush']);
@@ -39,18 +40,22 @@ class VariablesController extends AbstractController
         if ($this->data->dataLoaded) {
             $categories = [];
             foreach ($this->data->sections as $sectionId => $sectionName) {
-                if (isset($this->data->sectionUsed[$sectionId])) {
-                    $categories[$sectionId] = [
-                        'id' => $sectionId,
-                        'name' => $sectionName,
-                        'is_selected' => false,
-                    ];
-                    if (! empty($params['filterCategory'])
-                        && $params['filterCategory'] === $sectionId
-                    ) {
-                        $categories[$sectionId]['is_selected'] = true;
-                    }
+                if (! isset($this->data->sectionUsed[$sectionId])) {
+                    continue;
                 }
+
+                $categories[$sectionId] = [
+                    'id' => $sectionId,
+                    'name' => $sectionName,
+                    'is_selected' => false,
+                ];
+                if (empty($params['filterCategory'])
+                    || $params['filterCategory'] !== $sectionId
+                ) {
+                    continue;
+                }
+
+                $categories[$sectionId]['is_selected'] = true;
             }
 
             $links = [];
@@ -94,18 +99,20 @@ class VariablesController extends AbstractController
                     }
                 }
 
-                if (isset($this->data->links[$name])) {
-                    foreach ($this->data->links[$name] as $linkName => $linkUrl) {
-                        $variables[$name]['description_doc'][] = [
-                            'name' => $linkName,
-                            'url' => $linkUrl,
-                        ];
-                    }
+                if (! isset($this->data->links[$name])) {
+                    continue;
+                }
+
+                foreach ($this->data->links[$name] as $linkName => $linkUrl) {
+                    $variables[$name]['description_doc'][] = [
+                        'name' => $linkName,
+                        'url' => $linkUrl,
+                    ];
                 }
             }
         }
 
-        $this->response->addHTML($this->template->render('server/status/variables/index', [
+        $this->render('server/status/variables/index', [
             'is_data_loaded' => $this->data->dataLoaded,
             'filter_text' => ! empty($params['filterText']) ? $params['filterText'] : '',
             'is_only_alerts' => ! empty($params['filterAlert']),
@@ -113,7 +120,7 @@ class VariablesController extends AbstractController
             'categories' => $categories ?? [],
             'links' => $links ?? [],
             'variables' => $variables ?? [],
-        ]));
+        ]);
     }
 
     /**
@@ -129,9 +136,11 @@ class VariablesController extends AbstractController
             'QUERY CACHE',
         ];
 
-        if (in_array($flush, $flushCommands)) {
-            $this->dbi->query('FLUSH ' . $flush . ';');
+        if (! in_array($flush, $flushCommands)) {
+            return;
         }
+
+        $this->dbi->query('FLUSH ' . $flush . ';');
     }
 
     /**

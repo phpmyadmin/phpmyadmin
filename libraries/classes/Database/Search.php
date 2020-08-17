@@ -2,13 +2,12 @@
 /**
  * Handles Database Search
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 use function array_intersect;
@@ -248,21 +247,25 @@ class Search
             $likeClausesPerColumn = [];
             // for each column in the table
             foreach ($allColumns as $column) {
-                if (! isset($this->criteriaColumnName)
-                    || strlen($this->criteriaColumnName) === 0
-                    || $column['Field'] == $this->criteriaColumnName
+                if (isset($this->criteriaColumnName)
+                    && strlen($this->criteriaColumnName) !== 0
+                    && $column['Field'] != $this->criteriaColumnName
                 ) {
-                    $column = 'CONVERT(' . Util::backquote($column['Field'])
-                            . ' USING utf8)';
-                    $likeClausesPerColumn[] = $column . ' ' . $like_or_regex . ' '
-                        . "'"
-                        . $automatic_wildcard . $search_word . $automatic_wildcard
-                        . "'";
+                    continue;
                 }
+
+                $column = 'CONVERT(' . Util::backquote($column['Field'])
+                        . ' USING utf8)';
+                $likeClausesPerColumn[] = $column . ' ' . $like_or_regex . ' '
+                    . "'"
+                    . $automatic_wildcard . $search_word . $automatic_wildcard
+                    . "'";
             } // end for
-            if (count($likeClausesPerColumn) > 0) {
-                $likeClauses[] = implode(' OR ', $likeClausesPerColumn);
+            if (count($likeClausesPerColumn) <= 0) {
+                continue;
             }
+
+            $likeClauses[] = implode(' OR ', $likeClausesPerColumn);
         } // end for
         // Use 'OR' if 'at least one word' is to be searched, else use 'AND'
         $implode_str  = ($this->criteriaSearchType == 1 ? ' OR ' : ' AND ');
@@ -275,6 +278,7 @@ class Search
                 . implode(') ' . $implode_str . ' (', $likeClauses)
                 . ')';
         }
+
         return $where_clause;
     }
 

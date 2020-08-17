@@ -4,6 +4,7 @@
  *
  * @todo       Improve efficiency
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
@@ -14,6 +15,7 @@ use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Util;
 use SimpleXMLElement;
+use const LIBXML_COMPACT;
 use function count;
 use function in_array;
 use function libxml_disable_entity_loader;
@@ -21,7 +23,6 @@ use function simplexml_load_string;
 use function str_replace;
 use function strcmp;
 use function strlen;
-use const LIBXML_COMPACT;
 
 /**
  * Handles the import for the XML format
@@ -77,14 +78,15 @@ class ImportXml extends ImportPlugin
                 /* subtract data we didn't handle yet and stop processing */
                 $GLOBALS['offset'] -= strlen($buffer);
                 break;
-            } elseif ($data !== true) {
-                /* Append new data to buffer */
-                $buffer .= $data;
-                unset($data);
             }
-        }
 
-        unset($data);
+            if ($data === true) {
+                continue;
+            }
+
+            /* Append new data to buffer */
+            $buffer .= $data;
+        }
 
         /**
          * Disable loading of external XML entities.
@@ -106,13 +108,12 @@ class ImportXml extends ImportPlugin
          * The XML was malformed
          */
         if ($xml === false) {
-            Message::error(
+            echo Message::error(
                 __(
                     'The XML file specified was either malformed or incomplete.'
                     . ' Please correct the issue and try again.'
                 )
-            )
-                ->display();
+            )->getDisplay();
             unset($xml);
             $GLOBALS['finished'] = false;
 
@@ -171,13 +172,12 @@ class ImportXml extends ImportPlugin
          * The XML was malformed
          */
         if ($db_name === null) {
-            Message::error(
+            echo Message::error(
                 __(
                     'The XML file specified was either malformed or incomplete.'
                     . ' Please correct the issue and try again.'
                 )
-            )
-                ->display();
+            )->getDisplay();
             unset($xml);
             $GLOBALS['finished'] = false;
 
@@ -286,13 +286,15 @@ class ImportXml extends ImportPlugin
             for ($i = 0; $i < $num_tables; ++$i) {
                 $num_rows = count($rows);
                 for ($j = 0; $j < $num_rows; ++$j) {
-                    if (! strcmp($tables[$i][Import::TBL_NAME], $rows[$j][Import::TBL_NAME])) {
-                        if (! isset($tables[$i][Import::COL_NAMES])) {
-                            $tables[$i][] = $rows[$j][Import::COL_NAMES];
-                        }
-
-                        $tables[$i][Import::ROWS][] = $rows[$j][Import::ROWS];
+                    if (strcmp($tables[$i][Import::TBL_NAME], $rows[$j][Import::TBL_NAME])) {
+                        continue;
                     }
+
+                    if (! isset($tables[$i][Import::COL_NAMES])) {
+                        $tables[$i][] = $rows[$j][Import::COL_NAMES];
+                    }
+
+                    $tables[$i][Import::ROWS][] = $rows[$j][Import::ROWS];
                 }
             }
 

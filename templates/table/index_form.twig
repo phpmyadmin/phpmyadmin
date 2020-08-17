@@ -48,11 +48,9 @@
               </select>
             </div>
 
-            {% include 'div_for_slider_effect.twig' with {
-                'id': 'indexoptions',
-                'message': 'Advanced Options'|trans,
-                'initial_sliders_state': default_sliders_state
-            } only %}
+            <div id="indexoptions"{% if default_sliders_state != 'disabled' -%}
+                {{- default_sliders_state == 'closed' ? ' style="display: none; overflow:auto;"' }} class="pma_auto_slider" title="{% trans 'Advanced options' %}"
+            {%- endif %}>
 
             <div>
                 <div class="label">
@@ -228,6 +226,7 @@
                     id="add_fields"
                     value="{{ 'Add %s column(s) to index'|trans|format(1) }}">
             </div>
+        </div>
         </div>
     </fieldset>
     <fieldset class="tblFooters">

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
@@ -9,9 +10,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\UserGroups;
-use PhpMyAdmin\Server\Users;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 
 /**
  * Displays the 'User groups' sub page under 'Users' page.
@@ -40,9 +39,7 @@ class UserGroupsController extends AbstractController
             return;
         }
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('server/user_groups.js');
+        $this->addScriptFiles(['server/user_groups.js']);
 
         /**
          * Only allowed to superuser
@@ -51,14 +48,15 @@ class UserGroupsController extends AbstractController
             $this->response->addHTML(
                 Message::error(__('No Privileges'))->getDisplay()
             );
+
             return;
         }
 
         $this->response->addHTML('<div class="container-fluid">');
-        $this->response->addHTML($this->template->render('server/privileges/subnav', [
+        $this->render('server/privileges/subnav', [
             'active' => 'user-groups',
             'is_super_user' => $this->dbi->isSuperuser(),
-        ]));
+        ]);
 
         /**
          * Delete user group

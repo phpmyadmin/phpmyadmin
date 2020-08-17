@@ -2,6 +2,7 @@
 /**
  * Tests for PhpMyAdmin\Font class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
@@ -11,7 +12,7 @@ use PhpMyAdmin\Font;
 /**
  * Tests for PhpMyAdmin\Font class
  */
-class FontTest extends PmaTestCase
+class FontTest extends AbstractTestCase
 {
     /** @var Font */
     private $font;
@@ -21,15 +22,14 @@ class FontTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->font = new Font();
     }
 
     /**
      * Test getStringWidth with different characters.
-     *
-     * @return void
      */
-    public function testGetStringWidth()
+    public function testGetStringWidth(): void
     {
         // empty string
         $this->assertEquals(
@@ -148,10 +148,8 @@ class FontTest extends PmaTestCase
 
     /**
      * Test getStringWidth with different fonts.
-     *
-     * @return void
      */
-    public function testGetStringWidthFont()
+    public function testGetStringWidthFont(): void
     {
         // string "phpMyAdmin", with Arial 10
         $this->assertEquals(
@@ -180,10 +178,8 @@ class FontTest extends PmaTestCase
 
     /**
      * Test getStringWidth with different font sizes.
-     *
-     * @return void
      */
-    public function testGetStringWidthSize()
+    public function testGetStringWidthSize(): void
     {
         // string "phpMyAdmin", with font size 0
         $this->assertEquals(
@@ -212,10 +208,8 @@ class FontTest extends PmaTestCase
 
     /**
      * Test getStringWidth with a custom charList.
-     *
-     * @return void
      */
-    public function testGetStringWidthCharLists()
+    public function testGetStringWidthCharLists(): void
     {
         // string "a", with invalid charlist (= array without proper structure)
         $this->assertEquals(

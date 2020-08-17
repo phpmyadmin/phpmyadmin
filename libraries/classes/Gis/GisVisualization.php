@@ -2,6 +2,7 @@
 /**
  * Handles visualization of GIS data
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
@@ -10,6 +11,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
 use TCPDF;
+use const PNG_ALL_FILTERS;
 use function array_merge;
 use function base64_encode;
 use function count;
@@ -26,7 +28,6 @@ use function mb_strtolower;
 use function mb_substr;
 use function ob_get_clean;
 use function ob_start;
-use const PNG_ALL_FILTERS;
 
 /**
  * Handles visualization of GIS data
@@ -34,10 +35,13 @@ use const PNG_ALL_FILTERS;
 class GisVisualization
 {
     /** @var array   Raw data for the visualization */
-    private $_data;
-    private $_modified_sql;
+    private $data;
+
+    /** @var string */
+    private $modified_sql;
+
     /** @var array   Set of default settings values are here. */
-    private $_settings = [
+    private $settings = [
         // Array of colors to be used for GIS visualizations.
         'colors' => [
             '#B02EE0',
@@ -63,8 +67,9 @@ class GisVisualization
         // The height of the GIS visualization.
         'height' => 450,
     ];
+
     /** @var array   Options that the user has specified. */
-    private $_userSpecifiedSettings = null;
+    private $userSpecifiedSettings = null;
 
     /**
      * Returns the settings array
@@ -75,7 +80,7 @@ class GisVisualization
      */
     public function getSettings()
     {
-        return $this->_settings;
+        return $this->settings;
     }
 
     /**
@@ -116,7 +121,7 @@ class GisVisualization
      */
     public function hasSrid()
     {
-        foreach ($this->_data as $row) {
+        foreach ($this->data as $row) {
             if ($row['srid'] != 0) {
                 return true;
             }
@@ -139,12 +144,12 @@ class GisVisualization
      */
     private function __construct($sql_query, array $options, $row, $pos, $data = null)
     {
-        $this->_userSpecifiedSettings = $options;
+        $this->userSpecifiedSettings = $options;
         if (isset($data)) {
-            $this->_data = $data;
+            $this->data = $data;
         } else {
-            $this->_modified_sql = $this->_modifySqlQuery($sql_query, $row, $pos);
-            $this->_data = $this->_fetchRawData();
+            $this->modified_sql = $this->modifySqlQuery($sql_query, $row, $pos);
+            $this->data = $this->fetchRawData();
         }
     }
 
@@ -157,7 +162,7 @@ class GisVisualization
      */
     protected function init()
     {
-        $this->_handleOptions();
+        $this->handleOptions();
     }
 
     /**
@@ -169,35 +174,42 @@ class GisVisualization
      *
      * @return string the modified sql query.
      */
-    private function _modifySqlQuery($sql_query, $rows, $pos)
+    private function modifySqlQuery($sql_query, $rows, $pos)
     {
+        $isMariaDb = $this->userSpecifiedSettings['isMariaDB'] === true;
         $modified_query = 'SELECT ';
         $spatialAsText = 'ASTEXT';
         $spatialSrid = 'SRID';
+        $axisOrder = '';
 
-        if ($this->_userSpecifiedSettings['mysqlVersion'] >= 50600) {
+        if ($this->userSpecifiedSettings['mysqlVersion'] >= 50600) {
             $spatialAsText = 'ST_ASTEXT';
             $spatialSrid = 'ST_SRID';
         }
 
+        // If MYSQL version >= 8.1 override default axis order
+        if ($this->userSpecifiedSettings['mysqlVersion'] >= 80010 && ! $isMariaDb) {
+            $axisOrder = ', \'axis-order=long-lat\'';
+        }
+
         // If label column is chosen add it to the query
-        if (! empty($this->_userSpecifiedSettings['labelColumn'])) {
+        if (! empty($this->userSpecifiedSettings['labelColumn'])) {
             $modified_query .= Util::backquote(
-                $this->_userSpecifiedSettings['labelColumn']
+                $this->userSpecifiedSettings['labelColumn']
             )
             . ', ';
         }
         // Wrap the spatial column with 'ST_ASTEXT()' function and add it
         $modified_query .= $spatialAsText . '('
-            . Util::backquote($this->_userSpecifiedSettings['spatialColumn'])
-            . ') AS ' . Util::backquote(
-                $this->_userSpecifiedSettings['spatialColumn']
+            . Util::backquote($this->userSpecifiedSettings['spatialColumn'])
+            . $axisOrder . ') AS ' . Util::backquote(
+                $this->userSpecifiedSettings['spatialColumn']
             )
             . ', ';
 
         // Get the SRID
         $modified_query .= $spatialSrid . '('
-            . Util::backquote($this->_userSpecifiedSettings['spatialColumn'])
+            . Util::backquote($this->userSpecifiedSettings['spatialColumn'])
             . ') AS ' . Util::backquote('srid') . ' ';
 
         // Append the original query as the inner query
@@ -222,9 +234,9 @@ class GisVisualization
      *
      * @return array the raw data.
      */
-    private function _fetchRawData()
+    private function fetchRawData()
     {
-        $modified_result = $GLOBALS['dbi']->tryQuery($this->_modified_sql);
+        $modified_result = $GLOBALS['dbi']->tryQuery($this->modified_sql);
 
         if ($modified_result === false) {
             return [];
@@ -246,14 +258,16 @@ class GisVisualization
      *
      * @access private
      */
-    private function _handleOptions()
+    private function handleOptions()
     {
-        if ($this->_userSpecifiedSettings !== null) {
-            $this->_settings = array_merge(
-                $this->_settings,
-                $this->_userSpecifiedSettings
-            );
+        if ($this->userSpecifiedSettings === null) {
+            return;
         }
+
+        $this->settings = array_merge(
+            $this->settings,
+            $this->userSpecifiedSettings
+        );
     }
 
     /**
@@ -266,7 +280,7 @@ class GisVisualization
      *
      * @access private
      */
-    private function _sanitizeName($file_name, $ext)
+    private function sanitizeName($file_name, $ext)
     {
         $file_name = Sanitize::sanitizeFilename($file_name);
 
@@ -298,9 +312,9 @@ class GisVisualization
      *
      * @access private
      */
-    private function _toFile($file_name, $type, $ext)
+    private function writeToFile($file_name, $type, $ext)
     {
-        $file_name = $this->_sanitizeName($file_name, $ext);
+        $file_name = $this->sanitizeName($file_name, $ext);
         Core::downloadHeader($file_name, $type);
     }
 
@@ -311,7 +325,7 @@ class GisVisualization
      *
      * @access private
      */
-    private function _svg()
+    private function svg()
     {
         $this->init();
 
@@ -319,12 +333,12 @@ class GisVisualization
             . "\n"
             . '<svg version="1.1" xmlns:svg="http://www.w3.org/2000/svg"'
             . ' xmlns="http://www.w3.org/2000/svg"'
-            . ' width="' . intval($this->_settings['width']) . '"'
-            . ' height="' . intval($this->_settings['height']) . '">'
+            . ' width="' . intval($this->settings['width']) . '"'
+            . ' height="' . intval($this->settings['height']) . '">'
             . '<g id="groupPanel">';
 
-        $scale_data = $this->_scaleDataSet($this->_data);
-        $output .= $this->_prepareDataSet($this->_data, $scale_data, 'svg', '');
+        $scale_data = $this->scaleDataSet($this->data);
+        $output .= $this->prepareDataSet($this->data, $scale_data, 'svg', '');
 
         $output .= '</g></svg>';
 
@@ -340,7 +354,7 @@ class GisVisualization
      */
     public function asSVG()
     {
-        return $this->_svg();
+        return $this->svg();
     }
 
     /**
@@ -354,8 +368,8 @@ class GisVisualization
      */
     public function toFileAsSvg($file_name)
     {
-        $img = $this->_svg();
-        $this->_toFile($file_name, 'image/svg+xml', 'svg');
+        $img = $this->svg();
+        $this->writeToFile($file_name, 'image/svg+xml', 'svg');
         echo $img;
     }
 
@@ -366,14 +380,14 @@ class GisVisualization
      *
      * @access private
      */
-    private function _png()
+    private function png()
     {
         $this->init();
 
         // create image
         $image = imagecreatetruecolor(
-            $this->_settings['width'],
-            $this->_settings['height']
+            $this->settings['width'],
+            $this->settings['height']
         );
 
         // fill the background
@@ -382,13 +396,13 @@ class GisVisualization
             $image,
             0,
             0,
-            $this->_settings['width'] - 1,
-            $this->_settings['height'] - 1,
+            $this->settings['width'] - 1,
+            $this->settings['height'] - 1,
             $bg
         );
 
-        $scale_data = $this->_scaleDataSet($this->_data);
-        $image = $this->_prepareDataSet($this->_data, $scale_data, 'png', $image);
+        $scale_data = $this->scaleDataSet($this->data);
+        $image = $this->prepareDataSet($this->data, $scale_data, 'png', $image);
 
         return $image;
     }
@@ -402,7 +416,7 @@ class GisVisualization
      */
     public function asPng()
     {
-        $img = $this->_png();
+        $img = $this->png();
 
         // render and save it to variable
         ob_start();
@@ -427,8 +441,8 @@ class GisVisualization
      */
     public function toFileAsPng($file_name)
     {
-        $img = $this->_png();
-        $this->_toFile($file_name, 'image/png', 'png');
+        $img = $this->png();
+        $this->writeToFile($file_name, 'image/png', 'png');
         imagepng($img, null, 9, PNG_ALL_FILTERS);
         imagedestroy($img);
     }
@@ -444,7 +458,7 @@ class GisVisualization
     public function asOl()
     {
         $this->init();
-        $scale_data = $this->_scaleDataSet($this->_data);
+        $scale_data = $this->scaleDataSet($this->data);
         $output
             = 'if (typeof OpenLayers !== "undefined") {'
             . 'var options = {'
@@ -470,7 +484,7 @@ class GisVisualization
             . 'map.addLayers([layerOSM,layerNone]);'
             . 'var vectorLayer = new OpenLayers.Layer.Vector("Data");'
             . 'var bound;';
-        $output .= $this->_prepareDataSet($this->_data, $scale_data, 'ol', '');
+        $output .= $this->prepareDataSet($this->data, $scale_data, 'ol', '');
         $output .= 'map.addLayer(vectorLayer);'
             . 'map.zoomToExtent(bound);'
             . 'if (map.getZoom() < 2) {'
@@ -516,11 +530,11 @@ class GisVisualization
         // add a page
         $pdf->AddPage();
 
-        $scale_data = $this->_scaleDataSet($this->_data);
-        $pdf = $this->_prepareDataSet($this->_data, $scale_data, 'pdf', $pdf);
+        $scale_data = $this->scaleDataSet($this->data);
+        $pdf = $this->prepareDataSet($this->data, $scale_data, 'pdf', $pdf);
 
         // sanitize file name
-        $file_name = $this->_sanitizeName($file_name, 'pdf');
+        $file_name = $this->sanitizeName($file_name, 'pdf');
         $pdf->Output($file_name, 'D');
     }
 
@@ -533,13 +547,18 @@ class GisVisualization
      */
     public function toImage($format)
     {
-        if ($format == 'svg') {
+        if ($format === 'svg') {
             return $this->asSVG();
-        } elseif ($format == 'png') {
+        }
+
+        if ($format === 'png') {
             return $this->asPng();
-        } elseif ($format == 'ol') {
+        }
+
+        if ($format === 'ol') {
             return $this->asOl();
         }
+
         return '';
     }
 
@@ -553,11 +572,11 @@ class GisVisualization
      */
     public function toFile($filename, $format)
     {
-        if ($format == 'svg') {
+        if ($format === 'svg') {
             $this->toFileAsSvg($filename);
-        } elseif ($format == 'png') {
+        } elseif ($format === 'png') {
             $this->toFileAsPng($filename);
-        } elseif ($format == 'pdf') {
+        } elseif ($format === 'pdf') {
             $this->toFileAsPdf($filename);
         }
     }
@@ -571,7 +590,7 @@ class GisVisualization
      *
      * @access private
      */
-    private function _scaleDataSet(array $data)
+    private function scaleDataSet(array $data)
     {
         $min_max = [
             'maxX' => 0.0,
@@ -581,12 +600,12 @@ class GisVisualization
         ];
         $border = 15;
         // effective width and height of the plot
-        $plot_width = $this->_settings['width'] - 2 * $border;
-        $plot_height = $this->_settings['height'] - 2 * $border;
+        $plot_width = $this->settings['width'] - 2 * $border;
+        $plot_height = $this->settings['height'] - 2 * $border;
 
         foreach ($data as $row) {
             // Figure out the data type
-            $ref_data = $row[$this->_settings['spatialColumn']];
+            $ref_data = $row[$this->settings['spatialColumn']];
             $type_pos = mb_strpos($ref_data, '(');
             if ($type_pos === false) {
                 continue;
@@ -598,7 +617,7 @@ class GisVisualization
                 continue;
             }
             $scale_data = $gis_obj->scaleRow(
-                $row[$this->_settings['spatialColumn']]
+                $row[$this->settings['spatialColumn']]
             );
 
             // Update minimum/maximum values for x and y coordinates.
@@ -618,9 +637,11 @@ class GisVisualization
             }
 
             $c_minY = (float) $scale_data['minY'];
-            if ($min_max['minY'] === 0.0 || $c_minY < $min_max['minY']) {
-                $min_max['minY'] = $c_minY;
+            if ($min_max['minY'] !== 0.0 && $c_minY >= $min_max['minY']) {
+                continue;
             }
+
+            $min_max['minY'] = $c_minY;
         }
 
         // scale the visualization
@@ -650,33 +671,33 @@ class GisVisualization
             'maxX'   => $min_max['maxX'],
             'minY'   => $min_max['minY'],
             'maxY'   => $min_max['maxY'],
-            'height' => $this->_settings['height'],
+            'height' => $this->settings['height'],
         ];
     }
 
     /**
      * Prepares and return the dataset as needed by the visualization.
      *
-     * @param array  $data       Raw data
-     * @param array  $scale_data Data related to scaling
-     * @param string $format     Format of the visualization
-     * @param object $results    Image object in the case of png
-     *                           TCPDF object in the case of pdf
+     * @param array                       $data       Raw data
+     * @param array                       $scale_data Data related to scaling
+     * @param string                      $format     Format of the visualization
+     * @param resource|TCPDF|string|false $results    Image object in the case of png
+     *                                                TCPDF object in the case of pdf
      *
      * @return mixed the formatted array of data
      *
      * @access private
      */
-    private function _prepareDataSet(array $data, array $scale_data, $format, $results)
+    private function prepareDataSet(array $data, array $scale_data, $format, $results)
     {
         $color_number = 0;
 
         // loop through the rows
         foreach ($data as $row) {
-            $index = $color_number % count($this->_settings['colors']);
+            $index = $color_number % count($this->settings['colors']);
 
             // Figure out the data type
-            $ref_data = $row[$this->_settings['spatialColumn']];
+            $ref_data = $row[$this->settings['spatialColumn']];
             $type_pos = mb_strpos($ref_data, '(');
             if ($type_pos === false) {
                 continue;
@@ -688,39 +709,39 @@ class GisVisualization
                 continue;
             }
             $label = '';
-            if (isset($this->_settings['labelColumn'], $row[$this->_settings['labelColumn']])) {
-                $label = $row[$this->_settings['labelColumn']];
+            if (isset($this->settings['labelColumn'], $row[$this->settings['labelColumn']])) {
+                $label = $row[$this->settings['labelColumn']];
             }
 
-            if ($format == 'svg') {
+            if ($format === 'svg') {
                 $results .= $gis_obj->prepareRowAsSvg(
-                    $row[$this->_settings['spatialColumn']],
+                    $row[$this->settings['spatialColumn']],
                     $label,
-                    $this->_settings['colors'][$index],
+                    $this->settings['colors'][$index],
                     $scale_data
                 );
-            } elseif ($format == 'png') {
+            } elseif ($format === 'png') {
                 $results = $gis_obj->prepareRowAsPng(
-                    $row[$this->_settings['spatialColumn']],
+                    $row[$this->settings['spatialColumn']],
                     $label,
-                    $this->_settings['colors'][$index],
+                    $this->settings['colors'][$index],
                     $scale_data,
                     $results
                 );
-            } elseif ($format == 'pdf') {
+            } elseif ($format === 'pdf' && $results instanceof TCPDF) {
                 $results = $gis_obj->prepareRowAsPdf(
-                    $row[$this->_settings['spatialColumn']],
+                    $row[$this->settings['spatialColumn']],
                     $label,
-                    $this->_settings['colors'][$index],
+                    $this->settings['colors'][$index],
                     $scale_data,
                     $results
                 );
-            } elseif ($format == 'ol') {
+            } elseif ($format === 'ol') {
                 $results .= $gis_obj->prepareRowAsOl(
-                    $row[$this->_settings['spatialColumn']],
+                    $row[$this->settings['spatialColumn']],
                     $row['srid'],
                     $label,
-                    $this->_settings['colors'][$index],
+                    $this->settings['colors'][$index],
                     $scale_data
                 );
             }
@@ -739,6 +760,6 @@ class GisVisualization
      */
     public function setUserSpecifiedSettings(array $userSpecifiedSettings)
     {
-        $this->_userSpecifiedSettings = $userSpecifiedSettings;
+        $this->userSpecifiedSettings = $userSpecifiedSettings;
     }
 }

@@ -2,6 +2,7 @@
 /**
  * Handles plugins that show the upload progress
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Display;
@@ -21,10 +22,8 @@ class ImportAjax
 {
     /**
      * Sets up some variables for upload progress
-     *
-     * @return array
      */
-    public static function uploadProgressSetup()
+    public static function uploadProgressSetup(): array
     {
         /**
          * constant for differentiating array in $_SESSION variable
@@ -64,6 +63,7 @@ class ImportAjax
                 break;
             }
         }
+
         return [
             $SESSION_KEY,
             $upload_id,
@@ -85,6 +85,7 @@ class ImportAjax
         ) {
             return false;
         }
+
         return ini_get('apc.enabled') && ini_get('apc.rfc1867');
     }
 
@@ -95,7 +96,7 @@ class ImportAjax
      * @return bool true if PhpMyAdmin\Plugins\Import\Upload\UploadProgress
      * extension is available, false if it is not
      */
-    public static function progressCheck()
+    public static function progressCheck(): bool
     {
         return function_exists('uploadprogress_get_info')
             && function_exists('getallheaders');
@@ -107,18 +108,18 @@ class ImportAjax
      * @return bool true if PHP 5.4 session upload-progress is available,
      * false if it is not
      */
-    public static function sessionCheck()
+    public static function sessionCheck(): bool
     {
-        return ini_get('session.upload_progress.enabled');
+        return ini_get('session.upload_progress.enabled') === '1';
     }
 
     /**
      * Default plugin for handling import.
      * If no other plugin is available, noplugin is used.
      *
-     * @return bool true
+     * @return true
      */
-    public static function nopluginCheck()
+    public static function nopluginCheck(): bool
     {
         return true;
     }
@@ -128,10 +129,8 @@ class ImportAjax
      * It uses PMA_getUploadStatus, which is defined in plugin's file.
      *
      * @param string $id ID of transfer, usually $upload_id
-     *
-     * @return void
      */
-    public static function status($id)
+    public static function status($id): void
     {
         Core::headerJSON();
         echo json_encode(

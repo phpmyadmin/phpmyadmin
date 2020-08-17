@@ -133,12 +133,14 @@ Navigation.loadChildNodes = function (isNode, $expandElem, callback) {
             return;
         }
         $destination = $expandElem.closest('li');
+        var pos2Name = $expandElem.find('span.pos2_nav');
+        var pathsNav = $expandElem.find('span.paths_nav');
         params = {
-            'aPath': $expandElem.find('span.aPath').text(),
-            'vPath': $expandElem.find('span.vPath').text(),
-            'pos': $expandElem.find('span.pos').text(),
-            'pos2_name': $expandElem.find('span.pos2_name').text(),
-            'pos2_value': $expandElem.find('span.pos2_value').text(),
+            'aPath': pathsNav.attr('data-apath'),
+            'vPath': pathsNav.attr('data-vpath'),
+            'pos': pathsNav.attr('data-pos'),
+            'pos2_name': pos2Name.attr('data-name'),
+            'pos2_value': pos2Name.attr('data-value'),
             'searchClause': '',
             'searchClause2': ''
         };
@@ -149,9 +151,9 @@ Navigation.loadChildNodes = function (isNode, $expandElem, callback) {
     } else {
         $destination = $('#pma_navigation_tree_content');
         params = {
-            'aPath': $expandElem.attr('aPath'),
-            'vPath': $expandElem.attr('vPath'),
-            'pos': $expandElem.attr('pos'),
+            'aPath': $expandElem.attr('data-apath'),
+            'vPath': $expandElem.attr('data-vpath'),
+            'pos': $expandElem.attr('data-pos'),
             'pos2_name': '',
             'pos2_value': '',
             'searchClause': '',
@@ -242,31 +244,26 @@ Navigation.traverseForPaths = function () {
         if ($(this).find('img').is('.ic_b_minus') &&
             $(this).closest('li').find('div.list_container .ic_b_minus').length === 0
         ) {
-            params['n' + count + '_aPath'] = $(this).find('span.aPath').text();
-            params['n' + count + '_vPath'] = $(this).find('span.vPath').text();
+            var pathsNav = $(this).find('span.paths_nav');
+            params['n' + count + '_aPath'] = pathsNav.attr('data-apath');
+            params['n' + count + '_vPath'] = pathsNav.attr('data-vpath');
 
-            var pos2Name = $(this).find('span.pos2_name').text();
-            if (! pos2Name) {
-                pos2Name = $(this)
+            var pos2Nav = $(this).find('span.pos2_nav');
+
+            if (pos2Nav.length === 0) {
+                pos2Nav = $(this)
                     .parent()
                     .parent()
-                    .find('span.pos2_name').last()
-                    .text();
-            }
-            var pos2Value = $(this).find('span.pos2_value').text();
-            if (! pos2Value) {
-                pos2Value = $(this)
-                    .parent()
-                    .parent()
-                    .find('span.pos2_value').last()
-                    .text();
+                    .find('span.pos2_nav').last();
             }
 
-            params['n' + count + '_pos2_name'] = pos2Name;
-            params['n' + count + '_pos2_value'] = pos2Value;
+            params['n' + count + '_pos2_name'] = pos2Nav.attr('data-name');
+            params['n' + count + '_pos2_value'] = pos2Nav.attr('data-value');
 
-            params['n' + count + '_pos3_name'] = $(this).find('span.pos3_name').text();
-            params['n' + count + '_pos3_value'] = $(this).find('span.pos3_value').text();
+            var pos3Nav = $(this).find('span.pos3_nav');
+
+            params['n' + count + '_pos3_name'] = pos3Nav.attr('data-name');
+            params['n' + count + '_pos3_value'] = pos3Nav.attr('data-value');
             count++;
         }
     });
@@ -1298,8 +1295,10 @@ Navigation.ResizeHandler = function () {
      */
     this.mousemove = function (event) {
         event.preventDefault();
-        var pos = event.data.resize_handler.getPos(event);
-        event.data.resize_handler.setWidth(pos);
+        if (event.data && event.data.resize_handler) {
+            var pos = event.data.resize_handler.getPos(event);
+            event.data.resize_handler.setWidth(pos);
+        }
         if ($('.sticky_columns').length !== 0) {
             Sql.handleAllStickyColumns();
         }

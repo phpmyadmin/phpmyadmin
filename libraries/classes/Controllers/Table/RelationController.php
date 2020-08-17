@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
@@ -102,15 +103,11 @@ final class RelationController extends AbstractController
             } else { // if only the db is selected
                 $this->getDropdownValueForDatabase($storageEngine);
             }
+
             return;
         }
 
-        $this->response->getHeader()->getScripts()->addFiles(
-            [
-                'table/relation.js',
-                'indexes.js',
-            ]
-        );
+        $this->addScriptFiles(['table/relation.js', 'indexes.js']);
 
         // Set the database
         $this->dbi->selectDb($this->db);
@@ -160,12 +157,14 @@ final class RelationController extends AbstractController
         $column_hash_array = [];
         $column_array[''] = '';
         foreach ($columns as $column) {
-            if (strtoupper($storageEngine) == 'INNODB'
-                || ! empty($column['Key'])
+            if (strtoupper($storageEngine) !== 'INNODB'
+                && empty($column['Key'])
             ) {
-                $column_array[$column['Field']] = $column['Field'];
-                $column_hash_array[$column['Field']] = md5($column['Field']);
+                continue;
             }
+
+            $column_array[$column['Field']] = $column['Field'];
+            $column_hash_array[$column['Field']] = md5($column['Field']);
         }
         if ($GLOBALS['cfg']['NaturalOrder']) {
             uksort($column_array, 'strnatcasecmp');
@@ -174,31 +173,29 @@ final class RelationController extends AbstractController
         // common form
         $engine = $this->dbi->getTable($this->db, $this->table)->getStorageEngine();
         $foreignKeySupported = Util::isForeignKeySupported($storageEngine);
-        $this->response->addHTML(
-            $this->template->render('table/relation/common_form', [
-                'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
-                'db' => $this->db,
-                'table' => $this->table,
-                'cfg_relation' => $cfgRelation,
-                'tbl_storage_engine' => $storageEngine,
-                'existrel' => $relations,
-                'existrel_foreign' => array_key_exists('foreign_keys_data', $relationsForeign)
-                    ? $relationsForeign['foreign_keys_data']
-                    : [],
-                'options_array' => $options,
-                'column_array' => $column_array,
-                'column_hash_array' => $column_hash_array,
-                'save_row' => array_values($columns),
-                'url_params' => $GLOBALS['url_params'],
-                'databases' => $GLOBALS['dblist']->databases,
-                'dbi' => $this->dbi,
-                'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
-                'foreignKeySupported' => $foreignKeySupported,
-                'indexes' => $foreignKeySupported ? Index::getFromTable($this->table, $this->db) : null,
-                'indexes_duplicates' => $foreignKeySupported ? Index::findDuplicates($this->table, $this->db) : null,
-                'route' => $route,
-            ])
-        );
+        $this->render('table/relation/common_form', [
+            'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
+            'db' => $this->db,
+            'table' => $this->table,
+            'cfg_relation' => $cfgRelation,
+            'tbl_storage_engine' => $storageEngine,
+            'existrel' => $relations,
+            'existrel_foreign' => array_key_exists('foreign_keys_data', $relationsForeign)
+                ? $relationsForeign['foreign_keys_data']
+                : [],
+            'options_array' => $options,
+            'column_array' => $column_array,
+            'column_hash_array' => $column_hash_array,
+            'save_row' => array_values($columns),
+            'url_params' => $GLOBALS['url_params'],
+            'databases' => $GLOBALS['dblist']->databases,
+            'dbi' => $this->dbi,
+            'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
+            'foreignKeySupported' => $foreignKeySupported,
+            'indexes' => $foreignKeySupported ? Index::getFromTable($this->table, $this->db) : null,
+            'indexes_duplicates' => $foreignKeySupported ? Index::findDuplicates($this->table, $this->db) : null,
+            'route' => $route,
+        ]);
     }
 
     /**
@@ -209,18 +206,20 @@ final class RelationController extends AbstractController
      */
     private function updateForDisplayField(Table $table, array $cfgRelation): void
     {
-        if ($table->updateDisplayField(
+        if (! $table->updateDisplayField(
             $_POST['display_field'],
             $cfgRelation
         )) {
-            $this->response->addHTML(
-                Generator::getMessage(
-                    __('Display column was successfully updated.'),
-                    '',
-                    'success'
-                )
-            );
+            return;
         }
+
+        $this->response->addHTML(
+            Generator::getMessage(
+                __('Display column was successfully updated.'),
+                '',
+                'success'
+            )
+        );
     }
 
     /**
@@ -262,18 +261,22 @@ final class RelationController extends AbstractController
         // If there is a request for SQL previewing.
         if (isset($_POST['preview_sql'])) {
             Core::previewSQL($preview_sql_data);
+
+            exit;
         }
 
-        if (! empty($display_query) && ! $seen_error) {
-            $GLOBALS['display_query'] = $display_query;
-            $this->response->addHTML(
-                Generator::getMessage(
-                    __('Your SQL query has been executed successfully.'),
-                    null,
-                    'success'
-                )
-            );
+        if (empty($display_query) || $seen_error) {
+            return;
         }
+
+        $GLOBALS['display_query'] = $display_query;
+        $this->response->addHTML(
+            Generator::getMessage(
+                __('Your SQL query has been executed successfully.'),
+                null,
+                'success'
+            )
+        );
     }
 
     /**
@@ -287,7 +290,7 @@ final class RelationController extends AbstractController
     {
         $multi_edit_columns_name = $_POST['fields_name'] ?? null;
 
-        if ($table->updateInternalRelations(
+        if (! $table->updateInternalRelations(
             $multi_edit_columns_name,
             $_POST['destination_db'],
             $_POST['destination_table'],
@@ -295,14 +298,16 @@ final class RelationController extends AbstractController
             $cfgRelation,
             $relations
         )) {
-            $this->response->addHTML(
-                Generator::getMessage(
-                    __('Internal relationships were successfully updated.'),
-                    '',
-                    'success'
-                )
-            );
+            return;
         }
+
+        $this->response->addHTML(
+            Generator::getMessage(
+                __('Internal relationships were successfully updated.'),
+                '',
+                'success'
+            )
+        );
     }
 
     /**
@@ -357,11 +362,13 @@ final class RelationController extends AbstractController
             );
 
             while ($row = $this->dbi->fetchArray($tables_rs)) {
-                if (isset($row['Engine'])
-                    && mb_strtoupper($row['Engine']) == $storageEngine
+                if (! isset($row['Engine'])
+                    || mb_strtoupper($row['Engine']) != $storageEngine
                 ) {
-                    $tables[] = htmlspecialchars($row['Name']);
+                    continue;
                 }
+
+                $tables[] = htmlspecialchars($row['Name']);
             }
         } else {
             $query = 'SHOW TABLES FROM '

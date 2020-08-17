@@ -5,16 +5,15 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 
 use PhpMyAdmin\Advisor;
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\AdvisorController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
-use PHPUnit\Framework\TestCase;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
-class AdvisorControllerTest extends TestCase
+class AdvisorControllerTest extends AbstractTestCase
 {
     /** @var Response */
     private $response;
@@ -30,7 +29,9 @@ class AdvisorControllerTest extends TestCase
 
     protected function setUp(): void
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setUp();
+        $GLOBALS['text_dir'] = 'ltr';
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
 
         $GLOBALS['server'] = 1;
@@ -108,9 +109,7 @@ class AdvisorControllerTest extends TestCase
 
         $controller->index();
 
-        $expected = $this->template->render('server/status/advisor/index', [
-            'data' => $advisorData,
-        ]);
+        $expected = $this->template->render('server/status/advisor/index', ['data' => $advisorData]);
 
         $this->assertSame(
             $expected,

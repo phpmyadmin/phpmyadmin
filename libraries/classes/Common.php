@@ -1,8 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Query\Utilities;
 use function explode;
 use function strlen;
 use function strpos;
@@ -41,9 +43,11 @@ final class Common
         $is_createuser = $dbi->isUserType('create');
 
         // now, select the mysql db
-        if ($dbi->isSuperuser()) {
-            $dbi->selectDb('mysql');
+        if (! $dbi->isSuperuser()) {
+            return;
         }
+
+        $dbi->selectDb('mysql');
     }
 
     public static function database(): void
@@ -56,7 +60,7 @@ final class Common
         $response = Response::getInstance();
         $is_show_stats = $cfg['ShowStats'];
 
-        $db_is_system_schema = $dbi->isSystemSchema($db);
+        $db_is_system_schema = Utilities::isSystemSchema($db);
         if ($db_is_system_schema) {
             $is_show_stats = false;
         }
@@ -118,7 +122,7 @@ final class Common
         if (isset($_POST['submitcollation'], $_POST['db_collation']) && ! empty($_POST['db_collation'])) {
             [$db_charset] = explode('_', $_POST['db_collation']);
             $sql_query = 'ALTER DATABASE ' . Util::backquote($db)
-                . ' DEFAULT' . Util::getCharsetQueryPart($_POST['db_collation']);
+                . ' DEFAULT' . Util::getCharsetQueryPart($_POST['db_collation'] ?? '');
             $dbi->query($sql_query);
             $message = Message::success();
 
@@ -128,7 +132,7 @@ final class Common
             if (isset($_POST['change_all_tables_collations']) &&
                 $_POST['change_all_tables_collations'] === 'on'
             ) {
-                list($tables, , , , , , , ,) = Util::getDbInfo($db, null);
+                [$tables] = Util::getDbInfo($db, null);
                 foreach ($tables as $tableName => $data) {
                     if ($dbi->getTable($db, $tableName)->isView()) {
                         // Skip views, we can not change the collation of a view.
@@ -140,17 +144,19 @@ final class Common
                         . '.'
                         . Util::backquote($tableName)
                         . ' DEFAULT '
-                        . Util::getCharsetQueryPart($_POST['db_collation']);
+                        . Util::getCharsetQueryPart($_POST['db_collation'] ?? '');
                     $dbi->query($sql_query);
 
                     /**
                      * Changes columns charset if requested by the user
                      */
-                    if (isset($_POST['change_all_tables_columns_collations']) &&
-                        $_POST['change_all_tables_columns_collations'] === 'on'
+                    if (! isset($_POST['change_all_tables_columns_collations']) ||
+                        $_POST['change_all_tables_columns_collations'] !== 'on'
                     ) {
-                        $operations->changeAllColumnsCollation($db, $tableName, $_POST['db_collation']);
+                        continue;
                     }
+
+                    $operations->changeAllColumnsCollation($db, $tableName, $_POST['db_collation']);
                 }
             }
             unset($db_charset);
@@ -187,7 +193,7 @@ final class Common
 
         Util::checkParameters(['db', 'table']);
 
-        $db_is_system_schema = $dbi->isSystemSchema($db);
+        $db_is_system_schema = Utilities::isSystemSchema($db);
 
         /**
          * Set parameters for links
@@ -221,8 +227,10 @@ final class Common
         /**
          * Skip test if we are exporting as we can't tell whether a table name is an alias (which would fail the test).
          */
-        if ($route === '/table/export') {
-            DbTableExists::check();
+        if ($route !== '/table/export') {
+            return;
         }
+
+        DbTableExists::check();
     }
 }

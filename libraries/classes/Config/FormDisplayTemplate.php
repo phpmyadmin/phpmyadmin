@@ -2,6 +2,7 @@
 /**
  * Form templates
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Config;
@@ -104,7 +105,8 @@ class FormDisplayTemplate
             'class' => 'tabs responsivetable row',
             'items' => $items,
         ]);
-        $htmlOutput .= '<div class="tabs_contents row">';
+        $htmlOutput .= '<div class="tabs_contents col">';
+
         return $htmlOutput;
     }
 
@@ -231,7 +233,7 @@ class FormDisplayTemplate
             && ! $opts['userprefs_allow'];
         $nameId = 'name="' . htmlspecialchars($path) . '" id="'
             . htmlspecialchars($path) . '"';
-        $fieldClass = $type == 'checkbox' ? 'checkbox' : '';
+        $fieldClass = $type === 'checkbox' ? 'checkbox' : '';
         if (! $valueIsDefault) {
             $fieldClass .= ($fieldClass == '' ? '' : ' ')
                 . ($hasErrors ? 'custom field-error' : 'custom');
@@ -240,7 +242,7 @@ class FormDisplayTemplate
         $trClass = $this->group > 0
             ? 'group-field group-field-' . $this->group
             : '';
-        if (isset($opts['setvalue']) && $opts['setvalue'] == ':group') {
+        if (isset($opts['setvalue']) && $opts['setvalue'] === ':group') {
             unset($opts['setvalue']);
             $this->group++;
             $trClass = 'group-header-field group-header-' . $this->group;
@@ -391,6 +393,7 @@ class FormDisplayTemplate
             $htmlOutput .= '<td>&nbsp;</td>';
         }
         $htmlOutput .= '</tr>';
+
         return $htmlOutput;
     }
 
@@ -483,9 +486,7 @@ class FormDisplayTemplate
             return '';
         }
 
-        return $this->template->render('javascript/display', [
-            'js_array' => $jsArray,
-        ]);
+        return $this->template->render('javascript/display', ['js_array' => $jsArray]);
     }
 
     /**

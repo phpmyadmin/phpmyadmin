@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Preferences;
@@ -10,7 +11,6 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
-use PhpMyAdmin\UserPreferencesHeader;
 use function count;
 
 class TwoFactorController extends AbstractController
@@ -49,21 +49,23 @@ class TwoFactorController extends AbstractController
                 echo $this->template->render('preferences/two_factor/confirm', [
                     'form' => $twoFactor->render(),
                 ]);
+
                 return;
-            } else {
-                $twoFactor->configure('');
-                Message::rawNotice(__('Two-factor authentication has been removed.'))->display();
             }
+
+            $twoFactor->configure('');
+            echo Message::rawNotice(__('Two-factor authentication has been removed.'))->getDisplay();
         } elseif (isset($_POST['2fa_configure'])) {
             if (! $twoFactor->configure($_POST['2fa_configure'])) {
                 echo $this->template->render('preferences/two_factor/configure', [
                     'form' => $twoFactor->setup(),
                     'configure' => $_POST['2fa_configure'],
                 ]);
+
                 return;
-            } else {
-                Message::rawNotice(__('Two-factor authentication has been configured.'))->display();
             }
+
+            echo Message::rawNotice(__('Two-factor authentication has been configured.'))->getDisplay();
         }
 
         $backend = $twoFactor->getBackend();

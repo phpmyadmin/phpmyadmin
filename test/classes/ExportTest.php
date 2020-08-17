@@ -2,13 +2,13 @@
 /**
  * tests for PhpMyAdmin\Export
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\Export\ExportPhparray;
-use PHPUnit\Framework\TestCase;
 
 /**
  * PhpMyAdmin\ExportTest class
@@ -17,7 +17,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @group large
  */
-class ExportTest extends TestCase
+class ExportTest extends AbstractTestCase
 {
     /** @var Export */
     private $export;
@@ -27,15 +27,14 @@ class ExportTest extends TestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->export = new Export($GLOBALS['dbi']);
     }
 
     /**
      * Test for mergeAliases
-     *
-     * @return void
      */
-    public function testMergeAliases()
+    public function testMergeAliases(): void
     {
         $aliases1 = [
             'test_db' => [
@@ -63,14 +62,10 @@ class ExportTest extends TestCase
                 'alias' => 'test',
                 'tables' => [
                     'foo' => [
-                        'columns' => [
-                            'bar' => 'foobar',
-                        ],
+                        'columns' => ['bar' => 'foobar'],
                     ],
                     'baz' => [
-                        'columns' => [
-                            'a' => 'x',
-                        ],
+                        'columns' => ['a' => 'x'],
                     ],
                 ],
             ],
@@ -94,9 +89,7 @@ class ExportTest extends TestCase
                         ],
                     ],
                     'baz' => [
-                        'columns' => [
-                            'a' => 'x',
-                        ],
+                        'columns' => ['a' => 'x'],
                     ],
                 ],
             ],
@@ -107,23 +100,33 @@ class ExportTest extends TestCase
 
     /**
      * Test for getFinalFilenameAndMimetypeForFilename
-     *
-     * @return void
      */
-    public function testGetFinalFilenameAndMimetypeForFilename()
+    public function testGetFinalFilenameAndMimetypeForFilename(): void
     {
         $exportPlugin = new ExportPhparray();
-        $finalFileName = $this->export->getFinalFilenameAndMimetypeForFilename($exportPlugin, 'zip', 'myfilename');
+        $finalFileName = $this->export->getFinalFilenameAndMimetypeForFilename(
+            $exportPlugin,
+            'zip',
+            'myfilename'
+        );
         $this->assertSame([
             'myfilename.php.zip',
             'application/zip',
         ], $finalFileName);
-        $finalFileName = $this->export->getFinalFilenameAndMimetypeForFilename($exportPlugin, 'gzip', 'myfilename');
+        $finalFileName = $this->export->getFinalFilenameAndMimetypeForFilename(
+            $exportPlugin,
+            'gzip',
+            'myfilename'
+        );
         $this->assertSame([
             'myfilename.php.gz',
             'application/x-gzip',
         ], $finalFileName);
-        $finalFileName = $this->export->getFinalFilenameAndMimetypeForFilename($exportPlugin, 'gzip', 'export.db1.table1.file');
+        $finalFileName = $this->export->getFinalFilenameAndMimetypeForFilename(
+            $exportPlugin,
+            'gzip',
+            'export.db1.table1.file'
+        );
         $this->assertSame([
             'export.db1.table1.file.php.gz',
             'application/x-gzip',

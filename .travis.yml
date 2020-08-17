@@ -5,35 +5,22 @@ language: php
 stages:
   - name: "Lint and analyse code"
   - name: "PHP Unit tests"
-  - name: "Documentation"
   - name: "Other tests"
+  - name: "Documentation"
 
 install:
   - nvm install 10
   - composer install --no-interaction
   - yarn install --non-interactive
 
-before_script:
-  - export TESTSUITE_PASSWORD=`openssl rand -base64 30`
-  - export TESTSUITE_BROWSERSTACK_KEY=`echo cHlDcHJTNmZwZjVlaUR2RmV6VkU= | base64 --decode`
-  - mysql -uroot -e "CREATE DATABASE IF NOT EXISTS test"
-  - mysql -uroot < sql/create_tables.sql
-  - mysql -uroot -e "SET PASSWORD = PASSWORD('$TESTSUITE_PASSWORD')"
-  - ./test/start-local-server
-
 script:
   - ./scripts/generate-mo --quiet
   - ./vendor/bin/phpunit --configuration phpunit.xml.dist --exclude-group selenium
 
-after_script:
-  - if [ -f php.log ] ; then cat php.log ; fi
-  - if [ -f nginx-error.log ] ; then cat nginx-error.log ; fi
-  - if [ -f config.inc.php ] ; then rm -rf config.inc.php; fi
-  - if [ "$CI_MODE" = "selenium" ] ; then ~/browserstack/BrowserStackLocal --daemon stop; fi
-
 after_success:
   - bash <(curl -s https://codecov.io/bash)
-  - bash <(curl -Ls https://coverage.codacy.com/get.sh)
+  - if [ -f build/logs/clover.xml ] ; then curl -LsO https://scrutinizer-ci.com/ocular.phar && php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml; fi
+  - if [ -f build/logs/clover.xml ] ; then bash <(curl -Ls https://coverage.codacy.com/get.sh) report -l php -r build/logs/clover.xml --partial; fi
 
 services:
   - mysql
@@ -43,7 +30,6 @@ cache:
   yarn: true
   directories:
     - $HOME/.composer/cache/
-    - $HOME/browserstack
     - node_modules
 
 jobs:
@@ -64,6 +50,7 @@ jobs:
         - composer phpcs
         - yarn run js-lint --quiet
         - yarn run css-lint
+        - php scripts/console lint:twig templates --show-deprecations
 
     - stage: "Lint and analyse code"
       name: "Run phpstan"
@@ -72,6 +59,14 @@ jobs:
       after_script: skip
       after_success: skip
       script: composer phpstan
+
+    - stage: "Lint and analyse code"
+      name: "Run psalm"
+      before_install: phpenv config-rm xdebug.ini
+      before_script: skip
+      after_script: skip
+      after_success: skip
+      script: composer psalm
 
     - stage: "PHP Unit tests"
       php: 7.1
@@ -110,7 +105,7 @@ jobs:
       language: node_js
       node_js: 10
       before_install:
-        - brew link --force gettext
+        - export PATH="/usr/local/opt/gettext/bin:$PATH"
         - echo "memory_limit=-1" > /usr/local/etc/php/7.4/conf.d/50-travis.ini
         - echo "pcre.jit=0" >> /usr/local/etc/php/7.4/conf.d/50-travis.ini
         - mysql.server start
@@ -181,13 +176,15 @@ jobs:
       before_script: skip
       after_script: skip
       after_success: skip
-      install: composer global require "sami/sami:^4.0"
-      script: $HOME/.composer/vendor/bin/sami.php --no-interaction update ./test/sami-config.php
+      install: composer global require "code-lts/doctum:^5.0"
+      script: $HOME/.composer/vendor/bin/doctum.php --no-interaction update ./test/doctum-config.php
 
     - stage: "Other tests"
       name: "Build release"
       before_script: skip
-      after_script: skip
+      after_script:
+        # Mark Codacy coverage final here because all steps of the previous stage did succeed
+        - bash <(curl -Ls https://coverage.codacy.com/get.sh) final
       after_success: skip
       install:
         - nvm install 10
@@ -202,14 +199,32 @@ jobs:
         - TESTSUITE_SELENIUM_BROWSER=chrome
         - TESTSUITE_USER=root
         - TESTSUITE_URL=http://127.0.0.1:8000
-      before_install: phpenv config-rm xdebug.ini
-      install:
-        - nvm install 10
-        - ./test/install-browserstack
-        - composer install --no-interaction
-        - yarn install --non-interactive
-        - echo -e "<?php\n\$cfg['UploadDir'] = './test/test_data/';" > config.inc.php
-      script: ./vendor/bin/phpunit --configuration phpunit.xml.nocoverage --group selenium --verbose --debug
+        - TESTSUITE_SERVER="127.0.0.1"
+        - TESTSUITE_DATABASE="selenium"
+        - TESTSUITE_SELENIUM_HOST="127.0.0.1"
+        - TESTSUITE_SELENIUM_PORT="4444"
+        - SKIP_STANDALONE=1
+      before_install:
+        - docker run -d -e SCREEN_WIDTH=1920 -e SCREEN_HEIGHT=1080 --rm --name=selenium --net=host -v /dev/shm:/dev/shm selenium/standalone-chrome:3.141.59
+        - phpenv config-rm xdebug.ini
+        - cp test/config.e2e.inc.php config.inc.php
+      before_script:
+        - export TESTSUITE_PASSWORD=`openssl rand -base64 30`
+        - mysql -uroot -e "CREATE DATABASE IF NOT EXISTS test"
+        - mysql -uroot < sql/create_tables.sql
+        - mysql -uroot -e "SET PASSWORD = PASSWORD('$TESTSUITE_PASSWORD')"
+        - ./test/start-local-server
+      script: ./vendor/bin/phpunit --no-coverage --group selenium --verbose --debug
+      after_script:
+        - if [ -f php.log ] ; then cat php.log ; fi
+        - if [ -f nginx-error.log ] ; then cat nginx-error.log ; fi
+        - if [ -f config.inc.php ] ; then rm -rf config.inc.php; fi
+        - ./test/stop-local-server
+        - docker logs selenium
+        - docker stop selenium
+      services:
+        - docker
+        - mysql
       addons:
         apt:
           packages:

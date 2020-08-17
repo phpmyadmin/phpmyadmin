@@ -2,6 +2,7 @@
 /**
  * Handles DB Multi-table query
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Database;
@@ -89,6 +90,7 @@ class MultiTableQuery
                 $this->dbi->getColumns($this->db, $table)
             );
         }
+
         return $this->template->render('database/multi_table_query/form', [
             'db' => $this->db,
             'tables' => $tables,
@@ -102,16 +104,15 @@ class MultiTableQuery
      * @param string $sqlQuery      The query to parse
      * @param string $db            The current database
      * @param string $pmaThemeImage Uri of the PMA theme image
-     *
-     * @return void
      */
-    public static function displayResults($sqlQuery, $db, $pmaThemeImage)
+    public static function displayResults($sqlQuery, $db, $pmaThemeImage): string
     {
-        list(,$db,) = ParseAnalyze::sqlQuery($sqlQuery, $db);
+        [,$db] = ParseAnalyze::sqlQuery($sqlQuery, $db);
 
         $goto = Url::getFromRoute('/database/multi-table-query');
         $sql = new Sql();
-        $sql->executeQueryAndSendQueryResponse(
+
+        return $sql->executeQueryAndSendQueryResponse(
             null, // analyzed_sql_results
             false, // is_gotofile
             $db, // db

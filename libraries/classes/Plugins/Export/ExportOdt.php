@@ -2,6 +2,7 @@
 /**
  * Set of functions used to build OpenDocument Text dumps of tables
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
@@ -43,7 +44,7 @@ class ExportOdt extends ExportPlugin
     {
         global $plugin_param;
         $hide_structure = false;
-        if ($plugin_param['export_type'] == 'table'
+        if ($plugin_param['export_type'] === 'table'
             && ! $plugin_param['single_table']
         ) {
             $hide_structure = true;
@@ -315,7 +316,7 @@ class ExportOdt extends ExportPlugin
                         . '<text:p></text:p>'
                         . '</table:table-cell>';
                 } elseif ($fields_meta[$j]->numeric
-                    && $fields_meta[$j]->type != 'timestamp'
+                    && $fields_meta[$j]->type !== 'timestamp'
                     && ! $fields_meta[$j]->blob
                 ) {
                     $GLOBALS['odt_buffer']
@@ -467,7 +468,7 @@ class ExportOdt extends ExportPlugin
         $GLOBALS['dbi']->selectDb($db);
 
         // Check if we can use Relations
-        list($res_rel, $have_rel) = $this->relation->getRelationsAndStatus(
+        [$res_rel, $have_rel] = $this->relation->getRelationsAndStatus(
             $do_relation && ! empty($cfgRelation['relation']),
             $db,
             $table
@@ -795,7 +796,7 @@ class ExportOdt extends ExportPlugin
             . '<text:p>' . htmlspecialchars($type) . '</text:p>'
             . '</table:table-cell>';
         if (! isset($column['Default'])) {
-            if ($column['Null'] != 'NO') {
+            if ($column['Null'] !== 'NO') {
                 $column['Default'] = 'NULL';
             } else {
                 $column['Default'] = '';
@@ -803,7 +804,7 @@ class ExportOdt extends ExportPlugin
         }
         $definition .= '<table:table-cell office:value-type="string">'
             . '<text:p>'
-            . ($column['Null'] == '' || $column['Null'] == 'NO'
+            . ($column['Null'] == '' || $column['Null'] === 'NO'
                 ? __('No')
                 : __('Yes'))
             . '</text:p>'

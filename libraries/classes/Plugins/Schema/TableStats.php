@@ -2,6 +2,7 @@
 /**
  * Contains abstract class to hold table preferences/statistics
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema;
@@ -27,19 +28,46 @@ use function sprintf;
  */
 abstract class TableStats
 {
+    /** @var Dia\Dia|Eps\Eps|Pdf\Pdf|Svg\Svg */
     protected $diagram;
+
+    /** @var string */
     protected $db;
+
+    /** @var int */
     protected $pageNumber;
+
+    /** @var string */
     protected $tableName;
+
+    /** @var bool */
     protected $showKeys;
+
+    /** @var bool */
     protected $tableDimension;
+
+    /** @var mixed */
     public $displayfield;
+
+    /** @var array */
     public $fields = [];
+
+    /** @var array */
     public $primary = [];
+
+    /** @var int|float */
     public $x;
+
+    /** @var int|float */
     public $y;
+
+    /** @var int */
     public $width = 0;
+
+    /** @var int */
     public $heightCell = 0;
+
+    /** @var bool */
     protected $offline;
 
     /** @var Relation */
@@ -142,15 +170,17 @@ abstract class TableStats
      */
     protected function loadCoordinates()
     {
-        if (isset($_POST['t_h'])) {
-            foreach ($_POST['t_h'] as $key => $value) {
-                $db = rawurldecode($_POST['t_db'][$key]);
-                $tbl = rawurldecode($_POST['t_tbl'][$key]);
-                if ($this->db . '.' . $this->tableName === $db . '.' . $tbl) {
-                    $this->x = (float) $_POST['t_x'][$key];
-                    $this->y = (float) $_POST['t_y'][$key];
-                    break;
-                }
+        if (! isset($_POST['t_h'])) {
+            return;
+        }
+
+        foreach ($_POST['t_h'] as $key => $value) {
+            $db = rawurldecode($_POST['t_db'][$key]);
+            $tbl = rawurldecode($_POST['t_tbl'][$key]);
+            if ($this->db . '.' . $this->tableName === $db . '.' . $tbl) {
+                $this->x = (float) $_POST['t_x'][$key];
+                $this->y = (float) $_POST['t_y'][$key];
+                break;
             }
         }
     }
@@ -177,12 +207,16 @@ abstract class TableStats
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
-        if ($GLOBALS['dbi']->numRows($result) > 0) {
-            while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
-                if ($row['Key_name'] == 'PRIMARY') {
-                    $this->primary[] = $row['Column_name'];
-                }
+        if ($GLOBALS['dbi']->numRows($result) <= 0) {
+            return;
+        }
+
+        while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
+            if ($row['Key_name'] !== 'PRIMARY') {
+                continue;
             }
+
+            $this->primary[] = $row['Column_name'];
         }
     }
 

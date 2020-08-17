@@ -2,6 +2,7 @@
 /**
  * Dia schema export code
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema;
@@ -85,6 +86,7 @@ class SchemaDia extends SchemaPlugin
     {
         $export = new DiaRelationSchema($db);
         $export->showOutput();
+
         return true;
     }
 }

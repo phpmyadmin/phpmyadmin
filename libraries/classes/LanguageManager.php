@@ -2,11 +2,13 @@
 /**
  * Hold the PhpMyAdmin\LanguageManager class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\MySQLDocumentation;
+use const E_USER_ERROR;
 use function closedir;
 use function count;
 use function explode;
@@ -19,7 +21,6 @@ use function strtolower;
 use function trigger_error;
 use function uasort;
 use function ucfirst;
-use const E_USER_ERROR;
 
 /**
  * Language selection manager
@@ -27,7 +28,7 @@ use const E_USER_ERROR;
 class LanguageManager
 {
     /**
-     * @var array Definition data for languages
+     * Definition data for languages
      *
      * Each member contains:
      * - Language code
@@ -35,8 +36,10 @@ class LanguageManager
      * - Native language name
      * - Match regular expression
      * - MySQL locale
+     *
+     * @var array
      */
-    private static $_language_data = [
+    private static $language_data = [
         'af' => [
             'af',
             'Afrikaans',
@@ -57,6 +60,13 @@ class LanguageManager
             '&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;',
             'ar|arabic',
             'ar_AE',
+        ],
+        'ar_ly' => [
+            'ar_LY',
+            'Arabic (Libya)',
+            'ليبي',
+            'ar[_-]ly|arabic (libya)|libian arabic',
+            'ar_LY',
         ],
         'az' => [
             'az',
@@ -84,6 +94,13 @@ class LanguageManager
             'Belarusian (latin)',
             'Bie&#0322;aruskaja',
             'be[-_]lat|be@latin|belarusian latin',
+            '',
+        ],
+        'ber' => [
+            'ber',
+            'Berber',
+            'Tamaziɣt',
+            'ber|berber',
             '',
         ],
         'bg' => [
@@ -671,11 +688,20 @@ class LanguageManager
         ],
     ];
 
-    private $_available_locales;
-    private $_available_languages;
-    private $_lang_failed_cfg;
-    private $_lang_failed_cookie;
-    private $_lang_failed_request;
+    /** @var array */
+    private $available_locales;
+
+    /** @var array */
+    private $available_languages;
+
+    /** @var bool */
+    private $lang_failed_cfg = false;
+
+    /** @var bool */
+    private $lang_failed_cookie = false;
+
+    /** @var bool */
+    private $lang_failed_request = false;
 
     /** @var LanguageManager */
     private static $instance;
@@ -690,6 +716,7 @@ class LanguageManager
         if (self::$instance === null) {
             self::$instance = new LanguageManager();
         }
+
         return self::$instance;
     }
 
@@ -719,12 +746,14 @@ class LanguageManager
             $path = LOCALE_PATH
                 . '/' . $file
                 . '/LC_MESSAGES/phpmyadmin.mo';
-            if ($file != '.'
-                && $file != '..'
-                && @file_exists($path)
+            if ($file === '.'
+                || $file === '..'
+                || ! @file_exists($path)
             ) {
-                $result[] = $file;
+                continue;
             }
+
+            $result[] = $file;
         }
         /* Close the handle */
         closedir($handle);
@@ -739,17 +768,18 @@ class LanguageManager
      */
     public function availableLocales()
     {
-        if (! $this->_available_locales) {
+        if (! $this->available_locales) {
             if (! isset($GLOBALS['PMA_Config']) || empty($GLOBALS['PMA_Config']->get('FilterLanguages'))) {
-                $this->_available_locales = $this->listLocaleDir();
+                $this->available_locales = $this->listLocaleDir();
             } else {
-                $this->_available_locales = preg_grep(
+                $this->available_locales = preg_grep(
                     '@' . $GLOBALS['PMA_Config']->get('FilterLanguages') . '@',
                     $this->listLocaleDir()
                 );
             }
         }
-        return $this->_available_locales;
+
+        return $this->available_locales;
     }
 
     /**
@@ -769,14 +799,14 @@ class LanguageManager
      */
     public function availableLanguages()
     {
-        if (! $this->_available_languages) {
-            $this->_available_languages = [];
+        if (! $this->available_languages) {
+            $this->available_languages = [];
 
             foreach ($this->availableLocales() as $lang) {
                 $lang = strtolower($lang);
-                if (isset(static::$_language_data[$lang])) {
-                    $data = static::$_language_data[$lang];
-                    $this->_available_languages[$lang] = new Language(
+                if (isset(static::$language_data[$lang])) {
+                    $data = static::$language_data[$lang];
+                    $this->available_languages[$lang] = new Language(
                         $data[0],
                         $data[1],
                         $data[2],
@@ -784,7 +814,7 @@ class LanguageManager
                         $data[4]
                     );
                 } else {
-                    $this->_available_languages[$lang] = new Language(
+                    $this->available_languages[$lang] = new Language(
                         $lang,
                         ucfirst($lang),
                         ucfirst($lang),
@@ -794,7 +824,8 @@ class LanguageManager
                 }
             }
         }
-        return $this->_available_languages;
+
+        return $this->available_languages;
     }
 
     /**
@@ -806,10 +837,11 @@ class LanguageManager
     public function sortedLanguages()
     {
         $this->availableLanguages();
-        uasort($this->_available_languages, function ($a, $b) {
+        uasort($this->available_languages, static function (Language $a, Language $b) {
             return $a->cmp($b);
         });
-        return $this->_available_languages;
+
+        return $this->available_languages;
     }
 
     /**
@@ -826,6 +858,7 @@ class LanguageManager
         if (isset($langs[$code])) {
             return $langs[$code];
         }
+
         return false;
     }
 
@@ -836,7 +869,7 @@ class LanguageManager
      */
     public function getCurrentLanguage()
     {
-        return $this->_available_languages[strtolower($GLOBALS['lang'])];
+        return $this->available_languages[strtolower($GLOBALS['lang'])];
     }
 
     /**
@@ -853,7 +886,7 @@ class LanguageManager
             if ($lang !== false) {
                 return $lang;
             }
-            $this->_lang_failed_cfg = true;
+            $this->lang_failed_cfg = true;
         }
 
         // Don't use REQUEST in following code as it might be confused by cookies
@@ -863,7 +896,7 @@ class LanguageManager
             if ($lang !== false) {
                 return $lang;
             }
-            $this->_lang_failed_request = true;
+            $this->lang_failed_request = true;
         }
 
         // check user requested language (GET)
@@ -872,7 +905,7 @@ class LanguageManager
             if ($lang !== false) {
                 return $lang;
             }
-            $this->_lang_failed_request = true;
+            $this->lang_failed_request = true;
         }
 
         // check previous set language
@@ -881,7 +914,7 @@ class LanguageManager
             if ($lang !== false) {
                 return $lang;
             }
-            $this->_lang_failed_cookie = true;
+            $this->lang_failed_cookie = true;
         }
 
         $langs = $this->availableLanguages();
@@ -926,15 +959,17 @@ class LanguageManager
     public function showWarnings()
     {
         // now, that we have loaded the language strings we can send the errors
-        if ($this->_lang_failed_cfg
-            || $this->_lang_failed_cookie
-            || $this->_lang_failed_request
+        if (! $this->lang_failed_cfg
+            && ! $this->lang_failed_cookie
+            && ! $this->lang_failed_request
         ) {
-            trigger_error(
-                __('Ignoring unsupported language code.'),
-                E_USER_ERROR
-            );
+            return;
         }
+
+        trigger_error(
+            __('Ignoring unsupported language code.'),
+            E_USER_ERROR
+        );
     }
 
     /**
@@ -959,7 +994,7 @@ class LanguageManager
         // not a proper word in the current language; we show it to help
         // people recognize the dialog
         $language_title = __('Language')
-            . (__('Language') != 'Language' ? ' - <em>Language</em>' : '');
+            . (__('Language') !== 'Language' ? ' - <em>Language</em>' : '');
         if ($show_doc) {
             $language_title .= MySQLDocumentation::showDocumentation('faq', 'faq7-2');
         }

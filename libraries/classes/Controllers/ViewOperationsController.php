@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
@@ -39,9 +40,7 @@ class ViewOperationsController extends AbstractController
 
         $tableObject = $this->dbi->getTable($db, $table);
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('table/operations.js');
+        $this->addScriptFiles(['table/operations.js']);
 
         Common::table();
 
@@ -92,10 +91,10 @@ class ViewOperationsController extends AbstractController
             ));
         }
 
-        $this->response->addHTML($this->template->render('table/operations/view', [
+        $this->render('table/operations/view', [
             'db' => $db,
             'table' => $table,
             'url_params' => $url_params,
-        ]));
+        ]);
     }
 }

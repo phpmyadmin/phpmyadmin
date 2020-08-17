@@ -2,6 +2,7 @@
 /**
  * Holds the PhpMyAdmin\Controllers\Server\SqlController
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
@@ -36,13 +37,11 @@ class SqlController extends AbstractController
 
     public function index(): void
     {
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('makegrid.js');
-        $scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
-        $scripts->addFile('sql.js');
+        $this->addScriptFiles(['makegrid.js', 'vendor/jquery/jquery.uitablefilter.js', 'sql.js']);
 
-        PageSettings::showGroup('Sql');
+        $pageSettings = new PageSettings('Sql');
+        $this->response->addHTML($pageSettings->getErrorHTML());
+        $this->response->addHTML($pageSettings->getHTML());
 
         Common::server();
 

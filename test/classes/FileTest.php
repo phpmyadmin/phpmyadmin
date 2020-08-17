@@ -2,6 +2,7 @@
 /**
  * tests for File class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
@@ -13,13 +14,15 @@ use function file_get_contents;
 /**
  * tests for PhpMyAdmin\File class
  */
-class FileTest extends PmaTestCase
+class FileTest extends AbstractTestCase
 {
     /**
      * Setup function for test cases
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::loadDefaultConfig();
         $GLOBALS['charset_conversion'] = false;
     }
 
@@ -31,7 +34,7 @@ class FileTest extends PmaTestCase
      *
      * @dataProvider compressedFiles
      */
-    public function testMIME($file, $mime): void
+    public function testMIME(string $file, string $mime): void
     {
         $arr = new File($file);
         $this->assertEquals($mime, $arr->getCompression());
@@ -44,7 +47,7 @@ class FileTest extends PmaTestCase
      *
      * @dataProvider compressedFiles
      */
-    public function testBinaryContent($file): void
+    public function testBinaryContent(string $file): void
     {
         $data = '0x' . bin2hex(file_get_contents($file));
         $file = new File($file);
@@ -58,9 +61,9 @@ class FileTest extends PmaTestCase
      *
      * @dataProvider compressedFiles
      * @requires extension bz2 1
-     * @requires extension zip 1
+     * @requires extension zip
      */
-    public function testReadCompressed($file): void
+    public function testReadCompressed(string $file): void
     {
         $file = new File($file);
         $file->setDecompressContent(true);
@@ -69,12 +72,7 @@ class FileTest extends PmaTestCase
         $file->close();
     }
 
-    /**
-     * Data provider for tests
-     *
-     * @return array Test data
-     */
-    public function compressedFiles()
+    public function compressedFiles(): array
     {
         return [
             [

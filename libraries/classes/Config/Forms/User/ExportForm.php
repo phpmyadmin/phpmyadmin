@@ -2,6 +2,7 @@
 /**
  * User preferences form
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Config\Forms\User;
@@ -74,9 +75,7 @@ class ExportForm extends BaseForm
                 'Export/sql_hex_for_binary',
                 'Export/sql_utc_time',
             ],
-            'CodeGen' => [
-                'Export/codegen_format',
-            ],
+            'CodeGen' => ['Export/codegen_format'],
             'Csv' => [
                 ':group:' . __('CSV'),
                 'Export/csv_separator',
@@ -140,6 +139,7 @@ class ExportForm extends BaseForm
                 'Export/texytext_columns',
             ],
         ];
+
         // phpcs:enable
     }
 

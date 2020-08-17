@@ -20,7 +20,7 @@ the file. This file is for over-writing the defaults; if you wish to use the
 default value there's no need to add a line here.
 
 The parameters which relate to design (like colors) are placed in
-:file:`themes/themename/layout.inc.php`. You might also want to create
+:file:`themes/themename/scss/_variables.scss`. You might also want to create
 :file:`config.footer.inc.php` and :file:`config.header.inc.php` files to add
 your site specific code to be included on start and end of each page.
 
@@ -217,8 +217,8 @@ Basic settings
 
     Setting this to ``true`` allows phpMyAdmin to be included inside a frame,
     and is a potential security hole allowing cross-frame scripting attacks or
-    clickjacking. Setting this to 'sameorigin' prevents phpMyAdmin to be 
-    included from another document in a frame, unless that document belongs 
+    clickjacking. Setting this to 'sameorigin' prevents phpMyAdmin to be
+    included from another document in a frame, unless that document belongs
     to the same domain.
 
 Server connection settings
@@ -1362,11 +1362,11 @@ Server connection settings
     from all'`` if your rule order is set to ``'allow,deny'`` or
     ``'explicit'``.
 
-    For the :term:`IP address` matching
+    For the :term:`IP Address` matching
     system, the following work:
 
-    * ``xxx.xxx.xxx.xxx`` (an exact :term:`IP address`)
-    * ``xxx.xxx.xxx.[yyy-zzz]`` (an :term:`IP address` range)
+    * ``xxx.xxx.xxx.xxx`` (an exact :term:`IP Address`)
+    * ``xxx.xxx.xxx.[yyy-zzz]`` (an :term:`IP Address` range)
     * ``xxx.xxx.xxx.xxx/nn`` (CIDR, Classless Inter-Domain Routing type :term:`IP` addresses)
 
     But the following does not work:
@@ -1848,7 +1848,7 @@ Cookie authentication options
     to the given regular expression. The regular expression must be enclosed
     with a delimiter character.
 
-    It is recommended to include start and end symbols in the regullar
+    It is recommended to include start and end symbols in the regular
     expression, so that you can avoid partial matches on the string.
 
     **Examples:**
@@ -1869,8 +1869,20 @@ Cookie authentication options
         The whole server name is matched, it can include port as well. Due to
         way MySQL is permissive in connection parameters, it is possible to use
         connection strings as ```server:3306-mysql```. This can be used to
-        bypass regullar expression by the suffix, while connecting to another
+        bypass regular expression by the suffix, while connecting to another
         server.
+
+.. config:option:: $cfg['CaptchaMethod']
+
+    :type: string
+    :default: ``'invisible'``
+
+    Valid values are:
+
+    * ``'invisible'`` Use an invisible captcha checking method;
+    * ``'checkbox'`` Use a checkbox to confirm the user is not a robot.
+
+    .. versionadded:: 5.0.3
 
 .. config:option:: $cfg['CaptchaLoginPublicKey']
 
@@ -1887,10 +1899,21 @@ Cookie authentication options
     :type: string
     :default: ``''``
 
-    The private key for the reCaptcha service that can be obtain from
+    The private key for the reCaptcha service that can be obtained from
     https://www.google.com/recaptcha/intro/v3.html.
 
     reCaptcha will be then used in :ref:`cookie`.
+
+.. config:option:: $cfg['CaptchaSiteVerifyURL']
+
+    :type: string
+    :default: ``''``
+
+    The URL for the reCaptcha service to do siteverify action.
+
+    reCaptcha will be then used in :ref:`cookie`.
+
+    .. versionadded:: 5.1.0
 
 Navigation panel setup
 ----------------------
@@ -2784,7 +2807,7 @@ Web server settings
 Theme settings
 --------------
 
-    Please directly modify :file:`themes/themename/layout.inc.php`, although
+    Please directly modify :file:`themes/themename/scss/_variables.scss`, although
     your changes will be overwritten with the next update.
 
 Design customization
@@ -3523,7 +3546,6 @@ This example uses :file:`examples/signon.php` to demonstrate usage of :ref:`auth
     <?php
     $i = 0;
     $i++;
-    $cfg['Servers'][$i]['extension']     = 'mysqli';
     $cfg['Servers'][$i]['auth_type']     = 'signon';
     $cfg['Servers'][$i]['SignonSession'] = 'SignonSession';
     $cfg['Servers'][$i]['SignonURL']     = 'examples/signon.php';
@@ -3566,7 +3588,6 @@ following example shows two of them:
     $cfg['Servers'][$i]['auth_type'] = 'cookie';
     $cfg['Servers'][$i]['verbose']   = 'no1';
     $cfg['Servers'][$i]['host']      = 'localhost';
-    $cfg['Servers'][$i]['extension'] = 'mysqli';
     // more options for #1 ...
 
     $i++; // server 2 :
@@ -3575,7 +3596,6 @@ following example shows two of them:
     $cfg['Servers'][$i]['host']      = 'remote.host.addr';//or ip:'10.9.8.1'
     // this server must allow remote clients, e.g., host 10.9.8.%
     // not only in mysql.host but also in the startup configuration
-    $cfg['Servers'][$i]['extension'] = 'mysqli';
     // more options for #2 ...
 
     // end of server sections

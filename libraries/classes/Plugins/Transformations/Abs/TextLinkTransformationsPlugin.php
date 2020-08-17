@@ -2,6 +2,7 @@
 /**
  * Abstract class for the link transformations plugins
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
@@ -48,6 +49,7 @@ abstract class TextLinkTransformationsPlugin extends TransformationsPlugin
         if (! Sanitize::checkLink($url, true, true)) {
             return htmlspecialchars($url);
         }
+
         return '<a href="'
             . htmlspecialchars($url)
             . '" title="'

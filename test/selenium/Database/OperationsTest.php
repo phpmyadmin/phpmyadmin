@@ -2,6 +2,7 @@
 /**
  * Selenium TestCase for table related tests
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium\Database;
@@ -24,10 +25,7 @@ class OperationsTest extends TestBase
         $this->login();
     }
 
-    /**
-     * @return void
-     */
-    private function _getToDBOperations()
+    private function getToDBOperations(): void
     {
         $this->gotoHomepage();
 
@@ -36,22 +34,20 @@ class OperationsTest extends TestBase
         $this->waitForElement('partialLinkText', 'Operations')->click();
         $this->waitForElement(
             'xpath',
-            '//legend[contains(., \'Rename database to\')]'
+            '//div[contains(., \'Rename database to\')]'
         );
     }
 
     /**
      * Test for adding database comment
      *
-     * @return void
-     *
      * @group large
      */
-    public function testDbComment()
+    public function testDbComment(): void
     {
         $this->skipIfNotPMADB();
 
-        $this->_getToDBOperations();
+        $this->getToDBOperations();
         $this->byName('comment')->sendKeys('comment_foobar');
         $this->byCssSelector(
             "form#formDatabaseComment input[type='submit']"
@@ -68,13 +64,11 @@ class OperationsTest extends TestBase
     /**
      * Test for renaming database
      *
-     * @return void
-     *
      * @group large
      */
-    public function testRenameDB()
+    public function testRenameDB(): void
     {
-        $this->_getToDBOperations();
+        $this->getToDBOperations();
 
         $new_db_name = $this->database_name . 'rename';
 
@@ -94,15 +88,20 @@ class OperationsTest extends TestBase
             "//a[contains(text(),'Database: ') and contains(text(),'" . $new_db_name . "')]"
         );
 
-        $result = $this->dbQuery(
-            "SHOW DATABASES LIKE '" . $new_db_name . "';"
+        $this->dbQuery(
+            'SHOW DATABASES LIKE \'' . $new_db_name . '\'',
+            function () use ($new_db_name): void {
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->assertEquals($new_db_name, $this->getCellByTableClass('table_results', 1, 1));
+            }
         );
-        $this->assertEquals(1, $result->num_rows);
 
-        $result = $this->dbQuery(
-            "SHOW DATABASES LIKE '" . $this->database_name . "';"
+        $this->dbQuery(
+            'SHOW DATABASES LIKE \'' . $this->database_name . '\'',
+            function (): void {
+                $this->assertFalse($this->isElementPresent('className', 'table_results'));
+            }
         );
-        $this->assertEquals(0, $result->num_rows);
 
         $this->database_name = $new_db_name;
     }
@@ -110,20 +109,19 @@ class OperationsTest extends TestBase
     /**
      * Test for copying database
      *
-     * @return void
-     *
      * @group large
      */
-    public function testCopyDb()
+    public function testCopyDb(): void
     {
-        $this->_getToDBOperations();
+        $this->getToDBOperations();
 
+        $this->reloadPage();// Reload or scrolling will not work ..
         $new_db_name = $this->database_name . 'copy';
         $this->byCssSelector('form#copy_db_form input[name=newname]')
             ->sendKeys($new_db_name);
 
         $this->scrollIntoView('copy_db_form', -150);
-        $this->byCssSelector("form#copy_db_form input[type='submit']")->click();
+        $this->byCssSelector('form#copy_db_form input[name="submit_copy"]')->click();
 
         $this->waitForElement(
             'xpath',
@@ -132,11 +130,14 @@ class OperationsTest extends TestBase
             . ' has been copied to ' . $new_db_name . "')]"
         );
 
-        $result = $this->dbQuery(
-            "SHOW DATABASES LIKE '" . $new_db_name . "';"
+        $this->dbQuery(
+            'SHOW DATABASES LIKE \'' . $new_db_name . '\'',
+            function () use ($new_db_name): void {
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->assertEquals($new_db_name, $this->getCellByTableClass('table_results', 1, 1));
+            }
         );
-        $this->assertEquals(1, $result->num_rows);
 
-        $this->dbQuery('DROP DATABASE ' . $new_db_name);
+        $this->dbQuery('DROP DATABASE `' . $new_db_name . '`;');
     }
 }

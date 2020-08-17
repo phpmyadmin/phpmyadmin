@@ -2,20 +2,20 @@
 /**
  * Tests for PhpMyAdmin\BrowseForeigners
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\BrowseForeigners;
 use PhpMyAdmin\Template;
-use PHPUnit\Framework\TestCase;
-use ReflectionClass;
 
 /**
  * Tests for PhpMyAdmin\BrowseForeigners
  */
-class BrowseForeignersTest extends TestCase
+class BrowseForeignersTest extends AbstractTestCase
 {
+    /** @var BrowseForeigners */
     private $browseForeigners;
 
     /**
@@ -23,6 +23,7 @@ class BrowseForeignersTest extends TestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $GLOBALS['cfg']['LimitChars'] = 50;
         $GLOBALS['cfg']['MaxRows'] = 25;
         $GLOBALS['cfg']['RepeatCells'] = 100;
@@ -32,31 +33,9 @@ class BrowseForeignersTest extends TestCase
     }
 
     /**
-     * Call protected functions by setting visibility to public.
-     *
-     * @param string           $name   method name
-     * @param array            $params parameters for the invocation
-     * @param BrowseForeigners $object BrowseForeigners instance object
-     *
-     * @return mixed the output from the protected method.
-     */
-    private function callProtectedMethod($name, $params, BrowseForeigners $object = null)
-    {
-        $class = new ReflectionClass(BrowseForeigners::class);
-        $method = $class->getMethod($name);
-        $method->setAccessible(true);
-        return $method->invokeArgs(
-            $object ?? $this->browseForeigners,
-            $params
-        );
-    }
-
-    /**
      * Test for BrowseForeigners::getForeignLimit
-     *
-     * @return void
      */
-    public function testGetForeignLimit()
+    public function testGetForeignLimit(): void
     {
         $this->assertNull(
             $this->browseForeigners->getForeignLimit('Show all')
@@ -90,14 +69,14 @@ class BrowseForeignersTest extends TestCase
 
     /**
      * Test for BrowseForeigners::getHtmlForGotoPage
-     *
-     * @return void
      */
-    public function testGetHtmlForGotoPage()
+    public function testGetHtmlForGotoPage(): void
     {
         $this->assertEquals(
             '',
-            $this->callProtectedMethod(
+            $this->callFunction(
+                $this->browseForeigners,
+                BrowseForeigners::class,
                 'getHtmlForGotoPage',
                 [null]
             )
@@ -110,14 +89,18 @@ class BrowseForeignersTest extends TestCase
 
         $this->assertEquals(
             '',
-            $this->callProtectedMethod(
+            $this->callFunction(
+                $this->browseForeigners,
+                BrowseForeigners::class,
                 'getHtmlForGotoPage',
                 [$foreignData]
             )
         );
 
         $foreignData['the_total'] = 30;
-        $result = $this->callProtectedMethod(
+        $result = $this->callFunction(
+            $this->browseForeigners,
+            BrowseForeigners::class,
             'getHtmlForGotoPage',
             [$foreignData]
         );
@@ -151,10 +134,8 @@ class BrowseForeignersTest extends TestCase
 
     /**
      * Test for BrowseForeigners::getDescriptionAndTitle
-     *
-     * @return void
      */
-    public function testGetDescriptionAndTitle()
+    public function testGetDescriptionAndTitle(): void
     {
         $desc = 'foobar<baz';
 
@@ -163,7 +144,9 @@ class BrowseForeignersTest extends TestCase
                 'foobar&lt;baz',
                 '',
             ],
-            $this->callProtectedMethod(
+            $this->callFunction(
+                $this->browseForeigners,
+                BrowseForeigners::class,
                 'getDescriptionAndTitle',
                 [$desc]
             )
@@ -177,20 +160,19 @@ class BrowseForeignersTest extends TestCase
                 'fooba...',
                 'foobar&lt;baz',
             ],
-            $this->callProtectedMethod(
+            $this->callFunction(
+                $browseForeigners,
+                BrowseForeigners::class,
                 'getDescriptionAndTitle',
-                [$desc],
-                $browseForeigners
+                [$desc]
             )
         );
     }
 
     /**
      * Test for BrowseForeigners::getHtmlForRelationalFieldSelection
-     *
-     * @return void
      */
-    public function testGetHtmlForRelationalFieldSelection()
+    public function testGetHtmlForRelationalFieldSelection(): void
     {
         $db = '';
         $table = '';

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
@@ -13,6 +14,7 @@ class LogoutController
 
         if ($_SERVER['REQUEST_METHOD'] !== 'POST' || $token_mismatch) {
             Core::sendHeaderLocation('./index.php?route=/');
+
             return;
         }
 

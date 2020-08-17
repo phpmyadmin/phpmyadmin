@@ -2,6 +2,7 @@
 /**
  * Base class for all GIS data type classes
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
@@ -13,6 +14,7 @@ use function intval;
 use function mb_strlen;
 use function mb_strripos;
 use function mb_substr;
+use function mt_rand;
 use function preg_match;
 use function str_replace;
 use function trim;
@@ -178,9 +180,11 @@ abstract class GisGeometry
             if (! isset($min_max['maxY']) || $y > $min_max['maxY']) {
                 $min_max['maxY'] = $y;
             }
-            if (! isset($min_max['minY']) || $y < $min_max['minY']) {
-                $min_max['minY'] = $y;
+            if (isset($min_max['minY']) && $y >= $min_max['minY']) {
+                continue;
             }
+
+            $min_max['minY'] = $y;
         }
 
         return $min_max;
@@ -197,7 +201,7 @@ abstract class GisGeometry
      *
      * @access protected
      */
-    protected function generateParams($value)
+    public function generateParams($value)
     {
         $geom_types = '(POINT|MULTIPOINT|LINESTRING|MULTILINESTRING'
             . '|POLYGON|MULTIPOLYGON|GEOMETRYCOLLECTION)';
@@ -293,9 +297,8 @@ abstract class GisGeometry
                 0,
                 mb_strlen($ol_array) - 2
             );
-        $ol_array .= ')';
 
-        return $ol_array;
+        return $ol_array . ')';
     }
 
     /**
@@ -350,9 +353,8 @@ abstract class GisGeometry
                 0,
                 mb_strlen($ol_array) - 2
             );
-        $ol_array .= ')';
 
-        return $ol_array;
+        return $ol_array . ')';
     }
 
     /**
@@ -400,9 +402,8 @@ abstract class GisGeometry
                 0,
                 mb_strlen($ol_array) - 2
             );
-        $ol_array .= ')';
 
-        return $ol_array;
+        return $ol_array . ')';
     }
 
     /**
@@ -420,5 +421,10 @@ abstract class GisGeometry
         return '(new OpenLayers.Geometry.Point(' . $point[0] . ',' . $point[1] . '))'
         . '.transform(new OpenLayers.Projection("EPSG:'
         . intval($srid) . '"), map.getProjectionObject())';
+    }
+
+    protected function getRandomId(): int
+    {
+        return mt_rand();
     }
 }

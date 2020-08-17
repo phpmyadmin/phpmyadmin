@@ -32,12 +32,12 @@ Export.enableDumpSomeRowsSubOptions = function () {
  */
 Export.getTemplateData = function () {
     var $form = $('form[name="dump"]');
-    var blacklist = ['token', 'server', 'db', 'table', 'single_table',
+    var excludeList = ['token', 'server', 'db', 'table', 'single_table',
         'export_type', 'export_method', 'sql_query', 'template_id'];
     var obj = {};
     var arr = $form.serializeArray();
     $.each(arr, function () {
-        if ($.inArray(this.name, blacklist) < 0) {
+        if ($.inArray(this.name, excludeList) < 0) {
             if (obj[this.name] !== undefined) {
                 if (! obj[this.name].push) {
                     obj[this.name] = [obj[this.name]];
@@ -78,13 +78,12 @@ Export.createTemplate = function (name) {
         'db': CommonParams.get('db'),
         'table': CommonParams.get('table'),
         'exportType': $('input[name="export_type"]').val(),
-        'templateAction': 'create',
         'templateName': name,
         'templateData': JSON.stringify(templateData)
     };
 
     Functions.ajaxShowMessage();
-    $.post('index.php?route=/table/export', params, function (response) {
+    $.post('index.php?route=/export/template/create', params, function (response) {
         if (response.success === true) {
             $('#templateName').val('');
             $('#template').html(response.data);
@@ -112,12 +111,11 @@ Export.loadTemplate = function (id) {
         'db': CommonParams.get('db'),
         'table': CommonParams.get('table'),
         'exportType': $('input[name="export_type"]').val(),
-        'templateAction': 'load',
         'templateId': id,
     };
 
     Functions.ajaxShowMessage();
-    $.post('index.php?route=/table/export', params, function (response) {
+    $.post('index.php?route=/export/template/load', params, function (response) {
         if (response.success === true) {
             var $form = $('form[name="dump"]');
             var options = JSON.parse(response.data);
@@ -162,13 +160,12 @@ Export.updateTemplate = function (id) {
         'db': CommonParams.get('db'),
         'table': CommonParams.get('table'),
         'exportType': $('input[name="export_type"]').val(),
-        'templateAction': 'update',
         'templateId': id,
         'templateData': JSON.stringify(templateData)
     };
 
     Functions.ajaxShowMessage();
-    $.post('index.php?route=/table/export', params, function (response) {
+    $.post('index.php?route=/export/template/update', params, function (response) {
         if (response.success === true) {
             Functions.ajaxShowMessage(Messages.strTemplateUpdated);
         } else {
@@ -189,12 +186,11 @@ Export.deleteTemplate = function (id) {
         'db': CommonParams.get('db'),
         'table': CommonParams.get('table'),
         'exportType': $('input[name="export_type"]').val(),
-        'templateAction': 'delete',
         'templateId': id,
     };
 
     Functions.ajaxShowMessage();
-    $.post('index.php?route=/table/export', params, function (response) {
+    $.post('index.php?route=/export/template/delete', params, function (response) {
         if (response.success === true) {
             $('#template').find('option[value="' + id + '"]').remove();
             Functions.ajaxShowMessage(Messages.strTemplateDeleted);
@@ -232,6 +228,27 @@ AJAX.registerTeardown('export.js', function () {
 });
 
 AJAX.registerOnload('export.js', function () {
+    $('#showsqlquery').on('click', function () {
+        // Creating a dialog box similar to preview sql container to show sql query
+        var modalOptions = {};
+        modalOptions[Messages.strClose] = function () {
+            $(this).dialog('close');
+        };
+        $('#export_sql_modal_content').clone().dialog({
+            minWidth: 550,
+            maxHeight: 400,
+            modal: true,
+            buttons: modalOptions,
+            title: Messages.strQuery,
+            close: function () {
+                $(this).remove();
+            }, open: function () {
+                // Pretty SQL printing.
+                Functions.highlightSql($(this));
+            }
+        });
+    });
+
     /**
      * Export template handling code
      */

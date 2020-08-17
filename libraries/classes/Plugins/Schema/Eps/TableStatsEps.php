@@ -2,6 +2,7 @@
 /**
  * Contains PhpMyAdmin\Plugins\Schema\Eps\TableStatsEps class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Eps;
@@ -24,10 +25,10 @@ use function sprintf;
  */
 class TableStatsEps extends TableStats
 {
-    /**
-     * Defines properties
-     */
+    /** @var int */
     public $height;
+
+    /** @var int */
     public $currentCell = 0;
 
     /**
@@ -69,13 +70,15 @@ class TableStatsEps extends TableStats
         );
 
         // height and width
-        $this->_setHeightTable($fontSize);
+        $this->setHeightTable($fontSize);
         // setWidth must me after setHeight, because title
         // can include table height which changes table width
-        $this->_setWidthTable($font, $fontSize);
-        if ($same_wide_width < $this->width) {
-            $same_wide_width = $this->width;
+        $this->setWidthTable($font, $fontSize);
+        if ($same_wide_width >= $this->width) {
+            return;
         }
+
+        $same_wide_width = $this->width;
     }
 
     /**
@@ -102,7 +105,7 @@ class TableStatsEps extends TableStats
      *
      * @return void
      */
-    private function _setWidthTable($font, $fontSize)
+    private function setWidthTable($font, $fontSize)
     {
         foreach ($this->fields as $field) {
             $this->width = max(
@@ -136,7 +139,7 @@ class TableStatsEps extends TableStats
      *
      * @return void
      */
-    private function _setHeightTable($fontSize)
+    private function setHeightTable($fontSize)
     {
         $this->heightCell = $fontSize + 4;
         $this->height = (count($this->fields) + 1) * $this->heightCell;

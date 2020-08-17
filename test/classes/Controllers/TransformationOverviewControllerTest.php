@@ -2,28 +2,30 @@
 /**
  * Holds TransformationOverviewControllerTest class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\TransformationOverviewController;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Transformations;
-use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for TransformationOverviewController class
  */
-class TransformationOverviewControllerTest extends TestCase
+class TransformationOverviewControllerTest extends AbstractTestCase
 {
     /**
      * Prepares environment for the test.
      */
     protected function setUp(): void
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setUp();
+        $GLOBALS['text_dir'] = 'ltr';
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
 
         $GLOBALS['server'] = 1;

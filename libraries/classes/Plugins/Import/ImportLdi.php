@@ -2,6 +2,7 @@
 /**
  * CSV import plugin for phpMyAdmin using LOAD DATA
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
@@ -10,16 +11,18 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Util;
+use const PHP_EOL;
 use function count;
+use function is_array;
 use function preg_split;
 use function strlen;
 use function trim;
-use const PHP_EOL;
 
 // phpcs:disable PSR1.Files.SideEffects
 // We need relations enabled and we work only on database
 if (! isset($GLOBALS['plugin_param']) || $GLOBALS['plugin_param'] !== 'table') {
     $GLOBALS['skip_import'] = true;
+
     return;
 }
 // phpcs:enable
@@ -43,7 +46,7 @@ class ImportLdi extends AbstractImportCsv
      */
     protected function setProperties()
     {
-        if ($GLOBALS['cfg']['Import']['ldi_local_option'] == 'auto') {
+        if ($GLOBALS['cfg']['Import']['ldi_local_option'] === 'auto') {
             $GLOBALS['cfg']['Import']['ldi_local_option'] = false;
 
             $result = $GLOBALS['dbi']->tryQuery(
@@ -51,7 +54,7 @@ class ImportLdi extends AbstractImportCsv
             );
             if ($result != false && $GLOBALS['dbi']->numRows($result) > 0) {
                 $tmp = $GLOBALS['dbi']->fetchRow($result);
-                if ($tmp[0] == 'ON') {
+                if ($tmp[0] === 'ON') {
                     $GLOBALS['cfg']['Import']['ldi_local_option'] = true;
                 }
             }
@@ -97,8 +100,8 @@ class ImportLdi extends AbstractImportCsv
 
         $compression = $GLOBALS['import_handle']->getCompression();
 
-        if ($import_file == 'none'
-            || $compression != 'none'
+        if ($import_file === 'none'
+            || $compression !== 'none'
             || $charset_conversion
         ) {
             // We handle only some kind of data!
@@ -135,7 +138,7 @@ class ImportLdi extends AbstractImportCsv
                 . $GLOBALS['dbi']->escapeString($ldi_escaped) . '\'';
         }
         if (strlen((string) $ldi_new_line) > 0) {
-            if ($ldi_new_line == 'auto') {
+            if ($ldi_new_line === 'auto') {
                 $ldi_new_line
                     = PHP_EOL == "\n"
                     ? '\n'
@@ -150,6 +153,11 @@ class ImportLdi extends AbstractImportCsv
         if (strlen((string) $ldi_columns) > 0) {
             $sql .= ' (';
             $tmp = preg_split('/,( ?)/', $ldi_columns);
+
+            if (! is_array($tmp)) {
+                $tmp = [];
+            }
+
             $cnt_tmp = count($tmp);
             for ($i = 0; $i < $cnt_tmp; $i++) {
                 if ($i > 0) {

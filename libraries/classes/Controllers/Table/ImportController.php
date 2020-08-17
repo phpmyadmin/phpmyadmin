@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
@@ -14,11 +15,11 @@ final class ImportController extends AbstractController
     {
         global $db, $max_upload_size, $table, $url_query, $url_params;
 
-        PageSettings::showGroup('Import');
+        $pageSettings = new PageSettings('Import');
+        $this->response->addHTML($pageSettings->getErrorHTML());
+        $this->response->addHTML($pageSettings->getHTML());
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('import.js');
+        $this->addScriptFiles(['import.js']);
 
         /**
          * Gets tables information and displays top links

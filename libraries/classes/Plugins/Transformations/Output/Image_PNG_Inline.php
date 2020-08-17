@@ -2,6 +2,7 @@
 /**
  * Image PNG Inline Transformations plugin for phpMyAdmin
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Output;

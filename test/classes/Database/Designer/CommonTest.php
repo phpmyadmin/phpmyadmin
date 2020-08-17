@@ -2,6 +2,7 @@
 /**
  * Tests for PhpMyAdmin\Database\Designer\Common
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Database\Designer;
@@ -9,12 +10,12 @@ namespace PhpMyAdmin\Tests\Database\Designer;
 use PhpMyAdmin\Database\Designer\Common;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PhpMyAdmin\Database\Designer\Common
  */
-class CommonTest extends TestCase
+class CommonTest extends AbstractTestCase
 {
     /** @var Common */
     private $designerCommon;
@@ -24,6 +25,8 @@ class CommonTest extends TestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
         $GLOBALS['server'] = 1;
         $_SESSION = [
             'relation' => [
@@ -40,14 +43,12 @@ class CommonTest extends TestCase
 
     /**
      * Test for getTablePositions()
-     *
-     * @return void
      */
-    public function testGetTablePositions()
+    public function testGetTablePositions(): void
     {
         $pg = 1;
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('escapeString')
@@ -79,15 +80,13 @@ class CommonTest extends TestCase
 
     /**
      * Test for getPageName()
-     *
-     * @return void
      */
-    public function testGetPageName()
+    public function testGetPageName(): void
     {
         $pg = 1;
         $pageName = 'pageName';
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('escapeString')
@@ -115,14 +114,12 @@ class CommonTest extends TestCase
 
     /**
      * Test for deletePage()
-     *
-     * @return void
      */
-    public function testDeletePage()
+    public function testDeletePage(): void
     {
         $pg = 1;
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -139,21 +136,19 @@ class CommonTest extends TestCase
         $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
 
         $result = $this->designerCommon->deletePage($pg);
-        $this->assertEquals(true, $result);
+        $this->assertTrue($result);
     }
 
     /**
      * Test for testGetDefaultPage() when there is a default page
      * (a page having the same name as database)
-     *
-     * @return void
      */
-    public function testGetDefaultPage()
+    public function testGetDefaultPage(): void
     {
         $db = 'db';
         $default_pg = '2';
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -181,14 +176,12 @@ class CommonTest extends TestCase
 
     /**
      * Test for testGetDefaultPage() when there is no default page
-     *
-     * @return void
      */
-    public function testGetDefaultPageWithNoDefaultPage()
+    public function testGetDefaultPageWithNoDefaultPage(): void
     {
         $db = 'db';
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -216,15 +209,13 @@ class CommonTest extends TestCase
 
     /**
      * Test for testGetLoadingPage() when there is a default page
-     *
-     * @return void
      */
-    public function testGetLoadingPageWithDefaultPage()
+    public function testGetLoadingPageWithDefaultPage(): void
     {
         $db = 'db';
         $default_pg = '2';
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -252,15 +243,13 @@ class CommonTest extends TestCase
 
     /**
      * Test for testGetLoadingPage() when there is no default page
-     *
-     * @return void
      */
-    public function testGetLoadingPageWithNoDefaultPage()
+    public function testGetLoadingPageWithNoDefaultPage(): void
     {
         $db = 'db';
         $first_pg = '1';
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 

@@ -2,10 +2,14 @@
 /**
  * phpMyAdmin theme manager
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use const DIRECTORY_SEPARATOR;
+use const E_USER_ERROR;
+use const E_USER_WARNING;
 use function array_key_exists;
 use function closedir;
 use function htmlspecialchars;
@@ -16,8 +20,6 @@ use function readdir;
 use function sprintf;
 use function trigger_error;
 use function trim;
-use const E_USER_ERROR;
-use const E_USER_WARNING;
 
 /**
  * phpMyAdmin theme manager
@@ -31,13 +33,13 @@ class ThemeManager
      * @static
      * @var ThemeManager
      */
-    private static $_instance;
+    private static $instance;
 
     /**
      * @var string path to theme folder
      * @access protected
      */
-    private $_themes_path = './themes/';
+    private $themes_path = './themes/';
 
     /** @var array available themes */
     public $themes = [];
@@ -95,14 +97,16 @@ class ThemeManager
 
         // check if user have a theme cookie
         $cookie_theme = $this->getThemeCookie();
-        if (! $cookie_theme || ! $this->setActiveTheme($cookie_theme)) {
-            if ($config_theme_exists) {
-                // otherwise use default theme
-                $this->setActiveTheme($this->theme_default);
-            } else {
-                // or fallback theme
-                $this->setActiveTheme(self::FALLBACK_THEME);
-            }
+        if ($cookie_theme && $this->setActiveTheme($cookie_theme)) {
+            return;
+        }
+
+        if ($config_theme_exists) {
+            // otherwise use default theme
+            $this->setActiveTheme($this->theme_default);
+        } else {
+            // or fallback theme
+            $this->setActiveTheme(self::FALLBACK_THEME);
         }
     }
 
@@ -113,10 +117,11 @@ class ThemeManager
      */
     public static function getInstance(): ThemeManager
     {
-        if (empty(self::$_instance)) {
-            self::$_instance = new ThemeManager();
+        if (empty(self::$instance)) {
+            self::$instance = new ThemeManager();
         }
-        return self::$_instance;
+
+        return self::$instance;
     }
 
     /**
@@ -130,11 +135,12 @@ class ThemeManager
      */
     public function setThemesPath($path)
     {
-        if (! $this->_checkThemeFolder($path)) {
+        if (! $this->checkThemeFolder($path)) {
             return false;
         }
 
-        $this->_themes_path = trim($path);
+        $this->themes_path = trim($path);
+
         return true;
     }
 
@@ -171,6 +177,7 @@ class ThemeManager
                 ),
                 E_USER_ERROR
             );
+
             return false;
         }
 
@@ -236,6 +243,7 @@ class ThemeManager
         // force a change of a dummy session variable to avoid problems
         // with the caching of phpmyadmin.css.php
         $GLOBALS['PMA_Config']->set('theme-update', $this->theme->id);
+
         return true;
     }
 
@@ -248,7 +256,7 @@ class ThemeManager
      *
      * @access private
      */
-    private function _checkThemeFolder($folder)
+    private function checkThemeFolder($folder)
     {
         if (! is_dir($folder)) {
             trigger_error(
@@ -258,6 +266,7 @@ class ThemeManager
                 ),
                 E_USER_ERROR
             );
+
             return false;
         }
 
@@ -274,22 +283,24 @@ class ThemeManager
     public function loadThemes()
     {
         $this->themes = [];
+        $handleThemes = opendir($this->themes_path);
 
-        if (($handleThemes = opendir($this->_themes_path)) === false) {
+        if ($handleThemes === false) {
             trigger_error(
                 'phpMyAdmin-ERROR: cannot open themes folder: '
-                . $this->_themes_path,
+                . $this->themes_path,
                 E_USER_WARNING
             );
+
             return false;
         }
 
         // check for themes directory
         while (($PMA_Theme = readdir($handleThemes)) !== false) {
             // Skip non dirs, . and ..
-            if ($PMA_Theme == '.'
-                || $PMA_Theme == '..'
-                || ! @is_dir(ROOT_PATH . $this->_themes_path . $PMA_Theme)
+            if ($PMA_Theme === '.'
+                || $PMA_Theme === '..'
+                || ! @is_dir(ROOT_PATH . $this->themes_path . $PMA_Theme)
             ) {
                 continue;
             }
@@ -297,16 +308,20 @@ class ThemeManager
                 continue;
             }
             $new_theme = Theme::load(
-                $this->_themes_path . $PMA_Theme
+                $this->themes_path . $PMA_Theme,
+                ROOT_PATH . $this->themes_path . $PMA_Theme . '/'
             );
-            if ($new_theme) {
-                $new_theme->setId($PMA_Theme);
-                $this->themes[$PMA_Theme] = $new_theme;
+            if (! $new_theme) {
+                continue;
             }
+
+            $new_theme->setId($PMA_Theme);
+            $this->themes[$PMA_Theme] = $new_theme;
         } // end get themes
         closedir($handleThemes);
 
         ksort($this->themes);
+
         return true;
     }
 
@@ -379,6 +394,7 @@ class ThemeManager
         foreach ($this->themes as $each_theme) {
             $retval .= $each_theme->getPrintPreview();
         } // end 'open themes'
+
         return $retval;
     }
 
@@ -415,5 +431,21 @@ class ThemeManager
          * @global string $GLOBALS['pmaThemeImage']
          */
         $GLOBALS['pmaThemeImage']   = $GLOBALS['PMA_Theme']->getImgPath();
+    }
+
+    /**
+     * Return the themes directory with a trailing slash
+     */
+    public static function getThemesFsDir(): string
+    {
+        return ROOT_PATH . 'themes' . DIRECTORY_SEPARATOR;
+    }
+
+    /**
+     * Return the themes directory with a trailing slash as a relative public path
+     */
+    public static function getThemesDir(): string
+    {
+        return './themes' . DIRECTORY_SEPARATOR;
     }
 }

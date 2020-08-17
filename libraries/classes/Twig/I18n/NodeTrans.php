@@ -2,6 +2,7 @@
 /**
  * hold PhpMyAdmin\Twig\I18n\NodeTrans class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Twig\I18n;
@@ -21,21 +22,21 @@ class NodeTrans extends TransNode
      * The attributes are automatically made available as array items ($this['name']).
      *
      * @param Node               $body    Body of node trans
-     * @param Node               $plural  Node plural
+     * @param Node|null          $plural  Node plural
      * @param AbstractExpression $count   Node count
-     * @param Node               $context Node context
-     * @param Node               $notes   Node notes
+     * @param Node|null          $context Node context
+     * @param Node|null          $notes   Node notes
      * @param int                $lineno  The line number
      * @param string             $tag     The tag name associated with the Node
      */
     public function __construct(
         Node $body,
-        Node $plural = null,
-        AbstractExpression $count = null,
-        Node $context = null,
-        Node $notes = null,
-        $lineno,
-        $tag = null
+        ?Node $plural,
+        ?AbstractExpression $count,
+        ?Node $context,
+        ?Node $notes,
+        int $lineno,
+        string $tag
     ) {
         $nodes = ['body' => $body];
         if ($count !== null) {
@@ -65,11 +66,11 @@ class NodeTrans extends TransNode
     {
         $compiler->addDebugInfo($this);
 
-        list($msg, $vars) = $this->compileString($this->getNode('body'));
+        [$msg, $vars] = $this->compileString($this->getNode('body'));
 
         $msg1 = null;
         if ($this->hasNode('plural')) {
-            list($msg1, $vars1) = $this->compileString($this->getNode('plural'));
+            [$msg1, $vars1] = $this->compileString($this->getNode('plural'));
 
             $vars = array_merge($vars, $vars1);
         }
@@ -146,10 +147,8 @@ class NodeTrans extends TransNode
     /**
      * @param bool $plural        Return plural or singular function to use
      * @param bool $hasMsgContext It has message context?
-     *
-     * @return string
      */
-    protected function getTransFunction($plural, $hasMsgContext = false)
+    protected function getTransFunction($plural, bool $hasMsgContext = false): string
     {
         if ($hasMsgContext) {
             return $plural ? '_ngettext' : '_pgettext';

@@ -2,24 +2,27 @@
 /**
  * Tests for PhpMyAdmin\Controllers\Table\RelationController
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\RelationController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use stdClass;
 
 /**
  * Tests for PhpMyAdmin\Controllers\Table\RelationController
  */
-class RelationControllerTest extends PmaTestCase
+class RelationControllerTest extends AbstractTestCase
 {
     /** @var ResponseStub */
-    private $_response;
+    private $response;
 
     /** @var Template */
     private $template;
@@ -29,9 +32,14 @@ class RelationControllerTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
+        parent::loadDefaultConfig();
+
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
+        $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         //$_SESSION
@@ -44,10 +52,8 @@ class RelationControllerTest extends PmaTestCase
         {
             /**
              * @param mixed $name name
-             *
-             * @return bool
              */
-            public function exists($name)
+            public function exists($name): bool
             {
                 return true;
             }
@@ -70,7 +76,7 @@ class RelationControllerTest extends PmaTestCase
                 'Column_name' => 'Column_name3',
             ],
         ];
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('getTableIndexes')
@@ -78,7 +84,7 @@ class RelationControllerTest extends PmaTestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $this->_response = new ResponseStub();
+        $this->response = new ResponseStub();
         $this->template = new Template();
     }
 
@@ -88,18 +94,16 @@ class RelationControllerTest extends PmaTestCase
      * Case one: this case is for the situation when the target
      *           table is a view.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetDropdownValueForTableActionIsView()
+    public function testGetDropdownValueForTableActionIsView(): void
     {
         $viewColumns = [
             'viewCol',
             'viewCol2',
             'viewCol3',
         ];
-        $tableMock = $this->getMockBuilder('PhpMyAdmin\Table')
+        $tableMock = $this->getMockBuilder(Table::class)
             ->disableOriginalConstructor()
             ->getMock();
         // Test the situation when the table is a view
@@ -112,7 +116,7 @@ class RelationControllerTest extends PmaTestCase
             ->will($this->returnValue($tableMock));
 
         $ctrl = new RelationController(
-            $this->_response,
+            $this->response,
             $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
@@ -121,7 +125,7 @@ class RelationControllerTest extends PmaTestCase
         );
 
         $ctrl->getDropdownValueForTable();
-        $json = $this->_response->getJSONResult();
+        $json = $this->response->getJSONResult();
         $this->assertEquals(
             $viewColumns,
             $json['columns']
@@ -134,16 +138,12 @@ class RelationControllerTest extends PmaTestCase
      * Case one: this case is for the situation when the target
      *           table is not a view (real tabletable).
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetDropdownValueForTableActionNotView()
+    public function testGetDropdownValueForTableActionNotView(): void
     {
-        $indexedColumns = [
-            'primaryTableCol',
-        ];
-        $tableMock = $this->getMockBuilder('PhpMyAdmin\Table')
+        $indexedColumns = ['primaryTableCol'];
+        $tableMock = $this->getMockBuilder(Table::class)
             ->disableOriginalConstructor()
             ->getMock();
         // Test the situation when the table is a view
@@ -156,7 +156,7 @@ class RelationControllerTest extends PmaTestCase
             ->will($this->returnValue($tableMock));
 
         $ctrl = new RelationController(
-            $this->_response,
+            $this->response,
             $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
@@ -165,7 +165,7 @@ class RelationControllerTest extends PmaTestCase
         );
 
         $ctrl->getDropdownValueForTable();
-        $json = $this->_response->getJSONResult();
+        $json = $this->response->getJSONResult();
         $this->assertEquals(
             $indexedColumns,
             $json['columns']
@@ -177,32 +177,32 @@ class RelationControllerTest extends PmaTestCase
      *
      * Case one: foreign
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetDropdownValueForDbActionOne()
+    public function testGetDropdownValueForDbActionOne(): void
     {
         $GLOBALS['dbi']->expects($this->any())
             ->method('fetchArray')
             ->will(
                 $this->returnCallback(
-                    function () {
+                    static function () {
                         static $count = 0;
                         if ($count == 0) {
                             $count++;
+
                             return [
                                 'Engine' => 'InnoDB',
                                 'Name' => 'table',
                             ];
                         }
+
                         return null;
                     }
                 )
             );
 
         $ctrl = new RelationController(
-            $this->_response,
+            $this->response,
             $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
@@ -212,7 +212,7 @@ class RelationControllerTest extends PmaTestCase
 
         $_POST['foreign'] = 'true';
         $ctrl->getDropdownValueForDatabase('INNODB');
-        $json = $this->_response->getJSONResult();
+        $json = $this->response->getJSONResult();
         $this->assertEquals(
             ['table'],
             $json['tables']
@@ -224,29 +224,29 @@ class RelationControllerTest extends PmaTestCase
      *
      * Case two: not foreign
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetDropdownValueForDbActionTwo()
+    public function testGetDropdownValueForDbActionTwo(): void
     {
         $GLOBALS['dbi']->expects($this->any())
             ->method('fetchArray')
             ->will(
                 $this->returnCallback(
-                    function () {
+                    static function () {
                         static $count = 0;
                         if ($count == 0) {
                             $count++;
+
                             return ['table'];
                         }
+
                         return null;
                     }
                 )
             );
 
         $ctrl = new RelationController(
-            $this->_response,
+            $this->response,
             $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
@@ -256,7 +256,7 @@ class RelationControllerTest extends PmaTestCase
 
         $_POST['foreign'] = 'false';
         $ctrl->getDropdownValueForDatabase('INNODB');
-        $json = $this->_response->getJSONResult();
+        $json = $this->response->getJSONResult();
         $this->assertEquals(
             ['table'],
             $json['tables']

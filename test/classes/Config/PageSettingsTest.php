@@ -2,53 +2,52 @@
 /**
  * Tests for Page-related settings
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Config;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PhpMyAdmin\Config\PageSettings
  */
-class PageSettingsTest extends PmaTestCase
+class PageSettingsTest extends AbstractTestCase
 {
     /**
      * Setup tests
      */
     protected function setUp(): void
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setUp();
+        parent::setLanguage();
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = '';
+        $_SERVER['SCRIPT_NAME'] = 'index.php';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
     }
 
     /**
      * Test showGroup when group passed does not exist
-     *
-     * @return void
      */
-    public function testShowGroupNonExistent()
+    public function testShowGroupNonExistent(): void
     {
-        $object = PageSettings::showGroup('NonExistent');
+        $object = new PageSettings('NonExistent');
 
         $this->assertEquals('', $object->getHTML());
     }
 
     /**
      * Test showGroup with a known group name
-     *
-     * @return void
      */
-    public function testShowGroupBrowse()
+    public function testShowGroupBrowse(): void
     {
-        $object = PageSettings::showGroup('Browse');
+        $object = new PageSettings('Browse');
 
         $html = $object->getHTML();
 
@@ -57,7 +56,7 @@ class PageSettingsTest extends PmaTestCase
             '<div id="page_settings_modal">'
             . '<div class="page_settings">'
             . '<form method="post" '
-            . 'action="phpunit?db=db&server=1&lang=en" '
+            . 'action="index.php?db=db&server=1&lang=en" '
             . 'class="config-form disableAjax">',
             $html
         );
@@ -77,12 +76,12 @@ class PageSettingsTest extends PmaTestCase
 
     /**
      * Test getNaviSettings
-     *
-     * @return void
      */
-    public function testGetNaviSettings()
+    public function testGetNaviSettings(): void
     {
-        $html = PageSettings::getNaviSettings();
+        $pageSettings = new PageSettings('Navi', 'pma_navigation_settings');
+
+        $html = $pageSettings->getHTML();
 
         // Test some sample parts
         $this->assertStringContainsString(

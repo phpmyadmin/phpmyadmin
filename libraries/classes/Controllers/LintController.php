@@ -2,6 +2,7 @@
 /**
  * Represents the interface between the linter and the query editor.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;

@@ -1,18 +1,20 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Table;
 
 use PhpMyAdmin\Table\Search;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
-class SearchTest extends TestCase
+class SearchTest extends AbstractTestCase
 {
     /** @var Search */
     private $search;
 
     protected function setUp(): void
     {
+        parent::setUp();
         global $dbi;
 
         $this->search = new Search($dbi);
@@ -162,21 +164,11 @@ class SearchTest extends TestCase
         );
 
         unset($_POST['customWhereClause']);
-        $_POST['criteriaColumnNames'] = [
-            'b',
-        ];
-        $_POST['criteriaColumnOperators'] = [
-            '=',
-        ];
-        $_POST['geom_func'] = [
-            'Dimension',
-        ];
-        $_POST['criteriaValues'] = [
-            '1',
-        ];
-        $_POST['criteriaColumnTypes'] = [
-            'geometry',
-        ];
+        $_POST['criteriaColumnNames'] = ['b'];
+        $_POST['criteriaColumnOperators'] = ['='];
+        $_POST['geom_func'] = ['Dimension'];
+        $_POST['criteriaValues'] = ['1'];
+        $_POST['criteriaColumnTypes'] = ['geometry'];
 
         $this->assertEquals(
             'SELECT *  FROM `PMA` WHERE Dimension(`b`) = \'1\'',
@@ -202,19 +194,11 @@ class SearchTest extends TestCase
         );
 
         unset($_POST['customWhereClause']);
-        $_POST['criteriaColumnNames'] = [
-            'rating',
-        ];
-        $_POST['criteriaColumnOperators'] = [
-            '=',
-        ];
+        $_POST['criteriaColumnNames'] = ['rating'];
+        $_POST['criteriaColumnOperators'] = ['='];
 
-        $_POST['criteriaValues'] = [
-            'PG-13',
-        ];
-        $_POST['criteriaColumnTypes'] = [
-            'enum(\'G\', \'PG\', \'PG-13\', \'R\', \'NC-17\')',
-        ];
+        $_POST['criteriaValues'] = ['PG-13'];
+        $_POST['criteriaColumnTypes'] = ['enum(\'G\', \'PG\', \'PG-13\', \'R\', \'NC-17\')'];
 
         $this->assertEquals(
             'SELECT *  FROM `PMA` WHERE `rating` = \'PG-13\'',

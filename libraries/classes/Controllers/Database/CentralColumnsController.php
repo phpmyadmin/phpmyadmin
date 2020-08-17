@@ -2,6 +2,7 @@
 /**
  * Central Columns view/edit
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
@@ -51,8 +52,11 @@ class CentralColumnsController extends AbstractController
                 'col_type' => $_POST['col_type'] ?? null,
                 'collation' => $_POST['collation'] ?? null,
             ]);
+
             return;
-        } elseif (isset($_POST['add_new_column'])) {
+        }
+
+        if (isset($_POST['add_new_column'])) {
             $tmp_msg = $this->addNewColumn([
                 'col_name' => $_POST['col_name'] ?? null,
                 'col_default' => $_POST['col_default'] ?? null,
@@ -69,12 +73,14 @@ class CentralColumnsController extends AbstractController
             $this->response->addHTML($this->populateColumns([
                 'selectedTable' => $_POST['selectedTable'],
             ]));
+
             return;
         }
         if (isset($_POST['getColumnList'])) {
             $this->response->addJSON('message', $this->getColumnList([
                 'cur_table' => $_POST['cur_table'] ?? null,
             ]));
+
             return;
         }
         if (isset($_POST['add_column'])) {
@@ -84,17 +90,18 @@ class CentralColumnsController extends AbstractController
             ]);
         }
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
-        $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
-        $scripts->addFile('database/central_columns.js');
+        $this->addScriptFiles([
+            'vendor/jquery/jquery.uitablefilter.js',
+            'vendor/jquery/jquery.tablesorter.js',
+            'database/central_columns.js',
+        ]);
 
         if (isset($_POST['edit_central_columns_page'])) {
             $this->response->addHTML($this->editPage([
                 'selected_fld' => $_POST['selected_fld'] ?? null,
                 'db' => $_POST['db'] ?? null,
             ]));
+
             return;
         }
         if (isset($_POST['multi_edit_central_column_save'])) {
@@ -140,9 +147,11 @@ class CentralColumnsController extends AbstractController
         $message = Message::success(
             sprintf(__('Showing rows %1$s - %2$s.'), $pos + 1, $pos + $num_cols)
         );
-        if (isset($tmp_msg) && $tmp_msg !== true) {
-            $message = $tmp_msg;
+        if (! isset($tmp_msg) || $tmp_msg === true) {
+            return;
         }
+
+        $message = $tmp_msg;
     }
 
     /**
@@ -213,6 +222,7 @@ class CentralColumnsController extends AbstractController
         if ($columnDefault === 'NONE' && $params['col_default_sel'] !== 'USER_DEFINED') {
             $columnDefault = '';
         }
+
         return $this->centralColumns->updateOneColumn(
             $this->db,
             $params['orig_col_name'],
@@ -238,6 +248,7 @@ class CentralColumnsController extends AbstractController
         if ($columnDefault === 'NONE' && $params['col_default_sel'] !== 'USER_DEFINED') {
             $columnDefault = '';
         }
+
         return $this->centralColumns->updateOneColumn(
             $this->db,
             '',
@@ -298,6 +309,7 @@ class CentralColumnsController extends AbstractController
     {
         $name = [];
         parse_str($params['col_name'], $name);
+
         return $this->centralColumns->deleteColumnsFromList(
             $params['db'],
             $name['selected_fld'],

@@ -2,13 +2,14 @@
 /**
  * Selenium TestCase for table related tests
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium\Database;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
+use function sleep;
 use function str_replace;
-use const MYSQLI_ASSOC;
 
 /**
  * ProceduresTest class
@@ -20,9 +21,9 @@ class ProceduresTest extends TestBase
     /**
      * The sql_mode before tests
      *
-     * @var int
+     * @var string
      */
-    private $originalSqlMode = -1;
+    private $originalSqlMode = '';
 
     /**
      * Setup the browser environment to run the selenium test case
@@ -30,8 +31,8 @@ class ProceduresTest extends TestBase
     protected function setUp(): void
     {
         parent::setUp();
-        if ($this->originalSqlMode === -1) {
-            $this->originalSqlMode = $this->dbQuery('SELECT @@GLOBAL.SQL_MODE as globalsqm;')->fetch_all(MYSQLI_ASSOC)[0]['globalsqm'];
+        if ($this->originalSqlMode === '') {
+            $this->originalSqlMode = $this->getSqlMode();
             $this->dbQuery(
                 "SET GLOBAL sql_mode = '" .
                 str_replace(
@@ -43,12 +44,13 @@ class ProceduresTest extends TestBase
         }
 
         $this->dbQuery(
-            'CREATE TABLE `test_table` ('
+            'USE `' . $this->database_name . '`;'
+            . 'CREATE TABLE `test_table` ('
             . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
             . ' `name` varchar(20) NOT NULL,'
             . ' `datetimefield` datetime NOT NULL,'
             . ' PRIMARY KEY (`id`)'
-            . ')'
+            . ');'
         );
 
         $this->login();
@@ -57,27 +59,56 @@ class ProceduresTest extends TestBase
         $this->expandMore();
     }
 
+    private function getSqlMode(): string
+    {
+        $sqlMode = '';
+        $this->dbQuery(
+            'SELECT @@GLOBAL.SQL_MODE as globalsqm;',
+            function () use (&$sqlMode): void {
+                $optionsSelector = '//a[contains(., "+ Options")]';
+                $fullTextSelector = '//label[contains(., "Full texts")]';
+                $this->assertTrue($this->isElementPresent('xpath', $optionsSelector));
+                $this->byXPath($optionsSelector)->click();
+                $this->waitForElement('xpath', $fullTextSelector);
+                sleep(2);// Wait for the animation to display the box
+                $this->byXPath($fullTextSelector)->click();
+                $this->byCssSelector('.slide-wrapper .tblFooters input[type=submit]')->click();
+                $this->waitAjax();
+                sleep(2);// Waitfor the new results
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $sqlMode = $this->getCellByTableClass('table_results', 1, 1);
+                $this->assertNotEmpty($sqlMode);
+            }
+        );
+
+        return $sqlMode;
+    }
+
     /**
      * Restore initial state
      */
     protected function tearDown(): void
     {
-        $this->dbQuery(
-            "SET GLOBAL sql_mode = '" . $this->originalSqlMode . "';"
-        );
-        $this->assertEquals($this->originalSqlMode, $this->dbQuery('SELECT @@GLOBAL.SQL_MODE as globalsqm;')->fetch_all(MYSQLI_ASSOC)[0]['globalsqm']);
+        if ($this->originalSqlMode !== '') {
+            $this->dbQuery(
+                "SET GLOBAL sql_mode = '" . $this->originalSqlMode . "';"
+            );
+            $this->assertEquals(
+                $this->originalSqlMode,
+                $this->getSqlMode()
+            );
+        }
         parent::tearDown();
     }
 
     /**
      * Creates procedure for tests
-     *
-     * @return void
      */
-    private function _procedureSQL()
+    private function procedureSQL(): void
     {
         $this->dbQuery(
-            'CREATE PROCEDURE `test_procedure`(IN `inp` VARCHAR(20), OUT `outp` INT)'
+            'USE `' . $this->database_name . '`;'
+            . 'CREATE PROCEDURE `test_procedure`(IN `inp` VARCHAR(20), OUT `outp` INT)'
             . ' NOT DETERMINISTIC READS SQL DATA SQL SECURITY DEFINER SELECT char_'
             . 'length(inp) + count(*) FROM test_table INTO outp'
         );
@@ -86,11 +117,9 @@ class ProceduresTest extends TestBase
     /**
      * Create a procedure
      *
-     * @return void
-     *
      * @group large
      */
-    public function testAddProcedure()
+    public function testAddProcedure(): void
     {
         $this->waitForElement('partialLinkText', 'Routines')->click();
         $this->waitAjax();
@@ -133,24 +162,25 @@ class ProceduresTest extends TestBase
             . "'Routine `test_procedure` has been created')]"
         );
 
-        $result = $this->dbQuery(
-            "SHOW PROCEDURE STATUS WHERE Db='" . $this->database_name . "'"
+        $this->dbQuery(
+            "SHOW PROCEDURE STATUS WHERE Db='" . $this->database_name . "'",
+            function (): void {
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->assertEquals($this->database_name, $this->getCellByTableClass('table_results', 1, 1));
+            }
         );
 
-        $this->assertEquals(1, $result->num_rows);
-        $this->_executeProcedure('test_procedure', 14);
+        $this->executeProcedure('test_procedure', 14);
     }
 
     /**
      * Test for editing procedure
      *
-     * @return void
-     *
      * @group large
      */
-    public function testEditProcedure()
+    public function testEditProcedure(): void
     {
-        $this->_procedureSQL();
+        $this->procedureSQL();
         $this->waitForElement('partialLinkText', 'Routines')->click();
         $this->waitAjax();
 
@@ -172,19 +202,17 @@ class ProceduresTest extends TestBase
             . "'Routine `test_procedure` has been modified')]"
         );
 
-        $this->_executeProcedure('test_procedure', 14);
+        $this->executeProcedure('test_procedure', 14);
     }
 
     /**
      * Test for dropping procedure
      *
-     * @return void
-     *
      * @group large
      */
-    public function testDropProcedure()
+    public function testDropProcedure(): void
     {
-        $this->_procedureSQL();
+        $this->procedureSQL();
         $this->waitForElement('partialLinkText', 'Routines')->click();
         $this->waitAjax();
 
@@ -201,10 +229,12 @@ class ProceduresTest extends TestBase
 
         $this->waitAjaxMessage();
 
-        $result = $this->dbQuery(
-            "SHOW PROCEDURE STATUS WHERE Db='" . $this->database_name . "'"
+        $this->dbQuery(
+            "SHOW PROCEDURE STATUS WHERE Db='" . $this->database_name . "'",
+            function (): void {
+                $this->assertFalse($this->isElementPresent('className', 'table_results'));
+            }
         );
-        $this->assertEquals(0, $result->num_rows);
     }
 
     /**
@@ -212,13 +242,11 @@ class ProceduresTest extends TestBase
      *
      * @param string $text   String to pass as inp param
      * @param int    $length Expected output length
-     *
-     * @return void
      */
-    private function _executeProcedure($text, $length)
+    private function executeProcedure(string $text, int $length): void
     {
         $this->waitAjax();
-        $this->waitUntilElementIsVisible('partialLinkText', 'Execute', 30)->click();// The space before Execute is because of &nbsp;
+        $this->waitUntilElementIsVisible('partialLinkText', 'Execute', 30)->click();
         $this->waitUntilElementIsVisible('name', 'params[inp]', 30)->sendKeys($text);
         $this->byCssSelector('div.ui-dialog-buttonset button:nth-child(1)')->click();
 

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
@@ -87,13 +88,7 @@ final class ReplaceController extends AbstractController
          */
         $goto_include = false;
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('makegrid.js');
-        // Needed for generation of Inline Edit anchors
-        $scripts->addFile('sql.js');
-        $scripts->addFile('indexes.js');
-        $scripts->addFile('gis_data_editor.js');
+        $this->addScriptFiles(['makegrid.js', 'sql.js', 'indexes.js', 'gis_data_editor.js']);
 
         // check whether insert row mode, if so include /table/change
         $this->insertEdit->isInsertRow();
@@ -109,9 +104,9 @@ final class ReplaceController extends AbstractController
             $url_params['after_insert'] = $_POST['after_insert'];
             if (isset($_POST['where_clause'])) {
                 foreach ($_POST['where_clause'] as $one_where_clause) {
-                    if ($_POST['after_insert'] == 'same_insert') {
+                    if ($_POST['after_insert'] === 'same_insert') {
                         $url_params['where_clause'][] = $one_where_clause;
-                    } elseif ($_POST['after_insert'] == 'edit_next') {
+                    } elseif ($_POST['after_insert'] === 'edit_next') {
                         $this->insertEdit->setSessionForEditNext($one_where_clause);
                     }
                 }
@@ -188,7 +183,7 @@ final class ReplaceController extends AbstractController
         }
 
         $mime_map = $this->transformations->getMime($db, $table);
-        if ($mime_map === false) {
+        if ($mime_map === null) {
             $mime_map = [];
         }
 
@@ -230,9 +225,11 @@ final class ReplaceController extends AbstractController
             // When a select field is nullified, it's not present in $_POST
             // so initialize it; this way, the foreach($multi_edit_columns) will process it
             foreach ($multi_edit_columns_name as $key => $val) {
-                if (! isset($multi_edit_columns[$key])) {
-                    $multi_edit_columns[$key] = '';
+                if (isset($multi_edit_columns[$key])) {
+                    continue;
                 }
+
+                $multi_edit_columns[$key] = '';
             }
 
             // Iterate in the order of $multi_edit_columns_name,
@@ -340,9 +337,11 @@ final class ReplaceController extends AbstractController
                         $multi_edit_columns_null_prev
                     );
                 }
-                if (isset($multi_edit_columns_null[$key])) {
-                    $multi_edit_columns[$key] = null;
+                if (! isset($multi_edit_columns_null[$key])) {
+                    continue;
                 }
+
+                $multi_edit_columns[$key] = null;
             } //end of foreach
 
             // temporarily store rows not inserted
@@ -350,16 +349,18 @@ final class ReplaceController extends AbstractController
             if ($insert_fail) {
                 $unsaved_values[$rownumber] = $multi_edit_columns;
             }
-            if (! $insert_fail && count($query_values) > 0) {
-                if ($is_insert) {
-                    $value_sets[] = implode(', ', $query_values);
-                } else {
-                    // build update query
-                    $query[] = 'UPDATE ' . Util::backquote($table)
-                        . ' SET ' . implode(', ', $query_values)
-                        . ' WHERE ' . $where_clause
-                        . ($_POST['clause_is_unique'] ? '' : ' LIMIT 1');
-                }
+            if ($insert_fail || count($query_values) <= 0) {
+                continue;
+            }
+
+            if ($is_insert) {
+                $value_sets[] = implode(', ', $query_values);
+            } else {
+                // build update query
+                $query[] = 'UPDATE ' . Util::backquote($table)
+                    . ' SET ' . implode(', ', $query_values)
+                    . ' WHERE ' . $where_clause
+                    . ($_POST['clause_is_unique'] ? '' : ' LIMIT 1');
             }
         }
         unset(
@@ -389,7 +390,7 @@ final class ReplaceController extends AbstractController
             // Note: logic passes here for inline edit
             $message = Message::success(__('No change'));
             // Avoid infinite recursion
-            if ($goto_include == '/table/replace') {
+            if ($goto_include === '/table/replace') {
                 $goto_include = '/table/change';
             }
             $active_page = $goto_include;
@@ -398,25 +399,36 @@ final class ReplaceController extends AbstractController
                 /** @var SqlController $controller */
                 $controller = $containerBuilder->get(SqlController::class);
                 $controller->index();
+
                 return;
-            } elseif ($goto_include === '/database/sql') {
+            }
+
+            if ($goto_include === '/database/sql') {
                 /** @var DatabaseSqlController $controller */
                 $controller = $containerBuilder->get(DatabaseSqlController::class);
                 $controller->index();
+
                 return;
-            } elseif ($goto_include === '/table/change') {
+            }
+
+            if ($goto_include === '/table/change') {
                 /** @var ChangeController $controller */
                 $controller = $containerBuilder->get(ChangeController::class);
                 $controller->index();
+
                 return;
-            } elseif ($goto_include === '/table/sql') {
+            }
+
+            if ($goto_include === '/table/sql') {
                 /** @var TableSqlController $controller */
                 $controller = $containerBuilder->get(TableSqlController::class);
                 $controller->index();
+
                 return;
             }
 
             include ROOT_PATH . Core::securePath((string) $goto_include);
+
             return;
         }
         unset($multi_edit_columns, $is_insertignore);
@@ -424,6 +436,8 @@ final class ReplaceController extends AbstractController
         // If there is a request for SQL previewing.
         if (isset($_POST['preview_sql'])) {
             Core::previewSQL($query);
+
+            return;
         }
 
         /**
@@ -503,8 +517,7 @@ final class ReplaceController extends AbstractController
                             $relation_field
                         );
 
-                        $extra_data['relations'][$cell_index]
-                            = $this->insertEdit->getLinkForRelationalDisplayField(
+                        $extra_data['relations'][$cell_index] = $this->insertEdit->getLinkForRelationalDisplayField(
                             $map,
                             $relation_field,
                             $where_comparison,
@@ -568,6 +581,7 @@ final class ReplaceController extends AbstractController
             $this->response->setRequestStatus($message->isSuccess());
             $this->response->addJSON('message', $message);
             $this->response->addJSON($extra_data);
+
             return;
         }
 
@@ -578,8 +592,7 @@ final class ReplaceController extends AbstractController
             $GLOBALS['sql_query'] = $return_to_sql_query;
         }
 
-        $scripts->addFile('vendor/jquery/additional-methods.js');
-        $scripts->addFile('table/change.js');
+        $this->addScriptFiles(['vendor/jquery/additional-methods.js', 'table/change.js']);
 
         $active_page = $goto_include;
 
@@ -588,7 +601,7 @@ final class ReplaceController extends AbstractController
          * WHERE clause information so that /table/change does not go back
          * to the current record
          */
-        if (isset($_POST['after_insert']) && $_POST['after_insert'] == 'new_insert') {
+        if (isset($_POST['after_insert']) && $_POST['after_insert'] === 'new_insert') {
             unset($_POST['where_clause']);
         }
 
@@ -596,21 +609,31 @@ final class ReplaceController extends AbstractController
             /** @var SqlController $controller */
             $controller = $containerBuilder->get(SqlController::class);
             $controller->index();
+
             return;
-        } elseif ($goto_include === '/database/sql') {
+        }
+
+        if ($goto_include === '/database/sql') {
             /** @var DatabaseSqlController $controller */
             $controller = $containerBuilder->get(DatabaseSqlController::class);
             $controller->index();
+
             return;
-        } elseif ($goto_include === '/table/change') {
+        }
+
+        if ($goto_include === '/table/change') {
             /** @var ChangeController $controller */
             $controller = $containerBuilder->get(ChangeController::class);
             $controller->index();
+
             return;
-        } elseif ($goto_include === '/table/sql') {
+        }
+
+        if ($goto_include === '/table/sql') {
             /** @var TableSqlController $controller */
             $controller = $containerBuilder->get(TableSqlController::class);
             $controller->index();
+
             return;
         }
 

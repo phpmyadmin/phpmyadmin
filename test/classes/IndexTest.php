@@ -2,33 +2,35 @@
 /**
  * Test for Index class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Index;
-use function implode;
 
 /**
  * Test for Index class
  */
-class IndexTest extends PmaTestCase
+class IndexTest extends AbstractTestCase
 {
-    private $_params = [];
+    /** @var array */
+    private $params = [];
 
     /**
      * Configures parameters.
      */
     protected function setUp(): void
     {
-        $this->_params['Schema'] = 'PMA_Schema';
-        $this->_params['Table'] = 'PMA_Table';
-        $this->_params['Key_name'] = 'PMA_Key_name';
-        $this->_params['Index_choice'] = 'PMA_Index_choice';
-        $this->_params['Comment'] = 'PMA_Comment';
-        $this->_params['Index_comment'] = 'PMA_Index_comment';
-        $this->_params['Non_unique'] = 'PMA_Non_unique';
-        $this->_params['Packed'] = 'PMA_Packed';
+        parent::setUp();
+        $this->params['Schema'] = 'PMA_Schema';
+        $this->params['Table'] = 'PMA_Table';
+        $this->params['Key_name'] = 'PMA_Key_name';
+        $this->params['Index_choice'] = 'PMA_Index_choice';
+        $this->params['Comment'] = 'PMA_Comment';
+        $this->params['Index_comment'] = 'PMA_Index_comment';
+        $this->params['Non_unique'] = 'PMA_Non_unique';
+        $this->params['Packed'] = 'PMA_Packed';
 
         //test add columns
         $column1 = [
@@ -52,19 +54,17 @@ class IndexTest extends PmaTestCase
             'Cardinality' => 'Cardinality3',
             'Null' => 'null3',
         ];
-        $this->_params['columns'][] = $column1;
-        $this->_params['columns'][] = $column2;
-        $this->_params['columns'][] = $column3;
+        $this->params['columns'][] = $column1;
+        $this->params['columns'][] = $column2;
+        $this->params['columns'][] = $column3;
     }
 
     /**
      * Test for Constructor
-     *
-     * @return void
      */
-    public function testConstructor()
+    public function testConstructor(): void
     {
-        $index = new Index($this->_params);
+        $index = new Index($this->params);
         $this->assertEquals(
             'PMA_Index_comment',
             $index->getComment()
@@ -101,13 +101,11 @@ class IndexTest extends PmaTestCase
 
     /**
      * Test for isUnique
-     *
-     * @return void
      */
-    public function testIsUniquer()
+    public function testIsUniquer(): void
     {
-        $this->_params['Non_unique'] = '0';
-        $index = new Index($this->_params);
+        $this->params['Non_unique'] = '0';
+        $index = new Index($this->params);
         $this->assertTrue(
             $index->isUnique()
         );
@@ -119,13 +117,11 @@ class IndexTest extends PmaTestCase
 
     /**
      * Test for add Columns
-     *
-     * @return void
      */
-    public function testAddColumns()
+    public function testAddColumns(): void
     {
         $index = new Index();
-        $index->addColumns($this->_params['columns']);
+        $index->addColumns($this->params['columns']);
         $this->assertTrue($index->hasColumn('column1'));
         $this->assertTrue($index->hasColumn('column2'));
         $this->assertTrue($index->hasColumn('column3'));
@@ -137,10 +133,8 @@ class IndexTest extends PmaTestCase
 
     /**
      * Test for get Name & set Name
-     *
-     * @return void
      */
-    public function testName()
+    public function testName(): void
     {
         $index = new Index();
         $index->setName('PMA_name');
@@ -152,13 +146,11 @@ class IndexTest extends PmaTestCase
 
     /**
      * Test for PhpMyAdmin\Index Column
-     *
-     * @return void
      */
-    public function testColumns()
+    public function testColumns(): void
     {
         $index = new Index();
-        $index->addColumns($this->_params['columns']);
+        $index->addColumns($this->params['columns']);
 
         $index_columns = $index->getColumns();
         $index_column = $index_columns['column1'];

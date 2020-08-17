@@ -2,6 +2,7 @@
 /**
  * Functions for displaying user preferences pages
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
@@ -16,6 +17,7 @@ use function explode;
 use function htmlspecialchars;
 use function implode;
 use function in_array;
+use function is_array;
 use function is_bool;
 use function mb_strtoupper;
 use function sprintf;
@@ -127,7 +129,7 @@ class CentralColumns
     public function getColumnsList(string $db, int $from = 0, int $num = 25): array
     {
         $cfgCentralColumns = $this->getParams();
-        if (empty($cfgCentralColumns)) {
+        if (! is_array($cfgCentralColumns)) {
             return [];
         }
         $pmadb = $cfgCentralColumns['db'];
@@ -149,6 +151,7 @@ class CentralColumns
             DatabaseInterface::CONNECT_CONTROL
         );
         $this->handleColumnExtra($has_list);
+
         return $has_list;
     }
 
@@ -162,7 +165,7 @@ class CentralColumns
     public function getCount(string $db): int
     {
         $cfgCentralColumns = $this->getParams();
-        if (empty($cfgCentralColumns)) {
+        if (! is_array($cfgCentralColumns)) {
             return 0;
         }
         $pmadb = $cfgCentralColumns['db'];
@@ -200,7 +203,7 @@ class CentralColumns
         bool $allFields = false
     ): array {
         $cfgCentralColumns = $this->getParams();
-        if (empty($cfgCentralColumns)) {
+        if (! is_array($cfgCentralColumns)) {
             return [];
         }
         $pmadb = $cfgCentralColumns['db'];
@@ -276,9 +279,10 @@ class CentralColumns
             $attribute = $def['Attribute'];
         }
         $collation = $def['Collation'] ?? '';
-        $isNull = $def['Null'] == 'NO' ? '0' : '1';
+        $isNull = $def['Null'] === 'NO' ? '0' : '1';
         $extra = $def['Extra'] ?? '';
         $default = $def['Default'] ?? '';
+
         return 'INSERT INTO '
             . Util::backquote($central_list_table) . ' '
             . 'VALUES ( \'' . $this->dbi->escapeString($db) . '\' ,'
@@ -310,7 +314,7 @@ class CentralColumns
         ?string $table = null
     ) {
         $cfgCentralColumns = $this->getParams();
-        if (empty($cfgCentralColumns)) {
+        if (! is_array($cfgCentralColumns)) {
             return $this->configErrorMessage();
         }
         $db = $_POST['db'];
@@ -410,6 +414,7 @@ class CentralColumns
                 }
             }
         }
+
         return $message;
     }
 
@@ -431,7 +436,7 @@ class CentralColumns
         bool $isTable = true
     ) {
         $cfgCentralColumns = $this->getParams();
-        if (empty($cfgCentralColumns)) {
+        if (! is_array($cfgCentralColumns)) {
             return $this->configErrorMessage();
         }
         $pmadb = $cfgCentralColumns['db'];
@@ -455,9 +460,11 @@ class CentralColumns
             $has_list = $this->findExistingColNames($database, $cols);
             foreach ($field_select as $table) {
                 foreach ($fields[$table] as $column) {
-                    if (! in_array($column, $has_list)) {
-                        $colNotExist[] = "'" . $column . "'";
+                    if (in_array($column, $has_list)) {
+                        continue;
                     }
+
+                    $colNotExist[] = "'" . $column . "'";
                 }
             }
         } else {
@@ -468,9 +475,11 @@ class CentralColumns
             $cols = trim($cols, ',');
             $has_list = $this->findExistingColNames($database, $cols);
             foreach ($field_select as $column) {
-                if (! in_array($column, $has_list)) {
-                    $colNotExist[] = "'" . $column . "'";
+                if (in_array($column, $has_list)) {
+                    continue;
                 }
+
+                $colNotExist[] = "'" . $column . "'";
             }
         }
         if (! empty($colNotExist)) {
@@ -499,6 +508,7 @@ class CentralColumns
                 )
             );
         }
+
         return $message;
     }
 
@@ -528,50 +538,55 @@ class CentralColumns
                 );
                 //column definition can only be changed if
                 //it is not referenced by another column
-                if ($column_status['isEditable']) {
-                    $query .= ' MODIFY ' . Util::backquote($column['col_name']) . ' '
-                        . $this->dbi->escapeString($column['col_type']);
-                    if ($column['col_length']) {
-                        $query .= '(' . $column['col_length'] . ')';
-                    }
-
-                    $query .= ' ' . $column['col_attribute'];
-                    if ($column['col_isNull']) {
-                        $query .= ' NULL';
-                    } else {
-                        $query .= ' NOT NULL';
-                    }
-
-                    $query .= ' ' . $column['col_extra'];
-                    if ($column['col_default']) {
-                        if ($column['col_default'] != 'CURRENT_TIMESTAMP'
-                            && $column['col_default'] != 'current_timestamp()') {
-                            $query .= ' DEFAULT \'' . $this->dbi->escapeString(
-                                (string) $column['col_default']
-                            ) . '\'';
-                        } else {
-                            $query .= ' DEFAULT ' . $this->dbi->escapeString(
-                                $column['col_default']
-                            );
-                        }
-                    }
-                    $query .= ',';
+                if (! $column_status['isEditable']) {
+                    continue;
                 }
+
+                $query .= ' MODIFY ' . Util::backquote($column['col_name']) . ' '
+                    . $this->dbi->escapeString($column['col_type']);
+                if ($column['col_length']) {
+                    $query .= '(' . $column['col_length'] . ')';
+                }
+
+                $query .= ' ' . $column['col_attribute'];
+                if ($column['col_isNull']) {
+                    $query .= ' NULL';
+                } else {
+                    $query .= ' NOT NULL';
+                }
+
+                $query .= ' ' . $column['col_extra'];
+                if ($column['col_default']) {
+                    if ($column['col_default'] !== 'CURRENT_TIMESTAMP'
+                        && $column['col_default'] !== 'current_timestamp()') {
+                        $query .= ' DEFAULT \'' . $this->dbi->escapeString(
+                            (string) $column['col_default']
+                        ) . '\'';
+                    } else {
+                        $query .= ' DEFAULT ' . $this->dbi->escapeString(
+                            $column['col_default']
+                        );
+                    }
+                }
+                $query .= ',';
             }
             $query = trim($query, ' ,') . ';';
-            if (! $this->dbi->tryQuery($query)) {
-                if ($message === true) {
-                    $message = Message::error(
-                        $this->dbi->getError()
-                    );
-                } else {
-                    $message->addText(
-                        $this->dbi->getError(),
-                        '<br>'
-                    );
-                }
+            if ($this->dbi->tryQuery($query)) {
+                continue;
+            }
+
+            if ($message === true) {
+                $message = Message::error(
+                    $this->dbi->getError()
+                );
+            } else {
+                $message->addText(
+                    $this->dbi->getError(),
+                    '<br>'
+                );
             }
         }
+
         return $message;
     }
 
@@ -642,7 +657,7 @@ class CentralColumns
         string $col_default
     ) {
         $cfgCentralColumns = $this->getParams();
-        if (empty($cfgCentralColumns)) {
+        if (! is_array($cfgCentralColumns)) {
             return $this->configErrorMessage();
         }
         $centralTable = $cfgCentralColumns['table'];
@@ -678,6 +693,7 @@ class CentralColumns
                 $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL)
             );
         }
+
         return true;
     }
 
@@ -720,6 +736,7 @@ class CentralColumns
                 return $message;
             }
         }
+
         return true;
     }
 
@@ -733,9 +750,7 @@ class CentralColumns
      */
     private function getEditTableHeader(array $headers): string
     {
-        return $this->template->render('database/central_columns/edit_table_header', [
-            'headers' => $headers,
-        ]);
+        return $this->template->render('database/central_columns/edit_table_header', ['headers' => $headers]);
     }
 
     /**
@@ -760,9 +775,7 @@ class CentralColumns
                 'column_meta' => [
                     'Field' => $row['col_name'],
                 ],
-                'cfg_relation' => [
-                    'centralcolumnswork' => false,
-                ],
+                'cfg_relation' => ['centralcolumnswork' => false],
                 'max_rows' => $this->maxRows,
             ])
             . '</td>';
@@ -789,11 +802,11 @@ class CentralColumns
         $meta = [];
         if (! isset($row['col_default']) || $row['col_default'] == '') {
             $meta['DefaultType'] = 'NONE';
-        } elseif ($row['col_default'] == 'CURRENT_TIMESTAMP'
-            || $row['col_default'] == 'current_timestamp()'
+        } elseif ($row['col_default'] === 'CURRENT_TIMESTAMP'
+            || $row['col_default'] === 'current_timestamp()'
         ) {
             $meta['DefaultType'] = 'CURRENT_TIMESTAMP';
-        } elseif ($row['col_default'] == 'NULL') {
+        } elseif ($row['col_default'] === 'NULL') {
             $meta['DefaultType'] = $row['col_default'];
         } else {
             $meta['DefaultType'] = 'USER_DEFINED';
@@ -868,6 +881,7 @@ class CentralColumns
             ])
             . '</td>';
         $tableHtml .= '</tr>';
+
         return $tableHtml;
     }
 
@@ -884,7 +898,7 @@ class CentralColumns
     public function getListRaw(string $db, string $table): array
     {
         $cfgCentralColumns = $this->getParams();
-        if (empty($cfgCentralColumns)) {
+        if (! is_array($cfgCentralColumns)) {
             return [];
         }
         $centralTable = $cfgCentralColumns['table'];
@@ -917,6 +931,7 @@ class CentralColumns
             DatabaseInterface::CONNECT_CONTROL
         );
         $this->handleColumnExtra($columns_list);
+
         return $columns_list;
     }
 
@@ -933,20 +948,19 @@ class CentralColumns
             'text_dir' => $text_dir,
             'form_name' => 'tableslistcontainer',
         ]);
-        $html_output .= Generator::getButtonOrImage(
-            'edit_central_columns',
-            'mult_submit change_central_columns',
-            __('Edit'),
-            'b_edit',
-            'edit central columns'
-        );
-        $html_output .= Generator::getButtonOrImage(
-            'delete_central_columns',
-            'mult_submit',
-            __('Delete'),
-            'b_drop',
-            'remove_from_central_columns'
-        );
+
+        $html_output .= '<button class="btn btn-link mult_submit change_central_columns" type="submit"'
+            . ' name="edit_central_columns" value="edit central columns"'
+            . ' title="' . __('Edit') . '">' . "\n"
+            . Generator::getIcon('b_edit', __('Edit'))
+            . '</button>' . "\n";
+
+        $html_output .= '<button class="btn btn-link mult_submit" type="submit"'
+            . ' name="delete_central_columns" value="remove_from_central_columns"'
+            . ' title="' . __('Delete') . '">' . "\n"
+            . Generator::getIcon('b_drop', __('Delete'))
+            . '</button>' . "\n";
+
         return $html_output;
     }
 
@@ -1036,6 +1050,7 @@ class CentralColumns
         $html .= '</table>';
         $html .= $this->getEditTableFooter();
         $html .= '</form>';
+
         return $html;
     }
 
@@ -1053,7 +1068,7 @@ class CentralColumns
     public function getColumnsCount(string $db, int $from = 0, int $num = 25): int
     {
         $cfgCentralColumns = $this->getParams();
-        if (empty($cfgCentralColumns)) {
+        if (! is_array($cfgCentralColumns)) {
             return 0;
         }
         $pmadb = $cfgCentralColumns['db'];
@@ -1096,12 +1111,15 @@ class CentralColumns
         );
         $selectColHtml = '';
         foreach ($columns as $column) {
-            if (! in_array($column, $existing_cols)) {
-                $selectColHtml .= '<option value="' . htmlspecialchars($column) . '">'
-                    . htmlspecialchars($column)
-                    . '</option>';
+            if (in_array($column, $existing_cols)) {
+                continue;
             }
+
+            $selectColHtml .= '<option value="' . htmlspecialchars($column) . '">'
+                . htmlspecialchars($column)
+                . '</option>';
         }
+
         return $selectColHtml;
     }
 
@@ -1128,7 +1146,7 @@ class CentralColumns
         $attribute_types = $this->dbi->types->getAttributes();
 
         $tn_pageNow = ($pos / $this->maxRows) + 1;
-        $tn_nbTotalPage = ceil($total_rows / $this->maxRows);
+        $tn_nbTotalPage = (int) ceil($total_rows / $this->maxRows);
         $tn_page_selector = $tn_nbTotalPage > 1 ? Util::pageselector(
             'pos',
             $this->maxRows,
@@ -1147,11 +1165,11 @@ class CentralColumns
             if (! isset($row['col_default']) || $row['col_default'] == '') {
                 $rows_meta[$row_num]['DefaultType'] = 'NONE';
             } else {
-                if ($row['col_default'] == 'CURRENT_TIMESTAMP'
-                    || $row['col_default'] == 'current_timestamp()'
+                if ($row['col_default'] === 'CURRENT_TIMESTAMP'
+                    || $row['col_default'] === 'current_timestamp()'
                 ) {
                     $rows_meta[$row_num]['DefaultType'] = 'CURRENT_TIMESTAMP';
-                } elseif ($row['col_default'] == 'NULL') {
+                } elseif ($row['col_default'] === 'NULL') {
                     $rows_meta[$row_num]['DefaultType'] = $row['col_default'];
                 } else {
                     $rows_meta[$row_num]['DefaultType'] = 'USER_DEFINED';

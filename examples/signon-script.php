@@ -6,7 +6,10 @@
  * phpMyAdmin, it is not intended to be perfect code and look, only
  * shows how you can integrate this functionality in your application.
  */
+
 declare(strict_types=1);
+
+// phpcs:disable Squiz.Functions.GlobalFunction
 
 /**
  * This function returns username and password.

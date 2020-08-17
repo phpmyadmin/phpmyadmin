@@ -2,19 +2,18 @@
 /**
  * Holds VariablesControllerTest class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\VariablesController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
-use PHPUnit\Framework\TestCase;
-use ReflectionClass;
 use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
 use Williamdes\MariaDBMySQLKBS\SlimData as KBSlimData;
 use function htmlspecialchars;
@@ -23,13 +22,17 @@ use function str_replace;
 /**
  * Tests for VariablesController class
  */
-class VariablesControllerTest extends TestCase
+class VariablesControllerTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setUp();
+        parent::defineVersionConstants();
+        parent::setGlobalConfig();
+        parent::setLanguage();
         $GLOBALS['PMA_Config']->enableBc();
 
+        $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
@@ -136,10 +139,6 @@ class VariablesControllerTest extends TestCase
      */
     public function testFormatVariable(): void
     {
-        $class = new ReflectionClass(VariablesController::class);
-        $method = $class->getMethod('formatVariable');
-        $method->setAccessible(true);
-
         $controller = new VariablesController(
             Response::getInstance(),
             $GLOBALS['dbi'],
@@ -159,35 +158,50 @@ class VariablesControllerTest extends TestCase
             $nameForValueByte,
             '3',
         ];
-        [$formattedValue, $isHtmlFormatted] = $method->invokeArgs($controller, $args);
+        [$formattedValue, $isHtmlFormatted] = $this->callFunction(
+            $controller,
+            VariablesController::class,
+            'formatVariable',
+            $args
+        );
         $this->assertEquals(
             '<abbr title="3">3 B</abbr>',
             $formattedValue
         );
-        $this->assertEquals(true, $isHtmlFormatted);
+        $this->assertTrue($isHtmlFormatted);
 
         //name is_numeric and the value type is not byte
         $args = [
             $nameForValueNotByte,
             '3',
         ];
-        [$formattedValue, $isHtmlFormatted] = $method->invokeArgs($controller, $args);
+        [$formattedValue, $isHtmlFormatted] = $this->callFunction(
+            $controller,
+            VariablesController::class,
+            'formatVariable',
+            $args
+        );
         $this->assertEquals(
             '3',
             $formattedValue
         );
-        $this->assertEquals(false, $isHtmlFormatted);
+        $this->assertFalse($isHtmlFormatted);
 
         //value is not a number
         $args = [
             $nameForValueNotByte,
             'value',
         ];
-        [$formattedValue, $isHtmlFormatted] = $method->invokeArgs($controller, $args);
+        [$formattedValue, $isHtmlFormatted] = $this->callFunction(
+            $controller,
+            VariablesController::class,
+            'formatVariable',
+            $args
+        );
         $this->assertEquals(
             'value',
             $formattedValue
         );
-        $this->assertEquals(false, $isHtmlFormatted);
+        $this->assertFalse($isHtmlFormatted);
     }
 }

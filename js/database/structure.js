@@ -78,10 +78,10 @@ DatabaseStructure.adjustTotals = function () {
         // Extract the size and overhead
         var valSize         = 0;
         var valOverhead     = 0;
-        var strSize         = $.trim($this.find('.tbl_size span:not(.unit)').text());
-        var strSizeUnit     = $.trim($this.find('.tbl_size span.unit').text());
-        var strOverhead     = $.trim($this.find('.tbl_overhead span:not(.unit)').text());
-        var strOverheadUnit = $.trim($this.find('.tbl_overhead span.unit').text());
+        var strSize         = $this.find('.tbl_size span:not(.unit)').text().trim();
+        var strSizeUnit     = $this.find('.tbl_size span.unit').text().trim();
+        var strOverhead     = $this.find('.tbl_overhead span:not(.unit)').text().trim();
+        var strOverheadUnit = $this.find('.tbl_overhead span.unit').text().trim();
         // Given a value and a unit, such as 100 and KiB, for the table size
         // and overhead calculate their numeric values in bytes, such as 102400
         for (i = 0; i < byteUnits.length; i++) {
@@ -216,16 +216,37 @@ AJAX.registerOnload('database/structure.js', function () {
  *  Event handler on select of "Make consistent with central list"
  */
     $('select[name=submit_mult]').on('change', function (event) {
-        if ($(this).val() === 'make_consistent_with_central_list') {
+        var url = 'index.php?route=/database/structure';
+        var action = $(this).val();
+
+        if (action === 'make_consistent_with_central_list') {
             event.preventDefault();
             event.stopPropagation();
             jqConfirm(
-                Messages.makeConsistentMessage, function () {
-                    $('#tablesForm').trigger('submit');
+                Messages.makeConsistentMessage,
+                function () {
+                    var $form = $('#tablesForm');
+                    var argsep = CommonParams.get('arg_separator');
+                    var data = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
+
+                    Functions.ajaxShowMessage();
+                    AJAX.source = $form;
+
+                    $.post(
+                        'index.php?route=/database/structure/central-columns-make-consistent',
+                        data,
+                        AJAX.responseHandler
+                    );
                 }
             );
             return false;
-        } else if ($(this).val() === 'copy_tbl' || $(this).val() === 'add_prefix_tbl' || $(this).val() === 'replace_prefix_tbl' || $(this).val() === 'copy_tbl_change_prefix') {
+        }
+
+        if (action === 'copy_tbl' ||
+            action === 'add_prefix_tbl' ||
+            action === 'replace_prefix_tbl' ||
+            action === 'copy_tbl_change_prefix'
+        ) {
             event.preventDefault();
             event.stopPropagation();
             if ($('input[name="selected_tbl[]"]:checked').length === 0) {
@@ -233,18 +254,22 @@ AJAX.registerOnload('database/structure.js', function () {
             }
             var formData = $('#tablesForm').serialize();
             var modalTitle = '';
-            if ($(this).val() === 'copy_tbl') {
+            if (action === 'copy_tbl') {
+                url = 'index.php?route=/database/structure/copy-form';
                 modalTitle = Messages.strCopyTablesTo;
-            } else if ($(this).val() === 'add_prefix_tbl') {
+            } else if (action === 'add_prefix_tbl') {
+                url = 'index.php?route=/database/structure/add-prefix';
                 modalTitle = Messages.strAddPrefix;
-            } else if ($(this).val() === 'replace_prefix_tbl') {
+            } else if (action === 'replace_prefix_tbl') {
+                url = 'index.php?route=/database/structure/change-prefix-form';
                 modalTitle = Messages.strReplacePrefix;
-            } else if ($(this).val() === 'copy_tbl_change_prefix') {
+            } else if (action === 'copy_tbl_change_prefix') {
+                url = 'index.php?route=/database/structure/change-prefix-form';
                 modalTitle = Messages.strCopyPrefix;
             }
             $.ajax({
                 type: 'POST',
-                url: 'index.php?route=/database/structure',
+                url: url,
                 dataType: 'html',
                 data: formData
 
@@ -268,9 +293,46 @@ AJAX.registerOnload('database/structure.js', function () {
                     buttons: buttonOptions
                 });
             });
+
+            return;
+        }
+
+        if (action === 'analyze_tbl') {
+            url = 'index.php?route=/database/structure/analyze-table';
+        } else if (action === 'sync_unique_columns_central_list') {
+            url = 'index.php?route=/database/structure/central-columns-add';
+        } else if (action === 'delete_unique_columns_central_list') {
+            url = 'index.php?route=/database/structure/central-columns-remove';
+        } else if (action === 'check_tbl') {
+            url = 'index.php?route=/database/structure/check-table';
+        } else if (action === 'checksum_tbl') {
+            url = 'index.php?route=/database/structure/checksum-table';
+        } else if (action === 'drop_tbl') {
+            url = 'index.php?route=/database/structure/drop-form';
+        } else if (action === 'empty_tbl') {
+            url = 'index.php?route=/database/structure/empty-form';
+        } else if (action === 'export') {
+            url = 'index.php?route=/database/structure/export';
+        } else if (action === 'optimize_tbl') {
+            url = 'index.php?route=/database/structure/optimize-table';
+        } else if (action === 'repair_tbl') {
+            url = 'index.php?route=/database/structure/repair-table';
+        } else if (action === 'show_create') {
+            url = 'index.php?route=/database/structure/show-create';
         } else {
             $('#tablesForm').trigger('submit');
+
+            return;
         }
+
+        var $form = $(this).parents('form');
+        var argsep = CommonParams.get('arg_separator');
+        var data = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
+
+        Functions.ajaxShowMessage();
+        AJAX.source = $form;
+
+        $.post(url, data, AJAX.responseHandler);
     });
 
     /**

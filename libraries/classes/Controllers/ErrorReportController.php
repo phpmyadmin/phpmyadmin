@@ -2,6 +2,7 @@
 /**
  * Handle error report submission
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
@@ -63,7 +64,7 @@ class ErrorReportController extends AbstractController
             && ($_POST['send_error_report'] == true
                 || $_POST['send_error_report'] == '1')
         ) {
-            if ($_POST['exception_type'] == 'php') {
+            if ($_POST['exception_type'] === 'php') {
                 /**
                  * Prevent infinite error submission.
                  * Happens in case error submissions fails.
@@ -79,11 +80,9 @@ class ErrorReportController extends AbstractController
                     $this->response->addJSON('stopErrorReportLoop', '1');
                 } else {
                     $_SESSION['prev_error_subm_time'] = time();
-                    $_SESSION['error_subm_count'] = (
-                    isset($_SESSION['error_subm_count'])
+                    $_SESSION['error_subm_count'] = isset($_SESSION['error_subm_count'])
                         ? $_SESSION['error_subm_count'] + 1
-                        : 0
-                    );
+                        : 0;
                 }
             }
             $reportData = $this->errorReport->getData($_POST['exception_type']);
@@ -102,7 +101,7 @@ class ErrorReportController extends AbstractController
                 if ($success) {
                     if ((isset($_POST['automatic'])
                             && $_POST['automatic'] === 'true')
-                        || $cfg['SendErrorReports'] == 'always'
+                        || $cfg['SendErrorReports'] === 'always'
                     ) {
                         $msg = __(
                             'An error has been detected and an error report has been '
@@ -113,14 +112,14 @@ class ErrorReportController extends AbstractController
                     }
                 } else {
                     $msg = __(
-                            'An error has been detected and an error report has been '
-                            . 'generated but failed to be sent.'
-                        )
-                        . ' '
-                        . __(
-                            'If you experience any '
-                            . 'problems please submit a bug report manually.'
-                        );
+                        'An error has been detected and an error report has been '
+                        . 'generated but failed to be sent.'
+                    );
+                    $msg .= ' ';
+                    $msg .= __(
+                        'If you experience any '
+                        . 'problems please submit a bug report manually.'
+                    );
                 }
                 $msg .= ' ' . __('You may want to refresh the page.');
 
@@ -133,19 +132,19 @@ class ErrorReportController extends AbstractController
 
                 /* Add message to response */
                 if ($this->response->isAjax()) {
-                    if ($_POST['exception_type'] == 'js') {
+                    if ($_POST['exception_type'] === 'js') {
                         $this->response->addJSON('message', $msg);
                     } else {
                         $this->response->addJSON('errSubmitMsg', $msg);
                     }
-                } elseif ($_POST['exception_type'] == 'php') {
+                } elseif ($_POST['exception_type'] === 'php') {
                     $jsCode = 'Functions.ajaxShowMessage(\'<div class="alert alert-danger" role="alert">'
                         . $msg
                         . '</div>\', false);';
                     $this->response->getFooter()->getScripts()->addCode($jsCode);
                 }
 
-                if ($_POST['exception_type'] == 'php') {
+                if ($_POST['exception_type'] === 'php') {
                     // clear previous errors & save new ones.
                     $this->errorHandler->savePreviousErrors();
                 }
@@ -160,7 +159,7 @@ class ErrorReportController extends AbstractController
             }
         } elseif (! empty($_POST['get_settings'])) {
             $this->response->addJSON('report_setting', $cfg['SendErrorReports']);
-        } elseif ($_POST['exception_type'] == 'js') {
+        } elseif ($_POST['exception_type'] === 'js') {
             $this->response->addHTML($this->errorReport->getForm());
         } else {
             // clear previous errors & save new ones.

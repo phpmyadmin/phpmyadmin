@@ -2,6 +2,7 @@
 /**
  * Superclass for the Property Group classes.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Properties\Options;
@@ -24,7 +25,7 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Count
      *
      * @var array
      */
-    private $_properties;
+    private $properties;
 
     /**
      * Adds a property to the group of properties
@@ -41,7 +42,7 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Count
         ) {
             return;
         }
-        $this->_properties[] = $property;
+        $this->properties[] = $property;
     }
 
     /**
@@ -54,7 +55,7 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Count
      */
     public function removeProperty($property)
     {
-        $this->_properties = array_diff(
+        $this->properties = array_diff(
             $this->getProperties(),
             [$property]
         );
@@ -79,7 +80,7 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Count
      */
     public function getProperties()
     {
-        return $this->_properties;
+        return $this->properties;
     }
 
     /**
@@ -89,10 +90,11 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Count
      */
     public function getNrOfProperties()
     {
-        if ($this->_properties === null) {
+        if ($this->properties === null) {
             return 0;
         }
-        return count($this->_properties);
+
+        return count($this->properties);
     }
 
     /**

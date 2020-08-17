@@ -2,6 +2,7 @@
 /**
  * Abstract class for the export plugins
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins;
@@ -289,9 +290,11 @@ abstract class ExportPlugin
         if (! empty($aliases[$db]['tables'][$table]['alias'])) {
             $table = $aliases[$db]['tables'][$table]['alias'];
         }
-        if (! empty($aliases[$db]['alias'])) {
-            $db = $aliases[$db]['alias'];
+        if (empty($aliases[$db]['alias'])) {
+            return;
         }
+
+        $db = $aliases[$db]['alias'];
     }
 
     /**

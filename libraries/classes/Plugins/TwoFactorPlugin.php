@@ -2,6 +2,7 @@
 /**
  * Two authentication factor handling
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins;
@@ -10,8 +11,10 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
+use function is_array;
 use function parse_url;
 use function sprintf;
+use function strlen;
 
 /**
  * Two factor authentication plugin class
@@ -27,17 +30,19 @@ class TwoFactorPlugin
 
     /**
      * Whether to show submit button in form
+     *
+     * @var bool
      */
     public static $showSubmit = true;
 
     /** @var TwoFactor */
-    protected $_twofactor;
+    protected $twofactor;
 
     /** @var bool */
-    protected $_provided;
+    protected $provided;
 
     /** @var string */
-    protected $_message;
+    protected $message;
 
     /** @var Template */
     public $template;
@@ -49,9 +54,9 @@ class TwoFactorPlugin
      */
     public function __construct(TwoFactor $twofactor)
     {
-        $this->_twofactor = $twofactor;
-        $this->_provided = false;
-        $this->_message = '';
+        $this->twofactor = $twofactor;
+        $this->provided = false;
+        $this->message = '';
         $this->template = new Template();
     }
 
@@ -62,16 +67,18 @@ class TwoFactorPlugin
      */
     public function getError()
     {
-        if ($this->_provided) {
-            if (! empty($this->_message)) {
+        if ($this->provided) {
+            if (! empty($this->message)) {
                 return Message::rawError(
-                    sprintf(__('Two-factor authentication failed: %s'), $this->_message)
+                    sprintf(__('Two-factor authentication failed: %s'), $this->message)
                 )->getDisplay();
             }
+
             return Message::rawError(
                 __('Two-factor authentication failed.')
             )->getDisplay();
         }
+
         return '';
     }
 
@@ -151,18 +158,27 @@ class TwoFactorPlugin
         $url = $PMA_Config->get('PmaAbsoluteUri');
         $parsed = [];
         if (! empty($url)) {
-            $parsed = parse_url($url);
+            $parsedUrl = parse_url($url);
+
+            if (is_array($parsedUrl)) {
+                $parsed = $parsedUrl;
+            }
         }
-        if (empty($parsed['scheme'])) {
+        if (! isset($parsed['scheme']) || strlen($parsed['scheme']) === 0) {
             $parsed['scheme'] = $PMA_Config->isHttps() ? 'https' : 'http';
         }
-        if (empty($parsed['host'])) {
+        if (! isset($parsed['host']) || strlen($parsed['host']) === 0) {
             $parsed['host'] = Core::getenv('HTTP_HOST');
         }
         if ($return_url) {
-            return $parsed['scheme'] . '://' . $parsed['host'] . (! empty($parsed['port']) ? ':' . $parsed['port'] : '');
-        } else {
-            return $parsed['host'];
+            $port = '';
+            if (isset($parsed['port'])) {
+                $port = ':' . $parsed['port'];
+            }
+
+            return sprintf('%s://%s%s', $parsed['scheme'], $parsed['host'], $port);
         }
+
+        return $parsed['host'];
     }
 }

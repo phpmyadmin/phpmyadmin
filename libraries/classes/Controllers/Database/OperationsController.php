@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
@@ -7,12 +8,12 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Display\CreateTable;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\Export\ExportSql;
+use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Response;
@@ -76,9 +77,7 @@ class OperationsController extends AbstractController
 
         $this->checkUserPrivileges->getPrivileges();
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('database/operations.js');
+        $this->addScriptFiles(['database/operations.js']);
 
         $sql_query = '';
 
@@ -223,7 +222,7 @@ class OperationsController extends AbstractController
                         $db = $_POST['newname'];
                     } elseif (! $_error) {
                         if (isset($_POST['switch_to_new'])
-                            && $_POST['switch_to_new'] == 'true'
+                            && $_POST['switch_to_new'] === 'true'
                         ) {
                             $_SESSION['pma_switch_to_new'] = true;
                             $db = $_POST['newname'];
@@ -244,9 +243,10 @@ class OperationsController extends AbstractController
                 $this->response->addJSON('newname', $_POST['newname']);
                 $this->response->addJSON(
                     'sql_query',
-                    Generator::getMessage(null, $sql_query)
+                    Generator::getMessage('', $sql_query)
                 );
                 $this->response->addJSON('db', $db);
+
                 return;
             }
         }
@@ -291,7 +291,7 @@ class OperationsController extends AbstractController
         }
 
         $db_collation = $this->dbi->getDbCollation($db);
-        $is_information_schema = $this->dbi->isSystemSchema($db);
+        $is_information_schema = Utilities::isSystemSchema($db);
 
         if ($is_information_schema) {
             return;
@@ -322,7 +322,10 @@ class OperationsController extends AbstractController
                     '%sFind out why%s.'
                 )
             );
-            $message->addParamHtml('<a href="' . Url::getFromRoute('/check-relations') . '" data-post="' . $url_query . '">');
+            $message->addParamHtml(
+                '<a href="' . Url::getFromRoute('/check-relations')
+                . '" data-post="' . $url_query . '">'
+            );
             $message->addParamHtml('</a>');
             /* Show error if user has configured something, notice elsewhere */
             if (! empty($cfg['Servers'][$server]['pmadb'])) {
@@ -330,7 +333,7 @@ class OperationsController extends AbstractController
             }
         }
 
-        $this->response->addHTML($this->template->render('database/operations/index', [
+        $this->render('database/operations/index', [
             'message' => $oldMessage,
             'db' => $db,
             'has_comment' => $cfgRelation['commwork'],
@@ -341,6 +344,6 @@ class OperationsController extends AbstractController
             'switch_to_new' => $switchToNew,
             'charsets' => $charsets,
             'collations' => $collations,
-        ]));
+        ]);
     }
 }

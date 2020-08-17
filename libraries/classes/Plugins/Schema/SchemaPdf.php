@@ -2,6 +2,7 @@
 /**
  * PDF schema export code
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema;
@@ -118,6 +119,7 @@ class SchemaPdf extends SchemaPlugin
     {
         $export = new PdfRelationSchema($db);
         $export->showOutput();
+
         return true;
     }
 }

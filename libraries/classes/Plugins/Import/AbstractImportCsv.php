@@ -2,6 +2,7 @@
 /**
  * Super class of CSV import plugins for phpMyAdmin
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;

@@ -2,6 +2,7 @@
 /**
  * hold PhpMyAdmin\Twig\TransformationsExtension class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Twig;
@@ -20,6 +21,7 @@ class TransformationsExtension extends AbstractExtension
     public function getFunctions()
     {
         $transformations = new Transformations();
+
         return [
             new TwigFunction(
                 'get_description',

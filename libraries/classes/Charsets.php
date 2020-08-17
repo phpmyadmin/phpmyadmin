@@ -2,18 +2,19 @@
 /**
  * MySQL charset metadata and manipulations
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Charsets\Collation;
+use const SORT_STRING;
 use function array_keys;
 use function count;
 use function explode;
 use function is_string;
 use function ksort;
-use const SORT_STRING;
 
 /**
  * Class used to manage MySQL charsets
@@ -151,6 +152,7 @@ class Charsets
             $serverCharset = $dbi->fetchValue('SELECT @@character_set_server;');
         }
         self::$serverCharset = self::$charsets[$serverCharset];
+
         return self::$serverCharset;
     }
 
@@ -165,6 +167,7 @@ class Charsets
     public static function getCharsets(DatabaseInterface $dbi, bool $disableIs): array
     {
         self::loadCharsets($dbi, $disableIs);
+
         return self::$charsets;
     }
 
@@ -179,6 +182,7 @@ class Charsets
     public static function getCollations(DatabaseInterface $dbi, bool $disableIs): array
     {
         self::loadCollations($dbi, $disableIs);
+
         return self::$collations;
     }
 
@@ -195,6 +199,7 @@ class Charsets
         }
         $charset = $pieces[0];
         $collations = self::getCollations($dbi, $disableIs);
+
         return $collations[$charset][$name] ?? null;
     }
 }

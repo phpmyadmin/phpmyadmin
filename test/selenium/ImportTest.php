@@ -2,9 +2,12 @@
 /**
  * Selenium TestCase for import related tests
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
+
+use function sleep;
 
 /**
  * ImportTest class
@@ -25,72 +28,82 @@ class ImportTest extends TestBase
     /**
      * Test for server level import
      *
-     * @return void
-     *
      * @group large
      */
-    public function testServerImport()
+    public function testServerImport(): void
     {
-        $this->_doImport('server');
-        $result = $this->dbQuery("SHOW DATABASES LIKE 'test_import%'");
-        $this->assertGreaterThanOrEqual(2, $result->num_rows);
+        $this->doImport('server');
+        $this->dbQuery(
+            'SHOW DATABASES LIKE \'test_import%\'',
+            function (): void {
+                $this->assertEquals('test_import1', $this->getCellByTableClass('table_results', 1, 1));
+                $this->assertEquals('test_import2', $this->getCellByTableClass('table_results', 2, 1));
+            }
+        );
 
         // clear db
-        $this->dbQuery('DROP DATABASE test_import1');
-        $this->dbQuery('DROP DATABASE test_import2');
+        $this->dbQuery(
+            'DROP DATABASE test_import1;'
+            . 'DROP DATABASE test_import2;'
+        );
     }
 
     /**
      * Test for db level import
      *
-     * @return void
-     *
      * @group large
      */
-    public function testDbImport()
+    public function testDbImport(): void
     {
-        $this->dbQuery('CREATE DATABASE ' . $this->database_name);
+        $this->dbQuery('CREATE DATABASE IF NOT EXISTS `' . $this->database_name . '`');
         $this->navigateDatabase($this->database_name);
 
-        $this->_doImport('db');
+        $this->doImport('db');
 
-        $this->dbQuery('USE ' . $this->database_name);
-        $result = $this->dbQuery('SHOW TABLES');
-        $this->assertEquals(1, $result->num_rows);
+        $this->dbQuery(
+            'USE `' . $this->database_name . '`;'
+            . 'SHOW TABLES FROM `' . $this->database_name . '`',
+            function (): void {
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->assertEquals('test_table', $this->getCellByTableClass('table_results', 1, 1));
+            }
+        );
     }
 
     /**
      * Test for table level import
      *
-     * @return void
-     *
      * @group large
      */
-    public function testTableImport()
+    public function testTableImport(): void
     {
         // setup the db
-        $this->dbQuery('CREATE DATABASE ' . $this->database_name);
-        $this->dbQuery('USE ' . $this->database_name);
         $this->dbQuery(
-            'CREATE TABLE IF NOT EXISTS `test_table` (`val` int(11) NOT NULL)'
+            'CREATE DATABASE IF NOT EXISTS `' . $this->database_name . '`;'
+            . 'USE `' . $this->database_name . '`;'
+            . 'CREATE TABLE IF NOT EXISTS `test_table` (`val` int(11) NOT NULL);'
         );
 
         $this->navigateTable('test_table');
 
-        $this->_doImport('table');
+        $this->doImport('table');
 
-        $result = $this->dbQuery('SELECT * FROM test_table');
-        $this->assertEquals(2, $result->num_rows);
+        $this->dbQuery(
+            'SELECT * FROM `' . $this->database_name . '`.test_table',
+            function (): void {
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->assertEquals('8', $this->getCellByTableClass('table_results', 1, 1));
+                $this->assertEquals('9', $this->getCellByTableClass('table_results', 2, 1));
+            }
+        );
     }
 
     /**
      * Function that goes to the import page, uploads a file and submit form
      *
      * @param string $type level: server, db or import
-     *
-     * @return void
      */
-    private function _doImport($type)
+    private function doImport(string $type): void
     {
         $this->waitForElement('partialLinkText', 'Import')->click();
         $this->waitAjax();
@@ -115,6 +128,7 @@ class ImportTest extends TestBase
         $this->waitUntilElementIsVisible('id', 'buttonGo', 30);
 
         $this->byId('buttonGo')->click();
+        sleep(2);
         $this->waitUntilElementIsVisible(
             'xpath',
             "//div[@class='alert alert-success' and contains(., 'Import has been successfully')]",

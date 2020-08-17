@@ -2,6 +2,7 @@
 /**
  * Holds the PhpMyAdmin\Controllers\AbstractController
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
@@ -34,5 +35,22 @@ abstract class AbstractController
         $this->response = $response;
         $this->dbi = $dbi;
         $this->template = $template;
+    }
+
+    /**
+     * @param string $template Template path name.
+     * @param array  $data     Associative array of template variables.
+     */
+    protected function render(string $template, array $data = []): void
+    {
+        $this->response->addHTML($this->template->render($template, $data));
+    }
+
+    /** @param string[] $files */
+    protected function addScriptFiles(array $files): void
+    {
+        $header = $this->response->getHeader();
+        $scripts = $header->getScripts();
+        $scripts->addFiles($files);
     }
 }

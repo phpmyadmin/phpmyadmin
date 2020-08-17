@@ -3,6 +3,7 @@
 /**
  * Holds the PhpMyAdmin\Controllers\Server\PluginsController
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
@@ -42,10 +43,7 @@ class PluginsController extends AbstractController
     {
         Common::server();
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
-        $scripts->addFile('server/plugins.js');
+        $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'server/plugins.js']);
 
         $plugins = [];
         $serverPlugins = $this->plugins->getAll();
@@ -63,9 +61,9 @@ class PluginsController extends AbstractController
             );
         }
 
-        $this->response->addHTML($this->template->render('server/plugins/index', [
+        $this->render('server/plugins/index', [
             'plugins' => $plugins,
             'clean_types' => $cleanTypes,
-        ]));
+        ]);
     }
 }

@@ -6,6 +6,7 @@
  * For changing this file you should know what you are doing. For this reason
  * options here are not part of normal configuration.
  */
+
 declare(strict_types=1);
 
 // phpcs:disable PSR1.Files.SideEffects
@@ -73,12 +74,6 @@ define('VERSION_CHECK_DEFAULT', true);
  * Path to files with compiled locales (*.mo)
  */
 define('LOCALE_PATH', ROOT_PATH . 'locale/');
-
-/**
- * Avoid referring to nonexistent files (causes warnings when open_basedir
- * is used)
- */
-define('K_PATH_IMAGES', ROOT_PATH);
 
 /**
  * Define the cache directory for routing cache an other cache files

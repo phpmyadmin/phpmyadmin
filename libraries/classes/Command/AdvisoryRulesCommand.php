@@ -2,6 +2,7 @@
 /**
  * Translates advisory rules to Gettext format
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Command;
@@ -76,6 +77,7 @@ class AdvisoryRulesCommand extends Command
             $output->writeln('"');
             $output->writeln('msgstr ""');
         }
+
         return 0;
     }
 
@@ -87,7 +89,7 @@ class AdvisoryRulesCommand extends Command
      */
     private function addMessage(string $file, array $rules, int $index, string $type): void
     {
-        if ($type == 'justification') {
+        if ($type === 'justification') {
             $messages = Advisor::splitJustification($rules['rules'][$index]);
             $message = $messages[0];
         } else {

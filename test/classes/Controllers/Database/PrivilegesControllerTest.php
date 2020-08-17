@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Database;
@@ -7,11 +8,22 @@ use PhpMyAdmin\Controllers\Database\PrivilegesController;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
 
-class PrivilegesControllerTest extends PmaTestCase
+class PrivilegesControllerTest extends AbstractTestCase
 {
+    /**
+     * Configures global environment.
+     */
+    protected function setUp(): void
+    {
+        parent::setUp();
+        parent::defineVersionConstants();
+        parent::loadDefaultConfig();
+        parent::setLanguage();
+    }
+
     public function testIndex(): void
     {
         global $dbi, $db, $server, $cfg, $PMA_PHP_SELF, $is_grantuser, $is_createuser;

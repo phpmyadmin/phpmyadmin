@@ -3,6 +3,7 @@
  * PhpMyAdmin\Server\Status\Data class
  * Used by server_status_*.php pages
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Server\Status;
@@ -24,16 +25,37 @@ use function mb_strtolower;
  */
 class Data
 {
+    /** @var array */
     public $status;
+
+    /** @var array */
     public $sections;
+
+    /** @var array */
     public $variables;
+
+    /** @var array */
     public $used_queries;
+
+    /** @var array */
     public $allocationMap;
+
+    /** @var array */
     public $links;
+
+    /** @var bool */
     public $db_isLocal;
+
+    /** @var mixed */
     public $section;
+
+    /** @var array */
     public $sectionUsed;
+
+    /** @var string */
     public $selfUrl;
+
+    /** @var bool */
     public $dataLoaded;
 
     /**
@@ -54,7 +76,7 @@ class Data
      *
      * @return array
      */
-    private function _getAllocations()
+    private function getAllocations()
     {
         return [
             // variable name => section
@@ -108,7 +130,7 @@ class Data
      *
      * @return array
      */
-    private function _getSections()
+    private function getSections()
     {
         return [
             // section => section name (description)
@@ -139,7 +161,7 @@ class Data
      *
      * @return array
      */
-    private function _getLinks()
+    private function getLinks()
     {
         $links = [];
         // variable or section name => (name => url)
@@ -213,7 +235,7 @@ class Data
      *
      * @return array
      */
-    private function _calculateValues(array $server_status, array $server_variables)
+    private function calculateValues(array $server_status, array $server_variables)
     {
         // Key_buffer_fraction
         if (isset($server_status['Key_blocks_unused'], $server_variables['key_cache_block_size'])
@@ -262,6 +284,7 @@ class Data
                 = 100 - $server_status['Threads_created']
                 / $server_status['Connections'] * 100;
         }
+
         return $server_status;
     }
 
@@ -276,7 +299,7 @@ class Data
      *
      * @return array ($allocationMap, $sectionUsed, $used_queries)
      */
-    private function _sortVariables(
+    private function sortVariables(
         array $server_status,
         array $allocations,
         array $allocationMap,
@@ -286,21 +309,26 @@ class Data
         foreach ($server_status as $name => $value) {
             $section_found = false;
             foreach ($allocations as $filter => $section) {
-                if (mb_strpos($name, $filter) !== false) {
-                    $allocationMap[$name] = $section;
-                    $sectionUsed[$section] = true;
-                    $section_found = true;
-                    if ($section == 'com' && $value > 0) {
-                        $used_queries[$name] = $value;
-                    }
-                    break; // Only exits inner loop
+                if (mb_strpos($name, $filter) === false) {
+                    continue;
                 }
+
+                $allocationMap[$name] = $section;
+                $sectionUsed[$section] = true;
+                $section_found = true;
+                if ($section === 'com' && $value > 0) {
+                    $used_queries[$name] = $value;
+                }
+                break; // Only exits inner loop
             }
-            if (! $section_found) {
-                $allocationMap[$name] = 'other';
-                $sectionUsed['other'] = true;
+            if ($section_found) {
+                continue;
             }
+
+            $allocationMap[$name] = 'other';
+            $sectionUsed['other'] = true;
         }
+
         return [
             $allocationMap,
             $sectionUsed,
@@ -342,18 +370,18 @@ class Data
         $server_status = self::cleanDeprecated($server_status);
 
         // calculate some values
-        $server_status = $this->_calculateValues(
+        $server_status = $this->calculateValues(
             $server_status,
             $server_variables
         );
 
         // split variables in sections
-        $allocations = $this->_getAllocations();
+        $allocations = $this->getAllocations();
 
-        $sections = $this->_getSections();
+        $sections = $this->getSections();
 
         // define some needful links/commands
-        $links = $this->_getLinks();
+        $links = $this->getLinks();
 
         // Variable to contain all com_ variables (query statistics)
         $used_queries = [];
@@ -366,9 +394,11 @@ class Data
         $sectionUsed = [];
 
         // sort vars into arrays
-        list(
-            $allocationMap, $sectionUsed, $used_queries
-        ) = $this->_sortVariables(
+        [
+            $allocationMap,
+            $sectionUsed,
+            $used_queries,
+        ] = $this->sortVariables(
             $server_status,
             $allocations,
             $allocationMap,
@@ -416,10 +446,13 @@ class Data
             'Com_dealloc_sql' => 'Com_stmt_close',
         ];
         foreach ($deprecated as $old => $new) {
-            if (isset($server_status[$old], $server_status[$new])) {
-                unset($server_status[$old]);
+            if (! isset($server_status[$old], $server_status[$new])) {
+                continue;
             }
+
+            unset($server_status[$old]);
         }
+
         return $server_status;
     }
 }

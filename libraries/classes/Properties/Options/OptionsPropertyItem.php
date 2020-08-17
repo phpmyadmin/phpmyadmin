@@ -3,6 +3,7 @@
  * The top-level class of the "Options" subtree of the object-oriented
  * properties system (the other subtree is "Plugin").
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Properties\Options;
@@ -21,19 +22,19 @@ abstract class OptionsPropertyItem extends PropertyItem
      *
      * @var string
      */
-    private $_name;
+    private $name;
     /**
      * Text
      *
      * @var string
      */
-    private $_text;
+    private $text;
     /**
      * What to force
      *
      * @var string
      */
-    private $_force;
+    private $force;
 
     /**
      * @param string $name Item name
@@ -42,11 +43,13 @@ abstract class OptionsPropertyItem extends PropertyItem
     public function __construct($name = null, $text = null)
     {
         if ($name) {
-            $this->_name = $name;
+            $this->name = $name;
         }
-        if ($text) {
-            $this->_text = $text;
+        if (! $text) {
+            return;
         }
+
+        $this->text = $text;
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
@@ -58,7 +61,7 @@ abstract class OptionsPropertyItem extends PropertyItem
      */
     public function getName()
     {
-        return $this->_name;
+        return $this->name;
     }
 
     /**
@@ -70,7 +73,7 @@ abstract class OptionsPropertyItem extends PropertyItem
      */
     public function setName($name)
     {
-        $this->_name = $name;
+        $this->name = $name;
     }
 
     /**
@@ -80,7 +83,7 @@ abstract class OptionsPropertyItem extends PropertyItem
      */
     public function getText()
     {
-        return $this->_text;
+        return $this->text;
     }
 
     /**
@@ -92,7 +95,7 @@ abstract class OptionsPropertyItem extends PropertyItem
      */
     public function setText($text)
     {
-        $this->_text = $text;
+        $this->text = $text;
     }
 
     /**
@@ -102,7 +105,7 @@ abstract class OptionsPropertyItem extends PropertyItem
      */
     public function getForce()
     {
-        return $this->_force;
+        return $this->force;
     }
 
     /**
@@ -114,7 +117,7 @@ abstract class OptionsPropertyItem extends PropertyItem
      */
     public function setForce($force)
     {
-        $this->_force = $force;
+        $this->force = $force;
     }
 
     /**

@@ -2,6 +2,7 @@
 /**
  * Classes to create relation schema in Dia format.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Dia;
@@ -29,13 +30,24 @@ use function in_array;
 class DiaRelationSchema extends ExportRelationSchema
 {
     /** @var TableStatsDia[]|TableStatsEps[]|TableStatsPdf[]|TableStatsSvg[] */
-    private $_tables = [];
+    private $tables = [];
+
     /** @var RelationStatsDia[] Relations */
-    private $_relations = [];
-    private $_topMargin = 2.8222000598907471;
-    private $_bottomMargin = 2.8222000598907471;
-    private $_leftMargin = 2.8222000598907471;
-    private $_rightMargin = 2.8222000598907471;
+    private $relations = [];
+
+    /** @var float */
+    private $topMargin = 2.8222000598907471;
+
+    /** @var float */
+    private $bottomMargin = 2.8222000598907471;
+
+    /** @var float */
+    private $leftMargin = 2.8222000598907471;
+
+    /** @var float */
+    private $rightMargin = 2.8222000598907471;
+
+    /** @var int */
     public static $objectId = 0;
 
     /**
@@ -52,31 +64,33 @@ class DiaRelationSchema extends ExportRelationSchema
 
         $this->setShowColor(isset($_REQUEST['dia_show_color']));
         $this->setShowKeys(isset($_REQUEST['dia_show_keys']));
-        $this->setOrientation($_REQUEST['dia_orientation']);
-        $this->setPaper($_REQUEST['dia_paper']);
+        $this->setOrientation((string) $_REQUEST['dia_orientation']);
+        $this->setPaper((string) $_REQUEST['dia_paper']);
 
         $this->diagram->startDiaDoc(
             $this->paper,
-            $this->_topMargin,
-            $this->_bottomMargin,
-            $this->_leftMargin,
-            $this->_rightMargin,
+            $this->topMargin,
+            $this->bottomMargin,
+            $this->leftMargin,
+            $this->rightMargin,
             $this->orientation
         );
 
         $alltables = $this->getTablesFromRequest();
 
         foreach ($alltables as $table) {
-            if (! isset($this->_tables[$table])) {
-                $this->_tables[$table] = new TableStatsDia(
-                    $this->diagram,
-                    $this->db,
-                    $table,
-                    $this->pageNumber,
-                    $this->showKeys,
-                    $this->offline
-                );
+            if (isset($this->tables[$table])) {
+                continue;
             }
+
+            $this->tables[$table] = new TableStatsDia(
+                $this->diagram,
+                $this->db,
+                $table,
+                $this->pageNumber,
+                $this->showKeys,
+                $this->offline
+            );
         }
 
         $seen_a_relation = false;
@@ -93,9 +107,9 @@ class DiaRelationSchema extends ExportRelationSchema
                  * (do not use array_search() because we would have to
                  * to do a === false and this is not PHP3 compatible)
                  */
-                if ($master_field != 'foreign_keys_data') {
+                if ($master_field !== 'foreign_keys_data') {
                     if (in_array($rel['foreign_table'], $alltables)) {
-                        $this->_addRelation(
+                        $this->addRelation(
                             $one_table,
                             $master_field,
                             $rel['foreign_table'],
@@ -112,7 +126,7 @@ class DiaRelationSchema extends ExportRelationSchema
                     }
 
                     foreach ($one_key['index_list'] as $index => $one_field) {
-                        $this->_addRelation(
+                        $this->addRelation(
                             $one_table,
                             $one_field,
                             $one_key['ref_table_name'],
@@ -123,10 +137,10 @@ class DiaRelationSchema extends ExportRelationSchema
                 }
             }
         }
-        $this->_drawTables();
+        $this->drawTables();
 
         if ($seen_a_relation) {
-            $this->_drawRelations();
+            $this->drawRelations();
         }
         $this->diagram->endDiaDoc();
     }
@@ -158,15 +172,15 @@ class DiaRelationSchema extends ExportRelationSchema
      *
      * @access private
      */
-    private function _addRelation(
+    private function addRelation(
         $masterTable,
         $masterField,
         $foreignTable,
         $foreignField,
         $showKeys
     ) {
-        if (! isset($this->_tables[$masterTable])) {
-            $this->_tables[$masterTable] = new TableStatsDia(
+        if (! isset($this->tables[$masterTable])) {
+            $this->tables[$masterTable] = new TableStatsDia(
                 $this->diagram,
                 $this->db,
                 $masterTable,
@@ -174,8 +188,8 @@ class DiaRelationSchema extends ExportRelationSchema
                 $showKeys
             );
         }
-        if (! isset($this->_tables[$foreignTable])) {
-            $this->_tables[$foreignTable] = new TableStatsDia(
+        if (! isset($this->tables[$foreignTable])) {
+            $this->tables[$foreignTable] = new TableStatsDia(
                 $this->diagram,
                 $this->db,
                 $foreignTable,
@@ -183,11 +197,11 @@ class DiaRelationSchema extends ExportRelationSchema
                 $showKeys
             );
         }
-        $this->_relations[] = new RelationStatsDia(
+        $this->relations[] = new RelationStatsDia(
             $this->diagram,
-            $this->_tables[$masterTable],
+            $this->tables[$masterTable],
             $masterField,
-            $this->_tables[$foreignTable],
+            $this->tables[$foreignTable],
             $foreignField
         );
     }
@@ -205,9 +219,9 @@ class DiaRelationSchema extends ExportRelationSchema
      *
      * @access private
      */
-    private function _drawRelations()
+    private function drawRelations()
     {
-        foreach ($this->_relations as $relation) {
+        foreach ($this->relations as $relation) {
             $relation->relationDraw($this->showColor);
         }
     }
@@ -224,9 +238,9 @@ class DiaRelationSchema extends ExportRelationSchema
      *
      * @access private
      */
-    private function _drawTables()
+    private function drawTables()
     {
-        foreach ($this->_tables as $table) {
+        foreach ($this->tables as $table) {
             $table->tableDraw($this->showColor);
         }
     }

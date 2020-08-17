@@ -2,6 +2,7 @@
 /**
  * Holds the PhpMyAdmin\Controllers\Server\Status\MonitorController
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;
@@ -38,24 +39,24 @@ class MonitorController extends AbstractController
     {
         Common::server();
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
-        $scripts->addFile('vendor/jquery/jquery.sortableTable.js');
-        $scripts->addFile('vendor/jqplot/jquery.jqplot.js');
-        $scripts->addFile('vendor/jqplot/plugins/jqplot.pieRenderer.js');
-        $scripts->addFile('vendor/jqplot/plugins/jqplot.enhancedPieLegendRenderer.js');
-        $scripts->addFile('vendor/jqplot/plugins/jqplot.canvasTextRenderer.js');
-        $scripts->addFile('vendor/jqplot/plugins/jqplot.canvasAxisLabelRenderer.js');
-        $scripts->addFile('vendor/jqplot/plugins/jqplot.dateAxisRenderer.js');
-        $scripts->addFile('vendor/jqplot/plugins/jqplot.highlighter.js');
-        $scripts->addFile('vendor/jqplot/plugins/jqplot.cursor.js');
-        $scripts->addFile('jqplot/plugins/jqplot.byteFormatter.js');
-        $scripts->addFile('server/status/monitor.js');
-        $scripts->addFile('server/status/sorter.js');
+        $this->addScriptFiles([
+            'vendor/jquery/jquery.tablesorter.js',
+            'vendor/jquery/jquery.sortableTable.js',
+            'vendor/jqplot/jquery.jqplot.js',
+            'vendor/jqplot/plugins/jqplot.pieRenderer.js',
+            'vendor/jqplot/plugins/jqplot.enhancedPieLegendRenderer.js',
+            'vendor/jqplot/plugins/jqplot.canvasTextRenderer.js',
+            'vendor/jqplot/plugins/jqplot.canvasAxisLabelRenderer.js',
+            'vendor/jqplot/plugins/jqplot.dateAxisRenderer.js',
+            'vendor/jqplot/plugins/jqplot.highlighter.js',
+            'vendor/jqplot/plugins/jqplot.cursor.js',
+            'jqplot/plugins/jqplot.byteFormatter.js',
+            'server/status/monitor.js',
+            'server/status/sorter.js',
+        ]);
 
         $form = [
-            'server_time' => microtime(true) * 1000,
+            'server_time' => (int) (microtime(true) * 1000),
             'server_os' => SysInfo::getOs(),
             'is_superuser' => $this->dbi->isSuperuser(),
             'server_db_isLocal' => $this->data->db_isLocal,
@@ -63,16 +64,18 @@ class MonitorController extends AbstractController
 
         $javascriptVariableNames = [];
         foreach ($this->data->status as $name => $value) {
-            if (is_numeric($value)) {
-                $javascriptVariableNames[] = $name;
+            if (! is_numeric($value)) {
+                continue;
             }
+
+            $javascriptVariableNames[] = $name;
         }
 
-        $this->response->addHTML($this->template->render('server/status/monitor/index', [
+        $this->render('server/status/monitor/index', [
             'image_path' => $GLOBALS['pmaThemeImage'],
             'javascript_variable_names' => $javascriptVariableNames,
             'form' => $form,
-        ]));
+        ]);
     }
 
     public function chartingData(): void

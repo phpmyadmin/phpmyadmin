@@ -2,6 +2,7 @@
 /**
  * Selenium TestCase for settings related tests
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
@@ -13,6 +14,13 @@ namespace PhpMyAdmin\Tests\Selenium;
  */
 class ServerSettingsTest extends TestBase
 {
+    /**
+     * Create a test database for this test class
+     *
+     * @var bool
+     */
+    protected static $createDatabase = false;
+
     /**
      * setUp function
      */
@@ -32,10 +40,8 @@ class ServerSettingsTest extends TestBase
 
     /**
      * Saves config and asserts correct message.
-     *
-     * @return void
      */
-    private function _saveConfig()
+    private function saveConfig(): void
     {
         // Submit the form
         $ele = $this->waitForElement(
@@ -56,12 +62,11 @@ class ServerSettingsTest extends TestBase
     /**
      * Tests whether hiding a database works or not
      *
-     * @return void
-     *
      * @group large
      */
-    public function testHideDatabase()
+    public function testHideDatabase(): void
     {
+        $this->createDatabase();
         $this->byPartialLinkText('Features')->click();
         $this->waitAjax();
 
@@ -69,15 +74,16 @@ class ServerSettingsTest extends TestBase
 
         $ele = $this->waitForElement('name', 'Servers-1-hide_db');
         $this->moveto($ele);
+        $ele->clear();
         $ele->sendKeys($this->database_name);
 
-        $this->_saveConfig();
+        $this->saveConfig();
         $this->assertFalse(
             $this->isElementPresent('partialLinkText', $this->database_name)
         );
 
         $this->waitForElement('name', 'Servers-1-hide_db')->clear();
-        $this->_saveConfig();
+        $this->saveConfig();
         $this->assertTrue(
             $this->isElementPresent('partialLinkText', $this->database_name)
         );
@@ -86,11 +92,9 @@ class ServerSettingsTest extends TestBase
     /**
      * Tests whether the various settings tabs are displayed when clicked
      *
-     * @return void
-     *
      * @group large
      */
-    public function testSettingsTabsAreDisplayed()
+    public function testSettingsTabsAreDisplayed(): void
     {
         $this->byPartialLinkText('SQL queries')->click();
         $this->waitAjax();
@@ -117,24 +121,22 @@ class ServerSettingsTest extends TestBase
     /**
      * Tests if hiding the logo works or not
      *
-     * @return void
-     *
      * @group large
      */
-    public function testHideLogo()
+    public function testHideLogo(): void
     {
         $this->byPartialLinkText('Navigation panel')->click();
         $this->waitAjax();
 
         $this->waitForElement('name', 'NavigationDisplayLogo')
             ->click();
-        $this->_saveConfig();
+        $this->saveConfig();
         $this->assertFalse(
             $this->isElementPresent('id', 'imgpmalogo')
         );
 
         $this->byCssSelector("a[href='#NavigationDisplayLogo']")->click();
-        $this->_saveConfig();
+        $this->saveConfig();
         $this->assertTrue(
             $this->isElementPresent('id', 'imgpmalogo')
         );

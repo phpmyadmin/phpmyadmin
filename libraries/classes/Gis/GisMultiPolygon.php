@@ -2,6 +2,7 @@
 /**
  * Handles actions related to GIS MULTIPOLYGON objects
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
@@ -19,7 +20,6 @@ use function json_encode;
 use function mb_strlen;
 use function mb_strpos;
 use function mb_substr;
-use function mt_rand;
 use function trim;
 
 /**
@@ -27,8 +27,8 @@ use function trim;
  */
 class GisMultiPolygon extends GisGeometry
 {
-    // Hold the singleton instance of the class
-    private static $_instance;
+    /** @var self */
+    private static $instance;
 
     /**
      * A private constructor; prevents direct creation of object.
@@ -48,11 +48,11 @@ class GisMultiPolygon extends GisGeometry
      */
     public static function singleton()
     {
-        if (! isset(self::$_instance)) {
-            self::$_instance = new GisMultiPolygon();
+        if (! isset(self::$instance)) {
+            self::$instance = new GisMultiPolygon();
         }
 
-        return self::$_instance;
+        return self::$instance;
     }
 
     /**
@@ -295,20 +295,20 @@ class GisMultiPolygon extends GisGeometry
 
             // If the polygon doesn't have an inner polygon
             if (mb_strpos($polygon, '),(') === false) {
-                $row .= $this->_drawPath($polygon, $scale_data);
+                $row .= $this->drawPath($polygon, $scale_data);
             } else {
                 // Separate outer and inner polygons
                 $parts = explode('),(', $polygon);
                 $outer = $parts[0];
                 $inner = array_slice($parts, 1);
 
-                $row .= $this->_drawPath($outer, $scale_data);
+                $row .= $this->drawPath($outer, $scale_data);
 
                 foreach ($inner as $inner_poly) {
-                    $row .= $this->_drawPath($inner_poly, $scale_data);
+                    $row .= $this->drawPath($inner_poly, $scale_data);
                 }
             }
-            $polygon_options['id'] = $label . mt_rand();
+            $polygon_options['id'] = $label . $this->getRandomId();
             $row .= '"';
             foreach ($polygon_options as $option => $val) {
                 $row .= ' ' . $option . '="' . trim((string) $val) . '"';
@@ -358,12 +358,10 @@ class GisMultiPolygon extends GisGeometry
         // Separate each polygon
         $polygons = explode(')),((', $multipolygon);
 
-        $row .= 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
+        return $row . 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
             . 'new OpenLayers.Geometry.MultiPolygon('
             . $this->getPolygonArrayForOpenLayers($polygons, $srid)
             . '), null, ' . json_encode($style_options) . '));';
-
-        return $row;
     }
 
     /**
@@ -376,7 +374,7 @@ class GisMultiPolygon extends GisGeometry
      *
      * @access private
      */
-    private function _drawPath($polygon, array $scale_data)
+    private function drawPath($polygon, array $scale_data)
     {
         $points_arr = $this->extractPoints($polygon, $scale_data);
 
@@ -453,9 +451,8 @@ class GisMultiPolygon extends GisGeometry
                 0,
                 mb_strlen($wkt) - 1
             );
-        $wkt .= ')';
 
-        return $wkt;
+        return $wkt . ')';
     }
 
     /**
@@ -479,10 +476,12 @@ class GisMultiPolygon extends GisGeometry
 
         // Find points on surface for inner rings
         foreach ($row_data['parts'] as $i => $ring) {
-            if (! $ring['isOuter']) {
-                $row_data['parts'][$i]['pointOnSurface']
-                    = GisPolygon::getPointOnSurface($ring['points']);
+            if ($ring['isOuter']) {
+                continue;
             }
+
+            $row_data['parts'][$i]['pointOnSurface']
+                = GisPolygon::getPointOnSurface($ring['points']);
         }
 
         // Classify inner rings to their respective outer rings.
@@ -497,16 +496,18 @@ class GisMultiPolygon extends GisGeometry
 
                 // If the pointOnSurface of the inner ring
                 // is also inside the outer ring
-                if (GisPolygon::isPointInsidePolygon(
+                if (! GisPolygon::isPointInsidePolygon(
                     $ring1['pointOnSurface'],
                     $ring2['points']
                 )
                 ) {
-                    if (! isset($ring2['inner'])) {
-                        $row_data['parts'][$k]['inner'] = [];
-                    }
-                    $row_data['parts'][$k]['inner'][] = $j;
+                    continue;
                 }
+
+                if (! isset($ring2['inner'])) {
+                    $row_data['parts'][$k]['inner'] = [];
+                }
+                $row_data['parts'][$k]['inner'][] = $j;
             }
         }
 
@@ -557,8 +558,7 @@ class GisMultiPolygon extends GisGeometry
                 mb_strlen($wkt) - 1
             );
 
-        $wkt .= ')'; // end of multipolygon
-        return $wkt;
+        return $wkt . ')';
     }
 
     /**

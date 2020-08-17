@@ -2,11 +2,13 @@
 /**
  * Functions used for database and table tracking
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\Generator;
+use const SORT_ASC;
 use function array_key_exists;
 use function array_merge;
 use function array_multisort;
@@ -24,7 +26,6 @@ use function rtrim;
 use function sprintf;
 use function strlen;
 use function strtotime;
-use const SORT_ASC;
 
 /**
  * PhpMyAdmin\Tracking class
@@ -86,6 +87,7 @@ class Tracking
             }
             $id++;
         }
+
         return $tmp_entries;
     }
 
@@ -114,10 +116,8 @@ class Tracking
 
     /**
      * Function to get the list versions of the table
-     *
-     * @return array
      */
-    public function getListOfVersionsOfTable()
+    public function getListOfVersionsOfTable(): array
     {
         $relation = $this->relation;
         $cfgRelation = $relation->getRelationsParam();
@@ -130,7 +130,13 @@ class Tracking
             $GLOBALS['dbi']->escapeString($GLOBALS['table']) . "' " .
             ' ORDER BY version DESC ';
 
-        return $relation->queryAsControlUser($sql_query);
+        $result = $relation->queryAsControlUser($sql_query);
+
+        if (! is_array($result)) {
+            return [];
+        }
+
+        return $result;
     }
 
     /**
@@ -199,6 +205,7 @@ class Tracking
     public function getTableLastVersionNumber($sql_result)
     {
         $maxversion = $GLOBALS['dbi']->fetchArray($sql_result);
+
         return intval(is_array($maxversion) ? $maxversion['version'] : null);
     }
 
@@ -277,7 +284,7 @@ class Tracking
          */
         if (count($data['ddlog']) == 0 && count($data['dmlog']) === 0) {
             $msg = Message::notice(__('No data'));
-            $msg->display();
+            echo $msg->getDisplay();
         }
 
         $html .= $this->getHtmlForTrackingReportExportForm1(
@@ -344,6 +351,7 @@ class Tracking
             . htmlspecialchars($_POST['users']) . '">';
         $str5 = '<input type="hidden" name="list_report" value="1">'
             . '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">';
+
         return [
             $str1,
             $str2,
@@ -434,6 +442,7 @@ class Tracking
             );
         }
         $html .= '</form>';
+
         return $html;
     }
 
@@ -499,6 +508,7 @@ class Tracking
         $html .= '<br>' . sprintf(__('Export as %s'), $str_export1)
             . $str_export2 . '<br>';
         $html .= '</form>';
+
         return $html;
     }
 
@@ -525,9 +535,7 @@ class Tracking
         $drop_image_or_text
     ) {
         // no need for the secondth returned parameter
-        [
-            $html,
-        ] = $this->getHtmlForDataStatements(
+        [$html] = $this->getHtmlForDataStatements(
             $data,
             $filter_users,
             $filter_ts_from,
@@ -707,9 +715,7 @@ class Tracking
      */
     public function getHtmlForColumns(array $columns)
     {
-        return $this->template->render('table/tracking/structure_snapshot_columns', [
-            'columns' => $columns,
-        ]);
+        return $this->template->render('table/tracking/structure_snapshot_columns', ['columns' => $columns]);
     }
 
     /**
@@ -721,9 +727,7 @@ class Tracking
      */
     public function getHtmlForIndexes(array $indexes)
     {
-        return $this->template->render('table/tracking/structure_snapshot_indexes', [
-            'indexes' => $indexes,
-        ]);
+        return $this->template->render('table/tracking/structure_snapshot_indexes', ['indexes' => $indexes]);
     }
 
     /**
@@ -755,6 +759,7 @@ class Tracking
                 __('Tracking data manipulation successfully deleted')
             );
         }
+
         return $html;
     }
 
@@ -791,6 +796,7 @@ class Tracking
             }
             $html .= $msg->getDisplay();
         }
+
         return $html;
     }
 
@@ -897,7 +903,7 @@ class Tracking
     public function changeTracking($action)
     {
         $html = '';
-        if ($action == 'activate') {
+        if ($action === 'activate') {
             $method = 'activateTracking';
             $message = __('Tracking for %1$s was activated at version %2$s.');
         } else {
@@ -1074,8 +1080,8 @@ class Tracking
     {
         $entries = [];
         // Filtering data definition statements
-        if ($_POST['logtype'] == 'schema'
-            || $_POST['logtype'] == 'schema_and_data'
+        if ($_POST['logtype'] === 'schema'
+            || $_POST['logtype'] === 'schema_and_data'
         ) {
             $entries = array_merge(
                 $entries,
@@ -1089,8 +1095,8 @@ class Tracking
         }
 
         // Filtering data manipulation statements
-        if ($_POST['logtype'] == 'data'
-            || $_POST['logtype'] == 'schema_and_data'
+        if ($_POST['logtype'] === 'data'
+            || $_POST['logtype'] === 'schema_and_data'
         ) {
             $entries = array_merge(
                 $entries,
@@ -1200,7 +1206,7 @@ class Tracking
             }
         }
 
-        $html = $this->template->render('database/tracking/tables', [
+        return $this->template->render('database/tracking/tables', [
             'db' => $db,
             'head_version_exists' => $headVersionExists,
             'untracked_tables_exists' => count($untrackedTables) > 0,
@@ -1210,8 +1216,6 @@ class Tracking
             'untracked_tables' => $untrackedTables,
             'pma_theme_image' => $pmaThemeImage,
         ]);
-
-        return $html;
     }
 
     /**
@@ -1232,13 +1236,15 @@ class Tracking
             if (is_array($value) && array_key_exists('is' . $sep . 'group', $value)
                 && $value['is' . $sep . 'group']
             ) {
-                $untracked_tables = array_merge($this->extractTableNames($value, $db), $untracked_tables); //Recursion step
+                // Recursion step
+                $untracked_tables = array_merge($this->extractTableNames($value, $db), $untracked_tables);
             } else {
                 if (is_array($value) && ($testing || Tracker::getVersion($db, $value['Name']) == -1)) {
                     $untracked_tables[] = $value['Name'];
                 }
             }
         }
+
         return $untracked_tables;
     }
 
@@ -1252,6 +1258,7 @@ class Tracking
     public function getUntrackedTables($db)
     {
         $table_list = Util::getTableList($db);
+
         //Use helper function to get table list recursively.
         return $this->extractTableNames($table_list, $db);
     }
@@ -1271,12 +1278,12 @@ class Tracking
             0 => [
                 'label' => __('not active'),
                 'value' => 'deactivate_now',
-                'selected' => $state != 'active',
+                'selected' => $state !== 'active',
             ],
             1 => [
                 'label' => __('active'),
                 'value' => 'activate_now',
-                'selected' => $state == 'active',
+                'selected' => $state === 'active',
             ],
         ];
         $link = Url::getFromRoute('/table/tracking', array_merge([

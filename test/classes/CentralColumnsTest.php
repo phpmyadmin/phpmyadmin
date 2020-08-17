@@ -2,29 +2,30 @@
 /**
  * tests for PhpMyAdmin\CentralColumns
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\CentralColumns;
-use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Types;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-use PHPUnit\Framework\TestCase;
-use ReflectionClass;
 use function array_slice;
 use function ceil;
 
 /**
  * tests for PhpMyAdmin\CentralColumns
  */
-class CentralColumnsTest extends TestCase
+class CentralColumnsTest extends AbstractTestCase
 {
+    /** @var CentralColumns */
     private $centralColumns;
 
+    /** @var array<int, array<string, string|int>> */
     private $columnData = [
         [
             'col_name' => 'id',
@@ -55,6 +56,7 @@ class CentralColumnsTest extends TestCase
         ],
     ];
 
+    /** @var array<int, array<string, string|int>> */
     private $modifiedColumnData = [
         [
             'col_name' => 'id',
@@ -93,7 +95,9 @@ class CentralColumnsTest extends TestCase
      */
     protected function setUp(): void
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setUp();
+        parent::setGlobalConfig();
+        parent::defineVersionConstants();
         $GLOBALS['cfg']['Server']['user'] = 'pma_user';
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $GLOBALS['cfg']['MaxRows'] = 10;
@@ -116,7 +120,7 @@ class CentralColumnsTest extends TestCase
         ];
 
         // mock DBI
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->types = new Types($dbi);
@@ -164,34 +168,9 @@ class CentralColumnsTest extends TestCase
     }
 
     /**
-     * Call protected functions by setting visibility to public.
-     *
-     * @param string         $name   method name
-     * @param array          $params parameters for the invocation
-     * @param CentralColumns $object CentralColumns instance object
-     *
-     * @return mixed the output from the protected method.
-     */
-    private function callProtectedMethod(
-        $name,
-        array $params = [],
-        CentralColumns $object = null
-    ) {
-        $class = new ReflectionClass(CentralColumns::class);
-        $method = $class->getMethod($name);
-        $method->setAccessible(true);
-        return $method->invokeArgs(
-            $object ?? $this->centralColumns,
-            $params
-        );
-    }
-
-    /**
      * Test for getParams
-     *
-     * @return void
      */
-    public function testGetParams()
+    public function testGetParams(): void
     {
         $this->assertSame(
             [
@@ -205,10 +184,8 @@ class CentralColumnsTest extends TestCase
 
     /**
      * Test for getColumnsList
-     *
-     * @return void
      */
-    public function testGetColumnsList()
+    public function testGetColumnsList(): void
     {
         $GLOBALS['dbi']->expects($this->exactly(2))
             ->method('fetchResult')
@@ -229,10 +206,8 @@ class CentralColumnsTest extends TestCase
 
     /**
      * Test for getCount
-     *
-     * @return void
      */
-    public function testGetCount()
+    public function testGetCount(): void
     {
         $GLOBALS['dbi']->expects($this->once())
             ->method('fetchResult')
@@ -255,10 +230,8 @@ class CentralColumnsTest extends TestCase
 
     /**
      * Test for syncUniqueColumns
-     *
-     * @return void
      */
-    public function testSyncUniqueColumns()
+    public function testSyncUniqueColumns(): void
     {
         $_POST['db'] = 'PMA_db';
         $_POST['table'] = 'PMA_table';
@@ -272,10 +245,8 @@ class CentralColumnsTest extends TestCase
 
     /**
      * Test for deleteColumnsFromList
-     *
-     * @return void
      */
-    public function testDeleteColumnsFromList()
+    public function testDeleteColumnsFromList(): void
     {
         $_POST['db'] = 'PMA_db';
         $_POST['table'] = 'PMA_table';
@@ -315,7 +286,7 @@ class CentralColumnsTest extends TestCase
 
         // when column does not exist in the central column list
         $this->assertInstanceOf(
-            'PhpMyAdmin\Message',
+            Message::class,
             $this->centralColumns->deleteColumnsFromList(
                 $_POST['db'],
                 ['column1'],
@@ -324,7 +295,7 @@ class CentralColumnsTest extends TestCase
         );
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Message',
+            Message::class,
             $this->centralColumns->deleteColumnsFromList(
                 $_POST['db'],
                 ['PMA_table']
@@ -334,10 +305,8 @@ class CentralColumnsTest extends TestCase
 
     /**
      * Test for makeConsistentWithList
-     *
-     * @return void
      */
-    public function testMakeConsistentWithList()
+    public function testMakeConsistentWithList(): void
     {
         $GLOBALS['dbi']->expects($this->any())
             ->method('fetchResult')
@@ -359,10 +328,8 @@ class CentralColumnsTest extends TestCase
 
     /**
      * Test for getFromTable
-     *
-     * @return void
      */
-    public function testGetFromTable()
+    public function testGetFromTable(): void
     {
         $db = 'PMA_db';
         $table = 'PMA_table';
@@ -393,10 +360,8 @@ class CentralColumnsTest extends TestCase
 
     /**
      * Test for getFromTable with $allFields = true
-     *
-     * @return void
      */
-    public function testGetFromTableWithAllFields()
+    public function testGetFromTableWithAllFields(): void
     {
         $db = 'PMA_db';
         $table = 'PMA_table';
@@ -425,10 +390,8 @@ class CentralColumnsTest extends TestCase
 
     /**
      * Test for updateOneColumn
-     *
-     * @return void
      */
-    public function testUpdateOneColumn()
+    public function testUpdateOneColumn(): void
     {
         $this->assertTrue(
             $this->centralColumns->updateOneColumn(
@@ -462,11 +425,10 @@ class CentralColumnsTest extends TestCase
 
     /**
      * Test for updateMultipleColumn
-     *
-     * @return void
      */
-    public function testUpdateMultipleColumn()
+    public function testUpdateMultipleColumn(): void
     {
+        $params = [];
         $params['db'] = 'phpmyadmin';
         $params['orig_col_name'] = [
             'col1',
@@ -507,10 +469,8 @@ class CentralColumnsTest extends TestCase
 
     /**
      * Test for getHtmlForEditingPage
-     *
-     * @return void
      */
-    public function testGetHtmlForEditingPage()
+    public function testGetHtmlForEditingPage(): void
     {
         $GLOBALS['dbi']->expects($this->any())
             ->method('fetchResult')
@@ -546,13 +506,17 @@ class CentralColumnsTest extends TestCase
             __('A_I'),
         ];
         $this->assertStringContainsString(
-            $this->callProtectedMethod(
+            $this->callFunction(
+                $this->centralColumns,
+                CentralColumns::class,
                 'getEditTableHeader',
                 [$header_cells]
             ),
             $result
         );
-        $list_detail_cols = $this->callProtectedMethod(
+        $list_detail_cols = $this->callFunction(
+            $this->centralColumns,
+            CentralColumns::class,
             'findExistingColNames',
             [
                 'phpmyadmin',
@@ -561,7 +525,9 @@ class CentralColumnsTest extends TestCase
             ]
         );
         $this->assertStringContainsString(
-            $this->callProtectedMethod(
+            $this->callFunction(
+                $this->centralColumns,
+                CentralColumns::class,
                 'getHtmlForEditTableRow',
                 [
                     $list_detail_cols[0],
@@ -571,17 +537,15 @@ class CentralColumnsTest extends TestCase
             $result
         );
         $this->assertStringContainsString(
-            $this->callProtectedMethod('getEditTableFooter'),
+            $this->callFunction($this->centralColumns, CentralColumns::class, 'getEditTableFooter', []),
             $result
         );
     }
 
     /**
      * Test for getListRaw
-     *
-     * @return void
      */
-    public function testGetListRaw()
+    public function testGetListRaw(): void
     {
         $GLOBALS['dbi']->expects($this->once())
             ->method('fetchResult')
@@ -606,10 +570,8 @@ class CentralColumnsTest extends TestCase
 
     /**
      * Test for getListRaw with a table name
-     *
-     * @return void
      */
-    public function testGetListRawWithTable()
+    public function testGetListRawWithTable(): void
     {
         $GLOBALS['dbi']->expects($this->once())
             ->method('fetchResult')
@@ -635,10 +597,8 @@ class CentralColumnsTest extends TestCase
 
     /**
      * Test for getHtmlForMain
-     *
-     * @return void
      */
-    public function testGetHtmlForMain()
+    public function testGetHtmlForMain(): void
     {
         $db = 'phpmyadmin';
         $total_rows = 50;
@@ -677,7 +637,7 @@ class CentralColumnsTest extends TestCase
                 'pos',
                 $max_rows,
                 ($pos / $max_rows) + 1,
-                ceil($total_rows / $max_rows)
+                (int) ceil($total_rows / $max_rows)
             ),
             $result
         );
@@ -688,20 +648,18 @@ class CentralColumnsTest extends TestCase
         $this->assertStringContainsString(__('Click to sort.'), $result);
         $this->assertStringContainsString(Url::getHiddenInputs($db), $result);
         $this->assertStringContainsString(Url::getHiddenInputs($db), $result);
-        $editSelectedButton = Generator::getButtonOrImage(
-            'edit_central_columns',
-            'mult_submit change_central_columns',
-            __('Edit'),
-            'b_edit',
-            'edit central columns'
-        );
-        $deleteSelectedButton = Generator::getButtonOrImage(
-            'delete_central_columns',
-            'mult_submit',
-            __('Delete'),
-            'b_drop',
-            'remove_from_central_columns'
-        );
+        $editSelectedButton = '            <button class="btn btn-link mult_submit change_central_columns"'
+            . ' type="submit" name="edit_central_columns"' . "\n"
+            . '                    value="edit central columns" title="' . __('Edit') . '">' . "\n"
+            . '                ' . Generator::getIcon('b_edit', __('Edit')) . "\n"
+            . '            </button>' . "\n";
+
+        $deleteSelectedButton = '            <button class="btn btn-link mult_submit" type="submit"'
+            . ' name="delete_central_columns"' . "\n"
+            . '                    value="remove_from_central_columns" title="' . __('Delete') . '">' . "\n"
+            . '                ' . Generator::getIcon('b_drop', __('Delete')) . "\n"
+            . '            </button>' . "\n";
+
         $this->assertStringContainsString($editSelectedButton, $result);
         $this->assertStringContainsString($deleteSelectedButton, $result);
         // test for empty table
@@ -722,23 +680,19 @@ class CentralColumnsTest extends TestCase
 
     /**
      * Test for configErrorMessage
-     *
-     * @return void
      */
-    public function testConfigErrorMessage()
+    public function testConfigErrorMessage(): void
     {
         $this->assertInstanceOf(
-            'PhpMyAdmin\Message',
-            $this->callProtectedMethod('configErrorMessage')
+            Message::class,
+            $this->callFunction($this->centralColumns, CentralColumns::class, 'configErrorMessage', [])
         );
     }
 
     /**
      * Test for findExistingColNames
-     *
-     * @return void
      */
-    public function testFindExistingColNames()
+    public function testFindExistingColNames(): void
     {
         $GLOBALS['dbi']->expects($this->once())
             ->method('fetchResult')
@@ -754,7 +708,9 @@ class CentralColumnsTest extends TestCase
             );
         $this->assertEquals(
             array_slice($this->modifiedColumnData, 1, 1),
-            $this->callProtectedMethod(
+            $this->callFunction(
+                $this->centralColumns,
+                CentralColumns::class,
                 'findExistingColNames',
                 [
                     'phpmyadmin',
@@ -767,10 +723,8 @@ class CentralColumnsTest extends TestCase
 
     /**
      * Test for getTableFooter
-     *
-     * @return void
      */
-    public function testGetTableFooter()
+    public function testGetTableFooter(): void
     {
         $pmaThemeImage = 'pmaThemeImage';
         $text_dir = 'text_dir';
@@ -788,10 +742,8 @@ class CentralColumnsTest extends TestCase
 
     /**
      * Test for getHtmlForColumnDropdown
-     *
-     * @return void
      */
-    public function testGetHtmlForColumnDropdown()
+    public function testGetHtmlForColumnDropdown(): void
     {
         $db = 'PMA_db';
         $selected_tbl = 'PMA_table';

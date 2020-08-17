@@ -2,17 +2,21 @@
 /**
  * tests for PhpMyAdmin\Properties\Options\OptionsPropertyItem class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Properties\Options;
 
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Properties\Options\OptionsPropertyItem;
+use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * Tests for PhpMyAdmin\Properties\Options\OptionsPropertyItem class
  */
-class OptionsPropertyItemTest extends TestCase
+class OptionsPropertyItemTest extends AbstractTestCase
 {
+    /** @var OptionsPropertyItem|MockObject */
     protected $stub;
 
     /**
@@ -20,7 +24,8 @@ class OptionsPropertyItemTest extends TestCase
      */
     protected function setUp(): void
     {
-        $this->stub = $this->getMockForAbstractClass('PhpMyAdmin\Properties\Options\OptionsPropertyItem');
+        parent::setUp();
+        $this->stub = $this->getMockForAbstractClass(OptionsPropertyItem::class);
     }
 
     /**
@@ -28,6 +33,7 @@ class OptionsPropertyItemTest extends TestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->stub);
     }
 
@@ -35,10 +41,8 @@ class OptionsPropertyItemTest extends TestCase
      * Test for
      *     - PhpMyAdmin\Properties\Options\OptionsPropertyItem::getName
      *     - PhpMyAdmin\Properties\Options\OptionsPropertyItem::setName
-     *
-     * @return void
      */
-    public function testGetSetName()
+    public function testGetSetName(): void
     {
         $this->stub->setName('name123');
 
@@ -52,10 +56,8 @@ class OptionsPropertyItemTest extends TestCase
      * Test for
      *     - PhpMyAdmin\Properties\Options\OptionsPropertyItem::getText
      *     - PhpMyAdmin\Properties\Options\OptionsPropertyItem::setText
-     *
-     * @return void
      */
-    public function testGetSetText()
+    public function testGetSetText(): void
     {
         $this->stub->setText('text123');
 
@@ -69,10 +71,8 @@ class OptionsPropertyItemTest extends TestCase
      * Test for
      *     - PhpMyAdmin\Properties\Options\OptionsPropertyItem::getForce
      *     - PhpMyAdmin\Properties\Options\OptionsPropertyItem::setForce
-     *
-     * @return void
      */
-    public function testGetSetForce()
+    public function testGetSetForce(): void
     {
         $this->stub->setForce('force123');
 
@@ -84,10 +84,8 @@ class OptionsPropertyItemTest extends TestCase
 
     /**
      * Test for PhpMyAdmin\Properties\Options\OptionsPropertyItem::getPropertyType
-     *
-     * @return void
      */
-    public function testGetPropertyType()
+    public function testGetPropertyType(): void
     {
         $this->assertEquals(
             'options',

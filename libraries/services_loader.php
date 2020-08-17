@@ -1,12 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
 use Symfony\Component\DependencyInjection\Reference;
+use function is_string;
+use function substr;
 
-return function (ContainerConfigurator $configurator) {
+return static function (ContainerConfigurator $configurator) {
     $services = $configurator->services();
-    $loadServices = function (array $servicesFile, ServicesConfigurator $services): void {
+    $loadServices = static function (array $servicesFile, ServicesConfigurator $services): void {
         foreach ($servicesFile['services'] as $serviceName => $service) {
             if (is_string($service)) {
                 $services->alias($serviceName, $service);
@@ -15,16 +19,20 @@ return function (ContainerConfigurator $configurator) {
             $theService = $services->set($serviceName, $service['class'] ?? null);
             if (isset($service['arguments'])) {// !== null check
                 foreach ($service['arguments'] as &$argumentName) {
-                    if ($argumentName[0] === '@') {
-                        $services->alias($serviceName, substr($argumentName, 1));
-                        $argumentName = new Reference(substr($argumentName, 1));
+                    if ($argumentName[0] !== '@') {
+                        continue;
                     }
+
+                    $services->alias($serviceName, substr($argumentName, 1));
+                    $argumentName = new Reference(substr($argumentName, 1));
                 }
                 $theService->args($service['arguments']);
             }
-            if (isset($service['factory'])) {// !== null check
-                $theService->factory($service['factory']);
+            if (! isset($service['factory'])) {
+                continue;
             }
+            // !== null check
+            $theService->factory($service['factory']);
         }
     };
 

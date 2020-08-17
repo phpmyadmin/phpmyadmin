@@ -8,7 +8,6 @@
 /* global addZoomPanControllers, loadSVG, selectVisualization, styleOSM, zoomAndPan */ // js/table/gis_visualization.js
 /* global pmaThemeImage */ // templates/javascript/variables.twig
 
-// eslint-disable-next-line no-unused-vars
 var gisEditorLoaded = false;
 
 /**
@@ -130,6 +129,7 @@ function loadJSAndGISEditor (value, field, type, inputName) {
     script.src = 'js/vendor/openlayers/OpenLayers.js';
     head.appendChild(script);
 
+    // eslint-disable-next-line no-unused-vars
     gisEditorLoaded = true;
 }
 

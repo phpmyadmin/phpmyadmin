@@ -2,6 +2,7 @@
 /**
  * Selenium TestCase for normalization
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
@@ -20,12 +21,13 @@ class NormalizationTest extends TestBase
     {
         parent::setUp();
         $this->dbQuery(
-            'CREATE TABLE `test_table` ('
+            'USE `' . $this->database_name . '`;'
+            . 'CREATE TABLE `test_table` ('
             . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
             . ' `val` int(11) NOT NULL,'
             . ' `val2` varchar(64) NOT NULL,'
             . 'PRIMARY KEY(id)'
-            . ')'
+            . ');'
         );
 
         $this->login();
@@ -45,11 +47,9 @@ class NormalizationTest extends TestBase
     /**
      * Test for normalization to 1NF
      *
-     * @return void
-     *
      * @group large
      */
-    public function testNormalizationTo1NF()
+    public function testNormalizationTo1NF(): void
     {
         $this->assertTrue(
             $this->isElementPresent('cssSelector', 'fieldset')
@@ -66,15 +66,13 @@ class NormalizationTest extends TestBase
         );
         $this->byCssSelector('input[name=submit_normalize]')->click();
         $this->waitForElement('id', 'mainContent');
-        $this->_test1NFSteps();
+        $this->assert1NFSteps();
     }
 
     /**
      * assertions in 1NF steps 1.1, 1.2, 1.3
-     *
-     * @return void
      */
-    private function _test1NFSteps()
+    private function assert1NFSteps(): void
     {
         $this->assertEquals(
             'First step of normalization (1NF)',

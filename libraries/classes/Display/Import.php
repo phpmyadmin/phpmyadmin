@@ -2,6 +2,7 @@
 /**
  * functions for displaying import for: server, database and table
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Display;
@@ -41,10 +42,10 @@ class Import
 
         $template = new Template();
 
-        list(
+        [
             $SESSION_KEY,
             $uploadId,
-        ) = ImportAjax::uploadProgressSetup();
+        ] = ImportAjax::uploadProgressSetup();
 
         /* Scan for plugins */
         /** @var ImportPlugin[] $importList */
@@ -56,11 +57,11 @@ class Import
 
         /* Fail if we didn't find any plugin */
         if (empty($importList)) {
-            Message::error(
+            echo Message::error(
                 __(
                     'Could not load import plugins, please check your installation!'
                 )
-            )->display();
+            )->getDisplay();
             exit;
         }
 

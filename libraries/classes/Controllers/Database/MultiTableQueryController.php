@@ -2,6 +2,7 @@
 /**
  * Holds the PhpMyAdmin\Controllers\Database\MultiTableQueryController
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
@@ -15,11 +16,11 @@ class MultiTableQueryController extends AbstractController
 {
     public function index(): void
     {
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('vendor/jquery/jquery.md5.js');
-        $scripts->addFile('database/multi_table_query.js');
-        $scripts->addFile('database/query_generator.js');
+        $this->addScriptFiles([
+            'vendor/jquery/jquery.md5.js',
+            'database/multi_table_query.js',
+            'database/query_generator.js',
+        ]);
 
         $queryInstance = new MultiTableQuery($this->dbi, $this->template, $this->db);
 
@@ -35,11 +36,11 @@ class MultiTableQueryController extends AbstractController
             'db' => $_POST['db'] ?? $_GET['db'] ?? null,
         ];
 
-        MultiTableQuery::displayResults(
+        $this->response->addHTML(MultiTableQuery::displayResults(
             $params['sql_query'],
             $params['db'],
             $pmaThemeImage
-        );
+        ));
     }
 
     public function table(): void

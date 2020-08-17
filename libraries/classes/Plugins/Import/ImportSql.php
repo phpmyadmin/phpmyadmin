@@ -2,6 +2,7 @@
 /**
  * SQL import plugin for phpMyAdmin
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
@@ -106,7 +107,7 @@ class ImportSql extends ImportPlugin
         global $error, $timeout_passed;
 
         // Handle compatibility options.
-        $this->_setSQLMode($GLOBALS['dbi'], $_REQUEST);
+        $this->setSQLMode($GLOBALS['dbi'], $_REQUEST);
 
         $bq = new BufferedQuery();
         if (isset($_POST['sql_delimiter'])) {
@@ -156,9 +157,11 @@ class ImportSql extends ImportPlugin
         // Extracting remaining statements.
         while (! $error && ! $timeout_passed && ! empty($bq->query)) {
             $statement = $bq->extract(true);
-            if (! empty($statement)) {
-                $this->import->runQuery($statement, $statement, $sql_data);
+            if (empty($statement)) {
+                continue;
             }
+
+            $this->import->runQuery($statement, $statement, $sql_data);
         }
 
         // Finishing.
@@ -173,21 +176,23 @@ class ImportSql extends ImportPlugin
      *
      * @return void
      */
-    private function _setSQLMode($dbi, array $request)
+    private function setSQLMode($dbi, array $request)
     {
         $sql_modes = [];
         if (isset($request['sql_compatibility'])
-            && $request['sql_compatibility'] != 'NONE'
+            && $request['sql_compatibility'] !== 'NONE'
         ) {
             $sql_modes[] = $request['sql_compatibility'];
         }
         if (isset($request['sql_no_auto_value_on_zero'])) {
             $sql_modes[] = 'NO_AUTO_VALUE_ON_ZERO';
         }
-        if (count($sql_modes) > 0) {
-            $dbi->tryQuery(
-                'SET SQL_MODE="' . implode(',', $sql_modes) . '"'
-            );
+        if (count($sql_modes) <= 0) {
+            return;
         }
+
+        $dbi->tryQuery(
+            'SET SQL_MODE="' . implode(',', $sql_modes) . '"'
+        );
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
@@ -21,6 +22,7 @@ use function preg_replace;
 use function str_ireplace;
 use function str_replace;
 use function strncasecmp;
+use function strtoupper;
 
 /**
  * Handles table search tab.
@@ -36,49 +38,49 @@ class SearchController extends AbstractController
      * @access private
      * @var array
      */
-    private $_columnNames;
+    private $columnNames;
     /**
      * Types of columns
      *
      * @access private
      * @var array
      */
-    private $_columnTypes;
+    private $columnTypes;
     /**
      * Types of columns without any replacement
      *
      * @access private
      * @var array
      */
-    private $_originalColumnTypes;
+    private $originalColumnTypes;
     /**
      * Collations of columns
      *
      * @access private
      * @var array
      */
-    private $_columnCollations;
+    private $columnCollations;
     /**
      * Null Flags of columns
      *
      * @access private
      * @var array
      */
-    private $_columnNullFlags;
+    private $columnNullFlags;
     /**
      * Whether a geometry column is present
      *
      * @access private
      * @var bool
      */
-    private $_geomColumnFlag;
+    private $geomColumnFlag;
     /**
      * Foreign Keys
      *
      * @access private
      * @var array
      */
-    private $_foreigners;
+    private $foreigners;
 
     /** @var Search */
     private $search;
@@ -107,23 +109,21 @@ class SearchController extends AbstractController
         parent::__construct($response, $dbi, $template, $db, $table);
         $this->search = $search;
         $this->relation = $relation;
-        $this->_columnNames = [];
-        $this->_columnNullFlags = [];
-        $this->_columnTypes = [];
-        $this->_originalColumnTypes = [];
-        $this->_columnCollations = [];
-        $this->_geomColumnFlag = false;
-        $this->_foreigners = [];
-        $this->_loadTableInfo();
+        $this->columnNames = [];
+        $this->columnTypes = [];
+        $this->originalColumnTypes = [];
+        $this->columnCollations = [];
+        $this->columnNullFlags = [];
+        $this->geomColumnFlag = false;
+        $this->foreigners = [];
+        $this->loadTableInfo();
     }
 
     /**
      * Gets all the columns of a table along with their types, collations
      * and whether null or not.
-     *
-     * @return void
      */
-    private function _loadTableInfo()
+    private function loadTableInfo(): void
     {
         // Gets the list and number of columns
         $columns = $this->dbi->getColumns(
@@ -137,14 +137,14 @@ class SearchController extends AbstractController
 
         foreach ($columns as $row) {
             // set column name
-            $this->_columnNames[] = $row['Field'];
+            $this->columnNames[] = $row['Field'];
 
             $type = $row['Type'];
             // before any replacement
-            $this->_originalColumnTypes[] = mb_strtolower($type);
+            $this->originalColumnTypes[] = mb_strtolower($type);
             // check whether table contains geometric columns
             if (in_array($type, $geom_types)) {
-                $this->_geomColumnFlag = true;
+                $this->geomColumnFlag = true;
             }
             // reformat mysql query output
             if (strncasecmp($type, 'set', 3) == 0
@@ -164,16 +164,16 @@ class SearchController extends AbstractController
             if (empty($type)) {
                 $type = '&nbsp;';
             }
-            $this->_columnTypes[] = $type;
-            $this->_columnNullFlags[] = $row['Null'];
-            $this->_columnCollations[]
-                = ! empty($row['Collation']) && $row['Collation'] != 'NULL'
+            $this->columnTypes[] = $type;
+            $this->columnNullFlags[] = $row['Null'];
+            $this->columnCollations[]
+                = ! empty($row['Collation']) && $row['Collation'] !== 'NULL'
                 ? $row['Collation']
                 : '';
         } // end for
 
         // Retrieve foreign keys
-        $this->_foreigners = $this->relation->getForeigners($this->db, $this->table);
+        $this->foreigners = $this->relation->getForeigners($this->db, $this->table);
     }
 
     /**
@@ -183,9 +183,7 @@ class SearchController extends AbstractController
     {
         Common::table();
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFiles([
+        $this->addScriptFiles([
             'makegrid.js',
             'sql.js',
             'table/select.js',
@@ -196,6 +194,7 @@ class SearchController extends AbstractController
 
         if (isset($_POST['range_search'])) {
             $this->rangeSearchAction();
+
             return;
         }
 
@@ -231,7 +230,7 @@ class SearchController extends AbstractController
             // for bit fields we need to convert them to printable form
             $i = 0;
             foreach ($row as $col => $val) {
-                if ($fields_meta[$i]->type == 'bit') {
+                if ($fields_meta[$i]->type === 'bit') {
                     $row[$col] = Util::printableBitValue(
                         (int) $val,
                         (int) $fields_meta[$i]->length
@@ -260,7 +259,7 @@ class SearchController extends AbstractController
          * Add this to ensure following procedures included running correctly.
          */
         $sql = new Sql();
-        $sql->executeQueryAndSendQueryResponse(
+        $this->response->addHTML($sql->executeQueryAndSendQueryResponse(
             null, // analyzed_sql_results
             false, // is_gotofile
             $this->db, // db
@@ -279,7 +278,7 @@ class SearchController extends AbstractController
             $sql_query, // sql_query
             null, // selectedTables
             null // complete_query
-        );
+        ));
     }
 
     /**
@@ -296,20 +295,18 @@ class SearchController extends AbstractController
             );
         }
 
-        $this->response->addHTML(
-            $this->template->render('table/search/index', [
-                'db' => $this->db,
-                'table' => $this->table,
-                'goto' => $goto,
-                'self' => $this,
-                'geom_column_flag' => $this->_geomColumnFlag,
-                'column_names' => $this->_columnNames,
-                'column_types' => $this->_columnTypes,
-                'column_collations' => $this->_columnCollations,
-                'default_sliders_state' => $cfg['InitialSlidersState'],
-                'max_rows' => intval($cfg['MaxRows']),
-            ])
-        );
+        $this->render('table/search/index', [
+            'db' => $this->db,
+            'table' => $this->table,
+            'goto' => $goto,
+            'self' => $this,
+            'geom_column_flag' => $this->geomColumnFlag,
+            'column_names' => $this->columnNames,
+            'column_types' => $this->columnTypes,
+            'column_collations' => $this->columnCollations,
+            'default_sliders_state' => $cfg['InitialSlidersState'],
+            'max_rows' => intval($cfg['MaxRows']),
+        ]);
     }
 
     /**
@@ -360,13 +357,13 @@ class SearchController extends AbstractController
             ),
         ];
         //Gets column's type and collation
-        $type = $this->_columnTypes[$column_index];
-        $collation = $this->_columnCollations[$column_index];
+        $type = $this->columnTypes[$column_index];
+        $collation = $this->columnCollations[$column_index];
         $cleanType = preg_replace('@\(.*@s', '', $type);
         //Gets column's comparison operators depending on column type
         $typeOperators = $this->dbi->types->getTypeOperatorsHtml(
             $cleanType,
-            $this->_columnNullFlags[$column_index],
+            $this->columnNullFlags[$column_index],
             $selected_operator
         );
         $func = $this->template->render('table/search/column_comparison_operators', [
@@ -375,8 +372,8 @@ class SearchController extends AbstractController
         ]);
         //Gets link to browse foreign data(if any) and criteria inputbox
         $foreignData = $this->relation->getForeignData(
-            $this->_foreigners,
-            $this->_columnNames[$column_index],
+            $this->foreigners,
+            $this->columnNames[$column_index],
             false,
             '',
             ''
@@ -384,29 +381,30 @@ class SearchController extends AbstractController
         $htmlAttributes = '';
         if (in_array($cleanType, $this->dbi->types->getIntegerTypes())) {
             $extractedColumnspec = Util::extractColumnSpec(
-                $this->_originalColumnTypes[$column_index]
+                $this->originalColumnTypes[$column_index]
             );
             $is_unsigned = $extractedColumnspec['unsigned'];
             $minMaxValues = $this->dbi->types->getIntegerRange(
                 $cleanType,
                 ! $is_unsigned
             );
-            $htmlAttributes = 'min="' . $minMaxValues[0] . '" '
-                            . 'max="' . $minMaxValues[1] . '"';
-            $type = 'INT';
+            $htmlAttributes = 'data-min="' . $minMaxValues[0] . '" '
+                            . 'data-max="' . $minMaxValues[1] . '"';
         }
 
-        $htmlAttributes .= " onchange= 'return verifyAfterSearchFieldChange(" . $column_index . ")'";
+        $htmlAttributes .= ' onchange="return '
+                        . 'verifyAfterSearchFieldChange(' . $column_index . ', \'#tbl_search_form\')"';
 
         $value = $this->template->render('table/search/input_box', [
             'str' => '',
             'column_type' => (string) $type,
+            'column_data_type' => strtoupper($cleanType),
             'html_attributes' => $htmlAttributes,
             'column_id' => 'fieldID_',
             'in_zoom_search_edit' => false,
-            'foreigners' => $this->_foreigners,
-            'column_name' => $this->_columnNames[$column_index],
-            'column_name_hash' => md5($this->_columnNames[$column_index]),
+            'foreigners' => $this->foreigners,
+            'column_name' => $this->columnNames[$column_index],
+            'column_name_hash' => md5($this->columnNames[$column_index]),
             'foreign_data' => $foreignData,
             'table' => $this->table,
             'column_index' => $search_index,
@@ -416,6 +414,7 @@ class SearchController extends AbstractController
             'titles' => $titles,
             'in_fbs' => true,
         ]);
+
         return [
             'type' => $type,
             'collation' => $collation,

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
@@ -32,6 +33,7 @@ class ChartController extends AbstractController
         if (isset($_REQUEST['pos'], $_REQUEST['session_max_rows']) && $this->response->isAjax()
         ) {
             $this->ajax();
+
             return;
         }
 
@@ -41,25 +43,24 @@ class ChartController extends AbstractController
             $this->response->addHTML(
                 Message::error(__('No SQL query was set to fetch data.'))
             );
+
             return;
         }
 
-        $this->response->getHeader()->getScripts()->addFiles(
-            [
-                'chart.js',
-                'table/chart.js',
-                'vendor/jqplot/jquery.jqplot.js',
-                'vendor/jqplot/plugins/jqplot.barRenderer.js',
-                'vendor/jqplot/plugins/jqplot.canvasAxisLabelRenderer.js',
-                'vendor/jqplot/plugins/jqplot.canvasTextRenderer.js',
-                'vendor/jqplot/plugins/jqplot.categoryAxisRenderer.js',
-                'vendor/jqplot/plugins/jqplot.dateAxisRenderer.js',
-                'vendor/jqplot/plugins/jqplot.pointLabels.js',
-                'vendor/jqplot/plugins/jqplot.pieRenderer.js',
-                'vendor/jqplot/plugins/jqplot.enhancedPieLegendRenderer.js',
-                'vendor/jqplot/plugins/jqplot.highlighter.js',
-            ]
-        );
+        $this->addScriptFiles([
+            'chart.js',
+            'table/chart.js',
+            'vendor/jqplot/jquery.jqplot.js',
+            'vendor/jqplot/plugins/jqplot.barRenderer.js',
+            'vendor/jqplot/plugins/jqplot.canvasAxisLabelRenderer.js',
+            'vendor/jqplot/plugins/jqplot.canvasTextRenderer.js',
+            'vendor/jqplot/plugins/jqplot.categoryAxisRenderer.js',
+            'vendor/jqplot/plugins/jqplot.dateAxisRenderer.js',
+            'vendor/jqplot/plugins/jqplot.pointLabels.js',
+            'vendor/jqplot/plugins/jqplot.pieRenderer.js',
+            'vendor/jqplot/plugins/jqplot.enhancedPieLegendRenderer.js',
+            'vendor/jqplot/plugins/jqplot.highlighter.js',
+        ]);
 
         $url_params = [];
 
@@ -106,9 +107,11 @@ class ChartController extends AbstractController
         ];
         $numeric_column_count = 0;
         foreach ($keys as $idx => $key) {
-            if (in_array($fields_meta[$idx]->type, $numeric_types)) {
-                $numeric_column_count++;
+            if (! in_array($fields_meta[$idx]->type, $numeric_types)) {
+                continue;
             }
+
+            $numeric_column_count++;
         }
 
         if ($numeric_column_count == 0) {
@@ -117,6 +120,7 @@ class ChartController extends AbstractController
                 'message',
                 __('No numeric columns present in the table to plot.')
             );
+
             return;
         }
 
@@ -126,17 +130,15 @@ class ChartController extends AbstractController
         /**
          * Displays the page
          */
-        $this->response->addHTML(
-            $this->template->render('table/chart/tbl_chart', [
-                'url_query' => $url_query,
-                'url_params' => $url_params,
-                'keys' => $keys,
-                'fields_meta' => $fields_meta,
-                'numeric_types' => $numeric_types,
-                'numeric_column_count' => $numeric_column_count,
-                'sql_query' => $sql_query,
-            ])
-        );
+        $this->render('table/chart/tbl_chart', [
+            'url_query' => $url_query,
+            'url_params' => $url_params,
+            'keys' => $keys,
+            'fields_meta' => $fields_meta,
+            'numeric_types' => $numeric_types,
+            'numeric_column_count' => $numeric_column_count,
+            'sql_query' => $sql_query,
+        ]);
     }
 
     /**
@@ -179,6 +181,7 @@ class ChartController extends AbstractController
         if (empty($data)) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No data to display'));
+
             return;
         }
         $sanitized_data = [];

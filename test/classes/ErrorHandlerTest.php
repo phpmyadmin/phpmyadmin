@@ -2,12 +2,12 @@
 /**
  * Tests for ErrorHandler
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ErrorHandler;
-use ReflectionClass;
 use const E_RECOVERABLE_ERROR;
 use const E_USER_NOTICE;
 use const E_USER_WARNING;
@@ -16,9 +16,9 @@ use const E_WARNING;
 /**
  * Test for PhpMyAdmin\ErrorHandler class.
  */
-class ErrorHandlerTest extends PmaTestCase
+class ErrorHandlerTest extends AbstractTestCase
 {
-    /** @access protected */
+    /** @var ErrorHandler */
     protected $object;
 
     /**
@@ -29,7 +29,12 @@ class ErrorHandlerTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::loadDefaultConfig();
         $this->object = new ErrorHandler();
+        $_SESSION['errors'] = [];
+        $GLOBALS['server'] = 0;
+        $GLOBALS['cfg']['SendErrorReports'] = 'always';
     }
 
     /**
@@ -40,23 +45,8 @@ class ErrorHandlerTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
-    }
-
-    /**
-     * Call protected functions by setting visibility to public.
-     *
-     * @param string $name   method name
-     * @param array  $params parameters for the invocation
-     *
-     * @return mixed the output from the protected method.
-     */
-    private function _callProtectedFunction($name, $params)
-    {
-        $class = new ReflectionClass(ErrorHandler::class);
-        $method = $class->getMethod($name);
-        $method->setAccessible(true);
-        return $method->invokeArgs($this->object, $params);
     }
 
     /**
@@ -64,7 +54,7 @@ class ErrorHandlerTest extends PmaTestCase
      *
      * @return array data for testHandleError
      */
-    public function providerForTestHandleError()
+    public function providerForTestHandleError(): array
     {
         return [
             [
@@ -98,18 +88,16 @@ class ErrorHandlerTest extends PmaTestCase
      * @param string $output_hide expected output if showing of errors is
      *                            disabled and 'sendErrorReports' is set to 'never'
      *
-     * @return void
-     *
      * @dataProvider providerForTestHandleError
      */
     public function testGetDispErrorsForDisplayFalse(
-        $errno,
-        $errstr,
-        $errfile,
-        $errline,
-        $output_show,
-        $output_hide
-    ) {
+        int $errno,
+        string $errstr,
+        string $errfile,
+        int $errline,
+        string $output_show,
+        string $output_hide
+    ): void {
         // TODO: Add other test cases for all combination of 'sendErrorReports'
         $GLOBALS['cfg']['SendErrorReports'] = 'never';
 
@@ -117,9 +105,10 @@ class ErrorHandlerTest extends PmaTestCase
 
         $output = $this->object->getDispErrors();
 
-        if ($output_hide == '') {
+        if ($output_hide === '') {
             $this->assertEquals('', $output);
         } else {
+            $this->assertNotEmpty($output_show);// Useless check
             $this->assertStringContainsString($output_hide, $output);
         }
     }
@@ -136,20 +125,19 @@ class ErrorHandlerTest extends PmaTestCase
      * @param string $output_hide expected output if showing of errors is
      *                            disabled
      *
-     * @return void
-     *
      * @dataProvider providerForTestHandleError
      */
     public function testGetDispErrorsForDisplayTrue(
-        $errno,
-        $errstr,
-        $errfile,
-        $errline,
-        $output_show,
-        $output_hide
-    ) {
+        int $errno,
+        string $errstr,
+        string $errfile,
+        int $errline,
+        string $output_show,
+        string $output_hide
+    ): void {
         $this->object->handleError($errno, $errstr, $errfile, $errline);
 
+        $this->assertIsString($output_hide);// Useless check
         $this->assertStringContainsString(
             $output_show,
             $this->object->getDispErrors()
@@ -158,14 +146,12 @@ class ErrorHandlerTest extends PmaTestCase
 
     /**
      * Test for checkSavedErrors
-     *
-     * @return void
      */
-    public function testCheckSavedErrors()
+    public function testCheckSavedErrors(): void
     {
-        $_SESSION['errors'] = [];
-
-        $this->_callProtectedFunction(
+        $this->callFunction(
+            $this->object,
+            ErrorHandler::class,
             'checkSavedErrors',
             []
         );
@@ -175,11 +161,9 @@ class ErrorHandlerTest extends PmaTestCase
     /**
      * Test for countErrors
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testCountErrors()
+    public function testCountErrors(): void
     {
         $this->object->addError(
             'Compile Error',
@@ -196,11 +180,9 @@ class ErrorHandlerTest extends PmaTestCase
     /**
      * Test for sliceErrors
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testSliceErrors()
+    public function testSliceErrors(): void
     {
         $this->object->addError(
             'Compile Error',
@@ -232,10 +214,8 @@ class ErrorHandlerTest extends PmaTestCase
 
     /**
      * Test for countUserErrors
-     *
-     * @return void
      */
-    public function testCountUserErrors()
+    public function testCountUserErrors(): void
     {
         $this->object->addError(
             'Compile Error',
@@ -261,30 +241,24 @@ class ErrorHandlerTest extends PmaTestCase
 
     /**
      * Test for hasUserErrors
-     *
-     * @return void
      */
-    public function testHasUserErrors()
+    public function testHasUserErrors(): void
     {
         $this->assertFalse($this->object->hasUserErrors());
     }
 
     /**
      * Test for hasErrors
-     *
-     * @return void
      */
-    public function testHasErrors()
+    public function testHasErrors(): void
     {
         $this->assertFalse($this->object->hasErrors());
     }
 
     /**
      * Test for countDisplayErrors
-     *
-     * @return void
      */
-    public function testCountDisplayErrorsForDisplayTrue()
+    public function testCountDisplayErrorsForDisplayTrue(): void
     {
         $this->assertEquals(
             0,
@@ -294,10 +268,8 @@ class ErrorHandlerTest extends PmaTestCase
 
     /**
      * Test for countDisplayErrors
-     *
-     * @return void
      */
-    public function testCountDisplayErrorsForDisplayFalse()
+    public function testCountDisplayErrorsForDisplayFalse(): void
     {
         $this->assertEquals(
             0,
@@ -307,10 +279,8 @@ class ErrorHandlerTest extends PmaTestCase
 
     /**
      * Test for hasDisplayErrors
-     *
-     * @return void
      */
-    public function testHasDisplayErrors()
+    public function testHasDisplayErrors(): void
     {
         $this->assertFalse($this->object->hasDisplayErrors());
     }

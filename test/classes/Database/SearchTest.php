@@ -2,21 +2,22 @@
 /**
  * Tests for PhpMyAdmin\Database\Search
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Database;
 
 use PhpMyAdmin\Database\Search;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Tests\PmaTestCase;
-use ReflectionClass;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for database search.
  */
-class SearchTest extends PmaTestCase
+class SearchTest extends AbstractTestCase
 {
-    /** @access protected */
+    /** @var Search */
     protected $object;
 
     /**
@@ -27,11 +28,15 @@ class SearchTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::loadDefaultConfig();
+
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'pma';
+        $GLOBALS['_POST'] = [];
 
         //mock DBI
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -59,23 +64,8 @@ class SearchTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
-    }
-
-    /**
-     * Call protected functions by setting visibility to public.
-     *
-     * @param string $name   method name
-     * @param array  $params parameters for the invocation
-     *
-     * @return mixed the output from the protected method.
-     */
-    private function callProtectedFunction($name, $params)
-    {
-        $class = new ReflectionClass(Search::class);
-        $method = $class->getMethod($name);
-        $method->setAccessible(true);
-        return $method->invokeArgs($this->object, $params);
     }
 
     /**
@@ -86,7 +76,7 @@ class SearchTest extends PmaTestCase
      *
      * @dataProvider searchTypes
      */
-    public function testGetWhereClause($type, $expected): void
+    public function testGetWhereClause(string $type, string $expected): void
     {
         $_POST['criteriaSearchType'] = $type;
         $_POST['criteriaSearchString'] = 'search string';
@@ -94,7 +84,9 @@ class SearchTest extends PmaTestCase
         $this->object = new Search($GLOBALS['dbi'], 'pma_test', new Template());
         $this->assertEquals(
             $expected,
-            $this->callProtectedFunction(
+            $this->callFunction(
+                $this->object,
+                Search::class,
                 'getWhereClause',
                 ['table1']
             )
@@ -106,38 +98,45 @@ class SearchTest extends PmaTestCase
      *
      * @return array
      */
-    public function searchTypes()
+    public function searchTypes(): array
     {
         return [
             [
                 '1',
-                " WHERE (CONVERT(`column1` USING utf8) LIKE '%search%' OR CONVERT(`column2` USING utf8) LIKE '%search%')  OR  (CONVERT(`column1` USING utf8) LIKE '%string%' OR CONVERT(`column2` USING utf8) LIKE '%string%')",
+                " WHERE (CONVERT(`column1` USING utf8) LIKE '%search%'"
+                . " OR CONVERT(`column2` USING utf8) LIKE '%search%') "
+                . " OR  (CONVERT(`column1` USING utf8) LIKE '%string%'"
+                . " OR CONVERT(`column2` USING utf8) LIKE '%string%')",
             ],
             [
                 '2',
-                " WHERE (CONVERT(`column1` USING utf8) LIKE '%search%' OR CONVERT(`column2` USING utf8) LIKE '%search%')  AND  (CONVERT(`column1` USING utf8) LIKE '%string%' OR CONVERT(`column2` USING utf8) LIKE '%string%')",
+                " WHERE (CONVERT(`column1` USING utf8) LIKE '%search%'"
+                . " OR CONVERT(`column2` USING utf8) LIKE '%search%') "
+                . " AND  (CONVERT(`column1` USING utf8) LIKE '%string%'"
+                . " OR CONVERT(`column2` USING utf8) LIKE '%string%')",
             ],
             [
                 '3',
-                " WHERE (CONVERT(`column1` USING utf8) LIKE '%search string%' OR CONVERT(`column2` USING utf8) LIKE '%search string%')",
+                " WHERE (CONVERT(`column1` USING utf8) LIKE '%search string%'"
+                . " OR CONVERT(`column2` USING utf8) LIKE '%search string%')",
             ],
             [
                 '4',
-                " WHERE (CONVERT(`column1` USING utf8) LIKE 'search string' OR CONVERT(`column2` USING utf8) LIKE 'search string')",
+                " WHERE (CONVERT(`column1` USING utf8) LIKE 'search string'"
+                . " OR CONVERT(`column2` USING utf8) LIKE 'search string')",
             ],
             [
                 '5',
-                " WHERE (CONVERT(`column1` USING utf8) REGEXP 'search string' OR CONVERT(`column2` USING utf8) REGEXP 'search string')",
+                " WHERE (CONVERT(`column1` USING utf8) REGEXP 'search string'"
+                . " OR CONVERT(`column2` USING utf8) REGEXP 'search string')",
             ],
         ];
     }
 
     /**
-     * Test for _getSearchSqls
-     *
-     * @return void
+     * Test for getSearchSqls
      */
-    public function testGetSearchSqls()
+    public function testGetSearchSqls(): void
     {
         $this->assertEquals(
             [
@@ -146,7 +145,9 @@ class SearchTest extends PmaTestCase
                     'WHERE FALSE',
                 'delete' => 'DELETE FROM `pma`.`table1` WHERE FALSE',
             ],
-            $this->callProtectedFunction(
+            $this->callFunction(
+                $this->object,
+                Search::class,
                 'getSearchSqls',
                 ['table1']
             )
@@ -155,10 +156,8 @@ class SearchTest extends PmaTestCase
 
     /**
      * Test for getSearchResults
-     *
-     * @return void
      */
-    public function testGetSearchResults()
+    public function testGetSearchResults(): void
     {
         $this->assertStringContainsString(
             'Search results for "<em></em>" :',
@@ -168,10 +167,8 @@ class SearchTest extends PmaTestCase
 
     /**
      * Test for getSelectionForm
-     *
-     * @return void
      */
-    public function testGetMainHtml()
+    public function testGetMainHtml(): void
     {
         $main = $this->object->getMainHtml();
 

@@ -2,6 +2,7 @@
 /**
  * Holds the PhpMyAdmin\Controllers\Server\CollationsController
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
@@ -78,8 +79,6 @@ class CollationsController extends AbstractController
             ];
         }
 
-        $this->response->addHTML($this->template->render('server/collations/index', [
-            'charsets' => $charsets,
-        ]));
+        $this->render('server/collations/index', ['charsets' => $charsets]);
     }
 }

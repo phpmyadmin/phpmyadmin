@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
@@ -8,12 +9,16 @@ use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statements\CreateStatement;
+use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function array_merge;
 use function explode;
 use function htmlspecialchars;
 use function in_array;
+use function is_string;
 use function sprintf;
 use function strpos;
 use function substr;
@@ -60,6 +65,7 @@ class ViewCreateController extends AbstractController
                 $message
             );
             $this->response->setRequestStatus(false);
+
             return;
         }
 
@@ -93,7 +99,9 @@ class ViewCreateController extends AbstractController
                 }
             }
 
-            if (isset($_POST['view']['sql_security']) && in_array($_POST['view']['sql_security'], $view_security_options)) {
+            if (isset($_POST['view']['sql_security'])
+                && in_array($_POST['view']['sql_security'], $view_security_options)
+            ) {
                 $sql_query .= $sep . ' SQL SECURITY '
                     . $_POST['view']['sql_security'];
             }
@@ -117,6 +125,7 @@ class ViewCreateController extends AbstractController
             if (! $this->dbi->tryQuery($sql_query)) {
                 if (! isset($_POST['ajax_dialog'])) {
                     $message = Message::rawError($this->dbi->getError());
+
                     return;
                 }
 
@@ -128,6 +137,7 @@ class ViewCreateController extends AbstractController
                     )
                 );
                 $this->response->setRequestStatus(false);
+
                 return;
             }
 
@@ -224,6 +234,16 @@ class ViewCreateController extends AbstractController
             $view['as'] = $item['VIEW_DEFINITION'];
             $view['with'] = $item['CHECK_OPTION'];
             $view['algorithm'] = $item['ALGORITHM'];
+
+            // MySQL 8.0+ - issue #16194
+            if (empty($view['as']) && is_string($createView)) {
+                $parser = new Parser($createView);
+                /**
+                 * @var CreateStatement $stmt
+                 */
+                $stmt = $parser->statements[0];
+                $view['as'] = isset($stmt->body) ? TokensList::build($stmt->body) : $view['as'];
+            }
         }
 
         if (Core::isValid($_POST['view'], 'array')) {

@@ -2,6 +2,7 @@
 /**
  * Value object class for a character set
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Charsets;

@@ -2,6 +2,7 @@
 /**
  * PDF schema export code
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema;
@@ -86,6 +87,7 @@ class SchemaEps extends SchemaPlugin
     {
         $export = new EpsRelationSchema($db);
         $export->showOutput();
+
         return true;
     }
 }

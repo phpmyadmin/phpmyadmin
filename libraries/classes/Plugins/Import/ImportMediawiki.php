@@ -2,6 +2,7 @@
 /**
  * MediaWiki import plugin for phpMyAdmin
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
@@ -30,7 +31,7 @@ class ImportMediawiki extends ImportPlugin
      *
      * @var bool
      */
-    private $_analyze;
+    private $analyze;
 
     public function __construct()
     {
@@ -46,9 +47,9 @@ class ImportMediawiki extends ImportPlugin
      */
     protected function setProperties()
     {
-        $this->_setAnalyze(false);
+        $this->setAnalyze(false);
         if ($GLOBALS['plugin_param'] !== 'table') {
-            $this->_setAnalyze(true);
+            $this->setAnalyze(true);
         }
 
         $importPluginProperties = new ImportPluginProperties();
@@ -106,7 +107,9 @@ class ImportMediawiki extends ImportPlugin
                 // Subtract data we didn't handle yet and stop processing
                 $GLOBALS['offset'] -= mb_strlen($buffer);
                 break;
-            } elseif ($data !== true) {
+            }
+
+            if ($data !== true) {
                 // Append new data to buffer
                 $buffer = $data;
                 unset($data);
@@ -148,7 +151,9 @@ class ImportMediawiki extends ImportPlugin
                 if (! strcmp(mb_substr($cur_buffer_line, 0, 4), '<!--')) {
                     $inside_comment = true;
                     continue;
-                } elseif ($inside_comment) {
+                }
+
+                if ($inside_comment) {
                     // Check end of comment
                     if (! strcmp(mb_substr($cur_buffer_line, 0, 4), '-->')
                     ) {
@@ -176,7 +181,7 @@ class ImportMediawiki extends ImportPlugin
                             $inside_data_comment = true;
 
                             $inside_structure_comment
-                                = $this->_mngInsideStructComm(
+                                = $this->mngInsideStructComm(
                                     $inside_structure_comment
                                 );
                         } elseif (preg_match(
@@ -190,7 +195,9 @@ class ImportMediawiki extends ImportPlugin
                         }
                     }
                     continue;
-                } elseif (preg_match('/^\{\|(.*)$/', $cur_buffer_line, $matches)) {
+                }
+
+                if (preg_match('/^\{\|(.*)$/', $cur_buffer_line, $matches)) {
                     // Check start of table
 
                     // This will store all the column info on all rows from
@@ -239,7 +246,7 @@ class ImportMediawiki extends ImportPlugin
                         ];
 
                         // Import the current table data into the database
-                        $this->_importDataOneTable($current_table, $sql_data);
+                        $this->importDataOneTable($current_table, $sql_data);
 
                         // Reset table name
                         $cur_table_name = '';
@@ -259,9 +266,9 @@ class ImportMediawiki extends ImportPlugin
                     }
 
                     // Loop through each table cell
-                    $cells = $this->_explodeMarkup($cur_buffer_line);
+                    $cells = $this->explodeMarkup($cur_buffer_line);
                     foreach ($cells as $cell) {
-                        $cell = $this->_getCellData($cell);
+                        $cell = $this->getCellData($cell);
 
                         // Delete the beginning of the column, if there is one
                         $cell = trim($cell);
@@ -270,7 +277,7 @@ class ImportMediawiki extends ImportPlugin
                             '!',
                         ];
                         foreach ($col_start_chars as $col_start_char) {
-                            $cell = $this->_getCellContent($cell, $col_start_char);
+                            $cell = $this->getCellContent($cell, $col_start_char);
                         }
 
                         // Add the cell to the row
@@ -305,15 +312,15 @@ class ImportMediawiki extends ImportPlugin
      *
      * @global bool $analyze whether to scan for column types
      */
-    private function _importDataOneTable(array $table, array &$sql_data)
+    private function importDataOneTable(array $table, array &$sql_data)
     {
-        $analyze = $this->_getAnalyze();
+        $analyze = $this->getAnalyze();
         if ($analyze) {
             // Set the table name
-            $this->_setTableName($table[0]);
+            $this->setTableName($table[0]);
 
             // Set generic names for table headers if they don't exist
-            $this->_setTableHeaders($table[1], $table[2][0]);
+            $this->setTableHeaders($table[1], $table[2][0]);
 
             // Create the tables array to be used in Import::buildSql()
             $tables = [];
@@ -327,7 +334,7 @@ class ImportMediawiki extends ImportPlugin
             $analyses = [];
             $analyses[] = $this->import->analyzeTable($tables[0]);
 
-            $this->_executeImportTables($tables, $analyses, $sql_data);
+            $this->executeImportTables($tables, $analyses, $sql_data);
         }
 
         // Commit any possible data in buffers
@@ -341,13 +348,15 @@ class ImportMediawiki extends ImportPlugin
      *
      * @return void
      */
-    private function _setTableName(&$table_name)
+    private function setTableName(&$table_name)
     {
-        if (empty($table_name)) {
-            $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
-            // todo check if the name below already exists
-            $table_name = 'TABLE ' . (count($result) + 1);
+        if (! empty($table_name)) {
+            return;
         }
+
+        $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
+        // todo check if the name below already exists
+        $table_name = 'TABLE ' . (count($result) + 1);
     }
 
     /**
@@ -359,21 +368,23 @@ class ImportMediawiki extends ImportPlugin
      *
      * @return void
      */
-    private function _setTableHeaders(array &$table_headers, array $table_row)
+    private function setTableHeaders(array &$table_headers, array $table_row)
     {
-        if (empty($table_headers)) {
-            // The first table row should contain the number of columns
-            // If they are not set, generic names will be given (COL 1, COL 2, etc)
-            $num_cols = count($table_row);
-            for ($i = 0; $i < $num_cols; ++$i) {
-                $table_headers[$i] = 'COL ' . ($i + 1);
-            }
+        if (! empty($table_headers)) {
+            return;
+        }
+
+        // The first table row should contain the number of columns
+        // If they are not set, generic names will be given (COL 1, COL 2, etc)
+        $num_cols = count($table_row);
+        for ($i = 0; $i < $num_cols; ++$i) {
+            $table_headers[$i] = 'COL ' . ($i + 1);
         }
     }
 
     /**
      * Sets the database name and additional options and calls Import::buildSql()
-     * Used in PMA_importDataAllTables() and $this->_importDataOneTable()
+     * Used in PMA_importDataAllTables() and $this->importDataOneTable()
      *
      * @param array $tables   structure:
      *                        array(
@@ -390,14 +401,14 @@ class ImportMediawiki extends ImportPlugin
      *
      * @global string $db      name of the database to import in
      */
-    private function _executeImportTables(array &$tables, array &$analyses, array &$sql_data)
+    private function executeImportTables(array &$tables, array &$analyses, array &$sql_data)
     {
         global $db;
 
         // $db_name : The currently selected database name, if applicable
         //            No backquotes
         // $options : An associative array of options
-        list($db_name, $options) = $this->getDbnameAndOptions($db, 'mediawiki_DB');
+        [$db_name, $options] = $this->getDbnameAndOptions($db, 'mediawiki_DB');
 
         // Array of SQL strings
         // Non-applicable parameters
@@ -416,7 +427,7 @@ class ImportMediawiki extends ImportPlugin
      *
      * @return string with replacements
      */
-    private function _delimiterReplace($replace, $subject)
+    private function delimiterReplace($replace, $subject)
     {
         // String that will be returned
         $cleaned = '';
@@ -434,7 +445,7 @@ class ImportMediawiki extends ImportPlugin
         for ($i = 0, $iMax = strlen($subject); $i < $iMax; $i++) {
             $cur_char = $subject[$i];
             // Check for separators
-            if ($cur_char == '|') {
+            if ($cur_char === '|') {
                 // If we're not inside a tag, then this is part of a real separator,
                 // so we append it to the current segment
                 if (! $inside_attribute) {
@@ -465,13 +476,13 @@ class ImportMediawiki extends ImportPlugin
                 // any other character should be appended to the current segment
                 $cleaned .= $cur_char;
 
-                if ($cur_char == '<' && ! $inside_attribute) {
+                if ($cur_char === '<' && ! $inside_attribute) {
                     // start of a tag
                     $inside_tag = true;
-                } elseif ($cur_char == '>' && ! $inside_attribute) {
+                } elseif ($cur_char === '>' && ! $inside_attribute) {
                     // end of a tag
                     $inside_tag = false;
-                } elseif (($cur_char == '"' || $cur_char == "'") && $inside_tag) {
+                } elseif (($cur_char === '"' || $cur_char == "'") && $inside_tag) {
                     // start or end of an attribute
                     if (! $inside_attribute) {
                         $inside_attribute = true;
@@ -501,7 +512,7 @@ class ImportMediawiki extends ImportPlugin
      *
      * @return array
      */
-    private function _explodeMarkup($text)
+    private function explodeMarkup($text)
     {
         $separator = '||';
         $placeholder = "\x00";
@@ -511,7 +522,7 @@ class ImportMediawiki extends ImportPlugin
 
         // Replace instances of the separator inside HTML-like
         // tags with the placeholder
-        $cleaned = $this->_delimiterReplace($placeholder, $text);
+        $cleaned = $this->delimiterReplace($placeholder, $text);
         // Explode, then put the replaced separators back in
         $items = explode($separator, $cleaned);
         foreach ($items as $i => $str) {
@@ -528,9 +539,9 @@ class ImportMediawiki extends ImportPlugin
      *
      * @return bool
      */
-    private function _getAnalyze()
+    private function getAnalyze()
     {
-        return $this->_analyze;
+        return $this->analyze;
     }
 
     /**
@@ -540,9 +551,9 @@ class ImportMediawiki extends ImportPlugin
      *
      * @return void
      */
-    private function _setAnalyze($analyze)
+    private function setAnalyze($analyze)
     {
-        $this->_analyze = $analyze;
+        $this->analyze = $analyze;
     }
 
     /**
@@ -552,7 +563,7 @@ class ImportMediawiki extends ImportPlugin
      *
      * @return mixed
      */
-    private function _getCellData($cell)
+    private function getCellData($cell)
     {
         // A cell could contain both parameters and data
         $cell_data = explode('|', $cell, 2);
@@ -577,7 +588,7 @@ class ImportMediawiki extends ImportPlugin
      *
      * @return bool
      */
-    private function _mngInsideStructComm($inside_structure_comment)
+    private function mngInsideStructComm($inside_structure_comment)
     {
         // End ignoring structure rows
         if ($inside_structure_comment) {
@@ -595,7 +606,7 @@ class ImportMediawiki extends ImportPlugin
      *
      * @return string
      */
-    private function _getCellContent($cell, $col_start_char)
+    private function getCellContent($cell, $col_start_char)
     {
         if (mb_strpos($cell, $col_start_char) === 0) {
             $cell = trim(mb_substr($cell, 1));

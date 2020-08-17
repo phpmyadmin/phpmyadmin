@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Dbal;
@@ -29,29 +30,6 @@ interface DbalInterface
         int $options = 0,
         bool $cache_affected_rows = true
     );
-
-    /**
-     * Get a cached value from table cache.
-     *
-     * @param array $contentPath Array of the name of the target value
-     * @param mixed $default     Return value on cache miss
-     *
-     * @return mixed cached value or default
-     */
-    public function getCachedTableContent(array $contentPath, $default = null);
-
-    /**
-     * Set an item in table cache using dot notation.
-     *
-     * @param array|null $contentPath Array with the target path
-     * @param mixed      $value       Target value
-     */
-    public function cacheTableContent(?array $contentPath, $value): void;
-
-    /**
-     * Clear the table cache.
-     */
-    public function clearTableCache(): void;
 
     /**
      * runs a query and returns the result
@@ -210,26 +188,6 @@ interface DbalInterface
     ): array;
 
     /**
-     * Returns SQL query for fetching columns for a table
-     *
-     * The 'Key' column is not calculated properly, use $dbi->getColumns()
-     * to get correct values.
-     *
-     * @see getColumns()
-     *
-     * @param string $database name of database
-     * @param string $table    name of table to retrieve columns from
-     * @param string $column   name of column, null to show all columns
-     * @param bool   $full     whether to return full info or only column names
-     */
-    public function getColumnsSql(
-        string $database,
-        string $table,
-        ?string $column = null,
-        bool $full = false
-    ): string;
-
-    /**
      * Returns descriptions of columns in given table (all or given by $column)
      *
      * @param string $database name of database
@@ -256,24 +214,13 @@ interface DbalInterface
      * @param string $table    name of table to retrieve columns from
      * @param mixed  $link     mysql link resource
      *
-     * @return null|array
+     * @return array|null
      */
     public function getColumnNames(
         string $database,
         string $table,
         $link = DatabaseInterface::CONNECT_USER
     ): ?array;
-
-    /**
-     * Returns SQL for fetching information on table indexes (SHOW INDEXES)
-     *
-     * @param string $database name of database
-     * @param string $table    name of the table whose indexes are to be retrieved
-     * @param string $where    additional conditions for WHERE
-     *
-     * @return string SQL for getting indexes
-     */
-    public function getTableIndexesSql(string $database, string $table, ?string $where = null): string;
 
     /**
      * Returns indexes of a table
@@ -370,7 +317,7 @@ interface DbalInterface
     );
 
     /**
-     * returns only the first row from the result
+     * Returns only the first row from the result or null if result is empty.
      *
      * <code>
      * $sql = 'SELECT * FROM `user` WHERE `id` = 123';
@@ -383,15 +330,12 @@ interface DbalInterface
      * @param string $type  NUM|ASSOC|BOTH returned array should either numeric
      *                      associative or both
      * @param int    $link  link type
-     *
-     * @return array|bool first row from result
-     * or false if result is empty
      */
     public function fetchSingleRow(
         string $query,
         string $type = 'ASSOC',
         $link = DatabaseInterface::CONNECT_USER
-    );
+    ): ?array;
 
     /**
      * returns all rows in the resultset in one array
@@ -578,34 +522,6 @@ interface DbalInterface
     public function getLowerCaseNames();
 
     /**
-     * Get the list of system schemas
-     *
-     * @return array list of system schemas
-     */
-    public function getSystemSchemas(): array;
-
-    /**
-     * Checks whether given schema is a system schema
-     *
-     * @param string $schema_name        Name of schema (database) to test
-     * @param bool   $testForMysqlSchema Whether 'mysql' schema should
-     *                                   be treated the same as IS and
-     *                                   DD
-     */
-    public function isSystemSchema(string $schema_name, bool $testForMysqlSchema = false): bool;
-
-    /**
-     * Return connection parameters for the database server
-     *
-     * @param int        $mode   Connection mode on of CONNECT_USER, CONNECT_CONTROL
-     *                           or CONNECT_AUXILIARY.
-     * @param array|null $server Server information like host/port/socket/persistent
-     *
-     * @return array user, host and server settings array
-     */
-    public function getConnectionParams(int $mode, ?array $server = null): array;
-
-    /**
      * connects to the database server
      *
      * @param int        $mode   Connection mode on of CONNECT_USER, CONNECT_CONTROL
@@ -629,28 +545,22 @@ interface DbalInterface
      * returns array of rows with associative and numeric keys from $result
      *
      * @param object $result result set identifier
-     *
-     * @return array
      */
-    public function fetchArray($result);
+    public function fetchArray($result): ?array;
 
     /**
      * returns array of rows with associative keys from $result
      *
      * @param object $result result set identifier
-     *
-     * @return array|bool
      */
-    public function fetchAssoc($result);
+    public function fetchAssoc($result): ?array;
 
     /**
      * returns array of rows with numeric keys from $result
      *
      * @param object $result result set identifier
-     *
-     * @return array|bool
      */
-    public function fetchRow($result);
+    public function fetchRow($result): ?array;
 
     /**
      * Adjusts the result pointer to an arbitrary row in the result

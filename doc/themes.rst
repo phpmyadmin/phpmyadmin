@@ -4,7 +4,7 @@ Custom Themes
 =============
 
 phpMyAdmin comes with support for third party themes. You can download
-additonal themes from our website at <https://www.phpmyadmin.net/themes/>.
+additional themes from our website at <https://www.phpmyadmin.net/themes/>.
 
 Configuration
 -------------
@@ -27,7 +27,7 @@ To create a theme:
 * copy the files and directories from ``pmahomme`` to "your\_theme\_name"
 * edit the css-files in "your\_theme\_name/css"
 * put your new images in "your\_theme\_name/img"
-* edit :file:`layout.inc.php` in "your\_theme\_name"
+* edit :file:`_variables.scss` in "your\_theme\_name/scss"
 * edit :file:`theme.json` in "your\_theme\_name" to contain theme metadata (see below)
 * make a new screenshot of your theme and save it under
   "your\_theme\_name/screen.png"
@@ -56,7 +56,7 @@ metadata. Currently it consists of:
 
     **This field is required.**
 
-.. describe:: desciption
+.. describe:: description
 
     Theme description. this will be shown on the website.
 
@@ -79,7 +79,7 @@ metadata. Currently it consists of:
 
     **This field is required.**
 
-For example, the definition for Original theme shipped with phpMyAdnin 4.8:
+For example, the definition for Original theme shipped with phpMyAdmin 4.8:
 
 .. code-block:: json
 

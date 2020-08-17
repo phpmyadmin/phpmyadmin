@@ -10,33 +10,43 @@
     "node": ">=10"
   },
   "dependencies": {
-    "bootstrap": "^4.4.1",
-    "codemirror": "5.52.0",
-    "jquery": "3.4.1",
-    "jquery-migrate": "3.1.0",
+    "blueimp-md5": "^2.15.0",
+    "bootstrap": "4.5.2",
+    "codemirror": "5.56.0",
+    "jqplot": "^1.0.9",
+    "jquery": "3.5.1",
+    "jquery-debounce-throttle": "^1.0.6-rc.0",
+    "jquery-fullscreen-plugin": "^1.1.5",
+    "jquery-hashchange": "^2.0.0",
+    "jquery-migrate": "3.3.1",
     "jquery-mousewheel": "3.1.13",
     "jquery-ui": "1.12.1",
     "jquery-ui-timepicker-addon": "1.6.3",
-    "jquery-validation": "1.19.1",
+    "jquery-uitablefilter": "^1.0.0",
+    "jquery-validation": "1.19.2",
     "jquery.event.drag": "2.2.2",
     "js-cookie": "2.2.1",
+    "popper.js": "^1.16.1",
     "sass": "^1.26.3",
-    "popper.js": "^1.16.0",
+    "stickyfilljs": "2.1.0",
+    "tablesorter": "^2.31.3",
     "tracekit": "0.4.5",
     "u2f-api-polyfill": "0.4.4",
     "updated-jqplot": "1.0.9",
     "zxcvbn": "4.4.2"
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-plugin-no-jquery": "^2.3.1",
-    "stylelint": "^13.2.1",
+    "eslint": "^7.5.0",
+    "eslint-plugin-compat": "^3.8.0",
+    "eslint-plugin-no-jquery": "^2.5.0",
+    "stylelint": "^13.6.1",
     "stylelint-config-recommended-scss": "^4.2.0",
     "stylelint-config-standard": "^20.0.0",
-    "stylelint-scss": "^3.14.2"
+    "stylelint-scss": "^3.18.0"
   },
   "resolutions": {
-    "kind-of": "^6.0.3"
+    "kind-of": "^6.0.3",
+    "lodash": "^4.17.19"
   },
   "scripts": {
     "postinstall": "yarn run --silent css-compile --quiet --style=compressed",

@@ -2,17 +2,17 @@
 /**
  * tests for PhpMyAdmin\CheckUserPrivileges
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\CheckUserPrivileges;
-use PHPUnit\Framework\TestCase;
 
 /**
  * tests for PhpMyAdmin\CheckUserPrivileges
  */
-class CheckUserPrivilegesTest extends TestCase
+class CheckUserPrivilegesTest extends AbstractTestCase
 {
     /** @var CheckUserPrivileges */
     private $checkUserPrivileges;
@@ -22,6 +22,7 @@ class CheckUserPrivilegesTest extends TestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['col_priv'] = false;
@@ -35,20 +36,18 @@ class CheckUserPrivilegesTest extends TestCase
 
     /**
      * Test for getItemsFromShowGrantsRow
-     *
-     * @return void
      */
-    public function testGetItemsFromShowGrantsRow()
+    public function testGetItemsFromShowGrantsRow(): void
     {
         // TEST CASE 1
         $show_grants_full_row = 'GRANT ALL PRIVILEGES ON *.* '
             . "TO 'root'@'localhost' WITH GRANT OPTION";
 
-        list(
+        [
             $show_grants_str,
             $show_grants_dbname,
-            $show_grants_tblname
-        ) = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
+            $show_grants_tblname,
+        ] = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
             $show_grants_full_row
         );
 
@@ -71,11 +70,11 @@ class CheckUserPrivilegesTest extends TestCase
         $show_grants_full_row = 'GRANT ALL PRIVILEGES ON `mysql`.* TO '
             . "'root'@'localhost' WITH GRANT OPTION";
 
-        list(
+        [
             $show_grants_str,
             $show_grants_dbname,
-            $show_grants_tblname
-        ) = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
+            $show_grants_tblname,
+        ] = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
             $show_grants_full_row
         );
 
@@ -98,11 +97,11 @@ class CheckUserPrivilegesTest extends TestCase
         $show_grants_full_row = 'GRANT SELECT, INSERT, UPDATE, DELETE '
             . "ON `mysql`.`columns_priv` TO 'root'@'localhost'";
 
-        list(
+        [
             $show_grants_str,
             $show_grants_dbname,
-            $show_grants_tblname
-        ) = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
+            $show_grants_tblname,
+        ] = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
             $show_grants_full_row
         );
 
@@ -125,11 +124,11 @@ class CheckUserPrivilegesTest extends TestCase
         $show_grants_full_row = 'GRANT ALL PRIVILEGES ON `cptest\_.`.* TO '
             . "'cptest'@'localhost'";
 
-        list(
+        [
             $show_grants_str,
             $show_grants_dbname,
-            $show_grants_tblname
-        ) = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
+            $show_grants_tblname,
+        ] = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
             $show_grants_full_row
         );
 
@@ -138,14 +137,14 @@ class CheckUserPrivilegesTest extends TestCase
             $show_grants_dbname
         );
 
-        $show_grants_full_row = 'GRANT ALL PRIVILEGES ON `cptest\_.a.b.c.d.e.f.g.h.i.j.k.l.m.n.o.p.q.r.s.t.u.v.w.x.y.z`.* TO '
-            . "'cptest'@'localhost'";
+        $show_grants_full_row = 'GRANT ALL PRIVILEGES ON `cptest\_.a.b.c.d.e.f.g.h.i.j.k.'
+            . 'l.m.n.o.p.q.r.s.t.u.v.w.x.y.z`.* TO ' . "'cptest'@'localhost'";
 
-        list(
+        [
             $show_grants_str,
             $show_grants_dbname,
-            $show_grants_tblname
-        ) = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
+            $show_grants_tblname,
+        ] = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
             $show_grants_full_row
         );
 
@@ -157,19 +156,17 @@ class CheckUserPrivilegesTest extends TestCase
 
     /**
      * Test for checkRequiredPrivilegesForAdjust
-     *
-     * @return void
      */
-    public function testCheckRequiredPrivilegesForAdjust()
+    public function testCheckRequiredPrivilegesForAdjust(): void
     {
         // TEST CASE 1
         $show_grants_full_row = 'GRANT ALL PRIVILEGES ON *.* '
             . "TO 'root'@'localhost' WITH GRANT OPTION";
-        list(
+        [
             $show_grants_str,
             $show_grants_dbname,
-            $show_grants_tblname
-        ) = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
+            $show_grants_tblname,
+        ] = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
             $show_grants_full_row
         );
 
@@ -180,23 +177,19 @@ class CheckUserPrivilegesTest extends TestCase
             $show_grants_tblname
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['col_priv']
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['db_priv']
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['proc_priv']
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['table_priv']
         );
 
@@ -206,11 +199,11 @@ class CheckUserPrivilegesTest extends TestCase
         // TEST CASE 2
         $show_grants_full_row = 'GRANT ALL PRIVILEGES ON `mysql`.* TO '
             . "'root'@'localhost' WITH GRANT OPTION";
-        list(
+        [
             $show_grants_str,
             $show_grants_dbname,
-            $show_grants_tblname
-        ) = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
+            $show_grants_tblname,
+        ] = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
             $show_grants_full_row
         );
 
@@ -221,23 +214,19 @@ class CheckUserPrivilegesTest extends TestCase
             $show_grants_tblname
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['col_priv']
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['db_priv']
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['proc_priv']
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['table_priv']
         );
 
@@ -247,11 +236,11 @@ class CheckUserPrivilegesTest extends TestCase
         // TEST CASE 3
         $show_grants_full_row = 'GRANT SELECT, INSERT, UPDATE, DELETE ON '
             . "`mysql`.* TO 'root'@'localhost'";
-        list(
+        [
             $show_grants_str,
             $show_grants_dbname,
-            $show_grants_tblname
-        ) = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
+            $show_grants_tblname,
+        ] = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
             $show_grants_full_row
         );
 
@@ -262,23 +251,19 @@ class CheckUserPrivilegesTest extends TestCase
             $show_grants_tblname
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['col_priv']
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['db_priv']
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['proc_priv']
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['table_priv']
         );
 
@@ -288,11 +273,11 @@ class CheckUserPrivilegesTest extends TestCase
         // TEST CASE 4
         $show_grants_full_row = 'GRANT SELECT, INSERT, UPDATE, DELETE ON '
             . "`mysql`.`db` TO 'root'@'localhost'";
-        list(
+        [
             $show_grants_str,
             $show_grants_dbname,
-            $show_grants_tblname
-        ) = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
+            $show_grants_tblname,
+        ] = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
             $show_grants_full_row
         );
 
@@ -303,23 +288,19 @@ class CheckUserPrivilegesTest extends TestCase
             $show_grants_tblname
         );
 
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $GLOBALS['col_priv']
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['db_priv']
         );
 
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $GLOBALS['proc_priv']
         );
 
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $GLOBALS['table_priv']
         );
     }

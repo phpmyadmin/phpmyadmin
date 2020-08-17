@@ -2,6 +2,7 @@
 /**
  * Front controller for setup script
  */
+
 declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Setup\ConfigController;
@@ -39,31 +40,43 @@ if ($page === 'form') {
     echo $controller->index([
         'formset' => $_GET['formset'] ?? null,
     ]);
-} elseif ($page === 'config') {
+
+    return;
+}
+
+if ($page === 'config') {
     $controller = new ConfigController($GLOBALS['ConfigFile'], new Template());
     echo $controller->index([
         'formset' => $_GET['formset'] ?? null,
         'eol' => $_GET['eol'] ?? null,
     ]);
-} elseif ($page === 'servers') {
+
+    return;
+}
+
+if ($page === 'servers') {
     $controller = new ServersController($GLOBALS['ConfigFile'], new Template());
-    if (isset($_GET['mode']) && $_GET['mode'] === 'remove' && $_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_GET['mode']) && $_GET['mode'] === 'remove' && $_SERVER['REQUEST_METHOD'] === 'POST') {
         $controller->destroy([
             'id' => $_GET['id'] ?? null,
         ]);
         header('Location: index.php' . Url::getCommonRaw());
-    } else {
-        echo $controller->index([
-            'formset' => $_GET['formset'] ?? null,
-            'mode' => $_GET['mode'] ?? null,
-            'id' => $_GET['id'] ?? null,
-        ]);
+
+        return;
     }
-} else {
-    $controller = new HomeController($GLOBALS['ConfigFile'], new Template());
+
     echo $controller->index([
         'formset' => $_GET['formset'] ?? null,
-        'action_done' => $_GET['action_done'] ?? null,
-        'version_check' => $_GET['version_check'] ?? null,
+        'mode' => $_GET['mode'] ?? null,
+        'id' => $_GET['id'] ?? null,
     ]);
+
+    return;
 }
+
+$controller = new HomeController($GLOBALS['ConfigFile'], new Template());
+echo $controller->index([
+    'formset' => $_GET['formset'] ?? null,
+    'action_done' => $_GET['action_done'] ?? null,
+    'version_check' => $_GET['version_check'] ?? null,
+]);

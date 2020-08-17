@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
@@ -94,6 +95,7 @@ final class ImportController extends AbstractController
         // If there is a request to 'Simulate DML'.
         if (isset($_POST['simulate_dml'])) {
             $this->import->handleSimulateDmlRequest();
+
             return;
         }
 
@@ -103,37 +105,45 @@ final class ImportController extends AbstractController
                 'console_message_bookmark',
                 Console::getBookmarkContent()
             );
+
             return;
         }
         // If it's a console bookmark add request
         if (isset($_POST['console_bookmark_add'])) {
-            if (isset($_POST['label'], $_POST['db'], $_POST['bookmark_query'], $_POST['shared'])) {
-                $cfgBookmark = Bookmark::getParams($cfg['Server']['user']);
-                $bookmarkFields = [
-                    'bkm_database' => $_POST['db'],
-                    'bkm_user' => $cfgBookmark['user'],
-                    'bkm_sql_query' => $_POST['bookmark_query'],
-                    'bkm_label' => $_POST['label'],
-                ];
-                $isShared = ($_POST['shared'] == 'true');
-                $bookmark = Bookmark::createBookmark(
-                    $this->dbi,
-                    $cfg['Server']['user'],
-                    $bookmarkFields,
-                    $isShared
-                );
-                if ($bookmark !== false && $bookmark->save()) {
-                    $this->response->addJSON('message', __('Succeeded'));
-                    $this->response->addJSON('data', $bookmarkFields);
-                    $this->response->addJSON('isShared', $isShared);
-                } else {
-                    $this->response->addJSON('message', __('Failed'));
-                }
-                return;
-            } else {
+            if (! isset($_POST['label'], $_POST['db'], $_POST['bookmark_query'], $_POST['shared'])) {
                 $this->response->addJSON('message', __('Incomplete params'));
+
                 return;
             }
+
+            $cfgBookmark = Bookmark::getParams($cfg['Server']['user']);
+
+            if (! is_array($cfgBookmark)) {
+                $cfgBookmark = [];
+            }
+
+            $bookmarkFields = [
+                'bkm_database' => $_POST['db'],
+                'bkm_user' => $cfgBookmark['user'],
+                'bkm_sql_query' => $_POST['bookmark_query'],
+                'bkm_label' => $_POST['label'],
+            ];
+            $isShared = ($_POST['shared'] === 'true');
+            $bookmark = Bookmark::createBookmark(
+                $this->dbi,
+                $cfg['Server']['user'],
+                $bookmarkFields,
+                $isShared
+            );
+            if ($bookmark !== false && $bookmark->save()) {
+                $this->response->addJSON('message', __('Succeeded'));
+                $this->response->addJSON('data', $bookmarkFields);
+                $this->response->addJSON('isShared', $isShared);
+            } else {
+                $this->response->addJSON('message', __('Failed'));
+            }
+
+            return;
         }
 
         // reset import messages for ajax request
@@ -302,11 +312,11 @@ final class ImportController extends AbstractController
         }
 
         // Create error and goto url
-        if ($import_type == 'table') {
+        if ($import_type === 'table') {
             $goto = Url::getFromRoute('/table/import');
-        } elseif ($import_type == 'database') {
+        } elseif ($import_type === 'database') {
             $goto = Url::getFromRoute('/database/import');
-        } elseif ($import_type == 'server') {
+        } elseif ($import_type === 'server') {
             $goto = Url::getFromRoute('/server/import');
         } elseif (empty($goto) || ! preg_match('@^(server|db|tbl)(_[a-z]*)*\.php$@i', $goto)) {
             if (strlen($table) > 0 && strlen($db) > 0) {
@@ -352,8 +362,10 @@ final class ImportController extends AbstractController
         $charset_conversion = false;
         $reset_charset = false;
         $bookmark_created = false;
-        $result = false;
         $msg = 'Sorry an unexpected error happened!';
+
+        /** @var mixed|bool $result */
+        $result = false;
 
         // Bookmark Support: get a query back from bookmark if required
         if (! empty($_POST['id_bookmark'])) {
@@ -415,6 +427,7 @@ final class ImportController extends AbstractController
                         $this->response->addJSON('message', $message);
                         $this->response->addJSON('sql_query', $import_text);
                         $this->response->addJSON('action_bookmark', $_POST['action_bookmark']);
+
                         return;
                     } else {
                         $run_query = false;
@@ -439,6 +452,7 @@ final class ImportController extends AbstractController
                         $this->response->addJSON('message', $message);
                         $this->response->addJSON('action_bookmark', $_POST['action_bookmark']);
                         $this->response->addJSON('id_bookmark', $id_bookmark);
+
                         return;
                     } else {
                         $run_query = false;
@@ -468,11 +482,11 @@ final class ImportController extends AbstractController
 
         // Calculate value of the limit
         $memoryUnit = mb_strtolower(substr((string) $memory_limit, -1));
-        if ($memoryUnit == 'm') {
+        if ($memoryUnit === 'm') {
             $memory_limit = (int) substr((string) $memory_limit, 0, -1) * 1024 * 1024;
-        } elseif ($memoryUnit == 'k') {
+        } elseif ($memoryUnit === 'k') {
             $memory_limit = (int) substr((string) $memory_limit, 0, -1) * 1024;
-        } elseif ($memoryUnit == 'g') {
+        } elseif ($memoryUnit === 'g') {
             $memory_limit = (int) substr((string) $memory_limit, 0, -1) * 1024 * 1024 * 1024;
         } else {
             $memory_limit = (int) $memory_limit;
@@ -507,7 +521,7 @@ final class ImportController extends AbstractController
 
         // Do we have file to import?
 
-        if ($import_file != 'none' && ! $error) {
+        if ($import_file !== 'none' && ! $error) {
             /**
              *  Handle file compression
              */
@@ -515,11 +529,15 @@ final class ImportController extends AbstractController
             $import_handle->checkUploadedFile();
             if ($import_handle->isError()) {
                 $this->import->stop($import_handle->getError());
+
+                return;
             }
             $import_handle->setDecompressContent(true);
             $import_handle->open();
             if ($import_handle->isError()) {
                 $this->import->stop($import_handle->getError());
+
+                return;
             }
         } elseif (! $error) {
             if (! isset($import_text) || empty($import_text)) {
@@ -531,6 +549,8 @@ final class ImportController extends AbstractController
                     )
                 );
                 $this->import->stop($message);
+
+                return;
             }
         }
 
@@ -539,10 +559,10 @@ final class ImportController extends AbstractController
 
         // Convert the file's charset if necessary
         if (Encoding::isSupported() && isset($charset_of_file)) {
-            if ($charset_of_file != 'utf-8') {
+            if ($charset_of_file !== 'utf-8') {
                 $charset_conversion = true;
             }
-        } elseif (isset($charset_of_file) && $charset_of_file != 'utf-8') {
+        } elseif (isset($charset_of_file) && $charset_of_file !== 'utf-8') {
             $this->dbi->query('SET NAMES \'' . $charset_of_file . '\'');
             // We can not show query in this case, it is in different charset
             $sql_query_disabled = true;
@@ -583,16 +603,19 @@ final class ImportController extends AbstractController
                     __('Could not load import plugins, please check your installation!')
                 );
                 $this->import->stop($message);
-            } else {
-                // Do the real import
-                $default_fk_check = Util::handleDisableFKCheckInit();
-                try {
-                    $import_plugin->doImport($sql_data);
-                    Util::handleDisableFKCheckCleanup($default_fk_check);
-                } catch (Throwable $e) {
-                    Util::handleDisableFKCheckCleanup($default_fk_check);
-                    throw $e;
-                }
+
+                return;
+            }
+
+            // Do the real import
+            $default_fk_check = Util::handleDisableFKCheckInit();
+            try {
+                $import_plugin->doImport($sql_data);
+                Util::handleDisableFKCheckCleanup($default_fk_check);
+            } catch (Throwable $e) {
+                Util::handleDisableFKCheckCleanup($default_fk_check);
+
+                throw $e;
             }
         }
 
@@ -620,13 +643,13 @@ final class ImportController extends AbstractController
             $message = Message::notice(__('Showing bookmark'));
         } elseif ($bookmark_created) {
             $special_message = '[br]' . sprintf(
-                    __('Bookmark %s has been created.'),
-                    htmlspecialchars($_POST['bkm_label'])
-                );
+                __('Bookmark %s has been created.'),
+                htmlspecialchars($_POST['bkm_label'])
+            );
         } elseif ($finished && ! $error) {
             // Do not display the query with message, we do it separately
             $display_query = ';';
-            if ($import_type != 'query') {
+            if ($import_type !== 'query') {
                 $message = Message::success(
                     '<em>'
                     . _ngettext(
@@ -750,6 +773,7 @@ final class ImportController extends AbstractController
                         false,
                         $_SESSION['Import_message']['go_back_url']
                     );
+
                     return;
                 } // end if
 
@@ -784,28 +808,41 @@ final class ImportController extends AbstractController
             // the SQL tab
             if (! empty($_POST['bkm_label']) && ! empty($import_text)) {
                 $cfgBookmark = Bookmark::getParams($cfg['Server']['user']);
+
+                if (! is_array($cfgBookmark)) {
+                    $cfgBookmark = [];
+                }
+
                 $this->sql->storeTheQueryAsBookmark(
                     $db,
                     $cfgBookmark['user'],
                     $_POST['sql_query'],
                     $_POST['bkm_label'],
-                    $_POST['bkm_replace'] ?? null
+                    isset($_POST['bkm_replace'])
                 );
             }
 
             $this->response->addJSON('ajax_reload', $ajax_reload);
             $this->response->addHTML($html_output);
+
             return;
-        } elseif ($result) {
+        }
+
+        if ($result) {
             // Save a Bookmark with more than one queries (if Bookmark label given).
             if (! empty($_POST['bkm_label']) && ! empty($import_text)) {
                 $cfgBookmark = Bookmark::getParams($cfg['Server']['user']);
+
+                if (! is_array($cfgBookmark)) {
+                    $cfgBookmark = [];
+                }
+
                 $this->sql->storeTheQueryAsBookmark(
                     $db,
                     $cfgBookmark['user'],
                     $_POST['sql_query'],
                     $_POST['bkm_label'],
-                    $_POST['bkm_replace'] ?? null
+                    isset($_POST['bkm_replace'])
                 );
             }
 
@@ -824,8 +861,10 @@ final class ImportController extends AbstractController
         }
 
         // If there is request for ROLLBACK in the end.
-        if (isset($_POST['rollback_query'])) {
-            $this->dbi->query('ROLLBACK');
+        if (! isset($_POST['rollback_query'])) {
+            return;
         }
+
+        $this->dbi->query('ROLLBACK');
     }
 }

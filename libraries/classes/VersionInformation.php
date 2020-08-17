@@ -2,12 +2,14 @@
 /**
  * Responsible for retrieving version information and notifiying about latest version
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Utils\HttpRequest;
 use stdClass;
+use const PHP_VERSION;
 use function count;
 use function explode;
 use function intval;
@@ -20,7 +22,6 @@ use function strpos;
 use function substr;
 use function time;
 use function version_compare;
-use const PHP_VERSION;
 
 /**
  * Responsible for retrieving version information and notifiying about latest version
@@ -70,6 +71,7 @@ class VersionInformation
                 'timestamp' => time(),
             ];
         }
+
         return $data;
     }
 
@@ -171,12 +173,14 @@ class VersionInformation
                 }
             }
             // To compare the current release with the previous latest release or no release is set
-            if ($latestRelease === null || version_compare($latestRelease['version'], $release->version, '<')) {
-                $latestRelease = [
-                    'version' => $release->version,
-                    'date' => $release->date
-                ];
+            if ($latestRelease !== null && ! version_compare($latestRelease['version'], $release->version, '<')) {
+                continue;
             }
+
+            $latestRelease = [
+                'version' => $release->version,
+                'date' => $release->date,
+            ];
         }
 
         // no compatible version
@@ -213,15 +217,16 @@ class VersionInformation
         }
 
         $myVersion = null;
-        if ($type == 'PHP') {
+        if ($type === 'PHP') {
             $myVersion = $this->getPHPVersion();
-        } elseif ($type == 'MySQL') {
+        } elseif ($type === 'MySQL') {
             $myVersion = $this->getMySQLVersion();
         }
 
         if ($myVersion !== null && $operator !== null) {
             return version_compare($myVersion, $version, $operator);
         }
+
         return false;
     }
 
@@ -245,6 +250,7 @@ class VersionInformation
         if (isset($GLOBALS['dbi'])) {
             return $GLOBALS['dbi']->getVersionString();
         }
+
         return null;
     }
 }

@@ -2,6 +2,7 @@
 /**
  * Selenium TestCase for creating and deleting databases
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
@@ -27,15 +28,12 @@ class CreateDropDatabaseTest extends TestBase
     /**
      * Creates a database and drops it
      *
-     * @return void
-     *
      * @group large
      */
-    public function testCreateDropDatabase()
+    public function testCreateDropDatabase(): void
     {
-        // Drop database if it exists
         $this->dbQuery(
-            'DROP DATABASE IF EXISTS ' . $this->database_name . ';'
+            'DROP DATABASE IF EXISTS `' . $this->database_name . '`;'
         );
 
         $this->waitForElement('partialLinkText', 'Databases')->click();
@@ -47,22 +45,23 @@ class CreateDropDatabaseTest extends TestBase
 
         $this->byId('buttonGo')->click();
 
-        $element = $this->waitForElement('linkText', 'Database: ' . $this->database_name);
+        $this->waitForElement('linkText', 'Database: ' . $this->database_name);
 
-        $result = $this->dbQuery(
-            'SHOW DATABASES LIKE \'' . $this->database_name . '\';'
+        $this->dbQuery(
+            'SHOW DATABASES LIKE \'' . $this->database_name . '\';',
+            function (): void {
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->assertEquals($this->database_name, $this->getCellByTableClass('table_results', 1, 1));
+            }
         );
-        $this->assertEquals(1, $result->num_rows);
 
-        $this->_dropDatabase();
+        $this->dropDatabase();
     }
 
     /**
      * Drops a database, called after testCreateDropDatabase
-     *
-     * @return void
      */
-    private function _dropDatabase()
+    private function dropDatabase(): void
     {
         $this->gotoHomepage();
 
@@ -92,9 +91,11 @@ class CreateDropDatabaseTest extends TestBase
             'span.ajax_notification .alert-success'
         );
 
-        $result = $this->dbQuery(
-            'SHOW DATABASES LIKE \'' . $this->database_name . '\';'
+        $this->dbQuery(
+            'SHOW DATABASES LIKE \'' . $this->database_name . '\';',
+            function (): void {
+                $this->assertFalse($this->isElementPresent('className', 'table_results'));
+            }
         );
-        $this->assertEquals(0, $result->num_rows);
     }
 }

@@ -2,18 +2,21 @@
 /**
  * Tests for PhpMyAdmin\Controllers\Table\IndexesController
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\IndexesController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Url;
 use function sprintf;
@@ -21,7 +24,7 @@ use function sprintf;
 /**
  * Tests for PhpMyAdmin\Controllers\Table\IndexesController
  */
-class IndexesControllerTest extends PmaTestCase
+class IndexesControllerTest extends AbstractTestCase
 {
     /**
      * Setup function for test cases
@@ -30,12 +33,17 @@ class IndexesControllerTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
+        parent::loadDefaultConfig();
+
         /**
          * SET these to avoid undefined index error
          */
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
+        $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['pmadb'] = '';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -44,7 +52,7 @@ class IndexesControllerTest extends PmaTestCase
             'server' => 1,
         ];
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -77,15 +85,13 @@ class IndexesControllerTest extends PmaTestCase
     /**
      * Tests for doSaveDataAction() method
      *
-     * @return void
-     *
      * @test
      */
-    public function testDoSaveDataAction()
+    public function testDoSaveDataAction(): void
     {
         $sql_query = 'ALTER TABLE `db`.`table` DROP PRIMARY KEY, ADD UNIQUE ;';
 
-        $table = $this->getMockBuilder('PhpMyAdmin\Table')
+        $table = $this->getMockBuilder(Table::class)
             ->disableOriginalConstructor()
             ->getMock();
         $table->expects($this->any())->method('getSqlQueryForIndexCreateOrEdit')
@@ -129,13 +135,11 @@ class IndexesControllerTest extends PmaTestCase
     /**
      * Tests for displayFormAction()
      *
-     * @return void
-     *
      * @test
      */
-    public function testDisplayFormAction()
+    public function testDisplayFormAction(): void
     {
-        $table = $this->getMockBuilder('PhpMyAdmin\Table')
+        $table = $this->getMockBuilder(Table::class)
             ->disableOriginalConstructor()
             ->getMock();
         $table->expects($this->any())->method('getStatusInfo')

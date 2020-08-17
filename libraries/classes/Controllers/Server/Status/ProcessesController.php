@@ -2,6 +2,7 @@
 /**
  * Holds the PhpMyAdmin\Controllers\Server\Status\ProcessesController
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;
@@ -30,9 +31,7 @@ class ProcessesController extends AbstractController
 
         Common::server();
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('server/status/processes.js');
+        $this->addScriptFiles(['server/status/processes.js']);
 
         $isChecked = false;
         if (! empty($params['showExecuting'])) {
@@ -49,11 +48,11 @@ class ProcessesController extends AbstractController
 
         $serverProcessList = $this->getList($params);
 
-        $this->response->addHTML($this->template->render('server/status/processes/index', [
+        $this->render('server/status/processes/index', [
             'url_params' => $urlParams,
             'is_checked' => $isChecked,
             'server_process_list' => $serverProcessList,
-        ]));
+        ]);
     }
 
     /**
@@ -209,12 +208,16 @@ class ProcessesController extends AbstractController
                 'is_full' => false,
             ];
 
-            if (0 === --$sortableColCount) {
-                $columns[$columnKey]['has_full_query'] = true;
-                if ($showFullSql) {
-                    $columns[$columnKey]['is_full'] = true;
-                }
+            if (0 !== --$sortableColCount) {
+                continue;
             }
+
+            $columns[$columnKey]['has_full_query'] = true;
+            if (! $showFullSql) {
+                continue;
+            }
+
+            $columns[$columnKey]['is_full'] = true;
         }
 
         $rows = [];
@@ -226,10 +229,12 @@ class ProcessesController extends AbstractController
             ) {
                 foreach (array_keys($process) as $key) {
                     $newKey = ucfirst(mb_strtolower($key));
-                    if ($newKey !== $key) {
-                        $process[$newKey] = $process[$key];
-                        unset($process[$key]);
+                    if ($newKey === $key) {
+                        continue;
                     }
+
+                    $process[$newKey] = $process[$key];
+                    unset($process[$key]);
                 }
             }
 

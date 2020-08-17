@@ -2,6 +2,7 @@
 /**
  * Tests for PhpMyAdmin\Tracking
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
@@ -12,14 +13,13 @@ use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracking;
 use PhpMyAdmin\Url;
-use PHPUnit\Framework\TestCase;
 use function htmlspecialchars;
 use function sprintf;
 
 /**
  * Tests for PhpMyAdmin\Tracking
  */
-class TrackingTest extends TestCase
+class TrackingTest extends AbstractTestCase
 {
     /** @var Tracking $tracking */
     private $tracking;
@@ -31,6 +31,8 @@ class TrackingTest extends TestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
         /**
          * SET these to avoid undefined index error
          */
@@ -75,11 +77,9 @@ class TrackingTest extends TestCase
     /**
      * Tests for filter() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testFilter()
+    public function testFilter(): void
     {
         $data = [
             [
@@ -117,27 +117,19 @@ class TrackingTest extends TestCase
     /**
      * Tests for extractTableNames() method from nested table_list.
      *
-     * @return void
-     *
      * @test
      */
-    public function testExtractTableNames()
+    public function testExtractTableNames(): void
     {
         $table_list = [
             'hello_' => [
                 'is_group' => 1,
                 'lovely_' => [
                     'is_group' => 1,
-                    'hello_lovely_world' => [
-                        'Name' => 'hello_lovely_world',
-                    ],
-                    'hello_lovely_world2' => [
-                        'Name' => 'hello_lovely_world2',
-                    ],
+                    'hello_lovely_world' => ['Name' => 'hello_lovely_world'],
+                    'hello_lovely_world2' => ['Name' => 'hello_lovely_world2'],
                 ],
-                'hello_world' => [
-                    'Name' => 'hello_world',
-                ],
+                'hello_world' => ['Name' => 'hello_world'],
             ],
         ];
         $untracked_tables = $this->tracking->extractTableNames($table_list, 'db', true);
@@ -156,11 +148,9 @@ class TrackingTest extends TestCase
     }
 
     /**
-     * @return void
-     *
      * @test
      */
-    public function testGetHtmlForMain()
+    public function testGetHtmlForMain(): void
     {
         $last_version = 3;
         $url_params = [];
@@ -169,7 +159,7 @@ class TrackingTest extends TestCase
 
         // Mock dbi
         $dbi_old = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -189,7 +179,7 @@ class TrackingTest extends TestCase
         }
         $dbi->expects($this->at(6))
             ->method('fetchArray')
-            ->will($this->returnValue(false));
+            ->will($this->returnValue(null));
         // return fetchArray for Activate/Deactivate tracking
         for ($i = 7; $i < 13; $i++) {
             $dbi->expects($this->at($i))
@@ -198,7 +188,7 @@ class TrackingTest extends TestCase
         }
         $dbi->expects($this->at(13))
             ->method('fetchArray')
-            ->will($this->returnValue(false));
+            ->will($this->returnValue(null));
 
         $dbi->method('numRows')
             ->will($this->returnValue(1));
@@ -302,11 +292,9 @@ class TrackingTest extends TestCase
     /**
      * Tests for getTableLastVersionNumber() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetTableLastVersionNumber()
+    public function testGetTableLastVersionNumber(): void
     {
         $sql_result = 'sql_result';
         $last_version = $this->tracking->getTableLastVersionNumber($sql_result);
@@ -320,16 +308,13 @@ class TrackingTest extends TestCase
     /**
      * Tests for getSqlResultForSelectableTables() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetSQLResultForSelectableTables()
+    public function testGetSQLResultForSelectableTables(): void
     {
         $ret = $this->tracking->getSqlResultForSelectableTables();
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $ret
         );
     }
@@ -337,11 +322,9 @@ class TrackingTest extends TestCase
     /**
      * Tests for getHtmlForColumns() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetHtmlForColumns()
+    public function testGetHtmlForColumns(): void
     {
         $columns = [
             [
@@ -437,28 +420,21 @@ class TrackingTest extends TestCase
     /**
      * Tests for getListOfVersionsOfTable() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetListOfVersionsOfTable()
+    public function testGetListOfVersionsOfTable(): void
     {
         $ret = $this->tracking->getListOfVersionsOfTable();
 
-        $this->assertEquals(
-            true,
-            $ret
-        );
+        $this->assertIsArray($ret);
     }
 
     /**
      * Tests for getHtmlForTrackingReport() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetHtmlForTrackingReportr()
+    public function testGetHtmlForTrackingReportr(): void
     {
         $_POST['version'] = 10;
         $_POST['date_from'] = 'date_from';
@@ -553,11 +529,9 @@ class TrackingTest extends TestCase
     /**
      * Tests for getHtmlForDataManipulationStatements() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetHtmlForDataManipulationStatements()
+    public function testGetHtmlForDataManipulationStatements(): void
     {
         $_POST['version'] = '10';
         $data = [
@@ -617,11 +591,9 @@ class TrackingTest extends TestCase
     /**
      * Tests for getHtmlForDataDefinitionStatements() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetHtmlForDataDefinitionStatements()
+    public function testGetHtmlForDataDefinitionStatements(): void
     {
         $_POST['version'] = '10';
 
@@ -642,7 +614,7 @@ class TrackingTest extends TestCase
         $url_params = [];
         $drop_image_or_text = 'text';
 
-        list($html, $count) = $this->tracking->getHtmlForDataDefinitionStatements(
+        [$html, $count] = $this->tracking->getHtmlForDataDefinitionStatements(
             $data,
             $filter_users,
             $filter_ts_from,
@@ -686,11 +658,9 @@ class TrackingTest extends TestCase
     /**
      * Tests for getHtmlForIndexes() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetHtmlForIndexes()
+    public function testGetHtmlForIndexes(): void
     {
         $indexs = [
             [
@@ -762,11 +732,9 @@ class TrackingTest extends TestCase
     /**
      * Tests for getTrackingSet() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetTrackingSet()
+    public function testGetTrackingSet(): void
     {
         $_POST['alter_table'] = false;
         $_POST['rename_table'] = true;
@@ -807,11 +775,9 @@ class TrackingTest extends TestCase
     /**
      * Tests for getEntries() method.
      *
-     * @return void
-     *
      * @test
      */
-    public function testGetEntries()
+    public function testGetEntries(): void
     {
         $_POST['logtype'] = 'schema';
         $data = [

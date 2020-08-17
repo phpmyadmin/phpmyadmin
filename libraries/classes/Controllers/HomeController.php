@@ -2,6 +2,7 @@
 /**
  * Holds the PhpMyAdmin\Controllers\HomeController
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
@@ -13,7 +14,7 @@ use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Common;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Display\GitRevision;
+use PhpMyAdmin\Git;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
@@ -26,6 +27,9 @@ use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\Util;
+use const E_USER_NOTICE;
+use const E_USER_WARNING;
+use const PHP_VERSION;
 use function count;
 use function extension_loaded;
 use function file_exists;
@@ -33,10 +37,8 @@ use function ini_get;
 use function preg_match;
 use function sprintf;
 use function strlen;
+use function strtotime;
 use function trigger_error;
-use const E_USER_NOTICE;
-use const E_USER_WARNING;
-use const PHP_VERSION;
 
 class HomeController extends AbstractController
 {
@@ -107,7 +109,7 @@ class HomeController extends AbstractController
                 $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
                 $checkUserPrivileges->getPrivileges();
 
-                if (($cfg['Server']['auth_type'] != 'config') && $cfg['ShowChgPassword']) {
+                if (($cfg['Server']['auth_type'] !== 'config') && $cfg['ShowChgPassword']) {
                     $changePassword = $this->template->render('list/item', [
                         'content' => Generator::getImage('s_passwd') . ' ' . __(
                             'Change password'
@@ -249,7 +251,10 @@ class HomeController extends AbstractController
                         );
                 }
                 $messageInstance = Message::notice($messageText);
-                $messageInstance->addParamHtml('<a href="' . Url::getFromRoute('/check-relations') . '" data-post="' . Url::getCommon() . '">');
+                $messageInstance->addParamHtml(
+                    '<a href="' . Url::getFromRoute('/check-relations')
+                    . '" data-post="' . Url::getCommon() . '">'
+                );
                 $messageInstance->addParamHtml('</a>');
                 /* Show error if user has configured something, notice elsewhere */
                 if (! empty($cfg['Servers'][$server]['pmadb'])) {
@@ -261,10 +266,12 @@ class HomeController extends AbstractController
 
         $this->checkRequirements();
 
-        $this->response->addHTML($this->template->render('home/index', [
+        $git = new Git($this->config);
+
+        $this->render('home/index', [
             'message' => $displayMessage ?? '',
             'partial_logout' => $partialLogout ?? '',
-            'is_git_revision' => $this->config->isGitRevision(),
+            'is_git_revision' => $git->isGitRevision(),
             'server' => $server,
             'sync_favorite_tables' => $syncFavoriteTables,
             'has_server' => $hasServer,
@@ -282,7 +289,7 @@ class HomeController extends AbstractController
             'is_version_checked' => $cfg['VersionCheck'],
             'phpmyadmin_version' => PMA_VERSION,
             'config_storage_message' => $configStorageMessage ?? '',
-        ]));
+        ]);
     }
 
     public function setTheme(): void
@@ -323,17 +330,28 @@ class HomeController extends AbstractController
 
     public function gitRevision(): void
     {
-        global $PMA_Config;
-
-        if (! $this->response->isAjax() || ! $PMA_Config->isGitRevision()) {
+        if (! $this->response->isAjax()) {
             return;
         }
 
-        $this->response->addHTML((new GitRevision(
-            $this->response,
-            $this->config,
-            $this->template
-        ))->display());
+        $git = new Git($this->config);
+
+        if (! $git->isGitRevision()) {
+            return;
+        }
+
+        $commit = $git->checkGitRevision();
+
+        if (! $this->config->get('PMA_VERSION_GIT') || $commit === null) {
+            $this->response->setRequestStatus(false);
+
+            return;
+        }
+
+        $commit['author']['date'] = Util::localisedDate(strtotime($commit['author']['date']));
+        $commit['committer']['date'] = Util::localisedDate(strtotime($commit['committer']['date']));
+
+        $this->render('home/git_info', $commit);
     }
 
     private function checkRequirements(): void
@@ -409,8 +427,8 @@ class HomeController extends AbstractController
          */
         if (isset($cfg['Server']['controluser'], $cfg['Server']['controlpass'])
             && $server != 0
-            && $cfg['Server']['controluser'] == 'pma'
-            && $cfg['Server']['controlpass'] == 'pmapass'
+            && $cfg['Server']['controluser'] === 'pma'
+            && $cfg['Server']['controlpass'] === 'pmapass'
         ) {
             trigger_error(
                 __(
@@ -501,23 +519,27 @@ class HomeController extends AbstractController
          *
          * The data file is created while creating release by ./scripts/remove-incomplete-mo
          */
-        if (@file_exists(ROOT_PATH . 'libraries/language_stats.inc.php')) {
-            include ROOT_PATH . 'libraries/language_stats.inc.php';
-            /*
-             * This message is intentionally not translated, because we're
-             * handling incomplete translations here and focus on english
-             * speaking users.
-             */
-            if (isset($GLOBALS['language_stats'][$lang])
-                && $GLOBALS['language_stats'][$lang] < $cfg['TranslationWarningThreshold']
-            ) {
-                trigger_error(
-                    'You are using an incomplete translation, please help to make it '
-                    . 'better by [a@https://www.phpmyadmin.net/translate/'
-                    . '@_blank]contributing[/a].',
-                    E_USER_NOTICE
-                );
-            }
+        if (! @file_exists(ROOT_PATH . 'libraries/language_stats.inc.php')) {
+            return;
         }
+
+        include ROOT_PATH . 'libraries/language_stats.inc.php';
+        /*
+         * This message is intentionally not translated, because we're
+         * handling incomplete translations here and focus on english
+         * speaking users.
+         */
+        if (! isset($GLOBALS['language_stats'][$lang])
+            || $GLOBALS['language_stats'][$lang] >= $cfg['TranslationWarningThreshold']
+        ) {
+            return;
+        }
+
+        trigger_error(
+            'You are using an incomplete translation, please help to make it '
+            . 'better by [a@https://www.phpmyadmin.net/translate/'
+            . '@_blank]contributing[/a].',
+            E_USER_NOTICE
+        );
     }
 }

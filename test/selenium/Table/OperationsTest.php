@@ -2,6 +2,7 @@
 /**
  * Selenium TestCase for table related tests
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium\Table;
@@ -25,15 +26,16 @@ class OperationsTest extends TestBase
         // MYISAM ENGINE to allow for column-based order selection
         // while table also has a PRIMARY key
         $this->dbQuery(
-            'CREATE TABLE `test_table` ('
+            'USE `' . $this->database_name . '`;'
+            . 'CREATE TABLE `test_table` ('
             . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
             . ' `val` int(11) NOT NULL,'
             . ' `val2` int(11) NOT NULL,'
             . ' PRIMARY KEY (`id`)'
-            . ') ENGINE=MYISAM'
+            . ') ENGINE=MYISAM;'
+            . 'INSERT INTO test_table (val, val2) VALUES (22, 33);'
+            . 'INSERT INTO test_table (val, val2) VALUES (33, 44);'
         );
-        $this->dbQuery('INSERT INTO test_table (val, val2) VALUES (22, 33)');
-        $this->dbQuery('INSERT INTO test_table (val, val2) VALUES (33, 44)');
 
         $this->login();
         $this->navigateTable('test_table');
@@ -46,18 +48,21 @@ class OperationsTest extends TestBase
         $this->waitAjax();
         $this->waitForElement(
             'xpath',
-            "//legend[contains(., 'Table maintenance')]"
+            "//div[contains(., 'Table maintenance')]"
+        );
+        $this->reloadPage();
+        $this->waitForElement(
+            'xpath',
+            "//div[contains(., 'Table maintenance')]"
         );
     }
 
     /**
      * Test for changing a table order
      *
-     * @return void
-     *
      * @group large
      */
-    public function testChangeTableOrder()
+    public function testChangeTableOrder(): void
     {
         $this->selectByLabel(
             $this->byName('order_field'),
@@ -91,11 +96,9 @@ class OperationsTest extends TestBase
     /**
      * Test for moving a table
      *
-     * @return void
-     *
      * @group large
      */
-    public function testMoveTable()
+    public function testMoveTable(): void
     {
         $this->byCssSelector("form#moveTableForm input[name='new_name']")
             ->sendKeys('2');
@@ -111,22 +114,22 @@ class OperationsTest extends TestBase
             . 'moved to `' . $this->database_name . "`.`test_table2`.')]"
         );
 
-        $result = $this->dbQuery('SHOW TABLES');
-        $row = $result->fetch_assoc();
-        $this->assertEquals(
-            'test_table2',
-            $row['Tables_in_' . $this->database_name]
+        $this->dbQuery(
+            'USE `' . $this->database_name . '`;'
+            . 'SHOW TABLES LIKE \'test_table2\'',
+            function (): void {
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->assertEquals('test_table2', $this->getCellByTableClass('table_results', 1, 1));
+            }
         );
     }
 
     /**
      * Test for renaming a table
      *
-     * @return void
-     *
      * @group large
      */
-    public function testRenameTable()
+    public function testRenameTable(): void
     {
         $this->byCssSelector("form#tableOptionsForm input[name='new_name']")
             ->sendKeys('2');
@@ -144,27 +147,27 @@ class OperationsTest extends TestBase
             . "contains(., 'Table test_table has been renamed to test_table2')]"
         );
 
-        $result = $this->dbQuery('SHOW TABLES');
-        $row = $result->fetch_assoc();
-        $this->assertEquals(
-            'test_table2',
-            $row['Tables_in_' . $this->database_name]
+        $this->dbQuery(
+            'USE `' . $this->database_name . '`;'
+            . 'SHOW TABLES LIKE \'test_table2\'',
+            function (): void {
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->assertEquals('test_table2', $this->getCellByTableClass('table_results', 1, 1));
+            }
         );
     }
 
     /**
      * Test for copying a table
      *
-     * @return void
-     *
      * @group large
      */
-    public function testCopyTable()
+    public function testCopyTable(): void
     {
         $this->scrollIntoView('copyTable');
         $this->waitUntilElementIsVisible('cssSelector', 'form#copyTable', 30);
         $this->byCssSelector("form#copyTable input[name='new_name']")->sendKeys('2');
-        $this->byCssSelector("label[for='what_data']")->click();
+        $this->byCssSelector('label[for="whatRadio2"]')->click();
         $this->byCssSelector("form#copyTable input[type='submit']")->click();
         $this->waitAjax();
 
@@ -176,22 +179,21 @@ class OperationsTest extends TestBase
             . 'copied to `' . $this->database_name . "`.`test_table2`.')]"
         );
 
-        $result = $this->dbQuery('SELECT COUNT(*) as c FROM test_table2');
-        $row = $result->fetch_assoc();
-        $this->assertEquals(
-            2,
-            $row['c']
+        $this->dbQuery(
+            'SELECT COUNT(*) as c FROM `' . $this->database_name . '`.test_table2',
+            function (): void {
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->assertEquals('2', $this->getCellByTableClass('table_results', 1, 1));
+            }
         );
     }
 
     /**
      * Test for truncating a table
      *
-     * @return void
-     *
      * @group large
      */
-    public function testTruncateTable()
+    public function testTruncateTable(): void
     {
         $this->scrollToBottom();
         $this->waitUntilElementIsVisible('id', 'drop_tbl_anchor', 30);
@@ -205,24 +207,22 @@ class OperationsTest extends TestBase
             . "contains(., 'MySQL returned an empty result set')]"
         );
 
-        $result = $this->dbQuery('SELECT COUNT(*) as c FROM test_table');
-        $row = $result->fetch_assoc();
-        $this->assertEquals(
-            0,
-            $row['c']
+        $this->dbQuery(
+            'SELECT CONCAT("Count: ", COUNT(*)) as c FROM `' . $this->database_name . '`.test_table',
+            function (): void {
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->assertEquals('Count: 0', $this->getCellByTableClass('table_results', 1, 1));
+            }
         );
     }
 
     /**
      * Test for dropping a table
      *
-     * @return void
-     *
      * @group large
      */
-    public function testDropTable()
+    public function testDropTable(): void
     {
-        $this->reloadPage();
         $dropLink = $this->waitUntilElementIsVisible('partialLinkText', 'Delete the table (DROP)', 30);
         $this->scrollToElement($this->byId('selflink'));
         $dropLink->click();
@@ -240,10 +240,12 @@ class OperationsTest extends TestBase
             "//a[@class='nav-link text-nowrap' and contains(., 'Structure')]"
         );
 
-        $result = $this->dbQuery('SHOW TABLES');
-        $this->assertEquals(
-            0,
-            $result->num_rows
+        $this->dbQuery(
+            'USE `' . $this->database_name . '`;'
+            . 'SHOW TABLES',
+            function (): void {
+                $this->assertFalse($this->isElementPresent('className', 'table_results'));
+            }
         );
     }
 }

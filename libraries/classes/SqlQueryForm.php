@@ -8,6 +8,7 @@
  * @usedby  /table/structure
  * @usedby  /table/tracking
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
@@ -63,6 +64,9 @@ class SqlQueryForm
         // query to show
         if ($query === true) {
             $query = $GLOBALS['sql_query'];
+            if (empty($query) && (isset($_GET['show_query']) || isset($_POST['show_query']))) {
+                $query = $_GET['sql_query'] ?? $_POST['sql_query'] ?? '';
+            }
         }
 
         $table = '';
@@ -156,7 +160,9 @@ class SqlQueryForm
                 $GLOBALS['cfg']['DefaultTabDatabase'],
                 'database'
             );
-            $tmp_db_link = '<a href="' . $scriptName . Url::getCommon(['db' => $db], strpos($scriptName, '?') === false ? '?' : '&') . '">';
+            $tmp_db_link = '<a href="' . $scriptName
+                . Url::getCommon(['db' => $db], strpos($scriptName, '?') === false ? '?' : '&')
+                . '">';
             $tmp_db_link .= htmlspecialchars($db) . '</a>';
             $legend = sprintf(__('Run SQL query/queries on database %s'), $tmp_db_link);
             if (empty($query)) {

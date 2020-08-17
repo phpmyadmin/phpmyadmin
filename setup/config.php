@@ -2,6 +2,7 @@
 /**
  * Front controller for config view / download and clear
  */
+
 declare(strict_types=1);
 
 use PhpMyAdmin\Config\Forms\Setup\ConfigForm;
@@ -28,7 +29,7 @@ $response = Response::getInstance();
 $response->disable();
 
 if (isset($_POST['eol'])) {
-    $_SESSION['eol'] = $_POST['eol'] == 'unix' ? 'unix' : 'win';
+    $_SESSION['eol'] = $_POST['eol'] === 'unix' ? 'unix' : 'win';
 }
 
 if (Core::ifSetOr($_POST['submit_clear'], '')) {
@@ -37,14 +38,16 @@ if (Core::ifSetOr($_POST['submit_clear'], '')) {
     // drop post data
     $response->generateHeader303('index.php' . Url::getCommonRaw());
     exit;
-} elseif (Core::ifSetOr($_POST['submit_download'], '')) {
+}
+
+if (Core::ifSetOr($_POST['submit_download'], '')) {
     // Output generated config file
     Core::downloadHeader('config.inc.php', 'text/plain');
     $response->disable();
     echo ConfigGenerator::getConfigFile($GLOBALS['ConfigFile']);
     exit;
-} else {
-    // Show generated config file in a <textarea>
-    $response->generateHeader303('index.php' . Url::getCommonRaw(['page' => 'config']));
-    exit;
 }
+
+// Show generated config file in a <textarea>
+$response->generateHeader303('index.php' . Url::getCommonRaw(['page' => 'config']));
+exit;

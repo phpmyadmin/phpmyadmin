@@ -2,6 +2,7 @@
 /**
  * User preferences form
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Config\Forms\User;
@@ -75,9 +76,7 @@ class MainForm extends BaseForm
                 'DefaultTabDatabase',
                 'DefaultTabTable',
             ],
-            'DisplayRelationalSchema' => [
-                'PDFDefaultPageSize',
-            ],
+            'DisplayRelationalSchema' => ['PDFDefaultPageSize'],
         ];
     }
 

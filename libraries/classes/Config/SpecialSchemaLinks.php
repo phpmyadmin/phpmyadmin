@@ -2,6 +2,7 @@
 /**
  * Links configuration for MySQL system tables
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Config;
@@ -90,7 +91,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'Table_name',
                             ],
                         ],
-                        'default_page' => './' . Url::getFromRoute('/table/structure', ['change_column' => 1]),
+                        'default_page' => './' . Url::getFromRoute('/table/structure/change', ['change_column' => 1]),
                     ],
                 ],
                 'db' => [
@@ -283,7 +284,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'table_name',
                             ],
                         ],
-                        'default_page' => './' . Url::getFromRoute('/table/structure', ['change_column' => 1]),
+                        'default_page' => './' . Url::getFromRoute('/table/structure/change', ['change_column' => 1]),
                     ],
                 ],
                 'key_column_usage' => [
@@ -309,7 +310,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'table_name',
                             ],
                         ],
-                        'default_page' => './' . Url::getFromRoute('/table/structure', ['change_column' => 1]),
+                        'default_page' => './' . Url::getFromRoute('/table/structure/change', ['change_column' => 1]),
                     ],
                     'referenced_table_name' => [
                         'link_param' => 'table',
@@ -333,7 +334,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'referenced_table_name',
                             ],
                         ],
-                        'default_page' => './' . Url::getFromRoute('/table/structure', ['change_column' => 1]),
+                        'default_page' => './' . Url::getFromRoute('/table/structure/change', ['change_column' => 1]),
                     ],
                 ],
                 'partitions' => [
@@ -427,7 +428,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'table_name',
                             ],
                         ],
-                        'default_page' => './' . Url::getFromRoute('/table/structure', ['change_column' => 1]),
+                        'default_page' => './' . Url::getFromRoute('/table/structure/change', ['change_column' => 1]),
                     ],
                 ],
                 'tables' => [

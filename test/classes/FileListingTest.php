@@ -1,22 +1,22 @@
 <?php
-/**
- * Tests for PhpMyAdmin\FileListing
- */
+
+declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\FileListing;
-use PHPUnit\Framework\TestCase;
 use function array_values;
 use function extension_loaded;
+use function is_bool;
 
-class FileListingTest extends TestCase
+class FileListingTest extends AbstractTestCase
 {
     /** @var FileListing $fileListing */
     private $fileListing;
 
     protected function setUp(): void
     {
+        parent::setUp();
         $this->fileListing = new FileListing();
     }
 
@@ -26,12 +26,16 @@ class FileListingTest extends TestCase
 
         $fixturesDir = ROOT_PATH . 'test/classes/_data/file_listing';
 
+        $dirContent = $this->fileListing->getDirContent($fixturesDir);
+        if (is_bool($dirContent)) {
+            $dirContent = [];
+        }
         $this->assertSame(
             array_values([
                 'one.txt',
                 'two.md',
             ]),
-            array_values($this->fileListing->getDirContent($fixturesDir))
+            array_values($dirContent)
         );
     }
 

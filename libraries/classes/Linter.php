@@ -2,6 +2,7 @@
 /**
  * Analyzes a query and gives user feedback.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
@@ -57,10 +58,13 @@ class Linter
 
         $lines = [0];
         for ($i = 0; $i < $len; ++$i) {
-            if ($str[$i] === "\n") {
-                $lines[] = $i + 1;
+            if ($str[$i] !== "\n") {
+                continue;
             }
+
+            $lines[] = $i + 1;
         }
+
         return $lines;
     }
 
@@ -81,6 +85,7 @@ class Linter
             }
             $line = $lineNo;
         }
+
         return [
             $line,
             $pos - $lines[$line],
@@ -154,13 +159,13 @@ class Linter
         // Building the response.
         foreach ($errors as $idx => $error) {
             // Starting position of the string that caused the error.
-            list($fromLine, $fromColumn) = static::findLineNumberAndColumn(
+            [$fromLine, $fromColumn] = static::findLineNumberAndColumn(
                 $lines,
                 $error[3]
             );
 
             // Ending position of the string that caused the error.
-            list($toLine, $toColumn) = static::findLineNumberAndColumn(
+            [$toLine, $toColumn] = static::findLineNumberAndColumn(
                 $lines,
                 $error[3] + mb_strlen((string) $error[2])
             );

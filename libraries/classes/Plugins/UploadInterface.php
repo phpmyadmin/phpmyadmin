@@ -2,6 +2,7 @@
 /**
  * Interface for the import->upload plugins
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins;

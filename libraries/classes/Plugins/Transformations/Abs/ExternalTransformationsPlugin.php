@@ -2,12 +2,14 @@
 /**
  * Abstract class for the external transformations plugins
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use stdClass;
+use const E_USER_DEPRECATED;
 use function count;
 use function fclose;
 use function feof;
@@ -17,6 +19,9 @@ use function htmlspecialchars;
 use function is_resource;
 use function proc_close;
 use function proc_open;
+use function sprintf;
+use function strlen;
+use function trigger_error;
 
 /**
  * Provides common methods for all of the external transformations plugins.
@@ -116,8 +121,9 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
         if (isset($options[1]) && strlen((string) $options[1]) > 0) {
             trigger_error(sprintf(
                 __(
-                    'You are using the external transformation command line options field, which has been deprecated for security reasons. '
-                    . 'Add all command line options directly to the definition in %s.'
+                    'You are using the external transformation command line'
+                    . ' options field, which has been deprecated for security reasons.'
+                    . ' Add all command line options directly to the definition in %s.'
                 ),
                 '[code]libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php[/code]'
             ), E_USER_DEPRECATED);

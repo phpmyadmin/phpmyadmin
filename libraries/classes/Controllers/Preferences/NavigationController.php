@@ -15,7 +15,8 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
-use PhpMyAdmin\UserPreferencesHeader;
+use function define;
+use function ltrim;
 
 class NavigationController extends AbstractController
 {
@@ -58,6 +59,7 @@ class NavigationController extends AbstractController
             // revert erroneous fields to their default values
             $formDisplay->fixErrors();
             Core::sendHeaderLocation('./index.php?route=/preferences/navigation');
+
             return;
         }
 
@@ -79,30 +81,28 @@ class NavigationController extends AbstractController
                     null,
                     $hash
                 );
+
                 return;
-            } else {
-                $error = $result;
             }
+
+            $error = $result;
         }
 
-        // display forms
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('config.js');
+        $this->addScriptFiles(['config.js']);
 
         $cfgRelation = $this->relation->getRelationsParam();
 
-        $this->response->addHTML($this->template->render('preferences/header', [
+        $this->render('preferences/header', [
             'route' => $route,
             'is_saved' => ! empty($_GET['saved']),
             'has_config_storage' => $cfgRelation['userconfigwork'],
-        ]));
+        ]);
 
         if ($formDisplay->hasErrors()) {
             $formErrors = $formDisplay->displayErrors();
         }
 
-        $this->response->addHTML($this->template->render('preferences/forms/main', [
+        $this->render('preferences/forms/main', [
             'error' => $error ? $error->getDisplay() : '',
             'has_errors' => $formDisplay->hasErrors(),
             'errors' => $formErrors ?? null,
@@ -113,7 +113,7 @@ class NavigationController extends AbstractController
                 Url::getFromRoute('/preferences/navigation'),
                 ['server' => $server]
             ),
-        ]));
+        ]);
 
         if ($this->response->isAjax()) {
             $this->response->addJSON('disableNaviSettings', true);

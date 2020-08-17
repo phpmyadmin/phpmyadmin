@@ -2,6 +2,7 @@
 /**
  * Represents container node that carries children of a database
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
@@ -20,10 +21,12 @@ abstract class NodeDatabaseChildContainer extends NodeDatabaseChild
     public function __construct($name, $type = Node::OBJECT)
     {
         parent::__construct($name, $type);
-        if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
-            $this->separator = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
-            $this->separatorDepth = (int) $GLOBALS['cfg']['NavigationTreeTableLevel'];
+        if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
+            return;
         }
+
+        $this->separator = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
+        $this->separatorDepth = (int) $GLOBALS['cfg']['NavigationTreeTableLevel'];
     }
 
     /**

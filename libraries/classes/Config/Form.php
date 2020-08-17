@@ -2,10 +2,12 @@
 /**
  * Form handling code.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Config;
 
+use const E_USER_ERROR;
 use function array_combine;
 use function array_shift;
 use function array_walk;
@@ -14,12 +16,13 @@ use function gettype;
 use function is_array;
 use function is_bool;
 use function is_int;
+use function is_string;
 use function ltrim;
 use function mb_strpos;
 use function mb_strrpos;
 use function mb_substr;
+use function str_replace;
 use function trigger_error;
-use const E_USER_ERROR;
 
 /**
  * Base class for forms, loads default configuration options, checks allowed
@@ -60,14 +63,21 @@ class Form
      *
      * @var array
      */
-    private $_fieldsTypes;
+    private $fieldsTypes;
 
     /**
      * ConfigFile instance
      *
      * @var ConfigFile
      */
-    private $_configFile;
+    private $configFile;
+
+    /**
+     * A counter for the number of groups
+     *
+     * @var int
+     */
+    private static $groupCounter = 0;
 
     /**
      * Reads default config values
@@ -84,7 +94,7 @@ class Form
         $index = null
     ) {
         $this->index = $index;
-        $this->_configFile = $cf;
+        $this->configFile = $cf;
         $this->loadForm($formName, $form);
     }
 
@@ -104,7 +114,8 @@ class Form
             ),
             '/'
         );
-        return $this->_fieldsTypes[$key] ?? null;
+
+        return $this->fieldsTypes[$key] ?? null;
     }
 
     /**
@@ -116,19 +127,22 @@ class Form
      */
     public function getOptionValueList($optionPath)
     {
-        $value = $this->_configFile->getDbEntry($optionPath);
+        $value = $this->configFile->getDbEntry($optionPath);
         if ($value === null) {
             trigger_error($optionPath . ' - select options not defined', E_USER_ERROR);
+
             return [];
         }
         if (! is_array($value)) {
             trigger_error($optionPath . ' - not a static value list', E_USER_ERROR);
+
             return [];
         }
         // convert array('#', 'a', 'b') to array('a', 'b')
         if (isset($value[0]) && $value[0] === '#') {
             // remove first element ('#')
             array_shift($value);
+
             // $value has keys and value names, return it
             return $value;
         }
@@ -161,13 +175,18 @@ class Form
      *
      * @return void
      */
-    private function _readFormPathsCallback($value, $key, $prefix)
+    private function readFormPathsCallback($value, $key, $prefix)
     {
-        static $groupCounter = 0;
-
         if (is_array($value)) {
             $prefix .= $key . '/';
-            array_walk($value, [$this, '_readFormPathsCallback'], $prefix);
+            array_walk(
+                $value,
+                function ($value, $key, $prefix) {
+                    $this->readFormPathsCallback($value, $key, $prefix);
+                },
+                $prefix
+            );
+
             return;
         }
 
@@ -176,10 +195,18 @@ class Form
             $value = $key;
         }
         // add unique id to group ends
-        if ($value == ':group:end') {
-            $value .= ':' . $groupCounter++;
+        if ($value === ':group:end') {
+            $value .= ':' . self::$groupCounter++;
         }
         $this->fields[] = $prefix . $value;
+    }
+
+    /**
+     * Reset the group counter, function for testing purposes
+     */
+    public static function resetGroupCounter(): void
+    {
+        self::$groupCounter = 0;
     }
 
     /**
@@ -193,7 +220,13 @@ class Form
     {
         // flatten form fields' paths and save them to $fields
         $this->fields = [];
-        array_walk($form, [$this, '_readFormPathsCallback'], '');
+        array_walk(
+            $form,
+            function ($value, $key, $prefix) {
+                $this->readFormPathsCallback($value, $key, $prefix);
+            },
+            ''
+        );
 
         // $this->fields is an array of the form: [0..n] => 'field path'
         // change numeric indexes to contain field names (last part of the path)
@@ -210,16 +243,16 @@ class Form
     }
 
     /**
-     * Reads fields' types to $this->_fieldsTypes
+     * Reads fields' types to $this->fieldsTypes
      *
      * @return void
      */
     protected function readTypes()
     {
-        $cf = $this->_configFile;
+        $cf = $this->configFile;
         foreach ($this->fields as $name => $path) {
             if (mb_strpos((string) $name, ':group:') === 0) {
-                $this->_fieldsTypes[$name] = 'group';
+                $this->fieldsTypes[$name] = 'group';
                 continue;
             }
             $v = $cf->getDbEntry($path);
@@ -228,12 +261,13 @@ class Form
             } else {
                 $type = gettype($cf->getDefault($path));
             }
-            $this->_fieldsTypes[$name] = $type;
+            $this->fieldsTypes[$name] = $type;
         }
     }
 
     /**
      * Remove slashes from group names
+     *
      * @see issue #15836
      *
      * @param array $form The form data
@@ -243,12 +277,17 @@ class Form
     protected function cleanGroupPaths(array $form): array
     {
         foreach ($form as &$name) {
-            if (is_string($name)) {
-                if (mb_strpos($name, ':group:') === 0) {
-                    $name = str_replace('/', '-', $name);
-                }
+            if (! is_string($name)) {
+                continue;
             }
+
+            if (mb_strpos($name, ':group:') !== 0) {
+                continue;
+            }
+
+            $name = str_replace('/', '-', $name);
         }
+
         return $form;
     }
 

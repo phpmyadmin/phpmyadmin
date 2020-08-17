@@ -2,6 +2,7 @@
 /**
  * Classes to create relation schema in SVG format.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Svg;
@@ -24,9 +25,16 @@ use function strlen;
  */
 class Svg extends XMLWriter
 {
+    /** @var string */
     public $title;
+
+    /** @var string */
     public $author;
+
+    /** @var string */
     public $font;
+
+    /** @var int */
     public $fontSize;
 
     /**

@@ -2,6 +2,7 @@
 /**
  * Set of functions for the SQL executor
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
@@ -9,10 +10,13 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Display\Results as DisplayResults;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\Query\Generator as QueryGenerator;
+use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SqlParser\Statements\AlterStatement;
 use PhpMyAdmin\SqlParser\Statements\DropStatement;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
+use const ENT_COMPAT;
 use function array_map;
 use function array_sum;
 use function bin2hex;
@@ -24,6 +28,7 @@ use function htmlspecialchars;
 use function in_array;
 use function is_array;
 use function is_bool;
+use function is_string;
 use function microtime;
 use function session_start;
 use function session_write_close;
@@ -33,7 +38,6 @@ use function stripos;
 use function strlen;
 use function strpos;
 use function ucwords;
-use const ENT_COMPAT;
 
 /**
  * Set of functions for the SQL executor
@@ -82,6 +86,7 @@ class Sql
         [
             $analyzed_sql_results,,
         ] = ParseAnalyze::sqlQuery($sql_query, $db);
+
         return $analyzed_sql_results;
     }
 
@@ -174,10 +179,13 @@ class Sql
             ) {
                 $just_one_table = false;
             }
-            if ($one_field_meta->table != '') {
-                $prev_table = $one_field_meta->table;
+            if ($one_field_meta->table == '') {
+                continue;
             }
+
+            $prev_table = $one_field_meta->table;
         }
+
         return $just_one_table && $prev_table != '';
     }
 
@@ -199,23 +207,26 @@ class Sql
             $resultSetColumnNames[] = $oneMeta->name;
         }
         foreach (Index::getFromTable($table, $db) as $index) {
-            if ($index->isUnique()) {
-                $indexColumns = $index->getColumns();
-                $numberFound = 0;
-                foreach ($indexColumns as $indexColumnName => $dummy) {
-                    if (in_array($indexColumnName, $resultSetColumnNames)) {
-                        $numberFound++;
-                    } elseif (! in_array($indexColumnName, $columns)) {
-                        $numberFound++;
-                    } elseif (strpos($columns[$indexColumnName]['Extra'], 'INVISIBLE') !== false) {
-                        $numberFound++;
-                    }
-                }
-                if ($numberFound == count($indexColumns)) {
-                    return true;
+            if (! $index->isUnique()) {
+                continue;
+            }
+
+            $indexColumns = $index->getColumns();
+            $numberFound = 0;
+            foreach ($indexColumns as $indexColumnName => $dummy) {
+                if (in_array($indexColumnName, $resultSetColumnNames)) {
+                    $numberFound++;
+                } elseif (! in_array($indexColumnName, $columns)) {
+                    $numberFound++;
+                } elseif (strpos($columns[$indexColumnName]['Extra'], 'INVISIBLE') !== false) {
+                    $numberFound++;
                 }
             }
+            if ($numberFound == count($indexColumns)) {
+                return true;
+            }
         }
+
         return false;
     }
 
@@ -299,6 +310,7 @@ class Sql
                 'chart_json' => $chartJson,
             ]);
         }
+
         return '';
     }
 
@@ -343,6 +355,7 @@ class Sql
                     = $one_result['Duration'];
             }
         }
+
         return [
             $table,
             $chart_json,
@@ -427,7 +440,7 @@ class Sql
      */
     public function getValuesForColumn($db, $table, $column)
     {
-        $field_info_query = $GLOBALS['dbi']->getColumnsSql($db, $table, $column);
+        $field_info_query = QueryGenerator::getColumnsSql($db, $table, $GLOBALS['dbi']->escapeString($column));
 
         $field_info_result = $GLOBALS['dbi']->fetchResult(
             $field_info_query,
@@ -477,6 +490,7 @@ class Sql
                 'sql_query' => $complete_query ?? $sql_query,
             ]);
         }
+
         return '';
     }
 
@@ -499,7 +513,7 @@ class Sql
             && $analyzed_sql_results['select_from']
             && (empty($analyzed_sql_results['select_expr'])
                 || ((count($analyzed_sql_results['select_expr']) === 1)
-                    && ($analyzed_sql_results['select_expr'][0] == '*')))
+                    && ($analyzed_sql_results['select_expr'][0] === '*')))
             && count($analyzed_sql_results['select_tables']) === 1;
     }
 
@@ -519,7 +533,7 @@ class Sql
 
         return (isset($analyzed_sql_results['parser'])
             && count($analyzed_sql_results['parser']->errors) === 0)
-            && ($_SESSION['tmpval']['max_rows'] != 'all')
+            && ($_SESSION['tmpval']['max_rows'] !== 'all')
             && ! ($analyzed_sql_results['is_export']
             || $analyzed_sql_results['is_analyse'])
             && ($analyzed_sql_results['select_from']
@@ -530,11 +544,11 @@ class Sql
     /**
      * Function to check whether this query is for just browsing
      *
-     * @param array     $analyzed_sql_results the analyzed query and other variables set
-     *                                        after analyzing the query
-     * @param bool|null $find_real_end        whether the real end should be found
+     * @param array<string, mixed> $analyzed_sql_results the analyzed query and other variables set
+     *                                                   after analyzing the query
+     * @param bool|null            $find_real_end        whether the real end should be found
      */
-    public function isJustBrowsing(array $analyzed_sql_results, ?bool $find_real_end): bool
+    public static function isJustBrowsing(array $analyzed_sql_results, ?bool $find_real_end): bool
     {
         return ! $analyzed_sql_results['is_group']
             && ! $analyzed_sql_results['is_func']
@@ -563,8 +577,8 @@ class Sql
     private function isDeleteTransformationInfo(array $analyzed_sql_results)
     {
         return ! empty($analyzed_sql_results['querytype'])
-            && (($analyzed_sql_results['querytype'] == 'ALTER')
-                || ($analyzed_sql_results['querytype'] == 'DROP'));
+            && (($analyzed_sql_results['querytype'] === 'ALTER')
+                || ($analyzed_sql_results['querytype'] === 'DROP'));
     }
 
     /**
@@ -609,52 +623,12 @@ class Sql
             default:
                 $property_to_set = '';
         }
+
         return $pmatable->setUiProp(
             $property_to_set,
             $property_value,
             $_POST['table_create_time'] ?? null
         );
-    }
-
-    /**
-     * Function to add a bookmark
-     *
-     * @param string $goto goto page URL
-     *
-     * @return void
-     */
-    public function addBookmark($goto)
-    {
-        $bookmark = Bookmark::createBookmark(
-            $GLOBALS['dbi'],
-            $GLOBALS['cfg']['Server']['user'],
-            $_POST['bkm_fields'],
-            (isset($_POST['bkm_all_users'])
-                && $_POST['bkm_all_users'] == 'true')
-        );
-        $result = $bookmark->save();
-        $response = Response::getInstance();
-        if ($response->isAjax()) {
-            if ($result) {
-                $msg = Message::success(__('Bookmark %s has been created.'));
-                $msg->addParam($_POST['bkm_fields']['bkm_label']);
-                $response->addJSON('message', $msg);
-            } else {
-                $msg = Message::error(__('Bookmark not created!'));
-                $response->setRequestStatus(false);
-                $response->addJSON('message', $msg);
-            }
-            exit;
-        } else {
-            // go back to /sql to redisplay query; do not use &amp; in this case:
-            /**
-             * @todo In which scenario does this happen?
-             */
-            Core::sendHeaderLocation(
-                './' . $goto
-                . '&label=' . $_POST['bkm_fields']['bkm_label']
-            );
-        }
     }
 
     /**
@@ -760,11 +734,11 @@ class Sql
     /**
      * Function to store the query as a bookmark
      *
-     * @param string    $db                     the current database
-     * @param string    $bkm_user               the bookmarking user
-     * @param string    $sql_query_for_bookmark the query to be stored in bookmark
-     * @param string    $bkm_label              bookmark label
-     * @param bool|null $bkm_replace            whether to replace existing bookmarks
+     * @param string $db                     the current database
+     * @param string $bkm_user               the bookmarking user
+     * @param string $sql_query_for_bookmark the query to be stored in bookmark
+     * @param string $bkm_label              bookmark label
+     * @param bool   $bkm_replace            whether to replace existing bookmarks
      *
      * @return void
      */
@@ -773,7 +747,7 @@ class Sql
         $bkm_user,
         $sql_query_for_bookmark,
         $bkm_label,
-        ?bool $bkm_replace
+        bool $bkm_replace
     ) {
         $bfields = [
             'bkm_database' => $db,
@@ -783,16 +757,18 @@ class Sql
         ];
 
         // Should we replace bookmark?
-        if (isset($bkm_replace)) {
+        if ($bkm_replace) {
             $bookmarks = Bookmark::getList(
                 $GLOBALS['dbi'],
                 $GLOBALS['cfg']['Server']['user'],
                 $db
             );
             foreach ($bookmarks as $bookmark) {
-                if ($bookmark->getLabel() == $bkm_label) {
-                    $bookmark->delete();
+                if ($bookmark->getLabel() != $bkm_label) {
+                    continue;
                 }
+
+                $bookmark->delete();
             }
         }
 
@@ -867,6 +843,7 @@ class Sql
     {
         if (strlen($db) > 0) {
             $current_db = $GLOBALS['dbi']->fetchValue('SELECT DATABASE()');
+
             // $current_db is false, except when a USE statement was sent
             return ($current_db != false) && ($db !== $current_db);
         }
@@ -886,16 +863,18 @@ class Sql
      */
     private function cleanupRelations($db, $table, ?string $column, $purge)
     {
-        if (! empty($purge) && strlen($db) > 0) {
-            if (strlen($table) > 0) {
-                if (isset($column) && strlen($column) > 0) {
-                    $this->relationCleanup->column($db, $table, $column);
-                } else {
-                    $this->relationCleanup->table($db, $table);
-                }
+        if (empty($purge) || strlen($db) <= 0) {
+            return;
+        }
+
+        if (strlen($table) > 0) {
+            if (isset($column) && strlen($column) > 0) {
+                $this->relationCleanup->column($db, $table, $column);
             } else {
-                $this->relationCleanup->database($db);
+                $this->relationCleanup->table($db, $table);
             }
+        } else {
+            $this->relationCleanup->database($db);
         }
     }
 
@@ -934,7 +913,7 @@ class Sql
             // result are less than max_rows to display, there is no need
             // to count total rows for that query again
             $unlim_num_rows = $_SESSION['tmpval']['pos'] + $num_rows;
-        } elseif ($analyzed_sql_results['querytype'] == 'SELECT'
+        } elseif ($analyzed_sql_results['querytype'] === 'SELECT'
             || $analyzed_sql_results['is_subquery']
         ) {
             //    c o u n t    q u e r y
@@ -1057,10 +1036,10 @@ class Sql
                 $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
                 $this->storeTheQueryAsBookmark(
                     $db,
-                    $cfgBookmark['user'],
+                    is_array($cfgBookmark) ? $cfgBookmark['user'] : '',
                     $sql_query_for_bookmark,
                     $_POST['bkm_label'],
-                    $_POST['bkm_replace'] ?? null
+                    isset($_POST['bkm_replace'])
                 );
             } // end store bookmarks
 
@@ -1079,7 +1058,7 @@ class Sql
                 $profiling_results = $GLOBALS['dbi']->fetchResult('SHOW PROFILE;');
             }
 
-            $justBrowsing = $this->isJustBrowsing(
+            $justBrowsing = self::isJustBrowsing(
                 $analyzed_sql_results,
                 $find_real_end ?? null
             );
@@ -1172,10 +1151,10 @@ class Sql
         array $analyzed_sql_results,
         $num_rows
     ) {
-        if ($analyzed_sql_results['querytype'] == 'DELETE"') {
+        if ($analyzed_sql_results['querytype'] === 'DELETE"') {
             $message = Message::getMessageForDeletedRows($num_rows);
         } elseif ($analyzed_sql_results['is_insert']) {
-            if ($analyzed_sql_results['querytype'] == 'REPLACE') {
+            if ($analyzed_sql_results['querytype'] === 'REPLACE') {
                 // For REPLACE we get DELETED + INSERTED row count,
                 // so we have to call it affected
                 $message = Message::getMessageForAffectedRows($num_rows);
@@ -1205,7 +1184,7 @@ class Sql
             // The $message_to_show containing a success message and sent with
             // the form should not have priority over errors
         } elseif (! empty($message_to_show)
-            && $analyzed_sql_results['querytype'] != 'SELECT'
+            && $analyzed_sql_results['querytype'] !== 'SELECT'
         ) {
             $message = Message::rawSuccess(htmlspecialchars($message_to_show));
         } elseif (! empty($GLOBALS['show_as_php'])) {
@@ -1342,7 +1321,7 @@ class Sql
                     true
                 );
 
-                if (is_array($profiling_results)) {
+                if ($profiling_results !== null) {
                     $header   = $response->getHeader();
                     $scripts  = $header->getScripts();
                     $scripts->addFile('sql.js');
@@ -1358,7 +1337,7 @@ class Sql
                 );
 
                 $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
-                if ($cfgBookmark) {
+                if (is_array($cfgBookmark)) {
                     $html_output .= $this->getHtmlForBookmark(
                         $displayParts,
                         $cfgBookmark,
@@ -1379,10 +1358,8 @@ class Sql
      * Function to send response for ajax grid edit
      *
      * @param object $result result of the executed query
-     *
-     * @return void
      */
-    private function sendResponseForGridEdit($result)
+    private function getResponseForGridEdit($result): void
     {
         $row = $GLOBALS['dbi']->fetchRow($result);
         $field_flags = $GLOBALS['dbi']->fieldFlags($result, 0);
@@ -1391,7 +1368,6 @@ class Sql
         }
         $response = Response::getInstance();
         $response->addJSON('value', $row[0]);
-        exit;
     }
 
     /**
@@ -1415,18 +1391,18 @@ class Sql
     /**
      * Function to get html for the sql query results table
      *
-     * @param DisplayResults $displayResultsObject instance of DisplayResult
-     * @param string         $pmaThemeImage        theme image uri
-     * @param string         $url_query            url query
-     * @param array          $displayParts         the parts to display
-     * @param bool           $editable             whether the result table is
-     *                                             editable or not
-     * @param int            $unlim_num_rows       unlimited number of rows
-     * @param int            $num_rows             number of rows
-     * @param bool           $showtable            whether to show table or not
-     * @param object|null    $result               result of the executed query
-     * @param array          $analyzed_sql_results analyzed sql results
-     * @param bool           $is_limited_display   Show only limited operations or not
+     * @param DisplayResults   $displayResultsObject instance of DisplayResult
+     * @param string           $pmaThemeImage        theme image uri
+     * @param string           $url_query            url query
+     * @param array            $displayParts         the parts to display
+     * @param bool             $editable             whether the result table is
+     *                                               editable or not
+     * @param int              $unlim_num_rows       unlimited number of rows
+     * @param int              $num_rows             number of rows
+     * @param bool             $showtable            whether to show table or not
+     * @param object|bool|null $result               result of the executed query
+     * @param array            $analyzed_sql_results analyzed sql results
+     * @param bool             $is_limited_display   Show only limited operations or not
      *
      * @return string
      */
@@ -1587,7 +1563,7 @@ class Sql
     private function getMessageIfMissingColumnIndex($table, $database, $editable, $hasUniqueKey): string
     {
         $output = '';
-        if (! empty($table) && ($GLOBALS['dbi']->isSystemSchema($database) || ! $editable)) {
+        if (! empty($table) && (Utilities::isSystemSchema($database) || ! $editable)) {
             $output = Message::notice(
                 sprintf(
                     __(
@@ -1634,16 +1610,18 @@ class Sql
     {
         // BEGIN INDEX CHECK See if indexes should be checked.
         $output = '';
-        if (isset($queryType, $selectedTables) && $queryType == 'check_tbl' && is_array($selectedTables)) {
+        if (isset($queryType, $selectedTables) && $queryType === 'check_tbl' && is_array($selectedTables)) {
             foreach ($selectedTables as $table) {
                 $check = Index::findDuplicates($table, $database);
-                if (! empty($check)) {
-                    $output .= sprintf(
-                        __('Problems with indexes of table `%s`'),
-                        $table
-                    );
-                    $output .= $check;
+                if (empty($check)) {
+                    continue;
                 }
+
+                $output .= sprintf(
+                    __('Problems with indexes of table `%s`'),
+                    $table
+                );
+                $output .= $check;
             }
         }
 
@@ -1700,8 +1678,8 @@ class Sql
         // If we are retrieving the full value of a truncated field or the original
         // value of a transformed field, show it here
         if (isset($_POST['grid_edit']) && $_POST['grid_edit'] == true) {
-            $this->sendResponseForGridEdit($result);
-            // script has exited at this point
+            $this->getResponseForGridEdit($result);
+            exit;
         }
 
         // Gets the list of fields properties
@@ -1769,7 +1747,7 @@ class Sql
             'pview_lnk' => '1',
         ];
 
-        if ($GLOBALS['dbi']->isSystemSchema($db) || ! $editable) {
+        if (Utilities::isSystemSchema($db) || ! $editable) {
             $displayParts = [
                 'edit_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
                 'del_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
@@ -1816,7 +1794,7 @@ class Sql
                 $result,
                 $analyzed_sql_results
             );
-            if (empty($sql_data) || ($sql_data['valid_queries'] = 1)) {
+            if (empty($sql_data) || ($sql_data['valid_queries'] <= 1)) {
                 $response->addHTML($tableMaintenanceHtml);
                 exit;
             }
@@ -1874,7 +1852,7 @@ class Sql
 
         $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
         $bookmarkSupportHtml = '';
-        if ($cfgBookmark) {
+        if (is_array($cfgBookmark)) {
             $bookmarkSupportHtml = $this->getHtmlForBookmark(
                 $displayParts,
                 $cfgBookmark,
@@ -1922,8 +1900,6 @@ class Sql
      *                                                    like check table, optimize table,
      *                                                    analyze table or repair table
      * @param string|null         $complete_query         complete query
-     *
-     * @return void
      */
     public function executeQueryAndSendQueryResponse(
         $analyzed_sql_results,
@@ -1944,7 +1920,7 @@ class Sql
         $sql_query,
         $selectedTables,
         $complete_query
-    ) {
+    ): string {
         if ($analyzed_sql_results == null) {
             // Parse and analyze the query
             [
@@ -1958,7 +1934,7 @@ class Sql
             }
         }
 
-        $html_output = $this->executeQueryAndGetQueryResponse(
+        return $this->executeQueryAndGetQueryResponse(
             $analyzed_sql_results, // analyzed_sql_results
             $is_gotofile, // is_gotofile
             $db, // db
@@ -1978,9 +1954,6 @@ class Sql
             $selectedTables, // selectedTables
             $complete_query // complete_query
         );
-
-        $response = Response::getInstance();
-        $response->addHTML($html_output);
     }
 
     /**

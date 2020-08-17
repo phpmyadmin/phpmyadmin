@@ -2,6 +2,7 @@
 /**
  * Generic AJAX endpoint for getting information about database
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
@@ -45,6 +46,7 @@ class AjaxController extends AbstractController
         if (! isset($_POST['db'])) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON(['message' => Message::error()]);
+
             return;
         }
 
@@ -56,6 +58,7 @@ class AjaxController extends AbstractController
         if (! isset($_POST['db'], $_POST['table'])) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON(['message' => Message::error()]);
+
             return;
         }
 
@@ -72,6 +75,7 @@ class AjaxController extends AbstractController
         if (! isset($_POST['key'])) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON(['message' => Message::error()]);
+
             return;
         }
 
@@ -83,6 +87,7 @@ class AjaxController extends AbstractController
         if (! isset($_POST['key'], $_POST['value'])) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON(['message' => Message::error()]);
+
             return;
         }
 

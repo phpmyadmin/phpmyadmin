@@ -2,6 +2,7 @@
 /**
  * tests for methods under PhpMyAdmin\UserPreferences class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
@@ -17,7 +18,7 @@ use function time;
 /**
  * tests for methods under PhpMyAdmin\UserPreferences class
  */
-class UserPreferencesTest extends PmaTestCase
+class UserPreferencesTest extends AbstractNetworkTestCase
 {
     /** @var UserPreferences */
     private $userPreferences;
@@ -27,21 +28,20 @@ class UserPreferencesTest extends PmaTestCase
      */
     protected function setUp(): void
     {
-        global $cfg;
-        include ROOT_PATH . 'libraries/config.default.php';
+        parent::setUp();
+        parent::loadDefaultConfig();
+        parent::defineVersionConstants();
         $GLOBALS['server'] = 0;
+        $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = '/phpmyadmin/';
-        $cfg['Server']['DisableIS'] = false;
 
         $this->userPreferences = new UserPreferences();
     }
 
     /**
      * Test for pageInit
-     *
-     * @return void
      */
-    public function testPageInit()
+    public function testPageInit(): void
     {
         $GLOBALS['cfg'] = [
             'Server/hide_db' => 'testval123',
@@ -55,9 +55,7 @@ class UserPreferencesTest extends PmaTestCase
         $this->assertEquals(
             [
                 'Servers' => [
-                    1 => [
-                        'hide_db' => 'testval123',
-                    ],
+                    1 => ['hide_db' => 'testval123'],
                 ],
             ],
             $_SESSION['ConfigFile' . $GLOBALS['server']]
@@ -66,10 +64,8 @@ class UserPreferencesTest extends PmaTestCase
 
     /**
      * Test for load
-     *
-     * @return void
      */
-    public function testLoad()
+    public function testLoad(): void
     {
         $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] = PMA_VERSION;
 
@@ -106,7 +102,7 @@ class UserPreferencesTest extends PmaTestCase
         $_SESSION['relation'][$GLOBALS['server']]['userconfig'] = 'testconf';
         $_SESSION['relation'][$GLOBALS['server']]['user'] = 'user';
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -147,10 +143,8 @@ class UserPreferencesTest extends PmaTestCase
 
     /**
      * Test for save
-     *
-     * @return void
      */
-    public function testSave()
+    public function testSave(): void
     {
         $GLOBALS['server'] = 2;
         $_SESSION['relation'][2]['PMA_VERSION'] = PMA_VERSION;
@@ -203,7 +197,7 @@ class UserPreferencesTest extends PmaTestCase
         $query2 = 'UPDATE `pmadb`.`testconf` SET `timevalue` = NOW(), `config_data` = \''
             . json_encode([1]) . '\' WHERE `username` = \'user\'';
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -222,9 +216,10 @@ class UserPreferencesTest extends PmaTestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
-        $this->assertTrue(
-            $this->userPreferences->save([1])
-        );
+
+        $result = $this->userPreferences->save([1]);
+
+        $this->assertTrue($result);
 
         // case 3
 
@@ -234,7 +229,7 @@ class UserPreferencesTest extends PmaTestCase
         $query2 = 'INSERT INTO `pmadb`.`testconf` (`username`, `timevalue`,`config_data`) '
             . 'VALUES (\'user\', NOW(), \'' . json_encode([1]) . '\')';
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -269,10 +264,8 @@ class UserPreferencesTest extends PmaTestCase
 
     /**
      * Test for apply
-     *
-     * @return void
      */
-    public function testApply()
+    public function testApply(): void
     {
         $GLOBALS['cfg']['UserprefsDisallow'] = [
             'test' => 'val',
@@ -291,9 +284,7 @@ class UserPreferencesTest extends PmaTestCase
 
         $this->assertEquals(
             [
-                'Server' => [
-                    'hide_db' => 1,
-                ],
+                'Server' => ['hide_db' => 1],
             ],
             $result
         );
@@ -301,16 +292,12 @@ class UserPreferencesTest extends PmaTestCase
 
     /**
      * Test for apply
-     *
-     * @return void
      */
-    public function testApplyDevel()
+    public function testApplyDevel(): void
     {
         $GLOBALS['cfg']['UserprefsDeveloperTab'] = true;
         $result = $this->userPreferences->apply(
-            [
-                'DBG/sql' => true,
-            ]
+            ['DBG/sql' => true]
         );
 
         $this->assertEquals(
@@ -323,10 +310,8 @@ class UserPreferencesTest extends PmaTestCase
 
     /**
      * Test for persistOption
-     *
-     * @return void
      */
-    public function testPersistOption()
+    public function testPersistOption(): void
     {
         $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] = PMA_VERSION;
         $_SESSION['relation'][$GLOBALS['server']]['userconfigwork'] = null;
@@ -355,10 +340,8 @@ class UserPreferencesTest extends PmaTestCase
 
     /**
      * Test for redirect
-     *
-     * @return void
      */
-    public function testRedirect()
+    public function testRedirect(): void
     {
         $GLOBALS['lang'] = '';
         $GLOBALS['db'] = 'db';
@@ -378,10 +361,8 @@ class UserPreferencesTest extends PmaTestCase
 
     /**
      * Test for autoloadGetHeader
-     *
-     * @return void
      */
-    public function testAutoloadGetHeader()
+    public function testAutoloadGetHeader(): void
     {
         $_SESSION['userprefs_autoload'] = false;
         $_REQUEST['prefs_autoload'] = 'hide';
@@ -397,7 +378,7 @@ class UserPreferencesTest extends PmaTestCase
 
         $_REQUEST['prefs_autoload'] = 'nohide';
         $GLOBALS['cfg']['ServerDefault'] = 1;
-        $GLOBALS['PMA_PHP_SELF'] = 'phpunit';
+        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $result = $this->userPreferences->autoloadGetHeader();
 
         $this->assertStringContainsString(
@@ -421,7 +402,7 @@ class UserPreferencesTest extends PmaTestCase
         );
 
         $this->assertStringContainsString(
-            '<input type="hidden" name="return_url" value="phpunit?">',
+            '<input type="hidden" name="return_url" value="index.php?">',
             $result
         );
     }

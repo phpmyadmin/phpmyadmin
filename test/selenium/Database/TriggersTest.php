@@ -2,6 +2,7 @@
 /**
  * Selenium TestCase for table related tests
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium\Database;
@@ -22,22 +23,18 @@ class TriggersTest extends TestBase
     {
         parent::setUp();
         $this->dbQuery(
-            'CREATE TABLE `test_table` ('
+            'USE `' . $this->database_name . '`;'
+            . 'CREATE TABLE `test_table` ('
             . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
             . ' `val` int(11) NOT NULL,'
             . ' PRIMARY KEY (`id`)'
-            . ')'
-        );
-
-        $this->dbQuery(
-            'CREATE TABLE `test_table2` ('
+            . ');'
+            . 'CREATE TABLE `test_table2` ('
             . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
             . ' `val` int(11) NOT NULL,'
             . ' PRIMARY KEY (`id`)'
-            . ')'
-        );
-        $this->dbQuery(
-            'INSERT INTO `test_table2` (val) VALUES (2);'
+            . ');'
+            . 'INSERT INTO `test_table2` (val) VALUES (2);'
         );
 
         $this->login();
@@ -47,27 +44,29 @@ class TriggersTest extends TestBase
 
     /**
      * Creates procedure for tests
-     *
-     * @return void
      */
-    private function _triggerSQL()
+    private function triggerSQL(): void
     {
         $this->dbQuery(
-            'CREATE TRIGGER `test_trigger` '
+            'USE `' . $this->database_name . '`;'
+            . 'CREATE TRIGGER `test_trigger` '
             . 'AFTER INSERT ON `test_table` FOR EACH ROW'
             . ' UPDATE `' . $this->database_name
-            . '`.`test_table2` SET val = val + 1'
+            . '`.`test_table2` SET val = val + 1',
+            null,
+            function (): void {
+                // Do you really want to execute [..]
+                $this->acceptAlert();
+            }
         );
     }
 
     /**
      * Create a Trigger
      *
-     * @return void
-     *
      * @group large
      */
-    public function testAddTrigger()
+    public function testAddTrigger(): void
     {
         $this->expandMore();
         $this->waitForElement('partialLinkText', 'Triggers')->click();
@@ -113,30 +112,39 @@ class TriggersTest extends TestBase
             )
         );
 
-        $result = $this->dbQuery(
-            'SHOW TRIGGERS FROM `' . $this->database_name . '`;'
+        $this->dbQuery(
+            'SHOW TRIGGERS FROM `' . $this->database_name . '`;',
+            function (): void {
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->assertEquals('test_trigger', $this->getCellByTableClass('table_results', 1, 1));
+            }
         );
-        $this->assertEquals(1, $result->num_rows);
 
         // test trigger
-        $this->dbQuery('INSERT INTO `test_table` (val) VALUES (1);');
-        $result = $this->dbQuery('SELECT val FROM `test_table2`;');
-        $row = $result->fetch_assoc();
-        $this->assertEquals(3, $row['val']);
+        $this->dbQuery(
+            'USE `' . $this->database_name . '`;'
+            . 'INSERT INTO `test_table` (val) VALUES (1);'
+        );
+        $this->dbQuery(
+            'SELECT val FROM `' . $this->database_name . '`.`test_table2`;',
+            function (): void {
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                // [ ] | Edit | Copy | Delete | 1 | 3
+                $this->assertEquals('3', $this->getCellByTableClass('table_results', 1, 5));
+            }
+        );
     }
 
     /**
      * Test for editing Triggers
      *
-     * @return void
-     *
      * @group large
      */
-    public function testEditTriggers()
+    public function testEditTriggers(): void
     {
         $this->expandMore();
 
-        $this->_triggerSQL();
+        $this->triggerSQL();
         $this->waitForElement('partialLinkText', 'Triggers')->click();
         $this->waitAjax();
 
@@ -160,24 +168,30 @@ class TriggersTest extends TestBase
         );
 
         // test trigger
-        $this->dbQuery('INSERT INTO `test_table` (val) VALUES (1);');
-        $result = $this->dbQuery('SELECT val FROM `test_table2`;');
-        $row = $result->fetch_assoc();
-        $this->assertEquals(12, $row['val']);
+        $this->dbQuery(
+            'USE `' . $this->database_name . '`;'
+            . 'INSERT INTO `test_table` (val) VALUES (1);'
+        );
+        $this->dbQuery(
+            'SELECT val FROM `' . $this->database_name . '`.`test_table2`;',
+            function (): void {
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                // [ ] | Edit | Copy | Delete | 1 | 12
+                $this->assertEquals('12', $this->getCellByTableClass('table_results', 1, 5));
+            }
+        );
     }
 
     /**
      * Test for dropping Trigger
      *
-     * @return void
-     *
      * @group large
      */
-    public function testDropTrigger()
+    public function testDropTrigger(): void
     {
         $this->expandMore();
 
-        $this->_triggerSQL();
+        $this->triggerSQL();
         $ele = $this->waitForElement('partialLinkText', 'Triggers');
         $ele->click();
 
@@ -195,14 +209,24 @@ class TriggersTest extends TestBase
         $this->waitAjaxMessage();
 
         // test trigger
-        $this->dbQuery('INSERT INTO `test_table` (val) VALUES (1);');
-        $result = $this->dbQuery('SELECT val FROM `test_table2`;');
-        $row = $result->fetch_assoc();
-        $this->assertEquals(2, $row['val']);
-
-        $result = $this->dbQuery(
-            'SHOW TRIGGERS FROM `' . $this->database_name . '`;'
+        $this->dbQuery(
+            'USE `' . $this->database_name . '`;'
+            . 'INSERT INTO `test_table` (val) VALUES (1);'
         );
-        $this->assertEquals(0, $result->num_rows);
+        $this->dbQuery(
+            'SELECT val FROM `' . $this->database_name . '`.`test_table2`;',
+            function (): void {
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                // [ ] | Edit | Copy | Delete | 1 | 2
+                $this->assertEquals('2', $this->getCellByTableClass('table_results', 1, 5));
+            }
+        );
+
+        $this->dbQuery(
+            'SHOW TRIGGERS FROM `' . $this->database_name . '`;',
+            function (): void {
+                $this->assertfalse($this->isElementPresent('className', 'table_results'));
+            }
+        );
     }
 }

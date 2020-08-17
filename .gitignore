@@ -22,6 +22,7 @@ phpmyadmin.wpj
 .cache
 .idea
 .netbeans
+.vscode
 *.sw[op]
 # Web server files
 web.config
@@ -39,6 +40,7 @@ web.config
 revision-info.php
 # PHP_CodeSniffer
 phpcs.xml
+.phpcs-cache
 # PHPUnit
 phpunit.xml
 /test/bootstrap.php

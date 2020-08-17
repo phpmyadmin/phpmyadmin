@@ -2,18 +2,20 @@
 /**
  * tests for PhpMyAdmin\Properties\Plugins\ImportPluginProperties class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Properties\Plugins;
 
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * tests for PhpMyAdmin\Properties\Plugins\ImportPluginProperties class
  */
-class ImportPluginPropertiesTest extends TestCase
+class ImportPluginPropertiesTest extends AbstractTestCase
 {
+    /** @var ImportPluginProperties */
     protected $object;
 
     /**
@@ -21,6 +23,7 @@ class ImportPluginPropertiesTest extends TestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->object = new ImportPluginProperties();
     }
 
@@ -29,15 +32,14 @@ class ImportPluginPropertiesTest extends TestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 
     /**
      * Test for PhpMyAdmin\Properties\Plugins\ImportPluginProperties::getItemType
-     *
-     * @return void
      */
-    public function testGetItemType()
+    public function testGetItemType(): void
     {
         $this->assertEquals(
             'import',
@@ -49,10 +51,8 @@ class ImportPluginPropertiesTest extends TestCase
      * Test for
      *     - PhpMyAdmin\Properties\Plugins\ImportPluginProperties::getOptionsText
      *     - PhpMyAdmin\Properties\Plugins\ImportPluginProperties::setOptionsText
-     *
-     * @return void
      */
-    public function testSetGetOptionsText()
+    public function testSetGetOptionsText(): void
     {
         $this->object->setOptionsText('options123');
 
@@ -66,10 +66,8 @@ class ImportPluginPropertiesTest extends TestCase
      * Test for
      *     - PhpMyAdmin\Properties\Plugins\ImportPluginProperties::setMimeType
      *     - PhpMyAdmin\Properties\Plugins\ImportPluginProperties::getMimeType
-     *
-     * @return void
      */
-    public function testSetGetMimeType()
+    public function testSetGetMimeType(): void
     {
         $this->object->setMimeType('mime123');
 

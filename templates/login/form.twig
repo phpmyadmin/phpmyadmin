@@ -32,41 +32,45 @@
     </legend>
 
     {% if is_arbitrary_server_allowed %}
-      <div class="item form-group">
-        <label for="input_servername" title="{% trans 'You can enter hostname/IP address and port separated by space.' %}">
+      <div class="item form-row">
+        <label for="input_servername" class="col-4 d-flex align-items-center" title="{% trans 'You can enter hostname/IP address and port separated by space.' %}">
           {% trans 'Server:' %}
         </label>
+        <div class="col-8">
         <input type="text" name="pma_servername" id="input_servername" value="{{ default_server }}" size="24" class="textfield" title="
           {%- trans 'You can enter hostname/IP address and port separated by space.' %}">
+        </div>
       </div>
     {% endif %}
 
     <div class="item form-row">
-      <label for="input_username" class="col-3 d-flex align-items-center">
+      <label for="input_username" class="col-4 d-flex align-items-center">
         {% trans 'Username:' %}
       </label>
       <div class="col-8">
-        <input type="text" name="pma_username" id="input_username" value="{{ default_user }}" size="24" class="textfield form-control" autocomplete="username">
+        <input type="text" name="pma_username" id="input_username" value="{{ default_user }}" size="24" class="textfield" autocomplete="username">
       </div>
     </div>
 
     <div class="item form-row">
-      <label for="input_password" class="col-3 d-flex align-items-center">
+      <label for="input_password" class="col-4 d-flex align-items-center">
         {% trans 'Password:' %}
       </label>
       <div class="col-8">
-        <input type="password" name="pma_password" id="input_password" value="" size="24" class="textfield form-control" autocomplete="current-password">
+        <input type="password" name="pma_password" id="input_password" value="" size="24" class="textfield" autocomplete="current-password">
       </div>
     </div>
 
     {% if has_servers %}
-      <div class="item">
-        <label for="select_server">
+      <div class="item form-row">
+        <label for="select_server" class="col-4 d-flex align-items-center">
           {% trans 'Server choice:' %}
         </label>
-        <select name="server" id="select_server"{{ is_arbitrary_server_allowed ? ' onchange="document.forms[\'login_form\'].elements[\'pma_servername\'].value = \'\'"' }}>
-          {{ server_options|raw }}
-        </select>
+        <div class="col-8">
+          <select name="server" id="select_server"{{ is_arbitrary_server_allowed ? ' onchange="document.forms[\'login_form\'].elements[\'pma_servername\'].value = \'\'"' }}>
+            {{ server_options|raw }}
+          </select>
+        </div>
       </div>
     {% else %}
       <input type="hidden" name="server" value="{{ server }}">
@@ -76,7 +80,12 @@
   <fieldset class="tblFooters">
     {% if has_captcha %}
       <script src="https://www.google.com/recaptcha/api.js?hl={{ lang }}" async defer></script>
+      {% if use_captcha_checkbox %}
+      <div class="g-recaptcha" data-sitekey="{{ captcha_key }}"></div>
+      <input class="btn btn-primary" value="{% trans 'Go' %}" type="submit" id="input_go">
+      {% else %}
       <input class="btn btn-primary g-recaptcha" data-sitekey="{{ captcha_key }}" data-callback="Functions_recaptchaCallback" value="{% trans 'Go' %}" type="submit" id="input_go">
+      {% endif %}
     {% else %}
       <input class="btn btn-primary" value="{% trans 'Go' %}" type="submit" id="input_go">
     {% endif %}

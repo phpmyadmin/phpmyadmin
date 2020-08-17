@@ -2,19 +2,20 @@
 /**
  * Tests for PMA_StorageEngine_binlog
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Engines;
 
 use PhpMyAdmin\Engines\Binlog;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PhpMyAdmin\Engines\Binlog
  */
-class BinlogTest extends PmaTestCase
+class BinlogTest extends AbstractTestCase
 {
-    /** @access protected */
+    /** @var Binlog */
     protected $object;
 
     /**
@@ -25,6 +26,7 @@ class BinlogTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $GLOBALS['server'] = 0;
         $this->object = new Binlog('binlog');
     }
@@ -37,15 +39,14 @@ class BinlogTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 
     /**
      * Test for getMysqlHelpPage
-     *
-     * @return void
      */
-    public function testGetMysqlHelpPage()
+    public function testGetMysqlHelpPage(): void
     {
         $this->assertEquals(
             $this->object->getMysqlHelpPage(),

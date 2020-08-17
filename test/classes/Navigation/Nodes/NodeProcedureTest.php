@@ -2,32 +2,33 @@
 /**
  * Tests for PhpMyAdmin\Navigation\Nodes\NodeProcedure class
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for PhpMyAdmin\Navigation\Nodes\NodeProcedure class
  */
-class NodeProcedureTest extends PmaTestCase
+class NodeProcedureTest extends AbstractTestCase
 {
     /**
      * SetUp for test cases
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
     }
 
     /**
      * Test for __construct
-     *
-     * @return void
      */
-    public function testConstructor()
+    public function testConstructor(): void
     {
         $parent = NodeFactory::getInstance('NodeProcedure');
         $this->assertArrayHasKey(

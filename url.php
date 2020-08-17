@@ -2,6 +2,7 @@
 /**
  * URL redirector to avoid leaking Referer with some sensitive information.
  */
+
 declare(strict_types=1);
 
 use PhpMyAdmin\Core;
@@ -15,7 +16,7 @@ if (! defined('ROOT_PATH')) {
     // phpcs:enable
 }
 
-global $containerBuilder;
+global $containerBuilder, $dbi;
 
 // phpcs:disable PSR1.Files.SideEffects
 define('PMA_MINIMUM_COMMON', true);
@@ -24,7 +25,8 @@ define('PMA_MINIMUM_COMMON', true);
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 // Load database service because services.php is not available here
-$containerBuilder->set(DatabaseInterface::class, DatabaseInterface::load());
+$dbi = DatabaseInterface::load();
+$containerBuilder->set(DatabaseInterface::class, $dbi);
 
 // Only output the http headers
 $response = Response::getInstance();

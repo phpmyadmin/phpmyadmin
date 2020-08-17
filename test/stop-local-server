@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# Do not run as CGI
+if [ -n "$GATEWAY_INTERFACE" ] ; then
+    echo 'Can not invoke as CGI!'
+    exit 1
+fi
+
+set -e
+set -x
+
+if [ "$CI_MODE" != "selenium" ] ; then
+    echo "Not in CI_MODE=selenium"
+    exit 0
+fi
+
+if [ ! -z "$TESTSUITE_BROWSERSTACK_KEY" ] ; then
+    # Stop BrowserStack Local forwarder
+    ~/browserstack/BrowserStackLocal --daemon stop
+fi
+
+if [ -f ~/selenium-standalone.pid~ ] ; then
+    # Stop selenium-standalone server
+    kill $(cat ~/selenium-standalone.pid~)
+    rm ~/selenium-standalone.pid~
+fi

@@ -95,11 +95,9 @@
       <div id="popup_background"></div>
     </fieldset>
 
-    {% include 'div_for_slider_effect.twig' with {
-      'id': 'searchoptions',
-      'message': 'Options'|trans,
-      'initial_sliders_state': default_sliders_state
-    } only %}
+    <div id="searchoptions"{% if default_sliders_state != 'disabled' -%}
+      {{- default_sliders_state == 'closed' ? ' style="display: none; overflow:auto;"' }} class="pma_auto_slider" title="{% trans 'Options' %}"
+    {%- endif %}>
 
     {# Displays columns select list for selecting distinct columns in the search #}
     <fieldset id="fieldset_select_fields">
@@ -155,6 +153,7 @@
 
     </fieldset>
     <div class="clearfloat"></div>
+    </div>
   </fieldset>
 
   <fieldset class="tblFooters">
