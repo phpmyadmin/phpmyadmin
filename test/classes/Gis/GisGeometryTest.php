@@ -363,13 +363,13 @@ class GisGeometryTest extends AbstractTestCase
                 ['Triangle'],
                 4326,
                 'var polygonArray = [];var arr = [];var lineArr = [];'
-                .'var line = new ol.geom.LinearRing(new Array((new ol'
-                .'.geom.Point([0,0]).transform(ol.proj.get("EPSG:4326'
-                .'"), ol.proj.get(\'EPSG:3857\'))).getCoordinates()))'
-                .';var coord = line.getCoordinates();coord.forEach(it'
-                .'em => lineArr.push(item));arr.push(lineArr);var pol'
-                .'ygon = new ol.geom.Polygon(arr);polygonArray.push(p'
-                .'olygon);',
+                . 'var line = new ol.geom.LinearRing(new Array((new ol'
+                . '.geom.Point([0,0]).transform(ol.proj.get("EPSG:4326'
+                . '"), ol.proj.get(\'EPSG:3857\'))).getCoordinates()))'
+                . ';var coord = line.getCoordinates();coord.forEach(it'
+                . 'em => lineArr.push(item));arr.push(lineArr);var pol'
+                . 'ygon = new ol.geom.Polygon(arr);polygonArray.push(p'
+                . 'olygon);',
             ],
         ];
     }
