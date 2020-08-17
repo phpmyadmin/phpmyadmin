@@ -460,33 +460,37 @@ class GisMultiLineStringTest extends GisGeomTestCase
                 'MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))',
                 4326,
                 'Ol',
-                '#B02EE0',
+                [176, 46, 224],
                 [
                     'minX' => '0',
                     'minY' => '0',
                     'maxX' => '1',
                     'maxY' => '1',
                 ],
-                'bound = new OpenLayers.Bounds(); bound.extend(new OpenLayers.'
-                . 'LonLat(0, 0).transform(new OpenLayers.Projection("EPSG:4326"), '
-                . 'map.getProjectionObject())); bound.extend(new OpenLayers.LonLat'
-                . '(1, 1).transform(new OpenLayers.Projection("EPSG:4326"), map.'
-                . 'getProjectionObject()));vectorLayer.addFeatures(new OpenLayers.'
-                . 'Feature.Vector(new OpenLayers.Geometry.MultiLineString(new Arr'
-                . 'ay(new OpenLayers.Geometry.LineString(new Array((new OpenLayers.'
-                . 'Geometry.Point(36,14)).transform(new OpenLayers.Projection("EPSG:'
-                . '4326"), map.getProjectionObject()), (new OpenLayers.Geometry.Po'
-                . 'int(47,23)).transform(new OpenLayers.Projection("EPSG:4326"), '
-                . 'map.getProjectionObject()), (new OpenLayers.Geometry.Point(62,75)'
-                . ').transform(new OpenLayers.Projection("EPSG:4326"), map.getProjec'
-                . 'tionObject()))), new OpenLayers.Geometry.LineString(new Array(('
-                . 'new OpenLayers.Geometry.Point(36,10)).transform(new OpenLayers.'
-                . 'Projection("EPSG:4326"), map.getProjectionObject()), (new Open'
-                . 'Layers.Geometry.Point(17,23)).transform(new OpenLayers.Projection'
-                . '("EPSG:4326"), map.getProjectionObject()), (new OpenLayers.Geo'
-                . 'metry.Point(178,53)).transform(new OpenLayers.Projection("EPSG:'
-                . '4326"), map.getProjectionObject()))))), null, {"strokeColor":"'
-                . '#B02EE0","strokeWidth":2,"label":"Ol","fontSize":10}));',
+                'var style = new ol.style.Style({stroke: new ol.style.Stroke({color'
+                . ': [176,46,224],width: 2}),text: new ol.style.Text({text: "Ol",})}'
+                . ');var minLoc = [0, 0];var maxLoc = [1, 1];var ext = ol.extent.bou'
+                . 'ndingExtent([minLoc, maxLoc]);ext = ol.proj.transformExtent(ext, '
+                . 'ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'));map.getView'
+                . '().fit(ext, map.getSize());var arr = [];var lineArr = [];var line '
+                . '= new ol.geom.LineString(new Array((new ol.geom.Point([36,14]).tr'
+                . 'ansform(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).ge'
+                . 'tCoordinates(), (new ol.geom.Point([47,23]).transform(ol.proj.get'
+                . '("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoordinates(), (ne'
+                . 'w ol.geom.Point([62,75]).transform(ol.proj.get("EPSG:4326"), ol.p'
+                . 'roj.get(\'EPSG:3857\'))).getCoordinates()));var coord = line.getC'
+                . 'oordinates();coord.forEach(item => lineArr.push(item));arr.push(l'
+                . 'ineArr);var lineArr = [];var line = new ol.geom.LineString(new Ar'
+                . 'ray((new ol.geom.Point([36,10]).transform(ol.proj.get("EPSG:4326"'
+                . '), ol.proj.get(\'EPSG:3857\'))).getCoordinates(), (new ol.geom.Po'
+                . 'int([17,23]).transform(ol.proj.get("EPSG:4326"), ol.proj.get(\'EP'
+                . 'SG:3857\'))).getCoordinates(), (new ol.geom.Point([178,53]).trans'
+                . 'form(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCo'
+                . 'ordinates()));var coord = line.getCoordinates();coord.forEach(ite'
+                . 'm => lineArr.push(item));arr.push(lineArr);var multiLineString = '
+                . 'new ol.geom.MultiLineString(arr);var feature = new ol.Feature({ge'
+                . 'ometry: multiLineString});feature.setStyle(style);vectorLayer.add'
+                . 'Feature(feature);',
             ],
         ];
     }
