@@ -18,6 +18,7 @@ use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\ZipExtension;
+use ZipArchive;
 use const LOCK_EX;
 use function count;
 use function extension_loaded;
@@ -48,7 +49,7 @@ class ImportShp extends ImportPlugin
             return;
         }
 
-        $this->zipExtension = new ZipExtension();
+        $this->zipExtension = new ZipExtension(new ZipArchive());
     }
 
     /**

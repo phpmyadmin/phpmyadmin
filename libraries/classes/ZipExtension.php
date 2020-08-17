@@ -18,6 +18,7 @@ use function is_array;
 use function is_string;
 use function pack;
 use function preg_match;
+use function sprintf;
 use function str_replace;
 use function strcmp;
 use function strlen;
@@ -29,12 +30,12 @@ use function substr;
  */
 class ZipExtension
 {
-    /** @var ZipArchive */
+    /** @var ZipArchive|null */
     private $zip;
 
-    public function __construct()
+    public function __construct(?ZipArchive $zip = null)
     {
-        $this->zip = new ZipArchive();
+        $this->zip = $zip;
     }
 
     /**
@@ -53,6 +54,13 @@ class ZipExtension
         * That means that this function works on the assumption that the zip file contains only a single SQL file
         * It might also be an ODS file, look below
         */
+
+        if ($this->zip === null) {
+            return [
+                'error' => sprintf(__('The %s extension is missing. Please check your PHP configuration.'), 'zip'),
+                'data' => '',
+            ];
+        }
 
         $error_message = '';
         $file_data = '';
@@ -128,6 +136,10 @@ class ZipExtension
      */
     public function findFile($file, $regex)
     {
+        if ($this->zip === null) {
+            return false;
+        }
+
         $res = $this->zip->open($file);
 
         if ($res === true) {
@@ -153,6 +165,10 @@ class ZipExtension
      */
     public function getNumberOfFiles($file)
     {
+        if ($this->zip === null) {
+            return 0;
+        }
+
         $num = 0;
         $res = $this->zip->open($file);
 
@@ -173,6 +189,10 @@ class ZipExtension
      */
     public function extract($file, $entry)
     {
+        if ($this->zip === null) {
+            return false;
+        }
+
         if ($this->zip->open($file) === true) {
             $result = $this->zip->getFromName($entry);
             $this->zip->close();

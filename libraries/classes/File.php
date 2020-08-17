@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use ZipArchive;
 use const UPLOAD_ERR_CANT_WRITE;
 use const UPLOAD_ERR_EXTENSION;
 use const UPLOAD_ERR_FORM_SIZE;
@@ -111,7 +112,7 @@ class File
             return;
         }
 
-        $this->zipExtension = new ZipExtension();
+        $this->zipExtension = new ZipExtension(new ZipArchive());
     }
 
     /**

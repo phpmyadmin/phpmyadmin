@@ -28,7 +28,7 @@ class ZipExtensionTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->zipExtension = new ZipExtension();
+        $this->zipExtension = new ZipExtension(new ZipArchive());
     }
 
     /**
