@@ -1042,4 +1042,9 @@ AJAX.registerOnload('export.js', function () {
         e.preventDefault();
         setSelectOptions(false);
     });
+
+    $('#buttonGo').on('click', function () {
+        var timeLimit = parseInt($(this).attr('data-exec-time-limit'));
+        Export.checkTimeOut(timeLimit);
+    });
 });
