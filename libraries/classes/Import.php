@@ -41,7 +41,6 @@ use function strtoupper;
 use function substr;
 use function time;
 use function trim;
-use function unlink;
 
 /**
  * Library that provides common import functions that are used by import plugins
@@ -1425,35 +1424,6 @@ class Import
         $message .= '</ul></ul>';
 
         $import_notice = $message;
-    }
-
-    /**
-     * Stops the import on (mostly upload/file related) error
-     *
-     * @param Message $error_message The error message
-     *
-     * @access public
-     */
-    public function stop(Message $error_message): void
-    {
-        global $import_handle, $file_to_unlink;
-
-        // Close open handles
-        if ($import_handle !== false && $import_handle !== null) {
-            $import_handle->close();
-        }
-
-        // Delete temporary file
-        if ($file_to_unlink != '') {
-            unlink($file_to_unlink);
-        }
-        $msg = $error_message->getDisplay();
-        $_SESSION['Import_message']['message'] = $msg;
-
-        $response = Response::getInstance();
-        $response->setRequestStatus(false);
-        $response->addJSON('message', $msg);
-        $response->addHTML($msg);
     }
 
     /**

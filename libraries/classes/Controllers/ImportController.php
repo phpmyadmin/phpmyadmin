@@ -528,30 +528,51 @@ final class ImportController extends AbstractController
             $import_handle = new File($import_file);
             $import_handle->checkUploadedFile();
             if ($import_handle->isError()) {
-                $this->import->stop($import_handle->getError());
+                /** @var Message $errorMessage */
+                $errorMessage = $import_handle->getError();
+
+                $import_handle->close();
+
+                $_SESSION['Import_message']['message'] = $errorMessage->getDisplay();
+
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', $errorMessage->getDisplay());
+                $this->response->addHTML($errorMessage->getDisplay());
 
                 return;
             }
             $import_handle->setDecompressContent(true);
             $import_handle->open();
             if ($import_handle->isError()) {
-                $this->import->stop($import_handle->getError());
+                /** @var Message $errorMessage */
+                $errorMessage = $import_handle->getError();
+
+                $import_handle->close();
+
+                $_SESSION['Import_message']['message'] = $errorMessage->getDisplay();
+
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', $errorMessage->getDisplay());
+                $this->response->addHTML($errorMessage->getDisplay());
 
                 return;
             }
-        } elseif (! $error) {
-            if (! isset($import_text) || empty($import_text)) {
-                $message = Message::error(
-                    __(
-                        'No data was received to import. Either no file name was ' .
-                        'submitted, or the file size exceeded the maximum size permitted ' .
-                        'by your PHP configuration. See [doc@faq1-16]FAQ 1.16[/doc].'
-                    )
-                );
-                $this->import->stop($message);
+        } elseif (! $error && (! isset($import_text) || empty($import_text))) {
+            $message = Message::error(
+                __(
+                    'No data was received to import. Either no file name was ' .
+                    'submitted, or the file size exceeded the maximum size permitted ' .
+                    'by your PHP configuration. See [doc@faq1-16]FAQ 1.16[/doc].'
+                )
+            );
 
-                return;
-            }
+            $_SESSION['Import_message']['message'] = $message->getDisplay();
+
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', $message->getDisplay());
+            $this->response->addHTML($message->getDisplay());
+
+            return;
         }
 
         // so we can obtain the message
@@ -602,7 +623,12 @@ final class ImportController extends AbstractController
                 $message = Message::error(
                     __('Could not load import plugins, please check your installation!')
                 );
-                $this->import->stop($message);
+
+                $_SESSION['Import_message']['message'] = $message->getDisplay();
+
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', $message->getDisplay());
+                $this->response->addHTML($message->getDisplay());
 
                 return;
             }
