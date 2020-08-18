@@ -66,7 +66,7 @@ class ManageController extends AbstractController
 
     public function index(): void
     {
-        global $cf, $error, $filename, $import_handle, $json, $PMA_Config, $lang, $max_upload_size;
+        global $cf, $error, $filename, $json, $PMA_Config, $lang, $max_upload_size;
         global $new_config, $config, $return_url, $form_display, $all_ok, $params, $query, $route;
 
         $cf = new ConfigFile($PMA_Config->base_settings);
@@ -116,13 +116,13 @@ class ManageController extends AbstractController
                 && $_FILES['import_file']['error'] == UPLOAD_ERR_OK
                 && is_uploaded_file($_FILES['import_file']['tmp_name'])
             ) {
-                $import_handle = new File($_FILES['import_file']['tmp_name']);
-                $import_handle->checkUploadedFile();
-                if ($import_handle->isError()) {
-                    $error = $import_handle->getError();
+                $importHandle = new File($_FILES['import_file']['tmp_name']);
+                $importHandle->checkUploadedFile();
+                if ($importHandle->isError()) {
+                    $error = $importHandle->getError();
                 } else {
                     // read JSON from uploaded file
-                    $json = $import_handle->getRawContent();
+                    $json = $importHandle->getRawContent();
                 }
             } else {
                 // read from POST value (json)

@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
 
+use PhpMyAdmin\File;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
@@ -69,7 +70,7 @@ class ImportMediawiki extends ImportPlugin
      *
      * @return void
      */
-    public function doImport(array &$sql_data = [])
+    public function doImport(?File $importHandle = null, array &$sql_data = [])
     {
         global $error, $timeout_passed, $finished;
 
@@ -101,7 +102,7 @@ class ImportMediawiki extends ImportPlugin
         $in_table_header = false;
 
         while (! $finished && ! $error && ! $timeout_passed) {
-            $data = $this->import->getNextChunk();
+            $data = $this->import->getNextChunk($importHandle);
 
             if ($data === false) {
                 // Subtract data we didn't handle yet and stop processing

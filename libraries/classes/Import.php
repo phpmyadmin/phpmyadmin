@@ -384,17 +384,13 @@ class Import
     /**
      * Returns next part of imported file/buffer
      *
-     * @param int $size size of buffer to read
-     *                  (this is maximal size function will return)
+     * @param int $size size of buffer to read (this is maximal size function will return)
      *
      * @return string|bool part of file/buffer
-     *
-     * @access public
      */
-    public function getNextChunk(int $size = 32768)
+    public function getNextChunk(?File $importHandle = null, int $size = 32768)
     {
-        global $import_handle, $charset_conversion, $charset_of_file,
-            $read_multiply;
+        global $charset_conversion, $charset_of_file, $read_multiply;
 
         // Add some progression while reading large amount of data
         if ($read_multiply <= 8) {
@@ -432,8 +428,12 @@ class Import
             return $r;
         }
 
-        $result = $import_handle->read($size);
-        $GLOBALS['finished'] = $import_handle->eof();
+        if ($importHandle === null) {
+            return false;
+        }
+
+        $result = $importHandle->read($size);
+        $GLOBALS['finished'] = $importHandle->eof();
         $GLOBALS['offset'] += $size;
 
         if ($charset_conversion) {

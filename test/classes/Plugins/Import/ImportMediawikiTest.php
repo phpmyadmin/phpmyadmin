@@ -44,8 +44,6 @@ class ImportMediawikiTest extends AbstractTestCase
         $GLOBALS['import_text'] = 'ImportMediawiki_Test';
         $GLOBALS['read_multiply'] = 10;
         $GLOBALS['import_type'] = 'Mediawiki';
-        $GLOBALS['import_handle'] = new File($GLOBALS['import_file']);
-        $GLOBALS['import_handle']->open();
     }
 
     /**
@@ -106,8 +104,11 @@ class ImportMediawikiTest extends AbstractTestCase
             ->getMock();
         $GLOBALS['dbi'] = $dbi;
 
+        $importHandle = new File($GLOBALS['import_file']);
+        $importHandle->open();
+
         //Test function called
-        $this->object->doImport();
+        $this->object->doImport($importHandle);
 
         // If import successfully, PMA will show all databases and
         // tables imported as following HTML Page

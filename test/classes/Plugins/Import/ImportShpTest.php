@@ -68,13 +68,14 @@ class ImportShpTest extends AbstractTestCase
     protected function runImport(string $filename): void
     {
         $GLOBALS['import_file'] = $filename;
-        $GLOBALS['import_handle'] = new File($filename);
-        $GLOBALS['import_handle']->setDecompressContent(true);
-        $GLOBALS['import_handle']->open();
+
+        $importHandle = new File($filename);
+        $importHandle->setDecompressContent(true);
+        $importHandle->open();
 
         $GLOBALS['message'] = '';
         $GLOBALS['error'] = false;
-        $this->object->doImport();
+        $this->object->doImport($importHandle);
         $this->assertEquals('', $GLOBALS['message']);
         $this->assertFalse($GLOBALS['error']);
     }

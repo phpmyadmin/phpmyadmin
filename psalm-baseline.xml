@@ -333,18 +333,13 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>$skip &lt; $read_limit ? $skip : $read_limit</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="2">
-      <code>$import_handle-&gt;getError()</code>
-      <code>$import_handle-&gt;getError()</code>
-    </PossiblyNullArgument>
     <PossiblyNullArrayAccess occurrences="1">
       <code>$_FILES['import_file']['name']</code>
     </PossiblyNullArrayAccess>
     <PossiblyUndefinedArrayOffset occurrences="1">
       <code>$_FILES['import_file']</code>
     </PossiblyUndefinedArrayOffset>
-    <TypeDoesNotContainType occurrences="5">
-      <code>$file_to_unlink != ''</code>
+    <TypeDoesNotContainType occurrences="4">
       <code>$bookmark_created</code>
       <code>$finished &amp;&amp; ! $error</code>
       <code>$timeout_passed</code>

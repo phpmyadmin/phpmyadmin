@@ -41,7 +41,6 @@ use function strlen;
 use function substr;
 use function time;
 use function trim;
-use function unlink;
 
 final class ImportController extends AbstractController
 {
@@ -69,9 +68,9 @@ final class ImportController extends AbstractController
     {
         global $cfg, $collation_connection, $db, $import_type, $pmaThemeImage, $table, $goto, $display_query;
         global $format, $local_import_file, $ajax_reload, $import_text, $sql_query, $message, $err_url, $url_params;
-        global $import_handle, $memory_limit, $read_limit, $finished, $offset, $charset_conversion, $charset_of_file;
+        global $memory_limit, $read_limit, $finished, $offset, $charset_conversion, $charset_of_file;
         global $timestamp, $maximum_time, $timeout_passed, $import_file, $go_sql, $sql_file, $error, $max_sql_len, $msg;
-        global $file_to_unlink, $sql_query_disabled, $executed_queries, $run_query, $reset_charset, $bookmark_created;
+        global $sql_query_disabled, $executed_queries, $run_query, $reset_charset, $bookmark_created;
         global $result, $import_file_name, $sql_data, $import_notice, $read_multiply, $my_die, $active_page;
         global $show_as_php, $reload, $charset_connection, $is_js_confirmed, $MAX_FILE_SIZE, $message_to_show;
         global $noplugin, $skip_queries;
@@ -353,7 +352,6 @@ final class ImportController extends AbstractController
         $finished = false;
         $offset = 0;
         $max_sql_len = 0;
-        $file_to_unlink = '';
         $sql_query = '';
         $sql_query_disabled = false;
         $go_sql = false;
@@ -525,13 +523,13 @@ final class ImportController extends AbstractController
             /**
              *  Handle file compression
              */
-            $import_handle = new File($import_file);
-            $import_handle->checkUploadedFile();
-            if ($import_handle->isError()) {
+            $importHandle = new File($import_file);
+            $importHandle->checkUploadedFile();
+            if ($importHandle->isError()) {
                 /** @var Message $errorMessage */
-                $errorMessage = $import_handle->getError();
+                $errorMessage = $importHandle->getError();
 
-                $import_handle->close();
+                $importHandle->close();
 
                 $_SESSION['Import_message']['message'] = $errorMessage->getDisplay();
 
@@ -541,13 +539,13 @@ final class ImportController extends AbstractController
 
                 return;
             }
-            $import_handle->setDecompressContent(true);
-            $import_handle->open();
-            if ($import_handle->isError()) {
+            $importHandle->setDecompressContent(true);
+            $importHandle->open();
+            if ($importHandle->isError()) {
                 /** @var Message $errorMessage */
-                $errorMessage = $import_handle->getError();
+                $errorMessage = $importHandle->getError();
 
-                $import_handle->close();
+                $importHandle->close();
 
                 $_SESSION['Import_message']['message'] = $errorMessage->getDisplay();
 
@@ -575,9 +573,6 @@ final class ImportController extends AbstractController
             return;
         }
 
-        // so we can obtain the message
-        //$_SESSION['Import_message'] = $message->getDisplay();
-
         // Convert the file's charset if necessary
         if (Encoding::isSupported() && isset($charset_of_file)) {
             if ($charset_of_file !== 'utf-8') {
@@ -594,7 +589,7 @@ final class ImportController extends AbstractController
         if (! $error && isset($_POST['skip'])) {
             $original_skip = $skip = intval($_POST['skip']);
             while ($skip > 0 && ! $finished) {
-                $this->import->getNextChunk($skip < $read_limit ? $skip : $read_limit);
+                $this->import->getNextChunk($importHandle ?? null, $skip < $read_limit ? $skip : $read_limit);
                 // Disable read progressivity, otherwise we eat all memory!
                 $read_multiply = 1;
                 $skip -= $read_limit;
@@ -636,7 +631,7 @@ final class ImportController extends AbstractController
             // Do the real import
             $default_fk_check = Util::handleDisableFKCheckInit();
             try {
-                $import_plugin->doImport($sql_data);
+                $import_plugin->doImport($importHandle ?? null, $sql_data);
                 Util::handleDisableFKCheckCleanup($default_fk_check);
             } catch (Throwable $e) {
                 Util::handleDisableFKCheckCleanup($default_fk_check);
@@ -645,13 +640,8 @@ final class ImportController extends AbstractController
             }
         }
 
-        if (isset($import_handle)) {
-            $import_handle->close();
-        }
-
-        // Cleanup temporary file
-        if ($file_to_unlink != '') {
-            unlink($file_to_unlink);
+        if (isset($importHandle)) {
+            $importHandle->close();
         }
 
         // Reset charset back, if we did some changes

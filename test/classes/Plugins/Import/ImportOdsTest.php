@@ -49,9 +49,6 @@ class ImportOdsTest extends AbstractTestCase
         */
         $GLOBALS['read_multiply'] = 10;
         $GLOBALS['import_type'] = 'ods';
-        $GLOBALS['import_handle'] = new File($GLOBALS['import_file']);
-        $GLOBALS['import_handle']->setDecompressContent(true);
-        $GLOBALS['import_handle']->open();
 
         //variable for Ods
         $_REQUEST['ods_recognize_percentages'] = true;
@@ -113,8 +110,12 @@ class ImportOdsTest extends AbstractTestCase
             ->will($this->returnArgument(0));
         $GLOBALS['dbi'] = $dbi;
 
+        $importHandle = new File($GLOBALS['import_file']);
+        $importHandle->setDecompressContent(true);
+        $importHandle->open();
+
         //Test function called
-        $this->object->doImport();
+        $this->object->doImport($importHandle);
 
         $this->assertStringContainsString(
             'CREATE DATABASE IF NOT EXISTS `ODS_DB` DEFAULT CHARACTER SET '
