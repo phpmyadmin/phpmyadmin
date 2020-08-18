@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:48-0300\n"
-"PO-Revision-Date: 2020-08-14 01:32+0000\n"
-"Last-Translator: Alexsandro Thomas <alexsandrogthomas@gmail.com>\n"
+"PO-Revision-Date: 2020-08-19 03:33+0000\n"
+"Last-Translator: Eduardo Addad de Oliveira <duduaddad@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -7628,7 +7628,8 @@ msgstr "Nome de tabela inválido"
 #. l10n: In case a SQL query did not pass a security check
 #: libraries/classes/Controllers/Table/GetFieldController.php:52
 msgid "There is an issue with your request."
-msgstr "Há um problema com sua requisição."
+msgstr ""
+"l10n: No caso de uma consulta SQL não passar por uma verificação de segurança"
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:65
 #: libraries/classes/Database/Routines.php:1555
@@ -11212,8 +11213,6 @@ msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgstr "Converte um endereço de internet no formato (IPv4/IPv6) em binário"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptolong.php:29
-#, fuzzy
-#| msgid "Converts an Internet network address in (IPv4/IPv6) format to long."
 msgid ""
 "Converts an Internet network address in (IPv4/IPv6) format into a long "
 "integer."
@@ -12483,6 +12482,8 @@ msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
 msgstr ""
+"Destinado ao armazenamento de endereços IPv6, bem como endereços IPv4, "
+"assumindo o mapeamento convencional de endereços IPv4 em endereços IPv6"
 
 #: libraries/classes/Types.php:723
 msgctxt "numeric types"
