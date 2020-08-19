@@ -100,7 +100,7 @@
     <legend>{% trans %}New{% context %}Create new event{% endtrans %}</legend>
     <div class="wrap">
       {% if has_privilege %}
-        <a class="ajax add_anchor" href="{{ url('/database/events', {'db': db, 'add_item': true}) }}" onclick="$.datepicker.initialized = false;">
+        <a class="ajax add_anchor" href="{{ url('/database/events', {'db': db, 'add_item': true}) }}">
           {{ get_icon('b_event_add') }}
           {% trans 'Add event' %}
         </a>

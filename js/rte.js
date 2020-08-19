@@ -923,6 +923,11 @@ $(function () {
      */
     $(document).on('click', 'a.ajax.add_anchor, a.ajax.edit_anchor', function (event) {
         event.preventDefault();
+
+        if ($(this).hasClass('add_anchor')) {
+            $.datepicker.initialized = false;
+        }
+
         var type = $(this).attr('href').substr(0, $(this).attr('href').indexOf('&'));
         if (type.indexOf('routine') !== -1) {
             type = 'routine';
