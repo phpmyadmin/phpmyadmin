@@ -14,7 +14,6 @@ use PhpMyAdmin\Encoding;
 use PhpMyAdmin\FileListing;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
-use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 use function function_exists;
@@ -47,13 +46,7 @@ class Import
             $uploadId,
         ] = ImportAjax::uploadProgressSetup();
 
-        /* Scan for plugins */
-        /** @var ImportPlugin[] $importList */
-        $importList = Plugins::getPlugins(
-            'import',
-            'libraries/classes/Plugins/Import/',
-            $importType
-        );
+        $importList = Plugins::getImport($importType);
 
         /* Fail if we didn't find any plugin */
         if (empty($importList)) {
