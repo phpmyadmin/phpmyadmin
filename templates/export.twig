@@ -419,8 +419,6 @@
   {% endif %}
 
   <div class="exportoptions justify-content-end" id="submit">
-    <input id="buttonGo" class="btn btn-primary" type="submit" value="{% trans 'Go' %}"
-      {#- If the time limit set is zero, then time out won't occur so no need to check for time out. -#}
-      {%- if exec_time_limit > 0 %} data-exec-time-limit="{{ exec_time_limit }}" {% endif %}>
+    <input id="buttonGo" class="btn btn-primary" type="submit" value="{% trans 'Go' %}" data-exec-time-limit="{{ exec_time_limit }}">
   </div>
 </form>
