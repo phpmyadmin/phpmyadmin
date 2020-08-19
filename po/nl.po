@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:48-0300\n"
-"PO-Revision-Date: 2020-08-01 21:42+0000\n"
+"PO-Revision-Date: 2020-08-20 22:36+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 4.2.1-dev\n"
 
 #: libraries/classes/Advisor.php:319
 #, php-format
@@ -7232,9 +7232,9 @@ msgid ""
 "then your key_buffer_size value is probably too small. The cache miss rate "
 "can be calculated as Key_reads/Key_read_requests."
 msgstr ""
-"Het aantal fysieke leesoperaties van een sleutelblok van schrijf. Indien "
-"key_reads groot is, is de waarde van key_buffer_size mogelijk te laag. De "
-"cache miss rate kan worden berekend met Key_reads / Key_read_requests."
+"Het aantal fysieke leesoperaties van een sleutelblok van schijf. Is "
+"Key_reads groot dan is de waarde van key_buffer_size mogelijk te laag. De "
+"cache miss rate kan worden berekend met Key_reads/Key_read_requests."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:499
 msgid ""
@@ -7381,9 +7381,9 @@ msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
 msgstr ""
-"Het aantal joins zonder sleutel, dat na elke rij controleert op het gebruik "
-"van een sleutel. (Indien dit geen 0 is, is het aan te raden om het gebruik "
-"van indexen te controleren.)"
+"Het aantal joins zonder sleutels dat na elke rij controleert op het gebruik "
+"van een sleutel. (Is dit geen 0 dan is het aan te raden om het gebruik van "
+"indexen te controleren.)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:585
 msgid ""
@@ -7439,8 +7439,8 @@ msgid ""
 "system variable."
 msgstr ""
 "Het aantal samenvoegings-ronden dat het sorteeralgoritme heeft moeten "
-"uitvoeren. Indien deze waarde hoog is, is het een optie om de "
-"systeemvariabele sort_buffer_size te vergroten."
+"uitvoeren. Is deze waarde hoog dan is het een optie om de systeemvariabele "
+"sort_buffer_size te vergroten."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:616
 msgid "The number of sorts that were done with ranges."
@@ -9757,9 +9757,9 @@ msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
 msgstr ""
-"Selecteer een kolom die opgesplitst kan worden in meer dan één kolom "
-"(wanneer 'geen dergelijke kolom' geselecteerd wordt, wordt er overgeschakeld "
-"naar de volgende stap)."
+"Selecteer een kolom die opgesplitst kan worden in meer dan één kolom (wordt "
+"'geen dergelijke kolom' geselecteerd dan wordt er overgeschakeld naar de "
+"volgende stap)."
 
 #: libraries/classes/Normalization.php:258
 msgid "split into "
@@ -11240,12 +11240,11 @@ msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgstr "Zet een internet netwerkadres in (IPv4/IPv6) om in een binair getal"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptolong.php:29
-#, fuzzy
-#| msgid "Converts an Internet network address in (IPv4/IPv6) format to long."
 msgid ""
 "Converts an Internet network address in (IPv4/IPv6) format into a long "
 "integer."
-msgstr "Zet een internet netwerkadres in (IPv4/IPv6) om in een long notatie."
+msgstr ""
+"Zet een internet netwerkadres in (IPv4/IPv6) om in een long integer notatie."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:26
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -12514,6 +12513,8 @@ msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
 msgstr ""
+"Bedoeld voor opslag van IPv6 adressen, als ook IPv4 adressen waarbij de "
+"gebruikelijke omzetting van IPv4 adressen in IPv6 adressen wordt aangenomen"
 
 #: libraries/classes/Types.php:723
 msgctxt "numeric types"
@@ -13624,14 +13625,10 @@ msgid "Event scheduler status"
 msgstr "Status van de gebeurtenis-scheduler"
 
 #: templates/database/export/index.twig:62
-#, fuzzy
-#| msgid ""
-#| "@SERVER@ will become the server name, @DATABASE@ will become the database "
-#| "name."
 msgid ""
 "@SERVER@ will become the server name and @DATABASE@ will become the database "
 "name."
-msgstr "@SERVER@ wordt de servernaam, @DATABASE@ wordt de databasenaam."
+msgstr "@SERVER@ wordt de servernaam en @DATABASE@ wordt de databasenaam."
 
 #. l10n: A query that the user has written freely
 #: templates/database/export/index.twig:5
@@ -14539,11 +14536,7 @@ msgid "File name template:"
 msgstr "Bestandsnaamtemplate:"
 
 #: templates/export.twig:324
-#, fuzzy, php-format
-#| msgid ""
-#| "This value is interpreted using the 'strftime' function, so you can use "
-#| "time formatting strings. Additionally the following transformations will "
-#| "happen:"
+#, php-format
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
 "formatting strings. Additionally the following transformations will happen: "
@@ -14551,7 +14544,8 @@ msgid ""
 msgstr ""
 "Deze waarde wordt geïnterpreteerd met behulp van 'strftime' functie, het "
 "gebruik van opmaakcodes is dan ook toegestaan. Daarnaast worden de volgende "
-"transformaties toegepast:"
+"transformaties toegepast: %s Overige tekst blijft ongewijzigd. Zie FAQ 6.27 "
+"voor details."
 
 #: templates/export.twig:329
 msgid "use this for future exports"
@@ -16782,15 +16776,11 @@ msgid "Save chart as image"
 msgstr "Sla grafiek op als afbeelding"
 
 #: templates/table/export/index.twig:8
-#, fuzzy
-#| msgid ""
-#| "@SERVER@ will become the server name, @DATABASE@ will become the database "
-#| "name, @TABLE@ will become the table name."
 msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name and @TABLE@ will become the table name."
 msgstr ""
-"@SERVER@ wordt de servernaam, @DATABASE@ wordt de databasenaam, @TABLE@ "
+"@SERVER@ wordt de servernaam, @DATABASE@ wordt de databasenaam en @TABLE@ "
 "wordt de tabelnaam."
 
 #: templates/table/export/index.twig:5
