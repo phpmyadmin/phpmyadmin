@@ -1,7 +1,4 @@
 <?php
-/**
- * functions for displaying import for: server, database and table
- */
 
 declare(strict_types=1);
 
@@ -12,51 +9,33 @@ use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\FileListing;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Plugins;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 use function function_exists;
 use function intval;
 
 /**
- * PhpMyAdmin\Display\Import class
+ * Functions for displaying import for: server, database and table
  */
 class Import
 {
     /**
-     * Gets HTML to display import dialogs
-     *
      * @param string $importType    Import type: server|database|table
      * @param string $db            Selected DB
      * @param string $table         Selected Table
      * @param int    $maxUploadSize Max upload size
      *
-     * @return string HTML
+     * @return array
      */
-    public static function get($importType, $db, $table, $maxUploadSize)
-    {
+    public static function get(
+        $importType,
+        $db,
+        $table,
+        $maxUploadSize,
+        string $sessionKey,
+        string $uploadId,
+        array $importList
+    ): array {
         global $cfg;
-        global $SESSION_KEY;
-
-        $template = new Template();
-
-        [
-            $SESSION_KEY,
-            $uploadId,
-        ] = ImportAjax::uploadProgressSetup();
-
-        $importList = Plugins::getImport($importType);
-
-        /* Fail if we didn't find any plugin */
-        if (empty($importList)) {
-            echo Message::error(
-                __(
-                    'Could not load import plugins, please check your installation!'
-                )
-            )->getDisplay();
-            exit;
-        }
 
         if (Core::isValid($_REQUEST['offset'], 'numeric')) {
             $offset = intval($_REQUEST['offset']);
@@ -92,10 +71,10 @@ class Import
             ];
         }
 
-        return $template->render('display/import/import', [
+        return [
             'upload_id' => $uploadId,
-            'handler' => $_SESSION[$SESSION_KEY]['handler'],
-            'id_key' => $_SESSION[$SESSION_KEY]['handler']::getIdKey(),
+            'handler' => $_SESSION[$sessionKey]['handler'],
+            'id_key' => $_SESSION[$sessionKey]['handler']::getIdKey(),
             'pma_theme_image' => $GLOBALS['pmaThemeImage'],
             'import_type' => $importType,
             'db' => $db,
@@ -117,7 +96,7 @@ class Import
             'is_foreign_key_check' => Util::isForeignKeyCheck(),
             'user_upload_dir' => Util::userDir($cfg['UploadDir'] ?? ''),
             'local_files' => self::getLocalFiles($importList),
-        ]);
+        ];
     }
 
     /**
