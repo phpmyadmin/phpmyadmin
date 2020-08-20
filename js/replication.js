@@ -92,4 +92,15 @@ AJAX.registerOnload('replication.js', function () {
             $.post(url, params, AJAX.responseHandler);
         });
     });
+    $('#button_generate_password').on('click', function () {
+        Functions.suggestPassword(this.form);
+    });
+    $('#nopass_1').on('click', function () {
+        this.form.pma_pw.value = '';
+        this.form.pma_pw2.value = '';
+        this.checked = true;
+    });
+    $('#nopass_0').on('click', function () {
+        document.getElementById('text_pma_change_pw').focus();
+    });
 });
