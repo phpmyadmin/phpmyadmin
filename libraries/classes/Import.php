@@ -16,6 +16,7 @@ use PhpMyAdmin\SqlParser\Utils\Query;
 use function abs;
 use function count;
 use function explode;
+use function function_exists;
 use function htmlspecialchars;
 use function implode;
 use function is_array;
@@ -1781,5 +1782,55 @@ class Import
         $result = $GLOBALS['dbi']->tryQuery($check_query);
 
         return $GLOBALS['dbi']->numRows($result) == 1;
+    }
+
+    /** @return string[] */
+    public static function getCompressions(): array
+    {
+        global $cfg;
+
+        $compressions = [];
+
+        if ($cfg['GZipDump'] && function_exists('gzopen')) {
+            $compressions[] = 'gzip';
+        }
+        if ($cfg['BZipDump'] && function_exists('bzopen')) {
+            $compressions[] = 'bzip2';
+        }
+        if ($cfg['ZipDump'] && function_exists('zip_open')) {
+            $compressions[] = 'zip';
+        }
+
+        return $compressions;
+    }
+
+    /**
+     * @param array $importList List of plugin instances.
+     *
+     * @return false|string
+     */
+    public static function getLocalFiles(array $importList)
+    {
+        $fileListing = new FileListing();
+
+        $extensions = '';
+        foreach ($importList as $importPlugin) {
+            if (! empty($extensions)) {
+                $extensions .= '|';
+            }
+            $extensions .= $importPlugin->getProperties()->getExtension();
+        }
+
+        $matcher = '@\.(' . $extensions . ')(\.(' . $fileListing->supportedDecompressions() . '))?$@';
+
+        $active = isset($GLOBALS['timeout_passed'], $GLOBALS['local_import_file']) && $GLOBALS['timeout_passed']
+            ? $GLOBALS['local_import_file']
+            : '';
+
+        return $fileListing->getFileSelectOptions(
+            Util::userDir($GLOBALS['cfg']['UploadDir'] ?? ''),
+            $matcher,
+            $active
+        );
     }
 }
