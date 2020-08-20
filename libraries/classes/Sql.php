@@ -1255,6 +1255,7 @@ class Sql
         ?string $complete_query
     ) {
         global $url_query;
+
         if ($this->isDeleteTransformationInfo($analyzed_sql_results)) {
             $this->deleteTransformationInfo($db, $table, $analyzed_sql_results);
         }
@@ -1269,89 +1270,99 @@ class Sql
             );
         }
 
-        $html_output = '';
-        $html_message = Generator::getMessage(
+        $queryMessage = Generator::getMessage(
             $message,
             $GLOBALS['sql_query'],
             'success'
         );
-        $html_output .= $html_message;
-        if (! isset($GLOBALS['show_as_php'])) {
-            if (! empty($GLOBALS['reload'])) {
-                $extra_data['reload'] = 1;
-                $extra_data['db'] = $GLOBALS['db'];
-            }
 
-            // For ajax requests add message and sql_query as JSON
-            if (empty($_REQUEST['ajax_page_request'])) {
-                $extra_data['message'] = $message;
-                if ($GLOBALS['cfg']['ShowSQL']) {
-                    $extra_data['sql_query'] = $html_message;
-                }
-            }
+        if (isset($GLOBALS['show_as_php'])) {
+            return $queryMessage;
+        }
 
-            $response = Response::getInstance();
-            $response->addJSON($extra_data ?? []);
+        if (! empty($GLOBALS['reload'])) {
+            $extra_data['reload'] = 1;
+            $extra_data['db'] = $GLOBALS['db'];
+        }
 
-            if (! empty($analyzed_sql_results['is_select']) &&
-                    ! isset($extra_data['error'])) {
-                $url_query = $url_query ?? null;
-
-                $displayParts = [
-                    'edit_lnk' => null,
-                    'del_lnk' => null,
-                    'sort_lnk' => '1',
-                    'nav_bar'  => '0',
-                    'bkm_form' => '1',
-                    'text_btn' => '1',
-                    'pview_lnk' => '1',
-                ];
-
-                $html_output .= $this->getHtmlForSqlQueryResultsTable(
-                    $displayResultsObject,
-                    $pmaThemeImage,
-                    $url_query,
-                    $displayParts,
-                    false,
-                    0,
-                    $num_rows,
-                    true,
-                    $result,
-                    $analyzed_sql_results,
-                    true
-                );
-
-                if ($profiling_results !== null) {
-                    $header   = $response->getHeader();
-                    $scripts  = $header->getScripts();
-                    $scripts->addFile('sql.js');
-                    $html_output .= $this->getHtmlForProfilingChart(
-                        $url_query,
-                        $db,
-                        $profiling_results
-                    );
-                }
-
-                $html_output .= $displayResultsObject->getCreateViewQueryResultOp(
-                    $analyzed_sql_results
-                );
-
-                $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
-                if (is_array($cfgBookmark)) {
-                    $html_output .= $this->getHtmlForBookmark(
-                        $displayParts,
-                        $cfgBookmark,
-                        $sql_query,
-                        $db,
-                        $table,
-                        $complete_query ?? $sql_query,
-                        $cfgBookmark['user']
-                    );
-                }
+        // For ajax requests add message and sql_query as JSON
+        if (empty($_REQUEST['ajax_page_request'])) {
+            $extra_data['message'] = $message;
+            if ($GLOBALS['cfg']['ShowSQL']) {
+                $extra_data['sql_query'] = $queryMessage;
             }
         }
 
-        return $html_output;
+        $response = Response::getInstance();
+        $response->addJSON($extra_data ?? []);
+
+        if (empty($analyzed_sql_results['is_select']) || isset($extra_data['error'])) {
+            return $queryMessage;
+        }
+
+        $url_query = $url_query ?? null;
+
+        $displayParts = [
+            'edit_lnk' => null,
+            'del_lnk' => null,
+            'sort_lnk' => '1',
+            'nav_bar' => '0',
+            'bkm_form' => '1',
+            'text_btn' => '1',
+            'pview_lnk' => '1',
+        ];
+
+        $sqlQueryResultsTable = $this->getHtmlForSqlQueryResultsTable(
+            $displayResultsObject,
+            $pmaThemeImage,
+            $url_query,
+            $displayParts,
+            false,
+            0,
+            $num_rows,
+            true,
+            $result,
+            $analyzed_sql_results,
+            true
+        );
+
+        $profilingChart = '';
+        if ($profiling_results !== null) {
+            $header = $response->getHeader();
+            $scripts = $header->getScripts();
+            $scripts->addFile('sql.js');
+            $profilingChart = $this->getHtmlForProfilingChart(
+                $url_query,
+                $db,
+                $profiling_results
+            );
+        }
+
+        $queryResultsOperations = $displayResultsObject->getCreateViewQueryResultOp(
+            $analyzed_sql_results
+        );
+
+        $bookmark = '';
+        $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
+        if (is_array($cfgBookmark)) {
+            $bookmark = $this->getHtmlForBookmark(
+                $displayParts,
+                $cfgBookmark,
+                $sql_query,
+                $db,
+                $table,
+                $complete_query ?? $sql_query,
+                $cfgBookmark['user']
+            );
+        }
+
+        return $this->template->render('sql/no_results_returned', [
+            'message' => $queryMessage,
+            'sql_query_results_table' => $sqlQueryResultsTable,
+            'profiling_chart' => $profilingChart,
+            'query_results_operations' => $queryResultsOperations,
+            'bookmark' => $bookmark,
+        ]);
     }
 
     /**
