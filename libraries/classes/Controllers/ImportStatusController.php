@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Display\ImportAjax;
+use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
 use function header;
@@ -39,7 +39,7 @@ class ImportStatusController
             $SESSION_KEY,
             $upload_id,
             $plugins,
-        ] = ImportAjax::uploadProgressSetup();
+        ] = Ajax::uploadProgressSetup();
 
         // $_GET["message"] is used for asking for an import message
         if (isset($_GET['message']) && $_GET['message']) {
@@ -78,7 +78,7 @@ class ImportStatusController
                 ]);
             }
         } else {
-            ImportAjax::status($_GET['id']);
+            Ajax::status($_GET['id']);
         }
     }
 }

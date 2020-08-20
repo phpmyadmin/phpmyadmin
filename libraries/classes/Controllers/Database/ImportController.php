@@ -9,9 +9,9 @@ use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Common;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Display\ImportAjax;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Import;
+use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Util;
@@ -44,7 +44,7 @@ final class ImportController extends AbstractController
             $pos,
         ] = Util::getDbInfo($db, $sub_part ?? '');
 
-        [$SESSION_KEY, $uploadId] = ImportAjax::uploadProgressSetup();
+        [$SESSION_KEY, $uploadId] = Ajax::uploadProgressSetup();
 
         $importList = Plugins::getImport('database');
 

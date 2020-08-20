@@ -9,9 +9,9 @@ use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Common;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Display\ImportAjax;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Import;
+use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Url;
@@ -36,7 +36,7 @@ final class ImportController extends AbstractController
         $url_params['back'] = Url::getFromRoute('/table/import');
         $url_query .= Url::getCommon($url_params, '&');
 
-        [$SESSION_KEY, $uploadId] = ImportAjax::uploadProgressSetup();
+        [$SESSION_KEY, $uploadId] = Ajax::uploadProgressSetup();
 
         $importList = Plugins::getImport('table');
 

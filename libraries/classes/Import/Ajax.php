@@ -1,11 +1,8 @@
 <?php
-/**
- * Handles plugins that show the upload progress
- */
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Display;
+namespace PhpMyAdmin\Import;
 
 use PhpMyAdmin\Core;
 use function extension_loaded;
@@ -16,9 +13,9 @@ use function ucwords;
 use function uniqid;
 
 /**
- * PhpMyAdmin\Display\ImportAjax class
+ * Handles plugins that show the upload progress.
  */
-class ImportAjax
+final class Ajax
 {
     /**
      * Sets up some variables for upload progress

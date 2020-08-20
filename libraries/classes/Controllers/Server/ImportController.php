@@ -10,9 +10,9 @@ use PhpMyAdmin\Common;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Display\ImportAjax;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Import;
+use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Util;
@@ -32,7 +32,7 @@ final class ImportController extends AbstractController
 
         Common::server();
 
-        [$SESSION_KEY, $uploadId] = ImportAjax::uploadProgressSetup();
+        [$SESSION_KEY, $uploadId] = Ajax::uploadProgressSetup();
 
         $importList = Plugins::getImport('server');
 
