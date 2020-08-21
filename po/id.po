@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:48-0300\n"
-"PO-Revision-Date: 2020-06-20 05:33+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2020-08-21 12:50+0000\n"
+"Last-Translator: Monsta <discordgg5@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/id/>\n"
 "Language: id\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.1.1\n"
+"X-Generator: Weblate 4.2.1-dev\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: libraries/classes/Advisor.php:319
@@ -471,12 +471,9 @@ msgid "accent-sensitive"
 msgstr "tidak peka aksen"
 
 #: libraries/classes/Charsets/Collation.php:300
-#, fuzzy
-#| msgctxt "Collation variant"
-#| msgid "accent-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "tidak peka aksen"
+msgstr "sensitif terhadap aksen"
 
 #: libraries/classes/Charsets/Collation.php:304
 msgctxt "Collation variant"
@@ -491,7 +488,7 @@ msgstr "biner"
 #: libraries/classes/Charsets/Collation.php:310
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "tanpa-pad"
 
 #: libraries/classes/Charsets/Collation.php:326
 msgctxt "Collation"
@@ -728,7 +725,7 @@ msgstr "Basis data belum dipilih."
 #: libraries/classes/Common.php:179
 #: libraries/classes/Controllers/Table/OperationsController.php:276
 msgid "No collation provided."
-msgstr ""
+msgstr "Tidak ada pemeriksaan yang tersedia."
 
 #: libraries/classes/Config/Descriptions.php:69
 msgid ""
@@ -1315,7 +1312,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:291
 #: libraries/classes/Plugins/Export/ExportSql.php:348
 msgid "Exclude definition of current user"
-msgstr ""
+msgstr "Kecualikan definisi dari pengguna sekarang"
 
 #: libraries/classes/Config/Descriptions.php:292
 #: libraries/classes/Plugins/Export/ExportSql.php:354
@@ -1382,7 +1379,7 @@ msgstr "Pemeriksaan kunci asing"
 
 #: libraries/classes/Config/Descriptions.php:316
 msgid "First day of calendar"
-msgstr ""
+msgstr "Hari pertama di kalender"
 
 #: libraries/classes/Config/Descriptions.php:317
 msgid "Browse mode"
@@ -1748,11 +1745,13 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:427
 msgid "Enable drag and drop import"
-msgstr ""
+msgstr "Aktifkan impor seret dan lepas"
 
 #: libraries/classes/Config/Descriptions.php:428
 msgid "Uncheck the checkbox to disable drag and drop import"
 msgstr ""
+"Hilangkan centang pada kotak centang untuk menonaktifkan impor seret dan "
+"lepas"
 
 #: libraries/classes/Config/Descriptions.php:429
 msgid "Partial import: allow interrupt"
@@ -3441,7 +3440,7 @@ msgstr "Masukkan kunci privat Anda untuk layanan reCAPTCHA domain Anda."
 
 #: libraries/classes/Config/Descriptions.php:964
 msgid "URL for reCaptcha siteverify"
-msgstr ""
+msgstr "URL untuk situs reCaptcha verifikasi"
 
 #: libraries/classes/Config/Descriptions.php:966
 msgid "Choose the default action when sending error reports."
@@ -4407,6 +4406,10 @@ msgid ""
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
+"Server Anda berjalan dengan nilai default untuk controluser dan password "
+"(controlpass) dan terbuka untuk gangguan; Anda benar-benar harus memperbaiki "
+"kelemahan keamanan ini dengan mengubah kata sandi untuk pengguna kontrol "
+"'pma'."
 
 #: libraries/classes/Controllers/HomeController.php:451
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -5607,13 +5610,15 @@ msgstr "Menjelajahi nilai luar"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:389
 msgid "No previously auto-saved query is available. Loading default query."
-msgstr ""
+msgstr "Auto-save kueri sebelumnya tidak ditemukan. Menggunakan kueri bawaan"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:391
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
+"Anda memiliki kueri yang tersimpan sebelumnya. Klik \"Dapatkan kueri "
+"tersimpan otomatis\" untuk memuat kueri."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:393
 #, php-format
@@ -5941,6 +5946,8 @@ msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr ""
+"Fungsi HEX akan memperlakukan integer sebagai string saat menghitung nilai "
+"heksadesimal"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:505
 msgid ""
@@ -8065,6 +8072,8 @@ msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
+"Fungsi ini_get dan / atau ini_set dinonaktifkan di php.ini. phpMyAdmin "
+"membutuhkan fungsi-fungsi ini!"
 
 #: libraries/classes/Core.php:1258
 msgid "GLOBALS overwrite attempt"
@@ -8531,9 +8540,8 @@ msgstr ""
 #: libraries/classes/Database/Routines.php:1040
 #: libraries/classes/Database/Triggers.php:449
 #: templates/database/events/editor_form.twig:89 templates/view_create.twig:45
-#, fuzzy
 msgid "Definer"
-msgstr "Definer"
+msgstr "Menetapkan"
 
 #: libraries/classes/Database/Routines.php:1045
 msgid "Security type"
@@ -8703,9 +8711,8 @@ msgid "Add trigger"
 msgstr "Tambahkan trigger"
 
 #: libraries/classes/Database/Triggers.php:266
-#, fuzzy
 msgid "Edit trigger"
-msgstr "Edit trigger"
+msgstr "Tombol edit"
 
 #: libraries/classes/Database/Triggers.php:392
 msgid "Trigger name"
@@ -9277,7 +9284,7 @@ msgstr "Dump (Skema) disimpan pada berkas %s."
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
 #: libraries/classes/Export.php:989
 msgid "Exporting a raw query is not supported for this export method."
-msgstr ""
+msgstr "Mengekspor kueri mentah tidak didukung untuk metode ekspor ini."
 
 #: libraries/classes/File.php:285
 msgid "File was not an uploaded file."
@@ -9397,11 +9404,11 @@ msgstr "SSL sedang digunakan"
 
 #: libraries/classes/Html/Generator.php:429
 msgid "The PHP function password_hash() with default options."
-msgstr ""
+msgstr "Fungsi PHP password_hash () dengan opsi default."
 
 #: libraries/classes/Html/Generator.php:430
 msgid "password_hash() PHP function"
-msgstr ""
+msgstr "Fungsi PHP password_hash()"
 
 #: libraries/classes/Html/Generator.php:732
 msgid "Skip Explain SQL"
@@ -9442,9 +9449,8 @@ msgid "%d errors were found during analysis."
 msgstr "%d kesalahan ditemukan dalam analisis."
 
 #: libraries/classes/Import.php:325 libraries/classes/Sql.php:1211
-#, fuzzy
 msgid "[ROLLBACK occurred.]"
-msgstr "[ROLLBACK occurred.]"
+msgstr "[Terjadi ROLLBACK.]"
 
 #: libraries/classes/Import.php:1340
 #, fuzzy
@@ -10513,6 +10519,8 @@ msgid ""
 "You have been automatically logged out due to inactivity of %s seconds. Once "
 "you log in again, you should be able to resume the work where you left off."
 msgstr ""
+"anda secara otomatis logout karenta tidak aktif selama %s detik. Jika anda "
+"log in lagi, ada bisa melanjutkan kerja anda dimana anda log out."
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:213
 #: libraries/classes/Plugins/AuthenticationPlugin.php:216
@@ -10793,9 +10801,8 @@ msgid "Report title:"
 msgstr "Judul laporan:"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:229
-#, fuzzy
 msgid "Dumping data"
-msgstr "Dumping data"
+msgstr "Membuang data"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:252
 #, fuzzy
@@ -10872,7 +10879,7 @@ msgstr "Nilai %s"
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
 #: libraries/classes/Plugins/Export/ExportSql.php:342
 msgid "Use simple view export"
-msgstr ""
+msgstr "Menggunakan simple view export"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:381
 #, fuzzy
@@ -11105,16 +11112,16 @@ msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:74
 msgid "Name of the new table (optional):"
-msgstr ""
+msgstr "Nama dari tabel baru (tidak wajib):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:83
 msgid "Name of the new database (optional):"
-msgstr ""
+msgstr "Nama dari database baru (pilihan):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:92
 #: libraries/classes/Plugins/Import/ImportCsv.php:110
 msgid "Import these many number of rows (optional):"
-msgstr ""
+msgstr "Impor seberapa banyak baris ini (opsional):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:100
 #: libraries/classes/Plugins/Import/ImportOds.php:67
@@ -11138,10 +11145,8 @@ msgstr ""
 "dipisahkan oleh koma dan tidak tertutup dalam kutipan."
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:125
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column names:"
-msgstr "Nama kolom: "
+msgstr "Nama kolom:"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:264
 #: libraries/classes/Plugins/Import/ImportCsv.php:634
@@ -11451,6 +11456,9 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"Anda menggunakan bidang opsi baris perintah transformasi eksternal, yang "
+"sudah tidak digunakan lagi karena alasan keamanan. Tambahkan semua opsi "
+"perintah langsung ke definisi di %s."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:27
 msgid ""
@@ -11969,7 +11977,7 @@ msgstr "Sumber Basis data `%s` tidak ditemukan!"
 
 #: libraries/classes/Routing.php:81
 msgid "Error 405! Request method not allowed."
-msgstr ""
+msgstr "Kesalahan 405! Jalur permintaan tidak dibolehkan."
 
 #: libraries/classes/SavedSearches.php:280
 msgid "Please provide a name for this bookmarked search."
@@ -12904,6 +12912,8 @@ msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
 msgstr ""
+"Ditujukan untuk penyimpanan alamat IPv6, serta alamat IPv4 dengan asumsi "
+"pemetaan konvensional alamat IPv4 menjadi alamat IPv6"
 
 #: libraries/classes/Types.php:723
 msgctxt "numeric types"
@@ -14054,10 +14064,8 @@ msgid "Create a page and save to it"
 msgstr "Buat halaman dan ekspor ke dalamnya"
 
 #: templates/database/designer/page_save_as.twig:29
-#, fuzzy
-#| msgid "New page name: "
 msgid "New page name"
-msgstr "Nama halaman baru: "
+msgstr "Nama halaman baru:"
 
 #: templates/database/designer/page_selector.twig:2
 msgid "Select page"
@@ -15684,7 +15692,7 @@ msgstr ""
 
 #: templates/login/twofactor/application_configure.twig:13
 msgid "Secret/key:"
-msgstr ""
+msgstr "Kunci rahasia:"
 
 #: templates/login/twofactor/application_configure.twig:16
 #: templates/login/twofactor/application.twig:2
@@ -15745,7 +15753,7 @@ msgstr "Penonton:"
 
 #: templates/navigation/item_unhide_dialog.twig:20
 msgid "Unhide"
-msgstr ""
+msgstr "Perlihatkan"
 
 #: templates/navigation/main.twig:26 templates/navigation/main.twig:27
 msgid "Home"
@@ -16832,7 +16840,7 @@ msgstr ""
 #. l10n: Advisor rules file
 #: templates/server/status/advisor/index.twig:55
 msgid "Rules file is not well formed, the following errors were found:"
-msgstr ""
+msgstr "File aturan tidak dalam format yang baik, kesalahan berikut ditemukan:"
 
 #: templates/server/status/advisor/index.twig:66
 #, fuzzy
@@ -17261,10 +17269,8 @@ msgid "User group menu assignments"
 msgstr "Tanpa hak akses."
 
 #: templates/server/user_groups/edit_user_groups.twig:14
-#, fuzzy
-#| msgid "Column names: "
 msgid "Group name:"
-msgstr "Nama kolom: "
+msgstr "Nama kolom:"
 
 #: templates/server/user_groups/user_groups.twig:12
 #, fuzzy
@@ -17377,9 +17383,8 @@ msgid "Check for latest version"
 msgstr "Periksa versi terbaru"
 
 #: templates/setup/servers/index.twig:6
-#, fuzzy
 msgid "Edit server"
-msgstr "Edit server"
+msgstr "Ubah server"
 
 #: templates/setup/servers/index.twig:11
 msgid "Add a new server"
@@ -18170,7 +18175,7 @@ msgstr "Bar tabel navigasi"
 #. l10n: Current page
 #: templates/top_menu.twig:14
 msgid "(current)"
-msgstr ""
+msgstr "(sekarang)"
 
 #: templates/transformation_overview.twig:1
 #, fuzzy
@@ -18207,10 +18212,8 @@ msgid "Column names"
 msgstr "Nama kolom"
 
 #: url.php:52
-#, fuzzy
-#| msgid "Taking you to next step…"
 msgid "Taking you to the target site."
-msgstr "Tunggu sebentar yach…"
+msgstr "Taking you to the target site"
 
 #: libraries/advisory_rules_generic.txt:49
 msgid "Uptime below one day"
