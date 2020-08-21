@@ -4598,42 +4598,6 @@ class Results
     }
 
     /**
-     * @param array $analyzed_sql_results analyzed sql results
-     *
-     * @return string
-     *
-     * @access public
-     */
-    public function getCreateViewQueryResultOp(array $analyzed_sql_results)
-    {
-        if (! empty($analyzed_sql_results['procedure'])) {
-            return '';
-        }
-
-        $results_operations_html = '<fieldset class="print_ignore" ><legend>'
-            . __('Query results operations') . '</legend>';
-        $results_operations_html .= '<span>';
-        $results_operations_html .= Generator::linkOrButton(
-            Url::getFromRoute('/view/create', [
-                'db' => $this->properties['db'],
-                'table' => $this->properties['table'],
-                'printview' => '1',
-                'sql_query' => $this->properties['sql_query'],
-            ]),
-            Generator::getIcon(
-                'b_view_add',
-                __('Create view'),
-                true
-            ),
-            ['class' => 'create_view ajax btn']
-        );
-        $results_operations_html .= '</span>' . "\n";
-        $results_operations_html .= '</fieldset><br>';
-
-        return $results_operations_html;
-    }
-
-    /**
      * Get operations that are available on results.
      *
      * @see     getTable()

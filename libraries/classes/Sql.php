@@ -1338,10 +1338,6 @@ class Sql
             );
         }
 
-        $queryResultsOperations = $displayResultsObject->getCreateViewQueryResultOp(
-            $analyzed_sql_results
-        );
-
         $bookmark = '';
         $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
         if (is_array($cfgBookmark)) {
@@ -1360,8 +1356,11 @@ class Sql
             'message' => $queryMessage,
             'sql_query_results_table' => $sqlQueryResultsTable,
             'profiling_chart' => $profilingChart,
-            'query_results_operations' => $queryResultsOperations,
             'bookmark' => $bookmark,
+            'db' => $db,
+            'table' => $table,
+            'sql_query' => $sql_query,
+            'is_procedure' => ! empty($analyzed_sql_results['procedure']),
         ]);
     }
 
