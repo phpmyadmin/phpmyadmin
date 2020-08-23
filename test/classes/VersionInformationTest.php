@@ -64,6 +64,7 @@ class VersionInformationTest extends AbstractTestCase
         $GLOBALS['cfg']['VersionCheck'] = true;
         $versionInformation = new VersionInformation();
         $version = $versionInformation->getLatestVersion();
+        $this->assertIsObject($version);
         $this->assertNotEmpty($version->version);
         $this->assertNotEmpty($version->date);
     }
@@ -198,8 +199,8 @@ class VersionInformationTest extends AbstractTestCase
             ->with('MySQL', '>=5.5')
             ->will($this->returnValue(true));
 
-        $compatible = $mockVersionInfo
-            ->getLatestCompatibleVersion($this->releases);
+        $compatible = $mockVersionInfo->getLatestCompatibleVersion($this->releases);
+        $this->assertIsArray($compatible);
         $this->assertEquals('4.4.14.1', $compatible['version']);
     }
 
@@ -227,8 +228,8 @@ class VersionInformationTest extends AbstractTestCase
             ->with('PHP', '<7.1')
             ->will($this->returnValue(true));
 
-        $compatible = $mockVersionInfo
-            ->getLatestCompatibleVersion($this->releases);
+        $compatible = $mockVersionInfo->getLatestCompatibleVersion($this->releases);
+        $this->assertIsArray($compatible);
         $this->assertEquals('4.4.14.1', $compatible['version']);
     }
 
@@ -266,8 +267,8 @@ class VersionInformationTest extends AbstractTestCase
             ->with('PHP', '<5.3')
             ->will($this->returnValue(true));
 
-        $compatible = $mockVersionInfo
-            ->getLatestCompatibleVersion($this->releases);
+        $compatible = $mockVersionInfo->getLatestCompatibleVersion($this->releases);
+        $this->assertIsArray($compatible);
         $this->assertEquals('4.0.10.10', $compatible['version']);
     }
 

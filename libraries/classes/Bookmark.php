@@ -180,7 +180,7 @@ class Bookmark
     public function applyVariables(array $variables): string
     {
         // remove comments that encloses a variable placeholder
-        $query = preg_replace(
+        $query = (string) preg_replace(
             '|/\*(.*\[VARIABLE[0-9]*\].*)\*/|imsU',
             '${1}',
             $this->query
@@ -295,7 +295,7 @@ class Bookmark
      *
      * @param DatabaseInterface $dbi  DatabaseInterface object
      * @param string            $user Current user
-     * @param string|bool       $db   the current database name or false
+     * @param string|false      $db   the current database name or false
      *
      * @return Bookmark[] the bookmarks list
      *

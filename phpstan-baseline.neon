@@ -1,31 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Method PhpMyAdmin\\\\Advisor\\:\\:escapePercent\\(\\) should return string but returns string\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Advisor.php
-
-		-
-			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Advisor.php
-
-		-
-			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Bookmark.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Bookmark\\:\\:applyVariables\\(\\) should return string but returns string\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Bookmark.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, string\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/Bookmark.php
-
-		-
 			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Message\\:\\:rawError\\(\\) expects string, bool\\|string given\\.$#"
 			count: 2
 			path: libraries/classes/CentralColumns.php
@@ -3031,69 +3006,9 @@ parameters:
 			path: test/classes/TrackingTest.php
 
 		-
-			message: "#^Offset 0 does not exist on array\\|null\\.$#"
-			count: 1
-			path: test/classes/UtilTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$newvalue of function ini_set expects string, string\\|false given\\.$#"
-			count: 1
-			path: test/classes/UtilTest.php
-
-		-
-			message: "#^Cannot access property \\$version on stdClass\\|null\\.$#"
-			count: 1
-			path: test/classes/VersionInformationTest.php
-
-		-
-			message: "#^Cannot access property \\$date on stdClass\\|null\\.$#"
-			count: 1
-			path: test/classes/VersionInformationTest.php
-
-		-
-			message: "#^Offset 'version' does not exist on array\\|null\\.$#"
-			count: 3
-			path: test/classes/VersionInformationTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$filename of function fopen expects string, string\\|false given\\.$#"
-			count: 2
-			path: test/classes/ZipExtensionTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$fp of function fwrite expects resource, resource\\|false given\\.$#"
-			count: 2
-			path: test/classes/ZipExtensionTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$str of function fwrite expects string, bool\\|string given\\.$#"
-			count: 2
-			path: test/classes/ZipExtensionTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$fp of function fclose expects resource, resource\\|false given\\.$#"
-			count: 2
-			path: test/classes/ZipExtensionTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$source of method ZipArchive\\:\\:open\\(\\) expects string, string\\|false given\\.$#"
-			count: 2
-			path: test/classes/ZipExtensionTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$filename of function unlink expects string, string\\|false given\\.$#"
-			count: 2
-			path: test/classes/ZipExtensionTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$element of method PhpMyAdmin\\\\Tests\\\\Selenium\\\\TestBase\\:\\:moveto\\(\\) expects Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebElement, Facebook\\\\WebDriver\\\\WebDriverElement given\\.$#"
 			count: 1
 			path: test/selenium/CreateRemoveUserTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function trim expects string, string\\|null given\\.$#"
-			count: 1
-			path: test/selenium/Database/QueryByExampleTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$element of method PhpMyAdmin\\\\Tests\\\\Selenium\\\\TestBase\\:\\:moveto\\(\\) expects Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebElement, Facebook\\\\WebDriver\\\\WebDriverElement given\\.$#"

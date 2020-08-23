@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.14.1@9822043ca46d6682b76097bfa97d7c450eef9e90">
+<files psalm-version="3.14.2@3538fe1955d47f6ee926c0769d71af6db08aa488">
   <file src="libraries/classes/Advisor.php">
-    <PossiblyNullArgument occurrences="1">
-      <code>Util::formatByteDown($value, $limes, $comma)</code>
-    </PossiblyNullArgument>
-  </file>
-  <file src="libraries/classes/Bookmark.php">
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$db</code>
-    </PossiblyInvalidArgument>
+    <InvalidArrayOffset occurrences="2">
+      <code>$ruleSyntax[$ruleLine++]</code>
+      <code>$ruleSyntax[$ruleLine]</code>
+    </InvalidArrayOffset>
   </file>
   <file src="libraries/classes/CentralColumns.php">
     <InvalidScalarArgument occurrences="1">
