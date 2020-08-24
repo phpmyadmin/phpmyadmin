@@ -454,47 +454,6 @@ class Sql
     }
 
     /**
-     * Function to get html for bookmark support if bookmarks are enabled. Else will
-     * return null
-     *
-     * @param array       $displayParts   the parts to display
-     * @param array       $cfgBookmark    configuration setting for bookmarking
-     * @param string      $sql_query      sql query
-     * @param string      $db             current database
-     * @param string      $table          current table
-     * @param string|null $complete_query complete query
-     * @param string      $bkm_user       bookmarking user
-     */
-    public function getHtmlForBookmark(
-        array $displayParts,
-        array $cfgBookmark,
-        $sql_query,
-        $db,
-        $table,
-        ?string $complete_query,
-        $bkm_user
-    ): string {
-        if ($displayParts['bkm_form'] == '1'
-            && (! empty($cfgBookmark) && empty($_GET['id_bookmark']))
-            && ! empty($sql_query)
-        ) {
-            return $this->template->render('sql/bookmark', [
-                'db' => $db,
-                'goto' => Url::getFromRoute('/sql', [
-                    'db' => $db,
-                    'table' => $table,
-                    'sql_query' => $sql_query,
-                    'id_bookmark' => 1,
-                ]),
-                'user' => $bkm_user,
-                'sql_query' => $complete_query ?? $sql_query,
-            ]);
-        }
-
-        return '';
-    }
-
-    /**
      * Function to check whether to remember the sorting order or not
      *
      * @param array $analyzed_sql_results the analyzed query and other variables set
@@ -1340,16 +1299,22 @@ class Sql
 
         $bookmark = '';
         $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
-        if (is_array($cfgBookmark)) {
-            $bookmark = $this->getHtmlForBookmark(
-                $displayParts,
-                $cfgBookmark,
-                $sql_query,
-                $db,
-                $table,
-                $complete_query ?? $sql_query,
-                $cfgBookmark['user']
-            );
+        if (is_array($cfgBookmark)
+            && $displayParts['bkm_form'] == '1'
+            && (! empty($cfgBookmark) && empty($_GET['id_bookmark']))
+            && ! empty($sql_query)
+        ) {
+            $bookmark = $this->template->render('sql/bookmark', [
+                'db' => $db,
+                'goto' => Url::getFromRoute('/sql', [
+                    'db' => $db,
+                    'table' => $table,
+                    'sql_query' => $sql_query,
+                    'id_bookmark' => 1,
+                ]),
+                'user' => $cfgBookmark['user'],
+                'sql_query' => $complete_query ?? $sql_query,
+            ]);
         }
 
         return $this->template->render('sql/no_results_returned', [
@@ -1862,16 +1827,22 @@ class Sql
 
         $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
         $bookmarkSupportHtml = '';
-        if (is_array($cfgBookmark)) {
-            $bookmarkSupportHtml = $this->getHtmlForBookmark(
-                $displayParts,
-                $cfgBookmark,
-                $sql_query,
-                $db,
-                $table,
-                $complete_query ?? $sql_query,
-                $cfgBookmark['user']
-            );
+        if (is_array($cfgBookmark)
+            && $displayParts['bkm_form'] == '1'
+            && (! empty($cfgBookmark) && empty($_GET['id_bookmark']))
+            && ! empty($sql_query)
+        ) {
+            $bookmarkSupportHtml = $this->template->render('sql/bookmark', [
+                'db' => $db,
+                'goto' => Url::getFromRoute('/sql', [
+                    'db' => $db,
+                    'table' => $table,
+                    'sql_query' => $sql_query,
+                    'id_bookmark' => 1,
+                ]),
+                'user' => $cfgBookmark['user'],
+                'sql_query' => $complete_query ?? $sql_query,
+            ]);
         }
 
         return $this->template->render('sql/sql_query_results', [
