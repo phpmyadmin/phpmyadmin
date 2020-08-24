@@ -869,7 +869,7 @@ AJAX.registerOnload('sql.js', function () {
         return maxRowsCheck && posCheck;
     });
 
-    $('#insertBtn').on('click', function() {
+    $('#insertBtn').on('click', function () {
         Functions.insertValueQuery();
     });
 }); // end $()
