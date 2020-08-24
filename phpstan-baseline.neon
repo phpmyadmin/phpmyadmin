@@ -96,17 +96,17 @@ parameters:
 			path: libraries/classes/Config/FormDisplay.php
 
 		-
-			message: "#^Parameter \\#1 \\$path of method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:set\\(\\) expects string, int\\|string given\\.$#"
-			count: 2
-			path: libraries/classes/Config/FormDisplay.php
-
-		-
 			message: "#^Parameter \\#2 \\$type of function settype expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Config/FormDisplay.php
 
 		-
 			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, int\\|string\\|false given\\.$#"
+			count: 1
+			path: libraries/classes/Config/FormDisplay.php
+
+		-
+			message: "#^Parameter \\#1 \\$path of method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:set\\(\\) expects string, int\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Config/FormDisplay.php
 
@@ -281,11 +281,6 @@ parameters:
 			path: libraries/classes/Controllers/Server/PrivilegesController.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of function mb_strtolower expects string, int\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/Status/ProcessesController.php
-
-		-
 			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\|null given\\.$#"
 			count: 7
 			path: libraries/classes/Controllers/Server/Status/StatusController.php
@@ -327,11 +322,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$content of method PhpMyAdmin\\\\Response\\:\\:addHTML\\(\\) expects string, PhpMyAdmin\\\\Message given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ChartController.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, int\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ChartController.php
 
@@ -521,11 +511,6 @@ parameters:
 			path: libraries/classes/Database/Qbe.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Database\\\\Qbe\\:\\:getMasterTable\\(\\) should return string but returns int\\|string\\.$#"
-			count: 1
-			path: libraries/classes/Database/Qbe.php
-
-		-
 			message: "#^Parameter \\#1 \\$mode of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getEditorForm\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Database/Routines.php
@@ -562,11 +547,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Query\\\\Cache\\:\\:cacheTableData\\(\\) expects bool\\|string, array\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
-			message: "#^Parameter \\#1 \\$column of method PhpMyAdmin\\\\Index\\:\\:hasColumn\\(\\) expects string, int\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
 
@@ -2437,11 +2417,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$canonicalPath of method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:getDefault\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Setup/ConfigGenerator.php
-
-		-
-			message: "#^Parameter \\#3 \\$subject of function preg_replace expects array\\|string, int\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Setup/ConfigGenerator.php
 
