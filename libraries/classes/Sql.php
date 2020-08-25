@@ -331,6 +331,8 @@ class Sql
                     'total_time' => $one_result['Duration'],
                     'calls' => 1,
                 ];
+            } else {
+                $profiling_stats['states'][ucwords($one_result['Status'])]['calls']++;
             }
             $profiling_stats['total_time'] += $one_result['Duration'];
 
