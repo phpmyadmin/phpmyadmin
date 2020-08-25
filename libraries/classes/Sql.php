@@ -279,86 +279,38 @@ class Sql
         return $dropdown;
     }
 
-    /**
-     * Get the HTML for the profiling table and accompanying chart if profiling is set.
-     * Otherwise returns null
-     *
-     * @param string|null $urlQuery         url query
-     * @param string      $database         current database
-     * @param array       $profilingResults array containing the profiling info
-     *
-     * @return string html for the profiling table and chart
-     */
-    private function getHtmlForProfilingChart($urlQuery, $database, $profilingResults): string
+    /** @return array<string, int|array> */
+    private function getDetailedProfilingStats(array $profilingResults): array
     {
-        if (! empty($profilingResults)) {
-            $urlQuery = $urlQuery ?? Url::getCommon(['db' => $database]);
-
-            [
-                $detailedTable,
-                $chartJson,
-                $profilingStats,
-            ] = $this->analyzeAndGetTableHtmlForProfilingResults($profilingResults);
-
-            return $this->template->render('sql/profiling_chart', [
-                'url_query' => $urlQuery,
-                'detailed_table' => $detailedTable,
-                'states' => $profilingStats['states'],
-                'total_time' => $profilingStats['total_time'],
-                'chart_json' => $chartJson,
-            ]);
-        }
-
-        return '';
-    }
-
-    /**
-     * Function to get HTML for detailed profiling results table, profiling stats, and
-     * $chart_json for displaying the chart.
-     *
-     * @param array $profiling_results profiling results
-     *
-     * @return array
-     */
-    private function analyzeAndGetTableHtmlForProfilingResults(
-        $profiling_results
-    ): array {
-        $profiling_stats = [
+        $profiling = [
             'total_time' => 0,
             'states' => [],
+            'chart' => [],
+            'profile' => [],
         ];
-        $chart_json = [];
-        $i = 1;
-        $table = '';
-        foreach ($profiling_results as $one_result) {
-            if (! isset($profiling_stats['states'][ucwords($one_result['Status'])])) {
-                $profiling_stats['states'][ucwords($one_result['Status'])] = [
-                    'total_time' => $one_result['Duration'],
+
+        foreach ($profilingResults as $oneResult) {
+            $status = ucwords($oneResult['Status']);
+            $profiling['total_time'] += $oneResult['Duration'];
+            $profiling['profile'][] = [
+                'status' => $status,
+                'duration' => Util::formatNumber($oneResult['Duration'], 3, 1),
+                'duration_raw' => $oneResult['Duration'],
+            ];
+
+            if (! isset($profiling['states'][$status])) {
+                $profiling['states'][$status] = [
+                    'total_time' => $oneResult['Duration'],
                     'calls' => 1,
                 ];
-            }
-            $profiling_stats['total_time'] += $one_result['Duration'];
-
-            $table .= $this->template->render('sql/detailed_table', [
-                'index' => $i++,
-                'status' => $one_result['Status'],
-                'duration' => $one_result['Duration'],
-            ]);
-
-            if (isset($chart_json[ucwords($one_result['Status'])])) {
-                $chart_json[ucwords($one_result['Status'])]
-                    += $one_result['Duration'];
+                $profiling['chart'][$status] = $oneResult['Duration'];
             } else {
-                $chart_json[ucwords($one_result['Status'])]
-                    = $one_result['Duration'];
+                $profiling['states'][$status]['calls']++;
+                $profiling['chart'][$status] += $oneResult['Duration'];
             }
         }
 
-        return [
-            $table,
-            $chart_json,
-            $profiling_stats,
-        ];
+        return $profiling;
     }
 
     /**
@@ -1247,11 +1199,12 @@ class Sql
             $header = $response->getHeader();
             $scripts = $header->getScripts();
             $scripts->addFile('sql.js');
-            $profilingChart = $this->getHtmlForProfilingChart(
-                $url_query,
-                $db,
-                $profiling_results
-            );
+
+            $profiling = $this->getDetailedProfilingStats($profiling_results);
+            $profilingChart = $this->template->render('sql/profiling_chart', [
+                'url_query' => $url_query ?? Url::getCommon(['db' => $db]),
+                'profiling' => $profiling,
+            ]);
         }
 
         $bookmark = '';
@@ -1748,11 +1701,14 @@ class Sql
             $disp_message ?? null
         );
 
-        $profilingChartHtml = $this->getHtmlForProfilingChart(
-            $url_query,
-            $db,
-            $profiling_results ?? []
-        );
+        $profilingChartHtml = '';
+        if (! empty($profiling_results)) {
+            $profiling = $this->getDetailedProfilingStats($profiling_results);
+            $profilingChartHtml = $this->template->render('sql/profiling_chart', [
+                'url_query' => $url_query ?? Url::getCommon(['db' => $db]),
+                'profiling' => $profiling,
+            ]);
+        }
 
         $missingUniqueColumnMessage = $this->getMessageIfMissingColumnIndex(
             $table,
