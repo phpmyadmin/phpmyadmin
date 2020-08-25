@@ -16,14 +16,12 @@ use PhpMyAdmin\SqlParser\Statements\AlterStatement;
 use PhpMyAdmin\SqlParser\Statements\DropStatement;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
-use const ENT_COMPAT;
 use function array_map;
 use function array_sum;
 use function bin2hex;
 use function ceil;
 use function count;
 use function explode;
-use function htmlentities;
 use function htmlspecialchars;
 use function in_array;
 use function is_array;
@@ -364,69 +362,28 @@ class Sql
     }
 
     /**
-     * Get value of a column for a specific row (marked by $where_clause)
-     *
-     * @param string $db           current database
-     * @param string $table        current table
-     * @param string $column       current column
-     * @param string $where_clause where clause to select a particular row
-     *
-     * @return string with value
+     * Get value of a column for a specific row (marked by $whereClause)
      */
-    private function getFullValuesForSetColumn($db, $table, $column, $where_clause)
-    {
-        $result = $GLOBALS['dbi']->fetchSingleRow(
-            'SELECT `' . $column . '` FROM `' . $db . '`.`' . $table . '` WHERE ' . $where_clause
-        );
+    public function getFullValuesForSetColumn(
+        DatabaseInterface $dbi,
+        string $db,
+        string $table,
+        string $column,
+        string $whereClause
+    ): string {
+        $row = $dbi->fetchSingleRow(sprintf(
+            'SELECT `%s` FROM `%s`.`%s` WHERE %s',
+            $column,
+            $db,
+            $table,
+            $whereClause
+        ));
 
-        return $result[$column];
-    }
-
-    /**
-     * Get the HTML for the set column dropdown
-     * During grid edit, if we have a set field, returns the html for the
-     * dropdown
-     *
-     * @param string $db         current database
-     * @param string $table      current table
-     * @param string $column     current column
-     * @param string $curr_value currently selected value
-     *
-     * @return string html for the set column
-     */
-    public function getHtmlForSetColumn($db, $table, $column, $curr_value): string
-    {
-        $values = $this->getValuesForColumn($db, $table, $column);
-
-        $full_values = $_POST['get_full_values'] ?? false;
-        $where_clause = $_POST['where_clause'] ?? null;
-
-        // If the $curr_value was truncated, we should
-        // fetch the correct full values from the table
-        if ($full_values && ! empty($where_clause)) {
-            $curr_value = $this->getFullValuesForSetColumn(
-                $db,
-                $table,
-                $column,
-                $where_clause
-            );
+        if ($row === null) {
+            return '';
         }
 
-        //converts characters of $curr_value to HTML entities
-        $converted_curr_value = htmlentities(
-            $curr_value,
-            ENT_COMPAT,
-            'UTF-8'
-        );
-
-        $selected_values = explode(',', $converted_curr_value);
-        $select_size = count($values) > 10 ? 10 : count($values);
-
-        return $this->template->render('sql/set_column', [
-            'size' => $select_size,
-            'values' => $values,
-            'selected_values' => $selected_values,
-        ]);
+        return $row[$column];
     }
 
     /**

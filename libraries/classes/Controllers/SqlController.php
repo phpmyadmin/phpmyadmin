@@ -17,6 +17,8 @@ use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use const ENT_COMPAT;
+use function htmlentities;
 use function mb_strpos;
 use function strlen;
 use function strpos;
@@ -279,13 +281,30 @@ class SqlController extends AbstractController
         $this->checkUserPrivileges->getPrivileges();
 
         $column = $_POST['column'];
-        $curr_value = $_POST['curr_value'];
-        $select = $this->sql->getHtmlForSetColumn(
-            $db,
-            $table,
-            $column,
-            $curr_value
-        );
+        $currentValue = $_POST['curr_value'];
+        $fullValues = $_POST['get_full_values'] ?? false;
+        $whereClause = $_POST['where_clause'] ?? null;
+
+        $values = $this->sql->getValuesForColumn($db, $table, $column);
+
+        // If the $currentValue was truncated, we should fetch the correct full values from the table.
+        if ($fullValues && ! empty($whereClause)) {
+            $currentValue = $this->sql->getFullValuesForSetColumn(
+                $this->dbi,
+                $db,
+                $table,
+                $column,
+                $whereClause
+            );
+        }
+
+        // Converts characters of $currentValue to HTML entities.
+        $convertedCurrentValue = htmlentities($currentValue, ENT_COMPAT, 'UTF-8');
+
+        $select = $this->template->render('sql/set_column', [
+            'values' => $values,
+            'current_values' => $convertedCurrentValue,
+        ]);
 
         $this->response->addJSON('select', $select);
     }
