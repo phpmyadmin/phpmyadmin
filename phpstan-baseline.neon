@@ -976,7 +976,7 @@ parameters:
 			path: libraries/classes/Footer.php
 
 		-
-			message: "#^Argument of an invalid type \\(array\\)\\|object supplied for foreach, only iterables are supported\\.$#"
+			message: "#^Argument of an invalid type array\\|object supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: libraries/classes/Footer.php
 
@@ -2211,7 +2211,7 @@ parameters:
 			path: libraries/classes/Relation.php
 
 		-
-			message: "#^Parameter \\#1 \\$foreigners of method PhpMyAdmin\\\\Relation\\:\\:searchColumnInForeigners\\(\\) expects array, \\(array\\)\\|true given\\.$#"
+			message: "#^Parameter \\#1 \\$foreigners of method PhpMyAdmin\\\\Relation\\:\\:searchColumnInForeigners\\(\\) expects array, array\\|true given\\.$#"
 			count: 1
 			path: libraries/classes/Relation.php
 
