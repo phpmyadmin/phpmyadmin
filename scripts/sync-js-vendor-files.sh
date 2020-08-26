@@ -114,4 +114,6 @@ echo 'Update jqplot'
 cp ./node_modules/jqplot/jqplot.cursor.js ./js/vendor/jqplot/plugins/jqplot.cursor.js
 cp ./node_modules/jqplot/jqplot.highlighter.js ./js/vendor/jqplot/plugins/jqplot.highlighter.js
 
+# There's no available bundle file distribution for openlayers. See: https://github.com/phpmyadmin/phpmyadmin/pull/16303#issuecomment-679205088
+
 echo 'Done.'
