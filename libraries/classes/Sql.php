@@ -879,7 +879,7 @@ class Sql
             $num_rows = 0;
             $unlim_num_rows = 0;
         } else { // If we don't ask to see the php code
-            $this->enableProfiling();
+            Profiling::enable($GLOBALS['dbi']);
 
             [
                 $result,
@@ -915,7 +915,7 @@ class Sql
                 $result
             );
 
-            $profiling_results = $this->getProfilingInformation();
+            $profiling_results = Profiling::getInformation($GLOBALS['dbi']);
 
             $justBrowsing = self::isJustBrowsing(
                 $analyzed_sql_results,
@@ -2044,33 +2044,5 @@ class Sql
         }
 
         return $pos;
-    }
-
-    private function getProfilingInformation(): ?array
-    {
-        global $dbi;
-
-        if (! isset($_SESSION['profiling']) || ! Util::profilingSupported()) {
-            return null;
-        }
-
-        $result = $dbi->fetchResult('SHOW PROFILE;');
-
-        if (! is_array($result)) {
-            return null;
-        }
-
-        return $result;
-    }
-
-    private function enableProfiling(): void
-    {
-        global $dbi;
-
-        if (! isset($_SESSION['profiling']) || ! Util::profilingSupported()) {
-            return;
-        }
-
-        $dbi->query('SET PROFILING=1;');
     }
 }

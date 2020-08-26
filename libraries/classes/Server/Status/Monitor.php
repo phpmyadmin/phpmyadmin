@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Server\Status;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Profiling;
 use PhpMyAdmin\Server\SysInfo\SysInfo;
 use PhpMyAdmin\Util;
 use function array_sum;
@@ -513,7 +514,7 @@ class Monitor
             $this->dbi->selectDb($database);
         }
 
-        $profiling = Util::profilingSupported();
+        $profiling = Profiling::isSupported($this->dbi);
 
         if ($profiling) {
             $this->dbi->query('SET PROFILING=1;');

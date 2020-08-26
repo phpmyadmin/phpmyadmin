@@ -492,30 +492,6 @@ class Util
         }
 
         return $a_name;
-    } // end of the 'backquoteCompat()' function
-
-    /**
-     * Verifies if current MySQL server supports profiling
-     *
-     * @return bool whether profiling is supported
-     *
-     * @access public
-     */
-    public static function profilingSupported()
-    {
-        if (! self::cacheExists('profiling_supported')) {
-            // 5.0.37 has profiling but for example, 5.1.20 does not
-            // (avoid a trip to the server for MySQL before 5.0.37)
-            // and do not set a constant as we might be switching servers
-            if ($GLOBALS['dbi']->fetchValue('SELECT @@have_profiling')
-            ) {
-                self::cacheSet('profiling_supported', true);
-            } else {
-                self::cacheSet('profiling_supported', false);
-            }
-        }
-
-        return self::cacheGet('profiling_supported');
     }
 
     /**

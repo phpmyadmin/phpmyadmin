@@ -39,6 +39,7 @@ use PhpMyAdmin\Logging;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\MoTranslator\Loader;
 use PhpMyAdmin\Plugins;
+use PhpMyAdmin\Profiling;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Routing;
 use PhpMyAdmin\Session;
@@ -286,7 +287,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
     $response = Response::getInstance();
 
-    Core::checkProfiling($response);
+    Profiling::check($dbi, $response);
 
     /*
      * There is no point in even attempting to process
