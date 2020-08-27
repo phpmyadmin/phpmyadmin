@@ -116,10 +116,12 @@ DesignerPage.showNewPageTables = function (check) {
     for (var tab = 0; tab < allTables.length; tab++) {
         var input = allTables[tab];
         if (input.value) {
-            var element = document.getElementById('designer_table_' + input.value);
+            // Remove check_visible_ from input.value
+            var val = input.value.replace('check_visible_','');
+            var element = document.getElementById('designer_table_' + val);
             element.style.top = DesignerPage.getRandom(550, 20) + 'px';
             element.style.left = DesignerPage.getRandom(700, 20) + 'px';
-            DesignerMove.visibleTab(input, 'designer_table_' + input.value);
+            DesignerMove.visibleTab(input, 'designer_table_' + val);
         }
     }
     selectedPage = -1;
