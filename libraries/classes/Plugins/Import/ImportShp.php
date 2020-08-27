@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
 
+use PhpMyAdmin\File;
 use PhpMyAdmin\Gis\GisFactory;
 use PhpMyAdmin\Gis\GisMultiLineString;
 use PhpMyAdmin\Gis\GisMultiPoint;
@@ -18,6 +19,7 @@ use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\ZipExtension;
+use ZipArchive;
 use const LOCK_EX;
 use function count;
 use function extension_loaded;
@@ -48,7 +50,7 @@ class ImportShp extends ImportPlugin
             return;
         }
 
-        $this->zipExtension = new ZipExtension();
+        $this->zipExtension = new ZipExtension(new ZipArchive());
     }
 
     /**
@@ -75,14 +77,21 @@ class ImportShp extends ImportPlugin
      *
      * @return void
      */
-    public function doImport(array &$sql_data = [])
+    public function doImport(?File $importHandle = null, array &$sql_data = [])
     {
         global $db, $error, $finished,
                $import_file, $local_import_file, $message;
 
         $GLOBALS['finished'] = false;
 
-        $compression = $GLOBALS['import_handle']->getCompression();
+        if ($importHandle === null) {
+            return;
+        }
+
+        /** @see ImportShp::readFromBuffer() */
+        $GLOBALS['importHandle'] = $importHandle;
+
+        $compression = $importHandle->getCompression();
 
         $shp = new ShapeFileImport(1);
         // If the zip archive has more than one file,
@@ -90,11 +99,11 @@ class ImportShp extends ImportPlugin
         if ($compression === 'application/zip'
             && $this->zipExtension->getNumberOfFiles($import_file) > 1
         ) {
-            if ($GLOBALS['import_handle']->openZip('/^.*\.shp$/i') === false) {
+            if ($importHandle->openZip('/^.*\.shp$/i') === false) {
                 $message = Message::error(
                     __('There was an error importing the ESRI shape file: "%s".')
                 );
-                $message->addParam($GLOBALS['import_handle']->getError());
+                $message->addParam($importHandle->getError());
 
                 return;
             }
@@ -320,7 +329,7 @@ class ImportShp extends ImportPlugin
      */
     public static function readFromBuffer($length)
     {
-        global $buffer, $eof;
+        global $buffer, $eof, $importHandle;
 
         $import = new Import();
 
@@ -328,7 +337,7 @@ class ImportShp extends ImportPlugin
             if ($GLOBALS['finished']) {
                 $eof = true;
             } else {
-                $buffer .= $import->getNextChunk();
+                $buffer .= $import->getNextChunk($importHandle);
             }
         }
         $result = substr($buffer, 0, $length);

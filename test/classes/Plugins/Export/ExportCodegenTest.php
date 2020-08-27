@@ -59,7 +59,7 @@ class ExportCodegenTest extends AbstractTestCase
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrCgFormats = new ReflectionProperty(ExportCodegen::class, '_cgFormats');
+        $attrCgFormats = new ReflectionProperty(ExportCodegen::class, 'cgFormats');
         $attrCgFormats->setAccessible(true);
 
         $this->assertEquals(
@@ -240,6 +240,8 @@ class ExportCodegenTest extends AbstractTestCase
             'test'
         );
         $result = ob_get_clean();
+
+        $this->assertIsString($result);
 
         $this->assertStringContainsString(
             '<?xml version="1.0" encoding="utf-8" ?>',

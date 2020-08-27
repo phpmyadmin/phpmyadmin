@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
 
+use PhpMyAdmin\File;
 use PhpMyAdmin\Import;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
@@ -103,7 +104,7 @@ class ImportOds extends ImportPlugin
      *
      * @return void
      */
-    public function doImport(array &$sql_data = [])
+    public function doImport(?File $importHandle = null, array &$sql_data = [])
     {
         global $db, $error, $timeout_passed, $finished;
 
@@ -116,7 +117,7 @@ class ImportOds extends ImportPlugin
          * it can process compressed files
          */
         while (! ($finished && $i >= $len) && ! $error && ! $timeout_passed) {
-            $data = $this->import->getNextChunk();
+            $data = $this->import->getNextChunk($importHandle);
             if ($data === false) {
                 /* subtract data we didn't handle yet and stop processing */
                 $GLOBALS['offset'] -= strlen($buffer);

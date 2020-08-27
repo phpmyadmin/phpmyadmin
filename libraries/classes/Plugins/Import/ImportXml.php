@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
 
+use PhpMyAdmin\File;
 use PhpMyAdmin\Import;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
@@ -60,7 +61,7 @@ class ImportXml extends ImportPlugin
      *
      * @return void
      */
-    public function doImport(array &$sql_data = [])
+    public function doImport(?File $importHandle = null, array &$sql_data = [])
     {
         global $error, $timeout_passed, $finished, $db;
 
@@ -73,7 +74,7 @@ class ImportXml extends ImportPlugin
          * it can process compressed files
          */
         while (! ($finished && $i >= $len) && ! $error && ! $timeout_passed) {
-            $data = $this->import->getNextChunk();
+            $data = $this->import->getNextChunk($importHandle);
             if ($data === false) {
                 /* subtract data we didn't handle yet and stop processing */
                 $GLOBALS['offset'] -= strlen($buffer);
@@ -108,13 +109,12 @@ class ImportXml extends ImportPlugin
          * The XML was malformed
          */
         if ($xml === false) {
-            Message::error(
+            echo Message::error(
                 __(
                     'The XML file specified was either malformed or incomplete.'
                     . ' Please correct the issue and try again.'
                 )
-            )
-                ->display();
+            )->getDisplay();
             unset($xml);
             $GLOBALS['finished'] = false;
 
@@ -173,13 +173,12 @@ class ImportXml extends ImportPlugin
          * The XML was malformed
          */
         if ($db_name === null) {
-            Message::error(
+            echo Message::error(
                 __(
                     'The XML file specified was either malformed or incomplete.'
                     . ' Please correct the issue and try again.'
                 )
-            )
-                ->display();
+            )->getDisplay();
             unset($xml);
             $GLOBALS['finished'] = false;
 

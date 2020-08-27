@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Import;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -102,7 +103,7 @@ class ImportSql extends ImportPlugin
      *
      * @return void
      */
-    public function doImport(array &$sql_data = [])
+    public function doImport(?File $importHandle = null, array &$sql_data = [])
     {
         global $error, $timeout_passed;
 
@@ -129,7 +130,7 @@ class ImportSql extends ImportPlugin
             // If there is no full statement, we are looking for more data.
             if (empty($statement)) {
                 // Importing new data.
-                $newData = $this->import->getNextChunk();
+                $newData = $this->import->getNextChunk($importHandle);
 
                 // Subtract data we didn't handle yet and stop processing.
                 if ($newData === false) {

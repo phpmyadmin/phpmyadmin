@@ -116,7 +116,7 @@ class ScriptsTest extends AbstractTestCase
      */
     public function testAddFile(): void
     {
-        $reflection = new ReflectionProperty(Scripts::class, '_files');
+        $reflection = new ReflectionProperty(Scripts::class, 'files');
         $reflection->setAccessible(true);
 
         // Assert empty _files property of
@@ -142,7 +142,7 @@ class ScriptsTest extends AbstractTestCase
      */
     public function testAddFiles(): void
     {
-        $reflection = new ReflectionProperty(Scripts::class, '_files');
+        $reflection = new ReflectionProperty(Scripts::class, 'files');
         $reflection->setAccessible(true);
 
         $filenames = [

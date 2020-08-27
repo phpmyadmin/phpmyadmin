@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.12.2@7c7ebd068f8acaba211d4a2c707c4ba90874fa26">
+<files psalm-version="3.14.2@3538fe1955d47f6ee926c0769d71af6db08aa488">
   <file src="libraries/classes/Advisor.php">
-    <PossiblyNullArgument occurrences="1">
-      <code>Util::formatByteDown($value, $limes, $comma)</code>
-    </PossiblyNullArgument>
-  </file>
-  <file src="libraries/classes/Bookmark.php">
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$db</code>
-    </PossiblyInvalidArgument>
+    <InvalidArrayOffset occurrences="2">
+      <code>$ruleSyntax[$ruleLine++]</code>
+      <code>$ruleSyntax[$ruleLine]</code>
+    </InvalidArrayOffset>
   </file>
   <file src="libraries/classes/CentralColumns.php">
     <InvalidScalarArgument occurrences="1">
@@ -21,6 +17,9 @@
       <code>$this-&gt;dbi-&gt;getError()</code>
       <code>$this-&gt;dbi-&gt;getError(DatabaseInterface::CONNECT_CONTROL)</code>
     </PossiblyInvalidArgument>
+    <TypeDoesNotContainType occurrences="1">
+      <code>$table == ''</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Charsets.php">
     <TypeDoesNotContainType occurrences="1">
@@ -28,6 +27,72 @@
     </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Charsets/Collation.php">
+    <ImpureByReferenceAssignment occurrences="64">
+      <code>$name</code>
+      <code>$variant</code>
+      <code>$name</code>
+      <code>$unicode</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$unicode</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$unknown</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$level</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$level</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$found</code>
+    </ImpureByReferenceAssignment>
     <PossiblyNullArgument occurrences="1">
       <code>$name</code>
     </PossiblyNullArgument>
@@ -64,7 +129,7 @@
   </file>
   <file src="libraries/classes/Config/ConfigFile.php">
     <InvalidIterator occurrences="1">
-      <code>$this-&gt;_cfgDb['_overrides']</code>
+      <code>$this-&gt;cfgDb['_overrides']</code>
     </InvalidIterator>
     <MissingClosureParamType occurrences="12">
       <code>$value</code>
@@ -81,11 +146,11 @@
       <code>$prefix</code>
     </MissingClosureParamType>
     <PossiblyNullArgument occurrences="2">
-      <code>$this-&gt;_baseCfg</code>
+      <code>$this-&gt;baseCfg</code>
       <code>$cfg</code>
     </PossiblyNullArgument>
     <TypeDoesNotContainType occurrences="1">
-      <code>count($this-&gt;_cfgDb['_overrides'])</code>
+      <code>count($this-&gt;cfgDb['_overrides'])</code>
     </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Config/Form.php">
@@ -249,18 +314,6 @@
       <code>$dump_buffer</code>
     </PossiblyInvalidArgument>
   </file>
-  <file src="libraries/classes/Controllers/ExportTemplateController.php">
-    <InvalidArgument occurrences="5">
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-    </InvalidArgument>
-    <TooManyArguments occurrences="1">
-      <code>fetchAssoc</code>
-    </TooManyArguments>
-  </file>
   <file src="libraries/classes/Controllers/GisDataEditorController.php">
     <PossiblyFalseOperand occurrences="1">
       <code>mb_strpos($_POST['value'], '(')</code>
@@ -278,18 +331,13 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>$skip &lt; $read_limit ? $skip : $read_limit</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="2">
-      <code>$import_handle-&gt;getError()</code>
-      <code>$import_handle-&gt;getError()</code>
-    </PossiblyNullArgument>
     <PossiblyNullArrayAccess occurrences="1">
       <code>$_FILES['import_file']['name']</code>
     </PossiblyNullArrayAccess>
     <PossiblyUndefinedArrayOffset occurrences="1">
       <code>$_FILES['import_file']</code>
     </PossiblyUndefinedArrayOffset>
-    <TypeDoesNotContainType occurrences="5">
-      <code>$file_to_unlink != ''</code>
+    <TypeDoesNotContainType occurrences="4">
       <code>$bookmark_created</code>
       <code>$finished &amp;&amp; ! $error</code>
       <code>$timeout_passed</code>
@@ -387,9 +435,6 @@
     </PossiblyNullArrayAccess>
   </file>
   <file src="libraries/classes/Controllers/Setup/FormController.php">
-    <ArgumentTypeCoercion occurrences="1">
-      <code>new $formClass($this-&gt;config)</code>
-    </ArgumentTypeCoercion>
     <PossiblyNullArgument occurrences="1">
       <code>$formset</code>
     </PossiblyNullArgument>
@@ -418,6 +463,9 @@
     <PossiblyNullArgument occurrences="1">
       <code>$where_clause ?? null</code>
     </PossiblyNullArgument>
+    <TypeDoesNotContainType occurrences="1">
+      <code>$biggest_max_file_size &gt; 0</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Controllers/Table/ChartController.php">
     <ImplicitToStringCast occurrences="1">
@@ -536,12 +584,6 @@
     <InvalidOperand occurrences="1">
       <code>$matches[1]</code>
     </InvalidOperand>
-    <LoopInvalidation occurrences="4">
-      <code>$i</code>
-      <code>$i</code>
-      <code>$i</code>
-      <code>$i</code>
-    </LoopInvalidation>
     <PossiblyFalseArgument occurrences="2">
       <code>mb_strpos($page . '?', '?')</code>
       <code>mb_strpos($_page . '?', '?')</code>
@@ -563,11 +605,6 @@
       <code>null</code>
     </PossiblyNullPropertyAssignmentValue>
   </file>
-  <file src="libraries/classes/Database/Designer.php">
-    <InvalidArgument occurrences="1">
-      <code>$page_rs</code>
-    </InvalidArgument>
-  </file>
   <file src="libraries/classes/Database/Designer/Common.php">
     <InvalidArgument occurrences="1">
       <code>$pg</code>
@@ -582,7 +619,8 @@
     <NullArgument occurrences="1">
       <code>null</code>
     </NullArgument>
-    <PossiblyNullArgument occurrences="1">
+    <PossiblyNullArgument occurrences="2">
+      <code>$table</code>
       <code>$sortOrder</code>
     </PossiblyNullArgument>
     <PossiblyNullArrayAccess occurrences="1">
@@ -595,6 +633,9 @@
     </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="libraries/classes/Database/Routines.php">
+    <InvalidScalarArgument occurrences="1">
+      <code>$affected</code>
+    </InvalidScalarArgument>
     <PossiblyInvalidArgument occurrences="2">
       <code>$routine['item_type_toggle']</code>
       <code>$routine['item_returntype']</code>
@@ -630,7 +671,7 @@
       <code>$result_target[]</code>
     </EmptyArrayAccess>
     <InvalidReturnStatement occurrences="1">
-      <code>$this-&gt;_extension-&gt;getProtoInfo($this-&gt;_links[$link])</code>
+      <code>$this-&gt;extension-&gt;getProtoInfo($this-&gt;links[$link])</code>
     </InvalidReturnStatement>
     <InvalidReturnType occurrences="1">
       <code>int|bool</code>
@@ -681,6 +722,15 @@
       <code>$mysqli</code>
       <code>$mysqli</code>
     </MoreSpecificImplementedParamType>
+    <ParamNameMismatch occurrences="7">
+      <code>$databaseName</code>
+      <code>$mysqli</code>
+      <code>$mysqli</code>
+      <code>$mysqli</code>
+      <code>$mysqli</code>
+      <code>$string</code>
+      <code>$mysqli</code>
+    </ParamNameMismatch>
     <PossiblyNullPropertyFetch occurrences="2">
       <code>$mysqli-&gt;connect_errno</code>
       <code>$mysqli-&gt;connect_error</code>
@@ -689,36 +739,6 @@
       <code>$return_value === null</code>
       <code>$return_value === false || $return_value === null</code>
     </TypeDoesNotContainNull>
-  </file>
-  <file src="libraries/classes/Display/Export.php">
-    <InvalidScalarArgument occurrences="2">
-      <code>$numTables</code>
-      <code>$unlimNumRows</code>
-    </InvalidScalarArgument>
-  </file>
-  <file src="libraries/classes/Display/GitRevision.php">
-    <PossiblyNullArgument occurrences="12">
-      <code>$this-&gt;config-&gt;get('PMA_VERSION_GIT_COMMITHASH')</code>
-      <code>$this-&gt;config-&gt;get('PMA_VERSION_GIT_MESSAGE')</code>
-      <code>$this-&gt;config-&gt;get('PMA_VERSION_GIT_COMMITHASH')</code>
-      <code>$branch</code>
-      <code>$branch</code>
-      <code>$isRemoteBranch ? $branch : htmlspecialchars($branch)</code>
-      <code>$committer['date']</code>
-      <code>$committer['email']</code>
-      <code>$committer['name']</code>
-      <code>$author['date']</code>
-      <code>$author['email']</code>
-      <code>$author['name']</code>
-    </PossiblyNullArgument>
-    <PossiblyNullArrayAccess occurrences="6">
-      <code>$committer['date']</code>
-      <code>$committer['email']</code>
-      <code>$committer['name']</code>
-      <code>$author['date']</code>
-      <code>$author['email']</code>
-      <code>$author['name']</code>
-    </PossiblyNullArrayAccess>
   </file>
   <file src="libraries/classes/Display/Results.php">
     <ImplicitToStringCast occurrences="1">
@@ -889,7 +909,7 @@
       <code>string</code>
     </InvalidFalsableReturnType>
     <InvalidPropertyAssignmentValue occurrences="1">
-      <code>$this-&gt;_handle</code>
+      <code>$this-&gt;handle</code>
     </InvalidPropertyAssignmentValue>
     <PossiblyInvalidArgument occurrences="1">
       <code>$_FILES['fields_upload']</code>
@@ -910,9 +930,9 @@
       <code>$this-&gt;getName()</code>
       <code>$this-&gt;getName()</code>
       <code>$this-&gt;getName()</code>
-      <code>$this-&gt;_handle</code>
-      <code>$this-&gt;_handle</code>
-      <code>$this-&gt;_handle</code>
+      <code>$this-&gt;handle</code>
+      <code>$this-&gt;handle</code>
+      <code>$this-&gt;handle</code>
     </PossiblyNullArgument>
     <PossiblyNullPropertyAssignmentValue occurrences="4">
       <code>null</code>
@@ -947,24 +967,48 @@
       <code>$srid</code>
       <code>$srid</code>
     </InvalidScalarArgument>
+    <ParamNameMismatch occurrences="4">
+      <code>$line_color</code>
+      <code>$line_color</code>
+      <code>$line_color</code>
+      <code>$line_color</code>
+    </ParamNameMismatch>
   </file>
   <file src="libraries/classes/Gis/GisMultiLineString.php">
     <InvalidScalarArgument occurrences="2">
       <code>$srid</code>
       <code>$srid</code>
     </InvalidScalarArgument>
+    <ParamNameMismatch occurrences="4">
+      <code>$line_color</code>
+      <code>$line_color</code>
+      <code>$line_color</code>
+      <code>$line_color</code>
+    </ParamNameMismatch>
   </file>
   <file src="libraries/classes/Gis/GisMultiPoint.php">
     <InvalidScalarArgument occurrences="2">
       <code>$srid</code>
       <code>$srid</code>
     </InvalidScalarArgument>
+    <ParamNameMismatch occurrences="4">
+      <code>$point_color</code>
+      <code>$point_color</code>
+      <code>$point_color</code>
+      <code>$point_color</code>
+    </ParamNameMismatch>
   </file>
   <file src="libraries/classes/Gis/GisMultiPolygon.php">
     <InvalidScalarArgument occurrences="2">
       <code>$srid</code>
       <code>$srid</code>
     </InvalidScalarArgument>
+    <ParamNameMismatch occurrences="4">
+      <code>$fill_color</code>
+      <code>$fill_color</code>
+      <code>$fill_color</code>
+      <code>$fill_color</code>
+    </ParamNameMismatch>
     <PossiblyInvalidArgument occurrences="1">
       <code>count($points_arr) / 2</code>
     </PossiblyInvalidArgument>
@@ -978,6 +1022,12 @@
       <code>$srid</code>
       <code>$srid</code>
     </InvalidScalarArgument>
+    <ParamNameMismatch occurrences="4">
+      <code>$point_color</code>
+      <code>$point_color</code>
+      <code>$point_color</code>
+      <code>$point_color</code>
+    </ParamNameMismatch>
   </file>
   <file src="libraries/classes/Gis/GisPolygon.php">
     <InvalidNullableReturnType occurrences="1">
@@ -987,6 +1037,12 @@
       <code>$srid</code>
       <code>$srid</code>
     </InvalidScalarArgument>
+    <ParamNameMismatch occurrences="4">
+      <code>$fill_color</code>
+      <code>$fill_color</code>
+      <code>$fill_color</code>
+      <code>$fill_color</code>
+    </ParamNameMismatch>
     <PossiblyInvalidArgument occurrences="1">
       <code>count($points_arr) / 2</code>
     </PossiblyInvalidArgument>
@@ -1075,6 +1131,9 @@
     <InvalidArgument occurrences="1">
       <code>$current_result</code>
     </InvalidArgument>
+    <NullableReturnStatement occurrences="1">
+      <code>$dispval</code>
+    </NullableReturnStatement>
     <PossiblyInvalidOperand occurrences="2">
       <code>$tmp</code>
       <code>$insert_id</code>
@@ -1112,6 +1171,11 @@
       <code>bool</code>
     </InvalidReturnType>
   </file>
+  <file src="libraries/classes/LanguageManager.php">
+    <MissingConstructor occurrences="1">
+      <code>$available_locales</code>
+    </MissingConstructor>
+  </file>
   <file src="libraries/classes/Menu.php">
     <NullableReturnStatement occurrences="1">
       <code>$allowedTabs</code>
@@ -1134,12 +1198,6 @@
       <code>null</code>
     </PossiblyNullPropertyAssignmentValue>
   </file>
-  <file src="libraries/classes/Navigation/Navigation.php">
-    <InvalidArgument occurrences="2">
-      <code>$result</code>
-      <code>$result</code>
-    </InvalidArgument>
-  </file>
   <file src="libraries/classes/Navigation/NavigationTree.php">
     <PossiblyFalseOperand occurrences="1">
       <code>strrpos($class, '\\')</code>
@@ -1147,12 +1205,6 @@
     <PossiblyFalseReference occurrences="1">
       <code>getPresence</code>
     </PossiblyFalseReference>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$icons</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidIterator occurrences="1">
-      <code>$icons</code>
-    </PossiblyInvalidIterator>
     <PossiblyNullArgument occurrences="3">
       <code>$table</code>
       <code>$container-&gt;realName</code>
@@ -1227,6 +1279,12 @@
       <code>$text</code>
       <code>$text</code>
     </PossiblyNullArgument>
+    <TypeDoesNotContainType occurrences="4">
+      <code>$property_class == BoolPropertyItem::class</code>
+      <code>$property_class == MessageOnlyPropertyItem::class</code>
+      <code>$property_class == SelectPropertyItem::class</code>
+      <code>$property_class == TextPropertyItem::class</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Plugins/Auth/AuthenticationCookie.php">
     <ImplementedReturnTypeMismatch occurrences="2">
@@ -1263,6 +1321,11 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportHtmlword.php">
+    <ParamNameMismatch occurrences="3">
+      <code>$do_relation</code>
+      <code>$do_comments</code>
+      <code>$do_mime</code>
+    </ParamNameMismatch>
     <PossiblyNullArgument occurrences="5">
       <code>$table_alias</code>
       <code>$table_alias</code>
@@ -1276,6 +1339,11 @@
     </PossiblyUndefinedVariable>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportLatex.php">
+    <ParamNameMismatch occurrences="3">
+      <code>$do_relation</code>
+      <code>$do_comments</code>
+      <code>$do_mime</code>
+    </ParamNameMismatch>
     <PossiblyFalseArgument occurrences="4">
       <code>$pos</code>
       <code>$pos</code>
@@ -1284,6 +1352,11 @@
     </PossiblyFalseArgument>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportMediawiki.php">
+    <ParamNameMismatch occurrences="3">
+      <code>$do_relation</code>
+      <code>$do_comments</code>
+      <code>$do_mime</code>
+    </ParamNameMismatch>
     <PossiblyNullArgument occurrences="2">
       <code>$table_alias</code>
       <code>$table_alias</code>
@@ -1295,6 +1368,11 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportOdt.php">
+    <ParamNameMismatch occurrences="3">
+      <code>$do_relation</code>
+      <code>$do_comments</code>
+      <code>$do_mime</code>
+    </ParamNameMismatch>
     <PossiblyNullArgument occurrences="10">
       <code>$table_alias</code>
       <code>$table_alias</code>
@@ -1307,6 +1385,13 @@
       <code>$table_alias</code>
       <code>$table_alias</code>
     </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Plugins/Export/ExportPdf.php">
+    <ParamNameMismatch occurrences="3">
+      <code>$do_relation</code>
+      <code>$do_comments</code>
+      <code>$do_mime</code>
+    </ParamNameMismatch>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportPhparray.php">
     <PossiblyNullArgument occurrences="1">
@@ -1360,6 +1445,11 @@
     </UndefinedMethod>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportTexytext.php">
+    <ParamNameMismatch occurrences="3">
+      <code>$do_relation</code>
+      <code>$do_comments</code>
+      <code>$do_mime</code>
+    </ParamNameMismatch>
     <PossiblyNullArgument occurrences="1">
       <code>$col_as</code>
     </PossiblyNullArgument>
@@ -1381,11 +1471,6 @@
       <code>$res_rel</code>
       <code>$mime_map</code>
     </PossiblyUndefinedVariable>
-  </file>
-  <file src="libraries/classes/Plugins/Export/Helpers/TableProperty.php">
-    <PossiblyFalseArgument occurrences="1">
-      <code>$pos</code>
-    </PossiblyFalseArgument>
   </file>
   <file src="libraries/classes/Plugins/Import/AbstractImportCsv.php">
     <ImplementedReturnTypeMismatch occurrences="1">
@@ -1477,13 +1562,16 @@
     </ImplementedReturnTypeMismatch>
   </file>
   <file src="libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php">
+    <InvalidScalarArgument occurrences="1">
+      <code>$this-&gt;showColor</code>
+    </InvalidScalarArgument>
     <PossiblyInvalidArgument occurrences="6">
-      <code>$this-&gt;_tables[$masterTable]</code>
-      <code>$this-&gt;_tables[$foreignTable]</code>
       <code>$this-&gt;diagram</code>
       <code>$this-&gt;diagram</code>
       <code>$this-&gt;diagram</code>
       <code>$this-&gt;diagram</code>
+      <code>$this-&gt;tables[$masterTable]</code>
+      <code>$this-&gt;tables[$foreignTable]</code>
     </PossiblyInvalidArgument>
     <PossiblyNullArgument occurrences="5">
       <code>$this-&gt;paper</code>
@@ -1492,44 +1580,83 @@
       <code>$this-&gt;showKeys</code>
       <code>$this-&gt;showKeys</code>
     </PossiblyNullArgument>
-    <PossiblyNullReference occurrences="2">
+    <PossiblyNullReference occurrences="3">
       <code>startDiaDoc</code>
       <code>endDiaDoc</code>
+      <code>showOutput</code>
     </PossiblyNullReference>
+    <PossiblyUndefinedMethod occurrences="3">
+      <code>startDiaDoc</code>
+      <code>endDiaDoc</code>
+      <code>showOutput</code>
+    </PossiblyUndefinedMethod>
     <TooFewArguments occurrences="1">
       <code>tableDraw</code>
     </TooFewArguments>
   </file>
+  <file src="libraries/classes/Plugins/Schema/Dia/RelationStatsDia.php">
+    <InvalidOperand occurrences="4">
+      <code>$pos</code>
+      <code>$pos</code>
+      <code>$pos</code>
+      <code>$pos</code>
+    </InvalidOperand>
+    <PossiblyFalseOperand occurrences="4">
+      <code>$pos</code>
+      <code>$pos</code>
+      <code>$pos</code>
+      <code>$pos</code>
+    </PossiblyFalseOperand>
+  </file>
+  <file src="libraries/classes/Plugins/Schema/Dia/TableStatsDia.php">
+    <PossiblyUndefinedMethod occurrences="11">
+      <code>startElement</code>
+      <code>writeAttribute</code>
+      <code>writeAttribute</code>
+      <code>writeAttribute</code>
+      <code>writeRaw</code>
+      <code>startElement</code>
+      <code>writeAttribute</code>
+      <code>writeRaw</code>
+      <code>writeRaw</code>
+      <code>endElement</code>
+      <code>endElement</code>
+    </PossiblyUndefinedMethod>
+  </file>
   <file src="libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php">
     <InvalidArgument occurrences="2">
-      <code>$this-&gt;_tables[$masterTable]</code>
-      <code>$this-&gt;_tables[$foreignTable]</code>
+      <code>$this-&gt;tables[$masterTable]</code>
+      <code>$this-&gt;tables[$foreignTable]</code>
     </InvalidArgument>
-    <InvalidScalarArgument occurrences="1">
+    <InvalidScalarArgument occurrences="2">
       <code>'10'</code>
+      <code>$this-&gt;showColor</code>
     </InvalidScalarArgument>
     <PossiblyInvalidArgument occurrences="1">
       <code>$this-&gt;diagram</code>
     </PossiblyInvalidArgument>
     <PossiblyNullArgument occurrences="16">
-      <code>$this-&gt;pageNumber</code>
-      <code>$this-&gt;orientation</code>
+      <code>$this-&gt;diagram</code>
+      <code>$this-&gt;diagram</code>
       <code>$this-&gt;diagram</code>
       <code>$this-&gt;pageNumber</code>
-      <code>$this-&gt;_tablewidth</code>
+      <code>$this-&gt;orientation</code>
+      <code>$this-&gt;pageNumber</code>
+      <code>$this-&gt;tablewidth</code>
       <code>$this-&gt;showKeys</code>
       <code>$this-&gt;tableDimension</code>
       <code>$this-&gt;offline</code>
-      <code>$this-&gt;diagram</code>
       <code>$this-&gt;pageNumber</code>
-      <code>$this-&gt;_tablewidth</code>
-      <code>$this-&gt;diagram</code>
+      <code>$this-&gt;tablewidth</code>
       <code>$this-&gt;pageNumber</code>
-      <code>$this-&gt;_tablewidth</code>
+      <code>$this-&gt;tablewidth</code>
       <code>$this-&gt;tableDimension</code>
       <code>$this-&gt;tableDimension</code>
     </PossiblyNullArgument>
-    <PossiblyNullReference occurrences="12">
+    <PossiblyNullPropertyAssignmentValue occurrences="1">
+      <code>$this-&gt;tablewidth</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <PossiblyNullReference occurrences="13">
       <code>setTitle</code>
       <code>setAuthor</code>
       <code>setDate</code>
@@ -1542,7 +1669,23 @@
       <code>getFont</code>
       <code>getFontSize</code>
       <code>endEpsDoc</code>
+      <code>showOutput</code>
     </PossiblyNullReference>
+    <PossiblyUndefinedMethod occurrences="13">
+      <code>setTitle</code>
+      <code>setAuthor</code>
+      <code>setDate</code>
+      <code>setOrientation</code>
+      <code>setFont</code>
+      <code>getFont</code>
+      <code>getFontSize</code>
+      <code>getFont</code>
+      <code>getFontSize</code>
+      <code>getFont</code>
+      <code>getFontSize</code>
+      <code>endEpsDoc</code>
+      <code>showOutput</code>
+    </PossiblyUndefinedMethod>
     <TooFewArguments occurrences="1">
       <code>tableDraw</code>
     </TooFewArguments>
@@ -1556,12 +1699,36 @@
     <ArgumentTypeCoercion occurrences="1">
       <code>$diagram</code>
     </ArgumentTypeCoercion>
+    <InvalidScalarArgument occurrences="8">
+      <code>$this-&gt;x</code>
+      <code>$this-&gt;y + 12</code>
+      <code>$this-&gt;x + 5</code>
+      <code>$this-&gt;y + 14</code>
+      <code>$this-&gt;x</code>
+      <code>$this-&gt;y + 12 + $this-&gt;currentCell</code>
+      <code>$this-&gt;x + 5</code>
+      <code>$this-&gt;y + 14 + $this-&gt;currentCell</code>
+    </InvalidScalarArgument>
+    <PossiblyUndefinedMethod occurrences="4">
+      <code>rect</code>
+      <code>showXY</code>
+      <code>rect</code>
+      <code>showXY</code>
+    </PossiblyUndefinedMethod>
   </file>
   <file src="libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php">
     <InvalidArgument occurrences="2">
-      <code>$this-&gt;_tables[$masterTable]</code>
-      <code>$this-&gt;_tables[$foreignTable]</code>
+      <code>$this-&gt;tables[$masterTable]</code>
+      <code>$this-&gt;tables[$foreignTable]</code>
     </InvalidArgument>
+    <InvalidScalarArgument occurrences="6">
+      <code>$this-&gt;offline</code>
+      <code>'B'</code>
+      <code>''</code>
+      <code>'B'</code>
+      <code>''</code>
+      <code>''</code>
+    </InvalidScalarArgument>
     <NullArgument occurrences="4">
       <code>null</code>
       <code>null</code>
@@ -1571,34 +1738,45 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>$this-&gt;diagram</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="22">
+    <PossiblyNullArgument occurrences="21">
+      <code>$this-&gt;diagram</code>
+      <code>$this-&gt;diagram</code>
+      <code>$this-&gt;diagram</code>
       <code>$this-&gt;orientation</code>
       <code>$this-&gt;paper</code>
       <code>$this-&gt;pageNumber</code>
-      <code>$this-&gt;_withDoc</code>
-      <code>$this-&gt;offline</code>
-      <code>$this-&gt;diagram</code>
+      <code>$this-&gt;withDoc</code>
       <code>$this-&gt;pageNumber</code>
-      <code>$this-&gt;_tablewidth</code>
+      <code>$this-&gt;tablewidth</code>
       <code>$this-&gt;showKeys</code>
       <code>$this-&gt;tableDimension</code>
       <code>$this-&gt;offline</code>
-      <code>$this-&gt;diagram</code>
       <code>$this-&gt;pageNumber</code>
-      <code>$this-&gt;_tablewidth</code>
+      <code>$this-&gt;tablewidth</code>
       <code>$this-&gt;showKeys</code>
       <code>$this-&gt;tableDimension</code>
-      <code>$this-&gt;diagram</code>
       <code>$this-&gt;pageNumber</code>
-      <code>$this-&gt;_tablewidth</code>
+      <code>$this-&gt;tablewidth</code>
       <code>$this-&gt;showKeys</code>
       <code>$this-&gt;tableDimension</code>
-      <code>$this-&gt;_withDoc</code>
+      <code>$this-&gt;withDoc</code>
     </PossiblyNullArgument>
-    <PossiblyNullPropertyFetch occurrences="1">
+    <PossiblyNullPropertyAssignment occurrences="5">
+      <code>$this-&gt;diagram</code>
+      <code>$this-&gt;diagram</code>
+      <code>$this-&gt;diagram</code>
+      <code>$this-&gt;diagram</code>
+      <code>$this-&gt;diagram</code>
+    </PossiblyNullPropertyAssignment>
+    <PossiblyNullPropertyAssignmentValue occurrences="1">
+      <code>$this-&gt;tablewidth</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <PossiblyNullPropertyFetch occurrences="3">
+      <code>$this-&gt;diagram-&gt;PMA_links</code>
+      <code>$this-&gt;diagram-&gt;PMA_links</code>
       <code>$this-&gt;diagram-&gt;PMA_links</code>
     </PossiblyNullPropertyFetch>
-    <PossiblyNullReference occurrences="32">
+    <PossiblyNullReference occurrences="92">
       <code>SetTitle</code>
       <code>setCMargin</code>
       <code>Open</code>
@@ -1618,6 +1796,8 @@
       <code>setScale</code>
       <code>setLineWidthScale</code>
       <code>SetFontSize</code>
+      <code>setFontSizeScale</code>
+      <code>download</code>
       <code>SetMargins</code>
       <code>SetDrawColor</code>
       <code>getPageHeight</code>
@@ -1630,23 +1810,227 @@
       <code>getPageHeight</code>
       <code>SetXY</code>
       <code>Cell</code>
-      <code>setFontSizeScale</code>
+      <code>AddPage</code>
+      <code>Cell</code>
+      <code>Ln</code>
+      <code>AddLink</code>
+      <code>SetX</code>
+      <code>Cell</code>
+      <code>SetX</code>
+      <code>Cell</code>
+      <code>SetX</code>
+      <code>AddLink</code>
+      <code>AddLink</code>
+      <code>SetX</code>
+      <code>Cell</code>
+      <code>SetX</code>
+      <code>Cell</code>
+      <code>SetAutoPageBreak</code>
+      <code>AddPage</code>
+      <code>Bookmark</code>
+      <code>setAlias</code>
+      <code>PageNo</code>
+      <code>AddLink</code>
+      <code>SetLink</code>
+      <code>SetFont</code>
+      <code>Cell</code>
+      <code>SetFont</code>
+      <code>Ln</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Ln</code>
+      <code>SetFont</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>setWidths</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>setWidths</code>
+      <code>SetFont</code>
+      <code>AddLink</code>
+      <code>Bookmark</code>
+      <code>SetLink</code>
+      <code>row</code>
+      <code>SetFont</code>
     </PossiblyNullReference>
+    <PossiblyUndefinedMethod occurrences="92">
+      <code>SetTitle</code>
+      <code>setCMargin</code>
+      <code>Open</code>
+      <code>SetAutoPageBreak</code>
+      <code>setOffline</code>
+      <code>SetAutoPageBreak</code>
+      <code>setCMargin</code>
+      <code>SetAutoPageBreak</code>
+      <code>setCMargin</code>
+      <code>AddPage</code>
+      <code>SetLink</code>
+      <code>Bookmark</code>
+      <code>PageNo</code>
+      <code>setAlias</code>
+      <code>getPageWidth</code>
+      <code>getPageHeight</code>
+      <code>setScale</code>
+      <code>setLineWidthScale</code>
+      <code>SetFontSize</code>
+      <code>setFontSizeScale</code>
+      <code>download</code>
+      <code>SetMargins</code>
+      <code>SetDrawColor</code>
+      <code>getPageHeight</code>
+      <code>getPageWidth</code>
+      <code>line</code>
+      <code>SetXY</code>
+      <code>Cell</code>
+      <code>getPageWidth</code>
+      <code>getPageHeight</code>
+      <code>line</code>
+      <code>SetXY</code>
+      <code>Cell</code>
+      <code>AddPage</code>
+      <code>Cell</code>
+      <code>Ln</code>
+      <code>AddLink</code>
+      <code>SetX</code>
+      <code>Cell</code>
+      <code>SetX</code>
+      <code>Cell</code>
+      <code>SetX</code>
+      <code>AddLink</code>
+      <code>AddLink</code>
+      <code>SetX</code>
+      <code>Cell</code>
+      <code>SetX</code>
+      <code>Cell</code>
+      <code>SetAutoPageBreak</code>
+      <code>AddPage</code>
+      <code>Bookmark</code>
+      <code>PageNo</code>
+      <code>setAlias</code>
+      <code>AddLink</code>
+      <code>SetLink</code>
+      <code>SetFont</code>
+      <code>Cell</code>
+      <code>SetFont</code>
+      <code>Ln</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Ln</code>
+      <code>SetFont</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>setWidths</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>Cell</code>
+      <code>setWidths</code>
+      <code>SetFont</code>
+      <code>AddLink</code>
+      <code>Bookmark</code>
+      <code>SetLink</code>
+      <code>row</code>
+      <code>SetFont</code>
+    </PossiblyUndefinedMethod>
+    <UndefinedPropertyAssignment occurrences="4">
+      <code>$this-&gt;diagram-&gt;PMA_links</code>
+      <code>$this-&gt;diagram-&gt;PMA_links</code>
+      <code>$this-&gt;diagram-&gt;PMA_links</code>
+      <code>$this-&gt;diagram-&gt;PMA_links</code>
+    </UndefinedPropertyAssignment>
+    <UndefinedPropertyFetch occurrences="3">
+      <code>$this-&gt;diagram-&gt;PMA_links</code>
+      <code>$this-&gt;diagram-&gt;PMA_links</code>
+      <code>$this-&gt;diagram-&gt;PMA_links</code>
+    </UndefinedPropertyFetch>
   </file>
   <file src="libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php">
     <ArgumentTypeCoercion occurrences="1">
       <code>$diagram</code>
     </ArgumentTypeCoercion>
-    <InvalidScalarArgument occurrences="2">
+    <InvalidScalarArgument occurrences="6">
       <code>'B'</code>
       <code>''</code>
+      <code>'B'</code>
+      <code>$setColor</code>
+      <code>''</code>
+      <code>$setColor</code>
     </InvalidScalarArgument>
+    <PossiblyUndefinedMethod occurrences="21">
+      <code>GetStringWidth</code>
+      <code>GetStringWidth</code>
+      <code>SetFont</code>
+      <code>GetStringWidth</code>
+      <code>SetFont</code>
+      <code>setXyScale</code>
+      <code>SetFont</code>
+      <code>SetTextColor</code>
+      <code>SetFillColor</code>
+      <code>SetLink</code>
+      <code>cellScale</code>
+      <code>setXScale</code>
+      <code>SetFont</code>
+      <code>SetTextColor</code>
+      <code>SetFillColor</code>
+      <code>SetFillColor</code>
+      <code>SetFillColor</code>
+      <code>SetLink</code>
+      <code>cellScale</code>
+      <code>setXScale</code>
+      <code>SetFillColor</code>
+    </PossiblyUndefinedMethod>
+    <UndefinedPropertyAssignment occurrences="2">
+      <code>$this-&gt;diagram-&gt;PMA_links</code>
+      <code>$this-&gt;diagram-&gt;PMA_links</code>
+    </UndefinedPropertyAssignment>
+    <UndefinedPropertyFetch occurrences="2">
+      <code>$this-&gt;diagram-&gt;PMA_links</code>
+      <code>$this-&gt;diagram-&gt;PMA_links</code>
+    </UndefinedPropertyFetch>
   </file>
   <file src="libraries/classes/Plugins/Schema/RelationStats.php">
     <InvalidArgument occurrences="2">
       <code>$master_table</code>
       <code>$foreign_table</code>
     </InvalidArgument>
+    <InvalidOperand occurrences="1">
+      <code>$pos</code>
+    </InvalidOperand>
+    <PossiblyFalseOperand occurrences="1">
+      <code>$pos</code>
+    </PossiblyFalseOperand>
   </file>
   <file src="libraries/classes/Plugins/Schema/Svg/Svg.php">
     <InvalidArgument occurrences="4">
@@ -1658,31 +2042,41 @@
   </file>
   <file src="libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php">
     <InvalidArgument occurrences="2">
-      <code>$this-&gt;_tables[$masterTable]</code>
-      <code>$this-&gt;_tables[$foreignTable]</code>
+      <code>$this-&gt;tables[$masterTable]</code>
+      <code>$this-&gt;tables[$foreignTable]</code>
     </InvalidArgument>
+    <InvalidScalarArgument occurrences="5">
+      <code>$this-&gt;xMax + $border</code>
+      <code>$this-&gt;yMax + $border</code>
+      <code>$this-&gt;xMin - $border</code>
+      <code>$this-&gt;yMin - $border</code>
+      <code>$this-&gt;showColor</code>
+    </InvalidScalarArgument>
     <PossiblyInvalidArgument occurrences="2">
-      <code>$this-&gt;_tables[$table]</code>
+      <code>$this-&gt;tables[$table]</code>
       <code>$this-&gt;diagram</code>
     </PossiblyInvalidArgument>
     <PossiblyNullArgument occurrences="15">
-      <code>$this-&gt;pageNumber</code>
+      <code>$this-&gt;diagram</code>
+      <code>$this-&gt;diagram</code>
       <code>$this-&gt;diagram</code>
       <code>$this-&gt;pageNumber</code>
-      <code>$this-&gt;_tablewidth</code>
+      <code>$this-&gt;pageNumber</code>
+      <code>$this-&gt;tablewidth</code>
       <code>$this-&gt;showKeys</code>
       <code>$this-&gt;tableDimension</code>
       <code>$this-&gt;offline</code>
-      <code>$this-&gt;diagram</code>
       <code>$this-&gt;pageNumber</code>
-      <code>$this-&gt;_tablewidth</code>
-      <code>$this-&gt;diagram</code>
+      <code>$this-&gt;tablewidth</code>
       <code>$this-&gt;pageNumber</code>
-      <code>$this-&gt;_tablewidth</code>
+      <code>$this-&gt;tablewidth</code>
       <code>$this-&gt;tableDimension</code>
       <code>$this-&gt;tableDimension</code>
     </PossiblyNullArgument>
-    <PossiblyNullReference occurrences="12">
+    <PossiblyNullPropertyAssignmentValue occurrences="1">
+      <code>$this-&gt;tablewidth</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <PossiblyNullReference occurrences="13">
       <code>setTitle</code>
       <code>SetAuthor</code>
       <code>setFont</code>
@@ -1695,7 +2089,23 @@
       <code>getFont</code>
       <code>getFontSize</code>
       <code>endSvgDoc</code>
+      <code>showOutput</code>
     </PossiblyNullReference>
+    <PossiblyUndefinedMethod occurrences="13">
+      <code>setTitle</code>
+      <code>SetAuthor</code>
+      <code>setFont</code>
+      <code>setFontSize</code>
+      <code>getFont</code>
+      <code>getFontSize</code>
+      <code>startSvgDoc</code>
+      <code>getFont</code>
+      <code>getFontSize</code>
+      <code>getFont</code>
+      <code>getFontSize</code>
+      <code>endSvgDoc</code>
+      <code>showOutput</code>
+    </PossiblyUndefinedMethod>
     <TooFewArguments occurrences="1">
       <code>tableDraw</code>
     </TooFewArguments>
@@ -1709,6 +2119,22 @@
     <ArgumentTypeCoercion occurrences="1">
       <code>$diagram</code>
     </ArgumentTypeCoercion>
+    <InvalidScalarArgument occurrences="8">
+      <code>$this-&gt;x</code>
+      <code>$this-&gt;y</code>
+      <code>$this-&gt;x + 5</code>
+      <code>$this-&gt;y + 14</code>
+      <code>$this-&gt;x</code>
+      <code>$this-&gt;y + $this-&gt;currentCell</code>
+      <code>$this-&gt;x + 5</code>
+      <code>$this-&gt;y + 14 + $this-&gt;currentCell</code>
+    </InvalidScalarArgument>
+    <PossiblyUndefinedMethod occurrences="4">
+      <code>printElement</code>
+      <code>printElement</code>
+      <code>printElement</code>
+      <code>printElement</code>
+    </PossiblyUndefinedMethod>
   </file>
   <file src="libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php">
     <PossiblyInvalidOperand occurrences="1">
@@ -1735,34 +2161,23 @@
       <code>string</code>
     </InvalidFalsableReturnType>
   </file>
-  <file src="libraries/classes/Properties/Options/OptionsPropertyOneItem.php">
-    <ImplementedParamTypeMismatch occurrences="1">
-      <code>$force</code>
-    </ImplementedParamTypeMismatch>
-    <ImplementedReturnTypeMismatch occurrences="1">
+  <file src="libraries/classes/Plugins/TwoFactor/Application.php">
+    <InvalidReturnStatement occurrences="1"/>
+    <InvalidReturnType occurrences="1">
       <code>bool</code>
+    </InvalidReturnType>
+  </file>
+  <file src="libraries/classes/Properties/Options/OptionsPropertyOneItem.php">
+    <ImplementedReturnTypeMismatch occurrences="1">
+      <code>bool|string</code>
     </ImplementedReturnTypeMismatch>
   </file>
   <file src="libraries/classes/Relation.php">
-    <InvalidArgument occurrences="10">
-      <code>$tableRes</code>
-      <code>$tableRes</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$com_rs</code>
-      <code>$com_rs</code>
-      <code>$com_rs</code>
-      <code>$com_rs</code>
-      <code>$com_rs</code>
-      <code>$com_rs</code>
-    </InvalidArgument>
-    <InvalidReturnStatement occurrences="3">
+    <InvalidReturnStatement occurrences="2">
       <code>$cfgRelation</code>
-      <code>$this-&gt;queryAsControlUser($upd_query)</code>
       <code>$this-&gt;dbi-&gt;insertId(DatabaseInterface::CONNECT_CONTROL)</code>
     </InvalidReturnStatement>
-    <InvalidReturnType occurrences="2">
-      <code>bool</code>
+    <InvalidReturnType occurrences="1">
       <code>int</code>
     </InvalidReturnType>
     <NullableReturnStatement occurrences="1">
@@ -1782,8 +2197,7 @@
     </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Replication.php">
-    <PossiblyNullArgument occurrences="2">
-      <code>$control</code>
+    <PossiblyNullArgument occurrences="1">
       <code>$host</code>
     </PossiblyNullArgument>
   </file>
@@ -1810,11 +2224,7 @@
     </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="libraries/classes/Server/Privileges.php">
-    <InvalidArgument occurrences="7">
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
+    <InvalidArgument occurrences="3">
       <code>$result</code>
       <code>$result</code>
       <code>$db_rights</code>
@@ -1867,6 +2277,9 @@
       <code>$tmp_initial</code>
       <code>$result['password']</code>
     </PossiblyNullArrayAccess>
+    <PossiblyNullArrayOffset occurrences="1">
+      <code>$array_initials</code>
+    </PossiblyNullArrayOffset>
     <PossiblyUndefinedArrayOffset occurrences="1">
       <code>$_POST['pred_dbname']</code>
     </PossiblyUndefinedArrayOffset>
@@ -1888,20 +2301,10 @@
     </PossiblyNullReference>
     <UndefinedDocblockClass occurrences="2">
       <code>COM|null</code>
-      <code>$this-&gt;_wmi</code>
+      <code>$this-&gt;wmi</code>
     </UndefinedDocblockClass>
   </file>
   <file src="libraries/classes/Server/UserGroups.php">
-    <InvalidArgument occurrences="8">
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-    </InvalidArgument>
     <PossiblyNullIterator occurrences="3">
       <code>$tabs</code>
       <code>$tabs</code>
@@ -1979,20 +2382,15 @@
     </NullableReturnStatement>
   </file>
   <file src="libraries/classes/Table.php">
-    <InvalidArgument occurrences="6">
-      <code>$table_copy_rs</code>
-      <code>$table_copy_rs</code>
-      <code>$comments_copy_rs</code>
-      <code>$comments_copy_rs</code>
-      <code>$this-&gt;relation-&gt;queryAsControlUser($sql_query)</code>
+    <InvalidArgument occurrences="1">
       <code>$keyBlockSizes</code>
     </InvalidArgument>
     <InvalidReturnStatement occurrences="1">
       <code>$table_auto_increment ?? ''</code>
     </InvalidReturnStatement>
     <PossiblyInvalidArgument occurrences="3">
-      <code>$this-&gt;_dbi-&gt;getError(DatabaseInterface::CONNECT_CONTROL)</code>
-      <code>$this-&gt;_dbi-&gt;getError(DatabaseInterface::CONNECT_CONTROL)</code>
+      <code>$this-&gt;dbi-&gt;getError(DatabaseInterface::CONNECT_CONTROL)</code>
+      <code>$this-&gt;dbi-&gt;getError(DatabaseInterface::CONNECT_CONTROL)</code>
       <code>$tmp_error_create</code>
     </PossiblyInvalidArgument>
     <PossiblyNullArgument occurrences="5">
@@ -2058,18 +2456,6 @@
     </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="libraries/classes/Tracker.php">
-    <InvalidReturnStatement occurrences="4">
-      <code>$result</code>
-      <code>$relation-&gt;queryAsControlUser($sql_query)</code>
-      <code>$relation-&gt;queryAsControlUser($sql_query)</code>
-      <code>$relation-&gt;queryAsControlUser($sql_query)</code>
-    </InvalidReturnStatement>
-    <InvalidReturnType occurrences="4">
-      <code>int</code>
-      <code>int</code>
-      <code>int</code>
-      <code>int</code>
-    </InvalidReturnType>
     <InvalidScalarArgument occurrences="1">
       <code>(int) $version - 1</code>
     </InvalidScalarArgument>
@@ -2088,14 +2474,6 @@
     </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Tracking.php">
-    <InvalidReturnStatement occurrences="2">
-      <code>$relation-&gt;queryAsControlUser($sql_query)</code>
-      <code>$relation-&gt;queryAsControlUser($sql_query)</code>
-    </InvalidReturnStatement>
-    <InvalidReturnType occurrences="2">
-      <code>array</code>
-      <code>array</code>
-    </InvalidReturnType>
     <InvalidScalarArgument occurrences="4">
       <code>$filter_ts_from</code>
       <code>$filter_ts_to</code>
@@ -2111,12 +2489,6 @@
       <code>$class_name</code>
       <code>$class_name</code>
     </InvalidArgument>
-    <InvalidReturnStatement occurrences="1">
-      <code>$relation-&gt;queryAsControlUser($upd_query)</code>
-    </InvalidReturnStatement>
-    <InvalidReturnType occurrences="1">
-      <code>bool</code>
-    </InvalidReturnType>
     <PossiblyNullArgument occurrences="1">
       <code>$rtrimmed</code>
     </PossiblyNullArgument>
@@ -2152,14 +2524,22 @@
     <InvalidReturnType occurrences="1">
       <code>string[]</code>
     </InvalidReturnType>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$ret[_pgettext('string types', 'String')]</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidArrayOffset occurrences="2">
+      <code>'-'</code>
+      <code>'INET6'</code>
+    </PossiblyInvalidArrayOffset>
   </file>
   <file src="libraries/classes/Util.php">
     <EmptyArrayAccess occurrences="1">
       <code>$group[$group_name]['tab' . $sep . 'count']</code>
     </EmptyArrayAccess>
-    <InvalidArrayOffset occurrences="3">
+    <InvalidArrayOffset occurrences="4">
       <code>$group[$group_name]['is' . $sep . 'group']</code>
       <code>$group[$group_name]['tab' . $sep . 'count']</code>
+      <code>$byteUnits[$d]</code>
       <code>$units[$d]</code>
     </InvalidArrayOffset>
     <InvalidReturnStatement occurrences="1">
@@ -2186,7 +2566,8 @@
       <code>$group[$group_name]['tab' . $sep . 'count']</code>
       <code>$table['Name']</code>
     </PossiblyInvalidArrayAccess>
-    <PossiblyInvalidArrayAssignment occurrences="2">
+    <PossiblyInvalidArrayAssignment occurrences="3">
+      <code>$group[$group_name]['tab' . $sep . 'count']</code>
       <code>$table['disp_name']</code>
       <code>$group[$table_name]</code>
     </PossiblyInvalidArrayAssignment>
@@ -2202,6 +2583,10 @@
       <code>$value</code>
       <code>$value</code>
     </PossiblyInvalidOperand>
+    <PossiblyNullArgument occurrences="2">
+      <code>$max_size</code>
+      <code>$max_unit</code>
+    </PossiblyNullArgument>
     <PossiblyNullArrayAccess occurrences="2">
       <code>$max_size</code>
       <code>$max_unit</code>
@@ -2214,8 +2599,9 @@
     <InvalidArrayOffset occurrences="1">
       <code>$context['http']['header']</code>
     </InvalidArrayOffset>
-    <TypeDoesNotContainType occurrences="1">
+    <TypeDoesNotContainType occurrences="2">
       <code>$curlStatus</code>
+      <code>isset($http_response_header)</code>
     </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/VersionInformation.php">

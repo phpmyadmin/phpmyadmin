@@ -400,7 +400,7 @@ class Advisor
      */
     public static function escapePercent(string $str): string
     {
-        return preg_replace('/%( |,|\.|$|\(|\)|<|>)/', '%%\1', $str);
+        return (string) preg_replace('/%( |,|\.|$|\(|\)|<|>)/', '%%\1', $str);
     }
 
     /**
@@ -751,6 +751,6 @@ class Advisor
      */
     public static function formatByteDown($value, int $limes = 6, int $comma = 0): string
     {
-        return implode(' ', Util::formatByteDown($value, $limes, $comma));
+        return implode(' ', (array) Util::formatByteDown($value, $limes, $comma));
     }
 }

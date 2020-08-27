@@ -141,7 +141,7 @@ class HeaderTest extends AbstractTestCase
      */
     public function testDisableWarnings(): void
     {
-        $reflection = new ReflectionProperty(Header::class, '_warningsEnabled');
+        $reflection = new ReflectionProperty(Header::class, 'warningsEnabled');
         $reflection->setAccessible(true);
 
         $header = new Header();

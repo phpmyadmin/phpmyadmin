@@ -9,6 +9,7 @@ namespace PhpMyAdmin;
 
 use function array_diff;
 use function array_merge;
+use function array_push;
 use function htmlspecialchars;
 use function in_array;
 use function mb_strtoupper;
@@ -22,14 +23,14 @@ use function strncasecmp;
 class Types
 {
     /** @var DatabaseInterface Database interface */
-    private $_dbi;
+    private $dbi;
 
     /**
      * @param DatabaseInterface $dbi Database interface instance
      */
     public function __construct($dbi)
     {
-        $this->_dbi = $dbi;
+        $this->dbi = $dbi;
     }
 
     /**
@@ -391,6 +392,10 @@ class Types
                     'Stores and enables efficient access to data in JSON'
                     . ' (JavaScript Object Notation) documents'
                 );
+            case 'INET6':
+                return __('Intended for storage of IPv6 addresses, as well as IPv4 '
+                    . 'addresses assuming conventional mapping of IPv4 addresses '
+                    . 'into IPv6 addresses');
         }
 
         return '';
@@ -441,6 +446,7 @@ class Types
             case 'LONGBLOB':
             case 'ENUM':
             case 'SET':
+            case 'INET6':
                 return 'CHAR';
             case 'GEOMETRY':
             case 'POINT':
@@ -467,8 +473,8 @@ class Types
      */
     public function getFunctionsClass($class)
     {
-        $isMariaDB = $this->_dbi->isMariaDB();
-        $serverVersion = $this->_dbi->getVersion();
+        $isMariaDB = $this->dbi->isMariaDB();
+        $serverVersion = $this->dbi->getVersion();
 
         switch ($class) {
             case 'CHAR':
@@ -703,8 +709,8 @@ class Types
      */
     public function getColumns(): array
     {
-        $isMariaDB = $this->_dbi->isMariaDB();
-        $serverVersion = $this->_dbi->getVersion();
+        $isMariaDB = $this->dbi->isMariaDB();
+        $serverVersion = $this->dbi->getVersion();
 
         // most used types
         $ret = [
@@ -776,6 +782,10 @@ class Types
         if (($isMariaDB && $serverVersion > 100207)
             || (! $isMariaDB && $serverVersion >= 50708)) {
             $ret['JSON'] = ['JSON'];
+        }
+
+        if ($isMariaDB && $serverVersion >= 100500) {
+            array_push($ret[_pgettext('string types', 'String')], '-', 'INET6');
         }
 
         return $ret;

@@ -15,6 +15,7 @@ use function imagesx;
  */
 abstract class GisGeomTestCase extends AbstractTestCase
 {
+    /** @var object */
     protected $object;
 
     /**

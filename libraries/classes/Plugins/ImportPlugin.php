@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins;
 
+use PhpMyAdmin\File;
 use PhpMyAdmin\Import;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use function strlen;
@@ -39,7 +40,7 @@ abstract class ImportPlugin
      *
      * @return void
      */
-    abstract public function doImport(array &$sql_data = []);
+    abstract public function doImport(?File $importHandle = null, array &$sql_data = []);
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 

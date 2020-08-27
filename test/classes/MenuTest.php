@@ -77,18 +77,6 @@ class MenuTest extends AbstractTestCase
     }
 
     /**
-     * Table menu display test
-     */
-    public function testTableDisplay(): void
-    {
-        $menu = new Menu('pma_test', '');
-        $this->expectOutputString(
-            $menu->getDisplay()
-        );
-        $menu->display();
-    }
-
-    /**
      * Table menu setTable test
      */
     public function testSetTable(): void

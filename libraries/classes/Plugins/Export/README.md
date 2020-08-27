@@ -28,14 +28,14 @@ class Export[Name] extends PhpMyAdmin\Plugins\ExportPlugin
      *
      * @var type
      */
-    private $_myOptionalVariable;
+    private $myOptionalVariable;
 
     /**
      * optional - declare global variables and descriptions
      *
      * @var type
      */
-    private $_globalVariableName;
+    private $globalVariableName;
 
     /**
      * Constructor
@@ -57,7 +57,7 @@ class Export[Name] extends PhpMyAdmin\Plugins\ExportPlugin
     protected function initSpecificVariables()
     {
         global $global_variable_name;
-        $this->_setGlobalVariableName($global_variable_name);
+        $this->setGlobalVariableName($global_variable_name);
     }
 
     /**
@@ -218,7 +218,7 @@ class Export[Name] extends PhpMyAdmin\Plugins\ExportPlugin
      */
     private function _getMyOptionalVariable()
     {
-        return $this->_myOptionalVariable;
+        return $this->myOptionalVariable;
     }
 
     /**
@@ -230,7 +230,7 @@ class Export[Name] extends PhpMyAdmin\Plugins\ExportPlugin
      */
     private function _setMyOptionalVariable($my_optional_variable)
     {
-        $this->_myOptionalVariable = $my_optional_variable;
+        $this->myOptionalVariable = $my_optional_variable;
     }
 
     /**
@@ -240,7 +240,7 @@ class Export[Name] extends PhpMyAdmin\Plugins\ExportPlugin
      */
     private function _getGlobalVariableName()
     {
-        return $this->_globalVariableName;
+        return $this->globalVariableName;
     }
 
     /**
@@ -252,7 +252,7 @@ class Export[Name] extends PhpMyAdmin\Plugins\ExportPlugin
      */
     private function _setGlobalVariableName($global_variable_name)
     {
-        $this->_globalVariableName = $global_variable_name;
+        $this->globalVariableName = $global_variable_name;
     }
 }
 ```

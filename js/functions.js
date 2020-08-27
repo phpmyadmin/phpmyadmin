@@ -19,7 +19,6 @@ var Functions = {};
 /**
  * @var sqlBoxLocked lock for the sqlbox textarea in the querybox
  */
-// eslint-disable-next-line no-unused-vars
 var sqlBoxLocked = false;
 
 /**
@@ -643,7 +642,7 @@ Functions.currentVersion = function (data) {
         /* Remove extra whitespace */
         var versionInfo = $('#li_pma_version').contents().get(2);
         if (typeof versionInfo !== 'undefined') {
-            versionInfo.textContent = $.trim(versionInfo.textContent);
+            versionInfo.textContent = versionInfo.textContent.trim();
         }
         var $liPmaVersion = $('#li_pma_version');
         $liPmaVersion.find('span.latest').remove();
@@ -1359,6 +1358,8 @@ Functions.insertValueQuery = function () {
         } else {
             myQuery.value += columnsList;
         }
+
+        // eslint-disable-next-line no-unused-vars
         sqlBoxLocked = false;
     }
 };
@@ -2863,7 +2864,7 @@ Functions.sortTable = function (textSelector) {
 
         // get the text of the field that we will sort by
         $.each(rows, function (index, row) {
-            row.sortKey = $.trim($(row).find(textSelector).text().toLowerCase());
+            row.sortKey = $(row).find(textSelector).text().toLowerCase().trim();
         });
 
         // get the sorted order

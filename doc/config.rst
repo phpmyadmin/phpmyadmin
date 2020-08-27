@@ -1848,7 +1848,7 @@ Cookie authentication options
     to the given regular expression. The regular expression must be enclosed
     with a delimiter character.
 
-    It is recommended to include start and end symbols in the regullar
+    It is recommended to include start and end symbols in the regular
     expression, so that you can avoid partial matches on the string.
 
     **Examples:**
@@ -1869,8 +1869,20 @@ Cookie authentication options
         The whole server name is matched, it can include port as well. Due to
         way MySQL is permissive in connection parameters, it is possible to use
         connection strings as ```server:3306-mysql```. This can be used to
-        bypass regullar expression by the suffix, while connecting to another
+        bypass regular expression by the suffix, while connecting to another
         server.
+
+.. config:option:: $cfg['CaptchaMethod']
+
+    :type: string
+    :default: ``'invisible'``
+
+    Valid values are:
+
+    * ``'invisible'`` Use an invisible captcha checking method;
+    * ``'checkbox'`` Use a checkbox to confirm the user is not a robot.
+
+    .. versionadded:: 5.0.3
 
 .. config:option:: $cfg['CaptchaLoginPublicKey']
 
@@ -1887,7 +1899,7 @@ Cookie authentication options
     :type: string
     :default: ``''``
 
-    The private key for the reCaptcha service that can be obtain from
+    The private key for the reCaptcha service that can be obtained from
     https://www.google.com/recaptcha/intro/v3.html.
 
     reCaptcha will be then used in :ref:`cookie`.
@@ -3534,7 +3546,6 @@ This example uses :file:`examples/signon.php` to demonstrate usage of :ref:`auth
     <?php
     $i = 0;
     $i++;
-    $cfg['Servers'][$i]['extension']     = 'mysqli';
     $cfg['Servers'][$i]['auth_type']     = 'signon';
     $cfg['Servers'][$i]['SignonSession'] = 'SignonSession';
     $cfg['Servers'][$i]['SignonURL']     = 'examples/signon.php';
@@ -3577,7 +3588,6 @@ following example shows two of them:
     $cfg['Servers'][$i]['auth_type'] = 'cookie';
     $cfg['Servers'][$i]['verbose']   = 'no1';
     $cfg['Servers'][$i]['host']      = 'localhost';
-    $cfg['Servers'][$i]['extension'] = 'mysqli';
     // more options for #1 ...
 
     $i++; // server 2 :
@@ -3586,7 +3596,6 @@ following example shows two of them:
     $cfg['Servers'][$i]['host']      = 'remote.host.addr';//or ip:'10.9.8.1'
     // this server must allow remote clients, e.g., host 10.9.8.%
     // not only in mysql.host but also in the startup configuration
-    $cfg['Servers'][$i]['extension'] = 'mysqli';
     // more options for #2 ...
 
     // end of server sections

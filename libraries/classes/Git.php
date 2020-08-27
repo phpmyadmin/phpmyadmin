@@ -1,7 +1,4 @@
 <?php
-/**
- * Git inspection
- */
 
 declare(strict_types=1);
 
@@ -499,14 +496,14 @@ class Git
     /**
      * detects Git revision, if running inside repo
      */
-    public function checkGitRevision(): void
+    public function checkGitRevision(): ?array
     {
         // find out if there is a .git folder
         $gitFolder = '';
         if (! $this->isGitRevision($gitFolder)) {
             $this->config->set('PMA_VERSION_GIT', 0);
 
-            return;
+            return null;
         }
 
         $ref_head = @file_get_contents($gitFolder . '/HEAD');
@@ -514,7 +511,7 @@ class Git
         if (! $ref_head) {
             $this->config->set('PMA_VERSION_GIT', 0);
 
-            return;
+            return null;
         }
 
         $common_dir_contents = @file_get_contents($gitFolder . '/commondir');
@@ -525,7 +522,7 @@ class Git
 
         [$hash, $branch] = $this->getHashFromHeadRef($gitFolder, $ref_head);
         if ($hash === null) {
-            return;
+            return null;
         }
 
         $commit = false;
@@ -536,7 +533,7 @@ class Git
         } elseif (function_exists('gzuncompress')) {
             $commit = $this->unPackGz($gitFolder, $hash);
             if ($commit === null) {
-                return;
+                return null;
             }
         }
 
@@ -590,16 +587,19 @@ class Git
         } else {
             $this->config->set('PMA_VERSION_GIT', 0);
 
-            return;
+            return null;
         }
 
         $this->config->set('PMA_VERSION_GIT', 1);
-        $this->config->set('PMA_VERSION_GIT_COMMITHASH', $hash);
-        $this->config->set('PMA_VERSION_GIT_BRANCH', $branch);
-        $this->config->set('PMA_VERSION_GIT_MESSAGE', $message);
-        $this->config->set('PMA_VERSION_GIT_AUTHOR', $author);
-        $this->config->set('PMA_VERSION_GIT_COMMITTER', $committer);
-        $this->config->set('PMA_VERSION_GIT_ISREMOTECOMMIT', $is_remote_commit);
-        $this->config->set('PMA_VERSION_GIT_ISREMOTEBRANCH', $is_remote_branch);
+
+        return [
+            'hash' => $hash,
+            'branch' => $branch,
+            'message' => $message,
+            'author' => $author,
+            'committer' => $committer,
+            'is_remote_commit' => $is_remote_commit,
+            'is_remote_branch' => $is_remote_branch,
+        ];
     }
 }

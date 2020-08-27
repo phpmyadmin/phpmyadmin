@@ -54,7 +54,7 @@ class Encoding
      *
      * @var int
      */
-    private static $_engine = null;
+    private static $engine = null;
 
     /**
      * Map of conversion engine configurations
@@ -67,7 +67,7 @@ class Encoding
      *
      * @var array
      */
-    private static $_enginemap = [
+    private static $enginemap = [
         'iconv' => [
             'iconv',
             self::ENGINE_ICONV,
@@ -95,7 +95,7 @@ class Encoding
      *
      * @var array
      */
-    private static $_engineorder = [
+    private static $engineorder = [
         'iconv',
         'mb',
         'recode',
@@ -106,7 +106,7 @@ class Encoding
      *
      * @var string
      */
-    private static $_kanji_encodings = 'ASCII,SJIS,EUC-JP,JIS';
+    private static $kanji_encodings = 'ASCII,SJIS,EUC-JP,JIS';
 
     /**
      * Initializes encoding engine detecting available backends.
@@ -119,27 +119,27 @@ class Encoding
         }
 
         /* Use user configuration */
-        if (isset(self::$_enginemap[$engine])) {
-            if (function_exists(self::$_enginemap[$engine][0])) {
-                self::$_engine = self::$_enginemap[$engine][1];
+        if (isset(self::$enginemap[$engine])) {
+            if (function_exists(self::$enginemap[$engine][0])) {
+                self::$engine = self::$enginemap[$engine][1];
 
                 return;
             }
 
-            Core::warnMissingExtension(self::$_enginemap[$engine][2]);
+            Core::warnMissingExtension(self::$enginemap[$engine][2]);
         }
 
         /* Autodetection */
-        foreach (self::$_engineorder as $engine) {
-            if (function_exists(self::$_enginemap[$engine][0])) {
-                self::$_engine = self::$_enginemap[$engine][1];
+        foreach (self::$engineorder as $engine) {
+            if (function_exists(self::$enginemap[$engine][0])) {
+                self::$engine = self::$enginemap[$engine][1];
 
                 return;
             }
         }
 
         /* Fallback to none conversion */
-        self::$_engine = self::ENGINE_NONE;
+        self::$engine = self::ENGINE_NONE;
     }
 
     /**
@@ -149,7 +149,7 @@ class Encoding
      */
     public static function setEngine(int $engine): void
     {
-        self::$_engine = $engine;
+        self::$engine = $engine;
     }
 
     /**
@@ -157,11 +157,11 @@ class Encoding
      */
     public static function isSupported(): bool
     {
-        if (self::$_engine === null) {
+        if (self::$engine === null) {
             self::initEngine();
         }
 
-        return self::$_engine != self::ENGINE_NONE;
+        return self::$engine != self::ENGINE_NONE;
     }
 
     /**
@@ -184,10 +184,10 @@ class Encoding
         if ($src_charset == $dest_charset) {
             return $what;
         }
-        if (self::$_engine === null) {
+        if (self::$engine === null) {
             self::initEngine();
         }
-        switch (self::$_engine) {
+        switch (self::$engine) {
             case self::ENGINE_RECODE:
                 return recode_string(
                     $src_charset . '..' . $dest_charset,
@@ -224,7 +224,7 @@ class Encoding
      */
     public static function getKanjiEncodings(): string
     {
-        return self::$_kanji_encodings;
+        return self::$kanji_encodings;
     }
 
     /**
@@ -234,7 +234,7 @@ class Encoding
      */
     public static function setKanjiEncodings(string $value): void
     {
-        self::$_kanji_encodings = $value;
+        self::$kanji_encodings = $value;
     }
 
     /**
@@ -242,11 +242,11 @@ class Encoding
      */
     public static function kanjiChangeOrder(): void
     {
-        $parts = explode(',', self::$_kanji_encodings);
+        $parts = explode(',', self::$kanji_encodings);
         if ($parts[1] === 'EUC-JP') {
-            self::$_kanji_encodings = 'ASCII,SJIS,EUC-JP,JIS';
+            self::$kanji_encodings = 'ASCII,SJIS,EUC-JP,JIS';
         } else {
-            self::$_kanji_encodings = 'ASCII,EUC-JP,SJIS,JIS';
+            self::$kanji_encodings = 'ASCII,EUC-JP,SJIS,JIS';
         }
     }
 
@@ -265,7 +265,7 @@ class Encoding
             return $str;
         }
 
-        $string_encoding = mb_detect_encoding($str, self::$_kanji_encodings);
+        $string_encoding = mb_detect_encoding($str, self::$kanji_encodings);
         if ($string_encoding === false) {
             $string_encoding = 'utf-8';
         }
@@ -333,11 +333,11 @@ class Encoding
      */
     public static function listEncodings(): array
     {
-        if (self::$_engine === null) {
+        if (self::$engine === null) {
             self::initEngine();
         }
         /* Most engines do not support listing */
-        if (self::$_engine != self::ENGINE_MB) {
+        if (self::$engine != self::ENGINE_MB) {
             return $GLOBALS['cfg']['AvailableCharsets'];
         }
 

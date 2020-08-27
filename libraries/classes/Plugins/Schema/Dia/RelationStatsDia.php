@@ -24,18 +24,34 @@ use function shuffle;
  */
 class RelationStatsDia
 {
+    /** @var Dia */
     protected $diagram;
-    /**
-     * Defines properties
-     */
+
+    /** @var mixed */
     public $srcConnPointsRight;
+
+    /** @var mixed */
     public $srcConnPointsLeft;
+
+    /** @var mixed */
     public $destConnPointsRight;
+
+    /** @var mixed */
     public $destConnPointsLeft;
+
+    /** @var int */
     public $masterTableId;
+
+    /** @var int */
     public $foreignTableId;
+
+    /** @var mixed */
     public $masterTablePos;
+
+    /** @var mixed */
     public $foreignTablePos;
+
+    /** @var string */
     public $referenceColor;
 
     /**

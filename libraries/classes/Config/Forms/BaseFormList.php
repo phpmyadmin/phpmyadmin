@@ -15,6 +15,8 @@ class BaseFormList
 {
     /**
      * List of all forms
+     *
+     * @var array
      */
     protected static $all = [];
 
@@ -22,7 +24,7 @@ class BaseFormList
     protected static $ns = 'PhpMyAdmin\\Config\\Forms\\';
 
     /** @var array */
-    private $_forms;
+    private $forms;
 
     /**
      * @return array
@@ -61,10 +63,10 @@ class BaseFormList
      */
     public function __construct(ConfigFile $cf)
     {
-        $this->_forms = [];
+        $this->forms = [];
         foreach (static::$all as $form) {
             $class = static::get($form);
-            $this->_forms[] = new $class($cf);
+            $this->forms[] = new $class($cf);
         }
     }
 
@@ -80,7 +82,7 @@ class BaseFormList
     public function process($allowPartialSave = true, $checkFormSubmit = true)
     {
         $ret = true;
-        foreach ($this->_forms as $form) {
+        foreach ($this->forms as $form) {
             $ret = $ret && $form->process($allowPartialSave, $checkFormSubmit);
         }
 
@@ -95,7 +97,7 @@ class BaseFormList
     public function displayErrors()
     {
         $ret = '';
-        foreach ($this->_forms as $form) {
+        foreach ($this->forms as $form) {
             $ret .= $form->displayErrors();
         }
 
@@ -109,7 +111,7 @@ class BaseFormList
      */
     public function fixErrors()
     {
-        foreach ($this->_forms as $form) {
+        foreach ($this->forms as $form) {
             $form->fixErrors();
         }
     }
@@ -122,7 +124,7 @@ class BaseFormList
     public function hasErrors()
     {
         $ret = false;
-        foreach ($this->_forms as $form) {
+        foreach ($this->forms as $form) {
             $ret = $ret || $form->hasErrors();
         }
 

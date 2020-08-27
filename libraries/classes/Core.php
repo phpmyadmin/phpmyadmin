@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Display\Error as DisplayError;
+use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use const DATE_RFC1123;
 use const E_USER_ERROR;
@@ -290,11 +290,13 @@ class Core
             );
         } else {
             $error_message = strtr($error_message, ['<br>' => '[br]']);
-            $error_header = __('Error');
-            $lang = $GLOBALS['lang'] ?? 'en';
-            $dir = $GLOBALS['text_dir'] ?? 'ltr';
+            $template = new Template();
 
-            echo DisplayError::display(new Template(), $lang, $dir, $error_header, $error_message);
+            echo $template->render('error/generic', [
+                'lang' => $GLOBALS['lang'] ?? 'en',
+                'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+                'error_message' => Sanitize::sanitizeMessage($error_message),
+            ]);
         }
         if (! defined('TESTSUITE')) {
             exit;
@@ -1373,5 +1375,36 @@ class Core
             $config->removeCookie('back');
             unset($_REQUEST['back'], $_GET['back'], $_POST['back']);
         }
+    }
+
+    public static function connectToDatabaseServer(DatabaseInterface $dbi, AuthenticationPlugin $auth): void
+    {
+        global $cfg;
+
+        /**
+         * Try to connect MySQL with the control user profile (will be used to get the privileges list for the current
+         * user but the true user link must be open after this one so it would be default one for all the scripts).
+         */
+        $controlLink = false;
+        if ($cfg['Server']['controluser'] !== '') {
+            $controlLink = $dbi->connect(DatabaseInterface::CONNECT_CONTROL);
+        }
+
+        // Connects to the server (validates user's login)
+        $userLink = $dbi->connect(DatabaseInterface::CONNECT_USER);
+
+        if ($userLink === false) {
+            $auth->showFailure('mysql-denied');
+        }
+
+        if ($controlLink) {
+            return;
+        }
+
+        /**
+         * Open separate connection for control queries, this is needed to avoid problems with table locking used in
+         * main connection and phpMyAdmin issuing queries to configuration storage, which is not locked by that time.
+         */
+        $dbi->connect(DatabaseInterface::CONNECT_USER, null, DatabaseInterface::CONNECT_CONTROL);
     }
 }

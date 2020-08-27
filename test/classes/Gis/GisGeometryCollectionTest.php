@@ -21,7 +21,7 @@ use function preg_match;
  */
 class GisGeometryCollectionTest extends AbstractTestCase
 {
-    /** @access protected */
+    /** @var GisGeometryCollection */
     protected $object;
 
     /**

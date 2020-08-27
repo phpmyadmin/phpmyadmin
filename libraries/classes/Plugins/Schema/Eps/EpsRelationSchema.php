@@ -31,12 +31,13 @@ use function sprintf;
 class EpsRelationSchema extends ExportRelationSchema
 {
     /** @var TableStatsDia[]|TableStatsEps[]|TableStatsPdf[]|TableStatsSvg[] */
-    private $_tables = [];
+    private $tables = [];
 
     /** @var RelationStatsEps[] Relations */
-    private $_relations = [];
+    private $relations = [];
 
-    private $_tablewidth;
+    /** @var int */
+    private $tablewidth;
 
     /**
      * Upon instantiation This starts writing the EPS document
@@ -71,15 +72,15 @@ class EpsRelationSchema extends ExportRelationSchema
         $alltables = $this->getTablesFromRequest();
 
         foreach ($alltables as $table) {
-            if (! isset($this->_tables[$table])) {
-                $this->_tables[$table] = new TableStatsEps(
+            if (! isset($this->tables[$table])) {
+                $this->tables[$table] = new TableStatsEps(
                     $this->diagram,
                     $this->db,
                     $table,
                     $this->diagram->getFont(),
                     $this->diagram->getFontSize(),
                     $this->pageNumber,
-                    $this->_tablewidth,
+                    $this->tablewidth,
                     $this->showKeys,
                     $this->tableDimension,
                     $this->offline
@@ -90,7 +91,7 @@ class EpsRelationSchema extends ExportRelationSchema
                 continue;
             }
 
-            $this->_tables[$table]->width = $this->_tablewidth;
+            $this->tables[$table]->width = $this->tablewidth;
         }
 
         $seen_a_relation = false;
@@ -184,37 +185,37 @@ class EpsRelationSchema extends ExportRelationSchema
         $foreignField,
         $tableDimension
     ) {
-        if (! isset($this->_tables[$masterTable])) {
-            $this->_tables[$masterTable] = new TableStatsEps(
+        if (! isset($this->tables[$masterTable])) {
+            $this->tables[$masterTable] = new TableStatsEps(
                 $this->diagram,
                 $this->db,
                 $masterTable,
                 $font,
                 $fontSize,
                 $this->pageNumber,
-                $this->_tablewidth,
+                $this->tablewidth,
                 false,
                 $tableDimension
             );
         }
-        if (! isset($this->_tables[$foreignTable])) {
-            $this->_tables[$foreignTable] = new TableStatsEps(
+        if (! isset($this->tables[$foreignTable])) {
+            $this->tables[$foreignTable] = new TableStatsEps(
                 $this->diagram,
                 $this->db,
                 $foreignTable,
                 $font,
                 $fontSize,
                 $this->pageNumber,
-                $this->_tablewidth,
+                $this->tablewidth,
                 false,
                 $tableDimension
             );
         }
-        $this->_relations[] = new RelationStatsEps(
+        $this->relations[] = new RelationStatsEps(
             $this->diagram,
-            $this->_tables[$masterTable],
+            $this->tables[$masterTable],
             $masterField,
-            $this->_tables[$foreignTable],
+            $this->tables[$foreignTable],
             $foreignField
         );
     }
@@ -229,7 +230,7 @@ class EpsRelationSchema extends ExportRelationSchema
      */
     private function drawRelations()
     {
-        foreach ($this->_relations as $relation) {
+        foreach ($this->relations as $relation) {
             $relation->relationDraw();
         }
     }
@@ -243,7 +244,7 @@ class EpsRelationSchema extends ExportRelationSchema
      */
     private function drawTables()
     {
-        foreach ($this->_tables as $table) {
+        foreach ($this->tables as $table) {
             $table->tableDraw($this->showColor);
         }
     }

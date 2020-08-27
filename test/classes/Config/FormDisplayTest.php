@@ -57,7 +57,7 @@ class FormDisplayTest extends AbstractTestCase
      */
     public function testFormDisplayContructor(): void
     {
-        $reflection = new ReflectionProperty(FormDisplay::class, '_jsLangStrings');
+        $reflection = new ReflectionProperty(FormDisplay::class, 'jsLangStrings');
         $reflection->setAccessible(true);
 
         $this->assertCount(
@@ -75,7 +75,7 @@ class FormDisplayTest extends AbstractTestCase
     {
         $reflection = new ReflectionClass(FormDisplay::class);
 
-        $attrForms = $reflection->getProperty('_forms');
+        $attrForms = $reflection->getProperty('forms');
         $attrForms->setAccessible(true);
 
         $array = [
@@ -94,7 +94,7 @@ class FormDisplayTest extends AbstractTestCase
             $_forms['pma_testform']
         );
 
-        $attrSystemPaths = $reflection->getProperty('_systemPaths');
+        $attrSystemPaths = $reflection->getProperty('systemPaths');
         $attrSystemPaths->setAccessible(true);
 
         $this->assertEquals(
@@ -105,7 +105,7 @@ class FormDisplayTest extends AbstractTestCase
             $attrSystemPaths->getValue($this->object)
         );
 
-        $attrTranslatedPaths = $reflection->getProperty('_translatedPaths');
+        $attrTranslatedPaths = $reflection->getProperty('translatedPaths');
         $attrTranslatedPaths->setAccessible(true);
 
         $this->assertEquals(
@@ -133,7 +133,7 @@ class FormDisplayTest extends AbstractTestCase
             ->setMethods(['save'])
             ->getMock();
 
-        $attrForms = new ReflectionProperty(FormDisplay::class, '_forms');
+        $attrForms = new ReflectionProperty(FormDisplay::class, 'forms');
         $attrForms->setAccessible(true);
         $attrForms->setValue($this->object, [1, 2, 3]);
 
@@ -160,17 +160,17 @@ class FormDisplayTest extends AbstractTestCase
     {
         $reflection = new ReflectionClass(FormDisplay::class);
 
-        $attrIsValidated = $reflection->getProperty('_isValidated');
+        $attrIsValidated = $reflection->getProperty('isValidated');
         $attrIsValidated->setAccessible(true);
         $attrIsValidated->setValue($this->object, true);
 
-        $attrIsValidated = $reflection->getProperty('_errors');
+        $attrIsValidated = $reflection->getProperty('errors');
         $attrIsValidated->setAccessible(true);
         $attrIsValidated->setValue($this->object, []);
 
-        $this->assertNull(
-            $this->object->displayErrors()
-        );
+        $result = $this->object->displayErrors();
+
+        $this->assertNull($result);
 
         $arr = [
             'Servers/1/test' => ['e1'],
@@ -182,7 +182,7 @@ class FormDisplayTest extends AbstractTestCase
 
         $sysArr = ['Servers/1/test' => 'Servers/1/test2'];
 
-        $attrSystemPaths = $reflection->getProperty('_systemPaths');
+        $attrSystemPaths = $reflection->getProperty('systemPaths');
         $attrSystemPaths->setAccessible(true);
         $attrSystemPaths->setValue($this->object, $sysArr);
 
@@ -190,6 +190,7 @@ class FormDisplayTest extends AbstractTestCase
 
         $result = $this->object->displayErrors();
 
+        $this->assertIsString($result);
         $this->assertStringContainsString('<dt>Servers/1/test2</dt>', $result);
         $this->assertStringContainsString('<dd>e1</dd>', $result);
         $this->assertStringContainsString('<dt>Form_foobar</dt>', $result);
@@ -204,11 +205,11 @@ class FormDisplayTest extends AbstractTestCase
     {
         $reflection = new ReflectionClass(FormDisplay::class);
 
-        $attrIsValidated = $reflection->getProperty('_isValidated');
+        $attrIsValidated = $reflection->getProperty('isValidated');
         $attrIsValidated->setAccessible(true);
         $attrIsValidated->setValue($this->object, true);
 
-        $attrIsValidated = $reflection->getProperty('_errors');
+        $attrIsValidated = $reflection->getProperty('errors');
         $attrIsValidated->setAccessible(true);
         $attrIsValidated->setValue($this->object, []);
 
@@ -225,7 +226,7 @@ class FormDisplayTest extends AbstractTestCase
 
         $sysArr = ['Servers/1/test' => 'Servers/1/host'];
 
-        $attrSystemPaths = $reflection->getProperty('_systemPaths');
+        $attrSystemPaths = $reflection->getProperty('systemPaths');
         $attrSystemPaths->setAccessible(true);
         $attrSystemPaths->setValue($this->object, $sysArr);
 
@@ -312,7 +313,7 @@ class FormDisplayTest extends AbstractTestCase
      */
     public function testHasErrors(): void
     {
-        $attrErrors = new ReflectionProperty(FormDisplay::class, '_errors');
+        $attrErrors = new ReflectionProperty(FormDisplay::class, 'errors');
         $attrErrors->setAccessible(true);
 
         $this->assertFalse(
@@ -383,7 +384,7 @@ class FormDisplayTest extends AbstractTestCase
 
         $attrUserprefs = new ReflectionProperty(
             FormDisplay::class,
-            '_userprefsDisallow'
+            'userprefsDisallow'
         );
 
         $attrUserprefs->setAccessible(true);

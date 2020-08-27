@@ -16,14 +16,12 @@ use PhpMyAdmin\SqlParser\Statements\AlterStatement;
 use PhpMyAdmin\SqlParser\Statements\DropStatement;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
-use const ENT_COMPAT;
 use function array_map;
 use function array_sum;
 use function bin2hex;
 use function ceil;
 use function count;
 use function explode;
-use function htmlentities;
 use function htmlspecialchars;
 use function in_array;
 use function is_array;
@@ -281,152 +279,63 @@ class Sql
         return $dropdown;
     }
 
-    /**
-     * Get the HTML for the profiling table and accompanying chart if profiling is set.
-     * Otherwise returns null
-     *
-     * @param string|null $urlQuery         url query
-     * @param string      $database         current database
-     * @param array       $profilingResults array containing the profiling info
-     *
-     * @return string html for the profiling table and chart
-     */
-    private function getHtmlForProfilingChart($urlQuery, $database, $profilingResults): string
+    /** @return array<string, int|array> */
+    private function getDetailedProfilingStats(array $profilingResults): array
     {
-        if (! empty($profilingResults)) {
-            $urlQuery = $urlQuery ?? Url::getCommon(['db' => $database]);
-
-            [
-                $detailedTable,
-                $chartJson,
-                $profilingStats,
-            ] = $this->analyzeAndGetTableHtmlForProfilingResults($profilingResults);
-
-            return $this->template->render('sql/profiling_chart', [
-                'url_query' => $urlQuery,
-                'detailed_table' => $detailedTable,
-                'states' => $profilingStats['states'],
-                'total_time' => $profilingStats['total_time'],
-                'chart_json' => $chartJson,
-            ]);
-        }
-
-        return '';
-    }
-
-    /**
-     * Function to get HTML for detailed profiling results table, profiling stats, and
-     * $chart_json for displaying the chart.
-     *
-     * @param array $profiling_results profiling results
-     *
-     * @return array
-     */
-    private function analyzeAndGetTableHtmlForProfilingResults(
-        $profiling_results
-    ): array {
-        $profiling_stats = [
+        $profiling = [
             'total_time' => 0,
             'states' => [],
+            'chart' => [],
+            'profile' => [],
         ];
-        $chart_json = [];
-        $i = 1;
-        $table = '';
-        foreach ($profiling_results as $one_result) {
-            if (! isset($profiling_stats['states'][ucwords($one_result['Status'])])) {
-                $profiling_stats['states'][ucwords($one_result['Status'])] = [
-                    'total_time' => $one_result['Duration'],
+
+        foreach ($profilingResults as $oneResult) {
+            $status = ucwords($oneResult['Status']);
+            $profiling['total_time'] += $oneResult['Duration'];
+            $profiling['profile'][] = [
+                'status' => $status,
+                'duration' => Util::formatNumber($oneResult['Duration'], 3, 1),
+                'duration_raw' => $oneResult['Duration'],
+            ];
+
+            if (! isset($profiling['states'][$status])) {
+                $profiling['states'][$status] = [
+                    'total_time' => $oneResult['Duration'],
                     'calls' => 1,
                 ];
-            }
-            $profiling_stats['total_time'] += $one_result['Duration'];
-
-            $table .= $this->template->render('sql/detailed_table', [
-                'index' => $i++,
-                'status' => $one_result['Status'],
-                'duration' => $one_result['Duration'],
-            ]);
-
-            if (isset($chart_json[ucwords($one_result['Status'])])) {
-                $chart_json[ucwords($one_result['Status'])]
-                    += $one_result['Duration'];
+                $profiling['chart'][$status] = $oneResult['Duration'];
             } else {
-                $chart_json[ucwords($one_result['Status'])]
-                    = $one_result['Duration'];
+                $profiling['states'][$status]['calls']++;
+                $profiling['chart'][$status] += $oneResult['Duration'];
             }
         }
 
-        return [
+        return $profiling;
+    }
+
+    /**
+     * Get value of a column for a specific row (marked by $whereClause)
+     */
+    public function getFullValuesForSetColumn(
+        DatabaseInterface $dbi,
+        string $db,
+        string $table,
+        string $column,
+        string $whereClause
+    ): string {
+        $row = $dbi->fetchSingleRow(sprintf(
+            'SELECT `%s` FROM `%s`.`%s` WHERE %s',
+            $column,
+            $db,
             $table,
-            $chart_json,
-            $profiling_stats,
-        ];
-    }
+            $whereClause
+        ));
 
-    /**
-     * Get value of a column for a specific row (marked by $where_clause)
-     *
-     * @param string $db           current database
-     * @param string $table        current table
-     * @param string $column       current column
-     * @param string $where_clause where clause to select a particular row
-     *
-     * @return string with value
-     */
-    private function getFullValuesForSetColumn($db, $table, $column, $where_clause)
-    {
-        $result = $GLOBALS['dbi']->fetchSingleRow(
-            'SELECT `' . $column . '` FROM `' . $db . '`.`' . $table . '` WHERE ' . $where_clause
-        );
-
-        return $result[$column];
-    }
-
-    /**
-     * Get the HTML for the set column dropdown
-     * During grid edit, if we have a set field, returns the html for the
-     * dropdown
-     *
-     * @param string $db         current database
-     * @param string $table      current table
-     * @param string $column     current column
-     * @param string $curr_value currently selected value
-     *
-     * @return string html for the set column
-     */
-    public function getHtmlForSetColumn($db, $table, $column, $curr_value): string
-    {
-        $values = $this->getValuesForColumn($db, $table, $column);
-
-        $full_values = $_POST['get_full_values'] ?? false;
-        $where_clause = $_POST['where_clause'] ?? null;
-
-        // If the $curr_value was truncated, we should
-        // fetch the correct full values from the table
-        if ($full_values && ! empty($where_clause)) {
-            $curr_value = $this->getFullValuesForSetColumn(
-                $db,
-                $table,
-                $column,
-                $where_clause
-            );
+        if ($row === null) {
+            return '';
         }
 
-        //converts characters of $curr_value to HTML entities
-        $converted_curr_value = htmlentities(
-            $curr_value,
-            ENT_COMPAT,
-            'UTF-8'
-        );
-
-        $selected_values = explode(',', $converted_curr_value);
-        $select_size = count($values) > 10 ? 10 : count($values);
-
-        return $this->template->render('sql/set_column', [
-            'size' => $select_size,
-            'values' => $values,
-            'selected_values' => $selected_values,
-        ]);
+        return $row[$column];
     }
 
     /**
@@ -451,47 +360,6 @@ class Sql
         );
 
         return Util::parseEnumSetValues($field_info_result[0]['Type']);
-    }
-
-    /**
-     * Function to get html for bookmark support if bookmarks are enabled. Else will
-     * return null
-     *
-     * @param array       $displayParts   the parts to display
-     * @param array       $cfgBookmark    configuration setting for bookmarking
-     * @param string      $sql_query      sql query
-     * @param string      $db             current database
-     * @param string      $table          current table
-     * @param string|null $complete_query complete query
-     * @param string      $bkm_user       bookmarking user
-     */
-    public function getHtmlForBookmark(
-        array $displayParts,
-        array $cfgBookmark,
-        $sql_query,
-        $db,
-        $table,
-        ?string $complete_query,
-        $bkm_user
-    ): string {
-        if ($displayParts['bkm_form'] == '1'
-            && (! empty($cfgBookmark) && empty($_GET['id_bookmark']))
-            && ! empty($sql_query)
-        ) {
-            return $this->template->render('sql/bookmark', [
-                'db' => $db,
-                'goto' => Url::getFromRoute('/sql', [
-                    'db' => $db,
-                    'table' => $table,
-                    'sql_query' => $sql_query,
-                    'id_bookmark' => 1,
-                ]),
-                'user' => $bkm_user,
-                'sql_query' => $complete_query ?? $sql_query,
-            ]);
-        }
-
-        return '';
     }
 
     /**
@@ -1011,11 +879,7 @@ class Sql
             $num_rows = 0;
             $unlim_num_rows = 0;
         } else { // If we don't ask to see the php code
-            if (isset($_SESSION['profiling'])
-                && Util::profilingSupported()
-            ) {
-                $GLOBALS['dbi']->query('SET PROFILING=1;');
-            }
+            Profiling::enable($GLOBALS['dbi']);
 
             [
                 $result,
@@ -1051,12 +915,7 @@ class Sql
                 $result
             );
 
-            // Grabs the profiling results
-            if (isset($_SESSION['profiling'])
-                && Util::profilingSupported()
-            ) {
-                $profiling_results = $GLOBALS['dbi']->fetchResult('SHOW PROFILE;');
-            }
+            $profiling_results = Profiling::getInformation($GLOBALS['dbi']);
 
             $justBrowsing = self::isJustBrowsing(
                 $analyzed_sql_results,
@@ -1255,6 +1114,7 @@ class Sql
         ?string $complete_query
     ) {
         global $url_query;
+
         if ($this->isDeleteTransformationInfo($analyzed_sql_results)) {
             $this->deleteTransformationInfo($db, $table, $analyzed_sql_results);
         }
@@ -1269,99 +1129,113 @@ class Sql
             );
         }
 
-        $html_output = '';
-        $html_message = Generator::getMessage(
+        $queryMessage = Generator::getMessage(
             $message,
             $GLOBALS['sql_query'],
             'success'
         );
-        $html_output .= $html_message;
-        if (! isset($GLOBALS['show_as_php'])) {
-            if (! empty($GLOBALS['reload'])) {
-                $extra_data['reload'] = 1;
-                $extra_data['db'] = $GLOBALS['db'];
-            }
 
-            // For ajax requests add message and sql_query as JSON
-            if (empty($_REQUEST['ajax_page_request'])) {
-                $extra_data['message'] = $message;
-                if ($GLOBALS['cfg']['ShowSQL']) {
-                    $extra_data['sql_query'] = $html_message;
-                }
-            }
+        if (isset($GLOBALS['show_as_php'])) {
+            return $queryMessage;
+        }
 
-            $response = Response::getInstance();
-            $response->addJSON($extra_data ?? []);
+        if (! empty($GLOBALS['reload'])) {
+            $extra_data['reload'] = 1;
+            $extra_data['db'] = $GLOBALS['db'];
+        }
 
-            if (! empty($analyzed_sql_results['is_select']) &&
-                    ! isset($extra_data['error'])) {
-                $url_query = $url_query ?? null;
-
-                $displayParts = [
-                    'edit_lnk' => null,
-                    'del_lnk' => null,
-                    'sort_lnk' => '1',
-                    'nav_bar'  => '0',
-                    'bkm_form' => '1',
-                    'text_btn' => '1',
-                    'pview_lnk' => '1',
-                ];
-
-                $html_output .= $this->getHtmlForSqlQueryResultsTable(
-                    $displayResultsObject,
-                    $pmaThemeImage,
-                    $url_query,
-                    $displayParts,
-                    false,
-                    0,
-                    $num_rows,
-                    true,
-                    $result,
-                    $analyzed_sql_results,
-                    true
-                );
-
-                if ($profiling_results !== null) {
-                    $header   = $response->getHeader();
-                    $scripts  = $header->getScripts();
-                    $scripts->addFile('sql.js');
-                    $html_output .= $this->getHtmlForProfilingChart(
-                        $url_query,
-                        $db,
-                        $profiling_results
-                    );
-                }
-
-                $html_output .= $displayResultsObject->getCreateViewQueryResultOp(
-                    $analyzed_sql_results
-                );
-
-                $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
-                if (is_array($cfgBookmark)) {
-                    $html_output .= $this->getHtmlForBookmark(
-                        $displayParts,
-                        $cfgBookmark,
-                        $sql_query,
-                        $db,
-                        $table,
-                        $complete_query ?? $sql_query,
-                        $cfgBookmark['user']
-                    );
-                }
+        // For ajax requests add message and sql_query as JSON
+        if (empty($_REQUEST['ajax_page_request'])) {
+            $extra_data['message'] = $message;
+            if ($GLOBALS['cfg']['ShowSQL']) {
+                $extra_data['sql_query'] = $queryMessage;
             }
         }
 
-        return $html_output;
+        $response = Response::getInstance();
+        $response->addJSON($extra_data ?? []);
+
+        if (empty($analyzed_sql_results['is_select']) || isset($extra_data['error'])) {
+            return $queryMessage;
+        }
+
+        $url_query = $url_query ?? null;
+
+        $displayParts = [
+            'edit_lnk' => null,
+            'del_lnk' => null,
+            'sort_lnk' => '1',
+            'nav_bar' => '0',
+            'bkm_form' => '1',
+            'text_btn' => '1',
+            'pview_lnk' => '1',
+        ];
+
+        $sqlQueryResultsTable = $this->getHtmlForSqlQueryResultsTable(
+            $displayResultsObject,
+            $pmaThemeImage,
+            $url_query,
+            $displayParts,
+            false,
+            0,
+            $num_rows,
+            true,
+            $result,
+            $analyzed_sql_results,
+            true
+        );
+
+        $profilingChart = '';
+        if ($profiling_results !== null) {
+            $header = $response->getHeader();
+            $scripts = $header->getScripts();
+            $scripts->addFile('sql.js');
+
+            $profiling = $this->getDetailedProfilingStats($profiling_results);
+            $profilingChart = $this->template->render('sql/profiling_chart', [
+                'url_query' => $url_query ?? Url::getCommon(['db' => $db]),
+                'profiling' => $profiling,
+            ]);
+        }
+
+        $bookmark = '';
+        $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
+        if (is_array($cfgBookmark)
+            && $displayParts['bkm_form'] == '1'
+            && (! empty($cfgBookmark) && empty($_GET['id_bookmark']))
+            && ! empty($sql_query)
+        ) {
+            $bookmark = $this->template->render('sql/bookmark', [
+                'db' => $db,
+                'goto' => Url::getFromRoute('/sql', [
+                    'db' => $db,
+                    'table' => $table,
+                    'sql_query' => $sql_query,
+                    'id_bookmark' => 1,
+                ]),
+                'user' => $cfgBookmark['user'],
+                'sql_query' => $complete_query ?? $sql_query,
+            ]);
+        }
+
+        return $this->template->render('sql/no_results_returned', [
+            'message' => $queryMessage,
+            'sql_query_results_table' => $sqlQueryResultsTable,
+            'profiling_chart' => $profilingChart,
+            'bookmark' => $bookmark,
+            'db' => $db,
+            'table' => $table,
+            'sql_query' => $sql_query,
+            'is_procedure' => ! empty($analyzed_sql_results['procedure']),
+        ]);
     }
 
     /**
      * Function to send response for ajax grid edit
      *
      * @param object $result result of the executed query
-     *
-     * @return void
      */
-    private function sendResponseForGridEdit($result)
+    private function getResponseForGridEdit($result): void
     {
         $row = $GLOBALS['dbi']->fetchRow($result);
         $field_flags = $GLOBALS['dbi']->fieldFlags($result, 0);
@@ -1370,7 +1244,6 @@ class Sql
         }
         $response = Response::getInstance();
         $response->addJSON('value', $row[0]);
-        exit;
     }
 
     /**
@@ -1681,8 +1554,8 @@ class Sql
         // If we are retrieving the full value of a truncated field or the original
         // value of a transformed field, show it here
         if (isset($_POST['grid_edit']) && $_POST['grid_edit'] == true) {
-            $this->sendResponseForGridEdit($result);
-            // script has exited at this point
+            $this->getResponseForGridEdit($result);
+            exit;
         }
 
         // Gets the list of fields properties
@@ -1819,11 +1692,14 @@ class Sql
             $disp_message ?? null
         );
 
-        $profilingChartHtml = $this->getHtmlForProfilingChart(
-            $url_query,
-            $db,
-            $profiling_results ?? []
-        );
+        $profilingChartHtml = '';
+        if (! empty($profiling_results)) {
+            $profiling = $this->getDetailedProfilingStats($profiling_results);
+            $profilingChartHtml = $this->template->render('sql/profiling_chart', [
+                'url_query' => $url_query ?? Url::getCommon(['db' => $db]),
+                'profiling' => $profiling,
+            ]);
+        }
 
         $missingUniqueColumnMessage = $this->getMessageIfMissingColumnIndex(
             $table,
@@ -1855,16 +1731,22 @@ class Sql
 
         $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
         $bookmarkSupportHtml = '';
-        if (is_array($cfgBookmark)) {
-            $bookmarkSupportHtml = $this->getHtmlForBookmark(
-                $displayParts,
-                $cfgBookmark,
-                $sql_query,
-                $db,
-                $table,
-                $complete_query ?? $sql_query,
-                $cfgBookmark['user']
-            );
+        if (is_array($cfgBookmark)
+            && $displayParts['bkm_form'] == '1'
+            && (! empty($cfgBookmark) && empty($_GET['id_bookmark']))
+            && ! empty($sql_query)
+        ) {
+            $bookmarkSupportHtml = $this->template->render('sql/bookmark', [
+                'db' => $db,
+                'goto' => Url::getFromRoute('/sql', [
+                    'db' => $db,
+                    'table' => $table,
+                    'sql_query' => $sql_query,
+                    'id_bookmark' => 1,
+                ]),
+                'user' => $cfgBookmark['user'],
+                'sql_query' => $complete_query ?? $sql_query,
+            ]);
         }
 
         return $this->template->render('sql/sql_query_results', [

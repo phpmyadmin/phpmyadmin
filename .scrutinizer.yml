@@ -9,6 +9,7 @@ filter:
     - node_modules/
     - tmp/
     - vendor/
+    - test/doctum-config.php
 checks:
   javascript: true
   php: true

@@ -112,14 +112,14 @@ class StorageEngineTest extends AbstractTestCase
      * @param string $expectedClass Class that should be selected
      * @param string $engineName    Engine name
      *
+     * @psalm-param class-string $expectedClass
+     *
      * @dataProvider providerGetEngine
      */
     public function testGetEngine(string $expectedClass, string $engineName): void
     {
-        $this->assertInstanceOf(
-            $expectedClass,
-            StorageEngine::getEngine($engineName)
-        );
+        $actual = StorageEngine::getEngine($engineName);
+        $this->assertInstanceOf($expectedClass, $actual);
     }
 
     /**

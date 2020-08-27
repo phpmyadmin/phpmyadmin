@@ -19,6 +19,7 @@ use stdClass;
 use const ENT_COMPAT;
 use const ENT_QUOTES;
 use const PHP_INT_SIZE;
+use const PHP_MAJOR_VERSION;
 use const PREG_OFFSET_CAPTURE;
 use const STR_PAD_LEFT;
 use function abs;
@@ -49,6 +50,7 @@ use function htmlspecialchars;
 use function htmlspecialchars_decode;
 use function implode;
 use function in_array;
+use function ini_get;
 use function is_array;
 use function is_callable;
 use function is_object;
@@ -490,30 +492,6 @@ class Util
         }
 
         return $a_name;
-    } // end of the 'backquoteCompat()' function
-
-    /**
-     * Verifies if current MySQL server supports profiling
-     *
-     * @return bool whether profiling is supported
-     *
-     * @access public
-     */
-    public static function profilingSupported()
-    {
-        if (! self::cacheExists('profiling_supported')) {
-            // 5.0.37 has profiling but for example, 5.1.20 does not
-            // (avoid a trip to the server for MySQL before 5.0.37)
-            // and do not set a constant as we might be switching servers
-            if ($GLOBALS['dbi']->fetchValue('SELECT @@have_profiling')
-            ) {
-                self::cacheSet('profiling_supported', true);
-            } else {
-                self::cacheSet('profiling_supported', false);
-            }
-        }
-
-        return self::cacheGet('profiling_supported');
     }
 
     /**
@@ -3259,5 +3237,26 @@ class Util
         }
 
         return '';
+    }
+
+    /**
+     * Check if error reporting is available
+     */
+    public static function isErrorReportingAvailable(): bool
+    {
+        // issue #16256 - PHP 7.x does not return false for a core function
+        if (PHP_MAJOR_VERSION < 8) {
+            $disabled = ini_get('disable_functions');
+            if (is_string($disabled)) {
+                $disabled = explode(',', $disabled);
+                $disabled = array_map(static function (string $part) {
+                    return trim($part);
+                }, $disabled);
+
+                return ! in_array('error_reporting', $disabled);
+            }
+        }
+
+        return function_exists('error_reporting');
     }
 }

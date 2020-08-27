@@ -23,6 +23,7 @@ use function version_compare;
  */
 class AuthenticationSignonTest extends AbstractNetworkTestCase
 {
+    /** @var AuthenticationSignon */
     protected $object;
 
     /**
@@ -61,6 +62,8 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
         ob_start();
         $this->object->showLoginForm();
         $result = ob_get_clean();
+
+        $this->assertIsString($result);
 
         $this->assertStringContainsString(
             'You must set SignonURL!',

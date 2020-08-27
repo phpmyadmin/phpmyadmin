@@ -6,7 +6,7 @@ secure as possible. But still web application like phpMyAdmin can be vulnerable
 to a number of attacks and new ways to exploit are still being explored.
 
 For every reported vulnerability we issue a phpMyAdmin Security Announcement
-(PMASA) and it get's assigne CVE ID as well. We might group similar
+(PMASA) and it get's assigned a CVE ID as well. We might group similar
 vulnerabilities to one PMASA (eg. multiple XSS vulnerabilities can be announced
 under one PMASA).
 
@@ -15,7 +15,7 @@ If you think you've found a vulnerability, please see :ref:`reporting-security`.
 Typical vulnerabilities
 -----------------------
 
-In this secion, we will describe typical vulnerabilities, which can appear in
+In this section, we will describe typical vulnerabilities, which can appear in
 our code base. This list is by no means complete, it is intended to show
 typical attack surface.
 
@@ -64,7 +64,7 @@ mysql control connection. This controlconnection can have additional privileges
 which the logged in user does not poses. E.g. access the :ref:`linked-tables`.
 
 User data that is included in (administrative) queries should always be run
-through DatabaseInterface::escapeSring().
+through DatabaseInterface::escapeString().
 
 .. seealso::
 

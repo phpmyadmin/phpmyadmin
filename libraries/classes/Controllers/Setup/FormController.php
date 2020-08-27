@@ -27,20 +27,21 @@ class FormController extends AbstractController
 
         $formset = Core::isValid($params['formset'], 'scalar') ? $params['formset'] : null;
 
-        /** @var BaseForm $formClass */
         $formClass = SetupFormList::get($formset);
         if ($formClass === null) {
             Core::fatalError(__('Incorrect form specified!'));
         }
 
         ob_start();
-        FormProcessing::process(new $formClass($this->config));
+        /** @var BaseForm $form */
+        $form = new $formClass($this->config);
+        FormProcessing::process($form);
         $page = ob_get_clean();
 
         return $this->template->render('setup/form/index', [
             'formset' => $params['formset'] ?? '',
             'pages' => $pages,
-            'name' => $formClass::getName(),
+            'name' => $form::getName(),
             'page' => $page,
         ]);
     }

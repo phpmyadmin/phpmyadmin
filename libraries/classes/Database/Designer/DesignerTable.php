@@ -13,9 +13,16 @@ use function base64_encode;
  */
 class DesignerTable implements JsonSerializable
 {
+    /** @var string */
     private $tableName;
+
+    /** @var string */
     private $databaseName;
+
+    /** @var string */
     private $tableEngine;
+
+    /** @var string|null */
     private $displayField;
 
     /**

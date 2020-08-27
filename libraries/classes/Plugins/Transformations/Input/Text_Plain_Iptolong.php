@@ -26,7 +26,7 @@ class Text_Plain_Iptolong extends IOTransformationsPlugin
     public static function getInfo()
     {
         return __(
-            'Converts an Internet network address in (IPv4/IPv6) format to long.'
+            'Converts an Internet network address in (IPv4/IPv6) format into a long integer.'
         );
     }
 

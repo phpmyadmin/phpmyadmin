@@ -4,7 +4,7 @@ Custom Themes
 =============
 
 phpMyAdmin comes with support for third party themes. You can download
-additonal themes from our website at <https://www.phpmyadmin.net/themes/>.
+additional themes from our website at <https://www.phpmyadmin.net/themes/>.
 
 Configuration
 -------------
@@ -56,7 +56,7 @@ metadata. Currently it consists of:
 
     **This field is required.**
 
-.. describe:: desciption
+.. describe:: description
 
     Theme description. this will be shown on the website.
 
@@ -79,7 +79,7 @@ metadata. Currently it consists of:
 
     **This field is required.**
 
-For example, the definition for Original theme shipped with phpMyAdnin 4.8:
+For example, the definition for Original theme shipped with phpMyAdmin 4.8:
 
 .. code-block:: json
 

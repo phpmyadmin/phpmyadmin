@@ -18,7 +18,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
  */
 class QbeTest extends AbstractTestCase
 {
-    /** @access protected */
+    /** @var Qbe */
     protected $object;
 
     /**

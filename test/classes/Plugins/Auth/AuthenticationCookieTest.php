@@ -202,7 +202,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $this->object->showLoginForm();
         $result = ob_get_clean();
 
-        // assertions
+        $this->assertIsString($result);
 
         $this->assertStringContainsString(
             ' id="imLogo"',
@@ -297,7 +297,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $this->object->showLoginForm();
         $result = ob_get_clean();
 
-        // assertions
+        $this->assertIsString($result);
 
         $this->assertStringContainsString('id="imLogo"', $result);
 
@@ -331,6 +331,90 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $this->assertStringContainsString(
             '<input class="btn btn-primary g-recaptcha" data-sitekey="testpubkey"'
             . ' data-callback="Functions_recaptchaCallback" value="Go" type="submit" id="input_go">',
+            $result
+        );
+    }
+
+    /**
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::showLoginForm
+     *
+     * @group medium
+     */
+    public function testAuthCaptchaCheckbox(): void
+    {
+        $mockResponse = $this->mockResponse();
+
+        $mockResponse->expects($this->once())
+            ->method('isAjax')
+            ->with()
+            ->will($this->returnValue(false));
+
+        $mockResponse->expects($this->once())
+            ->method('getFooter')
+            ->with()
+            ->will($this->returnValue(new Footer()));
+
+        $mockResponse->expects($this->once())
+            ->method('getHeader')
+            ->with()
+            ->will($this->returnValue(new Header()));
+
+        $_REQUEST['old_usr'] = '';
+        $GLOBALS['cfg']['LoginCookieRecall'] = false;
+
+        $GLOBALS['pmaThemeImage'] = 'test';
+        $GLOBALS['cfg']['Lang'] = '';
+        $GLOBALS['cfg']['AllowArbitraryServer'] = false;
+        $GLOBALS['cfg']['Servers'] = [1];
+        $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = 'testprivkey';
+        $GLOBALS['cfg']['CaptchaLoginPublicKey'] = 'testpubkey';
+        $GLOBALS['cfg']['CaptchaMethod'] = 'checkbox';
+        $GLOBALS['server'] = 0;
+
+        $GLOBALS['error_handler'] = new ErrorHandler();
+
+        ob_start();
+        $this->object->showLoginForm();
+        $result = ob_get_clean();
+
+        $this->assertIsString($result);
+
+        $this->assertStringContainsString('id="imLogo"', $result);
+
+        // Check for language selection if locales are there
+        $loc = LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo';
+        if (is_readable($loc)) {
+            $this->assertStringContainsString(
+                '<select name="lang" class="autosubmit" lang="en" dir="ltr" ' .
+                'id="sel-lang">',
+                $result
+            );
+        }
+
+        $this->assertStringContainsString(
+            '<form method="post" id="login_form" action="index.php?route=/" name="login_form"' .
+            ' class="disableAjax hide login js-show form-horizontal" autocomplete="off">',
+            $result
+        );
+
+        $this->assertStringContainsString(
+            '<input type="hidden" name="server" value="0">',
+            $result
+        );
+
+        $this->assertStringContainsString(
+            '<script src="https://www.google.com/recaptcha/api.js?hl=en"'
+            . ' async defer></script>',
+            $result
+        );
+
+        $this->assertStringContainsString(
+            '<div class="g-recaptcha" data-sitekey="testpubkey"></div>',
+            $result
+        );
+
+        $this->assertStringContainsString(
+            '<input class="btn btn-primary" value="Go" type="submit" id="input_go">',
             $result
         );
     }
@@ -1066,7 +1150,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $method->setAccessible(true);
 
         $encryptedCookie = $this->object->cookieEncrypt(
-            json_encode($payload),
+            (string) json_encode($payload),
             $method->invoke($this->object, null)
         );
         $this->assertEquals(
@@ -1184,6 +1268,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         ob_start();
         $this->object->checkRules();
         $result = ob_get_clean();
+
+        $this->assertIsString($result);
 
         if (empty($expected)) {
             $this->assertEquals($expected, $result);

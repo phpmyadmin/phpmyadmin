@@ -28,7 +28,7 @@ class ZipExtensionTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->zipExtension = new ZipExtension();
+        $this->zipExtension = new ZipExtension(new ZipArchive());
     }
 
     /**
@@ -146,9 +146,12 @@ class ZipExtensionTest extends AbstractTestCase
     {
         $file = $this->zipExtension->createFile('Test content', 'test.txt');
         $this->assertNotEmpty($file);
+        $this->assertIsString($file);
 
         $tmp = tempnam('./', 'zip-test');
+        $this->assertNotFalse($tmp);
         $handle = fopen($tmp, 'w');
+        $this->assertNotFalse($handle);
         fwrite($handle, $file);
         fclose($handle);
 
@@ -195,9 +198,12 @@ class ZipExtensionTest extends AbstractTestCase
             ]
         );
         $this->assertNotEmpty($file);
+        $this->assertIsString($file);
 
         $tmp = tempnam('./', 'zip-test');
+        $this->assertNotFalse($tmp);
         $handle = fopen($tmp, 'w');
+        $this->assertNotFalse($handle);
         fwrite($handle, $file);
         fclose($handle);
 

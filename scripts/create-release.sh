@@ -216,7 +216,7 @@ fi
 echo "* Removing unneeded files"
 
 # Remove developer information
-rm -rf .github
+rm -rf .github CODE_OF_CONDUCT.md DCO
 
 # Testsuite setup
 rm -f .travis.yml .scrutinizer.yml .jshintrc .weblate codecov.yml
@@ -313,7 +313,7 @@ find . -name .gitattributes -print0 | xargs -0 -r rm -f
 
 if [ $do_test -eq 1 ] ; then
     composer update
-    ./vendor/bin/phpunit --configuration phpunit.xml.nocoverage --exclude-group selenium
+    ./vendor/bin/phpunit --no-coverage --exclude-group selenium
     test_ret=$?
     if [ $do_ci -eq 1 ] ; then
         cd ../..
@@ -353,7 +353,7 @@ for kit in $KITS ; do
         # Testsuite
         rm -rf test/
         rm phpunit.xml.* build.xml
-        rm -f .editorconfig .eslintignore .jshintrc .eslintrc.json .stylelintrc.json psalm.xml psalm-baseline.xml phpstan.neon.dist phpstan-baseline.neon phpcs.xml.dist
+        rm -f .editorconfig .browserslistrc .eslintignore .jshintrc .eslintrc.json .stylelintrc.json psalm.xml psalm-baseline.xml phpstan.neon.dist phpstan-baseline.neon phpcs.xml.dist
         # Gettext po files
         rm -rf po/
         # Documentation source code

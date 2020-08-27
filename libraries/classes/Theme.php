@@ -83,7 +83,7 @@ class Theme
      * @var array List of css files to load
      * @access private
      */
-    public $_cssFiles = [
+    public $cssFiles = [
         'common',
         'enum_editor',
         'gis',

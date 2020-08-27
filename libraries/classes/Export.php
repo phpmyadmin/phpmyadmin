@@ -600,7 +600,7 @@ class Export
         $html .= $back_button;
         $refreshButton = '<form id="export_refresh_form" method="POST" action="'
             . Url::getFromRoute('/export') . '" class="disableAjax">';
-        $refreshButton .= '[ <a class="disableAjax" onclick="$(this).parent().submit()">' . __('Refresh') . '</a> ]';
+        $refreshButton .= '[ <a class="disableAjax" id="export_refresh_btn">' . __('Refresh') . '</a> ]';
         foreach ($_POST as $name => $value) {
             if (is_array($value)) {
                 foreach ($value as $val) {

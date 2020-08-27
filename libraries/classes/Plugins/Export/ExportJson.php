@@ -26,6 +26,7 @@ use function stripslashes;
  */
 class ExportJson extends ExportPlugin
 {
+    /** @var bool */
     private $first = true;
 
     public function __construct()

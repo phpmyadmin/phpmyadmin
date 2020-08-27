@@ -90,7 +90,11 @@ class Config
 
     /** @var int     source modification time */
     public $source_mtime = 0;
+
+    /** @var int */
     public $default_source_mtime = 0;
+
+    /** @var int */
     public $set_mtime = 0;
 
     /** @var bool */
@@ -385,7 +389,7 @@ class Config
 
             return false;
         }
-        $canUseErrorReporting = function_exists('error_reporting');
+        $canUseErrorReporting = Util::isErrorReportingAvailable();
         $oldErrorReporting = null;
         if ($canUseErrorReporting) {
             $oldErrorReporting = error_reporting(0);
@@ -446,7 +450,7 @@ class Config
          * Parses the configuration file, we throw away any errors or
          * output.
          */
-        $canUseErrorReporting = function_exists('error_reporting');
+        $canUseErrorReporting = Util::isErrorReportingAvailable();
         $oldErrorReporting = null;
         if ($canUseErrorReporting) {
             $oldErrorReporting = error_reporting(0);
@@ -1483,5 +1487,28 @@ class Config
             $password,
             $server,
         ];
+    }
+
+    /**
+     * Get LoginCookieValidity from preferences cache.
+     *
+     * No generic solution for loading preferences from cache as some settings
+     * need to be kept for processing in loadUserPreferences().
+     *
+     * @see loadUserPreferences()
+     */
+    public function getLoginCookieValidityFromCache(int $server): void
+    {
+        global $cfg;
+
+        $cacheKey = 'server_' . $server;
+
+        if (! isset($_SESSION['cache'][$cacheKey]['userprefs']['LoginCookieValidity'])) {
+            return;
+        }
+
+        $value = $_SESSION['cache'][$cacheKey]['userprefs']['LoginCookieValidity'];
+        $this->set('LoginCookieValidity', $value);
+        $cfg['LoginCookieValidity'] = $value;
     }
 }

@@ -38,14 +38,14 @@ use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Logging;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\MoTranslator\Loader;
-use PhpMyAdmin\Plugins\AuthenticationPlugin;
+use PhpMyAdmin\Plugins;
+use PhpMyAdmin\Profiling;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Routing;
 use PhpMyAdmin\Session;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Tracker;
-use PhpMyAdmin\Util;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
@@ -249,74 +249,12 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     $containerBuilder->setAlias('dbi', DatabaseInterface::class);
 
     if (! empty($cfg['Server'])) {
-        // get LoginCookieValidity from preferences cache
-        // no generic solution for loading preferences from cache as some settings
-        // need to be kept for processing in
-        // PhpMyAdmin\Config::loadUserPreferences()
-        $cache_key = 'server_' . $server;
-        if (isset($_SESSION['cache'][$cache_key]['userprefs']['LoginCookieValidity'])
-        ) {
-            $value
-                = $_SESSION['cache'][$cache_key]['userprefs']['LoginCookieValidity'];
-            $PMA_Config->set('LoginCookieValidity', $value);
-            $cfg['LoginCookieValidity'] = $value;
-            unset($value);
-        }
-        unset($cache_key);
+        $PMA_Config->getLoginCookieValidityFromCache($server);
 
-        // Gets the authentication library that fits the $cfg['Server'] settings
-        // and run authentication
-
-        /**
-         * the required auth type plugin
-         */
-        $auth_class = 'PhpMyAdmin\\Plugins\\Auth\\Authentication' . ucfirst(strtolower($cfg['Server']['auth_type']));
-        if (! @class_exists($auth_class)) {
-            Core::fatalError(
-                __('Invalid authentication method set in configuration:')
-                . ' ' . $cfg['Server']['auth_type']
-            );
-        }
-        if (isset($_POST['pma_password']) && strlen($_POST['pma_password']) > 256) {
-            $_POST['pma_password'] = substr($_POST['pma_password'], 0, 256);
-        }
-
-        /** @var AuthenticationPlugin $auth_plugin */
-        $auth_plugin = new $auth_class();
+        $auth_plugin = Plugins::getAuthPlugin();
         $auth_plugin->authenticate();
 
-        // Try to connect MySQL with the control user profile (will be used to
-        // get the privileges list for the current user but the true user link
-        // must be open after this one so it would be default one for all the
-        // scripts)
-        $controllink = false;
-        if ($cfg['Server']['controluser'] != '') {
-            $controllink = $dbi->connect(
-                DatabaseInterface::CONNECT_CONTROL
-            );
-        }
-
-        // Connects to the server (validates user's login)
-        /** @var DatabaseInterface $userlink */
-        $userlink = $dbi->connect(DatabaseInterface::CONNECT_USER);
-
-        if ($userlink === false) {
-            $auth_plugin->showFailure('mysql-denied');
-        }
-
-        if (! $controllink) {
-            /*
-             * Open separate connection for control queries, this is needed
-             * to avoid problems with table locking used in main connection
-             * and phpMyAdmin issuing queries to configuration storage, which
-             * is not locked by that time.
-             */
-            $controllink = $dbi->connect(
-                DatabaseInterface::CONNECT_USER,
-                null,
-                DatabaseInterface::CONNECT_CONTROL
-            );
-        }
+        Core::connectToDatabaseServer($dbi, $auth_plugin);
 
         $auth_plugin->rememberCredentials();
 
@@ -347,32 +285,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $response->getFooter()->setMinimal();
     }
 
-    /**
-     * check if profiling was requested and remember it
-     * (note: when $cfg['ServerDefault'] = 0, constant is not defined)
-     */
-    if (isset($_REQUEST['profiling'])
-        && Util::profilingSupported()
-    ) {
-        $_SESSION['profiling'] = true;
-    } elseif (isset($_REQUEST['profiling_form'])) {
-        // the checkbox was unchecked
-        unset($_SESSION['profiling']);
-    }
-
-    /**
-     * Inclusion of profiling scripts is needed on various
-     * pages like sql, tbl_sql, db_sql, tbl_select
-     */
     $response = Response::getInstance();
-    if (isset($_SESSION['profiling'])) {
-        $scripts  = $response->getHeader()->getScripts();
-        $scripts->addFile('chart.js');
-        $scripts->addFile('vendor/jqplot/jquery.jqplot.js');
-        $scripts->addFile('vendor/jqplot/plugins/jqplot.pieRenderer.js');
-        $scripts->addFile('vendor/jqplot/plugins/jqplot.highlighter.js');
-        $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
-    }
+
+    Profiling::check($dbi, $response);
 
     /*
      * There is no point in even attempting to process

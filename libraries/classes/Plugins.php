@@ -8,6 +8,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\Plugins\AuthenticationPlugin;
+use PhpMyAdmin\Plugins\ExportPlugin;
+use PhpMyAdmin\Plugins\ImportPlugin;
+use PhpMyAdmin\Plugins\SchemaPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\DocPropertyItem;
@@ -41,6 +45,8 @@ use function readdir;
 use function str_replace;
 use function strcasecmp;
 use function strcmp;
+use function strtolower;
+use function ucfirst;
 use function usort;
 
 /**
@@ -84,16 +90,47 @@ class Plugins
     }
 
     /**
+     * @param string $type server|database|table|raw
+     *
+     * @return ExportPlugin[]
+     */
+    public static function getExport(string $type, bool $singleTable): array
+    {
+        return self::getPlugins('export', 'libraries/classes/Plugins/Export/', [
+            'export_type' => $type,
+            'single_table' => $singleTable,
+        ]);
+    }
+
+    /**
+     * @param string $type server|database|table
+     *
+     * @return ImportPlugin[]
+     */
+    public static function getImport(string $type): array
+    {
+        return self::getPlugins('import', 'libraries/classes/Plugins/Import/', $type);
+    }
+
+    /**
+     * @return SchemaPlugin[]
+     */
+    public static function getSchema(): array
+    {
+        return self::getPlugins('schema', 'libraries/classes/Plugins/Schema/', null);
+    }
+
+    /**
      * Reads all plugin information from directory $plugins_dir
      *
-     * @param string $plugin_type  the type of the plugin (import, export, etc)
-     * @param string $plugins_dir  directory with plugins
-     * @param mixed  $plugin_param parameter to plugin by which they can
-     *                             decide whether they can work
+     * @param string            $plugin_type  the type of the plugin (import, export, etc)
+     * @param string            $plugins_dir  directory with plugins
+     * @param array|string|null $plugin_param parameter to plugin by which they can
+     *                                        decide whether they can work
      *
      * @return array list of plugin instances
      */
-    public static function getPlugins($plugin_type, $plugins_dir, $plugin_param)
+    private static function getPlugins(string $plugin_type, string $plugins_dir, $plugin_param): array
     {
         global $skip_import;
 
@@ -671,5 +708,24 @@ class Plugins
         }
 
         return $ret;
+    }
+
+    public static function getAuthPlugin(): AuthenticationPlugin
+    {
+        global $cfg;
+
+        $class = 'PhpMyAdmin\\Plugins\\Auth\\Authentication' . ucfirst(strtolower($cfg['Server']['auth_type']));
+
+        if (! class_exists($class)) {
+            Core::fatalError(
+                __('Invalid authentication method set in configuration:')
+                    . ' ' . $cfg['Server']['auth_type']
+            );
+        }
+
+        /** @var AuthenticationPlugin $plugin */
+        $plugin = new $class();
+
+        return $plugin;
     }
 }

@@ -19,6 +19,7 @@ use function trigger_error;
  */
 class NodeFactory
 {
+    /** @var string */
     protected static $namespace = 'PhpMyAdmin\\Navigation\\Nodes\\%s';
 
     /**

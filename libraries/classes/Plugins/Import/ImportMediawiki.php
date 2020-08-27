@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
 
+use PhpMyAdmin\File;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
@@ -31,7 +32,7 @@ class ImportMediawiki extends ImportPlugin
      *
      * @var bool
      */
-    private $_analyze;
+    private $analyze;
 
     public function __construct()
     {
@@ -69,7 +70,7 @@ class ImportMediawiki extends ImportPlugin
      *
      * @return void
      */
-    public function doImport(array &$sql_data = [])
+    public function doImport(?File $importHandle = null, array &$sql_data = [])
     {
         global $error, $timeout_passed, $finished;
 
@@ -101,7 +102,7 @@ class ImportMediawiki extends ImportPlugin
         $in_table_header = false;
 
         while (! $finished && ! $error && ! $timeout_passed) {
-            $data = $this->import->getNextChunk();
+            $data = $this->import->getNextChunk($importHandle);
 
             if ($data === false) {
                 // Subtract data we didn't handle yet and stop processing
@@ -384,7 +385,7 @@ class ImportMediawiki extends ImportPlugin
 
     /**
      * Sets the database name and additional options and calls Import::buildSql()
-     * Used in PMA_importDataAllTables() and $this->_importDataOneTable()
+     * Used in PMA_importDataAllTables() and $this->importDataOneTable()
      *
      * @param array $tables   structure:
      *                        array(
@@ -541,7 +542,7 @@ class ImportMediawiki extends ImportPlugin
      */
     private function getAnalyze()
     {
-        return $this->_analyze;
+        return $this->analyze;
     }
 
     /**
@@ -553,7 +554,7 @@ class ImportMediawiki extends ImportPlugin
      */
     private function setAnalyze($analyze)
     {
-        $this->_analyze = $analyze;
+        $this->analyze = $analyze;
     }
 
     /**

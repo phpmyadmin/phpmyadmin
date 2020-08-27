@@ -25,10 +25,10 @@ use function sprintf;
  */
 class TableStatsEps extends TableStats
 {
-    /**
-     * Defines properties
-     */
+    /** @var int */
     public $height;
+
+    /** @var int */
     public $currentCell = 0;
 
     /**

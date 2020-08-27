@@ -25,7 +25,10 @@ use function sprintf;
  */
 class TableStatsDia extends TableStats
 {
+    /** @var int */
     public $tableId;
+
+    /** @var string */
     public $tableColor;
 
     /**

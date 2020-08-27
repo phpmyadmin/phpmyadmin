@@ -24,6 +24,7 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use const PHP_EOL;
 use function count;
+use function function_exists;
 use function in_array;
 use function ini_set;
 use function is_array;
@@ -243,10 +244,13 @@ final class ExportController extends AbstractController
         /**
          * valid compression methods
          */
-        $compression_methods = [
-            'zip',
-            'gzip',
-        ];
+        $compression_methods = [];
+        if ($GLOBALS['cfg']['ZipDump'] && function_exists('gzcompress')) {
+            $compression_methods[] = 'zip';
+        }
+        if ($GLOBALS['cfg']['GZipDump'] && function_exists('gzencode')) {
+            $compression_methods[] = 'gzip';
+        }
 
         /**
          * init and variable checking

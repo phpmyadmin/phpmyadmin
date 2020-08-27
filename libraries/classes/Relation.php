@@ -70,7 +70,7 @@ class Relation
      * @param bool   $show_error whether to display SQL error messages or not
      * @param int    $options    query options
      *
-     * @return resource|bool the result set, or false if no result set
+     * @return mixed|bool the result set, or false if no result set
      *
      * @access public
      */

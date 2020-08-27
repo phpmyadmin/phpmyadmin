@@ -31,7 +31,7 @@ class ExportCodegen extends ExportPlugin
      *
      * @var array
      */
-    private $_cgFormats;
+    private $cgFormats;
 
     private const HANDLER_NHIBERNATE_CS = 0;
     private const HANDLER_NHIBERNATE_XML = 1;
@@ -390,7 +390,7 @@ class ExportCodegen extends ExportPlugin
      */
     private function getCgFormats()
     {
-        return $this->_cgFormats;
+        return $this->cgFormats;
     }
 
     /**
@@ -402,6 +402,6 @@ class ExportCodegen extends ExportPlugin
      */
     private function setCgFormats(array $CG_FORMATS)
     {
-        $this->_cgFormats = $CG_FORMATS;
+        $this->cgFormats = $CG_FORMATS;
     }
 }

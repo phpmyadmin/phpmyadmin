@@ -2566,12 +2566,17 @@ input#auto_increment_opt {
   border-#{$right}: 2px solid #a44;
 }
 
-.pma_table,
-.sticky_columns {
+.pma_table {
   th.draggable span {
     display: block;
     overflow: hidden;
   }
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 60px;
 }
 
 .pma_table {

@@ -23,8 +23,8 @@ use function trim;
  */
 class GisLineString extends GisGeometry
 {
-    // Hold the singleton instance of the class
-    private static $_instance;
+    /** @var self */
+    private static $instance;
 
     /**
      * A private constructor; prevents direct creation of object.
@@ -44,11 +44,11 @@ class GisLineString extends GisGeometry
      */
     public static function singleton()
     {
-        if (! isset(self::$_instance)) {
-            self::$_instance = new GisLineString();
+        if (! isset(self::$instance)) {
+            self::$instance = new GisLineString();
         }
 
-        return self::$_instance;
+        return self::$instance;
     }
 
     /**

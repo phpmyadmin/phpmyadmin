@@ -24,14 +24,14 @@ class Scripts
      * @access private
      * @var array of strings
      */
-    private $_files;
+    private $files;
     /**
      * A string of discrete javascript code snippets
      *
      * @access private
      * @var string
      */
-    private $_code;
+    private $code;
 
     /** @var Template */
     private $template;
@@ -42,8 +42,8 @@ class Scripts
     public function __construct()
     {
         $this->template = new Template();
-        $this->_files  = [];
-        $this->_code   = '';
+        $this->files  = [];
+        $this->code   = '';
     }
 
     /**
@@ -59,12 +59,12 @@ class Scripts
         array $params = []
     ) {
         $hash = md5($filename);
-        if (! empty($this->_files[$hash])) {
+        if (! empty($this->files[$hash])) {
             return;
         }
 
         $has_onload = $this->hasOnloadEvent($filename);
-        $this->_files[$hash] = [
+        $this->files[$hash] = [
             'has_onload' => $has_onload,
             'filename' => $filename,
             'params' => $params,
@@ -116,7 +116,7 @@ class Scripts
      */
     public function addCode($code)
     {
-        $this->_code .= $code . "\n";
+        $this->code .= $code . "\n";
     }
 
     /**
@@ -128,7 +128,7 @@ class Scripts
     public function getFiles()
     {
         $retval = [];
-        foreach ($this->_files as $file) {
+        foreach ($this->files as $file) {
             //If filename contains a "?", continue.
             if (strpos($file['filename'], '?') !== false) {
                 continue;
@@ -153,9 +153,9 @@ class Scripts
 
         return $this->template->render('scripts', [
             'base_dir' => $baseDir,
-            'files' => $this->_files,
+            'files' => $this->files,
             'version' => PMA_VERSION,
-            'code' => $this->_code,
+            'code' => $this->code,
         ]);
     }
 }

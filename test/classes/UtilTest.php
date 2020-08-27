@@ -1060,6 +1060,7 @@ class UtilTest extends AbstractTestCase
     public function testFormatByteDown(float $a, int $b, int $c, array $e): void
     {
         $result = Util::formatByteDown($a, $b, $c);
+        $this->assertIsArray($result);
         $result[0] = trim($result[0]);
         $this->assertSame($e, $result);
     }
@@ -1193,7 +1194,7 @@ class UtilTest extends AbstractTestCase
         $this->assertFormatNumber($a, $b, $c, $d);
 
         // Test with various precisions
-        $old_precision = ini_get('precision');
+        $old_precision = (string) ini_get('precision');
         try {
             ini_set('precision', '20');
             $this->assertFormatNumber($a, $b, $c, $d);

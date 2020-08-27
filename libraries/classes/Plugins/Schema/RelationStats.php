@@ -22,16 +22,28 @@ use function min;
  */
 abstract class RelationStats
 {
+    /** @var object */
     protected $diagram;
-    /**
-     * Defines properties
-     */
+
+    /** @var mixed */
     public $xSrc;
+
+    /** @var mixed */
     public $ySrc;
+
+    /** @var int */
     public $srcDir;
+
+    /** @var int */
     public $destDir;
+
+    /** @var mixed */
     public $xDest;
+
+    /** @var mixed */
     public $yDest;
+
+    /** @var int */
     public $wTick;
 
     /**

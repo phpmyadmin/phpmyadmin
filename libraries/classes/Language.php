@@ -21,10 +21,19 @@ use function strpos;
  */
 class Language
 {
+    /** @var string */
     protected $code;
+
+    /** @var string */
     protected $name;
+
+    /** @var string */
     protected $native;
+
+    /** @var string */
     protected $regex;
+
+    /** @var string */
     protected $mysql;
 
     /**
@@ -33,7 +42,7 @@ class Language
      * @param string $code   Language code
      * @param string $name   English name
      * @param string $native Native name
-     * @param string $regex  Match regullar expression
+     * @param string $regex  Match regular expression
      * @param string $mysql  MySQL locale code
      */
     public function __construct($code, $name, $native, $regex, $mysql)

@@ -29,6 +29,7 @@ use function array_shift;
  */
 class ExportOdsTest extends AbstractTestCase
 {
+    /** @var ExportOds */
     protected $object;
 
     /**

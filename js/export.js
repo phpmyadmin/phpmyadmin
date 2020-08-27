@@ -228,6 +228,27 @@ AJAX.registerTeardown('export.js', function () {
 });
 
 AJAX.registerOnload('export.js', function () {
+    $('#showsqlquery').on('click', function () {
+        // Creating a dialog box similar to preview sql container to show sql query
+        var modalOptions = {};
+        modalOptions[Messages.strClose] = function () {
+            $(this).dialog('close');
+        };
+        $('#export_sql_modal_content').clone().dialog({
+            minWidth: 550,
+            maxHeight: 400,
+            modal: true,
+            buttons: modalOptions,
+            title: Messages.strQuery,
+            close: function () {
+                $(this).remove();
+            }, open: function () {
+                // Pretty SQL printing.
+                Functions.highlightSql($(this));
+            }
+        });
+    });
+
     /**
      * Export template handling code
      */
@@ -1006,5 +1027,29 @@ AJAX.registerOnload('export.js', function () {
             $('#column_alias_name').val()
         );
         $('#column_alias_name').val('');
+    });
+
+    var setSelectOptions = function (doCheck) {
+        Functions.setSelectOptions('dump', 'db_select[]', doCheck);
+    };
+
+    $('#db_select_all').on('click', function (e) {
+        e.preventDefault();
+        setSelectOptions(true);
+    });
+
+    $('#db_unselect_all').on('click', function (e) {
+        e.preventDefault();
+        setSelectOptions(false);
+    });
+
+    $('#buttonGo').on('click', function () {
+        var timeLimit = parseInt($(this).attr('data-exec-time-limit'));
+
+        // If the time limit set is zero,
+        // then time out won't occur so no need to check for time out.
+        if (timeLimit > 0) {
+            Export.checkTimeOut(timeLimit);
+        }
     });
 });

@@ -32,7 +32,7 @@ class Import[Name] extends ImportPlugin
      *
      * @var type
      */
-    private $_myOptionalVariable;
+    private $myOptionalVariable;
 
     /**
      * Constructor
@@ -141,7 +141,7 @@ class Import[Name] extends ImportPlugin
      */
     private function _getMyOptionalVariable()
     {
-        return $this->_myOptionalVariable;
+        return $this->myOptionalVariable;
     }
 
     /**
@@ -153,7 +153,7 @@ class Import[Name] extends ImportPlugin
      */
     private function _setMyOptionalVariable($my_optional_variable)
     {
-        $this->_myOptionalVariable = $my_optional_variable;
+        $this->myOptionalVariable = $my_optional_variable;
     }
 }
 ```

@@ -74,6 +74,7 @@ class NavigationTreeTest extends AbstractTestCase
     public function testRenderPath(): void
     {
         $result = $this->object->renderPath();
+        $this->assertIsString($result);
         $this->assertStringContainsString('list_container', $result);
     }
 

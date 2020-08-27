@@ -19,7 +19,7 @@ class FooterTest extends AbstractTestCase
     /** @var array store private attributes of PhpMyAdmin\Footer */
     public $privates = [];
 
-    /** @access protected */
+    /** @var Footer */
     protected $object;
 
     /**

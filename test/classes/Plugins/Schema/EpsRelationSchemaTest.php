@@ -17,7 +17,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
  */
 class EpsRelationSchemaTest extends AbstractTestCase
 {
-    /** @access protected */
+    /** @var EpsRelationSchema */
     protected $object;
 
     /**

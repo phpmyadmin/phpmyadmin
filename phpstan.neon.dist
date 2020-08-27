@@ -17,7 +17,7 @@ parameters:
         - examples/openid.php
         - node_modules/*
         - libraries/cache/*
-        - test/sami-config.php
+        - test/doctum-config.php
         - tmp/*
         - twig-templates/*
         - vendor/*

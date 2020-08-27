@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import\Upload;
 
-use PhpMyAdmin\Display\ImportAjax;
+use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Plugins\UploadInterface;
 use function array_key_exists;
 use function ini_get;
@@ -57,7 +57,7 @@ class UploadSession implements UploadInterface
         }
         $ret = $_SESSION[$SESSION_KEY][$id];
 
-        if (! ImportAjax::sessionCheck() || $ret['finished']) {
+        if (! Ajax::sessionCheck() || $ret['finished']) {
             return $ret;
         }
 
