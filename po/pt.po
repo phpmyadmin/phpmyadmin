@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.5\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:21-0300\n"
-"PO-Revision-Date: 2020-08-03 14:42+0000\n"
+"PO-Revision-Date: 2020-08-30 19:36+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-9/pt/>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
+"4-9/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 4.2.1-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -2027,8 +2027,8 @@ msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
-"Esta acção pode modificar as definições de algumas colunas\n"
-"<br/>Tem a certeze que quer continuar?"
+"Esta ação pode modificar as definições de algumas colunas<br/>Tem certeza "
+"que quer continuar?"
 
 #: js/messages.php:443
 msgid "Continue"
@@ -9626,7 +9626,7 @@ msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
-"ambos acima<br/> &nbsp; &nbsp; &nbsp;  Exemplo: <code>INSERT INTO tbl_name "
+"ambos acima<br/> &nbsp; &nbsp; &nbsp; Exemplo: <code>INSERT INTO tbl_name "
 "(col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:430
@@ -10042,18 +10042,6 @@ msgstr ""
 "opção, terá de configurar a primeira opção com uma cadeia vazia."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:28
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Output/Text_Plain_External.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -10070,11 +10058,11 @@ msgstr ""
 "coluna através do input predefinido. Retorna o output predefinido da "
 "aplicação. A predefinição é Limpo, para impressão bonita do código HTML. Por "
 "razões de segurança, tem que editar o ficheiro libraries/classes/Plugins/"
-"Transformations/Output/Text_Plain_External.php manualmente e listar as "
-"ferramentas que queira tornar disponível. A primeira opção é então o número "
-"do programa que deseja usar e a segunda opção são os parâmetros para o "
-"programa. A terceira opção, se for configurada 1, irá converter a saída "
-"usando htmlspecialchars() (predefinição 1). A quarta opção, se for "
+"Transformations/Abs/ExternalTransformationsPlugin.php manualmente e listar "
+"as ferramentas que queira tornar disponível. A primeira opção é então o "
+"número do programa que deseja usar. A segunda opção deve ficar em branco por "
+"razões históricas. A terceira opção, se for configurada 1, irá converter a "
+"saída usando htmlspecialchars() (predefinição 1). A quarta opção, se for "
 "configurada 1, prevenirá a quebra de linha e garantirá que a saída apareça "
 "toda numa linha (predefinição 1)."
 
@@ -10085,6 +10073,9 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"Está a usar o campo de opções de linha de comando de transformação externa, "
+"que foi depreciado por motivos de segurança. Adicione todas as opções de "
+"linha de comando diretamente à definição em %s."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:28
 msgid ""
@@ -14469,10 +14460,8 @@ msgstr "Nome de tabela inválido"
 
 #. l10n: In case a SQL query did not pass a security check
 #: tbl_get_field.php:46
-#, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
-msgstr "Existem joins demais sem índices."
+msgstr "Há um problema com a sua requisição."
 
 #: tbl_replace.php:258
 #, php-format
