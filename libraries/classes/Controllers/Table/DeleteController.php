@@ -78,9 +78,7 @@ class DeleteController extends AbstractController
             $pmaThemeImage,
             null,
             null,
-            null,
             $sql_query,
-            null,
             null
         ));
     }

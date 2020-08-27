@@ -127,9 +127,7 @@ class MultiTableQuery
             $pmaThemeImage, // pmaThemeImage
             null, // disp_query
             null, // disp_message
-            null, // query_type
             $sqlQuery, // sql_query
-            null, // selectedTables
             null // complete_query
         );
     }

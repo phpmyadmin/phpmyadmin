@@ -274,9 +274,7 @@ class SearchController extends AbstractController
             $GLOBALS['pmaThemeImage'], // pmaThemeImage
             null, // disp_query
             null, // disp_message
-            null, // query_type
             $sql_query, // sql_query
-            null, // selectedTables
             null // complete_query
         ));
     }

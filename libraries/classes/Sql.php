@@ -1473,38 +1473,6 @@ class Sql
     }
 
     /**
-     * Function to get html to display problems in indexes
-     *
-     * @param string|null $queryType      query type
-     * @param array|null  $selectedTables array of table names selected from the
-     *                                    database structure page, for an action
-     *                                    like check table, optimize table,
-     *                                    analyze table or repair table
-     * @param string      $database       current database
-     */
-    private function getHtmlForIndexesProblems(?string $queryType, ?array $selectedTables, string $database): string
-    {
-        // BEGIN INDEX CHECK See if indexes should be checked.
-        $output = '';
-        if (isset($queryType, $selectedTables) && $queryType === 'check_tbl' && is_array($selectedTables)) {
-            foreach ($selectedTables as $table) {
-                $check = Index::findDuplicates($table, $database);
-                if (empty($check)) {
-                    continue;
-                }
-
-                $output .= sprintf(
-                    __('Problems with indexes of table `%s`'),
-                    $table
-                );
-                $output .= $check;
-            }
-        }
-
-        return $output;
-    }
-
-    /**
      * Function to display results when the executed query returns non empty results
      *
      * @param object|null         $result               executed query results
@@ -1520,12 +1488,6 @@ class Sql
      * @param string|null         $disp_query           display query
      * @param Message|string|null $disp_message         display message
      * @param array|null          $profiling_results    profiling results
-     * @param string|null         $query_type           query type
-     * @param array|null          $selectedTables       array of table names selected
-     *                                                  from the database structure page, for
-     *                                                  an action like check table,
-     *                                                  optimize table, analyze table or
-     *                                                  repair table
      * @param string              $sql_query            sql query
      * @param string|null         $complete_query       complete sql query
      *
@@ -1545,8 +1507,6 @@ class Sql
         ?string $disp_query,
         $disp_message,
         ?array $profiling_results,
-        ?string $query_type,
-        $selectedTables,
         $sql_query,
         ?string $complete_query
     ) {
@@ -1723,12 +1683,6 @@ class Sql
             $analyzed_sql_results
         );
 
-        $indexesProblemsHtml = $this->getHtmlForIndexesProblems(
-            $query_type ?? null,
-            $selectedTables ?? null,
-            $db
-        );
-
         $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
         $bookmarkSupportHtml = '';
         if (is_array($cfgBookmark)
@@ -1756,7 +1710,6 @@ class Sql
             'missing_unique_column_message' => $missingUniqueColumnMessage,
             'bookmark_created_message' => $bookmarkCreatedMessage,
             'table' => $tableHtml,
-            'indexes_problems' => $indexesProblemsHtml,
             'bookmark_support' => $bookmarkSupportHtml,
         ]);
     }
@@ -1778,12 +1731,7 @@ class Sql
      * @param string              $pmaThemeImage          uri of the PMA theme image
      * @param string|null         $disp_query             display query
      * @param Message|string|null $disp_message           display message
-     * @param string|null         $query_type             query type
      * @param string              $sql_query              sql query
-     * @param array|null          $selectedTables         array of table names selected from the
-     *                                                    database structure page, for an action
-     *                                                    like check table, optimize table,
-     *                                                    analyze table or repair table
      * @param string|null         $complete_query         complete query
      */
     public function executeQueryAndSendQueryResponse(
@@ -1801,9 +1749,7 @@ class Sql
         $pmaThemeImage,
         $disp_query,
         $disp_message,
-        $query_type,
         $sql_query,
-        $selectedTables,
         $complete_query
     ): string {
         if ($analyzed_sql_results == null) {
@@ -1834,9 +1780,7 @@ class Sql
             $pmaThemeImage, // pmaThemeImage
             $disp_query, // disp_query
             $disp_message, // disp_message
-            $query_type, // query_type
             $sql_query, // sql_query
-            $selectedTables, // selectedTables
             $complete_query // complete_query
         );
     }
@@ -1858,12 +1802,7 @@ class Sql
      * @param string              $pmaThemeImage          uri of the PMA theme image
      * @param string|null         $disp_query             display query
      * @param Message|string|null $disp_message           display message
-     * @param string|null         $query_type             query type
      * @param string              $sql_query              sql query
-     * @param array|null          $selectedTables         array of table names selected from the
-     *                                                    database structure page, for an action
-     *                                                    like check table, optimize table,
-     *                                                    analyze table or repair table
      * @param string|null         $complete_query         complete query
      *
      * @return string html
@@ -1883,9 +1822,7 @@ class Sql
         $pmaThemeImage,
         ?string $disp_query,
         $disp_message,
-        ?string $query_type,
         $sql_query,
-        $selectedTables,
         ?string $complete_query
     ) {
         // Handle disable/enable foreign key checks
@@ -1985,8 +1922,6 @@ class Sql
                 $disp_query ?? null,
                 $disp_message ?? null,
                 $profiling_results,
-                $query_type ?? null,
-                $selectedTables ?? null,
                 $sql_query,
                 $complete_query ?? null
             );

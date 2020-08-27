@@ -55,7 +55,7 @@ class SqlController extends AbstractController
     {
         global $cfg, $db, $display_query, $pmaThemeImage, $sql_query, $table, $message;
         global $ajax_reload, $goto, $err_url, $find_real_end, $unlim_num_rows, $import_text, $disp_query;
-        global $extra_data, $message_to_show, $sql_data, $disp_message, $query_type, $selected, $complete_query;
+        global $extra_data, $message_to_show, $sql_data, $disp_message, $complete_query;
         global $is_gotofile, $back, $table_from_sql;
 
         $this->checkUserPrivileges->getPrivileges();
@@ -215,9 +215,7 @@ class SqlController extends AbstractController
             $pmaThemeImage,
             isset($disp_query) ? $display_query : null,
             $disp_message ?? null,
-            $query_type ?? null,
             $sql_query,
-            $selected ?? null,
             $complete_query ?? null
         ));
     }

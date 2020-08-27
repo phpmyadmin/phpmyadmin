@@ -12,6 +12,7 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\RecentFavoriteTable;
@@ -1440,8 +1441,9 @@ class StructureController extends AbstractController
 
     public function checkTable(): void
     {
-        global $db, $goto, $pmaThemeImage;
+        global $db;
 
+        /** @var string[] $selected */
         $selected = $_POST['selected_tbl'] ?? [];
 
         if (empty($selected)) {
@@ -1451,43 +1453,35 @@ class StructureController extends AbstractController
             return;
         }
 
-        $sql_query = '';
-        $selectedCount = count($selected);
+        $tables = Util::backquote($selected);
+        $query = 'CHECK TABLE ' . implode(', ', $tables) . ';';
 
-        for ($i = 0; $i < $selectedCount; $i++) {
-            $sql_query .= (empty($sql_query) ? 'CHECK TABLE ' : ', ')
-                . Util::backquote($selected[$i]);
+        $this->dbi->selectDb($db);
+        $rows = $this->dbi->fetchResult($query);
+
+        $message = Generator::getMessage(
+            __('Your SQL query has been executed successfully.'),
+            $query,
+            'success'
+        );
+
+        $indexesProblems = '';
+        foreach ($selected as $table) {
+            $check = Index::findDuplicates($table, $db);
+
+            if (empty($check)) {
+                continue;
+            }
+
+            $indexesProblems .= sprintf(__('Problems with indexes of table `%s`'), $table);
+            $indexesProblems .= $check;
         }
 
-        $sql = new Sql();
-        $this->response->addHTML($sql->executeQueryAndSendQueryResponse(
-            null,
-            false,
-            $db,
-            '',
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            $goto,
-            $pmaThemeImage,
-            null,
-            null,
-            'check_tbl',
-            $sql_query,
-            $selected,
-            null
-        ));
-
-        if (empty($_POST['message'])) {
-            $_POST['message'] = Message::success();
-        }
-
-        unset($_POST['submit_mult']);
-
-        $this->index();
+        $this->render('database/structure/check_table', [
+            'message' => $message,
+            'rows' => $rows,
+            'indexes_problems' => $indexesProblems,
+        ]);
     }
 
     public function analyzeTable(): void
@@ -1526,9 +1520,7 @@ class StructureController extends AbstractController
             $pmaThemeImage,
             null,
             null,
-            'analyze_tbl',
             $sqlQuery,
-            $selected,
             null
         ));
 
@@ -1577,9 +1569,7 @@ class StructureController extends AbstractController
             $pmaThemeImage,
             null,
             null,
-            'checksum_tbl',
             $sql_query,
-            $selected,
             null
         ));
 
@@ -1628,9 +1618,7 @@ class StructureController extends AbstractController
             $pmaThemeImage,
             null,
             null,
-            'optimize_tbl',
             $sql_query,
-            $selected,
             null
         ));
 
@@ -1679,9 +1667,7 @@ class StructureController extends AbstractController
             $pmaThemeImage,
             null,
             null,
-            'repair_tbl',
             $sql_query,
-            $selected,
             null
         ));
 
