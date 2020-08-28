@@ -9,6 +9,8 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table\Maintenance;
 use PhpMyAdmin\Template;
+use function count;
+use function is_array;
 
 final class MaintenanceController extends AbstractController
 {
@@ -35,12 +37,21 @@ final class MaintenanceController extends AbstractController
 
     public function analyze(): void
     {
+        global $cfg;
+
         /** @var string[] $selected */
         $selected = $_POST['selected_tbl'] ?? [];
 
-        if (empty($selected)) {
+        if (empty($selected) || ! is_array($selected)) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
+
+            return;
+        }
+
+        if ($cfg['DisableMultiTableMaintenance'] && count($selected) > 1) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('Maintenance operations on multiple tables are disabled.'));
 
             return;
         }
@@ -61,12 +72,21 @@ final class MaintenanceController extends AbstractController
 
     public function check(): void
     {
+        global $cfg;
+
         /** @var string[] $selected */
         $selected = $_POST['selected_tbl'] ?? [];
 
-        if (empty($selected)) {
+        if (empty($selected) || ! is_array($selected)) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
+
+            return;
+        }
+
+        if ($cfg['DisableMultiTableMaintenance'] && count($selected) > 1) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('Maintenance operations on multiple tables are disabled.'));
 
             return;
         }
@@ -90,12 +110,21 @@ final class MaintenanceController extends AbstractController
 
     public function checksum(): void
     {
+        global $cfg;
+
         /** @var string[] $selected */
         $selected = $_POST['selected_tbl'] ?? [];
 
-        if (empty($selected)) {
+        if (empty($selected) || ! is_array($selected)) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
+
+            return;
+        }
+
+        if ($cfg['DisableMultiTableMaintenance'] && count($selected) > 1) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('Maintenance operations on multiple tables are disabled.'));
 
             return;
         }
@@ -117,12 +146,21 @@ final class MaintenanceController extends AbstractController
 
     public function optimize(): void
     {
+        global $cfg;
+
         /** @var string[] $selected */
         $selected = $_POST['selected_tbl'] ?? [];
 
-        if (empty($selected)) {
+        if (empty($selected) || ! is_array($selected)) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
+
+            return;
+        }
+
+        if ($cfg['DisableMultiTableMaintenance'] && count($selected) > 1) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('Maintenance operations on multiple tables are disabled.'));
 
             return;
         }
@@ -143,12 +181,21 @@ final class MaintenanceController extends AbstractController
 
     public function repair(): void
     {
+        global $cfg;
+
         /** @var string[] $selected */
         $selected = $_POST['selected_tbl'] ?? [];
 
-        if (empty($selected)) {
+        if (empty($selected) || ! is_array($selected)) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
+
+            return;
+        }
+
+        if ($cfg['DisableMultiTableMaintenance'] && count($selected) > 1) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('Maintenance operations on multiple tables are disabled.'));
 
             return;
         }
