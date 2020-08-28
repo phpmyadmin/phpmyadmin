@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <h2>
+    {% trans 'Repair table' %}
+    {{ show_mysql_docu('REPAIR_TABLE') }}
+  </h2>
+
+  {{ message|raw }}
+
+  <table class="mt-3">
+    <thead>
+      <tr>
+        <th>{% trans 'Table' %}</th>
+        <th>{% trans 'Message type' %}</th>
+        <th>{% trans 'Message' %}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in rows %}
+        <tr>
+          <td>{{ row.Table }}</td>
+          <td>{{ row.Msg_type|title }}</td>
+          <td>{{ row.Msg_text }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
