@@ -8,24 +8,24 @@
 
   <table class="my-3">
     <thead>
-    <tr>
-      <th>{% trans 'Table' %}</th>
-      <th>{% trans 'Checksum' %}</th>
-    </tr>
+      <tr>
+        <th>{% trans 'Table' %}</th>
+        <th>{% trans 'Checksum' %}</th>
+      </tr>
     </thead>
     <tbody>
-    {% for row in rows %}
-      <tr>
-        <td>{{ row.Table }}</td>
-        <td class="text-right">
-          {% if row.Checksum is not null %}
-            {{ row.Checksum }}
-          {% else %}
-            <em class="text-muted">NULL</em>
-          {% endif %}
-        </td>
-      </tr>
-    {% endfor %}
+      {% for row in rows %}
+        <tr>
+          <td>{{ row.Table }}</td>
+          <td class="text-right">
+            {% if row.Checksum is not null %}
+              {{ row.Checksum }}
+            {% else %}
+              <em class="text-muted">NULL</em>
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
     </tbody>
   </table>
 

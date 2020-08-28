@@ -31,7 +31,12 @@ final class Maintenance
         $query = 'ANALYZE TABLE ' . implode(', ', $backQuotedTables) . ';';
 
         $this->dbi->selectDb($db);
-        $rows = $this->dbi->fetchResult($query);
+        $result = $this->dbi->fetchResult($query);
+
+        $rows = [];
+        foreach ($result as $row) {
+            $rows[$row['Table']][] = $row;
+        }
 
         return [$rows, $query];
     }
@@ -47,7 +52,12 @@ final class Maintenance
         $query = 'CHECK TABLE ' . implode(', ', $backQuotedTables) . ';';
 
         $this->dbi->selectDb($db);
-        $rows = $this->dbi->fetchResult($query);
+        $result = $this->dbi->fetchResult($query);
+
+        $rows = [];
+        foreach ($result as $row) {
+            $rows[$row['Table']][] = $row;
+        }
 
         return [$rows, $query];
     }
@@ -99,7 +109,12 @@ final class Maintenance
         $query = 'OPTIMIZE TABLE ' . implode(', ', $backQuotedTables) . ';';
 
         $this->dbi->selectDb($db);
-        $rows = $this->dbi->fetchResult($query);
+        $result = $this->dbi->fetchResult($query);
+
+        $rows = [];
+        foreach ($result as $row) {
+            $rows[$row['Table']][] = $row;
+        }
 
         return [$rows, $query];
     }
@@ -115,7 +130,12 @@ final class Maintenance
         $query = 'REPAIR TABLE ' . implode(', ', $backQuotedTables) . ';';
 
         $this->dbi->selectDb($db);
-        $rows = $this->dbi->fetchResult($query);
+        $result = $this->dbi->fetchResult($query);
+
+        $rows = [];
+        foreach ($result as $row) {
+            $rows[$row['Table']][] = $row;
+        }
 
         return [$rows, $query];
     }
