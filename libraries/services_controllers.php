@@ -710,6 +710,16 @@ return [
                 'table' => '%table%',
             ],
         ],
+        PhpMyAdmin\Controllers\Table\MaintenanceController::class => [
+            'class' => PhpMyAdmin\Controllers\Table\MaintenanceController::class,
+            'arguments' => [
+                'response' => '@response',
+                'dbi' => '@dbi',
+                'template' => '@template',
+                'db' => '%db%',
+                'table' => '%table%',
+            ],
+        ],
         PhpMyAdmin\Controllers\Table\OperationsController::class => [
             'class' => PhpMyAdmin\Controllers\Table\OperationsController::class,
             'arguments' => [
