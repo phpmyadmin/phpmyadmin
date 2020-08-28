@@ -311,16 +311,68 @@
 <div class="card mb-2">
   <div class="card-header">{% trans 'Table maintenance' %}</div>
   <ul class="list-group list-group-flush" id="tbl_maintenance">
-    {% for action in maintenance_actions %}
+    {% if storage_engine in ['MYISAM', 'ARIA', 'INNODB', 'BERKELEYDB', 'TOKUDB'] %}
       <li class="list-group-item">
-        {{ link_or_button(
-          url('/sql', url_params|merge(action.params)),
-          action.message,
-          {'class': 'maintain_action ajax'}
-        ) }}
-        {{ show_mysql_docu(action.link) }}
+        <a href="{{ url('/table/maintenance/analyze') }}" data-post="{{ get_common({'db': db, 'table': table, 'selected_tbl': [table]}) }}">
+          {% trans 'Analyze table' %}
+        </a>
+        {{ show_mysql_docu('ANALYZE_TABLE') }}
       </li>
-    {% endfor %}
+    {% endif %}
+
+    {% if storage_engine in ['MYISAM', 'ARIA', 'INNODB', 'TOKUDB'] %}
+      <li class="list-group-item">
+        <a href="{{ url('/table/maintenance/check') }}" data-post="{{ get_common({'db': db, 'table': table, 'selected_tbl': [table]}) }}">
+          {% trans 'Check table' %}
+        </a>
+        {{ show_mysql_docu('CHECK_TABLE') }}
+      </li>
+    {% endif %}
+
+    <li class="list-group-item">
+      <a href="{{ url('/table/maintenance/checksum') }}" data-post="{{ get_common({'db': db, 'table': table, 'selected_tbl': [table]}) }}">
+        {% trans 'Checksum table' %}
+      </a>
+      {{ show_mysql_docu('CHECKSUM_TABLE') }}
+    </li>
+
+    {% if storage_engine == 'INNODB' %}
+      <li class="list-group-item">
+        <a class="maintain_action ajax" href="{{ url('/sql') }}" data-post="{{ get_common(url_params|merge({'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ENGINE = InnoDB;'})) }}">
+          {% trans 'Defragment table' %}
+        </a>
+        {{ show_mysql_docu('InnoDB_File_Defragmenting') }}
+      </li>
+    {% endif %}
+
+    <li class="list-group-item">
+      <a class="maintain_action ajax" href="{{ url('/sql') }}" data-post="{{ get_common(url_params|merge({
+        'sql_query': 'FLUSH TABLE ' ~ backquote(table),
+        'message_to_show': 'Table %s has been flushed.'|trans|format(table|e),
+        'reload': true
+      })) }}">
+        {% trans 'Flush the table (FLUSH)' %}
+      </a>
+      {{ show_mysql_docu('FLUSH') }}
+    </li>
+
+    {% if storage_engine in ['MYISAM', 'ARIA', 'INNODB', 'BERKELEYDB', 'TOKUDB'] %}
+      <li class="list-group-item">
+        <a href="{{ url('/table/maintenance/optimize') }}" data-post="{{ get_common({'db': db, 'table': table, 'selected_tbl': [table]}) }}">
+          {% trans 'Optimize table' %}
+        </a>
+        {{ show_mysql_docu('OPTIMIZE_TABLE') }}
+      </li>
+    {% endif %}
+
+    {% if storage_engine in ['MYISAM', 'ARIA'] %}
+      <li class="list-group-item">
+        <a href="{{ url('/table/maintenance/repair') }}" data-post="{{ get_common({'db': db, 'table': table, 'selected_tbl': [table]}) }}">
+          {% trans 'Repair table' %}
+        </a>
+        {{ show_mysql_docu('REPAIR_TABLE') }}
+      </li>
+    {% endif %}
   </ul>
 </div>
 

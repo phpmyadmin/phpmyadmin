@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Common;
-use PhpMyAdmin\Controllers\SqlController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Index;
@@ -67,12 +66,11 @@ class OperationsController extends AbstractController
 
     public function index(): void
     {
-        global $containerBuilder, $url_query, $url_params, $reread_info, $tbl_is_view, $tbl_storage_engine;
+        global $url_query, $url_params, $reread_info, $tbl_is_view, $tbl_storage_engine;
         global $show_comment, $tbl_collation, $table_info_num_rows, $row_format, $auto_increment, $create_options;
         global $table_alters, $warning_messages, $lowerCaseNames, $db, $table, $reload, $result;
         global $new_tbl_storage_engine, $sql_query, $message_to_show, $columns, $hideOrderTable, $indexes;
-        global $notNull, $comment, $db_is_system_schema, $truncate_table_url_params, $drop_table_url_params;
-        global $this_sql_query;
+        global $notNull, $comment, $db_is_system_schema;
 
         $this->checkUserPrivileges->getPrivileges();
 
@@ -163,16 +161,6 @@ class OperationsController extends AbstractController
             return;
         }
 
-        /**
-         * If the table has to be maintained
-         */
-        if (isset($_POST['table_maintenance'])) {
-            /** @var SqlController $controller */
-            $controller = $containerBuilder->get(SqlController::class);
-            $controller->index();
-
-            unset($result);
-        }
         /**
          * Updates table comment, type and options if required
          */
@@ -449,8 +437,6 @@ class OperationsController extends AbstractController
         $hasPrivileges = $GLOBALS['table_priv'] && $GLOBALS['col_priv'] && $GLOBALS['is_reload_priv'];
         $switchToNew = isset($_SESSION['pma_switch_to_new']) && $_SESSION['pma_switch_to_new'];
 
-        $maintenanceActions = $this->operations->getMaintenanceActions($pma_table);
-
         $partitions = [];
         $partitionsChoices = [];
 
@@ -495,7 +481,6 @@ class OperationsController extends AbstractController
             'has_foreign_keys' => $hasForeignKeys,
             'has_privileges' => $hasPrivileges,
             'switch_to_new' => $switchToNew,
-            'maintenance_actions' => $maintenanceActions,
             'is_system_schema' => isset($db_is_system_schema) && $db_is_system_schema,
             'is_view' => $tbl_is_view,
             'partitions' => $partitions,

@@ -1068,7 +1068,6 @@ class StructureController extends AbstractController
                 null, // sql_query_for_bookmark
                 null, // extra_data
                 null, // message_to_show
-                null, // message
                 null, // sql_data
                 $goto, // goto
                 $pmaThemeImage, // pmaThemeImage
