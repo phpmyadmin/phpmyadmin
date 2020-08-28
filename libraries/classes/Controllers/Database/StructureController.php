@@ -1553,8 +1553,9 @@ class StructureController extends AbstractController
 
     public function optimizeTable(): void
     {
-        global $db, $goto, $pmaThemeImage;
+        global $db;
 
+        /** @var string[] $selected */
         $selected = $_POST['selected_tbl'] ?? [];
 
         if (empty($selected)) {
@@ -1564,40 +1565,22 @@ class StructureController extends AbstractController
             return;
         }
 
-        $sql_query = '';
-        $selectedCount = count($selected);
+        $tables = Util::backquote($selected);
+        $query = 'OPTIMIZE TABLE ' . implode(', ', $tables) . ';';
 
-        for ($i = 0; $i < $selectedCount; $i++) {
-            $sql_query .= (empty($sql_query) ? 'OPTIMIZE TABLE ' : ', ') . Util::backquote($selected[$i]);
-        }
+        $this->dbi->selectDb($db);
+        $rows = $this->dbi->fetchResult($query);
 
-        $sql = new Sql();
-        $this->response->addHTML($sql->executeQueryAndSendQueryResponse(
-            null,
-            false,
-            $db,
-            '',
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            $goto,
-            $pmaThemeImage,
-            null,
-            null,
-            $sql_query,
-            null
-        ));
+        $message = Generator::getMessage(
+            __('Your SQL query has been executed successfully.'),
+            $query,
+            'success'
+        );
 
-        if (empty($_POST['message'])) {
-            $_POST['message'] = Message::success();
-        }
-
-        unset($_POST['submit_mult']);
-
-        $this->index();
+        $this->render('database/structure/optimize_table', [
+            'message' => $message,
+            'rows' => $rows,
+        ]);
     }
 
     public function repairTable(): void
