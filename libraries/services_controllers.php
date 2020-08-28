@@ -718,6 +718,7 @@ return [
                 'template' => '@template',
                 'db' => '%db%',
                 'table' => '%table%',
+                'model' => '@table_maintenance',
             ],
         ],
         PhpMyAdmin\Controllers\Table\OperationsController::class => [

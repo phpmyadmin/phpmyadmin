@@ -4,14 +4,35 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Index;
-use PhpMyAdmin\Util;
-use function implode;
-use function sprintf;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Table\Maintenance;
+use PhpMyAdmin\Template;
 
 final class MaintenanceController extends AbstractController
 {
+    /** @var Maintenance */
+    private $model;
+
+    /**
+     * @param Response          $response
+     * @param DatabaseInterface $dbi
+     * @param string            $db
+     * @param string            $table
+     */
+    public function __construct(
+        $response,
+        $dbi,
+        Template $template,
+        $db,
+        $table,
+        Maintenance $model
+    ) {
+        parent::__construct($response, $dbi, $template, $db, $table);
+        $this->model = $model;
+    }
+
     public function analyze(): void
     {
         /** @var string[] $selected */
@@ -24,11 +45,7 @@ final class MaintenanceController extends AbstractController
             return;
         }
 
-        $tables = Util::backquote($selected);
-        $query = 'ANALYZE TABLE ' . implode(', ', $tables) . ';';
-
-        $this->dbi->selectDb($this->db);
-        $rows = $this->dbi->fetchResult($query);
+        [$rows, $query] = $this->model->getAnalyzeTableRows($this->db, $selected);
 
         $message = Generator::getMessage(
             __('Your SQL query has been executed successfully.'),
@@ -54,11 +71,7 @@ final class MaintenanceController extends AbstractController
             return;
         }
 
-        $tables = Util::backquote($selected);
-        $query = 'CHECK TABLE ' . implode(', ', $tables) . ';';
-
-        $this->dbi->selectDb($this->db);
-        $rows = $this->dbi->fetchResult($query);
+        [$rows, $query] = $this->model->getCheckTableRows($this->db, $selected);
 
         $message = Generator::getMessage(
             __('Your SQL query has been executed successfully.'),
@@ -66,17 +79,7 @@ final class MaintenanceController extends AbstractController
             'success'
         );
 
-        $indexesProblems = '';
-        foreach ($selected as $table) {
-            $check = Index::findDuplicates($table, $this->db);
-
-            if (empty($check)) {
-                continue;
-            }
-
-            $indexesProblems .= sprintf(__('Problems with indexes of table `%s`'), $table);
-            $indexesProblems .= $check;
-        }
+        $indexesProblems = $this->model->getIndexesProblems($this->db, $selected);
 
         $this->render('table/maintenance/check', [
             'message' => $message,
@@ -97,19 +100,13 @@ final class MaintenanceController extends AbstractController
             return;
         }
 
-        $tables = Util::backquote($selected);
-        $query = 'CHECKSUM TABLE ' . implode(', ', $tables) . ';';
-
-        $this->dbi->selectDb($this->db);
-        $rows = $this->dbi->fetchResult($query);
+        [$rows, $query, $warnings] = $this->model->getChecksumTableRows($this->db, $selected);
 
         $message = Generator::getMessage(
             __('Your SQL query has been executed successfully.'),
             $query,
             'success'
         );
-
-        $warnings = $this->dbi->getWarnings();
 
         $this->render('table/maintenance/checksum', [
             'message' => $message,
@@ -130,11 +127,7 @@ final class MaintenanceController extends AbstractController
             return;
         }
 
-        $tables = Util::backquote($selected);
-        $query = 'OPTIMIZE TABLE ' . implode(', ', $tables) . ';';
-
-        $this->dbi->selectDb($this->db);
-        $rows = $this->dbi->fetchResult($query);
+        [$rows, $query] = $this->model->getOptimizeTableRows($this->db, $selected);
 
         $message = Generator::getMessage(
             __('Your SQL query has been executed successfully.'),
@@ -160,11 +153,7 @@ final class MaintenanceController extends AbstractController
             return;
         }
 
-        $tables = Util::backquote($selected);
-        $query = 'REPAIR TABLE ' . implode(', ', $tables) . ';';
-
-        $this->dbi->selectDb($this->db);
-        $rows = $this->dbi->fetchResult($query);
+        [$rows, $query] = $this->model->getRepairTableRows($this->db, $selected);
 
         $message = Generator::getMessage(
             __('Your SQL query has been executed successfully.'),

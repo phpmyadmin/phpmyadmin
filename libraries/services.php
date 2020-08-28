@@ -171,6 +171,10 @@ return [
             'class' => PhpMyAdmin\Server\Status\Monitor::class,
             'arguments' => ['@dbi'],
         ],
+        'table_maintenance' => [
+            'class' => PhpMyAdmin\Table\Maintenance::class,
+            'arguments' => ['dbi' => '@dbi'],
+        ],
         'table_search' => [
             'class' => PhpMyAdmin\Table\Search::class,
             'arguments' => ['dbi' => '@dbi'],
