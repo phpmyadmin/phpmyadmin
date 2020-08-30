@@ -14,14 +14,11 @@ use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 use Throwable;
 use function array_merge;
 use function array_merge_recursive;
-use function count;
 use function htmlspecialchars;
 use function implode;
 use function pow;
 use function preg_match;
-use function preg_replace;
 use function preg_replace_callback;
-use function preg_split;
 use function round;
 use function sprintf;
 use function strpos;
@@ -385,56 +382,6 @@ class Advisor
     }
 
     /**
-     * Escapes percent string to be used in format string.
-     *
-     * @param string $str string to escape
-     */
-    public static function escapePercent(string $str): string
-    {
-        return (string) preg_replace('/%( |,|\.|$|\(|\)|<|>)/', '%%\1', $str);
-    }
-
-    /**
-     * Wrapper function for translating.
-     *
-     * @param string $str   the string
-     * @param string $param the parameters
-     *
-     * @throws Exception
-     */
-    public function translate(string $str, ?string $param = null): string
-    {
-        $string = _gettext(self::escapePercent($str));
-        if ($param !== null) {
-            $params = $this->ruleExprEvaluate('[' . $param . ']');
-        } else {
-            $params = [];
-        }
-
-        return vsprintf($string, $params);
-    }
-
-    /**
-     * Splits justification to text and formula.
-     *
-     * @param array $rule the rule
-     *
-     * @return string[]
-     */
-    public static function splitJustification(array $rule): array
-    {
-        $jst = preg_split('/\s*\|\s*/', $rule['justification'], 2);
-        if ($jst !== false && count($jst) > 1) {
-            return [
-                $jst[0],
-                $jst[1],
-            ];
-        }
-
-        return [$rule['justification']];
-    }
-
-    /**
      * Adds a rule to the result list
      *
      * @param string $type type of rule
@@ -444,54 +391,45 @@ class Advisor
      */
     public function addRule(string $type, array $rule): void
     {
-        switch ($type) {
-            case 'notfired':
-            case 'fired':
-                $jst = self::splitJustification($rule);
-                if (count($jst) > 1) {
-                    try {
-                        /* Translate */
-                        $str = $this->translate($jst[0], $jst[1]);
-                    } catch (Throwable $e) {
-                        $this->storeError(
-                            sprintf(
-                                __('Failed formatting string for rule \'%s\'.'),
-                                $rule['name']
-                            ),
-                            $e
-                        );
+        if ($type !== 'notfired' && $type !== 'fired') {
+            $this->runResult[$type][] = $rule;
 
-                        return;
-                    }
-
-                    $rule['justification'] = $str;
-                } else {
-                    $rule['justification'] = $this->translate($rule['justification']);
-                }
-                $rule['id'] = $rule['name'];
-                $rule['name'] = $this->translate($rule['name']);
-                $rule['issue'] = $this->translate($rule['issue']);
-
-                // Replaces {server_variable} with 'server_variable'
-                // linking to /server/variables
-                $rule['recommendation'] = preg_replace_callback(
-                    '/\{([a-z_0-9]+)\}/Ui',
-                    function (array $matches) {
-                        return $this->replaceVariable($matches);
-                    },
-                    $this->translate($rule['recommendation'])
-                );
-
-                // Replaces external Links with Core::linkURL() generated links
-                $rule['recommendation'] = preg_replace_callback(
-                    '#href=("|\')(https?://[^\1]+)\1#i',
-                    function (array $matches) {
-                        return $this->replaceLinkURL($matches);
-                    },
-                    $rule['recommendation']
-                );
-                break;
+            return;
         }
+
+        if (isset($rule['justification_formula'])) {
+            try {
+                $params = $this->ruleExprEvaluate('[' . $rule['justification_formula'] . ']');
+            } catch (Throwable $e) {
+                $this->storeError(
+                    sprintf(__('Failed formatting string for rule \'%s\'.'), $rule['name']),
+                    $e
+                );
+
+                return;
+            }
+
+            $rule['justification'] = vsprintf($rule['justification'], $params);
+        }
+
+        // Replaces {server_variable} with 'server_variable'
+        // linking to /server/variables
+        $rule['recommendation'] = preg_replace_callback(
+            '/\{([a-z_0-9]+)\}/Ui',
+            function (array $matches) {
+                return $this->replaceVariable($matches);
+            },
+            $rule['recommendation']
+        );
+
+        // Replaces external Links with Core::linkURL() generated links
+        $rule['recommendation'] = preg_replace_callback(
+            '#href=("|\')(https?://[^\1]+)\1#i',
+            function (array $matches) {
+                return $this->replaceLinkURL($matches);
+            },
+            $rule['recommendation']
+        );
 
         $this->runResult[$type][] = $rule;
     }
@@ -569,20 +507,14 @@ class Advisor
     public static function parseRulesFile(string $filename): array
     {
         $rules = [];
-        $lines = [];
 
         if ($filename === self::GENERIC_RULES_FILE) {
             $rules = include ROOT_PATH . 'libraries/advisory_rules_generic.php';
-            $lines = include ROOT_PATH . 'libraries/advisory_rules_generic_lines.php';
         } elseif ($filename === self::BEFORE_MYSQL80003_RULES_FILE) {
             $rules = include ROOT_PATH . 'libraries/advisory_rules_mysql_before80003.php';
-            $lines = include ROOT_PATH . 'libraries/advisory_rules_mysql_before80003_lines.php';
         }
 
-        return [
-            'rules' => $rules,
-            'lines' => $lines,
-        ];
+        return ['rules' => $rules];
     }
 
     /**

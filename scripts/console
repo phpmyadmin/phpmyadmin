@@ -1,7 +1,6 @@
 #!/usr/bin/env php
 <?php
 
-use PhpMyAdmin\Command\AdvisoryRulesCommand;
 use PhpMyAdmin\Command\CacheWarmupCommand;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
@@ -64,7 +63,6 @@ $twig->setExtensions([
 
 $application = new Application('phpMyAdmin Console Tool');
 
-$application->add(new AdvisoryRulesCommand());
 $application->add(new CacheWarmupCommand());
 $application->add(new LintCommand($twig));
 
