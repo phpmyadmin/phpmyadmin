@@ -266,29 +266,30 @@ class GisMultiPoint extends GisGeometry
         $point_color,
         array $scale_data
     ) {
-        $result = 'var fill = new ol.style.Fill({'
-            . 'color: "white"'
-            . '});'
-            . 'var stroke = new ol.style.Stroke({'
-            . 'color: [' . implode(',', $point_color) . '],'
-            . 'width: 2'
-            . '});'
+        $fill_style = [
+            'color' => "white",
+        ];
+        $stroke_style = [
+            'color' => $point_color,
+            'width' => 2,
+        ];
+        $result = 'var fill = new ol.style.Fill('.json_encode($fill_style).');'
+            . 'var stroke = new ol.style.Stroke('.json_encode($stroke_style).');'
             . 'var style = new ol.style.Style({'
             . 'image: new ol.style.Circle({'
             . 'fill: fill,'
             . 'stroke: stroke,'
             . 'radius: 3'
             . '}),'
-            . 'fill: fill,';
+            . 'fill: fill,'
+            . 'stroke: stroke';
 
         if ($label) {
-            $result .= 'stroke: stroke,'
-                . 'text: new ol.style.Text({'
-                . 'text: "' . $label . '",'
-                . 'offsetY: -9'
-                . '})';
-        } else {
-            $result .= 'stroke: stroke';
+            $text_style = [
+                'text' => $label,
+                'offsetY' => -9,
+            ];
+            $result .= ',text: new ol.style.Text('.json_encode($text_style).')';
         }
 
         $result.= '});';

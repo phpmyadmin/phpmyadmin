@@ -643,9 +643,9 @@ class GisPolygonTest extends GisGeomTestCase
                     'maxY' => '1',
                 ],
                 'var style = new ol.style.Style({fill: new ol.style.Fill'
-                . '({color: [176,46,224,0.8]}),stroke: new ol.style.Strok'
-                . 'e({color: [0,0,0],width: 0.5}),text: new ol.style.Text'
-                . '({text: "Ol",})});var minLoc = [0, 0];var maxLoc = [1,'
+                . '({"color": [176,46,224,0.8]}),stroke: new ol.style.Strok'
+                . 'e({"color": [0,0,0],"width": 0.5}),text: new ol.style.Text'
+                . '({"text": "Ol",})});var minLoc = [0, 0];var maxLoc = [1,'
                 . ' 1];var ext = ol.extent.boundingExtent([minLoc, maxLoc'
                 . ']);ext = ol.proj.transformExtent(ext, ol.proj.get("EPS'
                 . 'G:4326"), ol.proj.get(\'EPSG:3857\'));map.getView().fi'

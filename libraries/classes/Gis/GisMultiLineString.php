@@ -292,21 +292,21 @@ class GisMultiLineString extends GisGeometry
      */
     public function prepareRowAsOl($spatial, $srid, $label, $line_color, array $scale_data)
     {
-        $row =  'var style = new ol.style.Style({'
-            . 'stroke: new ol.style.Stroke({'
-            . 'color: [' . implode(',', $line_color) . '],'
-            . 'width: 2';
+        $stroke_style = [
+            'color' => $line_color,
+            'width' => 2,
+        ];
 
+        $row =  'var style = new ol.style.Style({'
+            . 'stroke: new ol.style.Stroke('.json_encode($stroke_style).')';
         if ($label) {
-            $row .= '}),'
-                . 'text: new ol.style.Text({'
-                . 'text: "' . $label . '",'
-                . '})';
-        } else {
-            $row .= '})';
+            $text_style = [
+                'text' => $label,
+            ];
+            $row .= ', text: new ol.style.Text('.json_encode($text_style).')';
         }
 
-        $row .= '});';
+        $row.= '});';
 
         if ($srid == 0) {
             $srid = 4326;
