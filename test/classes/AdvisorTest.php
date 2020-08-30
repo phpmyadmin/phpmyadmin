@@ -62,16 +62,6 @@ class AdvisorTest extends AbstractTestCase
     }
 
     /**
-     * test for parseRulesFile
-     */
-    public function testParse(): void
-    {
-        $advisor = new Advisor($GLOBALS['dbi'], new ExpressionLanguage());
-        $parseResult = $advisor->parseRulesFile(Advisor::GENERIC_RULES_FILE);
-        $this->assertEquals($parseResult['errors'], []);
-    }
-
-    /**
      * test for Advisor::byTime
      *
      * @param float  $time     time
@@ -130,7 +120,6 @@ class AdvisorTest extends AbstractTestCase
      * @param array       $expected Expected rendered rule in fired/errors list
      * @param string|null $error    Expected error string (null if none error expected)
      *
-     * @depends testParse
      * @dataProvider rulesProvider
      */
     public function testAddRule(array $rule, array $expected, ?string $error): void
@@ -139,7 +128,9 @@ class AdvisorTest extends AbstractTestCase
         parent::setLanguage();
         $advisor = new Advisor($GLOBALS['dbi'], new ExpressionLanguage());
         $parseResult = $advisor->parseRulesFile(Advisor::GENERIC_RULES_FILE);
-        $this->assertEquals($parseResult['errors'], []);
+        $this->assertIsArray($parseResult);
+        $this->assertArrayHasKey('rules', $parseResult);
+        $this->assertIsArray($parseResult['rules']);
         $advisor->setVariable('value', 0);
         $advisor->addRule('fired', $rule);
         $runResult = $advisor->getRunResult();

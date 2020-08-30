@@ -50,17 +50,6 @@
       </div>
     </div>
 
-    {% if data.parse.errors|length > 0 %}
-      <div class="alert alert-danger mt-2 mb-2" role="alert">
-        <h4 class="alert-heading">{% trans %}Rules file is not well formed, the following errors were found:{% notes %}Advisor rules file{% endtrans %}</h4>
-        <ul>
-          {% for error in data.parse.errors %}
-            <li>{{ error }}</li>
-          {% endfor %}
-        </ul>
-      </div>
-    {% endif %}
-
     {% if data.run.errors|length > 0 %}
       <div class="alert alert-danger mt-2 mb-2" role="alert">
         <h4 class="alert-heading">{% trans 'Errors occurred while executing rule expressions:' %}</h4>

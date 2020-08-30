@@ -12,21 +12,17 @@ use Exception;
 use PhpMyAdmin\Server\SysInfo\SysInfo;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 use Throwable;
-use const FILE_IGNORE_NEW_LINES;
 use function array_merge;
 use function array_merge_recursive;
 use function count;
-use function file;
 use function htmlspecialchars;
 use function implode;
-use function mb_substr;
 use function pow;
 use function preg_match;
 use function preg_replace;
 use function preg_replace_callback;
 use function preg_split;
 use function round;
-use function rtrim;
 use function sprintf;
 use function strpos;
 use function substr;
@@ -37,8 +33,8 @@ use function vsprintf;
  */
 class Advisor
 {
-    public const GENERIC_RULES_FILE = 'libraries/advisory_rules_generic.txt';
-    public const BEFORE_MYSQL80003_RULES_FILE = 'libraries/advisory_rules_mysql_before80003.txt';
+    public const GENERIC_RULES_FILE = 'libraries/advisory_rules_generic.php';
+    public const BEFORE_MYSQL80003_RULES_FILE = 'libraries/advisory_rules_mysql_before80003.php';
 
     /** @var DatabaseInterface */
     protected $dbi;
@@ -299,10 +295,7 @@ class Advisor
         // $runResult
         $this->runRules();
 
-        return [
-            'parse' => ['errors' => $this->parseResult['errors']],
-            'run'   => $this->runResult,
-        ];
+        return ['run' => $this->runResult];
     }
 
     /**
@@ -326,14 +319,12 @@ class Advisor
      */
     public function runRules(): bool
     {
-        $this->setRunResult(
-            [
-                'fired'     => [],
-                'notfired'  => [],
-                'unchecked' => [],
-                'errors'    => [],
-            ]
-        );
+        $this->setRunResult([
+            'fired' => [],
+            'notfired' => [],
+            'unchecked' => [],
+            'errors' => [],
+        ]);
 
         foreach ($this->parseResult['rules'] as $rule) {
             $this->variables['value'] = 0;
@@ -577,118 +568,20 @@ class Advisor
      */
     public static function parseRulesFile(string $filename): array
     {
-        $file = file($filename, FILE_IGNORE_NEW_LINES);
-
-        $errors = [];
         $rules = [];
         $lines = [];
 
-        if ($file === false) {
-            $errors[] = sprintf(
-                __('Error in reading file: The file \'%s\' does not exist or is not readable!'),
-                $filename
-            );
-
-            return [
-                'rules' => $rules,
-                'lines' => $lines,
-                'errors' => $errors,
-            ];
-        }
-
-        $ruleSyntax = [
-            'name',
-            'formula',
-            'test',
-            'issue',
-            'recommendation',
-            'justification',
-        ];
-        $numRules = count($ruleSyntax);
-        $numLines = count($file);
-        $ruleNo = -1;
-        $ruleLine = -1;
-
-        for ($i = 0; $i < $numLines; $i++) {
-            $line = $file[$i];
-            if ($line == '' || $line[0] === '#') {
-                continue;
-            }
-
-            // Reading new rule
-            if (substr($line, 0, 4) === 'rule') {
-                if ($ruleLine > 0) {
-                    $errors[] = sprintf(
-                        __(
-                            'Invalid rule declaration on line %1$s, expected line '
-                            . '%2$s of previous rule.'
-                        ),
-                        $i + 1,
-                        $ruleSyntax[$ruleLine++]
-                    );
-                    continue;
-                }
-                if (preg_match("/rule\s'(.*)'( \[(.*)\])?$/", $line, $match)) {
-                    $ruleLine = 1;
-                    $ruleNo++;
-                    $rules[$ruleNo] = ['name' => $match[1]];
-                    $lines[$ruleNo] = ['name' => $i + 1];
-                    if (isset($match[3])) {
-                        $rules[$ruleNo]['precondition'] = $match[3];
-                        $lines[$ruleNo]['precondition'] = $i + 1;
-                    }
-                } else {
-                    $errors[] = sprintf(
-                        __('Invalid rule declaration on line %s.'),
-                        $i + 1
-                    );
-                }
-                continue;
-            }
-
-            if ($ruleLine == -1) {
-                $errors[] = sprintf(
-                    __('Unexpected characters on line %s.'),
-                    $i + 1
-                );
-            }
-
-            // Reading rule lines
-            if ($ruleLine > 0) {
-                if (! isset($line[0])) {
-                    continue; // Empty lines are ok
-                }
-                // Non tabbed lines are not
-                if ($line[0] != "\t") {
-                    $errors[] = sprintf(
-                        __(
-                            'Unexpected character on line %1$s. Expected tab, but '
-                            . 'found "%2$s".'
-                        ),
-                        $i + 1,
-                        $line[0]
-                    );
-                    continue;
-                }
-                $rules[$ruleNo][$ruleSyntax[$ruleLine]] = rtrim(
-                    mb_substr($line, 1)
-                );
-                $lines[$ruleNo][$ruleSyntax[$ruleLine]] = $i + 1;
-                ++$ruleLine;
-            }
-
-            // Rule complete
-            if ($ruleLine != $numRules) {
-                continue;
-            }
-
-            $ruleLine = -1;
+        if ($filename === self::GENERIC_RULES_FILE) {
+            $rules = include ROOT_PATH . 'libraries/advisory_rules_generic.php';
+            $lines = include ROOT_PATH . 'libraries/advisory_rules_generic_lines.php';
+        } elseif ($filename === self::BEFORE_MYSQL80003_RULES_FILE) {
+            $rules = include ROOT_PATH . 'libraries/advisory_rules_mysql_before80003.php';
+            $lines = include ROOT_PATH . 'libraries/advisory_rules_mysql_before80003_lines.php';
         }
 
         return [
             'rules' => $rules,
             'lines' => $lines,
-            'errors' => $errors,
         ];
     }
 
