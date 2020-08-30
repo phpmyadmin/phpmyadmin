@@ -13,7 +13,7 @@ use function hexdec;
 use function imagearc;
 use function imagecolorallocate;
 use function imagestring;
-use function implode;
+use function json_encode;
 use function mb_strlen;
 use function mb_substr;
 use function trim;
@@ -266,15 +266,13 @@ class GisMultiPoint extends GisGeometry
         $point_color,
         array $scale_data
     ) {
-        $fill_style = [
-            'color' => "white",
-        ];
+        $fill_style = ['color' => 'white'];
         $stroke_style = [
             'color' => $point_color,
             'width' => 2,
         ];
-        $result = 'var fill = new ol.style.Fill('.json_encode($fill_style).');'
-            . 'var stroke = new ol.style.Stroke('.json_encode($stroke_style).');'
+        $result = 'var fill = new ol.style.Fill(' . json_encode($fill_style) . ');'
+            . 'var stroke = new ol.style.Stroke(' . json_encode($stroke_style) . ');'
             . 'var style = new ol.style.Style({'
             . 'image: new ol.style.Circle({'
             . 'fill: fill,'
@@ -289,7 +287,7 @@ class GisMultiPoint extends GisGeometry
                 'text' => $label,
                 'offsetY' => -9,
             ];
-            $result .= ',text: new ol.style.Text('.json_encode($text_style).')';
+            $result .= ',text: new ol.style.Text(' . json_encode($text_style) . ')';
         }
 
         $result.= '});';

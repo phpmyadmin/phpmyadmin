@@ -17,7 +17,7 @@ use function hexdec;
 use function imagecolorallocate;
 use function imagefilledpolygon;
 use function imagestring;
-use function implode;
+use function json_encode;
 use function mb_strlen;
 use function mb_strpos;
 use function mb_substr;
@@ -338,22 +338,18 @@ class GisMultiPolygon extends GisGeometry
     {
         $fill_opacity = 0.8;
         array_push($fill_color, $fill_opacity);
-        $fill_style = [
-            'color' => $fill_color,
-        ];
+        $fill_style = ['color' => $fill_color];
         $stroke_style = [
             'color' => [0,0,0],
             'width' => 0.5,
         ];
         $row =  'var style = new ol.style.Style({'
-            . 'fill: new ol.style.Fill('.json_encode($fill_style).'),'
-            . 'stroke: new ol.style.Stroke('.json_encode($stroke_style).')';
+            . 'fill: new ol.style.Fill(' . json_encode($fill_style) . '),'
+            . 'stroke: new ol.style.Stroke(' . json_encode($stroke_style) . ')';
 
         if ($label) {
-            $text_style = [
-                'text' => $label,
-            ];
-            $row .= ',text: new ol.style.Text('.json_encode($text_style).')';
+            $text_style = ['text' => $label];
+            $row .= ',text: new ol.style.Text(' . json_encode($text_style) . ')';
         }
 
         $row.= '});';

@@ -13,7 +13,7 @@ use function hexdec;
 use function imagecolorallocate;
 use function imageline;
 use function imagestring;
-use function implode;
+use function json_encode;
 use function mb_strlen;
 use function mb_substr;
 use function trim;
@@ -269,12 +269,10 @@ class GisLineString extends GisGeometry
         ];
 
         $result =  'var style = new ol.style.Style({'
-            . 'stroke: new ol.style.Stroke('.json_encode($stroke_style).')';
+            . 'stroke: new ol.style.Stroke(' . json_encode($stroke_style) . ')';
         if ($label) {
-            $text_style = [
-                'text' => $label,
-            ];
-            $result .= ', text: new ol.style.Text('.json_encode($text_style).')';
+            $text_style = ['text' => $label];
+            $result .= ', text: new ol.style.Text(' . json_encode($text_style) . ')';
         }
 
         $result .= '});';
