@@ -110,19 +110,19 @@ DesignerMove.mouseDown = function (e) {
     }
 };
 
-$(document).on('mousemove', function (e) {
+DesignerMove.mouseMove = function (e) {
     if (e.preventDefault) {
         e.preventDefault();
     }
+    var newDx = isIe ? e.clientX + document.body.scrollLeft : e.pageX;
+    var newDy = isIe ? e.clientY + document.body.scrollTop : e.pageY;
+
+    var deltaX = globX - newDx;
+    var deltaY = globY - newDy;
+
+    globX = newDx;
+    globY = newDy;
     if (curClick !== null) {
-        var newDx = isIe ? e.clientX + document.body.scrollLeft : e.pageX;
-        var newDy = isIe ? e.clientY + document.body.scrollTop : e.pageY;
-
-        var deltaX = globX - newDx;
-        var deltaY = globY - newDy;
-
-        globX = newDx;
-        globY = newDy;
         DesignerMove.markUnsaved();
         var $curClick = $(curClick);
 
@@ -163,9 +163,9 @@ $(document).on('mousemove', function (e) {
         document.getElementById('designer_hint').style.left = (globX + 20) + 'px';
         document.getElementById('designer_hint').style.top  = (globY + 20) + 'px';
     }
-});
+};
 
-$(document).on('mouseup', function () {
+DesignerMove.mouseUp = function () {
     if (curClick !== null) {
         document.getElementById('canvas').style.display = 'inline-block';
         DesignerMove.reload();
@@ -173,7 +173,7 @@ $(document).on('mouseup', function () {
         curClick = null;
     }
     layerMenuCurClick = 0;
-});
+};
 
 // ------------------------------------------------------------------------------
 
@@ -1934,10 +1934,16 @@ DesignerMove.addObject = function (dbName, tableName, colName, dbTableNameUrl) {
 
 DesignerMove.enablePageContentEvents = function () {
     $('#page_content').off('mousedown');
-    $('#page_content').off('mouseup');
-    $('#page_content').off('mousemove');
+    $(document).off('mouseup');
+    $(document).off('mousemove');
     $('#page_content').on('mousedown', function (e) {
         DesignerMove.mouseDown(e);
+    });
+    $(document).on('mouseup', function (e) {
+        DesignerMove.mouseUp(e);
+    });
+    $(document).on('mousemove', function (e) {
+        DesignerMove.mouseMove(e);
     });
 };
 
@@ -2039,9 +2045,9 @@ AJAX.registerTeardown('designer/move.js', function () {
     $('#cancel_close_option').off('click');
     $('#ok_new_rel_panel').off('click');
     $('#cancel_new_rel_panel').off('click');
-    $('#page_content').off('mouseup');
+    $(document).off('mouseup');
     $('#page_content').off('mousedown');
-    $('#page_content').off('mousemove');
+    $(document).off('mousemove');
 });
 
 AJAX.registerOnload('designer/move.js', function () {
