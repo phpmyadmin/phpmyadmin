@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.5\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:21-0300\n"
-"PO-Revision-Date: 2020-08-01 21:41+0000\n"
+"PO-Revision-Date: 2020-08-31 20:54+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-9/pt_BR/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 4.2.1-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -9632,7 +9632,7 @@ msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
-"ambos acima<br/> &nbsp; &nbsp; &nbsp;  Exemplo: <code>INSERT INTO tbl_name "
+"ambos acima<br /> &nbsp; &nbsp; &nbsp; Exemplo: <code>INSERT INTO tbl_name "
 "(col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:430
@@ -10048,18 +10048,6 @@ msgstr ""
 "vazia."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:28
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Output/Text_Plain_External.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -10076,13 +10064,13 @@ msgstr ""
 "coluna através da entrada padrão. Retorna a saída padrão do aplicativo. O "
 "padrão é Organizado, para impressão bonita do código HTML. Por razões de "
 "segurança, você tem que editar manualmente o arquivo libraries/classes/"
-"Plugins/Transformations/Output/Text_Plain_External.php e listar as "
+"Plugins/Transformations/Abs/ExternalTransformationsPlugin.php e listar as "
 "ferramentas que você queira tornar disponível. A primeira opção é então o "
-"número do programa que você deseja usar e a segunda opção são os parâmetros "
-"para o programa. A terceira opção, se configurada para 1, irá converter a "
-"saída usando htmlspecialchars() (Padrão 1). A quarta opção, se configurada "
-"para 1, prevenirá a quebra de linha e garantirá que a saída apareça toda em "
-"uma linha (Padrão 1)."
+"número do programa que você deseja usar. A segunda opção deve estar em "
+"branco por razões históricas. A terceira opção, se configurada para 1, irá "
+"converter a saída usando htmlspecialchars() (Padrão 1). A quarta opção, se "
+"configurada para 1, prevenirá a quebra de linha e garantirá que a saída "
+"apareça toda em uma linha (Padrão 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:114
 #, php-format
@@ -10091,6 +10079,9 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"Você está utilizando o campo de opções de linha de comando de transformação "
+"externa, que foi descontinuado por motivos de segurança. Adicione todas as "
+"opções de linha de comando diretamente à definição em %s."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:28
 msgid ""
@@ -14471,10 +14462,8 @@ msgstr "Nome de tabela inválido"
 
 #. l10n: In case a SQL query did not pass a security check
 #: tbl_get_field.php:46
-#, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
-msgstr "Existem joins demais sem índices."
+msgstr "Existe um problema com a sua requisição."
 
 #: tbl_replace.php:258
 #, php-format
