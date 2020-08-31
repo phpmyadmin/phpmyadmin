@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.5\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:21-0300\n"
-"PO-Revision-Date: 2020-08-31 15:34+0000\n"
+"PO-Revision-Date: 2020-08-31 19:13+0000\n"
 "Last-Translator: Mingun <Alexander_Sergey@mail.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ru/>\n"
@@ -1739,7 +1739,7 @@ msgstr "Параметры не найдены!"
 #: templates/database/designer/where_query_panel.twig:85
 #: templates/database/designer/new_relation_panel.twig:90
 msgid "Cancel"
-msgstr "Отменить"
+msgstr "Отмена"
 
 #: js/messages.php:358 libraries/classes/Header.php:461
 msgid "Page-related settings"
@@ -3534,12 +3534,12 @@ msgstr "Вьетнамский"
 #: libraries/classes/Charsets.php:667
 msgctxt "Collation variant"
 msgid "case-insensitive"
-msgstr "регистро-независимый"
+msgstr "регистронезависимый"
 
 #: libraries/classes/Charsets.php:670
 msgctxt "Collation variant"
 msgid "case-sensitive"
-msgstr "регистро-зависимый"
+msgstr "регистрозависимый"
 
 #: libraries/classes/Charsets.php:673
 msgctxt "Collation variant"
@@ -6888,16 +6888,14 @@ msgstr ""
 "phpMyAdmin, пожалуйста!"
 
 #: libraries/classes/Database/Designer/Common.php:518
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
-msgstr "Хранилище конфигурации ещё не готово для центрального списка столбцов."
+msgstr ""
+"Хранилище конфигурации phpMyAdmin не настроено для использования функции «"
+"Показать возможности»."
 
 #: libraries/classes/Database/Designer/Common.php:565
 msgid "Error: relationship already exists."
@@ -9992,18 +9990,6 @@ msgstr ""
 "строки."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:28
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Output/Text_Plain_External.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -10016,16 +10002,17 @@ msgid ""
 "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
 "ensure that the output appears all on one line (Default 1)."
 msgstr ""
-"ТОЛЬКО LINUX: Запускает внешнее приложение и подает ему на ввод данные поля. "
-"Возвращает обычный вывод приложения. По-умолчанию используется Tidy "
-"(форматирование HTML-кода). По соображениям безопасности необходимо вручную "
-"отредактировать файл libraries/classes/Plugins/Transformations/Output/"
-"Text_Plain_External.php, вписав доступные программы. Первый параметр задает "
-"номер используемой программы, во втором параметре передаются параметры "
-"собственно программы. При установке третьего параметра в 1 данные вывода "
-"будут преобразованы функцией htmlspecialchars() (по-умолчанию, 1). При "
-"установке четвёртого параметра в 1 будут предотвращены переносы строк и "
-"данные будут выведены в одну строку (по-умолчанию, 1)."
+"ТОЛЬКО LINUX: Запускает внешнее приложение и подаёт ему на ввод данные поля. "
+"Возвращает обычный вывод приложения. По-умолчанию используется Tidy ("
+"форматирование HTML-кода). По соображениям безопасности необходимо вручную "
+"отредактировать файл libraries/classes/Plugins/Transformations/Abs/"
+"ExternalTransformationsPlugin.php, вписав доступные программы. Первый "
+"параметр задает номер используемой программы. Второй параметр должен быть "
+"пустым, он сохранён по историческим причинам. При установке третьего "
+"параметра в 1 данные вывода будут преобразованы функцией htmlspecialchars() "
+"(по-умолчанию, 1). При установке четвёртого параметра в 1 будут "
+"предотвращены переносы строк и данные будут выведены в одну строку (по-"
+"умолчанию, 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:114
 #, php-format
@@ -10034,6 +10021,9 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"Вы используете поле параметров внешнего преобразования командной строки, "
+"которое было отключено из соображений безопасности. Добавьте все параметры "
+"командной строки непосредственно к определению в %s."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:28
 msgid ""
@@ -14414,10 +14404,8 @@ msgstr "Неправильное имя таблицы"
 
 #. l10n: In case a SQL query did not pass a security check
 #: tbl_get_field.php:46
-#, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
-msgstr "Слишком большое количество объединения не использующих индексы."
+msgstr "В вашем запросе есть проблема."
 
 #: tbl_replace.php:258
 #, php-format
@@ -14795,10 +14783,9 @@ msgid "See table structure"
 msgstr "Отобразить структуру таблицы"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "Выбрать все"
+msgstr "Выбрать «%s»"
 
 #: templates/database/designer/database_tables.twig:126
 #, php-format
