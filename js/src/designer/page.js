@@ -113,7 +113,8 @@ DesignerPage.loadFirstPage = function (db, callback) {
 DesignerPage.showNewPageTables = function (check) {
     var allTables = $('.scroll_tab_checkbox:checkbox');
     allTables.prop('checked', check);
-    for (var tab = 0; tab < allTables.length; tab++) {
+    var tableSize = allTables.length;
+    for (var tab = 0; tab < tableSize; tab++) {
         var input = allTables[tab];
         if (input.value) {
             // Remove check_visible_ from input.value

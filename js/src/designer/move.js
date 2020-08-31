@@ -56,7 +56,6 @@ DesignerMove.markUnsaved = function () {
 };
 
 var curClick = null;
-var smS           = 0;
 var smAdd         = 10;
 var sLeft         = 0;
 var sRight        = 0;
@@ -271,75 +270,87 @@ DesignerMove.resizeOsnTab = function () {
     DesignerMove.canvasPos();
 };
 
+function designerMove(foreignKey) {
+    var designerTable = document.getElementById('designer_table_' + foreignKey.sourceTableUuid);
+    var designerForeignTable = document.getElementById('designer_table_' + foreignKey.tableUuid);
+
+    var x1Left  = designerTable.offsetLeft + 1;
+    var x1Right = x1Left + designerTable.offsetWidth;
+    var x2Left  = designerForeignTable.offsetLeft;
+    var x2Right = x2Left + designerForeignTable.offsetWidth;
+    var a = [];
+    a[0] = Math.abs(x1Left - x2Left);
+    a[1] = Math.abs(x1Left - x2Right);
+    a[2] = Math.abs(x1Right - x2Left);
+    a[3] = Math.abs(x1Right - x2Right);
+
+    var n = sLeft = sRight = 0;
+
+    for (var i = 1; i < 4; i++) {
+        if (a[n] > a[i]) {
+            n = i;
+        }
+    }
+
+    var x1;
+    var x2;
+
+    if (n === 1) {
+        x1 = x1Left;
+        x2 = x2Right;
+        if (x1 < x2) {
+            n = 0;
+        }
+    }
+    if (n === 2) {
+        x1 = x1Right;
+        x2 = x2Left;
+        if (x1 > x2) {
+            n = 0;
+        }
+    }
+    if (n === 3) {
+        x1 = x1Right;
+        x2 = x2Right;
+        sRight = 1;
+    }
+    if (n === 0) {
+        x1 = x1Left;
+        x2 = x2Left;
+        sLeft = 1;
+    }
+
+    return [x1, x2];
+}
+
 /**
  * refreshes display, must be called after state changes
  */
 DesignerMove.reload = function () {
     DesignerMove.resizeOsnTab();
-    var n;
-    var x1;
-    var x2;
-    var a = [];
+
     DesignerMove.clear();
     for (var contrId in contr) {
         var scriptContr = contr[contrId];
+        if (! document.getElementById('check_vis_' + scriptContr.table.uuid).checked) {
+            continue;
+        }
         for (var foreignKeyId in scriptContr.foreignKeys) {
             var foreignKey = scriptContr.foreignKeys[foreignKeyId];
+            if (document.getElementById('check_vis_' + foreignKey.tableUuid).checked) {
+                continue; // if hide
+            }
+            var x = designerMove(foreignKey);
+            var x1 = x[0];
+            var x2 = x[1];
+
+            var rowOffsetTop = 0;
             var designerTable = document.getElementById('designer_table_' + foreignKey.sourceTableUuid);
             var designerForeignTable = document.getElementById('designer_table_' + foreignKey.tableUuid);
             var designerForeignColumn = document.getElementById('designer_col_' + foreignKey.uuid);
             var designerColumn = document.getElementById('designer_col_' + foreignKey.uuidSource);
-
             var tabHideButton = document.getElementById('id_hide_tbody_' + scriptContr.table.uuid);
             var tabHideForeignButton = document.getElementById('id_hide_tbody_' + foreignKey.tableUuid);
-
-            if (! document.getElementById('check_vis_' + scriptContr.table.uuid).checked ||
-                ! document.getElementById('check_vis_' + foreignKey.tableUuid).checked) {
-                // if hide
-                continue;
-            }
-            var x1Left  = designerTable.offsetLeft + 1;
-            var x1Right = x1Left + designerTable.offsetWidth;
-            var x2Left  = designerForeignTable.offsetLeft;
-            var x2Right = x2Left + designerForeignTable.offsetWidth;
-            a[0] = Math.abs(x1Left - x2Left);
-            a[1] = Math.abs(x1Left - x2Right);
-            a[2] = Math.abs(x1Right - x2Left);
-            a[3] = Math.abs(x1Right - x2Right);
-
-            n = sLeft = sRight = 0;
-            for (var i = 1; i < 4; i++) {
-                if (a[n] > a[i]) {
-                    n = i;
-                }
-            }
-            if (n === 1) {
-                x1 = x1Left - smS;
-                x2 = x2Right + smS;
-                if (x1 < x2) {
-                    n = 0;
-                }
-            }
-            if (n === 2) {
-                x1 = x1Right + smS;
-                x2 = x2Left - smS;
-                if (x1 > x2) {
-                    n = 0;
-                }
-            }
-            if (n === 3) {
-                x1 = x1Right + smS;
-                x2 = x2Right + smS;
-                sRight = 1;
-            }
-            if (n === 0) {
-                x1 = x1Left - smS;
-                x2 = x2Left - smS;
-                sLeft = 1;
-            }
-
-            var rowOffsetTop = 0;
-
             if (tabHideButton.innerHTML === 'v') {
                 var fromColumn = designerColumn;
                 if (fromColumn) {
@@ -349,10 +360,7 @@ DesignerMove.reload = function () {
                 }
             }
 
-            var y1 = designerTable.offsetTop +
-                rowOffsetTop +
-                heightField;
-
+            var y1 = designerTable.offsetTop + rowOffsetTop + heightField;
 
             rowOffsetTop = 0;
             if (tabHideForeignButton.innerHTML === 'v') {
@@ -364,10 +372,7 @@ DesignerMove.reload = function () {
                 }
             }
 
-            var y2 =
-                designerForeignTable.offsetTop +
-                rowOffsetTop +
-                heightField;
+            var y2 = designerForeignTable.offsetTop + rowOffsetTop + heightField;
 
             var osnTab = document.getElementById('osn_tab');
 
@@ -1465,16 +1470,12 @@ DesignerMove.selectTab = function (t) {
 };
 
 DesignerMove.canvasClick = function (id, event) {
-    var n = 0;
     var selected = 0;
-    var a = [];
     var Key0;
     var Key1;
     var Key2;
     var Key3;
     var Key;
-    var x1;
-    var x2;
     var localX = isIe ? event.clientX + document.body.scrollLeft : event.pageX;
     var localY = isIe ? event.clientY + document.body.scrollTop : event.pageY;
     localX -= $('#osn_tab').offset().left;
@@ -1482,54 +1483,22 @@ DesignerMove.canvasClick = function (id, event) {
     DesignerMove.clear();
     for (var contrId in contr) {
         var scriptContr = contr[contrId];
+        if (! document.getElementById('check_vis_' + scriptContr.table.uuid).checked) {
+            continue;
+        }
         for (var foreignKeyId in scriptContr.foreignKeys) {
             var foreignKey = scriptContr.foreignKeys[foreignKeyId];
+            if (document.getElementById('check_vis_' + foreignKey.tableUuid).checked) {
+                continue; // if hide
+            }
+            var x = designerMove(foreignKey);
+            var x1 = x[0];
+            var x2 = x[1];
+
             var designerTable = document.getElementById('designer_table_' + foreignKey.sourceTableUuid);
             var designerForeignTable = document.getElementById('designer_table_' + foreignKey.tableUuid);
             var designerForeignColumn = document.getElementById('designer_col_' + foreignKey.uuid);
             var designerColumn = document.getElementById('designer_col_' + foreignKey.uuidSource);
-            if (! document.getElementById('check_vis_' + scriptContr.table.uuid).checked ||
-                ! document.getElementById('check_vis_' + foreignKey.tableUuid).checked) {
-                continue; // if hide
-            }
-            var x1Left  = designerTable.offsetLeft + 1;
-            var x1Right = x1Left + designerTable.offsetWidth;
-            var x2Left  = designerForeignTable.offsetLeft;
-            var x2Right = x2Left + designerForeignTable.offsetWidth;
-            a[0] = Math.abs(x1Left - x2Left);
-            a[1] = Math.abs(x1Left - x2Right);
-            a[2] = Math.abs(x1Right - x2Left);
-            a[3] = Math.abs(x1Right - x2Right);
-            n = sLeft = sRight = 0;
-            for (var i = 1; i < 4; i++) {
-                if (a[n] > a[i]) {
-                    n = i;
-                }
-            }
-            if (n === 1) {
-                x1 = x1Left - smS;
-                x2 = x2Right + smS;
-                if (x1 < x2) {
-                    n = 0;
-                }
-            }
-            if (n === 2) {
-                x1 = x1Right + smS;
-                x2 = x2Left - smS;
-                if (x1 > x2) {
-                    n = 0;
-                }
-            }
-            if (n === 3) {
-                x1 = x1Right + smS;
-                x2 = x2Right + smS;
-                sRight = 1;
-            }
-            if (n === 0) {
-                x1 = x1Left - smS;
-                x2 = x2Left - smS;
-                sLeft    = 1;
-            }
 
             var y1 = designerTable.offsetTop + designerColumn.offsetTop + heightField;
             var y2 = designerForeignTable.offsetTop + designerForeignColumn.offsetTop + heightField;
@@ -1541,7 +1510,7 @@ DesignerMove.canvasClick = function (id, event) {
                     y1 - osnTab.offsetTop,
                     x2 + osnTab.offsetLeft,
                     y2 - osnTab.offsetTop,
-                    'rgba(255,0,0,1)');
+                    'rgb(255,0,0)');
 
                 selected = 1; // Rect(x1-sm_x,y1-sm_y,10,10,"rgba(0,255,0,1)");
                 Key0 = foreignKey.tableName;
