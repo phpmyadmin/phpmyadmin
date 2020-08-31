@@ -369,10 +369,12 @@ return [
     ],
     [
         'id' => 'Max % MyISAM key buffer ever used',
+        /* xgettext:no-php-format */
         'name' => __('Max % MyISAM key buffer ever used'),
         'precondition' => 'key_buffer_size > 0',
         'formula' => 'Key_blocks_used * key_cache_block_size / key_buffer_size * 100',
         'test' => 'value < 95',
+        /* xgettext:no-php-format */
         'issue' => __('MyISAM key buffer (index cache) % used is low.'),
         'recommendation' => __(
             'You may need to decrease the size of {key_buffer_size}, re-examine your tables to see'
@@ -389,6 +391,7 @@ return [
         'precondition' => 'key_buffer_size > 0 && !fired(\'Max % MyISAM key buffer ever used\')',
         'formula' => '( 1 - Key_blocks_unused * key_cache_block_size / key_buffer_size) * 100',
         'test' => 'value < 95',
+        /* xgettext:no-php-format */
         'issue' => __('MyISAM key buffer (index cache) % used is low.'),
         'recommendation' => __(
             'You may need to decrease the size of {key_buffer_size}, re-examine your tables to see'
@@ -404,6 +407,7 @@ return [
         'precondition' => 'Key_read_requests > 0',
         'formula' => '100 - (Key_reads / Key_read_requests * 100)',
         'test' => 'value < 95',
+        /* xgettext:no-php-format */
         'issue' => __('The % of indexes that use the MyISAM key buffer is low.'),
         'recommendation' => __('You may need to increase {key_buffer_size}.'),
         'justification' => __('Index reads from memory: %s%%, this value should be above 95%%'),
@@ -454,6 +458,7 @@ return [
     ],
     [
         'id' => 'Immediate table locks %',
+        /* xgettext:no-php-format */
         'name' => __('Immediate table locks %'),
         'precondition' => 'Table_locks_waited + Table_locks_immediate > 0',
         'formula' => 'Table_locks_immediate / (Table_locks_waited + Table_locks_immediate) * 100',
@@ -484,6 +489,7 @@ return [
     ],
     [
         'id' => 'Thread cache hit rate %',
+        /* xgettext:no-php-format */
         'name' => __('Thread cache hit rate %'),
         'precondition' => 'thread_cache_size > 0',
         'formula' => '100 - Threads_created / Connections',
@@ -612,7 +618,7 @@ return [
         'issue' => __(
             'The InnoDB log file size is not an appropriate size, in relation to the InnoDB buffer pool.'
         ),
-        'recommendation' => __(
+        'recommendation' => __(/* xgettext:no-php-format */
             'Especially on a system with a lot of writes to InnoDB tables you should set'
             . ' {innodb_log_file_size} to 25% of {innodb_buffer_pool_size}. However the bigger this value,'
             . ' the longer the recovery time will be when database crashes, so this value should not be set'
@@ -636,7 +642,7 @@ return [
         'formula' => 'innodb_log_file_size / (1024 * 1024)',
         'test' => 'value > 256',
         'issue' => __('The InnoDB log file size is inadequately large.'),
-        'recommendation' => __(
+        'recommendation' => __(/* xgettext:no-php-format */
             'It is usually sufficient to set {innodb_log_file_size} to 25% of the size of'
             . ' {innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down the recovery'
             . ' time after a database crash considerably. See also '
@@ -657,7 +663,7 @@ return [
         'formula' => 'innodb_buffer_pool_size / system_memory * 100',
         'test' => 'value < 60',
         'issue' => __('Your InnoDB buffer pool is fairly small.'),
-        'recommendation' => __(
+        'recommendation' => __(/* xgettext:no-php-format */
             'The InnoDB buffer pool has a profound impact on performance for InnoDB tables.'
             . ' Assign all your remaining memory to this buffer. For database servers that use solely InnoDB'
             . ' as storage engine and have no other services (e.g. a web server) running, you may set this'
