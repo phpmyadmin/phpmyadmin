@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-08-31 16:20-0300\n"
+"POT-Creation-Date: 2020-08-31 19:04-0300\n"
 "PO-Revision-Date: 2020-08-09 15:50+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -619,21 +619,21 @@ msgstr ""
 msgid "key_buffer_size is 0"
 msgstr "«key_buffer_size» es 0"
 
-#: libraries/advisory_rules_generic.php:372
-#, fuzzy
+#: libraries/advisory_rules_generic.php:373
+#, fuzzy, no-php-format
 #| msgid "Max %% MyISAM key buffer ever used"
 msgid "Max % MyISAM key buffer ever used"
 msgstr "Porcentaje máximo del búfer de claves MyISAM usado en algún momento"
 
-#: libraries/advisory_rules_generic.php:376
-#: libraries/advisory_rules_generic.php:392
-#, fuzzy, php-format
+#: libraries/advisory_rules_generic.php:378
+#: libraries/advisory_rules_generic.php:395
+#, fuzzy, no-php-format
 #| msgid "MyISAM key buffer (index cache) %% used is low."
 msgid "MyISAM key buffer (index cache) % used is low."
 msgstr "El porcentaje del búfer de claves MyISAM (caché de índices) es bajo."
 
-#: libraries/advisory_rules_generic.php:378
-#: libraries/advisory_rules_generic.php:394
+#: libraries/advisory_rules_generic.php:380
+#: libraries/advisory_rules_generic.php:397
 msgid ""
 "You may need to decrease the size of {key_buffer_size}, re-examine your "
 "tables to see if indexes have been removed, or examine queries and "
@@ -643,7 +643,7 @@ msgstr ""
 "nuevamente para ver si se han eliminado índices o sus consultas y las "
 "expectativas de uso de los índices."
 
-#: libraries/advisory_rules_generic.php:382
+#: libraries/advisory_rules_generic.php:384
 #, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
@@ -651,47 +651,47 @@ msgstr ""
 "Maxímo %% de búfer de claves MyISAM utilizado en algún momento: %s%%, este "
 "valor debería ser mayor a 95%%"
 
-#: libraries/advisory_rules_generic.php:387
+#: libraries/advisory_rules_generic.php:389
 msgid "Percentage of MyISAM key buffer used"
 msgstr "Porcentaje de búfer de claves MyISAM utilizado"
 
-#: libraries/advisory_rules_generic.php:398
+#: libraries/advisory_rules_generic.php:401
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
 "%% de búfer de claves MyISAM utilizado: %s%%, este valor debería ser mayor a "
 "95%%"
 
-#: libraries/advisory_rules_generic.php:403
+#: libraries/advisory_rules_generic.php:406
 msgid "Percentage of index reads from memory"
 msgstr "Porcentaje de índices leídos desde memoria"
 
-#: libraries/advisory_rules_generic.php:407
-#, fuzzy, php-format
+#: libraries/advisory_rules_generic.php:411
+#, fuzzy, no-php-format
 #| msgid "The %% of indexes that use the MyISAM key buffer is low."
 msgid "The % of indexes that use the MyISAM key buffer is low."
 msgstr ""
 "El porcentaje de índices que utilizan el búfer de claves MyISAM es bajo."
 
-#: libraries/advisory_rules_generic.php:408
+#: libraries/advisory_rules_generic.php:412
 msgid "You may need to increase {key_buffer_size}."
 msgstr "Podría necesitar aumentar «key_buffer_size»."
 
-#: libraries/advisory_rules_generic.php:409
+#: libraries/advisory_rules_generic.php:413
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
 "Índices leídos desde memoria: %s%%, este valor debería ser mayor a 95%%"
 
-#: libraries/advisory_rules_generic.php:415
+#: libraries/advisory_rules_generic.php:419
 msgid "Rate of table open"
 msgstr "Tasa de apertura de tablas"
 
-#: libraries/advisory_rules_generic.php:418
+#: libraries/advisory_rules_generic.php:422
 msgid "The rate of opening tables is high."
 msgstr "La tasa de apertura de tablas es alta."
 
-#: libraries/advisory_rules_generic.php:420
+#: libraries/advisory_rules_generic.php:424
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
@@ -699,17 +699,17 @@ msgstr ""
 "Abrir tablas necesita E/S en disco, lo cual es costoso. Aumentar "
 "«table_open_cache» podría evitarlo."
 
-#: libraries/advisory_rules_generic.php:423
+#: libraries/advisory_rules_generic.php:427
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
 "Tasa de apertura de tablas: %s, este valor debería ser menor a 10 por hora"
 
-#: libraries/advisory_rules_generic.php:428
+#: libraries/advisory_rules_generic.php:432
 msgid "Percentage of used open files limit"
 msgstr "Porcentaje de uso del límite de archivos de abiertos"
 
-#: libraries/advisory_rules_generic.php:432
+#: libraries/advisory_rules_generic.php:436
 #, fuzzy
 #| msgid ""
 #| "The number of open files is approaching the max number of open files.  "
@@ -721,8 +721,8 @@ msgstr ""
 "La cantidad de archivos abiertos se acerca al máximo permitido. Podría "
 "llegar a obtener un error al respecto («Too many open files»)."
 
-#: libraries/advisory_rules_generic.php:436
-#: libraries/advisory_rules_generic.php:449
+#: libraries/advisory_rules_generic.php:440
+#: libraries/advisory_rules_generic.php:453
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing {open_files_limit}."
@@ -730,67 +730,67 @@ msgstr ""
 "Considere aumentar {open_files_limit}, y revise el registro de errores al "
 "reiniciar luego de cambiar esta variable."
 
-#: libraries/advisory_rules_generic.php:439
+#: libraries/advisory_rules_generic.php:443
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr ""
 "La cantidad de archivos abiertos es %s%% del límite. Debería ser menor a 85%%"
 
-#: libraries/advisory_rules_generic.php:444
+#: libraries/advisory_rules_generic.php:448
 msgid "Rate of open files"
 msgstr "Tasa de apertura de archivos"
 
-#: libraries/advisory_rules_generic.php:447
+#: libraries/advisory_rules_generic.php:451
 msgid "The rate of opening files is high."
 msgstr "La tasa de apertura de archivos es alta."
 
-#: libraries/advisory_rules_generic.php:452
+#: libraries/advisory_rules_generic.php:456
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
 "Tasa de apertura de archivos: %s, este valor debería ser menor a 5 por hora"
 
-#: libraries/advisory_rules_generic.php:457
-#, fuzzy
+#: libraries/advisory_rules_generic.php:462
+#, fuzzy, no-php-format
 #| msgid "Immediate table locks %%"
 msgid "Immediate table locks %"
 msgstr "Porcentaje de bloqueos de tabla inmediatos"
 
-#: libraries/advisory_rules_generic.php:461
-#: libraries/advisory_rules_generic.php:471
+#: libraries/advisory_rules_generic.php:466
+#: libraries/advisory_rules_generic.php:476
 msgid "Too many table locks were not granted immediately."
 msgstr "Demasiados bloqueos de tablas no fueron provistos inmediatamente."
 
-#: libraries/advisory_rules_generic.php:462
-#: libraries/advisory_rules_generic.php:472
+#: libraries/advisory_rules_generic.php:467
+#: libraries/advisory_rules_generic.php:477
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
 "Optimice las consultas y/o utilice InnoDB para reducir el tiempo de espera "
 "para bloqueos."
 
-#: libraries/advisory_rules_generic.php:463
+#: libraries/advisory_rules_generic.php:468
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr ""
 "Bloqueos de tabla inmediatos: %s%%, este valor debería ser mayor a 95%%"
 
-#: libraries/advisory_rules_generic.php:468
+#: libraries/advisory_rules_generic.php:473
 msgid "Table lock wait rate"
 msgstr "Tasa de espera para bloqueos de tablas"
 
-#: libraries/advisory_rules_generic.php:473
+#: libraries/advisory_rules_generic.php:478
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
 "Tasa de espera para bloqueos de tablas: %s, este valor debería ser menor a 1 "
 "por hora"
 
-#: libraries/advisory_rules_generic.php:478
+#: libraries/advisory_rules_generic.php:483
 msgid "Thread cache"
 msgstr "Caché de hilos"
 
-#: libraries/advisory_rules_generic.php:481
+#: libraries/advisory_rules_generic.php:486
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
@@ -798,46 +798,46 @@ msgstr ""
 "El caché de hilos está desactivado, esto resulta en mayor sobrecarga en las "
 "nuevas conexiones a MySQL."
 
-#: libraries/advisory_rules_generic.php:482
+#: libraries/advisory_rules_generic.php:487
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
 "Active el caché de hilos configurado «thread_cache_size» a un valor mayor a "
 "0."
 
-#: libraries/advisory_rules_generic.php:483
+#: libraries/advisory_rules_generic.php:488
 msgid "The thread cache is set to 0"
 msgstr "El caché de hilos está configurado a 0"
 
-#: libraries/advisory_rules_generic.php:487
-#, fuzzy
+#: libraries/advisory_rules_generic.php:493
+#, fuzzy, no-php-format
 #| msgid "Thread cache hit rate %%"
 msgid "Thread cache hit rate %"
 msgstr "Porcentaje de efectividad del caché de hilos"
 
-#: libraries/advisory_rules_generic.php:491
+#: libraries/advisory_rules_generic.php:497
 msgid "Thread cache is not efficient."
 msgstr "El caché de hilos no es eficiente."
 
-#: libraries/advisory_rules_generic.php:492
+#: libraries/advisory_rules_generic.php:498
 msgid "Increase {thread_cache_size}."
 msgstr "Aumente «thread_cache_size»."
 
-#: libraries/advisory_rules_generic.php:493
+#: libraries/advisory_rules_generic.php:499
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr ""
 "Tasa de efectividad del caché de hilos: %s%%, este valor debería ser mayor a "
 "80%%"
 
-#: libraries/advisory_rules_generic.php:498
+#: libraries/advisory_rules_generic.php:504
 msgid "Threads that are slow to launch"
 msgstr "Hilos que inician ejecución lentamente"
 
-#: libraries/advisory_rules_generic.php:502
+#: libraries/advisory_rules_generic.php:508
 msgid "There are too many threads that are slow to launch."
 msgstr "Hay demasiados hilos que inician ejecución lentamente."
 
-#: libraries/advisory_rules_generic.php:504
+#: libraries/advisory_rules_generic.php:510
 msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
@@ -846,20 +846,20 @@ msgstr ""
 "una operación relativamente sencilla. Debería de monitorizar la carga sobre "
 "el sistema cuidadosamente."
 
-#: libraries/advisory_rules_generic.php:507
+#: libraries/advisory_rules_generic.php:513
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr "%s hilo(s) tardaron más de %s segundos en iniciar, debería de ser 0"
 
-#: libraries/advisory_rules_generic.php:512
+#: libraries/advisory_rules_generic.php:518
 msgid "Slow launch time"
 msgstr "Tiempo de inicio lento"
 
-#: libraries/advisory_rules_generic.php:515
+#: libraries/advisory_rules_generic.php:521
 msgid "Slow_launch_time is above 2s."
 msgstr "«Slow_launch_time» es mayor a 2s."
 
-#: libraries/advisory_rules_generic.php:517
+#: libraries/advisory_rules_generic.php:523
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch."
@@ -867,16 +867,16 @@ msgstr ""
 "Configure {slow_launch_time} a 1 o 2 segundos para contar correctamente los "
 "hilos que inician ejecución lentamente."
 
-#: libraries/advisory_rules_generic.php:519
+#: libraries/advisory_rules_generic.php:525
 #, php-format
 msgid "slow_launch_time is set to %s"
 msgstr "«slow_launch_time» está configurado a %s"
 
-#: libraries/advisory_rules_generic.php:525
+#: libraries/advisory_rules_generic.php:531
 msgid "Percentage of used connections"
 msgstr "Porcentaje de conexiones utilizadas"
 
-#: libraries/advisory_rules_generic.php:529
+#: libraries/advisory_rules_generic.php:535
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "{max_connections}."
@@ -884,7 +884,7 @@ msgstr ""
 "El máximo de conexiones utilizadas simultáneamente está cercano al valor de "
 "{max_connections}."
 
-#: libraries/advisory_rules_generic.php:532
+#: libraries/advisory_rules_generic.php:538
 msgid ""
 "Increase {max_connections}, or decrease {wait_timeout} so that connections "
 "that do not close database handlers properly get killed sooner. Make sure "
@@ -895,24 +895,24 @@ msgstr ""
 "eliminadas más rápido. Asegúrese que su código cierre los manejadores de "
 "base de datos apropiadamente."
 
-#: libraries/advisory_rules_generic.php:536
+#: libraries/advisory_rules_generic.php:542
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
 "«max_used_connections» es %s%% de «max_connections», debería ser menor a 80%%"
 
-#: libraries/advisory_rules_generic.php:541
+#: libraries/advisory_rules_generic.php:547
 msgid "Percentage of aborted connections"
 msgstr "Porcentaje de conexiones abandonadas"
 
-#: libraries/advisory_rules_generic.php:544
-#: libraries/advisory_rules_generic.php:558
+#: libraries/advisory_rules_generic.php:550
+#: libraries/advisory_rules_generic.php:564
 msgid "Too many connections are aborted."
 msgstr "Demasiadas conexiones son abandonadas."
 
-#: libraries/advisory_rules_generic.php:546
-#: libraries/advisory_rules_generic.php:560
+#: libraries/advisory_rules_generic.php:552
+#: libraries/advisory_rules_generic.php:566
 msgid ""
 "Connections are usually aborted when they cannot be authorized. <a href="
 "\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
@@ -923,18 +923,18 @@ msgstr ""
 "down-the-source-of-aborted_connects/\">Este artículo</a> podría ser de ayuda "
 "para rastrear el motivo de las mismas."
 
-#: libraries/advisory_rules_generic.php:550
+#: libraries/advisory_rules_generic.php:556
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
 "%s%% de todas las conexiones son abandonadas. Este valor debería ser menor a "
 "1%%"
 
-#: libraries/advisory_rules_generic.php:555
+#: libraries/advisory_rules_generic.php:561
 msgid "Rate of aborted connections"
 msgstr "Tasa de conexiones abandonadas"
 
-#: libraries/advisory_rules_generic.php:564
+#: libraries/advisory_rules_generic.php:570
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
@@ -942,17 +942,17 @@ msgstr ""
 "La tasa de conexiones abandonadas es %s, este valor debería ser menor a 1 "
 "por hora"
 
-#: libraries/advisory_rules_generic.php:569
+#: libraries/advisory_rules_generic.php:575
 msgid "Percentage of aborted clients"
 msgstr "Porcentaje de clientes abandonados"
 
-#: libraries/advisory_rules_generic.php:572
-#: libraries/advisory_rules_generic.php:586
+#: libraries/advisory_rules_generic.php:578
+#: libraries/advisory_rules_generic.php:592
 msgid "Too many clients are aborted."
 msgstr "Demasiados clientes son abandonados."
 
-#: libraries/advisory_rules_generic.php:574
-#: libraries/advisory_rules_generic.php:588
+#: libraries/advisory_rules_generic.php:580
+#: libraries/advisory_rules_generic.php:594
 msgid ""
 "Clients are usually aborted when they did not close their connection to "
 "MySQL properly. This can be due to network issues or code not closing a "
@@ -963,45 +963,45 @@ msgstr ""
 "código no libera el manejador de la base de datos correctamente. Revise su "
 "conexión de red y código."
 
-#: libraries/advisory_rules_generic.php:578
+#: libraries/advisory_rules_generic.php:584
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 "%s%% de todos los clientes son abandonados. Este valor debería ser menor a "
 "2%%"
 
-#: libraries/advisory_rules_generic.php:583
+#: libraries/advisory_rules_generic.php:589
 msgid "Rate of aborted clients"
 msgstr "Tasa de clientes abandonados"
 
-#: libraries/advisory_rules_generic.php:592
+#: libraries/advisory_rules_generic.php:598
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
 "La tasa de clientes abandonados es %s, este valor debería ser menor a 1 por "
 "hora"
 
-#: libraries/advisory_rules_generic.php:598
+#: libraries/advisory_rules_generic.php:604
 msgid "Is InnoDB disabled?"
 msgstr "¿InnoDB está desactivado?"
 
-#: libraries/advisory_rules_generic.php:602
+#: libraries/advisory_rules_generic.php:608
 msgid "You do not have InnoDB enabled."
 msgstr "No posee InnoDB activado."
 
-#: libraries/advisory_rules_generic.php:603
+#: libraries/advisory_rules_generic.php:609
 msgid "InnoDB is usually the better choice for table engines."
 msgstr "InnoDB es, usualmente, la mejor opción como motor para tablas."
 
-#: libraries/advisory_rules_generic.php:604
+#: libraries/advisory_rules_generic.php:610
 msgid "have_innodb is set to 'value'"
 msgstr "«have_innodb» está configurado como 'value'"
 
-#: libraries/advisory_rules_generic.php:608
+#: libraries/advisory_rules_generic.php:614
 msgid "InnoDB log size"
 msgstr "Tamaño de registro InnoDB"
 
-#: libraries/advisory_rules_generic.php:613
+#: libraries/advisory_rules_generic.php:619
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
@@ -1009,8 +1009,8 @@ msgstr ""
 "El tamaño del archivo de registro InnoDB no parece ser apropiado en relación "
 "a la reserva de búfers InnoDB."
 
-#: libraries/advisory_rules_generic.php:616
-#, fuzzy, php-format
+#: libraries/advisory_rules_generic.php:622
+#, fuzzy, no-php-format
 #| msgid ""
 #| "Especially on a system with a lot of writes to InnoDB tables you should "
 #| "set {innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However "
@@ -1045,7 +1045,7 @@ msgstr ""
 "\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">este artículo</a>"
 
-#: libraries/advisory_rules_generic.php:627
+#: libraries/advisory_rules_generic.php:633
 #, php-format
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
@@ -1054,16 +1054,16 @@ msgstr ""
 "El tamaño del archivo de registros InnoDB es %s%% del tamaño de la reserva "
 "de búfers InnoDB, no debería ser menor a 20%%"
 
-#: libraries/advisory_rules_generic.php:634
+#: libraries/advisory_rules_generic.php:640
 msgid "Max InnoDB log size"
 msgstr "Tamaño máximo del registro InnoDB"
 
-#: libraries/advisory_rules_generic.php:638
+#: libraries/advisory_rules_generic.php:644
 msgid "The InnoDB log file size is inadequately large."
 msgstr "El tamaño del archivo de registros InnoDB es inadecuadamente grande."
 
-#: libraries/advisory_rules_generic.php:640
-#, fuzzy, php-format
+#: libraries/advisory_rules_generic.php:646
+#, fuzzy, no-php-format
 #| msgid ""
 #| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
 #| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
@@ -1096,21 +1096,21 @@ msgstr ""
 "Revise también <a href=\"https://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">este artículo</a>"
 
-#: libraries/advisory_rules_generic.php:650
+#: libraries/advisory_rules_generic.php:656
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "El tamaño absoluto del archivo de registros InnoDB es %s MiB"
 
-#: libraries/advisory_rules_generic.php:655
+#: libraries/advisory_rules_generic.php:661
 msgid "InnoDB buffer pool size"
 msgstr "Tamaño de la reserva de búfers InnoDB"
 
-#: libraries/advisory_rules_generic.php:659
+#: libraries/advisory_rules_generic.php:665
 msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Su reserva de búfers InnoDB es relativamente pequeña."
 
-#: libraries/advisory_rules_generic.php:661
-#, fuzzy, php-format
+#: libraries/advisory_rules_generic.php:667
+#, fuzzy, no-php-format
 #| msgid ""
 #| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 #| "tables. Assign all your remaining memory to this buffer. For database "
@@ -1146,7 +1146,7 @@ msgstr ""
 "Revise también <a href=\"https://www.percona.com/blog/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">este artículo</a>"
 
-#: libraries/advisory_rules_generic.php:671
+#: libraries/advisory_rules_generic.php:677
 #, php-format
 msgid ""
 "You are currently using %s%% of your memory for the InnoDB buffer pool. This "
@@ -1159,15 +1159,15 @@ msgstr ""
 "esto puede ser perfectamente adecuado para su sistema si no posee muchas "
 "tablas InnoDB o tiene otros servicios en el mismo equipo."
 
-#: libraries/advisory_rules_generic.php:681
+#: libraries/advisory_rules_generic.php:687
 msgid "MyISAM concurrent inserts"
 msgstr "Inserciones MyISAM concurrentes"
 
-#: libraries/advisory_rules_generic.php:684
+#: libraries/advisory_rules_generic.php:690
 msgid "Enable {concurrent_insert} by setting it to 1"
 msgstr "Active {concurrent_insert} definiéndolo como 1"
 
-#: libraries/advisory_rules_generic.php:686
+#: libraries/advisory_rules_generic.php:692
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
 "writers for a given table. See also <a href=\"https://dev.mysql.com/doc/"
@@ -1177,7 +1177,7 @@ msgstr ""
 "escritores en una tabla particular. Revise también la <a href=\"https://dev."
 "mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">documentación MySQL</a>"
 
-#: libraries/advisory_rules_generic.php:690
+#: libraries/advisory_rules_generic.php:696
 msgid "concurrent_insert is set to 0"
 msgstr "«concurrent_insert» está definido como 0"
 
@@ -1207,38 +1207,38 @@ msgstr ""
 "«query_cache_size» está definido como 0 o «query_cache_type» está definido "
 "como 'OFF'"
 
-#: libraries/advisory_rules_mysql_before80003.php:22
-#, fuzzy
+#: libraries/advisory_rules_mysql_before80003.php:23
+#, fuzzy, no-php-format
 #| msgid "Query cache efficiency (%%)"
 msgid "Query cache efficiency (%)"
 msgstr "Eficiencia del caché de consultas (%%)"
 
-#: libraries/advisory_rules_mysql_before80003.php:26
+#: libraries/advisory_rules_mysql_before80003.php:27
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr ""
 "El caché de consultas no está ejecutando eficientemente, tiene una baja tasa "
 "de aciertos."
 
-#: libraries/advisory_rules_mysql_before80003.php:27
+#: libraries/advisory_rules_mysql_before80003.php:28
 msgid "Consider increasing {query_cache_limit}."
 msgstr "Considere aumentando «query_cache_limit»."
 
-#: libraries/advisory_rules_mysql_before80003.php:28
+#: libraries/advisory_rules_mysql_before80003.php:29
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr "La tasa de aciertos actual del caché de consultas %s%% es menor a 20%%"
 
-#: libraries/advisory_rules_mysql_before80003.php:33
+#: libraries/advisory_rules_mysql_before80003.php:34
 msgid "Query Cache usage"
 msgstr "Uso del caché de consultas"
 
-#: libraries/advisory_rules_mysql_before80003.php:37
-#, fuzzy, php-format
+#: libraries/advisory_rules_mysql_before80003.php:39
+#, fuzzy, no-php-format
 #| msgid "Less than 80%% of the query cache is being utilized."
 msgid "Less than 80% of the query cache is being utilized."
 msgstr "Menos del 80%% del caché de consultas está siendo utilizado."
 
-#: libraries/advisory_rules_mysql_before80003.php:39
+#: libraries/advisory_rules_mysql_before80003.php:41
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
@@ -1246,7 +1246,7 @@ msgstr ""
 "Esto puede ser porque el valor de «query_cache_limit» es muy pequeño. Vaciar "
 "el caché de consultas podría ayudar también."
 
-#: libraries/advisory_rules_mysql_before80003.php:43
+#: libraries/advisory_rules_mysql_before80003.php:45
 #, php-format
 msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
@@ -1255,15 +1255,15 @@ msgstr ""
 "La tasa actual de memoria libre del caché de consultas respecto del tamaño "
 "total es %s%%. Debería ser mayor al 80%%"
 
-#: libraries/advisory_rules_mysql_before80003.php:50
+#: libraries/advisory_rules_mysql_before80003.php:52
 msgid "Query cache fragmentation"
 msgstr "Fragmentación del caché de consultas"
 
-#: libraries/advisory_rules_mysql_before80003.php:54
+#: libraries/advisory_rules_mysql_before80003.php:56
 msgid "The query cache is considerably fragmented."
 msgstr "El caché de consultas está fragmentado considerablemente."
 
-#: libraries/advisory_rules_mysql_before80003.php:56
+#: libraries/advisory_rules_mysql_before80003.php:58
 msgid ""
 "Severe fragmentation is likely to (further) increase Qcache_lowmem_prunes. "
 "This might be caused by many Query cache low memory prunes due to "
@@ -1286,7 +1286,7 @@ msgstr ""
 "«qcache_queries_in_cache» ((tamaño_caché - memoria_libre_caché) / "
 "cantidad_consultas_en_caché)"
 
-#: libraries/advisory_rules_mysql_before80003.php:64
+#: libraries/advisory_rules_mysql_before80003.php:66
 #, php-format
 msgid ""
 "The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
@@ -1297,11 +1297,11 @@ msgstr ""
 "significa que el caché de consulta es un patrón alternante de bloques "
 "utilizados y libres. Este valor debería ser menor al 20%%."
 
-#: libraries/advisory_rules_mysql_before80003.php:71
+#: libraries/advisory_rules_mysql_before80003.php:73
 msgid "Query cache low memory prunes"
 msgstr "Reducciones al caché de consultas por falta de memoria"
 
-#: libraries/advisory_rules_mysql_before80003.php:75
+#: libraries/advisory_rules_mysql_before80003.php:77
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
@@ -1309,7 +1309,7 @@ msgstr ""
 "Las consultas en caché son eliminadas debido a la poca cantidad de memoria "
 "de caché para el caché de consultas."
 
-#: libraries/advisory_rules_mysql_before80003.php:77
+#: libraries/advisory_rules_mysql_before80003.php:79
 msgid ""
 "You might want to increase {query_cache_size}, however keep in mind that the "
 "overhead of maintaining the cache is likely to increase with its size, so do "
@@ -1320,7 +1320,7 @@ msgstr ""
 "por lo que se recomienda hacerlo en pequeñas cantidades y monitorizar los "
 "resultados."
 
-#: libraries/advisory_rules_mysql_before80003.php:82
+#: libraries/advisory_rules_mysql_before80003.php:84
 #, php-format
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
@@ -1329,11 +1329,11 @@ msgstr ""
 "La tasa de consultas eliminadas respecto de las agregadas es %s%%. Mejor es "
 "mientras menor sea este valor (el límite de disparo de la regla es: 0.1%%)"
 
-#: libraries/advisory_rules_mysql_before80003.php:89
+#: libraries/advisory_rules_mysql_before80003.php:91
 msgid "Query cache max size"
 msgstr "Tamaño máximo del caché de consultas"
 
-#: libraries/advisory_rules_mysql_before80003.php:94
+#: libraries/advisory_rules_mysql_before80003.php:96
 msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
@@ -1341,30 +1341,30 @@ msgstr ""
 "El tamaño del caché de consultas es mayor a 128 MiB. Grandes cachés pueden "
 "causar grandes sobrecargas para manterlo."
 
-#: libraries/advisory_rules_mysql_before80003.php:98
+#: libraries/advisory_rules_mysql_before80003.php:100
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
 msgstr ""
 "Dependiendo de su entorno, podría aumentar la performance reducir este valor."
 
-#: libraries/advisory_rules_mysql_before80003.php:100
+#: libraries/advisory_rules_mysql_before80003.php:102
 #, php-format
 msgid "Current query cache size: %s"
 msgstr "Tamaño del caché de consultas: %s"
 
-#: libraries/advisory_rules_mysql_before80003.php:105
+#: libraries/advisory_rules_mysql_before80003.php:107
 msgid "Query cache min result size"
 msgstr "Tamaño mínimo de resultado en caché de consultas"
 
-#: libraries/advisory_rules_mysql_before80003.php:109
+#: libraries/advisory_rules_mysql_before80003.php:111
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
 "El tamaño máximo del conjunto de resultados en el caché de consultas es el "
 "valor predeterminado de 1 MiB."
 
-#: libraries/advisory_rules_mysql_before80003.php:111
+#: libraries/advisory_rules_mysql_before80003.php:113
 msgid ""
 "Changing {query_cache_limit} (usually by increasing) may increase "
 "efficiency. This variable determines the maximum size a query result may "
@@ -1385,7 +1385,7 @@ msgstr ""
 "frecuentemente por actualizaciones a la tabla) aumentar «query_cache_limit» "
 "podría reducir la eficiencia."
 
-#: libraries/advisory_rules_mysql_before80003.php:118
+#: libraries/advisory_rules_mysql_before80003.php:120
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "«query_cache_limit» está definido a 1 MiB"
 

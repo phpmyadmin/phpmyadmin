@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-08-31 16:20-0300\n"
+"POT-Creation-Date: 2020-08-31 19:04-0300\n"
 "PO-Revision-Date: 2020-07-16 11:41+0000\n"
 "Last-Translator: junseong kim <anima94@naver.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -576,20 +576,20 @@ msgstr ""
 msgid "key_buffer_size is 0"
 msgstr "key_buffer_size가 0입니다"
 
-#: libraries/advisory_rules_generic.php:372
-#, fuzzy
+#: libraries/advisory_rules_generic.php:373
+#, fuzzy, no-php-format
 msgid "Max % MyISAM key buffer ever used"
 msgstr "사용된 적 있는 MyISAM 키 버퍼 최대 비율(%%)"
 
-#: libraries/advisory_rules_generic.php:376
-#: libraries/advisory_rules_generic.php:392
-#, fuzzy, php-format
+#: libraries/advisory_rules_generic.php:378
+#: libraries/advisory_rules_generic.php:395
+#, fuzzy, no-php-format
 #| msgid "MyISAM key buffer (index cache) %% used is low."
 msgid "MyISAM key buffer (index cache) % used is low."
 msgstr "MyISAM 키 버퍼 (인덱스 캐시) 사용률이 낮습니다."
 
-#: libraries/advisory_rules_generic.php:378
-#: libraries/advisory_rules_generic.php:394
+#: libraries/advisory_rules_generic.php:380
+#: libraries/advisory_rules_generic.php:397
 msgid ""
 "You may need to decrease the size of {key_buffer_size}, re-examine your "
 "tables to see if indexes have been removed, or examine queries and "
@@ -599,7 +599,7 @@ msgstr ""
 "테이블을 다시 검사하거나, 쿼리를 검사하여 어떤 인덱스들이 사용될지 예상하시"
 "기 바랍니다."
 
-#: libraries/advisory_rules_generic.php:382
+#: libraries/advisory_rules_generic.php:384
 #, fuzzy, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
@@ -607,43 +607,43 @@ msgstr ""
 "사용된 적 있는 MyISAM 키 버퍼 최대 비율 (%%): %s%%, 이 값은 95%% 이상이어야 "
 "합니다."
 
-#: libraries/advisory_rules_generic.php:387
+#: libraries/advisory_rules_generic.php:389
 msgid "Percentage of MyISAM key buffer used"
 msgstr "사용된 MyISAM 키 버퍼 비율"
 
-#: libraries/advisory_rules_generic.php:398
+#: libraries/advisory_rules_generic.php:401
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr "MyISAM 키 버퍼 사용 비율(%%): %s%%, 이 값은 95%% 이상이어야 합니다"
 
-#: libraries/advisory_rules_generic.php:403
+#: libraries/advisory_rules_generic.php:406
 msgid "Percentage of index reads from memory"
 msgstr "메모리에서 읽은 인덱스 비율"
 
-#: libraries/advisory_rules_generic.php:407
-#, fuzzy, php-format
+#: libraries/advisory_rules_generic.php:411
+#, fuzzy, no-php-format
 #| msgid "The %% of indexes that use the MyISAM key buffer is low."
 msgid "The % of indexes that use the MyISAM key buffer is low."
 msgstr "MyISAM 키 버퍼를 사용하는 인덱스의 비율(%%)이 낮습니다."
 
-#: libraries/advisory_rules_generic.php:408
+#: libraries/advisory_rules_generic.php:412
 msgid "You may need to increase {key_buffer_size}."
 msgstr "{Key_buffer_size}를 증가시켜야 합니다."
 
-#: libraries/advisory_rules_generic.php:409
+#: libraries/advisory_rules_generic.php:413
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr "메모리에서 읽은 인덱스: %s%%, 이 값은 95%% 이상이어야 합니다"
 
-#: libraries/advisory_rules_generic.php:415
+#: libraries/advisory_rules_generic.php:419
 msgid "Rate of table open"
 msgstr "열린 테이블 비율"
 
-#: libraries/advisory_rules_generic.php:418
+#: libraries/advisory_rules_generic.php:422
 msgid "The rate of opening tables is high."
 msgstr "열려있는 테이블의 비율이 너무 높습니다."
 
-#: libraries/advisory_rules_generic.php:420
+#: libraries/advisory_rules_generic.php:424
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
@@ -651,16 +651,16 @@ msgstr ""
 "테이블을 여는 데에는 디스크 입출력이 요구되어 시간이 많이 소모됩니다."
 "{table_open_cache}값을 올리는 것이 해결에 도움이 될 수 있습니다."
 
-#: libraries/advisory_rules_generic.php:423
+#: libraries/advisory_rules_generic.php:427
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr "열린 테이블 비율: %s, 이 값은 시간당 10보다 작아야 합니다"
 
-#: libraries/advisory_rules_generic.php:428
+#: libraries/advisory_rules_generic.php:432
 msgid "Percentage of used open files limit"
 msgstr "사용된 열린 파일 한도의 비율"
 
-#: libraries/advisory_rules_generic.php:432
+#: libraries/advisory_rules_generic.php:436
 #, fuzzy
 #| msgid ""
 #| "The number of open files is approaching the max number of open files.  "
@@ -672,8 +672,8 @@ msgstr ""
 "열린 파일들의 수가 최대 한계치에 근접하고 있습니다. \"Too many open files\" "
 "오류가 발생할 수 있습니다."
 
-#: libraries/advisory_rules_generic.php:436
-#: libraries/advisory_rules_generic.php:449
+#: libraries/advisory_rules_generic.php:440
+#: libraries/advisory_rules_generic.php:453
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing {open_files_limit}."
@@ -681,62 +681,62 @@ msgstr ""
 "{open_files_limit}를 증가시키는 것을 고려하시기 바라며, {open_files_limit} 값"
 "을 변경하고 재시작한 뒤 에러 로그를 확인하십시오."
 
-#: libraries/advisory_rules_generic.php:439
+#: libraries/advisory_rules_generic.php:443
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr "열린 파일은 한계치의 %s%%입니다. 이 수치는 85%% 미만이어야 합니다"
 
-#: libraries/advisory_rules_generic.php:444
+#: libraries/advisory_rules_generic.php:448
 msgid "Rate of open files"
 msgstr "열린 파일 비율"
 
-#: libraries/advisory_rules_generic.php:447
+#: libraries/advisory_rules_generic.php:451
 msgid "The rate of opening files is high."
 msgstr "열려있는 파일의 비율이 너무 높습니다."
 
-#: libraries/advisory_rules_generic.php:452
+#: libraries/advisory_rules_generic.php:456
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr "열린 파일 비율: %s, 이 값은 시간당 5 미만이어야 합니다"
 
-#: libraries/advisory_rules_generic.php:457
-#, fuzzy
+#: libraries/advisory_rules_generic.php:462
+#, fuzzy, no-php-format
 #| msgid "Immediate table locks %%"
 msgid "Immediate table locks %"
 msgstr "즉시 잠겨진 테이블 비율 %%"
 
-#: libraries/advisory_rules_generic.php:461
-#: libraries/advisory_rules_generic.php:471
+#: libraries/advisory_rules_generic.php:466
+#: libraries/advisory_rules_generic.php:476
 msgid "Too many table locks were not granted immediately."
 msgstr "즉시 승인되지 않는 테이블 락이 너무 많습니다."
 
-#: libraries/advisory_rules_generic.php:462
-#: libraries/advisory_rules_generic.php:472
+#: libraries/advisory_rules_generic.php:467
+#: libraries/advisory_rules_generic.php:477
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
 "쿼리를 최적화하거나 혹은 InnoDB를 사용함으로서 락대기 시간을 감소시킬 수 있습"
 "니다."
 
-#: libraries/advisory_rules_generic.php:463
+#: libraries/advisory_rules_generic.php:468
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr ""
 
-#: libraries/advisory_rules_generic.php:468
+#: libraries/advisory_rules_generic.php:473
 msgid "Table lock wait rate"
 msgstr "테이블락 대기 비율"
 
-#: libraries/advisory_rules_generic.php:473
+#: libraries/advisory_rules_generic.php:478
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr "테이블락 대기 비율: %s, 이 값은 시간당 1 미만이어야 합니다"
 
-#: libraries/advisory_rules_generic.php:478
+#: libraries/advisory_rules_generic.php:483
 msgid "Thread cache"
 msgstr "스레드 캐시"
 
-#: libraries/advisory_rules_generic.php:481
+#: libraries/advisory_rules_generic.php:486
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
@@ -744,43 +744,43 @@ msgstr ""
 "스레드 캐시가 비활성화 상태이므로 , MySQL의 새로운 연결은 좀 더 많ᅟ은 과부하"
 "가 발생합니다."
 
-#: libraries/advisory_rules_generic.php:482
+#: libraries/advisory_rules_generic.php:487
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
 "{thread_cache_size}를 0 이상으로 설정하여 스레드 캐시를 활성화할 수 있습니다."
 
-#: libraries/advisory_rules_generic.php:483
+#: libraries/advisory_rules_generic.php:488
 msgid "The thread cache is set to 0"
 msgstr "스레드 캐시가 0으로 설정되어 있습니다"
 
-#: libraries/advisory_rules_generic.php:487
-#, fuzzy
+#: libraries/advisory_rules_generic.php:493
+#, fuzzy, no-php-format
 #| msgid "Thread cache hit rate %%"
 msgid "Thread cache hit rate %"
 msgstr "쓰레드 캐시 히트율 %%"
 
-#: libraries/advisory_rules_generic.php:491
+#: libraries/advisory_rules_generic.php:497
 msgid "Thread cache is not efficient."
 msgstr "스레드 캐시가 비효율적입니다."
 
-#: libraries/advisory_rules_generic.php:492
+#: libraries/advisory_rules_generic.php:498
 msgid "Increase {thread_cache_size}."
 msgstr "{thread_cache_size}를 증가시켜야합니다."
 
-#: libraries/advisory_rules_generic.php:493
+#: libraries/advisory_rules_generic.php:499
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr "쓰레드 캐시 히트율이 %s%%이며, 정상적인 경우 80%% 이상입니다"
 
-#: libraries/advisory_rules_generic.php:498
+#: libraries/advisory_rules_generic.php:504
 msgid "Threads that are slow to launch"
 msgstr "시작하는데 너무 오래 걸리는 스레드"
 
-#: libraries/advisory_rules_generic.php:502
+#: libraries/advisory_rules_generic.php:508
 msgid "There are too many threads that are slow to launch."
 msgstr "실행이 느린 스레드가 너무 많습니다."
 
-#: libraries/advisory_rules_generic.php:504
+#: libraries/advisory_rules_generic.php:510
 msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
@@ -788,20 +788,20 @@ msgstr ""
 "이는 간단한 작업이기 때문에 주로 시스템에 과부하가 걸리는 경우에 발생합니다. "
 "시스템에 걸리는 부하를 모니터하시는 것이 도움이 될 수 있습니다."
 
-#: libraries/advisory_rules_generic.php:507
+#: libraries/advisory_rules_generic.php:513
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr "%s 스레드(들)이 시작에 %s초 이상 걸렸으며, 이는 0이 되어야 합니다"
 
-#: libraries/advisory_rules_generic.php:512
+#: libraries/advisory_rules_generic.php:518
 msgid "Slow launch time"
 msgstr ""
 
-#: libraries/advisory_rules_generic.php:515
+#: libraries/advisory_rules_generic.php:521
 msgid "Slow_launch_time is above 2s."
 msgstr "Slow_launch_time가 2 초를 초과함."
 
-#: libraries/advisory_rules_generic.php:517
+#: libraries/advisory_rules_generic.php:523
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch."
@@ -809,22 +809,22 @@ msgstr ""
 "시작에 오래 걸리는 스레드의 갯수를 정확히 세기 위해서는 {slow_launch_time} 값"
 "을 1초나 2초로 설정하십시오."
 
-#: libraries/advisory_rules_generic.php:519
+#: libraries/advisory_rules_generic.php:525
 #, php-format
 msgid "slow_launch_time is set to %s"
 msgstr "slow_launch_time이 %s로 설정되어 있습니다"
 
-#: libraries/advisory_rules_generic.php:525
+#: libraries/advisory_rules_generic.php:531
 msgid "Percentage of used connections"
 msgstr "사용된 연결의 비율"
 
-#: libraries/advisory_rules_generic.php:529
+#: libraries/advisory_rules_generic.php:535
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "{max_connections}."
 msgstr "사용된 연결의 최대값이 {max_connections} 값에 근접하고 있습니다."
 
-#: libraries/advisory_rules_generic.php:532
+#: libraries/advisory_rules_generic.php:538
 msgid ""
 "Increase {max_connections}, or decrease {wait_timeout} so that connections "
 "that do not close database handlers properly get killed sooner. Make sure "
@@ -834,24 +834,24 @@ msgstr ""
 "들러를 올바르게 닫지 않는 연결들이 빨리 제거될 수 있도록 하십시오. 코드에서 "
 "데이터베이스 핸들러를 올바르게 닫는지 확인하십시오."
 
-#: libraries/advisory_rules_generic.php:536
+#: libraries/advisory_rules_generic.php:542
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
 "max_used_connections이 max_connections의 %s%% 입니다. 80%% 미만을 권장합니다"
 
-#: libraries/advisory_rules_generic.php:541
+#: libraries/advisory_rules_generic.php:547
 msgid "Percentage of aborted connections"
 msgstr "종료된 연결의 비율"
 
-#: libraries/advisory_rules_generic.php:544
-#: libraries/advisory_rules_generic.php:558
+#: libraries/advisory_rules_generic.php:550
+#: libraries/advisory_rules_generic.php:564
 msgid "Too many connections are aborted."
 msgstr "너무 많은 연결이 종료되었습니다."
 
-#: libraries/advisory_rules_generic.php:546
-#: libraries/advisory_rules_generic.php:560
+#: libraries/advisory_rules_generic.php:552
+#: libraries/advisory_rules_generic.php:566
 msgid ""
 "Connections are usually aborted when they cannot be authorized. <a href="
 "\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
@@ -861,32 +861,32 @@ msgstr ""
 "percona.com/blog/2008/08/23/how-to-track-down-the-source-of-aborted_connects/"
 "\">이 게시물</a>이 원인을 추적하는 데 도움을 줄 수 있습니다."
 
-#: libraries/advisory_rules_generic.php:550
+#: libraries/advisory_rules_generic.php:556
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr "전체 연결 중 %s%%가 중지되었습니다. 이 값은 1%% 미만이어야 합니다"
 
-#: libraries/advisory_rules_generic.php:555
+#: libraries/advisory_rules_generic.php:561
 msgid "Rate of aborted connections"
 msgstr "종료된 연결 비율"
 
-#: libraries/advisory_rules_generic.php:564
+#: libraries/advisory_rules_generic.php:570
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr "중지된 연결 비율이 %s 입니다. 이 값은 시간당 1 미만이어야 합니다"
 
-#: libraries/advisory_rules_generic.php:569
+#: libraries/advisory_rules_generic.php:575
 msgid "Percentage of aborted clients"
 msgstr "종료된 클라이언트 비율"
 
-#: libraries/advisory_rules_generic.php:572
-#: libraries/advisory_rules_generic.php:586
+#: libraries/advisory_rules_generic.php:578
+#: libraries/advisory_rules_generic.php:592
 msgid "Too many clients are aborted."
 msgstr "너무 많은 클라이언트가 종료되었습니다."
 
-#: libraries/advisory_rules_generic.php:574
-#: libraries/advisory_rules_generic.php:588
+#: libraries/advisory_rules_generic.php:580
+#: libraries/advisory_rules_generic.php:594
 msgid ""
 "Clients are usually aborted when they did not close their connection to "
 "MySQL properly. This can be due to network issues or code not closing a "
@@ -896,48 +896,48 @@ msgstr ""
 "웍 문제이거나 코드상에서의 DB 핸들러가 적절하게 연결을 닫아주지 않아서 이런 "
 "문제가 발생합니다. 네트웍 상태와 소스 코드를 확인해보세요."
 
-#: libraries/advisory_rules_generic.php:578
+#: libraries/advisory_rules_generic.php:584
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr "%s%% 의 연결이 모두 거부당했습니다. 값을 2%% 이하로 설정해보세요"
 
-#: libraries/advisory_rules_generic.php:583
+#: libraries/advisory_rules_generic.php:589
 msgid "Rate of aborted clients"
 msgstr "종료된 클라이언트 비율"
 
-#: libraries/advisory_rules_generic.php:592
+#: libraries/advisory_rules_generic.php:598
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr "접속 실패율이 %s 입니다. 이 값은 시간당 1 미만이어야 합니다"
 
-#: libraries/advisory_rules_generic.php:598
+#: libraries/advisory_rules_generic.php:604
 msgid "Is InnoDB disabled?"
 msgstr "InnoDB를 비활성화할까요?"
 
-#: libraries/advisory_rules_generic.php:602
+#: libraries/advisory_rules_generic.php:608
 msgid "You do not have InnoDB enabled."
 msgstr "InnoDB가 활성화되지 않았습니다."
 
-#: libraries/advisory_rules_generic.php:603
+#: libraries/advisory_rules_generic.php:609
 msgid "InnoDB is usually the better choice for table engines."
 msgstr "테이블엔진 선택에서 일반적으로 InnoDB는 가장 좋은 선택입니다."
 
-#: libraries/advisory_rules_generic.php:604
+#: libraries/advisory_rules_generic.php:610
 msgid "have_innodb is set to 'value'"
 msgstr "have_innodb가 'value'로 설정되었습니다"
 
-#: libraries/advisory_rules_generic.php:608
+#: libraries/advisory_rules_generic.php:614
 msgid "InnoDB log size"
 msgstr "InnoDB 로그 크기"
 
-#: libraries/advisory_rules_generic.php:613
+#: libraries/advisory_rules_generic.php:619
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
 msgstr "InnoDB 로그 파일 크기가 InnoDB 버퍼풀과 비교해서 적합하지 않습니다."
 
-#: libraries/advisory_rules_generic.php:616
-#, fuzzy, php-format
+#: libraries/advisory_rules_generic.php:622
+#, fuzzy, no-php-format
 #| msgid ""
 #| "Especially on a system with a lot of writes to InnoDB tables you should "
 #| "set {innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However "
@@ -971,7 +971,7 @@ msgstr ""
 "innodblogfilesize-proper-way.html\">Increase innodb_log_file_size: the "
 "proper way</a> (영어)"
 
-#: libraries/advisory_rules_generic.php:627
+#: libraries/advisory_rules_generic.php:633
 #, php-format
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
@@ -980,16 +980,16 @@ msgstr ""
 "InnoDB 로그 크기가 InnoDB 버퍼 풀 크기의 %s%% 입니다. 이 값은 20%% 이상이어"
 "야 합니다"
 
-#: libraries/advisory_rules_generic.php:634
+#: libraries/advisory_rules_generic.php:640
 msgid "Max InnoDB log size"
 msgstr "InnoDB 로그 최대크기"
 
-#: libraries/advisory_rules_generic.php:638
+#: libraries/advisory_rules_generic.php:644
 msgid "The InnoDB log file size is inadequately large."
 msgstr "InnoDB 로그 파일크기가 비정상적으로 큽니다."
 
-#: libraries/advisory_rules_generic.php:640
-#, fuzzy, php-format
+#: libraries/advisory_rules_generic.php:646
+#, fuzzy, no-php-format
 #| msgid ""
 #| "Especially on a system with a lot of writes to InnoDB tables you should "
 #| "set {innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However "
@@ -1023,21 +1023,21 @@ msgstr ""
 "innodblogfilesize-proper-way.html\">Increase innodb_log_file_size: the "
 "proper way</a> (영어)"
 
-#: libraries/advisory_rules_generic.php:650
+#: libraries/advisory_rules_generic.php:656
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "InnoDB 로그 절대크기는 %s MiB 입니다"
 
-#: libraries/advisory_rules_generic.php:655
+#: libraries/advisory_rules_generic.php:661
 msgid "InnoDB buffer pool size"
 msgstr "InnoDB 버퍼풀 크기"
 
-#: libraries/advisory_rules_generic.php:659
+#: libraries/advisory_rules_generic.php:665
 msgid "Your InnoDB buffer pool is fairly small."
 msgstr "InnoDB 버퍼풀이 너무 작습니다."
 
-#: libraries/advisory_rules_generic.php:661
-#, fuzzy, php-format
+#: libraries/advisory_rules_generic.php:667
+#, fuzzy, no-php-format
 #| msgid ""
 #| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 #| "tables. Assign all your remaining memory to this buffer. For database "
@@ -1070,7 +1070,7 @@ msgstr ""
 "집니다. <a href=\"https://www.percona.com/blog/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">이 글</a> 또한 참고하세요"
 
-#: libraries/advisory_rules_generic.php:671
+#: libraries/advisory_rules_generic.php:677
 #, php-format
 msgid ""
 "You are currently using %s%% of your memory for the InnoDB buffer pool. This "
@@ -1082,15 +1082,15 @@ msgstr ""
 "할당했다면 이 규칙이 실행됩니다. 단, InnoDB 테이블이 많이 없거나, 다른 서비스"
 "가 현재 서버에 실행중일 경우에는 이 값이 매우 적절할 수 있습니다."
 
-#: libraries/advisory_rules_generic.php:681
+#: libraries/advisory_rules_generic.php:687
 msgid "MyISAM concurrent inserts"
 msgstr "MyISAM으로 동시 입력"
 
-#: libraries/advisory_rules_generic.php:684
+#: libraries/advisory_rules_generic.php:690
 msgid "Enable {concurrent_insert} by setting it to 1"
 msgstr "{concurrent_insert}를 1로 설정하여 활성화합니다"
 
-#: libraries/advisory_rules_generic.php:686
+#: libraries/advisory_rules_generic.php:692
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
 "writers for a given table. See also <a href=\"https://dev.mysql.com/doc/"
@@ -1100,7 +1100,7 @@ msgstr ""
 "(contention)을 줄일 수 있습니다. 참고: <a href=\"https://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL 문서</a>"
 
-#: libraries/advisory_rules_generic.php:690
+#: libraries/advisory_rules_generic.php:696
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert가 0으로 설정되었습니다"
 
@@ -1130,36 +1130,36 @@ msgstr ""
 "query_cache_size가 0으로 설정되어 있거나 query_cache_type가 'OFF' 로 설정되"
 "어 있습니다"
 
-#: libraries/advisory_rules_mysql_before80003.php:22
-#, fuzzy
+#: libraries/advisory_rules_mysql_before80003.php:23
+#, fuzzy, no-php-format
 #| msgid "Query cache efficiency (%%)"
 msgid "Query cache efficiency (%)"
 msgstr "질의 캐시 효율 (%%)"
 
-#: libraries/advisory_rules_mysql_before80003.php:26
+#: libraries/advisory_rules_mysql_before80003.php:27
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr "쿼리 캐시가 능률적으로 실행중이지 않습니다, 낮은 적중률을 가집니다."
 
-#: libraries/advisory_rules_mysql_before80003.php:27
+#: libraries/advisory_rules_mysql_before80003.php:28
 msgid "Consider increasing {query_cache_limit}."
 msgstr "{query_cache_limit}를 증가시키는것을 고려하세요."
 
-#: libraries/advisory_rules_mysql_before80003.php:28
+#: libraries/advisory_rules_mysql_before80003.php:29
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr "현재 쿼리 캐시 히트 율은 20%%아래의 %s%%입니다"
 
-#: libraries/advisory_rules_mysql_before80003.php:33
+#: libraries/advisory_rules_mysql_before80003.php:34
 msgid "Query Cache usage"
 msgstr "질의(쿼리) 캐시 사용(율)"
 
-#: libraries/advisory_rules_mysql_before80003.php:37
-#, fuzzy, php-format
+#: libraries/advisory_rules_mysql_before80003.php:39
+#, fuzzy, no-php-format
 #| msgid "Less than 80%% of the query cache is being utilized."
 msgid "Less than 80% of the query cache is being utilized."
 msgstr "쿼리 캐시의 80%% 미만이 활용되고 있습니다."
 
-#: libraries/advisory_rules_mysql_before80003.php:39
+#: libraries/advisory_rules_mysql_before80003.php:41
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
@@ -1167,7 +1167,7 @@ msgstr ""
 "이것은 {query_cache_limit}이 너무 낮아 발생했을 수 있습니다. 질의 캐시를 비우"
 "는게 도움이 될 수 있습니다."
 
-#: libraries/advisory_rules_mysql_before80003.php:43
+#: libraries/advisory_rules_mysql_before80003.php:45
 #, php-format
 msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
@@ -1176,15 +1176,15 @@ msgstr ""
 "전체 쿼리 캐시 크기(Size)에서 남은 쿼리 캐시 메모리의 현재 비율은 %s%% 입니"
 "다. 80%%보다 높아야 됩니다"
 
-#: libraries/advisory_rules_mysql_before80003.php:50
+#: libraries/advisory_rules_mysql_before80003.php:52
 msgid "Query cache fragmentation"
 msgstr "쿼리 캐시 분열(단편화)"
 
-#: libraries/advisory_rules_mysql_before80003.php:54
+#: libraries/advisory_rules_mysql_before80003.php:56
 msgid "The query cache is considerably fragmented."
 msgstr "쿼리 캐시가 상당히 단편화(분열)되었음."
 
-#: libraries/advisory_rules_mysql_before80003.php:56
+#: libraries/advisory_rules_mysql_before80003.php:58
 msgid ""
 "Severe fragmentation is likely to (further) increase Qcache_lowmem_prunes. "
 "This might be caused by many Query cache low memory prunes due to "
@@ -1196,7 +1196,7 @@ msgid ""
 "qcache_queries_in_cache"
 msgstr ""
 
-#: libraries/advisory_rules_mysql_before80003.php:64
+#: libraries/advisory_rules_mysql_before80003.php:66
 #, php-format
 msgid ""
 "The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
@@ -1204,19 +1204,19 @@ msgid ""
 "value should be below 20%%."
 msgstr ""
 
-#: libraries/advisory_rules_mysql_before80003.php:71
+#: libraries/advisory_rules_mysql_before80003.php:73
 #, fuzzy
 #| msgid "Query cache used"
 msgid "Query cache low memory prunes"
 msgstr "질의 캐시 사용됨"
 
-#: libraries/advisory_rules_mysql_before80003.php:75
+#: libraries/advisory_rules_mysql_before80003.php:77
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
 msgstr "질의 캐시 메모리가 부족해 캐시되었던 질의가 삭제되었습니다."
 
-#: libraries/advisory_rules_mysql_before80003.php:77
+#: libraries/advisory_rules_mysql_before80003.php:79
 msgid ""
 "You might want to increase {query_cache_size}, however keep in mind that the "
 "overhead of maintaining the cache is likely to increase with its size, so do "
@@ -1226,7 +1226,7 @@ msgstr ""
 "캐시 유지 오버헤드가 같이 증가할 수 있습니다. 그러므로 양을 조금씩 늘리면서 "
 "모니터링하세요."
 
-#: libraries/advisory_rules_mysql_before80003.php:82
+#: libraries/advisory_rules_mysql_before80003.php:84
 #, php-format
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
@@ -1235,11 +1235,11 @@ msgstr ""
 "추가된 쿼리에 대한 제거된 쿼리의 비율이 %s%%입니다. 이 값은 작을수록 좋습니"
 "다. (규칙 동작 기준: 0.1%%)"
 
-#: libraries/advisory_rules_mysql_before80003.php:89
+#: libraries/advisory_rules_mysql_before80003.php:91
 msgid "Query cache max size"
 msgstr "쿼리 캐시의 최대 크기"
 
-#: libraries/advisory_rules_mysql_before80003.php:94
+#: libraries/advisory_rules_mysql_before80003.php:96
 msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
@@ -1247,27 +1247,27 @@ msgstr ""
 "질의 캐시크기가 128 MB 보다 큽니다. 질의 캐시가 크면 캐시를 유지하기 위한 관"
 "리가 발생해 효율이 나빠질 수 있습니다."
 
-#: libraries/advisory_rules_mysql_before80003.php:98
+#: libraries/advisory_rules_mysql_before80003.php:100
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
 msgstr "이 값을 감소시켜 성능을 향상할 수 있음(환경에 따라 다름)."
 
-#: libraries/advisory_rules_mysql_before80003.php:100
+#: libraries/advisory_rules_mysql_before80003.php:102
 #, php-format
 msgid "Current query cache size: %s"
 msgstr "쿼리 캐시의 크기: %s"
 
-#: libraries/advisory_rules_mysql_before80003.php:105
+#: libraries/advisory_rules_mysql_before80003.php:107
 msgid "Query cache min result size"
 msgstr "쿼리 캐시 최소 결과 크기"
 
-#: libraries/advisory_rules_mysql_before80003.php:109
+#: libraries/advisory_rules_mysql_before80003.php:111
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr "쿼리 캐시의 결과 셋의 최대 크기가 기본값인 1 MiB 입니다."
 
-#: libraries/advisory_rules_mysql_before80003.php:111
+#: libraries/advisory_rules_mysql_before80003.php:113
 msgid ""
 "Changing {query_cache_limit} (usually by increasing) may increase "
 "efficiency. This variable determines the maximum size a query result may "
@@ -1285,7 +1285,7 @@ msgstr ""
 "의 캐시될 가능성이 낮은 쿼리 결과(테이블 업데이트로 캐시가 무효화된다던가)가 "
 "많은 경우, {query_cache_limit}를 증가시키는 것은 효율을 낮출 수도 있습니다."
 
-#: libraries/advisory_rules_mysql_before80003.php:118
+#: libraries/advisory_rules_mysql_before80003.php:120
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit가 1Mib로 설정되었습니다"
 

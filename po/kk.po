@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-08-31 16:20-0300\n"
+"POT-Creation-Date: 2020-08-31 19:04-0300\n"
 "PO-Revision-Date: 2019-09-18 18:27+0000\n"
 "Last-Translator: WWWesten <wwwesten@gmail.com>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -605,21 +605,21 @@ msgstr ""
 msgid "key_buffer_size is 0"
 msgstr "key_buffer_size máni 0 teń"
 
-#: libraries/advisory_rules_generic.php:372
-#, fuzzy
+#: libraries/advisory_rules_generic.php:373
+#, fuzzy, no-php-format
 #| msgid "Max %% MyISAM key buffer ever used"
 msgid "Max % MyISAM key buffer ever used"
 msgstr "Eń kóp %% MyISAM kilt býferi esqashan paıdalanylǵan"
 
-#: libraries/advisory_rules_generic.php:376
-#: libraries/advisory_rules_generic.php:392
-#, fuzzy, php-format
+#: libraries/advisory_rules_generic.php:378
+#: libraries/advisory_rules_generic.php:395
+#, fuzzy, no-php-format
 #| msgid "MyISAM key buffer (index cache) %% used is low."
 msgid "MyISAM key buffer (index cache) % used is low."
 msgstr "MyISAM kilt býferi (ındeks keshi) %% paıdalanylaǵany tómen."
 
-#: libraries/advisory_rules_generic.php:378
-#: libraries/advisory_rules_generic.php:394
+#: libraries/advisory_rules_generic.php:380
+#: libraries/advisory_rules_generic.php:397
 msgid ""
 "You may need to decrease the size of {key_buffer_size}, re-examine your "
 "tables to see if indexes have been removed, or examine queries and "
@@ -629,7 +629,7 @@ msgstr ""
 "alastalǵanyna kóz jetkizý úshin kestelerińizdi qaıta tekserińiz nemese "
 "qandaı ındeksterdiń paıdalanylatyny týraly saýaldar men kútýlerdi tekserińiz."
 
-#: libraries/advisory_rules_generic.php:382
+#: libraries/advisory_rules_generic.php:384
 #, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
@@ -637,44 +637,44 @@ msgstr ""
 "Eń kóp %% MyISAM kilt býferi esqashan paıdalanylǵan: %s%%, bul mán 95 %% "
 "joǵary bolýy qajet"
 
-#: libraries/advisory_rules_generic.php:387
+#: libraries/advisory_rules_generic.php:389
 msgid "Percentage of MyISAM key buffer used"
 msgstr "MyISAM kilt býferiniń paıdalanylǵan paıyzdyǵy"
 
-#: libraries/advisory_rules_generic.php:398
+#: libraries/advisory_rules_generic.php:401
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
 "%% MyISAM kilt býferin paıdalanylǵany: %s%%, bul mán 95 %% joǵary bolýy qajet"
 
-#: libraries/advisory_rules_generic.php:403
+#: libraries/advisory_rules_generic.php:406
 msgid "Percentage of index reads from memory"
 msgstr "Indekstiń jadtan oqılǵan paıyzdyǵy"
 
-#: libraries/advisory_rules_generic.php:407
-#, fuzzy, php-format
+#: libraries/advisory_rules_generic.php:411
+#, fuzzy, no-php-format
 #| msgid "The %% of indexes that use the MyISAM key buffer is low."
 msgid "The % of indexes that use the MyISAM key buffer is low."
 msgstr "MyISAM kilt býferin paıdalanatyn ındekster %% tómen."
 
-#: libraries/advisory_rules_generic.php:408
+#: libraries/advisory_rules_generic.php:412
 msgid "You may need to increase {key_buffer_size}."
 msgstr "{key_buffer_size} arttyrý qajet bolýy múmkin."
 
-#: libraries/advisory_rules_generic.php:409
+#: libraries/advisory_rules_generic.php:413
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr "Indeks jadtan oqylǵany: %s%%, bul mán 95 %% joǵary bolýy qajet"
 
-#: libraries/advisory_rules_generic.php:415
+#: libraries/advisory_rules_generic.php:419
 msgid "Rate of table open"
 msgstr "Asyq keste araqatynasy"
 
-#: libraries/advisory_rules_generic.php:418
+#: libraries/advisory_rules_generic.php:422
 msgid "The rate of opening tables is high."
 msgstr "Ashyq kesteler araqatynasy joǵary bolyp tabylady."
 
-#: libraries/advisory_rules_generic.php:420
+#: libraries/advisory_rules_generic.php:424
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
@@ -682,17 +682,17 @@ msgstr ""
 "Kestelerdi ashý dıskilik kirgizý/shyǵarý áreketterin qajetetedi, ol shyǵyndy "
 "bolýy múmkin. {table_open_cache} mánin kóbeıtkende odan aýlaqtandyrý múmkin."
 
-#: libraries/advisory_rules_generic.php:423
+#: libraries/advisory_rules_generic.php:427
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
 "Ashylǵan keste araqatynasy: %s, bul mán saǵatyna 10-nan tómen bolýy qajet"
 
-#: libraries/advisory_rules_generic.php:428
+#: libraries/advisory_rules_generic.php:432
 msgid "Percentage of used open files limit"
 msgstr "Paıdalanylatyn ashyq faıldar sheginiń paıyzdyǵy"
 
-#: libraries/advisory_rules_generic.php:432
+#: libraries/advisory_rules_generic.php:436
 #, fuzzy
 #| msgid ""
 #| "The number of open files is approaching the max number of open files.  "
@@ -704,8 +704,8 @@ msgstr ""
 "Ashylǵan faıldyń sany ashyq faıldyń eń kóp sanyna jaqyndady. «Tym kóp ashyq "
 "faıldar» qatesi bolýy múmkin."
 
-#: libraries/advisory_rules_generic.php:436
-#: libraries/advisory_rules_generic.php:449
+#: libraries/advisory_rules_generic.php:440
+#: libraries/advisory_rules_generic.php:453
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing {open_files_limit}."
@@ -713,63 +713,63 @@ msgstr ""
 "{open_files_limit} kóbeıtýdi qarastyryńyz, jáne {open_files_limit} "
 "ózgertkennen keıin qaıta iske qosylǵan kezde qateler jurnalyn tekserińiz."
 
-#: libraries/advisory_rules_generic.php:439
+#: libraries/advisory_rules_generic.php:443
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr "Ashylǵan faıldyń sany shekten %s %% boldy. Ol 85 %% tómen bolýy qajet"
 
-#: libraries/advisory_rules_generic.php:444
+#: libraries/advisory_rules_generic.php:448
 msgid "Rate of open files"
 msgstr "Ashyq faıldar araqatynasy"
 
-#: libraries/advisory_rules_generic.php:447
+#: libraries/advisory_rules_generic.php:451
 msgid "The rate of opening files is high."
 msgstr "Ashyq faıldar araqatynasy joǵary bolyp tabylady."
 
-#: libraries/advisory_rules_generic.php:452
+#: libraries/advisory_rules_generic.php:456
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr "Ashyq faıldar araqatynasy: %s, bul mán saǵatyna 5-ten kem bolýy kerek"
 
-#: libraries/advisory_rules_generic.php:457
-#, fuzzy
+#: libraries/advisory_rules_generic.php:462
+#, fuzzy, no-php-format
 #| msgid "Immediate table locks %%"
 msgid "Immediate table locks %"
 msgstr "Dereý keste qulyptary %%"
 
-#: libraries/advisory_rules_generic.php:461
-#: libraries/advisory_rules_generic.php:471
+#: libraries/advisory_rules_generic.php:466
+#: libraries/advisory_rules_generic.php:476
 msgid "Too many table locks were not granted immediately."
 msgstr "Tym kóp keste qulyptary birden berilmedi."
 
-#: libraries/advisory_rules_generic.php:462
-#: libraries/advisory_rules_generic.php:472
+#: libraries/advisory_rules_generic.php:467
+#: libraries/advisory_rules_generic.php:477
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
 "Saýaldardy ońtaılandyryńyz jáne/nemese qulyptaý kútýin azaıtý úshin InnoDB "
 "paıdalanyńyz."
 
-#: libraries/advisory_rules_generic.php:463
+#: libraries/advisory_rules_generic.php:468
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr "Dereý keste qulyptary: %s%%, bul mán 95 %% joǵary bolýy qajet"
 
-#: libraries/advisory_rules_generic.php:468
+#: libraries/advisory_rules_generic.php:473
 msgid "Table lock wait rate"
 msgstr "Keste qultptaýdy kútý araqatynasy"
 
-#: libraries/advisory_rules_generic.php:473
+#: libraries/advisory_rules_generic.php:478
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
 "Keste qultptaýdy kútý araqatynasy: %s, bul mán saǵatyna 1-den kem bolýy kerek"
 
-#: libraries/advisory_rules_generic.php:478
+#: libraries/advisory_rules_generic.php:483
 msgid "Thread cache"
 msgstr "Tizbek keshi"
 
-#: libraries/advisory_rules_generic.php:481
+#: libraries/advisory_rules_generic.php:486
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
@@ -777,44 +777,44 @@ msgstr ""
 "Tizbek keshi óshirildi, MySQL úshin jańa qosylymdardan nátıjesinde kóbirek "
 "ústeme bolady."
 
-#: libraries/advisory_rules_generic.php:482
+#: libraries/advisory_rules_generic.php:487
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
 "Tizbek keshin {thread_cache_size}> 0 parametrin ornatý arqyly iske qosý."
 
-#: libraries/advisory_rules_generic.php:483
+#: libraries/advisory_rules_generic.php:488
 msgid "The thread cache is set to 0"
 msgstr "Tizbek keshi 0 mánine ornatylǵan"
 
-#: libraries/advisory_rules_generic.php:487
-#, fuzzy
+#: libraries/advisory_rules_generic.php:493
+#, fuzzy, no-php-format
 #| msgid "Thread cache hit rate %%"
 msgid "Thread cache hit rate %"
 msgstr "Tizbek keshiniń sáıkestik jıiligi %%"
 
-#: libraries/advisory_rules_generic.php:491
+#: libraries/advisory_rules_generic.php:497
 msgid "Thread cache is not efficient."
 msgstr "Tizbek keshi tıimdi emes."
 
-#: libraries/advisory_rules_generic.php:492
+#: libraries/advisory_rules_generic.php:498
 msgid "Increase {thread_cache_size}."
 msgstr "{thread_cache_size} mánin arttyrý."
 
-#: libraries/advisory_rules_generic.php:493
+#: libraries/advisory_rules_generic.php:499
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr ""
 "Tizbek keshiniń sáıkestik jıiligi: %s%%, bul mán 80 %% joǵary bolýy qajet"
 
-#: libraries/advisory_rules_generic.php:498
+#: libraries/advisory_rules_generic.php:504
 msgid "Threads that are slow to launch"
 msgstr "Iske qosý úshin tizbekter baıaý"
 
-#: libraries/advisory_rules_generic.php:502
+#: libraries/advisory_rules_generic.php:508
 msgid "There are too many threads that are slow to launch."
 msgstr "Munda tym kóp tizbekter bar, olar iske qosý úshin baıaý."
 
-#: libraries/advisory_rules_generic.php:504
+#: libraries/advisory_rules_generic.php:510
 msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
@@ -822,20 +822,20 @@ msgstr ""
 "Bul, ádette, jalpy júıeniń shamadan tys júktemesi jaǵdaıda oryn alady, "
 "sebebi bul óte qarapaıym áreketter. Júıe júktemesin muqıat qadaǵalaı alasyz."
 
-#: libraries/advisory_rules_generic.php:507
+#: libraries/advisory_rules_generic.php:513
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr "%s tizbek bastaý úshin %s sekýntten uzaǵyraq aldy, ol 0 bolýy qajet"
 
-#: libraries/advisory_rules_generic.php:512
+#: libraries/advisory_rules_generic.php:518
 msgid "Slow launch time"
 msgstr "Baıaý iske qosý ýaqyty"
 
-#: libraries/advisory_rules_generic.php:515
+#: libraries/advisory_rules_generic.php:521
 msgid "Slow_launch_time is above 2s."
 msgstr "Slow_launch_time 2 sek joǵary."
 
-#: libraries/advisory_rules_generic.php:517
+#: libraries/advisory_rules_generic.php:523
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch."
@@ -843,16 +843,16 @@ msgstr ""
 "Iske qosý úshin baıaý tizbekterdi durys esepteý úshin {slow_launch_time} "
 "parametrin 1 sek nemese 2 sek mánine ornatyńyz."
 
-#: libraries/advisory_rules_generic.php:519
+#: libraries/advisory_rules_generic.php:525
 #, php-format
 msgid "slow_launch_time is set to %s"
 msgstr "slow_launch_time %s mánine ornatylǵan"
 
-#: libraries/advisory_rules_generic.php:525
+#: libraries/advisory_rules_generic.php:531
 msgid "Percentage of used connections"
 msgstr "Paıdalanylǵan qosylymdar paıyzdyǵy"
 
-#: libraries/advisory_rules_generic.php:529
+#: libraries/advisory_rules_generic.php:535
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "{max_connections}."
@@ -860,7 +860,7 @@ msgstr ""
 "Paıdalanylǵan qosylymdardyń eń kóp mólsheri {max_connections} mánine "
 "jaqyndady."
 
-#: libraries/advisory_rules_generic.php:532
+#: libraries/advisory_rules_generic.php:538
 msgid ""
 "Increase {max_connections}, or decrease {wait_timeout} so that connections "
 "that do not close database handlers properly get killed sooner. Make sure "
@@ -870,7 +870,7 @@ msgstr ""
 "sonda derekqor óńdeýishterin durys jappaıtyn qosylymdar tezirek úziledi. "
 "Derekqor óńdeýishterin kod durys jabatynyna kóz jetkizińiz."
 
-#: libraries/advisory_rules_generic.php:536
+#: libraries/advisory_rules_generic.php:542
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
@@ -878,17 +878,17 @@ msgstr ""
 "Max_used_connections parametri max_connections parametriniń %s %% máninde, "
 "ol 80 %% tómen bolýy qajet"
 
-#: libraries/advisory_rules_generic.php:541
+#: libraries/advisory_rules_generic.php:547
 msgid "Percentage of aborted connections"
 msgstr "Úzilgen qosylymdar paıyzdyǵy"
 
-#: libraries/advisory_rules_generic.php:544
-#: libraries/advisory_rules_generic.php:558
+#: libraries/advisory_rules_generic.php:550
+#: libraries/advisory_rules_generic.php:564
 msgid "Too many connections are aborted."
 msgstr "Tym kóp qosylymdar úzildi."
 
-#: libraries/advisory_rules_generic.php:546
-#: libraries/advisory_rules_generic.php:560
+#: libraries/advisory_rules_generic.php:552
+#: libraries/advisory_rules_generic.php:566
 msgid ""
 "Connections are usually aborted when they cannot be authorized. <a href="
 "\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
@@ -898,33 +898,33 @@ msgstr ""
 "\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
 "aborted_connects/\">Bul maqala</a> qaınardy tabýǵa kómektesýi múmkin."
 
-#: libraries/advisory_rules_generic.php:550
+#: libraries/advisory_rules_generic.php:556
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr "Barlyq qosylymdardyń %s %% úzildi. Bul mán 1 %% tómen bolýy qajet"
 
-#: libraries/advisory_rules_generic.php:555
+#: libraries/advisory_rules_generic.php:561
 msgid "Rate of aborted connections"
 msgstr "Úzilgen qosylymdar araqatynasy"
 
-#: libraries/advisory_rules_generic.php:564
+#: libraries/advisory_rules_generic.php:570
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
 "Úzilgen qosylymdar araqatynasy %s, bul mán saǵatyna 1-den kem bolýy kerek"
 
-#: libraries/advisory_rules_generic.php:569
+#: libraries/advisory_rules_generic.php:575
 msgid "Percentage of aborted clients"
 msgstr "Úzilgen klıentter paızdyǵy"
 
-#: libraries/advisory_rules_generic.php:572
-#: libraries/advisory_rules_generic.php:586
+#: libraries/advisory_rules_generic.php:578
+#: libraries/advisory_rules_generic.php:592
 msgid "Too many clients are aborted."
 msgstr "Tym kóp klıentter úzildi."
 
-#: libraries/advisory_rules_generic.php:574
-#: libraries/advisory_rules_generic.php:588
+#: libraries/advisory_rules_generic.php:580
+#: libraries/advisory_rules_generic.php:594
 msgid ""
 "Clients are usually aborted when they did not close their connection to "
 "MySQL properly. This can be due to network issues or code not closing a "
@@ -934,41 +934,41 @@ msgstr ""
 "úziledi. Bul jelilik aqaýlaryna nemese derekqor óńdeýishine arnalǵan kod ony "
 "durys jappaǵanyna baılanysty bolýy múmkin. Jelińizdi jáne kodty tekserińiz."
 
-#: libraries/advisory_rules_generic.php:578
+#: libraries/advisory_rules_generic.php:584
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr "Barlyq klıentterden %s%% úzildi. Bul mán 2 %% tómen bolýy qajet"
 
-#: libraries/advisory_rules_generic.php:583
+#: libraries/advisory_rules_generic.php:589
 msgid "Rate of aborted clients"
 msgstr "Úzilgen klıentter araqatynasy"
 
-#: libraries/advisory_rules_generic.php:592
+#: libraries/advisory_rules_generic.php:598
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr "Úzilgen klıent araqatynasy: %s, bul mán saǵatyna birden az bolýy qajet"
 
-#: libraries/advisory_rules_generic.php:598
+#: libraries/advisory_rules_generic.php:604
 msgid "Is InnoDB disabled?"
 msgstr "InnoDB óshirilgen be?"
 
-#: libraries/advisory_rules_generic.php:602
+#: libraries/advisory_rules_generic.php:608
 msgid "You do not have InnoDB enabled."
 msgstr "InnoDB qosypaǵansyz."
 
-#: libraries/advisory_rules_generic.php:603
+#: libraries/advisory_rules_generic.php:609
 msgid "InnoDB is usually the better choice for table engines."
 msgstr "InnoDB keste mehanızmdary úshin ádette jaqsy tańdaý bolyp tabylady."
 
-#: libraries/advisory_rules_generic.php:604
+#: libraries/advisory_rules_generic.php:610
 msgid "have_innodb is set to 'value'"
 msgstr "have_innodb «value» mánine ornatylǵan"
 
-#: libraries/advisory_rules_generic.php:608
+#: libraries/advisory_rules_generic.php:614
 msgid "InnoDB log size"
 msgstr "InnoDB jurnal ólshemi"
 
-#: libraries/advisory_rules_generic.php:613
+#: libraries/advisory_rules_generic.php:619
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
@@ -976,8 +976,8 @@ msgstr ""
 "InnoDB býferiniń pýlyna qatysty, InnoDB jurnal faılynyń ólshemi tıisti "
 "ólshem bolyp tabylmaıdy."
 
-#: libraries/advisory_rules_generic.php:616
-#, fuzzy, php-format
+#: libraries/advisory_rules_generic.php:622
+#, fuzzy, no-php-format
 #| msgid ""
 #| "Especially on a system with a lot of writes to InnoDB tables you should "
 #| "set {innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However "
@@ -1011,7 +1011,7 @@ msgstr ""
 "href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">bul blog jazbasyn</a> qarańyz"
 
-#: libraries/advisory_rules_generic.php:627
+#: libraries/advisory_rules_generic.php:633
 #, php-format
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
@@ -1020,16 +1020,16 @@ msgstr ""
 "InnoDB býferi pýlynyń ólshemine qatysty InnoDB jurnalyńyzdyń ólshemi %s %%, "
 "ol 20 %% tómen bolmaýy qajet"
 
-#: libraries/advisory_rules_generic.php:634
+#: libraries/advisory_rules_generic.php:640
 msgid "Max InnoDB log size"
 msgstr "InnoDB jurnalynyń eń kóp ólshemi"
 
-#: libraries/advisory_rules_generic.php:638
+#: libraries/advisory_rules_generic.php:644
 msgid "The InnoDB log file size is inadequately large."
 msgstr "InnoDB jurnalynyń ólshemi laıyqsyz úlken."
 
-#: libraries/advisory_rules_generic.php:640
-#, fuzzy, php-format
+#: libraries/advisory_rules_generic.php:646
+#, fuzzy, no-php-format
 #| msgid ""
 #| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
 #| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
@@ -1062,21 +1062,21 @@ msgstr ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">bul blog jazbasyn</a> qarańyz"
 
-#: libraries/advisory_rules_generic.php:650
+#: libraries/advisory_rules_generic.php:656
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "InnoDB jurnalynyń naqpa-naq ólshemi %s MiB"
 
-#: libraries/advisory_rules_generic.php:655
+#: libraries/advisory_rules_generic.php:661
 msgid "InnoDB buffer pool size"
 msgstr "InnoDB býfer pýlynyń ólshemi"
 
-#: libraries/advisory_rules_generic.php:659
+#: libraries/advisory_rules_generic.php:665
 msgid "Your InnoDB buffer pool is fairly small."
 msgstr "InnoDB býfer pýly jeterlikteı az."
 
-#: libraries/advisory_rules_generic.php:661
-#, fuzzy, php-format
+#: libraries/advisory_rules_generic.php:667
+#, fuzzy, no-php-format
 #| msgid ""
 #| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 #| "tables. Assign all your remaining memory to this buffer. For database "
@@ -1111,7 +1111,7 @@ msgstr ""
 "qatar <a href=\"https://www.percona.com/blog/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">bul maqalany</a> qarańyz"
 
-#: libraries/advisory_rules_generic.php:671
+#: libraries/advisory_rules_generic.php:677
 #, php-format
 msgid ""
 "You are currently using %s%% of your memory for the InnoDB buffer pool. This "
@@ -1124,15 +1124,15 @@ msgstr ""
 "kóp InnoDB kesteleri nemese basqa oryndalatyn qyzmetter bolmasa, bul júıeńiz "
 "úshin tolyq sáıkes bolýy múmkin."
 
-#: libraries/advisory_rules_generic.php:681
+#: libraries/advisory_rules_generic.php:687
 msgid "MyISAM concurrent inserts"
 msgstr "MyISAM birkezdik kiristirýleri"
 
-#: libraries/advisory_rules_generic.php:684
+#: libraries/advisory_rules_generic.php:690
 msgid "Enable {concurrent_insert} by setting it to 1"
 msgstr "Mánin 1-ge ornatý arqyly {concurrent_insert} qosý"
 
-#: libraries/advisory_rules_generic.php:686
+#: libraries/advisory_rules_generic.php:692
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
 "writers for a given table. See also <a href=\"https://dev.mysql.com/doc/"
@@ -1143,7 +1143,7 @@ msgstr ""
 "dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">MySQL "
 "qujattamasyn</a> qarańyz"
 
-#: libraries/advisory_rules_generic.php:690
+#: libraries/advisory_rules_generic.php:696
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 0 mánine ornatylǵan"
 
@@ -1173,36 +1173,36 @@ msgstr ""
 "query_cache_size máni 0 úshin ornatylǵan nemese query_cache_type máni «OFF» "
 "úshin ornatylǵan"
 
-#: libraries/advisory_rules_mysql_before80003.php:22
-#, fuzzy
+#: libraries/advisory_rules_mysql_before80003.php:23
+#, fuzzy, no-php-format
 #| msgid "Query cache efficiency (%%)"
 msgid "Query cache efficiency (%)"
 msgstr "Saýal keshiniń tıimdiligi (%%)"
 
-#: libraries/advisory_rules_mysql_before80003.php:26
+#: libraries/advisory_rules_mysql_before80003.php:27
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr "Saýal keshi tıimdi jumys istemeıdi, onyń sáıkestik jıiligi tómen."
 
-#: libraries/advisory_rules_mysql_before80003.php:27
+#: libraries/advisory_rules_mysql_before80003.php:28
 msgid "Consider increasing {query_cache_limit}."
 msgstr "{query_cache_limit} ulǵaıtýdy qarastyryńyz."
 
-#: libraries/advisory_rules_mysql_before80003.php:28
+#: libraries/advisory_rules_mysql_before80003.php:29
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr "Saýal keshiniń sáıkestik jıiligi %s%% aǵymda 20%% tómen"
 
-#: libraries/advisory_rules_mysql_before80003.php:33
+#: libraries/advisory_rules_mysql_before80003.php:34
 msgid "Query Cache usage"
 msgstr "Saýal keshin paıdalanýy"
 
-#: libraries/advisory_rules_mysql_before80003.php:37
-#, fuzzy, php-format
+#: libraries/advisory_rules_mysql_before80003.php:39
+#, fuzzy, no-php-format
 #| msgid "Less than 80%% of the query cache is being utilized."
 msgid "Less than 80% of the query cache is being utilized."
 msgstr "Saýal keshiniń 80%%-dan azy paıdalanylýda."
 
-#: libraries/advisory_rules_mysql_before80003.php:39
+#: libraries/advisory_rules_mysql_before80003.php:41
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
@@ -1210,7 +1210,7 @@ msgstr ""
 "Bul {query_cache_limit} tym tómen sebebinen bolýy múmkin. Sondaı-aq saýal "
 "keshiniń tazartýy kómektesýi múmkin."
 
-#: libraries/advisory_rules_mysql_before80003.php:43
+#: libraries/advisory_rules_mysql_before80003.php:45
 #, php-format
 msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
@@ -1219,15 +1219,15 @@ msgstr ""
 "Bos saýal kesh jadysynyń qorytyndy saýal kesh ólshemine aǵymdyq qatynasy - "
 "%s %%. Ol 80 %% joǵary bolýy qajet"
 
-#: libraries/advisory_rules_mysql_before80003.php:50
+#: libraries/advisory_rules_mysql_before80003.php:52
 msgid "Query cache fragmentation"
 msgstr "Saýal keshinń shashyralýy"
 
-#: libraries/advisory_rules_mysql_before80003.php:54
+#: libraries/advisory_rules_mysql_before80003.php:56
 msgid "The query cache is considerably fragmented."
 msgstr "Saýal keshi aıtarlyqtaı shashyralǵan."
 
-#: libraries/advisory_rules_mysql_before80003.php:56
+#: libraries/advisory_rules_mysql_before80003.php:58
 msgid ""
 "Severe fragmentation is likely to (further) increase Qcache_lowmem_prunes. "
 "This might be caused by many Query cache low memory prunes due to "
@@ -1247,7 +1247,7 @@ msgstr ""
 "ólshemine osy órnek arqyly ornatýǵa bolady: (query_cache_size - "
 "qcache_free_memory)/qcache_queries_in_cache"
 
-#: libraries/advisory_rules_mysql_before80003.php:64
+#: libraries/advisory_rules_mysql_before80003.php:66
 #, php-format
 msgid ""
 "The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
@@ -1258,11 +1258,11 @@ msgstr ""
 "bos jáne paıdalanylǵan bloktardyń kezektesken úlgisi ekenin bildiredi. Bul "
 "mán 20 %% tómen bolýy kerek."
 
-#: libraries/advisory_rules_mysql_before80003.php:71
+#: libraries/advisory_rules_mysql_before80003.php:73
 msgid "Query cache low memory prunes"
 msgstr "Saýal keshiniń jad kesindileri tómen"
 
-#: libraries/advisory_rules_mysql_before80003.php:75
+#: libraries/advisory_rules_mysql_before80003.php:77
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
@@ -1270,7 +1270,7 @@ msgstr ""
 "Saýal keshi jadysynyń ólshemi saýal keshi ólsheminen tómen bolǵandyqtan "
 "keshtelgen saýaldar alastalady."
 
-#: libraries/advisory_rules_mysql_before80003.php:77
+#: libraries/advisory_rules_mysql_before80003.php:79
 msgid ""
 "You might want to increase {query_cache_size}, however keep in mind that the "
 "overhead of maintaining the cache is likely to increase with its size, so do "
@@ -1280,7 +1280,7 @@ msgstr ""
 "ústeme onyń ólshemimen kóbeıtilýi múmkin ekenin eskerińiz, sondyqtan ony "
 "shaǵyn qadamdarmen oryndańyz jáne nátıjelerdi baqylańyz."
 
-#: libraries/advisory_rules_mysql_before80003.php:82
+#: libraries/advisory_rules_mysql_before80003.php:84
 #, php-format
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
@@ -1290,11 +1290,11 @@ msgstr ""
 "neǵurlym tómendeý bolsa, sonshalyqty jaqsylaý (Bul ereje oryndalý shegi: 0,1 "
 "%%)"
 
-#: libraries/advisory_rules_mysql_before80003.php:89
+#: libraries/advisory_rules_mysql_before80003.php:91
 msgid "Query cache max size"
 msgstr "Saýal keshiniń eń kóp ólshemi"
 
-#: libraries/advisory_rules_mysql_before80003.php:94
+#: libraries/advisory_rules_mysql_before80003.php:96
 msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
@@ -1302,27 +1302,27 @@ msgstr ""
 "Saýal keshiniń ólshemi 128 MiB asty. Úlken saýal keshteri, keshti súıemeldeý "
 "úshin qajetti, aıtarlyqtaı ústemege ákelýi múmkin."
 
-#: libraries/advisory_rules_mysql_before80003.php:98
+#: libraries/advisory_rules_mysql_before80003.php:100
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
 msgstr "Ortańyzǵa baılanysty, bul mándi azaıtqanda ónimdilik artýy múmkin."
 
-#: libraries/advisory_rules_mysql_before80003.php:100
+#: libraries/advisory_rules_mysql_before80003.php:102
 #, php-format
 msgid "Current query cache size: %s"
 msgstr "Aǵymdyq saýal keshiniń ólshemi: %s"
 
-#: libraries/advisory_rules_mysql_before80003.php:105
+#: libraries/advisory_rules_mysql_before80003.php:107
 msgid "Query cache min result size"
 msgstr "Saýal keshiniń eń az nátıjelik ólshemi"
 
-#: libraries/advisory_rules_mysql_before80003.php:109
+#: libraries/advisory_rules_mysql_before80003.php:111
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr "Saýal keshinde ornatylǵan nátıjeniń eń úlken ólshemi - ádepki 1 MiB."
 
-#: libraries/advisory_rules_mysql_before80003.php:111
+#: libraries/advisory_rules_mysql_before80003.php:113
 msgid ""
 "Changing {query_cache_limit} (usually by increasing) may increase "
 "efficiency. This variable determines the maximum size a query result may "
@@ -1342,7 +1342,7 @@ msgstr ""
 "nátıjeleri bolsa, {query_cache_limit} mánin arttyrý tıimdilikti tómendetýi "
 "múmkin."
 
-#: libraries/advisory_rules_mysql_before80003.php:118
+#: libraries/advisory_rules_mysql_before80003.php:120
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit máni 1 MiB ornatylǵan"
 

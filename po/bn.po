@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-08-31 16:20-0300\n"
+"POT-Creation-Date: 2020-08-31 19:04-0300\n"
 "PO-Revision-Date: 2019-08-23 11:23+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -588,21 +588,21 @@ msgstr ""
 msgid "key_buffer_size is 0"
 msgstr "key_buffer_size হয় ০"
 
-#: libraries/advisory_rules_generic.php:372
-#, fuzzy
+#: libraries/advisory_rules_generic.php:373
+#, fuzzy, no-php-format
 #| msgid "Max %% MyISAM key buffer ever used"
 msgid "Max % MyISAM key buffer ever used"
 msgstr "সর্বোচ্চ %% MyISAM কী বাফার এখন পর্যন্ত ব্যবহৃত হয়েছে"
 
-#: libraries/advisory_rules_generic.php:376
-#: libraries/advisory_rules_generic.php:392
-#, fuzzy, php-format
+#: libraries/advisory_rules_generic.php:378
+#: libraries/advisory_rules_generic.php:395
+#, fuzzy, no-php-format
 #| msgid "MyISAM key buffer (index cache) %% used is low."
 msgid "MyISAM key buffer (index cache) % used is low."
 msgstr "MyISAM কী বাফার (index cache)ব্যবহৃত %% হল অল্প।"
 
-#: libraries/advisory_rules_generic.php:378
-#: libraries/advisory_rules_generic.php:394
+#: libraries/advisory_rules_generic.php:380
+#: libraries/advisory_rules_generic.php:397
 msgid ""
 "You may need to decrease the size of {key_buffer_size}, re-examine your "
 "tables to see if indexes have been removed, or examine queries and "
@@ -611,7 +611,7 @@ msgstr ""
 "আপনার {key_buffer_size} কমানো প্রয়োজন, টেবলগুলো পুনপরীক্ষা করে দেখুন ইনডেক্স মুছা "
 "হয়েছে কিনা বা অনুসন্ধান পরীক্ষা করুন এবং প্রত্যাশিত ইনডেক্সগুলু ব্যবহার হচ্ছে কিনা দেখুন।"
 
-#: libraries/advisory_rules_generic.php:382
+#: libraries/advisory_rules_generic.php:384
 #, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
@@ -619,43 +619,43 @@ msgstr ""
 "এখন পর্যন্ত সর্বোচ্চ %% MyISAM কী বাফার ব্যবহৃত হয়েছে: %s%%, এই মানাটি 95%% এর "
 "বেশী হবে"
 
-#: libraries/advisory_rules_generic.php:387
+#: libraries/advisory_rules_generic.php:389
 msgid "Percentage of MyISAM key buffer used"
 msgstr "ব্যবহৃত MyISAM কী বাফারের হার"
 
-#: libraries/advisory_rules_generic.php:398
+#: libraries/advisory_rules_generic.php:401
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr "%% MyISAM কী বাফার এখন পর্যন্ত ব্যবহৃত হয়েছে: %s%%, এই মানটি 95%% উপরে হবে"
 
-#: libraries/advisory_rules_generic.php:403
+#: libraries/advisory_rules_generic.php:406
 msgid "Percentage of index reads from memory"
 msgstr "মেমোরী থেকে ইনডেক্স পড়ার শতকরা হার"
 
-#: libraries/advisory_rules_generic.php:407
-#, fuzzy, php-format
+#: libraries/advisory_rules_generic.php:411
+#, fuzzy, no-php-format
 #| msgid "The %% of indexes that use the MyISAM key buffer is low."
 msgid "The % of indexes that use the MyISAM key buffer is low."
 msgstr "%% ইনডেক্সসমূহ যেগুলো MyISAM কী বাফার ব্যবহার করে।"
 
-#: libraries/advisory_rules_generic.php:408
+#: libraries/advisory_rules_generic.php:412
 msgid "You may need to increase {key_buffer_size}."
 msgstr "আপনার {key_buffer_size} বাড়াতে হবে।"
 
-#: libraries/advisory_rules_generic.php:409
+#: libraries/advisory_rules_generic.php:413
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr "মেমরী থেকে পড়া:%s%%, এই মানটি 95%% উপরে হবে"
 
-#: libraries/advisory_rules_generic.php:415
+#: libraries/advisory_rules_generic.php:419
 msgid "Rate of table open"
 msgstr "টেবল খোলার হার"
 
-#: libraries/advisory_rules_generic.php:418
+#: libraries/advisory_rules_generic.php:422
 msgid "The rate of opening tables is high."
 msgstr "টেবল খোলার হার অনেক বেশী।"
 
-#: libraries/advisory_rules_generic.php:420
+#: libraries/advisory_rules_generic.php:424
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
@@ -663,16 +663,16 @@ msgstr ""
 "টেবল খোলার জন্য মুল্যবান ডিস্ক I/O প্রয়োজন। {table_open_cache} বাড়ালে এটা এড়ানো "
 "যেতে পারে।"
 
-#: libraries/advisory_rules_generic.php:423
+#: libraries/advisory_rules_generic.php:427
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr "খোলা টেবলের হার:%s, এর মান প্রতি ঘন্টায় ১০ এর কম হবে"
 
-#: libraries/advisory_rules_generic.php:428
+#: libraries/advisory_rules_generic.php:432
 msgid "Percentage of used open files limit"
 msgstr "খোলা ফাইল সীমার ব্যবহৃত হার"
 
-#: libraries/advisory_rules_generic.php:432
+#: libraries/advisory_rules_generic.php:436
 #, fuzzy
 #| msgid ""
 #| "The number of open files is approaching the max number of open files.  "
@@ -684,8 +684,8 @@ msgstr ""
 "খোলা ফাইলের সংখ্যা সর্বোচ্চ সংখ্যক খোলা ফাইলের কাছাকাছি। একটি \"Too many open "
 "files\" ভুল আপনি দেখতে পারেন।"
 
-#: libraries/advisory_rules_generic.php:436
-#: libraries/advisory_rules_generic.php:449
+#: libraries/advisory_rules_generic.php:440
+#: libraries/advisory_rules_generic.php:453
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing {open_files_limit}."
@@ -693,101 +693,101 @@ msgstr ""
 "{open_files_limit} এর পরিমান বাড়ান এবং সার্ভার পুনরায় চালু করার সময় ভুলের লগ "
 "পরীক্ষা করে দেখুন।"
 
-#: libraries/advisory_rules_generic.php:439
+#: libraries/advisory_rules_generic.php:443
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr "খোলা ফাইলের সংখ্যা নিধারিত সীমার %s%% । ইহা 85%% এর কম হবে"
 
-#: libraries/advisory_rules_generic.php:444
+#: libraries/advisory_rules_generic.php:448
 msgid "Rate of open files"
 msgstr "ফাইল খোলার হার"
 
-#: libraries/advisory_rules_generic.php:447
+#: libraries/advisory_rules_generic.php:451
 msgid "The rate of opening files is high."
 msgstr "ফাইল খোলার হার বেশী।"
 
-#: libraries/advisory_rules_generic.php:452
+#: libraries/advisory_rules_generic.php:456
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr "ফাইল খোলার হার:%s, এর মান প্রতি ঘন্টায় ৫ এর কম হবে"
 
-#: libraries/advisory_rules_generic.php:457
-#, fuzzy
+#: libraries/advisory_rules_generic.php:462
+#, fuzzy, no-php-format
 #| msgid "Immediate table locks %%"
 msgid "Immediate table locks %"
 msgstr "তাৎক্ষনিক টেবল লক  %%"
 
-#: libraries/advisory_rules_generic.php:461
-#: libraries/advisory_rules_generic.php:471
+#: libraries/advisory_rules_generic.php:466
+#: libraries/advisory_rules_generic.php:476
 msgid "Too many table locks were not granted immediately."
 msgstr "অনেক টেবিল লক তাৎক্ষনিক পাওয়া যায়নি।"
 
-#: libraries/advisory_rules_generic.php:462
-#: libraries/advisory_rules_generic.php:472
+#: libraries/advisory_rules_generic.php:467
+#: libraries/advisory_rules_generic.php:477
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr "লক অপেক্ষা কমাতে অনুসন্ধান অপটিমাইজ করুন এবং/অথবা InnoDB ব্যবহার করুন।"
 
-#: libraries/advisory_rules_generic.php:463
+#: libraries/advisory_rules_generic.php:468
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr "তাৎক্ষনিক টেবল লক:%s%%, এর মান 95%% বেশী হবে"
 
-#: libraries/advisory_rules_generic.php:468
+#: libraries/advisory_rules_generic.php:473
 msgid "Table lock wait rate"
 msgstr "টেবল লক অপেক্ষার হার"
 
-#: libraries/advisory_rules_generic.php:473
+#: libraries/advisory_rules_generic.php:478
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr "টেবল লক অপেক্ষার হার:%s, এর মান প্রতি ঘন্টায় ১ এর কম হবে"
 
-#: libraries/advisory_rules_generic.php:478
+#: libraries/advisory_rules_generic.php:483
 msgid "Thread cache"
 msgstr "থ্র্যাড ক্যাশ"
 
-#: libraries/advisory_rules_generic.php:481
+#: libraries/advisory_rules_generic.php:486
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
 msgstr "থ্রেড ক্যাশ অকার্যকর আছে, MySQL এ নতুন সংযোগ অতিরিক্ত বোঝার কারন হতে পারে।"
 
-#: libraries/advisory_rules_generic.php:482
+#: libraries/advisory_rules_generic.php:487
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr "{thread_cache_size} > ০ নির্ধারন করে থ্রেড ক্যাশ কার্যকর করেন।"
 
-#: libraries/advisory_rules_generic.php:483
+#: libraries/advisory_rules_generic.php:488
 msgid "The thread cache is set to 0"
 msgstr "থ্রেড ক্যাশ ০ নির্ধারন করা হয়েছে"
 
-#: libraries/advisory_rules_generic.php:487
-#, fuzzy
+#: libraries/advisory_rules_generic.php:493
+#, fuzzy, no-php-format
 #| msgid "Thread cache hit rate %%"
 msgid "Thread cache hit rate %"
 msgstr "থ্রেড ক্যাশ হিটের হার %%"
 
-#: libraries/advisory_rules_generic.php:491
+#: libraries/advisory_rules_generic.php:497
 msgid "Thread cache is not efficient."
 msgstr "থ্রেড ক্যাশ দক্ষ নয়।"
 
-#: libraries/advisory_rules_generic.php:492
+#: libraries/advisory_rules_generic.php:498
 msgid "Increase {thread_cache_size}."
 msgstr "{thread_cache_size} বাড়ান।"
 
-#: libraries/advisory_rules_generic.php:493
+#: libraries/advisory_rules_generic.php:499
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr "থ্রেড ক্যাশ হিট রেট: %s%%,এই মানটি 80%% বেশী হবে"
 
-#: libraries/advisory_rules_generic.php:498
+#: libraries/advisory_rules_generic.php:504
 msgid "Threads that are slow to launch"
 msgstr "থ্রেড গুলো কাজের জন্য ধীর"
 
-#: libraries/advisory_rules_generic.php:502
+#: libraries/advisory_rules_generic.php:508
 msgid "There are too many threads that are slow to launch."
 msgstr "প্রচুর থ্রেড আছে যেগুলো কাজের জন্য ধীর।"
 
-#: libraries/advisory_rules_generic.php:504
+#: libraries/advisory_rules_generic.php:510
 msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
@@ -795,22 +795,22 @@ msgstr ""
 "সাধারনত সিস্টেমের কাজের পরিমান বেশী হলে এমন হয় সাধারন কাজের মত। আপনি সিস্টেমের "
 "লোড সর্তকভাবে পর্যবেক্ষন করে দেখেত পারেন।"
 
-#: libraries/advisory_rules_generic.php:507
+#: libraries/advisory_rules_generic.php:513
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr "%s থ্রেডটি আরম্ভ হতে %s সেকেন্ডের বেশী সময় নিচ্ছে, এটি ০ হওয়া উচিত"
 
-#: libraries/advisory_rules_generic.php:512
+#: libraries/advisory_rules_generic.php:518
 msgid "Slow launch time"
 msgstr "ধীর আরম্ভের সময়"
 
-#: libraries/advisory_rules_generic.php:515
+#: libraries/advisory_rules_generic.php:521
 #, fuzzy
 #| msgid "Slow_launch_time is above 2s"
 msgid "Slow_launch_time is above 2s."
 msgstr "Slow_launch_time 2s উপরে"
 
-#: libraries/advisory_rules_generic.php:517
+#: libraries/advisory_rules_generic.php:523
 #, fuzzy
 #| msgid ""
 #| "Set {slow_launch_time} to 1s or 2s to correctly count threads that are "
@@ -821,22 +821,22 @@ msgid ""
 msgstr ""
 "ধীরে আরম্ভ হওয়া থ্রেডগুলো গণনার জন্য{slow_launch_time}1s বা 2s এ নির্ধারন করুন"
 
-#: libraries/advisory_rules_generic.php:519
+#: libraries/advisory_rules_generic.php:525
 #, php-format
 msgid "slow_launch_time is set to %s"
 msgstr "slow_launch_time %s নির্ধরন করা হয়েছে"
 
-#: libraries/advisory_rules_generic.php:525
+#: libraries/advisory_rules_generic.php:531
 msgid "Percentage of used connections"
 msgstr "ব্যবহৃত সংযোগের হার"
 
-#: libraries/advisory_rules_generic.php:529
+#: libraries/advisory_rules_generic.php:535
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "{max_connections}."
 msgstr "ব্যবহৃত সংযোগের সংখ্যা {max_connections} মানের কাছাকাছি হয়ে যাচ্ছে।"
 
-#: libraries/advisory_rules_generic.php:532
+#: libraries/advisory_rules_generic.php:538
 msgid ""
 "Increase {max_connections}, or decrease {wait_timeout} so that connections "
 "that do not close database handlers properly get killed sooner. Make sure "
@@ -846,23 +846,23 @@ msgstr ""
 "ত্বত্তাবধানকারী ঠিকভাবে বন্ধ হবে না তাড়াতাড়ি ধ্বংস হবে। কোড ডাটাবেইজ "
 "ত্বত্তাবধানকারীকে সঠিক ভাবে বন্ধ করছে তা নিশ্চিত করুন।"
 
-#: libraries/advisory_rules_generic.php:536
+#: libraries/advisory_rules_generic.php:542
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr "max_connections এর Max_used_connections %s%%, এটা 80%% নীচে থাকবে"
 
-#: libraries/advisory_rules_generic.php:541
+#: libraries/advisory_rules_generic.php:547
 msgid "Percentage of aborted connections"
 msgstr "বাতিলকৃত সংযোগের হার"
 
-#: libraries/advisory_rules_generic.php:544
-#: libraries/advisory_rules_generic.php:558
+#: libraries/advisory_rules_generic.php:550
+#: libraries/advisory_rules_generic.php:564
 msgid "Too many connections are aborted."
 msgstr "প্রচুর সংযোগ বাতিল করা হয়েছে।"
 
-#: libraries/advisory_rules_generic.php:546
-#: libraries/advisory_rules_generic.php:560
+#: libraries/advisory_rules_generic.php:552
+#: libraries/advisory_rules_generic.php:566
 #, fuzzy
 #| msgid ""
 #| "Connections are usually aborted when they cannot be authorized. <a href="
@@ -878,32 +878,32 @@ msgstr ""
 "mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-source-of-"
 "aborted_connects/\">This article</a> সংযোগটি চিহ্নিত করতে সাহায্য করবে।"
 
-#: libraries/advisory_rules_generic.php:550
+#: libraries/advisory_rules_generic.php:556
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr "সমস্ত সংযোগের %s%% বাতিল করা হয়েছে। এর মান 1%% কম হবে"
 
-#: libraries/advisory_rules_generic.php:555
+#: libraries/advisory_rules_generic.php:561
 msgid "Rate of aborted connections"
 msgstr "বাতিলকৃত সংযোগের হার"
 
-#: libraries/advisory_rules_generic.php:564
+#: libraries/advisory_rules_generic.php:570
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr "বাতিলকৃত সংযোগের হার %s, এই মানটি প্রতি ঘন্টায় ১ এর কম হবে"
 
-#: libraries/advisory_rules_generic.php:569
+#: libraries/advisory_rules_generic.php:575
 msgid "Percentage of aborted clients"
 msgstr "বাতিলকৃত গ্রাহকের হার"
 
-#: libraries/advisory_rules_generic.php:572
-#: libraries/advisory_rules_generic.php:586
+#: libraries/advisory_rules_generic.php:578
+#: libraries/advisory_rules_generic.php:592
 msgid "Too many clients are aborted."
 msgstr "অনেক বেশী সংখ্যক গ্রাহককে বাতিল করা হয়েছে।"
 
-#: libraries/advisory_rules_generic.php:574
-#: libraries/advisory_rules_generic.php:588
+#: libraries/advisory_rules_generic.php:580
+#: libraries/advisory_rules_generic.php:594
 msgid ""
 "Clients are usually aborted when they did not close their connection to "
 "MySQL properly. This can be due to network issues or code not closing a "
@@ -913,48 +913,48 @@ msgstr ""
 "করে না। এটা নেটওয়ার্ক বা কোডের কারনে হতে পারে যা ডাটাবেইজ ত্বত্তাবধানকারীকে "
 "সঠিকভাবে বন্ধ করে না। নেটওর্য়াক এবং কোড পরীক্ষা করুন।"
 
-#: libraries/advisory_rules_generic.php:578
+#: libraries/advisory_rules_generic.php:584
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr "সমস্ত গ্রাহকের %s%% বাতিল করা হয়েছে। এই মানটি অবশ্যই 2%% কম হবে"
 
-#: libraries/advisory_rules_generic.php:583
+#: libraries/advisory_rules_generic.php:589
 msgid "Rate of aborted clients"
 msgstr "বাতিলকৃত গ্রাহকের হার"
 
-#: libraries/advisory_rules_generic.php:592
+#: libraries/advisory_rules_generic.php:598
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr "বাতিলকৃত গ্রাহকের হার %s, এই মানটি প্রতি ঘন্টায় ১ এর কম হবে"
 
-#: libraries/advisory_rules_generic.php:598
+#: libraries/advisory_rules_generic.php:604
 msgid "Is InnoDB disabled?"
 msgstr "InnoDB কি অকার্যকর করা আছ?"
 
-#: libraries/advisory_rules_generic.php:602
+#: libraries/advisory_rules_generic.php:608
 msgid "You do not have InnoDB enabled."
 msgstr "InnoDB কার্যকর করা হয়নি।"
 
-#: libraries/advisory_rules_generic.php:603
+#: libraries/advisory_rules_generic.php:609
 msgid "InnoDB is usually the better choice for table engines."
 msgstr "টেবলের জন্য InnoDB সাধারনত ভাল ব্যবস্থা।"
 
-#: libraries/advisory_rules_generic.php:604
+#: libraries/advisory_rules_generic.php:610
 msgid "have_innodb is set to 'value'"
 msgstr "have_innodb 'র মান 'value' সেট করা হয়েছে"
 
-#: libraries/advisory_rules_generic.php:608
+#: libraries/advisory_rules_generic.php:614
 msgid "InnoDB log size"
 msgstr "InnoDB লগের আকার"
 
-#: libraries/advisory_rules_generic.php:613
+#: libraries/advisory_rules_generic.php:619
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
 msgstr "InnoDB বাফার পুলের ভিত্তিতে InnoDB লগের আকারটি সঠিক নয়।"
 
-#: libraries/advisory_rules_generic.php:616
-#, fuzzy, php-format
+#: libraries/advisory_rules_generic.php:622
+#, fuzzy, no-php-format
 #| msgid ""
 #| "Especially on a system with a lot of writes to InnoDB tables you should "
 #| "set {innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However "
@@ -986,7 +986,7 @@ msgstr ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">this blog entry</a> দেখতে পারেন।"
 
-#: libraries/advisory_rules_generic.php:627
+#: libraries/advisory_rules_generic.php:633
 #, php-format
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
@@ -995,16 +995,16 @@ msgstr ""
 "আপনার InnoDB লগের আকার %s%% InnoDB বাফার পুলের উপর ভিত্তি করে, এটি 20%% এর কম "
 "হতে পারবে না"
 
-#: libraries/advisory_rules_generic.php:634
+#: libraries/advisory_rules_generic.php:640
 msgid "Max InnoDB log size"
 msgstr "InnoDB লগের সর্বোচ্চ আকার"
 
-#: libraries/advisory_rules_generic.php:638
+#: libraries/advisory_rules_generic.php:644
 msgid "The InnoDB log file size is inadequately large."
 msgstr "InnoDB লগ ফাইলের আকার অত্যন্ত বড়।"
 
-#: libraries/advisory_rules_generic.php:640
-#, fuzzy, php-format
+#: libraries/advisory_rules_generic.php:646
+#, fuzzy, no-php-format
 #| msgid ""
 #| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
 #| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
@@ -1033,21 +1033,21 @@ msgstr ""
 "\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">this blog entry</a> দেখতে পারেন।"
 
-#: libraries/advisory_rules_generic.php:650
+#: libraries/advisory_rules_generic.php:656
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "আপনার InnoDB লগের সঠিক আকার হল %s মেবা"
 
-#: libraries/advisory_rules_generic.php:655
+#: libraries/advisory_rules_generic.php:661
 msgid "InnoDB buffer pool size"
 msgstr "InnoDB বাফার পুলের আকার"
 
-#: libraries/advisory_rules_generic.php:659
+#: libraries/advisory_rules_generic.php:665
 msgid "Your InnoDB buffer pool is fairly small."
 msgstr "InnoDB বাফার পুলের আকার বেশ ছোট।"
 
-#: libraries/advisory_rules_generic.php:661
-#, fuzzy, php-format
+#: libraries/advisory_rules_generic.php:667
+#, fuzzy, no-php-format
 #| msgid ""
 #| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 #| "tables. Assign all your remaining memory to this buffer. For database "
@@ -1081,7 +1081,7 @@ msgstr ""
 "কমে যাবে। <a href=\"https://www.mysqlperformanceblog.com/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">this article</a> দেখুন।"
 
-#: libraries/advisory_rules_generic.php:671
+#: libraries/advisory_rules_generic.php:677
 #, php-format
 msgid ""
 "You are currently using %s%% of your memory for the InnoDB buffer pool. This "
@@ -1094,15 +1094,15 @@ msgstr ""
 "টেবল না থাকে তবে এটি সম্ভবত আপনার সিস্টেমের জন্য পর্যাপ্ত হবে বা অন্য কোন সার্ভিস "
 "আপনার এই মেশিনে হয়ত চলছে।"
 
-#: libraries/advisory_rules_generic.php:681
+#: libraries/advisory_rules_generic.php:687
 msgid "MyISAM concurrent inserts"
 msgstr "MyISAM একত্রে ইনসার্টসমূহ"
 
-#: libraries/advisory_rules_generic.php:684
+#: libraries/advisory_rules_generic.php:690
 msgid "Enable {concurrent_insert} by setting it to 1"
 msgstr "কার্যকর করুন {concurrent_insert} ১ এ সেট করে"
 
-#: libraries/advisory_rules_generic.php:686
+#: libraries/advisory_rules_generic.php:692
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
 "writers for a given table. See also <a href=\"https://dev.mysql.com/doc/"
@@ -1112,7 +1112,7 @@ msgstr ""
 "সমস্যা কমাবে। <a href=\"https://dev.mysql.com/doc/refman/5.5/en/concurrent-"
 "inserts.html\">MySQL Documentation</a> দেখুন"
 
-#: libraries/advisory_rules_generic.php:690
+#: libraries/advisory_rules_generic.php:696
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert এর জন্য ০ নির্ধারন করা হয়েছে"
 
@@ -1140,36 +1140,36 @@ msgstr ""
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr "query_cache_size ০ নির্ধারন করা হয়েছে বা query_cache_type বন্ধ আছে"
 
-#: libraries/advisory_rules_mysql_before80003.php:22
-#, fuzzy
+#: libraries/advisory_rules_mysql_before80003.php:23
+#, fuzzy, no-php-format
 #| msgid "Query cache efficiency (%%)"
 msgid "Query cache efficiency (%)"
 msgstr "অনুসন্ধান ক্যাশের দক্ষতা (%%)"
 
-#: libraries/advisory_rules_mysql_before80003.php:26
+#: libraries/advisory_rules_mysql_before80003.php:27
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr "অনুসন্ধান ক্যাশ ঠিকভাবে কাজ করছে না, হিটের হার খুব কম।"
 
-#: libraries/advisory_rules_mysql_before80003.php:27
+#: libraries/advisory_rules_mysql_before80003.php:28
 msgid "Consider increasing {query_cache_limit}."
 msgstr "{query_cache_limit} বাড়াতে পারেন।"
 
-#: libraries/advisory_rules_mysql_before80003.php:28
+#: libraries/advisory_rules_mysql_before80003.php:29
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr "বর্তমান অনুসন্ধান ক্যাশ হিটের হার হল %s%% যা ২০%%'র নীচে"
 
-#: libraries/advisory_rules_mysql_before80003.php:33
+#: libraries/advisory_rules_mysql_before80003.php:34
 msgid "Query Cache usage"
 msgstr "অনুসন্ধান ক্যাশের ব্যবহার"
 
-#: libraries/advisory_rules_mysql_before80003.php:37
-#, fuzzy, php-format
+#: libraries/advisory_rules_mysql_before80003.php:39
+#, fuzzy, no-php-format
 #| msgid "Less than 80%% of the query cache is being utilized."
 msgid "Less than 80% of the query cache is being utilized."
 msgstr "অনুসন্ধান ক্যাশের 80%%'র কম ব্যবহৃত হচ্ছে।"
 
-#: libraries/advisory_rules_mysql_before80003.php:39
+#: libraries/advisory_rules_mysql_before80003.php:41
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
@@ -1177,7 +1177,7 @@ msgstr ""
 "অনেক কম {query_cache_limit} কারনে এমন হতে পারে। অনুসন্ধান ক্যাশ ফ্লাশ করলে "
 "সাহায্য করতে পারে।"
 
-#: libraries/advisory_rules_mysql_before80003.php:43
+#: libraries/advisory_rules_mysql_before80003.php:45
 #, php-format
 msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
@@ -1186,15 +1186,15 @@ msgstr ""
 "বর্তমান মুক্ত ক্যাশ মেমোরীর হার হল মোট অনুসন্ধান ক্যাশের আকারের %s%%। ইহা অবশ্যই "
 "80%% বেশী থাকবে"
 
-#: libraries/advisory_rules_mysql_before80003.php:50
+#: libraries/advisory_rules_mysql_before80003.php:52
 msgid "Query cache fragmentation"
 msgstr "অনুসন্ধান ক্যাশ ফ্রেগম্যানটেশন"
 
-#: libraries/advisory_rules_mysql_before80003.php:54
+#: libraries/advisory_rules_mysql_before80003.php:56
 msgid "The query cache is considerably fragmented."
 msgstr "অনুসন্ধান ক্যাশটি অনেক বেশী ফ্র্যাগমেন্টেড।"
 
-#: libraries/advisory_rules_mysql_before80003.php:56
+#: libraries/advisory_rules_mysql_before80003.php:58
 msgid ""
 "Severe fragmentation is likely to (further) increase Qcache_lowmem_prunes. "
 "This might be caused by many Query cache low memory prunes due to "
@@ -1206,7 +1206,7 @@ msgid ""
 "qcache_queries_in_cache"
 msgstr ""
 
-#: libraries/advisory_rules_mysql_before80003.php:64
+#: libraries/advisory_rules_mysql_before80003.php:66
 #, php-format
 msgid ""
 "The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
@@ -1214,17 +1214,17 @@ msgid ""
 "value should be below 20%%."
 msgstr ""
 
-#: libraries/advisory_rules_mysql_before80003.php:71
+#: libraries/advisory_rules_mysql_before80003.php:73
 msgid "Query cache low memory prunes"
 msgstr "অনৃসনাধ ক্যাশে অল্প মেমোরী"
 
-#: libraries/advisory_rules_mysql_before80003.php:75
+#: libraries/advisory_rules_mysql_before80003.php:77
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
 msgstr "ক্যাশের অনুসন্ধান মূছা হয়েছে অল্প ক্যাশ অনুসন্ধান ক্যাশ মেমরীর কারনে।"
 
-#: libraries/advisory_rules_mysql_before80003.php:77
+#: libraries/advisory_rules_mysql_before80003.php:79
 msgid ""
 "You might want to increase {query_cache_size}, however keep in mind that the "
 "overhead of maintaining the cache is likely to increase with its size, so do "
@@ -1233,7 +1233,7 @@ msgstr ""
 "আপনি {query_cache_size} বাড়াতে চাইতে পারেন, মনে রাখবেন ক্যাশ রক্ষণাবেক্ষণ এর "
 "আকারের উপর ভিত্তি করে বাড়তে পারে, তাই অল্প করে বাড়িয়ে এর ফলাফল পর্যবেক্ষণ করুন।"
 
-#: libraries/advisory_rules_mysql_before80003.php:82
+#: libraries/advisory_rules_mysql_before80003.php:84
 #, php-format
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
@@ -1242,38 +1242,38 @@ msgstr ""
 "ইনসার্টেড অনুসন্ধানে অনুসন্ধান সরানোর হার %s%%। এর মান যত কম হবে তত ভাল, ভাল "
 "(০.১%%)"
 
-#: libraries/advisory_rules_mysql_before80003.php:89
+#: libraries/advisory_rules_mysql_before80003.php:91
 msgid "Query cache max size"
 msgstr "অনুসন্ধান ক্যাশের সর্বোচ্চ আকার"
 
-#: libraries/advisory_rules_mysql_before80003.php:94
+#: libraries/advisory_rules_mysql_before80003.php:96
 msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
 msgstr ""
 "অনুসন্ধান ক্যাশের আকার ১২৮ মেবা'র বেশী। বড় ক্যাশ রক্ষণাবেক্ষণে সমস্য হতে পারে।"
 
-#: libraries/advisory_rules_mysql_before80003.php:98
+#: libraries/advisory_rules_mysql_before80003.php:100
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
 msgstr "আপনার সিস্টেমের উপর নির্ভর করে, এই মানটি কমালে কার্যক্ষমতা বাড়তে পারে।"
 
-#: libraries/advisory_rules_mysql_before80003.php:100
+#: libraries/advisory_rules_mysql_before80003.php:102
 #, php-format
 msgid "Current query cache size: %s"
 msgstr "বর্তমান অনুসন্ধান ক্যাশের আকার:%s"
 
-#: libraries/advisory_rules_mysql_before80003.php:105
+#: libraries/advisory_rules_mysql_before80003.php:107
 msgid "Query cache min result size"
 msgstr "অনুসন্ধান ক্যাশের স্বল্পতম ফলের আকার"
 
-#: libraries/advisory_rules_mysql_before80003.php:109
+#: libraries/advisory_rules_mysql_before80003.php:111
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr "ফলাফলের সর্বোচ্চ আকার অনুসন্ধান ক্যাশে স্বাভাবিক হল ১মেবা।"
 
-#: libraries/advisory_rules_mysql_before80003.php:111
+#: libraries/advisory_rules_mysql_before80003.php:113
 msgid ""
 "Changing {query_cache_limit} (usually by increasing) may increase "
 "efficiency. This variable determines the maximum size a query result may "
@@ -1285,7 +1285,7 @@ msgid ""
 "might reduce efficiency."
 msgstr ""
 
-#: libraries/advisory_rules_mysql_before80003.php:118
+#: libraries/advisory_rules_mysql_before80003.php:120
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit ১ মেবা নিধারণ করা হয়েছে"
 
