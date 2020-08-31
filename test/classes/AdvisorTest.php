@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for Advisor class
- */
 
 declare(strict_types=1);
 
@@ -10,15 +7,8 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Advisor;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
-/**
- * Tests behaviour of PMA_Advisor class
- */
 class AdvisorTest extends AbstractTestCase
 {
-    /**
-     * Sets up the fixture, for example, opens a network connection.
-     * This method is called before a test is executed.
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -67,18 +57,6 @@ class AdvisorTest extends AbstractTestCase
     }
 
     /**
-     * test for Advisor::timespanFormat
-     */
-    public function testAdvisorTimespanFormat(): void
-    {
-        $result = Advisor::timespanFormat(1200);
-        $this->assertEquals('0 days, 0 hours, 20 minutes and 0 seconds', $result);
-
-        $result = Advisor::timespanFormat(100);
-        $this->assertEquals('0 days, 0 hours, 1 minutes and 40 seconds', $result);
-    }
-
-    /**
      * Test for adding rule
      *
      * @param array       $rule     Rule to test
@@ -92,10 +70,10 @@ class AdvisorTest extends AbstractTestCase
         parent::loadDefaultConfig();
         parent::setLanguage();
         $advisor = new Advisor($GLOBALS['dbi'], new ExpressionLanguage());
-        $parseResult = $advisor->parseRulesFile(Advisor::GENERIC_RULES_FILE);
+        $parseResult = include ROOT_PATH . 'libraries/advisory_rules_generic.php';
         $this->assertIsArray($parseResult);
-        $this->assertArrayHasKey('rules', $parseResult);
-        $this->assertIsArray($parseResult['rules']);
+        $this->assertArrayHasKey(0, $parseResult);
+        $this->assertIsArray($parseResult[0]);
         $advisor->setVariable('value', 0);
         $advisor->addRule('fired', $rule);
         $runResult = $advisor->getRunResult();
