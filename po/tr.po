@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-31 16:20-0300\n"
-"PO-Revision-Date: 2020-08-19 03:33+0000\n"
+"PO-Revision-Date: 2020-08-31 20:54+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 4.2.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -588,17 +588,14 @@ msgid "key_buffer_size is 0"
 msgstr "key_buffer_size 0'dır"
 
 #: libraries/advisory_rules_generic.php:372
-#, fuzzy
-#| msgid "Max %% MyISAM key buffer ever used"
 msgid "Max % MyISAM key buffer ever used"
-msgstr "Şimdiye kadar kullanılan en fazla %% MyISAM anahtar arabelleği"
+msgstr "Şimdiye kadar kullanılan en fazla % MyISAM anahtar arabelleği"
 
 #: libraries/advisory_rules_generic.php:376
 #: libraries/advisory_rules_generic.php:392
-#, fuzzy, php-format
-#| msgid "MyISAM key buffer (index cache) %% used is low."
+#, php-format
 msgid "MyISAM key buffer (index cache) % used is low."
-msgstr "Kullanılan MyISAM anahtar arabelleği (indeks önbelleği) %% düşük."
+msgstr "Kullanılan MyISAM anahtar arabelleği (indeks önbelleği) % düşük."
 
 #: libraries/advisory_rules_generic.php:378
 #: libraries/advisory_rules_generic.php:394
@@ -635,10 +632,9 @@ msgid "Percentage of index reads from memory"
 msgstr "Bellekten indeks okumaları yüzdesi"
 
 #: libraries/advisory_rules_generic.php:407
-#, fuzzy, php-format
-#| msgid "The %% of indexes that use the MyISAM key buffer is low."
+#, php-format
 msgid "The % of indexes that use the MyISAM key buffer is low."
-msgstr "MyISAM anahtar arabelleği kullanan indekslerin %% düşük."
+msgstr "MyISAM anahtar arabelleği kullanan indekslerin % düşük."
 
 #: libraries/advisory_rules_generic.php:408
 msgid "You may need to increase {key_buffer_size}."
@@ -675,10 +671,6 @@ msgid "Percentage of used open files limit"
 msgstr "Kullanılan açık dosya sınırları yüzdesi"
 
 #: libraries/advisory_rules_generic.php:432
-#, fuzzy
-#| msgid ""
-#| "The number of open files is approaching the max number of open files.  "
-#| "You may get a \"Too many open files\" error."
 msgid ""
 "The number of open files is approaching the max number of open files. You "
 "may get a \"Too many open files\" error."
@@ -715,10 +707,8 @@ msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr "Açık dosya oranı: %s, bu değer saat başına 5'ten az olmalıdır"
 
 #: libraries/advisory_rules_generic.php:457
-#, fuzzy
-#| msgid "Immediate table locks %%"
 msgid "Immediate table locks %"
-msgstr "Acil tablo kilitleri %%"
+msgstr "Acil tablo kilitleri %"
 
 #: libraries/advisory_rules_generic.php:461
 #: libraries/advisory_rules_generic.php:471
@@ -767,10 +757,8 @@ msgid "The thread cache is set to 0"
 msgstr "İş parçacığı önbelleği 0'a ayarlı"
 
 #: libraries/advisory_rules_generic.php:487
-#, fuzzy
-#| msgid "Thread cache hit rate %%"
 msgid "Thread cache hit rate %"
-msgstr "İş parçacığı önbelleği tavan oranı %%"
+msgstr "İş parçacığı önbelleği tavan oranı %"
 
 #: libraries/advisory_rules_generic.php:491
 msgid "Thread cache is not efficient."
@@ -962,18 +950,7 @@ msgstr ""
 "bir boyut değil."
 
 #: libraries/advisory_rules_generic.php:616
-#, fuzzy, php-format
-#| msgid ""
-#| "Especially on a system with a lot of writes to InnoDB tables you should "
-#| "set {innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However "
-#| "the bigger this value, the longer the recovery time will be when database "
-#| "crashes, so this value should not be set much higher than 256 MiB. Please "
-#| "note however that you cannot simply change the value of this variable. "
-#| "You need to shutdown the server, remove the InnoDB log files, set the new "
-#| "value in my.cnf, start the server, then check the error logs if "
-#| "everything went fine. See also <a href=\"https://"
-#| "mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-#| "innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
 "{innodb_log_file_size} to 25% of {innodb_buffer_pool_size}. However the "
@@ -986,16 +963,16 @@ msgid ""
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "Özellikle InnoDB tablolarına çok fazla yazmalı bir sistemde, "
-"{innodb_log_file_size} değerini {innodb_buffer_pool_size} değerinin %%25'ine "
+"{innodb_log_file_size} değerini {innodb_buffer_pool_size} değerinin %25'ine "
 "ayarlamalısınız. Ancak bu değeri daha büyütmek, veritabanı çökmelerinde "
 "kurtarma zamanı daha uzun olacaktır, bu yüzden bu değer 256 MiB'tan çok daha "
 "yükseğe ayarlanmamalıdır. Lütfen unutmayın yine de bununla birlikte bu "
 "değişkenin değerini basitçe değiştiremezsiniz. Sunucuyu kapatmanız, InnoDB "
 "günlük dosyalarını kaldırmanız, my.cnf içindeki yeni değeri ayarlamanız, "
 "sunucuyu başlatmanız gerekir, ondan sonra herşeyin iyi gittiğini anlamak "
-"için hata günlüklerini denetlemelisiniz. Aynı zamanda <a href=\"https://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">bu blog girişine</a> bakın"
+"için hata günlüklerini denetlemelisiniz. Aynı zamanda <a href=\"https"
+"://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">bu blog girişine</a> bakın"
 
 #: libraries/advisory_rules_generic.php:627
 #, php-format
@@ -1015,17 +992,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "InnoDB günlük dosyası boyutu yetersiz şekilde büyük."
 
 #: libraries/advisory_rules_generic.php:640
-#, fuzzy, php-format
-#| msgid ""
-#| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
-#| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
-#| "slows down the recovery time after a database crash considerably. See "
-#| "also <a href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
-#| "innodb_log_file_size/\">this Article</a>. You need to shutdown the "
-#| "server, remove the InnoDB log files, set the new value in my.cnf, start "
-#| "the server, then check the error logs if everything went fine. See also "
-#| "<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/"
-#| "increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, php-format
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25% of the size of "
 "{innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down the "
@@ -1038,15 +1005,15 @@ msgid ""
 "innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "Genellikle {innodb_log_file_size} değerini {innodb_buffer_pool_size} "
-"boyutunun %%25'ine ayarlamak yeterlidir. Çok büyük innodb_log_file_size, "
+"boyutunun %25'ine ayarlamak yeterlidir. Çok büyük innodb_log_file_size, "
 "veritabanı çökmesinden sonra kurtarma zamanını oldukça yavaşlatır. Aynı "
-"zamanda <a href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
-"innodb_log_file_size/\">bu Makaleye</a> bakın. Sunucuyu kapatmanız, InnoDB "
-"günlük dosyalarını kaldırmanız, my.cnf içindeki yeni değeri ayarlamanız, "
-"sunucuyu başlatmanız gerekir, ondan sonra herşeyin iyi gittiğini anlamak "
-"için hata günlüklerini denetlemelisiniz. Aynı zamanda <a href=\"https://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">bu blog girişine</a> bakın"
+"zamanda <a href=\"https://www.percona.com/blog/2006/07/03/"
+"choosing-proper-innodb_log_file_size/\">bu Makaleye</a> bakın. Sunucuyu "
+"kapatmanız, InnoDB günlük dosyalarını kaldırmanız, my.cnf içindeki yeni "
+"değeri ayarlamanız, sunucuyu başlatmanız gerekir, ondan sonra herşeyin iyi "
+"gittiğini anlamak için hata günlüklerini denetlemelisiniz. Aynı zamanda <a "
+"href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">bu blog girişine</a> bakın"
 
 #: libraries/advisory_rules_generic.php:650
 #, php-format
@@ -1062,18 +1029,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "InnoD arabellek havuzunuz oldukça küçük."
 
 #: libraries/advisory_rules_generic.php:661
-#, fuzzy, php-format
-#| msgid ""
-#| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
-#| "tables. Assign all your remaining memory to this buffer. For database "
-#| "servers that use solely InnoDB as storage engine and have no other "
-#| "services (e.g. a web server) running, you may set this as high as 80%% of "
-#| "your available memory. If that is not the case, you need to carefully "
-#| "assess the memory consumption of your other services and non-InnoDB-"
-#| "Tables and set this variable accordingly. If it is set too high, your "
-#| "system will start swapping, which decreases performance significantly. "
-#| "See also <a href=\"https://www.percona.com/blog/2007/11/03/choosing-"
-#| "innodb_buffer_pool_size/\">this article</a>"
+#, php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 "tables. Assign all your remaining memory to this buffer. For database "
@@ -1088,14 +1044,14 @@ msgid ""
 msgstr ""
 "InnoDB arabellek havuzu InnoDB tabloları için performansta derin etki yapar. "
 "Tüm kalan belleğinizi bu arabelleğe atayın. Veritabanı sunucuları için "
-"depolama motoru olarak sadece InnoDB kullanın ve başka çalışan hizmetler "
-"(örn. web sunucusu) olmasın, bunu kullanılabilir belleğin %%80'nine kadar "
+"depolama motoru olarak sadece InnoDB kullanın ve başka çalışan hizmetler ("
+"örn. web sunucusu) olmasın, bunu kullanılabilir belleğin %80'nine kadar "
 "ayarlayabilirsiniz. Eğer durum bu değilse, diğer hizmetlerinizin ve InnoDB-"
 "Tabloları olmayanların bellek tüketimini dikkatlice değerlendirmeniz ve "
 "dolayısıyla bu değişkeni ayarlamanız gerekir. Eğer çok yükseğe ayarlanırsa, "
 "sisteminiz önemli derecede performansı düşüren değiş tokuşa başlayacaktır. "
-"Aynı zamanda <a href=\"https://www.percona.com/blog/2007/11/03/choosing-"
-"innodb_buffer_pool_size/\">bu makaleye</a> bakın"
+"Aynı zamanda <a href=\"https://www.percona.com/blog/2007/11/03/"
+"choosing-innodb_buffer_pool_size/\">bu makaleye</a> bakın"
 
 #: libraries/advisory_rules_generic.php:671
 #, php-format
@@ -1158,10 +1114,8 @@ msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr "query_cache_size 0'a ayarlı veya query_cache_type 'OFF'a ayarlı"
 
 #: libraries/advisory_rules_mysql_before80003.php:22
-#, fuzzy
-#| msgid "Query cache efficiency (%%)"
 msgid "Query cache efficiency (%)"
-msgstr "Sorgu önbelleği verimi (%%)"
+msgstr "Sorgu önbelleği verimi (%)"
 
 #: libraries/advisory_rules_mysql_before80003.php:26
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -1181,10 +1135,9 @@ msgid "Query Cache usage"
 msgstr "Sorgu Önbelleği kullanımı"
 
 #: libraries/advisory_rules_mysql_before80003.php:37
-#, fuzzy, php-format
-#| msgid "Less than 80%% of the query cache is being utilized."
+#, php-format
 msgid "Less than 80% of the query cache is being utilized."
-msgstr "Sorgu önbelleğinin %%80'den azı değerlendirilmekte."
+msgstr "Sorgu önbelleğinin %80'den azı değerlendirilmekte."
 
 #: libraries/advisory_rules_mysql_before80003.php:39
 msgid ""
@@ -8895,7 +8848,7 @@ msgstr "MySQL boş bir sonuç kümesi döndürdü (yani sıfır satır)."
 #: libraries/classes/Controllers/Table/MaintenanceController.php:163
 #: libraries/classes/Controllers/Table/MaintenanceController.php:198
 msgid "Maintenance operations on multiple tables are disabled."
-msgstr ""
+msgstr "Birden çok tablodaki bakım işlemleri etkisizleştirildi."
 
 #: libraries/classes/Controllers/Table/OperationsController.php:108
 #: libraries/classes/Controllers/Table/OperationsController.php:295
@@ -18047,10 +18000,8 @@ msgid "Continue insertion with %s rows"
 msgstr "%s satırla eklemeye devam et"
 
 #: templates/table/maintenance/checksum.twig:13
-#, fuzzy
-#| msgid "Check"
 msgid "Checksum"
-msgstr "Seç"
+msgstr "Sağlama"
 
 #: templates/table/operations/index.twig:9
 msgid "Alter table order by"
