@@ -110,23 +110,20 @@ DesignerMove.mouseDown = function (e) {
     }
 };
 
-DesignerMove.mouseMove = function (e) {
+$(document).on('mousemove', function (e) {
     if (e.preventDefault) {
         e.preventDefault();
     }
-
-    var newDx = isIe ? e.clientX + document.body.scrollLeft : e.pageX;
-    var newDy = isIe ? e.clientY + document.body.scrollTop : e.pageY;
-
-    var deltaX = globX - newDx;
-    var deltaY = globY - newDy;
-
-    globX = newDx;
-    globY = newDy;
-
     if (curClick !== null) {
-        DesignerMove.markUnsaved();
+        var newDx = isIe ? e.clientX + document.body.scrollLeft : e.pageX;
+        var newDy = isIe ? e.clientY + document.body.scrollTop : e.pageY;
 
+        var deltaX = globX - newDx;
+        var deltaY = globY - newDy;
+
+        globX = newDx;
+        globY = newDy;
+        DesignerMove.markUnsaved();
         var $curClick = $(curClick);
 
         var curX = parseFloat($curClick.attr('data-left') || $curClick.css('left'));
@@ -166,9 +163,9 @@ DesignerMove.mouseMove = function (e) {
         document.getElementById('designer_hint').style.left = (globX + 20) + 'px';
         document.getElementById('designer_hint').style.top  = (globY + 20) + 'px';
     }
-};
+});
 
-DesignerMove.mouseUp = function () {
+$(document).on('mouseup', function () {
     if (curClick !== null) {
         document.getElementById('canvas').style.display = 'inline-block';
         DesignerMove.reload();
@@ -176,7 +173,7 @@ DesignerMove.mouseUp = function () {
         curClick = null;
     }
     layerMenuCurClick = 0;
-};
+});
 
 // ------------------------------------------------------------------------------
 
@@ -1941,12 +1938,6 @@ DesignerMove.enablePageContentEvents = function () {
     $('#page_content').off('mousemove');
     $('#page_content').on('mousedown', function (e) {
         DesignerMove.mouseDown(e);
-    });
-    $('#page_content').on('mouseup', function (e) {
-        DesignerMove.mouseUp(e);
-    });
-    $('#page_content').on('mousemove', function (e) {
-        DesignerMove.mouseMove(e);
     });
 };
 
