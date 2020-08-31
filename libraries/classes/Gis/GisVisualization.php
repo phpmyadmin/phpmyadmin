@@ -483,7 +483,8 @@ class GisVisualization
         $this->init();
         $scale_data = $this->scaleDataSet($this->data);
         $output = 'if (typeof ol !== "undefined") {'
-            . '$(\'head\').append(\'<link rel="stylesheet" type="text/css" href="js/vendor/openlayers/theme/ol.css">\');'
+            . '$(\'head\').append(\'<link rel="stylesheet" type="text/css"'
+            . ' href="js/vendor/openlayers/theme/ol.css">\');'
             . 'var vectorLayer = new ol.source.Vector({});'
             . 'var map = new ol.Map({'
             . 'target: \'openlayersmap\','

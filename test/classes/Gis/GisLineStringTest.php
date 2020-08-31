@@ -383,31 +383,21 @@ class GisLineStringTest extends GisGeomTestCase
                     'maxX' => '1',
                     'maxY' => '1',
                 ],
-                'var style = new ol.style.Style({stroke: new ol.s'
-                . 'tyle.Stroke({color: [176,46,224],width: 2}),tex'
-                . 't: new ol.style.Text({text: "Ol",})});var minLo'
-                . 'c = [0, 0];var maxLoc = [1, 1];var ext = ol.ext'
-                . 'ent.boundingExtent([minLoc, maxLoc]);ext = ol.p'
-                . 'roj.transformExtent(ext, ol.proj.get("EPSG:4326'
-                . '"), ol.proj.get(\'EPSG:3857\'));map.getView().f'
-                . 'it(ext, map.getSize());var line = new ol.Featur'
-                . 'e({geometry: new ol.geom.LineString(new Array(('
-                . 'new ol.geom.Point([12,35]).transform(ol.proj.ge'
-                . 't("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).ge'
-                . 'tCoordinates(), (new ol.geom.Point([48,75]).tra'
-                . 'nsform(ol.proj.get("EPSG:4326"), ol.proj.get(\''
-                . 'EPSG:3857\'))).getCoordinates(), (new ol.geom.P'
-                . 'oint([69,23]).transform(ol.proj.get("EPSG:4326"'
-                . '), ol.proj.get(\'EPSG:3857\'))).getCoordinates('
-                . '), (new ol.geom.Point([25,45]).transform(ol.pro'
-                . 'j.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))'
-                . ').getCoordinates(), (new ol.geom.Point([14,53])'
-                . '.transform(ol.proj.get("EPSG:4326"), ol.proj.ge'
-                . 't(\'EPSG:3857\'))).getCoordinates(), (new ol.ge'
-                . 'om.Point([35,78]).transform(ol.proj.get("EPSG:4'
-                . '326"), ol.proj.get(\'EPSG:3857\'))).getCoordina'
-                . 'tes()))});line.setStyle(style);vectorLayer.addF'
-                . 'eature(line);',
+                'var style = new ol.style.Style({stroke: new ol.style.Stroke({color: [176,46,224],w'
+                . 'idth: 2}),text: new ol.style.Text({text: "Ol",})});var minLoc = [0, 0];var maxLo'
+                . 'c = [1, 1];var ext = ol.extent.boundingExtent([minLoc, maxLoc]);ext = ol.proj.tr'
+                . 'ansformExtent(ext, ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'));map.get'
+                . 'View().fit(ext, map.getSize());var line = new ol.Feature({geometry: new ol.geom.'
+                . 'LineString(new Array((new ol.geom.Point([12,35]).transform(ol.proj.get("EPSG:432'
+                . '6"), ol.proj.get(\'EPSG:3857\'))).getCoordinates(), (new ol.geom.Point([48,75]).'
+                . 'transform(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoordinates('
+                . '), (new ol.geom.Point([69,23]).transform(ol.proj.get("EPSG:4326"), ol.proj.get('
+                . '\'EPSG:3857\'))).getCoordinates(), (new ol.geom.Point([25,45]).transform(ol.proj'
+                . '.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoordinates(), (new ol.geom.P'
+                . 'oint([14,53]).transform(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).g'
+                . 'etCoordinates(), (new ol.geom.Point([35,78]).transform(ol.proj.get("EPSG:4326"),'
+                . ' ol.proj.get(\'EPSG:3857\'))).getCoordinates()))});line.setStyle(style);vectorLa'
+                . 'yer.addFeature(line);',
             ],
         ];
     }
