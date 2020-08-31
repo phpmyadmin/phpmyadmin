@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="3.14.2@3538fe1955d47f6ee926c0769d71af6db08aa488">
-  <file src="libraries/classes/Advisor.php">
-    <InvalidArrayOffset occurrences="2">
-      <code>$ruleSyntax[$ruleLine++]</code>
-      <code>$ruleSyntax[$ruleLine]</code>
-    </InvalidArrayOffset>
-  </file>
   <file src="libraries/classes/CentralColumns.php">
     <InvalidScalarArgument occurrences="1">
       <code>$tn_pageNow</code>
@@ -2342,7 +2336,7 @@
       <code>$result</code>
       <code>$fields_meta</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="27">
+    <PossiblyNullArgument occurrences="25">
       <code>$db</code>
       <code>$table</code>
       <code>$db</code>
@@ -2354,8 +2348,6 @@
       <code>$printview</code>
       <code>$printview</code>
       <code>$result</code>
-      <code>$url_query</code>
-      <code>$showtable</code>
       <code>$sql_data ?? null</code>
       <code>$disp_message ?? null</code>
       <code>$url_query</code>

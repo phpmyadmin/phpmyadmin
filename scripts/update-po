@@ -43,9 +43,6 @@ php scripts/fix-po-twig
 # Remote twig templates
 rm -rf twig-templates/
 
-# Generate PHP code for advisor rules
-php scripts/console po:advisory-rules >> po/phpmyadmin.pot
-
 ver=`sed -n "/PMA_VERSION', '/ s/.*PMA_VERSION', '\(.*\)'.*/\1/p" libraries/classes/Config.php`
 
 sed -i.~ '
