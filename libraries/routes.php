@@ -76,6 +76,7 @@ use PhpMyAdmin\Controllers\Table\GetFieldController;
 use PhpMyAdmin\Controllers\Table\GisVisualizationController;
 use PhpMyAdmin\Controllers\Table\ImportController as TableImportController;
 use PhpMyAdmin\Controllers\Table\IndexesController;
+use PhpMyAdmin\Controllers\Table\MaintenanceController;
 use PhpMyAdmin\Controllers\Table\OperationsController as TableOperationsController;
 use PhpMyAdmin\Controllers\Table\RecentFavoriteController;
 use PhpMyAdmin\Controllers\Table\RelationController;
@@ -141,7 +142,6 @@ return static function (RouteCollector $routes): void {
             $routes->addRoute(['GET', 'POST'], '', [StructureController::class, 'index']);
             $routes->post('/add-prefix', [StructureController::class, 'addPrefix']);
             $routes->post('/add-prefix-table', [StructureController::class, 'addPrefixTable']);
-            $routes->post('/analyze-table', [StructureController::class, 'analyzeTable']);
             $routes->post('/central-columns-add', [StructureController::class, 'centralColumnsAdd']);
             $routes->post('/central-columns-make-consistent', [
                 StructureController::class,
@@ -149,8 +149,6 @@ return static function (RouteCollector $routes): void {
             ]);
             $routes->post('/central-columns-remove', [StructureController::class, 'centralColumnsRemove']);
             $routes->post('/change-prefix-form', [StructureController::class, 'changePrefixForm']);
-            $routes->post('/check-table', [StructureController::class, 'checkTable']);
-            $routes->post('/checksum-table', [StructureController::class, 'checksumTable']);
             $routes->post('/copy-form', [StructureController::class, 'copyForm']);
             $routes->post('/copy-table', [StructureController::class, 'copyTable']);
             $routes->post('/copy-table-with-prefix', [StructureController::class, 'copyTableWithPrefix']);
@@ -163,12 +161,10 @@ return static function (RouteCollector $routes): void {
                 StructureController::class,
                 'addRemoveFavoriteTablesAction',
             ]);
-            $routes->post('/optimize-table', [StructureController::class, 'optimizeTable']);
             $routes->addRoute(['GET', 'POST'], '/real-row-count', [
                 StructureController::class,
                 'handleRealRowCountRequestAction',
             ]);
-            $routes->post('/repair-table', [StructureController::class, 'repairTable']);
             $routes->post('/replace-prefix', [StructureController::class, 'replacePrefix']);
             $routes->post('/show-create', [StructureController::class, 'showCreate']);
         });
@@ -278,6 +274,13 @@ return static function (RouteCollector $routes): void {
         $routes->addRoute(['GET', 'POST'], '/gis-visualization', [GisVisualizationController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/import', [TableImportController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/indexes', [IndexesController::class, 'index']);
+        $routes->addGroup('/maintenance', static function (RouteCollector $routes): void {
+            $routes->post('/analyze', [MaintenanceController::class, 'analyze']);
+            $routes->post('/check', [MaintenanceController::class, 'check']);
+            $routes->post('/checksum', [MaintenanceController::class, 'checksum']);
+            $routes->post('/optimize', [MaintenanceController::class, 'optimize']);
+            $routes->post('/repair', [MaintenanceController::class, 'repair']);
+        });
         $routes->addRoute(['GET', 'POST'], '/operations', [TableOperationsController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/recent-favorite', [RecentFavoriteController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/relation', [RelationController::class, 'index']);

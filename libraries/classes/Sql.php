@@ -26,7 +26,6 @@ use function htmlspecialchars;
 use function in_array;
 use function is_array;
 use function is_bool;
-use function is_string;
 use function microtime;
 use function session_start;
 use function session_write_close;
@@ -1479,7 +1478,6 @@ class Sql
      * @param array               $analyzed_sql_results analysed sql results
      * @param string              $db                   current database
      * @param string              $table                current table
-     * @param Message|string|null $message              message to show
      * @param array|null          $sql_data             sql data
      * @param DisplayResults      $displayResultsObject Instance of DisplayResults
      * @param string              $pmaThemeImage        uri of the theme image
@@ -1498,7 +1496,6 @@ class Sql
         array $analyzed_sql_results,
         $db,
         $table,
-        $message,
         ?array $sql_data,
         $displayResultsObject,
         $pmaThemeImage,
@@ -1606,36 +1603,6 @@ class Sql
             ];
         }
 
-        $tableMaintenanceHtml = '';
-        if (isset($_POST['table_maintenance'])) {
-            $scripts->addFile('makegrid.js');
-            $scripts->addFile('sql.js');
-            if (isset($message)) {
-                $message = is_string($message) ? Message::success($message) : $message;
-                $tableMaintenanceHtml = Generator::getMessage(
-                    $message,
-                    $GLOBALS['sql_query'],
-                    'success'
-                );
-            }
-            $tableMaintenanceHtml .= $this->getHtmlForSqlQueryResultsTable(
-                $displayResultsObject,
-                $pmaThemeImage,
-                $url_query,
-                $displayParts,
-                false,
-                $unlim_num_rows,
-                $num_rows,
-                $showtable,
-                $result,
-                $analyzed_sql_results
-            );
-            if (empty($sql_data) || ($sql_data['valid_queries'] <= 1)) {
-                $response->addHTML($tableMaintenanceHtml);
-                exit;
-            }
-        }
-
         if (! isset($_POST['printview']) || $_POST['printview'] != '1') {
             $scripts->addFile('makegrid.js');
             $scripts->addFile('sql.js');
@@ -1704,7 +1671,6 @@ class Sql
         }
 
         return $this->template->render('sql/sql_query_results', [
-            'table_maintenance' => $tableMaintenanceHtml,
             'previous_update_query' => $previousUpdateQueryHtml,
             'profiling_chart' => $profilingChartHtml,
             'missing_unique_column_message' => $missingUniqueColumnMessage,
@@ -1725,7 +1691,6 @@ class Sql
      * @param string|null         $sql_query_for_bookmark the sql query to be stored as bookmark
      * @param array|null          $extra_data             extra data
      * @param string|null         $message_to_show        message to show
-     * @param Message|string|null $message                message
      * @param array|null          $sql_data               sql data
      * @param string              $goto                   goto page url
      * @param string              $pmaThemeImage          uri of the PMA theme image
@@ -1743,7 +1708,6 @@ class Sql
         $sql_query_for_bookmark,
         $extra_data,
         $message_to_show,
-        $message,
         $sql_data,
         $goto,
         $pmaThemeImage,
@@ -1774,7 +1738,6 @@ class Sql
             $sql_query_for_bookmark, // sql_query_for_bookmark
             $extra_data, // extra_data
             $message_to_show, // message_to_show
-            $message, // message
             $sql_data, // sql_data
             $goto, // goto
             $pmaThemeImage, // pmaThemeImage
@@ -1796,7 +1759,6 @@ class Sql
      * @param string|null         $sql_query_for_bookmark the sql query to be stored as bookmark
      * @param array|null          $extra_data             extra data
      * @param string|null         $message_to_show        message to show
-     * @param Message|string|null $message                message
      * @param array|null          $sql_data               sql data
      * @param string              $goto                   goto page url
      * @param string              $pmaThemeImage          uri of the PMA theme image
@@ -1816,7 +1778,6 @@ class Sql
         ?string $sql_query_for_bookmark,
         $extra_data,
         ?string $message_to_show,
-        $message,
         $sql_data,
         $goto,
         $pmaThemeImage,
@@ -1913,7 +1874,6 @@ class Sql
                 $analyzed_sql_results,
                 $db,
                 $table,
-                $message ?? null,
                 $sql_data ?? null,
                 $displayResultsObject,
                 $pmaThemeImage,

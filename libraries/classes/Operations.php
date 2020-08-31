@@ -12,10 +12,8 @@ use PhpMyAdmin\Plugins\Export\ExportSql;
 use function array_merge;
 use function count;
 use function explode;
-use function htmlspecialchars;
 use function implode;
 use function mb_strtolower;
-use function sprintf;
 use function str_replace;
 use function strlen;
 use function strtolower;
@@ -593,96 +591,6 @@ class Operations
         }
 
         return $possible_row_formats;
-    }
-
-    /**
-     * @param Table $tableObject Table object
-     *
-     * @return array
-     */
-    public function getMaintenanceActions(Table $tableObject): array
-    {
-        global $table;
-
-        $actions = [];
-
-        if ($tableObject->isEngine(['MYISAM', 'ARIA', 'INNODB', 'BERKELEYDB', 'TOKUDB'])) {
-            $actions[] = [
-                'params' => [
-                    'sql_query' => 'ANALYZE TABLE ' . Util::backquote($table),
-                    'table_maintenance' => 'Go',
-                ],
-                'message' => __('Analyze table'),
-                'link' => 'ANALYZE_TABLE',
-            ];
-        }
-
-        if ($tableObject->isEngine(['MYISAM', 'ARIA', 'INNODB', 'TOKUDB'])) {
-            $actions[] = [
-                'params' => [
-                    'sql_query' => 'CHECK TABLE ' . Util::backquote($table),
-                    'table_maintenance' => 'Go',
-                ],
-                'message' => __('Check table'),
-                'link' => 'CHECK_TABLE',
-            ];
-        }
-
-        $actions[] = [
-            'params' => [
-                'sql_query' => 'CHECKSUM TABLE ' . Util::backquote($table),
-                'table_maintenance' => 'Go',
-            ],
-            'message' => __('Checksum table'),
-            'link' => 'CHECKSUM_TABLE',
-        ];
-
-        if ($tableObject->isEngine(['INNODB'])) {
-            $actions[] = [
-                'params' => [
-                    'sql_query' => 'ALTER TABLE ' . Util::backquote($table) . ' ENGINE = InnoDB;',
-                ],
-                'message' => __('Defragment table'),
-                'link' => 'InnoDB_File_Defragmenting',
-            ];
-        }
-
-        $actions[] = [
-            'params' => [
-                'sql_query' => 'FLUSH TABLE ' . Util::backquote($table),
-                'message_to_show' => sprintf(
-                    __('Table %s has been flushed.'),
-                    htmlspecialchars($table)
-                ),
-                'reload' => true,
-            ],
-            'message' => __('Flush the table (FLUSH)'),
-            'link' => 'FLUSH',
-        ];
-
-        if ($tableObject->isEngine(['MYISAM', 'ARIA', 'INNODB', 'BERKELEYDB', 'TOKUDB'])) {
-            $actions[] = [
-                'params' => [
-                    'sql_query' => 'OPTIMIZE TABLE ' . Util::backquote($table),
-                    'table_maintenance' => 'Go',
-                ],
-                'message' => __('Optimize table'),
-                'link' => 'OPTIMIZE_TABLE',
-            ];
-        }
-
-        if ($tableObject->isEngine(['MYISAM', 'ARIA'])) {
-            $actions[] = [
-                'params' => [
-                    'sql_query' => 'REPAIR TABLE ' . Util::backquote($table),
-                    'table_maintenance' => 'Go',
-                ],
-                'message' => __('Repair table'),
-                'link' => 'REPAIR_TABLE',
-            ];
-        }
-
-        return $actions;
     }
 
     /**

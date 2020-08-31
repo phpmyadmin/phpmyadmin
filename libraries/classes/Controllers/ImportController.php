@@ -806,7 +806,6 @@ final class ImportController extends AbstractController
                     null, // sql_query_for_bookmark - see below
                     null, // extra_data
                     null, // message_to_show
-                    null, // message
                     null, // sql_data
                     $goto, // goto
                     $pmaThemeImage, // pmaThemeImage

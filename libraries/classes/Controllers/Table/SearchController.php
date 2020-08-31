@@ -268,7 +268,6 @@ class SearchController extends AbstractController
             null, // sql_query_for_bookmark
             null, // extra_data
             null, // message_to_show
-            null, // message
             null, // sql_data
             $GLOBALS['goto'], // goto
             $GLOBALS['pmaThemeImage'], // pmaThemeImage

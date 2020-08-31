@@ -73,7 +73,6 @@ class DeleteController extends AbstractController
             null,
             null,
             null,
-            null,
             $goto,
             $pmaThemeImage,
             null,
