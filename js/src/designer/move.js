@@ -270,7 +270,7 @@ DesignerMove.resizeOsnTab = function () {
     DesignerMove.canvasPos();
 };
 
-function designerMove(foreignKey) {
+function designerMove (foreignKey) {
     var designerTable = document.getElementById('designer_table_' + foreignKey.sourceTableUuid);
     var designerForeignTable = document.getElementById('designer_table_' + foreignKey.tableUuid);
 
@@ -323,6 +323,19 @@ function designerMove(foreignKey) {
     return [x1, x2];
 }
 
+function designerMoveLine0 (x, y1, y2, foreignKey) {
+    var osnTab = document.getElementById('osn_tab');
+    var x1 = x[0];
+    var x2 = x[1];
+    DesignerMove.line0(
+        x1 + osnTab.offsetLeft,
+        y1 - osnTab.offsetTop,
+        x2 + osnTab.offsetLeft,
+        y2 - osnTab.offsetTop,
+        DesignerMove.getColorByTarget(foreignKey.tableName + '.' + foreignKey.colName)
+    );
+}
+
 /**
  * refreshes display, must be called after state changes
  */
@@ -341,8 +354,6 @@ DesignerMove.reload = function () {
                 continue; // if hide
             }
             var x = designerMove(foreignKey);
-            var x1 = x[0];
-            var x2 = x[1];
 
             var rowOffsetTop = 0;
             var designerTable = document.getElementById('designer_table_' + foreignKey.sourceTableUuid);
@@ -374,15 +385,7 @@ DesignerMove.reload = function () {
 
             var y2 = designerForeignTable.offsetTop + rowOffsetTop + heightField;
 
-            var osnTab = document.getElementById('osn_tab');
-
-            DesignerMove.line0(
-                x1 + osnTab.offsetLeft,
-                y1 - osnTab.offsetTop,
-                x2 + osnTab.offsetLeft,
-                y2 - osnTab.offsetTop,
-                DesignerMove.getColorByTarget(foreignKey.tableName + '.' + foreignKey.colName)
-            );
+            designerMoveLine0(x, y1, y2, foreignKey);
         }
     }
 };
@@ -1519,13 +1522,7 @@ DesignerMove.canvasClick = function (id, event) {
                 Key3 = foreignKey.fkName;
                 Key = contrId;
             } else {
-                DesignerMove.line0(
-                    x1 + osnTab.offsetLeft,
-                    y1 - osnTab.offsetTop,
-                    x2 + osnTab.offsetLeft,
-                    y2 - osnTab.offsetTop,
-                    DesignerMove.getColorByTarget(foreignKey.tableName + '.' + foreignKey.colName)
-                );
+                designerMoveLine0(x, y1, y2, foreignKey);
             }
         }
     }
