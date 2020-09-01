@@ -144,7 +144,8 @@ DesignerPage.loadHtmlForPage = function (pageId) {
 
             var checkbox = document.getElementById('check_vis_' + tbId);
             checkbox.checked = true;
-            DesignerMove.visibleTab(checkbox, 'designer_table_' + checkbox.value);
+            var val = checkbox.value.replace('check_visible_','');
+            DesignerMove.visibleTab(checkbox, 'designer_table_' + val);
         }
         selectedPage = page.pgNr;
     });
