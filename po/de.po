@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-31 19:04-0300\n"
-"PO-Revision-Date: 2020-08-09 06:43+0000\n"
+"PO-Revision-Date: 2020-09-01 09:12+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "de/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 4.2.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -605,17 +605,15 @@ msgid "key_buffer_size is 0"
 msgstr "key_buffer_size ist 0"
 
 #: libraries/advisory_rules_generic.php:373
-#, fuzzy, no-php-format
-#| msgid "Max %% MyISAM key buffer ever used"
+#, no-php-format
 msgid "Max % MyISAM key buffer ever used"
-msgstr "Max %% des MyISAM Schlüssel-Cache jemals benutzt"
+msgstr "Max % des MyISAM Schlüssel-Cache jemals benutzt"
 
 #: libraries/advisory_rules_generic.php:378
 #: libraries/advisory_rules_generic.php:395
-#, fuzzy, no-php-format
-#| msgid "MyISAM key buffer (index cache) %% used is low."
+#, no-php-format
 msgid "MyISAM key buffer (index cache) % used is low."
-msgstr "MyISAM Schlüssel-Cache (Indize Cache) %% benutz ist niedrig."
+msgstr "MyISAM Schlüssel-Cache (Indize Cache) % benutz ist niedrig."
 
 #: libraries/advisory_rules_generic.php:380
 #: libraries/advisory_rules_generic.php:397
@@ -652,11 +650,9 @@ msgid "Percentage of index reads from memory"
 msgstr "Prozentsatz der aus dem Speicher gelesenen Indize"
 
 #: libraries/advisory_rules_generic.php:411
-#, fuzzy, no-php-format
-#| msgid "The %% of indexes that use the MyISAM key buffer is low."
+#, no-php-format
 msgid "The % of indexes that use the MyISAM key buffer is low."
-msgstr ""
-"Der %% von Indizes, die den MyISAM Schlüsselpuffer verwenden ist gering."
+msgstr "Der % von Indizes, die den MyISAM Schlüsselpuffer verwenden ist gering."
 
 #: libraries/advisory_rules_generic.php:412
 msgid "You may need to increase {key_buffer_size}."
@@ -697,16 +693,12 @@ msgid "Percentage of used open files limit"
 msgstr "Prozentsatz der verwendeten offene Dateien Grenze"
 
 #: libraries/advisory_rules_generic.php:436
-#, fuzzy
-#| msgid ""
-#| "The number of open files is approaching the max number of open files.  "
-#| "You may get a \"Too many open files\" error."
 msgid ""
 "The number of open files is approaching the max number of open files. You "
 "may get a \"Too many open files\" error."
 msgstr ""
 "Die Anzahl der offene Dateien nähert sich die maximale Anzahl von geöffneten "
-"Dateien.  Möglicherweise erhalten Sie \"Too many open files\"-Fehler."
+"Dateien. Möglicherweise erhalten Sie \"Too many open files\"-Fehler."
 
 #: libraries/advisory_rules_generic.php:440
 #: libraries/advisory_rules_generic.php:453
@@ -740,10 +732,9 @@ msgstr ""
 "Geöffnete Dateien Rate: %s, dieser Wert sollte kleiner als 5 pro Stunde sein"
 
 #: libraries/advisory_rules_generic.php:462
-#, fuzzy, no-php-format
-#| msgid "Immediate table locks %%"
+#, no-php-format
 msgid "Immediate table locks %"
-msgstr "Sofortige Tabellensperren %%"
+msgstr "Sofortige Tabellensperren %"
 
 #: libraries/advisory_rules_generic.php:466
 #: libraries/advisory_rules_generic.php:476
@@ -796,10 +787,9 @@ msgid "The thread cache is set to 0"
 msgstr "Der Prozess-Zwischenspeicher ist auf 0 gesetzt"
 
 #: libraries/advisory_rules_generic.php:493
-#, fuzzy, no-php-format
-#| msgid "Thread cache hit rate %%"
+#, no-php-format
 msgid "Thread cache hit rate %"
-msgstr "Prozess-Zwischenspeicher Trefferrate %%"
+msgstr "Prozess-Zwischenspeicher Trefferrate %"
 
 #: libraries/advisory_rules_generic.php:497
 msgid "Thread cache is not efficient."
@@ -999,18 +989,7 @@ msgstr ""
 "Pufferpoolgröße."
 
 #: libraries/advisory_rules_generic.php:622
-#, fuzzy, no-php-format
-#| msgid ""
-#| "Especially on a system with a lot of writes to InnoDB tables you should "
-#| "set {innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However "
-#| "the bigger this value, the longer the recovery time will be when database "
-#| "crashes, so this value should not be set much higher than 256 MiB. Please "
-#| "note however that you cannot simply change the value of this variable. "
-#| "You need to shutdown the server, remove the InnoDB log files, set the new "
-#| "value in my.cnf, start the server, then check the error logs if "
-#| "everything went fine. See also <a href=\"https://"
-#| "mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-#| "innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, no-php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
 "{innodb_log_file_size} to 25% of {innodb_buffer_pool_size}. However the "
@@ -1023,16 +1002,16 @@ msgid ""
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "Vor allem auf einem System mit einer Menge von Schreibzugriffen auf InnoDB-"
-"Tabellen sollten Sie {innodb_log_file_size} auf 25%% von "
+"Tabellen sollten Sie {innodb_log_file_size} auf 25% von "
 "{innodb_buffer_pool_size} setzen. Jedoch, je größer dieser Wert, desto "
 "länger wird die Wiederherstellungszeit bei Datenbank Abstürzen, so dass "
 "dieser Wert nicht viel höher als 256 MiB gsetzt werden sollte. Bitte "
 "beachten Sie jedoch, dass Sie nicht einfach den Wert dieser Variablen ändern "
 "können. Sie müssen den Server herunterfahren, die InnoDB-Logdateien löschen, "
 "den neuen Wert in my.cnf eintragen, den Server neu starten und dann das "
-"Fehlerprotokoll überprüfen ob alles gut ging. Siehe auch <a href=\"https://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">diesen Blog-Eintrag</a>"
+"Fehlerprotokoll überprüfen ob alles gut ging. Siehe auch <a href=\"https"
+"://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">diesen Blog-Eintrag</a>"
 
 #: libraries/advisory_rules_generic.php:633
 #, php-format
@@ -1052,17 +1031,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "Die InnoDB Protokollgröße ist nicht ausreichend groß."
 
 #: libraries/advisory_rules_generic.php:646
-#, fuzzy, no-php-format
-#| msgid ""
-#| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
-#| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
-#| "slows down the recovery time after a database crash considerably. See "
-#| "also <a href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
-#| "innodb_log_file_size/\">this Article</a>. You need to shutdown the "
-#| "server, remove the InnoDB log files, set the new value in my.cnf, start "
-#| "the server, then check the error logs if everything went fine. See also "
-#| "<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/"
-#| "increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, no-php-format
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25% of the size of "
 "{innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down the "
@@ -1074,16 +1043,16 @@ msgid ""
 "\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"Es üblicherweise ausreichend {innodb_log_file_size} auf 25%% der Größe von "
+"Es üblicherweise ausreichend {innodb_log_file_size} auf 25% der Größe von "
 "{Innodb_buffer_pool_size} einzustellen. Eine sehr große "
 "{innodb_log_file_size} verlangsamt die Wiederherstellungszeit nach einem "
 "Datenbank Absturz erheblich. Siehe auch <a href=\"https://www.percona.com/"
 "blog/2006/07/03/choosing-proper-innodb_log_file_size/\">diesen Artikels</a>. "
 "Sie müssen den Server herunterfahren, die InnoDB-Logdateien löschen, den "
 "neuen Wert in my.cnf eintragen, den Server neu starten und dann das "
-"Fehlerprotokoll überprüfen ob alles gut ging. Siehe auch <a href=\"https://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">diesen Blog-Eintrag</a>"
+"Fehlerprotokoll überprüfen ob alles gut ging. Siehe auch <a href=\"https"
+"://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">diesen Blog-Eintrag</a>"
 
 #: libraries/advisory_rules_generic.php:656
 #, php-format
@@ -1099,18 +1068,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Ihr InnoDB Pufferpool ist recht klein."
 
 #: libraries/advisory_rules_generic.php:667
-#, fuzzy, no-php-format
-#| msgid ""
-#| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
-#| "tables. Assign all your remaining memory to this buffer. For database "
-#| "servers that use solely InnoDB as storage engine and have no other "
-#| "services (e.g. a web server) running, you may set this as high as 80%% of "
-#| "your available memory. If that is not the case, you need to carefully "
-#| "assess the memory consumption of your other services and non-InnoDB-"
-#| "Tables and set this variable accordingly. If it is set too high, your "
-#| "system will start swapping, which decreases performance significantly. "
-#| "See also <a href=\"https://www.percona.com/blog/2007/11/03/choosing-"
-#| "innodb_buffer_pool_size/\">this article</a>"
+#, no-php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 "tables. Assign all your remaining memory to this buffer. For database "
@@ -1127,13 +1085,13 @@ msgstr ""
 "InnoDB-Tabellen. Weisen Sie dieser Puffer alle Ihren verbleibenden "
 "Arbeitsspeicher zuweisen. Für Datenbankserver, die ausschließlich InnoDB "
 "Tabellen als Speicher verwenden und keine anderen Dienste (z. B. ein "
-"Webserver) ausgeführt, können Sie diesen auf bis zu 80%% Ihres verfügbaren "
+"Webserver) ausgeführt, können Sie diesen auf bis zu 80% Ihres verfügbaren "
 "Speichers festlegen. Wenn dieses nicht der Fall ist, müssen Sie sorgfältig "
 "den Speicherverbrauch von anderen Diensten und nicht-InnoDB-Tabellen "
 "bewerten und stellen Sie diese Variable entsprechend ein. Wenn der Wert zu "
 "hoch ist, startet Ihr System Speicher auf die Festplatte auszulagen, was die "
-"Leistung erheblich senkt. Siehe auch <a href=\"https://www.percona.com/"
-"blog/2007/11/03/choosing-innodb_buffer_pool_size/\">diesen Artikel</a>"
+"Leistung erheblich senkt. Siehe auch <a href=\"https://www.percona.com/blog/"
+"2007/11/03/choosing-innodb_buffer_pool_size/\">diesen Artikel</a>"
 
 #: libraries/advisory_rules_generic.php:677
 #, php-format
@@ -1195,10 +1153,9 @@ msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr "query_cache_size ist auf 0 oder query_cache_type ist auf 'OFF' gesetzt"
 
 #: libraries/advisory_rules_mysql_before80003.php:23
-#, fuzzy, no-php-format
-#| msgid "Query cache efficiency (%%)"
+#, no-php-format
 msgid "Query cache efficiency (%)"
-msgstr "Anfragen-Zwischenspeicher Effizienz (%%)"
+msgstr "Anfragen-Zwischenspeicher Effizienz (%)"
 
 #: libraries/advisory_rules_mysql_before80003.php:27
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -1218,10 +1175,9 @@ msgid "Query Cache usage"
 msgstr "Abfragen-Zwischenspeicher Ausnutzung"
 
 #: libraries/advisory_rules_mysql_before80003.php:39
-#, fuzzy, no-php-format
-#| msgid "Less than 80%% of the query cache is being utilized."
+#, no-php-format
 msgid "Less than 80% of the query cache is being utilized."
-msgstr "Weniger als 80%% des Abfragen-Zwischenspeichers werden benutzt."
+msgstr "Weniger als 80% des Abfragen-Zwischenspeichers werden benutzt."
 
 #: libraries/advisory_rules_mysql_before80003.php:41
 msgid ""
@@ -15816,10 +15772,10 @@ msgid ""
 "formatting strings. Additionally the following transformations will happen: "
 "%s Other text will be kept as is. See the FAQ 6.27 for details."
 msgstr ""
-"Dieser Wert wird mit %1$sstrftime%2$s geparst. Sie können also Platzhalter "
-"für Datum und Uhrzeit verwenden. Darüber hinaus werden folgende Umformungen "
-"durchgeführt: %3$s. Der übrige Text bleibt unberührt. Für weitere "
-"Informationen lesen Sie die %4$sFAQ%5$s."
+"Dieser Wert wird mit 'strftime' geparst. Sie können also Platzhalter für "
+"Datum und Uhrzeit verwenden. Darüber hinaus werden folgende Umformungen "
+"durchgeführt: %s. Der übrige Text bleibt unberührt. Für weitere "
+"Informationen lesen Sie die FAQ 6.27."
 
 #: templates/export.twig:329
 msgid "use this for future exports"
