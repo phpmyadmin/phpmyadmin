@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-31 19:04-0300\n"
-"PO-Revision-Date: 2020-08-19 03:33+0000\n"
-"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
+"PO-Revision-Date: 2020-09-01 09:12+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 4.2.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -608,17 +608,15 @@ msgid "key_buffer_size is 0"
 msgstr "key_buffer_size est à 0"
 
 #: libraries/advisory_rules_generic.php:373
-#, fuzzy, no-php-format
-#| msgid "Max %% MyISAM key buffer ever used"
+#, no-php-format
 msgid "Max % MyISAM key buffer ever used"
-msgstr "%% maximum du tampon de clés MyISAM qui a été utilisé"
+msgstr "% maximum du tampon de clés MyISAM qui a été utilisé"
 
 #: libraries/advisory_rules_generic.php:378
 #: libraries/advisory_rules_generic.php:395
-#, fuzzy, no-php-format
-#| msgid "MyISAM key buffer (index cache) %% used is low."
+#, no-php-format
 msgid "MyISAM key buffer (index cache) % used is low."
-msgstr "Le %% de la mémoire tampon utilisé pour les clés MyISAM est faible."
+msgstr "Le % de la mémoire tampon utilisé pour les clés MyISAM est faible."
 
 #: libraries/advisory_rules_generic.php:380
 #: libraries/advisory_rules_generic.php:397
@@ -655,10 +653,9 @@ msgid "Percentage of index reads from memory"
 msgstr "Pourcentage des lectures d'index depuis la mémoire"
 
 #: libraries/advisory_rules_generic.php:411
-#, fuzzy, no-php-format
-#| msgid "The %% of indexes that use the MyISAM key buffer is low."
+#, no-php-format
 msgid "The % of indexes that use the MyISAM key buffer is low."
-msgstr "Le %% des index qui utilisent la mémoire tampon MySQL est faible."
+msgstr "Le % des index qui utilisent la mémoire tampon MySQL est faible."
 
 #: libraries/advisory_rules_generic.php:412
 msgid "You may need to increase {key_buffer_size}."
@@ -699,10 +696,6 @@ msgid "Percentage of used open files limit"
 msgstr "Pourcentage du nombre de fichiers ouverts"
 
 #: libraries/advisory_rules_generic.php:436
-#, fuzzy
-#| msgid ""
-#| "The number of open files is approaching the max number of open files.  "
-#| "You may get a \"Too many open files\" error."
 msgid ""
 "The number of open files is approaching the max number of open files. You "
 "may get a \"Too many open files\" error."
@@ -743,10 +736,9 @@ msgstr ""
 "à l'heure"
 
 #: libraries/advisory_rules_generic.php:462
-#, fuzzy, no-php-format
-#| msgid "Immediate table locks %%"
+#, no-php-format
 msgid "Immediate table locks %"
-msgstr "%% de verrouillage de tables"
+msgstr "% de verrouillage de tables"
 
 #: libraries/advisory_rules_generic.php:466
 #: libraries/advisory_rules_generic.php:476
@@ -798,10 +790,9 @@ msgid "The thread cache is set to 0"
 msgstr "La taille du cache des fils d'exécution est de 0"
 
 #: libraries/advisory_rules_generic.php:493
-#, fuzzy, no-php-format
-#| msgid "Thread cache hit rate %%"
+#, no-php-format
 msgid "Thread cache hit rate %"
-msgstr "Taux de succès du cache des fils d'exécution en %%"
+msgstr "Taux de succès du cache des fils d'exécution en %"
 
 #: libraries/advisory_rules_generic.php:497
 msgid "Thread cache is not efficient."
@@ -998,18 +989,7 @@ msgstr ""
 "mémoire tampon InnoDB."
 
 #: libraries/advisory_rules_generic.php:622
-#, fuzzy, no-php-format
-#| msgid ""
-#| "Especially on a system with a lot of writes to InnoDB tables you should "
-#| "set {innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However "
-#| "the bigger this value, the longer the recovery time will be when database "
-#| "crashes, so this value should not be set much higher than 256 MiB. Please "
-#| "note however that you cannot simply change the value of this variable. "
-#| "You need to shutdown the server, remove the InnoDB log files, set the new "
-#| "value in my.cnf, start the server, then check the error logs if "
-#| "everything went fine. See also <a href=\"https://"
-#| "mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-#| "innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, no-php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
 "{innodb_log_file_size} to 25% of {innodb_buffer_pool_size}. However the "
@@ -1022,15 +1002,15 @@ msgid ""
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "En particulier si ce système effectue de nombreuses écritures dans des "
-"tables InnoDB, il faudrait régler innodb_log_file à 25%% de "
+"tables InnoDB, il faudrait régler innodb_log_file à 25% de "
 "{innodb_buffer_pool_size}. Cependant, plus cette valeur est élevée plus long "
 "sera le temps de recouvrement en cas de panne de la base de données, alors "
 "cette valeur ne devrait pas dépasser 256 Mio. Merci de noter qu'il n'est pas "
 "possible de simplement changer la valeur de cette variable. Il faut fermer "
-"le serveur, enlever les journaux InnoDB, placer la nouvelle valeur dans my."
-"cnf, démarrer le serveur, puis vérifier les journaux d'erreurs. Voir aussi "
-"<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">cet article de blogue.</a>"
+"le serveur, enlever les journaux InnoDB, placer la nouvelle valeur dans "
+"my.cnf, démarrer le serveur, puis vérifier les journaux d'erreurs. Voir "
+"aussi <a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/"
+"increase-innodblogfilesize-proper-way.html\">cet article de blogue.</a>"
 
 #: libraries/advisory_rules_generic.php:633
 #, php-format
@@ -1050,17 +1030,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "La taille du journal InnoDB est trop grande."
 
 #: libraries/advisory_rules_generic.php:646
-#, fuzzy, no-php-format
-#| msgid ""
-#| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
-#| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
-#| "slows down the recovery time after a database crash considerably. See "
-#| "also <a href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
-#| "innodb_log_file_size/\">this Article</a>. You need to shutdown the "
-#| "server, remove the InnoDB log files, set the new value in my.cnf, start "
-#| "the server, then check the error logs if everything went fine. See also "
-#| "<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/"
-#| "increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, no-php-format
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25% of the size of "
 "{innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down the "
@@ -1072,15 +1042,15 @@ msgid ""
 "\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"Il suffit normalement de régler {innodb_log_file_size} à 25%% de "
+"Il suffit normalement de régler {innodb_log_file_size} à 25% de "
 "{innodb_buffer_pool_size}. Si {innodb_log_file_size} est très grand, le "
 "temps de recouvrement en cas de panne de la base de données sera long. Voir "
-"aussi <a href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
-"innodb_log_file_size/\">cet article</a>. Il faut fermer le serveur, enlever "
-"les journaux InnoDB, placer la nouvelle valeur dans my.cnf, démarrer le "
-"serveur, puis vérifier les journaux d'erreurs. Voir aussi <a href=\"https://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">cet article de blogue.</a>"
+"aussi <a href=\"https://www.percona.com/blog/2006/07/03/"
+"choosing-proper-innodb_log_file_size/\">cet article</a>. Il faut fermer le "
+"serveur, enlever les journaux InnoDB, placer la nouvelle valeur dans my.cnf, "
+"démarrer le serveur, puis vérifier les journaux d'erreurs. Voir aussi <a "
+"href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">cet article de blogue.</a>"
 
 #: libraries/advisory_rules_generic.php:656
 #, php-format
@@ -1096,18 +1066,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "La mémoire tampon InnoDB est trop petite."
 
 #: libraries/advisory_rules_generic.php:667
-#, fuzzy, no-php-format
-#| msgid ""
-#| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
-#| "tables. Assign all your remaining memory to this buffer. For database "
-#| "servers that use solely InnoDB as storage engine and have no other "
-#| "services (e.g. a web server) running, you may set this as high as 80%% of "
-#| "your available memory. If that is not the case, you need to carefully "
-#| "assess the memory consumption of your other services and non-InnoDB-"
-#| "Tables and set this variable accordingly. If it is set too high, your "
-#| "system will start swapping, which decreases performance significantly. "
-#| "See also <a href=\"https://www.percona.com/blog/2007/11/03/choosing-"
-#| "innodb_buffer_pool_size/\">this article</a>"
+#, no-php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 "tables. Assign all your remaining memory to this buffer. For database "
@@ -1123,13 +1082,13 @@ msgstr ""
 "Le pool de mémoire tampon InnoDB a un grand impact sur la performance "
 "d'InnoDB. Allouer toute la mémoire restante à ce pool. Pour un serveur qui "
 "n'utilise que le moteur InnoDB et n'offre pas d'autres services (comme un "
-"serveur Web), il est possible de régler ce paramètre jusqu'à 80%% de la "
+"serveur Web), il est possible de régler ce paramètre jusqu'à 80% de la "
 "mémoire disponible. Si ce n'est pas le cas, vérifier soigneusement la "
 "consommation mémoire des autres services et des tables non InnoDB et régler "
 "ce paramètre en conséquence. Si sa valeur est trop grande, le système "
 "commencera à utiliser le swap, ce qui réduira les performances. Voir aussi "
-"<a href=\"https://www.percona.com/blog/2007/11/03/choosing-"
-"innodb_buffer_pool_size/\">cet article</a>"
+"<a href=\"https://www.percona.com/blog/2007/11/03/"
+"choosing-innodb_buffer_pool_size/\">cet article</a>"
 
 #: libraries/advisory_rules_generic.php:677
 #, php-format
@@ -1193,10 +1152,9 @@ msgstr ""
 "Désactivé » (OFF)"
 
 #: libraries/advisory_rules_mysql_before80003.php:23
-#, fuzzy, no-php-format
-#| msgid "Query cache efficiency (%%)"
+#, no-php-format
 msgid "Query cache efficiency (%)"
-msgstr "Efficacité du cache de requêtes (%%)"
+msgstr "Efficacité du cache de requêtes (%)"
 
 #: libraries/advisory_rules_mysql_before80003.php:27
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -1219,10 +1177,9 @@ msgid "Query Cache usage"
 msgstr "Utilisation du cache de requêtes"
 
 #: libraries/advisory_rules_mysql_before80003.php:39
-#, fuzzy, no-php-format
-#| msgid "Less than 80%% of the query cache is being utilized."
+#, no-php-format
 msgid "Less than 80% of the query cache is being utilized."
-msgstr "Moins de 80%% du cache de requêtes est utilisé."
+msgstr "Moins de 80% du cache de requêtes est utilisé."
 
 #: libraries/advisory_rules_mysql_before80003.php:41
 msgid ""
@@ -9023,7 +8980,7 @@ msgstr "MySQL a retourné un résultat vide (c'est à dire aucune ligne)."
 #: libraries/classes/Controllers/Table/MaintenanceController.php:163
 #: libraries/classes/Controllers/Table/MaintenanceController.php:198
 msgid "Maintenance operations on multiple tables are disabled."
-msgstr ""
+msgstr "Les opérations de maintenance sur plusieurs tables sont désactivées."
 
 #: libraries/classes/Controllers/Table/OperationsController.php:108
 #: libraries/classes/Controllers/Table/OperationsController.php:295
@@ -18275,10 +18232,8 @@ msgid "Continue insertion with %s rows"
 msgstr "Continuer l'insertion avec %s lignes"
 
 #: templates/table/maintenance/checksum.twig:13
-#, fuzzy
-#| msgid "Check"
 msgid "Checksum"
-msgstr "Vérifier"
+msgstr "Somme de contrôle"
 
 #: templates/table/operations/index.twig:9
 msgid "Alter table order by"
