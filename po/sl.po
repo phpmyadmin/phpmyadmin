@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-31 19:04-0300\n"
-"PO-Revision-Date: 2020-08-19 03:33+0000\n"
+"PO-Revision-Date: 2020-09-04 20:36+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 4.3-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -590,18 +590,16 @@ msgid "key_buffer_size is 0"
 msgstr "key_buffer_size je 0"
 
 #: libraries/advisory_rules_generic.php:373
-#, fuzzy, no-php-format
-#| msgid "Max %% MyISAM key buffer ever used"
+#, no-php-format
 msgid "Max % MyISAM key buffer ever used"
-msgstr "Največji %% medpomnilnika ključev MyISAM kadar koli uporabljen"
+msgstr "Največji % medpomnilnika ključev MyISAM kadar koli uporabljen"
 
 #: libraries/advisory_rules_generic.php:378
 #: libraries/advisory_rules_generic.php:395
-#, fuzzy, no-php-format
-#| msgid "MyISAM key buffer (index cache) %% used is low."
+#, no-php-format
 msgid "MyISAM key buffer (index cache) % used is low."
 msgstr ""
-"%% uporabljenega medpomnilnika ključev MyISAM (predpomnilnika indeksov) je "
+"% uporabljenega medpomnilnika ključev MyISAM (predpomnilnika indeksov) je "
 "nizek."
 
 #: libraries/advisory_rules_generic.php:380
@@ -639,10 +637,9 @@ msgid "Percentage of index reads from memory"
 msgstr "Odstotek branj indeksov iz pomnilnika"
 
 #: libraries/advisory_rules_generic.php:411
-#, fuzzy, no-php-format
-#| msgid "The %% of indexes that use the MyISAM key buffer is low."
+#, no-php-format
 msgid "The % of indexes that use the MyISAM key buffer is low."
-msgstr "%% indeksov, ki uporabljajo medpomnilnik ključev MyISAM, je nizek."
+msgstr "% indeksov, ki uporabljajo medpomnilnik ključev MyISAM, je nizek."
 
 #: libraries/advisory_rules_generic.php:412
 msgid "You may need to increase {key_buffer_size}."
@@ -679,15 +676,11 @@ msgid "Percentage of used open files limit"
 msgstr "Odstotek omejitve uporabljenih odprtih datotek"
 
 #: libraries/advisory_rules_generic.php:436
-#, fuzzy
-#| msgid ""
-#| "The number of open files is approaching the max number of open files.  "
-#| "You may get a \"Too many open files\" error."
 msgid ""
 "The number of open files is approaching the max number of open files. You "
 "may get a \"Too many open files\" error."
 msgstr ""
-"Število odprtih datotek se približuje največjemu številu odprtih datotek.  "
+"Število odprtih datotek se približuje največjemu številu odprtih datotek. "
 "Morda boste prejeli napako \"Preveč odprtih datotek\"."
 
 #: libraries/advisory_rules_generic.php:440
@@ -719,10 +712,9 @@ msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr "Delež odprtih datotek: %s; vrednost bi morala biti pod 5 na uro"
 
 #: libraries/advisory_rules_generic.php:462
-#, fuzzy, no-php-format
-#| msgid "Immediate table locks %%"
+#, no-php-format
 msgid "Immediate table locks %"
-msgstr "%% takojšnjih zaklepov tabel"
+msgstr "% takojšnjih zaklepov tabel"
 
 #: libraries/advisory_rules_generic.php:466
 #: libraries/advisory_rules_generic.php:476
@@ -774,10 +766,9 @@ msgid "The thread cache is set to 0"
 msgstr "Predpomnilnik niti je nastavljen na 0"
 
 #: libraries/advisory_rules_generic.php:493
-#, fuzzy, no-php-format
-#| msgid "Thread cache hit rate %%"
+#, no-php-format
 msgid "Thread cache hit rate %"
-msgstr "%% deleža zadetkov predpomnilnika niti"
+msgstr "% deleža zadetkov predpomnilnika niti"
 
 #: libraries/advisory_rules_generic.php:497
 msgid "Thread cache is not efficient."
@@ -964,18 +955,7 @@ msgstr ""
 "primerne velikosti."
 
 #: libraries/advisory_rules_generic.php:622
-#, fuzzy, no-php-format
-#| msgid ""
-#| "Especially on a system with a lot of writes to InnoDB tables you should "
-#| "set {innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However "
-#| "the bigger this value, the longer the recovery time will be when database "
-#| "crashes, so this value should not be set much higher than 256 MiB. Please "
-#| "note however that you cannot simply change the value of this variable. "
-#| "You need to shutdown the server, remove the InnoDB log files, set the new "
-#| "value in my.cnf, start the server, then check the error logs if "
-#| "everything went fine. See also <a href=\"https://"
-#| "mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-#| "innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, no-php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
 "{innodb_log_file_size} to 25% of {innodb_buffer_pool_size}. However the "
@@ -988,15 +968,15 @@ msgid ""
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "Še posebej na sistemu z veliko pisanji v tabele InnoDB bi morali nastaviti "
-"{innodb_log_file_size} na 25 %% {innodb_buffer_pool_size}. Kakor koli, večja "
+"{innodb_log_file_size} na 25 % {innodb_buffer_pool_size}. Kakor koli, večja "
 "je vrednost, daljši bo čas obnovitve po zrušitvi zbirke podatkov, zato "
 "vrednosti ne nastavite na več kot 256 MiB. Kljub temu pomnite, da vrednosti "
 "te spremenljivke ne morete preprosto spremeniti. Zaustaviti morate strežnik, "
 "odstraniti dnevniške datoteke InnoDB, nastaviti novo vrednost v my.cnf, "
 "zagnati strežnik in nato preveriti dnevnike napak, če je vse potekalo v "
 "redu. Oglejte si tudi <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">to objavo na blogu</"
-"a>"
+"com/2007/01/increase-innodblogfilesize-proper-way.html\">to objavo na "
+"blogu</a>"
 
 #: libraries/advisory_rules_generic.php:633
 #, php-format
@@ -1016,17 +996,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "Velikost datoteke dnevnika InnoDB je nezadostne velikosti."
 
 #: libraries/advisory_rules_generic.php:646
-#, fuzzy, no-php-format
-#| msgid ""
-#| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
-#| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
-#| "slows down the recovery time after a database crash considerably. See "
-#| "also <a href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
-#| "innodb_log_file_size/\">this Article</a>. You need to shutdown the "
-#| "server, remove the InnoDB log files, set the new value in my.cnf, start "
-#| "the server, then check the error logs if everything went fine. See also "
-#| "<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/"
-#| "increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, no-php-format
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25% of the size of "
 "{innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down the "
@@ -1038,16 +1008,15 @@ msgid ""
 "\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"Po navadi zadostuje, da nastavite {innodb_log_file_size} na 25 %% velikosti "
+"Po navadi zadostuje, da nastavite {innodb_log_file_size} na 25 % velikosti "
 "{innodb_buffer_pool_size}. Zelo velika {innodb_log_file_size} občutno poveča "
-"obnovitveni čas po zrušitvi zbirke podatkov. Oglejte si tudi <a href="
-"\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
-"innodb_log_file_size/\">ta članek</a>. Zaustaviti morate strežnik, "
-"odstraniti dnevniške datoteke InnoDB, nastaviti novo vrednost v my.cnf, "
-"zagnati strežnik in nato preveriti dnevnike napak, če je vse potekalo v "
-"redu. Oglejte si tudi <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">to objavo na blogu</"
-"a>"
+"obnovitveni čas po zrušitvi zbirke podatkov. Oglejte si tudi <a href=\"https"
+"://www.percona.com/blog/2006/07/03/choosing-proper-innodb_log_file_size/\""
+">ta članek</a>. Zaustaviti morate strežnik, odstraniti dnevniške datoteke "
+"InnoDB, nastaviti novo vrednost v my.cnf, zagnati strežnik in nato preveriti "
+"dnevnike napak, če je vse potekalo v redu. Oglejte si tudi <a href=\"https"
+"://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">to objavo na blogu</a>"
 
 #: libraries/advisory_rules_generic.php:656
 #, php-format
@@ -1063,18 +1032,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Zaloga vašega medpomnilnika InnoDB je precej majhna."
 
 #: libraries/advisory_rules_generic.php:667
-#, fuzzy, no-php-format
-#| msgid ""
-#| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
-#| "tables. Assign all your remaining memory to this buffer. For database "
-#| "servers that use solely InnoDB as storage engine and have no other "
-#| "services (e.g. a web server) running, you may set this as high as 80%% of "
-#| "your available memory. If that is not the case, you need to carefully "
-#| "assess the memory consumption of your other services and non-InnoDB-"
-#| "Tables and set this variable accordingly. If it is set too high, your "
-#| "system will start swapping, which decreases performance significantly. "
-#| "See also <a href=\"https://www.percona.com/blog/2007/11/03/choosing-"
-#| "innodb_buffer_pool_size/\">this article</a>"
+#, no-php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 "tables. Assign all your remaining memory to this buffer. For database "
@@ -1091,12 +1049,12 @@ msgstr ""
 "Dodelite ves vaš preostali pomnilnik temu medpomnilniku. Za vse strežnike "
 "zbirk podatkov, ki kot skladiščni pogon uporabljajo samo InnoDB in ne "
 "poganjajo drugih storitev (npr. spletnega strežnika), lahko nastavite to na "
-"do 80 %% vašega pomnilnika, ki je na voljo. Če ni težava v tem, boste morali "
+"do 80 % vašega pomnilnika, ki je na voljo. Če ni težava v tem, boste morali "
 "pazljivo določiti porabo pomnilnika drugim storitvam in tabelam ne-InnoDB "
 "ter ustrezno nastaviti to spremenljivko. Če je nastavljena previsoko, bo vaš "
 "sistem začel z izmenjevanjem, kar bo občutno zmanjšalo učinkovitost. Oglejte "
-"si tudi <a href=\"https://www.percona.com/blog/2007/11/03/choosing-"
-"innodb_buffer_pool_size/\">ta članek</a>"
+"si tudi <a href=\"https://www.percona.com/blog/2007/11/03/"
+"choosing-innodb_buffer_pool_size/\">ta članek</a>"
 
 #: libraries/advisory_rules_generic.php:677
 #, php-format
@@ -1160,10 +1118,9 @@ msgstr ""
 "'OFF'"
 
 #: libraries/advisory_rules_mysql_before80003.php:23
-#, fuzzy, no-php-format
-#| msgid "Query cache efficiency (%%)"
+#, no-php-format
 msgid "Query cache efficiency (%)"
-msgstr "Učinkovitost predpomnjenja poizvedb (%%)"
+msgstr "Učinkovitost predpomnjenja poizvedb (%)"
 
 #: libraries/advisory_rules_mysql_before80003.php:27
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -1184,10 +1141,9 @@ msgid "Query Cache usage"
 msgstr "Uporaba predpomnilnika poizvedb"
 
 #: libraries/advisory_rules_mysql_before80003.php:39
-#, fuzzy, no-php-format
-#| msgid "Less than 80%% of the query cache is being utilized."
+#, no-php-format
 msgid "Less than 80% of the query cache is being utilized."
-msgstr "Izkoriščanega je manj kot 80 %% predpomnilnika poizvedb."
+msgstr "Izkoriščanega je manj kot 80 % predpomnilnika poizvedb."
 
 #: libraries/advisory_rules_mysql_before80003.php:41
 msgid ""
@@ -8872,7 +8828,7 @@ msgstr "MySQL je vrnil kot rezultat prazno množico (npr. nič vrstic)."
 #: libraries/classes/Controllers/Table/MaintenanceController.php:163
 #: libraries/classes/Controllers/Table/MaintenanceController.php:198
 msgid "Maintenance operations on multiple tables are disabled."
-msgstr ""
+msgstr "Vzdrževalni posegi na več tabelah so onemogočeni."
 
 #: libraries/classes/Controllers/Table/OperationsController.php:108
 #: libraries/classes/Controllers/Table/OperationsController.php:295
@@ -18016,10 +17972,8 @@ msgid "Continue insertion with %s rows"
 msgstr "Nadaljuj vstavljanje z %s vrsticami"
 
 #: templates/table/maintenance/checksum.twig:13
-#, fuzzy
-#| msgid "Check"
 msgid "Checksum"
-msgstr "Označi"
+msgstr "Kontrolna vsota"
 
 #: templates/table/operations/index.twig:9
 msgid "Alter table order by"
