@@ -101,11 +101,11 @@ class MultiTableQuery
     /**
      * Displays multi-table query results
      *
-     * @param string $sqlQuery      The query to parse
-     * @param string $db            The current database
-     * @param string $pmaThemeImage Uri of the PMA theme image
+     * @param string $sqlQuery       The query to parse
+     * @param string $db             The current database
+     * @param string $themeImagePath Uri of the PMA theme image
      */
-    public static function displayResults($sqlQuery, $db, $pmaThemeImage): string
+    public static function displayResults($sqlQuery, $db, $themeImagePath): string
     {
         [,$db] = ParseAnalyze::sqlQuery($sqlQuery, $db);
 
@@ -123,7 +123,7 @@ class MultiTableQuery
             null, // message_to_show
             null, // sql_data
             $goto, // goto
-            $pmaThemeImage, // pmaThemeImage
+            $themeImagePath,
             null, // disp_query
             null, // disp_message
             $sqlQuery, // sql_query

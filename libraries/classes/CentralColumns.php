@@ -938,13 +938,13 @@ class CentralColumns
     /**
      * Get HTML for "check all" check box with "with selected" dropdown
      *
-     * @param string $pmaThemeImage pma theme image url
-     * @param string $text_dir      url for text directory
+     * @param string $themeImagePath pma theme image url
+     * @param string $text_dir       url for text directory
      */
-    public function getTableFooter(string $pmaThemeImage, string $text_dir): string
+    public function getTableFooter(string $themeImagePath, string $text_dir): string
     {
         $html_output = $this->template->render('select_all', [
-            'pma_theme_image' => $pmaThemeImage,
+            'theme_image_path' => $themeImagePath,
             'text_dir' => $text_dir,
             'form_name' => 'tableslistcontainer',
         ]);
@@ -1126,11 +1126,11 @@ class CentralColumns
     /**
      * build html for adding a new user defined column to central list
      *
-     * @param string $db            current database
-     * @param int    $total_rows    number of rows in central columns
-     * @param int    $pos           offset of first result with complete result set
-     * @param string $pmaThemeImage table footer theme image directorie
-     * @param string $text_dir      table footer arrow direction
+     * @param string $db             current database
+     * @param int    $total_rows     number of rows in central columns
+     * @param int    $pos            offset of first result with complete result set
+     * @param string $themeImagePath table footer theme image directorie
+     * @param string $text_dir       table footer arrow direction
      *
      * @return string html of the form to let user add a new user defined column to the
      *                list
@@ -1139,7 +1139,7 @@ class CentralColumns
         string $db,
         int $total_rows,
         int $pos,
-        string $pmaThemeImage,
+        string $themeImagePath,
         string $text_dir
     ): string {
         $max_rows = $this->maxRows;
@@ -1213,7 +1213,7 @@ class CentralColumns
             'rows_list' => $rows_list,
             'rows_meta' => $rows_meta,
             'types_upper' => $types_upper,
-            'pmaThemeImage' => $pmaThemeImage,
+            'theme_image_path' => $themeImagePath,
             'text_dir' => $text_dir,
             'charsets' => $charsetsList,
         ]);

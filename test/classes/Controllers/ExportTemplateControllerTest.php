@@ -29,6 +29,7 @@ class ExportTemplateControllerTest extends AbstractTestCase
         global $dbi, $PMA_Config;
 
         $this->setGlobalDbi();
+        parent::setTheme();
 
         $PMA_Config = new Config();
         $PMA_Config->enableBc();

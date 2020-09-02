@@ -6,7 +6,7 @@
  */
 
 /* global addZoomPanControllers, loadSVG, selectVisualization, styleOSM, zoomAndPan */ // js/table/gis_visualization.js
-/* global pmaThemeImage */ // templates/javascript/variables.twig
+/* global themeImagePath */ // templates/javascript/variables.twig
 
 var gisEditorLoaded = false;
 
@@ -184,7 +184,7 @@ function openGISEditor () {
     $gisEditor.append(
         '<div id="gis_data_editor">' +
         '<img class="ajaxIcon" id="loadingMonitorIcon" src="' +
-        pmaThemeImage + 'ajax_clock_small.gif" alt="">' +
+        themeImagePath + 'ajax_clock_small.gif" alt="">' +
         '</div>'
     );
 

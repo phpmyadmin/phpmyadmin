@@ -1090,7 +1090,7 @@ class Sql
      * @param int            $num_rows             number of rows
      * @param DisplayResults $displayResultsObject DisplayResult instance
      * @param array|null     $extra_data           extra data
-     * @param string         $pmaThemeImage        uri of the theme image
+     * @param string         $themeImagePath       uri of the theme image
      * @param array|null     $profiling_results    profiling results
      * @param object         $result               executed query results
      * @param string         $sql_query            sql query
@@ -1106,7 +1106,7 @@ class Sql
         $num_rows,
         $displayResultsObject,
         ?array $extra_data,
-        $pmaThemeImage,
+        $themeImagePath,
         ?array $profiling_results,
         $result,
         $sql_query,
@@ -1172,7 +1172,7 @@ class Sql
 
         $sqlQueryResultsTable = $this->getHtmlForSqlQueryResultsTable(
             $displayResultsObject,
-            $pmaThemeImage,
+            $themeImagePath,
             $url_query,
             $displayParts,
             false,
@@ -1267,7 +1267,7 @@ class Sql
      * Function to get html for the sql query results table
      *
      * @param DisplayResults   $displayResultsObject instance of DisplayResult
-     * @param string           $pmaThemeImage        theme image uri
+     * @param string           $themeImagePath       theme image uri
      * @param string           $url_query            url query
      * @param array            $displayParts         the parts to display
      * @param bool             $editable             whether the result table is
@@ -1283,7 +1283,7 @@ class Sql
      */
     private function getHtmlForSqlQueryResultsTable(
         $displayResultsObject,
-        $pmaThemeImage,
+        $themeImagePath,
         $url_query,
         array $displayParts,
         $editable,
@@ -1325,7 +1325,7 @@ class Sql
                         $num_rows,
                         $fields_cnt,
                         $GLOBALS['querytime'],
-                        $pmaThemeImage,
+                        $themeImagePath,
                         $GLOBALS['text_dir'],
                         $analyzed_sql_results['is_maint'],
                         $analyzed_sql_results['is_explain'],
@@ -1374,7 +1374,7 @@ class Sql
                 $num_rows,
                 $fields_cnt,
                 $GLOBALS['querytime'],
-                $pmaThemeImage,
+                $themeImagePath,
                 $GLOBALS['text_dir'],
                 $analyzed_sql_results['is_maint'],
                 $analyzed_sql_results['is_explain'],
@@ -1480,7 +1480,7 @@ class Sql
      * @param string              $table                current table
      * @param array|null          $sql_data             sql data
      * @param DisplayResults      $displayResultsObject Instance of DisplayResults
-     * @param string              $pmaThemeImage        uri of the theme image
+     * @param string              $themeImagePath       uri of the theme image
      * @param int                 $unlim_num_rows       unlimited number of rows
      * @param int                 $num_rows             number of rows
      * @param string|null         $disp_query           display query
@@ -1498,7 +1498,7 @@ class Sql
         $table,
         ?array $sql_data,
         $displayResultsObject,
-        $pmaThemeImage,
+        $themeImagePath,
         $unlim_num_rows,
         $num_rows,
         ?string $disp_query,
@@ -1639,7 +1639,7 @@ class Sql
 
         $tableHtml = $this->getHtmlForSqlQueryResultsTable(
             $displayResultsObject,
-            $pmaThemeImage,
+            $themeImagePath,
             $url_query,
             $displayParts,
             $editable,
@@ -1693,7 +1693,7 @@ class Sql
      * @param string|null         $message_to_show        message to show
      * @param array|null          $sql_data               sql data
      * @param string              $goto                   goto page url
-     * @param string              $pmaThemeImage          uri of the PMA theme image
+     * @param string              $themeImagePath         uri of the PMA theme image
      * @param string|null         $disp_query             display query
      * @param Message|string|null $disp_message           display message
      * @param string              $sql_query              sql query
@@ -1710,7 +1710,7 @@ class Sql
         $message_to_show,
         $sql_data,
         $goto,
-        $pmaThemeImage,
+        $themeImagePath,
         $disp_query,
         $disp_message,
         $sql_query,
@@ -1740,7 +1740,7 @@ class Sql
             $message_to_show, // message_to_show
             $sql_data, // sql_data
             $goto, // goto
-            $pmaThemeImage, // pmaThemeImage
+            $themeImagePath,
             $disp_query, // disp_query
             $disp_message, // disp_message
             $sql_query, // sql_query
@@ -1761,7 +1761,7 @@ class Sql
      * @param string|null         $message_to_show        message to show
      * @param array|null          $sql_data               sql data
      * @param string              $goto                   goto page url
-     * @param string              $pmaThemeImage          uri of the PMA theme image
+     * @param string              $themeImagePath         uri of the PMA theme image
      * @param string|null         $disp_query             display query
      * @param Message|string|null $disp_message           display message
      * @param string              $sql_query              sql query
@@ -1780,7 +1780,7 @@ class Sql
         ?string $message_to_show,
         $sql_data,
         $goto,
-        $pmaThemeImage,
+        $themeImagePath,
         ?string $disp_query,
         $disp_message,
         $sql_query,
@@ -1861,7 +1861,7 @@ class Sql
                 $num_rows,
                 $displayResultsObject,
                 $extra_data,
-                $pmaThemeImage,
+                $themeImagePath,
                 $profiling_results,
                 $result ?? null,
                 $sql_query,
@@ -1876,7 +1876,7 @@ class Sql
                 $table,
                 $sql_data ?? null,
                 $displayResultsObject,
-                $pmaThemeImage,
+                $themeImagePath,
                 $unlim_num_rows,
                 $num_rows,
                 $disp_query ?? null,

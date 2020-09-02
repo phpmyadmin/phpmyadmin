@@ -142,16 +142,16 @@ class Tracking
     /**
      * Function to get html for main page parts that do not use $_REQUEST
      *
-     * @param array  $urlParams     url parameters
-     * @param string $pmaThemeImage path to theme's image folder
-     * @param string $textDir       text direction
-     * @param int    $lastVersion   last tracking version
+     * @param array  $urlParams      url parameters
+     * @param string $themeImagePath path to theme's image folder
+     * @param string $textDir        text direction
+     * @param int    $lastVersion    last tracking version
      *
      * @return string
      */
     public function getHtmlForMainPage(
         $urlParams,
-        $pmaThemeImage,
+        $themeImagePath,
         $textDir,
         $lastVersion = null
     ) {
@@ -190,7 +190,7 @@ class Tracking
             'versions' => $versions,
             'type' => $type,
             'default_statements' => $GLOBALS['cfg']['Server']['tracking_default_statements'],
-            'pmaThemeImage' => $pmaThemeImage,
+            'theme_image_path' => $themeImagePath,
             'text_dir' => $textDir,
         ]);
     }
@@ -1152,17 +1152,17 @@ class Tracking
     /**
      * Get HTML for tracked and untracked tables
      *
-     * @param string $db            current database
-     * @param array  $urlParams     url parameters
-     * @param string $pmaThemeImage path to theme's image folder
-     * @param string $textDir       text direction
+     * @param string $db             current database
+     * @param array  $urlParams      url parameters
+     * @param string $themeImagePath path to theme's image folder
+     * @param string $textDir        text direction
      *
      * @return string HTML
      */
     public function getHtmlForDbTrackingTables(
         string $db,
         array $urlParams,
-        string $pmaThemeImage,
+        string $themeImagePath,
         string $textDir
     ) {
         $relation = $this->relation;
@@ -1214,7 +1214,7 @@ class Tracking
             'url_params' => $urlParams,
             'text_dir' => $textDir,
             'untracked_tables' => $untrackedTables,
-            'pma_theme_image' => $pmaThemeImage,
+            'theme_image_path' => $themeImagePath,
         ]);
     }
 

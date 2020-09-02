@@ -40,7 +40,6 @@ class RelationTest extends AbstractTestCase
         $_SESSION['relation'][$GLOBALS['server']] = 'PMA_relation';
         $_SESSION['relation'] = [];
 
-        $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
         $GLOBALS['cfg']['ServerDefault'] = 0;
 
         $this->relation = new Relation($GLOBALS['dbi']);

@@ -22,6 +22,7 @@ class PrivilegesControllerTest extends AbstractTestCase
         parent::defineVersionConstants();
         parent::loadDefaultConfig();
         parent::setLanguage();
+        parent::setTheme();
     }
 
     public function testIndex(): void

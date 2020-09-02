@@ -28,6 +28,7 @@ class BinlogControllerTest extends AbstractTestCase
         parent::setUp();
         $GLOBALS['text_dir'] = 'ltr';
         parent::setGlobalConfig();
+        parent::setTheme();
         $GLOBALS['PMA_Config']->enableBc();
 
         $GLOBALS['cfg']['MaxRows'] = 10;
@@ -37,7 +38,6 @@ class BinlogControllerTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
-        $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
 
         Util::cacheSet('profiling_supported', true);

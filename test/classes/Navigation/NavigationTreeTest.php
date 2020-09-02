@@ -29,6 +29,7 @@ class NavigationTreeTest extends AbstractTestCase
         parent::setUp();
         parent::setLanguage();
         parent::setGlobalConfig();
+        parent::setTheme();
         $GLOBALS['server'] = 1;
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
@@ -40,7 +41,6 @@ class NavigationTreeTest extends AbstractTestCase
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
         $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']  = true;
 
-        $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = '';
         $GLOBALS['PMA_PHP_SELF'] = '';

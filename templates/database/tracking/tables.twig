@@ -94,7 +94,7 @@
                 </tbody>
             </table>
             {% include 'select_all.twig' with {
-                'pma_theme_image': pma_theme_image,
+                'theme_image_path': theme_image_path,
                 'text_dir': text_dir,
                 'form_name': 'trackedForm'
             } only %}
@@ -146,7 +146,7 @@
             </tbody>
         </table>
         {% include 'select_all.twig' with {
-            'pma_theme_image': pma_theme_image,
+            'theme_image_path': theme_image_path,
             'text_dir': text_dir,
             'form_name': 'untrackedForm'
         } only %}

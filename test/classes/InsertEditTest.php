@@ -41,6 +41,7 @@ class InsertEditTest extends AbstractTestCase
         parent::setLanguage();
         parent::setGlobalConfig();
         parent::loadDefaultConfig();
+        parent::setTheme();
         $GLOBALS['server'] = 1;
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['ServerDefault'] = 1;

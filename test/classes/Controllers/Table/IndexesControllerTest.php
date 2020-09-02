@@ -36,6 +36,7 @@ class IndexesControllerTest extends AbstractTestCase
         parent::setUp();
         parent::defineVersionConstants();
         parent::loadDefaultConfig();
+        parent::setTheme();
 
         /**
          * SET these to avoid undefined index error

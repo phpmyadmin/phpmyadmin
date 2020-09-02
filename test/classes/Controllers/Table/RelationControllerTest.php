@@ -35,6 +35,7 @@ class RelationControllerTest extends AbstractTestCase
         parent::setUp();
         parent::defineVersionConstants();
         parent::loadDefaultConfig();
+        parent::setTheme();
 
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';

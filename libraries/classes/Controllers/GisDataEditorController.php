@@ -26,7 +26,7 @@ class GisDataEditorController extends AbstractController
 {
     public function index(): void
     {
-        global $gis_data, $gis_types, $start, $geom_type, $gis_obj, $srid, $wkt, $wkt_with_zero;
+        global $gis_data, $gis_types, $start, $geom_type, $gis_obj, $srid, $wkt, $wkt_with_zero, $PMA_Theme;
         global $result, $visualizationSettings, $data, $visualization, $open_layers, $geom_count;
 
         if (! isset($_POST['field'])) {
@@ -133,7 +133,7 @@ class GisDataEditorController extends AbstractController
         $templateOutput = $this->template->render('gis_data_editor_form', [
             'width' => $visualizationSettings['width'],
             'height' => $visualizationSettings['height'],
-            'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+            'theme_image_path' => $PMA_Theme->getImgPath(),
             'field' => $_POST['field'],
             'input_name' => $_POST['input_name'],
             'srid' => $srid,

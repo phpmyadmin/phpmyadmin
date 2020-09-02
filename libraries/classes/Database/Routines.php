@@ -84,7 +84,7 @@ class Routines
      */
     public function main($type)
     {
-        global $db, $table, $pmaThemeImage, $text_dir;
+        global $db, $table, $text_dir, $PMA_Theme;
 
         /**
          * Process all requests
@@ -115,7 +115,7 @@ class Routines
             'table' => $table,
             'items' => $items,
             'rows' => $rows,
-            'select_all_arrow_src' => $pmaThemeImage . 'arrow_' . $text_dir . '.png',
+            'select_all_arrow_src' => $PMA_Theme->getImgPath() . 'arrow_' . $text_dir . '.png',
         ]);
 
         echo $this->template->render('database/routines/footer', [

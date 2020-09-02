@@ -40,7 +40,6 @@ class NavigationTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['user'] = 'user';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
-        $GLOBALS['pmaThemeImage'] = '';
 
         $this->object = new Navigation(
             new Template(),

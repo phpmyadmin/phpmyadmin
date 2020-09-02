@@ -23,6 +23,7 @@ class TwoFactorTest extends AbstractTestCase
     {
         parent::setUp();
         parent::defineVersionConstants();
+        parent::setTheme();
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';

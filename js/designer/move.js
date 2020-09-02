@@ -6,7 +6,7 @@
 /* global DesignerHistory, historyArray, selectField */ // js/designer/history.js
 /* global contr, db, designerTablesEnabled, displayField, hTabs, jTabs, selectedPage:writable, server */ // js/designer/init.js
 /* global DesignerPage */ // js/designer/page.js
-/* global pmaThemeImage */ // templates/javascript/variables.twig
+/* global themeImagePath */ // templates/javascript/variables.twig
 
 var DesignerMove = {};
 
@@ -550,7 +550,7 @@ DesignerMove.addTableToTablesList = function (index, tableDom) {
         '            db="' + dbEncoded + '"' +
         '            table_name="' + tableEncoded + '"' +
         '            class="scroll_tab_struct"' +
-        '            src="' + pmaThemeImage + 'designer/exec.png"/>' +
+        '            src="' + themeImagePath + 'designer/exec.png"/>' +
         '    </td>' +
         '    <td width="1px">' +
         '        <input class="scroll_tab_checkbox"' +

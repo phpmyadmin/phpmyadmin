@@ -35,6 +35,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
         parent::defineVersionConstants();
         parent::setLanguage();
         parent::setGlobalConfig();
+        parent::setTheme();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';

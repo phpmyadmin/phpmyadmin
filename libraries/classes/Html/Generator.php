@@ -210,6 +210,8 @@ class Generator
      */
     public static function toggleButton($action, $select_name, array $options, $callback): string
     {
+        global $PMA_Theme;
+
         $template = new Template();
         // Do the logic first
         $link = $action . '&amp;' . urlencode($select_name) . '=';
@@ -227,7 +229,7 @@ class Generator
         return $template->render(
             'toggle_button',
             [
-                'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+                'theme_image_path' => $PMA_Theme->getImgPath(),
                 'text_dir' => $GLOBALS['text_dir'],
                 'link_on' => $link_on,
                 'link_off' => $link_off,

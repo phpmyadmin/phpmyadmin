@@ -32,7 +32,6 @@ class FormTest extends AbstractTestCase
         parent::defineVersionConstants();
         parent::setTheme();
         parent::loadDefaultConfig();
-        $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
         parent::setGlobalConfig();
         $GLOBALS['server'] = 0;
         $this->object = new Form(

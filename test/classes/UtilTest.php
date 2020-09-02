@@ -552,7 +552,6 @@ class UtilTest extends AbstractTestCase
         parent::setGlobalConfig();
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
-        $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
         $GLOBALS['server'] = 1;
@@ -581,7 +580,6 @@ class UtilTest extends AbstractTestCase
         $GLOBALS['cfg'] = ['ServerDefault' => 1];
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
-        $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
         $GLOBALS['db'] = 'dbDatabase';
         $GLOBALS['table'] = 'tblTable';
         $GLOBALS['field'] = 'test_field';

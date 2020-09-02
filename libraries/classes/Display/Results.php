@@ -175,7 +175,7 @@ class Results
         'querytime' => null,
 
         /** string path for theme images directory */
-        'pma_theme_image' => null,
+        'theme_image_path' => null,
 
         /** string */
         'text_dir' => null,
@@ -378,7 +378,7 @@ class Results
      * @param int      $num_rows       total no. of rows returned by SQL query
      * @param int      $fields_cnt     total no.of fields returned by SQL query
      * @param double   $querytime      time taken for execute the SQL query
-     * @param string   $pmaThemeImage  path for theme images directory
+     * @param string   $themeImagePath path for theme images directory
      * @param string   $text_dir       text direction
      * @param bool     $is_maint       statement contains a maintenance command
      * @param bool     $is_explain     statement contains EXPLAIN
@@ -401,7 +401,7 @@ class Results
         $num_rows,
         $fields_cnt,
         $querytime,
-        $pmaThemeImage,
+        $themeImagePath,
         $text_dir,
         $is_maint,
         $is_explain,
@@ -421,7 +421,7 @@ class Results
         $this->properties['num_rows'] = $num_rows;
         $this->properties['fields_cnt'] = $fields_cnt;
         $this->properties['querytime'] = $querytime;
-        $this->properties['pma_theme_image'] = $pmaThemeImage;
+        $this->properties['theme_image_path'] = $themeImagePath;
         $this->properties['text_dir'] = $text_dir;
         $this->properties['is_maint'] = $is_maint;
         $this->properties['is_explain'] = $is_explain;
@@ -1541,11 +1541,11 @@ class Results
 
         if ($_SESSION['tmpval']['pftext'] === self::DISPLAY_FULL_TEXT) {
             // currently in fulltext mode so show the opposite link
-            $tmp_image_file = $this->properties['pma_theme_image'] . 's_partialtext.png';
+            $tmp_image_file = $this->properties['theme_image_path'] . 's_partialtext.png';
             $tmp_txt = __('Partial texts');
             $url_params_full_text['pftext'] = self::DISPLAY_PARTIAL_TEXT;
         } else {
-            $tmp_image_file = $this->properties['pma_theme_image'] . 's_fulltext.png';
+            $tmp_image_file = $this->properties['theme_image_path'] . 's_fulltext.png';
             $tmp_txt = __('Full texts');
             $url_params_full_text['pftext'] = self::DISPLAY_FULL_TEXT;
         }
@@ -4203,7 +4203,7 @@ class Results
             'relwork' => $GLOBALS['cfgRelation']['relwork'],
             'save_cells_at_once' => $GLOBALS['cfg']['SaveCellsAtOnce'],
             'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
-            'select_all_arrow' => $this->properties['pma_theme_image'] . 'arrow_'
+            'select_all_arrow' => $this->properties['theme_image_path'] . 'arrow_'
                 . $this->properties['text_dir'] . '.png',
         ]);
     }

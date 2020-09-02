@@ -25,6 +25,7 @@ class MonitorControllerTest extends AbstractTestCase
         parent::setUp();
         $GLOBALS['text_dir'] = 'ltr';
         parent::setGlobalConfig();
+        parent::setTheme();
         $GLOBALS['PMA_Config']->enableBc();
 
         $GLOBALS['server'] = 1;
@@ -36,7 +37,6 @@ class MonitorControllerTest extends AbstractTestCase
         $GLOBALS['replication_info']['master']['status'] = true;
         $GLOBALS['replication_info']['slave']['status'] = true;
         $GLOBALS['replication_types'] = [];
-        $GLOBALS['pmaThemeImage'] = '';
 
         $this->data = new Data();
     }

@@ -108,16 +108,16 @@ function loadSVG () {
 function addZoomPanControllers () {
     var $placeholder = $('#placeholder');
     if ($('#placeholder').find('svg').length > 0) {
-        var pmaThemeImage = $('#pmaThemeImage').val();
+        var themeImagePath = $('#themeImagePath').val();
         // add panning arrows
-        $('<img class="button" id="left_arrow" src="' + pmaThemeImage + 'west-mini.png">').appendTo($placeholder);
-        $('<img class="button" id="right_arrow" src="' + pmaThemeImage + 'east-mini.png">').appendTo($placeholder);
-        $('<img class="button" id="up_arrow" src="' + pmaThemeImage + 'north-mini.png">').appendTo($placeholder);
-        $('<img class="button" id="down_arrow" src="' + pmaThemeImage + 'south-mini.png">').appendTo($placeholder);
+        $('<img class="button" id="left_arrow" src="' + themeImagePath + 'west-mini.png">').appendTo($placeholder);
+        $('<img class="button" id="right_arrow" src="' + themeImagePath + 'east-mini.png">').appendTo($placeholder);
+        $('<img class="button" id="up_arrow" src="' + themeImagePath + 'north-mini.png">').appendTo($placeholder);
+        $('<img class="button" id="down_arrow" src="' + themeImagePath + 'south-mini.png">').appendTo($placeholder);
         // add zooming controls
-        $('<img class="button" id="zoom_in" src="' + pmaThemeImage + 'zoom-plus-mini.png">').appendTo($placeholder);
-        $('<img class="button" id="zoom_world" src="' + pmaThemeImage + 'zoom-world-mini.png">').appendTo($placeholder);
-        $('<img class="button" id="zoom_out" src="' + pmaThemeImage + 'zoom-minus-mini.png">').appendTo($placeholder);
+        $('<img class="button" id="zoom_in" src="' + themeImagePath + 'zoom-plus-mini.png">').appendTo($placeholder);
+        $('<img class="button" id="zoom_world" src="' + themeImagePath + 'zoom-world-mini.png">').appendTo($placeholder);
+        $('<img class="button" id="zoom_out" src="' + themeImagePath + 'zoom-minus-mini.png">').appendTo($placeholder);
     }
 }
 

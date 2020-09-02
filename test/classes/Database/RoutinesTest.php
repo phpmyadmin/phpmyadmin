@@ -24,6 +24,7 @@ class RoutinesTest extends AbstractTestCase
         parent::setUp();
         parent::setGlobalConfig();
         parent::setLanguage();
+        parent::setTheme();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';

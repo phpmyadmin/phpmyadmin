@@ -42,6 +42,7 @@ class StructureControllerTest extends AbstractTestCase
         parent::setUp();
         parent::defineVersionConstants();
         parent::loadDefaultConfig();
+        parent::setTheme();
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';

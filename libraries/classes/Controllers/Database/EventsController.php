@@ -33,7 +33,7 @@ final class EventsController extends AbstractController
 
     public function index(): void
     {
-        global $db, $tables, $num_tables, $total_num_tables, $sub_part, $errors, $pmaThemeImage, $text_dir;
+        global $db, $tables, $num_tables, $total_num_tables, $sub_part, $errors, $text_dir, $PMA_Theme;
         global $is_show_stats, $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos, $url_query;
 
         if (! $this->response->isAjax()) {
@@ -69,7 +69,7 @@ final class EventsController extends AbstractController
         $this->render('database/events/index', [
             'db' => $db,
             'items' => $items,
-            'select_all_arrow_src' => $pmaThemeImage . 'arrow_' . $text_dir . '.png',
+            'select_all_arrow_src' => $PMA_Theme->getImgPath() . 'arrow_' . $text_dir . '.png',
             'has_privilege' => Util::currentUserHasPrivilege('EVENT', $db),
             'toggle_button' => $this->events->getFooterToggleButton(),
             'is_ajax' => $this->response->isAjax() && empty($_REQUEST['ajax_page_request']),

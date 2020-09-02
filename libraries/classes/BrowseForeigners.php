@@ -39,7 +39,7 @@ class BrowseForeigners
      */
     public function __construct(Template $template)
     {
-        global $cfg, $pmaThemeImage;
+        global $cfg, $PMA_Theme;
 
         $this->template = $template;
 
@@ -47,7 +47,7 @@ class BrowseForeigners
         $this->maxRows = (int) $cfg['MaxRows'];
         $this->repeatCells = (int) $cfg['RepeatCells'];
         $this->showAll = (bool) $cfg['ShowAll'];
-        $this->themeImage = $pmaThemeImage;
+        $this->themeImage = $PMA_Theme->getImgPath();
     }
 
     /**

@@ -41,12 +41,12 @@ class PrivilegesTest extends AbstractTestCase
         parent::setUp();
         parent::setLanguage();
         parent::setGlobalConfig();
+        parent::setTheme();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfgRelation'] = [];
         $GLOBALS['cfgRelation']['menuswork'] = false;
         $GLOBALS['table'] = 'table';
-        $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['hostname'] = 'hostname';
@@ -1545,14 +1545,14 @@ class PrivilegesTest extends AbstractTestCase
     {
         $result = [];
         $db_rights = [];
-        $pmaThemeImage = 'pmaThemeImage';
+        $themeImagePath = 'themeImagePath';
         $text_dir = 'text_dir';
         $GLOBALS['cfgRelation']['menuswork'] = true;
 
         $html = $this->serverPrivileges->getUsersOverview(
             $result,
             $db_rights,
-            $pmaThemeImage,
+            $themeImagePath,
             $text_dir
         );
 
@@ -1602,9 +1602,8 @@ class PrivilegesTest extends AbstractTestCase
             $html
         );
 
-        //$pmaThemeImage
         $this->assertStringContainsString(
-            $pmaThemeImage,
+            $themeImagePath,
             $html
         );
 

@@ -27,6 +27,7 @@ class SqlTest extends AbstractTestCase
         parent::defineVersionConstants();
         parent::setLanguage();
         parent::loadDefaultConfig();
+        parent::setTheme();
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
